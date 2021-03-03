@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0ff300a90876841e5a25e4e44ffdaecab2eaee95
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658858"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689235"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
 
@@ -26,7 +26,7 @@ ms.locfileid: "101658858"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 활성 구독이 있는 Azure 계정. [체험 계정 만들기] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 기존 Azure Arc 지원 Kubernetes 연결 클러스터.
     - 아직 클러스터를 연결하지 않은 경우 [Azure Arc 지원 Kubernetes 클러스터 연결 빠른 시작](quickstart-connect-cluster.md)을 살펴보세요.
 - 이 기능의 이점과 아키텍처 이해. [구성 및 GitOps - Azure Arc 지원 Kubernetes 문서](conceptual-configurations.md)에서 자세히 알아보세요.
@@ -152,7 +152,7 @@ Flux 연산자는 SSH 연결을 설정하기 전에 Git 리포지토리를 인�
 | ------------- | ------------- |
 | `--enable-helm-operator`| Helm 차트 배포에 대한 지원을 사용하도록 설정하는 스위치. |
 | `--helm-operator-params` | Helm 연산자(사용 설정된 경우)에 대한 차트 값. 예들 들어 `--set helm.versions=v3`입니다. |
-| `--helm-operator-version` | Helm 연산자(사용 설정된 경우)에 대한 차트 버전. 버전 1.2.0+를 사용합니다. 기본값: '1.2.0'. |
+| `--helm-operator-chart-version` | Helm 연산자(사용 설정된 경우)에 대한 차트 버전. 버전 1.2.0+를 사용합니다. 기본값: '1.2.0'. |
 | `--operator-namespace` | 연산자 네임스페이스의 이름. 기본값: 'default'. 최대: 23자. |
 | `--operator-params` | 연산자에 대한 매개 변수. 작은따옴표 안에 지정해야 합니다. 예를 들어 ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 

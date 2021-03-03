@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709175"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor 문제 해결
 
@@ -42,7 +42,7 @@ ms.locfileid: "100571360"
     - Windows 가상 데스크톱 세션 호스트를 보유 하는 구독의 리소스 그룹에 대 한 읽기 액세스 
     - Log Analytics 작업 영역에 대 한 읽기 액세스
 
-- Azure Monitor 포털에 데이터를 보낼 수 있도록 서버 방화벽에서 나가는 포트를 열어야 할 수 있습니다. [나가는 포트](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)를 참조 하세요. 
+- Azure Monitor 포털에 데이터를 보낼 수 있도록 서버 방화벽에서 나가는 포트를 열어야 할 수 있습니다. [나가는 포트](../azure-monitor/app/ip-addresses.md)를 참조 하세요. 
 
 - 최근 활동의 데이터가 표시 되지 않나요? 15 분 동안 기다렸다가 피드를 새로 고칠 수 있습니다. Azure Monitor는 로그 데이터를 채우는 데 15 분의 대기 시간이 있습니다. 자세히 알아보려면 [Azure Monitor의 로그 데이터 수집 시간](../azure-monitor/logs/data-ingestion-time.md)을 참조 하세요.
 
@@ -62,8 +62,8 @@ Windows 가상 데스크톱에 대 한 Azure Monitor Azure Monitor 통합 문서
 
 더 많은 성능 카운터 또는 이벤트를 모니터링 하려는 경우 Log Analytics 작업 영역으로 전송 하 고 호스트 진단: 호스트 브라우저에서 모니터링할 수 있습니다. 
 
-- 성능 카운터를 추가 하려면 [성능 카운터 구성](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters) 을 참조 하세요.
-- Windows 이벤트를 추가 하려면 [Windows 이벤트 로그 구성](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs) 을 참조 하세요.
+- 성능 카운터를 추가 하려면 [성능 카운터 구성](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters) 을 참조 하세요.
+- Windows 이벤트를 추가 하려면 [Windows 이벤트 로그 구성](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs) 을 참조 하세요.
 
 문제를 진단 하는 데 도움이 되는 데이터 요소를 찾을 수 없습니까? 의견을 보내 주세요.
 

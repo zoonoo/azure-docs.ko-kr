@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 5a83211654ad1abafff59d5968c191ec1fa63616
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692405"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
-
 
 이 문서에서는 Azure Machine Learning 파이프라인의 단계 간에 데이터를 가져오고, 변환 하 고, 이동 하는 코드를 제공 합니다. Azure Machine Learning에서 데이터가 작동 하는 방식에 대 한 개요는 [Azure storage 서비스에서 데이터 액세스](how-to-access-data.md)를 참조 하세요. Azure Machine Learning 파이프라인의 이점과 구조는 [Azure Machine Learning 파이프라인 이란?](concept-ml-pipelines.md)을 참조 하세요.
 
@@ -29,7 +28,7 @@ ms.locfileid: "99492300"
 - `Dataset`데이터를 하위 집합 (예: 학습 및 유효성 검사 하위 집합)으로 분할
 - `OutputFileDatasetConfig`다음 파이프라인 단계로 데이터를 전송 하는 개체 만들기
 - `OutputFileDatasetConfig`파이프라인 단계에 대 한 입력으로 개체 사용
-- 유지 하려는 새 `Dataset` 개체 `OutputFileDatasetConfig` 만들기
+- `Dataset`Wisƒh에서 유지할 새 개체 만들기 `OutputFileDatasetConfig`
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -64,10 +63,12 @@ ms.locfileid: "99492300"
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 다른 옵션을 사용 하 여 데이터 집합을 만들고 다른 원본에서 데이터를 등록 하 고 Azure Machine Learning 검토 하는 방법에 대 한 추가 옵션을 사용 하 여 데이터 크기가 계산 용량과 상호 작용 하는 방식을 이해 하 고 버전을 관리 하는 방법은 [Azure Machine Learning 데이터 집합 만들기](how-to-create-register-datasets.md)를 참조 
@@ -200,7 +201,7 @@ with open(args.output_path, 'w') as f:
 
 초기 파이프라인 단계에서 일부 데이터를 경로에 기록 하 `OutputFileDatasetConfig` 고 해당 초기 단계의 출력이 되 면 이후 단계에 대 한 입력으로 사용할 수 있습니다. 
 
-다음 코드에서 
+다음 코드에서: 
 
 * `step1_output_data` PythonScriptStep의 출력이 `step1` ADLS Gen 2 데이터 저장소에 기록 되 고, `my_adlsgen2` 업로드 액세스 모드로 기록 됨을 나타냅니다. ADLS Gen 2 데이터 저장소에 데이터를 다시 쓰기 위해 [역할 권한을 설정](how-to-access-data.md#azure-data-lake-storage-generation-2) 하는 방법에 대해 자세히 알아보세요. 
 
@@ -223,7 +224,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -239,6 +240,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## <a name="delete-outputfiledatasetconfig-contents-when-no-longer-needed"></a>`OutputFileDatasetConfig`더 이상 필요 하지 않은 경우 콘텐츠 삭제
+
+Azure는로 작성 된 중간 데이터를 자동으로 삭제 하지 않습니다 `OutputFileDatasetConfig` . 대량의 불필요 한 데이터에 대해 저장소 요금을 방지 하려면 다음 중 하나를 수행 해야 합니다.
+
+* 더 이상 필요 하지 않은 경우 파이프라인 실행의 끝에서 프로그래밍 방식으로 중간 데이터를 삭제 합니다.
+* 중간 데이터를 위한 단기 저장소 정책으로 blob 저장소 사용 ( [Azure Blob Storage 액세스 계층을 자동화 하 여 비용 최적화](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)참조) 
+* 더 이상 필요 하지 않은 데이터를 정기적으로 검토 및 삭제
+
+자세한 내용은 [Azure Machine Learning에 대 한 비용 계획 및 관리](concept-plan-manage-cost.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

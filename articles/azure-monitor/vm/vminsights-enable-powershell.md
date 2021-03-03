@@ -1,33 +1,33 @@
 ---
-title: PowerShell을 사용하여 VM용 Azure Monitor 사용
-description: Azure PowerShell를 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: PowerShell을 사용 하 여 VM insights 사용
+description: Azure PowerShell를 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717080"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>PowerShell을 사용하여 VM용 Azure Monitor 사용
-이 문서에서는 PowerShell을 사용 하 여 Azure virtual machines에서 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
+# <a name="enable-vm-insights-using-powershell"></a>PowerShell을 사용 하 여 VM insights 사용
+이 문서에서는 PowerShell을 사용 하 여 Azure virtual machines에서 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
 
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Log Analytics 작업 영역을 만들고 구성](../insights/vminsights-configure-workspace.md)합니다.
-- 지원 되는 [운영 체제](../insights/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
+- [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
+- 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 
-여러 Vm 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하려면 Azure PowerShell 갤러리에서 제공 되는 PowerShell 스크립트 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)를 사용 합니다. 이 스크립트는 다음을 반복 합니다.
+여러 Vm 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하려면 Azure PowerShell 갤러리에서 제공 되는 PowerShell 스크립트 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)을 사용 합니다. 이 스크립트는 다음을 반복 합니다.
 
 - 구독에서 모든 가상 머신 및 가상 머신 확장 집합입니다.
 - *ResourceGroup* 으로 지정 된 범위 지정 리소스 그룹입니다.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-다음 예제에서는 VM용 Azure Monitor를 사용하도록 설정하고 예상되는 출력을 이해하기 위해 폴더에서 PowerShell 명령을 사용하는 방법을 보여줍니다.
+다음 예에서는 폴더의 PowerShell 명령을 사용 하 여 VM 정보를 사용 하도록 설정 하 고 예상 되는 출력을 이해 하는 방법을 보여 줍니다.
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 검색 된 응용 프로그램 종속성을 보려면 [VM용 Azure Monitor 맵 사용](vminsights-maps.md) 을 참조 하세요. 
+* 검색 된 응용 프로그램 종속성을 보려면 [VM Insights 맵 사용](vminsights-maps.md) 을 참조 하세요. 
 * [AZURE vm 성능 보기](vminsights-performance.md) 를 참조 하 여 병목 상태, 전반적인 사용률 및 VM의 성능을 식별 하세요.

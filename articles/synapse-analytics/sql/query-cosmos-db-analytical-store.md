@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d8935c10ce17ad5d3747468d55b2fe6daa21
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a574cacbabf1c0d1730430153a3c0afcad6582c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694362"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -22,10 +22,7 @@ ms.locfileid: "101677527"
 
 Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역은 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하는 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. [Create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS)를 사용 하 여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 CETAS를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
-이 문서에서는 Azure Synapse Link를 사용 하 여 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이 자습서](./tutorial-data-analyst.md)의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다.
-
-> [!IMPORTANT]
-> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다.  `OPENROWSET` `WITH` 쿼리 환경이 잘 정의 된 스키마를 기준으로 정렬 되 고 변경 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절 없이 함수의 결과 집합 스키마를 사용 하지 마세요. [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics)에 피드백을 게시할 수 있습니다. [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 연락 하 여 피드백을 제공할 수도 있습니다.
+이 문서에서는 Azure Synapse Link를 사용 하 여 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이 자습서](./tutorial-data-analyst.md)의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -377,7 +374,7 @@ Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리해야 하는 경우 분�
 
 ### <a name="query-items-with-full-fidelity-schema"></a>전체 충실도 스키마를 사용 하는 쿼리 항목
 
-전체 충실도 스키마를 쿼리 하는 동안 절에서 SQL 유형 및 필요한 Azure Cosmos DB 속성 유형을 명시적으로 지정 해야 합니다 `WITH` . `OPENROWSET` `WITH` 피드백에 따라 결과 집합의 형식이 변경 될 수 있으므로 보고서에서 절 없이를 사용 하지 마세요.
+전체 충실도 스키마를 쿼리 하는 동안 절에서 SQL 유형 및 필요한 Azure Cosmos DB 속성 유형을 명시적으로 지정 해야 합니다 `WITH` .
 
 다음 예제에서는 `string` 가 속성의 올바른 형식이 `geo_id` 고 `int32` 속성의 올바른 형식 이라고 가정 합니다 `cases` .
 
@@ -415,7 +412,6 @@ GROUP BY geo_id
 
 ## <a name="known-issues"></a>알려진 문제
 
-- `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 잘 정의 된 스키마를 사용 하 여 쿼리 환경을 정렬할 수 있으므로 절이 없는 함수에서 제공 하는 스키마를 사용 하지 마세요. 사용자 의견을 제공 하려면 [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
 - 서버를 `OPENROWSET` 사용 하지 않는 SQL 풀은 열 데이터 정렬에 utf-8 인코딩이 없으면 컴파일 시간 경고를 반환 합니다. `OPENROWSET`T-sql 문을 사용 하 여 현재 데이터베이스에서 실행 되는 모든 함수에 대 한 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.

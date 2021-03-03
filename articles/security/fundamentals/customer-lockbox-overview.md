@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720616"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대한 고객 Lockbox
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489892"
 
 Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스 요청을 검토하고 승인하거나 거부할 수 있는 인터페이스를 제공합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다.
 
-이 문서에서는 이후의 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법을 설명 합니다.
+이 문서에서는 고객 Lockbox을 사용 하도록 설정 하는 방법과 이후 검토 및 감사를 위해 Lockbox 요청을 시작, 추적 및 저장 하는 방법을 설명 합니다.
 
-이제 고객 Lockbox는 일반 공급되며 현재 가상 머신에 대한 원격 데스크톱 액세스에 사용됩니다.
+<a id='supported-services-and-scenarios-in-preview'># # 지원 되는 서비스 및 시나리오 (일반 공급)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>미리 보기에서 지원 되는 서비스 및 시나리오
+이제 고객 Lockbox에 대해 다음과 같은 서비스가 일반 공급 됩니다.
 
-다음 서비스는 현재 고객 Lockbox에 대해 미리 보기로 제공됩니다.
-
-- API Management
+- Azure API Management
 - Azure App Service
-- Cognitive Services
-- Container Registry
+- Azure Cognitive Services
+- Azure Container Registry
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 - Azure 데이터 팩터리
 - Azure Database for PostgreSQL
 - Azure 기능
-- HDInsight
+- Azure HDInsight
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
-- Azure SQL DB
+- Azure SQL Database
 - Azure 구독 전송
 - Azure Synapse Analytics
-- 가상 머신(이제 메모리 덤프 및 관리 디스크에 대한 액세스도 포함)
+- Azure의 가상 머신 (원격 데스크톱 액세스, 메모리 덤프 액세스, 관리 디스크에 대 한 액세스 포함)
 
-조직에서 이러한 미리 보기 제품에 대 한 고객 Lockbox를 사용 하도록 설정 하려면 [고객 Lockbox Azure 공개 미리 보기](https://aka.ms/customerlockbox/insiderprogram)에 등록 합니다.
+## <a name="enable-customer-lockbox"></a>고객 Lockbox 사용
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>일반 공급에서 지원 되는 서비스 및 시나리오
-
-다음 서비스 및 시나리오는 현재 고객 Lockbox에 대 한 일반 공급으로 제공 됩니다.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>가상 머신에 대한 원격 데스크톱 액세스
-
-현재 가상 머신에 대한 원격 데스크톱 액세스를 요청하는 데 고객 Lockbox를 사용할 수 있습니다. 지원하는 작업은 다음과 같습니다.
-- PaaS(Platform as a service) - Azure Cloud Services(웹 역할 및 작업자 역할)
-- IaaS(서비스 제공 인프라) - Windows 및 Linux(Azure Resource Manager에만 해당)
-- 가상 머신 확장 집합 - Windows 및 Linux
+이제 고객 Lockbox 블레이드의 [관리 모듈](https://aka.ms/customerlockbox/administration) 에서 고객 Lockbox를 사용 하도록 설정할 수 있습니다.  
 
 > [!NOTE]
-> IaaS 클래식 인스턴스는 고객 Lockbox에서 지원 되지 않습니다. IaaS 클래식 인스턴스에서 실행 되는 워크 로드가 있는 경우 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
-
-#### <a name="detailed-audit-logs"></a>자세한 감사 로그
-
-원격 데스크톱 액세스와 관련된 시나리오의 경우 Windows 이벤트 로그를 사용하여 Microsoft 엔지니어가 수행한 작업을 검토할 수 있습니다. Azure Security Center를 사용하여 이벤트 로그를 수집하고 분석을 위해 작업 영역에 데이터를 복사하는 것이 좋습니다. 자세한 내용은 [Azure Security Center에서 데이터 수집](../../security-center/security-center-enable-data-collection.md)을 참조하세요.
+> 고객 Lockbox를 사용 하도록 설정 하려면 사용자 계정에 [전역 관리자 역할이 할당](../../active-directory/roles/manage-roles-portal.md)되어야 합니다.
 
 ## <a name="workflow"></a>워크플로
 
@@ -80,7 +65,7 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 
 3. Azure 지원 엔지니어가 서비스 요청을 검토 하 고 문제를 해결 하기 위한 다음 단계를 결정 합니다.
 
-4. 지원 엔지니어가 표준 도구 및 원격 분석을 사용 하 여 문제를 해결할 수 없는 경우 다음 단계는 JIT (Just-in-time) 액세스 서비스를 사용 하 여 승격 된 권한을 요청 하는 것입니다. 이 요청은 원래 지원 엔지니어가 사용할 수 있습니다. 또는 문제가 Azure DevOps 팀에 에스컬레이션 되기 때문에 다른 엔지니어가이를 수 있습니다.
+4. 지원 엔지니어가 표준 도구 및 원격 분석을 사용 하 여 문제를 해결할 수 없는 경우 다음 단계는 JIT (Just-in-time) 액세스 서비스를 사용 하 여 승격 된 권한을 요청 하는 것입니다. 이 요청은 Azure DevOps 팀에 문제를 제기 하기 때문에 원래 지원 엔지니어 또는 다른 엔지니어가 사용할 수 있습니다.
 
 5. Azure 엔지니어가 액세스 요청을 제출한 후 Just-in-time 서비스는 다음과 같은 요인을 고려 하 여 요청을 평가 합니다.
     - 리소스의 범위입니다.
@@ -99,7 +84,7 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 
     ![Azure 고객 Lockbox-전자 메일 알림](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. 전자 메일 알림은 Azure Portal의 **고객 Lockbox** 블레이드에 대 한 링크를 제공 합니다. 지정 된 승인자는이 링크를 사용 하 여 Azure Portal에 로그인 하 여 조직에서 고객 Lockbox 하는 보류 중인 요청을 확인 합니다.
+8. 전자 메일 알림은 관리 모듈의 **고객 Lockbox** 블레이드에 대 한 링크를 제공 합니다. 지정 된 승인자는이 링크를 사용 하 여 Azure Portal에 로그인 하 여 조직에서 고객 Lockbox 하는 보류 중인 요청을 확인 합니다.
 
     ![Azure 고객 Lockbox-방문 페이지](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -144,11 +129,10 @@ Azure 보안 벤치 마크에 고객 Lockbox 적용 가능성을 다루는 새�
 다음 엔지니어링 지원 시나리오에서는 고객 Lockbox 요청이 트리거되지 않습니다.
 
 - Microsoft 엔지니어가 표준 운영 절차를 벗어나는 작업을 수행해야 합니다. 예를 들어 예기치 않거나 예측할 수 없는 시나리오에서 서비스를 복구하거나 복원합니다.
-
-- Microsoft 엔지니어가 문제 해결의 일환으로 Azure 플랫폼에 액세스하고 실수로 고객 데이터에 액세스할 수 있습니다. 예를 들어 Azure 네트워크 팀은 네트워크 디바이스에서 패킷 캡처를 발생시키는 문제를 해결합니다. 그러나 고객이 전송 중인 데이터를 암호화한 경우에는 엔지니어가 데이터를 읽을 수 없습니다.
+- Microsoft 엔지니어가 문제 해결의 일환으로 Azure 플랫폼에 액세스하고 실수로 고객 데이터에 액세스할 수 있습니다. 예를 들어 Azure 네트워크 팀은 네트워크 디바이스에서 패킷 캡처를 발생시키는 문제를 해결합니다. 이 시나리오에서 고객이 전송 중인 데이터를 암호화 하는 경우 엔지니어가 데이터를 읽을 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-고객 Lockbox는 최소한의 **개발자** 로 [Azure 지원 계획](https://azure.microsoft.com/support/plans/) 을 보유 하 고 있는 모든 고객에 게 자동으로 제공 됩니다.
+고객 Lockbox는 최소한의 **개발자** 로 [Azure 지원 계획](https://azure.microsoft.com/support/plans/) 을 보유 하 고 있는 모든 고객에 게 제공 됩니다. 고객 Lockbox 블레이드에서 [관리 모듈](https://aka.ms/customerlockbox/administration) 의 고객 Lockbox을 사용 하도록 설정할 수 있습니다.
 
-적격 지원 계획을 사용 하는 경우 고객 Lockbox 사용 하도록 설정 하는 작업이 필요 하지 않습니다. 이 작업이 조직의 다른 사용자가 작성 한 지원 티켓을 진행 하는 데 필요한 경우 Microsoft 엔지니어가 고객 Lockbox 요청을 시작 합니다.
+이 작업이 지원 사례를 진행 하는 데 필요한 경우 Microsoft 엔지니어가 고객 Lockbox 요청을 시작 합니다.

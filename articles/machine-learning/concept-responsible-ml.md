@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 12/21/2020
+ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 7124fdd6e7d137e21234ff40426e13dc65b4f9e0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f849968c16d2c3d8940a71da0e0cda536882d9c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692065"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>담당 기계 학습 이란 무엇 인가요? (미리 보기)
 
@@ -42,7 +42,7 @@ AI 및 자치 시스템이 사회 구조에 더 많이 통합됨에 따라 이�
 
 설명 하거나 불투명 한 시스템 시스템 개발자, 조정기, 사용자 및 비즈니스 의사 결정권자가 특정 결정을 내리는 이유를 이해 하기 위해 시스템 개발자, 조정기, 사용자 및 비즈니스 의사 결정권자에 게 어려운 문제가 발생할 수 있습니다. 일부 AI 시스템은 다른 시스템보다 더 설명하기 쉬우며, 정확도와 설명 가능성이 균형을 이루는 시스템도 있습니다.
 
-해석 가능한 AI 시스템을 빌드하려면 Microsoft에서 개발한 오픈 소스 패키지인 [InterpretML](https://github.com/interpretml/interpret)을 사용하세요. [Azure Machine Learning 내부에 InterpretML을 사용](how-to-machine-learning-interpretability.md)하여 [자동화된 기계 학습 모델](how-to-machine-learning-interpretability-automl.md)을 포함한 [기계 학습 모델을 해석하고 설명](how-to-machine-learning-interpretability-aml.md)할 수 있습니다.
+해석 가능한 AI 시스템을 빌드하려면 Microsoft에서 개발한 오픈 소스 패키지인 [InterpretML](https://github.com/interpretml/interpret)을 사용하세요. InterpretML 패키지는 SHAP (SHapley 가산 설명), interpretability 및 (순열 기능 중요도)와 같은 다양 한 기술을 지원 합니다.  [Azure Machine Learning 내부에 InterpretML을 사용](how-to-machine-learning-interpretability.md)하여 [자동화된 기계 학습 모델](how-to-machine-learning-interpretability-automl.md)을 포함한 [기계 학습 모델을 해석하고 설명](how-to-machine-learning-interpretability-aml.md)할 수 있습니다.
 
 ## <a name="mitigate-fairness-in-machine-learning-models"></a>기계 학습 모델의 공평 완화
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693529"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -102,7 +102,10 @@ Azure 부서의 범위의 Azure 자산에 밉 민감도 레이블을 적용 하�
 
 **민감도 레이블을 부서의 범위로 확장 하려면 다음을 수행 합니다.**
 
-Microsoft 365에서 **Information Protection** 페이지로 이동 합니다. **Azure에서 자산에 대 한 레이블 확장 부서의 범위** 에서 **켜기** 단추를 선택한 다음 표시 되는 확인 대화 상자에서 **예** 를 선택 합니다.
+다음 단계는 Azure 부서의 범위에서 민감도 레이블을 사용할 수 있도록 허용 합니다. 여기에서 민감도 레이블을 SQL 열, Azure Blob Storage 파일 등의 자산에 적용할 수 있습니다.
+
+1. Microsoft 365에서 **Information Protection** 페이지로 이동 합니다. 
+1. **Azure에서 자산에 대 한 레이블 확장 부서의 범위** 에서 **켜기** 단추를 선택한 다음 표시 되는 확인 대화 상자에서 **예** 를 선택 합니다.
 
 다음은 그 예입니다. 
 

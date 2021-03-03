@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581980"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712779"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR에 대 한 진단 로깅 사용
 
 이 문서에서는 FHIR 용 Azure API에서 진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 몇 가지 샘플 쿼리를 검토할 수 있는 방법에 대해 설명 합니다. 진단 로그에 대 한 액세스는 HIPAA와 같은 규정 요구 사항을 준수 해야 하는 의료 서비스에 필수적입니다. 진단 로그를 사용 하도록 설정 하는 Azure API for FHIR의 기능은 Azure Portal의 [**진단 설정**](../azure-monitor/essentials/diagnostic-settings.md) 입니다. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>FHIR 메트릭 데이터 보기 및 다운로드
+
+모니터링에서 메트릭을 볼 수 있습니다. 포털의 메트릭입니다. 메트릭에는 요청 수, 평균 대기 시간, 오류 수, 데이터 크기, 사용 된 RUs, 용량을 초과한 요청 수, 가용성 (%)이 포함 됩니다. 아래 스크린샷에서는 지난 7 일간 활동이 거의 없는 샘플 환경에 사용 된 RUs를 보여 줍니다. Json 형식으로 데이터를 다운로드할 수 있습니다.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="포털의 FHIR 메트릭을 위한 Azure API" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>감사 로그 사용
 1. Azure API for FHIR에서 진단 로깅을 사용 하도록 설정 하려면 Azure Portal에서 Azure API for FHIR 서비스를 선택 합니다. 
-2. **진단 설정**  
- ![ 진단 설정으로 이동 합니다.](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. **진단 설정** 으로 이동 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Azure FHIR 진단 설정을 추가 합니다." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. **+ 진단 설정 추가** 를 선택 합니다.
 
@@ -35,7 +42,7 @@ ms.locfileid: "100581980"
     2. 타사 서비스 또는 사용자 지정 분석 솔루션에의 한 수집을 위해 **이벤트 허브로 스트리밍합니다** . 이 단계를 구성 하려면 먼저 이벤트 허브 네임 스페이스 및 이벤트 허브 정책을 만들어야 합니다.
     3. Azure Monitor에서 Log Analytics 작업 영역 **으로 스트리밍합니다** . 이 옵션을 선택 하려면 먼저 로그 분석 작업 영역을 만들어야 합니다.
 
-6. **AuditLogs** 및/또는 **allmetrics** 을 선택 합니다. 메트릭에는 서비스 이름, 가용성, 데이터 크기, 총 대기 시간, 총 요청, 총 오류 및 타임 스탬프가 포함 됩니다.
+6. **AuditLogs** 및/또는 **allmetrics** 을 선택 합니다. 메트릭에는 서비스 이름, 가용성, 데이터 크기, 총 대기 시간, 총 요청, 총 오류 및 타임 스탬프가 포함 됩니다. [지원 되는 메트릭에](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices)대 한 자세한 정보를 찾을 수 있습니다. 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR 진단 설정입니다. AuditLogs 및/또는 AllMetrics을 선택 합니다." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -50,7 +57,7 @@ ms.locfileid: "100581980"
 ## <a name="audit-log-details"></a>감사 로그 정보
 이번에는 Azure API for FHIR 서비스에서 감사 로그에 다음 필드를 반환 합니다. 
 
-|필드 이름  |Type  |참고  |
+|필드 이름  |Type  |메모  |
 |---------|---------|---------|
 |CallerIdentity|동적|Id 정보를 포함 하는 일반 속성 모음
 |CallerIdentityIssuer|String|발급자 

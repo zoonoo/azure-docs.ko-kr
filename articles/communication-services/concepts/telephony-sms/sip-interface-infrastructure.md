@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b258f2ef82e74073e3e4f1aa61b036d423c30300
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100419426"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659259"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>SIP 인터페이스 인프라 요구 사항 
 
@@ -31,7 +31,7 @@ ms.locfileid: "100419426"
 |SBC(세션 경계 컨트롤러)|지원되는 SBC입니다. 자세한 내용은 [지원되는 SBC](#supported-session-border-controllers-sbcs)를 참조하세요.|
 |SBC에 연결된 전화 통신 트렁크|SBC에 연결된 하나 이상의 전화 통신 트렁크입니다. SBC는 한쪽 끝에서 SIP 인터페이스를 통해 Azure 통신 서비스에 연결합니다. 또한 SBC는 PBX, 아날로그 전화 통신 어댑터 등과 같은 타사 전화 통신 엔터티에도 연결할 수 있습니다. SBC에 연결된 모든 PSTN 연결 옵션이 작동합니다. (SBC에 연결된 PSTN 트렁크 구성에 대한 자세한 내용은 SBC 공급업체 또는 트렁크 공급자에게 문의하세요.)|
 |Azure 구독|ACS 리소스와 SBC에 대한 구성 및 연결을 만드는 데 사용하는 Azure 구독입니다.|
-|Communication Services 액세스 토큰|호출을 수행하려면 `voip` 범위를 포함하는 유효한 액세스 토큰이 필요합니다. [액세스 토큰](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens) 참조|
+|Communication Services 액세스 토큰|호출을 수행하려면 `voip` 범위를 포함하는 유효한 액세스 토큰이 필요합니다. [액세스 토큰](../identity-model.md#access-tokens) 참조|
 |SBC에 대한 공용 IP 주소|SBC에 연결하는 데 사용할 수 있는 공용 IP 주소입니다. SBC의 유형에 따라 SBC에서 NAT를 사용할 수 있습니다.|
 |SBC의 FQDN(정규화된 도메인 이름)|SBC의 FQDN입니다. FQDN의 도메인 부분은 Microsoft 365 또는 Office 365 조직의 등록된 도메인과 일치하지 않습니다. 자세한 내용은 [SBC 도메인 이름](#sbc-domain-names)을 참조하세요.|
 |SBC의 퍼블릭 DNS 항목 |SBC FQDN을 공용 IP 주소에 매핑하는 퍼블릭 DNS 항목입니다. |
@@ -187,7 +187,7 @@ SIP 프록시와 미디어 프로세서 구성 요소가 둘 다 배포되는 �
 
 ## <a name="supported-session-border-controllers-sbcs"></a>지원되는 SBC(세션 경계 컨트롤러)
 
-인증이 진행 중입니다. 그동안 고객은 [팀 인증 세션 경계 컨트롤러](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers)를 사용할 수 있습니다. 
+인증이 진행 중입니다. 그동안 고객은 [팀 인증 세션 경계 컨트롤러](/MicrosoftTeams/direct-routing-border-controllers)를 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

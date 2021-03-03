@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717743"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -243,9 +243,9 @@ ms.locfileid: "100617569"
 
 [Azure 자동 크기 조정에 대한 모범 사례](autoscale-best-practices.md)
 
-[PowerShell을 사용하여 자동 크기 조정 관리](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[PowerShell을 사용하여 자동 크기 조정 관리](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[CLI를 사용하여 자동 크기 조정 관리](../samples/cli-samples.md#autoscale)
+[CLI를 사용하여 자동 크기 조정 관리](../cli-samples.md#autoscale)
 
 [자동 크기 조정의 Webhook 및 메일 알림 구성](autoscale-webhook-email.md)
 

@@ -2,13 +2,14 @@
 title: 고가용성을 위한 영역 중복 레지스트리
 description: Azure Container Registry에서 영역 중복성을 사용 하도록 설정 하는 방법에 대해 알아봅니다. Azure 가용성 영역에서 컨테이너 레지스트리 또는 복제를 만듭니다. 영역 중복성은 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738109"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원 력 및 고가용성을 위해 Azure Container Registry에서 영역 중복성 사용
 
@@ -20,7 +21,7 @@ ms.locfileid: "98696281"
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 현재 미국 동부, 미국 동부 2, 미국 서 부 2 지역에서 지원 됩니다.
+* 현재 미국 동부, 미국 동부 2, 미국 서 부 2, 북부 유럽, 유럽 서부, 일본 동부 지역에서 지원 됩니다.
 * 가용성 영역에 대 한 지역 변환은 현재 지원 되지 않습니다. 지역에서 가용성 영역 지원을 사용 하도록 설정 하려면 원하는 지역에 레지스트리를 만들어야 합니다. 가용성 영역 지원을 사용 하도록 설정 하거나 가용성 영역 지원을 사용 하도록 설정 하 여 복제 된 영역을 추가 해야 합니다.
 * 영역 중복성은 지역에서 사용 하지 않도록 설정할 수 없습니다.
 * [ACR 작업](container-registry-tasks-overview.md) 은 아직 가용성 영역을 지원 하지 않습니다.

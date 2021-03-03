@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 482a0ba4051fb8b5d1705e0f951a9e075f40bbdb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614059"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717403"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -25,7 +25,7 @@ Log Analytics 작업 영역이 제공하는 정보:
 
 * 데이터 저장소에 대 한 지리적 위치입니다.
 * 권장 되는 디자인 전략 중 하나에 따라 다른 사용자에 게 액세스 권한을 부여 하 여 데이터를 격리 합니다.
-* [가격 책정 계층](../platform/manage-cost-storage.md#changing-pricing-tier), [보존](../platform/manage-cost-storage.md#change-the-data-retention-period)및 [데이터 50,](../platform/manage-cost-storage.md#manage-your-maximum-daily-data-volume)같은 설정의 구성에 대 한 범위입니다.
+* [가격 책정 계층](./manage-cost-storage.md#changing-pricing-tier), [보존](./manage-cost-storage.md#change-the-data-retention-period)및 [데이터 50,](./manage-cost-storage.md#manage-your-maximum-daily-data-volume)같은 설정의 구성에 대 한 범위입니다.
 
 작업 영역은 실제 클러스터에서 호스팅됩니다. 기본적으로 시스템은 이러한 클러스터를 만들고 관리 합니다. 4TB/day 이상을 수집 하는 고객은 자신의 작업 영역에 대 한 자체 전용 클러스터를 만들어야 합니다 .이를 통해 더 나은 제어 및 더 높은 수집 속도가 가능 합니다.
 
@@ -64,12 +64,12 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요인 | 설명 |
+| 요인 | Description |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
-| [권한](../platform/manage-access.md) | 작업 영역 또는 리소스의 개별 사용자 또는 사용자 그룹에 적용 되는 권한입니다. 사용자가 액세스할 수 있는 데이터를 정의 합니다. |
-| [Azure RBAC 테이블 수준](../platform/manage-access.md#table-level-azure-rbac) | 액세스 모드 또는 액세스 제어 모드에 관계 없이 모든 사용자에 게 적용 되는 선택적인 세부적인 권한입니다. 사용자가 액세스할 수 있는 데이터 형식을 정의 합니다. |
+| [권한](./manage-access.md) | 작업 영역 또는 리소스의 개별 사용자 또는 사용자 그룹에 적용 되는 권한입니다. 사용자가 액세스할 수 있는 데이터를 정의 합니다. |
+| [Azure RBAC 테이블 수준](./manage-access.md#table-level-azure-rbac) | 액세스 모드 또는 액세스 제어 모드에 관계 없이 모든 사용자에 게 적용 되는 선택적인 세부적인 권한입니다. 사용자가 액세스할 수 있는 데이터 형식을 정의 합니다. |
 
 ## <a name="access-mode"></a>액세스 모드
 
@@ -91,7 +91,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서
     > - Service Fabric
     > - Application Insights
     >
-    > 쿼리를 실행 하 고 관심이 있는 레코드를 검사 하 여 로그가 리소스와 제대로 연결 되어 있는지 테스트할 수 있습니다. [_ResourceId](../platform/log-standard-columns.md#_resourceid) 속성에 올바른 리소스 ID가 있으면 리소스 중심 쿼리에서 데이터를 사용할 수 있습니다.
+    > 쿼리를 실행 하 고 관심이 있는 레코드를 검사 하 여 로그가 리소스와 제대로 연결 되어 있는지 테스트할 수 있습니다. [_ResourceId](./log-standard-columns.md#_resourceid) 속성에 올바른 리소스 ID가 있으면 리소스 중심 쿼리에서 데이터를 사용할 수 있습니다.
 
 Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른 모드를 자동으로 결정 합니다. 범위는 항상 Log Analytics의 왼쪽 위 섹션에 표시 됩니다.
 
@@ -102,8 +102,8 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 | 문제 | 작업 영역-컨텍스트 | 리소스-컨텍스트 |
 |:---|:---|:---|
 | 각 모델의 용도는 무엇 인가요? | 중앙 관리. 다양 한 리소스에 액세스 해야 하는 데이터 수집 및 사용자를 구성 해야 하는 관리자입니다. 또한 현재 Azure 외부의 리소스에 대 한 로그에 액세스 해야 하는 사용자에 게 필요 합니다. | 응용 프로그램 팀. 모니터링 되는 Azure 리소스의 관리자입니다. |
-| 사용자가 로그를 보려면 어떻게 해야 하나요? | 작업 영역에 대 한 사용 권한. [작업 영역 사용 권한을 사용 하 여 액세스 관리](../platform/manage-access.md#manage-access-using-workspace-permissions)에서 **작업 영역 권한** 을 참조 하세요. | 리소스에 대 한 읽기 액세스입니다. [Azure 권한을 사용 하 여 액세스 관리](../platform/manage-access.md#manage-access-using-azure-permissions)에서 **리소스 권한** 을 참조 하세요. 사용 권한을 상속 하거나 (예: 포함 하는 리소스 그룹에서) 리소스에 직접 할당할 수 있습니다. 리소스에 대 한 로그에 대 한 사용 권한이 자동으로 할당 됩니다. |
-| 권한 범위는 무엇 인가요? | 환경이. 작업 영역에 대 한 액세스 권한이 있는 사용자는 작업 영역에 있는 모든 로그를 권한이 있는 테이블에서 쿼리할 수 있습니다. [테이블 액세스 제어](../platform/manage-access.md#table-level-azure-rbac) 를 참조 하세요. | Azure 리소스. 사용자는 모든 작업 영역에서 액세스할 수 있는 특정 리소스, 리소스 그룹 또는 구독에 대 한 로그를 쿼리할 수 있지만 다른 리소스에 대해서는 로그를 쿼리할 수 없습니다. |
+| 사용자가 로그를 보려면 어떻게 해야 하나요? | 작업 영역에 대 한 사용 권한. [작업 영역 사용 권한을 사용 하 여 액세스 관리](./manage-access.md#manage-access-using-workspace-permissions)에서 **작업 영역 권한** 을 참조 하세요. | 리소스에 대 한 읽기 액세스입니다. [Azure 권한을 사용 하 여 액세스 관리](./manage-access.md#manage-access-using-azure-permissions)에서 **리소스 권한** 을 참조 하세요. 사용 권한을 상속 하거나 (예: 포함 하는 리소스 그룹에서) 리소스에 직접 할당할 수 있습니다. 리소스에 대 한 로그에 대 한 사용 권한이 자동으로 할당 됩니다. |
+| 권한 범위는 무엇 인가요? | 환경이. 작업 영역에 대 한 액세스 권한이 있는 사용자는 작업 영역에 있는 모든 로그를 권한이 있는 테이블에서 쿼리할 수 있습니다. [테이블 액세스 제어](./manage-access.md#table-level-azure-rbac) 를 참조 하세요. | Azure 리소스. 사용자는 모든 작업 영역에서 액세스할 수 있는 특정 리소스, 리소스 그룹 또는 구독에 대 한 로그를 쿼리할 수 있지만 다른 리소스에 대해서는 로그를 쿼리할 수 없습니다. |
 | 사용자가 로그에 액세스 하려면 어떻게 해야 하나요? | <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작 합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 에서 **로그** 를 시작 합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)</li></ul> | <ul><li>Azure 리소스의 메뉴에서 **로그** 시작</li></ul> <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작 합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 에서 **로그** 를 시작 합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)</li></ul> |
 
 ## <a name="access-control-mode"></a>액세스 제어 모드
@@ -125,7 +125,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
     > [!NOTE]
     > 사용자에 게 작업 영역에 대 한 리소스 권한만 있으면 작업 영역 액세스 모드가 **리소스 또는 작업 영역 권한 사용** 으로 설정 된 것으로 가정 하 여 리소스 컨텍스트 모드를 사용 하 여 작업 영역에 액세스할 수 있습니다.
 
-포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 구성](../platform/manage-access.md#configure-access-control-mode)을 참조 하세요.
+포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 구성](./manage-access.md#configure-access-control-mode)을 참조 하세요.
 
 ## <a name="scale-and-ingestion-volume-rate-limit"></a>크기 조정 및 수집 볼륨 비율 제한
 
@@ -133,7 +133,7 @@ Azure Monitor은 수천 명의 고객이 성장 하는 속도로 매월 페타�
 
 Azure Monitor 고객과 백 엔드 인프라를 보호 하 고 격리 하기 위해 급증 및 홍수 상황을 방지 하기 위해 설계 된 기본 수집 률 제한이 있습니다. Rate limit 기본값은 약 **6gb/분** 이며 정상적인 수집을 사용할 수 있도록 설계 되었습니다. 수집 볼륨 한도 측정에 대 한 자세한 내용은 [Azure Monitor 서비스 제한](../service-limits.md#data-ingestion-volume-rate)을 참조 하세요.
 
-4TB/day 미만으로 수집 하는 고객은 일반적으로 이러한 제한을 충족 하지 않습니다. 더 큰 볼륨을 수집 하거나 정상적인 작업의 일부로 스파이크가 있는 고객은 수집 속도가 발생 될 수 있는 [전용 클러스터](../log-query/logs-dedicated-clusters.md) 로 이동 하는 것이 좋습니다.
+4TB/day 미만으로 수집 하는 고객은 일반적으로 이러한 제한을 충족 하지 않습니다. 더 큰 볼륨을 수집 하거나 정상적인 작업의 일부로 스파이크가 있는 고객은 수집 속도가 발생 될 수 있는 [전용 클러스터](./logs-dedicated-clusters.md) 로 이동 하는 것이 좋습니다.
 
 수집 비율 제한이 활성화 되거나 임계값의 80%가 되 면 작업 영역의 *작업* 테이블에 이벤트가 추가 됩니다. 이를 모니터링 하 고 경고를 만드는 것이 좋습니다. [데이터 수집 볼륨 요금](../service-limits.md#data-ingestion-volume-rate)에 대 한 자세한 내용을 참조 하세요.
 
@@ -144,7 +144,7 @@ Azure Monitor 고객과 백 엔드 인프라를 보호 하 고 격리 하기 위
 
 이 시나리오에서는 IT 조직의 구독에서 데이터 주권 또는 규정 준수의 제약을 받지 않는 단일 작업 영역 디자인을 설명 하거나, 리소스가 배포 된 지역에 매핑해야 합니다. 이를 통해 조직의 보안 및 IT 관리자 팀은 Azure 액세스 관리 및 보다 안전한 액세스 제어와의 향상 된 통합을 활용할 수 있습니다.
 
-다른 팀에서 유지 관리 하는 인프라 및 응용 프로그램을 지 원하는 모든 리소스, 모니터링 솔루션 및 정보는 IT 조직의 중앙 공유 작업 영역에 수집 된 로그 데이터를 전달 하도록 구성 됩니다 (예: Application Insights 및 VM용 Azure Monitor). 각 팀의 사용자에 게 액세스 권한이 부여 된 리소스에 대 한 로그에 대 한 액세스 권한이 부여 됩니다.
+모든 리소스, 모니터링 솔루션 및 정보 (예: Application Insights, VM 정보, 다른 팀에서 유지 관리 하는 인프라 및 응용 프로그램)는 수집 된 로그 데이터를 IT 조직의 중앙 공유 작업 영역으로 전달 하도록 구성 됩니다. 각 팀의 사용자에 게 액세스 권한이 부여 된 리소스에 대 한 로그에 대 한 액세스 권한이 부여 됩니다.
 
 작업 영역 아키텍처를 배포한 후에는 [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 Azure 리소스에 적용할 수 있습니다. 정책을 정의 하 고 Azure 리소스에 대 한 준수를 보장 하는 방법을 제공 하므로 모든 리소스 로그를 특정 작업 영역으로 보낼 수 있습니다. 예를 들어, Azure 가상 머신 또는 가상 머신 확장 집합을 사용 하면 작업 영역 준수 및 보고서 결과를 평가 하는 기존 정책을 사용 하거나 비준수 인 경우 사용자 지정 하 여 수정할 수 있습니다.  
 
@@ -159,8 +159,8 @@ Azure Monitor 고객과 백 엔드 인프라를 보호 하 고 격리 하기 위
 * 프로덕션 환경에서 구현 하기 전에 개발 환경에서 응용 프로그램 팀 및 테스트에 대 한 리소스에 부여 된 액세스를 확인 합니다.
 * **리소스 또는 작업 영역 권한 사용** 을 사용 하도록 작업 영역을 구성 합니다.
 * 작업 영역을 읽고 쿼리할 수 있는 응용 프로그램 팀을 제거 합니다.
-* 원본 작업 영역에 배포 된 컨테이너 및/또는 VM용 Azure Monitor, Automation 계정, 업데이트 관리, Vm 시작/중지 등의 관리 솔루션에 대 한 Azure Monitor 등의 모니터링 솔루션을 사용 하 고 구성 합니다.
+* 원본 작업 영역에 배포 된 모든 모니터링 솔루션, 컨테이너 insights 및/또는 VM용 Azure Monitor, Automation 계정, 업데이트 관리, Vm 시작/중지 등의 관리 솔루션을 사용 하도록 설정 하 고 구성 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서 권장 하는 보안 권한 및 제어를 구현 하려면 [로그에 대 한 액세스 관리](../platform/manage-access.md)를 검토 하세요.
+이 가이드에서 권장 하는 보안 권한 및 제어를 구현 하려면 [로그에 대 한 액세스 관리](./manage-access.md)를 검토 하세요.

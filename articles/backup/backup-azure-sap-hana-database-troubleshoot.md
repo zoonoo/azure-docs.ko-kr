@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713340"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -46,13 +46,6 @@ ms.locfileid: "95411328"
 | 오류 메시지      | <span style="font-weight:normal">지정한 SAP HANA 작업이 지원되지 않습니다.</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | SAP HANA Azure Backup는 SAP HANA native client에서 수행 되는 증분 백업 및 작업을 지원 하지 않습니다 (스튜디오/환경/DBA 환경). |
-| **권장 작업** | 자세한 내용은 [여기](./sap-hana-backup-support-matrix.md#scenario-support)를 참조하세요. |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
-
-| 오류 메시지      | <span style="font-weight:normal">이 SAP HANA 데이터베이스는 요청된 백업 유형을 지원하지 않습니다.</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **가능한 원인**    | Azure Backup는 스냅숏을 사용한 증분 백업 및 백업을 지원 하지 않습니다. |
 | **권장 작업** | 자세한 내용은 [여기](./sap-hana-backup-support-matrix.md#scenario-support)를 참조하세요. |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -161,7 +154,7 @@ SID 변경을 발생시키지 않는 OS 업그레이드, SDC 버전 변경 또�
 SID 변경을 발생시키지 않는 SDC에서 MDC로의 업그레이드는 다음과 같이 처리할 수 있습니다.
 
 - 새 MDC 버전이 현재 [Azure Backup에서 지원](sap-hana-backup-support-matrix.md#scenario-support)되는지 확인합니다.
-- 이전 SDC 데이터베이스에 대해 [데이터 보관을 통해 보호 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)
+- 이전 SDC 데이터베이스에 대해 [데이터 보관을 통해 보호를 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)합니다.
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).

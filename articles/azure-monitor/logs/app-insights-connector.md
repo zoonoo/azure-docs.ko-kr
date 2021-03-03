@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618679"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704347"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100618679"
 >
 >기존 연결은 2019년 6월 30일까지 계속 작동합니다.  OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. PowerShell을 사용하여 기존 연결을 제거하는 스크립트는 아래의 [PowerShell을 사용하여 커넥터 제거](#removing-the-connector-with-powershell)를 참조하세요.
 >
->여러 애플리케이션에 대한 Application Insights 로그 데이터를 쿼리하는 방법에 대한 지침은 [Azure Monitor Application Insights 리소스 통합](../log-query/unify-app-resource-data.md)을 참조하세요. OMS 포털 지원 중단에 대한 자세한 내용은 [Azure로 이동하는 OMS 포털](../platform/oms-portal-transition.md)을 참조하세요.
+>여러 애플리케이션에 대한 Application Insights 로그 데이터를 쿼리하는 방법에 대한 지침은 [Azure Monitor Application Insights 리소스 통합](./unify-app-resource-data.md)을 참조하세요. OMS 포털 지원 중단에 대한 자세한 내용은 [Azure로 이동하는 OMS 포털](./oms-portal-transition.md)을 참조하세요.
 >
 > 
 
@@ -44,10 +44,10 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [Windows 에이전트](./../agents/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../agents/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](./../agents/agent-windows.md) | No | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | No | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](../agents/om-agents.md) | No | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,7 +55,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
 - Application Insights 리소스 소유자 또는 참가자여야 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스** 를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
@@ -174,7 +174,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -200,7 +200,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>가용성 관련 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TelemetryType | 가용성 |
 | AvailabilityTestName | 웹 테스트의 이름 |
@@ -225,7 +225,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| 유형 | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -242,7 +242,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | 요청 |
@@ -318,5 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](../log-query/log-query-overview.md)을 사용합니다.
-
+- Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](./log-query-overview.md)을 사용합니다.

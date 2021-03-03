@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: dead60b9d8e0872f3d46b1f223ccf5e6697cbd90
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100057"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715516"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에서 개인 링크를 사용 하 여 원본 보호
 
@@ -30,7 +30,7 @@ ms.locfileid: "101100057"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Front 도어 Premium SKU는 개인 링크 서비스를 사용 하 여 원본에 연결할 수 있습니다. 응용 프로그램은 공용 인터넷에서 액세스할 수 없는 개인 가상 네트워크 또는 PaaS 서비스 뒤에 호스팅될 수 있습니다.
+Azure Front 도어 Premium SKU는 개인 링크 서비스를 사용 하 여 웹 앱 및 저장소 계정 뒤의 원본에 연결 하 여 원본에 액세스할 수 있는 공개적으로 필요를 제거할 수 있습니다.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="전면 도어 전용 끝점 아키텍처":::
 
@@ -38,7 +38,8 @@ Azure Front 도어 Premium 구성에서 원본에 대 한 개인 링크를 사�
 
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="개인 끝점 사용":::
 
-Azure Front 도어 프리미엄은 다양 한 원본 유형을 지원 합니다. 원본이 개인 네트워크의 가상 머신 집합에서 호스트 되는 경우 먼저 내부 표준 부하 분산 장치를 만들고, 표준 부하 분산 장치에 개인 링크 서비스를 사용 하도록 설정한 다음, 사용자 지정 원본 유형을 선택 해야 합니다. 개인 링크 구성의 경우 "PrivateLinkServices/as resource Type을 선택 합니다. Azure 웹 앱 및 저장소 계정과 같은 PaaS 서비스의 경우 먼저 해당 서비스에서 개인 링크 서비스를 사용 하도록 설정 하 고 웹 앱 및 Microsoft의 웹 앱 및 Microsoft 웹 앱에 대 한 웹 앱을 선택 합니다. 저장소 계정 개인 링크 서비스 유형에 대 한 저장소/StorageAccounts.
+> [!NOTE]
+> 개인 링크 원본을 사용 하도록 설정 하 고 개인 끝점을 승인한 후에는 연결을 설정 하는 데 몇 분 정도 걸립니다. 이 시간 동안 원본에 대 한 요청은 전방 도어 오류 메시지를 받게 됩니다. 연결이 설정 되 면 오류 메시지가 사라집니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -50,6 +51,5 @@ Azure 전면 도어 개인 끝점은 플랫폼 및 Azure Front 도어 구독에�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 개인 링크 서비스를 사용 하 여 Virtual Machines에 Azure Front 도어 Premium을 연결 하려면 [개인 끝점 만들기](../../private-link/create-private-endpoint-portal.md)를 참조 하세요.
 * 개인 링크 서비스를 통해 Azure Front 도어 Premium을 웹 앱에 연결 하려면 [개인 끝점을 사용 하 여 웹 앱에 연결](../../private-link/tutorial-private-endpoint-webapp-portal.md)을 참조 하세요.
 * 개인 링크 서비스를 통해 Azure Front 도어 Premium을 저장소 계정에 연결 하려면 [개인 끝점을 사용 하 여 저장소 계정에 연결](../../private-link/tutorial-private-endpoint-storage-portal.md)을 참조 하세요.

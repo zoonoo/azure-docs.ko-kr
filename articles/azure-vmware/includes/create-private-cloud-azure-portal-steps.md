@@ -3,12 +3,12 @@ title: Azure VMware Solution 프라이빗 클라우드 만들기
 description: Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드를 만드는 단계입니다.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653139"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725407"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "100653139"
    | **리소스 이름** | Azure VMware Solution 프라이빗 클라우드의 이름입니다. |
    | **SKU** | 다음 SKU 값을 선택합니다. AV36 |
    | **호스트** | 프라이빗 클라우드 클러스터에 추가할 호스트의 수입니다. 기본값은 3이며, 배포 후에 늘리거나 줄일 수 있습니다.  |
-   | **vCenter 관리자 암호** | 클라우드 관리자 암호를 입력합니다. |
-   | **NSX-T 관리자 암호** | NSX-T 관리자 암호를 입력합니다. |
    | **주소 블록** | 프라이빗 클라우드의 CIDR 네트워크에 대한 IP 주소 블록(예: 10.175.0.0/22)을 입력합니다. |
    | **Virtual Network** | Virtual Network를 선택하거나 Azure VMware Solution 프라이빗 클라우드에 대한 새 항목을 만듭니다.  |
 

@@ -4,19 +4,19 @@ description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718049"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 
 > [!WARNING]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](../platform/alerts-overview.md)지원 합니다. 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 [중지](../platform/monitoring-classic-retirement.md) 됩니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 클래식 경고는 공용 클라우드 사용자에 게 사용이 [중지](./monitoring-classic-retirement.md) 되지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
 >
 
 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure 클래식 메트릭 경고를 구성 하는 방법을 보여 줍니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
@@ -399,6 +399,6 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에 대해 알아보기](../platform/alerts-overview.md)
-* [진단 설정 추가](../samples/resource-manager-diagnostic-settings.md)
+* [경고에 대해 알아보기](./alerts-overview.md)
+* [진단 설정 추가](../essentials/resource-manager-diagnostic-settings.md)
 * JSON 구문 및 속성의 경우 [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) 템플릿 참조를 참조하세요.

@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699762"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
 
@@ -39,9 +39,9 @@ ms.locfileid: "100369835"
 
 ## <a name="cluster-status"></a>클러스터 상태
 
-클러스터가 디버그 될 준비가 되 면 디자인 화면 위쪽의 클러스터 상태 표시기가 녹색으로 바뀝니다. 클러스터가 이미 웜 상태이면 녹색 표시기가 거의 즉시 나타납니다. 디버그 모드로 전환 했을 때 클러스터가 아직 실행 되지 않은 경우 클러스터를 실행 하는 데 5-7 분 정도 기다려야 합니다. 표시기가 준비 될 때까지 회전 합니다.
+클러스터가 디버그 될 준비가 되 면 디자인 화면 위쪽의 클러스터 상태 표시기가 녹색으로 바뀝니다. 클러스터가 이미 웜 상태이면 녹색 표시기가 거의 즉시 나타납니다. 디버그 모드를 시작할 때 클러스터가 아직 실행 되지 않은 경우 Spark 클러스터는 콜드 부팅을 수행 합니다. 환경이 대화형 디버깅을 수행할 준비가 될 때까지 표시기가 회전 합니다.
 
-디버깅이 완료 되 면 Azure Databricks 클러스터가 종료 될 수 있도록 디버그 스위치를 해제 하 고 디버그 작업에 대해 더 이상 요금이 청구 되지 않습니다.
+디버깅이 완료 되 면 Spark 클러스터가 종료 되 고 더 이상 디버그 작업에 대 한 요금이 청구 되지 않도록 디버그 스위치를 해제 합니다.
 
 ## <a name="debug-settings"></a>디버그 설정
 
@@ -50,6 +50,8 @@ ms.locfileid: "100369835"
 ![디버그 설정](media/data-flow/debug-settings.png "디버그 설정")
 
 데이터 흐름 또는 참조 된 데이터 집합에 매개 변수가 있는 경우 **매개 변수** 탭을 선택 하 여 디버깅 중에 사용할 값을 지정할 수 있습니다.
+
+여기에 샘플링 설정을 사용 하 여 데이터의 샘플 파일 또는 샘플 표를 가리키면 원본 데이터 집합을 변경할 필요가 없습니다. 여기에서 샘플 파일이 나 테이블을 사용 하 여 데이터 하위 집합에 대해 테스트 하는 동안 데이터 흐름에서 동일한 논리 및 속성 설정을 유지 관리할 수 있습니다.
 
 ![디버그 설정 매개 변수](media/data-flow/debug-settings2.png "디버그 설정 매개 변수")
 

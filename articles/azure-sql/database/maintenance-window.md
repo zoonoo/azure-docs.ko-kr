@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679613"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692813"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "101679613"
 
 Azure는 Azure SQL Database 및 SQL Managed Instance 리소스에 대 한 계획 된 유지 관리 업데이트를 정기적으로 수행 하 여 기본 하드웨어, OS (운영 체제) 및 SQL 엔진을 포함 한 소프트웨어에 대 한 업데이트를 포함 합니다. 유지 관리 업데이트 중에는 리소스를 완전히 사용할 수 있고 액세스할 수 있지만 일부 유지 관리 업데이트에는 유지 관리 업데이트를 적용 하는 짧은 시간 (평균 시간 동안 8 초) 동안 인스턴스가 오프 라인으로 전환 되기 때문에 장애 조치 (failover)가 필요 합니다.  계획 된 유지 관리 업데이트는 평균적으로 35 일 마다 한 번씩 발생 합니다. 즉, 고객은 Azure SQL Database 또는 SQL 관리 되는 인스턴스 마다 매월 계획 된 유지 관리 이벤트를 예상 하 고, 고객에 의해 선택 된 유지 관리 기간 동안에만 발생 합니다.   
 
-유지 관리 기간은 기본 기간에 계획 된 유지 관리 이벤트를 발생 시킬 수 있는 잠재적인 연결 중단에 민감한 비즈니스 작업을 위한 것입니다.  
+유지 관리 기간은 예정 된 유지 관리 이벤트로 인해 발생할 수 있는 일시적인 연결 문제에 대해 복원 력이 없는 비즈니스 작업을 위한 것입니다.
 
 유지 관리 기간은 Azure Portal, PowerShell, CLI 또는 Azure API를 사용 하 여 구성할 수 있습니다. 만들거나 기존 SQL database 및 SQL 관리 되는 인스턴스에 대해 구성할 수 있습니다.
 
@@ -37,15 +37,15 @@ Azure는 Azure SQL Database 및 SQL Managed Instance 리소스에 대 한 계획
 기본적으로 모든 Azure SQL Database 및 관리 되는 인스턴스 데이터베이스는 매일 오후 5 시 하는 동안에만 업데이트 되어 업무 시간에 대 한 최대 중단을 방지 합니다. 현지 시간은 리소스를 호스트 하는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 의해 결정 됩니다. 두 가지 추가 유지 관리 기간을 선택 하 여 데이터베이스에 적합 한 시간에 대 한 유지 관리 업데이트를 추가로 조정할 수 있습니다.
 
 * **기본** 창, 오후 5 시 to 오전 8 시 Local time 월요일-일요일 
-* 평일 창, 오전 10 시 ~ 오전 6 시 현지 시간 월요일 – 목요일: **고객 옵트인 필요** 
-* 주말 창, 오전 10 시 ~ 오전 6 시 현지 시간 금요일-일요일: **고객 옵트인 필요**  
+* 평일 창, 오전 10 시 ~ 오전 6 시 현지 시간 월요일 – 목요일
+* 주말 창, 오전 10 시 ~ 오전 6 시 현지 시간 금요일-일요일
 
 유지 관리 기간을 선택 하면 계획 된 모든 유지 관리 업데이트가 선택한 기간 동안에만 수행 됩니다.   
 
 > [!Note]
 > 계획 된 유지 관리 업데이트 외에도, 드문 경우 지만 계획 되지 않은 유지 관리 이벤트로 인해 가용성이 저하 될 수 있습니다. 
 
-### <a name="cost"></a>비용
+### <a name="cost-and-eligibility"></a>비용 및 자격
 
 유지 관리 기간을 선택 하는 것은 종 량 제, CSP (클라우드 솔루션 공급자), Microsoft Enterprise 또는 Microsoft 고객 계약과 같은 구독 [제공 유형에](https://azure.microsoft.com/support/legal/offer-details/)대 한 무료입니다.
 

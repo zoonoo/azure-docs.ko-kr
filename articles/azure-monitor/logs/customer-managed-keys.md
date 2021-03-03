@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614154"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717420"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -25,11 +25,11 @@ Azure Monitor의 데이터는 Microsoft 관리 키를 사용 하 여 암호화 �
 
 Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor는 [Azure Key Vault](../../key-vault/general/overview.md)에 저장 된 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다 .이 옵션을 사용 하면 언제 든 지 데이터에 대 한 액세스를 취소할 수 있습니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
 
-고객 관리 키가 더 높은 보호 수준과 제어를 제공 하는 [전용 클러스터](../log-query/logs-dedicated-clusters.md) 에서 제공 됩니다. 전용 클러스터에 대 한 데이터 수집은 Microsoft에서 관리 하는 키 또는 고객 관리 키를 사용 하 여 서비스 수준에서 한 번, 두 개의 서로 다른 암호화 알고리즘과 두 개의 다른 키를 사용 하 여 인프라 수준에서 두 번 암호화 됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 경우 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다. 전용 클러스터를 사용 하 여 [Lockbox](#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
+고객 관리 키가 더 높은 보호 수준과 제어를 제공 하는 [전용 클러스터](./logs-dedicated-clusters.md) 에서 제공 됩니다. 전용 클러스터에 대 한 데이터 수집은 Microsoft에서 관리 하는 키 또는 고객 관리 키를 사용 하 여 서비스 수준에서 한 번, 두 개의 서로 다른 암호화 알고리즘과 두 개의 다른 키를 사용 하 여 인프라 수준에서 두 번 암호화 됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 경우 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다. 전용 클러스터를 사용 하 여 [Lockbox](#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
 
 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리 키 구성에 관계 없이 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021의 처음 절반에서 고객 관리 키로 SSD 데이터를 암호화 하기 위해 노력 하 고 있습니다.
 
-Log Analytics 전용 클러스터는 1000 m b/일에 시작 되는 용량 예약 [가격 책정 모델](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) 을 사용 합니다.
+Log Analytics 전용 클러스터는 1000 m b/일에 시작 되는 용량 예약 [가격 책정 모델](./logs-dedicated-clusters.md#cluster-pricing-model) 을 사용 합니다.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 고객이 관리 하는 키가 작동 하는 방식
 
@@ -145,7 +145,7 @@ Authorization: Bearer <token>
 > [!IMPORTANT]
 > Key Vault Private-Link (vNet)에 있는 경우 사용자 할당 관리 id를 사용할 수 없습니다. 이 시나리오에서는 시스템 할당 관리 id를 사용할 수 있습니다.
 
-[전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
+[전용 클러스터 문서](./logs-dedicated-clusters.md#creating-a-cluster)에 설명 된 절차를 따릅니다. 
 
 ## <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
 
@@ -253,7 +253,7 @@ Content-type: application/json
 
 및를 포함 하 여이 작업을 수행 하려면 작업 영역 및 클러스터 모두에 ' 쓰기 ' 권한이 있어야 `Microsoft.OperationalInsights/workspaces/write` `Microsoft.OperationalInsights/clusters/write` 합니다.
 
-[전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster)에 설명 된 절차를 따릅니다.
+[전용 클러스터 문서](./logs-dedicated-clusters.md#link-a-workspace-to-cluster)에 설명 된 절차를 따릅니다.
 
 ## <a name="key-revocation"></a>키 해지
 
@@ -387,7 +387,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영�
 
 ## <a name="customer-managed-key-operations"></a>Customer-Managed 키 작업
 
-Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업을 [전용 클러스터 문서](../log-query/logs-dedicated-clusters.md#change-cluster-properties) 에서 참조 합니다.
+Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업을 [전용 클러스터 문서](./logs-dedicated-clusters.md#change-cluster-properties) 에서 참조 합니다.
 
 - 리소스 그룹의 모든 클러스터 가져오기  
 - 구독의 모든 클러스터 가져오기
@@ -470,8 +470,8 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
 
   **클러스터 업데이트**
   -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행 하기 전에 클러스터에서 해당 작업을 완료 해야 합니다.
-  -  400--KeyVaultProperties가 비어 있지 않지만 형식이 잘못 되었습니다. [키 식별자 업데이트](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조 하세요.
-  -  400--Key Vault의 키 유효성을 검사 하지 못했습니다. 권한이 부족 하거나 키가 없는 경우에 발생할 수 있습니다. Key Vault에서 [키 및 액세스 정책을 설정](../platform/customer-managed-keys.md#grant-key-vault-permissions) 했는지 확인 합니다.
+  -  400--KeyVaultProperties가 비어 있지 않지만 형식이 잘못 되었습니다. [키 식별자 업데이트](#update-cluster-with-key-identifier-details)를 참조 하세요.
+  -  400--Key Vault의 키 유효성을 검사 하지 못했습니다. 권한이 부족 하거나 키가 없는 경우에 발생할 수 있습니다. Key Vault에서 [키 및 액세스 정책을 설정](#grant-key-vault-permissions) 했는지 확인 합니다.
   -  400--키를 복구할 수 없습니다. 일시 삭제 및 제거 보호로 Key Vault 설정 해야 합니다. [Key Vault 설명서](../../key-vault/general/soft-delete-overview.md) 를 참조 하세요.
   -  400-지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
   -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
@@ -492,5 +492,5 @@ Customer-Managed 키는 전용 클러스터에서 제공 되며 이러한 작업
   -  409--프로세스의 작업 영역 연결 또는 연결 해제 작업입니다.
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics 전용 클러스터 청구](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 에 대해 알아보기
-- [Log Analytics 작업 영역](../platform/design-logs-deployment.md) 에 대 한 적절 한 디자인 알아보기
+- [Log Analytics 전용 클러스터 청구](./manage-cost-storage.md#log-analytics-dedicated-clusters) 에 대해 알아보기
+- [Log Analytics 작업 영역](./design-logs-deployment.md) 에 대 한 적절 한 디자인 알아보기

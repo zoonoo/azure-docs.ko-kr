@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710943"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
 Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](/azure/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
@@ -40,7 +40,7 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure/az
 
 다음 표에서는 _LogOperation 함수의 범주에 대해 설명 합니다. 
 
-| 범주 | 설명 |
+| 범주 | Description |
 |:---|:---|
 | 수집           | 데이터 수집 프로세스의 일부인 작업입니다. 자세한 내용은 다음을 참조하세요. |
 | 에이전트               | 에이전트 설치에 문제가 있음을 나타냅니다. |
@@ -55,20 +55,20 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure/az
 
 | 작업 | Level | 세부 정보 | 관련 문서 |
 |:---|:---|:---|:---|
-| 사용자 지정 로그 | 오류   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 사용자 지정 로그 | 오류   | 사용자 지정 로그를 수집 하지 못했습니다. | |
-| 메타데이터입니다. | 오류 | 구성 오류가 발생 했습니다. | |
-| 데이터 수집 | 오류   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| 사용자 지정 로그 | Error   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 사용자 지정 로그 | Error   | 사용자 지정 로그를 수집 하지 못했습니다. | |
+| 메타데이터입니다. | Error | 구성 오류가 발생 했습니다. | |
+| 데이터 수집 | Error   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | 데이터 수집 | 정보    | 수집 컴퓨터 구성이 검색 되었습니다.| |
-| 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 처리 | 오류   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](../logs/data-collector-api.md#request-body) | 
+| 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| 데이터 처리 | Error   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](../logs/data-collector-api.md#request-body) | 
 | 데이터 처리 | 경고 | 값이 최대 허용 크기로 잘렸습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
 | 데이터 처리 | 경고 | 크기 제한에 도달 하 여 필드 값이 잘립니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) | 
 | 수집 율 | 정보 | 수집 비율 제한이 70%에 근접 합니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
 | 수집 율 | 경고 | 수집 속도로 제한에 근접 하 고 있습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 수집 율 | 오류   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 스토리지 | 오류   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
+| 수집 율 | Error   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 스토리지 | Error   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
 
 
 
@@ -125,4 +125,4 @@ Azure Monitor의 [로그 쿼리 경고](../alerts/alerts-log-query.md) 를 사�
 ## <a name="next-steps"></a>다음 단계
 
 - [로그 경고](../alerts/alerts-log.md)에 대해 자세히 알아보세요.
-- 작업 영역에 대 한 [쿼리 감사 데이터를 수집](../log-query/query-audit.md) 합니다.
+- 작업 영역에 대 한 [쿼리 감사 데이터를 수집](./query-audit.md) 합니다.

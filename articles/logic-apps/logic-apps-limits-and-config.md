@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b80c5cb469f881ee0950d618c3bae5fa1fc1e026
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388535"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699048"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -139,7 +139,7 @@ ms.locfileid: "100388535"
 
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 작업: 5분당 실행 | 기본 제한은 100,000이고, 최대 제한은 300,000입니다. | 논리 앱의 기본 제한을 최대로 높이려면 미리 보기에 있는 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조 하세요. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다. |
+| 작업: 5 분 간격으로 실행 간격 | -10만 실행 (기본값) <p><p>-30만 실행 (높은 처리량 모드의 최대값)  | 논리 앱에 대 한 최대 제한의 기본 제한을 발생 시키려면 미리 보기 상태인 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조 하세요. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다. |
 | 작업: 동시 아웃 바운드 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
 | 런타임 끝점: 동시 인바운드 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
 | 런타임 엔드포인트: 5분당 읽기 호출  | 60,000 | 이 제한은 논리 앱의 실행 기록에서 원시 입력 및 출력을 가져오는 호출에 적용 됩니다. 필요에 따라 두 개 이상의 앱에 워크 로드를 배포할 수 있습니다. |
@@ -151,7 +151,7 @@ ms.locfileid: "100388535"
 
 #### <a name="run-in-high-throughput-mode"></a>높은 처리량 모드에서 실행
 
-단일 논리 앱 정의의 경우 5 분 마다 실행 되는 작업 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 논리 앱의 기본 제한을 최대로 높이려면 미리 보기에 있는 높은 처리량 모드를 사용 하도록 설정할 수 있습니다. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다.
+단일 논리 앱 정의의 경우 5 분 마다 실행 되는 작업 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)있습니다. 기본 제한의 3 배에 해당 하는 논리 앱의 [최대 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 에 대 한 기본 제한을 높이려면 미리 보기에 있는 높은 처리량 모드를 사용 하도록 설정할 수 있습니다. 또는 필요에 따라 [두 개 이상의 논리 앱에 워크 로드를 배포할](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) 수 있습니다.
 
 1. Azure Portal의 논리 앱 메뉴에 있는 **설정** 에서 **워크플로 설정** 을 선택 합니다.
 

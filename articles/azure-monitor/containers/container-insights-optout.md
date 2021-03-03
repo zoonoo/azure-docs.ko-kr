@@ -1,24 +1,24 @@
 ---
 title: Azure Kubernetes Service 클러스터 모니터링을 중지하는 방법 | Microsoft Docs
-description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 대한 Azure AKS 클러스터의 모니터링을 중단하는 방법을 설명합니다.
+description: 이 문서에서는 컨테이너 insights를 사용 하 여 Azure AKS 클러스터의 모니터링을 중단 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723540"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Kubernetes 서비스 (AKS) 모니터링을 중지 하는 방법
 
 AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링하지 않으려는 경우 클러스터 모니터링을 중지할 수 있습니다. 이 문서에서는 Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 옵트아웃하는 방법을 보여줍니다.  
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 이 명령은 클러스터 노드에서 에이전트를 제거 합니다. 솔루션이 나 이미 수집 되어 Azure Monitor 리소스에 저장 된 데이터는 제거 하지 않습니다.  
+[Az aks addons](/cli/azure/aks#az-aks-disable-addons) 명령을 사용 하 여 Container insights를 사용 하지 않도록 설정 합니다. 이 명령은 클러스터 노드에서 에이전트를 제거 합니다. 솔루션이 나 이미 수집 되어 Azure Monitor 리소스에 저장 된 데이터는 제거 하지 않습니다.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -165,4 +165,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제하는 방법을 모를 경우 [Azure Portal에서 Azure Log Analytics 작업 영역 삭제](../platform/delete-workspace.md)를 참조하세요. 4 단계에서 이전에 복사한 **작업 영역 리소스 ID** 를 잊지 마세요 .이 작업은 필요 합니다.
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제하는 방법을 모를 경우 [Azure Portal에서 Azure Log Analytics 작업 영역 삭제](../logs/delete-workspace.md)를 참조하세요. 4 단계에서 이전에 복사한 **작업 영역 리소스 ID** 를 잊지 마세요 .이 작업은 필요 합니다.

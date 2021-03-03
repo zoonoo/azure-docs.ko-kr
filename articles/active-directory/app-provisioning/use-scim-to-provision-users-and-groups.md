@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35efcd4059ab654178fb87c133a6f64721caf7d2
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989064"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652099"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
 
@@ -882,7 +882,7 @@ Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합�
 
 전달자 토큰은 제공된 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint)를 사용하고 localhost를 사용하여 로컬 디버깅을 수행하는 데에도 필요합니다. 샘플 코드는 ASP.NET Core 환경을 사용하여 개발 단계 중에 인증 옵션을 변경하고 자체 서명된 토큰을 사용할 수 있도록 합니다.
 
-ASP.NET Core의 여러 환경에 대한 자세한 내용은 [ASP.NET Core에서 여러 환경 사용](https://docs.microsoft.com/aspnet/core/fundamentals/environments)을 참조하세요.
+ASP.NET Core의 여러 환경에 대한 자세한 내용은 [ASP.NET Core에서 여러 환경 사용](/aspnet/core/fundamentals/environments)을 참조하세요.
 
 다음 코드는 서비스의 엔드포인트에 대한 요청이 사용자 지정 키로 서명된 전달자 토큰을 사용하여 인증되도록 합니다.
 

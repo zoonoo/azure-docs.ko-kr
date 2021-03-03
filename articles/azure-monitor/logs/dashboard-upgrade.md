@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 139241d679007bf72680f91a1518a1ef90cc7efc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700629"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Log Analytics 대시보드 시각화 업그레이드
 
@@ -82,4 +82,4 @@ Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Log Analytics에서 대시보드 만들기 및 공유](../learn/tutorial-logs-dashboards.md)
+[Log Analytics에서 대시보드 만들기 및 공유](../visualize/tutorial-logs-dashboards.md)

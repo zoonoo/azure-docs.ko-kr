@@ -6,22 +6,22 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e195c005676df27385e5e00736b04bdb689fafc5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240327"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727110"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 공용 네트워크 액세스 거부
 
 이 문서에서는 모든 공용 구성을 거부 하도록 Azure Database for PostgreSQL 단일 서버를 구성 하 고 개인 끝점을 통해서만 연결을 허용 하 여 네트워크 보안을 강화 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-* [단일 서버 Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
+* 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층을 사용 하는 [Azure Database for PostgreSQL 단일 서버](quickstart-create-server-database-portal.md) .
 
 ## <a name="set-deny-public-network-access"></a>공용 네트워크 액세스 거부 설정
 

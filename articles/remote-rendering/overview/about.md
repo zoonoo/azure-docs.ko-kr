@@ -5,18 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6001fff54b86b7c18684092aad6c7fdf64f81990
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729949"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering 정보
-
-> [!IMPORTANT]
-> **Azure Remote Rendering**은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 *ARR(Azure Remote Rendering)* 은 클라우드에서 고품질의 대화형 3D 콘텐츠를 렌더링하고 HoloLens 2와 같은 디바이스에서 실시간으로 스트리밍할 수 있는 서비스입니다.
 
@@ -28,11 +24,11 @@ ms.locfileid: "91650462"
 
 축소된 모델은 원래 모델의 1800만 개가 넘는 삼각형에 비해 약 20만 개 삼각형(자세한 내부 부분 포함)으로 구성됩니다.
 
-*원격 렌더링*은 렌더링 워크로드를 클라우드의 고성능 GPU로 이동하여 이 문제를 해결합니다. 클라우드에 호스팅되는 그래픽 엔진은 이미지를 렌더링하고, 비디오 스트림으로 인코딩하고, 대상 디바이스로 스트리밍합니다.
+*원격 렌더링* 은 렌더링 워크로드를 클라우드의 고성능 GPU로 이동하여 이 문제를 해결합니다. 클라우드에 호스팅되는 그래픽 엔진은 이미지를 렌더링하고, 비디오 스트림으로 인코딩하고, 대상 디바이스로 스트리밍합니다.
 
 ## <a name="hybrid-rendering"></a>하이브리드 렌더링
 
-대부분의 애플리케이션에서는 복잡한 모델을 렌더링하는 것만으로는 충분하지 않습니다. 사용자에게 기능을 제공하는 사용자 지정 UI도 필요합니다. Azure Remote Rendering은 전용 UI 프레임워크를 사용하도록 강제하지 않으며, 그 대신 *하이브리드 렌더링*을 지원합니다. 즉, [MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html) 등의 선호하는 방법을 사용하여 디바이스에서 요소를 렌더링할 수 있습니다.
+대부분의 애플리케이션에서는 복잡한 모델을 렌더링하는 것만으로는 충분하지 않습니다. 사용자에게 기능을 제공하는 사용자 지정 UI도 필요합니다. Azure Remote Rendering은 전용 UI 프레임워크를 사용하도록 강제하지 않으며, 그 대신 *하이브리드 렌더링* 을 지원합니다. 즉, [MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html) 등의 선호하는 방법을 사용하여 디바이스에서 요소를 렌더링할 수 있습니다.
 
 프레임이 끝나면 Azure Remote Rendering은 로컬로 렌더링된 콘텐츠를 원격 이미지와 자동으로 결합합니다. 올바른 폐색을 사용하여 이 작업을 수행할 수도 있습니다.
 

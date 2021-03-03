@@ -3,12 +3,12 @@ title: Service Fabric 클러스터의 x.509 인증서 기반 인증
 description: Service Fabric 클러스터의 인증서 기반 인증에 대해 알아보고 인증서 관련 문제를 검색, 완화 및 수정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901252"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729694"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Service Fabric 클러스터의 x.509 인증서 기반 인증
 
@@ -182,7 +182,7 @@ X.509 인증서를 사용 하 여 보호 되는 클러스터의 연결에 대 �
 
 앞서 언급 했 듯이 인증서 유효성 검사는 항상 인증서 체인의 작성 및 평가를 의미 합니다. CA에서 발급 한 인증서의 경우이 처럼 단순한 OS API 호출에는 일반적으로 발급 하는 PKI의 다양 한 끝점에 대 한 몇 가지 아웃 바운드 호출, 응답 캐싱 등이 있습니다. Service Fabric 클러스터에서 인증서 유효성 검사 호출의 전파를 고려할 때 PKI 끝점의 모든 문제는 클러스터의 가용성을 줄이거나 완전히 분석 될 수 있습니다. 아웃 바운드 호출을 억제할 수 없는 경우 (자세한 내용은 FAQ 섹션의 아래 참조) 다음 설정을 사용 하 여 CRL 호출에 실패 한 유효성 검사 오류를 마스킹할 수 있습니다.
 
-  * CrlCheckingFlag-' Security ' 섹션에서 문자열이 UINT로 변환 됩니다. 이 설정의 값은 체인 작성의 동작을 변경 하 여 인증서 체인 상태 오류를 마스킹 하는 Service Fabric에서 사용 됩니다. 이 클래스는 ' dwFlags ' 매개 변수로 Win32 CryptoAPI [목록은 certgetcertificatechain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) 호출에 전달 되며 함수에서 허용 하는 모든 유효한 플래그 조합으로 설정할 수 있습니다. 값 0은 Service Fabric 런타임이 신뢰 상태 오류를 강제로 무시 하도록 합니다 .이는 사용 하는 것이 중요 한 보안 노출을 구성 하므로 권장 되지 않습니다. 기본값은 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT)입니다.
+  * CrlCheckingFlag-"Security" 섹션에서 문자열이 UINT로 변환 됩니다. 이 설정의 값은 체인 작성의 동작을 변경 하 여 인증서 체인 상태 오류를 마스킹 하는 Service Fabric에서 사용 됩니다. 이 클래스는 ' dwFlags ' 매개 변수로 Win32 CryptoAPI [목록은 certgetcertificatechain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) 호출에 전달 되며 함수에서 허용 하는 모든 유효한 플래그 조합으로 설정할 수 있습니다. 값 0은 Service Fabric 런타임이 신뢰 상태 오류를 강제로 무시 하도록 합니다 .이는 사용 하는 것이 중요 한 보안 노출을 구성 하므로 권장 되지 않습니다. 기본값은 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT)입니다.
 
   사용 시기: 자체 서명 된 인증서 또는 자체 서명 된 인증서를 사용 하 여 인증서를 지 원하는 적절 한 공개 키 인프라가 없는 개발자 인증서를 사용 하는 경우입니다. 는 Pki 간을 전환 하는 동안 gapped 환경에서 완화가 사용 될 수도 있습니다.
 
@@ -197,7 +197,7 @@ X.509 인증서를 사용 하 여 보호 되는 클러스터의 연결에 대 �
     </Section>
   ```
 
-  * IgnoreCrlOfflineError-' Security ' 섹션에서 기본값은 ' f a l s e ' 인 부울 값입니다. ' 해지 오프 라인 ' 체인 빌드 오류 상태 (또는 후속 체인 정책 유효성 검사 오류 상태)를 표시 하지 않는 바로 가기를 나타냅니다.
+  * IgnoreCrlOfflineError-"보안" 섹션 아래에서 기본값은 ' f a l s e ' 인 부울 값입니다. ' 해지 오프 라인 ' 체인 빌드 오류 상태 (또는 후속 체인 정책 유효성 검사 오류 상태)를 표시 하지 않는 바로 가기를 나타냅니다.
 
   사용 시기: 로컬 테스트 또는 적절 한 PKI에서 지원 되지 않는 개발자 인증서. Gapped 환경에서를 완화 하거나 PKI에 액세스할 수 없는 것으로 알려져 있는 경우를 사용 합니다.
 
@@ -208,7 +208,7 @@ X.509 인증서를 사용 하 여 보호 되는 클러스터의 연결에 대 �
     </Section>
   ```
 
-  기타 주목할 만한 설정 (' 보안 ' 섹션 아래 모두):
+  기타 주목할 만한 설정 ("보안" 섹션 아래 모두):
   * AcceptExpiredPinnedClusterCertificate-지문 기반 인증서 유효성 검사 전용 섹션에서 설명 합니다. 만료 된 자체 서명 된 클러스터 인증서를 허용할 수 있습니다. 
   * CertificateExpirySafetyMargin-인증서의 NotAfter 타임 스탬프 이전에 분 단위로 표시 되 고, 인증서가 만료 위험으로 간주 됩니다. Service Fabric는 클러스터 인증서를 모니터링 하 고 나머지 가용성에 대 한 상태 보고서를 주기적으로 내보냅니다. ' 보안 ' 간격 내에서 이러한 상태 보고서는 ' 경고 ' 상태로 상승 됩니다. 기본값은 30 일입니다.
   * CertificateHealthReportingInterval-클러스터 인증서의 남은 시간 유효성에 관한 상태 보고서의 빈도를 제어 합니다. 이 간격 마다 한 번만 보고서를 내보냅니다. 값은 초 단위로 표시 되며 기본값은 8 시간입니다.

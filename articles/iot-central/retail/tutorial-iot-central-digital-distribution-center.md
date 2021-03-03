@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702694"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -21,7 +21,8 @@ ms.locfileid: "99831300"
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
-> 디지털 배포 센터 애플리케이션 만들기 애플리케이션 살펴보기 
+> * 디지털 배포 센터 애플리케이션 만들기 
+> * 애플리케이션 살펴보기 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.

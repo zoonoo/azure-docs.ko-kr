@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2da2ae01e92ae2751f9f26e005579bad9911330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738738"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -195,7 +195,7 @@ NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la
 
 1. `ls`Linux 명령을 사용 하 여 디렉터리에서 복원 하려는 파일을 나열 합니다 `.snapshot` . 
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -210,7 +210,7 @@ NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la
 
 2. 명령을 사용 `cp` 하 여 부모 디렉터리에 파일을 복사 합니다.  
 
-    예를 들면 다음과 같습니다. 
+    다음은 그 예입니다.  
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
@@ -257,6 +257,9 @@ NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la
 ## <a name="delete-snapshots"></a>스냅샷 삭제  
 
 더 이상 유지 하지 않아도 되는 스냅숏을 삭제할 수 있습니다. 
+
+> [!IMPORTANT]
+> 스냅숏 삭제 작업은 실행 취소할 수 없습니다. 삭제 된 스냅숏은 복구할 수 없습니다. 
 
 1. 볼륨의 **스냅숏** 메뉴로 이동 합니다. 삭제할 스냅숏을 마우스 오른쪽 단추로 클릭 합니다. **삭제** 를 선택합니다.
 

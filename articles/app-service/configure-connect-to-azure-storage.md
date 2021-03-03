@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736207"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720242"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>App Service의 컨테이너에서 네트워크 공유로 Azure Storage (미리 보기) 액세스
 
 ::: zone pivot="container-windows"
 
-이 가이드에서는 App Service의 windows 컨테이너에 Azure Storage 파일을 네트워크 공유로 연결 하는 방법을 보여 줍니다. [Azure Files 공유](../storage/files/storage-how-to-use-files-cli.md) 및 [프리미엄 파일 공유](../storage/files/storage-how-to-create-premium-fileshare.md) 만 지원 됩니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
+이 가이드에서는 App Service의 windows 컨테이너에 Azure Storage 파일을 네트워크 공유로 연결 하는 방법을 보여 줍니다. [Azure Files 공유](../storage/files/storage-how-to-use-files-cli.md) 및 [프리미엄 파일 공유](../storage/files/storage-how-to-create-file-share.md) 만 지원 됩니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
 
 > [!NOTE]
 >App Service Azure Storage는 **미리 보기** 상태 이며 **프로덕션 시나리오** 에서 **지원 되지 않습니다** .

@@ -3,12 +3,12 @@ title: Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확�
 description: Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확장 집합 확장을 추가 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 64df4b82795f382e176d66dc61470296447b9e29
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a47908b511f79c18482e9d21e623f1cb4dc70ed1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737769"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확장 집합 확장 추가 (미리 보기)
 

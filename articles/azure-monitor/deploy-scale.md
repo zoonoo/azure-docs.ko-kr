@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd56e464419312e74aec01cf22ae56f797991ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573614"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731768"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
 일부 Azure Monitor 기능은 한 번 또는 여러 번 구성 되지만 모니터링 하려는 각 리소스에 대해 다른 기능을 반복 해야 합니다. 이 문서에서는 Azure Policy를 사용 하 여 모든 Azure 리소스에 대해 모니터링이 일관적이 고 정확 하 게 구성 되도록 하는 Azure Monitor을 구현 하는 방법을 설명 합니다.
@@ -26,7 +26,7 @@ Azure Policy를 사용 하 여 생성 된 모든 리소스에 대 한 구성 요
 
 Azure Policy은 다음 테이블의 개체로 구성 됩니다. 각에 대 한 자세한 설명은 [Azure Policy 개체](../governance/policy/overview.md#azure-policy-objects) 를 참조 하세요.
 
-| 항목 | 설명 |
+| 항목 | Description |
 |:---|:---|
 | 정책 정의 | 리소스 준수 조건 및 조건이 충족 될 경우 수행할 영향을 설명 합니다. 특정 형식의 모든 리소스 이거나 특정 속성과 일치 하는 리소스만 될 수 있습니다. 이에 따른 결과는 리소스를 준수 하도록 플래그를 지정 하거나 관련 된 리소스를 배포 하는 것입니다. 정책 정의는 [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)에 설명 된 대로 JSON을 사용 하 여 작성 됩니다. 효과는 [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)에 설명 되어 있습니다.
 | 정책 이니셔티브 | 함께 적용 해야 하는 정책 정의 그룹입니다. 예를 들어 리소스 로그를 Log Analytics 작업 영역에 보내고 다른 하나는 리소스 로그를 event hubs로 보내는 정책 정의가 하나 있을 수 있습니다. 두 정책 정의를 모두 포함 하는 이니셔티브를 만들고 개별 정책 정의 대신 리소스에 이니셔티브를 적용 합니다. 이니셔티브는 [Azure Policy 이니셔티브 구조](../governance/policy/concepts/initiative-definition-structure.md)에 설명 된 대로 JSON을 사용 하 여 작성 됩니다. |
@@ -121,34 +121,34 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 ![이니셔티브 수정](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-[VM용 Azure Monitor](vm/vminsights-overview.md) 는 가상 컴퓨터를 모니터링 하는 Azure Monitor 기본 도구입니다. VM용 Azure Monitor 사용 하도록 설정 하면 Log Analytics 에이전트와 종속성 에이전트가 모두 설치 됩니다. 이러한 작업을 수동으로 수행 하는 대신 Azure Policy를 사용 하 여 각 가상 컴퓨터를 만들 때 구성 했는지 확인 합니다.
+## <a name="vm-insights"></a>VM 정보
+[VM 정보](vm/vminsights-overview.md) 는 가상 컴퓨터를 모니터링 하는 Azure Monitor의 기본 도구입니다. VM insights를 사용 하도록 설정 하면 Log Analytics 에이전트와 종속성 에이전트가 모두 설치 됩니다. 이러한 작업을 수동으로 수행 하는 대신 Azure Policy를 사용 하 여 각 가상 컴퓨터를 만들 때 구성 했는지 확인 합니다.
 
 > [!NOTE]
-> VM용 Azure Monitor에는 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 **VM용 Azure Monitor 정책 적용** 기능 이라는 기능이 포함 되어 있습니다. Azure Vm에 대 한 Azure Policy 및 Azure Arc와 연결 된 하이브리드 가상 머신에 직접 작업 하는 대신이 기능을 사용할 수 있습니다. Azure 가상 머신 확장 집합의 경우 Azure Policy를 사용 하 여 할당을 만들어야 합니다.
+> VM insights에는 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 **vm Insights 정책 적용 범위** 라는 기능이 포함 되어 있습니다. Azure Vm에 대 한 Azure Policy 및 Azure Arc와 연결 된 하이브리드 가상 머신에 직접 작업 하는 대신이 기능을 사용할 수 있습니다. Azure 가상 머신 확장 집합의 경우 Azure Policy를 사용 하 여 할당을 만들어야 합니다.
  
 
-VM용 Azure Monitor는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브를 포함 합니다. 
+VM insights에는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브가 포함 되어 있습니다. 
 
-|속성 |설명 |
+|속성 |Description |
 |:---|:---|
-|VM용 Azure Monitor 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
+|VM insights 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 |가상 머신 확장 집합에 대 한 Azure Monitor 사용 | Azure 가상 머신 확장 집합에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 
 
 ### <a name="virtual-machines"></a>가상 머신
-Azure Policy 인터페이스를 사용 하 여 이러한 이니셔티브에 대 한 할당을 만드는 대신 VM용 Azure Monitor에는 각 범위에 있는 가상 머신의 수를 검사 하 여 이니셔티브의 적용 여부를 확인할 수 있는 기능이 포함 되어 있습니다. 그런 다음 작업 영역을 구성 하 고 해당 인터페이스를 사용 하 여 필요한 할당을 만들 수 있습니다.
+Azure Policy 인터페이스를 사용 하 여 이러한 이니셔티브에 대 한 할당을 만드는 대신, VM insights에는 각 범위에 있는 가상 머신의 수를 검사 하 여 이니셔티브의 적용 여부를 확인할 수 있는 기능이 포함 되어 있습니다. 그런 다음 작업 영역을 구성 하 고 해당 인터페이스를 사용 하 여 필요한 할당을 만들 수 있습니다.
 
-이 프로세스에 대 한 자세한 내용은 [Azure Policy를 사용 하 여 VM용 Azure Monitor 사용](./vm/vminsights-enable-policy.md)을 참조 하세요.
+이 프로세스에 대 한 자세한 내용은 [Azure Policy를 사용 하 여 VM Insights 사용](./vm/vminsights-enable-policy.md)을 참조 하세요.
 
-![VM용 Azure Monitor 정책](media/deploy-scale/vminsights-policy.png)
+![VM insights 정책](media/deploy-scale/vminsights-policy.png)
 
 ### <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
 Azure Policy를 사용 하 여 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하려면 모니터링할 리소스의 범위에 따라 **가상 머신 확장 집합에 대 한 Azure Monitor 사용** 이니셔티브를 Azure 관리 그룹, 구독 또는 리소스 그룹에 할당 합니다. [관리 그룹](../governance/management-groups/overview.md) 은 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 특히 유용 합니다.
 
 ![Azure Portal에서 이니셔티브 할당 페이지의 스크린샷 가상 머신 확장 집합에 대 한 Azure Monitor 사용 하도록 이니셔티브 정의가 설정 되었습니다.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-데이터가 전송 될 작업 영역을 선택 합니다. 이 작업 영역에는 [VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md)에 설명 된 대로 *VMInsights* 솔루션이 설치 되어 있어야 합니다.
+데이터가 전송 될 작업 영역을 선택 합니다. [VM insights에 대 한 Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md)에 설명 된 대로이 작업 영역에는 *VMInsights* 솔루션이 설치 되어 있어야 합니다.
 
 ![작업 영역 선택](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -157,13 +157,13 @@ Azure Policy를 사용 하 여 가상 머신 확장 집합에 대 한 모니터�
 ![수정 작업](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
-Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 하지 않으려는 시나리오가 있을 수 있습니다. 에이전트에 대 한 기본 제공 이니셔티브는 없지만 VM용 Azure Monitor에서 제공 하는 기본 제공 정책 정의에 따라 직접 만들 수 있습니다.
+Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 하지 않으려는 시나리오가 있을 수 있습니다. 에이전트에 대 한 기본 제공 이니셔티브는 없지만 VM insights에서 제공 하는 기본 제공 정책 정의에 따라 직접 만들 수 있습니다.
 
 > [!NOTE]
 > Log Analytics 에이전트가 Azure Monitor에 데이터를 전달 해야 하므로 종속성 에이전트를 자체에 배포할 이유가 없습니다.
 
 
-|속성 |설명 |
+|속성 |Description |
 |-----|------------|
 |감사 Log Analytics 에이전트 배포 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |
 |Linux VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397918"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711691"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 HTTP 요청 및 응답 헤더 재작성-Azure PowerShell
 
@@ -31,23 +31,23 @@ HTTP 헤더 재작성을 구성 하려면 다음 단계를 완료 해야 합니�
 
 1. HTTP 헤더 재작성에 필요한 개체를 만듭니다.
 
-   - **RequestHeaderConfiguration** : 재작성 하려는 요청 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다.
+   - **RequestHeaderConfiguration**: 재작성 하려는 요청 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다.
 
-   - **Responseheaderconfiguration** : 재작성 하려는 응답 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다.
+   - **Responseheaderconfiguration**: 재작성 하려는 응답 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다.
 
-   - **Actionset** : 이전에 지정 된 요청 및 응답 헤더의 구성을 포함 합니다.
+   - **Actionset**: 이전에 지정 된 요청 및 응답 헤더의 구성을 포함 합니다.
 
-   - **Condition** : 선택적 구성입니다. 다시 쓰기 조건은 HTTP 요청 및 응답의 콘텐츠를 평가 합니다. HTTP (S) 요청 또는 응답이 재작성 조건과 일치 하면 재작성 작업이 수행 됩니다.
+   - **Condition**: 선택적 구성입니다. 다시 쓰기 조건은 HTTP 요청 및 응답의 콘텐츠를 평가 합니다. HTTP (S) 요청 또는 응답이 재작성 조건과 일치 하면 재작성 작업이 수행 됩니다.
 
      작업에 둘 이상의 조건을 연결 하는 경우 모든 조건이 충족 되는 경우에만 작업이 수행 됩니다. 즉, 작업은 논리적 AND 연산입니다.
 
-   - **RewriteRule** : 여러 재작성 작업/재작성 조건 조합을 포함 합니다.
+   - **RewriteRule**: 여러 재작성 작업/재작성 조건 조합을 포함 합니다.
 
-   - **Rulesequence** : 재작성 규칙이 실행 되는 순서를 결정 하는 데 도움이 되는 선택적 구성입니다. 이 구성은 재작성 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용 합니다. 규칙 시퀀스 값이 낮은 재작성 규칙이 먼저 실행 됩니다. 두 재작성 규칙에 동일한 규칙 시퀀스 값을 할당 하는 경우 실행 순서는 비결 정적입니다.
+   - **Rulesequence**: 재작성 규칙이 실행 되는 순서를 결정 하는 데 도움이 되는 선택적 구성입니다. 이 구성은 재작성 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용 합니다. 규칙 시퀀스 값이 낮은 재작성 규칙이 먼저 실행 됩니다. 두 재작성 규칙에 동일한 규칙 시퀀스 값을 할당 하는 경우 실행 순서는 비결 정적입니다.
 
      RuleSequence를 명시적으로 지정 하지 않으면 기본값인 100이 설정 됩니다.
 
-   - **RewriteRuleSet** : 요청 라우팅 규칙에 연결 되는 재작성 규칙을 여러 개 포함 합니다.
+   - **RewriteRuleSet**: 요청 라우팅 규칙에 연결 되는 재작성 규칙을 여러 개 포함 합니다.
 
 2. RewriteRuleSet을 라우팅 규칙에 연결 합니다. 재작성 구성은 라우팅 규칙을 통해 원본 수신기에 연결 됩니다. 기본 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 원본 수신기와 연결 되며 전역 헤더 재작성입니다. 경로 기반 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 URL 경로 맵에 정의 됩니다. 이 경우 사이트의 특정 경로 영역에만 적용 됩니다.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>HTTP 헤더 재작성 규칙 구성을 지정 합니다.
 
-이 예제에서는 위치 헤더에 azurewebsites.net에 대 한 참조가 포함 될 때마다 HTTP 응답의 위치 헤더를 다시 작성 하 여 리디렉션 URL을 수정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 조건을 추가 합니다. 패턴을 사용 `(https?):\/\/.*azurewebsites\.net(.*)$` 합니다. `{http_resp_Location_1}://contoso.com{http_resp_Location_2}`헤더 값으로를 사용 합니다. 이 값은 location 헤더에서 *azurewebsites.net* 을 *contoso.com* 로 바꿉니다.
+이 예제에서는 위치 헤더에 azurewebsites.net에 대 한 참조가 포함 될 때마다 HTTP 응답의 위치 헤더를 다시 작성 하 여 리디렉션 URL을 수정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 조건을 추가 합니다. 패턴을 사용 `(https?)://.*azurewebsites.net(.*)$` 합니다. `{http_resp_Location_1}://contoso.com{http_resp_Location_2}`헤더 값으로를 사용 합니다. 이 값은 location 헤더에서 *azurewebsites.net* 을 *contoso.com* 로 바꿉니다.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

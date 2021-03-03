@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b0dd584aee4a7647a3028ea20b517c0d74a330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734743"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>ITSMC 대시보드의 커넥터 상태 오류
 
@@ -56,7 +56,9 @@ ITSMC (IT 서비스 관리 커넥터) 대시보드는 커넥터에서 문제를 
 
 ## <a name="invalid-refresh-token"></a>잘못 된 새로 고침 토큰
 
-**오류**: "AccessToken 및 RefreshToken가 잘못 되었습니다. 사용자가 다시 인증 해야 합니다. "
+**오류**: 
+  * "AccessToken 및 RefreshToken가 유효 하지 않습니다. 사용자가 다시 인증 해야 합니다. "
+  * "이벤트, 경고, 인시던트에 대 한 템플릿 구성을 동기화 할 수 없습니다. 자세한 내용은 예외 메시지를 참조 하십시오. "
 
 **원인**: 새로 고침 토큰이 만료 되었습니다.
 

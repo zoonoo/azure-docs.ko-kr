@@ -3,14 +3,14 @@ author: MikeRayMSFT
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 03/02/2021
 ms.author: mikeray
-ms.openlocfilehash: 6c8dbeea83cba306cfb788cf447236088045ffc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0fca43f76b24a08ca96be749f7f2a822b0be2418
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494018"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687596"
 ---
 이 섹션에서는 SCC (보안 컨텍스트 제약 조건)를 적용 하는 방법을 설명 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 
 
@@ -40,12 +40,6 @@ ms.locfileid: "99494018"
    oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
    ```
 
-   > [!NOTE]
-   > RedHat OpenShift 4.5 이상에서는 SCC를 서비스 계정에 적용 하는 방법을 변경 합니다.
-   > 아래 명령에서 같은 네임 스페이스를 사용 `azdata arc dc create` 합니다. 예를 들면 `arc` 입니다. 
-   > 
-   > OpenShift 4.5 이상에서 RedHat를 사용 하는 경우 다음을 실행 합니다. 
-   >
-   >```console
-   >oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
-   >```
+   ```console
+   oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
+   ```

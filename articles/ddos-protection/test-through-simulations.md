@@ -11,23 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719239"
 ---
 # <a name="test-through-simulations"></a>시뮬레이션을 통해 테스트
 
 주기적으로 시뮬레이션을 수행하여 서비스가 공격에 대응하는 방법에 대한 가정을 테스트하는 것이 좋습니다. 테스트하는 동안 서비스 또는 애플리케이션이 계속해서 예상대로 작동하는지, 사용자 환경이 중단되지 않는지 검사해야 합니다. 기술과 프로세스 관점 간의 격차를 식별하여 DDoS 대응 전략에 통합해야 합니다. 프로덕션 환경에 미치는 영향을 최소화하기 위해 스테이징 환경에서 또는 피크 시간대 이외의 시간에 테스트를 수행하는 것이 좋습니다.
 
-Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 가능한 공용 끝점에 대 한 트래픽을 생성할 수 있는 인터페이스를 빌드하기 위해, 셀프 서비스 트래픽 [생성기와 파트너](https://www.ixiacom.com/products/breakingpoint-cloud)관계를 맺고 있습니다. 시뮬레이션을 사용 하 여 다음을 수행할 수 있습니다.
+Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), 셀프 서비스 트래픽 생성기와 협력하여 고객이 DDoS Protection이 활성화된 공용 엔드포인트에 대한 트래픽을 생성하여 시뮬레이션을 수행할 수 있는 인터페이스를 개발했습니다. 시뮬레이션을 사용하여 다음을 수행할 수 있습니다.
 
 - Azure DDoS Protection을 통해 DDoS 공격으로부터 Azure 리소스를 보호하는 방법을 확인합니다.
 - DDoS 공격을 받는 동안 인시던트 응답 프로세스를 최적화합니다.
 - DDoS 규정 준수 문서화
 - 네트워크 보안 팀을 교육합니다.
+
+> [!NOTE]
+> 이 클라우드는 공용 클라우드에 대해서만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

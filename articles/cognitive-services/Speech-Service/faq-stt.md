@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738194"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -138,7 +138,9 @@ ms.locfileid: "100388620"
 
 **A**: 오디오 데이터를 사용 하 여 모델을 학습 하는 과정은 시간이 오래 걸릴 수 있습니다. 데이터 양에 따라 사용자 지정 모델을 만드는 데 며칠이 걸릴 수 있습니다. 1 주 이내에 완료할 수 없는 경우 서비스는 학습 작업을 중단 하 고 모델을 실패 한 것으로 보고할 수 있습니다.
 
-더 빠른 결과를 위해 전용 하드웨어를 학습에 사용할 수 있는 [지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. 일반적으로 서비스는 이러한 하드웨어를 사용 하 여 지역에서 하루에 약 10 시간의 오디오 데이터를 처리 합니다. 다른 지역의 하루에 약 1 시간 분량의 오디오 데이터를 처리할 수 있습니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용 하 여 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다. 텍스트를 사용한 교육은 훨씬 빠르며 일반적으로 몇 분 안에 완료 됩니다.
+전용 하드웨어를 학습에 사용할 수 있는 [지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. 음성 서비스는 이러한 지역의 교육을 위해 최대 20 시간의 오디오를 사용 합니다. 다른 지역에서는 최대 8 시간만 사용 합니다.
+
+일반적으로 서비스는 전용 하드웨어가 있는 지역에서 하루에 약 10 시간의 오디오 데이터를 처리 합니다. 다른 지역의 하루에 약 1 시간 분량의 오디오 데이터를 처리할 수 있습니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용 하 여 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다. 텍스트를 사용한 교육은 훨씬 빠르며 일반적으로 몇 분 안에 완료 됩니다.
 
 일부 기본 모델은 오디오 데이터를 사용 하 여 사용자 지정할 수 없습니다. 이를 위해 서비스는 학습을 위해 기록의 텍스트를 사용 하 고 오디오 데이터는 무시 합니다. 그러면 교육이 훨씬 빠르게 완료 되 고 결과는 텍스트와 함께 학습 하는 것과 같습니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
 

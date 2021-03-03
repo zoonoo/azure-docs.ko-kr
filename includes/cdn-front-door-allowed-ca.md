@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: multiple
-author: sharad4u
+author: duongau
 ms.service: multiple
 ms.topic: include
 ms.date: 10/30/2020
-ms.author: sharadag
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1196ec0c3e92df6c359461ea7d1d53c8aea0bd88
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750241"
 ---
 다음은 고유의 인증서를 만들 때 허용되는 CA입니다.
 
@@ -54,6 +54,7 @@ ms.locfileid: "96025463"
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- 홍콩 Post 루트 CA 1
 - 인증 기관 X3을 암호화 합니다.
 - 마이크로 초 e-Szigno 루트 CA 2009
 - QuoVadis Root CA2 G3
@@ -61,6 +62,7 @@ ms.locfileid: "96025463"
 - 보안 통신 RootCA1
 - 보안 통신 RootCA2
 - 보안 통신 RootCA3
+- Staat der Nederlanden EV 루트 CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft

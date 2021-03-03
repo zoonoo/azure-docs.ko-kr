@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585217"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724254"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -789,7 +789,7 @@ Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가
 
 Azure Storage의 분석에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Portal에서 스토리지 계정 모니터링](storage-monitor-storage-account.md)
+* [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)
 * [스토리지 분석](storage-analytics.md)
 * [스토리지 분석 메트릭](storage-analytics-metrics.md)
 * [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)

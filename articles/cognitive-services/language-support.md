@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706285"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -24,15 +24,15 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 이러한 Cognitive Services 언어 독립적 이며 인간 언어를 기반으로 하는 제한이 없습니다.
 
 * [변칙 탐지기 (미리 보기)](./anomaly-detector/index.yml)
-* [Custom Vision](./Custom-Vision-Service/index.yml)
+* [Custom Vision](./custom-vision-service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
-## <a name="vision"></a>시각
+## <a name="vision"></a>Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [폼 인식기 (미리 보기)](./form-recognizer/language-support.md)
-* [Ink Recognizer(미리 보기)](./ink-recognizer/language-support.md)
+* [Ink Recognizer(미리 보기)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>언어
@@ -40,7 +40,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [몰입형 리더](./immersive-reader/language-support.md)
 * [언어 이해(LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [Text Analytics](./text-analytics/language-support.md)
+* [텍스트 분석](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
 ## <a name="speech"></a>Speech

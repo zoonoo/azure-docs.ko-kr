@@ -5,20 +5,20 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
-ms.openlocfilehash: 8f503623031b7071c5e0a206d078175e16a7e919
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d48dcb4e45bbaf3d516f2a45e14a6be0837b55c0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617109"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734386"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
-Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](../essentials/data-platform-metrics.md)을 제공합니다. 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 플랫폼 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. [metrics-supported](../platform/metrics-supported.md)에서 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용 가능한 플랫폼 메트릭의 전체 목록을 참조하세요. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](/rest/api/monitor/metricdefinitions)을 사용하세요. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다.
+Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](../essentials/data-platform-metrics.md)을 제공합니다. 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 플랫폼 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. [metrics-supported](./metrics-supported.md)에서 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용 가능한 플랫폼 메트릭의 전체 목록을 참조하세요. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](/rest/api/monitor/metricdefinitions)을 사용하세요. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다.
 
 ## <a name="metrics-not-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 없는 메트릭
 
-이 위치에 있는 것으로 사용 된 콘텐츠가 [지원 되는 Azure Monitor 메트릭 목록](../platform/metrics-supported.md#exporting-platform-metrics-to-other-locations)으로 이동 되었습니다.
+이 위치에 있는 것으로 사용 된 콘텐츠가 [지원 되는 Azure Monitor 메트릭 목록](./metrics-supported.md#exporting-platform-metrics-to-other-locations)으로 이동 되었습니다.
 
 진단 설정을 통해 메트릭을 내보내는 경우에는 제한 사항이 있습니다. 모든 메트릭은 REST API를 사용 하 여 내보낼 수 있습니다. 
 
@@ -548,5 +548,4 @@ Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](../essentia
 | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | 메모리 내 OLTP 스토리지 백분율 | 
 | Microsoft.Sql/servers | dtu_consumption_percent | DTU 비율 | 
 | Microsoft.Sql/servers | dtu_used | DTU 사용됨 | 
-| Microsoft.Sql/managedInstances | avg_cpu_percent | 평균 CPU 비율 | 
-
+| Microsoft.Sql/managedInstances | avg_cpu_percent | 평균 CPU 비율 |

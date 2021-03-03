@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371773"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713289"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 관리
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="create-incremental-backup-policy"></a>증분 백업 정책 만들기
 
-증분 백업 정책을 만들려면 다음 매개 변수를 사용하여 [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) 명령을 실행합니다.
+증분 백업 정책을 만들려면 다음 매개 변수를 사용하여 [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) 명령을 실행합니다.
 
 * **--backup-management-type** – Azure 워크로드
 * **--workload-type** - SAPHana
@@ -231,6 +231,7 @@ az backup policy create --resource-group saphanaResourceGroup --vault-name sapha
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
 정책이 성공적으로 생성되면 명령을 실행하는 동안 매개 변수로 전달한 정책 JSON이 명령 출력에 표시됩니다.
 
 정책의 다음 섹션을 수정하여 증분 백업에 대해 원하는 백업 빈도 및 보존 기간을 지정할 수 있습니다.

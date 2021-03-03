@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "99822421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722673"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Service(추가 지원) 만들기 및 배포
 
@@ -63,7 +63,7 @@ Visual Studio Azure 프로젝트에는 솔루션의 역할 프로젝트에 대�
 - **서비스 정의 파일** - 필요한 역할, 엔드포인트 및 가상 머신 크기를 포함하여 애플리케이션에 대한 런타임 설정을 정의합니다.
 - **서비스 구성 파일** - 얼마나 많은 역할의 인스턴스가 실행되는지와 역할에 대해 정의된 설정의 값을 구성합니다.
 
-이러한 파일에 대한 자세한 내용은 [Visual Studio에서 Azure Cloud Service 역할 구성](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service)을 참조하세요.
+이러한 파일에 대한 자세한 내용은 [Visual Studio에서 Azure Cloud Service 역할 구성](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service)을 참조하세요.
 
 ## <a name="publish-a-cloud-service"></a>Cloud Service 게시
 
@@ -75,7 +75,7 @@ Visual Studio Azure 프로젝트에는 솔루션의 역할 프로젝트에 대�
 
 1. **계정** - 계정을 선택하거나 계정 드롭다운 목록에서 **계정 추가** 를 선택합니다.
 
-1. **구독 선택** - 배포에 사용할 구독을 선택합니다. Cloud Services(추가 지원)를 배포하는 데 사용하는 구독에는 RBAC(역할 기반 액세스 제어)를 통해 할당된 소유자 또는 기여자 역할이 있어야 합니다. 이러한 역할 중 하나가 구독에 없는 경우 계속 진행하기 전에 [역할 할당을 추가하는 단계](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps)를 참조하여 해당 역할을 추가합니다.
+1. **구독 선택** - 배포에 사용할 구독을 선택합니다. Cloud Services(추가 지원)를 배포하는 데 사용하는 구독에는 RBAC(역할 기반 액세스 제어)를 통해 할당된 소유자 또는 기여자 역할이 있어야 합니다. 이러한 역할 중 하나가 구독에 없는 경우 계속 진행하기 전에 [역할 할당을 추가하는 단계](../role-based-access-control/role-assignments-steps.md)를 참조하여 해당 역할을 추가합니다.
 
 1. **다음** 을 선택하여 **설정** 페이지로 이동합니다.
 
@@ -105,7 +105,7 @@ Visual Studio Azure 프로젝트에는 솔루션의 역할 프로젝트에 대�
 
    ![진단 설정](./media/diagnostics-settings.png)
 
-   진단을 사용하면 Azure Cloud Service(또는 Azure 가상 머신)의 문제를 해결할 수 있습니다. 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 구성](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요. Application Insights에 대한 자세한 내용은 [Application Insights란?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)을 참조하세요.
+   진단을 사용하면 Azure Cloud Service(또는 Azure 가상 머신)의 문제를 해결할 수 있습니다. 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 구성](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요. Application Insights에 대한 자세한 내용은 [Application Insights란?](../azure-monitor/app/app-insights-overview.md)을 참조하세요.
 
 1. **다음** 을 선택하여 **요약** 페이지로 이동합니다.
 
@@ -126,4 +126,4 @@ Visual Studio Azure 프로젝트에는 솔루션의 역할 프로젝트에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-**게시** 화면에서 **구성** 단추를 사용하여 CI(연속 통합)를 설정합니다. 자세한 내용은 [Azure Pipelines 설명서](https://docs.microsoft.com/azure/devops/pipelines)를 참조하세요.
+**게시** 화면에서 **구성** 단추를 사용하여 CI(연속 통합)를 설정합니다. 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines)를 참조하세요.

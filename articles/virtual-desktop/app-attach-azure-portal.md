@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373473"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737548"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal을 사용하여 MSIX 앱 연결 설정
 
@@ -36,6 +36,7 @@ MSIX 앱 연결을 구성 하는 데 필요한 사항은 다음과 같습니다.
 - MSIX 패키지 응용 프로그램은 파일 공유에 업로드 된 MSIX 이미지로 확장 됩니다.
 - MSIX 패키지가 저장 되는 Windows 가상 데스크톱 배포의 파일 공유입니다.
 - MSIX 이미지를 업로드 한 파일 공유에도 호스트 풀의 모든 Vm (가상 머신)에 액세스할 수 있어야 합니다. 사용자는 이미지에 액세스 하기 위한 읽기 전용 권한이 필요 합니다.
+- 인증서를 공개적으로 신뢰할 수 없는 경우 [인증서 설치](app-attach.md#install-certificates)의 지침을 따르세요.
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>MSIX 앱 연결 응용 프로그램에 대 한 자동 업데이트 끄기
 

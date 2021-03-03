@@ -3,14 +3,14 @@ title: Azure Automation에 Linux Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 Linux 기반 컴퓨터에서 runbook을 실행 하는 Azure Automation Hybrid Runbook Worker를 설치 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708920"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -43,12 +43,15 @@ Hybrid Runbook Worker 역할에는 지원 되는 Linux 운영 체제에 대 한 
 Hybrid Runbook Worker 기능은 다음 배포를 지원 합니다. 모든 운영 체제는 x 64로 간주 됩니다. x86은 모든 운영 체제에서 지원 되지 않습니다.
 
 * Amazon Linux 2012.09 ~ 2015.09
-* CentOS Linux 5, 6, 7
+* CentOS Linux 5, 6, 7 및 8
 * Oracle Linux 5, 6, 7
-* Red Hat Enterprise Linux Server 5, 6, 7
+* Red Hat Enterprise Linux Server 5, 6, 7 및 8
 * Debian GNU/Linux 6, 7, 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 및 15
+
+> [!IMPORTANT]
+> 시스템 Hybrid Runbook Worker 역할에 따라 달라 지는 업데이트 관리 기능을 사용 하도록 설정 하기 전에 [여기](update-management/overview.md#supported-operating-systems)에서 지 원하는 배포를 확인 합니다.
 
 ### <a name="minimum-requirements"></a>최소 요구 사항
 
@@ -89,9 +92,9 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |-------------|-----------|
 |Python 2 |예 |
 |PowerShell |예<sup>1</sup> |
-|PowerShell 워크플로 |아니요 |
-|그래픽 |아니요 |
-|그래픽 PowerShell 워크플로 |아니요 |
+|PowerShell 워크플로 |No |
+|그래픽 |No |
+|그래픽 PowerShell 워크플로 |No |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 

@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
-ms.openlocfilehash: 5a7ddcf25993ab4ce87bdc47c5e0ae32fa24b07f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7907c81e45680de49f6653891fb4204a59db1002
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710552"
 ---
 # <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 이제 QnA Maker에서는 Azure Search 서비스에 대 한 개인 끝점을 만들 수 있도록 지원 합니다. 이 기능은 QnA Maker 관리에서 사용할 수 있습니다. 
 
-개인 끝점은 [Azure 개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지를 참조 하세요.](https://azure.microsoft.com/pricing/details/private-link/) 
+개인 끝점은 [Azure 개인 링크](../../private-link/private-link-overview.md)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지를 참조 하세요.](https://azure.microsoft.com/pricing/details/private-link/) 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 > [!div class="checklist"]

@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL Android) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for Android (MSAL)에서 Azure AD B2C를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다. 용
 services: active-directory
-author: brianmel
+author: iambmelt
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,19 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 902159153bccbea851481e1f81d03e8e70495020
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644275"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688878"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
 MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml)를 사용 하 여 소셜 및 로컬 id를 사용 하 여 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
+
+## <a name="choosing-a-compatible-authorization_user_agent"></a>호환 되는 authorization_user_agent 선택
+B2C identity management system은 Google, Facebook, Twitter, Amazon 등의 여러 소셜 계정 공급자를 사용 하 여 인증을 지원 합니다. 앱에서 이러한 계정 유형을 지원 하려는 경우 `DEFAULT` `BROWSER` [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) 일부 외부 id 공급자와의 웹 보기 기반 인증 사용이 금지 되어 있으므로 또는 값 중 하나를 사용 하도록 msal 공용 클라이언트 응용 프로그램을 구성 하는 것이 좋습니다.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>알려진 인증 기관 및 리디렉션 URI 구성
 
@@ -45,6 +48,7 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
   "client_id": "<your_client_id_here>",
   "redirect_uri": "<your_redirect_uri_here>",
   "account_mode" : "MULTIPLE",
+  "authorization_user_agent" : "DEFAULT",
   "authorities": [
     {
       "type": "B2C",

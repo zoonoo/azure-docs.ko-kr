@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713408"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -110,7 +110,7 @@ Azure NetApp Files는 볼륨 성능 메트릭을 제공 합니다. Azure NetApp 
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>NFSv 4.1의 Kerberos에 대 한 성능 영향은 무엇 인가요?
 
-NFSv 4.1의 보안 옵션, 테스트 된 성능 벡터 및 예상 되는 성능 영향에 대 한 자세한 내용은 [nfsv 4.1의 Kerberos 성능에 미치는 영향](configure-kerberos-encryption.md#kerberos_performance) 을 참조 하세요. 
+NFSv 4.1의 보안 옵션, 테스트 된 성능 벡터 및 예상 되는 성능 영향에 대 한 자세한 내용은 [nfsv 4.1 볼륨의 Kerberos 성능에 미치는 영향](performance-impact-kerberos.md) 을 참조 하세요. 
 
 ## <a name="nfs-faqs"></a>NFS FAQ
 
@@ -145,7 +145,7 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
     `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
 2. Windows 서버에 볼륨을 탑재 합니다.   
-    예:   
+    예제:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>SMB FAQ
@@ -204,7 +204,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예제:
+예:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

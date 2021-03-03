@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f810769529569309656193d41f28cca201a85c07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100105184"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719222"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>미사용 고객 관리형 키 구성
 
@@ -140,4 +140,4 @@ New-AzResourceGroupDeployment `
 이 문서에서는 Azure Portal, PowerShell, CLI 및 Resource Manager 템플릿을 사용하여 미사용 고객 관리형 키를 구성하는 방법을 알아보았습니다. Azure Cosmos DB FAQ 섹션에서 다음과 같은 추가 질문을 확인할 수 있습니다. 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: CMK 설정 방법](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: CMK 설정 방법](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016969"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686464"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -46,8 +46,6 @@ ID 인프라가 정상 상태가 아님을 나타내는 경고가 표시되면 �
 > 백 엔드 서비스에서 동기화 요청을 처리 하는 데 문제가 있는 경우이 서비스는 오류에 대 한 세부 정보와 함께 테 넌 트의 관리 담당자 전자 메일 주소로 알림 전자 메일을 보냅니다. 특정 한 경우에는 이러한 메시지의 양이 너무 크므로 이러한 메시지를 전송 하는 방식을 변경 하는 고객의 의견을 들었습니다. 
 >
 > 발생할 때마다 모든 동기화 오류에 대 한 메시지를 전송 하는 대신 백 엔드 서비스가 반환한 모든 오류의 일일 다이제스트를 전송 합니다. 이를 통해 고객은 보다 효율적인 방식으로 이러한 오류를 처리 하 고 중복 된 오류 메시지 수를 줄일 수 있습니다.
->
-> 2020 년 1 월 15 일에이 변경 내용이 구현 될 예정입니다.
 
 ## <a name="delete-a-server-or-service-instance"></a>서버 또는 서비스 인스턴스 삭제
 
@@ -170,7 +168,7 @@ Azure AD Connect Health 및 Azure RBAC에 추가 된 사용자 또는 그룹을 
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
-* [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
+* [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)

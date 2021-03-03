@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fda76fd16787c01b9fc35ef63473be215a2c126d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361148"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740055"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 자습서에서는 Azure Portal를 사용 하 여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용 하 여 Azure Blob storage에서 Azure Blob storage로 새로운 파일 및 변경 된 파일만 증분 복사 하는 파이프라인을 만듭니다. 을 사용 `LastModifiedDate` 하 여 복사할 파일을 결정 합니다.
 
@@ -87,7 +87,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **작업 흐름 또는 작업 일정** 에서 **일정에 따라 정기적으로 실행** 을 선택 합니다.
 
-    c. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
+    다. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
 
     d. **되풀이** 에서 **15 분** 을 입력 합니다.
 
@@ -105,7 +105,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![Azure 블로그 저장소 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기** 를 선택 합니다.
+    다. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기** 를 선택 합니다.
 
     d. 새 연결 된 서비스를 선택 하 고 **다음** 을 선택 합니다.
 
@@ -119,7 +119,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **파일 로드 동작** 에서 **증분 로드: LastModifiedDate** 를 선택 합니다.
 
-    c. **이진 복사** 를 선택 하 고 **다음** 을 선택 합니다.
+    다. **이진 복사** 를 선택 하 고 **다음** 을 선택 합니다.
 
      ![입력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 

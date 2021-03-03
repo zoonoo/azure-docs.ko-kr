@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 에이전트 상태 솔루션 Microsoft Docs
 description: 이 문서는 Log Analytics 또는 System Center Operations Manager에 직접 보고하는 에이전트의 상태를 모니터링하기 위해 이 솔루션을 사용하는 방법을 쉽게 이해할 수 있도록 해줍니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711062"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 Azure Monitor의 Log Analytics 작업 영역에 직접 보고 하는 모든 에이전트 또는 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 (응답 하지 않고 작동 데이터를 전송)에 대해 이해 하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -30,7 +29,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../agents/om-agents.md)을 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 [솔루션 추가](solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 
@@ -48,7 +47,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 **에이전트 상태** 타일을 클릭하여 **에이전트 상태** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기** 를 선택하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | 시간에 따른 에이전트 수 | Linux 및 Windows 에이전트에 대해 7일 동안의 에이전트 수의 추세입니다.|
 | 응답하지 않는 에이전트 개수 | 지난 24시간 동안 하트비트를 보내지 않은 에이전트의 목록입니다.|
@@ -67,7 +66,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="heartbeat-records"></a>하트비트 레코드
 **하트비트** 형식이 포함된 레코드가 만들어집니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | `Type` | *하트비트*|
 | `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버* 합니다.|

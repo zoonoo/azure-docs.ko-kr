@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: c37693bc6c9ce1cc5fed6c06ecb7fe628c315176
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573584"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708257"
 ---
 # <a name="deploy-azure-monitor"></a>Azure Monitor 배포
 모든 Azure 리소스의 모니터링에 Azure Monitor를 사용 하도록 설정 하는 것은 Azure Monitor 구성 요소를 구성 하 고 Azure 리소스를 구성 하 여 Azure Monitor 수집할 모니터링 데이터를 생성 하는 것입니다. 이 문서에서는 Azure 구독의 모든 리소스를 모니터링 하기 위해 일반적인 구성을 사용 하 Azure Monitor의 전체 구현을 수행 하는 데 필요한 여러 단계를 설명 합니다. 각 단계에 대 한 기본 설명은 자세한 구성 요구 사항에 대 한 다른 설명서에 대 한 링크와 함께 제공 됩니다.
@@ -22,7 +22,7 @@ ms.locfileid: "100573584"
 ## <a name="configuration-goals"></a>구성 목표
 완전 한 Azure Monitor 구현의 목표는 모든 클라우드 리소스 및 응용 프로그램에서 사용 가능한 모든 데이터를 수집 하 고 해당 데이터를 기반으로 가능한 한 많은 Azure Monitor 기능을 사용 하도록 설정 하는 것입니다.
 
-Azure Monitor에 의해 수집 된 데이터는 [Azure Monitor 메트릭](essentials/data-platform-metrics.md) 또는 [Azure Monitor 로그](logs/data-platform-logs.md)에 전송 됩니다. 각는 서로 다른 종류의 데이터를 저장 하 고 다른 종류의 분석 및 경고를 사용 하도록 설정 합니다. 서로 다른 경고 유형에 대 한 설명을 보려면 [Azure Monitor 메트릭과 로그 비교](/data-platform.md) 를 참조 하 여 [Microsoft Azure에서 경고](alerts/alerts-overview.md) 에 대 한 두 가지 및 개요를 비교 하십시오. 
+Azure Monitor에 의해 수집 된 데이터는 [Azure Monitor 메트릭](essentials/data-platform-metrics.md) 또는 [Azure Monitor 로그](logs/data-platform-logs.md)에 전송 됩니다. 각는 서로 다른 종류의 데이터를 저장 하 고 다른 종류의 분석 및 경고를 사용 하도록 설정 합니다. 서로 다른 경고 유형에 대 한 설명을 보려면 [Azure Monitor 메트릭과 로그 비교](data-platform.md) 를 참조 하 여 [Microsoft Azure에서 경고](alerts/alerts-overview.md) 에 대 한 두 가지 및 개요를 비교 하십시오. 
 
 일부 데이터는 다른 기능을 사용 하 여 활용 하기 위해 메트릭과 로그에 모두 보낼 수 있습니다. 이러한 경우 개별적으로 구성 해야 할 수 있습니다. 예를 들어 메트릭 데이터는 메트릭 탐색기 및 메트릭 경고를 지 원하는 Azure 리소스에서 메트릭에 자동으로 전송 됩니다. 로그에 동일한 메트릭 데이터를 전송 하는 각 리소스에 대 한 진단 설정을 만들어야 합니다. 이렇게 하면 Log Analytics를 사용 하 여 다른 로그 데이터를 사용 하 여 성능 추세를 분석할 수 있습니다. 다음 섹션에서는 데이터를 전송 하는 위치를 식별 하 고 가능한 모든 위치에 데이터를 전송 하는 데 필요한 각 단계를 포함 합니다.
 
@@ -84,32 +84,32 @@ Azure Monitor에서 사용할 수 있는 정보 및 솔루션 목록은 [Azure M
 
 가상 머신은 다른 Azure 리소스와 유사한 데이터를 생성 하지만, 게스트 운영 체제에서 데이터를 수집 하려면 에이전트가 필요 합니다. Azure Monitor에서 사용 하는 에이전트의 비교는 [Azure Monitor 에이전트 개요](agents/agents-overview.md) 를 참조 하세요. 
 
-[VM용 Azure Monitor](vm/vminsights-overview.md) 는 Log Analytics 에이전트 및 종속성 에이전트를 사용 하 여 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하므로 이러한 정보를 구현 하는 과정의 일부로 이러한 에이전트를 배포할 수 있습니다. 이렇게 하면 Azure Security Center와 같이 사용 하는 다른 서비스에 대 한 Log Analytics 에이전트를 사용할 수 있습니다.
+[VM insights](vm/vminsights-overview.md) 는 Log Analytics 에이전트 및 종속성 에이전트를 사용 하 여 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하므로 이러한 정보를 구현 하는 과정의 일부로 이러한 에이전트를 배포할 수 있습니다. 이렇게 하면 Azure Security Center와 같이 사용 하는 다른 서비스에 대 한 Log Analytics 에이전트를 사용할 수 있습니다.
 
 
 [![AZURE VM ](media/deploy/deploy-azure-vm.png) 배포](media/deploy/deploy-azure-vm.png#lightbox)
 
 
-### <a name="configure-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대 한 작업 영역 구성
-VM용 Azure Monitor에는 일반적으로 다른 Azure 리소스에서 데이터를 수집 하기 위해 만든 것과 동일한 Log Analytics 작업 영역이 필요 합니다. 가상 컴퓨터를 사용 하도록 설정 하기 전에 작업 영역에 VM용 Azure Monitor 하는 데 필요한 솔루션을 추가 해야 합니다.
+### <a name="configure-workspace-for-vm-insights"></a>VM insights에 대 한 작업 영역 구성
+VM insights에는 다른 Azure 리소스에서 데이터를 수집 하기 위해 만든 것과 같은 Log Analytics 작업 영역이 필요 합니다. 가상 컴퓨터를 사용 하도록 설정 하기 전에 VM insights에 필요한 솔루션을 작업 영역에 추가 해야 합니다.
 
-VM용 Azure Monitor의 Log Analytics 작업 영역을 구성 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md) 을 참조 하세요.
+VM insights에 대 한 Log Analytics 작업 영역 구성에 대 한 자세한 내용은 [vm insights에 대 한 Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md) 을 참조 하세요.
 
-### <a name="enable-azure-monitor-for-vms-on-each-virtual-machine"></a>각 가상 컴퓨터에서 VM용 Azure Monitor 사용
-작업 영역을 구성한 후에는 Log Analytics 에이전트와 종속성 에이전트를 설치 하 여 각 가상 컴퓨터를 사용 하도록 설정할 수 있습니다. 각 가상 컴퓨터를 만들 때 자동으로 구성할 수 있도록 하는 Azure Policy 포함 하 여 이러한 에이전트를 설치 하는 방법에는 여러 가지가 있습니다. VM용 Azure Monitor에서 수집 된 성능 데이터 및 프로세스 세부 정보는 Azure Monitor 로그에 저장 됩니다.
+### <a name="enable-vm-insights-on-each-virtual-machine"></a>각 가상 머신에서 VM insights를 사용 하도록 설정
+작업 영역을 구성한 후에는 Log Analytics 에이전트와 종속성 에이전트를 설치 하 여 각 가상 컴퓨터를 사용 하도록 설정할 수 있습니다. 각 가상 컴퓨터를 만들 때 자동으로 구성할 수 있도록 하는 Azure Policy 포함 하 여 이러한 에이전트를 설치 하는 방법에는 여러 가지가 있습니다. VM insights에서 수집 하는 성능 데이터 및 프로세스 세부 정보는 Azure Monitor 로그에 저장 됩니다.
 
-가상 컴퓨터에 에이전트를 배포 하 고 모니터링에 사용 하도록 설정 하는 옵션은 [사용 VM용 Azure Monitor 개요 사용](vm/vminsights-enable-overview.md) 을 참조 하세요.
+가상 컴퓨터에 에이전트를 배포 하 고 모니터링을 위해 사용 하도록 설정 하는 옵션은 [VM Insights 사용 개요 사용](vm/vminsights-enable-overview.md) 을 참조 하세요.
 
 ### <a name="configure-workspace-to-collect-events"></a>이벤트를 수집 하도록 작업 영역 구성
-VM용 Azure Monitor는 각 가상 컴퓨터의 게스트 운영 체제에서 성능 데이터와 프로세스의 세부 정보 및 종속성을 수집 합니다. Log Analytics 에이전트는 Windows 및 Linux의 syslog에서 이벤트 로그를 포함 하 여 게스트에서 로그를 수집할 수도 있습니다. 연결 된 Log Analytics 작업 영역에서 이러한 로그에 대 한 구성을 검색 합니다. 작업 영역을 한 번만 구성 하면 에이전트가 연결 될 때마다 구성 변경 내용이 다운로드 됩니다. 
+VM insights는 각 가상 컴퓨터의 게스트 운영 체제에서 성능 데이터와 프로세스의 세부 정보 및 종속성을 수집 합니다. Log Analytics 에이전트는 Windows 및 Linux의 syslog에서 이벤트 로그를 포함 하 여 게스트에서 로그를 수집할 수도 있습니다. 연결 된 Log Analytics 작업 영역에서 이러한 로그에 대 한 구성을 검색 합니다. 작업 영역을 한 번만 구성 하면 에이전트가 연결 될 때마다 구성 변경 내용이 다운로드 됩니다. 
 
 에이전트 가상 컴퓨터에서 추가 데이터를 수집 하도록 Log Analytics 작업 영역을 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 에이전트 데이터 원본](agents/agent-data-sources.md) 을 참조 하세요.
 
 > [!NOTE]
-> 성능 카운터를 수집 하도록 작업 영역을 구성할 수도 있지만이는 VM용 Azure Monitor에 의해 수집 된 성능 데이터와 중복 될 가능성이 높습니다. 작업 영역에서 수집 된 성능 데이터는 *성능 테이블에 저장 되 고 VM용 Azure Monitor* 에서 수집 되는 성능 데이터는 *InsightsMetrics* 테이블에 저장 됩니다. VM용 Azure Monitor에서 아직 수집 하지 않은 카운터가 필요한 경우에만 작업 영역에서 성능 수집을 구성 합니다.
+> 성능 카운터를 수집 하도록 작업 영역을 구성할 수도 있지만이는 VM 정보에 의해 수집 된 성능 데이터와 중복 될 가능성이 높습니다. 작업 영역에서 수집 된 성능 데이터는 *Perf* 테이블에 저장 되 고, VM insights에서 수집 된 성능 데이터는 *InsightsMetrics* 테이블에 저장 됩니다. VM insights에서 아직 수집 하지 않은 카운터가 필요한 경우에만 작업 영역에서 성능 수집을 구성 합니다.
 
 ### <a name="diagnostic-extension-and-telegraf-agent"></a>진단 확장 및 Telegraf 에이전트
-VM용 Azure Monitor는 Log Analytics 작업 영역으로 성능 데이터를 전송 하는 Log Analytics 에이전트를 사용 하지만 Azure Monitor 메트릭을 사용 하지 않습니다. 이 데이터를 메트릭에 전송 하면 메트릭 탐색기를 사용 하 여 분석 하 고 메트릭 경고와 함께 사용할 수 있습니다. 이렇게 하려면 Windows의 진단 확장과 Linux의 Telegraf 에이전트가 필요 합니다.
+VM insights는 성능 데이터를 Log Analytics 작업 영역으로 보내는 Log Analytics 에이전트를 사용 하지만 Azure Monitor 메트릭을 사용 하지 않습니다. 이 데이터를 메트릭에 전송 하면 메트릭 탐색기를 사용 하 여 분석 하 고 메트릭 경고와 함께 사용할 수 있습니다. 이렇게 하려면 Windows의 진단 확장과 Linux의 Telegraf 에이전트가 필요 합니다.
 
 이러한 에이전트 설치 및 구성에 대 한 자세한 내용은 [Windows Azure 진단 확장 설치 및 구성 (WAD)](agents/diagnostics-extension-windows-install.md) 및 [InfluxData Telegraf 에이전트를 사용 하 여 Linux VM에 대 한 사용자 지정 메트릭 수집](essentials/collect-custom-metrics-linux-telegraf.md) 을 참조 하세요.
 

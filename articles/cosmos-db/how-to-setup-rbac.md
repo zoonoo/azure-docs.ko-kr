@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대 한 Azure Active Directory를 사용 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
-ms.openlocfilehash: 49bf67a6703147ed31279e7af8145192d996c1cb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690909"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정 (미리 보기)에 대 한 Azure Active Directory를 사용 하 여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -101,6 +101,11 @@ Azure Cosmos DB Sdk를 사용 하는 경우 이러한 Sdk는 초기화 하는 �
     - `/` (계정 수준),
     - `/dbs/<database-name>` (데이터베이스 수준),
     - `/dbs/<database-name>/colls/<container-name>` (컨테이너 수준).
+
+> [!NOTE]
+> 아래에서 설명 하는 작업은 현재에서 사용할 수 있습니다.
+> - Azure PowerShell: [Az. CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [' cosmosdb ' 확장 버전 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
@@ -279,6 +284,11 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 > [!NOTE]
 > 서비스 사용자에 대 한 역할 할당을 만들려면 **Azure Active Directory** 포털 블레이드의 **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있도록 해당 **개체 ID** 를 사용 해야 합니다.
 
+> [!NOTE]
+> 아래에서 설명 하는 작업은 현재에서 사용할 수 있습니다.
+> - Azure PowerShell: [Az. CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [' cosmosdb ' 확장 버전 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
 Id에 역할을 할당 합니다.
@@ -354,6 +364,12 @@ Azure Cosmos DB RBAC를 사용 하는 경우 [진단 로그](cosmosdb-monitor-re
 
 - `aadPrincipalId_g` 요청을 인증 하는 데 사용 된 AAD id의 보안 주체 ID를 표시 합니다.
 - `aadAppliedRoleAssignmentId_g` 요청을 인증할 때 허용 된 [역할 할당](#role-assignments) 을 표시 합니다.
+
+## <a name="limits"></a>제한
+
+- Azure Cosmos DB 계정 마다 최대 100 개의 역할 정의 및 2000 역할 할당을 만들 수 있습니다.
+- Azure AD 그룹 확인은 현재 200 개 이상의 그룹에 속한 id에 대해 지원 되지 않습니다.
+- Azure AD 토큰은 현재 Azure Cosmos DB 서비스로 전송 되는 각각의 개별 요청이 포함 된 헤더로 전달 되어 전체 페이로드 크기를 늘립니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

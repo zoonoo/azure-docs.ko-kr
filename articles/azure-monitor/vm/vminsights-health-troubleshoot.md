@@ -1,20 +1,20 @@
 ---
-title: VM용 Azure Monitor 게스트 상태 문제 해결(미리 보기)
-description: VM용 Azure Monitor 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
+title: VM insights 게스트 상태 (미리 보기) 문제 해결
+description: VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: da8097341f8499be4e28fa37c06d963d057966ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6ae0a9e20d6aad7200729419ece333d80e652c3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614864"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703922"
 ---
-# <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 문제 해결(미리 보기)
-이 문서에서는 VM용 Azure Monitor 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM insights 게스트 상태 (미리 보기) 문제 해결
+이 문서에서는 VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
 
 ## <a name="error-message-that-no-data-is-available"></a>데이터를 사용할 수 없다는 오류 메시지 
 
@@ -34,7 +34,7 @@ Azure Monitor 에이전트 확장 및 게스트 VM 상태 에이전트가 가상
 ![VM 확장](media/vminsights-health-troubleshoot/extensions.png)
 
 ### <a name="verify-the-system-assigned-identity-is-enabled-on-the-virtual-machine"></a>가상 머신에서 시스템 할당 id가 사용 하도록 설정 되어 있는지 확인 합니다.
-시스템 할당 id가 가상 머신에서 사용 하도록 설정 되어 있는지 확인 합니다. Azure Portal의 가상 컴퓨터 메뉴에서 **id** 를 선택 합니다. 
+시스템 할당 id가 가상 머신에서 사용 하도록 설정 되어 있는지 확인 합니다. Azure Portal의 가상 컴퓨터 메뉴에서 **id** 를 선택 합니다. 사용자 관리 id를 사용 하는 경우 시스템 관리 id의 상태에 관계 없이 Azure Monitor 에이전트에서 구성 서비스와 통신할 수 없으며 게스트 상태 확장이 작동 하지 않습니다.
 
 ![시스템 할당 ID](media/vminsights-health-troubleshoot/system-identity.png)
 
@@ -48,4 +48,4 @@ Azure Monitor 에이전트 확장 및 게스트 VM 상태 에이전트가 가상
 
 ## <a name="next-steps"></a>다음 단계
 
-- [VM용 Azure Monitor의 게스트 상태 기능 개요를 확인 하세요.](vminsights-health-overview.md)
+- [VM insights의 게스트 상태 기능 개요 보기](vminsights-health-overview.md)

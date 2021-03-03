@@ -4,18 +4,18 @@ description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: cfe44fb5220b217b73c17280d5c8aaf87c57ebaf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a8ab9520527a0d5ebc1de698f84e9f64e28b869a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616734"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718117"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
 
 ## <a name="overview"></a>개요
 
-활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](../essentials/activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](../platform/platform-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
+활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](../essentials/activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](../essentials/platform-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
 
 > [!NOTE]
 > * 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 **없습니다** .
@@ -54,12 +54,12 @@ ms.locfileid: "100616734"
 * 활동 로그 경고에서 기존 작업 그룹을 사용합니다.
 * 새 작업 그룹을 만듭니다.
 
-작업 그룹에 대해 자세히 알아보려면 [Azure Portal에서 작업 그룹 만들기 및 관리](../platform/action-groups.md)를 참조하세요.
+작업 그룹에 대해 자세히 알아보려면 [Azure Portal에서 작업 그룹 만들기 및 관리](./action-groups.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [경고에 대 한 개요](../platform/alerts-overview.md)를 가져옵니다.
+- [경고에 대 한 개요](./alerts-overview.md)를 가져옵니다.
 - [활동 로그 경고 만들기 및 수정](alerts-activity-log.md)에 관해 알아보세요.
 - [활동 로그 경고 웹후크 스키마](../alerts/activity-log-alerts-webhook.md)를 검토하세요.
 - [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.

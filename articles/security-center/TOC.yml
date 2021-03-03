@@ -221,9 +221,9 @@
         - name: Docker 호스트 강화
           displayName: containers
           href: harden-docker-hosts.md
-        - name: SQL용 Azure Defender 사용
-          href: defender-for-sql-usage.md
-          displayName: 'hybrid, arc'
+    - name: SQL용 Azure Defender 사용
+      href: defender-for-sql-usage.md
+      displayName: 'hybrid, arc'
     - name: 컨테이너 레지스트리용 Azure Defender 사용
       items:
         - name: 취약성에 대한 레지스트리 이미지 스캔
@@ -269,8 +269,6 @@
     - name: Kubernetes 워크로드 보호
       displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
-    - name: 조사 사용자 데이터 관리
-      href: security-center-investigation-user-data.md
     - name: 테넌트 전체 가시성 얻기
       href: security-center-management-groups.md
     - name: SQL 정보 보호 정책 사용자 지정
@@ -292,7 +290,7 @@
           href: faq-vms.md
         - name: Azure Log Analytics 기존 사용자
           href: faq-azure-monitor-logs.md
-    - name: 기본 제공 보안 정책
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policy'
       href: policy-reference.md
     - name: Azure 로드맵 블로그

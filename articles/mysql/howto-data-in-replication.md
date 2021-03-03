@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250535"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709549"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -80,7 +80,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
       ping <output of step 2b>
       ```
 
-      예를 들면 다음과 같습니다.
+      다음은 그 예입니다. 
 
       ```bash
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
@@ -101,9 +101,23 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
    ```
 
    [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin)"ON" 값을 사용 하 여 변수를 반환 하는 경우에는 서버에서 이진 로깅이 사용 됩니다.
-
-   `log_bin`값이 "OFF"로 반환 되는 경우 my.cnf 파일을 편집 하 여 이진 로깅을 설정 하 `log_bin=ON` 고 변경 내용을 적용 하려면 서버를 다시 시작 합니다.
-
+   
+   `log_bin`"OFF" 값을 사용 하 여이 반환 되는 경우 
+   1. 원본 서버에서 MySQL 구성 파일 (my.cnf)을 찾습니다. 예:/etc/my.cnf
+   2. 구성 파일을 열고 편집 하 여 파일에서 **mysqld.exe** 섹션을 찾습니다.
+   3.  Mysqld.exe 섹션에서 다음 줄을 추가 합니다.
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. 변경 내용을 적용 하려면 MySQL 원본 서버를 다시 시작 합니다.
+   5. 서버가 다시 시작 되 면 이전과 동일한 쿼리를 실행 하 여 이진 로깅이 사용 되는지 확인 합니다.
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. 원본 서버 설정
 
    입력 데이터 복제 `lower_case_table_names` 원본 서버와 복제 서버 간에 매개 변수가 일치 해야 합니다. Azure Database for MySQL에서 이 매개 변수는 기본적으로 1입니다.
@@ -216,7 +230,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
    > [!NOTE]
    > 원본 서버가 Azure VM에서 호스트 되는 경우 "Azure 서비스에 대 한 액세스 허용"을 "설정"으로 설정 하 여 원본 및 복제본 서버가 서로 통신할 수 있도록 합니다. 이 설정은 **연결 보안** 옵션에서 변경할 수 있습니다. 자세한 내용은 [포털을 사용 하 여 방화벽 규칙 관리](howto-manage-firewall-using-portal.md) 를 참조 하세요.
 
-   **예제**
+   **예**
 
    *SSL을 사용한 복제*
 

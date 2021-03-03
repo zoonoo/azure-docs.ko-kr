@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702456"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Azure Media Services V2와 V3 사이의 기능 차이
 
@@ -42,7 +42,7 @@ V3 API는 V2 API를 사용 하 여 다음과 같은 기능을 사용 합니다. 
     - 표준 인코더에 대 한 오디오 채널 매핑에 대 한 지원이 추가 되었습니다.  [Media Services Encoding Swagger 설명서에서 오디오를](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json)참조 하세요.
     - MXF 또는 ProRes와 같은 타사 라이선스 제품의 고급 기능 또는 출력 형식을 사용 하는 경우 Telestream의 Azure 파트너 솔루션을 사용 합니다 .이 솔루션은 V2 사용 중지 시점에 트랜잭션 됩니다. 또는에 대 한 통신을 사용 하거나 [Bitmovin](http://bitmovin.com)사용할 수 있습니다.
 
-- V 2의 스트리밍 끝점에 대 한 "가용성 집합" 속성은 더 이상 지원 되지 않습니다. V3 API에서 샘플 프로젝트 및 [고가용성 VOD](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) 배달에 대 한 지침을 참조 하세요.
+- V 2의 스트리밍 끝점에 대 한 "가용성 집합" 속성은 더 이상 지원 되지 않습니다. V3 API에서 샘플 프로젝트 및 [고가용성 VOD](./media-services-high-availability-encoding.md) 배달에 대 한 지침을 참조 하세요.
 
 - Media Services V3에서는 FairPlay IV를 지정할 수 없습니다. 패키징 및 라이선스 배달 모두에 대해 Media Services를 사용 하는 고객에 게는 영향을 주지 않지만 타사 DRM 시스템을 사용 하 여 FairPlay 라이선스 (하이브리드 모드)를 제공할 때 문제가 될 수 있습니다.
 

@@ -3,14 +3,15 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy 게스트 구성 클라이언트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104810"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702881"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
+
 
 Azure Policy는 Azure에서 실행 되는 컴퓨터와 [Arc 연결 된 컴퓨터](../../../azure-arc/servers/overview.md)에 대 한 컴퓨터 내에서 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 클라이언트를 통한 확장은 다음과 같은 설정의 유효성을 검사합니다.
 
@@ -20,13 +21,15 @@ Azure Policy는 Azure에서 실행 되는 컴퓨터와 [Arc 연결 된 컴퓨터
 
 이때 대부분의 Azure Policy 게스트 구성 정책 정의는 컴퓨터 내의 설정만 감사 합니다. 구성은 적용하지 않습니다. 단, [아래에 참조된](#applying-configurations-using-guest-configuration) 기본 제공 정책은 예외입니다.
 
+[이 문서의 비디오 연습을 사용할 수](https://youtu.be/Y6ryD3gTHOs)있습니다.
+
 ## <a name="enable-guest-configuration"></a>게스트 구성 사용
 
 Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 내 컴퓨터의 상태를 감사 하려면 다음 세부 정보를 검토 합니다.
 
 ## <a name="resource-provider"></a>리소스 공급자
 
-게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 포털을 통해 게스트 구성 정책의 할당을 완료하면 리소스 공급자가 자동으로 등록됩니다. [포털](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) 또는 [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)를 통해 수동으로 등록할 수 있습니다.
+게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 포털을 통해 게스트 구성 정책의 할당을 수행 하거나 구독을 Azure Security Center에 등록 한 경우 리소스 공급자가 자동으로 등록 됩니다. [포털](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) 또는 [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)를 통해 수동으로 등록할 수 있습니다.
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 요구 사항 배포
 
@@ -62,13 +65,13 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 
 |게시자|속성|버전|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04-18.04|
-|Credativ|Debian|8 이상|
-|Microsoft|Windows Server|2012 이상|
+|Canonical|Ubuntu Server|14.04-20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012-2019|
 |Microsoft|Windows 클라이언트|윈도우 10|
-|OpenLogic|CentOS|7.3 이상|
-|Red Hat|Red Hat Enterprise Linux|7.4-7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3-8|
+|Red Hat|Red Hat Enterprise Linux|7.4-8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 사용자 지정 가상 머신 이미지는 위의 표에 있는 운영 체제 중 하나인 게스트 구성 정책 정의에서 지원 됩니다.
 
@@ -114,9 +117,26 @@ _가상 머신에서 게스트 구성 정책을 사용 하도록 설정 하기 �
 **AuditIfNotExists** 정책 정의는 컴퓨터에서 모든 요구 사항이 충족 될 때까지 준수 결과를 반환 하지 않습니다. 요구 사항은 [Azure virtual machines에 대 한 요구 사항 배포](#deploy-requirements-for-azure-virtual-machines) 섹션에 설명 되어 있습니다.
 
 > [!IMPORTANT]
-> 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의와 intiaitives에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다. 자세한 내용은 블로그 게시물: [게스트 구성 감사 정책에 대 한 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) 을 참조 하세요.
+> 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의 및 이니셔티브에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다. 자세한 내용은 블로그 게시물: [게스트 구성 감사 정책에 대 한 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) 을 참조 하세요.
 
-Azure Policy 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용 하 여 **준수 노드의 준수를 보고 합니다.** 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
+### <a name="what-is-a-guest-assignment"></a>게스트 할당 이란?
+
+Azure Policy 할당 되 면 "게스트 구성" 범주에 있는 경우 게스트 할당을 설명 하는 메타 데이터가 포함 됩니다.
+게스트 할당은 컴퓨터와 Azure Policy 시나리오 간의 링크로 간주할 수 있습니다.
+예를 들어 아래 코드 조각은 Azure Windows 기준 구성을 `1.0.0` 정책 범위에 있는 모든 컴퓨터에 대 한 최소 버전과 연결 합니다. 기본적으로 게스트 할당은 컴퓨터 감사만 수행 합니다.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+게스트 할당은 게스트 구성 서비스에 의해 컴퓨터 마다 자동으로 생성 됩니다. 리소스 종류는 `Microsoft.GuestConfiguration/guestConfigurationAssignments`입니다.
+Azure Policy 게스트 할당 리소스의 **complianceStatus** 속성을 사용 하 여 준수 상태를 보고 합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>업계 기준에 따라 운영 체제 설정 감사
 
@@ -201,6 +221,12 @@ Linux: `/var/lib/guestconfig/configurations`
 - [기본 제공 정책 정의 - 게스트 구성](../samples/built-in-policies.md#guest-configuration)
 - [기본 제공 이니셔티브 - 게스트 구성](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy 샘플 GitHub 리포지토리](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>비디오 개요
+
+Azure Policy 게스트 구성의 다음 개요는 ITOps에서 2021에 대 한 것입니다.
+
+[Azure Policy 게스트 구성을 사용 하 여 하이브리드 서버 환경에서 기준 관리](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>다음 단계
 

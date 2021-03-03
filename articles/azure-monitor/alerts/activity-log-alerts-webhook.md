@@ -4,19 +4,19 @@ description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: bdac71655ca0c517624f8aa033ee5bc7fcc9d12a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614819"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701147"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
 
-활동 로그 경고에 대한 자세한 내용은 [Azure 활동 로그 알림을 만드는](../platform/activity-log-alerts.md) 방법을 참조하세요.
+활동 로그 경고에 대한 자세한 내용은 [Azure 활동 로그 알림을 만드는](./activity-log-alerts.md) 방법을 참조하세요.
 
-작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](../platform/action-groups.md) 방법을 참조하세요.
+작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](./action-groups.md) 방법을 참조하세요.
 
 > [!NOTE]
 > 웹 후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 사용 하는 이점을 제공 하는 [일반적인 경고 스키마](./alerts-common-schema.md)를 사용할 수도 있습니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](./alerts-common-schema-definitions.md)
@@ -282,7 +282,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
-| 이벤트 |이벤트에 대한 메타데이터가 포함된 요소입니다. |
+| event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
 | 권한 부여 |이벤트의 Azure 역할 기반 액세스 제어 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
@@ -298,10 +298,10 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | 상태 |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
 | subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값으로 OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503) 및 Gateway Timeout (HTTP Status Code: 504)이 있습니다. |
 
-다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../platform/platform-logs-overview.md)를 참조하세요.
+다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../essentials/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그에 대해 자세히 알아보세요](../platform/platform-logs-overview.md).
+* [활동 로그에 대해 자세히 알아보세요](../essentials/platform-logs-overview.md).
 * [Azure 경고에서 azure automation 스크립트 (runbook)를 실행](https://go.microsoft.com/fwlink/?LinkId=627081)합니다.
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737565"
 ---
 # <a name="monitoring-time-series-insights"></a>모니터링 Time Series Insights
 
@@ -57,13 +57,13 @@ Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자�
 
 Azure Time Series Insights에 대 한 다음 범주에서 로그를 수집할 수 있습니다.
 
-   | 범주 | 설명 |
+   | 범주 | Description |
    |---|---|
    | 수신  | 수신 범주는 수신 파이프라인에서 발생 하는 오류를 추적 합니다. 이 범주에는 이벤트를 받을 때 발생 하는 오류 (예: 이벤트 원본에 연결 하지 못한 경우) 및 이벤트 처리 (예: 이벤트 페이로드를 구문 분석할 때 발생 하는 오류)가 포함 됩니다. |
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-Azure Monitor 메뉴에서 메트릭을 열어 다른 Azure 서비스의 메트릭과 함께 Azure Time Series Insights에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요.
+Azure Monitor 메뉴에서 메트릭을 열어 다른 Azure 서비스의 메트릭과 함께 Azure Time Series Insights에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요.
 
 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure Time Series Insights 데이터 참조](how-to-monitor-tsi-reference.md#metrics) 를 참조 하세요.
 
@@ -84,7 +84,7 @@ Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 �
 
 Azure Time Series Insights은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | 설명 |
+| 테이블 | Description |
 |:---|:---|
 | TSIIngress | 수신 범주의 데이터를 저장 하는 테이블입니다. 수신 범주는 수신 파이프라인에서 발생 하는 오류를 추적 합니다. 이 범주에는 이벤트를 받을 때 발생 하는 오류 (예: 이벤트 원본에 연결 하지 못한 경우) 및 이벤트 처리 (예: 이벤트 페이로드를 구문 분석할 때 발생 하는 오류)가 포함 됩니다.
 
@@ -115,7 +115,7 @@ Azure Time Series Insights 환경을 모니터링 하는 데 사용할 수 있�
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../azure-monitor/platform/alerts-metric-overview.md), [로그](../azure-monitor/platform/alerts-unified-log.md) 및 [활동 로그](../azure-monitor/platform/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../azure-monitor/alerts/alerts-metric-overview.md), [로그](../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
 
 플랫폼 메트릭을 기반으로 경고 규칙을 만들 때 개수 단위로 수집 되는 Time Series Insights 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다.
 

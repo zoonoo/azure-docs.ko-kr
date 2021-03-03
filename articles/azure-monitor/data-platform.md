@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bccd1f001cca67a5be3d14c50e6a6db96cb6584c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731700"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -28,7 +28,7 @@ ms.locfileid: "100615284"
 ## <a name="observability-data-in-azure-monitor"></a>Azure Monitor의 가시성 데이터
 메트릭, 로그 및 분산 추적을 일반적으로 가시성의 세 핵심 요소라고 합니다. 모니터링 대상 시스템의 충분한 가시성을 제공하기 위해 모니터링 도구에서 수집하고 분석해야 하는 다양한 종류의 데이터를 나타냅니다. 가시성은 여러 핵심 요소의 데이터를 상호 연결하고 모니터링되는 전체 리소스 세트에서 데이터를 집계하여 달성할 수 있습니다. Azure Monitor는 여러 원본의 데이터를 함께 저장하므로 공통된 도구 세트를 사용하여 데이터를 상호 연결하고 분석할 수 있습니다. 또한 다른 서비스용 데이터를 호스트하는 것 외에도 여러 Azure 구독 및 테넌트 간에 데이터를 상호 연결합니다.
 
-Azure 리소스는 상당한 양의 모니터링 데이터를 생성합니다. Azure Monitor는 이 데이터를 다른 원본의 모니터링 데이터와 함께 메트릭 또는 로그 플랫폼으로 통합합니다. 각각은 특정 모니터링 시나리오에 맞게 최적화되며, Azure Monitor의 다양한 기능을 지원합니다. 데이터 분석, 시각화, 경고 등의 기능을 위해서는 필요한 시나리오를 가장 효율적이고 비용 효율적인 방식으로 구현할 수 있도록 차이점을 이해해야 합니다. [Application Insights](app/app-insights-overview.md) 또는 [VM용 Azure Monitor](vm/vminsights-overview.md) 등의 Azure Monitor의 인사이트에는 두 가지 데이터 유형 간의 차이점을 이해하지 않고도 특정 모니터링 시나리오에 집중할 수 있는 분석 도구가 있습니다. 
+Azure 리소스는 상당한 양의 모니터링 데이터를 생성합니다. Azure Monitor는 이 데이터를 다른 원본의 모니터링 데이터와 함께 메트릭 또는 로그 플랫폼으로 통합합니다. 각각은 특정 모니터링 시나리오에 맞게 최적화되며, Azure Monitor의 다양한 기능을 지원합니다. 데이터 분석, 시각화, 경고 등의 기능을 위해서는 필요한 시나리오를 가장 효율적이고 비용 효율적인 방식으로 구현할 수 있도록 차이점을 이해해야 합니다. [Application Insights](app/app-insights-overview.md) 또는 [VM Insights](vm/vminsights-overview.md) 와 같은 Azure Monitor의 정보에는 두 가지 유형의 데이터 간의 차이점을 이해 하지 않고도 특정 모니터링 시나리오에 집중할 수 있는 분석 도구가 있습니다. 
 
 
 ### <a name="metrics"></a>메트릭

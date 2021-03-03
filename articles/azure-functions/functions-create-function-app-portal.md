@@ -4,19 +4,18 @@ description: Azure Portal를 사용하여 서버를 사용하지 않는 실행�
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980946"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732187"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
 Azure Functions를 사용 하면 먼저 VM (가상 머신)을 만들거나 웹 응용 프로그램을 게시 하지 않고도 서버를 사용 하지 않는 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Functions를 사용 하 여 Azure Portal에서 "hello 세계" HTTP 트리거 함수를 만드는 방법에 대해 알아봅니다.
 
->[!NOTE]
->포털 내 편집은 JavaScript, PowerShell, TypeScript 및 c # 스크립트 함수에 대해서만 지원 됩니다.<br><br>C # 클래스 라이브러리, Java 및 Python 함수의 경우 포털에서 함수 앱을 만들 수 있지만 로컬에서 함수를 만든 다음 Azure에 게시 해야 합니다. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 대신 [함수를 로컬로 개발](functions-develop-local.md) 하 고 Azure에서 함수 앱에 게시 하는 것이 좋습니다.  
 다음 링크 중 하나를 사용 하 여 선택한 로컬 개발 환경 및 언어를 시작 합니다.

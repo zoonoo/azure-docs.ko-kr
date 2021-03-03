@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686719"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 응용 프로그램 프록시를 정기적으로 업데이트 합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
-커넥터에 대해 자동 업데이트를 사용 하도록 설정 하 여 최신 기능 및 버그 수정이 있는지 확인 하는 것이 좋습니다. Microsoft에서는 최신 connector 버전 및 이전 버전을 직접 지원 합니다.
+커넥터에 대해 자동 업데이트를 사용 하도록 설정 하 여 최신 기능 및 버그 수정이 있는지 확인 하는 것이 좋습니다. Microsoft에서는 최신 커넥터 버전 및 이전 버전을 직접 지원 합니다.
 
 다음은 관련 된 리소스 목록입니다.
 
@@ -44,7 +44,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 
 ### <a name="fixed-issues"></a>해결된 문제
 - 소문자 문자열을 강제 적용 하는 websocket 문제를 수정 했습니다.
-- 커넥터를 경우 응답 하지 않는 문제를 해결 했습니다.
+- 커넥터가 가끔 응답 하지 않는 문제를 해결 했습니다.
 
 ## <a name="1516260"></a>1.5.1626.0
 
@@ -60,7 +60,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 
 ### <a name="release-status"></a>릴리스 상태
 
-2020 년 4 월 7 일: 다운로드를 위해 릴리스
+2020 년 4 월 7 일: 다운로드를 위해 출시 된이 버전은 다운로드 페이지를 통해서만 설치할 수 있습니다. 이 버전의 자동 업그레이드 릴리스는 나중에 출시 될 예정입니다.
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 -   커넥터는 모든 연결에 TLS 1.2만을 사용 합니다. 자세한 내용은 [커넥터 필수](application-proxy-add-on-premises-application.md#prerequisites) 구성 요소를 참조 하세요.

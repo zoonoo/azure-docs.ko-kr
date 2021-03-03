@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732278"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -39,7 +39,7 @@ ms.locfileid: "100593840"
 
 - 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./automation-security-overview.md#run-as-accounts)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
-- Runbook 작업 로그 및 작업 스트림을 저장 하는 [Azure Monitor Log Analytics 작업](../azure-monitor/platform/design-logs-deployment.md) 영역에서 쿼리 및 분석을 위해 작업 영역에 결과를 저장 합니다. Automation 계정은 신규 또는 기존 Log Analytics 작업 영역에 연결 될 수 있으며 두 리소스는 동일한 리소스 그룹에 있어야 합니다.
+- Runbook 작업 로그 및 작업 스트림을 저장 하는 [Azure Monitor Log Analytics 작업](../azure-monitor/logs/design-logs-deployment.md) 영역에서 쿼리 및 분석을 위해 작업 영역에 결과를 저장 합니다. Automation 계정은 신규 또는 기존 Log Analytics 작업 영역에 연결 될 수 있으며 두 리소스는 동일한 리소스 그룹에 있어야 합니다.
 
 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 업데이트 된 모듈을 프로덕션 Automation 계정으로 가져오기 전에 먼저 테스트 자동화 계정으로 가져와서 호환성 문제가 없는지 확인 하는 것이 좋습니다.
 

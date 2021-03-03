@@ -6,25 +6,25 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1908232184218316a1a887f17f2fc8104529a0e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79cc7e1e4b574533fcad4592134109c52897e9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737259"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
 이 문서에서는 Azure Monitor [메트릭 경고](alerts-metric-overview.md) 의 일반적인 문제 및 문제를 해결 하는 방법에 대해 설명 합니다.
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md)를 참조 하세요.
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](./alerts-overview.md)를 참조 하세요.
 
 ## <a name="metric-alert-should-have-fired-but-didnt"></a>메트릭 경고가 발생 했지만 
 
 메트릭 경고가 발생 한 것으로 예상 되었지만 실행 되지 않았고 Azure Portal에서 찾을 수 없는 경우 다음 단계를 수행 합니다.
 
 1. **구성** -메트릭 경고 규칙 구성을 검토 하 여 제대로 구성 되었는지 확인 합니다.
-    - **집계 유형** 및 **집계 세분성 (기간)** 이 예상 대로 구성 되었는지 확인 합니다. **집계 유형은** 메트릭 값을 집계 하는 방법 [(자세히 알아보기)을](../platform/metrics-aggregation-explained.md#aggregation-types)결정 하 고, **집계 세분성 (기간)** 은 경고 규칙이 실행 될 때마다 평가에서 메트릭 값을 집계 하는 정도를 제어 합니다.
+    - **집계 유형** 및 **집계 세분성 (기간)** 이 예상 대로 구성 되었는지 확인 합니다. **집계 유형은** 메트릭 값을 집계 하는 방법 [(자세히 알아보기)을](../essentials/metrics-aggregation-explained.md#aggregation-types)결정 하 고, **집계 세분성 (기간)** 은 경고 규칙이 실행 될 때마다 평가에서 메트릭 값을 집계 하는 정도를 제어 합니다.
     -  **임계값** 또는 **민감도** 가 예상 대로 구성 되었는지 확인 합니다.
     - 동적 임계값을 사용 하는 경고 규칙의 경우 위반 수가 임계값을 계산 하는 방식에 영향을 줄 수 있기 때문에 **위반 수가** 경고를 필터링 하 고 **데이터를 무시할** 수 있으므로 고급 설정이 구성 되어 있는지 확인 합니다.
 
@@ -69,10 +69,10 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>가상 컴퓨터 게스트 메트릭에 대해 경고 하는 메트릭을 찾을 수 없습니다.
 
 가상 컴퓨터의 게스트 운영 체제 메트릭에 대해 경고 하려면 (예: 메모리, 디스크 공간) 메트릭을 Azure Monitor 하기 위해이 데이터를 수집 하는 데 필요한 에이전트를 설치 했는지 확인 합니다.
-- [Windows VM의 경우](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Linux VM의 경우](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Windows VM의 경우](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Linux VM의 경우](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하는 방법에 대 한 자세한 내용은 [여기](../insights/monitor-vm-azure.md#guest-operating-system)를 참조 하세요.
+가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하는 방법에 대 한 자세한 내용은 [여기](../vm/monitor-vm-azure.md#guest-operating-system)를 참조 하세요.
 
 > [!NOTE] 
 > Log Analytics 작업 영역으로 전송 되도록 게스트 메트릭을 구성한 경우 메트릭은 Log Analytics 작업 영역 리소스 아래에 표시 되 고이를 모니터링 하는 경고 규칙을 만든 후에 **만** 데이터를 표시 하기 시작 합니다. 이렇게 하려면 [로그에 대한 메트릭 경고를 구성](./alerts-metric-logs.md#configuring-metric-alert-for-logs)하는 단계를 수행합니다.
@@ -84,8 +84,8 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 
 특정 메트릭에 대한 경고를 찾고 있지만 경고 규칙을 만들 때 볼 수 없는 경우 다음을 확인합니다.
 - 리소스에 대한 메트릭이 표시되지 않는 경우 [메트릭 경고에 대해 리소스 유형이 지원되는지 확인](./alerts-metric-near-real-time.md)합니다.
-- 리소스에 대한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우, [메트릭을 사용할 수 있는지 확인](../platform/metrics-supported.md)하고 필요한 경우 메트릭 설명을 참조하여 리소스의 특정 버전에서만 사용할 수 있는지 확인합니다.
-- 메트릭을 리소스에 사용할 수 없는 경우 리소스 로그에서 사용할 수 있으며 로그 경고를 사용하여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집하고 분석](../learn/tutorial-resource-logs.md)하는 방법에 대한 자세한 내용은 여기를 참조하세요.
+- 리소스에 대한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우, [메트릭을 사용할 수 있는지 확인](../essentials/metrics-supported.md)하고 필요한 경우 메트릭 설명을 참조하여 리소스의 특정 버전에서만 사용할 수 있는지 확인합니다.
+- 메트릭을 리소스에 사용할 수 없는 경우 리소스 로그에서 사용할 수 있으며 로그 경고를 사용하여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집하고 분석](../essentials/tutorial-resource-logs.md)하는 방법에 대한 자세한 내용은 여기를 참조하세요.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>경고에 대 한 메트릭 차원을 찾을 수 없습니다.
 
@@ -211,7 +211,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 - 오류를 수신 하는 경우 `Metric not found` :
 
-   - 플랫폼 메트릭의 경우: **메트릭 표시 이름이** 아니라 [지원 되는 Azure Monitor 메트릭 페이지](../platform/metrics-supported.md)의 **메트릭** 이름을 사용 하 고 있는지 확인 하세요.
+   - 플랫폼 메트릭의 경우: **메트릭 표시 이름이** 아니라 [지원 되는 Azure Monitor 메트릭 페이지](../essentials/metrics-supported.md)의 **메트릭** 이름을 사용 하 고 있는지 확인 하세요.
 
    - 사용자 지정 메트릭의 경우: 메트릭이 이미 내보내지고 있는지 확인 하 고 (아직 존재 하지 않는 사용자 지정 메트릭에는 경고 규칙을 만들 수 없음) 사용자 지정 메트릭의 네임 스페이스를 제공 하 고 있는지 확인 합니다 ( [여기](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)리소스 관리자 템플릿 예제 참조).
 

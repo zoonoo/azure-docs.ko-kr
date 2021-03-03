@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b4ba5f50f5c66b404ec76128a828a1060328f81c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734582"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690994"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 표준 시간대
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ UTC (협정 세계시)는 클라우드 솔루션의 데이터 계층에 권장 �
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-[리소스 관리자 템플릿에서](./scripts/create-powershell-azure-resource-manager-template.md) timezoneId 속성을 지정 하 여 인스턴스를 만드는 동안 표준 시간대를 설정 합니다.
+[리소스 관리자 템플릿에서](./create-template-quickstart.md) timezoneId 속성을 지정 하 여 인스턴스를 만드는 동안 표준 시간대를 설정 합니다.
 
 ```json
 "properties": {

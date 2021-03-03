@@ -3,15 +3,15 @@ title: Confluent Cloud에 대 한 Apache Kafka 문제 해결-Azure 파트너 솔
 description: 이 문서에서는 Azure의 Confluent Cloud에 대 한 문제 해결 및 FAQ (질문과 대답)에 대 한 정보를 제공 합니다.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709398"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Confluent 클라우드 솔루션에 대 한 Apache Kafka 문제 해결
 
@@ -23,11 +23,21 @@ ms.locfileid: "98253527"
 
 Azure Marketplace에서 제품을 찾으려면 다음 단계를 사용 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택합니다.
 1. _Confluent 클라우드에서 Apache Kafka_ 를 검색 합니다.
 1. 응용 프로그램 타일을 선택 합니다.
 
 제품이 표시 되지 않는 경우 [Confluent 지원](https://support.confluent.io)에 문의 하세요. Azure Active Directory 테 넌 트 ID는 허용 되는 테 넌 트 목록에 있어야 합니다. 테 넌 트 ID를 찾는 방법에 대 한 자세한 내용은 [Azure Active Directory 테 넌 트 id를 찾는 방법](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)을 참조 하세요.
+
+## <a name="purchase-errors"></a>구매 오류
+
+* 유효한 신용 카드가 Azure 구독에 연결 되어 있지 않거나 지불 방법이 구독과 연결 되어 있지 않기 때문에 구매가 실패 합니다.
+
+  다른 Azure 구독을 사용 합니다. 또는 구독에 대 한 신용 카드나 지불 방법을 추가 하거나 업데이트 합니다. 자세한 내용은 [크레딧 및 지불 방법 업데이트](../../cost-management-billing/manage/change-credit-card.md)를 참조 하세요.
+
+* EA 구독은 Marketplace 구매를 허용 하지 않습니다.
+
+  다른 구독을 사용 합니다. 또는 EA 구독이 Marketplace 구매에 사용 되는지 확인 합니다. 자세한 내용은 [Marketplace 구매 사용](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases)을 참조 하세요. 이러한 방법으로 문제가 해결 되지 않으면 [Confluent 지원](https://support.confluent.io)에 문의 하세요.
 
 ## <a name="conflict-error"></a>충돌 오류
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 5c4cfe47fce07a09eeb48e2da76d3b10c1d204af
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e4837de70e9f00308b440933e0cd433ad5b27cf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711538"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
 Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데이터를 수집 하 여 Azure Monitor에 전달 합니다. 이 문서에서는 Azure Monitor 에이전트를 설치 하는 방법 및 데이터 수집을 구성 하는 방법을 비롯 하 여 에이전트에 대 한 개요를 제공 합니다.
@@ -19,9 +19,9 @@ Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제�
 ## <a name="relationship-to-other-agents"></a>다른 에이전트와의 관계
 Azure Monitor 에이전트는 Azure Monitor에서 현재 사용 하 고 있는 다음 에이전트를 대체 하 여 가상 머신에서 게스트 데이터를 수집 합니다.
 
-- [Log Analytics 에이전트](../platform/log-analytics-agent.md) -Log Analytics 작업 영역으로 데이터를 보내고 VM용 Azure Monitor 및 모니터링 솔루션을 지원 합니다.
-- [진단 확장](../platform/diagnostics-extension-overview.md) -Azure Monitor 메트릭 (Windows에만 해당), Azure Event Hubs 및 Azure Storage에 데이터를 보냅니다.
-- [Telegraf 에이전트](../platform/collect-custom-metrics-linux-telegraf.md) -Azure Monitor 메트릭에 데이터를 보냅니다 (Linux에만 해당).
+- [Log Analytics 에이전트](./log-analytics-agent.md) -데이터를 Log Analytics 작업 영역으로 보내고 VM 정보 및 모니터링 솔루션을 지원 합니다.
+- [진단 확장](./diagnostics-extension-overview.md) -Azure Monitor 메트릭 (Windows에만 해당), Azure Event Hubs 및 Azure Storage에 데이터를 보냅니다.
+- [Telegraf 에이전트](../essentials/collect-custom-metrics-linux-telegraf.md) -Azure Monitor 메트릭에 데이터를 보냅니다 (Linux에만 해당).
 
 이 기능을 단일 에이전트로 통합 하는 것 외에도 Azure Monitor 에이전트는 기존 에이전트에 대해 다음과 같은 이점을 제공 합니다.
 
@@ -52,7 +52,7 @@ Azure Monitor 에이전트는 [Azure Monitor에 대해 일반적으로 사용할
 ## <a name="current-limitations"></a>현재 제한 사항
 Azure Monitor 에이전트의 공개 미리 보기 중에는 다음과 같은 제한 사항이 적용 됩니다.
 
-- Azure Monitor 에이전트는 VM용 Azure Monitor 및 Azure Security Center와 같은 솔루션 및 통찰력을 지원 하지 않습니다. 현재 지원 되는 유일한 시나리오는 구성 하는 데이터 수집 규칙을 사용 하 여 데이터를 수집 하는 것입니다. 
+- Azure Monitor 에이전트는 VM insights 및 Azure Security Center와 같은 솔루션 및 통찰력을 지원 하지 않습니다. 현재 지원 되는 유일한 시나리오는 구성 하는 데이터 수집 규칙을 사용 하 여 데이터를 수집 하는 것입니다. 
 - 데이터 수집 규칙은 대상으로 사용 되는 Log Analytics 작업 영역과 동일한 지역에 만들어야 합니다.
 - Azure 가상 머신, 가상 머신 확장 집합 및 Azure Arc 사용 서버는 현재 지원 됩니다. Azure Kubernetes Service 및 기타 계산 리소스 유형은 현재 지원 되지 않습니다.
 - 가상 컴퓨터에는 다음 HTTPS 끝점에 대 한 액세스 권한이 있어야 합니다.
@@ -64,7 +64,7 @@ Azure Monitor 에이전트의 공개 미리 보기 중에는 다음과 같은 �
 ## <a name="coexistence-with-other-agents"></a>다른 에이전트와의 공존
 Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에 기존 기능을 계속 사용할 수 있습니다. 이는 기존 솔루션 지원에서 공개 미리 보기의 제한 사항 때문에 특히 중요 합니다. 중복 데이터를 수집 하는 경우 쿼리 결과를 왜곡 하 고 데이터 수집 및 보존에 대 한 추가 요금이 발생할 수 있으므로 주의 해야 합니다.
 
-예를 들어 VM용 Azure Monitor Log Analytics 에이전트를 사용 하 여 성능 데이터를 Log Analytics 작업 영역으로 보냅니다. 에이전트에서 Windows 이벤트 및 Syslog 이벤트를 수집 하도록 작업 영역을 구성 했을 수도 있습니다. Azure Monitor 에이전트를 설치 하 고 동일한 이벤트 및 성능 데이터에 대 한 데이터 수집 규칙을 만드는 경우 중복 된 데이터가 생성 됩니다.
+예를 들어 VM insights는 Log Analytics 에이전트를 사용 하 여 성능 데이터를 Log Analytics 작업 영역으로 보냅니다. 에이전트에서 Windows 이벤트 및 Syslog 이벤트를 수집 하도록 작업 영역을 구성 했을 수도 있습니다. Azure Monitor 에이전트를 설치 하 고 동일한 이벤트 및 성능 데이터에 대 한 데이터 수집 규칙을 만드는 경우 중복 된 데이터가 생성 됩니다.
 
 
 ## <a name="costs"></a>비용
@@ -76,7 +76,7 @@ Azure Monitor 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 
 Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
 
-| 데이터 원본 | 대상 | 설명 |
+| 데이터 원본 | 대상 | Description |
 |:---|:---|:---|
 | 성능        | Azure Monitor 메트릭<br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값입니다. |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |

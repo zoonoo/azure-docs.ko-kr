@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714207"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>대상 리소스가 다른 Azure 지역으로 이동 될 때 경고 규칙 또는 작업 규칙을 업데이트 하는 방법
 
-이 문서에서는 지역 간에 다른 Azure 리소스를 이동할 때 기존 [경고 규칙](../platform/alerts-overview.md) 및 [작업 규칙이](./alerts-action-rules.md) 영향을 받을 수 있는 이유와 이러한 문제를 식별 하 고 해결 하는 방법을 설명 합니다. 주요 리소스 이동 [설명서](../../azure-resource-manager/management/move-region.md) 에서 유용한 지역 간 리소스 이동의 경우와 이동 프로세스를 디자인 하는 검사 목록에 대 한 추가 정보를 확인 하세요.
+이 문서에서는 지역 간에 다른 Azure 리소스를 이동할 때 기존 [경고 규칙](./alerts-overview.md) 및 [작업 규칙이](./alerts-action-rules.md) 영향을 받을 수 있는 이유와 이러한 문제를 식별 하 고 해결 하는 방법을 설명 합니다. 주요 리소스 이동 [설명서](../../azure-resource-manager/management/move-region.md) 에서 유용한 지역 간 리소스 이동의 경우와 이동 프로세스를 디자인 하는 검사 목록에 대 한 추가 정보를 확인 하세요.
 
 ## <a name="why-the-problem-exists"></a>문제가 존재 하는 이유
 
@@ -48,7 +48,6 @@ ms.locfileid: "100614539"
 
 - 활동 로그 경고 규칙
 - 작업 규칙
-- 클래식 경고
 - 메트릭 경고 – 자세한 내용은 [메트릭 기반 경고 규칙](#alert-rules-based-on-metrics)다음 섹션을 참조 하세요.
 
 > [!NOTE]
@@ -112,4 +111,4 @@ Azure 리소스에서 내보내는 메트릭은 지역입니다. 리소스가 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고 알림](alerts-troubleshoot.md), [메트릭 경고](alerts-troubleshoot-metric.md)및 [로그 경고](alerts-troubleshoot-log.md)와 관련 된 기타 문제를 해결 하는 방법에 대해 알아봅니다. 
+[경고 알림](alerts-troubleshoot.md), [메트릭 경고](alerts-troubleshoot-metric.md)및 [로그 경고](alerts-troubleshoot-log.md)와 관련 된 기타 문제를 해결 하는 방법에 대해 알아봅니다.

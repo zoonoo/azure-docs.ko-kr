@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 46fd9285f550b1a730b9040c46bacd7e34650b1e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7db905af85a6f4c157ee6d019e8e3a3feeeb4b4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511674"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722622"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
 > [!div class="op_single_selector"]
@@ -49,4 +49,4 @@ ms.locfileid: "97511674"
 
 
 ## <a name="next-steps"></a>다음 단계
-* Allowlisting 최신 IP 주소를 가져오려면 [Azure CDN Edge 노드 API](/rest/api/cdn/edgenodes)를 참조 하세요.
+* Allowlisting 최신 IP 주소를 가져오려면 [Azure CDN Edge 노드 API](https://github.com/Azure/azure-docs-rest-apis/blob/master/docs-ref-autogen/cdn/cdn/EdgeNodes/)를 참조 하세요.

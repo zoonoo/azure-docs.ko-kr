@@ -1,17 +1,17 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor의 보고서
-description: Azure Monitor 컨테이너에 대해 수집 된 데이터를 분석 하는 데 사용할 수 있는 보고서에 대해 설명 합니다.
+title: 컨테이너 insights의 보고서
+description: 컨테이너 insights에서 수집 된 데이터를 분석 하는 데 사용할 수 있는 보고서에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704279"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 보고서
-컨테이너에 대 한 Azure Monitor의 보고서에는 기본 [Azure 통합 문서가](../visualize/workbooks-overview.md)권장 됩니다. 이 문서에서는 사용할 수 있는 다양 한 보고서와 이러한 보고서에 액세스 하는 방법을 설명 합니다.
+# <a name="reports-in-container-insights"></a>컨테이너 insights의 보고서
+컨테이너 insights의 보고서에는 기본 [Azure 통합 문서가](../visualize/workbooks-overview.md)권장 됩니다. 이 문서에서는 사용할 수 있는 다양 한 보고서와 이러한 보고서에 액세스 하는 방법을 설명 합니다.
 
 ## <a name="viewing-reports"></a>보고서 보기
 Azure Portal **Azure Monitor** 메뉴에서 **컨테이너** 를 선택 합니다. **모니터링** 섹션에서 **Insights** 를 선택 하 고 특정 클러스터를 선택한 다음 **보고서 (미리 보기)** 페이지를 선택 합니다. 

@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699099"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
 
-> 2020 년 10 월 이후 생성 된 흐름의 경우 더 이상 전원 자동화에서 내보내고 Azure Logic Apps에 배포할 수 없습니다.
-
 흐름의 기능을 확장 하 고 확장 하려면 [전원 자동화](https://flow.microsoft.com) 에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 흐름을 마이그레이션할 수 있습니다. 논리 앱에 대 한 Azure Resource Manager 템플릿으로 흐름을 내보내고, 해당 논리 앱 템플릿을 Azure 리소스 그룹에 배포한 다음 논리 앱 디자이너에서 해당 논리 앱을 열 수 있습니다.
 
-> [!NOTE]
-> 모든 전원 자동화 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에서 동일한 커넥터가 있는 전원 자동화 흐름과 마이그레이션할 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 전원 자동화에만 적용 됩니다. 현재 전원 자동화의 OpenAPI 기반 흐름은 논리 앱 템플릿으로 내보내기 및 배포에 대해 지원 되지 않습니다.
->
-> * 해당 하는 Logic Apps 없는 전원 자동화 커넥터를 찾으려면 [전원 자동화 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
->
-> * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)를 참조 하세요.
+> [!IMPORTANT]
+> Logic Apps로 내보내기는 8 월 2020 일 이후에 생성 된 전원 자동화 흐름에서 사용할 수 없습니다. 2020 년 10 월에는 [Openapi 2.0 프로토콜](https://swagger.io/specification/v2/)에 대 한 표준화 된 새 흐름 생성 기능을 자동화 합니다. 이 프로토콜을 기반으로 하는 새 흐름은 Logic Apps 워크플로와 호환 되지 않으므로 이러한 흐름을 Logic Apps로 내보낼 수 없습니다. 대신 이러한 흐름에 대 한 [논리 앱](quickstart-create-first-logic-app-workflow.md) 을 수동으로 만들어야 합니다.
+
+모든 전원 자동화 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에서 동일한 커넥터가 있는 전원 자동화 흐름과 마이그레이션할 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 전원 자동화에만 적용 됩니다. 
+
+* 해당 하는 Logic Apps 없는 전원 자동화 커넥터를 찾으려면 [전원 자동화 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
+
+* 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 전원 자동화에서 내보내려는 흐름
 
@@ -68,7 +68,7 @@ ms.locfileid: "100380137"
 
    1. 템플릿에 대 한 입력 매개 변수 값을 선택 하거나 지정 합니다.
 
-      | 속성 | 설명 |
+      | 속성 | Description |
       |----------|-------------|
       | **구독** | 청구에 사용할 Azure 구독입니다. |
       | **리소스 그룹** | 논리 앱에 사용할 Azure 리소스 그룹입니다. 기존 그룹을 사용 하거나 새 그룹을 만들 수 있습니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "100380137"
       | <*연결-이름*> | 논리 앱에서 다시 사용할 수 있는 이전에 만든 연결에 대 한 하나 또는 여러 이름 <p><p>**참고**:이 논리 앱이 첫 번째 이면 모든 연결이 새로 만들어지므로 기본 이름을 그대로 사용할 수 있습니다. 그렇지 않은 경우에는 여러 논리 앱에서 사용할 수 있는 이전에 만든 연결의 이름을 지정할 수 있습니다. |
       |||
 
-      예를 들면 다음과 같습니다.
+      다음은 그 예입니다. 
 
       ![템플릿에 대 한 입력 매개 변수 지정](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "100380137"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예를 들면 다음과 같습니다.
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 다음은 그 예입니다. 
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221721"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701708"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Azure 스토리지 분석 로그 사용 및 관리 (클래식)
 
-[Azure 스토리지 분석](storage-analytics.md) 는 blob, 큐 및 테이블에 대 한 로그를 제공 합니다. [Azure Portal](https://portal.azure.com) 를 사용 하 여 계정에 대 한 로그를 기록 하도록 구성할 수 있습니다. 이 문서에서는 로그를 사용 하도록 설정 하 고 관리 하는 방법을 보여 줍니다. 메트릭을 사용 하도록 설정 하는 방법을 알아보려면 [Azure 스토리지 분석 메트릭 사용 및 관리 (클래식)](storage-monitor-storage-account.md)를 참조 하세요.  Azure Portal 모니터링 데이터를 검사 하 고 저장 하는 데 관련 된 비용이 있습니다. 자세한 정보는 [스토리지 분석](storage-analytics.md)을 참조하세요.
+[Azure 스토리지 분석](storage-analytics.md) 는 blob, 큐 및 테이블에 대 한 로그를 제공 합니다. [Azure Portal](https://portal.azure.com) 를 사용 하 여 계정에 대 한 로그를 기록 하도록 구성할 수 있습니다. 이 문서에서는 로그를 사용 하도록 설정 하 고 관리 하는 방법을 보여 줍니다. 메트릭을 사용 하도록 설정 하는 방법을 알아보려면 [Azure 스토리지 분석 메트릭 사용 및 관리 (클래식)]()를 참조 하세요.  Azure Portal 모니터링 데이터를 검사 하 고 저장 하는 데 관련 된 비용이 있습니다. 자세한 정보는 [스토리지 분석](storage-analytics.md)을 참조하세요.
 
 > [!NOTE]
 > 스토리지 분석 로그 대신 Azure Monitor에서 Azure Storage 로그를 사용 하는 것이 좋습니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 자세히 알아보려면 다음 문서를 참조 하세요.
@@ -191,7 +191,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
    * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다. 
 
-6. [AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) 를 사용 하 여 현재 로그 보존 정책을 볼 수 있습니다. 다음 예에서는 blob 및 queue storage 서비스에 대 한 보존 기간을 콘솔에 출력 합니다.
+6. [AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) 를 사용 하 여 현재 로그 보존 정책을 볼 수 있습니다. 다음 예에서는 blob 및 queue storage 서비스에 대 한 보존 기간을 콘솔에 출력 합니다.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ queueClient.SetServiceProperties(serviceProperties);
    > [!div class="mx-imgBorder"]
    > ![PowerShell 출력의 보존 정책](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. [AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) 를 사용 하 여 보존 기간을 변경 합니다. 다음 예에서는 보존 기간을 4 일로 변경 합니다.  
+7. [AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) 를 사용 하 여 보존 기간을 변경 합니다. 다음 예에서는 보존 기간을 4 일로 변경 합니다.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 ## <a name="next-steps"></a>다음 단계
 
 * 스토리지 분석에 대 한 자세한 내용은 스토리지 분석 [스토리지 분석](storage-analytics.md) 를 참조 하세요.
-* [스토리지 분석 메트릭을 구성](storage-monitor-storage-account.md)합니다.
 * .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요. 
 * REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.
 * 스토리지 분석 로그의 형식에 대해 자세히 알아보세요. [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조 하세요.

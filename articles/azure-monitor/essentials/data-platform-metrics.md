@@ -9,19 +9,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bc2dc3fdb74819a923a3fc4dac89262c1f43ac98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613223"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700977"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 메트릭 개요
 Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.md) 의 숫자 데이터를 시계열 데이터베이스로 수집 하는 Azure Monitor의 기능입니다. 메트릭은 정기적으로 수집 되는 숫자 값으로, 특정 시점에 시스템의 일부 측면을 설명 합니다. Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오를 지원할 수 특히 경고 및 빠른 문제 감지에 유용합니다. 메트릭 탐색기를 사용 하 여 대화형으로 분석 하거나, 값이 임계값을 초과할 때 경고를 사용 하 여 사전에 통보 하거나, 통합 문서 또는 대시보드에서 시각화할 수 있습니다.
 
 
 > [!NOTE]
-> Azure Monitor 메트릭은 Azure Monitor를 지 원하는 데이터 플랫폼의 절반입니다. 다른는 로그 및 성능 데이터를 수집 하 고 구성 하며 풍부한 쿼리 언어를 사용 하 여 분석할 수 있도록 하는 [Azure Monitor 로그](../platform/data-platform-logs.md) 입니다. 메트릭은 Azure Monitor 로그의 데이터 보다 더 간단 하며 거의 실시간 시나리오를 지원할 수 있으므로 특히 문제를 경고 하 고 신속 하 게 검색 하는 데 유용 합니다. 그러나 메트릭은 특정 구조에 숫자 데이터만 저장할 수 있는 반면, 로그는 고유 구조를 사용 하 여 다양 한 데이터 형식을 저장할 수 있습니다. 또한 메트릭 데이터의 분석에 사용할 수 없는 로그 쿼리를 사용 하 여 로그 데이터에 대 한 복잡 한 분석을 수행할 수 있습니다.
+> Azure Monitor 메트릭은 Azure Monitor를 지 원하는 데이터 플랫폼의 절반입니다. 다른는 로그 및 성능 데이터를 수집 하 고 구성 하며 풍부한 쿼리 언어를 사용 하 여 분석할 수 있도록 하는 [Azure Monitor 로그](../logs/data-platform-logs.md) 입니다. 메트릭은 Azure Monitor 로그의 데이터 보다 더 간단 하며 거의 실시간 시나리오를 지원할 수 있으므로 특히 문제를 경고 하 고 신속 하 게 검색 하는 데 유용 합니다. 그러나 메트릭은 특정 구조에 숫자 데이터만 저장할 수 있는 반면, 로그는 고유 구조를 사용 하 여 다양 한 데이터 형식을 저장할 수 있습니다. 또한 메트릭 데이터의 분석에 사용할 수 없는 로그 쿼리를 사용 하 여 로그 데이터에 대 한 복잡 한 분석을 수행할 수 있습니다.
 
 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Azure Monitor 메트릭으로 무엇을 할 수 있나요?
@@ -31,11 +31,11 @@ Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.
 |:---|:---|
 | **분석** | [메트릭 탐색기](metrics-charts.md)를 사용 하 여 차트에서 수집된 메트릭을 분석하고 여러 리소스의 메트릭을 비교할 수 있습니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../alerts/action-groups.md)을 수행하는 [메트릭 경고 규칙](../alerts/alerts-metric.md)을 구성합니다. |
-| **시각화** | 메트릭 탐색기에서 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 차트를 고정합니다.<br>대화형 보고서에서 여러 데이터 집합을 결합하는 [워크북](../visualize/workbooks-overview.md)을 만듭니다. 쿼리 결과를 [Grafana](../platform/grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 소스와 결합합니다. |
+| **시각화** | 메트릭 탐색기에서 [Azure 대시보드](../app/tutorial-app-dashboards.md)에 차트를 고정합니다.<br>대화형 보고서에서 여러 데이터 집합을 결합하는 [워크북](../visualize/workbooks-overview.md)을 만듭니다. 쿼리 결과를 [Grafana](../visualize/grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 소스와 결합합니다. |
 | **자동화** |  [자동 크기 조정](../autoscale/autoscale-overview.md)을 사용하여 임계값을 초과하는 메트릭 값을 기준으로 리소스를 늘리거나 줄입니다. |
-| **장치** | [PowerShell cmdlet](/powershell/module/az.applicationinsights)을 사용하여 명령줄에서 메트릭 값에 액세스<br>[REST API](../platform/rest-api-walkthrough.md)를 사용하여 사용자 지정 응용 프로그램에서 메트릭 값에 액세스<br>[CLI](/cli/azure/monitor/metrics)를 사용하여 명령줄에서 메트릭 값에 액세스 |
-| **내보내기** | [로그로 메트릭 라우팅](../platform/resource-logs.md#send-to-azure-storage)은 Azure Monitor 로그의 데이터와 함께 Azure Monitor 메트릭의 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다.<br>메트릭을 [이벤트 허브](../platform/stream-monitoring-data-event-hubs.md)로 스트리밍하여 외부 시스템에 라우팅합니다. |
-| **보관** | 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](../platform/platform-logs-overview.md)합니다. |
+| **장치** | [PowerShell cmdlet](/powershell/module/az.applicationinsights)을 사용하여 명령줄에서 메트릭 값에 액세스<br>[REST API](./rest-api-walkthrough.md)를 사용하여 사용자 지정 응용 프로그램에서 메트릭 값에 액세스<br>[CLI](/cli/azure/monitor/metrics)를 사용하여 명령줄에서 메트릭 값에 액세스 |
+| **내보내기** | [로그로 메트릭 라우팅](./resource-logs.md#send-to-azure-storage)은 Azure Monitor 로그의 데이터와 함께 Azure Monitor 메트릭의 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다.<br>메트릭을 [이벤트 허브](./stream-monitoring-data-event-hubs.md)로 스트리밍하여 외부 시스템에 라우팅합니다. |
+| **보관** | 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](./platform-logs-overview.md)합니다. |
 
 ![메트릭 개요](media/data-platform-metrics/metrics-overview.png)
 
@@ -43,22 +43,22 @@ Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.
 ## <a name="data-collection"></a>데이터 수집
 Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습니다. 이러한 메트릭이 Azure Monitor 메트릭 데이터베이스에서 수집되면 해당 원본에 관계없이 함께 평가할 수 있습니다.
 
-**Azure 리소스**. 플랫폼 메트릭은 Azure 리소스에서 생성되고 해당 상태 및 성능에 대한 가시성을 제공합니다. 각 리소스 유형은 필요한 구성 없이 [고유 메트릭 집합](../platform/metrics-supported.md)을 만듭니다. 메트릭 정의에서 달리 지정하지 않은 한, 플랫폼 메트릭은 1분 간격으로 Azure 리소스에서 수집됩니다. 
+**Azure 리소스**. 플랫폼 메트릭은 Azure 리소스에서 생성되고 해당 상태 및 성능에 대한 가시성을 제공합니다. 각 리소스 유형은 필요한 구성 없이 [고유 메트릭 집합](./metrics-supported.md)을 만듭니다. 메트릭 정의에서 달리 지정하지 않은 한, 플랫폼 메트릭은 1분 간격으로 Azure 리소스에서 수집됩니다. 
 
 **응용 프로그램**. Application Insights는 모니터링 되는 응용 프로그램에 대 한 메트릭을 생성 하 고 성능 문제를 감지 하 고 응용 프로그램의 사용 방식에 대 한 추세를 추적 하는 데 도움이 됩니다. _서버 응답 시간_ 및 _브라우저 예외_ 와 같은 값을 포함합니다.
 
 **가상 컴퓨터 에이전트**. 메트릭은 가상 컴퓨터의 게스트 운영 체제에서 수집 됩니다. Windows 가상 머신의 경우 [WAD(Windows Diagnostic Extension)](../agents/diagnostics-extension-overview.md)를 사용하고, Linux 가상 머신의 경우 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/)를 사용하여 게스트 OS 메트릭을 사용하도록 설정합니다.
 
-**사용자 지정 메트릭**. 자동으로 사용할 수 있는 표준 메트릭 외에 메트릭을 정의할 수 있습니다. Application Insights에서 모니터링하는 [응용 프로그램에서 사용자 지정 메트릭을 정의](../app/api-custom-events-metrics.md)하거나 [사용자 지정 메트릭 API](../platform/metrics-store-custom-rest-api.md)를 사용하여 Azure 서비스에 대한 사용자 시정 메트릭을 생성할 수 있습니다.
+**사용자 지정 메트릭**. 자동으로 사용할 수 있는 표준 메트릭 외에 메트릭을 정의할 수 있습니다. Application Insights에서 모니터링하는 [응용 프로그램에서 사용자 지정 메트릭을 정의](../app/api-custom-events-metrics.md)하거나 [사용자 지정 메트릭 API](./metrics-store-custom-rest-api.md)를 사용하여 Azure 서비스에 대한 사용자 시정 메트릭을 생성할 수 있습니다.
 
 - Azure Monitor 메트릭에 데이터를 보낼 수 있는 데이터 원본의 전체 목록은 [Azure Monitor에서 모니터링 되는 내용](../monitor-reference.md) 을 참조 하세요.
 
 ## <a name="metrics-explorer"></a>메트릭 탐색기
-[메트릭 탐색기](metrics-charts.md)를 사용하여 메트릭 데이터베이스에서 데이터를 대화형으로 분석하고 시간 경과에 따라 여러 가지 메트릭의 값을 기록합니다. 다른 시각화 요소를 사용하여 보려는 대시보드에 차트를 고정할 수 있습니다. [Azure 모니터링 REST API](../platform/rest-api-walkthrough.md)를 사용하여 메트릭을 검색할 수도 있습니다.
+[메트릭 탐색기](metrics-charts.md)를 사용하여 메트릭 데이터베이스에서 데이터를 대화형으로 분석하고 시간 경과에 따라 여러 가지 메트릭의 값을 기록합니다. 다른 시각화 요소를 사용하여 보려는 대시보드에 차트를 고정할 수 있습니다. [Azure 모니터링 REST API](./rest-api-walkthrough.md)를 사용하여 메트릭을 검색할 수도 있습니다.
 
 ![메트릭 탐색기](media/data-platform-metrics/metrics-explorer.png)
 
-- 메트릭 탐색기를 사용 하 여 시작 하려면 [Azure Monitor 메트릭 탐색기 시작](../platform/metrics-getting-started.md) 을 참조 하세요.
+- 메트릭 탐색기를 사용 하 여 시작 하려면 [Azure Monitor 메트릭 탐색기 시작](./metrics-getting-started.md) 을 참조 하세요.
 
 ## <a name="data-structure"></a>데이터 구조
 Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 분석에 최적화된 시계열 데이터베이스에 저장됩니다. 각 메트릭 값 집합은 다음 속성을 포함하는 시계열입니다.
@@ -113,7 +113,7 @@ Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다
 
 
 > [!NOTE]
-> 장기적인 추세의 경우 [Log Analytics 작업 영역에 Azure Monitor 리소스에 대한 플랫폼 메트릭을 보낼 수](../platform/resource-logs.md#send-to-azure-storage) 있습니다.
+> 장기적인 추세의 경우 [Log Analytics 작업 영역에 Azure Monitor 리소스에 대한 플랫폼 메트릭을 보낼 수](./resource-logs.md#send-to-azure-storage) 있습니다.
 
 
 
@@ -121,7 +121,6 @@ Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 데이터 플랫폼](../platform/data-platform.md)에 대해 자세히 알아봅니다.
-- [Azure Monitor의 로그 데이터](../platform/data-platform-logs.md)에 대해 알아봅니다.
+- [Azure Monitor 데이터 플랫폼](../data-platform.md)에 대해 자세히 알아봅니다.
+- [Azure Monitor의 로그 데이터](../logs/data-platform-logs.md)에 대해 알아봅니다.
 - Azure의 다양한 리소스에 [사용 가능한 모니터링 데이터](../agents/data-sources.md)에 대해 알아봅니다.
-

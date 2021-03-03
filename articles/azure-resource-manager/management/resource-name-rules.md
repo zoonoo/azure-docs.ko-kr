@@ -3,12 +3,12 @@ title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700476"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -397,6 +397,9 @@ ms.locfileid: "99220856"
 > | --- | --- | --- | --- |
 > | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | scheduledQueryRules | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*<>%{}&:\\?/#` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | metricAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*#&+:<>?@%{}\/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | activityLogAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%{}&:\\?+/#` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 

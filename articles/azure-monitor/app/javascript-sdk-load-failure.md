@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333259"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711419"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -30,7 +30,7 @@ Sdk 로드 실패 예외는 SDK 스크립트를 다운로드 하거나 초기화
 
 스택 정보에는 최종 사용자가 사용 하는 Url의 기본 정보가 포함 됩니다.
 
-| Name                      | 설명                                                                                                  |
+| 속성                      | Description                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN &nbsp; 끝점&gt; | SDK를 다운로드 하는 데 사용 되거나 실패 한 URL입니다.                                                      |
 | &lt;도움말 &nbsp; 링크&gt;    | 문제 해결 설명서 (이 페이지)에 연결 되는 URL입니다.                                              |
@@ -68,7 +68,7 @@ NPM 패키지 솔루션을 통해 SDK를 사용 하는 경우에도 마찬가지
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights CDN 중단
 
-브라우저에서 직접 CDN 끝점에 액세스 하려고 시도 하 여 Application Insights CDN 중단이 있는지 확인할 수 있습니다. 예를 들어 https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) 조직에서이 도메인을 차단 하지 않았다고 가정 하 고 최종 사용자가 아닌 다른 위치에서 사용 하는 것이 좋습니다.
+브라우저에서 직접 CDN 끝점에 액세스 하려고 시도 하 여 Application Insights CDN 중단이 발생 하는지 확인할 수 있습니다 ( https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js https://js.monitor.azure.com/scripts/b/ai.2.min.js) 조직에서이 도메인을 차단 하지 않았다고 가정 하 고 최종 사용자가 아닌 다른 위치에서).
 
 작동 중단이 발생 하는 것을 확인 한 경우 [새 지원 티켓을 만들거나](https://azure.microsoft.com/support/create-ticket/) SDK 다운로드에 사용 되는 URL을 변경해 볼 수 있습니다.
 
@@ -106,7 +106,7 @@ SDK 스크립트에서 예외가 보고 되는 경우 (예: ai.2.min.js) SDK에 
 
 잘못 된 구성을 확인 하려면 코드 조각에 전달 된 구성 (아직 없는 경우)을 변경 하 여 계측 키를 문자열 값으로 포함 합니다.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -134,7 +134,7 @@ SDK 스크립트에서 예외가 보고 되는 경우 (예: ai.2.min.js) SDK에 
 > [!WARNING]
 > 이는 개발자 전용 설정 이며 원격 분석이 손실 되므로 전체 프로덕션 환경에서 사용 하도록 설정 하면 안 됩니다.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: true<br />

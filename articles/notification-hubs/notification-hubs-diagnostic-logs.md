@@ -6,12 +6,12 @@ ms.author: brjones
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: b532dca6ceba44a32132bf64b322e1b4764fd5fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736239"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Notification Hubs에 대 한 진단 로그 사용
 
@@ -28,7 +28,7 @@ Azure Notification Hubs는 현재 Azure Notification Hubs 네임 스페이스에
 
 진단 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| Name | 설명 |
+| 속성 | Description |
 | ------- | ------- |
 | time | 로그의 UTC 타임 스탬프 |
 | resourceId | Azure 리소스에 대 한 상대 경로 |
@@ -130,7 +130,7 @@ REST API Notification Hubs에 대 한 호출의 경우 `identity` 이 필드에�
    - **저장소 계정에 보관** 을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
    - **이벤트 허브로 스트림** 을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
 
-   c. **OperationalLogs** 확인란을 선택 합니다.
+   다. **OperationalLogs** 확인란을 선택 합니다.
 
     !["진단 설정" 창](./media/notification-hubs-diagnostic-logs/image-3.png)
 
@@ -141,8 +141,7 @@ REST API Notification Hubs에 대 한 호출의 경우 `identity` 이 필드에�
 ## <a name="next-steps"></a>다음 단계
 
 진단 설정 구성에 대 한 자세한 내용은 다음을 참조 하세요.
-* [Azure 진단 로그에 대 한 개요](../azure-monitor/platform/platform-logs-overview.md)입니다.
+* [Azure 진단 로그에 대 한 개요](../azure-monitor/essentials/platform-logs-overview.md)입니다.
 
 Azure Notification Hubs에 대 한 자세한 내용은 다음을 참조 하세요.
 * [Azure Notification Hubs란 무엇인가요?](notification-hubs-push-notification-overview.md)
-

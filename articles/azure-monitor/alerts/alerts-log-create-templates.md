@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618119"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714326"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 
-로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](../platform/action-groups.md)을 사용 하 여 하나 이상의 작업 실행을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](../platform/alerts-unified-log.md).
+로그 경고를 통해 사용자는 [Log Analytics](../logs/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업 실행을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](./alerts-unified-log.md).
 
-이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 [로그 경고](../platform/alerts-unified-log.md) 를 구성 하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 로그 경고는 리소스 공급자에 생성 됩니다 `Microsoft.Insights/scheduledQueryRules` . [예약 된 쿼리 규칙 api](/rest/api/monitor/scheduledqueryrules/)에 대 한 api 참조를 참조 하세요.
+이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure Monitor에서 [로그 경고](./alerts-unified-log.md) 를 구성 하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 로그 경고는 리소스 공급자에 생성 됩니다 `Microsoft.Insights/scheduledQueryRules` . [예약 된 쿼리 규칙 api](/rest/api/monitor/scheduledqueryrules/)에 대 한 api 참조를 참조 하세요.
 
 기본적인 단계는 다음과 같습니다.
 
@@ -26,15 +26,15 @@ ms.locfileid: "100618119"
 4. 배포 방법을 사용하여 템플릿을 배포합니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역의](../log-query/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](../platform/alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](../platform/alerts-metric-logs.md)를 참조 하세요.
+> [Log Analytics 작업 영역의](../logs/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](./alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](./alerts-metric-logs.md)를 참조 하세요.
 
 > [!NOTE]
-> 레거시 [Log Analytics 경고 API](../platform/api-alerts.md) 를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고 및 [저장 된 검색 및 경고 Log Analytics](../insights/solutions.md)의 레거시 템플릿을 사용 합니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](alerts-log-api-switch.md).
+> 레거시 [Log Analytics 경고 API](./api-alerts.md) 를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고 및 [저장 된 검색 및 경고 Log Analytics](../insights/solutions.md)의 레거시 템플릿을 사용 합니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>간단한 템플릿 (API 버전 2018-04-16까지)
 
-[결과 로그 경고 수](../platform/alerts-unified-log.md#count-of-the-results-table-rows) 를 기반으로 하는 [예약 된 쿼리 규칙 생성](/rest/api/monitor/scheduledqueryrules/createorupdate) 템플릿 (샘플 데이터 집합 (변수)):
+[결과 로그 경고 수](./alerts-unified-log.md#count-of-the-results-table-rows) 를 기반으로 하는 [예약 된 쿼리 규칙 생성](/rest/api/monitor/scheduledqueryrules/createorupdate) 템플릿 (샘플 데이터 집합 (변수)):
 
 ```json
 {
@@ -109,7 +109,7 @@ ms.locfileid: "100618119"
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>리소스 간 쿼리가 포함 된 템플릿 (최대 API 버전 2018-04-16)
 
-[리소스 간](../log-query/cross-workspace-query.md) (샘플 데이터 집합)을 쿼리 하는 [메트릭 측정](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) 을 기반으로 하는 [예약 된 쿼리 규칙 생성](/rest/api/monitor/scheduledqueryrules/createorupdate) 템플릿:
+[리소스 간](../logs/cross-workspace-query.md) (샘플 데이터 집합)을 쿼리 하는 [메트릭 측정](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) 을 기반으로 하는 [예약 된 쿼리 규칙 생성](/rest/api/monitor/scheduledqueryrules/createorupdate) 템플릿:
 
 ```json
 {
@@ -432,7 +432,7 @@ ms.locfileid: "100618119"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그 경고](../platform/alerts-unified-log.md) 에 대 한 자세한 정보
-* [로그 경고 관리](../platform/alerts-log.md) 에 대 한 자세한 정보
-* [로그 경고에 대 한 webhook 작업](../platform/alerts-log-webhook.md) 이해
-* [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
+* [로그 경고](./alerts-unified-log.md) 에 대 한 자세한 정보
+* [로그 경고 관리](./alerts-log.md) 에 대 한 자세한 정보
+* [로그 경고에 대 한 webhook 작업](./alerts-log-webhook.md) 이해
+* [로그 쿼리에](../logs/log-query-overview.md)대해 자세히 알아보세요.

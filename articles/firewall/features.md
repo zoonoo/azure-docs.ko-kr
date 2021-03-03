@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741432"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -36,7 +36,7 @@ Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 - Azure Monitor 로깅
 - 강제 터널링
 - 웹 범주 (미리 보기)
-- 인증
+- 인증서
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성
 
@@ -123,6 +123,18 @@ Azure 방화벽 통합 문서는 Azure 방화벽 데이터 분석을 위한 유�
 - 방화벽 프리미엄 – 전체 URL이 검사 되므로 `www.google.com/news` *뉴스* 로 분류 됩니다.
 
 범주는 **책임**, **고대역폭**, **비즈니스 사용**, **생산성 손실**, **일반 서핑** 및 **범주화** 되지 않음의 심각도를 기준으로 구성 됩니다.
+
+### <a name="categorization-change"></a>분류 변경
+
+다음을 수행 하는 경우 분류 변경을 요청할 수 있습니다.
+
+ - FQDN 또는 URL은 다른 범주에 속해야 합니다. 
+ 
+또는 
+
+- 범주화 되지 않은 FQDN 또는 URL에 대해 제안 된 범주 포함
+
+에서 요청을 제출 하는 것을 환영 [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) 합니다.
 
 ### <a name="category-exceptions"></a>범주 예외
 

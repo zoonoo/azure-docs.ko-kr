@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792068"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720752"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Azure Security Center의 SQL information protection 정책
  
@@ -58,7 +58,7 @@ Information protection 정책에 액세스 하는 방법에는 다음 세 가지
 Security Center의 **가격 책정 및 설정** 페이지에서 **SQL information protection** 을 선택 합니다.
 
 > [!NOTE]
-> 이 옵션은 테 넌 트 수준의 사용 권한이 있는 사용자에 대해서만 표시 됩니다. [자신에 게 테 넌 트 전체 사용 권한을 부여](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself)합니다.
+> 이 옵션은 테 넌 트 수준의 사용 권한이 있는 사용자에 대해서만 표시 됩니다. [자신에 게 테 넌 트 전체 사용 권한을 부여](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)합니다.
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Azure Security Center의 가격 책정 및 설정 페이지에서 SQL Information Protection 정책에 액세스":::
 

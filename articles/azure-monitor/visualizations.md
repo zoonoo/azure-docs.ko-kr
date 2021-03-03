@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29164bbb205e9f3ad59ac28200b5c6cd1e47bf39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707577"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -138,7 +138,7 @@ ms.locfileid: "100589408"
 - 쿼리 응답 크기는 8MB, 쿼리 실행 시간은 110초로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Monitor에서 수집하는 데이터](/data-platform.md)에 대해 알아봅니다.
+- [Azure Monitor에서 수집하는 데이터](data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [메트릭 탐색기](essentials/metrics-getting-started.md) 에 대해 알아보기
 - [Workbooks](./visualize/workbooks-overview.md)에 대해 알아봅니다.

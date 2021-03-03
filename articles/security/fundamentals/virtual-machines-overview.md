@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715040"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -51,7 +51,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 가상 머신을 보호하는 맬웨어 방지 소프트웨어에 대해 자세히 알아보세요.
 
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Windows VM에서 추세 마이크로 심층 Security를 서비스로 설치 및 구성 하는 방법](../../virtual-machines/extensions/trend.md)
+* [Windows VM에서 추세 마이크로 심층 Security를 서비스로 설치 및 구성 하는 방법](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../../virtual-machines/extensions/symantec.md)
 * [Azure Marketplace의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -62,7 +62,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 * [엔드포인트 보호 및 응답](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [자동화된 조사 및 수정](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
 * [보안 점수](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
-* [고급 사냥](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
+* [고급 구하기](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [관리 및 API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 

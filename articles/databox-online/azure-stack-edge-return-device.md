@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784480"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703187"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치 반환
 
@@ -30,26 +30,16 @@ ms.locfileid: "98784480"
 
 ## <a name="erase-data-from-the-device"></a>디바이스에서 데이터 지우기
 
-디바이스의 데이터 디스크에서 데이터를 지우려면 디바이스를 초기화해야 합니다. 로컬 웹 UI 또는 PowerShell 인터페이스를 사용하여 디바이스를 초기화할 수 있습니다.
+디바이스의 데이터 디스크에서 데이터를 지우려면 디바이스를 초기화해야 합니다.
 
-필요한 경우 초기화하기 전에 디바이스의 로컬 데이터를 복사합니다. 디바이스에서 Azure Storage 컨테이너로 데이터를 복사할 수 있습니다.
+필요한 경우 초기화하기 전에 디바이스의 로컬 데이터를 복사합니다. 디바이스에서 Azure Storage 컨테이너로 데이터를 복사할 수 있습니다. 
 
-장치를 다시 설정 하기 전에도 장치 반환을 시작할 수 있습니다. 
+장치를 다시 설정 하기 전에도 장치 반환을 시작할 수 있습니다.
 
-로컬 웹 UI를 사용하여 디바이스를 초기화하려면 다음 단계를 수행하세요.
+로컬 웹 UI 또는 PowerShell에서 장치를 다시 설정할 수 있습니다. PowerShell 지침은 [장치 다시 설정](./azure-stack-edge-connect-powershell-interface.md#reset-your-device)을 참조 하세요.
 
-1. 로컬 웹 UI에서 **유지 관리 > 디바이스 초기화** 로 이동합니다.
-2. **디바이스 초기화** 를 선택합니다.
 
-    ![디바이스 다시 설정](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. 확인 메시지가 나타나면 경고를 검토하고 **예** 를 선택하여 계속합니다.
-
-    ![초기화 확인](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-초기화하면 디바이스 데이터 디스크에서 데이터가 지워집니다. 이 프로세스에는 디바이스의 데이터 양에 따라 30 ~ 40분 정도 소요됩니다.
-
-또는 디바이스의 PowerShell 인터페이스에 연결하고 `Reset-HcsAppliance` cmdlet을 사용하여 데이터 디스크에서 데이터를 지웁니다. 자세한 내용은 [디바이스 초기화](azure-stack-edge-connect-powershell-interface.md#reset-your-device)를 참조하세요.
+[! 포함] [장치에서 데이터 다시 설정](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - 디바이스를 교환하거나 새 디바이스로 업그레이드하는 경우 새 디바이스를 받은 후에만 디바이스를 초기화하는 것이 좋습니다.
@@ -67,15 +57,15 @@ ms.locfileid: "98784480"
 
     1. 장치의 일련 번호를 제공 합니다. 장치 일련 번호를 가져오려면 장치의 로컬 웹 UI로 이동한 다음 **개요** 로 이동 합니다.  
     
-    ![장치 일련 번호 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![장치 일련 번호 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. 장치에 고유한 5 개 이상의 문자 식별자 인 서비스 태그 번호를 입력 합니다. 서비스 태그는 장치의 오른쪽 아래 모퉁이에 있습니다 (장치를 향하는 경우). 정보 태그를 끌어옵니다 (슬라이드 아웃 레이블 패널). 이 패널에는 서비스 태그, NIC, MAC 주소 등의 시스템 정보가 포함 되어 있습니다. 
+    2. 서비스 태그 번호를 입력 합니다. 서비스 태그 번호는 장치에 고유한 다섯 개 이상의 문자를 포함 하는 식별자입니다. 서비스 태그는 장치의 오른쪽 아래 모서리에 있습니다 (장치를 향하는 경우). 정보 태그를 끌어옵니다 (슬라이드 아웃 레이블 패널). 이 패널에는 서비스 태그, NIC, MAC 주소 등의 시스템 정보가 포함 되어 있습니다. 
     
-    ![서비스 태그 번호 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![서비스 태그 번호 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. 드롭다운 목록에서 반환 이유를 선택 합니다.
 
-    ![장치 2 반환](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![장치 2 반환](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. **배송 세부 정보**:
 
@@ -109,7 +99,7 @@ ms.locfileid: "98784480"
 
     1. 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
     2. 통화 시 인쇄된 레이블에 표시된 역방향 배송 추적 번호를 알려줍니다.
-    3. 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
+    3. 추적 번호가 인용 되지 않은 경우 UPS를 통해 추가 요금을 지불 해야 합니다.
 
     픽업을 예약 하는 대신 가장 가까운 드롭다운 위치에서 Azure Stack Edge Pro를 삭제할 수도 있습니다.
 
@@ -123,8 +113,8 @@ Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 �
 
 Microsoft Azure Portal에서 디바이스를 삭제할 수 있습니다.
 
-- 주문한 후 Microsoft에서 디바이스를 준비하기 전
-- 장치를 Microsoft에 반환 하면 Azure 데이터 센터에서 물리적 검사를 전달 하 고 Edge Pro 운영 팀 호출을 Azure Stack 하 여 장치가 반환 되었는지 확인 합니다.
+- 주문을 한 후에 Microsoft에서 장치를 준비 합니다.
+- 장치를 Microsoft에 반환 하 고 Azure Stack Edge Pro 운영 팀에서 장치가 반환 되었는지 확인 하기 위해를 호출 했습니다. 반환 된 장치가 Azure 데이터 센터에서 물리적 검사를 통과할 때까지 운영 팀에서를 호출 하지 않습니다.
 
 다른 구독 또는 위치에 대해 디바이스를 활성화한 경우 Microsoft는 1일(업무일 기준) 이내에 주문을 새 구독 또는 위치로 이동합니다. 주문이 이동된 후 이 리소스를 삭제할 수 있습니다.
 

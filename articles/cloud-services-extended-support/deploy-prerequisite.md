@@ -8,17 +8,17 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728113"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
 
 > [!IMPORTANT]
-> Cloud Services (확장 지원)은 현재 공개 미리 보기 상태입니다.
+> Cloud Services(추가 지원)는 현재 공개 미리 보기에 있습니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 성공적인 Cloud Services (확장 지원) 배포를 보장 하려면 배포를 시도 하기 전에 아래 단계를 검토 하 고 각 항목을 완료 합니다. 
@@ -42,7 +42,7 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>필요한 서비스 구성 (.cscfg) 파일 업데이트
 
 ### <a name="1-virtual-network"></a>1) Virtual Network
-클라우드 서비스 (확장 지원) 배포는 가상 네트워크에 있어야 합니다. [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) 또는 [ARM 템플릿을](https://docs.microsoft.com/azure/virtual-network/quick-create-template)통해 가상 네트워크를 만들 수 있습니다. [NetworkConfiguration](schema-cscfg-networkconfiguration.md) 섹션 아래의 서비스 구성 (.cscfg) 에서도 가상 네트워크 및 서브넷을 참조 해야 합니다. 
+Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니다. [Azure Portal](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [Azure CLI](../virtual-network/quick-create-cli.md) 또는 [ARM 템플릿을](../virtual-network/quick-create-template.md)통해 가상 네트워크를 만들 수 있습니다. [NetworkConfiguration](schema-cscfg-networkconfiguration.md) 섹션 아래의 서비스 구성 (.cscfg) 에서도 가상 네트워크 및 서브넷을 참조 해야 합니다. 
 
 클라우드 서비스와 동일한 리소스 그룹에 속한 가상 네트워크의 경우 서비스 구성 (.cscfg) 파일의 가상 네트워크 이름만 참조 해도 충분 합니다. 가상 네트워크와 클라우드 서비스가 서로 다른 두 리소스 그룹에 있는 경우 가상 네트워크의 전체 Azure Resource Manager ID를 서비스 구성 (.cscfg) 파일에 지정 해야 합니다.
  
@@ -103,7 +103,7 @@ CloudServices           Microsoft.Compute    Registered
  예를 들어 `<WorkerRole name="WorkerRole1" vmsize="Medium"`는 `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`가 됩니다.
  
 > [!NOTE]
-> 사용 가능한 크기 목록을 검색 하려면 [리소스 sku](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 를 참조 하 고 다음 필터를 적용 합니다. <br>
+> 사용 가능한 크기 목록을 검색 하려면 [리소스 sku](/rest/api/compute/resourceskus/list) 를 참조 하 고 다음 필터를 적용 합니다. <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -120,10 +120,10 @@ CloudServices           Microsoft.Compute    Registered
 
 ## <a name="key-vault-creation"></a>Key Vault 만들기 
 
-Key Vault은 Cloud Services (확장 지원)에 연결 된 인증서를 저장 하는 데 사용 됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services (확장 된 지원) 리소스가 Key Vault에서 암호로 저장 된 인증서를 검색할 수 있도록 적절 한 사용 권한에 대 한 Key Vault를 사용 하도록 설정 해야 합니다. Key Vault는 [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)및  [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)을 통해 만들 수 있습니다. Key Vault 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services에서 인증서 사용 (확장 지원)](certificates-and-key-vault.md)을 참조 하세요.
+Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. Key Vault는 [Azure Portal](../key-vault/general/quick-create-portal.md)및  [PowerShell](../key-vault/general/quick-create-powershell.md)을 통해 만들 수 있습니다. Key Vault 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.
-- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용 하 여 클라우드 서비스 (확장 지원)를 배포 합니다.
-- Cloud Services (확장 지원)에 대 한 질문과 [대답](faq.md) 을 검토 합니다.
-- [Cloud Services (확장 지원) 샘플 리포지토리](https://github.com/Azure-Samples/cloud-services-extended-support) 를 방문 하세요.
+- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- [Cloud Services(추가 지원) 샘플 리포지토리](https://github.com/Azure-Samples/cloud-services-extended-support)를 방문합니다.

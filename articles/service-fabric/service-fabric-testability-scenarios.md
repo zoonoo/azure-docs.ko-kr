@@ -4,12 +4,12 @@ description: 서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시
 ms.topic: conceptual
 ms.date: 10/1/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9939ef12dcbcc2b5d8733a68166c8e7162c4b0ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ef49d541cd00d289176ca61e055102faf6df7514
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594992"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735559"
 ---
 # <a name="testability-scenarios"></a>테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. Azure 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다.
@@ -123,7 +123,7 @@ class Test
 
 PowerShell
 
-Service Fabric Powershell 모듈에는 비정상 상황 시나리오를 시작 하는 두 가지 방법이 포함 되어 있습니다. `Invoke-ServiceFabricChaosTestScenario` 는 클라이언트 기반 이며, 클라이언트 컴퓨터가 테스트를 통해 중간에 종료 되는 경우 더 이상 오류가 발생 하지 않습니다. 또는 컴퓨터 종료 시 테스트 실행을 유지 하는 일련의 명령이 있습니다. `Start-ServiceFabricChaos` Faultanalysisservice의입니다 라는 상태 저장 및 안정적인 시스템 서비스를 사용 하 여 TimeToRun가 가동 될 때까지 오류가 계속 해 서 발생 하는지 확인 합니다. `Stop-ServiceFabricChaos` 를 사용 하 여 시나리오를 수동으로 중지 하 고 `Get-ServiceFabricChaosReport` 보고서를 가져올 수 있습니다. 자세한 내용은 [Azure Service Fabric Powershell 참조](/powershell/module/servicefabric/) 및 [Service Fabric 클러스터에서 비정상 상황 제어 유도](service-fabric-controlled-chaos.md)를 참조 하세요.
+Service Fabric Powershell 모듈에는 비정상 상황 시나리오를 시작 하는 두 가지 방법이 포함 되어 있습니다. `Invoke-ServiceFabricChaosTestScenario` 는 클라이언트 기반 이며, 클라이언트 컴퓨터가 테스트를 통해 중간에 종료 되는 경우 더 이상 오류가 발생 하지 않습니다. 또는 컴퓨터 종료 시 테스트 실행을 유지 하는 일련의 명령이 있습니다. `Start-ServiceFabricChaos` Faultanalysisservice의입니다 라는 상태 저장 및 안정적인 시스템 서비스를 사용 하 여 TimeToRun가 가동 될 때까지 오류가 계속 해 서 발생 하는지 확인 합니다. `Stop-ServiceFabricChaos` 를 사용 하 여 시나리오를 수동으로 중지 하 고 `Get-ServiceFabricChaosReport` 보고서를 가져올 수 있습니다. 자세한 내용은 [Azure Service Fabric Powershell 참조](/powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps) 및 [Service Fabric 클러스터에서 비정상 상황 제어 유도](service-fabric-controlled-chaos.md)를 참조 하세요.
 
 ```powershell
 $connection = "localhost:19000"

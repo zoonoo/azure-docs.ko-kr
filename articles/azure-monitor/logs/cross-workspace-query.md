@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: f878d7cf5fdc2eb6538c1192319405dbde098ba6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a765525b12431c68aa0bba0c0f49c477defff0f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723217"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
 
@@ -19,7 +19,7 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 
 여러 작업 영역 및 앱에 저장 된 데이터를 쿼리 하는 방법에는 다음 두 가지가 있습니다.
 1. 작업 영역 및 앱 세부 정보를 지정 하 여 명시적으로 이 기법은이 문서에 자세히 설명 되어 있습니다.
-2. [리소스 컨텍스트 쿼리](../platform/design-logs-deployment.md#access-mode)를 암시적으로 사용 합니다. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대 한 데이터를 포함 하는 모든 작업 영역에서 관련 데이터가 인출 됩니다. 앱에 저장 된 Application Insights 데이터는 인출 되지 않습니다.
+2. [리소스 컨텍스트 쿼리](./design-logs-deployment.md#access-mode)를 암시적으로 사용 합니다. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대 한 데이터를 포함 하는 모든 작업 영역에서 관련 데이터가 인출 됩니다. 앱에 저장 된 Application Insights 데이터는 인출 되지 않습니다.
 
 > [!IMPORTANT]
 > [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 사용하는 경우 원격 분석은 다른 모든 로그 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. Workspace () 식을 사용 하 여 여러 작업 영역에 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
@@ -28,12 +28,12 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 ## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 제한 
 
 * 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100 개로 제한 됩니다.
-* 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
+* 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../visualize/tutorial-logs-dashboards.md)수 있습니다. 
 * 로그 경고의 리소스 간 쿼리는 현재 [SCHEDULEDQUERYRULES API](/rest/api/monitor/scheduledqueryrules)에서만 지원 됩니다. 레거시 Log Analytics Alerts API를 사용 하는 경우 [현재 api로 전환](../alerts/alerts-log-api-switch.md)해야 합니다.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
-쿼리에 다른 작업 영역을 참조하려면 [*workspace*](../logs/workspace-expression.md) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](../log-query/app-expression.md) 식별자를 사용합니다.  
+쿼리에 다른 작업 영역을 참조하려면 [*workspace*](../logs/workspace-expression.md) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](./app-expression.md) 식별자를 사용합니다.  
 
 ### <a name="identifying-workspace-resources"></a>작업 영역 리소스 식별
 다음 예제에서는 현재 작업 영역과 *contosoretail-it* 이라는 작업 영역의 업데이트 테이블에서 요약된 로그 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
@@ -107,9 +107,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>여러 리소스에 리소스 간 쿼리 사용
-리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](../log-query/functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
+리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](./functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
 
-Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_ 을 사용하여 [함수로 쿼리를 저장합니다](../log-query/functions.md#create-a-function).
+Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_ 을 사용하여 [함수로 쿼리를 저장합니다](./functions.md#create-a-function).
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -123,7 +123,7 @@ app('Contoso-app5').requests
 
 
 
-이제 다음과 같은 리소스 간 쿼리에서 [이 함수를 사용](../log-query/functions.md#use-a-function)할 수 있습니다. 함수 별칭 _applicationsScoping_ 은 정의된 모든 애플리케이션에서 요청 테이블의 통합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다. _구문 분석_ 연산자는 이 예제에서 선택 사항입니다. _SourceApp_ 속성에서 애플리케이션 이름을 추출합니다.
+이제 다음과 같은 리소스 간 쿼리에서 [이 함수를 사용](./functions.md#use-a-function)할 수 있습니다. 함수 별칭 _applicationsScoping_ 은 정의된 모든 애플리케이션에서 요청 테이블의 통합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다. _구문 분석_ 연산자는 이 예제에서 선택 사항입니다. _SourceApp_ 속성에서 애플리케이션 이름을 추출합니다.
 
 ```Kusto
 applicationsScoping 
@@ -142,5 +142,4 @@ applicationsScoping
 
 ## <a name="next-steps"></a>다음 단계
 
-- 로그 쿼리 개요와 Azure Monitor 로그 데이터가 구조화되는 방법을 보려면 [Azure Monitor에서 로그 데이터 분석](../log-query/log-query-overview.md)을 검토하세요.
-
+- 로그 쿼리 개요와 Azure Monitor 로그 데이터가 구조화되는 방법을 보려면 [Azure Monitor에서 로그 데이터 분석](./log-query-overview.md)을 검토하세요.

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691249"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,7 +187,7 @@ SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에�
 
 서버에 대해 구성 된 지역 중복이 없는 경우에도 동일한 키 자료를 사용 하 여 서로 다른 두 지역에 두 개의 다른 키 자격 증명 모음을 사용 하도록 서버를 구성 하는 것이 좋습니다. 다른 지역의 보조 키 자격 증명 모음에 있는 키는 TDE 보호기로 표시 되지 않아야 하며 허용 되지 않습니다. 기본 키 자격 증명 모음에 영향을 주는 작동 중단이 발생 하는 경우에만 시스템은 보조 키 자격 증명 모음에 있는 동일한 지문이 있는 다른 연결 된 키로 자동으로 전환 됩니다 (있는 경우). 이 스위치는 취소 된 액세스 권한으로 인해 TDE 보호기에 액세스할 수 없거나, 키 또는 키 자격 증명 모음이 삭제 되어 고객이 의도적으로 서버에서 키에 액세스를 제한 하는 것을 의미할 수 있으므로 발생 하지 않습니다. 키 자격 증명 모음 외부에 키를 만들고 두 키 자격 증명 모음으로 가져오는 방법으로 다른 지역에 있는 두 개의 주요 자격 증명 모음에 동일한 키 자료를 제공할 수 있습니다. 
 
-또는 서버와 동일한 지역에 공동 배치 된 기본 key vault를 사용 하 여 키를 생성 하 고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제 하 여 수행할 수 있습니다. [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 키 백업/복원 작업은 동일한 Azure 구독 및 [azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/)내에서 키 자격 증명 모음 간에만 허용 됩니다.  
+또는 서버와 동일한 지역에 공동 배치 된 기본 key vault를 사용 하 여 키를 생성 하 고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제 하 여 수행할 수 있습니다. [AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 [AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 키 백업/복원 작업은 동일한 Azure 구독 및 [azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/)내에서 키 자격 증명 모음 간에만 허용 됩니다.  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

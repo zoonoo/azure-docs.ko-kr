@@ -10,19 +10,19 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49d8eeaa8d1160659a456f147a6a5e27f923af33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258085"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733468"
 ---
 # <a name="whats-new-in-face-service"></a>Face 서비스의 새로운 기능이란?
 
 Azure Face 서비스는 지속적으로 업데이트 됩니다. 이 문서를 사용 하면 향상 된 기능, 수정 사항 및 설명서 업데이트를 최신 상태로 유지할 수 있습니다.
 
 ## <a name="january-2021"></a>2021년 1월
-* Face API를 사용 하는 경우 대기 시간 완화: 얼굴 팀은 서비스 및 가능한 완화 전략을 사용할 때 잠재적 대기 시간 원인을 자세히 설명 하는 새 문서를 게시 했습니다. [Face 서비스를 사용할 때 대기 시간 감소](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency)를 참조 하세요.
+* Face API를 사용 하는 경우 대기 시간 완화: 얼굴 팀은 서비스 및 가능한 완화 전략을 사용할 때 잠재적 대기 시간 원인을 자세히 설명 하는 새 문서를 게시 했습니다. [Face 서비스를 사용할 때 대기 시간 감소](./face-api-how-to-topics/how-to-mitigate-latency.md)를 참조 하세요.
 
 ## <a name="december-2020"></a>2020년 12월
 * 얼굴 ID 저장소에 대 한 고객 구성: 얼굴 서비스는 고객 이미지를 저장 하지 않지만 압축 된 얼굴 기능은 서버에 저장 됩니다. 얼굴 ID는 얼굴 기능의 식별자 이며 [얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)확인, [얼굴 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)및 [얼굴 찾기와 유사](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)하 게 사용 됩니다. 저장 된 면 기능이 만료 되어 원래 검색 통화 후 24 시간 후에 삭제 됩니다. 이제 고객은 이러한 얼굴 Id가 캐시 되는 기간을 결정할 수 있습니다. 최대 값은 24 시간 이지만 이제는 최소 값 60 초를 설정할 수 있습니다. 캐시 되는 Face Id의 새 시간 범위는 60 초에서 24 시간 사이의 값입니다. 자세한 내용은 [얼굴 검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API 참조 ( *faceIdTimeToLive* 매개 변수)에서 찾을 수 있습니다.
@@ -31,10 +31,10 @@ Azure Face 서비스는 지속적으로 업데이트 됩니다. 이 문서를 �
 * 중요 한 동의를 설정 하 고 고품질 등록을 통해 정확도가 뛰어난 얼굴 인식 시스템을 만들기 위한 모범 사례를 보여 주는 샘플 얼굴 등록 앱을 게시 했습니다. 오픈 소스 샘플은 개발자가 배포 하거나 사용자 지정할 수 있도록 준비 된, [등록 앱 빌드](build-enrollment-app.md) 가이드 및 [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample)에서 찾을 수 있습니다. 
 
 ## <a name="august-2020"></a>2020년 8월
-* 미사용 데이터의 고객이 관리 하는 암호화: Face 서비스는 데이터를 클라우드에 유지할 때 자동으로 암호화 합니다. 얼굴 서비스 암호화는 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 되도록 데이터를 보호 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. CMK (고객이 관리 하는 키) 라고 하는 고유한 키를 사용 하 여 구독을 관리 하는 새로운 옵션도 있습니다. 자세한 내용은 [고객이 관리 하는 키](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest)에서 찾을 수 있습니다.
+* 미사용 데이터의 고객이 관리 하는 암호화: Face 서비스는 데이터를 클라우드에 유지할 때 자동으로 암호화 합니다. 얼굴 서비스 암호화는 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 되도록 데이터를 보호 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. CMK (고객이 관리 하는 키) 라고 하는 고유한 키를 사용 하 여 구독을 관리 하는 새로운 옵션도 있습니다. 자세한 내용은 [고객이 관리 하는 키](./encrypt-data-at-rest.md)에서 찾을 수 있습니다.
 
 ## <a name="april-2020"></a>2020년 4월
-* 새 Face API 인식 모델: 새 인식 03 모델은 현재 사용할 수 있는 가장 정확한 모델입니다. 새 고객의 경우이 모델을 사용 하는 것이 좋습니다. 인식 03은 유사성 비교와 사용자 일치 비교에 대해 향상 된 정확도를 제공 합니다. 자세한 내용은 [얼굴 인식 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model)에서 찾을 수 있습니다.
+* 새 Face API 인식 모델: 새 인식 03 모델은 현재 사용할 수 있는 가장 정확한 모델입니다. 새 고객의 경우이 모델을 사용 하는 것이 좋습니다. 인식 03은 유사성 비교와 사용자 일치 비교에 대해 향상 된 정확도를 제공 합니다. 자세한 내용은 [얼굴 인식 모델 지정](./face-api-how-to-topics/specify-recognition-model.md)에서 찾을 수 있습니다.
 
 ## <a name="june-2019"></a>2019년 6월
 

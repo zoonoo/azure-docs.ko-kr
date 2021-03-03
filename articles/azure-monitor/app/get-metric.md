@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719783"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
@@ -33,7 +33,7 @@ Application Insights에서 및를 통해 수집 된 사용자 지정 메트릭�
 요약 하자면 `GetMetric()` 사전 집계를 수행 하기 때문에 권장 되는 방법입니다. 모든 Track () 호출의 값을 누적 하 고 1 분 마다 요약/집계를 보냅니다. 이렇게 하면 더 적은 데이터 요소를 전송 하 고 모든 관련 정보를 수집 하 여 비용 및 성능 오버 헤드를 크게 줄일 수 있습니다.
 
 > [!NOTE]
-> .NET 및 .NET Core Sdk만 GetMetric () 메서드를 포함 합니다. Java를 사용 하는 경우 [마이크로 측정기 메트릭](./micrometer-java.md) 또는를 사용할 수 있습니다 `TrackMetric()` . Python의 경우 [OpenCensus](./opencensus-python.md#metrics) 를 사용 하 여 사용자 지정 메트릭을 보낼 수 있습니다. JavaScript 및 Node.js의 경우 계속 사용할 수 `TrackMetric()` 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다.
+> .NET 및 .NET Core Sdk만 GetMetric () 메서드를 포함 합니다. Java를 사용 하는 경우 [마이크로 측정기 메트릭](./micrometer-java.md) 또는를 사용할 수 있습니다 `TrackMetric()` . JavaScript 및 Node.js의 경우 계속 사용할 수 `TrackMetric()` 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다. Python의 경우 [OpenCensus](./opencensus-python.md#metrics) 를 사용 하 여 사용자 지정 메트릭을 보낼 수 있지만 메트릭 구현은 다릅니다.
 
 ## <a name="getting-started-with-getmetric"></a>GetMetric 시작
 
@@ -69,7 +69,7 @@ namespace WorkerService3
             // Here "computersSold", a custom metric name, is being tracked with a value of 42 every second.
             while (!stoppingToken.IsCancellationRequested)
             {
-                _telemetryClient.GetMetric("computersSold").TrackValue(42);
+                _telemetryClient.GetMetric("ComputersSold").TrackValue(42);
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
@@ -89,7 +89,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 "ai.internal.sdkVersion":"m-agg2c:2.12.0-21496",
 "ai.internal.nodeName":"Test-Computer-Name"},
 "data":{"baseType":"MetricData",
-"baseData":{"ver":2,"metrics":[{"name":"computersSold",
+"baseData":{"ver":2,"metrics":[{"name":"ComputersSold",
 "kind":"Aggregation",
 "value":1722,
 "count":41,
@@ -101,6 +101,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 ```
 
 이 단일 원격 분석 항목은 41 고유 메트릭 측정의 집계를 나타냅니다. 같은 값을 계속 해 서 전송 했으므로 동일한 *최대 (최대)* 값이 있는 0의 *표준 편차 (stDev)* 와 *최소 (min)* 값이 있습니다. *Value* 속성은 집계 된 모든 개별 값의 합계를 나타냅니다.
+
+> [!NOTE]
+> GetMetric은 마지막 값 (예: "계기")을 추적 하거나 히스토그램/분포를 추적 하는 기능을 지원 하지 않습니다.
 
 로그 (분석) 환경에서 Application Insights 리소스를 검토 하는 경우이 개별 원격 분석 항목은 다음과 같이 표시 됩니다.
 
@@ -283,7 +286,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` 메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면를 호출 `TrackValue()` 합니다.
+* `seriesCountLimit` 메트릭에 포함할 수 있는 데이터 시계열의 최대 개수입니다. 이 한도에 도달 하면 호출이 `TrackValue()` 추적 되지 않습니다.
 * `valuesPerDimensionLimit` 비슷한 방식으로 차원 마다 고유한 값의 수를 제한 합니다.
 * `restrictToUInt32Values` 음수가 아닌 정수 값만 추적 해야 하는지 여부를 결정 합니다.
 

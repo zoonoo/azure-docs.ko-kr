@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833986"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730034"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터에서 연결 모니터로 마이그레이션 (클래식)
 
 > [!IMPORTANT]
-> 7 월 1 일부 2021 터 연결 모니터 (클래식)에 새 연결 모니터를 추가할 수 없지만, 1 7 2021 월 1 일 이전에 만든 기존 연결 모니터는 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 [연결 모니터 (클래식)에서](migrate-to-connection-monitor-from-connection-monitor-classic.md)  Azure Network Watcher의 2 2024 월 29 일 이전에 Azure에서 새 연결 모니터로 마이그레이션합니다.
+> 2021년 7월 1일부터 연결 모니터(클래식)에 새 연결 모니터를 추가할 수 없지만, 2021년 7월 1일 이전에 만든 기존 연결 모니터는 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 [연결 모니터 (클래식)에서](migrate-to-connection-monitor-from-connection-monitor-classic.md)  Azure Network Watcher의 2 2024 월 29 일 이전에 Azure에서 새 연결 모니터로 마이그레이션합니다.
 
 몇 번의 클릭 만으로 가동 중지 시간 없이 기존 연결 모니터를 새로운 향상 된 연결 모니터로 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
 
@@ -32,12 +32,12 @@ ms.locfileid: "99833986"
 
 * 에이전트 및 방화벽 설정이 그대로 작동 합니다. 변경할 필요가 없습니다. 
 * 기존 연결 모니터는 테스트 그룹 > 테스트 형식 > 연결 모니터에 매핑됩니다. **편집** 을 선택 하 여 새 연결 모니터의 속성을 보고 수정 하 고, 연결 모니터를 변경 하 여 템플릿을 다운로드 하 고, Azure Resource Manager를 통해 제출할 수 있습니다. 
-* Network Watcher 확장을 포함 하는 Azure virtual machines는 작업 영역과 메트릭에 데이터를 모두 보냅니다. 연결 모니터는 이전 메트릭 (ProbesFailedPercent 및 AverageRoundtripMs) 대신 새 메트릭 (ChecksFailedPercent 및 RoundTripTimeMs)을 통해 데이터를 사용할 수 있도록 합니다. 
+* Network Watcher 확장을 포함 하는 Azure virtual machines는 작업 영역과 메트릭에 데이터를 모두 보냅니다. 연결 모니터는 이전 메트릭 (ProbesFailedPercent 및 AverageRoundtripMs) 대신 새 메트릭 (ChecksFailedPercent 및 RoundTripTimeMs)을 통해 데이터를 사용할 수 있도록 합니다. 이전 메트릭은 ProbesFailedPercent-> ChecksFailedPercent 및 AverageRoundtripMs > RoundTripTimeMs로 새 메트릭에 마이그레이션됩니다.
 * 데이터 모니터링:
    * **경고**: 새 메트릭에 자동으로 마이그레이션됩니다.
    * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집 해야 합니다. 
     
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 작업 영역을 사용 하는 경우 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 해야 합니다. 
 
@@ -49,7 +49,7 @@ ms.locfileid: "99833986"
     
 1. 마이그레이션할 구독 및 연결 모니터를 선택 하 고 **선택한 마이그레이션** 을 선택 합니다. 
 
-몇 번의 클릭 만으로 기존 연결 모니터를 연결 모니터로 마이그레이션 했습니다. 
+몇 번의 클릭 만으로 기존 연결 모니터를 연결 모니터로 마이그레이션 했습니다. CM (클래식)에서 CM으로 마이그레이션한 후에는 CM (클래식)에서 모니터를 볼 수 없습니다.
 
 이제 연결 모니터 속성을 사용자 지정 하 고, 기본 작업 영역을 변경 하 고, 템플릿을 다운로드 하 고, 마이그레이션 상태를 확인할 수 있습니다. 
 

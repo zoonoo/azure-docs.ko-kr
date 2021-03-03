@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700000"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 데이터 대량 복사
 
@@ -65,7 +65,7 @@ Form Recognizer REST AP에는 입력으로 일부 매개 변수가 필요합니�
 
 양식 백로그는 온-프레미스 환경 또는 (s)FTP 서버에 있을 수 있습니다. 이 자습서는 Azure Data Lake Gen 2 스토리지 계정의 양식을 사용합니다. Azure Data Factory, Azure Storage Explorer 또는 AzCopy를 사용하여 파일을 전송할 수 있습니다. 학습 데이터 세트와 채점 데이터 세트는 서로 다른 컨테이너에 있을 수 있지만, 모든 양식 유형에 대한 학습 데이터 세트는 동일한 컨테이너에 있어야 합니다(다른 폴더에 있을 수 있음).
 
-새 Data Lake를 만들려면 [Azure Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account)의 지침을 따르세요.
+새 Data Lake를 만들려면 [Azure Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](../../storage/blobs/create-data-lake-storage-account.md)의 지침을 따르세요.
 
 ## <a name="create-a-parameterization-table"></a>매개 변수화 테이블 만들기
 
@@ -89,7 +89,7 @@ Form Recognizer REST AP에는 입력으로 일부 매개 변수가 필요합니�
 
 ### <a name="create-the-table"></a>테이블 만들기
 
-[Azure SQL Database를 만든 다음,](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), [쿼리 편집기](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal)에서 다음 SQL 스크립트를 실행하여 필요한 테이블을 만듭니다.
+[Azure SQL Database를 만든 다음,](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), [쿼리 편집기](../../azure-sql/database/connect-query-portal.md)에서 다음 SQL 스크립트를 실행하여 필요한 테이블을 만듭니다.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Azure Portal에서 [Azure Databricks 리소스를 만듭니다](https://ms.porta
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Azure Key Vault에서 지원하는 비밀 범위 만들기
 
-위에서 만든 Azure Key Vault의 비밀을 참조하려면 Databricks에서 비밀 범위를 만들어야 합니다. [Azure Key Vault에서 지원하는 비밀 범위 만들기](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)의 단계를 따릅니다.
+위에서 만든 Azure Key Vault의 비밀을 참조하려면 Databricks에서 비밀 범위를 만들어야 합니다. [Azure Key Vault에서 지원하는 비밀 범위 만들기](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)의 단계를 따릅니다.
 
 ### <a name="create-a-databricks-cluster"></a>Databricks 클러스터 만들기
 
@@ -461,7 +461,7 @@ Azure Portal에서 [Azure Databricks 리소스를 만듭니다](https://ms.porta
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Azure Data Factory를 사용하여 학습 및 채점 자동화
 
-이제 ADF(Azure Data Factory) 서비스를 설정하여 학습 및 채점 프로세스를 자동화하는 단계만 남았습니다. 먼저 [데이터 팩터리 만들기](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)의 단계를 따릅니다. ADF 리소스를 생성한 후 3개의 파이프라인을 만들어야 하는 데, 1개는 학습용이고 2개는 채점용입니다(아래 설명 참조).
+이제 ADF(Azure Data Factory) 서비스를 설정하여 학습 및 채점 프로세스를 자동화하는 단계만 남았습니다. 먼저 [데이터 팩터리 만들기](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory)의 단계를 따릅니다. ADF 리소스를 생성한 후 3개의 파이프라인을 만들어야 하는 데, 1개는 학습용이고 2개는 채점용입니다(아래 설명 참조).
 
 ### <a name="training-pipeline"></a>학습 파이프라인
 

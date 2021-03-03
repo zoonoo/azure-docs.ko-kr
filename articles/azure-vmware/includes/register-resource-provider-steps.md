@@ -3,16 +3,16 @@ title: Azure VMware Solution 리소스 공급자 등록
 description: Azure VMware Solution 리소스 공급자를 등록하는 단계입니다.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 80010a232f80865b20c2e3d953dc1d9d22ece1c6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cd4a6f3003945973f0fe5367eb198823595a412e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653173"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750411"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-Azure VMware Solution을 사용하려면 먼저 구독에 리소스 공급자를 등록해야 합니다. 리소스 공급자에 관한 자세한 내용은 [Azure 리소스 공급자 및 유형](/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요.
+Azure VMware Solution을 사용하려면 먼저 구독에 리소스 공급자를 등록해야 합니다. 리소스 공급자에 관한 자세한 내용은 [Azure 리소스 공급자 및 유형](../../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
 
 ### <a name="azure-cli"></a>Azure CLI 
 

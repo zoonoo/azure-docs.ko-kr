@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 80a508aeb7eff9567bea67cb84350fc2e77551da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1db5f5e4164d971dff3ec6b042fa4b0a969e508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614049"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704245"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Power BI와 Log Analytics 통합
 
@@ -19,7 +19,7 @@ ms.locfileid: "100614049"
 
 ## <a name="background"></a>배경 
 
-Azure Monitor 로그는 수집 로그에 대 한 종단 간 솔루션을 제공 하는 플랫폼입니다. [Azure Monitor Log Analytics](../platform/data-platform.md#) 는 이러한 로그를 쿼리 하는 인터페이스입니다. Log Analytics를 비롯 한 전체 Azure Monitor 데이터 플랫폼에 대 한 자세한 내용은 [Azure Monitor data platform](../platform/data-platform.md)을 참조 하십시오. 
+Azure Monitor 로그는 수집 로그에 대 한 종단 간 솔루션을 제공 하는 플랫폼입니다. [Azure Monitor Log Analytics](../platform/data-platform.md#) 는 이러한 로그를 쿼리 하는 인터페이스입니다. Log Analytics를 비롯 한 전체 Azure Monitor 데이터 플랫폼에 대 한 자세한 내용은 [Azure Monitor data platform](../data-platform.md)을 참조 하십시오. 
 
 Microsoft Power BI는 Microsoft의 데이터 시각화 플랫폼입니다. 시작 하는 방법에 대 한 자세한 내용은 [Power BI의 홈 페이지](https://powerbi.microsoft.com/)를 참조 하세요. 
 
@@ -82,4 +82,4 @@ Power BI에서 사용 되는 것과 동일한 M 통합을 사용 하 여 Excel �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Log Analytics 쿼리](../log-query/log-query-overview.md)를 시작 합니다.
+[Log Analytics 쿼리](./log-query-overview.md)를 시작 합니다.

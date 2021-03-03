@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715006"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Microsoft Defender에서 Id에 대 한 데이터 연결 (이전의 Azure Advanced Threat Protection)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656074"
 > Azure 센티널의 Microsoft Defender for Identity 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-한 번의 클릭으로 [Microsoft Defender에서 id에 대 한](/azure-advanced-threat-protection/what-is-atp) 로그를 Azure 센티널로 스트리밍할 수 있습니다.
+이 문서에서는 [Microsoft Defender에서 id에 대 한](/azure-advanced-threat-protection/what-is-atp) 보안 경고를 Azure 센티널로 스트리밍하는 방법을 설명 합니다. 
+
+보안 경고 외에도 상태 경고를 전달 하려면 Id 용 Microsoft Defender를 Syslog 서버와 통합 합니다. 자세한 내용은 [Microsoft Defender For Identity 설명서](/defender-for-identity/setting-syslog)를 참조 하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

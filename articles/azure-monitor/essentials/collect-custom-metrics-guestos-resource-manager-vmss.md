@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: db410133bab530db731eee58048d1f9d26a1a3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65f18a21be48b6f78605b10950a2b38709b66f2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613343"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713663"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -30,7 +30,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 - [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용할 수 있습니다. 
 
-- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](../platform/metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](./metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
 Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
@@ -245,14 +245,14 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령을 실행합니다. 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > 사용자 지정 메트릭을 사용할 수 있는 Azure 지역을 사용해야 합니다. [사용자 지정 메트릭을 사용할 수 있는 Azure 지역](../platform/metrics-custom-overview.md#supported-regions)을 사용해야 합니다.
+   > 사용자 지정 메트릭을 사용할 수 있는 Azure 지역을 사용해야 합니다. [사용자 지정 메트릭을 사용할 수 있는 Azure 지역](./metrics-custom-overview.md#supported-regions)을 사용해야 합니다.
  
 1. 다음 명령을 실행하여 VM을 배포합니다.  
 
@@ -292,4 +292,4 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](../platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](./metrics-custom-overview.md)에 대해 자세히 알아보세요.

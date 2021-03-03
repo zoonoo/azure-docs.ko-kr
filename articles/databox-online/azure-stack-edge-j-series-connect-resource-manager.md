@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546808"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722095"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
@@ -34,9 +34,9 @@ Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm �
 
 다음 표에서는 장치에 노출 되는 다양 한 끝점, 지원 되는 프로토콜 및 해당 끝점에 액세스 하는 포트를 요약 하 여 설명 합니다. 이 문서 전체에서 이러한 끝점에 대 한 참조를 찾을 수 있습니다.
 
-| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 목적 |
+| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -101,7 +101,7 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
     |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
@@ -130,7 +130,7 @@ Azure Resource Manager Api를 호출 하는 Windows 클라이언트는 장치와
 
 Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니다.
 
-1. PowerShell 버전 5.0을 실행 합니다. PowerShell 버전 5.0 이상이 있어야 합니다. 시스템의 PowerShell 버전을 확인 하려면 다음 cmdlet을 실행 합니다.
+1. PowerShell 버전 5.0을 실행 합니다. PowerShell 버전 5.0이 있어야 합니다. PowerShell core는 지원 되지 않습니다. 시스템의 PowerShell 버전을 확인 하려면 다음 cmdlet을 실행 합니다.
 
     ```powershell
     $PSVersionTable.PSVersion

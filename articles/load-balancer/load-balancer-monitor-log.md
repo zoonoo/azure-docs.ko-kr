@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709821"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 대 한 Azure Monitor 로그
 
@@ -74,7 +74,7 @@ ms.locfileid: "100596801"
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
-활동 로그는 기본적으로 생성 됩니다. [이 문서의 지침에](../azure-monitor/platform/activity-log.md)따라 구독 수준에서 내보내도록 구성할 수 있습니다. [작업 로그 보기에서 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md) 문서를 읽어 이러한 로그에 대해 자세히 알아보세요.
+활동 로그는 기본적으로 생성 됩니다. [이 문서의 지침에](../azure-monitor/essentials/activity-log.md)따라 구독 수준에서 내보내도록 구성할 수 있습니다. [작업 로그 보기에서 리소스에 대 한 작업 모니터링](../azure-resource-manager/management/view-activity-logs.md) 문서를 읽어 이러한 로그에 대해 자세히 알아보세요.
 
 다음 방법 중 하나를 사용 하 여 활동 로그 데이터를 보고 분석할 수 있습니다.
 
@@ -113,4 +113,4 @@ Azure Load Balancer에 대 한 메트릭-로그 내보내기 기능에는 다음
 
 ## <a name="next-steps"></a>다음 단계
 * [부하 분산 장치에 대해 사용 가능한 메트릭 검토](./load-balancer-standard-diagnostics.md)
-* [Azure Monitor 지침에 따라 쿼리를 만들고 테스트 합니다.](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor 지침에 따라 쿼리를 만들고 테스트 합니다.](../azure-monitor/logs/log-query-overview.md)

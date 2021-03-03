@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 6e65b828e2cf86614707c8a859abc0c4f2395899
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723642"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 
@@ -82,7 +82,7 @@ REST API를 사용 하 여 데이터 수집 규칙 및 연결을 만들려면 �
 
 ## <a name="create-association-using-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 연결 만들기
 
-리소스 관리자 템플릿을 사용 하 여 데이터 수집 규칙을 만들 수는 없지만 리소스 관리자 템플릿을 사용 하 여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결을 만들 수 있습니다. 샘플 템플릿 [Azure Monitor의 데이터 수집 규칙에 대 한 리소스 관리자 템플릿 샘플](../samples/resource-manager-data-collection-rules.md) 을 참조 하세요.
+리소스 관리자 템플릿을 사용 하 여 데이터 수집 규칙을 만들 수는 없지만 리소스 관리자 템플릿을 사용 하 여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결을 만들 수 있습니다. 샘플 템플릿 [Azure Monitor의 데이터 수집 규칙에 대 한 리소스 관리자 템플릿 샘플](./resource-manager-data-collection-rules.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

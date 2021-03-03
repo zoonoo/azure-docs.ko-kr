@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380239"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726430"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-기능 플래그에서 필터를 사용하는 경우 [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) 네임스페이스를 포함하고, 메서드의 제네릭 형식으로 사용할 필터의 형식 이름을 지정하는 [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter)에 호출을 추가해야 합니다. 기능 필터를 사용하여 기능을 동적으로 사용하거나 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [지정된 대상 그룹에 단계적 기능 롤아웃 사용](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core)을 참조하세요.
+기능 플래그에서 필터를 사용하는 경우 [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) 네임스페이스를 포함하고, 메서드의 제네릭 형식으로 사용할 필터의 형식 이름을 지정하는 [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter)에 호출을 추가해야 합니다. 기능 필터를 사용하여 기능을 동적으로 사용하거나 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [지정된 대상 그룹에 단계적 기능 롤아웃 사용](./howto-targetingfilter-aspnet-core.md)을 참조하세요.
 
 다음 예제에서는 `PercentageFilter`라는 기본 제공 기능 필터를 사용하는 방법을 보여줍니다.
 
@@ -211,14 +211,14 @@ config.AddAzureAppConfiguration(options =>
 
 * `FeatureA`는 *on* 입니다.
 * `FeatureB`는 *off* 입니다.
-* `FeatureC`는 `Parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `FeatureC` 플래그가 *on* 이 될 50% 확률을 지정합니다. 기능 필터를 사용하는 방법에 대한 지침은 [기능 필터를 사용하여 조건부 기능 플래그 사용](/azure/azure-app-configuration/howto-feature-filters-aspnet-core)을 참조하세요.
+* `FeatureC`는 `Parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `FeatureC` 플래그가 *on* 이 될 50% 확률을 지정합니다. 기능 필터를 사용하는 방법에 대한 지침은 [기능 필터를 사용하여 조건부 기능 플래그 사용](./howto-feature-filters-aspnet-core.md)을 참조하세요.
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>종속성 주입을 사용하여 IFeatureManager에 액세스 
 
-기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
+기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

@@ -3,12 +3,12 @@ title: IoT Edge FAQ에서 라이브 비디오 분석-Azure
 description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석에 대 한 자주 묻는 질문에 답변 합니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 0cb378bf614582070dd1bdd0a11706b26437af53
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702252"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>IoT Edge FAQ의 Live Video Analytics
 
@@ -230,7 +230,7 @@ Protobuf (프로토콜 버퍼) 계약이 충족 된 경우 서버 쪽 gRPC 기�
 
 **Azure Monitor를 사용 하 여 클라우드 또는에 지에서 내 미디어 그래프의 상태, 메트릭 및 성능을 볼 수 있나요?**
 
-예,이 방법을 지원 합니다. 자세히 알아보려면 [Azure Monitor 메트릭 개요](../../azure-monitor/platform/data-platform-metrics.md)를 참조 하세요.
+예,이 방법을 지원 합니다. 자세히 알아보려면 [Azure Monitor 메트릭 개요](../../azure-monitor/essentials/data-platform-metrics.md)를 참조 하세요.
 
 **Media Services IoT Edge 모듈을 보다 쉽게 모니터링할 수 있는 도구가 있나요?**
 

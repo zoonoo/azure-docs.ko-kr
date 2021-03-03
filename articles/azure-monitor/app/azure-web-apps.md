@@ -4,16 +4,16 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574001"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734726"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
-이제 [Azure 앱 서비스](../../app-service/index.yml) 에서 실행 되는 ASP.NET 및 ASP.NET Core 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 훨씬 쉬워졌습니다. 이전에 사이트 확장을 수동으로 설치 해야 하는 경우에는 이제 기본적으로 최신 확장/에이전트가 app service 이미지에 기본 제공 됩니다. 이 문서에서는 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
+이제 [Azure 앱 서비스](../../app-service/index.yml) 에서 실행 되는 ASP.NET, ASP.NET Core 및 Node.js 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 훨씬 쉬워졌습니다. 이전에 사이트 확장을 수동으로 설치 해야 하는 경우에는 이제 기본적으로 최신 확장/에이전트가 app service 이미지에 기본 제공 됩니다. 이 문서에서는 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 
 > [!NOTE]
 > **개발 도구** 확장을 통해 Application Insights 사이트 확장을 수동으로 추가 하  >   는 것은 더 이상 사용 되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 됩니다. 파일은에 있으며 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 각 안정적인 릴리스로 자동 업데이트 됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용 하는 경우 사용 되지 않는 확장이 자동으로 제거 됩니다.
@@ -97,7 +97,7 @@ ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에�
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-App Service 웹 앱 내의 **설정** 에서  >  **Application Insights**  >  **사용** 을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
+Windows 에이전트 기반 모니터링은 지원 되지 않습니다. Linux에서 사용 하도록 설정 하려면 [Node.js App Service 설명서](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights)를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 |XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진을 켤 지 여부를 제어 `InstrumentationEngine` 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고: 응용 프로그램 콜드 시작 시간이 영향을 받습니다. 이 설정에는가 필요 합니다 `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | ASP.NET Core 앱에만 해당 합니다. Application Insights SDK를 사용 하 여 Interop (상호 운용)를 사용 하도록 설정 합니다. SDK를 사용 하 여 확장을 나란히 로드 하 고이를 사용 하 여 원격 분석을 전송 합니다 (Application Insights SDK를 사용 하지 않음). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 응용 프로그램 설정 App Service
 

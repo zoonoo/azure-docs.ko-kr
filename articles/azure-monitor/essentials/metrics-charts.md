@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734522"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
 > [!NOTE]
-> 이 문서에서는 Azure Monitor의 Azure 메트릭 탐색기 기능 기본 기능에 대해 잘 알고 있다고 가정 합니다. 새 사용자 인 경우 첫 번째 메트릭 차트를 만드는 방법을 알아보려면 [메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 참조 하세요.
+> 이 문서에서는 Azure Monitor의 Azure 메트릭 탐색기 기능 기본 기능에 대해 잘 알고 있다고 가정 합니다. 새 사용자 인 경우 첫 번째 메트릭 차트를 만드는 방법을 알아보려면 [메트릭 탐색기 시작](./metrics-getting-started.md)을 참조 하세요.
 
 Azure Monitor에서 [메트릭은](data-platform-metrics.md) 시간이 지남에 따라 수집 되 고 저장 되는 일련의 측정 된 값 및 개수입니다. 메트릭은 표준 ("플랫폼"이 라고도 함) 또는 사용자 지정 일 수 있습니다. 
 
@@ -49,11 +49,11 @@ Azure Monitor에서 [메트릭은](data-platform-metrics.md) 시간이 지남에
 ### <a name="view-metrics-across-multiple-resources"></a>여러 리소스에서 메트릭 보기
 일부 리소스 종류는 여러 리소스에 대 한 메트릭을 쿼리할 수 있습니다. 리소스는 동일한 구독 및 위치에 있어야 합니다. **리소스 종류** 메뉴의 맨 위에서 이러한 리소스 종류를 찾습니다. 
 
-자세한 내용은 [여러 리소스 선택](../platform/metrics-dynamic-scope.md#select-multiple-resources)을 참조 하세요.
+자세한 내용은 [여러 리소스 선택](./metrics-dynamic-scope.md#select-multiple-resources)을 참조 하세요.
 
 ![리소스 간 형식을 보여 주는 스크린샷](./media/metrics-charts/multi-resource-scope.png)
 
-여러 리소스와 호환 되는 유형의 경우 구독 또는 여러 리소스 그룹에서 메트릭을 쿼리할 수 있습니다. 자세한 내용은 [리소스 그룹 또는 구독 선택](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription)을 참조 하세요.
+여러 리소스와 호환 되는 유형의 경우 구독 또는 여러 리소스 그룹에서 메트릭을 쿼리할 수 있습니다. 자세한 내용은 [리소스 그룹 또는 구독 선택](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription)을 참조 하세요.
 
 ## <a name="multiple-metric-lines-and-charts"></a>여러 메트릭 선 및 차트
 
@@ -67,7 +67,7 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 표시 하거나 여러 
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>동일한 차트의 여러 메트릭
 
-동일한 차트에서 여러 메트릭을 보려면 먼저 [새 차트를 만듭니다](../platform/metrics-getting-started.md#create-your-first-metric-chart). 그런 다음 **메트릭 추가** 를 선택 합니다. 동일한 차트에 다른 메트릭을 추가 하려면이 단계를 반복 합니다.
+동일한 차트에서 여러 메트릭을 보려면 먼저 [새 차트를 만듭니다](./metrics-getting-started.md#create-your-first-metric-chart). 그런 다음 **메트릭 추가** 를 선택 합니다. 동일한 차트에 다른 메트릭을 추가 하려면이 단계를 반복 합니다.
 
 > [!NOTE]
 > 일반적으로 차트는 다른 측정 단위를 사용 하는 메트릭을 혼합 하지 않아야 합니다. 예를 들어 밀리초를 사용 하는 하나의 메트릭과 킬로바이트를 사용 하는 다른 메트릭을 혼합 하지 않도록 합니다. 또한 크기가 현저 하 게 다른 메트릭을 혼합 하지 않도록 합니다. 
@@ -86,9 +86,9 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 표시 하거나 여러 
 
 차트에서 다른 집계를 사용 하기 전에 메트릭 탐색기에서 집계를 처리 하는 방법을 이해 해야 합니다. 메트릭은 일정 기간 동안 캡처되는 일련의 측정값 (또는 "메트릭 값")입니다. 차트를 그리면 선택 된 메트릭의 값이 *시간 세분화* 에 대해 개별적으로 집계 됩니다. 
 
-메트릭 탐색기의 [시간 선택 패널](../platform/metrics-getting-started.md#select-a-time-range)을 사용 하 여 시간 수준 크기를 선택 합니다. 시간 수준을 명시적으로 선택 하지 않으면 기본적으로 현재 선택한 시간 범위가 사용 됩니다. 시간 수준을 결정 한 후에는 각 시간 세분화 중에 캡처된 메트릭 값이 차트에서 집계 되 고 한 가지 데이터 요소는 시간 세분화 됩니다.
+메트릭 탐색기의 [시간 선택 패널](./metrics-getting-started.md#select-a-time-range)을 사용 하 여 시간 수준 크기를 선택 합니다. 시간 수준을 명시적으로 선택 하지 않으면 기본적으로 현재 선택한 시간 범위가 사용 됩니다. 시간 수준을 결정 한 후에는 각 시간 세분화 중에 캡처된 메트릭 값이 차트에서 집계 되 고 한 가지 데이터 요소는 시간 세분화 됩니다.
 
-예를 들어 차트에 *서버 응답 시간* 메트릭이 표시 되어 있다고 가정 합니다. *최근 24 시간* 동안의 시간 범위에 대 한 *평균* 집계를 사용 합니다. 이 예제에서는 다음이 적용됩니다.
+예를 들어 차트에 *서버 응답 시간* 메트릭이 표시 되어 있다고 가정 합니다. *최근 24 시간* 동안의 시간 범위에 대 한 *평균* 집계를 사용 합니다. 이 예제에서:
 
 - 시간 세분성이 30 분으로 설정 된 경우 차트는 48 집계 데이터 요소에서 그려집니다. 즉, 꺾은선형 차트는 차트 그림 영역에서 48 점을 연결 합니다 (시간당 24 시간 x 2 데이터 요소). 각 데이터 요소는 각 관련 30 분 기간 동안 발생 한 서버 요청에 대해 캡처된 모든 응답 시간의 *평균* 을 나타냅니다.
 - 시간 세분성을 15 분으로 전환 하는 경우 96 집계 데이터 요소를 얻게 됩니다.  즉, 시간당 24 시간 x 4의 데이터 요소를 얻을 수 있습니다.
@@ -230,6 +230,42 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 
 자세한 내용은 [메트릭 경고 만들기, 보기 및 관리](../alerts/alerts-metric.md)를 참조 하세요.
 
+## <a name="correlate-metrics-to-logs"></a>로그와 메트릭 상관 관계
+고객의 메트릭 차트에서 변칙의 근본 원인을 진단 하는 데 도움이 되도록 로그에 드릴스루를 만들었습니다. 로그에 드릴스루를 통해 고객은 메트릭 차트의 급증을 로그와 쿼리에 상관 관계를 지정할 수 있습니다. 
+
+경험을 살펴보기 전에 제공 되는 다양 한 유형의 로그와 쿼리를 먼저 도입 하려고 합니다. 
+
+| 용어             | 정의  | 
+|------------------|-------------|
+| 활동 로그    | Service Health 이벤트에 대 한 업데이트 외에도 외부 (관리 평면)에서 구독의 각 Azure 리소스에 대 한 작업에 대 한 통찰력을 제공 합니다. 활동 로그를 사용 하 여 구독의 리소스에 대해 수행 되는 쓰기 작업 (PUT, POST, DELETE)에 대 한 내용, 대상 및 시기를 결정 합니다. 각 Azure 구독에 대 한 단일 활동 로그가 있습니다.  |   
+| 진단 로그   | Azure 리소스 (데이터 평면) 내에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. **참고:** 서비스에서 제공 해야 하며 고객이 사용 하도록 설정 해야 합니다.  | 
+| 권장 로그 | 고객이 메트릭 탐색기의 비정상 상태를 조사 하기 위해 활용할 수 있는 시나리오 기반 쿼리입니다.  |
+
+현재 select 리소스 공급자에 대 한 드릴스루 로그를 사용할 수 있습니다. 로그에 대 한 전체 드릴스루 환경을 포함 하는 리소스 공급자는 다음과 같습니다. 
+
+* Application Insights 
+* 자동 크기 조정 
+* App Services  
+* 스토리지  
+
+다음은 Application Insights 리소스 공급자에 대 한 샘플 환경입니다.
+
+![App insights 메트릭 블레이드에서 급증 하는 오류](./media/metrics-charts/drill-into-log-ai.png)
+
+실패 한 요청에서 스파이크를 진단 하려면 "로그에 드릴스루"를 클릭 합니다.
+
+![로그 드릴 드롭다운 스크린샷](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+실패 옵션을 클릭 하 여 실패 한 작업 작업, 상위 예외 유형 및 종속성을 제공 하는 사용자 지정 오류 블레이드로 이동 합니다. 
+
+![앱 insights 오류 블레이드의 스크린샷](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>로그 드릴에 대 한 일반적인 문제
+
+* 로그 및 쿼리를 사용할 수 없습니다. 권장 로그와 쿼리를 보려면 진단 로그를 Log Analytics로 라우팅해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 를 참조 하세요. 
+* 활동 로그만 제공 됩니다.-로그로 드릴 기능은 select 리소스 공급자에 대해서만 사용할 수 있습니다. 기본적으로 활동 로그가 제공 됩니다. 
+
+ 
 ## <a name="troubleshooting"></a>문제 해결
 
 차트에 데이터가 표시 되지 않는 경우 다음 문제 해결 정보를 검토 합니다.
@@ -242,6 +278,5 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 
 ## <a name="next-steps"></a>다음 단계
 
-메트릭을 사용 하 여 실행 가능한 대시보드를 만들려면 [사용자 지정 KPI 대시보드 만들기](../learn/tutorial-app-dashboards.md)를 참조 하세요.
+메트릭을 사용 하 여 실행 가능한 대시보드를 만들려면 [사용자 지정 KPI 대시보드 만들기](../app/tutorial-app-dashboards.md)를 참조 하세요.
 
- 

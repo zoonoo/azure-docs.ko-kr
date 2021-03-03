@@ -8,16 +8,17 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f7c2b0168c914c836aca7b551a9c22d4718c7b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 06029590a2fbca66cd3a672af3f93d6a842ba0b2
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100419414"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651030"
 ---
 # <a name="telephony-concepts"></a>전화 통신 개념
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 전화 통신 및 PSTN을 애플리케이션에 추가할 수 있습니다. 이 페이지에는 주요 전화 통신 개념 및 기능이 요약되어 있습니다. 특정 클라이언트 라이브러리 언어 및 기능에 대해 자세히 알아보려면 [통화 라이브러리](../../quickstarts/voice-video-calling/calling-client-samples.md)를 참조하세요.
 

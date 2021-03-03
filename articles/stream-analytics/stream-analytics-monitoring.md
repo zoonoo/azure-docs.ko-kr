@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572976"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726770"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -30,6 +30,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 | ---------------------- | ---------------------------------------- |
 | 백로그된 입력 이벤트       | 백로그된 입력 이벤트의 수입니다. 이 메트릭의 값이 0이 아니면 작업이 수신 이벤트 수를 적시에 처리할 수 없음을 의미합니다. 이 값이 천천히 증가하거나 일관되게 0이 아닌 경우 작업을 확장해야 합니다. [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)에서 자세히 알아볼 수 있습니다. |
 | 데이터 변환 오류 | 예상 출력 스키마로 변환할 수 없는 출력 이벤트의 수입니다. 이 시나리오에서 발생하는 이벤트를 삭제하기 위해 오류 정책을 ‘삭제’로 변경할 수 있습니다. |
+| CPU 사용률 (미리 보기)       | 작업에서 사용한 CPU의 백분율입니다. 이 메트릭이 지속적으로 80% 보다 높은 경우 작업은 CPU 사용량에 병목 상태가 발생 하 고 입력 이벤트가 백로그를 가져오도록 할 가능성이 있습니다. 이러한 문제를 완화 하기 위해 작업에 할당 된 SUs의 수를 늘릴 수 있습니다. |
 | 초기 입력 이벤트       | 애플리케이션 타임스탬프가 도착 시간보다 5분 넘게 이전인 이벤트입니다. |
 | 실패한 기능 요청 | 실패한 Azure Machine Learning 함수 호출(있는 경우) 수입니다. |
 | 함수 이벤트        | Azure Machine Learning 함수(있는 경우)에 전송된 이벤트 수입니다. |
@@ -42,7 +43,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 | 순서 비지정 이벤트    | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 출력 이벤트          | Stream Analytics 작업이 출력 대상에 보낸 데이터의 양입니다(이벤트 수). |
 | 런타임 오류         | 쿼리 처리와 관련된 총 오류 수(이벤트 수집 또는 결과 출력 중에 발견된 오류 제외) |
-| SU % 사용률       | 리소스 사용률이 지속적으로 80%를 초과 하면 워터 마크 지연 시간이 늘어나고 백로그 된 이벤트 수가 증가 하는 것을 고려 하 여 스트리밍 단위를 늘립니다. 높은 사용률은 작업에서 할당 된 최대 리소스를 거의 사용 하지 않음을 나타냅니다. |
+| SU % 사용률       | 작업에서 사용한 메모리의 백분율입니다. SU% 사용률이 지속적으로 80%를 초과 하면 워터 마크 지연 시간이 늘어나고 백로그 된 이벤트 수가 증가 하는 것을 고려 하 여 스트리밍 단위를 늘립니다. 높은 사용률은 작업에서 할당 된 최대 리소스를 거의 사용 하지 않음을 나타냅니다. |
 | 워터마크 지연       | 작업에 있는 모든 출력의 모든 파티션에서 발생하는 최대 워터마크 지연입니다. |
 
 이러한 메트릭을 사용하여 [Stream Analytics 작업의 성능을 모니터링](./stream-analytics-set-up-alerts.md#scenarios-to-monitor)할 수 있습니다. 
@@ -58,7 +59,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 이 시간은 작업의 최신 출력에 대한 애플리케이션 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

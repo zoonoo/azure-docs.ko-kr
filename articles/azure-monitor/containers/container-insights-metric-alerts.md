@@ -1,22 +1,22 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
-description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
+title: 컨테이너 정보에서 메트릭 경고
+description: 이 문서에서는 공개 미리 보기의 컨테이너 정보에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 59c8d7b58809c981130d2ce92406fb5b1ce146ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618799"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728895"
 ---
-# <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
+# <a name="recommended-metric-alerts-preview-from-container-insights"></a>컨테이너 정보에서 권장 되는 메트릭 경고 (미리 보기)
 
-최대 수요를 발생 시킬 때 시스템 리소스 문제에 대해 경고 하 고, 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Monitor 로그에 저장 된 성능 데이터를 기반으로 로그 경고를 만들 수 있습니다. 컨테이너에 대 한 Azure Monitor에는 이제 공개 미리 보기로 제공 되는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 미리 구성 된 메트릭 경고 규칙이 포함 되어 있습니다.
+컨테이너 insights를 사용 하 여 최대 수요를 발생 하 고 용량이 거의 실행 될 때 시스템 리소스 문제에 대해 경고 하려면 Azure Monitor 로그에 저장 된 성능 데이터를 기반으로 로그 경고를 만듭니다. 이제 컨테이너 insights에는 공개 미리 보기로 제공 되는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 미리 구성 된 메트릭 경고 규칙이 포함 되어 있습니다.
 
 이 문서에서는 이러한 경고 규칙을 구성 하 고 관리 하는 방법에 대 한 지침을 제공 하며 환경을 검토 합니다.
 
-Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조 하세요.
+Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../alerts/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,15 +31,15 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
     * 명령을 실행 `kubectl describe <omsagent-pod-name> --namespace=kube-system` 합니다. 반환 된 상태에서 출력의 *컨테이너* 섹션에서 Omsagent의 **이미지** 아래에 있는 값을 확인 합니다. 
     * **노드** 탭에서 클러스터 노드를 선택 하 고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그** 아래의 값을 확인 합니다.
 
-    AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc enabled Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우 최신 버전을 다운로드 하는 단계는 [컨테이너 에이전트 Azure Monitor를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 을 참조 하세요.
+    AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc enabled Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우 최신 버전을 다운로드 하는 단계는 [컨테이너 insights 에이전트를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 을 참조 하세요.
 
     에이전트 릴리스와 관련 된 자세한 내용은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조 하세요. 메트릭이 수집 되 고 있는지 확인 하려면 메트릭 탐색기 Azure Monitor 사용 하 여 **정보** 를 표시 하는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 계속 진행 하 여 경고 설정을 시작할 수 있습니다. 수집 된 메트릭이 표시 되지 않으면 클러스터 서비스 주체 또는 MSI에 필요한 사용 권한이 없는 것입니다. SPN 또는 MSI가 **모니터링 메트릭 게시자** 역할의 구성원 인지 확인 하려면 [Azure CLI를 사용 하 여 클러스터당 업그레이드](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) 섹션에 설명 된 단계를 수행 하 여 역할 할당을 확인 하 고 설정 합니다.
 
 ## <a name="alert-rules-overview"></a>경고 규칙 개요
 
-중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor에는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
+중요 한 문제에 대해 경고 하기 위해 Container insights에는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
 
-|속성| 설명 |기본 임계값 |
+|속성| Description |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
@@ -82,7 +82,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
 
-|메트릭 네임스페이스 |메트릭 |설명 |
+|메트릭 네임스페이스 |메트릭 |Description |
 |---------|----|------------|
 |정보. 컨테이너/노드 |cpuUsageMillicores |Millicores에서 호스트에의 한 CPU 사용률입니다.|
 |정보. 컨테이너/노드 |cpuUsagePercentage |노드당 CPU 사용량 백분율입니다.|
@@ -108,15 +108,15 @@ Azure Portal에서 Azure Monitor 메트릭 경고를 사용 하도록 설정 하
 
 ### <a name="from-the-azure-portal"></a>Azure Portal에서
 
-이 섹션에서는 Azure Portal에서 컨테이너 메트릭 경고 (미리 보기)에 대 한 Azure Monitor를 사용 하도록 설정 하는 과정을 안내 합니다.
+이 섹션에서는 Azure Portal에서 컨테이너 insights 메트릭 경고 (미리 보기)를 사용 하도록 설정 하는 과정을 안내 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. 컨테이너 메트릭 경고 (미리 보기) 기능에 대 한 Azure Monitor에 대 한 액세스는 Azure Portal의 왼쪽 창에서 **정보** 를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다.
+2. 컨테이너 insights 메트릭 경고 (미리 보기) 기능에 대 한 액세스는 Azure Portal의 왼쪽 창에서 **정보** 를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다.
 
 3. 명령 모음에서 **권장 되는 경고** 를 선택 합니다.
 
-    ![컨테이너에 대 한 Azure Monitor의 권장 경고 옵션](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![컨테이너 정보에 권장 되는 경고 옵션](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. **권장 되는 경고** 속성 창이 페이지의 오른쪽에 자동으로 표시 됩니다. 기본적으로 목록에 있는 모든 경고 규칙은 사용 하지 않도록 설정 됩니다. **사용** 을 선택 하면 경고 규칙이 만들어지고 규칙 이름이로 업데이트 되어 경고 리소스에 대 한 링크가 포함 됩니다.
 
@@ -198,7 +198,7 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
 
 ## <a name="edit-alert-rules"></a>경고 규칙 편집
 
-컨테이너 경고 규칙에 대 한 Azure Monitor를 보고 관리 하 여 해당 임계값을 편집 하거나 AKS 클러스터에 대 한 [작업 그룹](../alerts/action-groups.md) 을 구성할 수 있습니다. Azure Portal 및 Azure CLI에서 이러한 작업을 수행할 수 있지만, 컨테이너에 대 한 Azure Monitor의 AKS 클러스터에서 직접 수행할 수도 있습니다.
+컨테이너 insights 경고 규칙을 보고 관리 하 여 해당 임계값을 편집 하거나 AKS 클러스터에 대 한 [작업 그룹](../alerts/action-groups.md) 을 구성할 수 있습니다. Azure Portal 및 Azure CLI에서 이러한 작업을 수행할 수 있지만 컨테이너 insights의 AKS 클러스터에서 직접 수행할 수도 있습니다.
 
 1. 명령 모음에서 **권장 되는 경고** 를 선택 합니다.
 

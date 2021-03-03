@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 90646339ef41d0629a4d1ce8efed4b50427d3b2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724356"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure 센티널 사용자 지정 커넥터를 만들기 위한 리소스
 
@@ -38,10 +38,10 @@ Azure 센티널은 [azure 서비스 및 외부 솔루션에 대 한 다양 한 �
 |---------|---------|---------|---------|
 |**[Log Analytics 에이전트](#connect-with-the-log-analytics-agent)** <br>온-프레미스 및 IaaS 원본에서 파일을 수집 하는 데 가장 적합 합니다.   | 파일 컬렉션 전용  |   예      |낮음         |
 |**[Logstash](#connect-with-logstash)** <br>온-프레미스 및 IaaS 원본, 플러그 인을 사용할 수 있는 원본 및 이미 Logstash 태 트에 익숙한 조직에 가장 적합 합니다.  | 사용 가능한 플러그 인 및 사용자 지정 플러그 인 기능은 상당한 유연성을 제공 합니다.   |   전혀 VM 또는 VM 클러스터를 실행 해야 합니다.           |   거의 플러그 인을 사용 하는 많은 시나리오 지원      |
-|**[Logic Apps](#connect-with-logic-apps)** <br>높은 비용; 대용량 데이터의 경우 방지 <br>볼륨이 낮은 클라우드 원본에 가장 적합  | 코드 없는 프로그래밍을 사용 하면 알고리즘 구현에 대 한 지원 없이 유연성을 제한할 수 있습니다.<br><br> 사용 가능한 작업에서 요구 사항을 이미 지원 하지 않는 경우 사용자 지정 작업을 만들면 복잡성이 추가 될 수 있습니다.    |    Yes         |   거의 간단 하 고 코드 없는 개발      |
+|**[Logic Apps](#connect-with-logic-apps)** <br>높은 비용; 대용량 데이터의 경우 방지 <br>볼륨이 낮은 클라우드 원본에 가장 적합  | 코드 없는 프로그래밍을 사용 하면 알고리즘 구현에 대 한 지원 없이 유연성을 제한할 수 있습니다.<br><br> 사용 가능한 작업에서 요구 사항을 이미 지원 하지 않는 경우 사용자 지정 작업을 만들면 복잡성이 추가 될 수 있습니다.    |    예         |   거의 간단 하 고 코드 없는 개발      |
 |**[PowerShell](#connect-with-powershell)** <br>프로토타입 및 정기 파일 업로드에 가장 적합 합니다. | 파일 컬렉션에 대 한 직접 지원. <br><br>PowerShell을 사용 하 여 더 많은 소스를 수집할 수 있지만 코딩 하 고 스크립트를 서비스로 구성 해야 합니다.      |예               |  낮음       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Isv의 통합 구현 및 고유한 컬렉션 요구 사항에 가장 적합   | 는 코드에서 사용할 수 있는 모든 기능을 지원 합니다.  | 구현에 따라 달라 집니다.           |     높음    |
-|**[Azure Functions](#connect-with-azure-functions)** 대용량 클라우드 원본 및 고유한 컬렉션 요구 사항에 가장 적합  | 는 코드에서 사용할 수 있는 모든 기능을 지원 합니다.  |  Yes             |     최고 프로그래밍 지식 필요    |
+|**[Azure Functions](#connect-with-azure-functions)** 대용량 클라우드 원본 및 고유한 컬렉션 요구 사항에 가장 적합  | 는 코드에서 사용할 수 있는 모든 기능을 지원 합니다.  |  예             |     최고 프로그래밍 지식 필요    |
 |     |         |                |
 
 > [!TIP]
@@ -55,9 +55,9 @@ Azure 센티널은 [azure 서비스 및 외부 솔루션에 대 한 다양 한 �
 
 데이터 원본이 파일에 이벤트를 전달 하는 경우 Azure Monitor Log Analytics 에이전트를 사용 하 여 사용자 지정 커넥터를 만드는 것이 좋습니다.
 
-- 자세한 내용은 [Azure Monitor에서 사용자 지정 로그 수집](/azure/azure-monitor/platform/data-sources-custom-logs)을 참조 하세요.
+- 자세한 내용은 [Azure Monitor에서 사용자 지정 로그 수집](../azure-monitor/agents/data-sources-custom-logs.md)을 참조 하세요.
 
-- 이 메서드에 대 한 예제는 [Azure Monitor에서 Linux 용 Log Analytics 에이전트를 사용 하 여 사용자 지정 JSON 데이터 원본 수집](/azure/azure-monitor/platform/data-sources-json)을 참조 하세요.
+- 이 메서드에 대 한 예제는 [Azure Monitor에서 Linux 용 Log Analytics 에이전트를 사용 하 여 사용자 지정 JSON 데이터 원본 수집](../azure-monitor/agents/data-sources-json.md)을 참조 하세요.
 
 ## <a name="connect-with-logstash"></a>Logstash 태로 연결
 
@@ -83,7 +83,7 @@ Logstash를 사용자 지정 커넥터로 사용 하는 예는 다음을 참조 
 
 ## <a name="connect-with-logic-apps"></a>Logic Apps 연결
 
-Azure [논리 앱](/azure/logic-apps/) 을 사용 하 여 azure 센티널에 대해 서버 리스 사용자 지정 커넥터를 만듭니다.
+Azure [논리 앱](../logic-apps/index.yml) 을 사용 하 여 azure 센티널에 대해 서버 리스 사용자 지정 커넥터를 만듭니다.
 
 > [!NOTE]
 > Logic Apps를 사용 하 여 서버를 사용 하지 않는 커넥터를 만드는 것이 편리할 수 있지만, 커넥터에 대해 Logic Apps를 사용 하면 대용량 데이터에 대해 비용이 많이 들 수 있습니다
@@ -93,14 +93,14 @@ Azure [논리 앱](/azure/logic-apps/) 을 사용 하 여 azure 센티널에 대
 
 1. **다음 트리거 중 하나를 사용 하 여 Logic Apps를 시작** 합니다.
 
-    |트리거  |설명  |
+    |트리거  |Description  |
     |---------|---------|
-    |**되풀이 작업**     |   예를 들어 특정 파일, 데이터베이스 또는 외부 Api에서 정기적으로 데이터를 검색 하도록 논리 앱을 예약 합니다. <br>자세한 내용은 [Azure Logic Apps에서 되풀이 작업 및 워크플로 만들기, 예약 및 실행](/azure/connectors/connectors-native-recurrence)을 참조 하세요.      |
-    |**주문형 트리거**     | 수동 데이터 수집 및 테스트를 위해 요청 시 논리 앱을 실행 합니다. <br>자세한 내용은  [HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩](/azure/logic-apps/logic-apps-http-endpoint)을 참조 하세요.        |
-    |**HTTP/S 끝점**     |  스트리밍 및 원본 시스템이 데이터 전송을 시작할 수 있는 경우에 권장 됩니다. <br>자세한 내용은 [HTTP 또는 HTTPs를 통한 서비스 끝점 호출](/azure/connectors/connectors-native-http)을 참조 하세요.       |
+    |**되풀이 작업**     |   예를 들어 특정 파일, 데이터베이스 또는 외부 Api에서 정기적으로 데이터를 검색 하도록 논리 앱을 예약 합니다. <br>자세한 내용은 [Azure Logic Apps에서 되풀이 작업 및 워크플로 만들기, 예약 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요.      |
+    |**주문형 트리거**     | 수동 데이터 수집 및 테스트를 위해 요청 시 논리 앱을 실행 합니다. <br>자세한 내용은  [HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.        |
+    |**HTTP/S 끝점**     |  스트리밍 및 원본 시스템이 데이터 전송을 시작할 수 있는 경우에 권장 됩니다. <br>자세한 내용은 [HTTP 또는 HTTPs를 통한 서비스 끝점 호출](../connectors/connectors-native-http.md)을 참조 하세요.       |
     |     |         |
 
-1. **정보를 읽는 논리 앱 커넥터를 사용 하 여 이벤트를 가져옵니다**. 예를 들면 다음과 같습니다.
+1. **정보를 읽는 논리 앱 커넥터를 사용 하 여 이벤트를 가져옵니다**. 다음은 그 예입니다. 
 
     - [REST API에 연결](/connectors/custom-connectors/)
     - [SQL Server에 연결](/connectors/sql/)
@@ -112,9 +112,9 @@ Azure [논리 앱](/azure/logic-apps/) 을 사용 하 여 azure 센티널에 대
 
 1. **검색 하려는 정보를 준비** 합니다.
 
-    예를 들어 json [구문 분석 작업](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) 을 사용 하 여 json 콘텐츠에서 속성에 액세스 하면 논리 앱에 대 한 입력을 지정할 때 동적 콘텐츠 목록에서 해당 속성을 선택할 수 있습니다.
+    예를 들어 json [구문 분석 작업](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) 을 사용 하 여 json 콘텐츠에서 속성에 액세스 하면 논리 앱에 대 한 입력을 지정할 때 동적 콘텐츠 목록에서 해당 속성을 선택할 수 있습니다.
 
-    자세한 내용은 [Azure Logic Apps에서 데이터 작업 수행](/azure/logic-apps/logic-apps-perform-data-operations)을 참조 하세요.
+    자세한 내용은 [Azure Logic Apps에서 데이터 작업 수행](../logic-apps/logic-apps-perform-data-operations.md)을 참조 하세요.
 
 1. **Log Analytics에 데이터를 씁니다**.
 
@@ -148,7 +148,7 @@ Import-Csv .\testcsv.csv
 
 [AzMonitorLog PowerShell 스크립트](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) 스크립트는 다음 매개 변수를 사용 합니다.
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 |**WorkspaceId**     |   데이터를 저장할 Azure 센티널 작업 영역 ID입니다.  [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
 |**WorkspaceKey**     |   데이터를 저장할 Azure 센티널 작업 영역에 대 한 기본 또는 보조 키입니다. [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
@@ -174,14 +174,14 @@ Log Analytics 데이터 수집기 API를 사용 하 여 RESTful 끝점을 직접
 
 RESTful 끝점을 직접 호출 하는 경우 더 많은 프로그래밍이 필요 하지만 유연성이 향상 됩니다.
 
-자세한 내용은 [Log Analytics 데이터 수집기 API](/azure/azure-monitor/platform/data-collector-api)를 참조 하세요. 특히 다음 예를 참조 하세요.
+자세한 내용은 [Log Analytics 데이터 수집기 API](../azure-monitor/logs/data-collector-api.md)를 참조 하세요. 특히 다음 예를 참조 하세요.
 
-- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
+- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
 
 ## <a name="connect-with-azure-functions"></a>Azure Functions 연결
 
-RESTful API와 함께 Azure Functions를 사용 하 고 [PowerShell](/azure/azure-functions/functions-reference-powershell)과 같은 다양 한 코딩 언어를 사용 하 여 서버를 사용 하지 않는 사용자 지정 커넥터를 만듭니다.
+RESTful API와 함께 Azure Functions를 사용 하 고 [PowerShell](../azure-functions/functions-reference-powershell.md)과 같은 다양 한 코딩 언어를 사용 하 여 서버를 사용 하지 않는 사용자 지정 커넥터를 만듭니다.
 
 이 메서드의 예를 보려면 다음을 참조 하십시오.
 
@@ -189,7 +189,7 @@ RESTful API와 함께 Azure Functions를 사용 하 고 [PowerShell](/azure/azur
 - [Azure Function을 사용 하 여 Azure 센티널에 Okta Single Sign-On 연결](connect-okta-single-sign-on.md)
 - [Azure Function을 사용 하 여 Azure 센티널에 Proofpoint on demand 탭 연결](connect-proofpoint-tap.md)
 - [Azure 함수를 사용 하 여 Qualys VM을 Azure 센티널에 연결](connect-qualys-vm.md)
-- [XML, CSV 또는 다른 형식의 데이터를 수집합니다.](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [XML, CSV 또는 다른 형식의 데이터를 수집합니다.](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Azure 센티널로 확대/축소 모니터링](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (블로그)
 - [Office 365 관리 API 데이터를 Azure 센티널로 가져오기 위한 함수 앱 배포](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure 센티널 GitHub 커뮤니티)
 
@@ -197,7 +197,7 @@ RESTful API와 함께 Azure Functions를 사용 하 고 [PowerShell](/azure/azur
 
 사용자 지정 커넥터의 기본 제공 구문 분석 기법을 사용 하 여 관련 정보를 추출 하 고 Azure 센티널의 관련 필드를 채울 수 있습니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 - **Logstash 태를 사용한 경우** [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) 필터 플러그 인을 사용 하 여 데이터를 구문 분석 합니다.
 - **Azure 함수를 사용한 경우에는** 코드를 사용 하 여 데이터를 구문 분석 합니다. 자세한 내용은 [파서](normalization.md#parsers)를 참조 하세요.

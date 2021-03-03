@@ -4,12 +4,12 @@ description: 일반적인 경고 스키마 이해, 사용 해야 하는 이유 �
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 70e37f8f1c9391eee5901f611bae579efe1cd9b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614714"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737293"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -52,7 +52,7 @@ ms.locfileid: "100614714"
 > 1. 다음 경고 유형은 기본적으로 공통 스키마를 지원 합니다 (옵트인 필요 없음).
 >     * 스마트 감지 경고
 > 1. 다음 경고 유형은 현재 공통 스키마를 지원 하지 않습니다.
->     * [VM용 Azure Monitor](../insights/vminsights-overview.md) 에서 생성 된 경고
+>     * [VM 정보](../vm/vminsights-overview.md) 에 의해 생성 된 경고
 >     * [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md) 에서 생성 된 경고
 
 ### <a name="through-the-azure-portal"></a>Azure Portal

@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: ec8fc4473669b0c056d0b22ff44e5818b87ba3fa
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721789"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Azure 방화벽 프리미엄 미리 보기 배포 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "100549743"
 > Azure 방화벽 프리미엄은 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- Azure 방화벽 프리미엄 미리 보기는 매우 중요 하 고 규정을 준수 하는 환경에 필요한 기능을 제공 하는 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
+ Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
 
 - **TLS 검사** -아웃 바운드 트래픽을 해독 하 고, 데이터를 처리 한 다음 데이터를 암호화 하 고 대상에 보냅니다.
 - **Idps** -네트워크 침입 감지 및 방지 시스템 (idps)을 사용 하면 악의적인 활동의 네트워크 활동을 모니터링 하 고,이 활동에 대 한 정보를 기록 하 고, 보고 하 고, 선택적으로 차단할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "100549743"
 - Azure 방호 서브넷 (10.0.20.0/24)
 - 방화벽 서브넷 (10.0.100.0/24)
 
-이 테스트 환경에서는 간단한 단일 중앙 VNet을 사용 합니다. 프로덕션을 위해 피어 링 Vnet를 사용 하는 [허브 및 스포크 토폴로지가](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 더 일반적입니다.
+이 테스트 환경에서는 간단한 단일 중앙 VNet을 사용 합니다. 프로덕션을 위해 피어 링 Vnet를 사용 하는 [허브 및 스포크 토폴로지가](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 더 일반적입니다.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="중앙 VNet 토폴로지":::
 
@@ -121,7 +121,7 @@ IDPS를 테스트 하려면 적절 한 서버 인증서를 사용 하 여 자체
 
 #### <a name="to-test-idps-for-https-traffic"></a>IDPS를 HTTPS 트래픽에 대해 테스트 하려면
 
-HTTP 대신 HTTPS를 사용 하 여 이러한 말아 넘기기 테스트를 반복 합니다. 예를 들어 다음과 같습니다.
+HTTP 대신 HTTPS를 사용 하 여 이러한 말아 넘기기 테스트를 반복 합니다. 다음은 그 예입니다. 
 
 `curl --ssl-no-revoke -A "BlackSun" <your web server address>`
 
@@ -143,7 +143,7 @@ URL 필터링을 사용 하 여 TLS 검사를 테스트 하려면 다음 단계�
 - HTML 페이지에 다른 도메인에 대 한 링크가 포함 되어 있는 경우 이러한 Fqdn에 대 한 액세스를 허용 하는 새 응용 프로그램 규칙에 이러한 도메인을 추가할 수 있습니다.
 - HTML 페이지에 하위 Url에 대 한 링크가 포함 되어 있는 경우 규칙을 수정 하 고 URL에 별표를 추가할 수 있습니다. 예: `targetURLs=www.nytimes.com/section/world*`
 
-   또는 규칙에 새 URL을 추가할 수 있습니다. 예를 들어 다음과 같습니다. 
+   또는 규칙에 새 URL을 추가할 수 있습니다. 다음은 그 예입니다.  
 
    `www.nytimes.com/section/world, www.nytimes.com/section/world/*`
 

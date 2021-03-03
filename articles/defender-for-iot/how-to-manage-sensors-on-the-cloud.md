@@ -1,20 +1,20 @@
 ---
-title: IoT 용 Defender 포털에서 센서 등록 및 관리
+title: IoT 용 Defender 포털에서 센서 및 구독 등록 및 관리
 description: IoT 포털 용 Defender에서 센서를 등록 하 고, 보고, 관리 하는 방법에 대해 알아봅니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526867"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733264"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>IoT 용 Defender 포털에서 센서 등록 및 관리
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>IoT 용 Defender 포털에서 센서 및 구독 등록 및 관리
 
 이 문서에서는 [IoT 포털 용 Defender](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)에서 센서를 등록, 확인 및 관리 하는 방법을 설명 합니다.
 
@@ -78,8 +78,8 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 편집 하려면:
 
-1. 편집 하려는 센서에 대 한 줄임표 (**...**)를 마우스 오른쪽 단추로 클릭 합니다.
-1. 편집을 선택합니다.
+1. 편집 하려는 센서에 대 한 **줄임표** (**...**)를 선택 합니다.
+1. **편집** 을 선택합니다.
 1. 센서 영역을 업데이트 하거나 새 영역을 만듭니다.
 
 ### <a name="delete-a-sensor"></a>센서 삭제
@@ -123,6 +123,24 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 9. **활성화** 를 선택합니다.
 
-## <a name="see-also"></a>참조
+## <a name="offboard-a-subscription"></a>구독 보드 오프
+
+구독은 월 단위로 관리 됩니다. 언제 든 지 구독을 보드 아웃 하면 해당 구독에 대해 해당 월이 종료 될 때까지 요금이 청구 됩니다. 
+
+구독을 오프 보 딩 하기 전에 구독과 연결 된 모든 센서를 제거 합니다. 센서를 삭제 하는 방법에 대 한 자세한 내용은 [센서 삭제](#delete-a-sensor)를 참조 하세요. 
+
+구독을 오프 보드로 만들려면:
+
+1. **가격 책정** 페이지로 이동 합니다.
+1. 구독을 선택한 다음 **삭제** 아이콘을 선택 합니다 :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. 확인 팝업에서 확인란을 선택 하 여 구독과 연결 된 모든 센서를 삭제 했는지 확인 합니다.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="확인란을 선택 하 고 등록 취소를 선택 하 여 센서를 보드 오프 합니다.":::
+
+1. **Offboard** 단추를 선택 합니다. 
+
+온-프레미스 환경에는 영향을 주지 않지만 온-프레미스 환경에서 센서를 제거 하거나 다른 구독에 센서를 재할당 하 여 관련 데이터가 온-프레미스 관리 콘솔로 전달 되지 않도록 해야 합니다. 
+
+## <a name="see-also"></a>참고 항목
 
 [센서 활성화 및 설정](how-to-activate-and-set-up-your-sensor.md)

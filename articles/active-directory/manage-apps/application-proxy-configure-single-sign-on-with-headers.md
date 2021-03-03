@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d4cd69a90c4af2f996bd965ffaa145dce761018f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 512316b78a0d6422daf5e268ef30db72ccbcfaeb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688317"
 ---
-# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Azure AD 앱 프록시 (미리 보기)를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On
+# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On
 
 Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤더를 사용 하는 응용 프로그램에 대 한 Single Sign-On 액세스를 기본적으로 지원 합니다. Azure AD에서 응용 프로그램에 필요한 헤더 값을 구성할 수 있습니다. 헤더 값은 응용 프로그램 프록시를 통해 응용 프로그램으로 전송 됩니다. 응용 프로그램 프록시를 사용 하 여 헤더 기반 인증에 대 한 기본 지원을 사용할 경우의 몇 가지 이점은 다음과 같습니다.  
 
@@ -95,6 +95,6 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Single Sign-On 이란?](what-is-single-sign-on.md)
+- [Single Sign-On이란?](what-is-single-sign-on.md)
 - [응용 프로그램 프록시 란?](what-is-application-proxy.md)
 - [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)

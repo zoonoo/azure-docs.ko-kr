@@ -3,12 +3,12 @@ title: Azure Service Bus-메시지 만료
 description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 라이브 시간에 대해 설명 합니다. 이러한 기한이 지나면 메시지가 더 이상 배달 되지 않습니다.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: a2a568f04c2607832a1fa2a8e32bc6ce8331da4d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698368"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 메시지의 페이로드 또는 메시지가 수신기에 전달하는 명령이나 조회는 거의 항상 특정 형식의 애플리케이션 수준 만료 기한을 따릅니다. 이러한 기간 후에는 콘텐츠가 더 이상 배달되지 않거나 요청된 작업이 더 이상 실행되지 않습니다.
@@ -20,6 +20,8 @@ ms.locfileid: "100652074"
 **만료** 날짜가 지난 후에는 메시지를 검색할 수 없게 됩니다. 만료는 현재 배달을 위해 잠겨 있는 메시지에 영향을 주지 않습니다. 이러한 메시지는 여전히 정상적으로 처리 됩니다. 잠금이 만료되거나 메시지가 중단되면 만료가 즉시 적용됩니다.
 
 메시지가 잠금 상태인 경우 애플리케이션이 만료된 메시지를 소유하고 있을 수 있습니다. 애플리케이션이 메시지를 계속 처리하려고 할지 또는 메시지를 중단하도록 선택할지는 구현자가 결정합니다.
+
+메시지의 ttl **(time-to-live) 값을** 시간 또는 일 단위로 설정 하는 것이 좋습니다. 낮은 값 (초 또는 밀리초)으로 설정 하면 메시지가 만료 되어 소비자가이를 사용할 수 있습니다. 
 
 ## <a name="entity-level-expiration"></a>엔터티 수준 만료
 큐 또는 토픽으로 전송 되는 모든 메시지는 엔터티 수준에서 설정 되는 기본 만료 될 수 있습니다. 나중에 만들고 조정 하는 동안 포털에서 설정할 수도 있습니다. 기본 만료는 엔터티에 전송 된 모든 메시지에 대해 ttl (time to live)이 명시적으로 설정 되지 않은 경우에 사용 됩니다. 기본 만료는 ttl (time-to-live) 값의 상한으로도 작동 합니다. 기본값 보다 더 긴 ttl (time-to-live)이 만료 된 메시지는 큐에 대기 되기 전에 기본 메시지 ttl (time-to-live) 값으로 자동 조정 됩니다.

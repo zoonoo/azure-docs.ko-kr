@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8493b75f0d9e0f947996df431d63bfba9abdc9e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f4f5f82423f0ecb4e810eab2d675e95b8b66763
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615914"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717165"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
 
@@ -78,5 +78,5 @@ requests
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](../platform/workbooks-overview.md#visualizations) 하세요.
-* 통합 문서 리소스에 대 한 액세스를 [제어](../platform/workbooks-access-control.md) 하 고 공유 합니다.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
+* 통합 문서 리소스에 대 한 액세스를 [제어](./workbooks-access-control.md) 하 고 공유 합니다.

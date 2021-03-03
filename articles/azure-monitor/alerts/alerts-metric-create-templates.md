@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: 304a7adf69ed3622cf2031cfbebb920bff5238cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714343"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "100614704"
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집 하 고 JSON으로 사용 하 여 경고를 사용자 지정 합니다.
-3. `metricName`매개 변수의 경우 [지원 되는 메트릭 Azure Monitor](../platform/metrics-supported.md)에서 사용 가능한 메트릭을 참조 하세요.
+3. `metricName`매개 변수의 경우 [지원 되는 메트릭 Azure Monitor](../essentials/metrics-supported.md)에서 사용 가능한 메트릭을 참조 하세요.
 4. [배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다.
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>간단한 정적 임계값 메트릭 경고에 대한 템플릿
@@ -1247,7 +1247,7 @@ az deployment group create \
 
 다음 템플릿을 사용하여 사용자 지정 메트릭에 대한 고급 정적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
 
-Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](../platform/metrics-custom-overview.md)을 참조하세요.
+Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](../essentials/metrics-custom-overview.md)을 참조하세요.
 
 사용자 지정 메트릭에 대한 경고 규칙을 만드는 경우 메트릭 이름과 메트릭 네임스페이스를 모두 지정해야 합니다. 또한 아직 존재하지 않는 사용자 지정 메트릭에 대한 경고 규칙을 만들 수 없으므로 사용자 지정 메트릭이 이미 보고되고 있는지 확인해야 합니다.
 
@@ -1503,7 +1503,7 @@ az deployment group create \
 
 >[!NOTE]
 >
-> [Azure Portal을 통해 사용자 지정 메트릭을 검색](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
+> [Azure Portal을 통해 사용자 지정 메트릭을 검색](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿
@@ -3624,7 +3624,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 경고](../platform/alerts-overview.md)에 대해 자세히 알아보기
+- [Azure의 경고](./alerts-overview.md)에 대해 자세히 알아보기
 - [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](../alerts/action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
 - JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.
-

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 사용 클러스터 구성에 대 한 투구와 함께 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0176d614a6bf44e2bf20cc7935521a6387a3b574
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647645"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687290"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>아크 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
 
@@ -81,7 +81,7 @@ Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 의 Azure CLI 확장을 사용 하 여 `k8s-configuration` 연결 된 클러스터를 예제 Git 리포지토리에 연결 합니다. 이 구성에 이름을 지정 `azure-arc-sample` 하 고 네임 스페이스에 Flux 연산자를 배포 `arc-k8s-demo` 합니다.
 
 ```console
-az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-chart-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>구성 매개 변수

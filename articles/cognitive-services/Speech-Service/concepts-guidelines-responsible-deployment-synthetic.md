@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 3a0b645acd7c21ff0416c748cdd2caf7041be508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730816"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>가상 음성 기술의 책임이 있는 배포에 대 한 지침
 
@@ -64,6 +64,6 @@ Speech 들가 있는 개인은 에이징 (예: puberty에 도달 하는 경우)�
 
 ## <a name="see-also"></a>참고 항목
 
-* [음성 인재 공개](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [공개 방법](concepts-disclosure-guidelines.md)
 * [공개 디자인 패턴](concepts-disclosure-patterns.md)

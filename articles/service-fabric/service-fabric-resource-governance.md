@@ -3,12 +3,12 @@ title: 컨테이너 및 서비스에 대한 리소스 관리
 description: Azure Service Fabric를 사용 하 여 프로세스나 컨테이너로 실행 되는 서비스에 대 한 리소스 요청 및 제한을 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 889fce77c1a3a743e9805ec482a9c87b9bf8da65
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735661"
 ---
 # <a name="resource-governance"></a>리소스 거버넌스
 
@@ -65,7 +65,7 @@ Service Fabric는 CPU 및 메모리에 대 한 **RequestsAndLimits** 사양과 �
   이 시점에서 노드에 배치 된 서비스 패키지의 CPU 요청 합계는 노드의 CPU 용량과 같습니다. CRM은이 노드에 CPU 요청을 포함 하는 컨테이너 또는 서비스 프로세스를 더 이상 두지 않습니다. 그러나 노드에서 제한의 합계 (컨테이너의 경우 두 코어 + 프로세스의 코어 1 개)는 두 코어의 용량을 초과 합니다. 컨테이너와 프로세스가 동시에 버스트 되 면 CPU 리소스에 대 한 경합이 발생할 수 있습니다. 이러한 경합은 플랫폼의 기본 OS에 의해 관리 되 됩니다. 이 예에서 컨테이너는 CPU 코어를 2 개까지 버스트 했을 수 있으며,이로 인해 하나의 CPU 코어에 대 한 프로세스 요청이 보장 되지 않습니다.
 
 > [!NOTE]
-> 이전 예제에서 설명한 것 처럼 CPU 및 메모리에 대 한 요청 값은 **노드에 리소스를 예약 하지**않습니다. 이러한 값은 클러스터 리소스 관리자 배치 결정을 내릴 때 고려 하는 리소스 소비량을 나타냅니다. 제한 값은 노드에서 프로세스나 컨테이너가 활성화 될 때 적용 되는 실제 리소스 제한을 나타냅니다.
+> 이전 예제에서 설명한 것 처럼 CPU 및 메모리에 대 한 요청 값은 **노드에 리소스를 예약 하지** 않습니다. 이러한 값은 클러스터 리소스 관리자 배치 결정을 내릴 때 고려 하는 리소스 소비량을 나타냅니다. 제한 값은 노드에서 프로세스나 컨테이너가 활성화 될 때 적용 되는 실제 리소스 제한을 나타냅니다.
 
 
 CPU에 대 한 경합이 있을 수 있는 몇 가지 경우가 있습니다. 이러한 상황에서 예제의 프로세스와 컨테이너는 잡음이 있는 환경 문제를 겪을 수 있습니다.
@@ -95,12 +95,12 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 대부분의 고객 및 시나리오에서 CPU 및 메모리에 대 한 노드 용량의 자동 검색은 권장 되는 구성입니다 (자동 검색은 기본적으로 설정 됨). 그러나 노드 용량을 완전히 수동으로 설정 해야 하는 경우 클러스터의 노드를 설명 하는 메커니즘을 사용 하 여 노드 유형별으로 구성할 수 있습니다. 4 개 코어와 2gb의 메모리를 사용 하 여 노드 형식을 설정 하는 방법의 예는 다음과 같습니다.
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 사용 가능한 리소스의 자동 확인을 사용하고 노드 용량이 클러스터 매니페스트에서 수동으로 정의된 경우 Service Fabric은 노드가 사용자가 정의한 용량을 지원하기에 충분한 리소스를 갖는지 확인합니다.
@@ -120,8 +120,8 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 최적 성능을 얻으려면 클러스터 매니페스트에서 다음 설정도 켜야 합니다.
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" />
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -156,11 +156,11 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
   </ServiceManifestImport>
 ```
 
-이 예에서는 특성을 `CpuCores` 사용 하 여 **ServicePackageA**에 대 한 CPU 코어 1 개 요청을 지정 합니다. CPU 제한 ( `CpuCoresLimit` 특성)을 지정 하지 않았기 때문에 Service Fabric에서는 서비스 패키지의 cpu 제한으로 1 코어의 지정 된 요청 값도 사용 합니다.
+이 예에서는 특성을 `CpuCores` 사용 하 여 **ServicePackageA** 에 대 한 CPU 코어 1 개 요청을 지정 합니다. CPU 제한 ( `CpuCoresLimit` 특성)을 지정 하지 않았기 때문에 Service Fabric에서는 서비스 패키지의 cpu 제한으로 1 코어의 지정 된 요청 값도 사용 합니다.
 
 **ServicePackageA** 는 **해당 노드에 배치 된 모든 서비스 패키지의 cpu 요청 합계** 를 뺀 후 남은 cpu 용량이 1 코어 보다 크거나 같은 노드에만 배치 됩니다. 노드에서 서비스 패키지는 코어 하나로 제한 됩니다. 서비스 패키지에는 두 개의 코드 패키지 (**CodeA1** 및 **CodeA2**)가 포함 되어 있으며 둘 다 특성을 지정 합니다 `CpuShares` . CpuShares 512:256의 비율을 사용 하 여 개별 코드 패키지의 CPU 제한을 계산 합니다. 따라서 CodeA1는 코어의 2/3로 제한 되며 CodeA2는 코어의 1/3로 제한 됩니다. CpuShares가 모든 코드 패키지에 대해 지정 되지 않은 경우 Service Fabric는 CPU 제한을 동일 하 게 나눕니다.
 
-코드 패키지에 대해 지정 된 CpuShares는 서비스 패키지의 전체 CPU 한도의 상대적 비율을 나타내며, 코드 패키지에 대 한 메모리 값은 절대 용어로 지정 됩니다. 이 예제에서 특성은 `MemoryInMB` CodeA1 및 CodeA2 둘 다에 대해 1024 MB의 메모리 요청을 지정 하는 데 사용 됩니다. 메모리 제한 ( `MemoryInMBLimit` 특성)을 지정 하지 않았기 때문에 Service Fabric는 또한 지정 된 요청 값을 코드 패키지에 대 한 제한으로 사용 합니다. 서비스 패키지에 대 한 메모리 요청 (및 제한)은 해당 구성 코드 패키지의 메모리 요청 (및 제한) 값의 합계로 계산 됩니다. 따라서 **ServicePackageA**의 경우 메모리 요청 및 제한이 2048 MB로 계산 됩니다.
+코드 패키지에 대해 지정 된 CpuShares는 서비스 패키지의 전체 CPU 한도의 상대적 비율을 나타내며, 코드 패키지에 대 한 메모리 값은 절대 용어로 지정 됩니다. 이 예제에서 특성은 `MemoryInMB` CodeA1 및 CodeA2 둘 다에 대해 1024 MB의 메모리 요청을 지정 하는 데 사용 됩니다. 메모리 제한 ( `MemoryInMBLimit` 특성)을 지정 하지 않았기 때문에 Service Fabric는 또한 지정 된 요청 값을 코드 패키지에 대 한 제한으로 사용 합니다. 서비스 패키지에 대 한 메모리 요청 (및 제한)은 해당 구성 코드 패키지의 메모리 요청 (및 제한) 값의 합계로 계산 됩니다. 따라서 **ServicePackageA** 의 경우 메모리 요청 및 제한이 2048 MB로 계산 됩니다.
 
 **ServicePackageA** 는 **해당 노드에 배치 된 모든 서비스 패키지의 메모리 요청 합계** 를 뺀 후 남은 메모리 용량이 2048 MB 보다 크거나 같은 노드에만 배치 됩니다. 노드에서 두 코드 패키지는 각각 1024 MB의 메모리로 제한 됩니다. 코드 패키지 (컨테이너 또는 프로세스)는이 제한 보다 많은 메모리를 할당할 수 없으며, 그렇게 하려고 하면 메모리 부족 예외가 발생 합니다.
 
@@ -177,7 +177,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
     </Policies>
   </ServiceManifestImport>
 ```
-이 예제에서는 `CpuCoresLimit` 및 `MemoryInMBLimit` 특성을 사용 하며,이는 SF 버전 7.2 이상 에서만 사용할 수 있습니다. CpuCoresLimit 특성은 **ServicePackageA**에 대해 1 코어의 CPU 제한을 지정 하는 데 사용 됩니다. CPU 요청 ( `CpuCores` 특성)은 지정 되지 않으므로 0으로 간주 됩니다. `MemoryInMBLimit` 특성은 CodeA1 및 CodeA2에 대해 1024 MB의 메모리 제한을 지정 하는 데 사용 되며 `MemoryInMB` , 요청 (특성)을 지정 하지 않으면 0으로 간주 됩니다. 따라서 **ServicePackageA** 에 대 한 메모리 요청 및 제한은 각각 0과 2048로 계산 됩니다. **ServicePackageA** 에 대 한 CPU 및 메모리 요청은 모두 0 이므로 및 메트릭에 대해 CRM에서 배치를 고려할 수 있는 부하가 표시 되지 않습니다 `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` . 따라서 리소스 거 버 넌 스 관점에서 **ServicePackageA** 는 **남은 용량과 상관 없이**모든 노드에 배치할 수 있습니다. 예 1과 마찬가지로 노드의 CodeA1는 코어 및 1024 메모리의 2/3로 제한 되며 CodeA2는 코어 및 1024 MB의 1 1/3로 제한 됩니다.
+이 예제에서는 `CpuCoresLimit` 및 `MemoryInMBLimit` 특성을 사용 하며,이는 SF 버전 7.2 이상 에서만 사용할 수 있습니다. CpuCoresLimit 특성은 **ServicePackageA** 에 대해 1 코어의 CPU 제한을 지정 하는 데 사용 됩니다. CPU 요청 ( `CpuCores` 특성)은 지정 되지 않으므로 0으로 간주 됩니다. `MemoryInMBLimit` 특성은 CodeA1 및 CodeA2에 대해 1024 MB의 메모리 제한을 지정 하는 데 사용 되며 `MemoryInMB` , 요청 (특성)을 지정 하지 않으면 0으로 간주 됩니다. 따라서 **ServicePackageA** 에 대 한 메모리 요청 및 제한은 각각 0과 2048로 계산 됩니다. **ServicePackageA** 에 대 한 CPU 및 메모리 요청은 모두 0 이므로 및 메트릭에 대해 CRM에서 배치를 고려할 수 있는 부하가 표시 되지 않습니다 `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` . 따라서 리소스 거 버 넌 스 관점에서 **ServicePackageA** 는 **남은 용량과 상관 없이** 모든 노드에 배치할 수 있습니다. 예 1과 마찬가지로 노드의 CodeA1는 코어 및 1024 메모리의 2/3로 제한 되며 CodeA2는 코어 및 1024 MB의 1 1/3로 제한 됩니다.
 
 **예제 3: RequestsAndLimits 사양**
 ```xml
@@ -249,7 +249,7 @@ Service Fabric 서비스에 리소스 관리를 적용 하는 동안 해당 리�
 * 비정상 상태에서 종료 되는 노드
 * 클러스터 관리 Api Service Fabric 응답 하지 않음
 
-이러한 상황이 발생 하는 것을 방지 하기 위해 Service Fabric를 사용 하면 *노드에서 실행 중인 모든 Service Fabric 사용자 서비스* (관리 및 비관리 모두)에 대해 리소스 제한을 적용 하 여 사용자 서비스가 지정 된 양의 리소스를 사용 하지 않도록 보장할 수 있습니다. 이는 ClusterManifest의 PlacementAndLoadBalancing 섹션에 있는 EnforceUserServiceMetricCapacities config 값을 true로 설정 하 여 수행 됩니다. 이 설정은 기본적으로 해제 되어 있습니다.
+이러한 상황이 발생 하는 것을 방지 하기 위해 Service Fabric를 사용 하면 *노드에서 실행 중인 모든 Service Fabric 사용자 서비스* (관리 및 비관리 모두)에 대해 리소스 제한을 적용 하 여 사용자 서비스가 지정 된 양의 리소스를 사용 하지 않도록 보장할 수 있습니다. 이는 ClusterManifest의 PlacementAndLoadBalancing 섹션에 있는 EnforceUserServiceMetricCapacities config 값을 true로 설정 하 여 수행 됩니다. 이 설정은 기본적으로 해제 되어 있습니다.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -260,7 +260,7 @@ Service Fabric 서비스에 리소스 관리를 적용 하는 동안 해당 리�
 추가 설명:
 
 * 리소스 제한 적용은 `servicefabric:/_CpuCores` 및 `servicefabric:/_MemoryInMB` 리소스 메트릭에만 적용 됩니다.
-* 리소스 한도 적용은 자동 검색 메커니즘을 통해 또는 사용자가 수동으로 노드 용량을 지정 하 여 ( [리소스 관리를 사용 하도록 설정 하기 위해 클러스터 설정](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) 섹션에서 설명한 대로) 리소스 메트릭의 노드 용량을 Service Fabric 사용할 수 있는 경우에만 작동 합니다.노드 용량이 구성 되지 않은 경우 Service Fabric 사용자 서비스에 대해 예약할 리소스의 양을 알 수 없기 때문에 리소스 제한 적용 기능을 사용할 수 없습니다."EnforceUserServiceMetricCapacities"가 true 이지만 노드 용량이 구성 되지 않은 경우 Service Fabric에서 상태 경고를 실행 합니다.
+* 리소스 한도 적용은 자동 검색 메커니즘을 통해 또는 사용자가 수동으로 노드 용량을 지정 하 여 ( [리소스 관리를 사용 하도록 설정 하기 위해 클러스터 설정](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) 섹션에서 설명한 대로) 리소스 메트릭의 노드 용량을 Service Fabric 사용할 수 있는 경우에만 작동 합니다. 노드 용량이 구성 되지 않은 경우 Service Fabric 사용자 서비스에 대해 예약할 리소스의 양을 알 수 없기 때문에 리소스 제한 적용 기능을 사용할 수 없습니다. "EnforceUserServiceMetricCapacities"가 true 이지만 노드 용량이 구성 되지 않은 경우 Service Fabric에서 상태 경고를 실행 합니다.
 
 ## <a name="other-resources-for-containers"></a>컨테이너에 대한 기타 리소스
 

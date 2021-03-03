@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522668"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716196"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
@@ -34,7 +34,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > [!NOTE]
 > **집계** 에 대 한 여러 옵션이 Azure Portal에 표시 되지만 아래 표에 나열 된 집계 유형만 각 메트릭에 대해 지원 됩니다. 이 혼란을 위해 죄송 합니다 .이 문제를 해결 하기 위해 노력 하 고 있습니다.
 
-Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
+Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
 
 
 | 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description |

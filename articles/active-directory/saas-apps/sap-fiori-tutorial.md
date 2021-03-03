@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ab21c6dc95ef39e6273dac405ba58e748890fc1a
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968435"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687110"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>자습서: SAP Fiori와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -146,7 +146,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![메타데이터 파일 선택](common/browse-upload-metadata.png)
 
-    다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 **기본 SAML 구성** 창에 자동으로 채워집니다. **로그온 URL** 상자에 `https:\//\<your company instance of SAP Fiori\>` 패턴의 URL을 입력합니다.
+    다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 **기본 SAML 구성** 창에 자동으로 채워집니다. **로그온 URL** 상자에 `https://<your company instance of SAP Fiori>` 패턴의 URL을 입력합니다.
 
     > [!NOTE]
     > 소수의 고객이 잘못 구성된 **회신 URL** 값과 관련된 오류를 보고합니다. 이러한 오류가 표시되면 다음 PowerShell 스크립트를 사용하여 인스턴스에 대해 올바른 회신 URL을 설정할 수 있습니다.

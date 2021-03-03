@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581244"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737412"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -35,7 +35,7 @@ WAF의 검색 모드를 사용 하 여 네트워크 트래픽을 기준으로 �
 
 WAF로 보호 되지 않는 웹 사용 리소스에 대해 Security Center의 높은 심각도 권장 사항을 따릅니다.  
 
-- [웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙](ag/application-gateway-crs-rulegroups-rules.md) 
+- [웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙](ag/application-gateway-crs-rulegroups-rules.md) 
 
 - [Application Gateway의 WAF 모드](ag/ag-overview.md#waf-modes)
 
@@ -164,7 +164,7 @@ Azure 센티널에는 azure WAF의 보안 이벤트에 대 한 개요를 제공 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
 
 **지침**: AZURE Waf (웹 응용 프로그램 방화벽) 로그를 사용자 지정 저장소 계정으로 보내고 보존 정책을 정의 합니다. Azure Monitor를 사용 하 여 조직의 규정 준수 요구 사항에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다.
-- [스토리지 계정에 대한 모니터링 구성](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [스토리지 계정에 대한 모니터링 구성](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center 모니터링**: 해당 없음
 

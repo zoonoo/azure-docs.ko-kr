@@ -6,17 +6,14 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab719b47245f3adc2fba610f9c0473868889a7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675699"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711453"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
-
-> [!CAUTION]
-> Azure App Service에서 ASP.NET Core 앱에 대 한 프로파일러를 실행 하는 버그가 있습니다. 해결 방법이 있지만 전 세계에 배포 하는 데 몇 주가 걸립니다. [여기](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)에 지침을 사용 하 여 응용 프로그램에 Application Insights SDK를 추가 하 여 버그를 해결할 수 있습니다.
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>일반 문제 해결
 
@@ -67,6 +64,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 포털에서 지원 티켓을 제출합니다. 오류 메시지의 상관 관계 ID를 포함해야 합니다.
 
 ## <a name="troubleshoot-profiler-on-azure-app-service"></a>Azure App Service에서 Profiler 문제 해결
+
 Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 합니다.
 * 웹앱 서비스 계획이 기본 계층 이상이어야 합니다.
 * 웹앱에서 Application Insights를 사용할 수 있어야 합니다.
@@ -95,6 +93,10 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
 ### <a name="check-the-diagnostic-services-site-extension-status-page"></a>진단 서비스 사이트 확장의 상태 페이지를 확인 합니다.
 포털이 포털의 [Application Insights 창을](profiler.md) 통해 사용 하도록 설정 된 경우 진단 서비스 사이트 확장에서 프로파일러를 사용 하도록 설정 했습니다.
+
+> [!NOTE]
+> Application Insights Profiler의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
+> 지원 되는 런타임에 대 한 자세한 내용은 [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
 
 다음 url로 이동 하 여이 확장의 상태 페이지를 확인할 수 있습니다. `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
@@ -140,7 +142,7 @@ Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경
 
 *디렉터리가 비어 있지 않음 ' d: \\ home \\ site \\ wwwroot \\ App_Data \\ job '*
 
-스크립트 또는 Azure Pipelines에서 웹 배포를 실행 하는 경우이 오류가 발생 합니다. 솔루션은 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
+스크립트 또는 Azure Pipelines에서 웹 배포를 실행 하는 경우이 오류가 발생 합니다. 해결 방법은 웹 배포 작업에 다음 배포 매개 변수를 추가 하는 것입니다.
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

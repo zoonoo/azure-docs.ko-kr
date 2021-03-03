@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿을 사용하여 Azure Application 
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890516"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726124"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -152,7 +152,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 ### <a name="failure-anomalies-alert-rule"></a>오류 비정상 경고 규칙
 
-이 Azure Resource Manager 템플릿에서는 심각도가 2 인 오류 비정상 경고 규칙을 구성 하는 방법을 보여 줍니다. 이 새 버전의 오류 비정상 경고 규칙은 새 Azure 경고 플랫폼의 일부 이며, [클래식 경고](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)사용 중지 프로세스의 일부로 사용 중지 중인 클래식 버전을 대체 합니다.
+이 Azure Resource Manager 템플릿에서는 심각도가 2 인 오류 비정상 경고 규칙을 구성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 오류 비정상은 글로벌 서비스 이므로 규칙 위치가 글로벌 위치에 만들어집니다.

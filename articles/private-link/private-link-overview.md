@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712184"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -54,7 +54,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [Azure Database for PostgreSQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역      |  | GA <br/> [Azure Database for MySQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Azure Database for MariaDB         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역     |  | GA <br/> [Azure Database for MariaDB에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../mariadb/concepts-data-access-security-private-link.md)      |
-|  Azure Digital Twins         | Azure Digital Twins에서 지원하는 모든 공용 지역     |  | 미리 보기 <br/> [Azure Digital Twins에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../digital-twins/how-to-enable-private-link.md)      |
+|  Azure Digital Twins         | Azure Digital Twins에서 지원하는 모든 공용 지역     |  | 미리 보기 <br/> [Azure Digital Twins에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../digital-twins/how-to-enable-private-link-portal.md)      |
 |  Azure Key Vault         | 모든 공용 지역<br/> Azure Government 지역      |  | GA   <br/> [Azure Key Vault에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../key-vault/general/private-link-service.md)   |
 |Azure Kubernetes Service - Kubernetes API | 모든 공용 지역      |  | GA   <br/> [Azure Kubernetes Service에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../aks/private-clusters.md)   |
 |Azure Search | 모든 공용 지역 <br/> Azure Government 지역 | 개인 모드 서비스에서 지원됨 | GA   <br/> [Azure Search에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../search/service-create-private-endpoint.md)    |

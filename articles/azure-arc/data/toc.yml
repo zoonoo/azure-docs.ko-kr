@@ -6,6 +6,8 @@
       href: overview.md
     - name: 릴리스 정보
       href: release-notes.md
+    - name: 알려진 문제
+      href: known-issues.md
 - name: 빠른 시작
   items:
     - name: 데이터 컨트롤러 만들기
@@ -180,6 +182,8 @@
               href: configure-managed-instance.md
             - name: '모니터링, 로그 분석, 청구 정보, Azure Portal'
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: 고가용성
+              href: managed-instance-high-availability.md
             - name: 삭제
               href: delete-managed-instance.md
         - name: 마이그레이션

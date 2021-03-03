@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616769"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722928"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>JSONPath를 사용 하 여 통합 문서에서 JSON 데이터를 변환 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "100616769"
 
 JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입니다. XPath와 마찬가지로 JSONPath는 JSON 구조에서 데이터를 추출 하 고 필터링 할 수 있도록 합니다.
 
-통합 문서 작성자는 JSONPath 변환을 사용 하 여 JSON을 테이블 구조로 변환할 수 있습니다. 그런 다음 테이블을 사용 하 여 [통합 문서 시각화](../platform/workbooks-overview.md#visualizations)를 그릴 수 있습니다.
+통합 문서 작성자는 JSONPath 변환을 사용 하 여 JSON을 테이블 구조로 변환할 수 있습니다. 그런 다음 테이블을 사용 하 여 [통합 문서 시각화](./workbooks-overview.md#visualizations)를 그릴 수 있습니다.
 
 ## <a name="using-jsonpath"></a>JSONPath 사용
 
@@ -73,7 +73,7 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
 
    | 열 Id | 열 JSON 경로 |
    |:-----------|:-----------------|
-   | 제목      | `$.title`        |
+   | title      | `$.title`        |
    | 작성자     | `$.author`       |
    | 가격      | `$.price`        |
 
@@ -84,5 +84,5 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
 ![ JSON 데이터 원본 및 JSON 경로 결과 형식을 사용 하 여 쿼리 항목 편집](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [통합 문서 개요](../platform/workbooks-overview.md)
+- [통합 문서 개요](./workbooks-overview.md)
 - [Azure Monitor 통합 문서에 있는 그룹](workbooks-groups.md)

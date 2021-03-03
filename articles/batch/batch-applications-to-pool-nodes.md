@@ -2,13 +2,13 @@
 title: 풀 노드에 애플리케이션 및 데이터 복사
 description: 풀 노드에 애플리케이션 및 데이터를 복사하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703650"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>풀 노드에 애플리케이션 및 데이터 복사
 
@@ -33,10 +33,6 @@ Azure Batch는 태스크에서 사용할 수 있도록 데이터 및 응용 프�
 풀의 모든 노드에 설치 해야 하는 응용 프로그램 또는 데이터의 경우 [응용 프로그램 패키지](batch-application-packages.md)를 사용 하는 것이 좋습니다. 애플리케이션 패키지에 연결된 설치 명령은 없으나 시작 태스크를 사용하여 모든 설치 명령을 실행할 수 있습니다. 애플리케이션이 설치가 필요하지 않거나 많은 파일로 구성된 경우 이 메서드를 사용할 수 있습니다.
 
 응용 프로그램 패키지는 많은 파일 참조를 작은 페이로드로 결합할 수 있으므로 많은 수의 파일이 있는 경우 유용 합니다. 100개가 넘는 개별 리소스 파일을 한 태스크에 포함하려는 경우, Batch 서비스가 단일 태스크에 대한 내부 시스템 제한에 대한 답이 될 수 있습니다. 응용 프로그램 패키지는 동일한 응용 프로그램의 다양 한 버전이 있고 이러한 응용 프로그램 중 하나를 선택 해야 하는 경우에도 유용 합니다.
-
-## <a name="extensions"></a>확장
-
-[확장](create-pool-extensions.md) 은 Batch 계산 노드에서 사후 프로 비전 구성 및 설치를 용이 하 게 하는 작은 응용 프로그램입니다. 풀을 만들 때 지원 되는 확장을 선택 하 여 프로 비전 될 때 계산 노드에 설치할 수 있습니다. 그런 다음 확장에서 원하는 작업을 수행할 수 있습니다.
 
 ## <a name="job-preparation-task-resource-files"></a>작업 준비 태스크 리소스 파일
 

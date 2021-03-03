@@ -4,22 +4,22 @@ description: 자발적 마이그레이션을 준비 하기 위해 웹 후크, �
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1d6fc8e4b9baecf02531fc1baa617b87a9d3255c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c88d0b8595434298eb564034a44665c5375457c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701045"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
 > [!NOTE]
-> [이전에 발표](../platform/monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 중지 되었습니다. 이러한 경고의 사용 중지 날짜는 추가로 확장 되었습니다. 새 날짜는 곧 발표 될 예정입니다.
+> [이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 공용 클라우드 사용자에 게 사용이 중지 되었지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
 >
 
-기존 경고 규칙을 자발적으로 새 경고 규칙으로 마이그레이션하기를 선택 하는 경우 두 시스템 간에 몇 가지 차이점이 있습니다. 이 문서에서는 이러한 차이점과 변경을 준비 하는 방법을 설명 합니다.
+기존 경고 규칙을 자발적으로 새 경고 규칙으로 마이그레이션하기를 선택 하는 경우 두 시스템 간에 약간의 차이가 있습니다. 이 문서에서는 이러한 차이점과 변경을 준비 하는 방법을 설명 합니다.
 
 ## <a name="api-changes"></a>API 변경 내용
 
@@ -36,7 +36,7 @@ ms.locfileid: "100614619"
 
 ## <a name="notification-payload-changes"></a>알림 페이로드 변경
 
-알림 페이로드 형식은 [클래식 경고 규칙과](../platform/alerts-webhooks.md) [새 메트릭 경고](alerts-metric-near-real-time.md#payload-schema)간에 약간 다릅니다. 기존 경고 규칙에 의해 트리거되는 webhook, 논리 앱 또는 runbook 작업이 있는 경우 새 메트릭 경고의 페이로드 형식을 허용 하도록 해당 알림 끝점을 업데이트 해야 합니다.
+알림 페이로드 형식은 [클래식 경고 규칙과](alerts-webhooks.md) [새 메트릭 경고](alerts-metric-near-real-time.md#payload-schema)간에 약간 다릅니다. Webhook, 논리 앱 또는 runbook 작업을 사용 하는 클래식 경고 규칙이 있는 경우 새 페이로드 형식을 적용 하도록 대상을 업데이트 해야 합니다.
 
 다음 표를 사용 하 여 기본 형식에서 새 형식으로 webhook 페이로드 필드를 매핑합니다.
 
@@ -153,13 +153,13 @@ else {
 
 ## <a name="partner-integration-via-webhooks"></a>웹 후크를 통한 파트너 통합
 
-[클래식 경고와 통합 되는](../platform/partners.md) 대부분의 파트너는 통합을 통해 최신 메트릭 경고를 이미 지원 합니다. 이미 새 메트릭 경고와 함께 작동 하는 알려진 통합은 다음과 같습니다.
+[클래식 경고와 통합 되는](../partners.md) 대부분의 파트너는 통합을 통해 최신 메트릭 경고를 이미 지원 합니다. 이미 새 메트릭 경고와 함께 작동 하는 알려진 통합은 다음과 같습니다.
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-여기에 나열 되지 않은 파트너 통합을 사용 하는 경우 통합이 새 메트릭 경고와 함께 작동 하는지 통합 공급자에 게 확인 하세요.
+여기에 나열 되지 않은 파트너 통합을 사용 하는 경우 공급자에 게 새 메트릭 경고를 사용 하 고 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

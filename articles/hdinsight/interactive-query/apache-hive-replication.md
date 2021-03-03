@@ -4,12 +4,12 @@ description: HDInsight 클러스터에서 Hive 복제를 사용 하 여 Hive met
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2e57b7d8121ac0bd6fc9cb693750c41a0ef6a5bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941342"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733060"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Apache Hive 복제를 사용 하는 방법
 
@@ -19,7 +19,7 @@ Hive 복제는 더 나은 기능을 제공 하 고 더 빠르고 리소스를 �
 
 ## <a name="advantages-of-replv2"></a>Replv2의 이점
 
-Hive [ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) 또는 (Replv2) hive [가져오기-내보내기를](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport)사용 하는 첫 번째 버전의 hive 복제에 비해 다음과 같은 이점이 있습니다.
+Hive [ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (Replv2 라고도 함)는 hive [가져오기-내보내기를](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport)사용 하는 첫 번째 버전의 hive 복제에 비해 다음과 같은 장점이 있습니다.
 
 - 이벤트 기반 증분 복제
 - 특정 시점 복제  

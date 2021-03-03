@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.date: 02/21/2021
+ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567734"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732805"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요-Azure Database for PostgreSQL 유연한 서버
 
@@ -61,6 +61,8 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 * **위임 된 서브넷** -가상 네트워크에 서브넷 (하위 네트워크)이 포함 됩니다. 서브넷을 사용 하면 가상 네트워크를 더 작은 주소 공간으로 분할할 수 있습니다. Azure 리소스는 가상 네트워크 내의 특정 서브넷에 배포 됩니다. 
 
    PostgreSQL 유연한 서버는 PostgreSQL 유연한 서버 사용을 위해 **위임** 된 서브넷에 있어야 합니다. 이 위임은 Azure Database for PostgreSQL 유연한 서버 에서만 해당 서브넷을 사용할 수 있음을 의미 합니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 DBforPostgreSQL/flexibleServers로 할당 하 여 서브넷을 위임 합니다.
+
+   `Microsoft.Storage`유연한 서버에 위임 된 서브넷의 서비스 끝점에를 추가 합니다. 
 
 * **NSG (네트워크 보안 그룹)** 네트워크 보안 그룹의 보안 규칙을 사용 하면 가상 네트워크 서브넷 및 네트워크 인터페이스에서 들어오고 나가는 네트워크 트래픽 유형을 필터링 할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md) 를 참조 하세요.
 

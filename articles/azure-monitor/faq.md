@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 212828493a381ca118d3bdc54428bddba9bd842a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6840abe507543c4e03448401f091b6caa0a466c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717454"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -54,7 +54,7 @@ Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데�
 Azure Monitor는 Azure 플랫폼 및 리소스, 사용자 지정 애플리케이션 및 가상 머신에서 실행되는 에이전트의 로그와 메트릭을 포함하여 다양한 원본에서 데이터를 수집합니다. Azure Security Center 및 Network Watcher와 같은 기타 서비스는 Azure Monitor 데이터를 사용하여 분석할 수 있도록 데이터를 Log Analytics 작업 영역에 수집합니다. 또한 REST API를 로그 또는 메트릭에 사용하여 사용자 지정 데이터를 Azure Monitor에 보낼 수 있습니다. [Azure Monitor 모니터링의 데이터 원본](agents/data-sources.md)을 참조하세요.
 
 ### <a name="what-data-is-collected-by-azure-monitor"></a>Azure Monitor에서 수집하는 데이터는 무엇인가요? 
-Azure Monitor는 데이터를 다양한 원본에서 [로그](logs/data-platform-logs.md) 또는 [메트릭](essentials/data-platform-metrics.md)으로 수집합니다. 각 데이터 형식에는 자체의 상대적 장점이 있으며, 각각 Azure Monitor의 특정 기능 세트를 지원합니다. Azure 구독마다 하나의 메트릭 데이터베이스가 있지만, 요구 사항에 따라 여러 Log Analytics 작업 영역을 만들어 로그를 수집할 수 있습니다. [Azure Monitor 데이터 플랫폼](/data-platform.md)을 참조하세요.
+Azure Monitor는 데이터를 다양한 원본에서 [로그](logs/data-platform-logs.md) 또는 [메트릭](essentials/data-platform-metrics.md)으로 수집합니다. 각 데이터 형식에는 자체의 상대적 장점이 있으며, 각각 Azure Monitor의 특정 기능 세트를 지원합니다. Azure 구독마다 하나의 메트릭 데이터베이스가 있지만, 요구 사항에 따라 여러 Log Analytics 작업 영역을 만들어 로그를 수집할 수 있습니다. [Azure Monitor 데이터 플랫폼](data-platform.md)을 참조하세요.
 
 ### <a name="is-there-a-maximum-amount-of-data-that-i-can-collect-in-azure-monitor"></a>Azure Monitor에서 수집할 수 있는 최대 데이터 양이 있나요?
 수집할 수 있는 메트릭 데이터의 양에는 제한이 없으며, 이 데이터는 최대 93일 동안 저장됩니다. [메트릭 보존](essentials/data-platform-metrics.md#retention-of-metrics)을 참조하세요. 수집할 수 있는 로그 데이터의 양에는 제한이 없지만, Log Analytics 작업 영역에 대해 선택하는 가격 책정 계층의 영향을 받을 수 있습니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
@@ -86,7 +86,7 @@ p
 [보존 기간](logs/manage-cost-storage.md#change-the-data-retention-period)에 따라 작업 영역에서 데이터가 제거 됩니다. 개인 정보나 규정 준수 상의 이유로 특정 데이터를 삭제할 수 있습니다. 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법을](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) 참조 하세요.
 
 ### <a name="is-log-analytics-storage-immutable"></a>Log Analytics 저장소를 변경할 수 있나요?
-수집 한 후에는 데이터베이스 저장소의 데이터를 변경할 수 없지만, [전용 데이터를 삭제 하기 위한 *제거* API 경로](platform/personal-data-mgmt.md#delete)를 통해 삭제할 수는 있습니다. 데이터를 변경할 수 없지만 일부 인증을 위해서는 데이터를 변경할 수 없는 상태로 유지 하 고 저장소에서 변경 하거나 삭제할 수 없습니다. 데이터 불변성은 [변경 불가능 한 저장소](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성 된 저장소 계정에 대 한 [데이터 내보내기를](platform/logs-data-export.md) 사용 하 여 달성할 수 있습니다.
+수집 한 후에는 데이터베이스 저장소의 데이터를 변경할 수 없지만, [전용 데이터를 삭제 하기 위한 *제거* API 경로](./logs/personal-data-mgmt.md#delete)를 통해 삭제할 수는 있습니다. 데이터를 변경할 수 없지만 일부 인증을 위해서는 데이터를 변경할 수 없는 상태로 유지 하 고 저장소에서 변경 하거나 삭제할 수 없습니다. 데이터 불변성은 [변경 불가능 한 저장소](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성 된 저장소 계정에 대 한 [데이터 내보내기를](./logs/logs-data-export.md) 사용 하 여 달성할 수 있습니다.
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역은 무엇인가요?
 Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 영역에 저장됩니다. 작업 영역은 기본적으로 다양한 원본에서 로그 데이터가 수집되는 컨테이너입니다. 모든 모니터링 데이터에 대한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](logs/design-logs-deployment.md)을 참조하세요.
@@ -607,7 +607,7 @@ OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-teleme
 [OpenCensus](https://opencensus.io/) 은 [OpenTelemetry](https://opentelemetry.io/)의 기반이입니다. Microsoft에서는 [OpenTracing](https://opentracing.io/) 및 OpenCensus를 통합 하 여 전 세계에 단일 관찰성 표준으로 OpenTelemetry를 만듭니다. Azure Monitor의 현재 [프로덕션-권장 되는 PYTHON SDK](app/opencensus-python.md) 는 OpenCensus을 기반으로 하지만 결국 모든 Azure Monitor의 Sdk는 OpenTelemetry를 기반으로 합니다.
 
 
-## <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
+## <a name="container-insights"></a>컨테이너 정보
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스* 에서 나타내는 것은 무엇인가요?
 
@@ -676,11 +676,11 @@ ContainerLog
 
 ### <a name="can-i-view-metrics-collected-in-grafana"></a>Grafana에서 수집된 메트릭을 볼 수 있나요?
 
-컨테이너용 Azure Monitor는 Grafana 대시보드의 Log Analytics 작업 영역에 저장된 메트릭을 볼 수 있도록 지원합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
+컨테이너 insights는 Grafana 대시보드의 Log Analytics 작업 영역에 저장 된 메트릭을 볼 수 있도록 지원 합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
 
-### <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 내 AKS 엔진 클러스터를 모니터링할 수 있나요?
+### <a name="can-i-monitor-my-aks-engine-cluster-with-container-insights"></a>컨테이너 insights를 사용 하 여 AKS 클러스터를 모니터링할 수 있나요?
 
-컨테이너용 Azure Monitor는 Azure에서 호스팅되는 AKS 엔진(이전의 ACS 엔진) 클러스터에 배포된 컨테이너 워크로드를 모니터링할 수 있도록 지원합니다. 이 시나리오에 대한 모니터링을 사용하도록 설정하는 데 필요한 단계에 대한 자세한 내용 및 개요는 [AKS 엔진에 컨테이너용 Azure Monitor 사용](https://github.com/microsoft/OMS-docker/tree/aks-engine)을 참조하세요.
+컨테이너 insights는 Azure에서 호스트 되는 AKS (이전의 ACS 엔진) 클러스터에 배포 된 컨테이너 워크 로드 모니터링을 지원 합니다. 이 시나리오에 대 한 모니터링을 사용 하도록 설정 하는 데 필요한 단계에 대 한 자세한 내용과 개요는 [AKS에 대 한 컨테이너 정보 사용](https://github.com/microsoft/OMS-docker/tree/aks-engine)을 참조 하세요.
 
 ### <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>내 Log Analytics 작업 영역에 데이터가 표시되지 않는 이유는 무엇인가요?
 
@@ -696,11 +696,11 @@ ContainerInventory 테이블에는 중지된 컨테이너와 실행 중인 컨�
 
 ### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Kubernetes RBAC enabled AKS 클러스터에 대 한 지원이 있나요?
 
-컨테이너 모니터링 솔루션은 Kubernetes RBAC를 지원 하지 않지만 컨테이너에 대 한 Azure Monitor에서 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
+컨테이너 모니터링 솔루션은 Kubernetes RBAC를 지원 하지 않지만 Container insights에서 지원 됩니다. 솔루션 세부 정보 페이지에 이러한 클러스터에 대한 데이터를 표시하는 블레이드에 올바른 정보가 표시되지 않을 수 있습니다.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Helm을 통해 kube-system 네임스페이스의 컨테이너에 대해 로그 수집을 사용하도록 설정하려면 어떻게 하나요?
 
-kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [컨테이너용 Azure Monitor](https://aka.ms/azuremonitor-containers-helm-chart) GitHub 페이지를 참조하세요. 
+kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기본적으로 사용하지 않도록 설정됩니다. omsagent에 환경 변수를 설정하여 로그 수집을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub 페이지를 참조 하세요. 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>omsagent를 최신 릴리스 버전으로 업데이트하려면 어떻게 하나요?
 
@@ -708,7 +708,7 @@ kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기
 
 ### <a name="how-do-i-enable-multi-line-logging"></a>여러 줄 로깅을 사용하도록 설정하려면 어떻게 하나요?
 
-컨테이너용 Azure Monitor는 현재 여러 줄 로깅을 지원하지 않지만 해결 방법이 있습니다. JSON 형식으로 쓰도록 모든 서비스를 구성하면 Docker/Moby가 해당 데이터를 한 줄에 씁니다.
+현재 Container insights는 여러 줄 로깅을 지원 하지 않지만 사용 가능한 해결 방법이 있습니다. JSON 형식으로 쓰도록 모든 서비스를 구성하면 Docker/Moby가 해당 데이터를 한 줄에 씁니다.
 
 예를 들어, 샘플 node.js 애플리케이션에 대한 아래 예제와 같이 로그를 JSON 개체로 래핑할 수 있습니다.
 
@@ -732,30 +732,30 @@ LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will no
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용하도록 설정할 때 발생하는 Azure AD 오류를 해결하려면 어떻게 해야 하나요? 
 
-다음 오류가 표시될 수 있습니다. **요청에 지정된 회신 URL이 '<application ID\>' 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다**. 이 오류를 해결하는 방법은 [컨테이너용 Azure Monitor를 사용하여 컨테이너 데이터를 실시간으로 보는 방법](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 문서에서 확인할 수 있습니다. 
+다음 오류가 표시될 수 있습니다. **요청에 지정된 회신 URL이 '<application ID\>' 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다**. 이 문제를 해결 하는 [방법은 컨테이너 정보를 사용 하 여 실시간으로 컨테이너 데이터를 보는 방법](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication)문서에서 찾을 수 있습니다. 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온보딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇인가요?
 
-컨테이너용 Azure Monitor를 AKS 클러스터에 사용하도록 설정한 후에 클러스터를 업그레이드하려고 할 때 클러스터에서 해당 데이터를 보낸 Log Analytics 작업 영역을 삭제하면 업그레이드 작업이 실패합니다. 이 문제를 해결하려면 모니터링을 사용하지 않도록 설정한 다음, 구독의 다른 유효한 작업 영역을 참조하여 사용하도록 다시 설정해야 합니다. 클러스터 업그레이드를 다시 수행하려고 하면 성공적으로 처리되고 완료됩니다.  
+AKS 클러스터에 대 한 컨테이너 insights를 사용 하도록 설정한 후 클러스터를 업그레이드 하려고 할 때 클러스터가 데이터를 전송 하는 Log Analytics 작업 영역을 삭제 하면 클러스터를 업그레이드 하는 데 실패 합니다. 이 문제를 해결하려면 모니터링을 사용하지 않도록 설정한 다음, 구독의 다른 유효한 작업 영역을 참조하여 사용하도록 다시 설정해야 합니다. 클러스터 업그레이드를 다시 수행하려고 하면 성공적으로 처리되고 완료됩니다.  
 
 ### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>에이전트를 열고 허용 해야 하는 포트 및 도메인은 무엇 인가요?
 
 Azure, Azure US Government 및 Azure 중국 21Vianet 클라우드를 사용하여 컨테이너화된 에이전트에 필요한 프록시 및 방화벽 구성 정보는 [네트워크 방화벽 요구 사항](containers/container-insights-onboard.md#network-firewall-requirements)을 참조하세요.
 
 
-## <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
+## <a name="vm-insights"></a>VM 정보
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
-가상 컴퓨터가 이미 Log Analytics 작업 영역에 연결 되어 있는 경우 지원 되는 [지역](vm/vminsights-configure-workspace.md#supported-regions)중 하나에 있는 경우 VM용 Azure Monitor에 등록할 때 해당 작업 영역을 계속 사용할 수 있습니다.
+가상 컴퓨터가 이미 Log Analytics 작업 영역에 연결 되어 있는 경우 지원 되는 [지역](vm/vminsights-configure-workspace.md#supported-regions)중 하나에 있는 경우 VM insights에 등록 하는 경우 해당 작업 영역을 계속 사용할 수 있습니다.
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>새 작업 영역에 온보딩할 수 있나요? 
-현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal을 통해 VM용 Azure Monitor에 대해 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
+현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal를 통해 VM insights에 대 한 단일 Azure VM을 구성 하는 경우 새 기본 작업 영역 만들기가 자동으로 수행 됩니다.
 
-스크립트 기반 방법을 사용하도록 선택하는 경우 이러한 단계는 [Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용](./vm/vminsights-enable-powershell.md) 문서에서 설명합니다. 
+스크립트 기반 방법을 사용 하도록 선택 하는 경우 이러한 단계는 [Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM Insights 사용](./vm/vminsights-enable-powershell.md) 문서에서 설명 합니다. 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>내 VM에서 이미 기존 작업 영역에 보고하는 경우 어떻게 해야 하나요?
-이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원되는 지역 중 하나라면 기존 작업 영역에 VM용 Azure Monitor를 사용하도록 설정할 수 있습니다.  이미 사용하고 있는 작업 영역이 지원되는 지역 중 하나가 아닌 경우 지금은 VM용 Azure Monitor에 온보딩할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
+이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원 되는 지역 중 하나에 있는 경우 기존 작업 영역에 대 한 VM insights를 사용 하도록 설정할 수 있습니다.  이미 사용 중인 작업 영역이 지원 되는 지역 중 하나에 없는 경우 지금 VM 정보에 등록할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
 
 
 ### <a name="why-did-my-vm-fail-to-onboard"></a>내 VM이 온보딩하지 못한 이유는?
@@ -763,7 +763,7 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 
 * 해당 옵션을 선택한 경우 기본 Log Analytics 작업 영역이 만들어집니다.
 * 필요한 경우 Log Analytics 에이전트는 VM 확장을 사용하여 설치됩니다.  
-* 필요한 경우 VM용 Azure Monitor 맵 종속성 에이전트는 VM 확장을 사용하여 Azure VM에 설치됩니다. 
+* VM insights 맵 종속성 에이전트는 필요에 따라 확장을 사용 하 여 Azure Vm에 설치 됩니다. 
 
 온보딩 프로세스 중에 포털에서 알림 상태를 반환하는 위의 각 상태에 대해 확인합니다. 작업 영역 및 에이전트 설치의 구성에는 일반적으로 5~10분 정도가 걸립니다. 포털에서 모니터링 데이터를 보는 데 5~10분이 더 걸립니다.  
 
@@ -776,10 +776,10 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터가 구성되지 않을 수 있습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](./vm/vminsights-enable-powershell.md)를 실행합니다.
 
 
-### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>VM용 Azure Monitor 맵 기능과 서비스 맵이 어떻게 다른가요?
-VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같은 차이점이 있습니다.
+### <a name="how-is-vm-insights-map-feature-different-from-service-map"></a>VM insights 맵 기능이 서비스 맵와 어떻게 다른가?
+VM insights 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같은 차이점이 있습니다.
 
-* 맵 보기는 VM 블레이드 및 Azure Monitor의 VM용 Azure Monitor에서 액세스할 수 있습니다.
+* 지도 보기는 VM 블레이드에서 Azure Monitor의 VM 정보에서 액세스할 수 있습니다.
 * 이제 맵에서 연결은 클릭 가능하고 선택한 연결에 대한 사이드 패널에서 연결 메트릭 데이터 보기를 표시합니다.
 * 더 복잡한 맵을 지원하기 위해 맵을 만드는 데 사용되는 새 API가 있습니다.
 * 이제 모니터링된 VM은 클라이언트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 가상 머신 및 모니터링되지 않는 가상 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
@@ -787,19 +787,19 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 * 맵 스타일은 Application insights에서 앱 맵을 사용하여 더욱 일관되게 업데이트되었습니다.
 * 사이드 패널이 업데이트되었으며, 서비스 맵에서 지원되는 전체 통합 세트(업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크)를 제공하지 않습니다. 
 * 맵에 대한 그룹 및 머신을 선택하는 옵션이 업데이트되어 이제 구독, 리소스 그룹, Azure 가상 머신 확장 집합 및 클라우드 서비스를 지원합니다.
-* VM용 Azure Monitor 맵 기능에서 새 서비스 맵 머신 그룹을 만들 수 없습니다.  
+* VM insights 맵 기능에서 새 서비스 맵 컴퓨터 그룹을 만들 수 없습니다.  
 
 ### <a name="why-do-my-performance-charts-show-dotted-lines"></a>내 성능 차트가 점선을 표시하는 이유는?
 다음과 같은 이유로 발생할 수 있습니다.  데이터 수집에 간격이 있는 경우에 줄이 점선으로 그려집니다.  사용하도록 설정된 성능 카운터에 대한 데이터 샘플링 빈도를 수정한 경우(기본 설정은 60초마다 데이터를 수집하는 것임) 차트에 대해 좁은 시간 범위를 선택하고 샘플링 빈도가 차트에 사용된 버킷 크기 미만이면(예: 샘플링 빈도는 10분 간격이며 차트의 각 버킷은 5분 간격임) 차트에서 점선을 볼 수 있습니다.  광범위한 시간 범위를 보도록 선택하면 이 경우에 차트 선이 점선이 아닌 실선으로 표시됩니다.
 
-### <a name="are-groups-supported-with-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 그룹이 지원되나요?
+### <a name="are-groups-supported-with-vm-insights"></a>VM insights에서 그룹이 지원 되나요?
 예, 종속성 에이전트가 설치되면 VM에서 정보를 수집하여 구독, 리소스 그룹, 가상 머신 확장 집합 및 클라우드 서비스에 기반한 그룹을 표시합니다.  서비스 맵을 사용하고 있고 시스템 그룹을 만든 경우에도 이러한 그룹이 표시됩니다.  또한 보고 있는 작업 영역에 대한 컴퓨터 그룹을 만든 경우에도 그룹 필터에 표시됩니다. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>집계 성능 차트에서 95번째 백분위수 줄에 영향을 주는 항목에 대한 세부 정보를 표시하려면 어떻게 할까요?
 기본적으로 목록은 5번째 백분위수의 최솟값을 포함한 머신을 보여주는 사용 가능한 메모리 차트를 제외하고 선택된 메트릭에 대해 95번째 백분위수에 대한 최댓값이 있는 VM을 표시하도록 정렬됩니다.  차트를 클릭하면 적절한 메트릭이 선택된 **상위 N개 목록** 보기가 열립니다.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>맵 기능이 다른 VNet 및 서브넷에서 중복 IP를 어떻게 처리하나요?
-서브넷 및 VNet에서 VM 또는 Azure 가상 머신 확장 집합을 사용하여 IP 범위를 복제하는 경우 VM용 Azure Monitor에서 잘못된 정보를 표시할 수 있습니다. 알려진 문제이며 본사에서는 이 환경을 개선하는 옵션을 개발하는 중입니다.
+서브넷과 vnet에서 Vm 또는 Azure virtual machine scale sets를 사용 하 여 IP 범위를 복제 하는 경우 VM insights 맵에 잘못 된 정보가 표시 될 수 있습니다. 알려진 문제이며 본사에서는 이 환경을 개선하는 옵션을 개발하는 중입니다.
 
 ### <a name="does-map-feature-support-ipv6"></a>맵 기능이 IPv6을 지원하나요?
 맵 기능은 현재 IPv4만 지원하며 본사에서는 IPv6에 대한 지원을 개발하는 중입니다. IPv6 내에서 터널링된 IPv4도 지원합니다.
@@ -809,7 +809,7 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 
 ### <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>성능 탭의 네트워크 차트가 Azure VM 개요 페이지의 네트워크 차트와 다르게 보이는 이유는?
 
-Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 가상 네트워크 간 트래픽이 포함되지 않습니다.  VM용 Azure Monitor에 대해 표시되는 데이터와 차트는 게스트 VM의 데이터를 기반으로 하고, 네트워크 차트는 가상 네트워크 간 트래픽을 포함하여 해당 VM에 대한 인바운드 및 아웃바운드인 모든 TCP/IP 트래픽을 표시합니다.
+Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 가상 네트워크 간 트래픽이 포함되지 않습니다.  VM insights에 대해 표시 되는 데이터와 차트는 게스트 VM의 데이터를 기반으로 하며, 네트워크 차트는 가상 네트워크 간을 포함 하 여 해당 VM에 대 한 인바운드 및 아웃 바운드 인 모든 TCP/IP 트래픽을 표시 합니다.
 
 ### <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>VMConnection에 저장되고 연결 패널 및 통합 문서에 표시되는 데이터에 대한 응답 시간은 어떻게 측정되나요?
 
@@ -818,9 +818,9 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 이 근사값은 요청/응답 기반 프로토콜에 적합합니다. 연결에서 단일 요청을 보내고 단일 응답을 받습니다. 이는 HTTP(S)의 경우(파이프라이닝 없음)이지만 다른 프로토콜에서는 충족되지 않습니다.
 
 ### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics 무료 요금제 요금제를 사용 하는 경우 제한이 있나요?
-*무료* 가격 책정 계층을 사용하여 Log Analytics 작업 영역에 Azure Monitor를 구성한 경우 VM용 Azure Monitor 맵 기능은 5대의 작업 영역에 연결된 머신만 지원합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
+*무료* 가격 책정 계층을 사용 하 여 Log Analytics 작업 영역을 Azure Monitor 구성한 경우 VM insights 맵 기능은 작업 영역에 연결 된 연결 된 컴퓨터 5 개만 지원 합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
 
-이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM용 Azure Monitor에 등록되지 않은 경우에는 일반적인 경우처럼 옵션이 포함된 메시지가 표시되지 않습니다. 
+이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나이 VM이 VM insights에 등록 되지 않은 경우 일반적으로 발생 하는 옵션을 묻는 메시지가 표시 되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

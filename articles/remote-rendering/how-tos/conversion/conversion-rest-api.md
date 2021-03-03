@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f8ac72e2b598a6c7631d691cc1bfb82cdba7599
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: f33e5717cd5556e72d996e7e943867c16805e71b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705180"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "100530266"
 
 ## <a name="rest-api-reference"></a>REST API 참조
 
-원격 렌더링 REST API 참조 설명서와 [여기](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality) [에서 swagger 정의를 찾을 수](https://docs.microsoft.com/rest/api/mixedreality/2021-01-01preview/remoterendering)있습니다.
+원격 렌더링 REST API 참조 설명서와 [여기](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality) [에서 swagger 정의를 찾을 수](/rest/api/mixedreality/2021-01-01preview/remoterendering)있습니다.
 
 서비스의 사용을 보여 주는 *Conversion.ps1* 이라는 *스크립트* 폴더의 [ARR 샘플 리포지토리에서](https://github.com/Azure/azure-remote-rendering) PowerShell 스크립트를 제공 합니다. 스크립트 및 해당 구성에 대 한 설명은 [예제 PowerShell 스크립트](../../samples/powershell-example-scripts.md)를 참조 하세요. 또한 [.net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java 및 Python sdk를 제공 합니다.
 

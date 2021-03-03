@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 7e01d234b5b94997cbfd275c4b4566ec4fa332a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 136e063f6d272589c609bad93532df025a15a68d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613580"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723625"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -92,7 +92,7 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
 | 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
@@ -116,7 +116,7 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 | --- | --- |
 | 2 | omsadmin 스크립트에 잘못된 옵션이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | omsadmin 스크립트에 잘못된 구성이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](../platform/log-analytics-agent.md#firewall-requirements)를 읽어보세요. |
+| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](./log-analytics-agent.md#firewall-requirements)를 읽어보세요. |
 | 5 | 403 Azure Monitor에서 HTTP 오류가 수신 되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 6 | Azure Monitor에서 200이 아닌 HTTP 오류가 수신 되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 7 | Azure Monitor에 연결할 수 없습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
@@ -198,7 +198,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 2. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
 
-3. Azure Monitor [네트워크 방화벽 요구 사항](../platform/log-analytics-agent.md#firewall-requirements) 목록에 설명 된 끝점이 허용 목록에 올바르게 추가 되었는지 두 번 확인 합니다. Azure Automation 사용 하는 경우 필요한 네트워크 구성 단계도 위에 연결 됩니다.
+3. Azure Monitor [네트워크 방화벽 요구 사항](./log-analytics-agent.md#firewall-requirements) 목록에 설명 된 끝점이 허용 목록에 올바르게 추가 되었는지 두 번 확인 합니다. Azure Automation 사용 하는 경우 필요한 네트워크 구성 단계도 위에 연결 됩니다.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 
@@ -430,7 +430,7 @@ Linux용 Log Analytics 에이전트 1.1.0-217 미만 버전에서 발생하는 �
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-Or
+또는
 
 ```
 sudo sh ./onboard_agent.sh --purge
@@ -447,7 +447,7 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>해결 방법 
 다음 단계에 따라 문제를 해결합니다.
 1. Azure Portal에서 확장을 제거합니다.
-2. [지침](../learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
+2. [지침](../vm/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
 3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
 * 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공** 으로 변경됩니다.
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 48c7323a630f5c79c7ecb16e26c9ec79ec2014a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f0c97d128837e77325e68ae28161a98938510ff8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613336"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723285"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신에 대 한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기 (클래식)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)(“WAD” 또는 “진단”이라고도 함)을 사용하면 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
+Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)(“WAD” 또는 “진단”이라고도 함)을 사용하면 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)에 원격 분석을 보낼 수 있습니다.
 
 이 문서에서는 Windows 가상 머신 (클래식)에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 데이터베이스로 전송 하는 프로세스를 설명 합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
@@ -34,7 +34,7 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)(“WA
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](../../cloud-shell/overview.md)이 설치되어 있어야 합니다.
 
-- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](../platform/metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](./metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>클래식 가상 머신 및 스토리지 계정 만들기
 
@@ -203,4 +203,4 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)(“WA
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](../platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](./metrics-custom-overview.md)에 대해 자세히 알아보세요.

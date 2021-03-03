@@ -10,8 +10,6 @@
   items:
     - name: 보안 기술 기능
       href: technical-capabilities.md
-    - name: 기본 제공 보안 컨트롤
-      href: security-controls.md
 - name: Azure 플랫폼 및 인프라
   items:
     - name: 인프라 보안

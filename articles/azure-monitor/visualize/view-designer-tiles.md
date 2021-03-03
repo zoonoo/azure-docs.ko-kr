@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717216"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure Monitor의 뷰 디자이너 타일에 대 한 참조 가이드
 Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 될 수 있는 다양 한 사용자 지정 보기를 Azure Portal 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
@@ -36,17 +36,17 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 다음 섹션에서는 타일 유형 및 해당 속성을 자세히 설명합니다.
 
 > [!NOTE]
-> 보기의 타일은 Log Analytics 작업 영역의 [로그 쿼리](../log-query/log-query-overview.md) 를 기반으로 합니다. 현재는 Application Insights에서 데이터를 검색 하는 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 를 지원 하지 않습니다.
+> 보기의 타일은 Log Analytics 작업 영역의 [로그 쿼리](../logs/log-query-overview.md) 를 기반으로 합니다. 현재는 Application Insights에서 데이터를 검색 하는 [리소스 간 쿼리](../logs/cross-workspace-query.md) 를 지원 하지 않습니다.
 
 ## <a name="number-tile"></a>1개 숫자 타일
 **숫자** 타일은 로그 쿼리의 레코드 수와 레이블을 모두 표시합니다.
 
 ![1개 숫자 타일](media/view-designer-tiles/tile-number.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **Tile** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
 | 쿼리 |실행되는 쿼리입니다. 쿼리에서 반환된 레코드 수가 표시됩니다. |
@@ -61,10 +61,10 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 ![2개 숫자 타일](media/view-designer-tiles/tile-two-numbers.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **첫 번째 타일** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
 | 쿼리 |실행되는 쿼리입니다. 쿼리에서 반환된 레코드 수가 표시됩니다. |
@@ -82,10 +82,10 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 ![도넛형 타일](media/view-designer-tiles/tile-donut.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **도넛** | |
 | 쿼리 |도넛에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. |
 | **도넛** |**> 중앙** |
@@ -106,10 +106,10 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 ![Azure Monitor 뷰 디자이너에서 꺾은선형 차트 타일의 스크린샷](media/view-designer-tiles/tile-line-chart.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
 | **꺾은선형 차트** |**> Y축** |
@@ -127,10 +127,10 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 ![Azure Monitor 뷰 디자이너의 꺾은선형 차트 및 설명선 타일의 스크린샷입니다. 설명선은 요약 된 값을 표시 하 여 꺾은선형 차트를 보강 합니다.](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
 | **꺾은선형 차트** |**> 설명선** |
@@ -152,18 +152,18 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 ![2개 타임 라인 타일](media/view-designer-tiles/tile-two-timelines.png)
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:--- |:--- |
 | 속성 |타일 맨 위에 표시되는 텍스트입니다. |
-| 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
+| Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | 첫 번째 차트 | |
 | 범례 |첫 번째 계열의 설명선 밑에 표시되는 텍스트입니다. |
-| Color |첫 번째 계열의 열에 사용되는 색입니다. |
+| 색상 |첫 번째 계열의 열에 사용되는 색입니다. |
 | 차트 쿼리 |첫 번째 계열에 대해 실행되는 쿼리입니다. 각 시간 간격의 레코드 수는 차트 열로 표시됩니다. |
 | 작업 |값 속성을 설명선의 단일 값으로 요약하기 위해 수행되는 연산입니다.<ul><li>평균: 모든 레코드 값의 평균입니다.</li><li>개수: 쿼리에서 반환된 모든 레코드 수입니다.</li><li>최종 샘플: 차트에 포함된 마지막 간격의 값입니다.</li><li>최대: 차트에 포함된 간격의 최댓값입니다.</li></ul> |
 | **두 번째 차트** | |
 | 범례 |두 번째 계열의 설명선 밑에 표시되는 텍스트입니다. |
-| Color |두 번째 계열의 열에 사용되는 색입니다. |
+| 색상 |두 번째 계열의 열에 사용되는 색입니다. |
 | 차트 쿼리 |두 번째 계열에 대해 실행되는 쿼리입니다. 각 시간 간격의 레코드 수는 차트 열로 표시됩니다. |
 | 작업 |값 속성을 설명선의 단일 값으로 요약하기 위해 수행되는 연산입니다.<ul><li>평균: 모든 레코드 값의 평균입니다.</li><li>개수: 쿼리에서 반환된 모든 레코드 수입니다.</li><li>최종 샘플: 차트에 포함된 마지막 간격의 값입니다.</li><li>최대: 차트에 포함된 간격의 최댓값입니다. |
 | **고급** |**> 데이터 흐름 확인** |
@@ -173,5 +173,5 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 
 ## <a name="next-steps"></a>다음 단계
-* 타일에서 쿼리를 지 원하는 [로그 쿼리에](../log-query/log-query-overview.md) 대해 알아봅니다.
+* 타일에서 쿼리를 지 원하는 [로그 쿼리에](../logs/log-query-overview.md) 대해 알아봅니다.
 * 사용자 지정 보기에 [시각화 요소](view-designer-parts.md) 를 추가 합니다.

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692269"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -73,6 +73,10 @@ Azure Cosmos DB는 트랜잭션 워크로드와 분석 워크로드 간의 성�
 예 [관리 되는 개인 끝점](analytical-store-private-endpoints.md) 을 구성 하 고, Azure Synapse 관리 가상 네트워크에 대 한 분석 저장소의 네트워크 액세스를 제한할 수 있습니다. 관리 되는 개인 끝점은 분석 저장소에 대 한 개인 링크를 설정 합니다. 또한이 개인 끝점은 다른 Azure 데이터 서비스 중에서 트랜잭션 저장소에 대 한 쓰기 액세스를 제한 합니다.
 
 Azure Synapse Analytics 작업 영역에서 동일한 Azure Cosmos DB 계정에 트랜잭션 저장소와 분석 저장소 개인 끝점을 모두 추가할 수 있습니다. 분석 쿼리를 실행 하려는 경우에만 분석 전용 끝점을 매핑해야 할 수 있습니다.
+
+### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 스토어에서 고객 관리 키를 사용할 수 있나요?
+
+자동 및 투명 한 방식으로 동일한 고객 관리 키를 사용 하 여 트랜잭션 및 분석 저장소에서 데이터를 원활 하 게 암호화할 수 있습니다. 현재 Azure Cosmos DB 분석 저장소에서 고객 관리 키를 사용 하려면 계정에 대 한 추가 구성이 필요 합니다. 자세한 내용은 [Azure Cosmos DB 팀](mailto:azurecosmosdbcmk@service.microsoft.com)  에 문의 하세요.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>트랜잭션 저장소에 대한 삭제 및 업데이트 작업이 분석 저장소에 반영되나요?
 

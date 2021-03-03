@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731462"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
-Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](../essentials/platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](../platform/data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
+Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](../essentials/platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](../logs/data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
 
 진단 설정 만들기에 대 한 자세한 내용은 진단 설정 만들기를 참조 하 여 [다양 한 대상에 플랫폼 로그 및 메트릭을 전송](../essentials/diagnostic-settings.md) 하는 방법에 대 한 자세한 내용은 Azure Policy [Azure Policy를 사용 하 여 규모에 따라 Azure Monitor 배포](../deploy-scale.md) 를 참조 하세요.
 
 ## <a name="send-to-log-analytics-workspace"></a>Log Analytics 작업 영역으로 보내기
- 다음을 포함 하는 [Azure Monitor 로그](../platform/data-platform-logs.md) 의 기능을 사용할 수 있도록 리소스 로그를 Log Analytics 작업 영역으로 보냅니다.
+ 다음을 포함 하는 [Azure Monitor 로그](../logs/data-platform-logs.md) 의 기능을 사용할 수 있도록 리소스 로그를 Log Analytics 작업 영역으로 보냅니다.
 
 - Azure Monitor에서 수집한 다른 모니터링 데이터와 리소스 로그 데이터의 상관 관계를 바꿉니다.
 - 여러 Azure 리소스, 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 합니다.
 - 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 데이터에 대 한 심층 통찰력을 얻습니다.
 - 복잡 한 경고 논리를 사용 하 여 로그 경고를 사용 합니다.
 
-리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](../essentials/diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](../platform/data-platform-logs.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
+리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](../essentials/diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](../logs/data-platform-logs.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
 
 - Azure 진단-기록 된 모든 데이터는 _Azurediagnostics_ 테이블에 저장 됩니다.
 - 리소스 관련 데이터는 리소스의 각 범주에 대 한 개별 테이블에 기록 됩니다.
@@ -90,7 +90,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
    ![진단 설정 모드 선택기](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Resource manager 템플릿을 사용 하 여 컬렉션 모드를 설정 하는 예제는 [Azure Monitor에서 진단 설정 리소스 관리자 템플릿 예제](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault)를 참조 하세요.
+> Resource manager 템플릿을 사용 하 여 컬렉션 모드를 설정 하는 예제는 [Azure Monitor에서 진단 설정 리소스 관리자 템플릿 예제](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault)를 참조 하세요.
 
 
 기존 진단 설정을 리소스 특정 모드로 수정할 수 있습니다. 이 경우 이미 수집 된 데이터는 작업 영역의 보존 설정에 따라 제거 될 때까지 _Azurediagnostics_ 테이블에 남아 있습니다. 새 데이터는 전용 테이블에 수집 됩니다. [Union](/azure/kusto/query/unionoperator) 연산자를 사용 하 여 두 테이블에서 데이터를 쿼리 합니다.

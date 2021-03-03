@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717828"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -48,8 +48,10 @@ ms.locfileid: "100589727"
 | .NET Core 및 .NET Framework | 지원 됨 (V 2.13.1 +)| 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| [Getmetric](get-metric.md) 을 통해 지원 됨 (v 2.7.2 이상) |
 | Java                         | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
 | Node.js                      | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
-| Python                       | 지원되지 않음       | 지원됨                                 | [OpenCensus를](opencensus-python.md#metrics) 통해 지원 됨 |  
+| Python                       | 지원되지 않음       | 지원됨                                 | OpenCensus를 통해 부분적으로 지원 [됩니다.](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  OpenCensus를 사용 하는 Python에 대 한 메트릭 구현은 GetMetric과 다릅니다. 자세한 내용은 [메트릭에 대 한 Python 설명서를](./opencensus-python.md#metrics)참조 하세요.
 
 ### <a name="codeless-supported-pre-aggregated-metrics-table"></a>코드 없는 지원 미리 집계 된 메트릭 테이블
 

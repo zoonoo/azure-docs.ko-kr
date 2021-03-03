@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor를 사용 하 여 SQL Server 환경 최적화 Microsoft Docs
 description: Azure Monitor를 사용 하면 SQL Health Check 솔루션을 사용 하 여 일정 한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0f2319ea6ba314c08a67651667837f05df5765a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587248"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723234"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 

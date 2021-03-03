@@ -1,27 +1,28 @@
 ---
-title: 통신 서비스에서 관리 되는 id 사용
+title: 통신 서비스 (.NET)에서 관리 되는 id 사용
 titleSuffix: An Azure Communication Services quickstart
 description: 관리 id를 사용 하면 azure Vm, 함수 앱 및 기타 리소스에서 실행 되는 응용 프로그램에서 Azure Communication Services 액세스 권한을 부여할 수 있습니다.
 services: azure-communication-services
-author: peiliu
+author: stefang931
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 2/24/2021
-ms.author: peiliu
+ms.date: 12/04/2020
+ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 0d25e5dc97c700daf6655ecd270bfda469a9d353
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692184"
 ---
-# <a name="use-managed-identities"></a>관리 ID 사용
-관리 id를 사용 하 여 Azure 통신 서비스를 시작 하세요. 통신 서비스 Id 및 SMS 클라이언트 라이브러리는 [azure 리소스에 대 한 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 azure AD (Azure Active Directory) 인증을 지원 합니다.
+# <a name="use-managed-identities-net"></a>관리 ID 사용(.NET)
 
-이 빠른 시작에서는 관리 되는 id를 지 원하는 Azure 환경에서 Id 및 SMS 클라이언트 라이브러리에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 개발 환경에서 코드를 테스트 하는 방법에 대해서도 설명 합니다.
+.NET에서 관리 되는 id를 사용 하 여 Azure 통신 서비스를 시작 합니다. 통신 서비스 관리 및 SMS 클라이언트 라이브러리는 [azure 리소스에 대 한 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 azure AD (Azure Active Directory) 인증을 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+이 빠른 시작에서는 관리 되는 id를 지 원하는 Azure 환경에서 관리 및 SMS 클라이언트 라이브러리에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 개발 환경에서 코드를 테스트 하는 방법에 대해서도 설명 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
  - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free)
  - 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
@@ -53,18 +54,77 @@ ms.locfileid: "101657623"
 
 PowerShell을 사용 하 여 역할 및 사용 권한을 할당 하려면 [Azure PowerShell을 사용 하 여 Azure 역할 할당 추가 또는 제거](../../../articles/role-based-access-control/role-assignments-powershell.md) 를 참조 하세요.
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/managed-identity-net.md)]
-::: zone-end
+## <a name="add-managed-identity-to-your-communication-services-solution"></a>통신 서비스 솔루션에 관리 id 추가
 
-::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/managed-identity-java.md)]
-::: zone-end
+### <a name="install-the-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
-::: zone-end
+```console
+dotnet add package Azure.Communication.Identity
+dotnet add package Azure.Communication.Configuration
+dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Identity
+```
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/managed-identity-python.md)]
-::: zone-end
+### <a name="use-the-client-library-packages"></a>클라이언트 라이브러리 패키지 사용
+
+`using`Azure id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+
+```csharp
+using Azure.Identity;
+using Azure.Communication.Identity;
+using Azure.Communication.Configuration;
+using Azure.Communication.Sms;
+```
+
+아래 예제에서는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
+
+### <a name="create-an-identity-and-issue-a-token"></a>Id 만들기 및 토큰 발급
+
+다음 코드 예제에서는 Azure Active Directory 토큰을 사용 하 여 서비스 클라이언트 개체를 만든 다음 클라이언트를 사용 하 여 새 사용자에 대 한 토큰을 발급 하는 방법을 보여 줍니다.
+
+```csharp
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+     
+          var client = new CommunicationIdentityClient(resourceEndpoint, credential);
+          var identityResponse = await client.CreateUserAsync();
+     
+          var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+
+          return tokenResponse;
+     }
+```
+
+### <a name="send-an-sms-with-azure-active-directory-tokens"></a>Azure Active Directory 토큰이 포함 된 SMS 보내기
+
+다음 코드 예제에서는 Azure Active Directory 토큰을 사용 하 여 서비스 클라이언트 개체를 만든 다음 클라이언트를 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다.
+
+```csharp
+
+     public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+     
+          SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
+          smsClient.Send(
+               from: from,
+               to: to,
+               message: message,
+               new SendSmsOptions { EnableDeliveryReport = true } // optional
+          );
+     }
+```
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [인증에 대한 자세한 정보](../concepts/authentication.md)
+
+다음을 수행할 수도 있습니다.
+
+- [Azure 역할 기반 access control에 대 한 자세한 정보](../../../articles/role-based-access-control/index.yml)
+- [.NET 용 Azure id 라이브러리에 대해 자세히 알아보기](/dotnet/api/overview/azure/identity-readme)
+- [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
+- [SMS 메시지 보내기](../quickstarts/telephony-sms/send.md)
+- [SMS에 대한 자세한 정보](../concepts/telephony-sms/concepts.md)

@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691929"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 최소 [tls (전송 계층 보안)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 버전 설정을 사용 하면 고객이 SQL database에서 사용 하는 tls 버전을 선택할 수 있습니다.
 
-현재 TLS 1.0, 1.1 및 1.2를 지원합니다. 최소 TLS 버전을 설정하면 최신 TLS 버전이 지원됩니다. 예를 들어 1.1보다 큰 TLS 버전을 선택하면 TLS 1.1 및 1.2에 대한 연결만 허용되며 TLS 1.0을 사용한 연결은 거부됩니다. 테스트를 통해 애플리케이션이 지원되는지 확인한 후 최소 TLS 버전을 1.2로 설정하는 것이 좋습니다. 이 버전에는 이전 버전의 취약성에 대한 수정 프로그램이 포함되어 있으며 Azure SQL Database에서 지원되는 가장 높은 버전의 TLS입니다.
+현재 TLS 1.0, 1.1 및 1.2를 지원합니다. 최소 TLS 버전을 설정하면 최신 TLS 버전이 지원됩니다. 예를 들어 TLS 버전 1.1을 선택 하면 TLS 1.1 및 1.2에 대 한 연결만 허용 되며 TLS 1.0을 사용한 연결은 거부 됩니다. 테스트를 통해 애플리케이션이 지원되는지 확인한 후 최소 TLS 버전을 1.2로 설정하는 것이 좋습니다. 이 버전에는 이전 버전의 취약성에 대한 수정 프로그램이 포함되어 있으며 Azure SQL Database에서 지원되는 가장 높은 버전의 TLS입니다.
 
 > [!IMPORTANT]
 > 최소 TLS 버전의 기본값은 모든 버전을 허용 하는 것입니다. TLS 버전을 적용 한 후에는 기본값으로 되돌릴 수 없습니다.

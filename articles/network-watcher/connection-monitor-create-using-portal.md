@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702167"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
 
@@ -121,7 +121,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
 
    * 온-프레미스 에이전트를 선택 하려면 **비-Azure 끝점** 탭을 선택 합니다. 기본적으로 에이전트는 지역별로 작업 영역으로 그룹화 됩니다. 이러한 모든 작업 영역에는 네트워크 성능 모니터 구성 되어 있습니다. 
    
-       작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](../azure-monitor/insights/solutions.md)을 참조 하세요. 
+       작업 영역에 네트워크 성능 모니터를 추가 해야 하는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview)에서 가져옵니다. 네트워크 성능 모니터를 추가 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 솔루션 모니터링](../azure-monitor/insights/solutions.md)을 참조 하세요. 
    
        **연결 모니터 만들기** 의 기본 **정보** 탭에서 기본 지역이 선택 되어 있습니다. 영역을 변경 하는 경우 새 지역의 작업 영역에서 에이전트를 선택할 수 있습니다. 하나 이상의 에이전트 또는 서브넷을 선택할 수 있습니다. **서브넷** 보기에서 모니터링할 특정 ip를 선택할 수 있습니다. 여러 서브넷을 추가 하는 경우 **OnPremises_Network_1** 이라는 사용자 지정 온-프레미스 네트워크가 만들어집니다. **Group** by 선택기를 에이전트로 그룹화 하도록 변경할 수도 있습니다.
 

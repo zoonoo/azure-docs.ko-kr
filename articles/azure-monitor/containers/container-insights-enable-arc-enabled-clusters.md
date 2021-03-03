@@ -1,28 +1,28 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Arc enabled Kubernetes 클러스터 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
+title: 컨테이너 insights를 사용 하 여 Azure Arc enabled Kubernetes 클러스터 구성 | Microsoft Docs
+description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에서 Container insights를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 307f9d9928042410dc9b4443aba5c019c592980c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711300"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터의 모니터링 사용
 
-컨테이너에 대 한 Azure Monitor는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 azure Arc에서 사용 하도록 설정 된 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
+컨테이너 정보 활용은 Azure Kubernetes 서비스 (AKS) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 azure Arc에서 사용 하도록 설정 된 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
-PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배포 하나 이상에서 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정할 수 있습니다.
+PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배포 하나 이상에 대해 컨테이너 insights를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
-컨테이너에 대 한 Azure Monitor는 [개요](container-insights-overview.md) 문서에 설명 된 대로 다음 기능을 제외 하 고 Azure Arc enabled Kubernetes (미리 보기) 모니터링을 지원 합니다.
+컨테이너 insights는 [개요](container-insights-overview.md) 문서에 설명 된 대로 다음 기능을 제외 하 고 Azure Arc enabled Kubernetes (미리 보기) 모니터링을 지원 합니다.
 
 - 라이브 데이터 (미리 보기)
 
-컨테이너의 Azure Monitor는 다음이 공식적으로 지원 됩니다.
+다음은 컨테이너 정보를 사용 하 여 공식적으로 지원 됩니다.
 
 - Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
 
@@ -36,15 +36,15 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 - Log Analytics 작업 영역.
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 insights는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../logs/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
-- 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
+- 컨테이너 인 사이트의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버이 고, container insights로 구성 된 Log Analytics 작업 영역의 [*Log Analytics 참여자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
 - 사용자는 Azure Arc 클러스터 리소스에서 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원입니다.
 
-- 모니터링 데이터를 보려면 컨테이너에 대해 Azure Monitor 구성 된 Log Analytics 작업 영역에 대 한 [*Log Analytics 읽기 권한자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할 권한의 멤버입니다.
+- 모니터링 데이터를 보려면 컨테이너 insights로 구성 된 Log Analytics 작업 영역에 대 한 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할 권한의 멤버입니다.
 
-- 지정 된 Kubernetes 클러스터에 대 한 컨테이너 차트의 Azure Monitor를 등록 하는 [클라이언트](https://helm.sh/docs/using_helm/) 를 작성 합니다.
+- 지정 된 Kubernetes 클러스터에 대 한 컨테이너 insights 차트를 등록 하는 [클라이언트 투구](https://helm.sh/docs/using_helm/) .
 
 - 다음 프록시 및 방화벽 구성 정보는 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전이 Azure Monitor와 통신 하는 데 필요 합니다.
 
@@ -247,7 +247,7 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 
 ## <a name="configure-proxy-endpoint"></a>프록시 끝점 구성
 
-컨테이너의 Azure Monitor에 대 한 컨테이너 화 된 agent를 사용 하 여 프록시 서버를 통해 통신할 수 있도록 프록시 끝점을 구성할 수 있습니다. 컨테이너 화 된 에이전트와 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
+컨테이너 화 된 agent for Container insights를 사용 하 여 프록시 끝점을 구성 하 여 프록시 서버를 통해 통신할 수 있습니다. 컨테이너 화 된 에이전트와 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
 
 프록시 구성 값의 구문은 다음과 같습니다. `[protocol://][user:password@]proxyhost[:port]`
 
@@ -262,7 +262,7 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-`http://user01:password@proxy01.contoso.com:3128`
+예: `http://user01:password@proxy01.contoso.com:3128`
 
 프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
@@ -284,10 +284,10 @@ export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
 
 ## <a name="next-steps"></a>다음 단계
 
-- 모니터링을 사용 하 여 Arc 사용 Kubernetes 클러스터 및 작업에서 실행 되는 작업의 상태 및 리소스 사용률을 수집 하려면 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아보세요.
+- 모니터링을 사용 하 여 Arc 사용 Kubernetes 클러스터 및 작업에서 실행 되는 작업의 상태 및 리소스 사용률을 수집할 수 있습니다. 컨테이너 insights를 [사용 하는 방법을](container-insights-analyze.md) 알아보세요.
 
 - 기본적으로 컨테이너 화 된 에이전트는 kube를 제외한 모든 네임 스페이스에서 실행 중인 모든 컨테이너의 stdout/stderr 컨테이너 로그를 수집 합니다. 특정 네임 스페이스 또는 네임 스페이스에 특정 한 컨테이너 로그 컬렉션을 구성 하려면 [컨테이너 Insights 에이전트 구성](container-insights-agent-config.md) 을 검토 하 여 원하는 데이터 수집 설정을 configmap 구성 파일에 구성 합니다.
 
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [프로메테우스 메트릭 구성](container-insights-prometheus-integration.md) 을 검토 하세요.
 
-- 컨테이너에 대 한 Azure Monitor를 사용 하 여 Arc 사용 가능 Kubernetes 클러스터 모니터링을 중지 하는 방법을 알아보려면 [하이브리드 클러스터 모니터링을 중지 하는 방법](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes)을 참조 하세요.
+- 컨테이너 insights를 사용 하 여 Arc 사용 Kubernetes 클러스터의 모니터링을 중지 하는 방법을 알아보려면 [하이브리드 클러스터 모니터링을 중지 하는 방법](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes)을 참조 하세요.

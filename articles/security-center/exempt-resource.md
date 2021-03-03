@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709379"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>보안 점수에서 리소스 및 권장 사항 제외 
 
@@ -20,13 +20,13 @@ ms.locfileid: "98756711"
 
 Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 검토 하는 정보 중 하나는 영향을 받는 리소스 목록입니다.
 
-경우에 따라 포함 하지 않아야 하는 리소스가 나열 됩니다. 또는 권장 사항은 속하지 않는 범위에 표시 됩니다. Security Center에서 추적 하지 않는 프로세스에서 리소스를 재구성 했을 수 있습니다. 권장 사항은 특정 구독에 적합 하지 않을 수 있습니다. 또는 조직에서 단순히 특정 리소스 또는 권장 사항과 관련 된 위험을 수용 하기로 결정 한 것일 수 있습니다.
+경우에 따라 포함 하지 않아야 하는 리소스가 나열 됩니다. 또는 해당 영역이 아닌 것으로 생각되는 범위에 권장 사항이 표시됩니다. Security Center에서 추적 하지 않는 프로세스에서 리소스를 재구성 했을 수 있습니다. 권장 사항은 특정 구독에 적합하지 않을 수도 있습니다. 또는 조직이 특정 리소스 또는 권장 사항과 관련된 위험을 감수하기로 결정했을 수도 있습니다.
 
 이러한 경우 권장 사항에 대 한 예외를 만들 수 있습니다.
 
-- **리소스를 제외** 하 여 나중에 비정상 리소스로 나열 되지 않도록 하 고 보안 점수에 영향을 주지 않습니다. 리소스가 적용 되지 않는 것으로 나열 되 고 이유가 선택한 특정 근거와 함께 "제외 됨"으로 표시 됩니다.
+- **리소스를 제외** 하여 향후 비정상적인 리소스에 나열되지 않고 보안 점수에 영향을 주지 않도록 합니다. 리소스가 해당되지 않는 것으로 나열되고 선택한 특정 근거와 함께 이유가 "예외"로 표시됩니다.
 
-- **구독 또는 관리 그룹을 제외** 하 여 권장 사항이 보안 점수에 영향을 주지 않도록 하 고 나중에 구독 또는 관리 그룹에 대해 표시 되지 않습니다. 이는 기존 리소스 및 나중에 만드는 모든 리소스와 관련이 있습니다. 권장 사항은 선택한 범위에 대해 선택한 특정 근거로 표시 됩니다.
+- 권장 사항이 보안 점수에 영향을 주지 않고 향후 구독 또는 관리 그룹에 표시되지 않도록 하려면 **구독 또는 관리 그룹을 제외** 합니다. 이는 기존 리소스와 나중에 만드는 리소스와 관련이 있습니다. 권장 사항은 선택한 범위에 대해 선택한 특정 근거로 표시됩니다.
 
 ## <a name="availability"></a>가용성
 
@@ -110,9 +110,9 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
 사용자가이 기능을 연습 하는 방법을 추적 하기 위해 논리 앱 플레이 북를 배포 하는 ARM (Azure Resource Manager) 템플릿과 예외가 생성 된 경우 사용자에 게 알리는 데 필요한 모든 API 연결을 만들었습니다.
 
-- 플레이 북에 대 한 자세한 내용은 [기술 커뮤니티 블로그에서](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) 이 게시물을 참조 하세요.
+- 플레이 북에 대 한 자세한 내용은 기술 커뮤니티 블로그 게시물 [Azure Security Center에서 리소스 예외를 추적 하는 방법](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) 을 참조 하세요.
 - [Azure Security Center GitHub 리포지토리에서](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption) ARM 템플릿을 찾을 수 있습니다.
-- [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) 를 클릭 하 여 필요한 모든 구성 요소를 배포할 수 있습니다. 
+- 모든 필수 구성 요소를 배포 하려면 [이 자동화 된 프로세스를 사용](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) 합니다.
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Azure 리소스 그래프를 사용 하 여 예외에 대 한 권장 사항 찾기

@@ -4,16 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 3830025d761c94e2b0b0bc3e66389d66794b946c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4a9454abc2c4e41d711a4aef6a30438a72d27edb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661562"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750568"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
 - 선택 사항: [애플리케이션에 통화 추가 시작](../getting-started-with-calling.md)에 대한 빠른 시작을 완료합니다.
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>발신 전화 걸기
 
-호출을 만들고 시작 하려면 CallAgent에서 Api 중 하나를 사용 하 고 통신 서비스 id 클라이언트 라이브러리를 통해 만든 사용자를 제공 해야 합니다.
+통화를 만들고 시작하려면 CallAgent에서 API 중 하나를 사용하여 Communication Services 관리 클라이언트 라이브러리를 통해 만든 사용자를 제공해야 합니다.
 
 통화 만들기와 시작은 동기적입니다. 통화 인스턴스를 사용하여 통화 이벤트를 구독할 수 있습니다.
 
@@ -254,10 +254,10 @@ call.on('callEnded', callEndHander);
 
 ```js
 
-//mute local device
+//mute local device 
 await call.mute();
 
-//unmute local device
+//unmute local device 
 await call.unmute();
 
 ```
@@ -401,7 +401,7 @@ await call.removeParticipant(pstnIdentifier);
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
-
+ 
 `RemoteVideoStream`을 렌더링하려면 `isAvailableChanged` 이벤트를 구독해야 합니다.
 `isAvailable` 속성이 `true`로 변경되면 원격 참가자가 스트림을 보내는 것입니다.
 이 경우 `Renderer`의 새 인스턴스를 만든 다음, 비동기 `createView` 메서드를 사용하여 새 `RendererView` 인스턴스를 만듭니다.  그러면 모든 UI 요소에 `view.target`을 연결할 수 있습니다.
@@ -581,7 +581,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-
+               
 ```
 
 ## <a name="call-transfer-management"></a>통화 전송 관리

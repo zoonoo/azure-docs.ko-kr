@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731496"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -62,7 +62,7 @@ Azure에서 메트릭에 대 한 액세스는 azure [역할 기반 액세스 제
 
 메트릭을 사용하여 대시보드를 만들었는데 해당 메트릭이 이후에 사용 중지되고 Azure에서 제거되면 이 문제가 발생할 수 있습니다. 이 경우에 해당 하는지 확인 하려면 리소스의 **메트릭** 탭을 열고 메트릭 선택에서 사용 가능한 메트릭을 확인 합니다. 메트릭이 표시되지 않으면 Azure에서 메트릭이 제거된 것입니다. 일반적으로 메트릭이 사용 중단되면 리소스 상태에 대한 유사한 정보를 제공하는 개선된 새 메트릭이 제공됩니다.
 
-**해결 방법:** 대시보드에서 차트의 대체 메트릭을 선택 하 여 실패 한 타일을 업데이트 합니다. [Azure 서비스에 사용 가능한 메트릭 목록](../platform/metrics-supported.md)을 볼 수 있습니다.
+**해결 방법:** 대시보드에서 차트의 대체 메트릭을 선택 하 여 실패 한 타일을 업데이트 합니다. [Azure 서비스에 사용 가능한 메트릭 목록](./metrics-supported.md)을 볼 수 있습니다.
 
 ## <a name="chart-shows-dashed-line"></a>차트에 파선이 표시됩니다.
 
@@ -104,5 +104,5 @@ Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려�
 
 * [메트릭 탐색기 시작 하기에 대 한 자세한 정보](metrics-getting-started.md)
 * [메트릭 탐색기의 고급 기능에 대 한 자세한 정보](../essentials/metrics-charts.md)
-* [Azure 서비스에 사용 가능한 메트릭 목록 보기](../platform/metrics-supported.md)
+* [Azure 서비스에 사용 가능한 메트릭 목록 보기](./metrics-supported.md)
 * [구성된 차트 예제 보기](../essentials/metric-chart-samples.md)

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947031"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717760"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -25,8 +25,12 @@ Basic 서비스 계층 이상을 사용하여 Azure App Service에서 실행되�
 
 Application Insights Profiler는 App Services 런타임의 일부로 미리 설치됩니다. 아래 단계에서는 App Service에 이 기능을 사용하도록 설정하는 방법을 보여 줍니다. 빌드 시 애플리케이션에 App Insights SDK를 포함한 경우에도 다음 단계를 수행합니다.
 
+> [!NOTE]
+> Application Insights Profiler의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
+> 지원 되는 런타임에 대 한 자세한 내용은 [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
+
 1. App Service에 대 한 Azure 제어판으로 이동 합니다.
-1. 앱 서비스에 "Always On" 설정을 사용합니다. 이 설정은 **설정**, **구성** 페이지 (다음 단계의 스크린샷 참조)에서 찾을 수 있으며 **일반 설정** 탭을 클릭 합니다.
+1. 앱 서비스에 "Always On" 설정을 사용합니다. 이 설정은 **설정**, **구성** 페이지 (다음 단계의 스크린샷 참조)에서 찾을 수 있으며 **일반 설정** 탭을 선택 합니다.
 1. **설정 > Application Insights** 페이지로 이동 합니다.
 
    ![App Services 포털에서 App Insights를 사용하도록 설정](./media/profiler/AppInsights-AppServices.png)
@@ -63,7 +67,7 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 
 ## <a name="disable-profiler"></a>Profiler 사용 안 함
 
-개별 앱 인스턴스에서 Profiler를 중지하거나 다시 시작하려면 **WebJobs** 에서 ApplicationInsightsProfiler3라는 webjob을 중지합니다. 위에서 설명한 대로 Application Insights 페이지에서 스위치를 사용하여 프로파일러를 사용하지 않도록 설정하더라도 프로파일러 프로세스는 계속 실행됩니다. 프로파일러가 설정 여부를 확인합니다. 사용하지 않도록 설정하면 다시 확인하기 전에 일정 시간 동안 절전 모드로 전환됩니다. 사용하지 않도록 설정하면 프로파일링을 수행하지 않습니다. 이 webjob을 사용하지 않도록 설정하면 프로파일러 프로세스가 전혀 실행되지 않으며, 설정 여부도 확인하지 않습니다.
+개별 앱 인스턴스에 대 한 프로파일러를 중지 하거나 다시 시작 하려면 왼쪽 사이드바에서 **WebJobs** 를 선택 하 고 라는 webjob을 중지 합니다 `ApplicationInsightsProfiler3` .
 
   ![웹 작업에 대한 Profiler 사용 안 함][disable-profiler-webjob]
 

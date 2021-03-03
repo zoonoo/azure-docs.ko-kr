@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732614"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692830"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,7 +105,7 @@ SQL Managed Instance에 Azure App Service를 연결 하는 특수 한 경우는 
 
    ![수신/송신 숫자](./media/connect-application-instance/ingress-egress-numbers.png)
 
-- 클라이언트 컴퓨터 (VPN 클라이언트를 실행 하는)에 액세스 해야 하는 모든 가상 네트워크에 대 한 경로 항목이 있는지 확인 합니다. 경로는 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`에 저장됩니다.
+- 클라이언트 컴퓨터 (VPN 클라이언트를 실행 하는)에 액세스 해야 하는 모든 가상 네트워크에 대 한 경로 항목이 있는지 확인 합니다. 경로는 `%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`에 저장됩니다.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 

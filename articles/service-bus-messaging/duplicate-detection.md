@@ -3,12 +3,12 @@ title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711928"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -48,7 +48,7 @@ ms.locfileid: "98684811"
 
 프로그래밍 방식으로 전체 프레임 워크 .NET API에서 [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 속성으로 플래그를 설정합니다. Azure Resource Manager API를 사용하면 값이 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 속성으로 설정됩니다.
 
-중복 검색 시간 기록은 큐 및 토픽의 경우 기본값이 30초이며 최댓값은 7일입니다. 이 설정은 Azure Portal의 큐 및 토픽 속성 창에서 변경할 수 있습니다.
+중복 검색 시간 기록은 큐 및 토픽의 기본값은 10 분이 고 최소값은 20 초이 고 최대값은 7 일입니다. 이 설정은 Azure Portal의 큐 및 토픽 속성 창에서 변경할 수 있습니다.
 
 ![속성 설정이 강조 표시 되 고 중복 검색 기록 옵션이 빨간색으로 표시 된 Service Bus 기능의 스크린샷][2]
 

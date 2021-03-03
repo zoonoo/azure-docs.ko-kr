@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adbd7deccf32312f67cff7b92ff7813036e9b1b3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4623610960d8f21a2dab3293c7499a2112416254
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898531"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101718916"
 ---
 # <a name="create-a-transform"></a>변환 만들기
 
@@ -33,8 +33,6 @@ ms.locfileid: "98898531"
 [Media Services 계정 만들기](./create-account-howto.md)
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
 > [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset)에 대한 사용자 지정 표준 인코더 사전 설정 JSON 파일의 경로만 지정할 수 있습니다. [사용자 지정 변환으로 인코딩](custom-preset-cli-howto.md) 예제를 참조하세요.
@@ -53,4 +51,4 @@ ms.locfileid: "98898531"
 
 ## <a name="next-steps"></a>다음 단계
 
-[변환 및 작업에 대 한 자세한 정보](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

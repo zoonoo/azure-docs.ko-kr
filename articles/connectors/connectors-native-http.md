@@ -3,16 +3,16 @@ title: HTTP 또는 HTTPS를 사용 하 여 서비스 끝점 호출
 description: Azure Logic Apps에서 서비스 끝점으로 아웃 바운드 HTTP 또는 HTTPS 요청을 보냅니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062998"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719443"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -249,8 +249,8 @@ HTTP 트리거 또는 작업에 이러한 헤더가 포함 된 경우 Logic Apps
 
 * `Accept-*` 다음을 제외한 헤더 `Accept-version`
 * `Allow`
-* `Content-*``Content-Disposition` `Content-Encoding` `Content-Type` POST 및 PUT 작업을 사용 하지만 GET 작업에는 포함 되지 않는, 및를 제외한 헤더
-* `Cookie`
+* `Content-*``Content-Disposition` `Content-Encoding` `Content-Type` POST 및 PUT 작업을 사용할 때 적용 되는, 및를 제외한 헤더입니다. 그러나 가져오기 작업을 사용 하는 경우 이러한 헤더는 Logic Apps 삭제 됩니다.
+* `Cookie` Logic Apps **쿠키** 속성을 사용 하 여 지정 하는 모든 값을 인식 합니다.
 * `Expires`
 * `Host`
 * `Last-Modified`

@@ -11,26 +11,31 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688641"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>앱에 셀프 서비스 가입 사용자 흐름 추가
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
 
-조직에서 빌드한 앱에 대한 사용자 흐름을 만들 수 있습니다. 사용자 흐름을 애플리케이션과 연결하면 해당 앱에서 가입을 사용하도록 설정할 수 있습니다. 사용자 흐름과 연결할 애플리케이션을 둘 이상 선택할 수 있습니다. 사용자 흐름을 하나 이상의 애플리케이션과 연결하면 해당 앱을 방문하는 사용자가 사용자 흐름에 구성된 옵션을 사용하여 가입하고 게스트 계정을 획득할 수 있습니다.
+> [!NOTE]
+> 이 문서에서 설명 하는 기능 중 일부는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+사용자가 작성 하는 응용 프로그램의 경우 사용자가 앱에 등록 하 고 새 게스트 계정을 만들 수 있도록 하는 사용자 흐름을 만들 수 있습니다. 셀프 서비스 등록 사용자 흐름은 등록 중에 사용자가 수행할 일련의 단계, 사용 하도록 허용할 id 공급자 및 수집 하려는 사용자 특성을 정의 합니다. 하나 이상의 응용 프로그램을 단일 사용자 흐름에 연결할 수 있습니다.
 
 > [!NOTE]
 > 사용자 흐름을 조직에서 빌드한 앱과 연결할 수 있습니다. 사용자 흐름은 SharePoint 또는 팀과 같은 Microsoft 앱에 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="add-social-identity-providers-optional"></a>소셜 ID 공급자 추가(선택 사항)
+### <a name="add-identity-providers-optional"></a>Id 공급자 추가 (선택 사항)
 
-Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용자는 기본적으로 Azure AD 계정을 사용하여 가입할 수 있습니다. 소셜 ID 공급자를 이러한 가입 흐름에 포함하여 Google 및 Facebook 계정을 지원하도록 할 수도 있습니다.
+Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용자는 기본적으로 Azure AD 계정을 사용하여 가입할 수 있습니다. 셀프 서비스 등록 사용자 흐름에서 Google 및 Facebook과 같은 소셜 id 공급자, Microsoft 계정 (미리 보기) 및 전자 메일 일회용 암호 (미리 보기)를 포함할 수도 있습니다.
 
+- [Microsoft 계정 (미리 보기) id 공급자](microsoft-account.md)
+- [일회용 암호 인증 전자 메일](one-time-passcode.md)
 - [소셜 ID 공급자 목록에 Facebook 추가](facebook-federation.md)
 - [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
 

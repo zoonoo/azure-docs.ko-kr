@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475542"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719018"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -33,7 +33,18 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` 은 [Syslog 심각도 수준 형식을](https://wikipedia.org/wiki/Syslog#Severity_level) 따라야 하며 형식 `{Timestamp}` 으로 지정 해야 합니다 `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` 는로 형식이 지정 되어야 `yyyy-MM-dd hh:mm:ss.fff zzz` 하며, `{Log Level}` 아래 표를 따라야 합니다 .이 표는 [Syslog 표준의 심각도 코드](https://wikipedia.org/wiki/Syslog#Severity_level)에서 해당 심각도 수준을 파생 시킵니다.
+
+| 값 | Severity |
+|-|-|
+| 0 | 응급 |
+| 1 | 경고 |
+| 2 | 위험 |
+| 3 | Error |
+| 4 | Warning |
+| 5 | 알림 |
+| 6 | 정보 제공 |
+| 7 | 디버그 |
 
 [IoT Edge의로 거 클래스](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) 는 정식 구현으로 사용 됩니다.
 

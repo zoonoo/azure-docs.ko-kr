@@ -3,22 +3,22 @@ title: Azure Image Builder 템플릿 만들기(미리 보기)
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
 author: danielsollondon
 ms.author: danis
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693869"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
-Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 정보를 전달합니다. 이 문서에서는 사용자가 직접 빌드할 수 있도록 json 파일의 섹션을 설명합니다. 전체 .json 파일 예제를 보려면 [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)를 참조하세요.
+Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 정보를 전달합니다. 이 문서에서는 사용자가 직접 빌드할 수 있도록 json 파일의 섹션을 설명합니다. 전체 .json 파일 예제를 보려면 [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts)를 참조하세요.
 
 기본 템플릿 형식은 다음과 같습니다.
 
@@ -249,7 +249,7 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
 - 한 사용자 지정자가 실패하면 전체 사용자 지정 구성 요소가 실패하고 오류가 보고됩니다.
 - 템플릿에서 사용하기 전에 스크립트를 철저히 테스트하는 것이 좋습니다. 사용자 VM에서 스크립트를 디버깅하는 것이 더 쉽습니다.
 - 스크립트에 중요한 데이터를 넣지 마세요. 
-- [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 사용하지 않는 경우 스크립트 위치는 공개적으로 액세스할 수 있어야 합니다.
+- [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity)를 사용하지 않는 경우 스크립트 위치는 공개적으로 액세스할 수 있어야 합니다.
 
 ```json
         "customize": [
@@ -697,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder)에 다양한 시나리오에 대한 샘플 .json 파일이 있습니다.
+[Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder)에 다양한 시나리오에 대한 샘플 .json 파일이 있습니다.

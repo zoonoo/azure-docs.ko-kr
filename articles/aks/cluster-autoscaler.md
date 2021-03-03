@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9caf56545efc6aefae525e28614d39705c00c21e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373252"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742571"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -121,7 +121,7 @@ az aks update \
 
 클러스터 전체 자동 크기 조정기 프로필의 기본값을 변경하여 클러스터 자동 크기 조정기의 세부 정보를 구성할 수도 있습니다. 예를 들어 10분 후 노드 사용량이 저조하면 스케일 다운 이벤트가 발생합니다. 15분마다 실행된 워크로드가 있는 경우 15분 또는 20분 후에 사용량이 저조한 노드를 스케일 다운하도록 자동 크기 조정기 프로필을 변경할 수 있습니다. 클러스터 자동 크기 조정기를 사용하도록 설정하면 다른 설정을 지정하지 않는 한 기본 프로필이 사용됩니다. 클러스터 자동 크기 조정기 프로필에서 다음과 같은 설정을 업데이트할 수 있습니다.
 
-| 설정                          | 설명                                                                              | 기본값 |
+| 설정                          | Description                                                                              | 기본값 |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | scan-interval                    | 스케일 업 또는 다운을 위해 클러스터를 다시 평가하는 빈도                                    | 10초    |
 | scale-down-delay-after-add       | 스케일 업 후 스케일 다운 평가가 다시 시작되기 전까지 경과 시간                               | 10분    |
@@ -288,7 +288,7 @@ az aks nodepool update \
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
+[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show

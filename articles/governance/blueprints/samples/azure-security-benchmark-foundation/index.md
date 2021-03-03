@@ -3,16 +3,16 @@ title: Azure Security Benchmark Foundation 청사진 샘플 개요
 description: Azure Security Benchmark Foundation 청사진 샘플의 개요 및 아키텍처.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095280"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741874"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플의 개요
 
-Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 준수하는 Azure 환경을 구축하는 데 도움이 되는 일련의 기준 인프라 패턴을 제공합니다. 청사진은 고객이 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하는 클라우드 기반 아키텍처를 배포하는 데 도움이 됩니다. 이 기본 청사진 샘플은 [Azure Security Benchmark 샘플 청사진](../azure-security-benchmark/index.md)의 확장입니다. [Azure Security Benchmark](../../../../security/benchmarks/index.yml)에 정의된 정책 및 기타 가드레일에 따라 네트워크 경계, 모니터링 및 기타 리소스를 배포하고 구성합니다.
+Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 준수하는 Azure 환경을 구축하는 데 도움이 되는 일련의 기준 인프라 패턴을 제공합니다. 청사진은 고객이 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하는 클라우드 기반 아키텍처를 배포하는 데 도움이 됩니다. 이 기본 청사진 샘플은 [Azure Security Benchmark 샘플 청사진](../azure-security-benchmark.md)의 확장입니다. [Azure Security Benchmark](../../../../security/benchmarks/index.yml)에 정의된 정책 및 기타 가드레일에 따라 네트워크 경계, 모니터링 및 기타 리소스를 배포하고 구성합니다.
 
 ## <a name="architecture"></a>Architecture
 
@@ -23,7 +23,7 @@ Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 �
 
 이 청사진은 여러 Azure 서비스를 배포하여 안전하고 모니터링되는 엔터프라이즈급 기반을 제공합니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 
-- 리소스 로그, 활동 로그, 메트릭 및 네트워크 트래픽 흐름이 간편한 쿼리, 분석, 보관 및 경고를 위해 중앙 위치에 저장되도록 하는 [Azure Monitor 로그](../../../../azure-monitor/platform/data-platform-logs.md) 및 Azure 스토리지 계정.
+- 리소스 로그, 활동 로그, 메트릭 및 네트워크 트래픽 흐름이 간편한 쿼리, 분석, 보관 및 경고를 위해 중앙 위치에 저장되도록 하는 [Azure Monitor 로그](../../../../azure-monitor/logs/data-platform-logs.md) 및 Azure 스토리지 계정.
 - Azure 리소스에 대한 위협 방지 기능을 제공하는 [Azure Security Center](../../../../security-center/security-center-introduction.md)(표준 버전).
 - 온-프레미스 네트워크에 다시 연결하기 위한 서브넷, 인터넷 연결을 위한 수신 및 송신 스택, 추가 관리 또는 유지 관리 서비스 배포를 위한 선택적 서브넷을 지원하는 허브의 [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md). 스포크의 가상 네트워크에는 애플리케이션 워크로드를 호스팅하기 위한 서브넷이 포함됩니다. 적용 가능한 시나리오를 지원하기 위해 필요에 따라 배포 후 추가 서브넷을 만들 수 있습니다.
 - 모든 아웃바운드 인터넷 트래픽을 라우팅하고 점프 박스를 통해 인바운드 인터넷 트래픽을 활성화하는 [Azure Firewall](../../../../firewall/overview.md). (기본 방화벽 규칙은 모든 인터넷 인바운드 및 아웃바운드 트래픽을 차단하며 해당되는 경우 배포 후 규칙을 구성해야 합니다.)

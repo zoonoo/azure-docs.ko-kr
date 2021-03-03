@@ -1,20 +1,20 @@
 ---
-title: Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용
-description: 이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 하나 이상의 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: 리소스 관리자 템플릿을 사용 하 여 VM insights 사용
+description: 이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 하나 이상의 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a719be730c76d8e334195fdc9b35bbcad0d06b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57e2649dfe651bfa1e2ef18ff52ca611c122d696
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619784"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707492"
 ---
-# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용
-이 문서에서는 리소스 관리자 템플릿을 사용 하 여 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
+# <a name="enable-vm-insights-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 VM insights 사용
+이 문서에서는 리소스 관리자 템플릿을 사용 하 여 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
 
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합
@@ -22,8 +22,8 @@ ms.locfileid: "100619784"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Log Analytics 작업 영역을 만들고 구성](../insights/vminsights-configure-workspace.md)합니다. 
-- 지원 되는 [운영 체제](../insights/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
+- [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다. 
+- 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
@@ -37,14 +37,14 @@ Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드�
 
 다운로드 파일에는 다양 한 시나리오에 대 한 다음 템플릿이 포함 되어 있습니다.
 
-- **Existingvmonboarding** 템플릿을 사용 하면 가상 머신이 이미 있는 경우 VM용 Azure Monitor 수 있습니다.
-- **Newvmonboarding** 템플릿은 가상 머신을 만들고 VM용 Azure Monitor 모니터링 하는 데 사용 됩니다.
-- **Existingvmssonboarding 보 딩** 템플릿을 사용 하면 가상 머신 확장 집합이 이미 있는 경우 VM용 Azure Monitor 수 있습니다.
-- **Newvmssonboarding** 템플릿은 가상 머신 확장 집합을 만들고 VM용 Azure Monitor를 모니터링 하는 데 사용 됩니다.
-- **ConfigureWorkspace** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM용 Azure Monitor을 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
+- 가상 머신이 이미 있는 경우 **Existingvmonboarding** 템플릿을 통해 VM 정보를 사용할 수 있습니다.
+- **Newvmonboarding** 템플릿은 가상 머신을 만들고 VM insights를 사용 하 여 모니터링 합니다.
+- 가상 머신 확장 집합이 이미 있는 경우 **Existingvmssonboarding 보 딩** 템플릿을 사용 하 여 VM 정보를 사용할 수 있습니다.
+- **Newvmssonboarding** 템플릿은 가상 머신 확장 집합을 만들고 VM insights를 사용 하 여 모니터링 합니다.
+- **ConfigureWorkspace** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM 정보를 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 >[!NOTE]
->가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동** 으로 설정 된 경우에는 **Existingvmssonboarding 보 딩** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM용 Azure Monitor 사용 되지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
+>가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동** 으로 설정 된 경우에는 **Existingvmssonboarding** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM insights를 사용 하도록 설정 하지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
 
 ## <a name="deploy-templates"></a>템플릿 배포
 PowerShell 및 CLI를 사용 하는 다음 예제를 포함 하 여 [리소스 관리자 템플릿에 대 한 배포 방법을](../../azure-resource-manager/templates/deploy-powershell.md) 사용 하 여 템플릿을 배포할 수 있습니다.
@@ -62,8 +62,8 @@ az deployment group create --resource-group <ResourceGroupName> --template-file 
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
+이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM insights를 사용 하 여 분석할 수 있습니다.
 
-- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+- 검색 된 응용 프로그램 종속성을 보려면 [VM Insights 맵 보기](vminsights-maps.md)를 참조 하세요.
 
 - VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE Vm 성능 보기](vminsights-performance.md)를 참조 하세요.

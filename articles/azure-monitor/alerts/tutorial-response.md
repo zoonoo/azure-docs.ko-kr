@@ -7,15 +7,15 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e790486758d6a5e3181df01f85e1213cca3fa12d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 67d03636b118db71502a6245e60f71c94afdddf6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701011"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure Monitor 경고로 이벤트에 응답
-Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](../learn/tutorial-logs-dashboards.md) 자습서와 이어집니다.   
+Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](../visualize/tutorial-logs-dashboards.md) 자습서와 이어집니다.   
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -31,7 +31,7 @@ Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보�
 ## <a name="create-alerts"></a>경고 만들기
 경고는 Azure Monitor에서 경고 규칙에 의해 생성되고 정기적으로 저장된 쿼리 또는 사용자 지정 로그 검색을 자동으로 실행할 수 있습니다.  특정 성능 메트릭을 기반으로 알림을 만들거나 특정 이벤트가 생성되거나 이벤트가 없거나 특정 기간 내에 여러 이벤트가 만들어질 때 알림을 만들 수 있습니다.  예를 들어, 경고는 평균 CPU 사용량이 특정 임계값을 초과하고, 누락된 업데이트가 발견되거나 특정 Windows 서비스 또는 Linux 데몬이 실행 중이 아님을 발견한 상태에서 이벤트가 생성될 때 이를 알리는 데 사용할 수 있습니다.  로그 검색 결과가 특정 조건과 일치하는 경우 경고가 만들어집니다. 그런 다음, 규칙은 경고를 알리거나 다른 프로세스를 호출하는 것과 같은 하나 이상의 작업을 자동으로 실행할 수 있습니다. 
 
-다음 예제에서는 [시각화 데이터 자습서](../learn/tutorial-logs-dashboards.md)에 저장된 *Azure VM - 프로세서 사용률* 쿼리에 기반을 둔 메트릭 측정 경고 규칙을 만듭니다.  90%의 임계값을 초과하는 각 가상 머신에 대한 경고가 생성됩니다.  
+다음 예제에서는 [시각화 데이터 자습서](../visualize/tutorial-logs-dashboards.md)에 저장된 *Azure VM - 프로세서 사용률* 쿼리에 기반을 둔 메트릭 측정 경고 규칙을 만듭니다.  90%의 임계값을 초과하는 각 가상 머신에 대한 경고가 생성됩니다.  
 
 1. Azure Portal에서 **모든 서비스** 를 클릭합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics** 를 선택합니다.
 2. 왼쪽 창에서 **경고** 를 선택한 다음, 페이지의 위쪽에서 **새 경고 규칙** 을 클릭하여 새 경고를 만듭니다.<br><br> ![새 경고 규칙 만들기](./media/tutorial-response/alert-rule-02.png)<br>
@@ -69,4 +69,4 @@ Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보�
 미리 빌드된 Log Analytics 스크립트 샘플을 보려면 이 링크를 따릅니다.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics 스크립트 샘플](../samples/powershell-samples.md)
+> [Log Analytics 스크립트 샘플](../powershell-samples.md)

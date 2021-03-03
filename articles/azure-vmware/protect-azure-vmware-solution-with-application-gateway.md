@@ -3,12 +3,12 @@ title: Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션
 description: Azure VMware 솔루션에서 실행 되는 웹 앱을 안전 하 게 노출 하도록 Azure 애플리케이션 게이트웨이를 구성 합니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733587"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
 
@@ -35,7 +35,7 @@ ms.locfileid: "100384200"
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware 솔루션 웹 응용 프로그램으로 Application Gateway의 유효성을 검사 하는 데 사용 되는 테스트 시나리오를 보여 주는 다이어그램입니다." border="false":::
 
-Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 표준 DDoS 보호를 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 게이트웨이 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과 통신할 수 있습니다.
+Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 [Azure DDoS Protection 표준을](../ddos-protection/ddos-protection-overview.md) 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 게이트웨이 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과 통신할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -193,3 +193,4 @@ Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니�
 - [다른 시나리오에 대 한 Azure 애플리케이션 게이트웨이 구성](../application-gateway/configuration-overview.md)
 - [Traffic Manager를 배포 하 여 Azure VMware 솔루션 워크 로드 균형 조정](deploy-traffic-manager-balance-workloads.md).
 - [Azure VMware 솔루션 기반 워크 로드와 Azure NetApp Files 통합](netapp-files-with-azure-vmware-solution.md).
+- [가상 네트워크에서 Azure 리소스 보호](../ddos-protection/ddos-protection-overview.md)

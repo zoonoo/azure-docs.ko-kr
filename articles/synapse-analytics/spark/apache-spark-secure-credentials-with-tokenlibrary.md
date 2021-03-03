@@ -10,12 +10,12 @@ ms.date: 11/19/2020
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 8c2e2327667ccb9284a22e65418a80f3066d22df
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a588b37b270917524453419619fdad6f88f92338
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693580"
 ---
 # <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>TokenLibrary를 사용하여 연결된 서비스를 통해 자격 증명 보호
 
@@ -275,7 +275,7 @@ Console.WriteLine(connectionString);
 
 getConnectionStringAsMap은 Scala 및 Python에서 사용할 수 있는 도우미 함수입니다. 연결 문자열의 _key=value_ 쌍에서 특정 값을 구문 분석하려면 다음과 같이 수행합니다.
 
-_`DefaultEndpointsProtocol=https;AccountName=\<ACCOUNT NAME>;AccountKey=\<ACCOUNT KEY>`_
+_`DefaultEndpointsProtocol=https;AccountName=<ACCOUNT NAME>;AccountKey=<ACCOUNT KEY>`_
 
 **getConnectionStringAsMap** 함수를 사용하고 키를 전달하여 값을 반환합니다.  위의 연결 문자열 예제에서 
 

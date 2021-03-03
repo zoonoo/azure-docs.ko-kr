@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217757"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727161"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 최적의 성능을 위한 모범 사례-단일 서버
 
@@ -65,7 +65,7 @@ Azure Database for MySQL 서버를 다시 시작한 후 준비 기간을 줄일 
 서버를 종료할 때 버퍼 풀의 상태를 저장 하려면 서버 매개 변수 `innodb_buffer_pool_dump_at_shutdown` 를로 설정 `ON` 합니다. 마찬가지로 서버 `innodb_buffer_pool_load_at_startup` `ON` 시작 시 버퍼 풀 상태를 복원 하려면 서버 매개 변수를로 설정 합니다. 서버 매개 변수 값을 낮추고 미세 조정 하 여 시작/다시 시작 시간에 대 한 영향을 제어할 수 있습니다 `innodb_buffer_pool_dump_pct` . 이 매개 변수는 기본적으로 `25`로 설정됩니다.
 
 > [!Note]
-> InnoDB buffer pool 워밍업 매개 변수는 최대 16TB의 저장소를 포함 하는 범용 저장소 서버 에서만 지원 됩니다. [Azure Database for MySQL 저장소 옵션](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)에 대 한 자세한 내용은 여기를 참조 하세요.
+> InnoDB buffer pool 워밍업 매개 변수는 최대 16TB의 저장소를 포함 하는 범용 저장소 서버 에서만 지원 됩니다. [Azure Database for MySQL 저장소 옵션](./concepts-pricing-tiers.md#storage)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

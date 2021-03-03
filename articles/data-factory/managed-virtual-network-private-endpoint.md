@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699637"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -43,7 +43,7 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 ## <a name="managed-private-endpoints"></a>관리형 프라이빗 엔드포인트
 
-관리 되는 개인 끝점은 Azure 리소스에 대 한 개인 링크를 설정 하는 Virtual Network Azure Data Factory 관리 되는 전용 끝점입니다. Azure Data Factory은 사용자 대신 이러한 개인 끝점을 관리 합니다. 
+관리 되는 개인 끝점은 Azure 리소스에 대 한 개인 링크를 설정 하는 Virtual Network Azure Data Factory 관리 되는 전용 끝점입니다. Azure Data Factory는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다. 
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
@@ -102,17 +102,19 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - 북유럽
 - 서유럽
 - 영국 남부
-- 동남 아시아
+- 동남아시아
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.
-- Azure Storage 및 Azure Data Lake Gen2는 ADF 관리 Virtual Network의 공용 끝점을 통해 연결할 수 없습니다.
+- Azure Storage 및 Azure Data Lake Gen2는 ADF 관리형 가상 네트워크에서 공용 엔드포인트를 통해 연결할 수 없습니다.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault 연결 된 서비스 만들기 
 - Azure Key Vault에 대한 연결된 서비스를 만들 때 Azure Integration Runtime 참조가 없습니다. 따라서 연결 된 서비스를 만드는 동안에는 Azure Key Vault 개인 끝점을 만들 수 없습니다. 그러나 Azure Key Vault 연결 된 서비스를 참조 하는 데이터 저장소에 대 한 연결 된 서비스를 만들 때이 연결 된 서비스에서 관리 되는 Virtual Network를 사용 하도록 설정 된 Azure Integration Runtime 참조 하는 경우 생성 하는 동안 Azure Key Vault 연결 된 서비스에 대 한 개인 끝점을 만들 수 있습니다. 
 - 연결 된 Azure Key Vault 서비스에 대 한 **연결 테스트** 작업은 URL 형식의 유효성만 검사 하지만 네트워크 작업은 수행 하지 않습니다.
+- Azure Key Vault에 대 한 개인 끝점을 만드는 경우에도 **개인 끝점을 사용 하** 는 열은 항상 빈 상태로 표시 됩니다.
+![AKV에 대 한 개인 끝점](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>다음 단계
 

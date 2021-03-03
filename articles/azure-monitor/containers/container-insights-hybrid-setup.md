@@ -1,22 +1,22 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
+title: Container insights를 사용 하 여 하이브리드 Kubernetes 클러스터 구성 | Microsoft Docs
+description: 이 문서에서는 Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 Container insights를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d2692b4a634d60ef62339f68277591d711260712
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711249"
 ---
-# <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
+# <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>컨테이너 insights를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
-컨테이너에 대 한 Azure Monitor는 azure에서 호스트 되는 자체 관리 되는 Kubernetes 클러스터 인 azure의 AKS (Azure Kubernetes Service) 및 [AKS Engine](https://github.com/Azure/aks-engine)에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 고 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
+컨테이너 정보 활용은 azure에서 호스트 되는 자체 관리 되는 Kubernetes 클러스터 인 azure의 AKS (Azure Kubernetes Service) 및 [AKS Engine](https://github.com/Azure/aks-engine)에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 고 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
-다음 구성은 컨테이너에 대 한 Azure Monitor에서 공식적으로 지원 됩니다. 다른 버전의 Kubernetes 및 운영 체제 버전을 사용할 경우로 메일을 보내 주시기 바랍니다 askcoin@microsoft.com .
+다음 구성은 Container insights를 사용 하 여 공식적으로 지원 됩니다. 다른 버전의 Kubernetes 및 운영 체제 버전을 사용할 경우로 메일을 보내 주시기 바랍니다 askcoin@microsoft.com .
 
 - 에서는
 
@@ -36,19 +36,19 @@ ms.locfileid: "100616279"
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
-- [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
+- [Log Analytics 작업 영역](../logs/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 insights는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../logs/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
     >[!NOTE]
     >동일한 Log Analytics 작업 영역에 동일한 클러스터 이름을 가진 여러 클러스터의 모니터링을 사용 하도록 설정할 수 없습니다. 클러스터 이름은 고유 해야 합니다.
     >
 
-- 컨테이너 모니터링을 사용 하도록 설정 하는 **Log Analytics 참여자 역할** 의 구성원입니다. Log Analytics 작업 영역에 대 한 액세스를 제어 하는 방법에 대 한 자세한 내용은 [작업 영역 및 로그 데이터에 대 한 액세스 관리](../platform/manage-access.md)를 참조 하세요.
+- 컨테이너 모니터링을 사용 하도록 설정 하는 **Log Analytics 참여자 역할** 의 구성원입니다. Log Analytics 작업 영역에 대 한 액세스를 제어 하는 방법에 대 한 자세한 내용은 [작업 영역 및 로그 데이터에 대 한 액세스 관리](../logs/manage-access.md)를 참조 하세요.
 
-- 모니터링 데이터를 보려면 Log Analytics 작업 영역에서 컨테이너에 대 한 Azure Monitor 구성 된 [*Log Analytics 읽기 권한자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
+- 모니터링 데이터를 보려면 컨테이너 insights를 사용 하 여 구성 된 Log Analytics 작업 영역에 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
-- 지정 된 Kubernetes 클러스터에 대 한 컨테이너 차트의 Azure Monitor를 등록 하는 [클라이언트](https://helm.sh/docs/using_helm/) 를 작성 합니다.
+- 지정 된 Kubernetes 클러스터에 대 한 컨테이너 insights 차트를 등록 하는 [클라이언트 투구](https://helm.sh/docs/using_helm/) .
 
 - 다음 프록시 및 방화벽 구성 정보는 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전이 Azure Monitor와 통신 하는 데 필요 합니다.
 
@@ -67,11 +67,11 @@ ms.locfileid: "100616279"
 
 ## <a name="enable-monitoring"></a>모니터링 사용
 
-하이브리드 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 하는 것은 다음 단계를 순서 대로 수행 하는 것입니다.
+하이브리드 Kubernetes 클러스터에 대 한 컨테이너 통찰력을 사용 하도록 설정 하는 것은 다음 단계를 순서 대로 수행 하는 것입니다.
 
 1. Container Insights 솔루션을 사용 하 여 Log Analytics 작업 영역을 구성 합니다.   
 
-2. Log Analytics 작업 영역을 사용 하 여 컨테이너 투구 차트에 Azure Monitor을 사용 하도록 설정 합니다.
+2. Log Analytics 작업 영역을 사용 하 여 컨테이너 insights 투구 차트를 사용 하도록 설정 합니다.
 
 Azure Monitor의 모니터링 솔루션에 대 한 자세한 내용은 [여기](../../azure-monitor/insights/solutions.md)를 참조 하세요.
 
@@ -252,7 +252,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 ## <a name="install-the-helm-chart"></a>투구 차트 설치
 
-이 섹션에서는 컨테이너의 Azure Monitor에 대 한 컨테이너 화 된 에이전트를 설치 합니다. 계속 하기 전에 매개 변수에 필요한 작업 영역 ID `omsagent.secret.wsid` 및 매개 변수에 필요한 기본 키를 확인 해야 합니다 `omsagent.secret.key` . 다음 단계를 수행 하 여이 정보를 확인 한 다음, 해당 명령을 실행 하 여 투구 차트를 사용 하 여 에이전트를 설치할 수 있습니다.
+이 섹션에서는 컨테이너 insights에 대 한 컨테이너 화 된 에이전트를 설치 합니다. 계속 하기 전에 매개 변수에 필요한 작업 영역 ID `omsagent.secret.wsid` 및 매개 변수에 필요한 기본 키를 확인 해야 합니다 `omsagent.secret.key` . 다음 단계를 수행 하 여이 정보를 확인 한 다음, 해당 명령을 실행 하 여 투구 차트를 사용 하 여 에이전트를 설치할 수 있습니다.
 
 1. 다음 명령을 실행 하 여 작업 영역 ID를 확인 합니다.
 
@@ -325,14 +325,14 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 
 바랄 차트 버전 1.0.0에서 에이전트 데이터 수집 설정은 ConfigMap에서 제어 됩니다. [여기](container-insights-agent-config.md)에서 에이전트 데이터 컬렉션 설정에 대 한 설명서를 참조 하세요.
 
-차트를 성공적으로 배포한 후 Azure Portal의 컨테이너에 대 한 Azure Monitor에서 하이브리드 Kubernetes 클러스터에 대 한 데이터를 검토할 수 있습니다.  
+차트를 성공적으로 배포한 후 Azure Portal의 컨테이너 정보에서 hybrid Kubernetes 클러스터에 대 한 데이터를 검토할 수 있습니다.  
 
 >[!NOTE]
 >수집 대기 시간은 에이전트가 Azure Log Analytics 작업 영역에서 커밋하는 데 5 ~ 10 분 정도 소요 됩니다. 클러스터의 상태는 Azure Monitor에서 필요한 모든 모니터링 데이터를 사용할 수 있을 때까지 데이터를 표시 **하지** 않거나 **알 수 없는** 값을 표시 합니다.
 
 ## <a name="configure-proxy-endpoint"></a>프록시 끝점 구성
 
-차트 버전 2.7.1 부터는 차트 매개 변수를 사용 하 여 프록시 끝점을 지정 하는 것이 지원 됩니다 `omsagent.proxy` . 이렇게 하면 프록시 서버를 통해 통신할 수 있습니다. 컨테이너 에이전트 및 Azure Monitor에 대 한 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
+차트 버전 2.7.1 부터는 차트 매개 변수를 사용 하 여 프록시 끝점을 지정 하는 것이 지원 됩니다 `omsagent.proxy` . 이렇게 하면 프록시 서버를 통해 통신할 수 있습니다. 컨테이너 insights 에이전트와 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
 
 프록시 구성 값의 구문은 다음과 같습니다. `[protocol://][user:password@]proxyhost[:port]`
 
@@ -347,7 +347,7 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-`omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+예: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
@@ -356,7 +356,7 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 하이브리드 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 동안 오류가 발생 하는 경우 PowerShell 스크립트 [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) 을 복사 하 여 컴퓨터의 폴더에 저장 합니다. 이 스크립트는 발생 한 문제를 검색 하 고 해결 하는 데 도움이 됩니다. 검색 하 고 수정을 시도 하기 위해 설계 된 문제는 다음과 같습니다.
 
 - 지정한 Log Analytics 작업 영역이 올바릅니다.
-- Log Analytics 작업 영역은 컨테이너 솔루션에 대 한 Azure Monitor를 사용 하 여 구성 됩니다. 그렇지 않은 경우 작업 영역을 구성 합니다.
+- Log Analytics 작업 영역은 Container insights 솔루션을 사용 하 여 구성 됩니다. 그렇지 않은 경우 작업 영역을 구성 합니다.
 - OmsAgent replicaset pod가 실행 중입니다.
 - OmsAgent daemonset pod가 실행 중입니다.
 - OmsAgent Health service가 실행 되 고 있습니다.
@@ -372,4 +372,4 @@ Azure PowerShell를 사용 하 여 실행 하려면 스크립트가 포함 된 �
 
 ## <a name="next-steps"></a>다음 단계
 
-모니터링을 사용 하 여 하이브리드 Kubernetes 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
+모니터링을 사용 하 여 하이브리드 Kubernetes 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너 정보를 [사용 하는 방법을](container-insights-analyze.md) 알아보세요.

@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620729"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700578"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
@@ -34,7 +34,7 @@ ms.locfileid: "100620729"
 
 ## <a name="metrics"></a>메트릭
 
-Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을](../platform/data-platform-metrics.md) 내보냅니다. 대상 리소스, 원하는 메트릭 및 집계를 지정 하는 데 사용할 수 있는 특수 한 컨트롤을 통해 통합 문서에서 메트릭을 액세스할 수 있습니다. 그런 다음이 데이터를 차트 또는 표로 그릴 수 있습니다.
+Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을](../essentials/data-platform-metrics.md) 내보냅니다. 대상 리소스, 원하는 메트릭 및 집계를 지정 하는 데 사용할 수 있는 특수 한 컨트롤을 통해 통합 문서에서 메트릭을 액세스할 수 있습니다. 그런 다음이 데이터를 차트 또는 표로 그릴 수 있습니다.
 
 ![Cpu 사용률에 대 한 통합 문서 메트릭 차트의 스크린샷](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -48,7 +48,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 
 ![Azure 리소스 그래프 KQL 쿼리 스크린샷](./media/workbooks-data-sources/azure-resource-graph.png)
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 통합 문서는 Azure Resource Manager REST 작업을 지원 합니다. 이렇게 하면 고유한 권한 부여 헤더 토큰을 제공할 필요 없이 management.azure.com 끝점을 쿼리할 수 있습니다.
 
@@ -145,6 +145,6 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](../platform/workbooks-overview.md#visualizations) 하세요.
-* 통합 문서 리소스에 대 한 액세스를 [제어](../platform/workbooks-access-control.md) 하 고 공유 합니다.
-* [Log Analytics 쿼리 최적화 팁](../log-query/query-optimization.md)
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
+* 통합 문서 리소스에 대 한 액세스를 [제어](./workbooks-access-control.md) 하 고 공유 합니다.
+* [Log Analytics 쿼리 최적화 팁](../logs/query-optimization.md)

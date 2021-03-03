@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386717"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721023"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
@@ -29,7 +29,7 @@ Azure Database for MySQL 서버 매개 변수 값의 튜닝을 지원 합니다.
 
 ## <a name="storage-engines"></a>저장소 엔진
 
-MySQL은 많은 저장소 엔진을 지원 합니다. Azure Database for MySQL 유연한 서버에서 지원 되 고 지원 되지 않는 저장소 엔진은 다음과 같습니다.
+MySQL은 많은 저장소 엔진을 지원 합니다. Azure Database for MySQL에서 지원 되 고 지원 되지 않는 저장소 엔진은 다음과 같습니다.
 
 ### <a name="supported"></a>지원됨
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

@@ -7,53 +7,46 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/02/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a5c8f835d44896a452a945614332dcbc25ca8bb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355987"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694430"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
-*필터* 는 Azure Cognitive Search 쿼리에서 사용 되는 문서를 선택 하기 위한 기준을 제공 합니다. 필터링되지 않은 검색에서는 모든 문서가 인덱스에 포함됩니다. 필터는 문서의 하위 집합으로 검색 쿼리의 범위를 지정합니다. 예를 들어, 필터를 사용하면 전체 텍스트 검색을 특정 임계값 이상의 가격대에서 특정 브랜드 또는 색상을 가진 제품으로 제한할 수 있습니다.
+*필터* 는 쿼리에 사용 되는 문서를 선택 하기 위한 값 기반 기준을 제공 합니다. 필터는 단일 값 또는 OData [필터 식일](search-query-odata-filter.md)수 있습니다. 전체 텍스트 검색과 달리 필터 값 또는 식만 엄격한 일치를 반환 합니다.
 
-구현 과정에서 필터 요구 사항이 있는 검색 환경도 일부 있기는 하지만 *값 기반* 조건을 사용하여 검색을 제한하려는 경우는 언제든지 필터를 사용할 수 있습니다("Simon & Schuster"에서 출판된 "논픽션" 카테고리를 찾기 위해 제품 유형 검색 범위를 "책"으로 지정).
-
-특정 데이터 *구조* 로 검색 대상을 설정하려는 경우(검색 범위를 고객 리뷰 필드로 지정) 아래에 대체 방법이 나와 있습니다.
+[패싯 탐색과](search-filters-facets.md)같은 일부 검색 환경은 구현 과정에서 필터에 따라 달라 지지만 쿼리 범위를 특정 값으로 지정할 때마다 필터를 사용할 수 있습니다. 대신 특정 필드에 대 한 쿼리의 범위를 지정 하는 것이 목표 인 경우 아래에 설명 된 대체 방법이 있습니다.
 
 ## <a name="when-to-use-a-filter"></a>필터를 사용하는 경우
 
 필터는 "내 주변 찾기", 패싯 탐색, 사용자가 볼 수 있는 문서만 표시하는 보안 필터를 비롯한 여러 검색 환경의 기초입니다. 이러한 환경 중 하나를 구현하는 경우 필터가 필요합니다. 지리적 위치 좌표, 사용자가 선택한 패싯 범주 또는 요청자의 보안 ID를 제공하는 검색 쿼리에 연결된 필터입니다.
 
-다음은 예제 시나리오입니다.
+일반적인 시나리오는 다음과 같습니다.
 
-1. 인덱스의 데이터 값에 따라 인덱스를 분할하는 필터를 사용합니다. 도시, 주택 유형 및 편의 시설이 포함된 스키마가 제공되면 조건(시애틀, 콘도, 해안가)을 충족하는 문서를 명시적으로 선택하기 위한 필터를 만들 수 있습니다. 
++ 인덱스의 내용에 따라 검색 결과를 조각화 합니다. 호텔 위치, 범주 및 편의 시설를 포함 하는 스키마가 제공 되 면 조건 (시애틀, 물, 보기)에서 명시적으로 일치 하는 필터를 만들 수 있습니다. 
 
-   동일한 입력을 사용하는 전체 텍스트 검색도 종종 비슷한 결과가 나오기는 하지만 필터는 인덱스의 콘텐츠에 대해 필터 용어가 정확하게 일치해야 하기 때문에 더 정확합니다. 
++ 검색 환경을 구현 하는 것은 필터 요구 사항과 함께 제공 됩니다.
 
-2. 검색 환경에 필터 요구 사항이 포함된 경우 필터를 사용합니다.
+  + [패싯 탐색](search-faceted-navigation.md)은 사용자가 선택한 패싯 범주를 다시 전달하는 데 필터를 사용합니다.
+  + 지리적 검색은 "내 주변 찾기" 앱에서 현재 위치의 좌표를 전달하는 데 필터를 사용합니다. 
+  + [보안 필터](search-security-trimming-for-azure-search.md) 는 보안 식별자를 필터 조건으로 전달 합니다. 여기서 인덱스의 일치 항목은 문서에 대 한 액세스 권한의 프록시로 사용 됩니다.
 
-   * [패싯 탐색](search-faceted-navigation.md)은 사용자가 선택한 패싯 범주를 다시 전달하는 데 필터를 사용합니다.
-   * 지리적 검색은 "내 주변 찾기" 앱에서 현재 위치의 좌표를 전달하는 데 필터를 사용합니다. 
-   * 보안 필터는 보안 식별자를 필터 조건으로 전달합니다. 여기서 인덱스의 일치 항목은 문서에 액세스할 수 있는 권한을 위한 프록시 역할을 합니다.
-
-3. 숫자 필드에서 조건을 검색하려는 경우 필터를 사용합니다. 
-
-   숫자 필드는 문서에서 검색할 수 있고 검색 결과에 표시되기도 하지만, 개별적으로 검색할 수는 없습니다(전체 텍스트 검색에 적용). 숫자 데이터를 기반으로 하는 선택 조건이 필요한 경우 필터를 사용합니다.
++ "숫자 검색"을 수행 합니다. 숫자 필드는 검색할 수 있으며 검색 결과에 나타날 수 있지만 개별적으로 검색할 수 없습니다 (전체 텍스트 검색에 적용). 숫자 데이터를 기반으로 하는 선택 조건이 필요한 경우 필터를 사용합니다.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>범위를 줄이기 위한 대체 방법
 
 검색 결과를 효과적으로 줄이고 싶을 때 필터 외에 다른 방법도 있습니다. 목적에 따라 이러한 대안이 더 나을 수 있습니다.
 
- + `searchFields` 쿼리 매개 변수는 검색을 특정 필드로 고정합니다. 예를 들어, 인덱스에서 영어와 스페인어 설명을 위한 별도의 필드를 제공하는 경우 searchFields를 사용하여 전체 텍스트 검색에 사용할 대상 필드를 지정할 수 있습니다. 
++ `searchFields` 쿼리 매개 변수는 특정 필드로 검색을 제한 합니다. 예를 들어, 인덱스에서 영어와 스페인어 설명을 위한 별도의 필드를 제공하는 경우 searchFields를 사용하여 전체 텍스트 검색에 사용할 대상 필드를 지정할 수 있습니다. 
 
 + `$select` 매개 변수는 결과 집합에 포함할 필드를 지정하는 데 사용되며 호출 애플리케이션에 보내기 전에 효과적으로 응답을 조정합니다. 이 매개 변수는 쿼리를 구체화 하거나 문서 컬렉션을 축소 하지는 않지만, 더 작은 응답이 목표 이면이 매개 변수를 고려해 야 합니다. 
 
 두 매개 변수에 대한 자세한 내용은 [문서 검색 > 요청 > 쿼리 매개 변수](/rest/api/searchservice/search-documents#query-parameters)를 참조하세요.
-
 
 ## <a name="how-filters-are-executed"></a>필터 실행 방법
 
@@ -62,7 +55,8 @@ ms.locfileid: "94355987"
 필터링은 문서 검색 및 관련성 점수 매기기를 위해 다운스트림 처리에 포함할 문서를 정규화 하는 검색을 통해 수행 됩니다. 검색 문자열과 페어링된 경우 필터는 후속 검색 작업의 회수 집합을 효과적으로 줄입니다. 단독으로 사용되면(예를 들어 `search=*` 같이 쿼리 문자열이 비어 있는 경우) 필터 조건이 유일한 입력입니다. 
 
 ## <a name="defining-filters"></a>필터 정의
-필터는 OData 식 이며 [Azure Cognitive Search에서 지원 되는 Odata V4 구문의 하위 집합](/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 사용 하 여 더 합니다. 
+
+필터는 OData 식 이며 Cognitive Search에서 지 원하는 [필터 구문](search-query-odata-filter.md) 에서 더 이상입니다.
 
 **검색** 작업 마다 하나의 필터를 지정할 수 있지만 필터 자체에는 여러 필드와 여러 조건이 포함 될 수 있으며, **ismatch** 함수를 사용 하는 경우 여러 전체 텍스트 검색 식이 포함 될 수 있습니다. 여러 부분으로 구성 된 필터 식에서 연산자 우선 순위 규칙에 따라 조건자를 순서에 관계 없이 지정할 수 있습니다. 특정한 순서로 조건자를 다시 정렬해도 성능에 별다른 도움은 되지 않습니다.
 
@@ -100,45 +94,50 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 + 독립 실행형 **$filter** 는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 "모든 문서 일치"를 의미 하는 별표입니다.
 
-   ```
-   search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
-   ```
+  ```http
+  {
+    "search": "*",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
+  }
+  ```
 
 + 쿼리 문자열과 **$filter** 의 조합에서 필터가 하위 집합을 만들면 쿼리 문자열이 필터링된 하위 집합에 대해 전체 텍스트 검색에 용어 입력을 제공합니다. 용어를 추가 (이동 거리 극장) 하면 결과에 검색 점수가 도입 됩니다. 여기에서 용어와 가장 일치 하는 문서는 더 높은 순위를 갖습니다. 쿼리 문자열에 필터를 사용 하는 것은 가장 일반적인 사용 패턴입니다.
 
+  ```http
+  {
+    "search": "walking distance theaters",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
+  }
+
++ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
+
    ```
-  search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
+   # <a name="match-on-hostels-rated-higher-than-4-or-5-star-motels"></a>4 개 또는 5 개의 별모양에서 5 개 보다 높은 등급의 hostels를 찾습니다.
+   $filter = 검색. ismatchscoring 매기기 (' hostel ') 및 등급 ge 4 또는 검색. ismatchscoring 매기기 (' motel ') 및 등급 eq 5
+
+   # <a name="match-on-luxury-or-high-end-in-the-description-field-or-on-category-exactly-equal-to-luxury"></a>설명 필드의 ' luxury ' 또는 ' high-end '에 대해 일치 하는 항목 또는 ' Luxury '와 정확 하 게 일치 하는 항목을 찾습니다.
+   $filter = 검색. ismatchscoring 매기기 (' luxury | high end ', ' Description ') 또는 Category eq ' Luxury ' &$count = true
    ```
 
-+ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. 와 결합 된 식은 `or` 개별적으로 평가 되 고 각 식과 일치 하는 문서의 합집합은 응답으로 다시 전송 됩니다. 이 사용 패턴은 함수를 통해 구현 됩니다 `search.ismatchscoring` . 또한 비 점수 매기기 버전를 사용할 수 있습니다 `search.ismatch` .
-
-   ```
-   # Match on hostels rated higher than 4 OR 5-star motels.
-   $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
-
-   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
-   $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
-   ```
-
-  대신를 사용 하는 필터를 통해 전체 텍스트 검색을 결합할 수도 `search.ismatchscoring` `and` `or` 있지만이는 `search` `$filter` 검색 요청에서 및 매개 변수를 사용 하는 것과 기능적으로 동일 합니다. 예를 들어 다음 두 쿼리는 동일한 결과를 생성 합니다.
+  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
 
   ```
-  $filter=search.ismatchscoring('pool') and Rating ge 4
+  $filter = 검색. ismatchscoring 매기기 (' pool ') 및 등급 ge 4
 
-  search=pool&$filter=Rating ge 4
+  검색 = 풀&$filter = 등급 ge 4
   ```
 
-특정 사용 사례에 대한 포괄적인 지침은 다음 문서를 참조하세요.
+Follow up with these articles for comprehensive guidance on specific use cases:
 
-+ [패싯 필터](search-filters-facets.md)
-+ [언어 필터](search-filters-language.md)
-+ [보안 조정](search-security-trimming-for-azure-search.md) 
++ [Facet filters](search-filters-facets.md)
++ [Language filters](search-filters-language.md)
++ [Security trimming](search-security-trimming-for-azure-search.md) 
 
-## <a name="field-requirements-for-filtering"></a>필터링을 위한 필드 요구 사항
+## Field requirements for filtering
 
-REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되어 있습니다. 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
+In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
 
-.NET SDK에서는 필터링 가능이 기본적으로 *해제* 되어 있습니다. 해당 [Searchfield](/dotnet/api/azure.search.documents.indexes.models.searchfield) 개체의 [isfilterable 가능 속성](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
+In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
 
 ```csharp
 [IsFilterable, IsSortable, IsFacetable]
@@ -151,7 +150,9 @@ public double? BaseRate { get; set; }
 
 ## <a name="text-filter-fundamentals"></a>텍스트 필터 기본 사항
 
-텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. 전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드가 "sunny day"를 포함 하는 경우는 `$filter=f eq 'Sunny'` 일치 하지 않지만는 일치 한다고 가정 `$filter=f eq 'sunny day'` 합니다. 
+텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. `$filter=Category eq 'Resort and Spa'`
+
+전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드가 "sunny day"를 포함 하는 경우는 `$filter=f eq 'Sunny'` 일치 하지 않지만는 일치 한다고 가정 `$filter=f eq 'sunny day'` 합니다. 
 
 텍스트 문자열은 대/소문자를 구분합니다. 대문자 단어의 소문자는 구분 되지 않습니다. `$filter=f eq 'Sunny day'` "sunny day"를 찾지 않습니다.
 

@@ -2,15 +2,15 @@
 title: 템플릿 사양 만들기 및 배포
 description: 템플릿 사양을 만들고 조직의 다른 사용자와 공유 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734918"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700391"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure Resource Manager 템플릿 사양 (미리 보기)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>버전 관리
+
+템플릿 사양을 만들 때이에 대 한 버전 이름을 제공 합니다. 템플릿 코드를 반복 하면 기존 버전을 업데이트 하거나 (핫픽스의 경우) 새 버전을 게시할 수 있습니다. 버전은 텍스트 문자열입니다. 의미 체계 버전 관리를 포함 하 여 모든 버전 관리 시스템을 따르도록 선택할 수 있습니다. 템플릿 사양의 사용자는 배포할 때 사용 하려는 버전 이름을 제공할 수 있습니다.
+
+## <a name="use-tags"></a>태그 사용
+
+[태그](../management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. Azure PowerShell 및 Azure CLI를 사용 하 여 템플릿 사양에 태그를 추가할 수 있습니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+지정 된 버전 매개 변수를 사용 하 여 템플릿 사양을 만들거나 수정할 때 태그/태그 매개 변수를 사용 하지 않습니다.
+
+- 템플릿 사양이 있고 태그가 있지만 버전이 존재 하지 않는 경우 새 버전은 기존 템플릿 사양으로 동일한 태그를 상속 합니다.
+
+태그/태그 매개 변수 및 지정 된 버전 매개 변수를 모두 사용 하 여 템플릿 사양을 만들거나 수정할 때:
+
+- 템플릿 사양 및 버전이 모두 없으면 새 템플릿 사양 및 새 버전 모두에 태그가 추가 됩니다.
+- 템플릿 사양이 있지만 버전이 없으면 태그는 새 버전에만 추가 됩니다.
+- 템플릿 사양 및 버전이 모두 있는 경우 태그는 버전에만 적용 됩니다.
+
+태그/태그 매개 변수를 지정 하 여 템플릿을 수정할 때 version 매개 변수를 지정 하지 않으면 태그는 템플릿 사양에만 추가 됩니다.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 
 템플릿 사양의 기본 템플릿이 연결 된 템플릿을 참조 하는 경우 PowerShell 및 CLI 명령은 로컬 드라이브에서 연결 된 템플릿을 자동으로 찾아 패키지할 수 있습니다. 템플릿 사양을 호스팅하도록 저장소 계정 또는 리포지토리를 수동으로 구성할 필요는 없습니다. 모든 항목은 템플릿 사양 리소스에 자체 포함 되어 있습니다.
@@ -331,10 +403,6 @@ az deployment group create \
 ```
 
 템플릿 사양을 연결 하는 방법에 대 한 자세한 내용은 [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](template-specs-deploy-linked-template.md)를 참조 하세요.
-
-## <a name="versioning"></a>버전 관리
-
-템플릿 사양을 만들 때이에 대 한 버전 이름을 제공 합니다. 템플릿 코드를 반복 하면 기존 버전을 업데이트 하거나 (핫픽스의 경우) 새 버전을 게시할 수 있습니다. 버전은 텍스트 문자열입니다. 의미 체계 버전 관리를 포함 하 여 모든 버전 관리 시스템을 따르도록 선택할 수 있습니다. 템플릿 사양의 사용자는 배포할 때 사용 하려는 버전 이름을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

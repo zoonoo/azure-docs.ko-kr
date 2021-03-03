@@ -1,19 +1,18 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493314"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699422"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
-Azure Policy는 리소스에 대한 규칙을 설정합니다. 정책 정의는 리소스 규정 준수 조건 및 [조건](#conditions) 충족 시 미치는 영향을 설명합니다. 조건은 리소스 속성 [필드](#fields) 또는 [값](#value) 을 필요한 값과 비교 합니다. 리소스 속성 필드에는 [별칭](#aliases)을 사용하여 액세스합니다. 리소스 속성 필드가 배열인 경우 특별 한 [배열 별칭](#understanding-the--alias) 을 사용 하 여 모든 배열 멤버의 값을 선택 하 고 각 멤버에 조건을 적용할 수 있습니다.
-[조건](#conditions)에 대해 자세히 알아보세요.
+Azure Policy는 리소스에 대한 규칙을 설정합니다. 정책 정의는 리소스 규정 준수 조건 및 [조건](#conditions) 충족 시 미치는 영향을 설명합니다. 조건은 리소스 속성 [필드](#fields) 또는 [값](#value) 을 필요한 값과 비교 합니다. 리소스 속성 필드에는 [별칭](#aliases)을 사용하여 액세스합니다. 리소스 속성 필드가 배열인 경우 특별 한 [배열 별칭](#understanding-the--alias) 을 사용 하 여 모든 배열 멤버의 값을 선택 하 고 각 멤버에 조건을 적용할 수 있습니다. [조건](#conditions)에 대해 자세히 알아보세요.
 
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책 할당은 자식 리소스에 의해 상속 됩니다. 정책 할당이 리소스 그룹에 적용 되는 경우 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
 
@@ -118,7 +117,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ## <a name="metadata"></a>메타데이터
 
-선택적 `metadata` 속성은 정책 정의에 대 한 정보를 저장 합니다. 고객은에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다 `metadata` . 그러나 Azure Policy 및 기본 제공에서 사용 하는 몇 가지 _공통_ 속성이 있습니다.
+선택적 `metadata` 속성은 정책 정의에 대 한 정보를 저장 합니다. 고객은에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다 `metadata` . 그러나 Azure Policy 및 기본 제공에서 사용 하는 몇 가지 _공통_ 속성이 있습니다. 각 `metadata` 속성의 제한은 1024 자입니다.
 
 ### <a name="common-metadata-properties"></a>공통 메타 데이터 속성
 
@@ -148,7 +147,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
   - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
-  - `assignPermissions`: (선택 사항) 정책 할당 중에 Azure Portal에서 역할 할당을 만들도록 하려면 _true_ 로 설정합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당하려는 경우에 유용합니다. 정책에서 역할 정의당(또는 이니셔티브의 모든 정책에서 역할 정의당) 하나의 역할 할당이 있습니다. 매개 변수 값은 유효한 리소스 또는 범위여야 합니다.
+  - `assignPermissions`: (선택 사항) 정책 할당 중에 Azure Portal에서 역할 할당을 만들도록 하려면 _true_ 로 설정합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당하려는 경우에 유용합니다. 정책에는 역할 정의 당 하나의 역할 할당 (또는 이니셔티브의 모든 정책에 있는 역할 별 정의)이 있습니다. 매개 변수 값은 유효한 리소스 또는 범위여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
   할당된 기존 정책 정의를 업데이트할 때 필요합니다.
 - `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다.
@@ -286,15 +285,13 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **less**, **lessOrEquals**, **greater**, **greaterOrEquals** 의 경우, 속성 유형이 조건 유형과 일치하지 않으면 오류가 발생합니다. 문자열 비교는 `InvariantCultureIgnoreCase`를 사용하여 수행됩니다.
 
-**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
-값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
+**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다. 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
 **match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`을, 문자 하나를 일치시키려면 `?`를, 임의 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. **Match** 및 **notmatch** 는 대/소문자를 구분 하지만 _stringValue_ 을 평가 하는 다른 모든 조건은 대/소문자를 구분 하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively** 에서 확인할 수 있습니다.
 
 ### <a name="fields"></a>필드
 
-리소스 요청 페이로드의 속성 값이 특정 기준을 충족 하는지 여부를 평가 하는 조건은 **필드** 식을 사용 하 여 지정할 수 있습니다.
-다음 필드가 지원됩니다.
+리소스 요청 페이로드의 속성 값이 특정 기준을 충족 하는지 여부를 평가 하는 조건은 **필드** 식을 사용 하 여 지정할 수 있습니다. 다음 필드가 지원됩니다.
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > `tags.<tagName>`, `tags[tagName]` 및 `tags[tag.with.dots]`도 여전히 허용되는 태그 필드 선언 방법입니다. 그러나 기본 식은 위에 나열된 식입니다.
 
 > [!NOTE]
-> **\[ \* \] 별칭** 을 참조 하는 **필드** 식에서 배열의 각 요소는 논리적 **and** between 요소를 사용 하 여 개별적으로 평가 됩니다.
-> 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
+> **\[ \* \] 별칭** 을 참조 하는 **필드** 식에서 배열의 각 요소는 논리적 **and** between 요소를 사용 하 여 개별적으로 평가 됩니다. 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
 
 #### <a name="use-tags-with-parameters"></a>매개 변수와 함께 태그 사용
 
@@ -472,6 +468,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 **필드 개수** 식이 계산 되는 방법에 대 한 자세한 설명을 포함 하 여 Azure Policy에서 배열 속성으로 작업 하는 방법에 대 한 자세한 내용은 [배열 리소스 속성 참조](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)를 참조 하세요.
 
 #### <a name="value-count"></a>값 개수
+
 배열에서 조건을 충족 하는 멤버 수를 계산 합니다. 배열은 리터럴 배열 이거나 [배열 매개 변수에 대 한 참조일](#using-a-parameter-value)수 있습니다. **값 개수** 식의 구조는 다음과 같습니다.
 
 ```json
@@ -600,7 +597,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 }
 ```
 
-예제 6: `current()` 조건 내에서 함수를 사용 `where` 하 여 템플릿 함수에서 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크가 10.0.0.0/24 CIDR 범위에 속하지 않는 주소 접두사를 포함 하는지 여부를 확인 합니다.
+예제 6: `current()` 조건 내에서 함수를 사용 `where` 하 여 템플릿 함수에서 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크에 10.0.0.0/24 CIDR 범위에 없는 주소 접두사가 포함 되어 있는지 여부를 확인 합니다.
 
 ```json
 {
@@ -615,7 +612,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 }
 ```
 
-예제 7: `field()` 조건 내에서 함수 `where` 를 사용 하 여 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크가 10.0.0.0/24 CIDR 범위에 속하지 않는 주소 접두사를 포함 하는지 여부를 확인 합니다.
+예제 7: `field()` 조건 내에서 함수 `where` 를 사용 하 여 현재 열거 된 배열 멤버의 값에 액세스 합니다. 이 조건은 가상 네트워크에 10.0.0.0/24 CIDR 범위에 없는 주소 접두사가 포함 되어 있는지 여부를 확인 합니다.
 
 ```json
 {
@@ -769,7 +766,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 - **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
 - **DeployIfNotExists**: 관련 리소스가 아직 없으면 배포합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
-- **Modify**: 리소스에서 정의된 태그를 추가, 업데이트 또는 제거합니다.
+- **수정**: 리소스 또는 구독에서 정의 된 태그를 추가, 업데이트 또는 제거 합니다.
 - **EnforceOPAConstraint** (사용 되지 않음): Azure에서 자체 관리 되는 Kubernetes 클러스터에 대 한 게이트 키퍼 V3로 열린 정책 에이전트 입학 컨트롤러를 구성 합니다.
 - **EnforceRegoPolicy** (사용 되지 않음): Azure Kubernetes Service에서 게이트 키퍼 v 2로 개방 된 정책 에이전트 입학 컨트롤러를 구성 합니다.
 
@@ -822,18 +819,18 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **범위**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
-    - **Targetrange**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
+  - **범위**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
+  - **Targetrange**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
 
-    지정 된 IP 주소 범위에 대상 IP 주소 범위가 포함 되어 있는지 여부를 반환 합니다. 빈 범위 또는 IP 제품군 간 혼합은 허용 되지 않으며 평가 오류가 발생 합니다.
+  지정 된 IP 주소 범위에 대상 IP 주소 범위가 포함 되어 있는지 여부를 반환 합니다. 빈 범위 또는 IP 제품군 간 혼합은 허용 되지 않으며 평가 오류가 발생 합니다.
 
-    지원 되는 형식:
-    - 단일 IP 주소 (예: `10.0.0.0` , `2001:0DB8::3:FFFE` )
-    - CIDR 범위 (예: `10.0.0.0/24` , `2001:0DB8::/110` )
-    - 시작 IP 주소와 끝 IP 주소에 의해 정의 된 범위 (예: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+  지원 되는 형식:
+  - 단일 IP 주소 (예: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+  - CIDR 범위 (예: `10.0.0.0/24` , `2001:0DB8::/110` )
+  - 시작 IP 주소와 끝 IP 주소에 의해 정의 된 범위 (예: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
 - `current(indexName)`
-    - [Count 식](#count)내 에서만 사용할 수 있는 특수 함수입니다.
+  - [Count 식](#count)내 에서만 사용할 수 있는 특수 함수입니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
@@ -918,7 +915,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `ipRules`배열의 요소입니다. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | 배열의 각 요소에 대 한 속성 값입니다 `action` `ipRules` . |
 
-[필드](#fields) 조건에서 사용 하는 경우 배열 별칭을 사용 하면 각 개별 배열 요소를 대상 값과 비교할 수 있습니다. [개수](#count) 식과 함께 사용 하는 경우 다음을 수행할 수 있습니다.
+[필드](#fields) 조건에서 사용 하는 경우 배열 별칭을 사용 하 여 각 개별 배열 요소를 대상 값과 비교할 수 있습니다. [개수](#count) 식과 함께 사용 하는 경우 다음을 수행할 수 있습니다.
 
 - 배열의 크기를 확인 합니다.
 - 배열 요소의 all\any\none이 복잡 한 조건을 충족 하는지 확인 합니다.

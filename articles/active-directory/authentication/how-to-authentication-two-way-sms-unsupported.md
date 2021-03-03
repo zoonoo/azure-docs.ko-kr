@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662762"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689031"
 ---
 # <a name="two-way-sms-unsupported"></a>양방향 SMS가 지원 되지 않음
 
@@ -27,7 +27,7 @@ MFA (Azure AD Multi-Factor Authentication) 서버용 양방향 SMS는 원래 201
 ## <a name="required-actions"></a>필요한 작업
 
 1. 사용자가 아직 수행 하지 않은 경우 모바일 앱을 사용 하도록 설정 합니다. 자세한 내용은 [MFA 서버를 사용 하 여 모바일 앱 인증 사용](howto-mfaserver-deploy-mobileapp.md)을 참조 하세요.
-1. 최종 사용자에 게 MFA 서버 [사용자 포털](howto-mfaserver-deploy-userportal.md) 을 방문 하 여 모바일 앱을 활성화 하도록 알립니다. [Microsoft Authenticator 앱](https://www.microsoft.com/account/authenticator) 은 양방향 SMS 보다 안전 하기 때문에 권장 되는 확인 옵션입니다. 자세한 내용은 [인증을 위해 전화 전송에서 중단 하는 시간을](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)참조 하세요.
+1. 최종 사용자에 게 MFA 서버 [사용자 포털](howto-mfaserver-deploy-userportal.md) 을 방문 하 여 모바일 앱을 활성화 하도록 알립니다. [Microsoft Authenticator 앱](https://www.microsoft.com/en-us/account/authenticator) 은 양방향 SMS 보다 안전 하기 때문에 권장 되는 확인 옵션입니다. 자세한 내용은 [인증을 위해 전화 전송에서 중단 하는 시간을](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)참조 하세요.
 1. 사용자 설정을 양방향 텍스트 메시지에서 모바일 앱으로 기본 방법으로 변경 합니다.
 
 ## <a name="faq"></a>FAQ

@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367842"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688351"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>권한 있는 액세스 그룹 (미리 보기)을 Privileged Identity Management로 가져오기
 
@@ -44,6 +44,12 @@ Azure AD (Azure Active Directory)에서 클라우드 그룹에 Azure AD 기본 �
 
 > [!NOTE]
 > 권한 있는 액세스 그룹을 관리 한 후에는 관리를 수행할 수 없습니다. 이렇게 하면 다른 리소스 관리자가 Privileged Identity Management 설정을 제거할 수 없습니다.
+>
+
+> [!IMPORTANT]
+> 권한 있는 액세스 그룹이 Azure Active Directory에서 삭제 되는 경우 권한 있는 액세스 그룹 (미리 보기) 블레이드에서 그룹이 제거 되는 데 최대 24 시간이 걸릴 수 있습니다. 
+>
+
 
 ## <a name="next-steps"></a>다음 단계
 

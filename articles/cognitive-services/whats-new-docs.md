@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 02/08/2021
-ms.openlocfilehash: 92d75289fd4459db8c469a4cb562fe28e8aab779
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1cea159e6939463352102d7d3ff3dafbdea71b5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710325"
 ---
 # <a name="cognitive-services-docs-whats-new-for-january-1-2021---january-31-2021"></a>Cognitive Services docs: 2021 년 1 월 1 일, 2021 년 1 월 31 일의 새로운 기능
 
@@ -29,31 +29,31 @@ ms.locfileid: "99989007"
 
 **새 문서**
 
-- [자습서: Azure Data Factory를 사용하여 데이터 대량 복사](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
+- [자습서: Azure Data Factory를 사용하여 데이터 대량 복사](./form-recognizer/tutorial-bulk-processing.md)
 
 **업데이트된 문서**
 
-- [Form Recognizer란?](/azure/cognitive-services/form-recognizer/overview.md)
+- [Form Recognizer란?](./form-recognizer/overview.md)
 
-## <a name="immersive-reader"></a>몰입형 리더
+## <a name="immersive-reader"></a>몰입형 판독기
 
 **업데이트된 문서**
 
-- [몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성](./immersive-reader/how-to-create-immersive-reader.md)
 
 ## <a name="personalizer"></a>Personalizer
 
 **업데이트된 문서**
 
-- [기능은 작업 및 컨텍스트에 관한 정보입니다.](/azure/cognitive-services/personalizer/concepts-features.md)
+- [기능은 작업 및 컨텍스트에 관한 정보입니다.](./personalizer/concepts-features.md)
 
-## <a name="text-analytics"></a>Text Analytics
+## <a name="text-analytics"></a>텍스트 분석
 
 **업데이트된 문서**
 
-- [텍스트 분석 API v3 언어 지원](/azure/cognitive-services/text-analytics/language-support.md)
-- [텍스트 분석 API 버전 3(sp3)으로 마이그레이션](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Text Analytics API의 새로운 기능](/azure/cognitive-services/text-analytics/whats-new.md)
+- [텍스트 분석 API v3 언어 지원](./text-analytics/language-support.md)
+- [텍스트 분석 API 버전 3(sp3)으로 마이그레이션](./text-analytics/migration-guide.md)
+- [Text Analytics API의 새로운 기능](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 

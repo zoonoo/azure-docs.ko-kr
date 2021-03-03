@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732730"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731955"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다.
@@ -35,9 +35,10 @@ ms.locfileid: "98732730"
 
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>SSL 클라이언트 설정 확인 (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>TLS/SSL 클라이언트 설정 확인 (ASP.NET)
 
-Azure App Service 또는 가상 머신의 IIS에 호스트 된 ASP.NET 응용 프로그램이 있는 경우 SSL 보안 프로토콜이 누락 되어 응용 프로그램에서 스냅숏 디버거 서비스에 연결 하지 못할 수 있습니다.
+Azure App Service 또는 가상 머신의 IIS에서 호스트 되는 ASP.NET 응용 프로그램이 있는 경우 SSL 보안 프로토콜이 누락 되어 응용 프로그램에서 스냅숏 디버거 서비스에 연결 하지 못할 수 있습니다.
+
 [스냅숏 디버거 끝점에는 TLS 버전 1.2이 필요](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json)합니다. SSL 보안 프로토콜 집합은 web.config의 system.web 섹션에서 httpRuntime targetFramework 값으로 사용 되는 특수 한 기능 중 하나입니다. HttpRuntime targetFramework가 4.5.2 이하인 경우 TLS 1.2는 기본적으로 포함 되지 않습니다.
 
 > [!NOTE]
@@ -64,6 +65,10 @@ Azure App Service 또는 가상 머신의 IIS에 호스트 된 ASP.NET 응용 �
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>진단 서비스 사이트 확장의 상태 페이지를 확인 합니다.
 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 스냅숏 디버거 사용 하도록 설정 된 경우 진단 서비스 사이트 확장에서 사용 하도록 설정 되었습니다.
+
+> [!NOTE]
+> Application Insights 스냅숏 디버거의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
+> 지원 되는 런타임에 대 한 자세한 내용은 [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
 
 다음 url로 이동 하 여이 확장의 상태 페이지를 확인할 수 있습니다. `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 

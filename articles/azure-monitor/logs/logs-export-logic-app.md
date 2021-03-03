@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 040c487df83c117e177b8a8b0e8fddde8682c67f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700646"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure storage로 데이터 보관
 이 문서에서는 [Azure Logic Apps](../../logic-apps/index.yml) 를 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에서 데이터를 쿼리하고 Azure Storage로 보내는 방법에 대해 설명 합니다. 감사 및 규정 준수 시나리오에 대 한 Azure Monitor 로그 데이터를 내보내야 하거나 다른 서비스에서이 데이터를 검색할 수 있도록 하려면이 프로세스를 사용 합니다.  
@@ -43,7 +43,7 @@ SecurityEvent
 다음은이 절차를 완료 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - Log Analytics 작업 영역. 논리 앱을 만드는 사용자에 게는 작업 영역에 대 한 읽기 이상의 권한이 있어야 합니다. 
-- Azure Storage 계정. 저장소 계정은 Log Analytics 작업 영역과 동일한 구독에 있을 필요가 없습니다. 논리 앱을 만드는 사용자에 게는 저장소 계정에 대 한 쓰기 권한이 있어야 합니다. 
+- Azure 저장소 계정. 저장소 계정은 Log Analytics 작업 영역과 동일한 구독에 있을 필요가 없습니다. 논리 앱을 만드는 사용자에 게는 저장소 계정에 대 한 쓰기 권한이 있어야 합니다. 
 
 
 ## <a name="connector-limits"></a>커넥터 제한
@@ -118,7 +118,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-**시간 범위** 는 **timegenerated** 열을 기반으로 쿼리에 포함 될 레코드를 지정 합니다. 쿼리에서 선택한 시간 범위 보다 크거나 같은 값으로 설정 해야 합니다. 이 쿼리는 **Timegenerated** 열을 사용 하지 않으므로 **쿼리에서 설정** 옵션을 사용할 수 없습니다. 시간 범위에 대 한 자세한 내용은 [쿼리 범위](../log-query/scope.md) 를 참조 하세요. 
+**시간 범위** 는 **timegenerated** 열을 기반으로 쿼리에 포함 될 레코드를 지정 합니다. 쿼리에서 선택한 시간 범위 보다 크거나 같은 값으로 설정 해야 합니다. 이 쿼리는 **Timegenerated** 열을 사용 하지 않으므로 **쿼리에서 설정** 옵션을 사용할 수 없습니다. 시간 범위에 대 한 자세한 내용은 [쿼리 범위](./scope.md) 를 참조 하세요. 
 
 **시간 범위** 에 대해 **마지막 4 시간** 을 선택 합니다. 이렇게 하면 수집 시간이 **Timegenerated** 보다 큰 모든 레코드가 결과에 포함 됩니다.
    
@@ -210,6 +210,6 @@ Azure Portal의 **저장소 계정** 메뉴로 이동 하 여 저장소 계정�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
+- [Azure Monitor의 로그 쿼리](./log-query-overview.md)에 대해 자세히 알아봅니다.
 - [Logic Apps](../../logic-apps/index.yml) 에 대 한 자세한 정보
 - [전원 자동화](https://flow.microsoft.com)에 대해 자세히 알아보세요.

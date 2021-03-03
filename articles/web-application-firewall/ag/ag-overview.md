@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879430"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701623"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -173,7 +173,7 @@ Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보
 
 #### <a name="azure-monitor-workbook-for-waf"></a>WAF용 Azure Monitor 통합 문서
 
-이 통합 문서를 사용하면 필터링 가능한 여러 패널에서 보안 관련 WAF 이벤트를 사용자 지정 시각화할 수 있습니다. Application Gateway, Front Door 및 CDN을 비롯한 모든 WAF 형식에서 작동하며 WAF 유형 또는 특정 WAF 인스턴스를 기반으로 필터링할 수 있습니다. ARM 템플릿 또는 갤러리 템플릿을 통해 가져옵니다. 이 통합 문서를 배포하려면 [WAF 통합 문서](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook)를 참조하세요.
+이 통합 문서를 사용하면 필터링 가능한 여러 패널에서 보안 관련 WAF 이벤트를 사용자 지정 시각화할 수 있습니다. Application Gateway, Front Door 및 CDN을 비롯한 모든 WAF 형식에서 작동하며 WAF 유형 또는 특정 WAF 인스턴스를 기반으로 필터링할 수 있습니다. ARM 템플릿 또는 갤러리 템플릿을 통해 가져옵니다. 이 통합 문서를 배포하려면 [WAF 통합 문서](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook)를 참조하세요.
 
 #### <a name="logging"></a>로깅
 

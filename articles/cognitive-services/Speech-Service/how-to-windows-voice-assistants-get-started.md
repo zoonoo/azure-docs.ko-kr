@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026491"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713051"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Windows에서 음성 도우미 시작
 
@@ -34,7 +34,7 @@ Windows 용 음성 도우미 개발을 시작 하려면 적절 한 개발 환경
 
 Windows에서 완전히 사용자 지정 된 음성 에이전트에 필요한 일부 리소스에는 Microsoft의 리소스가 필요 합니다. [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 은 초기 개발 및 테스트를 위해 이러한 리소스의 샘플 버전을 제공 하므로 초기 개발에는이 섹션이 필요 하지 않습니다.
 
-- **키워드 모델:** 음성 활성화를 사용 하려면 bin 파일 형식의 Microsoft 키워드 모델을 사용 해야 합니다. UWP Voice Assistant 샘플에 제공 된 bin 파일은 "Contoso" 키워드에 대해 학습 됩니다.
+- **키워드 모델:** 음성 활성화를 사용 하려면 bin 파일 형식의 Microsoft 키워드 모델을 사용 해야 합니다. UWP Voice Assistant 샘플에 제공 된 bin 파일은 *Contoso* 키워드에 대해 학습 됩니다.
 - **제한 된 액세스 기능 토큰:** ConversationalAgent Api는 마이크 오디오에 대 한 액세스를 제공 하므로 제한 된 액세스 기능 제한에서 보호 됩니다. 제한 된 액세스 기능을 사용 하려면 Microsoft에서 응용 프로그램의 패키지 id에 연결 된 제한 된 액세스 기능 토큰을 가져와야 합니다.
 
 ## <a name="establish-a-dialog-service"></a>대화 상자 서비스 설정

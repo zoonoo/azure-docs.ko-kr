@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f1e56c38353b43faf600fdd8e6405eced7f1b8a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580466"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720565"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -53,7 +53,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](https://azuredatacentermap.azurewebsites.net/)(영문)|
 | [침투 테스트](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [침입 검색, DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [감사 및 로깅](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [조건부 데이터 액세스 제공](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Cloud Services 실사 검사 목록](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)(영문) |[데이터에 누가 그리고 어떤 조건으로 액세스할 수 있는가](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [세계 첨단의 데이터 센터](https://www.microsoft.com/cloud-platform/global-datacenters), 물리적 보안, [네트워크 보안](network-overview.md) | [사법 기관에 대한 응답](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)(영문) |  [서비스별, 지역별 및 산업별 규정 준수](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/trustcenter/Transparency/default.aspx)(영문)|
-|  [보안 사고 대응](https://aka.ms/SecurityResponsepaper)(영문), [공동 책임](./shared-responsibility.md)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/trustcenter/Compliance/default.aspx)(영문)|
+|  [보안 사고 대응](/samples/browse/?redirectedfrom=TechNet-Gallery)(영문), [공동 책임](./shared-responsibility.md)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/trustcenter/Compliance/default.aspx)(영문)|
 
 ### <a name="features-to-secure-data-and-application"></a>데이터 및 응용 프로그램을 보호 하는 기능
 클라우드 서비스 모델에 따라 애플리케이션 또는 서비스에 대한 보안 관리 담당자의 책임이 달라질 수 있습니다. Azure 플랫폼에는 기본 제공 기능 및 Azure 구독에 배포할 수 있는 파트너 솔루션을 통해 이러한 책임을 이행하는 데 도움이 되는 기능이 있습니다.
@@ -68,7 +68,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](/archive/blogs/robdavies/simple-look-at-oms-alert-remediation-with-runbooks-part-1)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager
+### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](/archive/blogs/canitpro/devops-basics-infrastructure-as-code-arm-templates)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.

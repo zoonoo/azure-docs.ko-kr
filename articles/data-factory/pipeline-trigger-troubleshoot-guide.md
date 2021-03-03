@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944910"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705996"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -78,13 +78,32 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 1. [파이프라인 오류 및 오류를 처리 하는 방법에](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)따라 활동 수준 검사를 구현 합니다.
 1. Azure Logic Apps를 사용 하 여 [팩터리에서 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)다음에 정기적인 간격으로 파이프라인을 모니터링할 수 있습니다.
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>정기적으로 파이프라인 오류 모니터링
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>정기적으로 파이프라인 오류를 모니터링 하는 방법
 
 5 분 이라는 간격으로 실패 한 Data Factory 파이프라인을 모니터링 해야 할 수도 있습니다. 끝점을 사용 하 여 데이터 팩터리에서 파이프라인 실행을 쿼리하고 필터링 할 수 있습니다. 
 
-[팩터리에 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)에 설명 된 대로 5 분 마다 실패 한 모든 파이프라인을 쿼리하려면 Azure 논리 앱을 설정 합니다. 그런 다음 티켓 시스템에 인시던트를 보고할 수 있습니다.
+**해결 방법** [팩터리에 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)에 설명 된 대로 5 분 마다 실패 한 모든 파이프라인을 쿼리하도록 Azure 논리 앱을 설정할 수 있습니다. 그런 다음 티켓 시스템에 인시던트를 보고할 수 있습니다.
 
 자세한 내용은 [Data Factory에서 알림 보내기, 파트 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)를 참조 하세요.
+
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>병렬 처리 수준 증가로 인해 처리량이 더 높지 않습니다.
+
+**원인** 
+
+*ForEach* 의 병렬 처리 수준은 실제로 최대 병렬 처리 수준입니다. 특정 횟수의 실행이 동시에 발생 하는 것을 보장할 수는 없지만이 매개 변수는 설정 된 값을 초과 하지 않도록 보장 합니다. 소스 및 싱크에 대 한 동시 액세스를 제어할 때 활용할 수 있도록이를 제한으로 표시 해야 합니다.
+
+*ForEach* 에 대 한 알려진 팩트
+ * Foreach에는 배치 수 (n) 라는 속성이 있습니다. 여기서 기본값은 20이 고 최대값은 50입니다.
+ * 일괄 처리 수 n은 n 개 큐를 구성 하는 데 사용 됩니다. 이러한 큐가 생성 되는 방법에 대 한 자세한 내용은 뒷부분에서 설명 합니다.
+ * 모든 큐는 순차적으로 실행 되지만 여러 큐를 병렬로 실행할 수 있습니다.
+ * 큐는 미리 생성 됩니다. 즉, 런타임 중에 큐의 균형을 다시 조정 하지 않습니다.
+ * 언제 든 지 큐 당 최대 하나의 항목만 처리할 수 있습니다. 이는 지정 된 시간에 최대 n 개의 항목이 처리 됨을 의미 합니다.
+ * Foreach 총 처리 시간은 가장 긴 큐의 처리 시간과 같습니다. 즉, foreach 활동은 큐가 생성 되는 방법에 따라 달라 집니다.
+ 
+**해결 방법**
+
+ * 병렬로 실행 되는 *각에 대해* *setvariable* 활동을 사용 하면 안 됩니다.
+ * 큐가 생성 되는 방식을 고려 하 여 고객은 각 foreach에 비슷한 처리 시간이 있는 항목을 포함 하는 여러 *foreaches* 를 설정 하 여 foreach 성능을 향상 시킬 수 있습니다. 이렇게 하면 장기 실행이 순차적으로 병렬로 처리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

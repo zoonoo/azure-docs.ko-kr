@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384965"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688368"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "100384965"
 
 > [!IMPORTANT]
 > * Kubernetes의 지원 되는 최소 버전은 v 1.17입니다. 자세한 내용은 [알려진 문제](./release-notes.md#known-issues) 를 참조 하세요. 
-> * 지원 되는 최소 버전의 OCP는 4.3입니다.
+> * 지원 되는 최소 버전의 OCP는 4.5입니다.
 > * 환경 및 Azure 간에 필요한 연결을 이해 하려면 [연결 요구 사항](connectivity.md) 을 참조 하세요.
 > * 영구 저장소를 구성 하는 방법에 대 한 세부 정보를 이해 하려면 [저장소 구성 지침](storage-configuration.md) 을 참조 하세요.
 > * Azure Kubernetes Service를 사용 하는 경우 클러스터의 작업자 노드 VM 크기는 **Standard_D8s_v3** 이상 이어야 하며 **프리미엄 디스크** 를 사용 해야 합니다. 클러스터가 여러 가용성 영역에 걸쳐 있지 않아야 합니다. 

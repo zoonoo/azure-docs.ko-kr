@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522566"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712762"
 ---
 # <a name="get-started-with-defender-for-iot"></a>IoT 용 Defender 시작
 
@@ -69,6 +69,8 @@ IoT 용 Azure Defender는 물리적 및 가상 배포를 모두 지원 합니다
 1. **등록 구독** 을 선택 합니다.
 1. **가격 책정** 페이지에서 구독을 선택 하거나 새 구독을 만들고 커밋된 장치 수를 추가 합니다.
 1. **온-프레미스 관리 콘솔 다운로드** 탭을 선택 하 고 다운로드 한 활성화 파일을 저장 합니다. 이 파일에는 사용자가 정의한 집계 된 커밋된 장치가 포함 되어 있습니다. 초기 로그인 후에 관리 콘솔에 파일이 업로드 됩니다.
+
+구독을 오프 하는 방법에 대 한 자세한 내용은 [등록 취소 a subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription)을 참조 하세요.
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. 온-프레미스 관리 콘솔 설치 및 설정
 
@@ -126,8 +128,9 @@ Azure Defender for IoT 포털에서 ISO 패키지를 다운로드 하 고, 소�
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. 경고 정보를 사용 하 여 Azure 센티널 채우기 (선택 사항)
 
 Azure 센티널을 구성 하 여 경고 정보를 Azure 센티널로 보냅니다. [IoT 용 Defender의 데이터를 Azure 센티널에 연결을](how-to-configure-with-sentinel.md)참조 하세요.
-## <a name="next-steps"></a>다음 단계
 
-[IoT 용 Azure Defender 시작](overview.md)
+## <a name="see-also"></a>참고 항목
 
-[IoT 용 Azure Defender 아키텍처](architecture.md)
+- [IoT 용 Azure Defender 시작](overview.md)
+
+- [IoT 용 Azure Defender 아키텍처](architecture.md)

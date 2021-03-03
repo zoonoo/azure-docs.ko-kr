@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: f992f7d4295f380e4b1f2b13cc5da33df89354ab
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: c2edf11939996156c2b589b0b7876ae1b01466e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740820"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Front 도어 Standard/Premium SKU (미리 보기) 사용자 지정 도메인에서 HTTPS 구성
 
@@ -29,7 +29,7 @@ Azure Front 도어 Standard/Premium은 Azure 관리 되는 인증서 및 고객 
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [**Microsoft Azure Preview에 대한 추가 사용 약관**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 사용자 지정 도메인에 대해 HTTPS를 구성 하려면 먼저 Azure Front 도어 표준/프리미엄 프로필을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Front 도어 표준/프리미엄 프로필 만들기](create-front-door-portal.md)를 참조 하세요.
 
@@ -78,7 +78,7 @@ PowerShell을 통해 Azure Active Directory에서 Azure Front Door의 서비스 
 
 1. PowerShell에서 다음 명령을 실행합니다.
 
-     `New-AzADServicePrincipal -ApplicationId 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8""`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
 
 #### <a name="grant-azure-front-door-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door 액세스 권한 부여
  

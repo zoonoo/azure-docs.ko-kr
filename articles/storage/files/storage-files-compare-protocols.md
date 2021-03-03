@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916510"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711844"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
@@ -26,16 +26,17 @@ Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 �
 |액세스 프로토콜     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |권장 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
 |[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
+|청구 모델         |[프로 비전 된 용량에 대 한 비용 지불](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[프리미엄 계층에 대해 프로 비전 된 용량에 대 한 지불](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), [표준 계층에 대 한 종 량](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model) 제         |
 |[중복](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
 |사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
 |파일 시스템 의미 체계     |POSIX 규격         |POSIX 규격이 아님         |
 |대/소문자 구분     |대/소문자 구분         |대/소문자 구분하지 않음         |
-|하드 링크 지원     |지원 여부         |지원되지 않음         |
-|기호화 된 링크 지원     |지원 여부         |지원되지 않음         |
-|열려 있는 파일 삭제 또는 수정     |지원 여부         |지원되지 않음         |
-|잠금     |바이트 범위 advise 네트워크 잠금 관리자         |지원 여부         |
-|공용 IP 안전 목록 | 지원되지 않음 | 지원 여부|
+|하드 링크 지원     |지원됨         |지원되지 않음         |
+|기호화 된 링크 지원     |지원됨         |지원되지 않음         |
+|열려 있는 파일 삭제 또는 수정     |지원됨         |지원되지 않음         |
+|잠금     |바이트 범위 advise 네트워크 잠금 관리자         |지원됨         |
+|공용 IP 안전 목록 | 지원되지 않음 | 지원됨|
 |프로토콜 interop| 지원되지 않음 | FileREST|
 
 ## <a name="nfs-shares-preview"></a>NFS 공유 (미리 보기)

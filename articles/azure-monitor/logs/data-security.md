@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: e8ad1cda8f80b1dbbdd56fb47bbf6c22aff82729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 128a82fdc9b5a37258b5ca245a63bf52c050db26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713612"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -75,7 +75,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | **데이터 형식** | **필드** |
 | --- | --- |
 | 경고 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| 구성 |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
 | 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
@@ -183,12 +183,12 @@ Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 
 ## <a name="additional-security-features"></a>추가 보안 기능
 이러한 추가 보안 기능을 사용 하 여 Azure Monitor/Log Analytics 환경의 보안을 강화할 수 있습니다. 이러한 기능에는 더 많은 관리자 관리가 필요 합니다. 
 - [고객 관리 (보안) 키](../logs/customer-managed-keys.md) -고객이 관리 하는 키를 사용 하 여 Log Analytics 작업 영역으로 전송 되는 데이터를 암호화할 수 있습니다. Azure Key Vault를 사용 해야 합니다. 
-- [개인/고객이 관리 하는 저장소](../platform/private-storage.md) -개인적으로 암호화 된 저장소 계정을 관리 하 고 모니터링 데이터를 저장 하는 데 사용 하 Log Analytics에 게 알려 줍니다. 
-- [개인 링크 네트워킹](../platform/private-link-security.md) -Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 azure PaaS 서비스 (Azure Monitor 포함)를 가상 네트워크에 안전 하 게 연결할 수 있습니다. 
+- [개인/고객이 관리 하는 저장소](./private-storage.md) -개인적으로 암호화 된 저장소 계정을 관리 하 고 모니터링 데이터를 저장 하는 데 사용 하 Log Analytics에 게 알려 줍니다. 
+- [개인 링크 네트워킹](./private-link-security.md) -Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 azure PaaS 서비스 (Azure Monitor 포함)를 가상 네트워크에 안전 하 게 연결할 수 있습니다. 
 - Microsoft Azure에 대 한 [Azure 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) -고객 Lockbox 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure VM 빠른 시작](../learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  
+* [Azure VM 빠른 시작](../vm/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  
 
-*  사용자 환경에서 물리적 또는 가상 Windows 또는 Linux 컴퓨터로부터 데이터를 수집하려면 [Linux 컴퓨터용 빠른 시작](../vm/quick-collect-linux-computer.md) 또는 [Windows 컴퓨터용 빠른 시작](../learn/quick-collect-windows-computer.md)을 참조하세요.
+*  사용자 환경에서 물리적 또는 가상 Windows 또는 Linux 컴퓨터로부터 데이터를 수집하려면 [Linux 컴퓨터용 빠른 시작](../vm/quick-collect-linux-computer.md) 또는 [Windows 컴퓨터용 빠른 시작](../vm/quick-collect-windows-computer.md)을 참조하세요.

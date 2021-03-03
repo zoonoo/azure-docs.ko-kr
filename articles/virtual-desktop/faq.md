@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108510"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720276"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -23,7 +23,7 @@ ms.locfileid: "92108510"
 
 앱 그룹에 사용자 액세스 관리자 역할을 할당 하 여 사용자 또는 사용자 그룹에 앱 그룹을 게시 해야 합니다.
 
-사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다.
+사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 다음은 그 예입니다. 
 
 ```powershell
 "actions": [
@@ -56,7 +56,7 @@ Active Directory를 동일한 VNET (가상 네트워크)에서 사용자의 Azur
 
 PowerShell cmdlet을 실행 하면 리소스 이름과 위치만 표시 됩니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -68,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 리소스의 모든 속성을 보려면 `format-list` `fl` cmdlet의 끝에 또는를 추가 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -76,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 특정 속성을 보려면 또는 뒤에 특정 속성 이름을 추가 `format-list` 합니다 `fl` .
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -136,3 +136,7 @@ Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 
 또한 Windows 가상 데스크톱 서비스에서 CSP 샌드박스 구독을 사용할 수 없습니다. 자세히 알아보려면 [Integration sandbox 계정](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)을 참조 하세요.
 
 마지막으로, CSP 소유자 계정에서 리소스 공급자를 사용 하도록 설정한 경우 CSP 고객 계정은 리소스 공급자를 수정할 수 없습니다.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>등록 문제를 방지 하기 위해 Vm을 켜는 빈도
+
+Windows 가상 데스크톱 서비스 내의 호스트 풀에 VM을 등록 하면 vm이 활성화 될 때마다 에이전트가 VM의 토큰을 정기적으로 새로 고칩니다. 등록 토큰에 대 한 인증서는 90 일 동안 유효 합니다. 90 일 제한 때문에 90 일 마다 Vm을 시작 하는 것이 좋습니다. 이 시간 제한 내에서 VM을 켜면 등록 토큰이 만료 되거나 유효 하지 않게 됩니다. 90 일 후에 VM을 시작 하 고 등록 문제가 발생 한 경우 [Windows 가상 데스크톱 에이전트 문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) 의 지침에 따라 호스트 풀에서 vm을 제거 하 고, 에이전트를 다시 설치 하 고, 풀에 등록 합니다.

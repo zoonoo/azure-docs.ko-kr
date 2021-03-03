@@ -7,16 +7,17 @@ ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 8d350e248d09f29496f4461b902eba96d8375732
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4fe6df5a9eabc6e5088618039fdea450ee8314ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693852"
 ---
-# <a name="np-series-preview"></a>NP 시리즈 (미리 보기)
-
+# <a name="np-series-preview"></a>NP 시리즈 (미리 보기) 
 NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스 코딩 및 데이터베이스 검색 & 분석을 비롯 한 워크 로드를 가속화 하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) fpgas 구동 됩니다. NP 시리즈 Vm은 모든 코어 터보 클록 속도 3.2 g h z를 사용 하 여 Intel Xeon 8171M (Skylake) Cpu로도 제공 됩니다.
+
+소개 시리즈 미리 보기 프로그램의 일부가 될 [미리 보기 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) 사용 하 여 요청을 제출 합니다.
 
 
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

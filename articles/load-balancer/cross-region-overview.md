@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742605"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 * 학습 곡선이 없는 [기존 부하 분산 장치 솔루션에 빌드](#build-cross-region-solution-on-existing-azure-load-balancer)
 
 > [!IMPORTANT]
-> 영역 간 부하 분산 장치는 현재 미리 보기 상태 이며 포털에서 배포할 수 있습니다. 에 로그인 하 여 **https://preview.portal.azure.com** 기능을 확인 하 고 배포 합니다. </br> </br>
+> 영역 간 부하 분산 장치는 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 지역 간 부하 분산은 지역 표준 부하 분산 장치 처럼 고성능 및 짧은 대기 시간으로 동일한 이점을 제공 합니다. 
@@ -79,7 +79,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>단일 끝점을 확장/축소 하는 기능
 
-지역 간 부하 분산 장치의 글로벌 끝점을 고객에 게 노출 하는 경우 고객에 게 영향을 주지 않고 글로벌 끝점 뒤에 지역 배포를 추가 하거나 제거할 수 있습니다. 
+지역 간 부하 분산 장치의 글로벌 끝점을 고객에 게 노출 하는 경우 중단 없이 전역 끝점 뒤에 지역 배포를 추가 하거나 제거할 수 있습니다. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,13 +94,13 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 항상 사용 가능한 지역 간 배포를 위해 지역 간 부하 분산 장치에 기존 부하 분산 장치 배포를 추가 합니다.
 
-**홈 지역은** 지역 간 부하 분산 장치를 배포 하는 위치입니다. 이 지역은 트래픽이 라우팅되는 방법에 영향을 주지 않습니다. 홈 지역이 중단 되 면 트래픽 흐름에 영향을 주지 않습니다.
+**홈 지역은** 지역 간 부하 분산 장치를 배포 하는 위치입니다. 이 지역은 트래픽이 라우팅되는 방법에 영향을 주지 않습니다. 홈 지역이 중단 되는 경우 트래픽 흐름은 영향을 받지 않습니다.
 
 ### <a name="home-regions"></a>홈 지역
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남 아시아
+* 동남아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남 아시아 
+* 동남아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -137,13 +137,13 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 * 지역 간 프런트 엔드 IP 구성은 공용 으로만 사용할 수 있습니다. 내부 프런트 엔드는 현재 지원 되지 않습니다.
 
-* 지역 간 부하 분산 장치의 백 엔드 풀에 개인 또는 내부 부하 분산 장치를 추가할 수 없습니다. 
+* 영역 간 부하 분산 장치의 백 엔드 풀에 개인 또는 내부 부하 분산 장치를 추가할 수 없습니다. 
 
 * 영역 간 IPv6 프런트 엔드 IP 구성은 지원 되지 않습니다. 
 
 * 상태 프로브는 현재 구성할 수 없습니다. 기본 상태 프로브는 20 초 마다 지역 부하 분산 장치에 대 한 가용성 정보를 자동으로 수집 합니다. 
 
-* AKS (Azure kubernetes Service)는 현재 교차 지역 Load Balancer와 통합할 수 없습니다. AKS를 사용 하 여 배포 된 공용 Load Balancer 앞에 지역 간 Load Balancer를 설정 하는 경우 연결 손실이 예상 됩니다.
+* Azure Kubernetes Service (AKS)와의 통합을 현재 사용할 수 없습니다. AKS 공용 부하 분산 장치를 사용 하 여 지역 간 부하 분산 장치를 배포 하는 경우 연결 손실이 발생 합니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 지역 간 부하 분산 장치는 표준 부하 분산 장치의 [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) 를 공유 합니다.

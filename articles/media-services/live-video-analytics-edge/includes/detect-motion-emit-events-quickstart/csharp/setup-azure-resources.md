@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99531781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750539"
 ---
 이 자습서를 사용하려면 다음과 같은 Azure 리소스가 필요합니다.
 
@@ -36,10 +36,10 @@ ms.locfileid: "99531781"
     1. **네트워크 인터페이스** - 이를 통해 Azure Virtual Machine이 인터넷, Azure 및 기타 리소스와 통신할 수 있습니다.
     1. **Azure Bastion** - 이를 통해 브라우저와 Azure Portal을 사용하여 가상 머신에 연결할 수 있습니다.
     1. **공용 IP 주소** - 이를 통해 Azure 리소스에서 인터넷 및 공용 Azure 서비스에 통신할 수 있습니다.
-    1. **가상 네트워크** - 이를 통해 가상 머신과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 대한 자세한 정보
+    1. **가상 네트워크** - 이를 통해 가상 머신과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. [가상 네트워크](../../../../../virtual-network/virtual-networks-overview.md)에 대한 자세한 정보
     1. **IoT Hub** - IoT 애플리케이션, IoT Edge 및 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
     1. **미디어 서비스 계정** - Azure에서 미디어 콘텐츠를 관리하고 스트리밍하는 데 도움이 됩니다.
-    1. **스토리지 계정** - 하나의 기본 스토리지 계정이 있어야 하며 Media Services 계정과 연결된 보조 스토리지 계정은 여러 개 있을 수 있습니다. 자세한 내용은 [Azure Media Services 계정이 있는 Azure Storage 계정](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept)을 참조하세요.
+    1. **스토리지 계정** - 하나의 기본 스토리지 계정이 있어야 하며 Media Services 계정과 연결된 보조 스토리지 계정은 여러 개 있을 수 있습니다. 자세한 내용은 [Azure Media Services 계정이 있는 Azure Storage 계정](../../../../latest/storage-account-concept.md)을 참조하세요.
     1. **컨테이너 레지스트리** - 프라이빗 Docker 컨테이너 이미지 및 관련 아티팩트를 저장하고 관리하는 데 도움이 됩니다.
 
 1. 스크립트가 완료되면 중괄호를 선택하여 폴더 구조를 표시합니다. *~/clouddrive/lva-sample* 디렉터리에 몇 개의 파일이 표시됩니다. 이 빠른 시작에서 유의해야 할 사항은 다음과 같습니다.

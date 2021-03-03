@@ -1,41 +1,41 @@
 ---
-title: 데이터 컬렉션 규칙을 사용하여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)
-description: 리소스 관리자 템플릿을 사용 하 여 대규모로 VM용 Azure Monitor 게스트 상태에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
+title: 데이터 수집 규칙을 사용 하 여 VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
+description: 리소스 관리자 템플릿을 사용 하 여 대규모로 VM insights 게스트 상태에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731224"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>데이터 컬렉션 규칙을 사용하여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)
-[VM용 Azure Monitor 게스트 상태](vminsights-health-overview.md) 를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 데이터 수집 규칙을 사용 하 여 여러 가상 컴퓨터에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>데이터 수집 규칙을 사용 하 여 VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
+[VM insights 게스트 상태](vminsights-health-overview.md) 를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 데이터 수집 규칙을 사용 하 여 여러 가상 컴퓨터에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
 
 
 ## <a name="monitors"></a>모니터
-가상 컴퓨터의 상태는 각 모니터의 [상태 롤업에](vminsights-health-overview.md#health-rollup-policy) 따라 결정 됩니다. 다음 표에 표시 된 것 처럼 VM용 Azure Monitor 게스트 상태에는 두 가지 유형의 모니터가 있습니다.
+가상 컴퓨터의 상태는 각 모니터의 [상태 롤업에](vminsights-health-overview.md#health-rollup-policy) 따라 결정 됩니다. 다음 표에 표시 된 것 처럼 VM insights 게스트 상태에는 두 가지 유형의 모니터가 있습니다.
 
-| 모니터 | 설명 |
+| 모니터 | Description |
 |:---|:---|
 | 유닛 모니터 | 리소스 또는 애플리케이션의 일부 측면을 측정합니다. 리소스의 성능 또는 가용성을 확인하기 위해 성능 카운터를 검사할 수 있습니다. |
 | 집계 모니터 | 여러 모니터를 그룹화하여 집계된 단일 성능 상태를 제공합니다. 집계 모니터에는 하나 이상의 단위 모니터와 기타 집계 모니터가 포함될 수 있습니다. |
 
-VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모니터 집합은 직접 변경할 수 없습니다. 기본 구성의 동작을 수정 하는 경우 [재정의](#overrides) 를 만들 수 있습니다. 재정의는 데이터 수집 규칙에 정의 되어 있습니다. 필요한 모니터링 구성을 얻기 위해 여러 재정의를 포함 하는 여러 데이터 수집 규칙을 만들 수 있습니다.
+VM insights 게스트 상태 및 해당 구성에서 사용 하는 모니터 집합은 직접 변경할 수 없습니다. 기본 구성의 동작을 수정 하는 경우 [재정의](#overrides) 를 만들 수 있습니다. 재정의는 데이터 수집 규칙에 정의 되어 있습니다. 필요한 모니터링 구성을 얻기 위해 여러 재정의를 포함 하는 여러 데이터 수집 규칙을 만들 수 있습니다.
 
 ## <a name="monitor-properties"></a>모니터 속성
 다음 표에서는 각 모니터에서 구성할 수 있는 속성에 대해 설명 합니다.
 
-| 속성 | 모니터 | 설명 |
+| 속성 | 모니터 | Description |
 |:---|:---|:---|
 | 사용 | 집계<br>단위 | True 이면 상태 모니터가 계산 되어 가상 컴퓨터의 상태에 기여 합니다. 경고를 사용 하도록 설정 된 경고를 트리거할 수 있습니다. |
 | 경고 | 집계<br>단위 | True 이면 비정상 상태로 이동할 때 모니터에 대 한 경고가 트리거됩니다. False 이면 모니터의 상태는 여전히 경고를 트리거할 수 있는 가상 컴퓨터의 상태에 영향을 주지 않습니다. |
 | 경고 | 단위 | 경고 상태에 대 한 조건입니다. 없으면 모니터가 경고 상태를 입력 하지 않습니다. |
-| 중요 | 단위 | 위험 상태에 대 한 조건입니다. None 인 경우 모니터는 위험 상태로 전환 되지 않습니다. |
+| 위험 | 단위 | 위험 상태에 대 한 조건입니다. None 인 경우 모니터는 위험 상태로 전환 되지 않습니다. |
 | 평가 빈도 | 단위 | 성능 상태를 평가 하는 빈도입니다. |
 | Lookback | 단위 | Lookback 창의 크기 (초)입니다. 자세한 설명은 [Monitorconfiguration 요소](#monitorconfiguration-element) 를 참조 하세요. |
 | 평가 유형 | 단위 | 샘플 집합에서 사용할 값을 정의 합니다. 자세한 설명은 [Monitorconfiguration 요소](#monitorconfiguration-element) 를 참조 하세요. |
@@ -47,11 +47,11 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 다음 표에는 각 모니터의 기본 구성이 나열 되어 있습니다. 이 기본 구성은 직접 변경할 수 없지만 특정 가상 컴퓨터에 대 한 모니터 구성을 수정 하는 [재정의](#overrides) 를 정의할 수 있습니다.
 
 
-| 모니터 | 사용 | 경고 | 경고 | 중요 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
+| 모니터 | 사용 | 경고 | 경고 | 위험 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| CPU 사용률  | 참 | 거짓 | 없음 | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
-| 사용 가능한 메모리 | 참 | 거짓 | 없음 | \< 100 M B | 60초 | 240 초 | Max | 2 | 3 |
-| 파일 시스템      | 참 | 거짓 | 없음 | \< 100 M B | 60초 | 120 초 | Max | 1 | 1 |
+| CPU 사용률  | True | False | 없음 | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
+| 사용 가능한 메모리 | True | False | 없음 | \< 100 M B | 60초 | 240 초 | Max | 2 | 3 |
+| 파일 시스템      | True | False | 없음 | \< 100 M B | 60초 | 120 초 | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>재정의
@@ -122,7 +122,7 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 | 요소 | 필수 | 설명 |
 |:---|:---|:---|
 | `schemaVersion` | 예 | 요소의 예상 스키마를 나타내기 위해 Microsoft에서 정의 하는 문자열입니다. 현재 1.0로 설정 되어야 합니다. |
-| `contentVersion` | 아니요 | 필요한 경우 다양 한 버전의 상태 구성을 추적 하기 위해 사용자가 정의한 문자열입니다. |
+| `contentVersion` | No | 필요한 경우 다양 한 버전의 상태 구성을 추적 하기 위해 사용자가 정의한 문자열입니다. |
 | `healthRuleOverrides` | 예 | `healthRuleOverride`기본 구성에 적용 되는 요소의 배열입니다. |
 
 ## <a name="healthrulesoverrides-element"></a>healthRulesOverrides 요소
@@ -144,9 +144,9 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 |:---|:---|:---|
 | `scopes` | 예 | 이 재정의를 적용할 수 있는 가상 컴퓨터를 지정 하는 하나 이상의 범위 목록입니다. DCR가 가상 컴퓨터와 연결 되어 있더라도 재정의를 적용 하려면 가상 컴퓨터가 범위 내에 있어야 합니다. |
 | `monitors` | 예 | 이 재정의를 받을 모니터를 정의 하는 하나 이상의 문자열 목록입니다.  |
-| `monitorConfiguration` | 아니요 | 성능 상태 및 계산 방법을 포함 하 여 모니터에 대 한 구성입니다. |
-| `alertConfiguration` | 아니요 | 모니터에 대 한 경고 구성입니다. |
-| `isEnabled` | 아니요 | 모니터 사용 여부를 제어 합니다. 사용 하지 않도록 설정 된 모니터는 사용 하지 않도록 설정한 경우를 제외 하 고는 사용 하지 않도록 설정 *된 특수 한 상태* 생략 하는 경우 모니터는 계층의 부모 모니터에서 해당 상태를 상속 합니다. |
+| `monitorConfiguration` | No | 성능 상태 및 계산 방법을 포함 하 여 모니터에 대 한 구성입니다. |
+| `alertConfiguration` | No | 모니터에 대 한 경고 구성입니다. |
+| `isEnabled` | No | 모니터 사용 여부를 제어 합니다. 사용 하지 않도록 설정 된 모니터는 사용 하지 않도록 설정한 경우를 제외 하 고는 사용 하지 않도록 설정 *된 특수 한 상태* 생략 하는 경우 모니터는 계층의 부모 모니터에서 해당 상태를 상속 합니다. |
 
 
 ## <a name="scopes-element"></a>범위 요소
@@ -154,7 +154,7 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 
 다음 표에서는 다양 한 범위의 예를 보여 줍니다.
 
-| 범위 | 예제 |
+| Scope | 예제 |
 |:---|:---|
 | 단일 가상 컴퓨터 | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name/providers/Microsoft.Compute/virutalMachines/my-vm` |
 | 리소스 그룹의 모든 가상 머신 | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name` |
@@ -198,9 +198,9 @@ VM용 Azure Monitor 게스트 상태 및 해당 구성에서 사용 하는 모�
 }
 ```
 
-| 요소 | 필수 | 설명 | 
+| 요소 | 필수 | Description | 
 |:---|:---|:---|
-| `isEnabled` | 아니요 | True로 설정 되 면 모니터는 위험 또는 경고 상태로 전환 될 때 경고를 생성 하 고 정상 상태로 돌아갈 때 경고를 해결 합니다. False 이거나 생략 된 경우 경고가 생성 되지 않습니다.  |
+| `isEnabled` | 예 | True로 설정 되 면 모니터는 위험 또는 경고 상태로 전환 될 때 경고를 생성 하 고 정상 상태로 돌아갈 때 경고를 해결 합니다. False 이거나 생략 된 경우 경고가 생성 되지 않습니다.  |
 
 
 ## <a name="monitorconfiguration-element"></a>monitorConfiguration 요소
@@ -224,15 +224,15 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 }
 ```
 
-| 요소 | 필수 | 설명 | 
+| 요소 | 필수 | Description | 
 |:---|:---|:---|
-| `evaluationFrequencySecs` | 아니요 | 상태 평가 빈도를 정의 합니다. 각 모니터는 에이전트가 시작 될 때와 이후에이 매개 변수에 의해 정의 된 정기적인 간격에 따라 평가 됩니다. |
-| `lookbackSecs`   | 아니요 | Lookback 창의 크기 (초)입니다. |
-| `evaluationType` | 아니요 | `min` – 전체 샘플 집합에서 최소 값을 가져옵니다.<br>`max` -전체 샘플 집합에서 최대값을 사용 합니다.<br>`avg` – 샘플 집합 값의 평균을 사용 합니다.<br>`all` – 집합의 모든 단일 값을 임계값으로 비교 합니다. 집합의 모든 샘플이 임계값 조건을 만족 하는 경우에만 모니터 상태를 모니터링 합니다. |
-| `minSamples`     | 아니요 | 값을 계산 하는 데 사용할 최소 값 수입니다. |
-| `maxSamples`     | 아니요 | 값을 계산 하는 데 사용할 최대 값 수입니다. |
-| `warningCondition`  | 아니요 | 경고 조건에 대 한 임계값 및 비교 논리입니다. |
-| `criticalCondition` | 아니요 | 위험 조건에 대 한 임계값 및 비교 논리입니다. |
+| `evaluationFrequencySecs` | 예 | 상태 평가 빈도를 정의 합니다. 각 모니터는 에이전트가 시작 될 때와 이후에이 매개 변수에 의해 정의 된 정기적인 간격에 따라 평가 됩니다. |
+| `lookbackSecs`   | No | Lookback 창의 크기 (초)입니다. |
+| `evaluationType` | No | `min` – 전체 샘플 집합에서 최소 값을 가져옵니다.<br>`max` -전체 샘플 집합에서 최대값을 사용 합니다.<br>`avg` – 샘플 집합 값의 평균을 사용 합니다.<br>`all` – 집합의 모든 단일 값을 임계값으로 비교 합니다. 집합의 모든 샘플이 임계값 조건을 만족 하는 경우에만 모니터 상태를 모니터링 합니다. |
+| `minSamples`     | No | 값을 계산 하는 데 사용할 최소 값 수입니다. |
+| `maxSamples`     | No | 값을 계산 하는 데 사용할 최대 값 수입니다. |
+| `warningCondition`  | No | 경고 조건에 대 한 임계값 및 비교 논리입니다. |
+| `criticalCondition` | No | 위험 조건에 대 한 임계값 및 비교 논리입니다. |
 
 
 ## <a name="warningcondition-element"></a>warningCondition 요소
@@ -246,11 +246,11 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 },
 ```
 
-| 속성 | 필수 | 설명 | 
+| 속성 | 필수 | Description | 
 |:---|:---|:---|
-| `isEnabled` | 아니요 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
-| `threshold` | 아니요 | 평가 값을 비교 하는 임계값을 정의 합니다. |
-| `operator`  | 아니요 | 임계값 식에 사용할 비교 연산자를 정의 합니다. 가능한 값은 >, <, >=, <=, = =입니다. |
+| `isEnabled` | 예 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
+| `threshold` | No | 평가 값을 비교 하는 임계값을 정의 합니다. |
+| `operator`  | No | 임계값 식에 사용할 비교 연산자를 정의 합니다. 가능한 값은 >, <, >=, <=, = =입니다. |
 
 
 ## <a name="criticalcondition-element"></a>criticalCondition 요소
@@ -264,11 +264,11 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 },
 ```
 
-| 속성 | 필수 | 설명 | 
+| 속성 | 필수 | Description | 
 |:---|:---|:---|
-| `isEnabled` | 아니요 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
-| `threshold` | 아니요 | 평가 값을 비교 하는 임계값을 정의 합니다. |
-| `operator`  | 아니요 | 임계값 식에 사용할 비교 연산자를 정의 합니다. 가능한 값은 >, <, >=, <=, = =입니다. |
+| `isEnabled` | 예 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
+| `threshold` | No | 평가 값을 비교 하는 임계값을 정의 합니다. |
+| `operator`  | No | 임계값 식에 사용할 비교 연산자를 정의 합니다. 가능한 값은 >, <, >=, <=, = =입니다. |
 
 ## <a name="sample-data-collection-rule"></a>샘플 데이터 수집 규칙
 게스트 모니터링을 사용 하는 샘플 데이터 수집 규칙은 [리소스 관리자 템플릿을 사용 하 여 가상 머신 사용](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template)을 참조 하세요.

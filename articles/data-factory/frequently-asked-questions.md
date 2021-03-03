@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386308"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739337"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 
@@ -48,7 +48,7 @@ Data Factory는 데이터 통합에 필요하고 요청 시 또는 일정에 따
     - 반복 컨테이너:
         * Foreach 활동은 루프의 지정 된 활동 컬렉션을 반복 합니다. 
 - 트리거 기반 흐름:
-    - 요청 시 또는 벽시계 시간에 따라 파이프라인을 트리거할 수 있습니다.
+    - 파이프라인은 요청 시, 벽 시계 시간 또는 event grid에 의해 구동 되는 항목에 대 한 응답으로 트리거될 수 있습니다.
 - 델타 흐름:
     - 매개 변수를 사용 하면 관계형 저장소 (온-프레미스 또는 클라우드)에서 차원 또는 참조 테이블을 이동 하 여 데이터를 lake로 로드 하는 동안 델타 복사에 대 한 최고 수 위 표시를 정의할 수 있습니다.
 
@@ -288,7 +288,7 @@ ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자
 * nchar
 * varchar
 * nvarchar
-* 정수
+* integer
 * int
 * bit
 * boolean
@@ -296,7 +296,7 @@ ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자
 * tinyint
 * bigint
 * long
-* 텍스트
+* text
 * date
 * Datetime
 * datetime2

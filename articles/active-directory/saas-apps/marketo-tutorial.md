@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: f0bf99748363505e362d3c35e53a51be3a03e938
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
-ms.translationtype: MT
+ms.openlocfilehash: 433303bf0d51eff3bd3ab37726c9e98e8a766d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728698"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>자습서:Azure Active Directory와 Marketo 통합
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에서 `https://saml.marketo.com/sp` URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://login.marketo.com/saml/assertion/\<munchkinid\>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://login.marketo.com/saml/assertion/<munchkinid>` 패턴을 사용하여 URL을 입력합니다.
 
     다. **릴레이 상태** 텍스트 상자에서 `https://<munchkinid>.marketo.com/` 패턴을 사용하는 URL을 입력합니다.
 

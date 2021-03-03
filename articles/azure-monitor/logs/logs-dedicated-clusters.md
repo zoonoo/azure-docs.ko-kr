@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707645"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -34,7 +34,7 @@ Azure Monitor Logs 전용 클러스터는 Azure Monitor 로그 고객을 위한 
 
 전용 클러스터에 대 한 데이터 수집은 Microsoft에서 관리 하는 키 또는 [고객이 관리](../logs/customer-managed-keys.md)하는 키를 사용 하 여 서비스 수준에서 한 번, 두 개의 서로 다른 암호화 알고리즘과 두 개의 다른 키를 사용 하 여 인프라 수준에서 두 번 암호화 됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 경우 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다. 전용 클러스터를 사용 하 여 [Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
 
-클러스터 수준의 모든 작업에는 `Microsoft.OperationalInsights/clusters/write` 클러스터에 대 한 작업 권한이 필요 합니다. 작업을 포함 하는 소유자 또는 참가자를 통하거나 `*/write` 동작을 포함 하는 Log Analytics 참여자 역할을 통해이 사용 권한을 부여할 수 있습니다 `Microsoft.OperationalInsights/*` . Log Analytics 권한에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대 한 액세스 관리](../platform/manage-access.md)를 참조 하세요. 
+클러스터 수준의 모든 작업에는 `Microsoft.OperationalInsights/clusters/write` 클러스터에 대 한 작업 권한이 필요 합니다. 작업을 포함 하는 소유자 또는 참가자를 통하거나 `*/write` 동작을 포함 하는 Log Analytics 참여자 역할을 통해이 사용 권한을 부여할 수 있습니다 `Microsoft.OperationalInsights/*` . Log Analytics 권한에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대 한 액세스 관리](./manage-access.md)를 참조 하세요. 
 
 
 ## <a name="cluster-pricing-model"></a>클러스터 가격 책정 모델
@@ -77,7 +77,7 @@ Authorization: Bearer <token>
 - **ClusterName**: 관리 목적으로 사용 됩니다. 사용자는이 이름에 노출 되지 않습니다.
 - **ResourceGroupName**: Azure 리소스의 경우 클러스터는 리소스 그룹에 속합니다. 일반적으로 클러스터는 조직의 많은 팀에서 공유 되기 때문에 중앙 IT 리소스 그룹을 사용 하는 것이 좋습니다. 디자인 고려 사항에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md) 을 검토 하세요.
 - **위치**: 클러스터는 특정 Azure 지역에 있습니다. 이 영역에 있는 작업 영역만이 클러스터에 연결할 수 있습니다.
-- **SkuCapacity**: *클러스터* 리소스를 만들 때 sku ( *용량 예약* 수준)를 지정 해야 합니다. *용량 예약* 수준 범위는 하루 1000 gb ~ 3000 gb 일 수 있습니다. 필요한 경우 나중에 100 단계에서 업데이트할 수 있습니다. 하루에 3000 GB 보다 높은 용량 예약 수준을 요구 하는 경우 microsoft에 문의 하세요 LAIngestionRate@microsoft.com . 클러스터 비용에 대 한 자세한 내용은 [Log Analytics 클러스터에 대 한 비용 관리](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요.
+- **SkuCapacity**: *클러스터* 리소스를 만들 때 sku ( *용량 예약* 수준)를 지정 해야 합니다. *용량 예약* 수준 범위는 하루 1000 gb ~ 3000 gb 일 수 있습니다. 필요한 경우 나중에 100 단계에서 업데이트할 수 있습니다. 하루에 3000 GB 보다 높은 용량 예약 수준을 요구 하는 경우 microsoft에 문의 하세요 LAIngestionRate@microsoft.com . 클러스터 비용에 대 한 자세한 내용은 [Log Analytics 클러스터에 대 한 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요.
 
 *클러스터* 리소스를 만든 후 *Sku*, * keyVaultProperties, *billingType* 등의 추가 속성을 편집할 수 있습니다. 아래 세부 정보를 참조 하세요.
 
@@ -300,7 +300,7 @@ Authorization: Bearer <token>
 - **keyVaultProperties** -Azure Key Vault에서 키를 업데이트 합니다. [키 식별자 세부 정보를 사용 하 여 클러스터 업데이트를](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)참조 하세요. *KeyVaultUri*, *KeyName*, *keyversion* 매개 변수를 포함 합니다. 
 - **billingType** - *billingType* 속성은 *클러스터* 리소스 및 해당 데이터에 대 한 청구 특성을 결정 합니다.
   - **클러스터** (기본값)-클러스터의 용량 예약 비용은 *클러스터* 리소스의 특성을 갖습니다.
-  - **작업 영역** -클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 기준으로 하며, 해당 요일의 총 수집 데이터가 용량 예약에 포함 되는 경우 *클러스터* 리소스의 사용량에 대 한 비용이 청구 됩니다. 클러스터 가격 책정 모델에 대해 자세히 알아보려면 [전용 클러스터 Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요. 
+  - **작업 영역** -클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 기준으로 하며, 해당 요일의 총 수집 데이터가 용량 예약에 포함 되는 경우 *클러스터* 리소스의 사용량에 대 한 비용이 청구 됩니다. 클러스터 가격 책정 모델에 대해 자세히 알아보려면 [전용 클러스터 Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) 를 참조 하세요. 
 
 > [!NOTE]
 > *BillingType* 속성은 PowerShell에서 지원 되지 않습니다.
@@ -573,5 +573,5 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics 전용 클러스터 청구](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) 에 대해 알아보기
+- [Log Analytics 전용 클러스터 청구](./manage-cost-storage.md#log-analytics-dedicated-clusters) 에 대해 알아보기
 - [Log Analytics 작업 영역](../logs/design-logs-deployment.md) 에 대 한 적절 한 디자인 알아보기

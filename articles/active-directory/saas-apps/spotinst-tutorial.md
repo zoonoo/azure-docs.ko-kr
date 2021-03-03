@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>자습서: Spotinst와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Spotinst 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | -----| --------------- |
     | Email | user.mail |
     | FirstName | user.givenname |
@@ -171,9 +171,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 설명된 값을 입력할 수 있는 사용자 추가 섹션을 보여줍니다.](./media/spotinst-tutorial/adduser2.png)
 
-    * **전체 이름** 텍스트 상자에 **BrittaSimon** 과 같은 사용자의 전체 이름을 입력합니다.
+    * **전체 이름** 텍스트 상자에 `BrittaSimon`과 같은 사용자의 전체 이름을 입력합니다.
 
-    * **이메일** 텍스트 상자에 사용자의 이메일 주소(예: `brittasimon\@contoso.com`)를 입력합니다.
+    * **이메일** 텍스트 상자에 사용자의 이메일 주소(예: `brittasimon@contoso.com`)를 입력합니다.
 
     * **조직 역할, 계정 역할 및 계정** 에 대해 조직별 세부 정보를 선택합니다.
 

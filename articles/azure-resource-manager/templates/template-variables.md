@@ -2,13 +2,13 @@
 title: 템플릿의 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700340"
 ---
 # <a name="variables-in-arm-templates"></a>ARM 템플릿의 변수
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 [템플릿 함수](template-functions.md) 를 사용 하 여 변수 값을 생성할 수 있습니다.
 
-JSON 템플릿에서는 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수를 변수 선언에 사용할 수 없습니다. 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
-
-Bicep 파일에서 변수를 선언 하는 경우 참조 및 목록 함수는 유효 합니다.
-
 다음 예에서는 저장소 계정 이름에 대 한 문자열 값을 만듭니다. 여러 템플릿 함수를 사용 하 여 매개 변수 값을 가져오고이를 고유한 문자열에 연결 합니다.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+JSON 템플릿에서는 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수를 변수 선언에 사용할 수 없습니다. 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
+
+Bicep 파일에서 참조 및 목록 함수는 변수를 선언할 때 유효 합니다.
+
 ## <a name="use-variable"></a>변수 사용
 
 다음 예제에서는 리소스 속성에 대 한 변수를 사용 하는 방법을 보여 줍니다.
@@ -101,6 +101,9 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 JSON 템플릿에서 [variables](template-functions-deployment.md#variables) 함수를 사용 하 여 변수 값을 참조 합니다.
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ JSON 템플릿에서 [variables](template-functions-deployment.md#variables) 함
 Bicep 파일에서 변수 이름을 제공 하 여 변수의 값을 참조 합니다.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

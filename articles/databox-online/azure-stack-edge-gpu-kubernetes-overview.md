@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448649"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699575"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터 아키텍처에 대 한 자세한 내용은 [Kubernetes 
 
 Kubernetes 네트워킹을 사용 하면 컨테이너 간 네트워킹, pod-pod 네트워킹, pod-서비스 네트워킹 및 인터넷-서비스 네트워킹을 비롯 한 Kubernetes 네트워크 내에서 통신을 구성할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro 장치에 대 한 Kubernetes 네트워킹](azure-stack-edge-gpu-kubernetes-networking.md)의 네트워킹 모델을 참조 하세요.
 
-## <a name="updates"></a>Updates
+## <a name="updates"></a>업데이트
 
 새 Kubernetes 버전을 사용할 수 있게 되 면 Azure Stack Edge Pro 장치에 사용할 수 있는 표준 업데이트를 사용 하 여 클러스터를 업그레이드할 수 있습니다. 업그레이드 하는 방법에 대 한 단계는 [Azure Stack Edge Pro에 업데이트 적용](azure-stack-edge-gpu-install-update.md)을 참조 하세요.
 
@@ -107,6 +107,16 @@ IoT Edge를 통해 Kubernetes 클러스터에 응용 프로그램을 배포 하�
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes 및 Azure Arc
 
 Azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 또한 Azure Arc를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure-Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md)를 참조 하세요. Azure Arc 가격 책정에 대 한 자세한 내용은 [Azure arc 가격 책정](https://azure.microsoft.com/services/azure-arc/#pricing)을 참조 하세요.
+
+2021 년 3 월부터 Azure Arc enabled Kubernetes는 사용자에 게 일반적으로 제공 되며 표준 사용 요금이 적용 됩니다. 값 미리 보기 고객은 Azure Arc 사용 Kubernetes을 Azure Stack Edge 장치에 무료로 사용할 수 있습니다. 미리 보기 제안을 이용 하려면 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)를 만듭니다.
+
+1. **문제점 유형** 에서 **청구** 를 선택합니다.
+2. **구독** 아래에서 구독을 선택합니다.
+3. **서비스** 에서 **내 서비스** 를 선택 하 고 **Azure Stack Edge** 를 선택 합니다.
+4. **리소스** 에서 리소스를 선택 합니다.
+5. **요약** 아래에서 문제에 대 한 설명을 입력 합니다.
+6. **문제 유형** 에서 **예기치 않은 요금** 을 선택 합니다.
+7. **문제 하위 유형** 에서 **내 무료 평가판에 대 한 요금을 이해 하도록 지원** 을 선택 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

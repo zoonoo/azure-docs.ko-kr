@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 36885e4673b83d1db7972f03c4a6309f766206c5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713102"
 ---
 # <a name="what-is-custom-neural-voice"></a>사용자 지정 신경망 이란?
 
-사용자 지정 신경망은 사용자 고유의 오디오 데이터를 샘플로 제공 하 여 응용 프로그램에 대 한 일종의 사용자 지정 된 가상 음성을 만들 수 있도록 하는 TTS ( [텍스트 음성 변환](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) ) 기능입니다. 텍스트 음성 변환은 선택한 음성 처럼 소리나는 기계 학습 모델을 사용 하 여 텍스트를 합성 음성으로 변환 하는 방식으로 작동 합니다. [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)를 사용 하 여 앱이 [미리 작성](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) 된 음성 또는 사용자 지정 신경망 기능을 통해 개발한 고유한 [사용자 지정 음성](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-prepare-data) 모델을 사용 하도록 설정할 수 있습니다. 사용자 지정 신경망은 인간 음성과 비교할 때 종종 구분 될 수 없는 자연 스러운 음 음성을 만드는 신경망을 기반으로 합니다.
+사용자 지정 신경망은 사용자 고유의 오디오 데이터를 샘플로 제공 하 여 응용 프로그램에 대 한 일종의 사용자 지정 된 가상 음성을 만들 수 있도록 하는 TTS ( [텍스트 음성 변환](./text-to-speech.md) ) 기능입니다. 텍스트 음성 변환은 선택한 음성 처럼 소리나는 기계 학습 모델을 사용 하 여 텍스트를 합성 음성으로 변환 하는 방식으로 작동 합니다. [REST API](./rest-text-to-speech.md)를 사용 하 여 앱이 [미리 작성](./language-support.md#neural-voices) 된 음성 또는 사용자 지정 신경망 기능을 통해 개발한 고유한 [사용자 지정 음성](./how-to-custom-voice-prepare-data.md) 모델을 사용 하도록 설정할 수 있습니다. 사용자 지정 신경망은 인간 음성과 비교할 때 종종 구분 될 수 없는 자연 스러운 음 음성을 만드는 신경망을 기반으로 합니다.
 사용자 지정 신경망의 실제적이 고 자연 스러운 음성은 브랜드, personify 컴퓨터를 나타낼 수 있으며, 사용자가 자연스럽 게 conversationally 응용 프로그램을 조작할 수 있습니다.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ ms.locfileid: "99525265"
 
 신경망 음성 모델은 휴먼 음성의 기록 샘플을 기반으로 심층 신경망을 사용 하 여 학습 합니다. 이 [블로그에서](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911)신경망은 신경망의 최신 신경망 합성 모델에서 작동 하는 방법을 설명 합니다. 또한이 블로그에서는 대상 스피커에서 2 시간 미만의 음성 데이터 (또는 2000 미만의 기록 된 길이 발언 미만)로 유니버설 기본 모델을 적용할 수 있는 방법에 대해 설명 하 고 대상 스피커의 음성에서 이야기 하는 방법에 대해 알아봅니다. 신경망을 학습 하는 방법에 대 한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)을 참조 하세요.
 
-사용자 지정 신경망의 사용자 지정 기능을 사용 하 여 사용자 시나리오에 맞게 신경망을 조정할 수 있습니다. 사용자 지정 신경망을 만들려면 [Speech Studio](https://speech.microsoft.com/customvoice) 를 사용 하 여 기록 된 오디오 및 해당 스크립트를 업로드 하 고, 모델을 학습 하 고, 음성을 사용자 지정 끝점에 배포 합니다. 사용 사례에 따라 사용자 지정 신경망을 사용 하 여 텍스트를 실시간으로 변환 하거나 (예: 스마트 가상 길잡이에서 사용 됨), 사용자가 제공 하는 텍스트 입력으로 오디오 콘텐츠를 오프 라인 (예: 전자 학습 응용 프로그램의 명령 또는 오디오 설명서에서 사용)으로 변환할 수 있습니다. [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), [음성 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp)또는 [웹 포털](https://speech.microsoft.com/audiocontentcreation)을 통해 사용할 수 있습니다.
+사용자 지정 신경망의 사용자 지정 기능을 사용 하 여 사용자 시나리오에 맞게 신경망을 조정할 수 있습니다. 사용자 지정 신경망을 만들려면 [Speech Studio](https://speech.microsoft.com/customvoice) 를 사용 하 여 기록 된 오디오 및 해당 스크립트를 업로드 하 고, 모델을 학습 하 고, 음성을 사용자 지정 끝점에 배포 합니다. 사용 사례에 따라 사용자 지정 신경망을 사용 하 여 텍스트를 실시간으로 변환 하거나 (예: 스마트 가상 길잡이에서 사용 됨), 사용자가 제공 하는 텍스트 입력으로 오디오 콘텐츠를 오프 라인 (예: 전자 학습 응용 프로그램의 명령 또는 오디오 설명서에서 사용)으로 변환할 수 있습니다. [REST API](./rest-text-to-speech.md), [음성 SDK](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall)또는 [웹 포털](https://speech.microsoft.com/audiocontentcreation)을 통해 사용할 수 있습니다.
 
 ## <a name="terms-and-definitions"></a>용어 및 정의
 

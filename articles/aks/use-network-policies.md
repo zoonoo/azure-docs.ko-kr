@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책�
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d3aa49a749890783fdae589edab3d1910b2ac73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729422"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -20,7 +20,7 @@ Kubernetes에서 최신 마이크로 서비스 기반 애플리케이션을 실�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 > [!TIP]
 > 미리 보기 중에 네트워크 정책 기능을 사용한 경우 [새 클러스터를 만드는](#create-an-aks-cluster-and-enable-network-policy) 것이 좋습니다.
@@ -46,18 +46,18 @@ Azure는 네트워크 정책을 구현하는 두 가지 방법을 제공합니�
 * *Azure 네트워크 정책* - Azure 고유의 구현
 * *Calico 네트워크 정책* - [Tigera][tigera]가 만든 오픈 소스 네트워크 및 네트워크 보안 솔루션
 
-두 구현 모두 Linux *IPTables*를 사용하여 지정된 정책을 적용합니다. 정책은 허용 및 허용되지 않는 IP 쌍 집합으로 변환됩니다. 이러한 쌍은 IPTable 필터 규칙으로 프로그래밍됩니다.
+두 구현 모두 Linux *IPTables* 를 사용하여 지정된 정책을 적용합니다. 정책은 허용 및 허용되지 않는 IP 쌍 집합으로 변환됩니다. 이러한 쌍은 IPTable 필터 규칙으로 프로그래밍됩니다.
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Azure 및 Calico 정책과 해당 기능의 차이점
 
 | 기능                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| 지원 플랫폼                      | Linux                      | Linux                       |
-| 지원되는 네트워킹 옵션             | Azure CNI                  | Azure CNI 및 Kubenet       |
+| 지원 플랫폼                      | Linux                      | Linux, Windows Server 2019 (미리 보기)  |
+| 지원되는 네트워킹 옵션             | Azure CNI                  | Azure CNI (Windows Server 2019 및 Linux) 및 kubenet (Linux)  |
 | Kubernetes 사양 준수 | 지원되는 모든 정책 유형 |  지원되는 모든 정책 유형 |
 | 추가 기능                      | None                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 엔드포인트로 구성된 확장 정책 모델. `calicoctl`CLI를 사용하여 이러한 확장 기능을 관리하는 방법에 대한 자세한 내용은 [calicoctl 사용자 참조][calicoctl]를 참조하세요. |
 | 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조하세요. |
-| 로깅                                  | IPTables에서 추가/삭제된 규칙이 모든 호스트의 */var/log/azure-npm.log*에 기록됨 | 자세한 내용은 [Calico 구성 요소 로그][calico-logs]를 참조하세요. |
+| 로깅                                  | IPTables에서 추가/삭제된 규칙이 모든 호스트의 */var/log/azure-npm.log* 에 기록됨 | 자세한 내용은 [Calico 구성 요소 로그][calico-logs]를 참조하세요. |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS 클러스터 만들기 및 네트워크 정책 사용
 
@@ -67,7 +67,7 @@ Azure는 네트워크 정책을 구현하는 두 가지 방법을 제공합니�
 * pod 레이블을 기준으로 트래픽을 허용합니다.
 * 네임스페이스를 기준으로 트래픽을 허용합니다.
 
-먼저, 네트워크 정책을 지원하는 Azure Kubernetes Service 클러스터를 만들겠습니다. 
+먼저, 네트워크 정책을 지원하는 Azure Kubernetes Service 클러스터를 만들겠습니다.
 
 > [!IMPORTANT]
 >
@@ -85,7 +85,7 @@ Azure 네트워크 정책을 사용하려면 [Azure CNI 플러그 인][azure-cni
 
 또는 사용 권한에 대해 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
-사용자 고유의 보안 *SP_PASSWORD*를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 다음과 같이 바꿉니다.
+사용자 고유의 보안 *SP_PASSWORD* 를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 다음과 같이 바꿉니다.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
@@ -120,21 +120,25 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 
 # Get the virtual network subnet resource ID
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
+```
 
-# Create the AKS cluster and specify the virtual network and service principal information
-# Enable network policy by using the `--network-policy` parameter
+### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Azure 네트워크 정책에 대 한 AKS 클러스터 만들기
+
+AKS 클러스터를 만들고 네트워크 플러그 인 및 네트워크 정책에 대 한 가상 네트워크, 서비스 주체 정보 및 *azure* 를 지정 합니다.
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --generate-ssh-keys \
-    --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
+    --network-plugin azure \
     --network-policy azure
 ```
 
@@ -144,18 +148,90 @@ az aks create \
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
 
+### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Calico 네트워크 정책에 대 한 AKS 클러스터 만들기
+
+AKS 클러스터를 만들고 가상 네트워크, 서비스 주체 정보, 네트워크 플러그 인에 대 한 *azure* 및 네트워크 정책에 대 한 *calico* 를 지정 합니다. *Calico* 를 네트워크 정책으로 사용 하면 Linux 및 Windows 노드 풀 모두에서 calico 네트워킹을 사용할 수 있습니다.
+
+Windows 노드 풀을 클러스터에 추가 하려는 경우 `windows-admin-username` `windows-admin-password` [windows Server 암호 요구 사항을][windows-server-password]충족 하는 및 매개 변수를에 포함 합니다. Windows 노드 풀에서 Calico를 사용 하려면도 등록 해야 `Microsoft.ContainerService/EnableAKSWindowsCalico` 합니다.
+
+`EnableAKSWindowsCalico`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWindowsCalico"
+```
+
+ [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAKSWindowsCalico')].{Name:name,State:properties.state}"
+```
+
+준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+> [!IMPORTANT]
+> 현재 Windows 노드와 함께 Calico network 정책을 사용 하는 것은 Calico 3.17.2이 설치 된 Kubernetes 버전 1.20 이상을 사용 하는 새 클러스터에서 사용할 수 있으며, Azure CNI 네트워킹을 사용 해야 합니다. Calico를 사용 하는 AKS 클러스터의 Windows 노드도 기본적으로 [DSR (Direct Server Return][dsr] )이 사용 됩니다.
+>
+> 이전 버전의 Calico에서 Kubernetes 1.20를 실행 하는 Linux 노드 풀만 사용 하는 클러스터의 경우에는 Calico 버전이 자동으로 3.17.2로 업그레이드 됩니다.
+
+Windows 노드를 사용 하는 calico 네트워킹 정책은 현재 미리 보기 상태입니다.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+```azurecli
+PASSWORD_WIN="P@ssw0rd1234"
+
+az aks create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal $SP_ID \
+    --client-secret $SP_PASSWORD \
+    --windows-admin-password $PASSWORD_WIN \
+    --windows-admin-username azureuser \
+    --vm-set-type VirtualMachineScaleSets \
+    --kubernetes-version 1.20.2 \
+    --network-plugin azure \
+    --network-policy calico
+```
+
+클러스터를 만드는 데 몇 분이 걸립니다. 기본적으로 클러스터는 Linux 노드 풀만 사용 하 여 만들어집니다. Windows 노드 풀을 사용 하려면 하나를 추가할 수 있습니다. 다음은 그 예입니다. 
+
+```azurecli
+az aks nodepool add \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
+
+클러스터가 준비되면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성합니다. 이 명령은 자격 증명을 다운로드하고 해당 자격 증명을 사용하도록 Kubernetes CLI를 구성합니다.
+
+```azurecli-interactive
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
+```
+
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>pod에 대한 모든 인바운드 트래픽 거부
 
 특정 네트워크 트래픽을 허용하는 규칙을 정의하기 전에 먼저 모든 트래픽을 거부하는 네트워크 정책을 만듭니다. 이 정책은 원하는 트래픽에 대한 허용 목록을 만들기 위한 시작점을 제공합니다. 이 네트워크 정책을 적용하면 트래픽이 삭제되는 것을 명확하게 확인할 수 있습니다.
 
-샘플 애플리케이션 환경 및 트래픽 규칙의 경우 *development*라는 네임스페이스를 만들어 예제 pod를 실행하겠습니다.
+샘플 애플리케이션 환경 및 트래픽 규칙의 경우 *development* 라는 네임스페이스를 만들어 예제 pod를 실행하겠습니다.
 
 ```console
 kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-NGINX를 실행하는 예제 백 엔드 pod를 만듭니다. 이 백 엔드 pod를 사용하여 샘플 백 엔드 웹 기반 애플리케이션을 시뮬레이트할 수 있습니다. *development* 네임스페이스에서 이 pod를 만들고 포트 *80*을 열어 웹 트래픽을 처리합니다. 다음 섹션에서 네트워크 정책의 대상으로 지정할 수 있도록 pod에 *app=webapp,role=backend* 레이블을 지정합니다.
+NGINX를 실행하는 예제 백 엔드 pod를 만듭니다. 이 백 엔드 pod를 사용하여 샘플 백 엔드 웹 기반 애플리케이션을 시뮬레이트할 수 있습니다. *development* 네임스페이스에서 이 pod를 만들고 포트 *80* 을 열어 웹 트래픽을 처리합니다. 다음 섹션에서 네트워크 정책의 대상으로 지정할 수 있도록 pod에 *app=webapp,role=backend* 레이블을 지정합니다.
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
@@ -191,7 +267,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>네트워크 정책 만들기 및 적용
 
-샘플 백 엔드 pod에서 기본 NGINX 웹 페이지를 사용할 수 있는지 확인했으므로 이제 모든 트래픽을 거부하는 네트워크 정책을 만들겠습니다. `backend-policy.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 이 매니페스트는 *podSelector*를 사용하여 *app:webapp,role:backend* 레이블이 있는 샘플 NGINX pod와 같은 pod에 해당 정책을 연결합니다. *ingress* 아래에 규칙이 정의되어 있지 않으므로 pod로의 모든 인바운드 트래픽이 거부됩니다.
+샘플 백 엔드 pod에서 기본 NGINX 웹 페이지를 사용할 수 있는지 확인했으므로 이제 모든 트래픽을 거부하는 네트워크 정책을 만들겠습니다. `backend-policy.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 이 매니페스트는 *podSelector* 를 사용하여 *app:webapp,role:backend* 레이블이 있는 샘플 NGINX pod와 같은 pod에 해당 정책을 연결합니다. *ingress* 아래에 규칙이 정의되어 있지 않으므로 pod로의 모든 인바운드 트래픽이 거부됩니다.
 
 ```yaml
 kind: NetworkPolicy
@@ -223,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
-셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책은 모든 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
+셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 이번에는 제한 시간 값을 *2* 초로 설정합니다. 이제 네트워크 정책은 모든 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
 
 ```console
 wget -qO- --timeout=2 http://backend
@@ -274,7 +350,7 @@ spec:
 kubectl apply -f backend-policy.yaml
 ```
 
-*app=webapp,role=frontend*로 레이블이 지정된 pod를 예약하고 터미널 세션을 연결합니다.
+*app=webapp,role=frontend* 로 레이블이 지정된 pod를 예약하고 터미널 세션을 연결합니다.
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
@@ -391,7 +467,7 @@ spec:
           role: frontend
 ```
 
-좀 더 복잡한 예제에서 *namespaceSelector*를 사용한 다음, *podSelector*를 사용하는 경우처럼 여러 수신 규칙을 정의할 수 있습니다.
+좀 더 복잡한 예제에서 *namespaceSelector* 를 사용한 다음, *podSelector* 를 사용하는 경우처럼 여러 수신 규칙을 정의할 수 있습니다.
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 업데이트된 네트워크 정책을 적용하고 YAML 매니페스트의 이름을 지정합니다.
 
@@ -487,3 +563,7 @@ kubectl delete namespace development
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

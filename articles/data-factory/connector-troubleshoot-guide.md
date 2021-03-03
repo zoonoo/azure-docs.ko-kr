@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 63a690ffaaefc506de296d43e7de13020fbd584a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366928"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727824"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "100366928"
 
 - **원인**: Blob Storage 작업에 문제가 있습니다.
 
-- **권장 사항**: 오류 정보를 확인 하려면 [Blob Storage 오류 코드](https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes)를 참조 하세요. 자세한 도움말을 보려면 Blob Storage 팀에 문의 하세요.
+- **권장 사항**: 오류 정보를 확인 하려면 [Blob Storage 오류 코드](/rest/api/storageservices/blob-service-error-codes)를 참조 하세요. 자세한 도움말을 보려면 Blob Storage 팀에 문의 하세요.
 
 
 ### <a name="invalid-property-during-copy-activity"></a>복사 작업 중에 속성이 잘못 되었습니다.
@@ -164,7 +164,7 @@ ms.locfileid: "100366928"
   | 원인 분석                                               | 권장                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Azure Data Lake Storage Gen2 일부 작업이 실패 했음을 나타내는 오류를 throw 합니다.| Azure Data Lake Storage Gen2에서 throw 한 자세한 오류 메시지를 확인 합니다. 일시적인 오류 이면 작업을 다시 시도 하세요. 자세한 도움말을 보려면 Azure Storage 지원에 문의 하 고 오류 메시지에 요청 ID를 제공 하십시오. |
-  | 오류 메시지에 "사용 권한 없음" 문자열이 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 Azure Data Lake Storage Gen2에 액세스할 수 있는 권한이 없을 수 있습니다. | 이 오류를 해결 하려면 [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication)을 참조 하세요. |
+  | 오류 메시지에 "사용 권한 없음" 문자열이 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 Azure Data Lake Storage Gen2에 액세스할 수 있는 권한이 없을 수 있습니다. | 이 오류를 해결 하려면 [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](./connector-azure-data-lake-storage.md#service-principal-authentication)을 참조 하세요. |
   | 오류 메시지에 "InternalServerError" 문자열이 포함 되어 있으면 Azure Data Lake Storage Gen2에서 오류를 반환 합니다. | 일시적인 오류로 인해 오류가 발생할 수 있습니다. 그렇다면 작업을 다시 시도합니다. 문제가 계속 되 면 Azure Storage 지원 담당자에 게 문의 하 고 오류 메시지에서 요청 ID를 제공 합니다. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>Azure Data Lake Storage Gen2 계정에 대 한 요청으로 인해 시간 초과 오류가 발생 했습니다.
@@ -204,7 +204,7 @@ ms.locfileid: "100366928"
 
 - **원인**: Azure Files 저장소 작업에 문제가 있습니다.
 
-- **권장 사항**: 오류 세부 정보를 확인 하려면 [Azure Files 도움말](https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes)을 참조 하세요. 자세한 도움말을 보려면 Azure Files 팀에 문의 하세요.
+- **권장 사항**: 오류 세부 정보를 확인 하려면 [Azure Files 도움말](/rest/api/storageservices/file-service-error-codes)을 참조 하세요. 자세한 도움말을 보려면 Azure Files 팀에 문의 하세요.
 
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure Synapse Analytics, Azure SQL Database 및 SQL Server
@@ -216,12 +216,12 @@ ms.locfileid: "100366928"
 
     | 원인 분석                                               | 권장                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | Azure SQL의 경우 오류 메시지에 "SqlErrorNumber = 47073" 문자열이 포함 되어 있으면 연결 설정에서 공용 네트워크 액세스가 거부 되었음을 의미 합니다. | Azure SQL 방화벽에서 **공용 네트워크 액세스 거부** 옵션을 *아니요* 로 설정 합니다. 자세한 내용은 [AZURE SQL 연결 설정](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access)을 참조 하세요. |
-    | Azure SQL에서 오류 메시지에 "SqlErrorNumber = [errorcode]"와 같은 SQL 오류 코드가 포함 된 경우 Azure SQL 문제 해결 가이드를 참조 하세요. | 권장 사항은 [연결 문제 해결 및 Azure SQL Database 및 AZURE SQL Managed Instance를 사용 하는 기타 오류](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues)를 참조 하세요. |
-    | 포트 1433가 방화벽 허용 목록에 있는지 확인 합니다. | 자세한 내용은 [SQL Server에서 사용 하는 포트](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-)를 참조 하세요. |
-    | 오류 메시지에 "SqlException SQL Database" 문자열이 포함 된 경우 오류는 특정 작업이 실패 했음을 나타냅니다. | 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
-    | 일시적인 문제 (예: 네트워크를 사용할 수 있는 네트워크 연결) 인 경우 작업 정책에서 재시도를 추가 하 여 완화할 수 있습니다. | 자세한 내용은 [Azure Data Factory의 파이프라인 및 작업](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy)을 참조하세요. |
-    | 오류 메시지에 "IP 주소를 가진 클라이언트 ... ' 문자열이 포함 된 경우 서버에 액세스할 수 없습니다. "라는 메시지가 표시 되 고 Azure SQL Database에 연결 하려고 시도 하는 경우 일반적으로 Azure SQL Database 방화벽 문제로 인해 오류가 발생 합니다. | Azure SQL Server 방화벽 구성에서 **azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용** 옵션을 사용 하도록 설정 합니다. 자세한 내용은 [Azure SQL Database 및 Azure SYNAPSE IP 방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 참조 하세요. |
+    | Azure SQL의 경우 오류 메시지에 "SqlErrorNumber = 47073" 문자열이 포함 되어 있으면 연결 설정에서 공용 네트워크 액세스가 거부 되었음을 의미 합니다. | Azure SQL 방화벽에서 **공용 네트워크 액세스 거부** 옵션을 *아니요* 로 설정 합니다. 자세한 내용은 [AZURE SQL 연결 설정](../azure-sql/database/connectivity-settings.md#deny-public-network-access)을 참조 하세요. |
+    | Azure SQL에서 오류 메시지에 "SqlErrorNumber = [errorcode]"와 같은 SQL 오류 코드가 포함 된 경우 Azure SQL 문제 해결 가이드를 참조 하세요. | 권장 사항은 [연결 문제 해결 및 Azure SQL Database 및 AZURE SQL Managed Instance를 사용 하는 기타 오류](../azure-sql/database/troubleshoot-common-errors-issues.md)를 참조 하세요. |
+    | 포트 1433가 방화벽 허용 목록에 있는지 확인 합니다. | 자세한 내용은 [SQL Server에서 사용 하는 포트](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-)를 참조 하세요. |
+    | 오류 메시지에 "SqlException SQL Database" 문자열이 포함 된 경우 오류는 특정 작업이 실패 했음을 나타냅니다. | 자세한 내용은 [데이터베이스 엔진 오류](/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
+    | 일시적인 문제 (예: 네트워크를 사용할 수 있는 네트워크 연결) 인 경우 작업 정책에서 재시도를 추가 하 여 완화할 수 있습니다. | 자세한 내용은 [Azure Data Factory의 파이프라인 및 작업](./concepts-pipelines-activities.md#activity-policy)을 참조하세요. |
+    | 오류 메시지에 "IP 주소를 가진 클라이언트 ... ' 문자열이 포함 된 경우 서버에 액세스할 수 없습니다. "라는 메시지가 표시 되 고 Azure SQL Database에 연결 하려고 시도 하는 경우 일반적으로 Azure SQL Database 방화벽 문제로 인해 오류가 발생 합니다. | Azure SQL Server 방화벽 구성에서 **azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용** 옵션을 사용 하도록 설정 합니다. 자세한 내용은 [Azure SQL Database 및 Azure SYNAPSE IP 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 참조 하세요. |
     
 ### <a name="error-code-sqloperationfailed"></a>오류 코드: SqlOperationFailed
 
@@ -231,9 +231,9 @@ ms.locfileid: "100366928"
 
     | 원인 분석                                               | 권장                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | 오류 메시지에 "SqlException" 문자열이 포함 된 경우 SQL Database 특정 작업이 실패 했음을 나타내는 오류를 throw 합니다. | SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조하세요. <br/> SQL 문제를 해결 하는 방법에 대 한 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 sql 오류 코드를 검색 하십시오. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
+    | 오류 메시지에 "SqlException" 문자열이 포함 된 경우 SQL Database 특정 작업이 실패 했음을 나타내는 오류를 throw 합니다. | SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조하세요. <br/> SQL 문제를 해결 하는 방법에 대 한 자세한 내용은 [데이터베이스 엔진 오류](/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 sql 오류 코드를 검색 하십시오. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
     | 오류 메시지에 "PdwManagedToNativeInteropException" 문자열이 포함 된 경우 일반적으로 원본 및 싱크 열 크기가 일치 하지 않기 때문입니다. | 원본 및 싱크 열의 크기를 확인 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
-    | 오류 메시지에 "InvalidOperationException" 문자열이 포함 된 경우 일반적으로 잘못 된 입력 데이터로 인해 발생 합니다. | 문제가 발생 한 행을 식별 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)에 대 한 내결함성을 참조 하세요. |
+    | 오류 메시지에 "InvalidOperationException" 문자열이 포함 된 경우 일반적으로 잘못 된 입력 데이터로 인해 발생 합니다. | 문제가 발생 한 행을 식별 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](./copy-activity-fault-tolerance.md)에 대 한 내결함성을 참조 하세요. |
 
 
 ### <a name="error-code-sqlunauthorizedaccess"></a>오류 코드: SqlUnauthorizedAccess
@@ -331,7 +331,7 @@ ms.locfileid: "100366928"
 
 - **원인**: bcp (대량 복사 프로그램 유틸리티) 클라이언트에서 잘못 된 열 길이를 받았기 때문에 SQL 대량 복사가 실패 했습니다.
 
-- **권장 사항**: 문제가 발생 한 행을 확인 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)에 대 한 내결함성을 참조 하세요.
+- **권장 사항**: 문제가 발생 한 행을 확인 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](./copy-activity-fault-tolerance.md)에 대 한 내결함성을 참조 하세요.
 
 
 ### <a name="error-code-sqlconnectionisclosed"></a>오류 코드: SqlConnectionIsClosed
@@ -470,7 +470,7 @@ ms.locfileid: "100366928"
 
 - **메시지**: `Error thrown from driver. Sql code: '%code;'`
 
-- **원인**: 오류 메시지에 "SQLSTATE = 51002 sqlcode =-805" 문자열이 포함 된 경우 [Azure Data Factory를 사용 하 여 d b 2에서 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties)의 "팁"을 따릅니다.
+- **원인**: 오류 메시지에 "SQLSTATE = 51002 sqlcode =-805" 문자열이 포함 된 경우 [Azure Data Factory를 사용 하 여 d b 2에서 데이터 복사](./connector-db2.md#linked-service-properties)의 "팁"을 따릅니다.
 
 - **권장 사항**: 속성에서 "NULLID"를 설정 해 봅니다 `packageCollection`  .
 
@@ -647,7 +647,7 @@ ms.locfileid: "100366928"
 
 - **원인**: Azure Data Factory에서는 Parquet 형식이 지원 되지 않습니다.
 
-- **권장 사항**: [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs)으로 이동 하 여 원본 데이터를 두 번 확인 합니다.
+- **권장 사항**: [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)으로 이동 하 여 원본 데이터를 두 번 확인 합니다.
 
 
 ### <a name="error-code-parquetmisseddecimalprecisionscale"></a>오류 코드: ParquetMissedDecimalPrecisionScale
@@ -683,7 +683,7 @@ ms.locfileid: "100366928"
 
 - **원인**: 데이터를 매핑. source에 지정 된 형식으로 변환할 수 없습니다.
 
-- **권장 사항**: 원본 데이터를 두 번 확인 하거나 복사 작업 열 매핑에서이 열에 올바른 데이터 형식을 지정 하십시오. 자세한 내용은 [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs)을 참조 하세요.
+- **권장 사항**: 원본 데이터를 두 번 확인 하거나 복사 작업 열 매핑에서이 열에 올바른 데이터 형식을 지정 하십시오. 자세한 내용은 [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)을 참조 하세요.
 
 
 ### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>오류 코드: ParquetDataCountNotMatchColumnCount
@@ -769,7 +769,7 @@ ms.locfileid: "100366928"
     - OriginalType 형식이 지원 됩니다. 이러한 특수 문자를 사용 하지 않도록 `,;{}()\n\t=` 합니다. 
 
 
-## <a name="rest"></a>REST (영문)
+## <a name="rest"></a>REST
 
 ### <a name="error-code-restsinkcallfailed"></a>오류 코드: RestSinkCallFailed
 
@@ -831,7 +831,7 @@ ms.locfileid: "100366928"
 
     개인 키 콘텐츠가 주요 자격 증명 모음에 있는 경우 SFTP 연결 된 서비스에 직접 업로드 하는 경우 원래 키 파일이 작동할 수 있습니다.
 
-    자세한 내용은 [Azure Data Factory를 사용 하 여 SFTP 서버에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication)를 참조 하세요. 개인 키 콘텐츠는 b a s e 64로 인코딩된 SSH 개인 키 콘텐츠입니다.
+    자세한 내용은 [Azure Data Factory를 사용 하 여 SFTP 서버에 데이터 복사](./connector-sftp.md#using-ssh-public-key-authentication)를 참조 하세요. 개인 키 콘텐츠는 b a s e 64로 인코딩된 SSH 개인 키 콘텐츠입니다.
 
     Base64 인코딩을 사용 하 여 원래 개인 키 파일 *전체* 를 인코딩하고 인코딩된 문자열을 키 자격 증명 모음에 저장 합니다. 원본 개인 키 파일은 파일에서 **업로드** 를 선택 하는 경우 SFTP 연결 된 서비스에서 사용할 수 있는 파일입니다.
 
@@ -902,7 +902,7 @@ ms.locfileid: "100366928"
     낮은 처리량을 승격 하려면 SFTP 관리자에 게 동시 연결 수 제한을 늘리거나 다음 중 하나를 수행할 수 있습니다.
 
     * 자체 호스팅 IR을 사용 하는 경우 자체 호스팅 IR 컴퓨터의 IP를 허용 목록에 추가 합니다.
-    * Azure IR 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)를 추가 합니다. SFTP 서버 허용 목록에 Ip 범위를 추가 하지 않으려는 경우 대신 자체 호스팅 IR을 사용 합니다.
+    * Azure IR 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](./azure-integration-runtime-ip-addresses.md)를 추가 합니다. SFTP 서버 허용 목록에 Ip 범위를 추가 하지 않으려는 경우 대신 자체 호스팅 IR을 사용 합니다.
 
 ## <a name="sharepoint-online-list"></a>SharePoint Online 목록
 
@@ -961,7 +961,7 @@ ms.locfileid: "100366928"
 
 - **원인**: 자체 호스팅 IR에서 Java 런타임을 찾을 수 없습니다. 특정 소스를 읽으려면 Java 런타임이 필요 합니다.
 
-- **권장 사항**: 통합 런타임 환경을 확인 하려면 [자체 호스팅 Integration Runtime 사용](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)을 참조 하세요.
+- **권장 사항**: 통합 런타임 환경을 확인 하려면 [자체 호스팅 Integration Runtime 사용](./format-parquet.md#using-self-hosted-integration-runtime)을 참조 하세요.
 
 
 ### <a name="error-code-wildcardpathsinknotsupported"></a>오류 코드: WildcardPathSinkNotSupported

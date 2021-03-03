@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e6dff06e92126e2fc4538273e229dcb0904e3101
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727484"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Azure Stack Edge 미니 R 기술 사양
 
@@ -80,9 +80,9 @@ Azure Stack Edge 미니 R 장치에는 전원을 공급 하 고 온보드 배터
 
 ## <a name="included-battery"></a>포함 된 배터리
 
-Azure Stack Edge 미니 R 장치에는 전원 공급 장치에서 청구 되는 온보드 배터리도 포함 됩니다. 
+Azure Stack Edge 미니 R 장치에는 전원 공급 장치에서 청구 되는 온보드 배터리도 포함 됩니다.
 
-추가 유형 2590 배터리를 온보드 배터리와 함께 사용 하 여 요금 간의 장치 사용을 확장할 수 있습니다. 이 배터리는 사용 국가에서 적용 가능한 모든 안전, 교통 및 환경 규정을 준수 해야 합니다.
+추가 [유형 2590 배터리](https://www.bren-tronics.com/bt-70791ck.html) 를 온보드 배터리와 함께 사용 하 여 요금 간의 장치 사용을 확장할 수 있습니다. 이 배터리는 사용 국가에서 적용 가능한 모든 안전, 교통 및 환경 규정을 준수 해야 합니다.
 
 
 | 사양           | 값                      |

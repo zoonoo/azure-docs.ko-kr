@@ -3,12 +3,12 @@ title: 작업 항목 통합 (미리 보기)-Application Insights
 description: Application Insights 데이터를 포함 하는 GitHub 또는 Azure DevOps에서 작업 항목을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731921"
 ---
 # <a name="work-item-integration-preview"></a>작업 항목 통합 (미리 보기)
 
@@ -53,7 +53,7 @@ ms.locfileid: "100101490"
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" 연필 편집 아이콘이 선택 된 작업 항목 탭의 스크린샷":::
 
-![위쪽의 편집 편집 아이콘 ](./media/work-item-integration/edit-icon.png) 을 선택 하 여 템플릿 편집을 시작 합니다. 작업 항목 템플릿은 [Azure Monitor 통합 문서](../platform/workbooks-overview.md)를 기반으로 합니다. 작업 항목 정보는 키워드 쿼리 언어를 사용 하 여 생성 됩니다. 쿼리를 수정 하 여 팀에 필요한 컨텍스트를 더 추가할 수 있습니다. 편집을 완료 한 후에는 ![ ](./media/work-item-integration/save-icon.png) 상단 도구 모음에서 저장 아이콘 저장 아이콘을 선택 하 여 통합 문서를 저장 합니다.
+![위쪽의 편집 편집 아이콘 ](./media/work-item-integration/edit-icon.png) 을 선택 하 여 템플릿 편집을 시작 합니다. 작업 항목 템플릿은 [Azure Monitor 통합 문서](../visualize/workbooks-overview.md)를 기반으로 합니다. 작업 항목 정보는 키워드 쿼리 언어를 사용 하 여 생성 됩니다. 쿼리를 수정 하 여 팀에 필요한 컨텍스트를 더 추가할 수 있습니다. 편집을 완료 한 후에는 ![ ](./media/work-item-integration/save-icon.png) 상단 도구 모음에서 저장 아이콘 저장 아이콘을 선택 하 여 통합 문서를 저장 합니다.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" 편집 모드의 작업 항목 템플릿 통합 문서 스크린샷" lightbox="./media/work-item-integration/edit-workbook.png":::
 

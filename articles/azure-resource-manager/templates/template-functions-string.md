@@ -2,13 +2,13 @@
 title: 템플릿 함수-문자열
 description: 문자열 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 03/02/2021
+ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731122"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿에 대 한 문자열 함수
 
@@ -131,7 +131,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -215,7 +215,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -298,13 +298,15 @@ output toJsonOutput object = base64ToJson(base64Object)
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
-| toJsonOutput | 개체 | {“one”: “a”, “two”: “b”} |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="concat"></a>concat
 
 `concat (arg1, arg2, arg3, ...)`
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환하거나 여러 배열을 결합하고 연결된 배열을 반환합니다.
+
+문자열 연결을 간소화 하기 위해 Bicep는 [문자열 보간](https://en.wikipedia.org/wiki/String_interpolation#) 구문을 지원 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -351,6 +353,14 @@ output toJsonOutput object = base64ToJson(base64Object)
 param prefix string = 'prefix'
 
 output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+또는
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -421,9 +431,9 @@ output return array = concat(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>포함
 
 `contains (container, itemToFind)`
 
@@ -529,11 +539,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | 거짓 |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | 거짓 |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | 거짓 |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -830,10 +840,10 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | 거짓 |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | 거짓 |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>first
 
@@ -1482,7 +1492,7 @@ output guidOutput string = guidValue
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1530,7 +1540,7 @@ output guidOutput string = guidValue
 ```bicep
 param guidValue string = newGuid()
 
-var storageName = concat('storage', uniqueString(guidValue))
+var storageName = 'storage${uniqueString(guidValue)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: storageName
@@ -1549,7 +1559,7 @@ output nameOutput string = storageName
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1565,7 +1575,7 @@ output nameOutput string = storageName
 |:--- |:--- |:--- |:--- |
 | valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
-| paddingCharacter |아니요 |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
+| paddingCharacter |No |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
 
 원래 문자열이 채울 문자 수보다 긴 경우 문자가 추가되지 않습니다.
 
@@ -1766,7 +1776,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
 ## <a name="split"></a>분할
@@ -1844,8 +1854,8 @@ output secondOutput array = split(secondString, delimiters)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| firstOutput | 배열 | [“one”, “two”, “three”] |
-| secondOutput | 배열 | [“one”, “two”, “three”] |
+| firstOutput | Array | [“one”, “two”, “three”] |
+| secondOutput | Array | [“one”, “two”, “three”] |
 
 ## <a name="startswith"></a>startswith
 
@@ -1923,7 +1933,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | 거짓 |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
@@ -2033,8 +2043,8 @@ output intOutput string = string(testInt)
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
-| startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |아니요 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
+| startIndex |No |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
+| length |No |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -2193,7 +2203,7 @@ output stringOutput string = take(testString, charactersToSkip)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
 
 ## <a name="tolower"></a>toLower
@@ -2468,7 +2478,7 @@ uniqueString(resourceGroup().id, deployment().name)
 
 ```bicep
 resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: concat('storage, uniqueString(resourceGroup().id)')
+  name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
 ```
@@ -2535,7 +2545,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
    * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
 
-몇 가지 예제는 다음과 같습니다.
+다음은 몇 가지 예입니다.
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh

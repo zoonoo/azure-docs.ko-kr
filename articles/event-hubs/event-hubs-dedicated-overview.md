@@ -3,12 +3,12 @@ title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Event Hubs의 단일 테 넌 트 배포를 제공 하는 전용 Azure Event Hubs에 대 한 개요를 제공 합니다.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358867"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715618"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -44,15 +44,15 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 
 | 기능 | Standard | 전용 |
 | --- |:---|:---|
-| 대역폭 | 20 Tu (최대 40 Tu) | 20개 CU |
+| 대역폭 | 20개의 TU(최대 40개의 TU) | 20개 CU |
 | 네임스페이스 |  1 | CU당 50개 |
-| Event Hubs |  네임 스페이스 당 10 | 네임스페이스당 1,000개 |
+| Event Hubs |  네임스페이스당 10개 | 네임스페이스당 1,000개 |
 | 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
 | 메시지 크기 | 100만 바이트 | 100만 바이트 |
-| 파티션 | 32 이벤트 허브 당 | 1024 이벤트 허브 당<br/>CU당 2,000개 |
-| 소비자 그룹 | 이벤트 허브 당 20 | CU당 제한 없음, 이벤트 허브당 1,000개 |
+| 파티션 | 이벤트 허브당 32 | 이벤트 허브당 1024<br/>CU당 2,000개 |
+| 소비자 그룹 | 이벤트 허브당 20 | CU당 제한 없음, 이벤트 허브당 1,000개 |
 | 조정된 연결 | 1000 포함, 최대 5000 | 100 K 포함 및 최대 |
-| 메시지 보존 | TU 당 7 일, 84 GB 포함 | 90일, CU당 10TB 포함 |
+| [이벤트 보존](event-hubs-features.md#event-retention) | 7일, TU당 84GB 포함 | 90일, CU당 10TB 포함 |
 | 캡처 | 시간당 요금 부과 | 포함 |
 
 할당량 및 제한에 대 한 자세한 내용은 [Event Hubs 할당량 및 제한](event-hubs-quotas.md) 을 참조 하세요.
@@ -61,7 +61,7 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 
 [Azure Portal](https://aka.ms/eventhubsclusterquickstart) 를 통해 [Event Hubs 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md) 셀프 서비스 환경은 이제 미리 보기로 제공 됩니다. Event Hubs Dedicated에 대 한 온 보 딩에 대 한 질문이 있거나 도움이 필요한 경우 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의 하세요.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 

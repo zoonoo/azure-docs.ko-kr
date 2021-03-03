@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733213"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>자습서: 새 자식 DNS 영역 만들기
 
@@ -81,7 +81,8 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1.  완료되면 **다음: 태그** 를 선택하고 **다음: 리뷰 + 만들기** 를 클릭합니다.
 1.  **검토 + 만들기** 탭에서 요약을 검토하고, 유효성 검사 오류를 수정한 다음, **만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="선택한 자식 영역 스크린샷" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="선택한 자식 영역 스크린샷" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>자식 DNS 영역 확인
 이제 새 자식 DNS 영역 *subdomain.contoso.com* 이 생성되었습니다. 위임이 올바르게 이루어졌는지 확인하려면 아래에 설명된 대로 자식 영역에 대한 nameserver(NS) 레코드가 부모 영역에 있는지 확인하는 것이 좋습니다.  
 

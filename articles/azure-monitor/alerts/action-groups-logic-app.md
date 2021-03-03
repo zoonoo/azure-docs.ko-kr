@@ -4,14 +4,14 @@ description: Azure Monitor 경고를 처리하기 위해 논리 앱 작업을 �
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: adef1f729cbecd08b2cf99231423287bdc4c6ae0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620314"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701181"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -19,7 +19,7 @@ ms.locfileid: "100620314"
 
 ## <a name="overview"></a>개요
 
-Azure Monitor 경고가 트리거되면 [동작 그룹](../platform/action-groups.md)을 호출합니다. 작업 그룹을 사용하면 다른 사람들에게 경고를 알리도록 하나 이상의 작업을 트리거할 수 있으며, 수정도 가능합니다.
+Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 호출합니다. 작업 그룹을 사용하면 다른 사람들에게 경고를 알리도록 하나 이상의 작업을 트리거할 수 있으며, 수정도 가능합니다.
 
 일반적인 절차는 다음과 같습니다.
 
@@ -35,29 +35,15 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../platform/action-group
 
 ## <a name="create-an-activity-log-alert-administrative"></a>활동 로그 경고 만들기 - 관리
 
-1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
+1. [논리 앱 만들기](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  **논리 앱** 을 검색하여 선택한 다음, **만들기** 를 선택합니다.
+2.  트리거 선택: **HTTP 요청을 받은 경우**.
 
-3.  논리 앱 **이름** 을 지정하고 **리소스 그룹** 등을 선택합니다.
+1. **HTTP 요청을 수신한 경우** 대화 상자에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
-    ![논리 앱 만들기](media/action-groups-logic-app/create-logic-app-dialog.png "논리 앱 만들기")
+    ![H T T P 요청 대화 상자와 샘플 페이로드를 사용하여 선택한 스키마 옵션을 생성하는 경우를 보여주는 스크린샷. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  **만들기** 를 선택하여 논리 앱을 만듭니다. 팝업 메시지가 논리 앱을 만들었음을 나타냅니다. **리소스 시작** 을 선택하여 **Logic Apps 디자이너** 를 엽니다.
-
-5.  트리거 선택: **HTTP 요청을 받은 경우**.
-
-    ![논리 앱 트리거](media/action-groups-logic-app/logic-app-triggers.png "논리 앱 트리거")
-
-6.  **편집** 을 선택하여 HTTP 요청 트리거를 변경합니다.
-
-    ![HTTP 요청 트리거](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP 요청 트리거")
-
-7.  **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
-
-    ![샘플 페이로드 사용](media/action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
-
-8.  다음 샘플 페이로드를 복사 하 여 대화 상자에 붙여 넣습니다.
+3.  다음 샘플 페이로드를 복사 하 여 대화 상자에 붙여 넣습니다.
 
     ```json
         {
@@ -128,7 +114,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../platform/action-group
 
 14. **Logic Apps 디자이너** 맨 위에서 **저장** 을 선택하여 논리 앱을 저장합니다.
 
-15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](../platform/action-groups.md) 를 참조 하 여 새로 만듭니다. 변경 내용은 반드시 저장해야 합니다.
+15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](./action-groups.md) 를 참조 하 여 새로 만듭니다. 변경 내용은 반드시 저장해야 합니다.
 
     ![작업 그룹 업데이트](media/action-groups-logic-app/update-action-group.png "작업 그룹 업데이트")
 
@@ -138,8 +124,8 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../platform/action-group
 
 Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
-- 1-7단계는 동일합니다.
-- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
+- 1 ~ 3 단계는 동일 합니다.
+- 4 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {
@@ -183,8 +169,8 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
     }
     ```
 
--  9-10단계는 동일합니다.
--  11-14 단계의 경우 다음 프로세스를 사용합니다.
+-  5 단계와 6 단계는 동일 합니다.
+-  7 ~ 11 단계의 경우 다음 프로세스를 사용 합니다.
 
    1. **+** **새 단계** 를 선택한 다음 **조건 추가를** 선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +212,8 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 
 메트릭 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
-- 1-7단계는 동일합니다.
-- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
+- 1 ~ 3 단계는 동일 합니다.
+- 4 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {
@@ -271,8 +257,8 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
     }
     ```
 
-- 9-10단계는 동일합니다.
-- 11-14 단계의 경우 다음 프로세스를 사용합니다.
+- 5 단계와 6 단계는 동일 합니다.
+- 7 ~ 11 단계의 경우 다음 프로세스를 사용 합니다.
 
   1. **+** **새 단계** 를 선택한 다음 **조건 추가를** 선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +280,6 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 Logic Apps는 방대한 애플리케이션 및 데이터베이스에서 작업을 트리거할 수 있는 다양한 커넥터를 제공합니다. Slack, SQL Server, Oracle, Salesforce 등을 예로 들 수 있습니다. 커넥터에 대한 자세한 내용은 [논리 앱 커넥터](../../connectors/apis-list.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 활동 로그 경고의 개요](../platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
+* [Azure 활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [Azure Service Health 알림이 게시될 때 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.
-* [작업 그룹](../platform/action-groups.md)에 대해 자세히 알아보세요.
-
+* [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.

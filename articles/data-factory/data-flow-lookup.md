@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147269"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739371"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -38,8 +38,6 @@ ms.locfileid: "93147269"
 **일치 기준:** '여러 행 일치'를 선택하지 않은 경우에만 표시됩니다. 임의 행, 첫 번째 일치 항목 또는 마지막 일치 항목에 일치할지를 선택합니다. 가장 빠르게 실행되는 임의 행이 권장됩니다. 첫 번째 행 또는 마지막 행을 선택한 경우 정렬 조건을 지정해야 합니다.
 
 **조회 조건:** 일치시킬 열을 선택합니다. 같음 조건이 충족되면 행이 일치하는 것으로 간주됩니다. [데이터 흐름 식 언어](data-flow-expression-functions.md)를 사용하여 값을 추출하려면 '계산 열'을 가리키고 선택합니다.
-
-조회 변환은 같음 일치만 지원합니다. 보다 큼 등의 다른 연산자를 포함하도록 조회 식을 사용자 지정하려면 [조인 변환에서 크로스 조인](data-flow-join.md#custom-cross-join)을 사용하는 것이 좋습니다. 크로스 조인은 실행 시 가능한 카티션 곱 오류를 방지합니다.
 
 두 스트림의 모든 열이 출력 데이터에 포함됩니다. 중복되거나 불필요한 열을 삭제하려면 조회 변환 후 [선택 변환](data-flow-select.md)을 추가합니다. 싱크 변환에서 열을 삭제하거나 이름을 바꿀 수도 있습니다.
 
@@ -69,7 +67,7 @@ ms.locfileid: "93147269"
 
 조인이 실행되는 동안 시간 제한 오류가 발생하는 경우에만 **해제** 옵션을 통해 브로드캐스팅을 사용하지 않도록 설정하는 것이 좋습니다.
 
-## <a name="cached-lookup"></a>캐시 된 조회
+## <a name="cached-lookup"></a>캐시된 조회
 
 동일한 원본에서 여러 개의 더 작은 조회를 수행 하는 경우 캐시 된 싱크와 조회는 조회 변환 보다 더 나은 사용 사례가 될 수도 있습니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink) 및 [캐시 된 조회](concepts-data-flow-expression-builder.md#cached-lookup)에 대해 알아봅니다.
 

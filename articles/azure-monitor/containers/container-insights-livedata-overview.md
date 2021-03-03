@@ -1,26 +1,26 @@
 ---
-title: 컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 (미리 보기) 보기 | Microsoft Docs
-description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
+title: 컨테이너 insights를 사용 하 여 라이브 데이터 (미리 보기) 보기 | Microsoft Docs
+description: 이 문서에서는 컨테이너 insights에서 kubectl를 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711232"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
-컨테이너의 Azure Monitor에는 AKS (Azure Kubernetes Service) 컨테이너 로그 (stdout/stderror), 이벤트 및 pod 메트릭에 직접 액세스할 수 있게 해 주는 고급 진단 기능인 라이브 데이터 (미리 보기) 기능이 포함 되어 있습니다. , 이벤트 및에 대 한 직접 액세스를 노출 `kubectl logs -c` `kubectl get` `kubectl top pods` 합니다. 콘솔 창에는 실시간 문제 해결에 도움이 되는 컨테이너 엔진에서 생성 한 로그, 이벤트 및 메트릭이 표시 됩니다.
+컨테이너 정보에는 Live Data (미리 보기) 기능이 포함 되어 있습니다 .이 기능은 Azure Kubernetes 서비스 (AKS) 컨테이너 로그 (stdout/stderror), 이벤트 및 pod 메트릭에 직접 액세스할 수 있게 해 주는 고급 진단 기능입니다. , 이벤트 및에 대 한 직접 액세스를 노출 `kubectl logs -c` `kubectl get` `kubectl top pods` 합니다. 콘솔 창에는 실시간 문제 해결에 도움이 되는 컨테이너 엔진에서 생성 한 로그, 이벤트 및 메트릭이 표시 됩니다.
 
 이 문서에서는 자세한 개요를 제공 하 고이 기능을 사용 하는 방법을 이해 하는 데 도움을 줍니다.
 
 라이브 데이터 (미리 보기) 기능을 설정 하거나 문제를 해결 하는 방법에 대 한 도움말은 [설치 가이드](container-insights-livedata-setup.md)를 참조 하세요. 이 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다.
 
 ## <a name="view-deployment-live-logs-preview"></a>배포 라이브 로그 보기 (미리 보기)
-컨테이너에 대해 Azure Monitor에서 모니터링 하지 않는 AKS 클러스터의 일부인 배포에 대 한 실시간 로그를 보려면 다음 절차를 따르십시오. 클러스터에서 컨테이너에 대 한 Azure Monitor를 사용 하는 경우 아래 프로세스를 사용 하 여 노드, 컨트롤러, 컨테이너 및 배포에 대 한 라이브 데이터를 볼 수 있습니다.
+다음 절차를 사용 하 여 컨테이너 insights에서 모니터링 하지 않는 AKS 클러스터의 일부인 배포에 대 한 실시간 로그를 볼 수 있습니다. 클러스터에서 Container insights를 사용 하는 경우 아래 프로세스를 사용 하 여 노드, 컨트롤러, 컨테이너 및 배포에 대 한 라이브 데이터를 볼 수 있습니다.
 
 1. Azure Portal에서 AKS cluster 리소스 그룹으로 이동 하 여 AKS 리소스를 선택 합니다.
 

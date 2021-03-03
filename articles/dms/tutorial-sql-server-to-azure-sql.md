@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094839"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742112"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -33,10 +33,6 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 > - Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
 > - 마이그레이션을 실행합니다.
 > - 마이그레이션을 모니터링합니다.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-이 문서에서는 SQL Server에서 Azure SQL Database의 데이터베이스로 오프라인 마이그레이션을 설명합니다. 온라인 마이그레이션의 경우 [DMS를 사용하여 Azure SQL Database로 SQL Server 온라인 마이그레이션](tutorial-sql-server-azure-sql-online.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -275,7 +271,5 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
 ### <a name="additional-resources"></a>추가 자료
 
-- [Azure Data Migration Service를 사용하는 SQL 마이그레이션](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) 실습 랩.
-- Azure SQL Database로 온라인 마이그레이션을 수행할 때 발생하는 알려진 문제 및 제한 사항에 대한 자세한 내용은 [Azure SQL Database 온라인 마이그레이션의 알려진 문제 및 해결 방법](known-issues-azure-sql-online.md) 문서를 참조하세요.
 - Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](./dms-overview.md) 문서를 참조하세요.
 - Azure SQL Database에 대한 자세한 내용은 [Azure SQL Database 서비스란?](../azure-sql/database/sql-database-paas-overview.md) 문서를 참조하세요.

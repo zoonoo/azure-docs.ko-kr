@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834394"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735865"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -219,7 +219,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 적응 응용 프로그램 컨트롤을 프로그래밍 방식으로 관리 하려면 REST API을 사용 합니다. 
 
-전체 API 설명서는 [여기](/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
+관련 API 설명서는 [Security Center의 api 문서에 있는 적응 응용 프로그램 컨트롤 섹션](/rest/api/securitycenter/adaptiveapplicationcontrols)에서 사용할 수 있습니다.
 
 REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 

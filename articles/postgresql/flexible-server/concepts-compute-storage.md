@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519391"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712218"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션
 
@@ -119,6 +119,9 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 |E64s_v3             |18000 IOPS                               |120|240|500 |1100|2300 |5,000 |7,500 |7,500 |16000 |18000 |
 
 로 표시 된 경우 \* 선택한 VM 유형에 따라 IOPS가 제한 됩니다. 그렇지 않으면 선택한 저장소 크기에 따라 IOPS가 제한 됩니다.
+
+>[!NOTE]
+> 디스크 수준 버스트로 인해 메트릭에 더 높은 IOPS가 표시 될 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) 를 참조 하세요. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>구성에 대 한 최대 i/o 대역폭 (MiB/초)
 

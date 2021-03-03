@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687399"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -113,7 +113,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
 - **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
-- **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
+- **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://<namespace>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control (. accesscontrol.windows.net에 위치)에 전송 된 모든 요청은 \<namespace\> 실패 합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
 > [!NOTE]
@@ -190,24 +190,24 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | 기능 | Access Control 지원 | Azure AD 지원 |
 | ---------- | ----------- | ---------------- |
 | **계정 유형** | | |
-| Microsoft 회사 또는 학교 계정 | 지원 여부 | 지원 여부 |
+| Microsoft 회사 또는 학교 계정 | 지원됨 | 지원됨 |
 | Windows Server Active Directory 및 AD FS의 계정 |- Azure AD 테넌트와의 페더레이션을 통해 지원 <br />- AD FS와의 직접 페더레이션을 통해 지원 | Azure AD 테넌트와의 페더레이션을 통해서만 지원 | 
 | 다른 엔터프라이즈 ID 관리 시스템의 계정 |- Azure AD 테넌트와의 페더레이션을 통해 지원 <br />- 직접 페더레이션을 통해 지원 | Azure AD 테넌트와의 페더레이션을 통해 지원 |
-| 개인용 Microsoft 계정 | 지원 여부 | Azure AD v2.0 OAuth 프로토콜을 통해 지원(다른 프로토콜은 지원 불가) | 
-| Facebook, Google, Yahoo 계정 | 지원 여부 | 지원되지 않음 |
+| 개인용 Microsoft 계정 | 지원됨 | Azure AD v2.0 OAuth 프로토콜을 통해 지원(다른 프로토콜은 지원 불가) | 
+| Facebook, Google, Yahoo 계정 | 지원됨 | 지원되지 않음 |
 | **프로토콜 및 SDK 호환성** | | |
-| WIF | 지원 여부 | 지원됨(제한된 명령만 사용 가능) |
-| WS-Federation | 지원 여부 | 지원 여부 |
+| WIF | 지원됨 | 지원됨(제한된 명령만 사용 가능) |
+| WS-Federation | 지원됨 | 지원됨 |
 | OAuth 2.0 | 초안 13 지원 | 최신 사양인 RFC 6749 지원 |
-| WS-Trust | 지원 여부 | 지원되지 않음 |
+| WS-Trust | 지원됨 | 지원되지 않음 |
 | **토큰 형식** | | |
-| JWT | 베타에서 지원 | 지원 여부 |
-| SAML 1.1 | 지원 여부 | 미리 보기 |
-| SAML 2.0 | 지원 여부 | 지원 여부 |
-| SWT | 지원 여부 | 지원되지 않음 |
+| JWT | 베타에서 지원 | 지원됨 |
+| SAML 1.1 | 지원됨 | 미리 보기 |
+| SAML 2.0 | 지원됨 | 지원됨 |
+| SWT | 지원됨 | 지원되지 않음 |
 | **사용자 지정** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원되지 않음 |
-| 사용자 지정 토큰 서명 인증서 업로드 | 지원 여부 | 지원 여부 |
+| 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
@@ -241,24 +241,24 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | 기능 | Access Control 지원 | Azure AD B2C 지원 |
 | ---------- | ----------- | ---------------- |
 | **계정 유형** | | |
-| Microsoft 회사 또는 학교 계정 | 지원 여부 | 사용자 지정 정책을 통한 지원  |
+| Microsoft 회사 또는 학교 계정 | 지원됨 | 사용자 지정 정책을 통한 지원  |
 | Windows Server Active Directory 및 AD FS의 계정 | AD FS를 사용한 직접 페더레이션을 통해 지원 | 사용자 지정 정책을 사용하여 SAML 페더레이션을 통해 지원 |
 | 다른 엔터프라이즈 ID 관리 시스템의 계정 | Ws-Federation을 바탕으로 직접 페더레이션을 통해 지원 | 사용자 지정 정책을 사용하여 SAML 페더레이션을 통해 지원 |
-| 개인용 Microsoft 계정 | 지원 여부 | 지원 여부 | 
-| Facebook, Google, Yahoo 계정 | 지원 여부 | Facebook 및 Google은 기본적으로 지원, Yahoo는 사용자 지정 정책을 사용하여 OpenID Connect 페더레이션을 통해 지원 |
+| 개인용 Microsoft 계정 | 지원됨 | 지원됨 | 
+| Facebook, Google, Yahoo 계정 | 지원됨 | Facebook 및 Google은 기본적으로 지원, Yahoo는 사용자 지정 정책을 사용하여 OpenID Connect 페더레이션을 통해 지원 |
 | **프로토콜 및 SDK 호환성** | | |
-| WIF(Windows Identity Foundation) | 지원 여부 | 지원되지 않음 |
-| WS-Federation | 지원 여부 | 지원되지 않음 |
+| WIF(Windows Identity Foundation) | 지원됨 | 지원되지 않음 |
+| WS-Federation | 지원됨 | 지원되지 않음 |
 | OAuth 2.0 | 초안 13 지원 | 최신 사양인 RFC 6749 지원 |
-| WS-Trust | 지원 여부 | 지원되지 않음 |
+| WS-Trust | 지원됨 | 지원되지 않음 |
 | **토큰 형식** | | |
-| JWT | 베타에서 지원 | 지원 여부 |
-| SAML 1.1 | 지원 여부 | 지원되지 않음 |
-| SAML 2.0 | 지원 여부 | 지원되지 않음 |
-| SWT | 지원 여부 | 지원되지 않음 |
+| JWT | 베타에서 지원 | 지원됨 |
+| SAML 1.1 | 지원됨 | 지원되지 않음 |
+| SAML 2.0 | 지원됨 | 지원되지 않음 |
+| SWT | 지원됨 | 지원되지 않음 |
 | **사용자 지정** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 사용자 지정 CSS를 이용하여 UI 사용자 지정 가능 |
-| 사용자 지정 토큰 서명 인증서 업로드 | 지원 여부 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
+| 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |-Microsoft Graph API를 사용 하 여 허용 되는 사용자 만들기<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |

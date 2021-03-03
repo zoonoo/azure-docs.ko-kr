@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726515"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성
 
@@ -60,9 +60,9 @@ Azure Portal를 사용 하 여 URL을 다시 작성 하는 방법에 대 한 자
 다시 쓰기 작업을 사용 하 여 다시 작성할 URL, 요청 헤더 또는 응답 헤더와 다시 작성 하려는 새 값을 지정 합니다. URL 또는 새 또는 기존 헤더의 값은 다음과 같은 형식 값으로 설정할 수 있습니다.
 
 * 텍스트
-* 요청 헤더. 요청 헤더를 지정 하려면 {http_req_*헤드 ername*} 구문을 사용 해야 합니다.
-* 응답 헤더입니다. 응답 헤더를 지정 하려면 {http_resp_*헤드 ername*} 구문을 사용 해야 합니다.
-* 서버 변수입니다. 서버 변수를 지정 하려면 {var_*Servervariable*} 구문을 사용 해야 합니다. 지원 되는 서버 변수 목록 보기
+* 요청 헤더. 요청 헤더를 지정 하려면 {http_req_ *헤드 ername*} 구문을 사용 해야 합니다.
+* 응답 헤더입니다. 응답 헤더를 지정 하려면 {http_resp_ *헤드 ername*} 구문을 사용 해야 합니다.
+* 서버 변수입니다. 서버 변수를 지정 하려면 {var_ *Servervariable*} 구문을 사용 해야 합니다. 지원 되는 서버 변수 목록 보기
 * 텍스트, 요청 헤더, 응답 헤더 및 서버 변수의 조합입니다. 
 
 ## <a name="rewrite-conditions"></a>다시 쓰기 조건
@@ -100,7 +100,7 @@ Application Gateway는 조건에서 패턴 일치에 정규식을 사용 합니�
 
 ## <a name="server-variables"></a>서버 변수
 
-Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 정보, 클라이언트에 대 한 연결 및 현재 연결 요청을 저장 합니다. 저장 되는 정보의 예로는 클라이언트의 IP 주소와 웹 브라우저 유형이 있습니다. 서버 변수는 새 페이지가 로드 될 때 또는 양식이 게시 될 때와 같이 동적으로 변경 됩니다. 이러한 변수를 사용 하 여 재작성 조건을 평가 하 고 헤더를 다시 작성할 수 있습니다. 서버 변수 값을 사용 하 여 헤더를 다시 작성 하려면 {var_*serverVariableName*} 구문에서 이러한 변수를 지정 해야 합니다.
+Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 정보, 클라이언트에 대 한 연결 및 현재 연결 요청을 저장 합니다. 저장 되는 정보의 예로는 클라이언트의 IP 주소와 웹 브라우저 유형이 있습니다. 서버 변수는 새 페이지가 로드 될 때 또는 양식이 게시 될 때와 같이 동적으로 변경 됩니다. 이러한 변수를 사용 하 여 재작성 조건을 평가 하 고 헤더를 다시 작성할 수 있습니다. 서버 변수 값을 사용 하 여 헤더를 다시 작성 하려면 {var_ *serverVariableName*} 구문에서 이러한 변수를 지정 해야 합니다.
 
 Application gateway는 다음 서버 변수를 지원 합니다.
 
@@ -114,7 +114,7 @@ Application gateway는 다음 서버 변수를 지원 합니다.
 | client_tcp_rtt            | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user               | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
 | 호스트                      | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 호스트 값은입니다. `contoso.com` |
-| cookie_*이름*             | *이름* 쿠키입니다.                                           |
+| cookie_ *이름*             | *이름* 쿠키입니다.                                           |
 | http_method               | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status               | 세션 상태입니다. 예: 200, 400 또는 403.           |
 | http_version              | 요청 프로토콜입니다. 일반적으로 HTTP/1.0, HTTP/1.1 또는 HTTP/2.0입니다. |
@@ -164,7 +164,7 @@ Application Gateway는 백 엔드에 요청을 전달 하기 전에 모든 요�
 
 App Service은 다중 테 넌 트 서비스 이므로 요청에서 호스트 헤더를 사용 하 여 요청을 올바른 끝점으로 라우팅합니다. App services의 기본 도메인 이름은 application gateway의 도메인 이름과 다른 *. azurewebsites.net (contoso.azurewebsites.net)입니다 (예를 들어 contoso.com). 클라이언트의 원래 요청에는 호스트 이름으로 응용 프로그램 게이트웨이의 도메인 이름 (contoso.com)이 있으므로 application gateway는 호스트 이름을 contoso.azurewebsites.net로 변경 합니다. App service가 요청을 올바른 끝점으로 라우팅할 수 있도록이 변경을 수행 합니다.
 
-App service는 리디렉션 응답을 보낼 때 응용 프로그램 게이트웨이에서 수신 하는 요청의 위치 헤더에 있는 것과 동일한 호스트 이름을 사용 합니다. 따라서 클라이언트는 application gateway (contoso.com/path2)를 통하지 않고 contoso.azurewebsites.net/path2에 직접 요청을 만듭니다. Application gateway를 무시 하는 것은 바람직하지 않습니다.
+App service는 리디렉션 응답을 보낼 때 응용 프로그램 게이트웨이에서 수신 하는 요청의 위치 헤더에 있는 것과 동일한 호스트 이름을 사용 합니다. 따라서 클라이언트는 `contoso.azurewebsites.net/path2` 응용 프로그램 게이트웨이 ()를 통하지 않고 직접 요청을 만듭니다 `contoso.com/path2` . Application gateway를 무시 하는 것은 바람직하지 않습니다.
 
 Location 헤더의 호스트 이름을 application gateway의 도메인 이름으로 설정 하 여이 문제를 해결할 수 있습니다.
 
@@ -205,21 +205,21 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 **2 단계 (a):** 재작성 규칙 3 개를 포함 하는 재작성 집합을 만듭니다. 
 
-* 첫 번째 규칙에는 *category =* listing1에 대 한 *query_string* 변수를 확인 하 고, URL 경로를/*listing1* 로 다시 작성 하 고, **경로 맵을 다시 평가** 하는 작업이 있는 조건이 있습니다.
+* 첫 번째 규칙에는 *category =* listing1에 대 한 *query_string* 변수를 확인 하 고, URL 경로를/ 로 다시 작성 하 고, **경로 맵을 다시 평가** 하는 작업이 있는 조건이 있습니다.
 
 * 두 번째 규칙에는 *category =* 모음에 대 한 *query_string* 변수를 확인 하 고, URL 경로를/*listing2* 로 다시 작성 하 고, **경로 맵을 다시 평가** 하는 작업이 포함 되어 있습니다.
 
 * 세 번째 규칙에는 *category = 액세서리* 의 *query_string* 변수를 확인 하 고, URL 경로를/*listing3* 로 다시 작성 하 고 **경로 맵을 다시 평가** 하는 작업이 포함 되어 있습니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL 재작성 시나리오 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL 재작성 시나리오 1-2.":::
 
  
 
 **2 단계 (b):** 위의 경로 기반 규칙의 기본 경로에이 재작성 집합을 연결 합니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL 재작성 시나리오 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL 재작성 시나리오 1-3.":::
 
-이제 사용자가 *contoso.com/listing?category=any*를 요청 하면 경로 맵 (/listing1,/listing1,/listing1)의 경로 패턴이 모두 일치 하지 않으므로 기본 경로와 일치 하 게 됩니다. 위의 재작성 집합을이 경로와 연결 했으므로이 재작성 집합이 평가 됩니다. 쿼리 문자열은이 재작성 집합에서 3 다시 쓰기 규칙의 조건과 일치 하지 않으므로 다시 쓰기 작업이 수행 되지 않으므로 요청은 기본 경로 ( *Genericlist*)와 연결 된 백 엔드로 변경 되지 않습니다.
+이제 사용자가 *contoso.com/listing?category=any* 를 요청 하면 경로 맵 (/listing1,/listing1,/listing1)의 경로 패턴이 모두 일치 하지 않으므로 기본 경로와 일치 하 게 됩니다. 위의 재작성 집합을이 경로와 연결 했으므로이 재작성 집합이 평가 됩니다. 쿼리 문자열은이 재작성 집합에서 3 다시 쓰기 규칙의 조건과 일치 하지 않으므로 다시 쓰기 작업이 수행 되지 않으므로 요청은 기본 경로 ( *Genericlist*)와 연결 된 백 엔드로 변경 되지 않습니다.
 
  사용자가 *contoso.com/listing?category=shoes를* 요청 하면 기본 경로가 일치 하 게 됩니다. 그러나이 경우에는 첫 번째 규칙의 조건이 일치 하므로 해당 조건과 연결 된 작업이 실행 되며,이는 URL 경로를/*listing1*  로 다시 작성 하 고 경로 맵을 다시 평가 하는 데 사용 됩니다. 경로 맵이 재평가 되 면 이제 요청은 패턴 */listing1* 과 연결 된 경로와 일치 하 고 요청은이 패턴과 연결 된 백 엔드 (ShoesListBackendPool)로 라우팅됩니다.
 
@@ -234,11 +234,11 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 **조건** -서버 변수가 `uri_path` 패턴과 같은 경우 `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL 재작성 시나리오 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL 재작성 시나리오 2-1.":::
 
 **작업** -URL 경로를로 설정 하 `buy.aspx` 고 문자열을 쿼리 합니다. `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL 재작성 시나리오 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL 재작성 시나리오 2-2.":::
 
 위에서 설명한 시나리오를 수행 하는 단계별 가이드는를 [사용 하 여 URL 다시 쓰기 Application Gateway](rewrite-url-portal.md) 를 참조 하세요 Azure Portal
 
@@ -248,7 +248,7 @@ URL 재작성의 경우 요청이 백 엔드로 전송 되기 전에 URL을 다�
 
 URL 리디렉션 시 Application Gateway는 새 URL을 사용 하 여 클라이언트에 리디렉션 응답을 보냅니다. 그러면 클라이언트가 해당 요청을 리디렉션에 제공 된 새 URL로 다시 전송 해야 합니다. 브라우저에서 사용자에 게 표시 되는 URL이 새 URL로 업데이트 됩니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="URL 재작성 시나리오 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Vs 리디렉션을 다시 작성 합니다.":::
 
 ## <a name="limitations"></a>제한 사항
 

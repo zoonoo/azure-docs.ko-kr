@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617129"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700748"
 ---
 # <a name="metric-chart-examples"></a>메트릭 차트 예 
 
-Azure 플랫폼에서는 [1,000개가 넘는 메트릭](../platform/metrics-supported.md)을 제공하며, 대부분의 메트릭에는 차원이 있습니다. [차원 필터](./metrics-charts.md)를 사용하고, [분할](./metrics-charts.md)을 적용하고, 차트 유형을 제어하고, 차트 설정을 조정하면 인프라 및 애플리케이션 상태 관련 분석 정보를 제공하는 효율적인 진단 보기와 대시보드를 만들 수 있습니다. 이 문서에서는 [메트릭 탐색기](./metrics-charts.md)를 사용하여 작성할 수 있는 차트의 몇 가지 예와 이러한 각 차트를 구성하려면 수행해야 하는 단계에 대해 설명합니다.
+Azure 플랫폼에서는 [1,000개가 넘는 메트릭](./metrics-supported.md)을 제공하며, 대부분의 메트릭에는 차원이 있습니다. [차원 필터](./metrics-charts.md)를 사용하고, [분할](./metrics-charts.md)을 적용하고, 차트 유형을 제어하고, 차트 설정을 조정하면 인프라 및 애플리케이션 상태 관련 분석 정보를 제공하는 효율적인 진단 보기와 대시보드를 만들 수 있습니다. 이 문서에서는 [메트릭 탐색기](./metrics-charts.md)를 사용하여 작성할 수 있는 차트의 몇 가지 예와 이러한 각 차트를 구성하려면 수행해야 하는 단계에 대해 설명합니다.
 
 유용한 차트 예제를 공유하려는 경우 GitHub에서 이 페이지에 차트를 게시하고 이 페이지에서 차트 예제를 공유하세요.
 
@@ -54,4 +54,3 @@ App Service 리소스를 선택하고 **CPU 백분율** 메트릭을 찾습니�
 
 * Azure Monitor [통합 문서](../visualize/workbooks-overview.md)에 대해 알아보기
 * [메트릭 탐색기](metrics-charts.md)에 대해 자세히 알아보기
-

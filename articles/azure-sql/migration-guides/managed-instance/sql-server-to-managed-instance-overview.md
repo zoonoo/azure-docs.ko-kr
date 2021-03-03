@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690416"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 |마이그레이션 옵션  |사용 시기  |고려 사항  |
 |---------|---------|---------|
-|[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스나 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM |  -규모의 마이그레이션은 [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md)을 통해 자동화할 수 있습니다. </br> -마이그레이션을 완료 하는 데 걸리는 시간은 데이터베이스 크기에 따라 다르며 백업 및 복원 시간의 영향을 받습니다. </br> -충분 한 가동 중지 시간이 필요할 수 있습니다. |
+|[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스나 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM |  -규모의 마이그레이션은 [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md)을 통해 자동화할 수 있습니다. </br> -마이그레이션을 완료 하는 데 걸리는 시간은 데이터베이스 크기에 따라 다르며 백업 및 복원 시간의 영향을 받습니다. </br> -충분 한 가동 중지 시간이 필요할 수 있습니다. |
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다.  </br> -별도의 마이그레이션 서비스 또는 도구를 사용 하지 않고 빠르고 쉽게 마이그레이션할 수 있습니다.  </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM | -데이터베이스 백업은 여러 스레드를 사용 하 여 Azure Blob 저장소로의 데이터 전송을 최적화 하지만 ISV 대역폭과 데이터베이스 크기는 전송 요금에 영향을 줄 수 있습니다. </br> -가동 중지 시간은 전체 백업 및 복원을 수행 하는 데 필요한 시간 (데이터 작업의 크기)을 수용할 수 있어야 합니다.| 
 |[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다.  </br> -데이터베이스 마이그레이션에는 추가 컨트롤이 필요 합니다.  </br> </br> 지원 되는 원본: </br> -SQL Server (2008-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM | -마이그레이션에는 SQL Server에서 전체 데이터베이스 백업을 수행 하 고 Azure Blob Storage 백업 파일을 복사 하는 과정이 수반 됩니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다. </br> -마이그레이션 프로세스 중 복원 되는 데이터베이스는 복원 모드가 되며 프로세스가 완료 될 때까지 읽거나 쓸 수 없습니다.| 
 | | | |
@@ -163,7 +163,7 @@ SQL Managed Instance에 포함 된 고가용성 아키텍처 외에도 관리 �
 
 #### <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 
-[SQL 에이전트 작업](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations)을 마이그레이션하려면 DMS (offline Azure Database Migration Service) 옵션을 사용 합니다. 그렇지 않으면 SQL Server Management Studio를 사용 하 여 Transact-sql (T-sql)에서 작업을 스크립트 한 다음 대상 SQL Managed Instance에서 수동으로 다시 만듭니다. 
+[SQL 에이전트 작업](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md)을 마이그레이션하려면 DMS (offline Azure Database Migration Service) 옵션을 사용 합니다. 그렇지 않으면 SQL Server Management Studio를 사용 하 여 Transact-sql (T-sql)에서 작업을 스크립트 한 다음 대상 SQL Managed Instance에서 수동으로 다시 만듭니다. 
 
 > [!IMPORTANT]
 > 현재 Azure DMS는 T-sql 하위 시스템 단계로 작업을 지원 합니다. SSIS 패키지 단계를 사용 하는 작업은 수동으로 마이그레이션해야 합니다. 

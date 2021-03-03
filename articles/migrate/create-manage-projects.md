@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 25572a4cc342277289459891c9bee2fa7f1cccd7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0656a9eabb692453331c5c4b229ce26f41ecfdf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589091"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730204"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
 이 문서에서는 [Azure Migrate](migrate-services-overview.md) 프로젝트를 만들고, 관리 하 고, 삭제 하는 방법을 설명 합니다. 
 
-클래식 Azure Migrate는 2 월 2024 일에 사용 중지 됩니다. 2024 년 2 월 일 이후 클래식 버전의 Azure Migrate는 더 이상 지원 되지 않으며 클래식 프로젝트의 인벤토리 메타 데이터가 삭제 됩니다. 클래식 Azure Migrate 프로젝트를 사용 하는 경우 해당 프로젝트를 삭제 하 고 단계에 따라 새 Azure Migrate 프로젝트를 만듭니다. 클래식 Azure Migrate 프로젝트나 구성 요소를 Azure Migrate로 업그레이드할 수 없습니다. 만들기 프로세스를 시작 하기 전에 [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) 를 확인 합니다.
+클래식 Azure Migrate는 2024년 2월에 만료됩니다. 2024 년 2 월 일 이후 클래식 버전의 Azure Migrate는 더 이상 지원 되지 않으며 클래식 프로젝트의 인벤토리 메타 데이터가 삭제 됩니다. 클래식 Azure Migrate 프로젝트를 사용 하는 경우 해당 프로젝트를 삭제 하 고 단계에 따라 새 Azure Migrate 프로젝트를 만듭니다. 클래식 Azure Migrate 프로젝트나 구성 요소를 Azure Migrate로 업그레이드할 수 없습니다. 만들기 프로세스를 시작 하기 전에 [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) 를 확인 합니다.
 
 Azure Migrate 프로젝트는 평가하거나 마이그레이션하는 환경에서 수집된 검색, 평가 및 마이그레이션 메타데이터를 저장하는 데 사용됩니다. 프로젝트에서 검색 된 자산을 추적 하 고, 평가를 만들고, Azure로 마이그레이션을 오케스트레이션 할 수 있습니다.  
 

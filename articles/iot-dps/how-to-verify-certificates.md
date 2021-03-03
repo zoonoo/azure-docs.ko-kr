@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0326eef86b42fa8b06c336bbf2b1c6f2f9df0bcf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730357"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
 
@@ -72,14 +72,4 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 ## <a name="next-steps"></a>다음 단계
 
 - 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 디바이스 등록 관리](how-to-manage-enrollments.md)를 참조하세요.
-- 서비스 SDK를 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [서비스 SDK에서 디바이스 등록 관리](how-to-manage-enrollments-sdks.md)를 참조하세요.
-
-
-
-
-
-
-
-
-
-
+- 서비스 SDK를 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [서비스 SDK에서 디바이스 등록 관리](./quick-enroll-device-x509-java.md)를 참조하세요.

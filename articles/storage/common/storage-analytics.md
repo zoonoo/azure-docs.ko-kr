@@ -9,18 +9,18 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a5ccaa95c8f29395770395076f75f36019a4355c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790528"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737684"
 ---
 # <a name="storage-analytics"></a>스토리지 분석
 
 Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다.
 
-스토리지 분석을 사용하려면 모니터링할 각 서비스에 대해 스토리지 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. [Blob Service 속성 설정](/rest/api/storageservices/set-blob-service-properties), [큐 서비스 속성 설정](/rest/api/storageservices/set-queue-service-properties), [Table Service 속성 설정](/rest/api/storageservices/set-table-service-properties) 및 [파일 서비스 속성 설정](/rest/api/storageservices/Get-File-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정합니다.
+스토리지 분석을 사용하려면 모니터링할 각 서비스에 대해 스토리지 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. [Blob Service 속성 설정](/rest/api/storageservices/set-blob-service-properties), [큐 서비스 속성 설정](/rest/api/storageservices/set-queue-service-properties), [Table Service 속성 설정](/rest/api/storageservices/set-table-service-properties) 및 [파일 서비스 속성 설정](/rest/api/storageservices/Get-File-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정합니다.
 
 집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob service 및 Table service API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
@@ -46,6 +46,6 @@ Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트�
 스토리지 분석 데이터를 확인할 때는 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 토픽의 표를 통해 요금이 청구될 수 있는 요청을 확인할 수 있습니다. 그런 후에 실제 로그 및 메트릭 데이터를 상태 메시지와 비교하여 특정 요청에 대해 요금이 부과되었는지 파악할 수 있습니다. 또한 이전 항목의 표를 통해 스토리지 서비스 또는 개별 API 작업의 사용 가능 여부도 조사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Portal에서 스토리지 계정 모니터링](storage-monitor-storage-account.md)
+* [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)
 * [스토리지 분석 메트릭](storage-analytics-metrics.md)
 * [스토리지 분석 로깅](storage-analytics-logging.md)

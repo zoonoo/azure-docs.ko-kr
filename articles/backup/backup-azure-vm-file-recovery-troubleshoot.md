@@ -3,12 +3,12 @@ title: Azure VM 파일 복구 문제 해결
 description: Azure VM 백업에서 파일 및 폴더를 복구할 때 발생 하는 문제를 해결 합니다.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735880"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700306"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Azure VM 백업의 파일 복구 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "98735880"
 
 **권장 작업**: 스크립트를 다운로드 한 후 12 시간 후에는 스크립트를 실행할 수 없습니다. 포털로 이동한 다음 새 스크립트를 다운로드 하 여 파일 복구를 계속 합니다.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>iscsi_tcp 모듈을 로드할 수 없습니다 (또는) iscsi_tcp_module 찾을 수 없습니다.
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>iscsi_tcp 모듈을 로드할 수 없거나 iscsi_tcp_모듈을 찾을 수 없음
 
 **권장 작업**:이 문제를 해결 하려면 스크립트 다운로드에 대 한 단계를 수행 [하지만 실행에 실패](#the-script-downloads-successfully-but-fails-to-run)합니다.
 
@@ -88,7 +88,7 @@ SUSE Linux Enterprise Server 12 s p 4에서 항목 수준 복구 (ILR)에 대 �
 Windows Server 2012 R2 및 Windows Server 2016에서 처음으로 스크립트를 실행 하면 (저장소 풀을 사용 하 여) 저장소 풀이 읽기 전용으로 VM에 연결 될 수 있습니다.
 
 >[!Tip]
-> [스크립트를 실행할 올바른 컴퓨터가](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
+> [스크립트를 실행할 올바른 컴퓨터가](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
 
 이 문제를 해결 하려면 저장소 풀에 읽기/쓰기 액세스 권한을 수동으로 할당 하 고 가상 디스크를 연결 합니다.
 
@@ -108,7 +108,7 @@ Windows Server 2012 R2 및 Windows Server 2016에서 처음으로 스크립트�
 
 파일 복구를 수행 하는 동안 백업 서비스는 볼륨 및 자동 탑재를 검색 합니다. 그러나 백업 된 디스크에 raw 파티션이 있는 경우에는 해당 디스크가 자동으로 탑재 되지 않으며 복구를 위해 데이터 디스크를 볼 수 없습니다.
 
-이 문제를 해결 하려면 [Azure 가상 컴퓨터 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)로 이동 합니다.
+이 문제를 해결 하려면 [Azure 가상 컴퓨터 백업에서 파일 복구](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms)로 이동 합니다.
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>OS에서 파일 시스템을 식별할 수 없기 때문에 Linux 파일 복구에 실패 합니다.
 
@@ -122,7 +122,7 @@ Windows Server 2012 R2 및 Windows Server 2016에서 처음으로 스크립트�
 
    ![블록 장치를 나열 하는 명령의 결과를 보여 주는 스크린샷](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. 파일 시스템 및 암호화를 확인 합니다. 볼륨이 암호화 된 경우에는 파일 복구가 지원 되지 않습니다. [AZURE VM 백업에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore)를 자세히 알아보세요.
+1. 파일 시스템 및 암호화를 확인 합니다. 볼륨이 암호화 된 경우에는 파일 복구가 지원 되지 않습니다. [AZURE VM 백업에 대 한 지원 매트릭스](./backup-support-matrix-iaas.md#support-for-file-level-restore)를 자세히 알아보세요.
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>디스크가 연결 되었지만 볼륨이 탑재 되어 있지 않습니다.
 
@@ -139,7 +139,7 @@ Windows 용 파일 복구 스크립트를 실행 하면 "0 개의 복구 볼륨�
 이 문제를 식별 하 고 해결 하려면 다음 단계를 수행 합니다.
 
 >[!Tip]
->[스크립트를 실행할 올바른 컴퓨터가](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
+>[스크립트를 실행할 올바른 컴퓨터가](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
 
 1. **Cmd** 창에서 **diskmgmt.msc** 를 실행 하 여 **디스크 관리** 를 엽니다.
 1. 추가 디스크를 찾습니다. 다음 예제에서 **디스크 2** 는 추가 디스크입니다.
@@ -159,9 +159,9 @@ Windows 용 파일 복구 스크립트를 실행 하면 "0 개의 복구 볼륨�
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->[스크립트를 실행할 올바른 컴퓨터가](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
+>[스크립트를 실행할 올바른 컴퓨터가](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)있는지 확인 합니다.
 
-보호 된 Linux VM에서 LVM 또는 RAID 배열을 사용 하는 경우 [Azure virtual machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)의 단계를 따릅니다.
+보호 된 Linux VM에서 LVM 또는 RAID 배열을 사용 하는 경우 [Azure virtual machine 백업에서 파일 복구](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms)의 단계를 따릅니다.
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>탑재 된 볼륨에서 파일을 복사할 수 없습니다.
 

@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 02/21/2021
-ms.openlocfilehash: 7acb891cc887fb118a338cc837c5c5c4c98a63d8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655941"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691912"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -48,7 +48,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [BULK INSERT 문](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | 예, 하지만 Azure Blob storage에서 원본으로만 가능 합니다. | 예, 하지만 원본으로 Azure Blob Storage 에서만 [차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)을 참조 하세요. |
 | [인증서 및 비대칭 키](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | 예 `BACKUP` . 및 작업에 대 한 파일 시스템에 액세스 하지 않습니다 `CREATE` . | 예. 및 작업용 파일 시스템에 대 한 액세스 권한이 없는 경우 `BACKUP` `CREATE` [인증서 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates)을 참조 하세요. |
 | [변경 데이터 캡처-CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 예 | 예 |
-| [데이터 정렬 - 서버/인스턴스](/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요, 기본 서버 데이터 정렬이 `SQL_Latin1_General_CP1_CI_AS` 항상 사용 됩니다. | 예. [인스턴스를 만들](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) 때 설정할 수 있으며 나중에 업데이트할 수 없습니다. |
+| [데이터 정렬 - 서버/인스턴스](/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요, 기본 서버 데이터 정렬이 `SQL_Latin1_General_CP1_CI_AS` 항상 사용 됩니다. | 예. [인스턴스를 만들](../managed-instance/create-template-quickstart.md) 때 설정할 수 있으며 나중에 업데이트할 수 없습니다. |
 | [columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) | 예- [프리미엄 계층, 표준 계층-S3 이상, 범용 계층, 중요 비즈니스용 및 HyperScale 계층](/sql/relational-databases/indexes/columnstore-indexes-overview) |예 |
 | [CLR (공용 언어 런타임)](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | 예, 하지만 문에서 파일 시스템에 액세스 하지 않습니다. `CREATE ASSEMBLY` [CLR 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) 을 참조 하세요. |
 | [자격 증명](/sql/relational-databases/security/authentication-access/credentials-database-engine) | 예, 하지만 [데이터베이스 범위 자격 증명만](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | 예, 하지만 **Azure Key Vault** 및만 `SHARED ACCESS SIGNATURE` 지원 됨- [세부 정보](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) 참조 |

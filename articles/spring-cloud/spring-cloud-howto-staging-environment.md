@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738755"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
 
@@ -20,10 +20,10 @@ ms.locfileid: "99574732"
 
 이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파랑-녹색 배포는 기존 (파란색) 버전을 라이브 상태로 유지 하는 동시에 새로운 (녹색) 버전을 배포 하는 Azure DevOps 연속 배달 패턴입니다. 이 문서에서는 프로덕션 배포를 변경 하지 않고 스테이징 배포를 프로덕션에 배치 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * *표준* **가격 책정 계층** 의 Azure 스프링 클라우드 인스턴스.
-* [Azure 스프링 클라우드 확장](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) Azure CLI
+* [Azure 스프링 클라우드 확장](/cli/azure/azure-cli-extensions-overview) Azure CLI
 
 이 문서에서는 스프링 이니셜라이저에서 빌드된 응용 프로그램을 사용 합니다. 이 예제에 다른 응용 프로그램을 사용 하려는 경우 스테이징 배포를 프로덕션 으로부터 구분 하기 위해 응용 프로그램의 공용 부분을 간단 하 게 변경 해야 합니다.
 

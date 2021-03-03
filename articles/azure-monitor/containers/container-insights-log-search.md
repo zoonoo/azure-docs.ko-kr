@@ -1,22 +1,22 @@
 ---
-title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Microsoft Docs
-description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
+title: 컨테이너 정보에서 로그를 쿼리 하는 방법 | Microsoft Docs
+description: 컨테이너 insights는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드 및 샘플 쿼리를 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620034"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711113"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
+# <a name="how-to-query-logs-from-container-insights"></a>컨테이너 정보에서 로그를 쿼리 하는 방법
 
-컨테이너에 대 한 Azure Monitor는 컨테이너 호스트 및 컨테이너에서 성능 메트릭, 인벤토리 데이터 및 상태 정보를 수집 합니다. 데이터는 3 분 마다 수집 되 고 Azure Monitor의 Log Analytics 작업 영역으로 전달 됩니다. 이 데이터는 Azure Monitor에서 [쿼리에](../log-query/log-query-overview.md) 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+컨테이너 insights는 컨테이너 호스트 및 컨테이너에서 성능 메트릭, 인벤토리 데이터 및 상태 정보를 수집 합니다. 데이터는 3 분 마다 수집 되 고 Azure Monitor의 Log Analytics 작업 영역으로 전달 됩니다. 이 데이터는 Azure Monitor에서 [쿼리에](../logs/log-query-overview.md) 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 ## <a name="container-records"></a>컨테이너 레코드
 
-다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 열 설명 목록은 [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) 및 [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) 테이블에 대 한 참조를 참조 하세요.
+다음 표에서는 컨테이너 정보에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 열 설명 목록은 [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) 및 [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) 테이블에 대 한 참조를 참조 하세요.
 
 | 데이터 | 데이터 원본 | 데이터 형식 | 필드 |
 |------|-------------|-----------|--------|
@@ -110,4 +110,4 @@ KubeMonAgentEvents | where Level != "Info"
 
 ## <a name="next-steps"></a>다음 단계
 
-컨테이너의 Azure Monitor에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다.
+컨테이너 insights에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너 정보를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다.

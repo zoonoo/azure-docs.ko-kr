@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744517"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728164"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Azure Cloud Services를 사용 하 여 크기 조정 옵션 구성 (확장 지원) 
 
 Cloud Services (확장 지원) 배포를 확장 및 축소할 수 있도록 조건을 구성할 수 있습니다. 이러한 조건은 CPU 사용량, 디스크 로드 및 네트워크 로드를 기반으로 할 수 있습니다. 
 
 클라우드 서비스 배포의 크기 조정을 구성할 때 다음 정보를 고려 하십시오.
-- 크기 조정은 코어 사용량에 영향을 줍니다. 더 큰 역할 인스턴스는 더 많은 코어를 사용 하 고 구독의 코어 제한 내 에서만 확장할 수 있습니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
-- 큐 메시징 임계값에 따라 크기를 조정 하는 것이 지원 됩니다. 자세한 내용은 [Azure Queue Storage 시작](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)을 참조하세요.
+- 크기 조정은 코어 사용량에 영향을 줍니다. 더 큰 역할 인스턴스는 더 많은 코어를 사용 하 고 구독의 코어 제한 내 에서만 확장할 수 있습니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
+- 큐 메시징 임계값에 따라 크기를 조정 하는 것이 지원 됩니다. 자세한 내용은 [Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 - 클라우드 서비스 (확장 지원) 응용 프로그램의 고가용성을 보장 하려면 둘 이상의 역할 인스턴스를 사용 하 여 배포 해야 합니다.
 - 사용자 지정 자동 크기 조정은 모든 역할이 **준비** 상태에 있는 경우에만 발생할 수 있습니다.
 
@@ -63,5 +63,5 @@ Cloud Services (확장 지원) 배포를 확장 및 축소할 수 있도록 조�
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.
-- Cloud Services (확장 지원)에 대 한 질문과 [대답](faq.md) 을 검토 합니다.
-- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용 하 여 클라우드 서비스 (확장 지원)를 배포 합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

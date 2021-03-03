@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690688"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>자습서: 두 관리형 인스턴스 간 복제 구성
 
@@ -51,7 +51,7 @@ SQL Managed Instance가 게시자 및/또는 배포자로 작동하도록 구성
 - 게시자 관리형 인스턴스가 배포자 및 구독자와 동일한 가상 네트워크에 있거나 [VPN 게이트웨이](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)가 세 개 엔터티 모두의 가상 네트워크 간에 구성되어 있습니다. 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유
-- 관리되는 인스턴스에서 Azure 파일 공유에 액세스할 수 있도록 NSG 보안 규칙의 445 포트(TCP 아웃바운드)가 열려 있습니다.  `failed to connect to azure storage \<storage account name> with os error 53` 오류가 발생하면 적절한 SQL Managed Instance 서브넷의 NSG에 아웃바운드 규칙을 추가해야 합니다.
+- 관리되는 인스턴스에서 Azure 파일 공유에 액세스할 수 있도록 NSG 보안 규칙의 445 포트(TCP 아웃바운드)가 열려 있습니다.  `failed to connect to azure storage <storage account name> with os error 53` 오류가 발생하면 적절한 SQL Managed Instance 서브넷의 NSG에 아웃바운드 규칙을 추가해야 합니다.
 
 ## <a name="1---create-a-resource-group"></a>1 - 리소스 그룹 만들기
 

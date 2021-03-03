@@ -3,16 +3,16 @@ title: Backup Center를 사용 하 여 정보 얻기
 description: 백업 센터에서 기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592006"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719460"
 ---
-# <a name="obtain-insights-using-backup-center-preview"></a>Backup Center를 사용 하 여 정보 얻기 (미리 보기)
+# <a name="obtain-insights-using-backup-center"></a>Backup Center를 사용 하 여 정보 얻기
 
-기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻기 위해 Backup 센터는 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 [보고서 백업 (미리 보기)](configure-reports.md)에 대 한 인터페이스를 제공 합니다. 백업 보고서는 다음과 같은 기능을 제공 합니다.
+기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻기 위해 Backup 센터는 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 [백업 보고서](configure-reports.md)에 대 한 인터페이스를 제공 합니다. 백업 보고서는 다음과 같은 기능을 제공 합니다.
 
 - 사용된 클라우드 스토리지를 할당하고 예측합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "100592006"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-- 백업 보고서 (미리 보기)는 현재 Azure Database for PostgreSQL 서버 백업에 사용할 수 없습니다.
+- 백업 보고서는 현재 Azure Database for PostgreSQL 서버 백업에 사용할 수 없습니다.
 
 - 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
@@ -42,17 +42,19 @@ ms.locfileid: "100592006"
 
 사용할 수 있는 보기는 다음과 같습니다.
 
-1. **요약** -이 탭을 사용 하 여 백업 공간에 대 한 개략적인 개요를 볼 수 있습니다. [자세한 정보](./configure-reports.md#summary)
+1. **요약** -이 탭을 사용 하 여 백업 공간에 대 한 개략적인 개요를 볼 수 있습니다. [자세히 알아보기](./configure-reports.md#summary)
 
-1. **백업 항목** -이 탭을 사용 하 여 백업 항목 수준에서 사용 되는 클라우드 저장소에 대 한 정보 및 추세를 볼 수 있습니다. [자세한 정보](./configure-reports.md#backup-items)
+1. **백업 항목** -이 탭을 사용 하 여 백업 항목 수준에서 사용 되는 클라우드 저장소에 대 한 정보 및 추세를 볼 수 있습니다. [자세히 알아보기](./configure-reports.md#backup-items)
 
-1. **사용** -이 탭을 사용 하 여 백업에 대 한 주요 청구 매개 변수를 볼 수 있습니다. [자세한 정보](./configure-reports.md#usage)
+1. **사용** -이 탭을 사용 하 여 백업에 대 한 주요 청구 매개 변수를 볼 수 있습니다. [자세히 알아보기](./configure-reports.md#usage)
 
-1. **작업** -이 탭을 사용 하 여 하루에 실패 한 작업 수 및 작업 실패의 상위 원인 등의 장기 실행 추세를 볼 수 있습니다. [자세한 정보](./configure-reports.md#jobs)
+1. **작업** -이 탭을 사용 하 여 하루에 실패 한 작업 수 및 작업 실패의 상위 원인 등의 장기 실행 추세를 볼 수 있습니다. [자세히 알아보기](./configure-reports.md#jobs)
 
-1. **정책** -이 탭을 사용 하 여 연결 된 항목 수 및 지정 된 정책에 따라 백업 된 항목에서 사용 되는 총 클라우드 저장소와 같은 모든 활성 정책에 대 한 정보를 볼 수 있습니다. [자세한 정보](./configure-reports.md#policies)
+1. **정책** -이 탭을 사용 하 여 연결 된 항목 수 및 지정 된 정책에 따라 백업 된 항목에서 사용 되는 총 클라우드 저장소와 같은 모든 활성 정책에 대 한 정보를 볼 수 있습니다. [자세히 알아보기](./configure-reports.md#policies)
 
-1. **최적화** -이 탭을 사용 하 여 백업에 대 한 잠재적 비용 최적화 기회를 파악할 수 있습니다. [자세한 정보](./configure-reports.md#optimize)
+1. **최적화** -이 탭을 사용 하 여 백업에 대 한 잠재적 비용 최적화 기회를 파악할 수 있습니다. [자세히 알아보기](./configure-reports.md#optimize)
+
+1. **정책 준수** -이 탭을 사용 하 여 모든 백업 인스턴스에 하루에 하나 이상의 성공한 백업이 있는지 여부를 파악할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

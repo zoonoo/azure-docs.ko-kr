@@ -4,12 +4,12 @@ description: Azure Service Bus와 함께 JMS (Java Message Service)를 사용 �
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652612"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698402"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Azure Service Bus Premium과 함께 Java 메시지 서비스 2.0 API 사용
 
@@ -34,7 +34,7 @@ Java 응용 프로그램을 개발 하려면 적절 한 개발 환경을 설정 
    * JDK 또는 JRE는 빌드 경로와 적절 한 시스템 변수에 추가 됩니다.
    * JDK 또는 JRE를 활용 하기 위해 Java IDE 설치 됩니다. 예: Eclipse 또는 IntelliJ.
 
-Azure에서 Java 용 개발자 환경을 준비 하는 방법에 대해 자세히 알아보려면 [이 가이드](https://docs.microsoft.com/azure/developer/java/fundamentals/)를 활용 하세요.
+Azure에서 Java 용 개발자 환경을 준비 하는 방법에 대해 자세히 알아보려면 [이 가이드](/azure/developer/java/fundamentals/)를 활용 하세요.
 
 ## <a name="what-jms-features-are-supported"></a>지원 되는 JMS 기능은 무엇 인가요?
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731445"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Azure Monitor의 진단 설정에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure 리소스에 대한 진단 설정을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -349,7 +349,7 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 대한 진단 설정
-다음 샘플에서는 `microsoft.recoveryservices/vaults/providers/diagnosticSettings` 형식의 리소스를 템플릿에 추가하여 Azure Recovery Services 자격 증명에 대한 진단 설정을 만듭니다. 이 예제에서는 [Azure 리소스 로그](../platform/resource-logs.md#send-to-log-analytics-workspace)에 설명된 대로 컬렉션 모드를 지정합니다. `logAnalyticsDestinationType` 속성에 대해 `Dedicated` 또는 `AzureDiagnostics`를 지정합니다.
+다음 샘플에서는 `microsoft.recoveryservices/vaults/providers/diagnosticSettings` 형식의 리소스를 템플릿에 추가하여 Azure Recovery Services 자격 증명에 대한 진단 설정을 만듭니다. 이 예제에서는 [Azure 리소스 로그](./resource-logs.md#send-to-log-analytics-workspace)에 설명된 대로 컬렉션 모드를 지정합니다. `logAnalyticsDestinationType` 속성에 대해 `Dedicated` 또는 `AzureDiagnostics`를 지정합니다.
 
 ### <a name="template-file"></a>템플릿 파일
 
@@ -812,5 +812,5 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../samples/resource-manager-samples.md).
+* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
 * [진단 설정에 대해 자세히 알아보세요](../essentials/diagnostic-settings.md).

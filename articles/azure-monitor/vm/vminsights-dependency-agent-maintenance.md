@@ -1,21 +1,21 @@
 ---
-title: VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법
-description: 이 문서에서는 명령줄, 설치 마법사 및 기타 방법을 사용 하 여 VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법을 설명 합니다.
+title: VM insights 종속성 에이전트를 업그레이드 하는 방법
+description: 이 문서에서는 명령줄, 설치 마법사 및 기타 방법을 사용 하 여 VM insights 종속성 에이전트를 업그레이드 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722911"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>VM insights 종속성 에이전트를 업그레이드 하는 방법
 
-VM용 Azure Monitor 종속성 에이전트의 초기 배포 후에는 버그 수정 이나 새로운 기능 지원을 포함 하는 업데이트가 릴리스됩니다.  이 문서는 사용 가능한 방법과 자동화를 통해 업그레이드를 수행 하는 방법을 이해 하는 데 도움이 됩니다.
+VM insights 종속성 에이전트의 초기 배포 후에는 버그 수정 이나 새로운 기능 지원을 포함 하는 업데이트가 릴리스됩니다.  이 문서는 사용 가능한 방법과 자동화를 통해 업그레이드를 수행 하는 방법을 이해 하는 데 도움이 됩니다.
 
 ## <a name="upgrade-options"></a>업그레이드 옵션 
 
@@ -70,4 +70,4 @@ Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 
 
 ## <a name="next-steps"></a>다음 단계
 
-일정 시간 동안 Vm 모니터링을 중지 하거나 VM용 Azure Monitor 완전히 제거 하려면 [VM용 Azure Monitor에서 vm 모니터링 사용 안 함](../vm/vminsights-optout.md)을 참조 하세요.
+일정 기간 동안 vm 모니터링을 중지 하거나 VM 정보를 완전히 제거 하려면 [vm insights에서 vm 모니터링 사용 안 함](../vm/vminsights-optout.md)을 참조 하세요.

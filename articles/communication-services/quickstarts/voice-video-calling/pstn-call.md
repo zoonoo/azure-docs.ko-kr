@@ -8,17 +8,16 @@ ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 692e3a2e64c42702d46c38175a814819c8f539cf
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: d26c089376f5de1ad669ff95a0bf4e96cc8f4682
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762567"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660007"
 ---
 # <a name="quickstart-call-to-phone"></a>빠른 시작: 휴대폰에 전화 걸기
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Communication Services 통화 클라이언트 라이브러리를 사용하여 앱에 PSTN 통화를 추가하여 Azure Communication Services를 시작하세요. 
+Communication Services 통화 클라이언트 라이브러리를 사용하여 앱에 PSTN 통화를 추가하여 Azure Communication Services를 시작하세요.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]

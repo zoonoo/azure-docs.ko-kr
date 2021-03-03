@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717981"
 ---
 # <a name="optimizing-log-alert-queries"></a>로그 경고 쿼리 최적화
-이 문서에서는 최적의 성능을 얻기 위해 [로그 경고](../platform/alerts-unified-log.md) 쿼리를 작성 하 고 변환 하는 방법을 설명 합니다. 최적화 된 쿼리는 자주 실행 되는 경고의 대기 시간과 로드를 줄입니다.
+이 문서에서는 최적의 성능을 얻기 위해 [로그 경고](./alerts-unified-log.md) 쿼리를 작성 하 고 변환 하는 방법을 설명 합니다. 최적화 된 쿼리는 자주 실행 되는 경고의 대기 시간과 로드를 줄입니다.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>경고 로그 쿼리 작성을 시작 하는 방법
 
-경고 쿼리는 문제를 나타내는 [Log Analytics의 로그 데이터를 쿼리 하](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 는 것부터 시작 합니다. [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 검색할 수 있는 항목을 이해할 수 있습니다. 사용자가 [직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하는 작업을 시작할 수도 있습니다. 
+경고 쿼리는 문제를 나타내는 [Log Analytics의 로그 데이터를 쿼리 하](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 는 것부터 시작 합니다. [경고 쿼리 예제 항목](../logs/example-queries.md) 을 사용 하 여 검색할 수 있는 항목을 이해할 수 있습니다. 사용자가 [직접 쿼리를 작성](../logs/log-analytics-tutorial.md)하는 작업을 시작할 수도 있습니다. 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>경고가 아닌 문제를 나타내는 쿼리
 
@@ -44,7 +44,7 @@ SecurityEvent
 쿼리에서 및를 사용 하면 `limit` `take` 시간이 지남에 따라 결과가 일관 되지 않을 때 대기 시간 및 경고 로드를 늘릴 수 있습니다. 필요한 경우에만 사용 하는 것이 좋습니다.
 
 ## <a name="log-query-constraints"></a>로그 쿼리 제약 조건
-[Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md) 는 테이블, [`search`](/azure/kusto/query/searchoperator) 또는 연산자 중 하나로 시작 [`union`](/azure/kusto/query/unionoperator) 합니다.
+[Azure Monitor의 로그 쿼리](../logs/log-query-overview.md) 는 테이블, [`search`](/azure/kusto/query/searchoperator) 또는 연산자 중 하나로 시작 [`union`](/azure/kusto/query/unionoperator) 합니다.
 
 로그 경고 규칙에 대 한 쿼리는 항상 테이블을 사용 하 여 명확한 범위를 정의 해야 합니다 .이를 통해 쿼리 성능과 결과의 관련성을 모두 향상 시킬 수 있습니다. 경고 규칙의 쿼리는 자주 실행 되므로 및를 사용 `search` `union` 하면 여러 테이블에서 검색 해야 하므로 경고에 대기 시간이 과도 하 게 추가 될 수 있습니다. 이러한 연산자는 또한 쿼리를 최적화 하는 경고 서비스의 기능을 줄여 줍니다.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-상호 리소스 쿼리를 [사용 하](../log-query/cross-workspace-query.md) 는 로그 경고 규칙은 `union` 쿼리 범위를 특정 리소스로 제한 하는 형식을 사용 하기 때문에 이러한 변경의 영향을 받지 않습니다. 다음 예는 유효한 로그 경고 쿼리입니다.
+상호 리소스 쿼리를 [사용 하](../logs/cross-workspace-query.md) 는 로그 경고 규칙은 `union` 쿼리 범위를 특정 리소스로 제한 하는 형식을 사용 하기 때문에 이러한 변경의 영향을 받지 않습니다. 다음 예는 유효한 로그 경고 쿼리입니다.
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [리소스 간 쿼리](../log-query/cross-workspace-query.md) 는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원 됩니다. 로그 경고를 만드는 데 [레거시 Log Analytics 경고 API](../platform/api-alerts.md) 를 계속 사용 하는 경우 [여기](../alerts/alerts-log-api-switch.md)에서 전환 하는 방법을 배울 수 있습니다.
+> [리소스 간 쿼리](../logs/cross-workspace-query.md) 는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원 됩니다. 로그 경고를 만드는 데 [레거시 Log Analytics 경고 API](./api-alerts.md) 를 계속 사용 하는 경우 [여기](../alerts/alerts-log-api-switch.md)에서 전환 하는 방법을 배울 수 있습니다.
 
 ## <a name="examples"></a>예제
 다음 예에서는 및를 사용 하는 로그 쿼리를 비롯 하 여 `search` `union` 경고 규칙에 사용 하기 위해 이러한 쿼리를 수정 하는 데 사용할 수 있는 단계를 제공 합니다.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Monitor의 [로그 경고](alerts-log.md)에 대해 알아봅니다.
-- [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.
+- [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다.

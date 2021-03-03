@@ -3,15 +3,15 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8905c3e4dfa1053646ede5c0b62149844e21ee7d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701164"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -118,6 +118,8 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 작업 그룹에서 Runbook 작업의 수가 제한될 수 있습니다. 
 
 ### <a name="azure-app-push-notifications"></a>Azure 앱 푸시 알림
+Azure 모바일 앱를 구성할 때 계정 ID로 사용 하는 전자 메일 주소를 제공 하 여 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/) 에 푸시 알림을 사용 하도록 설정 합니다.
+
 작업 그룹에서 Azure 앱 작업의 수가 제한될 수 있습니다.
 
 ### <a name="email"></a>Email
@@ -139,11 +141,11 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 2. 왼쪽 창에서 모든 사용자를 클릭 하면 오른쪽 창에 사용자 목록이 표시 됩니다.
 3. *기본 전자 메일* 정보를 검토 하려는 사용자를 선택 합니다.
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="사용자 프로필을 검토 하는 방법에 대 한 예입니다."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="사용자 프로필을 검토 하는 방법에 대 한 예입니다." border="true":::
 
 4. 연락처 정보 아래의 사용자 프로필에서 "전자 메일" 탭이 비어 있는 경우 맨 위에 있는 *편집* 단추를 클릭 하 고 *기본 전자 메일* 을 추가 하 고 맨 위에 있는 *저장* 단추를 누릅니다.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="기본 전자 메일을 추가 하는 방법에 대 한 예입니다."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="기본 전자 메일을 추가 하는 방법에 대 한 예입니다." border="true":::
 
 작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 
@@ -153,7 +155,7 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 작업 그룹에서 함수 작업의 수가 제한될 수 있습니다.
 
 ### <a name="itsm"></a>ITSM
-ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../platform/itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
+ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](./itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
 
 작업 그룹에서 ITSM 작업의 수가 제한될 수 있습니다. 
 
@@ -191,7 +193,7 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../platform/itsm
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
@@ -272,7 +274,7 @@ Write-Host $myApp.AppRoles
 | 43 | 오스트리아 |
 | 32 | 벨기에 |
 | 55 | 브라질 |
-| 1 |Canada |
+| 1 |캐나다 |
 | 56 | 칠레 |
 | 86 | 중국 |
 | 420 | 체코 공화국 |
@@ -302,7 +304,7 @@ Write-Host $myApp.AppRoles
 | 34 | 스페인 |
 | 41 | 스위스 |
 | 886 | 대만 |
-| 44 | United Kingdom |
+| 44 | 영국 |
 | 1 | 미국 |
 
 ### <a name="voice"></a>음성
@@ -334,7 +336,7 @@ Write-Host $myApp.AppRoles
 ## <a name="next-steps"></a>다음 단계
 * [SMS 경고 동작](./alerts-sms-behavior.md)에 대해 자세히 알아보세요.  
 * [활동 로그 경고 웹후크 스키마의 이해](./activity-log-alerts-webhook.md)를 확인해 보세요.  
-* [ITSM 커넥터](../platform/itsmc-overview.md)에 대해 자세히 알아보세요.
+* [ITSM 커넥터](./itsmc-overview.md)에 대해 자세히 알아보세요.
 * 경고의 [속도 제한](./alerts-rate-limiting.md)에 대해 자세히 알아보세요.
-* [활동 로그 경고의 개요](../platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
+* [활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [서비스 상태 알림이 게시될 때마다 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.

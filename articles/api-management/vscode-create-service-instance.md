@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400406"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649515"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
 Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다. API Management는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다. APIM을 사용하면 어디서든 호스팅되는 기존 백 엔드 서비스를 위한 최신 API 게이트웨이를 만들고 관리할 수 있습니다. 자세한 내용은 [개요](api-management-key-concepts.md) 항목을 참조하세요.
 
-이 빠른 시작에서는 Visual Studio Code용 *Azure API Management* 확장 미리 보기를 사용하여 새 API Management 인스턴스를 만드는 단계를 설명합니다. 확장을 사용하여 API Management 인스턴스에 대한 일반적인 관리 작업을 수행할 수도 있습니다.
+이 빠른 시작에서는 Visual Studio Code용 *Azure API Management* 확장을 사용하여 새 API Management 인스턴스를 만드는 단계를 설명합니다. 확장을 사용하여 API Management 인스턴스에 대한 일반적인 관리 작업을 수행할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -28,7 +28,7 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Visual Studio Code용 Azure API Management 확장(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Visual Studio Code용 Azure API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

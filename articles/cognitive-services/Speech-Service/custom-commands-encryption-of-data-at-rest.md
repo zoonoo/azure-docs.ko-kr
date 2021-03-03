@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716587"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>미사용 데이터의 사용자 지정 명령 암호화
 
 사용자 지정 명령은 클라우드에 유지 될 때 데이터를 자동으로 암호화 합니다. 사용자 지정 명령 서비스 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 사용자 지정 명령 서비스는 응용 프로그램과 연결 된 LUIS 리소스에 대해 자동으로 암호화를 사용 하지 않습니다. 필요한 경우 [여기](./../LUIS/luis-encryption-of-data-at-rest.md)에서 LUIS 리소스에 대 한 암호화를 사용 하도록 설정 해야 합니다.
+> 사용자 지정 명령 서비스는 응용 프로그램과 연결 된 LUIS 리소스에 대해 자동으로 암호화를 사용 하지 않습니다. 필요한 경우 [여기](../luis/encrypt-data-at-rest.md)에서 LUIS 리소스에 대 한 암호화를 사용 하도록 설정 해야 합니다.
 
 ## <a name="about-cognitive-services-encryption"></a>Cognitive Services 암호화 정보
 데이터는 [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) 규격 [256 비트 AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 암호화를 사용 하 여 암호화 및 암호 해독 됩니다. 암호화 및 암호 해독은 투명 합니다. 즉, 암호화 및 액세스를 관리 합니다. 데이터는 기본적으로 안전하며 암호화를 활용하기 위해 코드 또는 애플리케이션을 수정할 필요가 없습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "95021901"
    > [!NOTE]
    > **CMK (고객 관리 키)는 사용자 지정 명령에만 지원 됩니다.**
    >
-   >  **Custom Speech 및 사용자 지정 음성은 여전히 사용자 고유의 저장소 (BYOS)를 지원 합니다.**  [자세한 정보](speech-encryption-of-data-at-rest.md)
+   >  **Custom Speech 및 사용자 지정 음성은 여전히 사용자 고유의 저장소 (BYOS)를 지원 합니다.**  [자세히 알아보기](speech-encryption-of-data-at-rest.md)
    >
    > 제공 된 음성 리소스를 사용 하 여 이러한 서비스에 액세스 하는 경우 BYOS를 명시적으로 구성 하 여 규정 준수 요구 사항을 충족 해야 합니다.
 
@@ -152,5 +152,5 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)
+* [Azure Key Vault에 대해 자세히 알아보기](../../key-vault/general/overview.md)
 * [관리 id 란?](../../active-directory/managed-identities-azure-resources/overview.md)

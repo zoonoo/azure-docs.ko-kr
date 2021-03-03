@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 924ee745804ef31e42dc21437dbb0459f6d37701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091349"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693750"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -22,11 +22,9 @@ ms.locfileid: "100091349"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만듭니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](../acu.md)를 참조하세요.
+호스트에 대해 새로운 Windows Server 2016 또는 Windows Server 2019 Azure VM을 만듭니다. 중첩을 지 원하는 VM의 크기를 선택 하 고 게스트 Vm의 요구를 충족할 만큼 충분히 큰지 확인 합니다. 중첩을 지 원하는 가상 머신 크기 목록은 [Azure Compute 단위](../acu.md) 문서를 참조 하세요.
 
-게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 Azure VM D4_v3 크기를 사용 합니다. 
-
-Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https://azure.microsoft.com/regions/services/)에서 볼 수 있습니다.
+지역별 [사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지에서 VM 크기의 지역별 가용성을 확인할 수 있습니다.
 
 >[!NOTE]
 >
@@ -94,7 +92,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 4. NAT 게이트웨이에 대한 IP 주소를 만듭니다.
     
 게이트웨이를 구성하려면 네트워크에 대한 일부 정보가 필요합니다.    
-  * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치는 0.1 일 필요는 없지만 일반적으로 (접두사 길이를 기준으로)입니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
+  * IP 주소-NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정 합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치는 0.1 일 필요는 없지만 일반적으로 (접두사 길이를 기준으로)입니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
   * PrefixLength - 서브넷 접두사 길이는 로컬 서브넷 크기(서브넷 마스크)를 정의합니다. 서브넷 접두사 길이는 0에서 32 사이의 정수 값입니다. 0은 전체 인터넷, 32는 하나의 매핑된 IP만 허용합니다. 일반적인 값의 범위는 NAT에 몇 개의 IP를 연결해야 하는지에 따라 24에서 12까지입니다. 일반적인 PrefixLength는 24입니다. 즉, 255.255.255.0의 서브넷 마스크입니다.
   * InterfaceIndex- **ifIndex** 는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
 
@@ -145,7 +143,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 3. **DHCP 서버** 확인란을 선택하고 **기능 추가** 를 클릭한 다음 마법사가 완료될 때까지 **다음** 을 클릭합니다.
   
-4. **설치** 를 클릭합니다.
+4. **Install** 을 클릭합니다.
 
 #### <a name="configure-a-new-dhcp-scope"></a>새 DHCP 범위 구성
 

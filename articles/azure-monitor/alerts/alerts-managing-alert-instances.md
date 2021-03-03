@@ -4,16 +4,16 @@ description: Azure 전체에서 경고 인스턴스 관리
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fece831266b19bb592c032e9125f781af83e31d1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616684"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734811"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>통합 경고를 사용 하 여 경고 인스턴스 관리
 
-Azure Monitor의 [통합 경고 환경을](../platform/alerts-overview.md) 사용 하 여 Azure에서 다양 한 유형의 경고를 모두 볼 수 있습니다. 단일 창에서 여러 구독으로 확장 됩니다. 이 문서에서는 경고 인스턴스를 보는 방법 및 문제 해결을 위해 특정 경고 인스턴스를 찾는 방법을 보여 줍니다.
+Azure Monitor의 [통합 경고 환경을](./alerts-overview.md) 사용 하 여 Azure에서 다양 한 유형의 경고를 모두 볼 수 있습니다. 단일 창에서 여러 구독으로 확장 됩니다. 이 문서에서는 경고 인스턴스를 보는 방법 및 문제 해결을 위해 특정 경고 인스턴스를 찾는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 최근 30 일 동안 생성 된 경고에만 액세스할 수 있습니다.

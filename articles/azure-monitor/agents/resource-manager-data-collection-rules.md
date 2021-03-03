@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f98e22ba28dcd05d164f40c301a2e43df66898de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737327"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 및 [진단 확장](../platform/diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](./log-analytics-agent.md) 및 [진단 확장](./diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -144,6 +144,6 @@ ms.locfileid: "100597487"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../samples/resource-manager-samples.md).
-* [Log Analytics 에이전트에 대해 자세히 알아보세요](../platform/log-analytics-agent.md).
-* [진단 확장에 대해 자세히 알아보세요](../platform/diagnostics-extension-overview.md).
+* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
+* [Log Analytics 에이전트에 대해 자세히 알아보세요](./log-analytics-agent.md).
+* [진단 확장에 대해 자세히 알아보세요](./diagnostics-extension-overview.md).

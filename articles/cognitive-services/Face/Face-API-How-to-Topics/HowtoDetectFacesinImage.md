@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713068"
 ---
 # <a name="get-face-detection-data"></a>얼굴 감지 데이터 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "98943600"
 - 이미지에서 pupils, 코, 입 등 다양 한 얼굴 랜드마크의 위치를 가져옵니다.
 - 검색 된 면의 성별, age, emotion 및 기타 특성을 추측 합니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 이 가이드에서는 [](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) `faceClient` 얼굴 구독 키와 끝점 URL을 사용 하 여 라는 FaceClient 개체를 이미 생성 했다고 가정 합니다. 여기서는이 가이드에서 사용 되는 [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync)또는 [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync)를 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정 하는 방법에 대 한 지침은 빠른 시작 중 하나를 수행 합니다.
 

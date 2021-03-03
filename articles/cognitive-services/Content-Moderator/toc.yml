@@ -116,14 +116,8 @@
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
-    - name: 기술 자료
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
     - name: 언어 지원
       href: language-support.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure 로드맵

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710982"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -44,7 +44,7 @@ Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Configuration Manager에 Log Analytics에 대한 사용 권한 제공
 
-다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 애플리케이션 및 서비스 주체에 부여합니다. 작업 영역이 아직 없는 경우 계속 진행 하기 전에 [Azure Monitor에서 작업 영역 만들기](../learn/quick-create-workspace.md) 를 참조 하세요. 이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
+다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 애플리케이션 및 서비스 주체에 부여합니다. 작업 영역이 아직 없는 경우 계속 진행 하기 전에 [Azure Monitor에서 작업 영역 만들기](./quick-create-workspace.md) 를 참조 하세요. 이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
 
 > [!NOTE]
 > Configuration Manager에 대 한 Log Analytics 작업 영역에서 사용 권한을 지정 해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
@@ -148,9 +148,8 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실�
 
 ![가져오기 Configuration Manager 컬렉션 멤버 자격을 선택 하는 옵션을 보여 주는 컴퓨터 그룹 고급 설정의 스크린샷](./media/collect-sccm/sccm-computer-groups02.png)
 
-하나를 클릭 하면 모든 가져온 그룹이 나 각 그룹에 속한 모든 컴퓨터를 표시 하는 로그 쿼리 편집기가 열립니다. [로그 검색](../log-query/log-query-overview.md)을 사용 하 여 컬렉션 멤버 자격 데이터를 자세히 분석할 수 있습니다.
+하나를 클릭 하면 모든 가져온 그룹이 나 각 그룹에 속한 모든 컴퓨터를 표시 하는 로그 쿼리 편집기가 열립니다. [로그 검색](./log-query-overview.md)을 사용 하 여 컬렉션 멤버 자격 데이터를 자세히 분석할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[로그 검색](../log-query/log-query-overview.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
-
+[로그 검색](./log-query-overview.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.

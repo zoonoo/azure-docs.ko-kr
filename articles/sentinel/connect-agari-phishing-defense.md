@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806989"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724441"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Azure 센티널에 Agari 피싱 방어 및 브랜드 보호 솔루션 연결
 
@@ -39,7 +39,7 @@ Agari의 피싱 방어 및 브랜드 보호 솔루션을 Azure 센티널에 연�
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
-- 작업 영역에 대 한 공유 키에 대 한 읽기 권한입니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- 작업 영역에 대 한 공유 키에 대 한 읽기 권한입니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Azure Functions에 대 한 읽기 및 쓰기 권한이 함수 앱을 만듭니다. [Azure Functions에 대해 자세히 알아보세요](../azure-functions/index.yml).
 

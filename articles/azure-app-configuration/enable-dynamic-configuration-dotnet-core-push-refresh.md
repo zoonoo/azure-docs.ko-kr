@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701521"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>자습서: .NET Core 앱에서 푸시 새로 고침을 사용하여 동적 구성 사용
 
@@ -27,7 +27,7 @@ App Configuration .NET Core 클라이언트 라이브러리는 요청 시 애플
 
 1. 폴링 모델: 폴링을 사용하여 구성 변경 내용을 검색하는 기본 동작입니다. 설정의 캐시된 값이 만료되면 `TryRefreshAsync` 또는 `RefreshAsync`에 대한 다음 호출이 서버에 요청을 보내서 구성이 변경되었는지 확인하고, 필요한 경우 업데이트된 구성을 끌어옵니다.
 
-1. 푸시 모델: [App Configuration 이벤트](./concept-app-configuration-event.md)를 사용하여 구성 변경 내용을 검색합니다. Azure Event Grid에 키 값 변경 이벤트를 보내도록 App Configuration이 설정되면 애플리케이션은 이러한 이벤트를 사용하여 구성을 업데이트된 상태로 유지하는 데 필요한 총 요청 수를 최적화할 수 있습니다. 애플리케이션은 Event Grid에서 직접 구독하거나 [지원되는 이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)(예: 웹후크, Azure 함수 또는 Service Bus 토픽) 중 하나를 통해 구독하도록 선택할 수 있습니다.
+1. 푸시 모델: [App Configuration 이벤트](./concept-app-configuration-event.md)를 사용하여 구성 변경 내용을 검색합니다. Azure Event Grid에 키 값 변경 이벤트를 보내도록 App Configuration이 설정되면 애플리케이션은 이러한 이벤트를 사용하여 구성을 업데이트된 상태로 유지하는 데 필요한 총 요청 수를 최적화할 수 있습니다. 애플리케이션은 Event Grid에서 직접 구독하거나 [지원되는 이벤트 처리기](../event-grid/event-handlers.md)(예: 웹후크, Azure 함수 또는 Service Bus 토픽) 중 하나를 통해 구독하도록 선택할 수 있습니다.
 
 애플리케이션은 Event Grid에서 직접 또는 웹후크를 통해 또는 이벤트를 Azure Service Bus로 전달하여 이러한 이벤트를 구독하도록 선택할 수 있습니다. Azure Service Bus SDK는 HTTP 엔드포인트가 없거나 변경 사항에 대해 이벤트 그리드를 지속적으로 폴링하지 않으려는 애플리케이션에 대해 프로세스를 간소화하는 메시지 처리기를 등록하는 API를 제공합니다.
 
@@ -50,7 +50,7 @@ App Configuration .NET Core 클라이언트 라이브러리는 요청 시 애플
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Azure Service Bus 토픽 및 구독 설정
 
-이 자습서에서는 Event Grid용 Service Bus 통합을 사용하여 변경 사항에 대해 App Configuration을 지속적으로 폴링하지 않으려는 애플리케이션에 대한 구성 변경 사항을 검색하는 작업을 간소화합니다. Azure Service Bus SDK는 App Configuration에서 변경 사항이 검색되면 구성을 업데이트하는 데 사용할 수 있는 메시지 처리기를 등록하는 API를 제공합니다. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)의 단계에 따라 Service Bus 네임스페이스, 토픽 및 구독을 만듭니다.
+이 자습서에서는 Event Grid용 Service Bus 통합을 사용하여 변경 사항에 대해 App Configuration을 지속적으로 폴링하지 않으려는 애플리케이션에 대한 구성 변경 사항을 검색하는 작업을 간소화합니다. Azure Service Bus SDK는 App Configuration에서 변경 사항이 검색되면 구성을 업데이트하는 데 사용할 수 있는 메시지 처리기를 등록하는 API를 제공합니다. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus 네임스페이스, 토픽 및 구독을 만듭니다.
 
 리소스를 만들었으면 다음 환경 변수를 추가합니다. 이러한 항목은 애플리케이션 코드의 구성 변경에 대한 이벤트 처리기를 등록하는 데 사용됩니다.
 
@@ -81,7 +81,7 @@ App Configuration .NET Core 클라이언트 라이브러리는 요청 시 애플
     ![App Configuration 이벤트 구독](./media/event-subscription-view.png)
 
 > [!NOTE]
-> 구성 변경을 구독할 때는 하나 이상의 필터를 사용하여 애플리케이션으로 전송되는 이벤트 수를 줄일 수 있습니다. 이러한 필터는 [Event Grid 구독 필터](https://docs.microsoft.com/azure/event-grid/event-filtering) 또는 [Service Bus 구독 필터](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters)로 구성할 수 있습니다. 예를 들어 구독 필터는 특정 문자열로 시작하는 키에 대한 변경의 이벤트만 구독하는 데 사용할 수 있습니다.
+> 구성 변경을 구독할 때는 하나 이상의 필터를 사용하여 애플리케이션으로 전송되는 이벤트 수를 줄일 수 있습니다. 이러한 필터는 [Event Grid 구독 필터](../event-grid/event-filtering.md) 또는 [Service Bus 구독 필터](../service-bus-messaging/topic-filters.md)로 구성할 수 있습니다. 예를 들어 구독 필터는 특정 문자열로 시작하는 키에 대한 변경의 이벤트만 구독하는 데 사용할 수 있습니다.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>App Configuration에서 데이터를 다시 로드하는 이벤트 처리기 등록
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-[SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) 메서드는 새로 고침을 위해 등록된 키-값에 대해 캐시된 값을 더티로 설정하는 데 사용됩니다. 이렇게 하면 `RefreshAsync` 또는 `TryRefreshAsync`에 대한 다음 호출이 App Configuration을 사용하여 캐시된 값의 유효성을 다시 검사하고 필요하면 업데이트합니다.
+[SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) 메서드는 새로 고침을 위해 등록된 키-값에 대해 캐시된 값을 더티로 설정하는 데 사용됩니다. 이렇게 하면 `RefreshAsync` 또는 `TryRefreshAsync`에 대한 다음 호출이 App Configuration을 사용하여 캐시된 값의 유효성을 다시 검사하고 필요하면 업데이트합니다.
 
 여러 인스턴스가 동시에 새로 고쳐지는 경우 잠재적인 제한을 줄이기 위해 캐시된 값이 더티로 표시되기 전에 임의 지연이 추가됩니다. 캐시된 값이 더티로 표시되기 전의 기본적인 최대 지연 시간은 30초이지만 선택적 `TimeSpan` 매개 변수를 `SetDirty` 메서드에 전달하여 재정의할 수 있습니다.
 

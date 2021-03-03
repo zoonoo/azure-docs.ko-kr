@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 8e68852434a4a8bea43b575523a60c9346b2a569
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: aa6c0d9035f172cc7fb520ff58f233a82fca228a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384778"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741075"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용 하 여 Azure Blob storage에서 Azure blob storage로의 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사 하는 파이프라인을 만듭니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "100384778"
 
     b. **작업 흐름 또는 작업 일정** 에서 **일정에 따라 정기적으로 실행** 을 선택 합니다.
 
-    c. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
+    다. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
 
     d. **되풀이** 에서 **1 시간** 을 입력 합니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "100384778"
     
     b. 갤러리에서 Azure Blob Storage를 선택한 다음, 계속을 선택합니다.
     
-    c. **새 연결 된 서비스 (Azure Blob Storage)** 페이지에서 연결 된 서비스의 이름을 입력 합니다. Azure 구독을 선택 하 고 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트한 다음, **만들기** 를 선택합니다.
+    다. **새 연결 된 서비스 (Azure Blob Storage)** 페이지에서 연결 된 서비스의 이름을 입력 합니다. Azure 구독을 선택 하 고 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트한 다음, **만들기** 를 선택합니다.
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
 
@@ -120,7 +120,7 @@ ms.locfileid: "100384778"
 
     b. **파일 로드 동작** 에서 **증분 로드: 시간 분할 된 폴더/파일 이름** 을 선택 합니다.
 
-    c. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 스크린샷에 표시 된 대로 형식을 변경 합니다. **이진 복사** 를 선택 하 고 **다음** 을 클릭 합니다.
+    다. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 스크린샷에 표시 된 대로 형식을 변경 합니다. **이진 복사** 를 선택 하 고 **다음** 을 클릭 합니다.
 
     ![선택한 폴더를 사용 하 여 입력 파일 또는 폴더 선택 대화 상자를 보여 주는 스크린샷](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 

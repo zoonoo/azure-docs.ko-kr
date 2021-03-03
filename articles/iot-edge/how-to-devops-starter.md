@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721517"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
 
@@ -29,6 +29,16 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 1. 왼쪽 창에서 **리소스 만들기** 를 선택 하 고 **devops 스타터** 를 검색 합니다.  
 
 1. **만들기** 를 선택합니다.
+
+1. 기본적으로 DevOps 스타터는 GitHub를 사용 하 여 설정 됩니다. 이 방법의 기능을 활용 하려면 DevOps 스타터를 전환 하 여 Azure DevOps를 사용 하도록 설정 합니다. **설정 변경** 링크를 따릅니다.
+
+   ![GitHub에서 Azure DevOps로 전환 하려면 여기에서 설정 변경을 선택 합니다.](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. 오른쪽 창에서 **Azure DevOps** 타일을 선택 하 고 **완료** 를 선택 합니다.
+
+   ![Azure DevOps를 선택 하 여 DevOps 스타터를 설정 합니다.](./media/how-to-devops-starter/select-azure-devops.png)
+
+   이제 DevOps 스타터가 Azure DevOps를 사용 하 여 설정 되는 것을 볼 수 있습니다.
 
 ## <a name="create-a-new-application-pipeline"></a>새 애플리케이션 파이프라인 만들기
 

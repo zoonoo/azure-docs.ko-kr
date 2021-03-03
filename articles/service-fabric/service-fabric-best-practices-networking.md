@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732567"
 ---
 # <a name="networking"></a>네트워킹
 
@@ -39,7 +39,7 @@ Azure [Service Fabric 네트워킹 패턴](./service-fabric-patterns-networking.
 ```
 [가속화된 네트워킹을 사용하는 Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 및 [가속화된 네트워킹을 사용하는 Windows](../virtual-network/create-vm-accelerated-networking-powershell.md)에서 Service Fabric 클러스터를 프로비전할 수 있습니다.
 
-가속화 된 네트워킹은 D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms에 대해 지원 됩니다. 가속화 된 네트워킹은 Service Fabric Windows 클러스터의 경우 01/23/2019의 Standard_DS8_v3 SKU를 사용 하 고 Service Fabric Linux 클러스터의 경우 01/29/2019에서 Standard_DS12_v2를 사용 하 여 테스트 되었습니다.
+가속화 된 네트워킹은 D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 및 Ms/Mms에 대해 지원 됩니다. 가속화 된 네트워킹은 Service Fabric Windows 클러스터의 경우 01/23/2019의 Standard_DS8_v3 SKU를 사용 하 고 Service Fabric Linux 클러스터의 경우 01/29/2019에서 Standard_DS12_v2를 사용 하 여 테스트 되었습니다. 가속화 된 네트워킹에는 4 개 이상의 vCPUs가 필요 합니다. 
 
 기존 Service Fabric 클러스터에서 가속화된 네트워킹을 사용하도록 설정하려면 먼저 [Virtual Machine Scale Set를 추가하여 Service Fabric 클러스터를 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md)해 다음 작업을 수행해야 합니다.
 1. 가속화된 네트워킹이 사용하도록 설정된 NodeType 프로비전
@@ -83,7 +83,7 @@ Azure [Service Fabric 네트워킹 패턴](./service-fabric-patterns-networking.
 
 * **클러스터**. 노드 간 통신에 사용 됩니다. 차단 되어서는 안 됩니다.
 
-* **임시**. Service Fabric에서는 이러한 포트 중 일부를 애플리케이션 포트로 사용하고, 나머지 포트는 OS에서 사용할 수 있습니다. 또한이 범위는 OS에 있는 기존 범위에 매핑되므로 여기에서 샘플에 지정 된 범위를 사용할 수 있습니다. 시작 포트와 끝 포트 간의 차이가 255 이상인지 확인합니다. 이 범위가 OS와 공유되므로 이 차이가 너무 낮으면 충돌이 발생할 수 있습니다. 구성 된 동적 포트 범위를 보려면 *netsh int ipv4 show dynamic port tcp*를 실행 합니다. 이러한 포트는 Linux 클러스터에 필요 하지 않습니다.
+* **임시**. Service Fabric에서는 이러한 포트 중 일부를 애플리케이션 포트로 사용하고, 나머지 포트는 OS에서 사용할 수 있습니다. 또한이 범위는 OS에 있는 기존 범위에 매핑되므로 여기에서 샘플에 지정 된 범위를 사용할 수 있습니다. 시작 포트와 끝 포트 간의 차이가 255 이상인지 확인합니다. 이 범위가 OS와 공유되므로 이 차이가 너무 낮으면 충돌이 발생할 수 있습니다. 구성 된 동적 포트 범위를 보려면 *netsh int ipv4 show dynamic port tcp* 를 실행 합니다. 이러한 포트는 Linux 클러스터에 필요 하지 않습니다.
 
 * **응용 프로그램**. 애플리케이션 포트 범위는 애플리케이션의 엔드포인트 요구 사항을 충족할 수 있을 만큼 충분히 커야 합니다. 이 범위는 컴퓨터의 동적 포트 범위, 즉 구성에 설정된 ephemeralPorts 범위에서 제외해야 합니다. Service Fabric는 새 포트가 필요할 때마다 이러한 포트를 사용 하 고 노드에서 이러한 포트에 대 한 방화벽을 엽니다.
 
@@ -108,7 +108,7 @@ Azure [Service Fabric 네트워킹 패턴](./service-fabric-patterns-networking.
 
 * **네트워크**: 서브넷 및 다른 가상 네트워크에 대 한 통신 채널입니다.
 
-* **리소스 공급자**입니다. Service Fabric 리소스 공급자가 모든 ARM 배포를 실행 하기 위해 UpgradeService에서 연결 합니다.
+* **리소스 공급자** 입니다. Service Fabric 리소스 공급자가 모든 ARM 배포를 실행 하기 위해 UpgradeService에서 연결 합니다.
 
 * **업그레이드**. Download.microsoft.com 주소를 사용 하는 업그레이드 서비스는 설치, 이미지 다시 설치 및 런타임 업그레이드에 필요 합니다. 이 서비스는 동적 IP 주소와 함께 작동 합니다. "내부 전용" 부하 분산 장치의 시나리오에서는 포트 443에 대 한 아웃 바운드 트래픽을 허용 하는 규칙을 사용 하 여 추가 외부 부하 분산 장치를 템플릿에 추가 해야 합니다. 필요한 경우이 포트는 성공적으로 설치 된 후 차단 될 수 있지만,이 경우 업그레이드 패키지를 노드에 배포 해야 합니다 .이 경우에는 짧은 기간 동안 포트를 열어야 합니다. 나중에 수동으로 업그레이드 해야 합니다.
 

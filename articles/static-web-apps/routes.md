@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 39950b4d62b7dbfacba94f5ba3c5de50bbb974b3
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739647"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 경로 미리 보기
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 Azure 정적 Web Apps의 라우팅은 정적 콘텐츠와 Api<sup>1</sup>에 대 한 백 엔드 라우팅 규칙 및 권한 부여 동작을 정의 합니다. 규칙은 _routes.json_ 파일에서 규칙의 배열로 정의됩니다.
 
@@ -29,6 +32,9 @@ Azure 정적 Web Apps의 라우팅은 정적 콘텐츠와 Api<sup>1</sup>에 대
 자세한 내용은 [예제 경로 파일](#example-route-file) 을 참조 하세요.
 
 ## <a name="location"></a>위치
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야 합니다. 웹앱에 빌드된 파일을 특정 폴더에서 빌드 아티팩트 폴더로 복사하는 빌드 단계가 포함되어 있는 경우 _routes.json_ 파일은 해당 특정 폴더에 있어야 합니다.
 
@@ -46,6 +52,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 
 ## <a name="defining-routes"></a>경로 정의
 
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
+
 경로는 _routes.json_ 파일에서 `routes` 속성의 경로 규칙 배열로 정의됩니다. 각 규칙은 하나 이상의 선택적 규칙 속성과 함께 경로 패턴으로 구성됩니다. 사용 예제는 [예제 경로 파일](#example-route-file)을 참조하세요.
 
 | 규칙 속성  | 필수 | 기본값 | 주석                                                      |
@@ -56,6 +65,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 | `statusCode`   | 예       | 200           | 요청에 대한 [HTTP 상태 코드](https://wikipedia.org/wiki/List_of_HTTP_status_codes) 응답입니다. |
 
 ## <a name="securing-routes-with-roles"></a>역할을 사용하여 경로 보호
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 규칙의 `allowedRoles` 배열에 하나 이상의 역할 이름을 추가하여 경로를 보호합니다. 사용 예제는 [예제 경로 파일](#example-route-file)을 참조하세요.
 
@@ -81,6 +93,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 - 개별 사용자는 [초대](authentication-authorization.md)를 통해 역할에 연결됩니다.
 
 ## <a name="wildcards"></a>와일드카드
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 와일드카드 규칙은 지정된 경로 패턴의 모든 요청을 일치시킵니다. 규칙에 `serve` 값을 정의하는 경우 명명된 파일 또는 경로가 응답으로 제공됩니다.
 
@@ -109,6 +124,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 
 ## <a name="fallback-routes"></a>대체 경로
 
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
+
 단일 페이지 응용 프로그램은 프런트 엔드 JavaScript 프레임 워크 또는 라이브러리를 사용 하 든, 아니면 Blazor와 같은 Weasembomplatform을 사용 하는지에 관계 없이 웹 앱 탐색을 위한 클라이언트 쪽 라우팅을 사용 하는 경우가 많습니다. 이러한 클라이언트 쪽 라우팅 규칙은 서버에 다시 요청하지 않고 브라우저의 창 위치를 업데이트합니다. 페이지를 새로 고치거나 클라이언트 쪽 라우팅 규칙에 의해 생성된 위치로 직접 이동하는 경우 적절한 HTML 페이지를 제공하기 위해 서버 쪽 대체 경로가 필요합니다.
 
 일반적인 대체 경로는 다음 예제에 나와 있습니다.
@@ -128,6 +146,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 대체 경로는 이전에 정의된 규칙에 의해 catch되지 않은 모든 요청을 catch하므로 라우팅 규칙에서 마지막에 나열되어야 합니다.
 
 ## <a name="redirects"></a>리디렉션
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 [301](https://en.wikipedia.org/wiki/HTTP_301) 및 [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP 상태 코드를 사용하여 한 경로의 요청을 다른 경로로 리디렉션할 수 있습니다.
 
@@ -153,6 +174,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 
 ## <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
+
 사용자는 오류가 발생할 수 있는 다양한 상황을 경험할 수 있습니다. `platformErrorOverrides` 배열을 사용하면 이러한 오류에 대한 응답으로 사용자 지정 환경을 제공할 수 있습니다. _routes.json_ 파일에 배열을 배치하는 방법에 대해 [예제 경로 파일](#example-route-file)을 참조하세요.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 | `Unauthorized_Unknown` | 401 | 사용자를 인증하는 동안 알 수 없는 문제가 발생했습니다. 이 오류가 발생하는 원인 중 하나는 애플리케이션에 동의하지 않아 사용자가 인식되지 못할 수 있습니다.|
 
 ## <a name="custom-mime-types"></a>사용자 지정 mime 형식
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 `mimeTypes`배열과 같은 수준에 있는 개체를 사용 하 여 `routes` [MIME 형식을](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) 파일 확장명과 연결할 수 있습니다.
 
@@ -194,6 +221,9 @@ MIME 형식으로 작업 하는 경우 다음 사항을 고려해 야 합니다.
 > 정적 Web Apps는 Blazor 응용 프로그램과 WASM 및 DLL 파일에 대해 예상 되는 MIME 형식을 이해 하므로 이러한 응용 프로그램에 대 한 매핑을 추가할 필요가 없습니다.
 
 ## <a name="default-headers"></a>기본 헤더
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 `defaultHeaders`배열과 같은 수준에 나열 된 개체를 사용 하 여 `routes` [응답 헤더](https://developer.mozilla.org/docs/Web/HTTP/Headers)를 추가, 수정 또는 제거할 수 있습니다.
 
@@ -221,6 +251,9 @@ MIME 형식으로 작업 하는 경우 다음 사항을 고려해 야 합니다.
 - _routes.js_ 에 정의 된 헤더는 정적 내용에만 적용 됩니다. 함수 코드에서 API 끝점의 응답 헤더를 사용자 지정할 수 있습니다.
 
 ## <a name="example-route-file"></a>예제 경로 파일
+
+> [!IMPORTANT]
+> *routes.js* 파일에 정의 된 기능은 이제 더 이상 사용 되지 않으며 Azure 정적 Web Apps [구성 파일](./configuration.md#routes)에서 구현 됩니다.
 
 다음 예제에서는 _routes.json_ 파일에서 정적 콘텐츠 및 API에 대한 경로 규칙을 빌드하는 방법을 보여 줍니다. 일부 경로는 인증 관련 엔드포인트에 액세스하는 [ _/.auth_ 시스템 폴더](authentication-authorization.md)를 사용합니다.
 

@@ -4,12 +4,12 @@ description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718151"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -54,7 +54,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>범위
+### <a name="scope"></a>Scope
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -105,7 +105,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
 * 속성
 * 저장 된 리소스 그룹
-* 설명
+* Description
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -209,7 +209,7 @@ Contoso는 유지 관리를 거치는 동안 **ContosoSub** 에서 **컴퓨터-0
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>시나리오 3: 리소스 그룹에 정의 된 작업 그룹
 
-Contoso는 [구독 수준에서 메트릭 경고를](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor)정의 했습니다. 그러나 리소스 그룹 **ContosoRG** 에서 생성 된 경고에 대해 특별히 트리거되는 작업을 정의 하려고 합니다.
+Contoso는 [구독 수준에서 메트릭 경고를](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor)정의 했습니다. 그러나 리소스 그룹 **ContosoRG** 에서 생성 된 경고에 대해 특별히 트리거되는 작업을 정의 하려고 합니다.
 
 **해결 방법:** 다음을 사용 하 여 작업 규칙을 만듭니다.
 * 범위 = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>모범 사례
 
-[결과 수](../platform/alerts-unified-log.md) 옵션을 사용 하 여 만든 로그 경고는 전체 검색 결과 (여러 컴퓨터에 걸쳐 있을 수 있음)를 사용 하 여 단일 경고 인스턴스를 생성 합니다. 이 시나리오에서 작업 규칙은 **경고 컨텍스트 (페이로드)** 필터를 사용 하는 경우 일치 하는 항목이 있는 한 경고 인스턴스에 대해 작동 합니다. 앞서 설명한 시나리오 2에서는 생성 된 로그 경고에 대 한 검색 결과에 **컴퓨터-01** 과 **컴퓨터-02** 가 모두 포함 되어 있으면 전체 알림이 표시 되지 않습니다. **컴퓨터 02** 에 대해 전혀 생성 된 알림이 없습니다.
+[결과 수](./alerts-unified-log.md) 옵션을 사용 하 여 만든 로그 경고는 전체 검색 결과 (여러 컴퓨터에 걸쳐 있을 수 있음)를 사용 하 여 단일 경고 인스턴스를 생성 합니다. 이 시나리오에서 작업 규칙은 **경고 컨텍스트 (페이로드)** 필터를 사용 하는 경우 일치 하는 항목이 있는 한 경고 인스턴스에 대해 작동 합니다. 앞서 설명한 시나리오 2에서는 생성 된 로그 경고에 대 한 검색 결과에 **컴퓨터-01** 과 **컴퓨터-02** 가 모두 포함 되어 있으면 전체 알림이 표시 되지 않습니다. **컴퓨터 02** 에 대해 전혀 생성 된 알림이 없습니다.
 
 ![다이어그램에는 단일 경고 인스턴스가 강조 표시 된 작업 규칙 및 로그 경고가 표시 됩니다.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-작업 규칙과 함께 로그 경고를 사용 하는 것이 가장 좋습니다. [메트릭 측정](../platform/alerts-unified-log.md) 옵션을 사용 하 여 로그 경고를 만듭니다. 이 옵션은 정의 된 그룹 필드에 따라 별도의 경고 인스턴스를 생성 합니다. 그런 다음 시나리오 2에서는 **컴퓨터-01** 및 **컴퓨터-02** 에 대 한 별도의 경고 인스턴스가 생성 됩니다. 시나리오에 설명 된 작업 규칙 때문에 **컴퓨터-01** 에 대 한 알림만 표시 되지 않습니다. **컴퓨터 02** 에 대 한 알림은 정상적으로 계속 해 서 발생 합니다.
+작업 규칙과 함께 로그 경고를 사용 하는 것이 가장 좋습니다. [메트릭 측정](./alerts-unified-log.md) 옵션을 사용 하 여 로그 경고를 만듭니다. 이 옵션은 정의 된 그룹 필드에 따라 별도의 경고 인스턴스를 생성 합니다. 그런 다음 시나리오 2에서는 **컴퓨터-01** 및 **컴퓨터-02** 에 대 한 별도의 경고 인스턴스가 생성 됩니다. 시나리오에 설명 된 작업 규칙 때문에 **컴퓨터-01** 에 대 한 알림만 표시 되지 않습니다. **컴퓨터 02** 에 대 한 알림은 정상적으로 계속 해 서 발생 합니다.
 
 ![작업 규칙 및 로그 경고 (결과 수)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>작업 규칙에 의해 억제 된 경고를 볼 수 있나요?
 
-[경고 목록 페이지](../platform/alerts-managing-alert-instances.md)에서 비 표시 ( **Suppression) 상태** 라는 추가 열을 선택할 수 있습니다. 경고 인스턴스의 알림이 표시 되지 않으면 목록에 해당 상태가 표시 됩니다.
+[경고 목록 페이지](./alerts-managing-alert-instances.md)에서 비 표시 ( **Suppression) 상태** 라는 추가 열을 선택할 수 있습니다. 경고 인스턴스의 알림이 표시 되지 않으면 목록에 해당 상태가 표시 됩니다.
 
 ![표시 되지 않는 경고 인스턴스](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 경고에 대해 자세히 알아보기](../platform/alerts-overview.md)
+- [Azure의 경고에 대해 자세히 알아보기](./alerts-overview.md)

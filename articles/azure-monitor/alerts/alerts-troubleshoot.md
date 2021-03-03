@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717862"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
 이 문서에서는 경고 및 알림 Azure Monitor의 일반적인 문제에 대해 설명 합니다.
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md)를 참조 하세요.
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](./alerts-overview.md)를 참조 하세요.
 
 경고가 발생할 때 발생 하거나 발생 하지 않는 문제가 발생 하는 경우 아래 문서를 참조 하세요. Azure Portal에서 "발생 된" 경고를 볼 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **[작업 규칙](../alerts/alerts-action-rules.md)에 의해 전자 메일이** 표시 되지 않나요?
 
-    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](../platform/action-groups.md)에 대해 기록 탭을 확인합니다.
+    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다.
 
     ![경고 작업 규칙 비 표시 기록](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **작업 [규칙](../alerts/alerts-action-rules.md)에 의해 동작이 무시 되었습니까?**
 
-    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](../platform/action-groups.md)에 대해 기록 탭을 확인합니다. 
+    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다. 
 
     ![경고 작업 규칙 비 표시 기록](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **작업 규칙에 의해 동작이 무시 되었습니까?**
 
-    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](../platform/action-groups.md)에 대해 기록 탭을 확인합니다.
+    포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다.
 
     ![경고 작업 규칙 비 표시 기록](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -133,15 +133,15 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **Webhook가 트리거되지 않나요?**
 
-    1. **원본 IP 주소가 차단 되었습니까?**
+    1. **원본 IP 주소가 차단되었나요?**
     
-       Webhook가 호출 되는 [IP 주소](../platform/action-groups.md#action-specific-information) 를 허용 목록에 추가 합니다.
+       Webhook가 호출 되는 [IP 주소](./action-groups.md#action-specific-information) 를 허용 목록에 추가 합니다.
 
-    1. **Webhook 끝점이 제대로 작동 하나요?**
+    1. **웹후크 엔드포인트가 제대로 작동하나요?**
 
        구성한 웹후크 엔드포인트가 올바르고 엔드포인트가 제대로 작동하는지 확인합니다. 웹후크 로그를 확인하거나 해당 코드를 계측하여 조사할 수 있습니다(예: 들어오는 페이로드 기록).
 
-    1. **여유 시간 또는 Microsoft 팀을 호출 하나요?**  
+    1. **Slack 또는 Microsoft Teams를 호출 중인가요?**  
     이러한 각 엔드포인트에는 특정 JSON 형식이 필요합니다. [이러한 지침](../alerts/action-groups-logic-app.md)을 따라 대신 논리 앱 작업을 구성합니다.
 
     1. **Webhook가 응답 하지 않거나 오류가 반환 되었습니까?** 
@@ -180,12 +180,12 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     작업 수준에 지정된 형식이 원하는 형식인지 확인합니다. 예를 들어 어떤 형식을 기대하며 경고에 응답하는 코드(웹후크, 함수, 논리 앱 등)를 개발했지만 나중에 해당 사용자 또는 다른 사용자가 다른 형식을 지정했습니다.  
 
-    또한 [활동 로그 경고](../alerts/activity-log-alerts-webhook.md), [로그 검색 경고](../alerts/alerts-log-webhook.md)(Application Insights 및 Log Analytics 모두), [메트릭 경고](alerts-metric-near-real-time.md#payload-schema), [일반적인 경고 스키마](../alerts/alerts-common-schema-definitions.md) 및 사용되지 않는 [클래식 메트릭 경고](../platform/alerts-webhooks.md)에 대해 페이로드 형식(JSON)을 확인합니다.
+    또한 [활동 로그 경고](../alerts/activity-log-alerts-webhook.md), [로그 검색 경고](../alerts/alerts-log-webhook.md)(Application Insights 및 Log Analytics 모두), [메트릭 경고](alerts-metric-near-real-time.md#payload-schema), [일반적인 경고 스키마](../alerts/alerts-common-schema-definitions.md) 및 사용되지 않는 [클래식 메트릭 경고](./alerts-webhooks.md)에 대해 페이로드 형식(JSON)을 확인합니다.
 
  
 1. **활동 로그 경고: 활동 로그에서 정보를 사용할 수 있나요?** 
 
-    [활동 로그 경고](../platform/activity-log-alerts.md) 는 azure 리소스 생성, 업데이트 또는 삭제, 서비스 상태 및 리소스 상태 이벤트, Azure Advisor 및 Azure Policy의 결과 등 Azure 활동 로그에 기록 된 이벤트를 기반으로 하는 경고입니다. 활동 로그를 기반으로 경고를 받았지만 필요한 일부 필드가 누락되거나 잘못된 경우 활동 로그 자체의 이벤트를 먼저 확인합니다. Azure 리소스가 활동 로그 이벤트에서 찾고 있는 필드를 작성하지 않은 경우 해당 필드는 해당 경고에 포함되지 않습니다. 
+    [활동 로그 경고](./activity-log-alerts.md) 는 azure 리소스 생성, 업데이트 또는 삭제, 서비스 상태 및 리소스 상태 이벤트, Azure Advisor 및 Azure Policy의 결과 등 Azure 활동 로그에 기록 된 이벤트를 기반으로 하는 경고입니다. 활동 로그를 기반으로 경고를 받았지만 필요한 일부 필드가 누락되거나 잘못된 경우 활동 로그 자체의 이벤트를 먼저 확인합니다. Azure 리소스가 활동 로그 이벤트에서 찾고 있는 필드를 작성하지 않은 경우 해당 필드는 해당 경고에 포함되지 않습니다. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>작업 규칙이 예상대로 작동하지 않음 
 
@@ -250,4 +250,4 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 ## <a name="next-steps"></a>다음 단계
 - 로그 경고를 사용 하는 경우 [로그 경고 문제 해결](./alerts-troubleshoot-log.md)도 참조 하세요.
-- [Azure Portal](https://portal.azure.com) 로 돌아가서 위의 지침에 따라 문제를 해결 했는지 확인 합니다. 
+- [Azure Portal](https://portal.azure.com) 로 돌아가서 위의 지침에 따라 문제를 해결 했는지 확인 합니다.

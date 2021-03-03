@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/12/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871556"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690382"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -95,22 +95,27 @@ experiment = Experiment(ws, 'MyExperiment')
 
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
-    compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
-output_data = OutputFileDatasetConfig()
-input_named = input_data.as_named_input('input')
-
-steps = [ PythonScriptStep(
-    script_name="train.py",
-    arguments=["--input", input_named.as_download(), "--output", output_data],
+    source_directory="prep_src",
     compute_target=compute_target,
-    source_directory="myfolder"
-) ]
+    arguments=["--prepped_data_path", prepped_data_path],
+    inputs=[input_dataset.as_named_input('raw_data').as_mount() ]
+    )
+
+prepped_data = prepped_data_path.read_delimited_files()
+
+train_step = PythonScriptStep(
+    name="train",
+    script_name="train.py",
+    compute_target=compute_target,
+    arguments=["--prepped_data", prepped_data],
+    source_directory="train_src"
+)
+steps = [ dataprep_step, train_step ]
 
 pipeline = Pipeline(workspace=ws, steps=steps)
 
@@ -118,9 +123,13 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `output_data` . 는 `input_data` [filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) 의 인스턴스이고은 `output_data`  [outputfiledatasetconfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py)의 인스턴스입니다. `OutputFileDatasetConfig`기본 동작은 경로 아래의 데이터 저장소에 출력을 복사 하는 것입니다 `workspaceblobstore` `/dataset/{run-id}/{output-name}` `run-id` . 여기서는 실행 ID이 고는 `output-name` 개발자가 지정 하지 않은 경우 자동으로 생성 된 값입니다.
+코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `prepped_data_path` . 는 `input_data` [filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) 의 인스턴스이고은 `prepped_data_path`  [outputfiledatasetconfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py)의 인스턴스입니다. `OutputFileDatasetConfig`기본 동작은 경로 아래의 데이터 저장소에 출력을 복사 하는 것입니다 `workspaceblobstore` `/dataset/{run-id}/{output-name}` `run-id` . 여기서는 실행 ID이 고는 `output-name` 개발자가 지정 하지 않은 경우 자동으로 생성 된 값입니다.
 
-배열은 `steps` `PythonScriptStep` 데이터 개체를 사용 하 고에서 실행 되는 단일 요소를 보유 합니다 `compute_target` . 그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
+데이터 준비 코드 (표시 되지 않음)는에 구분 된 파일을 씁니다 `prepped_data_path` . 데이터 준비 단계의 이러한 출력은 `prepped_data` 학습 단계에 전달 됩니다. 
+
+배열에는 `steps` 및의 두 가지가 포함 `PythonScriptStep` `dataprep_step` `train_step` 됩니다. Azure Machine Learning은의 데이터 종속성을 분석 `prepped_data` 하 고 이전에 실행 됩니다 `dataprep_step` `train_step` . 
+
+그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
 
 파이프라인을 데이터에 연결 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning의 데이터 액세스](concept-data.md) 및 [ML 파이프라인 단계 간 데이터 이동 (Python)](how-to-move-data-in-out-of-pipelines.md)문서를 참조 하세요. 
 

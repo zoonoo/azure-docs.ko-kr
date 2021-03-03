@@ -2,14 +2,14 @@
 title: Azure Portal에서 계정 만들기
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368509"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703667"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -101,7 +101,7 @@ Batch 계정에 적용 되는 [리소스 할당량](batch-quota-limit.md) 을 �
 
 사용자 구독 모드에서 Batch 계정을 만들 때 **사용자 구독** 을 풀 할당 모드로 지정 하 고, 만든 Key Vault를 선택 하 고, 확인란을 선택 하 Azure Batch Key Vault에 대 한 액세스 권한을 부여 합니다.
 
-Key Vault에 대 한 액세스 권한을 수동으로 부여 하려면 Key Vault **액세스** 정책 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 합니다. **보안 주체 선택** 옆의 링크를 선택 하 고 **Microsoft Azure Batch** (응용 프로그램 ID **ddbf3205-c6bd-46ae-8127-60eb93363864 붙여넣고**)를 검색 합니다. 해당 보안 주체를 선택 하 고 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 합니다. Azure Batch에 최소 **가져오기**, **나열**, **설정**, **삭제** 사용 권한을 지정해야 합니다.
+Key Vault에 대 한 액세스 권한을 수동으로 부여 하려면 Key Vault **액세스** 정책 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 합니다. **보안 주체 선택** 옆의 링크를 선택 하 고 **Microsoft Azure Batch** (응용 프로그램 ID **ddbf3205-c6bd-46ae-8127-60eb93363864 붙여넣고**)를 검색 합니다. 해당 보안 주체를 선택 하 고 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 합니다. Azure Batch에 최소 **가져오기**, **나열**, **설정**, **삭제** 사용 권한을 지정해야 합니다. [일시 삭제를 사용 하는 Key](../key-vault/general/soft-delete-overview.md)vault의 경우 Azure Batch에도 **복구** 권한이 제공 되어야 합니다.
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Azure Batch에 대 한 비밀 권한 선택의 스크린샷":::
 

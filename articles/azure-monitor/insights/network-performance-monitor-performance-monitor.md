@@ -1,22 +1,21 @@
 ---
 title: 네트워크 성능 모니터의 성능 모니터
 description: 네트워크 성능 모니터의 성능 모니터 기능을 사용하면 네트워크의 다양한 지점 간 네트워크 연결을 모니터링할 수 있습니다. 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스를 모니터링할 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5335882c11ee6a1a7352ef3dc9822cfa88eda196
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 505584abbe573c94056888b07406437650b09611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728624"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 
 > [!IMPORTANT]
-> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) .
 
 [네트워크 성능 모니터](network-performance-monitor.md)의 성능 모니터 기능을 사용하면 네트워크의 다양한 지점 간 네트워크 연결을 모니터링할 수 있습니다. 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스를 모니터링할 수 있습니다. 성능 모니터를 사용하여 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다. 다음 작업을 수행할 수 있다는 주요 이점이 있습니다. 
 
@@ -29,7 +28,7 @@ ms.locfileid: "100573507"
 
 ![네트워크 성능 모니터](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 네트워크 성능 모니터에 대 한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성** 을 선택 합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-performance-monitor/npm-configure-button.png)
@@ -132,4 +131,3 @@ ms.locfileid: "100573507"
 
 ## <a name="next-steps"></a>다음 단계
 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../logs/log-query-overview.md)을 수행합니다.
-

@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725803"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
 
@@ -87,13 +87,51 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 개요 통합 문서와 마찬가지로, **구독** 열의 Azure Cosmos DB 리소스 옆에 있는 드롭다운을 선택하면 데이터베이스를 구성하는 개별 컨테이너별로 분석 결과가 표시됩니다.
 
-### <a name="operations"></a>작업 
+### <a name="operations"></a>작업
 
-페이지 맨 위에서 **작업** 을 선택하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 유형별로 세분화된 요청을 볼 수 있는 기능을 제공합니다. 
+페이지 맨 위에서 **작업** 을 선택하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 유형별로 세분화된 요청을 볼 수 있는 기능을 제공합니다.
 
 따라서 아래 예제에서 `eastus-billingint`는 주로 read 요청을 수신하지만, 약간의 upsert 및 create 요청도 수신하는 것을 볼 수 있습니다. 반면 `westeurope-billingint`는 적어도 시간 범위 매개 변수를 통해 통합 문서의 현재 범위로 지정된 지난 4시간 동안은 요청 관점에서 읽기 전용입니다.
 
-![작업 통합 문서](./media/cosmosdb-insights-overview/operation.png) 
+![작업 통합 문서](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Azure Cosmos DB 리소스에서 보기
+
+1. 기존 Azure Cosmos DB 계정을 검색 하거나 선택 합니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Azure Cosmos DB를 검색 합니다." border="true":::
+
+2. Azure Cosmos DB 계정으로 이동한 후 모니터링 섹션에서 **Insights (미리 보기)** 또는 **통합 문서** 를 선택 하 여 처리량, 요청, 저장소, 가용성, 대기 시간, 시스템 및 계정 관리에 대 한 추가 분석을 수행 합니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights 개요." border="true":::
+
+### <a name="time-range"></a>시간 범위
+
+기본적으로 **시간 범위** 필드는 **최근 24 시간 동안의** 데이터를 표시 합니다. 시간 범위를 수정 하 여 최근 5 분에서 지난 7 일간의 모든 데이터를 표시할 수 있습니다. 시간 범위 선택기에는 시작/종료 날짜를 입력 하 여 선택한 계정에 대해 사용 가능한 데이터를 기반으로 사용자 지정 시간 프레임을 볼 수 있는 **사용자 지정** 모드도 포함 되어 있습니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB 시간 범위입니다." border="true":::
+
+### <a name="insights-overview"></a>Insights 개요
+
+**개요** 탭은 선택한 Azure Cosmos DB 계정에 대해 다음과 같은 가장 일반적인 메트릭을 제공 합니다.
+
+* 총 요청 수
+* 실패 한 요청 (429s)
+* 정규화 된 r 사용 (최대)
+* 데이터 & 인덱스 사용
+* 컬렉션 별 계정 메트릭 Cosmos DB
+
+**총 요청:** 이 그래프는 상태 코드 별로 세분화 된 계정에 대 한 총 요청 보기를 제공 합니다. 그래프의 아래쪽에 있는 단위는 해당 기간에 대 한 총 요청의 합계입니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="총 요청 그래프를 Cosmos DB 합니다." border="true":::
+
+**실패 한 요청 (429s)**:이 그래프는 상태 코드 429의 실패 한 요청에 대 한 보기를 제공 합니다. 그래프의 아래쪽에 있는 단위는 해당 기간에 대해 실패 한 총 요청 수의 합계입니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="실패 한 요청 그래프를 Cosmos DB 합니다." border="true":::
+
+정규화 된 기능 사용 **(max)**:이 그래프는 지정 된 기간 동안 정규화 된 사용 단위 중 0-100%의 최대 비율을 제공 합니다.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="정규화 된 사용을 Cosmos DB 합니다." border="true":::
 
 ## <a name="pin-export-and-expand"></a>고정, 내보내기 및 확장
 

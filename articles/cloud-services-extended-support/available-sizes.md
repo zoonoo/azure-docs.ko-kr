@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c3515b559ef647b9a043a04282b4edfc6e7fa9be
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cd8011782d134031393731a29594d44aba41b2ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744400"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713306"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Azure Cloud Services의 사용 가능한 크기 (확장 된 지원)
 
@@ -21,15 +21,15 @@ ms.locfileid: "98744400"
 
 | SKU 제품군 |  ACU/코어 | 
 |---|---|
-| [A5-7](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#a-series)| 100 |
-|[A8-A11](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#a-series---compute-intensive-instances) | 225* |
-|[Av2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 100 | 
-|[D](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#d-series) | 160 | 
-|[Dv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series) | 160 - 190* |
-|[Dv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) | 160 - 190* |
-|[Ev3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) | 160 - 190*
-|[G](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#g-series) | 180-240 * |
-|[H](https://docs.microsoft.com/azure/virtual-machines/h-series) | 290 - 300* | 
+| [A5-7](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series)| 100 |
+|[A8-A11](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series---compute-intensive-instances) | 225* |
+|[Av2](../virtual-machines/av2-series.md) | 100 | 
+|[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
+|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 - 190* |
+|[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 - 190* |
+|[Ev3](../virtual-machines/ev3-esv3-series.md) | 160 - 190*
+|[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240 * |
+|[H](../virtual-machines/h-series.md) | 290 - 300* | 
 
 >[!NOTE]
 > *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -51,7 +51,7 @@ ms.locfileid: "98744400"
 
 ## <a name="get-a-list-of-available-sizes"></a>사용 가능한 크기 목록 가져오기 
 
-사용 가능한 크기 목록을 검색 하려면 [리소스 sku](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 를 참조 하 고 다음 필터를 적용 합니다.
+사용 가능한 크기 목록을 검색 하려면 [리소스 sku](/rest/api/compute/resourceskus/list) 를 참조 하 고 다음 필터를 적용 합니다.
 
 
 `ResourceType = virtualMachines ` <br>
@@ -60,5 +60,5 @@ ms.locfileid: "98744400"
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.
-- Cloud Services (확장 지원)에 대 한 질문과 [대답](faq.md) 을 검토 합니다.
-- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용 하 여 클라우드 서비스 (확장 지원)를 배포 합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

@@ -4,12 +4,12 @@ description: 노드 유형, 내구성, 안정성 및 Service Fabric 클러스터
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714938"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -39,21 +39,21 @@ ms.locfileid: "98790701"
 
 초기 노드 형식의 수는 클러스터의 목적과 응용 프로그램 및 서비스에서 실행 되는 서비스에 따라 달라 집니다. 다음과 같은 질문을 고려해보세요.
 
-* ***응용 프로그램에 여러 서비스가 있고 이러한 서비스를 공용 또는 인터넷에 연결 해야 하나요?** _
+* ***애플리케이션이 여러 서비스를 보유하고 해당 서비스 중 일부를 공용 또는 인터넷에 연결해야 하나요?***
 
     일반적인 응용 프로그램에는 클라이언트에서 입력을 수신 하는 프런트 엔드 게이트웨이 서비스 및 프런트 엔드 서비스와 통신 하는 하나 이상의 백 엔드 서비스, 프런트 엔드 서비스와 백 엔드 서비스 간에 별도의 네트워킹이 포함 되어 있습니다. 일반적으로 이러한 경우에는 세 가지 노드 형식, 즉 하나의 주 노드 유형 및 두 개의 주 노드가 아닌 노드 유형 (프런트 엔드 및 백 엔드 서비스에 각각 하나씩)이 필요 합니다.
 
-_ ***응용 프로그램을 구성 하는 서비스에 더 많은 RAM 또는 더 높은 CPU 주기와 같은 다른 인프라 요구 사항이 있나요?** _
+* ***응용 프로그램을 구성 하는 서비스에 더 많은 RAM 또는 더 높은 CPU 주기와 같은 다른 인프라 요구 사항이 있나요?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
+    프런트 엔드 서비스는 인터넷에 열려 있는 포트가 있는 더 작은 Vm (D2와 같은 VM 크기)에서 실행할 수 있습니다.  계산 집약적인 백 엔드 서비스는 인터넷에 연결 되지 않는 더 큰 Vm (D4, D6, D15 같은 VM 크기)에서 실행 해야 할 수 있습니다. 이러한 서비스에 대해 서로 다른 노드 유형을 정의 하면 기본 Service Fabric Vm을 보다 효율적이 고 안전 하 게 사용할 수 있으며 이러한 Vm을 독립적으로 확장할 수 있습니다. 필요한 리소스의 양을 예측 하는 방법에 대 한 자세한 내용은 [Service Fabric 응용 프로그램에 대 한 용량 계획](service-fabric-capacity-planning.md) 을 참조 하세요.
 
-_ ***응용 프로그램 서비스를 100 노드 이상으로 확장 해야 하나요?** _
+* ***응용 프로그램 서비스 중에서 100 노드 이상으로 규모를 확장 해야 하나요?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
+    단일 노드 형식은 Service Fabric 응용 프로그램에 대 한 가상 머신 확장 집합 당 100 노드 이상으로 안정적으로 확장할 수 없습니다. 100 개 이상의 노드를 실행 하려면 추가 가상 머신 확장 집합 (따라서 추가 노드 유형)이 필요 합니다.
 
-_ ***클러스터가 가용성 영역에 걸쳐 있는지 여부** _
+* ***클러스터가 가용성 영역에 걸쳐 있는지 여부***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric는 특정 영역에 고정 된 노드 형식을 배포 하 여 [가용성 영역](../availability-zones/az-overview.md) 에 걸쳐 있는 클러스터를 지원 하 여 응용 프로그램의 고가용성을 보장 합니다. 가용성 영역 추가 노드 유형 계획 및 최소 요구 사항을 충족 해야 합니다. 자세한 내용은 [가용성 영역 전체에 걸쳐 있는 Service Fabric 클러스터의 주 노드 형식에 대 한 권장 토폴로지](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones)를 참조 하십시오. 
 
 클러스터를 처음 만들 때 노드 형식의 수와 속성을 결정 하는 경우 항상 클러스터가 배포 되 면 항상 주 노드가 아닌 노드 유형을 추가, 수정 또는 제거할 수 있습니다. [주 노드 유형은](service-fabric-scale-up-primary-node-type.md) 실행 중인 클러스터 에서도 수정할 수 있습니다. 그러나 이러한 작업을 수행 하려면 프로덕션 환경에서 상당한 계획 및 주의가 필요 합니다.
 
@@ -61,7 +61,7 @@ _ ***클러스터가 가용성 영역에 걸쳐 있는지 여부** _
 
 ## <a name="durability-characteristics-of-the-cluster"></a>클러스터의 내구성 특성
 
-_Durability 수준 *은 기본 Azure 인프라를 사용 하 여 Service Fabric Vm에 대 한 권한을 지정 합니다. 이 권한을 통해 Service Fabric는 Service Fabric 시스템 서비스 및 상태 저장 서비스에 대 한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청 (예: 다시 부팅, 이미지로 다시 설치 또는 마이그레이션)을 일시 중지할 수 있습니다.
+*내구성 수준은* 기본 Azure 인프라와 Service Fabric vm의 권한을 지정 합니다. 이 권한을 통해 Service Fabric는 Service Fabric 시스템 서비스 및 상태 저장 서비스에 대 한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청 (예: 다시 부팅, 이미지로 다시 설치 또는 마이그레이션)을 일시 중지할 수 있습니다.
 
 > [!IMPORTANT]
 > 내구성 수준은 노드 유형별으로 설정 됩니다. 지정 되지 않은 경우에는 *청동* 계층이 사용 되지만 자동 OS 업그레이드는 제공 되지 않습니다. *실버* 또는 *골드* 내구성은 프로덕션 워크 로드에 권장 됩니다.
@@ -73,6 +73,9 @@ _Durability 수준 *은 기본 Azure 인프라를 사용 하 여 Service Fabric 
 | 금             | 5                              | 단일 고객 전용 전체 노드 크기 (예: L32s, GS5, G5, DS15_v2, D15_v2) | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 이전 오류에서 복제본이 복구 될 때까지 추가 시간을 허용 하도록 업그레이드 도메인당 2 시간 동안 일시 중지 될 수 있습니다. |
 | 은           | 5                              | 최소 50 GB 이상의 로컬 SSD를 포함 하는 단일 코어 이상의 Vm                      | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 오랜 기간 동안 지연될 수 없음                                                    |
 | 동          | 1                              | 50 GB 이상의 로컬 SSD를 포함 하는 Vm                                              | Service Fabric 클러스터에 의해 지연되지 않음           | 오랜 기간 동안 지연될 수 없음                                                    |
+
+> [!NOTE]
+> 위에서 언급 한 최소 Vm 수는 각 내구성 수준에 필요한 요구 사항입니다. 이러한 요구 사항을 충족 하지 않는 기존 가상 컴퓨터 scalesets를 만들거나 수정할 수 없게 하는 내부 유효성 검사가 진행 중입니다.
 
 > [!WARNING]
 > 청동 내구성이 있으면 자동 OS 이미지 업그레이드를 사용할 수 없습니다. [패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md) (비 Azure 호스트 클러스터에만 해당)은 실버 이상의 내구성 수준에 *권장 되지* 않지만 Service Fabric 업그레이드 도메인에 대해 Windows 업데이트를 자동화 하는 유일한 옵션입니다.

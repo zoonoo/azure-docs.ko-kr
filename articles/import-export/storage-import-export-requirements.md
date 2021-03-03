@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712609"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -43,7 +43,10 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 
 - 표준 범용 v2 저장소 계정 (대부분의 시나리오에 권장)
 - Blob Storage 계정
-- 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 배포 모두),
+- 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 모두)
+
+> [!IMPORTANT]
+> Azure 가져오기/내보내기에서는 NFS (네트워크 파일 시스템) 3.0 Azure Blob 저장소의 프로토콜 지원이 지원 되지 않습니다.
 
 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 

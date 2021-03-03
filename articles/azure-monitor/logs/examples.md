@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 213437e68efb27c483c8013d209261408ab9d4ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736953"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
-이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](../log-query/log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
+이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](./log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
 
-이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](../log-query/get-started-queries.md)을 진행하세요.
+이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](./get-started-queries.md)을 진행하세요.
 
 ## <a name="events"></a>이벤트
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>사용량
 
-`Usage`데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](../platform/manage-cost-storage.md#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
+`Usage`데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](./manage-cost-storage.md#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](./manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
 
 #### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
 
@@ -438,4 +438,4 @@ Update
 ## <a name="next-steps"></a>다음 단계
 
 - [Kusto 언어 참조](/azure/kusto/query)에서 언어에 대한 자세한 내용을 참조합니다.
-- [Azure Monitor에서 로그 쿼리 작성 단원](../log-query/get-started-queries.md)을 계속 진행합니다.
+- [Azure Monitor에서 로그 쿼리 작성 단원](./get-started-queries.md)을 계속 진행합니다.

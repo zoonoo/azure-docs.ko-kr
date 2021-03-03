@@ -1,19 +1,19 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 실시간으로 메트릭 보기 | Microsoft Docs
-description: 이 문서에서는 컨테이너의 Azure Monitor with kubectl를 사용 하지 않고 메트릭의 실시간 보기에 대해 설명 합니다.
+title: 컨테이너 insights를 사용 하 여 실시간으로 메트릭 보기 | Microsoft Docs
+description: 이 문서에서는 컨테이너 insights와 함께 kubectl를 사용 하지 않고 메트릭의 실시간 보기를 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731853"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>실시간으로 메트릭을 보는 방법
 
-컨테이너 라이브 데이터 (미리 보기) 기능에 대 한 Azure Monitor를 사용 하면 클러스터의 노드 및 pod 상태에 대 한 메트릭을 실시간으로 시각화할 수 있습니다. `kubectl top nodes` `kubectl get pods –all-namespaces` `kubectl get nodes` 이 정보에 포함 된 성능 차트에서 데이터를 호출 하 고, 구문 분석 하 고, 시각화 하기 위해, 및 명령에 직접 액세스 하는 것을 에뮬레이트합니다.
+컨테이너 insights 라이브 데이터 (미리 보기) 기능을 사용 하면 클러스터의 노드 및 pod 상태에 대 한 메트릭을 실시간으로 시각화할 수 있습니다. `kubectl top nodes` `kubectl get pods –all-namespaces` `kubectl get nodes` 이 정보에 포함 된 성능 차트에서 데이터를 호출 하 고, 구문 분석 하 고, 시각화 하기 위해, 및 명령에 직접 액세스 하는 것을 에뮬레이트합니다.
 
 이 문서에서는 자세한 개요를 제공 하 고이 기능을 사용 하는 방법을 이해 하는 데 도움을 줍니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "100616199"
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다.
 
-이 기능은 `/api/v1/nodes` `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` 기본적으로 5 초 마다 있는 메트릭 끝점 (, 및 포함)에 대해 폴링 작업을 수행 합니다. 이 데이터는 브라우저에 캐시 되 고 **클러스터** 탭의 컨테이너에 대 한 Azure Monitor에 포함 된 4 개의 성능 차트에서 **라이브 이동 (미리 보기)** 을 선택 하 여 차트에 포함 됩니다. 각 후속 폴링은 5 분의 롤링 시각화 창에 차트로 작성 됩니다.
+이 기능은 `/api/v1/nodes` `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` 기본적으로 5 초 마다 있는 메트릭 끝점 (, 및 포함)에 대해 폴링 작업을 수행 합니다. 이 데이터는 브라우저에서 캐시 되 고 **클러스터** 탭의 컨테이너 정보에 포함 된 4 개의 성능 차트에서 **라이브 이동 (미리 보기)** 을 선택 하 여 차트에 포함 됩니다. 각 후속 폴링은 5 분의 롤링 시각화 창에 차트로 작성 됩니다.
 
 ![클러스터 뷰에서 라이브로 전환 옵션](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

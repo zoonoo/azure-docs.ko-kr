@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: a81676b9985b134a8214f7f5f97d85d27259b71f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417562"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710195"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 구문 분석 변환
 
@@ -19,7 +19,9 @@ ms.locfileid: "100417562"
 
 구문 분석 변환을 사용 하 여 문서 형식으로 된 데이터의 열을 구문 분석 합니다. 구문 분석할 수 있는 현재 지원 되는 포함 문서 형식은 JSON 및 구분 기호로 분리 된 텍스트입니다.
 
-## <a name="configuration"></a>구성
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
+
+## <a name="configuration"></a>Configuration
 
 구문 분석 변환 구성 패널에서 인라인으로 구문 분석 하려는 열에 포함 된 데이터의 형식을 선택 합니다. 구문 분석 변환에는 다음과 같은 구성 설정도 포함 됩니다.
 

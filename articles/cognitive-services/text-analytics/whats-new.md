@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653920"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736643"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -24,7 +24,12 @@ ms.locfileid: "100653920"
 
 ## <a name="february-2021"></a>2021년 2월
 
+* `2021-01-15`에서 제공 하는 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v 3.1-preview. x의 PII 끝점에 대 한 모델 버전 
+  * 9 개의 새로운 언어에 대 한 확장 된 지원
+  * 지원 되는 언어에 대 한 명명 된 엔터티 범주의 AI 품질 향상
 * S0 ~ S4 가격 책정 계층은 2021 년 3 월 8 일에 사용 중지 됩니다. S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)을 사용 하도록 업데이트 해야 합니다.
+* [언어 검색 컨테이너가](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) 이제 일반 공급 됩니다.
+* API의 v 2.1을 사용 중지 하는 중입니다. 
 
 ## <a name="january-2021"></a>2021년 1월
 
@@ -213,7 +218,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 기술
 
 * 다음 개인 정보 엔터티 형식 인식 (영어만 해당):
-    * Person
+    * 사람
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
@@ -254,7 +259,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API 이란?](overview.md)  
+* [텍스트 분석 API란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)

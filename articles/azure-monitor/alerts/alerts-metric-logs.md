@@ -4,22 +4,20 @@ description: 인기 있는 로그 분석 데이터에 대해 실시간에 가까
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 7c7bb9df281a37ded51e3a35b90064d875cfd729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b24f982996ff930f384aeb5803a3ced6e3cb81dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614699"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714241"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
 ## <a name="overview"></a>개요
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Azure Monitor는 [클래식 경고](./alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](./alerts-metric-near-real-time.md)을 지원합니다. [다양한 Azure 서비스](../platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다.
 
 Azure 또는 온-프레미스의 리소스를 포함 하 여 로그에서 메트릭의 일부로 추출 된 인기 있는 Log Analytics 로그에서 메트릭 경고를 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
 
@@ -39,10 +37,10 @@ Azure에서 **로그 메트릭 경고** 를 사용하면 쿼리 기반 [로그 �
 
 ## <a name="metrics-and-dimensions-supported-for-logs"></a>로그에 지원되는 메트릭 및 차원
 
- 메트릭 경고는 차원을 사용하는 메트릭에 대한 경고를 지원합니다. 차원을 사용하여 메트릭을 적절한 수준으로 필터링할 수 있습니다. 지원되는 솔루션 전체에서 [Log Analytics 작업 영역](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)의 로그에 지원되는 전체 메트릭 목록이 나열됩니다.
+ 메트릭 경고는 차원을 사용하는 메트릭에 대한 경고를 지원합니다. 차원을 사용하여 메트릭을 적절한 수준으로 필터링할 수 있습니다. 지원되는 솔루션 전체에서 [Log Analytics 작업 영역](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces)의 로그에 지원되는 전체 메트릭 목록이 나열됩니다.
 
 > [!NOTE]
-> [Azure Monitor 메트릭을](../platform/metrics-charts.md)통해 Log Analytics 작업 영역에서 추출 된 지원 되는 메트릭을 보려면 해당 특정 메트릭에 대해 로그에 대 한 메트릭 경고를 만들어야 합니다. 로그에 대 한 메트릭 경고에서 선택한 차원은 Azure Monitor 메트릭을 통해서만 탐색 하는 경우에만 표시 됩니다.
+> [Azure Monitor 메트릭을](../essentials/metrics-charts.md)통해 Log Analytics 작업 영역에서 추출 된 지원 되는 메트릭을 보려면 해당 특정 메트릭에 대해 로그에 대 한 메트릭 경고를 만들어야 합니다. 로그에 대 한 메트릭 경고에서 선택한 차원은 Azure Monitor 메트릭을 통해서만 탐색 하는 경우에만 표시 됩니다.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Log Analytics에 대한 메트릭 경고 만들기
 
@@ -53,10 +51,10 @@ Azure에서 **로그 메트릭 경고** 를 사용하면 쿼리 기반 [로그 �
 
 Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하려면 다음을 설정하여 사용할 수 있어야 합니다.
 
-1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)를 참조하세요.
+1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../logs/quick-create-workspace.md)를 참조하세요.
 2. **에이전트가 Log Analytics 작업 영역에 대해 구성 되어** 있습니다. Azure vm (및/또는) 온-프레미스 vm에 대해 에이전트를 구성 하 여 이전 단계에서 사용 되는 Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](./../agents/agents-overview.md)를 참조하세요.
 3. **지원 되는 Log Analytics 솔루션이 설치 됨**: Log Analytics 솔루션을 구성 하 고 Log Analytics 작업 영역에 데이터를 전송 해야 합니다. 지원 되는 솔루션은 Windows & Linux, [에이전트 상태 하트 비트 레코드](../insights/solution-agenthealth.md), [업데이트 관리](../../automation/update-management/overview.md)및 [이벤트 데이터](./../agents/data-sources-windows-events.md)에 [대 한 성능 카운터](./../agents/data-sources-performance-counters.md)입니다.
-4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](./../agents/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
+4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](./../agents/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성
 
@@ -357,7 +355,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 
 위의 매개 변수 파일이 metricfromLogsAlertStatic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/templates/deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
 
-또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
+또는 아래 Azure PowerShell 명령을 사용할 수도 있습니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
@@ -673,7 +671,7 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 
 위의 매개 변수 파일이 metricfromLogsAlertDynamic.parameters.json으로 저장되었다고 가정하면 [Azure Portal에서 만들기 위한 리소스 템플릿](../../azure-resource-manager/templates/deploy-portal.md)을 사용하여 로그 메트릭 경고를 만들 수 있습니다.
 
-또는 아래의 Azure Powershell 명령을 사용할 수도 있습니다.
+또는 아래 Azure PowerShell 명령을 사용할 수도 있습니다.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
@@ -689,4 +687,4 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 
 - [메트릭 경고](../alerts/alerts-metric.md)에 대해 자세히 알아봅니다.
 - [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
-- [Azure의 경고](../platform/alerts-overview.md)에 대해 알아봅니다.
+- [Azure의 경고](./alerts-overview.md)에 대해 알아봅니다.

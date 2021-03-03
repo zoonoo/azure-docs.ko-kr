@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 23cbabf1c4fb1433fa1201f77528db9d9f393ed5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712150"
 ---
-# <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
+# <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>적응 네트워크 강화를 통해 네트워크 보안 상태 개선
 Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
 
 ## <a name="availability"></a>가용성

@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359105"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735117"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -69,7 +72,7 @@ Visual Studio Code를 사용하여 Node.js/Express 앱을 로컬로 만든 다�
 
     ![Azure에 로그인](media/quickstart-nodejs/sign-in.png)
 
-1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 를 선택하여 **명령 팔레트** ( **Ctrl**+**Shift**+**P** )에서 동일한 명령을 호출할 수도 있습니다.)
+1. VS Code의 **AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다. ('웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 를 선택하여 **명령 팔레트**(**Ctrl**+**Shift**+**P**)에서 동일한 명령을 호출할 수도 있습니다.)
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="선택한 파란색 화살표 아이콘을 표시하는 VS Code의 Azure App 서비스 스크린샷.":::
         
@@ -268,7 +271,7 @@ code .
 :::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="파란색 배포 화살표가 선택된 Visual Studio Code의 Azure App Service 메뉴 스크린샷.":::
 
 > [!TIP]
-> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트** (Ctrl+Shift+P)에서 배포할 수도 있습니다.
+> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트**(Ctrl+Shift+P)에서 배포할 수도 있습니다.
 
 1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 

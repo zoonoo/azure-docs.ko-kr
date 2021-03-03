@@ -9,18 +9,18 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687552"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>CLI (azdata 또는 kubectl)를 사용 하 여 Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장 및 축소
 
 
 
-서버 그룹의 특성이 나 정의를 변경 해야 하는 경우가 있습니다. 예를 들면 다음과 같습니다.
+서버 그룹의 특성이 나 정의를 변경 해야 하는 경우가 있습니다. 다음은 그 예입니다. 
 
 - 각 코디네이터 또는 작업자 노드에 사용 되는 vCores 수를 늘리거나 줄일 수 있습니다.
 - 각 코디네이터 또는 작업자 노드에서 사용 하는 메모리를 확장 하거나 축소 합니다.
@@ -126,7 +126,7 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 > [!CAUTION]
 > 다음은 구성을 편집 하는 방법을 설명 하기 위해 제공 되는 예제입니다. 구성을 업데이트 하기 전에 Kubernetes 클러스터에서 사용할 수 있는 값으로 매개 변수를 설정 해야 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 - 최소 vCore = 2-> scheduling\default\resources\requests\cpu
 - 최대 vCore = 4-> scheduling\default\resources\limits\cpu
 - 최소 메모리 = 512Mb-> scheduling\default\resources\requests\cpu
@@ -180,6 +180,21 @@ kubectl describe postgresql-12/<server group name>  [-n <namespace name>]
 ## <a name="scale-down-the-server-group"></a>서버 그룹 축소
 
 서버 그룹을 축소 하려면 동일한 명령을 실행 하지만 규모를 축소 하려는 설정에 대해 더 낮은 값을 설정 합니다. 요청 및/또는 제한을 제거 하려면 해당 값을 빈 문자열로 지정 합니다.
+
+## <a name="reset-to-default-values"></a>기본값으로 다시 설정
+코어/메모리 제한/요청 매개 변수를 기본값으로 다시 설정 하려면 해당 매개 변수를 편집 하 고 실제 값 대신 빈 문자열을 전달 합니다. 예를 들어 코어 제한 (cl) 매개 변수를 다시 설정 하려는 경우 다음 명령을 실행 합니다.
+- Linux 클라이언트에서 다음을 수행 합니다.
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- Windows 클라이언트에서 다음을 수행 합니다. 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

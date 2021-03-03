@@ -4,19 +4,19 @@ description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 �
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 04/03/2017
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 93b8a9935e1a26df5aa76ca45c890036589a48ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ead28618582ff670aca048bb92803d61c6ca938
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618034"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723523"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 
 > [!WARNING]
-> 이 문서에서는 이전 클래식 메트릭 경고를 사용 하는 방법을 설명 합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](../platform/alerts-overview.md)지원 합니다. 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 [중지](../platform/monitoring-classic-retirement.md) 됩니다.
+> 이 문서에서는 이전 클래식 메트릭 경고를 사용 하는 방법을 설명 합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 클래식 경고는 공용 클라우드 사용자에 게 사용이 [중지](./monitoring-classic-retirement.md) 되지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
 >
 
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
@@ -30,7 +30,7 @@ Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이
 
 ![경고 규칙 추가 창](./media/alerts-webhooks/Alertwebhook.png)
 
-또한 [Azure PowerShell cmdlet](../samples/powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../samples/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
+또한 [Azure PowerShell cmdlet](../powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
 웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 웹후크 URI는 토큰 ID를 사용하여 저장됩니다. 예: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

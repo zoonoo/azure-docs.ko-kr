@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928197"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721092"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>패키징 및 배달 시나리오 기반 마이그레이션 지침
 
@@ -55,7 +55,7 @@ V3 API에서 콘텐츠가 게시 되는 방식에 대 한 주요 변경 내용�
 - [스트리밍 로케이터 생성 및 URL 빌드](create-streaming-locator-build-url.md)
 - [작업 결과 다운로드](download-results-howto.md)
 - [설명 오디오 트랙 신호](signal-descriptive-audio-howto.md)
-- [Azure Media Player 전체 설정](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player 전체 설정](../azure-media-player/azure-media-player-full-setup.md)
 - [Azure Media Services에서 Video.js 플레이어를 사용 하는 방법](how-to-video-js-player.md)
 - [Azure Media Services에서 Shaka 플레이어를 사용 하는 방법](how-to-shaka-player.md)
 

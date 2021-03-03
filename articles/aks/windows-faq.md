@@ -5,12 +5,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 �
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739579"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대 한 질문과 대답
 
@@ -54,6 +54,8 @@ Windows 노드에 대 한 최신 패치를 얻으려면 [노드 풀을 업그레
 
 Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네트워킹 모델을 사용 해야 합니다. Kubenet (기본) 네트워킹은 지원 되지 않습니다. 네트워크 모델의 차이점에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 네트워크 개념][azure-network-models]을 참조 하세요. Azure CNI 네트워크 모델에는 IP 주소 관리에 대 한 추가 계획 및 고려 사항이 필요 합니다. Azure CNI를 계획 하 고 구현 하는 방법에 대 한 자세한 내용은 [AKS에서 AZURE cni 네트워킹 구성][configure-azure-cni]을 참조 하세요.
 
+또한 AKS 클러스터의 Windows 노드는 Calico를 사용 하는 경우 기본적으로 [DSR (Direct Server Return][dsr] )을 사용 하도록 설정 합니다.
+
 ## <a name="is-preserving-the-client-source-ip-supported"></a>지원 되는 클라이언트 원본 IP를 유지 하 고 있습니까?
 
 지금은 Windows 노드에서 [클라이언트 원본 IP 유지][client-source-ip] 가 지원 되지 않습니다.
@@ -91,7 +93,7 @@ AKS 클러스터에는 최대 10개의 노드 풀을 포함할 수 있습니다.
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Windows 노드에서 모든 기능이 지원 되나요?
 
-네트워크 정책 및 kubenet 현재 Windows 노드에서 지원 되지 않습니다.
+Kubenet는 현재 Windows 노드에서 지원 되지 않습니다.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Windows 노드에서 수신 컨트롤러를 실행할 수 있나요?
 
@@ -197,3 +199,4 @@ AKS에서 Windows Server 컨테이너를 시작 하려면 [AKS에서 Windows ser
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

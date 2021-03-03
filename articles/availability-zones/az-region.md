@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557025"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701453"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -51,7 +51,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
 | 캐나다 중부     | 프랑스 중부       | 남아프리카 공화국 북부 * | 일본 동부     |
-| 미국 중부         | 독일 중서부 |                     | 동남 아시아 |
+| 미국 중부         | 독일 중서부 |                     | 동남아시아 |
 | 미국 동부            | 북유럽         |                     | 오스트레일리아 동부 |
 | 미국 동부 2          | 영국 남부             |                     |                |
 | 미국 중 남부 | 서유럽          |                     |                |
@@ -77,7 +77,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 **기본 서비스**
 
-|     제품                                                    | 복원력             |
+|     Products                                                    | 복원력             |
 |-----------------------------------------------------------------|:----------------------------:|
 |     저장소 계정                                           | : large_blue_diamond:  |
 |     Application Gateway (V2)                                  | : large_blue_diamond:  |
@@ -106,13 +106,15 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     Virtual Machines: Dv3-Series                              | : large_blue_diamond:  |
 |     Virtual Machines: ESv3-Series                             | : large_blue_diamond:  |
 |     Virtual Machines: Ev3-Series                              | : large_blue_diamond:  |
+|     Virtual Machines: F 시리즈                                | : large_blue_diamond:  |
+|     Virtual Machines: FS-Series                               | : large_blue_diamond:  |
 |     Virtual Network                                           | : large_blue_diamond:  |
 |     VPN Gateway                                                 | : large_blue_diamond:  |
 
 
 **기본 서비스**
 
-| 제품                                        | 복원력 |
+| Products                                        | 복원력 |
 |-------------------------------------------------|:------------:|
 | App Service Environment                        |      : large_blue_diamond:  |
 | Azure Active Directory Domain Services          |      : large_blue_diamond:  |
@@ -129,11 +131,18 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | Azure Private Link                              |      : large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |
+| Azure SQL: 가상 컴퓨터                      |      : large_blue_diamond:  |
+| Azure Search                                    |      : large_blue_diamond:  |
+| Azure 웹 애플리케이션 방화벽                  |      : large_blue_diamond:  |
+| Cognitive Services: Text Analytics              |      : large_blue_diamond:  |
 | Container Registry                              |      : large_blue_diamond:  |
 | Event Grid                                      |      : large_blue_diamond:  |
 | Network Watcher                                 |      : large_blue_diamond:  |
+| Network Watcher: 트래픽 분석              |      : large_blue_diamond:  |
 | Power BI Embedded                               |      : large_blue_diamond:  |
 | 프리미엄 Blob Storage                            |      : large_blue_diamond:  |
+| 저장소: Azure Premium 파일                    |      : large_blue_diamond:  |
+| Virtual Machines: Azure 전용 호스트          |      : large_blue_diamond:  |
 | Virtual Machines: Ddsv4-Series                  |      : large_blue_diamond:  |
 | Virtual Machines: Ddv4-Series                   |      : large_blue_diamond:  |
 | Virtual Machines: Dsv4-Series                   |      : large_blue_diamond:  |
@@ -145,29 +154,41 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | Virtual Machines: Fsv2-Series                   |      : large_blue_diamond:  |
 | Virtual Machines: M 시리즈                      |      : large_blue_diamond:  |
 | 가상 WAN                                     |      : large_blue_diamond:  |
+| 가상 WAN: Express 경로                       |      : large_blue_diamond:  |
+| 가상 WAN: 지점 및 사이트 간 VPN Gateway          |      : large_blue_diamond:  |
+| 가상 WAN: 사이트 간 VPN Gateway           |      : large_blue_diamond:  |
 
 
 **비 지역별**
 
-|     제품                                  |     복원력    |
+|     Products                                  |     복원력    |
 |-----------------------------------------------|:-------------------:|
 |     Azure DNS                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Azure Advanced Threat Protection          |     : globe_with_meridians:             |
 |     Azure Advisor                             |     : globe_with_meridians:             |
+|     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Azure Bot Service                        |     : globe_with_meridians:             |
 |     IoT 용 Azure Defender                  |     : globe_with_meridians:             |
+|     Azure Front Door                           |     : globe_with_meridians:             |
 |     Azure Information Protection            |     : globe_with_meridians:             |
 |     Azure Lighthouse                        |     : globe_with_meridians:             |
 |     Azure Managed Applications              |     : globe_with_meridians:             |
 |     Azure Maps                                |     : globe_with_meridians:             |
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Azure 리소스 그래프                    |     : globe_with_meridians:             |
+|     Azure Sentinel                            |     : globe_with_meridians:             |
 |     Azure Stack                               |     : globe_with_meridians:             |
 |     Azure Stack Edge                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
+|     Content Delivery Network                  |     : globe_with_meridians:             |
+|     Cost Management                           |     : globe_with_meridians:             |
 |     Microsoft Azure에 대 한 고객 Lockbox    |     : globe_with_meridians:             |
+|     Intune                                    |     : globe_with_meridians:             |
 |     Microsoft Azure 피어 링 서비스         |     : globe_with_meridians:             |
 |     Microsoft Azure portal                  |     : globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     : globe_with_meridians:             |
+|     Microsoft Graph                           |     : globe_with_meridians:             |
 |     Security Center                         |     : globe_with_meridians:             |
 |     Traffic Manager                         |     : globe_with_meridians:             |
 

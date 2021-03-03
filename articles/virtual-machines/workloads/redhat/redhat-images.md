@@ -7,13 +7,14 @@ ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
-ms.openlocfilehash: 03c033ac5d0f20bbfd4f5dccfb5c2900596d2a41
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: mathapli
+ms.reviewer: cynthn
+ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673129"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694685"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -108,6 +109,8 @@ RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191023) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 RHEL 8 LVM 분할 이미지입니다.
 |RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](../../generation-2.md)을 참조 하세요.
+|RedHat | RHEL | RHEL-SAP-APPS | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.1.2021012201) | 이러한 이미지는 SAP 응용 프로그램 이미지에 대 한 RHEL입니다. SAP 응용 프로그램 리포지토리 및 기본 RHEL 리포지토리에 액세스할 수 있습니다.
+|RedHat | RHEL | RHEL-HA | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.1.2021010602) | 이러한 이미지는 고가용성 및 업데이트 서비스 이미지를 사용 하는 SAP에 RHEL. SAP 솔루션 및 응용 프로그램 리포지토리와 고가용성 리포지토리 뿐만 아니라 RHEL E4S 리포지토리에 액세스할 수 있습니다. 청구에는 기본 계산 요금 위에 RHEL premium, SAP premium 및 고가용성 프리미엄이 포함 됩니다.
 
 ## <a name="rhel-extended-support-add-ons"></a>RHEL 확장 지원 추가 기능
 

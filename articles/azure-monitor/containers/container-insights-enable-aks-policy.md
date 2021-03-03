@@ -3,20 +3,20 @@ title: Azure Policy를 사용 하 여 AKS 모니터링 추가 기능 사용
 description: Azure 사용자 지정 정책을 사용 하 여 AKS 모니터링 추가 기능을 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713901"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Azure Policy를 사용 하 여 AKS 모니터링 추가 기능 사용
 이 문서에서는 Azure 사용자 지정 정책을 사용 하 여 AKS 모니터링 추가 기능을 사용 하는 방법을 설명 합니다. 모니터링 Addon 사용자 지정 정책은 구독 또는 리소스 그룹 범위에서 할당할 수 있습니다. Azure Log Analytics 작업 영역 및 AKS 클러스터가 다른 구독에 있는 경우 정책 할당에 사용 되는 관리 id에는 구독에 대 한 필수 역할 권한이 나 Log Analytics 작업 영역의 리소스에 대 한 최소한의 권한이 있어야 합니다. 마찬가지로 정책이 리소스 그룹으로 범위가 지정 된 경우 선택한 리소스 그룹 범위에 없는 작업 영역에 대 한 Log Analytics 작업 영역에 대 한 필수 역할 권한이 관리 되는 id에 있어야 합니다.
 
 모니터링 추가 기능을 사용 하려면 Azure Policy에서 사용 하는 관리 id에 대해 다음 역할이 필요 합니다.
 
- - [azure-kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [로그 분석-참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [azure-kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [로그 분석-참가자](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Azure Portal를 사용 하 여 정책 정의 만들기 및 할당
 
@@ -79,6 +79,5 @@ ms.locfileid: "99808302"
 
 - [Azure Policy](../../governance/policy/overview.md)에 대해 자세히 알아보세요.
 - [수정 보안의 작동](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)방식에 대해 알아봅니다.
-- [컨테이너에 대 한 Azure Monitor](../insights/container-insights-overview.md)에 대해 자세히 알아보세요.
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 설치합니다.
-
+- [컨테이너](./container-insights-overview.md)정보에 대해 자세히 알아보세요.
+- [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.

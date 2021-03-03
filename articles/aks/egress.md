@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용�
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563248"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726549"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용 하 여 송신 트래픽에 대 한 고정 공용 IP 주소 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "87563248"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 > [!IMPORTANT]
 > 이 문서에서는 단일 노드 풀로 *기본* SKU 부하 분산 장치를 사용 합니다. *기본* SKU 부하 분산 장치는 여러 노드 풀에서 지원 되지 않으므로이 구성은 여러 노드 풀에 사용할 수 없습니다. *표준* SKU 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 공용 표준 LOAD BALANCER 사용 (AKS)][slb] 을 참조 하세요.
@@ -33,11 +33,11 @@ ms.locfileid: "87563248"
 
 AKS 클러스터의 아웃바운드 트래픽은 [Azure Load Balancer 규칙][outbound-connections]을 따릅니다. `LoadBalancer` 형식의 첫 번째 Kubernetes 서비스가 만들어지기 전에는 AKS 클러스터의 에이전트 노드가 Azure Load Balancer 풀에 포함되지 않습니다. 이 구성에서는 노드에 인스턴스 수준 공용 IP 주소가 없습니다. Azure에서 아웃바운드 흐름이 구성할 수 없거나 결정적이지 않은 공용 원본 IP 주소로 변환됩니다.
 
-`LoadBalancer` 형식의 Kubernetes 서비스가 만들어지면 에이전트 노드가 Azure Load Balancer 풀에 추가됩니다. 아웃바운드 흐름은 Azure에서 부하 분산 장치에 구성된 첫 번째 공용 IP 주소로 변환됩니다. 이 공용 IP 주소는 해당 리소스의 수명 동안에만 유효합니다. Kubernetes LoadBalancer 서비스를 삭제하면 연결된 부하 분산 장치 및 IP 주소도 삭제됩니다. 특정 IP 주소를 할당하거나 재배포된 Kubernetes 서비스의 IP 주소를 유지하려는 경우에는 고정 공용 IP 주소를 만들어 사용할 수 있습니다.
+`LoadBalancer` 형식의 Kubernetes 서비스가 만들어지면 에이전트 노드가 Azure Load Balancer 풀에 추가됩니다. 여러(공개) IP 프런트 엔드가 아웃바운드 흐름의 후보인 경우 Load Balancer 기본은 아웃바운드 흐름에 단일 프런트 엔드를 사용하기로 선택합니다. 이 선택은 구성할 수 없으며 선택 알고리즘은 임의로 결정된다고 보면 됩니다. 이 공용 IP 주소는 해당 리소스의 수명 동안에만 유효합니다. Kubernetes LoadBalancer 서비스를 삭제하면 연결된 부하 분산 장치 및 IP 주소도 삭제됩니다. 특정 IP 주소를 할당하거나 재배포된 Kubernetes 서비스의 IP 주소를 유지하려는 경우에는 고정 공용 IP 주소를 만들어 사용할 수 있습니다.
 
 ## <a name="create-a-static-public-ip"></a>고정 공용 IP 만들기
 
-[az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
+[az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster* 의 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -45,7 +45,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-이제 [az network public ip create][az-network-public-ip-create] 명령을 사용하여 고정 공용 IP 주소를 만듭니다. 이전 명령에서 가져온 노드 리소스 그룹 이름을 지정한 다음 IP 주소 리소스의 이름을 *myAKSPublicIP*와 같이 지정합니다.
+이제 [az network public ip create][az-network-public-ip-create] 명령을 사용하여 고정 공용 IP 주소를 만듭니다. 이전 명령에서 가져온 노드 리소스 그룹 이름을 지정한 다음 IP 주소 리소스의 이름을 *myAKSPublicIP* 와 같이 지정합니다.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -68,7 +68,7 @@ az network public-ip create \
   }
 ```
 
-나중에 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 공용 IP 주소를 가져올 수 있습니다. 노드 리소스 그룹의 이름을 지정한 후에 다음 예제와 같이 *ipAddress*를 쿼리합니다.
+나중에 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 공용 IP 주소를 가져올 수 있습니다. 노드 리소스 그룹의 이름을 지정한 후에 다음 예제와 같이 *ipAddress* 를 쿼리합니다.
 
 ```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv

@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690586"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Basic, Standard 및 범용 서비스 계층에서는 서버 리스 및 프로 �
 
 범용 계층에 대 한 영역 중복 구성에는 두 개의 계층이 있습니다.  
 
-- ZRS PFS (영역 중복 [저장소 프리미엄 파일 공유](../../storage/files/storage-how-to-create-premium-fileshare.md))에 저장 된 데이터베이스 파일 (.mdf/.ldf)이 포함 된 상태 저장 데이터 계층입니다. [영역 중복 저장소](../../storage/common/storage-redundancy.md) 를 사용 하 여 데이터 및 로그 파일은 실제로 분리 된 세 개의 Azure 가용성 영역에서 동기적으로 복사 됩니다.
+- ZRS PFS (영역 중복 [저장소 프리미엄 파일 공유](../../storage/files/storage-how-to-create-file-share.md))에 저장 된 데이터베이스 파일 (.mdf/.ldf)이 포함 된 상태 저장 데이터 계층입니다. [영역 중복 저장소](../../storage/common/storage-redundancy.md) 를 사용 하 여 데이터 및 로그 파일은 실제로 분리 된 세 개의 Azure 가용성 영역에서 동기적으로 복사 됩니다.
 - sqlservr.exe 프로세스를 실행 하 고 TempDB와 같은 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층, 연결 된 SSD의 모델 데이터베이스 및 메모리에 계획 캐시, 버퍼 풀 및 columnstore 풀을 포함 합니다. 이 상태 비저장 노드는 sqlservr.exe를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다. 영역 중복 범용 데이터베이스의 경우 장애 조치 (failover)를 위해 다른 가용성 영역에서 예비 용량이 있는 노드를 쉽게 사용할 수 있습니다.
 
 범용 서비스 계층에 대 한 고가용성 아키텍처의 영역 중복 버전은 다음 다이어그램에 설명 되어 있습니다.

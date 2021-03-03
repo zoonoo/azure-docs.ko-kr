@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: 암호 해시 동기화 구성
       href: tutorial-configure-password-hash-sync.md
-    - name: 복제본 집합 만들기(미리 보기)
+    - name: 복제본 세트 만들기
       href: tutorial-create-replica-set.md
     - name: 사용자 지정 관리형 도메인 만들기
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: 일반적인 배포 시나리오
       href: scenarios.md
-    - name: 복제본 집합(미리 보기)
+    - name: 복제본 세트
       href: concepts-replica-sets.md
     - name: 포리스트 및 트러스트
       items:

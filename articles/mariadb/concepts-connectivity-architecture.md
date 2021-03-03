@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: a83b570637d18fd0e92cd80ed87acbef8c7a9d77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b166e2f648446ac1672ead00a774d71d34699380
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368067"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724645"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "100368067"
 * **게이트웨이 IP 주소 (서비스 해제 됨):** 이 열에는 서비스 해제 되 고 더 이상 작동 하지 않는 게이트웨이 링의 IP 주소가 나열 됩니다. 아웃 바운드 방화벽 규칙에서 이러한 IP 주소를 안전 하 게 제거할 수 있습니다. 
 
 
-| **지역 이름** | **게이트웨이 IP 주소** |**게이트웨이 IP 주소 (서비스 해제)** | **게이트웨이 IP 주소 (서비스 해제 됨)** |
+| **영역 이름** | **게이트웨이 IP 주소** |**게이트웨이 IP 주소 (서비스 해제)** | **게이트웨이 IP 주소 (서비스 해제 됨)** |
 |:----------------|:-------------------------|:-------------------------------------------|:------------------------------------------|
 | 오스트레일리아 중부| 20.36.105.0  | | |
 | 오스트레일리아 Central2     | 20.36.113.0  | | |
@@ -65,7 +65,7 @@ ms.locfileid: "100368067"
 | 인도 중부 | 104.211.96.159     | | |
 | 인도 남부 | 104.211.224.146  | | |
 | 인도 서부 | 104.211.160.80    | | |
-| 일본 동부 | 40.79.192.23 | 13.78.61.196 | |
+| 일본 동부 | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | 일본 서부 | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | 한국 중부 | 52.231.17.13   | 52.231.32.42 | |
 | 한국 남부 | 52.231.145.3     | 52.231.200.86 | |

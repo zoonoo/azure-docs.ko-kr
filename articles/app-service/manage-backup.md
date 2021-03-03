@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827458"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714496"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -44,16 +44,16 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 * 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준**, **프리미엄** 또는 **격리** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요. **프리미엄** 및 **격리** 계층에서는 **표준** 계층보다 자주 매일 백업이 가능합니다.
 * 백업하려는 앱과 동일한 구독에 Azure Storage 계정 및 컨테이너가 필요합니다. Azure Storage 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 * 최대 10GB의 앱 및 데이터베이스 콘텐츠를 백업할 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
-* TLS 지원 Azure Database for MySQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
-* TLS 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
+* TLS 지원 Azure Database for MySQL의 백업은 지원되지 않습니다. 백업이 구성 된 경우 백업 오류가 발생 합니다.
+* TLS 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성 된 경우 백업 오류가 발생 합니다.
 * 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
-* 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
+* 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성 된 경우 백업 오류가 발생 합니다.
 
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>수동 백업 만들기
-1. [Azure Portal](https://portal.azure.com)에서 앱의 페이지로 이동하여 **백업**을 선택합니다. **백업** 페이지가 표시됩니다.
+1. [Azure Portal](https://portal.azure.com)에서 앱의 페이지로 이동하여 **백업** 을 선택합니다. **백업** 페이지가 표시됩니다.
 
     ![Backup 페이지](./media/manage-backup/access-backup-page.png)
 
@@ -68,25 +68,25 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
     ![구성 클릭](./media/manage-backup/configure-start.png)
 
-3. **백업 구성** 페이지에서 **스토리지 구성되지 않음**을 클릭하여 스토리지 계정을 구성합니다.
+3. **백업 구성** 페이지에서 **스토리지 구성되지 않음** 을 클릭하여 스토리지 계정을 구성합니다.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="백업 및 복원 기능에 액세스 하기 위해 App Service 계획을 업그레이드 하는 메시지가 포함 된 배너의 스크린샷":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="저장소 구성 안 함 설정이 선택 된 백업 저장소 섹션의 스크린샷":::
 
-4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
+4. **Storage 계정** 및 **컨테이너** 를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택** 을 클릭합니다.
 
-5. 남아 있는 **백업 구성** 페이지에서 **백업 데이터베이스**를 구성한 다음 백업에 포함할 데이터베이스 (SQL Database 또는 MySQL)를 선택 하 고 **확인**을 클릭 합니다.
+5. 남아 있는 **백업 구성** 페이지에서 **백업 데이터베이스** 를 구성한 다음 백업에 포함할 데이터베이스 (SQL Database 또는 MySQL)를 선택 하 고 **확인** 을 클릭 합니다.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="백업 및 복원 기능에 액세스 하기 위해 App Service 계획을 업그레이드 하는 메시지가 포함 된 배너의 스크린샷":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="백업 선택에 포함 된 항목을 보여 주는 Backup Database 섹션의 스크린샷":::
 
     > [!NOTE]
     > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **애플리케이션 설정** 페이지에서 **연결 문자열** 섹션에 있어야 합니다. 
     >
-    > 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
+    > 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열을 추가 하는 등 앱 내 MySQL 데이터베이스를 수동으로 설정 하는 경우 백업이 제대로 작동 하지 않을 수 있습니다.
     > 
     > 
 
-6. **백업 구성** 페이지에서 **저장**을 클릭합니다.
-7. **백업** 페이지에서 **백업**을 클릭합니다.
+6. **백업 구성** 페이지에서 **저장** 을 클릭합니다.
+7. **백업** 페이지에서 **백업** 을 클릭합니다.
 
     ![BackUpNow 단추](./media/manage-backup/manual-backup.png)
 
@@ -97,11 +97,11 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>자동화된 백업 구성
-1. **백업 구성** 페이지에서 **예약된 백업**을 **켜기**로 설정합니다. 
+1. **백업 구성** 페이지에서 **예약된 백업** 을 **켜기** 로 설정합니다. 
 
     ![자동 백업 사용](./media/manage-backup/scheduled-backup.png)
 
-2. 원하는 대로 백업 일정을 구성하고 **확인**을 선택합니다.
+2. 원하는 대로 백업 일정을 구성하고 **확인** 을 선택합니다.
 
 <a name="partialbackups"></a>
 

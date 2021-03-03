@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007043"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714955"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -345,7 +345,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 * 첫 번째 값은 가상 머신 확장 집합에 있는 가용성 영역를 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다. **3 AZ의 범위에 걸친 확장 집합은 "Singleementgroup = true"를 사용 하 여 300 Vm까지 확장할 수 있습니다.**
-* 세 번째 값은 "zoneBalance" 이며, true로 설정 된 경우 엄격한 영역 균형 조정을 보장 합니다. 영역 간에 Vm의 불균형 배포를 방지 하려면이를 true로 설정 하는 것이 좋습니다. [ZoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing)에 대해 읽어 보세요.
+* 세 번째 값은 엄격한 영역 분산을 보장 하는 "zoneBalance"입니다. 영역 간에 Vm의 불균형 배포를 방지 하려면 "true" 여야 합니다. 영역에 분산 되지 않은 VM 배포를 사용 하는 클러스터는 영역 down scenatio 남을 가능성이 적습니다. [ZoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing)에 대해 읽어 보세요.
 * FaultDomain 및 UpgradeDomain 재정의는 구성할 필요가 없습니다.
 
 ```json
@@ -409,7 +409,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 > * 공용 IP 및 Load Balancer 리소스는 문서의 앞부분에서 설명한 대로 표준 SKU를 사용 해야 합니다.
 > * nodeType의 "multipleAvailabilityZones" 속성은 nodeType을 만들 때만 정의할 수 있으며 나중에 수정할 수 없습니다. 따라서이 속성을 사용 하 여 기존 nodeTypes를 구성할 수 없습니다.
 > * "SfZonalUpgradeMode"이 생략 되거나 "계층 구조"로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다.
-> * 클러스터가 한 영역 다운 시나리오와 생존 되도록 클러스터 안정성 수준을 Platinum으로 설정 하는 것이 좋습니다.
+> * 클러스터 **reliabilityLevel = Platinum** 을 설정 하 여 클러스터가 한 영역 다운 시나리오와 동일 하 게 유지 되도록 합니다.
 
 >[!NOTE]
 > 모범 사례를 위해 sfZonalUpgradeMode를 계층적으로 설정 하거나 생략 하는 것이 좋습니다. 배포는 더 적은 양의 복제본 및/또는 인스턴스에 영향을 주는 Vm의 영역 배포를 따라 더 안전 하 게 만듭니다.

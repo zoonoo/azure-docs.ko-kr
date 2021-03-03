@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 가상 컴퓨터용 백업 솔루션
 description: Azure VMware 솔루션 가상 머신의 선행 백업 및 복원 솔루션에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.openlocfilehash: 650272a28a7b7639941c30d8d81c6de5a13bcdb3
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6a404f6e57f6e278f60dd63df36a90bb5f6664f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119070"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738466"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Azure VMware 솔루션 Vm (가상 머신)에 대 한 백업 솔루션
 
@@ -22,3 +22,4 @@ Azure VMware 솔루션 Vm과 Azure의 백업 리포지토리 간 백업 네트�
 - [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
 - [Veritas](https://vrt.as/nb4avs)
 - [Veeam](https://www.veeam.com/kb4012)
+- [Cohesity](https://www.cohesity.com/resource-assets/solution-brief/Cohesity-Azure-Solution-Brief.pdf)

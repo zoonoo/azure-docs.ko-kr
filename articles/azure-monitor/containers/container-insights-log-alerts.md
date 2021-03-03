@@ -1,18 +1,18 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor의 로그 경고 | Microsoft Docs
-description: 이 문서에서는 컨테이너의 Azure Monitor에서 메모리 및 CPU 사용률에 대 한 사용자 지정 로그 경고를 만드는 방법을 설명 합니다.
+title: 컨테이너 insights의 로그 경고 | Microsoft Docs
+description: 이 문서에서는 컨테이너 정보에서 메모리 및 CPU 사용률에 대 한 사용자 지정 로그 경고를 만드는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711198"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>컨테이너에 대한 Azure Monitor의 로그 경고를 만드는 방법
+# <a name="how-to-create-log-alerts-from-container-insights"></a>컨테이너 정보에서 로그 경고를 만드는 방법
 
-컨테이너 Azure Monitor는 관리 되거나 자체 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드의 성능을 모니터링 합니다. 중요 한 문제에 대해 경고 하기 위해이 문서에서는 AKS 클러스터를 사용 하 여 다음과 같은 상황에 대 한 로그 기반 경고를 만드는 방법을 설명 합니다.
+컨테이너 insights는 관리 되거나 자체 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 작업의 성능을 모니터링 합니다. 중요 한 문제에 대해 경고 하기 위해이 문서에서는 AKS 클러스터를 사용 하 여 다음과 같은 상황에 대 한 로그 기반 경고를 만드는 방법을 설명 합니다.
 
 - 클러스터 노드의 CPU 또는 메모리 사용률이 임계값을 초과 하는 경우
 - 컨트롤러 내 컨테이너의 CPU 또는 메모리 사용률이 해당 리소스에 설정 된 제한과 비교 하 여 임계값을 초과 하는 경우
@@ -20,9 +20,9 @@ ms.locfileid: "100614309"
 - *실패*, *보류 중*, *알 수 없음*, *실행 중* 또는 *성공* pod-단계 수
 - 클러스터 노드의 사용 가능한 디스크 공간이 임계값을 초과 하는 경우
 
-높은 CPU 또는 메모리 사용률 또는 클러스터 노드에서 사용 가능한 디스크 공간 부족에 대 한 경고를 하려면 제공 된 쿼리를 사용 하 여 메트릭 경고 또는 메트릭 측정 경고를 만듭니다. 메트릭 경고는 로그 경고 보다 대기 시간이 낮으므로 로그 경고는 고급 쿼리를 제공 하 고 더 높은 복잡성을 제공 합니다. 로그 경고 쿼리는 datetime을 *now* 연산자를 사용 하 여 1 시간 뒤로 이동 하 여 현재 날짜와 비교 합니다. 컨테이너의 Azure Monitor 모든 날짜를 UTC (협정 세계시) 형식으로 저장 합니다.
+높은 CPU 또는 메모리 사용률 또는 클러스터 노드에서 사용 가능한 디스크 공간 부족에 대 한 경고를 하려면 제공 된 쿼리를 사용 하 여 메트릭 경고 또는 메트릭 측정 경고를 만듭니다. 메트릭 경고는 로그 경고 보다 대기 시간이 낮으므로 로그 경고는 고급 쿼리를 제공 하 고 더 높은 복잡성을 제공 합니다. 로그 경고 쿼리는 datetime을 *now* 연산자를 사용 하 여 1 시간 뒤로 이동 하 여 현재 날짜와 비교 합니다. 컨테이너 insights는 모든 날짜를 UTC (협정 세계시) 형식으로 저장 합니다.
 
-Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 로그 쿼리를 사용 하는 경고에 대해 자세히 알아보려면 [Azure Monitor의 로그 경고](../alerts/alerts-unified-log.md)를 참조 하세요. 메트릭 경고에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조 하세요.
+Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../alerts/alerts-overview.md) 를 참조 하세요. 로그 쿼리를 사용 하는 경고에 대해 자세히 알아보려면 [Azure Monitor의 로그 경고](../alerts/alerts-unified-log.md)를 참조 하세요. 메트릭 경고에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조 하세요.
 
 ## <a name="resource-utilization-log-search-queries"></a>리소스 사용률 로그 검색 쿼리
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 
-이 섹션에서는 컨테이너에 Azure Monitor의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다. 이전에 제공 된 로그 검색 쿼리 중 하나를 사용 하 여 시작 합니다. ARM 템플릿을 사용 하 여 만들려면 [Azure 리소스 템플릿을 사용 하 여 로그 경고 생성 샘플](../alerts/alerts-log-create-templates.md)을 참조 하세요.
+이 섹션에서는 컨테이너 정보에서 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다. 이전에 제공 된 로그 검색 쿼리 중 하나를 사용 하 여 시작 합니다. ARM 템플릿을 사용 하 여 만들려면 [Azure 리소스 템플릿을 사용 하 여 로그 경고 생성 샘플](../alerts/alerts-log-create-templates.md)을 참조 하세요.
 
 >[!NOTE]
 >컨테이너 리소스 사용률에 대 한 경고 규칙을 만들기 위해 다음 절차에서는 [로그 경고에 대 한 api 기본 설정 전환](../alerts/alerts-log-api-switch.md)에 설명 된 대로 새 로그 경고 API로 전환 해야 합니다.
@@ -283,7 +283,7 @@ InsightsMetrics
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure Portal에서 **Log Analytics 작업 영역** 을 검색하여 선택합니다.
-3. Log Analytics 작업 영역 목록에서 컨테이너에 대 한 Azure Monitor를 지 원하는 작업 영역을 선택 합니다. 
+3. Log Analytics 작업 영역 목록에서 컨테이너 정보를 지 원하는 작업 영역을 선택 합니다. 
 4. 왼쪽 창에서 **로그** 를 선택 하 여 Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용 하 여 Azure 로그 쿼리를 작성 하 고 실행 합니다.
 5. **로그** 페이지에서 이전에 제공 된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣은 다음 **실행** 을 선택 하 여 결과의 유효성을 검사 합니다. 이 단계를 수행 하지 않으면 **+ 새 경고** 옵션을 선택할 수 없습니다.
 6. **+ 새 경고** 를 선택 하 여 로그 경고를 만듭니다.

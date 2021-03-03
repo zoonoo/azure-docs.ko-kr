@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: ed1fe2885b1be28a03251bcfcecd08bdbd35adcf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 42b33a5b96de7334f8310b040052c633342f5e05
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712388"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Azure Security Center에서 논리 앱을 모니터링 하기 위한 로깅 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "98790075"
 
 * Azure 구독 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
 * [진단 로깅을 사용](#enable-diagnostic-logging)하는 기존 논리 앱
-* 논리 앱에 대 한 로깅을 사용 하도록 설정 하는 데 필요한 Log Analytics 작업 영역입니다. 작업 영역이 없으면 먼저 [작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
+* 논리 앱에 대 한 로깅을 사용 하도록 설정 하는 데 필요한 Log Analytics 작업 영역입니다. 작업 영역이 없으면 먼저 [작업 영역을 만듭니다](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
 
@@ -69,7 +69,7 @@ Log Analytics 또는 Event Hubs를 Logic Apps 진단 로그의 대상으로 사�
 1. 진단 로그를 사용 하도록 설정 했는지 확인 하려면 진단 설정 `logs.enabled` 필드가로 설정 되었는지 확인 `true` 합니다. 
 1. 대신 저장소 계정을 대상으로 설정 하지 않았는지 확인 하려면 `storageAccountId` 필드가로 설정 되었는지 확인 `false` 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```json
 "allOf": [

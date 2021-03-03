@@ -1,19 +1,19 @@
 ---
-title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법 | Microsoft Docs
-description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
+title: 메트릭에 대 한 컨테이너 정보를 업데이트 하는 방법 | Microsoft Docs
+description: 이 문서에서는 컨테이너 정보를 업데이트 하 여 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37c19cd074e9ce1985d5d0e82137d8603913d4bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615299"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708274"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용할 수 있도록 컨테이너용 Azure Monitor를 업데이트하는 방법
+# <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용 하도록 컨테이너 정보를 업데이트 하는 방법
 
-컨테이너에 대 한 Azure Monitor AKS (Azure Kubernetes Services) 및 Azure Arc 사용 Kubernetes 클러스터 노드와 pod에서 메트릭을 수집 하 고이를 Azure Monitor 메트릭 저장소에 기록 하는 지원을 소개 합니다. 이 변경은 성능 차트에 집계 계산 (Avg, Count, Max, Min, Sum)을 제공할 때 향상 된 적시성을 제공 하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원 하 고 메트릭 경고를 지원 합니다.
+컨테이너 insights는 AKS (Azure Kubernetes Services) 및 Azure Arc 사용 Kubernetes 클러스터 노드 및 pod에서 메트릭을 수집 하 고 Azure Monitor 메트릭 저장소에 기록 하는 데 대 한 지원을 소개 합니다. 이 변경은 성능 차트에 집계 계산 (Avg, Count, Max, Min, Sum)을 제공할 때 향상 된 적시성을 제공 하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원 하 고 메트릭 경고를 지원 합니다.
 
 >[!NOTE]
 >이 기능은 현재 Azure Red Hat OpenShift 클러스터를 지원 하지 않습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "100615299"
 
 이 기능의 일부로 사용할 수 있는 메트릭은 다음과 같습니다.
 
-| 메트릭 네임스페이스 | 메트릭 | 설명 |
+| 메트릭 네임스페이스 | 메트릭 | Description |
 |------------------|--------|-------------|
 | 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | *노드* 메트릭에는 *호스트가* 차원으로 포함 됩니다. 또한<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
 | Pod/ | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭에는 ControllerName, Kubernetes namespace, name, phase로 다음이 포함 됩니다. |
@@ -47,7 +47,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Azure Portal에서 클러스터 업그레이드
 
-컨테이너에 대해 Azure Monitor 모니터링 하는 기존 AKS 클러스터의 경우, Azure Monitor의 다중 클러스터 뷰에서 해당 상태를 볼 수 있도록 클러스터를 선택 하 고 왼쪽 창에서 **Insights** 를 선택 하 여 클러스터에서 직접 상태를 보려면 포털 위쪽에 배너가 표시 되어야 합니다.
+컨테이너 insights를 통해 모니터링 되는 기존 AKS 클러스터의 경우, Azure Monitor의 다중 클러스터 뷰에서 해당 상태를 볼 수 있도록 클러스터를 선택 하 고 왼쪽 창에서 **insights** 를 선택 하 여 클러스터에서 직접 상태를 보려면 포털 위쪽에 배너가 표시 되어야 합니다.
 
 ![Azure Portal에서 AKS 클러스터 배너 업그레이드](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

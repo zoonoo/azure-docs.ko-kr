@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545917"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703095"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Azure 디지털 쌍 이벤트 라우팅 (미리 보기)에 대 한 관리 id 사용: Azure Portal
 
@@ -89,8 +89,7 @@ Azure Digital Twins에서 라우팅에 대해 지원 되는 끝점, 경로 및 �
 
 ### <a name="assign-the-role"></a>역할 할당
 
->[!NOTE]
-> 이 섹션은 azure 리소스에 대 한 사용자 액세스를 관리할 수 있는 권한이 있는 Azure 사용자 (권한 부여 및 위임 포함)에서 완료 해야 합니다. 이 요구 사항을 충족 하는 일반적인 역할은 *소유자*, *계정 관리자* 또는 *사용자 액세스 관리자* 와 *참가자* 의 조합입니다. Azure Digital Twins 역할의 권한 요구 사항에 대 한 자세한 내용은 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements)을 참조 하세요.
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Id에 역할을 할당 하려면 먼저 [Azure Portal](https://portal.azure.com)를 열어 시작 합니다.
 
@@ -116,7 +115,7 @@ Id에 역할을 할당 하려면 먼저 [Azure Portal](https://portal.azure.com)
 
 세부 정보를 입력 하는 작업이 끝나면 **저장** 을 선택 합니다.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Id 기반 권한 부여를 사용 하 여 끝점 만들기
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Id 기반 인증을 사용 하 여 끝점 만들기
 
 Azure Digital Twins 인스턴스에 대해 시스템 관리 id를 설정 하 고 적절 한 역할을 할당 한 후에는 인증에 id를 사용할 수 있는 Azure Digital Twins [끝점](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) 을 만들 수 있습니다. 이 옵션은 이벤트 허브 및 Service Bus 형식 끝점에 대해서만 사용할 수 있습니다 (Event Grid에는 지원 되지 않음).
 

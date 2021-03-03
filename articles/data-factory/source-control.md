@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719373"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -61,13 +61,13 @@ Azure Data Factory 홈 페이지에서 **코드 리포지토리 설정** 을 선
 
 ### <a name="configuration-method-2-authoring-canvas"></a>구성 방법 2: 캔버스 제작
 
-Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 설정** 을 선택합니다.
+Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음 **코드 리포지토리 설정** 을 선택 합니다.
 
 ![제작에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
 
 ### <a name="configuration-method-3-management-hub"></a>구성 방법 3: 관리 허브
 
-ADF UX의 관리 허브로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **코드 리포지토리 설정** 을 클릭 합니다.
+ADF UX의 관리 허브로 이동 합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택 합니다. 연결 된 리포지토리가 없는 경우 **구성** 을 클릭 합니다.
 
 ![관리 허브에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-3.png)
 
@@ -93,7 +93,7 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | 설명 | 값 |
+| 설정 | Description | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |

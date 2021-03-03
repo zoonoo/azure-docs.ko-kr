@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881139"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737060"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -45,15 +45,23 @@ Java 3.0 Preview 에이전트에서 업그레이드 하는 경우 모든 [구성
 
 특정 로깅 문이 로깅 프레임 워크의 구성 된 임계값을 충족 하는지 확인 하는 가장 좋은 방법은 일반 응용 프로그램 로그 (예: 파일 또는 콘솔)에 표시 되는지 확인 하는 것입니다.
 
+또한 예외가로 거에 전달 되는 경우 로그 메시지 (및 예외)는 테이블 대신 테이블의 Azure Portal에 표시 됩니다 `exceptions` `traces` .
+
 자세한 내용은 [자동 수집 된 로깅 구성](./java-standalone-config.md#auto-collected-logging) 을 참조 하세요.
 
 ## <a name="import-ssl-certificates"></a>SSL 인증서 가져오기
 
 이 섹션에서는 Java 에이전트를 사용 하는 경우 SSL 인증서와 관련 된 예외를 해결 하 고 문제를 해결할 수 있습니다.
 
-이 문제를 해결 하는 데는 두 가지 경로가 있습니다.
+이 문제를 해결 하기 위한 두 가지 다른 경로는 다음과 같습니다.
+* 기본 Java 키 저장소를 사용 하는 경우
+* 사용자 지정 Java 키 저장소를 사용 하는 경우
 
-### <a name="if-using-a-default-java-keystore"></a>기본 Java 키 저장소를 사용 하는 경우:
+수행할 경로를 잘 모르는 경우 JVM 인수가 있는지 확인 `-Djavax.net.ssl.trustStore=...` 합니다.
+이러한 JVM 인수를 사용 _하지 않는_ 경우 기본 Java 키 저장소를 사용 하는 것입니다.
+이러한 JVM 인수를 _사용 하는_ 경우 사용자 지정 키 저장소를 사용 하는 것 이며, JVM 인수는 사용자 지정 키 저장소를 가리킵니다.
+
+### <a name="if-using-the-default-java-keystore"></a>기본 Java 키 저장소를 사용 하는 경우:
 
 일반적으로 기본 Java 키 저장소에는 모든 CA 루트 인증서가 이미 있습니다. 그러나 다른 루트 인증서로 수집 끝점 인증서를 서명할 수 있는 경우와 같이 몇 가지 예외가 있을 수 있습니다. 따라서이 문제를 해결 하려면 다음 세 단계를 수행 하는 것이 좋습니다.
 

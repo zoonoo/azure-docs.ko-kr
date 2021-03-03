@@ -4,19 +4,21 @@ description: Azure Security 벤치 마크 V2 백업 및 복구
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368888"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724424"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>보안 제어 V2: 백업 및 복구
 
 백업 및 복구는 서로 다른 서비스 계층의 데이터 및 구성 백업이 수행 되 고, 유효성을 검사 하 고, 보호 되도록 하는 컨트롤을 포함 합니다.
+
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 백업 및 복구의 세부 정보](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery) 를 참조 하세요.
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: 정기적으로 자동 백업 확인
 
@@ -26,7 +28,7 @@ ms.locfileid: "97368888"
 
 예기치 않은 이벤트 후 비즈니스 연속성을 유지 하기 위해 시스템 및 데이터를 백업 하 고 있는지 확인 합니다. RPO (복구 지점 목표) 및 RTO (복구 시간 목표)의 모든 목표로 정의 해야 합니다.
 
-Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기간 뿐만 아니라 백업 원본 (예: Azure Vm, SQL Server, HANA 데이터베이스 또는 파일 공유)을 구성 합니다.  
+Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기간 뿐만 아니라 백업 원본 (예: Azure Vm, SQL Server, HANA 데이터베이스 또는 파일 공유)을 구성 합니다.
 
 더 높은 수준의 보호를 위해 지역 중복 저장소 옵션을 사용 하 여 백업 데이터를 보조 지역으로 복제 하 고 지역 간 복원을 사용 하 여 복구할 수 있습니다.
 
@@ -54,15 +56,15 @@ Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
-백업이 공격 으로부터 보호 되는지 확인 합니다. 여기에는 기밀성의 손실을 방지 하기 위해 백업의 암호화가 포함 됩니다.   
+백업이 공격 으로부터 보호 되는지 확인 합니다. 여기에는 기밀성의 손실을 방지 하기 위해 백업의 암호화가 포함 됩니다.
 
-Azure Backup를 사용 하는 온-프레미스 백업의 경우 제공 된 암호를 사용 하 여 미사용 암호화가 제공 됩니다. 정기 Azure 서비스 백업의 경우 백업 데이터는 Azure 플랫폼 관리 키를 사용 하 여 자동으로 암호화 됩니다. 고객 관리 키를 사용 하 여 백업을 암호화 하도록 선택할 수 있습니다. 이 경우 키 자격 증명 모음에서이 고객이 관리 하는 키도 백업 범위에 있는지 확인 합니다. 
+Azure Backup를 사용 하는 온-프레미스 백업의 경우 제공 된 암호를 사용 하 여 미사용 암호화가 제공 됩니다. 정기 Azure 서비스 백업의 경우 백업 데이터는 Azure 플랫폼 관리 키를 사용 하 여 자동으로 암호화 됩니다. 고객 관리 키를 사용 하 여 백업을 암호화 하도록 선택할 수 있습니다. 이 경우 키 자격 증명 모음에서이 고객이 관리 하는 키도 백업 범위에 있는지 확인 합니다.
 
 Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액세스 제어를 사용 하 여 백업 및 고객 관리 키를 보호 합니다. 또한 백업을 변경 하거나 삭제 하기 전에 고급 보안 기능을 사용 하도록 설정 하 여 MFA를 요구할 수 있습니다.
 
 - [Azure Backup의 보안 기능 개요](../../backup/security-overview.md)
 
-- [고객 관리 키를 사용 하 여 백업 데이터 암호화](../../backup/encryption-at-rest-with-cmk.md) 
+- [고객 관리형 키를 사용하여 백업 데이터 암호화](../../backup/encryption-at-rest-with-cmk.md) 
 
 - [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -104,7 +106,7 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.  
+키의 손실을 방지 하 고 복구할 수 있는 측정값이 있는지 확인 합니다. Azure Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.
 
 - [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

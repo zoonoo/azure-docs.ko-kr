@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781116"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693835"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -151,7 +151,7 @@ NVMe 디스크에서 암호화를 사용 하도록 설정 하려면:
 
 다음 시나리오에서는 암호화가 NVMe 디스크에 유지 됩니다.
 - VM 재부팅
-- VMSS 이미지로 다시 설치
+- 가상 머신 확장 집합 이미지로 다시 설치
 - OS 교체
 
 NVMe 디스크는 다음 시나리오에서 초기화 되지 않습니다.
@@ -252,7 +252,7 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 
 - 클래식 VM 만들기 방법을 통해 만든 VM 또는 기본 계층 VM을 암호화
 - 소프트웨어 기반 RAID 시스템으로 구성 된 Vm을 암호화 합니다.
-- 스토리지 공간 다이렉트 (S2D) 또는 Windows 저장소 공간으로 구성 된 2016 이전 Windows Server 버전을 사용 하 여 구성 된 Vm을 암호화 합니다.
+- 저장소 공간 다이렉트 (S2D) 또는 Windows 저장소 공간으로 구성 된 2016 이전 Windows Server 버전을 사용 하 여 구성 된 Vm을 암호화 합니다.
 - 온-프레미스 키 관리 시스템과의 통합
 - Azure 파일(공유 파일 시스템)
 - NFS(네트워크 파일 시스템)
@@ -260,9 +260,8 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 - 각 컨테이너에 대해 동적 볼륨을 만드는 Windows Server 컨테이너
 - 사용 후 삭제 OS 디스크
 - DFS, GFS, DRDB 및 CephFS와 같은 공유/분산 파일 시스템의 암호화.
-- 다른 구독 또는 지역으로 암호화 된 Vm 이동
+- 다른 구독 또는 지역으로 암호화 된 VM 이동
 - 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
-- Gen2 Vm ( [Azure의 2 세대 vm에 대 한 지원](../generation-2.md#generation-1-vs-generation-2-capabilities))을 참조 하세요.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
 - [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
 - ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.

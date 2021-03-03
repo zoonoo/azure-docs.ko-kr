@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735846"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708699"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -17,9 +17,12 @@ ms.locfileid: "98735846"
 
 Python 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
 
-| 시작하기 | 개념| 시나리오/샘플 |
+| 시작 | 개념| 시나리오/샘플 |
 | -- | -- | -- | 
 | <ul><li>[Visual Studio Code를 사용 하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용 하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure automation 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> [Windows에서 로컬로 python 기반 Azure Functions를 개발할](./azure-functions/create-first-function-vs-code-python#run-the-function-locally)수 있지만 Python은 Azure에서 실행할 때 Linux 기반 호스팅 계획 에서만 지원 됩니다. 지원 되는 [운영 체제/런타임](./azure-functions/functions-scale#operating-systemruntime) 조합 목록을 참조 하십시오.
 
 ## <a name="programming-model"></a>프로그래밍 모델
 

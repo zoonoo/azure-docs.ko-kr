@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 368bae515697599dba35a913ebdb9f2b4065c152
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711912"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2 단계: CEF 메시지를 보내도록 보안 솔루션 구성
 
@@ -30,7 +30,9 @@ ms.locfileid: "99559414"
 보안 솔루션에 기존 커넥터가 이미 있는 경우 다음과 같이 커넥터 관련 지침을 사용 합니다.
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
-- [Akamai 보안 이벤트](connect-akamai-security-events.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [아루바 ClearPass](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -40,7 +42,7 @@ ms.locfileid: "99559414"
 - [Forcepoint 제품](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
-- [Imperva WAF 게이트웨이](connect-imperva-waf-gateway.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)

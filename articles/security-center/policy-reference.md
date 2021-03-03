@@ -7,20 +7,20 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729926"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 
 이 페이지는 Azure Security Center와 관련 된 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다음 정책 정의 그룹을 사용할 수 있습니다.
 
-- [이니셔티브](#azure-security-center-initiatives) 그룹에는 ' Security Center ' 범주의 Azure Policy 이니셔티브 정의가 나열 됩니다.
+- [이니셔티브](#azure-security-center-initiatives) 그룹은 "Security Center" 범주의 Azure Policy 이니셔티브 정의를 나열 합니다.
 - [기본 이니셔티브](#azure-security-center-initiatives) 그룹에는 Security Center의 기본 이니셔티브 [Azure 보안 벤치 마크](../security/benchmarks/introduction.md)의 일부인 모든 Azure Policy 정의가 나열 됩니다. Microsoft에서 널리 사용 되 고 널리 사용 되는 벤치 마크는 클라우드 중심 보안에 초점을 맞춘 [ci (Internet Security)의 중앙](https://www.cisecurity.org/benchmark/azure/) 에서 제어 하 고 [NIST (표준 및 기술)](https://www.nist.gov/) 를 기반으로 합니다.
-- [범주](#azure-security-center-category) 그룹에는 ' Security Center ' 범주의 모든 Azure Policy 정의가 나열 됩니다.
+- [범주](#azure-security-center-category) 그룹은 "Security Center" 범주의 모든 Azure Policy 정의를 나열 합니다.
 
 보안 정책에 대한 자세한 내용은 [보안 정책 작업](./tutorial-security-policy.md)을 참조하세요. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
@@ -32,7 +32,7 @@ Security Center에서 모니터링 하는 기본 제공 이니셔티브에 대�
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Azure Security Center 기본 이니셔티브
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Security Center의 기본 이니셔티브 (Azure 보안 벤치 마크)
 
 Security Center에서 모니터링 하는 기본 제공 정책에 대 한 자세한 내용은 다음 표를 참조 하십시오.
 

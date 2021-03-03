@@ -3,15 +3,15 @@ title: Azure 리소스를 관리 및 모니터링 하는 자동화 작업 만들
 description: Azure Logic Apps에서 실행 되는 워크플로를 만들어 Azure 리소스를 관리 하 고 비용을 모니터링 하는 데 도움이 되는 자동화 된 작업을 설정 합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719052"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Automation 작업 (미리 보기)을 만들어 Azure 리소스를 관리 하 고 비용을 모니터링 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "92201123"
 
 이 미리 보기에서 현재 사용할 수 있는 작업 템플릿은 다음과 같습니다.
 
-| 리소스 유형 | 자동화 작업 템플릿 |
+| 리소스 종류 | 자동화 작업 템플릿 |
 |---------------|---------------------------|
 | Azure 리소스 그룹 | **리소스가 삭제 되는 경우** |
 | 모든 Azure 리소스 | **리소스에 대 한 월별 비용 전송** |
@@ -71,13 +71,15 @@ ms.locfileid: "92201123"
 
    ![도구 모음에서 "추가"가 선택 된 저장소 계정 "작업" 창을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. **작업 추가** 창의 **템플릿 선택**에서 만들려는 작업의 템플릿을 선택 하 고 **다음: 인증**을 선택 합니다.
+1. **작업 추가** 창의 **템플릿 선택** 에서 만들려는 작업에 대 한 템플릿을 선택 합니다. 다음 페이지가 표시 되지 않으면 **다음: 인증** 을 선택 합니다.
 
    이 예에서는 계속 해 서 **리소스에 대 한 월별 비용 보내기** 작업 템플릿을 선택 합니다.
 
    !["리소스에 대 한 월별 비용 보내기" 및 "다음: 인증" 선택 항목을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. **인증**의 연결 섹션에서 각 연결에 대해 **만들기** 를 선택 하 여 해당 연결에 대 한 인증 자격 증명을 제공할 수 **있도록 합니다.** 각 태스크의 연결 유형은 태스크에 따라 다릅니다.
+1. **인증** 의 **연결** 섹션에서 모든 연결에 대 한 인증 자격 증명을 제공할 수 있도록 작업에 표시 되는 모든 연결에 대해 **만들기** 를 선택 합니다. 각 태스크의 연결 유형은 태스크에 따라 다릅니다.
+
+   이 예에서는이 작업에 필요한 연결 중 하나만 보여 줍니다.
 
    ![Azure Resource Manager 연결에 대해 선택한 "만들기" 옵션을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,9 +91,9 @@ ms.locfileid: "92201123"
 
    ![성공적으로 생성 된 연결을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. 필요한 모든 연결을 인증 한 후 **다음: 구성**을 선택 합니다.
+1. 모든 연결을 인증 한 후 다음 **: 구성** 을 선택 합니다 (다음 페이지가 표시 되지 않는 경우).
 
-1. **구성**아래에서 태스크 이름 및 작업에 필요한 기타 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
+1. **구성** 아래에서 태스크 이름 및 작업에 필요한 기타 정보를 제공 합니다. 완료되면 **만들기** 를 선택합니다.
 
    > [!NOTE]
    > 작업 이름을 만든 후에는 변경할 수 없으므로 [기본 워크플로를 편집](#edit-task-workflow)하는 경우에도 여전히 적용 되는 이름을 고려해 야 합니다. 기본 워크플로를 변경한 내용은 작업 템플릿이 아니라 사용자가 만든 작업에만 적용 됩니다.
@@ -107,7 +109,7 @@ ms.locfileid: "92201123"
    ![자동화 작업 목록을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/automation-tasks-list.png)
 
    > [!TIP]
-   > 작업이 즉시 표시 되지 않으면 작업 목록을 새로 고치거 나 새로 고침을 수행 하기 전에 잠시 기다려야 합니다. 도구 모음에서 **새로 고침**을 선택 합니다.
+   > 작업이 즉시 표시 되지 않으면 작업 목록을 새로 고치거 나 새로 고침을 수행 하기 전에 잠시 기다려야 합니다. 도구 모음에서 **새로 고침** 을 선택 합니다.
 
    선택한 작업을 실행 하면 다음 예제와 같은 전자 메일을 받게 됩니다.
 
@@ -121,9 +123,9 @@ ms.locfileid: "92201123"
 
 1. [Azure Portal](https://portal.azure.com)에서 검토 하려는 작업 기록이 있는 리소스를 찾습니다.
 
-1. 리소스 메뉴의 **설정**에서 **자동화 작업**을 선택 합니다.
+1. 리소스 메뉴의 **설정** 에서 **자동화 작업** 을 선택 합니다.
 
-1. 작업 목록에서 검토 하려는 작업을 찾습니다. 해당 작업의 **실행** 열에서 **보기**를 선택 합니다.
+1. 작업 목록에서 검토 하려는 작업을 찾습니다. 해당 작업의 **실행** 열에서 **보기** 를 선택 합니다.
 
    ![작업 및 선택한 "보기" 옵션을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
 
@@ -182,9 +184,9 @@ Azure 리소스에 대 한 자동화 작업의 컨텍스트와 별도로 앱, �
 
 1. [Azure Portal](https://portal.azure.com)에서 업데이트 하려는 태스크가 있는 리소스를 찾습니다.
 
-1. 리소스의 메뉴에 있는 **Automation**에서 **작업**을 선택 합니다.
+1. 리소스의 메뉴에 있는 **Automation** 에서 **작업** 을 선택 합니다.
 
-1. 작업 목록에서 업데이트 하려는 작업을 찾습니다. 작업의 줄임표 (**...**) 메뉴를 열고 **인라인 편집**을 선택 합니다.
+1. 작업 목록에서 업데이트 하려는 작업을 찾습니다. 작업의 줄임표 (**...**) 메뉴를 열고 **인라인 편집** 을 선택 합니다.
 
    ![열린 줄임표 메뉴와 선택한 옵션인 "인라인 편집"을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/view-task-inline.png)
 
@@ -194,13 +196,13 @@ Azure 리소스에 대 한 자동화 작업의 컨텍스트와 별도로 앱, �
 
    ![인증 탭, 기존 연결 및 선택한 줄임표 메뉴를 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/edit-connections.png)
 
-1. 다른 태스크 속성을 업데이트 하려면 **다음: 구성**을 선택 합니다.
+1. 다른 태스크 속성을 업데이트 하려면 **다음: 구성** 을 선택 합니다.
 
    이 예제의 작업의 경우 편집에 사용할 수 있는 유일한 속성은 전자 메일 주소입니다.
 
    ![구성 탭을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/edit-task-configuration.png)
 
-1. 완료되면 **저장**을 선택합니다.
+1. 완료되면 **저장** 을 선택합니다.
 
 <a name="edit-task-workflow"></a>
 
@@ -213,9 +215,9 @@ Automation 작업에 대 한 기본 워크플로를 변경 하면 변경 내용�
 
 1. [Azure Portal](https://portal.azure.com)에서 업데이트 하려는 태스크가 있는 리소스를 찾습니다.
 
-1. 리소스의 메뉴에 있는 **Automation**에서 **작업**을 선택 합니다.
+1. 리소스의 메뉴에 있는 **Automation** 에서 **작업** 을 선택 합니다.
 
-1. 작업 목록에서 업데이트 하려는 작업을 찾습니다. 작업의 줄임표 (**...**) 메뉴를 열고 **Logic Apps에서 열기**를 선택 합니다.
+1. 작업 목록에서 업데이트 하려는 작업을 찾습니다. 작업의 줄임표 (**...**) 메뉴를 열고 **Logic Apps에서 열기** 를 선택 합니다.
 
    ![열린 줄임표 메뉴와 선택한 옵션인 "Logic Apps에서 열기"를 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
 
@@ -223,7 +225,7 @@ Automation 작업에 대 한 기본 워크플로를 변경 하면 변경 내용�
 
    ![개요 창이 선택 된 Azure Logic Apps 보기에서 작업을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
 
-1. 논리 앱 디자이너에서 기본 워크플로를 열려면 논리 앱의 메뉴에서 **논리 앱 디자이너**를 선택 합니다.
+1. 논리 앱 디자이너에서 기본 워크플로를 열려면 논리 앱의 메뉴에서 **논리 앱 디자이너** 를 선택 합니다.
 
    ![기본 워크플로를 사용 하 여 "논리 앱 디자이너" 메뉴 옵션을 선택 하 고 디자이너 화면을 표시 하는 스크린샷](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
 
@@ -231,15 +233,15 @@ Automation 작업에 대 한 기본 워크플로를 변경 하면 변경 내용�
 
 1. 워크플로를 복제 하 고 복사 된 버전을 대신 편집 하려면 다음 단계를 수행 합니다.
 
-   1. 논리 앱 워크플로 메뉴에서 **개요**를 선택 합니다.
+   1. 논리 앱 워크플로 메뉴에서 **개요** 를 선택 합니다.
 
-   1. 개요 창의 도구 모음에서 **복제**를 선택 합니다.
+   1. 개요 창의 도구 모음에서 **복제** 를 선택 합니다.
 
-   1. 논리 앱 생성 창의 **이름**에 복사 된 논리 앱 워크플로에 대 한 새 이름을 입력 합니다.
+   1. 논리 앱 생성 창의 **이름** 에 복사 된 논리 앱 워크플로에 대 한 새 이름을 입력 합니다.
 
-      **논리 앱 상태**를 제외 하 고 다른 속성은 편집할 수 없습니다. 
+      **논리 앱 상태** 를 제외 하 고 다른 속성은 편집할 수 없습니다. 
       
-   1. **논리 앱 상태**에서 변경 작업을 수행 하는 동안 복제 된 워크플로가 실행 되지 않도록 **사용 안 함** 을 선택 합니다. 변경을 테스트할 준비가 되 면 워크플로를 사용 하도록 설정할 수 있습니다.
+   1. **논리 앱 상태** 에서 변경 작업을 수행 하는 동안 복제 된 워크플로가 실행 되지 않도록 **사용 안 함** 을 선택 합니다. 변경을 테스트할 준비가 되 면 워크플로를 사용 하도록 설정할 수 있습니다.
 
    1. Azure가 복제 된 워크플로의 프로 비전을 완료 한 후 논리 앱 디자이너에서 해당 워크플로를 찾아 엽니다.
 
@@ -251,11 +253,11 @@ Automation 작업에 대 한 기본 워크플로를 변경 하면 변경 내용�
 
    되풀이 트리거에 대 한 자세한 내용은 되풀이 트리거를 [사용 하 여 되풀이 작업 및 워크플로 만들기, 예약 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요. 사용할 수 있는 다른 트리거 및 작업에 대 한 자세한 내용은 [Azure Logic Apps 커넥터](../connectors/apis-list.md)를 참조 하십시오.
 
-1. 변경 내용을 저장 하려면 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 변경 내용을 저장 하려면 디자이너 도구 모음에서 **저장** 을 선택 합니다.
 
    ![디자이너 도구 모음과 선택한 "저장" 명령을 보여 주는 스크린샷](./media/create-automation-tasks-azure-resources/save-updated-workflow.png)
 
-1. 업데이트 된 워크플로를 테스트 하 고 실행 하려면 디자이너 도구 모음에서 **실행**을 선택 합니다.
+1. 업데이트 된 워크플로를 테스트 하 고 실행 하려면 디자이너 도구 모음에서 **실행** 을 선택 합니다.
 
    실행이 완료 되 면 디자이너에서 워크플로의 실행 세부 정보를 표시 합니다.
 
@@ -265,7 +267,7 @@ Automation 작업에 대 한 기본 워크플로를 변경 하면 변경 내용�
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-사용자 의견을 듣고 싶습니다. 버그를 보고 하거나, 사용자 의견을 제공 하거나,이 미리 보기 기능에 대 한 질문을 하려면 [Azure Logic Apps 팀에 문의 하세요](mailto:logicapps@microsoft.com).
+사용자 의견을 듣고 싶습니다. 버그를 보고 하거나, 사용자 의견을 제공 하거나,이 미리 보기 기능에 대 한 질문을 하려면 [Azure Logic Apps 팀에 문의 하세요](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78eed4086c04ceca677a96f03875481e56206e0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724023"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 * AKS로 관리 되는 Azure AD 통합에 대 한 Kubernetes RBAC 사용 클러스터가 지원 되지 않음
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI 버전 2.11.0 이상
 * Kubectl [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin) 의 최소 버전
@@ -67,7 +67,7 @@ az ad group create --display-name myAKSAdminGroup --mail-nickname myAKSAdminGrou
 
 다음 CLI 명령을 사용 하 여 AKS 클러스터를 만듭니다.
 
-Azure 리소스 그룹을 만듭니다.
+Azure 리소스 그룹 만들기:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -231,6 +231,70 @@ Azure Portal에서 Azure Active Directory로 이동 하 여 *엔터프라이즈 
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="조건부 액세스 정책으로 인 한 로그인 항목 실패":::
 
+## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Azure AD 및 AKS를 사용 하 여 just-in-time 클러스터 액세스 구성
+
+클러스터 액세스 제어를 위한 또 다른 옵션은 just-in-time 요청에 대해 PIM (Privileged Identity Management)을 사용 하는 것입니다.
+
+>[!NOTE]
+> PIM은 프리미엄 P2 SKU를 필요로 하는 Azure AD Premium 기능입니다. Azure AD Sku에 대 한 자세한 내용은 [가격 책정 가이드][aad-pricing]를 참조 하세요.
+
+AKS 관리 Azure AD 통합을 사용 하 여 AKS 클러스터와 just-in-time 액세스 요청을 통합 하려면 다음 단계를 완료 합니다.
+
+1. Azure Portal 맨 위에서 Azure Active Directory를 검색 하 고 선택 합니다.
+1. 이러한 지침의 나머지 부분에 대 한 웹 브라우저와 같이 테 넌 트 ID를 기록해 둡니다 `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="Azure Active Directory의 Azure Portal 화면은 테 넌 트의 ID가 강조 표시 된 상태로 표시 됩니다.":::
+1. 왼쪽의 Azure Active Directory에 대 한 메뉴의 *관리* 아래에서 *그룹* , *새 그룹* 을 차례로 선택 합니다.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="' 새 그룹 ' 옵션이 강조 표시 된 Azure Portal Active Directory 그룹 화면을 표시 합니다.":::
+1. *보안* 그룹 유형이 선택 되어 있는지 확인 하 고 *myJITGroup* 와 같은 그룹 이름을 입력 합니다. *AZURE AD 역할을이 그룹에 할당할 수 있습니다 (미리 보기)* 에서 *예* 를 선택 합니다. 마지막으로 *만들기* 를 선택합니다.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Azure Portal의 새 그룹 만들기 화면을 표시 합니다.":::
+1. 그러면 *그룹* 페이지로 돌아갑니다. 새로 만든 그룹을 선택 하 고 이러한 지침의 나머지 부분에 대 한 개체 ID를 기록해 둡니다 `<object-id>` .
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="개체 Id를 강조 표시 하 여 단순히 만든 그룹의 Azure Portal 화면을 표시 합니다.":::
+1. `<tenant-id>`이전 버전의 및 값을 사용 하 여 AKS로 관리 되는 AZURE AD 통합을 사용 하 여 AKS 클러스터를 배포 합니다 `<object-id>` .
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+1. Azure Portal로 돌아가서 왼쪽의 *작업* 메뉴에서 *권한 있는 액세스 (미리 보기)* 를 선택 하 고 *권한 있는 액세스 사용* 을 선택 합니다.
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="' 권한 있는 액세스 사용 '이 강조 표시 된 Azure Portal의 권한 있는 액세스 (미리 보기) 페이지가 표시 됩니다.":::
+1. *할당 추가* 를 선택 하 여 액세스 권한을 부여 하기 시작 합니다.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="사용 하도록 설정한 후 Azure Portal의 권한 있는 액세스 (미리 보기) 화면이 표시 됩니다. ' 할당 추가 ' 옵션이 강조 표시 됩니다.":::
+1. *구성원* 의 역할을 선택 하 고 클러스터 액세스 권한을 부여할 사용자 및 그룹을 선택 합니다. 이러한 할당은 그룹 관리자가 언제 든 지 수정할 수 있습니다. 이동할 준비가 되 면 *다음* 을 선택 합니다.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="사용자가 멤버로 추가 되도록 선택한 샘플 사용자가 있는 Azure Portal의 할당 멤버 자격 추가 화면이 표시 됩니다. ' Next ' 옵션이 강조 표시 됩니다.":::
+1. *활성* 의 할당 유형, 원하는 기간을 선택 하 고 근거를 제공 합니다. 계속할 준비가 되 면 *할당* 을 선택 합니다. 할당 형식에 대 한 자세한 내용은 [Privileged Identity Management에서 권한 있는 액세스 그룹 (미리 보기)에 대 한 자격 할당][aad-assignments]을 참조 하세요.
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Azure Portal의 할당 추가 설정 화면이 표시 됩니다. ' 활성 '의 할당 유형을 선택 하 고 샘플 사유를 지정 했습니다. ' 할당 ' 옵션이 강조 표시 됩니다.":::
+
+할당이 완료 되 면 클러스터에 액세스 하 여 just-in-time 액세스가 작동 하는지 확인 합니다. 다음은 그 예입니다. 
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+단계에 따라 로그인 합니다.
+
+명령을 사용 `kubectl get nodes` 하 여 클러스터의 노드를 봅니다.
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+인증 요구 사항을 확인 하 고 인증 하는 단계를 따릅니다. 성공 하면 다음과 유사한 출력이 표시 됩니다.
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### <a name="troubleshooting"></a>문제 해결
+
+`kubectl get nodes`는 다음과 비슷한 오류를 반환 합니다.
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+보안 그룹의 관리자에 게 사용자의 계정이 *활성* 할당으로 지정 되어 있는지 확인 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Kubernetes 권한 부여에 대 한 AZURE RBAC 통합][azure-rbac-integration] 에 대해 알아보기
@@ -243,6 +307,7 @@ Azure Portal에서 Azure Active Directory로 이동 하 여 *엔터프라이즈 
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: /azure/pricing/details/active-directory
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
@@ -260,3 +325,4 @@ Azure Portal에서 Azure Active Directory로 이동 하 여 *엔터프라이즈 
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 78971a92f1815236bd4b360e8df01b02b4c40626
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1e08d54b9467231233c62635dafc5135456a3843
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677232"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695416"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -31,7 +31,7 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows 10 Enterprise 다중 세션-빌드 1909 <br/><br/>Windows 10-빌드 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exee) (.exe) |
+| Windows 10 Enterprise 다중 세션-빌드 1909 <br/><br/>Windows 10-빌드 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
 
  > [!NOTE]
    >  1903/1909 빌드를 사용 하는 경우 최적의 성능을 위해 다음 그룹 정책을 업데이트 해야 할 수 있습니다. 이러한 변경 내용은 다른 Windows 빌드에 필요 하지 않습니다.

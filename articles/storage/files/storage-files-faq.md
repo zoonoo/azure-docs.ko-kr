@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737616"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "96492134"
     
     Azure Blob 스토리지는 구조화되지 않은 데이터를 저장해야 하는 대규모 클라우드 네이티브 애플리케이션에 유용합니다. 성능 및 확장성을 최대화하기 위해 Azure Blob Storage는 실제 파일 시스템보다 더 간단한 스토리지 추상화를 구현합니다. REST 기반 클라이언트 라이브러리를 통해서만(또는 REST 기반 프로토콜을 통해 직접) Azure Blob Storage에 액세스할 수 있습니다.
 
-    Azure Files는 특히 파일 시스템입니다. Azure Files에는 다년간의 온-프레미스 운영 체제 사용에서 알고 있고 애용하는 모든 파일 요약이 있습니다. Azure Blob Storage와 같이 Azure Files에서는 REST 인터페이스 및 REST 기반 클라이언트 라이브러리를 제공합니다. Azure Blob storage와 달리 Azure Files는 Azure 파일 공유에 대 한 SMB 또는 NFS 액세스를 제공 합니다. 파일 공유는 코드를 작성 하거나 파일 시스템에 특수 한 드라이버를 연결 하지 않고도, Windows, Linux 또는 macOS (온-프레미스 또는 클라우드 Vm)에 직접 탑재할 수 있습니다. 또한 데이터를 사용 하는 위치 가까이에 대 한 빠른 액세스를 위해 Azure File Sync를 사용 하 여 온-프레미스 파일 서버에서 Azure SMB 파일 공유를 캐시할 수 있습니다. 
+    Azure Files는 특히 파일 시스템입니다. Azure Files에는 다년간의 온-프레미스 운영 체제 사용에서 알고 있고 애용하는 모든 파일 요약이 있습니다. Azure Blob Storage와 같이 Azure Files에서는 REST 인터페이스 및 REST 기반 클라이언트 라이브러리를 제공합니다. Azure Blob storage와 달리 Azure Files는 Azure 파일 공유에 대 한 SMB 또는 NFS 액세스를 제공 합니다. 파일 공유는 코드를 작성 하거나 파일 시스템에 특수 한 드라이버를 연결 하지 않고도, Windows, Linux 또는 macOS (온-프레미스 또는 클라우드 Vm)에 직접 탑재할 수 있습니다. 또한 데이터를 사용 하는 위치 가까이에 대 한 빠른 액세스를 위해 Azure 파일 동기화를 사용 하 여 온-프레미스 파일 서버에서 Azure SMB 파일 공유를 캐시할 수 있습니다. 
    
     Azure Files 및 Azure Blob Storage 간의 차이점에 대한 심도 있는 설명을 보려면 [핵심 Azure Storage 서비스 소개](../common/storage-introduction.md)를 참조하세요. Azure Blob Storage에 대한 자세한 내용은 [Blob Storage 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
@@ -73,7 +73,7 @@ ms.locfileid: "96492134"
 
 * <a id="tier-options"></a>
   **Azure Files에서 어떤 스토리지 계층이 지원되나요?**  
-    Azure Files는 프리미엄 및 표준의 두 가지 스토리지 계층을 지원합니다. 표준 파일 공유는 범용(GPv1 또는 GPv2) 스토리지 계정에 만들어지며 프리미엄 파일 공유는 FileStorage 스토리지 계정에 만들어집니다. [표준 파일 공유](storage-how-to-create-file-share.md) 및 [프리미엄 파일 공유](storage-how-to-create-premium-fileshare.md)를 만드는 방법에 대해 자세히 알아봅니다. 
+    Azure Files는 프리미엄 및 표준의 두 가지 스토리지 계층을 지원합니다. 표준 파일 공유는 범용(GPv1 또는 GPv2) 스토리지 계정에 만들어지며 프리미엄 파일 공유는 FileStorage 스토리지 계정에 만들어집니다. [표준 파일 공유](storage-how-to-create-file-share.md) 및 [프리미엄 파일 공유](./storage-how-to-create-file-share.md)를 만드는 방법에 대해 자세히 알아봅니다. 
     
     > [!NOTE]
     > Blob 스토리지 계정 또는 *프리미엄* 범용(GPv1 또는 GPv2) 스토리지 계정에서 Azure 파일 공유를 만들 수 없습니다. 표준 Azure 파일 공유는 *표준* 범용 계정에만 생성되어야 하며 프리미엄 Azure 파일 공유는 FileStorage 스토리지 계정에만 생성되어야 합니다. *프리미엄* 범용(GPv1 및 GPv2) 스토리지 계정은 프리미엄 페이지 Blob 전용입니다. 
@@ -102,12 +102,12 @@ ms.locfileid: "96492134"
 
 
 * <a id="afs-sync-time"></a>
-  **1TiB 데이터를 업로드 Azure File Sync는 데 소요 되는 시간**
+  **1TiB 데이터를 업로드 Azure 파일 동기화는 데 소요 되는 시간**
   
-    성능은 환경 설정, 구성 및 초기 동기화 인지 또는 진행 중인 동기화 인지에 따라 달라 집니다. 자세한 내용은 [Azure File Sync 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics) 을 참조 하세요.
+    성능은 환경 설정, 구성 및 초기 동기화 인지 또는 진행 중인 동기화 인지에 따라 달라 집니다. 자세한 내용은 [Azure 파일 동기화 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics) 을 참조 하세요.
 
 * <a id="afs-conflict-resolution"></a>**같은 파일이 두 서버에서 거의 동시에 변경하는 경우 어떻게 되나요?**  
-    Azure File Sync는 간단한 충돌 해결 전략을 사용 합니다. 두 끝점에서 변경 되는 파일에 대 한 변경 내용을 동시에 유지 합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일 (LastWriteTime에 의해 결정 됨)에는 파일 이름에 추가 된 끝점 이름 및 충돌 번호가 있습니다. 서버 끝점의 경우 끝점 이름은 서버 이름입니다. 클라우드 끝점의 경우 끝점 이름은 **cloud** 입니다. 이름은 다음 분류를 따릅니다. 
+    Azure 파일 동기화는 간단한 충돌 해결 전략을 사용 합니다. 두 끝점에서 변경 되는 파일에 대 한 변경 내용을 동시에 유지 합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일 (LastWriteTime에 의해 결정 됨)에는 파일 이름에 추가 된 끝점 이름 및 충돌 번호가 있습니다. 서버 끝점의 경우 끝점 이름은 서버 이름입니다. 클라우드 끝점의 경우 끝점 이름은 **cloud** 입니다. 이름은 다음 분류를 따릅니다. 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -158,7 +158,7 @@ ms.locfileid: "96492134"
     
 * <a id="afs-resource-move"></a>
   **저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있나요?**  
-   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있습니다. 저장소 동기화 서비스 또는 저장소 계정을 이동한 후에는 Microsoft.storagesync 응용 프로그램에 저장소 계정에 대 한 액세스 권한을 부여 해야 합니다 ( [저장소 계정에 액세스할 수 있는지 확인 Azure File Sync](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)참조).
+   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테 넌 트로 이동할 수 있습니다. 저장소 동기화 서비스 또는 저장소 계정을 이동한 후에는 Microsoft.storagesync 응용 프로그램에 저장소 계정에 대 한 액세스 권한을 부여 해야 합니다 ( [저장소 계정에 액세스할 수 있는지 확인 Azure 파일 동기화](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)참조).
 
     > [!Note]  
     > 클라우드 엔드포인트를 만들 때 스토리지 동기화 서비스 및 스토리지 계정이 동일한 Azure AD 테넌트에 있어야 합니다. 클라우드 엔드포인트를 만든 후에는 스토리지 동기화 서비스 및 스토리지 계정을 다른 Azure AD 테넌트로 이동할 수 있습니다.
@@ -216,7 +216,7 @@ ms.locfileid: "96492134"
 
   Azure Files에 대 한 감사 기능을 제공 하는 두 가지 옵션이 있습니다.
   - 사용자가 직접 Azure 파일 공유에 액세스 하는 경우 [Azure Storage 로그 (미리 보기)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) 를 사용 하 여 파일 변경 내용 및 사용자 액세스를 추적할 수 있습니다. 이러한 로그는 문제 해결을 위해 사용할 수 있으며, 요청은 최상의 노력을 기반으로 기록 됩니다.
-  - 사용자가 Azure File Sync 에이전트가 설치 된 Windows Server를 통해 Azure 파일 공유에 액세스 하는 경우 [감사 정책](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) 또는 타사 제품을 사용 하 여 Windows server에서 파일 변경 내용 및 사용자 액세스를 추적 합니다. 
+  - 사용자가 Azure 파일 동기화 에이전트가 설치 된 Windows Server를 통해 Azure 파일 공유에 액세스 하는 경우 [감사 정책](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) 또는 타사 제품을 사용 하 여 Windows server에서 파일 변경 내용 및 사용자 액세스를 추적 합니다. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & Azure AD DS 인증
 * <a id="ad-support-devices"></a>
@@ -240,7 +240,7 @@ ms.locfileid: "96492134"
     아니요. Linux VM의 인증은 지원되지 않습니다.
 
 * <a id="ad-aad-smb-afs"></a>
-**Azure File Sync에서 관리 하는 파일 공유가 Azure AD DS 또는 온-프레미스 AD DS 인증을 지원 하나요?**
+**Azure 파일 동기화에서 관리 하는 파일 공유가 Azure AD DS 또는 온-프레미스 AD DS 인증을 지원 하나요?**
 
     예, Azure 파일 동기화에 의해 관리되는 파일 공유에서 Azure AD DS 또는 온-프레미스 AD DS 인증을 사용하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS ACL에 대한 변경 내용은 Azure Files로 계층화되며 그 반대의 경우도 마찬가지입니다.
 
@@ -283,7 +283,7 @@ ms.locfileid: "96492134"
     자세한 내용은 [AD DS 지역별 가용성](storage-files-identity-auth-active-directory-enable.md#regional-availability)을 참조하세요.
     
 * <a id="ad-aad-smb-afs"></a>
-**Azure File Sync에서 관리 하는 파일 공유에 대 한 AD (Azure Files Active Directory) 인증을 활용할 수 있나요?**
+**Azure 파일 동기화에서 관리 하는 파일 공유에 대 한 AD (Azure Files Active Directory) 인증을 활용할 수 있나요?**
 
     예, Azure 파일 동기화에 의해 관리되는 파일 공유에서 AD 인증을 사용하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS ACL에 대한 변경 내용은 Azure Files로 계층화되며 그 반대의 경우도 마찬가지입니다.
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687977"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 
@@ -23,6 +23,7 @@ ms.locfileid: "91273203"
 - 사용자 관리
    - 일반적인 큐브 뷰
    - _Postgres_ 관리 사용자의 암호 변경
+- 감사
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -35,7 +36,7 @@ ms.locfileid: "91273203"
 - LUKS `cryptsetup` encrypt 명령 (Linux)을 사용 하는 디스크 암호화 명령 (Linux) ( https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) 특히, Azure Arc 사용 Data Services은 사용자가 제공 하는 물리적 인프라에서 실행 되므로 인프라 보안을 담당 하 고 있습니다.
 
 ### <a name="software-use-the-postgresql-pgcrypto-extension-in-your-server-group"></a>소프트웨어: `pgcrypto` 서버 그룹에서 PostgreSQL 확장 사용
-Azure Arc 설치를 호스트 하는 데 사용 되는 디스크를 암호화 하는 것 외에도, Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하 여 응용 프로그램이 데이터베이스의 데이터를 암호화 하는 데 사용할 수 있는 메커니즘을 노출할 수 있습니다. `pgcrypto`확장은 `contrib` Postgres 확장의 일부 이며 Azure Arc Enabled PostgreSQL hyperscale 서버 그룹에서 사용할 수 있습니다. 여기에서 확장에 대 한 세부 정보를 찾을 수 있습니다 `pgcrypto` . [here](https://www.postgresql.org/docs/current/pgcrypto.html)
+Azure Arc 설치를 호스트 하는 데 사용 되는 디스크를 암호화 하는 것 외에도, Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하 여 응용 프로그램이 데이터베이스의 데이터를 암호화 하는 데 사용할 수 있는 메커니즘을 노출할 수 있습니다. `pgcrypto`확장은 `contrib` Postgres 확장의 일부 이며 Azure Arc Enabled PostgreSQL hyperscale 서버 그룹에서 사용할 수 있습니다. 여기에서 확장에 대 한 세부 정보를 찾을 수 있습니다 `pgcrypto` . [](https://www.postgresql.org/docs/current/pgcrypto.html)
 요약 하자면, 다음 명령을 사용 하 여 확장을 사용 하도록 설정 하 고 만든 다음 사용 합니다.
 
 
@@ -117,7 +118,7 @@ select * from mysecrets;
 - 사용자 이름: 나
 - USERpassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 예를 들면 다음과 같습니다.
+응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 다음은 그 예입니다. 
 
 - 잘못 된 암호를 전달 합니다.
    ```console
@@ -159,18 +160,19 @@ Azure Arc enabled PostgreSQL Hyperscale에는 서버 그룹을 만들 때 암호
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-여기서--admin-password는 AZDATA_PASSWORD **세션**의 환경 변수에 값이 존재 하는 것과 관련 된 부울입니다.
-AZDATA_PASSWORD **세션**의 환경 변수가 존재 하 고 값을 포함 하는 경우 위의 명령을 실행 하면 postgres 사용자의 암호가이 환경 변수의 값으로 설정 됩니다.
+여기서 `--admin-password` 는 AZDATA_PASSWORD **session** 환경 변수에 값이 존재 하는 것과 관련 된 부울입니다.
+AZDATA_PASSWORD **세션** 환경 변수가 존재 하 고 값을 포함 하는 경우 위의 명령을 실행 하면 postgres 사용자의 암호가이 환경 변수의 값으로 설정 됩니다.
 
-AZDATA_PASSWORD **세션**의 환경 변수가 존재 하지만 값이 없거나 AZDATA_PASSWORD **세션**의 환경 변수가 없는 경우 위의 명령을 실행 하면 사용자에 게 암호를 대화형으로 입력 하 라는 메시지가 표시 됩니다.
+AZDATA_PASSWORD **세션** 환경 변수가 존재 하지만 값이 없거나 AZDATA_PASSWORD **session** 환경 변수가 없는 경우 위의 명령을 실행 하면 사용자에 게 암호를 대화형으로 입력 하 라는 메시지가 표시 됩니다.
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>대화형 방식으로 postgres 관리 사용자의 암호 변경:
-1. AZDATA_PASSWORD **세션**의 환경 변수를 삭제 하거나 해당 값을 삭제 합니다.
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>대화형 방식으로 postgres 관리 사용자의 암호 변경
+
+1. AZDATA_PASSWORD **session** 환경 변수를 삭제 하거나 해당 값을 삭제 합니다.
 2. 명령 실행:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   예를 들면 다음과 같습니다.
+   예
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -186,13 +188,13 @@ AZDATA_PASSWORD **세션**의 환경 변수가 존재 하지만 값이 없거나
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>AZDATA_PASSWORD **세션**의 환경 변수를 사용 하 여 postgres 관리 사용자의 암호 변경:
-1. AZDATA_PASSWORD **세션**의 환경 변수 값을 암호를 원하는 값으로 설정 합니다.
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>AZDATA_PASSWORD **세션** 환경 변수를 사용 하 여 postgres 관리 사용자의 암호를 변경 합니다.
+1. AZDATA_PASSWORD **session** 환경 변수의 값을 암호를 원하는 값으로 설정 합니다.
 2. 다음 명령을 실행 합니다.
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   예를 들면 다음과 같습니다.
+   예
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -216,9 +218,12 @@ AZDATA_PASSWORD **세션**의 환경 변수가 존재 하지만 값이 없거나
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>감사
+
+감사 시나리오의 경우 `pgaudit` Postgres의 확장을 사용 하도록 서버 그룹을 구성 하십시오. 자세한 `pgaudit` 내용은 [ `pgAudit` GitHub 프로젝트](https://github.com/pgaudit/pgaudit/blob/master/README.md)를 참조 하세요. `pgaudit`서버 그룹에서 확장을 사용 하도록 설정 하려면 [PostgreSQL 확장 사용](using-extensions-in-postgresql-hyperscale-server-group.md)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
-- 여기에서 확장에 대 한 세부 정보를 읽습니다 `pgcrypto` . [here](https://www.postgresql.org/docs/current/pgcrypto.html)
-- Postgres 확장을 사용 하는 방법에 대 한 자세한 내용은 [여기](using-extensions-in-postgresql-hyperscale-server-group.md)를 참조 하세요.
+- [ `pgcrypto` 확장](https://www.postgresql.org/docs/current/pgcrypto.html) 참조
+- [PostgreSQL 확장 사용](using-extensions-in-postgresql-hyperscale-server-group.md) 을 참조 하세요.
 

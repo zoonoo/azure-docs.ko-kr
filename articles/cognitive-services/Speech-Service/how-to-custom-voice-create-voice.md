@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 541448f08e4ce9961d34063dcc225bf89d969a73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524518"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703374"
 ---
 # <a name="create-a-custom-voice"></a>사용자 지정 음성 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "99524518"
 | ----- | ------- |
 | 처리 중 | 데이터 집합을 수신 하 여 처리 하 고 있습니다. |
 | 성공 | 데이터 집합의 유효성을 검사 하 고 이제 음성 모델을 빌드하는 데 사용할 수 있습니다. |
-| Failed | 여러 가지 원인 (예: 파일 오류, 데이터 문제 또는 네트워크 문제)으로 인해 처리 하는 동안 데이터 집합에 오류가 발생 했습니다. |
+| 실패 | 여러 가지 원인 (예: 파일 오류, 데이터 문제 또는 네트워크 문제)으로 인해 처리 하는 동안 데이터 집합에 오류가 발생 했습니다. |
 
 유효성 검사가 완료 된 후 **길이 발언** 열에서 각 데이터 집합에 대해 일치 하는 길이 발언의 총 수를 볼 수 있습니다. 선택한 데이터 형식에 긴 오디오 조각화가 필요한 경우이 열에는 기록에 따라 또는 음성 기록 서비스를 통해 사용자가 분할 한 길이 발언 반영 됩니다. 유효성을 검사 한 데이터 집합을 추가로 다운로드 하 여 성공적으로 가져온 길이 발언의 세부 결과와 해당 매핑 기록을 볼 수 있습니다. 힌트: 긴 오디오 조각화는 데이터 처리를 완료 하는 데 1 시간 이상 걸릴 수 있습니다.
 
@@ -60,7 +60,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 > [!NOTE]
 > 사용자 지정 신경망을 사용 하는 경우 voice **인재** 탭에서 음성 인재을 등록 해야 합니다. 기록 스크립트를 준비할 때는 음성 데이터를 사용 하 여 TTS 음성 모델을 만들고 가상 음성을 생성 하는 음성 인재 승인을 받을 수 있도록 아래 문장을 포함 해야 합니다. "I [first 및 last name] am은 내 음성 기록을 [회사 이름]에서 사용 하 여 내 음성의 가상 버전을 만들고 사용 하는 것을 인식 합니다."
-이 문장은 학습 데이터 집합의 기록이 동의를 주는 동일한 사람에 의해 수행 되었는지 여부를 확인 하는 데 사용 됩니다. [데이터를 처리 하는 방법 및 여기에서 음성 인재 확인을 수행 하는 방법에 대해 자세히](https://aka.ms/CNV-data-privacy)알아보세요. 
+이 문장은 학습 데이터 집합의 기록이 동의를 주는 동일한 사람에 의해 수행 되었는지 여부를 확인 하는 데 사용 됩니다. [데이터를 처리 하는 방법 및 여기에서 음성 인재 확인을 수행 하는 방법에 대해 자세히](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)알아보세요. 
 
 ## <a name="build-your-custom-voice-model"></a>사용자 지정 음성 모델 빌드
 
@@ -87,7 +87,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 5. 다음 단계에서 **학습 방법을** 선택 합니다. 
 
     > [!NOTE]
-    > 신경망을 학습 하려면 음성 데이터를 사용 하 여 사용자 지정 음성 모델을 학습 하는 음성 인재 승인 된 음성 인재 프로필을 지정 해야 합니다. 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](https://aka.ms/gating-overview) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
+    > 신경망을 학습 하려면 음성 데이터를 사용 하 여 사용자 지정 음성 모델을 학습 하는 음성 인재 승인 된 음성 인재 프로필을 지정 해야 합니다. 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
     
     이 페이지에서 테스트를 위해 스크립트를 업로드 하도록 선택할 수도 있습니다. 테스트 스크립트는 1Mb 보다 작은 txt 파일 이어야 합니다. 지원 되는 인코딩 형식에는 ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE 또는 u t f-16이 포함 됩니다. Utterance의 각 단락에는 별도의 오디오가 생성 됩니다. 모든 문장을 하나의 오디오로 결합 하려면 한 단락으로 만듭니다. 
 
@@ -101,7 +101,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 | ----- | ------- |
 | 처리 중 | 음성 모델을 만들고 있습니다. |
 | 성공 | 음성 모델을 만들고 배포할 수 있습니다. |
-| Failed | 다양 한 원인 (예: 보이지 않는 데이터 문제 또는 네트워크 문제)으로 인해 학습에서 음성 모델이 실패 했습니다. |
+| 실패 | 다양 한 원인 (예: 보이지 않는 데이터 문제 또는 네트워크 문제)으로 인해 학습에서 음성 모델이 실패 했습니다. |
 
 학습 시간은 처리 된 오디오 데이터의 양과 선택한 학습 방법에 따라 달라 집니다. 30 분에서 40 시간 사이에 있을 수 있습니다. 모델 교육이 성공적으로 완료 되 면 테스트를 시작할 수 있습니다. 
 
@@ -126,7 +126,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 3.  모델 세부 정보 페이지의 **테스트** 탭에서 샘플 오디오 파일을 찾을 수 있습니다. 
 
-음성의 품질은 학습 데이터의 크기, 기록 품질, 기록 파일의 정확도, 학습 데이터의 녹음 된 음성이 원하는 사용 사례에 대해 디자인 된 음성의 정보와 일치 하는 정도를 포함 하 여 다양 한 요인에 따라 달라 집니다. [여기를 확인 하 여 기술 및 모델 품질 향상을 위한 모범 사례에 대해 자세히 알아보세요](https://aka.ms/CNV-limits). 
+음성의 품질은 학습 데이터의 크기, 기록 품질, 기록 파일의 정확도, 학습 데이터의 녹음 된 음성이 원하는 사용 사례에 대해 디자인 된 음성의 정보와 일치 하는 정도를 포함 하 여 다양 한 요인에 따라 달라 집니다. [여기를 확인 하 여 기술 및 모델 품질 향상을 위한 모범 사례에 대해 자세히 알아보세요](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>사용자 지정 음성 끝점 만들기 및 사용
 

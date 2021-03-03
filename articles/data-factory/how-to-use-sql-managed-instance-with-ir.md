@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710212"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "100392581"
 - [Azure SQL Managed Instance에서 호스트 하는 SSISDB (SSIS 카탈로그)를 사용 하 여 Azure-SSIS IR 프로 비전](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Azure SQL Managed Instance 에이전트 작업으로 SSIS 패키지 실행](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Azure SQL Managed Instance 에이전트 작업으로 SSISDB 로그 정리](#clean-up-ssisdb-logs)
-- [Azure SQL Managed Instance를 사용 하 여 장애 조치 (failover) Azure-SSIS IR](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Azure SQL Managed Instance를 사용 하 여 장애 조치 (failover) Azure-SSIS IR](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Azure SQL Managed Instance를 데이터베이스 작업 대상으로 사용 하 여 ADF의 SSIS로 온-프레미스 SSIS 작업 마이그레이션](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 호스트 하는 SSISDB를 사용 하 여 Azure-SSIS IR 프로 비전

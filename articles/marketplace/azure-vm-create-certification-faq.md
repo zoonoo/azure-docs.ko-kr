@@ -4,15 +4,15 @@ description: Azure Marketplace에 대 한 VM (가상 머신) 이미지를 테스
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600982"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721160"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -54,7 +54,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|솔루션|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -126,7 +126,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|설명|
+|시나리오|테스트 사례|Description|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -156,7 +156,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|설명|
+|시나리오 |테스트 사례|Description|
 |---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -199,7 +199,7 @@ Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기�
 
 |VHD 크기|실제 차지 크기|솔루션|
 |---|---|---|
-|>500 tebibytes (TiB)|N/A|예외 승인에 대해서는 지원 팀에 문의 하세요.|
+|>500 tebibytes (TiB)|해당 없음|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |
 
@@ -245,9 +245,9 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
-||18.10 |4.18.0-1023|
-||19.04 |5.0.0-1010|
-||19.04 |5.3.0-1004|
+||18.10|4.18.0-1023|
+||19.04|5.0.0-1010|
+||19.04|5.3.0-1004|
 |RHEL 및 운영 체제|6.10|2.6.32 커널을-754.15.3|
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
@@ -311,7 +311,7 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
 
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|오류|이유|솔루션|
+|Error|이유|솔루션|
 |---|---|---|
 |Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -470,7 +470,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|솔루션|
+|Error|이유|솔루션|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 제출 될 때 잘못 된 LUN (논리 단위 번호)으로 인해 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 데이터 디스크가 지정 된 SAS URL에 있지 않기 때문에 발생할 수 있습니다.|데이터 디스크가 지정 된 SAS URL에 있는지 확인 합니다.|
@@ -594,8 +594,37 @@ Bash 기록을 삭제 하려면:
 
 게시 프로세스를 완료 하려면 [제안 검토 및 게시](review-publish-offer.md)를 참조 하세요.
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>액세스를 제한 하거나 사용자 지정 템플릿을 요구 하는 VM 이미지
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>잠긴 SSH (또는) SSH 사용 안 함
+
+  SSH 사용 안 함 (Linux의 경우) 또는 RDP 사용 안 함 (Windows의 경우)으로 게시 된 이미지는 잠긴 Vm으로 처리 됩니다. 게시자에 게 제한 된 액세스만 허용 하 고 소수의 사용자만 허용 하기 때문에 특별 한 비즈니스 시나리오가 있습니다. 유효성 검사를 수행 하는 동안 잠긴 Vm은 특정 인증 명령의 실행을 허용 하지 않을 수 있습니다.
+
+
+#### <a name="custom-templates"></a>사용자 지정 템플릿
+
+   일반적으로 단일 VM에서 게시 되는 모든 이미지는 배포를 위해 표준 ARM 템플릿을 따릅니다. 그러나 Vm을 배포 하는 동안 게시자 사용자 지정이 필요할 수 있는 시나리오가 있습니다 (예: 구성할 여러 NIC).
+    
+   아래 시나리오 (비 포괄적)에 따라 게시자는 VM을 배포 하는 데 사용자 지정 템플릿을 사용 합니다.
+
+   * VM에는 추가 네트워크 서브넷이 필요 합니다.
+   * ARM 템플릿에 삽입 되는 추가 메타 데이터입니다.
+   * ARM 템플릿 실행을 위한 필수 구성 요소입니다.
+
+### <a name="vm-extensions"></a>VM 확장   
+
+   Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 태스크를 제공하는 작은 애플리케이션입니다. 예를 들어 가상 컴퓨터에 소프트웨어 설치, 바이러스 백신 보호가 필요한 경우, 또는 가상 컴퓨터 내부에서 스크립트를 실행하려면 VM 확장을 사용하면 됩니다. 
+
+   Linux VM 확장 유효성 검사를 수행 하려면 다음이 이미지의 일부가 되어야 합니다.
+* Azure Linux 에이전트 2.2.41
+* 2.8 이상 Python 버전 
+
+
+자세한 내용은 [VM 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)을 참조 하세요.
+     
 ## <a name="next-steps"></a>다음 단계
 
 - [VM 제품 속성 구성](azure-vm-create-properties.md)
 - [활성 마켓플레이스 보상](partner-center-portal/marketplace-rewards.md)
 - 개선 사항에 대 한 질문이 나 피드백이 있는 경우 [파트너 센터 지원](https://aka.ms/marketplacepublishersupport)에 문의 하세요.
+ 

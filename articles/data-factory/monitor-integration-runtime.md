@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740031"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -41,14 +41,14 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 -------- | ------------- | 
-| Name | Azure 통합 런타임의 이름. |  
+| 속성 | Azure 통합 런타임의 이름. |  
 | 시스템 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| 설명 | 통합 런타임에 대한 설명.  |
+| Description | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 
@@ -70,9 +70,9 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 | -------- | ----------- | 
-| Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| 속성 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 다음 섹션을 참조 하세요. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
@@ -95,7 +95,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -109,7 +109,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -171,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 다음 표에서는 Azure-SSIS IR에 대해 위의 cmdlet에서 반환 하는 속성에 대해 설명 합니다.
 
-| 속성/상태              | 설명                  |
+| 속성/상태              | Description                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | Azure-SSIS IR를 만든 UTC 시간입니다. |
 | 노드                        | 노드 관련 상태 (시작/사용/재생/사용 불가)와 실행 가능한 오류를 사용 하 여 Azure-SSIS IR의 할당 된/사용 가능한 노드입니다. |
@@ -189,11 +189,11 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | VNetId                       | 연결할 Azure-SSIS IR의 가상 네트워크 리소스 ID입니다. |
 | 서브넷                       | 조인할 Azure-SSIS IR의 서브넷 이름입니다. |
 | ID                           | Azure-SSIS IR의 리소스 ID입니다. |
-| 형식                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
+| Type                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
 | ResourceGroupName            | ADF와 Azure-SSIS IR를 만든 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName              | ADF의 이름입니다. |
-| Name                         | Azure-SSIS IR 이름입니다. |
-| 설명                  | Azure-SSIS IR에 대 한 설명입니다. |
+| 속성                         | Azure-SSIS IR 이름입니다. |
+| Description                  | Azure-SSIS IR에 대 한 설명입니다. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>상태 (Azure-SSIS IR 노드당)
 
@@ -210,7 +210,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 다음 표에서는 가능한 Azure-SSIS IR의 전체 상태를 제공 합니다. 전체 상태는 Azure-SSIS IR에 속하는 모든 노드의 결합 된 상태에 따라 달라 집니다. 
 
-| 전반적인 상태 | 설명 | 
+| 전반적인 상태 | Description | 
 | -------------- | ----------- | 
 | Initial        | Azure-SSIS IR 노드가 할당/준비 되지 않았습니다. | 
 | 시작 중       | Azure-SSIS IR 노드를 할당/준비 하 고 청구를 시작 했습니다. |
@@ -224,7 +224,17 @@ Azure Portal에서 Azure-SSIS IR를 모니터링 하려면 모든 통합 런타�
 
 ![모든 통합 런타임 모니터링](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-그런 다음 Azure-SSIS IR 이름을 선택 하 여 해당 모니터링 페이지를 엽니다. 여기서 전체/노드 관련 속성 및 상태를 볼 수 있습니다. 이 페이지에서는 Azure-SSIS IR의 일반, 배포 및 고급 설정을 구성 하는 방법에 따라 다양 한 정보/기능 타일을 찾을 수 있습니다.  **유형** 및 **지역** 정보 타일에는 각각 Azure-SSIS IR의 유형과 지역이 표시 됩니다. **노드 크기** 정보 타일에는 SKU (SSIS edition_VM tier_VM 시리즈), CPU 코어 수, AZURE-SSIS IR 노드당 RAM 크기 등이 표시 됩니다. **실행/요청 된 노드** 정보 타일 타일은 현재 실행 중인 노드 수를 Azure-SSIS IR에 대해 이전에 요청 된 총 노드 수와 비교 합니다. 기능 타일에 대 한 자세한 내용은 아래를 참조 하세요.
+그런 다음 Azure-SSIS IR 이름을 선택 하 여 해당 모니터링 페이지를 엽니다. 여기서 전체/노드 관련 속성 및 상태를 볼 수 있습니다. 이 페이지에서는 Azure-SSIS IR의 일반, 배포 및 고급 설정을 구성 하는 방법에 따라 다양 한 정보/기능 타일을 찾을 수 있습니다.
+
+**유형** 및 **지역** 정보 타일에는 각각 Azure-SSIS IR의 유형과 지역이 표시 됩니다.
+
+**노드 크기** 정보 타일에는 SKU (SSIS edition_VM tier_VM 시리즈), CPU 코어 수, AZURE-SSIS IR 노드당 RAM 크기 등이 표시 됩니다. 
+
+**실행/요청 된 노드** 정보 타일 타일은 현재 실행 중인 노드 수를 Azure-SSIS IR에 대해 이전에 요청 된 총 노드 수와 비교 합니다.
+
+**이중 대기 쌍/역할** 정보 타일은 BCDR (비즈니스 연속성 및 재해 복구)를 위해 Azure SQL Database/Managed Instance 장애 조치 (failover) 그룹을 동기화 하는 데 사용 되는 이중 대기 Azure-SSIS IR 쌍의 이름과 Azure-SSIS IR의 현재 주/보조 역할을 보여 줍니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs에서 역할을 교환 합니다 ( [BCDR에 대 한 Azure-SSIS IR 구성](./configure-bcdr-azure-ssis-integration-runtime.md)참조).
+
+기능 타일에 대 한 자세한 내용은 아래를 참조 하세요.
 
 ![Azure-SSIS IR 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Azure-SSIS IR VNet에 연결 하는 경우 Azure-SSIS IR 모니터링 페이지�
 
 Azure-SSIS IR 모니터링 페이지의 연결 **진단** 타일에서 **연결 테스트** 링크를 선택 하 여 창을 표시할 수 있습니다. 여기서는 Azure-SSIS IR 및 관련 패키지/구성/데이터 저장소와 관리 서비스는 정규화 된 도메인 이름 (FQDN)/ip 주소 및 지정 된 포트를 통해 연결을 확인할 수 있습니다 ( [Azure-SSIS IR에서 연결 테스트](./ssis-integration-runtime-diagnose-connectivity-faq.md)참조).
 
-![Azure-SSIS IR와 관련 패키지/구성/데이터 저장소 간의 연결을 테스트할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>고정 공용 IP 주소 타일
 
 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **고정 공용 IP 주소** 타일이 표시 됩니다 ( [Azure-SSIS IR에 대 한 고정 공용 ip 주소 가져오기](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)참조). 이 타일에서 Azure-SSIS IR에 대 한 첫 번째/초 고정 공용 IP 주소를 지정 하는 링크를 선택 하 여 텍스트 상자에서 해당 리소스 ID ()를 복사할 수 있는 창을 팝업 할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` . 팝업 창에서 **첫 번째/두 번째 고정 공용 ip 주소 설정 확인** 링크를 선택 하 여 Azure Portal에서 첫 번째/초 고정 공용 ip 주소를 관리할 수도 있습니다.
 
-![첫 번째/초 고정 공용 IP 주소를 지정할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Azure-SSIS IR-정적 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>패키지 저장소 타일
 
@@ -272,7 +282,7 @@ Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 경우 Azure-SS
 
 Azure-SSIS IR의 시작/중지/유지 관리/업그레이드에 문제가 있는 경우 Azure-SSIS IR 모니터링 페이지에 추가 **오류** 타일이 표시 됩니다. 이 타일에서 창을 팝업 하기 위해 Azure-SSIS IR에서 생성 된 오류 수를 지정 하는 링크를 선택할 수 있습니다. 여기에서 해당 오류에 대 한 자세한 내용을 확인 하 고 복사 하 여 문제 해결 가이드에서 권장 해결 방법을 찾을 수 있습니다 ( [Azure-SSIS IR 문제 해결](./ssis-integration-runtime-management-troubleshoot.md)참조).
 
-![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Azure-SSIS IR 모니터링-오류 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure SSIS 통합 런타임 모니터링
 

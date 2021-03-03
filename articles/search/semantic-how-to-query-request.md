@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 0af868f62f9bc62ee6b4b2a10d16f8eed632b6d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693648"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Cognitive Search에서 의미 체계 쿼리 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "101679840"
 
 이 문서에서는 의미 체계 순위를 사용 하는 검색 요청을 작성 하 고 의미 체계 캡션과 답변을 생성 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 표준 계층 (S1, S2, S3)의 search 서비스는 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부 2, 유럽 서 부, 유럽 서부입니다. 이러한 지역 중 하나에 기존 S1 이상 서비스를 사용 하는 경우 새 서비스를 만들지 않고도 액세스를 요청할 수 있습니다.
 
@@ -82,7 +82,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>요청 공식화
 
-1. "QueryType"을 "의미 체계"로 설정 하 고 "queryLanguage"를 "en-us"로 설정 합니다. 두 매개 변수가 모두 필요 합니다.
+1. **`"queryType"`**"의미 체계"로 설정 하 고 "en-us"로 설정 **`"queryLanguage"`** 합니다. 두 매개 변수가 모두 필요 합니다.
 
    QueryLanguage는 인덱스 스키마의 필드 정의에 할당 된 모든 [언어 분석기](index-add-language-analyzers.md) 와 일치 해야 합니다. QueryLanguage이 "en-us" 인 경우 모든 언어 분석기는 영어 변형 ("en-us" 또는 "en lucene") 이어야 합니다. 키워드 또는 단순과 같은 언어에 관계 없는 분석기는 queryLanguage 값과 충돌 하지 않습니다.
 
@@ -90,7 +90,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    검색 인덱스의 콘텐츠는 여러 언어로 구성 될 수 있지만 쿼리 입력은 대부분의 언어로 구성 될 가능성이 높습니다. 검색 엔진은 queryLanguage, 언어 분석기 및 콘텐츠가 구성 된 언어의 호환성을 확인 하지 않으므로 잘못 된 결과가 발생 하지 않도록 쿼리 범위를 적절 하 게 결정 해야 합니다.
 
-1. 선택 사항 이지만 권장, "searchFields"를 설정 합니다.
+<a name="searchfields"></a>
+
+1. Set **`"searchFields"`** (선택 사항 이지만 권장 됨).
 
    의미 체계 쿼리에서 "searchFields"의 필드 순서에 따라 의미 체계 등급의 필드에 대 한 우선 순위 또는 상대적 중요도가 반영 됩니다. 최상위 문자열 필드 (독립 실행형 또는 컬렉션)만 사용 됩니다. SearchFields는 단순 및 전체 Lucene 쿼리에서 다른 동작을 포함 하므로 (암시 된 우선 순위 순서가 없는 경우) 문자열이 아닌 필드와 하위 필드는 오류를 발생 시 지 않지만 의미 체계 순위에도 사용 되지 않습니다.
 
@@ -104,9 +106,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + 지정 된 필드가 없는 경우에는 검색 가능한 모든 필드가 문서 의미 체계 등급에 대 한 것으로 간주 됩니다. 그러나 검색 인덱스에서 가장 적합 한 결과를 생성 하지 않을 수 있으므로이 방법은 권장 되지 않습니다.
 
-1. 기존 요청에 존재 하는 경우 "orderBy" 절을 제거 합니다. 의미 점수는 결과를 정렬 하는 데 사용 되며, 명시적 정렬 논리를 포함 하는 경우 HTTP 400 오류가 반환 됩니다.
+1. **`"orderBy"`** 기존 요청에 절이 있는 경우 제거 합니다. 의미 점수는 결과를 정렬 하는 데 사용 되며, 명시적 정렬 논리를 포함 하는 경우 HTTP 400 오류가 반환 됩니다.
 
-1. 필요에 따라 "extractive"로 설정 된 "대답"을 추가 하 고, 1 보다 많은 것을 원하는 경우 대답 수를 지정 합니다.
+1. 필요에 따라를 **`"answers"`** "extractive"로 설정 하 고, 1 보다 많은 것을 원하는 경우 대답 수를 지정 합니다.
 
 1. 필요에 따라 캡션에 적용 되는 강조 표시 스타일을 사용자 지정 합니다. 캡션은 응답을 요약 하는 문서의 주요 통로에 대해 강조 표시 서식을 적용 합니다. 기본값은 `<em>`입니다. 서식 유형 (예: 노란색 배경)을 지정 하려면 highlightPreTag 및 highlightPostTag를 설정 하면 됩니다.
 

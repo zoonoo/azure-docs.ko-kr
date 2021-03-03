@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5850644aac9c3324d9ffb17817195cbaaa6020ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a8626174e157e79d0250824e0a3cfa97141d50dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667550"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695042"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
 
@@ -67,5 +67,5 @@ Azure Cosmos DB 데이터베이스는 **Azure Cosmos DB** 섹션 아래의 **연
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Synapse와 Azure Cosmos DB 간에 지원되는 항목 알아보기](./concept-synapse-link-cosmos-db-support.md)
-* [Azure Cosmos DB 분석 저장소에 대한 프라이빗 엔드포인트 구성](../cosmos-db/analytical-store-private-endpoints.md)
+* [Azure Cosmos DB 분석 저장소에 대한 프라이빗 엔드포인트 구성](../../cosmos-db/analytical-store-private-endpoints.md)
 * [Spark를 사용하여 분석 저장소를 쿼리하는 방법 알아보기](./how-to-query-analytical-store-spark.md)

@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601070"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704432"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK에서 업그레이드
 
@@ -220,3 +220,16 @@ Application Insights 2.x 에이전트를 사용 하는 경우 2.x `-javaagent:` 
 이전에는 2.x SDK에서 요청 원격 분석의 작업 이름도 종속성 원격 분석에서 설정 했습니다.
 Application Insights Java 3.0은 더 이상 종속성 원격 분석에서 작업 이름을 채우지 않습니다.
 종속성 원격 분석의 부모인 요청의 작업 이름을 확인 하려는 경우 종속성 테이블에서 요청 테이블로 조인 하는 로그 (Kusto) 쿼리를 작성할 수 있습니다.
+
+## <a name="2x-sdk-logging-appenders"></a>2.x SDK 로깅 어 펜더
+
+3.0 에이전트는 로깅 어 펜더을 구성할 필요 없이 [로깅을 자동으로 수집](./java-standalone-config#auto-collected-logging) 합니다.
+2.x SDK 로깅 어 펜더을 사용 하는 경우 3.0 에이전트에 의해 표시 되지 않으므로 제거할 수 있습니다.
+
+## <a name="2x-sdk-spring-boot-starter"></a>2.x SDK 스프링 부팅 스타터
+
+3.0 스프링 부팅 스타터는 없습니다.
+3.0 에이전트 설정 및 구성은 스프링 부팅을 사용 하는지 여부에 관계 없이 동일한 [간단한 단계](./java-in-process-agent.md#quickstart) 를 따릅니다.
+
+2.x SDK 스프링 부팅 스타터에서 업그레이드 하는 경우 클라우드 역할 이름이 더 이상 기본값이 아닙니다 `spring.application.name` .
+Json 구성 또는 환경 변수를 통해 3.0에서 클라우드 역할 이름을 설정 하려면 [3.0 구성 문서](./java-standalone-config.md#cloud-role-name) 를 참조 하세요.

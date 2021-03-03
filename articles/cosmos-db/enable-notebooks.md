@@ -5,15 +5,15 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692779"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대해 노트북 사용 (미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +27,12 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 2021 년 2 월 10 일부 터 [지원 되는 지역](#supported-regions) 중 하나에서 만들어진 새 Azure Cosmos 계정은 자동으로 노트북을 사용 하도록 설정 됩니다. 노트북을 사용 하도록 설정 하는 데 필요한 추가 구성은 없습니다. 새 계정을 만들려면 다음 지침을 따르십시오.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB** 를 선택합니다.
-1. 계정에 대 한 기본 설정을 입력 합니다. 
- 
+1. 계정에 대 한 기본 설정을 입력 합니다.
+
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Azure Cosmos DB에 대한 새 계정 페이지":::
 
 1. **검토 + 만들기** 를 선택합니다. **네트워크** 및 **태그** 옵션을 건너뛸 수 있습니다. 
-1. 계정 설정을 검토한 다음, **만들기** 를 선택합니다. 계정을 만드는 데 몇 분이 걸립니다. 포털 페이지에 **배포가 완료됨** 이 표시되기를 기다립니다. 
+1. 계정 설정을 검토한 다음, **만들기** 를 선택합니다. 계정을 만드는 데 몇 분이 걸립니다. 포털 페이지에 **배포가 완료됨** 이 표시되기를 기다립니다.
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Azure Portal 알림 창":::
 
@@ -60,12 +60,12 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 
 노트북을 사용할 수 있는지 확인 하려면 샘플 노트북에서 노트북 중 하나를 선택 합니다. 그러면 노트의 복사본이 작업 영역에 저장 되 고 열립니다.
 
-이 예제에서는 **Gettingstarted를 사용 합니다. ipa**. 
+이 예제에서는 **Gettingstarted를 사용 합니다. ipa**.
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Geta 뷰를 시작 했습니다. ipynb 노트북":::
 
 노트북을 실행 하려면:
-1. Python 코드를 포함 하는 첫 번째 코드 셀을 선택 합니다. 
+1. Python 코드를 포함 하는 첫 번째 코드 셀을 선택 합니다.
 1. **실행** 을 선택 하 여 셀을 실행 합니다. **Shift + Enter** 를 사용 하 여 셀을 실행할 수도 있습니다.
 1. 리소스 창을 새로 고쳐 만들어진 데이터베이스 및 컨테이너를 확인 합니다.
 
@@ -76,7 +76,7 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="새 노트북 만들기 또는 업로드":::
 
 ## <a name="supported-regions"></a>지원되는 지역
-Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 29 개 Azure 지역에서 사용할 수 있습니다. 이러한 지역에서 만든 새 Azure Cosmos 계정은 노트북을 자동으로 사용 하도록 설정 됩니다. 노트북은 사용자 계정에서 무료로 제공 됩니다. 
+Azure Cosmos DB용 기본 제공 Notebook은 현재 29 Azure 지역에서 사용할 수 있습니다. 이러한 지역에서 만든 새 Azure Cosmos 계정은 노트북을 자동으로 사용 하도록 설정 됩니다. 노트북은 사용자 계정에서 무료로 제공 됩니다. 
 
 - 오스트레일리아 중부
 - 오스트레일리아 중부 2
@@ -98,7 +98,7 @@ Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 29 개 Azure 지역
 - 미국 중북부
 - 북유럽
 - 미국 중남부
-- 동남 아시아
+- 동남아시아
 - 스위스 북부
 - 아랍에미리트 중부
 - 영국 남부
@@ -111,9 +111,8 @@ Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 29 개 Azure 지역
 ## <a name="next-steps"></a>다음 단계
 
 * [Jupyter 노트북 Azure Cosmos DB](cosmosdb-jupyter-notebooks.md) 의 이점에 대해 알아봅니다.
-* [노트북 샘플 갤러리 탐색](https://cosmos.azure.com/gallery.html)
+* [Notebook 샘플 갤러리 살펴보기](https://cosmos.azure.com/gallery.html)
+* [Azure Cosmos DB 노트북 갤러리에 노트북 게시](publish-notebook-gallery.md)
 * [Python Notebook 기능 및 명령 사용](use-python-notebook-features-and-commands.md)
 * [C# Notebook 기능 및 명령 사용](use-csharp-notebook-features-and-commands.md)
-* [GitHub 리포지토리에서 노트북 가져오기](import-github-notebooks.md)
-
-
+* [GitHub 리포지토리에서 Notebooks 가져오기](import-github-notebooks.md)

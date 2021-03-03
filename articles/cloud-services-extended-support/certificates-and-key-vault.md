@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722656"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Azure Cloud Services에서 인증서 사용 (확장 지원)
 
-Key Vault은 Cloud Services (확장 지원)에 연결 된 인증서를 저장 하는 데 사용 됩니다. 키 자격 증명 모음은 [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) 및 [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)을 통해 만들 수 있습니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services (확장 된 지원) 리소스가 Key Vault에서 암호로 저장 된 인증서를 검색할 수 있도록 적절 한 사용 권한에 대 한 Key Vault를 사용 하도록 설정 해야 합니다.  
+Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 키 자격 증명 모음은 [Azure Portal](../key-vault/general/quick-create-portal.md) 및 [PowerShell](../key-vault/general/quick-create-powershell.md)을 통해 만들 수 있습니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Key Vault에 인증서 업로드 
 
@@ -53,5 +53,5 @@ Key Vault은 Cloud Services (확장 지원)에 연결 된 인증서를 저장 �
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.
-- Cloud Services (확장 지원)에 대 한 질문과 [대답](faq.md) 을 검토 합니다.
-- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용 하 여 클라우드 서비스 (확장 지원)를 배포 합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

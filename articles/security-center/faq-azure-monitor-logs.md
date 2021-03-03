@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3a2854f4124a570de4fb467eb6a5d49a3214742e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1a52b2fec6155959a570f2438a59c14d9f79f368
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701963"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>이미 Azure Monitor 로그를 사용 하는 고객에 대 한 FAQ<a name="existingloganalyticscust"></a>
 
@@ -34,7 +34,7 @@ Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
 Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음을 확인 하는 경우 가격 책정 구성에 따라이 작업 영역에서 솔루션을 사용 하도록 설정 Security Center. 솔루션이 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
-- **Azure Defender off** – Security Center 작업 영역에 ' 보안 센터 무료 ' 솔루션을 설치 합니다. 요금은 청구 되지 않습니다.
+- **Azure Defender off** – Security Center 작업 영역에 "보안 센터 무료" 솔루션을 설치 합니다. 요금은 청구 되지 않습니다.
 - **Azure Defender on** – Security Center 작업 영역에 ' Security ' 솔루션을 설치 합니다.
 
    ![기본 작업 영역의 솔루션](./media/security-center-platform-migration-faq/solutions.png)
@@ -45,4 +45,4 @@ VM에 이미 Azure 확장으로 설치 된 Log Analytics 에이전트가 있는 
 Security Center Vm에 Log Analytics 에이전트를 설치 하는 경우 Security Center 기존 작업 영역을 가리키고 있지 않으면 Security Center에서 만든 기본 작업 영역을 사용 합니다.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>내 작업 영역에 보안 솔루션이 이미 있습니다. 요금 청구에 영향을 주는 요인은 무엇인가요?
-보안 & 감사 솔루션은 **서버에 대해 Azure Defender**를 사용 하도록 설정 하는 데 사용 됩니다. 보안 및 감사 솔루션이 작업 영역에 이미 설치되어 있는 경우 Security Center에서는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.
+보안 & 감사 솔루션은 **서버에 대해 Azure Defender** 를 사용 하도록 설정 하는 데 사용 됩니다. 보안 및 감사 솔루션이 작업 영역에 이미 설치되어 있는 경우 Security Center에서는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.

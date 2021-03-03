@@ -3,16 +3,18 @@ title: 레지스트리 작업에 응답하는 웹후크
 description: 레지스트리 리포지토리 중 하나에서 풀 또는 푸시 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722248"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
 Azure Container Registry는 Docker Hub에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 Docker 컨테이너 이미지를 저장하고 관리합니다. 또한 애플리케이션을 Kubernetes로 배포하는 패키징 형식인 [Helm 차트](container-registry-helm-repos.md)(미리 보기)에 대한 리포지토리를 호스팅할 수 있습니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다. [지역 복제](container-registry-geo-replication.md) 레지스트리를 사용하여 각 웹후크가 특정 지역 복제본의 이벤트에 응답하도록 구성할 수 있습니다.
+
+Webhook에 대 한 끝점은 레지스트리에서 공개적으로 액세스할 수 있어야 합니다. 보안 끝점에 인증 하도록 레지스트리 webhook 요청을 구성할 수 있습니다.
 
 Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)를 참조하세요.
 

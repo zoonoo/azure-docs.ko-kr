@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731360"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>통합 문서에서 그룹을 사용 하는 방법
 
@@ -143,5 +143,5 @@ ms.locfileid: "100615599"
 6. 그런 다음 템플릿에서 로드 하도록 그룹 단계를 변경 하 고 템플릿 ID 필드를 5 단계에서 만든 통합 문서/템플릿으로 설정할 수 있습니다. 통합 문서 Id를 사용 하려면 원본은 공유 통합 문서 리소스 ID 여야 합니다. *Load* 를 누르면 해당 그룹의 콘텐츠가이 외부 통합 문서 내에 저장 되는 대신 해당 하위 템플릿에서 로드 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [통합 문서 개요](../platform/workbooks-overview.md)
+- [통합 문서 개요](./workbooks-overview.md)
 - [통합 문서에서 JSONPath 사용](workbooks-jsonpath.md)

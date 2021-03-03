@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.author: lagayhar
-ms.openlocfilehash: 0c657d84144ee7bd69a6de1d5d2e1e769dc59f4d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c91912f711b912c54c1673f2f92e998b4d9ea9db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613779"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736936"
 ---
 # <a name="honey-comb-visualizations"></a>허니 수십억 시각화
 
@@ -95,4 +95,4 @@ ms.locfileid: "100613779"
 ## <a name="next-steps"></a>다음 단계
 
 - [통합 문서에서 복합 막대 렌더러](workbooks-composite-bar.md)를 만드는 방법에 대해 알아봅니다.
-- [Azure Monitor 로그 데이터를 Power BI으로 가져오는](../platform/powerbi.md)방법을 알아봅니다.
+- [Azure Monitor 로그 데이터를 Power BI으로 가져오는](./powerbi.md)방법을 알아봅니다.

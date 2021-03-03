@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: e8ee45a1bf6a45be1fd976d3fb1b8aba60d2b989
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734964"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -164,7 +164,7 @@ $mma.ReloadConfiguration()
 변경 내용 적용을 위해 에이전트 서비스를 다시 시작할 필요가 없습니다.
 
 ## <a name="update-proxy-settings"></a>프록시 설정 업데이트
-배포 후 에이전트가 프록시 서버 또는 [Log Analytics 게이트웨이](../platform/gateway.md)를 통해 서비스와 통신하도록 구성하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.
+배포 후 에이전트가 프록시 서버 또는 [Log Analytics 게이트웨이](./gateway.md)를 통해 서비스와 통신하도록 구성하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 

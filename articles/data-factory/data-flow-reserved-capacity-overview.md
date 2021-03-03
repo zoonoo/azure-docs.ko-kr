@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699694"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>예약 된 용량 Azure Data Factory 데이터 흐름을 사용 하 여 리소스에 대 한 비용 절감
 
@@ -21,12 +21,12 @@ ms.locfileid: "100526309"
 
 예약을 특정 팩터리 또는 통합 런타임에 할당할 필요는 없습니다. 기존 팩터리 또는 새로 배포 된 팩터리에서 자동으로 혜택을 받습니다. 예약을 구매 하 여 1 년 또는 3 년 동안 데이터 흐름 계산 비용에 대 한 사용량을 커밋합니다. 예약을 구매 하는 즉시 예약 특성과 일치 하는 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 
 
-[예약 된 용량](https://portal.azure.com) [앞에 예약을 선택 하거나 월별 지불을](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md)선택 하 여 구매할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
+[예약 된 용량](https://portal.azure.com) [앞에 예약을 선택 하거나 월별 지불을](../cost-management-billing/reservations/prepare-buy-reservation.md)선택 하 여 구매할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
 
 - 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다. 예약 된 용량입니다.
 
-엔터프라이즈 고객과 종 량 제 고객이 예약 구매에 대해 부과 하는 방법에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) 및 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage)를 참조 하세요.
+엔터프라이즈 고객과 종 량 제 고객이 예약 구매에 대해 부과 하는 방법에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 및 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조 하세요.
 
 > [!NOTE]
 > 예약 된 용량을 구입 해도 사용을 위해 특정 인프라 리소스 (가상 머신 또는 클러스터)를 미리 할당 하거나 예약 하지 않습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "100526309"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

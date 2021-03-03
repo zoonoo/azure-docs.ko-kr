@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: 3ca776a1869874042a6a97cdd59dc00d3a917d33
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98558c2b1525094277dd6c165349f25ce5cd3b23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717879"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
 
@@ -30,7 +30,7 @@ ms.locfileid: "100614504"
 * 이 경고가 전달된 작업 그룹의 짧은 이름
 * 경고 제목
 
-| 회신 | 설명 |
+| 회신 | Description |
 | ----- | ----------- |
 | DISABLE `<Action Group Short name>` | 작업 그룹의 추가 SMS 해제 |
 | ENABLE `<Action Group Short name>` | 작업 그룹의 SMS 다시 설정 |
@@ -42,7 +42,6 @@ ms.locfileid: "100614504"
 >사용자가 SMS 경고를 구독 취소했지만 새 작업 그룹에 추가된 경우 새 작업 그룹에 대한 SMS 경고를 받게 되지만 이전의 모든 작업 그룹에서 구독 취소 상태로 남아 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[활동 로그 경고의 개요](../platform/alerts-overview.md)를 확인하고 알림을 받는 방법 알아보기  
+[활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 알림을 받는 방법 알아보기  
 [SMS 속도 제한](alerts-rate-limiting.md)에 대해 자세히 알아보기  
-[작업 그룹](../platform/action-groups.md) 에 대 한 자세한 정보
-
+[작업 그룹](./action-groups.md) 에 대 한 자세한 정보

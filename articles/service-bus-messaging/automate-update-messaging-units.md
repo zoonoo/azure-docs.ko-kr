@@ -3,12 +3,12 @@ title: Azure Service Bus - 메시징 단위 자동 업데이트
 description: 이 문서에서는 Service Bus 네임 스페이스의 메시징 단위 자동 업데이트를 사용 하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720599"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Azure Service Bus 네임스페이스의 메시징 단위 자동 업데이트 
 자동 크기 조정을 사용하면 애플리케이션의 부하를 처리하기 위해 적절한 양의 리소스가 실행되도록 할 수 있습니다. 그러면 늘어난 부하를 처리하기 위해 리소스를 추가하고 유휴 상태의 리소스를 제거하여 비용을 절약할 수 있습니다. Azure Monitor의 자동 크기 조정 기능에 대해 자세히 알아보려면 [Microsoft Azure의 자동 크기 조정 개요](../azure-monitor/autoscale/autoscale-overview.md) 를 참조 하세요. 
@@ -57,7 +57,7 @@ Service Bus 프리미엄 메시지는 각 고객의 워크로드가 따로 실�
 기본 조건의 특정 날짜 또는 날짜 범위에서 자동 크기 조정을 위한 일정은 설정할 수 없습니다. 이 크기 조정 조건은 일정을 가진 다른 크기 조정 조건이 모두 일치 하지 않는 경우에 실행 됩니다. 
 
 ### <a name="scale-based-on-a-metric"></a>메트릭을 기준으로 크기 조정
-다음 절차에서는 cpu 사용량이 75%를 초과 하는 경우 자동으로 메시징 단위 (규모 확장)를 증가 하는 조건을 추가 하 고 CPU 사용량이 25% 미만이 면 메시징 단위 (규모 축소)를 줄일 수 있는 방법을 보여 줍니다. 증분은 1 ~ 2, 2-4 및 4에서 8 사이에서 수행 됩니다. 마찬가지로, 감소는 8 ~ 4, 4-2 및 2에서 1로 수행 됩니다. 
+다음 절차에서는 cpu 사용량이 75%를 초과 하는 경우 자동으로 메시징 단위 (규모 확장)를 증가 하는 조건을 추가 하 고 CPU 사용량이 25% 미만이 면 메시징 단위 (규모 축소)를 줄일 수 있는 방법을 보여 줍니다. 증분은 1 ~ 2, 2-4, 4 ~ 8, 8에서 16 사이에서 수행 됩니다. 마찬가지로, 감소는 16에서 8, 8에서 4, 4 ~ 2, 2에서 1 사이에 수행 됩니다. 
 
 1. **자동 크기 조정 설정** 페이지에서 **리소스 크기를 조정 하는 방법 선택** 옵션에 대해 **사용자 지정 자동 크기 조정** 을 선택 합니다. 
 1. 페이지의 **기본** 섹션에서 기본 조건의 **이름을** 지정 합니다. **연필** 아이콘을 선택 하 여 텍스트를 편집 합니다. 
@@ -74,7 +74,7 @@ Service Bus 프리미엄 메시지는 각 고객의 워크로드가 따로 실�
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="기본-CPU 사용량이 75% 보다 큰 경우 스케일 아웃":::       
 
         > [!NOTE]
-        > 이 예제에서 전체 CPU 사용량이 75%를 초과 하면 자동 크기 조정 기능에서 네임 스페이스에 대 한 메시징 단위를 늘립니다. 증분은 1 ~ 2, 2-4 및 4에서 8 사이에서 수행 됩니다. 
+        > 이 예제에서 전체 CPU 사용량이 75%를 초과 하면 자동 크기 조정 기능에서 네임 스페이스에 대 한 메시징 단위를 늘립니다. 증분은 1 ~ 2, 2-4, 4 ~ 8, 8에서 16 사이에서 수행 됩니다. 
 1. **+ 규칙 추가** 를 다시 선택 하 고 **크기 조정 규칙** 페이지에서 다음 단계를 수행 합니다.
     1. **메트릭 이름** 드롭다운 목록에서 메트릭을 선택 합니다. 이 예제에서는 **CPU** 입니다. 
     1. 연산자 및 임계값을 선택 합니다. 이 예제에서는 **크기 조정 작업을 트리거하는 메트릭 임계값** 에 대해 및 **25** **보다 작습니다** . 
@@ -84,7 +84,7 @@ Service Bus 프리미엄 메시지는 각 고객의 워크로드가 따로 실�
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="기본-CPU 사용량이 25% 미만인 경우의 기본 크기 조정":::       
 
         > [!NOTE]
-        > 이 예제에서 전체 CPU 사용량이 25% 미만이 면 자동 크기 조정 기능에서 네임 스페이스에 대 한 메시징 단위를 감소 시킵니다. 감소는 8 ~ 4, 4-2 및 2에서 1로 수행 됩니다. 
+        > 이 예제에서 전체 CPU 사용량이 25% 미만이 면 자동 크기 조정 기능에서 네임 스페이스에 대 한 메시징 단위를 감소 시킵니다. 감소는 16에서 8, 8에서 4, 4 ~ 2, 2에서 1 사이에 수행 됩니다. 
 1. **최소** 및 **최대** 및 **기본** 메시징 단위 수를 설정 합니다.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="메트릭을 기반으로 하는 기본 규칙":::

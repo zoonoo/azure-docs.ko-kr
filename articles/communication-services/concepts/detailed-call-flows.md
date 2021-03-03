@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594657"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659310"
 ---
 # <a name="call-flow-topologies"></a>호출 흐름 토폴로지
 이 문서에서는 Azure Communication Services 전화 흐름 토폴로지를 설명합니다. 현재 관리하는 네트워크 내에서 Communication Services를 통합하는 엔터프라이즈 고객이라면 이 문서를 검토하는 것이 좋습니다. Communication Services 전화 흐름에 대한 소개는 [전화 흐름 개념 설명서](./call-flows.md)를 참조하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "99594657"
 
 **고객 네트워크** 에는 고객이 관리하는 모든 네트워크 세그먼트가 포함됩니다. 여기에는 사무실 내부 또는 사무실 간의 유선 및 무선 네트워크, 데이터 센터, 인터넷 서비스 공급자가 포함될 수 있습니다.
 
-일반적으로 고객 네트워크에는 조직의 보안 정책을 적용하는 방화벽 및/또는 프록시 서버를 사용하는 여러 네트워크 경계가 있습니다. 통신 솔루션의 성능과 품질을 최적화할 수 있도록 [포괄적인 네트워크 평가](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment)를 수행하는 것이 좋습니다.
+일반적으로 고객 네트워크에는 조직의 보안 정책을 적용하는 방화벽 및/또는 프록시 서버를 사용하는 여러 네트워크 경계가 있습니다. 통신 솔루션의 성능과 품질을 최적화할 수 있도록 [포괄적인 네트워크 평가](/microsoftteams/3-envision-evaluate-my-environment)를 수행하는 것이 좋습니다.
 
 **Communication Services 네트워크** 는 Azure Communication Services를 지원하는 네트워크 세그먼트입니다. 이 네트워크는 Microsoft에서 관리하며, 대부분의 고객 네트워크와 가까운 에지를 통해 전 세계에 배포됩니다. 이 네트워크는 전송 릴레이, 그룹 호출용 미디어 처리, 다양한 실시간 미디어 통신을 지원하는 기타 구성 요소를 담당합니다.
 
@@ -199,4 +199,3 @@ VBSS(오디오/비디오/화면 공유) 서비스는 Azure Communication Service
 
 - [전화 유형](../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 - [클라이언트-서버 아키텍처](./client-and-server-architecture.md)에 대한 자세한 정보
-

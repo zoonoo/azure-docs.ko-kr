@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094327"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735729"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure 네트워크 보안 모범 사례
 이 문서에서는 네트워크 보안을 향상시키기 위한 Azure 모범 사례 컬렉션을 설명합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -206,7 +206,7 @@ Azure 개인 링크는 다음과 같은 이점을 제공 합니다.
 - **글로벌 환경**: 다른 Azure 지역에서 실행되는 서비스에 비공개로 연결할 수 있습니다. 소비자의 가상 네트워크는 지역 A에 있을 수 있으며, 지역 B의 서비스에 연결할 수 있습니다.
 - **간편 하 게 설정 및 관리**: IP 방화벽을 통해 Azure 리소스를 보호 하기 위해 가상 네트워크에서 예약 된 공용 IP 주소가 더 이상 필요 하지 않습니다. 개인 끝점을 설정 하는 데 필요한 NAT 또는 게이트웨이 장치가 없습니다. 개인 끝점은 간단한 워크플로를 통해 구성 됩니다. 서비스 쪽에서 Azure 서비스 리소스에 대 한 연결 요청을 쉽게 관리할 수도 있습니다. Azure 개인 링크는 다른 Azure Active Directory 테 넌 트에 속한 소비자 및 서비스에 대해서도 작동 합니다. 
     
-개인 끝점 및 개인 끝점을 사용할 수 있는 Azure 서비스 및 지역에 대 한 자세한 내용은 [Azure 개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)를 참조 하세요.
+개인 끝점 및 개인 끝점을 사용할 수 있는 Azure 서비스 및 지역에 대 한 자세한 내용은 [Azure 개인 링크](../../private-link/private-link-overview.md)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

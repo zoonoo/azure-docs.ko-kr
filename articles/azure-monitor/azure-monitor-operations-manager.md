@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: b1262533c3398a774b85e4143289a9b7c342aeab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728963"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>기존 Operations Manager 고객에 대 한 Azure Monitor
 이 문서는 현재 [System Center Operations Manager](/system-center/scom/welcome) 를 사용 하 고 비즈니스 응용 프로그램 및 기타 리소스를 Azure로 마이그레이션할 때 [Azure Monitor](overview.md) 전환을 계획 하는 고객을 위한 지침을 제공 합니다. 이 문서에서는 비즈니스 및 IT 운영 요구 사항을 손상 시 키 지 않고 최대한 많은 Operations Manager 기능을 Azure Monitor 최대한 활용 하 여 클라우드로 완전히 전환 하는 것으로 가정 합니다. 
@@ -56,7 +56,7 @@ ms.locfileid: "100593579"
 
 Azure로의 마이그레이션은 IaaS에서 시작 하 여 비즈니스 응용 프로그램을 지 원하는 가상 머신을 Azure로 이동 합니다. 이러한 응용 프로그램 및 이러한 응용 프로그램에서 사용 하는 서버 소프트웨어에 대 한 모니터링 요구 사항은 변경 되지 않으며 기존 관리 팩을 사용 하 여 이러한 서버에서 Operations Manager 계속 사용 합니다. 
 
-Azure 구독을 만드는 즉시 Azure 서비스에 대해 Azure Monitor를 사용할 수 있습니다. 플랫폼 메트릭과 활동 로그를 자동으로 수집 하 고, 로그 쿼리를 사용 하 여 사용 가능한 모든 원격 분석을 대화형으로 분석할 수 있도록 리소스 로그를 수집할 수 있도록 구성 합니다. 가상 컴퓨터에서 VM용 Azure Monitor를 사용 하 여 전체 환경에서 모니터링 데이터를 분석 하 고 컴퓨터와 프로세스 간의 관계를 검색할 수 있습니다. Azure Arc 사용 서버를 사용 하도록 설정 하 여 온-프레미스 물리적 및 가상 머신으로 Azure Monitor 사용을 확장 합니다. 
+Azure 구독을 만드는 즉시 Azure 서비스에 대해 Azure Monitor를 사용할 수 있습니다. 플랫폼 메트릭과 활동 로그를 자동으로 수집 하 고, 로그 쿼리를 사용 하 여 사용 가능한 모든 원격 분석을 대화형으로 분석할 수 있도록 리소스 로그를 수집할 수 있도록 구성 합니다. 가상 머신에서 VM insights를 사용 하도록 설정 하 여 전체 환경에서 모니터링 데이터를 분석 하 고 컴퓨터와 프로세스 간의 관계를 검색할 수 있습니다. Azure Arc 사용 서버를 사용 하도록 설정 하 여 온-프레미스 물리적 및 가상 머신으로 Azure Monitor 사용을 확장 합니다. 
 
 각 비즈니스 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 합니다. 각 응용 프로그램의 다양 한 구성 요소를 식별 하 고, 사용 현황 및 성능 데이터를 수집 하기 시작 하 고, 코드에서 발생 하는 모든 오류를 식별 합니다. 외부 응용 프로그램을 사전에 테스트 하 고 성능 또는 가용성 문제에 대해 경고 하는 가용성 테스트를 만듭니다. Application Insights은 Operations Manager 없는 강력한 기능을 제공 하지만, 아직 Azure Monitor에 포함 되지 않은 모니터링 시나리오를 포함 하므로 비즈니스 응용 프로그램에 대해 개발한 사용자 지정 관리 팩을 계속 사용 합니다. 
 
@@ -89,21 +89,21 @@ Azure Monitor의 [정보](monitor-reference.md) 는 특정 Azure 서비스에 �
 ## <a name="monitor-server-software-and-local-infrastructure"></a>서버 소프트웨어 및 로컬 인프라 모니터링
 컴퓨터를 클라우드로 이동 하는 경우 해당 소프트웨어에 대 한 모니터링 요구 사항은 변경 되지 않습니다. 가상화 된 후에는 더 이상 물리적 구성 요소를 모니터링할 필요가 없지만 게스트 운영 체제와 해당 워크 로드는 환경에 관계 없이 동일한 요구 사항을 갖습니다.
 
-[VM용 Azure Monitor](vm/vminsights-overview.md) 는 가상 컴퓨터 및 해당 게스트 운영 체제 및 워크 로드를 모니터링 하는 Azure Monitor의 기본 기능입니다. Operations Manager와 마찬가지로 VM용 Azure Monitor는 에이전트를 사용 하 여 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 합니다. 이는 일반적으로 분석 및 경고를 위해 관리 팩에서 사용 하는 것과 동일한 성능 및 이벤트 데이터입니다. 그러나 이러한 컴퓨터에서 실행 되는 비즈니스 응용 프로그램 및 서버 소프트웨어에 대 한 문제를 식별 하 고 경고 하는 기존 규칙은 없습니다. 검색 된 문제를 사전에 알리도록 사용자 고유의 경고 규칙을 만들어야 합니다.
+[VM insights](vm/vminsights-overview.md) 는 가상 머신 및 해당 게스트 운영 체제 및 워크 로드를 모니터링 하는 Azure Monitor의 기본 기능입니다. Operations Manager와 마찬가지로, VM insights는 에이전트를 사용 하 여 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 합니다. 이는 일반적으로 분석 및 경고를 위해 관리 팩에서 사용 하는 것과 동일한 성능 및 이벤트 데이터입니다. 그러나 이러한 컴퓨터에서 실행 되는 비즈니스 응용 프로그램 및 서버 소프트웨어에 대 한 문제를 식별 하 고 경고 하는 기존 규칙은 없습니다. 검색 된 문제를 사전에 알리도록 사용자 고유의 경고 규칙을 만들어야 합니다.
 
-[![VM용 Azure Monitor 성능](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
+[![VM insights 성능](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
 
 또한 Azure Monitor는 가상 머신에서 실행 되는 다양 한 응용 프로그램 및 서비스의 상태를 측정 하지 않습니다. 메트릭 경고는 값이 Azure Monitor 임계값 아래로 떨어지면 현재 시스템에서 실행 되는 응용 프로그램 및 서비스에 대 한 상태 조건을 정의 하는 기능이 없는 경우에도 자동으로 해결할 수 있습니다. 또한 상태 롤업을 제공 하 여 관련 구성 요소의 상태를 그룹화 할 수 없습니다.
 
 > [!NOTE]
-> [VM용 Azure Monitor에 대 한 새로운 게스트 상태 기능은](vm/vminsights-health-overview.md) 현재 공개 미리 보기로 제공 되며 성능 메트릭 집합의 상태에 따라 경고를 생성 합니다. 이는 처음에는 게스트 운영 체제와 관련 된 특정 성능 카운터 집합으로 제한 되지만 응용 프로그램이 나 가상 머신에서 실행 되는 다른 워크 로드는 그렇지 않습니다.
+> [VM insights에 대 한 새로운 게스트 상태 기능은](vm/vminsights-health-overview.md) 현재 공개 미리 보기로 제공 되며 성능 메트릭 집합의 상태에 따라 경고를 생성 합니다. 이는 처음에는 게스트 운영 체제와 관련 된 특정 성능 카운터 집합으로 제한 되지만 응용 프로그램이 나 가상 머신에서 실행 되는 다른 워크 로드는 그렇지 않습니다.
 > 
-> [![VM용 Azure Monitor 게스트 상태](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
+> [![VM insights 게스트 상태](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
 
-하이브리드 환경에서 컴퓨터의 소프트웨어를 모니터링 하는 것은 일반적으로 각 컴퓨터의 요구 사항에 따라 VM용 Azure Monitor와 Operations Manager의 조합을 사용 하 고 Azure Monitor에 대 한 운영 프로세스를 개발 하는 데 사용 됩니다. Microsoft Management Agent (Azure Monitor의 Log Analytics 에이전트 라고 함)는 두 플랫폼에서 모두 사용 되어 단일 컴퓨터를 동시에 모니터링할 수 있습니다.
+하이브리드 환경에서 컴퓨터의 소프트웨어를 모니터링 하는 것은 일반적으로 각 컴퓨터의 요구 사항 및 Azure Monitor에 대 한 운영 프로세스 개발의 완성도에 따라 VM 정보 및 Operations Manager의 조합을 사용 합니다. Microsoft Management Agent (Azure Monitor의 Log Analytics 에이전트 라고 함)는 두 플랫폼에서 모두 사용 되어 단일 컴퓨터를 동시에 모니터링할 수 있습니다.
 
 > [!NOTE]
-> 나중에 VM용 Azure Monitor은 현재 공개 미리 보기로 제공 되는 [Azure Monitor 에이전트로](agents/azure-monitor-agent-overview.md)전환 됩니다. 동일한 가상 컴퓨터를 두 플랫폼에서 계속 모니터링할 수 있도록 Microsoft Monitoring Agent와 호환 됩니다.
+> 나중에 VM 정보는 현재 공개 미리 보기로 제공 되는 [Azure Monitor 에이전트로](agents/azure-monitor-agent-overview.md)전환 됩니다. 동일한 가상 컴퓨터를 두 플랫폼에서 계속 모니터링할 수 있도록 Microsoft Monitoring Agent와 호환 됩니다.
 
 Azure Monitor에서 아직 제공할 수 없는 기능에 대 한 Operations Manager 계속 사용 합니다. 여기에는 IIS, SQL Server 또는 Exchange와 같은 중요 한 서버 소프트웨어에 대 한 관리 팩이 포함 됩니다. Azure Monitor를 사용 하 여 연결할 수 없는 온-프레미스 인프라에 대 한 사용자 지정 관리 팩을 개발할 수도 있습니다. 또한 Azure Monitor 및 기타 Azure 서비스를 보강 하거나 교체할 수 있는 서비스 작업을 현대화 전환할 수 있을 때까지 작업 프로세스에 긴밀 하 게 통합 된 경우 Operations Manager 계속 사용 합니다. 
 
@@ -114,9 +114,9 @@ Azure Monitor Vm을 사용 하 여 Operations Manager를 즉시 대체 하지 �
 - [로그 쿼리](logs/log-query-overview.md) 를 사용 하 여 다른 Azure 리소스의 데이터를 사용 하 여 가상 머신에서 원격 분석을 대화형으로 분석할 수 있습니다.
 - 여러 가상 컴퓨터에 걸친 복잡 한 논리를 기반으로 [로그 경고 규칙](alerts/alerts-log-query.md) 을 만듭니다.
 
-[![VM용 Azure Monitor 맵](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
+[![VM insights 맵](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
-Azure virtual machines 외에도 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용 하 여 온-프레미스 및 다른 클라우드에서 컴퓨터를 모니터링할 수 VM용 Azure Monitor. Arc 사용 서버를 사용 하면 Azure 외부, 회사 네트워크 또는 다른 클라우드 공급자에서 호스트 되는 Windows 및 Linux 컴퓨터를 관리할 수 있습니다.
+Azure virtual machines 외에도 VM insights는 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용 하 여 온-프레미스 및 다른 클라우드에서 컴퓨터를 모니터링할 수 있습니다. Arc 사용 서버를 사용 하면 Azure 외부, 회사 네트워크 또는 다른 클라우드 공급자에서 호스트 되는 Windows 및 Linux 컴퓨터를 관리할 수 있습니다.
 
 
 
@@ -131,7 +131,7 @@ Azure virtual machines 외에도 [Azure Arc 사용 서버](../azure-arc/servers/
 - 예외를 검색 하 고 스택 추적 및 관련 요청을 자세히 살펴봅니다.
 - [분산 추적](app/distributed-tracing.md) 및 [스마트 감지](app/proactive-diagnostics.md)와 같은 기능을 사용 하 여 고급 분석을 수행 합니다.
 - [메트릭 탐색기](essentials/metrics-getting-started.md) 를 사용 하 여 성능 데이터를 대화형으로 분석할 수 있습니다.
-- [로그 쿼리](logs/log-query-overview.md) 를 사용 하 여 Azure 서비스 및 VM용 Azure Monitor에 대해 수집 된 데이터와 함께 수집 된 원격 분석을 대화형으로 분석 합니다.
+- [로그 쿼리](logs/log-query-overview.md) 를 사용 하 여 Azure 서비스 및 VM insights에 대해 수집 된 데이터와 함께 수집 된 원격 분석을 대화형으로 분석 합니다.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
 
@@ -150,5 +150,5 @@ Azure virtual machines 외에도 [Azure Arc 사용 서버](../azure-arc/servers/
 - 하이브리드 모니터링 환경을 디자인 하 고 구현 하는 방법에 대 한 자세한 내용 및 Azure Monitor와 System Center Operations Manager에 대 한 자세한 내용은 [클라우드 모니터링 가이드](/azure/cloud-adoption-framework/manage/monitor/) 를 참조 하세요.
 - [Azure 리소스 모니터링](essentials/monitor-azure-resource.md)에 대 한 자세한 내용은 Azure Monitor를 참조 하세요.
 - [Azure virtual machines 모니터링](vm/monitor-vm-azure.md)에 대 한 자세한 내용은 Azure Monitor를 참조 하세요.
-- 자세한 내용은 [VM용 Azure Monitor](vm/vminsights-overview.md)를 참조 하세요.
+- 자세한 내용은 [VM 정보](vm/vminsights-overview.md)를 참조 하세요.
 - 자세한 내용은 [Application Insights](app/app-insights-overview.md)를 참조 하세요.

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616994"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719936"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 에이전트를 사용하여 사용자 지정 로그 수집
 
 Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 데이터 원본을 사용 하 여 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 를 사용 하 여 사용자 지정 로그를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md) 를 사용 하 여 사용자 지정 로그를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
 
 ![사용자 지정 로그 수집](media/data-sources-custom-logs/overview.png)
 
@@ -50,7 +50,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>1단계. Custom Log Wizard(사용자 지정 로그 마법사) 열기
+### <a name="step-1-open-the-custom-log-wizard"></a>1단계: Custom Log Wizard(사용자 지정 로그 마법사) 열기
 사용자 지정 로그 마법사는 Azure Portal에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
 1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정** 을 선택합니다.
@@ -78,7 +78,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | 경로 |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -105,7 +105,7 @@ Azure Monitor가 사용자 지정 로그에서 수집을 시작하면, 해당 �
 > RawData 속성이 쿼리에 없으면, 브라우저를 닫았다가 다시 열어야 합니다.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
-전체 로그 항목은 **RawData** 라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 각 레코드의 개별 속성으로 분리하려는 경우가 많습니다. **RawData** 를 여러 속성으로 구문 분석하기 위한 옵션은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.
+전체 로그 항목은 **RawData** 라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 각 레코드의 개별 속성으로 분리하려는 경우가 많습니다. **RawData** 를 여러 속성으로 구문 분석하기 위한 옵션은 [Azure Monitor에서 텍스트 데이터 구문 분석](../logs/parse-text.md)을 참조하세요.
 
 ## <a name="removing-a-custom-log"></a>사용자 지정 로그 제거
 Azure Portal에서 다음 프로세스를 사용하여 이전에 정의한 사용자 지정 로그를 제거합니다.
@@ -116,7 +116,7 @@ Azure Portal에서 다음 프로세스를 사용하여 이전에 정의한 사�
 ## <a name="data-collection"></a>데이터 수집
 Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5분마다 수집합니다.  에이전트는 데이터를 수집하는 각 로그 파일에서 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 Azure Monitor는 마지막으로 오프라인 상태가 유지된 위치에서 항목을 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 항목이 생성된 경우에도 마찬가지입니다.
 
-로그 항목의 전체 내용은 **RawData** 라는 단일 속성에 기록됩니다.  가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.
+로그 항목의 전체 내용은 **RawData** 라는 단일 속성에 기록됩니다.  가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Azure Monitor에서 텍스트 데이터 구문 분석](../logs/parse-text.md)을 참조하세요.
 
 ## <a name="custom-log-record-properties"></a>사용자 지정 로그 레코드 속성
 사용자 지정 로그 레코드에는 사용자가 제공하는 로그 이름의 유형과 다음 테이블의 속성이 있습니다.
@@ -125,7 +125,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 |:--- |:--- |
 | TimeGenerated |Azure Monitor에서 레코드를 수집한 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
 | SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 System Center Operations Manager <br> Linux – 모든 Linux 에이전트 |
-| RawData |수집된 항목의 전체 텍스트. [이 데이터를 개별 속성으로 구문 분석](../log-query/parse-text.md)할 가능성이 가장 높습니다. |
+| RawData |수집된 항목의 전체 텍스트. [이 데이터를 개별 속성으로 구문 분석](../logs/parse-text.md)할 가능성이 가장 높습니다. |
 | ManagementGroupName |System Center Operations Manage 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<workspace ID\>입니다. |
 
 
@@ -171,8 +171,8 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 사용자 지정 로그로 데이터를 수집할 수 없는 경우에는 다음과 같은 전략을 대신 사용할 수 있습니다.
 
 - 사용자 지정 스크립트 또는 다른 방법을 사용하여 Azure Monitor에서 수집하는 [Windows 이벤트](data-sources-windows-events.md) 또는 [Syslog](data-sources-syslog.md)에 데이터를 씁니다. 
-- [HTTP 데이터 수집기 API](../platform/data-collector-api.md)를 사용하여 Azure Monitor로 데이터를 직접 전송합니다. 
+- [HTTP 데이터 수집기 API](../logs/data-collector-api.md)를 사용하여 Azure Monitor로 데이터를 직접 전송합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* 가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.
+* 가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Azure Monitor에서 텍스트 데이터 구문 분석](../logs/parse-text.md)을 참조하세요.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다.

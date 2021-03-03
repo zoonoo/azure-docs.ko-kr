@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615884"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704126"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 열
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../logs/data-platform-logs.md)각각 고유한 열 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에서 공통 되는 표준 열이 있습니다. 이 문서에서는 이러한 열에 대해 설명 하 고 쿼리에서 이러한 열을 사용 하는 방법에 대 한 예제를 제공 합니다.
@@ -20,6 +20,10 @@ Application Insights의 작업 영역 기반 응용 프로그램은 Log Analytic
 
 > [!NOTE]
 > 표준 열 중 일부는 Log Analytics의 스키마 뷰나 intellisense에 표시 되지 않으며, 출력에서 열을 명시적으로 지정 하지 않는 한 쿼리 결과에 표시 되지 않습니다.
+> 
+
+## <a name="tenantid"></a>TenantId
+**TenantId** 열에는 Log Analytics 작업 영역에 대 한 작업 영역 ID가 포함 됩니다.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated 및 timestamp
 **Timegenerated** (Log Analytics 작업 영역) 및 **timestamp** (Application Insights 응용 프로그램) 열에는 데이터 원본에서 레코드를 만든 날짜와 시간이 포함 됩니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../logs/data-ingestion-time.md) 을 참조 하세요.
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_TimeReceived
 **\_ TimeReceived** 열에는 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜와 시간이 포함 됩니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들어 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../logs/data-ingestion-time.md) 을 참조 하세요.
+
+> [!NOTE]
+> **\_ TimeReceived** 열은 사용 될 때마다 계산 됩니다. 이 프로세스는 리소스를 많이 사용 합니다. 이를 사용 하 여 많은 수의 레코드를 필터링 합니다. 주기적 함수를 사용 하면 쿼리 실행 기간이 늘어날 수 있습니다.
+
 
 다음 쿼리는 에이전트의 이벤트 레코드에 대 한 시간당 평균 대기 시간을 제공 합니다. 여기에는 에이전트에서 클라우드로의 시간 및 로그 쿼리에 사용할 수 있는 레코드의 총 시간이 포함 됩니다.
 
@@ -238,6 +246,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 로그 데이터](../log-query/log-query-overview.md)가 저장되는 방법에 대해 자세히 알아보세요.
-- [로그 쿼리 작성](../log-query/get-started-queries.md) 단원을 계속 진행하세요.
+- [Azure Monitor 로그 데이터](./log-query-overview.md)가 저장되는 방법에 대해 자세히 알아보세요.
+- [로그 쿼리 작성](./get-started-queries.md) 단원을 계속 진행하세요.
 - [로그 쿼리에서 테이블 조인](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins) 단원을 계속 진행하세요.

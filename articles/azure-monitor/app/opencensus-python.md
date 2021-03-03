@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704415"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -221,6 +221,15 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 
 ### <a name="metrics"></a>메트릭
 
+OpenCensus는 4 가지 집계 메서드를 지원 하지만 Azure Monitor에 대 한 부분 지원을 제공 합니다.
+
+- **개수:** 측정 지점의 수입니다. 값은 누적 이며, 다시 시작할 때만 증가 하 고 0으로 다시 설정할 수 있습니다. 
+- **합계:** 측정 지점의 합계입니다. 값은 누적 이며, 다시 시작할 때만 증가 하 고 0으로 다시 설정할 수 있습니다. 
+- **Lastvalue:** 마지막으로 기록 된 값을 유지 하 고 다른 모든 항목을 삭제 합니다.
+- **배포:** 측정 지점의 히스토그램 분포입니다. 이 메서드는 **Azure 내보내기에서 지원 하지 않습니다**.
+
+### <a name="count-aggregation-example"></a>Count 집계 예
+
 1. 먼저 일부 로컬 메트릭 데이터를 생성해 보겠습니다. 사용자가 **Enter** 키를 선택 하는 횟수를 추적 하는 간단한 메트릭을 만듭니다.
 
     ```python
@@ -320,7 +329,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
         main()
     ```
 
-1. 내보내기가 고정 간격으로 Azure Monitor에 메트릭 데이터를 보냅니다. 기본값은 15초 간격입니다. 단일 메트릭을 추적 하므로 여기에 포함 된 값과 타임 스탬프를 포함 하는이 메트릭 데이터는 간격 마다 전송 됩니다. `customMetrics`에서 데이터를 찾을 수 있습니다.
+1. 내보내기가 고정 간격으로 Azure Monitor에 메트릭 데이터를 보냅니다. 기본값은 15초 간격입니다. 단일 메트릭을 추적 하므로 여기에 포함 된 값과 타임 스탬프를 포함 하는이 메트릭 데이터는 간격 마다 전송 됩니다. 값은 누적 이며, 다시 시작할 때만 증가 하 고 0으로 다시 설정할 수 있습니다. 에서 데이터를 찾을 수 `customMetrics` 있지만 `customMetrics` 속성 속성, valueum, valueMin, valueMax 및 이상으로는 효과적으로 사용 되지 않습니다.
 
 #### <a name="performance-counters"></a>성능 카운터
 

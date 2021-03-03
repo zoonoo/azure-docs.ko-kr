@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698351"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 
@@ -23,7 +23,7 @@ ms.locfileid: "100390830"
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-| 형식                             | 데이터 원본             | Log Analytics tablename | 스키마 참조 |
+| Type                             | 데이터 원본             | Log Analytics tablename | 스키마 참조 |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
 | **Azure**                            | Azure Active Directory | SigninEvents           | [Azure AD 활동 보고서 로그인 속성](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Azure Monitor AuditLogs 참조](/azure/azure-monitor/reference/tables/auditlogs) |
@@ -34,7 +34,7 @@ ms.locfileid: "100390830"
 | **Network**                          | IIS 로그               | W3CIISLog              | [Azure Monitor W3CIISLog 참조](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [VMConnection 참조 Azure Monitor](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | 실시간 데이터 솔루션     | WireData               | [Azure Monitor WireData 참조](/azure/azure-monitor/reference/tables/wiredata) |
-| **Network**                          | NSG 흐름 로그          | AzureNetworkAnalytics  | [트래픽 분석에서 스키마 및 데이터 집계](/azure/network-watcher/traffic-analytics-schema) |
+| **Network**                          | NSG 흐름 로그          | AzureNetworkAnalytics  | [트래픽 분석에서 스키마 및 데이터 집계](../network-watcher/traffic-analytics-schema.md) |
 | | | | |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "100390830"
 
 다음 표에는 지원 되는 타사 공급 업체와 각 범주 유형에 대 한 CEF 필드 매핑 및 샘플 로그가 포함 된 다양 한 지원 되는 로그 유형에 대 한 CEF (Common Event Format) 매핑 설명서가 나와 있습니다.
 
-| 형식 |    Vendor |    제품 | Log Analytics tablename | CEF 필드 매핑 참조  |
+| Type |    Vendor |    제품 | Log Analytics tablename | CEF 필드 매핑 참조  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Palo Alto   | OS 이동    | CommonSecurityLog |   [팬-OS 9.0 일반적인 이벤트 형식 통합 가이드](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) ( *cef 스타일의 로그 형식* 검색) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [로그 필드 설명](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |

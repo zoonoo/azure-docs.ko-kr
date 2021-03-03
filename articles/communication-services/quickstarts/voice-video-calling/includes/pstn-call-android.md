@@ -4,15 +4,15 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/14/2020
 ms.author: nikuklic
-ms.openlocfilehash: 5c20543caf5bf623738996ed01064d71a0745c04
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: ee48311647a73c08f8784792cc5d81cb47279c9d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750820"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -28,16 +28,16 @@ ms.locfileid: "91779507"
 
 ### <a name="add-pstn-functionality-to-your-app"></a>앱에 PSTN 기능 추가
 
-**MainActivity.java**를 수정하여 앱에 `PhoneNumber` 유형을 추가합니다.
+**MainActivity.java** 를 수정하여 앱에 `PhoneNumber` 유형을 추가합니다.
 
 
 ```java
-import com.azure.android.communication.common.PhoneNumber;
+import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
 <!--
 > [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
+> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-chek this.
 -->
 
 ## <a name="start-a-call-to-phone"></a>휴대폰에 전화 걸기 시작
@@ -47,19 +47,19 @@ Communication Services 리소스 내에서 가져온 전화 번호를 지정합�
 > [!WARNING]
 > 전화 번호는 E.164 국제 표준 형식으로 제공되어야 합니다. (예: +12223334444)
 
-**MainActivity.java**에서 `startCall()` 이벤트 처리기를 수정하여 전화 통화를 처리합니다.
+**MainActivity.java** 에서 `startCall()` 이벤트 처리기를 수정하여 전화 통화를 처리합니다.
 
 ```java
     private void startCall() {
         EditText calleePhoneView = findViewById(R.id.callee_id);
         String calleePhone = calleePhoneView.getText().toString();
-        PhoneNumber callerPhone = new PhoneNumber("+12223334444");
+        PhoneNumberIdentifier callerPhone = new PhoneNumberIdentifier("+12223334444");
         StartCallOptions options = new StartCallOptions();
         options.setAlternateCallerId(callerPhone);
         options.setVideoOptions(new VideoOptions(null));
-        call = agent.call(
+        call = agent.startCall(
                 getApplicationContext(),
-                new PhoneNumber[] {new PhoneNumber(calleePhone)},
+                new PhoneNumberIdentifier[] {new PhoneNumberIdentifier(calleePhone)},
                 options);
     }
 ```

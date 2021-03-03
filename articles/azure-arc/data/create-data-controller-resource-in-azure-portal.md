@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737306"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686481"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Azure Portal에서 Azure Arc 데이터 컨트롤러 만들기
 
@@ -48,6 +48,10 @@ Azure Portal 및 Azure Data Studio를 사용 하 여 Azure Arc 데이터 컨트�
 1. 배포 구성 프로필을 선택 합니다.
 1. **Azure Studio에서 열기** 단추를 클릭 합니다.
 1. 다음 화면에는 선택 항목에 대 한 요약과 생성 된 노트북이 표시 됩니다.  **프로 비전 된 노트북 다운로드** 단추를 클릭 하 여 노트북을 다운로드할 수 있습니다.
+
+   > [!IMPORTANT]
+   > Azure Red Hat OpenShift 또는 Red Hat OpenShift container platform에서 데이터 컨트롤러를 만들기 전에 보안 컨텍스트 제약 조건을 적용 해야 합니다. [OpenShift에서 Azure Arc 사용 데이터 서비스에 대 한 보안 컨텍스트 제약 조건 적용](how-to-apply-security-context-constraint.md)의 지침을 따릅니다.
+
 1. Azure Data Studio에서 노트북을 열고 위쪽의 **모두 실행** 단추를 클릭 합니다.
 1. 노트북의 프롬프트 및 지침에 따라 데이터 컨트롤러 만들기를 완료 합니다.
 

@@ -6,16 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 421f80493a9cb88e8bbbddc06aa9a24042b64b17
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728997"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
-스냅숏 디버거 현재 Windows 서비스 계획에서 Azure App Service 실행 되는 ASP.NET 및 ASP.NET Core 앱에 대해 작동 합니다. 스냅숏 디버거를 사용 하는 경우 기본 서비스 계층 이상에서 응용 프로그램을 실행 하는 것이 좋습니다. 대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리 나 디스크 공간이 없습니다.
+스냅숏 디버거는 현재 Windows 서비스 계획에서 Azure App Service 실행 되는 ASP.NET 및 ASP.NET Core 앱을 지원 합니다.
+
+스냅숏 디버거를 사용 하는 경우 기본 서비스 계층 이상에서 응용 프로그램을 실행 하는 것이 좋습니다.
+대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리 나 디스크 공간이 없습니다.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> 스냅숏 디버거 사용
 앱에 대 한 스냅숏 디버거를 사용 하도록 설정 하려면 아래 지침을 따르세요.
@@ -28,7 +31,10 @@ ms.locfileid: "97695463"
 * [온-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
-> .NET Core의 미리 보기 버전을 사용 하거나 응용 프로그램에서 종속 어셈블리를 사용 하 여 직접 또는 간접적으로 Application Insights SDK를 참조 하는 경우 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 에 대 한 지침에 따라 먼저 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 고 아래 지침의 나머지를 완료 합니다. 
+> .NET Core의 미리 보기 버전을 사용 하거나 응용 프로그램이 종속 어셈블리를 사용 하 여 직접 또는 간접적으로 Application Insights SDK를 참조 하는 경우 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 에 대 한 지침에 따라 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 고 아래 지침의 나머지를 완료 합니다. 
+>
+> Application Insights 스냅숏 디버거의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
+> 지원 되는 런타임에 대 한 자세한 내용은 [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
 
 스냅숏 디버거 App Services 런타임의 일부로 미리 설치 되지만 App Service 앱에 대 한 스냅숏을 가져오려면 설정 해야 합니다.
 

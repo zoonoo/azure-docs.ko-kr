@@ -4,14 +4,14 @@ description: Azure에서 파트너가 제공 하는 솔루션에 대해 알아�
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 01/19/2021
+ms.date: 02/12/2021
 ms.author: tomfitz
-ms.openlocfilehash: 6779596efdebf8220af99f4e86c1fe6cc0ec90d6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cab246cf19e8a2e3f9e7b08019cd836e3d085266
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598769"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736052"
 ---
 # <a name="extend-azure-with-solutions-from-partners"></a>파트너의 솔루션으로 Azure 확장
 
@@ -19,6 +19,7 @@ ms.locfileid: "98598769"
 
 파트너 솔루션은 Marketplace를 통해 사용할 수 있습니다.
 
-| 파트너 솔루션 | 설명 |
+| 파트너 솔루션 | Description |
 | :--- | :--- |
-| [Confluent 클라우드의 Apache Kafka](./apache-kafka-confluent-cloud/overview.md) | Apache Kafka에서 제공 하는 완전히 관리 되는 이벤트 스트리밍 플랫폼 |
+| [Confluent Cloud용 Apache Kafka](./apache-kafka-confluent-cloud/overview.md) | Apache Kafka에서 제공 하는 완전히 관리 되는 이벤트 스트리밍 플랫폼 |
+| [Datadog](./datadog/overview.md) | 서버, 클라우드, 메트릭 및 앱을 한 곳에서 모니터링 합니다. |

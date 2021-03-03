@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699082"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -34,7 +34,7 @@ Azure Load Balancer는 Azure Portal의 Azure 메트릭을 통해 다차원 메�
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 종류 | 설명 | 권장 집계 |
+| 메트릭 | 리소스 종류 | Description | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -72,18 +72,7 @@ Azure Portal는 특정 리소스에 대 한 부하 분산 장치 리소스 페�
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>API를 통해 프로그래밍 방식으로 다차원 메트릭 검색
 
-다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. 이러한 메트릭은 ' 모든 메트릭 ' 범주에 대 한 [진단 설정을](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 추가 하 여 저장소 계정에 쓸 수 있습니다. 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대 한 경고 구성 ###
-
-Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수 있는 경고를 지원 합니다. 특정 메트릭에 대 한 사용자 지정 임계값을 구성 하 여 다양 한 심각도 수준으로 경고를 트리거하여 touchless 리소스 모니터링 환경을 강화 합니다.
-
-경고를 구성하려면
-1. 부하 분산 장치에 대 한 경고 하위 블레이드로 이동 합니다.
-1. 새 경고 규칙 만들기
-    1.  경고 조건 구성
-    1.  필드 자동 복구를 위한 작업 그룹 추가
-    1.  직관적인 반응을 가능 하 게 하는 경고 심각도, 이름 및 설명 할당
+다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. 이러한 메트릭은 ' 모든 메트릭 ' 범주에 대 한 [진단 설정을](../azure-monitor/essentials/diagnostic-settings.md) 추가 하 여 저장소 계정에 쓸 수 있습니다. 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
 
@@ -228,15 +217,41 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 이 차트를 통해 고객은 다른 문제 발생 여부에 관계없이, 추측을 하거나 지원을 요청하지 않고 직접 배포 문제를 해결할 수 있습니다. 잘못된 구성 또는 실패한 애플리케이션 때문에 상태 프로브가 실패했으므로 서비스는 사용할 수 없었습니다.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대 한 경고 구성 ###
+
+Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수 있는 경고를 지원 합니다. 특정 메트릭에 대 한 사용자 지정 임계값을 구성 하 여 다양 한 심각도 수준으로 경고를 트리거하여 touchless 리소스 모니터링 환경을 강화 합니다.
+
+경고를 구성하려면
+1. 부하 분산 장치에 대 한 경고 하위 블레이드로 이동 합니다.
+1. 새 경고 규칙 만들기
+    1.  경고 조건 구성
+    1.  필드 자동 복구를 위한 작업 그룹 추가
+    1.  직관적인 반응을 가능 하 게 하는 경고 심각도, 이름 및 설명 할당
+
+### <a name="inbound-availability-alerting"></a>인바운드 가용성 경고
+인바운드 가용성에 대해 경고 하려면 데이터 경로 가용성 및 상태 프로브 상태 메트릭을 사용 하 여 두 개의 개별 경고를 만들 수 있습니다. 고객은 특정 경고 논리를 필요로 하는 다양 한 시나리오를 포함할 수 있지만, 아래 예제는 대부분의 구성에 도움이 됩니다.
+
+데이터 경로 가용성을 사용 하 여 특정 부하 분산 규칙을 사용할 수 없게 될 때마다 경고를 발생 시킬 수 있습니다. 데이터 경로 가용성에 대 한 경고 조건을 설정 하 고 프런트 엔드 포트 및 프런트 엔드 IP 주소에 대 한 모든 현재 값 및 미래 값으로 분할 하 여이 경고를 구성할 수 있습니다. 경고 논리를 0 보다 작거나 같게 설정 하면 부하 분산 규칙이 응답 하지 않을 때마다이 경고가 발생 합니다. 원하는 평가에 따라 집계 세분성 및 평가 빈도를 설정 합니다. 
+
+상태 프로브 상태를 사용 하면 지정 된 백 엔드 인스턴스가 상당한 시간 동안 상태 프로브에 응답 하지 못하는 경우에 경고할 수 있습니다. 상태 프로브 상태 메트릭을 사용 하 고 백 엔드 IP 주소와 백 엔드 포트로 분할 하도록 경고 조건을 설정 합니다. 이렇게 하면 개별 백 엔드 인스턴스의 기능에 대해 개별적으로 경고 하 여 특정 포트에서 트래픽을 처리할 수 있습니다. 백 엔드 인스턴스를 검색 하는 빈도 및 정상 임계값으로 간주 되는 항목에 따라 **평균** 집계 유형을 사용 하 고 임계값을 설정 합니다. 
+
+또한 차원에 따라 분할 하지 않고 **평균** 집계 유형을 사용 하 여 백 엔드 풀 수준에 대해 경고할 수 있습니다. 이렇게 하면 백 엔드 풀 멤버의 50%가 비정상 상태인 경우 경고와 같은 경고 규칙을 설정할 수 있습니다.
+
+### <a name="outbound-availability-alerting"></a>아웃 바운드 가용성 경고
+아웃 바운드 가용성을 구성 하려면 SNAT 연결 수를 사용 하 고 SNAT 포트 메트릭을 사용 하 여 두 개의 개별 경고를 구성할 수 있습니다.
+
+아웃 바운드 연결 실패를 감지 하려면 SNAT 연결 수를 사용 하 여 경고를 구성 하 고 연결 상태 = 실패를 필터링 합니다. **총** 집계를 사용 합니다. 그런 다음이를 백 엔드 IP 주소 집합을 모든 현재 및 미래 값으로 분할 하 여 실패 한 연결이 발생 한 각 백 엔드 인스턴스에 대해 별도로 경고할 수도 있습니다. 아웃 바운드 연결 실패를 확인 하려는 경우 임계값을 0 보다 크게 설정 하거나 더 큰 값으로 설정 합니다.
+
+사용 된 SNAT 포트를 통해 SNAT 고갈 및 아웃 바운드 연결 실패에 대 한 높은 위험에 경고할 수 있습니다. 이 경고를 사용 하 고 **평균** 집계를 사용 하는 경우 백 엔드 IP 주소 및 프로토콜을 기준으로 분할 하 고 있는지 확인 합니다. 안전 하지 않다고 간주 하는 인스턴스당 할당 한 포트 수의 비율 보다 큰 임계값을 설정 합니다. 예를 들어 백 엔드 인스턴스가 할당 된 포트의 75%를 사용 하 고 할당 된 포트의 90% 또는 100%를 사용할 때 높은 심각도를 사용 하는 경우 낮은 심각도 경고를 구성할 수 있습니다.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Resource Health 상태
 
 표준 Load Balancer **리소스에 대한 상태는****모니터 > 서비스 상태** 아래의 기존 를 통해 표시됩니다. 프런트 엔드 부하 분산 끝점을 사용할 수 있는지 여부를 결정 하는 데이터 경로 가용성을 측정 하 여 **2 분** 마다 평가 됩니다.
 
-| Resource Health 상태 | 설명 |
+| Resource Health 상태 | Description |
 | --- | --- |
 | 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
-| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. [문제 해결 RHC 가이드에 따라](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 여부를 확인 합니다.
-| Unavailable | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. [RHC 문제 해결 가이드에 따라](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) 사용자의 시작 이벤트가 가용성에 영향을 주는지 여부를 확인 합니다. |
+| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. [문제 해결 RHC 가이드에 따라](./troubleshoot-rhc.md) 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 여부를 확인 합니다.
+| Unavailable | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. [RHC 문제 해결 가이드에 따라](./troubleshoot-rhc.md) 사용자의 시작 이벤트가 가용성에 영향을 주는지 여부를 확인 합니다. |
 | 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았거나 지난 10 분 동안 데이터 경로 가용성 정보를 수신 하지 않았습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
 
 공용 표준 Load Balancer 리소스의 상태를 보려면:
@@ -263,7 +278,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Load Balancer에 대해 미리 구성 된 이러한 메트릭을 [보려면 정보를 사용 하](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) 는 방법에 대해 알아봅니다.
+- Load Balancer에 대해 미리 구성 된 이러한 메트릭을 [보려면 정보를 사용 하](./load-balancer-insights.md) 는 방법에 대해 알아봅니다.
 - [Standard Load Balancer](./load-balancer-overview.md)에 대해 자세히 알아보세요.
 - [Load Balancer 아웃바운드 연결](./load-balancer-outbound-connections.md)에 대해 자세히 알아봅니다.
 - [Azure Monitor](../azure-monitor/overview.md)에 대해 알아봅니다.

@@ -3,12 +3,12 @@ title: 템플릿 함수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 검색 하 고, 문자열과 숫자를 작업 하 고, 배포 정보를 검색 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931710"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707322"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
@@ -33,6 +33,10 @@ ms.locfileid: "96931710"
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>모든 함수
+
+[Any 함수](template-functions-any.md) 는 Bicep에서 데이터 형식 경고와 관련 된 문제를 해결 하는 데 사용할 수 있습니다.
 
 ## <a name="array-functions"></a>배열 함수
 

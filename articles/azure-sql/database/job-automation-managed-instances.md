@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: beb82f8435aea817a074ce83fddc6a5417b86c26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417636"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691895"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 SQL 에이전트 작업을 사용 하 여 관리 작업 자동화
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ SQL 에이전트 작업에는 몇 가지 주요 개념이 있습니다.
 
 SQL 에이전트 작업 단계는 SQL 에이전트가 실행해야 하는 작업의 시퀀스입니다. 모든 단계에는 단계가 성공하거나 실패하는 경우 실행되어야 하는 다음 단계와 함께 실패 시 재시도 횟수가 있습니다.
 
-SQL 에이전트를 사용 하면 데이터베이스에 대해 단일 Transact-sql 일괄 처리를 실행 하는 Transact-sql 작업 단계, SSIS 런타임을 사용 하 여 데이터를 로드 하는 데 사용할 수 있는 [ssis 작업 단계](/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent) , 데이터베이스의 변경 내용을 다른 데이터베이스로 게시할 수 있는 [복제](../managed-instance/replication-transactional-overview.md) 단계 등 다양 한 유형의 작업 단계를 만들 수 있습니다.
+SQL 에이전트를 사용 하면 데이터베이스에 대해 단일 Transact-sql 일괄 처리를 실행 하는 Transact-sql 작업 단계, SSIS 런타임을 사용 하 여 데이터를 로드 하는 데 사용할 수 있는 [ssis 작업 단계](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) , 데이터베이스의 변경 내용을 다른 데이터베이스로 게시할 수 있는 [복제](../managed-instance/replication-transactional-overview.md) 단계 등 다양 한 유형의 작업 단계를 만들 수 있습니다.
 
 > [!Note]
 > Azure SQL Managed Instance에서 호스트 하는 SSISDB를 사용 하 여 Azure SSIS Integration Runtime를 활용 하는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 AZURE sql Managed Instance SQL Server Integration Services (SSIS) 사용](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md)을 참조 하세요.

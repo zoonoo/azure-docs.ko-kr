@@ -1,17 +1,16 @@
 ---
 title: Storage용 Azure Monitor를 사용하여 Azure Storage 서비스 모니터링 | Microsoft Docs
 description: 이 문서에서는 스토리지 관리자가 Azure Storage 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Storage용 Azure Monitor 기능에 대해 설명합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708070"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 
@@ -85,7 +84,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 
 ## <a name="view-from-a-storage-account"></a>스토리지 계정에서 보기
 
-스토리지 계정에서 직접 VM용 Azure Monitor에 액세스하려면 다음을 수행합니다.
+저장소 계정에서 직접 VM 정보에 액세스 하려면 다음을 수행 합니다.
 
 1. Azure Portal에서 스토리지 계정을 선택합니다.
 

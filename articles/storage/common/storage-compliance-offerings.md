@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ca0e95d311adedf613ed168927491dfa85b1cabd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7ec938a13d04cf3400e4d3df0eeda051c61d35ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724271"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
 Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 사용을 규정하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 클라우드 서비스 공급자의 가장 포괄적인 인증 및 증명 모음을 제공합니다.
 
-아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. 다음 Azure Storage 제품에 적용 가능합니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage.
+아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. Blob (ADLS Gen2), 파일, 큐, 테이블, 디스크, 쿨 저장소 및 Premium Storage와 같은 Azure Storage 제공에 적용 됩니다.
 
 ## <a name="global"></a>Global
 

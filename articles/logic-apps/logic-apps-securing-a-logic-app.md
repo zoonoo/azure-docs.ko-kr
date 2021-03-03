@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702558"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -349,9 +349,9 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 ARM 템플릿에서 섹션을 사용 하 여 논리 앱의 리소스 정의에 허용 되는 인바운드 IP 주소 범위를 지정 합니다 `accessControl` . 이 섹션에서는 속성을 사용 하 여 섹션을 포함 하 고 속성 값을 x. x. x/x 또는 x. x. x. x. x. x. x. x. x `triggers` `actions` `contents` `allowedCallerIpAddresses` `addressRange` 형식의  허용 되는 IP 범위로  설정 하 여 적절 한, 및 선택적 섹션을 사용 합니다.
 
-* 중첩 된 논리 앱이 Azure Logic Apps 작업을 사용 하는 다른 논리 앱 에서만 인바운드 호출을 허용 하는 **다른 Logic Apps** 옵션만 사용 하는 경우 `addressRange` 속성을 빈 배열 (**[]**)로 설정 합니다.
+* 중첩 된 논리 앱이 **다른 Logic Apps** 옵션만 사용 하는 경우 기본 제공 Azure Logic Apps 작업을 사용 하는 다른 논리 앱 에서만 인바운드 호출을 허용 하 `allowedCallerIpAddresses` 고, 속성을 빈 배열 (**[]**)로 설정 하 고, 속성을 *생략* `addressRange` 합니다.
 
-* 중첩 된 논리 앱이 HTTP 작업을 사용 하는 다른 논리 앱과 같은 다른 인바운드 호출에 **특정 ip 범위** 옵션을 사용 하는 경우 `addressRange` 속성을 허용 된 IP 범위로 설정 합니다.
+* 중첩 된 논리 앱이 HTTP 작업을 사용 하는 다른 논리 앱과 같은 다른 인바운드 호출에 **특정 ip 범위** 옵션을 사용 하는 경우 `allowedCallerIpAddresses` 섹션을 포함 하 고 `addressRange` 속성을 허용 된 IP 범위로 설정 합니다.
 
 이 예제에서는 기본 제공 Azure Logic Apps 작업을 사용 하는 논리 앱 에서만 인바운드 호출을 허용 하는 중첩 된 논리 앱에 대 한 리소스 정의를 보여 줍니다.
 
@@ -378,18 +378,14 @@ ARM 템플릿에서 섹션을 사용 하 여 논리 앱의 리소스 정의에 �
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -1130,7 +1126,7 @@ Authorization: OAuth realm="Photos",
 
    **관리 되는 커넥터 트리거 및 작업**
 
-   | 속성(디자이너) | 필수 | 값 | 설명 |
+   | 속성(디자이너) | 필수 | 값 | Description |
    |---------------------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> ||
    | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |

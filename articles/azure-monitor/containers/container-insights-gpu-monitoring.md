@@ -1,33 +1,33 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 구성 | Microsoft Docs
-description: 이 문서에서는 Kubernetes Azure Monitor 클러스터를 구성 하는 방법을 설명 합니다.
+title: 컨테이너 insights를 사용 하 여 GPU 모니터링 구성 | Microsoft Docs
+description: 이 문서에서는 컨테이너 insights를 사용 하 여 NVIDIA 및 AMD GPU enabled 노드를 사용 하 여 Kubernetes 클러스터 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 11a9de0872fd3e7589332322b3f8fb855d2c88ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620059"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731870"
 ---
-# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 구성
+# <a name="configure-gpu-monitoring-with-container-insights"></a>컨테이너 insights를 사용 하 여 GPU 모니터링 구성
 
-에이전트 버전 *ciprod03022019* 부터 컨테이너 통합 에이전트는 이제 Gpu 인식 Kubernetes 클러스터 노드에서 gpu (그래픽 처리 단위) 사용 모니터링을 지원 하 고 gpu 리소스를 요청 하 고 사용 하는 pod/컨테이너를 모니터링 합니다.
+에이전트 버전 *ciprod03022019* 부터 컨테이너 insights 통합 에이전트는 이제 Gpu 인식 Kubernetes 클러스터 노드에서 gpu (그래픽 처리 단위) 사용 모니터링을 지원 하 고 gpu 리소스를 요청 하 고 사용 하는 pod/컨테이너를 모니터링 합니다.
 
 ## <a name="supported-gpu-vendors"></a>지원 되는 GPU 공급 업체
 
-컨테이너의 Azure Monitor는 다음 GPU 공급 업체의 GPU 클러스터 모니터링을 지원 합니다.
+컨테이너 insights는 다음 GPU 공급 업체의 GPU 클러스터 모니터링을 지원 합니다.
 
 - [NVIDIA](https://developer.nvidia.com/kubernetes-gpu)
 
 - [뛰어난](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-컨테이너에 대 한 Azure Monitor는 60 초 간격으로 다음 메트릭을 수집 하 여 **InsightMetrics** 테이블에 저장 함으로써 노드의 gpu 사용량 모니터링과 pod 및 작업 부하를 자동으로 시작 합니다.
+컨테이너 insights는 60 초 간격으로 다음 메트릭을 수집 하 여 **InsightMetrics** 테이블에 저장 함으로써 노드의 gpu 사용량 모니터링과 pod 및 워크 로드를 자동으로 시작 합니다.
 
 >[!NOTE]
->Gpu 노드를 사용 하 여 클러스터를 프로 비전 한 후 gpu 작업을 실행 하기 위해 AKS에서 요구 하는 [gpu 드라이버가](../../aks/gpu-cluster.md) 설치 되어 있는지 확인 합니다. 컨테이너 Azure Monitor는 노드에서 실행 되는 GPU 드라이버 pod를 통해 GPU 메트릭을 수집 합니다. 
+>Gpu 노드를 사용 하 여 클러스터를 프로 비전 한 후 gpu 작업을 실행 하기 위해 AKS에서 요구 하는 [gpu 드라이버가](../../aks/gpu-cluster.md) 설치 되어 있는지 확인 합니다. 컨테이너 insights는 노드에서 실행 되는 GPU 드라이버 pod를 통해 GPU 메트릭을 수집 합니다. 
 
-|메트릭 이름 |메트릭 차원 (태그) |설명 |
+|메트릭 이름 |메트릭 차원 (태그) |Description |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|GPU가 사용 중이 고 컨테이너에 대해 적극적으로 처리 되는 과거 샘플 기간 (60 초) 동안의 시간 비율입니다. 업무 주기는 1에서 100 사이의 숫자입니다. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |각 컨테이너는 한 개 이상의 Gpu로 한도를 지정할 수 있습니다. GPU의 일부를 요청 하거나 제한할 수 없습니다. |
@@ -39,7 +39,7 @@ ms.locfileid: "100620059"
 
 ## <a name="gpu-performance-charts"></a>GPU 성능 차트 
 
-컨테이너에 대 한 Azure Monitor에는 테이블 앞부분에 나열 된 메트릭에 대 한 미리 구성 된 차트가 모든 클러스터에 대 한 GPU 통합 문서로 포함 됩니다. 컨테이너에 대해 Azure Monitor 사용할 수 있는 통합 문서에 대 한 설명은 [Azure Monitor의 통합 문서](../insights/container-insights-reports.md) 를 참조 하세요.
+컨테이너 insights에는 테이블 앞부분에 나열 된 메트릭에 대 한 미리 구성 된 차트가 모든 클러스터에 대 한 GPU 통합 문서로 포함 되어 있습니다. 컨테이너 insights에 사용할 수 있는 통합 문서에 대 한 설명은 [container insights의 통합 문서](../insights/container-insights-reports.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

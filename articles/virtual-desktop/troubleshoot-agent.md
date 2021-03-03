@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094951"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732584"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>일반적인 Windows 가상 데스크톱 에이전트 문제 해결
 
@@ -21,6 +21,14 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
    - 에이전트 설치 중에를 설치 하는 데 문제가 발생 하 여 세션 호스트에 대 한 연결이 중단 됩니다.
 
 이 문서에서는 이러한 일반적인 시나리오에 대 한 솔루션 및 연결 문제를 해결 하는 방법을 안내 합니다.
+
+>[!NOTE]
+>세션 연결 및 windows 가상 데스크톱 에이전트와 관련 된 문제를 해결 하려면 **이벤트 뷰어**  >  **windows 로그**  >  **응용 프로그램** 에서 이벤트 로그를 검토 하는 것이 좋습니다. 다음 원본 중 하나가 있는 이벤트를 찾아 문제를 확인 합니다.
+>
+>- WVD-Agent
+>- WVD-에이전트-업데이트 프로그램
+>- RDAgentBootLoader 로더
+>- MsiInstaller 관리자
 
 ## <a name="error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running"></a>오류: RDAgentBootLoader 및/또는 원격 데스크톱 에이전트 로더에서 실행이 중지 되었습니다.
 
@@ -63,9 +71,9 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
    > [!div class="mx-imgBorder"]
    > ![IsRegistered 1의 스크린샷](media/isregistered-registry.png)
 
-## <a name="error-agent-cannot-connect-to-broker-with-invalid_form-or-not_found-url"></a>오류: 에이전트는 INVALID_FORM 또는 NOT_FOUND를 사용 하 여 broker에 연결할 수 없습니다. URL
+## <a name="error-agent-cannot-connect-to-broker-with-invalid_form"></a>오류: 에이전트가 INVALID_FORM를 사용 하 여 broker에 연결할 수 없습니다.
 
-**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. ID가 3277 인 이벤트가 표시 되는 경우 **INVALID_FORM** 또는 **NOT_FOUND.** 설명의 URL입니다. 에이전트와 broker 간의 통신에서 오류가 발생 했습니다. 에이전트가 broker에 연결할 수 없고 특정 URL에 연결할 수 없습니다. 방화벽 또는 DNS 설정 때문일 수 있습니다.
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에 "INVALID_FORM" 라고 표시 된 ID가 3277 인 이벤트가 표시 되는 경우 에이전트와 broker 간의 통신에 문제가 발생 한 것입니다. 특정 방화벽 또는 DNS 설정으로 인해 에이전트에서 broker에 연결 하거나 특정 URL에 연결할 수 없습니다.
 
 이 문제를 해결 하려면 BrokerURI 및 BrokerURIGlobal에 도달할 수 있는지 확인 합니다.
 1. 레지스트리 편집기를 엽니다. 
@@ -100,13 +108,43 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 8. 네트워크에서 이러한 Url을 차단 하는 경우 필요한 Url을 차단 해제 해야 합니다. 자세한 내용은 [필수 URL 목록](safe-url-list.md)을 참조 하세요.
 9. 그래도 문제가 해결 되지 않으면 에이전트에서 broker로 연결을 차단 하는 암호를 사용 하는 그룹 정책이 없는지 확인 합니다. Windows 가상 데스크톱은 [Azure Front 문과](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door)동일한 TLS 1.2 암호화를 사용 합니다. 자세한 내용은 [연결 보안](network-connectivity.md#connection-security)을 참조 하세요.
 
-## <a name="error-3703-or-3019"></a>오류: 3703 또는 3019
+## <a name="error-3703"></a>오류: 3703
 
-**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. ID가 3703 인 이벤트가 표시 되는 경우 **RD 게이트웨이 Url:에 액세스할** 수 없거나 설명에 id 3019이 있는 이벤트가 표시 되 면 에이전트에서 게이트웨이 url 또는 웹 소켓 전송 url에 연결할 수 없습니다. 세션 호스트에 성공적으로 연결 하 고 이러한 끝점에 대 한 네트워크 트래픽이 제한을 무시 하도록 허용 하려면 [필요한 Url 목록](safe-url-list.md)에서 url을 차단 해제 해야 합니다. 또한 방화벽 또는 프록시 설정이 이러한 Url을 차단 하지 않는지 확인 합니다. Windows 가상 데스크톱을 사용 하려면 이러한 Url의 차단을 해제 해야 합니다.
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에서 "RD 게이트웨이 Url: 액세스할 수 없음" 이라는 ID 3703 이벤트가 표시 되는 경우 에이전트는 게이트웨이 Url에 연결할 수 없습니다. 세션 호스트에 성공적으로 연결 하 고 이러한 끝점에 대 한 네트워크 트래픽이 제한을 무시 하도록 허용 하려면 [필요한 Url 목록](safe-url-list.md)에서 url을 차단 해제 해야 합니다. 또한 방화벽 또는 프록시 설정이 이러한 Url을 차단 하지 않는지 확인 합니다. Windows 가상 데스크톱을 사용 하려면 이러한 Url의 차단을 해제 해야 합니다.
 
 이 문제를 해결 하려면 방화벽 및/또는 DNS 설정에서 다음 Url을 차단 하지 않는지 확인 합니다.
 1. [Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 배포를 보호 합니다](../firewall/protect-windows-virtual-desktop.md).
 2. [Azure 방화벽 DNS 설정을](../firewall/dns-settings.md)구성 합니다.
+
+## <a name="error-3019"></a>오류: 3019
+
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. ID가 3019 인 이벤트가 표시 되 면 에이전트가 웹 소켓 전송 Url에 연결할 수 없음을 의미 합니다. 세션 호스트에 성공적으로 연결 하 고 네트워크 트래픽이 이러한 제한을 무시 하도록 허용 하려면 [필요한 url 목록](safe-url-list.md)에 나열 된 url을 차단 해제 해야 합니다. Azure 네트워킹 팀과 협력 하 여 방화벽, 프록시 및 DNS 설정이 이러한 Url을 차단 하지 않는지 확인 합니다. 네트워크 추적 로그를 확인 하 여 Windows 가상 데스크톱 서비스가 차단 되는 위치를 확인할 수도 있습니다. 이 특정 문제에 대 한 지원 요청을 여는 경우 네트워크 추적 로그를 요청에 연결 해야 합니다.
+
+## <a name="error-installationhealthcheckfailedexception"></a>오류: InstallationHealthCheckFailedException
+
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에 "InstallationHealthCheckFailedException" 라고 표시 된 ID가 3277 인 이벤트가 표시 되는 경우 터미널 서버에서 스택 수신기의 레지스트리 키를 전환 했기 때문에 스택 수신기가 작동 하지 않는 것입니다.
+
+이 문제를 해결하려면:
+1. [스택 수신기가 작동](#error-stack-listener-isnt-working-on-windows-10-2004-vm)하는지 확인 합니다.
+2. 스택 수신기가 작동 하지 않는 경우 [스택 구성 요소를 수동으로 제거 하 고 다시 설치](#error-vms-are-stuck-in-unavailable-or-upgrading-state)합니다.
+
+## <a name="error-endpoint_not_found"></a>오류: ENDPOINT_NOT_FOUND
+
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에 "ENDPOINT_NOT_FOUND" 라고 표시 된 ID가 3277 인 이벤트가 표시 되는 경우 broker는 연결을 설정할 끝점을 찾을 수 없음을 의미 합니다. 이 연결 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+- 호스트 풀에 Vm이 없습니다.
+- 호스트 풀의 Vm이 활성화 되어 있지 않습니다.
+- 호스트 풀의 모든 Vm이 최대 세션 제한을 초과 했습니다.
+- 호스트 풀의 Vm에 에이전트 서비스가 실행 되 고 있지 않습니다.
+
+이 문제를 해결하려면:
+
+1. VM이 전원이 켜져 있고 호스트 풀에서 제거 되지 않았는지 확인 하세요.
+2. VM이 최대 세션 제한을 초과 하지 않았는지 확인 합니다.
+3. [에이전트 서비스가 실행 중이](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) 고 [스택 수신기가 작동](#error-stack-listener-isnt-working-on-windows-10-2004-vm)하 고 있는지 확인 하십시오.
+4. [에이전트가 broker에 연결할 수](#error-agent-cannot-connect-to-broker-with-invalid_form)있는지 확인 합니다.
+5. VM에 [유효한 등록 토큰이](#error-invalid_registration_token)있는지 확인 합니다.
+6. [VM 등록 토큰이 만료](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues)되지 않았는지 확인 합니다. 
 
 ## <a name="error-installmsiexception"></a>오류: InstallMsiException
 
@@ -176,11 +214,17 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 8. **Clustersettings** 에서 **sessiondirectorylistener** 를 찾고 해당 데이터 값이 **rdp-sxs** 인지 확인 합니다.
 9. **Sessiondirectorylistener** 를 **rdp-tcp** 로 설정 하지 않은 경우 에이전트 [및 부팅 로더 제거](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) 섹션의 단계에 따라 에이전트, 부팅 로더 및 스택 구성 요소를 먼저 제거한 다음 [에이전트와 부팅 로더를 다시 설치](#step-4-reinstall-the-agent-and-boot-loader)해야 합니다. 그러면 side-by-side 스택이 다시 설치 됩니다.
 
-## <a name="error-users-keep-getting-disconnected-from-session-hosts"></a>오류: 사용자가 세션 호스트와의 연결을 계속 유지할 수 있습니다.
+## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>오류: 사용자가 세션 호스트와의 연결을 끊은 상태를 유지 하는 하트 비트 문제
 
-**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. ID가 0 인 이벤트가 표시 되는 경우 설명에 **CheckSessionHostDomainIsReachableAsync** 가 표시 되 고, 사용자가 해당 세션 호스트와의 연결을 계속 유지 하면 서버는 Windows 가상 데스크톱 서비스에서 하트 비트를 선택 하지 않습니다.
+서버에서 Windows 가상 데스크톱 서비스의 하트 비트를 선택 하지 않은 경우 하트 비트 임계값을 변경 해야 합니다. 다음 시나리오 중 하나 이상이 적용 되는 경우이 섹션의 지침을 따르세요.
 
-이 문제를 해결 하려면 하트 비트 임계값을 변경 합니다.
+- **CheckSessionHostDomainIsReachableAsync** 오류를 수신 하 고 있습니다.
+- **ConnectionBrokenMissedHeartbeatThresholdExceeded** 오류를 수신 하 고 있습니다.
+- 연결을 수신 하는 **중: UnexpectedNetworkDisconnect** 오류
+- 사용자 클라이언트의 연결 끊김 유지
+- 사용자가 세션 호스트와의 연결을 유지 합니다.
+
+하트 비트 임계값을 변경 하려면:
 1. 관리자 권한으로 명령 프롬프트를 엽니다.
 2. **Qwinsta** 명령을 입력 하 고 실행 합니다.
 3. 표시 되는 두 가지 스택 구성 요소는 **rdp-tcp** 및 **rdp-sxs** 입니다. 
@@ -194,6 +238,9 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
    - HeartbeatDropCount: 60 
 8. VM이 다시 시작됩니다.
 
+>[!NOTE]
+>하트 비트 임계값을 변경 해도 문제가 해결 되지 않으면 Azure 네트워킹 팀에 문의 해야 하는 기본 네트워크 문제가 있을 수 있습니다.
+
 ## <a name="error-downloadmsiexception"></a>오류: DownloadMsiException
 
 **이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에 **Downloadmsiexception** 이라는 ID 3277이 포함 된 이벤트가 표시 되 면 디스크에 rdagent에 대 한 공간이 부족 합니다.
@@ -201,6 +248,11 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 이 문제를 해결 하려면 다음을 수행 하 여 디스크 공간을 확보 합니다.
    - 더 이상 사용자에 게 없는 파일 삭제
    - VM의 저장소 용량을 늘립니다.
+
+## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>오류: MissingMethodException를 사용 하 여 에이전트를 업데이트 하지 못했습니다.
+
+**이벤트 뷰어**  >  **Windows Logs**  >  **응용 프로그램** 으로 이동 합니다. 설명에 "MissingMethodException: Method not found" 라고 표시 된 ID가 3389 인 이벤트가 표시 되는 경우 Windows 가상 데스크톱 에이전트가 성공적으로 업데이트 되지 않았고 이전 버전으로 되돌아간 것을 의미 합니다. 이는 현재 Vm에 설치 된 .NET framework의 버전 번호가 4.7.2 미만이 기 때문일 수 있습니다. 이 문제를 해결 하려면 [.NET Framework 설명서](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)의 설치 지침에 따라 .net을 버전 4.7.2 이상으로 업그레이드 해야 합니다.
+
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>오류: Vm을 사용할 수 없거나 상태가 업그레이드 되지 않습니다.
 
@@ -210,7 +262,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-호스트 풀에서 세션 호스트 또는 호스트에 대해 나열 된 상태가 항상 **사용할 수 없음** 또는 **업그레이드** 인 경우 에이전트 또는 스택 설치가 실패 했을 수 있습니다.
+호스트 풀에서 세션 호스트 또는 호스트에 대해 나열 된 상태에 항상 "사용할 수 없음" 또는 "업그레이드 중"이 표시 되 면 에이전트 또는 스택이 성공적으로 설치 되지 않은 것입니다.
 
 이 문제를 해결 하려면 side-by-side 스택을 다시 설치 합니다.
 1. 관리자 권한으로 명령 프롬프트를 엽니다.
@@ -253,7 +305,7 @@ VM 이름이 이미 등록 되어 있는 것 같습니다.
 이 문제를 해결하려면:
 1. [호스트 풀에서 세션 호스트 제거](#step-2-remove-the-session-host-from-the-host-pool) 섹션의 단계를 따릅니다.
 2. [다른 VM을 만듭니다](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). 이 VM에 대 한 고유한 이름을 선택 해야 합니다.
-3. Azure Portal]로 이동 하 https://portal.azure.com) 고 VM이 있는 호스트 풀의 **개요** 페이지를 엽니다. 
+3. [Azure Portal](https://portal.azure.com) 로 이동 하 고 VM이 있는 호스트 풀의 **개요** 페이지를 엽니다. 
 4. **세션 호스트** 탭을 열고 모든 세션 호스트가 해당 호스트 풀에 있는지 확인 합니다.
 5. 세션 호스트 상태를 **사용할 수 있을** 때까지 5-10 분 동안 기다립니다.
 
@@ -320,12 +372,12 @@ VM을 호스트 풀 및 서비스에 다시 등록 하는 데 사용 되는 새 
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>4 단계: 에이전트 및 부팅 로더 다시 설치
 
 최신 버전의 에이전트와 부팅 로더를 다시 설치 하면 side-by-side stack 및 Geneva monitoring agent도 자동으로 설치 됩니다. 에이전트 및 부팅 로더를 다시 설치 하려면:
-1. 관리자로 VM에 로그인 하 고 [가상 머신 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) 의 지침에 따라 **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더** 를 다운로드 합니다.
+1. 관리자 권한으로 VM에 로그인 하 고 VM이 실행 중인 Windows 버전에 따라 올바른 버전의 에이전트 설치 관리자를 배포에 사용 합니다. Windows 10 VM이 있는 경우 [가상 머신 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) 의 지침에 따라 **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더** 를 다운로드 합니다. Windows 7 VM이 있는 경우 [가상 머신 등록](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) 의 13-14 단계를 수행 하 여 **Windows 가상 데스크톱 에이전트** 및 **windows 가상 데스크톱 에이전트 관리자** 다운로드 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![에이전트 및 부팅 로더 다운로드 페이지의 스크린샷](media/download-agent.png)
 
-2. 방금 다운로드 한 에이전트 및 부팅 로더 설치 관리자를 마우스 오른쪽 단추로 클릭 합니다.
+2. 다운로드 한 에이전트 및 부팅 로더 설치 관리자를 마우스 오른쪽 단추로 클릭 합니다.
 3. **속성** 을 선택합니다.
 4. **차단 해제** 를 선택합니다.
 5. **확인** 을 선택합니다.

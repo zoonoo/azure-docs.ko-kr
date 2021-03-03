@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9a6c62e91a2d3c600326730b3e6345f97bf6f5f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0e928f3890e0d86aff7e4615d6d12e1b53c3b6f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597589"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734692"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
@@ -3303,6 +3303,5 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
-- [경고에 대해 자세히 알아봅니다](../platform/alerts-overview.md).
+- [경고에 대해 자세히 알아봅니다](./alerts-overview.md).
 - [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는 샘플을 가져옵니다](resource-manager-action-groups.md).
-

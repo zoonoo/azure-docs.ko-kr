@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509573"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702150"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>단일 서버의 주 버전 업그레이드 Azure Database for MySQL
 
@@ -59,7 +59,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
  
    이 업그레이드를 수행 하려면 버전 2.16.0 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. az version을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 az upgrade를 실행합니다.
 
-2. 로그인 한 후 [az mysql server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) 명령을 실행 합니다.
+2. 로그인 한 후 [az mysql server upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) 명령을 실행 합니다.
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -89,7 +89,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
 
 1. [Azure Portal](https://portal.azure.com/)에서 기존 Azure Database for MySQL 5.6를 선택 합니다.
 
-2. 주 서버에서 [읽기 복제본](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) 을 만듭니다.
+2. 주 서버에서 [읽기 복제본](./concepts-read-replicas.md#create-a-replica) 을 만듭니다.
 
 3. [읽기 복제본](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) 을 버전 5.7으로 업그레이드 합니다.
 
@@ -105,7 +105,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
 
    및의 상태가 `Slave_IO_Running` `Slave_SQL_Running` "yes"이 고 값 `Seconds_Behind_Master` 이 "0" 이면 복제가 정상적으로 작동 합니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 "0"이 아니면 복제본이 업데이트를 처리 하 고 있음을 의미 합니다. `Seconds_Behind_Master`"0"이 확인 되 면 복제를 중지 하는 것이 안전 합니다.
 
-6. [복제를 중지](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server)하 여 읽기 복제본을 주 복제본으로 승격 합니다.
+6. [복제를 중지](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server)하 여 읽기 복제본을 주 복제본으로 승격 합니다.
 
 7. 응용 프로그램이 서버 5.7를 실행 하는 새로운 주 (이전 복제본)를 가리키도록 합니다. 각 서버에는 고유한 연결 문자열이 있습니다. 원본 대신 (이전) 복제본을 가리키도록 응용 프로그램을 업데이트 합니다.
 
@@ -113,7 +113,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
 > 이 시나리오는 4, 5 및 6 단계 에서만 가동 중지 시간이 발생 합니다.
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="when-will-this-upgrade-feature-be-ga-as-we-have-mysql-v56-in-our-production-environment-that-we-need-to-upgrade"></a>업그레이드 해야 하는 프로덕션 환경에 MySQL v 5.6이 있으므로이 업그레이드 기능이 GA 될 예정 인가요?
 

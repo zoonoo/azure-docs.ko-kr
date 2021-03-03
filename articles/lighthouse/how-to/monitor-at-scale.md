@@ -3,12 +3,12 @@ title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593120"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742588"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
@@ -49,7 +49,7 @@ Log Analytics 작업 영역을 만든 후에는 각 테 넌 트의 적절 한 �
 
 사용자가 관리 하는 고객 테 넌 트에서 위임 된 구독에 대 한 [경고](../../azure-monitor/alerts/alerts-overview.md) 를 볼 수 있습니다.
 
-관리 테 넌 트에서 Azure Portal 또는 Api 및 관리 도구를 통해 [활동 로그 경고를 만들고, 보고, 관리할](../../azure-monitor/platform/alerts-activity-log.md) 수 있습니다.
+관리 테 넌 트에서 Azure Portal 또는 Api 및 관리 도구를 통해 [활동 로그 경고를 만들고, 보고, 관리할](../../azure-monitor/alerts/alerts-activity-log.md) 수 있습니다.
 
 여러 고객에 대해 경고를 자동으로 새로 고치려면 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 쿼리를 사용 하 여 경고를 필터링 합니다. 대시보드에 쿼리를 고정 하 고 해당 하는 모든 고객 및 구독을 선택할 수 있습니다. 예를 들어 아래 쿼리는 심각도 0 및 경고 1 개를 표시 하 고 60 분 마다 새로 고칩니다.
 

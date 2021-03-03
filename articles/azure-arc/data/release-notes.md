@@ -7,25 +7,44 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686685"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
+이 문서에서는 Azure Arc 사용 데이터 서비스의 기능, 기능 및 향상 된 기능, 기능 및 향상 된 기능을 중점적으로 설명 합니다. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="new-capabilities-and-features"></a>새 기능 및 기능
+
+Azure Data CLI ( `azdata` ) 버전 번호: 20.3.1. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다. `azdata` [AZURE Data CLI 설치 ( `azdata` )](/sql/azdata/install/deploy-install-azdata)에서를 설치할 수 있습니다.
+
+추가 업데이트는 다음과 같습니다.
+
+- Azure Arc 지원 SQL Managed Instance
+   - Always On 가용성 그룹를 통한 고가용성
+
+- Azure Arc enabled PostgreSQL Hyperscale Azure Data Studio: 
+   - 이제 개요 페이지에 노드당 항목별 서버 그룹의 상태가 표시 됩니다.
+   - 이제 새 속성 페이지를 사용 하 여 서버 그룹에 대 한 자세한 정보를 표시할 수 있습니다.
+   - **노드 매개 변수** 페이지에서 Postgres 엔진 매개 변수 구성 =
+
+이 릴리스와 관련 된 문제는 [알려진 문제-Azure Arc 사용 데이터 서비스 (미리 보기)](known-issues.md) 를 참조 하세요.
 
 ## <a name="january-2021"></a>2021년 1월
 
 ### <a name="new-capabilities-and-features"></a>새 기능 및 기능
 
 Azure Data CLI ( `azdata` ) 버전 번호: 20.3.0. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다. `azdata` [AZURE Data CLI 설치 ( `azdata` )](/sql/azdata/install/deploy-install-azdata)에서를 설치할 수 있습니다.
-
 
 추가 업데이트는 다음과 같습니다.
 - 17 개 새로운 언어에 사용할 수 있는 지역화 된 포털

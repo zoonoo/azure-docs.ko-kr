@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734148"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>자습서: Azure 리소스에서 리소스 로그 수집 및 분석
 
@@ -93,7 +93,7 @@ KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytic
 
 
 5. 쿼리를 입력하고 **실행** 을 클릭하여 결과를 검사합니다. 
-6. 로그 쿼리 작성에 대한 자습서는 [Azure Monitor에서 로그 쿼리 시작](../log-query/get-started-queries.md)을 참조하세요.
+6. 로그 쿼리 작성에 대한 자습서는 [Azure Monitor에서 로그 쿼리 시작](../logs/get-started-queries.md)을 참조하세요.
 
     ![로그 쿼리](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytic
 Log Analytics 작업 영역으로 리소스 로그를 수집하는 방법을 배웠으므로, 이 데이터를 분석하는 로그 쿼리 작성에 대한 자습서를 완료하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor에서 로그 쿼리 시작](../log-query/get-started-queries.md)
+> [Azure Monitor에서 로그 쿼리 시작](../logs/get-started-queries.md)

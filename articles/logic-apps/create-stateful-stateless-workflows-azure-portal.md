@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936535"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736374"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Azure Logic Apps 미리 보기를 사용 하 여 Azure Portal에서 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -34,7 +34,7 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 * 워크플로 실행을 트리거합니다.
 
-* 워크플로의 실행 기록을 확인 합니다.
+* 워크플로의 실행 및 트리거 기록을 봅니다.
 
 * 배포 후 Application Insights를 사용 하거나 엽니다.
 
@@ -51,6 +51,8 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
   > [!NOTE]
   > [상태 저장 논리 앱](logic-apps-overview-preview.md#stateful-stateless) 은 큐를 사용 하 여 테이블 및 blob에 워크플로 상태를 예약 하 고 저장 하는 등의 저장소 트랜잭션을 수행 합니다. 이러한 트랜잭션은 [Azure Storage 요금](https://azure.microsoft.com/pricing/details/storage/)을 발생 시킵니다. 상태 저장 논리 앱에서 외부 저장소에 데이터를 저장 하는 방법에 대 한 자세한 내용은 [상태 저장 및 상태 비저장](logic-apps-overview-preview.md#stateful-stateless)을 참조 하세요.
+
+* Docker 컨테이너에 배포 하려면 기존 Docker 컨테이너 이미지가 필요 합니다. 예를 들어 [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)또는 [Azure Container Instance](../container-instances/container-instances-overview.md)를 통해이 이미지를 만들 수 있습니다. 
 
 * 이 문서에서 동일한 예제 논리 앱을 빌드하려면 Microsoft 회사 또는 학교 계정을 사용 하 여 로그인 하는 Office 365 Outlook 전자 메일 계정이 필요 합니다.
 
@@ -72,25 +74,25 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. **논리 앱 만들기 (미리 보기)** 페이지의 **기본 사항** 탭에서 논리 앱에 대 한이 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 지역에서 고유 해야 하며 문자, 숫자, 하이픈 ( **-** ), 밑줄 (**_**), 괄호 (**()**) 및 마침표 (**.**)만 포함할 수 있습니다. <p><p>이 예제에서는 이라는 리소스 그룹을 만듭니다 `Fabrikam-Workflows-RG` . |
-   | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 지역에서 고유 해야 하며 문자, 숫자, 하이픈 ( **-** ), 밑줄 (**_**), 괄호 (**()**) 및 마침표 (**.**)만 포함할 수 있습니다. <p><p>이 예제에서는 라는 논리 앱을 만듭니다 `Fabrikam-Workflows` . <p><p>**참고**: `.azurewebsites.net` **논리 앱 (미리 보기)** 리소스는 동일한 앱 명명 규칙을 사용 하는 Azure Functions에 의해 구동 되기 때문에 논리 앱의 이름은 접미사를 자동으로 가져옵니다. |
-   | **게시** | 예 | <*배포-환경*> | 논리 앱에 대 한 배포 대상입니다. **워크플로** 또는 Docker 컨테이너를 선택 하 여 Azure에 배포할 수 있습니다. <p><p>이 예제에서는 Azure의 **논리 앱 (미리 보기)** 리소스인 **워크플로** 를 사용 합니다. <p><p>**Docker 컨테이너** 를 선택 하 [는 경우 논리 앱의 설정에서 사용할 컨테이너를 지정](#set-docker-container)합니다. |
+   | **논리 앱 이름**. | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 지역에서 고유 해야 하며 문자, 숫자, 하이픈 ( **-** ), 밑줄 (**_**), 괄호 (**()**) 및 마침표 (**.**)만 포함할 수 있습니다. <p><p>이 예제에서는 라는 논리 앱을 만듭니다 `Fabrikam-Workflows` . <p><p>**참고**: `.azurewebsites.net` **논리 앱 (미리 보기)** 리소스는 동일한 앱 명명 규칙을 사용 하는 Azure Functions에 의해 구동 되기 때문에 논리 앱의 이름은 접미사를 자동으로 가져옵니다. |
+   | **게시** | 예 | <*배포-환경*> | 논리 앱에 대 한 배포 대상입니다. **워크플로** 또는 **Docker 컨테이너** 를 선택 하 여 Azure에 배포할 수 있습니다. <p><p>이 예제에서는 **논리 앱 (미리 보기)** 리소스를 Azure Portal에 배포 하는 **워크플로** 를 사용 합니다. <p><p>**참고**: **docker 컨테이너** 를 선택 하기 전에 docker 컨테이너 이미지 만들기를 확인 합니다. 예를 들어 [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)또는 [Azure Container Instance](../container-instances/container-instances-overview.md)를 통해이 이미지를 만들 수 있습니다. 이렇게 하면 **Docker 컨테이너** 를 선택한 후 [논리 앱의 설정에서 사용 하려는 컨테이너를 지정할](#set-docker-container)수 있습니다. |
    | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 Azure 지역입니다. <p><p>이 예제에서는 **미국 서부** 를 사용합니다. |
    |||||
 
-   예는 다음과 같습니다.
+   예를 들면 다음과 같습니다.
 
    ![Azure Portal 및 "논리 앱 만들기 (미리 보기)" 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/create-logic-app-resource-portal.png)
 
 1. 그런 다음 **호스팅** 탭에서 논리 앱에 사용할 저장소 솔루션 및 호스팅 계획에 대 한 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **스토리지 계정** | 예 | <*Azure-storage-account-name*> | 저장소 트랜잭션에 사용할 [Azure Storage 계정](../storage/common/storage-account-overview.md) 입니다. 이 리소스 이름은 지역에서 고유 해야 하며 숫자와 소문자만 포함 된 3-24 자 여야 합니다. 기존 계정을 선택 하거나 새 계정을 만드십시오. <p><p>이 예제에서는 라는 저장소 계정을 만듭니다 `fabrikamstorageacct` . |
-   | **플랜 유형** | 예 | <*Azure 호스팅 계획*> | 논리 앱을 배포 하는 데 사용할 [호스팅 계획](../app-service/overview-hosting-plans.md) 으로, [**프리미엄**](../azure-functions/functions-premium-plan.md) 또는 [**app service 계획**](../azure-functions/dedicated-plan.md)입니다. 선택한 항목은 나중에 선택할 수 있는 가격 책정 계층에 영향을 줍니다. <p><p>이 예제에서는 **App service 계획** 을 사용 합니다. <p><p>**참고**: Azure Functions와 마찬가지로 **논리 앱 (미리 보기)** 리소스 종류에는 호스팅 계획 및 가격 책정 계층이 필요 합니다. 소비 호스팅 계획은이 리소스 종류에 대해 지원 되지 않으며 사용할 수 없습니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 크기 조정 및 호스팅](../azure-functions/functions-scale.md) <br>- [App Service 가격 정보](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **플랜 유형** | 예 | <*Azure 호스팅 계획*> | [**함수 프리미엄**](../azure-functions/functions-premium-plan.md) 또는 [ **app service 계획** (전용)](../azure-functions/dedicated-plan.md)인 논리 앱을 배포 하는 데 사용할 [호스팅 계획](../app-service/overview-hosting-plans.md) 입니다. 이 옵션은 나중에 사용할 수 있는 기능 및 가격 책정 계층에 영향을 줍니다. <p><p>이 예제에서는 **App service 계획** 을 사용 합니다. <p><p>**참고**: Azure Functions와 마찬가지로 **논리 앱 (미리 보기)** 리소스 종류에는 호스팅 계획 및 가격 책정 계층이 필요 합니다. 소비 계획은이 리소스 종류에 대해 지원 되지 않으며 사용할 수 없습니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 크기 조정 및 호스팅](../azure-functions/functions-scale.md) <br>- [App Service 가격 정보](https://azure.microsoft.com/pricing/details/app-service/) <p><p>예를 들어 프리미엄 계획 함수는 논리 앱을 만들고 배포 하는 경우와 유사 Azure Functions 하 게 Azure 가상 네트워크와의 연결 및 통합과 같은 네트워킹 기능에 대 한 액세스를 제공 합니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps 미리 보기를 사용 하 여 어디서 나 Azure Logic Apps 실행-네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
    | **Windows 플랜** | 예 | <*계획-이름*> | 사용할 계획 이름입니다. 기존 계획을 선택 하거나 새 계획의 이름을 입력 합니다. <p><p>이 예제에서는 `Fabrikam-Service-Plan`이름을 사용합니다. |
    | **SKU 및 크기** | 예 | <*가격 책정 계층*> | 논리 앱을 호스트 하는 데 사용할 [가격 책정 계층](../app-service/overview-hosting-plans.md) 입니다. 선택한 사항은 이전에 선택한 계획 유형에 따라 달라 집니다. 기본 계층을 변경 하려면 **크기 변경** 을 선택 합니다. 그런 다음 필요한 워크 로드에 따라 다른 가격 책정 계층을 선택할 수 있습니다. <p><p>이 예제에서는 **개발/테스트** 워크 로드에 대 한 무료 **F1 가격 책정 계층** 을 사용 합니다. 자세한 내용은 [가격 책정 세부 정보를 App Service](https://azure.microsoft.com/pricing/details/app-service/)검토 하세요. |
    |||||
@@ -103,13 +105,16 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. Azure가 논리 앱의 설정에 대 한 유효성을 검사 한 후 **검토 + 만들기** 탭에서 **만들기** 를 선택 합니다.
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
    ![Azure Portal 및 새 논리 앱 리소스 설정을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > **만들기** 를 선택한 후 유효성 검사 오류가 발생 하면를 열고 오류 정보를 검토 합니다. 예를 들어 선택한 지역이 만들려는 리소스의 할당량에 도달 하는 경우 다른 지역을 시험해 볼 수 있습니다.
+
    Azure에서 배포를 완료 한 후에는 논리 앱이 자동으로 라이브 및 실행 되지만 워크플로가 없으므로 아직 작업을 수행 하지 않습니다.
 
-1. 배포 완료 페이지에서 워크플로 빌드를 시작할 수 있도록 **리소스로 이동** 을 선택 합니다.
+1. 배포 완료 페이지에서 워크플로 빌드를 시작할 수 있도록 **리소스로 이동** 을 선택 합니다. 논리 앱을 배포 하기 위해 **Docker 컨테이너** 를 선택한 경우 [해당 docker 컨테이너에 대 한 정보를 제공 하는 단계](#set-docker-container)를 계속 진행 합니다.
 
    ![Azure Portal 및 완성 된 배포를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -117,15 +122,13 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 ## <a name="specify-docker-container-for-deployment"></a>배포용 Docker 컨테이너 지정
 
-논리 앱을 만드는 동안 **Docker 컨테이너** 를 선택한 경우 Azure Portal **논리 앱 (미리 보기)** 리소스를 만든 후 배포에 사용 하려는 컨테이너에 대 한 정보를 제공 해야 합니다.
+이러한 단계를 시작 하기 전에 Docker 컨테이너 이미지가 필요 합니다. 예를 들어 [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)또는 [Azure Container Instance](../container-instances/container-instances-overview.md)를 통해이 이미지를 만들 수 있습니다. 그런 다음 논리 앱을 만든 후 Docker 컨테이너에 대 한 정보를 제공할 수 있습니다.
 
 1. Azure Portal에서 논리 앱 리소스로 이동 합니다.
 
-1. 논리 앱 메뉴의 **설정** 에서 **컨테이너 설정** 을 선택 합니다. Docker 컨테이너 이미지에 대 한 세부 정보 및 위치를 제공 합니다.
+1. 논리 앱 메뉴의 **설정** 에서 **배포 센터** 를 선택 합니다.
 
-   !["컨테이너 설정"을 선택 하 여 논리 앱 메뉴를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. 완료 되 면 설정을 저장 합니다.
+1. **배포 센터** 창에서 Docker 컨테이너에 대 한 세부 정보를 제공 하 고 관리 하기 위한 지침을 따릅니다.
 
 <a name="add-workflow"></a>
 
@@ -286,9 +289,11 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
       ![예제에 설명 된 대로 Outlook 전자 메일을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## <a name="review-run-history"></a>실행 기록 검토
 
-상태 저장 워크플로의 경우 각 워크플로를 실행 한 후에 전체 실행에 대 한 상태, 트리거에 대 한 상태 및 각 작업에 대 한 입력 및 출력과 함께 실행 기록을 볼 수 있습니다.
+상태 저장 워크플로의 경우 각 워크플로를 실행 한 후에 전체 실행에 대 한 상태, 트리거에 대 한 상태 및 각 작업에 대 한 입력 및 출력과 함께 실행 기록을 볼 수 있습니다. Azure Portal에서 실행 기록 및 트리거 기록은 논리 앱 수준이 아닌 워크플로 수준에서 표시 됩니다. 실행 기록 컨텍스트 외부에서 트리거 기록을 검토 하려면 [트리거 기록 검토](#view-trigger-histories)를 참조 하세요.
 
 1. Azure Portal 워크플로의 메뉴에서 **모니터** 를 선택 합니다.
 
@@ -299,7 +304,7 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
    > [!TIP]
    > 가장 최근 실행 상태가 표시 되지 않으면 **모니터** 창 도구 모음에서 **새로 고침** 을 선택 합니다. 충족 되지 않은 조건으로 인해 건너뛴 트리거와 데이터를 찾을 수 없는 경우에는 실행 되지 않습니다.
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -320,15 +325,15 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
    | 작업 상태 | 아이콘 | Description |
    |---------------|------|-------------|
-   | 중단됨 | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
-   | Cancelled | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |
-   | Failed | !["실패" 작업 상태 아이콘][failed-icon] | 작업이 실패 했습니다. |
-   | 실행 중 | !["실행 중" 작업 상태 아이콘][running-icon] | 작업이 현재 실행 되 고 있습니다. |
-   | 건너뜀 | !["건너뜀" 작업 상태 아이콘][skipped-icon] | 바로 이전 작업이 실패 했으므로 작업을 건너뛰었습니다. 작업에는 `runAfter` 이전 작업이 성공적으로 완료 되어야 현재 작업을 실행할 수 있도록 하는 조건이 있습니다. |
-   | 성공 | !["성공" 작업 상태 아이콘][succeeded-icon] | 작업이 성공 했습니다. |
-   | 다시 시도 성공 | !["재시도 성공" 작업 상태 아이콘][succeeded-with-retries-icon] | 하나 이상의 재시도 후에만 작업이 성공 했습니다. 다시 시도 기록을 검토 하려면 실행 기록 세부 정보 보기에서 해당 작업을 선택 하 여 입력 및 출력을 볼 수 있습니다. |
-   | 시간 초과됨 | !["시간이 초과 되었습니다." 작업 상태 아이콘][timed-out-icon] | 해당 작업의 설정에 지정 된 제한 시간 제한으로 인해 작업이 중지 되었습니다. |
-   | 대기 중 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
+   | **중단됨** | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
+   | **취소** | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |
+   | **실패** | !["실패" 작업 상태 아이콘][failed-icon] | 작업이 실패 했습니다. |
+   | **실행 중** | !["실행 중" 작업 상태 아이콘][running-icon] | 작업이 현재 실행 되 고 있습니다. |
+   | **생략** | !["건너뜀" 작업 상태 아이콘][skipped-icon] | 바로 이전 작업이 실패 했으므로 작업을 건너뛰었습니다. 작업에는 `runAfter` 이전 작업이 성공적으로 완료 되어야 현재 작업을 실행할 수 있도록 하는 조건이 있습니다. |
+   | **성공함** | !["성공" 작업 상태 아이콘][succeeded-icon] | 작업이 성공 했습니다. |
+   | **다시 시도 성공** | !["재시도 성공" 작업 상태 아이콘][succeeded-with-retries-icon] | 하나 이상의 재시도 후에만 작업이 성공 했습니다. 다시 시도 기록을 검토 하려면 실행 기록 세부 정보 보기에서 해당 작업을 선택 하 여 입력 및 출력을 볼 수 있습니다. |
+   | **시간 초과됨** | !["시간이 초과 되었습니다." 작업 상태 아이콘][timed-out-icon] | 해당 작업의 설정에 지정 된 제한 시간 제한으로 인해 작업이 중지 되었습니다. |
+   | **대기 중** | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -346,6 +351,18 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
    ![선택한 "전자 메일 보내기" 작업의 입력 및 출력을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. 해당 단계에 대 한 원시 입력 및 출력을 추가로 검토 하려면 **원시 입력 표시** 또는 **원시 출력 표시** 를 선택 합니다.
+
+<a name="view-trigger-histories"></a>
+
+## <a name="review-trigger-histories"></a>트리거 기록 검토
+
+상태 저장 워크플로의 경우 [실행 기록 컨텍스트와](#view-run-history)별도로 입력 및 출력과 함께 트리거 상태를 포함 하 여 각 실행에 대 한 트리거 기록을 검토할 수 있습니다. Azure Portal에서 트리거 기록 및 실행 기록은 논리 앱 수준이 아닌 워크플로 수준에 나타납니다. 이 기록 데이터를 찾으려면 다음 단계를 수행 합니다.
+
+1. Azure Portal 워크플로의 메뉴에 있는 **개발자** 에서 **트리거 기록** 을 선택 합니다.
+
+   **트리거 기록** 창에는 워크플로의 실행에 대 한 트리거 기록이 표시 됩니다.
+
+1. 특정 트리거 기록을 검토 하려면 해당 실행에 대 한 ID를 선택 합니다.
 
 <a name="enable-open-application-insights"></a>
 
@@ -365,7 +382,10 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
    Application Insights 사용 하도록 설정 된 경우 **Application Insights** 창에서 **Application Insights 데이터 보기** 를 선택 합니다.
 
-Application Insights 열리면 논리 앱에 대 한 다양 한 메트릭을 검토할 수 있습니다.
+Application Insights 열리면 논리 앱에 대 한 다양 한 메트릭을 검토할 수 있습니다. 자세한 내용은 다음 항목을 검토 하십시오.
+
+* [거의 모든 위치에서 실행 하는 Azure Logic Apps-Application Insights를 사용 하 여 모니터링-1 부](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [어디에서 나 실행 Azure Logic Apps Application Insights를 사용 하 여 모니터링-2 부](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 
@@ -385,7 +405,7 @@ Application Insights 열리면 논리 앱에 대 한 다양 한 메트릭을 검
 
 1. **값** 상자에 다음 값을 입력 합니다.`WithStatelessRunHistory`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
    !["구성" > "새 응용 프로그램 설정" < "새 응용 프로그램 설정", "응용 프로그램 설정 추가/편집" 창이 열리고 "워크플로를 사용 하 여 Azure Portal 및 논리 앱 (미리 보기) 리소스를 보여 주는 스크린샷 {{Workflowname}. OperationOptions "옵션을" WithStatelessRunHistory "로 설정 합니다.](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 
@@ -447,7 +467,7 @@ Azure Logic Apps 미리 보기는 Azure 함수 작업, 액체 작업 및 xml 작
 
    `rm -rf {bundle-version}`
 
-   `rm -rf 1.1.3`
+   예: `rm -rf 1.1.3`
 
    > [!TIP]
    > "사용 권한이 거부 되었습니다." 또는 "사용 중인 파일"과 같은 오류가 발생 하는 경우 브라우저에서 페이지를 새로 고치고 폴더를 삭제할 때까지 이전 단계를 다시 시도 합니다.

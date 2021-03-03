@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983718"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737514"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
-가상 허브의 라우팅 기능은 BGP (Border Gateway Protocol)를 사용 하 여 게이트웨이 간의 모든 라우팅을 관리 하는 라우터에서 제공 합니다. 가상 허브는 사이트 간 VPN 게이트웨이, Express 경로 게이트웨이, 지점 및 사이트 간 게이트웨이, Azure 방화벽과 같은 여러 게이트웨이를 포함할 수 있습니다. 또한이 라우터는 가상 허브에 연결 하는 가상 네트워크 간의 전송 연결을 제공 하며 50 Gbps의 최대 집계 처리량을 지원할 수 있습니다. 이러한 라우팅 기능은 표준 가상 WAN 고객에 게 적용 됩니다. 
+가상 허브의 라우팅 기능은 BGP (Border Gateway Protocol)를 사용 하 여 게이트웨이 간의 모든 라우팅을 관리 하는 라우터에서 제공 합니다. 가상 허브는 사이트 간 VPN 게이트웨이, Express 경로 게이트웨이, 지점 및 사이트 간 게이트웨이, Azure 방화벽과 같은 여러 게이트웨이를 포함할 수 있습니다. 또한이 라우터는 가상 허브에 연결 하는 가상 네트워크 간의 전송 연결을 제공 하며 50 Gbps의 최대 집계 처리량을 지원할 수 있습니다. 이러한 라우팅 기능은 표준 가상 WAN 고객에 게 적용 됩니다.
 
 라우팅을 구성 하려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요.
 
@@ -28,9 +28,9 @@ ms.locfileid: "90983718"
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>허브 경로 테이블
 
-가상 허브 경로 테이블은 하나 이상의 경로를 포함할 수 있습니다. 경로에는 라우팅할 패킷에 대 한 이름, 레이블, 대상 유형, 대상 접두사 목록, 다음 홉 정보 등이 포함 됩니다. 일반적으로 **연결** 에는 경로 테이블에 연결 하거나 경로 테이블에 전파 되는 라우팅 구성이 포함 됩니다.
+가상 허브 경로 테이블은 하나 이상의 경로를 포함할 수 있습니다. 경로에는 라우팅할 패킷에 대 한 이름, 레이블, 대상 유형, 대상 접두사 목록, 다음 홉 정보 등이 포함 됩니다. 일반적으로 **연결** 에는 경로 테이블에 연결 하거나이를 전파 하는 라우팅 구성이 있습니다.
 
-### <a name="connection"></a><a name="connection"></a>연결
+### <a name="connections"></a><a name="connection"></a>Connections
 
 연결은 라우팅 구성이 있는 리소스 관리자 리소스입니다. 연결의 네 가지 유형은 다음과 같습니다.
 
@@ -55,29 +55,33 @@ ms.locfileid: "90983718"
 
 **None 경로 테이블** 은 각 가상 허브에도 사용할 수 있습니다. None 경로 테이블에 전파 하는 것은 연결에서 전파 해야 하는 경로가 없음을 의미 합니다. VPN, Express 경로 및 사용자 VPN 연결은 경로를 동일한 경로 테이블 집합으로 전파 합니다.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="연결":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="전파":::
 
-### <a name="labels"></a><a name="static"></a>레이블
-레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다. 이는 연결에서 여러 경로 테이블로 경로를 전파 하는 동안 특히 유용 합니다. 예를 들어 기본 경로 테이블에는 ' Default ' 라는 기본 제공 레이블이 있습니다. 사용자가 연결 경로를 ' Default ' 레이블에 전파 하면 가상 WAN의 모든 허브에서 모든 기본 경로 테이블에 자동으로 적용 됩니다. 
+### <a name="labels"></a><a name="labels"></a>레이블
+
+레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다. 이는 연결에서 여러 경로 테이블로 경로를 전파 하는 동안 특히 유용 합니다. 예를 들어 **기본 경로 테이블** 에는 ' default ' 라는 기본 제공 레이블이 있습니다. 사용자가 연결 경로를 ' Default ' 레이블에 전파 하면 가상 WAN의 모든 허브에서 모든 기본 경로 테이블에 자동으로 적용 됩니다.
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>가상 네트워크 연결에서 정적 경로 구성
 
 정적 경로를 구성 하면 가상 허브에 연결 된 스포크 VNet에 프로 비전 된 NVA (네트워크 가상 어플라이언스)가 될 수 있는 다음 홉 IP를 통해 트래픽을 유도 하는 메커니즘이 제공 됩니다. 고정 경로는 경로 이름, 대상 접두사 목록 및 다음 홉 IP로 구성 됩니다.
 
-## <a name="reset-hub"></a><a name="route"></a>허브 다시 설정
-이 옵션은 Azure Portal 에서만 사용할 수 있으며,이 옵션은 경로 테이블, 허브 라우터 또는 가상 허브 리소스 자체와 같은 실패 한 리소스를 정당한 프로 비전 상태로 다시 가져오는 방법을 사용자에 게 제공 합니다. Microsoft에 지원을 요청 하기 전에 사용자가 고려해 야 할 추가 옵션입니다. 이 작업을 수행 해도 가상 허브의 게이트웨이는 다시 설정 되지 않습니다. 
-
-## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>연결 및 전파 기능 집합 전에 기본 및 표준 가상 Wan의 테이블 경로
+## <a name="route-tables-for-pre-existing-routes"></a><a name="route"></a>기존 경로에 대 한 경로 테이블
 
 이제 경로 테이블은 연결 및 전파 기능을 제공합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에 기존 경로를 사용 중이고 새 기능을 사용하려는 경우 다음 사항을 고려하세요.
 
 * **가상 허브의 기존 경로를 사용 하는 표준 가상 WAN 고객**:
 
-Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 새 경로 테이블을 만들어야 합니다 (Azure Portal의 허브에 대 한 경로 테이블 섹션에서 사용 가능).
+   Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
 
-* **가상 허브의 기존 경로를 사용 하는 기본 가상 WAN 고객**: Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 사용 하는 경우 먼저 해당 경로를 삭제 한 다음 기본 가상 Wan을 표준 가상 wan으로 **업그레이드** 해야 합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+* **가상 허브의 기존 경로를 사용 하는 기본 가상 WAN 고객**:
 
-## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>가상 WAN 라우팅 고려 사항
+   Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드** 합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+
+## <a name="hub-reset"></a><a name="reset"></a>허브 다시 설정
+
+가상 허브 **다시 설정은** Azure Portal 에서만 사용할 수 있습니다. 다시 설정 하면 경로 테이블, 허브 라우터 또는 가상 허브 리소스 자체와 같은 실패 한 리소스를 정당한 프로 비전 상태로 다시 가져오는 방법이 제공 됩니다. 지원 하기 위해 Microsoft에 연락 하기 전에 허브를 다시 설정 하는 것이 좋습니다. 이 작업을 수행 해도 가상 허브의 게이트웨이는 다시 설정 되지 않습니다.
+
+## <a name="additional-considerations"></a><a name="considerations"></a>기타 고려 사항
 
 가상 WAN 라우팅을 구성할 때 다음 사항을 고려 하세요.
 
@@ -86,11 +90,8 @@ Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치
 * Azure 방화벽을 통한 분기 간 분기는 현재 지원 되지 않습니다.
 * 여러 지역에서 Azure 방화벽을 사용 하는 경우 모든 스포크 가상 네트워크를 동일한 경로 테이블에 연결 해야 합니다. 예를 들어 Vnet 하위 집합이 Azure 방화벽을 통과 하는 반면, 다른 Vnet는 동일한 가상 허브에서 Azure 방화벽을 우회 하는 것은 불가능 합니다.
 * VNet 연결당 하나의 다음 홉 IP를 구성할 수 있습니다.
-* 가상 허브는 0.0.0.0/0 및 다음 홉 Virtual Network 연결 (또는 VNet 연결의 어플라이언스 IP)에 대 한 고정 경로를 지원 하지 않습니다.
-* 0.0.0.0/0 경로와 관련 된 모든 정보는 로컬 허브의 경로 테이블에만 국한 됩니다. 이 경로는 허브 간에 전파 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-라우팅을 구성 하려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요.
-
-Virtual WAN에 대한 자세한 내용은 [FAQ](virtual-wan-faq.md)를 참조하세요.
+* 라우팅을 구성 하려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요.
+* Virtual WAN에 대한 자세한 내용은 [FAQ](virtual-wan-faq.md)를 참조하세요.

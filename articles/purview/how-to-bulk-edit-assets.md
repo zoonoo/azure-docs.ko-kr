@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372148"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693767"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>용어를 태그 용어집으로 대량 편집 하는 방법
 
@@ -63,11 +63,15 @@ ms.locfileid: "97372148"
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="제거 용어의 스크린샷":::
 
-7. 완료 되 면 **닫기** 또는 **모두 제거를 선택 하 고 닫기** 를 선택 하 여 대량 편집 블레이드를 닫습니다. 닫기는 선택한 자산을 제거 하지 않지만 모두 제거 및 닫기는 선택한 자산을 모두 제거 합니다.
+7. 분류, 소유자 및 전문가를 위해 위의 단계를 반복 합니다.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="제거 용어의 스크린샷":::
+
+8. 완료 되 면 **닫기** 또는 **모두 제거를 선택 하 고 닫기** 를 선택 하 여 대량 편집 블레이드를 닫습니다. 닫기는 선택한 자산을 제거 하지 않지만 모두 제거 및 닫기는 선택한 자산을 모두 제거 합니다.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="닫기의 스크린샷":::
 
    > [!Important]
-   > 대량 편집에 권장 되는 자산 수는 15입니다. 을 (를) 15 이상으로 선택 하면 성능 문제가 발생할 수 있습니다.
+   > 대량 편집에 권장 되는 자산 수는 15입니다. 25 개를 초과 하 여 선택 하면 성능 문제가 발생할 수 있습니다.
    > 선택 된 **보기** 상자는 선택한 자산이 하나 이상 있는 경우에만 표시 됩니다.
 
 

@@ -101,7 +101,7 @@
     - name: 참조
       items:
         - name: 문서 번역 API 참조
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Custom Translator
   items:
     - name: 개요

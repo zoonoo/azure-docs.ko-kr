@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062681"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702711"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -217,7 +217,44 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 
 ## <a name="best-practices"></a>모범 사례
 
-장치를 처음 연결할 때 DPS에서 반환 하는 장치 연결 문자열을 유지 하거나 캐시 하지 마십시오. 장치를 다시 연결 하려면 표준 장치 등록 흐름을 진행 하 여 올바른 장치 연결 문자열을 가져옵니다. 장치에서 연결 문자열을 캐시 하는 경우 장치 소프트웨어는 오래 된 연결 문자열을 보유 하 게 될 위험이 있습니다. IoT Central에서 사용 하는 기본 Azure IoT hub를 업데이트 하는 경우 유효 하지 않은 연결 문자열을 포함 하는 장치에 연결할 수 없습니다.
+이러한 권장 사항은 기본 제공 재해 복구 및 자동 크기 조정 기능을 활용 하는 IoT Central 장치를 구현 하는 방법을 보여 줍니다.
+
+다음 목록에서는 장치가 IoT Central에 연결 하는 경우의 상위 수준 흐름을 보여 줍니다.
+
+1. DPS를 사용 하 여 장치를 프로 비전 하 고 장치 연결 문자열을 가져옵니다.
+
+1. 연결 문자열을 사용 하 여 IoT Central의 내부 IoT Hub 끝점에 연결 합니다. IoT Central 응용 프로그램에서 데이터를 보내고 받을 수 있습니다.
+
+1. 장치에서 연결 오류가 발생 하는 경우 오류 유형에 따라 연결을 다시 시도 하거나 장치를 다시 구축.
+
+### <a name="use-dps-to-provision-the-device"></a>DPS를 사용 하 여 장치 프로 비전
+
+DPS를 사용 하 여 장치를 프로 비전 하려면 IoT Central 응용 프로그램의 범위 ID, 자격 증명 및 장치 ID를 사용 합니다. 자격 증명 유형에 대 한 자세한 내용은 [x.509 그룹 등록](#x509-group-enrollment) 및 [SAS 그룹 등록](#sas-group-enrollment)을 참조 하세요. 장치 Id에 대해 자세히 알아보려면 [장치 등록](#device-registration)을 참조 하세요.
+
+성공 하면 DPS는 장치에서 IoT Central 응용 프로그램에 연결 하는 데 사용할 수 있는 연결 문자열을 반환 합니다. 프로 비전 오류를 해결 하려면 [장치의 프로 비전 상태 확인](troubleshoot-connection.md#check-the-provisioning-status-of-your-device)을 참조 하세요.
+
+장치는 나중에 연결 하는 데 사용할 연결 문자열을 캐시할 수 있습니다. 그러나 장치는 [연결 실패를 처리할](#handle-connection-failures)수 있도록 준비 해야 합니다.
+
+### <a name="connect-to-iot-central"></a>IoT Central에 연결
+
+연결 문자열을 사용 하 여 IoT Central의 내부 IoT Hub 끝점에 연결 합니다. 연결을 사용 하 여 IoT Central 응용 프로그램에 원격 분석을 보내고, IoT Central 응용 프로그램과 속성 값을 동기화 하 고, IoT Central 응용 프로그램에서 보낸 명령에 응답할 수 있습니다.
+
+### <a name="handle-connection-failures"></a>연결 실패 처리
+
+크기 조정 또는 재해 복구를 위해 IoT Central 기본 IoT hub를 업데이트할 수 있습니다. 연결을 유지 하기 위해 장치 코드는 새 IoT Hub 끝점에 대 한 연결을 설정 하 여 특정 연결 오류를 처리 해야 합니다.
+
+장치에서 연결할 때 다음 오류가 발생 하면 DPS로 프로 비전 단계를 다시 실행 하 여 새 연결 문자열을 가져옵니다. 이러한 오류는 장치가 사용 하는 연결 문자열이 더 이상 유효 하지 않음을 의미 합니다.
+
+- IoT Hub 끝점에 연결할 수 없습니다.
+- 만료 된 보안 토큰입니다.
+- IoT Hub에서 장치를 사용할 수 없습니다.
+
+장치에서 연결할 때 다음 오류가 발생 하는 경우 백오프 전략을 사용 하 여 연결을 다시 시도해 야 합니다. 이러한 오류는 장치가 사용 하는 연결 문자열이 여전히 유효 하지만 일시적인 조건에서 장치를 연결 하는 것을 중지 하는 것을 의미 합니다.
+
+- 운영자 차단 장치.
+- 서비스의 내부 오류 500입니다.
+
+장치 오류 코드에 대해 자세히 알아보려면 [장치 연결 문제 해결](troubleshoot-connection.md)을 참조 하세요.
 
 ## <a name="sdk-support"></a>SDK 지원
 
@@ -235,7 +272,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 - [디바이스-클라우드 메시징](../../iot-hub/iot-hub-devguide-messages-d2c.md)
 - [클라우드-디바이스 메시징](../../iot-hub/iot-hub-devguide-messages-c2d.md)
-- [장치 쌍](../../iot-hub/iot-hub-devguide-device-twins.md)
+- [디바이스 쌍](../../iot-hub/iot-hub-devguide-device-twins.md)
 
 다음 표에는 Azure IoT Central 디바이스 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
 

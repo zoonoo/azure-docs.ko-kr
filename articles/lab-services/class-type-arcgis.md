@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740106"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>ArcMap\ArcGIS Desktop에 대 한 랩 설정
 
@@ -24,7 +24,7 @@ Azure 구독을 가져온 후 Azure Lab Services에서 새 랩 계정을 만들 
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-다음 표에 설명 된 대로 랩 계정 설정을 사용 하도록 설정 합니다.  Azure Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 Azure Marketplace 이미지 지정](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images)을 참조 하세요.
+다음 표에 설명 된 대로 랩 계정 설정을 사용 하도록 설정 합니다.  Azure Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 Azure Marketplace 이미지 지정](./specify-marketplace-images.md)을 참조 하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
@@ -34,7 +34,7 @@ Azure 구독을 가져온 후 Azure Lab Services에서 새 랩 계정을 만들 
 
 ArcGIS Desktop이 제공 하는 한 가지 유형의 라이선스는 [동시 사용 라이선스](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm)입니다.  이렇게 하려면 라이선스 서버에 ArcGIS 라이선스 관리자를 설치 해야 합니다.  라이선스 관리자는 동시에 실행할 수 있는 소프트웨어의 복사본 수를 추적 합니다.  서버에서 라이선스 관리자를 설정 하는 방법에 대 한 자세한 내용은 [라이선스 관리자 가이드](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm)를 참조 하십시오.
 
-라이선스 서버는 일반적으로 온-프레미스 네트워크 또는 Azure 가상 컴퓨터에서 호스트 되는 Azure 가상 네트워크 내에 있습니다.  라이선스 서버를 설정한 후에는 [랩 계정](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account)으로 [가상 네트워크를 피어](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network) 링 해야 합니다.  랩 Vm이 라이선스 서버에 액세스할 수 있도록 랩을 만들기 전에 네트워크 피어 링을 수행 해야 하며, 그 반대의 경우도 마찬가지입니다.
+라이선스 서버는 일반적으로 온-프레미스 네트워크 또는 Azure 가상 컴퓨터에서 호스트 되는 Azure 가상 네트워크 내에 있습니다.  라이선스 서버를 설정한 후에는 [랩 계정](./tutorial-setup-lab-account.md)으로 [가상 네트워크를 피어](./how-to-connect-peer-virtual-network.md) 링 해야 합니다.  랩 Vm이 라이선스 서버에 액세스할 수 있도록 랩을 만들기 전에 네트워크 피어 링을 수행 해야 하며, 그 반대의 경우도 마찬가지입니다.
 
 자세한 내용은 [공유 리소스로 라이선스 서버 설정](how-to-create-a-lab-with-shared-resource.md)을 참조 하세요.
 

@@ -1,19 +1,15 @@
 ---
 title: Enterprise Security Package 클러스터 관리-Azure HDInsight
 description: Enterprise Security Package를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 3dcb5d7ed75bda8422ba3bd461b08d3bfb2d974f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742214"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 
@@ -51,7 +47,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 |작업|시나리오|액세스 방법|
 |--------|--------|-------------|
-|Apache Hadoop|Hive – 대화형 작업/쿼리  |<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Hadoop|Hive – 대화형 작업/쿼리    |<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|대화형 작업/쿼리, PySpark 대화형|<ul><li>[Beeline](#beeline)</li><li>[Livy를 사용한 Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|일괄 처리 시나리오 – Spark 제출, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |대화형 쿼리(LLAP)|대화형|<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
@@ -63,7 +59,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 표준 API를 사용하면 보안 측면에서 도움이 됩니다. 또한 다음과 같은 이점을 얻을 수 있습니다.
 
 - **관리** – 표준 API(Livy, HS2 등)를 사용하여 코드를 관리하고 작업을 자동화할 수 있습니다.
-- **Audit** – ssh를 사용 하 여 사용자가 클러스터에 대해 ssh를 할 수 있는 사용자를 감사할 수 있는 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 엔드포인트를 통해 생성되는 경우는 여기에 해당되지 않습니다.
+- **Audit** – ssh를 사용 하 여 사용자가 클러스터에 대해 ssh를 할 수 있는 사용자를 감사할 수 있는 방법이 없습니다. 이는 사용자 컨텍스트에서 실행 되는 것 처럼 표준 끝점을 통해 작업을 생성 하는 경우에 해당 하지 않습니다.
 
 ### <a name="use-beeline"></a><a name="beeline"></a>Beeline 사용
 
@@ -87,13 +83,13 @@ Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 비ESP HDInsight 클러스터에는 클러스터를 만드는 중에 생성되는 두 개의 사용자 계정이 있습니다.
 
-- **Ambari 관리자** : 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자* 라고도 합니다. 이 계정은 Ambari at에 로그인 하는 데 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 또한 Ambari 뷰에서 쿼리를 실행 하 고, 외부 도구 (예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행 하 고, Hive ODBC 드라이버와 BI 도구 (예: Excel, Power BI 또는 Tableau)를 사용 하 여 인증 하는 데 사용할 수 있습니다.
+- **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자* 라고도 합니다. 이 계정은 Ambari at에 로그인 하는 데 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 또한 Ambari 뷰에서 쿼리를 실행 하 고, 외부 도구 (예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행 하 고, Hive ODBC 드라이버와 BI 도구 (예: Excel, Power BI 또는 Tableau)를 사용 하 여 인증 하는 데 사용할 수 있습니다.
 
 ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의 새로운 사용자가 있습니다.
 
-- **Ranger 관리자** : 이 계정은 로컬 Apache Ranger 관리자 계정입니다. Active directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin* 이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
+- **Ranger 관리자**: 이 계정은 로컬 Apache Ranger 관리자 계정입니다. Active directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin* 이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
 
-- **클러스터 관리 도메인 사용자** : 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안 이 사용자의 자격 증명을 입력해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
+- **클러스터 관리 도메인 사용자**: 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안이 사용자의 자격 증명을 제공 해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
     - 컴퓨터를 도메인에 가입하고 클러스터를 만드는 동안 지정하는 OU 내에 배치합니다.
     - 클러스터를 만드는 동안 지정하는 OU 내에 서비스 사용자를 만듭니다.
     - 역방향 DNS 항목을 만듭니다.
@@ -102,7 +98,7 @@ ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의
 
     클러스터 내의 끝점 (예: Templeton)이 레인저에서 관리 되지 않으므로 안전 하지 않습니다. 이러한 끝점은 클러스터 관리 도메인 사용자를 제외한 모든 사용자에게 잠겨 있습니다.
 
-- **일반** : 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 엔드포인트(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
+- **일반**: 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 엔드포인트(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>ESP가 포함된 HDInsight 클러스터의 역할
 

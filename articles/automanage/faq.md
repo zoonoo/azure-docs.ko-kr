@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654020"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688011"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -80,7 +80,7 @@ Azure Automanage는 공개 미리 보기에서 추가 비용 없이 사용할 �
 
 **Azure 정책을 통해 Automanage를 적용할 수 있나요?**
 
-예, 자동 관리를 정의 된 범위 내의 모든 Vm에 자동으로 적용 하는 기본 제공 정책이 있습니다. 또한 Automanage 계정과 함께 구성 프로필 (DevTest 또는 Production)을 지정 합니다. Azure 정책을 통한 Automanage 사용에 대 한 자세한 내용은 [여기](virtual-machines-policy-enable.md)를 참조 하세요.
+예, 자동 관리를 정의 된 범위 내의 모든 Vm에 자동으로 적용 하는 기본 제공 정책이 있습니다. 또한 Automanage 계정과 함께 환경 구성 (DevTest 또는 Production)을 지정 합니다. Azure 정책을 통한 Automanage 사용에 대 한 자세한 내용은 [여기](virtual-machines-policy-enable.md)를 참조 하세요.
 
 
 **Automanage 계정 이란?**
@@ -93,9 +93,9 @@ Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 �
 VM이 기존 Log Analytics 작업 영역에 연결 된 경우 해당 작업 영역을 다시 사용 하 여 변경 내용 추적, 인벤토리 및 업데이트 관리 솔루션을 적용 합니다. 해당 작업 영역에 연결 된 모든 Vm은 해당 솔루션을 사용할 수 있습니다.
 
 
-**내 VM의 구성 프로필을 변경할 수 있나요?**
+**내 VM의 환경을 변경할 수 있나요?**
 
-이번에는 해당 VM에 대해 Automanage를 사용 하지 않도록 설정한 후 원하는 구성 프로필 및 기본 설정으로 Automanage를 다시 사용 하도록 설정 해야 합니다.
+이번에는 해당 VM에 대해 Automanage를 사용 하지 않도록 설정한 다음 원하는 환경 및 기본 설정으로 Automanage를 다시 사용 하도록 설정 해야 합니다.
 
 
 **내 VM이 이미 서비스에 대해 구성 되어 있는 경우 (예: 업데이트 관리) 자동으로 다시 구성 합니다.**

@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740446"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 
@@ -30,12 +30,12 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 
 ## <a name="pipeline-run-information"></a>파이프라인 실행 정보
 
-파이프라인 실행 속성은 [PIPELINERUN API 참조](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun)를 참조 하세요. 파이프라인 실행은 수명 주기 중에 다른 상태를 가지 며, 가능한 실행 상태 값은 다음과 같습니다.
+파이프라인 실행 속성은 [PIPELINERUN API 참조](/rest/api/datafactory/pipelineruns/get#pipelinerun)를 참조 하세요. 파이프라인 실행은 수명 주기 중에 다른 상태를 가지 며, 가능한 실행 상태 값은 다음과 같습니다.
 
 * Queued
 * InProgress
 * 성공
-* Failed
+* 실패
 * 취소 중
 * 취소됨
 
@@ -163,5 +163,4 @@ PowerShell을 사용 하 여 파이프라인을 만들고 모니터링 하는 �
 PowerShell cmdlet에 대한 전체 설명서를 보려면 [Data Factory PowerShell cmdlet 참조](/powershell/module/az.datafactory)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Monitor를 사용하여 Data Factory 파이프라인을 모니터링하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 파이프라인 모니터링](monitor-using-azure-monitor.md) 문서를 참조하세요. 
-
+Azure Monitor를 사용하여 Data Factory 파이프라인을 모니터링하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 파이프라인 모니터링](monitor-using-azure-monitor.md) 문서를 참조하세요.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: a0efeaa3df0ecc69fa29dcb2cbb50874c4ab486a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6848b4e0463be803fb4f41797d933386cb575a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732108"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -76,7 +76,7 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
 - CollectD 메트릭 수집에 Linux용 Log Analytics 에이전트 v1.1.0-217 이상이 필요합니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단계는 다음과 같습니다.
 
 1. write_http 플러그 인을 사용하여 Linux용 Log Analytics 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  
@@ -132,5 +132,5 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다. 
-* [사용자 지정 필드](../platform/custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다. 
+* [사용자 지정 필드](../logs/custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.

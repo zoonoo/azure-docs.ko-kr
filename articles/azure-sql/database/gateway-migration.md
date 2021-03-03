@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690535"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 제공 하기 위해 정기적으로 하드웨어를 새로 고칩니다. 향후 몇 개월 동안 새로운 하드웨어 세대를 기반으로 하는 게이트웨이를 추가 하 고, 트래픽을 마이그레이션하고, 궁극적으로는 일부 지역에서 이전 하드웨어를 기반으로 하는 게이트웨이를 서비스 해제할 계획입니다.  
 
-고객은 각 지역에서 사용 가능한 게이트웨이를 변경 하기 전에 서비스 상태 알림을 통해 알림을 받습니다. 고객은 [Azure Portal를 사용 하 여 활동 로그 경고를 설정할](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)수 있습니다.
+고객은 각 지역에서 사용 가능한 게이트웨이를 변경 하기 전에 서비스 상태 알림을 통해 알림을 받습니다. 고객은 [Azure Portal를 사용 하 여 활동 로그 경고를 설정할](../../service-health/alerts-activity-log-service-notifications-portal.md)수 있습니다.
 
 최신 정보는 [Azure SQL Database GATEWAY IP addresses](connectivity-architecture.md#gateway-ip-addresses) 테이블에서 유지 관리 됩니다.
 

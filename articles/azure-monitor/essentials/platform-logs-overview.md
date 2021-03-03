@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d2162a5c3d88eaae69b3a67456fdc29f19b1a79a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616594"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725852"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Azure 플랫폼 로그 개요
 플랫폼 로그는 Azure 리소스 및 해당 리소스가 종속 된 Azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 보존 하기 위해 특정 플랫폼 로그를 하나 이상의 대상으로 전달 하도록 구성 해야 하는 경우에도 자동으로 생성 됩니다. 이 문서에서는 제공 하는 정보와 수집 및 분석을 위해 구성 하는 방법을 비롯 하 여 플랫폼 로그의 개요를 제공 합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "100616594"
 
 | 로그 | 계층 | 설명 |
 |:---|:---|:---|
-| [리소스 로그](../platform/resource-logs.md) | Azure 리소스 | Azure 리소스 ( *데이터 평면*) 내에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다.<br><br>*리소스 로그는 이전에 진단 로그 라고 합니다.*  |
+| [리소스 로그](./resource-logs.md) | Azure 리소스 | Azure 리소스 ( *데이터 평면*) 내에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다.<br><br>*리소스 로그는 이전에 진단 로그 라고 합니다.*  |
 | [활동 로그](../essentials/activity-log.md) | Azure 구독 | Service Health 이벤트에 대 한 업데이트 외에도 외부 (*관리 평면*)에서 구독의 각 Azure 리소스에 대 한 작업에 대 한 통찰력을 제공 합니다. 활동 로그를 사용 하 여 구독의 리소스에 대해 수행 되는 쓰기 작업 (PUT, POST, DELETE)에 대 한 _내용_, 대상 및 _시기_ _를 결정_ 합니다. 각 Azure 구독에 대 한 단일 활동 로그가 있습니다. |
 | [Azure Active Directory 로그](../../active-directory/reports-monitoring/overview-reports.md) | Azure 테넌트 |  특정 테 넌 트에 대해 Azure Active Directory의 로그인 활동 기록과 변경 내용의 감사 내역을 포함 합니다.   |
 
@@ -46,7 +46,7 @@ ms.locfileid: "100616594"
 
 | 대상 | Description |
 |:---|:---|
-| Log Analytics 작업 영역 | 모든 Azure 리소스의 로그를 함께 분석 하 고 [로그 쿼리](../log-query/log-query-overview.md) 및 [로그 경고](../alerts/alerts-log.md)를 포함 하 여 [Azure Monitor 로그](../platform/data-platform-logs.md) 에 사용할 수 있는 모든 기능을 활용 합니다. 로그 쿼리의 결과를 Azure 대시보드에 고정 하거나 대화형 보고서의 일부로 통합 문서에 포함 합니다. |  |
+| Log Analytics 작업 영역 | 모든 Azure 리소스의 로그를 함께 분석 하 고 [로그 쿼리](../logs/log-query-overview.md) 및 [로그 경고](../alerts/alerts-log.md)를 포함 하 여 [Azure Monitor 로그](../logs/data-platform-logs.md) 에 사용할 수 있는 모든 기능을 활용 합니다. 로그 쿼리의 결과를 Azure 대시보드에 고정 하거나 대화형 보고서의 일부로 통합 문서에 포함 합니다. |  |
 | 이벤트 허브 | Azure 외부 (예: 타사 SIEM 또는 사용자 지정 원격 분석 플랫폼)에 플랫폼 로그 데이터를 보냅니다.
 | Azure Storage | 감사 또는 백업용 로그를 보관 합니다. |
 
@@ -61,5 +61,4 @@ ms.locfileid: "100616594"
 ## <a name="next-steps"></a>다음 단계
 
 * [활동 로그에 대 한 자세한 내용 읽기](../essentials/activity-log.md)
-* [리소스 로그에 대 한 자세한 내용 읽기](../platform/resource-logs.md)
-
+* [리소스 로그에 대 한 자세한 내용 읽기](./resource-logs.md)

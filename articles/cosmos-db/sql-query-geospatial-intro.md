@@ -5,23 +5,23 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/25/2021
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b20c72ae3ed8a8fffa02fc3a2c86f9f73ba2663b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336166"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692133"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB의 지리 공간 기능을 소개합니다. 현재 지리 공간적 데이터를 저장 하 고 액세스 하는 것은 Azure Cosmos DB SQL API 계정 에서만 지원 됩니다. 지리 공간적 인덱싱에 대 한 설명서를 읽은 후에는 다음 질문에 대답할 수 있습니다.
+이 문서에서는 Azure Cosmos DB의 지리 공간 기능을 소개합니다. 지리 공간적 인덱싱에 대 한 설명서를 읽은 후에는 다음 질문에 대답할 수 있습니다.
 
 * Azure Cosmos DB에 공간 데이터를 저장하려면 어떻게 해야 하나요?
-* SQL 및 LINQ에서 Azure Cosmos DB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
+* SQL 및 LINQ에서 Azure Cosmos DB의 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
 * Azure Cosmos DB에서 공간 인덱싱을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
 ## <a name="spatial-data-use-cases"></a>공간 데이터 사용 사례
@@ -121,9 +121,9 @@ Azure Cosmos DB는 WGS-84 참조 시스템을 기준으로 좌표를 해석합�
     "type":"Polygon",
     "coordinates":[ [
         [ 31.8, -5 ],
-        [ 31.8, -4.7 ],
-        [ 32, -4.7 ],
         [ 32, -5 ],
+        [ 32, -4.7 ],
+        [ 31.8, -4.7 ],
         [ 31.8, -5 ]
     ] ]
 }

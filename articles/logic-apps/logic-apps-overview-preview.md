@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715210"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
@@ -38,7 +38,7 @@ Azure Logic Apps 미리 보기를 사용 하면 새 **논리 앱 (미리 보기)
 
 * [Azure Logic Apps 미리 보기의 제한](#limits)입니다.
 
-자세한 내용은 다음 문서를 참조 하세요.
+자세한 내용은 다음 항목을 참조 하십시오.
 
 * [어디에서 나 실행 중인 Azure Logic Apps-런타임 심층 살펴보기](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,11 +50,11 @@ Azure Logic Apps 미리 보기를 사용 하면 새 **논리 앱 (미리 보기)
 
 Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions/functions-overview.md) 확장성을 사용 하며 Azure Functions 런타임에서 확장으로 호스팅됩니다. 이 아키텍처는 Azure Functions 실행 되는 모든 위치에서 새 논리 앱 유형을 실행할 수 있음을 의미 합니다. 원하는 거의 모든 네트워크 토폴로지에서 Azure Logic Apps Preview 런타임을 호스트 하 고 사용 가능한 계산 크기를 선택 하 여 워크플로에 필요한 작업을 처리할 수 있습니다. Azure Functions 확장성에 대 한 자세한 내용은 [WEBJOBS SDK: 사용자 지정 입력 및 출력 바인딩 만들기](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)를 참조 하세요.
 
-이 새로운 방법을 사용 하는 경우 Azure Logic Apps 미리 보기 런타임과 워크플로는 모두 함께 패키지할 수 있는 앱의 일부입니다. 이 기능을 사용 하면 간단히 아티팩트를 호스팅 환경에 복사 하 고 앱을 시작 하 여 워크플로를 배포 및 실행할 수 있습니다. 또한이 방법은 프로덕션 환경에 변경 내용을 배포 하기 전에 필요한 테스트 및 유효성 검사를 실행 하기 위한 워크플로 프로젝트에 대 한 DevOps 파이프라인을 빌드하기 위한 보다 표준화 된 환경을 제공 합니다. 자세한 내용은 [어디서 나 실행 Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)을 참조 하세요.
+이 새로운 방법을 사용 하는 경우 Azure Logic Apps 미리 보기 런타임과 워크플로는 모두 함께 패키지할 수 있는 앱의 일부입니다. 이 기능을 사용 하면 간단히 아티팩트를 호스팅 환경에 복사 하 고 앱을 시작 하 여 워크플로를 배포 및 실행할 수 있습니다. 또한이 방법은 프로덕션 환경에 변경 내용을 배포 하기 전에 필요한 테스트 및 유효성 검사를 실행 하기 위해 워크플로 프로젝트에 대 한 배포 파이프라인을 구축 하는 보다 표준화 된 환경을 제공 합니다. 자세한 내용은 [어디서 나 실행 Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)을 참조 하세요.
 
 다음 표에서는 워크플로가 실행 되는 환경에 따라 리소스를 공유 하는 방식의 차이를 간략히 요약 하 여 보여 줍니다. 제한에 대 한 차이점은 [Azure Logic Apps 미리 보기의 제한](#limits)을 참조 하세요.
 
-| 환경 | 리소스 공유 및 소비 |
+| Environment | 리소스 공유 및 소비 |
 |-------------|----------------------------------|
 | Azure Logic Apps (다중 테 넌 트) | *여러 테 넌 트에 있는 고객의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
 | Azure Logic Apps (미리 보기) | *동일한 논리 앱의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
@@ -139,10 +139,17 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 
 * Azure 구독 및 논리 앱 설정에서 지원 되는 경우 [Application Insights](../azure-monitor/app/app-insights-overview.md) 를 사용 하 여 논리 앱에 대 한 진단 로깅 및 추적 기능을 사용 하도록 설정 합니다.
 
+* [Azure Functions Premium 요금제](../azure-functions/functions-premium-plan.md)를 사용 하 여 논리 앱을 만들고 배포 하는 경우와 마찬가지로, Azure 가상 네트워크와의 연결 및 개인 연결과 같은 네트워킹 기능에 액세스 하는 것이 Azure Functions. 자세한 내용은 다음 항목을 검토 하십시오.
+
+  * [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md)
+
+  * [Azure Logic Apps 미리 보기를 사용 하 여 어디서 나 Azure Logic Apps 실행-네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * **논리 앱 (미리 보기)** 리소스의 개별 워크플로에서 사용 하는 관리 되는 연결에 대 한 액세스 키를 다시 생성 합니다. 이 작업의 경우에는 논리 앱 리소스 수준이 아닌 [개별 워크플로 수준에서 **Logic Apps** 리소스에 대해 동일한 단계를 수행](logic-apps-securing-a-logic-app.md#regenerate-access-keys)합니다.
 
-> [!NOTE]
-> 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
+* 미리 보기가 아닌 디자이너와 동일한 단계를 수행 하 여 새 디자이너에서 병렬 분기를 추가 합니다.
+ 
+자세한 내용은 GitHub의 [변경 됨, 제한 됨, 사용할 수 없음 및 지원 되지 않는 기능](#limited-unavailable-unsupported) 및 [Logic Apps 공개 미리 보기 알려진 문제 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
 
 * **OS 지원**: 현재 Visual Studio Code의 디자이너는 linux OS에서 작동 하지 않지만 Logic Apps Preview runtime을 사용 하는 논리 앱을 linux 기반 가상 머신에 계속 배포할 수 있습니다. 지금은 Windows 또는 macOS에서 Visual Studio Code 하 여 논리 앱을 빌드한 다음 Linux 기반 가상 머신에 배포할 수 있습니다.
 
-* **트리거 및 동작**: 슬라이딩 윈도우 및 일괄 처리와 같은 일부 기본 제공 트리거를 사용할 수 없습니다. 워크플로를 시작 하려면 [기본 제공 되는 되풀이, 요청, http, Http Webhook, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 기본 제공 트리거 및 작업은 Azure Logic Apps 미리 보기 런타임에 기본적으로 실행 되 고, 관리 되는 커넥터는 Azure에 배포 됩니다. 디자이너에서 기본 제공 트리거 및 작업은 **기본 제공** 탭 아래에 표시 되 고, 관리 되는 커넥터 트리거 및 작업은 **Azure** 탭 아래에 나타납니다.
+* **트리거 및 작업**: 기본 제공 트리거 및 작업은 Azure Logic Apps 미리 보기 런타임에 기본적으로 실행 되 고, 관리 되는 커넥터는 Azure에 배포 됩니다. 슬라이딩 윈도우 및 일괄 처리와 같은 일부 기본 제공 트리거를 사용할 수 없습니다.
+
+  워크플로를 시작 하려면 [기본 제공 되는 되풀이, 요청, http, Http Webhook, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 디자이너에서 기본 제공 트리거 및 작업은 **기본 제공** 탭 아래에 표시 되 고, 관리 되는 커넥터 트리거 및 작업은 **Azure** 탭 아래에 나타납니다.
 
   > [!NOTE]
   > Visual Studio Code에서 로컬로 실행 하려면 웹 후크 기반 트리거 및 작업에 추가 설정이 필요 합니다. 자세한 내용은 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup)를 참조 하세요.
@@ -199,11 +208,11 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
 
       * 인라인 코드 작업 작업에는 더 이상 통합 계정이 필요 하지 않습니다.
 
-      * MacOS 또는 Linux를 사용 하는 경우 Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하는 경우 **인라인 코드 작업** 을 현재 사용할 수 없습니다.
+      * MacOS 및 Linux의 경우 이제 Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하는 경우 **인라인 코드 작업이** 지원 됩니다.
 
-      * 인라인 코드 작업 동작을 변경 하는 경우 논리 앱을 다시 시작 해야 합니다.
+      * **인라인 코드 작업** 작업을 변경 하는 경우 더 이상 논리 앱을 다시 시작할 필요가 없습니다.
 
-      * 인라인 코드 작업 작업은 [제한을 업데이트](logic-apps-overview-preview.md#inline-code-limits)했습니다.
+      * **인라인 코드 작업** 작업은 [제한을 업데이트](logic-apps-overview-preview.md#inline-code-limits)했습니다.
 
     * [통합 계정에 대 한 일부 기본 제공 B2B 트리거 및 작업](../connectors/apis-list.md#integration-account-connectors) 은 사용할 수 없습니다 (예: **플랫 파일** 인코딩 및 디코딩 작업).
 
@@ -211,17 +220,15 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
 
 * **호스팅 계획 가용성**: Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스 유형을 만들거나 Visual Studio Code에서 배포 하는 경우에는 Azure에서 Premium 또는 App Service 호스팅 계획만 사용할 수 있습니다. 소비 호스팅 계획을 사용할 수 없으며이 리소스 유형의 배포에 대해 지원 되지 않습니다. Visual Studio Code에서 Docker 컨테이너로 배포할 수 있지만 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에는 배포할 수 없습니다.
 
-* **병렬 분기**: 현재 새 디자이너 환경을 통해 병렬 분기를 추가할 수 없습니다. 그러나 원래 디자이너 환경을 통해 이러한 분기를 추가 하 고 새 디자이너에 표시 되도록 할 수 있습니다.
-
-  1. 디자이너 아래쪽에서 **새 Canvas** 컨트롤을 선택 하 여 새 환경을 사용 하지 않도록 설정 합니다.
-
-  1. 워크플로에 병렬 분기를 추가 합니다.
-
-  1. **새 캔버스** 컨트롤을 다시 선택 하 여 새 환경을 사용 하도록 설정 합니다.
+* **Visual Studio Code의 중단점 디버깅**: 워크플로에 대 한 파일 **의workflow.js** 내에서 중단점을 추가 하 고 사용할 수 있지만, 중단점은 트리거가 아니라 현재 작업에 대해서만 지원 됩니다. 자세한 내용은 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)를 참조 하세요.
 
 * **확대/축소 컨트롤**: 현재 디자이너에서 확대/축소 컨트롤을 사용할 수 없습니다.
 
-* **Visual Studio Code의 중단점 디버깅**: 워크플로에 대 한 파일 **의workflow.js** 내에서 중단점을 추가 하 고 사용할 수 있지만, 중단점은 트리거가 아니라 현재 작업에 대해서만 지원 됩니다. 자세한 내용은 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)를 참조 하세요.
+* **트리거 기록 및 실행 기록**: **논리 앱 (미리 보기)** 리소스 종류의 경우 논리 앱 수준이 아닌 워크플로 수준에 표시 되는 Azure Portal의 트리거 기록과 실행 기록이 표시 됩니다. 이 기록 데이터를 찾으려면 다음 단계를 수행 합니다.
+
+   * 실행 기록을 보려면 논리 앱에서 워크플로를 엽니다. 워크플로 메뉴의 **개발자** 에서 **모니터** 를 선택 합니다.
+
+   * 트리거 기록을 검토 하려면 논리 앱에서 워크플로를 엽니다. 워크플로 메뉴의 **개발자** 에서 **트리거 기록** 을 선택 합니다.
 
 <a name="limits"></a>
 

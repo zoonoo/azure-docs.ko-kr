@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5816bc542ff550accedd33ba9a7fd9d98583b3d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103025"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653765"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
@@ -237,8 +237,8 @@ Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트�
 
 ## <a name="get-help"></a>도움말 보기
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/)를 사용하여 커뮤니티에서 지원을 받을 수 있습니다.
-먼저 [Microsoft Q&A](https://docs.microsoft.com/answers/products/)에 질문하고, 기존 문제를 검색하여 이전에 누군가가 질문했는지 확인합니다.
+[Microsoft Q&A](/answers/products/)를 사용하여 커뮤니티에서 지원을 받을 수 있습니다.
+먼저 [Microsoft Q&A](/answers/products/)에 질문하고, 기존 문제를 검색하여 이전에 누군가가 질문했는지 확인합니다.
 질문 또는 의견에 "azure-ad-adal-deprecation," "azure-ad-msal," 및 "dotnet-standard" 태그가 지정되어 있는지 확인합니다.
 
 샘플에 버그가 있으면 해당 문제를 [GitHub 문제](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues)에 제기하세요.

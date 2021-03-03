@@ -1,14 +1,14 @@
 ---
 title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
-ms.date: 09/30/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424094"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702524"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -80,9 +80,9 @@ MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboa
 
 자동화를 사용 하 여 여러 Azure 센티널 작업 영역을 관리 하 고, [구하기 쿼리](../../sentinel/hunting.md), playbooks 및 통합 문서를 구성할 수 있습니다. 자세한 내용은 [자동화를 사용 하 여 작업 영역 간 관리](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation)를 참조 하세요.
 
-## <a name="manage-security-of-office-365-environments"></a>Office 365 환경 보안 관리
+## <a name="monitor-security-of-office-365-environments"></a>Office 365 환경의 보안 모니터링
 
-Azure Lighthouse를 Azure 센티널과 함께 사용 하 여 테 넌 트 간의 Office 365 환경 보안을 관리 합니다. 먼저, Exchange 및 SharePoint (OneDrive 포함)의 사용자 및 관리 활동에 대 한 정보를 관리 되는 테 넌 트 내에서 Azure 센티널 작업 영역으로 수집 수 있도록 [관리 되는 테 넌 트에서 Office 365 데이터 커넥터를 사용 하도록 설정 해야 합니다](../../sentinel/connect-office-365.md) . 여기에는 작업을 수행한 사용자에 대 한 정보와 함께 파일 다운로드, 보낸 액세스 요청, 그룹 이벤트 변경, 사서함 작업 등의 동작에 대 한 세부 정보가 포함 됩니다. [Office 365 DLP 경고](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) 는 기본 제공 office 365 커넥터의 일부로도 지원 됩니다.
+Azure Lighthouse를 Azure 센티널과 함께 사용 하 여 테 넌 트 간의 Office 365 환경 보안을 모니터링 합니다. 먼저, Exchange 및 SharePoint (OneDrive 포함)의 사용자 및 관리 활동에 대 한 정보를 관리 되는 테 넌 트 내에서 Azure 센티널 작업 영역으로 수집 수 있도록 [관리 되는 테 넌 트에서 Office 365 데이터 커넥터를 사용 하도록 설정 해야 합니다](../../sentinel/connect-office-365.md) . 여기에는 작업을 수행한 사용자에 대 한 정보와 함께 파일 다운로드, 보낸 액세스 요청, 그룹 이벤트 변경, 사서함 작업 등의 동작에 대 한 세부 정보가 포함 됩니다. [Office 365 DLP 경고](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) 는 기본 제공 office 365 커넥터의 일부로도 지원 됩니다.
 
 [MCAS (Microsoft Cloud App Security) 커넥터](../../sentinel/connect-cloud-app-security.md) 를 사용 하 여 경고를 스트림 하 고 Azure 센티널에 로그를 Cloud Discovery 수 있습니다. 이를 통해 클라우드 앱에 대 한 가시성을 확보 하 고 정교한 분석을 통해 사이버 위협 대를 식별 및 공격 하 고 데이터가 이동 하는 방식을 제어할 수 있습니다. MCAS의 활동 로그 [는 CEF (Common Event Format)를 사용 하 여 사용](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849)될 수 있습니다.
 

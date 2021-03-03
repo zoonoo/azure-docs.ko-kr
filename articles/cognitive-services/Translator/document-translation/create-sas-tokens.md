@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739439"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>문서 변환에 대 한 SAS 토큰 만들기
 
@@ -19,10 +19,10 @@ ms.locfileid: "100650748"
 
 ## <a name="create-sas-tokens-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 SAS 토큰 만들기
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-* Windows, macOS 또는 Linux 개발 환경에 [**Azure Storage 탐색기**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) 앱이 설치 되어 있어야 합니다. Azure Storage 탐색기은 Azure 클라우드 저장소 리소스를 쉽게 관리할 수 있는 무료 도구입니다.
-* Azure Storage 탐색기 앱이 설치 된 후 문서 번역에 사용 하는 [저장소 계정에 연결](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) 합니다.
+* Windows, macOS 또는 Linux 개발 환경에 [**Azure Storage 탐색기**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) 앱이 설치 되어 있어야 합니다. Azure Storage 탐색기은 Azure 클라우드 저장소 리소스를 쉽게 관리할 수 있는 무료 도구입니다.
+* Azure Storage 탐색기 앱이 설치 된 후 문서 번역에 사용 하는 [저장소 계정에 연결](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) 합니다.
 
 ### <a name="create-your-tokens"></a>토큰 만들기
 
@@ -65,10 +65,10 @@ ms.locfileid: "100650748"
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Azure Portal blob에 대 한 SAS 토큰 만들기
 
 > [!NOTE]
-> Azure Portal에서 직접 컨테이너에 대 한 SAS 토큰을 만드는 것은 현재 지원 되지 않습니다. 그러나 [**Azure Storage 탐색기**](#create-sas-tokens-with-azure-storage-explorer) 를 사용 하 여 SAS 토큰을 만들거나 [프로그래밍 방식으로](/azure/storage/blobs/sas-service-create)작업을 완료할 수 있습니다.
+> Azure Portal에서 직접 컨테이너에 대 한 SAS 토큰을 만드는 것은 현재 지원 되지 않습니다. 그러나 [**Azure Storage 탐색기**](#create-sas-tokens-with-azure-storage-explorer) 를 사용 하 여 SAS 토큰을 만들거나 [프로그래밍 방식으로](../../../storage/blobs/sas-service-create.md)작업을 완료할 수 있습니다.
 
 <!-- markdownlint-disable MD024 -->
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "100650748"
 
 ## <a name="learn-more"></a>자세한 정보
 
-* [프로그래밍 방식으로 blob 또는 컨테이너에 대 한 SAS 토큰 만들기](/azure/storage/blobs/sas-service-create)
+* [프로그래밍 방식으로 blob 또는 컨테이너에 대 한 SAS 토큰 만들기](../../../storage/blobs/sas-service-create.md)
 * [디렉터리, 컨테이너 또는 blob에 대 한 사용 권한](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54c6245ea5290e2cab0efcd52f2208ba874c0848
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720446"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
@@ -44,7 +44,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 ### <a name="authentication"></a>인증
 
-ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](security-recommendations.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](security-recommendations.md)에 있습니다. 다음 창이 여기에 포함됩니다.
 
 - **공유 키:** 이렇게 하면 사용자가 계정의 모든 리소스에 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
 
@@ -53,7 +53,7 @@ ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애�
    > [!NOTE]
    > Azure Data Lake Storage Gen2는 Azure AD v 1.0 끝점만 지원 합니다.
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](https://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
 
@@ -65,5 +65,5 @@ ABFS 드라이버는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/st
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Databricks 클러스터 만들기](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Azure Databricks 클러스터 만들기](./data-lake-storage-use-databricks-spark.md)
 - [Azure Data Lake Storage Gen2 URI 사용](./data-lake-storage-introduction-abfs-uri.md)

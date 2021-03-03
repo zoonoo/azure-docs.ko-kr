@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5d314331059a96388f23cd43667fca20a689f167
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2a0411e97f78104de1356d482e4e43a42701c073
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687627"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
@@ -141,14 +141,15 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 7.  **그룹** 을 선택 하 여 사용자가 구성원으로 속해 있는 그룹을 확인 합니다.
 
 ### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>사용자에 게 앱 역할 할당을 999 개 이상 포함 하는지 확인 합니다.
-사용자에 게 할당 된 앱 역할 할당 수가 999 개를 초과 하면 앱에서 해당 앱이 모두 표시 되지 않을 수 있습니다.
+사용자에 게 앱 역할 할당 수가 999 개를 초과 하면 앱에서 해당 앱이 모두 표시 되지 않을 수 있습니다.
 
 이는 현재 내 앱이 사용자가 할당 된 앱을 확인 하는 데 최대 999 앱 역할 할당을 읽어 들이는 것입니다. 사용자가 999 개 이상의 앱에 할당 된 경우 내 앱 포털에 표시 되는 앱을 제어할 수 없습니다.
 
-사용자에 게 부여 된 앱 역할 할당 수를 확인 하려면 다음 단계를 수행 합니다.
+사용자에 게 999 개 이상의 앱 역할 할당이 있는지 확인 하려면 다음 단계를 수행 합니다.
 1. [**Microsoft Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell 모듈을 설치 합니다.
-2. `Connect-MgGraph -Scopes "Directory.Read.All"`를 실행 하 고 **전역 관리자로 인증 합니다.**
-3. `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count`을 실행 하 여 현재 사용자에 게 부여 된 앱 역할 할당의 수를 확인 합니다.
+2. `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`을 실행합니다.
+3. `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count`을 실행 하 여 현재 사용자에 게 부여 된 앱 역할 할당의 수를 확인 합니다.
+4. 결과가 999 이면 사용자에 게 999 개 이상의 앱 역할 할당이 있을 수 있습니다.
 
 ### <a name="check-a-users-assigned-licenses"></a>사용자의 할당된 라이선스 확인
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.

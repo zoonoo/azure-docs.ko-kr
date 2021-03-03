@@ -2,14 +2,14 @@
 title: 웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs
 description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585938"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729031"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -72,7 +72,6 @@ Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Applic
 |설정| 설명
 |----|----|----|
 |**거의 실시간(미리 보기)** | 거의 실시간으로 경고를 사용하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행됩니다.  |
-|**클래식** | 새 가용성 테스트에 대한 클래식 경고를 사용하는 것이 더 이상 권장되지 않습니다.|
 |**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 사이의 최적 관계는 **경고 위치 임계값** = **테스트 위치 수 - 2이고, 최소 테스트 위치 수는 5입니다.**|
 
 ### <a name="location-population-tags"></a>위치 채우기 태그
@@ -104,7 +103,7 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 | 북유럽                           | emea-gb-db3-ms-azr-0017p   |
 | 미국 중북부                       | 미국-il-ch1-ms-azr-0017p     |
 | 미국 중남부                       | us-tx-sn1-ms-azr-0017p     |
-| 동남 아시아                         | apac-sg-ms-azr-0017p   |
+| 동남아시아                         | apac-sg-ms-azr-0017p   |
 | 영국 서부                                | emea-최첨단  |
 | 서유럽                            | emea-nl-ms-azr-0017p   |
 | 미국 서부                                | 미국-ca-sjc-ms-azr-0017p     |

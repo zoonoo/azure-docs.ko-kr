@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fbed48dda3d6b022d30bb9fb0507c3f9f203771d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4274f976a04a9694c0429a2a4794d645304a9e97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613253"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728810"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -25,7 +25,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
  ![Telegraph 에이전트 개요](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> 사용자 지정 메트릭은 모든 지역에서 지원 되지 않습니다. 지원 되는 지역은 [여기](../platform/metrics-custom-overview.md#supported-regions) 에 나열 됩니다.
+> 사용자 지정 메트릭은 모든 지역에서 지원 되지 않습니다. 지원 되는 지역은 [여기](./metrics-custom-overview.md#supported-regions) 에 나열 됩니다.
 
 ## <a name="send-custom-metrics"></a>사용자 지정 메트릭 보내기 
 
@@ -136,4 +136,4 @@ sudo systemctl start telegraf
 더 이상 필요 없는 경우 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제해도 됩니다. 이렇게 하려면 가상 컴퓨터의 리소스 그룹을 선택 하 고 **삭제** 를 선택 합니다. 삭제할 리소스 그룹의 이름을 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](../platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](./metrics-custom-overview.md)에 대해 자세히 알아보세요.

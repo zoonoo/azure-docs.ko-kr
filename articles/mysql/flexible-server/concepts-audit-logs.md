@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718746"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용 하 여 데이터베이스 작업 추적
 
@@ -46,7 +46,7 @@ ms.locfileid: "100591751"
 | `DCL` | "권한 부여"와 같은 쿼리 |
 | `ADMIN` | "SHOW STATUS"와 같은 쿼리 |
 | `GENERAL` | DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 관리자의 모든 |
-| `TABLE_ACCESS` | -MySQL 5.7에만 사용할 수 있음 <br> -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 [ <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
+| `TABLE_ACCESS` | -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 [ <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
 
@@ -72,7 +72,7 @@ ms.locfileid: "100591751"
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 서버의 이름 |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (MySQL 5.7에만 사용 가능) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | MySQL에 의해 생성 된 고유 연결 ID |
 | `host_s` | 비어 있음 |
 | `ip_s` | MySQL에 연결 하는 클라이언트의 IP 주소 |
@@ -116,7 +116,7 @@ ms.locfileid: "100591751"
 ### <a name="table-access"></a>테이블 액세스
 
 > [!NOTE]
-> 테이블 액세스 로그는 MySQL 5.7에 대해서만 출력 됩니다.<br>의 경우 `sql_text_s` 로그는 2048 자를 초과 하는 경우 잘립니다.
+> 의 경우 `sql_text_s` 로그는 2048 자를 초과 하는 경우 잘립니다.
 
 | **속성** | **설명** |
 |---|---|

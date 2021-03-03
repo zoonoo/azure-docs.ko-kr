@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613665"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689320"
 ---
-# <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화를 위한 필수 구성 요소
+# <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 id 솔루션으로 Azure AD (Azure Active Directory) 연결 클라우드 동기화를 선택 하 고 사용 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="cloud-provisioning-agent-requirements"></a>클라우드 프로비저닝 에이전트 요구 사항
@@ -26,7 +26,7 @@ Azure AD Connect 클라우드 동기화를 사용 하려면 다음이 필요 합
 
 - 에이전트 서비스를 실행 하는 Azure AD Connect Cloud Sync gMSA (그룹 관리 서비스 계정)를 만드는 데 필요한 도메인 관리자 또는 엔터프라이즈 관리자 자격 증명입니다. 
 - 게스트 사용자가 아닌 Azure AD 테 넌 트에 대 한 하이브리드 id 관리자 계정입니다.
-- Windows 2012 R2 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버  이 서버는 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기반으로 하는 계층 0 서버 여야 합니다.
+- Windows 2016 이상에서 프로 비전 에이전트에 대 한 온-프레미스 서버.  이 서버는 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기반으로 하는 계층 0 서버 여야 합니다.
 - 온-프레미스 방화벽 구성
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
@@ -35,7 +35,7 @@ Azure AD Connect 클라우드 동기화를 사용 하려면 다음이 필요 합
 ### <a name="prerequisites-for-gmsa"></a>GMSA에 대 한 필수 구성 요소:
 1.  GMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2012로 업데이트 해야 합니다.
 2.  도메인 컨트롤러의 [POWERSHELL RSAT 모듈](/windows-server/remote/remote-server-administration-tools)
-3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 2012를 실행 해야 합니다.
+3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 201를 실행 해야 합니다.
 4.  에이전트가 설치 되는 도메인에 가입 된 서버는 Windows Server 2012 이상 이어야 합니다.
 
 ### <a name="custom-gmsa-account"></a>사용자 지정 gMSA 계정
@@ -50,7 +50,7 @@ Azure AD Connect 클라우드 동기화를 사용 하려면 다음이 필요 합
 |Allow |gMSA 계정 |모든 권한 |하위 Group 개체| 
 |Allow |gMSA 계정 |모든 속성 읽기 |하위 User 개체| 
 |Allow |gMSA 계정 |모든 속성 읽기 |하위 Contact 개체| 
-|Allow |gMSA 계정 |사용자 개체 만들기/삭제|이 개체 및 모든 하위 개체| 
+|허용 |gMSA 계정 |사용자 개체 만들기/삭제|이 개체 및 모든 하위 개체| 
 
 GMSA 계정을 사용 하도록 기존 에이전트를 업그레이드 하는 방법에 대 한 단계는 [그룹 관리 서비스 계정](how-to-install.md#group-managed-service-accounts)을 참조 하세요.
 
@@ -65,7 +65,7 @@ GMSA 계정을 사용 하도록 기존 에이전트를 업그레이드 하는 �
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
-1. 4GB 이상의 RAM 및 .NET 4.7.1 이상의 런타임을 사용하여 Windows Server 2012 R2 이상을 실행하는 도메인 조인 호스트 서버를 식별합니다.
+1. 최소 4gb RAM 및 .NET 4.7.1 + runtime을 사용 하 여 Windows Server 2016 이상을 실행 하는 도메인에 가입 된 호스트 서버를 식별 합니다.
 
 2. 로컬 서버에 대한 PowerShell 실행 정책을 Undefined 또는 RemoteSigned로 설정해야 합니다.
 
@@ -130,4 +130,4 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

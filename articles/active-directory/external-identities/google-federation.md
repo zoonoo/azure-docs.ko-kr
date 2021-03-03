@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687824"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -46,13 +46,7 @@ Google 사용자가 초대를 교환 때 해당 환경은 Google에 이미 로�
 
 ## <a name="sign-in-endpoints"></a>로그인 끝점
 
-이제 Google 게스트 사용자는 [공통 끝점](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (즉, 테 넌 트 컨텍스트를 포함 하지 않는 일반 앱 URL)을 사용 하 여 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다. 일반적인 끝점의 예는 다음과 같습니다.
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-로그인 프로세스 중에 게스트 사용자가 **로그인 옵션** 을 선택 하 고 **조직에 로그인** 을 선택 합니다. 그런 다음 사용자는 조직의 이름을 입력 하 고 Google 자격 증명을 사용 하 여 계속 로그인 합니다.
+이제 Google 게스트 사용자는 [공통 끝점](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (즉, 테 넌 트 컨텍스트를 포함 하지 않는 일반 앱 URL)을 사용 하 여 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다. 로그인 프로세스 중에 게스트 사용자가 **로그인 옵션** 을 선택 하 고 **조직에 로그인** 을 선택 합니다. 그런 다음 사용자는 조직의 이름을 입력 하 고 Google 자격 증명을 사용 하 여 계속 로그인 합니다.
 
 Google 게스트 사용자는 테 넌 트 정보를 포함 하는 응용 프로그램 엔드포인트를 사용할 수도 있습니다. 예를 들면 다음과 같습니다.
 

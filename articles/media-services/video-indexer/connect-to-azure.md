@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727263"
 ---
 # <a name="create-a-video-indexer-account"></a>Video Indexer 계정 만들기
 
@@ -147,7 +147,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|Setting|설명|
+|설정|Description|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
@@ -201,7 +201,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 ### <a name="prerequisites-for-connecting-to-azure-government"></a>Azure Government에 연결 하기 위한 필수 구성 요소
 
--   [Azure Government](https://docs.microsoft.com/azure/azure-government/)의 Azure 구독입니다.
+-   [Azure Government](../../azure-government/index.yml)의 Azure 구독입니다.
 - Azure Government의 Azure AD 계정.
 - [Azure에 연결 하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명 된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다.
 
@@ -222,7 +222,7 @@ Video Indexer 포털을 통해 유료 계정을 만들려면 다음을 수행 �
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Azure Government API를 통해 새 계정 만들기
 
-Azure Government에서 유료 계정을 만들려면 [유료-계정](/azure/media-services/video-indexer/connect-to-azure)에 설명 된 지침을 따르세요. 이 API 끝점에는 정부 클라우드 지역만 포함 됩니다.
+Azure Government에서 유료 계정을 만들려면 [유료-계정]()에 설명 된 지침을 따르세요. 이 API 끝점에는 정부 클라우드 지역만 포함 됩니다.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Azure Government에 대 한 Video Indexer 제한 사항
 

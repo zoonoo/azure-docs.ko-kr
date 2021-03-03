@@ -4,15 +4,15 @@ description: App Service Environment 개요
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663841"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735100"
 ---
 # <a name="app-service-environment-overview"></a>App Service Environment 개요 
 
@@ -53,7 +53,7 @@ App Service Environment에는 다음과 같은 여러 사용 사례가 있습니
 다중 테 넌 트 App Service의 앱이 네트워크 격리 리소스에 도달 하거나 네트워크 격리 상태가 될 수 있도록 하는 다양 한 네트워킹 기능이 있습니다. 이러한 기능은 응용 프로그램 수준에서 사용 하도록 설정 됩니다.  ASE를 사용 하는 경우 VNet에 배치할 앱에 대 한 추가 구성이 없습니다. 앱은 이미 VNet에 있는 네트워크 격리 환경에 배포 됩니다. 네트워크 격리 앱을 호스트 하는 ASE는 단일 테 넌 트 시스템 이기도 합니다. ASE를 사용 하는 다른 고객은 없습니다. 완벽 한 격리 스토리가 필요한 경우에는 ASE를 전용 하드웨어에 배포할 수도 있습니다. 네트워크 격리 응용 프로그램 호스팅, 단일 테 넌 트 및 기능 간 
 
 ## <a name="dedicated-environment"></a>전용 환경
-ASE는 단일 구독에 단독으로 사용 되며 200 App Service 계획 인스턴스를 호스트할 수 있습니다. 단일 App Service 계획의 100개 인스턴스부터 100개의 단일 인스턴스 App Service 계획까지 가능하며 모든 항목은 이 두 계획 사이에 있습니다.
+ASE는 단일 구독에 단독으로 사용 되며 여러 App Service 계획에서 200 App Service 계획 인스턴스를 호스트할 수 있습니다. "Instance" 라는 단어는 계획 가로 크기 조정 App Service을 나타냅니다. 각 인스턴스는 작업자 역할에 해당 합니다. ASE는 200 개의 총 인스턴스를 가질 수 있지만 단일 Isolated v2 App Service 플랜은 100 인스턴스를 보유할 수 있습니다. ASE는 각각 100 인스턴스, 200 단일 인스턴스 App Service 계획 또는 그 사이에 있는 모든 항목을 포함 하 여 두 개의 App Service 계획을 보유할 수 있습니다.
 
 ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 ASE 내의 앱 요청에 대한 자동 부하 분산 및 HTTP/HTTPS 종료를 담당합니다. 프런트 엔드는 ASE의 App Service 계획이 스케일 아웃됨에 따라 자동으로 추가됩니다.
 
@@ -77,7 +77,7 @@ ASE 기능은 고객의 Azure Resource Manager 가상 네트워크에 직접 Azu
 ## <a name="preview"></a>미리 보기
 App Service Environment v3은 공개 미리 보기로 제공 됩니다.  일부 기능은 미리 보기 진행 중에 추가 됩니다. ASEv3의 현재 제한 사항은 다음과 같습니다.
 
-- 5 개 이상의 인스턴스를 초과 하는 App Service 계획의 크기를 조정할 수 없습니다.
+- 50 인스턴스 이상으로 App Service 계획의 크기를 조정할 수 없음
 - 개인 레지스트리에서 컨테이너를 가져올 수 없습니다.
 - 현재 지원 되지 않는 App Service 기능이 고객 VNet을 통과 하지 못합니다.
 - 인터넷에 액세스할 수 있는 끝점을 사용 하는 외부 배포 모델 없음

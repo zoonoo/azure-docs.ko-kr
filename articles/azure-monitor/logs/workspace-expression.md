@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 9ce9957d348fc9d57ff688408d6aaade67e95465
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710909"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
 `workspace` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 쿼리에서 사용됩니다. Application Insights 쿼리에 로그 데이터를 포함하고 로그 쿼리를 통해 여러 작업 영역의 데이터를 쿼리하는 데 유용합니다.
 
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 `workspace(`*한정자*`)`
 
@@ -34,7 +34,7 @@ ms.locfileid: "100619454"
 | Azure 리소스 ID | Azure 리소스의 식별자 | workspace(“/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail”) |
 
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
 * 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.
@@ -64,6 +64,6 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱을 참조 하려면 [앱 식](../log-query/app-expression.md) 을 참조 하세요.
-- [Azure Monitor 데이터](../log-query/log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
+- Application Insights 앱을 참조 하려면 [앱 식](./app-expression.md) 을 참조 하세요.
+- [Azure Monitor 데이터](./log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
 - [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

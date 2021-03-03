@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be5000b6f9153839b926932c82c9f8fa3ab93f5f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981119"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704840"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -56,12 +56,12 @@ ms.locfileid: "90981119"
 
 앱의 왼쪽 탐색에서 다음을 수행하여 **TLS/SSL 바인딩** 대화 상자를 시작합니다.
 
-- **사용자 지정 도메인** > **바인딩 추가**를 선택합니다.
-- **TLS/SSL 설정** > **TLS/SSL 바인딩 추가**를 선택합니다.
+- **사용자 지정 도메인** > **바인딩 추가** 를 선택합니다.
+- **TLS/SSL 설정** > **TLS/SSL 바인딩 추가** 를 선택합니다.
 
 ![도메인에 바인딩 추가](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-**사용자 지정 도메인**에서 바인딩을 추가하려는 사용자 지정 도메인을 선택합니다.
+**사용자 지정 도메인** 에서 바인딩을 추가하려는 사용자 지정 도메인을 선택합니다.
 
 앱에 선택한 사용자 지정 도메인에 대한 인증서가 이미 있는 경우 [바인딩 만들기](#create-binding)로 직접 이동합니다. 그렇지 않은 경우 계속 진행합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "90981119"
 
 ### <a name="create-binding"></a>바인딩 만들기
 
-다음 표를 사용하여 **TLS/SSL 바인딩** 대화 상자에서 TLS 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
+다음 표를 사용하여 **TLS/SSL 바인딩** 대화 상자에서 TLS 바인딩을 구성한 다음, **바인딩 추가** 를 클릭합니다.
 
 | 설정 | Description |
 |-|-|
@@ -85,12 +85,12 @@ ms.locfileid: "90981119"
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
 | TLS/SSL 유형 | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - 여러 개의 SNI SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 TLS/SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다(자세한 내용은 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication) 참조).</li><li>**IP SSL** - IP SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 TLS/SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 레코드 다시 매핑](#remap-records-for-ip-ssl)의 단계를 따릅니다.<br/>IP SSL은 **표준** 계층 이상에서만 지원됩니다. </li></ul> |
 
-작업이 완료되면 사용자 지정 도메인의 TLS/SSL 상태가 **보안**으로 변경됩니다.
+작업이 완료되면 사용자 지정 도메인의 TLS/SSL 상태가 **보안** 으로 변경됩니다.
 
 ![TLS/SSL 바인딩 성공](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
-> **사용자 지정 도메인**의 **보호** 상태는 인증서를 사용하여 보호됨을 의미하지만, App Service는 인증서가 자체 서명되었는지 아니면 만료되었는지 확인하지 않습니다. 예를 들어 브라우저가 오류 또는 경고를 표시할 수도 있습니다.
+> **사용자 지정 도메인** 의 **보호** 상태는 인증서를 사용하여 보호됨을 의미하지만, App Service는 인증서가 자체 서명되었는지 아니면 만료되었는지 확인하지 않습니다. 예를 들어 브라우저가 오류 또는 경고를 표시할 수도 있습니다.
 
 ## <a name="remap-records-for-ip-ssl"></a>IP SSL에 대한 레코드 다시 매핑
 
@@ -108,9 +108,9 @@ ms.locfileid: "90981119"
 
 다양한 브라우저에서 `https://<your.custom.domain>`으로 이동하여 앱을 처리하는지 확인합니다.
 
-:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="contoso.com URL이 강조 표시된 사용자 지정 도메인을 검색하는 예제를 보여주는 스크린샷.&quot;:::
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="contoso.com URL이 강조 표시된 사용자 지정 도메인을 검색하는 예제를 보여주는 스크린샷.":::
 
-애플리케이션 코드는 &quot;x-appservice-proto" 헤더를 통해 프로토콜을 검사할 수 있습니다. 헤더의 값은 `http` 또는 `https`입니다. 
+애플리케이션 코드는 "x-appservice-proto" 헤더를 통해 프로토콜을 검사할 수 있습니다. 헤더의 값은 `http` 또는 `https`입니다. 
 
 > [!NOTE]
 > 앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.
@@ -129,7 +129,7 @@ ms.locfileid: "90981119"
 
 기본적으로 누구나 HTTP를 사용하여 앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
 
-앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
+앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정** 을 선택합니다. 그런 다음 **HTTPS에만 해당** 에서 **켜기** 를 선택합니다.
 
 ![HTTPS 적용](./media/configure-ssl-bindings/enforce-https.png)
 
@@ -143,7 +143,7 @@ ms.locfileid: "90981119"
 
 앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
-앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
+앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정** 을 선택합니다. 그런 다음, **TLS 버전** 에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
 ![TLS 1.1 또는 1.2 적용](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
@@ -159,11 +159,11 @@ App Service에서, [TLS 종료](https://wikipedia.org/wiki/TLS_termination_proxy
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 

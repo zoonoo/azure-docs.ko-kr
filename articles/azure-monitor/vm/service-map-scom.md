@@ -1,29 +1,29 @@
 ---
-title: Operations Manager와 VM용 Azure Monitor 맵 통합 | Microsoft Docs
-description: VM용 Azure Monitor는 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이 문서에서는 맵 기능을 사용하여 Operations Manager에 자동으로 분산 애플리케이션 다이어그램을 만드는 방법을 설명합니다.
+title: Operations Manager와 VM insights 맵 통합 Microsoft Docs
+description: VM insights는 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑합니다. 이 문서에서는 맵 기능을 사용하여 Operations Manager에 자동으로 분산 애플리케이션 다이어그램을 만드는 방법을 설명합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 0722a1806cc94102f92045c78850d96ed9890d02
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a39f40c2a284a743db258a49f36cb4f13c2a4d1c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613066"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725495"
 ---
-# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor 맵 기능과 System Center Operations Manager 통합
+# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>VM insights 맵 기능과 System Center Operations Manager 통합
 
-VM용 Azure Monitor에서는 Azure 또는 사용자 환경에서 실행되는 Windows 및 Linux VM(가상 머신)에서 검색된 애플리케이션 구성 요소를 볼 수 있습니다. 맵 기능과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 애플리케이션 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다. 이 문서에서는 이 기능을 지원하도록 System Center Operations Manager 관리 그룹을 구성하는 방법을 설명합니다.
+Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux Vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 지도 기능과 System Center Operations Manager 간의 이러한 통합을 통해 VM insights의 동적 종속성 맵을 기반으로 하는 Operations Manager에서 배포 응용 프로그램 다이어그램을 자동으로 만들 수 있습니다. 이 문서에서는 이 기능을 지원하도록 System Center Operations Manager 관리 그룹을 구성하는 방법을 설명합니다.
 
 >[!NOTE]
->서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. VM용 Azure Monitor의 맵 기능은 독립 실행형 서비스 맵 솔루션을 대체하기 위한 것입니다. 자세한 내용은 [VM용 Azure Monitor 개요](../vm/vminsights-overview.md)를 참조하세요.
+>이미 서비스 맵를 배포한 경우 vm 상태 및 성능을 모니터링 하는 추가 기능을 포함 하는 VM insights에서 지도를 볼 수 있습니다. VM insights의 Map 기능은 독립 실행형 서비스 맵 솔루션을 대체 하기 위한 것입니다. 자세히 알아보려면 [VM insights 개요](../vm/vminsights-overview.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * System Center Operations Manager 관리 그룹(2012 R2 이상)
-* VM용 Azure Monitor를 지원하도록 구성된 Log Analytics 작업 영역
+* VM 정보를 지원 하도록 구성 된 Log Analytics 작업 영역입니다.
 * Operations Manager에 의해 모니터링되고 Log Analytics 작업 영역에 데이터를 전송하는 하나 이상의 Windows 및 Linux 가상 머신 또는 물리적 컴퓨터 Operations Manager 관리 그룹에 보고하는 Linux 서버를 Azure Monitor에 직접 연결하도록 구성해야 합니다. 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](../agents/log-analytics-agent.md) 개요를 참조하세요.
 * Log Analytics 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체. 자세한 내용은 [서비스 주체 만들기](#create-a-service-principal)로 이동합니다.
 
@@ -43,7 +43,7 @@ Operations Manager와 맵 기능의 통합은 Microsoft.SystemCenter.ServiceMap 
 >[!NOTE]
 >[Operations Management Suite는 Log Analytics를 포함한 서비스 컬렉션](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)이었으며 현재는 [Azure Monitor](../overview.md)의 일부입니다.
 
-VM용 Azure Monitor 맵 통합을 구성하려면 다음을 수행합니다.
+VM insights 맵 통합을 구성 하려면 다음을 수행 합니다.
 
 1. 구성 마법사를 열려면 **서비스 맵 개요** 창에서 **작업 영역 추가** 를 클릭합니다.  
 
@@ -66,7 +66,7 @@ VM용 Azure Monitor 맵 통합을 구성하려면 다음을 수행합니다.
     통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
    * Operations Manager에 의해 모니터링됨
-   * VM용 Azure Monitor와 함께 구성된 Log Analytics 작업 영역에 보고하도록 구성됨
+   * VM insights로 구성 된 Log Analytics 작업 영역에 보고 하도록 구성 됨
    * 서비스 맵 서버 그룹에 나열됨
 
      ![Operations Manager 구성 그룹](media/service-map-scom/scom-config-group.png)
@@ -92,7 +92,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
   >[!NOTE]
   >이러한 경고는 Operations Manager와 동기화된 Log Analytics 경고가 아니며, 서비스 맵 관리 팩에 정의된 워크플로에 따라 관리 그룹에 생성됩니다.
 
-* **서버**: VM용 Azure Monitor 맵 기능에서 동기화하도록 구성된 모니터링 대상 서버를 나열합니다.
+* **서버**: VM insights 맵 기능에서 동기화 하도록 구성 된 모니터링 대상 서버를 나열 합니다.
 
     ![Operations Manager 서버 모니터링 창](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -117,7 +117,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ## <a name="configure-rules-and-overrides"></a>규칙 및 재정의 구성
 
-*Microsoft.SystemCenter.ServiceMapImport.Rule* 규칙은 VM용 Azure Monitor 맵 기능에서 주기적으로 정보를 가져옵니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes** 로 수정하면 됩니다.
+규칙 *Microsoft.SystemCenter* 는 VM insights 맵 기능에서 정기적으로 정보를 인출 합니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes** 로 수정하면 됩니다.
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
@@ -131,8 +131,8 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 현재 디자인은 다음과 같은 문제 및 제한 사항을 나타냅니다.
 
 * 하나의 Log Analytics 작업 영역에만 연결할 수 있습니다.
-* **제작** 창을 통해 서비스 맵 서버 그룹에 서버를 수동으로 추가할 수는 있지만, 이러한 서버에 대한 맵은 즉시 동기화되지 않으며 이는 다음 동기화 주기 동안 VM용 Azure Monitor 맵 기능을 통해 동기화됩니다.
-* 관리 팩에서 만든 배포 애플리케이션 다이어그램을 변경하는 경우 이러한 변경 내용은 다음 동기화 시 VM용 Azure Monitor를 통해 덮어 쓰여집니다.
+* **제작** 창을 통해 서비스 맵 서버 그룹에 서버를 수동으로 추가할 수는 있지만, 이러한 서버에 대한 맵은 즉시 동기화되지 않으며 이러한 작업은 다음 동기화 주기 동안 VM insights 맵 기능에서 동기화 됩니다.
+* 관리 팩에서 만든 배포 응용 프로그램 다이어그램을 변경 하는 경우 이러한 변경 내용은 VM 정보를 사용 하 여 다음 동기화 시 덮어쓸 수 있습니다.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -144,5 +144,5 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ### <a name="suggestions"></a>제안
 
-VM용 Azure Monitor 맵 기능과의 통합이나 이 설명서에 대한 의견이 있으신가요? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
+VM insights 맵 기능 또는이 설명서와의 통합에 대 한 의견이 있나요? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
 

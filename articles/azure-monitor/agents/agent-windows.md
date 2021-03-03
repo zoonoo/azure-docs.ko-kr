@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: abad5a0146f98993cd02425b33466c447f9d97ca
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50bfed0ee4346955a9e478e7567f00610d8184f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613513"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708665"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "100613513"
 * [DSC (필요한 상태 구성)를 Azure Automation](#install-agent-using-dsc-in-azure-automation)합니다. 
 
 >[!IMPORTANT]
-> 이 문서에서 설명 하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 컴퓨터에 사용 됩니다. Azure virtual machines에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](../platform/log-analytics-agent.md#installation-options) 을 참조 하세요.
+> 이 문서에서 설명 하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 컴퓨터에 사용 됩니다. Azure virtual machines에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](./log-analytics-agent.md#installation-options) 을 참조 하세요.
 
 > [!NOTE]
 > 두 개 이상의 작업 영역에 보고하도록 에이전트를 구성해야 하는 경우에는 [작업 영역 추가 또는 제거](agent-manage.md#adding-or-removing-a-workspace)에 설명된 대로 제어판 또는 PowerShell에서 설정을 업데이트하는 경우에만 초기 설정 중에 이 작업을 수행할 수 없습니다.  
@@ -42,12 +42,12 @@ Windows 에이전트는 2020년 8월 17일에 SHA-2 서명 독점 사용을 시�
 4. [TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12)를 사용하도록 에이전트를 구성하는 것이 좋습니다. 
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](../platform/log-analytics-agent.md#network-requirements) 를 참조 하세요.
+Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](./log-analytics-agent.md#network-requirements) 를 참조 하세요.
 
 
    
 ## <a name="configure-agent-to-use-tls-12"></a>TLS 1.2를 사용하도록 에이전트 구성
-[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜은 Windows 에이전트와 Log Analytics 서비스 간의 통신을 위해 전송 중인 데이터의 보안을 보장 합니다. [기본적으로 tls 1.2을 사용 하지 않고 운영 체제](../platform/data-security.md#sending-data-securely-using-tls-12)에를 설치 하는 경우 아래 단계를 사용 하 여 tls 1.2를 구성 해야 합니다.
+[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜은 Windows 에이전트와 Log Analytics 서비스 간의 통신을 위해 전송 중인 데이터의 보안을 보장 합니다. [기본적으로 tls 1.2을 사용 하지 않고 운영 체제](../logs/data-security.md#sending-data-securely-using-tls-12)에를 설치 하는 경우 아래 단계를 사용 하 여 tls 1.2를 구성 해야 합니다.
 
 1. 다음 레지스트리 하위 키를 찾습니다. **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. **프로토콜** 아래에서 TLS 1.2에 대한 하위 키 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2** 를 만듭니다.

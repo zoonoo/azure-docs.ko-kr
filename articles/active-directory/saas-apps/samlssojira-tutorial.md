@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e1440feacd10935b15195110cd7ea3e20b4d523c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891587"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -160,7 +160,7 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
     
     b. ID 공급 기업의 **이름** 을 추가합니다(예: Azure AD).
     
-    다. ID 공급 기업의 **설명** (선택 사항)을 추가합니다(예: Azure AD).
+    다. ID 공급 기업의 **설명**(선택 사항)을 추가합니다(예: Azure AD).
     
     d. **다음** 을 클릭합니다.
     
@@ -200,7 +200,7 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다. 사용자를 사용하여 Single Sign-On을 테스트합니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -270,11 +270,11 @@ Azure AD 사용자가 SAML SSO for Jira by resolution GmbH에 로그인하도록
 
     ![직원 추가](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소를 입력합니다( <b>BrittaSimon@contoso.com</b>).
+    a. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소를 입력합니다(<b>BrittaSimon@contoso.com</b>).
 
     b. **전체 이름** 텍스트 상자에 사용자의 전체 이름을 입력합니다. **Britta Simon**.
 
-    다. **사용자 이름** 텍스트 상자에 사용자의 이메일 주소를 입력합니다( <b>BrittaSimon@contoso.com</b>). 
+    다. **사용자 이름** 텍스트 상자에 사용자의 이메일 주소를 입력합니다(<b>BrittaSimon@contoso.com</b>). 
 
     d. **암호** 텍스트 상자에 사용자의 암호를 입력합니다.
 
@@ -308,7 +308,7 @@ SSO 리디렉션을 활성화하려면 **Jira 인스턴스** 에서 다음을 �
 
 1. 오른쪽 위 모서리의 **설정 저장** 단추를 누릅니다.
 
-옵션을 활성화한 후에도 `https://\<server-base-url>/login.jsp?nosso`로 이동하여 **nosso 사용** 옵션을 선택하면 계속 사용자 이름/암호 프롬프트에 도달할 수 있습니다. 항상 그렇듯이, **\<server-base-url>** 를 기본 URL로 바꿉니다.
+옵션을 활성화한 후에도 `https://<server-base-url>/login.jsp?nosso`로 이동하여 **nosso 사용** 옵션을 선택하면 계속 사용자 이름/암호 프롬프트에 도달할 수 있습니다. 항상 그렇듯이, **\<server-base-url>** 를 기본 URL로 바꿉니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스

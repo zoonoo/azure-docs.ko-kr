@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d6897a863a0fd399d3c963d876404680026682dd
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735423"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure 서비스를 사용 하는 자습서
 
@@ -22,6 +22,7 @@ ms.locfileid: "100654437"
 
 | Azure 서비스 | 단계별 가이드 | 
 |---------------|-------------------|
+| Azure Synapse Analytics | [Azure Synapse Analytics 시작](../../synapse-analytics/get-started.md) |
 | Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 | Azure Databricks | [Azure Databricks와 함께 사용](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) |
 | Azure Databricks | [Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
@@ -29,7 +30,6 @@ ms.locfileid: "100654437"
 | Azure Event Grid | [데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트](data-lake-storage-events.md) |
 | Azure Machine Learning | [Azure storage 서비스의 데이터에 액세스](../../machine-learning/how-to-access-data.md) |
 | Azure Data Box | [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
-| Azure Synapse Analytics | [Azure Synapse Analytics 시작](../../synapse-analytics/get-started.md) |
 | HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | HDInsight | [Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md) |
 | Power BI | [Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](/power-query/connectors/datalakestorage) |

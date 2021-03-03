@@ -1,5 +1,5 @@
 ---
-title: Azure 개인 링크 FAQ (질문과 대답)
+title: Azure Private Link FAQ(질문과 대답)
 description: Azure 개인 링크에 대해 알아봅니다.
 services: private-link
 author: malopMSFT
@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709412"
 ---
-# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
+# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link FAQ(질문과 대답)
 
 ## <a name="private-link"></a>Private Link
 
@@ -65,6 +65,12 @@ Service 백 엔드는 가상 네트워크에 있고 표준 Load Balancer 뒤에 
 - 표준 Load Balancer 뒤에 백 엔드 Vm을 풀에 추가 합니다. 
 - 개인 링크 서비스에 IP를 추가 합니다. 개인 링크 서비스 당 최대 8 개의 Ip를 허용 합니다.  
 - 표준 Load Balancer에 새 개인 링크 서비스를 추가 합니다. 부하 분산 장치 당 최대 8 개의 개인 링크 서비스를 허용 합니다.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>개인 링크 서비스에서 사용 되는 NAT (네트워크 주소 변환) IP 구성은 무엇입니까? 사용 가능한 포트 및 연결을 기준으로 크기를 조정 하려면 어떻게 해야 하나요? 
+
+NAT IP 구성을 사용 하면 대상 쪽 (서비스 공급자 측)의 개인 링크 트래픽에 원본 NAT를 제공 하 여 원본 (소비자 쪽)과 대상 (서비스 공급자) 주소 공간 간에 IP 충돌이 발생 하지 않도록 합니다. NAT IP 주소는 서비스에서 받은 모든 패킷에 대해 원본 IP로 표시 되 고, 서비스에서 보낸 모든 패킷에 대해 대상 IP로 표시 됩니다.  NAT IP는 서비스 공급자의 가상 네트워크에 있는 모든 서브넷에서 선택할 수 있습니다. 
+
+각 NAT IP는 표준 Load Balancer 뒤에 VM 당 64k TCP 연결 (64k 포트)을 제공 합니다. 더 많은 연결을 확장 하 고 추가 하기 위해 새 NAT Ip를 추가 하거나 표준 Load Balancer 뒤에 Vm을 더 추가할 수 있습니다. 이렇게 하면 포트 가용성이 조정 되 고 더 많은 연결이 허용 됩니다. 연결은 NAT Ip와 표준 Load Balancer 뒤에 있는 Vm 간에 분산 됩니다.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>내 서비스를 여러 개인 끝점에 연결할 수 있나요?
 예. 하나의 개인 링크 서비스는 여러 개인 끝점에서 연결을 수신할 수 있습니다. 그러나 하나의 개인 끝점은 하나의 개인 링크 서비스에만 연결할 수 있습니다.  

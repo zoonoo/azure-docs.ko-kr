@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611dd5e53ae96e06677b1c4a6a6f009e582b33af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646268"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687076"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -109,19 +109,18 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net에 보내�
 
 Restricted-Access-Context 테넌트로 지정된 테넌트의 관리자는 이 보고서를 사용하여 사용된 ID 및 대상 디렉터리 ID를 비롯하여 테넌트 제한 정책으로 인해 차단된 로그인을 확인할 수 있습니다. 이러한 제한을 설정하는 테넌트가 로그인에 대해 사용자 테넌트이거나 리소스 테넌트인 경우 로그인이 포함됩니다.
 
-> [!NOTE]
-> Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 다른 테 넌 트의 사용자 데이터 ("")를 보호 하기 위해 이름, 사용자 계정 이름 등의 사용자 식별 가능 정보를 마스킹할 수 있습니다. 00000000-0000-0000-0000-00000000@domain.com 
+Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 이름 및 사용자 계정 이름과 같은 사용자 식별이 가능한 정보는 다른 테 넌 트의 사용자 데이터 ("{PII 제거}" 또는 사용자 이름 @domain.com 및 개체 id 대신 해당 하는 00000000-0000-0000-0000-000000000000)를 보호 하기 위해 마스킹 됩니다. 
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 애플리케이션, 클라이언트 또는 상태에 따라 필터링할 수 있습니다. **열** 단추를 선택하는 경우 다음 필드를 조합하여 데이터를 표시하도록 선택할 수 있습니다.
 
-- **사용자**
+- **사용자** -이 필드는 개인 식별이 가능한 정보를 제거할 수 있으며,이 정보는로 설정 됩니다 `00000000-0000-0000-0000-000000000000` . 
 - **애플리케이션**
 - **상태**
 - **Date**
-- **날짜(UTC)** (UTC는 협정 세계시임)
+- **날짜 (utc)** -Utc (협정 세계시)
 - **IP 주소**
 - **클라이언트**
-- **사용자 이름**
+- **사용자 이름** -이 필드는 개인 식별이 가능한 정보를 제거할 수 있으며,이 정보는로 설정 됩니다. `{PII Removed}@domain.com`
 - **위치**
 - **대상 테넌트 ID**
 
@@ -196,7 +195,7 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 
 특정 세부 정보에 대해서는 프록시 서버 설명서를 참조하세요.
 
-## <a name="blocking-consumer-applications"></a>소비자 응용 프로그램 차단
+## <a name="blocking-consumer-applications-public-preview"></a>소비자 응용 프로그램 차단 (공개 미리 보기)
 
 소비자 계정 및 조직 계정 (예: [OneDrive](https://onedrive.live.com/) 또는 [Microsoft Learn](https://docs.microsoft.com/learn/))을 모두 지 원하는 Microsoft 응용 프로그램은 경우에 따라 동일한 URL에서 호스팅될 수 있습니다.  즉, 해당 URL에 대 한 액세스 권한이 필요한 사용자는 개인 용도로도 액세스할 수 있으며,이는 사용자의 운영 지침에 따라 허용 되지 않을 수 있습니다.
 
@@ -204,11 +203,11 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 
 1. 차단은 `login.live.com` B2B 게스트 시나리오에서 개인 계정의 사용을 차단 하므로 방문자와 공동 작업을 방해가 수 있습니다.
 1. [Autopilot를 사용 하려면 다음 `login.live.com` 을 사용 해야 합니다](https://docs.microsoft.com/mem/autopilot/networking-requirements) . 을 배포 합니다. 이 차단 되 면 Intune 및 Autopilot 시나리오가 실패할 수 있습니다 `login.live.com` .
-1. 장치 Id에 대해 MSA 서비스를 사용 하는 조직 원격 분석 및 Windows 업데이트의 [작동이 중단 됩니다](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. 장치 Id에 대해 login.live.com 서비스를 사용 하는 조직 원격 분석 및 Windows 업데이트의 [작동이 중단 됩니다](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>소비자 앱에 대 한 구성
 
-`Restrict-Access-To-Tenants`헤더가 허용 목록으로 기능 하는 동안 MSA 블록은 거부 신호로 작동 하 여 사용자가 소비자 응용 프로그램에 로그인 할 수 없도록 Microsoft 계정 플랫폼에 지시 합니다. 이 신호를 보내려면 `sec-Restrict-Tenant-Access-Policy` `login.live.com` [위와](#proxy-configuration-and-requirements)동일한 회사 프록시 또는 방화벽을 사용 하 여 방문 하는 트래픽에 헤더가 삽입 됩니다. 헤더의 값은 이어야 합니다 `restrict-msa` . 헤더가 있고 소비자 앱이 사용자에 게 직접 로그인을 시도 하면 해당 로그인이 차단 됩니다.
+`Restrict-Access-To-Tenants`헤더가 허용 목록으로 기능 하는 동안 Microsoft 계정 (MSA) 블록은 거부 신호로 작동 하 여 사용자가 소비자 응용 프로그램에 로그인 할 수 없도록 Microsoft 계정 플랫폼에 지시 합니다. 이 신호를 보내려면 `sec-Restrict-Tenant-Access-Policy` `login.live.com` [위와](#proxy-configuration-and-requirements)동일한 회사 프록시 또는 방화벽을 사용 하 여 방문 하는 트래픽에 헤더가 삽입 됩니다. 헤더의 값은 이어야 합니다 `restrict-msa` . 헤더가 있고 소비자 앱이 사용자에 게 직접 로그인을 시도 하면 해당 로그인이 차단 됩니다.
 
 이 시점에서 login.live.com는 Azure AD와 별도로 호스트 되므로 소비자 응용 프로그램에 대 한 인증은 [관리자 로그](#admin-experience)에 표시 되지 않습니다.
 

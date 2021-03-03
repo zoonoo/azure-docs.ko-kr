@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 5eab1a1c8d085ab48dd54012908d40eec99ca4c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534682"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705078"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -93,7 +93,7 @@ Linux: CentOS | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3
 Ubuntu | Ubuntu 14.04 * LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04 * LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 * LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 20.04 * LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> (*모든 14.04에 대 한 지원이 포함 되어 있습니다.* x *, 16.04.* x *, 18.04.* x *, 20.04.* x * 버전)
 Debian | Debian 7/Debian 8 (모든 7에 대 한 지원이 포함 되어 있습니다. *x*, 8. *x* 버전); Debian 9 (9.1 ~ 9.13에 대 한 지원을 포함 합니다. Debian 9.0은 지원 되지 않습니다.), Debian 10 [(지원 되는 커널 버전 검토)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [구성 서버에서 최신 모바일 에이전트 설치 관리자를 다운로드 해야](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)합니다. </br> SUSE Linux Enterprise Server 11 SP4 </br> **참고**: SUSE LINUX ENTERPRISE SERVER 11 SP3에서 s p 4로 복제 된 컴퓨터 업그레이드는 지원 되지 않습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) [7.7,](https://support.microsoft.com/help/4573888/)7.8, [7.9, 8.0](https://support.microsoft.com/help/4597409/), [8.1](https://support.microsoft.com/help/4573888/), [](https://support.microsoft.com/help/4573888/) [8.2, 8.3](https://support.microsoft.com/help/4573888/) [](https://support.microsoft.com/help/4597409/)  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>8.1<br/>모든 UEK 커널 및 RedHat 커널 <= 3.10.0-1062. *에서의 실행은 [9.36](https://support.microsoft.com/help/4578241/) [9.35](https://support.microsoft.com/help/4573888/) 에서 지원 됩니다.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, [7.3, 7.4](https://support.microsoft.com/help/4573888/), 7.5 [, 7.6,](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) [7.7,](https://support.microsoft.com/help/4597409/) [7.8, 7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), 8.3  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>8.1<br/>모든 UEK 커널 및 RedHat 커널 <= 3.10.0-1062. *에서의 실행은 [9.36](https://support.microsoft.com/help/4578241/) [9.35](https://support.microsoft.com/help/4573888/) 에서 지원 됩니다.
 
 > [!Note]
 >- 각 Windows 버전에 대해 Azure Site Recovery는 [LTSC (장기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 빌드만 지원 합니다.  지금은 [반기 채널](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 릴리스가 지원 되지 않습니다.
@@ -218,40 +218,40 @@ Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 예
+Docker 디스크 구성 | No
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
 호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 예
-게스트/서버 암호화된 디스크 | 예
-게스트/서버 NFS | 예
+게스트/서버 공유 클러스터 디스크 | No
+게스트/서버 암호화된 디스크 | No
+게스트/서버 NFS | No
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 예
+게스트/서버 SMB 3.0 | No
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 예
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | No
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | No
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
 논리 볼륨 관리(LVM)| 굵고 프로 비전-예 <br></br> 씬 프로비저닝-아니요
-게스트/서버 - 스토리지 공간 | 예
-게스트/서버-NVMe 인터페이스 | 예
-게스트/서버 디스크 핫 추가/제거 | 예
+게스트/서버 - 스토리지 공간 | No
+게스트/서버-NVMe 인터페이스 | No
+게스트/서버 디스크 핫 추가/제거 | No
 게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 예
+게스트/서버 다중 경로(MPIO) | No
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전 4 개가 지원 되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
-게스트/서버 EFI/UEFI 부팅 | -Site Recovery 모바일 에이전트 버전 9.30부터 모든 [Azure MARKETPLACE UEFI os](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) 에 대해 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+게스트/서버 EFI/UEFI 부팅 | -Site Recovery 모바일 에이전트 버전 9.30부터 시작 하는 모든 [AZURE MARKETPLACE UEFI 운영 체제](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) 에 대해 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>복제 채널
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       예  |
-|오프 라인 시드        |   예      |
-| Azure Data Box | 예
+|ODX (오프 로드 된 데이터 전송)    |       No  |
+|오프 라인 시드        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -260,15 +260,15 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 로컬 중복 스토리지 | 예
 지역 중복 스토리지 | 예
 읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 예
-핫 스토리지| 예
-블록 Blob | 예
+쿨 스토리지 | No
+핫 스토리지| No
+블록 Blob | No
 미사용 암호화 (SSE)| 예
 미사용 암호화 (CMK)| 예 (PowerShell Az 3.3.0 모듈을 통해)
 휴지 상태의 이중 암호화 | 예 (PowerShell Az 3.3.0 모듈을 통해). [Windows](../virtual-machines/disk-encryption.md) 및 [Linux](../virtual-machines/disk-encryption.md)에 대해 지원 되는 지역에 대해 자세히 알아보세요.
 Premium Storage | 예
 보안 전송 옵션 | 예
-Import/Export 서비스 | 예
+Import/Export 서비스 | No
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -277,7 +277,7 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 **기능** | **지원됨**
 --- | ---
 가용성 집합 | 예
-가용성 영역 | 예
+가용성 영역 | No
 HUB | 예
 관리 디스크 | 예
 
@@ -344,10 +344,10 @@ V2 저장소 계정    |    1500 디스크    |    750 디스크
 
 **작업** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 예
-구독 내 및 구독 간에 자격 증명 모음 이동 | 예
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 예
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 예
+리소스 그룹 간 자격 증명 모음 이동 | No
+구독 내 및 구독 간에 자격 증명 모음 이동 | No
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | No
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | No
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기

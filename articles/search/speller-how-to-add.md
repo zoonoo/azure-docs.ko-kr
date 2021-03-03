@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694804"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Cognitive Search에서 쿼리에 맞춤법 검사 추가
 
@@ -36,7 +36,7 @@ ms.locfileid: "101679832"
   맞춤법 검사기에는 queryLanguage가 필요 하 고 현재 "en-us"는 유일 하 게 올바른 값입니다.
 
 > [!Note]
-> 맞춤법 검사기 매개 변수는 의미 체계 검색을 제공 하는 동일한 지역에서 모든 계층에서 사용할 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
+> 맞춤법 검사기 매개 변수는 의미 체계 검색을 제공 하는 동일한 지역에서 모든 계층에서 사용할 수 있습니다. 이 미리 보기 기능에 대 한 액세스를 등록 하지 않아도 됩니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
 
 ## <a name="spell-correction-with-simple-search"></a>단순 검색으로 맞춤법 수정
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>언어 관련 고려 사항
 
-맞춤법 검사기에 필요한 queryLanguage 매개 변수는 인덱스 스키마의 필드 정의에 할당 된 [언어 분석기](index-add-language-analyzers.md) 와 일치 해야 합니다. 쿼리 요청에 지정 된 queryLanguage는 맞춤법 검사에 사용 되는 lexicons를 결정 하 고, 사용 하는 경우 [의미 체계 순위 알고리즘](semantic-how-to-query-response.md) 에 대 한 입력으로도 사용 됩니다. 언어 분석기는 인덱싱 중에 그리고 검색 인덱스에서 일치 하는 문서를 검색 하는 동안 사용 됩니다. 일관성을 유지 하기 위해 queryLanguage가 "en-us" 인 경우 모든 언어 분석기는 영어 변형 ("en-us" 또는 "en. lucene") 이어야 합니다. 
+맞춤법 검사기에 필요한 queryLanguage 매개 변수는 인덱스 스키마의 필드 정의에 할당 된 [언어 분석기](index-add-language-analyzers.md) 와 일치 해야 합니다. 
+
++ queryLanguage는 맞춤법 검사에 사용 되는 lexicons를 결정 하며, "queryType = 의미 체계"를 사용 하는 경우에는 [의미 체계 순위 알고리즘](semantic-how-to-query-response.md) 에 대 한 입력으로도 사용 됩니다.
+
++ 언어 분석기는 인덱싱 및 쿼리를 실행 하는 동안 검색 인덱스에서 일치 하는 문서를 찾는 데 사용 됩니다. 언어 분석기를 사용 하는 필드 정의의 예는 `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` 입니다.
+
+맞춤법 검사기를 사용할 때 최상의 결과를 위해 queryLanguage가 "en-us" 인 경우 언어 분석기는 영어 변형 ("en-us" 또는 "en-us")도 되어야 합니다.
 
 > [!NOTE]
 > 언어와 관계 없는 분석기 (예: 키워드, 단순, 표준, 중지, 공백 또는 `standardasciifolding.lucene` )는 queryLanguage 설정과 충돌 하지 않습니다.

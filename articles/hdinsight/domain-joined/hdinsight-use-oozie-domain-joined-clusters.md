@@ -1,18 +1,16 @@
 ---
 title: Apache Oozie 워크플로 및 Enterprise Security - Azure HDInsight
 description: Azure HDInsight Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안을 유지합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 559779e3979ab2ada2191f55cfc06ceb2470bd7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc20a258028bb76351ae70362234e7c4c8c741a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699405"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 Azure HDInsight 클러스터에서 Apache Oozie 실행
 
@@ -56,7 +54,7 @@ SSH(Secure Shell)에 대한 자세한 내용은 [SSH를 사용하여 HDInsight(H
 
 Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 작성되었습니다. hPDL은 XML 프로세스 정의 언어입니다. 다음 단계를 사용하여 워크플로를 정의합니다.
 
-1. 도메인 사용자의 작업 영역을 설정합니다.
+1. 도메인 사용자의 작업 영역을 설정 합니다.
 
    ```bash
    hdfs dfs -mkdir /user/<DomainUser>

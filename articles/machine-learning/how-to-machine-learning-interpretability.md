@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690212"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning 모델 interpretability (미리 보기)
 
 
-## <a name="overview-of-model-interpretability"></a>모델 interpretability 개요
+## <a name="model-interpretability-overview"></a>모델 interpretability 개요
 
-Interpretability는 회사 정책, 산업 표준 및 정부 규정 준수를 보장 하기 위해 데이터 과학자, 감사자 및 비즈니스 의사 결정자에 게 매우 중요 합니다.
+모델 interpretability 회사 정책, 산업 표준 및 정부 규정 준수를 보장 하기 위해 데이터 과학자, 감사자 및 비즈니스 의사 결정자에 게 매우 중요 합니다.
 
 + 데이터 과학자에는 임원 및 관련자에 게 모델을 설명 하는 기능이 필요 하므로 결과의 가치와 정확도를 이해할 수 있습니다. 또한 모델을 디버그 하 고이를 개선 하는 방법에 대해 합리적인 결정을 내리는 데 interpretability 필요 합니다. 
 
@@ -31,15 +31,15 @@ Interpretability는 회사 정책, 산업 표준 및 정부 규정 준수를 보
 
 + 비즈니스 의사 결정권자는 최종 사용자에 게 투명도를 제공 하는 기능을 제공 하 여 안심 하 고 있어야 합니다. 이렇게 하면 트러스트를 획득 하 고 유지 관리할 수 있습니다.
 
-
 모델 개발의 두 가지 주요 단계에서는 machine learning 모델을 설명 하는 기능을 사용 하는 것이 중요 합니다.
+
 + 학습 단계 중에 모델 디자이너와 계산기는 모델의 interpretability 출력을 사용 하 여 관련자와의 가설 및 빌드 트러스트를 확인할 수 있습니다. 또한 디버깅을 위해 모델에 대 한 통찰력을 사용 하 고, 모델 동작의 유효성을 검사 하 여 목표와 일치 하는지 확인 하 고, 모델의 공평 하거나 중요 하지 않은 기능을 확인 합니다
 
 + 추론 단계를 수행 하는 동안 배포 된 모델에 대 한 투명도를 사용 하면 경영진은 모델의 작동 방식 및 의사 결정을 어떻게 처리 하 고 사용자에 게 실제적인 영향을 줄 수 있습니다. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure Machine Learning Interpretability
 
-Interpretability 클래스는 다음 SDK 패키지를 통해 제공 됩니다. ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)하는 방법 알아보기)
+모델 interpretability 클래스는 다음 SDK 패키지를 통해 제공 됩니다. ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)하는 방법 알아보기)
 
 * `azureml.interpret`에는 Microsoft에서 지 원하는 기능이 포함 되어 있습니다.
 
@@ -52,17 +52,13 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 + 학습 및 유추 중에 규모에 따라 실제 데이터 집합에서 모델 interpretability를 실현 합니다.
 + 대화형 시각화 대시보드를 사용 하 여 학습 시간에 데이터 및 설명의 패턴 검색
 
-
 기계 학습에서 **기능은** 대상 데이터 요소를 예측 하는 데 사용 되는 데이터 필드입니다. 예를 들어 신용 위험을 예측 하려면 나이, 계정 크기 및 계정 사용 기간에 대 한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 크기 및 계정 사용 기간이 **기능** 입니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 영향을 주는 방법을 알려 줍니다. 예를 들어 age는 예측에서 많이 사용 될 수 있으며, 계정 크기와 age는 예측 값에 크게 영향을 주지 않습니다. 이 프로세스를 통해 데이터 과학자는 결과 예측을 설명할 수 있으므로 이해 관계자가 모델에서 가장 중요 한 기능을 파악할 수 있습니다.
-
-지원 되는 interpretability 기술, 지원 되는 기계 학습 모델 및 지원 되는 실행 환경에 대해 알아봅니다.
-
 
 ## <a name="supported-interpretability-techniques"></a>지원 되는 interpretability 기술
 
  `azureml-interpret` 에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
-|Interpretability 기술|설명|형식|
+|Interpretability 기술|설명|Type|
 |--|--|--------------------|
 |SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
 |SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|
@@ -70,9 +66,6 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 |SHAP 커널 설명| SHAP의 커널 설명는 특별히 가중치가 적용 된 로컬 선형 회귀를 사용 하 여 **모든 모델** 에 대 한 shap 값을 예측 합니다.|모델 독립적|
 |설명 모방 (전역 서로게이트)| 설명 모방은 블랙 박스 모델을 모방 하기 위해 [전역 서로게이트 모델](https://christophm.github.io/interpretable-ml-book/global.html) 을 학습 하는 아이디어를 기반으로 합니다. 전역 서로게이트 모델은 **모든 블랙 박스 모델** 의 예측을 최대한 정확 하 게 예측 하도록 학습 된 본질적으로 해석 되는 모델입니다. 데이터 과학자은 서로게이트 모델을 해석 하 여 블랙 박스 모델에 대 한 결론을 그릴 수 있습니다. 다음 해석 가능 모델 중 하나를 서로게이트 모델 (LightGBM (LGBMExplainableModel), 선형 회귀 (LinearExplainableModel), 추계 explainable) 및 의사 결정 트리 (SGDExplainableModel)로 사용할 수 있습니다.|모델 독립적|
 |순열 기능 중요도 설명 (PFI)| 순열 기능 중요도는 [Breiman의 임의 포리스트 용지](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (섹션 10 참조)에서 설명 하는 분류 및 회귀 모델을 설명 하는 데 사용 되는 기술입니다. 높은 수준에서 작동 방식은 전체 데이터 집합에 대해 한 번에 하나의 기능을 임의로 순서 섞기 하 고 관심 있는 성능 메트릭이 변경 되는 정도를 계산 하는 것입니다. 변화가 클수록 해당 기능이 중요한 것입니다. PFI는 **기본 모델** 의 전체 동작을 설명할 수 있지만 개별 예측에 대해서는 설명 하지 않습니다. |모델 독립적|
-
-
-
 
 위에서 설명한 interpretability 기술 외에도 이라는 다른 SHAP 기반 설명을 지원 `TabularExplainer` 합니다. 모델에 따라은 `TabularExplainer` 지원 되는 SHAP explainers 중 하나를 사용 합니다.
 

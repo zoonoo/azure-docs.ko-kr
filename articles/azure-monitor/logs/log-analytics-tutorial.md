@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723183"
 ---
 # <a name="log-analytics-tutorial"></a>Log Analytics 자습서
 Log Analytics는 Azure Monitor Logs에서 수집된 데이터에서 로그 쿼리를 편집 및 실행하고 그 결과를 대화형으로 분석하는 Azure Portal의 도구입니다. Log Analytics 쿼리를 사용하여 특정 조건과 일치하는 레코드를 검색하고, 추세를 식별하고, 패턴을 분석하고, 데이터에 대한 다양한 인사이트를 제공할 수 있습니다. 
@@ -33,7 +33,7 @@ Log Analytics는 Azure Monitor Logs에서 수집된 데이터에서 로그 쿼�
 이 자습서에서는 샘플 쿼리를 지원하는 샘플 데이터가 많이 포함된 [Log Analytics 데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 사용합니다. 자체 Azure 구독을 사용할 수도 있지만 동일한 테이블에 데이터가 없을 수 있습니다.
 
 ## <a name="open-log-analytics"></a>Log Analytics 열기
-[Log Analytics 데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 열거나 구독의 Azure Monitor 메뉴에서 **로그** 를 선택합니다. 이렇게 하면 초기 범위가 Log Analytics 작업 영역으로 설정됩니다. 즉, 쿼리가 이 작업 영역의 모든 데이터에서 선택됩니다. Azure 리소스의 메뉴에서 **로그** 를 선택하면 범위가 해당 리소스의 레코드로만 설정됩니다. 범위에 대한 자세한 내용은 [로그 쿼리 범위](../log-query/scope.md)를 참조하세요.
+[Log Analytics 데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 열거나 구독의 Azure Monitor 메뉴에서 **로그** 를 선택합니다. 이렇게 하면 초기 범위가 Log Analytics 작업 영역으로 설정됩니다. 즉, 쿼리가 이 작업 영역의 모든 데이터에서 선택됩니다. Azure 리소스의 메뉴에서 **로그** 를 선택하면 범위가 해당 리소스의 레코드로만 설정됩니다. 범위에 대한 자세한 내용은 [로그 쿼리 범위](./scope.md)를 참조하세요.
 
 범위는 화면의 왼쪽 위 모서리에서 볼 수 있습니다. 자체 환경을 사용하는 경우에는 다른 범위를 선택하는 옵션이 표시되지만 데모 환경에서는 이 옵션을 사용할 수 없습니다.
 

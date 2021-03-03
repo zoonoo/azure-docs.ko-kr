@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a43a27a8e880c76ba21639437c0c20f583620d50
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710569"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Computer Vision 리소스를 만들고, "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure Portal에서 표준 S1 계층에 대 한 Computer Vision 리소스를 만들어 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "100653621"
 
 공간 분석 컨테이너를 실행 하려면 [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/)를 사용 하는 계산 장치가 필요 합니다. GPU 가속에 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) 를 사용 하는 것이 좋지만 컨테이너는 최소 요구 사항을 충족 하는 다른 데스크톱 컴퓨터에서 실행 됩니다. 이 장치를 호스트 컴퓨터로 참조 합니다.
 
-#### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 장치](#tab/azure-stack-edge)
+#### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 디바이스](#tab/azure-stack-edge)
 
 Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비스 제공 서비스 솔루션 및 AI 지원에 지 컴퓨팅 장치입니다. 자세한 준비 및 설정 지침은 [Azure Stack Edge 설명서](../../databox-online/azure-stack-edge-deploy-prep.md)를 참조 하세요.
 
@@ -90,7 +90,7 @@ Azure 구독이 승인 되지 않은 경우에는 컨테이너를 실행할 수 
 
 호스트 컴퓨터에 대 한 Azure Stack Edge 장치를 사용 하는 것이 좋습니다. 다른 장치를 구성 하는 경우 **데스크톱 컴퓨터** 를 클릭 하 고, VM을 활용 하는 경우 **가상 컴퓨터** 를 클릭 합니다.
 
-#### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 장치](#tab/azure-stack-edge)
+#### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 디바이스](#tab/azure-stack-edge)
 
 ### <a name="configure-compute-on-the-azure-stack-edge-portal"></a>Azure Stack Edge 포털에서 계산 구성 
  
@@ -295,7 +295,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음 [연결 문자열](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
+그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
 
 IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -446,7 +446,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음 [연결 문자열](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06)을 사용 하 여 IoT Hub 인스턴스의 IOT EDGE 장치로 VM을 등록 합니다.
+그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06)을 사용 하 여 IoT Hub 인스턴스의 IOT EDGE 장치로 VM을 등록 합니다.
 
 IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -472,7 +472,7 @@ sudo systemctl restart iotedge
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | 값 | 설명|
+| 설정 이름 | 값 | Description|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|
@@ -500,7 +500,7 @@ sudo az extension add --name azure-iot
 sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 | `--hub-name` | Azure IoT Hub 이름입니다. |
 | `--content` | 배포 파일의 이름입니다. |

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738228"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -50,8 +50,8 @@ Read API에 대한 [자세한 정보](concept-recognizing-text.md)
 * **호환성이 손상되는 변경**: *personZoneEvent* 이벤트의 이름이 *personZoneEnterExitEvent* 로 변경되었습니다. 이 이벤트는 사람이 영역에 들어가거나 영역에서 나갈 때 *personcrossingpolygon* 작업에 의해 발생하며, 사람이 건넌 영역의 번호가 매겨진 쪽을 사용하여 방향 정보를 제공합니다.
 * 비디오 URL은 모든 작업에서 "프라이빗 매개 변수/난독 처리"로 제공할 수 있습니다. 난독 처리는 현재 선택 사항이며 `KEY` 및 `IV`가 환경 변수로 제공되는 경우에만 작동합니다.
 * 보정은 기본적으로 모든 작업에 사용하도록 설정됩니다. `do_calibration: false`를 설정하여 사용하지 않도록 설정합니다.
-* `enable_recalibration` 매개 변수를 통해 자동 재보정(기본적으로 해제됨)을 사용하기 위한 추가 지원에 대한 자세한 내용은 [공간 분석 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)을 참조하세요.
-* 카메라 보정 매개 변수가 `DETECTOR_NODE_CONFIG`로 설정되었습니다. 자세한 내용은 [공간 분석 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)을 참조하세요.
+* `enable_recalibration` 매개 변수를 통해 자동 재보정(기본적으로 해제됨)을 사용하기 위한 추가 지원에 대한 자세한 내용은 [공간 분석 작업](./spatial-analysis-operations.md)을 참조하세요.
+* 카메라 보정 매개 변수가 `DETECTOR_NODE_CONFIG`로 설정되었습니다. 자세한 내용은 [공간 분석 작업](./spatial-analysis-operations.md)을 참조하세요.
 
 
 ## <a name="october-2020"></a>2020년 10월

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721738"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 
@@ -77,8 +77,12 @@ PowerShell, Azure Portal 또는 CLI를 사용 하 여 Express 경로 회로 프�
 
 개인 피어 링을 사용 하도록 설정 하 여 Azure 가상 네트워크 내에 배포 된 Vm 및 클라우드 서비스에 연결 합니다.
 
-* 경로 1에 대 한 피어 링 서브넷 (/30)
-* 경로 2에 대 한 피어 링 서브넷 (/30)
+* IPv4 서브넷:
+    * 경로 1에 대 한 피어 링 서브넷 (/30)
+    * 경로 2에 대 한 피어 링 서브넷 (/30)
+* IPv6 서브넷 (선택 사항):
+    * 경로 1에 대 한 피어 링 서브넷 (/126)
+    * 경로 2에 대 한 피어 링 서브넷 (/126)
 * 피어 링에 대 한 VLAN ID
 * 피어 링 용 ASN
 * Express 경로 ASN = 12076
@@ -88,8 +92,12 @@ PowerShell, Azure Portal 또는 CLI를 사용 하 여 Express 경로 회로 프�
 
 이 기능을 사용 하 여 Microsoft 365 같은 Microsoft 온라인 서비스에 액세스할 수 있습니다. 또한 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다. 인터넷에 사용 하는 것과 다른 프록시/edge를 사용 하 여 Microsoft에 연결 해야 합니다. ExpressRoute 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
 
-* 경로 1 (/30)에 대 한 피어 링 서브넷은 공용 IP 여야 합니다.
-* 경로 2 (/30)의 피어 링 서브넷은 공용 IP 여야 합니다.
+* IPv4 서브넷:
+    * 경로 1 (/30)에 대 한 피어 링 서브넷은 공용 IP 여야 합니다.
+    * 경로 2 (/30)의 피어 링 서브넷은 공용 IP 여야 합니다.
+* IPv6 서브넷 (선택 사항):
+    * 경로 1 (/126)에 대 한 피어 링 서브넷은 공용 IP 여야 합니다.
+    * 경로 2 (/126)에 대 한 피어 링 서브넷은 공용 IP 여야 합니다.
 * 피어 링에 대 한 VLAN ID
 * 피어 링 용 ASN
 * 보급 접두사-공용 IP 접두사 여야 합니다.
@@ -160,7 +168,7 @@ Status                           : Enabled
 
 ## <a name="routing-session-configuration-state"></a>라우팅 세션 구성 상태
 
-Bgp 프로 비전 상태는 Microsoft edge에서 BGP 세션을 사용 하도록 설정 했는지 여부를 보고 합니다. 개인 또는 Microsoft 피어 링을 사용 하려면 상태를 사용 하도록 설정 해야 합니다.
+Bgp 프로 비전 상태는 Microsoft Edge에서 BGP 세션을 사용 하도록 설정 했는지 여부를 보고 합니다. 개인 또는 Microsoft 피어 링을 사용 하려면 상태를 사용 하도록 설정 해야 합니다.
 
 특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태* 를 호출하는 다른 상태가 있습니다. 보급 된 공용 접두사 상태는 BGP 세션을 사용 하 고 라우팅이 종단 간에 작동 하기 위해 *구성* 된 상태 여야 합니다. 
 

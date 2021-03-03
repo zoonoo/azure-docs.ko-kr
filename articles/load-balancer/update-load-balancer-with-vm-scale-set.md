@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721313"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>가상 머신 확장 집합에서 사용 하는 부하 분산 장치 업데이트 또는 삭제
 
@@ -111,6 +111,52 @@ NAT 풀을 삭제 하려면 먼저 크기 집합에서 NAT 풀을 제거 합니�
 1. **프런트 엔드 IP 주소 추가** 페이지에서 값을 입력 하 고 **확인** 을 선택 합니다.
 1. 새 부하 분산 규칙이 필요한 경우이 자습서의 [5 단계](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) 와 [6 단계](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) 를 수행 합니다.
 1. 필요한 경우 새로 만든 프런트 엔드 IP 구성을 사용 하 여 새 인바운드 NAT 규칙 집합을 만듭니다. 예제는 이전 섹션에 나와 있습니다.
+
+## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>단일 Load Balancer 뒤에 여러 Virtual Machine Scale Sets
+
+Load Balancer에서 인바운드 NAT 풀을 만들고, 가상 머신 확장 집합의 네트워크 프로필에서 인바운드 NAT 풀을 참조 하 고, 마지막으로 변경 내용을 적용 하려면 인스턴스를 업데이트 합니다. 모든 Virtual Machine Scale Sets에 대 한 단계를 반복 합니다.
+
+겹치지 않는 프런트 엔드 포트 범위를 사용 하 여 별도의 인바운드 NAT 풀을 만들어야 합니다.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
 
 ## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 사용 하는 프런트 엔드 IP 구성을 삭제 합니다.
 

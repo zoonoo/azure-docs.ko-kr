@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727501"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>환자 연속 모니터링 아키텍처
 
@@ -45,7 +45,7 @@ FHIR 데이터와 함께 기계 학습 모델을 사용하여 인사이트를 �
 
 ### <a name="provider-dashboard"></a>공급자 대시보드
 
-Azure API for FHIR 데이터를 사용하여 환자 인사이트 대시보드를 빌드하거나 의료 팀에서 사용하는 전자 의료 기록에 직접 통합합니다. 의료 팀은 대시보드를 사용하여 환자를 지원하고 악화되는 상태의 조기 경고 징후를 식별할 수 있습니다. 자세한 내용은 [Power BI 공급자 대시보드 빌드](howto-health-data-triage.md) 자습서를 참조하세요.
+Azure API for FHIR 데이터를 사용하여 환자 인사이트 대시보드를 빌드하거나 의료 팀에서 사용하는 전자 의료 기록에 직접 통합합니다. 의료 팀은 대시보드를 사용하여 환자를 지원하고 악화되는 상태의 조기 경고 징후를 식별할 수 있습니다. 자세한 내용은 [Power BI 공급자 대시보드 빌드](tutorial-health-data-triage.md) 자습서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

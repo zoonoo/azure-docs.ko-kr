@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710671"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -115,6 +115,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서
 Windows 스토리지 공간을 사용하여 VM에서 파일 복원 | 동일한 VM에서 복원이 지원되지 않습니다.<br/><br/> 대신, 호환되는 VM에서 파일을 복원합니다.
 LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에서 복원이 지원되지 않습니다.<br/><br/> 호환 가능한 VM에서 복원합니다.
 특수한 네트워크 설정을 사용하여 파일 복원 | 동일한 VM에서 복원이 지원되지 않습니다. <br/><br/> 호환 가능한 VM에서 복원합니다.
+쓰기 가속기를 사용 하는 공유 디스크, 임시 드라이브, 중복 제거 된 디스크, 울트라 디스크 및 디스크에서 파일 복원 | 복원이 지원 되지 않음 <br/><br/>[AZURE VM 저장소 지원](#vm-storage-support)을 참조 하세요.
 
 ## <a name="support-for-vm-management"></a>VM 관리 지원
 
@@ -149,7 +150,7 @@ Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백�
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
-[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | 지원됨
+[Azure 전용 호스트](../virtual-machines/dedicated-hosts.md) | 지원됨
 독립 실행형 Azure Vm의 Windows 저장소 공간 구성 | 지원됨
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -168,7 +169,7 @@ Write Accelerator가 설정된 디스크 | 2020 년 11 월 23 일부 터는 제�
 공유 스토리지| CSV (클러스터 공유 볼륨) 또는 Scale-Out 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
 울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
-[임시 디스크](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업 되지 않습니다.
+[임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업 되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

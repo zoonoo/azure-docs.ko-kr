@@ -4,12 +4,12 @@ ms.service: databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 02/05/2021
-ms.openlocfilehash: b06b91e972fd07543cf02105360cb0400ef6b0f1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750600"
 ---
 IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 문제를 해결할 수 있습니다. 가능한 응답 목록은 다음과 같습니다.
 
@@ -20,7 +20,7 @@ IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 �
 * 406 - IoT Edge 디바이스가 오프라인 상태이거나 상태 보고서를 전송하지 않습니다.
 * 500 - IoT Edge 런타임에서 오류가 발생했습니다.
 
-자세한 내용은 [IoT Edge 에이전트](/azure/iot-edge/iot-edge-runtime?view=iotedge-2018-06&preserve-view=true#iot-edge-agent)를 참조 하세요.
+자세한 내용은 [IoT Edge 에이전트](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent)를 참조 하세요.
 
 다음 오류는 Azure Stack Edge Pro의 IoT Edge 서비스와 관련 되어 있습니다.<!--/ Data Box Gateway--> 답을 찾으세요.
 

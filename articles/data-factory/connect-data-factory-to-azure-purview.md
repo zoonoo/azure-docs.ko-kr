@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: c42eb8cac283ce096c42c9e5d4b7eac9a3e12625
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364378"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727943"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure 부서의 범위에 Data Factory 연결 (미리 보기)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,10 +40,10 @@ Azure 부서의 범위 계정을 Data Factory에 등록 한 후 Azure Data Facto
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="부서의 범위 계정을 등록 하는 태그의 스크린샷":::
 
-2. Data Factory에 Azure 부서의 범위 계정을 등록할 수 있는 권한이 부여 되었는지 확인 합니다. [Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법을](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection) 참조 하세요.
+2. Data Factory에 Azure 부서의 범위 계정을 등록할 수 있는 권한이 부여 되었는지 확인 합니다. [Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법을](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection) 참조 하세요.
 
 ### <a name="register-data-factory-in-azure-purview"></a>Azure 부서의 범위에서 Data Factory 등록
-Azure 부서의 범위에 Data Factory를 등록 하는 방법에 대 한 자세한 내용은 [Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory)을 참조 하세요. 
+Azure 부서의 범위에 Data Factory를 등록 하는 방법에 대 한 자세한 내용은 [Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법](../purview/how-to-link-azure-data-factory.md)을 참조 하세요. 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Azure 부서의 범위에 계보 데이터 보고
 고객은 Azure Data Factory에서 복사, 데이터 흐름 또는 SSIS 패키지 실행 작업을 실행할 때 종속성 관계를 얻을 수 있으며 데이터 원본 및 대상 간의 전체 워크플로 프로세스에 대 한 개략적인 개요를 사용할 수 있습니다.

@@ -32,7 +32,7 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v3|
+|암호화 옵션|Description|Media Services v3|
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>1</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
@@ -42,7 +42,7 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 ## <a name="storage-account-double-encryption"></a>저장소 계정 이중 암호화
 
-저장소 계정은 이중 암호화를 지원 하지만 두 번째 계층은 명시적으로 사용 하도록 설정 해야 합니다. [휴지 상태의 데이터에 대 한 Azure Storage 암호화를](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption)참조 하세요.  
+저장소 계정은 이중 암호화를 지원 하지만 두 번째 계층은 명시적으로 사용 하도록 설정 해야 합니다. [휴지 상태의 데이터에 대 한 Azure Storage 암호화를](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)참조 하세요.  
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 
@@ -50,7 +50,7 @@ Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가
 
 다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다.
 
-|문제|해결 방법|
+|문제|솔루션|
 |---|---|
 |Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션합니다. |
 |이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정은 최신 Azure 리소스 관리자 기반 계정으로 변환 되 고 연결 끊김 상태가 됩니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션하십시오.|

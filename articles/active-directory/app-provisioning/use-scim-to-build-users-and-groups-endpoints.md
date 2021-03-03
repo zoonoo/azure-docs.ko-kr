@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650161"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689337"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>자습서: 샘플 SCIM 끝점 개발
 
@@ -57,6 +57,8 @@ ms.locfileid: "101650161"
     ![새 app service를 만드는 과정을 보여 주는 스크린샷](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. 사용할 리소스 그룹을 선택 하 고 **게시** 를 선택 합니다.
+
+    ![새 app service 게시를 보여 주는 스크린샷](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. **Azure App Service** 구성에서 응용 프로그램으로 이동 하  >   고 **새 응용 프로그램 설정** 을 선택 하 여 값을 사용 하 여 *Token__TokenIssuer* 설정을 추가 합니다 `https://sts.windows.net/<tenant_id>/` . `<tenant_id>`을 AZURE AD 테 넌 트 ID로 바꿉니다. [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint)을 사용 하 여 scim 끝점을 테스트 하려면 값을 사용 하 여 *ASPNETCORE_ENVIRONMENT* 설정을 추가 `Development` 합니다.
 

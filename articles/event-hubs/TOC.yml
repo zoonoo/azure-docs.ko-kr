@@ -214,7 +214,7 @@
         - name: 진단 로그 설정
           href: event-hubs-diagnostic-logs.md
         - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
-          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: 처리량 단위 규모를 자동으로 조정
           href: event-hubs-auto-inflate.md
         - name: Event Hubs 관리 라이브러리

@@ -3,12 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831638"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719613"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -172,7 +172,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
     ![차등 백업 정책](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > 이제 공개 미리 보기에서 증분 백업이 지원 됩니다. 차등 또는 증분을 매일 백업으로 선택할 수 있지만 둘 다를 선택할 수는 없습니다.
+    > 차등 또는 증분을 매일 백업으로 선택할 수 있지만 둘 다를 선택할 수는 없습니다.
 1. **증분 백업 정책** 에서 **사용** 을 선택하여 빈도 및 보존 컨트롤을 엽니다.
     * 많으면, 하루에 하나의 증분 백업을 트리거할 수 있습니다.
     * 증분 백업은 최대 180일 동안 보존될 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.

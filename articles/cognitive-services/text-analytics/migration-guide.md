@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699898"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
 
@@ -75,13 +75,13 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 다음 표에는 NER v 2.1에 대해 반환 된 엔터티 범주가 나와 있습니다.
 
-| Category   | Description                          |
+| 범주   | Description                          |
 |------------|--------------------------------------|
-| Person   |   사람의 이름입니다.  |
+| 사람   |   사람의 이름입니다.  |
 |위치    | 자연 스러운 랜드마크, 구조, 지리적 기능 및 지정 학적 엔터티 |
 |조직 | 회사, 정치적 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. Nationalities 및 religions는이 엔터티 형식에 포함 되지 않습니다. |
 | PhoneNumber | 전화 번호 (미국과 EU 전화 번호만 해당). |
-| 메일 | 전자 메일 주소. |
+| Email | 전자 메일 주소. |
 | URL | 웹 사이트에 대 한 Url입니다. |
 | IP | 네트워크 IP 주소. |
 | DateTime | 날짜 및 시간입니다.| 
@@ -89,7 +89,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 | 시간 | 하루 중 시간 |
 | DateRange | 날짜 범위. |
 | TimeRange | 시간 범위. |
-| 기간 | 기간 |
+| Duration | 기간 |
 | 설정 | 반복 횟수를 설정 합니다. |
 | 수량 | 숫자 및 숫자 수량. |
 | 숫자 | 숫자 |
@@ -104,7 +104,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 ### <a name="feature-changes"></a>기능 변경 
 
-언어 검색 기능은 v3의 끝점 버전 외부에서 변경 되지 않지만 JSON 응답은 대신을 포함 합니다 `ConfidenceScore` `score` . 또한 V3은 출력에서 단일 언어만 반환 합니다. 
+V3에서 언어 검색 기능 출력이 변경 되었습니다. JSON 응답은 대신을 포함 합니다 `ConfidenceScore` `score` . 또한 V3은  `detectedLanguage` 각 문서에 대 한 특성에서 하나의 언어만 반환 합니다.
 
 ### <a name="steps-to-migrate"></a>마이그레이션 단계
 

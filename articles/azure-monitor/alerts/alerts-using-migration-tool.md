@@ -4,35 +4,26 @@ description: 자발적 마이그레이션 도구를 사용 하 여 클래식 경
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 28ccdde85f2873839fbe977c3c991177ac8bb3bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644346c7355df581843fa8a838eea50cfeccefd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729099"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
 
-[이전에 발표](../platform/monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 중지 되었습니다. 마이그레이션 도구는 기존 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 제공 되었습니다. 이 문서에서는이 마이그레이션 도구를 사용 하는 방법에 대해 설명 합니다 .이 도구는 추가 알림 보류 중인 경고에도 사용 됩니다.
+[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 공용 클라우드 사용자에 게 사용이 중지 되었지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
 
-## <a name="benefits-of-new-alerts"></a>새 경고의 이점
-
-클래식 경고는 Azure Monitor의 통합 된 새로운 경고로 대체 되 고 있습니다. 새 경고 플랫폼의 이점은 다음과 같습니다.
-
-- 다양 한 [Azure 서비스](alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대 한 다양 한 다차원 메트릭에 대해 경고할 수 있습니다.
-- 새 메트릭 경고는 여러 규칙을 관리 하는 오버 헤드를 크게 줄이는 [다중 리소스 경고 규칙](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) 을 지원 합니다.
-- 다음을 지 원하는 통합 알림 메커니즘
-  - [작업 그룹](../platform/action-groups.md)-모든 새 경고 유형 (메트릭, 로그 및 활동 로그)에서 작동 하는 모듈식 알림 메커니즘입니다.
-  - SMS, 음성 및 ITSM 커넥터 같은 새로운 알림 메커니즘
-- [통합 된 경고 환경](../platform/alerts-overview.md) 에서는 서로 다른 신호 (메트릭, 로그 및 활동 로그)에 대 한 모든 경고를 한 곳으로 가져옵니다.
+마이그레이션 도구는 기존 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 사용할 수 있습니다. 이 문서에서는 마이그레이션 도구를 사용 하는 방법을 설명 합니다.
 
 ## <a name="before-you-migrate"></a>마이그레이션하기 전에
 
 마이그레이션 프로세스는 기존 경고 규칙을 동등한 새 경고 규칙으로 변환 하 고 작업 그룹을 만듭니다. 준비 중에 다음 사항에 주의 해야 합니다.
 
-- 알림 페이로드 형식과 새 경고 규칙을 만들고 관리 하는 Api는 모두 더 많은 기능을 지원 하기 때문에 기존 경고 규칙의 형식과 다릅니다. [마이그레이션을 준비 하는 방법을 알아봅니다](alerts-prepare-migration.md).
+- 새 경고 규칙을 만들고 관리 하는 알림 페이로드 형식 및 Api는 더 많은 기능을 지원 하기 때문에 클래식 경고 규칙과 다릅니다. [마이그레이션을 준비 하는 방법을 알아봅니다](alerts-prepare-migration.md).
 
 - 일부 클래식 경고 규칙은 도구를 사용 하 여 마이그레이션할 수 없습니다. [마이그레이션할 수 없는 규칙과 수행할 작업에 대해 알아봅니다](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
@@ -83,7 +74,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 ### <a name="who-can-trigger-the-migration"></a>누가 마이그레이션을 트리거할 수 있나요?
 
-구독 수준에서 모니터링 참여자 역할을 할당 받은 사용자는 마이그레이션을 트리거할 수 있습니다. [마이그레이션 프로세스에 대 한 Azure 역할 기반 액세스 제어에 대해 자세히 알아보세요](alerts-understand-migration.md#who-can-trigger-the-migration).
+구독 수준에서 모니터링 참가자 역할이 할당 된 사용자는 마이그레이션을 트리거할 수 있습니다. [마이그레이션 프로세스에 대 한 Azure 역할 기반 액세스 제어에 대해 자세히 알아보세요](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>마이그레이션에 소요 되는 시간
 

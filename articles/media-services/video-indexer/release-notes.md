@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715159"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -47,7 +47,7 @@ Video Indexer는 이제 콘텐츠의 음성이 아닌 세그먼트에서 다음�
 
 이전 오디오 효과 모델에 포함 된 **박수** 이벤트 유형은 이제 가장 된 **반응** 이벤트 유형의 일부로 추출 됩니다.
 
-[Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 비디오의 웹 **사이트** 를 표시 하도록 선택 하는 경우 오디오 효과가 페이지에 표시 됩니다.
+[Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 비디오에 대 한 **정보** 를 볼 때 오디오 효과가 페이지에 표시 됩니다.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="오디오 이벤트 감지":::
 

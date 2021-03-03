@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737633"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -50,14 +50,14 @@ ms.locfileid: "100393856"
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    각 응답 유형에 대해 자세히 알아보려면 [메트릭 차원](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions)을 참조 하세요.
+    각 응답 유형에 대해 자세히 알아보려면 [메트릭 차원](./storage-files-monitoring-reference.md#metrics-dimensions)을 참조 하세요.
 
     !["응답 유형" 속성 필터를 표시 하는 프리미엄 파일 공유에 대 한 메트릭 옵션의 스크린샷](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
     > [!NOTE]
     > 경고를 수신 하려면이 문서의 뒷부분에 나오는 ["파일 공유를 제한 하는 경우 경고를 만드는 방법"](#how-to-create-an-alert-if-a-file-share-is-throttled) 섹션을 참조 하세요.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
 - 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세히 알아보려면 [프리미엄 파일 공유에 대 한 프로 비전 이해](./understanding-billing.md#provisioned-model)를 참조 하세요.
@@ -79,7 +79,7 @@ ms.locfileid: "100393856"
 
 사용 중인 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라이 설정으로 인해 가능한 최대 처리량 보다 IOPS 처리량이 상당히 줄어들 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 Windows 클라이언트 또는 Linux 클라이언트의 **병렬** 명령에서 AzCopy 또는 RoboCopy를 사용할 수 있습니다.
@@ -90,7 +90,7 @@ ms.locfileid: "100393856"
 
 클라이언트 VM (가상 컴퓨터)은 파일 공유와 다른 지역에 있을 수 있습니다. 대기 시간이 긴 다른 이유는 클라이언트나 네트워크에서 발생 하는 대기 시간으로 인해 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 - 저장소 계정의 경우 Azure Portal에서 **Azure Monitor** 를 통해 트랜잭션 메트릭 **SuccessE2ELatency** 및 **SuccessServerLatency** 를 검토 합니다. SuccessE2ELatency 및 SuccessServerLatency 메트릭 값 간의 큰 차이는 네트워크 또는 클라이언트에 의해 발생 하는 대기 시간을 나타냅니다. Azure Files 모니터링 데이터 참조의 [트랜잭션 메트릭](storage-files-monitoring-reference.md#transaction-metrics) 을 참조 하세요.
@@ -192,7 +192,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 구독이 기능에 대해 등록 되지 않았거나 지역 및 계정 유형이 지원 되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 구독이 SMB 다중 채널 기능에 등록 되었는지 확인 합니다. [시작](storage-files-enable-smb-multichannel.md#getting-started) 을 참조 하 여 계정 종류가 계정 개요 페이지에서 FileStorage (프리미엄 파일 계정) 인지 확인 합니다. 
 
@@ -202,7 +202,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 
 다시 탑재 없이 SMB 다중 채널 구성 설정에 대 한 최근 변경 내용입니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
  
 -   Windows SMB 클라이언트 또는 계정 SMB 다중 채널 구성 설정이 변경 된 후에는 공유를 분리 하 고, 60 초 동안 기다린 다음, 다중 채널을 트리거하기 위해 공유를 다시 탑재 해야 합니다.
 -   Windows 클라이언트 OS의 경우 큐 깊이가 높은 IO 로드를 생성 합니다. 예를 들어 파일을 복사 하 여 SMB 다중 채널을 트리거합니다.  서버 OS의 경우 SMB 다중 채널은 QD = 1로 트리거되고,이는 공유에 대 한 IO를 시작 하는 즉시 발생 합니다.
@@ -221,7 +221,7 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
 1. 트랜잭션을 메트릭으로 선택 합니다. 
 1. ResponseType에 대 한 필터를 추가 하 고 요청에 SuccessWithThrottling (SMB 용) 또는 ClientThrottlingError (REST)의 응답 코드가 있는지 확인 합니다.
 
-### <a name="solution"></a>해결 방법 
+### <a name="solution"></a>솔루션 
 
 - 파일 변경 알림이 사용 되지 않으면 파일 변경 알림 (기본 설정)을 사용 하지 않도록 설정 합니다.
     - FCNMode를 업데이트 하 여 [파일 변경 알림을 사용 하지 않도록 설정](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) 합니다. 
@@ -258,13 +258,12 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
    > [!NOTE]
    > 응답 유형이 **차원 값** 드롭다운에 나열 되지 않는 경우이는 리소스가 제한 되지 않았음을 의미 합니다. 차원 값을 추가 하려면 **차원 값** 드롭다운 목록 옆에 있는 **사용자 지정 값 추가** 를 선택 하 고 응답 유형 (예: **SuccessWithThrottling**)을 입력 한 다음 **확인** 을 선택 하 고이 단계를 반복 하 여 해당 파일 공유에 적용 가능한 모든 응답 유형을 추가 합니다.
 
-8. **차원 이름** 드롭다운을 클릭 하 고 **파일 공유** 를 선택 합니다.
-9. **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다.
-
+8. **프리미엄 파일 공유** 의 경우 **차원 이름** 드롭다운을 클릭 하 고 **파일 공유** 를 선택 합니다. **표준 파일 공유** 의 경우 **#10 단계로** 건너뜁니다.
 
    > [!NOTE]
-   > 파일 공유가 표준 파일 공유 인 경우 **모든 현재 및 미래 값** 을 선택 합니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 차원 값 드롭다운에는 파일 공유가 나열 되지 않습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다.
+   > 파일 공유가 표준 파일 공유 인 경우 표준 파일 공유에 대 한 공유 메트릭을 사용할 수 **없으므로 파일 공유 차원에** 파일 공유가 나열 되지 않습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다.
 
+9. **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다.
 10. **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 평가 빈도)를 정의 하 고 **완료** 를 클릭 합니다.
 
     > [!TIP]

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56ff43980aafc75d5936b86c6ba2cd400311c5fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719103"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
 
@@ -134,4 +134,4 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 다음 문서로 넘어가서 IoT Central 애플리케이션에 연결하는 공급자 대시보드를 만드는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [공급자 대시보드 빌드](howto-health-data-triage.md)
+> [공급자 대시보드 빌드](tutorial-health-data-triage.md)

@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737344"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Azure Monitor의 에이전트에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 및 [진단 확장](../platform/diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](./log-analytics-agent.md) 및 [진단 확장](./diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ Windows 및 Linux 에이전트의 Azure Monitor 에이전트(미리 보기)에 �
 이 섹션의 샘플은 Azure의 Windows 및 Linux 가상 머신에 진단 확장을 설치하고 데이터 수집을 위해 구성합니다.
 
 ### <a name="windows"></a>Windows
-다음 샘플에서는 Windows Azure 가상 머신에서 진단 확장을 사용하도록 설정하고 구성합니다. 구성에 대한 자세한 내용은 [Windows 진단 확장 스키마](../platform/diagnostics-extension-schema-windows.md)를 참조하세요.
+다음 샘플에서는 Windows Azure 가상 머신에서 진단 확장을 사용하도록 설정하고 구성합니다. 구성에 대한 자세한 내용은 [Windows 진단 확장 스키마](./diagnostics-extension-schema-windows.md)를 참조하세요.
 
 #### <a name="template-file"></a>템플릿 파일
 
@@ -807,6 +807,6 @@ Windows 및 Linux 에이전트의 Azure Monitor 에이전트(미리 보기)에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../samples/resource-manager-samples.md).
-* [Log Analytics 에이전트에 대해 자세히 알아보세요](../platform/log-analytics-agent.md).
-* [진단 확장에 대해 자세히 알아보세요](../platform/diagnostics-extension-overview.md).
+* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
+* [Log Analytics 에이전트에 대해 자세히 알아보세요](./log-analytics-agent.md).
+* [진단 확장에 대해 자세히 알아보세요](./diagnostics-extension-overview.md).

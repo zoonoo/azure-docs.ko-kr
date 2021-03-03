@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Automation 계정 인증의 개요를 제
 keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708903"
 ---
 # <a name="automation-account-authentication-overview"></a>Automation 계정 인증 개요
 
@@ -44,6 +44,8 @@ Azure Resource Manager 및 클래식 배포 모델에 대해 자세히 알아보
 >Azure CSP(클라우드 솔루션 공급자) 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독을 사용하는 경우 Azure 클래식 실행 계정이 생성되지 않지만 Azure 실행 계정은 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요.
 
 Automation 계정을 만들 때 실행 계정은 기본적으로 동시에 만들어집니다. Automation 계정과 함께 만들지 않기로 선택 하면 나중에 개별적으로 만들 수 있습니다. Azure 클래식 실행 계정은 선택 사항이 며 클래식 리소스를 관리 해야 하는 경우 별도로 생성 됩니다.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>실행 계정
 

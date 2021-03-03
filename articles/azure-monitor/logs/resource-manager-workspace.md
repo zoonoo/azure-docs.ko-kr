@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f57ff130fcf61ae8f831cda33c9510b37a5880e5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725597"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -824,6 +824,6 @@ ms.locfileid: "100597871"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../samples/resource-manager-samples.md).
-* [Log Analytics 작업 영역에 대해 자세히 알아봅니다](../learn/quick-create-workspace.md).
+* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
+* [Log Analytics 작업 영역에 대해 자세히 알아봅니다](./quick-create-workspace.md).
 * [에이전트 데이터 원본에 대해 자세히 알아봅니다](../agents/agent-data-sources.md).

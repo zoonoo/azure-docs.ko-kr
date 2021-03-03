@@ -1,17 +1,16 @@
 ---
 title: Azure Diagnostics 확장 개요
 description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: f3cde32178449169b07f57d4abbc346d8ca89df4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726226"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
 Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](../agents/agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
@@ -33,8 +32,8 @@ Azure Monitor의 Log Analytics 에이전트를 사용하여 가상 머신의 게
 고려해야 할 주요 차이점은 다음과 같습니다.
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
-- Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../platform/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs에 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../platform/data-platform-logs.md)에 수집합니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM용 Azure Monitor](../insights/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml)등의 기타 서비스에 필요합니다.
+- Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 수집합니다.
+- [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM 정보](../vm/vminsights-overview.md)및 기타 서비스 (예: [Azure Security Center](../../security-center/index.yml))에 Log Analytics 에이전트가 필요 합니다.
 
 ## <a name="costs"></a>비용
 Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한 요금이 발생할 수 있습니다. 데이터를 수집하는 대상에 대한 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)를 확인하세요.
@@ -74,7 +73,7 @@ Windows 및 Linux용 Azure 진단 확장은 항상 데이터를 Azure Storage �
 
 | 대상 | Description |
 |:---|:---|
-| Azure Monitor 메트릭 | 성능 데이터를 Azure Monitor 메트릭에 수집합니다. [Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)를 참조하세요.  |
+| Azure Monitor 메트릭 | 성능 데이터를 Azure Monitor 메트릭에 수집합니다. [Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)를 참조하세요.  |
 | 이벤트 허브(영문) | Azure Event Hubs를 사용하여 Azure 외부로 데이터를 보냅니다. [Event Hubs에 Azure Diagnostics 데이터 스트리밍](diagnostics-extension-stream-event-hubs.md) 참조 |
 | Azure Storage Blob | 테이블 외에도 Azure Storage의 Blob에 데이터를 씁니다. |
 | Application Insights | VM에서 실행되는 애플리케이션의 데이터를 Application Insights에 수집하여 다른 애플리케이션 모니터링과 통합합니다. [Application Insights에 진단 데이터 보내기](diagnostics-extension-to-application-insights.md)를 참조하세요. |
@@ -89,7 +88,7 @@ LAD는 Azure Storage의 테이블에 데이터를 씁니다. 다음 표의 싱�
 |:---|:---|
 | 이벤트 허브(영문) | Azure Event Hubs를 사용하여 Azure 외부로 데이터를 보냅니다. |
 | Azure Storage Blob | 테이블 외에도 Azure Storage의 Blob에 데이터를 씁니다. |
-| Azure Monitor 메트릭 | LAD와 함께 Telegraf 에이전트를 설치합니다. [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](../platform/collect-custom-metrics-linux-telegraf.md)을 참조하세요.
+| Azure Monitor 메트릭 | LAD와 함께 Telegraf 에이전트를 설치합니다. [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](../essentials/collect-custom-metrics-linux-telegraf.md)을 참조하세요.
 
 
 ## <a name="installation-and-configuration"></a>설치 및 구성

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723302"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
-활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](../platform/platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 위해 활동 로그를 [Azure Monitor 로그](../platform/data-platform-logs.md), azure Event Hubs에서 azure로 전달 하거나 보관을 위해 Azure Storage 전송 하는 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대 한 세부 정보를 제공 합니다.
+활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](./platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 위해 활동 로그를 [Azure Monitor 로그](../logs/data-platform-logs.md), azure Event Hubs에서 azure로 전달 하거나 보관을 위해 Azure Storage 전송 하는 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대 한 세부 정보를 제공 합니다.
 
-진단 설정 만들기에 대 한 자세한 내용은 [진단 설정 만들기를 참조 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보냅니다](../platform/diagnostic-settings.md) .
+진단 설정 만들기에 대 한 자세한 내용은 [진단 설정 만들기를 참조 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보냅니다](./diagnostic-settings.md) .
 
 > [!NOTE]
 > 활동 로그의 항목은 시스템에서 생성되며 변경하거나 삭제할 수 없습니다.
@@ -43,13 +43,13 @@ Azure Portal의 대부분의 메뉴에서 활동 로그에 액세스할 수 있�
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>활동 로그 이벤트를 검색 하는 다른 방법
 다음 방법을 사용 하 여 활동 로그 이벤트에 액세스할 수도 있습니다.
 
-- [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet을 사용하여 PowerShell에서 활동 로그를 검색합니다. [Azure Monitor PowerShell 샘플](../samples/powershell-samples.md#retrieve-activity-log)을 참조 하세요.
-- [az monitor activity-log](/cli/azure/monitor/activity-log)를 사용하여 CLI에서 활동 로그를 검색합니다.  [Azure Monitor CLI 샘플](../samples/cli-samples.md#view-activity-log)을 참조하세요.
+- [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet을 사용하여 PowerShell에서 활동 로그를 검색합니다. [Azure Monitor PowerShell 샘플](../powershell-samples.md#retrieve-activity-log)을 참조 하세요.
+- [az monitor activity-log](/cli/azure/monitor/activity-log)를 사용하여 CLI에서 활동 로그를 검색합니다.  [Azure Monitor CLI 샘플](../cli-samples.md#view-activity-log)을 참조하세요.
 - [Azure Monitor REST API](/rest/api/monitor/)를 사용하여 REST 클라이언트에서 활동 로그를 검색합니다. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Log Analytics 작업 영역으로 보내기
- 활동 로그를 Log Analytics 작업 영역으로 보내 다음을 포함 하는 [Azure Monitor 로그](../platform/data-platform-logs.md) 의 기능을 사용 하도록 설정 합니다.
+ 활동 로그를 Log Analytics 작업 영역으로 보내 다음을 포함 하는 [Azure Monitor 로그](../logs/data-platform-logs.md) 의 기능을 사용 하도록 설정 합니다.
 
 - 활동 로그 데이터를 Azure Monitor에 의해 수집 된 다른 모니터링 데이터와 상호 연결 합니다.
 - 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 합니다.
@@ -59,9 +59,9 @@ Azure Portal의 대부분의 메뉴에서 활동 로그에 액세스할 수 있�
 - Log Analytics 작업 영역에 저장 된 활동 로그 데이터에 대 한 데이터 수집 요금이 부과 되지 않습니다.
 - Log Analytics 작업 영역에 저장 된 활동 로그 데이터의 경우 90 일까지 데이터 보존 요금이 부과 되지 않습니다.
 
-작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](../platform/diagnostic-settings.md) . 단일 구독에서 최대 5 개의 작업 영역으로 활동 로그를 보낼 수 있습니다. 테넌트 간에 로그를 수집하려면 [Azure Lighthouse](../../lighthouse/index.yml)가 필요합니다.
+작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](./diagnostic-settings.md) . 단일 구독에서 최대 5 개의 작업 영역으로 활동 로그를 보낼 수 있습니다. 테넌트 간에 로그를 수집하려면 [Azure Lighthouse](../../lighthouse/index.yml)가 필요합니다.
 
-Log Analytics 작업 영역의 활동 로그 데이터는 [Log Analytics](../log-query/log-analytics-tutorial.md)에서 [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 검색할 수 있는 *azureactivity* 라는 테이블에 저장 됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-log-schema.md)에 따라 달라 집니다. 테이블 속성에 대 한 설명은 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/tables/azureactivity)를 참조 하세요.
+Log Analytics 작업 영역의 활동 로그 데이터는 [Log Analytics](../logs/log-analytics-tutorial.md)에서 [로그 쿼리](../logs/log-query-overview.md) 를 사용 하 여 검색할 수 있는 *azureactivity* 라는 테이블에 저장 됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-log-schema.md)에 따라 달라 집니다. 테이블 속성에 대 한 설명은 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/tables/azureactivity)를 참조 하세요.
 
 예를 들어 각 범주에 대 한 활동 로그 레코드 수를 보려면 다음 쿼리를 사용 합니다.
 
@@ -200,14 +200,14 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
-    | StorageAccountId |아니요 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
-    | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |No |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
+    | serviceBusRuleId |No |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
     | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
     | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
-    | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_ 및 _동작_ 입니다. |
+    | 범주 |No |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_ 및 _동작_ 입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
 다음은 저장소 계정 및 이벤트 허브 모두에 활동 로그를 기록 하는 로그 프로필을 만드는 샘플 PowerShell 스크립트입니다.
@@ -243,7 +243,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
     | name |예 |로그 프로필의 이름입니다. |
     | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
@@ -400,6 +400,6 @@ Azure Portal를 사용 하 여 구독에 활동 로그 분석 솔루션을 더 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [플랫폼 로그 개요 읽기](../platform/platform-logs-overview.md)
+* [플랫폼 로그 개요 읽기](./platform-logs-overview.md)
 * [검토 활동 로그 이벤트 스키마](activity-log-schema.md)
-* [활동 로그를 다른 대상으로 보내는 진단 설정 만들기](../platform/diagnostic-settings.md)
+* [활동 로그를 다른 대상으로 보내는 진단 설정 만들기](./diagnostic-settings.md)

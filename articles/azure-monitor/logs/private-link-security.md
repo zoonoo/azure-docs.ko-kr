@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 55a3cd6b02b9eeb774a084552c086acbfb9966cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e9431aac203b831a0ffe22b835acf4677061780c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707788"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -157,9 +157,53 @@ Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights �
  
    e.    **만들기** 를 선택합니다. 
 
-    ![프라이빗 엔드포인트 2 만들기 선택의 스크린샷](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
+    ![개인 끝점 선택 세부 정보의 스크린샷](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
 이제이 AMPLS에 연결 된 새 개인 끝점을 만들었습니다.
+
+## <a name="review-and-validate-your-private-link-setup"></a>개인 링크 설정 검토 및 유효성 검사
+
+### <a name="reviewing-your-endpoints-dns-settings"></a>끝점의 DNS 설정 검토
+이제 만든 개인 끝점에 4 개의 DNS 영역을 구성 해야 합니다.
+
+[![개인 끝점 DNS 영역의 스크린샷.](./media/private-link-security/private-endpoint-dns-zones.png)](./media/private-link-security/private-endpoint-dns-zones-expanded.png#lightbox)
+
+* privatelink-azure-com
+* privatelink-opinsights-azure-com
+* privatelink--opinsights-azure-com
+* privatelink-azure-automation-net
+
+이러한 각 영역은 특정 Azure Monitor 끝점을 개인 끝점 VNet의 Ip 풀에서 개인 Ip에 매핑합니다.
+
+#### <a name="privatelink-monitor-azure-com"></a>Privatelink-azure-com
+이 영역에는 Azure Monitor에서 사용 하는 전역 끝점이 포함 되어 있습니다. 즉, 이러한 끝점은 특정 리소스가 아니라 모든 리소스를 고려 하는 요청을 처리 합니다. 이 영역에는 다음에 대 한 끝점이 매핑되어야 합니다.
+* `in.ai` -(Application Insights 수집 끝점, 전역 및 지역별 항목이 표시 됩니다.
+* `api` -Application Insights 및 Log Analytics API 끝점
+* `live` -Application Insights 라이브 메트릭 끝점
+* `profiler` -Application Insights profiler 끝점
+* `snapshot`-Application Insights 스냅숏 끝점 [ ![ 사설 DNS 영역 모니터의 스크린샷-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-oms-opinsights-azure-com"></a>privatelink-opinsights-azure-com
+이 영역에서는 OMS 끝점에 대 한 작업 영역 별 매핑을 다룹니다. 이 개인 끝점과 연결 된 AMPLS에 연결 된 각 작업 영역에 대 한 항목이 표시 됩니다.
+[![사설 DNS 영역 oms-opinsights-azure-com의 스크린샷](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-ods-opinsights-azure-com"></a>privatelink--opinsights-azure-com
+이 영역에서는 Log Analytics의 수집 끝점과 ODS 끝점에 대 한 작업 영역 별 매핑을 다룹니다. 이 개인 끝점과 연결 된 AMPLS에 연결 된 각 작업 영역에 대 한 항목이 표시 됩니다.
+[![사설 DNS 영역 ods의 스크린샷-opinsights-azure-com](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-agentsvc-azure-automation-net"></a>privatelink-azure-automation-net
+이 영역에서는 에이전트 서비스 자동화 끝점에 대 한 작업 영역 별 매핑을 다룹니다. 이 개인 끝점과 연결 된 AMPLS에 연결 된 각 작업 영역에 대 한 항목이 표시 됩니다.
+[![사설 DNS 영역 에이전트의 스크린샷-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
+
+### <a name="validating-you-are-communicating-over-a-private-link"></a>개인 링크를 통해 통신 하 고 있는지 확인 하는 중
+* 이제 요청이 개인 끝점을 통해 전송 되 고 개인 IP 매핑 끝점을 통해 전송 되는 것을 확인 하기 위해 네트워크 추적을 사용 하 여 도구 또는 브라우저 에서도 검토할 수 있습니다. 예를 들어 작업 영역 또는 응용 프로그램을 쿼리 하려는 경우 요청이 API 끝점에 매핑되는 개인 IP로 전송 되었는지 확인 합니다 .이 예제에서는 *172.17.0.9* 입니다.
+
+    참고: 일부 브라우저는 다른 DNS 설정을 사용할 수 있습니다 ( [브라우저 DNS 설정](#browser-dns-settings)참조). DNS 설정이 적용 되는지 확인 합니다.
+
+* 작업 영역 또는 구성 요소가 공용 네트워크에서 요청을 받지 않도록 하려면 (AMPLS을 통해 연결 되지 않음) [외부 링크 범위 외부에서 액세스 관리](#manage-access-from-outside-of-private-links-scopes)에 설명 된 대로 리소스의 공용 수집 및 쿼리 플래그를 *아니요* 로 설정 합니다.
+
+* 보호 된 네트워크의 클라이언트에서 `nslookup` DNS 영역에 나열 된 끝점 중 하나를 사용 합니다. DNS 서버에서 기본적으로 사용 되는 공용 Ip 대신 매핑된 개인 Ip로 확인 되어야 합니다.
+
 
 ## <a name="configure-log-analytics"></a>Log Analytics 구성
 
@@ -170,7 +214,7 @@ Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스 메뉴에
 ### <a name="connected-azure-monitor-private-link-scopes"></a>연결 된 Azure Monitor 개인 링크 범위
 작업 영역에 연결 된 모든 범위가이 화면에 표시 됩니다. 범위 (AMPLSs)에 연결 하면 각 AMPLS에 연결 된 가상 네트워크의 네트워크 트래픽이이 작업 영역에 연결 될 수 있습니다. 여기를 통해 연결을 만들면 [Azure Monitor 리소스를 연결할](#connect-azure-monitor-resources)때와 같이 범위에서 설정 하는 것과 동일한 효과가 있습니다. 새 연결을 추가 하려면 **추가** 를 선택 하 고 Azure Monitor 개인 링크 범위를 선택 합니다. **적용** 을 선택 하 여 연결 합니다. [제한 및 제한](#restrictions-and-limitations)사항에 설명 된 대로 작업 영역은 5 개의 AMPLS 개체에 연결할 수 있습니다. 
 
-### <a name="access-from-outside-of-private-links-scopes"></a>개인 링크 범위 외부에서 액세스
+### <a name="manage-access-from-outside-of-private-links-scopes"></a>개인 링크 범위 외부에서 액세스 관리
 이 페이지의 맨 아래에 있는 설정은 공용 네트워크에서의 액세스를 제어 합니다. 즉, 위에 나열 된 범위를 통해 연결 되지 않은 네트워크를 의미 합니다. ' 수집 **에 대 한 공용 네트워크 액세스 허용** **'을 설정** 하면 연결 된 범위를 벗어난 컴퓨터에서 로그를 수집 하는 것을 차단 합니다. **쿼리에서 공용 네트워크 액세스 허용을 사용** **하지 않도록** 설정 하면 범위 외부의 컴퓨터에서 오는 쿼리가 차단 됩니다. 여기에는 통합 문서, 대시보드, API 기반 클라이언트 환경, Azure Portal의 통찰력 등을 통해 실행 되는 쿼리가 포함 됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
 
 ### <a name="exceptions"></a>예외
@@ -207,7 +251,7 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 
 모니터링되는 워크로드를 호스팅하는 리소스를 프라이빗 링크에 추가해야 합니다. App Services에서 이 작업을 수행하는 방법을 보여 주는 [설명서](../../app-service/networking/private-endpoint.md)가 있습니다.
 
-액세스를 이 방법으로 제한하는 경우 Application Insights 리소스의 데이터에만 적용됩니다. 이러한 액세스 설정의 켜기 또는 끄기를 포함한 구성 변경은 Azure Resource Manager에서 관리합니다. 대신 적절한 역할, 권한, 네트워크 제어 및 감사를 사용하여 Resource Manager에 대한 액세스를 제한합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
+액세스를 이 방법으로 제한하는 경우 Application Insights 리소스의 데이터에만 적용됩니다. 그러나 이러한 액세스 설정을 설정 하거나 해제 하는 등의 구성 변경 내용은 Azure Resource Manager에 의해 관리 됩니다. 따라서 적절 한 역할, 권한, 네트워크 제어 및 감사를 사용 하 여 리소스 관리자에 대 한 액세스를 제한 해야 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights를 완벽하게 보호하려면 Application Insights 리소스 및 기본 Log Analytics 작업 영역에 대한 액세스를 모두 잠가야 합니다.
@@ -218,14 +262,14 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 [개인 링크 설정 계획](#planning-your-private-link-setup)에 설명 된 대로 단일 리소스에 대 한 개인 링크를 설정 하면 해당 네트워크의 모든 Azure Monitor 리소스 및 동일한 DNS를 공유 하는 다른 네트워크에도 영향을 줍니다. 이렇게 하면 온 보 딩 프로세스를 어렵게 만들 수 있습니다. 다음 옵션을 살펴보세요.
 
 * 가장 간단 하 고 가장 안전한 방법은 AMPLS에 모든 Application Insights 구성 요소를 추가 하는 것입니다. 다른 네트워크 에서도 계속 액세스 하려는 구성 요소의 경우 "수집/쿼리에 대 한 공용 인터넷 액세스 허용" 플래그를 예 (기본값)로 설정 된 상태로 둡니다.
-* 네트워크 격리-스포크 vnet을 사용 하 여 (또는에 맞출 수 있는 경우) [Azure에서 허브-스포크 네트워크 토폴로지](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)의 지침을 따릅니다. 그런 다음 관련 스포크 Vnet에서 별도의 개인 링크 설정을 설정 합니다. Dns 영역을 다른 스포크 네트워크와 공유 하면 dns [재정의가](#the-issue-of-dns-overrides)발생 하므로 dns 영역도 분리 해야 합니다.
+* 네트워크 격리-스포크 vnet을 사용 하 여 (또는에 맞출 수 있는 경우) [Azure에서 허브-스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)의 지침을 따릅니다. 그런 다음 관련 스포크 Vnet에서 별도의 개인 링크 설정을 설정 합니다. Dns 영역을 다른 스포크 네트워크와 공유 하면 dns [재정의가](#the-issue-of-dns-overrides)발생 하므로 dns 영역도 분리 해야 합니다.
 * 특정 앱에 사용자 지정 DNS 영역 사용-이 솔루션을 사용 하면 공용 경로를 통해 다른 모든 트래픽을 유지 하면서 개인 링크를 통해 선택 Application Insights 구성 요소에 액세스할 수 있습니다.
-    - [사용자 지정 개인 DNS 영역](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)을 설정 하 고 internal.monitor.azure.com와 같은 고유한 이름을 지정 합니다.
+    - [사용자 지정 개인 DNS 영역](../../private-link/private-endpoint-dns.md)을 설정 하 고 internal.monitor.azure.com와 같은 고유한 이름을 지정 합니다.
     - AMPLS 및 개인 끝점을 만들고 개인 DNS와 자동으로 통합 **하지 않도록** 선택 합니다.
-    - 개인 끝점-DNS 구성 >로 이동 하 고 제안 된 Fqdn 매핑을 검토 합니다. 제안 된 ![ dns 영역 구성의 스크린샷](./media/private-link-security/private-endpoint-fqdns.png)
+    - 개인 끝점-DNS 구성 >로 이동 하 고 Fqdn의 제안 된 매핑을 검토 합니다.
     - 구성 추가를 선택 하 고 방금 만든 internal.monitor.azure.com 영역을 선택 합니다.
     - ![구성 된 DNS 영역의 위 스크린샷에 대 한 레코드 추가](./media/private-link-security/private-endpoint-global-dns-zone.png)
-    - Application Insights 구성 요소로 이동 하 여 [연결 문자열](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string)을 복사 합니다.
+    - Application Insights 구성 요소로 이동 하 여 [연결 문자열](../app/sdk-connection-string.md)을 복사 합니다.
     - 개인 링크를 통해이 구성 요소를 호출 하려는 앱 또는 스크립트는 EndpointSuffix = internal.. c l i e n.
 * DNS 대신 호스트 파일을 통해 끝점 매핑-네트워크의 특정 컴퓨터/VM 에서만 개인 링크에 액세스할 수 있습니다.
     - AMPLS 및 개인 끝점을 설정 하 고 개인 DNS와 자동으로 통합 **하지 않도록** 선택 합니다. 
@@ -280,7 +324,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 사용하려면 개인 네트워크에서 Azure Portal 및 Azure Monitor 확장에 액세스할 수 있어야 합니다. **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor** 및 **AzureFrontDoor** [서비스 태그](../../firewall/service-tags.md) 를 네트워크 보안 그룹에 추가 합니다.
 
 ### <a name="querying-data"></a>데이터 쿼리
-[ `externaldata` 운영자](https://docs.microsoft.com/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) 는 저장소 계정에서 데이터를 읽으므로 개인 링크에 대해 지원 되지 않지만 저장소에 대해 개인적으로 액세스를 보장 하지는 않습니다.
+[ `externaldata` 운영자](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) 는 저장소 계정에서 데이터를 읽으므로 개인 링크에 대해 지원 되지 않지만 저장소에 대해 개인적으로 액세스를 보장 하지는 않습니다.
 
 ### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 

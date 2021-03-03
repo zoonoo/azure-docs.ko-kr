@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692422"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -179,6 +179,21 @@ Included | 학습에 포함할 열을 지정 합니다.
 **모델** 탭의 모델 요약 또는 **메트릭** 탭의 성능 메트릭 차트와 같은 학습 실행 세부 정보를 보려면 완성 된 모델을 드릴 다운 합니다. [차트에](how-to-understand-automated-ml.md)대해 자세히 알아보세요.
 
 [![반복 세부 정보](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+## <a name="model-explanations"></a>모델 설명
+
+모델에 대해 더 잘 이해 하려면 모델 설명 대시보드를 사용 하 여 모델의 예측에 영향을 받는 데이터 기능 (raw 또는 엔지니어링)을 참조 하세요. 
+
+모델 설명 대시보드는 예측 및 설명과 함께 학습 된 모델에 대 한 전체 분석을 제공 합니다. 또한 개별 데이터 요소와 개별 기능 importances를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화 및 특정 플롯에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+특정 모델에 대 한 설명을 얻으려면 
+
+1. **모델** 탭에서 사용 하려는 모델을 선택 합니다. 
+1. **모델 설명** 단추를 선택 하 고 설명을 생성 하는 데 사용할 수 있는 계산을 제공 합니다.
+1. **자식 실행** 탭에서 상태를 확인 합니다. 
+1. 완료 되 면 설명 대시보드가 포함 된 설명 **(미리 보기)** 탭으로 이동 합니다. 
+
+    ![모델 설명 대시보드](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>모델 배포
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388025"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723812"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -160,7 +160,7 @@ Run Login-AzureRMAccount to login.
 
 1. 구독 이름을 복사합니다.
 
-1. 이제 다음 Runbook 코드를 사용하여 Automation 계정에서 다른 구독으로의 권한을 테스트할 수 있습니다. `"\<CertificateThumbprint\>"`를 1단계에서 복사한 값으로 바꿉니다. `"\<SubscriptionName\>"`을 4단계에서 복사한 값으로 바꿉니다.
+1. 이제 다음 Runbook 코드를 사용하여 Automation 계정에서 다른 구독으로의 권한을 테스트할 수 있습니다. `<CertificateThumbprint>`를 1단계에서 복사한 값으로 바꿉니다. `"<SubscriptionName>"`을 4단계에서 복사한 값으로 바꿉니다.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection

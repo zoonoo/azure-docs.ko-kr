@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738653"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
 이 문서에서는 Azure Monitor에서 로그 경고와 관련 된 일반적인 문제를 해결 하는 방법을 보여 줍니다. 또한 로그 경고의 기능 및 구성과 관련 된 일반적인 문제에 대 한 해결 방법을 제공 합니다.
 
-로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](../platform/action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
+로그 경고를 통해 사용자는 [Log Analytics](../logs/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다. [로그 경고의 기능 및 용어에 대해 자세히 알아보세요](alerts-unified-log.md).
 
 > [!NOTE]
 > 이 문서에서는 Azure Portal 경고 규칙을 표시 하 고 연결 된 작업 그룹에서 알림을 수행 하지 않는 경우를 고려 하지 않습니다. 이러한 경우 문제 해결에 대 한 세부 정보를 [참조 하세요.](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)
@@ -26,7 +26,7 @@ ms.locfileid: "100614499"
 
 ### <a name="data-ingestion-time-for-logs"></a>로그에 대 한 데이터 수집 시간
 
-Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로그 수집 대기 시간이](../platform/data-ingestion-time.md)발생할 수 있습니다.
+Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로그 수집 대기 시간이](../logs/data-ingestion-time.md)발생할 수 있습니다.
 
 로그는 반 구조화 된 데이터 이며 근본적으로 메트릭 보다 더 숨어 있습니다. 발생 한 경고의 지연 시간을 4 분 넘게 초과 하는 경우 [메트릭 경고](alerts-metric-overview.md)를 사용 하는 것이 좋습니다. [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 사용 하 여 로그에서 메트릭 저장소로 데이터를 보낼 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로�
 
 ### <a name="alert-triggered-by-partial-data"></a>부분 데이터로 인해 경고가 트리거됨
 
-Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로그 수집 대기 시간이](../platform/data-ingestion-time.md)발생할 수 있습니다.
+Azure Monitor는 전 세계에서 tb의 고객 로그를 처리 하므로 [로그 수집 대기 시간이](../logs/data-ingestion-time.md)발생할 수 있습니다.
 
 로그는 반 구조화 된 데이터 이며 근본적으로 메트릭 보다 더 숨어 있습니다. 발생 한 경고에 너무 많은 발생이 발생 하는 경우 [메트릭 경고](alerts-metric-overview.md)를 사용 하는 것이 좋습니다. [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 사용 하 여 로그에서 메트릭 저장소로 데이터를 보낼 수 있습니다.
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 쿼리에 경고 논리를 추가할 필요가 없으며이로 인해 문제가 발생할 수도 있습니다. 위의 예에서는 쿼리에를 포함 하는 경우 `count` 경고 서비스가를 수행 하므로 항상 값 1이 반환 됩니다 `count` `count` .
 
-최적화 된 쿼리는 로그 경고 서비스를 실행 하는 것입니다. Log Analytics [포털](../log-query/log-query-overview.md) 또는 [API](/rest/api/loganalytics/)에서 수정 된 쿼리를 실행할 수 있습니다.
+최적화 된 쿼리는 로그 경고 서비스를 실행 하는 것입니다. Log Analytics [포털](../logs/log-query-overview.md) 또는 [API](/rest/api/loganalytics/)에서 수정 된 쿼리를 실행할 수 있습니다.
 
 작업 영역 및 Application Insights의 경우 조건 창에서 **실행할 쿼리** 라고 합니다. 기타 모든 리소스 종류의 조건 탭에서 **최종 경고 쿼리 보기** 를 선택 합니다.
 
@@ -108,7 +108,7 @@ SecurityEvent
 로그 경고 규칙을 만들면 올바른 구문에 대 한 쿼리의 유효성이 검사 됩니다. 그러나 경우에 따라 로그 경고 규칙에 제공 된 쿼리가 실패할 수 있습니다. 몇 가지 일반적인 이유는 다음과 같습니다.
 
 - API를 통해 규칙이 생성 되었으며 사용자가 유효성 검사를 건너뛰었습니다.
-- 쿼리가 [여러 리소스에서 실행 되](../log-query/cross-workspace-query.md) 고 하나 이상의 리소스가 삭제 되거나 이동 되었습니다.
+- 쿼리가 [여러 리소스에서 실행 되](../logs/cross-workspace-query.md) 고 하나 이상의 리소스가 삭제 되거나 이동 되었습니다.
 - 다음 이유로 인해 [쿼리가 실패](https://dev.loganalytics.io/documentation/Using-the-API/Errors) 합니다.
     - 로깅 솔루션이 [작업 영역에 배포](../insights/solutions.md#install-a-monitoring-solution)되지 않았으므로 테이블이 생성 되지 않습니다.
     - 30 일 넘게 쿼리 내의 테이블로 이동 하는 데이터를 중지 했습니다.
@@ -219,5 +219,5 @@ SecurityEvent
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
-- [로그 경고 구성](../log-query/log-query-overview.md)에 대해 자세히 알아보세요.
-- [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
+- [로그 경고 구성](../logs/log-query-overview.md)에 대해 자세히 알아보세요.
+- [로그 쿼리에](../logs/log-query-overview.md)대해 자세히 알아보세요.

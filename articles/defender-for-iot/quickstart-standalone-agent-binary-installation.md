@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 0841bbd8baa524d3eea3afcbffc0aa5ead41409e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703051"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
@@ -25,7 +25,7 @@ Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들
 
 ## <a name="install-the-package"></a>패키지 설치
 
-[이 지침](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software)에 따라 Microsoft 패키지 리포지토리를 설치하고 구성합니다. 
+[이 지침](/windows-server/administration/linux-package-repository-for-microsoft-software)에 따라 Microsoft 패키지 리포지토리를 설치하고 구성합니다. 
 
 Debian 9의 경우 추가해야 하는 리포지토리가 지침에 나와 있지 않으므로 다음 명령을 사용하여 리포지토리를 추가하세요. 
 

@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹 앱, 클라우드 서비스, 가상 머�
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617659"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726056"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -121,14 +121,14 @@ Azure 웹 앱이 여러 인스턴스로 확장 되는 경우 인스턴스에 대
 
 ## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
 이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 1. 구독 및 리소스 그룹을 사용할 수 있고 원본 및 대상 지역의 세부 정보가 동일한 지 확인 합니다.
 1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
 
 ### <a name="move"></a>이동
 [REST API](/rest/api/monitor/autoscalesettings/createorupdate) 를 사용 하 여 새 환경에서 자동 크기 조정 설정을 만듭니다. 대상 지역에 생성 되는 자동 크기 조정 설정은 원본 지역의 자동 크기 조정 설정의 복사본입니다.
 
-원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](../platform/diagnostic-settings.md) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
+원본 지역의 자동 크기 조정 설정과 연결 하 여 만든 [진단 설정은](../essentials/diagnostic-settings.md) 이동할 수 없습니다. Autosale 설정 만들기가 완료 된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역에서 리소스 이동에 대 한 자세한 정보
 Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md) 을 참조 하세요.

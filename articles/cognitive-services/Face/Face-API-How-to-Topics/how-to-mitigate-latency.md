@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: e7f4293955772697ddeea5fce9daac4b04755274
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937294"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706812"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>방법: Face 서비스를 사용할 때 대기 시간 완화
 
@@ -34,7 +34,7 @@ Face 서비스를 사용 하는 경우 대기 시간이 발생할 수 있습니�
 
 ### <a name="slow-connection-between-the-cognitive-service-and-a-remote-url"></a>인식 서비스와 원격 URL 간의 저속 연결
 
-일부 Azure Cognitive Services는 사용자가 제공 하는 원격 URL에서 데이터를 가져오는 메서드를 제공 합니다. 예를 들어 Face 서비스의 [DetectWithUrlAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) 를 호출 하는 경우 서비스에서 얼굴을 감지 하려고 하는 이미지의 URL을 지정할 수 있습니다.
+일부 Azure Cognitive Services는 사용자가 제공 하는 원격 URL에서 데이터를 가져오는 메서드를 제공 합니다. 예를 들어 Face 서비스의 [DetectWithUrlAsync 메서드](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) 를 호출 하는 경우 서비스에서 얼굴을 감지 하려고 하는 이미지의 URL을 지정할 수 있습니다.
 
 ```csharp
 var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
@@ -42,7 +42,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 그러면 Face 서비스가 원격 서버에서 이미지를 다운로드 해야 합니다. Face 서비스에서 원격 서버로의 연결이 느리면 검색 방법의 응답 시간에 영향을 줍니다.
 
-이를 완화 하려면 [Azure Premium Blob Storage에 이미지를 저장 하는](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet)것이 좋습니다. 예를 들면 다음과 같습니다.
+이를 완화 하려면 [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 다음은 그 예입니다. 
 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
@@ -50,7 +50,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows
 
 ### <a name="large-upload-size"></a>큰 업로드 크기
 
-일부 Azure Cognitive Services는 업로드 하는 파일에서 데이터를 가져오는 메서드를 제공 합니다. 예를 들어 Face 서비스의 [DetectWithStreamAsync 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) 를 호출 하는 경우 서비스에서 얼굴을 감지 하려고 하는 이미지를 업로드할 수 있습니다.
+일부 Azure Cognitive Services는 업로드 하는 파일에서 데이터를 가져오는 메서드를 제공 합니다. 예를 들어 Face 서비스의 [DetectWithStreamAsync 메서드](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) 를 호출 하는 경우 서비스에서 얼굴을 감지 하려고 하는 이미지를 업로드할 수 있습니다.
 
 ```csharp
 using FileStream fs = File.OpenRead(@"C:\images\face.jpg");
@@ -62,12 +62,12 @@ System.Collections.Generic.IList<DetectedFace> faces = await client.Face.DetectW
 - 파일 크기에 비례하여 서비스를 처리 하는 데 더 많은 시간이 걸립니다.
 
 해결 방법:
-- [Azure Premium Blob Storage에 이미지를 저장 하는](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet)것이 좋습니다. 예를 들면 다음과 같습니다.
+- [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 다음은 그 예입니다. 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```
 - 더 작은 파일을 업로드 하는 것이 좋습니다.
-    - 얼굴 [검색을 위한 입력 데이터](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-detection#input-data) 와 [얼굴 인식에 대 한 입력 데이터](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-recognition#input-data)에 대 한 지침을 참조 하세요.
+    - 얼굴 [검색을 위한 입력 데이터](../concepts/face-detection.md#input-data) 와 [얼굴 인식에 대 한 입력 데이터](../concepts/face-recognition.md#input-data)에 대 한 지침을 참조 하세요.
     - 얼굴 감지의 경우 검색 모델을 사용할 때 `DetectionModel.Detection01` 이미지 파일 크기를 줄이면 처리 속도가 향상 됩니다. 검색 모델을 사용 하는 경우 이미지 파일 `DetectionModel.Detection02` 크기를 줄이면 이미지 파일이 1920 x 1080 보다 작은 경우에만 처리 속도가 향상 됩니다.
     - 얼굴 인식을 위해 얼굴 크기를 200 x 200 픽셀로 줄이면 인식 모델의 정확도에 영향을 주지 않습니다.
     - `DetectWithUrlAsync`및 `DetectWithStreamAsync` 메서드의 성능은 이미지에 있는 면 수에 따라서도 달라 집니다. 얼굴 서비스는 이미지에 대해 최대 100 얼굴을 반환할 수 있습니다. 얼굴은 표면 사각형 크기를 크고 작은 것으로 순위가 매겨집니다.

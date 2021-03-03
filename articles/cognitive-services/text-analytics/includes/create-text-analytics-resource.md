@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b6479d48a51ba962f2f6bfba16dac3b0886a9ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751002"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Cognitive Services Text Analytics 리소스 만들기
 
@@ -37,5 +37,5 @@ ms.locfileid: "96009905"
 
     |포털의 리소스 탭|설정|값|
     |--|--|--|
-    |**개요**|엔드포인트|끝점을 복사 합니다. 와 유사 하 게 표시 됩니다 `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0` .|
+    |**개요**|엔드포인트|끝점을 복사 합니다. 와 유사 하 게 표시 됩니다 `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0` .|
     |**키**|API 키|두 키 중 하나를 복사 합니다. <>는 공백이 나 대시가 없는 32 자리의 영숫자 문자열 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 입니다.|

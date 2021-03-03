@@ -1,26 +1,26 @@
 ---
-title: 컨테이너 배포에 대 한 Azure Monitor 보기 (미리 보기) | Microsoft Docs
-description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 배포에 대 한 실시간 보기를 설명 합니다.
+title: 컨테이너 insights 배포 보기 (미리 보기) | Microsoft Docs
+description: 이 문서에서는 컨테이너 insights에서 kubectl를 사용 하지 않고 Kubernetes 배포에 대 한 실시간 보기를 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616264"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713918"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>실시간으로 배포 (미리 보기)를 보는 방법
 
-컨테이너에 대 한 Azure Monitor를 사용 하 여 배포 보기 (미리 보기) 기능을 사용 하면 및 명령을 노출 하 여 Kubernetes 배포 개체에 대 한 직접 액세스를 실시간으로 에뮬레이트합니다 `kubeclt get deployments` `kubectl describe deployment {your deployment}` .
+컨테이너 insights를 사용 하 여 배포 보기 (미리 보기) 기능을 사용 하면 및 명령을 노출 하 여 Kubernetes 배포 개체에 대 한 직접 액세스를 실시간으로 에뮬레이트합니다 `kubeclt get deployments` `kubectl describe deployment {your deployment}` .
 
 >[!NOTE]
 >[개인 클러스터](https://azure.microsoft.com/updates/aks-private-cluster/) 로 설정 된 AKS 클러스터는이 기능에서 지원 되지 않습니다. 이 기능은 브라우저에서 프록시 서버를 통해 Kubernetes API에 직접 액세스할 수 밖에 없습니다. 이 프록시의 Kubernetes API를 차단하도록 네트워킹 보안을 사용하도록 설정하면 이 트래픽이 차단됩니다.
 
 자세히 알아보려면 [배포](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에 대 한 Kubernetes 설명서를 검토 하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "100616264"
 
 배포 세부 정보를 검토 하는 동안 컨테이너 로그 및 이벤트를 실시간으로 볼 수 있습니다. 연속 스트림에서 라이브 로그 데이터를 볼 수 있는 배포 데이터 그리드 아래에 **라이브 콘솔** 및 라이브 데이터 표시 (미리 보기) 콘솔 창이 표시 됩니다. 인출 상태 표시기가 창의 맨 오른쪽에 있는 녹색 확인 표시를 표시 하는 경우 데이터를 검색 하 고 콘솔에 대 한 스트리밍을 시작 하는 것을 의미 합니다.
 
-네임 스페이스 또는 클러스터 수준 이벤트를 기준으로 필터링 할 수도 있습니다. 콘솔에서 실시간으로 데이터를 보는 방법에 대 한 자세한 내용은 [컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 보기 (미리 보기)](container-insights-livedata-overview.md)를 참조 하세요.
+네임 스페이스 또는 클러스터 수준 이벤트를 기준으로 필터링 할 수도 있습니다. 콘솔에서 실시간으로 데이터를 보는 방법에 대 한 자세한 내용은 [컨테이너 insights를 사용 하 여 라이브 데이터 보기 (미리 보기)](container-insights-livedata-overview.md)를 참조 하세요.
 
 ![배포 콘솔에서 라이브 데이터 보기](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

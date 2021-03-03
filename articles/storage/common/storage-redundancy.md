@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726839"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -87,10 +87,11 @@ ZRS를 지원하는 지역에 대한 자세한 내용은 [Azure 가용성 영역
 
 Azure Storage는 보조 지역으로 데이터를 복사하기 위한 다음과 같은 두 가지 옵션을 제공 합니다.
 
-- **GRS(지역 중복 저장소)** 는 LRS를 사용하여 기본 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사합니다. 그런 다음 보조 지역의 단일 물리적 위치에 데이터를 비동기적으로 복사합니다.
-- **GZRS(지역 영역 중복 저장소)** 는 ZRS를 사용하여 기본 지역에 있는 3개의 Azure 가용성 영역에서 데이터를 동기적으로 복사합니다. 그런 다음 보조 지역의 단일 물리적 위치에 데이터를 비동기적으로 복사합니다.
+- **GRS(지역 중복 저장소)** 는 LRS를 사용하여 기본 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사합니다. 그런 다음 보조 지역의 단일 물리적 위치에 데이터를 비동기적으로 복사합니다. 보조 지역 내에서 LRS를 사용 하 여 데이터를 동기적으로 세 번 복사 합니다.
+- **GZRS(지역 영역 중복 저장소)** 는 ZRS를 사용하여 기본 지역에 있는 3개의 Azure 가용성 영역에서 데이터를 동기적으로 복사합니다. 그런 다음 보조 지역의 단일 물리적 위치에 데이터를 비동기적으로 복사합니다. 보조 지역 내에서 LRS를 사용 하 여 데이터를 동기적으로 세 번 복사 합니다.
 
-GRS와 GZRS의 주요 차이점은 기본 지역에서 데이터가 복제되는 방식입니다. 보조 지역 내에서 데이터는 항상 LRS를 사용 하 여 동기적으로 세 번 복제 됩니다. 보조 지역의 LRS는 하드웨어 오류 로부터 데이터를 보호 합니다.
+> [!NOTE]
+> GRS와 GZRS의 주요 차이점은 기본 지역에서 데이터가 복제되는 방식입니다. 보조 지역 내에서 데이터는 항상 LRS를 사용 하 여 동기적으로 세 번 복제 됩니다. 보조 지역의 LRS는 하드웨어 오류 로부터 데이터를 보호 합니다.
 
 GRS 또는 GZRS를 사용 하는 경우 보조 지역에 대 한 장애 조치 (failover)가 없으면 보조 지역의 데이터를 읽기 또는 쓰기 액세스에 사용할 수 없습니다. 보조 지역에 대 한 읽기 액세스의 경우 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용 하도록 저장소 계정을 구성 합니다. 자세한 내용은 [보조 지역의 데이터에 대한 읽기 권한](#read-access-to-data-in-the-secondary-region)을 참조하세요.
 

@@ -4,14 +4,14 @@ description: Azure Data Factory에서 보안 및 액세스 제어 문제를 해�
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375173"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706148"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>보안 및 액세스 제어 문제 Azure Data Factory 문제 해결
 
@@ -142,7 +142,6 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 
 1. 통합 런타임에 IR 인증 키를 다시 추가 합니다.
 
-
 **해결 방법 2**
 
 이 문제를 해결 하려면 [Azure Data Factory에 대 한 Azure 개인 링크](./data-factory-private-link.md)로 이동 합니다.
@@ -150,6 +149,45 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 다음 스크린샷에 표시 된 것 처럼 사용자 인터페이스에서 공용 네트워크 액세스를 사용 하도록 설정 해 봅니다.
 
 ![네트워킹 창에서 "공용 네트워크 액세스 허용"에 대 한 "사용" 제어의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>ADF 개인 DNS 영역 재정의 Azure Resource Manager DNS 확인에서 ' 찾을 수 없음 ' 오류 발생
+
+#### <a name="cause"></a>원인
+Azure Resource Manager와 ADF는 모두 동일한 개인 영역을 사용 하 여 Azure Resource Manager 레코드를 찾을 수 없는 시나리오와 함께 고객의 개인 DNS에서 잠재적 충돌을 생성 합니다.
+
+#### <a name="solution"></a>솔루션
+1. Azure Portal에서 **privatelink.azure.com** 사설 DNS 영역을 찾습니다.
+![사설 DNS 영역을 찾기 위한 스크린샷](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. A 레코드 **adf** 가 있는지 확인 합니다.
+![레코드의 스크린샷](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  **가상 네트워크 링크** 로 이동 하 여 모든 레코드를 삭제 합니다.
+![가상 네트워크 링크의 스크린샷](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Azure Portal에서 데이터 팩터리로 이동 하 여 Azure Data Factory 포털에 대 한 개인 끝점을 다시 만듭니다.
+![개인 끝점을 다시 만드는 스크린샷](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  사설 DNS 영역으로 돌아가서 새 개인 DNS 영역 **privatelink.adf.azure.com** 이 있는지 확인 합니다.
+![새 DNS 레코드의 스크린샷](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>공용 끝점에 연결 오류가 있습니다.
+
+#### <a name="symptoms"></a>증상
+
+Azure Blob Storage 계정 공용 액세스를 사용 하 여 데이터를 복사 하는 경우 다음과 같은 오류로 인해 파이프라인이 임의로 실패 합니다.
+
+예: Azure Blob Storage 싱크에서 Azure IR (관리 되지 않는 공용 VNet)를 사용 하 고 Azure SQL Database 원본에서 관리 되는 VNet IR을 사용 하 고 있었습니다. 또는 원본/싱크에서 저장소 공용 액세스와 함께 관리 되는 VNet IR을 사용 합니다.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>원인
+
+ADF는 관리 되는 VNet IR을 계속 사용할 수 있지만, 관리 되는 VNet에서 Azure Blob Storage 하는 공용 끝점은 테스트 결과를 기반으로 안정적이 지 않으므로 이러한 오류가 발생할 수 있습니다. Azure Blob Storage 및 Azure Data Lake Gen2는 관리 되는 [가상 네트워크 & 관리 되는 전용 끝점](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)에 따라 ADF 관리 Virtual Network의 공용 끝점을 통해 연결 될 수 없습니다.
+
+#### <a name="solution"></a>솔루션
+
+- 관리 되는 VNet IR을 사용 하는 경우 원본 및 싱크 쪽에서 개인 끝점을 사용 하도록 설정 합니다.
+- 여전히 공용 끝점을 사용 하려는 경우 원본 및 싱크에 대해 관리 되는 VNet IR을 사용 하는 대신 공용 IR로 전환할 수 있습니다. 공용 IR로 다시 전환 하더라도 관리 되는 VNet IR이 여전히 있는 경우 ADF에서 관리 되는 VNet IR을 계속 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

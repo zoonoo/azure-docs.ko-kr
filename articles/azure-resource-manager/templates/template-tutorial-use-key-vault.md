@@ -2,16 +2,16 @@
 title: 템플릿에서 Azure Key Vault 사용
 description: Azure Key Vault를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿) 배포 중에 보안 매개 변수 값을 전달하는 방법을 알아봅니다.
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674160"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703888"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -93,7 +93,14 @@ ID를 복사하여 붙여넣으면 ID가 여러 줄로 분할될 수 있습니�
 배포의 유효성을 검사하려면 동일한 셸 창에서 다음 PowerShell 명령을 실행하여 비밀을 일반 텍스트로 검색합니다. 이 명령은 이전 PowerShell 스크립트에 정의된 `$keyVaultName` 변수를 사용하므로 동일한 셸 세션에서만 작동합니다.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 이제 키 자격 증명 모음 및 비밀이 준비되었습니다. 다음 섹션에서는 배포 중에 비밀을 검색하도록 기존 템플릿을 사용자 지정하는 방법을 보여줍니다.
@@ -141,7 +148,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

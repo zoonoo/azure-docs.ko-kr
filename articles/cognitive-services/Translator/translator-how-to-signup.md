@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 37b9860546f9fd16045906ce9385a1590c46b970
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712932"
 ---
 # <a name="create-a-translator-resource"></a>Translator 리소스 만들기
 
@@ -57,7 +57,7 @@ Translator 서비스는 다음 두 가지 리소스 유형으로 액세스할 �
 
 1. **리소스 그룹**. 선택한 Azure 리소스 그룹은 새 리소스에 대 한 가상 컨테이너 역할을 합니다. 새 리소스 그룹을 만들거나 동일한 수명 주기, 사용 권한 및 정책을 공유 하는 기존 리소스 그룹에 리소스를 추가할 수 있습니다.
 
-1. **리소스 영역**. 비즈니스 또는 응용 프로그램에 특정 지역이 필요 하지 않는 한 **Global** 을 선택 합니다. Translator는 비 지역별 서비스 이므로 특정 Azure 지역에 대 한 종속성이 없습니다.  [Azure의 지역 및 가용성 영역](/azure/availability-zones/az-overview)을 참조 하세요.
+1. **리소스 영역**. 비즈니스 또는 응용 프로그램에 특정 지역이 필요 하지 않는 한 **Global** 을 선택 합니다. Translator는 비 지역별 서비스 이므로 특정 Azure 지역에 대 한 종속성이 없습니다.  [Azure의 지역 및 가용성 영역](../../availability-zones/az-overview.md)을 참조 하세요.
 
 1. **이름**. 리소스에 대해 선택한 이름을 입력 합니다. 선택한 이름은 Azure 내에서 고유 해야 합니다.
 

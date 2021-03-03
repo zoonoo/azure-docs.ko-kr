@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ec07d36ad544f293064e877520bb4a7a4c9b269d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1f404d3613f9de8daadc4bb2ceb39282cf3b619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>자습서: Attendance Management Services와 Azure Active Directory 통합
 
@@ -150,7 +150,7 @@ Attendance Management Services에서 Microsoft Azure Active Directory Single Sig
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -174,7 +174,7 @@ Attendance Management Services에서 Microsoft Azure Active Directory Single Sig
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Attendance Management Services에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Attendance Management Services** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Attendance Management Services** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -216,7 +216,7 @@ Azure AD 사용자가 Attendance Management Services에 로그인할 수 있도�
 
     ![스크린샷은 설명된 작업을 수행할 수 있는 창을 보여줍니다.](./media/attendancemanagementservices-tutorial/user4.png)
 
-    a. **OBCiD** 텍스트 상자에서 사용자의 메일(예: `BrittaSimon\@contoso.com`)을 입력합니다.
+    a. **OBCiD** 텍스트 상자에서 사용자의 메일(예: `BrittaSimon@contoso.com`)을 입력합니다.
 
     b. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 

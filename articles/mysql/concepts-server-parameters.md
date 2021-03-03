@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720956"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -21,7 +21,7 @@ ms.locfileid: "99539487"
 
 MySQL 엔진은 엔진 동작을 구성 하 고 조정 하는 데 사용할 수 있는 다양 한 서버 변수/매개 변수를 제공 합니다. 일부 매개 변수는 런타임 중에 동적으로 설정할 수 있으며, 다른 매개 변수는 "정적" 이므로 적용 하기 위해 서버를 다시 시작 해야 합니다.
 
-Azure Database for MySQL는 [Azure Portal](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md)및 [PowerShell](./howto-configure-server-parameters-using-powershell.md) 을 사용 하 여 다양 한 MySQL 서버 매개 변수의 값을 변경 하 여 워크 로드 요구 사항에 맞게 변경 하는 기능을 제공 합니다.
+Azure Database for MySQL은 [Azure Portal](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md) 및 [PowerShell](./howto-configure-server-parameters-using-powershell.md)을 사용하여 워크로드의 요구 사항에 맞게 다양한 MySQL 서버 매개 변수의 값을 변경하는 기능을 제공합니다.
 
 ## <a name="configurable-server-parameters"></a>구성 가능한 서버 매개 변수
 
@@ -272,7 +272,7 @@ Azure Database for MySQL server를 다시 시작한 후에는 테이블이 쿼�
 서버 종료 시 버퍼 풀의 상태를로 저장 하려면 서버 매개 변수 `innodb_buffer_pool_dump_at_shutdown` 를로 설정 `ON` 합니다. 마찬가지로 서버 `innodb_buffer_pool_load_at_startup` `ON` 시작 시 버퍼 풀 상태를 복원 하려면 서버 매개 변수를로 설정 합니다. 서버 매개 변수 값을 낮추고 미세 조정 하 여 시작/다시 시작에 대 한 영향을 제어할 수 있습니다 `innodb_buffer_pool_dump_pct` . 기본적으로이 매개 변수는로 설정 됩니다 `25` .
 
 > [!Note]
-> InnoDB buffer pool 워밍업 매개 변수는 최대 16TB의 저장소를 포함 하는 범용 저장소 서버 에서만 지원 됩니다. [Azure Database for MySQL 저장소 옵션](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)에 대 한 자세한 내용은 여기를 참조 하세요.
+> InnoDB buffer pool 워밍업 매개 변수는 최대 16TB의 저장소를 포함 하는 범용 저장소 서버 에서만 지원 됩니다. [Azure Database for MySQL 저장소 옵션](./concepts-pricing-tiers.md#storage)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 ### <a name="time_zone"></a>time_zone
 

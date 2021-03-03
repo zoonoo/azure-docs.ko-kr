@@ -3,12 +3,12 @@ title: 모니터링 및 로깅-Azure
 description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석의 모니터링 및 로깅에 대 한 개요를 제공 합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730248"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -26,7 +26,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 작업: 사용자의 작업 또는 [미디어 그래프](media-graph-concept.md) 를 실행 하는 동안 생성 된 이벤트
    
    * 볼륨: 낮을 것으로 예상 됨 (몇 분 또는 그 미만)
-   * 예제:
+   * 예:
 
       - 기록 시작 (다음 예제에 표시)
       - 기록 중지 됨
@@ -49,7 +49,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 진단: 성능 문제를 진단 하는 데 도움이 되는 이벤트
 
    * 볼륨: 높을 수 있습니다 (1 분에 여러 번).
-   * 예제:
+   * 예:
    
       - RTSP [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) 정보 (다음 예제에 표시 됨) 
       - 들어오는 비디오 피드의 간격
@@ -71,7 +71,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 분석: 비디오 분석의 일부로 생성 된 이벤트
 
    * 볼륨: 높을 수 있습니다 (1 분 이상 여러 번).
-   * 예제:
+   * 예:
       
       - 동작이 검색 됨 (다음 예제에서 표시 됨) 
       - 유추 결과
@@ -216,7 +216,7 @@ IoT Hub를 통해 관찰 되는 모든 이벤트에는 공용 속성 집합이 �
 
 이벤트 유형은 각 이벤트 클래스에 대해 고유 합니다.
 
-예제:
+예:
 
 * `Microsoft.Media.Graph.Analytics.Inference`
 * `Microsoft.Media.Graph.Diagnostics.AuthorizationError`
@@ -230,7 +230,7 @@ IoT Hub를 통해 관찰 되는 모든 이벤트에는 공용 속성 집합이 �
 
 이러한 메트릭은 IoT Edge 모듈의 라이브 비디오 분석에서 보고 됩니다.  
 
-|메트릭 이름|유형|레이블|Description|
+|메트릭 이름|Type|레이블|Description|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|계기|iothub, edge_device, module_name, graph_topology|토폴로지 당 활성 그래프의 총 수입니다.|
 |lva_received_bytes_total|카운터|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|노드에서 받은 총 바이트 수입니다. RTSP 원본에 대해서만 지원 됩니다.|
@@ -305,27 +305,70 @@ IoT Edge 모듈의 라이브 비디오 분석에서 메트릭 수집을 사용 �
      `AZURE_CLIENT_SECRET`: 사용할 앱 암호를 지정 합니다.  
      
      >[!TIP]
-     > 서비스 주체에 게 **모니터링 메트릭 게시자** 역할을 제공할 수 있습니다. **[서비스 주체 만들기](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** 의 단계에 따라 서비스 주체를 만들고 역할을 할당 합니다.
+     > 서비스 주체에 게 **모니터링 메트릭 게시자** 역할을 제공할 수 있습니다. **[서비스 주체 만들기](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** 의 단계에 따라 서비스 주체를 만들고 역할을 할당 합니다.
 
 1. 모듈을 배포한 후 메트릭은 단일 네임 스페이스의 Azure Monitor에 표시 됩니다. 메트릭 이름은 프로메테우스에서 내보낸 것과 일치 합니다. 
 
    이 경우 Azure Portal에서 IoT hub로 이동 하 고 왼쪽 창에서 **메트릭** 을 선택 합니다. 여기에 메트릭이 표시 됩니다.
 
-[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)와 함께 프로메테우스를 사용 하 여 사용 된 CPUPercent, MemoryUsedPercent 등의 메트릭을 생성 하 고 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) 수 있습니다. Kusto 쿼리 언어를 사용 하 여 아래와 같이 쿼리를 작성 하 고 IoT edge 모듈에서 사용 되는 CPU 비율을 가져올 수 있습니다.
-```kusto
-let cpu_metrics = promMetrics_CL
-| where Name_s == "edgeAgent_used_cpu_percent"
-| extend dimensions = parse_json(Tags_s)
-| extend module_name = tostring(dimensions.module_name)
-| where module_name in ("lvaEdge","yolov3","tinyyolov3")
-| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
-cpu_metrics
-| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
-| extend module_name = "Total"
-| union cpu_metrics
-```
+### <a name="log-analytics-metrics-collection"></a>Log Analytics 메트릭 수집
+[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)와 함께 [프로메테우스 끝점](https://prometheus.io/docs/practices/naming/) 을 사용 하 여 사용 된 CPUPercent, MemoryUsedPercent 등의 메트릭을 생성 하 고 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) 수 있습니다.   
 
-[![Kusto 쿼리를 사용 하 여 메트릭을 보여 주는 다이어그램입니다.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
+> [!NOTE]
+> 아래 구성은 로그, **메트릭만** 수집 하지 않습니다. 수집기 모듈을 확장 하 여 로그를 수집 하 고 업로드 하는 것도 가능 합니다.
+
+[![Log Analytics를 사용 하 여 메트릭 수집을 보여 주는 다이어그램입니다.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+
+1. [메트릭을 수집](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector) 하는 방법 알아보기
+1. Docker CLI 명령을 사용 하 여 [docker 파일](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) 을 빌드하고 Azure container registry에 이미지를 게시 합니다.
+    
+   Docker CLI를 사용 하 여 컨테이너 레지스트리에 푸시하는 방법에 대 한 자세한 내용은 [docker 이미지 밀어넣기 및 끌어오기](../../container-registry/container-registry-get-started-docker-cli.md)를 참조 하세요. Azure Container Registry에 대 한 자세한 내용은 [설명서](../../container-registry/index.yml)를 참조 하세요.
+
+1. Azure Container Registry 푸시가 완료 되 면 배포 매니페스트에 다음이 삽입 됩니다.
+    ```json
+    "azmAgent": {
+      "settings": {
+        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+      },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": {
+        "LogAnalyticsWorkspaceId": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_ID}" },
+        "LogAnalyticsSharedKey": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_SECRET}" },
+        "LogAnalyticsLogType": { "value": "IoTEdgeMetrics" },
+        "MetricsEndpointsCSV": { "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics,http://lvaEdge:9600/metrics" },
+        "ScrapeFrequencyInSecs": { "value": "30 " },
+        "UploadTarget": { "value": "AzureLogAnalytics" }
+      }
+    }
+    ```
+    > [!NOTE]
+    > 및 모듈 `edgeHub` 은 `edgeAgent` `lvaEdge` 배포 매니페스트 파일에 정의 된 모듈의 이름입니다. 모듈 이름이 일치 하는지 확인 하십시오.   
+
+    다음 단계를 수행 하 `LogAnalyticsWorkspaceId` 여 및 값을 가져올 수 있습니다 `LogAnalyticsSharedKey` .
+    1. Azure Portal로 이동
+    1. Log Analytics 작업 영역 찾기
+    1. Log Analytics 작업 영역을 찾았으면 `Agents management` 왼쪽 탐색 창에서 옵션으로 이동 합니다.
+    1. 사용할 수 있는 작업 영역 ID 및 비밀 키를 찾을 수 있습니다.
+
+1. 그런 다음 `Workbooks` 왼쪽 탐색 창에서 탭을 클릭 하 여 통합 문서를 만듭니다.
+1. Kusto 쿼리 언어를 사용 하 여 아래와 같이 쿼리를 작성 하 고 IoT Edge 모듈에서 사용 하는 CPU 비율을 가져올 수 있습니다.
+    ```kusto
+    let cpu_metrics = IoTEdgeMetrics_CL
+    | where Name_s == "edgeAgent_used_cpu_percent"
+    | extend dimensions = parse_json(Tags_s)
+    | extend module_name = tostring(dimensions.module_name)
+    | where module_name in ("lvaEdge","yolov3","tinyyolov3")
+    | summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+    cpu_metrics
+    | summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+    | extend module_name = "Total"
+    | union cpu_metrics
+    ```
+
+    [![Kusto 쿼리를 사용 하 여 메트릭을 보여 주는 다이어그램입니다.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>로깅
 
 다른 IoT Edge 모듈과 마찬가지로 Edge 장치에서 [컨테이너 로그를 검사할](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) 수도 있습니다. [다음 모듈](module-twin-configuration-schema.md) 쌍 속성을 사용 하 여 로그에 기록 되는 정보를 구성할 수 있습니다.

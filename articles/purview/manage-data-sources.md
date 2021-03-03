@@ -7,27 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694464"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Azure 부서의 범위 (미리 보기)에서 데이터 원본 관리
 
-이 문서에서는 Azure 부서의 범위 (미리 보기)에서 새 데이터 원본을 등록 하 고, 데이터 원본의 컬렉션을 관리 하 고, 소스를 보는 방법에 대해 알아봅니다. Azure 부서의 범위는 다음과 같은 데이터 원본을 지원 합니다.
-
-* SQL server 온-프레미스
-* Azure Data Lake Storage Gen1 
-* Azure Data Lake Storage Gen2
-* Azure Blob Storage
-* Azure Data Explorer
-* Azure SQL DB
-* Azure SQL DB Managed Instance
-* Azure Synapse Analytics(이전의 SQL DW)
-* Azure Cosmos DB
-* Power BI
+이 문서에서는 Azure 부서의 범위 (미리 보기)에서 새 데이터 원본을 등록 하 고, 데이터 원본의 컬렉션을 관리 하 고, 소스를 보는 방법에 대해 알아봅니다.
 
 ## <a name="register-a-new-source"></a>새 원본 등록
 

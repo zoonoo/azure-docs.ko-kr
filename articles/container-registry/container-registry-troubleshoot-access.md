@@ -3,12 +3,12 @@ title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525079"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699609"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -138,7 +138,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md) 
-  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [지원 티켓 열기](https://azure.microsoft.com/support/create-ticket/)

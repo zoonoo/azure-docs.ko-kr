@@ -1,36 +1,36 @@
 ---
-title: VM용 Azure Monitor의 경고
-description: VM용 Azure Monitor 의해 수집 된 성능 데이터에서 경고 규칙을 만드는 방법을 설명 합니다.
+title: VM 정보에서 경고
+description: VM insights에서 수집 된 성능 데이터에서 경고 규칙을 만드는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 4ae5b12f22b0cbcef7577c2eb9d4f3e3ae737590
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618259"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704058"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 경고를 만드는 방법
-[Azure Monitor의 경고](../platform/alerts-overview.md) 는 모니터링 데이터에서 관심 있는 데이터 및 패턴을 사전에 알려 줍니다. VM용 Azure Monitor는 미리 구성 된 경고 규칙을 포함 하지 않지만 수집 된 데이터를 기반으로 직접 만들 수 있습니다. 이 문서에서는 샘플 쿼리 집합을 포함 하 여 경고 규칙을 만드는 방법에 대 한 지침을 제공 합니다.
+# <a name="how-to-create-alerts-from-vm-insights"></a>VM insights에서 경고를 만드는 방법
+[Azure Monitor의 경고](../alerts/alerts-overview.md) 는 모니터링 데이터에서 관심 있는 데이터 및 패턴을 사전에 알려 줍니다. VM insights는 미리 구성 된 경고 규칙을 포함 하지 않지만 수집 하는 데이터를 기반으로 사용자 고유의 사용자를 만들 수 있습니다. 이 문서에서는 샘플 쿼리 집합을 포함 하 여 경고 규칙을 만드는 방법에 대 한 지침을 제공 합니다.
 
 > [!IMPORTANT]
-> 이 문서에서 설명 하는 경고는 VM용 Azure Monitor 수집 된 데이터의 로그 쿼리를 기반으로 합니다. 이 경고는 현재 공개 미리 보기로 제공 되는 기능인 [VM 게스트 상태에 대해 Azure Monitor](vminsights-health-overview.md) 에서 만든 경고와 다릅니다. 이 기능이 일반 공급 되 면 경고에 대 한 지침이 통합 됩니다.
+> 이 문서에서 설명 하는 경고는 수집 된 데이터 VM 정보에서 로그 쿼리를 기반으로 합니다. 이 경고는 현재 공개 미리 보기로 제공 되는 기능인 [VM 게스트 상태에 대해 Azure Monitor](vminsights-health-overview.md) 에서 만든 경고와 다릅니다. 이 기능이 일반 공급 되 면 경고에 대 한 지침이 통합 됩니다.
 
 
 ## <a name="alert-rule-types"></a>경고 규칙 유형
-Azure Monitor에는 경고를 생성 하는 데 사용 되는 데이터를 기반으로 하는 [다양 한 유형의 경고 규칙이](../platform/alerts-overview.md#what-you-can-alert-on) 있습니다. VM용 Azure Monitor에서 수집 된 모든 데이터는 [로그 경고](../alerts/alerts-log.md)를 지 원하는 Azure Monitor 로그에 저장 됩니다. 데이터가 Azure Monitor 메트릭에 수집 되지 않기 때문에 현재 VM용 Azure Monitor에서 수집 된 성능 데이터와 함께 [메트릭 경고](../alerts/alerts-log.md) 를 사용할 수 없습니다. 메트릭 경고에 대 한 데이터를 수집 하려면 Windows Vm 용 [진단 확장](../agents/diagnostics-extension-overview.md) 또는 Linux Vm 용 [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) 를 설치 하 여 성능 데이터를 메트릭에 수집 합니다.
+Azure Monitor에는 경고를 생성 하는 데 사용 되는 데이터를 기반으로 하는 [다양 한 유형의 경고 규칙이](../alerts/alerts-overview.md#what-you-can-alert-on) 있습니다. VM insights에서 수집 된 모든 데이터는 [로그 경고](../alerts/alerts-log.md)를 지 원하는 Azure Monitor 로그에 저장 됩니다. 데이터가 Azure Monitor 메트릭에 수집 되지 않으므로 현재 VM insights에서 수집 된 성능 데이터와 함께 [메트릭 경고](../alerts/alerts-log.md) 를 사용할 수 없습니다. 메트릭 경고에 대 한 데이터를 수집 하려면 Windows Vm 용 [진단 확장](../agents/diagnostics-extension-overview.md) 또는 Linux Vm 용 [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) 를 설치 하 여 성능 데이터를 메트릭에 수집 합니다.
 
 Azure Monitor에서 로그 경고에는 두 가지 유형이 있습니다.
 
 - [결과 경고 수](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) 쿼리가 적어도 지정 된 수의 레코드를 반환할 때 단일 경고를 생성 합니다. 이러한 데이터는 [Log Analytics 에이전트가](../agents/log-analytics-agent.md) 수집 하는 Windows 및 Syslog 이벤트와 같은 숫자가 아닌 데이터 또는 여러 컴퓨터에서 성능 추세를 분석 하는 데 적합 합니다.
-- [메트릭 단위 경고](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) 는 경고 규칙에 정의 된 임계값을 초과 하는 값이 있는 쿼리의 각 레코드에 대해 별도의 경고를 만듭니다. 이러한 경고 규칙은 각 컴퓨터에 대 한 개별 경고를 만들 수 있으므로 VM용 Azure Monitor에 의해 수집 되는 성능 데이터에 적합 합니다.
+- [메트릭 단위 경고](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) 는 경고 규칙에 정의 된 임계값을 초과 하는 값이 있는 쿼리의 각 레코드에 대해 별도의 경고를 만듭니다. 이러한 경고 규칙은 각 컴퓨터에 대 한 개별 경고를 만들 수 있기 때문에 VM insights에서 수집 하는 성능 데이터에 적합 합니다.
 
 
 ## <a name="alert-rule-walkthrough"></a>경고 규칙 연습
-이 섹션에서는 VM용 Azure Monitor의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다.
+이 섹션에서는 VM insights의 성능 데이터를 사용 하 여 메트릭 측정 경고 규칙을 만드는 과정을 안내 합니다. 다양 한 성능 카운터에 대 한 경고를 위해 다양 한 로그 쿼리에서이 기본 프로세스를 사용할 수 있습니다.
 
 먼저 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../alerts/alerts-log.md)의 절차에 따라 새 경고 규칙을 만듭니다. **리소스** 의 경우 구독에서 Azure Monitor vm이 사용 하는 Log Analytics 작업 영역을 선택 합니다. 로그 경고 규칙에 대 한 대상 리소스는 항상 Log Analytics 작업 영역 이므로 로그 쿼리는 특정 가상 머신 또는 가상 머신 확장 집합에 대 한 필터를 포함 해야 합니다. 
 
@@ -44,7 +44,7 @@ Azure Monitor에서 로그 경고에는 두 가지 유형이 있습니다.
 ![메트릭 측정 경고 규칙](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>샘플 경고 쿼리
-다음 쿼리는 VM용 Azure Monitor에 의해 수집 된 성능 데이터를 사용 하는 메트릭 측정 경고 규칙과 함께 사용할 수 있습니다. 각 컴퓨터에 대해 데이터를 요약 하 여 임계값을 초과 하는 값이 있는 각 컴퓨터에 대해 경고가 생성 됩니다.
+다음 쿼리는 VM insights에서 수집 된 성능 데이터를 사용 하는 메트릭 측정 경고 규칙과 함께 사용할 수 있습니다. 각 컴퓨터에 대해 데이터를 요약 하 여 임계값을 초과 하는 값이 있는 각 컴퓨터에 대해 경고가 생성 됩니다.
 
 ### <a name="cpu-utilization"></a>CPU 사용률
 
@@ -200,5 +200,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor의 경고](../platform/alerts-overview.md)에 대해 자세히 알아보세요.
-- [VM용 Azure Monitor의 데이터를 사용 하 여 로그 쿼리에](vminsights-log-search.md)대해 자세히 알아보세요.
+- [Azure Monitor의 경고](../alerts/alerts-overview.md)에 대해 자세히 알아보세요.
+- [VM insights의 데이터를 사용 하 여 로그 쿼리에](vminsights-log-search.md)대해 자세히 알아보세요.

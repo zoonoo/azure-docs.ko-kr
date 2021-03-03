@@ -4,14 +4,14 @@ description: Azure 애플리케이션 Insights에서 웹 테스트 문제를 해
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583723"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728929"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -58,7 +58,7 @@ ms.locfileid: "100583723"
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>경고가 트리거되거나 해결되거나 둘 다인 경우 이메일을 가져오지 못하나요?
 
-클래식 경고 구성을 선택하여 이메일을 직접 나열하거나 배포 목록에서 알림을 수신하도록 구성되었는지 확인합니다. 그렇다면 배포 목록 구성을 선택하여 해당 목록에서 외부 이메일을 수신할 수 있는지 확인합니다. 또한 메일 관리자에게 이 문제를 일으킬 수 있도록 구성된 정책이 있는지 확인합니다.
+경고의 작업 그룹 구성에서 전자 메일이 직접 나열 되는지 확인 하거나 현재 사용자가 있는 메일 그룹이 알림을 받도록 구성 되어 있는지 확인 합니다. 그렇다면 배포 목록 구성을 선택하여 해당 목록에서 외부 이메일을 수신할 수 있는지 확인합니다. 또한 메일 관리자에게 이 문제를 일으킬 수 있도록 구성된 정책이 있는지 확인합니다.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>webhook 알림을 받지 못했습니다.
 
@@ -110,21 +110,6 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>클라이언트 인증서로 테스트를 실행하는 방법
 
 현재는 지원되지 않습니다.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>누가 (클래식) 경고 알림을 받나요?
-
-이 섹션은 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [클래식 경고](../alerts/alerts-classic.overview.md)와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../alerts/alerts-overview.md)를 참조하세요. 새 경고 환경에서 경고 알림을 제어하려면 [작업 그룹](../alerts/action-groups.md)을 사용합니다.
-
-* 클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
-
-* Y 위치에서 X에서 발생한 오류에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 관리자/공동 관리자 역할의 사용자에게 경고가 전송됩니다.  기본적으로 _구독_ 에 대한 _모든_ 관리자는 알림을 받게 됩니다.
-
-* 가용성 메트릭에 대 한 경고의 경우 **대량/그룹** 확인란 옵션을 사용 하도록 설정 하면 구독에서 소유자, 참가자 또는 읽기 권한자 역할이 있는 사용자에 게 보냅니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 _모든_ 사용자가 범위에 포함되며 알림을 받습니다. 
-
-> [!NOTE]
-> 현재 **대량/그룹** 확인란 옵션을 사용하고 있고 사용 안 함으로 설정하는 경우에는 변경 내용을 되돌릴 수 없습니다.
-
-역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../alerts/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

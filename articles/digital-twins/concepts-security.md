@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094565"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730510"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -92,7 +92,7 @@ Azure는 시스템 할당 및 사용자 할당 이라는 두 가지 관리 id �
 
 Azure 디지털 인스턴스에 대해 시스템 할당 관리 id를 사용 하 여 [사용자 정의 끝점](concepts-route-events.md#create-an-endpoint)을 인증할 수 있습니다. Azure Digital Twins는 [이벤트 허브](../event-hubs/event-hubs-about.md) 및 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)   대상의 끝점과 [](../storage/blobs/storage-blobs-introduction.md)   [배달 못 한 편지 이벤트](concepts-route-events.md#dead-letter-events)의 Azure Storage 컨테이너 끝점에 대 한 시스템 할당 id 기반 인증을 지원 합니다. [Event Grid](../event-grid/overview.md)   현재 끝점은 관리 id에 대해 지원 되지 않습니다.
 
-Azure Digital Twins에 대해 시스템 관리 id를 사용 하도록 설정 하 고이를 사용 하 여 이벤트를 라우팅하는 방법에 대 한 지침은 [*방법: 라우팅 이벤트에 대해 관리 Id 사용 (미리 보기)*](how-to-enable-managed-identities.md)을 참조 하세요.
+Azure Digital Twins에 대해 시스템 관리 id를 사용 하도록 설정 하 고이를 사용 하 여 이벤트를 라우팅하는 방법에 대 한 지침은 [*방법: 라우팅 이벤트에 대해 관리 Id 사용 (미리 보기)*](./how-to-enable-managed-identities-portal.md)을 참조 하세요.
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Azure 개인 링크를 사용한 개인 네트워크 액세스 (미리 보기)
 
@@ -106,9 +106,9 @@ Azure [개인 링크](../private-link/private-link-overview.md) 는 azure [Virtu
 
 Azure digital twins 인스턴스에 대 한 개인 끝점을 구성 하면 azure 디지털 twins 인스턴스를 보호 하 고, 공용 노출을 제거 하 고 VNet에서 데이터 반출을 방지할 수 있습니다.
 
-Azure Digital Twins에 대해 개인 링크를 설정 하는 방법에 대 한 지침은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기)*](how-to-enable-private-link.md)을 참조 하세요.
+Azure Digital Twins에 대해 개인 링크를 설정 하는 방법에 대 한 지침은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기)*](./how-to-enable-private-link-portal.md)을 참조 하세요.
 
-### <a name="design-considerations"></a>설계 고려 사항 
+### <a name="design-considerations"></a>디자인 고려 사항 
 
 Azure Digital Twins의 개인 링크를 사용 하 여 작업할 때 고려해 야 할 몇 가지 요소는 다음과 같습니다.
 * **가격** 책정에 대 한 자세한 내용은  [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조 하세요. 

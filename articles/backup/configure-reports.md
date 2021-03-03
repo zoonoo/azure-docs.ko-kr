@@ -3,14 +3,14 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710620"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Azure Backup 보고서 구성 (미리 보기)
+# <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
 백업 관리자의 일반적인 요구 사항은 장기간에 걸친 데이터를 기반으로 백업에 대한 인사이트를 획득하는 것입니다. 이러한 솔루션에 대한 사용 사례는 다음과 같습니다.
 
@@ -139,6 +139,20 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 탭 맨 위에 있는 **Backup 관리 유형** 필터에는 **Azure vm의 SQL** 항목과 **azure vm의 SAP HANA** 가 선택 되어 있어야 합니다 .이를 위해 그리드는 데이터베이스 작업을 예상 대로 표시할 수 있습니다.
 
 ![최적화 탭-백업 일정 최적화](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>정책 준수
+
+이 탭을 사용 하 여 모든 백업 인스턴스에 매일 하나 이상의 성공한 백업이 있는지 여부를 식별할 수 있습니다. 기간 또는 백업 인스턴스를 기준으로 정책을 준수 하는 것을 볼 수 있습니다.
+
+###### <a name="email-azure-backup-reports"></a>전자 메일 Azure Backup 보고서
+
+백업 보고서에서 사용할 수 있는 **전자 메일 보고서** 기능을 사용 하면 자동화 된 작업을 만들어 전자 메일을 통해 정기적으로 보고서를 받을 수 있습니다. 이 기능은 사용자가 제공 하는 입력에 따라 LA (선택한 Log Analytics) 작업 영역에서 데이터를 쿼리 하는 논리 앱을 Azure 환경에 배포 하는 방식으로 작동 합니다.
+
+논리 앱을 만든 후 Azure Monitor 로그 및 Office 365에 대 한 연결 권한을 부여 해야 합니다. 이렇게 하려면 Azure Portal에서 **Logic Apps** 로 이동 하 여 만든 작업의 이름을 검색 합니다. **Api 연결** 메뉴 항목을 선택 하면 인증 해야 하는 api 연결 목록이 열립니다.
+
+###### <a name="customize-azure-backup-reports"></a>Azure Backup 보고서 사용자 지정
+
+백업 보고서는 Azure Monitor 로그에서 함수를 사용 합니다. 이러한 함수는 LA의 원시 Azure Backup 테이블에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다.
 
 ## <a name="export-to-excel"></a>Excel로 내보내기
 

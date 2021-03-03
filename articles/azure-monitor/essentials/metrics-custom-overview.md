@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 9fba5b7636bcef68b55528350ea63ce9d386bb16
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1e61d0b8eb8312c78acabbd087208bb64a2d0d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615149"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734454"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭 (미리 보기)
 
-Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭은 [표준 또는 플랫폼](../platform/metrics-supported.md)이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 
+Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭은 [표준 또는 플랫폼](./metrics-supported.md)이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 
 
 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다. 이러한 **사용자 지정** 메트릭은 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 애플리케이션에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
 
@@ -177,7 +177,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 > 사용자 지정 메트릭을 보려면 독자 또는 참가자 역할을 수행 해야 합니다. [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 참조 하세요. 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Azure Portal을 통해 사용자 지정 메트릭 찾아보기
-1.    [Azure Portal](https://portal.azure.com)로 이동합니다.
+1.    [Azure 포털](https://portal.azure.com)로 이동합니다.
 2.    **모니터** 창을 선택합니다.
 3.    **메트릭** 을 선택합니다.
 4.    사용자 지정 메트릭을 내보낸 리소스를 선택합니다.
@@ -223,5 +223,3 @@ Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량
  - [Telegraf 에이전트를 사용하는 Linux 가상 머신](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)
  - [클래식 Cloud Services](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md)
- 
-

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 7c1f78f405a67687168457448f62d46a39da165f
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 5c95da8d6ee88786ff983b4963c1cb96394886cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727552"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>FPGA 2101 릴리스 정보를 사용 하 여 Edge Pro Azure Stack
 
@@ -42,7 +42,7 @@ ms.locfileid: "99225127"
 
 ## <a name="known-issues-in-this-release"></a>이 릴리스의 알려진 문제
 
-이 릴리스에는 발표 된 새로운 문제가 없습니다. 발표 된 모든 릴리스 문제는 이전 릴리스에서 수행 되었습니다. 알려진 문제 목록을 보려면 [GA 릴리스의 알려진 문제](data-box-gateway-release-notes.md#known-issues-in-ga-release)로 이동 합니다.
+이 릴리스에는 발표 된 새로운 문제가 없습니다. 발표 된 모든 릴리스 문제는 이전 릴리스에서 수행 되었습니다. 알려진 문제 목록을 보려면 [GA 릴리스의 알려진 문제](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release)로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

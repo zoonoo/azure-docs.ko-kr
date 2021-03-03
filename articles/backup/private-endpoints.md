@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728215"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -170,9 +170,9 @@ Azure Resource Manager 클라이언트를 사용 하 여 개인 끝점을 승인
     > 위의 텍스트에서는 `<geo>` 지역 코드 (예: *EUS* , 미국 동부 및 서유럽  의 경우)를 참조 합니다. 지역 코드는 다음 목록을 참조 하세요.
     >
     > - [모든 공용 클라우드](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [중국](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [독일](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 1. 다음으로 필요한 DNS 레코드를 추가 해야 합니다. 백업 DNS 영역에 추가 해야 하는 레코드를 보려면 위에서 만든 개인 끝점으로 이동 하 여 왼쪽 탐색 모음 아래에 있는 **DNS 구성** 옵션으로 이동 합니다.
 

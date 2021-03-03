@@ -1,18 +1,18 @@
 ---
-title: 컨테이너용 Azure Monitor 개요 | Microsoft Docs
-description: 이 문서에서는 AKS Container Insights 솔루션을 모니터링하는 컨테이너용 Azure Monitor 및 Azure Monitor가 Azure의 AKS 클러스터 및 Container Instances 상태를 모니터링하여 제공하는 가치에 대해 설명합니다.
+title: 컨테이너 insights 개요 | Microsoft Docs
+description: 이 문서에서는 AKS 클러스터의 상태를 모니터링 하 고 Azure에서 Container Instances 하 여 제공 하는 값과 AKS Container Insights 솔루션을 모니터링 하는 컨테이너 통찰력을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: a9b9e155884b20c19b9b82994a3b9b1bdf53f27a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723387"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
+# <a name="container-insights-overview"></a>컨테이너 insights 개요
 
-컨테이너에 대 한 Azure Monitor는에 배포 된 컨테이너 워크 로드의 성능을 모니터링 하도록 설계 된 기능입니다.
+컨테이너 insights는에 배포 된 컨테이너 워크 로드의 성능을 모니터링 하기 위해 설계 된 기능입니다.
 
 - [AKS (Azure Kubernetes Service)](../../aks/intro-kubernetes.md) 에서 호스트 되는 Managed Kubernetes 클러스터
 - [AKS 엔진](https://github.com/Azure/aks-engine) 을 사용 하 여 Azure에서 호스트 되는 자체 관리 되는 Kubernetes 클러스터
@@ -21,17 +21,17 @@ ms.locfileid: "100621189"
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc Enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (미리 보기)
 
-컨테이너 Azure Monitor Linux 및 Windows Server 2019 운영 체제를 실행 하는 클러스터를 지원 합니다. 지원 되는 컨테이너 런타임은 Docker, Moby 및 CRI-O 및 ContainerD와 같은 CRI 호환 런타임입니다.
+컨테이너 insights는 Linux 및 Windows Server 2019 운영 체제를 실행 하는 클러스터를 지원 합니다. 지원 되는 컨테이너 런타임은 Docker, Moby 및 CRI-O 및 ContainerD와 같은 CRI 호환 런타임입니다.
 
 컨테이너 모니터링은 특히 여러 애플리케이션을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우에 중요합니다.
 
-컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용 하도록 설정 하면 메트릭 및 로그가 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전을 통해 자동으로 수집 됩니다. 메트릭은 메트릭 저장소에 기록 되 고 로그 데이터는 [Log Analytics](../log-query/log-query-overview.md) 작업 영역과 연결 된 로그 저장소에 기록 됩니다.
+컨테이너 insights는 메트릭 API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너에서 메모리 및 프로세서 메트릭을 수집 하 여 성능 가시성을 제공 합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용 하도록 설정 하면 메트릭 및 로그가 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전을 통해 자동으로 수집 됩니다. 메트릭은 메트릭 저장소에 기록 되 고 로그 데이터는 [Log Analytics](../logs/log-query-overview.md) 작업 영역과 연결 된 로그 저장소에 기록 됩니다.
 
-![컨테이너 아키텍처에 대 한 Azure Monitor](./media/container-insights-overview/azmon-containers-architecture-01.png)
+![컨테이너 insights 아키텍처](./media/container-insights-overview/azmon-containers-architecture-01.png)
 
-## <a name="what-does-azure-monitor-for-containers-provide"></a>컨테이너용 Azure Monitor에서 제공하는 기능은 무엇인가요?
+## <a name="what-does-container-insights-provide"></a>컨테이너 insights는 어떤 기능을 제공 하나요?
 
-컨테이너 Azure Monitor은 Azure Monitor의 다양 한 기능을 사용 하 여 포괄적인 모니터링 환경을 제공 합니다. 이러한 기능을 사용 하 여 Linux 및 Windows Server 2019 운영 체제 및 컨테이너 워크 로드를 실행 하는 Kubernetes 클러스터의 성능 및 상태를 이해할 수 있습니다. 컨테이너용 Azure Monitor로 다음을 수행할 수 있습니다.
+Container insights는 Azure Monitor의 다양 한 기능을 사용 하 여 포괄적인 모니터링 환경을 제공 합니다. 이러한 기능을 사용 하 여 Linux 및 Windows Server 2019 운영 체제 및 컨테이너 워크 로드를 실행 하는 Kubernetes 클러스터의 성능 및 상태를 이해할 수 있습니다. 컨테이너 정보를 사용 하 여 다음을 수행할 수 있습니다.
 
 * 노드에서 실행 중인 AKS 컨테이너와 평균 프로세서 및 메모리 사용률을 확인합니다. 이 정보를 통해 리소스 병목 상태를 파악할 수 있습니다.
 * Azure Container Instances에 호스트된 컨테이너 그룹 및 해당 컨테이너의 프로세서 및 메모리 사용률을 식별합니다.
@@ -56,19 +56,18 @@ Linux 클러스터와 비교 하 여 Windows Server 클러스터 모니터링의
 - Pod 환경을 모니터링 하 고 Docker 환경만 모니터링 합니다.
 - Preview 릴리스를 사용 하는 경우 최대 30 개의 Windows Server 컨테이너가 지원 됩니다. 이 제한은 Linux 컨테이너에는 적용 되지 않습니다.
 
-컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 정보를 제공 하는 다음 비디오를 확인 하세요.
+컨테이너 insights를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 분석을 제공 하는 다음 비디오를 확인 하세요.
 
-> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+> [!VIDEO https://youtu.be/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>이 기능에 액세스하려면 어떻게 하나요?
 
-컨테이너용 Azure Monitor는 Azure Monitor에서 액세스하거나 선택한 AKS 클러스터에서 직접 액세스할 수 있습니다. Azure Monitor에서 모니터링 되 고, 그렇지 않은 모든 컨테이너의 글로벌 큐브 뷰를 사용할 수 있습니다 .이를 통해 구독 및 리소스 그룹을 검색 하 고 필터링 한 다음 선택 된 컨테이너에서 컨테이너에 대 한 Azure Monitor를 살펴볼 수 있습니다.  그렇지 않으면 AKS 페이지에서 선택한 AKS 컨테이너에서 직접 기능에 액세스할 수 있습니다.
+Azure Monitor에서 또는 선택한 AKS 클러스터에서 직접 두 가지 방법으로 컨테이너 정보에 액세스할 수 있습니다. Azure Monitor에서 모니터링 되 고, 그렇지 않은 모든 컨테이너의 글로벌 큐브 뷰를 사용할 수 있습니다 .이를 통해 구독 및 리소스 그룹을 검색 하 고 필터링 한 다음 선택한 컨테이너에서 컨테이너 insights로 드릴 다운할 수 있습니다.  그렇지 않으면 AKS 페이지에서 선택한 AKS 컨테이너에서 직접 기능에 액세스할 수 있습니다.
 
-![컨테이너용 Azure Monitor에 액세스하는 방법에 대한 개요](./media/container-insights-overview/azmon-containers-experience.png)
+![컨테이너 정보에 액세스 하는 방법 개요](./media/container-insights-overview/azmon-containers-experience.png)
 
-AKS 외부에서 실행 되는 Docker 및 Windows 컨테이너 호스트를 모니터링 하 고 관리 하는 데 관심이 있는 경우 구성, 감사 및 리소스 사용률을 보려면 [컨테이너 모니터링 솔루션](../insights/containers.md)을 참조 하세요.
+AKS 외부에서 실행 되는 Docker 및 Windows 컨테이너 호스트를 모니터링 하 고 관리 하는 데 관심이 있는 경우 구성, 감사 및 리소스 사용률을 보려면 [컨테이너 모니터링 솔루션](./containers.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 클러스터 모니터링을 시작 하려면 [컨테이너에 대해 Azure Monitor를 사용 하도록 설정](container-insights-onboard.md) 하 여 모니터링을 사용 하는 요구 사항 및 사용 가능한 방법을 이해 하는 방법을 검토 합니다.
-
+Kubernetes 클러스터 모니터링을 시작 하려면 [컨테이너 정보를 사용 하도록 설정 하는 방법](container-insights-onboard.md) 을 검토 하 여 요구 사항 및 모니터링을 설정 하는 데 사용할 수 있는 방법을 이해 하세요.

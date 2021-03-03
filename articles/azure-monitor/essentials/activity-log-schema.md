@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a050e9832537dd9b6690c7f9409bfbb5b795af2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2cea95dba3be02b9db584b0650761cb2d640283
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728776"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-Azure [활동 로그](../platform/platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 범주와 각 항목에 대 한 스키마를 설명 합니다. 
+Azure [활동 로그](./platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 범주와 각 항목에 대 한 스키마를 설명 합니다. 
 
 스키마는 로그에 액세스 하는 방법에 따라 달라 집니다.
  
 - 이 문서에서 설명 하는 스키마는 [REST API](/rest/api/monitor/activitylogs)에서 활동 로그에 액세스 하는 경우입니다. Azure Portal에서 이벤트를 볼 때 **JSON** 옵션을 선택 하는 경우에도 사용 되는 스키마입니다.
-- Azure Storage 또는 Azure Event Hubs에 활동 로그를 보내는 [진단 설정을](../platform/diagnostic-settings.md) 사용 하는 경우 [저장소 계정 및](#schema-from-storage-account-and-event-hubs) 스키마에 대 한 event Hubs의 마지막 섹션 스키마를 참조 하세요.
-- 작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을](../platform/diagnostic-settings.md) 사용 하는 경우 스키마에 대 한 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/) 를 참조 하세요.
+- Azure Storage 또는 Azure Event Hubs에 활동 로그를 보내는 [진단 설정을](./diagnostic-settings.md) 사용 하는 경우 [저장소 계정 및](#schema-from-storage-account-and-event-hubs) 스키마에 대 한 event Hubs의 마지막 섹션 스키마를 참조 하세요.
+- 작업 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을](./diagnostic-settings.md) 사용 하는 경우 스키마에 대 한 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/) 를 참조 하세요.
 
 ## <a name="severity-level"></a>심각도
 활동 로그의 각 항목에는 심각도 수준이 있습니다. 심각도 수준에는 다음 값 중 하나를 사용할 수 있습니다.  
@@ -29,16 +29,16 @@ Azure [활동 로그](../platform/platform-logs-overview.md) 는 azure에서 발
 | 심각도 | 설명 |
 |:---|:---|
 | 위험 | 시스템 관리자의 즉각적인 주의가 필요한 이벤트입니다. 응용 프로그램 또는 시스템이 응답 하지 않거나 응답을 중지 했음을 나타낼 수 있습니다.
-| 오류 | 문제를 나타내는 이벤트 이며 즉각적인 주의가 필요 하지 않습니다.
+| Error | 문제를 나타내는 이벤트 이며 즉각적인 주의가 필요 하지 않습니다.
 | 경고 | 실제 오류는 아니지만 잠재적인 문제를 forewarning 제공 하는 이벤트입니다. 리소스가 이상적인 상태가 아니고 나중에 오류 또는 중요 한 이벤트를 표시 하는 데 영향을 줄 수 있음을 표시 합니다.  
 | 정보 제공 | 중요 하지 않은 정보를 관리자에 게 전달 하는 이벤트입니다. "정보에 대 한"와 유사 합니다. 
 
 각 리소스 공급자의 developers 리소스 항목의 심각도 수준을 선택 합니다. 결과적으로 응용 프로그램을 빌드하는 방법에 따라 실제 심각도가 달라질 수 있습니다. 예를 들어, 격리 된 특정 리소스에 "중요" 한 항목은 Azure 응용 프로그램의 핵심이 되는 리소스 종류의 "오류" 만큼 중요 하지 않을 수 있습니다. 경고할 이벤트를 결정할 때이 사실을 고려해 야 합니다.  
 
 ## <a name="categories"></a>범주
-활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](../platform/resource-logs.md#send-to-azure-event-hubs)때 스키마가 다릅니다. [리소스 로그 스키마](../platform/resource-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
+활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](./resource-logs.md#send-to-azure-event-hubs)때 스키마가 다릅니다. [리소스 로그 스키마](./resource-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 |:---|:---|
 | [관리](#administrative-category) | Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 관리 이벤트의 예로는 가상 머신 만들기 및 네트워크 보안 그룹 삭제가 있습니다.<br><br>Resource Manager를 사용하여 사용자 또는 애플리케이션에서 수행하는 모든 작업은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 이벤트에는 구독에서 Azure 역할 기반 액세스 제어에 대 한 변경 내용도 포함 됩니다. |
 | [Service Health](#service-health-category) | Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 서비스 상태 이벤트 예제로 미국 동부의 SQL Azure에서 가동 중지 시간 발생이 있습니다. <br><br>서비스 상태 이벤트는 6가지 형태로 제공됩니다. 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안입니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성됩니다.
@@ -804,13 +804,13 @@ Azure [활동 로그](../platform/platform-logs-overview.md) 는 azure에서 발
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>저장소 계정 및 event hubs의 스키마
-Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍하는 경우 데이터는 [리소스 로그 스키마](../platform/resource-logs-schema.md)를 따릅니다. 아래 표에서는 위의 스키마에서 리소스 로그 스키마로의 속성 매핑을 제공 합니다.
+Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍하는 경우 데이터는 [리소스 로그 스키마](./resource-logs-schema.md)를 따릅니다. 아래 표에서는 위의 스키마에서 리소스 로그 스키마로의 속성 매핑을 제공 합니다.
 
 > [!IMPORTANT]
-> 11 월 1 일에 저장소 계정에 기록 된 활동 로그 데이터의 형식이 JSON 줄로 변경 되었습니다. 1, 2018. 이러한 형식 변경에 대 한 자세한 내용은 [저장소 계정에 보관 된 리소스 로그를 Azure Monitor 형식 변경 준비를](../platform/resource-logs-blob-format.md) 참조 하세요.
+> 11 월 1 일에 저장소 계정에 기록 된 활동 로그 데이터의 형식이 JSON 줄로 변경 되었습니다. 1, 2018. 이러한 형식 변경에 대 한 자세한 내용은 [저장소 계정에 보관 된 리소스 로그를 Azure Monitor 형식 변경 준비를](./resource-logs-blob-format.md) 참조 하세요.
 
 
-| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 참고 |
+| 리소스 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
@@ -894,5 +894,5 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그에 대 한 자세한 정보](../platform/platform-logs-overview.md)
-* [활동 로그를 Log Analytics 작업 영역, Azure storage 또는 event hubs로 보내는 진단 설정 만들기](../platform/diagnostic-settings.md)
+* [활동 로그에 대 한 자세한 정보](./platform-logs-overview.md)
+* [활동 로그를 Log Analytics 작업 영역, Azure storage 또는 event hubs로 보내는 진단 설정 만들기](./diagnostic-settings.md)

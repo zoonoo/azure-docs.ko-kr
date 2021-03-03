@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 02/16/2021
-ms.openlocfilehash: f4ac384a9b1bce944397369cb93392f179643f96
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706744"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -56,7 +56,7 @@ ms.locfileid: "100558763"
 * 개발자를 위한 새 리소스
     * [지속적인 통합 도구](developer-reference-resource.md#continuous-integration-tools)
     * 워크숍 - LUIS를 사용한 [_NLU(Natural Language Understanding)_ 에 대한 모범 사례 알아보기](developer-reference-resource.md#workshops)
-* [고객 관리 키](luis-encryption-of-data-at-rest.md) - 자신의 키를 사용하여 LUIS에서 사용하는 모든 데이터를 암호화
+* [고객 관리 키](./encrypt-data-at-rest.md) - 자신의 키를 사용하여 LUIS에서 사용하는 모든 데이터를 암호화
 * [AI 표시](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding)(비디오) - LUIS의 새로운 기능 확인
 
 

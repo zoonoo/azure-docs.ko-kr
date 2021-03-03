@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428557"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698861"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Media Services를 사용 하 여 사용자 고유의 키 (고객 관리 키) 가져오기
 
@@ -42,7 +42,7 @@ Media Services는 Media Services 계정의 관리 Id를 사용 하 여 사용자
 Media Services는 자동으로 이중 암호화를 지원 합니다. 미사용 데이터의 경우 첫 번째 암호화 계층은 계정 설정에 따라 고객 관리 키 또는 Microsoft 관리 키를 사용 합니다 `AccountEncryption` .  휴지 상태의 데이터에 대 한 두 번째 암호화 계층은 Microsoft에서 관리 하는 별도의 키를 사용 하 여 자동으로 제공 됩니다. 이중 암호화에 대해 자세히 알아보려면 [Azure 이중 암호화](../../security/fundamentals/double-encryption.md)를 참조 하세요.
 
 > [!NOTE]
-> Media Services 계정에서 이중 암호화가 자동으로 설정 됩니다. 그러나 저장소 계정에서 별도로 고객 관리 키 및 이중 암호화를 구성 해야 합니다. [을 참조 하십시오.](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+> Media Services 계정에서 이중 암호화가 자동으로 설정 됩니다. 그러나 저장소 계정에서 별도로 고객 관리 키 및 이중 암호화를 구성 해야 합니다. [을 참조 하십시오.](../../storage/common/storage-service-encryption.md)
 
 ## <a name="tutorials"></a>자습서
 

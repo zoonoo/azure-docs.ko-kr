@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919921"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738143"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
-Translator를 사용 하 여 70 개 이상의 텍스트 번역 언어로 번역 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
+Translator를 사용 하 여 90 텍스트 번역 언어 및 언어와 변환 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
 
 또한 사용자 지정 변환기와 함께 번역기를 사용 하 여 사용자의 비즈니스 및 업계에서 사용 되는 용어를 이해 하 고 Microsoft Speech Service를 사용 하 여 앱에 음성 번역을 추가 하는 신경망을 빌드할 수 있습니다.
 
@@ -37,8 +37,12 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 언어 | 언어 코드 |
 |:-|:-:|
 | 아프리칸스어 | `af` |
+| 알바니아어 | `sq` |
+| 암하라어 | `am` |
 | 아랍어 | `ar` |
+| 아르메니아어 | `hy` |
 | 아삼어 | `as` |
+| 아제르바이잔어 | `az` |
 | 벵골어 | `bn` |
 | 보스니아어(라틴 문자) | `bs` |
 | 불가리아어 | `bg` |
@@ -74,11 +78,13 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 일본어 | `ja` |
 | 칸나다어 | `kn` |
 | 카자흐어 | `kk` |
+| 크메르어 | `km` |
 | 클링곤어 | `tlh-Latn` |
 | 클링곤어(plqaD) | `tlh-Piqd` |
 | 한국어 | `ko` |
 | 쿠르드어(중부) | `ku` |
 | 쿠르드어(북부) | `kmr` |
+| 라오어 | `lo` |
 | 라트비아어 | `lv` |
 | 리투아니아어 | `lt` |
 | 마다가스카르어 | `mg` |
@@ -87,6 +93,8 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 몰타어 | `mt` |
 | 마오리어 | `mi` |
 | 마라티어 | `mr` |
+| 미얀마 | `my` |
+| 네팔어 | `ne` |
 | 노르웨이어 | `nb` |
 | 오리야어 | `or` |
 | 파슈토어 | `ps` |
@@ -110,6 +118,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 타밀어 | `ta` |
 | 텔루구어 | `te` |
 | 태국어 | `th` |
+| 티그리냐어 | `ti` |
 | 통가어 | `to` |
 | 터키어 | `tr` |
 | 우크라이나어 | `uk` |
@@ -130,6 +139,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 언어 | 언어 코드 |
 |:-|:-:|
 | 아프리칸스어 | `af` |
+| 알바니아어 | `sq` |
 | 아랍어 | `ar` |
 | 불가리아어 | `bg` |
 | 카탈로니아어 | `ca` |
@@ -152,6 +162,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 헝가리어 | `hu` |
 | 아이슬란드어 | `is` |
 | 인도네시아어 | `id` |
+| 이눅티투트어 | `iu` |
 | 아일랜드어 | `ga` |
 | 이탈리아어 | `it` |
 | 일본어 | `ja` |
@@ -232,7 +243,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |우크라이나어| `uk` | 키릴 자모 `Cyrl`  | <--> | 라틴어 `Latn` |
 |우르두어| `ur` | 아랍어 `Arab`  | <--> | 라틴어 `Latn` |
 
-### <a name="dictionary"></a>사전
+### <a name="dictionary"></a>Dictionary
 
 사전은 조회 및 예제 방법을 사용하여 다음 언어를 영어로 또는 영어를 다음 언어로 나타내도록 지원합니다.
 

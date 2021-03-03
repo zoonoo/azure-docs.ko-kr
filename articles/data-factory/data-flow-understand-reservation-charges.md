@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 3b97f09c2b6f4c5f5352bbaa081e0bcae900ebd5
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716298"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Azure Data Factory 데이터 흐름에 예약 할인이 적용 되는 방법
 
@@ -32,7 +32,7 @@ ADF 데이터 흐름 예약 된 용량 할인은 시간별로 통합 런타임�
 - 시나리오 1: 메모리 최적화 계산 형식에 대 한 수량으로 80을 입력 하 여 메모리 최적화 계산의 1 시간 80 코어에 대 한 ADF 데이터 흐름 예약을 구입 합니다. Azure integration runtime을 사용 하 여 데이터 흐름을 실행 하 고 1 시간 동안 최적화 된 메모리의 144 코어로 설정 합니다. 1 시간 동안 데이터 흐름 사용의 64 코어에 대 한 종 량 제 가격이 청구 됩니다. 메모리 액세스에 최적화 된 사용의 1 시간 80 코어에 대 한 예약 할인이 제공 됩니다.
 - 시나리오 2: 일반 용도의 계산 형식의 수량으로 32을 입력 하 여 범용 계산의 1 시간 32 코어에 대 한 ADF 데이터 흐름 예약을 구매 합니다. 일반 계산 Azure 통합 런타임의 32 코어를 사용 하 여 1 시간 동안 데이터 흐름을 디버그할 수 있습니다. 전체 사용 시간에 대 한 예약 할인을 받습니다.
 
-청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea)를 참조하세요.
+청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)를 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
@@ -42,4 +42,4 @@ ADF 데이터 흐름 예약 된 용량 할인은 시간별로 통합 런타임�
 
 Azure Reservations에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-- [Azure 예약이란?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)

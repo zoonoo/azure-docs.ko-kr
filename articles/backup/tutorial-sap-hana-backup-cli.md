@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710603"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 응답에서 작업 이름을 알 수 있습니다. 이 작업 이름은 [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet을 사용하여 작업 상태를 추적하는 데 사용할 수 있습니다.
 
 >[!NOTE]
->전체 또는 차등 백업 예약 외에도 현재 수동으로 트리거할 수 있습니다. 로그 백업은 내부에서 SAP HANA를 통해 자동으로 트리거되고 관리됩니다.
->
-> 증분 백업은 현재 Azure Backup에서 지원되지 않습니다.
+>로그 백업은 내부에서 SAP HANA를 통해 자동으로 트리거되고 관리됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

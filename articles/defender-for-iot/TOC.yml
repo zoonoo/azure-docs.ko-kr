@@ -1,11 +1,13 @@
 - name: IoT용 Azure Defender 설명서
   href: index.yml
 - name: 개요
+  displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
     - name: 새로운 기능
       href: release-notes.md
     - name: 에이전트 없는 솔루션 아키텍처
+      displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: 에이전트 기반 솔루션 아키텍처
       href: architecture-agent-based.md
@@ -15,8 +17,10 @@
     - name: 조직을 위한 에이전트 없는 솔루션
       items:
         - name: 시스템 필수 구성 요소
+          displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Azure Defender for IoT 시작
+          displayName: 'getting started, registration, onboarding'
           href: getting-started.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
@@ -110,7 +114,7 @@
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
             - name: 소프트웨어 설치
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy'
               href: how-to-install-software.md
             - name: 네트워크 설정
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
@@ -118,15 +122,15 @@
         - name: 센서 준비
           items:
             - name: 온보드 센서
-              displayName: 'onboard, cloud, register, activate'
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: 센서 활성화 및 설정
-              displayName: 'onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: 온-프레미스 관리 콘솔 준비
           items:
             - name: 온-프레미스 관리 콘솔 활성화 및 설정
-              displayName: 'activate, certificate, sign in, login, setup, initial, committed'
+              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: 고가용성 설정
               displayName: 'primary, secondary, failover, failback fail, recovery'
@@ -147,11 +151,11 @@
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: 개별 센서 관리
           href: how-to-manage-individual-sensors.md
-          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, timezone time zone, backup, sync, restore, software update, failure'
         - name: 클라우드에서 센서 관리
           href: how-to-manage-sensors-on-the-cloud.md
         - name: 온-프레미스 관리 콘솔 관리
-          displayName: 'activation, certificate, software update, backup, restore, proxy, password recovery'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure'
           href: how-to-manage-the-on-premises-management-console.md
         - name: 위협 인텔리전스 패키지 작업
           href: how-to-work-with-threat-intelligence-packages.md
@@ -162,10 +166,10 @@
               displayName: classification
             - name: 디바이스 인벤토리에서 센서 감지 조사
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry'
+              displayName: 'classification, Windows registry, asset, device, firmware, import'
         - name: 센서 디바이스 맵 작업
           href: how-to-work-with-the-sensor-device-map.md
-          displayName: 'connections, Purdue, zoom'
+          displayName: 'connections, Purdue, zoom, delete device'
         - name: 센서가 감지한 경고 작업
           items:
             - name: 센서의 경고 사용
@@ -183,7 +187,7 @@
               displayName: 'custom, alerts, comments, groups'
             - name: 경고 정보 전달
               href: how-to-forward-alert-information-to-partners.md
-              displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
+              displayName: 'integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response'
         - name: '전역, 지역 및 로컬 위협에 대한 인사이트 확보'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
@@ -193,10 +197,12 @@
           items:
             - name: 위험 평가 보고서 만들기
               href: how-to-create-risk-assessment-reports.md
-              displayName: 'vulnerability, security score, score'
+              displayName: 'vulnerability, security score, score, CVE'
             - name: 공격 벡터 보고서 만들기
               href: how-to-create-attack-vector-reports.md
+              displayName: 'Attack surface, prediction,simulation'
             - name: 데이터 마이닝 보고서 만들기
+              displayName: 'CVE, activity'
               href: how-to-create-data-mining-queries.md
             - name: 추세 및 통계 보고서 만들기
               href: how-to-create-trends-and-statistics-reports.md
@@ -204,7 +210,7 @@
         - name: 디바이스 정보 보강
           items:
             - name: 디바이스 알림 작업
-              displayName: 'notifications, operating systems, enrich, device information, classification'
+              displayName: 'notifications, operating systems, enrich, device information, classification, delete devices'
               href: how-to-work-with-device-notifications.md
             - name: 포트 및 VLAN 이름 확인 향상
               displayName: 'port, VLAN'

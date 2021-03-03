@@ -6,12 +6,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d8a21a5583ec4655a2ee8593e50be5c7b5f702b7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702116"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale의 감사 로깅 (Citus)
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL-Hyperscale (Citus)에서 데이터베이스 작업
 > [!IMPORTANT]
 > pgAudit는 Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 미리 보기 상태입니다.
 
-계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 ## <a name="usage-considerations"></a>용도 고려 사항
 기본적으로 pgAudit 로그 문은 Postgres의 표준 로깅 기능을 사용하여 일반 로그 문과 함께 내보내집니다. Citus (Azure Database for PostgreSQL-Hyperscale)에서 Log Analytics의 이후 분석을 위해 Azure Monitor 로그 저장소로 전송 되는 모든 로그를 구성할 수 있습니다. Azure Monitor 리소스 로깅을 사용 하도록 설정 하면 사용자의 선택에 따라 로그가 자동으로 (JSON 형식으로) Azure Storage, Event Hubs 및/또는 Azure Monitor 로그에 전송 됩니다.
@@ -54,9 +54,9 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 신속 하 게 시작 하려면를 `pgaudit.log` 로 설정 하 `WRITE` 고 서버 로그를 열어 출력을 검토 합니다. 
 
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
-로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
+로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
 
-Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
 
 이 쿼리를 사용 하 여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 

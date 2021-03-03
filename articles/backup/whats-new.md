@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762370"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728181"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -18,6 +18,8 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 
 ## <a name="updates-summary"></a>업데이트 요약
 
+- 2021년 2월
+  - [Azure Blob에 대 한 백업 (미리 보기)](#backup-for-azure-blobs-in-preview)
 - 2021년 1월
   - [Azure 디스크 백업 (미리 보기)](#azure-disk-backup-in-preview)
   - [고객 관리 키를 사용 하 여 미사용 암호화 (일반 공급)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +36,14 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
   - [RHEL Azure Virtual Machines에서 SAP HANA 백업 (미리 보기)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [백업 데이터에 대 한 ZRS (영역 중복 저장소) (미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure Vm의 SQL Server 및 SAP HANA 작업에 대 한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Azure Blob에 대 한 백업 (미리 보기)
+
+Blob에 대 한 운영 백업은 손상, blob 삭제 및 실수로 인 한 저장소 계정 삭제와 같은 다양 한 데이터 손실 시나리오에서 블록 blob을 보호할 수 있는 관리 되는 로컬 데이터 보호 솔루션입니다. 데이터는 원본 저장소 계정에 로컬로 저장 되며 필요할 때마다 선택한 시점으로 복구할 수 있습니다. 따라서 blob을 보호 하는 간단 하 고 안전 하며 비용 효과적인 방법을 제공 합니다.
+
+Blob에 대 한 운영 백업은 다른 백업 관리 기능 중에서 백업 센터와 통합 되어 대규모로 백업을 제어, 모니터링, 운영 및 분석 하는 데 유용한 단일 창을 제공 합니다.
+
+자세한 내용은 [Azure blob에 대 한 운영 백업 개요 (미리 보기)](blob-backup-overview.md)를 참조 하세요.
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)
 

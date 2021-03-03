@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675008"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694991"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스팟 Virtual Machines 
 
@@ -68,13 +68,56 @@ Azure 지점 Virtual Machines를 사용 하 여 확장 집합을 만들 때 제�
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 & 복원 혜택을 시도 합니다.
-- 확장 집합에 Azure 별색 가상 머신을 배포할 때 기본적으로 사용 하도록 설정 됩니다.
 - 용량으로 인해 제거 되는 Azure 스팟 Virtual Machines 복원을 시도 합니다.
 - 복원 된 Azure 스폿 Virtual Machines는 용량이 트리거된 제거의 확률 보다 더 긴 기간 동안 실행 될 것으로 예상 됩니다.
 - Azure 스팟 가상 머신의 수명을 개선 하므로 워크 로드는 더 긴 기간 동안 실행 됩니다.
 - 는 종 량 제 Vm에 대해 이미 존재 하는 대상 수 기능을 유지 관리 하는 것과 유사 하 게 Azure 스폿 Virtual Machines의 대상 수를 유지 관리 하는 Virtual Machine Scale Sets 수 있습니다.
 
 [자동 크기 조정을](virtual-machine-scale-sets-autoscale-overview.md)사용 하는 크기 집합에서 복원이 사용 하지 않도록 설정 & 합니다. 크기 집합의 Vm 수는 자동 크기 조정 규칙에 따라 결정 됩니다.
+
+### <a name="register-for-try--restore"></a>& 복원 시도 등록
+
+& 복원 시도 기능을 사용 하려면 먼저 미리 보기에 대 한 구독을 등록 해야 합니다. 등록을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용 하 여 기능 등록을 완료할 수 있습니다.
+
+
+**CLI 사용**
+
+[Az feature register](/cli/azure/feature#az-feature-register) 를 사용 하 여 구독에 대 한 미리 보기를 사용 하도록 설정 합니다. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+기능 등록에는 최대 15 분이 걸릴 수 있습니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**PowerShell 사용** 
+
+[AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet을 사용 하 여 구독에 대 한 미리 보기를 사용 하도록 설정 합니다. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+기능 등록에는 최대 15 분이 걸릴 수 있습니다. 등록 상태를 확인하는 방법은 다음과 같습니다. 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>배치 그룹
 

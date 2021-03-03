@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591554"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714717"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -190,7 +190,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Azure 스토리지 분석는 blob, 큐 및 테이블에 대 한 로그를 제공 합니다. Azure Portal를 사용 하 여 계정에 대해 기록 되는 로그를 구성할 수 있습니다. 
 
-- [Azure Storage 계정에 대 한 모니터링을 구성 하는 방법](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Azure Storage 계정에 대 한 모니터링을 구성 하는 방법](./manage-storage-analytics-logs.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -208,7 +208,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Azure Storage 계정 또는 Log Analytics 작업 영역에 보안 이벤트 로그를 저장 하는 경우 조직의 요구 사항에 따라 보존 정책을 설정할 수 있습니다. 
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](./storage-monitor-storage-account.md#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Microsoft 서비스 및 Azure ARM에 대해 Azure AD Privileged Identity Managem
 
 - [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/anonymous-read-access-configure.md)
 
-- [Azure Portal에서 스토리지 계정 모니터링](./storage-monitor-storage-account.md)
+- [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)
 
 - [저장소 계정 액세스 키 관리](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Azure Storage 계정에 대 한 메트릭 경고를 구성 하는 방법](./storage-monitor-storage-account.md)
+- [Azure Storage 계정에 대 한 메트릭 경고를 구성 하는 방법](./manage-storage-analytics-logs.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -576,7 +576,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 - [Azure Storage 분석 로깅](./storage-analytics-logging.md)
 
-- [Azure Storage 계정에 대 한 메트릭 경고를 구성 하는 방법](./storage-monitor-storage-account.md)
+- [Azure Storage 계정에 대 한 메트릭 경고를 구성 하는 방법](./manage-storage-analytics-logs.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

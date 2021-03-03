@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718525"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 
@@ -132,6 +132,8 @@ Key Vault 통합에 필요한 두 개의 패키지가 있습니다.
 * Azure Core는 `IKeyEncryptionKey` 및 인터페이스를 포함 `IKeyEncryptionKeyResolver` 합니다. .NET 용 저장소 클라이언트 라이브러리는 이미이를 종속성으로 정의 합니다.
 * Azure. KeyVault. Keys (v4. x)는 클라이언트 쪽 암호화에 사용 되는 암호화 클라이언트 뿐만 아니라 Key Vault REST 클라이언트를 포함 합니다.
 
+키 자격증명모음은 고급 가치 마스터키로 고안되었으며 키 자격증명 모음당 스로틀 한계는 이것을 염두에 두고 만들어졌습니다. 4.1.0를 통해 `IKeyEncryptionKeyResolver` 키 캐싱을 지 원하는 구현이 없는 것입니다. 제한으로 인해 캐싱이 필요한 경우에는 [이 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) 을 수행 하 여 캐싱 계층을 인스턴스에 삽입할 수 있습니다 `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` .
+
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 세 가지 키 자격증명 모음 패키지가 있습니다.
@@ -140,17 +142,17 @@ Key Vault 통합에 필요한 두 개의 패키지가 있습니다.
 * Microsoft. KeyVault (v3. x)는 Key Vault REST 클라이언트를 포함 합니다.
 * RSAKey (v3) 확장명에는 암호화 알고리즘과 SymmetricKey의 구현이 포함 된 확장 코드가 포함 됩니다. 코어 및 KeyVault 네임 스페이스에 의존하고 (여러 키 공급자를 사용하여 사용자가 원하는) 경우 집계 해결 프로그램 및 캐싱 키 해결 프로그램을 정의 하는 기능을 제공 합니다. 비록 스토리지 클라이언트 라이브러리가 이 패키지에 직접적으로 의존하지 않지만, 사용자가 그들의 키를 저장하거나 로컬과 클라우드 암호화 공급자를 소비하는 키 자격증명 모음 확장을 사용에 Azure Key Vault를 사용하고 싶을 때는 이 패키지가 필요합니다.
 
-V11의 Key Vault 사용에 대 한 자세한 내용은 [v11 암호화 코드 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)에서 찾을 수 있습니다.
-
----
-
 키 자격증명모음은 고급 가치 마스터키로 고안되었으며 키 자격증명 모음당 스로틀 한계는 이것을 염두에 두고 만들어졌습니다. 키 자격 증명 모음을 사용하여 클라이언트측 암호화를 수행할 때 모델을 선호 로컬로 대칭 마스터 키 암호 키 자격 증명 모음에로 저장  하 고 캐시를 사용 하는 것입니다. 다음 작업을 수행합니다.
 
 1. 암호를 오프라인으로 만들고 키 자격 증명 모음에 업로드 합니다.
 2. 비밀의 기본 식별자를 현재 버전의 암호화에 대한 암호를 풀기 위해 매개변수로 사용하고 이 정보를 로컬로 캐시합니다. CachingKeyResolver를 사용합니다. 사용자는 자체 캐싱 논리가 구현되지 않는 것을 예상합니다.
 3. 암호화 정책을 생성하는 동안 캐싱 확인자를 입력으로 사용합니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+V11의 Key Vault 사용에 대 한 자세한 내용은 [v11 암호화 코드 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)에서 찾을 수 있습니다.
+
+---
+
+## <a name="best-practices"></a>모범 사례
 
 암호화 지원은 .NET용 스토리지 클라이언트 라이브러리에만 사용할 수 있습니다. Windows Phone 및 Windows 런타임은 현재 암호화를 지원하지 않습니다.
 

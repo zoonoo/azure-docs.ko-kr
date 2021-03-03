@@ -1,14 +1,14 @@
 ---
 title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법 | Microsoft Docs
-description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
+description: 이 문서에서는 컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731819"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "100621209"
 > 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](../../openshift/tutorial-create-cluster.md).
 > 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:aro-feedback@microsoft.com).
 
-Azure Red Hat OpenShift 버전 3.x 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않기로 결정 한 경우 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터의 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다.  
+Azure Red Hat OpenShift 버전 3.x 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않으려는 경우 컨테이너 정보를 사용 하 여 클러스터 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../platform/delete-workspace.md)를 참조 하세요.
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../logs/delete-workspace.md)를 참조 하세요.

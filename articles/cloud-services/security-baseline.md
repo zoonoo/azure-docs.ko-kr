@@ -4,15 +4,15 @@ description: Azure Cloud Services 보안 기준은 Azure 보안 벤치 마크에
 author: msmbaldwin
 ms.service: cloud-services
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28be34e9323697759b2492d86b968f8e3d47a28e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 105fd185900692669fdc40e0c47a03474524e250
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731105"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대 한 azure 보안 기준
 
@@ -24,7 +24,7 @@ Cloud Services 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 �
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -36,11 +36,11 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md)
 
-- [가상 네트워크 피어링](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [가상 네트워크 피어링](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: 가상 네트워크, 서브넷 및 Nic의 구성과 트래픽을 모니터링 하 고 기록 합니다.
 
@@ -58,11 +58,11 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [Cloud Services 구성 파일](schema-cscfg-file.md)
 
-- [Azure Policy에서 지 원하는 서비스 목록](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Policy에서 지 원하는 서비스 목록](/cli/azure/azure-services-the-azure-cli-can-manage)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: 중요한 웹 애플리케이션 보호
 
@@ -72,9 +72,9 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [TLS/SSL 인증서 구성](cloud-services-configure-ssl-certificate-portal.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: 알려진 악성 IP 주소와의 통신 거부
 
@@ -89,15 +89,15 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 클래식 구독 관리자 할당에 대 한 거부 적용 규칙을 구성 합니다. 기본적으로 내부 엔드포인트가 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 엔드포인트로 통신할 수 있습니다. 통신을 제한하려면 서비스 정의 파일의 ServiceDefinition 요소에 NetworkTrafficRules 요소를 추가해야 합니다.
 
-- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS 보호](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS 보호](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
-- [특정 IP 주소 차단](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [특정 IP 주소 차단](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="15-record-network-packets"></a>1.5: 네트워크 패킷을 기록 합니다.
 
@@ -107,21 +107,21 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 - [네트워크 보안 그룹에 대 한 흐름 로깅 구성](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [흐름 로그를 구성 하는 방법에 대 한 자세한 내용은을 참조 하세요.](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [흐름 로그를 구성 하는 방법에 대 한 자세한 내용은을 참조 하세요.](/cli/azure/azure-services-the-azure-cli-can-manage)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: 네트워크 기반 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
 
 **지침**: Azure Cloud Services에는 기본 제공 ID 또는 ip 기능이 없습니다. 고객은 조직의 요구 사항에 따라 Azure Marketplace에서 보충 네트워크 기반 ID 또는 IP 솔루션을 선택 하 고 배포할 수 있습니다. 타사 솔루션을 사용 하는 경우 적절 한 작업 및 기능을 보장 하기 위해 Azure Cloud Services를 사용 하 여 선택한 ID 또는 IP 솔루션을 철저 하 게 테스트 해야 합니다.
 
-- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall) 
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: 웹 애플리케이션에 대한 트래픽 관리
 
@@ -139,9 +139,9 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 - [Application Gateway 배포 하는 방법](../application-gateway/quick-create-portal.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
@@ -151,9 +151,9 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 구성 적용을 위해 Azure Cloud Services에서 Azure Policy 지원 되지 않습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: 트래픽 구성 규칙 문서화
 
@@ -163,9 +163,9 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 - [네트워크 보안 그룹 규칙을 사용 하 여 네트워크 트래픽을 필터링 하는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
@@ -175,15 +175,15 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 활동 로그를 Azure 외부에서 전달 하거나 보관을 위해 Azure Storage Event Hubs Azure Monitor으로 전송 하는 진단 설정을 만듭니다. Azure Cloud Services의 중요 한 리소스가 변경 될 때 알림 경고에 대 한 Azure Monitor를 구성 합니다. 
 
-- [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)
+- [Azure 활동 로그](/azure/azure-monitor/platform/activity-log)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](/azure/azure-monitor/platform/alerts-activity-log)
 
 - [Traffic Manager 모니터링](../traffic-manager/traffic-manager-monitoring.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
@@ -193,11 +193,11 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 **지침**: azure Cloud Services에 대 한 azure 리소스의 시간 소스를 유지 관리 합니다. UDP 프로토콜을 사용 하는 포트 123을 통해 환경에서 사용 되는 시간 서버에 대 한 액세스를 허용 하는 네트워크 규칙을 만들어야 할 수 있습니다.
 
-- [NTP 서버 액세스](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
-
-**Azure Security Center 모니터링**: 예
+- [NTP 서버 액세스](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
 
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
@@ -218,9 +218,9 @@ Azure 센티널에서 사용 가능한 커넥터에 대 한 자세한 내용은 
 
 - [Azure Event Hubs를 통한 SIEM 통합 구성](../security-center/continuous-export.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 
@@ -231,19 +231,19 @@ Azure Monitor 내의 활동 로그에서 일부 이벤트에 대 한 변경 기�
 
 Azure Cloud Services는 가용성, 성능, 실패 및 사용에 대 한 Application Insights에서 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 가장 중요한 데이터를 볼 수 있습니다. Azure Cloud Services 프로젝트에서 Application Insights SDK를 사용 하 여 역할 인스턴스 데이터를 수집할 수 있습니다. 
 
-- [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [변경 기록 보기](../azure-monitor/essentials/activity-log.md#view-change-history)
+- [변경 기록 보기](/azure/azure-monitor/platform/activity-log#view-change-history)
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
-- [Azure Cloud service (클래식) 및 virtual machines에 대 한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
-
-**Azure Security Center 모니터링**: 예
+- [Azure Cloud service (클래식) 및 virtual machines에 대 한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 **책임**: Customer
 
-### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
+**Azure Security Center 모니터링**: 없음
+
+### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
 
 **지침**: 추가 메트릭을 허용 하는 Azure Cloud Services 고급 모니터링을 5 분, 1 시간 및 12 시간 간격으로 샘플링 하 고 수집할 수 있습니다. 집계 된 데이터는 저장소 계정에 저장 되 고 테이블에 저장 되며 10 일 후에 제거 됩니다. 그러나 사용 된 저장소 계정은 역할별로 구성 되며, 역할 마다 다른 저장소 계정을 사용할 수 있습니다. 이러한 내용은 .csdef 및 .cscfg 파일에 연결 문자열로 구성됩니다.
 
@@ -251,9 +251,9 @@ Azure Cloud Services는 가용성, 성능, 실패 및 사용에 대 한 Applicat
 
 - [클라우드 서비스 모니터링 소개](cloud-services-how-to-monitor.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
@@ -269,11 +269,11 @@ Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장�
 
 - [PowerShell을 사용하여 Azure Cloud Services에 진단 사용](cloud-services-diagnostics-powershell.md)
 
-- [Azure Storage에서 진단 데이터 저장 및 보기](diagnostics-extension-to-storage.md?&amp;preserve-view=true)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Storage에서 진단 데이터 저장 및 보기](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage?&amp;preserve-view=true)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: 비정상적인 활동에 대해 경고를 사용 하도록 설정
 
@@ -281,23 +281,23 @@ Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장�
 
 - [SIEM과 통합](../security-center/continuous-export.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: 맬웨어 방지 로깅 중앙 집중화
 
 **지침**: azure에 대 한 Microsoft 맬웨어 방지 프로그램은 azure Cloud Services 및 가상 머신을 보호 합니다. 웹 응용 프로그램 방화 벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템 (ID 또는 IP) 등과 같은 타사 보안 솔루션을 배포할 수도 있습니다.
 
-- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **책임**: Customer
 
-## <a name="identity-and-access-control"></a>ID 및 액세스 제어
+**Azure Security Center 모니터링**: 없음
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
+## <a name="identity-and-access-control"></a>ID 및 Access Control
+
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 Access Control](../security/benchmarks/security-control-identity-access-control.md)을 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -315,21 +315,21 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 클래식 구독 관리 역할 간의 차이점을 검토 합니다. 
 
-- [3 가지 클래식 구독 관리 역할 간의 차이점](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [3 가지 클래식 구독 관리 역할 간의 차이점](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: 전용 관리 계정 사용
 
 **참고**: 사용 가능한 역할 및 Azure Cloud Services 리소스를 운영 하 고 관리 하는 데 필요한 권한을 바탕으로 전용 관리 계정을 사용 하는 표준 운영 절차를 만드는 것이 좋습니다.
 
-- [클래식 구독 관리 역할 간의 차이점](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [클래식 구독 관리 역할 간의 차이점](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 SSO(Single Sign-On) 사용
 
@@ -337,9 +337,9 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 - [SSO (Single Sign-On)](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
@@ -347,15 +347,15 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 - [안전 하 고 Azure로 관리 되는 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Azure AD MFA를 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Active Directory (Azure AD) 다단계 인증을 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **책임**: Customer
 
+**Azure Security Center 모니터링**: 없음
+
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -375,9 +375,9 @@ Azure Cloud Service REST Api 설명서를 검토 하 고 조직의 요구 사항
 
 - [Get Package](/rest/api/compute/cloudservices/rest-get-package)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
@@ -389,11 +389,11 @@ Azure 클라우드 서비스의 Certificate 요소에서 "사용자 수준"을 �
 
 - [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [WebRole 스키마](schema-csdef-webrole.md#Certificate)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [WebRole 스키마](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: 중요한 정보에 대한 무단 전송 모니터링 및 차단
 
@@ -401,9 +401,9 @@ Azure 클라우드 서비스의 Certificate 요소에서 "사용자 수준"을 �
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요한 정보 암호화
 
@@ -413,15 +413,15 @@ Azure Cloud Services에 연결 된 Azure의 서비스 인증서를 사용 하 �
 
 관리 인증서를 사용 하 여 관리 API를 사용 하 여 인증) 관리 인증서를 사용 하면 클래식 배포 모델을 사용 하 여 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 
 
-추가 참조를 위해 Azure Service Management API는 Azure Portal를 통해 제공 되는 서비스 관리 기능에 대 한 프로그래밍 방식의 액세스를 제공 합니다. Python 용 azure SDK를 사용 하 여 Azure Cloud Services 및 Azure Storage 계정을 관리할 수 있습니다. Python 용 Azure SDK는 REST API Service Management API를 래핑합니다. 모든 API 작업은 TLS를 통해 수행 되며 x.509 v3 인증서를 사용 하 여 상호 인증 됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
+추가 참조를 위해 클래식 배포 모델 API는 Azure Portal를 통해 제공 되는 클래식 배포 모델 기능에 프로그래밍 방식으로 액세스할 수 있도록 합니다. Python 용 azure SDK를 사용 하 여 Azure Cloud Services 및 Azure Storage 계정을 관리할 수 있습니다. Python 용 Azure SDK는 클래식 배포 모델 API 인 REST API 래핑합니다. 모든 API 작업은 TLS를 통해 수행 되며 x.509 v3 인증서를 사용 하 여 상호 인증 됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
 
 - [Azure에서 응용 프로그램에 대 한 TLS 구성](cloud-services-configure-ssl-certificate-portal.md)
 
-- [Python에서 서비스 관리 사용](cloud-services-python-how-to-use-service-management.md)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Python의 클래식 배포 모델 사용](cloud-services-python-how-to-use-service-management.md)
 
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: 활성 검색 도구를 사용하여 중요한 데이터 식별
 
@@ -429,9 +429,9 @@ Azure Cloud Services에 연결 된 Azure의 서비스 인증서를 사용 하 �
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: 호스트 기반 데이터 손실 방지를 사용하여 액세스 제어 적용
 
@@ -443,9 +443,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
@@ -455,27 +455,27 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: 중요한 Azure 리소스에 대한 변경 내용 로그 및 경고
 
-**지침**: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 중요 한 리소스에 적용 된 메트릭 중 하나가 임계값을 초과 하는 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 차원이 아닌 메트릭에 대해서만 경고를 허용 하는 이전 기능입니다. 클래식 메트릭 경고보다 향상된 기능을 가진, 메트릭 경고라는 최신 기능도 있습니다. 
+**지침**: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 중요 한 리소스에 적용 된 메트릭 중 하나가 임계값을 초과 하는 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 차원이 아닌 메트릭에 대해서만 경고를 허용 하는 이전 기능입니다. 클래식 메트릭 경고 보다 향상 된 기능을 포함 하는 메트릭 경고 라는 기존 최신 기능이 있습니다. 
 
 또한 Azure Cloud Services 앱의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 Application Insights. 이는 Application Insights Sdk의 결합 된 데이터를 Azure Cloud Services의 Azure 진단 데이터와 함께 사용 합니다.
 
-- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-classic-portal.md)
+- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](/azure/azure-monitor/platform/alerts-classic-portal)
 
-- [메트릭 경고 개요](../azure-monitor/alerts/alerts-metric-overview.md) 
+- [메트릭 경고 개요](/azure/azure-monitor/platform/alerts-metric-overview) 
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
 
-## <a name="vulnerability-management"></a>취약점 관리
+**Azure Security Center 모니터링**: 없음
+
+## <a name="vulnerability-management"></a>취약성 관리
 
 *자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조 하세요.*
 
@@ -493,11 +493,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [클라우드 서비스를 구성 하는 방법 (클래식)](cloud-services-how-to-configure-portal.md)
 
-- [게스트 OS 버전 관리](cloud-services-how-to-configure-portal.md#manage-guest-os-version)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [게스트 OS 버전 관리](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
 
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5.3: 타사 소프트웨어 타이틀에 대 한 자동화 된 패치 관리 솔루션 배포
 
@@ -505,9 +505,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 이를 통해 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하는 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: 위험 등급 프로세스를 사용하여 검색된 취약성의 수정 우선 순위 지정
 
@@ -523,11 +523,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 지원 설명서:
 
-- [Azure 리소스의 위험 평가](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure 리소스의 위험 평가](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
@@ -537,25 +537,25 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure Cloud Services에는 적용 되지 않습니다. 이 권장 사항은 IaaS 계산 리소스에 적용 됩니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: 권한 없는 Azure 리소스 삭제
 
 **지침**: 정기적으로 인벤토리를 조정 하 고 적절 한 시간 내에 권한 없는 리소스가 구독에서 삭제 되도록 하는 것이 좋습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4: 승인 된 Azure 리소스의 인벤토리 정의 및 유지 관리
 
 **지침**: 고객은 계산 리소스에 대해 승인 된 Azure 리소스 및 승인 된 소프트웨어를 정의 해야 합니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: 승인되지 않은 Azure 리소스 모니터링
 
@@ -576,9 +576,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: 컴퓨팅 리소스 내에서 승인되지 않은 소프트웨어 애플리케이션 모니터링
 
@@ -604,9 +604,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: 승인되지 않은 Azure 리소스 및 소프트웨어 애플리케이션 제거
 
@@ -632,9 +632,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="68-use-only-approved-applications"></a>6.8: 승인된 애플리케이션만 사용
 
@@ -660,9 +660,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10: 승인 된 소프트웨어 타이틀의 인벤토리 유지 관리
 
@@ -683,9 +683,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6.12: 사용자가 계산 리소스에서 스크립트를 실행 하는 기능을 제한 합니다.
 
@@ -711,9 +711,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 애플리케이션을 물리적 또는 논리적으로 분리
 
@@ -725,9 +725,9 @@ Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인
 
 - [자습서-Azure Portal를 사용 하 여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="secure-configuration"></a>보안 구성
 
@@ -741,41 +741,41 @@ Azure Portal에서 Security Center를 선택 하 고, 계산 &amp; 앱을 선택
 
 - [보안 권장 사항 - 참조 가이드](../security-center/recommendations-reference.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: 보안 Azure 리소스 구성 유지 관리
 
 **지침**: Azure Cloud Services에는 적용 되지 않습니다. 이는 클래식 배포 모델을 기반으로 합니다. 보안 Azure 리소스 구성을 유지 하려면 타사 솔루션을 사용 하는 것이 좋습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스 구성을 안전하게 저장
 
 **지침**: Azure 클라우드 서비스의 구성 파일은 리소스에 대 한 운영 특성을 저장 합니다. 구성 파일의 복사본을 보안 저장소 계정에 저장할 수 있습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Azure 리소스에 대 한 구성 관리 도구 배포
 
 **지침**: Azure Cloud Services에는 적용 되지 않습니다. 이는 클래식 배포 모델을 기반으로 하며 Azure Resource Manager 배포 기반 구성 도구를 통해 관리할 수 없습니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: 운영 체제용 구성 관리 도구를 배포 합니다.
 
 **지침**: Azure Cloud Services에는 적용 되지 않습니다. 이 권장 사항은 IaaS (Infrastructure as a service) 기반 계산 리소스에 적용 됩니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Azure 리소스에 대 한 자동화 된 구성 모니터링 구현
 
@@ -783,9 +783,9 @@ Azure Portal에서 Security Center를 선택 하 고, 계산 &amp; 앱을 선택
 
 - [Azure Security Center에서 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: 운영 체제에 대한 자동화된 구성 모니터링 구현
 
@@ -793,9 +793,9 @@ Azure Portal에서 Security Center를 선택 하 고, 계산 &amp; 앱을 선택
 
 - [Azure Security Center 컨테이너 권장 사항 이해](../security-center/container-security.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: 안전하게 Azure 비밀 관리
 
@@ -805,11 +805,11 @@ Azure Cloud Services에 사용 되는 자격 증명과 같은 비밀을 보호�
 
 또한 Azure Cloud Services에 사용 되는 인증서의 개인 키를 보안 저장소에 저장 하는 것이 좋습니다.
 
-- [PowerShell에서 원격 데스크톱 구성](cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [PowerShell에서 원격 데스크톱 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: 의도하지 않은 자격 증명 노출 제거
 
@@ -820,11 +820,11 @@ Azure Cloud Services에 사용 되는 자격 증명과 같은 비밀을 보호�
 
 Azure Cloud Services에 사용 되는 인증서의 개인 키를 보안 저장소 위치에 저장 합니다.
 
-- [PowerShell에서 원격 데스크톱 구성](cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [PowerShell에서 원격 데스크톱 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
@@ -840,19 +840,19 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 지능적이 고 자동화 된 종단 간 솔루션인 Azure Security Center에서 적응 응용 프로그램 제어 기능을 선택 합니다. 맬웨어 방지를 위해 컴퓨터를 강화 하는 데 도움이 되며 맬웨어 방지 솔루션에 의해 누락 될 수 있는 응용 프로그램을 포함 하 여 악의적인 응용 프로그램의 실행 시도를 차단 하거나 경고할 수 있습니다.
 
-- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
-- [맬웨어 방지 프로그램 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
+- [맬웨어 방지 프로그램 배포 시나리오](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조하세요.
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -866,19 +866,19 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 - [또한 고객은 NIST의 컴퓨터 보안 인시던트 처리 가이드를 활용 하 여 고유한 인시던트 대응 계획을 만드는 데 도움이 될 수 있습니다.](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: 인시던트 점수 매기기 및 우선 순위 지정 절차 만들기
 
-**지침**: Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있도록 합니다. 심각도는 Security Center에서 경고를 실행하는 데 사용된 결과 또는 분석의 신뢰도 및 경고가 발생된 활동의 배후에 악의적인 의도가 있었음에 대한 신뢰 수준을 기준으로 합니다. 
+**지침**: Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있도록 합니다. 심각도는 경고를 실행 하는 데 사용 되는 찾기 또는 분석에 사용 되는 것과 경고를 발생 시킨 활동의 악의적인 의도를 받은 신뢰 수준에 Security Center 따라 달라 집니다. 
 
 구독 (예: 프로덕션, 비프로덕션)을 명확 하 게 표시 하 고 Azure 리소스를 명확 하 게 식별 하 고 범주화 하기 위한 이름 지정 시스템을 만듭니다.
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
@@ -886,9 +886,9 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 - [NIST의 게시물을 참조하세요. IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 안내](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: 보안 인시던트 연락처 세부 정보 제공 및 보안 인시던트에 대한 경고 알림 구성
 
@@ -896,9 +896,9 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 - [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: 보안 경고를 인시던트 대응 시스템에 통합
 
@@ -908,9 +908,9 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 - [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 
@@ -918,9 +918,9 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 - [워크플로 자동화와 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
@@ -928,15 +928,17 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: 다음 Microsoft 시행 규칙에 따라 침투 테스트에서 Microsoft 정책을 위반하지 않는지 확인합니다. https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다. 
 
-- [Microsoft에서 관리하는 클라우드 인프라, 서비스 및 애플리케이션에 대한 레드 팀 및 라이브 사이트 침투 테스트 실행에 대한 자세한 내용은 ](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 참조하세요.
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-**Azure Security Center 모니터링**: 해당 없음
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **책임**: 공유됨
 
+**Azure Security Center 모니터링**: 없음
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
-- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
+- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.

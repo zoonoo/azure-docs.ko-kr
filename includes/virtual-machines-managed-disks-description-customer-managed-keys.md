@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792380"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750873"
 ---
 사용자 고유의 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리할 수 있습니다. 고객 관리형 키를 사용하는 관리 디스크에 대한 서버 쪽 암호화는 Azure Key Vault와의 통합 환경을 제공합니다. [사용자의 RSA 키](../articles/key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다. 
 
@@ -43,3 +43,7 @@ Ultra disks의 경우: 키를 사용 하지 않도록 설정 하거나 삭제 �
 1. 데이터를 읽거나 쓰는 경우 관리 디스크는 데이터 암호화 및 암호 해독을 수행하기 위해 데이터 암호화 키를 암호화(래핑)하고 해독(래핑 해제)하는 요청을 Azure Key Vault로 보냅니다. 
 
 고객 관리형 키에 대한 액세스를 취소하려면 [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) 및 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 암호화 키에 액세스할 수 없으므로 스토리지 계정의 모든 데이터에 대한 액세스가 효과적으로 차단됩니다.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>고객 관리 키의 자동 키 회전 (미리 보기)
+
+최신 키 버전으로 자동 키 회전을 사용 하도록 선택할 수 있습니다. 디스크는 디스크 암호화 집합을 통해 키를 참조 합니다. 디스크 암호화 집합에 대해 자동 회전을 사용 하는 경우 시스템은 디스크 암호화 집합을 참조 하는 모든 관리 디스크, 스냅숏 및 이미지가 1 시간 이내에 새 버전의 키를 사용 하도록 자동으로 업데이트 합니다. 이 기능은 현재 미리 보기의 제한 된 지역에서 사용할 수 있습니다. 지역별 가용성은 [지원 되는 지역](#supported-regions) 섹션을 참조 하세요.

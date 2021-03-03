@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537343"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716621"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경에 적합 한 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정&#39;이제는 잠재적 디자인 패턴을 탐색 하는 것&#39;이 좋습니다.
@@ -245,6 +245,6 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 
 ## <a name="see-also"></a>참고 항목
 
-* [음성 인재 공개](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [공개 방법](concepts-disclosure-guidelines.md)

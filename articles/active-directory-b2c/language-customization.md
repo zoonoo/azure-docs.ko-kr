@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686413"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -48,7 +48,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 
 ::: zone-end 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -226,7 +226,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 콘텐츠 정의에 대해 지역화된 리소스 요소 및 지원하려는 모든 언어를 구성합니다. 영어 및 스페인어의 통합 등록 또는 로그인 페이지를 사용자 지정하려면 `</SupportedLanguages>` 요소를 닫은 후 다음 `LocalizedResources` 요소를 추가합니다.
 
 > [!NOTE]
-> 다음 샘플에서는 각 줄의 시작에 파운드 `#` 기호를 추가하여 화면에서 지역화된 레이블을 편리하게 찾도록 했습니다.
+> 다음 샘플에서는 `#` 각 줄의 시작 부분에 파운드 기호를 추가 했으므로 화면에서 지역화 된 레이블을 쉽게 찾을 수 있습니다.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

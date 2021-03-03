@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895631"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715125"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -28,7 +28,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **설정** | **에이전트 없음** | **에이전트 기반**
 --- | --- | ---
 **Azure 권한** | Azure Migrate 프로젝트를 만들고 Azure Migrate 어플라이언스를 배포할 때 만든 Azure AD 앱을 등록 하려면 권한이 필요 합니다. | Azure 구독에 대 한 참가자 권한이 필요 합니다. 
-**복제** | VCenter Server에서 최대 300 Vm을 동시에 복제할 수 있습니다.<br/> 마이그레이션을 위해 Vm이 50 개 이상인 경우 Vm의 여러 일괄 처리를 만듭니다.<br/> 한 번에 더 많은 복제는 성능에 영향을 줍니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.| 복제 용량은 복제 어플라이언스의 크기를 조정 하 여 늘어납니다.
+**복제** | VCenter Server에서 최대 500 Vm을 동시에 복제할 수 있습니다. 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.| 복제 용량은 복제 어플라이언스의 크기를 조정 하 여 늘어납니다.
 **어플라이언스 배포** | [Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스에 배포 됩니다. | [Azure Migrate 복제 어플라이언스](migrate-replication-appliance.md) 는 온-프레미스에 배포 됩니다.
 **Site Recovery 호환성** | 형식이. | Site Recovery를 사용 하 여 컴퓨터에 대 한 복제를 설정한 경우 Azure Migrate 서버 마이그레이션에 복제할 수 없습니다.
 **대상 디스크** | 관리 디스크 | 관리 디스크
@@ -42,7 +42,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 **Task** | **세부 정보** |**에이전트 없음** | **에이전트 기반**
 --- | --- | --- | ---
-**Azure Migrate 어플라이언스 배포** | VMware VM에서 실행 되는 경량 어플라이언스입니다.<br/><br/> 어플라이언스는 컴퓨터를 검색 및 평가 하 고 에이전트 없는 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 데 사용 됩니다. | 필수 요소.<br/><br/> 평가를 위해 어플라이언스를 이미 설정한 경우 에이전트 없는 마이그레이션에 동일한 어플라이언스를 사용할 수 있습니다. | 필수 아님.<br/><br/> 평가에 대 한 어플라이언스를 설정한 경우 해당 어플라이언스를 그대로 두거나 평가를 완료 한 경우 제거할 수 있습니다.
+**Azure Migrate 어플라이언스 배포** | VMware VM에서 실행 되는 경량 어플라이언스입니다.<br/><br/> 어플라이언스는 컴퓨터를 검색 및 평가 하 고 에이전트 없는 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 데 사용 됩니다. | 필수 사항입니다.<br/><br/> 평가를 위해 어플라이언스를 이미 설정한 경우 에이전트 없는 마이그레이션에 동일한 어플라이언스를 사용할 수 있습니다. | 필수 아님.<br/><br/> 평가에 대 한 어플라이언스를 설정한 경우 해당 어플라이언스를 그대로 두거나 평가를 완료 한 경우 제거할 수 있습니다.
 **서버 평가 도구 사용** | Azure Migrate: 서버 평가 도구를 사용 하 여 컴퓨터를 평가 합니다. | 평가는 선택 사항입니다. | 평가는 선택 사항입니다.
 **서버 마이그레이션 도구 사용** | Azure Migrate 프로젝트에 Azure Migrate 서버 마이그레이션 도구를 추가 합니다. | 필수 | 필수
 **마이그레이션을 위해 VMware 준비** | VMware 서버 및 Vm에 대 한 설정을 구성 합니다. | 필수 | 필수

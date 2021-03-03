@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 810aaae9634a7de8d07b6d49edd0c6c2eda96754
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790596"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730884"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 REST 엔드포인트 호출
 
@@ -130,7 +130,7 @@ Azure Storage 계정의 Blob 컨테이너에 Swagger 파일을 업로드하고 �
    | **허용된 메서드** | `GET`, `HEAD`, `PUT` |
    | **허용된 헤더** | `*` |
    | **노출된 헤더** | `*` |
-   | **최대 기간** (초) | `200` |
+   | **최대 기간**(초) | `200` |
    |||
 
    이 예제에는 [Azure Portal](https://portal.azure.com)을 사용하지만 [Azure Storage Explorer](https://storageexplorer.com/) 등의 도구를 사용하거나, 이 샘플 [PowerShell 스크립트](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)를 사용하여 이 설정을 자동으로 구성할 수 있습니다.

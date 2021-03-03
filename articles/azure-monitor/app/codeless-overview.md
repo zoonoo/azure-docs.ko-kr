@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0dda015d820d81fdd13eced384f97362e2ee3339
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708495"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
 
@@ -45,29 +45,29 @@ Application Insights 다양 한 리소스 공급자와 통합 되며 여러 환�
 Windows의 Azure App Service에 대 한 응용 프로그램 모니터링은 [.net 응용 프로그램](./azure-web-apps.md?tabs=net) .net에 사용할 수 있으며 기본적으로 사용 하도록 설정 되어 있습니다.
 
 #### <a name="netcore"></a>. Microsoft.netcore.portable.compatibility
-모니터링 [. ](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) 한 번의 클릭으로 NETCore 응용 프로그램을 사용 하도록 설정할 수 있습니다.
+모니터링 [. ](./azure-web-apps.md?tabs=netcore) 한 번의 클릭으로 NETCore 응용 프로그램을 사용 하도록 설정할 수 있습니다.
 
 #### <a name="java"></a>Java
-Windows에서 App Service의 Java 응용 프로그램 모니터링에 대 한 포털 통합을 현재 사용할 수 없습니다. 그러나 App Service에 앱을 배포 하기 전에 코드를 변경 하지 않고 응용 프로그램에 [java 3.0 독립 실행형 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) Application Insights 추가할 수 있습니다. Application Insights Java 3.0 에이전트가 일반적으로 제공 됩니다.
+Windows에서 App Service의 Java 응용 프로그램 모니터링에 대 한 포털 통합을 현재 사용할 수 없습니다. 그러나 App Service에 앱을 배포 하기 전에 코드를 변경 하지 않고 응용 프로그램에 [java 3.0 독립 실행형 에이전트](./java-in-process-agent.md) Application Insights 추가할 수 있습니다. Application Insights Java 3.0 에이전트가 일반적으로 제공 됩니다.
 
 #### <a name="nodejs"></a>Node.js
-현재 포털에서 Windows의 Node.js 응용 프로그램에 대 한 모니터링을 사용 하도록 설정할 수 없습니다. Node.js 응용 프로그램을 모니터링 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)를 사용 합니다.
+현재 포털에서 Windows의 Node.js 응용 프로그램에 대 한 모니터링을 사용 하도록 설정할 수 없습니다. Node.js 응용 프로그램을 모니터링 하려면 [SDK](./nodejs.md)를 사용 합니다.
 
 ### <a name="linux"></a>Linux
 
 #### <a name="netcore"></a>. Microsoft.netcore.portable.compatibility
-모니터링할입니다. Linux에서 실행 되는 NETCore 응용 프로그램은 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)를 사용 합니다.
+모니터링할입니다. Linux에서 실행 되는 NETCore 응용 프로그램은 [SDK](./asp-net-core.md)를 사용 합니다.
 
 #### <a name="java"></a>Java 
-포털에서 Linux의 App Service에 대 한 Java 응용 프로그램 모니터링을 사용 하도록 설정 하는 것은 불가능 하지만 앱을 App Service에 배포 하기 전에 [Application Insights java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 를 앱에 추가할 수 있습니다. Application Insights Java 3.0 에이전트가 일반적으로 제공 됩니다.
+포털에서 Linux의 App Service에 대 한 Java 응용 프로그램 모니터링을 사용 하도록 설정 하는 것은 불가능 하지만 앱을 App Service에 배포 하기 전에 [Application Insights java 3.0 에이전트](./java-in-process-agent.md) 를 앱에 추가할 수 있습니다. Application Insights Java 3.0 에이전트가 일반적으로 제공 됩니다.
 
 #### <a name="nodejs"></a>Node.js
-[Linux에서 App Service의 Node.js 응용 프로그램 모니터링](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) 은 공개 미리 보기 상태 이며 모든 지역에서 사용할 수 있는 Azure Portal에서 사용 하도록 설정할 수 있습니다. 
+[Linux에서 App Service의 Node.js 응용 프로그램 모니터링](./azure-web-apps.md?tabs=nodejs) 은 공개 미리 보기 상태 이며 모든 지역에서 사용할 수 있는 Azure Portal에서 사용 하도록 설정할 수 있습니다. 
 
 #### <a name="python"></a>Python
-SDK를 사용 하 여 [Python 앱 모니터링](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 
+SDK를 사용 하 여 [Python 앱 모니터링](./opencensus-python.md) 
 
-## <a name="azure-functions"></a>Azure Functions
+## <a name="azure-functions"></a>Azure 기능
 
 기본적으로 Azure Functions에 대 한 기본 모니터링을 사용 하 여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집 합니다. Java 응용 프로그램의 경우 분산 추적을 통해 다양 한 모니터링을 사용 하도록 설정 하 고 종단 간 트랜잭션 세부 정보를 얻을 수 있습니다. Java 용이 기능은 공개 미리 보기 상태 이며 [Azure Portal에서 사용 하도록 설정할](./monitor-functions.md)수 있습니다.
 
@@ -77,7 +77,7 @@ Azure Kubernetes Service의 코드 없는 계측은 현재 [독립 실행형 에
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>Azure Windows Vm 및 가상 머신 확장 집합
 
-Azure Vm 및 가상 머신 확장 집합에 대 한 자동 계측은 [.net](./azure-vm-vmss-apps.md) 및 [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)에서 사용할 수 있습니다.  
+Azure Vm 및 가상 머신 확장 집합에 대 한 자동 계측은 [.net](./azure-vm-vmss-apps.md) 및 [Java](./java-in-process-agent.md)에서 사용할 수 있습니다.  
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 .NET 응용 프로그램 및 [Java 앱](./java-in-process-agent.md)에 대 한 [온-프레미스 Windows server](./status-monitor-v2-overview.md) 에 대 한 모니터링을 쉽게 사용 하도록 설정할 수 있습니다.
@@ -90,4 +90,3 @@ Azure Vm 및 가상 머신 확장 집합에 대 한 자동 계측은 [.net](./az
 * [Application Insights 개요](./app-insights-overview.md)
 * [애플리케이션 맵](./app-map.md)
 * [엔드투엔드 성능 모니터링](../app/tutorial-performance.md)
-

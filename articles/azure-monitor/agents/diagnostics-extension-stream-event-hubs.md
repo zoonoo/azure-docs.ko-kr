@@ -1,17 +1,16 @@
 ---
 title: Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 description: Azure 이벤트 허브로 데이터를 전송 하는 Azure Monitor에서 진단 확장을 구성 하 여 Azure 외부의 위치로 전달 합니다.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19c39632a1ed040636372d6bad53bf6859960b94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732040"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 Azure Diagnostics 확장은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Azure WAD (Microsoft Azure 진단 확장)에서 azure [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 로 데이터를 전송 하 여 azure 외부의 위치로 전달 하는 방법을 설명 합니다.
@@ -36,7 +35,7 @@ Event Hubs로 전송할 수 있는 게스트 운영 체제에서 수집 된 데�
 
 Azure 진단는 항상 로그 및 메트릭을 Azure Storage 계정으로 보냅니다. 데이터를 추가 위치로 전송 하는 *데이터 싱크* 를 하나 이상 구성할 수 있습니다. 각 싱크는 개인 구성에서 중요 한 정보를 사용 하 여 공용 구성의 [SinksConfig 요소](diagnostics-extension-schema-windows.md#sinksconfig-element) 에 정의 됩니다. Event hubs에 대 한이 구성은 다음 표의 값을 사용 합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | 속성 | 싱크에 대 한 설명이 포함 된 이름입니다. 구성에서 싱크로 보낼 데이터 원본을 지정 하는 데 사용 됩니다. |
 | Url  | Servicebus.windows.net/형식의 이벤트 허브 Url입니다. \<event-hubs-namespace\> \<event-hub-name\>          |

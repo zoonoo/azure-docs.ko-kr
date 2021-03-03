@@ -3,12 +3,12 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491793"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718933"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
@@ -18,12 +18,12 @@ ms.locfileid: "99491793"
 > ARM64 장치에 대 한 지원은 IoT Edge 빌드 이상에서 라이브 비디오 분석에 제공 됩니다 `1.0.4` .
 > ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
 * [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
-* [IoT Edge 장치 등록](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
 * [Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
 
@@ -61,8 +61,8 @@ az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name 
 IoT Edge 모듈에서 Live Video Analytics를 실행 하려면 가능한 적은 수의 권한으로 로컬 사용자 계정을 만듭니다. 예를 들어 Linux 컴퓨터에서 다음 명령을 실행 합니다.
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## <a name="granting-permissions-to-device-storage"></a>장치 저장소에 대 한 사용 권한 부여
@@ -72,15 +72,15 @@ sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
 * 응용 프로그램 구성 데이터를 저장할 로컬 폴더가 필요 합니다. 폴더를 만들고 localuser 계정에 다음 명령을 사용 하 여 해당 폴더에 대 한 쓰기 권한을 부여 합니다.
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * 또한 [로컬 파일에 비디오를 기록](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)하는 폴더가 필요 합니다. 다음 명령을 사용 하 여 동일한에 대 한 로컬 폴더를 만듭니다.
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Live Video Analytics Edge 모듈 배포
@@ -105,7 +105,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가** 드롭다운을 클릭 하 고 **IoT Edge 모듈** 을 선택 하 여 **IoT Edge 모듈 추가** 페이지를 표시 합니다.
 1. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.   
-    예제:
+    예:
     
     * **IoT Edge 모듈 이름**: lvaEdge
     * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:2.0    

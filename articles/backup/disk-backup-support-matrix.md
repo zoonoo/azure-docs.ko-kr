@@ -4,12 +4,12 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707220"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Azure Disk Backup 지원 매트릭스 (미리 보기)
 
@@ -58,7 +58,7 @@ Azure Disk Backup은 다음 지역에서 미리 보기로 제공 됩니다. 미�
 
 - 현재 미리 보기 중에는 PowerShell 및 Azure CLI를 사용 하 여 디스크의 백업 및 복원을 구성 하는 것이 지원 되지 않습니다.
 
-- 백업을 구성할 때 백업 하도록 선택한 디스크와 스냅숏이 저장 될 스냅숏 리소스 그룹은 동일한 구독의 일부 여야 합니다. 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅숏을 만들 수 없습니다. 관리 디스크의 [증분 스냅숏에](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) 대해 자세히 알아보세요. 스냅숏 리소스 그룹을 선택 하는 방법에 대 한 자세한 내용은  [백업 구성](backup-managed-disks.md#configure-backup)을 참조 하세요.
+- 백업을 구성할 때 백업 하도록 선택한 디스크와 스냅숏이 저장 될 스냅숏 리소스 그룹은 동일한 구독의 일부 여야 합니다. 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅숏을 만들 수 없습니다. 관리 디스크의 [증분 스냅숏에](../virtual-machines/disks-incremental-snapshots.md#restrictions) 대해 자세히 알아보세요. 스냅숏 리소스 그룹을 선택 하는 방법에 대 한 자세한 내용은  [백업 구성](backup-managed-disks.md#configure-backup)을 참조 하세요.
 
 - 백업 및 복원 작업을 성공적으로 수행 하려면 백업 자격 증명 모음 관리 id에 역할 할당이 필요 합니다. 설명서에 제공 된 역할 정의만 사용 합니다. 소유자, 참가자 등의 다른 역할은 사용할 지원 되지 않습니다. 역할을 할당 한 후 즉시 백업 또는 복원 작업을 구성 하기 시작 하면 권한 문제가 발생할 수 있습니다. 이는 역할 할당을 적용 하는 데 몇 분이 걸릴 수 있기 때문입니다.
 

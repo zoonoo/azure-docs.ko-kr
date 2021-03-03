@@ -4,12 +4,12 @@ description: 지역 간 복원 기능을 포함 하 여 Azure Portal를 사용 �
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722690"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -27,7 +27,7 @@ Azure Backup는 여러 가지 방법으로 VM을 복원할 수 있습니다.
 **지역 간(보조 지역)** | 지역 간 복원을 사용하여 보조 지역에서 Azure VM을 복원할 수 있으며, 이 보조 지역은 [Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)입니다.<br><br> 백업이 보조 지역에서 수행되는 경우 선택한 복구 지점에 대한 모든 Azure VM을 복원할 수 있습니다.<br><br> 백업 하는 동안 스냅숏은 보조 지역에 복제 되지 않습니다. 자격 증명 모음에 저장 된 데이터만 복제 됩니다. 따라서 보조 지역 복원은 [자격 증명 모음 계층](about-azure-vm-restore.md#concepts) 복원에 불과합니다. 보조 지역의 복원 시간은 주 지역에 대 한 자격 증명 모음 계층 복원 시간과 거의 동일 합니다.  <br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](#create-a-vm) <br> <li> [디스크 복원](#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](#replace-existing-disks) 옵션을 지원하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대한 복원 작업은 Backup Admins 및 App 관리자가 수행할 수 있습니다.
 
 > [!NOTE]
-> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아봅니다](backup-azure-restore-files-from-vm.md).
+> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아보기](backup-azure-restore-files-from-vm.md).
 
 ## <a name="storage-accounts"></a>Storage 계정
 
@@ -79,7 +79,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 1. **가상 컴퓨터 이름** 에 구독에 존재 하지 않는 VM을 지정 합니다.
 1. **리소스 그룹** 에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
 1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
-1. **준비 위치** 에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아봅니다](#storage-accounts).
+1. **준비 위치** 에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![복원 구성 마법사-복원 옵션 선택](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -95,7 +95,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성**  >  **새**  >  **복원 유형** 만들기에서 **디스크 복원** 을 선택 합니다.
 1. **리소스 그룹** 에서 복원된 디스크에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다.
-1. **준비 위치** 에서 vhd를 복사할 저장소 계정을 지정 합니다. [자세히 알아봅니다](#storage-accounts).
+1. **준비 위치** 에서 vhd를 복사할 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![리소스 그룹 및 스테이징 위치 선택](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -130,7 +130,7 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 1. **복원 구성** 에서 **기존 바꾸기** 를 선택 합니다.
 1. **복원 유형** 에서 **디스크 바꾸기** 를 선택합니다. 이는 기존 VM 디스크를 바꾸는 데 사용할 복원 지점입니다.
-1. **준비 위치** 에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아봅니다](#storage-accounts).
+1. **준비 위치** 에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아보기](#storage-accounts).
 
    ![기존 항목을 바꾸는 구성 복원 마법사](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -160,7 +160,7 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 
 보조 지역 복원 사용자 환경은 주 지역 복원 사용자 환경과 유사 합니다. 복원 구성 창에서 세부 정보를 구성 하 여 복원을 구성 하는 경우 보조 지역 매개 변수만 제공 하 라는 메시지가 표시 됩니다.
 
-현재, [읽기 액세스 지역 중복 저장소 (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) 복제는 15 분 이더라도 보조 지역 [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) 는 주 지역에서 최대 12 시간입니다.
+현재, [읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 복제는 15 분 이더라도 보조 지역 [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) 는 주 지역에서 최대 12 시간입니다.
 
 ![복원할 VM 선택](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,7 +179,7 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 >- 지역 간 복원 기능은 cmk 사용 Recovery Services 자격 증명 모음에서 백업 되지 않는 CMK (고객 관리 키) 사용 Azure Vm을 보조 지역에서 CMK가 사용 하도록 설정 된 Vm으로 복원 합니다.
 >- 보조 지역에서 복원 하는 데 필요한 Azure 역할은 주 지역의 경우와 동일 합니다.
 
-[Azure 영역 고정 vm](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) 은 동일한 지역의 모든 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview) 에서 복원할 수 있습니다.
+[Azure 영역 고정 vm](../virtual-machines/windows/create-portal-availability-zone.md) 은 동일한 지역의 모든 [가용성 영역](../availability-zones/az-overview.md) 에서 복원할 수 있습니다.
 
 복원 프로세스에서 **가용성 영역** 옵션을 볼 수 있습니다. 먼저 기본 영역을 볼 수 있습니다. 다른 영역을 선택 하려면 선택한 영역의 번호를 선택 합니다. 고정 된 영역을 사용할 수 없는 경우 백업 된 데이터는 zonally 복제 되지 않으므로 다른 영역으로 데이터를 복원할 수 없습니다.
 

@@ -1,28 +1,28 @@
 ---
 title: 하이브리드 환경에 대한 Azure Monitor 사용
-description: 이 문서에서는 하나 이상의 가상 머신을 포함 하는 하이브리드 클라우드 환경에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
+description: 이 문서에서는 하나 이상의 가상 머신을 포함 하는 하이브리드 클라우드 환경에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d56b1ed7b4923b054ad6864b713fc2a26d95f7e2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619864"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731275"
 ---
-# <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대 한 VM용 Azure Monitor 사용
-이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부에서 가상 머신에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
+# <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대해 VM insights 사용
+이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부의 가상 머신에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
 
 > [!IMPORTANT]
-> 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
+> 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대 한 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 Vm이 azure vm과 유사한 프로세스를 사용 하 여 vm 정보를 사용할 수 있도록 합니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Log Analytics 작업 영역을 만들고 구성](../insights/vminsights-configure-workspace.md)합니다.
-- 지원 되는 [운영 체제](../insights/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
+- [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
+- 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
 
 ## <a name="overview"></a>개요
@@ -31,13 +31,13 @@ Azure 외부의 가상 컴퓨터에는 Azure Vm에 사용 되는 것과 동일�
 Log Analytics 에이전트 배포에 대 한 자세한 내용은 [Azure Monitor에 Windows 컴퓨터 연결](../agents/agent-windows.md) 또는 [Linux 컴퓨터를 Azure Monitor에](../agents/agent-linux.md) 연결을 참조 하세요. 종속성 에이전트에 대 한 세부 정보는이 문서에 나와 있습니다. 
 
 ## <a name="firewall-requirements"></a>방화벽 요구 사항
-Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 에이전트 개요](../agents/log-analytics-agent.md#network-requirements)에 제공 됩니다. VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../../azure-monitor/agents/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
+Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 에이전트 개요](../agents/log-analytics-agent.md#network-requirements)에 제공 됩니다. VM insights 맵 종속성 에이전트는 데이터 자체를 전송 하지 않으며 방화벽 또는 포트를 변경할 필요가 없습니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../../azure-monitor/agents/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
 
 
 ## <a name="dependency-agent"></a>종속성 에이전트
 
 >[!NOTE]
->이 섹션에서 설명 하는 다음 정보는 [서비스 맵 솔루션](../insights/service-map.md)에도 적용 됩니다.  
+>이 섹션에서 설명 하는 다음 정보는 [서비스 맵 솔루션](./service-map.md)에도 적용 됩니다.  
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
@@ -80,7 +80,7 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
@@ -177,8 +177,8 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
+이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM insights를 사용 하 여 분석할 수 있습니다.
 
-- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+- 검색 된 응용 프로그램 종속성을 보려면 [VM Insights 맵 보기](vminsights-maps.md)를 참조 하세요.
 
 - VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE vm 성능 보기](vminsights-performance.md)를 참조 하세요.

@@ -5,22 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652958"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738993"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -62,13 +62,13 @@ ms.locfileid: "100652958"
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
+5. 관리자 권한으로 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
 
     `cd C:\WaImportExportV1`
 6. 드라이브의 BitLocker 키를 가져오려면 다음 명령을 실행합니다.
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. 디스크를 준비하려면 다음 명령을 실행합니다. **데이터 크기에 따라 몇 시간에서 며칠이 걸릴 수 있습니다.**
+7. 디스크를 준비하려면 다음 명령을 실행합니다. **데이터 크기에 따라 디스크를 준비 하는 데 몇 시간 정도 걸릴 수 있습니다.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -78,7 +78,7 @@ ms.locfileid: "100652958"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |설명  |
+    |옵션  |Description  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
@@ -86,13 +86,14 @@ ms.locfileid: "100652958"
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
     |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예들 들어 `D:\`입니다.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
-    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob` 입니다.         |
-    |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
+    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우 blob 형식은이 `BlockBlob` 고 페이지 blob의 경우 `PageBlob` 입니다.         |
+    |/skipwrite:     | 새 데이터를 복사 하는 데 필요한 새 데이터 및 디스크의 기존 데이터를 준비 하도록 지정 합니다.          |
     |/enablecontentmd5:     |사용 하도록 설정 하면 MD5가 계산 되어 `Content-md5` 각 blob에 대 한 속성으로 설정 됩니다. `Content-md5`데이터를 Azure에 업로드 한 후 필드를 사용 하려는 경우에만이 옵션을 사용 합니다. <br> 이 옵션은 기본적으로 발생 하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드로 데이터를 업로드 하는 데 걸리는 시간을 증가 시킵니다.          |
 8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
 
     > [!IMPORTANT]
-    > * 저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 저널 파일이 너무 큰 경우 작업을 만들 때는 .xml 파일이 저널 파일 대신 사용됩니다.
+    > * 저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 업무 일지 파일이 너무 큰 경우 작업을 만들 때 업무 일지 파일 대신 .xml 파일이 사용 됩니다.
+   > * 포털이 허용 하는 저널 파일의 최대 크기는 2mb입니다. 저널 파일이이 제한을 초과 하면 오류가 반환 됩니다.
 
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기
 
@@ -132,7 +133,7 @@ ms.locfileid: "100652958"
 
    * 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
    * 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
-   * 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
+   * 완전 하 고 유효한 연락처 이름, 전화 번호, 전자 메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공 합니다.
 
        > [!TIP]
        > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
@@ -323,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>3 단계 (선택 사항): 고객 관리 키 구성
 
-Microsoft 관리 키를 사용 하 여 드라이브에 대 한 BitLocker 키를 보호 하려는 경우이 단계를 건너뛰고 다음 단계로 이동 합니다. BitLocker 키를 보호 하기 위해 고유한 키를 구성 하려면 [Azure Portal에서 Azure Import/Export에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키 구성](storage-import-export-encryption-key-portal.md) 의 지침을 따르세요.
+Microsoft 관리 키를 사용 하 여 드라이브에 대 한 BitLocker 키를 보호 하려는 경우이 단계를 건너뛰고 다음 단계로 이동 합니다. BitLocker 키를 보호 하기 위해 고유한 키를 구성 하려면 [Azure Portal에서 Azure Import/Export에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키 구성](storage-import-export-encryption-key-portal.md)의 지침을 따르세요.
 
 ## <a name="step-4-ship-the-drives"></a>4 단계: 드라이브 배송
 

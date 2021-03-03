@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616729"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704398"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 
-[로그 경고](alerts-log.md) 는 [webhook 작업 그룹 구성을](../platform/action-groups.md#webhook)지원 합니다. 이 문서에서는 사용할 수 있는 속성 및 사용자 지정 JSON webhook를 구성 하는 방법을 설명 합니다.
+[로그 경고](alerts-log.md) 는 [webhook 작업 그룹 구성을](./action-groups.md#webhook)지원 합니다. 이 문서에서는 사용할 수 있는 속성 및 사용자 지정 JSON webhook를 구성 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 사용자 지정 JSON 기반 webhook는 현재 API 버전에서 지원 되지 않습니다. `2020-05-01-preview`
@@ -30,7 +30,7 @@ ms.locfileid: "100616729"
 
 기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
 
-| 매개 변수 | 변수 | 설명 |
+| 매개 변수 | 변수 | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
@@ -47,7 +47,7 @@ ms.locfileid: "100616729"
 | *SearchQuery* |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | *SearchResults* |"IncludeSearchResults": true|처음 1000 레코드로 제한 되는 JSON 테이블로 쿼리를 통해 반환 된 레코드입니다. "IncludeSearchResults": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
 | *차원* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
-| *경고 유형*| #alerttype | [메트릭 측정 또는 결과 수](../platform/alerts-unified-log.md#measure)로 구성 된 로그 경고 규칙의 유형입니다.|
+| *경고 유형*| #alerttype | [메트릭 측정 또는 결과 수](./alerts-unified-log.md#measure)로 구성 된 로그 경고 규칙의 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 | *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
 | *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "100616729"
 다음 샘플 페이로드는 Log Analytics 기반으로 하는 경고에 사용 되는 표준 웹 후크 작업에 대 한 것입니다.
 
 > [!NOTE]
-> [레거시 Log Analytics 경고 api](../platform/api-alerts.md)에서 [현재 scheduledQueryRules api로 전환한](../alerts/alerts-log-api-switch.md) 경우 "심각도" 필드 값이 변경 됩니다.
+> [레거시 Log Analytics 경고 api](./api-alerts.md)에서 [현재 scheduledQueryRules api로 전환한](../alerts/alerts-log-api-switch.md) 경우 "심각도" 필드 값이 변경 됩니다.
 
 ```json
 {
@@ -318,8 +318,8 @@ ms.locfileid: "100616729"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure alerts의 로그 경고](../platform/alerts-unified-log.md)에 대해 알아봅니다.
+- [Azure alerts의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure에서 로그 경고를 관리](alerts-log.md)하는 방법을 이해 합니다.
-- [Azure에서 작업 그룹](../platform/action-groups.md)을 만들고 관리 합니다.
-- [Application Insights](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
-- [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요. 
+- [Azure에서 작업 그룹](./action-groups.md)을 만들고 관리 합니다.
+- [Application Insights](../logs/log-query-overview.md)에 대해 자세히 알아봅니다.
+- [로그 쿼리에](../logs/log-query-overview.md)대해 자세히 알아보세요.

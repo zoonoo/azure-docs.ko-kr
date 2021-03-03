@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526972"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727008"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -42,11 +42,11 @@ Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 �
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
 | 가격 책정:                        | [서버용 Azure Defender](security-center-pricing.md) 필요                                                                                                                                                                                                                                             |
-| 지원되는 플랫폼:            | Windows를 실행 하는 Azure 컴퓨터<br>Windows를 실행 하는 Azure Arc 컴퓨터|
-| 지원 되는 Windows 버전:  |  • Security Center Windows Server 2019, 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다.<br> •이 통합을 사용 하는 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.<br> • [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (Evd (가상 데스크톱의 경우 이전 Enterprise)<br> •  [WVD (Windows 가상 데스크톱)](../virtual-desktop/overview.md)|
+| 지원되는 플랫폼:            |  • Windows를 실행 하는 Azure 컴퓨터<br> • Windows를 실행 하는 Azure Arc 컴퓨터|
+| 지원 되는 Windows 버전:  |   • **GA (일반 공급)-** Windows Server 2016, 2012 R2 및 2008 R2 s p 1에서 검색<br> • **미리 보기-** windows Server 2019, [Wvd (windows 가상 데스크톱](../virtual-desktop/overview.md)) 및 [windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (이전에는 evd (가상 데스크톱) 용 enterprise)<br>이러한 통합을 사용한 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.|
 | 지원 되지 않는 운영 체제:  |  • Windows 10 (EVD 또는 WVD 이외의)<br> • Linux|
 | 필요한 역할 및 권한: | 통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 참가자** 입니다.|
-| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부<br>![아니요](./media/icons/no-icon.png) 글로벌 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객                                                        |
+| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부<br>![No](./media/icons/no-icon.png) 글로벌 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Security Center의 끝점 기능을 위한 Microsoft Defender
@@ -76,10 +76,15 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Microsoft Defender에서 끝점 통합 사용
 
+1. 컴퓨터가 Defender for Endpoint에 필요한 요구 사항을 충족 하는지 확인 합니다.
+
+    - **모든 버전의 Windows**:
+        - [장치 프록시 및 인터넷 연결 설정 구성](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) 에 설명 된 네트워크 설정을 구성 합니다.
+        - 온-프레미스 컴퓨터에 Defender를 끝점에 배포 하는 경우 [Azure arc 사용 서버와 하이브리드 컴퓨터 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) 에 설명 된 대로 azure arc에 연결 합니다.
+    - 또한 **Windows Server 2019 컴퓨터** 의 경우 유효한 에이전트를 실행 하 고 MicrosoftMonitoringAgent 확장을 포함 하는지 확인 합니다.
+
 1. **서버에 대해 Azure Defender를** 사용 하도록 설정 합니다. [Azure Security Center 가격 책정을](security-center-pricing.md#enable-azure-defender)참조 하세요.
 
-    > [!NOTE]
-    > Azure Arc 사용 가능 컴퓨터를 보호 하려면 [빠른 시작: Azure arc 사용 서버와 하이브리드 컴퓨터 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)의 지침을 사용 합니다.
 
 1. 서버에서 끝점에 대해 Microsoft Defender를 이미 사용 허가 하 고 배포한 경우 [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)에 설명 된 절차를 사용 하 여 제거 합니다.
 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
@@ -94,7 +99,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>끝점 포털에 대 한 Microsoft Defender 액세스
 
-1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. [자세히 알아봅니다](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. 자세한 내용은 [Microsoft Defender Security Center에 대 한 사용자 액세스 할당](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access)을 확인 하세요.
 
 1. 익명 트래픽을 차단 하는 프록시 또는 방화벽이 있는지 확인 합니다. Defender for Endpoint 센서는 시스템 컨텍스트에서 연결 하므로 익명 트래픽이 허용 되어야 합니다. 되어야에 끝점 포털에 대 한 액세스를 보장 하려면 [프록시 서버에서 서비스 url에 대 한 액세스 사용](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 

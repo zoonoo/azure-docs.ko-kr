@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: fc79ac8853cb441e9d6d49997c03ab983aa4dbf4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa1701c59f099f5222ab6454cc67b9dc20d1e7e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701113"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>경고 및 스마트 그룹 상태 관리
 
-Azure Monitor의 경고에는 이제 [경고 상태 및 모니터 조건](../platform/alerts-overview.md)이 있으며, 이와 유사하게 스마트 그룹에는 [스마트 그룹 상태](../platform/alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)가 있습니다. 이제 상태 변경 사항은 각각의 경고 또는 스마트 그룹과 연관된 히스토리에 캡처됩니다. 이 문서에서는 경고 및 스마트 그룹 모두에 대한 상태 변경 프로세스를 단계별로 안내합니다.
+Azure Monitor의 경고에는 이제 [경고 상태 및 모니터 조건](./alerts-overview.md)이 있으며, 이와 유사하게 스마트 그룹에는 [스마트 그룹 상태](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)가 있습니다. 이제 상태 변경 사항은 각각의 경고 또는 스마트 그룹과 연관된 히스토리에 캡처됩니다. 이 문서에서는 경고 및 스마트 그룹 모두에 대한 상태 변경 프로세스를 단계별로 안내합니다.
 
 ## <a name="change-the-state-of-an-alert"></a>경고 상태 변경
 

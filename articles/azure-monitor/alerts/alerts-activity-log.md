@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704466"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -26,7 +26,9 @@ ms.locfileid: "100621024"
 
 - 범위의 구독이 경고가 생성된 구독과 다르지 않습니다.
 - 조건은 경고가 구성된 수준/상태/호출자/리소스 그룹/리소스 ID/리소스 종류/이벤트 범주여야 합니다.
-- 경고 구성 JSON에는 "anyOf" 조건 또는 중첩 조건이 없습니다. 기본적으로 "allOf" 또는 "anyOf" 조건이 추가로 포함되지 않은 하나의 "allOf" 조건만 허용됩니다.
+- 하나의 "allOf" 조건만 사용할 수 있습니다.
+- ' AnyOf '을 사용 하 여 여러 필드에 대해 여러 조건을 허용할 수 있습니다. 예를 들어 "status" 또는 "하위 상태" 필드가 특정 값과 같은 경우에는 여러 개의 조건을 사용할 수 있습니다. 현재 ' AnyOf ' 사용은 ARM 템플릿 배포를 사용 하 여 경고 규칙을 만드는 것으로 제한 됩니다.
+- ' ContainsAny '을 사용 하 여 동일한 필드의 여러 값을 허용할 수 있습니다. 예를 들어 "operation"이 ' delete ' 또는 ' 수정 ' 인 경우입니다. 현재 ' ContainsAny ' 사용은 ARM 템플릿 배포를 사용 하 여 경고 규칙을 만드는 것으로 제한 됩니다.
 - 범주가 "관리"인 경우, 앞에 나온 조건 중 하나 이상을 경고에 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
 - 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 없습니다.
 
@@ -92,7 +94,7 @@ Azure Portal를 사용하여 활동 로그 경고 규칙을 만들고 수정할 
     - **설명**: 새 경고 규칙에 대한 설명입니다.
     - **리소스 그룹에 경고 저장**: 이 새 규칙을 저장하고자 하는 리소스 그룹을 선택합니다.
 
-5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](../platform/action-groups.md) 새 규칙에 할당합니다. 새 그룹을 만들려면 **+ 새 그룹** 을 선택합니다.
+5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](./action-groups.md) 새 규칙에 할당합니다. 새 그룹을 만들려면 **+ 새 그룹** 을 선택합니다.
 
 6. 규칙을 만든 후 사용하도록 설정하려면 **규칙을 만들면 바로 사용** 에 대해 **예** 를 선택합니다.
 7. **경고 규칙 만들기** 를 선택합니다.
@@ -287,6 +289,5 @@ Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activ
 
 - [활동 로그에 대한 웹후크 스키마](./activity-log-alerts-webhook.md)를 알아봅니다.
 - [활동 로그 개요](./activity-log-alerts.md)를 읽습니다.
-- [작업 그룹](../platform/action-groups.md)에 대해 자세히 알아보세요.  
+- [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.  
 - [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.
-

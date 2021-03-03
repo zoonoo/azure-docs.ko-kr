@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089706"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691215"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Managed Instance 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | Description |
+   | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독. | 새 리소스를 만들 권한을 제공하는 구독입니다. |
    | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
@@ -113,7 +113,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ### <a name="tags"></a>태그
 
-- 태그를 ARM 템플릿(Azure Resource Manager 템플릿)의 리소스에 추가합니다. [태그](/azure/azure-resource-manager/management/tag-resources)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값은 비용 보고서에 표시되며, 태그별로 다른 관리 작업을 허용합니다. 
+- 태그를 ARM 템플릿(Azure Resource Manager 템플릿)의 리소스에 추가합니다. [태그](../../azure-resource-manager/management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값은 비용 보고서에 표시되며, 태그별로 다른 관리 작업을 허용합니다. 
 
 - 적어도 [소유자] 태그를 새 SQL Managed Instance에 지정하여 만든 사람을 식별하고, [환경] 태그를 지정하여 이 시스템이 프로덕션, 개발 등인지 여부를 확인하는 것이 좋습니다. 자세한 내용은 [Azure 리소스에 대한 명명 및 태그 지정 전략 개발](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
  

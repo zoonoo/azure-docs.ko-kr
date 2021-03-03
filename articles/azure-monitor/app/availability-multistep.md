@@ -2,13 +2,13 @@
 title: 다단계 웹 테스트를 사용하여 모니터링 - Azure Application Insights
 description: Azure Application Insights를 사용하여 웹 애플리케이션을 모니터링하도록 다단계 웹 테스트 설정
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/14/2021
+ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719851"
 ---
 # <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
@@ -65,7 +65,6 @@ Visual Studio 웹 테스트를 만드는 방법에 대한 지침은 [공식 Visu
 |설정| 설명
 |----|----|----|
 |**거의 실시간(미리 보기)** | 거의 실시간으로 경고를 사용하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행됩니다.  |
-|**클래식** | 새 가용성 테스트에 대한 클래식 경고를 사용하는 것이 더 이상 권장되지 않습니다.|
 |**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 사이의 최적 관계는 **경고 위치 임계값** = **테스트 위치 수 - 2이고, 최소 테스트 위치 수는 5입니다.**|
 
 ## <a name="configuration"></a>구성

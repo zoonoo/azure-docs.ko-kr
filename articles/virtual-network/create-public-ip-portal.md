@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 5c5650d896442f10846e16903a1231010d032a44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694872"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공용 IP 주소 만들기
 
@@ -74,7 +74,6 @@ ms.locfileid: "101675210"
     | IP 버전              | IPv4 선택                 |    
     | SKU                     | **기본** 을 선택합니다.         |
     | 속성                    | *Mybasicpublicip* 입력          |
-    | 라우팅 기본 설정      | **Microsoft 네트워크** 의 기본값을 그대로 둡니다. </br> 라우팅 기본 설정에 대 한 자세한 내용은 [라우팅 기본 설정 (미리 보기) 이란?](./routing-preference-overview.md)을 참조 하세요. |
     | IP 주소 할당   | **정적** 선택 (아래 참고 참조)                                     |
     | 유휴 시간 제한 (분)  | 기본값인 **4** 를 그대로 둡니다.       |
     | DNS 이름 레이블          | 값을 비워 둡니다.    |
@@ -82,7 +81,7 @@ ms.locfileid: "101675210"
     | Resource group          | **새로 만들기** 를 선택 하 고 **myresourcegroup** 을 입력 합니다. </br> **확인** 을 선택합니다. |
     | 위치                | **미국 동부 2** 선택      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Azure Portal에서 표준 IP 주소 만들기" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Azure Portal에서 표준 IP 주소 만들기" border="false":::
 
 시간에 따라 IP 주소를 변경 하는 것이 허용 되는 경우 **동적** ip 할당을 선택할 수 있습니다.
 

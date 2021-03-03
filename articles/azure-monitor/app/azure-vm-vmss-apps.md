@@ -3,12 +3,12 @@ title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711484"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
@@ -16,7 +16,7 @@ ms.locfileid: "99493739"
 
 이 문서에서는 Application Insights 에이전트를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 > [!IMPORTANT]
-> Azure Vm 및 VMSS에서 실행 되는 **java** 기반 응용 프로그램은 일반적으로 사용할 수 있는 **[Application Insights java 3.0 에이전트로](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** 모니터링 됩니다.
+> Azure Vm 및 VMSS에서 실행 되는 **java** 기반 응용 프로그램은 일반적으로 사용할 수 있는 **[Application Insights java 3.0 에이전트로](./java-in-process-agent.md)** 모니터링 됩니다.
 
 > [!IMPORTANT]
 > Azure Vm에서 실행 되는 ASP.NET 응용 프로그램 **및 VMSS** 에 대 한 Azure 애플리케이션 Insights 에이전트는 현재 공개 미리 보기로 제공 됩니다. 온 **-프레미스에서** 실행 되는 ASP.Net 응용 프로그램을 모니터링 하려면 일반적으로 사용 가능 하 고 완전히 지원 되는 [온-프레미스 서버에 대해 Azure 애플리케이션 Insights 에이전트](./status-monitor-v2-overview.md)를 사용 합니다.
@@ -42,7 +42,7 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
   * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](./auto-collect-dependencies.md#net) 을 참조 하세요.
         
 #### <a name="java"></a>Java
-  * Java의 경우 **[Application Insights java 3.0 에이전트가](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** 권장 되는 방법입니다. 가장 인기 있는 라이브러리 및 프레임 워크와 로그 및 종속성은 다 수의 [추가 구성](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config) 으로 [자동 수집](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics)됩니다.
+  * Java의 경우 **[Application Insights java 3.0 에이전트가](./java-in-process-agent.md)** 권장 되는 방법입니다. 가장 인기 있는 라이브러리 및 프레임 워크와 로그 및 종속성은 다 수의 [추가 구성](./java-standalone-config.md) 으로 [자동 수집](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics)됩니다.
 
 ### <a name="code-based-via-sdk"></a>SDK를 통한 코드 기반
     
@@ -55,19 +55,19 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
     > .NET 앱에만 해당-에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 되 면 수동 계측 설정만 적용 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](#troubleshooting) 을 확인 하세요.
 
 #### <a name="net-core"></a>.NET Core
-.NET Core 응용 프로그램을 모니터링 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 를 사용 합니다. 
+.NET Core 응용 프로그램을 모니터링 하려면 [SDK](./asp-net-core.md) 를 사용 합니다. 
 
 #### <a name="java"></a>Java 
 
-Java 응용 프로그램에 대 한 추가 사용자 지정 원격 분석이 필요한 경우 [사용 가능한](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application)기능, [사용자 지정 차원](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions)추가 또는 [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors)사용을 참조 하세요. 
+Java 응용 프로그램에 대 한 추가 사용자 지정 원격 분석이 필요한 경우 [사용 가능한](./java-in-process-agent.md#send-custom-telemetry-from-your-application)기능, [사용자 지정 차원](./java-standalone-config.md#custom-dimensions)추가 또는 [원격 분석 프로세서](./java-standalone-telemetry-processors.md)사용을 참조 하세요. 
 
 #### <a name="nodejs"></a>Node.js
 
-Node.js 응용 프로그램을 계측 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)를 사용 합니다.
+Node.js 응용 프로그램을 계측 하려면 [SDK](./nodejs.md)를 사용 합니다.
 
 #### <a name="python"></a>Python
 
-Python 앱을 모니터링 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)를 사용 합니다.
+Python 앱을 모니터링 하려면 [SDK](./opencensus-python.md)를 사용 합니다.
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>PowerShell을 사용 하 여 Azure virtual machines에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 

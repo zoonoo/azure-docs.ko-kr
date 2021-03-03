@@ -1,19 +1,19 @@
 ---
-title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 Azure Monitor 설정 | Microsoft Docs
-description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
+title: 컨테이너 insights 라이브 데이터 설정 (미리 보기) | Microsoft Docs
+description: 이 문서에서는 컨테이너 정보를 사용 하 여 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트의 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614319"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713782"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
-AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 라이브 데이터 (미리 보기)를 보려면 Kubernetes 데이터에 대 한 액세스 권한을 부여 하도록 인증을 구성 해야 합니다. 이 보안 구성을 통해 Azure Portal에서 직접 Kubernetes API를 통해 데이터에 실시간으로 액세스할 수 있습니다.
+AKS (Azure Kubernetes Service) 클러스터의 컨테이너 정보를 사용 하 여 라이브 데이터 (미리 보기)를 보려면 Kubernetes 데이터에 대 한 액세스 권한을 부여 하도록 인증을 구성 해야 합니다. 이 보안 구성을 통해 Azure Portal에서 직접 Kubernetes API를 통해 데이터에 실시간으로 액세스할 수 있습니다.
 
 이 기능은 로그, 이벤트 및 메트릭에 대 한 액세스를 제어 하는 다음 메서드를 지원 합니다.
 
@@ -46,7 +46,7 @@ Azure Portal은 Azure Active Directory 클러스터에 대 한 로그인 자격 
 
 [KUBERNETES RBAC](#configure-kubernetes-rbac-authorization) 권한 부여를 사용 하도록 설정한 후 Kubernetes 사용자 역할을 사용 하 여 라이브 데이터 (미리 보기) 기능에 대 한 **clusteruser** 액세스를 허용 하는 추가 구성 변경을 적용할 필요가 없도록 하려면 AKS가 **clusterMonitoringUser** 라는 새 Kubernetes 클러스터 역할 바인딩을 추가 했습니다. 이 클러스터 역할 바인딩에는 Kubernetes API 및 라이브 데이터 (미리 보기) 기능을 활용 하기 위한 끝점에 액세스 하는 데 필요한 모든 권한이 있습니다.
 
-이 새 사용자와 함께 라이브 데이터 (미리 보기) 기능을 사용 하려면 AKS 클러스터 리소스에 대 한 [Azure Kubernetes Service 클러스터 사용자](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 또는 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원 이어야 합니다. 컨테이너의 Azure Monitor 사용 하도록 설정 하면 기본적으로 clusterMonitoringUser를 사용 하 여 인증 하도록 구성 됩니다. ClusterMonitoringUser 역할 바인딩이 클러스터에 존재 하지 않는 경우 대신 **Clusteruser** 가 인증에 사용 됩니다. 참가자는 clusterMonitoringUser (있는 경우)에 대 한 액세스를 제공 하 고 Azure Kuberenetes Service 클러스터 사용자는 clusterUser에 대 한 액세스를 제공 합니다. 이러한 두 역할은이 기능을 사용할 수 있는 충분 한 액세스 권한을 제공 합니다.
+이 새 사용자와 함께 라이브 데이터 (미리 보기) 기능을 사용 하려면 AKS 클러스터 리소스에 대 한 [Azure Kubernetes Service 클러스터 사용자](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 또는 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원 이어야 합니다. 컨테이너 정보를 사용 하도록 설정 하면 기본적으로 clusterMonitoringUser를 사용 하 여 인증 하도록 구성 됩니다. ClusterMonitoringUser 역할 바인딩이 클러스터에 존재 하지 않는 경우 대신 **Clusteruser** 가 인증에 사용 됩니다. 참가자는 clusterMonitoringUser (있는 경우)에 대 한 액세스를 제공 하 고 Azure Kuberenetes Service 클러스터 사용자는 clusterUser에 대 한 액세스를 제공 합니다. 이러한 두 역할은이 기능을 사용할 수 있는 충분 한 액세스 권한을 제공 합니다.
 
 AKS는 1 월 2020 일에이 새 역할 바인딩을 릴리스 했으므로 1 월 2020 일 이전에 만든 클러스터에는 포함 되지 않습니다. 2020 년 1 월 이전에 만든 클러스터가 있는 경우 클러스터에서 PUT 작업을 수행 하거나 클러스터에서 클러스터에 대 한 PUT 작업을 수행 하는 클러스터에서 다른 작업을 수행 하 여 새 **clusterMonitoringUser** 를 기존 클러스터에 추가할 수 있습니다. 예를 들어 클러스터 버전을 업데이트 하는 등의 작업을 수행할 수 있습니다.
 
@@ -106,7 +106,7 @@ Azure Portal에서 권한 부여 페이지를 신뢰할 수 있는 리디렉션 
 Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes 설명서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조 하세요.
 
 >[!NOTE]
->새 Kubernetes RBAC 사용 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration-cli.md) 을 참조 하 고 azure AD 인증을 구성 하는 단계를 따르세요. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 아래 3 단계에서 지정 된 것과 일치 하는 컨테이너에 대 한 Azure Monitor 하기 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다.
+>새 Kubernetes RBAC 사용 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration-cli.md) 을 참조 하 고 azure AD 인증을 구성 하는 단계를 따르세요. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 아래 3 단계에서 지정한 것과 일치 하는 컨테이너 정보를 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다.
 
 ### <a name="client-registration-reconfiguration"></a>클라이언트 등록 재구성
 

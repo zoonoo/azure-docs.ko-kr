@@ -3,12 +3,12 @@ title: 전용 호스팅 Azure Functions
 description: 전용 App Service 호스팅 계획에서 Azure Functions를 실행 하는 이점에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704568"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Azure Functions에 대 한 전용 호스팅 계획
 
@@ -41,7 +41,7 @@ App Service 계획을 사용 하면 더 많은 VM 인스턴스를 추가 하 여
 
 ## <a name="app-service-environments"></a>App Service Environment
 
-ASE ( [App Service Environment](../app-service/environment/intro.md) )에서를 실행 하면 함수를 완전히 격리 하 고 App Service 계획 보다 많은 수의 인스턴스를 활용할 수 있습니다. 시작하려면 를 참조하십시오.
+ASE (App Service Environment)에서를 실행 하면 함수를 완전히 격리 하 고 App Service 계획 보다 많은 수의 인스턴스를 활용할 수 있습니다. 시작 하려면 [App Service 환경 소개](../app-service/environment/intro.md)를 참조 하세요.
 
 가상 네트워크에서 함수 앱을 실행 하려는 경우 [Premium 요금제](functions-premium-plan.md)를 사용 하 여이 작업을 수행할 수 있습니다. 자세히 알아보려면 [Azure Functions 개인 사이트 액세스 설정](functions-create-private-site-access.md)을 참조 하세요. 
 

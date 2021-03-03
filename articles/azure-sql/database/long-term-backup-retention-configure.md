@@ -11,35 +11,39 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fad19d360f7c476ba71a9bbe00b58387b92f8ac4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690562"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database에서 [장기 백업 보존](long-term-retention-overview.md) 정책 (LTR)이 포함 된 데이터베이스를 구성 하 여 최대 10 년 동안 별도의 Azure Blob storage 컨테이너에 데이터베이스 백업을 자동으로 유지할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다. [AZURE SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) 에 대 한 장기 보존을 구성할 수 있지만 현재는 제한 된 공개 미리 보기로 제공 됩니다.
+Azure SQL Database를 사용 하 여 최대 10 년 동안 개별 Azure Blob storage 컨테이너에 백업을 자동으로 보존 하도록 [장기 백업 보존](long-term-retention-overview.md) 정책 (LTR)을 설정할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다. [AZURE SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)에서도 장기 보존 정책이 지원 됩니다.
 
 ## <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-다음 섹션에서는 Azure Portal을 사용하여 장기 보존을 구성하고, 장기 보존되는 백업을 보고, 장기 보존에서 백업을 복원하는 방법을 보여줍니다.
+다음 섹션에서는 Azure Portal를 사용 하 여 장기 보존 정책을 설정 하 고, 사용 가능한 장기 보존 백업을 관리 하 고, 사용 가능한 백업에서 복원 하는 방법을 보여 줍니다.
 
 ### <a name="configure-long-term-retention-policies"></a>장기 보존 정책 구성
 
 서비스 계층의 보존 기간보다 긴 기간 동안 [자동화된 백업을 유지](long-term-retention-overview.md)하도록 SQL Database를 구성할 수 있습니다.
 
-1. Azure Portal에서 SQL Server 인스턴스를 선택 하 고 **백업 관리** 를 클릭 합니다. **정책 구성** 탭에서 장기 백업 보존 정책을 설정 하거나 수정 하려는 데이터베이스에 대 한 확인란을 선택 합니다. 데이터베이스 옆의 확인란을 선택하지 않으면 정책에 대한 변경 내용이 해당 데이터베이스에 적용되지 않습니다.  
+1. Azure Portal에서 서버로 이동한 다음 **백업** 을 선택 합니다. **보존 정책** 탭을 선택 하 여 백업 보존 설정을 수정 합니다.
 
-   ![백업 관리 링크](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+   ![보존 정책 환경](./media/long-term-backup-retention-configure/ltr-policies-tab.png)
 
-2. **정책 구성** 창에서 매주, 매달 또는 매년 백업을 보존할지 여부를 선택하고 각각에 대해 보존 기간을 지정합니다.
+2. 보존 정책 탭에서 장기 백업 보존 정책을 설정 하거나 수정 하려는 데이터베이스를 선택 합니다. 선택 하지 않은 데이터베이스는 영향을 받지 않습니다.
 
-   ![정책 구성](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+   ![백업 보존 정책을 구성할 데이터베이스 선택](./media/long-term-backup-retention-configure/ltr-policies-tab-configure.png)
 
-3. 완료되면 **적용** 을 클릭합니다.
+3. **정책 구성** 창에서 매주, 매월 또는 매년 백업에 대해 원하는 보존 기간을 지정 합니다. ' 0 ' 보존 기간을 선택 하 여 장기 백업 보존을 설정 하지 않도록 지정 합니다.
+
+   ![정책 구성 창](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+4. 선택한 보존 설정을 선택한 모든 데이터베이스에 적용 하려면 **적용** 을 선택 합니다.
 
 > [!IMPORTANT]
 > 장기 백업 보존 정책을 사용 하도록 설정 하는 경우 첫 번째 백업이 표시 되 고 복원 하는 데 사용할 수 있는 최대 7 일이 걸릴 수 있습니다. LTR backup cadance에 대 한 자세한 내용은 [장기 백업 보존](long-term-retention-overview.md)을 참조 하세요.
@@ -48,21 +52,23 @@ Azure SQL Database에서 [장기 백업 보존](long-term-retention-overview.md)
 
 LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보고 해당 백업에서 복원 합니다.
 
-1. Azure Portal에서 서버를 선택한 다음 **백업 관리** 를 클릭 합니다. **사용 가능한 백업** 탭에서 사용 가능한 백업을 보려는 데이터베이스를 선택합니다.
+1. Azure Portal에서 서버로 이동한 다음 **백업** 을 선택 합니다. 특정 데이터베이스에 대해 사용 가능한 LTR 백업을 보려면 사용 가능한 LTR 백업 열에서 **관리** 를 선택 합니다. 선택한 데이터베이스에 대해 사용 가능한 LTR 백업 목록이 포함 된 창이 표시 됩니다.
 
-   ![데이터베이스 선택](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+   ![사용 가능한 백업 환경](./media/long-term-backup-retention-configure/ltr-available-backups-tab.png)
 
-1. **사용 가능한 백업** 창에서 사용 가능한 백업을 검토합니다.
+1. 표시 되는 **사용 가능한 LTR 백업** 창에서 사용 가능한 백업을 검토 합니다. 복원할 백업을 선택 하거나 삭제할 수 있습니다.
 
-   ![백업 보기](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+   ![사용 가능한 LTR 백업 보기](./media/long-term-backup-retention-configure/ltr-available-backups-manage.png)
 
-1. 복원에 사용할 백업을 선택한 다음, 새 데이터베이스 이름을 지정합니다.
+1. 사용 가능한 LTR 백업에서 복원 하려면 복원 하려는 백업을 선택 하 고 **복원** 을 선택 합니다.
 
-   ![복원](./media/long-term-backup-retention-configure/ltr-restore.png)
+   ![사용 가능한 LTR 백업에서 복원](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
 
-1. **확인** 을 클릭 하 여 Azure storage의 백업에서 새 데이터베이스로 데이터베이스를 복원 합니다.
+1. 새 데이터베이스의 이름을 선택한 다음 **검토 + 만들기** 를 선택 하 여 복원에 대 한 세부 정보를 검토 합니다. **만들기** 를 선택 하 여 선택한 백업에서 데이터베이스를 복원 합니다.
 
-1. 도구 모음에서 알림 아이콘을 클릭하여 복원 작업의 상태를 봅니다.
+   ![복원 세부 정보 구성](./media/long-term-backup-retention-configure/restore-ltr.png)
+
+1. 도구 모음에서 알림 아이콘을 선택 하 여 복원 작업의 상태를 확인 합니다.
 
    ![복원 작업 진행률](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
 

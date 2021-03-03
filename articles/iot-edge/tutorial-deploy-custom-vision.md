@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736494"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -40,7 +40,7 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 >[!TIP]
->이 자습서는 [Raspberry Pi 3의 Custom Vision 및 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) 샘플 프로젝트의 단순화된 버전입니다. 이 자습서는 클라우드 VM에서 실행되도록 설계되었으며 정적 이미지를 사용하여 이미지 분류자를 학습하고 테스트합니다. 이는 IoT Edge에서 Custom Vision을 평가하기 시작하는 사용자에게 유용합니다. 샘플 프로젝트는 물리적 하드웨어를 사용하고 라이브 카메라 피드를 설정하여 이미지 분류자를 학습하고 테스트합니다. 이는 보다 자세한 실제 시나리오를 시도하려는 사용자에게 유용합니다.
+>이 자습서는 [Raspberry Pi 3의 Custom Vision 및 Azure IoT Edge](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) 샘플 프로젝트의 단순화된 버전입니다. 이 자습서는 클라우드 VM에서 실행되도록 설계되었으며 정적 이미지를 사용하여 이미지 분류자를 학습하고 테스트합니다. 이는 IoT Edge에서 Custom Vision을 평가하기 시작하는 사용자에게 유용합니다. 샘플 프로젝트는 물리적 하드웨어를 사용하고 라이브 카메라 피드를 설정하여 이미지 분류자를 학습하고 테스트합니다. 이는 보다 자세한 실제 시나리오를 시도하려는 사용자에게 유용합니다.
 
 이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 

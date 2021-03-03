@@ -1,30 +1,30 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성 | Microsoft Docs
+title: 컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v4. x 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9e04818f1a915a853d32b5db408a521cdae9f4c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620109"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713935"
 ---
-# <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
+# <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
-컨테이너에 대 한 Azure Monitor는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 4.x에서 호스트 되는 Kubernetes 클러스터에 대 한 모니터링을 사용 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
+컨테이너 정보는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 4.x에서 호스트 되는 Kubernetes 클러스터에 대 한 모니터링을 사용 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
 >[!NOTE]
 >Azure Red Hat OpenShift에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
 >
 
-이 문서에 설명 된 지원 되는 메서드를 사용 하 여 Azure Red Hat OpenShift. x의 기존 배포 하나 이상에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정할 수 있습니다.
+이 문서에 설명 된 지원 되는 메서드를 사용 하 여 Azure Red Hat OpenShift. x의 기존 배포 하나 이상에 대 한 컨테이너 정보를 사용 하도록 설정할 수 있습니다.
 
 기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift#az-openshift-create&preserve-view=true)를 실행 합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 
-컨테이너에 대 한 Azure Monitor는 다음 기능을 제외 하 고 [컨테이너 개요 Azure Monitor](container-insights-overview.md)에 설명 된 대로 Azure Red Hat openshift v4. x 모니터링을 지원 합니다.
+컨테이너 insights는 다음 기능을 제외 하 고 [컨테이너 insights 개요](container-insights-overview.md)에 설명 된 대로 Azure Red Hat openshift v4. x 모니터링을 지원 합니다.
 
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
@@ -39,13 +39,13 @@ ms.locfileid: "100620109"
 
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 명령줄 도구
 
-- [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
+- [Log Analytics 작업 영역](../logs/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 insights는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../logs/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
-- 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에 Azure *참가자* 역할이 있어야 하 고 컨테이너에 대 한 Azure Monitor를 사용 하 여 Log Analytics 작업 영역의 [*Log Analytics 참여자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
+- 컨테이너 insights에서 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에 Azure *참가자* 역할이 있어야 하 고, 컨테이너 insights로 구성 된 Log Analytics 작업 영역의 [*Log Analytics 참여자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
-- 모니터링 데이터를 보려면 Log Analytics 작업 영역에서 컨테이너에 대 한 Azure Monitor 구성 된 [*Log Analytics 읽기 권한자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
+- 모니터링 데이터를 보려면 컨테이너 insights를 사용 하 여 구성 된 Log Analytics 작업 영역에 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
 ## <a name="enable-monitoring-for-an-existing-cluster"></a>기존 클러스터에 대 한 모니터링 사용
 
@@ -68,7 +68,7 @@ ms.locfileid: "100620109"
     adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
     apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
     oc login $apiServer -u $adminUserName -p $adminPassword
-    # openshift project name for azure monitor for containers
+    # openshift project name for Container insights
     openshiftProjectName="azure-monitor-for-containers"
     oc new-project $openshiftProjectName
     # get the kube config context
@@ -150,7 +150,7 @@ export kubeContext="<kubeContext name of your ARO v4 cluster>"
 
 ### <a name="enable-monitoring-from-the-azure-portal"></a>Azure Portal에서 모니터링 사용
 
-컨테이너에 대 한 Azure Monitor의 다중 클러스터 뷰는 모니터링 되지 않는 **클러스터** 탭에서 모니터링을 사용 하도록 설정 하지 않은 Azure Red Hat openshift 클러스터를 강조 표시 합니다. 클러스터 옆의 **사용** 옵션은 포털에서 모니터링 온 보 딩을 시작 하지 않습니다. 이 문서 앞부분에 설명 된 단계를 수행 하 여 수동으로 모니터링을 사용 하도록 설정 하려면이 문서로 리디렉션됩니다.
+컨테이너 insights의 다중 클러스터 뷰는 모니터링 되지 않는 **클러스터** 탭에서 모니터링을 사용 하도록 설정 하지 않은 Azure Red Hat openshift 클러스터를 강조 표시 합니다. 클러스터 옆의 **사용** 옵션은 포털에서 모니터링 온 보 딩을 시작 하지 않습니다. 이 문서 앞부분에 설명 된 단계를 수행 하 여 수동으로 모니터링을 사용 하도록 설정 하려면이 문서로 리디렉션됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -166,10 +166,10 @@ export kubeContext="<kubeContext name of your ARO v4 cluster>"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이제 모니터링을 사용 하도록 설정 하 여 RedHat OpenShift 버전 4.x 클러스터와 해당 클러스터에서 실행 되는 작업의 상태 및 리소스 사용률을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아보세요.
+- 이제 모니터링을 사용 하도록 설정 하 여 RedHat OpenShift 버전 4.x 클러스터와 해당 클러스터에서 실행 중인 작업의 상태 및 리소스 사용률을 수집 합니다. 컨테이너 정보를 [사용 하는 방법을](container-insights-analyze.md) 알아보세요.
 
 - 기본적으로 컨테이너 화 된 에이전트는 kube를 제외한 모든 네임 스페이스에서 실행 중인 모든 컨테이너의 *stdout* 및 *stderr* 컨테이너 로그를 수집 합니다. 특정 네임 스페이스 또는 네임 스페이스와 관련 된 컨테이너 로그 컬렉션을 구성 하려면 [컨테이너 Insights 에이전트 구성](container-insights-agent-config.md) 을 검토 하 여 *configmap* 구성 파일에 대해 원하는 데이터 수집 설정을 구성 합니다.
 
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [스크랩 프로메테우스 메트릭 구성](container-insights-prometheus-integration.md)을 검토 하세요.
 
-- 컨테이너에 대해 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](./container-insights-optout-openshift-v3.md)을 참조 하세요.
+- 컨테이너 insights를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지](./container-insights-optout-openshift-v3.md)하는 방법을 참조 하세요.

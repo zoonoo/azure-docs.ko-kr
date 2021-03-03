@@ -7,24 +7,19 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: e2fe475b171a99ec27ed162511db289891066e00
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715601"
 ---
-# <a name="configure-a-rule-set"></a>규칙 집합 구성
+# <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)을 사용 하 여 규칙 집합 구성
 
 > [!Note]
 > 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
-이 자습서에서는 Azure Portal 규칙 집합 및 규칙의 첫 번째 집합을 만드는 방법을 보여 줍니다. 
-
-이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
-> [!div class="checklist"]
-> - 포털을 사용 하 여 규칙 집합을 구성 합니다.
-> - 포털을 사용 하 여 AFD 프로필에서 규칙 집합 삭제
+이 문서에서는 Azure Portal에서 규칙 집합 및 규칙의 첫 번째 집합을 만드는 방법을 보여 줍니다. 그런 다음 규칙 집합 페이지 또는 끝점 관리자에서 규칙 집합을 경로에 연결 하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > Azure 전면 도어 표준/프리미엄 (미리 보기)은 현재 공개 미리 보기로 제공 됩니다.
@@ -33,7 +28,7 @@ ms.locfileid: "101099452"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 이 자습서의 단계를 완료 하려면 먼저 Azure 전면 도어 표준/프리미엄을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Front 도어 표준/프리미엄 프로필 만들기](create-front-door-portal.md)를 참조 하세요.
+* 규칙 집합을 구성 하려면 먼저 Azure 전면 도어 표준/프리미엄을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Front 도어 표준/프리미엄 프로필 만들기](create-front-door-portal.md)를 참조 하세요.
 
 ## <a name="configure-rule-set-in-azure-portal"></a>Azure Portal에서 규칙 집합 구성
 
@@ -65,11 +60,11 @@ ms.locfileid: "101099452"
     1. 연결 되지 않은 링크를 *선택 합니다.*
      
 
-    1. 그런 다음 **경로 연결** 블레이드에서 규칙 집합과 연결할 끝점과 경로를 선택 합니다. 
+    1. 그런 다음 **경로 연결** 페이지에서 규칙 집합과 연결할 끝점과 경로를 선택 합니다. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="경로 만들기 페이지의 스크린샷":::    
         
-    1. 선택한 경로 아래에 규칙 집합이 여러 개 있는 경우 *다음* 을 클릭 하 여 규칙 집합 순서를 변경 합니다. 규칙 집합이 위에서 아래로 실행 됩니다. 규칙 집합을 선택 하 여 순서를 변경 하 고 위나 아래로 이동할 수 있습니다. 그런 다음 *연결* 을 선택 합니다.
+    1. 선택한 경로 아래에 규칙 집합이 여러 개 있는 경우 규칙 집합 순서를 변경 하려면 *다음* 을 선택 합니다. 규칙 집합이 위에서 아래로 실행 됩니다. 규칙 집합을 선택 하 여 순서를 변경 하 고 위나 아래로 이동할 수 있습니다. 그런 다음 *연결* 을 선택 합니다.
     
         > [!Note]
         > 하나의 규칙 집합만이 페이지의 단일 경로에 연결할 수 있습니다. 여러 경로를 사용 하 여 규칙 집합을 연결 하려면 끝점 관리자를 사용 하세요.
@@ -86,15 +81,15 @@ ms.locfileid: "101099452"
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="끝점 관리자에서 끝점을 선택 하는 스크린샷" lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. *끝점 편집* 을 클릭 합니다.  
+    1. *끝점 편집* 을 선택 합니다.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="끝점 관리자에서 끝점 편집을 선택 하는 스크린샷" lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. 경로를 클릭 합니다. 
+    1. 경로를 선택 합니다. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="경로를 선택 하는 스크린샷":::
     
-    1. *업데이트 경로* 블레이드의 *규칙* 에서 드롭다운에서 경로에 연결할 규칙 집합을 선택 합니다. 그런 다음 규칙 집합을 위아래로 이동 하 여 순서를 변경할 수 있습니다. 
+    1. *경로 업데이트* 페이지의 *규칙* 에서 드롭다운에서 경로에 연결할 규칙 집합을 선택 합니다. 그런 다음 규칙 집합을 위아래로 이동 하 여 순서를 변경할 수 있습니다. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="경로 업데이트 페이지의 스크린샷":::
     
@@ -106,7 +101,7 @@ ms.locfileid: "101099452"
 
 1. **설정** 아래의 **규칙 집합 페이지로** 이동 하 여 연결 된 모든 경로에서 규칙 집합의 연결을 해제 합니다.
 
-1. 경로를 확장 하 고 세 개의 점을 클릭 하 여 *경로 편집* 을 클릭 합니다.
+1. 경로를 확장 하 고 세 개의 점을 선택 합니다. 그런 다음 *경로 편집* 을 선택 합니다.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="규칙 집합에서 확장 된 경로 스크린샷":::
 
@@ -126,13 +121,4 @@ ms.locfileid: "101099452"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-* 규칙 집합 만들기
-* 규칙 집합을 AFD 경로에 연결 합니다.
-* AFD 프로필에서 규칙 집합을 삭제 합니다.
-
-규칙 집합을 사용 하 여 보안 헤더를 추가 하는 방법을 알아보려면 다음 자습서를 계속 진행 합니다.
-
-> [!div class="nextstepaction"]
-> [규칙이 설정 된 보안 헤더]()
+[규칙 집합을 사용 하 여 보안 헤더](how-to-add-security-headers.md)를 추가 하는 방법을 알아봅니다.

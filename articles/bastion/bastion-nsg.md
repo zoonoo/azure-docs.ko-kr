@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700221"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -32,11 +32,15 @@ Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사
 
 이 섹션에서는 사용자와 Azure 방호 간의 네트워크 트래픽과, 가상 네트워크의 대상 Vm에 대 한 네트워크 트래픽을 보여 줍니다.
 
+> [!IMPORTANT]
+> Azure 방호 리소스를 사용 하 여 NSG를 사용 하도록 선택 하는 경우 다음과 같은 수신 및 송신 트래픽 규칙을 모두 만들어야 **합니다** . NSG에서 다음 규칙을 생략 하면 나중에 Azure 방호 리소스가 필요한 업데이트를 수신 하지 못하도록 차단 되므로 향후의 보안 취약점에 대 한 리소스를 엽니다.
+> 
+
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure 방호는 특별히 ***AzureBastionSubnet** _에 배포 됩니다.
+Azure 방호는 특히 ***AzureBastionSubnet*** 에 배포 됩니다.
 
-**수신 트래픽 (** %):
+* **수신 트래픽:**
 
    * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
    * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.

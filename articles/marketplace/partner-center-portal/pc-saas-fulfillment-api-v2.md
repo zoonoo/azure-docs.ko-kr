@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712354"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
 
@@ -972,4 +972,4 @@ SaaS 구독 상태를 Microsoft 쪽과 일관 되 게 유지 하려면 게시자
 
 상업적 marketplace에서 SaaS 제품에 대 한 추가 옵션은 [상업적 marketplace 계량 서비스 api](marketplace-metering-service-apis.md) 를 참조 하세요.
 
-이 문서에서 설명 하는 Api를 기반으로 구축 된 [SAAS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) 를 검토 하 여 사용 합니다.
+[다른 프로그래밍 언어 및 샘플에 대 한 클라이언트](https://github.com/microsoft/commercial-marketplace-samples)를 검토 하 고 사용 합니다.

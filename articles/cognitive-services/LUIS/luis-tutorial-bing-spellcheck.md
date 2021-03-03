@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 509d1dc0b94bdfa9be5185df0bad793f7702eb26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731037"
 ---
 # <a name="correct-misspelled-words-with-bing-resource"></a>Bing 리소스에서 철자가 잘못 된 단어 수정
 
-V3 예측 API는 이제 [Bing Spellcheck API](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview)를 지원합니다. 요청 헤더에 Bing 검색 리소스에 대 한 키를 포함 하 여 응용 프로그램에 맞춤법 검사를 추가 합니다. 기존 Bing 리소스를 이미 소유 하 고 있는 경우이 리소스를 사용 하거나 새 Bing 리소스를 [만들어](https://portal.azure.com/#create/Microsoft.BingSearch) 이 기능을 사용할 수 있습니다. 
+V3 예측 API는 이제 [Bing Spellcheck API](/bing/search-apis/bing-spell-check/overview)를 지원합니다. 요청 헤더에 Bing 검색 리소스에 대 한 키를 포함 하 여 응용 프로그램에 맞춤법 검사를 추가 합니다. 기존 Bing 리소스를 이미 소유 하 고 있는 경우이 리소스를 사용 하거나 새 Bing 리소스를 [만들어](https://portal.azure.com/#create/Microsoft.BingSearch) 이 기능을 사용할 수 있습니다. 
 
 철자가 잘못 된 쿼리에 대 한 예측 출력 예제:
 

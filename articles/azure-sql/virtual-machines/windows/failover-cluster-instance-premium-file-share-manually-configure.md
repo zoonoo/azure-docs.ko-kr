@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 86caf39e0d31a41ca454c65311ff2fab52b56f5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691164"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md)를 사용 하 여 Azure Virtual Machines (vm)에서 SQL Server를 사용 하 여 fci (장애 조치 (failover) 클러스터 인스턴스)를 만드는 방법을 설명 합니다.
+이 문서에서는 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)를 사용 하 여 Azure Virtual Machines (vm)에서 SQL Server를 사용 하 여 fci (장애 조치 (failover) 클러스터 인스턴스)를 만드는 방법을 설명 합니다.
 
-프리미엄 파일 공유는 Windows Server 2012 이상에서 2012 이상 장애 조치 (failover) 클러스터 SQL Server 인스턴스와 함께 사용할 수 있도록 완전히 지원 되는 스토리지 공간 다이렉트 (SSD) 지원 되 고 대기 시간이 짧은 파일 공유입니다. 프리미엄 파일 공유는 뛰어난 유연성을 제공하여 가동 중지 시간 없이 파일 공유 크기를 조정하고 크기를 조정할 수 있습니다.
+프리미엄 파일 공유는 Windows Server 2012 이상에서 2012 이상 장애 조치 (failover) 클러스터 SQL Server 인스턴스와 함께 사용할 수 있도록 완전히 지원 되는 저장소 공간 다이렉트 (SSD) 지원 되 고 대기 시간이 짧은 파일 공유입니다. 프리미엄 파일 공유는 뛰어난 유연성을 제공하여 가동 중지 시간 없이 파일 공유 크기를 조정하고 크기를 조정할 수 있습니다.
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
@@ -37,7 +37,7 @@ ms.locfileid: "97358081"
 - Azure 구독
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 또는 다른 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)에 [준비 된 두 개 이상의 Windows Azure 가상 머신](failover-cluster-instance-prepare-vm.md)
-- 데이터 파일용 데이터베이스의 스토리지 할당량을 기준으로 클러스터형 드라이브로 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md)를 사용합니다.
+- 데이터 파일용 데이터베이스의 스토리지 할당량을 기준으로 클러스터형 드라이브로 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)를 사용합니다.
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
 ## <a name="mount-premium-file-share"></a>프리미엄 파일 공유 탑재
@@ -210,7 +210,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 ## <a name="limitations"></a>제한 사항
 
 - MSDTC (Microsoft DTC(Distributed Transaction Coordinator))는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 
-- Filestream은 프리미엄 파일 공유를 사용하는 장애 조치(failover) 클러스터에 대해 지원되지 않습니다. Filestream을 사용 하려면 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 또는 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 클러스터를 배포 하세요.
+- Filestream은 프리미엄 파일 공유를 사용하는 장애 조치(failover) 클러스터에 대해 지원되지 않습니다. Filestream을 사용 하려면 대신 [저장소 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 또는 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 클러스터를 배포 하세요.
 - [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
@@ -218,7 +218,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
 
 
-프리미엄 파일 공유가 적합 한 FCI 저장소 솔루션이 아닌 경우 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 합니다. 
+프리미엄 파일 공유가 적합 한 FCI 저장소 솔루션이 아닌 경우 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [저장소 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 합니다. 
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 

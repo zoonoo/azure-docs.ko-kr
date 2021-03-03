@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: 기호 레이어 추가
               href: map-add-pin.md
-            - name: 팝업 추가
-              href: map-add-popup.md
             - name: 거품형 레이어 추가
               href: map-add-bubble-layer.md
+            - name: 팝업 추가
+              href: map-add-popup.md
             - name: HTML 마커 추가
               href: map-add-custom-html.md
             - name: 선 계층 추가
@@ -250,14 +250,14 @@
           href: how-to-add-symbol-to-android-map.md
         - name: 거품형 레이어 추가
           href: map-add-bubble-layer-android.md
-        - name: 셰이프 추가
+        - name: 기능 정보 표시
+          href: display-feature-information-android.md
+        - name: 선 계층 추가
+          href: android-map-add-line-layer.md
+        - name: 다각형 레이어 추가
           href: how-to-add-shapes-to-android-map.md
         - name: 열 지도 계층 추가
           href: map-add-heat-map-layer-android.md
-        - name: 선 계층 추가
-          href: android-map-add-line-layer.md
-        - name: 기능 정보 표시
-          href: display-feature-information-android.md
         - name: 타일 레이어 추가
           href: how-to-add-tile-layer-android-map.md
         - name: 트래픽 데이터 표시

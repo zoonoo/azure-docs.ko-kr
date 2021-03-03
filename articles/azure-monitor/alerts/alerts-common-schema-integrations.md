@@ -4,12 +4,12 @@ description: 일반적인 경고 스키마를 활용 하 여 모든 경고를 �
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4553ecc8d2df20ffdf9b76d381ecf3b88d84ef38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614784"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738670"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps와 공통 경고 스키마를 통합 하는 방법
 
@@ -23,8 +23,8 @@ ms.locfileid: "100614784"
 ## <a name="prerequisites"></a>사전 요구 사항 
 
 이 문서에서는 독자가 다음에 대해 잘 알고 있다고 가정 합니다. 
-* 경고 규칙 설정 ([메트릭](../alerts/alerts-metric.md), [로그](../platform/alerts-log.md), [활동 로그](../platform/alerts-activity-log.md))
-* [작업 그룹](../platform/action-groups.md) 설정
+* 경고 규칙 설정 ([메트릭](../alerts/alerts-metric.md), [로그](./alerts-log.md), [활동 로그](./alerts-activity-log.md))
+* [작업 그룹](./action-groups.md) 설정
 * 작업 그룹 내에서 [공통 경고 스키마](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) 사용
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>공통 경고 스키마를 활용 하는 논리 앱 만들기
@@ -137,5 +137,5 @@ ms.locfileid: "100614784"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [작업 그룹에 대해 자세히 알아보세요](../platform/action-groups.md).
+* [작업 그룹에 대해 자세히 알아보세요](./action-groups.md).
 * [일반적인 경고 스키마에 대해 자세히 알아보세요](./alerts-common-schema.md).

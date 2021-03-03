@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694957"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>가상 네트워크 피어링 만들기 - Resource Manager, 서로 다른 구독 및 Azure Active Directory 테넌트
 
@@ -55,7 +55,7 @@ ms.locfileid: "98223485"
     - **구독**: 구독 A 선택
     - **리소스 그룹**: **새로 만들기** 를 선택하고 *myResourceGroupA* 입력
     - **위치**: *미국 동부*
-4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA* 를 입력합니다. **myVnetA** 가 검색 결과에 표시되면 선택합니다. 
+4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA* 를 입력합니다. **myVnetA** 가 검색 결과에 표시되면 선택합니다.
 5. 왼쪽에 있는 옵션의 세로 목록에서 **액세스 제어(IAM)** 를 선택합니다.
 6. **myVnetA - 액세스 제어(IAM)** 에서 **+ 역할 할당 추가** 를 선택합니다.
 7. **역할** 상자에서 **네트워크 참가자** 를 선택합니다.
@@ -99,7 +99,7 @@ ms.locfileid: "98223485"
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>피어링 만들기 - Azure CLI
 
-이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다. 
+이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다.
 
 다음 스크립트:
 
@@ -165,7 +165,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 8. 사용자 A로 Azure에서 로그아웃하고 사용자 B로 Azure에 로그인합니다.
 9. myVnetB에서 myVnetA로의 피어링을 만듭니다. 6단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionB-Id>`를 구독 A의 ID로 바꾸고 모든 A를 B로, 모든 B를 A로 변경합니다. 변경을 마친 후 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다.
-10. MyVnetB의 피어링 상태를 확인합니다. 7단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹과 가상 네트워크 이름에 대해 A를 B로 변경하고, 스크립트를 복사하고, 수정된 스크립트를 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 피어링 상태는 **Connected** 입니다. myVnetB에서 myVnetA로의 피어링을 만든 후에는 MyVnetA의 피어링 상태가 **Connected** 로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 7단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다. 
+10. MyVnetB의 피어링 상태를 확인합니다. 7단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹과 가상 네트워크 이름에 대해 A를 B로 변경하고, 스크립트를 복사하고, 수정된 스크립트를 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 피어링 상태는 **Connected** 입니다. myVnetB에서 myVnetA로의 피어링을 만든 후에는 MyVnetA의 피어링 상태가 **Connected** 로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 7단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다.
 
     > [!NOTE]
     > 두 가상 네트워크 모두에 대해 피어링 상태가 **Connected** 가 될 때까지는 피어링이 설정되지 않습니다.
@@ -181,7 +181,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다.
 
-1. Azure PowerShell 버전 1.0.0 이상이 있는지 확인합니다. `Get-Module -Name Az`를 실행하여 이 작업을 실행할 수 있습니다. 최신 버전의 PowerShell [Az 모듈](/powershell/azure/install-az-ps)을 설치하는 것이 좋습니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 
+1. Azure PowerShell 버전 1.0.0 이상이 있는지 확인합니다. `Get-Module -Name Az`를 실행하여 이 작업을 실행할 수 있습니다. 최신 버전의 PowerShell [Az 모듈](/powershell/azure/install-az-ps)을 설치하는 것이 좋습니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 2. PowerShell 세션을 시작합니다.
 3. PowerShell에서 `Connect-AzAccount` 명령을 입력하여 Azure에 사용자 A로 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
 4. 리소스 그룹 및 가상 네트워크 A를 만듭니다. 다음 스크립트를 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 A의 ID로 바꿉니다. 구독 ID를 모르는 경우 `Get-AzSubscription` 명령을 입력하여 확인합니다. 반환된 출력의 **ID** 값이 구독 ID입니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 PowerShell에 붙여 넣은 다음 `Enter`를 누릅니다.
@@ -276,7 +276,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
    }
    ```
 
-3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) 또는 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
+3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) 또는 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
 4. 2단계의 예제 json 파일을 컴퓨터에 복사하고 다음으로 시작하는 줄을 변경합니다.
    - **name**: *myVnetA/myVnetAToMyVnetB* 를 *myVnetB/myVnetBToMyVnetA* 로 변경합니다.
    - **ID**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB* 를 *myVnetA* 로 변경합니다.

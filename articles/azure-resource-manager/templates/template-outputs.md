@@ -2,13 +2,13 @@
 title: 템플릿의 출력
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703837"
 ---
 # <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
@@ -35,7 +35,21 @@ JSON에 대해 섹션을 `outputs` 템플릿에 추가 합니다. 출력 값은 
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Bicep의 경우 키워드를 사용 `output` 합니다.
+
+다음 예제에서 `publicIP` 은 Bicep 파일에 배포 된 공용 IP 주소의 식별자입니다. 출력 값은 공용 IP 주소의 정규화 된 도메인 이름을 가져옵니다.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 이름에 하이픈이 포함 된 속성을 출력 해야 하는 경우 점 표기법 대신 이름 주위에 대괄호를 사용 합니다. 예를 들어  `['property-name']` 대신를 사용 `.property-name` 합니다.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -58,16 +72,6 @@ JSON에 대해 섹션을 `outputs` 템플릿에 추가 합니다. 출력 값은 
 ```
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Bicep의 경우 키워드를 사용 `output` 합니다.
-
-다음 예제에서 `publicIP` 은 Bicep 파일에 배포 된 공용 IP 주소의 기호화 된 이름입니다. 출력 값은 공용 IP 주소의 정규화 된 도메인 이름을 가져옵니다.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-이름에 하이픈이 포함 된 속성을 출력 해야 하는 경우 점 표기법 대신 이름 주위에 대괄호를 사용 합니다. 예를 들어  `['property-name']` 대신를 사용 `.property-name` 합니다.
 
 ```bicep
 var user = {
@@ -99,9 +103,7 @@ JSON에서 요소를 추가 `condition` 하 여 출력이 반환 되는지 여�
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Bicep에 대 한 조건부 출력을 현재 사용할 수 없습니다.
-
-그러나 연산자를 사용 하 여 `?` 조건에 따라 두 값 중 하나를 반환할 수 있습니다.
+Bicep에서 조건부 출력을 지정 하려면 연산자를 사용 `?` 합니다. 다음 예에서는 조건에 따라 끝점 URL 또는 빈 문자열을 반환 합니다.
 
 ```bicep
 param deployStorage bool = true

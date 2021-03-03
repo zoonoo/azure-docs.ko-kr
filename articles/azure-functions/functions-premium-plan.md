@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610270"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708716"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -154,7 +154,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 예를 들어 JavaScript 함수 앱은 Node.js의 기본 메모리 제한에 의해 제한 됩니다. 이 고정 메모리 제한을 늘리려면 값을 사용 하 여 앱 설정을 추가 합니다 `languageWorkers:node:arguments` `--max-old-space-size=<max memory in MB>` .
 
-4GB가 넘는 메모리를 사용 하는 계획의 경우 `64 Bit` [일반 설정](/azure/app-service/configure-common#configure-general-settings)에서 비트 플랫폼 설정이로 설정 되었는지 확인 합니다.
+4GB가 넘는 메모리를 사용 하는 계획의 경우 `64 Bit` [일반 설정](../app-service/configure-common.md#configure-general-settings)에서 비트 플랫폼 설정이로 설정 되었는지 확인 합니다.
 
 ## <a name="region-max-scale-out"></a>영역 최대 Scale Out
 
@@ -187,7 +187,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |노르웨이 동부| 100 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
-|동남 아시아| 100 | 20 |
+|동남아시아| 100 | 20 |
 |스위스 북부| 100 | 사용할 수 없음 |
 |스위스 서부| 100 | 사용할 수 없음 |
 |영국 남부| 100 | 20 |

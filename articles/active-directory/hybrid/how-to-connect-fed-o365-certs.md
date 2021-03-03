@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686872"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Microsoft 365 및 Azure Active Directory에 대 한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 * 타사 ID 공급자를 사용하는 경우.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>토큰 서명 인증서에 대한 AD FS의 기본 구성
-토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며 1년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover**라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용 하는 경우 Microsoft 365와 Azure AD가 만료 되기 전에 인증서를 자동으로 업데이트 합니다.
+토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며 1년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover** 라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용 하는 경우 Microsoft 365와 Azure AD가 만료 되기 전에 인증서를 자동으로 업데이트 합니다.
 
 ### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Microsoft 365 관리 센터 또는 전자 메일의 갱신 알림
 > [!NOTE]
@@ -107,8 +107,8 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 작업 |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |예 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| No |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 
@@ -140,11 +140,11 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1단계: AD FS에 새 토큰 서명 인증서가 있는지 확인
 **기본이 아닌 구성**
 
-**AutoCertificateRollover**가 **False**로 설정된 AD FS의 기본이 아닌 구성을 사용하는 경우 사용자 지정 인증서(자체 서명되지 않음)을 사용할 가능성이 높습니다. AD FS 토큰 서명 인증서를 갱신 하는 방법에 대 한 자세한 내용은 [페더레이션된 서버에 대 한 인증서 요구 사항](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers)을 참조 하세요.
+**AutoCertificateRollover** 가 **False** 로 설정된 AD FS의 기본이 아닌 구성을 사용하는 경우 사용자 지정 인증서(자체 서명되지 않음)을 사용할 가능성이 높습니다. AD FS 토큰 서명 인증서를 갱신 하는 방법에 대 한 자세한 내용은 [페더레이션된 서버에 대 한 인증서 요구 사항](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers)을 참조 하세요.
 
 **페더레이션 메타데이터를 공개적으로 사용할 수 없습니다.**
 
-반면에 **AutoCertificateRollover**가 **True**로 설정되었지만 페더레이션 메타데이터가 공개적으로 액세스할 수 없는 경우 먼저 AD FS에서 새 토큰 서명 인증서를 생성했는지를 확인합니다. 다음 단계를 수행하여 새 토큰 서명 인증서를 확인합니다.
+반면에 **AutoCertificateRollover** 가 **True** 로 설정되었지만 페더레이션 메타데이터가 공개적으로 액세스할 수 없는 경우 먼저 AD FS에서 새 토큰 서명 인증서를 생성했는지를 확인합니다. 다음 단계를 수행하여 새 토큰 서명 인증서를 확인합니다.
 
 1. 기본 AD FS 서버에 로그온했는지 확인합니다.
 2. PowerShell 명령 창을 열고 다음 명령을 실행하여 AD FS에서 현재 서명 인증서를 확인합니다.
@@ -155,12 +155,12 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
    > AD FS 2.0을 사용하는 경우 Add-Pssnapin Microsoft.Adfs.Powershell을 먼저 실행해야 합니다.
    >
    >
-3. 나열된 모든 인증서에서 명령 출력을 살펴봅니다. AD FS에서 새 인증서를 생성했으면 두 인증서가 출력에 표시됩니다. 하나는 **IsPrimary** 값이 **True**이고 **NotAfter** 날짜는 5일 이내이며 다른 하나는 **IsPrimary**가 **False**이고 **NotAfter**는 향후 1년 정도입니다.
+3. 나열된 모든 인증서에서 명령 출력을 살펴봅니다. AD FS에서 새 인증서를 생성했으면 두 인증서가 출력에 표시됩니다. 하나는 **IsPrimary** 값이 **True** 이고 **NotAfter** 날짜는 5일 이내이며 다른 하나는 **IsPrimary** 가 **False** 이고 **NotAfter** 는 향후 1년 정도입니다.
 4. 인증서가 하나만 표시되는 경우 **NotAfter** 날짜가 5일 이내이면 새 인증서를 생성해야 합니다.
-5. 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. PS C:\>Get-ADFSCertificate –CertificateType token-signing 명령을 다시 실행하여 업데이트를 확인합니다.
 
-이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약 1년 정도이고 **IsPrimary** 값은 **False**입니다.
+이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약 1년 정도이고 **IsPrimary** 값은 **False** 입니다.
 
 ### <a name="step-2-update-the-new-token-signing-certificates-for-the-microsoft-365-trust"></a>2 단계: Microsoft 365 트러스트를 위한 새 토큰 서명 인증서 업데이트
 다음과 같이 트러스트에 사용할 새 토큰 서명 인증서를 사용 하 여 Microsoft 365를 업데이트 합니다.

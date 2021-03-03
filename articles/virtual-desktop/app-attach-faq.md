@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738704"
 ---
 # <a name="msix-app-attach-faq"></a>MSIX 앱 연결 FAQ
 
@@ -61,7 +61,7 @@ MSIX 앱 연결을 사용 하는 호스트 풀의 모든 Vm (가상 컴퓨터)�
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>HTTP 또는 HTTPs에 대해 MSIX 앱 연결을 사용할 수 있나요?
 
-MSIX 앱 연결을 사용 하는 호스트 풀의 일부인 모든 Vm에는 MSIX 이미지가 저장 된 파일 공유에 대 한 읽기 권한이 있어야 합니다. Azure Files를 사용 하는 경우 RBAC와 NTFS 사용 권한을 모두 부여 해야 합니다.
+HTTP 또는 HTTPs를 통한 MSIX 앱 연결을 사용 하는 것은 현재 지원 되지 않습니다.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>동일한 MSIX 응용 프로그램을 다시 준비할 수 있나요?
 
@@ -69,7 +69,7 @@ MSIX 앱 연결을 사용 하는 호스트 풀의 일부인 모든 Vm에는 MSIX
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>MSIX 앱 연결에서 자체 서명 된 인증서를 지원 하나요?
 
-HTTP 또는 HTTPs를 통한 MSIX 앱 연결을 사용 하는 것은 현재 지원 되지 않습니다.
+예. 자체 서명 된 응용 프로그램을 호스트 하는 데 MSIX 앱 연결을 사용 하는 모든 세션 호스트 Vm에 자체 서명 된 인증서를 설치 해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

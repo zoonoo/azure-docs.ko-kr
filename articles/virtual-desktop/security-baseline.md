@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 42795e2dda6df24e656c9c06f6a9424bd9e4b5cb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 393495dabb77a5d177c97d37313433bb00ce5a36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092985"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726753"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 Azure 보안 기준
 
@@ -24,7 +24,7 @@ Windows 가상 데스크톱이 Azure 보안 벤치 마크에 완전히 매핑되
 
 ## <a name="network-security"></a>네트워크 보안
 
-자세한 내용은 [Azure Security Benchmark: 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)을 참조하세요.
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
@@ -64,7 +64,7 @@ Azure에서 가상 네트워크 피어 링을 사용 하 여 둘 이상의 가�
 
 - [Azure VPN 개요](../vpn-gateway/vpn-gateway-about-vpngateways.md) 
 
-- [가상 네트워크 피어링](/azure/virtual-network/virtual-network-peering-overview)
+- [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -76,9 +76,9 @@ Azure에서 가상 네트워크 피어 링을 사용 하 여 둘 이상의 가�
 
 Windows 가상 데스크톱은 웹 응용 프로그램을 실행 하기 위한 것이 아니며, 추가 설정을 구성 하거나 웹 응용 프로그램을 대상으로 하는 외부 네트워크 공격 으로부터 보호 하기 위해 추가 네트워크 서비스를 배포할 필요가 없습니다.
 
-- [Azure 방화벽 설명서](/azure/firewall)
+- [Azure 방화벽 설명서](../firewall/index.yml)
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](/azure/virtual-network/manage-ddos-protection) 
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../ddos-protection/manage-ddos-protection.md) 
 
 - [Azure Security Center 권장 사항](../security-center/recommendations-reference.md#networking-recommendations)
 
@@ -116,7 +116,7 @@ Windows 가상 데스크톱은 웹 응용 프로그램을 실행 하기 위한 �
 
 ## <a name="identity-management"></a>ID 관리
 
-자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -132,7 +132,7 @@ Azure AD는 외부 id를 사용 하 여 응용 프로그램 및 리소스에 로
 
 - [Azure AD의 테넌트](../active-directory/develop/single-and-multi-tenant-apps.md)
 
-- [애플리케이션에 외부 ID 공급자 사용](/azure/active-directory/b2b/identity-providers)
+- [애플리케이션에 외부 ID 공급자 사용](../active-directory/external-identities/identity-providers.md)
 
 - [Azure AD의 ID 보안 점수란?](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -210,7 +210,7 @@ Windows 가상 데스크톱은 기본 암호 정책 또는 하이브리드 계�
 
 - [Azure AD의 감사 활동 보고서](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center 위협 인텔리전스 보호 모듈의 경고](../security-center/alerts-reference.md)
 
@@ -240,7 +240,7 @@ Windows 가상 데스크톱은 기본 암호 정책 또는 하이브리드 계�
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 중요 비즈니스용 시스템에 대한 관리 액세스 제한
 
@@ -286,7 +286,7 @@ Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라�
 
 응급 액세스 계정의 자격 증명(예: 암호, 인증서 또는 스마트 카드)을 안전하게 유지하고 비상시에만 사용할 권한이 있는 사용자에게만 알립니다.
 
-- [Azure AD에서 응급 액세스 계정 관리](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Azure AD에서 응급 액세스 계정 관리](../active-directory/roles/security-emergency-access.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -312,7 +312,7 @@ Azure Active Directory (Azure AD), Microsoft Defender ATP (Advanced Threat Prote
 
 - [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [권한 있는 액세스 워크스테이션 배포](/azure/active-directory/devices/howto-azure-managed-workstation)
+- [권한 있는 액세스 워크스테이션 배포](/security/compass/privileged-access-deployment)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -350,7 +350,7 @@ Azure RBAC를 사용 하 여 리소스에 할당 하는 권한은 항상 역할�
 
 ## <a name="data-protection"></a>데이터 보호
 
-자세한 내용은 [Azure Security Benchmark: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)를 참조하세요.
 
 ### <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: 중요한 데이터 검색, 분류 및 레이블 지정
 
@@ -362,7 +362,7 @@ Azure SQL 정보 보호를 사용하여 Azure SQL Database에 저장된 정보�
 
 - [Azure Information Protection을 사용하여 중요한 정보 태그 지정](/azure/information-protection/what-is-information-protection) 
 
-- [Azure SQL 데이터 검색을 구현하는 방법](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Azure SQL 데이터 검색을 구현하는 방법](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -396,7 +396,7 @@ AIP(Azure Information Protection)는 분류되고 레이블이 지정된 정보�
 
 - [Azure SQL ATP 사용](../azure-sql/database/threat-detection-overview.md) 
 
-- [Azure Storage ATP 사용](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Azure Storage ATP 사용](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -404,7 +404,7 @@ AIP(Azure Information Protection)는 분류되고 레이블이 지정된 정보�
 
 ## <a name="asset-management"></a>자산 관리
 
-자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -434,7 +434,7 @@ Azure Virtual Machine 인벤토리를 사용 하 여 Virtual Machines의 소프�
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Azure 가상 컴퓨터 인벤토리를 사용 하도록 설정 하는 방법](../automation/automation-tutorial-installed-software.md)
 
@@ -488,7 +488,7 @@ Azure Virtual Machine 인벤토리를 사용 하 여 Virtual Machines의 소프�
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](../security/benchmarks/security-controls-v2-logging-threat-detection.md)를 참조하세요.
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
@@ -496,7 +496,7 @@ Azure Virtual Machine 인벤토리를 사용 하 여 Virtual Machines의 소프�
 
 Windows 가상 데스크톱에서 사용자 지정 위협 검색을 설정 하는 데 사용할 수 있는 SIEM (보안 정보 이벤트 관리) 솔루션으로 로그를 전달 합니다. 잠재적 위협 및 비정상에 대해 다양 한 유형의 Azure 자산을 모니터링 하 고 있는지 확인 합니다. 분석에 대 한 가양성을 줄이기 위해 고품질 경고를 얻는 데 집중 하세요. 경고는 로그 데이터, 에이전트 또는 기타 데이터에서 원본으로 사용할 수 있습니다.
 
-- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection) 
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md) 
 
 - [Azure Security Center 보안 경고 참조 가이드](../security-center/alerts-reference.md)
 
@@ -526,7 +526,7 @@ Windows 가상 데스크톱에서 사용자 지정 위협 검색을 설정 하�
 
 - [Azure ID 보호 사용](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -540,7 +540,7 @@ Windows 가상 데스크톱에서 사용자 지정 위협 검색을 설정 하�
 
 - [네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
-- [Azure Firewall 로그 및 메트릭](/azure/firewall/logs-and-metrics) 
+- [Azure Firewall 로그 및 메트릭](../firewall/logs-and-metrics.md) 
 
 - [트래픽 분석 사용 및 사용 방법](../network-watcher/traffic-analytics.md) 
 
@@ -554,9 +554,9 @@ Windows 가상 데스크톱에서 사용자 지정 위협 검색을 설정 하�
 
 **참고**: 자동으로 사용 하도록 설정 된 활동 로그에는 읽기 작업 (GET)을 제외 하 고 Windows 가상 데스크톱 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -570,7 +570,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 또한 Azure 센티널 또는 타사 SIEM (보안 정보 이벤트 관리)에 데이터를 사용 하도록 설정 하 고 등록 합니다. 많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -580,7 +580,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 ## <a name="incident-response"></a>사고 대응
 
-자세한 내용은 [Azure Security Benchmark: 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 
@@ -662,7 +662,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -684,7 +684,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 ## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)를 참조하세요.
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV 3: 계산 리소스에 대 한 보안 구성 설정
 
@@ -710,7 +710,7 @@ Microsoft에서 게시 하는 가상 머신 이미지 Azure Marketplace Microsof
 
 또한 컨테이너 이미지의 취약성을 검색 하 고 중앙 인터넷 보안의 Docker 벤치 마크에 대해 컨테이너에서 Docker 구성을 지속적으로 모니터링할 수 있습니다. Azure Security Center 권장 사항 페이지를 Azure Security Center 사용 하 여 권장 사항을 확인 하 고 문제를 수정할 수 있습니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 - [ARM 템플릿에서 Azure Virtual Machine을 만드는 방법](../virtual-machines/windows/ps-template.md) 
 
@@ -730,7 +730,7 @@ Microsoft에서 게시 하는 가상 머신 이미지 Azure Marketplace Microsof
 
 - [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md) 
 
-- [공유 이미지 갤러리 개요](/azure/virtual-machines/windows/shared-image-galleries)
+- [공유 이미지 갤러리 개요](../virtual-machines/shared-image-galleries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -748,9 +748,9 @@ Azure 가상 컴퓨터 (및 SQL server)에서 취약성 평가를 수행 하는 
 
 필요에 따라 검색 결과를 일관 된 간격으로 내보내고 결과와 이전 검색을 비교 하 여 취약점이 재구성 되었는지 확인 합니다. Azure Security Center에서 제안 하는 취약성 관리 권장 사항을 사용 하는 경우 선택한 솔루션의 포털로 피벗 하 여 기록 검색 데이터를 볼 수 있습니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md) 
 
-- [가상 컴퓨터용 통합 취약성 스캐너](/azure/security-center/built-in-vulnerability-assessment) 
+- [가상 컴퓨터용 통합 취약성 스캐너](../security-center/deploy-vulnerability-assessment-vm.md) 
 - [SQL 취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -765,9 +765,9 @@ Azure Automation 업데이트 관리 또는 타사 솔루션을 사용 하 여 W
 
 타사 소프트웨어 또는 Configuration Manager에 대 한 System Center Updates Publisher 타사 패치 관리 솔루션을 사용 합니다.
 
-- [Azure에서 가상 머신에 대 한 업데이트 관리를 구성 하는 방법](/azure/automation/update-management/overview) 
+- [Azure에서 가상 머신에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/overview.md) 
 
-- [Azure VM에 대한 업데이트 및 패치 관리](/azure/automation/update-management/manage-updates-for-vm)
+- [Azure VM에 대한 업데이트 및 패치 관리](../automation/update-management/manage-updates-for-vm.md)
 
 - [Windows 가상 데스크톱에 대 한 Microsoft Endpoint Configuration Manager 구성](configure-automatic-updates.md)
 
@@ -785,7 +785,7 @@ Azure Automation 업데이트 관리 또는 타사 솔루션을 사용 하 여 W
 
 ## <a name="endpoint-security"></a>엔드포인트 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](/azure/security/benchmarks/security-controls-v2-endpoint-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](../security/benchmarks/security-controls-v2-endpoint-security.md)을 참조 하세요.*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: EDR (끝점 검색 및 응답) 사용
 
@@ -817,7 +817,7 @@ Azure Cloud Services에 대 한 Microsoft 맬웨어 방지 프로그램은 Windo
 
 - [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../security/fundamentals/antimalware.md) 
 
-- [지원 되는 endpoint protection 솔루션](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions)
+- [지원 되는 endpoint protection 솔루션](../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -841,7 +841,7 @@ Microsoft 맬웨어 방지 프로그램은 기본적으로 최신 서명 및 엔
 
 ## <a name="backup-and-recovery"></a>백업 및 복구
 
-자세한 내용은 [Azure Security Benchmark: 백업 및 복구](/azure/security/benchmarks/security-controls-v2-backup-recovery)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 백업 및 복구](../security/benchmarks/security-controls-v2-backup-recovery.md)를 참조하세요.
 
 ### <a name="br-1-ensure-regular-automated-backups"></a>BR-1: 정기적으로 자동 백업 확인
 
@@ -853,9 +853,9 @@ Azure Backup를 사용 하도록 설정 하 고, 원하는 빈도 및 보존 기
 
 - [엔터프라이즈 규모 비즈니스 연속성 및 재해 복구](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery) 
 
-- [Azure Backup를 사용 하도록 설정 하는 방법](/azure/backup/) 
+- [Azure Backup를 사용 하도록 설정 하는 방법](../backup/index.yml) 
 
-- [지역 간 복원을 사용하도록 설정하는 방법](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore) 
+- [지역 간 복원을 사용하도록 설정하는 방법](../backup/backup-azure-arm-restore-vms.md#cross-region-restore) 
 
 - [Windows 가상 데스크톱에서 비즈니스 연속성 및 재해 복구 계획을 설정 하는 방법](disaster-recovery.md)
 
@@ -873,11 +873,11 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 역할 기반 액세스
 
 Azure Backup/r e r i o n s i o n/e의 보안 기능 개요 
 
-- [고객 관리형 키를 사용하여 백업 데이터 암호화](/azure/backup/encryption-at-rest-with-cmk) 
+- [고객 관리형 키를 사용하여 백업 데이터 암호화](../backup/encryption-at-rest-with-cmk.md) 
 
-- [Azure에서 Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&amp;preserve-view=true)
+- [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
-- [공격 으로부터 하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [공격 으로부터 하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](../backup/backup-azure-security-feature.md#prevent-attacks)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -887,9 +887,9 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 **지침**: 백업이 제대로 작동 하는지 확인 하기 위해 데이터 복원 프로세스를 수행 하 여 정기적으로 백업 미디어에서 데이터 무결성의 유효성을 검사 하는 것이 좋습니다.
 
-- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](/azure/backup/backup-azure-restore-files-from-vm)
+- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
 
-- [보안 구현](/azure/backup/backup-azure-restore-files-from-vm#security-implementations)
+- [보안 구현](../backup/backup-azure-restore-files-from-vm.md#security-implementations)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -897,7 +897,7 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -922,15 +922,15 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화, 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -958,7 +958,7 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 **지침**: 개별 자산과 해당 자산이 호스트되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같은 고가치 자산과 노출이 많은 공격 노출 영역에 우선 순위를 지정합니다.
 
-- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - 태세 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -999,7 +999,7 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark - 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
 
@@ -1027,9 +1027,9 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - ID 관리](/azure/automation/update-management/overview)
+- [Azure Security Benchmark - ID 관리](../automation/update-management/overview.md)
 
-- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark - 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -1061,9 +1061,9 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - 로깅 및 위협 탐지](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -1077,5 +1077,5 @@ Azure Backup/r e r i o n s i o n/e의 보안 기능 개요
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

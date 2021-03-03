@@ -1,19 +1,19 @@
 ---
-title: 통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
-description: VM용 Azure Monitor에 대해 미리 정의 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다.
+title: 통합 문서를 사용 하 여 대화형 보고서 VM 정보 만들기
+description: VM insights에 대해 미리 정의 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731292"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>통합 문서를 사용 하 여 대화형 보고서 VM 정보 만들기
 
 통합 문서는 텍스트, [로그 쿼리](/azure/data-explorer/kusto/query/), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
 
@@ -24,9 +24,9 @@ ms.locfileid: "100619599"
 * 팀의 다른 멤버와 VM의 크기 조정 실험 결과를 공유 합니다. 텍스트를 사용 하 여 실험의 목표를 설명 하 고, 실험을 평가 하는 데 사용 되는 각 사용 메트릭과 분석 쿼리를 표시 하 고 각 메트릭이 위 또는 아래에 있는지 여부에 대 한 명확한 호출을 표시할 수 있습니다.
 * VM 사용에 대 한 가동 중단의 영향 보고, 데이터 결합, 텍스트 설명 및 향후 중단을 방지 하는 다음 단계에 대 한 논의를 보고 합니다.
 
-다음 표에서는 시작 하기 위해 포함 VM용 Azure Monitor 하는 통합 문서를 요약 합니다.
+다음 표에서는 시작 하기 위해 VM 정보에 포함 된 통합 문서를 요약 합니다.
 
-| 통합 문서 | 설명 | 범위 |
+| 통합 문서 | Description | Scope |
 |----------|-------------|-------|
 | 성능 | 사용 하도록 설정한 모든 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 상위 N 개 목록 및 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 대규모 |
 | 성능 카운터 | 광범위 한 성능 카운터 집합에 대 한 상위 N 개 차트 뷰입니다. | 대규모 |
@@ -96,7 +96,7 @@ ms.locfileid: "100619599"
 
 또한 통합 문서를 시작한 가상 컴퓨터의 컨텍스트에서만 쿼리할 수 있습니다. 해당 리소스에 대 한 액세스 권한이 있는 한, Log Analytics 작업 영역 뿐만 아니라 여러 가상 컴퓨터에 대해 쿼리할 수 있습니다.
 
-**작업 영역** 식별자를 사용 하 여 다른 Log Analytics 작업 영역 또는 특정 Application Insights 앱의 데이터를 포함 합니다. 리소스 간 쿼리에 대 한 자세한 내용은 [공식 지침](../log-query/cross-workspace-query.md)을 참조 하세요.
+**작업 영역** 식별자를 사용 하 여 다른 Log Analytics 작업 영역 또는 특정 Application Insights 앱의 데이터를 포함 합니다. 리소스 간 쿼리에 대 한 자세한 내용은 [공식 지침](../logs/cross-workspace-query.md)을 참조 하세요.
 
 ### <a name="advanced-analytic-query-settings"></a>고급 분석 쿼리 설정
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>메트릭 추가 섹션
 
-메트릭 섹션에서는 Azure Monitor 메트릭 데이터를 대화형 보고서로 통합할 수 있는 모든 권한을 제공합니다. VM용 Azure Monitor 미리 작성 된 통합 문서는 일반적으로 메트릭 데이터가 아닌 분석 쿼리 데이터를 포함 합니다.  메트릭 데이터를 사용 하 여 통합 문서를 만들어 두 기능 모두를 모두 한 곳에서 최대한 활용할 수 있도록 선택할 수 있습니다. 액세스 권한이 있는 구독에 있는 리소스에서 메트릭 데이터를 가져올 수 있는 기능도 있습니다.
+메트릭 섹션에서는 Azure Monitor 메트릭 데이터를 대화형 보고서로 통합할 수 있는 모든 권한을 제공합니다. VM 정보에서 미리 작성 된 통합 문서는 일반적으로 메트릭 데이터가 아닌 분석 쿼리 데이터를 포함 합니다.  메트릭 데이터를 사용 하 여 통합 문서를 만들어 두 기능 모두를 모두 한 곳에서 최대한 활용할 수 있도록 선택할 수 있습니다. 액세스 권한이 있는 구독에 있는 리소스에서 메트릭 데이터를 가져올 수 있는 기능도 있습니다.
 
 다음은 CPU 성능에 대 한 그리드 시각화를 제공 하기 위해 통합 문서로 끌어오는 가상 머신 데이터의 예입니다.
 
@@ -244,4 +244,4 @@ Azure 대시보드에 통합 문서에 대한 링크를 고정하려면:
 
 - 제한 사항 및 전반적인 VM 성능을 식별 하려면 [AZURE VM 성능 보기](vminsights-performance.md)를 참조 하세요.
 
-- 검색된 애플리케이션 종속성에 대해 알아보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+- 검색 된 응용 프로그램 종속성에 대 한 자세한 내용은 [VM Insights 맵 보기](vminsights-maps.md)를 참조 하세요.

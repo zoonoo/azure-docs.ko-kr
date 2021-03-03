@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 NSX 네트워크 구성 요소 구성
 description: Azure VMware 솔루션 콘솔을 사용 하 여 NSX-T 네트워크 세그먼트를 구성 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: dbed29fb1063b78386f9ec1e2ee00d9c685a944e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716991"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 NSX 네트워크 구성 요소 구성
 
@@ -36,13 +36,9 @@ Azure Portal의 Azure VMware Solution console에서 NSX-T 세그먼트를 만들
 >[!NOTE]
 >DHCP를 사용 하려는 경우 NSX-T 세그먼트를 만들고 구성 하기 전에 dhcp [서버 또는 dhcp 릴레이를 구성](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) 해야 합니다.
 
-1. Azure VMware 솔루션 사설 클라우드의 **워크 로드 네트워킹** 에서 **세그먼트**  >  **추가** 를 선택 합니다.
+1. Azure VMware 솔루션 사설 클라우드의 **워크 로드 네트워킹** 에서 **세그먼트**  >  **추가** 를 선택 합니다. 새 논리 세그먼트에 대 한 세부 정보를 제공 하 고 **확인을** 선택 합니다.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="새 세그먼트를 추가 하는 방법을 보여 주는 스크린샷":::
-
-1. 새 논리적 세그먼트에 대 한 세부 정보를 제공 합니다.
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/create-new-segment-details.png" alt-text="새 세그먼트의 세부 정보를 보여 주는 스크린샷":::
    
    - **세그먼트 이름** -vCenter에 표시 되는 논리 스위치의 이름입니다.
    - 서브넷 **게이트웨이** -서브넷 마스크를 사용 하는 논리 스위치의 서브넷에 대 한 게이트웨이 IP 주소입니다. Vm은 논리 스위치에 연결 되 고이 스위치에 연결 하는 모든 Vm은 동일한 서브넷에 속합니다.  또한이 논리적 세그먼트에 연결 된 모든 Vm은 동일한 세그먼트의 IP 주소를 전달 해야 합니다.
@@ -50,8 +46,6 @@ Azure Portal의 Azure VMware Solution console에서 NSX-T 세그먼트를 만들
    - **연결 된 게이트웨이**  -  *기본적으로 선택 되며 읽기 전용으로 선택 됩니다.*  계층 1 게이트웨이 및 세그먼트 정보 유형입니다. 
       - **T1** -NSX Manager에서 계층 1 게이트웨이의 이름입니다. Azure VMware 솔루션 사설 클라우드는 능동/능동 모드의 NSX 게이트웨이 및 활성/대기 모드의 기본 NSX-T 계층-1 게이트웨이로 제공 됩니다.  Azure VMware 솔루션 콘솔을 통해 만든 세그먼트는 기본 계층 1 게이트웨이에만 연결 되며 이러한 세그먼트의 워크 로드는 East-West 및 North-South 연결을 가져옵니다. NSX Manager를 통해 더 많은 계층 1 게이트웨이를 만들 수 있습니다. NSX-T 관리자 콘솔에서 만든 계층 1 게이트웨이는 Azure VMware 솔루션 콘솔에 표시 되지 않습니다. 
       - **유형** -오버레이 세그먼트가 Azure VMware 솔루션에서 지원 됩니다.
-
-1. **확인** 을 선택 하 여 세그먼트를 만들고 계층 1 게이트웨이에 연결 합니다. 
 
    이제 세그먼트가 Azure VMware Solution console, NSX-T 관리자 및 vCenter에 표시 됩니다.
 
@@ -157,24 +151,12 @@ Azure VMware 솔루션 콘솔에서 DNS 전달자를 설정 하려면 다음을 
 
 ### <a name="step-2-configure-dns-service"></a>2단계. DNS 서비스 구성
 
-1. **DNS 서비스** 탭을 선택 하 고 **추가** 를 선택한 후 다음을 입력 합니다.
+1. **DNS 서비스** 탭을 선택 하 고 **추가** 를 선택 합니다. 세부 정보를 입력 하 고 **확인을** 선택 합니다.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="DNS 서비스에 필요한 정보를 보여 주는 스크린샷":::
 
-   1. DNS 서비스의 이름입니다.
-
-   1. DNS 서비스의 IP 주소를 입력 합니다.
-
-   1. DNS 영역 탭에서 만든 기본 DNS 영역을 선택 합니다.
-
-   1. DNS 영역 탭에서 추가한 FQDN 영역을 선택 합니다.
-
-   1. **로그 수준을** 선택 합니다.
-
    >[!TIP]
    >**계층 1 게이트웨이** 는 기본적으로 선택 되며 Azure VMware 솔루션을 배포할 때 생성 된 게이트웨이를 반영 합니다.
-
-1. **확인** 을 선택합니다. 
 
    DNS 서비스를 추가 했습니다.
 

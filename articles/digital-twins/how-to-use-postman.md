@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715703"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
 
-[Postman](https://www.getpostman.com/) 은 데스크톱 및 플러그 인 기반 GUI에서 핵심 HTTP 요청 기능을 제공 하는 REST 테스트 도구입니다. 이를 사용 하 여 HTTP 요청을 만들고 [Azure Digital Twins REST api](how-to-use-apis-sdks.md)에 제출할 수 있습니다.
+[Postman](https://www.getpostman.com/) 은 데스크톱과 플러그인 기반 GUI에서 주요 HTTP 요청 기능을 제공하는 REST 테스트 도구입니다. 이를 사용 하 여 HTTP 요청을 만들고 [Azure Digital Twins REST api](how-to-use-apis-sdks.md)에 제출할 수 있습니다.
 
 이 문서에서는 다음 단계를 통해 Azure Digital Twins Api와 상호 작용 하도록 [Postman REST 클라이언트](https://www.getpostman.com/) 를 구성 하는 방법을 설명 합니다.
 
@@ -140,7 +140,7 @@ Azure Digital Twins Api 중 하나에 대 한 Postman 요청을 만들려면 API
 1. *헤더* 탭에서 요청에 대해 표시 된 헤더가 참조 설명서에 설명 된 헤더와 일치 하는지 확인 합니다. 이 요청에 대해 여러 헤더가 자동으로 채워집니다. 쿼리 API의 경우 헤더 옵션이 필요 하지 않으므로이 단계가 수행 됩니다.
 1. *본문* 탭에서 요청에 대해 표시 된 본문이 참조 설명서에 설명 된 요구 사항과 일치 하는지 확인 합니다. 쿼리 API의 경우 쿼리 텍스트를 제공 하려면 JSON 본문이 필요 합니다. 인스턴스의 모든 디지털 쌍을 쿼리 하는이 요청에 대 한 예제 본문은 다음과 같습니다.
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="새 요청의 세부 정보에는 본문 탭이 표시 됩니다. ' SELECT * FROM DIGITALTWINS ' 쿼리를 사용 하는 원시 JSON 본문이 포함 되어 있습니다."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="새 요청의 세부 정보에는 본문 탭이 표시 됩니다. ' SELECT * FROM DIGITALTWINS ' 쿼리를 사용 하는 원시 JSON 본문이 포함 되어 있습니다." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Azure Digital Twins 쿼리를 작성 하는 방법에 대 한 자세한 내용은 [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)를 참조 하세요.
 

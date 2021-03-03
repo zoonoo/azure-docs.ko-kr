@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675749"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688555"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -39,7 +39,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 - 사용자 흐름에서 특성을 사용할 수 있는지 여부
 - 사용자 지정 정책 [Azure AD 기술 프로필](active-directory-technical-profile.md)에서 특성을 사용할 수 있는지 여부와 사용할 수 있는 섹션(&lt;InputClaims&gt;, &lt;OutputClaims&gt; 또는 &lt;PersistedClaims&gt;)
 
-|속성     |Type     |Description|Azure portal|사용자 흐름|사용자 지정 정책|
+|속성     |Type     |설명|Azure portal|사용자 흐름|사용자 지정 정책|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |부울|사용자 계정이 사용하도록 설정되었는지 여부: **true** - 계정이 사용하도록 설정됨, **false** - 계정이 사용하도록 설정되지 않음.|예|예|지속형, 출력|
 |ageGroup        |String|사용자의 나이 그룹입니다. 가능한 값: Null, Undefined, Minor, Adult, NotAdult.|예|예|지속형, 출력|
@@ -105,7 +105,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 
 Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity] [objectIdentity] 형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
 
-| 속성   | Type |Description|
+| 속성   | Type |설명|
 |:---------------|:--------|:----------|
 |signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,,  `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3`  `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다  `federated` .|
 |발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우  `federated` 값은 발급자의 이름입니다 (예:). `facebook.com`|
@@ -137,7 +137,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 ## <a name="password-profile-property"></a>암호 프로필 속성
 
-로컬 id의 경우 **Passwordprofile** 특성이 필요 하며, 사용자의 암호를 포함 합니다. `forceChangePasswordNextSignIn`특성은로 설정 해야 합니다 `false` .
+로컬 id의 경우 **Passwordprofile** 특성이 필요 하며, 사용자의 암호를 포함 합니다. `forceChangePasswordNextSignIn`사용자가 다음 로그인 시 암호를 다시 설정 해야 하는지 여부를 나타내는 특성입니다. 강제 암호 재설정을 처리 하려면 [강제 암호 재설정 흐름을 설정](force-password-reset.md)합니다.
 
 페더레이션된 (소셜) id의 경우 **Passwordprofile** 특성이 필요 하지 않습니다.
 
@@ -183,7 +183,7 @@ Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니�
 
 스키마 확장에서 특성을 정의할 때 지원 되는 데이터 형식은 다음과 같습니다.
 
-|형식 |설명  |
+|Type |설명  |
 |--------------|---------|
 |부울    | 가능한 값: **true** 또는 **false**. |
 |DateTime   | ISO 8601 형식으로 지정해야 합니다. UTC로 저장됩니다.   |

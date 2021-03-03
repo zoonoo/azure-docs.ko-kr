@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0fc291403997cdccbfa190fcd5739e97c47eab6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636983"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729439"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 CSI (Azure Files Container Storage Interface) 드라이버 사용
 
@@ -35,11 +35,11 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택* 합니다.
 
-* **Standard_LRS** : 표준 로컬 중복 저장소
-* **Standard_GRS** : 표준 지역 중복 저장소
-* **Standard_ZRS** : 표준 영역 중복 저장소
-* **Standard_RAGRS** : 표준 읽기 액세스 지역 중복 저장소
-* **Premium_LRS** : 프리미엄 로컬 중복 저장소
+* **Standard_LRS**: 표준 로컬 중복 저장소
+* **Standard_GRS**: 표준 지역 중복 저장소
+* **Standard_ZRS**: 표준 영역 중복 저장소
+* **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 저장소
+* **Premium_LRS**: 프리미엄 로컬 중복 저장소
 
 > [!NOTE]
 > Azure Files는 Azure Premium Storage를 지원 합니다. 최소 프리미엄 파일 공유는 100 GB입니다.
@@ -206,13 +206,13 @@ Filesystem                                                                      
 
 NFS 4.1를 활용 하는 파일 공유를 만들려면 `AllowNfsFileShares` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
 
-`AllowNfsFileShares`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+`AllowNfsFileShares`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>NFS 파일 공유에 대 한 저장소 계정 만들기
 
-[만들기 `Premium_LRS` ](../storage/files/storage-how-to-create-premium-fileshare.md) NFS 공유를 지원 하기 위해 다음 구성이 포함 된 Azure storage 계정:
+[만들기 `Premium_LRS` ](../storage/files/storage-how-to-create-file-share.md) NFS 공유를 지원 하기 위해 다음 구성이 포함 된 Azure storage 계정:
 - 계정 종류: FileStorage
 - 보안 전송 필요 (HTTPS 트래픽만 사용): false
 - 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택 합니다. 따라서 MC_ 리소스 그룹에서 저장소 계정을 만들 수 있습니다.
@@ -256,7 +256,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 ```
 
 ### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>NFS 지원 파일 공유를 사용 하 여 배포 만들기
-Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` [kubectl apply][kubectl-apply] .
+Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` [][kubectl-apply] .
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
@@ -284,7 +284,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 Azure Files CSI 드라이버는 Windows 노드와 컨테이너도 지원 합니다. Windows 컨테이너를 사용 하려면 windows [컨테이너 자습서](windows-container-cli.md) 에 따라 windows 노드 풀을 추가 합니다.
 
-Windows 노드 풀을 만든 후와 같은 기본 제공 저장소 클래스를 사용 `azurefile-csi` 하거나 사용자 지정 저장소 클래스를 만듭니다. Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [kubectl apply][kubectl-apply]
+Windows 노드 풀을 만든 후와 같은 기본 제공 저장소 클래스를 사용 `azurefile-csi` 하거나 사용자 지정 저장소 클래스를 만듭니다. Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [][kubectl-apply]
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml

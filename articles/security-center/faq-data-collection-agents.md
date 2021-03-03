@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705140"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -29,9 +29,9 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 Azure Monitor 로그에 구성된 동안 Azure Monitor 로그 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
-- **Azure Defender off** – Security Center 기본 작업 영역에서 ' SecurityCenterFree ' 솔루션을 사용 하도록 설정 합니다. Azure Defender가 꺼져 있는 경우 요금이 청구 되지 않습니다.
+- **Azure Defender off** – Security Center 기본 작업 영역에서 "보안 센터 무료" 솔루션을 사용 하도록 설정 합니다. Azure Defender가 꺼져 있는 경우 요금이 청구 되지 않습니다.
 
-- **Azure Defender on** – Security Center 기본 작업 영역에서 ' 보안 ' 솔루션을 사용 하도록 설정 합니다.
+- **Azure Defender on** – Security Center 기본 작업 영역에서 "보안" 솔루션을 사용 하도록 설정 합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
@@ -146,7 +146,7 @@ Log Analytics 에이전트가 VM에 직접 설치되어 있는 경우(Azure 확�
 
 설치된 에이전트는 이미 구성된 작업 영역에 계속 보고하고, Security Center에서 구성된 작업 영역에도 보고합니다(Windows 컴퓨터에서는 멀티 호밍이 지원됨).
 
-구성된 작업 영역이 사용자 작업 영역(Security Center의 기본 작업 영역이 아님)인 경우 해당 작업 영역에 보고하는 VM 및 컴퓨터에서 이벤트 처리를 시작하려면 Security Center에 대해 “Security”/“SecurityCenterFree” 솔루션을 설치해야 합니다.
+구성 된 작업 영역이 사용자 작업 영역 (Security Center의 기본 작업 영역 아님) 인 경우 해당 작업 영역에 보고 하는 Vm 및 컴퓨터의 이벤트 처리를 시작 하려면 Security Center 해당 작업에 "보안" 또는 "보안 강화" 솔루션을 설치 해야 합니다.
 
 Linux 컴퓨터의 경우 에이전트 멀티 호밍은 아직 지원되지 않습니다. 따라서 기존 에이전트 설치가 감지되면 자동 프로비저닝이 발생하지 않고 컴퓨터의 구성이 변경되지 않습니다.
 
@@ -207,7 +207,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Log Analytics 에이전트 확장을 수동으로 설치합니다. 설치 지침에 대해서는 [Windows VM용 에이전트 설치](../virtual-machines/extensions/oms-windows.md) 또는 [Linux VM용 에이전트 설치](../virtual-machines/extensions/oms-linux.md)를 참조하세요.
 
-에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 ‘Security’ 또는 ‘SecurityCenterFree’ 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 페이지를 통해 가격 책정 계층을 적용합니다.
+에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 "보안" 또는 "보안 강화" 솔루션이 사용 하도록 설정 되어 있지 않은 경우 솔루션을 적용 해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 페이지를 통해 가격 책정 계층을 적용합니다.
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Azure Defender 사용 또는 사용 안 함":::
 

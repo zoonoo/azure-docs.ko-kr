@@ -3,12 +3,12 @@ title: 고객 관리형 키를 사용하여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716740"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 백업 데이터 암호화
 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > 이 프로세스는 암호화 키를 업데이트 하거나 변경 하려는 경우에도 동일 하 게 유지 됩니다. 현재 사용 중인 것과 다른 Key Vault에서 키를 업데이트 하 고 사용 하려는 경우 다음을 확인 합니다.
 >
-> - Key Vault은 Recovery Services 자격 증명 모음과 동일한 지역에 있습니다.
+> - 키 자격 증명 모음은 Recovery Services 자격 증명 모음과 동일한 지역에 있습니다.
 >
 > - 키 자격 증명 모음에 일시 삭제 및 제거 보호가 설정 되어 있습니다.
 >
-> - Recovery Services 자격 증명 모음에는 Key Vault에 액세스 하는 데 필요한 권한이 있습니다.
+> - Recovery Services 자격 증명 모음에는 키 자격 증명 모음에 액세스 하는 데 필요한 권한이 있습니다.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>고객 관리 키로 암호화 된 자격 증명 모음에 백업
 

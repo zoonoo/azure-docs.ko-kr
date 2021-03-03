@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733519"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -39,10 +39,10 @@ ms.locfileid: "100007298"
 
 ## <a name="custom-neural-voices"></a>사용자 지정 신경망
 
-사용자 지정 음성은 현재 표준 계층과 신경망을 모두 지원 합니다. 사용자 지정 신경망은 사용자가 더 적은 데이터를 요구 하는 동시에 고품질의 음성 모델을 빌드할 수 있도록 지원 하 고 AI를 강력한 방식으로 배포할 수 있는 방법을 제공 합니다 사용자 지정 신경망을 사용 하 여 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용 하는 것이 좋습니다. [사용자 지정 신경망에 대해 자세히 알아보세요](https://aka.ms/CNV-Transparency-Note). 
+사용자 지정 음성은 현재 표준 계층과 신경망을 모두 지원 합니다. 사용자 지정 신경망은 사용자가 더 적은 데이터를 요구 하는 동시에 고품질의 음성 모델을 빌드할 수 있도록 지원 하 고 AI를 강력한 방식으로 배포할 수 있는 방법을 제공 합니다 사용자 지정 신경망을 사용 하 여 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용 하는 것이 좋습니다. [사용자 지정 신경망에 대해 자세히 알아보세요](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> Microsoft는 책임이 있는 AI 디자인의 일환으로 사용자 지정 신경망 사용을 제한 했습니다. 응용 프로그램을 검토 하 고이를 담당 AI 원칙에 따라 사용 하도록 커밋한 후에만 기술에 대 한 액세스 권한을 얻을 수 있습니다. 액세스 제한 및 여기 [에 적용에서 정책](https://aka.ms/gating-overview) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 표준 및 신경망 버전의 사용자 지정 음성에 대해 지원 되는 [언어](language-support.md#customization) 와 [지역은](regions.md#custom-voices) 다릅니다. 시작 하기 전에 세부 정보를 확인 합니다.  
+> Microsoft는 책임이 있는 AI 디자인의 일환으로 사용자 지정 신경망 사용을 제한 했습니다. 응용 프로그램을 검토 하 고이를 담당 AI 원칙에 따라 사용 하도록 커밋한 후에만 기술에 대 한 액세스 권한을 얻을 수 있습니다. 액세스 제한 및 여기 [에 적용에서 정책](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 표준 및 신경망 버전의 사용자 지정 음성에 대해 지원 되는 [언어](language-support.md#customization) 와 [지역은](regions.md#custom-voices) 다릅니다. 시작 하기 전에 세부 정보를 확인 합니다.  
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
@@ -71,7 +71,7 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 사용자 지정 음
 
 비 신경망 또는 표준 사용자 지정 음성을 사용 하는 경우 아래 단계에 따라 사용자 지정 신경망로 마이그레이션하는 것이 좋습니다. 사용자 지정 신경망로 이동 하면 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용할 수 있습니다. 
 
-1. 액세스 제한 및 여기 [에 적용에서 정책](https://aka.ms/gating-overview) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 사용자 지정 신경망 서비스에 대 한 액세스는 자격 조건에 따라 Microsoft의 유일한 판단을 받습니다. 고객은 응용 프로그램을 검토 한 후에만 기술에 액세스 하 고, [책임 AI 원칙](https://microsoft.com/ai/responsible-ai) 및 [준수 코드](https://aka.ms/custom-neural-code-of-conduct)와 연계 하 여 사용 하기 위해 최선을 다하고 있습니다. 
+1. 액세스 제한 및 여기 [에 적용에서 정책](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 사용자 지정 신경망 서비스에 대 한 액세스는 자격 조건에 따라 Microsoft의 유일한 판단을 받습니다. 고객은 응용 프로그램을 검토 한 후에만 기술에 액세스 하 고, [책임 AI 원칙](https://microsoft.com/ai/responsible-ai) 및 [준수 코드](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)와 연계 하 여 사용 하기 위해 최선을 다하고 있습니다. 
 2. 응용 프로그램이 승인 되 면 "신경망" 학습 기능에 대 한 액세스 권한이 제공 됩니다. 응용 프로그램에서 제공 하는 것과 동일한 Azure 구독을 사용 하 여 [사용자 지정 음성 포털](https://speech.microsoft.com/customvoice) 에 로그인 해야 합니다. 
     > [!IMPORTANT]
     > 음성 인재을 보호 하 고 허가 되지 않은 레코딩 또는 음성 인재 승인 없이 음성 모델의 교육을 방지 하기 위해 고객은 자신의 동의를 제공 하는 음성 인재의 기록 된 문을 업로드 해야 합니다. 기록 스크립트를 준비할 때이 문장을 포함 했는지 확인 합니다. "I [first 및 last name] am은 내 음성 기록을 [회사 이름]에서 사용 하 여 내 음성의 가상 버전을 만들고 사용 하는 것을 인식 합니다."

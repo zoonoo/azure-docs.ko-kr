@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ffea1e35cd457fc1fa350b1b234360d111fc911
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c750e34e8081cf5a8b3d41cc8c52584a4353a336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669269"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695161"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용 하 여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
@@ -165,7 +165,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
     $validate.ValidationMessages
     ```
 
-    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에 성공 하면 준비 단계로 이동할 수 있습니다.
+    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사 메시지에 오류 유형 메시지가 없는 경우 준비 단계로 이동할 수 있습니다.
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -189,7 +189,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
     $validate.ValidationMessages
     ```
 
-    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에 성공 하면 다음 준비 단계를 진행할 수 있습니다.
+    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사 메시지에 오류가 없는 경우 다음 준비 단계를 진행할 수 있습니다.
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `

@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687535"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>청구 데이터를 Azure에 업로드 하 고 Azure Portal에서 확인
 
 > [!IMPORTANT] 
->  미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다. 청구 시스템이 종단 간 작동 하더라도 청구 측정기는 $0로 설정 됩니다.  이 시나리오를 수행 하는 경우 현재 **하이브리드 data services** 라는 서비스 및 microsoft 라는 유형의 리소스에 대 한 청구에 항목이 표시 됩니다 **. AzureData/ `<resource type>` **. 사용자가 만든 각 데이터 서비스에 대 한 레코드를 볼 수 있지만 각 레코드에는 $0에 대 한 요금이 청구 됩니다.
+>  미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다. 청구 시스템이 종단 간 작동 하더라도 청구 측정기는 $0로 설정 됩니다.  이 시나리오를 수행 하는 경우 현재 **하이브리드 data services** 라는 서비스 및 microsoft 라는 유형의 리소스에 대 한 청구에 항목이 표시 됩니다 **. AzureData/ `<resource type>`**. 사용자가 만든 각 데이터 서비스에 대 한 레코드를 볼 수 있지만 각 레코드에는 $0에 대 한 요금이 청구 됩니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,14 +111,15 @@ azdata arc dc upload -p usage.json
 
 Azure Portal에서 청구 데이터를 보려면 다음 단계를 따르세요.
 
-1. 특수 URL을 사용 하 여 Azure Portal를 엽니다  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 화면 맨 위의 검색 상자에 **Cost Management** 를 입력 하 고 Cost Management 서비스를 클릭 합니다.
+1. **Cost Management 개요** 에서 **Cost Management** 탭을 클릭 합니다.
 1. 왼쪽의 **비용 분석** 탭을 클릭 합니다.
 1. 보기 위쪽의 **리소스 비용** 단추를 클릭 합니다.
 1. 범위가 데이터 서비스 리소스를 만든 구독으로 설정 되어 있는지 확인 합니다.
 1. 보기 위쪽의 범위 선택기 옆에 있는 보기 드롭다운에서 **리소스 별로 비용** 을 선택 합니다.
 1. 데이터 서비스 리소스를 만들 때 타이밍을 제공 하기 위해 날짜 필터가 **이 월** 또는 다른 시간 범위로 설정 되었는지 확인 합니다.
-1. **Add filter** **Resource type**  =  `microsoft.azuredata/<data service type>` Azure Arc 사용 설정 데이터 서비스의 한 가지 유형 으로만 필터링 하려는 경우 필터 추가를 클릭 하 여 리소스 유형별로 필터를 추가 합니다.
+1.    =  `microsoft.azuredata/<data service type>` Azure Arc 사용 설정 데이터 서비스의 한 가지 유형 으로만 필터링 하려는 경우 필터 추가를 클릭 하 여 리소스 유형별로 필터를 추가 합니다.
 1. 이제 Azure에 생성 및 업로드 된 모든 리소스의 목록이 표시 됩니다. 청구 측정기가 $0 이므로 비용은 항상 $0이 됩니다.
 
 ## <a name="download-billing-data"></a>청구 데이터 다운로드
@@ -136,10 +137,10 @@ Azure Portal에서 직접 청구 요약 데이터를 다운로드할 수 있습�
 청구 내보내기 작업을 설정 하려면 다음 단계를 수행 합니다.
 
 1. 왼쪽에서 **내보내기** 를 클릭 합니다.
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 1. 이름 및 내보내기 빈도를 입력 하 고 다음을 클릭 합니다.
 1. 새 저장소 계정을 만들거나 기존 저장소 계정을 사용 하거나, 양식을 작성 하 여 청구 데이터 파일을 내보낼 저장소 계정, 컨테이너 및 디렉터리 경로를 지정 하 고 다음을 클릭 합니다.
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
 청구 데이터 내보내기 파일은 약 4 시간 이내에 사용할 수 있으며, 청구 내보내기 작업을 만들 때 지정한 일정에 따라 내보내집니다.
 
@@ -150,7 +151,7 @@ Azure Portal에서 청구 데이터 파일의 유효성을 검사할 수 있습�
 > [!IMPORTANT]
 > 청구 내보내기 작업을 만든 후 4 시간 동안 기다린 후 다음 단계를 진행 합니다.
 
-1. 포털 맨 위에 있는 검색 상자에 **저장소 계정** 을 입력 하 고 **저장소 계정**을 클릭 합니다.
+1. 포털 맨 위에 있는 검색 상자에 **저장소 계정** 을 입력 하 고 **저장소 계정** 을 클릭 합니다.
 3. 위에서 청구 내보내기 작업을 만들 때 지정한 저장소 계정을 클릭 합니다.
 4. 왼쪽의 컨테이너를 클릭 합니다.
 5. 위에서 청구 내보내기 작업을 만들 때 지정한 컨테이너를 클릭 합니다.
@@ -158,5 +159,5 @@ Azure Portal에서 청구 데이터 파일의 유효성을 검사할 수 있습�
 7. 생성 된 폴더 및 파일을 드릴 다운 하 고 생성 된 .csv 파일 중 하나를 클릭 합니다.
 8. **다운로드** 단추를 클릭 하 여 로컬 다운로드 폴더에 파일을 저장 합니다.
 9. Excel과 같은 .csv 파일 뷰어를 사용 하 여 파일을 엽니다.
-10. **리소스 유형의**행만 표시 하도록 결과를 필터링  =  `Microsoft.AzureData/<data service resource type` 합니다.
+10. **리소스 유형의** 행만 표시 하도록 결과를 필터링  =  `Microsoft.AzureData/<data service resource type` 합니다.
 11. 인스턴스를 사용 하는 데 사용 된 시간을 현재 24 시간에서 사용 된 시간 (%)이 표시 됩니다.

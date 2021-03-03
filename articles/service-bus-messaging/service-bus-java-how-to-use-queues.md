@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 02/13/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: bfe7835bea4415085279fb77eb85d67ed3f5f0f3
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1fab8d3f603b3c2c7e3c307d3d2ce53590d7511c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518609"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739766"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)
 이 빠른 시작에서는 Azure Service Bus 큐에서 메시지를 보내고 받는 Java 앱을 만듭니다. 
@@ -22,14 +22,14 @@ ms.locfileid: "100518609"
 ## <a name="prerequisites"></a>필수 구성 요소
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다. Service Bus 네임스페이스에 대한 **연결 문자열** 및 만든 **큐** 의 이름을 적어 둡니다.
-- [Java용 Azure SDK][Azure SDK for Java]를 설치합니다. Eclipse를 사용하는 경우 Java용 Azure SDK가 포함된 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음, **Java용 Microsoft Azure 라이브러리** 를 프로젝트에 추가할 수 있습니다. IntelliJ를 사용하는 경우 [Azure Toolkit for IntelliJ 설치](/azure/developer/java/toolkit-for-intellij/installation)를 참조하세요. 
+- [Java용 Azure SDK][Azure SDK for Java]를 설치합니다. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음, **Java용 Microsoft Azure 라이브러리** 를 프로젝트에 추가할 수 있습니다. IntelliJ를 사용하는 경우 [Azure Toolkit for IntelliJ 설치](/azure/developer/java/toolkit-for-intellij/installation)를 참조하세요. 
 
 
 ## <a name="send-messages-to-a-queue"></a>큐에 메시지 보내기
 이 섹션에서는 Java 콘솔 프로젝트를 만들고, 메시지를 이전에 만든 큐에 보내는 코드를 추가합니다. 
 
 ### <a name="create-a-java-console-project"></a>Java 콘솔 프로젝트 만들기
-Eclipse 또는 원하는 도구를 사용하여 Java 프로젝트를 만듭니다. 
+Eclipse 또는 선택한 도구를 사용하여 Java 프로젝트를 만듭니다. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Azure Core 및 Azure Service Bus 라이브러리에 대한 참조를 추가합니다. 
@@ -105,7 +105,7 @@ Eclipse를 사용하고 Java 콘솔 애플리케이션을 만든 경우 Java 프
         System.out.println("Sent a single message to the queue: " + queueName);        
     }
     ```
-1. 메시지 목록을 만드는 `createMessages`라는 메서드를 클래스에 추가합니다. 일반적으로 이러한 메시지는 애플리케이션의 여러 부분에서 가져옵니다. 여기서는 샘플 메시지의 목록을 만듭니다.
+1. 메시지 목록을 만드는 `createMessages`라는 메서드를 클래스에 추가합니다. 일반적으로 애플리케이션의 여러 부분에서 이러한 메시지를 가져옵니다. 여기서는 샘플 메시지의 목록을 만듭니다.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -286,7 +286,7 @@ Service Bus 네임스페이스에 대한 Azure Portal의 **개요** 페이지에
 - [GitHub 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

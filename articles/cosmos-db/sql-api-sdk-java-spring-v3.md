@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/18/2020
+ms.date: 02/28/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 64054a2bb5c1f7e17eef87c3babb28137b6c912a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692728"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,56 +57,39 @@ Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개
 > * [Azure Cosmos DB의 Spring Data Gremlin](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
-## <a name="start-here"></a>여기에서 시작
+## <a name="get-started-fast"></a>빠른 시작
 
-# <a name="explore"></a>[탐색](#tab/explore)
+  [스프링 부팅 시작 가이드](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)에 따라 스프링 데이터 Azure Cosmos DB을 시작 하 고 실행 합니다. 스프링 부팅 스타터 접근 방식은 스프링 데이터 Azure Cosmos DB 커넥터를 사용 하 여 시작 하는 데 권장 되는 방법입니다.
 
-<img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
-
-#### <a name="these-tabs-contain-basic-spring-data-azure-cosmos-db-samples"></a>이러한 탭에는 기본 스프링 데이터 Azure Cosmos DB 샘플이 포함 되어 있습니다.
-
-# <a name="pomxml"></a>[pom.xml](#tab/pom)
-
-### <a name="configure-dependencies"></a>종속성 구성
+  또는 아래와 같이 스프링 데이터 Azure Cosmos DB 종속성을 파일에 추가할 수 있습니다 `pom.xml` .
 
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-spring-data-cosmos</artifactId>
-      <version>latest</version>
+      <version>latest-version</version>
   </dependency>
   ```
 
-# <a name="connect"></a>[연결](#tab/connect)
+## <a name="helpful-content"></a>유용한 내용
 
-### <a name="connect"></a>연결
-
-Azure Cosmos DB 계정 및 컨테이너 세부 정보를 지정 합니다. 스프링 데이터 Azure Cosmos DB 자동으로 클라이언트를 만들고 컨테이너에 연결 합니다.
-
-[응용 프로그램. 속성](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties):
-```
-cosmos.uri=${ACCOUNT_HOST}
-cosmos.key=${ACCOUNT_KEY}
-cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
-
-dynamic.collection.name=spel-property-collection
-# Populate query metrics
-cosmos.queryMetricsEnabled=true
-```
-
-# <a name="doc-ops"></a>[Doc ops](#tab/docs)
-
-### <a name="document-operations"></a>문서 작업
-
----
-
-## <a name="resources"></a>리소스
-
-* **SDK에 기여** : [GitHub의 스프링 데이터 Azure Cosmos DB 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
-
-* **자습서** : [GitHub의 스프링 데이터 Azure Cosmos DB 자습서](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
+| 콘텐츠 | 링크 |
+|---|---|
+|**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
+|**API 설명서** | [Java API 참조 설명서](/java/api/com.azure.spring.data.cosmos) |
+|**SDK에 참여** | [GitHub의 Java용 Azure SDK 중앙 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
+|**시작** | [빠른 시작: Azure Cosmos DB SQL API 데이터를 관리 하는 스프링 데이터 Azure Cosmos DB 앱 빌드](./create-sql-api-spring-data.md) <br> [빠른 시작 코드가 포함 된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
+|**기본 코드 샘플** | [Azure Cosmos DB: SQL API에 대 한 스프링 데이터 Azure Cosmos DB 예제](sql-api-spring-data-sdk-samples.md) <br> [샘플 코드가 포함 된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
+| **성능 팁**| [Java SDK v4에 대 한 성능 팁 (스프링 데이터에 적용 가능)](performance-tips-java-sdk-v4-sql.md)| 
+| **문제 해결** | [Java SDK v4 문제 해결 (스프링 데이터에 적용 가능)](troubleshoot-java-sdk-v4-sql.md) | 
+| **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
+
+## <a name="additional-notes"></a>추가 참고 사항
+
+* 스프링 데이터 Azure Cosmos DB는 Java JDK 8 및 Java JDK 11을 지원 합니다.
+* 스프링 데이터 2.3은 현재 지원 되지 않습니다. 현재 스프링 데이터 2.4은 지원 되지 않습니다.
 
 ## <a name="faq"></a>FAQ
 

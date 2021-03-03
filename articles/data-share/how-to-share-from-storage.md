@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964102"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739265"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 
@@ -24,6 +24,7 @@ Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 �
 스냅숏 기반 공유에서 파일 시스템, 컨테이너 또는 폴더가 공유 되는 경우 데이터 소비자는 공유 데이터의 전체 복사본을 만들도록 선택할 수 있습니다. 또는 증분 스냅숏 기능을 사용 하 여 새 파일이 나 업데이트 된 파일만 복사할 수 있습니다. 증분 스냅숏 기능은 파일의 마지막 수정 시간을 기반으로 합니다. 
 
 스냅숏을 생성 하는 동안 동일한 이름의 기존 파일을 덮어씁니다. 원본에서 삭제 된 파일은 대상에서 삭제 되지 않습니다. 원본에서 비어 있는 하위 폴더가 대상에 복사 되지 않습니다. 
+
 ## <a name="share-data"></a>데이터 공유
 
 Azure 데이터 공유를 사용 하 여 데이터를 공유 하려면 다음 섹션의 정보를 사용 하세요. 
@@ -184,7 +185,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 ### <a name="trigger-a-snapshot"></a>스냅샷 트리거
 이 섹션의 단계는 스냅숏 기반 공유에만 적용 됩니다.
 
-1. **세부 정보** 탭에서 스냅숏을 트리거할 수 있습니다. 탭에서 **트리거 스냅숏** 을 선택 합니다. 데이터의 전체 스냅숏 또는 증분 스냅숏을 트리거하기를 선택할 수 있습니다. 데이터 공급자에서 처음으로 데이터를 수신 하는 경우 **전체 복사** 를 선택 합니다. 
+1. **세부 정보** 탭에서 스냅숏을 트리거할 수 있습니다. 탭에서 **트리거 스냅숏** 을 선택 합니다. 데이터의 전체 스냅숏 또는 증분 스냅숏을 트리거하기를 선택할 수 있습니다. 데이터 공급자에서 처음으로 데이터를 수신 하는 경우 **전체 복사** 를 선택 합니다. 스냅숏이 실행 중일 때 후속 스냅숏은 이전 스냅숏이 완료 될 때까지 시작 되지 않습니다.
 
    ![트리거 스냅숏 선택 항목을 보여 주는 스크린샷](./media/trigger-snapshot.png "스냅숏 트리거") 
 
@@ -194,6 +195,14 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 ### <a name="view-history"></a>기록 보기
 스냅숏 기반 공유 에서만 스냅숏의 기록을 볼 수 있습니다. 기록을 보려면 **기록** 탭을 엽니다. 여기에서 지난 30 일 동안 생성 된 모든 스냅숏의 기록을 볼 수 있습니다. 
+
+## <a name="storage-snapshot-performance"></a>저장소 스냅숏 성능
+저장소 스냅숏 성능은 공유 데이터의 파일 수와 크기에 대 한 다양 한 요인에 의해 영향을 받습니다. 항상 고유한 성능 테스트를 수행 하는 것이 좋습니다. 다음은 성능에 영향을 주는 몇 가지 예제 요소입니다.
+
+* 원본 및 대상 데이터 저장소에 대 한 동시 액세스.  
+* 원본 및 대상 데이터 저장소의 위치입니다. 
+* 증분 스냅숏의 경우 공유 데이터 집합의 파일 수는 마지막으로 성공한 스냅숏 이후 마지막으로 수정 된 시간을 사용 하 여 파일 목록을 찾는 데 걸리는 시간에 영향을 줄 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure 데이터 공유 서비스를 사용 하 여 저장소 계정에서 데이터를 공유 하 고 수신 하는 방법을 배웠습니다. 다른 데이터 원본에서 공유 하는 방법에 대 한 자세한 내용은 [지원 되는 데이터 저장소](supported-data-stores.md)를 참조 하세요.

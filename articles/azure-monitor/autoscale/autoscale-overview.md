@@ -4,12 +4,12 @@ description: Microsoft Azure의 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617649"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726005"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -90,8 +90,8 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 자동 크기 조정은 다음을 통해 설정할 수 있습니다.
 
 * [Azure Portal](autoscale-get-started.md)
-* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
-* [CLI(플랫폼 간 명령줄 인터페이스)](../samples/cli-samples.md#autoscale)
+* [PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
+* [CLI(플랫폼 간 명령줄 인터페이스)](../cli-samples.md#autoscale)
 * [Azure Monitor REST API](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>자동 크기 조정이 지원되는 서비스

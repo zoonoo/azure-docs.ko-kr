@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d5c8ad0c4d9995a36b95ad2e67878f678887bfd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701980"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -61,7 +61,7 @@ ms.locfileid: "99988569"
 1. 보안 연락처 정보를 구독에 적용하려면 **저장** 을 선택합니다.
 
 ## <a name="customize-the-alerts-email-notifications-through-the-api"></a>API를 통해 경고 이메일 알림 사용자 지정
-제공된 REST API를 통해 이메일 알림을 관리할 수도 있습니다. 자세한 내용은 [SecurityContacts API 설명서](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts)를 참조하세요.
+제공된 REST API를 통해 이메일 알림을 관리할 수도 있습니다. 자세한 내용은 [SecurityContacts API 설명서](/rest/api/securitycenter/securitycontacts)를 참조하세요.
 
 다음은 보안 연락처 구성을 만들 때 PUT 요청의 본문 예제입니다.
 

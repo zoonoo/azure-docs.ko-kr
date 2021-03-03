@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 0eedd5ce67e96c9d732cf24cbe56a8c3c5e92aaa
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: aec26c0109b4aa8e0819e7f5e9b3c69db7f74648
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726906"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -41,13 +41,14 @@ Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함�
 - [**리소스 거 버 넌 스 지원 기능이 향상 되었습니다**](./service-fabric-resource-governance.md). 요청을 허용 하 고 cpu 및 메모리 리소스에 대 한 사양을 제한 합니다.
 
 ### <a name="service-fabric-72-releases"></a>Service Fabric 7.2 릴리스
-| 릴리스 날짜 | 해제 | 추가 정보 |
+| 릴리스 날짜 | Release | 추가 정보 |
 |---|---|---|
 | 2020 년 10 월 21 일 | [Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 | 2020 년 11 월 9 일 | [Azure Service Fabric 7.2 초 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-second-refresh-release/ba-p/1874738) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU2-releasenotes.md) |
 | 2020년 11월 10일  | Azure Service Fabric 7.2 세 번째 새로 고침 릴리스 | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU3-releasenotes.md) |
 | 2020 년 12 월 2 일 | [Azure Service Fabric 7.2 네 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fourth-refresh-release/ba-p/1950584) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU4.md)
 | 2021 년 1 월 25 일 | [Azure Service Fabric 7.2 5 5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fifth-refresh-release/ba-p/2096575) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU5-ReleaseNotes.md)
+| 2021 년 2 월 17 일 | [Azure Service Fabric 7.2 여섯 번째 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
 
 ## <a name="previous-versions"></a>이전 버전
 
@@ -96,7 +97,7 @@ Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함�
     - 데이터 손상 수정
                  
 #### <a name="service-fabric-71-releases"></a>Service Fabric 7.1 릴리스
-| 릴리스 날짜 | 해제 | 추가 정보 |
+| 릴리스 날짜 | Release | 추가 정보 |
 |---|---|---|
 | 4 월 20 일, 2020 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [릴리스 정보](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
 | 2020년 6월 16일 | [Microsoft Azure Service Fabric 7.1 최초 새로 고침](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
@@ -134,7 +135,7 @@ Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함�
 
 #### <a name="service-fabric-70-releases"></a>Service Fabric 7.0 릴리스
 
-| 릴리스 날짜 | 해제 | 추가 정보 |
+| 릴리스 날짜 | Release | 추가 정보 |
 |---|---|---|
 | 2019년 11월 18일 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
 | 2020 년 1 월 30 일 | [Azure Service Fabric 7.0 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
@@ -174,7 +175,7 @@ Service Fabric 6.5의 새로운 기능:
 
 #### <a name="service-fabric-65-releases"></a>Service Fabric 6.5 릴리스
 
-| 릴리스 날짜 | 해제 | 추가 정보 |
+| 릴리스 날짜 | Release | 추가 정보 |
 |---|---|---|
 | 2019년 6월 11일 | [Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2019년 7월 2일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
@@ -185,7 +186,7 @@ Service Fabric 6.5의 새로운 기능:
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6.4 릴리스
 
-| 릴리스 날짜 | 해제 | 추가 정보 |
+| 릴리스 날짜 | Release | 추가 정보 |
 |---|---|---|
 | 2018 년 11 월 30 일 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 2018년 12월 12일 | [Windows 클러스터에 대 한 Azure Service Fabric 6.4 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |

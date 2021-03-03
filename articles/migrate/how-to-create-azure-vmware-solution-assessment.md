@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: fb1ec55bc68ccc323f8dee90982a9169e3085219
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: e386db1ee2042d75a31d4a9de2a5174e904c6b5c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732975"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
 
@@ -37,7 +37,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 **AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> Azure VMware Solution (AVS) 평가는 현재 미리 보기로 제공 되며 VMware Vm에 대해서만 만들 수 있습니다.
+> VMware Vm에 대해서만 Azure VMware 솔루션 (AVS) 평가를 만들 수 있습니다.
 
 
 Azure VMware 솔루션 (AVS) 평가를 만드는 데 사용할 수 있는 두 가지 유형의 크기 조정 기준이 있습니다.
@@ -50,37 +50,70 @@ Azure VMware 솔루션 (AVS) 평가를 만드는 데 사용할 수 있는 두 �
 
 ## <a name="run-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 실행
 
-다음과 같이 Azure VMware 솔루션 (AVS) 평가를 실행 합니다.
+1. **서버** 페이지 > **Windows 및 Linux 서버** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
 
-1. 평가를 만드는 방법에 대한 [모범 사례](best-practices-assessment.md)를 검토합니다.
+   ![서버 평가 및 마이그레이션 단추의 위치](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **평가** 를 클릭합니다.
+1. **Azure Migrate: 서버 평가** 에서 **평가** 를 클릭합니다.
 
-    ![평가 도구에서 평가를 선택한 Azure Migrate 서버가 스크린샷으로 표시 됩니다.](./media/how-to-create-assessment/assess.png)
+1. **서버**  >  **평가 유형** 평가에서 **Azure VMware 솔루션 (AVS)** 을 선택 합니다.
 
-3. **서버 평가** 에서 평가 유형을 "Azure VMware 솔루션 (AVS)"으로 선택 하 고 검색 원본을 선택 합니다.
+1. **검색 소스** 에서 다음을 수행합니다.
 
-    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="평가 기본 사항 추가":::
+    - 어플라이언스를 사용하여 머신을 검색한 경우 **Azure Migrate 어플라이언스에서 검색된 머신** 을 선택합니다.
+    - 가져온 CSV 파일을 사용하여 머신을 검색한 경우 **가져온 머신** 을 선택합니다. 
+    
+1. **편집** 을 클릭하여 평가 속성을 검토합니다.
 
-4. **편집** 을 클릭 하 여 평가 속성을 검토 합니다.
-
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="평가 속성을 검토 하기 위한 편집 단추의 위치":::
-
-1. 평가 **이름을 평가할 컴퓨터 선택**  >   > 평가의 이름을 지정 합니다. 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="평가 설정 선택 페이지":::
  
-1. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택 하 > 그룹 이름을 지정 합니다. 그룹은 평가를 위해 하나 이상의 VM을 수집합니다.
+
+1. **평가 속성** > **대상 속성** 에서 다음을 수행합니다.
+
+    - **대상 지역** 에서 마이그레이션할 Azure 지역을 지정합니다.
+       - 크기 및 비용 권장 사항은 사용자가 지정한 위치를 기반으로 합니다.
+   - **스토리지 유형** 은 **vSAN** 으로 기본 설정됩니다. 이는 AVS 프라이빗 클라우드의 기본 스토리지 유형입니다.
+   - **예약된 인스턴스** 는 현재 AVS 노드에서 지원되지 않습니다.
+1. **VM 크기** 에서 다음을 수행합니다.
+    - **노드 유형** 은 **AV36** 으로 기본 설정됩니다. Azure Migrate는 VM을 AVS로 마이그레이션하는 데 필요한 노드 유형을 추천합니다.
+    - **FTT 설정, RAID 수준** 에서 FTT(Failure to Tolerate) 및 RAID의 조합을 선택합니다.  선택한 FTT 옵션은 온-프레미스 VM 디스크 요구 사항과 결합되어 AVS에 필요한 총 vSAN 스토리지 크기를 결정합니다.
+    - **CPU 초과 구독** 에서 AVS 노드에 있는 하나의 물리적 코어 하나와 연결되는 가상 코어의 비율을 지정합니다. 4:1보다 큰 초과 구독인 경우 성능이 저하될 수 있지만 웹 서버 유형 워크로드에 사용할 수 있습니다.
+    - **메모리 오버 커밋 비율** 에서 클러스터의 커밋에 대 한 메모리 비율을 지정 합니다. 값 1은 100% 메모리 사용을 나타내고, 0.5은 50% 이며, 2는 사용 가능한 메모리의 200%를 사용 합니다. 0.5에서 10 까지의 값을 최대 10 자리로만 추가할 수 있습니다.
+    - **중복 제거 및 압축 요인** 에서 워크 로드에 대해 예상 되는 중복 제거와 압축 비율을 지정 합니다. 실제 값은 온-프레미스 vSAN 또는 저장소 구성에서 가져올 수 있으며,이는 워크 로드에 따라 다를 수 있습니다. 3의 값이 3 배를 의미 하므로 300GB 디스크의 경우 100GB 저장소만 사용 됩니다. 값 1은 중복 제거 또는 압축을 의미 하지 않습니다. 1에서 10 까지의 값을 한 소수 자릿수까지 추가할 수 있습니다.
+1. **노드 크기** 에서 다음을 수행합니다. 
+    - **크기 조정 기준** 에서 정적 메타데이터 또는 성능 기반 데이터를 기반으로 하여 평가할지 여부를 선택합니다. 성능 데이터를 사용하는 경우 다음을 수행합니다.
+        - **성능 기록** 에서 평가의 기준이 될 데이터 기간을 표시합니다.
+        - **백분위수 사용률** 에서 성능 샘플에 사용하려는 백분위수 값을 지정합니다. 
+    - **쾌적 인자** 에서 평가 중에 사용하려는 버퍼를 지정합니다. 이는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가와 같은 문제를 고려합니다. 예를 들어 2의 쾌적 인자를 사용하는 경우 다음과 같습니다.
+    
+        **구성 요소** | **유효 사용률** | **쾌적 인자(2.0) 추가**
+        --- | --- | ---
+        코어 | 2  | 4
+        메모리 | 8GB | 16GB  
+
+1. **가격 책정** 에서 다음을 수행합니다.
+    - **제안** 에서 사용자가 등록된 [Azure 제안](https://azure.microsoft.com/support/legal/offer-details/)이 표시됩니다. 서버 평가에서 해당 제안에 대한 비용을 계산합니다.
+    - **통화** 에서 계정에 대한 청구 통화를 선택합니다.
+    - **할인(%)** 에서 Azure 제품에 적용되는 구독별 할인을 추가합니다. 기본 설정은 0%입니다.
+
+1. 변경한 경우 **저장** 을 클릭합니다.
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="평가 속성":::
+
+1. **서버 평가** 에서 **다음** 을 클릭합니다.
+
+1. **평가할 머신 선택** > **평가 이름** 에서 평가 이름을 지정합니다. 
+ 
+1. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택하고 그룹 이름을 지정합니다. 
     
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="그룹에 VM 추가":::
+ 
+1. 어플라이언스를 선택하고 그룹에 추가할 VM을 선택합니다. 그런 다음 **다음** 을 클릭합니다.
 
-1. **그룹에 머신 추가** 에서 그룹에 추가할 VM을 선택합니다.
+1. **검토 + 평가 만들기** 에서 평가 세부 정보를 검토하고, **평가 만들기** 를 클릭하여 그룹을 만들고 평가를 실행합니다.
 
-1. **다음** 에서 **검토 + 평가 만들기** 를 클릭하여 평가 세부 정보를 검토합니다.
-
-1. **평가 만들기** 를 클릭하여 그룹을 만들고, 평가를 실행합니다.
-
-1. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가** 에서 해당 평가를 확인합니다.
-
-1. **평가 내보내기** 를 클릭하고, Excel 파일로 다운로드합니다.
+    > [!NOTE]
+    > 성능 기반 평가의 경우 평가를 만들기 전에 검색을 시작한 후 하루 이상 기다리는 것이 좋습니다. 이는 더 높은 신뢰도로 성능 데이터를 수집할 시간을 제공합니다. 검색을 시작한 후에는 높은 신뢰도 등급을 위해 지정한 성능 기간(일/주/월) 동안 기다리는 것이 좋습니다.
 
 
 ## <a name="review-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 검토
@@ -91,7 +124,6 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 - **Avs 노드 수**: vm을 실행 하는 데 필요한 총 avs 노드 수입니다.
 - 모든 노드에서 CPU, 메모리 및 저장소 사용률을 예측 **합니다.**
     - 사용률에는 NSX Manager (large), NSX Edge와 같이 HCX가 배포 되는 경우 Manager (large), Edge와 vCenter Server 같은 클러스터 관리 오버 헤드가 포함 됩니다 .이는 hcx가 배포 되 고, HCX Manager와 IX 어플라이언스를 사용 하 여 4044vcpu (11 CPU), 75GB의 RAM 및 722GB의 저장소를 압축 및 중복 제거
-    - 메모리, 중복 제거 및 압축은 현재 메모리 및 1.5 중복 제거 및 압축에 대해 100%의 사용률으로 설정 되며, 사용자가 필요한 크기 조정을 추가로 수행할 수 있도록 하는 릴리스의 사용자 정의 입력이 됩니다.
 - **월간 비용 예측**: 온-프레미스 vm을 실행 하는 모든 Azure VMware SOLUTION (AVS) 노드에 대 한 월별 예상 비용입니다.
 
 
@@ -119,8 +151,6 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 
 4. **AVS 준비** 상태를 클릭 합니다. VM 준비 상태 세부 정보를 살펴보고, 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수 있습니다.
 
-
-
 ### <a name="review-cost-details"></a>비용 세부 정보 검토
 
 이 보기는 Azure VMware 솔루션 (AVS)에서 Vm을 실행 하는 예상 비용을 보여 줍니다.
@@ -129,7 +159,7 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
 
     - 예상 비용은 전체 Vm의 리소스 요구 사항을 고려 하는 데 필요한 AVS 노드 수를 기준으로 합니다.
     - Azure VMware 솔루션 (AVS)의 가격은 노드당 계산 되므로 총 비용에는 계산 비용 및 저장소 비용 분포가 없습니다.
-    - 예상 비용은 AVS에서 온-프레미스 VM을 실행하는 데 드는 비용입니다. Azure Migrate 서버 평가에서는 PaaS 또는 SaaS 비용을 고려하지 않습니다.
+    - 예상 비용은 AVS에서 온-프레미스 VM을 실행하는 데 드는 비용입니다. AVS 평가는 PaaS 또는 SaaS 비용을 고려 하지 않습니다.
     
 2. 월간 예상 스토리지 비용을 검토할 수 있습니다. 이 보기에는 평가된 그룹에 대해 집계된 스토리지 비용이 표시되며, 해당 그룹은 여러 유형의 스토리지 디스크로 분할되어 있습니다.
 

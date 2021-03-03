@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor의 실시간 데이터 솔루션 Microsoft Docs
 description: Wire Data는 Log Analytics 에이전트를 사용한 컴퓨터의 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713629"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -26,7 +25,7 @@ Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴�
 > 
 >실시간 데이터 솔루션을 사용 하는 기존 고객은이를 계속 사용할 수 있습니다. 서비스 맵로 이동 하기 위한 마이그레이션 타임 라인에 대 한 지침을 게시 합니다.
 >
->새 고객은 [서비스 맵 솔루션](../vm/service-map.md) 또는 [VM용 Azure Monitor](../vm/vminsights-overview.md)을 설치 해야 합니다.  서비스 맵 데이터 집합은 실시간 데이터와 비교할 수 있습니다.  VM용 Azure Monitor는 추가 성능 데이터 및 분석을 위한 기능이 포함 된 서비스 맵 데이터 집합을 포함 합니다. 
+>새 고객은 [서비스 맵 솔루션](../vm/service-map.md) 또는 [VM 정보](../vm/vminsights-overview.md)를 설치 해야 합니다.  서비스 맵 데이터 집합은 실시간 데이터와 비교할 수 있습니다.  VM insights에는 추가 성능 데이터와 분석을 위한 기능이 포함 된 서비스 맵 데이터 집합이 포함 되어 있습니다. 
 
 
 기본적으로 Azure Monitor는 Windows 및 Linux에 기본 제공 된 카운터의 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대 한 데이터를 기록 하 고 지정할 수 있는 다른 성능 카운터를 기록 합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다.  솔루션은 개별 ACK 및 SYN을 확인하지 않습니다.  핸드셰이크가 완료되면 라이브 연결로 간주되고 연결됨으로 표시됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  한쪽이 연결을 닫으면 연결이 Disconnected로 표시 됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
@@ -59,7 +58,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> Windows [에 대 한 Log Analytics 에이전트](../agents/agent-windows.md)외에도 windows 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](../vm/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> Linux [에 대 한 Log Analytics 에이전트](../vm/quick-collect-linux-computer.md)외에도 linux 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](../vm/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../agents/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | No | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -99,7 +98,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
 - Windows 10 1803
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -163,7 +162,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 단계를 수행하여 작업 영역에 대해 Wire Data 솔루션을 구성합니다.
 
@@ -393,7 +392,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | ReceivedBytes | 받은 바이트의 양 |
 | ProtocolName | 사용되는 네트워크 프로토콜의 이름 |
 | IPVersion | IP 버전 |
-| 방향 | 인바운드 또는 아웃바운드 |
+| Direction | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
 | 심각도 | 의심되는 맬웨어 심각도 |
 | RemoteIPCountry | 원격 IP 주소의 국가/지역 |

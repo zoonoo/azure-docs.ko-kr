@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/23/2021
-ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691147"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -151,6 +151,7 @@ SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_in
 > - BC 인스턴스의 경우 장애 조치 (failover) 요청이 허용 되려면 복제본의 쿼럼이 있어야 합니다.
 > - BC 인스턴스의 경우 장애 조치 (failover)를 시작할 읽을 수 있는 보조 복제본을 지정할 수 없습니다.
 > - 자동화 된 백업 시스템에서 새 데이터베이스에 대 한 첫 번째 전체 백업이 완료 될 때까지 장애 조치 (Failover)가 허용 되지 않습니다.
+> - 진행 중인 데이터베이스 복원이 있으면 장애 조치 (Failover)가 허용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [SQL Managed Instance 비디오를 통해 장애 조치 (Failover) 복원에 대 한 앱 클라우드 준비를 테스트](https://youtu.be/FACWYLgYDL8) 하 여 클라우드 준비를 위한 응용 프로그램 테스트에 대해 자세히 알아보세요.

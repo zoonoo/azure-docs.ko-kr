@@ -3,18 +3,18 @@ title: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 description: Azure Policy를 사용 하 여 지정 된 범위에서 만든 모든 Vm에 대 한 백업을 자동으로 활성화 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896870"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707305"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 
 조직에서 백업 또는 규정 준수 관리자의 주요 업무 중 하나는 업무상 중요 한 모든 컴퓨터가 적절 한 보존으로 백업 되도록 하는 것입니다.
 
-현재 Azure Backup에서는 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)를 사용 하 여 다양 한 기본 제공 정책을 제공 하므로 Azure virtual machines를 백업 하도록 자동으로 구성할 수 있습니다. 백업 팀 및 리소스를 구성 하는 방법에 따라 아래 정책 중 하나를 사용할 수 있습니다.
+현재 Azure Backup에서는 [Azure Policy](../governance/policy/overview.md)를 사용 하 여 다양 한 기본 제공 정책을 제공 하므로 Azure virtual machines를 백업 하도록 자동으로 구성할 수 있습니다. 백업 팀 및 리소스를 구성 하는 방법에 따라 아래 정책 중 하나를 사용할 수 있습니다.
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>정책 1-동일한 위치의 기존 recovery services 자격 증명 모음에 대 한 지정 된 태그 없이 Vm에 대 한 백업 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "98896870"
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>정책 4-[미리 보기] 기본 정책을 사용 하 여 새 recovery services 자격 증명 모음에 지정 된 태그를 가진 Vm에 대 한 백업 구성
 이 정책은 위의 정책 3과 동일 하 게 작동 합니다. 유일한 차이점은이 정책을 사용 하 여 특정 태그를 포함 하는 vm을이 정책 범위에 **포함** 하는 것입니다. 
 
-위의 외에도 Azure Backup [감사 전용](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) 정책을 제공 합니다. **Azure Backup Virtual Machines에 대해 사용 하도록 설정 해야 합니다**. 이 정책은 백업을 사용 하도록 설정 되지 않은 가상 머신을 식별 하지만 이러한 Vm에 대 한 백업을 자동으로 구성 하지는 않습니다. 이는 Vm의 전반적인 호환성을 평가 하려는 경우에 유용 하지만 즉시 조치를 취하지는 않으려는 경우에 유용 합니다.
+위의 외에도 Azure Backup [감사 전용](../governance/policy/concepts/effects.md#audit) 정책을 제공 합니다. **Azure Backup Virtual Machines에 대해 사용 하도록 설정 해야 합니다**. 이 정책은 백업을 사용 하도록 설정 되지 않은 가상 머신을 식별 하지만 이러한 Vm에 대 한 백업을 자동으로 구성 하지는 않습니다. 이는 Vm의 전반적인 호환성을 평가 하려는 경우에 유용 하지만 즉시 조치를 취하지는 않으려는 경우에 유용 합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 

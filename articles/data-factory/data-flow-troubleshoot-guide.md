@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: a95cacafc5b1d00b1e4d04fd84cdda2de72b6a59
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4545c3529baf92e2f90d9289ec6828ad9a720e3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523008"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738007"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -132,7 +132,7 @@ ms.locfileid: "100523008"
  
 - **메시지**: 실행 하는 동안 클러스터에 메모리 부족 문제가 발생 했습니다. 더 큰 코어 개수 및/또는 메모리 최적화 계산 형식으로 통합 런타임을 사용 하 여 다시 시도 하세요.
 - **원인**: 클러스터에 메모리가 부족 합니다.
-- **권장 사항**: 디버그 클러스터는 개발 용도로 사용 됩니다. 데이터 샘플링 적절 한 계산 유형과 크기를 활용 하 여 페이로드를 실행 합니다. 최상의 성능을 위해 데이터 흐름을 튜닝 하려면 [데이터 흐름 성능 가이드](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) 를 참조 하세요.
+- **권장 사항**: 디버그 클러스터는 개발 용도로 사용 됩니다. 데이터 샘플링 적절 한 계산 유형과 크기를 활용 하 여 페이로드를 실행 합니다. 최상의 성능을 위해 데이터 흐름을 튜닝 하려면 [데이터 흐름 성능 가이드](./concepts-data-flow-performance.md) 를 참조 하세요.
 
 ### <a name="error-code-df-executor-illegalargument"></a>오류 코드: DF-illegalArgument
 - **메시지**: 연결 된 서비스의 액세스 키가 올바른지 확인 하세요.
@@ -182,7 +182,7 @@ ms.locfileid: "100523008"
 
 - **메시지**: 잘못 된 범위를 제공 했습니다.
 - **원인**: 결정 되지 않음
-- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 범위 (참조)를 지정 하십시오. [Excel 속성](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 범위 (참조)를 지정 하십시오. [Excel 속성](./format-excel.md#dataset-properties).
 
 - **메시지**: .xlsx 및 .xls만 지원 되는 동안 잘못 된 excel 파일이 제공 됩니다.
 - **원인**: 결정 되지 않음
@@ -204,7 +204,7 @@ ms.locfileid: "100523008"
 
 ### <a name="error-code-4502"></a>오류 코드: 4502
 - **메시지**: Integration Runtime의 제한으로 인해 오류가 발생 하는 상당한 동시 MappingDataflow 실행이 있습니다.
-- **원인**: 많은 데이터 흐름 활동 실행이 Integration Runtime에서 동시에 진행 됩니다. [Azure Data Factory 한도](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits)에 대해 자세히 알아보세요.
+- **원인**: 많은 데이터 흐름 활동 실행이 Integration Runtime에서 동시에 진행 됩니다. [Azure Data Factory 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)에 대해 자세히 알아보세요.
 - **권장 사항**: 더 많은 데이터 흐름 활동을 동시에 실행 하려는 경우 여러 통합 런타임에 배포 하세요.
 
 

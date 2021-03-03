@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083772"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735508"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -62,14 +62,14 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 --- | --- | ---
 Hyper-V | 예 | 예
 VMware | 예 | 예
-실제 서버 | 아니요 | 예
+실제 서버 | 예 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. Ip 주소를 설정 하려면 **계산 및 네트워크 설정**  >  **대상 IP**로 이동 합니다.
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. Ip 주소를 설정 하려면 **계산 및 네트워크 설정**  >  **대상 IP** 로 이동 합니다.
 
 ![Site Recovery 컴퓨팅 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -118,14 +118,14 @@ DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으
 
 > [!NOTE]
 >
-> 사이트 바인딩을 **지정되지 않은 모든 항목**으로 설정하는 경우 이 바인딩은 장애 조치 후에 업데이트할 필요가 없습니다. 또한 사이트와 연결된 IP 주소가 장애 조치 후에 변경되지 않는 경우에도 사이트 바인딩을 업데이트할 필요가 없습니다. (IP 주소의 보존은 기본 및 복구 사이트에 할당된 네트워크 아키텍처 및 서브넷에 따라 다릅니다. 조직에서 이러한 업데이트를 수행하지 못할 수도 있습니다.)
+> 사이트 바인딩을 **지정되지 않은 모든 항목** 으로 설정하는 경우 이 바인딩은 장애 조치 후에 업데이트할 필요가 없습니다. 또한 사이트와 연결된 IP 주소가 장애 조치 후에 변경되지 않는 경우에도 사이트 바인딩을 업데이트할 필요가 없습니다. (IP 주소의 보존은 기본 및 복구 사이트에 할당된 네트워크 아키텍처 및 서브넷에 따라 다릅니다. 조직에서 이러한 업데이트를 수행하지 못할 수도 있습니다.)
 
 ![TLS/SSL 바인딩 설정을 보여 주는 스크린샷](./media/site-recovery-iis/sslbinding.png)
 
-IP 주소를 사이트와 연결한 경우 모든 사이트 바인딩을 새 IP 주소로 업데이트합니다. 사이트 바인딩을 변경하려면 복구 계획에서 그룹 3 뒤에 [IIS 웹 계층 업데이트 스크립트](https://aka.ms/asr-web-tier-update-runbook-classic)를 추가합니다.
+IP 주소를 사이트와 연결한 경우 모든 사이트 바인딩을 새 IP 주소로 업데이트합니다. 사이트 바인딩을 변경하려면 복구 계획에서 그룹 3 뒤에 [IIS 웹 계층 업데이트 스크립트](/samples/browse/?redirectedfrom=TechNet-Gallery)를 추가합니다.
 
 #### <a name="update-the-load-balancer-ip-address"></a>부하 분산 장치 IP 주소 업데이트
-ARR 가상 머신이 있는 경우 IP 주소를 업데이트하려면 그룹 4 뒤에 [IIS ARR 장애 조치 스크립트](https://aka.ms/asr-iis-arrtier-failover-script-classic)를 추가합니다.
+ARR 가상 머신이 있는 경우 IP 주소를 업데이트하려면 그룹 4 뒤에 [IIS ARR 장애 조치 스크립트](/samples/browse/?redirectedfrom=TechNet-Gallery)를 추가합니다.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>HTTPS 연결에 대 한 TLS/SSL 인증서 바인딩
 웹 사이트에는 웹 서버와 사용자의 브라우저 간에 보안 통신을 보장 하는 데 도움이 되는 연결 된 TLS/SSL 인증서가 있을 수 있습니다. 웹 사이트에 HTTPS 연결이 있고 TLS/SSL 인증서 바인딩을 사용 하는 IIS 서버의 IP 주소에 연결 된 HTTPS 사이트 바인딩이 있는 경우 장애 조치 (failover) 후 IIS 가상 컴퓨터의 IP 주소를 사용 하 여 인증서에 대 한 새 사이트 바인딩을 추가 해야 합니다.
@@ -144,10 +144,10 @@ TLS/SSL 인증서는 다음 구성 요소에 대해 발급할 수 있습니다.
 
 1. Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2. IIS 웹 팜에 대해 만든 복구 계획을 선택합니다.
-3. **테스트 장애 조치**를 선택합니다.
+3. **테스트 장애 조치** 를 선택합니다.
 4. 테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
 5. 보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
-6. 유효성 검사가 완료되면 테스트 장애 조치 환경을 정리하기 위해 **유효성 검사 완료**를 선택합니다.
+6. 유효성 검사가 완료되면 테스트 장애 조치 환경을 정리하기 위해 **유효성 검사 완료** 를 선택합니다.
 
 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
 

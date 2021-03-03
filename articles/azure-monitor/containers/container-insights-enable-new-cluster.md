@@ -1,19 +1,19 @@
 ---
 title: 새 AKS (Azure Kubernetes Service) 클러스터 모니터링 | Microsoft Docs
-description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 AKS (Azure Kubernetes Service) 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 방법을 알아봅니다.
+description: Container insights 구독을 사용 하 여 새 AKS (Azure Kubernetes Service) 클러스터에 대해 모니터링을 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620054"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717573"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
-이 문서에서는 구독에 배포 하기 위해 준비 하 고 있는 [Azure Kubernetes Service](../../aks/index.yml) 에 호스트 된 관리 되는 Kubernetes 클러스터를 모니터링 하는 컨테이너에 대 한 Azure Monitor를 설정 하는 방법을 설명 합니다.
+이 문서에서는 구독에 배포 하기 위해 준비 하 고 있는 [Azure Kubernetes Service](../../aks/index.yml) 에 호스트 된 관리 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너 정보를 설정 하는 방법을 설명 합니다.
 
 지원 되는 방법 중 하나를 사용 하 여 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다.
 
@@ -34,14 +34,14 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 >[!NOTE]
 >Terraform을 사용하도록 선택하는 경우 Terraform Azure RM Provider 버전 1.17.0 이상을 실행해야 합니다.
 
-컨테이너용 Azure Monitor를 작업 영역에 추가하려면 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)을 참조하여 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile)을 포함하고 **oms_agent** 를 지정하여 프로필을 완료하세요. 
+컨테이너 정보를 작업 영역에 추가 하려면 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) 을 포함 하 여 프로필 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) 및 완료를 참조 하 고 **oms_agent** 를 지정 합니다. 
 
 모니터링을 사용하도록 설정하고 모든 구성 작업이 성공적으로 완료되면 다음 두 가지 방법 중 하나로 클러스터의 성능을 모니터링할 수 있습니다.
 
 * 왼쪽 창에서 **상태** 를 선택하여 AKS 클러스터에서 직접 모니터링합니다.
 * 선택한 클러스터에 대한 AKS 클러스터 페이지에서 **컨테이너 정보 모니터링** 타일을 선택하고 Azure Monitor의 왼쪽 창에서 **상태** 를 선택합니다. 
 
-  ![AKS의 컨테이너에 대한 Azure Monitor 선택용 옵션](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![AKS에서 컨테이너 정보를 선택 하기 위한 옵션](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다. 
 
@@ -117,5 +117,5 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 * 솔루션을 등록하는 동안 문제가 발생하는 경우 [문제 해결 가이드](container-insights-troubleshoot.md)를 검토하세요.
 
-* 모니터링을 사용 하 여 AKS 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
+* 모니터링을 사용 하 여 AKS 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너 정보를 [사용 하는 방법을](container-insights-analyze.md) 알아보세요.
 

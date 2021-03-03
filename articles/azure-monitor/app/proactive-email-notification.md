@@ -4,14 +4,14 @@ description: 스마트 검색에서 기본 알림 받는 사람으로 변경 합
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585638"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734505"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
 
@@ -27,7 +27,7 @@ ms.locfileid: "100585638"
 
 * 미리 보기로 표시된 스마트 검색 규칙. 이러한 스마트 검색 규칙은 현재 메일 알림을 지원하지 않습니다.
 
-* 오류 이상 규칙. 이 규칙은 클래식 경고에서 통합 경고 플랫폼으로 마이그레이션된 후 새 기본 역할에 적용되기 시작합니다(자세한 내용은 [여기](../alerts/monitoring-classic-retirement.md) 참조).
+* 오류 이상 규칙.
 
 ## <a name="how-to-prepare-for-this-change"></a>이 변경을 준비하는 방법
 

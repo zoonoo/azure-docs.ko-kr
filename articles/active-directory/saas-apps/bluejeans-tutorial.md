@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4026bd9c5b4d73953509617fe4a8623987d22341
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456945"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686598"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>자습서: BlueJeans for Azure AD와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "92456945"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -101,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 BlueJeans 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | ---------| --------- |
     | Phone | user.telephonenumber |
     | title | user.jobtitle |
@@ -118,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -201,17 +201,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 이 단계에서 설명한 정보를 입력하는 사용자 추가 섹션을 보여줍니다.](./media/bluejeans-tutorial/ic785886.png "사용자 추가")
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **B** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    다. **BlueJeans for Azure AD 사용자 이름 선택** 텍스트 상자에 사용자 이름(예: **Brittasimon** )을 입력합니다.
+    다. **BlueJeans for Azure AD 사용자 이름 선택** 텍스트 상자에 사용자 이름(예: **Brittasimon**)을 입력합니다.
 
     d. **암호 만들기** 텍스트 상자에 암호를 입력합니다.
 
     e. **회사** 텍스트 상자에 회사를 입력합니다.
 
-    f. **이메일 주소** 텍스트 상자에 `b.simon\@contoso.com`과 같은 사용자의 이메일을 입력합니다.
+    f. **이메일 주소** 텍스트 상자에 `b.simon@contoso.com`과 같은 사용자의 이메일을 입력합니다.
 
     g. **BlueJeans for Azure AD 모임 ID 만들기** 텍스트 상자에 모임 ID를 입력합니다.
 

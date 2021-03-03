@@ -4,19 +4,21 @@ description: Azure Security 벤치 마크 V2 자산 관리
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735814"
 ---
 # <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
 자산 관리는 Azure 리소스에 대 한 보안 표시 및 관리를 보장 하는 컨트롤을 포함 합니다. 여기에는 보안 담당자, 자산 인벤토리에 대 한 보안 액세스, 서비스 및 리소스에 대 한 승인 관리 (인벤토리, 추적, 수정)에 대 한 권장 사항이 포함 됩니다.
+
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 네트워크 보안의 세부 정보](../../governance/policy/samples/azure-security-benchmark#asset-management) 를 참조 하세요.
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀이 자산의 위험에 대한 가시성 확보
 
@@ -24,13 +26,13 @@ ms.locfileid: "97368905"
 |--|--|--|--|
 | 오전-1 | 1.1, 1.2 | CM-8, PM-5 |
 
-Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있도록 Azure 테 넌 트 및 구독에서 보안 팀에 보안 읽기 권한자 권한이 부여 되었는지 확인 합니다. 
+Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있도록 Azure 테 넌 트 및 구독에서 보안 팀에 보안 읽기 권한자 권한이 부여 되었는지 확인 합니다.
 
-보안 팀의 책임이 구성된 방식에 따라 보안 위험 모니터링은 중앙 보안 팀 또는 로컬 팀의 책임이 될 수 있습니다. 즉, 보안 인사이트 및 위험이 항상 조직 내의 중앙에서 집계되어야 합니다. 
+보안 팀의 책임이 구성 된 방식에 따라 보안 위험에 대 한 모니터링은 중앙 보안 팀 또는 로컬 팀의 책임입니다. 즉, 보안 인사이트 및 위험이 항상 조직 내의 중앙에서 집계되어야 합니다. 
 
 보안 읽기 권한자 권한은 전체 테넌트(루트 관리 그룹)에 광범위하게 적용하거나 범위를 관리 그룹 또는 특정 구독으로 지정할 수 있습니다. 
 
-참고: 워크로드 및 서비스에 대한 가시성을 얻으려면 추가 권한이 필요할 수 있습니다. 
+참고: 워크로드 및 서비스에 대한 가시성을 얻으려면 추가 권한이 필요할 수 있습니다.
 
 - [보안 읽기 권한자 역할 개요](../../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -52,9 +54,9 @@ Azure Security Center를 사용 하 여 보안 위험을 모니터링할 수 있
 
 보안 팀이 Azure에서 지속적으로 업데이트 되는 자산의 인벤토리에 액세스할 수 있는지 확인 합니다. 보안 팀은 새로운 위험에 대한 조직의 잠재적인 노출을 평가하기 위해, 그리고 지속적으로 보안을 향상하기 위한 입력 정보로서 이 인벤토리가 필요한 경우가 많습니다. 
 
-Azure Security Center inventory 기능 및 Azure 리소스 그래프는 Azure 서비스, 응용 프로그램 및 네트워크 리소스를 포함 하 여 구독에 있는 모든 리소스를 쿼리하고 검색할 수 있습니다.  
+Azure Security Center inventory 기능 및 Azure 리소스 그래프는 Azure 서비스, 응용 프로그램 및 네트워크 리소스를 포함 하 여 구독에 있는 모든 리소스를 쿼리하고 검색할 수 있습니다.
 
-Azure에서 태그뿐만 아니라 다른 메타데이터(이름, 설명, 범주)도 사용하여 조직의 분류법에 따라 자산을 논리적으로 구성합니다.  
+Azure의 다른 메타 데이터 (이름, 설명 및 범주)를 사용 하 여 조직의 분류에 따라 자산을 논리적으로 구성 합니다.
 
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
@@ -74,9 +76,9 @@ Azure에서 태그뿐만 아니라 다른 메타데이터(이름, 설명, 범주
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
-| 오전-3 | 2.3, 2.4 | CM-7, CM-8 |
+| AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Azure Policy를 사용하여 환경에서 사용자가 프로비저닝할 수 있는 서비스를 감사하고 제한합니다. Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다.  또한 Azure Monitor를 사용하여 승인되지 않은 서비스가 검색되면 경고를 트리거하는 규칙을 만들 수 있습니다.
+Azure Policy를 사용하여 환경에서 사용자가 프로비저닝할 수 있는 서비스를 감사하고 제한합니다. Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 검색합니다. 또한 Azure Monitor를 사용하여 승인되지 않은 서비스가 검색되면 경고를 트리거하는 규칙을 만들 수 있습니다.
 
 - [Azure Policy 구성 및 관리](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -90,7 +92,7 @@ Azure Policy를 사용하여 환경에서 사용자가 프로비저닝할 수 �
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: 자산 수명 주기 관리의 보안 보장
 
@@ -110,7 +112,7 @@ Azure Policy를 사용하여 환경에서 사용자가 프로비저닝할 수 �
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -128,7 +130,7 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 **고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -136,7 +138,7 @@ Azure AD 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 �
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
-| 오전-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 권한 있는 소프트웨어만 실행 되 고 모든 권한이 없는 소프트웨어는 Azure Virtual Machines에서 실행 되지 않도록 차단 합니다.
 
@@ -144,7 +146,7 @@ ASC (Azure Security Center) 적응 응용 프로그램 컨트롤을 사용 하 �
 
 Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows 및 Linux Vm에서 인벤토리 정보 수집을 자동화할 수 있습니다. Azure Portal에서 소프트웨어 이름, 버전, 게시자 및 새로 고침 시간을 사용할 수 있습니다. 소프트웨어 설치 날짜 및 기타 정보를 가져오려면 게스트 수준 진단을 사용 하도록 설정 하 고 Windows 이벤트 로그를 Log Analytics 작업 영역으로 보냅니다.
 
-스크립트의 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다. 
+스크립트의 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다.
 
 타사 솔루션을 사용 하 여 승인 되지 않은 소프트웨어를 검색 하 고 식별할 수도 있습니다.
 
@@ -160,6 +162,6 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)

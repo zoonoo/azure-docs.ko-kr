@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687671"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -57,7 +57,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 ### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 엔드포인트 게시
 
 1. 다음 값을 사용하여 [새 애플리케이션 프록시 애플리케이션을 게시](application-proxy-add-on-premises-application.md)합니다.
-   - 내부 URL: `https://\<rdhost\>.com/`, 여기서 `\<rdhost\>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
+   - 내부 URL: `https://<rdhost>.com/`, 여기서 `<rdhost>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
    - 외부 URL: 이 필드는 애플리케이션 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
    - 사전 인증 방법: Azure Active Directory
    - URL 헤더 변환: 아니요
@@ -69,7 +69,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 4. **Azure Active Directory**, **앱 등록** 을 차례로 선택 합니다. 목록에서 앱을 선택 합니다.
 5. **관리** 에서 **브랜딩** 을 선택 합니다.
-6. RD 웹 끝점 (예:)을 가리키도록 **홈 페이지 URL** 필드를 업데이트 `https://\<rdhost\>.com/RDWeb` 합니다.
+6. RD 웹 끝점 (예:)을 가리키도록 **홈 페이지 URL** 필드를 업데이트 `https://<rdhost>.com/RDWeb` 합니다.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>애플리케이션 프록시에 대한 직접 RDS 트래픽
 
@@ -91,7 +91,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **예:**
+   **예를 들어:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

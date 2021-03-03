@@ -6,18 +6,14 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722694"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705163"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
-
-> [!IMPORTANT]
-> **Azure Remote Rendering** 은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 장에서는 ARR ( *Azure Remote 렌더링* )을 사용 하기 위한 최소 시스템 요구 사항을 나열 합니다.
 
@@ -71,7 +67,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 원격 렌더링 가상 컴퓨터는 다음 IP 범위의 공유 IP 주소를 사용 합니다.
 
-| Name             | 지역         | IP 접두사         |
+| 속성             | 지역         | IP 접두사         |
 |------------------|:---------------|:------------------|
 | 오스트레일리아 동부   | australiaeast  | 20.53.44.240/28   |
 | 미국 동부          | eastus         | 20.62.129.224/28  |

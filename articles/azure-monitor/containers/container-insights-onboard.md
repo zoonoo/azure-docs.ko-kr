@@ -1,18 +1,18 @@
 ---
-title: 컨테이너에 대해 Azure Monitor 사용 Microsoft Docs
-description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
+title: 컨테이너 insights 사용 | Microsoft Docs
+description: 이 문서에서는 컨테이너를 사용 하는 방법 및 식별 된 성능 관련 문제를 이해할 수 있도록 Container insights를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708359"
 ---
-# <a name="enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor 사용
+# <a name="enable-container-insights"></a>컨테이너 insights 사용
 
-이 문서에서는 Kubernetes 환경에 배포 되 고에서 호스트 되는 워크 로드의 성능을 모니터링 하는 컨테이너에 대 한 Azure Monitor를 설정 하는 데 사용할 수 있는 옵션의 개요를 제공 합니다.
+이 문서에서는 Kubernetes 환경에 배포 되 고에서 호스팅되는 워크 로드의 성능을 모니터링 하기 위해 컨테이너 정보를 설정 하는 데 사용할 수 있는 옵션의 개요를 제공 합니다.
 
 - [AKS(Azure Kubernetes Service)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 3(sp3) 및 4.x  
@@ -23,7 +23,7 @@ ms.locfileid: "100618789"
 - Azure, [AKS 엔진](https://github.com/Azure/aks-engine) 사용
 - AKS 엔진을 사용 하 여 [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 또는 온-프레미스를 사용 합니다.
 
-다음 지원 되는 방법 중 하나를 사용 하 여 새 배포 또는 Kubernetes의 기존 배포 하나 이상에 대해 컨테이너에 대해 Azure Monitor를 사용 하도록 설정할 수 있습니다.
+다음 지원 되는 방법 중 하나를 사용 하 여 새 배포 또는 Kubernetes의 기존 배포 하나 이상에 대해 컨테이너 정보를 사용 하도록 설정할 수 있습니다.
 
 - Azure 포털
 - Azure PowerShell
@@ -44,37 +44,37 @@ ms.locfileid: "100618789"
 
 - Log Analytics 작업 영역이 있습니다.
 
-   컨테이너의 Azure Monitor는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다.
+   컨테이너 insights는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다.
 
    새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 경우 작업 영역을 만들거나 온 보 딩 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 
    
    작업 영역을 직접 만들도록 선택 하는 경우 다음을 통해 만들 수 있습니다. 
-   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
-   - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Azure 포털](../learn/quick-create-workspace.md) 
+   - [Azure Resource Manager](../logs/resource-manager-workspace.md)
+   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [Azure 포털](../logs/quick-create-workspace.md) 
    
-   기본 작업 영역에 사용할 수 있는 지원 되는 매핑 쌍 목록은 [컨테이너의 Azure Monitor에 대 한 지역 매핑](container-insights-region-mapping.md)을 참조 하세요.
+   기본 작업 영역에 사용할 수 있는 지원 되는 매핑 쌍 목록은 [컨테이너 insights에 대 한 지역 매핑](container-insights-region-mapping.md)을 참조 하세요.
 
-- 컨테이너 모니터링을 사용 하도록 설정 하기 위해 *Log Analytics 참가자* 그룹의 구성원입니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../platform/manage-access.md)를 참조하세요.
+- 컨테이너 모니터링을 사용 하도록 설정 하기 위해 *Log Analytics 참가자* 그룹의 구성원입니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../logs/manage-access.md)를 참조하세요.
 
 - AKS 클러스터 리소스에서 [ *소유자* 그룹](../../role-based-access-control/built-in-roles.md#owner) 의 멤버입니다.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- 모니터링 데이터를 보려면 Log Analytics 작업 영역에서 컨테이너에 대 한 Azure Monitor 구성 된 [*Log Analytics 읽기 권한자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
+- 모니터링 데이터를 보려면 컨테이너 insights를 사용 하 여 구성 된 Log Analytics 작업 영역에 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
 - 기본적으로 프로메테우스 메트릭은 수집 되지 않습니다. 메트릭을 수집 하도록 [에이전트를 구성](container-insights-prometheus-integration.md) 하기 전에 스크랩 수 있는 데이터 및 지원 되는 방법을 이해 하려면 [프로메테우스 설명서](https://prometheus.io/) 를 검토 하는 것이 중요 합니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
-컨테이너에 대 한 Azure Monitor는 공식적으로 다음 구성을 지원 합니다.
+컨테이너 정보는 공식적으로 다음 구성을 지원 합니다.
 
 - 환경: azure Red Hat OpenShift, Kubernetes 온-프레미스 및 Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack에서 AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)을 참조 하세요.
 - Kubernetes 및 지원 정책의 버전은 [AKS (Azure Kubernetes Service)에서 지원](../../aks/supported-kubernetes-versions.md)되는 것과 동일 합니다. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 
-다음 표에서는 컨테이너 화 된 에이전트가 컨테이너의 Azure Monitor와 통신 하는 데 필요한 프록시 및 방화벽 구성 정보를 나열 합니다. 에이전트의 모든 네트워크 트래픽은 Azure Monitor로 아웃 바운드 됩니다.
+다음 표에서는 컨테이너 화 된 에이전트가 Container insights와 통신 하는 데 필요한 프록시 및 방화벽 구성 정보를 나열 합니다. 에이전트의 모든 네트워크 트래픽은 Azure Monitor로 아웃 바운드 됩니다.
 
 |에이전트 리소스|포트 |
 |--------------|------|
@@ -102,7 +102,7 @@ ms.locfileid: "100618789"
 
 ## <a name="components"></a>구성 요소
 
-성능을 모니터링 하는 기능은 컨테이너의 Azure Monitor에 대해 특별히 개발 된 Linux 용 컨테이너 화 된 Log Analytics 에이전트에 의존 합니다. 이 특수 에이전트는 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집하며, 배포 과정에서 에이전트가 지정된 Log Analytics 작업 영역에 자동으로 배포 및 등록됩니다. 
+성능을 모니터링 하는 기능은 컨테이너 통찰력을 위해 특별히 개발 된 Linux 용 컨테이너 화 된 Log Analytics 에이전트에 의존 합니다. 이 특수 에이전트는 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집하며, 배포 과정에서 에이전트가 지정된 Log Analytics 작업 영역에 자동으로 배포 및 등록됩니다. 
 
 에이전트 버전은 microsoft/oms: ciprod04202018 이상 이며 다음 형식의 날짜로 표시 됩니다. *mmddyyyy*.
 
@@ -116,9 +116,9 @@ ms.locfileid: "100618789"
 >
 > 템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
 
-컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하려면 다음 표에 설명 된 방법 중 하나를 사용 합니다.
+컨테이너 insights를 사용 하도록 설정 하려면 다음 표에 설명 된 방법 중 하나를 사용 합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 방법 | Description |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
@@ -136,4 +136,4 @@ ms.locfileid: "100618789"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 모니터링을 사용 하도록 설정 했으므로 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 성능 분석을 시작할 수 있습니다. 컨테이너에 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [View Kubernetes cluster performance](container-insights-analyze.md)을 참조 하세요.
+이제 모니터링을 사용 하도록 설정 했으므로 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 성능 분석을 시작할 수 있습니다. 컨테이너 insights를 사용 하는 방법에 대 한 자세한 내용은 [View Kubernetes cluster performance](container-insights-analyze.md)을 참조 하세요.

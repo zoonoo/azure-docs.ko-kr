@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726321"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>작성자 (미리 보기) 실내 지도에 대 한 동적 스타일 구현
 
 > [!IMPORTANT]
-> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Maps Creator [기능 상태 서비스](/rest/api/maps/featurestate)를 사용하여 실내 지도 데이터 기능의 동적 속성에 따라 스타일을 적용할 수 있습니다.  예를 들어 특정 색을 사용하여 재실 상태를 나타내도록 시설 회의실을 렌더링할 수 있습니다. 이 문서에서는 [기능 상태 서비스](/rest/api/maps/featurestate) 및 [실내 웹 모듈](how-to-use-indoor-module.md)을 사용하여 실내 지도 기능을 동적으로 렌더링하는 방법을 보여 줍니다.
@@ -27,7 +27,7 @@ Azure Maps Creator [기능 상태 서비스](/rest/api/maps/featurestate)를 사
 
 1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-3. [작성자 (미리 보기) 리소스 만들기](how-to-manage-creator.md)
+3. [Creator(미리 보기) 리소스 만들기](how-to-manage-creator.md)
 4. [샘플 그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples)를 다운로드합니다.
 5. `tilesetId` 및 `statesetId`를 얻기 위해 [실내 지도를 만듭니다](tutorial-creator-indoor-maps.md).
 6. [실내 지도 모듈 사용 방법](how-to-use-indoor-module.md)의 단계를 수행하여 웹 애플리케이션을 빌드합니다.
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ map.events.add("click", function(e){
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문** 에서 기능 업데이트를 사용하여 다음 JSON을 작성합니다. 게시된 타임스탬프가 동일한 기능 `ID`에 대한 이전 기능 상태 업데이트 요청에 사용된 타임스탬프보다 이후일 경우에만 업데이트가 저장됩니다. "occupied" `keyName`을 전달하여 값을 업데이트합니다.
+3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **POST** 요청의 **본문** 에서 기능 업데이트를 사용 하 여 다음 원시 JSON을 작성 합니다. 게시된 타임스탬프가 동일한 기능 `ID`에 대한 이전 기능 상태 업데이트 요청에 사용된 타임스탬프보다 이후일 경우에만 업데이트가 저장됩니다. "occupied" `keyName`을 전달하여 값을 업데이트합니다.
 
     ```json
     {
@@ -108,9 +108,11 @@ map.events.add("click", function(e){
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>지도에서 동적 스타일 시각화
 
-이전에 브라우저에서 연 웹 애플리케이션이 이제 지도 기능의 업데이트된 상태를 반영합니다. `UNIT27`(151)은 녹색으로 표시되고 `UNIT26`(157)은 빨간색으로 표시됩니다.
+이전에 브라우저에서 연 웹 애플리케이션이 이제 지도 기능의 업데이트된 상태를 반영합니다. `UNIT27`(142)는 녹색으로 표시 되 고 `UNIT26` (143)는 빨강으로 표시 됩니다.
 
 ![녹색으로 표시된 빈 공간과 빨간색으로 표시된 사용 중인 공간](./media/indoor-map-dynamic-styling/room-state.png)
+
+[라이브 데모 보기](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>다음 단계
 

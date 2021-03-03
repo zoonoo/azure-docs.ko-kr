@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: a44ff15300d05713e812f5c60ad3bf00d9f13104
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526859"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722316"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -29,9 +29,9 @@ ms.locfileid: "99526859"
 > 신경망을 학습 하려면 음성 데이터를 사용 하 여 사용자 지정 음성 모델을 학습 하는 음성 인재 승인 된 음성 인재 프로필을 지정 해야 합니다. 기록 스크립트를 준비할 때 아래 문장을 포함 해야 합니다. 
 
 > "I [first 및 last name] am은 내 음성 기록을 [회사 이름]에서 사용 하 여 내 음성의 가상 버전을 만들고 사용 하는 것을 인식 합니다."
-이 문장은이를 사용 하 여 사용자가 동의 하는 동일한 사람이 학습 데이터를 수행 하는지 확인 하는 데 사용 됩니다. [음성 인재 확인](https://aka.ms/CNV-data-privacy) 에 대 한 자세한 내용은 여기를 참조 하세요.
+이 문장은이를 사용 하 여 사용자가 동의 하는 동일한 사람이 학습 데이터를 수행 하는지 확인 하는 데 사용 됩니다. [음성 인재 확인](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 에 대 한 자세한 내용은 여기를 참조 하세요.
 
-> 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](https://aka.ms/gating-overview) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
+> 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
 
 > [!TIP]
 > 최고 품질의 결과를 얻으려면 Microsoft의 도움을 받아 사용자 지정 음성을 개발하는 것이 좋습니다. Microsoft는 Cortana 및 Office를 비롯한 자사 제품을 위해 고품질 음성을 제작한 풍부한 경험이 있습니다.
@@ -112,7 +112,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
 다행히도 이러한 문제는 완전히 방지할 수 있습니다. 권한 또는 라이선스 없이 사용할 수 있는 텍스트 원본이 많이 있기 때문입니다.
 
-|텍스트 원본|설명|
+|텍스트 원본|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|저작권 없는 작품 중에서 음성 합성 프로젝트에 고유하게 사용할 1100개 정도의 문장을 선택했습니다. 이 원본으로 시작하면 좋습니다.|
 |저작권이<br>없는 작품|일반적으로 1923년 이전에 출판된 작품입니다. 영어의 경우 [Project Gutenberg](https://www.gutenberg.org/)에 이러한 수만 가지 작품을 제공하고 있습니다. 언어는 최신 영어에 더 가까우므로 최신 작품에 좀 더 주력하려고 할 수 있습니다.|

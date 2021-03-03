@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577950"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702507"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -27,7 +27,7 @@ ms.locfileid: "100577950"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| 유형 | Description |
+| Type | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **기하급수적 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -69,7 +69,7 @@ ms.locfileid: "100577950"
 
 *필수*
 
-| 값 | Type | 설명 |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*다시 시도 정책-유형*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
 | <*다시 시도 간격*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "100577950"
 
 *선택 사항*
 
-| 값 | Type | 설명 |
+| 값 | Type | Description |
 |-------|------|-------------|
 | <*최소 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 | <*최대 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
@@ -263,13 +263,14 @@ ms.locfileid: "100577950"
 
 ### <a name="get-context-and-results-for-failures"></a>실패에 대한 컨텍스트 및 결과 가져오기
 
-범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다.
+범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. [ `result()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#result) 는 범위 이름에 해당 하는 단일 매개 변수를 수락 하 고 첫 번째 수준 작업의 결과를 포함 하는 배열을 반환 하 여 범위 지정 작업의 최상위 작업에서 결과를 반환 합니다. 이러한 작업 개체에는 `actions()` 작업 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력과 같이 함수에서 반환 된 특성과 동일한 특성이 포함 됩니다. 
 
-[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)함수는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. `result()`함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 개체와 동일한 특성 `actions()` (예: 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력)이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면 속성을 사용 하 여 식을 쉽게 쌍으로 연결할 수 있습니다 `@result()` `runAfter` .
+> [!NOTE]
+> `result()`함수는 switch 또는 condition 작업과 같은 보다 심층적인 중첩 된 작업이 아니라 첫 번째 수준 작업 *에서만* 결과를 반환 합니다.
 
-결과를 포함 하는 범위 내의 각 작업에 대해 작업을 실행 하 `Failed` 고 실패 한 작업까지 결과 배열을 필터링 하려면 `@result()` 식에 [**필터 배열**](logic-apps-perform-data-operations.md#filter-array-action) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프를 쌍으로 연결할 수 있습니다. 필터링 된 결과 배열을 가져와서 루프를 사용 하 여 각 오류에 대 한 작업을 수행할 수 있습니다 `For_each` .
+범위에서 실패 한 작업에 대 한 컨텍스트를 가져오려면 `@result()` 범위의 이름 및 속성으로 식을 사용할 수 있습니다 `runAfter` . 반환 된 배열을 상태를 포함 하는 작업으로 필터링 하려면 `Failed` [ **배열 필터** 작업](logic-apps-perform-data-operations.md#filter-array-action)을 추가 하면 됩니다. 반환 된 실패 작업에 대 한 작업을 실행 하려면 반환 된 필터링 된 배열을 사용 하 고 [ **for each** 루프](../logic-apps/logic-apps-control-flow-loops.md)를 사용 합니다.
 
-다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
+다음 예제에는 "My_Scope" 이라는 범위 동작 내에서 실패 한 작업에 대 한 응답 본문과 함께 HTTP POST 요청을 전송 하는 자세한 설명이 나와 있습니다.
 
 ```json
 "Filter_array": {

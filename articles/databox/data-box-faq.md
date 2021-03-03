@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652788"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730578"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -69,6 +70,16 @@ Data Box는 대상과 동일한 국가/지역 내 에서만 데이터 수집 또
 
 3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 미국 서 부의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
 
+#### <a name="q-does-data-box-store-any-customer-data-outside-of-the-service-region"></a>17. 모든 고객 데이터를 서비스 지역 외부로 저장할 Data Box 있나요?
+
+A. 아니요. Data Box은 서비스 지역 외부에 고객 데이터를 저장 하지 않습니다. 고객은 자신의 데이터에 대 한 전체 소유권을 가지 며, 주문 생성 중에 선택 하는 저장소 계정에 따라 지정 된 위치에 데이터를 저장할 수 있습니다.  
+
+고객 데이터 외에도 장치와 관련 된 보안 아티팩트, 장치 및 서비스에 대 한 모니터링 로그 및 서비스 관련 메타 데이터를 포함 하는 데이터 Data Box 있습니다. 모든 지역 (브라질 남부 및 동남 아시아 제외)에서 데이터 손실 로부터 보호 하기 위해 지역 중복 저장소 계정을 통해 쌍을 이루는 지역에 데이터를 저장 하 고 복제 Data Box 합니다.  
+
+브라질 남부 및 동남 아시아의 [데이터 상주 요구 사항](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) 으로 인해 Data Box 데이터는 단일 지역에 포함 되도록 ZRS (영역 중복 저장소) 계정에 저장 됩니다. 동남 아시아의 경우 모든 Data Box 데이터가 싱가포르에 저장 되 고 브라질 남부에서는 데이터가 브라질에 저장 됩니다. 
+
+브라질 남부 및 동남 아시아에서 서비스 중단이 발생 하는 경우 고객은 다른 지역에서 새 주문을 만들 수 있습니다. 새 주문은 생성 된 지역에서 제공 되며 고객이 Data Box 장치를 배송 하 고 가져오면 배송을 담당 하 게 됩니다.
+
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>17. 전체 지역이 실패 하는 경우 데이터를 복구 하려면 어떻게 해야 하나요?
 
 A. 상당한 재해가 발생 하 여 지역이 손실 되는 극단적인 경우에는 Microsoft에서 지역 장애 조치 (failover)를 시작할 수 있습니다. 이 경우에는 사용자의 작업이 필요 하지 않습니다. 주문이 동일한 국가 또는 상업 경계 내에 있는 경우 장애 조치 (failover) 지역이 충족 됩니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상업 경계에 쌍으로 연결 된 지역이 없습니다. 이러한 지역에 재해가 발생 한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사 해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
@@ -85,7 +96,7 @@ A. 예. 분실 하거나 손상 된 장치에 대 한 요금이 부과 됩니다
 ### <a name="q-how-do-i-get-data-box"></a>17. Data Box를 얻으려면 어떻게 할까요? 
 A.  Azure Data Box를 가져오려면 Azure Portal에 로그인하고 Data Box 주문을 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문 후에는 가용성에 따라 10일 안에 Data Box가 배송됩니다. 자세한 내용은 [Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 이유가 무엇일까요?
+### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 그 이유는
 A. Data Box 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box는 EA(기업계약), CSP(클라우드 솔루션 공급자) 구독 제품에서만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.
@@ -108,7 +119,7 @@ A. 주문 처리의 각 단계에 대 한 다음과 같은 예상 지연 시간�
 6. 데이터 센터에서 장치 처리: 1-2 영업일, 처리 보류 중인 다른 주문의 영향
 7. Azure에 데이터 업로드: 처리가 완료 되 고 장치가 연결 되는 즉시 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 
-### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 이유가 무엇일까요?
+### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 그 이유는
 A. 상거래 경계 (국가 및 지역 조합) 당 구독 당 최대 5 개의 활성 주문을 허용 합니다. 디바이스를 더 주문하려면 Microsoft 지원에 문의하여 구독 한도를 늘리세요.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>17. 주문을 만들 때 Data Box 서비스를 사용할 수 없다는 알림을 받았습니다. 무슨 의미인가요?
@@ -164,7 +175,7 @@ A. Data Box 맨 앞에 있는 전원 단추 아래에 LED 표시등이 2 개 있
 
 시스템 오류 표시기 표시등이 아직 켜져 있으면 [Microsoft 지원에 문의 하세요](data-box-disk-contact-microsoft-support.md).
 
-### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 이유가 무엇일까요?
+### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 그 이유는
 A. Azure Portal의 잠금 해제 암호에 액세스할 수 없는 경우 구독 및 저장소 계정에 대 한 사용 권한을 확인 합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 액세스 자격 증명을 보려면 적어도 Data Box Operator 역할 권한이 있어야 합니다.
 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>17. Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?

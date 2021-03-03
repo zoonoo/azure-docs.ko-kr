@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993672"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728198"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -151,12 +151,12 @@ ms.locfileid: "95993672"
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. |
+| Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. <br/>**Microsoft에서 Azure CDN** 형식 간의 트랜스 코딩을 지원 하지 않으며 대신 원본에서 데이터를 인출 하 고 압축 및 캐시 하 여 형식에 대해 개별적으로 데이터를 인출 합니다. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
 | Compressed |캐시되지 않음 |Compressed |원본에서 미압축 파일을 반환하면 CDN이 압축을 수행합니다. <br/>**Verizon에서 Azure CDN** 은 첫 번째 요청에 압축되지 않은 파일을 전달한 다음 후속 요청에 대한 파일을 압축하고 캐시합니다. <br/>`Cache-Control: no-cache` 헤더가 있는 파일은 압축되지 않습니다. |
-| 미압축 |Compressed |미압축 |CDN이 압축을 풉니다. |
+| 미압축 |Compressed |미압축 |CDN이 압축을 풉니다. <br/>**Microsoft의 Azure CDN** 는 압축 풀기를 지원 하지 않으며 대신 압축 되지 않은 클라이언트에 대해 원본 및 캐시에서 별도로 데이터를 인출 합니다. |
 | 미압축 |미압축 |미압축 | |
 | 미압축 |캐시되지 않음 |미압축 | |
 
@@ -167,6 +167,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

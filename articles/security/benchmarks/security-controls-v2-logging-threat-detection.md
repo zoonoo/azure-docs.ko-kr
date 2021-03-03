@@ -4,19 +4,21 @@ description: Azure Security 벤치 마크 V2 로깅 및 위협 검색
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576814"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720684"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
 
-로깅 및 위협 검색은 Azure에서 위협을 감지 하 고 Azure 서비스에 대 한 감사 로그를 사용, 수집 및 저장 하는 컨트롤을 포함 합니다. 여기에는 Azure 서비스에서 네이티브 위협 검색을 통해 고품질의 경고를 생성 하는 컨트롤을 사용 하 여 검색, 조사 및 재구성 프로세스를 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 로그를 수집 하 고, Azure 센티널, 시간 동기화 및 로그 보존으로 보안 분석을 중앙화 합니다. 
+로깅 및 위협 검색은 Azure에서 위협을 감지 하 고 Azure 서비스에 대 한 감사 로그를 사용, 수집 및 저장 하는 컨트롤을 포함 합니다. 여기에는 Azure 서비스에서 네이티브 위협 검색을 통해 고품질의 경고를 생성 하는 컨트롤을 사용 하 여 검색, 조사 및 재구성 프로세스를 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 로그를 수집 하 고, Azure 센티널, 시간 동기화 및 로그 보존으로 보안 분석을 중앙화 합니다.
+
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 로깅 및 위협 검색의 세부 정보](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection) 를 참조 하세요.
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
@@ -46,7 +48,7 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 - [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
-보안 분석을 위한 NSG (네트워크 보안 그룹) 리소스 로그, NSG 흐름 로그, Azure 방화벽 로그 및 WAF (웹 응용 프로그램 방화벽) 로그를 사용 하 고 수집 하 여 인시던트 조사, 위협 구하기 및 보안 경고 생성을 지원 합니다. 흐름 로그를 Azure Monitor Log Analytics 작업 영역으로 보낸 다음 트래픽 분석를 사용 하 여 정보를 제공할 수 있습니다. 다른 네트워크 데이터의 상관 관계를 지원 하기 위해 DNS 쿼리 로그를 수집 하 고 있는지 확인 합니다.
+보안 분석을 위한 NSG (네트워크 보안 그룹) 리소스 로그, NSG 흐름 로그, Azure 방화벽 로그 및 WAF (웹 응용 프로그램 방화벽) 로그를 사용 하 고 수집 하 여 인시던트 조사, 위협 구하기 및 보안 경고 생성을 지원 합니다. 흐름 로그를 Azure Monitor Log Analytics 작업 영역으로 보낸 다음 트래픽 분석를 사용 하 여 정보를 제공할 수 있습니다.
+
+다른 네트워크 데이터의 상관 관계를 지원 하기 위해 DNS 쿼리 로그를 수집 하 고 있는지 확인 합니다.
 
 - [네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하는 방법](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 규정 준수, 위협 검색, 구하기 및 인시던트 조사를 위한 요구 사항을 충족 하기 위해 Azure 리소스에 대 한 로깅을 사용 하도록 설정 합니다. 
 
-Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 한 리소스 로그 및 로그 데이터 수집을 사용 하도록 설정 하 여 감사, 보안 및 리소스 로그에 액세스할 수 있습니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다. 
+Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 한 리소스 로그 및 로그 데이터 수집을 사용 하도록 설정 하 여 감사, 보안 및 리소스 로그에 액세스할 수 있습니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다.
 
 - [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 
 
 인프라 및 엔드포인트 보안 
 
-- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -161,7 +165,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 또한 Azure 센티널 또는 타사 SIEM에 데이터를 사용 하도록 설정 하 고 등록 합니다.
 
-많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다. 
+많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다.
 
 - [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center 경고 및 권장 사항 내보내기](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [파트너 규정 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Microsoft는 대부분의 Azure PaaS 및 SaaS 서비스에 대 한 시간 소스를 유지 관리 합니다. 가상 컴퓨터의 경우 특정 요구 사항이 없는 경우 시간 동기화에 Microsoft 기본 NTP 서버를 사용 합니다.  사용자 고유의 NTP (network time protocol) 서버를 만들어야 하는 경우 UDP 서비스 포트 123를 보호 해야 합니다.
+Microsoft는 대부분의 Azure PaaS 및 SaaS 서비스에 대 한 시간 소스를 유지 관리 합니다. 가상 컴퓨터의 경우 특정 요구 사항이 없는 경우 시간 동기화에 Microsoft 기본 NTP 서버를 사용 합니다. 사용자 고유의 NTP (network time protocol) 서버를 만들어야 하는 경우 UDP 서비스 포트 123를 보호 해야 합니다.
 
 Azure 내에서 리소스에 의해 생성 된 모든 로그는 기본적으로 지정 된 표준 시간대를 사용 하 여 타임 스탬프를 제공 합니다.
 

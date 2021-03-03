@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 03/01/2021
 ms.author: victorh
-ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741364"
 ---
 # <a name="configure-azure-firewall-rules"></a>Azure 방화벽 규칙 구성
 Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙 컬렉션은 우선 순위 순서 대로 규칙 형식에 따라 처리 되 고 더 낮은 숫자는 100에서 65000 사이입니다. 규칙 컬렉션 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 사용할 수 있습니다. 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 합니다. 최대 이름 길이는 80 자입니다.
@@ -38,11 +38,11 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 ### <a name="nat-rules"></a>NAT 규칙
 
-[자습서: Azure Portal을 사용 하 여 Azure 방화벽 dnat 인바운드 트래픽 필터링](tutorial-firewall-dnat.md)에서 설명한 대로 대상 네트워크 주소 변환 (dnat)을 구성 하 여 인바운드 인터넷 연결을 사용 하도록 설정할 수 있습니다. NAT 규칙은 네트워크 규칙 이전 우선 순위로 적용 됩니다. 일치 항목이 발견되면 변환된 트래픽을 허용하도록 암시적인 해당 네트워크 규칙이 추가됩니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다.
+[자습서: Azure Portal을 사용 하 여 Azure 방화벽 dnat 인바운드 트래픽 필터링](tutorial-firewall-dnat.md)에서 설명한 대로 대상 네트워크 주소 변환 (dnat)을 구성 하 여 인바운드 인터넷 연결을 사용 하도록 설정할 수 있습니다. NAT 규칙은 네트워크 규칙 이전 우선 순위로 적용 됩니다. 일치 항목이 발견되면 변환된 트래픽을 허용하도록 암시적인 해당 네트워크 규칙이 추가됩니다. 보안상의 이유로, 네트워크에 대 한 액세스를 허용 하 고 와일드 카드를 사용 하지 않도록 특정 인터넷 원본을 추가 하는 것이 좋습니다.
 
 인바운드 연결에는 응용 프로그램 규칙이 적용 되지 않습니다. 따라서 인바운드 HTTP/S 트래픽을 필터링 하려면 WAF (웹 응용 프로그램 방화벽)를 사용 해야 합니다. 자세한 내용은 [Azure 웹 응용 프로그램 방화벽 이란?](../web-application-firewall/overview.md) 을 참조 하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예에서는 이러한 규칙 조합 중 일부에 대 한 결과를 보여 줍니다.
 

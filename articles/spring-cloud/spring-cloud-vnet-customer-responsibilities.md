@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0c73d0394486472c2c3c92450aab6a1a0d329cf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698215"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임
 이 문서에는 가상 네트워크에서 Azure 스프링 클라우드를 사용 하기 위한 사양이 포함 되어 있습니다.
@@ -34,13 +34,13 @@ Azure 스프링 클라우드를 가상 네트워크에 배포 하는 경우 가�
 
   | 대상 끝점 | 포트 | 사용 | 참고 |
   |------|------|------|
-  | *: 1194 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -azurecloud: 1194 | UDP: 1194 | 기본 Kubernetes 클러스터 관리. | |
-  | *: 443 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -azurecloud: 443 | TCP: 443 | Azure 스프링 클라우드 서비스 관리. | "NetworkProfile" 섹션의 리소스 페이로드에 서비스 인스턴스 "requiredTraffics"의 정보를 알 수 있습니다. |
-  | *: 9000 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -azurecloud: 9000 | TCP: 9000 | 기본 Kubernetes 클러스터 관리. |
+  | *: 1194 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -azurecloud: 1194 | UDP: 1194 | 기본 Kubernetes 클러스터 관리. | |
+  | *: 443 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -azurecloud: 443 | TCP: 443 | Azure 스프링 클라우드 서비스 관리. | "NetworkProfile" 섹션의 리소스 페이로드에 서비스 인스턴스 "requiredTraffics"의 정보를 알 수 있습니다. |
+  | *: 9000 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -azurecloud: 9000 | TCP: 9000 | 기본 Kubernetes 클러스터 관리. |
   | *: 123 *또는* ntp.ubuntu.com:123 | UDP:123 | Linux 노드에서 NTP 시간 동기화. | |
-  | *. azure.io:443 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -AzureContainerRegistry: 443 | TCP: 443 | Azure Container Registry입니다. |  [가상 네트워크에서 Azure Container Registry 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
-  | *. core.windows.net:443 및 *. core.windows.net:445 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -저장소: 443 및 저장소: 445 | TCP: 443, TCP: 445 | Azure File Storage |  [가상 네트워크에서 Azure Storage 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
-  | *. servicebus.windows.net:443 *또는* [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -EventHub: 443 | TCP: 443 | Azure 이벤트 허브. | [가상 네트워크에서](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) *Azure Event Hubs* 서비스 끝점을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
+  | *. azure.io:443 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -AzureContainerRegistry: 443 | TCP: 443 | Azure Container Registry입니다. |  [가상 네트워크에서 Azure Container Registry 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
+  | *. core.windows.net:443 및 *. core.windows.net:445 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -저장소: 443 및 저장소: 445 | TCP: 443, TCP: 445 | Azure File Storage |  [가상 네트워크에서 Azure Storage 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
+  | *. servicebus.windows.net:443 *또는* [servicetag](../virtual-network/service-tags-overview.md#available-service-tags) -EventHub: 443 | TCP: 443 | Azure 이벤트 허브. | [가상 네트워크에서](../virtual-network/virtual-network-service-endpoints-overview.md) *Azure Event Hubs* 서비스 끝점을 사용 하도록 설정 하 여 바꿀 수 있습니다. |
   
 
 ## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Azure 스프링 클라우드 FQDN 요구 사항/응용 프로그램 규칙
@@ -63,4 +63,4 @@ Azure 방화벽은 정규화 된 도메인 이름 (FQDN) 태그 **AzureKubernete
 
 ## <a name="see-also"></a>참고 항목
 * [개인 네트워크에서 애플리케이션에 액세스](spring-cloud-access-app-virtual-network.md)
-* [Application Gateway 및 Azure 방화벽을 사용 하 여 앱 노출](spring-cloud-expose-apps-gateway-azure-firewall.md) 
+* [Application Gateway 및 Azure 방화벽을 사용 하 여 앱 노출](spring-cloud-expose-apps-gateway-azure-firewall.md)

@@ -1,49 +1,49 @@
 ---
-title: VM용 Azure Monitor 게스트 상태 경고(미리 보기)
-description: 게스트 상태를 사용 하도록 설정 하 고 알림을 구성 하는 방법을 비롯 하 여 VM용 Azure Monitor에서 생성 되는 경고에 대해 설명 합니다.
+title: VM insights 게스트 상태 경고 (미리 보기)
+description: VM을 사용 하도록 설정 하 고 알림을 구성 하는 방법을 비롯 하 여 VM insights 게스트 상태에서 생성 된 경고에 대해 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620629"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707509"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>VM용 Azure Monitor 게스트 상태 경고(미리 보기)
-VM용 Azure Monitor 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 가상 컴퓨터 또는 모니터가 비정상 상태로 변경 되 면 경고를 만들 수 있습니다. [Azure Monitor의 경고 규칙에 의해 생성](../platform/alerts-overview.md) 된 경고를 보고 관리할 수 있으며 새 경고가 생성 될 때 사전에 알림을 받도록 선택할 수 있습니다.
+# <a name="vm-insights-guest-health-alerts-preview"></a>VM insights 게스트 상태 경고 (미리 보기)
+VM insights 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 가상 컴퓨터 또는 모니터가 비정상 상태로 변경 되 면 경고를 만들 수 있습니다. [Azure Monitor의 경고 규칙에 의해 생성](../alerts/alerts-overview.md) 된 경고를 보고 관리할 수 있으며 새 경고가 생성 될 때 사전에 알림을 받도록 선택할 수 있습니다.
 
 ## <a name="configure-alerts"></a>경고 구성
-이 기능이 미리 보기 상태인 동안에는 VM용 Azure Monitor 게스트 상태에 대 한 명시적 경고 규칙을 만들 수 없습니다. 기본적으로 각 가상 컴퓨터에 대 한 경고가 생성 되지만 각 모니터에 대해서는 생성 되지 않습니다.  즉, 모니터가 가상 컴퓨터의 현재 상태에 영향을 주지 않는 상태로 변경 되는 경우 가상 컴퓨터 상태가 변경 되지 않으므로 경고가 생성 되지 않습니다. 
+이 기능이 미리 보기 상태인 동안에는 VM insights 게스트 상태에 대 한 명시적 경고 규칙을 만들 수 없습니다. 기본적으로 각 가상 컴퓨터에 대 한 경고가 생성 되지만 각 모니터에 대해서는 생성 되지 않습니다.  즉, 모니터가 가상 컴퓨터의 현재 상태에 영향을 주지 않는 상태로 변경 되는 경우 가상 컴퓨터 상태가 변경 되지 않으므로 경고가 생성 되지 않습니다. 
 
-Azure Portal에서 가상 컴퓨터에 대 한 구성의 **경고 상태** 설정에서 특정 가상 컴퓨터 또는 특정 모니터의 특정 모니터에 대 한 경고를 사용 하지 않도록 설정할 수 있습니다. Azure Portal에서 모니터를 구성 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 게스트 상태 (미리 보기)의 모니터링 구성](vminsights-health-configure.md) 을 참조 하세요. 가상 컴퓨터 집합에서 모니터를 구성 하는 방법에 대 한 자세한 내용은 [데이터 수집 규칙을 사용 하 여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성 (미리 보기)](vminsights-health-configure-dcr.md) 을 참조 하세요.
+Azure Portal에서 가상 컴퓨터에 대 한 구성의 **경고 상태** 설정에서 특정 가상 컴퓨터 또는 특정 모니터의 특정 모니터에 대 한 경고를 사용 하지 않도록 설정할 수 있습니다. Azure Portal에서 모니터를 구성 하는 방법에 대 한 자세한 내용은 [VM insights 게스트 상태 (미리 보기)에서 모니터링 구성](vminsights-health-configure.md) 을 참조 하세요. 가상 컴퓨터 집합에서 모니터를 구성 하는 방법에 대 한 자세한 내용은 [데이터 수집 규칙을 사용 하 여 VM insights 게스트 상태에서 모니터링 구성 (미리 보기)](vminsights-health-configure-dcr.md) 을 참조 하세요.
 
 ## <a name="alert-severity"></a>경고 심각도
 게스트 상태에서 생성 되는 경고의 심각도는 가상 머신의 심각도 또는 경고를 트리거하는 모니터에 직접 매핑됩니다.
 
 | 모니터 상태 | 경고 심각도 |
 |:---|:---|
-| 중요 | Sev1 |
+| 위험 | Sev1 |
 | 경고  | Sev2 |
 | 정상  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>경고 수명 주기
-**경고** 또는 **위험** 상태로 변경 될 때마다 각 가상 머신에 대 한 [Azure 경고가](../platform/alerts-overview.md) 생성 됩니다. **Azure Monitor** 메뉴의 **경고** 또는 Azure Portal의 가상 컴퓨터 메뉴에서 경고를 확인 합니다.
+**경고** 또는 **위험** 상태로 변경 될 때마다 각 가상 머신에 대 한 [Azure 경고가](../alerts/alerts-overview.md) 생성 됩니다. **Azure Monitor** 메뉴의 **경고** 또는 Azure Portal의 가상 컴퓨터 메뉴에서 경고를 확인 합니다.
 
 가상 컴퓨터 상태가 변경 될 때 경고가 이미 **발생** 한 경우 두 번째 경고가 생성 되지 않지만 동일한 경고의 심각도는 가상 컴퓨터의 상태와 일치 하도록 변경 됩니다. 예를 들어 **경고** 경고가 이미 **발생** 된 상태에서 가상 머신이 **위험** 상태로 변경 되 면 해당 경고의 심각도가 **Sev1** 로 변경 됩니다. **Sev1** 경고가 이미 **발생** 한 경우 가상 머신이 **경고** 상태로 변경 되 면 해당 경고의 심각도는 **Sev2** 로 변경 됩니다. 가상 컴퓨터가 다시 **정상** 상태로 전환 되 면 심각도가 **Sev4** 로 변경 되 고 경고가 해결 됩니다.
 
 ## <a name="viewing-alerts"></a>경고 보기
-[Azure Portal의 다른 경고](../platform/alerts-overview.md#alerts-experience)와 함께 게스트 상태를 VM용 Azure Monitor 하 여 만든 경고를 봅니다. **Azure Monitor** 메뉴에서 **경고** 를 선택 하 여 모니터링 되는 모든 리소스에 대 한 경고를 확인 하거나 가상 컴퓨터의 메뉴에서 **경고** 를 선택 하 여 해당 가상 컴퓨터에 대 한 경고를 볼 수 있습니다.
+[Azure Portal에서 다른 경고](../platform/alerts-overview.md#alerts-experience)와 함께 VM insights 게스트 상태에 의해 생성 된 경고를 봅니다. **Azure Monitor** 메뉴에서 **경고** 를 선택 하 여 모니터링 되는 모든 리소스에 대 한 경고를 확인 하거나 가상 컴퓨터의 메뉴에서 **경고** 를 선택 하 여 해당 가상 컴퓨터에 대 한 경고를 볼 수 있습니다.
 
 ## <a name="alert-properties"></a>경고 속성
 
 ### <a name="properties-in-the-azure-portal"></a>Azure Portal의 속성
 다음 표에서는 Azure Portal에서 볼 때 경고 속성을 설명 합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | 경고를 만들기 전의 모니터 상태 | 이 경고가 처음 발생 하기 전의 모니터 또는 가상 컴퓨터의 상태입니다. |
 | 경고를 만든 상태를 모니터링 합니다. | 처음으로 경고가 발생 한 모니터 또는 가상 머신의 상태입니다. 경고가 발생 하는 상태입니다. |
@@ -61,7 +61,7 @@ Azure Portal에서 가상 컴퓨터에 대 한 구성의 **경고 상태** 설�
 ### <a name="properties-in-notifications"></a>알림의 속성
 알림에 포함 된 경고의 속성은 다음 표에 설명 되어 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | 이전 모니터 상태 | 상태를 변경 하기 전의 모니터 또는 가상 컴퓨터 상태입니다. 경고 심각도 업데이트가이 알림을 트리거하는 경우이 속성은 심각도 업데이트 직전의 상태를 나타냅니다. |
 | 현재 모니터 상태 | 상태를 변경 하는 모니터 또는 가상 머신의 상태입니다. 경고 심각도 업데이트가이 알림을 트리거하는 경우이 속성은 새 상태를 나타냅니다. |
@@ -106,6 +106,6 @@ Azure Portal **모니터** 메뉴에서 **경고** 를 선택 합니다.  **작�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [VM용 Azure Monitor 및 온보드 에이전트에서 게스트 상태를 사용 하도록 설정 합니다.](vminsights-health-enable.md)
+- [VM insights 및 온보드 에이전트에서 게스트 상태를 사용 하도록 설정 합니다.](vminsights-health-enable.md)
 - [Azure Portal를 사용 하 여 모니터를 구성 합니다.](vminsights-health-configure.md)
 - [데이터 수집 규칙을 사용 하 여 모니터를 구성 합니다.](vminsights-health-configure-dcr.md)

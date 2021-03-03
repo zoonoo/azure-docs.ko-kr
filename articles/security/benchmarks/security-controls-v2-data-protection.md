@@ -4,19 +4,21 @@ description: Azure Security 벤치 마크 V2 데이터 보호
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735763"
 ---
 # <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
 
 데이터 보호는 미사용 데이터 보호, 전송 중 및 권한이 부여 된 액세스 메커니즘을 통한 제어를 포함 합니다. 여기에는 Azure에서 액세스 제어, 암호화 및 로깅을 사용 하 여 중요 한 데이터 자산을 검색, 분류, 보호 및 모니터링 하는 작업이 포함 됩니다.
+
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 데이터 보호의 세부 정보](../../governance/policy/samples/azure-security-benchmark#data-protection) 를 참조 하세요.
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: 중요한 데이터 검색, 분류 및 레이블 지정
 
@@ -24,9 +26,9 @@ ms.locfileid: "97368871"
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
-중요 한 정보가 조직의 기술 시스템에서 안전 하 게 저장, 처리 및 전송 되도록 적절 한 컨트롤을 디자인 하기 위해 중요 한 데이터를 검색, 분류 및 레이블을 지정할 수 있습니다. 
+중요 한 정보가 조직의 기술 시스템에서 안전 하 게 저장, 처리 및 전송 되도록 적절 한 컨트롤을 디자인 하기 위해 중요 한 데이터를 검색, 분류 및 레이블을 지정할 수 있습니다.
 
-Azure, 온-프레미스, Office 365 및 기타 위치에 있는 Office 문서 내의 중요한 정보에 대해서는 Azure Information Protection(및 관련 검색 도구)을 사용합니다. 
+Azure, 온-프레미스, Office 365 및 기타 위치에 있는 Office 문서 내의 중요한 정보에 대해서는 Azure Information Protection(및 관련 검색 도구)을 사용합니다.
 
 Azure SQL 정보 보호를 사용하여 Azure SQL Database에 저장된 정보의 분류 및 레이블 지정을 지원할 수 있습니다.
 
@@ -38,7 +40,7 @@ Azure SQL 정보 보호를 사용하여 Azure SQL Database에 저장된 정보�
 
 **고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [데이터 보안](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ AIP(Azure Information Protection)는 분류되고 레이블이 지정된 정보�
 
 DLP(데이터 손실 방지)를 준수하는 데 필요한 경우 데이터 반출을 방지하기 위해 호스트 기반 DLP 솔루션을 사용하여 탐지 및/또는 예방 제어를 적용할 수 있습니다.
 
-- [Azure SQL ATP 사용](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender for SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Azure Storage ATP 사용](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [스토리지용 Azure Defender](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **책임**: 공유됨
 
@@ -104,11 +106,11 @@ DLP(데이터 손실 방지)를 준수하는 데 필요한 경우 데이터 반�
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
-액세스 제어를 보완 하기 위해 전송 중인 데이터를 암호화를 사용 하 여 ' 대역 외 ' 공격 (예: 트래픽 캡처) 으로부터 보호 하 여 공격자가 데이터를 쉽게 읽거나 수정할 수 없도록 해야 합니다. 
+액세스 제어를 보완 하기 위해 전송 중인 데이터는 공격자가 데이터를 쉽게 읽거나 수정할 수 없도록 암호화를 사용 하 여 "대역 외" 공격 (예: 트래픽 캡처) 으로부터 보호 되어야 합니다.
 
-개인 네트워크의 트래픽에 대 한 옵션은 선택 사항 이지만 외부 및 공용 네트워크의 트래픽에 매우 중요 합니다. HTTP 트래픽의 경우 Azure 리소스에 연결 하는 모든 클라이언트에서 TLS v 1.2 이상을 협상할 수 있는지 확인 합니다. 원격 관리의 경우 암호화 되지 않은 프로토콜 대신 SSH (Linux) 또는 RDP/TLS (Windows 용)를 사용 합니다. 사용 되지 않는 SSL, TLS, SSH 버전 및 프로토콜, 약한 암호를 사용 하지 않도록 설정 해야 합니다.  
+개인 네트워크의 트래픽에 대 한 옵션은 선택 사항 이지만 외부 및 공용 네트워크의 트래픽에 매우 중요 합니다. HTTP 트래픽의 경우 Azure 리소스에 연결 하는 모든 클라이언트에서 TLS v 1.2 이상을 협상할 수 있는지 확인 합니다. 원격 관리의 경우 암호화 되지 않은 프로토콜 대신 SSH (Linux) 또는 RDP/TLS (Windows 용)를 사용 합니다. 사용 되지 않는 SSL, TLS, SSH 버전 및 프로토콜, 약한 암호를 사용 하지 않도록 설정 해야 합니다.
 
-기본적으로 Azure는 Azure 데이터 센터 간에 전송 중인 데이터에 대 한 암호화를 제공 합니다. 
+기본적으로 Azure는 Azure 데이터 센터 간에 전송 중인 데이터에 대 한 암호화를 제공 합니다.
 
 - [Azure를 사용 하 여 전송 중인 암호화 이해](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

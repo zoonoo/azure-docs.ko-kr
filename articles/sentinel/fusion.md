@@ -12,19 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724288"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Azure 센티널의 Advanced 다단계 공격 감지
 
-
 > [!IMPORTANT]
-> Azure 센티널의 일부 Fusion 기능은 현재 **공개 미리 보기로** 제공 됩니다.
-> 이러한 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 일부 Fusion 검색 (아래에 표시 된 것 참조)은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
 기계 학습을 기반으로 하는 Fusion 기술을 사용 하 여 Azure 센티널은 kill 체인의 다양 한 단계에서 관찰 되는 비정상 동작 및 의심 스러운 활동의 조합을 식별 하 여 다단계 공격을 자동으로 감지할 수 있습니다. 이러한 검색을 기준으로 Azure 센티널은 catch 하기 어려운 인시던트를 생성 합니다. 이러한 인시던트는 둘 이상의 경고 또는 활동으로 구성 됩니다. 기본적으로 이러한 인시던트는 볼륨이 낮고, 높은 충실도 이며, 높은 심각도입니다.
 
@@ -60,12 +58,12 @@ ms.locfileid: "97746187"
 이러한 Fusion 지원 공격 검색 시나리오를 사용 하도록 설정 하려면 연결 된 Azure 센티널 데이터 커넥터를 사용 하 여 나열 된 모든 데이터 원본을 수집 해야 합니다.
 
 > [!NOTE]
-> 이러한 시나리오 중 일부는 **공개 미리 보기로** 제공 됩니다. 표시 됩니다.
+> 이러한 시나리오 중 일부는 **미리 보기** 상태입니다. 표시 됩니다.
 
 ## <a name="compute-resource-abuse"></a>리소스 남용 계산
 
 ### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>의심 스러운 Azure Active Directory 로그인 후 여러 VM 만들기 작업
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 영향 
 
@@ -214,7 +212,7 @@ ms.locfileid: "97746187"
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>의심 스러운 수신함 조작 규칙이 의심 스러운 Azure AD 로그인 다음에 설정 되었습니다.
 이 시나리오는 **데이터 반출** 및 **측면 이동** 이라는 두 가지 위협 분류에 속합니다. 명확성을 위해 두 섹션에 모두 표시 됩니다.
 
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 측면 이동, Exfiltration
 
@@ -235,7 +233,7 @@ ms.locfileid: "97746187"
 - **의심 스러운 자격 증명이 있는 사용자의 로그인 이벤트 (의심 스러운 수신함 조작 규칙)**
 
 ### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>의심 스러운 Azure AD 로그인 다음에 공유 작업을 공유 하는 여러 Power BI 보고서 
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, Exfiltration 
 
@@ -256,7 +254,7 @@ ms.locfileid: "97746187"
 - **여러 Power BI 보고서 공유 작업으로 이어지는 사용자의 로그인 이벤트**
 
 ### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>의심 스러운 Power BI 보고서 공유 의심 스러운 Azure AD 로그인
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, Exfiltration 
 
@@ -299,7 +297,7 @@ ms.locfileid: "97746187"
 - **대량 파일 삭제를 초래 하는 누출 자격 증명이 있는 사용자의 로그인 이벤트**
 
 ### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>의심 스러운 Azure AD 로그인 후 의심 스러운 이메일 삭제 활동
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 영향 
 
@@ -322,7 +320,7 @@ ms.locfileid: "97746187"
 ## <a name="denial-of-service"></a>서비스 거부
 
 ### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>의심 스러운 Azure AD 로그인을 수행 하는 여러 VM 삭제 작업
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 영향
 
@@ -367,7 +365,7 @@ ms.locfileid: "97746187"
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>의심 스러운 수신함 조작 규칙이 의심 스러운 Azure AD 로그인 다음에 설정 되었습니다.
 이 시나리오는이 목록에서 **측면 이동** 및 **데이터 반출** 이라는 두 가지 위협 분류에 속합니다. 명확성을 위해 두 섹션에 모두 표시 됩니다.
 
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 측면 이동, Exfiltration
 
@@ -412,7 +410,7 @@ ms.locfileid: "97746187"
 ## <a name="malicious-execution-with-legitimate-process"></a>합법적인 프로세스로 악성 실행
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell에서 의심 스러운 네트워크 연결을 수행한 후 Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상적인 트래픽이 발생 했습니다.
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 문제점
 
@@ -423,7 +421,7 @@ ms.locfileid: "97746187"
 **설명:** 이 유형의 Fusion 인시던트는 PowerShell 명령을 통해 아웃 바운드 연결 요청이 발생 했음을 나타내며, Palo Alto Networks 방화벽에서 비정상적인 인바운드 활동을 감지 했습니다. 공격자가 네트워크에 대 한 액세스 권한을 획득 하 여 악의적인 작업을 수행 하 려 할 가능성이 있음을 나타냅니다. PowerShell에서이 패턴을 따르는 연결 시도는 맬웨어 명령 및 제어 작업, 추가 맬웨어 다운로드 요청 또는 원격 대화형 액세스를 설정 하는 공격자에 게 표시 될 수 있습니다. 모든 "육지를 벗어난" 공격과 마찬가지로이 활동은 PowerShell을 합법적인 방법으로 사용할 수 있습니다. 그러나 PowerShell 명령 실행 후 의심 스러운 인바운드 방화벽 작업을 수행 하면 PowerShell이 악성 방식으로 사용 되 고 있으며 추가로 조사 되어야 한다는 확신도 높아집니다. Palo Alto 로그에서 Azure 센티널은 [위협 로그](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)를 집중적으로 다루며, 위협이 허용 되는 경우 (의심 스러운 데이터, 파일, 홍수, 패킷, 검색, 스파이웨어, url, 바이러스, 취약점, 산, wildfires) 트래픽이 의심 스러운 것으로 간주 됩니다. 또한 추가 경고 세부 정보는 Fusion 인시던트 설명에 나열 된 [위협/내용 유형에](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) 해당 하는 Palo Alto 위협 로그를 참조 하세요.
 
 ### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>의심 스러운 원격 WMI 실행 후 Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상적인 트래픽
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 실행, 검색
 
@@ -456,7 +454,7 @@ ms.locfileid: "97746187"
 ## <a name="malware-c2-or-download"></a>맬웨어 C2 또는 다운로드
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 뒤에 익명화 서비스에 대 한 네트워크 요청입니다.
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 명령 및 제어
 
@@ -467,7 +465,7 @@ ms.locfileid: "97746187"
 **설명:** 이 유형의 Fusion 인시던트는 익명화 서비스에 대 한 아웃 바운드 연결 요청이 발생 했음을 나타내며, 그 다음에는 Palo Alto Networks 방화벽에서 비정상적인 인바운드 활동을 감지 했습니다. 공격자가 네트워크에 대 한 액세스 권한을 획득 하 고 해당 작업 및 의도를 숨기 려 함을 나타냅니다. 이 패턴을 따라 하는 연결 네트워크에 대 한 연결은 맬웨어 명령 및 제어 작업, 추가 맬웨어 다운로드 요청 또는 원격 대화형 액세스를 설정 하는 공격자를 나타냅니다. Palo Alto 로그에서 Azure 센티널은 [위협 로그](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)를 집중적으로 다루며, 위협이 허용 되는 경우 (의심 스러운 데이터, 파일, 홍수, 패킷, 검색, 스파이웨어, url, 바이러스, 취약점, 산, wildfires) 트래픽이 의심 스러운 것으로 간주 됩니다. 또한 추가 경고 세부 정보는 Fusion 인시던트 설명에 나열 된 [위협/내용 유형에](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) 해당 하는 Palo Alto 위협 로그를 참조 하세요.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 다음에 무단 액세스 시도 기록을 사용 하 여 IP에 대 한 아웃 바운드 연결
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 명령 및 제어
 
@@ -502,7 +500,7 @@ ms.locfileid: "97746187"
 ## <a name="remote-exploitation"></a>원격 악용
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>공격 프레임 워크의 의심 스러운 사용, Palo Alto Networks 방화벽에 의해 플래그가 지정 된 비정상 트래픽
-이 시나리오는 현재 **공개 미리 보기로** 제공 됩니다.
+이 시나리오는 현재 **미리 보기** 상태입니다.
 
 **MITRE at&t&접시 헤드 전술:** 초기 액세스, 실행, 측면 이동, 권한 상승
 

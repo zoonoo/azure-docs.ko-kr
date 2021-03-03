@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711555"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  장기적인 분석 및 보고를 위해 성능 데이터를 집계 하는 것 외에도, NRT (거의 실시간) 분석을 위해 Log Analytics 에이전트에서 성능 카운터를 자주 수집할 수 Azure Monitor.
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 를 사용 하 여 성능 데이터를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md) 를 사용 하 여 성능 데이터를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
 
 ![성능 카운터](media/data-sources-performance-counters/overview.png)
 
@@ -28,7 +28,7 @@ Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](../ag
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | 설명 |
+| 인스턴스 이름 | Description |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -77,7 +77,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
 | instance\_regex |  수집할 인스턴스를 정의하는 *정규식* 입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
@@ -123,10 +123,10 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 물리적 디스크 | 평균 디스크 초/전송 |
 | 물리적 디스크 | 평균 디스크 초/쓰기 |
 | 물리적 디스크 | 물리적 디스크 바이트/초 |
-| 프로세스 | Pct 권한이 부여된 시간 |
-| 프로세스 | Pct 사용자 시간 |
-| 프로세스 | 사용된 메모리 KB |
-| 프로세스 | 가상 공유 메모리 |
+| Process | Pct 권한이 부여된 시간 |
+| Process | Pct 사용자 시간 |
+| Process | 사용된 메모리 KB |
+| Process | 가상 공유 메모리 |
 | 프로세서 | % DPC 시간 |
 | 프로세서 | % 유휴 시간 |
 | 프로세서 | % 인터럽트 시간 |
@@ -224,5 +224,5 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
 ## <a name="next-steps"></a>다음 단계
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 애플리케이션에서 성능 카운터를 수집](data-sources-linux-applications.md)합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.  
-* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](../platform/powerbi.md) 로 내보냅니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다.  
+* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](../visualize/powerbi.md) 로 내보냅니다.

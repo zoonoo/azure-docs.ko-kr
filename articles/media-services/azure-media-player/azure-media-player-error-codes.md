@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f063ab50cfd880552e80a77ba798e4d06de5b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81727256"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709583"
 ---
 # <a name="error-codes"></a>오류 코드 #
 
@@ -44,7 +44,7 @@ ms.locfileid: "81727256"
 오류에 대 한 세부 정보를 설명 하 고 bits 27-20는 높은 수준의 정보 19-0를 제공 합니다.
 
 
-| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | 설명 |
+| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | Description |
 |---|---:|---|
 | **MEDIA_ERR_ABORTED 오류 범위 (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | 일반 중단 오류 |
@@ -101,7 +101,7 @@ ms.locfileid: "81727256"
 - SRC_PLAYER_MISMATCH (6)-"이 비디오에 대해 호환 되는 소스를 찾을 수 없습니다."
 - MEDIA_ERR_UNKNOWN (0xFF)-"알 수 없는 오류가 발생 했습니다."
 
-## <a name="examples"></a>예 ##
+## <a name="examples"></a>예제 ##
 
 ### <a name="0x10600001"></a>0x10600001 ##
 

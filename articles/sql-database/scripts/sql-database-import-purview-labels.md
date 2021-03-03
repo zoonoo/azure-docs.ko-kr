@@ -10,12 +10,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
-ms.openlocfilehash: d202a931e7af1dc212e3ab688580fd38c64dbdcb
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2eab7c535ff0c68da772e8a45ead12420734279c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714904"
 ---
 # <a name="classify-your-azure-sql-data-using-azure-purview-labels"></a>Azure Purview 레이블을 사용하여 Azure SQL 데이터 분류
 [!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
@@ -254,6 +254,6 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
-Azure Purview에 대한 자세한 내용은 [Azure Purview 설명서](https://docs.microsoft.com/azure/purview/)를 참조하세요.
+Azure Purview에 대한 자세한 내용은 [Azure Purview 설명서](../../purview/index.yml)를 참조하세요.

@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730289"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -69,10 +69,10 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
     1. **네트워크 인터페이스** - 이를 통해 Azure Virtual Machine이 인터넷, Azure 및 기타 리소스와 통신할 수 있습니다.
     1. **Azure Bastion** - 이를 통해 브라우저와 Azure Portal을 사용하여 가상 머신에 연결할 수 있습니다.
     1. **공용 IP 주소** - 이를 통해 Azure 리소스에서 인터넷 및 공용 Azure 서비스에 통신할 수 있습니다.
-    1. **가상 네트워크** - 이를 통해 가상 머신과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 대해 자세히 알아보세요.
+    1. **가상 네트워크** - 이를 통해 가상 머신과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. [가상 네트워크](../../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보세요.
     1. **IoT Hub** - IoT 애플리케이션, IoT Edge 및 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
     1. **미디어 서비스 계정** - Azure에서 미디어 콘텐츠를 관리하고 스트리밍하는 데 도움이 됩니다.
-    1. **스토리지 계정** - 하나의 기본 스토리지 계정이 있어야 하며 Media Services 계정과 연결된 보조 스토리지 계정은 여러 개 있을 수 있습니다. 자세한 내용은 [Azure Media Services 계정이 있는 Azure Storage 계정](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept)을 참조하세요.
+    1. **스토리지 계정** - 하나의 기본 스토리지 계정이 있어야 하며 Media Services 계정과 연결된 보조 스토리지 계정은 여러 개 있을 수 있습니다. 자세한 내용은 [Azure Media Services 계정이 있는 Azure Storage 계정](../latest/storage-account-concept.md)을 참조하세요.
     1. **컨테이너 레지스트리** - 프라이빗 Docker 컨테이너 이미지 및 관련 아티팩트를 저장하고 관리하는 데 도움이 됩니다.
 
 스크립트 출력의 리소스 테이블에 IoT 허브 이름이 나열됩니다. **`Microsoft.Devices/IotHubs`** 리소스 종류를 찾고 이름을 적어 둡니다. 이 이름은 다음 단계에서 필요합니다.  

@@ -4,19 +4,21 @@ description: Azure Security 벤치 마크 V2 권한 있는 액세스
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720582"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
 권한 있는 액세스는 Azure 테 넌 트 및 리소스에 대 한 권한 있는 액세스를 보호 하는 컨트롤을 다룹니다. 여기에는 계획적이 고 실수로 인 한 위험 으로부터 관리 모델, 관리 계정 및 권한 있는 액세스 워크스테이션을 보호 하는 다양 한 컨트롤이 포함 됩니다.
+
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 권한 있는 액세스의 세부 정보](../../governance/policy/samples/azure-security-benchmark#privileged-access) 를 참조 하세요.
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: 권한이 높은 사용자 보호 및 제한
 
@@ -30,7 +32,7 @@ ms.locfileid: "99092053"
 
 - 권한 있는 역할 관리자:이 역할의 사용자는 Azure AD 뿐만 아니라 Azure AD Privileged Identity Management (PIM) 내에서 역할 할당을 관리할 수 있습니다. 또한이 역할을 통해 PIM 및 관리 단위의 모든 측면을 관리할 수 있습니다.
 
-참고: 권한 있는 특정 권한이 할당 된 사용자 지정 역할을 사용 하는 경우 관리 해야 하는 다른 중요 한 역할이 있을 수 있습니다. 또한 중요 한 비즈니스 자산의 관리자 계정에 비슷한 컨트롤을 적용할 수 있습니다.  
+참고: 권한 있는 특정 권한이 할당 된 사용자 지정 역할을 사용 하는 경우 관리 해야 하는 다른 중요 한 역할이 있을 수 있습니다. 또한 중요 한 비즈니스 자산의 관리자 계정에 비슷한 컨트롤을 적용할 수 있습니다.
 
 Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스 및 Azure AD에 대한 JIT(Just-In-Time) 권한 있는 액세스를 사용하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여합니다. 또한 PIM은 Azure AD 조직에서 의심스럽거나 안전하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
 
@@ -157,9 +159,9 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 
 안전 하 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 관리 작업에는 매우 안전한 사용자 워크스테이션 및/또는 Azure 방호를 사용 합니다. Azure Active Directory, Microsoft Defender ATP(Advanced Threat Protection) 및/또는 Microsoft Intune을 사용하여 관리 작업을 위한 관리형 보안 사용자 워크스테이션을 배포할 수 있습니다. 보안 된 워크스테이션을 중앙에서 관리 하 여 강력한 인증, 소프트웨어 및 하드웨어 기준, 제한 된 논리 및 네트워크 액세스를 비롯 한 보안 구성을 적용할 수 있습니다. 
 
-- [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [권한 있는 액세스 워크스테이션 이해](/security/compass/privileged-access-deployment)
 
-- [권한 있는 액세스 워크스테이션 배포](/security/compass/privileged-access-deployment)
+- [권한 있는 액세스 워크스테이션 배포](../../active-directory/devices/howto-azure-managed-workstation)
 
 **책임**: Customer
 
@@ -178,7 +180,8 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Azure 리소스 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대해 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 및 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. Azure RBAC를 통해 리소스에 할당 하는 권한은 항상 역할에 필요한 것으로 제한 되어야 합니다. 제한 된 권한은 Azure AD Privileged Identity Management (PIM)의 JIT (just-in-time) 접근 방식을 보완 하며 이러한 권한은 정기적으로 검토 해야 합니다.
-기본 제공 역할을 사용하여 권한을 할당하고 필요한 경우에만 사용자 지정 역할을 만듭니다. 
+
+기본 제공 역할을 사용 하 여 사용 권한을 할당 하 고 필요한 경우에만 사용자 지정 역할을 만듭니다.
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../../role-based-access-control/overview.md)
 
@@ -192,9 +195,9 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Az
 
 - [애플리케이션 보안 및 DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

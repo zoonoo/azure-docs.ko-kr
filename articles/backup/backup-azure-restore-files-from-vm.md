@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567132"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725512"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -77,6 +77,11 @@ Windows 저장소 공간에 대해 구성 된 VM에서 다운로드 한 실행 �
 
 백업 된 컴퓨터에 많은 수의 디스크 (>16) 또는 큰 디스크가 있는 경우 > (각각 4 TB) VM에 상당한 영향을 주므로 복원을 위해 동일한 컴퓨터에서 스크립트를 실행 하는 것이 좋습니다. 대신 파일 복구 (Azure VM D2v3 Vm)에 대 한 별도의 VM만 포함 하 고 필요 하지 않은 경우 종료 하는 것이 좋습니다. 
 
+대량 디스크로 백업 된 Vm에서 파일을 복원 하기 위한 요구 사항을 참조 하세요.<br>
+[Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
+[Linux OS](#for-backed-up-vms-with-large-disks-linux)
+
+
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>3 단계: 스크립트를 성공적으로 실행 하기 위한 OS 요구 사항
 
 다운로드 한 스크립트를 실행 하려는 VM은 다음 요구 사항을 충족 해야 합니다.
@@ -88,7 +93,7 @@ Windows 저장소 공간에 대해 구성 된 VM에서 다운로드 한 실행 �
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
 | Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |

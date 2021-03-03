@@ -3,12 +3,12 @@ title: Azure Stack Edge에 Live Video Analytics 배포
 description: 이 문서에서는 Azure Stack Edge에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: cc3dcfaa96034e807d3d82e75eedc0f6a82eff08
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730272"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
 
@@ -19,7 +19,7 @@ ms.locfileid: "99551011"
 > [!TIP]
 > 사용자 지정 배포에 Kubernetes (K8s) API를 사용 하는 것은 고급 사례입니다. 고객은 Kubernetes API를 사용 하는 대신 edge 모듈을 만들고 각 Azure Stack에 지 리소스에 IoT Hub를 통해 배포 하는 것이 좋습니다. 이 문서에서는 IoT Hub 사용 하 여 라이브 비디오 분석 모듈을 배포 하는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner)있는 Azure 구독입니다.
 * [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) 리소스
@@ -42,7 +42,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 * [Azure Stack Edge/Data Box Gateway 리소스 만들기](../../databox-online/azure-stack-edge-deploy-prep.md)
 * [설치 및 설정](../../databox-online/azure-stack-edge-deploy-install.md)
 * [연결 및 활성화](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-* [Azure Stack에 지에 IoT Hub 연결](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
+* [Azure Stack에 지에 IoT Hub 연결](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Azure Stack Edge 로컬 UI에서 계산 전제 조건 사용
 
 계속 하기 전에 다음을 확인 합니다.
@@ -234,17 +234,22 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     
 ## <a name="troubleshooting"></a>문제 해결
 
-* Kubectl (Kubernetes API Access).
+* **Kubectl (Kubernetes API Access)**
 
-    * 설명서에 따라 [Kubernetes 클러스터에](https://review.docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster?toc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Ftoc.json&bc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Fbreadcrumb%2Ftoc.json&branch=release-tzl#debug-kubernetes-issues)대 한 액세스를 위해 컴퓨터를 구성 합니다.
-    * 배포 된 모든 IoT Edge 모듈은 `iotedge` 네임 스페이스를 사용 합니다. Kubectl를 사용할 때이를 포함 해야 합니다.
-* 모듈 로그
+    * 설명서에 따라 [Kubernetes 클러스터에](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster)대 한 액세스를 위해 컴퓨터를 구성 합니다.
+    * 배포 된 모든 IoT Edge 모듈은 `iotedge` 네임 스페이스를 사용 합니다. Kubectl를 사용할 때이를 포함 해야 합니다.  
 
-    `iotedge`로그를 가져오기 위해 도구에 액세스할 수 없습니다. [Kubectl 로그](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) 를 사용 하 여 파일에 대 한 로그 또는 파이프를 확인 해야 합니다. 예제: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`
-* Pod 및 노드 메트릭
+* **모듈 로그**
 
-    Pod 및 노드 메트릭을 보려면 [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  을 사용 합니다. 이 기능은 다음 Azure Stack Edge 릴리스에서 제공 됩니다. >v2007)<br/>`kubectl top pods -n iotedge`
-* 모듈 검색을 위한 모듈 네트워킹 Azure Stack Edge에서 모듈에는 createOptions의 호스트 포트 바인딩이 있어야 합니다. 그러면 모듈에 주소를 지정할 수 `moduleName:hostport` 있습니다.
+    `iotedge`로그를 가져오기 위해 도구에 액세스할 수 없습니다. [Kubectl 로그](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) 를 사용 하 여 파일에 대 한 로그 또는 파이프를 확인 해야 합니다. 예제: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
+
+* **Pod 및 노드 메트릭**
+
+    Pod 및 노드 메트릭을 보려면 [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  을 사용 합니다.
+    <br/>`kubectl top pods -n iotedge` 
+
+* **모듈 네트워킹**   
+Azure Stack Edge에서 모듈 검색의 경우 모듈에 createOptions의 호스트 포트 바인딩이 있어야 합니다. 그러면 모듈에 주소를 지정할 수 `moduleName:hostport` 있습니다.
     
     ```json
     "createOptions": {
@@ -256,10 +261,11 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
     }
     ```
     
-* 볼륨 탑재
+* **볼륨 탑재**
 
     컨테이너가 기존 디렉터리와 비어 있지 않은 디렉터리에 볼륨을 탑재 하려고 하면 모듈이 시작 되지 않습니다.
-* 공유 메모리
+
+* **GRPC를 사용할 때 공유 메모리**
 
     호스트 IPC를 사용 하 여 모든 네임 스페이스의 pod에서 Azure Stack Edge 리소스에 대 한 공유 메모리를 지원 합니다.
     IoT Hub를 통해 배포에 대 한 edge 모듈에서 공유 메모리를 구성 합니다.
@@ -272,7 +278,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
         }
     ...
         
-    (Advanced) Configuring shared memory on a K8s Pod or Deployment manifest for deployment via K8s API.
+    //(Advanced) Configuring shared memory on a K8s Pod or Deployment manifest for deployment via K8s API
     spec:
         ...
         template:
@@ -281,14 +287,14 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
         ...
     ```
     
-* 고급 Pod 공동 배치
+* **고급 Pod 공동 배치**
 
     K8s를 사용 하 여 gRPC를 통해 라이브 비디오 분석과 통신 하는 사용자 지정 유추 솔루션을 배포 하는 경우 pod가 라이브 비디오 분석 모듈과 동일한 노드에 배포 되었는지 확인 해야 합니다.
 
-    * 옵션 1-공동 배치를 위해 노드 선호도 및 기본 제공 노드 레이블을 사용 합니다.
+    * **옵션 1** -공동 배치를 위해 노드 선호도 및 기본 제공 노드 레이블을 사용 합니다.
 
     사용자가 노드에 레이블을 설정할 수 있는 액세스 권한이 없기 때문에 현재 NodeSelector 사용자 지정 구성은 옵션으로 표시 되지 않습니다. 그러나 고객의 토폴로지 및 명명 규칙에 따라 [기본 제공 노드 레이블을](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels)사용할 수 있습니다. Live Video Analytics를 사용 하 여 Azure Stack Edge 리소스를 참조 하는 nodeAffinity 섹션을 유추 pod 매니페스트에 추가 하 여 공동 배치할 수 있습니다.
-    * 옵션 2-공동 배치에 Pod 선호도 사용 (권장)
+    * **옵션 2** -공동 배치에 Pod 선호도 사용 (권장)
 Kubernetes는 동일한 노드에서 pod을 예약할 수 있는 [Pod 선호도](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity)  를 지원 합니다. 라이브 비디오 분석 모듈을 참조 하는 podAffinity 섹션을 유추 pod 매니페스트에 추가 하 여 공동 배치를 달성할 수 있습니다.
 
     ```json   
@@ -310,6 +316,31 @@ Kubernetes는 동일한 노드에서 pod을 예약할 수 있는 [Pod 선호도]
                 values:
                 - mediaedge
             topologyKey: "kubernetes.io/hostname"
+    ```
+* **404 모듈을 사용 하는 경우 오류 코드 `rtspsim`**  
+컨테이너는 컨테이너 내에서 정확히 한 폴더의 비디오를 읽습니다. 컨테이너 이미지에 이미 존재 하는 폴더에 외부 폴더를 매핑하거나 바인딩하는 경우 docker는 컨테이너 이미지에 있는 파일을 숨깁니다.  
+ 
+    예를 들어 바인딩이 없는 컨테이너에는 다음 파일이 있을 수 있습니다.  
+    ```
+    root@rtspsim# ls /live/mediaServer/media  
+    /live/mediaServer/media/camera-300s.mkv  
+    /live/mediaServer/media/win10.mkv  
+    ```
+     
+    그리고 호스트에는 다음 파일이 있을 수 있습니다.
+    ```    
+    C:\MyTestVideos> dir
+    Test1.mkv
+    Test2.mkv
+    ```
+     
+    그러나 다음 바인딩이 배포 매니페스트 파일에 추가 되 면 docker는 호스트에 있는 것과 일치 하도록/live/mediaServer/media의 콘텐츠를 덮어씁니다.
+    `C:\MyTestVideos:/live/mediaServer/media`
+    
+    ```
+    root@rtspsim# ls /live/mediaServer/media
+    /live/mediaServer/media/Test1.mkv
+    /live/mediaServer/media/Test2.mkv
     ```
 
 ## <a name="next-steps"></a>다음 단계

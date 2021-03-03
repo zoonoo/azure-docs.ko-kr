@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616669"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737208"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>IT 서비스 관리 커넥터 문제 해결
 
@@ -55,7 +55,7 @@ ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를
 
 * 자격 증명이 잘못 되었습니다.
 * 권한이 부족 합니다.
-* 웹 앱이 잘못 배포 되었습니다.
+* Service Manager 연결의 경우: 웹 앱이 잘못 배포 되었습니다.
 
 **해결 방법**:
 
@@ -95,3 +95,12 @@ ITSMC 대시보드를 사용 하 여 인시던트 및 변경 요청 데이터를
 **원인**: 새로 만든 itsmc 인스턴스는 아직 초기 동기화를 완료 해야 합니다.
 
 **해결** 방법: [일반적인 오류 및 해결 방법을](itsmc-dashboard-errors.md)검토 합니다.
+
+### <a name="sync-connection"></a>연결 동기화 
+
+**원인**:이 증상의 원인에는 여러 가지가 있을 수 있습니다.
+
+* 템플릿은 작업 정의의 일부로 표시 되지 않습니다.
+* Incedents/Events는 ServiceNow에서 만들어지지 않습니다.
+
+**해결** 방법: [커넥터를 동기화](itsmc-resync-servicenow.md)합니다.

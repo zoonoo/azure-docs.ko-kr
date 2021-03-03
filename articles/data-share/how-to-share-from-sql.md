@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964170"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740378"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -275,7 +275,7 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
 ### <a name="trigger-a-snapshot"></a>스냅샷 트리거
 이 단계는 스냅샷 기반 공유에만 적용됩니다.
 
-1. **세부 정보** 탭 다음에 **스냅샷 트리거** 를 선택하여 스냅샷을 트리거할 수 있습니다. 여기서는 데이터의 전체 또는 증분 스냅샷을 트리거할 수 있습니다. 데이터를 데이터 공급자로부터 처음 받는 경우 전체 복사본을 선택합니다. SQL 원본의 경우 전체 스냅숏으로 지원 됩니다.
+1. **세부 정보** 탭 다음에 **스냅샷 트리거** 를 선택하여 스냅샷을 트리거할 수 있습니다. 여기서는 데이터의 전체 또는 증분 스냅샷을 트리거할 수 있습니다. 데이터를 데이터 공급자로부터 처음 받는 경우 전체 복사본을 선택합니다. SQL 원본의 경우 전체 스냅숏으로 지원 됩니다. 스냅숏이 실행 중일 때 후속 스냅숏은 이전 스냅숏이 완료 될 때까지 시작 되지 않습니다.
 
    ![스냅샷 트리거](./media/trigger-snapshot.png "스냅샷 트리거") 
 

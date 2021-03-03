@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 309053c2d7a0f9482016f1bd83e0c61dcd31bec5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932156"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740667"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -36,7 +36,7 @@ Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 �
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>클러스터에 권장되는 가상 머신 유형 사용
 
-각 HDInsight 클러스터 유형에 대한 권장되는 가상 머신 유형은 [클러스터에 대한 기본 노드 구성 및 가상 머신 크기](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)를 참조하세요.
+각 HDInsight 클러스터 유형에 대한 권장되는 가상 머신 유형은 [클러스터에 대한 기본 노드 구성 및 가상 머신 크기](../hdinsight-supported-node-configuration.md)를 참조하세요.
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>HDInsight에서 Hadoop 구성 요소의 가용성 확인
 
@@ -46,7 +46,7 @@ Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 �
 
 온-프레미스 클러스터에서 사용할 수 있지만 HDInsight 클러스터의 일부가 아닌 응용 프로그램이 나 구성 요소는에 지 노드 또는 HDInsight 클러스터와 동일한 VNet의 VM에 추가할 수 있습니다. Azure HDInsight에서 사용할 수 없는 타사 Hadoop 애플리케이션을 HDInsight 클러스터에서 "애플리케이션" 옵션을 사용하여 설치할 수 있습니다. 사용자 지정 Hadoop 애플리케이션을 "스크립트 동작"을 사용하여 HDInsight 클러스터에 설치할 수 있습니다. 다음 표는 일반적인 애플리케이션 및 해당 HDInsight 통합 옵션 중 일부를 나열합니다.
 
-|**애플리케이션**|**통합**
+|**응용 프로그램**|**통합**
 |---|---|
 |기류|IaaS 또는 HDInsight에 지 노드
 |Alluxio|IaaS  
@@ -73,7 +73,7 @@ Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 �
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) 문서 참조
+자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md) 문서 참조
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -149,7 +149,7 @@ Azure Portal을 통해 에지 노드를 만들거나 삭제할 수 있으며 클
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>클러스터의 확장 및 축소 기능 사용
 
-HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
 
 * [HDInsight 클러스터 크기 조정](../hdinsight-scaling-best-practices.md)
 * [클러스터 크기 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters)

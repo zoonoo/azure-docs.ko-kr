@@ -5,20 +5,20 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979609"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718185"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성에 설정 푸시
 
 [Azure 앱 구성 푸시](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) 작업은 구성 파일의 키-값을 앱 구성 저장소로 푸시합니다. 이 작업을 통해 앱 구성 저장소에서 설정을 끌어올 수 있을 뿐만 아니라 앱 구성 저장소에 대 한 푸시 설정을 사용할 수 있기 때문에 파이프라인 내에서 전체 서클 기능을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 앱 구성 리소스- [Azure Portal](https://portal.azure.com)에서 무료로 무료로 만듭니다.
@@ -80,7 +80,7 @@ ms.locfileid: "99979609"
 
 - **Azure 구독**: 사용 가능한 azure 서비스 연결을 포함 하는 드롭 다운입니다. 사용 가능한 Azure 서비스 연결 목록을 업데이트 하 고 새로 고치려면 텍스트 상자의 오른쪽에 있는 **azure 구독 새로 고침** 단추를 누릅니다.
 - **앱 구성 이름**: 선택한 구독에서 사용 가능한 구성 저장소를 로드 하는 드롭다운입니다. 사용 가능한 구성 저장소 목록을 업데이트 하 고 새로 고치려면 텍스트 상자의 오른쪽에 있는 **앱 구성 이름 새로 고침** 단추를 누릅니다.
-- **구성 파일 경로**: 구성 파일에 대 한 경로입니다. 빌드 아티팩트를 탐색 하 여 구성 파일을 선택할 수 있습니다. ( `...` 입력란 오른쪽에 있는 단추)
+- **구성 파일 경로**: 구성 파일에 대 한 경로입니다. 빌드 아티팩트를 탐색 하 여 구성 파일을 선택할 수 있습니다. ( `...` 입력란 오른쪽에 있는 단추) 지원 되는 파일 형식은 yaml, json, properties입니다.
 - **Separator**: json 및 .yml 파일을 결합 하는 데 사용 되는 구분 기호입니다.
 - **Depth**:. i n i 파일 및. m m m 파일의 평면화 되는 수준입니다.
 - **Prefix**: 앱 구성 저장소에 푸시되는 각 키의 시작 부분에 추가 되는 문자열입니다.

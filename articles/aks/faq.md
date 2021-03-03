@@ -3,12 +3,13 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739630"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -134,7 +135,7 @@ AKS는 API 서버를 송신 하 여 클러스터 내에서 허용 컨트롤러 w
 
 AKS는 [작동 시간 sla][uptime-sla]를 사용 하는 선택적 추가 기능으로 SLA 보증을 제공 합니다. 
 
-기본적으로 제공 되는 무료 SLA는 항상 사용 가능한 API 서버 끝점 (서비스 수준 목표는 99.5%)을 보장 하지 않습니다. 업그레이드, 비정상 언더레이 노드, 플랫폼 유지 관리 등의 경우 일시적인 연결 문제가 관찰 되는 경우가 있을 수 있습니다. 워크 로드가 APIServer를 다시 시작할 것을 허용 하지 않는 경우 작동 시간 SLA를 사용 하는 것이 좋습니다.
+기본적으로 제공 되는 무료 SKU에는 연결 된 서비스 수준 *계약이* 없지만 99.5%의 서비스 수준 *목표가* 있습니다. 업그레이드, 비정상 언더레이 노드, 플랫폼 유지 관리, 응용 프로그램에서 요청을 포함 하는 API 서버 처리량 등의 경우 일시적인 연결 문제가 관찰 될 수 있습니다. 워크 로드가 API 서버 다시 시작을 허용 하지 않는 경우 작동 시간 SLA를 사용 하는 것이 좋습니다.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>AKS 에이전트 노드에 Azure 예약 할인을 적용할 수 있나요?
 
@@ -202,7 +203,7 @@ Log Analytics 에이전트는 Microsoft에서 관리 하는 확장 이므로 지
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
 
-단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
+단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 브라질 지역 아시아 태평양 지역 및 브라질 남부 (상 파울로 State) 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>AKS 이미지가 root로 실행 되어야 하나요?
 

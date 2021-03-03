@@ -2,13 +2,13 @@
 title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "99822423"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733666"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -51,12 +51,6 @@ Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합�
 Azure VMware Solution 프라이빗 클라우드에 배포하려는 호스트 수를 정의합니다.  최소 호스트 수는 3개이고, 최대 노드 수는 클러스터당 16개입니다.  자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#clusters) 설명서를 참조하세요.
 
 초기 배포 수를 초과해야 하는 경우 나중에 언제든지 클러스터를 확장할 수 있습니다.
-
-## <a name="vcenter-admin-password"></a>vCenter 관리자 암호
-vCenter 관리자 암호를 정의합니다.  배포 중에 vCenter 관리자 암호를 만듭니다. 암호는 vCenter 빌드 중에 cloudadmin@vsphere.local 관리자 계정에 대해 지정됩니다. 이는 vCenter에 로그인하는 데 사용됩니다.
-
-## <a name="nsx-t-admin-password"></a>NSX-T 관리자 암호
-NSX-T 관리자 암호를 정의합니다.  배포 중에 NSX-T 관리자 암호를 만듭니다. 암호는 NSX 빌드 중에 NSX 계정의 관리 사용자에게 할당됩니다. 이는 NSX-T Manager에 로그인하는 데 사용됩니다.
 
 ## <a name="ip-address-segment"></a>IP 주소 세그먼트
 

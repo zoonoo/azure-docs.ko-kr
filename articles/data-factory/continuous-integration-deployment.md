@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383605"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716530"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -199,7 +199,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
-개발 팩터리에 연결된 Git 리포지토리가 있는 경우 템플릿을 게시하거나 내보내 생성된 Resource Manager 템플릿의 기본 Resource Manager 템플릿 매개 변수를 재정의할 수 있습니다. 다음과 같은 시나리오에서 기본 매개 변수화 템플릿을 재정의할 수 있습니다.
+개발 팩터리에 연결된 Git 리포지토리가 있는 경우 템플릿을 게시하거나 내보내 생성된 Resource Manager 템플릿의 기본 Resource Manager 템플릿 매개 변수를 재정의할 수 있습니다. 이러한 시나리오에서 기본 리소스 관리자 매개 변수 구성을 재정의할 수 있습니다.
 
 * 자동화 CI/CD를 사용하고 Resource Manager 배포 중에 일부 속성을 변경하려고 하지만 속성은 기본적으로 매개 변수화되지 않습니다.
 * 팩터리가 너무 커서 허용되는 최대 매개 변수(256)를 초과했기 때문에 기본 Resource Manager 템플릿이 유효하지 않습니다.
@@ -210,11 +210,14 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
     * 데이터 흐름의 논리를 리팩터링 하 여 매개 변수를 줄입니다. 예를 들어 파이프라인 매개 변수는 모두 동일한 값을 가지 며, 대신 전역 매개 변수를 사용할 수 있습니다.
     * 하나의 데이터 팩터리를 여러 데이터 흐름으로 분할 합니다.
 
-기본 매개 변수화 템플릿을 재정의 하려면 관리 허브로 이동 하 여 소스 제어 섹션에서 **매개 변수화 템플릿** 을 선택 합니다. **템플릿 편집** 을 선택 하 여 매개 변수화 템플릿 코드 편집기를 엽니다. 
+기본 리소스 관리자 매개 변수 구성을 재정의 하려면 **관리** 허브로 이동 하 고 "원본 제어" 섹션에서 **ARM 템플릿** 을 선택 합니다. **ARM 매개 변수 구성** 섹션에서 "매개 변수 구성 편집"의 **편집** 아이콘을 클릭 하 리소스 관리자 매개 변수 구성 코드 편집기를 엽니다.
 
 ![사용자 지정 매개 변수 관리](media/author-management-hub/management-hub-custom-parameters.png)
 
-사용자 지정 매개 변수화 템플릿을 만들면 git 분기의 루트 폴더에 **arm-template-parameters-definition.json** 이라는 파일이 만들어집니다. 정확한 파일 이름을 사용해야 합니다.
+> [!NOTE]
+> **ARM 매개 변수 구성은** "GIT 모드" 에서만 사용 하도록 설정 됩니다. 현재 "라이브 모드" 또는 "Data Factory" 모드에서는 사용할 수 없습니다.
+
+사용자 지정 리소스 관리자 매개 변수 구성을 만들면 git 분기의 루트 폴더에 **arm-template-parameters-definition.js** 라는 파일이 만들어집니다. 정확한 파일 이름을 사용해야 합니다.
 
 ![사용자 지정 매개 변수 파일](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 리소스 관리자 템플릿을 내보낼 때 Data Factory는 공동 작업 분기가 아닌 현재 작업 중인 분기에서이 파일을 읽습니다. 프라이빗 분기에서 파일을 만들거나 편집할 수 있습니다. 여기서 UI의 **ARM 템플릿 내보내기** 를 선택하여 변경 내용을 테스트할 수 있습니다. 그런 다음 협업 분기에 파일을 병합할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 매개 변수화 템플릿에서 ARM 템플릿 매개 변수 제한(256)을 변경하지 않습니다. 이를 통해 매개 변수화된 속성의 개수를 선택하고 줄일 수 있습니다.
+> 사용자 지정 리소스 관리자 매개 변수 구성은 ARM 템플릿 매개 변수 제한인 256를 변경 하지 않습니다. 이를 통해 매개 변수화된 속성의 개수를 선택하고 줄일 수 있습니다.
 
 ### <a name="custom-parameter-syntax"></a>사용자 지정 매개 변수 구문
 
@@ -244,7 +247,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
  
 ### <a name="sample-parameterization-template"></a>샘플 매개 변수화 템플릿
 
-매개 변수화 템플릿의 예는 다음과 같습니다.
+리소스 관리자 매개 변수 구성의 예는 다음과 같습니다.
 
 ```json
 {

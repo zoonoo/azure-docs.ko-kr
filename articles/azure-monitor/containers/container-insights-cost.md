@@ -1,22 +1,22 @@
 ---
-title: 컨테이너의 Azure Monitor에 대 한 모니터링 비용 | Microsoft Docs
-description: 이 문서에서는 고객이 사용 및 관련 비용을 관리 하는 데 도움이 되는 컨테이너에 대 한 Azure Monitor 수집 된 메트릭 & 인벤토리 데이터에 대 한 모니터링 비용을 설명 합니다.
+title: 컨테이너 정보에 대 한 모니터링 비용 | Microsoft Docs
+description: 이 문서에서는 고객이 사용 및 관련 비용을 관리 하는 데 도움이 되도록 컨테이너 정보에 의해 수집 된 인벤토리 데이터를 & 하는 메트릭에 대 한 모니터링 비용을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 0a3118e1dd839eced5e1f15d28feff4bbb58014f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620094"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728912"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>컨테이너에 대한 Azure Monitor의 모니터링 비용 이해
+# <a name="understand-monitoring-costs-for-container-insights"></a>컨테이너 정보에 대 한 모니터링 비용 이해
 
-이 문서에서는 다음을 이해 하는 데 도움이 되는 컨테이너의 Azure Monitor에 대 한 가격 책정 지침을 제공 합니다.
+이 문서에서는 다음을 이해 하는 데 도움이 되는 컨테이너 정보에 대 한 가격 책정 지침을 제공 합니다.
 
 * 이 통찰력을 사용 하도록 설정 하기 전에 비용을 계산 하는 방법
 
-* 하나 이상의 컨테이너에서 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후 비용을 측정 하는 방법
+* 컨테이너 정보를 하나 이상의 컨테이너에 대해 사용 하도록 설정한 후 비용을 측정 하는 방법
 
 * 데이터 컬렉션을 제어 하 고 비용을 절감 하는 방법
 
@@ -27,7 +27,7 @@ Azure Monitor 가격 책정 모델은 주로 Log Analytics 작업 영역에 대 
 >[!NOTE]
 >모든 크기와 가격은 샘플 예측에 대해서만 사용할 수 있습니다. Azure Monitor Log Analytics 가격 책정 모델 및 Azure 지역에 따라 [최신 가격 책정 페이지 Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) 를 참조 하세요.
 
-다음은 Kubernetes 클러스터에서 수집 되는 데이터의 형식에 대 한 요약으로, 비용에 영향을 주는 컨테이너에 대 한 Azure Monitor를 사용 하 여 사용자 지정할 수 있습니다.
+다음은 비용에 영향을 주는 컨테이너 통찰력을 사용 하 여 Kubernetes 클러스터에서 수집 되는 데이터의 유형과 사용량에 따라 사용자 지정할 수 있는 데이터의 유형을 요약 한 것입니다.
 
 - 클러스터의 모든 Kubernetes 네임 스페이스에 있는 모든 모니터링 되는 컨테이너의 Stdout, stderr 컨테이너 로그
 
@@ -37,11 +37,11 @@ Azure Monitor 가격 책정 모델은 주로 Log Analytics 작업 영역에 대 
 
 - 프로메테우스 메트릭의 활성 스크랩
 
-- AKS 클러스터에 있는 Kubernetes 마스터 노드 로그의 [진단 로그 수집](../../aks/view-master-logs.md) - *kube* 와 같은 마스터 구성 요소에 의해 생성 된 로그 데이터를 분석 합니다 *.*
+- AKS 클러스터에 있는 Kubernetes 마스터 노드 로그의 [진단 로그 수집](../../aks/view-control-plane-logs.md) - *kube* 와 같은 마스터 구성 요소에 의해 생성 된 로그 데이터를 분석 합니다 *.*
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>Kubernetes 클러스터에서 수집 되는 내용
 
-컨테이너에 대 한 Azure Monitor에는 Log Analytics 작업 영역에서 로그 데이터로 기록 되는 미리 정의 된 메트릭 및 인벤토리 항목 집합이 포함 되어 있습니다. 아래에 나열 된 모든 메트릭은 1 분 마다 기본적으로 수집 됩니다.
+컨테이너 insights에는 Log Analytics 작업 영역에 로그 데이터로 작성 된 미리 정의 된 메트릭 및 인벤토리 항목 집합이 포함 되어 있습니다. 아래에 나열 된 모든 메트릭은 1 분 마다 기본적으로 수집 됩니다.
 
 ### <a name="node-metrics-collected"></a>수집 된 노드 메트릭
 
@@ -194,10 +194,10 @@ Azure Monitor 가격 책정 모델은 주로 Log Analytics 작업 영역에 대 
 
 - 스크랩 frequency가 최적으로 설정 되어 있는지 확인 합니다 (기본값은 60 초). 빈도를 15 초로 늘릴 수 있지만 스크랩 메트릭이 해당 빈도로 게시 되는지 확인 해야 합니다. 그렇지 않은 경우에는 데이터 수집 및 보존 비용에 추가 되는 간격으로 많은 중복 메트릭이 스크랩 Log Analytics 작업 영역으로 전송 되 고 값은 줄어듭니다. 
 
-- 컨테이너 Azure Monitor는 메트릭 이름별 제외 & 포함 목록을 지원 합니다. 예를 들어 클러스터에서 **kubedns** 메트릭을 스크랩 하는 경우, 기본적으로 스크랩를 가져오는 수백 개의가 있을 수 있지만, 하위 집합에만 관심이 있을 가능성이 높습니다. 스크랩에 대 한 메트릭 목록을 지정 했는지 확인 하거나, 몇 가지를 제외한 다른 항목을 제외 하 여 데이터 수집 볼륨에 저장 합니다. 스크랩를 사용 하도록 설정 하 고 대부분의 메트릭을 사용 하지 않고 Log Analytics 청구서에 추가 요금을 추가 하는 것이 쉽습니다.
+- 컨테이너 insights는 메트릭 이름별 제외 & 포함 목록을 지원 합니다. 예를 들어 클러스터에서 **kubedns** 메트릭을 스크랩 하는 경우, 기본적으로 스크랩를 가져오는 수백 개의가 있을 수 있지만, 하위 집합에만 관심이 있을 가능성이 높습니다. 스크랩에 대 한 메트릭 목록을 지정 했는지 확인 하거나, 몇 가지를 제외한 다른 항목을 제외 하 여 데이터 수집 볼륨에 저장 합니다. 스크랩를 사용 하도록 설정 하 고 대부분의 메트릭을 사용 하지 않고 Log Analytics 청구서에 추가 요금을 추가 하는 것이 쉽습니다.
 
 - Pod 주석을 통해 스크랩 때 사용 하지 않는 네임 스페이스 (예: **개발-테스트** 네임 스페이스)의 스크랩 pod 메트릭을 제외 하도록 네임 스페이스로 필터링 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-컨테이너의 Azure Monitor으로 수집 된 데이터에서 최근 사용 패턴을 기반으로 하는 비용을 이해 하는 방법에 대 한 자세한 내용은 [사용량 관리 및 비용 예측](../platform/manage-cost-storage.md)을 참조 하세요.
+컨테이너 정보를 사용 하 여 수집 된 데이터의 최근 사용 패턴을 기반으로 하는 비용을 이해 하는 방법에 대 한 자세한 내용은 [사용량 관리 및 비용 예측](../logs/manage-cost-storage.md)을 참조 하세요.

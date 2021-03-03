@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 0fc57b87e5ec1d7f47d9f9d74698af56172246ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab7d4bf0b8d8ca32dafe6f19b46047eca89a7734
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733978"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -64,7 +64,7 @@ Azure Portal에 이미 적절한 액세스 권한이 있을 수 있으며 이 �
  
 
 ## <a name="new-workspaces"></a>새 작업 영역
-OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니다. Azure Portal에서 새 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)의 지침을 따릅니다.
+OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니다. Azure Portal에서 새 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](./quick-create-workspace.md)의 지침을 따릅니다.
 
 ## <a name="changes-to-alerts"></a>경고에 대한 변경
 
@@ -73,9 +73,9 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 경고는 기존 경고가 OMS 포털에 계속 나열 되 [Azure Portal으로 확장](../alerts/alerts-unified-log.md) 되었지만 Azure Portal 에서만 관리할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
-이전 알림의 변경으로 [경고 관리 솔루션](../platform/alert-management-solution.md)은 계속 사용할 수 있으며 Azure Portal에서 완전히 지원됩니다. Azure Marketplace에서 솔루션을 계속 설치할 수 있습니다.
+이전 알림의 변경으로 [경고 관리 솔루션](../insights/alert-management-solution.md)은 계속 사용할 수 있으며 Azure Portal에서 완전히 지원됩니다. Azure Marketplace에서 솔루션을 계속 설치할 수 있습니다.
 
-경고 관리 솔루션을 계속해서 사용할 수 있는 동안 [Azure Monitor의 통합된 경고 인터페이스](../platform/alerts-overview.md)를 사용하여 Azure의 모든 경고를 시각화하고 관리하는 것이 좋습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 고유하게 집계합니다. Azure Monitor의 통합된 경고 인터페이스를 사용하는 경우 경고 관리 솔루션을 사용하려면 System Center Operation Manager에서 Azure로 경고를 통합해야 합니다. Azure Monitor의 통합된 경고 인터페이스에서 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 경고 관리의 향후 개선 사항은 주로 이 새로운 환경에서 사용할 수 있습니다. 
+경고 관리 솔루션을 계속해서 사용할 수 있는 동안 [Azure Monitor의 통합된 경고 인터페이스](../alerts/alerts-overview.md)를 사용하여 Azure의 모든 경고를 시각화하고 관리하는 것이 좋습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 고유하게 집계합니다. Azure Monitor의 통합된 경고 인터페이스를 사용하는 경우 경고 관리 솔루션을 사용하려면 System Center Operation Manager에서 Azure로 경고를 통합해야 합니다. Azure Monitor의 통합된 경고 인터페이스에서 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 경고 관리의 향후 개선 사항은 주로 이 새로운 환경에서 사용할 수 있습니다. 
 
 경고 관리 솔루션(경고 유형별 레코드)에 의해 수집된 데이터는 솔루션이 작업 영역에 대해 설치되는 한 Log Analytics에 계속 포함됩니다. 
 
@@ -83,7 +83,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대신에 IT 인프라, 대시보드 및 저장된 쿼리에 대한 정보에 액세스하려면 모바일 디바이스의 브라우저에서 직접 Azure Portal에 액세스할 수 있습니다. 경고를 받으려면 [Azure 동작 그룹](../alerts/action-groups.md)을 구성하여 음성 통화 또는 SMS 형식으로 알림을 받아야 합니다.
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights 커넥터 및 솔루션
-[Application Insights 커넥터](../logs/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 포함할 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다. 2019년 3월부터 지원 예정인 Application Insights 확장 데이터 보존 기능과 [리소스 간 쿼리](../logs/cross-workspace-query.md) 수행 기능, 그리고 [여러 Azure Monitor Application Insights 리소스를 확인](../log-query/unify-app-resource-data.md)하는 기능을 사용하면 Application Insights 리소스에서 데이터를 복제하여 Log Analytics로 전송하지 않아도 됩니다. 또한 커넥터는 리소스 간 쿼리에서 향상된 유연성을 제공하여 애플리케이션 속성의 하위 집합을 Log Analytics에 전송합니다.  
+[Application Insights 커넥터](../logs/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 포함할 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다. 2019년 3월부터 지원 예정인 Application Insights 확장 데이터 보존 기능과 [리소스 간 쿼리](../logs/cross-workspace-query.md) 수행 기능, 그리고 [여러 Azure Monitor Application Insights 리소스를 확인](./unify-app-resource-data.md)하는 기능을 사용하면 Application Insights 리소스에서 데이터를 복제하여 Log Analytics로 전송하지 않아도 됩니다. 또한 커넥터는 리소스 간 쿼리에서 향상된 유연성을 제공하여 애플리케이션 속성의 하위 집합을 Log Analytics에 전송합니다.  
 
 따라서 Application Insights 커넥터는 사용 되지 않으며, 2019 년 3 월 30 일에 OMS 포털 사용 중단과 함께 Azure Marketplace에서 제거 되었습니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 
 

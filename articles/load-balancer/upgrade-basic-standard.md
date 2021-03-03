@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 0f8476a8759dd445500c2eb6c029cd618a7ff8ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987717"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718984"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요.
@@ -23,7 +23,7 @@ ms.locfileid: "99987717"
 2. PowerShell 스크립트를 실행 하 여 업그레이드 및 트래픽 마이그레이션을 완료 합니다.
 
 > [!IMPORTANT]
-> 이 스크립트는 현재 유지 관리 중입니다. 기본 SKU 및 표준 SKU에서 공용 IP 주소를 업그레이드 하는 방법 [에 대 한 지침을](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) 참조할 수 있습니다.
+> 이 스크립트는 현재 유지 관리 중입니다. 기본 SKU 및 표준 SKU에서 공용 IP 주소를 업그레이드 하는 방법 [에 대 한 지침을](../virtual-network/virtual-network-public-ip-address-upgrade.md?tabs=option-upgrade-cli%2coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) 참조할 수 있습니다.
 
 ## <a name="upgrade-overview"></a>업그레이드 개요
 

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600475"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691504"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 
@@ -34,7 +34,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 > Azure Machine Learning 서비스 및 연결 된 Azure 서비스를 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
 > 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈을 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 
@@ -112,17 +112,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
         > .Runconfig 파일 예제에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
         자세한 내용은 [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
-    
-    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
-    
-    디자이너에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
-    
-    1. 파이프라인의 기본 계산 대상을 설정 합니다.
-    
-    1. 파이프라인 캔버스 위쪽에서 **실행** 을 선택 합니다.
-    
-    1. 파이프라인 실행을 그룹화 할 실험을 선택 합니다.
-    
+
     ---
 
 * 실행 상태 모니터링
@@ -183,24 +173,128 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
-    스튜디오에서 실험에 대 한 활성 실행 수를 확인 합니다.
+    스튜디오에서 실행을 보려면 다음을 수행 합니다. 
     
-    1. **실험** 섹션으로 이동 합니다.
+    1. **실험** 탭으로 이동 합니다.
     
-    1. 실험을 선택 합니다.
+    1. **모든 실험** 을 선택 하 여 실험에서 모든 실행을 보거나 **모든 실행** 을 선택 하 여 작업 영역에서 제출 된 모든 실행을 표시 합니다.
     
-        실험 페이지에서 활성 계산 대상 수와 각 실행에 대 한 기간을 볼 수 있습니다. 
+        **모든 실행 '** 페이지에서 태그, 실험, 계산 대상 등을 기준으로 실행 목록을 필터링 하 여 작업을 보다 효율적으로 구성 하 고 범위를 지정할 수 있습니다.  
     
-    1. 결과를 비교 하거나 차트를 추가 하거나 필터를 적용 하려면 실행을 선택 하 여 실험에 대 한 사용자 지정을 수행 합니다. 이러한 변경 내용을 **사용자 지정 보기로** 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 사용자 지정 보기를 편집 하거나 볼 수 있습니다. 또한 브라우저에서 URL을 복사 하 여 붙여넣어 사용자 지정 보기를 다른 사용자와 공유 합니다.  
+    1. 결과를 비교 하거나 차트를 추가 하거나 필터를 적용 하려면 실행을 선택 하 여 페이지에 대 한 사용자 지정을 수행 합니다. 이러한 변경 내용을 **사용자 지정 보기로** 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 사용자 지정 보기를 편집 하거나 볼 수 있습니다. 또한 **공유 보기** 를 선택 하 여 향상 된 공동 작업을 위해 팀 멤버와 사용자 지정 보기를 공유 합니다.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="스크린샷: 사용자 지정 보기 만들기":::
     
-    1. 특정 실행 번호를 선택 합니다.
-    
-    1. **로그** 탭에서 파이프라인 실행에 대 한 진단 및 오류 로그를 찾을 수 있습니다.
+    1. 실행 로그를 보려면 특정 실행을 선택 하 고 **출력 + 로그** 탭에서 실행에 대 한 진단 및 오류 로그를 확인할 수 있습니다.
     
     ---
+
+## <a name="run-description"></a>실행 설명 
+
+실행에 더 많은 컨텍스트 및 정보를 제공 하기 위해 실행에 실행 설명을 추가할 수 있습니다. 실행 목록에서 이러한 설명을 검색 하 고 실행 목록에 열로 실행 설명을 추가할 수도 있습니다. 
+
+실행에 대 한 실행 **세부 정보** 페이지로 이동 하 여 편집 또는 연필 아이콘을 선택 하 여 실행에 대 한 설명을 추가, 편집 또는 삭제 합니다. 실행 목록에 대 한 변경 내용을 유지 하려면 기존 사용자 지정 뷰나 새 사용자 지정 보기에 대 한 변경 내용을 저장 합니다. Markdown format은 아래와 같이 이미지를 포함 하 고 딥 링크를 허용 하는 실행 설명에 대해 지원 됩니다.
+
+:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="스크린샷: 실행 설명 만들기"::: 
     
+
+## <a name="tag-and-find-runs"></a>태그 및 실행 찾기
+
+Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정보에 대 한 실행을 구성 하 고 쿼리 하는 데 도움이 됩니다.
+
+* 속성 및 태그 추가
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    속성은 변경할 수 없으므로 감사를 위해 영구 레코드를 만듭니다. 다음 코드 예제에서는 `"azureml-user"` `"author"` 이전 코드에서 속성 값으로 이미를 추가 했으므로 오류가 발생 합니다.
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) 합니다.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    간단한 문자열 태그를 추가할 수도 있습니다. 이러한 태그가 태그 사전에 키로 표시 되는 경우 값은 `None` 입니다.
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    > [!NOTE]
+    > CLI를 사용 하 여 태그를 추가 하거나 업데이트할 수만 있습니다.
+    
+    태그를 추가 하거나 업데이트 하려면 다음 명령을 사용 합니다.
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    자세한 내용은 [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    스튜디오에서 실행 태그를 추가, 편집 또는 삭제할 수 있습니다. 실행에 대 한 **실행 세부 정보** 페이지로 이동 하 여 편집 또는 연필 아이콘을 선택 하 여 실행에 대 한 태그를 추가, 편집 또는 삭제 합니다. 실행 목록 페이지에서 이러한 태그를 검색 하 고 필터링 할 수도 있습니다.
+    
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="스크린샷: 실행 태그 추가, 편집 또는 삭제":::
+    
+    ---
+
+* 쿼리 속성 및 태그
+
+    특정 속성 및 태그와 일치 하는 실행 목록을 반환 하기 위해 실험 내에서 실행을 쿼리할 수 있습니다.
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 몇 가지 쿼리를 보여 줍니다.
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조 하세요.
+    
+    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+    
+    1. **모든 실행** 목록으로 이동 합니다.
+    
+    1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름과 같은 실행 메타 데이터를 필터링 할 수 있습니다. 태그 필터를 사용 하 여 태그를 필터링 할 수도 있습니다. 
+    
+    ---
+
+
 ## <a name="cancel-or-fail-runs"></a>취소 또는 실패 실행
 
 오류가 발생 하거나 실행을 완료 하는 데 시간이 너무 오래 걸리는 경우 실행을 취소할 수 있습니다.
@@ -344,101 +438,6 @@ current_child_run = Run.get_context()
 root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
 
 ```
-
-
-## <a name="tag-and-find-runs"></a>태그 및 실행 찾기
-
-Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정보에 대 한 실행을 구성 하 고 쿼리 하는 데 도움이 됩니다.
-
-* 속성 및 태그 추가
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    실행에 검색할 수 있는 메타 데이터를 추가 하려면 [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) 메서드를 사용 합니다. 예를 들어 다음 코드는 `"author"` 실행에 속성을 추가 합니다.
-    
-    ```Python
-    local_run.add_properties({"author":"azureml-user"})
-    print(local_run.get_properties())
-    ```
-    
-    속성은 변경할 수 없으므로 감사를 위해 영구 레코드를 만듭니다. 다음 코드 예제에서는 `"azureml-user"` `"author"` 이전 코드에서 속성 값으로 이미를 추가 했으므로 오류가 발생 합니다.
-    
-    ```Python
-    try:
-        local_run.add_properties({"author":"different-user"})
-    except Exception as e:
-        print(e)
-    ```
-    
-    속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 메서드를 사용 [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) 합니다.
-    
-    ```Python
-    local_run.tag("quality", "great run")
-    print(local_run.get_tags())
-    
-    local_run.tag("quality", "fantastic run")
-    print(local_run.get_tags())
-    ```
-    
-    간단한 문자열 태그를 추가할 수도 있습니다. 이러한 태그가 태그 사전에 키로 표시 되는 경우 값은 `None` 입니다.
-    
-    ```Python
-    local_run.tag("worth another look")
-    print(local_run.get_tags())
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
-    > [!NOTE]
-    > CLI를 사용 하 여 태그를 추가 하거나 업데이트할 수만 있습니다.
-    
-    태그를 추가 하거나 업데이트 하려면 다음 명령을 사용 합니다.
-    
-    ```azurecli-interactive
-    az ml run update -r runid --add-tag quality='fantastic run'
-    ```
-    
-    자세한 내용은 [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
-    
-    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
-    
-    스튜디오에서 속성 및 태그를 볼 수 있지만 수정할 수는 없습니다.
-    
-    ---
-
-* 쿼리 속성 및 태그
-
-    특정 속성 및 태그와 일치 하는 실행 목록을 반환 하기 위해 실험 내에서 실행을 쿼리할 수 있습니다.
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    ```Python
-    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
-    Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 몇 가지 쿼리를 보여 줍니다.
-    
-    ```azurecli-interactive
-    # list runs where the author property = 'azureml-user'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-    # list runs where the tag contains a key that starts with 'worth another look'
-    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-    ```
-    
-    Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조 하세요.
-    
-    # <a name="studio"></a>[스튜디오](#tab/azure-studio)
-    
-    1. **파이프라인** 섹션으로 이동 합니다.
-    
-    1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름을 사용 하 여 파이프라인을 필터링 합니다.
-    
-    ---
 
 ## <a name="example-notebooks"></a>노트북 예제
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6e6ad96da5f5c7901fda1f041c55075552edecde
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591429"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720344"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -168,7 +168,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 * [검토할 진단 로그 및 작업 데이터를 제공 하 Azure Stream Analytics](./stream-analytics-job-diagnostic-logs.md)
 
-* [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -260,7 +260,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침**: 관리자 역할에 대 한 최소 권한 액세스 원칙을 포함 하 여 모범 사례에 따라 id 관리 및 역할 보안 계획을 만듭니다. Azure Privileged Identity Management (PIM)를 사용 하 여 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 합니다. Azure PIM 경고 및 감사 기록을 사용 하 여 관리 계정의 활동을 모니터링 합니다. 손상 되었을 수 있는 관리 계정을 식별 하는 데 도움이 되도록 Azure AD 보안 보고서를 사용 합니다.
 
-* [자세한 정보](../active-directory/privileged-identity-management/index.yml)
+* [자세히 알아보기](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center 모니터링**: 예
 

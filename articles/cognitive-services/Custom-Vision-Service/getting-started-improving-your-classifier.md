@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096534"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731088"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Custom Vision 모델을 개선 하는 방법
 
-이 가이드에서는 Custom Vision Service 모델의 품질을 향상 시키는 방법에 대해 알아봅니다. [분류자](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 또는 [개체 탐지기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) 의 품질은 사용자가 제공 하는 다양 한 레이블 데이터의 양과 품질 및 전체 데이터 집합의 균형을 유지 하는 방법에 따라 달라 집니다. 좋은 모델에는 전송 되는 항목을 나타내는 균형 있는 학습 데이터 집합이 있습니다. 이러한 모델을 빌드하는 과정은 반복적입니다. 일반적으로 예상 되는 결과에 도달 하기 위해 몇 가지 교육 과정을 수행 하는 것이 일반적입니다.
+이 가이드에서는 Custom Vision Service 모델의 품질을 향상 시키는 방법에 대해 알아봅니다. [분류자](./getting-started-build-a-classifier.md) 또는 [개체 탐지기](./get-started-build-detector.md) 의 품질은 사용자가 제공 하는 다양 한 레이블 데이터의 양과 품질 및 전체 데이터 집합의 균형을 유지 하는 방법에 따라 달라 집니다. 좋은 모델에는 전송 되는 항목을 나타내는 균형 있는 학습 데이터 집합이 있습니다. 이러한 모델을 빌드하는 과정은 반복적입니다. 일반적으로 예상 되는 결과에 도달 하기 위해 몇 가지 교육 과정을 수행 하는 것이 일반적입니다.
 
 다음은 보다 정확한 모델을 학습 하는 데 도움이 되는 일반적인 패턴입니다.
 

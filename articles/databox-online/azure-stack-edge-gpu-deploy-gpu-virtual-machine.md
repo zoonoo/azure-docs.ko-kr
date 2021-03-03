@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804927"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730714"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 대 한 GPU Vm
 
@@ -110,8 +110,8 @@ Nvidia GPU 드라이버 확장은 적절 한 Nvidia 이상 DA 또는 그리드 �
 1. VM을 만든 후 확장 템플릿을 사용 하 여 GPU 확장을 배포 합니다. Linux Vm의 경우 [linux 용 gpu 확장 설치](#gpu-extension-for-linux) 및 windows vm의 경우 [windows 용 gpu 확장 설치](#gpu-extension-for-windows)를 참조 하세요.
 
 1. GPU 확장 설치를 확인 하려면 GPU VM에 연결 합니다.
-    1. Windows VM을 사용 하는 경우 [WINDOWS vm에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm)의 단계를 따릅니다. [설치를 확인](#verify-windows-driver-installation)합니다.
-    1. Linux VM을 사용 하는 경우 [LINUX vm에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm)의 단계를 따릅니다. [설치를 확인](#verify-linux-driver-installation)합니다.
+    1. Windows VM을 사용 하는 경우 [WINDOWS vm에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm)의 단계를 따릅니다. [설치를 확인](#verify-windows-driver-installation)합니다.
+    1. Linux VM을 사용 하는 경우 [LINUX vm에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm)의 단계를 따릅니다. [설치를 확인](#verify-linux-driver-installation)합니다.
 
 1. 필요한 경우 계산 네트워크를 다시 필요한 모든 항목으로 전환할 수 있습니다. 
 
@@ -545,7 +545,7 @@ PS C:\WINDOWS\system32>
 
 드라이버 설치를 확인 하려면 다음 단계를 수행 합니다.
 
-1. GPU VM에 연결 합니다. [LINUX VM에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm)의 지침을 따릅니다. 
+1. GPU VM에 연결 합니다. [LINUX VM에 연결](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm)의 지침을 따릅니다. 
 
     샘플 출력은 다음과 같습니다.
 

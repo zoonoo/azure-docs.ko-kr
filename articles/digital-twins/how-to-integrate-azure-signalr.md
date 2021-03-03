@@ -4,70 +4,66 @@ titleSuffix: Azure Digital Twins
 description: Azure SignalR를 사용 하 여 Azure Digital Twins 원격 분석을 클라이언트로 스트리밍하는 방법을 참조 하세요.
 author: dejimarquis
 ms.author: aymarqui
-ms.date: 09/02/2020
+ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86d0c75d8b4c7c331e3e7ad90271e3fb42ff1964
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703004"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
 이 문서에서는 azure [SignalR Service](../azure-signalr/signalr-overview.md)와 Azure Digital twins를 통합 하는 방법에 대해 알아봅니다.
 
-이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 결과적으로 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출할 필요 없이 IoT 장치에서 실시간 메트릭 및 상태로 업데이트 됩니다.
+이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 따라서 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출 하지 않고도 IoT 장치에서 실시간 메트릭 및 상태를 사용 하 여 업데이트 됩니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속 하기 전에 완료 해야 하는 필수 구성 요소는 다음과 같습니다.
 
-* 이 문서에서는 솔루션을 Azure SignalR service와 통합 하기 전에 Azure Digital Twins [_**자습서: 종단 간 솔루션 연결**_](tutorial-end-to-end.md)을 완료 해야 합니다. 이 자습서에서는 디지털 쌍 업데이트를 트리거하는 가상 IoT 장치와 작동 하는 Azure Digital Twins 인스턴스를 설정 하는 과정을 안내 합니다. 이 방법은 Azure SignalR Service를 사용 하 여 이러한 업데이트를 샘플 웹 앱에 연결 합니다.
-    - 자습서에서 만든 **event grid 토픽** 의 이름이 필요 합니다.
+* 이 문서에서는 솔루션을 Azure SignalR Service와 통합 하기 전에 Azure Digital Twins [_**자습서: 종단 간 솔루션 연결**_](tutorial-end-to-end.md)을 완료 해야 합니다 .이 방법 문서를 기반으로 구축 하는 방법에 대해 설명 합니다. 이 자습서에서는 디지털 쌍 업데이트를 트리거하는 가상 IoT 장치와 작동 하는 Azure Digital Twins 인스턴스를 설정 하는 과정을 안내 합니다. 이 방법 문서에서는 Azure SignalR Service를 사용 하 여 이러한 업데이트를 샘플 웹 앱에 연결 합니다.
+
+* 자습서에서 다음 값이 필요 합니다.
+  - Event grid 항목
+  - Resource group
+  - App service/함수 앱 이름
+    
 * 컴퓨터에 [**Node.js**](https://nodejs.org/) 설치 되어 있어야 합니다.
 
-계속 해 서 Azure 계정으로 [Azure Portal](https://portal.azure.com/) 에 로그인 할 수도 있습니다.
+또한 Azure 계정으로 [Azure Portal](https://portal.azure.com/) 에 로그인 해야 합니다.
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
-아래 경로를 통해 azure SignalR Service를 Azure Digital Twins에 연결 합니다. 다이어그램의 A, B 및 C 섹션은 [종단 간 자습서 필수 구성](tutorial-end-to-end.md)요소의 아키텍처 다이어그램에서 가져옵니다. 이 방법에서는 섹션 D를 추가 하 여이를 빌드합니다.
+아래 경로를 통해 azure SignalR Service를 Azure Digital Twins에 연결 합니다. 다이어그램의 A, B 및 C 섹션은 [종단 간 자습서 필수 구성](tutorial-end-to-end.md)요소의 아키텍처 다이어그램에서 가져옵니다. 이 방법 문서에서는 기존 아키텍처에서 섹션 D를 작성 합니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## <a name="download-the-sample-applications"></a>샘플 응용 프로그램 다운로드
 
 먼저 필요한 샘플 앱을 다운로드 합니다. 다음 두 가지가 모두 필요 합니다.
-* [**Azure Digital Twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플에는 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 기능을 보유 하는 *AdtSampleApp* 포함 되어 있습니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다. 
-    - [*필수 조건*](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *코드 찾아보기* 단추를 선택 합니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
+* [**Azure Digital Twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플에는 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 함수를 포함 하는 *AdtSampleApp* 포함 되어 있습니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다.
+    - [*필수 조건*](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드 하지 않은 경우 샘플 [링크로](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) 이동 하 여 제목 아래에 있는 *코드 찾아보기* 단추를 선택 합니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
-    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 트윈 샘플 리포지토리 보기입니다. 코드 단추가 선택되어 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자를 생성합니다." lightbox="media/includes/download-repo-zip.png":::
+        :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 트윈 샘플 리포지토리 보기입니다. 코드 단추가 선택되어 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자를 생성합니다." lightbox="media/includes/download-repo-zip.png":::
 
     그러면 **digital-twins-samples-master.zip** 같이 샘플 리포지토리의 복사본이 컴퓨터에 다운로드 됩니다. 폴더의 압축을 풉니다.
-* [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
+* [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
     -  샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
 다음 섹션에서 다시 사용할 수 있으므로 브라우저 창을 Azure Portal에 열어 둡니다.
 
-## <a name="configure-and-run-the-azure-functions-app"></a>Azure Functions 앱 구성 및 실행
+## <a name="publish-and-configure-the-azure-functions-app"></a>Azure Functions 앱 게시 및 구성
 
 이 섹션에서는 두 개의 Azure 함수를 설정 합니다.
 * **negotiate** -HTTP 트리거 함수입니다. *SignalRConnectionInfo* 입력 바인딩을 사용 하 여 유효한 연결 정보를 생성 하 고 반환 합니다.
 * **브로드캐스트** - [Event Grid](../event-grid/overview.md) 트리거 함수입니다. Event grid를 통해 Azure Digital Twins 원격 분석 데이터를 수신 하 고 이전 단계에서 만든 *SignalR* 인스턴스의 출력 바인딩을 사용 하 여 연결 된 모든 클라이언트 응용 프로그램에 메시지를 브로드캐스트합니다.
 
-먼저 Azure Portal 열리는 브라우저로 이동 하 고, 다음 단계를 수행 하 여 설정한 SignalR 인스턴스에 대 한 **연결 문자열** 을 가져옵니다. 함수를 구성 하는 데 필요 합니다.
-1. 이전에 배포한 SignalR 서비스 인스턴스가 성공적으로 만들어졌는지 확인 합니다. 포털 맨 위에 있는 검색 상자에서 이름을 검색 하 여이 작업을 수행할 수 있습니다. 인스턴스를 선택하여 엽니다.
-
-1. 인스턴스 메뉴에서 **키** 를 선택 하 여 SignalR 서비스 인스턴스에 대 한 연결 문자열을 확인 합니다.
-
-1. 아이콘을 선택 하 여 기본 연결 문자열을 복사 합니다.
-
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="SignalR 인스턴스에 대 한 키 페이지를 표시 하는 Azure Portal의 스크린샷 기본 연결 문자열 옆의 ' 클립보드로 복사 ' 아이콘이 강조 표시 됩니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
-
-그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTSampleApp 폴더 >* 에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
+Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTSampleApp 폴더 >* 에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
 1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # 클래스를 만듭니다.
 
@@ -75,25 +71,24 @@ ms.locfileid: "99980731"
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp* 폴더에 있는 컴퓨터의 명령 창에서 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
+1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 컴퓨터의 모든 명령 창에서 *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp* 폴더로 이동 하 고 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
 
     이렇게 하면 클래스의 모든 종속성 문제가 해결 됩니다.
 
-다음으로 *종단 간 솔루션 연결* 자습서의 [ *앱 게시* 섹션](tutorial-end-to-end.md#publish-the-app) 에 설명 된 단계를 사용 하 여 함수를 Azure에 게시 합니다. 종단 간 자습서 [필수 구성 요소](#prerequisites)에서 사용한 것과 동일한 app service/함수 앱에 게시 하거나 새 항목을 만들 수 있습니다. 그러나 중복을 최소화 하려면 동일한 앱을 사용 하는 것이 좋습니다. 
+1. *종단 간 솔루션 연결* 자습서의 [ *앱 게시* 섹션](tutorial-end-to-end.md#publish-the-app) 에 설명 된 단계를 사용 하 여 함수를 Azure에 게시 합니다. 종단 간 자습서 [필수 구성 요소](#prerequisites)에서 사용한 것과 동일한 app service/함수 앱에 게시 하거나 새 항목을 만들 수 있습니다. 그러나 중복을 최소화 하려면 동일한 앱을 사용 하는 것이 좋습니다. 
 
-다음 단계로 앱 게시를 완료 합니다.
-1. *Negotiate* 함수의 **HTTP 끝점 URL** 을 수집 합니다. 이렇게 하려면 Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지로 이동 하 여 목록에서 함수 앱을 선택 합니다. 앱 메뉴에서 *함수* 를 선택 하 고 *negotiate* 함수를 선택 합니다.
+다음으로, Azure SignalR 인스턴스와 통신 하도록 함수를 구성 합니다. 먼저 SignalR 인스턴스의 **연결 문자열** 을 수집한 다음 함수 앱의 설정에 추가 합니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="메뉴에 ' 함수 '가 강조 표시 된 함수 앱의 Azure Portal 뷰입니다. 함수 목록이 페이지에 표시 되 고 ' negotiate ' 함수도 강조 표시 됩니다.":::
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 고 포털 맨 위에 있는 검색 표시줄에서 SignalR 인스턴스의 이름을 검색 합니다. 인스턴스를 선택하여 엽니다.
+1. 인스턴스 메뉴에서 **키** 를 선택 하 여 SignalR 서비스 인스턴스에 대 한 연결 문자열을 확인 합니다.
+1. *복사* 아이콘을 선택 하 여 기본 연결 문자열을 복사 합니다.
 
-    *함수 URL 가져오기* 를 누르고/api를 통해 값을 복사 합니다 **(last _/negotiate_ 를 포함 하지 않음)**. 이는 나중에 사용 합니다.
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="SignalR 인스턴스에 대 한 키 페이지를 표시 하는 Azure Portal의 스크린샷 기본 연결 문자열 옆의 ' 클립보드로 복사 ' 아이콘이 강조 표시 됩니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="' Negotiate ' 함수의 Azure Portal 뷰입니다. ' 함수 URL 가져오기 ' 단추가 강조 표시 되 고 '/api '부터 시작 하 여 URL의 일부가 강조 표시 됩니다.":::
-
-1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 이전의 Azure SignalR **연결 문자열** 을 함수의 앱 설정에 추가 합니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)되어 있는 경우 로컬로 실행할 수 있습니다.
+1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 함수의 앱 설정에 Azure SignalR **연결 문자열** 을 추가 합니다. 또한 자리 표시자를 [자습서 필수 구성 요소](how-to-integrate-azure-signalr.md#prerequisites)에서 리소스 그룹 및 app service/함수 앱 이름으로 바꿉니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)되어 있는 경우 로컬로 실행할 수 있습니다.
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -105,9 +100,9 @@ ms.locfileid: "99980731"
 
 #### <a name="connect-the-function-to-event-grid"></a>Event Grid에 함수 연결
 
-다음으로, [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md) 필수 구성 요소에서 만든 **event grid 토픽** 에 *브로드캐스트* Azure 함수를 구독 합니다. 이렇게 하면 원격 분석 데이터가 event grid 토픽을 통해 *thermostat67* 쌍에서 함수로 전달 되어 모든 클라이언트에 브로드캐스트할 수 있습니다.
+다음으로, [자습서 필수 구성 요소](how-to-integrate-azure-signalr.md#prerequisites)에서 만든 **event grid 토픽** 에 *브로드캐스트* Azure 함수를 구독 합니다. 그러면 원격 분석 데이터가 thermostat67 쌍에서 event grid 토픽 및 함수로 흐를 수 있습니다. 여기에서 함수는 데이터를 모든 클라이언트에 브로드캐스트할 수 있습니다.
 
-이렇게 하려면 Event Grid 토픽에서 *브로드캐스트* Azure 함수에 끝점으로 **Event Grid 구독** 을 만듭니다.
+이렇게 하려면 event grid 토픽에서 *브로드캐스트* Azure 함수에 끝점으로 **이벤트 구독** 을 만듭니다.
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 이벤트 그리드 토픽으로 이동합니다. *+ 이벤트 구독* 을 선택합니다.
 
@@ -124,20 +119,33 @@ ms.locfileid: "99980731"
 
 *이벤트 구독 만들기* 페이지에서 **만들기** 를 누릅니다.
 
+이 시점에서 *Event Grid 항목* 페이지에는 두 개의 이벤트 구독이 표시 됩니다.
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Event grid 토픽 페이지에서 두 이벤트 구독의 Azure Portal 뷰입니다." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
+
 ## <a name="configure-and-run-the-web-app"></a>웹 앱 구성 및 실행
 
 이 섹션에서는 결과를 작업에 표시 합니다. 먼저, 설정 된 Azure SignalR flow에 연결 하도록 **샘플 클라이언트 웹 앱** 을 구성 합니다. 다음으로, Azure Digital Twins 인스턴스를 통해 원격 분석 데이터를 전송 하는 **시뮬레이션 된 장치 샘플 앱** 을 시작 합니다. 그런 다음 샘플 웹 앱을 통해 샘플 웹 앱을 실시간으로 업데이트 하는 시뮬레이션 된 장치 데이터를 확인 합니다.
 
 ### <a name="configure-the-sample-client-web-app"></a>샘플 클라이언트 웹 앱 구성
 
-다음 단계를 사용 하 여 **SignalR integration 웹 앱 샘플** 을 설정 합니다.
+다음으로, 샘플 클라이언트 웹 앱을 구성 합니다. 먼저 *negotiate* 함수의 **HTTP 끝점 URL** 을 수집한 다음이를 사용 하 여 컴퓨터에서 앱 코드를 구성 합니다.
+
+1. Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지로 이동 하 여 목록에서 함수 앱을 선택 합니다. 앱 메뉴에서 *함수* 를 선택 하 고 *negotiate* 함수를 선택 합니다.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="메뉴에 ' 함수 '가 강조 표시 된 함수 앱의 Azure Portal 뷰입니다. 함수 목록이 페이지에 표시 되 고 ' negotiate ' 함수도 강조 표시 됩니다.":::
+
+1. *함수 URL 가져오기* 를 누르고/api를 통해 값을 복사 합니다 **(last _/negotiate_ 를 포함 하지 않음)**. 다음 단계에서이를 사용 합니다.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="' Negotiate ' 함수의 Azure Portal 뷰입니다. ' 함수 URL 가져오기 ' 단추가 강조 표시 되 고 '/api '부터 시작 하 여 URL의 일부가 강조 표시 됩니다.":::
+
 1. Visual Studio 또는 원하는 코드 편집기를 사용 하 여 [*샘플 응용 프로그램 다운로드*](#download-the-sample-applications) 섹션에서 다운로드 한 압축을 푼 _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ 폴더를 엽니다.
 
-1. *Src/App.js* 파일을 열고에서 URL을 `HubConnectionBuilder` 이전에 저장 한 **NEGOTIATE** 함수의 HTTP 끝점 url로 바꿉니다.
+1. *Src/App.js* 파일을 열고의 함수 url을 `HubConnectionBuilder` 이전 단계에서 저장 한 **NEGOTIATE** 함수의 HTTP 끝점 url로 바꿉니다.
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
-            .withUrl('<URL>')
+            .withUrl('<Function URL>')
             .build();
     ```
 1. Visual Studio의 *개발자 명령 프롬프트* 또는 컴퓨터의 모든 명령 창에서 *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* 폴더로 이동 합니다. 다음 명령을 실행 하 여 종속 노드 패키지를 설치 합니다.
@@ -148,6 +156,7 @@ ms.locfileid: "99980731"
 
 다음으로 Azure Portal의 함수 앱에서 사용 권한을 설정 합니다.
 1. Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지에서 함수 앱 인스턴스를 선택 합니다.
+
 1. 인스턴스 메뉴에서 아래로 스크롤하고 *CORS* 를 선택 합니다. CORS 페이지에서를 `http://localhost:3000` 빈 상자에 입력 하 여 허용 된 원본으로 추가 합니다. *액세스 허용-자격 증명 사용* 확인란을 선택 하 고 *저장* 을 누릅니다.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Azure 함수의 CORS 설정":::

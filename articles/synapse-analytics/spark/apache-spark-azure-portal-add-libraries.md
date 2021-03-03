@@ -1,146 +1,68 @@
 ---
-title: Apache Spark에 대 한 라이브러리 관리
+title: 라이브러리 관리
 description: Azure Synapse Analytics에서 Apache Spark에 사용 되는 라이브러리를 추가 하 고 관리 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 0458fb8b140166b7bdf0fc0df41dbb207fdce3c9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 955d7f8c2d2ce5ea126d4cce67b0e4e55152ac72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695093"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
+라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 
 
-라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버를 사용 하지 않는 Apache Spark 풀 중 하나에 라이브러리를 설치 하면 됩니다. Spark 풀에 대해 라이브러리를 설치한 후에는 동일한 풀을 사용 하는 모든 세션에 대해 사용할 수 있습니다. 
+여러 가지 이유로 서버를 사용 하지 않는 Apache Spark 풀 환경을 업데이트 해야 할 수 있습니다. 예를 들어 다음을 확인할 수 있습니다.
+- 핵심 종속성 중 하나가 새 버전을 릴리스 했습니다.
+- machine learning 모델을 학습 하거나 데이터를 준비 하기 위한 추가 패키지가 필요 합니다.
+- 더 나은 패키지를 찾았지만 이전 패키지가 더 이상 필요 하지 않습니다.
+- 팀이 Apache Spark 풀에서 사용할 수 있는 사용자 지정 패키지를 빌드 했습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
-- 라이브러리를 설치 하 고 업데이트 하려면 Azure Synapse Analytics 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 **저장소 Blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 권한이 있어야 합니다.
+응용 프로그램에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버를 사용 하지 않는 Apache Spark 풀 또는 노트북 세션 중 하나에 라이브러리를 설치 하면 됩니다.
   
 ## <a name="default-installation"></a>기본 설치
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다. 
 
-Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 Python 및 사용자가 작성 한 패키지는 Spark 풀 수준에서 추가할 수 있습니다.
+Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 패키지는 Spark 풀 수준 또는 세션 수준에서 추가할 수 있습니다.
 
+## <a name="workspace-packages"></a>작업 영역 패키지
+사용자 지정 응용 프로그램 또는 모델을 개발할 때 팀에서 휠 또는 jar 파일과 같은 다양 한 코드 아티팩트를 개발 하 여 코드를 패키지할 수 있습니다. 
 
-## <a name="manage-python-packages"></a>Python 패키지 관리
-Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 Spark 풀에 설치할 수 있습니다. 
+Synapse에서 작업 영역 패키지는 사용자 지정 또는 개인 휠 또는 jar 파일이 될 수 있습니다. 이러한 패키지를 작업 영역에 업로드 하 고 나중에 특정 Spark 풀에 할당할 수 있습니다. 할당 되 면 이러한 작업 영역 패키지가 모든 Spark 풀 세션에 자동으로 설치 됩니다.
 
- *requirements.txt* 파일 (명령의 출력)을 `pip freeze` 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 풀을 시작할 때 PyPI에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
+작업 영역 라이브러리를 관리 하는 방법에 대 한 자세한 내용을 보려면 다음 방법 가이드를 참조 하세요.
+- [Python 작업 영역 패키지: ](./apache-spark-manage-python-packages.md#Install-wheel-files) Python 휠 파일을 작업 영역 패키지로 업로드 하 고 나중에 이러한 패키지를 서버를 사용 하지 않는 특정 Apache Spark 풀에 추가 합니다.
+- [Scala/Java 작업 영역 패키지 (미리 보기): ](./apache-spark-manage-scala-packages.md#Workspace-packages) Scala 및 Java jar 파일을 작업 영역 패키지로 업로드 하 고 나중에 이러한 패키지를 서버를 사용 하지 않는 특정 Apache Spark 풀에 추가 합니다.
+
+## <a name="pool-management"></a>풀 관리
+경우에 따라 지정 된 Apache Spark 풀에서 사용 되는 패키지 집합을 표준화할 수 있습니다. 이러한 표준화는 팀의 여러 사람이 동일한 패키지를 일반적으로 설치 하는 경우에 유용할 수 있습니다. 
+
+Azure Synapse Analytics 풀 관리 기능을 사용 하 여 지정 된 서버를 사용 하지 않는 Apache Spark 풀에 설치할 기본 라이브러리 집합을 구성할 수 있습니다. 이러한 라이브러리는 [기본 런타임](./apache-spark-version-support.md)위에 설치 됩니다. 
+
+현재는 풀 관리가 Python 에서만 지원 됩니다. Python의 경우 Synapse Spark 풀은 Conda를 사용 하 여 Python 패키지 종속성을 설치 하 고 관리 합니다. 풀 수준 라이브러리를 지정 하는 경우 이제 requirements.txt 또는 환경을 제공할 수 있습니다. yml. 이 환경 구성 파일은 spark 풀에서 Spark 인스턴스를 만들 때마다 사용 됩니다. 
+
+이러한 기능에 대해 자세히 알아보려면 [Python 풀 관리](./apache-spark-manage-python-packages.md#Pool-libraries)에 대 한 설명서를 참조 하세요.
 
 > [!IMPORTANT]
 > - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
-> - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원되지 않습니다.
-> - 패키지를 다운 그레이드할 수 없습니다. 추가 하거나 업그레이드할 수 있습니다.
 > - PySpark, Python, Scala/Java, .NET 또는 Spark 버전을 변경 하는 것은 지원 되지 않습니다.
 > - PyPI에서 패키지 설치는 DEP 사용 작업 영역 내에서 지원 되지 않습니다.
 
+## <a name="session-scoped-packages"></a>세션 범위 패키지
+대화형 데이터 분석 이나 기계 학습을 수행 하는 경우에는 종종 최신 패키지를 사용해 보거나 Apache Spark 풀에서 아직 사용할 수 없는 패키지가 필요할 수 있습니다. 이제 사용자는 풀 구성을 업데이트 하는 대신 세션 범위 패키지를 사용 하 여 세션 종속성을 추가, 관리 및 업데이트할 수 있습니다.
 
-### <a name="requirements-format"></a>요구 사항 형식
+세션 범위 패키지를 사용 하면 사용자가 세션을 시작할 때 패키지 종속성을 정의할 수 있습니다. 세션 범위 패키지를 설치 하는 경우 현재 세션에만 지정 된 패키지에 대 한 액세스 권한이 있습니다. 따라서 이러한 세션 범위 패키지는 동일한 Apache Spark 풀을 사용 하는 다른 세션 또는 작업에 영향을 주지 않습니다. 또한 이러한 라이브러리는 기본 런타임 및 풀 수준 패키지 위에 설치 됩니다. 
 
-다음 코드 조각에서는 요구 사항 파일의 형식을 보여 줍니다. PyPi 패키지 이름은 정확한 버전과 함께 나열 됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명 된 형식을 따릅니다. 이 예제에서는 특정 버전을 고정 합니다. 
-
-```
-absl-py==0.7.0
-adal==1.2.1
-alabaster==0.7.10
-```
-
-### <a name="install-python-packages"></a>Python 패키지 설치
-Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이트 하거나 새 라이브러리를 설치 해야 하는 경우가 있습니다. 풀을 만들 때 또는 이후에 라이브러리를 업데이트할 수 있습니다.
-
-> [!IMPORTANT]
-> 라이브러리를 설치 하려면 Synapse 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 저장소 Blob 데이터 참가자 또는 저장소 Blob 데이터 소유자 권한이 있어야 합니다.
-
-#### <a name="install-packages-during-pool-creation"></a>풀을 만드는 동안 패키지 설치
-풀을 만드는 동안 Spark 풀에 라이브러리를 설치 하려면 다음을 수행 합니다.
-   
-1. Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
-   
-2. **Apache Spark 풀 만들기** 를 선택 하 고 **추가 설정** 탭을 선택 합니다. 
-   
-3. 페이지의 **패키지** 섹션에서 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다. 
-   
-    ![풀을 만드는 동안 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Python 라이브러리 추가")
- 
-
-#### <a name="install-packages-from-the-synapse-workspace"></a>Synapse 작업 영역에서 패키지 설치
-Azure Synapse Analytics 포털에서 Spark 풀에 라이브러리를 더 추가 하거나 업데이트 하려면 다음을 수행 합니다.
-
-1.  Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
-   
-2.  Azure Portal에서 Azure Synapse Analytics 작업 영역을 시작 합니다.
-
-3.  기본 탐색 패널에서 **관리** 를 선택한 다음 **Apache Spark 풀** 을 선택 합니다.
-   
-4. 단일 Spark 풀을 선택 하 고 페이지의  **패키지** 섹션에서 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
-
-    ![Synapse에서 Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
-   
-#### <a name="install-packages-from-the-azure-portal"></a>Azure Portal에서 패키지 설치
-Azure Portal에서 직접 Spark 풀에 라이브러리를 설치 하려면 다음을 수행 합니다.
-   
- 1. Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
-   
- 2. **Synapse 리소스** 섹션 아래에서 **Apache Spark 풀** 탭을 선택 하 고 목록에서 Spark 풀을 선택 합니다.
-   
- 3. Spark 풀의 **설정** 섹션에서 **패키지** 를 선택 합니다. 
-
- 4. 파일 선택기를 사용 하 여 환경 구성 파일을 업로드 합니다.
-
-    ![환경 구성 파일 업로드 단추를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Python 라이브러리 추가")
-
-### <a name="verify-installed-libraries"></a>설치 된 라이브러리 확인
-
-올바른 라이브러리의 올바른 버전이 설치 되어 있는지 확인 하려면 다음 코드를 실행 합니다.
-
-```python
-import pkg_resources
-for d in pkg_resources.working_set:
-     print(d)
-```
-### <a name="update-python-packages"></a>Python 패키지 업데이트
-세션 간에 언제 든 지 패키지를 추가 하거나 수정할 수 있습니다. 새 패키지 구성 파일은 기존 패키지 및 버전을 덮어씁니다.  
-
-라이브러리를 업데이트 하거나 제거 하려면:
-1. Azure Synapse Analytics 작업 영역으로 이동 합니다. 
-
-2. Azure Portal 또는 Azure Synapse 작업 영역을 사용 하 여 업데이트할 **Apache Spark 풀** 을 선택 합니다.
-
-3. **패키지** 섹션으로 이동 하 여 새 환경 구성 파일을 업로드 합니다.
-   
-4. 변경 내용을 저장 한 후에는 활성 세션을 종료 하 고 풀을 다시 시작 하도록 해야 합니다. 필요에 따라 **새 설정을 강제 적용** 하는 확인란을 선택 하 여 활성 세션을 강제로 종료할 수 있습니다.
-
-    ![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Python 라이브러리 추가")
-   
-
-> [!IMPORTANT]
-> **새 설정을 강제 적용** 하는 옵션을 선택 하면 선택한 Spark 풀의 모든 현재 세션이 종료 됩니다. 세션이 종료 되 면 풀이 다시 시작 될 때까지 기다려야 합니다. 
->
-> 이 설정을 선택 하지 않으면 현재 Spark 세션이 종료 될 때까지 기다리거나 수동으로 중지 해야 합니다. 세션이 종료 되 면 풀을 다시 시작 하도록 해야 합니다. 
-
-
-## <a name="manage-a-python-wheel"></a>Python 휠 관리
-
-### <a name="install-a-custom-wheel-file"></a>사용자 지정 휠 파일 설치
-Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 모든 휠 파일을 업로드 하 여 Apache Spark 풀에 사용자 지정 기반 휠 패키지를 설치할 수 있습니다. 
-
-저장소 계정의 기본 컨테이너에 있는 다음 경로에 파일을 업로드 해야 합니다. 
-
-```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
-```
-
-폴더가 ```python``` 아직 없는 경우 폴더 내에 폴더를 추가 해야 할 수도 있습니다 ```libraries``` .
-
->[!IMPORTANT]
->세션 간에 사용자 지정 패키지를 추가 하거나 수정할 수 있습니다. 그러나 업데이트 된 패키지를 보려면 풀과 세션이 다시 시작 될 때까지 기다려야 합니다.
+세션 범위 패키지를 관리 하는 방법에 대 한 자세한 내용을 보려면 다음 방법 가이드를 참조 하세요.
+- [Python 세션 패키지 (미리 보기):](./apache-spark-manage-python-packages.md#Session-scoped-libraries-(preview)) 세션을 시작할 때 인기 있는 리포지토리에서 추가 Python 패키지를 설치 하는 데 Conda 환경을 제공 합니다 *.* 
+- [Scala/Java 세션 패키지: ](./apache-spark-manage-scala-packages.md#Workspace-packages) 세션을 시작할 때를 사용 하 여 설치할 jar 파일 목록을 제공 ```%%configure``` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 기본 라이브러리 보기: [Apache Spark 버전 지원](apache-spark-version-support.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 8e2217c04f5c39ad93185273d537324f4b56e456
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f6c43f943bb12e8230772f2d195589ecc4543030
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099543"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705316"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
 
@@ -46,7 +46,7 @@ SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가
   * 하드웨어 A/V 디코더(디코딩, 렌더링)와 상호 작용을 위한 프로그래밍 인터페이스
 * DRM(디지털 권한 관리) 인터페이스 
   * DAL(DRM 추상화 계층)을 통해 DRM을 처리하기 위한 프로그래밍 인터페이스
-  * Microsoft PlayReady 이식 키트는 별도로 제공되지만 이 인터페이스를 통해 통합됩니다. Microsoft PlayReady 디바이스 라이선스에 대한 자세한 내용을 보려면 [여기](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)를 클릭하세요.
+  * Microsoft PlayReady 이식 키트는 별도로 제공되지만 이 인터페이스를 통해 통합됩니다. [Microsoft PlayReady 장치 라이선스에 대 한 자세한 내용을 참조](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)하세요.
 * 구현 샘플 
   * Linux용 샘플 PAL 구현
   * GStreamer용 샘플 HAL 구현
@@ -148,6 +148,7 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
+* 하늘 CP l t t
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV 글로벌 SAS
 * SoftAtHome

@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737973"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -21,7 +21,7 @@ ms.locfileid: "98044189"
 
 이 문서는 디지털 쌍에 대 한 쿼리 언어 구조와 일반적인 쿼리 작업을 보여 주는 샘플 쿼리로 시작 합니다. 그런 다음 Azure Digital Twins [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하 여 쿼리를 작성 한 후 쿼리를 실행 하는 방법을 설명 합니다.
 
-> [!TIP]
+> [!NOTE]
 > API 또는 SDK 호출을 사용 하 여 아래 샘플 쿼리를 실행 하는 경우 쿼리 텍스트를 한 줄로 축소 해야 합니다.
 
 ## <a name="show-all-digital-twins"></a>모든 디지털 쌍 표시
@@ -36,8 +36,8 @@ ms.locfileid: "98044189"
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> 디지털 쌍의 ID는 메타 데이터 필드를 사용 하 여 쿼리 됩니다 `$dtId` .
+> [!NOTE]
+> 디지털 트윈의 ID는 메타데이터 필드 `$dtId`를 사용하여 쿼리합니다.
 
 **특정 속성이 정의 되어 있는지 여부** 에 따라 쌍을 가져올 수도 있습니다. 다음은 정의 된 *Location* 속성을 가진 쌍를 가져오는 쿼리입니다.
 
@@ -50,6 +50,10 @@ ms.locfileid: "98044189"
 **속성의 형식** 에 따라 쌍을 가져올 수도 있습니다. *온도* 속성이 숫자 인 쌍를 가져오는 쿼리는 다음과 같습니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> 속성이 형식이 면 `Map` 다음과 같이 쿼리에서 직접 맵 키 및 값을 사용할 수 있습니다.
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>모델 별로 쿼리
 
@@ -88,10 +92,10 @@ ms.locfileid: "98044189"
 
 디지털 쌍의 **관계** 를 기반으로 쿼리 하는 경우 Azure Digital twins 쿼리 언어에는 특별 한 구문이 있습니다.
 
-관계는 절의 쿼리 범위로 끌어옵니다 `FROM` . "기존" SQL 형식 언어와의 중요 한 차이점은이 절의 각 식이 테이블이 아니라는 것입니다 .이 `FROM` `FROM` 절은 엔터티 간 관계 순회를 표현 하 고 Azure Digital twins 버전의를 사용 하 여 작성 됩니다 `JOIN` .
+관계는 `FROM` 절의 쿼리 범위로 가져옵니다. "기존" SQL 형식 언어와의 중요 한 차이점은이 절의 각 식이 테이블이 아니라는 것입니다 .이 `FROM` `FROM` 절은 엔터티 간 관계 순회를 표현 하 고 Azure Digital twins 버전의를 사용 하 여 작성 됩니다 `JOIN` .
 
-Azure Digital Twins [모델](concepts-models.md) 기능을 사용 하는 경우 관계는 twins와 독립적으로 존재 하지 않습니다. 즉, 여기에서 관계는 독립적으로 쿼리할 수 없으며 쌍에 연결 되어야 하므로 Azure Digital Twins 쿼리 언어는 `JOIN` 일반 SQL과 약간 다릅니다 `JOIN` .
-이러한 차이를 반영 하기 위해 키워드는 `RELATED` 절에서 쌍의 `JOIN` 관계 집합을 참조 하는 데 사용 됩니다.
+Azure Digital Twins [모델](concepts-models.md) 기능을 사용 하는 경우 관계는 twins와 독립적으로 존재 하지 않습니다. 즉, Azure Digital Twins 쿼리 언어의 `JOIN`에서는 관계를 독립적으로 쿼리할 수 없고 트윈에 연결되어야 하기 때문에 일반 SQL `JOIN`과 약간 다릅니다.
+이러한 차이점을 통합하기 위해 `JOIN` 절에서 `RELATED` 키워드를 사용하여 트윈의 관계 세트를 참조합니다.
 
 다음 섹션에서는이 처럼 표시 되는 몇 가지 예를 제공 합니다.
 
@@ -107,11 +111,11 @@ Azure Digital Twins [모델](concepts-models.md) 기능을 사용 하는 경우 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
-> 개발자는이를 `JOIN` 절의 키 값과 상관 관계를 지정 하지 않아도 `WHERE` 됩니다 (또는 정의를 사용 하 여 인라인 키 값 지정 `JOIN` ). 관계 속성 자체가 대상 엔터티를 식별 하므로이 상관 관계는 시스템에 의해 자동으로 계산 됩니다.
+> 개발자는이를 `JOIN` 절의 키 값과 상관 관계를 지정 하지 않아도 `WHERE` 됩니다 (또는 정의를 사용 하 여 인라인 키 값 지정 `JOIN` ). 관계 속성 자체가 대상 엔터티를 식별하기 때문에 이 상관 관계는 시스템에서 자동으로 컴퓨팅됩니다.
 
-### <a name="query-the-properties-of-a-relationship"></a>관계 속성 쿼리
+### <a name="query-the-properties-of-a-relationship"></a>관계의 속성 쿼리
 
-디지털 쌍이 DTDL을 통해 설명 하는 속성을 갖는 방식과 마찬가지로 관계에도 속성이 있을 수 있습니다. **해당 관계의 속성에 따라** 쌍를 쿼리할 수 있습니다.
+디지털 트윈이 DTDL을 통해 설명한 속성을 갖는 방식과 마찬가지로 관계에도 속성이 있을 수 있습니다. **해당 관계의 속성에 따라** 쌍를 쿼리할 수 있습니다.
 Azure Digital Twins 쿼리 언어를 사용 하면 절 내의 관계에 별칭을 할당 하 여 관계를 필터링 하 고 투영할 수 있습니다 `JOIN` .
 
 예를 들어 *reportedCondition* 속성이 있는 *servicedBy* relationship을 고려 합니다. 아래 쿼리에서는 속성을 참조 하기 위해이 관계에 ' R '의 별칭이 지정 됩니다.
@@ -220,7 +224,12 @@ API를 직접 호출 하거나 Azure Digital Twins에 사용할 수 있는 [sdk]
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-이 호출은 [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) 개체 형식으로 쿼리 결과를 반환 합니다.
+이 호출에 사용 되는 쿼리는 위의 예제가 [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) 개체를 사용 하 여 나타내는 digital twins 목록을 반환 합니다. 각 쿼리에 대 한 데이터의 반환 형식은 문에 지정 하는 용어에 따라 달라 집니다 `SELECT` .
+* 로 시작 하는 쿼리 `SELECT * FROM ...` 는 디지털 쌍 ( `BasicDigitalTwin` 개체 또는 사용자가 만들었을 수 있는 기타 사용자 지정 디지털 쌍 형식)의 목록을 반환 합니다.
+* 형식으로 시작 하는 쿼리 `SELECT <A>, <B>, <C> FROM ...` 는, 및 키를 사용 하 여 사전을 반환 `<A>` `<B>` `<C>` 합니다.
+* 다른 형식의 `SELECT` 문은 사용자 지정 데이터를 반환 하도록 만들 수 있습니다. 사용자 지정 된 결과 집합을 처리 하는 클래스를 직접 만드는 것이 좋습니다. 
+
+### <a name="query-with-paging"></a>페이징을 사용 하 여 쿼리
 
 쿼리 호출은 페이징을 지원 합니다. 다음은 `BasicDigitalTwin` 오류 처리 및 페이징을 사용 하 여 쿼리 결과 형식으로를 사용 하는 전체 예제입니다.
 

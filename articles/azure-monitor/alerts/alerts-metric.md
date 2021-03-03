@@ -6,18 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: e3a9810aef356b7acf5ae2522645c14ee445812b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bf55d66f7099717079190a538bad8bf777581825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614594"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723557"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
-메트릭 경고는 메트릭 중 하나가 임계값을 초과할 때 알림을 받을 수 있는 방법을 제공 Azure Monitor 합니다. 메트릭 경고는 다양한 다차원 플랫폼 메트릭, 사용자 지정 메트릭, Application Insights 표준 및 사용자 지정 메트릭에서 작동합니다. 이 문서에서는 Azure Portal 및 Azure CLI를 통해 메트릭 경고 규칙을 만들고, 보고, 관리 하는 방법을 설명 합니다. [별도의 문서](../platform/alerts-metric-create-templates.md)에서 설명 하는 Azure Resource Manager 템플릿을 사용 하 여 메트릭 경고 규칙을 만들 수도 있습니다.
+메트릭 경고는 메트릭 중 하나가 임계값을 초과할 때 알림을 받을 수 있는 방법을 제공 Azure Monitor 합니다. 메트릭 경고는 다양한 다차원 플랫폼 메트릭, 사용자 지정 메트릭, Application Insights 표준 및 사용자 지정 메트릭에서 작동합니다. 이 문서에서는 Azure Portal 및 Azure CLI를 통해 메트릭 경고 규칙을 만들고, 보고, 관리 하는 방법을 설명 합니다. [별도의 문서](./alerts-metric-create-templates.md)에서 설명 하는 Azure Resource Manager 템플릿을 사용 하 여 메트릭 경고 규칙을 만들 수도 있습니다.
 
-메트릭 경고의 작동 원리는 [메트릭 경고 개요](../platform/alerts-metric-overview.md)에서 자세히 알아볼 수 있습니다.
+메트릭 경고의 작동 원리는 [메트릭 경고 개요](./alerts-metric-overview.md)에서 자세히 알아볼 수 있습니다.
 
 ## <a name="create-with-azure-portal"></a>Azure Portal을 사용하여 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "100614594"
 
 3. **대상 선택** 을 클릭하고, 로드되는 컨텍스트 창에서 경고를 사용할 대상 리소스를 선택합니다. **구독** 및 **리소스 종류** 드롭다운을 사용하여 모니터링하려는 리소스를 찾습니다. 검색 창을 사용하여 리소스를 검색할 수도 있습니다.
 
-4. 선택한 리소스에 경고를 만들 수 있는 메트릭이 있으면 오른쪽 아래의 **사용 가능한 신호** 에 메트릭이 포함됩니다. 이 [문서](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)의 메트릭 경고에 지원되는 리소스 종류의 전체 목록을 볼 수 있습니다.
+4. 선택한 리소스에 경고를 만들 수 있는 메트릭이 있으면 오른쪽 아래의 **사용 가능한 신호** 에 메트릭이 포함됩니다. 이 [문서](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)의 메트릭 경고에 지원되는 리소스 종류의 전체 목록을 볼 수 있습니다.
 
 5. 대상 리소스를 선택한 후에는 **조건 추가** 를 클릭합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "100614594"
     - 찾고자 하는 차원 값이 표시 되지 않는 경우 "사용자 지정 값 추가"를 클릭 하 여 사용자 지정 차원 값을 추가 합니다.
     - 모든 차원에 대 한 **현재 및 미래 값을 모두 선택할** 수도 있습니다. 이렇게 하면 차원에 대 한 모든 현재 및 미래 값으로 선택 영역이 동적으로 조정 됩니다.
 
-    메트릭 경고 규칙은 선택한 모든 값 조합에 대 한 조건을 평가 합니다. [다차원 메트릭에 대한 경고의 작동 방식에 대해 자세히 알아보세요](../platform/alerts-metric-overview.md).
+    메트릭 경고 규칙은 선택한 모든 값 조합에 대 한 조건을 평가 합니다. [다차원 메트릭에 대한 경고의 작동 방식에 대해 자세히 알아보세요](./alerts-metric-overview.md).
 
 9. **임계값** 유형, **연산자** 및 **집계 유형을** 선택 합니다. 이를 통해 메트릭 경고 규칙이 평가할 논리를 결정 합니다.
     - **정적** 임계값을 사용 하는 경우 **임계값** 을 계속 정의 합니다. 메트릭 차트는 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다.
@@ -154,8 +154,8 @@ ms.locfileid: "100614594"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿을 사용 하 여 메트릭 경고 만들기](../platform/alerts-metric-create-templates.md)
-- [메트릭 경고의 작동 방식 이해](../platform/alerts-metric-overview.md)
+- [Azure Resource Manager 템플릿을 사용 하 여 메트릭 경고 만들기](./alerts-metric-create-templates.md)
+- [메트릭 경고의 작동 방식 이해](./alerts-metric-overview.md)
 - [동적 임계값을 사용 하 여 메트릭 경고를 해결 하는 방법 이해](../alerts/alerts-dynamic-thresholds.md)
-- [메트릭 경고에 대한 웹후크 스키마를 이해합니다](../platform/alerts-metric-near-real-time.md#payload-schema).
-- [메트릭 경고 문제 해결](../platform/alerts-troubleshoot-metric.md)
+- [메트릭 경고에 대한 웹후크 스키마를 이해합니다](./alerts-metric-near-real-time.md#payload-schema).
+- [메트릭 경고 문제 해결](./alerts-troubleshoot-metric.md)

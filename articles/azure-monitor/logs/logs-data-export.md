@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 8de92e1f64389824e02882c02a860e9731a62b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617434"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713595"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -40,9 +40,11 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 작업이 성공 하지만 테이블이 지원 될 때까지 해당 테이블에 대 한 데이터는 내보내지 않습니다. 
 - 데이터 내보내기 규칙에 존재 하지 않는 테이블이 포함 되어 있으면 오류가 발생 하 여 실패 ```Table <tableName> does not exist in the workspace``` 합니다.
 - Log Analytics 작업 영역은 다음을 제외 하 고 모든 지역에 있을 수 있습니다.
-  - 스위스 북부
-  - 스위스 서부
   - Azure Government 지역
+  - 일본 서부
+  - 브라질 남부 동부
+  - 노르웨이 동부
+  - 아랍에미리트 북부
 - 작업 영역에서 두 개의 내보내기 규칙을 만들 수 있습니다 .이는 이벤트 허브에 대 한 규칙 한 개와 저장소 계정에 대 한 규칙 일 수 있습니다.
 - 대상 저장소 계정 또는 이벤트 허브는 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
 - 내보낼 테이블 이름은 저장소 계정에는 60 자이 하 여야 하 고 이벤트 허브에는 47 자이 하 여야 합니다. 이름이 긴 테이블은 내보내지지 않습니다.
@@ -72,6 +74,9 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 
 ### <a name="event-hub"></a>이벤트 허브
 데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 정의 된 테이블의 모든 데이터를 내보낼 수 있습니다.
+
+> [!IMPORTANT]
+> [네임 스페이스 당 지원 되는 event hubs 수는 10 개입니다](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). 10 개 이상의 테이블을 내보내는 경우 사용자 고유의 이벤트 허브 이름을 제공 하 여 모든 테이블을 해당 이벤트 허브로 내보냅니다. 
 
 고려 사항:
 1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.

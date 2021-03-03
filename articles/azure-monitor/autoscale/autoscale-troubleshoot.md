@@ -4,12 +4,12 @@ description: Service Fabric, Virtual Machines, Web Apps 및 클라우드 서비�
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711402"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  
@@ -24,14 +24,14 @@ ms.locfileid: "100617599"
   
 ## <a name="autoscale-metrics"></a>자동 크기 조정 메트릭
 
-자동 크기 조정은 [4 개의 메트릭을](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) 제공 하 여 해당 작업을 이해 합니다. 
+자동 크기 조정은 [4 개의 메트릭을](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) 제공 하 여 해당 작업을 이해 합니다. 
 
 - **관찰 된 메트릭 값** -자동 크기 조정 엔진에서 표시 하거나 계산 된 대로 크기 조정 작업을 수행 하기 위해 선택한 메트릭의 값입니다. 단일 자동 크기 조정 설정에는 여러 규칙이 있을 수 있으므로 여러 메트릭 소스가 있으므로 "메트릭 원본"을 차원으로 사용 하 여 필터링 할 수 있습니다.
 - **메트릭 임계값** -크기 조정 작업을 수행 하기 위해 설정 하는 임계값입니다. 단일 자동 크기 조정 설정에는 여러 규칙이 있을 수 있으므로 여러 메트릭 소스가 있으므로 "메트릭 규칙"을 차원으로 사용 하 여 필터링 할 수 있습니다.
 - **관찰 된 용량** -자동 크기 조정 엔진에 표시 되는 대상 리소스의 활성 인스턴스 수입니다.
 - **시작된 크기 조정 작업** - 자동 크기 조정 엔진에서 시작된 확장 및 축소 작업의 수입니다. 작업에서 규모 확장 및 규모 확장을 기준으로 필터링 할 수 있습니다.
 
-[메트릭 탐색기](../platform/metrics-getting-started.md) 를 사용 하 여 위의 메트릭을 모두 한 곳에서 차트로 만들 수 있습니다. 차트에 다음이 표시 됩니다.
+[메트릭 탐색기](../essentials/metrics-getting-started.md) 를 사용 하 여 위의 메트릭을 모두 한 곳에서 차트로 만들 수 있습니다. 차트에 다음이 표시 됩니다.
 
   - 실제 메트릭
   - 자동 크기 조정 엔진에서 표시/계산 되는 메트릭입니다.
@@ -87,7 +87,7 @@ ms.locfileid: "100617599"
  - **관찰 된 용량** (자주)은 자동 크기 조정 엔진에서 표시 하는 인스턴스 수를 표시 합니다. 
  - **메트릭 임계값** (연한 녹색)은 10으로 설정 되어 있습니다. 
 
-여러 크기 조정 작업 규칙이 있는 경우 메트릭 탐색기 차트의 분할 또는 **필터 추가** 옵션을 사용 하 여 특정 원본 또는 규칙에 따라 메트릭을 확인할 수 있습니다. 메트릭 차트를 분할 하는 방법에 대 한 자세한 내용은 [메트릭 차트의 고급 기능-분할](../platform/metrics-charts.md#apply-splitting) 을 참조 하세요.
+여러 크기 조정 작업 규칙이 있는 경우 메트릭 탐색기 차트의 분할 또는 **필터 추가** 옵션을 사용 하 여 특정 원본 또는 규칙에 따라 메트릭을 확인할 수 있습니다. 메트릭 차트를 분할 하는 방법에 대 한 자세한 내용은 [메트릭 차트의 고급 기능-분할](../essentials/metrics-charts.md#apply-splitting) 을 참조 하세요.
 
 ## <a name="example-3---understanding-autoscale-events"></a>예제 3-자동 크기 조정 이벤트 이해
 
@@ -97,13 +97,13 @@ ms.locfileid: "100617599"
 
 ## <a name="autoscale-resource-logs"></a>자동 크기 조정 리소스 로그
 
-다른 Azure 리소스와 마찬가지로 자동 크기 조정 서비스에서 [리소스 로그](../platform/platform-logs-overview.md)를 제공 합니다. 로그에는 두 가지 범주가 있습니다.
+다른 Azure 리소스와 마찬가지로 자동 크기 조정 서비스에서 [리소스 로그](../essentials/platform-logs-overview.md)를 제공 합니다. 로그에는 두 가지 범주가 있습니다.
 
 - **자동 크기 조정 평가** -자동 크기 조정 엔진은 검사할 때마다 모든 단일 조건 평가에 대 한 로그 항목을 기록 합니다.  항목에는 관찰 된 메트릭 값에 대 한 세부 정보, 평가 된 규칙 및 평가 결과 크기 조정 작업이 발생 하는 경우가 포함 됩니다.
 
 - **자동 크기 조정 작업** -엔진은 자동 크기 조정 서비스에서 시작 된 크기 조정 작업 이벤트와 이러한 크기 조정 작업의 결과 (성공, 실패, 자동 크기 조정 서비스에서 볼 때 발생 한 크기 조정)를 기록 합니다.
 
-Azure Monitor 지원 되는 서비스와 마찬가지로 [진단 설정을](../platform/diagnostic-settings.md) 사용 하 여 이러한 로그를 라우팅할 수 있습니다.
+Azure Monitor 지원 되는 서비스와 마찬가지로 [진단 설정을](../essentials/diagnostic-settings.md) 사용 하 여 이러한 로그를 라우팅할 수 있습니다.
 
 - 자세한 분석을 위해 Log Analytics 작업 영역으로
 - Event Hubs 하 고 Azure 이외의 도구에
@@ -206,4 +206,4 @@ AutoscaleScaleActionsLog
 자세한 내용은 [자동 크기 조정 리소스 로그](autoscale-resource-log-schema.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[자동 크기 조정 모범 사례](autoscale-best-practices.md)에 대 한 정보를 읽습니다. 
+[자동 크기 조정 모범 사례](autoscale-best-practices.md)에 대 한 정보를 읽습니다.

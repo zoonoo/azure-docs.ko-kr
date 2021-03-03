@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695518"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -1057,47 +1057,17 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 Id를 사용 하 여 VM의 모�
    az login
    ```
 
-1. [Azure CLI를 사용 하 여 AZURE vm에서 azure 리소스에 대 한 관리 되][qs-configure-cli-windows-vm] 는 id 구성 문서에 나오는 단계에 따라 VM에 대 한 System-Assigned 관리 id를 사용 하도록 설정 합니다. User-Assigned 관리 Id는 SAP 용 VM 확장에서 지원 되지 않습니다. 그러나 시스템에 할당 된 id와 사용자 할당 id를 모두 사용 하도록 설정할 수 있습니다.
-
-   예제:
+1. Azure CLI AEM 확장을 설치 합니다. 이상 버전 0.2.0 이상을 사용 해야 합니다.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. 관리 id를 VM의 리소스 그룹 또는 모든 네트워크 인터페이스, 관리 디스크 및 VM 자체에 할당 합니다. 여기에 설명 된 대로 [Azure CLI를 사용 하 여 리소스에 대 한 관리 id 액세스 권한을 할당][howto-assign-access-cli] 합니다.
-
-    예제:
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. 다음 Azure CLI 명령을 실행 하 여 SAP 용 Azure 확장을 설치 합니다.
-    확장은 현재 AzureCloud 에서만 지원 됩니다. Azure 중국 21Vianet, Azure Government 또는 기타 특수 환경은 아직 지원 되지 않습니다.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. 에서 새 확장을 설치 합니다.
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>확인 및 문제 해결
 

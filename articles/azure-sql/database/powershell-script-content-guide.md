@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690977"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 Azure PowerShell 샘플
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 |---|---|
 |**관리되는 인스턴스 만들기 및 구성**||
 | [관리되는 인스턴스 만들기 및 구성](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | 이 PowerShell 스크립트는 Azure PowerShell을 사용하여 관리형 인스턴스를 만들고 관리하는 방법을 보여줍니다. |
-| [Azure Resource Manager 템플릿을 사용하여 관리형 인스턴스 만들기 및 관리](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure PowerShell 및 Azure Resource Manager를 사용하여 관리형 인스턴스를 만들고 관리하는 방법을 보여줍니다.|
+| [Azure Resource Manager 템플릿을 사용하여 관리형 인스턴스 만들기 및 관리](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure PowerShell 및 Azure Resource Manager를 사용하여 관리형 인스턴스를 만들고 관리하는 방법을 보여줍니다.|
 | [다른 지역의 관리형 인스턴스로 데이터베이스 복원](../managed-instance/scripts/restore-geo-backup.md) | 이 PowerShell 스크립트는 하나의 데이터베이스의 백업을 수행하고 다른 지역으로 복원합니다. 이를 지역 복원 재해 복구 시나리오라고 합니다. |
 | **투명한 데이터 암호화 구성**||
 | [Azure Key Vault의 사용자 고유 키를 사용하여 관리형 인스턴스에서 투명한 데이터 암호화 관리](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대한 Bring Your Own Key 시나리오에서 투명한 데이터 암호화를 구성합니다.|

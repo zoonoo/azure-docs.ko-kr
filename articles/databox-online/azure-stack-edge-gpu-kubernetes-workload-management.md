@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719273"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 워크 로드 관리 Kubernetes
 
@@ -54,6 +54,17 @@ Azure Stack Edge Pro 장치에 응용 프로그램을 배포 하려면 다음 �
 - **Azure arc 사용 Kubernetes 배포**: azure Arc enabled Kubernetes는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 `azure-arc namespace` 합니다. 이 네임 스페이스에 배포 된 에이전트는 Azure에 대 한 연결을 담당 합니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 
     
     Azure Arc enabled Kubernetes를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](../azure-arc/kubernetes/overview.md)을 참조 하세요.
+    
+    2021 년 3 월부터 Azure Arc enabled Kubernetes는 사용자에 게 일반적으로 제공 되며 표준 사용 요금이 적용 됩니다. 값 미리 보기 고객은 Azure Arc 사용 Kubernetes을 Azure Stack Edge 장치에 무료로 사용할 수 있습니다. 미리 보기 제안을 이용 하려면 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)를 만듭니다.
+
+    1. **문제점 유형** 에서 **청구** 를 선택합니다.
+    2. **구독** 아래에서 구독을 선택합니다.
+    3. **서비스** 에서 **내 서비스** 를 선택 하 고 **Azure Stack Edge** 를 선택 합니다.
+    4. **리소스** 에서 리소스를 선택 합니다.
+    5. **요약** 아래에서 문제에 대 한 설명을 입력 합니다.
+    6. **문제 유형** 에서 **예기치 않은 요금** 을 선택 합니다.
+    7. **문제 하위 유형** 에서 **내 무료 평가판에 대 한 요금을 이해 하도록 지원** 을 선택 합니다.
+
 
 ## <a name="choose-the-deployment-type"></a>배포 유형 선택
 

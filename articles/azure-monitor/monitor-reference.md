@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 153b153399bd430b4688d4790a3dd5785c545012
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c8f1a45f46975b489690eded5b094ffee94dbf1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579388"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728402"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -26,12 +26,12 @@ ms.locfileid: "100579388"
 | 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 애플리케이션을 모니터링하는 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. |
-| [컨테이너용 Azure Monitor](containers/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
+| [컨테이너 정보](containers/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
 | [Cosmos DB용 Azure Monitor](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
 | [네트워크용 Azure Monitor(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
 [리소스 그룹용 Azure Monitor(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
 | [Storage용 Azure Monitor](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
-| [VM용 Azure Monitor](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
+| [VM 정보](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
 | [Key Vault용 Azure Monitor(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다. |
 | [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
 
@@ -120,7 +120,7 @@ ms.locfileid: "100579388"
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](containers/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 아니요 | 예 |  |
+|Load Balancer | 예 | 예 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
@@ -130,10 +130,10 @@ ms.locfileid: "100579388"
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 예 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 아니요 | 예 |  |
+|마이그레이션 | 예 | 예 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 아니요 | 예 |  |
+|Notification Hubs | 예 | 예 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
 |Power Automate | 예 | 예 | 예 |  |
@@ -142,7 +142,7 @@ ms.locfileid: "100579388"
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 아니요 | 예 |  |
+|Resource Graph | 예 | 예 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
@@ -150,25 +150,25 @@ ms.locfileid: "100579388"
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
 |등록 포털 | 예 | 예 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 아니요 | 예 |  |
+|Spring Cloud Service | 예 | 예 | 예 |  |
 |Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 아니요 | 예 |  |
+|스택 | 예 | 예 | 예 |  |
 |스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 아니요 | 예 |  |
+|TINA | 예 | 예 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 아니요 | 예 |  |
+|유니버설 인쇄 | 예 | 예 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 아니요 | 예 |  |
+|Windows Virtual Desktop | 예 | 예 | 예 |  |
 
 ## <a name="virtual-machine-agents"></a>가상 머신 에이전트
 다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하 고 모니터에 데이터를 보낼 수 있는 에이전트가 나열 되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집 하 여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
@@ -178,10 +178,10 @@ ms.locfileid: "100579388"
 | 에이전트 |  메트릭 | 로그 |
 |:---|:---|:---|:---|
 | [Azure Monitor 에이전트(미리 보기)](agents/azure-monitor-agent-overview.md) | 예 | 예 |
-| [Log Analytics 에이전트](agents/log-analytics-agent.md) | 아니요 | 예|
-| [진단 확장](agents/diagnostics-extension-overview.md) | 예 | 아니요 |
-| [Telegraf 에이전트](essentials/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
-| [종속성 에이전트](vm/vminsights-enable-overview.md) | 아니요 | 예 |
+| [Log Analytics 에이전트](agents/log-analytics-agent.md) | 예 | 예|
+| [진단 확장](agents/diagnostics-extension-overview.md) | 예 | 예 |
+| [Telegraf 에이전트](essentials/collect-custom-metrics-linux-telegraf.md) | 예 | 예 |
+| [종속성 에이전트](vm/vminsights-enable-overview.md) | 예 | 예 |
 
 
 ## <a name="product-integrations"></a>제품 통합
@@ -240,7 +240,7 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인사이트 및 솔루션에서 수집한 로그 및 메트릭을 저장하는 Azure Monitor 데이터 플랫폼](/data-platform.md)에 대해 자세히 알아봅니다.
+- [인사이트 및 솔루션에서 수집한 로그 및 메트릭을 저장하는 Azure Monitor 데이터 플랫폼](data-platform.md)에 대해 자세히 알아봅니다.
 - [Azure 리소스 모니터링에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](essentials/tutorial-metrics-explorer.md)를 완료합니다.

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3c4c4e86e2461ea1d05af284e724a5a2991f040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727042"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>VM 이동에 대해 만든 리소스 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "100388484"
 
 이동 컬렉션을 수동으로 삭제 하 고 VM 이동에 대해 만들어진 리소스를 Site Recovery 합니다.
 
-1. 리소스 그룹에서 리소스를 검토 ```ResourceMoverRG-<sourceregion>-<target-region>``` 합니다.
+1. 리소스 그룹에서 리소스를 검토 ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>``` 합니다.
 2. 이동 컬렉션의 VM 및 다른 모든 원본 리소스가 이동/삭제 되었는지 확인 합니다. 이러한 리소스를 사용하는 보류 중인 리소스가 남아 있지 않도록 확인하기 위한 절차입니다.
 2. 이러한 리소스를 삭제 합니다.
 

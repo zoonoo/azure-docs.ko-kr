@@ -152,8 +152,6 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: 워크로드 VM을 프라이빗 클라우드로 마이그레이션
               href: migrate-workloads.md
-            - name: Azure Data Box를 사용하여 마이그레이션
-              href: migration-using-azure-data-box.md
             - name: Azure의 VMware에서 애플리케이션 고가용성 확보
               href: ensuring-high-availability.md
             - name: 부하 분산 해결책 선택

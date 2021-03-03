@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614429"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714156"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
 ## <a name="overview"></a>개요
 
-로그 경고는 [Azure 경고](../platform/alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](../platform/action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다.
+로그 경고는 [Azure 경고](./alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 [Log Analytics](../logs/log-analytics-tutorial.md) 쿼리를 사용 하 여 설정 된 빈도 마다 리소스 로그를 평가 하 고 결과에 따라 경고를 발생 시킬 수 있습니다. 규칙은 [작업 그룹](./action-groups.md)을 사용 하 여 하나 이상의 작업을 트리거할 수 있습니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역의](../log-query/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
+> [Log Analytics 작업 영역의](../logs/log-analytics-tutorial.md) 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고는 작업 하는 데이터에 따라 더 적합할 수 있는 [동작이 다릅니다](alerts-metric-overview.md). 로그를 메트릭에 라우팅하는 방법 및 방법에 대 한 자세한 내용은 [로그에 대 한 메트릭 경고](alerts-metric-logs.md)를 참조 하세요.
 
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](../platform/resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
+로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](../essentials/resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../logs/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../logs/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
-[Azure 모니터링 참여자](../platform/roles-permissions-security.md) 는 로그 경고를 만들고 수정 하 고 업데이트 하는 데 필요한 일반적인 역할입니다. 리소스 로그에 대 한 액세스 & 쿼리 실행 권한도 필요 합니다. 리소스 로그에 대 한 부분 액세스는 쿼리가 실패 하거나 부분적인 결과를 반환할 수 있습니다. [Azure에서 로그 경고를 구성 하는 방법에 대해 자세히 알아보세요](./alerts-log.md).
+[Azure 모니터링 참여자](../roles-permissions-security.md) 는 로그 경고를 만들고 수정 하 고 업데이트 하는 데 필요한 일반적인 역할입니다. 리소스 로그에 대 한 액세스 & 쿼리 실행 권한도 필요 합니다. 리소스 로그에 대 한 부분 액세스는 쿼리가 실패 하거나 부분적인 결과를 반환할 수 있습니다. [Azure에서 로그 경고를 구성 하는 방법에 대해 자세히 알아보세요](./alerts-log.md).
 
 > [!NOTE]
-> 레거시 [Log Analytics 경고 API](../platform/api-alerts.md)를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고입니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](../alerts/alerts-log-api-switch.md).
+> 레거시 [Log Analytics 경고 API](./api-alerts.md)를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고입니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>쿼리 평가 정의
 
@@ -44,17 +44,17 @@ ms.locfileid: "100614429"
 다음 섹션에서는 위의 논리를 설정 하는 데 사용할 수 있는 다양 한 매개 변수를 설명 합니다.
 
 ### <a name="log-query"></a>로그 쿼리
-규칙을 평가 하는 데 사용 되는 [Log Analytics](../log-query/log-analytics-tutorial.md) 쿼리입니다. 이 쿼리에서 반환 되는 결과는 경고를 트리거할 지 여부를 결정 하는 데 사용 됩니다. 쿼리 범위를 다음으로 지정할 수 있습니다.
+규칙을 평가 하는 데 사용 되는 [Log Analytics](../logs/log-analytics-tutorial.md) 쿼리입니다. 이 쿼리에서 반환 되는 결과는 경고를 트리거할 지 여부를 결정 하는 데 사용 됩니다. 쿼리 범위를 다음으로 지정할 수 있습니다.
 
 - 특정 리소스 (예: 가상 머신).
 - 구독 또는 리소스 그룹과 같은 확장 리소스입니다.
-- [리소스 간 쿼리](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)를 사용 하는 여러 리소스 
+- [리소스 간 쿼리](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)를 사용 하는 여러 리소스 
  
 > [!IMPORTANT]
 > 경고 쿼리에는 최적의 성능 및 결과의 관련성을 보장 하는 제약 조건이 있습니다. [여기를 참조하세요](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> 리소스 중심 및 [리소스 간 쿼리](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 는 현재 scheduledQueryRules API를 사용 하는 경우에만 지원 됩니다. 레거시 [Log Analytics 경고 API](../platform/api-alerts.md)를 사용 하는 경우를 전환 해야 합니다. [전환에 대 한 자세한 정보](./alerts-log-api-switch.md)
+> 리소스 중심 및 [리소스 간 쿼리](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 는 현재 scheduledQueryRules API를 사용 하는 경우에만 지원 됩니다. 레거시 [Log Analytics 경고 API](./api-alerts.md)를 사용 하는 경우를 전환 해야 합니다. [전환에 대 한 자세한 정보](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>쿼리 시간 범위
 
@@ -154,7 +154,7 @@ requests
 이 규칙은 지난 15 분 동안 가상 컴퓨터에 오류 이벤트가 있는지 여부를 모니터링 합니다. 각 가상 머신은 별도로 모니터링 되 고 작업을 개별적으로 트리거합니다.
 
 > [!NOTE]
-> 경고 차원으로 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics 경고 API](../platform/api-alerts.md)를 사용 하는 경우를 전환 해야 합니다. [전환에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 규모의 리소스 중심 경고는 API 버전 이상 에서만 지원 됩니다 `2020-05-01-preview` .
+> 경고 차원으로 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics 경고 API](./api-alerts.md)를 사용 하는 경우를 전환 해야 합니다. [전환에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 규모의 리소스 중심 경고는 API 버전 이상 에서만 지원 됩니다 `2020-05-01-preview` .
 
 ## <a name="alert-logic-definition"></a>경고 논리 정의
 
@@ -197,17 +197,17 @@ requests
 
 - 리소스 그룹 및 경고 속성과 함께 정확한 리소스 이름과 함께 표시 되는 Application Insights에 대 한 경고를 로깅합니다.
 - 리소스 그룹 및 경고 속성과 함께 정확한 리소스 이름과 함께 표시 되는 Log Analytics에 대 한 경고를 로깅합니다. [SCHEDULEDQUERYRULES API](/rest/api/monitor/scheduledqueryrules)를 사용 하 여 만든 경우
-- [레거시 LOG ANALYTICS API](../platform/api-alerts.md) 에서 만든 로그 경고는 [Azure 리소스](../../azure-resource-manager/management/overview.md) 를 추적 하지 않으며 고유한 리소스 이름을 적용 하지 않습니다. 이러한 경고는 `microsoft.insights/scheduledqueryrules` 이 리소스 명명 구조를 포함 하는 숨겨진 리소스로 계속 생성 됩니다 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . 레거시 API에 대 한 로그 경고는 리소스 그룹 및 경고 속성과 함께 숨겨진 리소스 이름과 함께 표시 됩니다.
+- [레거시 LOG ANALYTICS API](./api-alerts.md) 에서 만든 로그 경고는 [Azure 리소스](../../azure-resource-manager/management/overview.md) 를 추적 하지 않으며 고유한 리소스 이름을 적용 하지 않습니다. 이러한 경고는 `microsoft.insights/scheduledqueryrules` 이 리소스 명명 구조를 포함 하는 숨겨진 리소스로 계속 생성 됩니다 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . 레거시 API에 대 한 로그 경고는 리소스 그룹 및 경고 속성과 함께 숨겨진 리소스 이름과 함께 표시 됩니다.
 
 > [!NOTE]
 > 와 같은 지원 되지 않는 리소스 문자 `<, >, %, &, \, ?, /` 는 `_` 숨겨진 리소스 이름에서로 바뀌고 청구 정보에도 반영 됩니다.
 
 > [!NOTE]
-> 레거시 [Log Analytics 경고 API](../platform/api-alerts.md) 를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고 및 [저장 된 검색 및 경고 Log Analytics](../insights/solutions.md)의 레거시 템플릿을 사용 합니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](../alerts/alerts-log-api-switch.md). 스위치를 전환할 때까지 [레거시 LOG ANALYTICS API](../platform/api-alerts.md) 를 사용 하 여 모든 경고 규칙 관리를 수행 해야 하며, 숨겨진 리소스는 사용할 수 없습니다.
+> 레거시 [Log Analytics 경고 API](./api-alerts.md) 를 사용 하 여 관리 하는 데 사용 되는 Log Analytics에 대 한 로그 경고 및 [저장 된 검색 및 경고 Log Analytics](../insights/solutions.md)의 레거시 템플릿을 사용 합니다. [현재 SCHEDULEDQUERYRULES API로 전환 하는 방법에 대해 자세히 알아보세요](../alerts/alerts-log-api-switch.md). 스위치를 전환할 때까지 [레거시 LOG ANALYTICS API](./api-alerts.md) 를 사용 하 여 모든 경고 규칙 관리를 수행 해야 하며, 숨겨진 리소스는 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure의 로그 경고에서 만들기](./alerts-log.md)에 대해 알아봅니다.
 * [Azure의 로그 경고에서 웹후크](../alerts/alerts-log-webhook.md)를 이해합니다.
-* [Azure Alerts](../platform/alerts-overview.md)에 대해 알아봅니다.
-* [Log Analytics](../log-query/log-query-overview.md)에 대해 자세히 알아보세요.
+* [Azure Alerts](./alerts-overview.md)에 대해 알아봅니다.
+* [Log Analytics](../logs/log-query-overview.md)에 대해 자세히 알아보세요.

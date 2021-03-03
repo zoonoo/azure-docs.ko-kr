@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 08b22af8743082bab1d547205e51917cb9d92a11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "96780215"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695773"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
@@ -20,7 +20,7 @@ ms.locfileid: "96780215"
 
 ## <a name="purview-data-sources"></a>부서의 범위 데이터 원본
 
-|**범주**|  **데이터 저장소**  |**메타 데이터 추출**|**전체 검사**|**증분 검색**|**범위 검색**|**분류**|**계보**|
+|**범주**|  **데이터 저장소**  |**메타 데이터 추출**|**전체 검색**|**증분 검색**|**범위 검색**|**분류**|**계보**|
 |---|---|---|---|---|---|---|---|
 | Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| 예| 예| 예| 예| 예| 예|
 ||[Azure Cosmos DB](register-scan-azure-cosmos-database.md)|예| 예| 예| 예| 예| 예|
@@ -30,8 +30,12 @@ ms.locfileid: "96780215"
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|예| 예| 예| 예| 예| 예|
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Synapse Analytics (이전의 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 예| 예| 예| 예|
-|데이터베이스|[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 예| 예| 예| 예|
+|데이터베이스|[Oracle DB](register-scan-oracle-source.md)|예| 예| 예| 예| 예| 예|
+||[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 예| 예| 예| 예|
+||[Teradata](register-scan-teradata-source.md)|예| 예| 예| 예| 예| 예|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|예| 예| 예| 예| 예| 예|
+|서비스 및 앱|[SAP ECC](register-scan-sapecc-source.md)|예| 예| 예| 예| 예| 예|
+||[SAP S4HANA](register-scan-saps4hana-source.md)|예| 예| 예| 예| 예| 예|
 
 ## <a name="next-steps"></a>다음 단계
 

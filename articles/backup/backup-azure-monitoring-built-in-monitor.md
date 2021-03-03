@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550349"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713374"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -79,7 +79,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
 
-오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 다음 창이 여기에 포함됩니다.
 
 - 사용자가 실행 중인 작업을 명시적으로 취소 함
 - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
@@ -119,6 +119,18 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 선택할 수 있습니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 **비활성화** 단추가 표시 됩니다. 이 단추를 선택 하면 경고 상태가 **비활성** 으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 **비활성화** 를 선택 하 여 경고를 비활성화할 수도 있습니다.
 
 ![RS Vault 경고 비활성화](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Azure Backup에 대 한 Azure Monitor 경고 (미리 보기)
+
+또한 Azure Backup는 Azure Monitor를 통해 경고를 제공 하 여 사용자가 백업을 비롯 한 다양 한 Azure 서비스에서 경고 관리에 대해 일관 된 환경을 제공할 수 있도록 합니다. Azure Monitor 경고를 사용 하 여 전자 메일, ITSM, Webhook, 논리 앱 등의 Azure Backup 지원 되는 알림 채널로 경고를 라우팅할 수 있습니다.
+
+현재이 기능은 PostgreSQL 서버, Azure Blob 및 Azure Managed Disks 용 Azure 데이터베이스에 사용할 수 있습니다. 경고는 다음과 같은 시나리오에 대해 생성 되며 백업 자격 증명 모음으로 이동 하 고 **경고** 메뉴 항목을 클릭 하 여 액세스할 수 있습니다.
+
+- 백업 데이터 삭제
+- 백업 오류 (백업 실패에 대 한 경고를 가져오려면 미리 보기 포털을 통해 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 이라는 afec 플래그를 등록 해야 합니다.)
+- 복원 실패 (복원 실패에 대 한 경고를 받으려면 미리 보기 포털을 통해 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 이라는 afec 플래그를 등록 해야 합니다.)
+
+Azure Monitor 경고에 대 한 자세한 내용은 [Azure의 경고 개요](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

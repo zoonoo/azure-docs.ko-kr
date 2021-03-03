@@ -1,26 +1,26 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니터링 | Microsoft Docs
-description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
+title: 컨테이너 insights를 사용 하 여 Kubernetes 모니터링 | Microsoft Docs
+description: 이 문서에서는 컨테이너 정보를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 9bb21f7a651d773806a96bb19044abf3bc7dda5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711351"
 ---
-# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
+# <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>컨테이너 정보를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
-컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 차트와 상태를 사용 하 여 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 작업을 모니터링할 수 있습니다. 클러스터에서 직접 모니터링 하거나 Azure Monitor에서 구독의 모든 클러스터를 볼 수 있습니다. 특정 AKS 클러스터를 모니터링 하는 경우에도 Azure Container Instances을 볼 수 있습니다.
+컨테이너 정보를 사용 하면 성능 차트 및 상태를 사용 하 여 두 가지 관점에서 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에 호스트 된 Kubernetes 클러스터의 작업을 모니터링할 수 있습니다. 클러스터에서 직접 모니터링 하거나 Azure Monitor에서 구독의 모든 클러스터를 볼 수 있습니다. 특정 AKS 클러스터를 모니터링 하는 경우에도 Azure Container Instances을 볼 수 있습니다.
 
 이 문서에서는 두 가지 관점을 이해 하 고 검색 된 문제를 신속 하 게 평가, 조사 및 해결 하는 데 도움이 되 Azure Monitor 방법을 설명 합니다.
 
-컨테이너용 Azure Monitor를 사용하도록 설정하는 방법은 [컨테이너용 Azure Monitor 등록](container-insights-onboard.md)을 참조하세요.
+컨테이너 insights를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [container insights](container-insights-onboard.md)등록을 참조 하세요.
 
 Azure Monitor는 구독에서 리소스 그룹에 배포 된 Linux 및 Windows Server 2019를 실행 하는 모든 모니터링 되는 Kubernetes 클러스터의 상태를 보여 주는 다중 클러스터 뷰를 제공 합니다. 솔루션에서 모니터링 되지 않는 모든 환경에서 검색 된 클러스터를 표시 합니다. 클러스터 상태를 즉시 이해할 수 있으며, 여기에서 노드 및 컨트롤러 성능 페이지로 드릴 다운 하거나 탐색 하 여 클러스터에 대 한 성능 차트를 볼 수 있습니다. 검색 되 고 모니터링 되지 않는 것으로 식별 된 AKS 클러스터의 경우 언제 든 지 모니터링을 사용 하도록 설정할 수 있습니다.
 
-Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포함 된 Windows Server 클러스터 모니터링의 주요 차이점은 개요 문서 [에서 설명 합니다](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) .
+컨테이너 정보를 사용 하 여 Windows Server 클러스터를 Linux 클러스터와 비교해 서 모니터링 하는 주요 차이점은 개요 문서 [에 설명 되어](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -37,7 +37,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 * **Azure Kubernetes** Service에서 호스트 되는 AKS 및 AKS-Engine 클러스터
 * **Azure Stack (미리 보기)** -Azure Stack에서 호스트 되는 AKS-Engine 클러스터
 * **비 Azure (미리 보기)** -온-프레미스에서 호스트 되는 Kubernetes 클러스터
-* **모두** -Azure, Azure Stack 및 컨테이너에 대해 Azure Monitor 등록 된 온-프레미스 환경에서 호스트 되는 모든 Kubernetes 클러스터를 확인 합니다.
+* **모두** -Azure, Azure Stack 및 컨테이너 insights로 등록 된 온-프레미스 환경에서 호스트 되는 모든 Kubernetes 클러스터를 확인 합니다.
 
 특정 환경에서 클러스터를 보려면 페이지의 왼쪽 위 모서리에 있는 **환경** 약에서 클러스터를 선택 합니다.
 
@@ -59,7 +59,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 * **찾을 수 없음**:이 솔루션에 대 한 작업 영역을 포함 하는 작업 영역, 리소스 그룹 또는 구독이 삭제 되었습니다.
 * **권한 없음**: 사용자에 게 작업 영역의 데이터를 읽는 데 필요한 권한이 없습니다.
 * **오류**: 작업 영역에서 데이터를 읽는 동안 오류가 발생 했습니다.
-* **잘못** 구성 됨: 컨테이너의 Azure Monitor 지정 된 작업 영역에서 올바르게 구성 되지 않았습니다.
+* **잘못 구성** 됨: 지정 된 작업 영역에서 컨테이너 정보를 올바르게 구성 하지 않았습니다.
 * **데이터 없음**: 지난 30 분 동안 데이터가 작업 영역에 보고 되지 않았습니다.
 
 상태는 전체 클러스터 상태를 한 가지 예외를 제외 하 고 세 가지 상태의 *최악의* 것으로 계산 합니다. 세 가지 상태 중 하나를 알 수 없는 경우 전체 클러스터 상태에서 **알 수 없음** 이 표시 됩니다.
@@ -71,24 +71,24 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 |**사용자 pod**| | |
 | |정상 |100% |
 | |경고 |90-99% |
-| |중요 |<90% |
+| |위험 |<90% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**시스템 pod**| | |
 | |정상 |100% |
 | |경고 |해당 없음 |
-| |중요 |<100% |
+| |위험 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
 | |경고 |60 - 84% |
-| |중요 |<60% |
+| |위험 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
 클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.
 
 ## <a name="view-performance-directly-from-a-cluster"></a>클러스터에서 직접 성능 보기
 
-컨테이너의 Azure Monitor에 대 한 액세스는   >  왼쪽 창에서 Insights **클러스터** 를 선택 하거나 다중 클러스터 뷰에서 클러스터를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
+컨테이너 insights에 대 한 액세스는   >  왼쪽 창에서 insights **클러스터** 를 선택 하거나 다중 클러스터 뷰에서 클러스터를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
 
 - 클러스터
 - 노드
@@ -109,15 +109,15 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 - **노드 수**: Kubernetes의 노드 수 및 상태입니다. 표시 되는 클러스터 노드의 상태는 총, 준비 됨, 준비 되지 않음입니다. 이러한 필터는 개별적으로 필터링 하거나 차트 위의 선택기에서 결합할 수 있습니다.
 - **활성 pod 수**: Kubernetes의 pod 개수 및 상태입니다. 표시 되는 pod의 상태는 Total, Pending, Running, Unknown, Succeeded 또는 Failed입니다. 이러한 필터는 개별적으로 필터링 하거나 차트 위의 선택기에서 결합할 수 있습니다.
 
-왼쪽 및 오른쪽 화살표 키를 사용 하 여 차트의 각 데이터 요소를 순환 합니다. 위쪽 및 아래쪽 화살표 키를 사용 하 여 백분위 수 선 사이를 순환 합니다. 차트 중 하나의 오른쪽 위 모퉁이에 있는 고정 아이콘을 선택 하 여 선택한 차트를 표시 된 마지막 Azure 대시보드에 고정 합니다. 대시보드에서 차트의 크기를 조정하고 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택 하면 컨테이너에 대 한 Azure Monitor으로 리디렉션되고 올바른 범위와 보기가 로드 됩니다.
+왼쪽 및 오른쪽 화살표 키를 사용 하 여 차트의 각 데이터 요소를 순환 합니다. 위쪽 및 아래쪽 화살표 키를 사용 하 여 백분위 수 선 사이를 순환 합니다. 차트 중 하나의 오른쪽 위 모퉁이에 있는 고정 아이콘을 선택 하 여 선택한 차트를 표시 된 마지막 Azure 대시보드에 고정 합니다. 대시보드에서 차트의 크기를 조정하고 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택 하면 컨테이너 insights로 리디렉션되고 올바른 범위와 보기가 로드 됩니다.
 
-컨테이너에 대 한 Azure Monitor는 사용자 고유의 플롯 차트를 만들고, 추세를 상호 연결 하 고, 추세를 조사 하 고, 대시보드에 고정할 수 있는 Azure Monitor [메트릭 탐색기](../essentials/metrics-getting-started.md)도 지원 합니다. 메트릭 탐색기에서 메트릭 [기반 경고 규칙](../alerts/alerts-metric.md)의 기반으로 메트릭을 시각화 하기 위해 설정 하는 조건을 사용할 수도 있습니다.
+컨테이너 정보 활용은 사용자 고유의 플롯 차트를 만들고, 추세를 상호 연결 하 고, 추세를 조사 하 고, 대시보드에 고정할 수 있는 Azure Monitor [메트릭 탐색기](../essentials/metrics-getting-started.md)도 지원 합니다. 메트릭 탐색기에서 메트릭 [기반 경고 규칙](../alerts/alerts-metric.md)의 기반으로 메트릭을 시각화 하기 위해 설정 하는 조건을 사용할 수도 있습니다.
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>메트릭 탐색기에서 컨테이너 메트릭 보기
 
-메트릭 탐색기에서 컨테이너에 대 한 Azure Monitor 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
+메트릭 탐색기에서는 컨테이너 정보에서 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
 
-|네임스페이스 | 메트릭 | 설명 |
+|네임스페이스 | 메트릭 | Description |
 |----------|--------|-------------|
 | 정보. 컨테이너/노드 | |
 | | cpuUsageMillicores | 클러스터 전반의 CPU 사용률 집계 측정. 1000 단위로 분할 된 CPU 코어 (밀리초 = 1000)입니다. 많은 응용 프로그램에서 코어 하나를 사용할 수 있는 컨테이너의 코어 사용량을 확인 하는 데 사용 됩니다.|
@@ -189,7 +189,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 **노드** 탭을 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | 속성 | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
@@ -232,7 +232,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨트롤러를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | 속성 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지* 됨 또는 *일시 중지* 됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음* 으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
@@ -269,7 +269,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨테이너를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | 속성 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
@@ -297,12 +297,12 @@ Azure 네트워크 정책 관리자는 네트워크 구성을 모니터링 하 �
 
 ## <a name="workbooks"></a>통합 문서
 
-통합 문서는 텍스트, 로그 쿼리, 메트릭 및 매개 변수를 다양 한 대화형 보고서에 결합 하 여 클러스터 성능을 분석할 수 있습니다. 컨테이너에 대해 Azure Monitor 사용할 수 있는 통합 문서에 대 한 설명은 [Azure Monitor의 통합 문서](../insights/container-insights-reports.md) 를 참조 하세요.
+통합 문서는 텍스트, 로그 쿼리, 메트릭 및 매개 변수를 다양 한 대화형 보고서에 결합 하 여 클러스터 성능을 분석할 수 있습니다. 컨테이너 insights에 사용할 수 있는 통합 문서에 대 한 설명은 [container insights의 통합 문서](../insights/container-insights-reports.md) 를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법을 알아보세요.
+- [컨테이너 정보를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지 원하는 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법을 알아봅니다.
 
 - 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-search.md#search-logs-to-analyze-data)를 확인하세요.
 

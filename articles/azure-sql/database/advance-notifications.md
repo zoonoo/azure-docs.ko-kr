@@ -1,6 +1,6 @@
 ---
 title: 계획 된 유지 관리 이벤트에 대 한 사전 알림 (미리 보기)
-description: Azure SQL Database 또는 Azure SQL Managed Instance에 대 한 계획 된 유지 관리 전에 알림을 받습니다.
+description: Azure SQL Database에 대 한 계획 된 유지 관리 전에 알림을 받습니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -11,24 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 3f63a8d2f75a58a771d837128c2b2498c28948ef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690892"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>계획 된 유지 관리 이벤트에 대 한 사전 알림 (미리 보기)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 사전 알림 (미리 보기)은 [유지 관리 기간 (미리 보기)](maintenance-window.md)용으로 구성 된 데이터베이스에서 사용할 수 있습니다. 사전 알림을 통해 고객은 예정 된 이벤트를 사전에 최대 24 시간 동안 전송할 알림을 구성할 수 있습니다.
 
 예정 된 유지 관리가 다음 24 시간 이내에 시작 될 때 텍스트, 전자 메일, Azure 푸시 알림 및 voicemails를 가져올 수 있도록 알림을 구성할 수 있습니다. 추가 알림은 유지 관리가 시작 될 때와 유지 관리가 종료 될 때 전송 됩니다.
 
+> [!Note]
+> Azure SQL 관리 되는 인스턴스에는 유지 관리 기간을 선택 하는 기능을 사용할 수 있지만 현재 Azure SQL 관리 되는 인스턴스에는 사전 알림을 사용할 수 없습니다.
 
 ## <a name="create-an-advance-notification"></a>사전 알림 만들기
 
-Azure SQL database 및 유지 관리 기간이 구성 된 관리 되는 인스턴스에 대해 고급 알림을 사용할 수 있습니다. 
+유지 관리 기간이 구성 된 Azure SQL database에 대 한 고급 알림을 사용할 수 있습니다. 
 
 알림을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.  
 

@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 1a0b1a0400ae3d43817921e8a336421aee35ccd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ea5168641f233f2e9580612a2f245fd8fef860f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378148"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699354"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -26,12 +26,12 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 ### <a name="dav4-series-support"></a>Dav4 시리즈 지원
-HDInsight는이 릴리스에서 Dav4 시리즈 지원을 추가 했습니다. [Dav4 시리즈](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)에 대 한 자세한 내용은 여기를 참조 하세요.
+HDInsight는이 릴리스에서 Dav4 시리즈 지원을 추가 했습니다. [Dav4 시리즈](/azure/virtual-machines/dav4-dasv4-series)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 ### <a name="kafka-rest-proxy-ga"></a>Kafka REST 프록시 GA 
-Kafka REST 프록시를 사용 하면 HTTPS를 통해 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이 릴리스에서는 kafka Rest 프록시가 일반 공급 됩니다. [여기에서 Kafka REST 프록시](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy)에 대해 자세히 알아보세요.
+Kafka REST 프록시를 사용 하면 HTTPS를 통해 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이 릴리스에서는 kafka Rest 프록시가 일반 공급 됩니다. [여기에서 Kafka REST 프록시](/azure/hdinsight/kafka/rest-proxy)에 대해 자세히 알아보세요.
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
 이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
@@ -49,14 +49,14 @@ HDInsight는 Azure 가상 머신 확장 집합으로 점진적으로 마이그�
 
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Apache Spark 1.0.0의 .NET에 대 한 주요 변경 내용
-최신 릴리스를 사용 하는 경우 HDInsight는 [".net for Apache Spark"](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v 1.0.0을 소개 합니다. [다른 기능의](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)호스트와 함께 spark 2.4. x 및 spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [Apache Spark 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 하세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v 1.0에 대 한이 .net 가이드](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조 하세요.
+최신 릴리스를 사용 하는 경우 HDInsight는 [".net for Apache Spark"](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v 1.0.0을 소개 합니다. [다른 기능의](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)호스트와 함께 spark 2.4. x 및 spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [Apache Spark 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 하세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v 1.0에 대 한이 .net 가이드](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조 하세요.
 
 
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
 
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>기본 클러스터 버전이 4.0로 변경 됩니다.
-2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md#available-versions)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md)의 새로운 기능에 대해 자세히 알아보세요.
+2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md)의 새로운 기능에 대해 자세히 알아보세요.
 
 ### <a name="os-version-upgrade"></a>OS 버전 업그레이드
 HDInsight가 Ubuntu 16.04에서 18.04로 OS 버전을 업그레이드 하 고 있습니다. 업그레이드는 4 월 2021 일 전에 완료 됩니다.

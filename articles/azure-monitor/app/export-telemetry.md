@@ -2,16 +2,20 @@
 title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.custom: references_regions
+ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737038"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
+
+> [!IMPORTANT]
+> 연속 내보내기는 더 이상 사용 되지 않습니다. [작업 영역 기반 Application Insights 리소스로 마이그레이션하여](convert-classic-resource.md) 원격 분석 내보내기에 대 한 [진단 설정을](#diagnostic-settings-based-export) 사용 합니다.
 
 > [!NOTE]
 > 연속 내보내기는 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스](./create-workspace-resource.md)는 [진단 설정](./create-workspace-resource.md#export-telemetry)을 사용해야 합니다.
@@ -27,6 +31,44 @@ ms.locfileid: "100584242"
 * [PowerShell을 통해 연속 내보내기](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](./data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
+
+## <a name="supported-regions"></a>지원되는 지역
+
+연속 내보내기는 다음 지역에서 지원 됩니다.
+
+* 동남아시아
+* 캐나다 중부
+* 인도 중부
+* 북유럽
+* 영국 남부
+* 오스트레일리아 동부
+* 일본 동부
+* 한국 중부
+* 프랑스 중부
+* 동아시아
+* 미국 서부
+* 미국 중부
+* 미국 동부 2
+* 미국 중남부
+* 미국 서부 2
+* 남아프리카 북부
+* 미국 중북부
+* 브라질 남부
+* 스위스 북부
+* 오스트레일리아 남동부
+* 영국 서부
+* 독일 중서부
+* 스위스 서부
+* 오스트레일리아 중부 2
+* 아랍에미리트 중부
+* 브라질 남동쪽
+* 오스트레일리아 중부
+* 아랍에미리트 북부
+* 노르웨이 동부
+* 일본 서부
+
+> [!NOTE]
+> 이미 **유럽 서부** 및 **미국 동부** 에서 구성 된 응용 프로그램은 지원 되지만 해당 지역에 새 응용 프로그램을 온 보 딩은 지원 되지 않습니다.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>연속 내보내기 고급 스토리지 구성
 

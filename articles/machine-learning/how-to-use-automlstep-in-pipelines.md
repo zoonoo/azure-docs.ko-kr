@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 12/04/2020
+ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: da973cf377ceace4a92d1cdd1e956321a5592e6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692218"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 
@@ -45,7 +45,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 구체적으로 설명 하기 위해이 문서에서는 분류 태스크에 대 한 간단한 파이프라인을 만듭니다. 이 태스크는 Titanic을 예측 하 고 있지만, 전달 하는 것을 제외 하 고 데이터 또는 태스크에 대해서는 다루지 않습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 ### <a name="retrieve-initial-dataset"></a>초기 데이터 집합 검색
 
@@ -136,8 +136,6 @@ from azureml.core import Run
 
 import pandas as pd 
 import numpy as np 
-import pyarrow as pa
-import pyarrow.parquet as pq
 import argparse
 
 RANDOM_SEED=42
@@ -188,10 +186,9 @@ titanic_ds = Run.get_context().input_datasets['titanic_ds']
 df = titanic_ds.to_pandas_dataframe().drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1)
 df = prepare_embarked(prepare_genders(prepare_fare(prepare_age(df))))
 
-os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
-pq.write_table(pa.Table.from_pandas(df), args.output_path)
+df.to_csv(os.path.join(args.output_path,"prepped_data.csv"))
 
-print(f"Wrote test to {args.output_path} and train to {args.output_path}")
+print(f"Wrote prepped data to {args.output_path}/prepped_data.csv")
 ```
 
 위의 코드 조각은 Titanic 데이터에 대 한 데이터 준비의 완전 한 예제 이며 최소한의 예제입니다. 코드 조각을 파일에 출력 하는 Jupyter "매직 command"로 시작 합니다. Jupyter 노트북을 사용 하지 않는 경우 해당 줄을 제거 하 고 수동으로 파일을 만듭니다.
@@ -200,33 +197,30 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 코드에서 데이터 준비 함수를 정의한 후에는 데이터를 쓰려는 경로인 입력 인수를 구문 분석 합니다.  이러한 값은 `OutputFileDatasetConfig` 다음 단계에서 설명 하는 개체에 따라 결정 됩니다. 이 코드는 등록 된를 검색 `'titanic_cs'` `Dataset` 하 고, Pandas로 변환 하 `DataFrame` 고, 다양 한 데이터 준비 함수를 호출 합니다. 
 
-는 정규화 `output_path` 되어 있으므로 `os.makedirs()` 디렉터리 구조를 준비 하는 데 함수를 사용 합니다. 이 시점에서를 사용 하 여 `DataFrame.to_csv()` 출력 데이터를 작성할 수 있지만 Parquet 파일이 더 효율적입니다. 이러한 효율성은 이러한 작은 데이터 집합의 경우와 관련이 없을 수도 있지만 **PyArrow** 패키지의 및 함수를 사용 하는 `from_pandas()` `write_table()` 것은 보다 약간의 키 입력 `to_csv()` 입니다.
-
-Parquet 파일은 아래에 설명 된 자동화 된 ML 단계에서 기본적으로 지원 되므로 특수 한 처리를 사용 하는 데 필요 하지 않습니다. 
+`output_path`가 디렉터리 이므로에 대 한 호출은 `to_csv()` 파일 이름을 지정 합니다 `prepped_data.csv` .
 
 ### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>데이터 준비 파이프라인 단계 () 작성 `PythonScriptStep`
 
-위에서 설명한 데이터 준비 코드는 `PythonScripStep` 파이프라인과 함께 사용할 개체에 연결 되어 있어야 합니다. Parquet 데이터 준비 출력이 쓰여지는 경로는 개체에 의해 생성 됩니다 `OutputFileDatasetConfig` . , 및와 같이 앞에서 준비한 리소스는 `ComputeTarget` `RunConfig` `'titanic_ds' Dataset` 사양을 완료 하는 데 사용 됩니다.
+위에서 설명한 데이터 준비 코드는 `PythonScripStep` 파이프라인과 함께 사용할 개체에 연결 되어 있어야 합니다. CSV 출력이 쓰여지는 경로는 개체에 의해 생성 됩니다 `OutputFileDatasetConfig` . , 및와 같이 앞에서 준비한 리소스는 `ComputeTarget` `RunConfig` `'titanic_ds' Dataset` 사양을 완료 하는 데 사용 됩니다.
 
-PipelineData 사용자
 ```python
 from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = OutputFileDatasetConfig(name="titanic_train", (destination=(datastore, 'outputdataset')))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=["--output_path", prepped_data_path],
+    inputs=[titanic_ds.as_named_input('titanic_ds')],
     allow_reuse=True
 )
 ```
-`prepped_data_path`개체는 `OutputFileDatasetConfig` 디렉터리를 가리키는 형식입니다.  매개 변수에 지정 되어 있는지 확인 `arguments` 합니다. 이전 단계를 검토 하는 경우 데이터 준비 코드 내에서 인수의 값은 `'--output_path'` Parquet 파일을 쓴 파일 경로를 확인할 수 있습니다. 
+
+`prepped_data_path`개체는 `OutputFileDatasetConfig` 디렉터리를 가리키는 형식입니다.  매개 변수에 지정 되어 있는지 확인 `arguments` 합니다. 이전 단계를 검토 하는 경우 데이터 준비 코드 내에서 인수의 값은 `'--output_path'` CSV 파일이 쓰여진 디렉터리 경로입니다. 
 
 ## <a name="train-with-automlstep"></a>AutoMLStep로 학습
 
@@ -237,7 +231,6 @@ dataprep_step = PythonScriptStep(
 ML 파이프라인에서 입력 데이터는 개체 여야 합니다 `Dataset` . 가장 높은 방법은 입력 데이터를 개체 형식으로 제공 하는 것입니다 `OutputTabularDatasetConfig` . 개체 등의을 사용 하 여 해당 형식의 개체를 만듭니다  `read_delimited_files()` `OutputFileDatasetConfig` `prepped_data_path` `prepped_data_path` .
 
 ```python
-# type(prepped_data_path) == OutputFileDatasetConfig
 # type(prepped_data) == OutputTabularDatasetConfig
 prepped_data = prepped_data_path.read_delimited_files()
 ```
@@ -253,7 +246,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 | 방법 | 이점 및 단점 | 
 |-|-|
 |`OutputTabularDatasetConfig`| 성능 향상 | 
-|| 일반 경로 `PipelineData` | 
+|| 일반 경로 `OutputFileDatasetConfig` | 
 || 파이프라인 실행 후 데이터가 지속 되지 않습니다. |
 || [기술을 보여 주는 노트북 `OutputTabularDatasetConfig`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | 등록 `Dataset` | 낮은 성능 |
@@ -267,7 +260,6 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 의 출력은 `AutoMLStep` 성능이 높고 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용 하려면 `OutputFileDatasetConfig` 개체를 받도록 준비 합니다.
 
 ```python
-
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
@@ -311,6 +303,7 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
+    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
     enable_default_model_output=False,
     enable_default_metrics_output=False,
@@ -325,7 +318,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
 - `compute_target` 는 `compute_target` 이 예제에서 저렴 한 CPU 기반 컴퓨터를 정의 하는 이전에 정의 된입니다. AutoML의 심층 학습 기능을 사용 하는 경우 계산 대상을 GPU 기반으로 변경 해야 합니다.
 - `featurization`이 `auto`로 설정됩니다. 자세한 내용은 자동화 된 ML 구성 문서의 [Data 기능화](./how-to-configure-auto-train.md#data-featurization) 섹션에서 찾을 수 있습니다. 
 - `label_column_name` 예측 하려는 열을 나타냅니다. 
-- `training_data` 는 `PipelineOutputTabularDataset` 데이터 준비 단계의 출력에서 만든 개체로 설정 됩니다. 
+- `training_data` 는 `OutputTabularDatasetConfig` 데이터 준비 단계의 출력에서 만든 개체로 설정 됩니다. 
 
 자체는를 `AutoMLStep` 사용 하 `AutoMLConfig` 고, `PipelineData` 메트릭과 모델 데이터를 저장 하기 위해 만든 개체를 출력으로 사용 합니다. 
 

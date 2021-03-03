@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689048"
 ---
 # <a name="configure-mfa-server-settings"></a>MFA 서버 설정 구성
 
@@ -44,7 +44,7 @@ ms.locfileid: "96742700"
 1. **Azure Active Directory** 를 검색 하 고 선택한 다음 **보안**  >  **MFA**  >  **일회성 바이패스** 로 이동 합니다.
 1. **추가** 를 선택합니다.
 1. 필요한 경우 바이패스에 대한 복제 그룹을 선택합니다.
-1. 사용자 이름을 `username\@domain.com`으로 입력합니다. 바이패스를 마지막으로 해야 하는 시간 (초)과 바이패스의 이유를 입력 합니다.
+1. 사용자 이름을 `username@domain.com`으로 입력합니다. 바이패스를 마지막으로 해야 하는 시간 (초)과 바이패스의 이유를 입력 합니다.
 1. **추가** 를 선택합니다. 시간 제한은 즉시 적용됩니다. 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
 
 동일한 창에서 일회성 바이패스 보고서를 볼 수도 있습니다.

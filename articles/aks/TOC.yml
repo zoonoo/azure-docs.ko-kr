@@ -5,7 +5,7 @@
     - name: AKS 정보
       href: intro-kubernetes.md
     - name: 솔루션 아키텍처
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: 빠른 시작
   expanded: true
   items:
@@ -294,14 +294,14 @@
     - name: 모니터링 및 로깅
       items:
         - name: 컨테이너용 Azure Monitor
-          href: ../azure-monitor/insights/container-insights-overview.md
+          href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: 컨트롤 플레인 구성 요소 로그 보기
           href: view-control-plane-logs.md
         - name: Kubelet 로그 보기
           href: kubelet-logs.md
         - name: 컨테이너 데이터를 실시간으로 보기
-          href: ../azure-monitor/insights/container-insights-livedata-overview.md
+          href: ../azure-monitor/containers/container-insights-livedata-overview.md
           maintainContext: true
     - name: Windows Server 컨테이너 사용
       items:
@@ -397,7 +397,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

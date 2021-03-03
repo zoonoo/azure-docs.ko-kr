@@ -8,12 +8,13 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: f4f1924ce19ccb0f48aa1a7c9a0515fa89505dae
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724832"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -73,6 +74,18 @@ Microsoft [Azure Import/Export 서비스](../import-export/storage-import-export
 
 3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 미국 서 부의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box Disk 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
 
+#### <a name="q-does-data-box-disk-store-any-customer-data-outside-of-the-service-region"></a>17. 모든 고객 데이터를 서비스 지역 외부로 저장할 Data Box Disk 있나요?
+
+A. 아니요. Data Box Disk은 서비스 지역 외부에 고객 데이터를 저장 하지 않습니다. 고객은 자신의 데이터에 대 한 전체 소유권을 가지 며, 주문 생성 중에 선택 하는 저장소 계정에 따라 지정 된 위치에 데이터를 저장할 수 있습니다.  
+
+고객 데이터 외에도 메타 데이터 및 모니터링 로그를 포함 하는 Data Box Disk 데이터가 있습니다. 모든 지역 (브라질 남부 및 동남 아시아 제외)에서 데이터 손실을 방지 하기 위해 지역 중복 저장소 계정을 통해 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 에 데이터를 저장 하 고 복제 Data Box Disk 합니다.  
+
+브라질 남부 및 동남 아시아의 [데이터 상주 요구 사항](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) 으로 인해 Data Box Disk 데이터는 단일 지역에 포함 되도록 ZRS (영역 중복 저장소) 계정에 저장 됩니다. 동남 아시아의 경우 모든 Data Box Disk 데이터가 싱가포르에 저장 되 고 브라질 남부에서는 데이터가 브라질에 저장 됩니다. 
+
+브라질 남부 및 동남 아시아에서 서비스 중단이 발생 하는 경우 고객은 다른 지역에서 새 주문을 만들 수 있습니다. 새 주문은 생성 된 지역에서 제공 되 고 고객은 Data Box Disk를 담당 하 고 가져오면 배송을 담당 하 게 됩니다.
+
+
+
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>17. 전체 지역이 실패 하는 경우 데이터를 복구 하려면 어떻게 해야 하나요?
 
 A. 상당한 재해가 발생 하 여 지역이 손실 되는 극단적인 경우에는 Microsoft에서 지역 장애 조치 (failover)를 시작할 수 있습니다. 이 경우에는 사용자의 작업이 필요 하지 않습니다. 주문이 동일한 국가 또는 상업 경계 내에 있는 경우 장애 조치 (failover) 지역이 충족 됩니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상업 경계에 쌍으로 연결 된 지역이 없습니다. 이러한 지역에 재해가 발생 한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사 해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
@@ -85,7 +98,7 @@ A. Data Box 디스크에 문제가 발생 하는 경우 [Microsoft 지원에 문
 ### <a name="q-how-do-i-get-data-box-disk"></a>17. Data Box Disk를 가져올 어떻게 할까요? 있나요? 
 A.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인 하 고 Data Box Disk 순서를 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문을 입력 한 후에는 사용 가능 여부에 따라 10 일 이내에 Data Box Disk 제공 됩니다. 자세한 내용은 [Data Box 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 이유가 무엇일까요?
+### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 그 이유는
 A. Data Box Disk 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box Disk는 EA (기업계약) 및 CSP (클라우드 솔루션 공급자) 구독 제안에만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.

@@ -4,12 +4,12 @@ description: 에서 수집 하 고 Azure 애플리케이션 Insights에 저장 �
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591176"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729371"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
 
@@ -142,14 +142,14 @@ traces
 
 ## <a name="azure-monitor-metrics"></a>Azure Monitor 메트릭
 
-Application Insights에 의해 수집 된 원격 분석 데이터 외에도 [Azure Monitor 메트릭에](../azure-monitor/platform/data-platform-metrics.md)함수 앱이 실행 되는 방법에 대 한 데이터를 가져올 수 있습니다. [앱을 App Service 하는 데 사용할 수](../app-service/web-sites-monitor.md#understand-metrics)있는 일반적인 메트릭과 함께 관심 있는 함수와 관련 된 두 가지 메트릭이 있습니다.
+Application Insights에 의해 수집 된 원격 분석 데이터 외에도 [Azure Monitor 메트릭에](../azure-monitor/essentials/data-platform-metrics.md)함수 앱이 실행 되는 방법에 대 한 데이터를 가져올 수 있습니다. [앱을 App Service 하는 데 사용할 수](../app-service/web-sites-monitor.md#understand-metrics)있는 일반적인 메트릭과 함께 관심 있는 함수와 관련 된 두 가지 메트릭이 있습니다.
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 | ---- | ---- |
 | **FunctionExecutionCount** | 함수 실행 횟수는 함수 앱이 실행 된 횟수를 나타냅니다. 이는 응용 프로그램에서 함수가 실행 되는 횟수와 관련이 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다. |
 | **FunctionExecutionUnits** | 함수 실행 단위는 실행 시간 및 메모리 사용의 조합입니다.  메모리 데이터는 현재 Azure Monitor를 통해 사용할 수 있는 메트릭이 아닙니다. 그러나 앱의 메모리 사용을 최적화 하려는 경우는 Application Insights에서 수집 된 성능 카운터 데이터를 사용할 수 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다.|
 
-Application Insights 데이터를 사용 하 여 소비 계획에 대 한 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 예측](functions-consumption-costs.md)을 참조 하세요. 모니터 탐색기를 사용 하 여 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조 하세요.
+Application Insights 데이터를 사용 하 여 소비 계획에 대 한 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 예측](functions-consumption-costs.md)을 참조 하세요. 모니터 탐색기를 사용 하 여 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -158,4 +158,3 @@ Azure Functions 모니터링에 대해 자세히 알아보세요.
 
 + [Azure Functions 모니터링](functions-monitoring.md)
 + [Azure Functions에 대 한 모니터링을 구성 하는 방법](configure-monitoring.md)
-

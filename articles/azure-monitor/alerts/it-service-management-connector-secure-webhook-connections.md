@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728980"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
 
 이 문서에서는 보안 내보내기를 사용 하 여 ITSM (IT Service Management) 제품 또는 서비스 간 연결을 구성 하는 방법을 보여 줍니다.
 
-보안 내보내기는 [ITSMC (IT 서비스 관리 커넥터](../platform/itsmc-overview.md)의 업데이트 된 버전입니다. 두 버전 모두 Azure Monitor에서 경고를 보낼 때 ITSM 도구에서 작업 항목을 만들 수 있습니다. 이 기능에는 메트릭, 로그 및 활동 로그 경고가 포함 됩니다.
+보안 내보내기는 [ITSMC (IT 서비스 관리 커넥터](./itsmc-overview.md)의 업데이트 된 버전입니다. 두 버전 모두 Azure Monitor에서 경고를 보낼 때 ITSM 도구에서 작업 항목을 만들 수 있습니다. 이 기능에는 메트릭, 로그 및 활동 로그 경고가 포함 됩니다.
 
 ITSMC는 사용자 이름 및 암호 자격 증명을 사용 합니다. 보안 내보내기는 Azure Active Directory (Azure AD)를 사용 하기 때문에 더 강력한 인증이 있습니다. Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 내부 또는 외부 리소스에 액세스할 수 있습니다. ITSM에서 Azure AD를 사용 하면 외부 시스템으로 보낸 azure 경고 (Azure AD 응용 프로그램 ID를 통해)를 식별할 수 있습니다.
 
@@ -55,4 +55,4 @@ ITSMC는 사용자 이름 및 암호 자격 증명을 사용 합니다. 보안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 경고에서 ITSM 작업 항목 만들기](../platform/itsmc-overview.md)
+* [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-overview.md)

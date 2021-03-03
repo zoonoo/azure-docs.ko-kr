@@ -1,5 +1,5 @@
 ---
-title: IoT 에이전트 기반 솔루션에 대 한 Azure Defender 구성
+title: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
 description: IoT 에이전트 기반 솔루션용 Azure Defender에서 데이터 수집을 구성 하는 방법에 대해 알아봅니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e32b9c690db70baeda7dec2f9f1270f82c6881bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809841"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733298"
 ---
-# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>IoT 에이전트 기반 솔루션에 대 한 Azure Defender 구성  
+# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>에이전트 기반 솔루션용 Azure Defender for IoT 구성  
 
 이 문서에서는 Azure Defender에서 IoT 에이전트 기반 솔루션에 대 한 데이터 수집을 구성 하는 방법을 설명 합니다.
 
@@ -87,7 +87,7 @@ Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습
 
 1. **Log Analytics 작업 영역에서 권장 사항 조사를** 선택 합니다. 
  
-Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요. 
+Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조 하세요. 
 
 ## <a name="turn-off-defender-for-iot"></a>IoT에 대 한 Defender 끄기 
 
@@ -99,4 +99,4 @@ Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내�
 
 ## <a name="next-steps"></a>다음 단계 
 
-[솔루션을 구성](quickstart-configure-your-solution.md)하려면 다음 문서로 이동 합니다. 
+[솔루션을 구성](quickstart-configure-your-solution.md)하려면 다음 문서로 이동 합니다.

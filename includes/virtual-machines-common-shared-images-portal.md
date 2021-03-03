@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750206"
 ---
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "98878829"
 
 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery* 라는 갤러리를 만듭니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 검색 상자에서 **공유 이미지 갤러리** 유형을 사용 하 고 결과에서 **공유 이미지 갤러리** 를 선택 합니다.
 1. **공유 이미지 갤러리** 페이지에서 **추가** 를 클릭 합니다.
 1. **공유 이미지 갤러리 만들기** 페이지에서 올바른 구독을 선택 합니다.
@@ -93,10 +93,7 @@ ms.locfileid: "98878829"
 
 이미지 갤러리 수준에서 액세스를 공유하는 것이 좋습니다. 다음은 방금 만든 갤러리를 공유 하는 과정을 안내 합니다.
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택 합니다. 
-1. 리소스 그룹 목록에서 **myGalleryRG** 를 선택 합니다. 리소스 그룹에 대 한 블레이드가 열립니다.
-1. **MyGalleryRG** 페이지의 왼쪽에 있는 메뉴에서 **ACCESS control (IAM)** 을 선택 합니다. 
+1. 새 이미지 갤러리에 대 한 페이지의 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. 
 1. **역할 할당 추가** 에서 **추가** 를 선택 합니다. **역할 할당 추가** 창이 열립니다. 
 1. **역할** 아래에서 **판독기** 를 선택 합니다.
 1. **에 액세스 할당** 에서 **Azure AD 사용자, 그룹 또는 서비스 사용자** 의 기본값을 그대로 둡니다.

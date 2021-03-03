@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 02/22/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 016b8bf010f597e963e0901d1ec48486f79bbb35
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ea6b567d7b48e504d9b79dad568da7170ada5326
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913129"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706829"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -53,7 +53,7 @@ AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 
 * recognition_03
 
 
-필요에 따라 _returnRecognitionModel_ 매개 변수 (기본값 **false** )를 지정 하 여 응답에서 _recognitionModel_ 을 반환할지 여부를 나타낼 수 있습니다. 따라서 [얼굴 검색] REST API에 대 한 요청 URL은 다음과 같이 표시 됩니다.
+필요에 따라 _returnRecognitionModel_ 매개 변수 (기본값 **false**)를 지정 하 여 응답에서 _recognitionModel_ 을 반환할지 여부를 나타낼 수 있습니다. 따라서 [얼굴 검색] REST API에 대 한 요청 URL은 다음과 같이 표시 됩니다.
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -68,7 +68,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 얼굴 서비스는 이미지에서 얼굴 데이터를 추출 하 고이를 **Person** 개체와 연결 (예: [face API 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해) 할 수 있으며, 여러 **person** 개체를 **PersonGroup** 에 함께 저장할 수 있습니다. 그런 다음 **PersonGroup** 를 사용 [하 여 새] 얼굴을 비교 하 고 해당 그룹 내의 일치 하는 사용자를 식별할 수 있습니다.
 
-**PersonGroup** 에는 모든 **사용자** 에 대 한 고유한 인식 모델이 하나씩 있어야 하 고 그룹을 만들 때 매개 변수를 사용 하 여이를 지정할 수 있습니다 `recognitionModel` ( [PersonGroup-create] 또는 [LargePersonGroup-create]). 이 매개 변수를 지정 하지 않으면 원래 `recognition_01` 모델이 사용 됩니다. 그룹은 항상 생성 된 인식 모델을 사용 하 고 새 얼굴은이 모델에 추가 될 때이 모델에 연결 됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup** 구성 된 모델을 확인 하려면 _returnRecognitionModel_ 매개 변수를 **True** 로 설정 하 여 [PersonGroup-Get] API를 사용 합니다.
+**PersonGroup** 에는 모든 **사용자** 에 대 한 고유한 인식 모델이 하나씩 있어야 하 고 그룹을 만들 때 매개 변수를 사용 하 여이를 지정할 수 있습니다 `recognitionModel` ([PersonGroup-create] 또는 [LargePersonGroup-create]). 이 매개 변수를 지정 하지 않으면 원래 `recognition_01` 모델이 사용 됩니다. 그룹은 항상 생성 된 인식 모델을 사용 하 고 새 얼굴은이 모델에 추가 될 때이 모델에 연결 됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup** 구성 된 모델을 확인 하려면 _returnRecognitionModel_ 매개 변수를 **True** 로 설정 하 여 [PersonGroup-Get] API를 사용 합니다.
 
 .NET 클라이언트 라이브러리에 대 한 다음 코드 예제를 참조 하세요.
 
@@ -94,7 +94,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-이 코드는 `My face collection` 기능 추출에 대 한 _recognition_03_ 모델을 사용 하 여 라는 얼굴 목록을 만듭니다. 이 얼굴 목록을 검색 하 여 새롭게 검색 된 면에서 유사한 얼굴을 검색 하는 경우에는 _recognition_03_ 모델을 사용 하 여 해당 얼굴을 감지 해야 합니다 ( [얼굴 감지]). 이전 섹션과 마찬가지로 모델은 일관적 이어야 합니다.
+이 코드는 `My face collection` 기능 추출에 대 한 _recognition_03_ 모델을 사용 하 여 라는 얼굴 목록을 만듭니다. 이 얼굴 목록을 검색 하 여 새롭게 검색 된 면에서 유사한 얼굴을 검색 하는 경우에는 _recognition_03_ 모델을 사용 하 여 해당 얼굴을 감지 해야 합니다 ([얼굴 감지]). 이전 섹션과 마찬가지로 모델은 일관적 이어야 합니다.
 
 [유사한 API 찾기] 에는 변경 내용이 없습니다. 검색 에서만 모델 버전을 지정 합니다.
 
@@ -105,7 +105,7 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 ## <a name="evaluate-different-models"></a>다른 모델 평가
 
 사용자 고유의 데이터에 대 한 다양 한 인식 모델의 성능을 비교 하려는 경우 다음을 수행 해야 합니다.
-1. _Recognition_01_ , _recognition_02_ 및 _recognition_03_ 를 각각 사용 하 여 세 개의 PersonGroups를 만듭니다.
+1. _Recognition_01_, _recognition_02_ 및 _recognition_03_ 를 각각 사용 하 여 세 개의 PersonGroups를 만듭니다.
 1. 이미지 데이터를 사용 하 여 얼굴을 감지 하 고이 세 **PersonGroup** 내에 있는 **사람** 에 게 등록 합니다. 
 1. PersonGroup 교육 API를 사용 하 여 PersonGroups를 학습 합니다.
 1. 세 개의 **PersonGroup** 를 모두 확인 하 고 결과를 비교 하 여 테스트 합니다.

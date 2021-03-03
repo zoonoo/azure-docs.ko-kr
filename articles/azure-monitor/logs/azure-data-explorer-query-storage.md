@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618519"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711011"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 내보낸 데이터 쿼리
 Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 한 보존 및 여러 지역에 로그를 다시 할당할 수 있습니다. Azure 데이터 탐색기를 사용 하 여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성 된 후에는 작업 영역에서 Azure storage 계정으로 전송 된 지원 테이블을 Azure 데이터 탐색기의 데이터 원본으로 사용할 수 있습니다.
@@ -30,9 +30,9 @@ Azure Monitor에서 Azure storage 계정으로 데이터를 내보내면 저렴 
 ## <a name="send-data-to-azure-storage"></a>Azure storage로 데이터 전송
 다음 옵션 중 하나를 사용 하 여 Azure Monitor 로그를 Azure Storage 계정으로 내보낼 수 있습니다.
 
-- Log Analytics 작업 영역의 모든 데이터를 Azure storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor 로그의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용 합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)를](../platform/logs-data-export.md) 참조 하세요.
-- 논리 앱을 사용 하 여 로그 쿼리에서 예약 된 내보내기 이는 데이터 내보내기 기능과 유사 하지만 필터링 된 데이터 또는 집계 된 데이터를 Azure storage로 보낼 수 있습니다. 그러나이 방법에는 [로그 쿼리 제한이](../service-limits.md#log-analytics-workspaces)  적용 됩니다. [논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](../platform/logs-export-logic-app.md)을 참조 하세요.
-- 논리 앱을 사용 하 여 한 번 내보냅니다. [Logic Apps 및 전원 자동화에 대 한 Azure Monitor 로그 커넥터를](../platform/logicapp-flow-connector.md)참조 하세요.
+- Log Analytics 작업 영역의 모든 데이터를 Azure storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor 로그의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용 합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)를](./logs-data-export.md) 참조 하세요.
+- 논리 앱을 사용 하 여 로그 쿼리에서 예약 된 내보내기 이는 데이터 내보내기 기능과 유사 하지만 필터링 된 데이터 또는 집계 된 데이터를 Azure storage로 보낼 수 있습니다. 그러나이 방법에는 [로그 쿼리 제한이](../service-limits.md#log-analytics-workspaces)  적용 됩니다. [논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](./logs-export-logic-app.md)을 참조 하세요.
+- 논리 앱을 사용 하 여 한 번 내보냅니다. [Logic Apps 및 전원 자동화에 대 한 Azure Monitor 로그 커넥터를](./logicapp-flow-connector.md)참조 하세요.
 - PowerShell 스크립트를 사용 하 여 로컬 컴퓨터에 한 번 내보냅니다. [AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)를 참조 하세요.
 
 > [!TIP]

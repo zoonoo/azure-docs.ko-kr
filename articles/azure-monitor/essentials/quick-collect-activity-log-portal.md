@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e6dc55b54bc3abaea22544d457f98307596c5dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626444"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734284"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Azure Portal을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
-활동 로그는 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Log Analytics 작업 영역 및 Azure Monitor Logs에 활동 로그를 보내는 진단 설정을 만드는 방법을 보여 줍니다. Azure Monitor Logs에서는 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 활동 로그를 분석하고 [로그 경고](../alerts/alerts-log-query.md) 및 [통합 문서](../visualize/workbooks-overview.md)와 같은 다른 기능을 사용할 수 있습니다. 
+활동 로그는 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Log Analytics 작업 영역 및 Azure Monitor Logs에 활동 로그를 보내는 진단 설정을 만드는 방법을 보여 줍니다. Azure Monitor Logs에서는 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 활동 로그를 분석하고 [로그 경고](../alerts/alerts-log-query.md) 및 [통합 문서](../visualize/workbooks-overview.md)와 같은 다른 기능을 사용할 수 있습니다. 
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
@@ -73,7 +73,7 @@ Azure Portal에서 **모니터** 를 검색한 다음, 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Log Analytics 작업 영역으로 전송되도록 활동 로그를 구성했습니다. 이제 작업 영역으로 수집할 다른 데이터를 구성할 수 있습니다. 그런 다음, Azure Monitor의 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 함께 분석하고 [로그 경고](../alerts/alerts-log-query.md) 및 [통합 문서](../visualize/workbooks-overview.md) 등의 기능을 활용할 수 있습니다. 다음으로, 활동 로그의 데이터를 보충하여 각 리소스 내에서 수행된 작업에 대한 인사이트를 제공하는 [리소스 로그](../essentials/resource-logs.md)를 Azure 리소스에서 수집해야 합니다.
+이 빠른 시작에서는 Log Analytics 작업 영역으로 전송되도록 활동 로그를 구성했습니다. 이제 작업 영역으로 수집할 다른 데이터를 구성할 수 있습니다. 그런 다음, Azure Monitor의 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 함께 분석하고 [로그 경고](../alerts/alerts-log-query.md) 및 [통합 문서](../visualize/workbooks-overview.md) 등의 기능을 활용할 수 있습니다. 다음으로, 활동 로그의 데이터를 보충하여 각 리소스 내에서 수행된 작업에 대한 인사이트를 제공하는 [리소스 로그](../essentials/resource-logs.md)를 Azure 리소스에서 수집해야 합니다.
 
 
 > [!div class="nextstepaction"]

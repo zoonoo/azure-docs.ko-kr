@@ -4,12 +4,16 @@ description: C# 함수를 만든 다음, Visual Studio Code의 Azure Functions �
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0068a9cbf99117a0a2432a02c9be934eb749f19a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-csharp-ieux
+ms.openlocfilehash: b0c659c1b3bf373b7754dd9b058c74da35cc2e0a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493688"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704789"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 C# 함수 만들기
 

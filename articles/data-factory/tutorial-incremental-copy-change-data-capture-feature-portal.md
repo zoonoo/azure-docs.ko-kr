@@ -5,15 +5,17 @@ ms.author: nihurt
 author: hurtn
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391272"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724985"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 자습서에서는 원본 Azure SQL Managed Instance 데이터베이스의 **CDC(변경 데이터 캡처)** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
 

@@ -9,22 +9,20 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592792"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658100"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
-웹 통화 샘플은 Communication Services 웹 통화 클라이언트 라이브러리에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다. 
+웹 통화 샘플은 Communication Services 웹 통화 클라이언트 라이브러리에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다.
 
 이 샘플은 개발자를 위해 작성되었으며 Communication Services를 매우 쉽게 시작할 수 있습니다. 사용자 인터페이스는 여러 섹션으로 구분되며, 각 섹션에는 코드를 브라우저에서 사용자 고유의 Communication Services 애플리케이션으로 직접 복사할 수 있는 "코드 표시" 단추가 있습니다.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [이 샘플은 Github에서 사용할 수 있습니다](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
@@ -36,7 +34,7 @@ ms.locfileid: "99592792"
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="웹 통화 자습서 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## <a name="user-provisioning-and-sdk-initialization"></a>사용자 프로비저닝 및 SDK 초기화 
+## <a name="user-provisioning-and-sdk-initialization"></a>사용자 프로비저닝 및 SDK 초기화
 
 백 엔드 토큰 프로비저닝 서비스에서 프로비저닝한 토큰을 사용하여 SDK를 초기화하려면 "사용자 프로비저닝 및 SDK 초기화"를 클릭합니다. 이 백 엔드 서비스는 `/project/webpack.config.js`에 있습니다.
 
@@ -52,7 +50,7 @@ SDK가 초기화되면 다음과 같이 표시됩니다.
 
 Communication Services 웹 통화 SDK는 **1:1**, **1:N** 및 **그룹** 통화를 허용합니다.
 
-1:1 또는 1:N 발신 전화의 경우 쉼표로 구분된 값을 사용하여 통화할 여러 Communication Services 사용자 ID를 지정할 수 있습니다. 쉼표로 구분된 값을 사용하여 통화할 기존(PSTN) 전화 번호를 지정할 수도 있습니다. 
+1:1 또는 1:N 발신 전화의 경우 쉼표로 구분된 값을 사용하여 통화할 여러 Communication Services 사용자 ID를 지정할 수 있습니다. 쉼표로 구분된 값을 사용하여 통화할 기존(PSTN) 전화 번호를 지정할 수도 있습니다.
 
 PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합니다. 발신 전화를 걸려면 "전화 걸기" 단추를 클릭합니다.
 
@@ -80,7 +78,7 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 
 ## <a name="next-steps"></a>다음 단계
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 자세한 내용은 다음 문서를 참조하세요.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507251"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702490"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -282,7 +282,7 @@ Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | 런타임 시 작업의 출력을 반환합니다. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 흐름 정의에 설명된 매개 변수의 값을 반환합니다. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | `For_each`, `Until` 및 `Scope`처럼 지정된 범위 내에 있는 모든 작업의 입력과 출력을 반환합니다. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | 지정 된 범위 지정 작업 (예:, 및) 내의 최상위 작업에서 입력 및 출력을 반환 합니다 `For_each` `Until` `Scope` . |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 런타임 시 또는 다른 JSON 이름-값 쌍에서 트리거 출력을 반환합니다. [triggerOutputs](#triggerOutputs) 및 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)도 참조합니다. |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 런타임 시 트리거의 `body` 출력을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다. |
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 유형 | 반환 값 |
+| 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -3451,7 +3451,12 @@ removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "A
 
 ### <a name="result"></a>result
 
-`For_each`, `Until` 또는 `Scope`처럼 지정된 범위 내에 있는 모든 작업의 입력과 출력을 반환합니다. 이 함수는 예외를 진단하고 처리할 수 있도록 실패한 작업의 결과를 반환할 때 유용합니다. 자세한 내용은 [실패에 대한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조하세요.
+`For_each`, 또는 동작과 같은 지정 된 범위 지정 작업의 최상위 작업에서 결과를 반환 합니다 `Until` `Scope` . `result()`함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위의 첫 번째 수준 작업 정보를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 `actions()` 작업 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력과 같이 함수에서 반환 된 특성과 동일한 특성이 포함 됩니다.
+
+> [!NOTE]
+> 이 함수는 범위 지정 된 작업의 첫 번째 수준 작업 *에서만* 정보를 반환 하 고 switch 또는 condition 작업과 같은 보다 심층적인 중첩 된 작업에서 정보를 반환 하지 않습니다.
+
+예를 들어이 함수를 사용 하면 예외를 진단 하 고 처리할 수 있도록 실패 한 작업의 결과를 가져올 수 있습니다. 자세한 내용은 [실패에 대한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조하세요.
 
 ```
 result('<scopedActionName>')
@@ -3459,17 +3464,17 @@ result('<scopedActionName>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | 예 | String | 모든 내부 작업의 입력과 출력을 반환할 범위가 지정된 작업의 이름입니다. |
+| <*scopedActionName*> | 예 | String | 해당 범위 내의 최상위 작업에서 입력 및 출력을 원하는 범위 지정 작업의 이름입니다. |
 ||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | 배열 개체 | 지정된 작업 범위 내에서 표시되는 각 작업의 입력 및 출력 배열을 포함하는 배열 |
+| <*array-object*> | 배열 개체 | 지정 된 범위 내에서 각 최상위 작업의 입력 및 출력의 배열을 포함 하는 배열입니다. |
 ||||
 
 *예제*
 
-이 예제는 `result()` 함수를 `Compose` 작업에 사용하여 `For_each` 루프 내부에 있는 각 HTTP 작업 반복의 입력 및 출력을 반환합니다.
+이 예에서는 `For_each` 동작에서 함수를 사용 하 여 루프에 있는 HTTP 작업의 각 반복에서 입력 및 출력을 반환 합니다 `result()` `Compose` .
 
 ```json
 {
@@ -3957,7 +3962,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | 예 | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | No | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]

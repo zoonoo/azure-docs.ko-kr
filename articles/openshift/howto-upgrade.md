@@ -7,12 +7,12 @@ ms.date: 1/10/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 2c2c8607374493aa4e1135bbef0156b9c0b66fa6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 742da12bd3a10cd1f541e9c43f654cfe7df04340
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720888"
 ---
 # <a name="upgrade-an-azure-red-hat-openshift-aro-cluster"></a>Azure Red Hat OpenShift (ARO) 클러스터 업그레이드
 
@@ -20,7 +20,7 @@ ARO 클러스터 수명 주기 중 일부에는 최신 OpenShift 버전으로 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure CLI 버전의 2.0.65를 실행 해야 합니다. `az --version`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+이 문서에서는 Azure CLI 버전의 2.0.65를 실행 해야 합니다. `az --version`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 이 문서에서는 권한이 있는 사용자로 기존 Azure Red Hat OpenShift 클러스터에 대 한 액세스 권한이 있다고 가정 `admin` 합니다.
 
@@ -39,4 +39,3 @@ Openshift 웹 콘솔에서 **관리**  >  **클러스터 설정** 을 선택 하
 ## <a name="next-steps"></a>다음 단계
 - [OC CLI를 사용 하 여 ARO 클러스터를 업그레이드 하는 방법을 알아봅니다.](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
 - 사용할 수 있는 OpenShift Container Platform 권고 및 업데이트에 대 한 정보는 고객 포털의 [정오표 섹션](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) 에서 찾을 수 있습니다.
-  

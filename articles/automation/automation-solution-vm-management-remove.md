@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012319"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723846"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Automation 계정에서 작업 시간 외 VM 시작/중지 제거
 
@@ -94,7 +94,7 @@ Automation 계정의 연결을 해제 하려고 시도 하는 동안 메뉴의 *
 
 ## <a name="delete-the-feature"></a>기능 삭제
 
-Automation 계정에서 작업 시간 외 VM 시작/중지을 삭제 하려면 다음 단계를 수행 합니다. Automation 계정 및 Log Analytics 작업 영역은 이 프로세스의 일부로 삭제되지 않습니다. Log Analytics 작업 영역을 유지 하지 않으려는 경우 수동으로 삭제 해야 합니다. 작업 영역을 삭제 하는 방법에 대 한 자세한 내용은 [Azure Log Analytics 작업 영역 삭제 및 복구](../azure-monitor/platform/delete-workspace.md)를 참조 하세요.
+Automation 계정에서 작업 시간 외 VM 시작/중지을 삭제 하려면 다음 단계를 수행 합니다. Automation 계정 및 Log Analytics 작업 영역은 이 프로세스의 일부로 삭제되지 않습니다. Log Analytics 작업 영역을 유지 하지 않으려는 경우 수동으로 삭제 해야 합니다. 작업 영역을 삭제 하는 방법에 대 한 자세한 내용은 [Azure Log Analytics 작업 영역 삭제 및 복구](../azure-monitor/logs/delete-workspace.md)를 참조 하세요.
 
 1. Automation 계정으로 이동 하 고 **관련 리소스** 에서 **연결 된 작업 영역** 을 선택 합니다.
 

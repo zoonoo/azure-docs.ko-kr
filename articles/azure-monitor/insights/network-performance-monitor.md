@@ -1,24 +1,23 @@
 ---
 title: Azure의 네트워크 성능 모니터 | Microsoft Docs
 description: Azure의 네트워크 성능 모니터를 사용하면 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 위치를 찾을 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711130"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
 ![네트워크 성능 모니터 기호](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) .
 
 네트워크 성능 모니터는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 하이브리드 네트워크 모니터링 솔루션입니다. 또한 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결을 모니터링하고 Azure ExpressRoute의 성능을 모니터링하는 데 도움이 됩니다. 
 
@@ -301,4 +300,4 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 * **코 호트에 참여 하세요.** 새 고객이 코 호트에 참여 하는 데 항상 관심이 있습니다. 그 일환으로 새로운 기능에 초기에 액세스할 수 있고 네트워크 성능 모니터를 개선하는 데 참여할 수 있는 기회가 제공됩니다. 참가 하는 데 관심이 있는 경우이 [빠른 설문 조사](https://aka.ms/npmcohort)를 작성 합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
-[성능 모니터](network-performance-monitor-performance-monitor.md), [서비스 연결 모니터](network-performance-monitor-performance-monitor.md) 및 [ExpressRoute 모니터](network-performance-monitor-expressroute.md)에 대해 자세히 알아봅니다. 
+[성능 모니터](network-performance-monitor-performance-monitor.md), [서비스 연결 모니터](network-performance-monitor-performance-monitor.md) 및 [ExpressRoute 모니터](network-performance-monitor-expressroute.md)에 대해 자세히 알아봅니다.

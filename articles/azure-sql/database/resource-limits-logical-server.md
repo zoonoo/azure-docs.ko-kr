@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691232"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,7 +70,7 @@ ms.locfileid: "100588748"
 - 데이터베이스 또는 탄력적 풀의 최대 크기를 늘리거나 저장소를 더 추가 합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 데이터베이스가 탄력적 풀에 있는 경우에는 데이터베이스를 풀 외부로 이동 하 여 해당 저장소 공간을 다른 데이터베이스와 공유 하지 않을 수 있습니다.
 - 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
-- 높은 공간 사용률이 영구 버전 저장소 (PVS)의 크기 급증 때문 인지 확인 합니다. PVS는 각 데이터베이스의 일부 이며  [가속화 된 데이터베이스 복구](../accelerated-database-recovery.md)를 구현 하는 데 사용 됩니다. 현재 PVS 크기를 확인 하려면 [pvs 문제 해결](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting)을 참조 하세요. 큰 PVS 크기에 대 한 일반적인 이유는 오랜 시간 동안 열려 있는 트랜잭션이 며,이는 PVS에서 이전 버전의 정리를 방지 하는 것입니다.
+- 높은 공간 사용률이 영구 버전 저장소 (PVS)의 크기 급증 때문 인지 확인 합니다. PVS는 각 데이터베이스의 일부 이며  [가속화 된 데이터베이스 복구](../accelerated-database-recovery.md)를 구현 하는 데 사용 됩니다. 현재 PVS 크기를 확인 하려면 [pvs 문제 해결](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting)을 참조 하세요. 큰 PVS 크기에 대 한 일반적인 이유는 오랜 시간 동안 열려 있는 트랜잭션이 며,이는 PVS에서 이전 버전의 정리를 방지 하는 것입니다.
 
 ### <a name="sessions-and-workers-requests"></a>세션 및 작업자(요청)
 
@@ -159,7 +159,7 @@ Azure Storage의 데이터 파일을 사용 하는 기본, 표준 및 범용 데
 
 로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 뷰에 노출 됨)을 통해 표시 됩니다.
 
-| 대기 유형 | 참고 |
+| 대기 유형 | 메모 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 데이터베이스 제한 |
 | POOL_LOG_RATE_GOVERNOR | 풀 제한 |

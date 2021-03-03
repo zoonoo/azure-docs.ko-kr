@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534681"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735542"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -258,6 +258,7 @@ NVMe 저장소 인터페이스 | 지원되지 않음
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM을 지원합니다. | 비관리 디스크를 사용하는 VM은 지원되지 않습니다. <br/><br/> HSM 보호 키는 지원되지 않습니다. <br/><br/> 단일 디스크에서 개별 볼륨 암호화는 지원되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM을 지원합니다. | 비관리 디스크를 사용하는 VM은 지원되지 않습니다. <br/><br/> HSM 보호 키는 지원되지 않습니다. <br/><br/> 단일 디스크에서 개별 볼륨 암호화는 지원되지 않습니다. <br><br> 복제를 사용 하는 것과 관련 된 알려진 문제입니다. [자세한 정보](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 SAS 키 회전 | 지원되지 않음 | 저장소 계정에 대 한 SAS 키를 회전 하는 경우 고객은 복제를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. |
+호스트 캐싱 | 지원됨
 핫 추가    | 지원됨 | 복제된 Azure VM에 추가하는 데이터 디스크에 대한 복제 설정은 관리 디스크를 사용하는 VM을 지원합니다. <br/><br/> Azure VM에 한 번에 하나의 디스크만 핫으로 추가할 수 있습니다. 여러 디스크의 병렬 추가는 지원되지 않습니다. |
 디스크 핫 제거    | 지원되지 않음 | VM에서 데이터 디스크를 제거하는 경우 해당 VM에 대해 복제를 해제했다가 다시 설정해야 합니다.
 디스크 제외 | 지원됨. [PowerShell](azure-to-azure-exclude-disks.md)을 사용하여 구성해야 합니다. |    임시 디스크는 기본적으로 제외됩니다.

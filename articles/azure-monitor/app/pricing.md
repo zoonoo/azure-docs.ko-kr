@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726186"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -294,7 +294,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 
 ### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>레거시 엔터프라이즈 (노드당) 계층에서 청구 된 사용량 이해 
 
-아래에서 설명 하는 것 처럼 레거시 Enterprise (노드당) 계층은 구독의 모든 Application Insights 리소스에 대 한 사용량을 결합 하 여 노드 수와 데이터 초과분 계산 합니다. 이러한 조합 프로세스로 인해 **구독의 모든 Application Insights 리소스에 대 한 사용량은 리소스 중 하나에 대해서만 보고 됩니다**.  이렇게 하면 각 Application Insights 리소스에 대해 관찰 하는 사용량으로 [청구 된 사용량](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) 을 조정 하는 데 매우 복잡 합니다. 
+아래에서 설명 하는 것 처럼 레거시 Enterprise (노드당) 계층은 구독의 모든 Application Insights 리소스에 대 한 사용량을 결합 하 여 노드 수와 데이터 초과분 계산 합니다. 이러한 조합 프로세스로 인해 **구독의 모든 Application Insights 리소스에 대 한 사용량은 리소스 중 하나에 대해서만 보고 됩니다**.  이렇게 하면 각 Application Insights 리소스에 대해 관찰 하는 사용량으로 [청구 된 사용량](#viewing-application-insights-usage-on-your-azure-bill) 을 조정 하는 데 매우 복잡 합니다. 
 
 > [!WARNING]
 > 레거시 Enterprise (노드당) 계층에서 Application Insights 리소스의 사용량을 추적 하 고 이해 하는 복잡성 때문에 현재 종 량 제 가격 책정 계층을 사용 하는 것이 좋습니다. 

@@ -2,14 +2,14 @@
 title: 사용자 지정 컨테이너 구성
 description: Azure App Service에서 사용자 지정 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704874"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -111,7 +111,7 @@ PowerShell에서:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-앱이 실행 되 면 App Service 앱 설정이 자동으로 환경 변수로 프로세스에 삽입 됩니다. 
+앱이 실행 되 면 App Service 앱 설정이 자동으로 환경 변수로 프로세스에 삽입 됩니다. URL을 사용 하 여 컨테이너 환경 변수를 확인할 수 있습니다 `https://<app-name>.scm.azurewebsites.net/Env)` .
 
 ::: zone pivot="container-windows"
 IIS 또는 .NET Framework (4.0 이상) 기반 컨테이너의 경우 `System.ConfigurationManager` App Service에 의해 자동으로 .net 앱 설정 및 연결 문자열로 삽입 됩니다. 다른 모든 언어 또는 프레임 워크의 경우에는 다음의 해당 접두사 중 하 나와 함께 프로세스에 대 한 환경 변수로 제공 됩니다.
@@ -292,44 +292,55 @@ GMSAs (그룹 관리 서비스 계정)는 현재 App Service Windows 컨테이�
 
 ## <a name="enable-ssh"></a>SSH 사용
 
-SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설정할 수 있습니다. 사용자 지정 컨테이너가 SSH를 지원 하도록 하려면 Dockerfile 자체에 추가 해야 합니다.
+SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설정할 수 있습니다. 사용자 지정 컨테이너가 SSH를 지원 하기 위해 Docker 이미지 자체에 추가 해야 합니다.
 
 > [!TIP]
-> 모든 기본 제공 Linux 컨테이너는 해당 이미지 리포지토리에 SSH 명령을 추가 했습니다. [Node.js 10.14 리포지토리](https://github.com/Azure-App-Service/node/blob/master/10.14) 를 사용 하 여 다음 지침을 수행 하 여 어떻게 활성화 되어 있는지 확인할 수 있습니다.
+> App Service의 모든 기본 제공 Linux 컨테이너는 이미지 리포지토리에 SSH 명령을 추가 했습니다. [Node.js 10.14 리포지토리](https://github.com/Azure-App-Service/node/blob/master/10.14) 를 사용 하 여 다음 지침을 수행 하 여 어떻게 활성화 되어 있는지 확인할 수 있습니다. Node.js 기본 제공 이미지의 구성은 약간 다르지만 원칙적으로 동일 합니다.
 
-- [실행](https://docs.docker.com/engine/reference/builder/#run) 명령을 사용 하 여 SSH 서버를 설치 하 고 루트 계정에 대 한 암호를로 설정 `"Docker!"` 합니다. 예를 들어 [알파인 Linux](https://hub.docker.com/_/alpine)를 기반으로 하는 이미지의 경우 다음 명령이 필요 합니다.
+- 다음 예제와 같이 리포지토리에 [sshd_config 파일](https://man.openbsd.org/sshd_config) 을 추가 합니다.
 
-    ```Dockerfile
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
     ```
-
-    이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. SSH는를 통해서만 사용할 수 `https://<app-name>.scm.azurewebsites.net` 있으며 게시 자격 증명으로 인증 됩니다.
-
-- [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) 을 이미지 리포지토리에 추가 하 고 [복사](https://docs.docker.com/engine/reference/builder/#copy) 명령을 사용 하 여 파일을 */etc/ssh/* 디렉터리에 복사 합니다. *Sshd_config* 파일에 대 한 자세한 내용은 [openbsd 설명서](https://man.openbsd.org/sshd_config)를 참조 하세요.
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
+    Port            2222
+    ListenAddress       0.0.0.0
+    LoginGraceTime      180
+    X11Forwarding       yes
+    Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+    MACs hmac-sha1,hmac-sha1-96
+    StrictModes         yes
+    SyslogFacility      DAEMON
+    PasswordAuthentication  yes
+    PermitEmptyPasswords    no
+    PermitRootLogin     yes
+    Subsystem sftp internal-sftp
     ```
 
     > [!NOTE]
-    > *sshd_config* 파일에 다음이 항목되어야 합니다.
+    > 이 파일은 OpenSSH를 구성 하며 다음 항목을 포함 해야 합니다.
+    > - `Port` 2222으로 설정 해야 합니다.
     > - `Ciphers`는 이 목록에 적어도 하나의 항목이 있어야 합니다.`aes128-cbc,3des-cbc,aes256-cbc`
     > - `MACs`는 이 목록에 적어도 하나의 항목이 있어야 합니다.`hmac-sha1,hmac-sha1-96`
 
-- 표시 명령을 [사용 하 여 컨테이너](https://docs.docker.com/engine/reference/builder/#expose) 에서 포트 2222를 엽니다. 루트 암호는 알려져 있지만 포트 2222은 인터넷에서 액세스할 수 없습니다. 개인 가상 네트워크의 브리지 네트워크 내 컨테이너 에서만 액세스할 수 있습니다.
+- Dockerfile에서 다음 명령을 추가 합니다.
 
     ```Dockerfile
+    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
+    RUN apk add openssh \
+         && echo "root:Docker!" | chpasswd 
+
+    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY sshd_config /etc/ssh/
+
+    # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
+
+    이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. 컨테이너의 포트 2222은 개인 가상 네트워크의 브리지 네트워크 내 에서만 액세스할 수 있으며 인터넷 상의 공격자는 액세스할 수 없습니다.
 
 - 컨테이너의 시작 스크립트에서 SSH 서버를 시작 합니다.
 
     ```bash
     /usr/sbin/sshd
     ```
-
-    예제는 기본 [Node.js 10.14 컨테이너가](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) SSH 서버를 시작 하는 방법을 참조 하세요.
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
@@ -353,7 +364,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 *Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 매핑합니다 `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들어:
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 다음은 그 예입니다. 
 
 ```yaml
 wordpress:

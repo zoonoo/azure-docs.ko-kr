@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 1/14/2020
-ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 2/24/2021
+ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691436"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "99093311"
 이 문서에서 연결 이라는 용어는 데이터베이스의 단일 로그온 세션을 나타냅니다. 각 연결은 세션 ID (SPID)로 나타나거나 많은 Dmv에 session_id 합니다. 이러한 각 Spid는 일반적으로 별도의 프로세스 컨텍스트가 아니지만 일반적으로 프로세스 라고도 합니다. 대신 각 SPID는 지정 된 클라이언트에서 단일 연결에 대 한 요청을 처리 하는 데 필요한 서버 리소스와 데이터 구조로 구성 됩니다. 단일 클라이언트 응용 프로그램에는 하나 이상의 연결이 있을 수 있습니다. Azure SQL Database 관점에서 보면 단일 클라이언트 컴퓨터에서 단일 클라이언트 응용 프로그램의 여러 연결과 여러 클라이언트 응용 프로그램 또는 여러 클라이언트 컴퓨터에서 여러 연결 간에 차이가 없습니다. 원자 단위입니다. 원본 클라이언트에 관계 없이 하나의 연결에서 다른 연결을 차단할 수 있습니다.
 
 > [!NOTE]
-> **이 내용은 Azure SQL Database에만 적용 됩니다.** Azure SQL Database은 안정적인 최신 버전의 Microsoft SQL Server 데이터베이스 엔진을 기반으로 하므로 문제 해결 옵션과 도구는 다를 수 있지만 많은 내용이 비슷합니다. SQL Server 차단에 대 한 자세한 내용은 [차단 문제 SQL Server 이해 및 해결](/troubleshoot/sql/performance/understand-resolve-blocking)을 참조 하세요.
+> **이 콘텐츠는 Azure SQL Database에 초점을 맞추고 있습니다.** Azure SQL Database은 안정적인 최신 버전의 Microsoft SQL Server 데이터베이스 엔진을 기반으로 하므로 문제 해결 옵션과 도구는 다를 수 있지만 많은 내용이 비슷합니다. SQL Server 차단에 대 한 자세한 내용은 [차단 문제 SQL Server 이해 및 해결](/troubleshoot/sql/performance/understand-resolve-blocking)을 참조 하세요.
 
 ## <a name="understand-blocking"></a>차단 이해 
  
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_exec_input_buffer (66,0);
 
 * Sys.dm_exec_requests를 참조 하 고 blocking_session_id 열을 참조 합니다. Blocking_session_id = 0 이면 세션이 차단 되지 않습니다. Sys.dm_exec_requests는 현재 실행 중인 요청만 나열 하지만 모든 연결 (활성 또는 그렇지 않음)은 sys.dm_exec_sessions에 나열 됩니다. 다음 쿼리에서 sys.dm_exec_requests와 sys.dm_exec_sessions 간에이 공통 조인을 작성 합니다.
 
-* [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) 또는 [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dmv를 사용 하 여 적극적으로 실행 중인 쿼리와 현재 SQL 일괄 처리 텍스트 또는 입력 버퍼 텍스트를 찾으려면이 샘플 쿼리를 실행 합니다. Sys.dm_exec_sql_text의 필드에서 반환 된 데이터가 `text` NULL 이면 쿼리가 현재 실행 되 고 있지 않습니다. 이 경우 `event_info` sys.dm_exec_input_buffer의 필드에는 SQL 엔진에 전달 된 마지막 명령 문자열이 포함 됩니다. 
+* [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) 또는 [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dmv를 사용 하 여 적극적으로 실행 중인 쿼리와 현재 SQL 일괄 처리 텍스트 또는 입력 버퍼 텍스트를 찾으려면이 샘플 쿼리를 실행 합니다. Sys.dm_exec_sql_text의 필드에서 반환 된 데이터가 `text` NULL 이면 쿼리가 현재 실행 되 고 있지 않습니다. 이 경우 `event_info` sys.dm_exec_input_buffer의 필드에는 SQL 엔진에 전달 된 마지막 명령 문자열이 포함 됩니다. 이 쿼리를 사용 하 여 session_id에 의해 차단 된 session_ids 목록을 비롯 한 다른 세션을 차단 하는 세션을 식별할 수도 있습니다. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -125,6 +125,49 @@ OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) t
 OUTER APPLY sys.dm_exec_input_buffer(s.session_id, NULL) AS ib
 WHERE blocking_these is not null or r.blocking_session_id > 0
 ORDER BY len(bl.blocking_these) desc, r.blocking_session_id desc, r.session_id;
+```
+
+* Microsoft 지원에서 제공 하는 보다 정교한 샘플 쿼리를 실행 하 여 차단 체인에 포함 된 세션의 쿼리 텍스트를 비롯 한 여러 세션 차단 체인의 헤드를 식별 합니다.
+
+```sql
+WITH cteHead ( session_id,request_id,wait_type,wait_resource,last_wait_type,is_user_process,request_cpu_time
+,request_logical_reads,request_reads,request_writes,wait_time,blocking_session_id,memory_usage
+,session_cpu_time,session_reads,session_writes,session_logical_reads
+,percent_complete,est_completion_time,request_start_time,request_status,command
+,plan_handle,sql_handle,statement_start_offset,statement_end_offset,most_recent_sql_handle
+,session_status,group_id,query_hash,query_plan_hash) 
+AS ( SELECT sess.session_id, req.request_id, LEFT (ISNULL (req.wait_type, ''), 50) AS 'wait_type'
+    , LEFT (ISNULL (req.wait_resource, ''), 40) AS 'wait_resource', LEFT (req.last_wait_type, 50) AS 'last_wait_type'
+    , sess.is_user_process, req.cpu_time AS 'request_cpu_time', req.logical_reads AS 'request_logical_reads'
+    , req.reads AS 'request_reads', req.writes AS 'request_writes', req.wait_time, req.blocking_session_id,sess.memory_usage
+    , sess.cpu_time AS 'session_cpu_time', sess.reads AS 'session_reads', sess.writes AS 'session_writes', sess.logical_reads AS 'session_logical_reads'
+    , CONVERT (decimal(5,2), req.percent_complete) AS 'percent_complete', req.estimated_completion_time AS 'est_completion_time'
+    , req.start_time AS 'request_start_time', LEFT (req.status, 15) AS 'request_status', req.command
+    , req.plan_handle, req.[sql_handle], req.statement_start_offset, req.statement_end_offset, conn.most_recent_sql_handle
+    , LEFT (sess.status, 15) AS 'session_status', sess.group_id, req.query_hash, req.query_plan_hash
+    FROM sys.dm_exec_sessions AS sess
+    LEFT OUTER JOIN sys.dm_exec_requests AS req ON sess.session_id = req.session_id
+    LEFT OUTER JOIN sys.dm_exec_connections AS conn on conn.session_id = sess.session_id 
+    )
+, cteBlockingHierarchy (head_blocker_session_id, session_id, blocking_session_id, wait_type, wait_duration_ms,
+wait_resource, statement_start_offset, statement_end_offset, plan_handle, sql_handle, most_recent_sql_handle, [Level])
+AS ( SELECT head.session_id AS head_blocker_session_id, head.session_id AS session_id, head.blocking_session_id
+    , head.wait_type, head.wait_time, head.wait_resource, head.statement_start_offset, head.statement_end_offset
+    , head.plan_handle, head.sql_handle, head.most_recent_sql_handle, 0 AS [Level]
+    FROM cteHead AS head
+    WHERE (head.blocking_session_id IS NULL OR head.blocking_session_id = 0)
+    AND head.session_id IN (SELECT DISTINCT blocking_session_id FROM cteHead WHERE blocking_session_id != 0)
+    UNION ALL
+    SELECT h.head_blocker_session_id, blocked.session_id, blocked.blocking_session_id, blocked.wait_type,
+    blocked.wait_time, blocked.wait_resource, h.statement_start_offset, h.statement_end_offset,
+    h.plan_handle, h.sql_handle, h.most_recent_sql_handle, [Level] + 1
+    FROM cteHead AS blocked
+    INNER JOIN cteBlockingHierarchy AS h ON h.session_id = blocked.blocking_session_id and h.session_id!=blocked.session_id --avoid infinite recursion for latch type of blocking
+    WHERE h.wait_type COLLATE Latin1_General_BIN NOT IN ('EXCHANGE', 'CXPACKET') or h.wait_type is null
+    )
+SELECT bh.*, txt.text AS blocker_query_or_most_recent_query 
+FROM cteBlockingHierarchy AS bh 
+OUTER APPLY sys.dm_exec_sql_text (ISNULL ([sql_handle], most_recent_sql_handle)) AS txt;
 ```
 
 * 장기 실행 또는 커밋되지 않은 트랜잭션을 catch 하려면 [sys.dm_tran_database_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql), [sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql), [sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql)및 sys.dm_exec_sql_text를 포함 하 여 현재 열려 있는 트랜잭션을 볼 수 있도록 다른 dmv 집합을 사용 합니다. 추적 트랜잭션과 연결 된 여러 Dmv가 있습니다. 여기에서 [트랜잭션에 대 한 추가 dmv](/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql) 를 참조 하십시오. 
@@ -371,7 +414,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝](/azure/azure-sql/database/monitor-tune-overview)
+* [Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝](./monitor-tune-overview.md)
 * [쿼리 저장소를 사용한 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [트랜잭션 잠금 및 행 버전 관리 지침](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

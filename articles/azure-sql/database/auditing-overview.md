@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691521"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -44,9 +44,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 ### <a name="auditing-limitations"></a>감사 제한 사항
 
-- **프리미엄 스토리지** 는 현재 **지원되지 않습니다**.
+- **Premium storage** 는 현재 **지원 되지 않습니다**.
 - **Azure Data Lake Storage Gen2 저장소 계정** 에 대 한 **계층적 네임 스페이스** 는 현재 **지원 되지 않습니다**.
-- 일시 중지 된 **Azure Synapse** 에서 감사를 사용 하도록 설정 하는 것은 지원 되지 않습니다. 감사를 사용 하도록 설정 하려면 Azure Synapse를 다시 시작 합니다.
+- 일시 중지 된 **Azure Synapse** 에서 감사를 사용 하도록 설정 하는 것은 지원 되지 않습니다. 감사를 사용하도록 설정하려면 Azure Synapse를 다시 시작합니다.
+- **Azure SYNAPSE SQL 풀** 감사는 기본 감사 **작업 그룹만 지원 합니다.**
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
 
@@ -73,9 +75,9 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - 서버 또는 데이터베이스 수준 감사 이벤트에 대 한 변경할 수 없는 로그 저장소를 구성 하려면 [Azure Storage에서 제공](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)하는 지침을 따르세요. 변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 합니다.
 - VNet 또는 방화벽 뒤에 Azure Storage 계정에 감사 로그를 쓸 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조 하세요.
 - 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](./audit-log-format.md)를 참조하세요.
-- 읽기 전용 [복제본](read-scale-out.md) 에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
+- [읽기 전용 복제본](read-scale-out.md)에 대한 감사는 자동으로 설정됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
 - Azure AD 인증 사용 하는 경우 실패 한 로그인 레코드가 SQL 감사 로그에 표시 *되지* 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
-- 로그인은 게이트웨이가 데이터베이스가 있는 특정 인스턴스로 라우팅됩니다.  AAD 로그인의 경우 자격 증명이 확인 된 후 해당 사용자를 사용 하 여 요청 된 데이터베이스에 로그인을 시도 합니다.  오류가 발생 하는 경우 요청 된 데이터베이스는 액세스 되지 않으므로 감사가 수행 되지 않습니다.  SQL 로그인의 경우 요청 된 데이터에 대 한 자격 증명이 확인 되므로이 경우 감사를 수행할 수 있습니다.  데이터베이스에 연결 된 성공적인 로그인은 두 경우 모두 감사 됩니다.
+- 로그인이 게이트웨이에 의해 데이터베이스가 있는 특정 인스턴스로 라우팅됩니다.  AAD 로그인의 경우 자격 증명이 확인된 후 해당 사용자로 요청된 데이터베이스에 로그인을 시도합니다.  오류가 발생하는 경우 요청된 데이터베이스는 액세스되지 않으므로 감사가 수행되지 않습니다.  SQL 로그인의 경우 요청 된 데이터에 대 한 자격 증명이 확인 되므로이 경우 감사를 수행할 수 있습니다.  데이터베이스에 연결된 성공적인 로그인은 두 경우 모두 감사됩니다.
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>서버에 대한 감사 설정
@@ -94,7 +96,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
   > [!NOTE]
   > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 

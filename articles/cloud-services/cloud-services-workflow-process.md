@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: bda066dd50d2f95776981eafc01e3ddd04d33e54
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 606510940460db963a2aa63deb57b6dba77de3ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700136"
 ---
 # <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Microsoft Azure 클래식 VM 아키텍처 워크플로 
 
@@ -80,7 +80,7 @@ ms.locfileid: "98741063"
 5. WindowsAzureGuestAgent는 게스트 OS (방화벽, Acl, LocalStorage 등)를 설정 하 고 새 XML 구성 파일을 c:\Config에 복사한 다음 WaHostBootstrapper 프로세스를 시작 합니다.
 6. 전체 IIS 웹 역할의 경우 WaHostBootstrapper IISConfigurator를 시작 하 고 IIS에서 웹 역할에 대 한 기존 AppPools을 삭제 하도록 지시 합니다.
 7. WaHostBootstrapper는 E:\RoleModel.xml에서 **시작** 작업을 읽고 시작 작업 실행을 시작 합니다. WaHostBootstrapper는 모든 간단한 시작 작업이 완료 되 고 "성공" 메시지가 반환 될 때까지 대기 합니다.
-8. 전체 IIS 웹 역할의 경우 WaHostBootstrapper는 IIS AppPool을 구성 하 고 사이트를 가리키도록 합니다 `E:\Sitesroot\<index>` `<index>` . 여기서은 `<Sites>` 서비스에 대해 정의 된 요소 수에 대 한 0 기반 인덱스입니다.
+8. 전체 IIS 웹 역할의 경우 WaHostBootstrapper는 IIS AppPool을 구성 하 고 사이트를 가리키도록 합니다 `E:\Sitesroot\<index>` `<index>` . 여기서은 0부터 시작 하는 `<Sites>` 서비스에 대해 정의 된 요소 수의 인덱스입니다.
 9. WaHostBootstrapper는 역할 유형에 따라 호스트 프로세스를 시작 합니다.
     1. **작업자 역할**: WaWorkerHost.exe 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후 WaHostBootstrapper는 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고이를 부하 분산 장치 순환에 배치 합니다 (InputEndpoints가 정의 된 경우). 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.
     2. **전체 IIS 웹 역할**: aIISHost이 시작 되었습니다. WaHostBootstrapper는 OnStart () 메서드를 실행 합니다. 반환 된 후에 Run () 메서드를 실행 한 다음 역할을 준비 된 것으로 표시 하 고 부하 분산 장치 순환에 배치 합니다. 그런 다음 WaHostBootsrapper는 역할 상태를 확인 하는 루프로 이동 합니다.

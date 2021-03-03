@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729779"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -127,10 +127,10 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 각 개별 파서를 클릭 하 고, 사용 하는 기본 함수를 확인 하 여 실행 하거나, 위에 설명 된 대로 해당 별칭으로 직접 액세스할 수 있습니다. 일부 파서는 편의를 위해 원래 필드를 정규화 된 필드와 나란히 유지할 수 있습니다. 이는 파서의 쿼리에서 쉽게 편집할 수 있습니다.
 
 > [!TIP]
-> 검색 쿼리를 비롯 한 모든 쿼리에서 Azure 센티널 테이블 대신 저장 된 함수를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+> 검색 쿼리를 비롯 한 모든 쿼리에서 Azure 센티널 테이블 대신 저장 된 함수를 사용할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
 >
 > - [Azure 센티널의 데이터 정규화](normalization.md#parsers)
-> - [Azure Monitor 로그의 텍스트 구문 분석](/azure/azure-monitor/log-query/parse-text)
+> - [Azure Monitor 로그의 텍스트 구문 분석](../azure-monitor/logs/parse-text.md)
 >
 #### <a name="customizing-parsers"></a>파서 사용자 지정
 

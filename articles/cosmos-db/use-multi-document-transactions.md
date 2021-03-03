@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663658"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692473"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API에서 다중 문서 트랜잭션 사용
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ MongoDB에 대 한 Azure Cosmos DB API에서 단일 문서에 대 한 작업은 
 
 ## <a name="requirements"></a>요구 사항
 
-다중 문서 트랜잭션은 4.0 버전의 unsharded 컬렉션 내에서 지원 됩니다. 다중 문서 트랜잭션은 컬렉션 또는 분할 된 컬렉션에서 지원 되지 않습니다.
+다중 문서 트랜잭션은 API 버전 4.0의 unsharded 컬렉션 내에서 지원 됩니다. 다중 문서 트랜잭션은 4.0의 컬렉션 또는 분할 된 컬렉션에서 지원 되지 않습니다. 트랜잭션의 제한 시간은 5초로 고정되어 있습니다.
 
 유선 프로토콜 버전 4.0 이상을 지 원하는 모든 드라이버는 MongoDB 다중 문서 트랜잭션을 위한 Azure Cosmos DB API를 지원 합니다.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>MongoDB shell에서 다중 문서 트랜잭션 실행
+> [!Note]
+> 이 예제는 MongoDB 나침반에 포함 된 MongoSH beta (shell)에서 작동 하지 않습니다.
 
 1. 명령 프롬프트를 열고 Mongo shell 버전 4.0 이상이 설치 된 디렉터리로 이동 합니다.
 

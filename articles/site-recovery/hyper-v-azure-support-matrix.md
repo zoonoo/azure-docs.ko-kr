@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587817"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735525"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -53,8 +53,8 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 **동작** | **세부 정보**
 --- | ---
-복제된 Hyper-V VM에서 디스크 크기 조정 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
-복제된 Hyper-V VM에서 디스크 추가 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
@@ -71,7 +71,7 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 게스트 VM 네트워크: 고정 IP(Linux) | 예 | 예
 게스트 VM 네트워크: 다중 NIC | 예 | 예
 Https 프록시 | 예 | 예
-Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세히 알아봅니다](hybrid-how-to-enable-replication-private-endpoints.md). | 예. [자세히 알아봅니다](hybrid-how-to-enable-replication-private-endpoints.md).
+Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세히 알아보기](hybrid-how-to-enable-replication-private-endpoints.md). | 예. [자세히 알아보기](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -142,8 +142,8 @@ Premium Storage | 예 | 예
 Standard Storage | 예 | 예
 Import/Export 서비스 | 예 | 예
 방화벽이 설정 된 Azure Storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
-저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 합니다. | 예
-보안 전송 옵션 | 예
+저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 합니다. | No
+보안 전송 옵션 | 예 | 예
 
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
@@ -167,12 +167,12 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 데이터 디스크 수 | 16개 이하  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 데이터 디스크 VHD 크기 | 최대 4,095GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원 안 함 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
-FC 디스크 | 지원 안 함 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+공유 VHD | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
+FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 하드 디스크 형식 | VHD <br/><br/>  VHDX | Azure로의 장애 조치(failover)를 수행하면 Site Recovery는 VHDX를 VHD로 자동 변환합니다. 온-프레미스에 장애 복구 시 가상 머신에서 계속해서 VHDX 형식을 사용합니다.
-BitLocker | 지원 안 함 | VM의 복제를 사용하도록 설정하기 전에 BitLocker를 사용하지 않도록 설정해야 합니다.
+BitLocker | 지원되지 않음 | VM의 복제를 사용하도록 설정하기 전에 BitLocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | Site Recovery에서 VM 속성의 값을 업데이트합니다.
-VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services 자격 증명 모음 작업
 

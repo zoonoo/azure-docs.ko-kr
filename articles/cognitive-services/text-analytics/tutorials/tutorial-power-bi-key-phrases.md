@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369548"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736681"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -89,7 +89,7 @@ Power BI Desktop에서 **홈** 리본을 선택합니다. **외부 데이터** �
 ## <a name="understand-the-api"></a>API 이해
 <a name="UnderstandingAPI"></a>
 
-Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)는 HTTP 요청마다 최대 천 개의 텍스트 문서를 처리할 수 있습니다. Power BI는 레코드를 한 번에 하나씩 처리하는 것을 선호하므로 이 자습서에서 API 호출에는 각각 단일 문서만 포함됩니다. 핵심 구 API는 처리할 각 문서에 대한 다음 필드가 필요합니다.
+Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases)는 HTTP 요청마다 최대 천 개의 텍스트 문서를 처리할 수 있습니다. Power BI는 레코드를 한 번에 하나씩 처리하는 것을 선호하므로 이 자습서에서 API 호출에는 각각 단일 문서만 포함됩니다. 핵심 구 API는 처리할 각 문서에 대한 다음 필드가 필요합니다.
 
 | 필드 | Description |
 | - | - |

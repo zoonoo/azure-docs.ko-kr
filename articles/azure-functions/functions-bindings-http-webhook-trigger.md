@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726396"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 경로 매개 변수를 사용 하는 경우 `invoke_URL_template` 함수에 대해가 자동으로 만들어집니다. 클라이언트는 url을 사용 하 여 함수를 호출할 때 url 템플릿을 사용 하 여 url에 전달 해야 하는 매개 변수를 이해할 수 있습니다. [Azure Portal](https://portal.azure.com) 에서 HTTP 트리거 함수 중 하나로 이동 하 고 **함수 URL 가져오기** 를 선택 합니다.
 
-`invoke_URL_template` [목록 함수](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) 또는 [Get 함수](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction)에 Azure Resource Manager api를 사용 하 여 프로그래밍 방식으로에 액세스할 수 있습니다.
+`invoke_URL_template` [목록 함수](/rest/api/appservice/webapps/listfunctions) 또는 [Get 함수](/rest/api/appservice/webapps/getfunction)에 Azure Resource Manager api를 사용 하 여 프로그래밍 방식으로에 액세스할 수 있습니다.
 
 ## <a name="working-with-client-identities"></a>클라이언트 ID 사용
 

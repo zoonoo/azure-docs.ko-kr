@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728606"
 ---
 # <a name="composite-bar-renderer"></a>복합 막대 렌더러
 
@@ -46,7 +46,7 @@ ms.locfileid: "100618874"
 7. *열* 에서 "합계"를 선택 하 고 *열 렌더러* 의 경우 "복합 막대"를 선택 합니다.
 8. *복합 막대 설정* 에서 다음 설정을 설정 합니다.
 
-| 열 이름 | Color        |
+| 열 이름 | 색상        |
 |-------------|--------------|
 | 온라인      | 녹색        |
 | 복구  | 노란색       |
@@ -69,7 +69,7 @@ ms.locfileid: "100618874"
 
 열 이름 및 해당 색을 선택 하 여 해당 색의 열을 복합 막대의 일부분으로 렌더링 합니다. 행을 삽입, 삭제 및 이동 할 수 있습니다.
 
-### <a name="label"></a>레이블
+### <a name="label"></a>label
 
 복합 막대 레이블이 복합 막대의 위쪽에 표시 됩니다. 정적 텍스트, 열 및 매개 변수를 함께 사용할 수 있습니다.  Label이 비어 있으면 현재 열의 값이 레이블로 표시 됩니다. 이전 예제에서 레이블 필드를 왼쪽으로 남겨 둔 경우 합계 열의 값이 표시 됩니다.
 
@@ -134,7 +134,7 @@ None 집계는 그룹 행에 대해 해당 열에 대 한 결과를 표시 하�
     2. 열 렌더러: "복합 막대".
     3. "복합 막대 설정"에서 다음 설정으로 설정을 입력 합니다.
 
-    | 열 이름 | Color        |
+    | 열 이름 | 색상        |
     |-------------|--------------|
     | 온라인      | 녹색        |
     | 복구  | 노란색       |
@@ -166,7 +166,7 @@ None 집계는 그룹 행에 대해 해당 열에 대 한 결과를 표시 하�
     2. 열 렌더러: "복합 막대".
     3. *복합 표시줄 설정* 에서 다음 설정을 입력 합니다.
 
-    |열 이름  |     Color    |
+    |열 이름  |     색상    |
     |-------------|--------------|
     | 온라인      | 녹색        |
     | 복구  | 노란색       |
@@ -193,4 +193,4 @@ None 집계는 그룹 행에 대해 해당 열에 대 한 결과를 표시 하�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Resource Manager를 사용 하 여 통합 문서를 [배포](../visualize/workbooks-automate.md) 합니다.
-* 통합 문서 리소스에 대 한 액세스를 [제어](../platform/workbooks-access-control.md) 하 고 공유 합니다.
+* 통합 문서 리소스에 대 한 액세스를 [제어](./workbooks-access-control.md) 하 고 공유 합니다.

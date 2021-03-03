@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 057fc654597360a4666342f7de10bf908224f1de
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 276cc6ad12fe51947ae1db0ece6cbacec4b6771f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732543"
 ---
 Azure 파일 공유에 대 한 SMB 다중 채널은 현재 다음 지역 에서만 사용할 수 있습니다.
 
@@ -31,4 +31,4 @@ Azure 파일 공유에 대 한 SMB 다중 채널은 현재 다음 지역 에서�
 | 스위스 | 스위스 북부 |
 | 아랍에미리트연합국 | 아랍에미리트 북부 |
 | 영국 | 영국 남부, 영국 서부 |
-| 미국 | 미국 중부, 미국 동부, 미국 중 북부, 미국 동부, 미국 서 부, 미국 중부 |
+| 미국 | 미국 중부, 미국 동부, 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2 |

@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741823"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -266,8 +266,7 @@ AuditIfNotExists와 마찬가지로 DeployIfNotExists 정책 정의는 조건이
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 평가
 
-리소스 공급자가 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 DeployIfNotExists가 15분 동안 실행됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다.
-배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
+DeployIfNotExists는 리소스 공급자가 구독 또는 리소스 만들기 또는 업데이트 요청을 처리 하 고 성공 상태 코드를 반환 하는 데 약 15 분 후에 실행 됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다. 배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
 
 평가 주기 중 리소스와 일치하는 DeployIfNotExists 효과가 포함된 정책 정의는 비준수로 표시되지만 해당 리소스에서 작업이 수행되지 않습니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
 
@@ -482,8 +481,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 Gatekeeper v2 허용 제어
 
 ## <a name="modify"></a>수정
 
-Modify는 만들거나 업데이트 하는 동안 리소스의 속성 또는 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다.
-일반적인 예는 costCenter와 같은 리소스의 태그를 업데이트하는 것입니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다. 단일 Modify 규칙은 많은 수의 operations를 포함할 수 있습니다.
+Modify는 만들거나 업데이트 하는 동안 구독 또는 리소스에 대 한 속성 또는 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다. 일반적인 예는 costCenter와 같은 리소스의 태그를 업데이트하는 것입니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다. 단일 Modify 규칙은 많은 수의 operations를 포함할 수 있습니다.
 
 Modify에서 지원 되는 작업은 다음과 같습니다.
 

@@ -6,24 +6,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 485c2cc6c95f5922025fe887f7c25131e849a01d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620794"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723166"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Azure Monitor의 Log Analytics 개요
 Log Analytics는 Azure Monitor 로그의 데이터로 로그 쿼리를 편집 및 실행 하는 데 사용 되는 Azure Portal 도구입니다. 레코드 집합을 반환 하는 간단한 쿼리를 작성 한 다음 Log Analytics 기능을 사용 하 여 정렬, 필터링 및 분석할 수 있습니다. 또는 통계 분석을 수행 하 고 차트에서 결과를 시각화 하 여 특정 추세를 식별 하는 고급 쿼리를 작성할 수 있습니다. 쿼리 결과를 대화형으로 사용 하거나 쿼리 경고 또는 통합 문서 로그와 같은 다른 Azure Monitor 기능과 함께 사용 하는 경우에는 쓰기 및 테스트를 사용 하는 도구 Log Analytics. 
 
 
 > [!TIP]
-> 이 문서에서는 Log Analytics 및 각 기능에 대 한 설명을 제공 합니다. 자습서로 바로 이동 하려면 [Log Analytics 자습서](../log-query/log-analytics-tutorial.md)를 참조 하세요.
+> 이 문서에서는 Log Analytics 및 각 기능에 대 한 설명을 제공 합니다. 자습서로 바로 이동 하려면 [Log Analytics 자습서](./log-analytics-tutorial.md)를 참조 하세요.
 
 
 
 ## <a name="starting-log-analytics"></a>시작 Log Analytics
-Azure Portal의 **Azure Monitor** 메뉴에 있는 **로그** 에서 Log Analytics를 시작 합니다. 또한 대부분의 Azure 리소스에 대 한 메뉴에서이 옵션을 볼 수 있습니다. 에서 시작 하는 위치에 관계 없이이 도구는 동일한 Log Analytics 도구입니다. Log Analytics를 시작 하는 데 사용 하는 메뉴에는 사용할 수 있는 데이터가 결정 됩니다. **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 시작 하는 경우 작업 영역에 있는 모든 레코드에 액세스할 수 있습니다. 다른 유형의 리소스에서 **로그** 를 선택 하면 해당 리소스에 대 한 로그 데이터로 데이터가 제한 됩니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../log-query/scope.md)를 참조하세요.
+Azure Portal의 **Azure Monitor** 메뉴에 있는 **로그** 에서 Log Analytics를 시작 합니다. 또한 대부분의 Azure 리소스에 대 한 메뉴에서이 옵션을 볼 수 있습니다. 에서 시작 하는 위치에 관계 없이이 도구는 동일한 Log Analytics 도구입니다. Log Analytics를 시작 하는 데 사용 하는 메뉴에는 사용할 수 있는 데이터가 결정 됩니다. **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 시작 하는 경우 작업 영역에 있는 모든 레코드에 액세스할 수 있습니다. 다른 유형의 리소스에서 **로그** 를 선택 하면 해당 리소스에 대 한 로그 데이터로 데이터가 제한 됩니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](./scope.md)를 참조하세요.
 
 [![시작 Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
@@ -37,11 +37,11 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 ### <a name="1-top-action-bar"></a>1. 위쪽 작업 모음
 쿼리 창에서 쿼리를 사용 하기 위한 컨트롤입니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:---|:---|
-| 범위 | 쿼리에 사용 되는 데이터의 범위를 지정 합니다. 이는 Log Analytics 작업 영역에 있는 모든 데이터 이거나 여러 작업 영역에서 특정 리소스에 대 한 데이터 일 수 있습니다. [쿼리 범위](../log-query/scope.md)를 참조 하세요. |
+| Scope | 쿼리에 사용 되는 데이터의 범위를 지정 합니다. 이는 Log Analytics 작업 영역에 있는 모든 데이터 이거나 여러 작업 영역에서 특정 리소스에 대 한 데이터 일 수 있습니다. [쿼리 범위](./scope.md)를 참조 하세요. |
 | 실행 단추 | 쿼리 창에서 선택한 쿼리를 실행 하려면 클릭 합니다. Shift + enter를 눌러 쿼리를 실행할 수도 있습니다. |
-| 시간 선택기 | 쿼리에 사용할 수 있는 데이터의 시간 범위를 선택 합니다. 쿼리에 시간 필터를 포함 하는 경우이는 무시 됩니다. [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../log-query/scope.md)를 참조 하세요. |
+| 시간 선택기 | 쿼리에 사용할 수 있는 데이터의 시간 범위를 선택 합니다. 쿼리에 시간 필터를 포함 하는 경우이는 무시 됩니다. [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](./scope.md)를 참조 하세요. |
 | 저장 단추 | 작업 영역에 대 한 쿼리 탐색기에 쿼리를 저장 합니다. |
  복사 단추 | 쿼리, 쿼리 텍스트 또는 쿼리 결과에 대 한 링크를 클립보드에 복사 합니다. |
 | 새 경고 규칙 단추 | 빈 쿼리를 사용 하 여 새 탭을 만듭니다. |
@@ -79,7 +79,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 #### <a name="chart-view"></a>차트 보기
 사용 가능한 여러 차트 종류 중 하나로 결과를 표시 합니다. 쿼리의 **render** 명령에 차트 종류를 지정 하거나 **시각화 유형** 드롭다운에서 선택할 수 있습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:---|:---|
 | **시각화 유형** | 표시할 차트의 유형입니다. |
 | **X 축** | X 축에 사용할 결과의 열입니다. 
@@ -91,5 +91,5 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 Azure 데이터 탐색기 웹 UI를 이미 잘 알고 있는 경우에는 Log Analytics에 대해 잘 알고 있어야 합니다. Azure 데이터 탐색기을 기반으로 구축 되 고 동일한 Kusto 쿼리 언어 (KQL)를 사용 하기 때문입니다. Log Analytics 시간 범위를 기준으로 필터링, 쿼리에서 경고 규칙을 만드는 기능 등 Azure Monitor 관련 된 기능을 추가 합니다. 두 도구 모두에는 사용 가능한 테이블의 구조를 검색할 수 있는 탐색기가 포함 되어 있지만 Azure 데이터 탐색기 웹 UI는 기본적으로 Azure 데이터 탐색기 데이터베이스의 테이블을 사용 하 고 Log Analytics는 Log Analytics 작업 영역의 테이블에 대해 작동 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](../log-query/log-analytics-tutorial.md)를 안내 합니다.
-- [쿼리 작성에 대 한 자습서](../log-query/get-started-queries.md)를 안내 합니다.
+- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](./log-analytics-tutorial.md)를 안내 합니다.
+- [쿼리 작성에 대 한 자습서](./get-started-queries.md)를 안내 합니다.

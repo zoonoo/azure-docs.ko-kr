@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737718"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
@@ -43,15 +43,15 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 
 ## <a name="run-the-quick-planner"></a>Quick Planner 실행
-1. [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
+1. [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
 
-2. **플래너 유형 선택** 목록 상자에서 **Quick Planner**를 선택합니다.
+2. **플래너 유형 선택** 목록 상자에서 **Quick Planner** 를 선택합니다.
 
    ![Quick Planner가 선택 된 플래너 유형 선택 옵션의 스크린샷](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. **Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 다음 스크린샷에 빨간색 원이 표시된 모든 필드를 입력합니다.
 
-   a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
+   a. **시나리오 선택** 에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로** 를 선택합니다.
 
    b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](./hyper-v-deployment-planner-overview.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
@@ -59,7 +59,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
-   e. **가상 머신의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 머신 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. Site Recovery가 배포되면 초기 데이터 집합 전체가 업로드됩니다.
+   e. **가상 머신의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 머신 수** 에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. Site Recovery가 배포되면 초기 데이터 집합 전체가 업로드됩니다.
 
    ![필수 입력 정보를 표시 하는 Capacity Planner 워크시트의 스크린샷](./media/site-recovery-capacity-planner/inputs.png)
 
@@ -81,45 +81,45 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 ## <a name="run-the-detailed-planner"></a>Detailed Planner 실행
 
-1. [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
+1. [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
 
-2. **플래너 유형 선택**의 목록 상자에서 **Detailed Planner**를 선택합니다.
+2. **플래너 유형 선택** 의 목록 상자에서 **Detailed Planner** 를 선택합니다.
 
    ![상세 Planner가 선택 된 경우 플래너 유형 선택 옵션의 스크린샷](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. **Workload Qualification** 워크시트에서 필요한 정보를 입력합니다. 표시된 필드를 모두 입력해야 합니다.
 
-   a. **프로세서 코어**에서 원본 서버의 총 코어 수를 지정 합니다.
+   a. **프로세서 코어** 에서 원본 서버의 총 코어 수를 지정 합니다.
 
    b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
-   다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
+   다. **NIC 수** 에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
    d. **총 저장소 (GB)** 에서 VM 저장소의 총 크기를 지정 합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 스토리지 크기는 1500GB입니다.
 
-   e. **연결된 디스크 수**에는 원본 서버의 총 디스크 수를 지정합니다.
+   e. **연결된 디스크 수** 에는 원본 서버의 총 디스크 수를 지정합니다.
 
    f. **디스크 용량 사용률(%)** 에는 평균 사용률을 지정합니다.
 
    g. **일일 데이터 변경률(%)** 에는 원본 서버의 일일 데이터 변경률을 지정합니다.
 
-   h. **매핑 Azure VM 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면**컴퓨팅 IaaS VM**을 선택합니다. 수동 설정을 입력하고 **컴퓨팅 IaaS VM**을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 컴퓨팅 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
+   h. **매핑 Azure VM 크기** 에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면 **컴퓨팅 IaaS VM** 을 선택합니다. 수동 설정을 입력하고 **컴퓨팅 IaaS VM** 을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 컴퓨팅 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
 
    ![필수 입력 정보를 표시 하는 워크 로드 한정 워크시트의 스크린샷](./media/site-recovery-capacity-planner/workload-qualification.png)
 
-4. **컴퓨팅 IaaS VM**을 선택하면 수행되는 작업은 다음과 같습니다.
+4. **컴퓨팅 IaaS VM** 을 선택하면 수행되는 작업은 다음과 같습니다.
 
    * 필수 입력의 유효성을 검사합니다.
    * IOPS를 계산하고 Azure로 복제할 수 있는 각 VM에 최적으로 일치하는 Azure VM 크기를 제안합니다. Azure VM에 적합한 크기를 감지할 수 없는 경우 오류가 발생합니다. 예를 들어 연결된 디스크 수가 65인 경우 가장 높은 Azure VM 크기가 64이므로 오류가 표시됩니다.
    * Azure VM에 대해 사용할 수 있는 스토리지 계정을 제안합니다.
    * 워크로드에 필요한 표준 스토리지 계정 및 Premium Storage 계정의 총 수를 계산합니다. 아래로 스크롤하면 원본 서버에 사용할 수 있는 Azure Storage 유형 및 스토리지 계정을 볼 수 있습니다.
-   * VM에 할당된 필요한 스토리지 유형(Standard 또는 Premium) 및 연결된 디스크 수를 기반으로 테이블의 나머지 부분을 완료하고 정렬합니다. Azure에 대한 요구 사항을 충족하는 모든 VM의 경우 **VM 적합 여부**가 **예**로 표시됩니다. VM을 Azure로 백업할 수 없는 경우 오류가 표시됩니다.
+   * VM에 할당된 필요한 스토리지 유형(Standard 또는 Premium) 및 연결된 디스크 수를 기반으로 테이블의 나머지 부분을 완료하고 정렬합니다. Azure에 대한 요구 사항을 충족하는 모든 VM의 경우 **VM 적합 여부** 가 **예** 로 표시됩니다. VM을 Azure로 백업할 수 없는 경우 오류가 표시됩니다.
 
 각 VM에 대한 정보를 제공하는 AA~AE 열이 출력됩니다.
 
 ![출력 열 AA를 AE로 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure Storage 요구 사항을 계산 및 할당합니다.
 
 ![작업 자격 할당을 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-3.png)
@@ -137,12 +137,12 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
     > 표준 및 Premium Storage의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 VM은 디스크당 최대 500 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 Premium Storage가 필요합니다. 디스크의 IOPS가 500보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. Azure VM 제한은 VM 크기, 디스크 수, 어댑터 수, CPU 및 메모리입니다. 적절 한 DS 또는 GS 시리즈 VM을 사용 하 여 매핑 Azure 크기 셀을 수동으로 업데이트 해야 합니다.
 
 
-모든 정보가 입력되었으면 **플래너 도구에 데이터 전송**을 선택하여 Capacity Planner를 엽니다. 보호에 적합한지 여부를 표시하기 위해 워크로드가 강조 표시됩니다.
+모든 정보가 입력되었으면 **플래너 도구에 데이터 전송** 을 선택하여 Capacity Planner를 엽니다. 보호에 적합한지 여부를 표시하기 위해 워크로드가 강조 표시됩니다.
 
 ### <a name="submit-data-in-capacity-planner"></a>Capacity Planner에서 데이터 제출
 1. **Capacity Planner** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. "작업" 이라는 단어는 인프라 입력 **소스** 셀에 표시 되어 입력이 **작업 검증** 워크시트 임을 보여 줍니다.
 
-2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송**을 다시 클릭합니다.
+2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송** 을 다시 클릭합니다.
 
    ![Capacity Planner 워크시트에서 수정 된 입력 및 결과 출력을 보여 주는 스크린샷](./media/site-recovery-capacity-planner/capacity-planner.png)
 

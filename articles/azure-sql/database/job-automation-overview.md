@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 942698e5c42e1f46ff05dacdacdb0d124135a6c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390762"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690433"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 관리 작업 자동화(미리 보기)
 
@@ -56,7 +56,7 @@ T-SQL(Transact-SQL) 쿼리를 실행하고 유지 관리 작업을 수행하도�
 
 SQL Server 및 Azure SQL Managed Instance의 T-SQL 스크립트 작업 작동화의 경우 [SQL 에이전트](job-automation-managed-instances.md)를 고려하세요. 
 
-Azure Synapse Analytics의 T-SQL 스크립트 작업을 자동화하는 경우 [Azure Data Factory를 기반](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)으로 하는 [반복 트리거가 있는 파이프라인](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md)을 고려하세요.
+Azure Synapse Analytics의 T-SQL 스크립트 작업을 자동화하는 경우 [Azure Data Factory를 기반](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)으로 하는 [반복 트리거가 있는 파이프라인](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)을 고려하세요.
 
 SQL 에이전트(SQL Server 및 SQL Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database 또는 SQL Server 및 Azure SQL Managed Instance, Azure Synapse Analytics의 데이터베이스에서 T-SQL을 실행할 수 있음) 간의 차이점에 주목할 필요가 있습니다.
 

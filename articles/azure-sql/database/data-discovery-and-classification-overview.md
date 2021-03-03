@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: fee285aa3beb308f5e6b3b233d40597c2a287eb7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651972"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690807"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -75,7 +75,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 > [!NOTE]
 > 아래 예제에서는 Azure SQL Database를 사용 하지만 데이터 검색 & 분류를 구성 하려는 적절 한 제품을 선택 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
 1. Azure SQL Database 창의 **보안** 제목 아래에서 **데이터 검색 & 분류** 로 이동 합니다. 개요 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [4 단계로 건너뜁니다](#step-4).
 
@@ -187,12 +187,12 @@ REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으
 
 ## <a name="faq---advanced-classification-capabilities"></a>FAQ-고급 분류 기능
 
-**질문**: [AZURE 부서의 범위](https://docs.microsoft.com/azure/purview/overview) 는 Sql 데이터 검색 & 분류를 대체 하거나, Sql 데이터 검색 & 분류가 곧 사용 중지 되나요?
-**답변**: SQL 데이터 검색 & 분류를 계속 지원 하 고 고급 분류 기능 및 데이터 관리를 구동 하는 다양 한 기능을 갖춘 [Azure 부서의 범위](https://docs.microsoft.com/azure/purview/overview) 를 채택 하는 것이 좋습니다. 서비스, 기능, API 또는 SKU를 사용 중지 하기로 결정 한 경우 마이그레이션 또는 전환 경로를 포함 하는 사전 통지를 받게 됩니다. Microsoft 수명 주기 정책에 대 한 자세한 내용은 여기를 참조 하세요.
+**질문**: [AZURE 부서의 범위](../../purview/overview.md) 는 Sql 데이터 검색 & 분류를 대체 하거나, Sql 데이터 검색 & 분류가 곧 사용 중지 되나요?
+**답변**: SQL 데이터 검색 & 분류를 계속 지원 하 고 고급 분류 기능 및 데이터 관리를 구동 하는 다양 한 기능을 갖춘 [Azure 부서의 범위](../../purview/overview.md) 를 채택 하는 것이 좋습니다. 서비스, 기능, API 또는 SKU를 사용 중지 하기로 결정 한 경우 마이그레이션 또는 전환 경로를 포함 하는 사전 통지를 받게 됩니다. Microsoft 수명 주기 정책에 대 한 자세한 내용은 여기를 참조 하세요.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>다음 단계
 
 - 분류 된 중요 한 데이터에 대 한 액세스 모니터링 및 감사를 위해 [AZURE SQL 감사](../../azure-sql/database/auditing-overview.md) 를 구성 하는 것이 좋습니다.
 - 데이터 검색 & 분류를 포함 하는 프레젠테이션은 [SQL 데이터 검색, 분류, 레이블 지정 & 보호를 참조 하세요. 데이터가 노출](https://www.youtube.com/watch?v=itVi9bkJUNc)됩니다.
-- T-sql 명령을 사용 하 여 azure 부서의 범위 레이블을 사용 하 여 azure SQL Database 및 Azure Synapse Analytics를 분류 하려면 [Azure 부서의 범위 레이블을 사용 하 여 AZURE sql 데이터 분류](https://docs.microsoft.com/azure/sql-database/scripts/sql-database-import-purview-labels)를 참조 하세요.
+- T-sql 명령을 사용 하 여 azure 부서의 범위 레이블을 사용 하 여 azure SQL Database 및 Azure Synapse Analytics를 분류 하려면 [Azure 부서의 범위 레이블을 사용 하 여 AZURE sql 데이터 분류](../../sql-database/scripts/sql-database-import-purview-labels.md)를 참조 하세요.

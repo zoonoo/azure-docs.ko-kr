@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99822091"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727569"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>자습서: 연결된 폐기물 관리 앱 만들기
 
@@ -21,12 +21,13 @@ ms.locfileid: "99822091"
 특히 다음 방법을 알아봅니다. 
 
 > [!div class="checklist"]
-> Azure IoT Central *연결된 폐기물 관리* 템플릿을 사용하여 앱을 만듭니다.
-> 운영자 대시보드를 살펴보기 및 사용자 지정합니다. 연결된 폐기물 수집통 디바이스 템플릿을 살펴봅니다.
-> 시뮬레이션된 디바이스를 살펴봅니다.
-> 규칙을 살펴보고 구성합니다.
-> 작업을 구성합니다.
-> 애플리케이션 브랜딩을 사용자 지정합니다.
+> * Azure IoT Central *연결된 폐기물 관리* 템플릿을 사용하여 앱을 만듭니다.
+> * 운영자 대시보드를 살펴보기 및 사용자 지정합니다. 
+> * 연결된 폐기물 수집통 디바이스 템플릿을 살펴봅니다.
+> * 시뮬레이션된 디바이스를 살펴봅니다.
+> * 규칙을 살펴보고 구성합니다.
+> * 작업을 구성합니다.
+> * 애플리케이션 브랜딩을 사용자 지정합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

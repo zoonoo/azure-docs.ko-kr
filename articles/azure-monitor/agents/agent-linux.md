@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9e0d9162c497ff035438b5a65c6f4500ce834860
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 06b59aa1fe6b51bf237c0cd64117166ca4ece10b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613556"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734930"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
 
 * GitHub에 호스트 된 [래퍼 스크립트를 사용 하 여 Linux 용 에이전트를 설치](#install-the-agent-using-wrapper-script) 합니다. 컴퓨터가 인터넷에 직접 연결 되어 있거나 프록시 서버를 통해 연결 되어 있는 경우 에이전트를 설치 하 고 업그레이드 하는 데 권장 되는 방법입니다.
-* 에이전트를 [수동으로 다운로드 하 여 설치](#install-the-agent-manually) 합니다. 이는 Linux 컴퓨터가 인터넷에 액세스할 수 없고 Azure Monitor 또는 Azure Automation [Log Analytics 게이트웨이](../platform/gateway.md)를 통해 통신 하는 경우에 필요 합니다. 
+* 에이전트를 [수동으로 다운로드 하 여 설치](#install-the-agent-manually) 합니다. 이는 Linux 컴퓨터가 인터넷에 액세스할 수 없고 Azure Monitor 또는 Azure Automation [Log Analytics 게이트웨이](./gateway.md)를 통해 통신 하는 경우에 필요 합니다. 
 
 >[!IMPORTANT]
-> 이 문서에서 설명 하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 컴퓨터에 사용 됩니다. Azure virtual machines에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](../platform/log-analytics-agent.md#installation-options) 을 참조 하세요.
+> 이 문서에서 설명 하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 컴퓨터에 사용 됩니다. Azure virtual machines에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](./log-analytics-agent.md#installation-options) 을 참조 하세요.
 
 
 
@@ -32,7 +32,7 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
 >OpenSSL 1.1.0은 x86_x64 플랫폼(64비트)에서만 지원되고, OpenSSL 1.x 미만은 어떤 플랫폼에서도 지원되지 않습니다.
 
 >[!NOTE]
->컨테이너에서 Log Analytics Linux 에이전트를 실행 하는 것은 지원 되지 않습니다. 컨테이너를 모니터링 해야 하는 경우 Docker 호스트의 [컨테이너 모니터링 솔루션](../insights/containers.md) 또는 Kubernetes의 [컨테이너에](../insights/container-insights-overview.md) 대 한 Azure Monitor를 활용 하세요.
+>컨테이너에서 Log Analytics Linux 에이전트를 실행 하는 것은 지원 되지 않습니다. 컨테이너를 모니터링 해야 하는 경우 Docker 호스트 또는 Kubernetes 용 [컨테이너 insights](../containers/container-insights-overview.md) 에 대 한 [컨테이너 모니터링 솔루션](../containers/containers.md) 을 활용 하세요.
 
 2018년 8월 이후에 출시된 버전부터 지원 모델이 다음과 같이 변경됩니다.  
 
@@ -100,7 +100,7 @@ OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공
 >Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-Linux 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](../platform/log-analytics-agent.md#network-requirements) 를 참조 하세요.
+Linux 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](./log-analytics-agent.md#network-requirements) 를 참조 하세요.
 
 ## <a name="agent-install-package"></a>에이전트 설치 패키지
 
@@ -132,9 +132,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-`https://proxy01.contoso.com:30443`
+예: `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     

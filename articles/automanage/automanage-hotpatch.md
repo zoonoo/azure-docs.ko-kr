@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662725"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687569"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Windows Server Azure Edition 용 Hotpatch (미리 보기)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 컴퓨터의 Hotpatch (미리 보기)
 
 핫 패치는 설치 후 다시 부팅 하지 않아도 되는 새 Windows Server Azure Edition Vm (가상 머신)에 업데이트를 설치 하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공 하는 Windows Server Azure Edition Vm에 대 한 Hotpatch에 대 한 정보를 다룹니다.
 * 낮은 다시 부팅으로 인 한 워크 로드 효과
@@ -26,10 +26,10 @@ ms.locfileid: "101662725"
 
 Hotpatch은 먼저 Windows 업데이트 최신 누적 업데이트를 사용 하 여 기준선을 설정 합니다. Hotpatches는 해당 기준선을 기반으로 하는 해당 월의 두 번째 화요일에 정기적으로 릴리스됩니다. Hotpatches에는 다시 부팅 하지 않아도 되는 업데이트가 포함 됩니다. 정기적으로 (3 개월 마다 시작) 새로운 최신 누적 업데이트를 사용 하 여 기준이 새로 고쳐집니다.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch 샘플 일정.":::
 
 **계획** 된 기준과 계획 되지 **않은 기준** 이라는 두 가지 기준 유형이 있습니다.
-*  **계획 된 기준은** Hotpatch 릴리스가 포함 된 일반 흐름에 릴리스됩니다.  계획 된 기준에는 해당 월에 대 한 유사 _최신 누적 업데이트_ 의 모든 업데이트가 포함 되며 다시 부팅 해야 합니다.
+*  **계획 된 기준은** hotpatch 릴리스가 포함 된 일반 흐름에 릴리스됩니다.  계획 된 기준에는 해당 월에 대 한 유사 _최신 누적 업데이트_ 의 모든 업데이트가 포함 되며 다시 부팅 해야 합니다.
     * 위의 샘플 일정은 달력 연도 (다이어그램의 총 5 개)와 8 개의 hotpatch 릴리스에 대 한 계획 된 기본 릴리스 4 개를 보여 줍니다.
 * **계획** 되지 않은 기준은 중요 한 업데이트 (예: 0 일 수정)가 출시 되 고 특정 업데이트를 Hotpatch 해제할 수 없을 때 릴리스됩니다.  계획 되지 않은 기준선이 릴리스되는 경우 hotpatch 릴리스가 해당 월에 계획 되지 않은 기준으로 교체 됩니다.  계획 되지 않은 기준에는 해당 월에 대 한 유사 _최신 누적 업데이트_ 의 모든 업데이트가 포함 되며 재부팅도 필요 합니다.
     * 위의 샘플 일정은 해당 월에 대 한 hotpatch 릴리스를 대체 하는 계획 되지 않은 두 개의 기준선을 보여 줍니다. 1 년에 계획 되지 않은 기준선의 실제 수는 미리 알려지지 않습니다.
@@ -154,7 +154,7 @@ VM에 대 한 패치 상태를 보려면 Azure Portal에서 VM에 대 한 **게�
 이 화면에 VM에 대 한 Hotpatch 상태가 표시 됩니다. 또한 설치 되지 않은 VM에 대 한 사용 가능한 패치가 있는지 검토할 수 있습니다. 위의 ' 패치 설치 ' 섹션에 설명 된 대로 모든 보안 및 중요 업데이트는 [자동 Vm 게스트 패치](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) 를 사용 하 여 vm에 자동으로 설치 되며 추가 작업이 필요 하지 않습니다. 다른 업데이트 분류가 포함 된 패치는 자동으로 설치 되지 않습니다. 대신 ' 호환성 업데이트 ' 탭의 사용 가능한 패치 목록에서 볼 수 있습니다. ' 업데이트 기록 '을 통해 VM에서 업데이트 배포 기록을 볼 수도 있습니다. 최근 30 일 동안의 업데이트 기록이 패치 설치 세부 정보와 함께 표시 됩니다.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch 관리.":::
 
 자동 VM 게스트 패치를 사용 하면 VM이 주기적으로 사용 가능한 업데이트를 자동으로 평가 합니다. 이러한 정기 평가는 사용 가능한 패치가 검색 되는지 확인 합니다. 위의 업데이트 화면에서 마지막 평가 시간을 포함 하 여 평가 결과를 볼 수 있습니다. ' 지금 평가 ' 옵션을 사용 하 여 언제 든 지 VM에 대 한 주문형 패치 평가를 트리거하고 평가를 완료 한 후에 결과를 검토 하도록 선택할 수도 있습니다.
 
@@ -197,7 +197,7 @@ Hotpatch가 사용 하도록 설정 된 Windows Server Azure edition VM을 실�
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Hotpatch에 등록 된 VM에 대해서도 다시 부팅이 필요 한가요?
 
-* Hotpatch 프로그램에 포함 되지 않은 업데이트를 설치 하는 경우에도 다시 부팅이 필요 하며, 기준 (최신 누적 업데이트 Windows 업데이트)이 설치 된 후 주기적으로 필요 합니다. 이렇게 다시 부팅 하면 VM이 누적 업데이트에 포함 된 모든 패치와 동기화 된 상태로 유지 됩니다. 다시 부팅 해야 하는 기준은 3 개월 주기로 시작 하 고 시간이 지남에 따라 6 개월에서 연장 됩니다.
+* Hotpatch 프로그램에 포함 되지 않은 업데이트를 설치 하는 경우에도 다시 부팅이 필요 하며, 기준 (최신 누적 업데이트 Windows 업데이트)이 설치 된 후 주기적으로 필요 합니다. 이렇게 다시 부팅 하면 VM이 누적 업데이트에 포함 된 모든 패치와 동기화 된 상태로 유지 됩니다. 다시 부팅 해야 하는 기준은 3 개월 주기로 시작 되며 시간이 지남에 따라 증가 합니다.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Hotpatch 업데이트가 설치 될 때 내 응용 프로그램이 영향을 받습니까?
 

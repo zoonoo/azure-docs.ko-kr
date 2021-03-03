@@ -8,12 +8,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 77630ddcd61d17f3b47e6cb5d43396c1a6f0e904
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d3f268a4ce2660350055367770e987a06828e2d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740123"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
 
@@ -26,25 +26,25 @@ Azure NetApp Files 볼륨에 대 한 액세스를 제어 하도록 내보내기 
 1.  **볼륨** 페이지에서 내보내기 정책을 구성 하려는 볼륨을 선택 하 고 **정책 내보내기** 를 선택 합니다. 또한 볼륨을 만드는 동안 내보내기 정책을 구성할 수 있습니다.
 
 2.  정책 내보내기 규칙을 만들려면 다음 정보를 지정 합니다.   
-    * **인덱스** : 규칙에 대 한 인덱스 번호를 지정 합니다.  
+    * **인덱스**: 규칙에 대 한 인덱스 번호를 지정 합니다.  
       
       내보내기 정책은 최대 5개의 규칙으로 구성할 수 있습니다. 규칙은 인덱스 번호 목록의 해당 순서에 따라 평가됩니다. 더 낮은 인덱스 번호의 규칙이 먼저 평가됩니다. 예를 들어 인덱스 번호가 1인 규칙은 인덱스 번호가 2인 규칙보다 먼저 계산됩니다. 
 
-    * **허용 된 클라이언트** : 다음 형식 중 하나로 값을 지정 합니다.  
+    * **허용 된 클라이언트**: 다음 형식 중 하나로 값을 지정 합니다.  
       * IPv4 주소입니다. 예: `10.1.12.24`
       * 서브넷 마스크가 비트 수로 표현 된 IPv4 주소입니다. 예: `10.1.12.10/4`
       * 쉼표로 구분 된 IP 주소입니다. 단일 규칙에 여러 호스트 Ip를 쉼표로 구분 하 여 입력할 수 있습니다. 예: `10.1.12.25,10.1.12.28,10.1.12.29`
 
-    * **액세스** : 다음 액세스 유형 중 하나를 선택 합니다.  
+    * **액세스**: 다음 액세스 유형 중 하나를 선택 합니다.  
       * 액세스 권한 없음 
       * 읽기 및 쓰기
       * 읽기 전용
 
-    * **읽기 전용** 및 **읽기/쓰기** : nfsv 4.1에서 kerberos 암호화를 사용 하는 경우 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md)의 지침을 따르세요.  Kerberos의 성능에 미치는 영향에 대 한 자세한 내용은 [nfsv 4.1의 Kerberos 성능 영향](configure-kerberos-encryption.md#kerberos_performance)을 참조 하세요. 
+    * **읽기 전용** 및 **읽기/쓰기**: nfsv 4.1에서 kerberos 암호화를 사용 하는 경우 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md)의 지침을 따르세요.  Kerberos의 성능에 미치는 영향에 대 한 자세한 내용은 [nfsv 4.1 볼륨의 Kerberos 성능 영향](performance-impact-kerberos.md)을 참조 하세요. 
 
       ![Kerberos 보안 옵션](../media/azure-netapp-files/kerberos-security-options.png) 
 
-    * **루트 액세스** : `root` 계정이 볼륨에 액세스할 수 있는지 여부를 지정 합니다.  기본적으로 루트 액세스는 **On** 으로 설정 되 고, 계정에는 볼륨에 대 한 액세스 권한이 있습니다 `root` .
+    * **루트 액세스**: `root` 계정이 볼륨에 액세스할 수 있는지 여부를 지정 합니다.  기본적으로 루트 액세스는 **On** 으로 설정 되 고, 계정에는 볼륨에 대 한 액세스 권한이 있습니다 `root` .
 
       ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

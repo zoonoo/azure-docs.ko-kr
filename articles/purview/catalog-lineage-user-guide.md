@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: a319dbce2502f35272cf9b70da2022f581d64275
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694073"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure 부서의 범위 Data Catalog 계보 사용자 가이드
 
@@ -74,39 +74,47 @@ Azure 부서의 범위는 데이터 집합 및 프로세스에 대 한 자산 �
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="계보 페이지에서 열 보기를 선택 하는 방법을 보여 주는 스크린샷" border="true":::
 
-## <a name="column-level-lineage"></a>열 수준 계보
+## <a name="dataset-column-lineage"></a>데이터 집합 열 계보
 
-Azure 부서의 범위는 데이터 집합에 대 한 열 수준 계보를 지원 합니다. 열 수준 계보를 보려면 카탈로그에서 현재 자산의 **계보** 탭으로 이동 하 고 아래 단계를 수행 합니다.
+데이터 집합의 열 수준 계보를 보려면 카탈로그에서 현재 자산의 **계보** 탭으로 이동 하 고 아래 단계를 수행 합니다.
 
 1. 계보 탭의 왼쪽 창에서 데이터 계보에 표시 하려는 각 열 옆의 확인란을 선택 합니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="계보 페이지에서 표시할 열을 선택 하는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. 왼쪽 창이 나 계보 캔버스의 데이터 집합에서 선택한 열을 마우스로 가리키면 열 매핑이 표시 됩니다. 모든 열 인스턴스가 강조 표시 됩니다.
+2. 왼쪽 창이 나 계보 캔버스의 데이터 집합에서 선택한 열을 마우스로 가리키면 열 매핑이 표시 됩니다. 모든 열 인스턴스가 강조 표시 됩니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="열 이름을 마우스로 가리키면 데이터 계보 경로에서 열 흐름이 강조 표시 되는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. 열 수가 왼쪽 창에 표시할 수 있는 크기 보다 큰 경우 필터 옵션을 사용 하 여 이름별로 특정 열을 선택 합니다. 또는 마우스를 사용 하 여 목록을 스크롤할 수 있습니다.
+3. 열 수가 왼쪽 창에 표시할 수 있는 크기 보다 큰 경우 필터 옵션을 사용 하 여 이름별로 특정 열을 선택 합니다. 또는 마우스를 사용 하 여 목록을 스크롤할 수 있습니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="계보 페이지에서 열 이름별로 열을 필터링 하는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. 계보 캔버스에 더 많은 노드와 가장자리가 포함 된 경우 필터를 사용 하 여 데이터 자산을 선택 하거나 이름을 기준으로 노드를 처리 합니다. 또는 마우스를 사용 하 여 계보 창 주위로 이동할 수 있습니다.
+4. 계보 캔버스에 더 많은 노드와 가장자리가 포함 된 경우 필터를 사용 하 여 데이터 자산을 선택 하거나 이름을 기준으로 노드를 처리 합니다. 또는 마우스를 사용 하 여 계보 창 주위로 이동할 수 있습니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="계보 페이지에서 이름별로 데이터 자산 노드를 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. 왼쪽 창의 설정/해제를 사용 하 여 계보 캔버스의 데이터 집합 목록을 강조 표시 합니다. 토글을 해제 하면 선택한 열 중 하나 이상이 포함 된 자산이 모두 표시 됩니다. 설정/해제를 켜면 모든 열을 포함 하는 데이터 집합만 표시 됩니다.
+5. 왼쪽 창의 설정/해제를 사용 하 여 계보 캔버스의 데이터 집합 목록을 강조 표시 합니다. 토글을 해제 하면 선택한 열 중 하나 이상이 포함 된 자산이 모두 표시 됩니다. 설정/해제를 켜면 모든 열을 포함 하는 데이터 집합만 표시 됩니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="설정/해제를 사용 하 여 계보 페이지의 노드 목록을 필터링 하는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## <a name="process-column-lineage"></a>열 계보 처리
+데이터 프로세스는 하나 이상의 입력 데이터 집합을 사용 하 여 하나 이상의 출력을 생성할 수 있습니다. 부서의 범위에서는 프로세스 노드에 대해 열 수준 계보를 사용할 수 있습니다. 
+1. 입력 및 출력 데이터 집합을 열 패널의 드롭다운에서 전환 합니다.
+2. 하나 이상의 테이블에서 열을 선택 하 여 입력 데이터 집합에서 해당 출력 데이터 집합으로 흐르는 계보를 확인 합니다.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="프로세스 노드의 열 계보를 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## <a name="browse-assets-in-lineage"></a>계보에서 자산 찾아보기
 1. 자산에 대 한 **자산으로 전환** 을 선택 하 여 계보 뷰에서 해당 하는 메타 데이터를 봅니다. 이렇게 하면 계보 뷰에서 카탈로그의 다른 자산을 검색 하는 효과적인 방법입니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="스크린샷 계보 데이터 자산의 자산으로 전환을 선택 하는 방법입니다." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. 계보 캔버스는 인기 있는 데이터 집합에 복잡할 수 있습니다. 혼란을 피하기 위해 기본 보기에는 자산에 대 한 5 가지 수준의 계보만 포커스가 표시 됩니다. 계보 캔버스의 거품을 클릭 하 여 나머지 계보를 확장할 수 있습니다. 데이터 소비자는 캔버스에서 관심이 없는 자산을 숨길 수도 있습니다. 더 간단 하 게 줄이려면 계보 캔버스의 위쪽에서 **추가 계보** 설정/해제를 해제 합니다. 이 작업을 수행 하면 계보 캔버스의 모든 거품이 숨겨집니다.
+2. 계보 캔버스는 인기 있는 데이터 집합에 복잡할 수 있습니다. 혼란을 피하기 위해 기본 보기에는 자산에 대 한 5 가지 수준의 계보만 포커스가 표시 됩니다. 계보 캔버스의 거품을 클릭 하 여 나머지 계보를 확장할 수 있습니다. 데이터 소비자는 캔버스에서 관심이 없는 자산을 숨길 수도 있습니다. 더 간단 하 게 줄이려면 계보 캔버스의 위쪽에서 **추가 계보** 설정/해제를 해제 합니다. 이 작업을 수행 하면 계보 캔버스의 모든 거품이 숨겨집니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="더 많은 계보를 전환 하는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. 계보 캔버스의 스마트 단추를 사용 하 여 계보의 최적 뷰를 가져옵니다. 카탈로그의 몰입 형 계보 환경에서 자동 레이아웃, 크기에 맞게, 확대/축소, 전체 화면 및 탐색 맵을 사용할 수 있습니다.
+3. 계보 캔버스의 스마트 단추를 사용 하 여 계보의 최적 뷰를 가져옵니다. 카탈로그의 몰입 형 계보 환경에서 자동 레이아웃, 크기에 맞게, 확대/축소, 전체 화면 및 탐색 맵을 사용할 수 있습니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="계보 스마트 단추를 선택 하는 방법을 보여 주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

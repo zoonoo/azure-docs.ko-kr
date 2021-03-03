@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 스프링 클라우드에서 구조화 �
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/05/2021
 ms.author: brendanm
 ms.custom: devx-track-java
-ms.openlocfilehash: c5c35fe8a352a1bc3467e9512a7fcbc068375bfb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055927"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701946"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 구조적 응용 프로그램 로그
 
@@ -32,7 +32,7 @@ ms.locfileid: "99055927"
 | message       | 문자열      |     No    | 메시지         | 로그 메시지              |
 | stackTrace    | 문자열      |     No    | StackTrace      | 예외 스택 추적    |
 | exceptionClass| 문자열      |     No    | ExceptionClass  | 예외 클래스 이름     |
-| mdc           | 중첩 된 JSON |     아니요    |                 | 매핑된 진단 컨텍스트|
+| mdc           | 중첩 된 JSON |     No    |                 | 매핑된 진단 컨텍스트|
 | mdc. traceId   | 문자열      |     No    | TraceId         |분산 추적의 추적 Id|
 | spanId    | 문자열      |     No    | SpanId          |분산 추적의 범위 Id |
 |               |             |           |                 |                          |
@@ -238,4 +238,4 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 로그 쿼리에 대 한 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) 을 참조 하세요.
+* 로그 쿼리에 대 한 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md) 을 참조 하세요.

@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393754"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727960"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -162,7 +162,7 @@ ADF 포털의 단추 클릭으로 수동 게시는 CI/CD 자동 작업을 사용
 
 #### <a name="resolution"></a>해결 방법
 
-CI/CD 프로세스가 향상 되었습니다. **자동화 된 게시** 기능은 ADF UX의 모든 AZURE RESOURCE MANAGER (ARM) 템플릿 기능을 사용 하 고 유효성을 검사 하 고 내보냅니다. 이를 통해 공개적으로 사용할 수 있는 npm 패키지를 통해 논리를 사용할 수 있습니다 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . 이렇게 하면 ADF UI로 이동 하 여 단추를 클릭 하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 그러면 CI/CD 파이프라인이 **진정한** 연속 통합 환경을 제공 합니다. 자세한 내용은 [ADF CI/CD 게시 개선 사항](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) 을 참조 하세요. 
+CI/CD 프로세스가 향상 되었습니다. **자동화 된 게시** 기능은 ADF UX의 모든 AZURE RESOURCE MANAGER (ARM) 템플릿 기능을 사용 하 고 유효성을 검사 하 고 내보냅니다. 이를 통해 공개적으로 사용할 수 있는 npm 패키지를 통해 논리를 사용할 수 있습니다 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . 이렇게 하면 ADF UI로 이동 하 여 단추를 클릭 하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 그러면 CI/CD 파이프라인이 **진정한** 연속 통합 환경을 제공 합니다. 자세한 내용은 [ADF CI/CD 게시 개선 사항](./continuous-integration-deployment-improvements.md) 을 참조 하세요. 
 
 ###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>4mb ARM 템플릿 제한 때문에 게시할 수 없습니다.  
 
@@ -176,7 +176,45 @@ Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의
 
 #### <a name="resolution"></a>해결 방법
 
-중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
+
+### <a name="cannot-connect-to-git-enterprise"></a>GIT Enterprise에 연결할 수 없음 
+
+##### <a name="issue"></a>문제
+
+권한 문제로 인해 GIT Enterprise에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
+
+#### <a name="cause"></a>원인
+
+ADF에 대해 Oauth를 구성 하지 않았습니다. URL이 잘못 구성 되었습니다.
+
+##### <a name="resolution"></a>해결 방법
+
+먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. ADF 서비스에서 먼저 시도 하기 때문에 구성을 고객 조직으로 설정 해야 https://hostname/api/v3/search/repositories?q=user%3 합니다. <customer credential> 및가 실패 합니다. 그런 다음 시도 하 여 https://hostname/api/v3/orgs/ <vaorg> / <repo> 성공 합니다. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구
+
+#### <a name="issue"></a>문제
+고객이 데이터 팩터리 또는 Data Factory 포함 하는 리소스 그룹을 삭제 했습니다. 삭제 된 데이터 팩터리를 복원 하는 방법을 알고 싶습니다.
+
+#### <a name="cause"></a>원인
+
+고객이 원본 제어 (DevOps 또는 Git)를 구성한 경우에만 Data Factory를 복구할 수 있습니다. 그러면 게시 된 모든 리소스가 최신 상태로 표시 되 고 게시 **되지 않은** 파이프라인, 데이터 집합 및 연결 된 서비스가 복원 되지 않습니다.
+
+원본 컨트롤이 없으면 백 엔드에서 삭제 된 Data Factory를 복구할 수 없습니다. 서비스에서 삭제 된 명령을 받으면 인스턴스가 삭제 되 고 백업이 저장 되지 않기 때문입니다.
+
+#### <a name="resoloution"></a>Resoloution
+원본 제어를 포함 하는 삭제 된 Data Factory를 복구 하려면 다음 단계를 참조 하세요.
+
+ * 새 Azure Data Factory을 만듭니다.
+
+ * 동일한 설정으로 Git를 다시 구성 하 되 기존 Data Factory 리소스를 선택한 리포지토리로 가져온 다음 새 분기를 선택 해야 합니다.
+
+ * 변경 내용을 공동 작업 분기에 병합 하 고 게시 하는 끌어오기 요청을 만듭니다.
+
+ * 사용자가 삭제 된 ADF에 자체 호스트 된 Integration Runtime 있는 경우 새 ADF에 새 인스턴스를 만들어야 합니다. 또한 새로운 키가 있는 온-프레미스 machine/VM에서 인스턴스를 제거 하 고 다시 설치 해야 합니다. IR 설정이 완료 된 후 고객은 새 IR을 가리키도록 연결 된 서비스를 변경 하 고 연결을 테스트 해야 **합니다. 그렇지 않으면 잘못 된 참조** 로 인해 실패 합니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

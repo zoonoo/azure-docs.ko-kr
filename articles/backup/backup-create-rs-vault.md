@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716757"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -71,7 +71,7 @@ VM을 복원 하는 경우 VM 또는 해당 디스크를 복원할 수 있습니
 >- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
 >- 현재 azure Vm 용 CRR은 azure 리소스 관리자 Azure Vm에 대해서만 지원 됩니다. 클래식 Azure Vm은 지원 되지 않습니다.  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.
 >- 보호를 처음으로 시작한 후에는 지역 간 복원을 현재 GRS 또는 LRS로 **되돌릴 수 없습니다** .
->- 현재, [읽기 액세스 지역 중복 저장소 (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) 복제는 15 분 이더라도 보조 지역 [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) 는 주 지역에서 최대 12 시간입니다.
+>- 현재, [읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 복제는 15 분 이더라도 보조 지역 [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) 는 주 지역에서 최대 12 시간입니다.
 
 ### <a name="configure-cross-region-restore"></a>지역 간 복원 구성
 

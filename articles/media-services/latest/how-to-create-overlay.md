@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 69930e06e2ce7f2679feec74ca8ccbc93bdb8d30
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844287"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101721126"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Media Encoder Standard를 사용 하 여 오버레이를 만드는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "94844287"
 Media Encoder Standard를 사용 하 여 이미지, 오디오 파일 또는 다른 비디오를 다른 비디오에 오버레이 할 수 있습니다. 입력은 파일을 하나만 지정 해야 합니다. 이미지 파일은 JPG, PNG, GIF 또는 BMP 형식 또는 오디오 파일 (예: WAV, MP3, WMA 또는 M4A 파일) 또는 비디오 파일에 지정할 수 있습니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 샘플에서 파일 *에appsettings.js* 를 구성 하는 데 필요한 계정 정보를 수집 합니다. 이 작업을 수행 하는 방법을 잘 모르는 경우 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../../active-directory/develop/quickstart-register-app.md)을 참조 하세요. 파일의 *appsettings.js* 에는 다음 값이 필요 합니다.
 
@@ -53,4 +53,4 @@ Media Encoder Standard를 사용 하 여 이미지, 오디오 파일 또는 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Media Services-.NET을 사용 하 여 인코딩할 경우 비디오 하위 클립](subclip-video-dotnet-howto.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

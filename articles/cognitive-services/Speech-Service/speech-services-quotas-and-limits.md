@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699983"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -104,7 +104,7 @@ ms.locfileid: "96754167"
 Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제한 매개 변수의 기존 값이 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
 
 >[!NOTE]
->컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다. 그러나 음성 컨테이너에는 고려해 야 할 자체 용량 제한이 있습니다. *"온-프레미스에서 음성-텍스트 컨테이너의 용량을 계획 하 고 비용을 예측 하는 데 도움이 되나요?"* 질문을 참조 하세요. [음성 컨테이너 FAQ](speech-container-faq.md)에서.
+>컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다. 그러나 음성 컨테이너에는 고려해 야 할 자체 용량 제한이 있습니다. *"온-프레미스에서 음성-텍스트 컨테이너의 용량을 계획 하 고 비용을 예측 하는 데 도움이 되나요?"* 질문을 참조 하세요. [음성 컨테이너 FAQ](./speech-container-howto.md)에서.
 
 #### <a name="have-the-required-information-ready"></a>필요한 정보가 준비 되어 있어야 합니다.
 - **기본 모델** 의 경우:
@@ -205,4 +205,3 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
   - [이전에 수집한](#prepare-the-required-information) Azure 리소스 정보 
   - 필요한 정보 입력을 완료 하 고 *검토 + 만들기* 탭에서 *만들기* 단추를 클릭 합니다.
   - Azure Portal 알림에서 지원 요청 번호를 확인 합니다. 추가 처리를 위해 곧 연락을 드릴 것입니다.
-

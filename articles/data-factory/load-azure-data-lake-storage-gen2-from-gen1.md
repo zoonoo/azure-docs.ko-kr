@@ -6,17 +6,17 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
-ms.openlocfilehash: 1b90ff8969edf3ce2886630dc88c50bc9185b85e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 4a4bc0b55928fcaa40cd1cb03ca0522e611df476
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370855"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727722"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2은 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)에 기본 제공 되는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작하는 데 이 기능을 이용할 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
   
    b. **연결 테스트** 를 선택 하 여 설정의 유효성을 검사 합니다. 그런 다음, **마침** 을 선택합니다.
   
-   c. 새 연결이 생성 된 것을 볼 수 있습니다. **다음** 을 선택합니다.
+   다. 새 연결이 생성 된 것을 볼 수 있습니다. **다음** 을 선택합니다.
    
    > [!IMPORTANT]
    > 이 연습에서는 Azure 리소스에 관리 되는 id를 사용 하 여 Azure Data Lake Storage Gen1을 인증 합니다. Azure Data Lake Storage Gen1에서 관리 되는 id에 적절 한 권한을 부여 하려면 [다음 지침](connector-azure-data-lake-store.md#managed-identity)을 따르세요.

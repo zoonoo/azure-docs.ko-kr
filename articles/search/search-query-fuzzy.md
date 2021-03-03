@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 03/03/2021
+ms.openlocfilehash: b2f2c8497d5365104a5ffc361b791450925d0c19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701588"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694787"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>철자 및 오타를 수정 하는 유사 항목 검색
 
@@ -132,7 +132,7 @@ search=scal~&highlight=Description
 
 이 확장 된 예제는 적중 항목 강조 표시에서 모호한 결과를 가져올 수 있는 명확성을 보여 주기 위한 것입니다. 모든 경우에 동일한 문서가 반환 됩니다. 문서 Id에 의존 하 여 일치 하는 항목을 확인 했으므로 "특수"에서 "SQL"로의 이동이 누락 되었을 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식 (쿼리 구문 분석 아키텍처)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

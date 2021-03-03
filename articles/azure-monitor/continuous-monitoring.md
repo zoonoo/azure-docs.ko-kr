@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731649"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -36,7 +36,7 @@ ms.locfileid: "100579499"
 애플리케이션은 기본 인프라 만큼만 안정적입니다. 전체 인프라에서 모니터링을 사용하도록 설정하면 전체 식별 가능성을 확보하고 문제 발생 시 잠재적인 근본 원인을 더 쉽게 발견할 수 있습니다. Azure Monitor를 사용하여 VM, 컨테이너, 스토리지 및 네트워크 등의 리소스를 비롯하여 전체 하이브리드 인프라의 상태 및 성능을 추적할 수 있습니다.
 
 - 구성 없이 대부분의 Azure 리소스에서 [플랫폼 메트릭, 활동 로그 및 진단 로그](agents/data-sources.md)를 자동으로 가져옵니다.
-- [VM용 Azure Monitor](vm/vminsights-overview.md)를 사용하여 더 세부적인 VM 모니터링을 사용하도록 설정합니다.
+- [Vm 정보](vm/vminsights-overview.md)를 사용 하 여 vm에 대 한 심층 모니터링을 사용 합니다.
 -  [컨테이너용 Azure Monitor](containers/container-insights-overview.md)를 사용하여 더 세부적인 AKS 클러스터 모니터링을 사용하도록 설정합니다.
 - 환경에 있는 다양한 애플리케이션 및 서비스를 위한 [모니터링 솔루션](./monitor-reference.md)을 추가합니다.
 

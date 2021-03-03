@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044393"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736545"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -174,7 +174,7 @@ Azure Digital Twins 인스턴스에서 발견 되는 장치의 쌍이 표시 되
 
 ### <a name="create-an-azure-function"></a>Azure Function 만들기
 
-다음으로 함수 앱 내에서 Event Hubs 트리거 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
+다음으로, 함수 앱 내부에 Event Hubs에서 트리거되는 함수를 만듭니다. 종단 간 자습서에서 만든 함수 앱 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)) 또는 자체를 사용할 수 있습니다. 
 
 이벤트 허브의 이름을 *lifecycleevents*, 이벤트 허브 트리거를 이전 단계에서 만든 이벤트 허브에 연결 합니다. 다른 이벤트 허브 이름을 사용한 경우 아래의 트리거 이름에서 일치 하도록 변경 합니다.
 
@@ -223,7 +223,7 @@ IoT Hub 경로 만들기에 대 한 지침은이 문서에 설명 되어 있습�
 
 [이 문서의 처음 절반](#auto-provision-device-using-device-provisioning-service)에서는 IoT Hub 및 해당 디지털 쌍으로 장치를 만들었습니다. 
 
-이제 IoT Hub로 이동 하 여 해당 장치를 삭제 합니다 ( [Azure CLI 명령](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) 또는 [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)를 사용 하 여이 작업을 수행할 수 있음). 
+이제 IoT Hub로 이동 하 여 해당 장치를 삭제 합니다 ( [Azure CLI 명령](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) 또는 [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)를 사용 하 여이 작업을 수행할 수 있음). 
 
 장치가 Azure Digital Twins에서 자동으로 제거 됩니다. 
 

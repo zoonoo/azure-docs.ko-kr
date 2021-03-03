@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dbfe4a44f359f8db59ae80e04aae57164d0ccaf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736851"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -51,7 +51,7 @@ Microsoft 엔지니어의 기술 제품 관련 질문에 대 한 빠르고 안�
 * [몰입형 리더](/answers/topics/azure-immersive-reader.html)
 * [언어 이해(LUIS)](/answers/topics/azure-language-understanding.html)
 * [QnA Maker](/answers/topics/azure-qna-maker.html)
-* [Text Analytics](/answers/topics/azure-text-analytics.html)
+* [텍스트 분석](/answers/topics/azure-text-analytics.html)
 * [Translator](/answers/topics/azure-translator.html)
 
 **Speech**
@@ -63,7 +63,7 @@ Microsoft 엔지니어의 기술 제품 관련 질문에 대 한 빠르고 안�
 
 * [Anomaly Detector](/answers/topics/azure-anomaly-detector.html) 
 * [Content Moderator](/answers/topics/azure-content-moderator.html)
-* [Metrics Advisor(미리 보기)]()
+* [메트릭 관리자 (미리 보기)]()
 * [Personalizer](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
@@ -91,7 +91,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 * [몰입형 리더](https://stackoverflow.com/search?q=azure+immersive+reader)
 * [언어 이해(LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
 * [QnA Maker](https://stackoverflow.com/search?q=azure+qna+maker)
-* [Text Analytics](https://stackoverflow.com/search?q=azure+text+analytics)
+* [텍스트 분석](https://stackoverflow.com/search?q=azure+text+analytics)
 * [Translator](https://stackoverflow.com/search?q=azure+translator+text)
 
 **Speech**
@@ -102,7 +102,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 
 * [Anomaly Detector](https://stackoverflow.com/search?q=azure+anomaly+detector) 
 * [Content Moderator](https://stackoverflow.com/search?q=azure+content+moderator)
-* [Metrics Advisor(미리 보기)](https://stackoverflow.com/search?q=azure+metrics+advisor)
+* [메트릭 관리자 (미리 보기)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
 ## <a name="submit-feedback-on-user-voice"></a>사용자 의견에 대 한 사용자 의견 제출
@@ -113,23 +113,34 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 
 새 기능을 요청 하려면 UserVoice에 게시 하세요. 개발 하는 응용 프로그램에 대 한 Cognitive Services 및 해당 Api가 더 잘 작동 하도록 아이디어를 공유 하세요. 
 
-| 서비스                       | Cognitive Services UserVoice URL |
-|-------------------------------|---------------|
-| Anomaly Detector              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| Computer Vision               | https://cognitive.uservoice.com/forums/430309-computer-vision |
-| Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| Form Recognizer               | https://cognitive.uservoice.com/forums/921556-form-recognizer |
-| Ink Recognizer                | https://cognitive.uservoice.com/forums/921559-ink-recognizer |
-| 언어 이해(LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
-| Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
-| Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| 텍스트 분석                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| 변환기               | https://cognitive.uservoice.com/forums/558796-translator |
-| 비디오 인덱서                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+* [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
+
+**Vision**
+
+* [Computer Vision](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Custom Vision](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Face](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Form Recognizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Video Indexer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+
+**언어**
+
+* [몰입형 리더](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [언어 이해(LUIS)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [QnA Maker](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [텍스트 분석](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Translator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+
+**Speech**
+
+* [Speech Service](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395740)
+
+**의사 결정**
+
+* [Anomaly Detector](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746) 
+* [Content Moderator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [메트릭 관리자 (미리 보기)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Personalizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
 
 ## <a name="stay-informed"></a>최신 소식 수신
 

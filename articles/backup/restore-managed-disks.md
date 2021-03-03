@@ -3,12 +3,12 @@ title: Azure Managed Disks 복원
 description: Azure Portal에서 Azure Managed Disks를 복원 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703752"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Azure Managed Disks 복원 (미리 보기)
 
@@ -66,7 +66,7 @@ ms.locfileid: "98737379"
     >
     >예약 된 백업 또는 요청 시 백업 작업 중 Azure Backup는 디스크의 백업을 구성 하는 동안 제공 된 스냅숏 리소스 그룹에 디스크 증분 스냅숏을 저장 합니다. Azure Backup은 복원 작업 중에 이러한 증분 스냅숏을 사용 합니다. 스냅숏이 스냅숏 리소스 그룹에서 삭제 또는 이동 되거나 스냅숏 리소스 그룹에서 백업 자격 증명 모음 역할 할당이 취소 된 경우에는 복원 작업이 실패 합니다.
 
-1. 복원할 디스크를 [CMK (고객 관리 키)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) 로 암호화 하거나 [플랫폼 관리 키 및 고객 관리 키를 사용 하 여 이중 암호화](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)를 사용 하는 경우 **디스크 암호화 집합** 리소스에서 백업 자격 증명 모음의 관리 되는 id에 **읽기** 역할 권한을 할당 합니다.
+1. 복원할 디스크를 [CMK (고객 관리 키)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) 로 암호화 하거나 [플랫폼 관리 키 및 고객 관리 키를 사용 하 여 이중 암호화](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md)를 사용 하는 경우 **디스크 암호화 집합** 리소스에서 백업 자격 증명 모음의 관리 되는 id에 **읽기** 역할 권한을 할당 합니다.
 
 필수 구성 요소가 충족 되 면 다음 단계에 따라 복원 작업을 수행 합니다.
 

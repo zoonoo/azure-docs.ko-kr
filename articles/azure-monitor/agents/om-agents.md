@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718134"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -40,8 +40,8 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 * Azure Monitor System Center Operations Manager 2016 이상, Operations Manager 2012 SP1 커밋하기 위한 이상 및 Operations Manager 2012 R2 U R 2 이상만 지원 합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
 * System Center Operations Manager 2016를 미국 정부 클라우드와 통합 하려면 업데이트 롤업 2 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다. System Center Operations Manager 2012 R2 업데이트 롤업 3 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
-* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../platform/design-logs-deployment.md)를 검토합니다.
-* [Log Analytics 기여자 역할](../platform/manage-access.md#manage-access-using-azure-permissions)의 멤버인 계정으로 Azure에 인증합니다.
+* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../logs/design-logs-deployment.md)를 검토합니다.
+* [Log Analytics 기여자 역할](../logs/manage-access.md#manage-access-using-azure-permissions)의 멤버인 계정으로 Azure에 인증합니다.
 
 * 지원 되는 지역-System Center Operations Manager에서 Log Analytics 작업 영역에 연결 하는 데 사용할 수 있는 Azure 지역은 다음과 같습니다.
     - 미국 중서부
@@ -95,7 +95,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure Monitor 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트 및 관리 그룹을 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요.
+Azure Monitor 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트 및 관리 그룹을 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../logs/data-security.md#sending-data-securely-using-tls-12)를 검토하세요.
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -345,4 +345,3 @@ Operations Manager와 통합 하는 데 사용 하도록 설정한 솔루션에 
 ## <a name="next-steps"></a>다음 단계
 
 기능을 추가 하 고 데이터를 수집 하려면 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../insights/solutions.md)를 참조 하세요.
-

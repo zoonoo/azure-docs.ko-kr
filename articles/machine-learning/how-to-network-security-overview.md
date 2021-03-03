@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691827"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,13 +28,13 @@ ms.locfileid: "99980578"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
++ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [NSG (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
++ [네트워크 보안 그룹(NSG)](../virtual-network/network-security-groups-overview.md)
 + [네트워크 방화벽](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>예제 시나리오
@@ -71,7 +71,7 @@ ms.locfileid: "99980578"
 1. VNet과 작업 영역 간에 통신을 사용 하도록 설정 하려면 [개인 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) 을 만듭니다.
 1. [서비스 끝점이](../key-vault/general/overview-vnet-service-endpoints.md) 나 [개인 끝점](../key-vault/general/private-link-service.md)을 사용 하 여 가상 네트워크에 Azure Key Vault를 추가 합니다. Key Vault를 ["신뢰할 수 있는 Microsoft 서비스가이 방화벽을 우회 하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault)합니다."로 설정 합니다.
 1. [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 Azure storage 계정을 가상 네트워크에 추가 합니다.
-1. 개인 끝점을 사용 하 고 [Azure Container Instances에서 서브넷 위임을 사용](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci) [하도록 Azure Container Registry를 구성](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) 합니다.
+1. [개인 끝점을 사용 하도록 Azure Container Registry를 구성](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)합니다.
 
 ![작업 영역 및 연결 된 리소스가 VNet 내부의 서비스 끝점 또는 개인 끝점을 통해 서로 통신 하는 방법을 보여 주는 아키텍처 다이어그램](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

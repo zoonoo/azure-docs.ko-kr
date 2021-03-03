@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 26c99beb95d60b476fff255321d85c0db8aa7363
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692201"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 대한 프라이빗 엔드포인트 구성
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "101679482"
 
 ### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>관리 되는 가상 네트워크를 사용 하 여 Azure Synapse Analytics 작업 영역 설정
 
-[데이터 지향 필터링을 사용 하 여 Azure Synapse Analytics에서 작업 영역을 만듭니다](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md). [데이터 exfiltration 보호](../synapse-analytics/security/workspace-data-exfiltration-protection.md)를 사용 하면 악의적인 사용자가 Azure 리소스에서 조직의 범위 밖의 위치로 데이터를 복사 하거나 전송할 수 없도록 할 수 있습니다.
+[데이터 exfiltration을 사용 하 여 Azure Synapse Analytics에서 작업 영역을 만듭니다.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) [데이터 exfiltration 보호](../synapse-analytics/security/workspace-data-exfiltration-protection.md)를 사용 하면 악의적인 사용자가 Azure 리소스에서 조직의 범위 밖의 위치로 데이터를 복사 하거나 전송할 수 없도록 할 수 있습니다.
 
 Azure Synapse Analytics 작업 영역에 대해 데이터-exfiltration 보호가 설정 된 경우 다음 액세스 제한이 적용 됩니다.
 

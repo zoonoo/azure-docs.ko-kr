@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619474"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717386"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -48,7 +48,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 분산 아키텍처의 단점은 다음과 같습니다.
 
-* Azure Monitor 통합 문서와 같은 도구를 사용 하 여 고객 테 넌 트에서 중앙에서 데이터를 시각화 하 고 분석 하면 특히 50 개 이상의 작업 영역에서 데이터를 분석 하는 경우 속도가 느려질 수 있습니다.
+* Azure Monitor 통합 문서와 같은 도구를 사용 하 여 [고객 테 넌](cross-workspace-query.md) 트에서 중앙에서 데이터를 시각화 하 고 분석 하면 특히 50 개 이상의 작업 영역에서 데이터를 분석 하는 경우 속도가 느려질 수 있습니다.
 * 고객이 Azure 위임 된 리소스 관리에 등록 되지 않은 경우 서비스 공급자 관리자를 고객 디렉터리에 프로 비전 해야 하며 서비스 공급자가 한 번에 많은 수의 고객 테 넌 트를 관리 하는 것이 더 어렵습니다.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. 중앙 로그는 서비스 공급자 테 넌 트에 있는 작업 영역에 저장 됩니다.
@@ -85,7 +85,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 * [PowerShell](../logs/powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화
 
-* [경고](../platform/alerts-overview.md)를 사용하여 기존 시스템과 통합
+* [경고](../alerts/alerts-overview.md)를 사용하여 기존 시스템과 통합
 
 * [Power BI](../visualize/powerbi.md)를 사용하여 요약 보고서 생성
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615229"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725869"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor 메트릭 메트릭 집계 및 표시 설명
 
@@ -101,7 +101,7 @@ ms.locfileid: "100615229"
 
 메트릭 탐색기에서 메트릭을 차트로 차트를 만들면 차원으로 차트를 "분할" 하는 옵션이 있습니다.  차트를 분할 하는 것은 기본 데이터를 자세히 살펴보고 메트릭 탐색기에서 해당 데이터의 차트 또는 필터링을 확인 하는 것입니다.
 
-예를 들어 [microsoft.apimanagement/service](../platform/metrics-supported.md#microsoftapimanagementservice) 는 여러 메트릭에 대 한 차원으로 *위치* 를 가집니다. 
+예를 들어 [microsoft.apimanagement/service](./metrics-supported.md#microsoftapimanagementservice) 는 여러 메트릭에 대 한 차원으로 *위치* 를 가집니다. 
 
 - **용량** 은 이러한 메트릭 중 하나입니다. *Location* 차원은 기본 시스템이 집계 금액에 대해 하나만이 아니라 각 위치의 용량에 대 한 메트릭 레코드를 저장 하는 것을 의미 합니다. 그런 다음 메트릭 차트에서 해당 정보를 검색 하거나 분할할 수 있습니다.  
 
@@ -109,7 +109,7 @@ ms.locfileid: "100615229"
 
 - 보다 유연한 메트릭 중 하나인 **요청** 에는 7 개의 다른 차원이 있습니다. 
  
-각 메트릭 및 사용 가능한 차원에 대 한 자세한 내용은 [지원 되](../platform/metrics-supported.md) 는 Azure Monitor 메트릭 문서를 확인 하세요. 또한 각 리소스 공급자와 유형에 대 한 설명서는 차원 및 측정값에 대 한 추가 정보를 제공할 수 있습니다.
+각 메트릭 및 사용 가능한 차원에 대 한 자세한 내용은 [지원 되](./metrics-supported.md) 는 Azure Monitor 메트릭 문서를 확인 하세요. 또한 각 리소스 공급자와 유형에 대 한 설명서는 차원 및 측정값에 대 한 추가 정보를 제공할 수 있습니다.
 
 분할 및 필터링을 사용 하 여 문제를 자세히 살펴볼 수 있습니다. 다음은 리소스 그룹의 Vm 그룹에 대 한 *평균 디스크 쓰기 바이트* 를 보여 주는 그래픽의 예입니다. 이 메트릭을 사용 하는 모든 Vm의 롤업이 있지만 실제로는 오전 6 시 까지의 최대 사용량을 실제로 담당 하는 것을 확인 하는 것이 좋습니다. 동일한 컴퓨터 인가요? 얼마나 많은 컴퓨터가 관련 되어 있나요?  
 
@@ -141,7 +141,7 @@ Azure Monitor 경고는 리소스 공급자가 메트릭 데이터베이스에 �
 
 이전 시스템의 메트릭 차트는 서로 다른 유형의 집계 데이터를 표시 합니다. 시스템은 요청 된 차트가 많은 반복 계산 없이 빠르게 표시 될 수 있도록 데이터를 미리 집계 합니다.  
 
-이 예제에서는 다음이 적용됩니다.
+이 예제에서:
 
 - **HTTP 오류** 라고 하는 **가상** 의 트랜잭션 메트릭을 수집 합니다. 
 - *서버* 는 **HTTP 오류** 메트릭에 대 한 차원입니다.
@@ -266,7 +266,7 @@ Azure Monitor 경고는 리소스 공급자가 메트릭 데이터베이스에 �
 
 위의 분 6부터 계산 된 1 분 집계 유형은 다음과 같습니다. 
 
-| 집계 유형 | 값        | 참고 |
+| 집계 유형 | 값        | 메모 |
 |------------------|--------------|-------|
 | 합계              | 53 + 20 = 73 | |
 | 개수            | 2            | Null의 효과를 보여 줍니다.  서버를 온라인 상태로 설정한 경우 값은 3입니다.  |

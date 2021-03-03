@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987780"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703684"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -105,7 +105,7 @@ Backint를 통해 제공되는 SAP HANA Azure VM의 백업(로그 및 비로그)
 
 HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하며, 이는 Azure Backup 서비스에서 읽고 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
 
-스트림은 주로 디스크와 관련이 있으므로 백업 및 복원 성능을 측정하려면 디스크 성능을 이해해야 합니다. Azure VM의 디스크 처리량 및 성능을 자세히 이해하려면[이 문서](https://docs.microsoft.com/azure/virtual-machines/disks-performance)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
+스트림은 주로 디스크와 관련이 있으므로 백업 및 복원 성능을 측정하려면 디스크 성능을 이해해야 합니다. Azure VM의 디스크 처리량 및 성능을 자세히 이해하려면[이 문서](../virtual-machines/disks-performance.md)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
 
 **Azure Backup 서비스는 비로그 백업(예: 전체, 차등 및 증분)의 경우 최대 420MBps, HANA 로그 백업의 경우 최대 100MBps의 속도를 구현합니다**. 위에서 설명한 것처럼, 이러한 속도는 보장되는 것이 아니라 다음과 같은 요인에 따라 달라집니다.
 
@@ -267,8 +267,8 @@ Recovery Services 자격 증명 모음을 만들려면:
    ![차등 백업 정책](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >증분 백업은 이제 공개 미리 보기로 제공됩니다. 차등 또는 증분을 매일 백업으로 선택할 수 있지만 둘 다를 선택할 수는 없습니다.
-   >
+   >차등 또는 증분을 매일 백업으로 선택할 수 있지만 둘 다를 선택할 수는 없습니다.
+
 7. **증분 백업 정책** 에서 **사용** 을 선택하여 빈도 및 보존 컨트롤을 엽니다.
     * 많으면, 하루에 하나의 증분 백업을 트리거할 수 있습니다.
     * 증분 백업은 최대 180일 동안 보존될 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.

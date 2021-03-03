@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703408"
 ---
 # <a name="precise-answering"></a>정확한 대답
 
@@ -32,7 +32,7 @@ QnA Maker 포털에서 테스트 창을 열면 위쪽에 **짧은 답을 표시*
 
 ## <a name="publishing-a-qna-maker-bot"></a>QnA Maker bot 게시
 
-Bot을 게시 하면 응용 프로그램에서 기본적으로 정확한 응답을 사용 하도록 설정 된 환경을 얻게 되며 여기에서 대답 통로와 함께 짧은 답을 확인할 수 있습니다. 응답 [생성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) 에 대 한 API 참조를 참조 하 여 응답에서 정확히 대답 (AnswerSpan 이라고 함)을 사용 하는 방법을 확인 합니다. 사용자는 Bot app service를 통해 템플릿을 업데이트 하 여 다른 환경을 유연 하 게 선택할 수 있습니다. 
+Bot을 게시 하면 응용 프로그램에서 기본적으로 정확한 응답을 사용 하도록 설정 된 환경을 얻게 되며 여기에서 대답 통로와 함께 짧은 답을 확인할 수 있습니다. 응답 [생성](/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) 에 대 한 API 참조를 참조 하 여 응답에서 정확히 대답 (AnswerSpan 이라고 함)을 사용 하는 방법을 확인 합니다. 사용자는 Bot app service를 통해 템플릿을 업데이트 하 여 다른 환경을 유연 하 게 선택할 수 있습니다. 
 
 ## <a name="language-support"></a>언어 지원
 

@@ -55,7 +55,7 @@
             - name: ARO 4의 컨테이너용 Azure Monitor(미리 보기) 구성
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: ARO 4의 컨테이너용 Azure Monitor(미리 보기) 사용 안 함
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: 애플리케이션 개발 및 실행
       items:
         - name: Open Liberty/WebSphere Liberty 앱 배포
@@ -80,10 +80,10 @@
             - name: Azure Red Hat OpenShift 3.11의 컨테이너용 Azure Monitor(미리 보기)
               items:
                 - name: Azure Red Hat OpenShift 3.11의 컨테이너용 Azure Monitor 구성
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Azure Red Hat OpenShift 3.11의 컨테이너용 Azure Monitor 해제
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Azure Red Hat OpenShift 3.11에서 권한 있는 컨테이너 실행
           href: howto-run-privileged-containers.md

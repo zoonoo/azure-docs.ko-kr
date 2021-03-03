@@ -2,79 +2,143 @@
 title: 템플릿을 사용한 조건부 배포
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934784"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741177"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>ARM 템플릿의 조건부 배포
 
-경우에 따라 Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 배포 해야 합니다. 요소를 사용 `condition` 하 여 리소스 배포 여부를 지정 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+경우에 따라 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Bicep 파일에서 리소스를 배포 해야 합니다. JSON 템플릿의 경우 요소를 사용 `condition` 하 여 리소스 배포 여부를 지정 합니다. Bicep의 경우 키워드를 사용 `if` 하 여 리소스 배포 여부를 지정 합니다. 조건 값은 true 또는 false로 확인 됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
 
 > [!NOTE]
 > 조건부 배포는 [자식 리소스](child-resource-name-type.md)에 종속 되지 않습니다. 리소스 및 해당 자식 리소스를 조건부로 배포 하려면 각 리소스 종류에 동일한 조건을 적용 해야 합니다.
 
-## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
+## <a name="deploy-condition"></a>배포 조건
 
-조건부 배포를 사용 하 여 새 리소스를 만들거나 기존 리소스를 사용할 수 있습니다. 다음 예에서는를 사용 하 여 `condition` 새 저장소 계정을 배포 하거나 기존 저장소 계정을 사용 하는 방법을 보여 줍니다.
+리소스 배포 여부를 나타내는 매개 변수 값을 전달할 수 있습니다. 다음 예에서는 조건에 따라 DNS 영역을 배포 합니다.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "condition": "[equals(parameters('newOrExisting'),'new')]",
-  "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2017-06-01",
-  "name": "[variables('storageAccountName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "[variables('storageAccountType')]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployZone": {
+      "type": "bool"
+    }
   },
-  "kind": "Storage",
-  "properties": {}
+  "functions": [],
+  "resources": [
+    {
+      "condition": "[parameters('deployZone')]",
+      "type": "Microsoft.Network/dnsZones",
+      "apiVersion": "2018-05-01",
+      "name": "myZone",
+      "location": "global"
+    }
+  ]
 }
 ```
 
-매개 변수가 `newOrExisting` **new** 로 설정 되 면 조건이 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 `newOrExisting` 이 (가) **기존** 으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-`condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 스토리지 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
+```bicep
+param deployZone bool
 
-## <a name="allow-condition"></a>허용 조건
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
 
-조건이 허용 되는지 여부를 나타내는 매개 변수 값을 전달할 수 있습니다. 다음 예에서는 SQL server를 배포 하 고 선택적으로 Azure Ip를 허용 합니다.
+---
+
+더 복잡 한 예는 [AZURE SQL 논리 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server)를 참조 하세요.
+
+## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
+
+조건부 배포를 사용 하 여 새 리소스를 만들거나 기존 리소스를 사용할 수 있습니다. 다음 예에서는 새 저장소 계정을 배포 하거나 기존 저장소 계정을 사용 하는 방법을 보여 줍니다.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "type": "Microsoft.Sql/servers",
-  "apiVersion": "2015-05-01-preview",
-  "name": "[parameters('serverName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "administratorLogin": "[parameters('administratorLogin')]",
-    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-    "version": "12.0"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "newOrExisting": {
+      "type": "string",
+      "defaultValue": "new",
+      "allowedValues": [
+        "new",
+        "existing"
+      ]
+    }
   },
+  "functions": [],
   "resources": [
     {
-      "condition": "[parameters('allowAzureIPs')]",
-      "type": "firewallRules",
-      "apiVersion": "2015-05-01-preview",
-      "name": "AllowAllWindowsAzureIps",
+      "condition": "[equals(parameters('newOrExisting'), 'new')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
       "properties": {
-        "endIpAddress": "0.0.0.0",
-        "startIpAddress": "0.0.0.0"
+        "accessTier": "Hot"
       }
     }
   ]
 }
 ```
 
-전체 템플릿은 [AZURE SQL 논리 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server)를 참조 하세요.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+param location string = resourceGroup().location
+
+@allowed([
+  'new'
+  'existing'
+])
+param newOrExisting string = 'new'
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+```
+
+---
+
+매개 변수가 `newOrExisting` **new** 로 설정 되 면 조건이 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 `newOrExisting` 이 (가) **기존** 으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
+
+`condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 스토리지 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
 
 ## <a name="runtime-functions"></a>런타임 함수
 

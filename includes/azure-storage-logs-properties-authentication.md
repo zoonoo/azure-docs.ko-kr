@@ -4,16 +4,16 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
-ms.openlocfilehash: e3732823be1c8391f2bec9018a094200c7c93a5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61576de4a57d55ea9d1ea209c52df556f0069617
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750283"
 ---
 | 속성 | Description |
 |:--- |:---|
-|**identity / type** | 요청을 수행하는 데 사용된 인증 형식입니다. 예: `OAuth`, `SAS Key`, `Account Key` 또는 `Anonymous` |
+|**identity / type** | 요청을 수행하는 데 사용된 인증 형식입니다. 예: `OAuth` ,, `Kerberos` `SAS Key` , `Account Key` 또는 `Anonymous` |
 |**identity / tokenHash**|이 필드는 내부 전용으로 예약되어 있습니다. |
 |**authorization / action** | 요청에 할당된 작업입니다. |
 |**authorization / roleAssignmentId** | 역할 할당 ID입니다. 예: `4e2521b7-13be-4363-aeda-111111111111`|

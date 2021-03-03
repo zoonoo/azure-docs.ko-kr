@@ -1,18 +1,18 @@
 ---
-title: 컨테이너에 대 한 Azure Monitor 구성 프로메테우스 통합 | Microsoft Docs
-description: 이 문서에서는 Kubernetes 클러스터와 함께 프로메테우스의 메트릭을 스크랩 컨테이너 에이전트에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
+title: 컨테이너 insights 프로메테우스 통합 구성 | Microsoft Docs
+description: 이 문서에서는 Kubernetes 클러스터를 사용 하 여 프로메테우스에서 메트릭을 스크랩 하도록 Container insights 에이전트를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618769"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731734"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>컨테이너에 Azure Monitor를 사용하여 Prometheus 메트릭 스크랩 구성
+# <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>컨테이너 insights를 사용 하 여 스크랩의 프로메테우스 구성
 
-[프로메테우스](https://prometheus.io/) 는 널리 사용 되는 오픈 소스 메트릭 모니터링 솔루션으로, [클라우드 기본 계산 파운데이션](https://www.cncf.io/)의 일부입니다. 컨테이너에 대 한 Azure Monitor는 원활한 등록 환경을 제공 하 여 프로메테우스 메트릭을 수집 합니다. 일반적으로 프로메테우스를 사용 하려면 저장소를 사용 하 여 프로메테우스 서버를 설정 하 고 관리 해야 합니다. Azure Monitor와 통합 하면 프로메테우스 서버가 필요 하지 않습니다. 내보내기 또는 pod (응용 프로그램)을 통해 프로메테우스 메트릭 끝점을 노출 하 고, 컨테이너에 대 한 Azure Monitor 용 컨테이너 화 된 에이전트가 메트릭을 스크랩 수 있습니다. 
+[프로메테우스](https://prometheus.io/) 는 널리 사용 되는 오픈 소스 메트릭 모니터링 솔루션으로, [클라우드 기본 계산 파운데이션](https://www.cncf.io/)의 일부입니다. 컨테이너 insights는 원활한 등록 환경을 제공 하 여 프로메테우스 메트릭을 수집 합니다. 일반적으로 프로메테우스를 사용 하려면 저장소를 사용 하 여 프로메테우스 서버를 설정 하 고 관리 해야 합니다. Azure Monitor와 통합 하면 프로메테우스 서버가 필요 하지 않습니다. 내보내기 또는 pod (응용 프로그램)을 통해 프로메테우스 메트릭 끝점을 노출 하 고, 컨테이너 insights에 대 한 컨테이너 화 된 에이전트가 메트릭을 스크랩 수 있습니다. 
 
 ![프로메테우스 용 컨테이너 모니터링 아키텍처](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -36,26 +36,26 @@ ms.locfileid: "100618769"
 * 클러스터 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 예를 들어 kube와 같은 k8s 서비스 및 응용 프로그램과 관련 된 pod 주석을 사용할 수 있습니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings. cluster]* 에 정의 됩니다.
 * 노드 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings. node]* 에 정의 됩니다.
 
-| 엔드포인트 | 범위 | 예제 |
+| 엔드포인트 | Scope | 예제 |
 |----------|-------|---------|
 | Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/끝점 | 노드당 및/또는 클러스터 전체 | `http://myurl:9101/metrics` |
 
-URL을 지정 하면 Azure Monitor 컨테이너의 경우에만 끝점을 스크랩 합니다. Kubernetes service를 지정 하면 서비스 이름이 클러스터 DNS 서버를 통해 확인 되어 IP 주소를 가져온 다음 확인 된 서비스가 스크랩 됩니다.
+URL을 지정 하면 컨테이너 insights는 끝점을 스크랩 합니다. Kubernetes service를 지정 하면 서비스 이름이 클러스터 DNS 서버를 통해 확인 되어 IP 주소를 가져온 다음 확인 된 서비스가 스크랩 됩니다.
 
-|범위 | 키 | 데이터 형식 | 값 | 설명 |
+|Scope | 키 | 데이터 형식 | 값 | Description |
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 다음 세 가지 방법 중 하나를 지정 하 여 메트릭에 대 한 끝점을 스크랩. |
-| | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | | `kubernetes_services` | String | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를 들면 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`입니다.|
-| | `monitor_kubernetes_pods` | 부울 | true 또는 false | `true`클러스터 전체 설정에서로 설정 된 경우 컨테이너 에이전트의 Azure Monitor는 다음의 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | 부울 | true 또는 false | `true`클러스터 전체 설정에서로 설정 된 경우 컨테이너 insights 에이전트는 다음 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | 부울 | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
 | | `prometheus.io/scheme` | String | HTTP 또는 HTTPS | 기본값은 HTTP over scrapping입니다. 필요한 경우를로 설정 `https` 합니다. | 
 | | `prometheus.io/path` | String | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가이 아닌 경우에는 `/metrics` 이 주석을 사용 하 여 정의 합니다. |
 | | `prometheus.io/port` | String | 9102 | 스크랩 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
-| | `monitor_kubernetes_pods_namespaces` | String | 쉼표로 구분 된 배열 | Kubernetes pod에서 메트릭을 스크랩 네임 스페이스 목록을 허용 합니다.<br> 예, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| 노드 차원 | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| | `monitor_kubernetes_pods_namespaces` | String | 쉼표로 구분 된 배열 | Kubernetes pod에서 메트릭을 스크랩 네임 스페이스 목록을 허용 합니다.<br> 예를 들어 `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| 노드 차원 | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | 노드 전체 또는 클러스터 전체 | `interval` | String | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: s, m, h)로 수정할 수 있습니다. |
 | 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| String | 쉼표로 구분 된 배열 | 허용 ( `fieldpass` ) 및 허용 안 함 () 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다 `fielddrop` . 먼저 허용 목록을 설정 해야 합니다. |
 
@@ -124,7 +124,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
         ```
 
         >[!NOTE]
-        >$NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. 
+        >$NODE _IP는 특정 Container insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. 
 
     - Pod 주석을 지정 하 여 스크랩의 프로메테우스 메트릭을 구성 하려면 다음 단계를 수행 합니다.
 
@@ -147,7 +147,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          주석을 포함 하는 pod에 대 한 특정 네임 스페이스에 대 한 모니터링을 제한 하려면 (예: 프로덕션 워크 로드 전용 pod 포함)를 ConfigMap에서로 설정 하 고 네임 스페이스를 지정 하 여 `monitor_kubernetes_pod` `true` 네임 스페이스 필터를 추가 합니다 `monitor_kubernetes_pods_namespaces` . 예, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          주석을 포함 하는 pod에 대 한 특정 네임 스페이스에 대 한 모니터링을 제한 하려면 (예: 프로덕션 워크 로드 전용 pod 포함)를 ConfigMap에서로 설정 하 고 네임 스페이스를 지정 하 여 `monitor_kubernetes_pod` `true` 네임 스페이스 필터를 추가 합니다 `monitor_kubernetes_pods_namespaces` . 예를 들어 `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. 다음 kubectl 명령을 실행 `kubectl apply -f <configmap_yaml_file.yaml>` 합니다.
     
@@ -241,7 +241,7 @@ container-azm-ms-agentconfig   4         56m
         ```
 
         >[!NOTE]
-        >$NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. 
+        >$NODE _IP는 특정 Container insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. 
 
     - Pod 주석을 지정 하 여 스크랩의 프로메테우스 메트릭을 구성 하려면 다음 단계를 수행 합니다.
 
@@ -264,7 +264,7 @@ container-azm-ms-agentconfig   4         56m
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          주석을 포함 하는 pod에 대 한 특정 네임 스페이스에 대 한 모니터링을 제한 하려면 (예: 프로덕션 워크 로드 전용 pod 포함)를 ConfigMap에서로 설정 하 고 네임 스페이스를 지정 하 여 `monitor_kubernetes_pod` `true` 네임 스페이스 필터를 추가 합니다 `monitor_kubernetes_pods_namespaces` . 예, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          주석을 포함 하는 pod에 대 한 특정 네임 스페이스에 대 한 모니터링을 제한 하려면 (예: 프로덕션 워크 로드 전용 pod 포함)를 ConfigMap에서로 설정 하 고 네임 스페이스를 지정 하 여 `monitor_kubernetes_pod` `true` 네임 스페이스 필터를 추가 합니다 `monitor_kubernetes_pods_namespaces` . 예를 들어 `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. 편집기에서 변경 내용을 저장 합니다.
 
@@ -330,7 +330,7 @@ Azure Monitor에서 스크랩 하는 프로메테우스 메트릭과 에이전�
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Grafana에서 프로메테우스 메트릭 보기
 
-컨테이너용 Azure Monitor는 Grafana 대시보드의 Log Analytics 작업 영역에 저장된 메트릭을 볼 수 있도록 지원합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
+컨테이너 insights는 Grafana 대시보드의 Log Analytics 작업 영역에 저장 된 메트릭을 볼 수 있도록 지원 합니다. Grafana의 [대시보드 리포지토리](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker)에서 다운로드하여 시작하고, 모니터링할 클러스터에서 추가 데이터를 쿼리하여 사용자 지정 Grafana 대시보드에서 시각화하는 방법을 습득하는 데 도움이 되기 위해 참조할 수 있는 템플릿을 제공했습니다. 
 
 ## <a name="review-prometheus-data-usage"></a>프로메테우스 데이터 사용 검토
 
@@ -364,8 +364,8 @@ InsightsMetrics
 
 ![데이터 수집 볼륨의 쿼리 결과를 기록 합니다.](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-데이터 사용량을 모니터링 하 고 비용을 분석 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](../platform/manage-cost-storage.md)에서 확인할 수 있습니다.
+데이터 사용량을 모니터링 하 고 비용을 분석 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](../logs/manage-cost-storage.md)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[여기](container-insights-agent-config.md)에서 컨테이너 워크 로드의 stdout, stderr 및 환경 변수에 대 한 에이전트 컬렉션 설정 구성에 대해 자세히 알아보세요. 
+[여기](container-insights-agent-config.md)에서 컨테이너 워크 로드의 stdout, stderr 및 환경 변수에 대 한 에이전트 컬렉션 설정 구성에 대해 자세히 알아보세요.

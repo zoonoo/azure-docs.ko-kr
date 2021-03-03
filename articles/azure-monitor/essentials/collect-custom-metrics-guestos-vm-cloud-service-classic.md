@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737072"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
+Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)에 원격 분석을 보낼 수 있습니다.
 
 이 문서에서는 Azure 클래식 Cloud Services에 대한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스에 대해 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
@@ -34,7 +34,7 @@ Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 �
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](../../cloud-shell/overview.md)이 설치되어 있어야 합니다.
 
-- 클라우드 서비스 [는 사용자 지정 메트릭을 지 원하는 지역](../platform/metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+- 클라우드 서비스 [는 사용자 지정 메트릭을 지 원하는 지역](./metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 스토리지 계정 프로비전 
 
@@ -191,4 +191,4 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 메트릭](../platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](./metrics-custom-overview.md)에 대해 자세히 알아보세요.

@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718423"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>CI/CD 도구를 사용 하 여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화
 
@@ -34,7 +34,7 @@ azure-streamanalytics-cicd build -project <projectFullPath> [-outputPath <output
 
 *빌드* 명령은 키워드 구문 검사를 수행 하 고 Azure Resource Manager 템플릿을 출력 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---|---|
 | `-project` | Visual Studio Code 프로젝트에 대 한 파일 **에 있는asaproj.js** 의 절대 경로 또는 Visual Studio 프로젝트용 **[your project name]. asaproj** . |
 | `-outputPath` | Azure Resource Manager 템플릿에 대 한 출력 폴더의 경로입니다. 지정 하지 않으면 템플릿이 현재 디렉터리에 배치 됩니다. |
@@ -83,7 +83,7 @@ Azure Data Lake Store Gen1의 관리 Id를 출력 싱크로 사용 하려면 Azu
 azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <outputPath>] [-customCodeZipFilePath <zipFilePath>]
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---|---|
 | `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
 | `-outputPath` | 출력 폴더의 경로입니다. 지정 하지 않으면 출력 결과 파일이 현재 디렉터리에 배치 됩니다. |
@@ -118,7 +118,7 @@ CI/CD npm 패키지를 사용 하 여 Stream Analytics 스크립트에 대해 �
 azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPath <testConfigFileFullPath>]
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---|---|
 | `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
 | `-testConfigPath` | 테스트 구성 파일의 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js** 을 사용 하 여 파일이 검색 됩니다. 존재 하지 않는 경우 새 파일이 만들어집니다. |
@@ -167,6 +167,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 }
 ```
 
+> [!NOTE]
+> 현재 요소에 허용 되는 값은 이며 기본값 이기도 합니다 `ScriptType` `InputMock` . 이 값을 다른 값으로 설정 하면 무시 되 고 기본값 ( `InputMock` )이 사용 됩니다. 
+
 ### <a name="run-a-unit-test"></a>단위 테스트 실행
 
 다음 명령을 사용 하 여 프로젝트에 대 한 여러 테스트 사례를 실행할 수 있습니다. 출력 폴더에서 테스트 결과 요약이 생성 됩니다. 전달 된 모든 테스트에 대 한 코드 **0** 으로 프로세스가 종료 됩니다. 예외에 대해 **-1** 이 발생 했습니다. 테스트의 경우 **-2이 (가)** 실패 했습니다.
@@ -175,7 +178,7 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <testConfigFileFullPath>] [-outputPath <outputPath>] [-customCodeZipFilePath <zipFilePath>]
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---|---|
 | `-project` | Visual Studio Code 프로젝트의 파일 **에** 대 한asaproj.js경로 이거나 Visual Studio 프로젝트용 **[your project name]. asaproj** 입니다. |
 | `-testConfigPath` | 테스트 구성 파일에 대 한 경로입니다. 이 파일을 지정 하지 않으면 파일의 현재 **asaproj.js** 디렉터리 아래에 있는 **\test** 에서 기본 파일 이름 **testConfig.js** 을 사용 하 여 파일이 검색 됩니다.

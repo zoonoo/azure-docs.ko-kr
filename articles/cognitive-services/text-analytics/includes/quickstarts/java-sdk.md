@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 92b78cae7d1af5dc71509381afd7eaf3f962a8fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c87dc9f11a6a9780d77b39597e0479ccb6863d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751034"
 ---
 <a name="HOLTop"></a>
 
@@ -27,13 +27,9 @@ ms.locfileid: "100515189"
 
 [참조 설명서](/java/api/overview/azure/ai-textanalytics-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 문서에서는 API의 버전 3.x만 설명합니다.
-
 ---
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 버전 8 이상
@@ -76,10 +72,6 @@ ms.locfileid: "100515189"
 
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub에서](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java) 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다. 
-
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 문서에서는 API의 버전 3.x만 설명합니다.
 
 ---
 
@@ -136,10 +128,6 @@ public static void main(String[] args) {
         AnalyzeOperationExample(client)
 }
 ```
-
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 문서에서는 API의 버전 3.x만 설명합니다.
 
 ---
 
@@ -321,10 +309,6 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
-
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 문서에서는 API의 버전 3.x만 설명합니다.
 
 ---
 
@@ -570,10 +554,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 문서에서는 API의 버전 3.x만 설명합니다.
-
 ---
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
@@ -683,9 +663,5 @@ Analyze(분석) 작업을 사용하여 PII 및 핵심 문구 추출을 검색할
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 이 기능은 버전 3.0에서 사용할 수 없습니다.
-
-# <a name="version-21"></a>[버전 2.1](#tab/version-2)
-
-이 기능은 버전 2.1에서 사용할 수 없습니다.
 
 ---

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 703a5f145aee93fe7ec4ad2f8ec102f98bdd4174
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2b7648155c28ec9b6cf2048246c17805b5f22404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616879"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700731"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집
 Azure 진단 확장은 가상 컴퓨터를 포함 하 여 Azure 계산 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집 하는 [Azure Monitor의 에이전트](../agents/agents-overview.md) 입니다. 이 문서에서는 Azure Storage에서 진단 확장을 통해 수집 된 데이터를 Azure Monitor 로그에 수집 하는 방법을 설명 합니다.
@@ -63,7 +63,6 @@ Azure 진단 확장은 Azure Storage 계정에 데이터를 저장 합니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 지원되는 Azure 서비스에 대해 [Azure 서비스에 대한 로그 및 메트릭 수집](../platform/resource-logs.md#send-to-log-analytics-workspace)
+* 지원되는 Azure 서비스에 대해 [Azure 서비스에 대한 로그 및 메트릭 수집](./resource-logs.md#send-to-log-analytics-workspace)
 * [솔루션을 사용하도록 설정](../insights/solutions.md) 하여 데이터에 대한 정보를 제공합니다.
-* [검색 쿼리를 사용](../log-query/log-query-overview.md) 하여 데이터를 분석합니다.
-
+* [검색 쿼리를 사용](../logs/log-query-overview.md) 하여 데이터를 분석합니다.

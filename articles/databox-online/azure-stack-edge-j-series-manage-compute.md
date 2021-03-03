@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733417"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 계산 관리
 
@@ -21,11 +21,6 @@ ms.locfileid: "98955457"
 
 이 문서에서는 Azure Stack Edge Pro GPU 장치에서 IoT Edge 서비스를 통해 계산을 관리 하는 방법을 설명 합니다. 로컬 웹 UI 또는 Azure Portal을 통해 컴퓨팅을 관리할 수 있습니다. Azure Portal를 사용 하 여 모듈, 트리거 및 IoT Edge 구성을 관리 하 고, 로컬 웹 UI를 사용 하 여 계산 네트워크 설정을 관리할 수 있습니다.
 
-이 문서에서는 다음 방법을 설명합니다.
-
-> [!div class="checklist"]
-> * 트리거 관리
-> * IoT Edge 구성 관리
 
 
 ## <a name="manage-triggers"></a>트리거 관리
@@ -130,6 +125,22 @@ IoT 장치와 IoT Edge 장치 키를 회전 한 경우 최신 액세스 키를 �
     ![확인 메시지에서 예 선택](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
 
 3. 동기화가 완료되면 대화 상자를 종료합니다.
+
+## <a name="change-external-service-ips-for-containers"></a>컨테이너의 외부 서비스 Ip 변경
+
+Kubernetes 외부 서비스 Ip는 Kubernetes 클러스터 외부에 노출 되는 서비스에 연결 하는 데 사용 됩니다. 장치가 활성화 된 후 로컬 UI에 액세스 하 여 장치에 대 한 컨테이너 화 된 워크 로드에 대 한 외부 서비스 Ip를 설정 하거나 수정할 수 있습니다.
+
+
+1. 장치의 로컬 UI에서 **Compute** 로 이동 합니다.
+1. 네트워크를 계산 하도록 구성 된 포트를 선택 합니다. 열리는 블레이드에서 (신규) 또는 modify (기존 경우) Kubernetes 외부 서비스 Ip를 지정 합니다. 이러한 Ip는 Kubernetes 클러스터 외부에 노출 해야 하는 모든 서비스에 사용 됩니다. 
+    - `edgehub`장치에서 실행 되 고 IoT Edge 모듈에서 사용 되는 서비스에 대 한 최소 1 개의 서비스 IP가 필요 합니다. 
+    - 배포 하려는 각 추가 IoT Edge 모듈 또는 컨테이너에 대해 IP가 필요 합니다. 
+    - 이는 정적인 연속 Ip입니다.
+
+    ![Kubernetes 서비스 Ip 변경](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
+
+1. **적용** 을 선택합니다. Ip를 적용 한 후에는 장치를 다시 시작 하거나 다시 부팅할 필요가 없습니다. 새 Ip가 즉시 적용 됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

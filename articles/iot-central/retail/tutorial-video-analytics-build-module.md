@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832048"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721466"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>자습서: 라이브 비디오 분석 게이트웨이 모듈 수정 및 빌드
 
@@ -25,11 +25,13 @@ ms.locfileid: "99832048"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Node.js](https://nodejs.org/en/download/) v10 이상
-* [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) 확장이 설치된 [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Docker](https://www.docker.com/products/docker-desktop) 엔진
-* 모듈 버전을 호스트하는 [Azure Container Registry](../../container-registry/index.yml)
-* [Azure Media Services](../../media-services/index.yml) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) v10 이상
+> * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) 확장이 설치된 [Visual Studio Code](https://code.visualstudio.com/Download)
+> * [Docker](https://www.docker.com/products/docker-desktop) 엔진
+> * 모듈 버전을 호스트하는 [Azure Container Registry](../../container-registry/index.yml)
+> * [Azure Media Services](../../media-services/index.yml) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
 
 ## <a name="clone-the-repository"></a>리포지토리 복제
 

@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 대 한 vRealize 작업 설정
 description: Azure VMware 솔루션 사설 클라우드에 대해 vRealize 작업을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880694"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738432"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vRealize 작업 설정
 
@@ -37,7 +37,7 @@ vRealize Operations Manager는 VMware infrastructure 관리자가 시스템 리�
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업
 대부분의 고객에 게 하나 이상의 온-프레미스 vCenters를 관리 하는 vRealize 작업의 기존 온-프레미스 배포가 있습니다. Azure VMware 솔루션 사설 클라우드를 프로 비전 할 때 Azure Express 경로 또는 계층 3 VPN 솔루션을 사용 하 여 사설 클라우드와 온-프레미스 환경을 연결 합니다.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Azure VMware 솔루션 배포를 관리 하는 온-프레미스 vRealize 작업" border="false":::
 
 Azure VMware 솔루션 사설 클라우드로 vRealize 작업 기능을 확장 하려면 [사설 클라우드 리소스에 대 한 어댑터 인스턴스](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html)를 만듭니다. Azure VMware 솔루션 사설 클라우드에서 데이터를 수집 하 여 온-프레미스 vRealize 작업으로 가져옵니다. 온-프레미스 vRealize Operations Manager 인스턴스는 Azure VMware 솔루션의 vCenter 및 NSX Manager에 직접 연결할 수 있습니다. 필요에 따라 Azure VMware 솔루션 사설 클라우드에 vRealize 작업 원격 수집기를 배포할 수 있습니다. 수집기는 Express 경로 또는 VPN 네트워크를 통해 온-프레미스에서 실행 되는 vRealize Operations Manager으로 전송 되기 전에 사설 클라우드에서 수집 된 데이터를 압축 하 고 암호화 합니다. 
 

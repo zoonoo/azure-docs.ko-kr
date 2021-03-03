@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ba1401696092f5a16ffa21859a9b485e94c5d792
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008573"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736511"
 ---
-# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 장치에 Linux 용 Azure IoT Edge 설치 및 프로 비전 (미리 보기)
+# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
 
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 PC 클래스에서 산업용 서버로 장치에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 자세히 알아보려면 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조 하세요.
 
@@ -30,7 +30,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >
 >Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -85,7 +85,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge는 다음과 같은 프로 비전 
 
 몇 가지 장치로 수동 프로 비전을 시작 하는 것이 더 쉽습니다. 장치 프로 비전 서비스는 많은 장치를 프로 비전 하는 데 유용 합니다.
 
-DPS 방법 중 하나를 사용 하 여 장치 또는 장치를 프로 비전 하려는 경우 위에 링크 된 해당 문서의 단계에 따라 DPS 인스턴스를 만들고 DPS 인스턴스를 IoT Hub 연결 하 고 DPS 등록을 만듭니다. 단일 장치 또는 장치 그룹에 대 한 *그룹 등록* 에 대 한 *개별 등록* 을 만들 수 있습니다. 등록 유형에 대 한 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스 개념](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment)을 참조 하세요.
+DPS 방법 중 하나를 사용 하 여 장치 또는 장치를 프로 비전 하려는 경우 위에 링크 된 해당 문서의 단계에 따라 DPS 인스턴스를 만들고 DPS 인스턴스를 IoT Hub 연결 하 고 DPS 등록을 만듭니다. 단일 장치 또는 장치 그룹에 대 한 *그룹 등록* 에 대 한 *개별 등록* 을 만들 수 있습니다. 등록 유형에 대 한 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스 개념](../iot-dps/concepts-service.md#enrollment)을 참조 하세요.
 
 ## <a name="create-a-new-deployment"></a>새 배포 만들기
 
@@ -97,7 +97,7 @@ Windows 관리 센터 시작 페이지의 연결 목록 아래에서 Windows 관
 
 Windows 관리 센터를 사용 하 여 로컬 장치나 원격 관리 장치에서 Windows에 Linux 용 Azure IoT Edge를 설치 하 고 관리할 수 있습니다. 이 가이드에서는 Windows에서 Linux 용 Azure IoT Edge를 배포 하기 위한 대상 장치로 로컬 호스트 연결이 제공 됩니다.
 
-로컬 장치 대신 원격 대상 장치에 배포 하려는 경우 목록에 원하는 대상 장치가 표시 되지 않으면 지침에 따라 [장치를 추가 합니다.](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
+로컬 장치 대신 원격 대상 장치에 배포 하려는 경우 목록에 원하는 대상 장치가 표시 되지 않으면 지침에 따라 [장치를 추가 합니다.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
 
    ![대상 장치가 나열 된 초기 Windows 관리 센터 대시보드](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
@@ -136,7 +136,7 @@ Windows 관리 센터를 사용 하 여 로컬 장치나 원격 관리 장치에
 Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (아직 설치 하지 않은 경우).
 
 > [!NOTE]
-> 다음 PowerShell 프로세스는 Windows에서 Linux 용 Azure IoT Edge의 로컬 호스트 배포를 만드는 방법을 간략하게 설명 합니다. PowerShell을 사용 하 여 원격 대상 장치에 대 한 배포를 만들려면 원격 [powershell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) 을 사용 하 여 원격 장치에 대 한 연결을 설정 하 고 해당 장치에서 이러한 명령을 원격으로 실행할 수 있습니다.
+> 다음 PowerShell 프로세스는 Windows에서 Linux 용 Azure IoT Edge의 로컬 호스트 배포를 만드는 방법을 간략하게 설명 합니다. PowerShell을 사용 하 여 원격 대상 장치에 대 한 배포를 만들려면 원격 [powershell](/powershell/module/microsoft.powershell.core/about/about_remote) 을 사용 하 여 원격 장치에 대 한 연결을 설정 하 고 해당 장치에서 이러한 명령을 원격으로 실행할 수 있습니다.
 
 1. 관리자 권한 PowerShell 세션에서 다음 명령을 각각 실행 하 여 Windows에서 Linux에 대 한 IoT Edge를 다운로드 합니다.
 
@@ -173,9 +173,8 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > 매개 변수 없이이 명령을 실행 하거나 선택적으로 매개 변수를 사용 하 여 배포를 사용자 지정할 수 있습니다. PowerShell 모듈 AzureEFLOW. .psm1를 검사 하 여 매개 변수 및 해당 의미를 확인 합니다 (C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW 아래 참조).
+   > 매개 변수 없이이 명령을 실행 하거나 선택적으로 매개 변수를 사용 하 여 배포를 사용자 지정할 수 있습니다. [Windows PowerShell 스크립트 참조에서 Linux에 대 한 IoT Edge](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) 를 참조 하 여 해당 의미를 확인할 수 있습니다.
 
 1. 사용 조건에 동의 하려면 ' Y '를 입력 하십시오.
 
@@ -319,7 +318,10 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
 
 Windows에서 Linux에 대 한 IoT Edge이 IoT Edge 장치에 성공적으로 설치 및 구성 되었는지 확인 합니다.
 
+# <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
+
 1. Windows 관리 센터의 연결 된 장치 목록에서 IoT Edge 장치를 선택 하 여 연결 합니다.
+
 1. 장치 개요 페이지에는 장치에 대 한 일부 정보가 표시 됩니다.
 
     1. **IoT Edge 모듈 목록** 섹션에는 장치에서 실행 중인 모듈이 표시 됩니다. IoT Edge 서비스를 처음 시작 하는 경우 실행 중인 **edgeAgent** 모듈만 표시 되어야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 디바이스에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다.
@@ -338,6 +340,38 @@ Windows에서 Linux에 대 한 IoT Edge이 IoT Edge 장치에 성공적으로 �
        ```bash
        sudo iotedge check
        ```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+1. PowerShell 세션에서 다음 명령을 사용 하 여 Windows 가상 머신에서 Linux 용 IoT Edge에 로그인 합니다.
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+1. 로그인 한 후에는 다음 Linux 명령을 사용 하 여 실행 중인 IoT Edge 모듈 목록을 확인할 수 있습니다.
+
+   ```bash
+   iotedge list
+   ```
+
+1. IoT Edge 서비스의 문제를 해결 해야 하는 경우 다음 Linux 명령을 사용 합니다.
+
+    1. 서비스 문제를 해결해야 할 경우 서비스 로그를 검색합니다.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. 도구를 사용 `check` 하 여 장치의 구성 및 연결 상태를 확인 합니다.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

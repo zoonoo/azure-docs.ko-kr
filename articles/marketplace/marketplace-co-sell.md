@@ -1,96 +1,87 @@
 ---
-title: 공동 판매 파트너 참여 - Microsoft 상업용 Marketplace
+title: Microsoft 영업 팀 및 파트너와 공동 판매 개요
 description: 파트너를 위한 Microsoft 파트너 센터 공동 판매 프로그램은 방대한 고객 기반에 도달 하 고 새 판매를 창출 하는 데 도움이 될 수 있습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/05/2021
-ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 2/24/2021
+ms.openlocfilehash: 5d6b05b9656879f174d92d75ca8b188f7e74e5a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581570"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721143"
 ---
-# <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
+# <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Microsoft 영업 팀 및 파트너와 공동 판매 개요
 
-공동 판매 프로그램을 사용 하 여 공동 판매 기회에서 Microsoft 판매자와 직접 작업 하 고 상업적 Marketplace를 통해 판매 되는 중요 한 추가 상업적 및 머천다이징 혜택의 잠금을 해제할 수 있습니다.
+Microsoft와 공동 판매는 Microsoft와 파트너 에코 시스템 간의 공동 작업 참여로 정의 됩니다. 이 프로세스에는 건물 수요, 영업 계획, 판매 잠재 고객 공유, 파트너-파트너의 기술 판매 가속화, marketplace 진행 상거래 제공이 포함 됩니다.
 
-공동 판매 프로그램은 **IP (지적 재산권)** 를 사용 하 여 제공 되는 소프트웨어를 반복 가능 하 고 패키지 된 제품 및 **Microsoft 기술이 포함 된 서비스** 에 사용할 수 있습니다. 공동 판매 프로그램의 제품 유형은 대부분 상업적 marketplace 에서도 사용할 수 있습니다. 추가 요구 사항을 충족 하는 제안은 **공동 판매** 또는 **공동 판매 incentivized** 됩니다.
+제품을 공동 판매 하도록 선택 하는 경우 공동 판매 기회에서 Microsoft 영업 팀 및 Microsoft 파트너와 직접 작업할 수 있습니다. 이를 통해 상용 marketplace 온라인 상점을 통해 판매 하는 경우 혜택을 Azure Marketplace 하 고 Microsoft AppSource 합니다.
 
-- **공동 판매 준비** 제안은 Microsoft 현장 판매자에 게 제공 됩니다. Microsoft 판매자로 작업할 때 공동 판매 프로그램을 사용 하면 비즈니스 성장을 가속화 하는 영업 기회에 대해 공동 작업을 수행 하는 Microsoft 관리 고객의 방대한 커뮤니티에 연결할 수 있습니다.
+공동 판매 기회는 고객의 요구에 대 한 솔루션을 제공 하기 위해 [잠재 고객](./partner-center-portal/commercial-marketplace-get-customer-leads.md)에 대해 작업을 수행 하 고 microsoft 영업 팀 또는 microsoft 파트너와 공동으로 작업 하는 경우의 결과입니다.
 
-    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="판매 잠재 고객이 Microsoft에서 관리 하는 고객에 대해 공유, 승인 및 적용 될 때 공동 판매를 수행 하는 방법을 보여 주는 다이어그램입니다.":::
+[![판매 잠재 고객이 Microsoft에서 관리 하는 고객에 대해 공유, 승인 및 적용 될 때 공동 판매를 수행 하는 방법을 보여 주는 다이어그램입니다.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png#lightbox)
 
-- **공동 판매 incentivized** IP 제품은 아래 나열 된 marketplace 혜택 외에도 Microsoft 영업 팀과 협력 하 여 판매 될 때 Microsoft 현장 판매자의 성과급을 얻을 수 있습니다.</li></ul>
+이러한 솔루션 (제품 이라고 함)은 Microsoft 기술을 지 원하는 지적 재산권 (IP) 및 서비스를 사용 하 여 빌드된 소프트웨어를 포함할 수 있습니다.
 
-## <a name="marketplace-benefits-for-incentivized-offers"></a>Incentivized 제품에 대 한 Marketplace 혜택
+## <a name="co-sell-opportunities"></a>공동 판매 기회
 
-**AZURE IP 공동 판매 incentivized** 상태를 얻는 제안은 다음과 같은 추가 marketplace 혜택을 얻습니다.
+공동 판매 기회는 고객의 요구를 충족 하는 제품 및 솔루션을 판매 하기 위해 Microsoft 영업 팀, Microsoft 파트너 또는 둘 다를 사용 하는 모든 유형의 공동 작업입니다. 공동 판매의 주요 범주 중 일부는 다음과 같습니다.
 
-- Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 된 IaaS 또는 SaaS 제품에 적용 됩니다. 자세한 내용은 [상업적 marketplace 서비스 요금](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)을 참조 하세요.
-- CSP (클라우드 솔루션 공급자) 파트너는 IaaS 또는 SaaS 제품을 판매 하기 위해 10%의 동기를 받습니다. [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)에서 CSP 프로그램에 대해 자세히 알아보세요.
-- 상업적 marketplace를 통한 제품 판매는 고객의 Azure 사용량 약정에 기여 합니다. 적격 고객은 Azure Portal에 **"Azure 혜택 적격"** 으로 표시 된 제품을 볼 수 있습니다. 자세한 내용은 [Azure 사용량 약정 혜택](azure-consumption-commitment-benefit.md)을 참조 하세요.
-- **AZURE IP 공동 판매 incentivized** 또는 **Business Applications 공동 판매 incentivized** 상태를 실현 하는 제품은 상점에서 **"기본 솔루션"** 배지를 받게 됩니다. 배지는 특정 산업 수직 또는 솔루션 영역에서 고객의 요구를 해결 하는 제품의 품질, 성능 및 기능을 홍보 합니다. [Microsoft AppSource 및 Azure Marketplace에서 선호 하는 솔루션](preferred-solutions.md)에 대해 자세히 알아보세요.
+- **Microsoft 영업 팀과 공동 판매** – 하나 이상의 microsoft 영업 팀과 협력 하 여 고객의 요구 사항을 적극적으로 충족 합니다. 여기에는 제품 판매, Microsoft 제품 또는 둘 다가 포함 될 수 있습니다. 사용자와 Microsoft 영업 팀은 솔루션이 적합 한 고객의 기회를 식별 하 고 공유할 수 있습니다.
+- **P2P (partner To partner)** – 다른 Microsoft 파트너와 협력 하 여 고객 문제를 적극적으로 해결할 수 있습니다.
+- **비공개 거래** – microsoft reporting system에 반영 되어 분석 및 예측을 위해 독립적으로 microsoft와 작업 하는 것을 공유 합니다.
+- **솔루션 평가 (SA)** -솔루션 평가 비즈니스 팀에서 점검 되었다는 하는 파트너와 협력 하 여 Microsoft 기술 사용 또는 사용을 계획 하는 고객의 기술 요구 사항에 액세스할 수 있습니다.
 
-## <a name="co-sell-publishing-steps-and-requirements"></a>공동 판매 게시 단계 및 요구 사항
+## <a name="co-sell-statuses"></a>공동 판매 상태
 
-이 표에는 marketplace에서 공동 판매 준비 또는 공동 판매 incentivized을 제공 하기 위한 단계와 요구 사항이 정리 되어 있습니다. 모든 상용 marketplace 제품 유형을 파트너 센터의 공동 판매에 대해 구성할 수 있는 것은 아닙니다. 공동 판매를 지 원하는 제품 형식의 최신 목록은 [상업적 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요. 
+제품에 적용할 수 있는 공동 판매 상태의 네 가지 수준은 다음과 같습니다.
 
-|단계    |제품 유형    |요구 사항    |공동 판매 상태    |
-|----    |-------------    |------------    |---------------   |
-|<ol start=1><li>파트너 센터에서 계정을 만들고 상용 marketplace에 제품을 게시 합니다.</li>|모두|<ul><li>제품은 상업적 marketplace 게시 요구 사항을 충족 합니다.</li><li>파트너 센터에서 전체 비즈니스 프로필을 사용할 수 있습니다.</li></ul>| 시장에서 |
-|<ol start=2><li>필요한 공동 판매 자료를 제출 합니다.</li>|[상용 marketplace에서 공동 판매 옵션](commercial-marketplace-co-sell.md) *을 사용한* IP 제안|[파트너 센터에서 필수 자료 업로드](#how-to-submit-co-sell-materials-in-partner-center)|공동 판매 준비|
-||[상업적 marketplace에서 공동 판매 옵션을 사용](commercial-marketplace-co-sell.md) *하지 않는* IP 제품|<ul><li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li></ul>|공동 판매 준비|
-||컨설팅 서비스|<ul><li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li><li>적극적인 골드 역량.</li></ul>|공동 판매 준비|
-|<ol start=3><li>IP 공동 판매 성과급을 위한 자격</li>|Azure 응용 프로그램, Azure 컨테이너, IoT Edge 모듈, SaaS, Vm|공동 판매 준비를 완료 한 후에는 다음과 같은 두 가지 요구 사항이 추가로 적용 됩니다. <ul> 요구 사항 1: 다음 중 하나를 수행 합니다.<ul><li>*조직 수준에서:* 지난 12 개월 동안 Azure에서 사용 된 수익의 $10만 USD를 충족 하거나 초과 합니다.</li><li>*제안 수준:* $10만 USD의 누적 marketplace 청구 수익</li></ul><br>요구 사항 2: 제품 인프라의 50% 이상이 Azure에서 실행 되어야 합니다.<ul><li>[상업적 marketplace에서 공동 판매 옵션이](commercial-marketplace-co-sell.md) *포함* 된 IP 제공: 검토를 위해 파트너 센터에서 공동 판매 문서로 아키텍처 다이어그램 업로드</li><li>[상업적 marketplace에서 공동 판매 옵션을 사용](commercial-marketplace-co-sell.md) *하지 않는* IP 제품: OCP GTM에 아키텍처 다이어그램 업로드|Azure IP 공동 판매 incentivized|
-||Dynamics|<ul><li>ISV Connect premium 계층에 활성 등록이 있습니다.</li></ul>|Business Applications 공동 판매 incentivized|
-|||
+- 공동 판매 준비 안 함
+- 공동 판매 준비
+- Azure IP 공동 판매 incentivized
+- Biz 앱 ISV 연결 프리미엄  
 
-공동 판매 솔루션 제품에 대 한 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조 하세요.
+이러한 공동 판매 상태를 얻기 위한 요구 사항에 대 한 자세한 내용은 [공동 판매 요구 사항](co-sell-requirements.md)을 참조 하세요.
 
-## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>파트너 센터에서 공동 판매 자료를 제출 하는 방법
+## <a name="benefits-of-co-sell-ready-status"></a>공동 판매 준비 상태의 이점
 
-아래 단계를 수행 하 여 파트너 센터에서 직접 공동 판매 여행을 시작 합니다. 자세한 내용은 [상업적 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
+공동 판매 준비 상태는 Microsoft 영업 팀에 솔루션을 제공 합니다. Microsoft 영업 팀 및 Microsoft 파트너와 공동 판매를 사용 하면 Microsoft에서 관리 하는 방대한 커뮤니티에 연락 하 여 비즈니스 성장을 가속화 하는 영업 기회에 대 한 공동 작업을 할 수 있습니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 왼쪽 창에서 **상업용 마켓플레이스**  >  **개요** 를 선택 하 고 공동 판매 하려는 제품을 선택 합니다.
+공동 판매 준비 및 Azure IP 공동 판매 상태를 실현 하는 방법을 알아보려면 [공동 판매 준비 및 공동 판매 incentivized 요구 사항](co-sell-requirements.md)을 참조 하세요.
 
-    > [!NOTE]
-    > 공동 판매 프로그램에 아직 게시 되지 않았거나 이미 게시 된 제품을 사용 하 여 조인할 수 있습니다.
+## <a name="benefits-of-co-sell-incentivized-status"></a>공동 판매 incentivized 상태의 이점
 
-1. 왼쪽 메뉴에서 **Microsoft와 공동 판매** 를 선택 합니다.
+_공동 판매 incentivized_ 상태에는 _Azure IP 공동 판매 Incentivized_ 및 _Biz 앱 ISV 연결 프리미엄 동기_ 가 포함 됩니다. 이러한 상태는 파트너를 incentivize 하 여 제품을 판매 합니다. 이 상태를 얻으려면 공동 판매 준비 상태를 충족 해야 합니다. 공동 판매 incentivized 상태는 공동 판매 준비 솔루션의 모든 혜택을 획득 Microsoft 영업 팀에 대 한 추가 성과급을 얻을 수 있으며, 더 많은 상용 marketplace 혜택을 받을 수 있습니다.
 
-    [![이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+Azure IP 공동 판매 incentivized 상태는 다음 제품 유형에 적용 될 수 있습니다.
 
-1. Microsoft 판매자가 **목록** 섹션에서 제품을 신속 하 게 정렬 하 고 검색 하는 데 도움이 되는 기본 목록 세부 정보를 제공 합니다. (*필수: 모든 필드*)
+- Azure 애플리케이션
+- Azure 컨테이너
+- Azure Virtual Machine
+- IoT Edge 모듈
+- SaaS(Software as a Service)
 
-    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="이 이미지는 공동 판매 탭의 목록 섹션을 보여 줍니다.":::  
+Biz 앱 ISV 연결 프리미엄 동기 상태를 다음 제안 유형에 적용할 수 있습니다.
 
-1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. *(필수: 솔루션/제안 1-호출기 및 솔루션/제안 피치 데크. Azure IP 공동 판매 incentivized 상태를 얻기 위해 필요 합니다. 참조 아키텍처 다이어그램.*
+- Dynamics 365 비즈니스 중부
+- 고객 Engagement & PowerApps의 Dynamics 365
+- 운영을 위한 Dynamics 365
 
-    [![이 이미지는 공동 판매 탭의 문서 섹션을 보여 줍니다.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
+_AZURE IP 공동 판매 incentivized_ 또는 Biz 앱에 대 한 제공 _ISV ISV 연결 프리미엄 동기_ 상태는 다음과 같은 상용 marketplace 혜택을 얻습니다.
 
-1. **연락처** 섹션에서 판매 담당자 정보를 업로드 합니다. Microsoft 판매자는 이러한 연락처에 연락 하 여 제품에 대 한 추가 정보를 요청할 수 있습니다. (*필수: 제품을 사용할 수 있는 각 지리에 대 한 연락처입니다.*)
+- Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 되는 IaaS (infrastructure as a service) 솔루션 또는 SaaS (software as a service) 솔루션에 적용 됩니다. 자세한 내용은 [상업적 marketplace 서비스 요금](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)을 참조 하세요.
+- CSP (클라우드 솔루션 공급자) 파트너는 IaaS 솔루션 또는 SaaS 제품을 판매 하기 위해 10% 동기를 받습니다. CSP 프로그램에 대해 자세히 알아보려면 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조 하세요.
+- 상업적 marketplace를 통해 제품을 판매 하는 것은 고객의 Azure 사용량 약정에 기여 합니다. 적격 고객은 Azure Portal에서 **Azure 혜택** 으로 표시 된 제품을 볼 수 있습니다. 자세한 내용은 [Azure 사용량 약정 혜택](azure-consumption-commitment-benefit.md)을 참조 하세요.
+- _AZURE IP 공동 판매 incentivized_ 또는 Biz 앱에 대 한 제공 _ISV ISV 연결 프리미엄 동기_ 상태는 온라인 상점의 제품 목록 페이지에서 선호 하는 **솔루션** 배지를 받게 됩니다. 배지는 특정 산업 수직 또는 솔루션 영역에서 고객의 요구를 해결 하는 제품의 품질, 성능 및 기능을 홍보 합니다. 자세히 알아보려면 [Microsoft AppSource 및 Azure Marketplace의 기본 솔루션](preferred-solutions.md)을 참조 하세요.
 
-    [![이 이미지는 공동 판매 탭의 연락처 섹션을 보여 줍니다.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
-
-1. 계속 하기 전에 초안을 저장 합니다.
-1. 제품의 모든 필수 섹션이 완료되면 검토 및 게시를 위해 제출할 수 있습니다. 오른쪽 위에서 **검토 및 게시** 를 선택 합니다. 제품 세부 정보를 검토 한 다음 **게시** 를 선택 합니다.
-
-> [!NOTE]
-> 공동 판매를 위해 제품을 추천 더 이상 연락할 필요가 없습니다. Microsoft에서 공동 판매 페이지에서 모든 필수 필드를 완료 하 고 제품을 다시 게시 한 후 제품을 검토 하 여 공동 판매 상태에 대 한 요구 사항을 충족 하는지 확인 합니다.
-
-## <a name="see-your-offers-co-sell-status"></a>제품의 공동 판매 상태 확인
-
-[상업적 marketplace에서 공동 판매 옵션이](commercial-marketplace-co-sell.md)제공 되는 제품의 경우 제품 개요 페이지에서 제품의 현재 공동 판매 상태를 확인할 수 있습니다.
-
-[![이 이미지는 제품의 현재 공동 판매 상태를 보여 줍니다.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
+공동 판매 준비 및 공동 판매 incentivized 상태를 실현 하는 방법을 알아보려면 [공동 판매 준비 및 공동 판매 incentivized 요구 사항](co-sell-requirements.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft와 함께 판매](https://partner.microsoft.com/membership/sell-with-microsoft)에 대해 자세히 알아봅니다.
-- [상업적 marketplace에서 공동 판매 옵션](commercial-marketplace-co-sell.md)에 대해 자세히 알아보세요.
-- [공동 판매 플레이 북](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF)를 참조 하세요.
+- 요구 사항에 대 한 자세한 내용은 [공동 판매 준비 및 공동 판매 incentivized 요구 사항](co-sell-requirements.md) 을 참조 하세요.
+- 공동 판매 제품을 구성 하려면 [상업적 marketplace 제품에 대 한 공동 판매 구성](commercial-marketplace-co-sell.md) 을 참조 하세요.
+- 공동 판매 상태를 확인 하려면 [제안의 공동 판매 상태 확인](co-sell-status.md)을 참조 하세요.
+- [Microsoft와 공동 판매](https://partner.microsoft.com/membership/sell-with-microsoft)에 대해 자세히 알아보세요.

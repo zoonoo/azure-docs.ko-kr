@@ -1,24 +1,21 @@
 ---
 title: Apache 레인저의 Apache Hive 정책-Azure HDInsight
 description: Enterprise Security Package를 사용하여 Azure HDInsight 서비스에서 Hive용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705707"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 후 Excel 및 ODBC 드라이버를 사용 하 여 HDInsight의 Hive 테이블에 연결 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Enterprise Security Package가 포함된 HDInsight 클러스터. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 * 엔터프라이즈, Office 2016, Office 2013 Professional Plus, Excel 2013 독립 실행형 또는 Office 2010 Professional Plus 용 Microsoft 365 apps를 사용 하는 워크스테이션
@@ -54,7 +51,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기 hivesampletable-모두|
-    |Hive 데이터베이스|기본값|
+    |Hive 데이터베이스|default|
     |테이블|hivesampletable|
     |Hive 열|*|
     |사용자 선택|hiveuser1|
@@ -72,7 +69,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기-hivesampletable-devicemake|
-    |Hive 데이터베이스|기본값|
+    |Hive 데이터베이스|default|
     |테이블|hivesampletable|
     |Hive 열|clientid, devicemake|
     |사용자 선택|hiveuser2|

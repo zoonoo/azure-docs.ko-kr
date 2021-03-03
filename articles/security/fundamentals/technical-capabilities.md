@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585146"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735780"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
 
 ## <a name="azure-platform"></a>Azure 플랫폼
 
-[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)는 데이터 서비스 및 고급 분석, 개발자 도구 및 서비스가 통합되고 Microsoft의 퍼블릭 클라우드 데이터 센터 내에 호스트된 인프라 및 애플리케이션 서비스로 구성된 클라우드 플랫폼입니다. 고객은 기본 컴퓨팅, 네트워킹 및 스토리지부터 모바일 및 웹앱 서비스, 사물 인터넷 같은 전체 클라우드 시나리오에 이르는 다양한 기능 및 시나리오에 Azure를 사용합니다. Azure는 오픈 소스 기술과 함께 사용할 수 있고 하이브리드 클라우드로 배포되거나 고객의 데이터 센터 내에서 호스트될 수 있습니다. Azure는 기업이 비용을 절감하고, 더 빠르게 혁신을 이루고, 사전 대응적으로 시스템을 관리하는 데 도움이 되는 기본 구성 요소로서 클라우드 기술을 제공합니다. IT 자산을 만들거나 클라우드 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)는 데이터 서비스 및 고급 분석, 개발자 도구 및 서비스가 통합되고 Microsoft의 퍼블릭 클라우드 데이터 센터 내에 호스트된 인프라 및 애플리케이션 서비스로 구성된 클라우드 플랫폼입니다. 고객은 기본 계산, 네트워킹, 저장소, 모바일 및 웹 앱 서비스, 사물 인터넷 같은 전체 클라우드 시나리오에 이르기까지 다양 한 용량 및 시나리오에 Azure를 사용 하 고, 오픈 소스 기술과 함께 사용 하 고, 하이브리드 클라우드로 배포 하거나, 고객의 데이터 센터 내에서 호스트 될 수 있습니다. Azure는 기업이 비용을 절감하고, 더 빠르게 혁신을 이루고, 사전 대응적으로 시스템을 관리하는 데 도움이 되는 기본 구성 요소로서 클라우드 기술을 제공합니다. IT 자산을 만들거나 클라우드 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
 Microsoft Azure는 팀이 Microsoft 플랫폼 및 타사 플랫폼의 데이터, 오픈 프레임워크 및 도구를 통해 통찰력을 얻도록 하는 통합 데이터 서비스 및 분석 기능을 사용하여 다양한 클라우드 기술 집합 및 다양한 복잡성의 프로젝트 내에서 작업할 수 있도록 하는 안전하고 일관된 애플리케이션 플랫폼 및 Infrastructure-as-a-Service를 제공하는 유일한 클라우드 컴퓨팅 공급자로, 온-프레미스와 클라우드를 통합하거나 온-프레미스 데이터 센터 내에서 Azure Cloud Services를 배포할 수 있습니다. Microsoft 신뢰 클라우드의 일부로, 고객은 Azure에서 업계 최고의 보안, 안정성, 규정 준수, 개인 정보 보호와 클라우드에서 조직을 지원하기 위한 방대한 사용자, 파트너 및 프로세스 네트워크를 획득할 수 있습니다.
 
@@ -37,7 +37,7 @@ Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습�
 
 - 비즈니스를 보호합니다.
 
-## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>책임을 수행할 보안 기술 기능
+## <a name="security-technical-capabilities-to-fulfill-your-responsibility"></a>책임을 충족 하는 보안 기술 기능
 
 Microsoft Azure는 보안, 개인 정보 보호 및 규정 준수 요구 사항을 충족 하는 데 도움이 되는 서비스를 제공 합니다. 다음 그림은 업계 표준을 기반으로 하는 보안 및 규정 준수 응용 프로그램 인프라를 구축 하는 데 사용할 수 있는 다양 한 Azure 서비스를 설명 합니다.
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- Single Sign-On
+- SSO(Single sign-on)
 
 - Multi-Factor Authentication
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>Single Sign-On
+#### <a name="single-sign-on"></a>SSO(Single sign-on)
 
 [Sso (single sign-on)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 는 단일 사용자 계정을 사용 하 여 한 번만 로그인 함으로써 비즈니스를 수행 하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미 합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
@@ -143,7 +143,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 
 #### <a name="identity-protection"></a>ID 보호
 
-[Azure AD ID 보호](../../active-directory/identity-protection/overview-identity-protection.md) 은 조직의 id에 영향을 주는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. Id 보호는 기존 Azure Active Directory의 비정상 감지 기능 (Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 사용 하 고 실시간으로 변칙을 검색할 수 있는 새로운 위험 검색 유형을 도입 합니다.
+[Azure AD ID 보호](../../active-directory/identity-protection/overview-identity-protection.md) 은 조직의 id에 영향을 주는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. Id 보호는 기존 Azure Active Directory의 변칙 감지 기능 (Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 사용 하 고 실시간으로 변칙을 검색할 수 있는 새로운 위험 검색 유형을 도입 합니다.
 
 ## <a name="secure-resource-access"></a>보안 리소스 액세스
 
@@ -168,7 +168,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 - 스토리지: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
 - 전송 중: 데이터를 구성 요소, 위치 또는 프로그램 간에 전송 하는 경우 (예: Express 경로와 같은 하이브리드 연결을 포함 하 여 온-프레미스에서 클라우드로 또는 그 반대의 경우) 또는 입/출력 프로세스 중에는 이동 중 이라고 생각 합니다.
 
-### <a name="encryption-at-rest"></a>휴지 상태의 암호화
+### <a name="encryption-at-rest"></a>미사용 암호화
 
 휴지 상태의 암호화에 대해서는 [Azure 미사용 데이터 암호화](encryption-atrest.md)에 자세히 설명 되어 있습니다.
 
@@ -184,7 +184,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 
 대용량 데이터 집합은 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 같은 전용 고속 WAN 링크를 통해 이동할 수 있습니다. ExpressRoute를 사용하기로 선택하는 경우 [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) 또는 기타 프로토콜을 사용하여 애플리케이션 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
 
-Azure Portal을 통해 Azure Storage와 상호 작용하는 경우 모든 트랜잭션이 HTTPS를 통해 발생합니다. 또한 HTTPS를 통해 [스토리지 REST API](/rest/api/storageservices/)를 사용하여 [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)와 상호 작용할 수 있습니다.
+Azure Portal를 통해 Azure Storage와 상호 작용 하는 경우 모든 트랜잭션이 HTTPS를 통해 발생 합니다. 또한 HTTPS를 통해 [스토리지 REST API](/rest/api/storageservices/)를 사용하여 [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)와 상호 작용할 수 있습니다.
 
 전송 중인 데이터를 보호 하지 못하는 조직은 메시지 가로채기 ( [man-in-the-middle) 공격](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [도청](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))및 세션 하이재킹에 더 취약 합니다. 이러한 공격은 기밀 데이터에 액세스하기 위한 첫 번째 단계일 수 있습니다.
 
@@ -192,9 +192,9 @@ Azure VPN 옵션에 대한 자세한 내용은 [VPN Gateway 계획 및 설계](.
 
 ### <a name="enforce-file-level-data-encryption"></a>파일 수준 데이터 암호화 적용
 
-[Azure RMS](/azure/information-protection/what-is-azure-rms)는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호합니다. Azure RMS는 조직 내부와 조직 외부에서 휴대폰, 태블릿 및 PC와 같은 여러 디바이스를 보호합니다. Azure RMS는 데이터가 조직의 경계를 벗어나는 경우에도 데이터를 유지하는 보호 수준을 추가하기 때문에 이 기능이 가능한 것입니다.
+[Azure RMS](/azure/information-protection/what-is-azure-rms)는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호합니다. Azure RMS는 조직 내와 조직 외부 모두에서 보호 하 여 휴대폰, 태블릿, Pc 등의 여러 장치에서 작동 합니다. Azure RMS는 데이터가 조직의 경계를 벗어나는 경우에도 데이터를 유지하는 보호 수준을 추가하기 때문에 이 기능이 가능한 것입니다.
 
-Azure RMS를 사용하여 파일을 보호하면 [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf)를 완벽하게 지원하는 업계 표준 암호화를 사용하는 것입니다. Azure RMS를 활용하여 데이터를 보호하면 클라우드 스토리지 서비스처럼 IT의 제어를 받지 않는 스토리지로 파일이 복사되더라도 파일 보호가 유지되므로 안심할 수 있습니다. 전자 메일을 통해 공유되는 파일도 마찬가지입니다. 파일이 전자 메일 메시지의 첨부 파일로 보호되며 보호되는 첨부 파일을 여는 방법에 대한 지침이 함께 제공됩니다.
+Azure RMS를 사용하여 파일을 보호하면 [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf)를 완벽하게 지원하는 업계 표준 암호화를 사용하는 것입니다. 데이터 보호를 위해 Azure RMS를 사용 하는 경우 클라우드 저장소 서비스와 같이 IT의 제어를 받지 않는 저장소로 복사 하는 경우에도 보호 기능이 파일에 유지 된다는 보장이 있습니다. 전자 메일을 통해 공유되는 파일도 마찬가지입니다. 파일이 전자 메일 메시지의 첨부 파일로 보호되며 보호되는 첨부 파일을 여는 방법에 대한 지침이 함께 제공됩니다.
 Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 
 - [RMS 공유 앱](/azure/information-protection/rms-client/sharing-app-windows) 설치. 이 앱은 사용자가 간편하게 파일을 직접 보호할 수 있도록 Office 추가 기능을 설치하여 Office 애플리케이션과 통합됩니다.
@@ -208,7 +208,7 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 > [!Note]
 > Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](/azure/information-protection/requirements) 문서를 참조하세요.
 
-## <a name="secure-your-application"></a>응용 프로그램 보안
+## <a name="secure-your-application"></a>애플리케이션 보안
 Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 애플리케이션 자체를 보호하는 것은 사용자 책임입니다. 즉, 애플리케이션 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 애플리케이션 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
@@ -278,6 +278,8 @@ Azure 네트워킹은 Azure Virtual Network의 네트워크 트래픽에 대한 
 
 Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](../../expressroute/expressroute-introduction.md)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 응용 프로그램이 여러 데이터 센터에서 실행 되는 경우 [azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) 를 사용 하 여 사용자의 요청을 응용 프로그램의 여러 인스턴스에서 지능적으로 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
+Azure는 azure [개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)를 사용 하 여 azure Virtual Network에서 PaaS 리소스 (예: Azure Storage 및 SQL Database)에 대 한 개인 및 안전한 연결도 지원 합니다. PaaS 리소스는 가상 네트워크의 [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 매핑됩니다. 가상 네트워크와 PaaS 리소스의 개인 끝점 간 링크는 Microsoft 백본 네트워크를 사용 하며 공용 인터넷을 통해 이동 하지 않습니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 또한 Azure 개인 링크를 사용 하 여 가상 네트워크에서 Azure에서 호스트 되는 고객 소유 및 파트너 서비스에 액세스할 수 있습니다.  또한 Azure 개인 링크를 사용 하면 가상 네트워크에서 [개인 링크 서비스](https://docs.microsoft.com/azure/private-link/private-link-service-overview) 를 만들어 가상 네트워크에서 개인적으로 고객에 게 제공할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다.
+
 ## <a name="virtual-machine-security"></a>가상 머신 보안
 
 [Azure Virtual Machines](../../virtual-machines/index.yml)를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services 지원을 통해 거의 모든 운영 체제에 모든 작업과 언어를 배포할 수 있습니다.
@@ -304,7 +306,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 - 클라우드 채택 프로세스의 초기에 의사 결정자들이 논의해야 할 핵심적인 주제가 노출됩니다.
 
-- 개인 정보, PII(개인 식별 정보) 및 데이터 보안에 대한 규정 및 조직의 자체 목표에 대한 철저한 비즈니스 토론을 지원합니다.
+- 는 규정 및 조직의 개인 정보, 개인 정보 및 데이터 보안에 대 한 철저 한 비즈니스 토론을 지원 합니다.
 
 - 조직에서 클라우드 프로젝트에 영향을 줄 수 있는 잠재적인 문제를 식별하는 데 도움을 줍니다.
 
@@ -316,7 +318,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 ![보안 유효성 검사(검색)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
+Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 환경에 대 한 심층 인식을 포함 하 여 Microsoft에서 제공 하는 다양 한 기능을 통해 얻은 지식을 통합 한 프레임 워크를 기반으로 합니다.
 
 ### <a name="microsoft-azure-monitor"></a>Microsoft Azure 모니터
 
@@ -340,7 +342,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-다음은 템플릿의 예입니다.
+다음은 이러한 템플릿의 예입니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 
@@ -383,7 +385,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE를 포함하여 온-프레미스 또는 클라우드에서 호스팅되는 다양한 플랫폼의 애플리케이션에서 작동합니다. devOps 프로세스와 통합되며, 다양한 개발 도구에 대한 연결 지점이 있습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE를 포함하여 온-프레미스 또는 클라우드에서 호스팅되는 다양한 플랫폼의 애플리케이션에서 작동합니다. DevOps 프로세스와 통합 되며 다양 한 개발 도구에 대 한 연결 지점이 있습니다.
 
 다음 사항을 모니터링합니다.
 

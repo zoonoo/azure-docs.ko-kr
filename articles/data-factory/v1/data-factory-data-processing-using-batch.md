@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364276"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730867"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -575,9 +575,7 @@ test custom activity Microsoft test custom activity Microsoft
    d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > **Batch 계정** 블레이드의 URL 형식은 \<accountname\> 다음과 같습니다.. \<region\> batch.azure.com. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
-      >
-      >
+      > **Batch 계정** 블레이드의 URL 형식은 `<accountname>.<region>.batch.azure.com` 다음과 같습니다. `batchUri`JSON 스크립트의 속성에 대해 URL에서을 제거 해야 합니다 `<accountname>.` . 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
 
       ![Batch 계정 블레이드](./media/data-factory-data-processing-using-batch/image9.png)
 

@@ -3,12 +3,12 @@ title: 가동 중지 시간, SLA 및 중단 통합 문서-Application Insights
 description: Application Insights 리소스 및 Azure 구독 전체에서 단일 창을 통해 웹 테스트에 대 한 SLA를 계산 하 고 보고 합니다.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714054"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>가동 중지 시간, SLA 및 중단 통합 문서
 
@@ -51,13 +51,13 @@ SLA 통합 문서 템플릿은 Application Insights 리소스의 통합 문서 �
 
 ## <a name="edit-the-report"></a>보고서 편집
 
-다른 [Azure Monitor 통합 문서](../platform/workbooks-overview.md)와 같이 보고서를 편집할 수 있습니다. 팀의 요구에 따라 쿼리나 시각화를 사용자 지정할 수 있습니다.
+다른 [Azure Monitor 통합 문서](../visualize/workbooks-overview.md)와 같이 보고서를 편집할 수 있습니다. 팀의 요구에 따라 쿼리나 시각화를 사용자 지정할 수 있습니다.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" 편집 단추를 선택 하 여 시각화를 원형 차트로 변경 하는 GIF" lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-쿼리는 [Log Analytics](../log-query/log-analytics-overview.md) 에서 실행 되 고 다른 보고서 나 대시보드에서 사용할 수 있습니다. 매개 변수 제한을 제거 하 고 핵심 쿼리를 다시 사용 합니다.
+쿼리는 [Log Analytics](../logs/log-analytics-overview.md) 에서 실행 되 고 다른 보고서 나 대시보드에서 사용할 수 있습니다. 매개 변수 제한을 제거 하 고 핵심 쿼리를 다시 사용 합니다.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" 로그 쿼리의 GIF입니다." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ SLA 통합 문서 템플릿은 Application Insights 리소스의 통합 문서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 최적화 팁을 Log Analytics](../log-query/query-optimization.md)합니다.
-- [통합 문서에서 차트를 만드는](../platform/workbooks-chart-visualizations.md)방법에 대해 알아봅니다.
+- [쿼리 최적화 팁을 Log Analytics](../logs/query-optimization.md)합니다.
+- [통합 문서에서 차트를 만드는](../visualize/workbooks-chart-visualizations.md)방법에 대해 알아봅니다.
 - [가용성 테스트](monitor-web-app-availability.md)를 사용 하 여 웹 사이트를 모니터링 하는 방법을 알아봅니다.

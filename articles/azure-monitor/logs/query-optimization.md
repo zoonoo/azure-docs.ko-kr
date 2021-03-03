@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 53f189921a44d63d7e344fb733519661f5b17dc6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7ab83b2b16a1340b354b9333d00c8166b5cfdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722962"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -322,7 +322,7 @@ Azure Monitor 로그의 모든 로그는 **Timegenerated** 열에 따라 분할 
 
 시간 범위가 15 일을 초과 하는 쿼리는 과도 한 리소스를 사용 하는 쿼리로 간주 됩니다. 시간 범위가 90 일을 초과 하는 쿼리는 악성 쿼리로 간주 되어 제한 될 수 있습니다.
 
-시간 범위는 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../log-query/scope.md#time-range)에 설명 된 대로 Log Analytics 화면의 시간 범위 선택기를 사용 하 여 설정할 수 있습니다. 선택한 시간 범위는 쿼리 메타 데이터를 사용 하 여 백 엔드로 전달 되기 때문에 권장 되는 방법입니다. 
+시간 범위는 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](./scope.md#time-range)에 설명 된 대로 Log Analytics 화면의 시간 범위 선택기를 사용 하 여 설정할 수 있습니다. 선택한 시간 범위는 쿼리 메타 데이터를 사용 하 여 백 엔드로 전달 되기 때문에 권장 되는 방법입니다. 
 
 또 다른 방법은 **Timegenerated** 에서 쿼리에서 생성 된 [where](/azure/kusto/query/whereoperator) 조건을 명시적으로 포함 하는 것입니다. 쿼리가 다른 인터페이스에서 사용 되는 경우에도 시간 범위가 고정 되도록 하려면이 메서드를 사용 해야 합니다.
 쿼리의 모든 부분에 **Timegenerated** 필터가 있는지 확인 해야 합니다. 쿼리가 여러 테이블 또는 동일한 테이블에서 데이터를 인출 하는 하위 쿼리를 포함 하는 경우 각각에 고유한 [where](/azure/kusto/query/whereoperator) 조건을 포함 해야 합니다.

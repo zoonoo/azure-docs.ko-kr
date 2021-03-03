@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596678"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694260"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -361,6 +361,11 @@ ms.locfileid: "100596678"
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   네트워크 보안 그룹 삭제                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   네트워크 보안 그룹을 서브넷 또는 네트워크 인터페이스에 연결 
+
+
+>[!NOTE]
+> `write`네트워크 보안 그룹에 대 한 작업을 수행 하려면 구독 계정에 사용 권한과 `read` 함께 리소스 그룹에 대 한 이상의 권한이 있어야 합니다 `Microsoft.Network/networkSecurityGroups/write` .
+
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 

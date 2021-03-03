@@ -1,19 +1,19 @@
 ---
-title: 컨테이너 영역 매핑에 대 한 Azure Monitor
-description: 컨테이너, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대 한 Azure Monitor 간에 지원 되는 지역 매핑을 설명 합니다.
+title: 컨테이너 insights 지역 매핑
+description: 컨테이너 insights, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대해 지원 되는 지역 매핑을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9b77242de3e7845a97874b663266103bf00a8e66
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f9e910b1352109608becb82609e85e26d27d2cd1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619419"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728878"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor에서 지 원하는 지역 매핑
+# <a name="region-mappings-supported-by-container-insights"></a>컨테이너 insights에서 지원 되는 지역 매핑
 
- 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 AKS 클러스터를 연결 하 고 Azure Monitor 제출 된 사용자 지정 메트릭을 수집 하는 데 특정 영역만 지원 됩니다.
+ 컨테이너 insights를 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 AKS 클러스터를 연결 하 고 Azure Monitor에 제출 된 사용자 지정 메트릭을 수집 하는 데 특정 영역만 지원 됩니다.
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Log Analytics 작업 영역에서 지원 되는 매핑
 
@@ -53,4 +53,4 @@ AKS (Azure Kubernetes Services) 클러스터 노드 및 pod에서 메트릭을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-AKS 클러스터 모니터링을 시작 하려면 [컨테이너에 대해 Azure Monitor를 사용 하도록 설정](container-insights-onboard.md) 하 여 모니터링을 사용 하는 요구 사항 및 사용 가능한 방법을 이해 하는 방법을 검토 합니다.  
+AKS 클러스터 모니터링을 시작 하려면 [컨테이너 정보를 사용 하도록 설정](container-insights-onboard.md) 하는 방법을 검토 하 여 요구 사항 및 모니터링을 설정 하는 데 사용할 수 있는 방법을 이해 해야 합니다.  

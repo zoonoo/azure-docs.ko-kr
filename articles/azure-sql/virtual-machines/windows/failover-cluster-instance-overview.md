@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358149"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690926"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,13 +47,13 @@ Azure Virtual Machines의 SQL Server를 사용하는 장애 조치(failover) 클
 
 Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스턴스 배포를 위한 공유 스토리지 솔루션으로 다양한 옵션을 제공합니다. 
 
-||[Azure 공유 디스크](../../../virtual-machines/disks-shared.md)|[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D(스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure 공유 디스크](../../../virtual-machines/disks-shared.md)|[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-file-share.md) |[S2D(스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
 |**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합(프리미엄 SSD용) </br> 동일한 가용성 영역(울트라 SSD) |가용성 집합 및 가용성 영역|가용성 집합 |
-|**FileStream 지원**|예|아니요|예 |
-|**Azure Blob 캐시**|예|아니요|예|
+|**FileStream 지원**|예|예|예 |
+|**Azure Blob 캐시**|예|예|예|
 
 이 섹션의 나머지 부분에서는 Azure VM의 SQL Server에 사용할 수 있는 각 스토리지 옵션의 이점과 제한 사항을 나열합니다. 
 
@@ -107,7 +107,7 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 
 ### <a name="premium-file-share"></a>프리미엄 파일 공유
 
-[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md)는 [Azure Files](../../../storage/files/index.yml)의 기능입니다. 프리미엄 파일 공유는 SSD를 지원하며 지연 시간이 지속적으로 짧습니다. Windows Server 2012 이상에서 SQL Server 2012 이상에 대한 장애 조치(failover) 클러스터 인스턴스에 사용할 수 있도록 완벽하게 지원됩니다. 프리미엄 파일 공유를 사용하면 가동 중지 시간 없이 파일 공유 크기를 조정하고 확장할 수 있기 때문에 뛰어난 유연성을 제공합니다.
+[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)는 [Azure Files](../../../storage/files/index.yml)의 기능입니다. 프리미엄 파일 공유는 SSD를 지원하며 지연 시간이 지속적으로 짧습니다. Windows Server 2012 이상에서 SQL Server 2012 이상에 대한 장애 조치(failover) 클러스터 인스턴스에 사용할 수 있도록 완벽하게 지원됩니다. 프리미엄 파일 공유를 사용하면 가동 중지 시간 없이 파일 공유 크기를 조정하고 확장할 수 있기 때문에 뛰어난 유연성을 제공합니다.
 
 **지원되는 OS**: Windows Server 2012 이상   
 **지원되는 SQL 버전**: SQL Server 2012 이상   

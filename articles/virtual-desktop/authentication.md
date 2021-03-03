@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709260"
 ---
 # <a name="supported-authentication-methods"></a>지원 되는 인증 방법
 
@@ -21,14 +21,14 @@ ms.locfileid: "89500303"
 
 ## <a name="session-host-authentication"></a>세션 호스트 인증
 
-Windows 가상 데스크톱은 세션 호스트 인증을 위해 NTLM (NT LAN Manager) 및 Kerberos를 모두 지원 합니다. 그러나 Kerberos를 사용 하려면 클라이언트가 도메인 컨트롤러에서 실행 되는 키 배포 센터 (KDC) 서비스에서 Kerberos 보안 티켓을 가져와야 합니다. 티켓을 얻으려면 클라이언트는 도메인 컨트롤러에 대 한 직접적인 시야를 요구 합니다. 회사 네트워크를 사용 하 여 직접적인 시야를 얻을 수 있습니다. 회사 네트워크에 대 한 VPN 연결을 사용할 수도 있습니다.
+Windows 가상 데스크톱은 세션 호스트 인증을 위해 NTLM (NT LAN Manager) 및 Kerberos를 모두 지원 합니다. 그러나 Kerberos를 사용 하려면 클라이언트가 도메인 컨트롤러에서 실행 되는 키 배포 센터 (KDC) 서비스에서 Kerberos 보안 티켓을 가져와야 합니다. 티켓을 얻으려면 클라이언트는 도메인 컨트롤러에 대 한 직접적인 시야를 요구 합니다. 회사 네트워크를 사용 하 여 직접적인 시야를 얻을 수 있습니다. 회사 네트워크에 대 한 VPN 연결을 사용 하거나 [KDC 프록시 서버](key-distribution-center-proxy.md)를 설정할 수도 있습니다.
 
 다음은 현재 지원 되는 로그인 방법입니다.
 
 - Windows 데스크톱 클라이언트
     - 사용자 이름 및 암호
     - 스마트 카드
-    - Windows Hello
+    - 비즈니스용 Windows Hello (인증서 신뢰 전용)
 - Windows 스토어 클라이언트
     - 사용자 이름 및 암호
 - 웹 클라이언트
@@ -41,7 +41,7 @@ Windows 가상 데스크톱은 세션 호스트 인증을 위해 NTLM (NT LAN Ma
     - 사용자 이름 및 암호
 
 >[!NOTE]
->스마트 카드 및 Windows Hello는 Kerberos를 사용 하 여 로그인 할 수 있습니다. Kerberos를 사용 하 여 로그인 하려면 도메인 컨트롤러에 대 한 시야를 사용 해야 합니다.
+>스마트 카드 및 비즈니스용 Windows Hello는 Kerberos를 사용 하 여 로그인 할 수 있습니다. Kerberos를 사용 하 여 로그인 하려면 도메인 컨트롤러 또는 [KDC 프록시 서버](key-distribution-center-proxy.md)에 대 한 회선이 필요 합니다.
 
 ## <a name="hybrid-identity"></a>하이브리드 ID
 

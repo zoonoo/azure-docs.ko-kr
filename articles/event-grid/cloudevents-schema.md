@@ -4,12 +4,12 @@ description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737905"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v1.0 스키마 사용
 [기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents v1.0의 JSON 구현](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
@@ -60,11 +60,11 @@ CloudEvents 스키마에서 이벤트의 입력 및 출력 모두에 Event Grid�
 
  Event Grid 리소스 | 입력 스키마       | 배달 스키마
 |---------------------|-------------------|---------------------
-| 시스템 항목       | Event Grid 스키마 | Event Grid 스키마 또는 CloudEvent 스키마
-| 사용자 토픽/도메인 | Event Grid 스키마 | Event Grid 스키마
-| 사용자 토픽/도메인 | CloudEvent 스키마 | CloudEvent 스키마
-| 사용자 토픽/도메인 | 사용자 지정 스키마     | 사용자 지정 스키마, Event Grid 스키마 또는 CloudEvent 스키마
-| 항목 항목       | CloudEvent 스키마 | CloudEvent 스키마
+| 시스템 항목       | Event Grid 스키마 | Event Grid 스키마 또는 CloudEvents 스키마
+| 사용자 토픽/도메인 | Event Grid 스키마 | Event Grid 스키마 또는 CloudEvents 스키마
+| 사용자 토픽/도메인 | CloudEvents 스키마 | CloudEvents 스키마
+| 사용자 토픽/도메인 | 사용자 지정 스키마     | 사용자 지정 스키마, Event Grid 스키마 또는 CloudEvents 스키마
+| 항목 항목       | CloudEvents 스키마 | CloudEvents 스키마
 
 모든 이벤트 스키마의 경우 Event Grid 항목에 게시할 때 및 이벤트 구독을 만들 때 유효성 검사가 필요 Event Grid.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4e626cb5cac29a0e5133eb77cbaff3f4131b8456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091468"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722350"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                 | 로캘 (BCP-47) | 사용자 지정  | [언어 감지](how-to-automatic-language-detection.md) |
+| 언어                 | 로캘 (BCP-47) | 사용자 지정  | [언어 감지](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | 아랍어(바레인), 최신 표준  | `ar-BH` | 텍스트                                   | 예                           | 
 | 아랍어(이집트)                     | `ar-EG` | 텍스트                                   | 예                          |
@@ -62,25 +62,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 네덜란드어(네덜란드)                | `nl-NL` | 오디오 (20201015)<br>텍스트                                   |    예                       |
 | 영어(호주)                | `en-AU` | 오디오 (20201019)<br>텍스트                 | 예                          |
 | 영어(캐나다)                   | `en-CA` | 오디오 (20201019)<br>텍스트                 | 예                          |
+| 영어 (가 나)                    | `en-GH` | 텍스트                                   |                           |
 | 영어 (홍콩)                | `en-HK` | 텍스트                                   |                           |
 | 영어(인도)                    | `en-IN` | 오디오 (20200923)<br>텍스트                 | 예                          |
 | 영어(아일랜드)                  | `en-IE` | 텍스트                                   |                           |
+| 영어 (케냐)                    | `en-KE` | 텍스트                                   |                           |
 | 영어(뉴질랜드)              | `en-NZ` | 오디오 (20201019)<br>텍스트                 |  예                         |
 | 영어 (나이지리아)                  | `en-NG` | 텍스트                                   |                           |
 | 영어(필리핀)              | `en-PH` | 텍스트                                   |                           |
 | 영어(싱가포르)                | `en-SG` | 텍스트                                   |                           |
 | 영어(남아프리카 공화국)             | `en-ZA` | 텍스트                                   |                           |
+| 영어 (탄자니아)                 | `en-TZ` | 텍스트                                   |                           |
 | 영어(영국)           | `en-GB` | 오디오 (20201019)<br>텍스트<br>발음| 예                          |
 | 영어(미국)            | `en-US` | 오디오 (20201019)<br>텍스트<br>발음| 예                          |
 | 에스토니아어 (에스토니아)                  | `et-EE` | 텍스트                                   |                           |
+| 필리핀어(필리핀)             | `fil-PH`| 텍스트                                   |                           |
 | 핀란드어(핀란드)                  | `fi-FI` | 텍스트                                   |     예                      |
 | 프랑스어(캐나다)                    | `fr-CA` | 오디오 (20201015)<br>텍스트                 |     예                      |
 | 프랑스어(프랑스)                    | `fr-FR` | 오디오 (20201015)<br>텍스트<br>발음|      예                     |
+| 프랑스어(스위스)               | `fr-CH` | 텍스트                                   |                           |
+| 독일어(오스트리아)                   | `de-AT` | 텍스트                                   |                           |
 | 독일어(독일)                   | `de-DE` | 오디오 (20190701, 20200619, 20201127)<br>텍스트<br>발음|  예                         |
 | 그리스어(그리스)                     | `el-GR` | 텍스트                                   |                           |
 | 구자라트어(인도)                  | `gu-IN` | 텍스트                                   |                           |
 | 힌디어(인도)                      | `hi-IN` | 오디오 (20200701)<br>텍스트                 |     예                      |
 | 헝가리어(헝가리)                | `hu-HU` | 텍스트                                   |                           |
+| 인도네시아어(인도네시아)             | `id-ID` | 텍스트                                   |                           |
 | 아일랜드어 (아일랜드)                     | `ga-IE` | 텍스트                                   |                           |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오 (20201016)<br>텍스트<br>발음|      예                     |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |
@@ -124,6 +131,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 텔루구어(인도)                     | `te-IN` | 텍스트                                   |                           |
 | 태국어(태국)                    | `th-TH` | 텍스트                                   |      예                     |
 | 터키어(터키)                   | `tr-TR` | 텍스트                                   |                           |
+| 베트남어(베트남)               | `vi-VN` | 텍스트                                   |                           |
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
@@ -143,7 +151,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
 
-| Language | Locale | 성별 | 음성 이름 | 스타일 지원 |
+| 언어 | Locale | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
 | 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>새로 만들기</sup> | 일반 |
@@ -265,7 +273,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 신경망 아래에는 공개 미리 보기로 제공 됩니다. 
 
-| Language                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
+| 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
@@ -305,7 +313,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > **En-us-미국 AriaRUS** 및 **En-us-미국 GuyRUS** 음성도 24 khz 샘플 요금을 사용 하는 샘플에서 만들어집니다.
 > 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
-| Language | 로캘 (BCP-47) | 성별 | 음성 이름 |
+| 언어 | 로캘 (BCP-47) | 성별 | 음성 이름 |
 |--|--|--|--|
 | 아랍어 (아랍어) | `ar-EG` | Female | `ar-EG-Hoda`|
 | 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-Naayf`|
@@ -395,7 +403,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 사용자 지정 음성은 표준 및 신경망 계층에서 사용할 수 있습니다. 지원 되는 언어는 이러한 두 계층에 따라 다릅니다. 
 
-| Language | Locale | Standard | 신경 |
+| 언어 | Locale | Standard | 신경 |
 |--|--|--|--|
 | 중국어 (북경어, 간체) | `zh-CN` | 예 | 예 |
 | 중국어 (북경어, 간체), 영어 (미국) | `zh-CN` 사전 | 예 | 예 |
@@ -502,7 +510,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 다양한 Speaker Recognition API에 대해 지원되는 언어는 다음 테이블을 참조하세요. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
 
-| Language | 로캘 (BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
+| 언어 | 로캘 (BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
 |----|----|----|----|----|
 |영어(미국)  |  ko-KR  |  예  |  예  |  예 |
 |중국어(북경어, 간체) | zh-CN     |     해당 없음 |     예 |     예|

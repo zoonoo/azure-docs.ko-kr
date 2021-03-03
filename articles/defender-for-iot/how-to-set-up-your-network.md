@@ -4,15 +4,15 @@ description: IoT 어플라이언스 용 Azure Defender를 사용 하도록 네�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526513"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733247"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
@@ -22,7 +22,7 @@ IoT 용 Azure Defender는 연속 ICS 위협 모니터링 및 장치 검색을 �
 
 **Defender For IoT 온-프레미스 관리 콘솔**: 온-프레미스 관리 콘솔은 모든 네트워크 장치에 대 한 통합 보기를 제공 합니다. 모든 시설에서 핵심 OT 및 IoT 위험 표시기와 경고에 대 한 실시간 보기를 제공 합니다. SOC 워크플로 및 플레이 북과 긴밀 하 게 통합 되어 있으며, 완화 작업 및 위협에 대 한 사이트 간 상관 관계를 쉽게 확인할 수 있습니다. 
 
-Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플라이언스를 구매 하 고, 소프트웨어를 설치 및 업데이트 하 고, TI 패키지를 업데이트 하는 데 도움이 됩니다. 
+**IoT 용 Defender 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플라이언스를 구매 하 고, 소프트웨어를 설치 및 업데이트 하 고, TI 패키지를 업데이트 하는 데 도움이 됩니다. 
 
 이 문서에서는 IoT 어플라이언스 용 Defender를 사용 하도록 네트워크를 설정 하는 데 도움이 되는 솔루션 아키텍처, 네트워크 준비, 필수 구성 요소 등에 대 한 정보를 제공 합니다. 이 문서의 정보를 사용 하는 독자는 OT 및 IoT 네트워크를 운영 및 관리 하는 데 문제가 발생 합니다. 예를 들면 automation 엔지니어, 공장 관리자, OT 네트워크 인프라 서비스 공급자, 사이버 보안 팀, CISOs 또는 Cio가 있습니다.
 
@@ -101,7 +101,7 @@ Iot **for iot 포털:** IoT 용 Defender 응용 프로그램은 솔루션 어플
 | SSL | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 | CyberX 플랫폼과 중앙 관리 플랫폼 간 연결 | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN | 123 | 시간 동기화 | 온-프레미스 관리 콘솔을 사용 하 여 센서에 NTP | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN/OUT | 123 | 시간 동기화 | 온-프레미스 관리 콘솔이 설치 되어 있지 않은 경우 외부 NTP 서버에 연결 된 센서 | 센서 | NTP |
-| SMTP | TCP | OUT | 25 | 메일 | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
+| SMTP | TCP | OUT | 25 | Email | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
 | syslog | UDP | OUT | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
 | DNS |  | IN/OUT | 53 | DNS | DNS 서버 포트 | 온-프레미스 관리 콘솔 및 센서 | DNS 서버 |
 | LDAP | TCP | IN/OUT | 389 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAP 서버 |
@@ -563,7 +563,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 
 산업용 네트워크 다이어그램의 개요를 통해 IoT 장비에 대 한 Defender의 적절 한 위치를 정의할 수 있습니다.
 
-1.  산업 OT 환경의 글로벌 네트워크 다이어그램을 봅니다. 예를 들면 다음과 같습니다.
+1.  산업 OT 환경의 글로벌 네트워크 다이어그램을 봅니다. 다음은 그 예입니다. 
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="글로벌 네트워크에 대 한 산업 OT 환경의 다이어그램입니다.":::
 
@@ -605,7 +605,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 
     해당 정책 이란? __________________________________ 
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
 
     - Siemens
 
@@ -695,6 +695,6 @@ Active Directory 관리자에 게 문의 하 여 Active Directory 사이트 사�
 | 카메라 | |
 | X 광선 컴퓨터 | |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [IoT 설치용 Defender 정보](how-to-install-software.md)

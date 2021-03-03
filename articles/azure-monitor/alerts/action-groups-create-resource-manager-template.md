@@ -4,15 +4,15 @@ description: Azure 리소스 관리자 템플릿을 사용하여 작업 그룹�
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/19/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 2275ea059b762e81330d3e6150c563e18a64b554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 978372481513f3d68fdc587ccc1148976640bc80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614834"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729133"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하면 특정 유형의 경고에서 다시 사용할 수 있는 작업 그룹을 자동으로 설정할 수 있습니다. 이러한 작업 그룹은 경고가 트리거될 때 올바른 당사자가 모두 알림을 받을 수 있도록 합니다.
@@ -50,7 +50,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -71,21 +71,26 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -133,7 +138,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -146,7 +151,8 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
         "webhookReceivers": [
           {
             "name": "[parameters('webhookReceiverName')]",
-            "serviceUri": "[parameters('webhookServiceUri')]"
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -163,7 +169,6 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
 
 
 ## <a name="next-steps"></a>다음 단계
-* [작업 그룹](../platform/action-groups.md)에 대해 자세히 알아보세요.
-* [경고](../platform/alerts-overview.md)에 대해 자세히 알아보세요.
-* [리소스 관리자 템플릿을 사용하여 경고](../platform/alerts-activity-log.md)를 추가하는 방법을 알아보세요.
-
+* [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.
+* [경고](./alerts-overview.md)에 대해 자세히 알아보세요.
+* [리소스 관리자 템플릿을 사용하여 경고](./alerts-activity-log.md)를 추가하는 방법을 알아보세요.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 1cd90bc1906140e6e559c1557234458035e54042
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 22db0006e6abb38439a2db46584559dcd9ce3f3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722367"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>데이터를 준비 하 여 사용자 지정 음성 만들기
 
@@ -27,9 +27,9 @@ ms.locfileid: "99524705"
 > 신경망을 학습 하려면 음성 데이터를 사용 하 여 사용자 지정 음성 모델을 학습 하는 음성 인재 승인 된 음성 인재 프로필을 지정 해야 합니다. 기록 스크립트를 준비할 때 아래 문장을 포함 해야 합니다. 
 
 > "I [first 및 last name] am은 내 음성 기록을 [회사 이름]에서 사용 하 여 내 음성의 가상 버전을 만들고 사용 하는 것을 인식 합니다."
-이 문장은이를 사용 하 여 사용자가 동의 하는 동일한 사람이 학습 데이터를 수행 하는지 확인 하는 데 사용 됩니다. [음성 인재 확인](https://aka.ms/CNV-data-privacy) 에 대 한 자세한 내용은 여기를 참조 하세요.
+이 문장은이를 사용 하 여 사용자가 동의 하는 동일한 사람이 학습 데이터를 수행 하는지 확인 하는 데 사용 됩니다. [음성 인재 확인](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 에 대 한 자세한 내용은 여기를 참조 하세요.
 
-> 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](https://aka.ms/gating-overview) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
+> 사용자 지정 신경망은 제한 된 액세스로 사용할 수 있습니다. [책임 AI 요구 사항을](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 이해 하 고 [여기에서 액세스를 적용](https://aka.ms/customneural)해야 합니다. 
 
 ## <a name="data-types"></a>데이터 형식
 

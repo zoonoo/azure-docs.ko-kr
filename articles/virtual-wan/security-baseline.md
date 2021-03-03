@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6f487467b08332eea4ee19a7fb8836d843bd254f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e4bbc1565cec2c356e916f813a6a334648d82754
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582648"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726736"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>가상 WAN에 대 한 Azure 보안 기준
 
@@ -384,7 +384,7 @@ Azure 가상 WAN 보안은 Azure 방화벽을 통해 제공 됩니다.
 
 - [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center 경고 및 권장 사항 내보내기](../security-center/continuous-export.md)
 
