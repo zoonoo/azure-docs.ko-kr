@@ -86,6 +86,22 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: 규정 준수
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+- name: 문서 번역
+  items:
+    - name: 개요
+      items:
+        - name: 문서 번역이란?
+          href: document-translation/overview.md
+    - name: 방법 가이드
+      items:
+        - name: 문서 번역 시작
+          href: document-translation/get-started-with-document-translation.md
+        - name: SAS 토큰 만들기
+          href: document-translation/create-sas-tokens.md
+    - name: 참조
+      items:
+        - name: 문서 번역 API 참조
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
 - name: Custom Translator
   items:
     - name: 개요

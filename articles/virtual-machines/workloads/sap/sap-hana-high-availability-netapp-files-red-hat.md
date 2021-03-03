@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2939e00d704f5c2799a1f16822cccdcc963fb73e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259205"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671565"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성
 
@@ -91,7 +90,7 @@ ms.locfileid: "99259205"
     - [Microsoft Azure에서 사용할 Red Hat Enterprise Linux SAP HANA를 설치 합니다.](https://access.redhat.com/solutions/3193782)
     - [HANA 파일 시스템이 NFS 공유에 있는 경우 SAP HANA 확장 시스템 복제 Pacemaker 클러스터 구성](https://access.redhat.com/solutions/5156571)
 - [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션](https://www.netapp.com/us/media/tr-4746.pdf)
-- [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+- [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>개요
 
@@ -701,4 +700,4 @@ Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](./high-availability-guid
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)

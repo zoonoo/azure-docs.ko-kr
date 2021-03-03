@@ -8,19 +8,18 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 8202b9bd496b4f539df99e35a3118ed109dbd31c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 979de230655b4804fa65a4bddb678e21b59c4ea2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365109"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674453"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
@@ -337,7 +336,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   c. **할당** 을 **정적** 으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   다. **할당** 을 **정적** 으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -349,7 +348,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백** 엔드)을 입력 합니다.
 
-   c. **가상 머신 추가** 를 선택합니다.
+   다. **가상 머신 추가** 를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -363,7 +362,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   c. 프로토콜 및 포트 **62500** 로 **TCP** 를 선택 합니다. **간격** 값을 **5** 로 유지 하 고 **비정상 임계값** 을 **2** 로 설정 된 상태로 유지 합니다.
+   다. 프로토콜 및 포트 **62500** 로 **TCP** 를 선택 합니다. **간격** 값을 **5** 로 유지 하 고 **비정상 임계값** 을 **2** 로 설정 된 상태로 유지 합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -373,7 +372,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP** 로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트* 를 입력 합니다.
 
@@ -543,7 +542,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유 또는 GlusterFS를 구성 하는 것이 좋습니다. NFS 공유 또는 GlusterFS는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
 
 - [SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS][glusterfs] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성][anf-rhel]

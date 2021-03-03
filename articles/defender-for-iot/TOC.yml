@@ -66,12 +66,12 @@
         - name: 이벤트 집계(미리 보기)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
-        - name: 보안 경고
+        - name: IoT Hub에 대한 기본 제공 경고
           displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
-        - name: 사용자 지정 보안 경고
+        - name: IoT Hub에 대한 사용자 지정 보안 경고
           href: concept-customizable-security-alerts.md
-        - name: 보안 권장 사항
+        - name: IoT Hub에 대한 보안 추천 사항
           href: concept-recommendations.md
         - name: Classic
           items:
@@ -94,6 +94,12 @@
             - name: 보안 모듈 클래식 이벤트 집계
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
+            - name: 에이전트 기반 보안 경고
+              href: agent-based-security-alerts.md
+            - name: 에이전트 기반 보안 사용자 지정 경고
+              href: agent-based-security-custom-alerts.md
+            - name: 에이전트 기반 권장 사항
+              href: agent-based-recommendations.md
 - name: 방법 가이드
   items:
     - name: 조직을 위한 에이전트 없는 솔루션
@@ -343,5 +349,7 @@
           href: 'https://azure.microsoft.com/regions/services/'
         - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
+        - name: Azure Defender for IoT에 대한 지원 정책
+          href: support-policies.md
         - name: 동영상
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

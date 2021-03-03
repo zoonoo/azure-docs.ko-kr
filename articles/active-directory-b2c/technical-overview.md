@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556818"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -79,7 +79,7 @@ Azure AD B2C는 가입 또는 로그인 페이지에서 사용자가 로그인�
 
 ![소셜 계정이 있는 모바일 로그인 예제(Facebook)](media/technical-overview/external-idp.png)
 
-Azure AD B2C에서 ID 공급자를 추가하는 방법을 알아보려면 [자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](tutorial-add-identity-providers.md)를 참조하세요.
+Azure AD B2C에서 ID 공급자를 추가하는 방법을 알아보려면 [Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](add-identity-provider.md)를 참조하세요.
 
 ## <a name="identity-experiences-user-flows-or-custom-policies"></a>ID 환경: 사용자 흐름 또는 사용자 지정 정책
 

@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250692"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369137"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>자습서: 개발 환경에서 Azure Machine Learning 시작(1/4부)
 
@@ -68,7 +69,7 @@ pip install azureml-core
 > [!NOTE]
 > Azure Machine Learning SDK 설치가 완료되는 데 약 2분이 소요됩니다.
 >
-> 시간 초과 오류가 발생하는 경우 `pip install --default-timeout=100 azureml-core`를 대신 사용해봅니다.
+> 시간 초과 오류가 발생하는 경우 `pip install --default-timeout=100 azureml-core`를 대신 사용해보세요.
 
 
 > [!div class="nextstepaction"]
@@ -78,20 +79,29 @@ pip install azureml-core
 
 이 자습서에서는 다음과 같은 간단한 디렉터리를 설정하는 것이 좋습니다.
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="디렉터리 구조: .azureml 하위 디렉터리가 있는 자습서 상위 수준":::
+
 
 - `tutorial`: 프로젝트의 최상위 디렉터리
 - `.azureml`: Azure Machine Learning 구성 파일을 저장하기 위한 숨겨진 하위 디렉터리입니다.
 
+예를 들어 bash 창에서 이를 만들려면 다음을 수행합니다.
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> 터미널 창에는 숨겨진 .azureml 하위 디렉터리를 만들 수 있습니다.  또는 다음을 사용합니다.
+> 그래픽 창에서 구조를 만들거나 보려면 먼저 숨겨진 파일 및 폴더를 보고 만들 수 있는 기능을 사용하도록 설정합니다.
 >
-> * Mac Finder 창에서 **명령 + Shift +** 를 사용합니다. 점으로 시작하는 디렉터리를 보고 만들 수 있는 기능을 설정/해제합니다.  
+> * Mac Finder 창에서 **명령 + Shift +** 를 사용합니다. 숨겨진 파일/폴더를 표시하거나 숨깁니다.  
 > * Windows 10 파일 탐색기에서 [숨김 파일 및 폴더를 보는 방법](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5)을 참조하세요. 
 > * Linux 그래픽 인터페이스에서 **Ctrl + h** 또는 **보기** 메뉴를 사용하고 **숨김 파일 표시** 확인란을 선택합니다.
+
+
+
 
 > [!div class="nextstepaction"]
 > [디렉터리를 만들었습니다.](?success=create-dir#workspace) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 *01-create-workspace.py* 를 성공적으로 실행하면 폴더 구조는 다음과 같습니다.
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="01-create-workspace.py를 실행한 후에 config.json 파일이 .azureml 하위 디렉터리에 표시됨":::
 
 `.azureml/config.json` 파일에는 Azure Machine Learning 작업 영역에 연결하는 데 필요한 메타데이터가 포함되어 있습니다. 즉, 구독 ID, 리소스 그룹 및 작업 영역 이름이 포함됩니다. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 이제 폴더 구조는 다음과 같습니다.
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="자습서 디렉터리에 02-create-compute.py 추가":::
 
 > [!div class="nextstepaction"]
 > [컴퓨팅 클러스터를 만들었습니다.](?success=create-compute-cluster#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

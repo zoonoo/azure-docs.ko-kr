@@ -11,28 +11,28 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 629daa968d548c06d176e6349382ad51349a37a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417412"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646557"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Microsoft Dynamics 365 사기 방지 구성
 
-이 샘플 자습서에서는 Azure Active Directory (AD) B2C를 사용 하 여 [Microsoft Dynamics 365 사기 행위 보호](https://docs.microsoft.com/dynamics365/fraud-protection/overview) 를 통합 하는 방법에 대 한 지침을 제공 합니다.
+이 샘플 자습서에서는 Azure Active Directory (AD) B2C를 사용 하 여 [Microsoft Dynamics 365 사기 행위 보호](/dynamics365/fraud-protection/overview) 를 통합 하는 방법에 대 한 지침을 제공 합니다.
 
 Microsoft db는 클라이언트에 게 새 계정을 만들도록 시도 하는 위험과 클라이언트 에코 시스템에 대 한 로그인 시도가 사기성 인지 여부를 평가 하는 기능을 제공 합니다. 고객이 Microsoft EFP 평가를 사용 하 여 의심 스러운 시도를 차단 하거나 시도 하 여 새 가짜 계정을 만들거나 기존 계정을 손상 시킬 수 있습니다. 계정 보호에는 인공 지능 임 장치 지문 인식을, 실시간 위험 평가를 위한 Api, 클라이언트의 비즈니스 요구에 따라 위험 전략을 최적화 하는 규칙 및 목록 환경, 클라이언트 에코 시스템의 사기 행위 보호 효율성 및 추세를 모니터링 하는 성과 기록표가 포함 됩니다.
 
 이 샘플에서는 Microsoft BFP의 계정 보호 기능을 Azure AD B2C 사용자 흐름과 통합 합니다. 서비스는 모든 로그인 또는 등록 시도에 대해 외부에서 지문을 제공 하거나 과거 또는 의심 스러운 동작을 시청 합니다. Azure AD B2C는 사용자의 모든 과거 및 현재 동작을 기반으로 결과를 반환 하 고, Microsoft efp 서비스 내에 지정 된 사용자 지정 규칙을 사용 하 여 Microsoft EFP에서 결정 끝점을 호출 합니다. 이 결과에 따라 승인 결정을 Azure AD B2C 하 고 Microsoft EFP와 동일 하 게 다시 전달 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)입니다. 테 넌 트는 Azure 구독에 연결 됩니다.
+- [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md)입니다. 테 넌 트는 Azure 구독에 연결 됩니다.
 
 - Microsoft EFP [구독](https://dynamics.microsoft.com/pricing/#Sales)을 가져옵니다. [평가판 클라이언트 버전](https://dynamics.microsoft.com/ai/fraud-protection/signin/?RU=https%3A%2F%2Fdfp.microsoft.com%2Fsignin) 도 설정할 수 있습니다.
 
@@ -67,38 +67,38 @@ Microsoft EFP 통합에는 다음 구성 요소가 포함 됩니다.
 
 ## <a name="set-up-the-solution"></a>솔루션 설정
 
-1. 페더레이션을 Azure AD B2C 페더레이션을 허용 하도록 구성 된 [Facebook 응용 프로그램을 만듭니다](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-facebook#create-a-facebook-application) .
-2. 만든 [Facebook 비밀](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#create-the-facebook-key) 을 Id 경험 프레임 워크 정책 키로 추가 합니다.
+1. 페더레이션을 Azure AD B2C 페더레이션을 허용 하도록 구성 된 [Facebook 응용 프로그램을 만듭니다](./identity-provider-facebook.md#create-a-facebook-application) .
+2. 만든 [Facebook 비밀](./custom-policy-get-started.md#create-the-facebook-key) 을 Id 경험 프레임 워크 정책 키로 추가 합니다.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Microsoft EFP에서 응용 프로그램 구성
 
-Microsoft EFP를 사용 하도록 [AZURE AD 테 넌 트를 설정](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-real-time-api) 합니다.
+Microsoft EFP를 사용 하도록 [AZURE AD 테 넌 트를 설정](/dynamics365/fraud-protection/integrate-real-time-api) 합니다.
 
 ## <a name="deploy-to-the-web-application"></a>웹 응용 프로그램에 배포
 
 ### <a name="implement-microsoft-dfp-service-fingerprinting"></a>Microsoft EFP service 지문 인식을 구현
 
-Microsoft efp [device 지문 인식을](https://docs.microsoft.com/dynamics365/fraud-protection/device-fingerprinting) 는 MICROSOFT efp 계정 보호를 위한 요구 사항입니다.
+Microsoft efp [device 지문 인식을](/dynamics365/fraud-protection/device-fingerprinting) 는 MICROSOFT efp 계정 보호를 위한 요구 사항입니다.
 
 >[!NOTE]
 >사용자는 UI 페이지 Azure AD B2C 외에도 보다 포괄적인 장치 프로 파일링을 위해 앱 코드 내부에서 지문 인식을 서비스를 구현할 수 있습니다. 앱 코드의 지문 인식을 서비스는이 샘플에 포함 되어 있지 않습니다.
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Azure AD B2C API 코드 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) 를 Azure 서비스에 배포 합니다. [Visual Studio에서](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) 를 Azure 서비스에 배포 합니다. [Visual Studio에서](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)코드를 게시할 수 있습니다.
 
 CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.com`
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 나중에 배포 된 서비스의 URL이 필요 합니다.
 
-자세히 알아보려면 [App service 설명서](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api) 를 참조 하세요.
+자세히 알아보려면 [App service 설명서](../app-service/app-service-web-tutorial-rest-api.md) 를 참조 하세요.
 
 ### <a name="add-context-dependent-configuration-settings"></a>컨텍스트 종속 구성 설정 추가
 
-[Azure의 App service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)에서 응용 프로그램 설정을 구성 합니다. 이렇게 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 제공 되어야 합니다.
+[Azure의 App service](../app-service/configure-common.md#configure-app-settings)에서 응용 프로그램 설정을 구성 합니다. 이렇게 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 제공 되어야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings: InstanceId | Microsoft EFP 구성 |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Microsoft device 지문 인식을 고객 ID |     |
@@ -117,7 +117,7 @@ CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.c
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies)에서 다음 자리 표시자를 찾아 인스턴스의 해당 값으로 바꿉니다.
 
-| 자리표시자 | 다음 항목으로 교체 | 참고 |
+| 자리표시자 | 다음 항목으로 교체 | 메모 |
 | :-------- | :------------| :-----------|
 |{your_tenant_name} | 테 넌 트 약식 이름 |  yourtenant.onmicrosoft.com의 "모든 테 넌 트"   |
 |{your_tenantId} | Azure AD B2C 테 넌 트의 테 넌 트 ID |  01234567-89ab-cdef-0123-456789abcdef   |
@@ -135,7 +135,7 @@ CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.c
 
 ### <a name="call-microsoft-dfp-label-api"></a>Microsoft DFP label API 호출
 
-고객은 [LABEL API를 구현](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-ap-api)해야 합니다. 자세히 알아보려면 [Microsoft EFP API](https://apidocs.microsoft.com/services/dynamics365fraudprotection#/AccountProtection/v1.0) 를 참조 하세요.
+고객은 [LABEL API를 구현](/dynamics365/fraud-protection/integrate-ap-api)해야 합니다. 자세히 알아보려면 [Microsoft EFP API](https://apidocs.microsoft.com/services/dynamics365fraudprotection#/AccountProtection/v1.0) 를 참조 하세요.
 
 `URI: < API Endpoint >/v1.0/label/account/create/<userId>`
 
@@ -148,7 +148,7 @@ UserID의 값은 해당 하는 Azure AD B2C 구성 값 (ObjectID)의 값과 동�
 
 1. 정책 폴더의 [Azure AD B2C 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) 으로 이동 합니다.
 
-2. 이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 합니다.
+2. 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 합니다.
 
 3. Azure AD B2C 테 넌 트에 대 한 정책을 구성 합니다.
 
@@ -167,14 +167,14 @@ UserID의 값은 해당 하는 Azure AD B2C 구성 값 (ObjectID)의 값과 동�
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 
 5. 사용자 특성을 만든 후 흐름을 진행 하는 동안 Microsoft EFP 서비스가 호출 됩니다. 흐름이 불완전 한 경우 사용자가 디렉터리에 저장 되지 않았는지 확인 합니다.
 
 >[!NOTE]
->Microsoft efp [규칙 엔진](https://docs.microsoft.com/dynamics365/fraud-protection/rules)을 사용 하는 경우 MICROSOFT Efp 포털에서 규칙을 직접 업데이트 합니다.
+>Microsoft efp [규칙 엔진](/dynamics365/fraud-protection/rules)을 사용 하는 경우 MICROSOFT Efp 포털에서 규칙을 직접 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -182,6 +182,6 @@ UserID의 값은 해당 하는 Azure AD B2C 구성 값 (ObjectID)의 값과 동�
 
 - [Microsoft EFP 샘플](https://github.com/Microsoft/Dynamics-365-Fraud-Protection-Samples)
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

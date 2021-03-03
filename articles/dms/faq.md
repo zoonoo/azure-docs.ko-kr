@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134151"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091444"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -54,7 +54,7 @@ Azure Migrate 온-프레미스 가상 머신을 Azure IaaS로 마이그레이션
 **대답. 고객 데이터를 저장 Database Migration Service 합니까?**
 아니요. Database Migration Service는 고객 데이터를 저장 하지 않습니다.
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설치
 
 **대답. Azure Database Migration Service 사용을 위한 필수 구성 요소는 무엇 인가요?**
 데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service 원활 하 게 실행 되도록 하기 위해 필요한 몇 가지 필수 구성 요소가 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
@@ -62,7 +62,7 @@ Azure Migrate 온-프레미스 가상 머신을 Azure IaaS로 마이그레이션
 지원되는 모든 마이그레이션 시나리오에 공통적인 Azure Database Migration Service 필구 구성 요소는 다음을 수행해야 합니다.
 
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다.
-* 가상 네트워크 네트워크 보안 그룹 규칙이 다음 통신 포트 443, 53, 5671-5672, 9350-9354, 445, 12000을 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* 가상 네트워크 네트워크 보안 그룹 규칙이 ServiceTags ServiceBus, Storage 및 AzureMonitor에 대 한 포트 443을 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 
 Azure Database Migration Service를 사용 하 여 특정 마이그레이션 시나리오를 경합 하는 데 필요한 모든 필수 구성 요소 목록은 docs.microsoft.com의 Azure Database Migration Service [설명서](./dms-overview.md) 에서 관련 자습서를 참조 하십시오.

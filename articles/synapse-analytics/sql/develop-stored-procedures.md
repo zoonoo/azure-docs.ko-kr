@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 083077b2b29bc415e83d6f5a76941fa83fa853e3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315559"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674143"
 ---
 # <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용 하는 저장 프로시저
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 > [!NOTE]
-> Synapse SQL은 현재 [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 지원 하지 않습니다. 중첩 수준을 추적해야 합니다. 8개의 중첩 수준을 초과할 가능성은 없지만 초과하는 경우 이 한도 내에서 중첩 수준에 맞도록 코드를 다시 작업해야 합니다.
+> Synapse SQL은 현재 [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 지원 하지 않습니다. 중첩 수준을 추적해야 합니다. 8개의 중첩 수준을 초과할 가능성은 없지만 초과하는 경우 이 한도 내에서 중첩 수준에 맞도록 코드를 다시 작업해야 합니다.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
@@ -193,18 +193,18 @@ Synapse SQL에서 구현 되지 않는 Transact-sql 저장 프로시저의 몇 �
 
 | 기능/옵션 | 프로비전됨 | 서버를 사용하지 않음 |
 | --- | --- |
-| 임시 저장 프로시저 | 아니요 | 예 |
-| 번호가 매겨진 저장 프로시저 | 아니요 | 아니요 |
-| 확장된 저장 프로시저 | 아니요 | 아니요 |
-| CLR 저장 프로시저 | 아니요 | 아니요 |
-| 암호화 옵션 | 아니요 | 예 |
-| 복제 옵션 | 아니요 | 아니요 |
-| 테이블 반환 매개 변수 | 아니요 | 아니요 |
-| 읽기 전용 매개 변수 | 아니요 | 아니요 |
-| 기본 매개 변수 | 아니요 | 예 |
-| 실행 컨텍스트 | 아니요 | 아니요 |
-| Return 문 | 아니요 | 예 |
-| INSERT INTO. EXEC | 아니요 | 예 |
+| 임시 저장 프로시저 | 예 | 예 |
+| 번호가 매겨진 저장 프로시저 | 예 | 예 |
+| 확장된 저장 프로시저 | 예 | 예 |
+| CLR 저장 프로시저 | 예 | 예 |
+| 암호화 옵션 | 예 | 예 |
+| 복제 옵션 | 예 | 예 |
+| 테이블 반환 매개 변수 | 예 | 예 |
+| 읽기 전용 매개 변수 | 예 | 예 |
+| 기본 매개 변수 | 예 | 예 |
+| 실행 컨텍스트 | 예 | 예 |
+| Return 문 | 예 | 예 |
+| INSERT INTO. EXEC | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

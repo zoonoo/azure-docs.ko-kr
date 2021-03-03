@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: aab1f99984ed5286692cbf9dae39fb4f7d28599c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652465"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648818"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
 
 > [!NOTE]
-> 이 문서에서는 Azure AD에서 Api를 사용 하 여 서비스 사용자에 대 한 응용 프로그램 역할을 만들고 업데이트/삭제 하는 방법을 설명 합니다. 앱 역할에 새 사용자 인터페이스를 사용 하려는 경우 [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)에서 세부 정보를 참조 하세요.
+> 이 문서에서는 Azure AD에서 Api를 사용 하 여 서비스 사용자에 대 한 응용 프로그램 역할을 만들고 업데이트/삭제 하는 방법을 설명 합니다. 앱 역할에 새 사용자 인터페이스를 사용 하려는 경우 [여기](./howto-add-app-roles-in-azure-ad-apps.md)에서 세부 정보를 참조 하세요.
 
 ## <a name="when-to-use-this-feature"></a>이 기능을 사용하는 시기
 

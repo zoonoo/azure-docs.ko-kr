@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 24926640de3b50823dfeaf195500f33b49aebc18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801663"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652720"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>빠른 시작: Azure Communication Services를 사용하여 Azure Logic Apps에서 SMS 메시지 보내기
 
-[Azure Communication Services SMS](../../overview.md) 커넥터와 [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md)를 사용하면 SMS 메시지를 보낼 수 있는 자동화된 워크플로 또는 *논리 앱*을 만들 수 있습니다. 이 빠른 시작에서는 논리 앱 워크플로의 첫 번째 단계인 트리거 이벤트에 응답하여 문자 메시지를 자동으로 보내는 방법을 보여 줍니다. 트리거 이벤트는 들어오는 이메일 메시지, 되풀이 일정, [Azure Event Grid](../../../event-grid/overview.md) 리소스 이벤트 또는 기타 [Azure Logic Apps에서 지원하는 트리거](/connectors/connector-reference/connector-reference-logicapps-connectors)일 수 있습니다.
+[Azure Communication Services SMS](../../overview.md) 커넥터와 [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md)를 사용하면 SMS 메시지를 보낼 수 있는 자동화된 워크플로 또는 *논리 앱* 을 만들 수 있습니다. 이 빠른 시작에서는 논리 앱 워크플로의 첫 번째 단계인 트리거 이벤트에 응답하여 문자 메시지를 자동으로 보내는 방법을 보여 줍니다. 트리거 이벤트는 들어오는 이메일 메시지, 되풀이 일정, [Azure Event Grid](../../../event-grid/overview.md) 리소스 이벤트 또는 기타 [Azure Logic Apps에서 지원하는 트리거](/connectors/connector-reference/connector-reference-logicapps-connectors)일 수 있습니다.
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Logic Apps 디자이너가 열려 있는 Azure Portal에서 SMS 보내기 작업을 Azure Communication Services 커넥터에 사용하는 논리 앱의 예를 보여 주는 스크린샷입니다.":::
 
@@ -39,15 +39,17 @@ ms.locfileid: "91801663"
 
 - SMS 사용 전화 번호. 아직 없는 경우 [전화 번호를 가져옵니다](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## <a name="add-an-sms-action"></a>SMS 작업 추가
 
 Azure Communication Services SMS 커넥터를 사용하여 워크플로의 새 단계로 **SMS 보내기** 작업을 추가하려면 Logic Apps 디자이너에서 논리 앱 워크플로가 열려 있는 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행합니다.
 
-1. 새 작업을 추가하려는 디자이너 단계에서 **새 단계**를 선택합니다. 또는 새 작업을 단계 사이에 추가하려면 포인터를 해당 단계 사이의 화살표 위로 이동하고, 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+1. 새 작업을 추가하려는 디자이너 단계에서 **새 단계** 를 선택합니다. 또는 새 작업을 단계 사이에 추가하려면 포인터를 해당 단계 사이의 화살표 위로 이동하고, 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
-1. **작업 선택** 검색 상자에서 `Azure Communication Services`를 입력합니다. 작업 목록에서 **SMS 보내기**를 선택합니다.
+1. **작업 선택** 검색 상자에서 `Azure Communication Services`를 입력합니다. 작업 목록에서 **SMS 보내기** 를 선택합니다.
 
-   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Logic Apps 디자이너가 열려 있는 Azure Portal에서 SMS 보내기 작업을 Azure Communication Services 커넥터에 사용하는 논리 앱의 예를 보여 주는 스크린샷입니다.":::
+   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="SMS 보내기 작업이 선택된 Logic Apps 디자이너 및 Azure Communication Services 커넥터를 보여 주는 스크린샷입니다.":::
 
 1. 이제 Communication Services 리소스에 대한 연결을 만듭니다.
 
@@ -55,9 +57,9 @@ Azure Communication Services SMS 커넥터를 사용하여 워크플로의 새 �
 
    1. Azure Communication Services 리소스를 선택합니다.
 
-   1. **만들기**를 선택합니다.
+   1. **만들기** 를 선택합니다.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Logic Apps 디자이너가 열려 있는 Azure Portal에서 SMS 보내기 작업을 Azure Communication Services 커넥터에 사용하는 논리 앱의 예를 보여 주는 스크린샷입니다.":::
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="샘플 정보가 포함된 SMS 보내기 작업 구성을 보여 주는 스크린샷입니다.":::
 
 1. **SMS 보내기** 작업에서 다음 정보를 제공합니다. 
 
@@ -67,15 +69,15 @@ Azure Communication Services SMS 커넥터를 사용하여 워크플로의 새 �
 
    예제 정보가 포함된 **SMS 보내기** 작업은 다음과 같습니다.
 
-   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Logic Apps 디자이너가 열려 있는 Azure Portal에서 SMS 보내기 작업을 Azure Communication Services 커넥터에 사용하는 논리 앱의 예를 보여 주는 스크린샷입니다.":::
+   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="샘플 정보가 포함된 SMS 보내기 작업을 보여 주는 스크린샷입니다.":::
 
-1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 다음으로, 테스트를 위해 논리 앱을 실행합니다.
 
 ## <a name="test-your-logic-app"></a>논리 앱 테스트
 
-논리 앱을 수동으로 시작하려면 디자이너 도구 모음에서 **실행**을 선택합니다. 또는 논리 앱이 트리거될 때까지 기다릴 수 있습니다. 두 경우 모두에서 논리 앱은 SMS 메시지를 지정된 대상 전화 번호로 보내야 합니다. 논리 앱을 실행하는 방법에 대한 자세한 내용은 [논리 앱을 실행하는 방법](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app)을 검토하세요.
+논리 앱을 수동으로 시작하려면 디자이너 도구 모음에서 **실행** 을 선택합니다. 또는 논리 앱이 트리거될 때까지 기다릴 수 있습니다. 두 경우 모두에서 논리 앱은 SMS 메시지를 지정된 대상 전화 번호로 보내야 합니다. 논리 앱을 실행하는 방법에 대한 자세한 내용은 [논리 앱을 실행하는 방법](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app)을 검토하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -93,5 +95,5 @@ Communication Services 구독을 제거하려면 Communication Services 리소�
 Azure Communication Services의 SMS에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [SMS 개념](../../concepts/telephony-sms/concepts.md)
-- [전화 통신 및 SMS 솔루션 계획](../../concepts/telephony-sms/plan-solution.md)
+- [전화 번호 유형](../../concepts/telephony-sms/plan-solution.md)
 - [SMS SDK](../../concepts/telephony-sms/sdk-features.md)

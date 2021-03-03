@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411620"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102940"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411620"
 | 웹 애플리케이션 방화벽 쿠키 이름 길이 | 256 |
 | 검사되는 웹 애플리케이션 방화벽 HTTP 요청 본문 크기 | 128KB |
 | 웹 애플리케이션 방화벽 사용자 지정 응답 본문 길이 | 2KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Azure Front Door 표준/프리미엄(미리 보기) 서비스 제한
+
+*** 구독 당 *최대 **500** 개의 총 표준 및 프리미엄 프로필.*
+
+| 리소스 | 표준 SKU 제한 | 프리미엄 SKU 제한 |
+| --- | --- | --- |
+| 프로필당 최대 엔드포인트  | 10 | 25 |
+| 프로필당 최대 사용자 지정 도메인 | 100 | 200 |
+| 프로필당 최대 원본 그룹 | 100 | 200 |
+| 프로필당 최대 비밀 | 100 | 200 |
+| 프로필당 최대 보안 정책 | 100 | 200 |
+| 프로필당 최대 규칙 집합 | 100 | 200 |
+| 규칙 집합당 최대 규칙 | 100 | 100 |
+| 원본 그룹 당 최대 원본 | 50 | 50 |
+| 엔드포인트당 최대 경로 | 100 | 200 |
+| 사용자 지정 규칙당 웹 애플리케이션 방화벽 일치 조건 수 | 10 | 10 |
+| 일치 조건당 웹 애플리케이션 방화벽 IP 주소 범위 수 | 600 | 600 |
+| 일치 조건당 웹 애플리케이션 방화벽 문자열 일치 값 수 | 10 | 10 |
+| 웹 애플리케이션 방화벽 문자열 일치 값 길이 | 256 | 256 |
+| 웹 애플리케이션 방화벽 POST 본문 매개 변수 이름 길이 | 256 | 256 |
+| 웹 애플리케이션 방화벽 HTTP 헤더 이름 길이 | 256 | 256 |
+| 웹 애플리케이션 방화벽 쿠키 이름 길이 | 256 | 256|
+| 검사되는 웹 애플리케이션 방화벽 HTTP 요청 본문 크기 | 128KB | 128KB |
+| 웹 애플리케이션 방화벽 사용자 지정 응답 본문 길이 | 2KB | 2KB |
 
 ### <a name="timeout-values"></a>시간 제한 값
 #### <a name="client-to-front-door"></a>클라이언트-Front Door

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9e99318c526bb935d0e035fdbf59874249390da
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050942"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096466"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
 
@@ -64,10 +64,10 @@ Azure Automation는 하나의 구독에서 단일 Automation 계정을 사용 �
 
 역할 할당을 추가 하는 방법에 대 한 자세한 단계는 사용 하려는 방법에 따라 다음 문서를 참조 하세요.
 
-* [Azure Portal에서 Azure 역할 할당 추가](../role-based-access-control/role-assignments-portal.md)
-* [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)
-* [Azure CLI를 사용 하 여 Azure 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)
-* [REST API를 사용 하 여 Azure 역할 할당 추가](..//role-based-access-control/role-assignments-rest.md)
+* [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
+* [Azure PowerShell를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-powershell.md)
+* [Azure CLI를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-cli.md)
+* [REST API를 사용 하 여 Azure 역할 할당](..//role-based-access-control/role-assignments-rest.md)
 
 실행 계정을 역할에 할당 한 후 runbook에서를 `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` 사용 하도록 구독 컨텍스트를 설정 하도록 지정 합니다. 자세한 내용은 [AzContext](/powershell/module/az.accounts/set-azcontext)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 00e44185c938c94903e9b85a4748906721dac27f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753946"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571691"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "96753946"
 Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
 
 - **현재 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 이 버전의 새로운 기능에 대해 [자세히 알아보세요](whats-new.md).
-- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이 문서에서는 이전 버전 프로젝트를 클래식 프로젝트라고 합니다. 이전 버전에서 만든 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
+- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이 문서에서는 이전 버전 프로젝트를 클래식 프로젝트라고 합니다. 클래식 Azure Migrate는 2024년 2월에 만료됩니다. 2024년 2월 이후에는 클래식 버전의 Azure Migrate는 더 이상 지원되지 않으며 클래식 프로젝트의 인벤토리 메타데이터가 삭제됩니다. 클래식 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
     - 더 이상 마이그레이션 프로젝트를 만들 수 없습니다.
     - 새 검색은 수행하지 않는 것이 좋습니다.
     - 기존 프로젝트에 계속 액세스할 수 있습니다.
@@ -210,14 +210,14 @@ Azure Migrate에서는 성능 기반 크기 조정을 위해 다음이 필요합
 1. 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요** > **기본 정보** 에서 **구성 필요** 를 클릭합니다.
 2. 새 작업 영역을 만들거나 기존 작업 영역을 연결할 수 있습니다.
   - 새 작업 영역을 만들려면 이름을 지정합니다. 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
-  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
+  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
 
 > [!NOTE]
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
 
 ### <a name="download-and-install-vm-agents"></a>VM 에이전트 다운로드 및 설치
 
-작업 영역을 구성한 후에는 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치합니다. 또한 인터넷에 연결되지 않은 머신이 있으면 [Log Analytics 게이트웨이](../azure-monitor/platform/gateway.md)를 다운로드하여 설치해야 합니다.
+작업 영역을 구성한 후에는 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치합니다. 또한 인터넷에 연결되지 않은 머신이 있으면 [Log Analytics 게이트웨이](../azure-monitor/agents/gateway.md)를 다운로드하여 설치해야 합니다.
 
 1. **개요** 에서 **관리** > **컴퓨터** 를 차례로 클릭하고 필요한 컴퓨터를 선택합니다.
 2. **종속성** 열에서 **에이전트 설치** 를 클릭합니다.
@@ -238,7 +238,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션** 에서 **Azure Log Analytics** > **다음** 을 차례로 선택합니다.
 5. **추가** 를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음** 을 클릭합니다.
 
-명령줄에서 또는 Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+명령줄에서 또는 Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#installation-options).
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Linux 머신에 MMA 에이전트 설치
 
@@ -249,11 +249,11 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/platform/agents-overview.md#supported-operating-systems)해 보세요.
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/agents/agents-overview.md#supported-operating-systems)해 보세요.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Operations Manager에서 모니터링하는 머신에 MMA 에이전트 설치
 
-System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager MMA와 연결되어 필요한 종속성 데이터를 수집합니다. [자세히 알아보기](../azure-monitor/insights/service-map-scom.md#prerequisites). 종속성 에이전트를 설치해야 합니다.
+System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager MMA와 연결되어 필요한 종속성 데이터를 수집합니다. [자세히 알아보기](../azure-monitor/vm/service-map-scom.md#prerequisites). 종속성 에이전트를 설치해야 합니다.
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
@@ -262,8 +262,8 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Windows 및 Linux 운영 체제에 대한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)에 대해 자세히 알아보세요.
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
+- Windows 및 Linux 운영 체제에 대한 [종속성 에이전트 지원](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems)에 대해 자세히 알아보세요.
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 
 >[!NOTE]
 > 시스템 필수 구성 요소 및 종속성 에이전트를 배포하는 방법에 대한 개요를 제공하기 위해 참조되는 VM용 Azure Monitor 문서는 서비스 맵 솔루션에도 적용됩니다.
@@ -298,7 +298,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Azure Monitor 로그에서 종속성 데이터 쿼리
 
-서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Azure Monitor 로그에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](../azure-monitor/insights/service-map.md#log-analytics-records). 
+서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Azure Monitor 로그에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](../azure-monitor/vm/service-map.md#log-analytics-records). 
 
 Kusto 쿼리를 실행하려면 다음을 수행합니다.
 
@@ -308,15 +308,15 @@ Kusto 쿼리를 실행하려면 다음을 수행합니다.
 4. Azure Monitor 로그를 사용하여 종속성 데이터를 수집하는 쿼리를 작성합니다. 다음 섹션에서 샘플 쿼리를 찾습니다.
 5. [실행]을 클릭하여 쿼리를 실행합니다. 
 
-Kusto 쿼리를 작성하는 방법을 [자세히 알아보세요](../azure-monitor/log-query/log-analytics-tutorial.md). 
+Kusto 쿼리를 작성하는 방법을 [자세히 알아보세요](../azure-monitor/logs/log-analytics-tutorial.md). 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>예제 Azure Monitor 로그 쿼리
 
-다음은 종속성 데이터를 추출하는 데 사용할 수 있는 샘플 쿼리입니다. 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 전체 목록은 [여기](../azure-monitor/insights/service-map.md#log-analytics-records)에서 사용할 수 있습니다. 추가 샘플 쿼리는 [여기](../azure-monitor/insights/service-map.md#sample-log-searches)에서 찾을 수 있습니다.
+다음은 종속성 데이터를 추출하는 데 사용할 수 있는 샘플 쿼리입니다. 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 전체 목록은 [여기](../azure-monitor/vm/service-map.md#log-analytics-records)에서 사용할 수 있습니다. 추가 샘플 쿼리는 [여기](../azure-monitor/vm/service-map.md#sample-log-searches)에서 찾을 수 있습니다.
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 세트의 인바운드 연결 요약
 
-연결 메트릭의 VMConnection 표에 포함된 레코드는 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터를 VMConnection의 단일 논리적 레코드로 집계하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/service-map.md#connections). 
+연결 메트릭의 VMConnection 표에 포함된 레코드는 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터를 VMConnection의 단일 논리적 레코드로 집계하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/vm/service-map.md#connections). 
 
 ```
 // the machines of interest

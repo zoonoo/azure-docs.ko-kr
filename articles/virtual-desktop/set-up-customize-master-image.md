@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ca92e6e888ead6bbd79c7a8d524516ee95e8c45d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602379"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092934"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
 이 문서에서는 Vm (가상 머신)을 만들고 소프트웨어를 설치 하는 방법을 비롯 하 여 Azure에 업로드할 마스터 VHD (가상 하드 디스크) 이미지를 준비 하는 방법을 설명 합니다. 이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 관련 구성에 대한 것입니다.
 
 >[!IMPORTANT]
->Azure 이미지 갤러리의 이미지를 사용 하는 것이 좋습니다. 그러나 사용자 지정 이미지를 사용 해야 하는 경우에는 WIndows 가상 데스크톱 에이전트가 장치에 아직 설치 되어 있지 않은지 확인 합니다. Windows 가상 데스크톱 에이전트에서 사용자 지정 이미지를 사용 하면 이미지에 문제가 발생할 수 있습니다.  
+>Azure 이미지 갤러리의 이미지를 사용 하는 것이 좋습니다. 그러나 사용자 지정 이미지를 사용 해야 하는 경우에는 Windows 가상 데스크톱 에이전트가 VM에 아직 설치 되어 있지 않은지 확인 합니다. Windows 가상 데스크톱 에이전트에서 사용자 지정 이미지를 사용 하면 등록 차단 및 사용자 세션 연결 방지와 같은 이미지 문제를 일으킬 수 있습니다.  
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -216,3 +216,5 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 - [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
 - [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)
 - [Windows Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
+
+VHD 이미지를 준비 하거나 사용자 지정한 후 연결 문제가 발생 한 경우 [문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) 를 확인 하 여 도움을 확인 하세요.

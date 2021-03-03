@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: daab07a72f61cfdf4f39cae03a1c61bd18f37a8f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092203"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557438"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure RBAC를 사용하는 역할 할당은 **액세스 제�
 
 ![Azure Portal의 기본 제공 역할](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)을 참조하세요.
 
 ## <a name="azure-ad-roles"></a>Azure AD 역할
 

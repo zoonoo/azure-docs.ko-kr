@@ -3,16 +3,17 @@ title: Azure Portal를 사용 하 여 Azure 전용 호스트 배포
 description: Azure Portal를 사용 하 여 Vm 및 확장 집합을 전용 호스트로 배포 합니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 3bc7909f38e63256d7d708ec189c628662cf8837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007945"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667324"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>포털을 사용 하 여 전용 호스트에 Vm 및 확장 집합 배포 
 
@@ -74,7 +75,7 @@ ms.locfileid: "97007945"
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
-1. Azure Marketplace 리소스 목록 위의 검색 상자에서 사용 하려는 이미지를 검색 하 고 선택한 다음 **만들기** 를 선택 합니다.
+1. Azure Marketplace 리소스 목록 위의 검색 상자에서 사용할 이미지를 검색하고 선택한 다음, **만들기** 를 선택합니다.
 1. **기본** 정보 탭의 **프로젝트 세부 정보** 에서 올바른 구독을 선택 했는지 확인 한 다음 **리소스 그룹** 으로 *myDedicatedHostsRG* 을 선택 합니다. 
 1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름** 에 *myVM* 을 입력하고 **위치** 에 *미국 동부* 를 선택합니다.
 1. **가용성 옵션** 에서 **가용성 영역** 을 선택 하 고 드롭다운에서 *1* 을 선택 합니다.
@@ -83,7 +84,7 @@ ms.locfileid: "97007945"
 1. VM에 사용할 호스트를 지정 하려면 페이지 맨 위에서 **고급** 탭을 선택 하 고 **호스트** 섹션 **에서 호스트에** 대해 *myHostGroup* **를 선택 하 고 호스트** 에 대해 *myhost* 를 선택 합니다. 그렇지 않으면 VM이 용량이 있는 호스트에 자동으로 배치 됩니다.
     ![호스트 그룹 및 호스트 선택](./media/dedicated-hosts-portal/advanced.png)
 1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
-1. 유효성 검사에 통과 되었다는 메시지가 표시 되 면 **만들기** 를 선택 합니다.
+1. 유효성 검사가 통과되었다는 메시지가 표시되면 **만들기** 를 선택합니다.
 
 VM 배포에는 몇 분 정도 걸립니다.
 

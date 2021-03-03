@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763594"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656842"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 집합에서 데이터 드리프트 (미리 보기) 검색
 
@@ -234,12 +234,12 @@ monitor = monitor.enable_schedule()
 
     | 설정 | 설명 | 팁 | 변경 가능 | 
     | ------- | ----------- | ---- | ------- |
-    | Name | 데이터 집합 모니터의 이름입니다. | | 아니요 |
+    | 속성 | 데이터 집합 모니터의 이름입니다. | | No |
     | 기능 | 시간에 따른 데이터 드리프트를 분석 하는 기능 목록입니다. | 개념 드리프트를 측정 하는 모델의 출력 기능으로 설정 합니다. 시간이 지남에 따라 자연스럽 게 드리프트 하는 기능 (월, 연도, 인덱스 등)은 포함 되지 않습니다. 기능 목록을 조정한 후에는 백필 및 기존 데이터 드리프트 모니터를 사용할 수 있습니다. | 예 | 
     | 컴퓨팅 대상 | 계산 대상을 Azure Machine Learning 하 여 데이터 집합 모니터 작업을 실행 합니다. | | 예 | 
     | 사용 | 데이터 집합 모니터 파이프라인에서 일정을 사용 하거나 사용 하지 않도록 설정 | 백필 설정을 사용 하 여 기록 데이터를 분석 하는 일정을 사용 하지 않도록 설정 합니다. 데이터 집합 모니터를 만든 후에 사용할 수 있습니다. | 예 | 
-    | 빈도 | 백필을 실행 하는 경우 파이프라인 작업을 예약 하 고 기록 데이터를 분석 하는 데 사용 되는 빈도입니다. 옵션에는 매일, 매주 또는 매월이 포함 됩니다. | 각 실행은 빈도에 따라 대상 데이터 집합의 데이터를 비교 합니다. <li>매일: 대상 데이터 집합의 최근 완료 날짜를 기준선과 비교 합니다. <li>매주: 대상 데이터 집합에서 기준선과 가장 최근의 전체 주 (월요일-일요일) 비교 <li>월간: 대상 데이터 집합에서 가장 최근의 전체 월을 기준선과 비교 | 아니요 | 
-    | 대기 시간 | 데이터 집합에 데이터가 도착할 때까지 걸리는 시간입니다. 예를 들어 데이터 집합이 캡슐화 하는 SQL DB에 데이터가 도착할 때까지 3 일이 걸리면 대기 시간을 72으로 설정 합니다. | 데이터 집합 모니터를 만든 후에는 변경할 수 없습니다. | 아니요 | 
+    | 빈도 | 백필을 실행 하는 경우 파이프라인 작업을 예약 하 고 기록 데이터를 분석 하는 데 사용 되는 빈도입니다. 옵션에는 매일, 매주 또는 매월이 포함 됩니다. | 각 실행은 빈도에 따라 대상 데이터 집합의 데이터를 비교 합니다. <li>매일: 대상 데이터 집합의 최근 완료 날짜를 기준선과 비교 합니다. <li>매주: 대상 데이터 집합에서 기준선과 가장 최근의 전체 주 (월요일-일요일) 비교 <li>월간: 대상 데이터 집합에서 가장 최근의 전체 월을 기준선과 비교 | No | 
+    | 대기 시간 | 데이터 집합에 데이터가 도착할 때까지 걸리는 시간입니다. 예를 들어 데이터 집합이 캡슐화 하는 SQL DB에 데이터가 도착할 때까지 3 일이 걸리면 대기 시간을 72으로 설정 합니다. | 데이터 집합 모니터를 만든 후에는 변경할 수 없습니다. | No | 
     | 이메일 주소 | 데이터 드리프트 백분율 임계값 위반을 기준으로 경고에 대 한 전자 메일 주소입니다. | 전자 메일은 Azure Monitor를 통해 전송 됩니다. | 예 | 
     | 임계값 | 전자 메일 경고에 대 한 데이터 드리프트 백분율 임계값입니다. | 작업 영역에 연결 된 Application Insights 리소스의 다른 여러 메트릭에 대해 추가 경고 및 이벤트를 설정할 수 있습니다. | 예 |
 
@@ -363,7 +363,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

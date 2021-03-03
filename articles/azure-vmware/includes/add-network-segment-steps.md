@@ -3,12 +3,12 @@ title: NSX-T 네트워크 세그먼트 추가
 description: Azure VMware Solution에 대한 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
 ms.topic: include
 ms.date: 11/09/2020
-ms.openlocfilehash: 5b97f0b280fa12eff39c9601bb73e439dba8e9fd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 7db45650588d37c39e7d156fa189b3ff7da2239f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335060"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514936"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
 
@@ -18,7 +18,7 @@ ms.locfileid: "94335060"
 
 1. **세그먼트 추가** 를 선택하고 세그먼트의 이름을 입력합니다.
 
-1. **연결된 게이트웨이** 로 Tier1 Gateway(TNTxx-T1)를 선택하고 **형식** 을 Flexible로 유지합니다.
+1. **연결된 게이트웨이** 로 Tier-1 Gateway(TNTxx-T1)를 선택하고 **형식** 을 Flexible로 유지합니다.
 
 1. 미리 구성된 오버레이 **전송 영역**(TNTxx-OVERLAY-TZ)을 선택한 다음, **서브넷 설정** 을 선택합니다. 
 

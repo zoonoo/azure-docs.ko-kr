@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 19ae5dc24e0a08548f4914114c9c0a6be65f4f0b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547778"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096089"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -24,7 +24,7 @@ ms.locfileid: "92547778"
 
 메시지 라우팅을 사용하면 확장 가능하고 신뢰할 수 있는 자동화된 방식으로 디바이스에서 클라우드 서비스로 메시지를 보낼 수 있습니다. 메시지 라우팅은 다음 용도로 사용할 수 있습니다. 
 
-* **디바이스 원격 분석 메시지는 물론 이벤트** 즉, 디바이스 수명 주기 이벤트 및 디바이스 쌍 변경 이벤트를 기본 제공 엔드포인트 및 사용자 지정 엔드포인트로 보냅니다. [라우팅 끝점](#routing-endpoints)에 대해 알아봅니다.
+* 장치 **원격 분석 메시지** 를 비롯 하 여 이벤트, 장치 수명 주기 이벤트, 장치 쌍 변경 이벤트 및 디지털 쌍 변경 이벤트를 기본 끝점 및 사용자 지정 끝점으로 보냅니다. [라우팅 끝점](#routing-endpoints)에 대해 알아봅니다. IoT 플러그 앤 플레이 장치에서 전송 되는 이벤트에 대해 자세히 알아보려면 [iot 플러그 앤 플레이 디지털 쌍 이해](../iot-pnp/concepts-digital-twin.md)를 참조 하세요.
 
 * 다양한 쿼리를 적용하여 **다양한 엔드포인트로 데이터를 라우팅하기 전에 데이터를 필터링** 합니다. 메시지 라우팅을 사용하면 메시지 속성 및 메시지 본문뿐만 아니라 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해서도 쿼리할 수 있습니다. [메시지 라우팅에서 쿼리를](iot-hub-devguide-routing-query-syntax.md)사용 하는 방법에 대해 자세히 알아보세요.
 
@@ -34,7 +34,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ## <a name="routing-endpoints"></a>라우팅 엔드포인트
 
-IoT Hub에는 Event Hubs와 호환되는 기본 제공 엔드포인트( **메시지/이벤트** )가 있습니다. 구독의 다른 서비스를 IoT Hub에 연결하여 메시지를 라우팅할 [사용자 지정 엔드포인트](iot-hub-devguide-endpoints.md#custom-endpoints)를 만들 수 있습니다. 
+IoT Hub에는 Event Hubs와 호환되는 기본 제공 엔드포인트(**메시지/이벤트**)가 있습니다. 구독의 다른 서비스를 IoT Hub에 연결하여 메시지를 라우팅할 [사용자 지정 엔드포인트](iot-hub-devguide-endpoints.md#custom-endpoints)를 만들 수 있습니다. 
 
 각 메시지는 일치 하는 라우팅 쿼리가 있는 모든 끝점으로 라우팅됩니다. 즉, 메시지를 여러 끝점으로 라우팅할 수 있습니다.
 
@@ -49,7 +49,7 @@ IoT Hub 현재 다음 끝점을 지원 합니다.
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>기본 제공 끝점 (라우팅 끝점)
 
-표준 [Event Hubs 통합 및 SDK](iot-hub-devguide-messages-read-builtin.md)를 사용하여 기본 제공 엔드포인트( **메시지/이벤트** )에서 디바이스-클라우드 메시지를 수신할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터는 기본 끝점으로의 이동이 중지 됩니다.
+표준 [Event Hubs 통합 및 SDK](iot-hub-devguide-messages-read-builtin.md)를 사용하여 기본 제공 엔드포인트(**메시지/이벤트**)에서 디바이스-클라우드 메시지를 수신할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터는 기본 끝점으로의 이동이 중지 됩니다.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>라우팅 끝점으로 Azure Storage
 
@@ -120,13 +120,13 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 ## <a name="fallback-route"></a>대체(fallback) 경로
 
-대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](../event-hubs/index.yml)와 호환되는 기본 제공 Event Hubs( **messages/events** )로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
+대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](../event-hubs/index.yml)와 호환되는 기본 제공 Event Hubs(**messages/events**)로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
 
 Azure Portal >메시지 라우팅 블레이드에서 대체 경로를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트** 로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트** 로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 이벤트** 로 설정 된 데이터 원본을 사용 하 여 경로를 만들 수 있습니다. 또한 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md) 을 설정 하거나 변경 하거나, [디지털](../iot-pnp/iot-plug-and-play-glossary.md) 쌍이 바뀌거나, 기본 장치 쌍에 대해 변경 이벤트가 발생할 때마다 메시지를 보냅니다 IoT Hub.
+장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트** 로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트** 로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 **디지털 쌍 변경 이벤트** 로 설정 된 데이터 원본을 사용 하 여 경로를 만들 수 있습니다. 또한 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md) 을 설정 하거나 변경 하거나, [디지털](../iot-pnp/iot-plug-and-play-glossary.md) 쌍이 바뀌거나, 기본 장치 쌍에 대해 변경 이벤트가 발생할 때마다 메시지를 보냅니다 IoT Hub.
 
 또한 IoT Hub는 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지 원하는 장치 이벤트를 게시 하 [는 Azure Event Grid와 통합](iot-hub-event-grid.md) 됩니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
 

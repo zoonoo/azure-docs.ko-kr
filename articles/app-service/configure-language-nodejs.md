@@ -6,14 +6,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696016"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095208"
 ---
-# <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Node.js 앱 구성
+# <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service용 Node.js 앱 구성
 
 모든 필수 NPM 종속성을 사용 하 여 Node.js 앱을 배포 해야 합니다. `npm install --production` [Git 리포지토리](deploy-local-git.md)를 배포할 때 또는 빌드 자동화를 사용 하는 [Zip 패키지](deploy-zip.md) 를 배포할 때 App Service 배포 엔진이 자동으로 실행 됩니다. 그러나 [FTP/S](deploy-ftp.md)를 사용 하 여 파일을 배포 하는 경우 필요한 패키지를 수동으로 업로드 해야 합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "94696016"
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-지원 되는 모든 Node.js 버전을 표시 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+지원되는 Node.js 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -45,7 +45,7 @@ az webapp list-runtimes | grep node
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-지원 되는 모든 Node.js 버전을 표시 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+지원되는 Node.js 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep NODE
@@ -161,7 +161,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Npm start 실행
 
-를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 다음은 그 예입니다.
+를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 다음은 그 예입니다. 
 
 ```json
 {
@@ -209,7 +209,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .config.js, * .yml 또는 *.yaml* 을 사용 하 여 실행 하는 경우를 제외 하 고는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 다음은 그 예입니다.
+대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 다음은 그 예입니다. 
 
 ```json
 {
@@ -239,7 +239,7 @@ process.env.NODE_ENV
 
 기본적으로 빌드 자동화 `npm install --production` 는 빌드 자동화를 사용 하 여 Git 또는 Zip 배포를 통해 배포 된 Node.js 앱을 인식할 때 실행 App Service. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 다음은 그 예입니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 다음은 그 예입니다. 
 
 ```json
 "dependencies": {
@@ -342,6 +342,19 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## <a name="monitor-with-application-insights"></a>Application Insights로 모니터링
+
+Application Insights를 사용 하면 코드를 변경 하지 않고도 응용 프로그램의 성능, 예외 및 사용 현황을 모니터링할 수 있습니다. App Insights 에이전트를 연결 하려면 포털에서 웹 앱으로 이동 하 고 **설정** 아래에서 **Application Insights** 를 선택한 다음 **Application Insights 켜기** 를 선택 합니다. 다음으로, 기존 App Insights 리소스를 선택 하거나 새 리소스를 만듭니다. 마지막으로 아래쪽에서 **적용** 을 선택 합니다. PowerShell을 사용 하 여 웹 앱을 계측 하려면 [다음 지침](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell) 을 참조 하세요.
+
+이 에이전트는 서버 쪽 Node.js 응용 프로그램을 모니터링 합니다. 클라이언트 쪽 JavaScript를 모니터링 하려면 [JAVASCRIPT SDK를 프로젝트에 추가](../azure-monitor/app/javascript.md)합니다. 
+
+자세한 내용은 [Application Insights 확장 릴리스 정보](../azure-monitor/app/web-app-extension-release-notes.md)를 참조 하세요.
+
+::: zone-end
+
 ## <a name="troubleshooting"></a>문제 해결
 
 작업 Node.js 앱이 App Service에서 다르게 동작 하거나 오류가 발생 하는 경우 다음을 시도 합니다.
@@ -370,4 +383,3 @@ if (req.secure) {
 > [App Service Linux FAQ](faq-app-service-linux.md)
 
 ::: zone-end
-

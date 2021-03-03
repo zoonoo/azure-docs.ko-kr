@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196540"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666523"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 분류 통찰력
 
 이 방법 가이드에서는 데이터에 대 한 부서의 범위 분류 정보 보고서에 액세스 하 고, 보고, 필터링 하는 방법을 설명 합니다.
 
-지원 되는 데이터 원본에는 다음이 포함 됩니다. Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (이전의 SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server
+지원 되는 데이터 원본에는 다음이 포함 됩니다. Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (이전의 SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 버킷
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
@@ -27,13 +27,13 @@ ms.locfileid: "98196540"
 > - 데이터에 대 한 분류 정보 보기
 > - 드릴 다운 하 여 데이터에 대 한 자세한 분류 정보
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
 - Azure 리소스를 설정 하 고 테스트 데이터를 사용 하 여 관련 계정 채우기
 
-- 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
+- 각 데이터 원본의 테스트 데이터에 대 한 검색을 설정 하 고 완료 했습니다. 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조 하세요.
 
 - [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
 
@@ -62,7 +62,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 
    기본 **분류 정보** 페이지에는 다음과 같은 영역이 표시 됩니다.
 
-   |영역  |Description  |
+   |영역  |설명  |
    |---------|---------|
    |**분류가 포함 된 원본 개요**     |다음을 제공 하는 타일을 표시 합니다. <br>-데이터에서 발견 된 구독 수 <br>-데이터에서 발견 된 고유 분류의 수 <br>-검색 된 분류 된 소스 수 <br>-검색 된 분류 된 파일 수 <br>-검색 된 분류 테이블 수         |
    |**분류 된 데이터를 포함 하는 상위 원본 (지난 30 일)**     |지난 30 일 동안의 추세를 분류 된 데이터로 찾은 원본 수의 추세를 보여 줍니다.            |
@@ -81,13 +81,13 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 - **테이블에 대 한 상위 분류**
 - **분류 작업 > 분류 데이터**
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/insights/view-classifications-small.png" alt-text="모든 분류 보기" lightbox="media/insights/view-classifications.png":::
 
 자세한 내용을 보려면 다음 중 하나를 수행 합니다.
 
-|옵션  |Description  |
+|옵션  |설명  |
 |---------|---------|
 |**데이터 필터링**     |  표 위의 필터를 사용 하 여 분류 이름, 구독 이름 또는 원본 유형을 포함 하 여 표시 된 데이터를 필터링 합니다. <br><br>정확한 분류 이름을 잘 모르는 경우 **키워드로 필터링** 상자에 이름의 일부 또는 전체를 입력할 수 있습니다.       |
 |**표 정렬** |해당 열을 기준으로 표를 정렬 하려면 열 머리글을 선택 합니다. | 

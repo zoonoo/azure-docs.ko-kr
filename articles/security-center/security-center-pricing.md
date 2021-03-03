@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805363"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522872"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
@@ -118,10 +118,18 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 할인을 확인하려면 Security Center 지원 팀에 문의하고 관련 작업 영역 ID, 지역 및 각 관련 라이선스에 대한 라이선스 정보를 제공하세요.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Azure Defender를 내 구독의 서버에 사용하도록 설정했습니다. 실행되지 않는 서버에 대해 비용을 지불하나요? 
-아니요. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 실행되는 서버에 대해서만 시간당 요금이 청구됩니다. 꺼진 시간 동안 해제된 서버에는 요금이 청구되지 않습니다. 
+아니요. 구독에서 [서버에 대해 Azure Defender](defender-for-servers-introduction.md)를 사용하도록 설정하면 해당 상태에 있는 동안 할당 취소된 전원 상태에 있는 모든 머신에 대해 요금이 청구되지 않습니다. 머신은 다음 표에 표시된 대로 전원 상태에 따라 요금이 청구됩니다.
 
-> [!TIP]
-> 이는 Security Center에서 보호하는 다른 리소스 종류에도 적용됩니다. 
+| 시스템 상태        | Description                                                                                                                                      | 인스턴스 사용량이 청구됨 |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| 시작 중     | VM이 시작되고 있습니다.                                                                                                                               | 청구되지 않음            |
+| 실행 중      | VM의 정상적인 작동 상태                                                                                                                    | 청구됨                |
+| 중지 중     | 전환 상태입니다. 작업이 완료되면 중지됨으로 표시됩니다.                                                                           | 청구됨                |
+| 중지됨      | 게스트 OS 내에서 또는 PowerOff API를 사용하여 VM이 종료되었습니다. 하드웨어가 여전히 VM에 할당되고 호스트에서 유지됩니다. | 청구됨                |
+| 할당 취소 중 | 전환 상태입니다. 작업이 완료되면 VM은 할당 취소됨.                                                                             | 청구되지 않음            |
+| 할당 취소됨  | VM이 성공적으로 중지되고 호스트에서 제거됩니다.                                                                                  | 청구되지 않음            |
+
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="할당 취소된 머신을 보여주는 Azure Virtual Machines":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?
 예. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 Log Analytics 에이전트를 설치하지 않은 경우에도 해당 구독의 컴퓨터는 다양한 보호를 받습니다.

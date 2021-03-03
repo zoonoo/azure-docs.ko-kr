@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370902"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651890"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
 
@@ -35,13 +35,13 @@ ms.locfileid: "92370902"
 
 1. 사용자 관리자 또는 암호 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md#available-roles)을 참조하세요.
 
-2. **Azure Active Directory**를 선택하고, **사용자**를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정**을 선택합니다.
+2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정** 을 선택합니다.
 
     **암호 다시 설정** 옵션이 표시된 **Alain Charon - 프로필** 페이지가 나타납니다.
 
     ![암호 다시 설정 옵션이 강조 표시된 사용자의 프로필 페이지](media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
-3. **암호 다시 설정** 페이지에서 **암호 다시 설정**을 선택합니다.
+3. **암호 다시 설정** 페이지에서 **암호 다시 설정** 을 선택합니다.
 
     > [!Note]
     > Azure Active Directory 사용 하는 경우 사용자에 대 한 임시 암호가 자동으로 생성 됩니다. 온-프레미스 Active Directory를 사용 하는 경우 사용자에 대 한 암호를 만듭니다.
@@ -50,6 +50,10 @@ ms.locfileid: "92370902"
 
     >[!Note]
     >임시 암호는 만료되지 않습니다. 임시 암호가 생성된 이후 얼마나 시간이 경과했는지와 상관없이 다음에 사용자가 로그인할 때에도 암호는 계속 작동합니다.
+
+> [!IMPORTANT]
+> 관리자가 사용자의 암호를 다시 설정할 수 없는 경우 Azure AD Connect 서버의 응용 프로그램 이벤트 로그에 다음과 같은 오류 코드 hr = 80231367이 표시 되 면 Active Directory에서 사용자의 특성을 검토 합니다.  **Admincount** 특성을 1로 설정 하면 관리자가 사용자의 암호를 다시 설정 하지 못합니다.  관리자가 사용자의 암호를 다시 설정 하려면 **Admincount** 특성을 0으로 설정 해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

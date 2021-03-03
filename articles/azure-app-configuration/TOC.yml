@@ -132,6 +132,8 @@
       href: howto-backup-config-store.md
     - name: 관리 ID를 사용하여 App Configuration 액세스
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Visual Studio에서 App Configuration 통합
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: 참조
   items:
     - name: 구성

@@ -1,6 +1,6 @@
 ---
-title: 자습서 - 액세스 패키지 만들기 - Azure AD 권한 관리
-description: Azure Active Directory 권한 관리에서 첫 번째 액세스 패키지를 만드는 방법에 대한 단계별 자습서입니다.
+title: 자습서 - Azure AD 자격 관리에서 리소스에 대한 액세스 관리
+description: Azure Active Directory 자격 관리에서 Azure Portal을 사용하여 첫 번째 액세스 패키지를 만드는 방법에 대한 단계별 자습서입니다.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822260"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547403"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>자습서: Azure AD 권한 관리에서 첫 번째 액세스 패키지 만들기
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>자습서: Azure AD 자격 관리에서 리소스에 대한 액세스 관리
 
 직원에게 필요한 모든 리소스(예: 그룹, 애플리케이션 및 사이트)에 대한 액세스를 관리하는 것은 조직에 중요한 기능입니다. 생산성 향상에 필요한 올바른 수준의 액세스 권한을 직원에게 부여했다가 더 이상 필요가 없으면 액세스 권한을 제거하는 것이 좋습니다.
 
@@ -41,8 +41,6 @@ ms.locfileid: "99822260"
 첫 번째 액세스 패키지 만들기를 포함하여 Azure Active Directory 자격 관리를 배포하는 프로세스에 대한 단계별 데모는 다음 비디오를 참조하세요.
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-Microsoft Graph를 사용하여 프로그래밍 방식으로 액세스 패키지를 만들 수도 있습니다. 액세스 패키지를 프로그래밍 방식으로 만드는 방법을 보여주는 자습서는 [권한 관리 API](/graph/tutorial-access-package-api?view=graph-rest-beta)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

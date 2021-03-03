@@ -3,17 +3,17 @@ title: 다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문�
 description: 다중 지역 환경에서 작동 하는 경우 Azure Cosmos SDK 가용성 동작에 대 한 모든 것을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650986"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661429"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +47,13 @@ ms.locfileid: "100650986"
 > 국가별 기본 설정으로 지정 된 값이 기존 Azure 지역과 일치 하지 않으면 해당 값은 무시 됩니다. 이러한 항목이 기존 지역과 일치 하지만 계정이 복제 되지 않으면 클라이언트는와 일치 하는 다음 기본 설정 영역 또는 주 지역에 연결 됩니다.
 
 > [!WARNING]
-> 클라이언트 구성에서 끝점 재검색 (false로 설정)을 사용 하지 않도록 설정 하면이 문서에 설명 된 모든 장애 조치 (failover) 및 가용성 논리를 사용 하지 않도록 설정 됩니다.
-> 이 구성은 각 Azure Cosmos SDK의 다음 매개 변수를 통해 액세스할 수 있습니다.
+> 이 문서에서 설명 하는 장애 조치 (failover) 및 가용성 논리는 클라이언트 구성에서 사용 하지 않도록 설정할 수 있습니다 .이는 사용자 응용 프로그램이 가용성 오류 자체를 처리 하지 않는 한 권장 되지 않습니다. 이렇게 하려면 다음을 수행 합니다.
 >
-> * .NET V2 SDK의 [Connectionpolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) 속성입니다.
-> * Java V4 SDK의 endpointDiscoveryEnabled 메서드를 [CosmosClientBuilder.](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled)
-> * Python SDK의 [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 매개 변수입니다.
-> * JS SDK의 CosmosClientOptions 매개 변수를 [검색](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) 합니다.
+> * .NET V2 SDK에서 [Connectionpolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) 속성을 false로 설정 합니다.
+> * .NET V3 SDK의 [CosmosClientOptions Toendpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) 속성을 true로 설정 합니다.
+> * Java V4 SDK의 endpointDiscoveryEnabled 메서드를 [CosmosClientBuilder](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) 로 설정 합니다.
+> * Python SDK의 [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 매개 변수를 false로 설정 합니다.
+> * JS SDK의 [CosmosClientOptions. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) 매개 변수를 false로 설정 합니다.
 
 일반적인 상황에서 SDK 클라이언트는 기본 지역 (지역 기본 설정이 설정 된 경우) 또는 주 지역 (기본 설정 되지 않은 경우)에 연결 되 고, 아래 시나리오 중 하나가 발생 하지 않는 한 작업은 해당 지역으로 제한 됩니다.
 

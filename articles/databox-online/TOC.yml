@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: GitOps를 통해 상태 비저장 앱 배포
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Azure Arc 데이터 컨트롤러 배포
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Azure Resource Manager(미리 보기) 구성
           items:
             - name: Azure PowerShell을 통해 연결
@@ -383,6 +385,8 @@
           href: azure-stack-edge-return-device.md
         - name: 디바이스 바꾸기
           href: azure-stack-edge-replace-device.md
+        - name: GPU 디바이스로 마이그레이션
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: 릴리스 정보
       items:
         - name: 2101 - 현재

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: cd1eb98fca9fe25b6672863c02b8a78e57063e5a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 24b2b8ee6398ef1306aee59b5d7ca7525284f96b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259324"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644550"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 
@@ -124,4 +124,4 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [Microsoft Q의 Azure AD&A ](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q의 Azure AD&A ](/answers/topics/azure-active-directory.html)

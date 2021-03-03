@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
-ms.translationtype: MT
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624041"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386852"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>자습서: Google Maps에서 웹 서비스 마이그레이션
 
@@ -54,7 +54,7 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
-- 지리적 위치
+- 지리적 위치 - Azure Maps에는 지리적 위치라는 서비스가 있어서 위치 정보에 IP 주소를 제공하지만, 현재 셀 타워 또는 WiFi 삼각 측정을 지원하지 않습니다.
 - 위치 세부 정보 및 사진 - 전화 번호 및 웹 사이트 URL은 Azure Maps 검색 API에서 사용할 수 있습니다.
 - 맵 URL
 - 가장 가까운 도로 - [여기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic)에 표시된 것처럼 Web SDK를 사용하여 달성할 수 있지만 현재 서비스로는 사용할 수 없습니다.

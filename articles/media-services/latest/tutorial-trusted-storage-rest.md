@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590653"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>자습서: Media Services 신뢰할 수 있는 스토리지
 
@@ -23,6 +23,9 @@ ms.locfileid: "100100916"
 > - 방화벽 또는 VPN과 같은 네트워크 액세스 제어를 사용할 때 Azure 서비스에 스토리지 계정에 대한 액세스 권한을 부여하는 방법
 
 2020-05-01 API를 사용하면 관리 ID를 Media Services 계정과 연결하여 신뢰할 수 있는 스토리지를 사용하도록 설정할 수 있습니다.
+
+>[!NOTE]
+>신뢰할 수 있는 스토리지는 API에서만 사용할 수 있으며 현재 Azure Portal에서는 사용할 수 없습니다.
 
 Media Services는 시스템 인증을 사용하여 스토리지 계정에 자동으로 액세스할 수 있습니다. Media Services는 Media Services 계정과 스토리지 계정이 동일한 구독에 있는지 확인합니다. 또한 연결을 추가하는 사용자가 Azure Resource Manager RBAC를 사용하여 스토리지 계정에 액세스했는지 확인합니다.
 

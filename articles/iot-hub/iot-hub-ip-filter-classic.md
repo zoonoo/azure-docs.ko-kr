@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: jlian
-ms.openlocfilehash: 70cea7a388c07bee9caa2e25e4061a3d3bb2b460
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6f326bafb311acedc48c5a349c78f1cd6bcebc87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634093"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661157"
 ---
 # <a name="iot-hub-classic-ip-filter-and-how-to-upgrade"></a>IoT Hub 클래식 IP 필터 및 업그레이드 방법 
 
@@ -88,7 +88,7 @@ IoT Hub에 대해 업그레이드 된 IP 필터는 기본 제공 끝점을 보�
 
 특정 IP 주소에 대해 IoT Hub 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
-* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 프라이빗 연결을 만드는 경우입니다.
+* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 프라이빗 연결을 만드는 경우입니다.
 
 * IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 
@@ -141,7 +141,7 @@ IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선�
 
 ### <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 
-IoT Hub의 IP 필터는 [Azure  CLI](https://docs.microsoft.com/cli/azure/)를 통해 검색 및 업데이트할 수 있습니다.
+IoT Hub의 IP 필터는 [Azure  CLI](/cli/azure/)를 통해 검색 및 업데이트할 수 있습니다.
 
 IoT Hub의 현재 IP 필터를 검색하려면 다음을 실행합니다.
 
@@ -215,7 +215,7 @@ $iothubResource | Set-AzResource -Force
 
 ### <a name="update-ip-filter-rules-using-rest"></a>REST를 사용하여 IP 필터 규칙 업데이트
 
-또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
+또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
 
 ### <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
 

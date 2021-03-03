@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
-  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/19/2021
-  ms.locfileid: "98570136"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100363035"
 landingContent:
 - title: Azure Functions 정보
   linkLists:
@@ -128,14 +128,22 @@ landingContent:
       url: functions-how-to-azure-devops.md
     - text: Jenkins 플러그 인을 사용하여 배포
       url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: 성능 및 모니터링
+- title: 성능 및 모니터링 모범 사례
   linkLists:
   - linkListType: concept
     links:
+    - text: 성능 및 안정성
+      url: functions-best-practices.md
+    - text: 연결 관리
+      url: manage-connections.md
+    - text: 스토리지 고려 사항
+      url: storage-considerations.md
+    - text: 오류 처리 및 함수 재시도
+      url: functions-bindings-error-pages.md
+    - text: 보안
+      url: security-concepts.md
     - text: 모니터 함수
       url: functions-monitoring.md
-    - text: 성능 최적화
-      url: functions-best-practices.md
     - text: 네트워킹 고려 사항
       url: functions-networking-options.md
   - linkListType: how-to-guide

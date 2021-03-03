@@ -4,15 +4,15 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c684bd38f5e82cc53da002278495c2d4a859edc2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629649"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661293"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,11 +22,11 @@ Azure Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure 
 > [!NOTE]
 > 개인 링크를 통해 Azure Cosmos 끝점이 공용 DNS에서 확인 되는 것을 방지할 수 없습니다. 들어오는 요청에 대 한 필터링은 전송 또는 네트워크 수준이 아닌 응용 프로그램 수준에서 수행 됩니다.
 
-Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또는 피어링된 가상 네트워크에서 Azure Cosmos 계정에 액세스할 수 있습니다. Private Link에 매핑된 리소스 역시 프라이빗 피어링을 사용하여 VPN 또는 Azure ExpressRoute를 통해 온-프레미스에서 액세스할 수 있습니다. 
+Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또는 피어링된 가상 네트워크에서 Azure Cosmos 계정에 액세스할 수 있습니다. Private Link에 매핑된 리소스 역시 프라이빗 피어링을 사용하여 VPN 또는 Azure ExpressRoute를 통해 온-프레미스에서 액세스할 수 있습니다.
 
-자동 또는 수동 승인 방법을 사용하여 Private Link를 통해 구성된 Azure Cosmos 계정에 연결할 수 있습니다. 자세한 내용은 Private Link 설명서의 [승인 워크플로](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) 섹션을 참조하세요. 
+자동 또는 수동 승인 방법을 사용하여 Private Link를 통해 구성된 Azure Cosmos 계정에 연결할 수 있습니다. 자세한 내용은 Private Link 설명서의 [승인 워크플로](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) 섹션을 참조하세요.
 
-이 문서에서는 프라이빗 엔드포인트를 만드는 단계를 설명합니다. 자동 승인 방법을 사용하는 것으로 가정합니다.
+이 문서에서는 Azure Cosmos DB 트랜잭션 저장소에 대 한 개인 끝점을 설정 하는 방법을 설명 합니다. 자동 승인 방법을 사용하는 것으로 가정합니다. 분석 저장소를 사용 하는 경우 [분석 저장소에 대 한 개인 끝점](analytical-store-private-endpoints.md) 문서를 참조 하세요.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -671,7 +671,7 @@ Azure Cosmos 계정에 Private Link를 사용하면 다음 제한이 적용됩�
 
 * Azure Cosmos DB의 API for MongoDB 계정을 사용하면 서버 버전 3.6의 계정(즉, `*.mongo.cosmos.azure.com` 형식의 엔드포인트를 사용하는 계정)에만 프라이빗 엔드포인트가 지원됩니다. 서버 버전 3.2의 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)에는 Private Link가 지원되지 않습니다. Private Link를 사용하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 
-* Private Link가 있는 Azure Cosmos DB의 API for MongoDB 계정을 사용하면 일부 도구 또는 라이브러리가 연결 문자열에서 `appName` 매개 변수를 자동으로 제거하므로 작동하지 않을 수 있습니다. 이 매개 변수는 프라이빗 엔드포인트를 통해 계정에 연결하는 데 필요합니다. Visual Studio Code와 같은 일부 도구는 연결 문자열에서 이 매개 변수를 제거하지 않으므로 호환됩니다.
+* 개인 링크가 있는 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 도구/라이브러리가 SNI (서비스 이름 식별)를 지원 하거나 `appName` 연결 문자열에서 매개 변수를 전달 하 여 적절 하 게 연결 해야 합니다. 일부 이전 도구/라이브러리가 개인 링크 기능을 사용 하도록 호환 되지 않을 수 있습니다.
 
 * 승인된 프라이빗 엔드포인트를 자동으로 만들려면 Azure Cosmos 계정 범위에서 네트워크 관리자에게 적어도 `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` 권한을 부여해야 합니다.
 

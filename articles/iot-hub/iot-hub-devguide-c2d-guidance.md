@@ -13,22 +13,24 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 10206aced4f38f4d157f46703aac2d28ec863274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319153"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093017"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>클라우드-디바이스 통신 지침
 
 IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바이스 앱에 제공합니다.
 
-* 결과를 즉각적으로 확인 해야 하는 통신을 위한 [직접 메서드입니다](iot-hub-devguide-direct-methods.md) . 대화형 디바이스 제어(예: 선풍기 켜기)에 대해 직접 메서드를 자주 사용합니다.
+* [직접 메서드](iot-hub-devguide-direct-methods.md)는 결과를 즉시 확인해야 하는 통신에 사용됩니다. 대화형 디바이스 제어(예: 선풍기 켜기)에 대해 직접 메서드를 자주 사용합니다.
 
 * [쌍의 원하는 속성](iot-hub-devguide-device-twins.md) 디바이스를 원하는 특정 상태로 만들려는 장기 실행 명령의 경우 예를 들어 원격 분석 송신 간격을 30분으로 설정합니다.
 
 * [클라우드-디바이스 메시지](iot-hub-devguide-messages-c2d.md) 디바이스 앱에 대한 단방향 알림의 경우
+
+[Azure iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 이 옵션을 사용 하 여 iot 플러그 앤 플레이 장치를 제어 하는 방법을 알아보려면 [iot 플러그 앤 플레이 서비스 개발자 가이드](../iot-pnp/concepts-developer-guide-service.md)를 참조 하세요.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -39,7 +41,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 | 시나리오 | 즉각적인 확인이 필요한 명령(예: 팬 작동) | 디바이스를 원하는 상태로 만들려는 장기 실행 명령. 예를 들어 원격 분석 송신 간격을 30분으로 설정합니다. | 디바이스 앱에 대한 단방향 알림 |
 | 데이터 흐름 | 양방향. 디바이스 앱에서 메서드에 즉시 응답할 수 있습니다. 솔루션 백 엔드에서 컨텍스트에 따라 요청에 대한 결과를 수신합니다. | 단방향. 디바이스 앱에서 속성 변경 알림을 수신합니다. | 단방향. 디바이스 앱에서 메시지를 수신합니다.
 | 내구성 | 연결이 끊긴 디바이스는 연결되지 않습니다. 디바이스가 연결되어 있지 않다고 솔루션 백 엔드에 알립니다. | 속성 값은 디바이스 쌍에 유지됩니다. 다음에 다시 연결할 때 디바이스에서 이 알림을 읽습니다. 속성 값은 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)로 검색할 수 있습니다. | 메시지는 최대 48시간 동안 IoT Hub에 보관될 수 있습니다. |
-| 대상 | **deviceId**를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId**를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId**를 사용하는 단일 디바이스 |
+| 대상 | **deviceId** 를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId** 를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId** 를 사용하는 단일 디바이스 |
 | 크기 | 최대 직접 메서드 페이로드 크기는 128KB입니다. | Desired 속성의 최대 크기는 32입니다. | 최대 64KB 메시지 |
 | 빈도 | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
 | 프로토콜 | MQTT 또는 AMQP를 통해 사용 가능합니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTPS를 사용할 경우 디바이스에서 폴링해야 합니다. |

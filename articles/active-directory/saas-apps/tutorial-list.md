@@ -13,10 +13,10 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
 ms.openlocfilehash: f231b50651764408a516f8e8e3275ea3c86bd388
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/02/2021
 ms.locfileid: "100530702"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서

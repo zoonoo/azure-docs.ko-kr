@@ -6,20 +6,20 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759741"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672638"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
 이제 Azure에서 2세대용 가상 머신(VM)에 대한 지원이 제공됩니다. 가상 머신을 만든 후에는 가상 머신의 세대를 변경할 수 없으므로 세대를 선택하기 전에 이 페이지의 고려 사항을 검토하세요.
 
-2세대 VM은 1세대 VM에서 지원되지 않는 주요 기능들을 지원합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능들이 있습니다. 자세한 내용은 [특징과 기능](#features-and-capabilities) 섹션을 참조하세요.
+2세대 VM은 1세대 VM에서 지원되지 않는 주요 기능들을 지원합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 [특징과 기능](#features-and-capabilities) 섹션을 참조하세요.
 
 2세대 VM은 1세대 VM에서 사용되는 BIOS 기반 아키텍처 대신 새 UEFI 기반 부팅 아키텍처를 사용합니다. 1세대 VM과 비교할 때 2세대 VM은 부팅 및 설치 시간을 향상시킬 수 있습니다. 2세대 VM에 대한 개요와 1세대와 2세대 간의 일부 차이점에 대한 설명은 [Hyper-V에 1세대 또는 2세대 가상 머신을 만들어야 하나요?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
 
@@ -79,11 +79,13 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 
 | 2세대 기능                | 온-프레미스 Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| 보안 부팅                         | :heavy_check_mark:  | :x:   |
+| 보안 부팅                         | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)   |
 | 보호된 VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| VBS(가상화 기반 보안) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)  |
+| VBS(가상화 기반 보안) | :heavy_check_mark:  | 신뢰할 수 있는 시작 (미리 보기)   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
+
+자세한 내용은 [신뢰할 수 있는 시작 (미리 보기)](trusted-launch.md)을 참조 하세요.
 
 ## <a name="features-and-capabilities"></a>특징과 기능
 
@@ -105,7 +107,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
 | 공유 이미지 갤러리              | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [서버 쪽 암호화](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>2세대 VM 만들기
@@ -206,7 +208,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     예. 자세한 내용은 [가속화된 네트워킹을 사용하여 VM 만들기](../virtual-network/create-vm-accelerated-networking-cli.md)를 참조하세요.
 
 * **2 세대 Vm은 Azure에서 보안 부팅 또는 vTPM을 지원 하나요?**
-    Azure의 1 세대 및 2 세대 Vm은 보안 부팅 또는 vTPM을 지원 하지 않습니다. 
+    VTPM 및 보안 부팅은 2 세대 Vm에 대 한 신뢰할 수 있는 시작 (미리 보기)의 기능입니다. 자세한 내용은 [신뢰할 수 있는 시작](trusted-launch.md)을 참조 하세요.
     
 * **VHDX는 2세대에서 지원되나요?**  
     아니요. 2세대 VM은 VHD만 지원합니다.
@@ -225,5 +227,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     1. [Gen2 VM을 지원하는 VM 크기](#generation-2-vm-sizes)를 검색하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+Gen 2 Vm을 사용 하 여 [신뢰할 수 있는 시작 (미리 보기)](trusted-launch-portal.md) 에 대해 자세히 알아보세요.
 
 [Hyper-V의 2세대 가상 머신](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.

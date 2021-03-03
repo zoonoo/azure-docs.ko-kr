@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101380"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650994"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>복원 력을 위한 응용 프로그램 로그인 상태 모니터링
 
@@ -43,7 +43,7 @@ ms.locfileid: "100101380"
 
 이 문서에서는 사용자 로그인에 대 한 중단을 모니터링 하도록 로그인 상태 통합 문서를 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 * Azure AD 테넌트.
 
@@ -51,7 +51,7 @@ ms.locfileid: "100101380"
 
 * Azure Monitor 로그에 로그를 보내기 위한 Azure 구독의 Log Analytics 작업 영역입니다. 
 
-   * [Log Analytics 작업 영역을 만드는](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 방법 알아보기
+   * [Log Analytics 작업 영역을 만드는](../../azure-monitor/logs/quick-create-workspace.md) 방법 알아보기
 
 * Azure Monitor 로그와 통합 된 Azure AD 로그
 
@@ -94,7 +94,7 @@ Azure Monitor에서 경고 규칙을 만들고 정기적으로 저장 된 쿼리
 
  기본 쿼리를 구성 하 고 경고를 설정 하려면 다음 단계를 완료 합니다. 예제 쿼리를 구성의 기반으로 사용 합니다. 이 섹션의 끝에 쿼리 구조에 대 한 설명이 표시 됩니다.
 
-Azure Monitor를 사용 하 여 로그 경고를 만들고 보고 관리 하는 방법에 대 한 자세한 내용은 [로그 경고 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)를 참조 하세요.
+Azure Monitor를 사용 하 여 로그 경고를 만들고 보고 관리 하는 방법에 대 한 자세한 내용은 [로그 경고 관리](../../azure-monitor/alerts/alerts-log.md)를 참조 하세요.
 
  
 1. 통합 문서에서 **편집** 을 선택한 다음 그래프의 오른쪽 바로 위에 있는 **쿼리 아이콘** 을 선택 합니다.   
@@ -280,10 +280,9 @@ thisWeek
 
 ## <a name="next-steps"></a>다음 단계
 
-[통합 문서에 대 한 자세한 정보](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[통합 문서에 대 한 자세한 정보](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

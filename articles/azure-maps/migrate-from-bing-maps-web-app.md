@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "99821570"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389113"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>자습서: Bing Maps에서 웹앱 마이그레이션
 
@@ -33,9 +33,9 @@ Bing Maps를 사용하는 웹앱은 Bing Maps V8 JavaScript SDK를 사용하는 
 
 기존 웹 애플리케이션을 마이그레이션하는 경우 Cesium, Leaflet, OpenLayers 같은 오픈 소스 지도 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 사용 중이라면 해당 라이브러리를 계속 사용할 수 있으며, Azure Maps 타일 서비스([도로 타일](/rest/api/maps/render/getmaptile) \| [위성 타일](/rest/api/maps/render/getmapimagerytile))에 연결하면 됩니다. 아래 링크는 일반적으로 사용되는 오픈 소스 지도 컨트롤 라이브러리에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
 
-* Cesium - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [설명서](https://cesiumjs.org/)
-* Leaflet – 웹용 경량 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [설명서](https://leafletjs.com/)
-* OpenLayers - 프로젝션을 지원하는 웹용 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [설명서](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [플러그 인 리포지토리]()
+* [Leaflet](https://leafletjs.com/) – 웹용 경량 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [플러그 인 리포지토리]()
+* [OpenLayers](https://openlayers.org/) - 프로젝션을 지원하는 웹용 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [플러그 인 리포지토리]()
 
 JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
 
@@ -64,7 +64,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 | 타일 레이어              | ✓                                                                                      |
 | KML 레이어                | ✓                                                                                      |
 | 컨투어 레이어            | [샘플](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| 데이터 범주화 레이어       | [샘플](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| 데이터 범주화 레이어       | 오픈 소스 Azure Maps [Gridded 데이터 원본 모듈](https://github.com/Azure-Samples/azure-maps-gridded-data-source)에 포함됨       |
 | 애니메이션 타일 레이어      | 오픈 소스 Azure Maps [애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations)에 포함되어 있습니다. |
 | 그리기 도구            | ✓                                                                                      |
 | Geocoder 서비스         | ✓                                                                                      |
@@ -72,10 +72,10 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 | 거리 행렬 서비스  | ✓                                                                                      |
 | 공간 데이터 서비스     | 해당 없음                                                                                    |
 | 위성/항공 이미지 | ✓                                                                                      |
-| 전경 이미지         | 계획                                                                                |
-| Streetside 이미지       | 계획                                                                                |
+| 전경 이미지         | 해당 없음                                                                                |
+| Streetside 이미지       | 해당 없음                                                                                |
 | GeoJSON 지원          | ✓                                                                                      |
-| GeoXML 지원           | ✓                                                                                      |
+| GeoXML 지원           | ✓ [공간 IO 모듈](how-to-use-spatial-io-module.md)                                                                                     |
 | Well-Known Text 지원  | ✓                                                                                      |
 | 사용자 지정 맵 스타일        | Partial                                                                                |
 

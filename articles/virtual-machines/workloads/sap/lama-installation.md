@@ -8,19 +8,18 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959155"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668710"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -470,7 +469,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 * SELECT 권한이 거부됨
   * [Microsoft][ODBC SQL Server Driver][SQL Server]'log_shipping_primary_databases', database 'msdb', schema 'dbo' 개체에 대한 SELECT 권한이 거부되었습니다. [SOAPFaultException]  
   'log_shipping_primary_databases', database 'msdb', schema 'dbo' 개체에 대한 SELECT 권한이 거부되었습니다.
-  * 해결 방법  
+  * 솔루션  
     *NT AUTHORITY\SYSTEM* 이 SQL Server에 액세스할 수 있는지 확인합니다. SAP Note [2562184]를 참조하세요.
 
 
@@ -480,79 +479,79 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 로그 뷰어를 확인하세요.  
     com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: ID가 'RuntimeHDBConnectionValidator'인 유효성 검사기의 예외(Validation: 'VALIDATION_HDB_USERSTORE'): hdbuserstore를 검색할 수 없습니다.  
     HANA userstore가 올바른 위치에 있지 않습니다.
-  * 해결 방법  
+  * 솔루션  
     /usr/sap/AH1/hdbclient/install/installation.ini가 올바른지 확인합니다.
 
 ### <a name="errors-and-warnings-during-a-system-copy"></a>시스템 복사 중 오류 및 경고
 
 * 시스템 프로비전 단계의 유효성을 검사하는 중 오류가 발생했습니다.
   * 원인: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 해결 방법  
+  * 솔루션  
     원본 HANA 시스템의 모든 데이터베이스를 백업합니다.
 
 * 시스템 복사 단계 데이터베이스 인스턴스의 시작(*Start*)
   * 호스트 에이전트 작업 '000D3A282BC91EE8A1D76CF1F92E2944' 실패(OperationException. FaultCode: '127', 메시지: '명령을 실행하지 못했습니다. : [Microsoft][ODBC SQL Server Driver][SQL Server]사용자에게 'AS2' 데이터베이스를 변경할 권한이 없거나, 데이터베이스가 없거나, 데이터베이스가 액세스 검사를 허용하지 않는 상태입니다.')
-  * 해결 방법  
+  * 솔루션  
     *NT AUTHORITY\SYSTEM* 이 SQL Server에 액세스할 수 있는지 확인합니다. SAP Note [2562184]를 참조하세요.
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>시스템 복제 중 오류 및 경고
 
 * ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
   * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다. 프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
-  * 해결 방법  
+  * 솔루션  
    ASCS/SCS의 sapmnt 공유에 SAP_AS1_GlobalAdmin에 대한 전체 액세스 권한이 있는지 확인합니다.
 
 * *Enable Startup Protection for Clone*(복제에 대한 시작 보호 사용) 단계의 오류
   * '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 파일을 열지 못했습니다. 원인: 해당하는 파일이나 디렉터리가 없습니다.
-  * 해결 방법  
+  * 솔루션  
     애플리케이션 서버의 컴퓨터 계정에 프로필에 대한 쓰기 권한이 필요합니다.
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>시스템 복제 생성 중 오류 및 경고
 
 * 시스템 복제 생성을 클릭하면 예외 발생
   * 원인: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException   Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 해결 방법  
+  * 솔루션  
     sapacext를 `<hanasid`>adm으로 실행할 수 있는지 테스트합니다.
 
 * 스토리지 단계에서 전체 복사본을 사용할 수 없는 경우 오류 발생
   * 경로 IStorageCopyData.storageVolumeCopyList:1 및 필드 targetStorageSystemId에 대한 컨텍스트 특성 메시지를 보고할 때 오류가 발생했습니다.
-  * 해결 방법  
+  * 솔루션  
     단계의 경고를 무시하고 다시 시도하세요. 이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.
 
 ### <a name="errors-and-warnings-during-relocate"></a>재배치 중 오류 및 경고
 
 * nfs 다시 내보내기에 경로 '/usr/sap/AH1'이 허용되지 않습니다.
   * 자세한 내용은 SAP Note [2628497]을 참조하세요.
-  * 해결 방법  
+  * 솔루션  
     ASCS 내보내기를 ASCS HostAgent 프로필에 추가합니다. SAP Note [2628497]을 참조하세요.
 
 * ASCS 재배치 시 기능이 구현되지 않음
   * 명령 출력: exportfs: host:/usr/sap/AX1: 구현되지 않는 기능입니다.
-  * 해결 방법  
+  * 솔루션  
     재배치 대상 가상 머신에 NFS 서버 서비스가 활성화되어 있는지 확인합니다.
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Application Server 설치 중 오류 및 경고
 
 * SAPinst 단계: getProfileDir 실행 중 오류 발생
   * 오류: (단계에서 보고한 마지막 오류: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askUnicode 실행 중 오류 발생
   * 오류: (단계에서 보고한 마지막 오류: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
-  * 해결 방법  
+  * 솔루션  
     최근 SAP 커널을 사용하는 경우, SWPM은 ASCS의 메시지 서버를 사용하여 시스템이 더 이상 유니코드 시스템인지 여부를 확인할 수 없습니다. 자세한 내용은 SAP Note [2445033]을 참조하세요.  
     이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.  
     이 문제를 해결하려면 SAP 시스템의 기본 프로필에서 프로필 매개 변수 OS_UNICODE=uc를 설정합니다.
 
 * SAPinst 단계: dCheckGivenServer 실행 중 오류 발생
   * SAPinst 단계를 실행 하는 동안 오류 발생: dCheckGivenServer "version =" 1.0 "오류: (단계에서 보고 한 마지막 오류: \<p> 사용자가 설치를 취소 했습니다. \</p>
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: checkClient 실행 중 오류 발생
   * SAPinst 단계를 실행 하는 동안 오류가 발생 했습니다. checkClient "version =" 1.0 "오류: (단계에서 보고 한 마지막 오류: \<p> 사용자가 설치를 취소 했습니다. \</p>)
-  * 해결 방법  
+  * 솔루션  
     애플리케이션 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
 
 * SAPinst 단계: copyScripts 실행 중 오류 발생
@@ -570,7 +569,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
   syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
   syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askPasswords 실행 중 오류 발생
@@ -589,7 +588,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
   iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
   synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
-  * 해결 방법  
+  * 솔루션  
     *Isolation*(격리) 단계에서 호스트를 추가하여 VM에서 도메인 컨트롤러로의 통신을 허용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

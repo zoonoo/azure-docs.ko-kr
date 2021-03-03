@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872012"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659718"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
-Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 연결할 수 있습니다.  기본 저장소 서비스에 대 한 추상화 계층을 제공 하므로 저장소 유형과 관련 된 코드를 작성 하지 않고도 안전 하 게 데이터에 액세스 하 고 작업할 수 있습니다. 또한 Azure Machine Learning는 다음과 같은 데이터 기능을 제공 합니다.
+Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 연결할 수 있습니다. 기본 저장소 서비스에 대 한 추상화 계층을 제공 하므로 저장소 유형과 관련 된 코드를 작성 하지 않고도 안전 하 게 데이터에 액세스 하 고 작업할 수 있습니다. 또한 Azure Machine Learning는 다음과 같은 데이터 기능을 제공 합니다.
 
 *    Pandas 및 Spark 데이터 프레임와의 상호 운용성
 *    데이터 계보 버전 관리 및 추적
@@ -53,7 +53,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>데이터 저장소를 사용 하 여 저장소에 연결
 
-데이터 저장소는 Azure storage에 대 한 연결 정보를 안전 하 게 유지 하므로 스크립트에서 코딩할 필요가 없습니다. Azure Machine Learning 저장소 계정에 쉽게 연결 하 고 기본 Azure storage 서비스의 데이터에 액세스 하는 데이터 저장소를 [등록 하 고 만듭니다](how-to-access-data.md) . 
+데이터 저장소는 Azure에서 데이터 저장소에 대 한 연결 정보를 안전 하 게 유지 하므로 스크립트에서 코딩할 필요가 없습니다. Azure Machine Learning 저장소 계정에 쉽게 연결 하 고 기본 저장소 서비스의 데이터에 액세스 하는 데이터 저장소를 [등록 하 고 만듭니다](how-to-access-data.md) . 
 
 데이터 저장소로 등록할 수 있는 Azure에서 지원 되는 클라우드 기반 저장소 서비스:
 
@@ -65,6 +65,9 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 + Azure Database for PostgreSQL
 + Databricks 파일 시스템
 + Azure Database for MySQL
+
+>[!TIP]
+> 일반적으로 데이터 저장소를 만드는 데 사용할 수 있는 기능에는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 저장소 서비스에 액세스 하기 위한 자격 증명 기반 인증이 필요 합니다. 이러한 자격 증명은 작업 영역에 대 한 *읽기* 권한이 있는 사용자가 액세스할 수 있습니다. <br><br>이 문제가 있는 경우  [저장소 서비스 (미리 보기)에 대 한 id 기반 데이터 액세스를 사용 하는 데이터 저장소를 만듭니다](how-to-identity-based-data-access.md). 이 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>데이터 집합을 사용 하 여 저장소의 데이터 참조

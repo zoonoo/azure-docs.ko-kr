@@ -5,17 +5,19 @@ services: virtual-machines
 documentationcenter: ''
 author: mathapli
 manager: westonh
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 44d78d9a47f86520a3a4778806c4ddc0f96eec94
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737900"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671209"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
@@ -177,7 +179,7 @@ Red Hat 구독 준수, 소프트웨어 업데이트 및 Azure 하이브리드 �
 
 SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하 고 SLES PAYG에서 BYOS로 이동 하거나 SLES BYOS에서 PAYG로 이동 하는 방법에 대 한 자세한 내용은 [SUSE Linux Enterprise and Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)를 참조 하세요. 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 *Q: SLES 이미지를 사용 하 여 라이선스 유형을 사용 `RHEL_BYOS` 하거나 그 반대로 사용할 수 있나요?*
 
 A: 아니요, 할 수 없습니다. VM에서 실행 되는 배포와 부정확 하 게 일치 하는 라이선스 유형을 입력 하려고 하면 청구 메타 데이터가 업데이트 되지 않습니다. 그러나 잘못 된 라이선스 유형을 실수로 입력 한 경우 VM을 올바른 라이선스 유형으로 다시 업데이트 하면 혜택을 계속 사용할 수 있습니다.

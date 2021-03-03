@@ -2,18 +2,17 @@
 title: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs
 description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
 author: hermanndms
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 6492e770479042a5a1b4da6f61917832adad4873
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b739efcf2695a5385351f531efb6201bbea1cd5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021421"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671944"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -108,7 +107,7 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     b. 인스턴스 **이름** 을 입력합니다.
 
-    다. Azure **지역을** 선택 합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
+    다. Azure **지역** 을 선택합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
 
     d. 8자 또는 9자로 솔루션에 대한 마스터 **암호** 를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
 

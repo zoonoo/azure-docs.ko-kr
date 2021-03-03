@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: IoT 디바이스 및 애플리케이션 개발 설명서
+summary: 임베디드 디바이스를 개발하고 디바이스 지원 클라우드 애플리케이션을 구축하기 위한 Azure IoT 설명서를 살펴보세요.
+metadata:
+  title: IoT 디바이스 및 애플리케이션 개발
+  description: Azure IoT를 사용하여 임베디드 디바이스 개발을 수행하고 디바이스 지원 클라우드 애플리케이션을 빌드하는 방법을 알아봅니다.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656280"
+landingContent:
+- title: IoT 디바이스 및 애플리케이션 개발 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure IoT 디바이스 및 애플리케이션 개발이란?
+      url: about-iot-develop.md
+    - text: 어떤 SDK를 사용해야 하는가?
+      url: about-iot-sdks.md
+- title: 디바이스 애플리케이션 개발 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: IoT Central로 디바이스 원격 분석 전송
+      url: quickstart-send-telemetry-python.md
+    - text: IoT Hub로 디바이스 원격 분석 전송
+      url: quickstart-send-telemetry-cli-python.md
+- title: 임베디드 디바이스 개발 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 임베디드 디바이스 개발 시작
+      url: quickstart-device-development.md

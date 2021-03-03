@@ -1,14 +1,14 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 02/01/2021
+ms.date: 02/08/2020
 ms.topic: sample
-ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: c64bc02c1dea4e2c53d4ff195add2ac7fa57874f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225144"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370957"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -18,8 +18,9 @@ ms.locfileid: "99225144"
 
 | 샘플 | Description |
 |---------|---------|
-| [오스트레일리아 정부 ISM PROTECTED](./ism-protected/index.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수를 위한 가드레일을 제공합니다. |
-| [Azure Security Benchmark v1](./azure-security-benchmark.md) | [Azure Security Benchmark v1](../../../security/benchmarks/overview.md) 규정 준수를 위한 가드레일을 제공합니다. |
+| [오스트레일리아 정부 ISM PROTECTED](./ism-protected/index.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
+| [Azure Security Benchmark](./azure-security-benchmark.md) | [Azure Security Benchmark](../../../security/benchmarks/overview.md) 규정을 준수하기 위한 가드 레일을 제공합니다. |
+| [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Azure Security Benchmark Foundation을 배포하고 구성합니다. |
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1-1-0.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [DoD 영향 수준 4](./dod-impact-level-4/index.md) | DoD 영향 수준 4를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |

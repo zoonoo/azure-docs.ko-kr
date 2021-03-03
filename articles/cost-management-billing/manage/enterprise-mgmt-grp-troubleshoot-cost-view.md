@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d78621697d53f429624dc22a8e91ba4367dcfd18
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371850"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093965"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결
 
@@ -41,7 +41,7 @@ ms.locfileid: "91371850"
 
 ![“자산을 사용할 수 없음” 메시지를 보여 주는 스크린샷](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Azure 구독 또는 관리 그룹 관리자에게 액세스 권한을 요청하세요. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure 구독 또는 관리 그룹 관리자에게 액세스 권한을 요청하세요. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

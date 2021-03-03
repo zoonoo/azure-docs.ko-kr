@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: c49ee2778d3198cc7109c34bceb1591756d82b1c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653451"
+ms.locfileid: "101091468"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -191,6 +191,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>새로 만들기</sup> | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>새로 만들기</sup> | 일반 |
 | 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-SylvieNeural` | 일반 |
+| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-AntoineNeural` <sup>새로 만들기</sup> | 일반 |
 | 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` | 일반 |
 | 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-DeniseNeural` | 일반 |
 | 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` | 일반 |
@@ -398,19 +399,19 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 |--|--|--|--|
 | 중국어 (북경어, 간체) | `zh-CN` | 예 | 예 |
 | 중국어 (북경어, 간체), 영어 (미국) | `zh-CN` 사전 | 예 | 예 |
-| 영어(호주) | `en-AU` | 아니요 | 예 |
+| 영어(호주) | `en-AU` | 예 | 예 |
 | 영어(인도) | `en-IN` | 예 | 예 |
 | 영어(영국) | `en-GB` | 예 | 예 |
 | 영어(미국) | `en-US` | 예 | 예 |
-| 프랑스어(캐나다) | `fr-CA` | 아니요 | 예 |
+| 프랑스어(캐나다) | `fr-CA` | 예 | 예 |
 | 프랑스어(프랑스) | `fr-FR` | 예 | 예 |
 | 독일어(독일) | `de-DE` | 예 | 예 |
 | 이탈리아어(이탈리아) | `it-IT` | 예 | 예 |
-| 일본어(일본) | `ja-JP` | 아니요 | 예 |
-| 한국어(한국) | `ko-KR` | 아니요 | 예 |
+| 일본어(일본) | `ja-JP` | 예 | 예 |
+| 한국어(한국) | `ko-KR` | 예 | 예 |
 | 포르투갈어(브라질) | `pt-BR` | 예 | 예 |
 | 스페인어(멕시코) | `es-MX` | 예 | 예 |
-| 스페인어(스페인) | `es-ES` | 아니요 | 예 |
+| 스페인어(스페인) | `es-ES` | 예 | 예 |
 
 사용자 지정 음성 모델을 학습하는 데 사용할 학습 데이터와 일치하는 올바른 로캘을 선택합니다. 예를 들어, 보유하고 있는 기록 데이터가 영국식 영어로 말하는 경우 `en-GB`를 선택합니다.
 

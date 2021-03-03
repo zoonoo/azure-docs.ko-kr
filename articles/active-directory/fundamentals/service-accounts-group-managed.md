@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c73bcd8fb4c6b594633abd1ac268bd8dfd78202
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bd4c1adddbf4b13f8e299bd656443c9aaab1d55b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417487"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644830"
 ---
 # <a name="securing-group-managed-service-accounts"></a>그룹 관리 서비스 계정 보안
 
@@ -41,7 +41,7 @@ gMSAs는 보안이 강화 된 단일 id 솔루션을 제공 하 고 다음을 �
 장애 조치 (Failover) 클러스터링과 같은 서비스에서 지원 하지 않는 한, gMSAs를 온-프레미스 서비스에 대 한 기본 계정 유형으로 사용 합니다.
 
 > [!IMPORTANT]
-> 프로덕션 환경에 배포 하기 전에 gMSAs를 사용 하 여 서비스를 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 설정 하 고 응용 프로그램이 gMSA를 사용 하 고 액세스 해야 하는 리소스에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [그룹 관리 서비스 계정에 대 한 지원](https://docs.microsoft.com/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019)을 참조 하세요.
+> 프로덕션 환경에 배포 하기 전에 gMSAs를 사용 하 여 서비스를 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 설정 하 고 응용 프로그램이 gMSA를 사용 하 고 액세스 해야 하는 리소스에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [그룹 관리 서비스 계정에 대 한 지원](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019)을 참조 하세요.
 
 
 서비스에서 gMSAs를 사용 하는 것을 지원 하지 않는 경우 다음으로 가장 좋은 옵션은 sMSA (독립 실행형 관리 서비스 계정)를 사용 하는 것입니다. sMSAs는 gMSA와 동일한 기능을 제공 하지만 단일 서버에만 배포 하기 위한 것입니다.
@@ -108,18 +108,18 @@ GMSAs를 관리 하는 데 다음과 같은 Active Directory PowerShell cmdlet�
 `Uninstall-ADServiceAccount`
 
 > [!NOTE]
-> Windows Server 2012부터 *-Uninstall-adserviceaccount cmdlet은 기본적으로 gMSAs 함께 작동 합니다. 위의 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 [**그룹 관리 서비스 계정 시작**](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)을 참조 하세요.
+> Windows Server 2012부터 *-Uninstall-adserviceaccount cmdlet은 기본적으로 gMSAs 함께 작동 합니다. 위의 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 [**그룹 관리 서비스 계정 시작**](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)을 참조 하세요.
 
 ## <a name="move-to-a-gmsa"></a>GMSA으로 이동
 gMSAs는 온-프레미스 요구 사항에 가장 안전한 유형의 서비스 계정입니다. 로 이동할 수 있는 경우를 지정 해야 합니다. 또한 서비스를 Azure로 이동 하 고 서비스 계정을 Azure Active directory로 이동 하는 것이 좋습니다.
 
-1.  [KDS 루트 키가 포리스트에 배포 되어](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key)있는지 확인 합니다. 이 작업은 한 번만 수행하면 됩니다.
+1.  [KDS 루트 키가 포리스트에 배포 되어](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key)있는지 확인 합니다. 이 작업은 한 번만 수행하면 됩니다.
 
-2. [새 gMSA을 만듭니다](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+2. [새 gMSA을 만듭니다](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 3. 서비스를 실행 하는 각 호스트에 새 gMSA를 설치 합니다.
    > [!NOTE] 
-   > GMSA를 사용 하도록 서비스를 구성 하기 전에 호스트에서 gMSA을 만들고 설치 하는 방법에 대 한 자세한 내용은 [그룹 관리 서비스 계정 시작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)) 을 참조 하세요.
+   > GMSA를 사용 하도록 서비스를 구성 하기 전에 호스트에서 gMSA을 만들고 설치 하는 방법에 대 한 자세한 내용은 [그룹 관리 서비스 계정 시작](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)) 을 참조 하세요.
 
  
 4. 서비스 id를 gMSA로 변경 하 고 빈 암호를 지정 합니다.

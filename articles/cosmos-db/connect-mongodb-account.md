@@ -6,18 +6,18 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 03/02/2021
 ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./connect-mongodb-account-experimental
-ms.openlocfilehash: 702c2d896da2316a2e75c4dbbe4f16249537832b
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b3e10931307914f1471b8a6fbffd38953ee4717b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093423"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659480"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,7 +29,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 - [빠른 시작 방법](#get-the-mongodb-connection-string-by-using-the-quick-start) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
 - 다른 드라이버에 사용할 [사용자 지정 연결 문자열 방법](#get-the-mongodb-connection-string-to-customize)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Cosmos 계정입니다. 지침은 [Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드](create-mongodb-dotnet.md)를 참조하세요.
@@ -74,6 +74,12 @@ Azure Cosmos DB는 표준 MongoDB 연결 문자열 URI 형식을 지원 합니�
 예를 들어 **연결 문자열** 블레이드에 표시된 계정을 사용하는 것이 좋습니다. 유효한 연결 문자열은 다음과 같습니다.
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
+
+## <a name="driver-requirements"></a>드라이버 요구 사항
+
+유선 프로토콜 버전 3.4 이상을 지 원하는 모든 드라이버는 MongoDB에 대 한 Azure Cosmos DB API를 지원 합니다.
+
+특히 클라이언트 드라이버는 SNI (서비스 이름 식별) TLS 확장 및/또는 appName 연결 문자열 옵션을 지원 해야 합니다. `appName`매개 변수가 제공 되는 경우 Azure Portal의 연결 문자열 값에 있는 것으로 매개 변수를 포함 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

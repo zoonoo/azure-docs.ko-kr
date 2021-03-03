@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500345"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673342"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Azure에서 보안 적용 및 정책 사용
 
@@ -43,7 +43,7 @@ Azure Managed Disks는 데이터를 클라우드에 보관할 때 기본적으�
 
 서버 쪽 암호화에 대해 자세히 알아보려면 [Windows](./disk-encryption.md) 또는 [Linux](./disk-encryption.md)에 대 한 문서를 참조 하세요.
 
-### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 [Windows VM](windows/disk-encryption-overview.md) 및 [Linux VM](linux/disk-encryption-overview.md)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. Windows VM의 가상 디스크는 미사용 시 BitLocker를 사용하여 암호화됩니다. Linux VM의 가상 디스크는 미사용 시 dm-crypt를 사용하여 암호화됩니다. 
 
@@ -73,4 +73,4 @@ Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overv
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Linux](../security/fundamentals/overview.md) 또는 [Windows](./tutorial-azure-security.md)용 Azure Security Center를 사용하여 가상 컴퓨터 보안을 모니터링하는 단계를 안내합니다.
+- [Linux](../security/fundamentals/overview.md) 또는 [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security)용 Azure Security Center를 사용하여 가상 컴퓨터 보안을 모니터링하는 단계를 안내합니다.

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635577"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>자습서: 보안 경고 심사, 조사 및 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 클라우드 리소스에서 잠재적으로 악의적인 활동에 대해 경고합니다. 다른 보안 제품 및 서비스의 경고를 Security Center에 통합할 수도 있습니다. 경고가 발생하면 잠재적인 보안 문제를 조사하고 수정하기 위한 신속한 조치가 필요합니다. 
@@ -42,7 +42,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
 **보안 경고** 페이지에서 경고를 심사합니다.
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="보안 경고 목록 페이지" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center의 보안 경고 목록":::
 
 이 페이지에서 현재 환경의 활성 보안 경고를 검토하여 어떤 경고를 먼저 조사할 것인지 결정할 수 있습니다.
 

@@ -8,22 +8,20 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 45ce295ceee9d5bd1c2393eaed854e8f2c5643ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888609"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659242"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
-
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Azure Communication Services를 사용하면 실시간 멀티미디어 음성, 비디오 및 IP 전화(Telephony-over-IP) 통신 기능을 애플리케이션에 쉽게 추가할 수 있습니다. 또한 Communication Services 클라이언트 라이브러리를 사용하면 채팅 및 SMS 기능을 통신 솔루션에 추가할 수 있습니다.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+> [!VIDEO https://www.youtube.com/embed/apBX7ASurgM]
 
 <br>
 <br>
@@ -41,8 +39,9 @@ Azure Communication Services를 사용하면 실시간 멀티미디어 음성, �
 Azure Communication Services를 처음 사용하는 경우 다음 리소스를 시작하는 것이 좋습니다.
 <br>
 
-| 리소스                               |설명                           |
+| 리소스                               |Description                           |
 |---                                    |---                                   |
+|**[통화 앱으로 Teams 미팅 참가](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.|
 |**[Communication Services 리소스 만들기](./quickstarts/create-communication-resource.md)**|Azure Portal 또는 Communication Services 관리 클라이언트 라이브러리를 통해 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services 사용을 시작할 수 있습니다. Communication Services 리소스 연결 문자열이 있으면 첫 번째 사용자 액세스 토큰을 프로비저닝할 수 있습니다.|
 |**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 서비스를 인증하는 데 사용됩니다. 이러한 토큰은 Communication Services 관리 클라이언트 라이브러리를 사용하여 프로비저닝되고 다시 발급됩니다.|
 |**[전화 번호 가져오기](./quickstarts/telephony-sms/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비저닝하고 해제할 수 있습니다. 이러한 전화 번호는 아웃바운드 호출을 시작하고 SMS 통신 솔루션을 구축하는 데 사용할 수 있습니다.|

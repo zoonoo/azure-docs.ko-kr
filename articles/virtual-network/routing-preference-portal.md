@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217569"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672904"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
@@ -32,20 +32,26 @@ ms.locfileid: "98217569"
 
 기본적으로 공용 IP 주소에 대한 라우팅 기본 설정은 모든 Azure 서비스에 대해 Microsoft 글로벌 네트워크로 설정되며 모든 Azure 서비스에 연결할 수 있습니다.
 
-> [!IMPORTANT]
-> 라우팅 기본 설정은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>라우팅 기본 설정을 사용하여 공용 IP 주소 만들기
-1. [Azure Portal](https://preview.portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기** 를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. **리소스 만들기** 를 선택합니다.
 3. 검색 상자에 *공용 IP 주소* 를 입력합니다.
 3. 검색 결과에서 **공용 IP 주소** 를 선택합니다. 그런 다음, **공용 IP 주소** 페이지에서 **만들기** 를 선택합니다.
-3. **라우팅 기본 설정** 옵션에서 **인터넷** 을 선택합니다.
+1. SKU의 경우 **표준** 을 선택 합니다.
+1. **라우팅 기본 설정** 에서 **인터넷** 을 선택 합니다.
 
-      ![공용 IP 주소 만들기](./media/routing-preference-portal/pip-new.png)
+      ![공용 IP 주소 만들기](./media/routing-preference-portal/public-ip-new.png)
+1. **IPV4 IP 주소 구성** 섹션에서 다음 정보를 입력 하거나 선택 합니다.
+
+    | 설정 | 값 |
+    | ------- | ----- |
+    | Subscription | 구독을 선택합니다.|
+    | Resource group | **새로 만들기** 를 선택 하 고 *RoutingPreferenceResourceGroup* 를 입력 한 다음 **확인** 을 선택 합니다. |
+    | 위치 | **미국 동부** 를 선택합니다.|
+    | 가용성 영역 | 기본값- **영역 중복** 을 유지 합니다. |
+1. **만들기** 를 선택합니다.
 
     > [!NOTE]
     > 공용 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 그러나 라우팅 기본 설정은 현재 IPV4만 지원합니다.

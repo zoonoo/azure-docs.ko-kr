@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cac17bbac96d44d8d9bfce2e168de4ea6d4c5c08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781059"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364956"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,13 +73,13 @@ ms.locfileid: "92781059"
 > 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다. 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 >
 
-**참조 데이터** : 토폴로지는 참조 데이터 관리에 사용됩니다. 아래 그림에서는 전용 데이터베이스에 참조 데이터가 있는 두 테이블(T1과 T2)이 유지됩니다. 이제 그림에서처럼 탄력적 쿼리를 사용하여 다른 데이터베이스에서 원격으로 T1과 T2 테이블에 액세스할 수 있습니다. 참조 테이블이 작거나 참조 테이블에 대한 원격 쿼리에 선택적 조건자가 있으면 토폴로지 1을 사용합니다.
+**참조 데이터**: 토폴로지는 참조 데이터 관리에 사용됩니다. 아래 그림에서는 전용 데이터베이스에 참조 데이터가 있는 두 테이블(T1과 T2)이 유지됩니다. 이제 그림에서처럼 탄력적 쿼리를 사용하여 다른 데이터베이스에서 원격으로 T1과 T2 테이블에 액세스할 수 있습니다. 참조 테이블이 작거나 참조 테이블에 대한 원격 쿼리에 선택적 조건자가 있으면 토폴로지 1을 사용합니다.
 
 **그림 2** 수직 분할 - 탄력적 쿼리를 사용하여 참조 데이터 쿼리
 
 ![수직 분할 - 탄력적 쿼리를 사용하여 참조 데이터 쿼리][3]
 
-**데이터베이스 간 쿼리** : 탄력적 쿼리를 사용하면 SQL Database의 여러 데이터베이스 간 쿼리가 필요한 사용 사례를 구현할 수 있습니다. 그림 3에는 CRM, 재고, HR 및 제품 등, 서로 다른 4가지 데이터베이스가 있습니다. 데이터베이스 중 하나에서 수행되는 쿼리도 하나 또는 전체의 다른 데이터베이스에 대한 액세스가 필요합니다. 탄력적 쿼리를 사용하면 몇 가지 간단한 DDL 문을 4개의 데이터베이스 각각에서 실행하여 이 케이스에 대한 데이터베이스를 구성할 수 있습니다. 이렇게 한 번 구성한 후에는 원격 테이블 액세스가 T-SQL 쿼리나 BI 도구에서 로컬 테이블을 참조하는 것처럼 간단해집니다. 원격 쿼리에서 반환되는 결과가 크지 않은 경우에는 이 방법이 권장됩니다.
+**데이터베이스 간 쿼리**: 탄력적 쿼리를 사용하면 SQL Database의 여러 데이터베이스 간 쿼리가 필요한 사용 사례를 구현할 수 있습니다. 그림 3에는 CRM, 재고, HR 및 제품 등, 서로 다른 4가지 데이터베이스가 있습니다. 데이터베이스 중 하나에서 수행되는 쿼리도 하나 또는 전체의 다른 데이터베이스에 대한 액세스가 필요합니다. 탄력적 쿼리를 사용하면 몇 가지 간단한 DDL 문을 4개의 데이터베이스 각각에서 실행하여 이 케이스에 대한 데이터베이스를 구성할 수 있습니다. 이렇게 한 번 구성한 후에는 원격 테이블 액세스가 T-SQL 쿼리나 BI 도구에서 로컬 테이블을 참조하는 것처럼 간단해집니다. 원격 쿼리에서 반환되는 결과가 크지 않은 경우에는 이 방법이 권장됩니다.
 
 **그림 3** 수직 분할 - 탄력적 쿼리를 사용하여 여러 데이터베이스 쿼리
 
@@ -92,7 +92,7 @@ ms.locfileid: "92781059"
 * [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource of type **RDBMS**
 * [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
-DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 자동으로 원격 데이터베이스에 대한 연결을 실행하고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
+DDL 문을 실행한 후에는 원격 테이블인 "mytable"에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 자동으로 원격 데이터베이스에 대한 연결을 실행하고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
 
 ## <a name="horizontal-partitioning---sharding"></a>행 분할 - 분할
 
@@ -114,13 +114,13 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 * [CREATE/DROP EXTERNA DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)**SHARD_MAP_MANAGER** 형식의 mydatasource
 * [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
-이 단계를 수행하고 나면 행 분할 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 테이블이 물리적으로 저장된 원격 데이터베이스에 대해 여러 병렬 연결을 자동으로 열고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
+이 단계를 수행하고 나면 행 분할 테이블인 "mytable"에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 테이블이 물리적으로 저장된 원격 데이터베이스에 대해 여러 병렬 연결을 자동으로 열고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
 행 분할 시나리오에 필요한 단계에 대한 자세한 내용은 [행 분할에 대한 탄력적 쿼리](elastic-query-horizontal-partitioning.md)에서 제공합니다.
 
 코딩을 시작하려면 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](elastic-query-getting-started.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 큰 데이터베이스 세트에 대한 탄력적 쿼리의 실행 성공 여부는 쿼리를 실행하는 동안 각 데이터베이스의 가용성에 크게 좌우됩니다. 데이터베이스 중 하나를 사용할 수 없으면 전체 쿼리가 실패합니다. 수백 또는 수천 개의 데이터베이스를 한 번에 쿼리하려는 경우 클라이언트 애플리케이션에 다시 시도 논리가 포함되어 있는지 확인하거나, [탄력적 데이터베이스 작업(미리 보기)](./job-automation-overview.md#elastic-database-jobs-preview)을 활용하여 데이터베이스의 더 작은 하위 집합을 쿼리하고 각 쿼리의 결과를 단일 대상으로 통합하는 것이 좋습니다.
+> 큰 데이터베이스 세트에 대한 탄력적 쿼리의 실행 성공 여부는 쿼리를 실행하는 동안 각 데이터베이스의 가용성에 크게 좌우됩니다. 데이터베이스 중 하나를 사용할 수 없으면 전체 쿼리가 실패합니다. 수백 또는 수천 개의 데이터베이스를 한 번에 쿼리하려는 경우 클라이언트 애플리케이션에 다시 시도 논리가 포함되어 있는지 확인하거나, [탄력적 데이터베이스 작업(미리 보기)](./job-automation-overview.md)을 활용하여 데이터베이스의 더 작은 하위 집합을 쿼리하고 각 쿼리의 결과를 단일 대상으로 통합하는 것이 좋습니다.
 
 ## <a name="t-sql-querying"></a>T-SQL 쿼리
 

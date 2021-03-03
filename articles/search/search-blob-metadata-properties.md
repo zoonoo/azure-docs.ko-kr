@@ -1,33 +1,33 @@
 ---
 title: 콘텐츠 메타 데이터 속성
 titleSuffix: Azure Cognitive Search
-description: Blob의 메타 데이터 속성은 검색 인덱스의 필드에 콘텐츠를 제공 하거나 런타임에 인덱싱 동작을 알려주는 정보를 제공할 수 있습니다. 이 문서에서는 Azure Cognitive Search에서 지원 되는 메타 데이터 속성을 나열 합니다.
+description: 문서의 메타 데이터 속성은 검색 인덱스의 필드에 콘텐츠를 제공 하거나 런타임에 인덱싱 동작을 알리는 정보를 제공할 수 있습니다. 이 문서에서는 Azure Cognitive Search에서 지원 되는 메타 데이터 속성을 나열 합니다.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 79443785dbd8619e22358631c9c36a3da4ef2e84
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/22/2021
+ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99477306"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668421"
 ---
-# <a name="content-metadata-properties-used-in-blob-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search의 blob 인덱싱에 사용 되는 콘텐츠 메타 데이터 속성
+# <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Azure Cognitive Search에 사용 되는 콘텐츠 메타 데이터 속성
 
-Blob은 다양 한 콘텐츠를 포함할 수 있으며, 대부분의 콘텐츠 형식에는 blob 인덱싱에 유용할 수 있는 메타 데이터 속성이 있습니다. 와 같은 표준 blob 속성에 대 한 검색 필드를 만드는 것 처럼 **`metadata_storage_name`** 문서 형식과 관련 된 메타 데이터 속성에 대 한 필드를 만들 수 있습니다.
+SharePoint Online 및 Azure blob storage에는 다양 한 콘텐츠가 포함 될 수 있으며, 이러한 콘텐츠 형식에는 인덱싱에 유용할 수 있는 메타 데이터 속성이 있습니다. 와 같은 표준 blob 속성에 대 한 검색 필드를 만드는 것 처럼 **`metadata_storage_name`** 문서 형식과 관련 된 메타 데이터 속성에 대 한 필드를 만들 수 있습니다.
 
 ## <a name="supported-document-formats"></a>지원되는 문서 형식
 
-Cognitive Search는 다음 문서 형식에 대 한 blob 인덱싱을 지원 합니다.
+Cognitive Search는 다음 문서 형식에 대 한 blob 인덱싱 및 SharePoint Online 문서 인덱싱을 지원 합니다.
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="properties-by-document-format"></a>문서 형식의 속성
 
-다음 표에서는 각 문서 형식에 대 한 처리 작업을 요약 하 고 blob 인덱서에 의해 추출 된 메타 데이터 속성을 설명 합니다.
+다음 표에서는 각 문서 형식에 대 한 처리 작업을 요약 하 고 blob 인덱서 및 SharePoint Online 인덱서가 추출 하는 메타 데이터 속성을 설명 합니다.
 
 | 문서 형식/콘텐츠 형식 | 추출 된 메타 데이터 | 처리 세부 정보 |
 | --- | --- | --- |
@@ -62,3 +62,4 @@ Cognitive Search는 다음 문서 형식에 대 한 blob 인덱싱을 지원 합
 * [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 * [AI를 사용 하 여 blob 이해](search-blob-ai-integration.md)
 * [Blob 인덱싱 개요](search-blob-storage-integration.md)
+* [SharePoint Online 인덱싱](search-howto-index-sharepoint-online.md)

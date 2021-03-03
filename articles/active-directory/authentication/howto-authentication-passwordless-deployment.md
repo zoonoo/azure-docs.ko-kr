@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530351"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651130"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -61,11 +61,11 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-| 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
+| 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
 | [AZURE AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 결합 된 등록](howto-registration-mfa-sspr-combined.md) 을 사용할 수 있습니다. | √ | √ |
 | [사용자는 Azure AD Multi-Factor Authentication를 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
@@ -82,7 +82,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 사용자는 Azure AD Multi-Factor Authentication 등록 흐름의 일부로 암호 없는 메서드를 등록 합니다. 일부 시나리오에서는 휴대폰 또는 보안 키를 사용할 수 없는 경우 다른 등록 된 방법과 함께 사용자 이름 및 암호를 사용 하는 multi-factor authentication을 대체 방법으로 사용할 수 있습니다.
 
-### <a name="licensing"></a>라이선싱 
+### <a name="licensing"></a>라이선스 
 일부 필수 구성 요소에는 프리미엄 구독이 필요할 수도 있지만 암호 없는 인증에 대 한 추가 비용은 없습니다. 자세한 기능 및 라이선스 정보는 [Azure Active Directory 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에 있습니다. 
 
 ## <a name="develop-a-plan"></a>계획 개발
@@ -149,7 +149,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 
 -    지원 되는 브라우저에서 웹 앱 Azure Active Directory
 -    Azure Active Directory Windows 10 장치에 연결 됨
--    하이브리드 Azure Active Directory Windows 10 장치에 연결 됨 (미리 보기)
+-    하이브리드 Azure Active Directory Windows 10 장치에 연결 됨
      -    클라우드 기반 및 온-프레미스 리소스 모두에 대 한 액세스를 제공 합니다. 온-프레미스 리소스에 액세스 하는 방법에 대 한 자세한 내용은 [FIDO2 키를 사용 하 여 온-프레미스 리소스에 SSO](./howto-authentication-passwordless-security-key-on-premises.md) 를 참조 하세요.
 
 **호환 되는 FIDO2 보안 키** 를 사용 하도록 설정 해야 합니다. Microsoft [는 FIDO2 키 공급 업체와의 주요 파트너 관계를](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)발표 했습니다.
@@ -193,7 +193,7 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 
 #### <a name="enable-on-premises-integration"></a>온-프레미스 통합 사용
 
-온-프레미스 리소스에 대 한 액세스를 사용 하려면 [온-프레미스 리소스에 대 한 암호 없는 보안 키 로그인을 사용 하도록 설정](howto-authentication-passwordless-security-key-on-premises.md)하는 단계를 수행 합니다 (미리 보기).
+온-프레미스 리소스에 대 한 액세스를 사용 하려면 [온-프레미스 리소스에 대 한 암호 없는 보안 키 로그인을 사용 하도록 설정](howto-authentication-passwordless-security-key-on-premises.md)하는 단계를 수행 합니다.
 
 > [!IMPORTANT]
 > Windows 10 로그인에 대 한 FIDO2 보안 키를 활용 하려면 하이브리드 Azure AD 조인 장치에 대해서도 이러한 단계를 완료 해야 합니다.
@@ -308,7 +308,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자가 휴대폰 로그인 인증자 앱을 사용 하도록 설정할 수 없습니다. | 사용자가 배포 범위에 있는지 확인 하세요. |
@@ -316,7 +316,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자는 [보안 설정](https://aka.ms/mysecurityinfo)에서 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |

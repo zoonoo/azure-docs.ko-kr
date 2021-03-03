@@ -2,22 +2,22 @@
 title: Azure 환경의 Oracle 재해 복구 시나리오 개요 | Microsoft Docs
 description: Azure 환경의 Oracle Database 12c 데이터베이스에 대한 재해 복구 시나리오입니다.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 68b5b9dfd205628c9d7c430df4c0230267752e01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880627"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669946"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
-## <a name="assumptions"></a>Assumptions
+## <a name="assumptions"></a>가정
 
 - Oracle Data Guard 설계 및 Azure 환경에 대해 이해하고 있습니다.
 
@@ -89,7 +89,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 자료
 
 - [Azure에서 Oracle 데이터베이스 설계 및 구현](oracle-design.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

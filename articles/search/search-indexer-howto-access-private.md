@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 0b30cb1767e733861d8418ea29e564bc90a5bc70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063199"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676508"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>개인 끝점을 통해 인덱서 연결 만들기
 
@@ -47,7 +47,7 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 지원 되는 [api 목록을](/rest/api/searchmanagement/privatelinkresources/listsupported)사용 하 여 아웃 바운드 개인 끝점 연결이 지원 되는 Azure 리소스를 쿼리할 수도 있습니다.
 
-이 문서의 나머지 부분에서는 REST API 호출을 보여 주기 위해 [Azure CLI](https://docs.microsoft.com/cli/azure/) (또는 원하는 경우 [ARMClient](https://github.com/projectkudu/ARMClient) ) 및 [POSTMAN](https://www.postman.com/) (또는 기타 HTTP 클라이언트 (예: [말아 말아](https://curl.se/) ))을 함께 사용 합니다.
+이 문서의 나머지 부분에서는 REST API 호출을 보여 주기 위해 [Azure CLI](/cli/azure/) (또는 원하는 경우 [ARMClient](https://github.com/projectkudu/ARMClient) ) 및 [POSTMAN](https://www.postman.com/) (또는 기타 HTTP 클라이언트 (예: [말아 말아](https://curl.se/) ))을 함께 사용 합니다.
 
 > [!NOTE]
 > 이 문서의 예는 다음과 같은 가정을 기반으로 합니다.
@@ -69,7 +69,7 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>1 단계: 저장소 계정에 대 한 공유 개인 링크 리소스 만들기
 
-저장소 계정에 대 한 아웃 바운드 개인 끝점 연결을 만들도록 Azure Cognitive Search를 요청 하려면 다음과 같이 [Azure CLI](https://docs.microsoft.com/cli/azure/)와 같은 API 호출을 수행 합니다. 
+저장소 계정에 대 한 아웃 바운드 개인 끝점 연결을 만들도록 Azure Cognitive Search를 요청 하려면 다음과 같이 [Azure CLI](/cli/azure/)와 같은 API 호출을 수행 합니다. 
 
 `az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
 

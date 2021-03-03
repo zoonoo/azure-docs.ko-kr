@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693189"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093979"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
@@ -64,7 +64,7 @@ Azure RBAC와 같은 기능을 사용 하 여 데이터 액세스 제어를 적�
 
 Azure RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)
 - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
 - [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md) 
 

@@ -3,24 +3,25 @@ title: Azure에서 OKD 배포
 description: Azure에서 OKD를 배포합니다.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dc14b10081cf175581d29524dcea60c52763b03c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732397"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667218"
 ---
 # <a name="deploy-okd-in-azure"></a>Azure에서 OKD 배포
 
 Azure에서 OKD(이전의 OpenShift Origin)를 배포하는 두 가지 방법 중 하나를 사용할 수 있습니다.
 
-- 필요한 모든 Azure 인프라 구성 요소를 수동으로 배포한 다음 [OKD 설명서](https://docs.okd.io)를 따를 수 있습니다.
+- 필요한 모든 Azure 인프라 구성 요소를 수동으로 배포한 다음, [OKD 설명서](https://docs.okd.io)를 따릅니다.
 - 또한 기존 [Resource Manager 템플릿](https://github.com/Microsoft/openshift-origin)을 사용하여 OKD 클러스터의 배포를 간소화할 수도 있습니다.
 
 ## <a name="deploy-using-the-okd-template"></a>OKD 템플릿을 사용하여 배포

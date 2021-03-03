@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 168e5340842dca3c26e4fa48d2f14b8ade529cd9
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 18d93a1a6ac9661b18054611015b02e41219bc14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505751"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659650"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -92,6 +92,7 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
+
 중간 데이터(또는 단계의 출력)는 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) 개체로 표시됩니다. `output_data1`은 단계의 출력으로 생성되며 하나 이상 후속 단계의 입력으로 사용됩니다. `PipelineData`는 단계 간에 데이터 종속성을 도입하고 파이프라인에 암시적 실행 순서를 만듭니다. 이 개체는 나중에 파이프라인 단계를 만들 때 사용 됩니다.
 
 ```python
@@ -108,7 +109,7 @@ output_data1 = PipelineData(
 > 공개 미리 보기 클래스인를 사용 하 여 파이프라인 단계 사이에 중간 데이터를 유지할 수도 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 있습니다. 클래스를 사용 하는 코드 예제는 `OutputFileDatasetConfig` [2 단계 ML 파이프라인을 빌드하](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)는 방법을 참조 하세요.
 
 > [!TIP]
-> 현재 작업과 관련 된 파일만 업로드 합니다. 데이터 디렉터리 내에서 파일을 변경 하면 다시 사용이 지정 된 경우에도 다음에 파이프라인이 실행 될 때 단계를 다시 실행 하는 이유를 볼 수 있습니다. 
+> 현재 작업과 관련된 파일만 업로드합니다. 데이터 디렉터리 내에서 파일을 변경 하면 다시 사용이 지정 된 경우에도 다음에 파이프라인이 실행 될 때 단계를 다시 실행 하는 이유를 볼 수 있습니다. 
 
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 

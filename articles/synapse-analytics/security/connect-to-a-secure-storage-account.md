@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417789"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674319"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Synapse 작업 영역에서 보안 Azure storage 계정에 연결
 
@@ -21,7 +21,7 @@ ms.locfileid: "100417789"
 
 
 ## <a name="secured-azure-storage-accounts"></a>보안 Azure storage 계정
-Azure storage는 저장소 계정에 대 한 액세스를 보호 하 고 제어 하는 데 사용할 수 있는 계층화 된 보안 모델을 제공 합니다. 선택한 공용 IP 주소 범위에서 저장소 계정에 대 한 액세스를 허용 하도록 IP 방화벽 규칙을 구성할 수 있습니다. 선택한 가상 네트워크에서 저장소 계정에 액세스 하는 트래픽을 허용 하도록 네트워크 규칙을 구성할 수도 있습니다. 선택한 IP 주소 범위 및 동일한 저장소 계정에서 선택한 가상 네트워크의 액세스를 허용 하는 네트워크 규칙에서 액세스를 허용 하는 IP 방화벽 규칙을 결합할 수 있습니다. 이러한 규칙은 저장소 계정의 공용 끝점에 적용 됩니다. 작업 영역에서 만든 관리 되는 개인 끝점에서 저장소 계정으로의 트래픽을 허용 하는 액세스 규칙은 필요 하지 않습니다. 저장소 방화벽 규칙을 만들 때 기존 저장소 계정 또는 새 저장소 계정에 적용할 수 있습니다. 저장소 계정을 보호 하는 방법에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/common/storage-network-security)를 참조 하세요.
+Azure storage는 저장소 계정에 대 한 액세스를 보호 하 고 제어 하는 데 사용할 수 있는 계층화 된 보안 모델을 제공 합니다. 선택한 공용 IP 주소 범위에서 저장소 계정에 대 한 액세스를 허용 하도록 IP 방화벽 규칙을 구성할 수 있습니다. 선택한 가상 네트워크에서 저장소 계정에 액세스 하는 트래픽을 허용 하도록 네트워크 규칙을 구성할 수도 있습니다. 선택한 IP 주소 범위 및 동일한 저장소 계정에서 선택한 가상 네트워크의 액세스를 허용 하는 네트워크 규칙에서 액세스를 허용 하는 IP 방화벽 규칙을 결합할 수 있습니다. 이러한 규칙은 저장소 계정의 공용 끝점에 적용 됩니다. 작업 영역에서 만든 관리 되는 개인 끝점에서 저장소 계정으로의 트래픽을 허용 하는 액세스 규칙은 필요 하지 않습니다. 저장소 방화벽 규칙을 만들 때 기존 저장소 계정 또는 새 저장소 계정에 적용할 수 있습니다. 저장소 계정을 보호 하는 방법에 대 한 자세한 내용은 [여기](../../storage/common/storage-network-security.md)를 참조 하세요.
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Synapse 작업 영역 및 가상 네트워크
 Synapse 작업 영역을 만들 때 관리 되는 가상 네트워크를 연결할 수 있도록 선택할 수 있습니다. 작업 영역을 만들 때 작업 영역에 대해 관리 되는 가상 네트워크를 사용 하도록 설정 하지 않으면 작업 영역이 공유 가상 네트워크와 연결 된 관리 되는 가상 네트워크를 포함 하지 않는 다른 Synapse 작업 영역과 함께 사용 됩니다. 작업 영역을 만들 때 관리 되는 가상 네트워크를 사용 하도록 설정한 경우 작업 영역은 Azure Synapse에서 관리 하는 전용 가상 네트워크와 연결 됩니다. 이러한 가상 네트워크는 고객 구독에서 생성 되지 않습니다. 따라서 위에 설명 된 네트워크 규칙을 사용 하 여 이러한 가상 네트워크에서 보안 저장소 계정에 액세스 하는 트래픽을 부여할 수 없습니다.  

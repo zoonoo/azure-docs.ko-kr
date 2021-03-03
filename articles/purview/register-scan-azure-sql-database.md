@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99821220"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677743"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -149,9 +149,7 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 **원본 등록(Azure SQL Database)** 화면에서 다음을 수행합니다.
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-1. 원하는 스토리지 계정을 가리키는 방법을 선택합니다.
-   1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
-   1. 또는 **수동으로 입력** 을 선택하고 **서버 이름** 을 입력할 수 있습니다.
+1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
 1. **마침** 을 선택하여 데이터 원본을 등록합니다.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="원본 등록 옵션" border="true":::

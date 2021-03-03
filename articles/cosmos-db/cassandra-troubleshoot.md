@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493222"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658574"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB의 일반적인 문제 해결 Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB의 Cassandra API은 인기 있는 오픈 소스 Apache Cassandra
 
 ## <a name="nonodeavailableexception"></a>NoNodeAvailableException
 이는 가능한 원인 및 내부 예외를 많이 포함 하는 최상위 래퍼 예외 이며, 대부분은 클라이언트와 관련이 있을 수 있습니다. 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 몇 가지 인기 있는 원인과 해결 방법은 다음과 같습니다. 
 - Azure LoadBalancers 조정기의 유휴 시간 제한:로 매니페스트 될 수도 있습니다 `ClosedConnectionException` . 이 문제를 해결 하려면 드라이버에서 연결 유지 설정 ( [아래](#enable-keep-alive-for-java-driver)참조)을 설정 하 고 운영 체제에서 keep-alive 설정을 늘리거나 [Azure Load Balancer에서 유휴 시간 제한을 조정](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)합니다. 
 - **클라이언트 응용 프로그램 리소스 소모:** 클라이언트 컴퓨터에 요청을 완료 하는 데 충분 한 리소스가 있는지 확인 합니다. 
@@ -31,14 +31,14 @@ Azure Cosmos DB의 Cassandra API은 인기 있는 오픈 소스 Apache Cassandra
 ## <a name="cannot-connect-to-host"></a>호스트에 연결할 수 없음
 다음과 같은 오류가 표시 될 수 있습니다 `Cannot connect to any host, scheduling retry in 600000 milliseconds` .. 
 
-### <a name="solution"></a>해결 방법
-이는 클라이언트 쪽에서 SNAT 고갈 될 수 있습니다. [아웃 바운드 연결에 대 한 SNAT의](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 단계에 따라이 문제를 해결 하세요. Azure 부하 분산 장치는 기본적으로 4 분의 유휴 시간 제한이 있는 유휴 시간 제한 문제 일 수도 있습니다. [부하 분산 장치 유휴 시간 제한](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)에서 설명서를 참조 하세요. Tcp 사용-드라이버 설정에서 활성 상태를 유지 하 고 ( [아래](#enable-keep-alive-for-java-driver)참조) `keepAlive` 운영 체제의 간격을 4 분 미만으로 설정 합니다.
+### <a name="solution"></a>솔루션
+이는 클라이언트 쪽에서 SNAT 고갈 될 수 있습니다. [아웃 바운드 연결에 대 한 SNAT의](../load-balancer/load-balancer-outbound-connections.md) 단계에 따라이 문제를 해결 하세요. Azure 부하 분산 장치는 기본적으로 4 분의 유휴 시간 제한이 있는 유휴 시간 제한 문제 일 수도 있습니다. [부하 분산 장치 유휴 시간 제한](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)에서 설명서를 참조 하세요. Tcp 사용-드라이버 설정에서 활성 상태를 유지 하 고 ( [아래](#enable-keep-alive-for-java-driver)참조) `keepAlive` 운영 체제의 간격을 4 분 미만으로 설정 합니다.
 
  
 
 ## <a name="overloadedexception-java"></a>OverloadedException (Java)
 사용 된 총 요청 단위 수가 keyspace 또는 테이블에서 프로 비전 된 요청 단위 보다 많은 경우 따라서 요청이 제한 됩니다.
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 Azure Portal에서 keyspace 또는 테이블에 할당 된 처리량의 크기를 조정 하는 것이 좋습니다 (Cassandra API 크기 조정 작업은 [여기](manage-scale-cassandra.md) 참조). 또는 다시 시도 정책을 구현할 수 있습니다. Java의 경우 [v3 드라이버](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) 및 [v4 .x 드라이버](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4)에 대 한 다시 시도 샘플을 참조 하세요. 또한 [Java 용 Azure Cosmos Cassandra Extensions를](https://github.com/Azure/azure-cosmos-cassandra-extensions)참조 하세요.
 
 ### <a name="overloadedexception-even-with-sufficient-throughput"></a>충분 한 처리량이 있는 경우에도 OverloadedException 
@@ -49,7 +49,7 @@ Azure Portal에서 keyspace 또는 테이블에 할당 된 처리량의 크기�
 ## <a name="intermittent-connectivity-errors-java"></a>일시적인 연결 오류 (Java) 
 연결이 예기치 않게 삭제 되거나 제한 시간이 초과 되었습니다.
 
-### <a name="solution"></a>해결 방법 
+### <a name="solution"></a>솔루션 
 Java 용 Apache Cassandra 드라이버는 및의 두 가지 기본 다시 연결 정책을 제공 합니다. `ExponentialReconnectionPolicy` `ConstantReconnectionPolicy` 기본값은 `ExponentialReconnectionPolicy`입니다. 그러나 Azure Cosmos DB Cassandra API의 경우 `ConstantReconnectionPolicy` 2 초의 지연 시간을 사용 하는 것이 좋습니다. Java 2.x 드라이버에 대 한 [드라이버 설명서](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  를 참조 하 고 java 3.x 지침 [에 대해서는](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) 아래의 [Java 드라이버에 대 한 reconnectionpolicy 구성](#configuring-reconnectionpolicy-for-java-driver) 예를 참조 하세요.
 
 ## <a name="error-with-load-balancing-policy"></a>부하 분산 정책에 오류 발생
@@ -72,7 +72,7 @@ cluster = Cluster.builder()
 
 의 값이 `withLocalDc()` 연락처 지점 데이터 센터와 일치 하지 않으면 매우 간헐적 오류가 발생할 수 `com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)` 있습니다. 
 
-### <a name="solution"></a>해결 방법 
+### <a name="solution"></a>솔루션 
 [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-cassandra-extensions/blob/master/package/src/main/java/com/microsoft/azure/cosmos/cassandra/CosmosLoadBalancingPolicy.java) 구현 (작업을 수행 하려면 datastax 부 버전을 업그레이드 해야 할 수 있음):
 
 ```java
@@ -82,7 +82,7 @@ LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder(
 ## <a name="count-fails-on-large-table"></a>많은 테이블에서 개수가 실패 합니다.
 `select count(*) from table`많은 수의 행에 대해 실행 되는 경우 또는 이와 유사한 서버는 시간 초과 됩니다.
 
-### <a name="solution"></a>해결 방법 
+### <a name="solution"></a>솔루션 
 로컬 CQLSH 클라이언트를 사용 하는 경우 또는 설정을 변경할 수 `--connect-timeout` 있습니다 `--request-timeout` (자세한 내용은 [여기](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)참조). 이로 인해 충분 하지 않으며 카운트가 계속 해 서 발생 하는 경우 Azure Portal의 메트릭 탭으로 이동 하 여 메트릭을 선택한 `document count` 다음 데이터베이스 또는 컬렉션에 대 한 필터를 추가 하 여 Azure Cosmos DB 백 엔드 원격 분석에서 레코드 수를 가져올 수 있습니다 (Azure Cosmos DB의 아날로그 테이블). 그런 다음 레코드 수를 계산할 특정 시점에 대해 결과 그래프를 마우스로 가리킬 수 있습니다.
 
 :::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="메트릭 보기":::

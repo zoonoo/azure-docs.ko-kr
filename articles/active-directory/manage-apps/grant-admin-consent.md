@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258323"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643561"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
-응용 프로그램에 대 한 테 넌 트 전체 관리자 동의를 부여 하 여 사용자 환경을 간소화 하는 방법을 알아봅니다. 이 문서에서는이를 수행 하는 다양 한 방법을 제공 합니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다.
+  응용 프로그램에 대 한 테 넌 트 전체 관리자 동의를 부여 하는 방법을 알아봅니다. 이 문서에서는이를 수행 하는 다양 한 방법을 제공 합니다.
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 로그인 해야 합니다.
-
-> [!IMPORTANT]
-> 응용 프로그램에 테 넌 트 전체 관리자 동의가 부여 되 면 사용자 할당을 요구 하도록 구성 되지 않은 한 모든 사용자가 앱에 로그인 할 수 있습니다. 응용 프로그램에 로그인 할 수 있는 사용자를 제한 하려면 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
->
-> 전역 관리자 역할은 Microsoft Graph API에 대 한 응용 프로그램 사용 권한에 대 한 관리자 동의를 제공 하기 위해 필요 합니다.
+테 넌 트 전체 관리자 동의를 부여 하려면 조직을 대신 하 여 동의할 수 있는 사용자로 로그인 해야 합니다. 여기에는 [전역 관리자](../roles/permissions-reference.md#global-administrator) 및 [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator)와, 일부 응용 프로그램의 경우 [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator) 및 [클라우드 응용 프로그램 관리자가](../roles/permissions-reference.md#cloud-application-administrator)포함 됩니다. [응용 프로그램에 대 한 사용 권한을 부여 하](../roles/custom-consent-permissions.md)는 권한을 포함 하는 [사용자 지정 디렉터리 역할이](../roles/custom-create.md) 할당 된 경우 사용자에 게 테 넌 트 전체 동의를 부여할 수 있는 권한이 부여 될 수도 있습니다.
 
 > [!WARNING]
 > 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의를 부여 하면 앱 및 앱의 게시자에 게 조직의 데이터에 대 한 액세스 권한이 부여 됩니다. 동의를 부여 하기 전에 응용 프로그램에서 요청 하는 권한을 신중 하 게 검토 합니다.
->
-> 전역 관리자 역할은 Microsoft Graph API에 대 한 응용 프로그램 사용 권한에 대 한 관리자 동의를 제공 하기 위해 필요 합니다.
+
+> [!IMPORTANT]
+> 응용 프로그램에 테 넌 트 전체 관리자 동의가 부여 되 면 사용자 할당을 요구 하도록 구성 되지 않은 한 모든 사용자가 앱에 로그인 할 수 있습니다. 응용 프로그램에 로그인 할 수 있는 사용자를 제한 하려면 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Azure Portal에서 관리자 동의를 부여 합니다.
 
@@ -101,4 +97,4 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
-[Microsoft Q의 Azure AD&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Microsoft Q의 Azure AD&A](/answers/topics/azure-active-directory.html)

@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1c28ed90c041a65b2ff8dd08a3aac799795171eb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897462"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091220"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -238,7 +238,7 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 * [Azure PowerShell](/powershell/azure/): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 [Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다. 다음을 포함합니다.
 
@@ -306,7 +306,7 @@ Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 �
 
   > **사용 가능한 상황**: 사용자와 그룹의 액세스를 세부적으로 관리해야 하거나 특정 사용자를 구독 소유자로 지정해야 하는 경우
   >
-  > **시작** 하기: 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+  > **시작** 하기: 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 - **서비스 주체 개체**: 사용자 계정 및 그룹에 대 한 액세스를 제공 하는 것과 함께 서비스 주체에 대 한 동일한 액세스 권한을 부여할 수 있습니다.
 

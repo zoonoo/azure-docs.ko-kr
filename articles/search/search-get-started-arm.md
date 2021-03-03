@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 11/17/2020
-ms.openlocfilehash: 12aa7f123ec5e417d710636f2afb4c60231cefc1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 88a081f1ebbda52653302384c06403e223128c60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746553"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668387"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Search 배포
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)에서 나온 것입니다.
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-azure-search-create/azuredeploy.json":::
 
 이 템플릿에 정의된 Azure 리소스는 다음과 같습니다.
 

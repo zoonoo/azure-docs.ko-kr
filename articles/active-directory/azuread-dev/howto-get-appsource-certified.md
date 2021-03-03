@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052247"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649348"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 
@@ -102,7 +102,7 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 </tr>
 </table>
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
 
@@ -113,9 +113,9 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 ## <a name="get-support"></a>지원 받기
 
-Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](https://docs.microsoft.com/answers/products/) 사용 하 여 지원을 제공 합니다.
+Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](/answers/products/) 사용 하 여 지원을 제공 합니다.
 
-Microsoft Q&에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 합니다.
+Microsoft Q&에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) 합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

@@ -36,7 +36,7 @@
           href: quickstart-v2-aspnet-core-webapp.md
         - name: ASP.NET Core(Microsoft Graph 호출)
           href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-        - name: Node.js - MSAL | 미리 보기
+        - name: Node.js - MSAL
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: Node.js - Passport.js
           displayName: 'OIDC, express'
@@ -62,12 +62,16 @@
           href: quickstart-v2-uwp.md
         - name: Windows 데스크톱 .NET
           href: quickstart-v2-windows-desktop.md
+        - name: Node.js Electron
+          href: quickstart-v2-nodejs-desktop.md
     - name: 디먼 또는 백 엔드 서비스
       items:
         - name: .NET Core 콘솔(디먼)
           href: quickstart-v2-netcore-daemon.md
         - name: Python 콘솔 디먼
           href: quickstart-v2-python-daemon.md
+        - name: Node.js 콘솔 디먼
+          href: quickstart-v2-nodejs-console.md
         - name: Java 콘솔 디먼
           href: quickstart-v2-java-daemon.md
 - name: 자습서
@@ -88,6 +92,8 @@
           href: tutorial-v2-asp-webapp.md
         - name: Blazor 서버
           href: tutorial-blazor-server.md
+        - name: Node.js 웹앱 자습서
+          href: tutorial-v2-nodejs-webapp-msal.md
     - name: 모바일 및 데스크톱
       items:
         - name: Android
@@ -101,10 +107,14 @@
           href: tutorial-v2-windows-desktop.md
         - name: Android 앱에서 공유 디바이스 모드 사용
           href: tutorial-v2-shared-device-mode.md
+        - name: Electron 데스크톱 앱
+          href: tutorial-v2-nodejs-desktop.md
     - name: 디먼 또는 백 엔드 서비스
       items:
         - name: ASP.NET 디먼 웹앱
           href: tutorial-v2-aspnet-daemon-web-app.md
+        - name: Node.js 콘솔 디먼
+          href: tutorial-v2-nodejs-console.md
 - name: 샘플
   href: sample-v2-code.md
 - name: 개념
@@ -475,6 +485,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Chrome에서 SameSite 쿠키 변경 내용 처리
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: 암호 없는 인증 지원
+      items:
+        - name: FIDO2 인증 지원
+          href: support-fido2-authentication.md
     - name: 앱 및 서비스 인증
       items:
         - name: Azure PowerShell을 사용하여 서비스 사용자 만들기

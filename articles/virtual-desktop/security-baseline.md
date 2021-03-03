@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 01cd79afe3e718a32663544a76a2a43353bc082e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42795e2dda6df24e656c9c06f6a9424bd9e4b5cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575384"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092985"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 Azure 보안 기준
 
@@ -328,7 +328,7 @@ Azure RBAC를 사용 하 여 리소스에 할당 하는 권한은 항상 역할�
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md) 
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -783,7 +783,7 @@ Azure Automation 업데이트 관리 또는 타사 솔루션을 사용 하 여 W
 
 **책임**: 공유됨
 
-## <a name="endpoint-security"></a>끝점 보안
+## <a name="endpoint-security"></a>엔드포인트 보안
 
 *자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](/azure/security/benchmarks/security-controls-v2-endpoint-security)을 참조 하세요.*
 

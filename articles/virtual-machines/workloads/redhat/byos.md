@@ -2,18 +2,18 @@
 title: 사용자 고유의 구독 Azure 이미지를 가져오는 Red Hat Enterprise Linux | Microsoft Docs
 description: Azure에서 Red Hat Enterprise Linux에 대 한 사용자 고유의 구독 이미지를 확인 하는 방법에 대해 알아봅니다.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af4f9dac30c1e443e9647a5b752cdabf9c094a6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391023"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676085"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 

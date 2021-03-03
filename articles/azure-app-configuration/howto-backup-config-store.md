@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565928"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095509"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> 필요한 리소스 생성 및 역할 관리를 수행 하려면 계정에 `Owner` 적절 한 범위 (구독 또는 리소스 그룹)에 대 한 권한이 필요 합니다. 역할 할당에 대 한 지원이 필요한 경우 [Azure Portal를 사용 하 여 Azure 역할 할당을 추가 하거나 제거 하는 방법을](../role-based-access-control/role-assignments-portal.md)알아봅니다.
+> 필요한 리소스 생성 및 역할 관리를 수행 하려면 계정에 `Owner` 적절 한 범위 (구독 또는 리소스 그룹)에 대 한 권한이 필요 합니다. 역할 할당에 대 한 지원이 필요한 경우 [Azure Portal를 사용 하 여 Azure 역할을 할당 하는 방법을](../role-based-access-control/role-assignments-portal.md)알아보세요.
 
 다음 명령 또는 [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) 를 사용 하 여 앱 구성 저장소에 대 한 함수 앱 액세스의 관리 id를 부여 합니다. 다음 역할을 사용 합니다.
 - `App Configuration Data Reader`기본 앱 구성 저장소에서 역할을 할당 합니다.

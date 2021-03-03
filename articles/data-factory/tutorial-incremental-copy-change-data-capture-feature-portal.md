@@ -1,22 +1,17 @@
 ---
 title: 변경 데이터 캡처를 사용하여 데이터 증분 복사
 description: 이 자습서에서는 Azure SQL Managed Instance 데이터베이스의 테이블에서 Azure Storage로 델타 데이터를 증분 복사해 Azure Data Factory 파이프라인을 만듭니다.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555919"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391272"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -90,10 +85,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +108,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
-    *데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.*
+    *데이터 팩터리 이름 "ADFTutorialDataFactory"를 사용할 수 없습니다.*
 3. **버전** 에 대해 **V2** 를 선택합니다.
 4. 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다.
 5. **리소스 그룹** 에 대해 다음 단계 중 하나를 수행합니다.

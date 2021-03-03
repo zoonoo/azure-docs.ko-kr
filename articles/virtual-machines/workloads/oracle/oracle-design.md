@@ -2,22 +2,23 @@
 title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890767"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669980"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
-## <a name="assumptions"></a>Assumptions
+## <a name="assumptions"></a>가정
 
 - 온-프레미스에서 Azure로 Oracle 데이터베이스 마이그레이션할 계획입니다.
 - 마이그레이션하려는 Oracle Database에 대 한 [진단 팩](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) 또는 [자동 워크 로드 리포지토리가](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) 있습니다.
@@ -48,7 +49,7 @@ ms.locfileid: "98890767"
 | **리소스** |전용  |다른 클라이언트와 공유|
 | **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
 | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **크기 조정** |수직적 확장 |수평적 확장|
+| **배율** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항
@@ -220,7 +221,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - *사설망*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 자료
 
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

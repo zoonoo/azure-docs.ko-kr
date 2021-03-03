@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653077"
+ms.locfileid: "101092402"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
@@ -50,7 +50,7 @@ ms.locfileid: "100653077"
 
 ## <a name="anomaly-detection-notification"></a>변칙 검색 알림
 
-파트너 센터에서 변칙을 평가, 관리 및 승인할 수 있습니다. 방법을 알아보려면 [데이터 요금 청구에 대 한 변칙 검색](../anomaly-detection.md)을 참조 하세요.
+파트너 센터에서 변칙을 평가, 관리 및 승인할 수 있습니다. 방법을 알아보려면 [파트너 센터에서 요금제 청구 비정상 관리](../anomaly-detection.md)를 참조 하세요.
 
 고객에 게 요금제 사용에 대 한 비용이 부과 되지 않도록 하려면 검색 된 변칙이 실제 문제 인지 조사 해야 합니다. 그렇다면 파트너 센터에서 잘못 된 사용을 승인할 수 있습니다.
 
@@ -83,4 +83,4 @@ ms.locfileid: "100653077"
 ## <a name="next-steps"></a>다음 단계
 
 - [Marketplace 계량 서비스 API](marketplace-metering-service-apis.md)에 대해 알아봅니다.
-- [요금제 청구를 위한 변칙 검색](../anomaly-detection.md)
+- [파트너 센터에서 요금제 청구 이상 관리](../anomaly-detection.md)

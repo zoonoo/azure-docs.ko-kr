@@ -113,6 +113,8 @@
                   href: ./security/workspace-data-exfiltration-protection.md
                 - name: 프라이빗 링크 허브를 지원하는 Synapse 작업 영역
                   href: ./security/synapse-private-link-hubs.md
+                - name: 보안 스토리지 계정에 연결
+                  href: ./security/connect-to-a-secure-storage-account.md
             - name: 인증 및 통과
               items:
                 - name: Azure Active Directory
@@ -571,7 +573,11 @@
         - name: Delta Lake 작업
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: 라이브러리 관리
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
+          items:
+            - name: 라이브러리 추가 및 관리
+              href: ./spark/apache-spark-azure-portal-add-libraries.md
+            - name: 라이브러리 설치 오류 문제 해결
+              href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Notebooks 및 IDE 도구 사용
           items:
             - name: Notebooks 관리

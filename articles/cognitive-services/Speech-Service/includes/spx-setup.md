@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99579839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645357"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -19,11 +19,12 @@ ms.locfileid: "99579839"
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
 1. Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
-1. [.NET Core 3.1](/dotnet/core/install/linux)을 설치합니다.
+1. [.NET Core 3.1 SDK](/dotnet/core/install/linux)를 설치합니다.
 2. 다음 명령을 입력하여 NuGet을 통해 음성 CLI를 설치합니다.
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
 > [!NOTE]
@@ -39,6 +40,16 @@ Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용
 
 #### <a name="linux-install"></a>[Linux 설치](#tab/linuxinstall)
 
+다음 Linux 배포판은 음성 CLI를 사용하는 x64 아키텍처에 대해 지원됩니다.
+
+* CentOS 7/8
+* Debian 9/10 
+* RHEL(Red Hat Enterprise Linux) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> 추가 아키텍처는 Speech CLI가 아닌 Speech SDK에서 지원됩니다. 자세한 내용은 [Speech SDK 정보](../speech-sdk.md)를 참조하세요.
+
 x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
 1. [.NET Core 3.1](/dotnet/core/install/linux)을 설치합니다.
@@ -49,7 +60,7 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
 > [!NOTE]
-> NuGet의 대안으로, [zip 보관](https://aka.ms/speech/spx-zips.zip)에서 이진 파일을 다운로드하고, 새 `~/spx` 디렉터리로 `spx-netcore-30-linux-x64`를 추출하고, 이진에 `sudo chmod +r+x spx`를 입력하고, PATH 시스템 변수에 `~/spx` 경로를 추가할 수 있습니다.
+> NuGet의 대안으로, [zip 보관](https://aka.ms/speech/spx-zips.zip)에서 이진 파일을 다운로드하고, 새 `~/spx` 디렉터리로 `spx-netcore-30-linux-x64.zip`를 추출하고, 이진에 `sudo chmod +r+x spx`를 입력하고, PATH 시스템 변수에 `~/spx` 경로를 추가할 수 있습니다.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker 설치(Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +118,7 @@ sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 예를 들어 Windows에서 이 명령은 키를 설정합니다.
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 명령줄 도구와의 보다 확장된 상호 작용을 위해 entrypoint 매개 변수를 추가하여 대화형 bash 셸로 컨테이너를 시작할 수 있습니다.
@@ -160,8 +171,8 @@ Follow these instructions to create a shortcut:
 구독 키와 지역 식별자가 있으면(예: `eastus`, `westus`) 다음 명령을 실행합니다.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 구독 인증은 이제 향후 SPX 요청에 대해 저장됩니다. 이러한 저장된 값 중 하나를 제거해야 하는 경우 `spx config @region --clear` 또는 `spx config @key --clear`를 실행합니다.

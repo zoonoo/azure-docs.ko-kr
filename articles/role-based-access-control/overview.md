@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559344"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -38,7 +38,7 @@ Azure RBAC로 다음과 같은 일을 할 수 있습니다.
 
 ## <a name="how-azure-rbac-works"></a>Azure RBAC 작동 방법
 
-Azure RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 역할 할당을 만드는 것입니다. 이 개념을 반드시 이해해야 하며, 이 원리에 따라 권한이 적용됩니다. 역할 할당은 보안 주체, 역할 정의, 범위의 세 가지 요소로 구성됩니다.
+Azure RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 Azure 역할을 할당하는 것입니다. 이 개념을 반드시 이해해야 하며, 이 원리에 따라 권한이 적용됩니다. 역할 할당은 보안 주체, 역할 정의, 범위의 세 가지 요소로 구성됩니다.
 
 ### <a name="security-principal"></a>보안 주체
 
@@ -80,9 +80,9 @@ Azure는 4개 수준([관리 그룹](../governance/management-groups/overview.md
 
 ![액세스를 제어하는 역할 할당](./media/overview/rbac-overview.png)
 
-Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할 할당을 만들 수 있습니다.
+Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할을 할당할 수 있습니다.
 
-자세한 내용은 [역할 할당을 추가하는 단계](role-assignments-steps.md)를 참조하세요.
+자세한 내용은 [Azure 역할을 할당하는 단계](role-assignments-steps.md)를 참조하세요.
 
 ## <a name="multiple-role-assignments"></a>여러 역할 할당
 
@@ -122,6 +122,6 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)
 - [여러 역할의 이해](rbac-and-directory-admin-roles.md)
 - [클라우드 채택 프레임워크: Azure에서 리소스 액세스 관리](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

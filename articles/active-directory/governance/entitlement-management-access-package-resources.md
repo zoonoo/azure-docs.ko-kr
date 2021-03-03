@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223297"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644183"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
 
@@ -90,10 +90,10 @@ ms.locfileid: "99223297"
 
     그룹이 나 팀을 선택 하면 **하위 유형** 열에 다음 하위 유형 중 하나가 나열 됩니다.
 
-    | 하위 유형 | Description |
+    | 하위 유형 | 설명 |
     | --- | --- |
     | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
-    | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
+    | 배포판 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
     | Microsoft 365 | 팀에서 사용 하도록 설정 되지 않은 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
     | 팀 | 팀에서 사용 하도록 설정 된 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
 
@@ -144,13 +144,9 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **sharepoint 사이트** 를 클릭 하 여 sharepoint Online 사이트 선택 창을 엽니다.
 
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 사이트 선택-포털 보기":::
+    :::image type="content" source="media/entitlement-management-access-package-resources/resource-sharepoint-add.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 사이트 선택-포털 보기":::
 
-1. [여러 지역](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) 에서 SharePoint를 사용 하도록 설정한 경우 사이트를 선택할 환경을 선택 합니다.
-    
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 다중 지역 사이트 선택":::
-
-1. 다중 지역을 사용 하지 않는 경우 환경을 선택할 필요가 없습니다. 액세스 패키지에 포함 하려는 SharePoint Online 사이트를 선택 합니다.
+1. 액세스 패키지에 포함 하려는 SharePoint Online 사이트를 선택 합니다.
 
     ![액세스 패키지-리소스 역할 추가-SharePoint Online 사이트 선택](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 

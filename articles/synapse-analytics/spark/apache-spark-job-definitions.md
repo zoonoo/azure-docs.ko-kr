@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307179"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677616"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "93307179"
 
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 
-* Azure Synapse Analytics 작업 영역. 지침은 [Azure Synapse Analytics 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace)를 참조하세요.
+* Azure Synapse Analytics 작업 영역. 지침은 [Azure Synapse Analytics 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md)를 참조하세요.
 * 서버리스 Apache Spark 풀.
 * ADLS Gen2 스토리지 계정 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 소유자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
 * 작업 영역 기본 스토리지를 사용하지 않으려면 Synapse Studio에서 필요한 ADLS Gen2 스토리지 계정을 연결합니다. 

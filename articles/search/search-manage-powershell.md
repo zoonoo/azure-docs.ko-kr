@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: c992693bfb278ac559feb6fa82fa947086ceafbb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 111424ab3a3bd6020e70a08ddf2c494996f6f0ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381140"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676681"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
@@ -316,7 +317,7 @@ New-AzPrivateDnsZoneGroup `
     -PrivateDnsZoneConfig $config
 ```
 
-PowerShell에서 개인 끝점을 만드는 방법에 대 한 자세한 내용은이 [개인 링크 빠른](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell) 시작을 참조 하세요.
+PowerShell에서 개인 끝점을 만드는 방법에 대 한 자세한 내용은이 [개인 링크 빠른](../private-link/create-private-endpoint-powershell.md) 시작을 참조 하세요.
 
 ### <a name="manage-private-endpoint-connections"></a>프라이빗 엔드포인트 연결 관리
 
@@ -410,7 +411,7 @@ Azure Cognitive Search에서 아웃 바운드 개인 끝점을 만들 수 있는
 [AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) 는 공유 개인 링크 리소스를 만드는 데 사용 됩니다. 이 명령을 실행 하기 전에 일부 구성이 데이터 원본에 필요할 수 있습니다.
 
 ```azurepowershell-interactive
-New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
 [AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource) 를 사용 하면 공유 개인 링크 리소스를 검색 하 고 해당 상태를 볼 수 있습니다.

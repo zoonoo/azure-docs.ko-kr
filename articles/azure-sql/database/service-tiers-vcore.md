@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634212"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659337"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및
 |스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버** 를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
 |IOPS 및 처리량 (근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.<br/>**Sql Managed Instance**: [개요 Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md#service-tier-characteristics)을 참조 하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 리소스 제한을 참조 하세요.|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](read-scale-out.md)|
-|Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
+|Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 일 (기본적으로 7 일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1-35 일 (기본적으로 7 일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|
 |||
 

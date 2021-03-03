@@ -6,23 +6,22 @@ documentationcenter: ''
 author: msjuergent
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 0004afb5895d7549e5db8ad5e53b52fa17991520
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617105"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667913"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서는 Azure 관련 항목만 설명합니다. 일반적인 SAP HANA 백업 관련 항목은 SAP HANA 설명서를 확인 하세요. 사용자는 주요 데이터베이스 백업 전략, 이유 및 동기를 사용 하 여 사운드 및 유효한 백업 전략에 대해 잘 알고 있어야 하며, 백업 절차, 백업 보존 기간 및 복원 절차에 대 한 회사의 요구 사항을 알고 있어야 합니다.
 

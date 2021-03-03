@@ -1,5 +1,5 @@
 ---
-title: Azure Arc 활성화 된 온 보 딩 서비스 주체 만들기 (미리 보기)
+title: Azure Arc 활성화 된 Kubernetes에 대 한 온 보 딩 서비스 주체 만들기
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/09/2021
@@ -8,20 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Azure Arc 활성화 된 온 보 딩 서비스 주체 만들기 '
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390490"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650349"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Azure Arc 활성화 된 온 보 딩 서비스 주체 만들기 (미리 보기)
+# <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Azure Arc 활성화 된 Kubernetes에 대 한 온 보 딩 서비스 주체 만들기
 
 ## <a name="overview"></a>개요
 
-제한 된 권한 역할 할당이 있는 서비스 주체를 사용 하 여 Kubernetes 클러스터를 Azure Arc로 등록할 수 있습니다. 이 기능은 Azure Pipelines 및 GitHub 작업과 같은 CI/CD (지속적인 통합 및 지속적인 배포) 파이프라인에서 유용 합니다.
+제한 된 권한 역할 할당이 있는 서비스 주체를 사용 하 여 Kubernetes 클러스터를 Azure Arc에 연결할 수 있습니다. 이 기능은 Azure Pipelines 및 GitHub 작업과 같은 CI/CD (지속적인 통합 및 지속적인 배포) 파이프라인에서 유용 합니다.
 
-Azure Arc에 Kubernetes 클러스터를 등록 하는 데 서비스 주체를 사용 하는 방법을 알아보려면 다음 단계를 진행 합니다.
+Kubernetes 클러스터를 Azure Arc에 연결 하는 데 서비스 주체를 사용 하는 방법을 알아보려면 다음 단계를 수행 합니다.
 
 ## <a name="create-a-new-service-principal"></a>새 서비스 주체 만들기
 
@@ -49,11 +49,11 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 제한된 기능이 부여되어 있으므로 고객은 이 보안 주체를 쉽게 다시 사용하여 여러 클러스터를 등록할 수 있습니다.
 
-역할을 할당할 때 적절 한 인수를 전달 하 여 권한을 추가로 제한할 수 있습니다 `--scope` . 이렇게 하면 고객이 클러스터 등록을 제한할 수 있습니다. 다음 시나리오는 다양한 `--scope` 매개 변수에서 지원됩니다.
+역할을 할당할 때 적절 한 인수를 전달 하 여 권한을 추가로 제한할 수 있습니다 `--scope` . 이를 통해 관리자는 구독 또는 리소스 그룹 범위에 대 한 클러스터 등록을 제한할 수 있습니다. 다음 시나리오는 다양한 `--scope` 매개 변수에서 지원됩니다.
 
 | 리소스  | `scope` 인수| 영향 |
 | ------------- | ------------- | ------------- |
-| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | 서비스 사용자는 지정 된 구독의 기존 리소스 그룹에 있는 모든 클러스터를 등록할 수 있습니다. |
+| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | 서비스 사용자는 해당 구독의 모든 리소스 그룹에 클러스터를 등록할 수 있습니다. |
 | 리소스 그룹 | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | 서비스 사용자는 리소스 그룹의 클러스터 __만__ 등록할 수 있습니다 `myGroup` . |
 
 ```console

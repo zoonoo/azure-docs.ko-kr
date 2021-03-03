@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Azure Cache for Redis 만들기'
-description: 이 빠른 시작에서는 Azure Cache for Redis의 인스턴스를 만드는 방법을 알아봅니다.
+title: '빠른 시작: 오픈 소스 Redis 캐시 만들기'
+description: 이 빠른 시작에서는 기본, 표준 또는 프리미엄 계층에서 Azure Cache for Redis의 인스턴스를 만드는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/12/2020
-ms.openlocfilehash: 829f954fede18da2dbf7b3f2d84f69452294a17a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 02/08/2021
+ms.openlocfilehash: 24de9e4eabfbc03e942868cce7560b5df093e1ad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83228265"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365126"
 ---
-# <a name="quickstart-create-an-azure-cache-for-redis-instance"></a>빠른 시작: Azure Cache for Redis 인스턴스 만들기
+# <a name="quickstart-create-an-open-source-redis-cache"></a>빠른 시작: 오픈 소스 Redis 캐시 만들기
 
 Azure Cache for Redis는 Azure 내에서 완전 관리형 [오픈 소스 Redis](https://redis.io/)를 제공합니다. 모든 계층(기본, 표준 또는 프리미엄)의 Azure Cache for Redis 인스턴스로 시작하여 애플리케이션의 성능 요구에 맞게 확장할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 새 Azure Cache for Redis를 만드는 방법을 보여줍니다.
 
@@ -31,4 +31,3 @@ Azure Cache for Redis는 Azure 내에서 완전 관리형 [오픈 소스 Redis](
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis를 사용하는 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
-

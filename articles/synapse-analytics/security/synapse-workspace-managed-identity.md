@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461292"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670673"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse 작업 영역 관리 ID
 
@@ -23,7 +23,7 @@ ms.locfileid: "96461292"
 
 Azure 리소스에 대한 관리 ID는 Azure Active Directory의 기능입니다. 이 기능은 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 관리 ID 기능을 사용하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
-Azure 리소스에 대한 관리 ID는 이전에 MSI(관리 서비스 ID)로 알려진 서비스에 대한 새 이름입니다. 자세히 알아보려면 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+Azure 리소스에 대한 관리 ID는 이전에 MSI(관리 서비스 ID)로 알려진 서비스에 대한 새 이름입니다. 자세히 알아보려면 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse 작업 영역 관리 ID
 

@@ -12,6 +12,8 @@
       href: quickstarts/create-communication-resource.md
     - name: 액세스 토큰 만들기 및 관리
       href: quickstarts/access-tokens.md
+    - name: 관리 ID 사용(.NET)
+      href: quickstarts/managed-identity.md
     - name: 채팅
       items:
         - name: 앱에 채팅 추가
@@ -58,8 +60,6 @@
 - name: 개념
   expanded: false
   items:
-    - name: Teams 상호 운용성
-      href: concepts/teams-interop.md
     - name: 채팅
       items:
         - name: 채팅 클라이언트 라이브러리 개요
@@ -72,8 +72,12 @@
           href: concepts/telephony-sms/sdk-features.md
         - name: SMS 개념
           href: concepts/telephony-sms/concepts.md
-        - name: 전화 통신 및 SMS 솔루션 계획
+        - name: 전화 통신 개념
+          href: concepts/telephony-sms/telephony-concept.md
+        - name: 전화 번호 유형
           href: concepts/telephony-sms/plan-solution.md
+        - name: SIP 인터페이스 인프라 요구 사항
+          href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: 음성 및 비디오 통화
       items:
         - name: 통화 클라이언트 라이브러리 개요
@@ -86,6 +90,8 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: UI 프레임워크 기능
           href: concepts/ui-framework/ui-sdk-features.md
+    - name: Teams 상호 운용성
+      href: concepts/teams-interop.md
     - name: 클라이언트 및 서버 아키텍처
       href: concepts/client-and-server-architecture.md
     - name: 호출 흐름

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109015"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556493"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -27,7 +27,7 @@ Azure AD B2C(Azure Active Directory B2C) 테넌트에서 다양한 유형의 [�
 ## <a name="before-you-begin"></a>시작하기 전에
 
 - 새 사용자 흐름을 테스트하는 데 사용하려는 **애플리케이션을 등록** 합니다. 예제를 보려면 [자습서: Azure AD B2C에서 웹 애플리케이션 등록](tutorial-register-applications.md)을 참조하세요.
-- 공급자(예: Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft 또는 Twitter)를 사용하여 사용자 로그인을 사용하도록 설정하려면 **외부 ID 공급자를 추가** 합니다. 예제를 보려면 [ 자습서: Azure AD B2C의 애플리케이션에 ID 공급자 추가](tutorial-add-identity-providers.md)를 참조하세요.
+- 공급자(예: Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft 또는 Twitter)를 사용하여 사용자 로그인을 사용하도록 설정하려면 **외부 ID 공급자를 추가** 합니다. [Azure AD B2C의 애플리케이션에 ID 공급자 추가](add-identity-provider.md)를 참조하세요.
 - 테넌트의 로컬 계정에 지원하려는 ID 유형(이메일, 사용자 이름, 전화 번호)을 지정하려면 **로컬 계정 ID 공급자를 구성** 합니다. 그런 다음, 개별 사용자 흐름을 만들 때 지원되는 이러한 ID 유형 중에서 선택할 수 있습니다. 사용자가 사용자 흐름을 완료하면 Azure AD B2C 디렉터리에 로컬 계정이 만들어지고 **로컬 계정** ID 공급자가 사용자의 정보를 인증합니다. 다음 단계를 사용하여 테넌트의 로컬 계정 ID 공급자를 구성합니다.
 
    1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
@@ -66,7 +66,7 @@ Azure AD B2C(Azure Active Directory B2C) 테넌트에서 다양한 유형의 [�
 
    - **로컬 계정**. 사용자가 Azure AD B2C 테넌트에서 로컬 계정을 만들 수 있도록 하려면 사용할 식별자 유형(예: 이메일, 사용자 ID 또는 전화)을 선택합니다. [로컬 계정 ID 공급자](#before-you-begin) 설정에 구성된 ID 유형만 나열됩니다.
 
-   - **소셜 ID 공급자**. [추가한 소셜 ID 공급자](tutorial-add-identity-providers.md)(예: Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft 또는 Twitter)를 사용하여 사용자 로그인을 허용하려면 목록에서 공급자를 선택합니다.
+   - **소셜 ID 공급자**. [추가한 소셜 ID 공급자](add-identity-provider.md)(예: Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft 또는 Twitter)를 사용하여 사용자 로그인을 허용하려면 목록에서 공급자를 선택합니다.
 
 9. **사용자 특성 및 클레임** 에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. **자세히 보기** 를 선택합니다. 특성 및 클레임을 선택한 다음, **확인** 을 선택합니다.
 

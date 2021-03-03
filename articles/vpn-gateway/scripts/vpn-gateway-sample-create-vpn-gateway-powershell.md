@@ -1,58 +1,69 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - VPN Gateway 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - VPN 게이트웨이 만들기
+titleSuffix: Azure VPN Gateway
 description: PowerShell 스크립트를 사용하여 가상 네트워크, 네트워크 서브넷 및 경로 기반 VPN 게이트웨이를 만드는 방법에 대해 알아봅니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/09/2020
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: a17cd1dcf9bca52936a8b10fa45045ff88df1b01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d41ec492f1f694a8b39f16a7932c4476d9614a1a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660749"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385883"
 ---
-# <a name="create-a-vpn-gateway-with-powershell"></a>PowerShell로 VPN Gateway 만들기
+# <a name="create-a-vpn-gateway---powershell-script-sample"></a>VPN 게이트웨이 만들기 - PowerShell 스크립트 샘플
 
-이 스크립트는 경로 기반 VPN Gateway를 만듭니다.
+이 PowerShell 스크립트는 경로 기반 VPN 게이트웨이를 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-
 ```azurepowershell-interactive
+# Declare variables
+  $RG = "TestRG1"
+  $Location = "East US"
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $VNetPrefix1 = "10.1.0.0/16"
+  $FESubPrefix = "10.1.0.0/24"
+  $GWSubPrefix = "10.1.255.0/27"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWIP"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
-  -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -ResourceGroupName $RG `
+  -Location $Location `
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
--Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+-Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
@@ -71,7 +82,7 @@ Remove-AzResourceGroup -Name TestRG1
 | 명령 | 메모 |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 서브넷 구성을 추가합니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 가상 네트워크 세부 정보를 불러옵니다. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 가상 네트워크 세부 정보를 가져옵니다. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다. |

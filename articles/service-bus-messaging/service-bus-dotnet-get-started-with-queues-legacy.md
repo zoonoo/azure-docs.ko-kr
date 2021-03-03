@@ -1,22 +1,22 @@
 ---
 title: Azure Service Bus 큐 시작 | Microsoft Docs
-description: 이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 .NET Core 콘솔 응용 프로그램을 만듭니다.
-ms.topic: conceptual
+description: 이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c862fda5ee2bb5b7418fda1b4e45cd06742cf95
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
-ms.translationtype: MT
+ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819322"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652992"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
-이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 .NET Core 콘솔 응용 프로그램을 만듭니다.
+이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
 
 > [!WARNING]
-> 이 빠른 시작에서는 이전 ServiceBus 패키지를 사용 합니다. 최신 ServiceBus 패키지를 사용 하는 빠른 시작은 [ServiceBus 패키지를 사용 하 여 이벤트 전송 및 수신](service-bus-dotnet-get-started-with-queues.md)을 참조 하세요. 
+> 이 빠른 시작에서는 이전 Microsoft.Azure.ServiceBus 패키지를 사용합니다. 최신 Azure.Messaging.ServiceBus 패키지를 사용하는 빠른 시작은 [Azure.Messaging.ServiceBus 패키지를 사용하여 이벤트 보내기 및 받기](service-bus-dotnet-get-started-with-queues.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "95819322"
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
 
   - Service Bus 큐의 빠른 개요를 읽습니다.
-  - Service Bus 네임 스페이스를 만듭니다.
+  - Service Bus 네임스페이스를 만듭니다.
   - 연결 문자열을 가져옵니다.
   - Service Bus 큐를 만듭니다.
 
@@ -36,19 +36,19 @@ ms.locfileid: "95819322"
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
-Visual Studio를 시작 하 고 c #에 대 한 새 **콘솔 앱 (.Net Core)** 프로젝트를 만듭니다. 이 예제에서는 *CoreSenderApp* 앱의 이름을로 합니다.
+Visual Studio를 시작하고, C#용 새 **콘솔 앱(.NET Core)** 프로젝트를 만듭니다. 이 예제에서는 앱의 이름을 *CoreSenderApp* 으로 지정합니다.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리** 를 선택합니다.
-1. **찾아보기** 를 선택합니다. **[ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** 를 검색 하 고 선택 합니다.
-1. 설치 **를 선택 하** 여 설치를 완료 한 다음 NuGet 패키지 관리자를 닫습니다.
+1. **찾아보기** 를 선택합니다. **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** 를 검색하여 선택합니다.
+1. **설치** 를 선택하여 설치를 완료한 다음, NuGet 패키지 관리자를 닫습니다.
 
     ![NuGet 패키지 선택][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>코드를 작성하여 큐에 메시지 보내기
 
-1. *Program.cs* 에서 `using` 네임 스페이스 정의의 맨 위에 클래스 선언 앞에 다음 문을 추가 합니다.
+1. *Program.cs* 의 네임스페이스 정의 위쪽에서 다음 `using` 문을 클래스 선언 앞에 추가합니다.
 
     ```csharp
     using System.Text;
@@ -57,7 +57,7 @@ Visual Studio를 시작 하 고 c #에 대 한 새 **콘솔 앱 (.Net Core)** �
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. 클래스에서 `Program` 다음 변수를 선언 합니다.
+1. `Program` 클래스에서 다음 변수를 선언합니다.
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -65,9 +65,9 @@ Visual Studio를 시작 하 고 c #에 대 한 새 **콘솔 앱 (.Net Core)** �
     static IQueueClient queueClient;
     ```
 
-    네임 스페이스에 대 한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력 합니다. 큐 이름을 입력 합니다.
+    네임스페이스에 대한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력합니다. 큐 이름을 입력합니다.
 
-1. 메서드를 `Main()` 다음 **비동기** `Main` 메서드로 바꿉니다. `SendMessagesAsync()`큐에 메시지를 전송 하기 위해 다음 단계에서 추가 하는 메서드를 호출 합니다. 
+1. `Main()` 메서드를 다음 **async** `Main` 메서드로 바꿉니다. 메시지를 큐에 보내기 위해 다음 단계에서 추가할 `SendMessagesAsync()` 메서드를 호출합니다. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -87,7 +87,7 @@ Visual Studio를 시작 하 고 c #에 대 한 새 **콘솔 앱 (.Net Core)** �
         await queueClient.CloseAsync();
     }
     ```
-1. 메서드 바로 다음에 `MainAsync()` `SendMessagesAsync()` 지정 된 메시지 수를 전송 하는 작업을 수행 하는 다음 메서드를 추가 합니다 `numberOfMessagesToSend` (현재 10으로 설정 됨).
+1. `numberOfMessagesToSend`에서 지정된 메시지 수(현재 10으로 설정되어 있음)를 보내는 작업을 수행하는 다음 `SendMessagesAsync()` 메서드를 `MainAsync()` 메서드의 바로 뒤에 추가합니다.
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -114,7 +114,7 @@ Visual Studio를 시작 하 고 c #에 대 한 새 **콘솔 앱 (.Net Core)** �
     }
     ```
 
-*Program.cs* 파일은 다음과 같이 표시 됩니다.
+*Program.cs* 파일은 다음과 같아야 합니다.
 
 ```csharp
 namespace CoreSenderApp
@@ -176,25 +176,25 @@ namespace CoreSenderApp
 }
 ```
 
-프로그램을 실행 하 고 Azure Portal 확인 합니다.
+프로그램을 실행하고 Azure Portal을 확인합니다.
 
-Queue **Essentials** 를 표시 하려면 네임 스페이스 **개요** 창에서 큐의 이름을 선택 합니다.
+큐 **Essentials** 를 표시하려면 네임스페이스 **개요** 창에서 큐의 이름을 선택합니다.
 
-![개수 및 크기와 함께 수신 된 메시지][queue-message]
+![개수 및 크기와 함께 받은 메시지][queue-message]
 
-이제 큐에 대 한 **활성 메시지 수** 값이 **10** 입니다. 메시지를 검색 하지 않고이 발신자 앱을 실행할 때마다이 값이 10 씩 늘어납니다.
+큐에 대한 **활성 메시지 수** 값은 이제 **10** 입니다. 메시지를 검색하지 않고 이 보낸 사람 앱을 실행할 때마다 이 값이 10씩 증가합니다.
 
-앱이 큐에 메시지를 추가할 때마다 큐의 현재 크기는 **Essentials** 의 **현재** 값을 증가 시킵니다.
+앱에서 메시지를 큐에 추가할 때마다 큐의 현재 크기는 **기본 정보** 의 **현재** 값을 증가시킵니다.
 
-다음 섹션에서는 이러한 메시지를 검색 하는 방법을 설명 합니다.
+다음 섹션에서는 이러한 메시지를 검색하는 방법을 설명합니다.
 
 ## <a name="receive-messages"></a>메시지 받기
 
-보낸 메시지를 수신 하려면 다른 **콘솔 앱 (.Net Core)** 응용 프로그램을 만듭니다. 보낸 사람 응용 프로그램의 경우와 마찬가지로 **ServiceBus** NuGet 패키지를 설치 합니다.
+보낸 메시지를 수신하려면 다른 **콘솔 앱(.NET Core)** 애플리케이션을 만듭니다. 보낸 사람 애플리케이션의 경우와 마찬가지로 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>코드를 작성하여 큐에서 메시지 받기
 
-1. *Program.cs* 에서 `using` 네임 스페이스 정의의 맨 위에 클래스 선언 앞에 다음 문을 추가 합니다.
+1. *Program.cs* 의 네임스페이스 정의 위쪽에서 다음 `using` 문을 클래스 선언 앞에 추가합니다.
 
     ```csharp
     using System;
@@ -204,7 +204,7 @@ Queue **Essentials** 를 표시 하려면 네임 스페이스 **개요** 창에�
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. 클래스에서 `Program` 다음 변수를 선언 합니다.
+1. `Program` 클래스에서 다음 변수를 선언합니다.
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -212,7 +212,7 @@ Queue **Essentials** 를 표시 하려면 네임 스페이스 **개요** 창에�
     static IQueueClient queueClient;
     ```
 
-    네임 스페이스에 대 한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력 합니다. 큐 이름을 입력 합니다.
+    네임스페이스에 대한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력합니다. 큐 이름을 입력합니다.
 
 1. `Main()` 메서드를 다음 코드로 바꿉니다.
 
@@ -239,7 +239,7 @@ Queue **Essentials** 를 표시 하려면 네임 스페이스 **개요** 창에�
     }
     ```
 
-1. 메서드 바로 뒤에 `MainAsync()` 다음 메서드를 추가 합니다 .이 메서드는 메시지 처리기를 등록 하 고 발신자 응용 프로그램에서 보낸 메시지를 받습니다.
+1. `MainAsync()` 메서드의 바로 뒤에 메시지 처리기를 등록하고 보낸 사람 애플리케이션에서 보낸 메시지를 수신하는 다음 메서드를 추가합니다.
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -295,7 +295,7 @@ Queue **Essentials** 를 표시 하려면 네임 스페이스 **개요** 창에�
     }
     ```
 
-*Program.cs* 파일은 다음과 같습니다.
+*Program.cs* 파일은 다음과 같아야 합니다.
 
 ```csharp
 namespace CoreReceiverApp
@@ -381,14 +381,14 @@ namespace CoreReceiverApp
 }
 ```
 
-프로그램을 실행하고 포털을 다시 확인합니다. **활성 메시지 수** 와 **현재** 값이 이제 **0** 입니다.
+프로그램을 실행하고 포털을 다시 확인합니다. **활성 메시지 수** 및 **현재** 값은 이제 **0** 입니다.
 
-![메시지를 받은 후 큐][queue-message-receive]
+![메시지를 받은 후에 큐][queue-message-receive]
 
-축하합니다! 이제 큐를 만들고, 큐에 메시지 집합을 보내고, 동일한 큐에서 해당 메시지를 수신 했습니다.
+축하합니다! 이제 큐를 만들고 해당 큐에 메시지 세트를 보내고 동일한 큐에서 해당 메시지를 받았습니다.
 
 > [!NOTE]
-> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. 사용자는 Service Bus 탐색기를 사용 하 여 Service Bus 네임 스페이스에 쉽게 연결 하 고 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 토픽, 큐, 구독, 릴레이 서비스, notification hubs 및 event hubs를 테스트 하는 기능과 같은 고급 기능을 제공 합니다.
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 사용자가 Service Bus 네임스페이스에 쉽게 연결하고 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 토픽, 큐, 구독, 릴레이 서비스, 알림 허브 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

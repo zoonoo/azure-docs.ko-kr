@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: accefe6644f8959bb9426a154d4f33e0834fc06c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676770"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674879"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 사용 권한 구성
 
@@ -41,7 +42,7 @@ Azure 이미지 작성기를 사용 하려면 [azure 사용자 할당 관리 id]
 
 다음 예제에서는 Azure 사용자 할당 관리 id를 만드는 방법을 보여 줍니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Resource group\> | 사용자 할당 관리 id를 만들 리소스 그룹입니다. |
 
@@ -118,7 +119,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | 사용자 지정 이미지에 대 한 리소스 그룹 |
@@ -160,7 +161,7 @@ az role assignment create \
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | VNET 리소스 그룹 |
@@ -227,10 +228,10 @@ az role assignment create \
 
 다음 자리 표시자 설정을 바꿉니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Region\> | 템플릿 영역 |
-| \<Resource group\> | 리소스 그룹 |
+| \<Resource group\> | Resource group |
 | \<Storage account container\> | 스토리지 계정 컨테이너 이름 |
 | \<Subscription ID\> | Azure 구독 |
 

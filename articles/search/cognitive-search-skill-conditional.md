@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792040"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666360"
 ---
 # <a name="conditional-cognitive-skill"></a>조건부 인식 기술
 
@@ -43,14 +43,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 -   주석 경로 (식의 경로는 "$ (" 및 ")"로 구분 되어야 합니다.)
  <br/>
-    예제:
+    예:
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  리터럴 (문자열, 숫자, true, false, null) <br/>
-    예제:
+    예:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -59,21 +59,21 @@ Microsoft.Skills.Util.ConditionalSkill
     ```
 
 -  비교 연산자를 사용 하는 식 (= =,! =, >=, >, <=, <) <br/>
-    예제:
+    예:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   부울 연산자 (&&, | |,!, ^)를 사용 하는 식 <br/>
-    예제:
+    예:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
 -   숫자 연산자 (+,-, \* ,/,%)를 사용 하는 식 <br/>
-    예제: 
+    예: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -87,18 +87,18 @@ Microsoft.Skills.Util.ConditionalSkill
 
 | 입력   | Description |
 |-------------|-------------|
-| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예제: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/ \* /language) = = $ (/document/expectedLanguage)" <br/> |
-| whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/> |
-| = False   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/>
+| condition(조건)   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/s\\\ary/ \* /language) = = $ (/document/expectedLanguage)" <br/> |
+| whenTrue    | 이 입력은 조건이 *true* 로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/> |
+| = False   | 이 입력은 조건이 *false* 로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/sa/document/entary/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>기술 출력
 단순히 "output" 이라고 하는 단일 출력이 있습니다. 조건이 false 이면 *false* 값을 반환 하 고 조건이 True 이면 *whenTrue* 을 반환 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>샘플 기술 정의 1: 문서를 필터링 하 여 프랑스어 문서만 반환
 
-다음 출력은 문서 언어가 프랑스어 인 경우 문장 ("/document/frenchSentences")의 배열을 반환 합니다. 언어가 프랑스어가 아니면 값은 *null*로 설정 됩니다.
+다음 출력은 문서 언어가 프랑스어 인 경우 문장 ("/document/frenchSentences")의 배열을 반환 합니다. 언어가 프랑스어가 아니면 값은 *null* 로 설정 됩니다.
 
 ```json
 {
@@ -112,7 +112,7 @@ Microsoft.Skills.Util.ConditionalSkill
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-"/Document/frenchSentences"가 다른 기술 *컨텍스트로* 사용 되는 경우 "/document/frenchSentences"가 *null*로 설정 되지 않은 경우에만이 기술이 실행 됩니다.
+"/Document/frenchSentences"가 다른 기술 *컨텍스트로* 사용 되는 경우 "/document/frenchSentences"가 *null* 로 설정 되지 않은 경우에만이 기술이 실행 됩니다.
 
 
 ### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>샘플 기술 정의 2: 존재 하지 않는 값에 대 한 기본값 설정
@@ -134,7 +134,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>샘플 기술 정의 3: 두 필드의 값을 하나로 병합
 
-이 예제에서는 일부 문장에 *frenchSentiment* 속성이 있습니다. *FrenchSentiment* 속성이 null 인 경우에는 *englishSentiment* 값을 사용 하려고 합니다. *감정* ("/document/sentiment/*/sentiment") 라는 멤버에 출력을 할당 합니다.
+이 예제에서는 일부 문장에 *frenchSentiment* 속성이 있습니다. *FrenchSentiment* 속성이 null 인 경우에는 *englishSentiment* 값을 사용 하려고 합니다. *감정* ("/document/sentences/*/sentiment") 라는 멤버에 출력을 할당 합니다.
 
 ```json
 {
@@ -154,7 +154,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 이 예제에서는 0에서 1 사이의 *감정* 를 받습니다. -1에서 1 사이를 변환 하려고 합니다. 조건부 기술을 사용 하 여 이러한 사소한 변환을 수행할 수 있습니다.
 
-이 예에서는 조건이 항상 *true*이기 때문에 기술에 대 한 조건부 측면을 사용 하지 않습니다.
+이 예에서는 조건이 항상 *true* 이기 때문에 기술에 대 한 조건부 측면을 사용 하지 않습니다.
 
 ```json
 {

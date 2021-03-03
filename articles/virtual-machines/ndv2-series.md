@@ -3,16 +3,16 @@ title: NDv2 시리즈
 description: NDv2 시리즈 Vm에 대 한 사양입니다.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97eb134a22bbf2304c39fe7c55457e394467f1d2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7a417def30fcb3a2b429151b9d4c9ba4152220a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095277"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669172"
 ---
 # <a name="updated-ndv2-series"></a>업데이트 된 NDv2 시리즈
 
@@ -44,7 +44,7 @@ InfiniBand: 지원 됨<br>
 Nvidia NVLink Interconnect: 지원 됨<br>
 <br>
 
-| Size | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 g b (NVLink) | 32 | 32 | 8만/800 | 24000 Mbps | 8 |
 

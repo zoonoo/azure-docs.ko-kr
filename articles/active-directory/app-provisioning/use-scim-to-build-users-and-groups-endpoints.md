@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9fac8db6747d1e081fa884ed794e55b98f44577f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652040"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650161"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>자습서: 샘플 SCIM 끝점 개발
 
@@ -33,7 +33,7 @@ ms.locfileid: "100652040"
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Azure에서 SCIM 끝점 배포
 
-이 단계에서는 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 및 [Azure App Service](https://docs.microsoft.com/azure/app-service/)를 사용 하 여 scim 끝점을 서비스에 배포 합니다. SCIM 참조 코드를 로컬로 실행 하거나 온-프레미스 서버에서 호스팅하거나 다른 외부 서비스에 배포할 수도 있습니다.
+이 단계에서는 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 및 [Azure App Service](../../app-service/index.yml)를 사용 하 여 scim 끝점을 서비스에 배포 합니다. SCIM 참조 코드를 로컬로 실행 하거나 온-프레미스 서버에서 호스팅하거나 다른 외부 서비스에 배포할 수도 있습니다.
 
 1. GitHub에서 [참조 코드로](https://github.com/AzureAD/SCIMReferenceCode) 이동 하 고 **복제 또는 다운로드** 를 선택 합니다.
 

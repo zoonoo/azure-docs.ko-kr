@@ -138,7 +138,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -406,6 +406,54 @@
           href: service-fabric-get-started-mac.md
         - name: Service Fabric CLI 설정
           href: service-fabric-cli.md
+        - name: IDE에서 작업
+          items:
+            - name: Windows/VS 개발 환경에서 작업
+              items:
+                - name: Visual Studio에서 애플리케이션 관리
+                  href: service-fabric-manage-application-in-visual-studio.md
+                - name: Visual Studio에서 보안 연결 구성
+                  href: service-fabric-visualstudio-configure-secure-connections.md
+                - name: VS에서 .NET 서비스 디버그
+                  href: service-fabric-debugging-your-application.md
+                - name: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버그
+                  href: service-fabric-how-to-debug-windows-containers.md
+                - name: 일반적인 오류 및 예외
+                  href: service-fabric-errors-and-exceptions.md
+                - name: 로컬로 모니터링 및 진단
+                  href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+                - name: Windows에서 Linux 클러스터 설정
+                  href: service-fabric-local-linux-cluster-windows.md
+                - name: VS에서 원격 Linux 클러스터에 .NET Core 애플리케이션 배포
+                  href: service-fabric-how-to-publish-linux-app-vs.md
+            - name: Linux/Eclipse 개발 환경에서 작업
+              items:
+                - name: Java 개발을 위해 Eclipse 플러그인 시작
+                  href: service-fabric-get-started-eclipse.md
+                - name: Eclipse에서 Java 서비스 디버그
+                  href: service-fabric-debugging-your-application-java.md
+                - name: 로컬로 모니터링 및 진단
+                  href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+            - name: VS Code 환경에서 작업
+              items:
+                - name: VS Code 시작
+                  href: service-fabric-get-started-vs-code.md
+                - name: VS Code를 통해 C# Service Fabric 애플리케이션 개발
+                  href: service-fabric-develop-csharp-applications-with-vs-code.md
+                - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
+                  href: service-fabric-develop-java-applications-with-vs-code.md
+    - name: Service Fabric 관리형 클러스터 사용
+      items:
+        - name: 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장 추가
+          href: how-to-managed-cluster-vmss-extension.md
+        - name: 관리형 클러스터 구성
+          href: how-to-managed-cluster-configuration.md
+        - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
+          href: how-to-managed-cluster-app-deployment-template.md
+        - name: 관리 ID를 사용하여 관리형 클러스터 구성
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+        - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
+          href: how-to-enable-managed-cluster-disk-encryption.md
     - name: 계획 및 준비
       items:
         - name: 클러스터 용량 계획
@@ -416,6 +464,142 @@
           href: service-fabric-disaster-recovery.md
         - name: 애플리케이션 용량 계획
           href: service-fabric-capacity-planning.md
+    - name: 클러스터 만들기 및 관리
+      items:
+        - name: Azure의 클러스터
+          items:
+            - name: 생성
+              items:
+                - name: 클러스터 배포에 대한 계획
+                  href: service-fabric-cluster-azure-deployment-preparation.md
+                - name: Azure Portal에서 만들기
+                  href: service-fabric-cluster-creation-via-portal.md
+                - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-cross-availability-zones.md
+                - name: 상태 비저장 노드 유형을 사용하여 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-stateless-node-types.md
+                - name: Azure Active Directory 인증 설정
+                  href: service-fabric-cluster-creation-setup-aad.md
+                - name: 사용자 지정 클러스터 템플릿 만들기
+                  href: service-fabric-cluster-creation-create-template.md
+                - name: Resource Manager를 사용하여 만들기
+                  href: service-fabric-cluster-creation-via-arm.md
+                - name: 인증서 일반 이름을 사용하여 만들기
+                  href: service-fabric-create-cluster-using-cert-cn.md
+                - name: Linux 클러스터 만들기
+                  href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+            - name: 확장
+              items:
+                - name: 수동으로 규모 확장
+                  href: service-fabric-cluster-scale-in-out.md
+                - name: 프로그래밍 방식으로 규모 확장
+                  href: service-fabric-cluster-programmatic-scaling.md
+                - name: 주 노드 형식 강화
+                  href: service-fabric-scale-up-primary-node-type.md
+                - name: 노드 형식 추가
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
+                - name: 노드 형식 제거
+                  href: service-fabric-how-to-remove-node-type.md
+            - name: 업그레이드
+              items:
+                - name: Service Fabric 버전 업그레이드
+                  href: service-fabric-cluster-upgrade-version-azure.md
+                - name: 클러스터 구성 업그레이드
+                  href: service-fabric-cluster-config-upgrade-azure.md
+                - name: 클러스터 노드 패치(Windows)
+                  href: service-fabric-patch-orchestration-application.md
+                - name: 디스크 암호화 사용(Windows)
+                  href: service-fabric-enable-azure-disk-encryption-windows.md
+                - name: 디스크 암호화 사용(Linux)
+                  href: service-fabric-enable-azure-disk-encryption-linux.md
+                - name: 액세스 제어 설정
+                  href: service-fabric-cluster-security-roles.md
+                - name: Load Balancer에서 포트 열기
+                  href: create-load-balancer-rule.md
+                - name: 클러스터 인증서를 일반 이름으로 변경
+                  href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+                - name: 수동 롤오버 클러스터 인증서
+                  href: service-fabric-cluster-rollover-cert-cn.md
+                - name: 클러스터 인증서 관리
+                  href: service-fabric-cluster-security-update-certs-azure.md
+                - name: 클러스터 노드 VM에 원격 연결
+                  href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: 독립 실행형 클러스터
+          items:
+            - name: 생성
+              items:
+                - name: 온-프레미스 만들기
+                  href: service-fabric-cluster-creation-for-windows-server.md
+                - name: 인증서를 사용하여 보안
+                  href: service-fabric-windows-cluster-x509-security.md
+                - name: Windows 보안을 사용하여 보안
+                  href: service-fabric-windows-cluster-windows-security.md
+                - name: 독립 실행형 패키지의 내용
+                  href: service-fabric-cluster-standalone-package-contents.md
+            - name: 확장
+              href: service-fabric-cluster-windows-server-add-remove-nodes.md
+            - name: 업그레이드
+              items:
+                - name: Service Fabric 버전 업그레이드
+                  href: service-fabric-cluster-upgrade-windows-server.md
+                - name: 클러스터 구성 업그레이드
+                  href: service-fabric-cluster-config-upgrade-windows-server.md
+                - name: 구성 설정
+                  href: service-fabric-cluster-manifest.md
+                - name: 액세스 제어 설정
+                  href: service-fabric-cluster-security-roles.md
+                - name: 클러스터 노드 패치(Windows)
+                  href: service-fabric-patch-orchestration-application.md
+        - name: Service Fabric Explorer를 사용하여 시각화
+          href: service-fabric-visualizing-your-cluster.md
+        - name: 보안 클러스터에 연결
+          href: service-fabric-connect-to-secure-cluster.md
+    - name: 모니터링 및 진단
+      items:
+        - name: 일반적인 시나리오 진단
+          href: service-fabric-diagnostics-common-scenarios.md
+        - name: 코드 패키지 오류 진단
+          href: service-fabric-diagnostics-code-package-errors.md
+        - name: 애플리케이션 모니터링
+          items:
+            - name: 애플리케이션에 로깅 추가
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: Application Insights를 사용하여 분석
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: EventFlow를 사용하여 로그 집계
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+            - name: 모니터 컨테이너
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: 클러스터 모니터링
+          items:
+            - name: Azure Monitor 로그를 구성하여 클러스터 이벤트 수집
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Azure Monitor 로그로 클러스터 모니터링
+              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: EventStore API 쿼리
+              href: service-fabric-diagnostics-eventstore-query.md
+            - name: Windows 클러스터 진단
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux 클러스터 진단
+              href: service-fabric-diagnostics-oms-syslog.md
+        - name: 인프라 모니터
+          items:
+            - name: Log Analytics 에이전트를 사용하여 성능 카운터 수집
+              href: service-fabric-diagnostics-oms-agent.md
+            - name: WAD를 사용하여 성능 카운터 수집
+              href: service-fabric-diagnostics-perf-wad.md
+        - name: 상태 모니터링
+          items:
+            - name: 상태 보고 및 확인
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: 시스템 상태 보고서를 사용하여 문제 해결
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: 상태 보고서 보기
+              href: service-fabric-view-entities-aggregated-health.md
+        - name: 역방향 프록시 이벤트 진단
+          href: service-fabric-reverse-proxy-diagnostics.md
+        - name: 로컬 클러스터 문제 해결
+          href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: 첫 번째 항목 만들기...
       items:
         - name: Windows 컨테이너 애플리케이션
@@ -547,52 +731,6 @@
           href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: 이전 Java 애플리케이션을 마이그레이션하여 Maven 지원
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
-    - name: IDE에서 작업
-      items:
-        - name: Windows/VS 개발 환경에서 작업
-          items:
-            - name: Visual Studio에서 애플리케이션 관리
-              href: service-fabric-manage-application-in-visual-studio.md
-            - name: Visual Studio에서 보안 연결 구성
-              href: service-fabric-visualstudio-configure-secure-connections.md
-            - name: VS에서 .NET 서비스 디버그
-              href: service-fabric-debugging-your-application.md
-            - name: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버그
-              href: service-fabric-how-to-debug-windows-containers.md
-            - name: 일반적인 오류 및 예외
-              href: service-fabric-errors-and-exceptions.md
-            - name: 로컬로 모니터링 및 진단
-              href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
-            - name: Windows에서 Linux 클러스터 설정
-              href: service-fabric-local-linux-cluster-windows.md
-            - name: VS에서 원격 Linux 클러스터에 .NET Core 애플리케이션 배포
-              href: service-fabric-how-to-publish-linux-app-vs.md
-        - name: Linux/Eclipse 개발 환경에서 작업
-          items:
-            - name: Java 개발을 위해 Eclipse 플러그인 시작
-              href: service-fabric-get-started-eclipse.md
-            - name: Eclipse에서 Java 서비스 디버그
-              href: service-fabric-debugging-your-application-java.md
-            - name: 로컬로 모니터링 및 진단
-              href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
-        - name: VS Code 환경에서 작업
-          items:
-            - name: VS Code 시작
-              href: service-fabric-get-started-vs-code.md
-            - name: VS Code를 통해 C# Service Fabric 애플리케이션 개발
-              href: service-fabric-develop-csharp-applications-with-vs-code.md
-            - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
-              href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Cloud Services에서 마이그레이션
-      items:
-        - name: Cloud Services와 Service Fabric 비교
-          href: service-fabric-cloud-services-migration-differences.md
-        - name: Service Fabric으로 마이그레이션
-          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
-        - name: 권장 사례
-          href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: 애플리케이션 현대화
-          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: 애플리케이션 수명 주기 관리
       items:
         - name: 애플리케이션 패키지 작성
@@ -651,144 +789,6 @@
           href: service-fabric-reverseproxy-setup.md
         - name: 보안 통신에 대한 역방향 프록시 구성
           href: service-fabric-reverseproxy-configure-secure-communication.md
-    - name: 클러스터 만들기 및 관리
-      items:
-        - name: Azure의 클러스터
-          items:
-            - name: 생성
-              items:
-                - name: 클러스터 배포에 대한 계획
-                  href: service-fabric-cluster-azure-deployment-preparation.md
-                - name: Azure Portal에서 만들기
-                  href: service-fabric-cluster-creation-via-portal.md
-                - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
-                  href: service-fabric-cross-availability-zones.md
-                - name: 상태 비저장 노드 유형을 사용하여 Azure Service Fabric 클러스터 배포
-                  href: service-fabric-stateless-node-types.md
-                - name: Azure Active Directory 인증 설정
-                  href: service-fabric-cluster-creation-setup-aad.md
-                - name: 사용자 지정 클러스터 템플릿 만들기
-                  href: service-fabric-cluster-creation-create-template.md
-                - name: Resource Manager를 사용하여 만들기
-                  href: service-fabric-cluster-creation-via-arm.md
-                - name: 인증서 일반 이름을 사용하여 만들기
-                  href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Linux 클러스터 만들기
-                  href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-            - name: 확장
-              items:
-                - name: 수동으로 규모 확장
-                  href: service-fabric-cluster-scale-in-out.md
-                - name: 프로그래밍 방식으로 규모 확장
-                  href: service-fabric-cluster-programmatic-scaling.md
-                - name: 주 노드 형식 강화
-                  href: service-fabric-scale-up-primary-node-type.md
-                - name: 노드 형식 추가
-                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
-                - name: 노드 형식 제거
-                  href: service-fabric-how-to-remove-node-type.md
-            - name: 업그레이드
-              items:
-                - name: 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장 추가
-                  href: how-to-managed-cluster-vmss-extension.md
-                - name: Service Fabric 버전 업그레이드
-                  href: service-fabric-cluster-upgrade-version-azure.md
-                - name: 클러스터 구성 업그레이드
-                  href: service-fabric-cluster-config-upgrade-azure.md
-                - name: 클러스터 노드 패치(Windows)
-                  href: service-fabric-patch-orchestration-application.md
-                - name: 디스크 암호화 사용(Windows)
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: 디스크 암호화 사용(Linux)
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
-                - name: 액세스 제어 설정
-                  href: service-fabric-cluster-security-roles.md
-                - name: Load Balancer에서 포트 열기
-                  href: create-load-balancer-rule.md
-                - name: 클러스터 인증서를 일반 이름으로 변경
-                  href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-                - name: 수동 롤오버 클러스터 인증서
-                  href: service-fabric-cluster-rollover-cert-cn.md
-                - name: 클러스터 인증서 관리
-                  href: service-fabric-cluster-security-update-certs-azure.md
-                - name: 클러스터 노드 VM에 원격 연결
-                  href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-        - name: 독립 실행형 클러스터
-          items:
-            - name: 생성
-              items:
-                - name: 온-프레미스 만들기
-                  href: service-fabric-cluster-creation-for-windows-server.md
-                - name: 인증서를 사용하여 보안
-                  href: service-fabric-windows-cluster-x509-security.md
-                - name: Windows 보안을 사용하여 보안
-                  href: service-fabric-windows-cluster-windows-security.md
-                - name: 독립 실행형 패키지의 내용
-                  href: service-fabric-cluster-standalone-package-contents.md
-            - name: 확장
-              href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: 업그레이드
-              items:
-                - name: Service Fabric 버전 업그레이드
-                  href: service-fabric-cluster-upgrade-windows-server.md
-                - name: 클러스터 구성 업그레이드
-                  href: service-fabric-cluster-config-upgrade-windows-server.md
-                - name: 구성 설정
-                  href: service-fabric-cluster-manifest.md
-                - name: 액세스 제어 설정
-                  href: service-fabric-cluster-security-roles.md
-                - name: 클러스터 노드 패치(Windows)
-                  href: service-fabric-patch-orchestration-application.md
-        - name: Service Fabric Explorer를 사용하여 시각화
-          href: service-fabric-visualizing-your-cluster.md
-        - name: 보안 클러스터에 연결
-          href: service-fabric-connect-to-secure-cluster.md
-    - name: 모니터링 및 진단
-      items:
-        - name: 일반적인 시나리오 진단
-          href: service-fabric-diagnostics-common-scenarios.md
-        - name: 코드 패키지 오류 진단
-          href: service-fabric-diagnostics-code-package-errors.md
-        - name: 애플리케이션 모니터링
-          items:
-            - name: 애플리케이션에 로깅 추가
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Application Insights를 사용하여 분석
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: EventFlow를 사용하여 로그 집계
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: 모니터 컨테이너
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: 클러스터 모니터링
-          items:
-            - name: Azure Monitor 로그를 구성하여 클러스터 이벤트 수집
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: Azure Monitor 로그로 클러스터 모니터링
-              href: service-fabric-diagnostics-event-analysis-oms.md
-            - name: EventStore API 쿼리
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Windows 클러스터 진단
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux 클러스터 진단
-              href: service-fabric-diagnostics-oms-syslog.md
-        - name: 인프라 모니터
-          items:
-            - name: Log Analytics 에이전트를 사용하여 성능 카운터 수집
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: WAD를 사용하여 성능 카운터 수집
-              href: service-fabric-diagnostics-perf-wad.md
-        - name: 상태 모니터링
-          items:
-            - name: 상태 보고 및 확인
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: 시스템 상태 보고서를 사용하여 문제 해결
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: 상태 보고서 보기
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: 역방향 프록시 이벤트 진단
-          href: service-fabric-reverse-proxy-diagnostics.md
-        - name: 로컬 클러스터 문제 해결
-          href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Service Fabric 앱에 관리 ID 사용
       items:
         - name: 클러스터 설정
@@ -797,8 +797,6 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: 관리 ID를 사용하여 새 Azure Service Fabric 클러스터 구성
               href: configure-new-azure-service-fabric-enable-managed-identity.md
-            - name: 관리 ID를 사용하여 Service Fabric 관리형 클러스터 구성
-              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: 애플리케이션 설정
           items:
             - name: 관리 ID를 사용하여 애플리케이션을 배포하는 방법
@@ -811,12 +809,22 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: 다른 Azure 리소스에 대한 액세스 권한 부여
           href: how-to-grant-access-other-resources.md
+    - name: Cloud Services에서 마이그레이션
+      items:
+        - name: Cloud Services와 Service Fabric 비교
+          href: service-fabric-cloud-services-migration-differences.md
+        - name: Service Fabric으로 마이그레이션
+          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
+        - name: 권장 사례
+          href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: 애플리케이션 현대화
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
 - name: 참조
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
     - name: PowerShell
-      href: /powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps
+      href: /powershell/module/servicefabric/?view=azureservicefabricps
     - name: Azure CLI(az sf)
       href: /cli/azure/sf
     - name: Service Fabric CLI(sfctl)

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
-ms.translationtype: MT
+ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820792"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094839"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -63,7 +63,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
     >
     >온-프레미스 네트워크와 Azure 사이에 사이트 간 연결이 없거나 사이트 간 연결 대역폭이 제한된 경우 하이브리드 모드(미리 보기)에서 Azure Database Migration Service를 사용하는 것이 좋습니다. 하이브리드 모드는 클라우드에서 실행 중인 Azure Database Migration Service 인스턴스와 함께 온-프레미스 마이그레이션 작업자를 활용합니다. 하이브리드 모드에서 Azure Database Migration Service의 인스턴스를 만들려면 [Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스 만들기](./quickstart-create-data-migration-service-hybrid-portal.md) 문서를 참조하세요.
 
-- 가상 네트워크의 네트워크 보안 그룹 아웃바운드 보안 규칙이 Azure Database Migration Service에 필요한 다음 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. Azure 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+- 가상 네트워크 Network Security Group 아웃바운드 보안 규칙이 ServiceBus, Storage 및 AzureMonitor용 ServiceTag의 아웃바운드 포트 443을 차단하지 않는지 확인합니다. Azure 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
 - [데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - Azure Database Migration Service가 원본 SQL Server(기본적으로 1433 TCP 포트)에 액세스할 수 있도록 Windows 방화벽을 엽니다. 기본 인스턴스가 일부 다른 포트에서 수신 중인 경우 이를 방화벽에 추가합니다.
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
@@ -239,7 +239,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
     ![대상 선택](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
     
     > [!NOTE]
-    > 사용자 지정 DNS 이름을 사용 하는 경우를 제외 하 고 Azure Database Migration Service에서 대상 Azure SQL Database에 대 한 개인 끝점 연결을 지원 합니다. 
+    > 대상 Azure SQL Database에 대한 프라이빗 엔드포인트 연결은 사용자 지정 DNS 이름을 사용하는 경우를 제외하고 Azure Database Migration Service에서 지원됩니다. 
 
 2. **다음: 대상 데이터베이스에 매핑** 화면을 선택하고 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 

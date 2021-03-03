@@ -1,73 +1,69 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 네이티브 Azure 인증서 인증을 사용하여 지점 및 사이트 간 VPN 구성 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - P2S VPN 구성 - 인증서 인증
+titleSuffix: Azure VPN Gateway
 description: 자체 서명된 인증서를 사용하여 네이티브 Azure 인증서 인증으로 지점 및 사이트 간 VPN을 구성합니다. 이 문서에서는 PowerShell을 사용합니다.
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/10/2020
+ms.date: 02/11/2021
 ms.author: alzam
-ms.openlocfilehash: b691e4621d50f8578ebe095ed184cbdb4397ce10
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04d0fe2b322f6b70cb1cda8d61fbd49638ec214a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646426"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385832"
 ---
-# <a name="configure-a-point-to-site-vpn-using-native-azure-certificate-authentication"></a>네이티브 Azure 인증서 인증을 사용하여 지점 및 사이트 간 VPN 구성
+# <a name="configure-a-point-to-site-vpn---certificate-authentication---powershell-script-sample"></a>지점 및 사이트 간 VPN 구성 - 인증서 인증 - PowerShell 스크립트 샘플
 
-이 스크립트는 경로 기반 VPN Gateway를 만들고 네이티브 Azure 인증서 인증을 사용하여 지점 및 사이트 간 구성을 추가합니다.
+이 스크립트는 경로 기반 VPN 게이트웨이를 만들고 네이티브 Azure 인증서 인증을 사용하여 지점 및 사이트 간 구성을 추가합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
   $VNetName  = "VNet1"
-  $FESubName = "FrontEnd"
-  $BESubName = "Backend"
-  $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
-  $FESubPrefix = "10.1.0.0/24"
-  $BESubPrefix = "10.1.1.0/24"
-  $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
   $RG = "TestRG1"
   $Location = "East US"
+  $FESubName = "FrontEnd"
+  $VNetPrefix1 = "10.1.0.0/16"
+  $FESubPrefix = "10.1.0.0/24"
+  $GWSubPrefix = "10.1.255.0/27"
+  $VPNClientAddressPool = "192.168.0.0/24"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
-  $GWIPconfName = "gwipconf"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location EastUS
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
+  -ResourceGroupName $RG `
   -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Add the VPN client address pool
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -85,8 +81,8 @@ $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate
 $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
- -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
+ -VirtualNetworkGatewayname $GWName `
+ -ResourceGroupName $RG -PublicCertData $CertBase64
 
 ```
 
@@ -106,7 +102,7 @@ Remove-AzResourceGroup -Name TestRG1
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 서브넷 구성을 추가합니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
 | [Add-AzVpnClientRootCertificate](/powershell/module/az.network/add-azvpnclientrootcertificate) | 루트 인증서 공개 키 정보를 VPN 게이트웨이에 업로드합니다.|
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 가상 네트워크 세부 정보를 불러옵니다. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 가상 네트워크 세부 정보를 가져옵니다. |
 | [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | 가상 네트워크 게이트웨이 세부 정보를 불러옵니다. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크 서브넷 구성 세부 정보를 불러옵니다. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
@@ -115,7 +111,7 @@ Remove-AzResourceGroup -Name TestRG1
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps) | 자체 서명된 루트 인증서를 새로 만듭니다. |
+| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | 자체 서명된 루트 인증서를 새로 만듭니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
 

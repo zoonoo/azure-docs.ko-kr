@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d7b6f1d7ed01009af5e21006240a21442492cb07
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259154"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673630"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -84,7 +83,7 @@ ms.locfileid: "99259154"
 * [SUSE SAP HA 모범 사례 가이드][suse-ha-guide]: 온-프레미스에서 NetWeaver 고가용성 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보를 포함 합니다 (일반 기준선으로 사용 됨, 보다 자세한 정보 제공).
 * [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
-* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>개요
 
@@ -231,7 +230,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
    b. SAP HANA에 대해 이전에 만든 가용성 집합을 선택 합니다.  
 
-   c. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 선택 합니다.  
+   다. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 선택 합니다.  
 
    가상 컴퓨터를 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 이 지침에서는 **hanadb1**, **hanadb2** 및 **Hanadb3** 클라이언트와 같이 클라이언트 Azure 가상 네트워크 서브넷에 연결 된 자동으로 생성 된 네트워크 인터페이스를 참조 합니다. 
 
@@ -245,7 +244,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     b. 왼쪽 창에서 **Virtual Machines** 을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
     d. **네트워킹** 을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `storage` `hana` .  
     
@@ -253,7 +252,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
  
     f. 나머지 가상 컴퓨터 (이 예제에서는  **hanadb2** 및 **hanadb3**)에 대해 b ~ e 단계를 반복 합니다.
  
-    예: 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하도록 설정 합니다.  
+    g. 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하도록 설정 합니다.  
 
 6. `storage`다음 단계를 수행 하 여 및 서브넷에 대 한 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다 `hana` .  
 
@@ -691,7 +690,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     echo b > /proc/sysrq-trigger
    </code></pre>
 
-   c. 시스템에서 장애 조치 (failover)를 모니터링 합니다. 장애 조치 (failover)가 완료 되 면 상태를 캡처합니다. 예를 들면 다음과 같습니다.  
+   다. 시스템에서 장애 조치 (failover)를 모니터링 합니다. 장애 조치 (failover)가 완료 되 면 상태를 캡처합니다. 예를 들면 다음과 같습니다.  
 
     <pre><code>
     # Check the instance status
@@ -768,7 +767,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
         | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
     </code></pre>
 
-   c. **Hanadb1** 에서 HANA 인스턴스를 다시 시작 합니다 (즉, 이름 서버가 종료 된 동일한 가상 머신에서). **Hanadb1** 노드는 환경에 다시 참가 하 고 대기 역할을 유지 합니다.  
+   다. **Hanadb1** 에서 HANA 인스턴스를 다시 시작 합니다 (즉, 이름 서버가 종료 된 동일한 가상 머신에서). **Hanadb1** 노드는 환경에 다시 참가 하 고 대기 역할을 유지 합니다.  
 
    <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
@@ -863,5 +862,5 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)
 * Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요.

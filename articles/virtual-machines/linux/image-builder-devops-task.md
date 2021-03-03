@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636427"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670477"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
 
@@ -26,7 +27,7 @@ ms.locfileid: "100636427"
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
@@ -245,7 +246,7 @@ DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다.
 
 * [Vm 크기](image-builder-json.md#vmprofile) -vm 크기를 기본값 *Standard_D1_v2* 에서 재정의할 수 있습니다. 를 재정의 하 여 총 사용자 지정 시간을 줄이거나, GPU/HPC 등의 특정 VM 크기에 따라 달라 지는 이미지를 만들 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 릴리스를 만들 때 작업은 저장소 계정에 *imagebuilder-vststask* 라는 컨테이너를 만듭니다. 빌드 아티팩트를 zips 및 업로드 하 고 zip 파일에 대 한 SAS 토큰을 만듭니다.
 

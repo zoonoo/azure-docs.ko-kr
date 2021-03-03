@@ -1,20 +1,20 @@
 ---
-title: 요금제에 대 한 변칙 검색 | Azure Marketplace
-description: 요금제에 대 한 자동 변칙 검색을 통해 상용 marketplace 제품의 요금제 사용에 대 한 고객의 요금 청구를 보장할 수 있습니다.
+title: 파트너 센터에서 요금제 청구 이상 관리 | Azure Marketplace
+description: 요금제에 대 한 자동 변칙 검색을 통해 상용 marketplace 제품의 요금제 사용을 위해 고객에 게 올바르게 청구 되도록 하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/17/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653009"
+ms.locfileid: "101092526"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>요금제 청구를 위한 변칙 검색
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>파트너 센터에서 요금제 청구 이상 관리
 
 사용자 지정 데이터 요금 청구 옵션은 현재 SaaS ( [Software as a service](plan-saas-offer.md) ) 제품 및 관리 되는 응용 프로그램 계획으로 [Azure 응용 프로그램](plan-azure-application-offer.md#types-of-plans) 에 사용할 수 있습니다.
 
@@ -80,3 +80,4 @@ Microsoft는 귀하의 파트너를 사용 하 여 Microsoft에서 고객에 게
 ## <a name="see-also"></a>참고 항목
 - [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](./partner-center-portal/saas-metered-billing.md)
 - [관리 되는 응용 프로그램 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)
+- [요금제 청구를 위한 변칙 검색 서비스](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 83c76e085efd8ac3352c477a137820019171cb41
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "99821858"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668244"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -300,4 +300,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > * 네트워크 트래픽 보안
 > * 백 엔드 VM 만들기
 
-VM 디스크를 보호하는 방법에 대한 자세한 내용은 [디스크의 백업 및 재해 복구](backup-and-disaster-recovery-for-azure-iaas-disks.md)를 참조하세요.
+VM 디스크를 보호하는 방법에 대한 자세한 내용은 [디스크의 백업 및 재해 복구](../backup-and-disaster-recovery-for-azure-iaas-disks.md)를 참조하세요.

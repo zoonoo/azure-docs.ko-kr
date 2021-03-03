@@ -1,24 +1,24 @@
 ---
 title: Microsoft Azure의 Oracle 솔루션 | Microsoft Docs
 description: 완전히 Azure 인프라에서 실행하거나 OCI(Oracle Cloud Infrastructure)와의 클라우드 간 연결을 사용하는 방법을 포함하여 Microsoft Azure에 Oracle 애플리케이션 및 솔루션을 배포하는 옵션에 대해 알아봅니다.
-services: virtual-machines-linux
 documentationcenter: ''
 author: dbakevlar
 tags: azure-resource-management
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: d9b032bbd89f8b6d300650ac54567b07ae3307b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 971f7c919595f915451faf9266ee3bb18b35087e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948394"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677175"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
 
@@ -102,4 +102,4 @@ Azure에 Oracle 애플리케이션을 배포하는 작업은 "사용자 라이�
 
 * [OCI와 Azure를 상호 연결](oracle-oci-overview.md)하는 방법에 대해 자세히 알아보세요.
 
-* Ignite 2019의 [Azure의 Oracle 개요 세션](https://myignite.techcommunity.microsoft.com/sessions/82915)을 확인하세요. 
+* Ignite 2019의 [Azure의 Oracle 개요 세션](https://www.pluralsight.com/courses/microsoft-ignite-session-57)을 확인하세요. 

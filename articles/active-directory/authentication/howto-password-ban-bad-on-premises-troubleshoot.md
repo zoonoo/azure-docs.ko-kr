@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca00785bfe8a99b8a3d620559c4fa492ee60c63
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741748"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648728"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
 
@@ -259,6 +259,146 @@ Azure AD 암호 보호 소프트웨어를 제거 하 고 도메인 및 포리스
    `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
    Sysvol 공유가 기본이 아닌 위치에 구성된 경우 이 경로는 다릅니다.
+
+## <a name="health-testing-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용 하 여 상태 테스트
+
+AzureADPasswordProtection PowerShell 모듈에는 소프트웨어가 설치 되어 작동 하 고 있는지에 대 한 기본 확인을 수행 하는 두 가지 상태 관련 cmdlet이 포함 되어 있습니다. 새 배포를 설정한 후, 이후에 정기적으로 그리고 문제가 조사 될 때 이러한 cmdlet을 실행 하는 것이 좋습니다.
+
+각 개별 상태 테스트는 기본 성공 또는 실패 결과와 오류 발생 시 선택적 메시지를 반환 합니다. 오류의 원인을 명확 하 게 알 수 없는 경우 오류를 설명 하는 오류 이벤트 로그 메시지를 확인 하십시오. 텍스트 로그 메시지를 사용 하는 것도 유용할 수 있습니다. 자세한 내용은 [AZURE AD 암호 보호 모니터링](howto-password-ban-bad-on-premises-monitor.md)을 참조 하세요.
+
+## <a name="proxy-health-testing"></a>프록시 상태 테스트
+
+Test-AzureADPasswordProtectionProxyHealth cmdlet은 개별적으로 실행할 수 있는 두 가지 상태 테스트를 지원 합니다. 세 번째 모드에서는 매개 변수 입력이 필요 하지 않은 모든 테스트를 실행할 수 있습니다.
+
+### <a name="proxy-registration-verification"></a>프록시 등록 확인
+
+이 테스트는 프록시 에이전트가 Azure에 제대로 등록 되 고 Azure에 인증할 수 있는지 확인 합니다. 성공적으로 실행 되는 것은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Passed
+```
+
+오류가 검색 되 면 테스트에서는 실패 한 결과와 선택적 오류 메시지를 반환 합니다. 다음은 가능한 한 오류의 예입니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Failed No proxy certificates were found - please run the Register-AzureADPasswordProtectionProxy cmdlet to register the proxy.
+```
+
+### <a name="proxy-verification-of-end-to-end-azure-connectivity"></a>종단 간 Azure 연결에 대 한 프록시 확인
+
+이 테스트는-VerifyProxyRegistration 테스트의 상위 집합입니다. 이를 위해서는 프록시 에이전트가 Azure에 올바르게 등록 되어 있고, Azure에 인증할 수 있어야 하 고, 마지막으로 메시지가 Azure로 전송 될 수 있는지 확인을 추가 하 여 전체 종단 간 통신이 작동 하는지 확인 해야 합니다.
+
+성공적으로 실행 되는 것은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyAzureConnectivity
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyAzureConnectivity Passed
+```
+
+### <a name="proxy-verification-of-all-tests"></a>모든 테스트의 프록시 확인
+
+이 모드에서는 매개 변수 입력이 필요 하지 않은 cmdlet에서 지원 되는 모든 테스트를 대량으로 실행할 수 있습니다. 성공적으로 실행 되는 것은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -TestAll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyTLSConfiguration  Passed
+VerifyProxyRegistration Passed
+VerifyAzureConnectivity Passed
+```
+
+## <a name="dc-agent-health-testing"></a>DC 에이전트 상태 테스트
+
+Test-AzureADPasswordProtectionDCAgentHealth cmdlet은 개별적으로 실행할 수 있는 몇 가지 상태 테스트를 지원 합니다. 세 번째 모드에서는 매개 변수 입력이 필요 하지 않은 모든 테스트를 실행할 수 있습니다.
+
+### <a name="basic-dc-agent-health-tests"></a>기본 DC 에이전트 상태 테스트
+
+다음 테스트는 모두 개별적으로 실행 될 수 있으며 허용 되지 않습니다. 간단한 설명
+
+|DC 에이전트 상태 테스트|설명|
+| --- | :---: |
+|-VerifyPasswordFilterDll|암호 필터 dll이 현재 로드 되어 있고 DC 에이전트 서비스를 호출할 수 있는지 확인 합니다.|
+|-VerifyForestRegistration|포리스트가 현재 등록 되어 있는지 확인 합니다.|
+|-Verify암호 해독|Microsoft KDS 서비스를 사용 하 여 기본 암호화 및 암호 해독이 작동 하는지 확인 합니다.|
+|-VerifyDomainIsUsingDFSR|현재 도메인이 sysvol 복제를 위해 DFSR을 사용 하는지 확인 합니다.|
+|-VerifyAzureConnectivity|사용 가능한 프록시를 사용 하 여 Azure와 종단 간 통신이 작동 하는지 확인 합니다.|
+
+다음은-VerifyPasswordFilterDll 테스트 전달의 예입니다. 다른 테스트는 성공 시 다음과 같이 표시 됩니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyPasswordFilterDll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyPasswordFilterDll Passed
+```
+
+### <a name="dc-agent-verification-of-all-tests"></a>모든 테스트의 DC 에이전트 확인
+
+이 모드에서는 매개 변수 입력이 필요 하지 않은 cmdlet에서 지원 되는 모든 테스트를 대량으로 실행할 수 있습니다. 성공적으로 실행 되는 것은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -TestAll
+
+DiagnosticName             Result AdditionalInfo
+--------------             ------ --------------
+VerifyPasswordFilterDll    Passed
+VerifyForestRegistration   Passed
+VerifyEncryptionDecryption Passed
+VerifyDomainIsUsingDFSR    Passed
+VerifyAzureConnectivity    Passed
+```
+
+### <a name="connectivity-testing-using-specific-proxy-servers"></a>특정 프록시 서버를 사용 하 여 연결 테스트
+
+많은 문제 해결 상황에는 DC 에이전트와 프록시 간의 네트워크 연결을 조사 하는 작업이 포함 됩니다. 이러한 문제에 초점을 맞춘 두 가지 상태 테스트를 사용할 수 있습니다. 이러한 테스트를 수행 하려면 특정 프록시 서버를 지정 해야 합니다.
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-a-specific-proxy"></a>DC 에이전트와 특정 프록시 간의 연결 확인
+
+이 테스트는 DC 에이전트에서 프록시로의 첫 번째 통신 레그를 통한 연결의 유효성을 검사 합니다. 프록시가 호출을 수신 하는지 확인 하지만 Azure와의 통신은 포함 되지 않습니다. 성공적인 실행은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Passed
+```
+
+대상 서버에서 실행 중인 프록시 서비스가 중지 된 경우의 예제 실패 상태는 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Failed The RPC endpoint mapper on the specified proxy returned no results; please check that the proxy service is running on that server.
+```
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-azure-using-a-specific-proxy"></a>특정 프록시를 사용 하 여 DC 에이전트와 Azure 간의 연결 확인
+
+이 테스트는 특정 프록시를 사용 하 여 DC 에이전트와 Azure 간 전체 종단 간 연결의 유효성을 검사 합니다. 성공적인 실행은 다음과 같습니다.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyAzureConnectivityViaSpecificProxy bpl2.bpl.com
+
+DiagnosticName                          Result AdditionalInfo
+--------------                          ------ --------------
+VerifyAzureConnectivityViaSpecificProxy Passed
+```
 
 ## <a name="next-steps"></a>다음 단계
 

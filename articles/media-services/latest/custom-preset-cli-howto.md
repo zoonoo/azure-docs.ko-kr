@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a91123b22eaef4cbaf2e96c93200777c8a85abab
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956109"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092379"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>사용자 지정 변환-Azure CLI를 사용 하 여 인코딩하는 방법
 
@@ -37,8 +37,6 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 [Media Services 계정 만들기](./create-account-howto.md)
 
 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
-
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-custom-preset"></a>사용자 지정 사전 설정 정의
 

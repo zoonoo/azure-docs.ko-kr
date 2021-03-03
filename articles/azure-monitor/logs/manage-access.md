@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 184d5c98b2b434c87e112c569ff4e8ab347344c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613979"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091194"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
@@ -120,7 +120,7 @@ Azure Resource Manager 템플릿에서 액세스 모드를 구성 하려면 작�
 
 ## <a name="manage-access-using-azure-permissions"></a>Azure 사용 권한을 사용 하 여 액세스 관리
 
-Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)의 단계를 따릅니다. 예를 들어 사용자 지정 역할은 [예제 사용자 지정 역할](#custom-role-examples) 을 참조 하세요.
+Azure 권한을 사용 하 여 Log Analytics 작업 영역에 대 한 액세스 권한을 부여 하려면 azure 역할 할당의 단계를 수행 하 여 [azure 구독 리소스에 대 한 액세스를 관리](../../role-based-access-control/role-assignments-portal.md)합니다. 예를 들어 사용자 지정 역할은 [예제 사용자 지정 역할](#custom-role-examples) 을 참조 하세요.
 
 Azure의 Log Analytics 작업 영역에는 기본 제공되는 2개의 사용자 역할이 있습니다.
 
@@ -134,7 +134,7 @@ Azure의 Log Analytics 작업 영역에는 기본 제공되는 2개의 사용자
 
 Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| 유형    | 사용 권한 | 설명 |
+| 형식    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
 | 작업 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
 | 작업 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |

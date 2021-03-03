@@ -3,12 +3,12 @@ title: 지역에서 Azure Arc 사용 서버를 마이그레이션하는 방법
 description: 한 지역에서 다른 지역으로 Azure Arc 사용 서버를 마이그레이션하는 방법에 대해 알아봅니다.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417769"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650178"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>지역에서 Azure Arc 사용 서버를 마이그레이션하는 방법
 
@@ -36,4 +36,4 @@ Azure Arc 사용 서버를 한 Azure 지역에서 다른 지역으로 마이그�
 
 * 문제 해결 정보는 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법, 컴퓨터에서 예상 Log Analytics 작업 영역에 보고 하는지 [확인,](../../governance/policy/concepts/guest-configuration.md) [vm 정책으로 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md) 모니터링 사용 등의 작업을 수행 하는 방법을 알아봅니다.
+* [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법, 컴퓨터에서 예상 Log Analytics 작업 영역에 보고 하는지 [확인,](../../governance/policy/concepts/guest-configuration.md) [vm 정책으로 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md) 모니터링 사용 등의 작업을 수행 하는 방법을 알아봅니다.

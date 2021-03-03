@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 82b72567a0db4dc9dbff9128402d0ee9f40f3512
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 0346b467bc299b4eb6125df04a4449e94c035e47
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094154"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666459"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -117,7 +117,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Azure Portal에서 Azure Purview 계정 인스턴스를 만드는 방법을 보여 주는 스크린샷":::
 
     > [!Note] 
-    > Azure Purview는 지역 간에 계정 이동을 지원하지 않습니다. 이에 대한 자세한 내용은 [Azure 지원 서비스 페이지](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support)에서 확인할 수 있습니다.
+    > Azure Purview는 지역 간에 계정 이동을 지원하지 않습니다. 이에 대한 자세한 내용은 [Azure 지원 서비스 페이지](../azure-resource-manager/management/region-move-support.md)에서 확인할 수 있습니다.
 
 1. **기본** 탭에서 다음을 수행합니다.
     1. **리소스 그룹** 을 선택합니다.

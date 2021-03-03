@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417492"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649209"
 ---
 # <a name="governing-on-premises-service-accounts"></a>온-프레미스 서비스 계정 관리
 
@@ -52,7 +52,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 | 서비스 계정 매핑| 서비스 계정을 단일 서비스, 응용 프로그램 또는 스크립트에 연결 합니다. |
 | 소유권| 계정에 대 한 책임을 요청 하 고 가정 하는 소유자가 있는지 확인 합니다. |
 | Scope| 서비스 계정에 대 한 사용 기간의 범위를 명확 하 게 정의 합니다. |
-| 용도| 단일 용도로 서비스 계정을 만듭니다. |
+| 목적| 단일 용도로 서비스 계정을 만듭니다. |
 | 권한| 최소 권한의 원칙을 다음과 같이 적용 합니다. <br>관리자와 같은 기본 제공 그룹에는 할당 하지 마십시오.<br> 필요한 경우 로컬 컴퓨터 권한 제거<br>액세스를 조정 하 고 디렉터리 액세스를 위한 Active Directory 위임을 사용 합니다.<br>세부적인 액세스 권한 사용.<br>사용자 기반 서비스 계정에 대 한 계정 만료 및 위치 기반 제한 설정 |
 | 사용 모니터링 및 감사| 로그인 데이터를 모니터링 하 고 의도 된 사용량과 일치 하는지 확인 합니다. 비정상 사용에 대 한 경고를 설정 합니다. |
 
@@ -60,11 +60,11 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 서비스 계정으로 사용 되는 사용자 계정에는 다음 설정을 사용 합니다.
 
-* [**계정 만료**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): 계속 해야 하는 것으로 확인 된 경우를 제외 하 고는 서비스 계정이 검토 기간 후 설정 된 시간을 자동으로 만료 하도록 설정 합니다.
+* [**계정 만료**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): 계속 해야 하는 것으로 확인 된 경우를 제외 하 고는 서비스 계정이 검토 기간 후 설정 된 시간을 자동으로 만료 하도록 설정 합니다.
 
 *  **Logonworkstations**: 서비스 계정에서 로그인 할 수 있는 권한을 제한 합니다. 컴퓨터에서 로컬로 실행 되 고 해당 컴퓨터의 리소스에만 액세스 하는 경우에는 다른 위치에 로그온 할 수 없도록 제한 합니다.
 
-* [**암호를 변경할 수 없음**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): 매개 변수를 false로 설정 하 여 서비스 계정이 자신의 암호를 변경 하지 못하도록 합니다.
+* [**암호를 변경할 수 없음**](/powershell/module/addsadministration/set-aduser?view=win10-ps): 매개 변수를 false로 설정 하 여 서비스 계정이 자신의 암호를 변경 하지 못하도록 합니다.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>수명 주기 관리 프로세스 빌드
@@ -87,7 +87,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 | 데이터| 세부 정보 |
 | - | - |
 | 소유자| 서비스 계정에 대 한 책임이 있는 사용자 또는 그룹 |
-| 용도| 서비스 계정의 용도 |
+| 목적| 서비스 계정의 용도 |
 | 사용 권한 (범위)| 필요한 권한 집합 |
 | CMDB (구성 관리 데이터베이스) 링크| 대상 스크립트/응용 프로그램 및 소유자를 사용 하는 교차 연결 서비스 계정 |
 | 위험| 보안 위험 평가에 따른 위험 및 비즈니스 영향 점수 매기기 |
@@ -117,7 +117,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 |데이터 | 세부 정보|
 | - | - |
 | 소유자, Deputy| John 블 룸, Anna Mayers |
-| 용도| HR 웹 페이지를 실행 하 고 HR 데이터베이스에 연결 합니다. 데이터베이스에 액세스할 때 최종 사용자를 가장할 수 있습니다. |
+| 목적| HR 웹 페이지를 실행 하 고 HR 데이터베이스에 연결 합니다. 데이터베이스에 액세스할 때 최종 사용자를 가장할 수 있습니다. |
 | 권한, 범위| HR 웹 서버: 로컬로 로그온, 웹 페이지 실행<br>HR-SQL1: 로컬로 로그온, 모든 HR * 데이터베이스에서 읽기<br>HR-SQL2: 로컬로 로그온 하 고 급여 * 데이터베이스를 읽습니다. |
 | Cost Center| 883944 |
 | 위험 평가| 중간 비즈니스 영향: 중형; 개인 정보 중간 |
@@ -149,17 +149,17 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 관련 정보가 CMDB에 문서화 된 후에만 서비스 계정을 만들고 위험 평가를 수행 합니다. 계정 제한은 위험 평가에 맞춰야 합니다. 평가와 관련 하 여 다음과 같은 제한 사항을 고려 하세요.
 
-* [계정 만료](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [계정 만료](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * 서비스 계정으로 사용 되는 모든 사용자 계정에 대해 사용 하기 위한 현실적인 종료 날짜를 정의 합니다. "계정 만료" 플래그를 사용 하 여이를 설정 합니다. 자세한 내용은[ 설정-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps)를 참조 하세요. 
+   * 서비스 계정으로 사용 되는 모든 사용자 계정에 대해 사용 하기 위한 현실적인 종료 날짜를 정의 합니다. "계정 만료" 플래그를 사용 하 여이를 설정 합니다. 자세한 내용은[ 설정-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps)를 참조 하세요. 
 
-* 로그온 ([Logonworkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* 로그온 ([Logonworkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* [암호 정책](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy) 요구 사항
+* [암호 정책](../../active-directory-domain-services/password-policy.md) 요구 사항
 
-* 권한 있는 사용자에 대해서만 관리를 보장 하는 [OU 위치](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) 에서 만들기
+* 권한 있는 사용자에 대해서만 관리를 보장 하는 [OU 위치](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) 에서 만들기
 
-* 서비스 계정 및 [서비스 계정](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)에 대 한 [변경 내용을 검색 하는](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) 감사를 설정 하 고 수집 합니다.
+* 서비스 계정 및 [서비스 계정](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)에 대 한 [변경 내용을 검색 하는](/windows/security/threat-protection/auditing/audit-directory-service-changes) 감사를 설정 하 고 수집 합니다.
 
 프로덕션 환경에 추가할 준비가 되 면 서비스 계정에 안전 하 게 액세스 권한을 부여 합니다. 
 
@@ -193,7 +193,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 3. 사용 하지 않도록 설정 된 정책 유지를 수행한 후 서비스 계정을 삭제 합니다. 
 
-   * MSAs의 경우 PowerShell을 사용 하 여 [제거](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) 하거나 관리 서비스 계정 컨테이너에서 수동으로 삭제할 수 있습니다.
+   * MSAs의 경우 PowerShell을 사용 하 여 [제거](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) 하거나 관리 서비스 계정 컨테이너에서 수동으로 삭제할 수 있습니다.
 
    * 컴퓨터 또는 사용자 계정의 경우 Active Directory에서 계정을 수동으로 삭제할 수 있습니다.
 

@@ -2,18 +2,18 @@
 title: Azure IoT Edge 워크로드 배포(미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/10/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Azure IoT Edge 워크로드 배포
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: f228b79f14ab24281415cd4bd5964fc86a095d3c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c352455b69360df0b26f5aac38fc40ccb30fb9de
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390439"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650416"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Azure IoT Edge 워크로드 배포(미리 보기)
 
@@ -43,7 +43,7 @@ Azure IoT Edge를 사용 하면 응용 프로그램 운영자가 편리한 클�
   $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
   ```
 
-  [클러스터 구성 예제](./use-gitops-connected-cluster.md)를 사용 하 여 원격으로 설정할 수도 있습니다.
+  [클러스터 구성 예제](./tutorial-use-gitops-connected-cluster.md)를 사용 하 여 원격으로 설정할 수도 있습니다.
 
 ## <a name="connect-a-cluster"></a>클러스터 연결
 
@@ -57,10 +57,10 @@ Azure IoT Edge를 사용 하면 응용 프로그램 운영자가 편리한 클�
 
 [예제 Git 리포지토리](https://github.com/veyalla/edgearc) 는 IoT Edge 투구 차트를 가리키고 필수 조건 섹션에서 만든 비밀을 참조 합니다.
 
-Azure CLI 확장을 사용 하 여 `az` `k8sconfiguration` 연결 된 클러스터를 Git 리포지토리에 연결 하는 구성을 만듭니다.
+Azure CLI 확장을 사용 하 여 `az` `k8s-configuration` 연결 된 클러스터를 Git 리포지토리에 연결 하는 구성을 만듭니다.
 
   ```
-  az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  az k8s-configuration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
   ```
 
 몇 분 안에 클러스터의 네임 스페이스에 배포 된 IoT Edge 작업 모듈이 표시 됩니다 `iotedge` . 
@@ -72,7 +72,7 @@ Azure CLI 확장을 사용 하 여 `az` `k8sconfiguration` 연결 된 클러스�
 다음을 사용 하 여 구성을 제거 합니다.
 
 ```
-az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
+az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```
 
 ## <a name="next-steps"></a>다음 단계

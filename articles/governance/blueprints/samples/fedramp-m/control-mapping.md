@@ -3,12 +3,12 @@ title: FedRAMP Moderate 청사진 샘플 컨트롤
 description: FedRAMP Moderate 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034801"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594704"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 컨트롤 매핑
 
@@ -284,7 +284,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 > [!div class="nextstepaction"]
 > [FedRAMP Moderate 청사진 - 개요](./index.md)
-> [FodRAMP Moderate 청사진 - 배포 단계](./deploy.md)
+> [FedRAMP Moderate 청사진 - 배포 단계](./deploy.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

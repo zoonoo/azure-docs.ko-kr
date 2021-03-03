@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef00f33040d30795ae5374b74d0d7a6e9b6e2156
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4eb7e64065e311dc18f33dffb169d5c27a34008d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957676"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673048"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -469,7 +468,7 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 SAP용 Azure IaaS 배포에서 SQL Server를 사용하면 DBMS 계층을 고가용성으로 배포하기 위해 추가할 수 있는 여러 가지 다른 가능성이 있습니다. [SAP 워크 로드에 대 한 azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](dbms_guide_general.md) 에서 설명한 대로 azure는 단일 VM에 대 한 다양 한 시간 Sla와 Azure 가용성 집합에 배포 된 vm 쌍을 제공 합니다. Azure 가용성 집합에서 배포가 필요한 프로덕션 배포에 대한 가동 시간 SLA를 추진하고 있다고 가정합니다. 이 경우 가용성 집합에 최소 2개의 VM을 배포해야 합니다. 한 VM에서 활성 SQL Server 인스턴스를 실행하며, 다른 하나의 VM에서는 수동 인스턴스를 실행합니다.
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>Windows 스케일 아웃 파일 서버 또는 Azure 공유 디스크를 사용 하 여 클러스터링 SQL Server
-Microsoft는 Windows Server 2016에서 [스토리지 공간 직접 배포](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 스토리지 공간 다이렉트 배포를 기반으로 SQL Server FCI 클러스터링은 일반적으로 지원 됩니다. 또한 azure는 Windows 클러스터링에 사용할 수 있는 [azure 공유 디스크](../../disks-shared-enable.md?tabs=azure-cli) 를 제공 합니다. SAP 워크 로드의 경우 이러한 HA 옵션을 지원 하지 않습니다. 
+Microsoft는 Windows Server 2016에서 [스토리지 공간 직접 배포](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 저장소 공간 다이렉트 배포를 기반으로 SQL Server FCI 클러스터링은 일반적으로 지원 됩니다. 또한 azure는 Windows 클러스터링에 사용할 수 있는 [azure 공유 디스크](../../disks-shared-enable.md?tabs=azure-cli) 를 제공 합니다. SAP 워크 로드의 경우 이러한 HA 옵션을 지원 하지 않습니다. 
 
 ### <a name="sql-server-log-shipping"></a>SQL Server 로그 전달
 HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구성에 참여하는 VM에 이름 확인 작업이 있는 경우 아무 문제가 없으며 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. 로그 전달 및 로그 전달 관련 원칙을 설정하는 것과 관련하여 SQL Server 로그 전달에 대한 자세한 내용은 [로그 전달 정보(SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server) 문서에서 찾을 수 있습니다.

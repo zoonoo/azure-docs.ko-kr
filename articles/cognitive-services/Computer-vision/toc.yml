@@ -47,8 +47,8 @@
       items:
         - name: 투명성 메모
           items:
-            - name: 공간 분석 소개
-              href: intro-to-spatial-analysis-public-preview.md
+            - name: 공간 분석 사용 사례
+              href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: 특성 및 제한 사항
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: 윤리 및 책임 있는 사용
@@ -82,6 +82,8 @@
           displayName: 'container instances, container, containers, images'
     - name: 공간 분석 컨테이너
       items:
+        - name: 공간 분석 개요
+          href: intro-to-spatial-analysis-public-preview.md
         - name: 호스트 머신을 설정하고 컨테이너 실행
           href: spatial-analysis-container.md
         - name: 작업 구성
@@ -108,8 +110,14 @@
       href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
-    - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/computer-vision/'
+    - name: Computer Vision API v3.2 미리 보기
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005'
+    - name: Computer Vision API v3.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
+    - name: Computer Vision API v2.1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
+    - name: Computer Vision API v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
     - name: SDK
       items:
         - name: .NET

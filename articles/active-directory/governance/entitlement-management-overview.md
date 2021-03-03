@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032035"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547318"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -174,5 +174,6 @@ Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 첫 번째 액세스 패키지 만들기](entitlement-management-access-package-first.md)
+- Azure Portal을 사용하여 리소스에 대한 액세스를 관리하는 데 관심이 있는 경우 [자습서: 리소스에 대한 액세스 관리 - Azure Portal](entitlement-management-access-package-first.md)을 참조하세요.
+- Microsoft Graph를 사용하여 리소스에 대한 액세스를 관리하는 데 관심이 있는 경우 [자습서: 리소스에 대한 액세스 관리 - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)를 참조하세요.
 - [일반적인 시나리오](entitlement-management-scenarios.md)

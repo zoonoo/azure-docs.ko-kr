@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: b1fa4d3e6c017232922e500352558e34726b90cc
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 65c609343aece4e23917ede79dfb3c4723ffb70c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183084"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369063"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>자습서: 첫 번째 기계 학습 모델 학습(3/4부)
 
@@ -59,18 +59,8 @@ ms.locfileid: "98183084"
 
 이제 아래와 같이 요약된 디렉터리 구조가 있습니다.
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="src 하위 디렉터리에 train.py가 표시되는 디렉터리 구조":::
+
 
 > [!div class="nextstepaction"]
 > [학습 스크립트를 만들었습니다.](?success=create-scripts#environment) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=create-scripts)

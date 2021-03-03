@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760807"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657029"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -36,13 +34,13 @@ Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communicatio
 
 ## <a name="overview"></a>개요
 
-이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션** 은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션** 으로 요청을 보냅니다. 
+이 샘플에는 클라이언트 쪽 애플리케이션과 서버 쪽 애플리케이션이 모두 들어 있습니다. **클라이언트 쪽 애플리케이션** 은 Microsoft의 Fluent UI 프레임워크를 사용하는 React/Redux 웹 애플리케이션입니다. 이 애플리케이션은 클라이언트 쪽 애플리케이션에서 Azure에 연결하는 데 도움이 되는 ASP.NET Core **서버 쪽 애플리케이션** 으로 요청을 보냅니다.
 
 샘플은 다음과 같습니다.
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여주는 스크린샷":::
 
-"채팅 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰이 검색되면 채팅에서 자신을 나타낼 이름과 이모지를 지정하라는 메시지가 표시됩니다. 
+"채팅 시작" 단추를 누르면 웹 애플리케이션이 서버 쪽 애플리케이션에서 사용자 액세스 토큰을 가져옵니다. 가져온 토큰은 클라이언트 앱을 Azure Communication Services에 연결하는 데 사용됩니다. 토큰이 검색되면 채팅에서 자신을 나타낼 이름과 이모지를 지정하라는 메시지가 표시됩니다.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="애플리케이션의 채팅 전 화면을 보여주는 스크린샷":::
 
@@ -54,7 +52,7 @@ Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communicatio
 
 - **기본 채팅 영역**: 사용자가 메시지를 보내고 받을 수 있는 핵심 채팅 환경입니다. 메시지를 보내려면 입력 영역을 사용하고 Enter 키를 누릅니다(또는 보내기 단추를 사용). 받은 채팅 메시지는 정확한 이름 및 이모지를 사용하여 보낸 사람을 기준으로 분류됩니다. 채팅 영역에는 1) 사용자가 입력 중일 때 표시되는 입력 알림과 2) 메시지 발신 및 읽음 알림의 두 가지 알림 유형이 표시됩니다.
 - **헤더**: 채팅 스레드의 제목, 참가자를 전환하고 사이드바를 설정하는 컨트롤, 채팅 세션을 종료하는 나가기 단추가 여기에 표시됩니다.
-- **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 참가자 사이드바에는 채팅의 참가자 목록과 참가자를 채팅 세션에 초대하는 링크가 있습니다. 설정 사이드바를 통해 채팅 스레드 제목을 구성할 수 있습니다. 
+- **사이드바**: 헤더의 컨트롤을 사용하여 사이드바를 전환하면 참가자 및 설정 정보가 사이드바에 표시됩니다. 참가자 사이드바에는 채팅의 참가자 목록과 참가자를 채팅 세션에 초대하는 링크가 있습니다. 설정 사이드바를 통해 채팅 스레드 제목을 구성할 수 있습니다.
 
 아래에는 샘플을 설정하기 위한 필수 구성 요소 및 설정 단계가 자세히 설명되어 있습니다.
 
@@ -104,7 +102,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 ## <a name="next-steps"></a>다음 단계
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 자세한 내용은 다음 문서를 참조하세요.

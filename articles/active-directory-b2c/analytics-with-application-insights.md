@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dfe53f67ee9c6645a6dadda58573b892b676b739
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651276"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645928"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Application Insights를 사용 하 여 Azure AD B2C에서 사용자 동작 추적
 
@@ -326,6 +326,6 @@ Application Insights 로그를 사용 하지 않도록 설정 하려면 `Disable
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 애플리케이션 Insights를 사용 하 여 사용자 지정 KPI 대시보드를 만드는](../azure-monitor/learn/tutorial-app-dashboards.md)방법을 알아봅니다.
+[Azure 애플리케이션 Insights를 사용 하 여 사용자 지정 KPI 대시보드를 만드는](../azure-monitor/app/tutorial-app-dashboards.md)방법을 알아봅니다.
 
 ::: zone-end

@@ -2,18 +2,18 @@
 title: Oracle 클라우드 인프라와 Azure Express 경로 연결 | Microsoft Docs
 description: Azure Express 경로를 OCI (Oracle Cloud Infrastructure) FastConnect와 연결 하 여 클라우드 간 Oracle 응용 프로그램 솔루션 사용
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.reviewer: cynthn
-ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09264f9f20411e7536eb4a1dbf12ac297e7e3ef9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963711"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675720"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 

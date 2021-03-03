@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584513"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646584"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -73,7 +73,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 - **웹 앱 세션 수명 (분)** -인증에 성공한 후 Azure AD B2C 세션 쿠키가 사용자 브라우저에 저장 되는 시간입니다. 세션 수명은 15에서 720 분 사이의 값으로 설정할 수 있습니다.
 
-- **웹 앱 세션 제한 시간** -세션이 세션 수명 시간 설정 또는 로그인 상태 유지 설정에 의해 확장 되는 방법을 나타냅니다.
+- **웹 앱 세션 제한 시간** -세션이 세션 수명 설정 또는 로그인 유지 (kmsi) 설정에 의해 확장 되는 방법을 나타냅니다.
   - **롤링** -사용자가 쿠키 기반 인증 (기본값)을 수행할 때마다 세션이 확장 됨을 나타냅니다.
   - **절대** -지정 된 기간 후 사용자가 다시 인증 해야 함을 나타냅니다.
 
@@ -82,9 +82,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
   - **애플리케이션** - 이 설정을 통해 다른 애플리케이션과 독립적으로 애플리케이션에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 Contoso 잡화에 이미 로그인 했는지 여부에 관계 없이 사용자가 Contoso Pharmacy에 로그인 할 수 있도록 하려면이 설정을 사용할 수 있습니다.
   - **정책** - 이 설정을 통해 이를 사용하는 애플리케이션과 독립적으로 사용자 흐름에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 이미 로그인 하 고 MFA (multi-factor authentication) 단계를 완료 한 경우 사용자 흐름에 연결 된 세션이 만료 되지 않는 한 사용자에 게 여러 응용 프로그램의 더 높은 보안 부분에 대 한 액세스 권한을 부여할 수 있습니다.
   - **사용 안 함** -이 설정은 사용자가 정책을 실행할 때마다 전체 사용자 흐름을 통해 실행 되도록 합니다.
-::: zone pivot="b2c-custom-policy"
-- **로그인 유지** -영구 쿠키를 사용 하 여 세션 수명 시간을 연장 합니다. 사용자가 브라우저를 닫았다가 다시 열고 나면 세션이 활성 상태로 유지 됩니다. 사용자가 로그 아웃 한 경우에만 세션이 해지 됩니다. 로그인 유지 기능은 로컬 계정으로 로그인 하는 경우에만 적용 됩니다. 로그인 유지 기능이 세션 수명 보다 우선적으로 적용 됩니다. 로그인 유지 기능이 사용 하도록 설정 되어 있고 사용자가 선택 하는 경우이 기능은 세션이 만료 되는 시간을 결정 합니다. 
-::: zone-end
+- **로그인 유지 (KMSI)** -영구 쿠키를 사용 하 여 세션 수명을 확장 합니다. 이 기능을 사용 하도록 설정 하 고 사용자가이 기능을 선택 하면 사용자가 브라우저를 닫고 다시 여는 경우에도 세션이 활성 상태로 유지 됩니다. 사용자가 로그 아웃 하는 경우에만 세션이 해지 됩니다. KMSI 기능은 로컬 계정으로 로그인 하는 경우에만 적용 됩니다. KMSI 기능이 세션 수명 보다 우선적으로 적용 됩니다.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>로그인 유지 사용 (KMSI)
 
-Azure Active Directory B2C (Azure AD B2C) 디렉터리에 로컬 계정이 있는 웹 및 네이티브 응용 프로그램 사용자에 게 로그인 유지 기능을 사용 하도록 설정할 수 있습니다. 이 기능은 사용자의 사용자 이름과 암호를 다시 입력 하 라는 메시지를 표시 하지 않고 응용 프로그램으로 돌아가는 사용자에 게 액세스 권한을 부여 합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다.
+Azure AD B2C 디렉터리에 로컬 계정이 있는 웹 및 네이티브 응용 프로그램 사용자에 대해 KMSI 기능을 사용 하도록 설정할 수 있습니다. 이 기능을 사용 하도록 설정 하면 사용자가 브라우저를 닫은 후에도 세션이 활성 상태로 유지 되도록 로그인 상태를 유지 하도록 선택할 수 있습니다. 그런 다음 사용자 이름과 암호를 다시 입력 하 라는 메시지가 표시 되지 않고 브라우저를 다시 열 수 있습니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다.
 
 ![로그인 상태 유지 확인란을 표시 하는 등록 로그인 페이지의 예](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI는 개별 사용자 흐름 수준에서 구성할 수 있습니다. 사용자 흐름에 KMSI를 사용 하도록 설정 하기 전에 다음 사항을 고려 합니다.
+
+- KMSI는 **권장** 되는 버전의 등록 및 로그인 (SUSI), 로그인 및 프로필 편집 사용자 흐름에 대해서만 지원 됩니다. 현재 이러한 사용자 흐름의 **Standard** 또는 **Legacy preview-V2** 버전이 있고 kmsi를 사용 하도록 설정 하려는 경우 이러한 사용자 흐름의 **권장 되** 는 새로운 버전을 만들어야 합니다.
+- KMSI는 암호 재설정 또는 등록 사용자 흐름에서 지원 되지 않습니다.
+- 테 넌 트의 모든 응용 프로그램에 대해 KMSI를 사용 하도록 설정 하려면 테 넌 트의 모든 사용자 흐름에 대해 KMSI를 사용 하도록 설정 하는 것이 좋습니다. 세션 중에 사용자에 게 여러 정책이 표시 될 수 있기 때문에 KMSI를 사용 하지 않는 것을 발견할 수 있습니다. 그러면 세션에서 KMSI 쿠키를 제거할 수 있습니다.
+- 공용 컴퓨터에서 KMSI를 사용 하도록 설정 하면 안 됩니다.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>사용자 흐름에 대해 KMSI 구성
+
+사용자 흐름에 대해 KMSI를 사용 하도록 설정 하려면:
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독**   필터를 선택 하 고 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+3.  ****   Azure Portal의 왼쪽 위 모서리에 있는 모든 서비스를 선택한 다음 **Azure AD B2C** 를 검색 하 고 선택 합니다.
+4.  **사용자 흐름 (정책)** 을 선택 합니다.
+5. 이전에 만든 사용자 흐름을 엽니다.
+6.  **속성** 을 선택 합니다.
+
+7.  **세션 동작** 에서 **로그인 상태 유지 세션** 을 선택 합니다. **로그인 세션 유지 (일)** 옆에 1에서 90 사이의 값을 입력 하 여 세션을 열어 둘 수 있는 일 수를 지정 합니다.
+
+
+   ![로그인 상태 유지 세션 사용](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 사용자는 공용 컴퓨터에서 이 옵션을 사용하면 안됩니다.
 

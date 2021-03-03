@@ -3,15 +3,16 @@ title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99822309"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651462"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -67,6 +68,9 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
      > [!div class="mx-imgBorder"]
      > ![미국 동부 위치가 선택된 위치 필드를 보여주는 Azure Portal의 스크린샷. 필드 옆에는 "메타데이터가 미국 동부에 저장됩니다."라는 텍스트가 있습니다.](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > 미국 이외의 [지원되는 지역](data-locations.md)에서 호스트 풀을 만들려면 리소스 공급자를 다시 등록해야 합니다. 다시 등록한 후 위치를 선택할 수 있는 드롭다운에 다른 지역이 표시됩니다. [호스트 풀 만들기](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) 문제 해결 문서에서 다시 등록하는 방법에 대해 알아봅니다.
 
 8. [호스트 풀 유형] 아래에서 호스트 풀이 **개인** 또는 **풀링됨** 인지를 선택합니다.
 

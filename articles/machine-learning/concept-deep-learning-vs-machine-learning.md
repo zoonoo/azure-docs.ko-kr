@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220697"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659701"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
@@ -130,4 +130,4 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 - [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [체 이너 모델을 사용 하 여 필기 숫자 분류](./how-to-set-up-training-targets.md)
+- [체 이너 모델을 사용 하 여 필기 숫자 분류](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

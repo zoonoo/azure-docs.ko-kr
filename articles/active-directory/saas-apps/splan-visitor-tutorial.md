@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "99821509"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644700"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>자습서: Splan Visitor와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "99821509"
 * 사용자가 해당 Azure AD 계정으로 Splan Visitor에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
 
@@ -120,8 +120,8 @@ Splan Visitor에서 **Britta Simon** 이라는 테스트 사용자를 만듭니�
 다음 옵션 중 하나를 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 * **Azure 포털**: **이 애플리케이션 테스트** 를 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다.
-* **Microsoft 내 앱 포털**: **Splan Visitor** 타일을 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다. [내 앱] 포털에 대한 자세한 내용은 [[내 앱] 포털에서 앱에 로그인하여 시작](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+* **Microsoft 내 앱 포털**: **Splan Visitor** 타일을 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다. [내 앱] 포털에 대한 자세한 내용은 [[내 앱] 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Splan Visitor가 구성되면 [Microsoft Cloud App Security에서 세션 제어를 적용하는 방법을 알아볼 수 있습니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). 세션 제어를 사용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다.
+Splan Visitor가 구성되면 [Microsoft Cloud App Security에서 세션 제어를 적용하는 방법을 알아볼 수 있습니다](/cloud-app-security/proxy-deployment-any-app). 세션 제어를 사용하면 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다.

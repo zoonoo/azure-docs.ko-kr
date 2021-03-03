@@ -2,18 +2,18 @@
 title: Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
 description: Microsoft Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하는 방법에 대해 알아봅니다.
 author: rezar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
-ms.reviewer: cynthn
-ms.openlocfilehash: 277e9049d2069190a68dd98c22acd60212c1b99d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e2d9ef1d864d18122e7718c9be99eba8b7cf3973
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486694"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672132"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
 
@@ -33,7 +33,7 @@ _이러한 제품은 사용자 라이선스가 필요합니다_. Oracle을 사�
 
 는 기본 이미지 (Oracle Linux 7.6의 WebLogic 서버 14 및 JDK 11)를 통해 다양 한 운영 체제, Java 및 WLS 버전을 지원 합니다. 이러한 기본 이미지는 Azure에서 직접 사용할 수도 있습니다. 기본 이미지는 복잡 하 고 사용자 지정 된 Azure 배포가 필요한 고객에 게 적합 합니다. 현재 기본 이미지 집합은 [여기](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1)에서 사용할 수 있습니다.
 
-_엔지니어링 팀이 이러한 제품을 개발 하는 마이그레이션 시나리오를 긴밀 [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ 하 게 작업 하는 경우 [marketplace 제품 개요 페이지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)에서 나에 게 연락 단추를 선택 합니다. 프로그램 관리자, 설계자 및 엔지니어가 곧 연락 하 여 가까운 공동 작업을 시작 합니다. 제품이 활성 초기 개발 중인 동안에는 마이그레이션 시나리오에 대 한 공동 작업 기회가 무료로 제공 됩니다.
+_엔지니어링 팀이 이러한 제품을 개발 하는 마이그레이션 시나리오를 긴밀 [](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ 하 게 작업 하는 경우 [marketplace 제품 개요 페이지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)에서 나에 게 연락 단추를 선택 합니다. 프로그램 관리자, 설계자 및 엔지니어가 곧 연락 하 여 가까운 공동 작업을 시작 합니다. 제품이 활성 초기 개발 중인 동안에는 마이그레이션 시나리오에 대 한 공동 작업 기회가 무료로 제공 됩니다.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Oracle WebLogic Server 단일 노드
 

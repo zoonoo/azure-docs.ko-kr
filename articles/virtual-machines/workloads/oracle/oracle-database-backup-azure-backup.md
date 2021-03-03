@@ -2,18 +2,19 @@
 title: Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 description: Azure Backup 서비스를 사용 하 여 Oracle Database 19c 데이터베이스를 백업 및 복구 하는 방법에 대해 알아봅니다.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806412"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673889"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -199,13 +200,13 @@ ms.locfileid: "99806412"
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Azure Backup 사용
+## <a name="using-azure-backup-preview"></a>Azure Backup 사용 (미리 보기)
 
 Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다. Azure Backup은 실수로 데이터가 삭제되지 않도록 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 확장성이 간단하고, 백업이 최적화되어 있으며, 필요에 따라 쉽게 복원할 수 있습니다.
 
-Azure Backup 서비스는 Oracle, MySQL, Mongo DB, SAP HANA 및 PostGreSQL와 같은 다양 한 응용 프로그램에 대해 Windows 및 Linux Vm을 백업 하는 동안 응용 프로그램 일관성을 얻기 위한 [프레임 워크](../../../backup/backup-azure-linux-app-consistent.md) 를 제공 합니다. 이렇게 하려면 스냅숏이 완료 된 후 디스크의 스냅숏을 만들고 사후 스크립트 (응용 프로그램을 고정 해제 하는 명령)를 호출 하기 전에 사전 스크립트를 호출 하 여 응용 프로그램을 표준 모드로 되돌리는 작업을 수행 해야 합니다. 샘플 사전 스크립트 및 사후 스크립트는 GitHub에서 제공 되지만 이러한 스크립트를 만들고 유지 관리 하는 것은 사용자의 책임입니다. 
+Azure Backup 서비스는 Oracle, MySQL, Mongo DB 및 PostGreSQL와 같은 다양 한 응용 프로그램에 대해 Windows 및 Linux Vm을 백업 하는 동안 응용 프로그램 일관성을 얻기 위한 [프레임 워크](../../../backup/backup-azure-linux-app-consistent.md) 를 제공 합니다. 이렇게 하려면 스냅숏이 완료 된 후 디스크의 스냅숏을 만들고 사후 스크립트 (응용 프로그램을 고정 해제 하는 명령)를 호출 하기 전에 사전 스크립트를 호출 하 여 응용 프로그램을 표준 모드로 되돌리는 작업을 수행 해야 합니다. 샘플 사전 스크립트 및 사후 스크립트는 GitHub에서 제공 되지만 이러한 스크립트를 만들고 유지 관리 하는 것은 사용자의 책임입니다.
 
-이제 Azure Backup은 향상 된 사전 스크립트 및 사후 스크립트 프레임 워크를 제공 합니다 .이 프레임 워크에서는 Azure Backup 서비스가 패키지 된 사전 스크립트와 선택한 응용 프로그램에 대 한 사후 스크립트를 제공 합니다. Azure Backup 사용자가 응용 프로그램의 이름을 지정한 후에 Azure VM Backup은 관련 사전 사후 스크립트를 자동으로 호출 합니다. 패키지 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리 하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상 된 프레임 워크에 대해 지원 되는 응용 프로그램은 *Oracle* 및 *MySQL* 입니다.
+Azure Backup 이제는 향상 된 사전 스크립트 및 사후 스크립트 프레임 워크 (**현재 미리 보기 상태**)를 제공 하 고 있으며,이는 Azure Backup 서비스가 패키지 된 사전 스크립트와 선택한 응용 프로그램에 대 한 사후 스크립트를 제공 합니다. Azure Backup 사용자가 응용 프로그램의 이름을 지정한 후에 Azure VM Backup은 관련 사전 사후 스크립트를 자동으로 호출 합니다. 패키지 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리 하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상 된 프레임 워크에 대해 지원 되는 응용 프로그램은 *Oracle* 및 *MySQL* 입니다.
 
 이 섹션에서는 Azure Backup 향상 된 프레임 워크를 사용 하 여 실행 중인 VM 및 Oracle 데이터베이스의 응용 프로그램 일치 스냅숏을 수행 합니다. 데이터베이스는 트랜잭션 측면에서 일관 된 온라인 백업을 수행 하는 동안 Azure Backup VM 디스크의 스냅숏을 만드는 데 사용할 수 있도록 백업 모드로 전환 됩니다. 스냅숏은 저장소의 전체 복사본이 며 쓰기 스냅숏에 대 한 증분 또는 복사는 아니므로에서 데이터베이스를 복원 하는 것이 효과적인 미디어입니다. 응용 프로그램에 일관 된 스냅숏을 Azure Backup 사용 하는 경우의 장점은 데이터베이스의 크기에 관계 없이 작업을 수행 하는 것이 매우 빠르지만, 스냅숏이 Recovery Services 자격 증명 모음으로 전송 될 때까지 기다릴 필요 없이 수행 되는 즉시 복원 작업에 사용 될 수 있다는 것입니다.
 
@@ -276,7 +277,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    > 1. 이전 형식의 암호 파일을 새 이름으로 이동 합니다.
    > 1. 암호 파일을 마이그레이션합니다.
    > 1. 이전 파일을 제거 합니다.
-   > 1. 다음 명령을 실행합니다.
+   > 1. 다음 명령 실행:
    >
    >    ```bash
    >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
@@ -314,7 +315,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    sudo su -
    ```
 
-2. 응용 프로그램 일치 백업 작업 디렉터리를 만듭니다.
+2. "기타/azure" 폴더를 확인 합니다. 존재 하지 않는 경우 응용 프로그램 일치 백업 작업 디렉터리를 만듭니다.
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    fi
    ```
 
-3. 다음 *내용이 포함 된* */etc/azure* 디렉터리에 파일을 만듭니다 .이 파일은로 시작 해야 합니다 `[workload]` . 다음 명령은 파일을 만들고 콘텐츠를 채웁니다.
+3. 폴더 내에서 "작업. a."를 확인 합니다. 이 파일이 없는 경우 다음 *내용이 포함 된* */etc/azure* 디렉터리에 파일을 만듭니다 .이 파일은로 시작 해야 합니다 `[workload]` . 파일이 이미 있는 경우 다음 내용과 일치 하도록 필드를 편집 하기만 하면 됩니다. 그렇지 않으면 다음 명령을 통해 파일이 생성 되 고 내용이 채워집니다.
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. [GitHub 리포지토리에서](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) PreOracleMaster 및 postOracleMaster 스크립트를 다운로드 하 여 */etc/azure* 디렉터리에 복사 합니다.
-
-5. 파일 사용 권한 변경
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>VM의 응용 프로그램 일치 백업 트리거
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [자습서: 고가용성 VM 만들기](../../linux/create-cli-complete.md)
 
-[VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
+[VM 배포 Azure CLI 샘플 탐색](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

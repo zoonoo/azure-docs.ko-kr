@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576585"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095711"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -49,7 +49,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
    >
    >
 
-    Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+    Visual Studio에서 Azure 리소스에 연결 하는 방법에 대 한 자세한 내용은 [Azure Portal 사용 하 여 azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 2. **서버 탐색기** 에서 **Azure** 를 확장한 후 **App Service** 를 확장합니다.
 3. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기** 를 클릭합니다.
 

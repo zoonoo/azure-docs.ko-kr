@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: application-insights
-author: mrbullwinkle
+author: lgayhardt
 ms.service: application-insights
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: mbullwin
+ms.author: lagayhar
 ms.custom: include file
-ms.openlocfilehash: 76176c72ad77341d7db1c8f4158a90836b74a91c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eda50bb9f65591cd837b7e74e9d783464de43367
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011349"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520693"
 ---
 애플리케이션별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
@@ -21,7 +21,8 @@ ms.locfileid: "96011349"
 | --- | --- | --- |
 | 일당 총 데이터 | 100GB | 한도를 설정하여 데이터를 줄일 수 있습니다. 더 많은 데이터가 필요한 경우 포털에서 최대 1,000GB로 한도를 늘릴 수 있습니다. 1,000GB보다 큰 용량이 필요한 경우 AIDataCap@microsoft.com으로 이메일을 보내세요.
 | 제한 | 32,000 이벤트/초 | 제한은 분을 기준으로 측정됩니다.
-| 데이터 보존 | [30~730일](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | 이 리소스는 [검색](../articles/azure-monitor/app/diagnostic-search.md), [분석](../articles/azure-monitor/log-query/log-query-overview.md) 및 [메트릭 탐색기](../articles/azure-monitor/platform/metrics-charts.md)의 경우입니다.
+| 데이터 보존 로그 | [30~730일](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | 이 리소스는 [로그](../articles/azure-monitor/log-query/log-query-overview.md)용입니다.
+| 데이터 보존 메트릭 | 90일| 이 리소스는 [메트릭 탐색기](../articles/azure-monitor/platform/metrics-charts.md)용입니다.
 | [가용성 다단계 테스트](../articles/azure-monitor/app/availability-multistep.md) 자세한 결과 보존 | 90일 | 이 리소스는 각 단계의 자세한 결과를 제공합니다.
 | 최대 원격 분석 항목 크기 | 64kB |
 | 일괄 처리당 최대 원격 분석 항목 수 | 64K |

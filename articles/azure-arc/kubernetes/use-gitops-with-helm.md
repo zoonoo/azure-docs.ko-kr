@@ -1,21 +1,21 @@
 ---
-title: Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
+title: 아크 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Azure Arc 사용 클러스터 구성 (미리 보기)에 대 한 투구와 함께 GitOps 사용
+description: Azure Arc 사용 클러스터 구성에 대 한 투구와 함께 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 2dfb516487d1064f29b4018cc8b322e8db44e53a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558522"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647645"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
+# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>아크 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
 
 Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT, Yum 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
 
@@ -23,7 +23,7 @@ Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-기존 Azure Arc enabled Kubernetes 연결 된 클러스터가 있는지 확인 합니다. 연결 된 클러스터가 필요한 경우 [연결 a Azure Arc Enabled Kubernetes cluster 빠른](./connect-cluster.md)시작을 참조 하세요.
+기존 Azure Arc enabled Kubernetes 연결 된 클러스터가 있는지 확인 합니다. 연결 된 클러스터가 필요한 경우 [연결 a Azure Arc Enabled Kubernetes cluster 빠른](./quickstart-connect-cluster.md)시작을 참조 하세요.
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc를 사용 하는 Kubernetes를 사용 하 여 GitOps 및 투구 사용에 대 한 개요
 
@@ -64,12 +64,12 @@ spec:
 
 Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | ------------- | ------------- | 
 | `metadata.name` | 필수 필드입니다. Kubernetes 명명 규칙을 따라야 합니다. |
 | `metadata.namespace` | 선택적 필드입니다. 릴리스가 생성 되는 위치를 결정 합니다. |
 | `spec.releaseName` | 선택적 필드입니다. 제공 되지 않으면 릴리스 이름은이 됩니다 `$namespace-$name` . |
-| `spec.chart.path` | 리포지토리 루트를 기준으로 지정 된 차트를 포함 하는 디렉터리입니다. |
+| `spec.chart.path` | 차트를 포함 하는 디렉터리 (리포지토리 루트 기준)입니다. |
 | `spec.values` | 차트 자체의 기본 매개 변수 값에 대 한 사용자 지정 |
 
 이 옵션은 `spec.values` 차트 원본에서에 지정 된 옵션을 재정의 합니다 `values.yaml` .
@@ -78,30 +78,27 @@ Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
-의 Azure CLI 확장을 사용 하 여 `k8sconfiguration` 연결 된 클러스터를 예제 Git 리포지토리에 연결 합니다. 이 구성에 이름을 지정 `azure-arc-sample` 하 고 네임 스페이스에 Flux 연산자를 배포 `arc-k8s-demo` 합니다.
+의 Azure CLI 확장을 사용 하 여 `k8s-configuration` 연결 된 클러스터를 예제 Git 리포지토리에 연결 합니다. 이 구성에 이름을 지정 `azure-arc-sample` 하 고 네임 스페이스에 Flux 연산자를 배포 `arc-k8s-demo` 합니다.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>구성 매개 변수
 
-구성의 생성을 사용자 지정 하려면 [사용할 수 있는 추가 매개 변수에 대해 알아보세요](./use-gitops-connected-cluster.md#additional-parameters).
+구성의 생성을 사용자 지정 하려면 [추가 매개 변수에 대해 알아보세요](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>구성 유효성 검사
 
-Azure CLI를 사용 하 여 `sourceControlConfiguration` 가 성공적으로 만들어졌는지 확인 합니다.
+Azure CLI 사용 하 여 구성이 성공적으로 만들어졌는지 확인 합니다.
 
 ```console
-az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
+az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-`sourceControlConfiguration`리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트 됩니다.
+구성 리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트 됩니다.
 
-**출력:**
-
-```console
-Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+```output
 {
   "complianceStatus": {
     "complianceState": "Installed",
@@ -129,7 +126,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-## <a name="validate-application"></a>애플리케이션 유효성 검사
+## <a name="validate-application"></a>응용 프로그램 유효성 검사
 
 다음 명령을 실행 하 고 브라우저에서로 이동 하 여 `localhost:8080` 응용 프로그램이 실행 중인지 확인 합니다.
 

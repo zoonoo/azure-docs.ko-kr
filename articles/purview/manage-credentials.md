@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526700"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673515"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure 부서의 범위에서 원본 인증에 대 한 자격 증명
 
@@ -85,8 +85,9 @@ ms.locfileid: "100526700"
 - 서비스 사용자: 키 자격 증명 모음에 비밀으로 **서비스 사용자 키** 를 추가 합니다.
 - SQL 인증: 키 자격 증명 모음에 **암호를 암호로** 추가 합니다.
 - 계정 키: **계정 키** 를 키 자격 증명 모음에 암호로 추가 합니다.
+- 역할 ARN: Amazon S3 데이터 원본의 경우 AWS에서 **역할 ARN** 을 추가 합니다. 
 
-자세한 내용은 [Key Vault에 암호 추가](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)를 참조 하세요.
+자세한 내용은 [Key Vault에 암호 추가](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) 및 [부서의 범위에 대 한 새 AWS 역할 만들기](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview)를 참조 하세요.
 
 키 자격 증명 모음에 비밀을 저장 한 후:
 

@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9a50d8402515cb7aafa9a1b02c8b8c18412f6618
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659395"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -25,13 +25,13 @@ ms.locfileid: "98878208"
 
 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터는 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않으며 데이터 원본의 무결성을 위험 하지 않습니다. 또한 데이터 집합은 지연 계산 되며 워크플로 성능 속도를 지원 합니다. 데이터 저장소, 공용 Url 및 [Azure Open 데이터 집합](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)에서 데이터 집합을 만들 수 있습니다.
 
-낮은 코드 환경에서는 [Azure Machine Learning studio를 사용 하 여 Azure Machine Learning 데이터 집합을 만듭니다](how-to-connect-data-ui.md#create-datasets).
+낮은 코드 환경에서는 [Azure Machine Learning studio를 사용 하 여 Azure Machine Learning 데이터 집합을 만듭니다.](how-to-connect-data-ui.md#create-datasets)
 
 Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다.
 
 * 데이터 집합에서 참조 하는 데이터의 단일 복사본을 저장소에 보관 합니다.
 
-* 연결 문자열 또는 데이터 경로를 걱정 하지 않고 모델 학습 중에 데이터에 원활 하 게 액세스 합니다. [데이터 집합을 사용 하 여 학습 하는 방법에 대해 자세히 알아보세요](how-to-train-with-datasets.md).
+* 연결 문자열 또는 데이터 경로를 걱정 하지 않고 모델 학습 중에 데이터에 원활 하 게 액세스 합니다. [데이터 세트를 사용하여 학습시키는 방법을 알아보세요](how-to-train-with-datasets.md).
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
@@ -82,7 +82,7 @@ TabularDatasets를 사용 하면 데이터의 열에서 타임 스탬프를 지�
 [PYTHON SDK](#create-a-tabulardataset) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets)를 사용 하 여 TabularDataset를 만듭니다.
 
 >[!NOTE]
-> Azure Machine Learning studio를 통해 생성 된 AutoML 워크플로는 현재 TabularDatasets만 지원 합니다. 
+> Azure Machine Learning studio를 통해 생성 된 [자동화 된 ML](concept-automated-ml.md) 워크플로는 현재 TabularDatasets만 지원 합니다. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>가상 네트워크의 데이터 집합에 액세스
 
@@ -90,15 +90,20 @@ TabularDatasets를 사용 하면 데이터의 열에서 타임 스탬프를 지�
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>데이터 세트 만들기
+## <a name="create-datasets-from-datastores"></a>데이터 저장소에서 데이터 집합 만들기
 
-Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다. 
+Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 데이터 집합을 [Azure Machine Learning 데이터 저장소](how-to-access-data.md) 또는 웹 url의 경로에서 만들어야 합니다. 
 
-Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 에서 데이터 집합을 만들려면 다음을 수행 합니다.
+> [!TIP] 
+> Id 기반 데이터 액세스를 사용 하 여 저장소 url에서 직접 데이터 집합을 만들 수 있습니다. [Id 기반 데이터 액세스를 사용 하 여 저장소에 연결 (미리 보기)](how-to-identity-based-data-access.md) 에서 자세히 알아보세요.<br><br>
+이 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
 
-1. `contributor`또는 `owner` 등록 된 Azure 데이터 저장소에 대 한 액세스 권한이 있는지 확인 합니다.
+ 
+Python SDK를 사용 하 여 데이터 저장소에서 데이터 집합을 만들려면 다음을 수행 합니다.
 
-2. 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다. 여러 데이터 저장소의 여러 경로에서 데이터 집합을 만들 수 있습니다. 데이터 집합을 만들 수 있는 파일 수 또는 데이터 크기에 대 한 하드 제한은 없습니다. 
+1. `contributor` `owner` 등록 된 Azure Machine Learning 데이터 저장소의 기본 저장소 서비스에 대 한 액세스 권한이 있는지 확인 합니다. [Azure Portal에서 저장소 계정 권한을 확인](../role-based-access-control/check-access.md)합니다.
+
+1. 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다. 여러 데이터 저장소의 여러 경로에서 데이터 집합을 만들 수 있습니다. 데이터 집합을 만들 수 있는 파일 수 또는 데이터 크기에 대 한 하드 제한은 없습니다. 
 
 > [!NOTE]
 > 각 데이터 경로에 대해 몇 가지 요청은 저장소 서비스로 전송 되어 파일이 나 폴더를 가리키는지 확인 합니다. 이러한 오버 헤드로 인해 성능이 저하 되거나 오류가 발생할 수 있습니다. 내에서 1000 파일을 포함 하는 한 개의 폴더를 참조 하는 데이터 집합은 하나의 데이터 경로를 참조 하 고 최적의 성능을 위해 데이터 저장소에서 100 미만의 경로를 참조 하는 데이터 집합을 만드는 것이 좋습니다.
@@ -169,11 +174,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|속성|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
 
@@ -203,11 +208,11 @@ TabularDatasets의 경우 메서드를 사용 [`to_pandas_dataframe()`](/python/
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|속성|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
 
@@ -261,7 +266,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 이러한 템플릿 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
+## <a name="create-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 데이터 집합 만들기
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 데이터 세트에는 기계 학습 모델을 학습시키고 예측 솔루션을 보강할 수 있는 날씨, 인구, 휴일, 공공 안전 및 위치에 대한 공개 도메인 데이터가 포함되어 있습니다. 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 SDK 및 studio에 모두 포함 되어 있습니다.
 
@@ -269,7 +274,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="train-with-datasets"></a>데이터 세트로 학습
 
-기계 학습 실험에서 ML 모델 학습을 위해 데이터 집합을 사용 합니다. [데이터 집합을 사용 하 여 학습 하는 방법에 대 한 자세한 정보](how-to-train-with-datasets.md)
+기계 학습 실험에서 ML 모델 학습을 위해 데이터 집합을 사용 합니다. [데이터 세트를 사용하여 학습시키는 방법을 알아보세요](how-to-train-with-datasets.md).
 
 ## <a name="version-datasets"></a>버전 데이터 집합
 

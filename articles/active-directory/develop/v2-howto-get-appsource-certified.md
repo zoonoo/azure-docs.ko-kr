@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 7731aa2eb1a962d4674ed382911ba0058e1ebdaf
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222169"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647509"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증 된 AppSource 가져오기
 
@@ -98,15 +98,15 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
     ![사이트로 다시 리디렉션되는 경우 사용자에 게 표시 되는 경험을 표시 합니다.](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
 
 ## <a name="get-support"></a>지원 받기
 
-Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 사용 하 여 지원을 제공 합니다.
+Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](/answers/topics/azure-active-directory.html) 사용 하 여 지원을 제공 합니다.
 
-[Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 합니다.
+[Microsoft Q&](/answers/topics/azure-active-directory.html) 에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) 합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

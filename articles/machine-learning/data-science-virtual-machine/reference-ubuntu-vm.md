@@ -3,18 +3,18 @@ title: '참조: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Ubuntu에 포함 된 도구에 대 한 세부 정보 Data Science Virtual Machine
 author: gvashishtha
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013856"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661072"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -253,7 +253,7 @@ VM에서 모델을 R 또는 Python으로 빌드한 다음, Azure Machine Learnin
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 위협은 다음과 같습니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 추가 설정은 다음과 같습니다.
 
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.

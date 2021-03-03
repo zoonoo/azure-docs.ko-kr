@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
-ms.translationtype: MT
+ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954532"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571866"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>자습서: Azure Log Analytics에 Azure Media Services 이벤트 저장
 
@@ -42,11 +42,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > * [Azure 구독](how-to-set-azure-subscription.md)
 > * [Media Services](create-account-howto.md) 계정 및 리소스 그룹
 > * OS용 [FFmpeg](https://ffmpeg.org/download.html) 설치
-> * [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) 작업 영역
+> * [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) 작업 영역
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>논리 앱을 사용하여 Media Services 이벤트 구독
 
-1. Azure Portal에서 [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) 작업 영역을 아직 만들지 않았으면 만듭니다. 작업 영역 ID와 키 중 하나가 필요하므로 브라우저 창을 열어 둡니다. 그런 다음, 다른 탭이나 창에서 포털을 엽니다.
+1. Azure Portal에서 [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) 작업 영역을 아직 만들지 않았으면 만듭니다. 작업 영역 ID와 키 중 하나가 필요하므로 브라우저 창을 열어 둡니다. 그런 다음, 다른 탭이나 창에서 포털을 엽니다.
 
 1. Azure Media Services 계정으로 이동하여 **이벤트** 를 선택합니다. 그러면 Azure Media Services 이벤트를 구독하는 모든 메서드가 표시됩니다.
     > [!div class="mx-imgBorder"]
@@ -230,4 +230,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-다양한 쿼리를 만들고 저장할 수 있습니다. 이것을 [Azure 대시보드](../../azure-monitor/learn/tutorial-logs-dashboards.md)에 추가할 수 있습니다.
+다양한 쿼리를 만들고 저장할 수 있습니다. 이것을 [Azure 대시보드](../../azure-monitor/visualize/tutorial-logs-dashboards.md)에 추가할 수 있습니다.

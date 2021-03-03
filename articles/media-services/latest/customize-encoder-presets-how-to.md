@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954279"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092304"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>사용자 지정 변환-.NET을 사용 하 여 인코딩하는 방법
 
@@ -32,7 +32,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 * AVC 콘텐츠의 높이 및 너비에 대 한 모든 값은 4의 배수 여야 합니다.
 * Azure Media Services v3에서 모든 인코딩 비트 전송률은 초당 비트 단위입니다. 이는 킬로 비트/초를 단위로 사용한 v2 Api와는 다릅니다. 예를 들어 v 2의 비트 전송률이 128 (k b/초)로 지정 된 경우 v3에서 128000 (비트/초)로 설정 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Media Services 계정 만들기](./create-account-howto.md)
 
@@ -46,7 +46,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
  
 사용자 지정 미리 설정 샘플은 [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/) 폴더에 있습니다.
 
-## <a name="create-a-transform-with-a-custom-preset"></a>사용자 지정 미리 설정을 사용하여 변환 만들기 
+## <a name="create-a-transform-with-a-custom-preset"></a>사용자 지정 미리 설정을 사용하여 변환 만들기
 
 새 [Transform](/rest/api/media/transforms)을 만드는 경우 출력으로 생성하려는 것을 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput) 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **사전 설정은** 원하는 **TransformOutput** 을 생성 하는 데 사용 되는 비디오 및/또는 오디오 처리 작업에 대 한 단계별 지침을 설명 합니다. 다음 **TransformOutput** 은 사용자 지정 코덱 및 레이어 출력 설정을 만듭니다.
 

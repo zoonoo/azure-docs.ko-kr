@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 56afc81794bb18bfb7c9146eeb4ed61a0a75ea0f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100529717"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587019"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
@@ -72,7 +72,7 @@ ms.locfileid: "100529717"
 
 **<a name="data-ingestion-volume-rate">데이터 수집 볼륨 속도</a>**
 
-Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 볼륨 속도 제한은 다중 테넌트 지원 환경의 예기치 않은 수집량 급증으로부터 Azure Monitor 고객을 격리하기 위한 것입니다. 기본 수집 볼륨 속도 임계값 500MB(압축)는 작업 영역에 정의되어 있습니다. 이 임계값은 압축되지 않은 경우에는 약 **6GB/분** 로 변환됩니다. 실제 크기는 로그 길이와 압축률에 따라 데이터 형식별로 다를 수 있습니다. 볼륨 속도 제한은 [진단 설정](../articles/azure-monitor/platform/diagnostic-settings.md)을 통해 Azure 리소스에서 수집된 데이터에 적용됩니다. 볼륨 속도 제한에 도달하면 재시도 메커니즘은 30분 동안 4번 데이터를 수집하고 작업이 실패하면 데이터를 삭제하려고 시도합니다. [에이전트](../articles/azure-monitor/platform/agents-overview.md) 또는 [데이터 수집기 API](../articles/azure-monitor/platform/data-collector-api.md)에서 수집된 데이터에는 적용되지 않습니다.
+Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 볼륨 속도 제한은 다중 테넌트 지원 환경의 예기치 않은 수집량 급증으로부터 Azure Monitor 고객을 격리하기 위한 것입니다. 기본 수집 볼륨 속도 임계값 500MB(압축)는 작업 영역에 정의되어 있습니다. 이 임계값은 압축되지 않은 경우에는 약 **6GB/분** 로 변환됩니다. 실제 크기는 로그 길이와 압축률에 따라 데이터 형식별로 다를 수 있습니다. 볼륨 속도 제한은 [진단 설정](../articles/azure-monitor/platform/diagnostic-settings.md)을 통해 Azure 리소스에서 수집된 데이터에 적용됩니다. 볼륨 속도 제한에 도달하면 재시도 메커니즘은 30분 동안 4번 데이터를 수집하고 작업이 실패하면 데이터를 삭제하려고 시도합니다. [에이전트](../articles/azure-monitor/agents/agents-overview.md) 또는 [데이터 수집기 API](../articles/azure-monitor/platform/data-collector-api.md)에서 수집된 데이터에는 적용되지 않습니다.
 
 작업 영역으로 전송된 데이터의 볼륨 속도가 작업 영역에 구성된 임계값의 80%를 초과할 경우 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨 속도가 임계값을 초과할 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨 속도가 임계값을 계속 초과하거나 곧 도달할 것으로 예상되는 경우 지원 요청을 열어 임계값 상향 조정을 요청할 수 있습니다. 
 

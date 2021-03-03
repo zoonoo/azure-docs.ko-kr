@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: ba1e4305785d0ff4db85f805a780719ce179ab94
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 60a07145e38c19f577ad9864efb599e7b244aa83
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050299"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653714"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에 대 한 Single Sign-On를 구성 하는 방법
 
@@ -43,4 +43,4 @@ iOS의 경우 [iOS에서 앱 간 SSO를 사용하도록 설정](../azuread-dev/h
 
 [Microsoft ID 플랫폼의 권한 및 동의](./v2-permissions-and-consent.md)<br>
 
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

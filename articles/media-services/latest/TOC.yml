@@ -327,6 +327,8 @@
           href: how-to-create-transform.md
         - name: REST를 사용하여 기본 오디오 변환 만들기
           href: how-to-create-basic-audio-transform.md
+        - name: 썸네일 스프라이트 만들기
+          href: how-to-create-thumbnail-sprites.md
         - name: REST를 사용하여 copyAllBitrateNonInterleaved 변환 만들기
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: REST를 사용하여 인코딩 없이 비디오 복사
@@ -503,5 +505,3 @@
       href: azure-clouds-regions.md
     - name: 지역 코드 이름 및 엔드포인트
       href: azure-regions-code-names.md
-    - name: 설명서 업데이트
-      href: docs-release-notes.md

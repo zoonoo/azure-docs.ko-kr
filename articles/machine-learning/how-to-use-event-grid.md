@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319313"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655720"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
@@ -29,9 +29,6 @@ Azure Machine Learning은 모델 학습, 모델 배포 및 모니터링을 포�
 * 모델을 등록한 후 Azure 함수 사용
 * Azure Machine Learning에서 다양한 엔드포인트로 이벤트 스트리밍
 * 드리프트가 감지되면 ML 파이프라인 트리거
-
-> [!NOTE] 
-> 현재 runStatusChanged 이벤트는 실행 상태가 **실패** 인 경우에만 트리거됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Event Grid를 사용하려면 이벤트를 만들 Azure Machine Learning 작업 영역에 대한 기여자 또는 소유자 권한이 있어야 합니다.
@@ -84,7 +81,7 @@ Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **고급 필터링** : Azure Event Grid는 게시된 이벤트 스키마를 기반으로 하는 고급 필터링도 지원합니다. Azure Machine Learning 이벤트 스키마 세부 정보는 [Azure Machine Learning의 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-machine-learning.md)에서 찾을 수 있습니다.  다음은 사용자가 수행할 수 있는 고급 필터링 샘플입니다.
++ **고급 필터링**: Azure Event Grid는 게시된 이벤트 스키마를 기반으로 하는 고급 필터링도 지원합니다. Azure Machine Learning 이벤트 스키마 세부 정보는 [Azure Machine Learning의 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-machine-learning.md)에서 찾을 수 있습니다.  다음은 사용자가 수행할 수 있는 고급 필터링 샘플입니다.
 
   `Microsoft.MachineLearningServices.ModelRegistered` 이벤트의 경우 모델의 태그 값을 필터링하는 방법은 다음과 같습니다.
 
@@ -120,7 +117,7 @@ Azure Event Grid를 사용하는 고객은 분리형 메시지 처리기를 만�
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. 사용할 이벤트 유형을 선택합니다. 예를 들어 다음 스크린샷에서는 __등록된 모델__ , __배포된 모델__ , __완료된 실행__ 및 __감지된 데이터 세트 드리프트__ 를 선택했습니다.
+1. 사용할 이벤트 유형을 선택합니다. 예를 들어 다음 스크린샷에서는 __등록된 모델__, __배포된 모델__, __완료된 실행__ 및 __감지된 데이터 세트 드리프트__ 를 선택했습니다.
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 

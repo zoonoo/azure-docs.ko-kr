@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682973"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667493"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀 
 
@@ -75,7 +75,7 @@ ms.locfileid: "98682973"
 
 지원되는 T-SQL은 다음과 같습니다.
 
-- 대부분의 SQL 함수를 포함하여 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 노출 영역이 지원됨
+- 대부분의 SQL 함수를 포함하여 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역이 지원됨
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - 보기 및 보안에만 관련된 DDL 문
 
@@ -89,7 +89,7 @@ ms.locfileid: "98682973"
 
 ### <a name="extensions"></a>확장
 
-서버리스 SQL 풀은 데이터 레이크의 파일에 상주하는 데이터를 적절히 쿼리할 수 있도록 다음 기능을 추가하여 기존 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 함수를 확장합니다.
+서버리스 SQL 풀은 데이터 레이크의 파일에 상주하는 데이터를 적절히 쿼리할 수 있도록 다음 기능을 추가하여 기존 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) 함수를 확장합니다.
 
 [여러 파일 또는 폴더 쿼리](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ ms.locfileid: "98682973"
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 다단계 인증
 
-서버리스 SQL 풀을 사용하면 [Azure Active Directory 통합](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 통해 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure AD(Azure Active Directory)는 Single Sign-On 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시키기 위해 [MFA(다단계 인증)](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 지원합니다.
+서버리스 SQL 풀을 사용하면 [Azure Active Directory 통합](../../azure-sql/database/authentication-aad-configure.md)을 통해 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure AD(Azure Active Directory)는 Single Sign-On 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시키기 위해 [MFA(다단계 인증)](../../azure-sql/database/authentication-mfa-ssms-configure.md)를 지원합니다.
 
 #### <a name="authentication"></a>인증
 
@@ -125,7 +125,7 @@ ms.locfileid: "98682973"
 
 - **Azure Active Directory 인증**:
 
-  이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용합니다. Azure AD 사용자의 경우 다단계 인증을 사용하도록 설정할 수 있습니다. [가능한 경우](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Active Directory 인증(통합 보안)을 사용합니다.
+  이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용합니다. Azure AD 사용자의 경우 다단계 인증을 사용하도록 설정할 수 있습니다. [가능한 경우](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true) Active Directory 인증(통합 보안)을 사용합니다.
 
 #### <a name="authorization"></a>권한 부여
 

@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: f5b22f1211076ee0d7990103586659c12eae66c9
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: f02468ca6ba3cc26d06b8caa8b8ae5b863fb51b5
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100092692"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100651768"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -72,7 +72,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure VMware 솔루션 사용
+    - text: 호스트 할당량 요청 및 Azure VMware Solution 사용
       url: enable-azure-vmware-solution.md
     - text: 예약 인스턴스로 비용 절감
       url: reserved-instance.md
@@ -80,6 +80,8 @@ landingContent:
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: DHCP 관리
       url: manage-dhcp.md
+    - text: NSX 네트워크 구성 요소 구성
+      url: configure-nsx-network-components-azure-portal.md
     - text: VM에 대한 재해 복구 배포
       url: disaster-recovery-for-virtual-machines.md
     - text: 콘텐츠 라이브러리를 통해 VM 배포

@@ -1,35 +1,31 @@
 ---
-title: Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 데이터 쿼리 Azure Cosmos DB
-description: 이 문서에서는 Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB를 쿼리 하는 방법에 대해 알아봅니다.
+title: Azure Synapse 링크에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
+description: 이 문서에서는 Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB를 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/04/2020
+ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4337d8935c10ce17ad5d3747468d55b2fe6daa21
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735436"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677527"
 ---
-# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link Preview에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
+# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
-> [!IMPORTANT]
-> Azure Cosmos DB에 대 한 Azure Synapse 링크에 대 한 서버 리스 SQL 풀 지원은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-
-서버 리스 SQL 풀을 사용 하면 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 다양 한 BI (비즈니스 인텔리전스) 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
+서버 리스 SQL 풀을 사용 하면 트랜잭션 워크 로드의 성능에 영향을 주지 않고 거의 실시간으로 [Azure Synapse Link](../../cosmos-db/synapse-link.md) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 다양 한 BI (비즈니스 인텔리전스) 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
 Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역은 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하는 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. [Create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS)를 사용 하 여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 CETAS를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
 이 문서에서는 Azure Synapse Link를 사용 하 여 사용 하도록 설정 된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이 자습서](./tutorial-data-analyst.md)의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 > [!IMPORTANT]
-> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 쿼리 환경이 잘 정의 된 스키마를 기준으로 정렬 되 고 변경 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절 없이 함수의 결과 집합 스키마를 사용 하지 마세요. [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics)에 피드백을 게시할 수 있습니다. [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 연락 하 여 피드백을 제공할 수도 있습니다.
+> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용 합니다.  `OPENROWSET` `WITH` 쿼리 환경이 잘 정의 된 스키마를 기준으로 정렬 되 고 변경 될 수 있으므로 전체 충실도 스키마를 사용 하 여 컨테이너에서 데이터를 읽는 절 없이 함수의 결과 집합 스키마를 사용 하지 마세요. [Azure Synapse Analytics 피드백 포럼](https://feedback.azure.com/forums/307516-azure-synapse-analytics)에 피드백을 게시할 수 있습니다. [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 연락 하 여 피드백을 제공할 수도 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -377,11 +373,11 @@ FROM OPENROWSET(
 > [!IMPORTANT]
 > `OPENROWSET`절이 없는 함수는 `WITH` 예상 형식이 있는 값과 형식이 잘못 입력 된 값을 모두 노출 합니다. 이 함수는 보고에 대 한 데이터 탐색이 아닌 데이터 탐색을 위해 설계 되었습니다. 보고서를 빌드하기 위해이 함수에서 반환 된 JSON 값을 구문 분석 하지 않습니다. 명시적 [WITH 절](#query-items-with-full-fidelity-schema) 을 사용 하 여 보고서를 만듭니다. 전체 품질 분석 저장소에서 수정 내용을 적용 하려면 Azure Cosmos DB 컨테이너에 잘못 된 형식이 있는 값을 정리 해야 합니다.
 
-Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리해야 하는 경우 분석 저장소에서 전체 충실도 스키마 표현과 [분석 저장소 (미리 보기) Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#analytical-schema)에 사용할 확장 속성 이름에 대해 자세히 알아볼 수 있습니다.
+Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리해야 하는 경우 분석 저장소에서 전체 충실도 스키마 표현과 [Azure Cosmos DB 분석 저장소](../../cosmos-db/analytical-store-introduction.md#analytical-schema)에 사용할 확장 속성 이름에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="query-items-with-full-fidelity-schema"></a>전체 충실도 스키마를 사용 하는 쿼리 항목
 
-전체 충실도 스키마를 쿼리 하는 동안 절에서 SQL 유형 및 필요한 Azure Cosmos DB 속성 유형을 명시적으로 지정 해야 합니다 `WITH` . `OPENROWSET` `WITH` 피드백에 따라 미리 보기에서 결과 집합의 형식이 변경 될 수 있으므로 보고서에서 절 없이를 사용 하지 마세요.
+전체 충실도 스키마를 쿼리 하는 동안 절에서 SQL 유형 및 필요한 Azure Cosmos DB 속성 유형을 명시적으로 지정 해야 합니다 `WITH` . `OPENROWSET` `WITH` 피드백에 따라 결과 집합의 형식이 변경 될 수 있으므로 보고서에서 절 없이를 사용 하지 마세요.
 
 다음 예제에서는 `string` 가 속성의 올바른 형식이 `geo_id` 고 `int32` 속성의 올바른 형식 이라고 가정 합니다 `cases` .
 
@@ -419,7 +415,7 @@ GROUP BY geo_id
 
 ## <a name="known-issues"></a>알려진 문제
 
-- 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 쿼리 환경이 잘 정의 된 스키마와 정렬 될 수 있으므로, 절이 없는 함수가 공개 미리 보기 중에 제공 하는 스키마를 사용 하지 마세요. 사용자 의견을 제공 하려면 [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
+- `OPENROWSET` `WITH` 사용자 의견을 기반으로 하는 잘 정의 된 스키마를 사용 하 여 쿼리 환경을 정렬할 수 있으므로 절이 없는 함수에서 제공 하는 스키마를 사용 하지 마세요. 사용자 의견을 제공 하려면 [Azure Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
 - 서버를 `OPENROWSET` 사용 하지 않는 SQL 풀은 열 데이터 정렬에 utf-8 인코딩이 없으면 컴파일 시간 경고를 반환 합니다. `OPENROWSET`T-sql 문을 사용 하 여 현재 데이터베이스에서 실행 되는 모든 함수에 대 한 기본 데이터 정렬을 쉽게 변경할 수 있습니다 `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.

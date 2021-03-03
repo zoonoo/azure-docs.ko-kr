@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: c767d114ad6a1b5cb8b9c6bf4c0fe4f2ccd1dae6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988874"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650127"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -48,7 +48,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 이전에는 사용자 지정/BYOA 응용 프로그램에서 프로 비전을 설정할 때 비밀 토큰 필드를 비워 둘 수 있습니다. 이 함수는 테스트용 으로만 사용 하기 위한 것입니다. 필요한 필드가 되도록 UI를 업데이트 합니다. 
 
-고객은 브라우저 URL에 기능 플래그를 사용 하 여 테스트 목적으로이 요구 사항을 해결할 수 있습니다. [자세히 알아봅니다](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
+고객은 브라우저 URL에 기능 플래그를 사용 하 여 테스트 목적으로이 요구 사항을 해결할 수 있습니다. [자세히 알아보기](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
  
 ---
 
@@ -97,7 +97,7 @@ Azure AD 및 Microsoft 끝점 관리자 팀은 Firstline Worker 장치를 사용
  
 Azure AD Connect 클라우드 동기화는 이제 모든 고객에 게 일반 공급 됩니다.
 
-Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동 하 여 온-프레미스 공간을 줄입니다. 또한 더 높은 동기화 가용성을 위해 여러 개의 경량 에이전트 배포를 사용할 수 있습니다. [자세히 알아봅니다](https://aka.ms/cloudsyncGA).
+Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동 하 여 온-프레미스 공간을 줄입니다. 또한 더 높은 동기화 가용성을 위해 여러 개의 경량 에이전트 배포를 사용할 수 있습니다. [자세히 알아보기](https://aka.ms/cloudsyncGA).
  
 ---
 ### <a name="general-availability---attack-simulation-administrator-and-attack-payload-author-built-in-roles"></a>일반 가용성-공격 시뮬레이션 관리자 및 공격 페이로드 작성자 기본 제공 역할
@@ -125,7 +125,7 @@ Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레
  
 사용 요약 보고서 구독자 역할을 가진 사용자는 사용 및 생산성 점수에 대해 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 데이터 및 관련 정보에 액세스할 수 있습니다. 그러나 사용자 수준 정보 또는 정보에는 액세스할 수 없습니다. 
 
-두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 개별 사용자 식별 가능 데이터에 추가 보호 계층을 추가 합니다. [자세히 알아봅니다](../roles/permissions-reference.md#usage-summary-reports-reader).
+두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 개별 사용자 식별 가능 데이터에 추가 보호 계층을 추가 합니다. [자세히 알아보기](../roles/permissions-reference.md#usage-summary-reports-reader).
 
 ---
 
@@ -151,7 +151,7 @@ Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
-전자 메일 OTP를 사용 하면 전 세계의 조직이 전자 메일을 통해 링크나 초대를 전송 하 여 누구와도 공동 작업할 수 있습니다. 초대 된 사용자는 파트너의 리소스에 액세스 하기 위해 전자 메일에 전송 된 일회용 암호를 사용 하 여 id를 확인할 수 있습니다. [자세히 알아봅니다](../external-identities/one-time-passcode.md). 
+전자 메일 OTP를 사용 하면 전 세계의 조직이 전자 메일을 통해 링크나 초대를 전송 하 여 누구와도 공동 작업할 수 있습니다. 초대 된 사용자는 파트너의 리소스에 액세스 하기 위해 전자 메일에 전송 된 일회용 암호를 사용 하 여 id를 확인할 수 있습니다. [자세히 알아보기](../external-identities/one-time-passcode.md). 
  
 ---
 
@@ -181,7 +181,7 @@ Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레
 
 2021 년 1 월에 앱 갤러리에 페더레이션 지원이 포함 된 다음 29 개의 새로운 응용 프로그램이 추가 되었습니다.
 
-[Myscview](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [SUPPORTBENCH](https://account.supportbench.net/agent/login/),[Bienvenue 대형](https://formation.bienvenue.pro/login), [AIDA 의료 SSO](https://aidaforparents.com/login/organizations), [국제 SOS 지원 제품](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX ONE](../saas-apps/navex-one-tutorial.md), [](../saas-apps/lablog-tutorial.md)EPHOTO, [Oktopost saml](../saas-apps/oktopost-saml-tutorial.md), [DAM](../saas-apps/ephoto-dam-tutorial.md), [개념](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [NALCO E-데이터](https://www.ecolab.com/), [공석 필러](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [sybse AI 성장 에코 시스템](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [proware](../saas-apps/proware-tutorial.md), [splan 방문자](../saas-apps/splan-visitor-tutorial.md), [아루바 사용자 환경](../saas-apps/aruba-user-experience-insight-tutorial.md)정보, [contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [경계 81](../saas-apps/perimeter-81-tutorial.md), [삼 트 p Suite Enterprise Edition](https://docs.microsoft.com/azure/active-directory/saas-apps/burp-suite-enterprise-edition-tutorial)
+[Myscview](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [SUPPORTBENCH](https://account.supportbench.net/agent/login/),[Bienvenue 대형](https://formation.bienvenue.pro/login), [AIDA 의료 SSO](https://aidaforparents.com/login/organizations), [국제 SOS 지원 제품](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX ONE](../saas-apps/navex-one-tutorial.md), [](../saas-apps/lablog-tutorial.md)EPHOTO, [Oktopost saml](../saas-apps/oktopost-saml-tutorial.md), [DAM](../saas-apps/ephoto-dam-tutorial.md), [개념](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [NALCO E-데이터](https://www.ecolab.com/), [공석 필러](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [sybse AI 성장 에코 시스템](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [proware](../saas-apps/proware-tutorial.md), [splan 방문자](../saas-apps/splan-visitor-tutorial.md), [아루바 사용자 환경](../saas-apps/aruba-user-experience-insight-tutorial.md)정보, [contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [경계 81](../saas-apps/perimeter-81-tutorial.md), [삼 트 p Suite Enterprise Edition](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
 
 여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
 
@@ -195,7 +195,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 �
 **서비스 범주:** 사용자 액세스 관리  
 **제품 기능:** 자격 관리
  
-이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세한 정보](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세히 알아보기](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
  
 ---
 
@@ -207,7 +207,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 �
  
 이제 내 액세스 포털에서 팀을 직접 시작할 수 있습니다. 
 
-이렇게 하려면 내 액세스에 로그인 하 고 https://myaccess.microsoft.com/) , "액세스 패키지"로 이동한 다음 "활성" 탭으로 이동 하 여 이미 액세스 하 고 있는 모든 액세스 패키지를 확인 합니다. 선택한 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 "열기" 단추를 클릭 하 여 시작할 수 있습니다. [자세히 알아봅니다](../governance/entitlement-management-request-access.md).
+이렇게 하려면 내 액세스에 로그인 하 고 https://myaccess.microsoft.com/) , "액세스 패키지"로 이동한 다음 "활성" 탭으로 이동 하 여 이미 액세스 하 고 있는 모든 액세스 패키지를 확인 합니다. 선택한 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 "열기" 단추를 클릭 하 여 시작할 수 있습니다. [자세히 알아보기](../governance/entitlement-management-request-access.md).
  
 ---
 
@@ -539,7 +539,7 @@ SCIM [프로 비전 서비스](../app-provisioning/user-provisioning.md) 에의 
 날짜가 완료 되 면 업데이트를 제공 합니다. 이 사용 중단은 2020 년에 계획 되지 않습니다. 
 
 > [!NOTE]
-> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세히 알아봅니다](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
+> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
  
 
 ---
@@ -681,7 +681,7 @@ Azure AD 액세스 검토에서 검토를 만드는 관리자는 이제 검토�
 
  이제 연결 된 모든 조직에는 "State" 라는 추가 속성이 있습니다. 상태는 "모든 구성 된 연결 된 조직"을 참조 하는 정책에서 연결 된 조직을 사용 하는 방법을 제어 합니다. 이 값은 "구성" (조직이 "all" 절을 사용 하는 정책 범위에 있음) 또는 "제안 됨" (조직이 범위에 있지 않음을 의미 함)입니다.  
 
-수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세히 알아봅니다](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
+수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세히 알아보기](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
  
 
 ---
@@ -738,7 +738,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
-이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세히 알아봅니다](../reports-monitoring/concept-provisioning-logs.md).
+이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md).
  
 ---
 
@@ -806,11 +806,11 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
 
 - Azure Portal를 통한 특성 매핑 환경
 
-    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세한 정보](../cloud-provisioning/how-to-attribute-mapping.md)
+    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세히 알아보기](../cloud-sync/how-to-attribute-mapping.md)
 
 - 주문형 프로 비전 또는 테스트 사용자 환경
 
-    구성을 설정한 후에는 범위 내 모든 사용자에 게 적용 하기 전에 사용자 변환이 예상 대로 작동 하는지 테스트 하는 것이 좋습니다. 주문형 프로 비전을 사용 하 여 IT 관리자는 AD 사용자의 DN (고유 이름)을 입력 하 고 예상 대로 동기화 되는지 확인할 수 있습니다. 주문형 프로 비전을 사용 하면 이전에 수행한 특성 매핑이 예상 대로 작동 하는지 확인할 수 있습니다. [자세한 내용](../cloud-provisioning/how-to-on-demand-provision.md)
+    구성을 설정한 후에는 범위 내 모든 사용자에 게 적용 하기 전에 사용자 변환이 예상 대로 작동 하는지 테스트 하는 것이 좋습니다. 주문형 프로 비전을 사용 하 여 IT 관리자는 AD 사용자의 DN (고유 이름)을 입력 하 고 예상 대로 동기화 되는지 확인할 수 있습니다. 주문형 프로 비전을 사용 하면 이전에 수행한 특성 매핑이 예상 대로 작동 하는지 확인할 수 있습니다. [자세한 내용](../cloud-sync/how-to-on-demand-provision.md)
  
 ---
 
@@ -1139,6 +1139,3 @@ Insights 관리자 역할의 사용자는 [M365 Insights 응용 프로그램](ht
 [핫픽스 롤업 패키지 (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) 는 MICROSOFT IDENTITY MANAGER (MIM) 2016 서비스 팩 2 (SP2)에서 사용할 수 있습니다. 이 롤업 패키지에는 MIM CM, MIM 동기화 관리자 및 PAM 구성 요소에 대 한 업데이트가 포함 되어 있습니다. 또한 MIM 일반 커넥터 1.1.1301.0 빌드에는 Graph 커넥터에 대 한 업데이트가 포함 되어 있습니다.
 
 ---
- 
-
-

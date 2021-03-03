@@ -5,25 +5,25 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 03/02/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d19a5dadffdfa26ccb2d84e6dab278ad272c7b0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060091"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658049"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 MongoDB API는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용 합니다. 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용 하 여 인덱스를 추가 하는 방법을 중점적으로 설명 합니다. 모든 Api에서 관련 된 [Azure Cosmos DB의 인덱싱 개요](index-overview.md) 를 읽을 수도 있습니다.
 
-## <a name="indexing-for-mongodb-server-version-36"></a>MongoDB 서버 버전 3.6에 대 한 인덱싱
+## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>MongoDB server 버전 3.6 이상에 대 한 인덱싱
 
-MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자동으로 인덱싱하고 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . MongoDB에 대 한 Azure Cosmos DB API에서는 분할 및 인덱싱이 별도의 개념입니다. 분할 키를 인덱싱할 필요가 없습니다. 그러나 문서의 다른 속성과 마찬가지로이 속성이 쿼리에서 일반 필터 이면 분할 키를 인덱싱하는 것이 좋습니다.
+MongoDB server 버전 3.6 +에 대 한 Azure Cosmos DB의 API `_id` 는 필드를 자동으로 인덱싱하고 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . MongoDB에 대 한 Azure Cosmos DB API에서는 분할 및 인덱싱이 별도의 개념입니다. 분할 키를 인덱싱할 필요가 없습니다. 그러나 문서의 다른 속성과 마찬가지로이 속성이 쿼리에서 일반 필터 이면 분할 키를 인덱싱하는 것이 좋습니다.
 
 추가 필드를 인덱싱하려면 MongoDB 인덱스 관리 명령을 적용합니다. MongoDB에서와 마찬가지로, MongoDB에 대 한 Azure Cosmos DB API는 자동으로 필드를 인덱싱합니다 `_id` . 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
 
@@ -53,9 +53,9 @@ Azure Portal에서 동일한 단일 필드 인덱스를 만들 수 있습니다 
 
 사용 가능한 경우 하나의 쿼리에서 여러 개의 단일 필드 인덱스를 사용 합니다. 컨테이너 당 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다.
 
-### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스 (MongoDB server 버전 3.6)
+### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스 (MongoDB server 버전 3.6 이상)
 
-Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
+Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 및 4.0 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
 
 > [!NOTE]
 > 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
@@ -102,30 +102,31 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 해당 컬렉션의 예제 문서에는 다음이 포함 됩니다.
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 이번에는에서 약간 다른 속성 집합을 사용 하는 또 다른 예가 `children` 있습니다.
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 이 컬렉션에서 문서에는 여러 가지 가능한 속성이 있을 수 있습니다. 배열의 모든 데이터를 인덱싱합니다 `children` . 각 개별 속성에 대해 별도의 인덱스를 만들거나 전체 배열에 대해 하나의 와일드 카드 인덱스를 만드는 두 가지 옵션이 있습니다. `children`
@@ -140,8 +141,8 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 와일드 카드 구문을 사용 하 여 다음과 같은 인덱스 유형을 만들 수 있습니다.
 
-- 단일 필드
-- 지리 공간적
+* 단일 필드
+* 지리 공간적
 
 ### <a name="indexing-all-properties"></a>모든 속성 인덱싱
 
@@ -162,41 +163,45 @@ Azure Portal에서 데이터 탐색기를 사용 하 여 와일드 카드 인덱
 
 와일드 카드 인덱스는 다음 인덱스 유형이 나 속성을 지원 하지 않습니다.
 
-- 복합
-- TTL
-- 고유한
+* 복합
+* TTL
+* 고유한
 
 **MongoDB와 달리** MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
 
-- 여러 특정 필드를 포함하는 와일드카드 인덱스 만들기
+* 여러 특정 필드를 포함하는 와일드카드 인덱스 만들기
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- 여러 특정 필드를 제외하는 와일드카드 인덱스 만들기
+* 여러 특정 필드를 제외하는 와일드카드 인덱스 만들기
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 또는 여러 와일드카드 인덱스를 만들 수 있습니다.
 
 ## <a name="index-properties"></a>인덱스 속성
 
-다음 작업은 유선 프로토콜 버전 3.6 및 이전 버전을 제공 하는 계정에서 제공 하는 계정에 일반적입니다. [지원 되는 인덱스 및 인덱싱된 속성](mongodb-feature-support-36.md#indexes-and-index-properties)에 대해 자세히 알아볼 수 있습니다.
+다음 작업은 유선 프로토콜 버전 4.0 및 이전 버전을 제공 하는 계정에서 제공 하는 계정에 일반적입니다. [지원 되는 인덱스 및 인덱싱된 속성](mongodb-feature-support-40.md#indexes-and-index-properties)에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="unique-indexes"></a>고유 인덱스
 
@@ -210,11 +215,11 @@ Azure Portal에서 데이터 탐색기를 사용 하 여 와일드 카드 인덱
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -225,29 +230,29 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 앞의 예제에서 절을 생략 하면 ```"university":1``` 다음 메시지와 함께 오류가 반환 됩니다.
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*분할 키 패턴이 {대학: 1.0} 인 {student_id: 1.0}을 (를) 통해 고유 인덱스를 만들 수 없습니다.*
 
 ### <a name="ttl-indexes"></a>TTL 인덱스
 
 특정 컬렉션에서 문서 만료를 사용 하도록 설정 하려면 [TTL (time-to-live) 인덱스](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 값이 있는 필드의 인덱스입니다 `_ts` `expireAfterSeconds` .
 
-예:
+예제:
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
@@ -260,7 +265,7 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 
 ## <a name="track-index-progress"></a>인덱스 추적 진행률
 
-MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터베이스 인스턴스의 인덱스 진행률을 추적 하는 명령을 지원 합니다. 이 명령은 데이터베이스 인스턴스에 대 한 진행 중인 작업에 대 한 정보가 포함 된 문서를 반환 합니다. 명령을 사용 하 여 `currentOp` 네이티브 MongoDB의 모든 진행 중인 작업을 추적 합니다. MongoDB에 대 한 Azure Cosmos DB API에서이 명령은 인덱스 작업 추적만 지원 합니다.
+MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6 이상에서는 `currentOp()` 데이터베이스 인스턴스의 인덱스 진행률을 추적 하는 명령을 지원 합니다. 이 명령은 데이터베이스 인스턴스에 대 한 진행 중인 작업에 대 한 정보가 포함 된 문서를 반환 합니다. 명령을 사용 하 여 `currentOp` 네이티브 MongoDB의 모든 진행 중인 작업을 추적 합니다. MongoDB에 대 한 Azure Cosmos DB API에서이 명령은 인덱스 작업 추적만 지원 합니다.
 
 다음은 명령을 사용 하 여 인덱스 진행률을 추적 하는 방법을 보여 주는 몇 가지 예입니다 `currentOp` .
 
@@ -286,7 +291,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 인덱스 진행률 세부 정보에는 현재 인덱스 작업에 대 한 진행률 비율이 표시 됩니다. 인덱스 진행률의 여러 단계에 대 한 출력 문서 형식을 보여 주는 예제는 다음과 같습니다.
 
-- "Foo" 컬렉션 및 "bar" 데이터베이스의 인덱스 작업 (60% 완료)은 다음과 같은 출력 문서를 포함 합니다. `Inprog[0].progress.total`필드는 100를 대상 완료 백분율로 표시 합니다.
+* "Foo" 컬렉션 및 "bar" 데이터베이스의 인덱스 작업 (60% 완료)은 다음과 같은 출력 문서를 포함 합니다. `Inprog[0].progress.total`필드는 100를 대상 완료 백분율로 표시 합니다.
 
    ```json
    {
@@ -310,7 +315,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
    }
    ```
 
-- "Foo" 컬렉션과 "bar" 데이터베이스에서 인덱스 작업을 시작한 경우 측정 가능한 수준에 도달할 때까지 출력 문서에 0% 진행률이 표시 될 수 있습니다.
+* "Foo" 컬렉션과 "bar" 데이터베이스에서 인덱스 작업을 시작한 경우 측정 가능한 수준에 도달할 때까지 출력 문서에 0% 진행률이 표시 될 수 있습니다.
 
    ```json
    {
@@ -334,7 +339,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
    }
    ```
 
-- 진행 중인 인덱스 작업이 완료 되 면 출력 문서에 빈 `inprog` 작업이 표시 됩니다.
+* 진행 중인 인덱스 작업이 완료 되 면 출력 문서에 빈 `inprog` 작업이 표시 됩니다.
 
    ```json
    {
@@ -407,26 +412,26 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 사용 가능한 인덱싱 기능 및 기본값은 MongoDB 유선 프로토콜의 3.2 버전과 호환 되는 Azure Cosmos 계정에 대해 다릅니다. [계정의 버전을 확인](mongodb-feature-support-36.md#protocol-support) 하 고 [3.6 버전으로 업그레이드할](mongodb-version-upgrade.md)수 있습니다.
 
-버전 3.2을 사용 하는 경우이 섹션에서는 버전 3.6의 주요 차이점에 대해 간략하게 설명 합니다.
+버전 3.2을 사용 하는 경우이 섹션에서는 버전 3.6 +의 주요 차이점에 대해 간략하게 설명 합니다.
 
 ### <a name="dropping-default-indexes-version-32"></a>기본 인덱스 삭제 (버전 3.2)
 
-MongoDB에 대 한 Azure Cosmos DB API의 3.6 버전과 달리 버전 3.2은 기본적으로 모든 속성을 인덱싱합니다. 다음 명령을 사용 하 여 컬렉션에 대 한 기본 인덱스를 삭제할 수 있습니다 ( ```coll``` ).
+MongoDB 용 Azure Cosmos DB API의 3.6 + 버전과 달리 버전 3.2은 기본적으로 모든 속성을 인덱싱합니다. 다음 명령을 사용 하 여 컬렉션에 대 한 기본 인덱스를 삭제할 수 있습니다 ( ```coll``` ).
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-기본 인덱스를 삭제 한 후 버전 3.6에서와 같이 인덱스를 더 추가할 수 있습니다.
+기본 인덱스를 삭제 한 후에는 버전 3.6 이상에서와 같이 더 많은 인덱스를 추가할 수 있습니다.
 
 ### <a name="compound-indexes-version-32"></a>복합 인덱스 (버전 3.2)
 
-복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
+복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려는 경우 [버전 3.6 또는 4.0로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ### <a name="wildcard-indexes-version-32"></a>와일드 카드 인덱스 (버전 3.2)
 
-와일드 카드 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
+와일드 카드 인덱스를 만들려면 [버전 4.0 또는 3.6로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

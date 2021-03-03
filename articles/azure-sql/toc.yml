@@ -143,8 +143,10 @@
       items:
         - name: 할당량 증가 요청
           href: database/quota-increase-request.md
-        - name: 작업 자동화
+        - name: 탄력적 작업을 사용한 작업 자동화
           href: database/job-automation-overview.md
+        - name: SQL 에이전트를 사용한 작업 자동화
+          href: database/job-automation-managed-instances.md
         - name: 비즈니스 연속성
           items:
             - name: 장애 조치(failover) 그룹 구성
@@ -989,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: 관리형 인스턴스에서 수동으로 장애 조치(failover) 시작
           href: managed-instance/user-initiated-failover.md
+        - name: 로그 재생 서비스를 사용하여 데이터베이스 마이그레이션
+          href: managed-instance/log-replay-service-migrate.md
     - name: 샘플
       items:
         - name: Azure CLI
@@ -1123,7 +1127,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 사전 요구 사항
+                            - name: 필수 구성 요소
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

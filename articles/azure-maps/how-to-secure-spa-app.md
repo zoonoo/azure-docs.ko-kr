@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684075"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092721"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 
@@ -111,7 +111,7 @@ Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로�
 
 2. **역할 할당** 탭의 **역할** 에서 **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자** 와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. **액세스 할당** 대상에서 **함수 앱** 을 선택 합니다. 이름으로 보안 주체를 선택 합니다. 그런 다음 **저장** 을 선택합니다.
 
-   * [역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)에 대 한 세부 정보를 참조 하세요.
+   * [Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)에 대 한 세부 정보를 참조 하세요.
 
 > [!WARNING]
 > Azure Maps 기본 제공 역할 정의는 많은 Azure Maps REST Api에 대 한 매우 큰 권한 부여 액세스를 제공 합니다. Api 액세스를 최소한으로 제한 하려면 [사용자 지정 역할 정의 만들기를 참조 하 고 시스템 할당 id](../role-based-access-control/custom-roles.md) 를 사용자 지정 역할 정의에 할당 합니다. 이렇게 하면 응용 프로그램에서 Azure Maps 액세스 하는 데 필요한 최소 권한을 사용할 수 있습니다.

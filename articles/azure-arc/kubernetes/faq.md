@@ -2,18 +2,18 @@
 title: Azure Arc 사용 Kubernetes 질문과 대답
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: 이 문서에는 Azure Arc enabled Kubernetes와 관련 된 질문과 대답 목록이 포함 되어 있습니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너, 구성, GitOps, faq
-ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652499"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647866"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>질문과 대답-Azure Arc 사용 Kubernetes
 
@@ -32,6 +32,8 @@ Azure Arc enabled Kubernetes를 사용 하면 Kubernetes 클러스터를 Azure�
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Azure Stack Azure Stack 허브에 있는 AKS-HCI 클러스터 및 Kubernetes 클러스터를 Azure Arc에 연결 해야 하나요?
 
 예, Azure Stack Edge 또는 Azure Stack Hub에 있는 AKS-HCI 클러스터 또는 Kubernetes 클러스터를 Azure Arc에 연결 하면 Azure Resource Manager에서 리소스를 표시 하는 클러스터가 제공 됩니다. 이 리소스 표현은 클러스터 구성, Azure Monitor 및 Azure Policy (게이트 키퍼)와 같은 기능을 연결 된 Kubernetes 클러스터로 확장 합니다.
+
+Azure Arc enabled Kubernetes 클러스터가 Edge Azure Stack에 있는 경우 AKS on Azure Stack HCI (>= 4 월 2021 업데이트) 또는 AKS on Windows Server 2019 Datacenter (>= 4 월 2021 업데이트)에서 Kubernetes 구성은 무료로 포함 됩니다.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>만료 된 Azure Arc 활성화 된 Kubernetes 리소스를 해결 하는 방법
 
@@ -70,6 +72,6 @@ Azure Arc enabled Kubernetes의 경우 Azure Resource Manager에서 구성을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Arc에 클러스터 연결](./connect-cluster.md)
+* [클러스터를 Azure Arc에 연결](./quickstart-connect-cluster.md)
 * [Arc 사용 Kubernetes 클러스터에 대 한 구성 만들기](./use-gitops-connected-cluster.md)
 * [Azure Policy를 사용 하 여 대규모로 구성 적용](./use-azure-policy.md)

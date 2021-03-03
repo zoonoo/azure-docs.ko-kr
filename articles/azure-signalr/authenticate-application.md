@@ -6,12 +6,12 @@ ms.author: tefa
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/03/2020
-ms.openlocfilehash: 97386b18360e22b457dbcdda53c4f81e7d4ed272
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 597b69c1180ea1fb2a6812d648f8b8ad37707d66
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797525"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092605"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-azure-signalr-service"></a>Azure Active Directory를 사용 하 여 Azure SignalR Service에 액세스 하는 응용 프로그램 인증
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure SignalR Service에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 점입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은 `https://signalr.azure.com/` 입니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (응용 프로그램, 리소스 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure SignalR Service 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -55,8 +55,8 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 ![인증 업로드](./media/authenticate/certification.png)
 
-## <a name="add-rbac-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 RBAC 역할 추가  
-RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
+Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.
 

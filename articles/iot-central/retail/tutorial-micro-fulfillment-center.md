@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832133"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390473"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
-이 자습서에서는 Azure IoT Central 마이크로 처리 센터 애플리케이션 템플릿을 사용하여 소매 솔루션을 빌드합니다. 템플릿을 배포하는 방법, 템플릿에 포함된 항목 및 다음에 수행할 수 있는 작업에 대해 알아봅니다.
+이 자습서에서는 Azure IoT Central 마이크로 처리 센터 애플리케이션 템플릿을 사용하여 소매 솔루션을 빌드합니다.
+
+이 자습서에서는 다음에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 애플리케이션 템플릿을 배포하는 방법
+> * 애플리케이션 템플릿을 사용하는 방법
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 자습서 시리즈를 완료하려면 Azure 구독이 필요합니다. 필요에 따라 7일 무료 평가판을 사용할 수 있습니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다.

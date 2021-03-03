@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580283"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667315"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Linux 진단 확장 4.0를 사용 하 여 메트릭 및 로그 모니터링
 
 이 문서에서는 버전 4.0 및 Linux 진단 확장의 최신 버전에 대해 설명 합니다.
 
 > [!IMPORTANT]
-> 버전 3. *에 대 한 자세한 내용은  [이 문서](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3)를 참조 하세요. 2\.3 이하 버전에 대한 내용은 [이 문서](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2)를 참조하세요.
+> 버전 3. *에 대 한 자세한 내용은  [이 문서](./diagnostics-linux-v3.md)를 참조 하세요. 2\.3 이하 버전에 대한 내용은 [이 문서](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2)를 참조하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -108,7 +108,7 @@ Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다�
 이 예제에서 다운로드된 샘플 구성은 표준 데이터 집합을 수집하고 이를 테이블 스토리지로 보냅니다. 샘플 구성의 URL과 해당 내용은 변경될 수 있습니다. 대부분의 경우, 포털 설정 JSON 파일을 다운로드하고 필요에 따라 수정하면 매번 해당 URL을 다운로드하지 않고도 구성한 템플릿 또는 자동화에서 구성 파일의 사용자 지정 버전을 사용합니다.
 
 > [!NOTE]
-> 새 Azure Monitor 싱크를 사용 하도록 설정 하려면 Vm에서 MSI 인증 토큰 생성을 위해 시스템 할당 Id를 사용 하도록 설정 해야 합니다. Vm을 만드는 동안 또는 VM을 만든 후에이 작업을 수행할 수 있습니다. 포털, CLI, PowerShell 및 resource manager를 통해 시스템 할당 Id를 사용 하도록 설정 하는 단계입니다.  자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)에 나와 있습니다. 
+> 새 Azure Monitor 싱크를 사용 하도록 설정 하려면 Vm에서 MSI 인증 토큰 생성을 위해 시스템 할당 Id를 사용 하도록 설정 해야 합니다. Vm을 만드는 동안 또는 VM을 만든 후에이 작업을 수행할 수 있습니다. 포털, CLI, PowerShell 및 resource manager를 통해 시스템 할당 Id를 사용 하도록 설정 하는 단계입니다.  자세한 내용은 [여기](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)에 나와 있습니다. 
 
 #### <a name="azure-cli-sample"></a>Azure CLI 샘플
 
@@ -490,7 +490,7 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 이 선택적 섹션은 저장소 계정 및 기본 게스트 메트릭 블레이드 외에도 Azure Monitor 싱크로 메트릭을 전송 하도록 설정 하는 것을 제어 합니다.
 
 > [!NOTE]
-> 이렇게 하려면 Vm/VMSS에서 시스템 할당 Id를 사용 하도록 설정 해야 합니다. 포털, CLI, PowerShell 및 resource manager를 통해이 작업을 수행할 수 있습니다. 단계는 [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)에 자세히 나와 있습니다. 이를 사용 하도록 설정 하는 단계는 AZ CLI, PowerShell 등의 설치 샘플에도 나열 되어 있습니다. 
+> 이렇게 하려면 Vm/VMSS에서 시스템 할당 Id를 사용 하도록 설정 해야 합니다. 포털, CLI, PowerShell 및 resource manager를 통해이 작업을 수행할 수 있습니다. 단계는 [여기](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)에 자세히 나와 있습니다. 이를 사용 하도록 설정 하는 단계는 AZ CLI, PowerShell 등의 설치 샘플에도 나열 되어 있습니다. 
 
 ```json
   "sinksConfig": {

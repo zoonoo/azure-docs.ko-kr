@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360961"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676478"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 만들기
 
@@ -155,7 +155,7 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 
 인덱스를 대량으로 로드 하는 경우 인덱서는 내부 "상위 워터 마크"를 통해 처리 된 마지막 문서를 추적 하기도 합니다. 마커는 API에서 노출 되지 않지만 내부적으로 인덱서는 중지 된 위치를 추적 합니다. 예약 된 실행 또는 요청 시 호출을 통해 인덱싱이 재개 되 면 인덱서는 남은 위치를 선택할 수 있도록 상위 워터 마크를 참조 합니다.
 
-전체를 다시 인덱스 하기 위해 상위 워터 마크를 지워야 하는 경우 [인덱서 다시 설정](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)을 사용할 수 있습니다. 선택적 다시 인덱싱을 위해 [기술 다시 설정](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) 또는 [문서 다시 설정](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents)을 사용 합니다. 다시 설정 Api를 통해 내부 상태를 지우고 [증분 보강](search-howto-incremental-index.md)를 사용 하도록 설정한 경우 캐시를 플러시할 수도 있습니다. 각 다시 설정 옵션의 배경 및 비교에 대 한 자세한 내용은 [인덱서, 기술 및 문서 실행 또는 다시 설정](search-howto-run-reset-indexers.md)을 참조 하세요.
+전체를 다시 인덱스 하기 위해 상위 워터 마크를 지워야 하는 경우 [인덱서 다시 설정](/rest/api/searchservice/reset-indexer)을 사용할 수 있습니다. 선택적 다시 인덱싱을 위해 [기술 다시 설정](/rest/api/searchservice/preview-api/reset-skills) 또는 [문서 다시 설정](/rest/api/searchservice/preview-api/reset-documents)을 사용 합니다. 다시 설정 Api를 통해 내부 상태를 지우고 [증분 보강](search-howto-incremental-index.md)를 사용 하도록 설정한 경우 캐시를 플러시할 수도 있습니다. 각 다시 설정 옵션의 배경 및 비교에 대 한 자세한 내용은 [인덱서, 기술 및 문서 실행 또는 다시 설정](search-howto-run-reset-indexers.md)을 참조 하세요.
 
 ## <a name="know-your-data"></a>데이터 파악
 
@@ -165,7 +165,7 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 
 플랫 데이터 외에도 검색 가능한 데이터만 가져오는 것이 중요 합니다. 검색 가능한 데이터는 영숫자입니다. Cognitive Search는 이미지 파일에 대 한 텍스트 설명을 추출 하 고 유추할 수 있지만 ( [AI 보강](cognitive-search-concept-intro.md)참조) 검색 가능한 콘텐츠를 만들 수 있습니다. 마찬가지로 AI 보강을 사용 하 여 자연어 모델에서 큰 텍스트를 분석 하 여 구조 또는 관련 정보를 찾아 검색 문서에 추가할 수 있는 새 콘텐츠를 생성할 수 있습니다.
 
-인덱서는 데이터 문제를 수정 하지 않을 경우 다른 형태의 데이터 정리 또는 조작이 필요할 수 있습니다. 자세한 내용은 [Azure 데이터베이스 제품](/azure/?product=databases)의 제품 설명서를 참조 해야 합니다.
+인덱서는 데이터 문제를 수정 하지 않을 경우 다른 형태의 데이터 정리 또는 조작이 필요할 수 있습니다. 자세한 내용은 [Azure 데이터베이스 제품](../index.yml?product=databases)의 제품 설명서를 참조 해야 합니다.
 
 ## <a name="know-your-index"></a>인덱스 파악
 

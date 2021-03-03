@@ -2,18 +2,16 @@
 title: SAP 솔루션 개요 및 아키텍처에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 SAP 솔루션에 대 한 Azure monitor에 대 한 질문과 대답을 제공 합니다.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 411a95154c9ca36595dff4472e9ab8e1ae8a767e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571369"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671995"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>SAP 솔루션에 대 한 Azure monitor (미리 보기)
 

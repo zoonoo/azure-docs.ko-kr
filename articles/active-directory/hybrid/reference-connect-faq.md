@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092669"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644734"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -201,7 +201,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: 내 자동 업그레이드가 더 이상 작동하지 않으며, 새 버전을 설치해야 한다는 이메일을 받았습니다. 이렇게 하는 것이 왜 필요한가요?**  
 작년에 특정 상황에서 서버의 자동 업그레이드 기능을 사용하지 않도록 설정했을 수 있는 Azure AD Connect 버전을 릴리스했습니다. 이 문제는 Azure AD Connect 버전 1.1.750.0에서 해결되었습니다. 문제의 영향을 받은 경우 PowerShell 스크립트를 실행하여 복구하거나 수동으로 Azure AD Connect의 최신 버전으로 업그레이드하면 문제를 완화할 수 있습니다. 
 
-PowerShell 스크립트를 실행하려면 [스크립트를 다운로드](https://aka.ms/repairaadconnect)하고 관리 PowerShell 창의 Azure AD Connect 서버에서 이 스크립트를 실행합니다. 스크립트 실행하는 방법을 알아보려면 [이 짧은 비디오를 보세요](https://aka.ms/repairaadcau).
+PowerShell 스크립트를 실행하려면 [스크립트를 다운로드](/samples/browse/?redirectedfrom=TechNet-Gallery)하고 관리 PowerShell 창의 Azure AD Connect 서버에서 이 스크립트를 실행합니다. 스크립트 실행하는 방법을 알아보려면 [이 짧은 비디오를 보세요](https://aka.ms/repairaadcau).
 
 수동으로 업그레이드하려면 AADConnect.msi 파일의 최신 버전을 다운로드하고 실행해야 합니다.
  

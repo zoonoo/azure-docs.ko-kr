@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 11/19/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: e0bdfa4a451269e82b73194e921f9067d848868e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 66a804f645ee56cce62053a51e6aa4fc25b3c1a9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511086"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671327"
 ---
 # <a name="introduction"></a>소개
 
@@ -111,7 +111,7 @@ df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL 풀 외부 테이블
 
-전용 SQL 풀 외부 테이블에 쓰려면 전용 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 전용 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.  아래는 전용 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
+전용 SQL 풀 외부 테이블에 쓰려면 전용 SQL 풀에 EXTERNAL DATA SOURCE 및 EXTERNAL FILE FORMAT이 있어야 합니다.  자세한 내용은 전용 SQL 풀의 [외부 데이터 원본 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) 및 [외부 파일 형식](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.  아래는 전용 SQL 풀의 외부 데이터 원본 만들기 및 외부 파일 형식에 대한 예제입니다.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:

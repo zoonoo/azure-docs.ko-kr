@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744366"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648801"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Azure Active Directory Microsoft Authenticator 앱의 인증 방법
 
@@ -23,7 +23,7 @@ Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Micro
 
 사용자는 승인 또는 거부를 위해 모바일 앱을 통해 알림을 받거나, Authenticator 앱을 사용하여 로그인 인터페이스에 입력할 수 있는 OATH 확인 코드를 생성할 수 있습니다. 알림 및 확인 코드를 모두 사용하는 경우 Authenticator 앱을 등록하는 사용자는 두 방법 중 하나를 사용하여 해당 ID를 확인할 수 있습니다.
 
-사용자 이름 및 암호 조합이 아니라 로그인 프롬프트에서 Authenticator 앱을 사용하려면 [Microsoft Authenticator 앱에서 암호 없는 로그인을 사용하도록 설정(미리 보기)](howto-authentication-passwordless-phone.md)을 참조하세요.
+사용자 이름 및 암호 조합이 아닌 로그인 프롬프트에서 Authenticator 앱을 사용 하려면 Microsoft Authenticator 앱을 사용 하 [여 암호 없는 로그인 사용](howto-authentication-passwordless-phone.md)을 참조 하세요.
 
 > [!NOTE]
 > SSPR를 사용하도록 설정하는 경우 사용자에게 모바일 앱을 등록하는 옵션이 없습니다. 대신 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 모바일 앱을 등록하거나 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 결합된 보안 정보 등록의 일부로 등록할 수 있습니다.
@@ -34,7 +34,7 @@ Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정 또는 Micro
 
 ![사용자가 로그인을 승인 하도록 요청 하는 브라우저 로그인의 예](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-이 인증 방법은 높은 수준의 보안을 제공 하며 사용자가 로그인 할 때 암호를 제공 하지 않아도 됩니다. Microsoft Authenticator 앱을 사용한 passwordless 로그인은 현재 미리 보기 상태입니다.
+이 인증 방법은 높은 수준의 보안을 제공 하며 사용자가 로그인 할 때 암호를 제공 하지 않아도 됩니다. 
 
 암호 없는 로그인을 시작 하려면 [Microsoft Authenticator 앱을 사용 하 여 암호 없는 로그인 사용](howto-authentication-passwordless-phone.md)을 참조 하세요.
 

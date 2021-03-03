@@ -7,21 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837093"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653493"
 ---
-# <a name="language-customization-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 언어 지정(미리 보기)
-
-> [!NOTE]
-> 셀프 서비스 등록은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="language-customization-in-azure-active-directory"></a>Azure Active Directory에서 언어 사용자 지정
 
 Azure AD(Azure Active Directory)의 사용자 언어 지정을 사용하면 사용자 요구에 적합하도록 사용자 흐름을 다른 언어로 맞출 수 있습니다. Microsoft는 [36개 언어](#supported-languages)에 대한 번역을 제공합니다. 단일 언어로만 환경이 제공되더라도 특성 모음 페이지에서 특성 이름을 사용자 지정할 수 있습니다.
 
@@ -39,7 +36,7 @@ Azure AD(Azure Active Directory)의 사용자 언어 지정을 사용하면 사�
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
 3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
-4. **사용자 흐름(미리 보기)** 을 선택합니다.
+4. **사용자 흐름** 을 선택합니다.
 3. 번역에 사용할 사용자 흐름을 선택합니다.
 4. **언어** 를 선택합니다.
 5. 사용자 흐름에 대한 **언어** 페이지에서 사용자 지정하려는 언어를 선택합니다.
@@ -183,7 +180,7 @@ Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사�
 | 말레이어                 | ms            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
 | 노르웨이어 복말      | nb            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
 | 네덜란드어                 | nl            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
-| 노르웨이어             | 아니요            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
+| 노르웨이어             | no            | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
 | 펀잡어               | pa            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-customize-language/no.png) |
 | 폴란드어                | pl            | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |
 | 포르투갈어 - 브라질   | pt-br         | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-customize-language/yes.png) |

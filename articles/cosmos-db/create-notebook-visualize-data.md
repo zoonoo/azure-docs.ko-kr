@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339498"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380800"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "93339498"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Azure Cosmos 계정을 만드는 동안 Notebook 지원 사용](enable-notebooks.md)
+* [Azure Cosmos 계정에서 Notebooks 사용](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>리소스 만들기 및 데이터 가져오기
  
@@ -143,7 +143,7 @@ df_cosmos.head(10)
 
 이 섹션에서는 검색된 데이터에 대해 몇 가지 쿼리를 실행합니다.
 
-* **쿼리 1** : DataFrame에 대해 Group by query를 실행하여 각 국가/지역의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
+* **쿼리 1**: DataFrame에 대해 Group by query를 실행하여 각 국가/지역의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()

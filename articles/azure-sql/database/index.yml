@@ -11,13 +11,13 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.reviewer: 
-  ms.date: 10/13/2020
-  ms.openlocfilehash: 2ef30f2ed2bdbf761110a9530c9a8cf3aa7c4ce2
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+  ms.date: 01/25/2021
+  ms.openlocfilehash: 2baf4f9a2ac510ca53a6e7d2eb91c4d74088864c
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593623"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101660783"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -159,3 +159,19 @@ landingContent:
       url: elastic-scale-introduction.md
     - text: 탄력적 쿼리
       url: elastic-query-overview.md
+- title: 계획된 유지 보수
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 유지 관리 이벤트 계획
+      url: planned-maintenance.md
+    - text: 유지 관리 기간
+      url: maintenance-window.md
+    - text: 리소스 상태
+      url: resource-health-to-troubleshoot-connectivity.md
+  - linkListType: how-to-guide
+    links:
+    - text: 유지 관리 기간 구성
+      url: maintenance-window-configure.md
+    - text: 유지 관리 기간 알림
+      url: advance-notifications.md

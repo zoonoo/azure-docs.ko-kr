@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417482"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645619"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Active Directory 서비스 계정 소개
 
@@ -34,7 +34,7 @@ ms.locfileid: "100417482"
 
 ### <a name="group-msa-accounts"></a>MSA 계정 그룹화
 
-온-프레미스 환경에서 실행 되는 서비스에 대해 가능한 경우 gmsas ( [그룹 관리 서비스 계정](service-accounts-group-managed.md) )를 사용 합니다. gMSAs는 서버 팜 또는 네트워크 부하 분산 장치 뒤에서 실행 되는 서비스에 대해 단일 id 솔루션을 제공 합니다. 단일 서버에서 실행 되는 서비스에도 사용할 수 있습니다. [gMSAs에는 충족 되어야 하는 특정 요구 사항이 있습니다.](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+온-프레미스 환경에서 실행 되는 서비스에 대해 가능한 경우 gmsas ( [그룹 관리 서비스 계정](service-accounts-group-managed.md) )를 사용 합니다. gMSAs는 서버 팜 또는 네트워크 부하 분산 장치 뒤에서 실행 되는 서비스에 대해 단일 id 솔루션을 제공 합니다. 단일 서버에서 실행 되는 서비스에도 사용할 수 있습니다. [gMSAs에는 충족 되어야 하는 특정 요구 사항이 있습니다.](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>독립 실행형 MSA 계정
 
@@ -138,4 +138,3 @@ Out-GridView
 
 * [온-프레미스 서비스 계정 관리](service-accounts-govern-on-premises.md)
 
- 

@@ -3,16 +3,17 @@ title: Azure 스폿 Virtual Machines 및 확장 집합 인스턴스의 오류 �
 description: Azure 스폿 Virtual Machines 및 확장 집합 인스턴스를 사용할 때 나타날 수 있는 오류 코드에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9bea9978f1755e5a40b5fb3ff967eb7f32384d19
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6d43935365580233063deb0e523d222351c22d54
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557739"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670619"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Azure 스폿 Virtual Machines 및 확장 집합에 대 한 오류 메시지
 

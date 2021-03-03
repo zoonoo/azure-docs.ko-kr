@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591810"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668353"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 azure 보안 기준
 
@@ -207,7 +207,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center 모니터링**: 예
 
@@ -495,7 +495,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 콘텐츠를 중�
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
 **지침**: 서비스 관리의 경우 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 키와 구성에 대 한 액세스를 관리 합니다. 인덱싱 및 쿼리와 같은 콘텐츠 작업의 경우 Cognitive Search는 id 기반 액세스 제어 모델 대신 키를 사용 합니다. Azure RBAC를 사용 하 여 키에 대 한 액세스를 제어 합니다.
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Cognitive Search에 대 한 관리 액세스를 위해 역할을 사용 하는 방법](./search-security-rbac.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625114"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670056"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 다중 테 넌 트 호스팅 권한은 Windows 10 (버전 1703 이상) 에서만 사용할 수 있습니다.
@@ -26,7 +26,7 @@ Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Acce
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>다중 테 넌 트 호스팅 권한 자격이 있는 구독 라이선스
 
-[Microsoft 관리 센터](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true)를 사용 하 여 사용자에 게 Windows 10 지원 라이선스가 할당 되었는지 확인할 수 있습니다.
+[Microsoft 관리 센터](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide)를 사용 하 여 사용자에 게 Windows 10 지원 라이선스가 할당 되었는지 확인할 수 있습니다.
 
 > [!IMPORTANT]
 > 사용자는 Azure에서 Windows 10 이미지를 사용 하기 위해 아래 구독 라이선스 중 하나가 있어야 합니다. 이러한 구독 라이선스 중 하나가 없는 경우 [클라우드 서비스 파트너](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) 를 통하거나 [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1)를 통해 직접 구매할 수 있습니다.
@@ -75,7 +75,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-자세한 내용은 다음을 참조하세요. 
+추가 정보 
 * [Azure에 VHD를 업로드하는 방법](upload-generalized-managed.md)
 * [Azure에 업로드할 Windows VHD를 준비하는 방법](prepare-for-upload-vhd-image.md)
 

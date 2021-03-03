@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가 - Azure RBAC'
+title: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 - Azure RBAC'
 description: Azure Resource Manager 템플릿 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 리소스 그룹 범위에서 사용자에게 Azure 리소스 액세스 권한을 부여하는 방법을 알아봅니다.
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690445"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559272"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당 추가
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당
 
 [Azure RBAC(Azure 역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 빠른 시작에서는 리소스 그룹을 만들고 리소스 그룹에서 Virtual Machine을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 액세스 권한을 부여합니다.
 
@@ -29,11 +29,11 @@ ms.locfileid: "88690445"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-역할 할당을 추가하려면 다음이 필요합니다.
+Azure 역할을 할당하고 역할 할당을 제거하려면 다음이 필요합니다.
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
-- 역할 할당을 추가하려면 보안 주체, 역할 정의 및 범위의 세 가지 요소를 지정해야 합니다. 이 빠른 시작에서 보안 주체는 사용자 또는 사용자 디렉터리에 있는 다른 사용자이며, 역할 정의는 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor)이고, 범위는 사용자가 지정하는 리소스 그룹입니다.
+- 역할을 할당하려면 보안 주체, 역할 정의 및 범위의 세 가지 요소를 지정해야 합니다. 이 빠른 시작에서 보안 주체는 사용자 또는 사용자 디렉터리에 있는 다른 사용자이며, 역할 정의는 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor)이고, 범위는 사용자가 지정하는 리소스 그룹입니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -138,7 +138,7 @@ ms.locfileid: "88690445"
 
 1. 필요한 경우 Enter 키를 눌러 Remove-AzResourceGroup 명령을 실행합니다.
 
-1. 리소스 그룹 제거 확인을 위해 **Y**를 입력합니다.
+1. 리소스 그룹 제거 확인을 위해 **Y** 를 입력합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

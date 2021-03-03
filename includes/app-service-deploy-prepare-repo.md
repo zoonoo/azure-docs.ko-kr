@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: add0d392f39ab476c6d75f704d5b2e2e0faaa77c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aed23bf5008f850b19a1e5a8c7b0ff21f329eb3a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004355"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560474"
 ---
 ## <a name="prepare-your-repository"></a>리포지토리 준비
 
-Azure App Service Kudu 빌드 서버에서 자동 빌드 기능을 가져오려면 리포지토리 루트에 프로젝트의 올바른 파일이 있는지 확인합니다.
+Azure App Service 빌드 서버에서 자동 빌드 기능을 가져오려면 리포지토리 루트에 프로젝트의 올바른 파일이 있는지 확인합니다.
 
 | 런타임 | 루트 디렉터리 파일 |
 |-|-|
@@ -34,6 +34,6 @@ Azure App Service Kudu 빌드 서버에서 자동 빌드 기능을 가져오려�
 배포를 사용자 지정하려면 리포지토리 루트에 *.deployment* 파일을 포함합니다. 자세한 내용은 [배포 사용자 지정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 및 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
 
 > [!NOTE]
-> Visual Studio에서 개발하는 경우 [Visual Studio에서 자동으로 리포지토리를 만들도록](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio) 합니다. 그러면 프로젝트는 Git을 사용하여 바로 배포할 수 있는 상태가 됩니다.
+> Visual Studio에서 개발하는 경우 [Visual Studio에서 자동으로 리포지토리를 만들도록](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio&preserve-view=true) 합니다. 그러면 프로젝트는 Git을 사용하여 바로 배포할 수 있는 상태가 됩니다.
 >
 

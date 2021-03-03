@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f82a1279a69bf91f37400d5614e8f7b121e72f47
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6b039d934993d2acee630205c5b5e5d8e0f6145e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258900"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667597"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "99258900"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
 
 ## <a name="connect"></a>연결
 
@@ -73,7 +73,7 @@ Azure Active Directory를 사용하려면 필요한 인증 유형을 선택해�
 
 ## <a name="query"></a>쿼리
 
-연결되면 인스턴스에 대해 지원되는 [T-SQL(Transact-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용하여 Synapse SQL을 쿼리할 수 있습니다. 대시보드 보기에서 **새 쿼리** 를 선택하여 시작합니다.
+연결되면 인스턴스에 대해 지원되는 [T-SQL(Transact-SQL)](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) 문을 사용하여 Synapse SQL을 쿼리할 수 있습니다. 대시보드 보기에서 **새 쿼리** 를 선택하여 시작합니다.
 
 ![새 쿼리](./media/get-started-azure-data-studio/5-new-query.png)
 

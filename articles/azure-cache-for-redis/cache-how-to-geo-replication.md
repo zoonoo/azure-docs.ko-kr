@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a04ffbcec8eda6663a12a8a08a81e00c5d0b5c7f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386876"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646968"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대 한 지역에서 복제 구성
 
@@ -199,3 +199,4 @@ Azure 지역 간 자동 장애 조치 (failover)는 지역에서 복제 된 캐�
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 * [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
+* [Redis 용 Azure Cache의 고가용성](cache-high-availability.md)

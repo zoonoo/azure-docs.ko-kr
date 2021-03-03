@@ -154,6 +154,8 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: 에이전트 버전 기록
           href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: 임시 액세스 패스(미리 보기) 사용
+      href: howto-authentication-temporary-access-pass.md
     - name: SMS 기반 인증 사용
       href: howto-authentication-sms-signin.md
     - name: 이메일 주소 로그인 사용
@@ -245,6 +247,8 @@
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: 서비스 제한 및 제한 사항
       href: ../enterprise-users/directory-service-limits-restrictions.md
+    - name: FIDO2 호환성
+      href: fido2-compatibility.md
 - name: 리소스
   items:
     - name: Azure 피드백 포럼

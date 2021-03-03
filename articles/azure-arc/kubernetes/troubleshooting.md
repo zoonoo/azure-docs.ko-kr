@@ -1,36 +1,38 @@
 ---
-title: 일반적인 Azure Arc 사용 Kubernetes 문제 해결(미리 보기)
+title: 일반적인 Azure Arc 사용 Kubernetes 문제 해결
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 03/02/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1f4e84f16c6b584f1ffbd918a86c251f47efcca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684092"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654003"
 ---
-# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc 사용 Kubernetes 문제 해결(미리 보기)
+# <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc 사용 Kubernetes 문제 해결
 
-이 문서에서는 연결, 권한 및 에이전트를 통한 몇 가지 일반적인 문제 해결 시나리오를 제공합니다.
+이 문서에서는 연결, 권한 및 에이전트와 관련 된 문제에 대 한 문제 해결 가이드를 제공 합니다.
 
 ## <a name="general-troubleshooting"></a>일반적인 문제 해결
 
-### <a name="azure-cli-set-up"></a>Azure CLI 설치
-az connectedk8s 또는 az k8sconfiguration CLI 명령을 사용하기 전에 az가 올바른 Azure 구독에 대해 작동하도록 설정되어 있는지 확인합니다.
+### <a name="azure-cli"></a>Azure CLI
+
+`az connectedk8s`또는 CLI 명령을 사용 하기 전에 `az k8s-configuration` Azure CLI가 올바른 Azure 구독에 대해 작동 하도록 설정 되었는지 확인 합니다.
 
 ```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
 
-### <a name="azure-arc-agents"></a>azure arc 에이전트
-Azure Arc가 지원되는 Kubernetes의 모든 에이전트는 `azure-arc` 네임스페이스에 pod로 배포됩니다. 정상 작업에서는 모든 Pod가 실행되고 상태 검사를 통과해야 합니다.
+### <a name="azure-arc-agents"></a>Azure Arc 에이전트
+
+Azure Arc가 지원되는 Kubernetes의 모든 에이전트는 `azure-arc` 네임스페이스에 pod로 배포됩니다. 모든 pod은 실행 중 이며 상태 검사를 통과 해야 합니다.
 
 먼저, Azure Arc Helm 릴리스를 확인합니다.
 
@@ -44,9 +46,9 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-Helm 릴리스가 없거나 누락된 경우 클러스터를 다시 온보딩해 보세요.
+투구 릴리스가 없거나 누락 된 경우 클러스터를 다시 [Azure Arc에 연결](./connect-cluster.md) 해 보세요.
 
-Helm 릴리스가 있고 `STATUS: deployed`인 경우 `kubectl`를 사용하여 에이전트의 상태를 확인합니다.
+에서 투구 릴리스가 있는 경우 `STATUS: deployed` 다음을 사용 하 여 에이전트의 상태를 확인 합니다 `kubectl` .
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
@@ -69,45 +71,42 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-모든 Pod는 `STATUS`를 `Running`으로 표시해야 하며 `READY`은 `3/3` 또는 `2/2`여야 합니다. 로그를 가져오고 `Error` 또는 `CrashLoopBackOff`를 반환하는 Pod를 설명합니다. 이러한 pod가 상태를 유지 하는 경우 `Pending` 클러스터 노드에 리소스가 부족 하기 때문일 수 있습니다. [클러스터를 확장](https://kubernetes.io/docs/tasks/administer-cluster/) 하면 이러한 pod이 상태로 전환 됩니다 `Running` .
+모든 pod는 `STATUS` `Running` `3/3` 또는 `2/2` 열 아래에로 표시 되어야 합니다 `READY` . 로그를 인출 하 고 또는을 반환 하는 pod을 설명 합니다 `Error` `CrashLoopBackOff` . Pod 상태가 중단 되 면 `Pending` 클러스터 노드에 리소스가 부족할 수 있습니다. [클러스터](https://kubernetes.io/docs/tasks/administer-cluster/) 를 강화 하면 이러한 pod 상태로 전환 될 수 있습니다 `Running` .
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Azure Arc에 Kubernetes 클러스터 연결
 
-클러스터를 Azure에 연결하려면 Azure 구독에 대한 액세스와 대상 클러스터에 대한 `cluster-admin` 액세스가 필요합니다. 클러스터에 연결할 수 없거나 충분한 권한이 없는 경우 온보딩에 실패합니다.
+클러스터를 Azure에 연결 하려면 Azure 구독에 대 한 액세스 및 대상 클러스터에 대 한 액세스 권한이 모두 필요 `cluster-admin` 합니다. 클러스터에 연결할 수 없거나 사용 권한이 부족 한 경우 클러스터를 Azure Arc에 연결 하지 못합니다.
 
 ### <a name="insufficient-cluster-permissions"></a>클러스터 권한 부족
 
-제공된 kubeconfig 파일에 Azure Arc 에이전트를 설치할 수 있는 충분한 권한이 없는 경우 Azure CLI 명령은 Kubernetes API를 호출하는 동안 오류를 반환합니다.
+제공 된 kubeconfig 파일에 Azure Arc 에이전트를 설치할 수 있는 충분 한 권한이 없는 경우 Azure CLI 명령은 오류를 반환 합니다.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 
 Error: list: failed to list: secrets is forbidden: User "myuser" cannot list resource "secrets" in API group "" at the cluster scope
 ```
 
-클러스터 소유자는 클러스터 관리자 권한이 있는 Kubernetes 사용자를 사용해야 합니다.
+클러스터를 Azure Arc에 연결 하는 사용자는 `cluster-admin` 클러스터에서 역할을 할당 받아야 합니다.
 
 ### <a name="installation-timeouts"></a>설치 시간 초과
 
-Azure Arc 에이전트를 설치하려면 대상 클러스터에서 컨테이너 집합을 실행해야 합니다. 클러스터가 저속 인터넷 연결을 통해 실행되는 경우 컨테이너 이미지 풀은 Azure CLI 시간 제한보다 오래 걸릴 수 있습니다.
+Kubernetes 클러스터를 Azure Arc enabled Kubernetes에 연결 하려면 클러스터에 Azure Arc 에이전트를 설치 해야 합니다. 클러스터가 저속 인터넷 연결을 통해 실행 되는 경우 에이전트에 대 한 컨테이너 이미지 끌어오기는 Azure CLI 시간 제한 보다 오래 걸릴 수 있습니다.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
 
 ### <a name="helm-issue"></a>투구 문제
 
-투구 `v3.3.0-rc.1` 버전에는 CONNECTEDK8S CLI 확장을 통해 내부적으로 사용 되는 투구 설치/업그레이드로 인해 모든 후크가 실행 되어 다음 오류가 발생 하는 [문제가](https://github.com/helm/helm/pull/8527) 있습니다.
+투구 `v3.3.0-rc.1` 버전에는 [](https://github.com/helm/helm/pull/8527) `connectedk8s` 다음 오류를 발생 시킬 수 있는 모든 후크가 실행 되는 모든 후크가 실행 되는 문제가 있습니다.
 
 ```console
 $ az connectedk8s connect -n shasbakstest -g shasbakstest
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -117,7 +116,7 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 
 이 문제를 복구 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 Azure Arc 사용이 가능한 Kubernetes 리소스를 삭제 합니다.
+1. Azure Portal에서 Azure Arc enabled Kubernetes 리소스를 삭제 합니다.
 2. 컴퓨터에서 다음 명령을 실행 합니다.
     
     ```console
@@ -132,15 +131,16 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 ## <a name="configuration-management"></a>구성 관리
 
 ### <a name="general"></a>일반
-원본 제어 구성과 관련된 문제를 해결하려면--debug 스위치를 사용하여 az 명령을 실행합니다.
+구성 리소스와 관련 된 문제를 해결 하려면 매개 변수가 지정 된 az commands를 실행 `--debug` 합니다.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8sconfiguration create <parameters> --debug
+az k8s-configuration create <parameters> --debug
 ```
 
-### <a name="create-source-control-configuration"></a>원본 제어 구성 만들기
-Kubernetes/connectedCluster 리소스에 대한 참가자 역할은 필수이며 KubernetesConfiguration/sourceControlConfiguration 리소스를 만드는 데에는 충분합니다.
+### <a name="create-configurations"></a>구성 만들기
+
+Azure Arc enabled Kubernetes resource ()에 대 한 쓰기 권한이 `Microsoft.Kubernetes/connectedClusters/Write` 필요 하 고 해당 클러스터에 대 한 구성을 만드는 데에도 충분 합니다.
 
 ### <a name="configuration-remains-pending"></a>구성을 `Pending`으로 유지
 

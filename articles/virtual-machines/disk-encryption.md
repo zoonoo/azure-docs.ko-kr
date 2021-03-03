@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681621"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677454"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -51,6 +51,17 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 #### <a name="supported-regions"></a>지원되는 지역
 
 관리 디스크를 사용할 수 있는 모든 지역에서 고객 관리 키를 사용할 수 있습니다.
+
+자동 키 회전은 미리 보기로 제공 되며 다음 지역 에서만 사용할 수 있습니다.
+
+- 미국 동부
+- 미국 동부 2
+- 미국 중남부
+- 미국 서부
+- 미국 서부 2
+- 북유럽
+- 서유럽
+- 프랑스 중부
 
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동 하는 경우 관리 디스크와 연결 된 관리 되는 id가 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.

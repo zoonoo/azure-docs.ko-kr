@@ -4,6 +4,14 @@
   items:
     - name: Arc 지원 Kubernetes 정보
       href: overview.md
+- name: 개념
+  items:
+    - name: 에이전트 아키텍처
+      href: conceptual-agent-architecture.md
+    - name: 구성 및 GitOps
+      href: conceptual-configurations.md
+    - name: 질문과 대답
+      href: faq.md
 - name: 방법 가이드
   items:
     - name: Azure Arc에 연결
@@ -12,7 +20,7 @@
           href: connect-cluster.md
         - name: 서비스 사용자 온보딩
           href: create-onboarding-service-principal.md
-    - name: 관리
+    - name: 시나리오
       items:
         - name: GitOps를 사용하여 구성 배포
           href: use-gitops-connected-cluster.md

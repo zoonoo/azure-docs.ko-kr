@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027801"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095682"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -55,9 +55,9 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/az
 | 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
 | --- | --- | --- |
 | [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable&preserve-view=true).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet&preserve-view=true).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 기본적으로 MQTT를 지원합니다. | 호출에 `websockets=True`를 추가하여 클라이언트를 만듭니다. |
 
 다음 조각은 Azure IoT Node.js SDK를 사용할 경우 웹 소켓을 통한 MQTT 프로토콜을 지정하는 방법을 보여 줍니다.
@@ -111,6 +111,8 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 이러한 샘플은 Eclipse Mosquitto 라이브러리를 사용 하 여 IoT hub에서 구현 된 MQTT Broker로 메시지를 보냅니다.
 
+[Azure iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 규칙을 사용 하는 샘플을 조정 하는 방법을 알아보려면 [자습서-Mqtt를 사용 하 여 IoT 플러그 앤 플레이 장치 클라이언트 개발](../iot-pnp/tutorial-use-mqtt.md)을 참조 하세요.
+
 이 리포지토리에는 다음이 포함됩니다.
 
 **Windows의 경우:**
@@ -158,7 +160,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
   SAS 토큰을 생성하는 방법에 관한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Azure Iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az IoT hub](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) 를 사용 하 여 사용자 고유의 코드에 복사 하 고 붙여넣을 수 있는 sas 토큰을 빠르게 생성할 수도 있습니다.
+  테스트할 때 플랫폼 간 [Azure Iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az IoT hub](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) 를 사용 하 여 사용자 고유의 코드에 복사 하 고 붙여넣을 수 있는 sas 토큰을 빠르게 생성할 수도 있습니다.
 
 ### <a name="for-azure-iot-tools"></a>Azure IoT Tools의 경우
 
@@ -315,7 +317,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
-| 속성 값 | 표현 | Description |
+| 속성 값 | 표현 | 설명 |
 |----|----|----|
 | `null` | `key` | 키만 속성 모음에 표시 됩니다. |
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
@@ -353,7 +355,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -384,7 +386,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

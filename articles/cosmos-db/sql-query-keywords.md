@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599353"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659837"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 특정 문자열이 지정 된 패턴과 일치 하는지 여부에 따라 부울 값을 반환 합니다. 패턴은 일반 문자와 와일드카드 문자를 포함할 수 있습니다. `LIKE`키워드 또는 [RegexMatch](sql-query-regexmatch.md) 시스템 함수를 사용 하 여 논리적으로 동일한 쿼리를 작성할 수 있습니다. 선택한 항목에 관계 없이 동일한 인덱스 사용률을 확인할 수 있습니다. 따라서 `LIKE` 구문을 정규식 보다 더 선호 하는 경우를 사용 해야 합니다.
 
 > [!NOTE]
-> 는 인덱스를 사용할 수 있기 때문에를 `LIKE` 사용 하 여 비교 하는 속성에 대해 [범위 인덱스를 만들어야](indexing-policy.md) 합니다 `LIKE` .
+> 는 인덱스를 사용할 수 있기 때문에를 `LIKE` 사용 하 여 비교 하는 속성에 대해 [범위 인덱스를 만들어야](./index-policy.md) 합니다 `LIKE` .
 
 다음과 같은 와일드 카드 문자를 사용할 수 있습니다.
 

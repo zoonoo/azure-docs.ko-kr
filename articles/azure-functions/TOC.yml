@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: 개념
   items:
+    - name: 모범 사례
+      items:
+        - name: 성능 및 안정성
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: 연결 관리
+          href: manage-connections.md
+          displayName: best practices
+        - name: 스토리지 고려 사항
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: 오류 처리 및 함수 재시도
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: 보안
+          href: security-concepts.md
+          displayName: best practices
     - name: 런타임 버전 비교
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: 소비 계획 비용
       href: functions-consumption-costs.md
-    - name: 성능 고려 사항
-      href: functions-best-practices.md
       displayName: best practice
-    - name: 스토리지 고려 사항
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Functions 프록시
       href: functions-proxies.md
     - name: 네트워킹 옵션

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015292"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095551"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 
@@ -30,7 +30,7 @@ Azure API Management는 azure RBAC (역할 기반 액세스 제어)를 사용 �
 
 API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가지 역할을 추가할 예정입니다. 이러한 역할은 구독, 리소스 그룹 및 개별 API Management 인스턴스를 포함하여 서로 다른 범위에서 할당될 수 있습니다. 예를 들어 리소스 그룹 수준에서 사용자에 게 "API Management 서비스 읽기 권한자" 역할을 할당 하는 경우 사용자는 리소스 그룹 내의 모든 API Management 인스턴스에 대 한 읽기 액세스 권한을 갖습니다. 
 
-다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당 하는 방법에 대 한 자세한 내용은 azure [구독 리소스에 대 한 액세스를 관리 하기 위해 azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 | 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | 설명
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -53,7 +53,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 > [!NOTE]
 > Azure Portal에서 API Management 인스턴스를 보려면 사용자 지정 역할이 동작을 포함 해야 합니다 ```Microsoft.ApiManagement/service/read``` .
 
-사용자 지정 역할을 만들 때는 기본 제공 역할 중 하나로 시작하는 것이 쉽습니다. 속성을 편집하여 **Actions**, **NotActions** 또는 **AssignableScopes**를 추가한 다음 변경 사항을 새 역할로 저장합니다. 다음 예제에서는 "API Management Service Reader" 역할로 시작 하 고 "계산기 API Editor" 라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 특정 API에 할당할 수 있습니다. 따라서 이 역할만 해당 API에 대한 액세스 권한을 보유합니다. 
+사용자 지정 역할을 만들 때는 기본 제공 역할 중 하나로 시작하는 것이 쉽습니다. 속성을 편집하여 **Actions**, **NotActions** 또는 **AssignableScopes** 를 추가한 다음 변경 사항을 새 역할로 저장합니다. 다음 예제에서는 "API Management Service Reader" 역할로 시작 하 고 "계산기 API Editor" 라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 특정 API에 할당할 수 있습니다. 따라서 이 역할만 해당 API에 대한 액세스 권한을 보유합니다. 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
@@ -81,6 +81,6 @@ New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionNa
 
 Azure의 역할 기반 액세스 제어에 대한 자세한 정보는 다음 문서를 참조하세요.
   * [Azure 포털에서 액세스 관리 시작](../role-based-access-control/overview.md)
-  * [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)
+  * [Azure 역할을 할당 하 여 Azure 구독 리소스에 대 한 액세스 관리](../role-based-access-control/role-assignments-portal.md)
   * [Azure RBAC의 사용자 지정 역할](../role-based-access-control/custom-roles.md)
   * [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

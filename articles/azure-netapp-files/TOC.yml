@@ -77,6 +77,8 @@
       href: manage-manual-qos-capacity-pool.md
     - name: Azure NetApp Files에 서브넷 위임
       href: azure-netapp-files-delegate-subnet.md
+    - name: Active Directory 연결 만들기 및 관리
+      href: create-active-directory-connections.md
     - name: NFS 볼륨 만들기 및 관리
       items:
         - name: NFS 볼륨 만들기

@@ -212,8 +212,10 @@
               href: application-proxy-integrate-with-microsoft-cloud-application-security.md
             - name: 원격 데스크톱과 통합
               href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: SharePoint와 통합
+            - name: SharePoint와 통합(Kerberos)
               href: application-proxy-integrate-with-sharepoint-server.md
+            - name: SharePoint와 통합(SAML)
+              href: application-proxy-integrate-with-sharepoint-server-saml.md
             - name: Teams와 통합
               href: application-proxy-integrate-with-teams.md
             - name: Tableau와 통합

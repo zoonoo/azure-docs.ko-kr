@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a3cca7740adb6fa44b162e8c8740d1be1c7aa6b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9e315812f7e281cf281cad9e052ab4546bde05f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953889"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645848"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "98953889"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -90,7 +90,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 1. **Client ID** 에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
 1. 이전에 기록해 두었던 클라이언트 암호를 **클라이언트 암호** 에 입력합니다.
-1. **범위** 에 `openid profile`을 입력합니다.
+1. **범위** 에 대해를 입력 `openid profile` 합니다.
 1. **응답 유형** 및 **응답 모드** 에 대한 기본값을 그대로 둡니다.
 1. (선택 사항) **도메인 힌트** 에 `contoso.com`을 입력합니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조하세요.
 1. **ID 공급자 클레임 매핑** 에서 다음 클레임을 선택합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0d98edb820e3a6d27f0a57bfde801f064a905a5b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2625e4a4954dc74fd0037c6563d0a32734c90b01
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575396"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096257"
 ---
 # <a name="azure-security-baseline-for-content-delivery-network"></a>Content Delivery Network에 대 한 Azure 보안 기준
 
@@ -78,7 +78,7 @@ Content Delivery Network 완전히 Azure 보안 벤치 마크에 매핑되는 �
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md) 
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 

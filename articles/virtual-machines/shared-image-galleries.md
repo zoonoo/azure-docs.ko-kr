@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730325"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091899"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -24,7 +24,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 - 보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화
 - 가용성 영역을 지원하는 지역의 ZRS(영역 중복 스토리지) 계정이 포함된 고가용성 이미지. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
 - 프리미엄 스토리지 지원(Premium_LRS)
-- RBAC를 사용하여 구독 간에, 심지어 AD(Active Directory) 테넌트 간에 공유
+- Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
 - 각 지역에서 이미지 복제본으로 배포 스케일링
 
 공유 이미지 갤러리를 사용하면 조직 내의 여러 사용자, 서비스 주체 또는 AD 그룹에게 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
@@ -146,14 +146,14 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 ## <a name="access"></a>액세스 권한
 
-Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. RBAC를 사용하면 이러한 리소스를 다른 사용자, 서비스 주체 및 그룹과 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자에게 공유 이미지 버전에 대한 액세스 권한이 부여되면 사용자는 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
+Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스이므로 기본 제공되는 네이티브 Azure RBAC 컨트롤을 사용하여 공유할 수 있습니다. Azure RBAC를 사용 하 여 다른 사용자, 서비스 주체 및 그룹에 이러한 리소스를 공유할 수 있습니다. 리소스가 생성된 테넌트 외부의 개별 리소스에 대한 액세스를 공유할 수도 있습니다. 사용자에게 공유 이미지 버전에 대한 액세스 권한이 부여되면 사용자는 VM 또는 Virtual Machine Scale Set를 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
 | 공유한 항목     | 공유 이미지 갤러리 | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
 | 공유 이미지 갤러리 | 예                  | 예          | 예                  |
 | 이미지 정의     | 예                   | 예          | 예                  |
 
-최상의 환경을 위해 갤러리 수준에서 공유하는 것이 좋습니다. 개별 이미지 버전을 공유하는 것은 좋지 않습니다. RBAC에 대한 자세한 내용은 [RBAC를 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+최상의 환경을 위해 갤러리 수준에서 공유하는 것이 좋습니다. 개별 이미지 버전을 공유하는 것은 좋지 않습니다. Azure RBAC에 대 한 자세한 내용은 [azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 다중 테넌트 앱 등록을 사용하여 테넌트 간에도 이미지를 대규모로 공유할 수 있습니다. 테 넌 트 간에 이미지를 공유 하는 방법에 대 한 자세한 내용은 [Azure CLI](./linux/share-images-across-tenants.md) 또는 [PowerShell](./windows/share-images-across-tenants.md)을 사용 하 여 "Azure 테 넌 트에서 갤러리 VM 이미지 공유"를 참조 하세요.
 

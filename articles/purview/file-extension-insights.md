@@ -6,33 +6,33 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202626"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668572"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 파일 확장명 정보 
 
 이 방법 가이드에서는 데이터에 있는 파일 확장명 또는 파일 형식에 대 한 정보를 액세스 하 고, 확인 하 고, 필터링 하는 방법을 설명 합니다.
 
-지원 되는 데이터 원본에는 Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2가 포함 됩니다.
+지원 되는 데이터 원본에는 Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Amazon S3 버킷이 포함 됩니다.
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Azure에서 부서의 범위 계정을 시작 합니다. 
+> * Azure에서 부서의 범위 계정 시작 
 > - 데이터에 대 한 파일 확장명 정보 보기
 > - 데이터에 대 한 자세한 파일 확장명 세부 정보를 드릴 다운 합니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
 - Azure 리소스를 설정 하 고 테스트 데이터를 사용 하 여 관련 계정 채우기
 
-- 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
+- 각 데이터 원본의 테스트 데이터에 대 한 검색을 설정 하 고 완료 했습니다. 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조 하세요.
 
 - [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "98202626"
 
 데이터 공간에 있는 파일 형식에 대 한 개략적인 정보를 확인 한 후에는 해당 위치에 대 한 자세한 내용 및 중요 한 데이터를 검색할 수 있는지 여부를 드릴 다운 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="파일 확장명 보고서-드릴 다운" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 
@@ -85,7 +85,7 @@ ms.locfileid: "98202626"
 
 표 위의 필터를 사용 하 여 표시 되는 데이터를 필터링 합니다.
 
-|옵션  |Description  |
+|옵션  |설명  |
 |---------|---------|
 |**키워드로 필터링**     |    **키워드로 필터링** 상자에 텍스트를 입력 하 여 파일 형식을 이름별로 필터링 하는 방법을 확인 합니다. 예를 들어 Pdf만 보려면을 입력 `PDF` 합니다.     |
 |**Time**        | 데이터를 만들었을 때의 특정 시간 범위를 기준으로 필터링 하려면 선택 합니다. <br>**기본값:** 30 일  |

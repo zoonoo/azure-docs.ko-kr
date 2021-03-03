@@ -8,18 +8,16 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 419997bf06dd951092661903f5a06ca86538de4f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 7d183be69b83f324d56e6977c55e973b02d8f9a0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548502"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656631"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>빠른 시작: 앱에 음성 통화 추가
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 음성 및 비디오 통화를 추가하여 Azure Communication Services를 시작하세요. 
+Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 음성 및 비디오 통화를 추가하여 Azure Communication Services를 시작하세요.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -37,7 +35,7 @@ Communication Services 호출 클라이언트 라이브러리를 사용하여 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Communication Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 5f12eae9345cbb1daa4097305bb85b8ceaf0b439
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681465"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547999"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -26,9 +26,17 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 구독 및 가상 네트워크 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다. Azure Firewall은 가상 네트워크 리소스에 정적 공용 IP 주소를 사용하기 때문에 외부 방화벽이 사용자의 가상 네트워크에서 시작된 트래픽을 식별할 수 있습니다.  이 서비스는 로깅 및 분석을 위해 Azure Monitor와 완전히 통합됩니다.
 
-## <a name="features"></a>기능
-
 Azure Firewall 기능에 대해 알아보려면 [Azure Firewall 기능](features.md)을 참조하세요.
+
+## <a name="azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기
+
+Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이러한 기능에는 TLS 검사, IDPS, URL 필터링 및 웹 범주가 포함됩니다.
+
+Azure Firewall 프리미엄 미리 보기 기능에 대해 알아보려면 [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)을 참조하세요.
+
+
+Azure Portal에서 방화벽 프리미엄 미리 보기를 구성하는 방법을 보려면 [Azure Portal에서 Azure Firewall 프리미엄 미리 보기](premium-portal.md)를 참조하세요.
+
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 

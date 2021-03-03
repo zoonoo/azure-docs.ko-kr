@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614271"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557151"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * 프로필 편집 사용자 흐름 만들기
 > * 암호 재설정 사용자 흐름 만들기
 
-다음으로, 사용자가 Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft 또는 Twitter와 같은 공급자에 로그인할 수 있도록 ID 공급자를 애플리케이션에 추가하는 방법에 대해 알아봅니다.
+다음으로, Azure AD B2C를 사용하여 애플리케이션에 사용자를 로그인하고 등록하는 방법에 대해 알아봅니다. 아래 링크된 ASP.NET 웹 애플리케이션을 따르거나 **사용자 인증** 아래에 있는 목차에서 다른 애플리케이션으로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [애플리케이션에 ID 공급자 추가 >](tutorial-add-identity-providers.md)
+> [자습서: Azure AD B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정 >](tutorial-web-app-dotnet.md)

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 3f2efd4051b427a4d7cef0e609f733095c6b020f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
+ms.openlocfilehash: 377341cc76e1a37d493d66790a1d6d05d010dd5c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259188"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096175"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 RDS MySQL을 Azure Database for MySQL로 온라인 마이그레이션
 
@@ -57,8 +57,8 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 * [MySQL **Employees** 샘플 데이터베이스](https://dev.mysql.com/doc/employee/en/employees-installation.html)를 다운로드하여 설치합니다.
 * [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md) 인스턴스를 만듭니다.
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* 가상 네트워크 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 아웃 바운드 통신 포트 (443, 53, 9354, 445 및 12000)를 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
-* 데이터베이스 엔진 액세스를 허용하도록 [Windows 방화벽](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules)(또는 Linux 방화벽)을 구성합니다. MySQL 서버의 경우 연결을 위해 포트 3306을 허용합니다.
+* 가상 네트워크 Network Security Group 규칙이 ServiceBus, Storage 및 AzureMonitor용 ServiceTag의 아웃바운드 포트 443을 차단하지 않는지 확인합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* 데이터베이스 엔진 액세스를 허용하도록 [Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)(또는 Linux 방화벽)을 구성합니다. MySQL 서버의 경우 연결을 위해 포트 3306을 허용합니다.
 
 > [!NOTE]
 > Azure Database for MySQL은 InnoDB 테이블만 지원합니다. MyISAM 테이블을 InnoDB로 변환하는 방법은 [MyISAM에서 InnoDB로 테이블 변환](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 문서를 참조하세요.

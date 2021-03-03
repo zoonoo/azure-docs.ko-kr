@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417472"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650960"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>독립 실행형 관리 서비스 계정 보안
 
@@ -44,7 +44,7 @@ sMSAs는 서비스 계정으로 사용 되는 사용자 계정 보다 더 높은
 
    * 호스트 컴퓨터의 DNS 이름이 변경 됩니다.
 
-   * [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) 을 사용 하 여 추가 sam-accountname 또는 dns 호스트 이름 매개 변수를 추가 하거나 제거 하는 경우
+   * [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) 을 사용 하 여 추가 sam-accountname 또는 dns 호스트 이름 매개 변수를 추가 하거나 제거 하는 경우
 
 ## <a name="when-to-use-smsas"></a>SMSAs를 사용 하는 경우
 
@@ -53,7 +53,7 @@ sMSAs는 관리 및 보안 작업을 간소화할 수 있습니다. 단일 서�
 > [!NOTE] 
 > 하나 이상의 서비스에 sMSAs를 사용할 수 있지만 각 서비스에는 감사 목적으로 고유한 id가 있는 것이 좋습니다. 
 
-소프트웨어 작성자가 MSA를 사용할 수 있는지 여부를 알 수 없는 경우 응용 프로그램을 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 만들고 필요한 모든 리소스에 액세스할 수 있는지 확인 합니다. 단계별 지침은 [sMSA 만들기 및 설치](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) 를 참조 하세요.
+소프트웨어 작성자가 MSA를 사용할 수 있는지 여부를 알 수 없는 경우 응용 프로그램을 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 만들고 필요한 모든 리소스에 액세스할 수 있는지 확인 합니다. 단계별 지침은 [sMSA 만들기 및 설치](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) 를 참조 하세요.
 
 ### <a name="assess-security-posture-of-smsas"></a>SMSAs의 보안 상태 평가
 
@@ -112,7 +112,7 @@ SMSAs를 관리 하기 위해 다음 Active Directory PowerShell cmdlet을 사�
 
 ## <a name="move-to-smsas"></a>SMSAs로 이동
 
-응용 프로그램 서비스가 sMSA를 지원 하지만 gMSAs를 지원 하지 않고 현재 보안 컨텍스트에 대 한 사용자 계정 또는 컴퓨터 계정을 사용 하 고 있는 경우 서버에 [sMSA를 만들어 설치](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) 합니다. 
+응용 프로그램 서비스가 sMSA를 지원 하지만 gMSAs를 지원 하지 않고 현재 보안 컨텍스트에 대 한 사용자 계정 또는 컴퓨터 계정을 사용 하 고 있는 경우 서버에 [sMSA를 만들어 설치](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) 합니다. 
 
 리소스를 Azure로 이동 하 고 Azure 관리 Id 또는 서비스 주체를 사용 하는 것이 가장 좋습니다.
 
@@ -133,4 +133,3 @@ SMSAs를 관리 하기 위해 다음 Active Directory PowerShell cmdlet을 사�
 
 * [온-프레미스 서비스 계정 관리](service-accounts-govern-on-premises.md)
 
- 

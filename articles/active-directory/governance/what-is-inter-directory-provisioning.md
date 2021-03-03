@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168511"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643843"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>디렉터리 간 프로비저닝이란?
 
@@ -33,7 +33,7 @@ Azure AD는 현재 디렉터리 간 프로비저닝을 수행하는 세 가지 �
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) - Active Directory에서 Azure AD로의 디렉터리 간 프로비저닝을 포함하여 하이브리드 ID를 충족하고 달성하도록 설계된 Microsoft 도구입니다.
 
-- [Azure AD Connect 클라우드 프로비저닝](../cloud-provisioning/what-is-cloud-provisioning.md) - 하이브리드 ID 목표를 충족하고 달성하도록 설계된 새로운 Microsoft 에이전트입니다.  Active Directory와 Azure AD 간에 간단한 디렉터리 간 프로비저닝 환경을 제공합니다.
+- [Azure AD Connect 클라우드 프로비저닝](../cloud-sync/what-is-cloud-sync.md) - 하이브리드 ID 목표를 충족하고 달성하도록 설계된 새로운 Microsoft 에이전트입니다.  Active Directory와 Azure AD 간에 간단한 디렉터리 간 프로비저닝 환경을 제공합니다.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) - 조직 내에서 사용자, 자격 증명, 정책 및 액세스를 관리하는 데 도움이 되는 Microsoft의 온-프레미스 ID 및 액세스 관리 솔루션입니다. 또한 MIM은 Active Directory, Azure AD 및 기타 디렉터리에 대한 하이브리드 ID 환경을 달성하기 위한 고급 디렉터리 간 프로비저닝을 제공합니다.
 

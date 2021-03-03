@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756061"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661021"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -78,6 +78,17 @@ RunDetails(run).show()
 
 <a id="queryrunmetrics"></a>
 
+### <a name="logging-run-metrics"></a>로깅 실행 메트릭 
+
+로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다. 이러한 기록 된 메트릭에 대 한 [서비스 제한](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) 사항에 유의 하세요. 
+
+|기록된 값|예제 코드| 포털의 형식|
+|----|----|----|
+|숫자 값의 배열 기록| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|단일 변수 꺾은선형 차트|
+|반복적으로 사용되는 동일한 메트릭 이름(for 루프 내에서와 같이)을 사용하여 단일 숫자 값 기록| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 단일 변수 꺾은선형 차트|
+|2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
+|두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
+
 ## <a name="query-run-metrics"></a>실행 메트릭 쿼리
 
 ```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 예를 들어 위의 예제와 함께이를 사용 하 여 가장 낮은 mse (제곱 오류) 값을 가진 모델을 찾아 최상의 모델을 결정할 수 있습니다.
@@ -96,18 +107,6 @@ RunDetails(run).show()
 
 ![Azure Machine Learning 스튜디오에서 세부 정보 실행](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="format-charts"></a>차트 서식 지정 
-
-로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다.
-
-|기록된 값|예제 코드| 포털의 형식|
-|----|----|----|
-|숫자 값의 배열 기록| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|단일 변수 꺾은선형 차트|
-|반복적으로 사용되는 동일한 메트릭 이름(for 루프 내에서와 같이)을 사용하여 단일 숫자 값 기록| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 단일 변수 꺾은선형 차트|
-|2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
-|두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
-
-
 ### <a name="view-log-files-for-a-run"></a>실행에 대 한 로그 파일 보기 
 
 로그 파일은 Azure ML 워크 로드를 디버깅 하기 위한 필수 리소스입니다. 로그 및 출력을 보려면 특정 실행으로 드릴 다운 합니다.  
@@ -125,7 +124,7 @@ RunDetails(run).show()
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` 폴더
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |20_image_build_log.txt     | 훈련 환경에 대 한 Docker 이미지 빌드 로그 (선택 사항, 실행 당 하나) 환경을 업데이트할 때만 적용 됩니다. 그렇지 않으면 AML에서 캐시 된 이미지를 다시 사용 합니다. 성공 하는 경우 해당 이미지에 대 한 이미지 레지스트리 세부 정보를 포함 합니다.         |
 |55_azureml 실행-<node_id # C1.txt     | 호스트 도구의 stdout/stderr 로그가 노드당 하나입니다. 이미지를 계산 대상으로 끌어옵니다. 이 로그는 계산 리소스를 보호 한 경우에만 표시 됩니다.         |
@@ -138,7 +137,7 @@ RunDetails(run).show()
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` 폴더
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |110_azureml .log      |         |
 |job_prep_azureml .log     |   작업 준비에 대 한 시스템 로그        |
@@ -148,7 +147,7 @@ RunDetails(run).show()
 
 사이드카를 사용 하도록 설정 하면 사이드카 컨테이너 내에서 작업 준비 및 작업 해제 스크립트가 실행 됩니다.  각 노드에 대해 하나의 폴더가 있습니다. 
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |start_cms.txt     |  사이드카 컨테이너가 시작 될 때 시작 되는 프로세스의 로그       |
 |prep_cmd.txt      |   가 실행 될 때 입력 한 ContextManagers 로그 `job_prep.py` (이 중 일부는로 스트리밍 됨 `azureml-logs/65-job_prep` )       |

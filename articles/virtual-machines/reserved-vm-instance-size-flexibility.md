@@ -3,17 +3,17 @@ title: 가상 컴퓨터 크기 유연성-Azure Reserved VM Instances
 description: 예약 할인은 예약 VM 인스턴스를 구입할 때에 어떤 크기 계열을 적용하는지 알아봅니다.
 author: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/02/2021
 ms.author: yashar
-ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980442"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673955"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
@@ -30,7 +30,7 @@ ms.locfileid: "99980442"
 
 인스턴스 크기 유연성 그룹 내에서 예약 할인이 적용 되는 Vm의 수는 예약을 구매할 때 선택한 VM 크기에 따라 달라 집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 요율 열은 해당 인스턴스 크기 유연성 그룹의 각 VM 크기에 대 한 상대적 공간을 비교 합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제에서는 DSv2 시리즈 테이블의 크기 및 비율을 사용합니다.
 

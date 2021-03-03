@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/23/2021
+ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806082"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660800"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 문서에서는 SQL Managed Instance 일반 용도 (GP) 및 중요 비즈니스용 (BC) 서비스 계층에서 주 노드를 수동으로 장애 조치 하는 방법 및 BC 서비스 계층에서 보조 읽기 전용 복제본 노드를 수동으로 장애 조치 (failover) 하는 방법을 설명 합니다.
 
@@ -33,7 +34,7 @@ ms.locfileid: "98806082"
 - Query performance 저하의 경우 수동 장애 조치 (failover)를 통해 성능 문제를 완화할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 환경에 배포 하기 전에 응용 프로그램을 장애 조치 (failover) 하는 것을 확인 하면 프로덕션 환경에서 응용 프로그램 오류의 위험을 완화 하 고 고객의 응용 프로그램 가용성에 영향을 줍니다.
+> 프로덕션 환경에 배포 하기 전에 응용 프로그램을 장애 조치 (failover) 하는 것을 확인 하면 프로덕션 환경에서 응용 프로그램 오류의 위험을 완화 하 고 고객의 응용 프로그램 가용성에 영향을 줍니다. [SQL Managed Instance 비디오를 통해 장애 조치 (Failover) 복원에 대 한 앱 클라우드 준비를 테스트](https://youtu.be/FACWYLgYDL8) 하 여 클라우드 준비를 위한 응용 프로그램 테스트에 대해 자세히 알아보세요.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
 
@@ -42,7 +43,7 @@ ms.locfileid: "98806082"
 장애 조치 (failover)를 시작 하는 사용자에 게는 다음 Azure 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
-- Managed Instance 참가자 역할 또는
+- [Managed Instance 참가자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할 또는
 - 다음 권한이 있는 사용자 지정 역할:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -152,6 +153,6 @@ SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_in
 > - 자동화 된 백업 시스템에서 새 데이터베이스에 대 한 첫 번째 전체 백업이 완료 될 때까지 장애 조치 (Failover)가 허용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
+- [SQL Managed Instance 비디오를 통해 장애 조치 (Failover) 복원에 대 한 앱 클라우드 준비를 테스트](https://youtu.be/FACWYLgYDL8) 하 여 클라우드 준비를 위한 응용 프로그램 테스트에 대해 자세히 알아보세요.
 - [AZURE SQL Managed Instance에 대 한](../database/high-availability-sla.md)관리 되는 인스턴스 고가용성의 고가용성에 대해 자세히 알아보세요.
 - 개요는 [AZURE SQL Managed Instance?](sql-managed-instance-paas-overview.md)을 참조 하세요.

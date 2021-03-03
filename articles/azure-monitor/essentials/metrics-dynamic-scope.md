@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 176acea34dead929986acb807b465593f9ffda5a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 23507a01f3ed0015690d9655fde92a875f89c2da
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615124"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095473"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기에서 여러 리소스 보기
 
@@ -33,7 +33,7 @@ ms.locfileid: "100615124"
 ![여러 리소스와 호환 되는 리소스의 메뉴를 보여 주는 스크린샷](./media/metrics-dynamic-scope/020.png)
 
 > [!WARNING] 
-> 여러 리소스, 리소스 그룹 또는 구독에 대 한 메트릭을 시각화 하려면 구독 수준에서의 모니터링 판독기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+> 여러 리소스, 리소스 그룹 또는 구독에 대 한 메트릭을 시각화 하려면 구독 수준에서의 모니터링 판독기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 여러 리소스에 대 한 메트릭을 시각화 하려면 리소스 범위 선택에서 여러 리소스를 선택 하 여 시작 합니다. 
 
@@ -81,7 +81,7 @@ ms.locfileid: "100615124"
 
 ## <a name="pin-multiple-resource-charts"></a>여러 리소스 차트 고정 
 
-리소스 그룹 및 구독 간의 메트릭을 시각화 하는 여러 리소스 차트를 사용 하려면 사용자에 게 구독 수준에서의 *모니터링 판독기* 권한이 있어야 합니다. 여러 리소스 차트를 고정 하는 대시보드의 모든 사용자에 게 충분 한 권한이 있는지 확인 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+리소스 그룹 및 구독 간의 메트릭을 시각화 하는 여러 리소스 차트를 사용 하려면 사용자에 게 구독 수준에서의 *모니터링 판독기* 권한이 있어야 합니다. 여러 리소스 차트를 고정 하는 대시보드의 모든 사용자에 게 충분 한 권한이 있는지 확인 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 여러 리소스 차트를 대시보드에 고정 하려면 [대시보드에 고정](../essentials/metrics-charts.md#pinning-to-dashboards)을 참조 하세요. 
 

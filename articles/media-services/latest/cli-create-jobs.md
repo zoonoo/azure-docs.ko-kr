@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 예제-작업 만들기 및 제출
+title: Azure CLI 스크립트 예제 - 작업 만들기 및 제출
 description: 이 항목의 Azure CLI 스크립트는 작업을 HTTPs URL을 사용하여 간단한 인코딩 Transform으로 제출하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: MT
+ms.openlocfilehash: 9291d53822f0fbb80f759908933db58f2224c3d7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98891423"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091912"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 예: 작업 만들기 및 제출
 
@@ -31,8 +31,6 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 ## <a name="prerequisites"></a>사전 요구 사항 
 
 [Media Services 계정 만들기](./create-account-howto.md)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>예제 스크립트
 

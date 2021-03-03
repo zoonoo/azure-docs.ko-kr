@@ -32,6 +32,12 @@
   items:
     - name: Azure Firewall 기능
       href: features.md
+    - name: Azure Firewall 프리미엄 기능
+      href: premium-features.md
+    - name: 포털의 Azure Firewall 프리미엄
+      href: premium-portal.md
+    - name: Azure Firewall 프리미엄 인증서
+      href: premium-certificates.md
     - name: FQDN 태그
       href: fqdn-tags.md
     - name: 인프라 FQDN
@@ -91,6 +97,10 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Azure Firewall 통합 문서
       href: firewall-workbook.md
+    - name: Firewall 프리미엄 배포 및 구성
+      href: premium-deploy.md
+    - name: Azure Firewall 프리미엄으로 마이그레이션
+      href: premium-migrate.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -107,7 +117,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/firewall
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

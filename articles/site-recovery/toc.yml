@@ -216,7 +216,7 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정
               href: azure-to-azure-replicate-after-migration.md
-            - name: 영역 간 재해 복구 사용
+            - name: 영역 간 재해 복구
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: 관리
           items:

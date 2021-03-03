@@ -8,17 +8,48 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
-ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375564"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661106"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
+
+__RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-16"></a>2021-02-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK for Python v 1.23.0
++ **새로운 기능**
+  + **azureml-core**
+    + [실험적 기능] Synapse 작업 영역을 연결 된 서비스로 AML에 연결 하는 지원을 추가 합니다.
+    + [실험적 기능] Synapse spark 풀을 AML에 계산으로 연결 하는 지원 추가
+    + [실험적 기능] Id 기반 데이터 액세스에 대 한 지원을 추가 합니다. 사용자는 자격 증명을 제공 하지 않고 데이터 저장소 또는 데이터 집합을 등록할 수 있습니다. 이러한 경우 사용자의 AAD 토큰 또는 관리 id의 계산 대상이 인증에 사용 됩니다. [여기](https://aka.ms/data-access)를 참조하세요.
+  + **azureml-pipeline-steps**
+    + [실험적 기능] [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py) 에 대 한 지원 추가
+  + **azureml-synapse**
+    + [실험적 기능] Synapse spark 풀에서 대화형 세션을 실행 하는 spark magic 지원을 추가 합니다.
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-runtime**
+    + 이 업데이트에서는 AutoML SDK의 도구 상자를 예측 하기 위해 holt cda (winters 지 수 다듬기를 추가 했습니다. 시계열에 따라 가장 적합 한 모델이 [AICc (수정 된 Akaike의 정보 기준)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) 에 의해 선택 되 고 반환 됩니다.
+    + AutoML은 이제 두 개의 로그 파일을 생성 하지 않습니다. 로그 문은 log 문이 생성 된 프로세스에 따라 하나 또는 다른로 이동 됩니다.
+    + 교차 유효성 검사를 사용 하 여 모델 학습 중에 불필요 한 샘플 내 예측을 제거 합니다. 이렇게 하면 특히 시계열 예측 모델의 경우 모델 학습 시간이 줄어들 수 있습니다.
+  + **azureml-contrib-fairness**
+    + 이점 보드 사전 업로드에 대 한 JSON 스키마를 추가 합니다.
+  + **azureml-contrib-interpret**
+    + azureml-대/소문자 구분-추가 정보는 다음 업데이트에서 제거 될 예정입니다 .이 업데이트는 10 월 이후 사용이 중단 된 후에도 azureml (azureml) 해석 패키지를 대신 사용 합니다.
+  + **azureml-core**
+    + 이전에는 최소 노드 수가 최대 노드 수보다 작은 프로 비전 구성을 만들 수 있었습니다. 이제이 문제가 해결 되었습니다. 이제 SDK를 사용 하 여 프로 비전 구성을 만들려고 하면 `min_nodes < max_nodes` 이 발생 `ComputeTargetException` 합니다.
+    +  작업이 실제로 완료 되기 전에 함수에서 제어 흐름을 반환 하도록 한 AmlCompute의 wait_for_completion 버그를 수정 합니다.
+    + Run. fail ()은 이제 사용 되지 않습니다. fail ()을 사용 하 여 실행을 실패 한 것으로 표시 하거나 run. cancel ()을 사용 하 여 실행이 취소 된 것으로 표시 합니다.
+    + {}제공 된 환경 이름이 문자열이 아닌 경우 "환경 이름에 str가 있어야 합니다." 라는 오류 메시지를 표시 합니다.
+  + **azureml-train-automl-client**
+    + Azure Databricks 클러스터에서 수행 되는 AutoML 실험을 취소 하지 못하도록 하는 버그를 수정 했습니다.
 
 
 ## <a name="2021-02-09"></a>2021-02-09
@@ -54,11 +85,11 @@ ms.locfileid: "100375564"
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Azure Machine Learning Studio 노트북 환경 (1 월 업데이트)
 + **새로운 기능**
   + AzureML의 기본 Markdown 편집기입니다. 이제 사용자는 AzureML Studio에서 markdown 파일을 기본적으로 렌더링 하 고 편집할 수 있습니다.
-  + [스크립트에 대 한 실행 단추 (. py,. R 및 sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). 이제 사용자가 AzureML에서 Python, R 및 Bash 스크립트를 쉽게 실행할 수 있습니다.
-  + [변수 탐색기](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). 팝업 패널에서 변수 및 데이터 프레임의 내용을 탐색 합니다. 사용자는 데이터 형식, 크기 및 내용을 쉽게 확인할 수 있습니다.
-  + [콘텐츠 테이블](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc)입니다. Markdown 헤더로 표시 된 노트북 섹션으로 이동 합니다.
+  + [스크립트에 대 한 실행 단추 (. py,. R 및 sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). 이제 사용자가 AzureML에서 Python, R 및 Bash 스크립트를 쉽게 실행할 수 있습니다.
+  + [변수 탐색기](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). 팝업 패널에서 변수 및 데이터 프레임의 내용을 탐색 합니다. 사용자는 데이터 형식, 크기 및 내용을 쉽게 확인할 수 있습니다.
+  + [콘텐츠 테이블](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc)입니다. Markdown 헤더로 표시 된 노트북 섹션으로 이동 합니다.
   + Latex/HTML/Py로 노트북을 내보냅니다. LaTex, HTML 또는 py로 내보내서 쉽게 공유할 수 있는 전자 필기장 파일 만들기
-  + Intellicode. ML 구동 결과는 향상 된 [지능형 자동 완성 환경을](https://docs.microsoft.com/visualstudio/intellicode/overview)제공 합니다.
+  + Intellicode. ML 구동 결과는 향상 된 [지능형 자동 완성 환경을](/visualstudio/intellicode/overview)제공 합니다.
 
 + **버그 수정 및 향상 된 기능**
   + 페이지 로드 시간 향상
@@ -224,7 +255,7 @@ ms.locfileid: "100375564"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세한 정보](./how-to-enable-studio-virtual-network.md)
+      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
@@ -2010,7 +2041,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + `read_parquet`Spark에서 실행 하는 경우의 성능이 개선 되었습니다.
   + `column_type_builder`모호한 날짜 형식의 단일 열에 대해 실패 한 경우 문제가 해결 되었습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 + **미리 보기 기능**
   + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
   + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
@@ -2289,7 +2320,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
   + 이제 기존 원격 계산 클러스터에서 기존 스크립트 실행을 다시 제출할 수 있습니다.
   + 이제 파이프라인 탭에서 새 매개 변수를 사용 하 여 게시 된 파이프라인을 실행할 수 있습니다.
   + 이제 실행 세부 정보에서 새로운 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 전송 된 노트북을 다운로드 하 여 실행을 시작할 수도 있습니다.
@@ -2347,7 +2378,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 + **버그 수정 및 향상 된 기능**
   + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 + **새로운 기능**
   + 새 보고서 끌어서 놓기 테이블 편집기 환경 사용자는 테이블의 미리 보기가 표시 되는 테이블 영역에서 열을 끌 수 있습니다. 열을 다시 정렬할 수 있습니다.

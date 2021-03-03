@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: a9b66d7b37397fe509cce5c66d30da0a3ae63465
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 45993d617028dec13c7a8b57587c7204322965cf
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648262"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555192"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
@@ -279,4 +279,4 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-powershell.md)
+> [Azure PowerShell을 사용하여 Azure 역할 할당](role-assignments-powershell.md)

@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 9/10/2020
+ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521439da044fb4fc3c2f578f28658215266138d9
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 68a4241a70577ce359320d388882312cf06090ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317098"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645428"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory을 사용 하 여 레거시 앱 보호
 
 이제 다음을 사용 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 Azure Active Directory (AD)에 연결 하 여 보호할 수 있습니다.
 
-- [Azure AD 애플리케이션 프록시](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
+- [Azure AD 응용 프로그램 프록시](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
 - [기존 응용 프로그램 제공 컨트롤러 및 네트워크](#sha-through-networking-and-delivery-controllers)
 
@@ -44,13 +44,15 @@ Azure ad [조건부 액세스](../conditional-access/overview.md) 및 Azure Ad [
 
 다음 네트워킹 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
 
-- [Akamai EAA(엔터프라이즈 애플리케이션 액세스)](../saas-apps/akamai-tutorial.md)
+- [Akamai EAA(엔터프라이즈 애플리케이션 액세스)](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
 
-- [Citrix ADC(Application Delivery Controller)](../saas-apps/citrix-netscaler-tutorial.md)
+- [Citrix ADC(Application Delivery Controller)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
 
-- [F5 Big-IP APM](f5-aad-integration.md)
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
 
-- [Kemp](../saas-apps/kemp-tutorial.md)
+- [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+
+- [VTM (Pulse Secure Virtual Traffic Manager)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
 
 ### <a name="sha-through-vpn-and-sdp-applications"></a>VPN 및 SDP 응용 프로그램을 통한 SHA
 
@@ -58,14 +60,26 @@ VPN 및 SDP 솔루션을 사용 하 여 조직의 데이터를 보호 하는 동
 
 ![VPN 파트너와 앱 프록시를 사용 하 여 보안 하이브리드 액세스를 보여 주는 이미지 ](./media/secure-hybrid-access/app-proxy-vpn.png)
 
-다음 VPN 및 SDP 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
+다음 VPN 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
 
-• [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 
-• [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
 
-• [F5 빅 IP APM](f5-aad-password-less-vpn.md)
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
 
-• [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
+- [Palo Alto Networks 글로벌 보호](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
 
-• [ZPA (Zscaler Private Access)](../saas-apps/zscalerprivateaccess-tutorial.md)
+- [펄스 보안 펄스 연결 보안 (PC)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+
+다음 SDP 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
+
+- [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+
+- [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial#:~:text=For%20SSO%20to%20work,%20you%20need%20to%20establish,to%20test%20Azure%20AD%20single%20sign-on%20with%20B.Simon.)
+
+- [Silverfort 인증 플랫폼](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+
+- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+
+- [ZPA(Zscaler Private Access)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)

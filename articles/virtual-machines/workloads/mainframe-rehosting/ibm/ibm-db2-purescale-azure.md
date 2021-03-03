@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 29150f229f1bd6adbbe6a335fdb91a44f3a2345b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221734"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675684"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -96,9 +96,9 @@ DB2 pureScale는 모든 클러스터 노드에서 모든 데이터에 액세스�
 
 IBM은 DB2 pureScale 클러스터의 모든 멤버에 대해 InfiniBand 네트워킹을 권장합니다. 또한 DB2 pureScale은 가능한 경우 CF에 대해 RDMA(원격 직접 메모리 액세스)를 사용합니다.
 
-설치 중에 모든 가상 머신을 포함하는 Azure [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)을 만듭니다. 일반적으로 리소스의 수명 및 관리하는 주체에 따라 리소스를 그룹화합니다. 이 아키텍처의 가상 머신에는 [가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)이 필요합니다. 이것은 SR-IOV(단일 루트 I/O 가상화)를 통해 가상 머신에 일관되게 매우 짧은 네트워크 대기 시간을 제공하는 Azure 기능입니다.
+설치 중에 모든 가상 머신을 포함하는 Azure [리소스 그룹](../../../../azure-resource-manager/management/overview.md)을 만듭니다. 일반적으로 리소스의 수명 및 관리하는 주체에 따라 리소스를 그룹화합니다. 이 아키텍처의 가상 머신에는 [가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)이 필요합니다. 이것은 SR-IOV(단일 루트 I/O 가상화)를 통해 가상 머신에 일관되게 매우 짧은 네트워크 대기 시간을 제공하는 Azure 기능입니다.
 
-모든 Azure Virtual Machine은 서브넷, 즉 주 서브넷, Gluster FS 프런트 엔드(gfsfe), Gluster FS 백 엔드(bfsbe), DB2 pureScale(db2be) 및 DB2 purescale 프런트 엔드(db2fe)가 있는 가상 네트워크에 배포됩니다. 설치 스크립트는 주 서브넷의 가상 머신에 주 [NIC](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics)도 만듭니다.
+모든 Azure Virtual Machine은 서브넷, 즉 주 서브넷, Gluster FS 프런트 엔드(gfsfe), Gluster FS 백 엔드(bfsbe), DB2 pureScale(db2be) 및 DB2 purescale 프런트 엔드(db2fe)가 있는 가상 네트워크에 배포됩니다. 설치 스크립트는 주 서브넷의 가상 머신에 주 [NIC](../../../windows/multiple-nics.md)도 만듭니다.
 
 [네트워크 보안 그룹](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md)을 사용하여 가상 네트워크 내의 네트워크 트래픽을 제한하고 서브넷을 격리합니다.
 

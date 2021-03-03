@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676558"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 민감도 레이블 정보
 
 이 방법 가이드에서는 데이터에 적용 된 민감도 레이블로 제공 된 보안 정보에 액세스 하 고, 확인 하 고, 필터링 하는 방법을 설명 합니다.
 
-지원 되는 데이터 원본에는 다음이 포함 됩니다. Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance
+지원 되는 데이터 원본에는 Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 버킷이 포함 됩니다.
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "98199379"
 >
 > Power BI 자산의 민감도 레이블을 보려면 [부서의 범위 Data Catalog](how-to-search-catalog.md)에서 자산을 확인 하세요.
 > 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "98199379"
 
 - [Azure 부서의 범위의 자산에 대 한 확장 된 Microsoft 365 민감도 레이블](create-sensitivity-label.md)및 데이터에 적용 하려는 레이블을 만들거나 선택 합니다.
 
-- 각 데이터 원본의 테스트 데이터에 대 한 검색 설정 및 완료
+- 각 데이터 원본의 테스트 데이터에 대 한 검색을 설정 하 고 완료 했습니다. 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리 (미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조 하세요.
 
 - [데이터 판독기 또는 데이터 큐레이터 역할이](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)있는 계정을 사용 하 여 부서의 범위에 로그인 했습니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "98199379"
 
    주요 **민감도 레이블 정보** 페이지에는 다음과 같은 영역이 표시 됩니다.
 
-   |영역  |Description  |
+   |영역  |설명  |
    |---------|---------|
    |**민감도 레이블이 있는 원본 개요**     |다음을 제공 하는 타일을 표시 합니다. <br>-데이터에서 발견 된 구독 수입니다. <br>-데이터에 적용 된 고유 민감도 레이블 수 <br>-민감도 레이블이 적용 된 원본 수 <br>-민감도 레이블이 적용 된 파일 및 테이블의 수|
    |**레이블이 지정 된 데이터를 포함 하는 상위 원본 (지난 30 일)**     | 민감도 레이블이 적용 된 원본 수의 지난 30 일 동안의 추세를 보여 줍니다.       |
@@ -97,13 +97,13 @@ ms.locfileid: "98199379"
 - **테이블에 적용 되는 상위 레이블**
 - **레이블 작업 > 레이블 데이터**
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 :::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="민감도 레이블 드릴 다운" lightbox="media/insights/sensitivity-label-drilldown.png":::
 
 자세한 내용을 보려면 다음 중 하나를 수행 합니다.
 
-|옵션  |Description  |
+|옵션  |설명  |
 |---------|---------|
 |**데이터 필터링**     |  레이블 이름, 구독 이름 또는 원본 유형을 포함 하 여 표시 되는 데이터를 필터링 하려면 표 위의 필터를 사용 합니다. <br><br>정확한 레이블 이름을 잘 모르는 경우 **키워드로 필터링** 상자에 이름의 일부 또는 전체를 입력할 수 있습니다.       |
 |**표 정렬** |해당 열을 기준으로 표를 정렬 하려면 열 머리글을 선택 합니다. | 

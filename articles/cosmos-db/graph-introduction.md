@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 806904943f4e4a20734d595f835dc9450afdded5
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350061"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547281"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-[Azure Cosmos DB](introduction.md) 는 중요 업무용 애플리케이션에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. 문서, 키-값, 그래프 및 열 패밀리 데이터 모델을 지원하는 다중 모델 데이터베이스입니다. "Azure Cosmos DB는 모든 규모에 맞게 설계된 완전 관리형 데이터베이스 서비스에서 Gremlin API를 통해 그래프 데이터베이스 서비스를 제공합니다.  
+[Azure Cosmos DB](introduction.md) 는 중요 업무용 애플리케이션에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. 문서, 키-값, 그래프 및 열 패밀리 데이터 모델을 지원하는 다중 모델 데이터베이스입니다. Azure Cosmos DB는 모든 규모에 맞게 설계된 완전 관리형 데이터베이스 서비스에서 Gremlin API를 통해 그래프 데이터베이스 서비스를 제공합니다.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB 그래프 아키텍처" border="false":::
 

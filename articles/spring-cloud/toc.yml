@@ -59,7 +59,7 @@
   items:
     - name: 개발
       items:
-        - name: 배포용 Java Spring 앱 준비
+        - name: 배포할 앱 준비
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: 구성 서버 설정
           href: spring-cloud-tutorial-config-server.md
@@ -157,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
+  items:
+    - name: 참조 아키텍처
+      href: spring-cloud-reference-architecture.md
 - name: DevOps 배포
   items:
     - name: Azure DevOps를 사용하는 CI/CD

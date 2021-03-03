@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422793"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659293"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지리적으로 분산 된 데이터베이스 (Azure SQL Database) 구현
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -227,10 +227,10 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {

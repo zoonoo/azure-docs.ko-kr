@@ -3,17 +3,17 @@ title: InfiniBand 사용 H 시리즈 및 N 시리즈 Azure Virtual Machines의 �
 description: HPC 용 InfiniBand 사용 H 시리즈 및 N 시리즈 Vm을 구성 하 고 최적화 하는 방법에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1686b08608e4f1c49cd918e86e8149f0fe2a21c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 94334e54865b3a3b603cbd0b3943899a375d894e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675668"
 ---
 # <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 

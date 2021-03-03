@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f8865c9e6726a19e5e215886f92507734ebf0662
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657318"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 machine learning 모델 배포
 
@@ -317,20 +317,20 @@ print(service.state)
 
 | 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | No |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | No |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | No |
+| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 > [!TIP]
 > 을 배포 하는 경우 계산 대상의 Docker 이미지가 Azure Container Registry (ACR)에서 빌드되고 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 계산 대상에 배포 하는 데 걸리는 시간이 줄어들 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Kubernetes Service (AKS)에 모델을 배포 하는 경우 해당 클러스터에 대 한 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) 를 사용 하도록 설정 하는 것이 좋습니다. 이를 통해 전반적인 클러스터 상태와 리소스 사용을 이해할 수 있습니다. 또한 다음과 같은 리소스를 유용 하 게 사용할 수 있습니다.
+> Azure Kubernetes Service (AKS)에 모델을 배포 하는 경우 해당 클러스터에 대 한 [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) 를 사용 하도록 설정 하는 것이 좋습니다. 이를 통해 전반적인 클러스터 상태와 리소스 사용을 이해할 수 있습니다. 또한 다음과 같은 리소스를 유용 하 게 사용할 수 있습니다.
 >
-> * [AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Azure Kubernetes Service 진단](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인](../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service 진단](../aks/concepts-diagnostics.md)
 >
 > 비정상 또는 오버 로드 된 클러스터에 모델을 배포 하려는 경우 문제가 발생할 수 있습니다. AKS 클러스터 문제를 해결 하는 데 도움이 필요한 경우 AKS 지원에 문의 하세요.
 

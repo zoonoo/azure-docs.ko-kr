@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f48935edd5746b0f3f3440e249024cbe2901317b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576484"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374374"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -238,7 +238,7 @@ Azure Cosmos DB Cassandra API는 관리되는 서비스 플랫폼입니다. 그�
 
 ## <a name="hosted-cql-shell-preview"></a>호스팅된 CQL 셸(미리 보기)
 
-호스팅된 네이티브 Cassandra 셸(CQLSH v5.0.1)은 [Azure Portal](data-explorer.md) 또는 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)의 데이터 탐색기에서 직접 열 수 있습니다. CQL 셸을 사용하도록 설정하기 전에 계정에서 [Notebooks 기능을 사용하도록 설정](enable-notebooks.md)해야 합니다(아직 활성화하지 않은 경우 `Open Cassandra Shell`을 클릭하면 메시지가 표시됨). 지원되는 Azure 지역에 대해 [Azure Cosmos DB 계정용 Notebooks 사용](enable-notebooks.md)에서 강조 표시된 메모를 확인합니다.
+호스팅된 네이티브 Cassandra 셸(CQLSH v5.0.1)은 [Azure Portal](data-explorer.md) 또는 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)의 데이터 탐색기에서 직접 열 수 있습니다. CQL 셸을 사용하도록 설정하기 전에 계정에서 [Notebooks 기능을 사용하도록 설정](enable-notebooks.md)해야 합니다(아직 활성화하지 않은 경우 `Open Cassandra Shell`을 클릭하면 메시지가 표시됨). 지원되는 Azure 지역에 대해 [Azure Cosmos DB 계정용 Notebooks 사용](enable-notebooks.md#supported-regions) 문서를 참조하세요.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="오픈 CQLSH":::
 

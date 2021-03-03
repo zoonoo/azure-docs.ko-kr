@@ -2,18 +2,17 @@
 title: Azure Vm (가상 머신)에서 IBM Db2 HADR 설정 | Microsoft Docs
 description: Azure Vm (가상 머신)에서 IBM Db2 LUW의 고가용성을 설정 합니다.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621385"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671884"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Pacemaker를 사용 하는 SUSE Linux Enterprise Server의 Azure Vm에서 IBM Db2 LUW의 고가용성
 
@@ -171,7 +170,7 @@ Sap [설치 가이드 Finder][sap-instfind]를 사용 하 여 sap 도움말 포�
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템** **System copy**  >  **배포**  >  **데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다.
+1. **대상 시스템**   >  **배포**  >  **데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다.
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 1. IBM Db2 용 HADR을 설정 합니다.
@@ -407,7 +406,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   c. **할당** 을 **정적** 으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   다. **할당** 을 **정적** 으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -419,7 +418,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백** 엔드)을 입력 합니다.
 
-   c. **가상 머신 추가** 를 선택합니다.
+   다. **가상 머신 추가** 를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -433,7 +432,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   c. 프로토콜 및 포트 **62500** 로 **TCP** 를 선택 합니다. **간격** 값을 **5** 로 유지 하 고 **비정상 임계값** 을 **2** 로 설정 된 상태로 유지 합니다.
+   다. 프로토콜 및 포트 **62500** 로 **TCP** 를 선택 합니다. **간격** 값을 **5** 로 유지 하 고 **비정상 임계값** 을 **2** 로 설정 된 상태로 유지 합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -443,7 +442,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP** 로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트* 를 입력 합니다.
 
@@ -495,7 +494,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유를 구성 하는 것이 좋습니다. NFS 공유는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
 
 - [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][nfs-ha] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md)

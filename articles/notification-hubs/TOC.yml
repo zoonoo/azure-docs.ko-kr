@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud 메시징
           items:
-            - name: 모든 등록에 푸시 알림 보내기(SDK 버전 1.0.0-preview1)
+            - name: 모든 등록에 푸시 알림 보내기(현재 SDK)
               href: android-sdk.md
-            - name: 모든 등록에 푸시 알림 보내기(SDK 버전 0.6)
+            - name: 모든 등록에 푸시 알림 보내기(레거시 SDK)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: 특정 디바이스에 푸시 알림 보내기
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: iOS 자습서에 대한 필수 구성 요소
               href: ios-sdk-get-started.md
-            - name: Objective-C(버전 3.0.0-preview1)
-              href: ios-sdk-300.md
-            - name: Objective-C(버전 2.0.4)
-              href: ios-sdk-204.md
+            - name: Objective-C(현재 SDK)
+              href: ios-sdk-current.md
+            - name: Objective-C(레거시 SDK)
+              href: ios-sdk-legacy.md
         - name: 특정 디바이스에 푸시 알림 보내기
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: 특정 사용자에게 푸시 알림 보내기
@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Notification Hubs를 통해 APNS VOIP 사용
       href: voip-apns.md
+    - name: Notification Hubs에 대한 진단 로그 사용
+      href: notification-hubs-diagnostic-logs.md
 - name: 참조
   items:
     - name: .NET

@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028763"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657148"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services를 사용하여 일대일 또는 그룹 음성 및 영상 통화를 걸고 받을 수 있습니다. 인터넷에 연결된 다른 디바이스 및 일반 전화기에 대한 호출을 수행할 수 있습니다. Communication Services JavaScript, Android 또는 iOS 클라이언트 라이브러리를 사용하여 사용자가 개인 대화 또는 그룹 토론에서 서로 말할 수 있는 애플리케이션을 빌드할 수 있습니다. Azure Communication Services는 서비스나 봇에서의 호출을 지원합니다.
 
@@ -26,7 +24,7 @@ Azure Communication Services를 사용하여 일대일 또는 그룹 음성 및 
 
 Azure Communication Services에서 수행할 수 있는 호출에는 여러 유형이 있습니다. 호출 유형에 따라 신호 스키마, 미디어 트래픽 흐름 및 가격 책정 모델이 결정됩니다.
 
-### <a name="voice-over-ip-voip"></a>VoIP(Voice over IP) 
+### <a name="voice-over-ip-voip"></a>VoIP(Voice over IP)
 
 애플리케이션의 사용자가 인터넷 또는 데이터 연결을 통해 애플리케이션의 다른 사용자를 호출하면 VoIP(Voice Over IP)를 통해 호출이 수행됩니다. 이 경우 신호와 미디어 모두 인터넷을 통해 전달됩니다.
 
@@ -43,21 +41,21 @@ Azure Communication Services에서 수행할 수 있는 호출에는 여러 유�
 Azure Communication Services에 대한 그룹 호출은 세 명 이상의 참가자가 서로 연결하는 경우에 발생합니다. VoIP와 PSTN으로 연결된 사용자 조합으로 이루어진 그룹 호출이 있을 수 있습니다. 일 대 일 호출은 호출에 참가자를 더 추가하면 그룹 호출로 전환될 수 있다. 그러한 참가자 중 봇이 있을 수도 있습니다.
 
 ### <a name="supported-video-standards"></a>지원되는 비디오 표준
-H.264(MPEG-4) 지원 
+H.264(MPEG-4) 지원
 
 ### <a name="video-quality"></a>비디오 품질
-네이티브(iOS, Android) SDK에서 최대 Full HD 1080p를 지원합니다. Web(JS) SDK의 경우 Standard HD 720p를 지원합니다. 품질은 사용 가능한 대역폭에 따라 달라집니다.  
+네이티브(iOS, Android) SDK에서 최대 Full HD 1080p를 지원합니다. Web(JS) SDK의 경우 Standard HD 720p를 지원합니다. 품질은 사용 가능한 대역폭에 따라 달라집니다.
 
 ### <a name="rooms-concept"></a>대화방 개념
 대화방은 웹 사이트 또는 네이티브 애플리케이션에 오디오, 비디오, 화면 공유, PSTN 및 SMS 상호 작용을 손쉽게 추가할 수 있는 API 및 SDK 세트입니다.
-미리 보기 중에 그룹 ID를 사용하여 동일한 대화를 조인할 수 있습니다. 필요한 만큼 그룹 ID를 만들고 사용자를 “대화방”으로 구분할 수 있습니다. 앞으로 이동하면 “대화방” 주위에 더 많은 컨트롤이 도입됩니다. 
+미리 보기 중에 그룹 ID를 사용하여 동일한 대화를 조인할 수 있습니다. 필요한 만큼 그룹 ID를 만들고 사용자를 “대화방”으로 구분할 수 있습니다. 앞으로 이동하면 “대화방” 주위에 더 많은 컨트롤이 도입됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [호출 시작](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
+> [통화 시작](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 자세한 내용은 다음 항목을 참조하세요.
-- 일반적인 [호출 흐름](../call-flows.md) 숙지
-- [PSTN 솔루션 계획](../telephony-sms/plan-solution.md)
+- 일반적인 [통화 흐름](../call-flows.md) 숙지
+- [전화 번호 유형](../telephony-sms/plan-solution.md)
 - [호출 클라이언트 라이브러리 기능](../voice-video-calling/calling-sdk-features.md)에 대해 알아보기

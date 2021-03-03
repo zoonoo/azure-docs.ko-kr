@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258577"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647275"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
@@ -34,7 +34,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답](application-proxy-faq.md)
 - [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
 - [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Azure Active Directory용 기간 업무 앱 개발](developer-guidance-for-integrating-applications.md)
+- [Azure Active Directory용 기간 업무 앱 개발](../develop/v2-overview.md)
 - [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
 - [연결 된 로그온 이해](configure-linked-sign-on.md)
 - [암호 기반 Single Sign-On 이해](configure-password-single-sign-on-non-gallery-applications.md)

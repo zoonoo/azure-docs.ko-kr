@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e44515c8ca71d115ced65c9123e2b1ae3bdf23a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ba497094a28e056d5984f1e58e2f15c9d21eae2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578242"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094438"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 Azure 보안 기준
 
@@ -241,7 +241,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: AZURE AD RBAC를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않은 경우 서비스별 액세스 제어 방법을 사용 합니다.
 
-- [Azure에서 RBAC를 구성하는 방법](../../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

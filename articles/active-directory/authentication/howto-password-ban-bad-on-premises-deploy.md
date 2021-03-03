@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091043"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653816"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -42,7 +42,7 @@ ms.locfileid: "100091043"
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
 
-기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 항목을 참조하세요.
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -102,7 +102,8 @@ Azure AD 암호 보호 DC 에이전트에는 다음 요구 사항이 적용 됩�
 
 * Azure AD 암호 보호 DC 에이전트 소프트웨어가 설치 되는 모든 컴퓨터는 windows Server Core 버전을 포함 하 여 Windows Server 2012 이상을 실행 해야 합니다.
     * Active Directory 도메인 이나 포리스트는 Windows Server 2012 DFL (도메인 기능 수준) 또는 FFL (포리스트 기능 수준)에 있을 필요가 없습니다. [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles)에 설명 된 대로 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 최소 dfl 또는 ffl은 없습니다.
-* Azure AD 암호 보호 DC 에이전트를 실행 하는 모든 컴퓨터에는 .NET 4.5이 설치 되어 있어야 합니다.
+* Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 .NET 4.7.2가 설치 되어 있어야 합니다.
+    * .NET 4.7.2이 아직 설치 되지 않은 경우 [Windows 용 오프 라인 설치 관리자 .NET Framework 4.7.2](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)에 있는 설치 관리자를 다운로드 하 여 실행 합니다.
 * Azure AD 암호 보호 DC 에이전트 서비스를 실행 하는 모든 Active Directory 도메인은 sysvol 복제를 위해 DFSR (분산 파일 시스템 복제)를 사용 해야 합니다.
    * 도메인에서 DFSR을 아직 사용 하지 않는 경우 Azure AD 암호 보호를 설치 하기 전에 마이그레이션해야 합니다. 자세한 내용은 [SYSVOL 복제 마이그레이션 가이드: FRS to DFS 복제](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10)) 를 참조 하세요.
 
@@ -122,8 +123,8 @@ Azure AD 암호 보호 프록시 서비스에는 다음과 같은 요구 사항�
     > [!NOTE]
     > Azure ad 암호 보호 프록시 서비스 배포는 도메인 컨트롤러에서 아웃 바운드 직접 인터넷 연결을 사용할 수 있는 경우에도 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다.
 
-* Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 .NET 4.7이 설치 되어 있어야 합니다.
-    * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 필요한 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
+* Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 .NET 4.7.2가 설치 되어 있어야 합니다.
+    * .NET 4.7.2이 아직 설치 되지 않은 경우 [Windows 용 오프 라인 설치 관리자 .NET Framework 4.7.2](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)에 있는 설치 관리자를 다운로드 하 여 실행 합니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트 하는 모든 컴퓨터는 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하도록 구성 되어야 합니다. 이 기능은 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트 하는 모든 컴퓨터는 아웃 바운드 TLS 1.2 HTTP 트래픽을 허용 하도록 구성 되어야 합니다.
 * Azure ad를 사용 하 여 Azure AD 암호 보호 프록시 서비스 및 포리스트를 등록 하는 *전역 관리자* 또는 *보안 관리자* 계정.
@@ -157,7 +158,7 @@ Azure AD 암호 보호 프록시 서비스는 일반적으로 온-프레미스 A
 Azure AD 암호 보호 프록시 서비스를 호스트할 서버를 하나 이상 선택 합니다. 서버에 대해 다음과 같은 고려 사항이 적용 됩니다.
 
 * 이러한 각 서비스는 단일 포리스트에 대 한 암호 정책만 제공할 수 있습니다. 호스트 컴퓨터는 해당 포리스트의 모든 도메인에 가입 되어 있어야 합니다.
-* 루트 또는 자식 도메인 또는 이러한 도메인의 조합에 서비스 프록시를 설치 하는 것이 지원 됩니다.
+* 루트 또는 자식 도메인 또는 이러한 도메인의 조합에 프록시 서비스를 설치할 수 있습니다.
 * 포리스트의 각 도메인에 있는 하나 이상의 DC와 하나의 암호 보호 프록시 서버 간에 네트워크 연결이 필요 합니다.
 * 테스트를 위해 도메인 컨트롤러에서 Azure AD 암호 보호 프록시 서비스를 실행할 수 있지만 해당 도메인 컨트롤러에는 인터넷 연결이 필요 합니다. 이러한 연결에는 보안 문제가 있을 수 있습니다. 이 구성은 테스트용 으로만 권장 됩니다.
 * 이전 섹션에서 설명한 것 처럼 중복성을 위해 포리스트 당 두 개 이상의 Azure AD 암호 보호 프록시 서버를 [사용](#high-availability-considerations)하는 것이 좋습니다.
@@ -200,7 +201,7 @@ Azure AD 암호 보호 프록시 서비스를 설치 하려면 다음 단계를 
 
     이 cmdlet에는 Azure 테 넌 트의 *전역 관리자* 또는 *보안 관리자* 자격 증명이 필요 합니다. 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet도 실행 해야 합니다.
 
-    Azure AD 암호 보호 프록시 서비스에 대해이 명령을 한 번 성공한 후에는 추가 호출이 성공 하지만 필요 하지 않습니다.
+    이 명령이 한 번 성공한 후에도 추가 호출이 성공 하지만 필요 하지 않습니다.
 
     이 `Register-AzureADPasswordProtectionProxy` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure AD Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다.
 

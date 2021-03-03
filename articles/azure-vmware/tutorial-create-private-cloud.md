@@ -1,18 +1,18 @@
 ---
-title: 자습서 - Azure에서 vSphere 클러스터 배포
-description: Azure VMware Solution을 사용하여 Azure에 vSphere 클러스터를 배포하는 방법을 알아봅니다.
+title: 자습서 - Azure VMware Solution 프라이빗 클라우드 만들기 및 배포
+description: Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093950"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653138"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>자습서: Azure에서 Azure VMware Solution 프라이빗 클라우드 배포
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 만들기
 
-Azure VMware Solution은 vSphere 클러스터를 Azure에 배포할 수 있는 기능을 제공합니다. 최소 초기 배포는 세 개의 호스트입니다. 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다. 
+이 자습서에서는 Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법을 알아봅니다. 호스트의 최소 초기 배포는 세 개입니다. 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다. 
 
 Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 구성이 필요합니다. 이러한 절차 및 관련 사전 요구 사항은 이 자습서에서 다룹니다.
 
@@ -25,13 +25,10 @@ Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- 프라이빗 클라우드를 만들 수 있는 적절한 관리 권한 및 사용 권한
+- 프라이빗 클라우드를 만들 수 있는 적절한 관리 권한 및 사용 권한 구독에서 최소 기여자 수준이어야 합니다.
+- [계획](production-ready-deployment-steps.md) 문서에서 수집한 정보에 따라 Azure VMware Solution을 배포합니다.
 - [자습서: 네트워크 검사 목록](tutorial-network-checklist.md)에서 설명한 대로 적절한 네트워킹이 구성되어 있는지 확인합니다.
-
-## <a name="register-the-resource-provider"></a>리소스 공급자 등록
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- 호스트가 프로비저닝되고 Microsoft.AVS 리소스 공급자가 [호스트 요청 및 Microsoft.AVS 리소스 공급자 활성화](enable-azure-vmware-solution.md)에 설명된 대로 등록되었습니다.
 
 ## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 

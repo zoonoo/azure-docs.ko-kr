@@ -1,24 +1,18 @@
 ---
 title: '자습서: REST API를 사용하여 Azure Data Factory 파이프라인 만들기 '
 description: 이 자습서에서는 REST API를 사용하여 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053810"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377026"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -54,11 +48,11 @@ ms.locfileid: "87053810"
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 Curl 도구를 사용하여 데이터 팩터리를 만듭니다. 
 * [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다. 
   1. Azure Active Directory에서 **ADFCopyTutorialApp** 이라는 웹 애플리케이션을 만듭니다.
-  2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
-  3. **테넌트 ID**를 가져옵니다. 
+  2. **클라이언트 ID** 및 **암호 키** 를 가져옵니다. 
+  3. **테넌트 ID** 를 가져옵니다. 
   4. **ADFCopyTutorialApp** 애플리케이션을 **데이터 팩터리 기여자** 역할에 할당합니다.  
 * [Azure PowerShell](/powershell/azure/)을 설치합니다.  
-* **PowerShell**을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
+* **PowerShell** 을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
   1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     
@@ -103,7 +97,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
+> **accountname** 및 **accountkey** 를 Azure Storage 계정의 이름 및 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
 ```JSON
 {
@@ -121,7 +115,7 @@ JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](da
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> **servername**, **databasename**, **username** 및 **password**를 Server의 이름, SQL Database의 이름, 사용자 계정 및 계정의 암호로 바꿉니다.  
+> **servername**, **databasename**, **username** 및 **password** 를 Server의 이름, SQL Database의 이름, 사용자 계정 및 계정의 암호로 바꿉니다.  
 > 
 >
 
@@ -179,14 +173,14 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 
 | 속성 | Description |
 |:--- |:--- |
-| type | Azure Blob Storage에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
-| linkedServiceName | 이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
-| folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
-| fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt**를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |
-| format -> type |입력 파일은 텍스트 형식이므로 **TextFormat**을 사용합니다. |
+| type | Azure Blob Storage에 데이터가 있기 때문에 type 속성은 **AzureBlob** 으로 설정됩니다. |
+| linkedServiceName | 이전에 만든 **AzureStorageLinkedService** 를 참조합니다. |
+| folderPath | 입력 Blob이 포함된 Blob **컨테이너** 와 **폴더** 를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
+| fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt** 를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |
+| format -> type |입력 파일은 텍스트 형식이므로 **TextFormat** 을 사용합니다. |
 | columnDelimiter | 입력 파일의 열은 **쉼표(`,`)** 로 구분됩니다. |
-| frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**로 설정됩니다. 즉 입력 조각이 **매시간** 사용될 수 있습니다. 다시 말하면, Data Factory 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 매 시간마다 입력 데이터를 찾습니다. 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 내에 있는 데이터를 찾습니다.  |
-| external | 이 파이프라인에 의해 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서의 입력 데이터는 이 파이프라인에 의해 생성되지 않는 emp.txt 파일에 있으므로 이 속성을 true로 설정합니다. |
+| frequency/interval | frequency는 **Hour** 로 설정되고, interval은 **1** 로 설정됩니다. 즉 입력 조각이 **매시간** 사용될 수 있습니다. 다시 말하면, Data Factory 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 매 시간마다 입력 데이터를 찾습니다. 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 내에 있는 데이터를 찾습니다.  |
+| external | 이 파이프라인에 의해 데이터가 생성되지 않는 경우 이 속성은 **true** 로 설정됩니다. 이 자습서의 입력 데이터는 이 파이프라인에 의해 생성되지 않는 emp.txt 파일에 있으므로 이 속성을 true로 설정합니다. |
 
 이러한 JSON 속성에 대한 자세한 내용은 [Azure Blob 커넥터 문서](data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요.
 
@@ -222,12 +216,12 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 
 | 속성 | Description |
 |:--- |:--- |
-| type | Azure SQL Database의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable**로 설정됩니다. |
-| linkedServiceName | 이전에 만든 **AzureSqlLinkedService**를 참조합니다. |
-| tableName | 데이터가 복사되는 **테이블**을 지정했습니다. | 
-| frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**입니다. 즉 출력 조각이 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 사이에서 **매시간** 생성됩니다.  |
+| type | Azure SQL Database의 테이블에 데이터가 복사되기 때문에 type 속성은 **AzureSqlTable** 로 설정됩니다. |
+| linkedServiceName | 이전에 만든 **AzureSqlLinkedService** 를 참조합니다. |
+| tableName | 데이터가 복사되는 **테이블** 을 지정했습니다. | 
+| frequency/interval | frequency는 **Hour** 로 설정되고, interval은 **1** 입니다. 즉 출력 조각이 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 사이에서 **매시간** 생성됩니다.  |
 
-데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
+데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName** 이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName** 만 지정해야 합니다.
 
 이러한 JSON 속성에 대한 자세한 내용은 [Azure SQL 커넥터 문서](data-factory-azure-sql-connector.md#dataset-properties)를 참조하세요.
 
@@ -279,15 +273,15 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
 
 다음 사항에 유의하세요.
 
-- 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. Data Factory 솔루션에서 [데이터 변환 활동](data-factory-data-transformation-activities.md)을 사용할 수도 있습니다.
-- 작업에 대한 입력을 **AzureBlobInput**으로 설정하고 작업에 대한 출력을 **AzureSqlOutput**으로 설정합니다. 
-- **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 전체 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 지원되는 특정 데이터 저장소를 원본/싱크로 사용하는 방법을 알아보려면 표에 나와 있는 링크를 클릭하세요.  
+- 작업 섹션에는 **형식** 이 **복사** 로 설정된 작업만 있습니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. Data Factory 솔루션에서 [데이터 변환 활동](data-factory-data-transformation-activities.md)을 사용할 수도 있습니다.
+- 작업에 대한 입력을 **AzureBlobInput** 으로 설정하고 작업에 대한 출력을 **AzureSqlOutput** 으로 설정합니다. 
+- **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 전체 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 지원되는 특정 데이터 저장소를 원본/싱크로 사용하는 방법을 알아보려면 표에 나와 있는 링크를 클릭하세요.  
  
 **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2017-02-03"은 "2017-02-03T00:00:00Z"와 동일합니다.
  
 start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들면 다음과 같습니다. 2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
  
-**종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
+**종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09** 를 지정합니다.
  
 앞의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 
@@ -328,22 +322,22 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ```
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
-이 단계에서는 **ADFCopyTutorialDF**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 복사 작업은 원본에서 대상 데이터 저장소로 데이터를 복사합니다. HDInsight Hive 작업은 Hive 스크립트를 실행하여 입력 데이터를 제품 출력 데이터로 변환합니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다. 
+이 단계에서는 **ADFCopyTutorialDF** 라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 복사 작업은 원본에서 대상 데이터 저장소로 데이터를 복사합니다. HDInsight Hive 작업은 Hive 스크립트를 실행하여 입력 데이터를 제품 출력 데이터로 변환합니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다. 
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다. 
+1. 이 명령을 **cmd** 라는 변수에 할당합니다. 
    
     > [!IMPORTANT]
-    > 여기(ADFCopyTutorialDF)에서 지정한 데이터 팩터리의 이름이 **datafactory.json**에서 지정한 이름과 일치하는지 확인합니다. 
+    > 여기(ADFCopyTutorialDF)에서 지정한 데이터 팩터리의 이름이 **datafactory.json** 에서 지정한 이름과 일치하는지 확인합니다. 
    
     ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 팩터리가 성공적으로 생성된 경우 데이터 팩터리에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
+3. 결과를 확인합니다. 데이터 팩터리가 성공적으로 생성된 경우 데이터 팩터리에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
    
     ```
     Write-Host $results
@@ -351,7 +345,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 다음 사항에 유의하세요.
 
-* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 “ADFCopyTutorialDF”를 사용할 수 없습니다**라는 오류가 표시되는 경우 다음 단계를 수행합니다.  
+* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "ADFCopyTutorialDF"를 사용할 수 없습니다** 라는 오류가 표시되는 경우 다음 단계를 수행합니다.  
   
   1. **datafactory.json** 파일에서 이름(예: yournameADFCopyTutorialDF)을 변경합니다.
   2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 ADFCopyTutorialDF를 새 이름으로 바꾸고 명령을 실행합니다. 
@@ -386,17 +380,17 @@ AzureSqlLinkedService는 Azure SQL Database를 데이터 팩터리에 연결합�
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 섹션의 Azure Storage 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다. 
+1. 이 명령을 **cmd** 라는 변수에 할당합니다. 
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```PowerShell   
     Write-Host $results
@@ -405,17 +399,17 @@ AzureSqlLinkedService는 Azure SQL Database를 데이터 팩터리에 연결합�
 ### <a name="create-azure-sql-linked-service"></a>Azure SQL 연결된 서비스 만들기
 이 단계에서는 Azure SQL Database를 데이터 팩터리에 연결합니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다. 
+1. 이 명령을 **cmd** 라는 변수에 할당합니다. 
    
     ```PowerShell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azuresqllinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
    
     ```PowerShell
     Write-Host $results
@@ -431,17 +425,17 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 이 단계에서는 AzureStorageLinkedService 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 AzureBlobInput이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다. 
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다. 
+1. 이 명령을 **cmd** 라는 변수에 할당합니다. 
 
     ```PowerSHell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
    
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
    
     ```PowerShell
     Write-Host $results
@@ -450,38 +444,38 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 Azure SQL Database 연결 서비스는 런타임 시 Data Factory 서비스에서 Azure SQL Database에 연결하는 데 사용하는 연결 문자열을 지정합니다. 이 단계에서 만든 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob Storage의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
     
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
    
     ```PowerShell
     Write-Host $results
     ``` 
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
-이 단계에서는 **AzureBlobInput**을 입력으로 사용하고 **AzureSqlOutput**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
+이 단계에서는 **AzureBlobInput** 을 입력으로 사용하고 **AzureSqlOutput** 을 출력으로 사용하는 **복사 작업** 을 포함하는 파이프라인을 만듭니다.
 
 현재 출력 데이터 세트는 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 세트가 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
 
-1. 이 명령을 **cmd**라는 변수에 할당합니다.
+1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
     ```
-2. **Invoke-Command**를 사용하여 명령을 실행합니다.
+2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
 
     ```PowerShell   
     Write-Host $results
@@ -522,11 +516,11 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 ## <a name="summary"></a>요약
 이 자습서에서는 Azure Blob에서 Azure SQL Database로 데이터를 복사하는 Azure 데이터 팩터리를 만드는 데 REST API를 사용했습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
 
-1. Azure **데이터 팩터리**를 만들었습니다.
-2. **연결된 서비스**를 만들었습니다.
+1. Azure **데이터 팩터리** 를 만들었습니다.
+2. **연결된 서비스** 를 만들었습니다.
    1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 Azure Storage 연결된 서비스입니다.     
    2. 출력 데이터를 보유하는 데이터베이스를 연결하는 Azure SQL 연결 서비스입니다. 
-3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 세트**를 만들었습니다.
+3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 세트** 를 만들었습니다.
 4. 원본인 BlobSource와 싱크인 SqlSink를 사용하여 복사 작업으로 **파이프라인** 을 만들었습니다. 
 
 ## <a name="next-steps"></a>다음 단계

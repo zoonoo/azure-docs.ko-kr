@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055079"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095466"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "99055079"
 
 트리거를 사용 하 여 워크플로를 시작할 수 있습니다. 예를 들어 새 전자 메일이 도착 하는 경우, 일정 항목이 업데이트 될 때 또는 Salesforce와 같은 차이점 서비스에서 이벤트가 발생 하는 경우를 들 수 있습니다. 트리거 이벤트에 응답 하는 동작 (예: 전자 메일 보내기 또는 새 일정 이벤트 만들기)을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [회사 또는 학교 계정](https://www.office.com/)으로 로그인 하는 Outlook 계정 또는 계정이 있는 경우 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md) 를 대신 사용 합니다. 다른 사용자 계정 (예: 서비스 계정)을 사용 하 여 Outlook에 연결 하려면 [다른 계정을 사용 하 여 연결](#connect-using-other-accounts)을 참조 하세요.
 
@@ -98,7 +98,7 @@ ms.locfileid: "99055079"
 
   1. 논리 앱의 리소스 그룹 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. **참가자** 역할을 사용 하 여 다른 계정을 설정 합니다. 
   
-     자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+     자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
   1. 이 역할을 설정한 후에는 현재 참가자 권한이 있는 계정으로 Azure Portal에 로그인 합니다. 이제이 계정을 사용 하 여 Outlook에 대 한 연결을 만들 수 있습니다.
 

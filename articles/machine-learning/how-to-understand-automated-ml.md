@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388212"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092910"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "100388212"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -192,7 +192,7 @@ explained_variance|설명 된 분산은 모델에서 대상 변수의 변형에 
 mean_absolute_error|절대 평균 오차는 대상과 예측의 절대값의 예상 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) <br><br> 종류 <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`mean_absolute_error 데이터의 범위로 구분 됩니다. | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|평균 절대 백분율 오차 (MAPE)는 예측 값과 실제 값 간의 평균 차이를 측정 한 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) ||
 median_absolute_error|Median absolute error(중앙값 절대 오차)는 목표와 예측 간 모든 절대 차이의 중앙값입니다. 이 손실은 이상값보다 강력합니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)<br><br>종류 <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error 데이터의 범위로 구분 됩니다. |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R ^ 2는 평균을 출력 하는 기준선 모델과 비교 했을 때의 결정 계수 또는 백분율 감소입니다. <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1] <br><br> 참고: R ^ 2는 종종 (-inf, 1] 범위를 갖지만 자동 ML은 매우 불량 모델에 대해 음수 값을-1로 클리핑 합니다.|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (결정 계수)는 관찰 된 데이터의 총 분산을 기준으로 MSE (평균 제곱 오차)의 비례 감소를 측정 합니다. <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]<br><br>참고: R<sup>2</sup> 는 종종 (-inf, 1] 범위를 가집니다. MSE는 관찰 된 가변성 보다 클 수 있으므로 R<sup>2</sup> 는 데이터 및 모델 예측에 따라 임의로 큰 음수 값을 가질 수 있습니다. 자동 ML 클립은-1에서 R<sup>2</sup> 점수를 보고 하므로 r<sup>2</sup> 의 값이-1 이면 true r<sup>2</sup> 점수가-1 보다 작음을 의미 합니다. 음수 R<sup>2</sup> 점수를 해석할 때 다른 메트릭 값과 데이터의 속성을 고려 합니다.|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |RMSE (제곱 평균 제곱 오차)는 대상과 예측 간의 예상 제곱의 제곱근입니다. 비편향 평가기의 경우 RMSE는 표준 편차와 같습니다.<br> <br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)<br><br>종류<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error 데이터의 범위로 구분 됩니다. |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|제곱근 평균 제곱 로그 오류는 예상 되는 제곱 로그 오류의 제곱근입니다.<br><br>**목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) <br> <br>종류 <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error 데이터의 범위로 구분 됩니다.  |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이터 세트 간 관계의 비모수 단조성 측정입니다. Pearson 상관 관계와 달리 Spearman 상관 관계는 두 데이터 세트가 모두 정규적으로 분포된다고 가정하지 않습니다. 다른 상관 관계 계수와 마찬가지로 스페어만는-1과 1 사이의 차이가 없음을 의미 합니다. -1 또는 1의 상관 관계는 정확한 단조 관계를 의미 합니다. <br><br> 스페어만은 순위 순서 상관 관계 메트릭입니다. 즉 예측 또는 실제 값을 변경 해도 예측 또는 실제 값의 순위 순서를 변경 하지 않는 경우에는 스페어만 결과가 변경 되지 않습니다.<br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]|[계산](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

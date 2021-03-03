@@ -4,17 +4,20 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 계정에 대한 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338285"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656519"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> 현재 Azure Cosmos DB [분석 저장소](analytical-store-introduction.md) 에서 고객 관리 키를 사용 하려면 계정에 대 한 추가 구성이 필요 합니다. 자세한 내용은에 문의 하세요 [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) .
 
 Azure Cosmos 계정에 저장된 데이터는 Microsoft 에서 관리하는 키(**서비스 관리형 키**)를 통해 원활하게 자동 암호화됩니다. 필요에 따라 직접 관리하는 키(**고객 관리형 키**)를 사용하여 두 번째 암호화 계층을 추가하도록 선택할 수 있습니다.
 
@@ -291,6 +294,10 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>기존 Azure Cosmos 계정에 고객 관리형 키가 지원되나요?
 
 이 기능은 현재 새 계정에서만 사용할 수 있습니다.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>고객 관리 키를 Azure Cosmos DB [분석 스토어](analytical-store-introduction.md)와 함께 사용할 수 있나요?
+
+예, 하지만 현재 계정에 대 한 추가 구성이 필요 합니다. 자세한 내용은에 문의 하세요 [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) .
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>계정 수준 키보다 세부적인 수준을 지원할 계획이 있나요?
 

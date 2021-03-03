@@ -1,15 +1,15 @@
 ---
 title: Azure Pipelines를 사용한 연속 통합
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 지속적으로 빌드, 테스트 및 배포하는 방법을 알아봅니다.
-ms.date: 08/24/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "99821857"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560901"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>자습서: ARM 템플릿과 Azure Pipelines의 연속 통합
 
@@ -83,8 +83,8 @@ _CreateWebApp_ 폴더는 템플릿이 저장되는 폴더입니다. `pwd` 명령
 
 템플릿을 만드는 대신 템플릿을 다운로드하여 _CreateWebApp_ 폴더에 저장할 수 있습니다.
 
-* 기본 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* 연결된 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* 기본 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
+* 연결된 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
 
 폴더 이름과 파일 이름은 모두 파이프라인에 있는 그대로 사용됩니다. 이러한 이름을 변경할 경우 파이프라인에서 사용되는 이름을 업데이트해야 합니다.
 
@@ -105,7 +105,7 @@ _azuredeploy.json_ 이 로컬 리포지토리에 추가되었습니다. 다음�
 
     LF에 대한 경고가 발생할 수 있습니다. 경고를 무시해도 됩니다. **main** 은 기본 분기입니다.  일반적으로 각 업데이트에 대한 분기를 만듭니다. 자습서를 간소화하려면 기본 분기를 직접 사용합니다.
 
-1. 브라우저에서 GitHub 리포지토리를 찾습니다. URL은 `https://github.com/[YourAccountName]/[YourGitHubRepository]`입니다. _CreateWebApp_ 폴더 및 이 폴더 내의 세 파일이 표시됩니다.
+1. 브라우저에서 GitHub 리포지토리를 찾습니다. URL은 `https://github.com/[YourAccountName]/[YourGitHubRepository]`입니다. _CreateWebApp_ 폴더와 이 폴더 내의 두 개의 파일이 표시됩니다.
 1. _linkedStorageAccount.json_ 을 선택하여 템플릿을 엽니다.
 1. **원시** 단추를 선택합니다. URL은 `https://raw.githubusercontent.com`으로 시작합니다.
 1. URL 복사본을 만듭니다. 이 값은 나중에 자습서에서 파이프라인을 구성할 때 제공해야 합니다.
@@ -134,7 +134,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
 1. 왼쪽 메뉴의 맨 아래에서 **프로젝트 설정** 을 선택합니다.
 1. **파이프라인** 아래에서 **서비스 연결** 을 선택합니다.
-1. **새 서비스 연결**, **Azure Resource Manager**, **다음** 을 차례로 선택합니다.
+1. **서비스 연결 만들기**, **Azure Resource Manager**, **다음** 을 차례로 선택합니다.
 1. **서비스 주체**, **다음** 을 차례로 선택합니다.
 1. 다음 값을 입력합니다.
 
@@ -155,7 +155,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 템플릿을 배포하는 단계를 사용하여 파이프라인을 만들려면 다음을 수행합니다.
 
 1. 왼쪽 메뉴에서 **파이프라인** 을 선택합니다.
-1. **새 파이프라인** 을 선택합니다.
+1. **파이프라인 만들기** 를 선택합니다.
 1. **연결** 탭에서 **GitHub** 를 선택합니다. GitHub 자격 증명을 입력하라는 메시지가 표시되면 입력하고 그 다음 지침을 따릅니다. 다음 화면이 표시되면 **리포지토리만 선택** 을 선택하고, 리포지토리가 목록에 있는지 확인한 다음, **승인 및 설치** 를 선택합니다.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines 리포지토리만 선택](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)

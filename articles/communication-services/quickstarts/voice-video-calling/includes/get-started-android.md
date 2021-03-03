@@ -6,16 +6,19 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b4719fcf046ce7ef5d74ccf1863b0400c2c52845
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438326"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656640"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 이 문서에서는 호출하는 클라이언트 라이브러리의 버전 1.0.0-beta.8을 사용합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)
@@ -28,17 +31,15 @@ ms.locfileid: "92438326"
 
 Android 스튜디오에서 [새 Android 스튜디오 프로젝트 시작]을 선택합니다.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷":::
 
-&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동" 프로젝트 템플릿을 선택합니다.
+"휴대폰 및 태블릿" 아래에서 "빈 활동" 프로젝트 템플릿을 선택합니다.
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="프로젝트 템플릿 화면에서 선택한 '빈 활동' 옵션을 보여 주는 스크린샷":::
 
-&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동" 이상의 최소 클라이언트 라이브러리를 선택합니다.
+"API 26: Android 8.0(Oreo)" 이상의 최소 클라이언트 라이브러리를 선택합니다.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
-
-&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="프로젝트 템플릿 화면에서 선택한 '빈 활동' 옵션을 보여 주는 스크린샷 2":::
 
 
 ### <a name="install-the-package"></a>패키지 설치
@@ -80,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -182,8 +183,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.communication.calling.CallAgent;
 import com.azure.communication.calling.CallClient;
 import com.azure.communication.calling.StartCallOptions;
@@ -266,6 +267,7 @@ Azure Communication Services 통화 클라이언트 라이브러리의 주요 �
 | CallClient| CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.|
 | CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
 | CommunicationUserCredential | CommunicationUserCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.|
+| CommunicationIdentifier | CommunicationIdentifier는 호출에 포함될 수 있는 다른 유형의 참가자로 사용됩니다.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>사용자 액세스 토큰에서 에이전트 만들기
 
@@ -280,7 +282,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -305,7 +307,7 @@ private void startCall() {
 
     callAgent.call(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```
@@ -315,9 +317,7 @@ private void startCall() {
 
 이제 도구 모음의 "앱 실행" 단추(Shift+F10)를 사용하여 앱을 시작할 수 있습니다. `8:echo123`을 호출하여 전화를 걸 수 있는지 확인합니다. 미리 기록된 메시지가 재생된 다음, 해당 메시지를 사용자에게 다시 반복합니다.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Android 스튜디오에서 선택한 '새 Android 스튜디오 프로젝트 시작' 단추를 보여 주는 스크린샷&quot;:::
-
-&quot;휴대폰 및 태블릿&quot; 아래에서 &quot;빈 활동":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="완료된 애플리케이션을 보여 주는 스크린샷":::
 
 ## <a name="sample-code"></a>샘플 코드
 

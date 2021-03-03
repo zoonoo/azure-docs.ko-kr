@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bc121b3f5aadad1e68315acac5daade5337b701b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580359"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093912"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azure Traffic Manager에 대 한 azure 보안 기준
 
@@ -114,7 +114,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 엔드포인트를 Traffic Manager에 추가할 수 있습니다.
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
 
 - [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -272,7 +272,7 @@ Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대
 
 Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manager 참여자" 라는 미리 정의 된 Azure 역할이 있습니다.
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
 
 - [Traffic Manager 참가자 역할](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 

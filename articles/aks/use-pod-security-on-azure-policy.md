@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 Azure Policy를 사용 하 여
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34f2bfe346d7163a254e2ccecd1d7ef63ddb4194
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348528"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092624"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Azure Policy로 포드 보안
 
@@ -60,7 +60,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 
 - [AKS Pod 보안 정책 (미리 보기)](use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 
-- _Kube_ , _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
+- _Kube_, _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다. Kubernetes 버전 1.20 이상에서 Calico 네트워크 정책을 사용 하는 경우 _calico-system_ 및 _tigera-operator_ 와 같은 2 개의 네임 스페이스를 자동으로 제외 합니다.
 
 ### <a name="recommendations"></a>권장 사항
 
@@ -120,8 +120,8 @@ Kubernetes에 대 한 Azure Policy는 pod, [기준선](https://portal.azure.com/
 
 |[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 외에도 적용 | 제한 된 이니셔티브 외에도 적용 |
 |---|---|---|---|
-|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 옵션 | 옵션 |
-|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 옵션 | 옵션 |
+|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 선택 사항 | 선택 사항 |
+|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 선택 사항 | 선택 사항 |
 |특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | 선택 사항-상대 볼륨 드라이버만 제한 하 고 "정의 된 볼륨 유형의 사용 제한"으로 설정 하지 않은 경우에만 사용 합니다. | 해당 없음-제한 된 이니셔티브에는 모든 vervolume 드라이버를 허용 하지 않는 "정의 된 볼륨 유형의 사용 제한"이 포함 됩니다. |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>관리 되는 AKS 클러스터에 대해 지원 되지 않는 기본 제공 정책
@@ -151,9 +151,9 @@ If the built-in initiatives to address pod security do not match your requiremen
 
 AKS를 사용 하려면 클러스터에서 시스템 pod을 실행 하 여 중요 한 서비스 (예: DNS 확인)를 제공 해야 합니다. Pod 기능을 제한 하는 정책은 시스템 pod 안정성 기능에 영향을 줄 수 있습니다. 결과적으로 다음 네임 스페이스는 **생성, 업데이트 및 정책 감사 중에 허용 요청 중에 정책 평가에서 제외** 됩니다. 이렇게 하면 이러한 네임 스페이스에 대 한 새 배포가 Azure 정책에서 제외 됩니다.
 
-1. kube-시스템
+1. kube-system
 1. 게이트 키퍼-시스템
-1. azure-호
+1. azure-arc
 1. aks-periscope
 
 추가 사용자 지정 네임 스페이스는 생성, 업데이트 및 감사 중에 평가에서 제외할 수 있습니다. 사용 권한 네임 스페이스에서 실행 되는 특수화 된 pod이 있고 감사 위반을 트리거하지 않도록 하려면 이러한 제외를 사용 해야 합니다.

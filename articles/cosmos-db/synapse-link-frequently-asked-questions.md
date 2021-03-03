@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627781"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658472"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Azure Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cos
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Azure Cosmos DB 트랜잭션 저장소에 프로비저닝된 RU에 영향을 주나요?
 
 Azure Cosmos DB는 트랜잭션 워크로드와 분석 워크로드 간의 성능 격리를 보장합니다. 컨테이너에서 분석 저장소를 사용하도록 설정해도 Azure Cosmos DB 트랜잭션 저장소에 프로비저닝된 RU에는 영향을 주지 않습니다. 분석 저장소의 트랜잭션(읽기 및 쓰기) 및 스토리지 비용은 별도로 청구됩니다. 자세한 내용은 [Azure Cosmos DB 분석 저장소의 가격 책정](analytical-store-introduction.md#analytical-store-pricing)을 참조하세요.
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 대 한 액세스를 제한할 수 있나요?
+
+예 [관리 되는 개인 끝점](analytical-store-private-endpoints.md) 을 구성 하 고, Azure Synapse 관리 가상 네트워크에 대 한 분석 저장소의 네트워크 액세스를 제한할 수 있습니다. 관리 되는 개인 끝점은 분석 저장소에 대 한 개인 링크를 설정 합니다. 또한이 개인 끝점은 다른 Azure 데이터 서비스 중에서 트랜잭션 저장소에 대 한 쓰기 액세스를 제한 합니다.
+
+Azure Synapse Analytics 작업 영역에서 동일한 Azure Cosmos DB 계정에 트랜잭션 저장소와 분석 저장소 개인 끝점을 모두 추가할 수 있습니다. 분석 쿼리를 실행 하려는 경우에만 분석 전용 끝점을 매핑해야 할 수 있습니다.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>트랜잭션 저장소에 대한 삭제 및 업데이트 작업이 분석 저장소에 반영되나요?
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb552c5a336c3c55652936b87a668b54cfdeb41e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99821548"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371773"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 관리
 
@@ -95,7 +95,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-샘플 JSON(sappolicy.json) 출력:
+샘플 JSON(sappolicy.json):
 
 ```json
   "eTag": null,
@@ -226,11 +226,12 @@ az backup policy create --resource-group saphanaResourceGroup --vault-name sapha
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+정책이 성공적으로 생성되면 명령을 실행하는 동안 매개 변수로 전달한 정책 JSON이 명령 출력에 표시됩니다.
 
 정책의 다음 섹션을 수정하여 증분 백업에 대해 원하는 백업 빈도 및 보존 기간을 지정할 수 있습니다.
 
