@@ -11,31 +11,33 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bb63ac6de6c48bb3853bd235d908ee745ff5279d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0bc247e473ea96f2f9301eeaebb543b3317c84c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032850"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659667"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 저장소 서비스에 연결
 
-이 문서에서는 **Azure Machine Learning 데이터 저장소를 통해 Azure에서 저장소 서비스에 연결** 하는 방법에 대해 알아봅니다. 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure storage 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [Azure Machine Learning PYTHON SDK](#python) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md) 를 사용 하 여 datastores를 만들고 등록할 수 있습니다.
+이 문서에서는 Azure Machine Learning 데이터 저장소 및 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 Azure에서 데이터 저장소 서비스에 연결 하는 방법을 알아봅니다.
 
-Azure Machine Learning VS Code 확장을 사용 하 여 데이터 저장소를 만들고 관리 하는 것을 선호 하는 경우 자세한 내용은 [리소스 관리 방법 가이드 VS Code](how-to-manage-resources-vscode.md#datastores) 를 참조 하세요.
-
-[이 Azure 스토리지 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다. **지원 되지 않는 저장소 솔루션의** 경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](#move) 합니다.  
+데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure의 저장소 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [이러한 Azure storage 솔루션](#matrix)에 연결 하는 데이터 저장소를 만들 수 있습니다.
 
 Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이터 저장소가 적합한 위치를 이해하려면 [안전하게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+낮은 코드 환경의 경우 Azure Machine Learning studio를 사용 하 여 데이터 [저장소를 만들고 등록](how-to-connect-data-ui.md#create-datastores)하는 방법을 참조 하세요.
 
-필요한 사항:
+>[!TIP]
+> 이 문서에서는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용 하 여 저장소 서비스에 연결 하려는 경우를 가정 합니다. 자격 증명이 datastores에 등록 된 경우 작업 영역 *판독기* 역할의 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *판독기* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 문제가 있는 경우 [id 기반 액세스를 사용 하 여 저장소 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다. <br><br>이 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
+
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - [지원 되는 저장소 형식을](#matrix)사용 하는 Azure 저장소 계정.
 
-- [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
+- [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)입니다.
 
 - Azure Machine Learning 작업 영역
   
@@ -59,7 +61,10 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 
 ## <a name="supported-data-storage-service-types"></a>지원되는 데이터 스토리지 서비스 유형
 
-현재 데이터 저장소는 다음 표에 나열된 스토리지 서비스에 연결 정보를 저장할 수 있습니다.
+현재 데이터 저장소는 다음 표에 나열된 스토리지 서비스에 연결 정보를 저장할 수 있습니다. 
+
+> [!TIP]
+> **지원 되지 않는 저장소 솔루션의** 경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](#move) 합니다. 
 
 | 스토리지&nbsp;유형 | 인증&nbsp;유형 | [Azure&nbsp;Machine&nbsp;Learning 스튜디오](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS 코드
 ---|---|---|---|---|---|---
@@ -88,7 +93,16 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="virtual-network"></a>가상 네트워크 
 
-데이터 저장소 계정이 **가상 네트워크** 에 있는 경우 Azure Machine Learning 데이터에 대 한 액세스 권한이 있는지 확인 하는 추가 구성 단계가 필요 합니다. 데이터 저장소를 만들고 등록할 때 적절 한 구성 단계가 적용 되도록 하려면 [Azure virtual network에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md) 을 참조 하세요.  
+기본적으로 Azure Machine Learning는 방화벽 뒤에 있거나 가상 네트워크 내에 있는 저장소 계정과 통신할 수 없습니다. 데이터 저장소 계정이 **가상 네트워크** 에 있는 경우 Azure Machine Learning 데이터에 대 한 액세스 권한이 있는지 확인 하는 추가 구성 단계가 필요 합니다. 
+
+> [!NOTE]
+> 이 지침은 [id 기반 데이터 액세스 (미리 보기)를 사용 하 여 만든 데이터 저장소](how-to-identity-based-data-access.md)에도 적용 됩니다. 
+
+**PYTHON SDK 사용자의** 경우 계산 대상의 학습 스크립트를 통해 데이터에 액세스 하려면 계산 대상이 저장소의 동일한 가상 네트워크 및 서브넷 내에 있어야 합니다.  
+
+**Azure Machine Learning studio 사용자의** 경우 여러 기능을 사용 하 여 데이터 집합에서 데이터를 읽을 수 있습니다. 예: 데이터 집합 미리 보기, 프로필 및 자동화 된 기계 학습. 이러한 기능이 가상 네트워크 뒤의 저장소에서 작동 하도록 하려면 [스튜디오에서 작업 영역 관리 id](how-to-enable-studio-virtual-network.md) 를 사용 하 여 Azure Machine Learning 가상 네트워크 외부에서 저장소 계정에 액세스할 수 있도록 합니다. 
+
+Azure Machine Learning는 가상 네트워크 외부의 클라이언트에서 요청을 받을 수 있습니다. 서비스의 데이터를 요청 하는 엔터티가 안전한 지 확인 하려면 [작업 영역에 대 한 Azure 개인 링크를 설정](how-to-configure-private-link.md)합니다.
 
 ### <a name="access-validation"></a>액세스 유효성 검사
 
@@ -204,18 +218,27 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
-<a name="arm"></a>
 
-## <a name="create-datastores-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 데이터 저장소 만들기
+
+## <a name="create-datastores-with-other-azure-tools"></a>다른 Azure 도구를 사용 하 여 데이터 저장소 만들기
+Python SDK 및 studio를 사용 하 여 데이터 저장소를 만드는 것 외에도 Azure Resource Manager 템플릿 또는 Azure Machine Learning VS Code 확장을 사용할 수 있습니다. 
+
+<a name="arm"></a>
+### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 에는 데이터 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) 저장소를 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
 
 이러한 템플릿 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
 
+### <a name="vs-code-extension"></a>VS Code 확장
+
+Azure Machine Learning VS Code 확장을 사용 하 여 데이터 저장소를 만들고 관리 하려면 [VS Code 리소스 관리 방법 가이드](how-to-manage-resources-vscode.md#datastores) 를 방문 하 여 자세한 내용을 확인 하세요.
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>데이터 저장소의 데이터 사용
 
-데이터 저장소를 만든 후 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합은 학습 같은 기계 학습 작업에 대 한 데이터를 지연 계산 된 소비재 개체로 패키지 합니다. 또한 Azure Blob storage 및 ADLS Gen 2와 같은 Azure storage 서비스에서 모든 형식의 파일을 [다운로드 하거나 탑재](how-to-train-with-datasets.md#mount-vs-download) 하는 기능을 제공 합니다. 또한 pandas 또는 Spark 데이터 프레임에 테이블 형식 데이터를 로드 하는 데 사용할 수 있습니다.
+데이터 저장소를 만든 후 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합은 학습 같은 기계 학습 작업에 대 한 데이터를 지연 계산 된 소비재 개체로 패키지 합니다. 
+
+데이터 집합을 사용 하면 계산 대상의 모델 학습을 위해 Azure storage 서비스에서 모든 형식의 파일을 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-vs-download) 수 있습니다. [데이터 집합을 사용 하 여 ML 모델을 학습 하는 방법에 대해 자세히 알아보세요](how-to-train-with-datasets.md).
 
 <a name="get"></a>
 

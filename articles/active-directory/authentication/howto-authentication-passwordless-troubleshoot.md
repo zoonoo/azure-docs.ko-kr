@@ -1,24 +1,24 @@
 ---
 title: 하이브리드 FIDO2 보안 키에 대 한 알려진 문제 및 문제 해결-Azure Active Directory
-description: Azure Active Directory (미리 보기)를 사용 하 여 암호 없는 하이브리드 FIDO2 보안 키 로그인 문제를 해결 하는 몇 가지 알려진 문제 및 방법에 대해 알아봅니다.
+description: Azure Active Directory를 사용 하 여 암호 없는 하이브리드 FIDO2 보안 키 로그인 문제를 해결 하는 몇 가지 알려진 문제 및 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743278"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648783"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대 한 문제 해결 (미리 보기)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대 한 문제 해결 
 
 이 문서에서는 하이브리드 Azure AD 조인 장치에 대 한 질문과 대답 및 온-프레미스 리소스에 대 한 암호 없는 로그인에 대 한 질문과 대답을 다룹니다. 이 암호 없는 기능을 사용 하면 FIDO2 보안 키를 사용 하 여 하이브리드 azure ad 조인 장치에 대해 Windows 10 장치에서 Azure ad 인증을 사용 하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용 하 여 장치에서 Windows에 로그인 하 고 온-프레미스 리소스에 대해 원활한 Single Sign-On (SSO) 환경을 사용 하 여 기존 Active Directory Domain Services (AD DS) 기반 리소스에 액세스할 수 있습니다.
 
@@ -29,12 +29,9 @@ ms.locfileid: "96743278"
 
 FIDO2 보안 키 및 온-프레미스 리소스에 대 한 하이브리드 액세스를 시작 하려면 다음 문서를 참조 하세요.
 
-* [Passwordless 보안 키](howto-authentication-passwordless-security-key.md)
+* [암호 없는 보안 키](howto-authentication-passwordless-security-key.md)
 * [암호 없는 Windows 10](howto-authentication-passwordless-security-key-windows.md)
-* [Passwordless 온-프레미스](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+* [암호 없는 온-프레미스](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>알려진 문제
 

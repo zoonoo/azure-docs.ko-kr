@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb556466a5a76cbb9447538e98a5a2385f7b5614
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216634"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661004"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 PyTorch 모델 학습
 
@@ -26,7 +26,7 @@ ms.locfileid: "98216634"
 
 처음부터 심층 학습 PyTorch 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -285,35 +285,90 @@ Azure ML에서 Horovod로 distributed PyTorch를 실행 하는 방법에 대 한
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 교육 코드에서 **torch** 패키지를 사용 하 여 작성 된 PyTorch의 기본 제공 [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) 모듈을 사용 하는 경우 Azure ML을 통해 분산 작업을 시작할 수도 있습니다.
 
-DistributedDataParallel를 사용 하 여 distributed PyTorch 작업을 실행 하려면 [](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 PyTorchConfiguration를 지정 합니다. Torch에 NCCL 백엔드를 사용 하려면 PyTorchConfiguration에를 지정 합니다 `communication_backend='Nccl'` . 다음 코드는 2 노드 분산 작업을 구성 합니다. NCCL 백 엔드는 PyTorch distributed GPU 학습에 권장 되는 백 엔드입니다.
+Azure ML에서 distributed PyTorch 작업을 시작 하려면 다음 두 가지 옵션을 사용할 수 있습니다.
+1. 프로세스별 시작: 실행할 작업자 프로세스의 총 수를 지정 하 고 Azure ML은 각 프로세스의 시작을 처리 합니다.
+2. 노드 단위 시작 `torch.distributed.launch` : `torch.distributed.launch` 각 노드에서 실행 하려는 명령을 제공 합니다. Torch launch 유틸리티는 각 노드에서 작업자 프로세스 시작을 처리 합니다.
 
-PyTorchConfiguration를 통해 구성 된 distributed PyTorch 작업의 경우 Azure ML은 계산 대상의 노드에서 다음 환경 변수를 설정 합니다.
+이러한 시작 옵션의 기본적인 차이점은 없습니다. 바닐라 PyTorch (예: 번개 또는 Hugging 얼굴)를 기반으로 구축 된 프레임 워크/라이브러리의 규칙 또는 사용자의 기본 설정에 따라 크게 좌우 됩니다.
 
-* `AZ_BATCHAI_PYTORCH_INIT_METHOD`: 프로세스 그룹의 공유 파일 시스템 초기화에 대 한 URL
-* `AZ_BATCHAI_TASK_INDEX`: 작업자 프로세스의 전역 순위
+#### <a name="per-process-launch"></a>프로세스별 시작
+이 옵션을 사용 하 여 distributed PyTorch 작업을 실행 하려면 다음을 수행 합니다.
+1. 학습 스크립트 및 인수 지정
+2. [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 을 만들고 및를 지정 합니다 `process_count` `node_count` . 는 `process_count` 작업에 대해 실행 하려는 총 프로세스 수에 해당 합니다. 이는 일반적으로 노드당 Gpu 수와 노드 수를 곱한 값과 동일 해야 합니다. `process_count`가 지정 되지 않은 경우 AZURE ML은 기본적으로 노드당 하나의 프로세스를 시작 합니다.
 
-ScriptRunConfig의 매개 변수를 통해 이러한 환경 변수를 학습 스크립트의 해당 인수에 지정할 수 있습니다 `arguments` .
+Azure ML은 다음 환경 변수를 설정 합니다.
+* `MASTER_ADDR` -순위 0을 사용 하 여 프로세스를 호스트 하는 컴퓨터의 IP 주소입니다.
+* `MASTER_PORT` -순위 0을 사용 하 여 프로세스를 호스트 하는 컴퓨터의 사용 가능한 포트입니다.
+* `NODE_RANK` -다중 노드 학습을 위한 노드의 순위입니다. 가능한 값은 0에서 (총 노드 수-1)입니다.
+* `WORLD_SIZE` -총 프로세스 수입니다. 분산 학습에 사용 되는 총 장치 수 (GPU)와 같아야 합니다.
+* `RANK` -현재 프로세스의 (전역) 순위입니다. 가능한 값은 0에서 (세계 크기-1)입니다.
+* `LOCAL_RANK` -노드 내의 프로세스에 대 한 로컬 (상대) 순위입니다. 가능한 값은 0에서 (노드-1의 프로세스 수)입니다.
+
+Azure ML에서 필수 환경 변수를 설정 하므로 [기본 환경 변수 초기화 메서드](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) 를 사용 하 여 학습 코드에서 프로세스 그룹을 초기화할 수 있습니다.
+
+다음 코드 조각에서는 2 노드, 2-노드-노드당 PyTorch 작업을 구성 합니다.
+```python
+from azureml.core import ScriptRunConfig
+from azureml.core.runconfig import PyTorchConfiguration
+
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(process_count=4, node_count=2)
+
+src = ScriptRunConfig(
+  source_directory='./src',
+  script='train.py',
+  arguments=['--epochs', 25],
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
+```
+
+> [!WARNING]
+> 다중 프로세스 노드당 학습에이 옵션을 사용 하려면 1.22.0에 도입 된 대로 Azure ML Python SDK >= 1.22.0를 사용 해야 `process_count` 합니다.
+
+> [!TIP]
+> 학습 스크립트가 로컬 순위 또는 순위와 같은 정보를 스크립트 인수로 전달 하는 경우 인수에서 환경 변수를 참조할 수 `arguments=['--epochs', 50, '--local_rank', $LOCAL_RANK]` 있습니다.
+
+#### <a name="per-node-launch-with-torchdistributedlaunch"></a>다음을 사용 하 여 노드 단위 시작 `torch.distributed.launch`
+PyTorch는 사용자가 노드당 여러 프로세스를 시작 하는 데 사용할 수 있는 [torch](https://pytorch.org/docs/stable/distributed.html#launch-utility) 시작 유틸리티를 제공 합니다. `torch.distributed.launch`모듈은 각 노드에서 여러 학습 프로세스를 생성 합니다.
+
+다음 단계에서는 Azure ML에서 다음 명령을 실행 하는 것과 동일한 작업을 수행 하는 PyTorch 작업을 구성 하는 방법을 보여 줍니다.
+
+```shell
+python -m torch.distributed.launch --nproc_per_node <num processes per node> \
+  --nnodes <num nodes> --node_rank $NODE_RANK --master_addr $MASTER_ADDR \
+  --master_port $MASTER_PORT --use_env \
+  <your training script> <your script arguments>
+```
+
+1. `torch.distributed.launch` `command` 생성자의 매개 변수에 명령을 제공 `ScriptRunConfig` 합니다. Azure ML은 교육 클러스터의 각 노드에서이 명령을 실행 합니다. `--nproc_per_node` 각 노드에서 사용할 수 있는 Gpu 수와 같거나 작아야 합니다. `MASTER_ADDR`, `MASTER_PORT` 및 `NODE_RANK` 은 모두 Azure ML에 의해 설정 되므로 명령의 환경 변수만 참조할 수 있습니다. Azure ML은 `MASTER_PORT` 6105로 설정 되지만 원하는 `--master_port` 경우 명령의 인수에 다른 값을 전달할 수 있습니다 `torch.distributed.launch` . (시작 유틸리티는 환경 변수를 다시 설정 합니다.)
+2. 를 만들고를 `PyTorchConfiguration` 지정 `node_count` 합니다. `process_count`AZURE ML이 기본적으로 노드당 하나의 프로세스를 시작 하기 때문에 설정 하지 않아도 됩니다. 그러면 지정 된 시작 명령이 실행 됩니다.
 
 ```python
 from azureml.core import ScriptRunConfig
 from azureml.core.runconfig import PyTorchConfiguration
 
-args = ['--dist-backend', 'nccl',
-        '--dist-url', '$AZ_BATCHAI_PYTORCH_INIT_METHOD',
-        '--rank', '$AZ_BATCHAI_TASK_INDEX',
-        '--world-size', 2]
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(node_count=2)
+launch_cmd = "python -m torch.distributed.launch --nproc_per_node 2 --nnodes 2 --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT --use_env train.py --epochs 50".split()
 
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='pytorch_mnist.py',
-                      arguments=args,
-                      compute_target=compute_target,
-                      environment=pytorch_env,
-                      distributed_job_config=PyTorchConfiguration(communication_backend='Nccl', node_count=2))
+src = ScriptRunConfig(
+  source_directory='./src',
+  command=launch_cmd,
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
 ```
 
-분산 학습에 Gloo 백 엔드를 사용 하려는 경우 대신를 지정 `communication_backend='Gloo'` 합니다. 분산 CPU 학습에는 Gloo 백 엔드가 권장 됩니다.
-
-Azure ML에서 distributed PyTorch을 실행 하는 방법에 대 한 전체 자습서는 [DistributedDataParallel로 Distributed PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo)를 참조 하세요.
+Azure ML에서 distributed PyTorch을 실행 하는 방법에 대 한 전체 자습서는 [DistributedDataParallel로 Distributed PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel)를 참조 하세요.
 
 ### <a name="troubleshooting"></a>문제 해결
 

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895257"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093056"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -200,7 +200,7 @@ Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 
 
 Azure RBAC에는 권한을 할당하는 데 사용할 수 있는 몇 가지 기본 제공 역할이 있습니다. 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다.
 
-자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Azure Portal에서 청구 정보 보기
 
@@ -304,7 +304,7 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 - **스토리지 계정 기여자**: 이 역할의 사용자는 스토리지 계정을 관리할 수 있지만 스토리지 계정에 대한 액세스는 관리할 수 없습니다.
 
-자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

@@ -3,17 +3,18 @@ title: CLI를 사용 하 여 Azure 스팟 Virtual Machines 배포
 description: CLI를 사용 하 여 비용을 절감 하기 위해 Azure 스폿 Virtual Machines를 배포 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f1ad1dff695755e88881773bdcbebc2da283b75d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554775"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669370"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure 스팟 Virtual Machines 배포
 
@@ -28,7 +29,7 @@ Azure CLI를 사용 하 여 Azure 스팟 가상 머신을 만드는 프로세스
 
 ## <a name="install-azure-cli"></a>Azure CLI 설치
 
-Azure 스폿 Virtual Machines을 만들려면 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. 버전을 찾으려면 **az--version** 을 실행 합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+Azure 스폿 Virtual Machines을 만들려면 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. 버전을 찾으려면 **az --version** 을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
 

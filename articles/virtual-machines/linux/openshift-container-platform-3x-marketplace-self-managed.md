@@ -3,19 +3,20 @@ title: Azure에서 OpenShift Container Platform 3.11 Self-Managed Marketplace �
 description: Azure에서 OpenShift Container Platform 3.11 Self-Managed Marketplace 제품을 배포 합니다.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374102"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670447"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
@@ -38,7 +39,7 @@ Marketplace 제품을 사용 하 여 Azure에서 자체 관리 되는 OpenShift 
 - **로깅**: efk 로깅은 사용 하도록 설정할 수 있습니다.
 - **Azure Cloud Provider**: 기본적으로 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 있습니다.
 
-Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 상자에 ' openshift container platform '을 입력 하 고 enter 키를 누릅니다.
+Azure Portal 왼쪽 위에서 **리소스 만들기** 를 클릭 하 고 검색 상자에 ' openshift container platform '을 입력 하 고 enter 키를 누릅니다.
 
    ![새 리소스 검색](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
@@ -48,7 +49,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
    ![새 리소스 검색 결과](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
 
-제품을 클릭 하 여 제품의 세부 정보를 볼 수 있습니다. 이 제품을 배포 하려면 **만들기**를 클릭 합니다. 필요한 매개 변수를 입력 하는 UI가 나타납니다. 첫 번째 화면은 **기본 사항** 블레이드입니다.
+제품을 클릭 하 여 제품의 세부 정보를 볼 수 있습니다. 이 제품을 배포 하려면 **만들기** 를 클릭 합니다. 필요한 매개 변수를 입력 하는 UI가 나타납니다. 첫 번째 화면은 **기본 사항** 블레이드입니다.
 
    ![제안 제목 페이지](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
@@ -57,7 +58,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 
 입력 매개 변수에 대 한 도움말을 보려면 매개 변수 이름 옆에 있는 ***i*** 를 가리킵니다.
 
-입력 매개 변수에 대 한 값을 입력 하 고 **확인을**클릭 합니다.
+입력 매개 변수에 대 한 값을 입력 하 고 **확인을** 클릭 합니다.
 
 | 입력 매개 변수 | 매개 변수 설명 |
 |-----------------------|-----------------|
@@ -72,7 +73,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 
 **인프라 설정**
 
-입력 매개 변수에 대 한 값을 입력 하 고 **확인을**클릭 합니다.
+입력 매개 변수에 대 한 값을 입력 하 고 **확인을** 클릭 합니다.
 
 | 입력 매개 변수 | 매개 변수 설명 |
 |-----------------------|-----------------|
@@ -93,7 +94,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 
 **크기 변경**
 
-다른 VM 크기를 선택 하려면 ***크기 변경***을 클릭 합니다.  VM 선택 창이 열립니다.  원하는 VM 크기를 선택 하 고 **선택**을 클릭 합니다.
+다른 VM 크기를 선택 하려면 ***크기 변경** _을 클릭 합니다.  VM 선택 창이 열립니다.  원하는 VM 크기를 선택 하 고 _ * 선택 * *을 클릭 합니다.
 
    ![VM 크기 선택](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
@@ -185,7 +186,7 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 
 ## <a name="connect-to-the-openshift-cluster"></a>OpenShift 클러스터에 연결
 
-배포가 완료되면 배포의 출력 섹션에서 연결을 검색합니다. **Openshift 콘솔 URL**을 사용 하 여 브라우저에서 openshift 콘솔에 연결 합니다. 또한 방호 호스트로 SSH 할 수 있습니다. 다음은 관리자 사용자 이름이 clusteradmin이고 bastion 공용 IP DNS FQDN이 bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com인 예제입니다.
+배포가 완료되면 배포의 출력 섹션에서 연결을 검색합니다. **Openshift 콘솔 URL** 을 사용 하 여 브라우저에서 openshift 콘솔에 연결 합니다. 또한 방호 호스트로 SSH 할 수 있습니다. 다음은 관리자 사용자 이름이 clusteradmin이고 bastion 공용 IP DNS FQDN이 bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com인 예제입니다.
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

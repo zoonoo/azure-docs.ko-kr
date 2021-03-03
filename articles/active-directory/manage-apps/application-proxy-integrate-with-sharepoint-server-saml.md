@@ -16,19 +16,19 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca7331722640547218ecb6aff7c3c5651efdfd0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7cadf5b7d92e26e561e570f824295e69ca421e16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099332"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644523"
 ---
-# <a name="integrate-with-sharepoint-saml"></a>SharePoint와 통합 (SAML)
+# <a name="integrate-with-sharepoint-saml"></a>SharePoint와 통합(SAML)
 
-이 단계별 가이드에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 [통합 된 온-프레미스 sharepoint (SAML) Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) 에 대 한 액세스를 보호 하는 방법을 설명 합니다. 여기서 조직의 사용자 (azure AD, B2B)는 인터넷을 통해 Sharepoint에 연결 합니다.
+이 단계별 가이드에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 [통합 된 온-프레미스 sharepoint (SAML) Azure Active Directory](../saas-apps/sharepoint-on-premises-tutorial.md) 에 대 한 액세스를 보호 하는 방법을 설명 합니다. 여기서 조직의 사용자 (azure AD, B2B)는 인터넷을 통해 Sharepoint에 연결 합니다.
 
 > [!NOTE] 
-> Azure AD 응용 프로그램 프록시를 처음 사용 하 고 자세히 알아보려면 [azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격 액세스를](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)참조 하세요.
+> Azure AD 응용 프로그램 프록시를 처음 사용 하 고 자세히 알아보려면 [azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격 액세스를](./application-proxy.md)참조 하세요.
 
 이 설정에는 세 가지 주요 이점이 있습니다.
 
@@ -41,18 +41,18 @@ ms.locfileid: "101099332"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 구성을 완료 하려면 다음 리소스가 필요 합니다.
- - SharePoint 2013 팜 이상 Sharepoint 팜은 [AZURE AD와 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)되어야 합니다.
+ - SharePoint 2013 팜 이상 Sharepoint 팜은 [AZURE AD와 통합](../saas-apps/sharepoint-on-premises-tutorial.md)되어야 합니다.
  - 응용 프로그램 프록시를 포함 하는 계획을 포함 하는 Azure AD 테 넌 트. [AZURE AD 요금제 및 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에 대해 자세히 알아보세요.
- - Azure AD 테 넌 트에서 [확인 된 사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) 입니다. 확인 된 도메인은 SharePoint URL 접미사와 일치 해야 합니다.
- - SSL 인증서가 필요 합니다. [사용자 지정 도메인 게시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)의 세부 정보를 참조 하세요.
- - 온-프레미스 Active Directory 사용자는 Azure AD Connect와 동기화 해야 하며 [Azure에 로그인](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)하도록 구성 해야 합니다. 
- - 클라우드 전용 및 B2B 게스트 사용자의 경우 [Azure Portal에서 SharePoint 온-프레미스에 게스트 계정에 대 한 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal)해야 합니다.
+ - Azure AD 테 넌 트에서 [확인 된 사용자 지정 도메인](../fundamentals/add-custom-domain.md) 입니다. 확인 된 도메인은 SharePoint URL 접미사와 일치 해야 합니다.
+ - SSL 인증서가 필요 합니다. [사용자 지정 도메인 게시](./application-proxy-configure-custom-domain.md)의 세부 정보를 참조 하세요.
+ - 온-프레미스 Active Directory 사용자는 Azure AD Connect와 동기화 해야 하며 [Azure에 로그인](../hybrid/plan-connect-user-signin.md)하도록 구성 해야 합니다. 
+ - 클라우드 전용 및 B2B 게스트 사용자의 경우 [Azure Portal에서 SharePoint 온-프레미스에 게스트 계정에 대 한 액세스 권한을 부여](../saas-apps/sharepoint-on-premises-tutorial.md#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal)해야 합니다.
  - 회사 도메인 내의 컴퓨터에 설치 되어 실행 되는 응용 프로그램 프록시 커넥터입니다.
 
 
 ## <a name="step-1-integrate-sharepoint-on-premises-with-azure-ad"></a>1 단계: Azure AD와 온-프레미스에서 SharePoint 통합 
 
-1. SharePoint 온-프레미스 앱을 구성 합니다. 자세한 내용은 [자습서: Azure Active Directory Single Sign-On SharePoint와 온-프레미스 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)을 참조 하세요.
+1. SharePoint 온-프레미스 앱을 구성 합니다. 자세한 내용은 [자습서: Azure Active Directory Single Sign-On SharePoint와 온-프레미스 통합](../saas-apps/sharepoint-on-premises-tutorial.md)을 참조 하세요.
 2. 다음 단계로 이동 하기 전에 구성의 유효성을 검사 합니다. 유효성을 검사 하려면 내부 네트워크에서 SharePoint 온-프레미스에 액세스를 시도 하 고 내부적으로 액세스할 수 있는지 확인 합니다. 
 
 
@@ -66,7 +66,7 @@ ms.locfileid: "101099332"
    ![로그온 URL 값을 보여 주는 스크린샷](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
 
 
- 1. 사용자 지정 도메인을 사용 하 여 새 Azure AD 응용 프로그램 프록시 응용 프로그램을 만듭니다. 단계별 지침은 [Azure AD 응용 프로그램 프록시의 사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)을 참조 하세요.
+ 1. 사용자 지정 도메인을 사용 하 여 새 Azure AD 응용 프로그램 프록시 응용 프로그램을 만듭니다. 단계별 지침은 [Azure AD 응용 프로그램 프록시의 사용자 지정 도메인](./application-proxy-configure-custom-domain.md)을 참조 하세요.
 
     - 내부 URL: https://portal.contoso.com/
     - 외부 URL: https://portal.contoso.com/
@@ -76,7 +76,7 @@ ms.locfileid: "101099332"
 
         ![앱을 만드는 데 사용 하는 옵션을 보여 주는 스크린샷](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
-2. 온-프레미스 SharePoint 갤러리 응용 프로그램에 할당 한 [동일한 그룹](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) 을 할당 합니다.
+2. 온-프레미스 SharePoint 갤러리 응용 프로그램에 할당 한 [동일한 그룹](../saas-apps/sharepoint-on-premises-tutorial.md#create-an-azure-ad-security-group-in-the-azure-portal) 을 할당 합니다.
 
 3. 마지막으로 **속성** 섹션으로 이동 하 여 **사용자에 게 표시** 를 **아니요** 로 설정 합니다. 이 옵션은 첫 번째 응용 프로그램의 아이콘만 내 앱 포털 (에 표시 되도록 https://myapplications.microsoft.com) 합니다.
 
@@ -85,4 +85,3 @@ ms.locfileid: "101099332"
 ## <a name="step-3-test-your-application"></a>3 단계: 응용 프로그램 테스트
 
 외부 네트워크의 컴퓨터에서 브라우저를 사용 하 여 https://portal.contoso.com/) 게시 단계 중에 구성한 URL로 이동 합니다. 설정한 테스트 계정으로 로그인 할 수 있는지 확인 합니다.
-

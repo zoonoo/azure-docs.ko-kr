@@ -1,6 +1,6 @@
 ---
 title: Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인-Azure Active Directory
-description: Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 Azure AD에 대해 암호 없는 로그인을 사용 하도록 설정
+description: Microsoft Authenticator 앱을 사용 하 여 Azure AD에 대해 암호 없는 로그인 사용
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626158"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653476"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에서 암호 없는 로그인을 사용 하도록 설정 
 
 암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. Microsoft Authenticator는 키 기반 인증을 사용 하 여 장치에 연결 된 사용자 자격 증명을 사용 하도록 설정 합니다. 여기서 장치는 PIN 또는 생체 인식 기능을 사용 합니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 는 비슷한 기술을 사용 합니다.
 
@@ -32,7 +32,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용 하도록 설정
 2. **승인** 을 선택합니다.
 3. PIN 또는 생체 인식 기능을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -40,7 +40,7 @@ Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용 �
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 
 > [!NOTE]
-> Azure AD PowerShell을 사용 하 여 암호 없는 로그인 미리 보기 Microsoft Authenticator 사용 하도록 설정한 경우 전체 디렉터리에 대해 사용 하도록 설정 되었습니다. 이 새 메서드를 사용 하도록 설정 하면 PowerShell 정책이 대신 됩니다. 새 *인증 방법* 메뉴를 통해 테 넌 트의 모든 사용자에 대해을 사용 하도록 설정 하는 것이 좋습니다. 그렇지 않으면 새 정책에 없는 사용자는 더 이상 암호 없이 로그인 할 수 없습니다.
+> Azure AD PowerShell을 사용 하 여 암호 없는 로그인 Microsoft Authenticator 사용 하도록 설정한 경우 전체 디렉터리에 대해 사용 하도록 설정 되었습니다. 이 새 메서드를 사용 하도록 설정 하면 PowerShell 정책이 대신 됩니다. 새 *인증 방법* 메뉴를 통해 테 넌 트의 모든 사용자에 대해을 사용 하도록 설정 하는 것이 좋습니다. 그렇지 않으면 새 정책에 없는 사용자는 더 이상 암호 없이 로그인 할 수 없습니다.
 
 ## <a name="enable-passwordless-authentication-methods"></a>암호 없는 인증 방법 사용
 
@@ -58,7 +58,7 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 
 1. *전역 관리자* 계정을 사용 하 여 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 1. *Azure Active Directory* 를 검색 하 고 선택한 다음 **보안**  >  **인증 방법**  >  **정책** 으로 이동 합니다.
-1. **Microsoft Authenticator (미리 보기)** 아래에서 다음 옵션을 선택 합니다.
+1. **Microsoft Authenticator** 에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
 1. 추가 된 각 그룹이 나 사용자는 기본적으로 암호 없는 및 푸시 알림 모드 ("Any" 모드) 모두에서 Microsoft Authenticator 사용 하도록 설정 됩니다. 이를 변경 하려면 각 행에 대해 다음을 수행 합니다.
@@ -70,7 +70,7 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 
 사용자는 다음 단계를 사용 하 여 Azure AD의 암호 없는 인증 방법에 등록 합니다.
 
-1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
+1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 으로 이동합니다.
 1. 로그인 한 다음 add **메서드 > authenticator 앱**, **추가** 를 차례로 선택 하 여 인증자 앱을 추가 합니다.
 1. 지침에 따라 장치에 Microsoft Authenticator 앱을 설치 하 고 구성 합니다.
 1. **완료** 를 선택 하 여 인증자 구성을 완료 합니다.
@@ -104,7 +104,7 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 
 ## <a name="known-issues"></a>알려진 문제
 
-현재 미리 보기 환경에는 다음과 같은 알려진 문제가 있습니다.
+다음과 같은 알려진 문제가 있습니다.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>암호 없는 휴대폰 로그인에 대 한 옵션을 표시 하지 않음
 

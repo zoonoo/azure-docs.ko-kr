@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ed99338a10eb226823c4bd4857d812038ff632
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094503"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649243"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>FIDO2 암호 없는 인증에 대 한 브라우저 지원
 
-Azure Active Directory를 사용 하 여 [FIDO2 보안 키](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) 를 암호 없는 장치로 사용할 수 있습니다. Microsoft 계정에 대 한 FIDO2 인증의 가용성은 [2018에서 발표](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910)되었습니다. 공지에서 설명한 대로 FIDO2 CTAP 사양에 대 한 특정 옵션 기능 및 확장은 Microsoft 및 Azure Active Directory 계정으로 보안 인증을 지원 하기 위해 구현 되어야 합니다. 다음 다이어그램은 Azure Active Directory에서 FIDO2 인증 키를 사용 하 여 암호 없는 인증을 지 원하는 브라우저 및 운영 체제 조합을 보여 줍니다.
+Azure Active Directory를 사용 하 여 [FIDO2 보안 키](./concept-authentication-passwordless.md#fido2-security-keys) 를 암호 없는 장치로 사용할 수 있습니다. Microsoft 계정에 대 한 FIDO2 인증의 가용성은 [2018에서 발표](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910)되었습니다. 공지에서 설명한 대로 Microsoft 및 Azure Active Directory 계정으로 보안 인증을 지원 하려면 특정 옵션 기능 및 FIDO2 CTAP 사양에 대 한 확장을 구현 해야 합니다. 다음 다이어그램은 Azure Active Directory에서 FIDO2 인증 키를 사용 하 여 암호 없는 인증을 지 원하는 브라우저 및 운영 체제 조합을 보여 줍니다.
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
@@ -35,7 +35,7 @@ Azure Active Directory를 사용 하 여 [FIDO2 보안 키](https://docs.microso
 
 ## <a name="unsupported-browsers"></a>지원 되지 않는 브라우저
 
-다음 운영 체제 및 브라우저 조합은 지원 되지 않지만 향후 지원 및 테스트를 조사 하 고 있습니다. 추가 운영 체제 및 브라우저 지원을 보려면 페이지 맨 아래에 있는 제품 사용자 의견 도구를 사용 하 여 피드백을 남겨 주세요.
+다음 운영 체제 및 브라우저 조합은 지원 되지 않지만 향후 지원 및 테스트를 조사 하 고 있습니다. 다른 운영 체제 및 브라우저 지원을 보려면 페이지 맨 아래에 있는 제품 사용자 의견 도구를 사용 하 여 피드백을 남겨 주세요.
 
 | 운영 체제 | 브라우저 |
 | ---- | ---- |
@@ -44,18 +44,21 @@ Azure Active Directory를 사용 하 여 [FIDO2 보안 키](https://docs.microso
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## <a name="operating-system-versions-tested"></a>테스트 된 운영 체제 버전
+## <a name="minimum-browser-version"></a>최소 브라우저 버전
 
-위의 표에 나와 있는 정보는 다음 운영 체제 버전에 대해 테스트 되었습니다.
+최소 브라우저 버전 요구 사항은 다음과 같습니다. 
 
-| 운영 체제 | 테스트 된 최신 버전 |
-| --- | --- |
-| Windows | Windows 10 20H2 |
-| macOS | OS X 11 빅 성 |
-| Linux | Fedora 32 워크스테이션 |
+| 브라우저 | 최소 버전 |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10 버전 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup> 새 Chromium 기반 Microsoft Edge의 모든 버전은 Fido2을 지원 합니다. Microsoft Edge legacy에서의 지원은 1903에 추가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[암호 없는 보안 키 로그인 사용 (미리 보기)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[암호 없는 보안 키 로그인 사용 (미리 보기)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

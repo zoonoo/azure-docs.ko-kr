@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392302"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659225"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM(Transact-SQL)
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **위치** : 데이터 원본에서 실제 데이터 또는 위치의 이름을 지정합니다. 
+- **위치**: 데이터 원본에서 실제 데이터 또는 위치의 이름을 지정합니다. 
    - Edge Hub 또는 Kafka 스트림 개체의 경우 location은 읽기 또는 쓰기에 대 한 Edge 허브 또는 Kafka 토픽의 이름을 지정 합니다.
    - SQL 스트림 개체 (SQL Server, Azure SQL Database 또는 Azure SQL Edge) 위치에 대해 테이블의 이름을 지정 합니다. 스트림이 대상 테이블과 동일한 데이터베이스 및 스키마에 생성 된 경우에는 테이블 이름 접미사 합니다. 그렇지 않으면 테이블 이름을 정규화 해야 합니다 (<database_name. schema_name).
    - Azure Blob Storage stream 개체 위치는 Blob 컨테이너 내에서 사용할 경로 패턴을 참조 합니다. 이 기능에 대 한 자세한 내용은 (/articles/stream-analytics/stream-analytics-define-outputs.md # blob-storage-gen2)를 참조 하세요.
 
-- **INPUT_OPTIONS** : 옵션을 키-값 쌍으로 지정 합니다 (예: Kafka, 스트리밍 쿼리를 입력 하는 IoT Edge 허브).
+- **INPUT_OPTIONS**: 옵션을 키-값 쌍으로 지정 합니다 (예: Kafka, 스트리밍 쿼리를 입력 하는 IoT Edge 허브).
     - 파티션: 토픽에 대해 정의 된 파티션 수입니다. 사용할 수 있는 최대 파티션 수는 32 개로 제한 됩니다.
       - Kafka 입력 스트림에 적용 됩니다.
     - CONSUMER_GROUP: Event 및 IoT Hubs는 한 소비자 그룹 내의 reader 수를 5로 제한합니다. 이 필드를 비워 두면 '$Default' 소비자 그룹이 사용됩니다.
@@ -111,7 +111,7 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE: 이벤트가 입력에서 스트리밍 쿼리로 이동한 후 순서 없이 도착할 수 있습니다. 이러한 이벤트를 그대로 허용할 수도 있고, 일정 시간 동안 일시 중지하고 순서를 변경할 수도 있습니다.
       - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
         
-- **OUTPUT_OPTIONS** : 옵션을 스트리밍 쿼리의 출력인 지원되는 서비스의 키-값 쌍으로 지정합니다. 
+- **OUTPUT_OPTIONS**: 옵션을 스트리밍 쿼리의 출력인 지원되는 서비스의 키-값 쌍으로 지정합니다. 
   - REJECT_POLICY:  DROP | RETRY 데이터 변환 오류가 발생할 때 데이터 오류 처리 정책을 지정합니다. 
     - 적용 대상: 지원되는 모든 출력 
   - MINIMUM_ROWS:  
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

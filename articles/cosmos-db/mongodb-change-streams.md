@@ -5,15 +5,15 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359237"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658523"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "97359237"
 Azure Cosmos DB의 API for MongoDB의 [변경 피드](change-feed.md) 지원은 변경 스트림 API를 사용하여 제공됩니다. 변경 스트림 API를 사용하여 애플리케이션에서 컬렉션 또는 단일 분할된 데이터베이스의 항목에 대한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대한 변경 내용은 수정 시간 순서대로 캡처되고 분할된 데이터베이스 키당 정렬 순서가 보장됩니다.
 
 > [!NOTE]
-> 변경 스트림을 사용하려면 Azure Cosmos DB의 API for MongoDB 버전 3.6 이상을 사용하여 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예제를 실행하는 경우 `Unrecognized pipeline stage name: $changeStream` 오류가 표시될 수 있습니다.
+> 변경 스트림을 사용 하려면 서버 버전 3.6 이상을 사용 하는 MongoDB 용 Azure Cosmos DB API 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예를 실행 하는 경우 *인식할 수 없는 파이프라인 단계 이름: $changeStream* 오류가 표시 될 수 있습니다.
 
 ## <a name="examples"></a>예
 

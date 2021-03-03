@@ -7,12 +7,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 8150a172c49b2b0e969ff35928976e5909b7daa8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626484"
+ms.locfileid: "100635475"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 
@@ -260,7 +260,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
@@ -297,7 +297,7 @@ Azure Portal에서 Log Analytics를 사용하여 작업 영역의 데이터를 �
 
 ![속성 확장](media/quick-collect-activity-log/expand-properties.png)
 
-범주별로 요약된 이벤트 수를 제공하는 `AzureActivity | summarize count() by CategoryValue`처럼 좀 더 복잡한 쿼리를 시도해 봅시다
+범주별로 요약된 이벤트 수를 제공하는 `AzureActivity | summarize count() by CategoryValue`처럼 좀 더 복잡한 쿼리를 시도해 봅니다.
 
 ![복합한 쿼리](media/quick-collect-activity-log/query-02.png)
 

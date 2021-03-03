@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257188"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649425"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257188"
 
 이 문서에서는 B2B 협업을 위해 다른 조직과의 직접 페더레이션을 설정하는 방법에 대해 설명합니다. IdP(ID 공급자)가 SAML 2.0 또는 WS-Fed 프로토콜을 지원하는 모든 조직과의 직접 페더레이션을 설정할 수 있습니다.
 파트너 IdP와의 직접 페더레이션을 설정하면 해당 도메인의 새 게스트 사용자가 IdP에서 관리하는 자신의 조직 계정을 사용하여 Azure AD 테넌트에 로그인하고 협업을 시작할 수 있습니다. 게스트 사용자는 별도의 Azure AD 계정을 만들 필요가 없습니다.
-> [!NOTE]
-> 직접 페더레이션 게스트 사용자는 테넌트 컨텍스트가 포함된 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` 또는 확인된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 게스트 사용자는 현재 테넌트 컨텍스트가 없는 공통 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 `https://teams.microsoft.com`을 사용하면 오류가 발생합니다.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>게스트 사용자가 직접 페더레이션을 통해 인증되는 경우는 언제인가요?
 조직과의 직접 페더레이션이 설정되면 초대하는 모든 새 게스트 사용자가 직접 페더레이션을 사용하여 인증됩니다. 직접 페더레이션을 설정해도 이미 초대에 응한 게스트 사용자에 대한 인증 방법은 변경되지 않습니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
  - 게스트 사용자가 이미 초대에 응한 후에 조직과의 직접 페더레이션이 설정되는 경우 해당 게스트 사용자는 직접 페더레이션이 설정되기 전에 사용한 것과 동일한 인증 방법을 계속 사용할 수 있습니다.
@@ -42,10 +40,28 @@ ms.locfileid: "99257188"
 ## <a name="end-user-experience"></a>최종 사용자 환경 
 직접 페더레이션을 사용하는 경우 게스트 사용자는 자신의 조직 계정을 사용하여 Azure AD 테넌트에 로그인합니다. 사용자가 공유 리소스에 액세스하고 로그인하라는 메시지가 표시되면 직접 페더레이션 사용자가 IdP로 리디렉션됩니다. 로그인에 성공하면 리소스에 액세스하기 위해 Azure AD로 돌아갑니다. 직접 페더레이션 사용자의 새로 고침 토큰은 12시간 동안 유효하며, 이는 Azure AD에서 [통과 새로 고침 토큰의 기본 길이](../develop/active-directory-configurable-token-lifetimes.md#exceptions)입니다. 페더레이션된 IdP에서 SSO를 사용하도록 설정되면 사용자가 SSO를 수행하게 되며 초기 인증 후 로그인 프롬프트가 표시되지 않습니다.
 
+## <a name="sign-in-endpoints"></a>로그인 끝점
+
+직접 페더레이션 게스트 사용자는 이제 [공용 끝점](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (즉, 테 넌 트 컨텍스트를 포함 하지 않는 일반 앱 URL)을 사용 하 여 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다. 일반적인 끝점의 예는 다음과 같습니다.
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+로그인 프로세스 중에 게스트 사용자가 **로그인 옵션** 을 선택 하 고 **조직에 로그인** 을 선택 합니다. 그런 다음 사용자는 조직의 이름을 입력 하 고 자체 자격 증명을 사용 하 여 계속 로그인 합니다.
+
+직접 페더레이션 게스트 사용자는 테 넌 트 정보를 포함 하는 응용 프로그램 엔드포인트를 사용할 수도 있습니다. 예를 들면 다음과 같습니다.
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+또한 테 넌 트 정보 (예:)를 포함 하 여 직접 페더레이션 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 한 직접 링크를 제공할 수도 있습니다 `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
+
 ## <a name="limitations"></a>제한 사항
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD의 DNS 확인 도메인
-페더레이션 하려는 도메인은 Azure AD에서 DNS를 확인 **하지** 않아야 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
+페더레이션하려는 도메인의 DNS는 Azure AD에서 확인되지 ***않아야*** 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
 
 ### <a name="authentication-url"></a>인증 URL
 직접 페더레이션은 인증 URL의 도메인이 대상 도메인과 일치하거나 인증 URL이 다음과 같은 허용된 ID 공급자 중 하나인 정책에만 허용됩니다(이 목록은 변경될 수 있음).
@@ -60,7 +76,7 @@ ms.locfileid: "99257188"
 -   federation.exostar.com
 -   federation.exostartest.com
 
-예를 들어 _ * fabrikam .com * *에 대 한 직접 페더레이션을 설정 하는 경우 인증 URL은 `https://fabrikam.com/adfs` 유효성 검사를 통과 합니다. 동일한 도메인의 호스트(예: `https://sts.fabrikam.com/adfs`)도 통과됩니다. 그러나 동일한 도메인의 `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 인증 URL은 통과되지 않습니다.
+예를 들어 **fabrikam.com** 에 대한 직접 페더레이션을 설정하는 경우 `https://fabrikam.com/adfs` 인증 URL은 유효성 검사를 통과합니다. 동일한 도메인의 호스트(예: `https://sts.fabrikam.com/adfs`)도 통과됩니다. 그러나 동일한 도메인의 `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 인증 URL은 통과되지 않습니다.
 
 ### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
 ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
@@ -147,7 +163,7 @@ IdP에서 발급한 WS-Fed 토큰에 필요한 클레임은 다음과 같습니�
 
 1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. 
 2. **외부 ID** > **모든 ID 공급자** 를 차례로 선택합니다.
-3. 을 선택 하 고 **새 SAML/WS-급지됨 IdP** 를 선택 합니다.
+3. **새 SAML/WS-급지됨 IdP** 를 선택 합니다.
 
     ![새 SAML 또는 WS-Fed IdP를 추가하는 단추를 보여주는 스크린샷](media/direct-federation/new-saml-wsfed-idp.png)
 

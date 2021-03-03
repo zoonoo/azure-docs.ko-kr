@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091935"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651940"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Azure Portal의 프로 비전 로그 개요 (미리 보기)
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * Active Directory에서 만든 Workday의 사용자는 무엇 인가요? 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 사용자는 프로 비전 로그의 데이터에 액세스할 수 있습니다.
 
@@ -60,8 +60,8 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 고객은 다음 네 가지 방법으로 프로 비전 로그와 상호 작용할 수 있습니다.
 
 - 다음 섹션에 설명 된 대로 Azure Portal에서 로그에 액세스 합니다.
-- 프로 비전 로그를 [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)으로 스트리밍합니다. 이 메서드를 사용 하 여 데이터 보존을 확장 하 고 사용자 지정 대시보드, 경고 및 쿼리를 작성할 수 있습니다.
-- 프로 비전 로그에 대 한 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) 를 쿼리 합니다.
+- 프로 비전 로그를 [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md)으로 스트리밍합니다. 이 메서드를 사용 하 여 데이터 보존을 확장 하 고 사용자 지정 대시보드, 경고 및 쿼리를 작성할 수 있습니다.
+- 프로 비전 로그에 대 한 [MICROSOFT GRAPH API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) 를 쿼리 합니다.
 - 프로 비전 로그를 CSV 또는 JSON 파일로 다운로드 합니다.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Azure Portal에서 로그에 액세스 합니다.
@@ -104,7 +104,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - **ID**
 - **날짜**
 - **상태**
-- **동작**
+- **작업**
 
 
 ![필터 값을 보여 주는 스크린샷](./media/concept-provisioning-logs/default-filter.png "Assert")
@@ -117,7 +117,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 > 사용자 이름은 항상 **id** 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
 
-**날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다. 가능한 값은
+**날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다. 가능한 값은 다음과 같습니다.
 
 - 1개월
 - 7 일
@@ -207,7 +207,7 @@ JSON 파일은 다운로드 크기를 줄이기 위해 파일 형식으로 다�
 
 PowerShell을 사용 하 여 JSON 파일을 사용할 수 있는 몇 가지 샘플 명령은 다음과 같습니다. 편안 하 게 사용할 수 있는 모든 프로그래밍 언어를 사용할 수 있습니다.  
 
-먼저 다음 명령을 실행 하 여 [JSON 파일을 읽습니다](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) .
+먼저 다음 명령을 실행 하 여 [JSON 파일을 읽습니다](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) .
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 517b07eecdbc63754f46fcf1051bf5b987dbc20e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654447"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668438"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>범위가 지정 된 리소스 집합 구성 규칙 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "100654447"
 
 범위가 지정 된 리소스 집합 규칙을 만드는 경우 다음 구문을 사용 하 여에 적용 되는 자산 규칙을 지정 합니다.
 
-### <a name="static-replacers-single-brackets"></a>Static replacers (대괄호)
+### <a name="dynamic-replacers-single-brackets"></a>동적 replacers (대괄호)
 
 범위가 지정 된 리소스 집합 규칙에서 하나의 대괄호가 **동적 replacers** 사용 됩니다. 형식을 사용 하 여 정규화 된 이름에 동적 치환를 지정 `{<replacerName:<replacerType>}` 합니다. 일치 하는 경우 동적 replacers는 자산을 리소스 집합으로 표시 해야 함을 나타내는 그룹화 조건으로 사용 됩니다. 자산이 리소스 집합으로 그룹화 되는 경우 리소스 집합 정규화 된 경로에는 `{replacerName}` 치환가 지정 된 위치가 포함 됩니다.
 
@@ -65,7 +65,7 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 
 다음은 정적 및 동적 replacers에서 사용할 수 있는 형식입니다.
 
-| 유형 | 구조체 |
+| Type | 구조체 |
 | ---- | --------- |
 | 문자열 | 공백과 같은 구분 기호를 포함 하는 일련의 1 개 이상의 유니코드 문자입니다. |
 | int | 1 개 이상의 0-9 ASCII 문자, 0 (예: 0001)이 될 수 있습니다. |
@@ -74,7 +74,7 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 | time | 다음에 지정 된 선택적 구분 기호를 사용 하는 일련의 4 또는 6 0-9 ASCII 문자 (HHmm, HH: mm, HHmmss, HH: mm: ss) https://tools.ietf.org/html/rfc3339 |
 | timestamp | 선택적 구분 기호를 사용 하는 일련 12 또는 14 0-9 ASCII 문자 (yyyy-mm-Yyyy-mm-ddthh: mm, yyyymmddhhmm, yyyy-Yyyy-mm-ddthh: mm: ss, yyyymmddHHmmss에 지정 되어 있습니다. https://tools.ietf.org/html/rfc3339 |
 | boolean | 대/소문자를 구분 하지 않고 ' true ' 또는 ' f a l l '을 포함할 수 있습니다. |
-| 숫자 | 0 개 이상의 일련의 0-9 ASCII 문자, 0 (예: 0001) 뒤에 선택적으로 점 '. '가 올 수 있습니다. 하나 이상의 0-9 ASCII 문자 시리즈는 0 되도록 후 위 (예: 100) 일 수 있습니다. | 
+| number | 0 개 이상의 일련의 0-9 ASCII 문자, 0 (예: 0001) 뒤에 선택적으로 점 '. '가 올 수 있습니다. 하나 이상의 0-9 ASCII 문자 시리즈는 0 되도록 후 위 (예: 100) 일 수 있습니다. | 
 | hex | 집합 0-1 및 A-f의 일련의 1 개 이상의 ASCII 문자 값은 0 접두사가 될 수 있습니다. |
 | locale | 에 지정 된 구문과 일치 하는 문자열입니다. https://tools.ietf.org/html/rfc5646 |
 
@@ -92,7 +92,7 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 
 전체 및 델타 로드로 SAP 데이터 추출
 
-*입력*
+#### <a name="inputs"></a>입력
 
 Files:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -102,7 +102,7 @@ Files:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*범위가 지정 된 리소스 집합 규칙*
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
 
 **범위:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -112,7 +112,7 @@ Files:
 
 **리소스 집합:** true
 
-*출력*
+#### <a name="output"></a>출력 
 
 하나의 리소스 집합 자산
 
@@ -124,7 +124,7 @@ Files:
 
 Avro 형식의 IoT 데이터
 
-*입력*
+#### <a name="inputs"></a>입력 
 
 Files:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -132,7 +132,7 @@ Files:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*범위가 지정 된 리소스 집합 규칙*
+#### <a name="scoped-resource-set-rules"></a>범위가 지정 된 리소스 집합 규칙 
 
 **범위:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -150,9 +150,9 @@ Files:
 
 **정규화 된 이름:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**리소스 집합: true**
+#### <a name="resource-set-true"></a>*리소스 집합: true* 
 
-*출력*
+#### <a name="outputs"></a>출력 
 
 리소스 집합 2 개 
 
@@ -172,7 +172,7 @@ Files:
 
 Avro 형식의 IoT 데이터
 
-*입력*
+#### <a name="inputs"></a>입력 
 
 Files:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -180,7 +180,7 @@ Files:
 -   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*범위가 지정 된 리소스 집합 규칙*
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
 
 **범위:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -190,7 +190,7 @@ Files:
 
 **리소스 집합:** true
 
-*출력*
+#### <a name="outputs"></a>출력 
 
 리소스 집합 1
 
@@ -208,7 +208,7 @@ Files:
 
 리소스 집합으로 그룹화 안 함
 
-*입력*
+#### <a name="inputs"></a>입력 
 
 Files:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -216,7 +216,7 @@ Files:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*범위가 지정 된 리소스 집합 규칙*
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
 
 **범위:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -226,7 +226,7 @@ Files:
 
 **리소스 집합:** false
 
-*출력*
+#### <a name="outputs"></a>출력 
 
 개별 자산 4 개
 

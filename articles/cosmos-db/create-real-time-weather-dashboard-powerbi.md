@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b3ec3e96aa1ba4bce3893c1af2446bb509a867b6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333599"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657539"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용 하 여 실시간 대시보드 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "93333599"
 Azure Cosmos DB에 저장 된 데이터에 대 한 보고 대시보드를 설정 하는 방법에는 여러 가지가 있습니다. 다음 표에서는 부실 요구 사항 및 데이터의 크기에 따라 각 시나리오에 대 한 보고 설정에 대해 설명 합니다.
 
 
-|시나리오 |설정 |
+|시나리오 |설치 프로그램 |
 |---------|---------|
 |1. 임시 보고서 생성 (새로 고침 안 함)    |  [가져오기 모드를 사용 하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
 |2. 정기적인 새로 고침을 사용 하 여 임시 보고서 생성   |  [가져오기 모드를 사용 하 Azure Cosmos DB 커넥터 Power BI (정기 새로 고침 예약 됨)](powerbi-visualize.md)       |
@@ -48,7 +48,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>날씨 데이터를 Azure Cosmos DB에 수집
 
-Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) 를 로드 하도록 수집 파이프라인을 설정 합니다. [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) 작업을 설정 하 여 HTTP 원본 및 Cosmos DB 싱크를 통해 최신 날씨 데이터를 Azure Cosmos DB에 정기적으로 로드할 수 있습니다.
+Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) 를 로드 하도록 수집 파이프라인을 설정 합니다. [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) 작업을 설정 하 여 HTTP 원본 및 Cosmos DB 싱크를 통해 최신 날씨 데이터를 Azure Cosmos DB에 정기적으로 로드할 수 있습니다.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Azure Cosmos DB에 Power BI 연결
@@ -94,7 +94,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>날씨 데이터를 Azure Cosmos DB에 수집 
 
-Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) 를 로드 하도록 수집 파이프라인을 설정 합니다. Azure Data Factory (ADF) 작업을 설정 하 여 HTTP 원본 및 Cosmos DB 싱크를 통해 최신 날씨 데이터를 Azure Cosmos DB에 정기적으로 로드할 수 있습니다.
+Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) 를 로드 하도록 수집 파이프라인을 설정 합니다. Azure Data Factory (ADF) 작업을 설정 하 여 HTTP 원본 및 Cosmos DB 싱크를 통해 최신 날씨 데이터를 Azure Cosmos DB에 정기적으로 로드할 수 있습니다.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Azure Cosmos 계정에 Azure Analysis Services 연결
 
@@ -112,7 +112,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset/local-wea
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Cosmos DB 데이터 원본 추가":::
 
-   **계정 URI** , **데이터베이스 이름** 및 **컨테이너 이름을** 제공 하 여 Azure Cosmos DB에 연결 합니다. 이제 Azure Cosmos container의 데이터를 Power BI로 가져왔는지 확인할 수 있습니다.
+   **계정 URI**, **데이터베이스 이름** 및 **컨테이너 이름을** 제공 하 여 Azure Cosmos DB에 연결 합니다. 이제 Azure Cosmos container의 데이터를 Power BI로 가져왔는지 확인할 수 있습니다.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Azure Cosmos DB 데이터 미리 보기":::
 

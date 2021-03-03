@@ -2,18 +2,18 @@
 title: Azure에서 Red Hat Enterprise Linux 이미지의 전체 업그레이드
 description: Red Hat Enterprise 4.x 이미지에서 최신 8gb 버전으로 전체 업그레이드를 수행 하는 방법을 알아봅니다.
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: 9b35a3cbe23af91f7f0b8aceecfb8ba3c9720461
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484416"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676065"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 업그레이드 Red Hat Enterprise Linux
 

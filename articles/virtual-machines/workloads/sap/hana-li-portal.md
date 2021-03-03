@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32adab35852cd19933fe3877c2742a21ddc5f1e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882487"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676992"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 
@@ -88,7 +87,7 @@ HANA Large Instance 단위 목록에서 단일 단위를 클릭 하 고 단일 H
 - [HLI에 사용 가능한 SKU](./hana-available-skus.md)
 - [SAP HANA(대규모 인스턴스) 스토리지 아키텍처](./hana-storage-architecture.md) 
 
-오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은
+오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은 다음과 같습니다.
 
 - 수정 버전 3
 - 수정 버전 4

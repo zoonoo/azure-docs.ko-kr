@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428034"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649226"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -48,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | Description    |
+| 매개 변수         | 설명    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -78,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | Description |
+| Error | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -95,7 +95,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50000 | TokenIssuanceError - 로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 문제를 해결할 수 있습니다. |
-| AADSTS500021 | ' {Tenant} ' 테 넌 트에 대 한 액세스가 거부 되었습니다. AADSTS500021는 테 넌 트 제한 기능이 구성 되었고 사용자가 헤더에 지정 된 허용 되는 테 넌 트 목록에 없는 테 넌 트에 액세스 하려고 함을 나타냅니다 `Restrict-Access-To-Tenant` . 자세한 내용은 [테 넌 트 제한 사용을 참조 하 여 SaaS 클라우드 응용 프로그램에 대 한 액세스 관리](/azure/active-directory/manage-apps/tenant-restrictions)를 참조 하세요.|
+| AADSTS500021 | ' {Tenant} ' 테 넌 트에 대 한 액세스가 거부 되었습니다. AADSTS500021는 테 넌 트 제한 기능이 구성 되었고 사용자가 헤더에 지정 된 허용 되는 테 넌 트 목록에 없는 테 넌 트에 액세스 하려고 함을 나타냅니다 `Restrict-Access-To-Tenant` . 자세한 내용은 [테 넌 트 제한 사용을 참조 하 여 SaaS 클라우드 응용 프로그램에 대 한 액세스 관리](../manage-apps/tenant-restrictions.md)를 참조 하세요.|
 | AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 에서 설명 하는 해결 방법을 확인 [하세요. /manage-apps/application-sign-in-problem-federated-sso-gallery.md # 인증서 또는 키가 구성 되어 있지 않습니다](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
 | AADSTS50005 | DevicePolicyError-사용자가 현재 조건부 액세스 정책을 통해 지원 되지 않는 플랫폼에서 장치에 로그인 하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
@@ -168,6 +168,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired - 클라이언트는 Windows 10 계정 확장을 통해 SSO 토큰을 얻을 수 있지만 토큰을 요청에서 찾지 못했거나 제공된 토큰이 만료되었습니다. |
 | AADSTS50169 | InvalidRequestBadRealm - 영역이 현재 서비스 네임스페이스의 구성된 영역이 아닙니다. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping - 외부 제어 매핑이 누락되었습니다. |
+| AADSTS50173 | FreshTokenNeeded-제공 된 권한 부여가 해지 되 고 새로운 인증 토큰이 필요 하기 때문에 만료 되었습니다. 관리자 또는 사용자가이 사용자에 대 한 토큰을 취소 하 여 후속 토큰 새로 고침이 실패 하 고 재인증이 필요 합니다. 사용자가 다시 로그인 하도록 합니다. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers - 통과 사용자에 대한 외부 챌린지는 지원하지 않습니다. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - 통과 사용자에 대해서는 세션 컨트롤이 지원되지 않습니다. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - 통합된 Windows 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다. |

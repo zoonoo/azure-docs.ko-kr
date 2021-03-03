@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: CentOS 및 Ubuntu 16.04에서 최신 Ubuntu 18.04 Data Science Virtual Machine로 업그레이드 하는 방법을 알아봅니다.
 keywords: 심층 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 팀 데이터 과학 프로세스
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320990"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659463"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Data Science Virtual Machine을 Ubuntu 18.04로 업그레이드
 
@@ -107,7 +106,7 @@ CentOS에서 마이그레이션하는 경우 또는 운영 체제를 새로 설�
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="디스크 검색 페이지 및 추가 단추를 표시 하는 Azure Portal의 스크린샷":::
 
-2. **구독** , **리소스 그룹** 및 **지역을** VM 스냅숏의 값으로 설정 합니다. 만들 디스크의 **이름을** 선택 합니다.
+2. **구독**, **리소스 그룹** 및 **지역을** VM 스냅숏의 값으로 설정 합니다. 만들 디스크의 **이름을** 선택 합니다.
 
 3. **원본 유형을** **스냅숏으로** 선택 하 고 **원본 스냅숏으로** VM 스냅숏을 선택 합니다. 디스크를 검토 하 고 만듭니다. 
 

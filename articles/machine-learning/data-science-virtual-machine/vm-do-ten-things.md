@@ -3,19 +3,18 @@ title: Windows에서 데이터 및 모델 탐색
 titleSuffix: Azure Data Science Virtual Machine
 description: Windows Data Science Virtual Machine에서 데이터 탐색 및 모델링 작업을 수행 합니다.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c44c40f2ddab53cf0beb5ecd48127d126fdb4333
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575009"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657403"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -40,7 +39,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -58,7 +57,7 @@ Jupyter를 시작한 후 `/notebooks` DSVM에 미리 포장 된 예: 전자 필�
 
 * 전자 필기장을 선택 하 여 코드를 확인 합니다.
 * Shift + Enter를 선택 하 여 각 셀을 실행 합니다.
-* **셀** 실행을 선택 하 여 전체 노트북을 실행  >  **Run** 합니다.
+* **셀** 실행을 선택 하 여 전체 노트북을 실행  >  합니다.
 * Jupyter 아이콘 (왼쪽 위 모퉁이)을 선택 하 고 오른쪽에 있는 **새로 만들기** 단추를 선택한 다음 노트북 언어 (커널이 라고도 함)를 선택 하 여 새 노트북을 만듭니다.   
 
 > [!NOTE]
@@ -81,7 +80,7 @@ Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 �
 
 Python 환경을 만드는 방법에 대 한 자세한 내용은 [Ptvs 설명서](/visualstudio/python/) 를 참조 하세요.
 
-이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일**  >  **새로 만들기** 프로젝트 Python으로 이동 하 여  >  **Project**  >  **Python** 빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거** 를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](/visualstudio/python/)에서 확인할 수 있습니다.
+이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일**  >  **새로 만들기** 프로젝트 Python으로 이동 하 여  >    >   빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거** 를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](/visualstudio/python/)에서 확인할 수 있습니다.
 
 
 
@@ -156,7 +155,7 @@ Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitH
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 

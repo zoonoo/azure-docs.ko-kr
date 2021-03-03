@@ -2,18 +2,19 @@
 title: RMAN 및 Azure Storage를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업
 description: Azure 클라우드 저장소에 Oracle Database 19c 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806276"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670013"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Azure Storage를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -405,4 +406,4 @@ az group delete --name rg-oracle
 
 [자습서: 고가용성 VM 만들기](../../linux/create-cli-complete.md)
 
-[VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
+[VM 배포 Azure CLI 샘플 탐색](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

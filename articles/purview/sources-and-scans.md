@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383894"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677930"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 데이터 원본 및 파일 형식
 
@@ -43,9 +43,12 @@ Azure 부서의 범위는 다음 소스를 지원 합니다.
 
 다음 파일 형식은 검색에 대해 지원 되며, 해당 하는 경우 스키마 추출 및 분류에 대해 지원 됩니다.
 
-- 확장에서 지원 되는 구조화 된 파일 형식: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- 확장에서 지원 되는 구조화 된 파일 형식: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - 확장에서 지원 되는 문서 파일 형식: DOC, .DOCM, .DOCX, DOT, ODP, ODS, ODT, PDF, .POT, PPS, PPSX, PPT, PPTM, .PPTX, XLC, XLS, .XLSB, .XLSM, .XLSX, .XLT
 - 부서의 범위은 사용자 지정 파일 확장명 및 사용자 지정 파서도 지원 합니다.
+ 
+> [!Note]
+> 모든 Gzip 파일은 내의 단일 csv 파일에 매핑되어야 합니다. Gzip 파일은 시스템 및 사용자 지정 분류 규칙의 영향을 받습니다. 현재 내의 여러 파일에 매핑된 gzip 파일 또는 csv 이외의 파일 형식에 대 한 검색을 지원 하지 않습니다. 
 
 ## <a name="sampling-within-a-file"></a>파일 내에서 샘플링
 

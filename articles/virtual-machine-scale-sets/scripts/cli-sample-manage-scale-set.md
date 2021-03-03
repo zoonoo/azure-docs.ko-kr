@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 493f479a09fc7b21bb857ebd98c35824c548b5d0
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1abdf7ae15753d78ac8728f57e9b0cd5dcd9165e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99821960"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672598"
 ---
 # <a name="create-and-manage-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기 및 관리
 
@@ -66,7 +66,7 @@ az disk update --resource-group MyResourceGroup --name myDataDisk --size-gb 200
 az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-확장된 디스크를 사용하려면 기본 파티션을 확장합니다. 자세한 내용은 [디스크 파티션 및 파일 시스템 확장](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem)을 참조하세요.
+확장된 디스크를 사용하려면 기본 파티션을 확장합니다. 자세한 내용은 [디스크 파티션 및 파일 시스템 확장](../../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem)을 참조하세요.
 
 이 예제에서는 데이터 디스크의 크기를 조정합니다. 이와 동일한 절차를 사용하여 OS 디스크를 업데이트할 수 있습니다. Windows 가상 머신에 대한 자세한 내용은 [가상 머신의 OS 드라이브 확장 방법](../../virtual-machines/windows/expand-os-disk.md)을 참조하세요. Linux 가상 머신에 대한 자세한 내용은 [Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장](../../virtual-machines/linux/expand-disks.md)을 참조하세요.
 

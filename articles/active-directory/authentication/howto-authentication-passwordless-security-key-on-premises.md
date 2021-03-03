@@ -1,29 +1,26 @@
 ---
-title: 온-프레미스 리소스에 대 한 암호 없는 보안 키 로그인 (미리 보기)-Azure Active Directory
-description: Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+title: 온-프레미스 리소스에 대 한 암호 없는 보안 키 로그인-Azure Active Directory
+description: Azure Active Directory를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인을 사용 하도록 설정 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743482"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647475"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용 
 
 이 문서에서는 **AZURE ad 조인** 및 **하이브리드 Azure ad 조인** Windows 10 장치를 모두 사용 하는 환경에 대해 온-프레미스 리소스에 대해 암호 없는 인증을 사용 하는 방법을 중점적으로 설명 합니다. 이 기능은 Microsoft 호환 보안 키를 사용 하 여 온-프레미스 리소스에 대 한 원활한 Single Sign-On (SSO)를 제공 합니다.
-
-> [!NOTE]
-> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>FIDO2 키를 사용 하 여 온-프레미스 리소스에 SSO
 
@@ -42,7 +39,7 @@ Azure AD Kerberos 서버 개체는 온-프레미스 Active Directory 만든 다�
 
 ## <a name="requirements"></a>요구 사항
 
-조직에서는이 문서의 단계를 완료 하기 전에 [Windows 10 장치 (미리 보기)에 대 한 암호 없는 보안 키 기호를 사용 하도록 설정](howto-authentication-passwordless-security-key.md) 하는 단계를 완료 해야 합니다.
+조직에서는이 문서의 단계를 완료 하기 전에 [Windows 10 장치에 암호 없는 보안 키 기호를 사용 하도록 설정](howto-authentication-passwordless-security-key.md) 하는 단계를 완료 해야 합니다.
 
 조직에서는 다음과 같은 소프트웨어 요구 사항도 충족 해야 합니다.
 
@@ -109,7 +106,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 이 명령은 Azure AD Kerberos 서버 속성을 출력 합니다. 속성을 검토 하 여 모든 것이 올바른 순서 인지 확인할 수 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | ID | AD DS DC 개체의 고유 ID입니다. 이 ID는 "슬롯" 또는 "분기 ID" 라고도 합니다. |
 | DomainDnsName | Active Directory 도메인 DNS 도메인 이름입니다. |
@@ -156,13 +153,13 @@ Azure AD 사용자를 포함 하는 조직의 각 도메인 및 포리스트에�
 
 ## <a name="troubleshooting-and-feedback"></a>문제 해결 및 피드백
 
-이 기능을 미리 보는 동안 피드백을 공유 하거나 문제를 해결 하려는 경우 다음 단계를 사용 하 여 Windows 피드백 허브 앱을 통해 공유 하세요.
+이 기능을 사용 하 여 피드백을 공유 하거나 문제를 해결 하려는 경우 다음 단계를 사용 하 여 Windows 피드백 허브 앱을 통해 공유 하세요.
 
 1. **피드백 허브** 를 시작 하 고 로그인 했는지 확인 합니다.
 1. 다음 분류에 따라 사용자 의견을 제출 합니다.
    - 범주: 보안 및 개인 정보
    - 하위 범주: FIDO
-1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만드십시오** .
+1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만듭니다**.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

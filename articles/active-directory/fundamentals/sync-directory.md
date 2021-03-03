@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 98aa697c0120fd8a20adf11ad83e02406499a0d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172472"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648495"
 ---
 # <a name="directory-synchronization"></a>디렉터리 동기화
 
@@ -54,7 +54,7 @@ ms.locfileid: "96172472"
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Azure AD를 사용 하 여 디렉터리 동기화 구현
 
-* [ID 프로비저닝이란?](../cloud-provisioning/what-is-provisioning.md) 
+* [ID 프로비저닝이란?](../cloud-sync/what-is-provisioning.md) 
 
 * [하이브리드 id 디렉터리 통합 도구](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 

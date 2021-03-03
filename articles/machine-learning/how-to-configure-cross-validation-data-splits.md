@@ -10,13 +10,13 @@ ms.custom: how-to, automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 06/16/2020
-ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/23/2021
+ms.openlocfilehash: add84c2cb53a362fc78fc50a6df13b4976e3868d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599066"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661038"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
@@ -26,12 +26,12 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 
 자동 ML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
 
-코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md)를 참조 하세요. 
+코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)를 참조 하세요. 
 
 > [!NOTE]
 > 스튜디오는 현재 학습 및 유효성 검사 데이터 분할 뿐만 아니라 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대해 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다.
 
@@ -73,6 +73,9 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 이 경우 단일 데이터 파일로 시작 하 여 학습 데이터 및 유효성 검사 데이터 집합으로 분할 하거나 유효성 검사 집합에 대 한 별도의 데이터 파일을 제공할 수 있습니다. 어느 쪽이 든 `validation_data` 개체의 매개 변수는 `AutoMLConfig` 유효성 검사 집합으로 사용할 데이터를 할당 합니다. 이 매개 변수는 [Azure Machine Learning 데이터 집합](how-to-create-register-datasets.md) 또는 pandas 데이터 프레임 형식의 데이터 집합만을 허용 합니다.   
 
+> [!NOTE]
+> `validation_size`이 매개 변수는 예측 시나리오에서 지원 되지 않습니다.
+
 다음 코드 예제에서는에서 제공 되는 데이터 중 `dataset` 학습 및 유효성 검사에 사용할 데이터 부분을 명시적으로 정의 합니다.
 
 ```python
@@ -93,7 +96,12 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>유효성 검사 설정 크기를 제공 합니다.
 
-이 경우 실험을 위해 단일 데이터 집합만 제공 됩니다. 즉, `validation_data` 매개 변수가 지정 **되지 않고** 제공 된 데이터 집합이  `training_data` 매개 변수에 할당 됩니다.  개체에서 `AutoMLConfig` `validation_size` 유효성 검사를 위해 학습 데이터의 일부를 포함 하도록 매개 변수를 설정할 수 있습니다. 즉, 제공 된 초기에서 자동 Ml에 의해 유효성 검사 집합이 분할 됩니다 `training_data` . 이 값은 0.0에서 1.0 사이 여야 합니다. 예를 들어 0.2는 유효성 검사 데이터에 대 한 20%의 데이터를 보유 하 고 있음을 의미 합니다.
+이 경우 실험을 위해 단일 데이터 집합만 제공 됩니다. 즉, `validation_data` 매개 변수가 지정 **되지 않고** 제공 된 데이터 집합이  `training_data` 매개 변수에 할당 됩니다.  
+
+개체에서 `AutoMLConfig` `validation_size` 유효성 검사를 위해 학습 데이터의 일부를 포함 하도록 매개 변수를 설정할 수 있습니다. 즉, 유효성 검사 집합은 제공 된 초기에서 자동 ML로 분할 됩니다 `training_data` . 이 값은 0.0에서 1.0 사이 여야 합니다. 예를 들어 0.2는 유효성 검사 데이터에 대 한 20%의 데이터를 보유 하 고 있음을 의미 합니다.
+
+> [!NOTE]
+> `validation_size`이 매개 변수는 예측 시나리오에서 지원 되지 않습니다. 
 
 다음 코드 예제를 참조 하세요.
 
@@ -111,10 +119,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-## <a name="set-the-number-of-cross-validations"></a>교차 유효성 검사의 수 설정
+## <a name="k-fold-cross-validation"></a>K-폴드 교차 유효성 검사
 
-교차 유효성 검사를 수행 하려면 매개 변수를 포함 하 `n_cross_validations` 고 값으로 설정 합니다. 이 매개 변수는 동일한 접기 수에 따라 수행할 교차 유효성 검사의 수를 설정 합니다.
+K 접기 교차 유효성 검사를 수행 하려면 매개 변수를 포함 하 `n_cross_validations` 고 값으로 설정 합니다. 이 매개 변수는 동일한 접기 수에 따라 수행할 교차 유효성 검사의 수를 설정 합니다.
 
+> [!NOTE]
+> `n_cross_validations`이 매개 변수는 심층 신경망을 사용 하는 분류 시나리오에서 지원 되지 않습니다.
+ 
 다음 코드에서는 교차 유효성 검사에 대 한 5 개의 접기가 정의 됩니다. 따라서 5 개의 서로 다른 학습, 각각 4/5 데이터를 사용 하는 각 학습 및 각각 다른 홀드 아웃을 사용 하는 데이터의 1/5을 사용 하 여 각 유효성 검사가 수행 됩니다.
 
 따라서 메트릭은 5 가지 유효성 검사 메트릭의 평균을 사용 하 여 계산 됩니다.
@@ -129,6 +140,31 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                              primary_metric = 'AUC_weighted',
                              training_data = dataset,
                              n_cross_validations = 5
+                             label_column_name = 'Class'
+                            )
+```
+## <a name="monte-carlo-cross-validation"></a>Monte 몬테카를로 교차 유효성 검사
+
+Monte 몬테카를로 교차 유효성 검사를 수행 하려면 `validation_size` `n_cross_validations` 개체에 및 매개 변수를 모두 포함 `AutoMLConfig` 합니다. 
+
+Monte 몬테카를로 교차 유효성 검사의 경우 자동화 된 ML은 유효성 검사를 위해 매개 변수로 지정 된 학습 데이터의 일부를 분리 한 `validation_size` 다음 학습을 위해 나머지 데이터를 할당 합니다. 그런 다음 매개 변수에 지정 된 값을 기준으로이 프로세스가 반복 되며, `n_cross_validations` 언제 든 지 새 학습 및 유효성 검사 분할을 생성 합니다.
+
+> [!NOTE]
+> Monte 몬테카를로 교차 유효성 검사는 예측 시나리오에서 지원 되지 않습니다.
+
+다음 코드를 정의 하 고 교차 유효성 검사에 대 한 7 접기 및 학습 데이터의 20%가 유효성 검사에 사용 되어야 합니다. 따라서 7 개의 다른 학습, 각 학습에서 데이터의 80%를 사용 하 고 각 유효성 검사는 매번 다른 홀드 아웃 접기로 데이터의 20%를 사용 합니다.
+
+```python
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+
+dataset = Dataset.Tabular.from_delimited_files(data)
+
+automl_config = AutoMLConfig(compute_target = aml_remote_compute,
+                             task = 'classification',
+                             primary_metric = 'AUC_weighted',
+                             training_data = dataset,
+                             n_cross_validations = 7
+                             validation_size = 0.2,
                              label_column_name = 'Class'
                             )
 ```

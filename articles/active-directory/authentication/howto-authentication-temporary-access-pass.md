@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d45119fa86ab47e6a625c628d8cb9763db83bd
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b0f49f39e6bc291c3242fe739866a015ac154a8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520992"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651164"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>암호 없는 인증 방법 (미리 보기)을 등록 하기 위해 Azure AD에서 임시 액세스 단계 구성
 
@@ -54,7 +54,7 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
     최소 수명 | 1시간         | 10-43200 분 (30 일) | 탭을 사용할 수 있는 최소 시간 (분)입니다.                                                                                                                                                                                                                         |   |
    | 최대 수명 | 24시간       | 10-43200 분 (30 일) | 탭을 사용할 수 있는 최대 시간 (분)입니다.                                                                                                                                                                                                                         |   |
    | 기본 수명 | 1시간         | 10-43200 분 (30 일) | 기본 값은 정책에 의해 구성 된 최소 및 최대 수명 내에서 개별 패스에 의해 재정의 될 수 있습니다.                                                                                                                                                |   |
-   | 일회성 사용     | 거짓          | True/False                 | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 탭 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |   |
+   | 일회성 사용     | False          | True/False                 | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 탭 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |   |
    | 길이           | 8              | 8-48 문자              | 암호 길이를 정의 합니다.                                                                                                                                                                                                                                      |   |
 
 ## <a name="create-a-tap-in-the-azure-ad-portal"></a>Azure AD 포털에서 탭 만들기
@@ -74,6 +74,9 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
 1. **인증 방법을 추가** 하는 옵션을 선택 합니다.
 1. **방법 선택** 아래에서 **임시 액세스 패스 (미리 보기)** 를 클릭 합니다.
 1. 사용자 지정 활성화 시간 또는 기간을 정의 하 고 **추가** 를 클릭 합니다.
+
+   >[!NOTE]
+   >로그인 상태 유지 (KMSI)가 테 넌 트에서 사용 하도록 설정 된 경우 한 번의 탭 사용이 적용 되지 않습니다. 일회성 탭을 만드는 경우 KMSI를 사용 하지 않도록 설정 해야 합니다.
 
    ![탭을 만드는 방법의 스크린샷](./media/how-to-authentication-temporary-access-pass/create.png)
 
@@ -125,6 +128,7 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
 - 게스트 사용자는 탭을 사용 하 여 로그인 할 수 없습니다.
 - SSPR (셀프 서비스 암호 재설정) 등록 정책 범위에 있는 사용자는 탭 하 여 로그인 한 후 SSPR 메서드 중 하나를 등록 해야 합니다. 사용자가 FIDO2 키만 사용 하려는 경우 SSPR 정책에서 제외 하거나 SSPR 등록 정책을 사용 하지 않도록 설정 합니다. 
 - 탭은 NPS (네트워크 정책 서버) 확장 및 Active Directory Federation Services (AD FS) 어댑터와 함께 사용할 수 없습니다.
+- 테 넌 트에서 KMSI를 사용 하도록 설정한 경우에는 한 번의 탭 사용이 적용 되지 않습니다.
 - 테 넌 트에서 원활한 SSO를 사용 하도록 설정 하면 사용자에 게 암호를 입력 하 라는 메시지가 표시 됩니다. 사용자가 탭을 사용 하 여 로그인 할 수 있도록 **임시 액세스 전달 대신 사용** 링크를 사용할 수 있습니다.
 
 ![대신 탭 사용의 스크린샷](./media/how-to-authentication-temporary-access-pass/alternative.png)

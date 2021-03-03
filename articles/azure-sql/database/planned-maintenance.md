@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333038"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664120"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 Azure 유지 관리 이벤트 계획
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,12 @@ Azure SQL Database 및 Azure SQL Managed Instance 서비스를 안전 하 고 �
 
 데이터베이스에 로그온 오류가 발생 한 경우 [Azure Portal](https://portal.azure.com) 에서 현재 상태에 대 한 [Resource Health](../../service-health/resource-health-overview.md#get-started) 창을 확인 합니다. 상태 기록 섹션에는 각 이벤트에 대한 가동 중지 시간 이유가 포함됩니다(가능한 경우).
 
+## <a name="maintenance-window-feature"></a>유지 관리 기간 기능
+
+유지 관리 기간 기능을 사용 하면 적합 한 Azure SQL 데이터베이스 및 SQL 관리 되는 인스턴스에 대 한 예측 가능한 유지 관리 기간 일정을 구성할 수 있습니다. 자세한 내용은 [유지 관리 기간](maintenance-window.md) 을 참조 하십시오.
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL Database 및 Azure SQL Managed Instance에 대 한 [Resource Health](resource-health-to-troubleshoot-connectivity.md) 에 대해 자세히 알아보세요.
 - 재시도 논리에 대 한 자세한 내용은 [일시적인 오류에 대 한 다시 시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)를 참조 하세요.
+- [유지 관리 기간 기능을](maintenance-window.md) 사용 하 여 유지 관리 기간 일정을 구성 합니다.

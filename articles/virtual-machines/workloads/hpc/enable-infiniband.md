@@ -3,17 +3,17 @@ title: HPC Vm에서 InifinBand 사용-Azure Virtual Machines | Microsoft Docs
 description: Azure HPC Vm에서 InfiniBand을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2b2b9a8188bc83bba029755ffbbc590999cf9b3d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd4d928217ceba80fa5ea0252a6ed20803a812d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966992"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666965"
 ---
 # <a name="enable-infiniband"></a>InfiniBand 사용
 

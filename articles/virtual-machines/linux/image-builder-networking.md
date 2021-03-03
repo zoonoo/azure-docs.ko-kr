@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: e69781bf6d33c176d27c16a7f3cf38539ec28f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: cd5027ca6e0ce3dc02da14b7dd6afd6e00e3f92d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678241"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669433"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Azure 이미지 작성기 서비스 네트워킹 옵션
 
@@ -62,7 +63,7 @@ Azure 이미지 작성기에서 기존 VNET을 사용 하려면 특정 권한이
         },
 ```
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|---------|
 | name | 필드 기존 가상 네트워크의 이름입니다. |
 | subnetName | 지정 된 가상 네트워크 내에 있는 서브넷의 이름입니다. *Name* 이 지정 된 경우에만 지정 해야 합니다. |

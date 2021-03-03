@@ -1,18 +1,18 @@
 ---
 title: NCv3 시리즈-Azure Virtual Machines
 description: NCv3 시리즈 Vm에 대 한 사양입니다.
-ms.subservice: sizes
+ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b8eeb06b75ba0e0bdaf19957699ad638c6937891
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d42b4eac09579dfa09cc07bfbbfffa1bbdaa65b5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094761"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670205"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
@@ -31,7 +31,7 @@ Nvidia NVLink Interconnect: 지원 되지 않음<br>
 > 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다. 이러한 Sku는 평가판 또는 Visual Studio 구독자 Azure 구독에 사용할 수 없습니다. 구독 수준에서 이러한 Sku를 선택 하거나 배포 하는 것을 지원 하지 않을 수 있습니다. 
 >
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
 | Standard_NC6s_v3    | 6  | 112 | 736  | 1 | 16 | 12 | 20000/200 | 4 |
 | Standard_NC12s_v3   | 12 | 224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |

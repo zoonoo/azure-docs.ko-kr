@@ -3,18 +3,19 @@ title: Azure에서 OpenShift Container Platform 3.11 배포
 description: Azure에서 OpenShift Container Platform 3.11을 배포 합니다.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 054fb2ffc65b44d5436282eab5327f0facf39c06
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703741"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671187"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
 
@@ -243,7 +244,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 ### <a name="azuredeployparametersjson-file-explained"></a>파일에 대 한 azuredeploy.Parameters.js설명
 
-| 속성 | Description | 유효한 옵션 | 기본값 |
+| 속성 | 설명 | 유효한 옵션 | 기본값 |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https: \/ /raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 리소스를 배포할 Azure 지역 |  |  |
@@ -276,8 +277,8 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `keyVaultName` | 만든 Key Vault의 이름입니다. |  |  |
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
-| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | none |
-| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본값 <br> 사용자 지정 | 기본값 |
+| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
+| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | default <br> 사용자 지정 | default |
 | `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다. `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain` 는 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 사용자 지정 | nipio |
 | `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름 `routingSubDomainType` |  | apps.contoso.com |

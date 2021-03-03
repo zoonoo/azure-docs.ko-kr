@@ -2,18 +2,18 @@
 title: Azure Arc 사용 Kubernetes 에이전트 아키텍처
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 에이전트의 아키텍처 개요를 제공 합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652567"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650535"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc 사용 Kubernetes 에이전트 아키텍처
 
@@ -29,7 +29,7 @@ ms.locfileid: "100652567"
 
 ![아키텍처 개요](./media/architectural-overview.png)
 
-### <a name="connect-a-cluster-to-azure-arc"></a>Azure Arc에 클러스터 연결
+### <a name="connect-a-cluster-to-azure-arc"></a>클러스터를 Azure Arc에 연결
 
 1. 선택한 인프라 (VMware vSphere, Amazon Web Services, Google Cloud Platform 등)에서 Kubernetes 클러스터를 만듭니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "100652567"
 
         | 에이전트 | 설명 |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes는 현재 [시스템 할당 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)만 지원 합니다. `clusteridentityoperator` 첫 번째 아웃 바운드 통신을 시작 합니다. 이 첫 번째 통신에서는 다른 에이전트가 Azure와 통신 하기 위해 사용 하는 MSI (관리 서비스 ID) 인증서를 페치합니다. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes는 현재 [시스템 할당 id](../../active-directory/managed-identities-azure-resources/overview.md)만 지원 합니다. `clusteridentityoperator` 첫 번째 아웃 바운드 통신을 시작 합니다. 이 첫 번째 통신에서는 다른 에이전트가 Azure와 통신 하기 위해 사용 하는 MSI (관리 서비스 ID) 인증서를 페치합니다. |
         | `deployment.apps/config-agent` | 클러스터에 적용 된 원본 제어 구성 리소스에 대해 연결 된 클러스터를 감시 합니다. 준수 상태를 업데이트 합니다. |
         | `deployment.apps/controller-manager` | Azure Arc 구성 요소 간의 상호 작용을 오케스트레이션 하는 연산자의 연산자입니다. |    
         | `deployment.apps/metrics-agent` | 최적의 성능을 확인 하기 위해 다른 Arc 에이전트의 메트릭을 수집 합니다. |
@@ -68,8 +68,8 @@ ms.locfileid: "100652567"
 | 에이전트의 리소스 소비 (메모리/CPU) | 진단 및 지원 가능성 | 에이전트가 Azure에 푸시 |
 | 모든 에이전트 컨테이너의 로그 | 진단 및 지원 가능성 | 에이전트가 Azure에 푸시 |
 | 에이전트 업그레이드 가용성 | 에이전트 업그레이드 | 에이전트가 Azure에서 끌어옵니다. |
-| 필요한 구성 상태: Git 리포지토리 URL, flux 연산자 매개 변수, 개인 키, 알려진 호스트 콘텐츠, HTTPS 사용자 이름, 토큰 또는 암호 | 구성 | 에이전트가 Azure에서 끌어옵니다. |
-| Flux 운영자 설치 상태 | 구성 | 에이전트가 Azure에 푸시 |
+| 필요한 구성 상태: Git 리포지토리 URL, flux 연산자 매개 변수, 개인 키, 알려진 호스트 콘텐츠, HTTPS 사용자 이름, 토큰 또는 암호 | Configuration | 에이전트가 Azure에서 끌어옵니다. |
+| Flux 운영자 설치 상태 | Configuration | 에이전트가 Azure에 푸시 |
 | 클러스터 내에서 게이트 키퍼를 적용 해야 하는 Azure Policy 할당 | Azure Policy | 에이전트가 Azure에서 끌어옵니다. |
 | 클러스터 내 정책 사항을의 감사 및 준수 상태 | Azure Policy | 에이전트가 Azure에 푸시 |
 | 고객 작업에 대 한 메트릭 및 로그 | Azure Monitor | 에이전트는 고객의 테 넌 트 및 구독에서 Log Analytics 작업 영역 리소스에 푸시합니다. |
@@ -93,5 +93,5 @@ ms.locfileid: "100652567"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Arc에 클러스터 연결](./connect-cluster.md)
+* [클러스터를 Azure Arc에 연결](./quickstart-connect-cluster.md)
 * [구성의 개념적 개요](./conceptual-configurations.md)

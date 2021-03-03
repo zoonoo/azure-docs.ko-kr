@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.author: jlian
-ms.openlocfilehash: c6544e8ac00744602476207a89567aea5afe5b1d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632368"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656366"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "98632368"
 
 ## <a name="when-to-use"></a>사용 시기
 
-IP 필터를 사용 하 여 지정 된 범위의 IP 주소 에서만 트래픽을 수신 하 고 다른 모든 항목을 거부 합니다. 예를 들어 iot hub와 [Azure Express 경로](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) 를 사용 하 여 iot hub와 온-프레미스 인프라 간의 개인 연결을 만들 수 있습니다.
+IP 필터를 사용 하 여 지정 된 범위의 IP 주소 에서만 트래픽을 수신 하 고 다른 모든 항목을 거부 합니다. 예를 들어 iot hub와 [Azure Express 경로](../expressroute/expressroute-faqs.md#supported-services) 를 사용 하 여 iot hub와 온-프레미스 인프라 간의 개인 연결을 만들 수 있습니다.
 
 ## <a name="default-setting"></a>기본 설정
 
@@ -164,7 +164,7 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>REST를 사용하여 IP 필터 규칙 업데이트
 
 
-또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate)의 `properties.networkRuleSets`를 참조하세요.
+또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](/rest/api/iothub/iothubresource/createorupdate)의 `properties.networkRuleSets`를 참조하세요.
 
 ## <a name="ip-filter-classic-retirement"></a>IP 필터 (클래식) 사용 중지
 
@@ -174,7 +174,7 @@ $iothubResource | Set-AzResource -Force
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Hub 메트릭](iot-hub-metrics.md)
+* [IoT Hub 메트릭](./monitor-iot-hub.md)
 * [Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원](virtual-network-support.md)
 * [IoT hub에 대 한 공용 네트워크 액세스 관리](iot-hub-public-network-access.md)
 * [IoT Hub 모니터링](monitor-iot-hub.md)

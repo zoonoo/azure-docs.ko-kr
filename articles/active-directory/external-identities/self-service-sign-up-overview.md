@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13023ef93cabcf46924cc2cc76dc2d868c4a1ddd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909053"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653571"
 ---
-# <a name="self-service-sign-up-preview"></a>셀프 서비스 등록(미리 보기)
-
-> [!NOTE]
-> 셀프 서비스 등록은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="self-service-sign-up"></a>셀프 서비스 가입
 
 외부 사용자와 애플리케이션을 공유하는 경우 애플리케이션에 액세스해야 하는 사용자를 항상 미리 알 수 있는 것은 아닙니다. 개인에게 직접 초대를 보내는 대신, 외부 사용자가 셀프 서비스 등록을 사용하도록 설정하여 특정 애플리케이션에 직접 등록하도록 허용할 수 있습니다. 셀프 서비스 등록 사용자 흐름을 사용자 지정하여 맞춤형 등록 환경을 만들 수 있습니다. 예를 들어 Azure AD 또는 소셜 ID 공급자에 등록하고 등록 프로세스 중에 사용자에 대한 정보를 수집하는 옵션을 제공할 수 있습니다.
 

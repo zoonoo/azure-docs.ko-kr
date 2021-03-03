@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797278"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646285"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대 한 조건부 액세스
 
@@ -42,7 +42,7 @@ ms.locfileid: "98797278"
 | 단계 | 설명 |
 |--------------|-----------------------|
 | 1. |사용자가 다른 테 넌 트의 리소스에 대 한 액세스를 요청 합니다. 리소스는 사용자를 해당 리소스 테 넌 트 (신뢰할 수 있는 IdP)로 리디렉션합니다.|
-| 2. | 리소스 테 넌 트는 사용자를 [외부 전자 메일 otp (일회용 암호) 사용자](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) 로 식별 하 고 otp를 사용 하 여 사용자에 게 전자 메일을 보냅니다.|
+| 2. | 리소스 테 넌 트는 사용자를 [외부 전자 메일 otp (일회용 암호) 사용자](./one-time-passcode.md) 로 식별 하 고 otp를 사용 하 여 사용자에 게 전자 메일을 보냅니다.|
 | 3. | 사용자가 OTP를 검색 하 고 코드를 전송 합니다. 리소스 테 넌 트는 CA 정책에 대해 사용자를 평가 합니다.
 | 4. | 모든 CA 정책이 충족 되 면 리소스 테 넌 트가 토큰을 발급 하 고 사용자를 리소스로 리디렉션합니다. |
 
@@ -64,7 +64,7 @@ ms.locfileid: "98797278"
 
 5. 이 시나리오는 Azure AD 또는 개인 Microsoft 계정 (MSA)의 모든 id에 대해 작동 합니다. 예를 들어 Contoso의 사용자가 소셜 ID를 사용 하 여 인증 하는 경우
 
-6. Fabrikam은 Azure AD Multi-Factor Authentication를 지 원하는 충분 한 프리미엄 Azure AD 라이선스를 보유 해야 합니다. Contoso의 사용자는 Fabrikam의이 라이선스를 사용 합니다. B2B 라이선스에 대 한 자세한 내용은 [AZURE AD external id에 대 한 청구 모델을](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) 참조 하세요.
+6. Fabrikam은 Azure AD Multi-Factor Authentication를 지 원하는 충분 한 프리미엄 Azure AD 라이선스를 보유 해야 합니다. Contoso의 사용자는 Fabrikam의이 라이선스를 사용 합니다. B2B 라이선스에 대 한 자세한 내용은 [AZURE AD external id에 대 한 청구 모델을](./external-identities-pricing.md) 참조 하세요.
 
 >[!NOTE]
 >Azure AD Multi-Factor Authentication는 예측 가능성을 보장 하기 위해 리소스 테 넌 트에서 수행 됩니다.
@@ -115,44 +115,43 @@ B2B 게스트 사용자에 대 한 CA 정책에 영향을 주는 다양 한 요�
 
 ### <a name="device-based-conditional-access"></a>디바이스 기반 조건부 액세스
 
-CA에는 사용자의 [장치가 규격 또는 하이브리드 AZURE AD에 가입](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview)되도록 요구 하는 옵션이 있습니다. B2B 게스트 사용자는 리소스 테 넌 트가 자신의 장치를 관리할 수 있는 경우에만 규정 준수를 충족할 수 있습니다. 한 번에 둘 이상의 조직에서 장치를 관리할 수 없습니다. B2B 게스트 사용자는 온-프레미스 AD 계정이 없으므로 하이브리드 Azure AD 조인을 만족할 수 없습니다. 게스트 사용자의 장치가 관리 되지 않는 경우에만 리소스 테 넌 트에서 장치를 등록 하거나 등록 한 다음 장치를 규격으로 만들 수 있습니다. 그러면 사용자가 grant 컨트롤을 만족할 수 있습니다.
+CA에는 사용자의 [장치가 규격 또는 하이브리드 AZURE AD에 가입](../conditional-access/concept-conditional-access-conditions.md#device-state-preview)되도록 요구 하는 옵션이 있습니다. B2B 게스트 사용자는 리소스 테 넌 트가 자신의 장치를 관리할 수 있는 경우에만 규정 준수를 충족할 수 있습니다. 한 번에 둘 이상의 조직에서 장치를 관리할 수 없습니다. B2B 게스트 사용자는 온-프레미스 AD 계정이 없으므로 하이브리드 Azure AD 조인을 만족할 수 없습니다. 게스트 사용자의 장치가 관리 되지 않는 경우에만 리소스 테 넌 트에서 장치를 등록 하거나 등록 한 다음 장치를 규격으로 만들 수 있습니다. 그러면 사용자가 grant 컨트롤을 만족할 수 있습니다.
 
 >[!Note]
 >외부 사용자를 위해 관리 되는 장치를 요구 하지 않는 것이 좋습니다.
 
 ### <a name="mobile-application-management-policies"></a>모바일 애플리케이션 관리 정책
 
-**승인 된 클라이언트 앱 필요** 및 **앱 보호 정책 요구** 와 같은 CA 부여 컨트롤은 장치를 테 넌 트에 등록 해야 합니다. 이러한 컨트롤은 [iOS 및 Android 장치](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms)에만 적용할 수 있습니다. 그러나 사용자의 장치가 이미 다른 조직에 의해 관리 되 고 있는 경우 이러한 컨트롤은 B2B 게스트 사용자에 게 적용할 수 없습니다. 모바일 장치는 한 번에 둘 이상의 테 넌 트에 등록할 수 없습니다. 모바일 장치가 다른 조직에서 관리 되는 경우 사용자가 차단 됩니다. 게스트 사용자의 장치가 관리 되지 않는 경우에만 리소스 테 넌 트에 장치를 등록할 수 있습니다. 그러면 사용자가 grant 컨트롤을 만족할 수 있습니다.  
+**승인 된 클라이언트 앱 필요** 및 **앱 보호 정책 요구** 와 같은 CA 부여 컨트롤은 장치를 테 넌 트에 등록 해야 합니다. 이러한 컨트롤은 [iOS 및 Android 장치](../conditional-access/concept-conditional-access-conditions.md#device-platforms)에만 적용할 수 있습니다. 그러나 사용자의 장치가 이미 다른 조직에 의해 관리 되 고 있는 경우 이러한 컨트롤은 B2B 게스트 사용자에 게 적용할 수 없습니다. 모바일 장치는 한 번에 둘 이상의 테 넌 트에 등록할 수 없습니다. 모바일 장치가 다른 조직에서 관리 되는 경우 사용자가 차단 됩니다. 게스트 사용자의 장치가 관리 되지 않는 경우에만 리소스 테 넌 트에 장치를 등록할 수 있습니다. 그러면 사용자가 grant 컨트롤을 만족할 수 있습니다.  
 
 >[!NOTE]
 >외부 사용자에 대해 앱 보호 정책을 요구 하지 않는 것이 좋습니다.
 
 ### <a name="location-based-conditional-access"></a>위치 기반 조건부 액세스
 
-초대 하는 조직이 파트너 조직을 정의 하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있는 경우 IP 범위를 기반으로 하는 [위치 기반 정책을](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) 적용할 수 있습니다.
+초대 하는 조직이 파트너 조직을 정의 하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있는 경우 IP 범위를 기반으로 하는 [위치 기반 정책을](../conditional-access/concept-conditional-access-conditions.md#locations) 적용할 수 있습니다.
 
 **지리적 위치** 에 따라 정책을 적용할 수도 있습니다.
 
 ### <a name="risk-based-conditional-access"></a>위험 기반 조건부 액세스
 
-B2B 게스트 사용자가 grant 컨트롤을 충족 하는 경우 [로그인 위험 정책이](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) 적용 됩니다. 예를 들어, 조직에서 중간 또는 높은 로그인 위험에 대해 Azure AD Multi-Factor Authentication 필요할 수 있습니다. 그러나 사용자가 이전에 Azure AD Multi-Factor Authentication에 등록 하지 않은 경우에는 사용자가 차단 됩니다. 이 작업은 악의적인 사용자가 합법적인 사용자의 암호를 손상 시키는 경우 자신의 Azure AD Multi-Factor Authentication 자격 증명을 등록 하지 못하도록 하기 위한 것입니다.
+B2B 게스트 사용자가 grant 컨트롤을 충족 하는 경우 [로그인 위험 정책이](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) 적용 됩니다. 예를 들어, 조직에서 중간 또는 높은 로그인 위험에 대해 Azure AD Multi-Factor Authentication 필요할 수 있습니다. 그러나 사용자가 이전에 Azure AD Multi-Factor Authentication에 등록 하지 않은 경우에는 사용자가 차단 됩니다. 이 작업은 악의적인 사용자가 합법적인 사용자의 암호를 손상 시키는 경우 자신의 Azure AD Multi-Factor Authentication 자격 증명을 등록 하지 못하도록 하기 위한 것입니다.
 
-그러나 [사용자 위험 정책은](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) 리소스 테 넌 트에서 확인할 수 없습니다. 예를 들어 높은 위험 수준 게스트 사용자를 위해 암호를 변경 해야 하는 경우 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 차단 됩니다.
+그러나 [사용자 위험 정책은](../conditional-access/concept-conditional-access-conditions.md#user-risk) 리소스 테 넌 트에서 확인할 수 없습니다. 예를 들어 높은 위험 수준 게스트 사용자를 위해 암호를 변경 해야 하는 경우 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 차단 됩니다.
 
 ### <a name="conditional-access-client-apps-condition"></a>조건부 액세스 클라이언트 앱 조건
 
-[클라이언트 앱 조건은](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) 다른 유형의 사용자와 마찬가지로 B2B 게스트 사용자에 대해 동일 하 게 동작 합니다. 예를 들어 게스트 사용자가 레거시 인증 프로토콜을 사용 하지 못하도록 할 수 있습니다.
+[클라이언트 앱 조건은](../conditional-access/concept-conditional-access-conditions.md#client-apps) 다른 유형의 사용자와 마찬가지로 B2B 게스트 사용자에 대해 동일 하 게 동작 합니다. 예를 들어 게스트 사용자가 레거시 인증 프로토콜을 사용 하지 못하도록 할 수 있습니다.
 
 ### <a name="conditional-access-session-controls"></a>조건부 액세스 세션 컨트롤
 
-[세션 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) 은 다른 유형의 사용자와 마찬가지로 B2B 게스트 사용자에 대해 동일 하 게 동작 합니다.
+[세션 컨트롤](../conditional-access/concept-conditional-access-session.md) 은 다른 유형의 사용자와 마찬가지로 B2B 게스트 사용자에 대해 동일 하 게 동작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 Azure AD B2B 공동 작업에 대 한 다음 문서를 참조 하세요.
 
-- [Azure AD B2B 협업이란?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
-- [ID 보호 및 B2B 사용자](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Azure AD B2B 협업이란?](./what-is-b2b.md)
+- [ID 보호 및 B2B 사용자](../identity-protection/concept-identity-protection-b2b.md)
 - [외부 ID 가격](https://azure.microsoft.com/pricing/details/active-directory/)
-- [FAQ(질문과 대답)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
-
+- [FAQ(질문과 대답)](./faq.md)

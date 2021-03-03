@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365449"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649321"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -26,23 +26,21 @@ ms.locfileid: "100365449"
 
    > [!IMPORTANT]
    > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
-   > - **2021 년 10 월부터** MICROSOFT는 B2B 공동 작업 시나리오에 대 한 관리 되지 않는 Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
+   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
-## <a name="redemption-through-the-invitation-email"></a>초대 이메일을 통해 상환
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 끝점을 통한 상환 및 로그인
 
-[Azure Portal](./b2b-quickstart-add-guest-users-portal.md)을 사용하여 디렉터리에 게스트 사용자를 추가하는 과정에서 게스트에게 초대 이메일이 전송됩니다. [PowerShell](./b2b-quickstart-invite-powershell.md)을 사용하여 디렉터리에 게스트 사용자를 추가할 때 초대 이메일을 보내도록 선택할 수도 있습니다. 다음은 게스트가 이메일의 링크를 사용할 때 거치게 되는 경험에 대한 설명입니다.
+예를 들어, 이제 게스트 사용자는 공통 끝점 (URL)을 통해 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다 `https://myapps.microsoft.com` . 이전에는 공용 URL이 인증을 위해 리소스 테 넌 트 대신 게스트 사용자를 해당 홈 테 넌 트로 리디렉션하 므로 테 넌 트 별 링크가 필요 합니다 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` ). 이제 게스트 사용자는 응용 프로그램의 공통 URL로 이동 하 여 **로그인 옵션** 을 선택한 다음 **조직에 로그인** 을 선택할 수 있습니다. 그런 다음 사용자에 게 조직의 이름을 입력 합니다.
 
-1. 게스트가 **Microsoft Invitations** 에서 보낸 [초대 이메일](./invitation-email-elements.md)을 받습니다.
-2. 게스트가 이메일에서 **초대 수락** 을 선택합니다.
-3. 게스트가 자신의 자격 증명을 사용하여 여러분의 디렉터리에 로그인합니다. 게스트가 디렉터리에 페더레이션할 수 있는 계정을 갖고 있지 않으며 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능이 설정되어 있지 않으면 [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 또는 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md)을 만들라는 메시지가 게스트에게 표시됩니다. 자세한 내용은 [초대 사용 흐름](#invitation-redemption-flow)을 참조하세요.
-4. 게스트는 아래에 설명된 [동의 환경](#consent-experience-for-the-guest)을 거칩니다.
+![공통 끝점 로그인](media/redemption-experience/common-endpoint-flow-small.png)
 
+그러면 사용자가 전자 메일 주소로 로그인 하거나 구성한 id 공급자를 선택할 수 있는 테 넌 트 끝점으로 리디렉션됩니다.
 ## <a name="redemption-through-a-direct-link"></a>직접 링크를 통해 상환
 
-초대 이메일 대신 게스트에게 앱 또는 포털의 직접 링크를 제공할 수도 있습니다. 그러려면 먼저 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) 또는 [PowerShell](./b2b-quickstart-invite-powershell.md)을 통해 게스트 사용자를 디렉터리에 추가해야 합니다. 그런 다음, 직접 로그온 링크를 비롯한 [사용자 지정 가능한 방법을 사용하여 사용자에게 애플리케이션을 배포](../manage-apps/end-user-experiences.md)할 수 있습니다. 게스트가 초대 이메일 대신 직접 링크를 사용하더라도 최초 동의 과정을 거치게 됩니다.
+초대 전자 메일 또는 응용 프로그램의 공통 URL 대신 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 그러려면 먼저 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) 또는 [PowerShell](./b2b-quickstart-invite-powershell.md)을 통해 게스트 사용자를 디렉터리에 추가해야 합니다. 그런 다음, 직접 로그온 링크를 비롯한 [사용자 지정 가능한 방법을 사용하여 사용자에게 애플리케이션을 배포](../manage-apps/end-user-experiences.md)할 수 있습니다. 게스트가 초대 이메일 대신 직접 링크를 사용하더라도 최초 동의 과정을 거치게 됩니다.
 
-> [!IMPORTANT]
-> 직접 링크는 테넌트와 관련되어야 합니다. 즉, 공유 앱이 있는 테넌트에서 게스트를 인증할 수 있도록 테넌트 ID 또는 확인된 도메인이 포함되어야 합니다. https://myapps.microsoft.com 형식의 일반적인 URL은 인증을 위해 해당 홈 테넌트로 리디렉션하기 때문에 게스트에게는 작동하지 않습니다. 다음은 테넌트 컨텍스트가 포함된 직접 링크의 예입니다.
+> [!NOTE]
+> 직접 링크는 테 넌 트에만 해당 됩니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 하므로, 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. 다음은 테넌트 컨텍스트가 포함된 직접 링크의 예입니다.
  > - 앱 액세스 패널: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - 확인된 도메인의 앱 액세스 패널: `https://myapps.microsoft.com/<;verified domain>`
  > - Azure Portal: `https://portal.azure.com/<tenant id>`
@@ -53,6 +51,14 @@ ms.locfileid: "100365449"
  - 경우에 따라 연락처 개체(예: Outlook 연락처 개체)와 충돌이 발생하기 때문에 초대된 사용자 개체에는 이메일 주소가 없을 수 있습니다. 이 경우에 사용자는 초대 이메일에서 상환 URL을 클릭해야 합니다.
  - 사용자는 초대된 이메일 주소의 별칭으로 로그인할 수 있습니다. (별칭은 이메일 계정과 연결된 추가 이메일 주소입니다.) 이 경우에 사용자는 초대 이메일에서 상환 URL을 클릭해야 합니다.
 
+## <a name="redemption-through-the-invitation-email"></a>초대 이메일을 통해 상환
+
+[Azure Portal](./b2b-quickstart-add-guest-users-portal.md)을 사용하여 디렉터리에 게스트 사용자를 추가하는 과정에서 게스트에게 초대 이메일이 전송됩니다. [PowerShell](./b2b-quickstart-invite-powershell.md)을 사용하여 디렉터리에 게스트 사용자를 추가할 때 초대 이메일을 보내도록 선택할 수도 있습니다. 다음은 게스트가 이메일의 링크를 사용할 때 거치게 되는 경험에 대한 설명입니다.
+
+1. 게스트가 **Microsoft Invitations** 에서 보낸 [초대 이메일](./invitation-email-elements.md)을 받습니다.
+2. 게스트가 이메일에서 **초대 수락** 을 선택합니다.
+3. 게스트가 자신의 자격 증명을 사용하여 여러분의 디렉터리에 로그인합니다. 게스트가 디렉터리에 페더레이션할 수 있는 계정을 갖고 있지 않으며 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능이 설정되어 있지 않으면 [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 또는 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md)을 만들라는 메시지가 게스트에게 표시됩니다. 자세한 내용은 [초대 사용 흐름](#invitation-redemption-flow)을 참조하세요.
+4. 게스트는 아래에 설명된 [동의 환경](#consent-experience-for-the-guest)을 거칩니다.
 ## <a name="invitation-redemption-flow"></a>초대 사용 흐름
 
 사용자가 [초대 이메일](invitation-email-elements.md)에서 **초대 수락** 링크를 클릭하면 Azure AD는 아래의 사용 흐름에 따라 자동으로 초대를 사용합니다.

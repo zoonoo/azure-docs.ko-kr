@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697863"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644445"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 등록 오류 문제 해결
 Automanage는 컴퓨터를 서비스에 등록 하지 못할 수 있습니다. 이 문서에서는 배포 실패 문제를 해결 하는 방법을 설명 하 고, 배포가 실패할 수 있는 몇 가지 일반적인 이유를 공유 하 고, 완화의 잠재적인 다음 단계를 설명 합니다.
@@ -37,7 +37,7 @@ Automanage에 컴퓨터를 온 보 딩 하면 Azure Resource Manager 배포가 �
 Error |  완화 방법
 :-----|:-------------|
 계정 권한 부족 자동 관리 오류 | 이는 최근에 새 Automanage 계정이 포함 된 구독을 새 테 넌 트로 이동한 경우에 발생할 수 있습니다. 이 문제를 해결 하는 단계는 [여기](./repair-automanage-account.md)에 있습니다.
-영역 매핑 요구 사항이 일치 하지 않는 작업 영역 영역 | Automanage에서 컴퓨터를 온보드 할 수 없지만 컴퓨터가 현재 연결 되어 있는 Log Analytics 작업 영역이 지원 되는 자동화 지역에 매핑되지 않았습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 지원 되는 [지역 매핑에](https://docs.microsoft.com/azure/automation/how-to/region-mappings)있는지 확인 합니다.
+영역 매핑 요구 사항이 일치 하지 않는 작업 영역 영역 | Automanage에서 컴퓨터를 온보드 할 수 없지만 컴퓨터가 현재 연결 되어 있는 Log Analytics 작업 영역이 지원 되는 자동화 지역에 매핑되지 않았습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 지원 되는 [지역 매핑에](../automation/how-to/region-mappings.md)있는지 확인 합니다.
 "할당에 실패 했습니다. 사용할 수 있는 추가 정보가 없습니다. " | Microsoft Azure 지원 되는 사례를 여세요.
 
 ## <a name="next-steps"></a>다음 단계
@@ -46,4 +46,3 @@ Error |  완화 방법
 
 > [!div class="nextstepaction"]
 > [Azure Portal에서 가상 컴퓨터에 대해 Automanage를 사용 하도록 설정](quick-create-virtual-machines-portal.md)
-

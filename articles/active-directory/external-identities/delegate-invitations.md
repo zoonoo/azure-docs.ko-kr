@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365551"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645826"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리
 
@@ -78,11 +78,11 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
    >
    >![전자 메일 일회용 암호 옵트인 사용](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. 사용자가 앱에 등록할 수 있도록 하는 사용자 흐름을 만들 수 있도록 하려면 **사용자 흐름을 통해 게스트 셀프 서비스 등록 (미리 보기)** 에서 **예** 를 선택 합니다. 이 설정에 대 한 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가 (미리 보기)](self-service-sign-up-user-flow.md)를 참조 하세요.
+7. 사용자 **흐름을 통해 게스트 셀프 서비스 등록 사용** 에서 사용자가 앱에 등록할 수 있는 사용자 흐름을 만들 수 있도록 하려면 **예** 를 선택 합니다. 이 설정에 대 한 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가](self-service-sign-up-user-flow.md)를 참조 하세요.
 
     ![사용자 흐름 설정을 통해 셀프 서비스 등록](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. **공동 작업 제한** 에서 지정 하는 도메인에 대 한 초대를 허용할지 또는 거부할지를 선택 합니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](allow-deny-list.md)을 참조하세요.
+7. **공동 작업 제한** 에서 지정 하는 도메인에 대 한 초대를 허용할지 아니면 거부할지를 선택 하 고 텍스트 상자에 특정 도메인 이름을 입력할 수 있습니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](allow-deny-list.md)을 참조하세요.
 
     ![공동 작업 제한 설정](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>사용자에게 게스트 초대자 역할 할당

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255766"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645091"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>배우기
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -318,11 +318,11 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 #### <a name="resources"></a>리소스
 
-* [제품 피드백 제공](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [제품 사용자 의견 제공](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 * [Azure AD의 새로운 기능을 최신 상태로 유지](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&Azure AD 포럼](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&Azure AD 포럼](/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>다음 단계
 * [자동 사용자 프로 비전 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)

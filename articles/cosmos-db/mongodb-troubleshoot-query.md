@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340892"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659905"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API를 사용 하는 경우 쿼리 문제 해결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Azure Cosmos DB의 쿼리 최적화는 광범위 하 게 다음과 같이 분류
 이 문서에서는 [영양 데이터 집합](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)을 사용 하 여 다시 만들 수 있는 예제를 제공 합니다.
 
 > [!NOTE] 
-> 이 문서에서는 MongoDB에 대 한 Azure Cosmos DB "s API 버전 3.6을 사용 한다고 가정 합니다. 버전 3.2에서 성능이 저하 되는 일부 쿼리는 버전 3.6에서 크게 개선 되었습니다. [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
+> 이 문서에서는 버전 3.6 이상인 MongoDB 계정에 Azure Cosmos DB API를 사용 하 고 있다고 가정 합니다. 버전 3.2에서 성능이 저하 되는 일부 쿼리는 버전 3.6 이상에서 크게 개선 되었습니다. [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
 
 ## <a name="use-explain-command-to-get-metrics"></a>$explain 명령을 사용 하 여 메트릭 가져오기
 
@@ -348,4 +348,4 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 ## <a name="next-steps"></a>다음 단계
 
 * [쿼리 성능 문제 해결 (SQL API)](troubleshoot-query-performance.md)
-* [MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리](mongodb-indexing.md)
+* [Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리](mongodb-indexing.md)

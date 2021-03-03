@@ -3,7 +3,7 @@ title: 자격 관리에서 리소스 카탈로그 만들기 & 관리-Azure AD
 description: Azure Active Directory 자격 관리에서 리소스의 새 컨테이너를 만들고 패키지에 액세스 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 8ae3ee8cb96453bae1ce581ea92bdb77854c02d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745966"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644149"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리
 
@@ -80,6 +80,14 @@ Microsoft Graph를 사용 하 여 카탈로그를 만들 수도 있습니다.  �
 1. 완료 되 면 **추가** 를 클릭 합니다.
 
     이러한 리소스는 이제 카탈로그 내에서 액세스 패키지에 포함 될 수 있습니다.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>다중 지역 SharePoint 사이트 추가
+
+1. [여러 지역](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) 에서 SharePoint를 사용 하도록 설정한 경우 사이트를 선택할 환경을 선택 합니다.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 다중 지역 사이트 선택":::
+
+1. 그런 다음 카탈로그에 추가할 사이트를 선택 합니다. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>프로그래밍 방식으로 카탈로그에 리소스 추가
 

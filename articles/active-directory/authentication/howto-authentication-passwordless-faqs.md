@@ -1,24 +1,24 @@
 ---
 title: Hybrid FIDO2 보안 키 배포에 대 한 Faq-Azure Active Directory
-description: Azure Active Directory (미리 보기)를 사용 하 여 암호 없는 하이브리드 FIDO2 보안 키 로그인에 대 한 몇 가지 자주 묻는 질문에 대해 알아봅니다.
+description: Azure Active Directory를 사용 하 여 암호 없는 하이브리드 FIDO2 보안 키 로그인에 대 한 몇 가지 자주 묻는 질문에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743533"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646387"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Azure AD의 하이브리드 FIDO2 보안 키에 대 한 배포 Faq (질문과 대답) (미리 보기)
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대 한 배포 Faq (질문과 대답) 
 
 이 문서에서는 하이브리드 Azure AD 조인 장치에 대 한 배포 faq (질문과 대답) 및 온-프레미스 리소스에 대 한 암호 없는 로그인에 대해 설명 합니다. 이 암호 없는 기능을 사용 하면 FIDO2 보안 키를 사용 하 여 하이브리드 azure ad 조인 장치에 대해 Windows 10 장치에서 Azure ad 인증을 사용 하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용 하 여 장치에서 Windows에 로그인 하 고 온-프레미스 리소스에 대해 원활한 Single Sign-On (SSO) 환경을 사용 하 여 기존 Active Directory Domain Services (AD DS) 기반 리소스에 액세스할 수 있습니다.
 
@@ -32,9 +32,6 @@ FIDO2 보안 키 및 온-프레미스 리소스에 대 한 하이브리드 액�
 * [암호 없는 FIDO2 보안 키](howto-authentication-passwordless-security-key.md)
 * [암호 없는 Windows 10](howto-authentication-passwordless-security-key-windows.md)
 * [암호 없는 온-프레미스](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="security-keys"></a>보안 키
 
@@ -234,7 +231,7 @@ HTTP 요청은 표준 주 새로 고침 토큰 (PRT) 요청입니다. 이 PRT �
 
 Azure AD는 암호화 된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합 합니다. 페이로드는 Azure AD 장치 세션 키를 사용 하 여 암호화 됩니다.
 
-| 필드              | 형식   | 설명  |
+| 필드              | Type   | 설명  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키 (암호)입니다. 이 키는 TGT를 보호 하는 데 사용 되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성 된 다음 응답에서 클라이언트로 반환 됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함 된 Kerberos 세션 키 모두에 사용 되는 온-프레미스 AD DS 키 유형입니다. |

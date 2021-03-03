@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 40d89cad595673a535ebcd526d747d81ce6ad08f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 51d7c1e433e72a393178cf429759b5e9a6479e88
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051926"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648682"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>위임된 권한과 애플리케이션 권한 간의 차이점을 인식하는 방법
 
@@ -28,4 +28,4 @@ ms.locfileid: "99051926"
 - 리소스 애플리케이션에서 Azure Portal에 각각 위임된 권한 및 애플리케이션 권한으로 나타나는 [범위](developer-glossary.md#scopes) 및 [애플리케이션 역할](developer-glossary.md#roles)을 클라이언트 애플리케이션에 표시하는 방법을 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

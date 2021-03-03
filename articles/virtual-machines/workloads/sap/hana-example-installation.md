@@ -6,20 +6,19 @@ documentationcenter: ''
 author: hermanndms
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 994130ce2ecb4578a8d34f1f77b310bb558d3c7a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 59ea41254c16f32f19a67e7811177a4667a85e7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967910"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666695"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Azure의 SAP HANA(대규모 인스턴스)에 HANA 설치
 
@@ -40,7 +39,7 @@ HANA 대규모 인스턴스 유닛은 인터넷에 직접 연결되지 않습니
 
 SAP Marketplace에 액세스할 수 있는 SAP S-사용자 또는 다른 사용자가 필요합니다.
 
-1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어**  >  **설치 다운로드 및**  >  **사전순으로** 업그레이드를 선택 합니다. 그런 다음 **H – SAP HANA platform edition**  >  **SAP HANA platform edition 2.0**  >  **설치** 에서를 선택 합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
+1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어 다운로드** > **설치 및 업그레이드** > **사전순 인덱스별** 을 선택합니다. 그런 다음, **H – SAP HANA 플랫폼 버전 아래에서** > **SAP HANA 플랫폼 버전 2.0** > **설치** 를 선택합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
 
    ![다운로드할 파일의 스크린샷](./media/hana-installation/image16_download_hana.PNG)
 
@@ -133,5 +132,5 @@ rpm –qa | grep gtk2
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure에서 고가용성 및 재해 복구 SAP HANA(대규모 인스턴스)](hana-overview-high-availability-disaster-recovery.md)
+- [Azure의 SAP HANA 대규모 인스턴스 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 

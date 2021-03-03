@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696179"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654020"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -27,7 +27,7 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 **Azure Automanage를 사용 하도록 설정 하는 데 필요한 모든 필수 구성 요소는 무엇 인가요?**
 
 Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소는 다음과 같습니다.
-- Windows Server Vm에만 해당
+- 지원 되는 [Windows Server 버전](automanage-windows-server.md#supported-windows-server-versions) 및 [Linux](automanage-linux.md#supported-linux-distributions-and-versions) 배포판
 - Vm은 지원 되는 지역에 있어야 합니다.
 - 사용자에 게 올바른 사용 권한이 있어야 합니다.
 - 확장 되지 않은 집합 Vm만
@@ -42,12 +42,12 @@ Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소�
 
 **지원되는 지역은 어떻게 되나요?**
 
-유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역의 Vm이 지원 됩니다.
+지원 되는 지역에 대 한 전체 목록은 [여기](./automanage-virtual-machines.md#supported-regions)에서 사용할 수 있습니다.
 
 
 **Azure Automanage가 자동화 하는 기능은 무엇 인가요?**
 
-자동 관리는 [여기](virtual-machines-best-practices.md)에 나열 된 서비스를 VM의 수명 주기 내내 등록, 구성 및 모니터링 합니다.
+자동 관리는 [여기](automanage-virtual-machines.md)에 나열 된 서비스를 VM의 수명 주기 내내 등록, 구성 및 모니터링 합니다.
 
 **Azure는 Azure Arc 사용 Vm을 사용 하 여 작업을 자동으로 관리 하나요?**
 
@@ -55,12 +55,12 @@ Automanage는 현재 Arc 사용 Vm을 지원 하지 않습니다.
 
 **Azure Automanage에서 구성을 사용자 지정할 수 있나요?**
 
-고객은 구성 기본 설정을 통해 Azure Backup 보존 등의 특정 서비스에 대 한 설정을 사용자 지정할 수 있습니다. 변경할 수 있는 설정의 전체 목록은 [여기](virtual-machines-best-practices.md)에서 설명서를 참조 하세요.
+고객은 구성 기본 설정을 통해 Azure Backup 보존 등의 특정 서비스에 대 한 설정을 사용자 지정할 수 있습니다. 변경할 수 있는 설정의 전체 목록은 [여기](automanage-virtual-machines.md#customizing-an-environment-using-preferences)에서 설명서를 참조 하세요.
 
 
 **Azure Automanage는 Linux 및 Windows Vm 모두에서 작동 하나요?**
 
-현재 Automanage는 Windows Server Azure Vm을 지원 합니다.
+예, 지원 되는 [Windows Server 버전](automanage-windows-server.md#supported-windows-server-versions) 및 [Linux](automanage-linux.md#supported-linux-distributions-and-versions)배포판을 참조 하세요.
 
 
 **Vm 집합에만 Automanage를 선택적으로 적용할 수 있나요?**

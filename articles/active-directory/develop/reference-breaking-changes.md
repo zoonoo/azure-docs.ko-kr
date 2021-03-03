@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348724"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647424"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
 > 이 URL을 RSS 피드 판독기에 붙여넣어이 페이지의 업데이트에 대 한 알림 받기:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
-인증 시스템에서는 보안 및 표준 준수를 개선하기 위해 지속적으로 변경하고 기능을 추가합니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 세부 정보를 제공합니다.
+인증 시스템에서는 보안 및 표준 준수를 개선하기 위해 지속적으로 변경하고 기능을 추가합니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 다음 세부 정보에 대 한 정보를 제공 합니다.
 
 - 최신 기능
 - 알려진 문제
@@ -35,7 +35,28 @@ ms.locfileid: "96348724"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-지금은 예약이 없습니다.  또는 프로덕션에 적용 되는 변경 내용에 대해서는 아래를 참조 하세요.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>조건부 액세스는 명시적으로 요청 된 범위에 대해서만 트리거됩니다.
+
+**개시 날짜**: 3 월 2021
+
+**영향 받은 끝점**: v2.0
+
+**영향을 받는 프로토콜**: [동적 동의](v2-permissions-and-consent.md#requesting-individual-user-consent) 를 사용 하는 모든 흐름
+
+현재 동적 동의를 사용 하는 응용 프로그램은 `scope` 이름으로 매개 변수에서 요청 되지 않은 경우에도 동의 하는 모든 사용 권한을 부여 합니다.  이로 인해 앱이 요청 하는 경우에만 (예:) `user.read` 에 동의 하 여 `files.read` 사용 권한에 할당 된 조건부 액세스를 강제로 전달할 수 있습니다. `files.read` 
+
+불필요 한 조건부 액세스 프롬프트 수를 줄이기 위해 Azure AD는 명시적으로 요청 된 범위만 조건부 액세스를 트리거하기 위해 요청 되지 않은 범위가 응용 프로그램에 제공 되는 방식을 변경 합니다. 이러한 변경으로 인해 앱이 요청 하지 않은 경우에도 Azure AD의 이전 동작에 의존 하는 앱이 중단 될 수 있습니다. 즉, 요청 하는 토큰에는 권한이 없어 중단 됩니다.
+
+앱은 이제 요청 된 권한 및 조건부 액세스 프롬프트가 필요 하지 않은에 대 한 동의를 받은 액세스 토큰을 사용 하 여 액세스 토큰을 수신 합니다.  액세스 토큰의 범위는 토큰 응답의 `scope` 매개 변수에 반영 됩니다. 
+
+**예**
+
+앱은 `user.read` , 및에 동의 `files.readwrite` `tasks.read` 합니다. `files.readwrite` 에는 조건부 액세스 정책이 적용 되 고 다른 두 경우에는 적용 되지 않습니다. 앱이에 대 한 토큰 요청을 수행 `scope=user.read` 하 고 현재 로그인 한 사용자가 조건부 액세스 정책을 전달 하지 않은 경우 결과 토큰은 `user.read` 및 사용 권한에 대 한 것 `tasks.read` 입니다. `tasks.read` 앱이이에 동의 하기 때문에가 포함 되 고 조건부 액세스 정책을 적용할 필요가 없습니다. 
+
+그런 다음 앱이 요청 하는 경우 `scope=files.readwrite` 테 넌 트에 필요한 조건부 액세스가 트리거되고, 앱이 조건부 액세스 정책을 만족할 수 있는 대화형 인증 프롬프트를 표시 하도록 합니다.  반환 된 토큰에는 세 개의 범위가 모두 포함 됩니다. 
+
+그러면 앱이 세 개의 범위 (예를 들어) 중 하나에 대 한 마지막 요청을 수행 하는 경우, `scope=tasks.read` AZURE AD는 사용자가에 필요한 조건부 액세스 정책을 이미 완료 한 것을 확인 하 `files.readwrite` 고이에 대 한 세 가지 권한으로 토큰을 다시 발급 합니다. 
+
 
 ## <a name="may-2020"></a>2020년 5월
 
@@ -71,7 +92,7 @@ Azure AD에 직접 로그인 하는 256 자 보다 긴 암호를 사용 하는 �
 
 메시지: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-수정:
+재구성
 
 암호가 허용 된 최대 길이를 초과 하기 때문에 사용자가 로그인 할 수 없습니다. 암호를 재설정 하려면 관리자에 게 문의 해야 합니다. SSPR가 테 넌 트에 대해 사용 하도록 설정 된 경우 "암호 잊음" 링크를 따라 암호를 다시 설정할 수 있습니다.
 
@@ -102,7 +123,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다.
 
-예:
+예제:
 
 현재 `?e=    "f"&g=h` 는와 동일 하 게 구문 분석 됩니다 `?e=f&g=h` `e`  ==  `f` .  이 변경으로 인해 이제는이를 구문 분석 하 여 `e`  ==  `    "f"` 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다.
 
@@ -113,7 +134,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 **개시 날짜**: 2019 년 7 월 26 일
 
-**영향을 받는 끝점**: [V1.0 및 v2.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) 모두 [v2.0](./v2-oauth2-client-creds-grant-flow.md)
+**영향을 받는 끝점**: [V1.0 및 v2.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) 모두 [](./v2-oauth2-client-creds-grant-flow.md)
 
 **영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 

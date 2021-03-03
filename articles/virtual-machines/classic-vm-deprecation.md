@@ -4,16 +4,17 @@ description: 이 문서에서는 클래식 배포 모델을 사용 하 여 만�
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2fb710bab03d595d6e54bc8dd8fbda38c57123e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587922"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668193"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
@@ -30,10 +31,20 @@ ms.locfileid: "100587922"
 - 2023 년 3 월 1 일부 터 Azure Resource Manager로 마이그레이션되지 않은 구독은 나머지 Vm (클래식)을 삭제 하기 위한 타임 라인에 대 한 정보가 표시 됩니다.  
 
 이 사용 중지 *는 다음과* 같은 Azure 서비스 및 기능에 영향을 주지 않습니다. 
-- [Azure Cloud Services (클래식)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
+- [Azure Cloud Services (클래식)](../cloud-services/cloud-services-choose-me.md)
 - Vm에서 사용 *하지 않는* 저장소 계정 (클래식) 
 - Vm에서 사용 *하지 않는* 가상 네트워크 (클래식) 
 - 기타 클래식 리소스
+
+## <a name="what-resources-are-available-for-this-migration"></a>이 마이그레이션에 사용할 수 있는 리소스는 무엇 인가요?
+
+- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): microsoft 및 커뮤니티에서 마이그레이션을 지원 합니다.
+
+- [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): 마이그레이션 중에 기술 지원을 위한 전용 지원 팀입니다. 기술 지원이 없는 고객은이 마이그레이션에 대해 특별히 제공 된 [무료 지원 기능](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0A%20%20%20%20%22pesId%22%3A%20%22f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%22%2C%0A%20%20%20%20%22supportTopicId%22%3A%20%22794bb734-af1b-e2d5-a757-dac7438009ab%22%2C%0A%20%20%20%20%22contextInfo%22%3A%20%22Migrate%20IAAS%20resources%20from%20Classic%20%28ASM%29%20to%20Azure%20Resource%20Manager%20%28ARM%29%22%2C%0A%20%20%20%20%22caller%22%3A%20%22NoSupportPlanASM2ARM%22%2C%0A%20%20%20%20%22severity%22%3A%20%222%22%0A%7D) 을 사용할 수 있습니다. 
+
+- [Microsoft Fast track](https://www.microsoft.com/fasttrack): fast track은이 마이그레이션에 대 한 & 실행을 계획 하는 적격 고객을 지원할 수 있습니다. DC 마이그레이션 프로그램을 위한 [추천](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) .  
+
+- 회사/조직이 Microsoft와 제휴 하거나 Microsoft 담당자 (예: CSAs (cloud solution 설계자) 또는 TAMs (기술 계정 관리자))와 함께 작동 하는 경우 마이그레이션에 대 한 추가 리소스에 대해 작업 해 보세요.
 
 ## <a name="what-actions-should-i-take"></a>어떤 작업을 수행 해야 하나요? 
 
@@ -43,7 +54,7 @@ ms.locfileid: "100587922"
 
    - [Azure Portal의 vm 창](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) 에 있는 **가상 머신 (클래식)** 유형의 vm은 구독 내에서 영향을 받는 모든 vm입니다. 
    - [포털](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) 또는 [PowerShell](../governance/resource-graph/concepts/work-with-data.md) 을 사용 하 여 Azure 리소스 그래프를 쿼리하여 선택한 구독에 대해 플래그가 지정 된 모든 vm (클래식) 및 관련 정보 목록을 볼 수도 있습니다. 
-   - 2020 년 2 월 8 일, 년 9 월 2 일부 터 이러한 Vm (클래식)을 포함 하는 모든 구독 목록이 포함 된 전자 메일을 구독 소유자에 게 보냅니다. 이 목록을 작성 하려면 사용 하세요. 
+   - 2020 년 2 월 8 일, 년 9 월 2 일부 터 구독 소유자에 게 "IaaS VM 마이그레이션 계획을 Azure Resource Manager" 라는 제목의 전자 메일이 전송 되었습니다. 전자 메일은 모든 구독 및 Vm (클래식) Vm의 목록을 제공 합니다. 이 목록을 작성 하려면 사용 하세요. 
 
 1. [Linux](./migration-classic-resource-manager-plan.md) 및 [Windows](./migration-classic-resource-manager-plan.md) vm (클래식)을 Azure Resource Manager으로 마이그레이션하는 방법에 [대해 자세히 알아보세요](./migration-classic-resource-manager-overview.md) . 자세한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션에 대 한 질문과 대답](./migration-classic-resource-manager-faq.md)을 참조 하세요.
 
@@ -58,13 +69,3 @@ ms.locfileid: "100587922"
 1. 지원 목록에 구독을 추가 하는 방법에 대 한 기술 관련 질문, 문제 및 도움말을 보려면 [지원 담당자에 게 문의 하세요](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
 1. 가능한 한 빨리 마이그레이션을 완료 하 여 비즈니스 영향을 방지 하 고 Azure Resource Manager의 향상 된 성능, 보안 및 새로운 기능을 활용 하세요. 
-
-## <a name="what-resources-are-available-for-this-migration"></a>이 마이그레이션에 사용할 수 있는 리소스는 무엇 인가요?
-
-- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): microsoft 및 커뮤니티에서 마이그레이션을 지원 합니다.
-
-- [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): 마이그레이션 중에 기술 지원을 위한 전용 지원 팀입니다.
-
-- [Microsoft Fast track](https://www.microsoft.com/fasttrack): fast track은이 마이그레이션의 & 실행 계획을 수립할 수 있는 적격 고객을 지원할 수 있습니다. DC 마이그레이션 프로그램을 위한 [추천](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) .  
-
-- 회사/조직이 Microsoft와 제휴 하거나 Microsoft 담당자 (예: CSAs (cloud solution 설계자) 또는 TAMs (기술 계정 관리자))와 함께 작동 하는 경우 마이그레이션에 대 한 추가 리소스에 대해 작업 해 보세요.

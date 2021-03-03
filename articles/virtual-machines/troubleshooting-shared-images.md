@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 507dd224ddeb935cc8b3718bb2e2628be36066f4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879632"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676016"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -52,9 +52,13 @@ ms.locfileid: "98879632"
 **원인**: 하나 이상의 기존 이미지 정의가 포함 된 갤러리를 삭제 하려고 했습니다. 갤러리는 비어 있어야 삭제할 수 있습니다.  
 **해결 방법**: 갤러리 내의 모든 이미지 정의를 삭제 하 고 계속 해 서 갤러리를 삭제 합니다. 이미지 정의에 이미지 버전이 포함 되어 있는 경우 이미지 정의를 삭제 하기 전에 이미지 버전을 삭제 해야 합니다.
 
+*갤러리 이름 ' <galleryName \> '이 (가) 구독 ' ' 내에서 고유 하지 않습니다 <subscriptionId> . 다른 갤러리 이름을 선택 하십시오.*  
+**원인**: 이름이 같은 기존 갤러리가 있으며 이름이 같은 다른 갤러리를 만들려고 했습니다.  
+**해결 방법**: 갤러리에 대해 다른 이름을 선택 합니다.
+
 *리소스 \> \_ \> 그룹 <resourceGroup의 위치 <지역 1에 <galleryName 리소스가 이미 있습니다 \> . 같은 이름의 리소스는 <지역 2 지역에서 만들 수 없습니다 \_ \> . 새 리소스 이름을 선택 하십시오.*  
-**원인**: 리소스 그룹에 동일한 이름의 기존 갤러리가 있고 동일한 이름으로 다른 갤러리를 만들려고 했지만 다른 지역에 있습니다.  
-**해결 방법**: 다른 갤러리를 사용 하거나 다른 리소스 그룹을 사용 합니다.
+**원인**: 이름이 같은 기존 갤러리가 있으며 이름이 같은 다른 갤러리를 만들려고 했습니다.  
+**해결 방법**: 갤러리에 대해 다른 이름을 선택 합니다.
 
 ## <a name="creating-or-modifying-image-definitions"></a>이미지 정의 만들기 또는 수정 ##
 

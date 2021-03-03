@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3bd8851fe723461c618499e539c987d79c0d68
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80154902"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650144"
 ---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
 
@@ -36,12 +36,12 @@ Azure AD 테넌트별 및 테넌트 독립적 엔드포인트를 게시합니다
 ## <a name="federation-metadata-endpoints"></a>페더레이션 메타데이터 엔드포인트
 Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 게시합니다.
 
-**테넌트별 엔드포인트**의 경우, `TenantDomainName`은(는) 다음 유형 중 하나가 될 수 있습니다.
+**테넌트별 엔드포인트** 의 경우, `TenantDomainName`은(는) 다음 유형 중 하나가 될 수 있습니다.
 
 * Azure AD 테넌트의 등록된 도메인 이름, 예: `contoso.onmicrosoft.com`.
 * 도메인의 변경할 수 없는 ID, 예: `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-**테넌트에 독립적인 엔드포인트**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
+**테넌트에 독립적인 엔드포인트** 의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
 예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테 넌 트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml) 입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
@@ -96,7 +96,7 @@ WS-Federation 관련 섹션에서 WS-Federation 메타데이터 판독기는 `Se
 다음 메타데이터는 샘플 `RoleDescriptor` 요소를 보여줍니다.
 
 ```
-<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
+<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType" protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
 SAML 관련 섹션에서 WS-Federation 메타데이터 판독기는 `IDPSSODescriptor` 요소에서 인증서를 읽습니다.

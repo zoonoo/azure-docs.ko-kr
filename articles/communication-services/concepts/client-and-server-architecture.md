@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653818"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656230"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,7 +54,7 @@ Azure 통신 JavaScript 클라이언트 라이브러리는 다양 한 텍스트,
 전화 시스템을 통해 통신 하면 응용 프로그램의 도달 범위를 크게 늘릴 수 있습니다. PSTN 음성 및 SMS 시나리오를 지원 하기 위해 Azure 통신 서비스를 사용 하면 Azure Portal에서 직접 또는 REST Api와 클라이언트 라이브러리를 사용 하 여 [전화 번호를 획득할](../quickstarts/telephony-sms/get-phone-number.md) 수 있습니다. 전화 번호를 구한 후에는 인바운드 및 아웃 바운드 시나리오에서 모두 PSTN 호출 및 SMS를 사용 하 여 고객에 게 연결 하는 데 사용할 수 있습니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
 
 > [!Note]
-> 공개 미리 보기 동안 미국 전화 번호의 프로 비전은 미국 및 캐나다에 있는 청구 주소를 사용 하는 고객에 게 제공 됩니다. 
+> 공개 미리 보기 동안 미국 전화 번호의 프로 비전은 미국 및 캐나다에 있는 청구 주소를 사용 하는 고객에 게 제공 됩니다.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="통신 서비스 PSTN 아키텍처를 보여 주는 다이어그램":::
 

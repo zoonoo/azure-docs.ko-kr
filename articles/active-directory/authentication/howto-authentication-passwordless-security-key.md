@@ -1,42 +1,39 @@
 ---
-title: Passwordless 보안 키 로그인 (미리 보기)-Azure Active Directory
-description: FIDO2 보안 키 (미리 보기)를 사용 하 여 Azure AD에 암호 없는 보안 키 로그인 사용
+title: Passwordless 보안 키 로그인-Azure Active Directory
+description: FIDO2 보안 키를 사용 하 여 Azure AD에 암호 없는 보안 키 로그인 사용
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743431"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653833"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
+# <a name="enable-passwordless-security-key-sign-in"></a>암호 없는 보안 키 로그인 사용 
 
 현재 암호를 사용 하 고 공유 PC 환경을 보유 하 고 있는 기업의 경우 보안 키를 사용 하면 사용자 이름 또는 암호를 입력 하지 않고도 작업자의 인증을 원활 하 게 할 수 있습니다. 보안 키는 작업자에 게 향상 된 생산성을 제공 하 고 보안을 강화 합니다.
 
 이 문서에서는 보안 키 기반 암호 없는 인증을 사용 하도록 설정 하는 방법을 중점적으로 설명 합니다. 이 문서의 끝 부분에서 FIDO2 보안 키를 사용 하 여 Azure AD 계정으로 웹 기반 응용 프로그램에 로그인 할 수 있습니다.
 
-> [!NOTE]
-> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은  [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
-
 ## <a name="requirements"></a>요구 사항
 
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) 사용
+- [결합 된 보안 정보 등록](concept-registration-mfa-sspr-combined.md) 사용
 - 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN에는 Windows 10 버전 1903 이상이 필요 합니다. * *
 
 웹 앱 및 서비스에 로그인 하는 데 보안 키를 사용 하려면 WebAuthN 프로토콜을 지 원하는 브라우저가 있어야 합니다. 여기에는 Microsoft Edge, Chrome, Firefox 및 Safari가 포함 됩니다.
 
-## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
+## <a name="prepare-devices"></a>장치 준비
 
 Azure AD 가입 장치에 대 한 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
@@ -46,12 +43,12 @@ Azure AD 가입 장치에 대 한 최상의 환경은 Windows 10 버전 1903 이
 
 ### <a name="enable-the-combined-registration-experience"></a>결합 된 등록 환경 사용
 
-암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능을 사용 합니다. 결합 된 [보안 정보 등록 (미리 보기)](howto-registration-mfa-sspr-combined.md)문서의 단계를 수행 하 여 결합 된 등록을 사용 하도록 설정 합니다.
+암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능을 사용 합니다. 결합 된 [보안 정보 등록 사용](howto-registration-mfa-sspr-combined.md)문서의 단계를 수행 하 여 결합 된 등록을 사용 하도록 설정 합니다.
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 사용 방법
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **인증 방법 정책 (미리 보기)** 으로 이동 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **인증 방법 정책** 으로 이동 합니다.
 1. Method **FIDO2 Security 키** 아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
@@ -79,19 +76,19 @@ Azure AD 가입 장치에 대 한 최상의 환경은 Windows 10 버전 1903 이
 
 ## <a name="troubleshooting-and-feedback"></a>문제 해결 및 피드백
 
-이 기능을 미리 보는 동안 피드백을 공유 하거나 문제를 해결 하려는 경우 다음 단계를 사용 하 여 Windows 피드백 허브 앱을 통해 공유 하세요.
+이 기능을 사용 하 여 피드백을 공유 하거나 문제를 해결 하려는 경우 다음 단계를 사용 하 여 Windows 피드백 허브 앱을 통해 공유 하세요.
 
 1. **피드백 허브** 를 시작 하 고 로그인 했는지 확인 합니다.
 1. 다음 분류에 따라 사용자 의견을 제출 합니다.
    - 범주: 보안 및 개인 정보
    - 하위 범주: FIDO
-1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만드십시오** .
+1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만듭니다**.
 
 ## <a name="known-issues"></a>알려진 문제
 
 ### <a name="security-key-provisioning"></a>보안 키 프로 비전
 
-보안 키의 관리자 프로 비전 및 프로 비전 해제는 공개 미리 보기에서 사용할 수 없습니다.
+보안 키의 관리자 프로 비전 및 프로 비전 해제를 사용할 수 없습니다.
 
 ### <a name="upn-changes"></a>UPN 변경
 

@@ -3,17 +3,18 @@ title: Azure Image Builder 템플릿 만들기(미리 보기)
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678258"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670424"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -308,11 +309,28 @@ OS 지원: Linux
 - **sha256Checksum** - 파일의 sha256 체크섬 값. 이 값을 로컬로 생성하면 Image Builder가 체크섬 및 유효성 검사를 수행합니다.
     * sha256Checksum을 생성하려면 Mac/Linux에서 터미널을 사용하여 다음을 실행합니다. `sha256sum <fileName>`
 
-
-슈퍼 사용자 권한으로 명령을 실행하려면 `sudo`를 접두사로 사용해야 합니다.
-
 > [!NOTE]
 > 인라인 명령은 이미지 템플릿 정의의 일부로 저장 되며, 이미지 정의를 덤프할 때 볼 수 있으며, 문제 해결을 위한 지원 사례의 경우 Microsoft 지원에도 표시 됩니다. 중요 한 명령 또는 값이 있는 경우 스크립트로 이동 하 고 사용자 id를 사용 하 여 Azure Storage에 인증 하는 것이 좋습니다.
+
+#### <a name="super-user-privileges"></a>슈퍼 사용자 권한
+슈퍼 사용자 권한으로 명령을 실행 하려면 접두사를 접두사로 사용 해야 합니다 `sudo` . 이러한 명령을 스크립트에 추가 하거나 인라인 명령을 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+ScriptUri를 사용 하 여 참조할 수 있는 sudo를 사용 하는 스크립트의 예:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Windows 다시 시작 사용자 지정자 
 다시 시작 사용자 지정자를 사용하여 Windows VM을 다시 시작하고 다시 온라인 상태가 될 때까지 기다릴 수 있습니다. 그러면 다시 부팅해야 하는 소프트웨어를 설치할 수 있습니다.  
@@ -397,6 +415,10 @@ OS 지원: Linux 및 Windows
 파일 사용자 지정자 속성은 다음과 같습니다.
 
 - **sourceUri** - 액세스할 수 있는 스토리지 엔드포인트로, GitHub 또는 Azure 스토리지일 수 있습니다. 전체 디렉터리가 아닌 하나의 파일만 다운로드할 수 있습니다. 디렉터리를 다운로드해야 하는 경우에는 압축된 파일을 사용하고 셸 또는 PowerShell 사용자 지정자를 사용하여 압축을 풉니다. 
+
+> [!NOTE]
+> SourceUri가 Azure Storage 계정인 경우 blob이 공용으로 표시 되어 있는 경우에 관계 없이 blob에 대 한 읽기 액세스 권한을 관리 되는 사용자 Id에 부여 합니다. 저장소 권한을 설정 하려면이 [예제](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) 를 참조 하세요.
+
 - **destination** – 전체 대상 경로 및 파일 이름입니다. 참조된 경로와 하위 디렉터리가 있어야 합니다. 셸 또는 PowerShell을 사용하여 미리 해당 값을 설정합니다. 스크립트 사용자 지정자를 사용하여 경로를 만들 수 있습니다. 
 
 이 속성은 Windows 디렉터리 및 Linux 경로에서 지원되지만 다음과 같은 몇 가지 차이점이 있습니다. 
@@ -408,8 +430,6 @@ OS 지원: Linux 및 Windows
 
 > [!NOTE]
 > 파일 사용자 지정자는 20MB 이하 소용량 파일 다운로드에만 적합합니다. 대용량 파일 다운로드의 경우 스크립트 또는 인라인 명령을 사용합니다. 예를 들어, Linux의 `wget` 또는 `curl`, Windows의 `Invoke-WebRequest` 같은 코드를 사용하여 파일을 다운로드합니다.
-
-[MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 사용하여 Azure Storage에서 파일 사용자 지정자의 파일을 다운로드할 수 있습니다.
 
 ### <a name="windows-update-customizer"></a>Windows 업데이트 사용자 지정자
 이 사용자 지정자는 Packer(Packer 커뮤니티에서 관리하는 오픈 소스 프로젝트)용 [커뮤니티 Windows 업데이트 프로비저닝 프로그램](https://packer.io/docs/provisioners/community-supported.html)을 기반으로 합니다. Microsoft는 Image Builder 서비스에서 이 프로비저닝 프로그램을 테스트 및 유효성 검사를 하고, 관련 문제에 대한 조사를 지원하고, 문제를 해결하기 위해 노력하지만, 이 오픈 소스 프로젝트를 공식적으로 지원하지는 않습니다. 이 Windows 업데이트 프로비저닝 프로그램에 대한 자세한 설명서 및 도움말은 프로젝트 리포지토리를 참조하세요.

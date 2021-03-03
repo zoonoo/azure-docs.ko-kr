@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094012"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656281"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,17 +86,18 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
+|[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | 이는 SQL Server 로그 전달 기술을 기반으로 Managed Instance에 사용 하도록 설정 된 클라우드 서비스로, Azure storage에 전체 차등 및 로그 데이터베이스 백업을 제공할 수 있는 고객을 위한 마이그레이션 옵션을 만듭니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다.| 
 | | |
 
 ### <a name="alternative-tools"></a>대체 도구
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 
@@ -116,6 +117,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 |---------|---------|---------|
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스나 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM |  -규모의 마이그레이션은 [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md)을 통해 자동화할 수 있습니다. </br> -마이그레이션을 완료 하는 데 걸리는 시간은 데이터베이스 크기에 따라 다르며 백업 및 복원 시간의 영향을 받습니다. </br> -충분 한 가동 중지 시간이 필요할 수 있습니다. |
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다.  </br> -별도의 마이그레이션 서비스 또는 도구를 사용 하지 않고 빠르고 쉽게 마이그레이션할 수 있습니다.  </br> </br> 지원 되는 원본: </br> -SQL Server (2005-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM | -데이터베이스 백업은 여러 스레드를 사용 하 여 Azure Blob 저장소로의 데이터 전송을 최적화 하지만 ISV 대역폭과 데이터베이스 크기는 전송 요금에 영향을 줄 수 있습니다. </br> -가동 중지 시간은 전체 백업 및 복원을 수행 하는 데 필요한 시간 (데이터 작업의 크기)을 수용할 수 있어야 합니다.| 
+|[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | -개별 lob (기간 업무) 응용 프로그램 데이터베이스를 마이그레이션합니다.  </br> -데이터베이스 마이그레이션에는 추가 컨트롤이 필요 합니다.  </br> </br> 지원 되는 원본: </br> -SQL Server (2008-2019) 온-프레미스 또는 Azure VM </br> -AWS EC2 </br> -AWS RDS </br> -GCP 계산 SQL Server VM | -마이그레이션에는 SQL Server에서 전체 데이터베이스 백업을 수행 하 고 Azure Blob Storage 백업 파일을 복사 하는 과정이 수반 됩니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다. </br> -마이그레이션 프로세스 중 복원 되는 데이터베이스는 복원 모드가 되며 프로세스가 완료 될 때까지 읽거나 쓸 수 없습니다.| 
 | | | |
 
 ### <a name="alternative-options"></a>대체 옵션

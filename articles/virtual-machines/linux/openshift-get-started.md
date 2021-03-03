@@ -3,18 +3,19 @@ title: Azure의 OpenShift 개요
 description: Azure의 OpenShift 개요입니다.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 989c67d0d1b1cd8257da089ec9c31f247228018e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aba01fc2317372438bc0d93a6618d518ab03ed0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87367948"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672311"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -47,6 +48,6 @@ OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd
 - [Azure에서 OpenShift에 대한 일반적인 필수 조건 구성](./openshift-container-platform-3x-prerequisites.md)
 - [Azure에서 OpenShift Container Platform 배포](./openshift-container-platform-3x.md)
 - [OpenShift Container Platform Self-Managed Marketplace 제품 배포](./openshift-container-platform-3x-marketplace-self-managed.md)
-- [Azure Stack에 OpenShift 배포](./openshift-azure-stack.md)
+- [Azure Stack에서 OpenShift 배포](./openshift-azure-stack.md)
 - [배포 후 작업](./openshift-container-platform-3x-post-deployment.md)
 - [OpenShift 배포 문제 해결](./openshift-container-platform-3x-troubleshooting.md)

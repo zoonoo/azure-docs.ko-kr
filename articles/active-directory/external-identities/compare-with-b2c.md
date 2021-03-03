@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 03/02/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173076"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644068"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Azure Active Directory의 외부 ID란?
 
@@ -27,7 +27,7 @@ Azure AD의 외부 ID를 사용하여 조직 외부 사용자가 앱과 리소�
 
 Azure AD 외부 ID는 조직에 대한 사용자의 관계보다는 사용자가 앱과 리소스에 로그인하려는 방법에 더 중점을 둡니다. Azure AD는 이 프레임워크 내에서 B2B(기업 간) 협업에서 소비자/고객 또는 시민 관련 애플리케이션(B2C(비즈니스-고객 간))에 대한 액세스 관리에 이르기까지 다양한 시나리오를 지원합니다.
 
-- **외부 사용자와 앱 및 리소스를 공유합니다(B2B 협업)** . 외부 사용자를 "게스트" 사용자로 사용자 고유의 테넌트에 초대하여 권한을 할당할 수 있고(권한 부여의 경우), 해당 사용자가 기존 자격 증명을 사용하도록 허용할 수 있습니다(인증의 경우). 사용자는 자신의 회사, 학교 또는 기타 이메일 계정으로 간단한 초대 및 사용 프로세스를 통해 공유 리소스에 로그인합니다. 또한 [Azure AD 권한 관리](../governance/entitlement-management-overview.md)를 사용하여 [외부 사용자에 대한 액세스를 관리](../governance/entitlement-management-external-users.md#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다. 이제 [셀프 서비스 가입 사용자 흐름(미리 보기)](self-service-sign-up-overview.md)을 사용할 수 있으므로 외부 사용자가 애플리케이션에 직접 가입하도록 허용할 수 있습니다. 회사, 학교 또는 소셜 ID(예: Google 또는 Facebook)에 가입할 수 있도록 환경을 사용자 지정할 수 있습니다. 또한 가입 프로세스 중에 사용자에 대한 정보를 수집할 수 있습니다. 자세한 내용은 [Azure AD B2B 설명서](index.yml)를 참조하세요.
+- **외부 사용자와 앱 및 리소스를 공유합니다(B2B 협업)** . 외부 사용자를 "게스트" 사용자로 사용자 고유의 테넌트에 초대하여 권한을 할당할 수 있고(권한 부여의 경우), 해당 사용자가 기존 자격 증명을 사용하도록 허용할 수 있습니다(인증의 경우). 사용자는 자신의 회사, 학교 또는 기타 이메일 계정으로 간단한 초대 및 사용 프로세스를 통해 공유 리소스에 로그인합니다. 또한 [Azure AD 권한 관리](../governance/entitlement-management-overview.md)를 사용하여 [외부 사용자에 대한 액세스를 관리](../governance/entitlement-management-external-users.md#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다. 이제 [셀프 서비스 가입 사용자 흐름](self-service-sign-up-overview.md)을 사용할 수 있으므로 외부 사용자가 애플리케이션에 직접 가입하도록 허용할 수 있습니다. 회사, 학교 또는 소셜 ID(예: Google 또는 Facebook)에 가입할 수 있도록 환경을 사용자 지정할 수 있습니다. 또한 가입 프로세스 중에 사용자에 대한 정보를 수집할 수 있습니다. 자세한 내용은 [Azure AD B2B 설명서](index.yml)를 참조하세요.
 
 - **소비자 및 고객 관련 앱(Azure AD B2C)에 대한 흰색 레이블 ID 관리 솔루션을 사용하여 사용자 경험을 빌드합니다**. 고객 관련 앱을 만드는 기업 또는 개발자는 Azure AD B2C를 사용하여 수백만 명의 소비자, 고객 또는 시민으로 확장할 수 있습니다. 개발자는 Azure AD를 애플리케이션에 대한 모든 기능을 갖춘 CIAM(Customer Identity and Access Management) 시스템으로 사용할 수 있습니다. 고객은 이미 설정한 ID(예: Facebook 또는 Gmail)를 사용하여 로그인할 수 있습니다. Azure AD B2C를 사용하여 고객이 가입하고, 로그인하고, 애플리케이션 사용 중에 자신의 프로필을 관리하는 방법을 완전히 사용자 지정하고 제어할 수 있습니다. 자세한 내용은 [Azure AD B2C 설명서](../../active-directory-b2c/index.yml)를 참조하세요.
 

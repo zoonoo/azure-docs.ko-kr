@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762257"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644785"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
@@ -161,10 +161,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
     ![선택한 "레지스트리" 및 "레지스트리 항목"을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인** 을 클릭합니다.
-   - **키 경로**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
-   - _* 값 이름 * *: **_https_*_
-   - _* 값 형식 * *: **_REG_DWORD_*_
-   - _* 값 데이터 * *: **_00000001_*_
+   - **키 경로**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_**
+   - **값 이름**: **_https_**
+   - **값 형식**: **_REG_DWORD_**
+   - **값 데이터**: **_00000001_**
  
      !["새 레지스트리 속성" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. 각 사용자는 다음 단계에 따라 Firefox 설정에 Azure AD URL을 수동으로 추가해야 합니다.
 1. Firefox를 실행하고 주소 표시줄에 `about:config` 를 입력합니다. 표시되는 모든 알림을 해제합니다.
-2. _ 네트워크를 검색 합니다.*negotiate-auth.-uri** 기본 설정. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
+2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 **수정** 을 선택합니다.
 4. 필드에 `https://autologon.microsoftazuread-sso.com` 을 입력합니다.
 5. **확인** 을 선택한 다음, 브라우저를 다시 엽니다.
@@ -205,7 +205,7 @@ MacOS 및 기타 비 Windows 플랫폼의 Google Chrome에 대 한 자세한 내
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. Chromium 기반 Microsoft Edge의 다음 버전에서는 InPrivate 및 게스트 모드를 설계할 때 작동 하지 않습니다.
+원활한 SSO는 Firefox 및 Microsoft Edge (레거시) 브라우저의 개인 검색 모드에서 작동 하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원 하 고 설계에 따라 InPrivate 및 게스트 모드에서 작동 합니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
@@ -216,10 +216,10 @@ Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 S
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](#step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/`에 로그인합니다.
+   - '에 로그인 https://myapps.microsoft.com/ 합니다. 브라우저 캐시를 지우거 나 개인 모드에서 지원 되는 브라우저와 함께 새 개인 브라우저 세션을 사용 해야 합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인합니다. *contoso* 를 테넌트의 이름으로 바꿉니다.
+   - `https://myapps.microsoft.com/contoso.onmicrosoft.com`브라우저 캐시를 지우거 나 개인 모드에서 지원 되는 브라우저와 함께 새 개인 브라우저 세션을 사용 하려면 로그인 하십시오. *contoso* 를 테넌트의 이름으로 바꿉니다.
    - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com`에 로그인합니다. *contoso.com* 을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4206ba7617032e34310682d1468e6b1b661b8c8a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725395"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648590"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업으로 관리 되는 공동 작업으로 전환 
 
@@ -100,7 +100,7 @@ Azure AD B2B를 사용 하도록 설정 하면 기본적으로 직접 링크 및
 
 Azure AD 자격 관리를 사용 하는 경우 외부 사용자가 답변할 질문을 구성할 수 있습니다. 그런 다음 결정을 내리는 데 도움이 되는 승인자에 게 질문을 표시 합니다. 승인자가 승인 하는 액세스에 대 한 관련 정보를 가질 수 있도록 각 [액세스 패키지 정책](../governance/entitlement-management-access-package-approval-policy.md) 에 대해 서로 다른 질문 집합을 구성할 수 있습니다. 예를 들어 공급 업체 액세스를 위한 액세스 패키지가 하나인 경우 요청자에 게 공급 업체 계약 번호를 요청 하는 메시지가 표시 될 수 있습니다. 공급 업체를 위해 설계 된 다른 액세스 패키지는 자신의 국가를 요청할 수 있습니다.
 
-셀프 서비스 포털을 사용 하는 경우 [API 커넥터](../external-identities/api-connectors-overview.md) 를 사용 하 여 사용자가 등록 하는 동안 사용자에 대 한 추가 특성을 수집할 수 있습니다. 그런 다음 이러한 특성을 사용 하 여 액세스 권한을 할당할 수 있습니다. 예를 들어 등록 프로세스 중에 공급자 ID를 수집 하는 경우 해당 특성을 사용 하 여 해당 공급자의 그룹 또는 액세스 패키지에 동적으로 할당할 수 있습니다. Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](../../active-directory-b2c/manage-user-accounts-graph-api.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. 
+셀프 서비스 포털을 사용 하는 경우 [API 커넥터](../external-identities/api-connectors-overview.md) 를 사용 하 여 사용자가 등록 하는 동안 사용자에 대 한 추가 특성을 수집할 수 있습니다. 그런 다음 이러한 특성을 사용 하 여 액세스 권한을 할당할 수 있습니다. 예를 들어 등록 프로세스 중에 공급자 ID를 수집 하는 경우 해당 특성을 사용 하 여 해당 공급자의 그룹 또는 액세스 패키지에 동적으로 할당할 수 있습니다. Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](../../active-directory-b2c/microsoft-graph-operations.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Azure AD 사용자에 대 한 초대 상환 문제 해결
 

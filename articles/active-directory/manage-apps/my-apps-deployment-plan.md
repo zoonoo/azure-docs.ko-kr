@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830722"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645470"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>내 앱 구성 Azure Active Directory 계획
 
@@ -143,7 +143,7 @@ SSO에 대 한 SaaS (software as a service) 응용 프로그램을 구성 하는
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 
-* [Internet Explorer에 대 한 Configuration Manager](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Internet Explorer에 대 한 Configuration Manager](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 확장을 통해 사용자는 검색 표시줄에서 앱을 시작 하 고 최근에 사용한 응용 프로그램에 대 한 액세스를 찾고 내 앱 페이지에 대 한 링크를 얻을 수 있습니다.
 
@@ -256,11 +256,11 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 
 | 가상 사용자| 역할| Azure AD 역할 |
 | - | - | - |
-| 기술 지원팀 관리자| 계층 1 지원| None |
+| 기술 지원팀 관리자| 계층 1 지원| 없음 |
 | Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
-| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
+| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 | 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
-| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
+| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 
 
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.
@@ -271,4 +271,3 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 
 [애플리케이션 프록시 배포 계획](application-proxy-deployment-plan.md)
 
- 

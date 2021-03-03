@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 64fb37fb4a57b3ee397ffe8814c76c7dca2fb9b3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 85c0a113f15a1ce94ca1cccc605085dcd003dce4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334616"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661395"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim를 사용 하 여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -22,7 +22,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassandra API 계정** 으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -36,7 +36,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름** , **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독** , **리소스 그룹** 및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인** 을 선택 합니다.
+1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름**, **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독**, **리소스 그룹** 및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인** 을 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Striim에 대 한 기본 설정 구성":::
 
@@ -51,7 +51,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    양식을 채운 후 **확인** 을 선택 하 여 계속 합니다.
 
-1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름** , **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
+1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름**, **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim access 설정":::
 
@@ -131,7 +131,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Striim에 로그인":::
 
-1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드** , **앱** 및 **sourcepreview** 의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
+1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드**, **앱** 및 **sourcepreview** 의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
 
 1. **앱** 창을 선택 하면 지금은이 창에 집중할 것입니다. Striim에 대해 학습 하는 데 사용할 수 있는 다양 한 샘플 앱이 있습니다. 그러나이 문서에서는 사용자가 직접 만듭니다. 오른쪽 위 모서리에서 **앱 추가** 단추를 선택 합니다.
 
@@ -157,7 +157,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png" alt-text="대상에 연결":::
 
-1. 대상을 구성 하기 전에 [Baltimore 루트 인증서를 Striim의 Java 환경에](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)추가 했는지 확인 합니다.
+1. 대상을 구성 하기 전에 [Baltimore 루트 인증서를 Striim의 Java 환경에](/bingmaps/articles/ssl-certificate-validation-for-java-applications#configuring-root-certificates)추가 했는지 확인 합니다.
 
 1. 대상 Azure Cosmos DB 인스턴스의 구성 속성을 입력 하 고 **저장** 을 선택 하 여 계속 합니다. 유의 해야 할 주요 매개 변수는 다음과 같습니다.
 

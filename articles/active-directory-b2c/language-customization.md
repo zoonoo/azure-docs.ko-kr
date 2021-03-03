@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e2aab537c2235fe3e008fa619c96a3098cfa7a27
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361216"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645911"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -48,7 +48,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 
 ::: zone-end 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -115,6 +115,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
+  ]
 }
 ```
 
@@ -129,22 +130,24 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 ```json
 {
   "LocalizedStrings": [...],
-  "LocalizedCollections": [{
+  "LocalizedCollections": [
+    {
       "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
       "Items":[
-           {
-                "Name":"<Response1>",
-                "Value":"<Value1>"
-           },
-           {
-                "Name":"<Response2>",
-                "Value":"<Value2>"
-           }
-     ]
-  }]
+        {
+          "Name":"<Response1>",
+          "Value":"<Value1>"
+        },
+        {
+          "Name":"<Response2>",
+          "Value":"<Value2>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -181,7 +184,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>사용자 지정 언어 추가
 
-또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다. 언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 로캘 코드 형식은 "ISO_639-1_code"-"CountryCode" (예: en-us) 이어야 합니다. 로캘 ID 형식에 대 한 자세한 내용은 다음을 참조 하세요. https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+또한 Microsoft가 현재 번역을 제공하지 않는 언어를 추가할 수 있습니다. 사용자 흐름에서 모든 문자열에 대한 번역을 제공해야 합니다. 언어 및 로캘 코드는 ISO 639-1 표준으로 제한됩니다. 로캘 코드 형식은 "ISO_639-1_code"-"CountryCode" 여야 합니다 (예:) `en-GB` . 로캘 ID 형식에 대 한 자세한 내용은 다음을 참조 하세요. https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 2. 사용자 지정 언어를 추가하려는 사용자 흐름을 클릭한 다음, **언어** 를 클릭합니다.
@@ -503,7 +506,7 @@ Azure AD B2C에는 다음 언어에 대 한 지원이 포함 됩니다. 사용�
 | 말레이어                 | ms            | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |
 | 노르웨이어 복말      | nb            | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-language-customization/no.png) |
 | 네덜란드어                 | nl            | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |
-| 노르웨이어             | 아니요            | ![아니요를 나타내는 X입니다.](./media/user-flow-language-customization/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |
+| 노르웨이어             | no            | ![아니요를 나타내는 X입니다.](./media/user-flow-language-customization/no.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |
 | 펀잡어               | pa            | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![아니요를 나타내는 X입니다.](./media/user-flow-language-customization/no.png) |
 | 폴란드어                | pl            | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |
 | 포르투갈어 - 브라질   | pt-br         | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) | ![녹색 확인 표시입니다.](./media/user-flow-language-customization/yes.png) |

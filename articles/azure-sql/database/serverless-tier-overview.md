@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393244"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658591"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,11 +103,11 @@ CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따�
 
 SQL 캐시는 프로 비전 된 데이터베이스의 경우와 동일한 방식으로 디스크에서 데이터를 인출 하는 것과 동일한 속도로 증가 합니다. 데이터베이스가 사용 중인 경우 캐시는 최대 메모리 제한까지 제한 시간을 늘릴 수 있습니다.
 
-## <a name="auto-pause-and-auto-resume"></a>자동 일시 중지 및 자동 다시 시작
+## <a name="auto-pausing-and-auto-resuming"></a>자동 일시 중지 및 자동 다시 시작
 
-### <a name="auto-pause"></a>자동 일시 중지
+### <a name="auto-pausing"></a>자동 일시 중지
 
-자동 일시 중지 지연 시간 동안 다음 조건이 모두 충족 되는 경우 자동 일시 중지가 트리거됩니다.
+자동 일시 중지가 지연 되는 동안 다음 조건이 모두 충족 되는 경우 자동 일시 중지가 트리거됩니다.
 
 - 세션 수 = 0
 - 사용자 풀에서 실행 되는 사용자 작업에 대 한 CPU = 0
@@ -307,7 +307,7 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 ```
 
 
-## <a name="resource-limits"></a>리소스 제한
+## <a name="resource-limits"></a>리소스 한계
 
 리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.
 

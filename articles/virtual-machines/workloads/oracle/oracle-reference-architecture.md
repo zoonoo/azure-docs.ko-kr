@@ -2,18 +2,18 @@
 title: Azure의 Oracle 데이터베이스에 대 한 참조 아키텍처 | Microsoft Docs
 description: Microsoft Azure Virtual Machines에서 Oracle Database Enterprise Edition 데이터베이스를 실행 하기 위한 아키텍처를 참조 합니다.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882300"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669906"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -21,7 +21,7 @@ ms.locfileid: "98882300"
 
 Oracle 데이터베이스의 성능을 최대화 하는 방법에 대 한 자세한 내용은 [Oracle DB 설계](oracle-design.md)를 참조 하세요.
 
-## <a name="assumptions"></a>Assumptions
+## <a name="assumptions"></a>가정
 
 - [가용성 영역](../../../availability-zones/az-overview.md) 등 Azure의 다양 한 개념을 이해 하 고 있습니다.
 - Oracle Database Enterprise Edition 12c 이상을 실행 하 고 있습니다.

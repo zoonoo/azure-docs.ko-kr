@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400729"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648019"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Visual Studio Code에서 Azure API Management 정책 디버그
 
 Azure API Management [정책은](api-management-policies.md) API 게시자가 인증, 권한 부여, 제한, 캐싱, 변환 등의 교차 문제를 해결 하는 데 도움이 되는 강력한 기능을 제공 합니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 
 
 이 문서에서는 [Visual Studio Code에 대 한 Azure API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement)을 사용 하 여 API Management 정책을 디버그 하는 방법을 설명 합니다. 
-
-> [!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

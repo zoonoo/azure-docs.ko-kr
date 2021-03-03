@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368016"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656808"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성
 
@@ -29,7 +29,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 >
 > Mozilla Firefox를 사용 하는 경우 작업 영역에 대 한 개인 끝점에 액세스 하는 동안 문제가 발생할 수 있습니다. 이 문제는 HTTPS를 통한 DNS와 관련 된 것일 수 있습니다. 해결 방법으로 Google Chrome의 Microsoft Edge를 사용 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 고객 관리 키를 사용 하 여 개인 링크를 사용 하도록 설정 된 작업 영역을 사용 하려는 경우 지원 티켓을 사용 하 여이 기능을 요청 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
@@ -172,7 +172,12 @@ Azure Virtual Machines에 대 한 자세한 내용은 [Virtual Machines 설명�
 
 ## <a name="enable-public-access"></a>공용 액세스 사용
 
-개인 끝점을 사용 하 여 작업 영역을 구성한 후에는 필요에 따라 작업 영역에 대 한 공용 액세스를 사용할 수 있습니다. 이렇게 해도 개인 끝점은 제거 되지 않습니다. 개인 액세스 외에도 공용 액세스를 사용 하도록 설정 합니다. 개인 링크 사용 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
+경우에 따라 VNet을 통해서가 아니라 공용 끝점을 통해 사용자가 보안 작업 영역에 연결 하도록 허용할 수 있습니다. 개인 끝점을 사용 하 여 작업 영역을 구성한 후에는 필요에 따라 작업 영역에 대 한 공용 액세스를 사용할 수 있습니다. 이렇게 해도 개인 끝점은 제거 되지 않습니다. VNet 뒤 구성 요소 간의 모든 통신은 여전히 보안이 유지 됩니다. 이를 통해 VNet을 통한 개인 액세스 외에 작업 영역에만 공용 액세스를 사용할 수 있습니다.
+
+> [!WARNING]
+> 공용 끝점을 통해 연결 하는 경우 스튜디오의 일부 기능에서 데이터에 액세스 하지 못합니다. 이 문제는 VNet 뒤에서 보호 되는 서비스에 데이터를 저장할 때 발생 합니다. 예를 들어 Azure Storage 계정이 있습니다.
+
+개인 링크 사용 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

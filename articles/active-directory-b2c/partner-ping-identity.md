@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 430629f94695f0689422434c8d80fe4e1876e5dd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900267"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650229"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>자습서: 보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용 하 여 Ping Id 구성
 
@@ -80,7 +80,7 @@ OIDC, OAuth2 또는 SAML를 사용 하 여 업스트림 인증 공급자에 대 
 
 - Azure 구독 계정이 없는 경우 [무료 계정을](https://azure.microsoft.com/free/)받으세요.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 - Docker 컨테이너 또는 Azure Vm에서 직접 배포 된 액세스 및 연결
 
@@ -107,7 +107,7 @@ OIDC, OAuth2 또는 SAML를 사용 하 여 업스트림 인증 공급자에 대 
 
 ![이미지는 토큰 설정을 보여 줍니다.](./media/partner-ping/token-setting.png)
 
-고급 정책에서는 [JWT 토큰 발급자 기술 프로필](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile)의 **IssuanceClaimPattern** metadata 요소 to **AuthorityWithTfp** 값을 사용 하 여이를 구성할 수 있습니다.
+고급 정책에서는 [JWT 토큰 발급자 기술 프로필](./jwt-issuer-technical-profile.md)의 **IssuanceClaimPattern** metadata 요소 to **AuthorityWithTfp** 값을 사용 하 여이를 구성할 수 있습니다.
 
 ## <a name="configure-pingaccesspingfederate"></a>이상 액세스/i s 페더레이션 구성
 
@@ -160,7 +160,7 @@ OIDC, OAuth2 또는 SAML를 사용 하 여 업스트림 인증 공급자에 대 
 
 7. Azure AD에서 응용 프로그램에 대해 생성 한 **키** 를 **클라이언트 암호** 필드에 입력 합니다.
 
-8. 선택 사항-Microsoft Graph API를 사용 하 여 사용자 지정 클레임을 만들고 사용할 수 있습니다. 그렇게 하도록 선택 하는 경우 **고급** 을 선택 하 고 **요청 프로필** 및 **사용자 특성 새로 고침** 옵션을 선택 취소 합니다. 사용자 지정 클레임을 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 클레임 사용](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#optional---use-a-custom-claim)을 참조 하세요.
+8. 선택 사항-Microsoft Graph API를 사용 하 여 사용자 지정 클레임을 만들고 사용할 수 있습니다. 그렇게 하도록 선택 하는 경우 **고급** 을 선택 하 고 **요청 프로필** 및 **사용자 특성 새로 고침** 옵션을 선택 취소 합니다. 사용자 지정 클레임을 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 클레임 사용](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md)을 참조 하세요.
 
 9. **저장** 을 선택합니다.
 
@@ -265,6 +265,6 @@ Azure AD B2C 테 넌 트에서 제공 하는 여러 IdPs에 페더레이션 하�
 
 자세한 내용은 다음 문서를 검토 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

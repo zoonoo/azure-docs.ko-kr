@@ -10,18 +10,18 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871505"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659684"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>기계 학습 모델 (미리 보기)의 공평 완화
 
 기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지가 기계 학습 모델에서 발생 하는 문제를 완화 하는 데 어떻게 도움이 될 수 있는지 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다.
 
-Fairlearn 오픈 소스 패키지에 대 한 [사용자 가이드](https://fairlearn.github.io/master/user_guide/index.html) 의 다음 요약에서는이를 사용 하 여 빌드하는 AI 시스템의 공평을 평가 하는 방법을 설명 합니다.  Fairlearn 오픈 소스 패키지는 관찰 되는 모든 문제를 완화 하는 데 도움이 되는 옵션을 제공할 수도 있습니다.  Azure Machine Learning 학습 중 AI 시스템의 공평 한 평가를 사용 하려면 [방법](how-to-machine-learning-fairness-aml.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) 을 참조 하세요.
+Fairlearn 오픈 소스 패키지에 대 한 [사용자 가이드](https://fairlearn.github.io/main/user_guide/index.html) 의 다음 요약에서는이를 사용 하 여 빌드하는 AI 시스템의 공평을 평가 하는 방법을 설명 합니다.  Fairlearn 오픈 소스 패키지는 관찰 되는 모든 문제를 완화 하는 데 도움이 되는 옵션을 제공할 수도 있습니다.  Azure Machine Learning 학습 중 AI 시스템의 공평 한 평가를 사용 하려면 [방법](how-to-machine-learning-fairness-aml.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) 을 참조 하세요.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>기계 학습 모델에서 공평 한가요?
@@ -109,6 +109,6 @@ Fairlearn 오픈 소스 패키지는 후 처리 및 감소 하는 완화 알고�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Fairlearn의 [GitHub](https://github.com/fairlearn/fairlearn/), [사용자 가이드](https://fairlearn.github.io/master/user_guide/index.html), [예제](https://fairlearn.github.io/master/auto_examples/)및 [샘플 노트북](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 체크 아웃 하 여 다양 한 구성 요소를 사용 하는 방법을 알아봅니다.
+- Fairlearn의 [GitHub](https://github.com/fairlearn/fairlearn/), [사용자 가이드](https://fairlearn.github.io/main/user_guide/index.html), [예제](https://fairlearn.github.io/main/auto_examples/index.html)및 [샘플 노트북](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 체크 아웃 하 여 다양 한 구성 요소를 사용 하는 방법을 알아봅니다.
 - Azure Machine Learning에서 기계 학습 모델의 공평 한 평가를 사용 하도록 설정 하 [는 방법을](how-to-machine-learning-fairness-aml.md) 알아봅니다.
 - Azure Machine Learning의 추가 평가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) 을 참조 하세요. 

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68ff89191a4e9b11c2d84ec016090f76b8ea11b7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5b0542bbcc4d1acd37f7eeb333a53fb6826a4eea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258119"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643595"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -135,7 +135,7 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 | 대 여 분류 | 부여 되는 권한에 대 한 [사용 권한 분류](configure-permission-classifications.md) 이거나, 사용 권한 분류 (분류 되지 않은 사용 권한 포함)와 일치 하는 "모두"입니다. 기본값은 "all"입니다. |
 | 고 유형 | 부여 되는 사용 권한의 사용 권한 유형입니다. 응용 프로그램 사용 권한 (예: 앱 역할) 또는 위임 된 권한에 대해 "위임 됨"에 "응용 프로그램"을 사용 합니다. <br><br>**참고**: "delegatedUserConsentable" 값은 관리자 동의를 요구 하도록 API 게시자에서 구성 되지 않은 위임 된 사용 권한을 나타냅니다 .이 값은 기본 제공 권한 부여 정책에 사용 될 수 있지만 사용자 지정 권한 부여 정책에서는 사용할 수 없습니다. 필수 사항입니다. |
 | ResourceApplication | 사용 권한이 부여 되는 리소스 응용 프로그램 (예: API)의 **AppId** 또는 리소스 응용 프로그램 또는 API와 일치 하는 "any"입니다. 기본값은 "any"입니다. |
-| 권한 | 와 일치 하는 특정 사용 권한에 대 한 권한 Id의 목록 또는 모든 사용 권한과 일치 하는 단일 값 "모든"의 목록입니다. 기본값은 "all" 단일 값입니다. <ul><li>위임 된 권한 Id는 API의 ServicePrincipal 개체의 **OAuth2Permissions** 속성에서 찾을 수 있습니다.</li><li>응용 프로그램 권한 Id는 API의 ServicePrincipal 개체의 **Approles** 속성에서 찾을 수 있습니다.</li></ol> |
+| 사용 권한 | 와 일치 하는 특정 사용 권한에 대 한 권한 Id의 목록 또는 모든 사용 권한과 일치 하는 단일 값 "모든"의 목록입니다. 기본값은 "all" 단일 값입니다. <ul><li>위임 된 권한 Id는 API의 ServicePrincipal 개체의 **OAuth2Permissions** 속성에서 찾을 수 있습니다.</li><li>응용 프로그램 권한 Id는 API의 ServicePrincipal 개체의 **Approles** 속성에서 찾을 수 있습니다.</li></ol> |
 | ClientApplicationIds | 와 일치 하는 클라이언트 응용 프로그램에 대 한 **AppId** 값의 목록 이거나, 모든 클라이언트 응용 프로그램과 일치 하는 단일 값 "모두"가 있는 목록입니다. 기본값은 "all" 단일 값입니다. |
 | ClientApplicationTenantIds | 클라이언트 응용 프로그램이 등록 된 Azure Active Directory 테 넌 트 Id의 목록 또는 모든 테 넌 트에 등록 된 클라이언트 앱과 일치 하는 단일 값 "모두"를 포함 하는 목록입니다. 기본값은 "all" 단일 값입니다. |
 | Clientapplicationsd Ds | 클라이언트 응용 프로그램의 [확인 된 게시자](../develop/publisher-verification-overview.md) 에 대 한 MICROSOFT 파트너 네트워크 (MPN) id 목록 또는 모든 게시자의 클라이언트 앱과 일치 하는 단일 값 "모두"가 포함 된 목록입니다. 기본값은 "all" 단일 값입니다. |
@@ -152,4 +152,4 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [Microsoft Q의 Azure AD&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q의 Azure AD&A](/answers/products/)

@@ -2,18 +2,18 @@
 title: Red Hat Enterprise Linux 연장된 수명 주기 지원
 description: Red Hat Enterprise Extended 수명 주기 지원 추가 기능을 추가 하는 방법에 대해 알아봅니다.
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.reviewer: cynthn
-ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 703732725ae7215d3ff59ad92a4c171a86251c20
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861396"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677187"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>RHEL (Red Hat Enterprise Linux) 확장 된 수명 주기 지원
 이 문서에서는 Red Hat Enterprise 이미지에 대 한 연장 된 수명 주기 지원 정보를 제공 합니다.

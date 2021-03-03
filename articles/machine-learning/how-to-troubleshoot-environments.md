@@ -10,18 +10,18 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881638"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657301"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>환경 이미지 빌드 문제 해결
 
 Docker 환경 이미지 빌드 및 패키지 설치와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
@@ -153,8 +153,8 @@ Pip 하위 프로세스 오류:
 
 가능한 문제:
 - 컨테이너 레지스트리의 경로 이름이 올바르게 확인 되지 않을 수 있습니다. 이미지 이름이 이중 슬래시를 사용 하 고 Linux 및 Windows 호스트에 대 한 슬래시 방향이 올바른지 확인 합니다.
-- 가상 네트워크 뒤의 컨테이너 레지스트리가 [지원 되지 않는 지역](/azure/private-link/private-link-overview#availability)에서 개인 끝점을 사용 하는 경우 포털에서 서비스 엔드포인트 (공용 액세스)를 사용 하 여 컨테이너 레지스트리를 구성 하 고 다시 시도 하세요.
-- 컨테이너 레지스트리를 가상 네트워크 뒤에 배치한 후에는 작업 영역이 container registry 인스턴스와 통신할 수 있도록 [Azure Resource Manager 템플릿을](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) 실행 합니다.
+- 가상 네트워크 뒤의 컨테이너 레지스트리가 [지원 되지 않는 지역](../private-link/private-link-overview.md#availability)에서 개인 끝점을 사용 하는 경우 포털에서 서비스 엔드포인트 (공용 액세스)를 사용 하 여 컨테이너 레지스트리를 구성 하 고 다시 시도 하세요.
+- 컨테이너 레지스트리를 가상 네트워크 뒤에 배치한 후에는 작업 영역이 container registry 인스턴스와 통신할 수 있도록 [Azure Resource Manager 템플릿을](./how-to-network-security-overview.md) 실행 합니다.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>작업 영역 컨테이너 레지스트리에서 401 오류가 발생 합니다.
 
@@ -166,7 +166,7 @@ Pip 하위 프로세스 오류:
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>사용자 지정 Docker 이미지가 레지스트리에 없습니다.
 
-[올바른 태그](/azure/machine-learning/how-to-use-environments#create-an-environment) 를 사용 하 고 있는지 확인 `user_managed_dependencies = True` 합니다. `Environment.python.user_managed_dependencies = True` conda를 사용 하지 않도록 설정 하 고 사용자의 설치 된 패키지를 사용 합니다.
+[올바른 태그](./how-to-use-environments.md#create-an-environment) 를 사용 하 고 있는지 확인 `user_managed_dependencies = True` 합니다. `Environment.python.user_managed_dependencies = True` conda를 사용 하지 않도록 설정 하 고 사용자의 설치 된 패키지를 사용 합니다.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>다음과 같은 일반적인 가상 네트워크 문제 중 하나를 얻을 수 있습니다.
 
@@ -184,9 +184,9 @@ Pip 하위 프로세스 오류:
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>저장소에서 네트워크 보안을 사용 하는 경우 실험을 실행할 수 없습니다.
 
-기본 Docker 이미지를 사용 하 고 사용자 관리 종속성을 사용 하도록 설정 하는 경우 MicrosoftContainerRegistry 및 AzureFrontDoor [서비스 태그](/azure/machine-learning/how-to-enable-virtual-network) 를 사용 하 여 Azure Container Registry 및 해당 종속성을 allowlist 합니다.
+기본 Docker 이미지를 사용 하 고 사용자 관리 종속성을 사용 하도록 설정 하는 경우 MicrosoftContainerRegistry 및 AzureFrontDoor [서비스 태그](./how-to-network-security-overview.md) 를 사용 하 여 Azure Container Registry 및 해당 종속성을 allowlist 합니다.
 
- 자세한 내용은 [가상 네트워크 사용](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry)을 참조 하세요.
+ 자세한 내용은 [가상 네트워크 사용](./how-to-network-security-overview.md)을 참조 하세요.
 
 ### <a name="you-need-to-create-an-icm"></a>ICM을 만들어야 합니다.
 

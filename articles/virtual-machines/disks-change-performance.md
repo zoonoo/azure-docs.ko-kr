@@ -4,16 +4,16 @@ description: 관리 디스크의 성능 계층에 대해 알아봅니다.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 28980756ac9e41c9477d687ea9df608b512759e3
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: af1509073248b46575881beef7b9800107e7fed7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94986786"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677305"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>관리 디스크에 대 한 성능 계층
 
@@ -39,14 +39,14 @@ Azure 관리 디스크의 성능은 성능 계층의 형태로 디스크를 만�
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | None |
+| 4TiB | P50 | 없음 |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | None |
+| 32TiB | P80 | 없음 |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
-## <a name="restrictions"></a>제한 사항
+## <a name="restrictions"></a>제한
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 

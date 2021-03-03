@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258170"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643799"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -130,7 +130,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 1. **위임 된 권한**  >  **사용자** 사용자  >  **를 선택 합니다. 읽기**.
 1. **응용 프로그램 권한** 응용 프로그램 응용 프로그램  >    >  **. ReadWrite를** 선택 합니다.
-1. **모든 권한** 을 선택합니다.
+1. **권한 추가** 를 선택합니다.
 1. **API 사용 권한** 페이지에서 **\<your directory name> 에 대해 관리자 동의 부여** 를 선택 합니다.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
@@ -175,7 +175,8 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 선택적 클레임을 사용 하 여 모든 사용자와 테 넌 트에 포함 된 기본 제공 클레임을 추가할 수 있습니다. 응용 프로그램 매니페스트를 수정 하 여 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 응용 프로그램 매니페스트 이해 문서](../develop/reference-app-manifest.md) 를 참조 하세요.
 
 액세스를 지 원하는 access_token에 전자 메일 주소를 포함 하는 예는 다음과 같습니다.
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

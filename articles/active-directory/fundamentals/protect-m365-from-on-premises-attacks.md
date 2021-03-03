@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257273"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650977"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격 으로부터 Microsoft 365 보호
 
@@ -141,7 +141,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
     *   Azure Portal에 대 한 액세스를 차단 합니다. 거의 필요한 예외를 만들 수 있습니다.  모든 게스트 및 외부 사용자를 포함 하는 조건부 액세스 정책을 만듭니다. 그런 다음 [액세스를 차단 하는 정책을 구현](../../role-based-access-control/conditional-access-azure-management.md)합니다. 
 
-* **연결** 되지 않은 포리스트: [Azure AD 클라우드 프로 비전](../cloud-provisioning/what-is-cloud-provisioning.md)을 사용 합니다. 이 방법을 사용 하면 연결이 끊어진 포리스트에 연결 하 여 포리스트 간 연결 또는 트러스트를 설정할 필요가 없으므로 온-프레미스 위반의 영향을 넓힐 수 있습니다. 
+* **연결** 되지 않은 포리스트: [Azure AD 클라우드 프로 비전](../cloud-sync/what-is-cloud-sync.md)을 사용 합니다. 이 방법을 사용 하면 연결이 끊어진 포리스트에 연결 하 여 포리스트 간 연결 또는 트러스트를 설정할 필요가 없으므로 온-프레미스 위반의 영향을 넓힐 수 있습니다. 
  
 ### <a name="limitations-and-tradeoffs"></a>제한 사항 및 장단점
 

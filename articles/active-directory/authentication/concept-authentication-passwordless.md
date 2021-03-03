@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory 암호 없는 로그인 (미리 보기)
+title: Azure Active Directory 암호 없는 로그인
 description: FIDO2 보안 키 또는 Microsoft Authenticator 앱을 사용 하 여 Azure Active Directory에 대해 암호 없는 로그인 옵션에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013008"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647560"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -62,8 +62,6 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](../user-help/user-help-auth-app-download-install.md) 를 참조 하세요.
 
-Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure AD Multi-Factor Authentication, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰에 대 한 보조 인증에 Microsoft Authenticator 앱을 사용 하는 것은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windows Hello와 동일한 기본 패턴을 따릅니다. Azure AD가 사용 되는 Microsoft Authenticator 앱 버전을 찾을 수 있도록 사용자를 식별 해야 하기 때문에 좀 더 복잡 합니다.
 
 ![Microsoft Authenticator 앱을 사용한 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -91,8 +89,6 @@ FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable �
 사용자는 로그인 인터페이스에서 FIDO2 보안 키를 등록한 다음에 인증의 기본 수단으로 선택할 수 있습니다. 이러한 FIDO2 보안 키는 일반적으로 USB 디바이스이지만 Bluetooth 또는 NFC를 사용할 수도 있습니다. 인증을 처리하는 하드웨어 디바이스를 사용하면 노출되거나 추측될 수 있는 암호가 없으므로 계정의 보안이 강화됩니다.
 
 FIDO2 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
-
-Azure AD에 대 한 FIDO2 보안 키로 로그인은 현재 미리 보기로 제공 됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ FIDO2 보안 키를 시작 하려면 다음 방법에 대 한 작업을 완료 �
 > [!div class="nextstepaction"]
 > [FIDO2 보안 키를 사용 하 여 암호 없는 sign 사용](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>어떤 시나리오가 미리 보기에서 작동 하나요?
+## <a name="supported-scenarios"></a>지원되는 시나리오
 
-Azure AD 암호 없는 로그인 기능은 현재 미리 보기 상태입니다. 고려 사항은 다음과 같습니다.
+고려 사항은 다음과 같습니다.
 
 - 관리자는 테 넌 트에 대해 암호 없는 인증 방법을 사용할 수 있습니다.
 - 관리자는 모든 사용자를 대상으로 하거나 각 방법에 대해 테 넌 트 내에서 사용자/그룹을 선택할 수 있습니다.
 - 최종 사용자는 자신의 계정 포털에서 이러한 암호 없는 인증 방법을 등록 하 고 관리할 수 있습니다.
-- 최종 사용자는 이러한 암호 없는 인증 방법으로 로그인 할 수 있습니다.
-   - Microsoft Authenticator 앱: 모든 브라우저를 사용 하 여 Windows 10 기본 (OOBE)을 설치 하는 동안, 그리고 모든 운영 체제에서 통합 된 모바일 앱을 포함 하 여 Azure AD 인증을 사용 하는 시나리오에서 작동 합니다.
+- 최종 사용자는 다음과 같은 암호 없는 인증 방법으로 로그인 할 수 있습니다.
+   - Microsoft Authenticator 앱: 모든 브라우저를 사용 하 여 Windows 10 설치 중에, 그리고 모든 운영 체제에서 통합 된 모바일 앱을 포함 하 여 Azure AD 인증을 사용 하는 시나리오에서 작동 합니다.
    - 보안 키: Microsoft Edge (레거시 및 새 Edge 모두)와 같은 지원 되는 브라우저에서 Windows 10 및 웹의 잠금 화면에 대 한 작업을 수행 합니다.
 
 ## <a name="choose-a-passwordless-method"></a>암호 없는 메서드 선택
@@ -179,7 +175,7 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 다음 표를 사용 하 여 요구 사항 및 사용자를 지원할 방법을 선택할 수 있습니다.
 
-|Persona|시나리오|환경|Passwordless 기술|
+|Persona|시나리오|Environment|Passwordless 기술|
 |:-|:-|:-|:-|
 |**관리자**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
 |**관리자**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|

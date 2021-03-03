@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8f5b7f8b5cd563f8b265d7051a57b0ac22598d1c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674974"
 ---
 # <a name="disk-performance-metrics"></a>디스크 성능 메트릭
 Azure는 VM (가상 머신) 및 디스크가 수행 하는 방법에 대 한 통찰력을 제공 하는 메트릭을 Azure Portal에 제공 합니다. API 호출을 통해 메트릭을 검색할 수도 있습니다. 이 문서는 세 개의 하위 섹션으로 나뉘어 있습니다.
@@ -129,6 +129,6 @@ Standard_D8s_v3는 총 28600 IOPS를 달성할 수 있습니다. 메트릭을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 메트릭 개요](../azure-monitor/platform/data-platform-metrics.md)
-- [메트릭 집계 설명](../azure-monitor/platform/metrics-aggregation-explained.md)
-- [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)
+- [Azure Monitor 메트릭 개요](../azure-monitor/essentials/data-platform-metrics.md)
+- [메트릭 집계 설명](../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-metric.md)

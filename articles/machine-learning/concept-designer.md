@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322258"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661089"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너 란? 
+# <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너란 무엇인가요? 
 
 
 Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이터 세트](#datasets) 및 [모듈](#module)을 시각적으로 연결하여 기계 학습 모델을 만들 수 있습니다. 디자이너를 시작하는 방법을 알아보려면 [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 참조하세요.
@@ -81,7 +81,7 @@ Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이�
 
 모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택할 때 모듈 매개 변수가 캔버스 오른쪽의 속성 창에 표시됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다. 디자이너에서 개별 모듈의 컴퓨팅 리소스를 설정할 수 있습니다. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="모듈 속성":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="모듈 속성":::
 
 
 사용할 수 있는 기계 학습 알고리즘의 라이브러리를 탐색하는 데 도움이 필요한 경우 [알고리즘 및 모듈 참조 개요](algorithm-module-reference/module-reference.md)를 참조하세요. 알고리즘 선택에 도움이 필요한 경우 [Azure Machine Learning 알고리즘 치트 시트](algorithm-cheat-sheet.md)를 참조하세요.

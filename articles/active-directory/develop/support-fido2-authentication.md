@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: 5abece0e272d4b72ba6f787ad44b091df5d45226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e7193ee5d076538689078ce634b8170926df20b6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417542"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653255"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>개발 하는 앱에서 FIDO2 키로 암호 없는 인증 지원
 
@@ -47,10 +47,10 @@ RequestedAuthnContext 요소는 선택 사항 이므로이 문제를 해결 하�
 인증을 구현 하는 데 권장 되는 옵션은 다음과 같습니다.
 
 - MSAL (Microsoft 인증 라이브러리)을 사용 하는 .NET 데스크톱 응용 프로그램은 WAM (Windows 인증 관리자)를 사용 해야 합니다. 이러한 통합 및 해당 혜택은 [GitHub에 설명](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam)되어 있습니다.
-- [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) 를 사용 하 여 포함 된 브라우저에서 FIDO2을 지원 합니다.
+- [WebView2](/microsoft-edge/webview2/) 를 사용 하 여 포함 된 브라우저에서 FIDO2을 지원 합니다.
 - 시스템 브라우저를 사용 합니다. 데스크톱 플랫폼용 MSAL 라이브러리는 기본적으로이 방법을 사용 합니다. FIDO2 브라우저 호환성 페이지를 참조 하 여 사용 하는 브라우저가 FIDO2 인증을 지원 하는지 확인할 수 있습니다.
 
-### <a name="mobile"></a>모바일
+### <a name="mobile"></a>휴대폰
 
 2020 년 2 월부터 FIDO2는 현재 네이티브 iOS 또는 Android 앱에 대해 지원 되지 않지만 개발 중입니다.
 

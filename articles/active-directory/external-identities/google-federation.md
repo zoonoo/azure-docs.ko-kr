@@ -5,38 +5,62 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355599"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653325"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
-Google을 사용 하 여 페더레이션을 설정 하면 초대 된 사용자가 Microsoft 계정을 만들지 않고도 자신의 Gmail 계정을 사용 하 여 공유 앱 및 리소스에 로그인 하도록 허용할 수 있습니다. 
+Google을 사용 하 여 페더레이션을 설정 하면 초대 된 사용자가 Microsoft 계정을 만들지 않고도 자신의 Gmail 계정을 사용 하 여 공유 앱 및 리소스에 로그인 하도록 허용할 수 있습니다.
+
+응용 프로그램 로그인 옵션 중 하나로 Google을 추가한 후 **로그인** 페이지에서 사용자는 google에 로그인 하는 데 사용 하는 전자 메일을 간단히 입력 하거나 **로그인 옵션** 을 선택 하 고 **Google을 사용 하 여 로그인** 을 선택할 수 있습니다. 두 경우 모두 인증을 위해 Google 로그인 페이지로 리디렉션됩니다.
+
+![Google 사용자에 대 한 로그인 옵션](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > Google 페더레이션은 Gmail 사용자를 위해 특별히 설계되었습니다. G Suite 도메인과 페더레이션 하려면 [직접 페더레이션을](direct-federation.md)사용 합니다.
 
 > [!IMPORTANT]
-> Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+> **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
-Google Gmail 사용자에 게 초대를 보낼 때 게스트 사용자는 테 넌 트 컨텍스트를 포함 하는 링크를 사용 하 여 공유 앱 또는 리소스에 액세스 해야 합니다. 환경은 Google에 이미 로그인했는지 여부에 따라 달라집니다.
-  - Google에 로그인 하지 않은 게스트 사용자에 게는이 작업을 수행 하 라는 메시지가 표시 됩니다.
-  - Google에 이미 로그인 한 게스트 사용자에 게 사용 하려는 계정을 선택 하 라는 메시지가 표시 됩니다. 게스트 사용자는 초대에 사용된 계정을 선택해야 합니다.
+
+Google 사용자가 초대를 교환 때 해당 환경은 Google에 이미 로그인 했는지 여부에 따라 달라 집니다.
+
+- Google에 로그인 하지 않은 게스트 사용자에 게는이 작업을 수행 하 라는 메시지가 표시 됩니다.
+- Google에 이미 로그인 한 게스트 사용자에 게 사용 하려는 계정을 선택 하 라는 메시지가 표시 됩니다. 게스트 사용자는 초대에 사용된 계정을 선택해야 합니다.
 
 "헤더가 너무 깁니다." 오류가 표시 되는 게스트 사용자는 쿠키를 지우거 나 개인 또는 incognito 창을 열고 다시 로그인을 시도할 수 있습니다.
 
 ![Google 로그인 페이지를 보여 주는 스크린샷](media/google-federation/google-sign-in.png)
+
+## <a name="sign-in-endpoints"></a>로그인 끝점
+
+이제 Google 게스트 사용자는 [공통 끝점](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (즉, 테 넌 트 컨텍스트를 포함 하지 않는 일반 앱 URL)을 사용 하 여 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다. 일반적인 끝점의 예는 다음과 같습니다.
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+로그인 프로세스 중에 게스트 사용자가 **로그인 옵션** 을 선택 하 고 **조직에 로그인** 을 선택 합니다. 그런 다음 사용자는 조직의 이름을 입력 하 고 Google 자격 증명을 사용 하 여 계속 로그인 합니다.
+
+Google 게스트 사용자는 테 넌 트 정보를 포함 하는 응용 프로그램 엔드포인트를 사용할 수도 있습니다. 예를 들면 다음과 같습니다.
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Google 게스트 사용자에 게 테 넌 트 정보 (예:)를 포함 하 여 응용 프로그램 또는 리소스에 대 한 직접 링크를 제공할 수도 있습니다 `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
 
 ## <a name="deprecation-of-webview-sign-in-support"></a>웹 보기 로그인 지원 중단
 
@@ -66,23 +90,13 @@ Microsoft는 다양 한 플랫폼과 시나리오를 계속 해 서 테스트 �
    - Windows 앱에서 이전 버전의 Windows에 포함 된 웹 보기 또는 WebAccountManager (WAM)를 사용 하는 경우 최신 버전의 Windows로 업데이트 합니다.
    - 로그인에 시스템 브라우저를 사용 하도록 앱을 수정 합니다. 자세한 내용은 MSAL.NET 설명서의 [Embedded Vs System WEB UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) 를 참조 하십시오.  
 
-## <a name="sign-in-endpoints"></a>로그인 끝점
 
-팀은 모든 디바이스에서 Google 게스트 사용자를 완벽하게 지원합니다. Google 사용자는 `https://teams.microsoft.com`과 같은 일반 엔드포인트에서 팀에 로그인할 수 있습니다.
-
-다른 애플리케이션의 일반 엔드포인트는 Google 사용자를 지원하지 않을 수 있습니다. Google 게스트 사용자는 테 넌 트 정보를 포함 하는 링크를 사용 하 여 로그인 해야 합니다. 예를 들면 다음과 같습니다.
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   Google 게스트 사용자가 또는와 같은 링크를 사용 하려고 하면 `https://myapps.microsoft.com` `https://portal.azure.com` 오류가 발생 합니다.
-
-링크가 테 넌 트 정보를 포함 하는 한 응용 프로그램 또는 리소스에 대 한 직접 링크를 Google 게스트 사용자에 게 제공할 수도 있습니다. 예: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## <a name="step-1-configure-a-google-developer-project"></a>1단계: Google 개발자 프로젝트 구성
 먼저 Google 개발자 콘솔에서 새 프로젝트를 만들어 나중에 Azure Active Directory (Azure AD)에 추가할 수 있는 클라이언트 ID 및 클라이언트 암호를 가져옵니다. 
 1. https://console.developers.google.com 에서 Google API로 이동하고, Google 계정으로 로그인합니다. 공유 팀 Google 계정을 사용하는 것이 좋습니다.
 2. 이 작업을 수행 하 라는 메시지가 표시 되 면 서비스 약관에 동의 합니다.
-3. 새 프로젝트 만들기: 대시보드에서 **프로젝트 만들기** 를 선택 하 고 프로젝트에 이름 (예: **Azure AD B2B**)을 지정한 다음, **만들기** 를 선택 합니다. 
+3. 새 프로젝트 만들기: 페이지의 왼쪽 위 모서리에서 프로젝트 목록을 선택한 다음 **프로젝트 선택** 페이지에서 **새 프로젝트** 를 선택 합니다.
+4. **새 프로젝트** 페이지에서 프로젝트 이름 (예: **Azure AD B2B**)을 지정 하 고 **만들기** 를 선택 합니다. 
    
    ![새 프로젝트 페이지를 보여 주는 스크린샷](media/google-federation/google-new-project.png)
 

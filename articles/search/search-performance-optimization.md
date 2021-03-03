@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096436"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670718"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Azure Cognitive Search의 성능에 대 한 크기 조정
 
@@ -91,7 +91,7 @@ ms.locfileid: "101096436"
 
 ### <a name="availability-zones"></a>가용성 영역
 
-동일한 지역 내에서 고가용성을 제공 하기 위해 지역의 데이터 센터를 별개의 실제 위치 그룹으로 나눌 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview) . Cognitive Search의 경우 개별 복제본은 영역 할당 단위입니다. 검색 서비스는 한 지역 내에서 실행 됩니다. 해당 복제본은 다른 영역에서 실행 됩니다.
+동일한 지역 내에서 고가용성을 제공 하기 위해 지역의 데이터 센터를 별개의 실제 위치 그룹으로 나눌 [가용성 영역](../availability-zones/az-overview.md) . Cognitive Search의 경우 개별 복제본은 영역 할당 단위입니다. 검색 서비스는 한 지역 내에서 실행 됩니다. 해당 복제본은 다른 영역에서 실행 됩니다.
 
 검색 서비스에 두 개 이상의 복제본을 추가 하 여 Azure Cognitive Search에서 가용성 영역를 활용할 수 있습니다. 각 복제본은 지역 내의 다른 가용성 영역에 배치 됩니다. 가용성 영역 보다 많은 복제본이 있는 경우 복제본은 가용성 영역 전체에 최대한 균등 하 게 분산 됩니다.
 

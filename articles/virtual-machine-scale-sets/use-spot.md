@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558674"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675008"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스팟 Virtual Machines 
 
@@ -46,19 +46,38 @@ Azure 스폿 가상 머신은 Microsoft Azure 중국 21Vianet을 제외 하 고 
 -   기업 계약
 -   종 량 제 제품 코드 003P
 -   후원
-- CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
+- CSP (클라우드 서비스 공급자)의 경우 [파트너 센터](https://docs.microsoft.com/partner-center/azure-plan-get-started) 를 참조 하거나 파트너에 게 직접 문의 하세요.
 
 ## <a name="eviction-policy"></a>제거 정책
 
-Azure 스폿 가상 머신 확장 집합을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
+Azure 지점 Virtual Machines를 사용 하 여 확장 집합을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
 
 *할당* 취소 정책은 제거 된 인스턴스를 제거 된 인스턴스를 다시 배포할 수 있도록 중지-할당 취소 된 상태로 이동 합니다. 그러나 할당이 성공하리라는 보장은 없습니다. 할당 취소된 VM은 확장 집합 인스턴스 할당량에 따라 계산되며 기본 디스크에 대한 요금이 청구됩니다. 
 
-Azure 스폿 가상 머신 확장 집합의 인스턴스가 제거 될 때 삭제 되도록 하려면 제거 정책을 *삭제* 로 설정할 수 있습니다. 삭제하도록 제거 정책을 설정하면 확장 집합 인스턴스 수 속성을 늘려 새 VM을 만들 수 있습니다. 제거된 VM은 기본 디스크와 함께 삭제되므로 스토리지에 대한 요금이 청구되지 않습니다. 확장 집합의 자동 크기 조정 기능을 사용하여 제거된 VM을 자동으로 시도하고 보정할 수 있지만 성공적인 할당을 보장하지는 않습니다. 디스크 비용을 방지 하 고 할당량 한도에 도달 하는 것을 방지 하기 위해 제거 정책을 삭제로 설정 하는 경우 Azure 스팟 가상 머신 확장 집합에서 자동 크기 조정 기능만 사용 하는 것이 좋습니다. 
+인스턴스가 제거 될 때 삭제 되도록 하려면 제거 정책을 *삭제* 로 설정 하면 됩니다. 삭제하도록 제거 정책을 설정하면 확장 집합 인스턴스 수 속성을 늘려 새 VM을 만들 수 있습니다. 제거된 VM은 기본 디스크와 함께 삭제되므로 스토리지에 대한 요금이 청구되지 않습니다. 확장 집합의 자동 크기 조정 기능을 사용하여 제거된 VM을 자동으로 시도하고 보정할 수 있지만 성공적인 할당을 보장하지는 않습니다. 디스크 비용을 방지 하 고 할당량 한도에 도달 하는 것을 방지 하기 위해 제거 정책을 삭제로 설정 하는 경우 Azure 스팟 가상 머신 확장 집합에서 자동 크기 조정 기능만 사용 하는 것이 좋습니다. 
 
 사용자는 [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md)를 통해 VM 내 알림을 받도록 옵트인 (opt in) 할 수 있습니다. 이렇게 하면 Vm을 제거 하는 경우에 알림이 표시 되며, 제거 되기 전에 작업을 완료 하 고 종료 작업을 수행 하는 데 30 초 정도 걸립니다. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>& 복원 시도 (미리 보기)
+
+이 새로운 플랫폼 수준 기능은 AI를 사용 하 여 대상 인스턴스 수를 유지 하기 위해 확장 집합 내에서 제거 된 Azure 스폿 가상 머신 인스턴스를 자동으로 복원 하려고 시도 합니다. 
+
+> [!IMPORTANT]
+> & 복원은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+& 복원 혜택을 시도 합니다.
+- 확장 집합에 Azure 별색 가상 머신을 배포할 때 기본적으로 사용 하도록 설정 됩니다.
+- 용량으로 인해 제거 되는 Azure 스팟 Virtual Machines 복원을 시도 합니다.
+- 복원 된 Azure 스폿 Virtual Machines는 용량이 트리거된 제거의 확률 보다 더 긴 기간 동안 실행 될 것으로 예상 됩니다.
+- Azure 스팟 가상 머신의 수명을 개선 하므로 워크 로드는 더 긴 기간 동안 실행 됩니다.
+- 는 종 량 제 Vm에 대해 이미 존재 하는 대상 수 기능을 유지 관리 하는 것과 유사 하 게 Azure 스폿 Virtual Machines의 대상 수를 유지 관리 하는 Virtual Machine Scale Sets 수 있습니다.
+
+[자동 크기 조정을](virtual-machine-scale-sets-autoscale-overview.md)사용 하는 크기 집합에서 복원이 사용 하지 않도록 설정 & 합니다. 크기 집합의 Vm 수는 자동 크기 조정 규칙에 따라 결정 됩니다.
+
 ## <a name="placement-groups"></a>배치 그룹
+
 배치 그룹은 자체 장애 도메인 및 업그레이드 도메인을 포함 하는 Azure 가용성 집합과 비슷한 구문입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. 확장 집합 속성이 `singlePlacementGroup` *false* 로 설정 된 경우 확장 집합은 여러 배치 그룹으로 구성 될 수 있으며 범위는 0 ~ 1000 인 vm입니다. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Azure 스팟 가상 머신 템플릿 배포의 경우 이상을 사용 `"apiVers
 ```
 
 제거 된 인스턴스를 삭제 하려면 `evictionPolicy` 매개 변수를로 변경 `Delete` 합니다.
+
+
+## <a name="simulate-an-eviction"></a>제거 시뮬레이션
+
+Azure 스폿 가상 머신의 [제거를 시뮬레이트하여](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) 응용 프로그램이 갑작스러운 제거에 얼마나 잘 대응 하는지 테스트할 수 있습니다. 
+
+다음을 사용자의 정보로 바꿉니다. 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` 시뮬레이트된 제거를 성공적으로 완료 했음을 의미 합니다. 
 
 ## <a name="faq"></a>FAQ
 

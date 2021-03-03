@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373677"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650076"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -66,7 +66,7 @@ Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager 템플릿](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc를 지원하는 Kubernetes
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -176,7 +176,7 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 
 Azure Digital Twins (사용 가능한 지역)에 대해 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
 
-- [Azure Portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Azure Portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 

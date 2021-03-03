@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361250"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667671"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서를 실행 하거나 다시 설정 하는 방법
 
@@ -101,7 +101,7 @@ POST https://[service name].search.windows.net/skillsets/[skillset name]/resetsk
 > [!IMPORTANT] 
 > [문서 다시 설정](/rest/api/searchservice/preview-api/reset-documents) 은 공개 미리 보기로 제공 되며 미리 보기 REST API 통해서만 제공 됩니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에서 있는 그대로 제공 됩니다.
 
-문서 [다시 설정 API](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) 는 특정 문서를 새로 고칠 수 있도록 문서 키 목록을 수락 합니다. 지정 된 경우 다시 설정 매개 변수는 기본 데이터의 다른 변경 내용에 관계 없이 처리 되는 항목의 유일한 결정이 됩니다. 예를 들어 마지막 인덱서 실행 이후 20 개의 blob을 추가 하거나 업데이트 했지만 하나의 문서만 다시 설정 하면 해당 문서만 처리 됩니다.
+문서 [다시 설정 API](/rest/api/searchservice/preview-api/reset-documents) 는 특정 문서를 새로 고칠 수 있도록 문서 키 목록을 수락 합니다. 지정 된 경우 다시 설정 매개 변수는 기본 데이터의 다른 변경 내용에 관계 없이 처리 되는 항목의 유일한 결정이 됩니다. 예를 들어 마지막 인덱서 실행 이후 20 개의 blob을 추가 하거나 업데이트 했지만 하나의 문서만 다시 설정 하면 해당 문서만 처리 됩니다.
 
 문서 별로 해당 검색 문서의 모든 필드가 데이터 원본의 값으로 새로 고쳐집니다. 새로 고칠 필드를 선택 하 고 선택할 수 없습니다. 
 

@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012496"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675339"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -33,7 +32,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서 설명하는 작업을 시작하기 전에 먼저 다음 문서를 검토하세요.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
@@ -112,10 +111,10 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 스토리지 공간 다이렉트는 스케일 아웃 파일 공유를 위한 공유 디스크로 사용됩니다. 스토리지 공간 다이렉트를 사용하여 로컬 스토리지가 있는 서버로 확장 가능한 고가용성 스토리지를 구축할 수 있습니다. SAP 글로벌 호스트 파일과 같이 스케일 아웃 파일 공유로 사용되는 공유 스토리지는 단일 장애 지점이 아닙니다.
 
-스토리지 공간 다이렉트 선택 하는 경우 다음과 같은 사용 사례를 고려 합니다.
+저장소 공간 다이렉트 선택 하는 경우 다음과 같은 사용 사례를 고려 합니다.
 
-- 스토리지 공간 다이렉트 클러스터를 구축 하는 데 사용 되는 가상 컴퓨터는 Azure 가용성 집합에 배포 해야 합니다.
-- 스토리지 공간 다이렉트 클러스터의 재해 복구를 위해 [Azure Site Recovery 서비스](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)를 사용할 수 있습니다.
+- 저장소 공간 다이렉트 클러스터를 구축 하는 데 사용 되는 가상 컴퓨터는 Azure 가용성 집합에 배포 해야 합니다.
+- 저장소 공간 다이렉트 클러스터의 재해 복구를 위해 [Azure Site Recovery 서비스](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)를 사용할 수 있습니다.
 - 다른 Azure 가용성 영역에서 저장소 공간 다이렉트 클러스터를 스트레치 하는 것은 지원 되지 않습니다.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Azure의 스케일 아웃 파일 공유를 위한 SAP 필수 조건

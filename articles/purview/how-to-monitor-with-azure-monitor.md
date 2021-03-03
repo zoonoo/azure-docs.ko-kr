@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588340"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667733"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Azure Monitor Azure 부서의 범위 메트릭
 
@@ -83,7 +83,7 @@ Azure Portal에서 메트릭 섹션을 사용 하는 방법에 대 한 자세한
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="진단 로그에 대 한 저장소 계정 할당을 보여 주는 스크린샷" lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-새로 만든 저장소 계정에서 로그 수신을 시작 하는 데 최대 15 분이 소요 됩니다. [Azure Storage 계정에서 리소스 로그의 데이터 보존 및 스키마를 참조](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)하세요. 진단 로그가 구성 되 면 이벤트는 저장소 계정으로 전달 됩니다.
+새로 만든 저장소 계정에서 로그 수신을 시작 하는 데 최대 15 분이 소요 됩니다. [Azure Storage 계정에서 리소스 로그의 데이터 보존 및 스키마를 참조](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)하세요. 진단 로그가 구성 되 면 이벤트는 저장소 계정으로 전달 됩니다.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

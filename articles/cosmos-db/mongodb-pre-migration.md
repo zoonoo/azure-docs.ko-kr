@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574656"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656961"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -80,7 +80,7 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 
 ## <a name="index-your-data"></a><a id="indexing"></a>데이터 인덱싱
 
-MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API는 자동으로 `_id` 필드를 인덱싱합니다. 이 필드는 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 추가 필드를 인덱싱하려면 MongoDB 인덱스 관리 명령을 적용합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
+MongoDB server 버전 3.6 이상에 대 한 Azure Cosmos DB API는 자동으로 필드를 인덱싱합니다 `_id` . 이 필드는 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 추가 필드를 인덱싱 하려면 [MongoDB 인덱스 관리 명령을](mongodb-indexing.md)적용 합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
 
 Azure Cosmos DB에서 제공 하는 인덱싱 기능에는 복합 인덱스, 고유 인덱스 및 TTL (time-to-live) 인덱스를 추가 하는 작업이 포함 됩니다. 인덱스 관리 인터페이스는 `createIndex()` 명령에 매핑됩니다. [Azure Cosmos DB의 MONGODB API에 대 한](mongodb-indexing.md)자세한 내용은 인덱싱을 참조 하세요.
 
