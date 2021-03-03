@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584569"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094370"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -27,26 +27,27 @@ Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데�
 Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증 및 명함용으로 미리 빌드된 모델, 레이아웃 모델로 구성됩니다. REST API 또는 클라이언트 라이브러리 SDK를 사용하여 Form Recognizer 모델을 호출하여 복잡성을 줄이고 워크플로 또는 애플리케이션에 통합할 수 있습니다.
 
 Form Recognizer는 다음과 같은 서비스로 구성됩니다.
+
 * **[레이아웃 API](#layout-api)** - 문서에서 경계 상자 좌표와 함께 텍스트, 선택 표시 및 표 구조를 추출합니다.
 * **[사용자 지정 모델](#custom-models)** - 양식에서 텍스트, 키/값 쌍, 선택 표시 및 표 데이터를 추출합니다. 이러한 모델은 사용자 고유의 데이터로 학습되므로 사용자의 양식에 맞게 조정됩니다.
 * **[미리 빌드된 모델](#prebuilt-models)** - 미리 빌드된 모델을 사용하여 고유한 양식 유형에서 데이터를 추출합니다. 현재 사용할 수 있는 미리 빌드된 모델은 다음과 같습니다.
-    * [송장](./concept-invoices.md)
-    * [판매 영수증](./concept-receipts.md)
-    * [명함](./concept-business-cards.md)
-
+  * [송장](./concept-invoices.md)
+  * [판매 영수증](./concept-receipts.md)
+  * [명함](./concept-business-cards.md)
 
 ## <a name="try-it-out"></a>사용해 보기
 
 Form Recognizer 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
-
-
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Form Recognizer 사용해보기](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Form Recognizer 사용해보기](https://fott-preview.azurewebsites.net/)
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer 사용해보기](https://fott.azurewebsites.net/)
 
 ---
 
@@ -128,7 +129,7 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 
 다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
 
-|Name |Description |
+|속성 |Description |
 |---|---|
 | **레이아웃 분석** | 스트림으로 전달된 문서를 분석하여 문서에서 텍스트, 선택 표시, 표 및 구조 추출 |
 | **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
@@ -137,12 +138,11 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 | **영수증 분석** | 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
 | **명함 분석** | 명함을 분석하여 주요 정보 및 텍스트를 추출합니다.|
 
+# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
-
-# <a name="v21"></a>[v2.1](#tab/v2-1)
-자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
 
 ---
 

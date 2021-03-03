@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: ff768bceaba57c119aa88d5d4d99b11608917695
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f61d45b6c46830064c3b58608e2eca0787d559c2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492028"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675119"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용 하 여 공용 IP 주소 만들기
 
 이 문서에서는 Azure PowerShell를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](./ipv6-overview.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 로컬로 설치된 Azure PowerShell 또는 Azure Cloud Shell
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
+>다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 
@@ -89,7 +89,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 # <a name="standard-sku---no-zones"></a>[**표준 SKU-영역 없음**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
+>다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 IP 주소를 만듭니다.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 23b74c06ebd45092b9efe36a870eeac7f6fb828a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454664"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677564"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL의 CETAS
 
@@ -29,7 +29,7 @@ ms.locfileid: "96454664"
 
 ## <a name="cetas-in-dedicated-sql-pool"></a>전용 SQL 풀의 CETAS
 
-전용 SQL 풀, CETAS 사용 및 구문에 대해서는 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 확인하세요. 또한 전용 SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
+전용 SQL 풀, CETAS 사용 및 구문에 대해서는 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 문서를 확인하세요. 또한 전용 SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
 
 ## <a name="cetas-in-serverless-sql-pool"></a>서버리스 SQL 풀의 CETAS
 
@@ -72,11 +72,11 @@ FILE_FORMAT = *external_file_format_name*
 
 WITH *<common_table_expression>*
 
-CTE(공통 테이블 식)라고도 하는 임시로 이름이 지정된 결과 집합을 지정합니다. 자세한 내용은 [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
+CTE(공통 테이블 식)라고도 하는 임시로 이름이 지정된 결과 집합을 지정합니다. 자세한 내용은 [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 SELECT <select_criteria>
 
-새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria* 는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
+새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria* 는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 > [!NOTE]
 > SELECT 문의 ORDER BY 절은 CETAS에서 지원되지 않습니다.

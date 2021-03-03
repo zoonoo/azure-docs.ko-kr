@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593951"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682434"
 ---
 이 단계에서는 AdventureWorksLT 샘플 데이터를 사용하는 [논리 SQL 서버](../database/logical-servers.md) 및 [단일 데이터베이스](../database/single-database-overview.md)를 만듭니다. Azure Portal 메뉴와 화면을 사용하거나 Azure Cloud Shell에서 Azure CLI 또는 PowerShell 스크립트를 사용하여 데이터베이스를 만들 수 있습니다.
 
@@ -36,10 +36,10 @@ Azure Portal에서 리소스 그룹, 서버 및 단일 데이터베이스를 만
 1. **리소스 그룹** 아래에서 **새로 만들기** 를 선택하고, *myResourceGroup* 을 입력하고, **확인** 을 선택합니다.
 1. **데이터베이스 세부 정보** 아래에서 **데이터베이스 이름** 에 대해 *mySampleDatabase* 를 입력합니다.
 1. **서버** 에 대해 **새로 만들기** 를 선택하고 다음과 같이 **새 서버** 양식을 작성합니다.
-   - **서버 이름** : *mysqlserver* 및 고유하게 유지하기 위한 일부 문자를 입력합니다.
-   - **서버 관리자 로그인** : *azureuser* 를 입력합니다.
-   - **암호** : 요구 사항을 충족하는 암호를 입력하고, **암호 확인** 필드에서 다시 입력합니다.
-   - **위치** : 드롭다운에서 위치(예: **(미국) 미국 동부** )를 선택합니다.
+   - **서버 이름**: *mysqlserver* 및 고유하게 유지하기 위한 일부 문자를 입력합니다.
+   - **서버 관리자 로그인**: *azureuser* 를 입력합니다.
+   - **암호**: 요구 사항을 충족하는 암호를 입력하고, **암호 확인** 필드에서 다시 입력합니다.
+   - **위치**: 드롭다운에서 위치(예: **(미국) 미국 동부**)를 선택합니다.
 
    **확인** 을 선택합니다.
 
@@ -69,6 +69,8 @@ Azure Portal에서 리소스 그룹, 서버 및 단일 데이터베이스를 만
    방화벽 설정에 대한 자세한 내용은 [Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용](../database/network-access-controls-overview.md) 및 [프라이빗 엔드포인트 추가](../database/private-endpoint-overview.md)를 참조하세요.
 
 1. **추가 설정** 탭의 **데이터 원본** 섹션에서 **기존 데이터 사용** 에 대해 **샘플** 을 선택합니다.
+1. 선택적으로 [Azure Defender for SQL](../database/azure-defender-for-sql.md)을 사용하도록 설정합니다.
+1. 필요에 따라 데이터베이스에 대해 계획된 유지 관리가 가장 적절한 시간에 수행되도록 [유지 관리 기간](../database/maintenance-window.md)을 설정합니다.
 1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
 
    ![추가 설정 탭](./media/sql-database-create-single-database/additional-settings.png)
@@ -147,7 +149,7 @@ az sql db create \
 
 위의 코드에서 사용하는 Azure CLI 명령은 다음과 같습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 |---|---|
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | 현재 활성 구독이 되도록 구독을 설정합니다. |
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |

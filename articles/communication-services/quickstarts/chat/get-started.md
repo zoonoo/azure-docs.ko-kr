@@ -9,17 +9,15 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python-swift
-ms.openlocfilehash: 97b9644b3d075a0d65826cbd38747ff0e45d51a4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
+ms.openlocfilehash: d8b2edff432bdcbd21afdf81ffea2617b22b0452
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379674"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661632"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>빠른 시작: 앱에 채팅 추가
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Communication Services Chat 클라이언트 라이브러리를 사용하여 애플리케이션에 실시간 채팅을 추가하여 Azure Communication Services를 시작하세요. 이 빠른 시작에서는 채팅 클라이언트 라이브러리를 사용하여 사용자가 서로 대화할 수 있는 채팅 스레드를 만듭니다. 채팅 개념에 대해 자세히 알아보려면 [채팅 개념 설명서](../../concepts/chat/concepts.md)를 참조하세요.
 
@@ -33,6 +31,10 @@ Communication Services Chat 클라이언트 라이브러리를 사용하여 애�
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

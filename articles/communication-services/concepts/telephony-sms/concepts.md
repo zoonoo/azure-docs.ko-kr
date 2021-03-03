@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f03195c801f241a79a6bf68ef9d398370b0d4c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c66ca0b61e00ad8259b8d3e06366bfc58d304fe6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391816"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660919"
 ---
 # <a name="sms-concepts"></a>SMS 개념
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services를 사용하면 Communication Services SMS 클라이언트 라이브러리를 사용하여 SMS 문자 메시지를 보내고 받을 수 있습니다. 이러한 클라이언트 라이브러리를 사용하여 고객 서비스 시나리오, 약속 미리 알림, 2단계 인증 및 기타 실시간 통신 요구를 지원할 수 있습니다. Communication Services SMS를 사용하면 캠페인을 둘러싼 배달 기능 및 응답 요금 정보를 노출하면서 메시지를 안정적으로 전송할 수 있습니다.
 

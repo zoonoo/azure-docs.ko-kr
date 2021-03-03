@@ -4,16 +4,16 @@ description: HPC에 최적화된 InfiniBand 지원 H 시리즈 및 N 시리즈 V
 author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: overview
 ms.date: 07/29/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 5950e9ab6ec979938a2318c4d25f53db4f5e1064
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15d05632e5ebf6e45a61adebbbbf647efca2a1a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666885"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 고성능 컴퓨팅
 

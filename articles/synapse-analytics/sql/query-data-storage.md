@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735384"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675053"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
 서버리스 SQL 풀을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
-- 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 노출 영역.
+- 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
 
 현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [서버리스 SQL 풀 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
@@ -184,21 +184,21 @@ Struct와 같은 중첩된 열의 중첩된 요소에 액세스하려면 "점 �
 - 함수는 지정된 요소와 지정된 경로에서 중첩 형식 그룹에 없는 모든 Parquet 형식에 대해 int, decimal 및 varchar와 같은 스칼라 값을 반환합니다.
 - 경로가 중첩 형식의 요소를 가리키는 경우 함수에서 지정된 경로의 최상위 요소에서 시작하는 JSON 조각을 반환합니다. JSON 조각은 varchar(8000) 형식입니다.
 - 지정된 column_name에서 속성을 찾을 수 없는 경우 함수에서 오류를 반환합니다.
-- [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE)에 따라 지정된 column_path에서 속성을 찾을 수 없는 경우 함수에서 strict 모드인 경우 오류를 반환하거나 lax 모드인 경우 null을 반환합니다.
+- [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE)에 따라 지정된 column_path에서 속성을 찾을 수 없는 경우 함수에서 strict 모드인 경우 오류를 반환하거나 lax 모드인 경우 null을 반환합니다.
 
 쿼리 샘플은 [Parquet 중첩 형식 쿼리](query-parquet-nested-types.md#read-properties-from-nested-object-columns) 문서의 '중첩된 열의 요소에 액세스' 섹션을 검토합니다.
 
 #### <a name="access-elements-from-repeated-columns"></a>반복된 열의 요소에 액세스
 
-Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 스칼라 요소에 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
+Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 스칼라 요소에 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
 
 - 첫 번째 매개 변수로 중첩되거나 반복되는 열
-- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true)
 
-반복된 열의 비 스칼라 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 비 스칼라 요소에 대해 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
+반복된 열의 비 스칼라 요소에 액세스하려면 프로젝션하여 제공해야 하는 모든 비 스칼라 요소에 대해 [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) 함수를 사용합니다.
 
 - 첫 번째 매개 변수로 중첩되거나 반복되는 열
-- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- 두 번째 매개 변수로 액세스할 요소 또는 속성을 지정하는 [JSON 경로](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true)
 
 아래 구문 조각을 참조하세요.
 

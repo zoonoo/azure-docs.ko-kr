@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99821488"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677874"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -57,7 +57,7 @@ Azure SQL Database Managed Instance에 대한 로그인을 사용할 수 없는 
 1. **설정 > 비밀** 을 차례로 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, Azure SQL Database Managed Instance의 *암호* 로 **이름** 및 **값** 을 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
-1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 만들어야 합니다](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 1. 마지막으로 **사용자 이름** 및 **암호** 를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
 #### <a name="service-principal-and-managed-identity"></a>서비스 주체 및 관리 ID
@@ -77,7 +77,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 > 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
 > 1. **앱 등록** 을 선택합니다.
 > 1. **+ 새 애플리케이션 등록** 을 선택합니다.
-> 1. **애플리케이션 이름**(서비스 사용자 이름)을 입력합니다.
+> 1. **애플리케이션** 의 이름(서비스 사용자 이름)을 입력합니다.
 > 1. **이 조직 디렉터리의 계정만** 을 선택합니다.
 > 1. 리디렉션 URI에 대해 **웹** 을 선택하고 원하는 URL을 입력합니다. 실제 또는 작업 URL일 필요가 없습니다.
 > 1. 그런 다음, **등록** 을 선택합니다.
@@ -99,11 +99,11 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
 1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
 1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 차례로 선택합니다.
+1. **설정 > 비밀** 을 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
-1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 만들어야 합니다](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. 마지막으로 서비스 주체를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
+1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
+1. 마지막으로 서비스 주체를 통해 [새 자격 증명을 생성](manage-credentials.md#create-a-new-credential)하여 검사를 설정합니다.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Azure SQL Database Managed Instance 데이터 원본 등록
 
@@ -117,7 +117,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="SQL 데이터 원본 설정":::
 
-1. **수동으로 입력** 을 선택합니다.
+1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
 
 1. **퍼블릭 엔드포인트 정규화된 도메인 이름** 및 **포트 번호** 를 제공합니다. 그런 다음, **마침** 을 선택하여 데이터 원본을 등록합니다.
 

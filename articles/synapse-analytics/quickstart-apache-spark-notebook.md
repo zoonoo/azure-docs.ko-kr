@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454648"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669487"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 서버리스 Apache Spark 풀 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "96454648"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse Analytics 작업 영역](quickstart-create-workspace.md)
@@ -148,7 +148,7 @@ Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 �
 이 빠른 시작에서는 서버리스 Apache Spark 풀을 만들고 기본 Spark SQL 쿼리를 실행하는 방법에 대해 알아보았습니다.
 
 - [Azure Synapse Analytics](overview-what-is.md)
-- [Apache Spark용 .NET 설명서](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Apache Spark용 .NET 설명서](/dotnet/spark)
 
 
 

@@ -8,16 +8,14 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4655a20ddd419993f5a73ec54420abec96d32a62
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546179"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658066"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>자습서: Azure Communication Services용 웹앱 준비(Node.js)
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services를 사용하면 실시간 통신을 애플리케이션에 추가할 수 있습니다. 이 자습서에서는 Azure Communication Services를 지원하는 웹 애플리케이션을 설정하는 방법에 대해 알아봅니다. 이는 실시간 통신을 시작하려는 새로운 개발자를 위한 소개 자습서입니다.
 
@@ -38,12 +36,12 @@ Azure Communication Services를 사용하면 실시간 통신을 애플리케이
 - [Visual Studio Code](https://code.visualstudio.com/): 로컬 개발 환경에서 코드를 편집하는 데 사용합니다.
 - [webpack](https://webpack.js.org/): 코드를 번들로 묶어 로컬로 호스팅하는 데 사용합니다.
 - [Node.js](https://nodejs.org/en/): Azure Communication Services 클라이언트 라이브러리 및 webpack과 같은 종속성을 설치하고 관리하는 데 사용합니다.
-- [nvm 및 npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows)(버전 제어 처리)
-- Visual Studio Code용 [Azure Storage 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). 이 확장은 애플리케이션을 Azure Storage에 게시하는 데 필요합니다. [Azure Storage에서 정적 웹 사이트를 호스팅하는 방법에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm 및 npm](/windows/nodejs/setup-on-windows)(버전 제어 처리)
+- Visual Studio Code용 [Azure Storage 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). 이 확장은 애플리케이션을 Azure Storage에 게시하는 데 필요합니다. [Azure Storage에서 정적 웹 사이트를 호스팅하는 방법에 대해 자세히 알아보세요.](../../storage/blobs/storage-blob-static-website.md)
 - [Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) 이 확장을 사용하면 웹 사이트를 배포할 수 있지만(이전과 비슷함), 완전 관리형 CI/CD(연속 통합 및 지속적인 업데이트)를 구성하는 옵션을 사용할 수 있습니다.
 - 사용자 고유의 서버리스 애플리케이션을 빌드하는 [Azure Function 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 예를 들어 Azure 함수에서 인증 애플리케이션을 호스팅할 수 있습니다.
 - 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](../quickstarts/create-communication-resource.md).
-- 사용자 액세스 토큰. 지침은 [액세스 토큰 빠른 시작](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) 또는 [신뢰할 수 있는 서비스 자습서](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)를 참조하세요.
+- 사용자 액세스 토큰. 지침은 [액세스 토큰 빠른 시작](../quickstarts/access-tokens.md?pivots=programming-language-javascript) 또는 [신뢰할 수 있는 서비스 자습서](./trusted-service-tutorial.md)를 참조하세요.
 
 
 ## <a name="configure-your-development-environment"></a>개발 환경 구성
@@ -57,7 +55,7 @@ Azure Communication Services를 사용하면 실시간 통신을 애플리케이
 
 Node.js를 사용하여 클라이언트 쪽 애플리케이션에 필요한 다양한 종속성을 다운로드하고 설치합니다. 이를 사용하여 Azure에서 호스팅하는 정적 파일을 생성하므로 서버에서 구성할 필요가 없습니다.
 
-Windows 개발자는 [이 NodeJS 자습서](https://docs.microsoft.com/windows/nodejs/setup-on-windows)에 따라 Node, nvm 및 npm을 구성할 수 있습니다. 
+Windows 개발자는 [이 NodeJS 자습서](/windows/nodejs/setup-on-windows)에 따라 Node, nvm 및 npm을 구성할 수 있습니다.
 
 이 자습서는 LTS 12.20.0 버전을 사용하여 테스트되었습니다. nvm이 설치되면 다음 PowerShell 명령을 사용하여 사용하려는 버전을 배포합니다.
 
@@ -161,7 +159,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -218,7 +216,7 @@ development 모드에서는 webpack에서 파일을 축소하지 않고 최적�
 }
 ```
 
-npm에서 사용할 수 있는 명령이 추가되었습니다. 
+npm에서 사용할 수 있는 명령이 추가되었습니다.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="package-json 수정":::
 
@@ -279,13 +277,13 @@ npm run build:dev
 콘솔에 서버가 실행되는 위치가 표시됩니다. 기본적으로 `http://localhost:8080`입니다. build:dev 명령은 이전에 `package.json`에 추가한 명령입니다.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="개발 서버 시작":::
- 
+
  브라우저에서 주소로 이동합니다. 그러면 이전 단계에서 구성한 페이지와 경고가 표시됩니다.
- 
+
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Html 페이지":::
-  
- 
-서버가 실행되는 동안 코드를 변경할 수 있습니다. 그러면 서버와 HTML 페이지가 자동으로 다시 로드됩니다. 
+
+
+서버가 실행되는 동안 코드를 변경할 수 있습니다. 그러면 서버와 HTML 페이지가 자동으로 다시 로드됩니다.
 
 다음으로, Visual Studio Code에서 `app.js` 파일로 이동하여 `alert('Hello world alert!');`를 삭제합니다. 파일을 저장하고, 브라우저에서 경고가 사라지는지 확인합니다.
 
@@ -323,11 +321,11 @@ const { merge } = require('webpack-merge');
  ```
 
 이 구성은 webpack.common.js(입력 파일을 지정한 위치 및 결과를 저장하는 위치)와 병합되고, 모드를 "production"으로 설정합니다.
- 
+
 `package.json`에서 다음 코드를 추가합니다.
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 파일은 다음과 같이 표시됩니다.
@@ -341,14 +339,14 @@ const { merge } = require('webpack-merge');
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -368,13 +366,13 @@ const { merge } = require('webpack-merge');
 npm run build:prod
 ```
 
-이 명령은 `dist` 폴더 및 이 폴더 안에 프로덕션 준비 `app.js` 정적 파일을 만듭니다. 
+이 명령은 `dist` 폴더 및 이 폴더 안에 프로덕션 준비 `app.js` 정적 파일을 만듭니다.
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="프로덕션 빌드":::
- 
- 
+
+
 ### <a name="deploy-your-app-to-azure-storage"></a>Azure Storage에 앱 배포
- 
+
 `index.html` 및 `app.css`를 `dist` 폴더에 복사합니다.
 
 `dist` 폴더에서 새 파일을 만들고, 이름을 `404.html`로 지정합니다. 다음 태그를 해당 파일에 복사합니다.
@@ -399,45 +397,45 @@ npm run build:prod
 마우스 오른쪽 단추를 클릭하고, [Azure Storage를 통해 정적 웹 사이트에 배포]를 선택합니다.
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Azure에 배포 시작":::
- 
+
 `Select subscription` 필드에서 "Azure에 로그인"(또는 이전에 구독을 만들지 않은 경우 "체험 Azure 계정 만들기")을 선택합니다.
- 
+
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Azure에 로그인":::
- 
+
 `Create new Storage Account` > `Advanced`를 선택합니다.
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="스토리지 계정 그룹 만들기":::
- 
+
  스토리지 그룹의 이름을 제공합니다.
- 
+
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="계정 이름 추가":::
- 
+
 필요한 경우 새 리소스 그룹을 만듭니다.
- 
+
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="새 그룹 만들기":::
-  
+
   "정적 웹 사이트 호스팅을 사용하도록 설정하시겠습니까?"에 대해 "예"라고 대답합니다.
-  
+
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="정적 웹 사이트 호스팅을 사용하도록 설정하는 옵션 선택":::
-  
+
 `index.html` 파일을 만들었으므로 "인덱스 문서 이름 입력"에서 기본 파일 이름을 적용합니다.
 
-"404 오류 문서 경로 입력"에 대해 `404.html`을 입력합니다.  
-  
-애플리케이션의 위치를 선택합니다. 선택하는 위치에 따라 나중에 그룹 통화의 향후 통화 애플리케이션에서 사용할 미디어 프로세서가 정의됩니다. 
+"404 오류 문서 경로 입력"에 대해 `404.html`을 입력합니다.
+
+애플리케이션의 위치를 선택합니다. 선택하는 위치에 따라 나중에 그룹 통화의 향후 통화 애플리케이션에서 사용할 미디어 프로세서가 정의됩니다.
 
 Azure Communication Services는 애플리케이션 위치를 기준으로 미디어 프로세서를 선택합니다.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="위치 선택":::
-  
-리소스 및 웹 사이트가 만들어질 때까지 기다립니다. 
- 
+
+리소스 및 웹 사이트가 만들어질 때까지 기다립니다.
+
 "웹 사이트로 이동"을 클릭합니다.
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="배포 완료":::
- 
+
 브라우저의 개발 도구에서 소스를 검사하고 프로덕션용으로 준비된 파일을 볼 수 있습니다.
- 
+
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="웹 사이트":::
 
 [Azure Portal](https://portal.azure.com/#home)로 이동하여 리소스 그룹을 선택하고, 만든 애플리케이션을 선택하고, `Settings` > `Static website`로 이동합니다. 정적 웹 사이트가 사용하도록 설정되어 있음을 확인하고 기본 엔드포인트, 인덱스 문서 및 오류 경로 문서 파일을 확인할 수 있습니다.
@@ -448,7 +446,7 @@ Azure Communication Services는 애플리케이션 위치를 기준으로 미디
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="컨테이너 구성":::
 
-`$web`으로 이동하면 Visual Studio에서 만들고 Azure에 배포한 파일이 표시됩니다. 
+`$web`으로 이동하면 Visual Studio에서 만들고 Azure에 배포한 파일이 표시됩니다.
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="배포":::
 

@@ -104,6 +104,8 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: Power BI 테넌트 - Portal
                 href: register-scan-power-bi-tenant.md
+              - name: Amazon S3
+                href: register-scan-amazon-s3.md
       - name: 비즈니스 용어집
         items:
           - name: '용어집 만들기, 가져오기 및 내보내기'

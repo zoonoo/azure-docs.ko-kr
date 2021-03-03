@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99821695"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660987"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
 
@@ -176,7 +176,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 
     파이프라인이 이제 다음과 같이 표시됩니다.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>기계 학습 모델 학습
 
@@ -224,7 +224,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
     > [!IMPORTANT]
     > **데이터 분할** 의 왼쪽 출력 포트가 **학습 모델** 에 연결되어 있는지 확인합니다. 왼쪽 포트는 학습 집합을 포함합니다. 오른쪽 포트는 테스트 집합을 포함합니다.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="모델 학습 모듈의 올바른 구성을 보여주는 스크린샷. 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="모델 학습 모듈의 올바른 구성을 보여주는 스크린샷. 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.":::
 
 1. **모델 학습** 모듈을 선택합니다.
 
@@ -239,7 +239,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 
     파이프라인은 다음과 같습니다.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여주는 스크린샷.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여주는 스크린샷.":::
 
 ### <a name="add-the-score-model-module"></a>모델 점수 매기기 모듈 추가
 
@@ -259,7 +259,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 
     최종 파이프라인은 다음과 같습니다.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="파이프라인의 올바른 구성을 보여주는 스크린샷.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="파이프라인의 올바른 구성을 보여주는 스크린샷.":::
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
@@ -288,7 +288,7 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 
     여기서는 테스트 데이터에서 예측된 가격과 실제 가격을 확인할 수 있습니다.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷":::
 
 ### <a name="evaluate-models"></a>모델 평가
 

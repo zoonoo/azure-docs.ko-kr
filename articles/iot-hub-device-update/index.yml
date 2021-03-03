@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: IoT Hub용 디바이스 업데이트 문서
+summary: IoT Hub용 디바이스 업데이트는 OTA(무선 업데이트)를 IoT 디바이스에 배포하는 데 사용할 수 있는 서비스입니다.
+metadata:
+  title: IoT Hub용 디바이스 업데이트 문서
+  description: IoT Hub용 디바이스 업데이트는 OTA(무선 업데이트)를 IoT 디바이스에 배포하는 데 사용할 수 있는 서비스입니다.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677962"
+landingContent:
+- title: 디바이스 업데이트 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: IoT Hub용 디바이스 업데이트란?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: 디바이스 업데이트에서 플러그 앤 플레이를 사용하는 방법
+      url: device-update-plug-and-play.md
+    - text: 디바이스 업데이트 인증 및 권한 부여 이해
+      url: device-update-control-access.md
+    - text: 디바이스 업데이트 에이전트 이해
+      url: device-update-agent-overview.md
+    - text: 디바이스 업데이트 가져오기 이해
+      url: import-concepts.md
+    - text: 디바이스 업데이트 그룹 이해
+      url: device-update-groups.md
+- title: 자습서를 사용하여 살펴보기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Raspberry Pi에서 디바이스 업데이트
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: 시뮬레이터에서 디바이스 업데이트
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Ubuntu Server 18.04 x64 패키지 에이전트에서 디바이스 업데이트
+      url: device-update-ubuntu-agent.md
+- title: 디바이스를 업데이트하는 방법 알아보기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 디바이스 업데이트 계정 만들기
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: 업데이트 가져오기
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: 업데이트 그룹 만들기
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: 업데이트 배포
+      url: deploy-update.md
+- title: 개발자 가이드
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 디바이스 업데이트 에이전트 빌드, 실행 및 수정
+      url: device-update-agent-provisioning.md

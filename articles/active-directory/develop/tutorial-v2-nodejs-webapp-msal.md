@@ -8,15 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.workload: identity
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 1c11a5ecc2d1a9c2e83e9ebd7cc8aa85caa72b70
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3f1f26acbba0f5830421e760d6a68a11f618fa85
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561076"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648993"
 ---
 # <a name="tutorial-sign-in-users-in-a-nodejs--express-web-app"></a>자습서: Node.js 및 Express 웹앱에서 사용자 로그인
 
@@ -65,9 +64,9 @@ ms.locfileid: "100561076"
 ```JavaScript
     const express = require("express");
     const msal = require('@azure/msal-node');
-    
+
     const SERVER_PORT = process.env.PORT || 3000;
-    
+
     // Create Express App and Routes
     const app = express();
 
@@ -95,7 +94,7 @@ ExpressWebApp/
 이전에 만든 *index.js* 파일에서 다음 코드를 추가합니다.
 
 ```JavaScript
-    // Before running the sample, you will need to replace the values in the config, 
+    // Before running the sample, you will need to replace the values in the config,
     // including the clientSecret
     const config = {
         auth: {
@@ -138,26 +137,26 @@ Azure 앱 등록 포털에서 가져온 값으로 이러한 세부 정보를 채
 ```JavaScript
     // Create msal application object
     const cca = new msal.ConfidentialClientApplication(config);
-    
+
     app.get('/', (req, res) => {
         const authCodeUrlParameters = {
             scopes: ["user.read"],
             redirectUri: "http://localhost:3000/redirect",
         };
-    
+
         // get url to sign user in and consent to scopes needed for application
         cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             res.redirect(response);
         }).catch((error) => console.log(JSON.stringify(error)));
     });
-    
+
     app.get('/redirect', (req, res) => {
         const tokenRequest = {
             code: req.query.code,
             scopes: ["user.read"],
             redirectUri: "http://localhost:3000/redirect",
         };
-    
+
         cca.acquireTokenByCode(tokenRequest).then((response) => {
             console.log("\nResponse: \n:", response);
             res.sendStatus(200);
@@ -188,7 +187,7 @@ Azure 앱 등록 포털에서 가져온 값으로 이러한 세부 정보를 채
 
 ## <a name="how-the-application-works"></a>애플리케이션 작동 방식
 
-이 자습서에서는 Azure Portal의 Azure AD 앱 등록에서 가져온 매개 변수를 포함하는 구성 개체(*msalConfig*)를 전달하여 MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) 개체를 초기화했습니다. 생성된 웹앱은 [OAuth 2.0 권한 부여 코드 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)을 사용하여 사용자를 로그인시키고 ID 및 액세스 토큰을 가져옵니다.
+이 자습서에서는 Azure Portal의 Azure AD 앱 등록에서 가져온 매개 변수를 포함하는 구성 개체(*msalConfig*)를 전달하여 MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) 개체를 초기화했습니다. 생성된 웹앱은 [OAuth 2.0 권한 부여 코드 부여 흐름](./v2-oauth2-auth-code-flow.md)을 사용하여 사용자를 로그인시키고 ID 및 액세스 토큰을 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

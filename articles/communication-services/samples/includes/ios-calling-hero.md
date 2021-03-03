@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475640"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682417"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ XCode에서 샘플을 빌드하고 실행합니다.
 추가 구성을 사용하는 경우 이 샘플은 **Azure AD**(Azure Active Directory) 보호 엔드포인트에 대한 연결을 지원하므로 앱에서 Azure Communication Services 토큰을 가져오려면 사용자 로그인이 필요합니다. 아래 단계를 참조하세요.
 
 1. 앱에서 Azure Active Directory 인증을 사용하도록 설정합니다.  
-   - [Azure Active Directory에서 앱 등록(iOS/macOS 플랫폼 설정 사용)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Azure Active Directory에서 앱 등록(iOS/macOS 플랫폼 설정 사용)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성](../../../app-service/configure-authentication-provider-aad.md)
 2. Azure Active Directory 앱 등록에서 등록된 앱 개요 페이지로 이동합니다. `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`를 적어 두세요.
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Portal의 Azure Active Directory 구성":::

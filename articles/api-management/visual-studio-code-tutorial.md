@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97410073"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649549"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>자습서: Visual Studio Code용 API Management 확장을 사용하여 API 가져오기 및 관리
 
-이 자습서에서는 Visual Studio Code용 API Management 확장 미리 보기를 일반적인 API Management 작업에 사용하는 방법에 대해 설명합니다. 친숙한 Visual Studio Code 환경을 사용하여 API를 가져오고, 테스트하고, 관리합니다.
+이 자습서에서는 Visual Studio Code용 API Management 확장을 일반적인 API Management 작업에 사용하는 방법에 대해 설명합니다. 친숙한 Visual Studio Code 환경을 사용하여 API를 가져오고, 테스트하고, 관리합니다.
 
 다음 방법을 알아봅니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "97410073"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - [Azure API Management 용어](api-management-terminology.md) 이해
-- [Visual Studio Code](https://code.visualstudio.com/) 및 최신 [Visual Studio Code용 Azure API Management 확장(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)을 설치했는지 확인
+- [Visual Studio Code](https://code.visualstudio.com/) 및 최신 [Visual Studio Code용 Azure API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)을 설치했는지 확인
 - [API Management 인스턴스 만들기](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>API 가져오기

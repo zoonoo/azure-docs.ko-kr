@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577392"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660160"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services 채팅 및 통화 클라이언트 라이브러리는 신호 메시지를 효율적이고 안정적인 방식으로 연결된 클라이언트에 푸시할 수 있는 실시간 메시징 채널을 만듭니다. 이를 통해 복잡한 HTTP 폴링 로직을 구현하지 않고도 다양한 실시간 통신 기능을 애플리케이션에 구축할 수 있습니다. 하지만 모바일 애플리케이션에서 이 신호 채널은 애플리케이션이 포그라운드에서 활성 상태인 경우에만 연결된 상태를 유지합니다. 애플리케이션이 백그라운드에 있는 동안 걸려오는 전화나 채팅 메시지를 사용자가 받도록 하려면 푸시 알림을 사용해야 합니다.
 
@@ -34,7 +32,7 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Azure Notification Hubs를 통해 푸시 알림 제공
 
-걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내기 위해 Azure Notification Hub를 Communication Services 리소스에 연결할 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락하거나 거절할 수 있는 UI를 표시해야 합니다. 
+걸려오는 전화를 받을 때 사용자의 모바일 디바이스에 푸시 알림을 자동으로 보내기 위해 Azure Notification Hub를 Communication Services 리소스에 연결할 수 있습니다. 이러한 푸시 알림을 사용하여 백그라운드에서 애플리케이션을 깨우고 사용자가 통화를 수락하거나 거절할 수 있는 UI를 표시해야 합니다.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Communication Services가 Azure Notification Hubs와 통합되는 방식을 보여 주는 다이어그램":::
 
@@ -43,13 +41,13 @@ Communication Services는 Azure Notification Hub를 통과 서비스로 사용�
 > [!NOTE]
 > 현재는 푸시 알림 호출만 지원됩니다.
 
-### <a name="notification-hub-provisioning"></a>Notification Hub 프로비저닝 
+### <a name="notification-hub-provisioning"></a>Notification Hub 프로비저닝
 
 Notification Hubs를 사용하여 클라이언트 디바이스에 푸시 알림을 전달하려면 Communication Services 리소스와 동일한 구독 내에서 [Notification Hub를 만듭니다](../../notification-hubs/create-notification-hub-portal.md). Azure Notification Hub는 사용할 플랫폼 알림 시스템에 대해 구성되어야 합니다. Notification Hubs에서 클라이언트 앱의 푸시 알림을 받는 방법을 알아보려면 [Notification Hubs 시작](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)을 참조하고 페이지 위쪽의 드롭다운 목록에서 대상 클라이언트 플랫폼을 선택하세요.
 
 > [!NOTE]
-> 현재 APN 및 FCM 플랫폼이 지원됩니다.  
-APN 플랫폼은 토큰 인증 모드로 구성되어야 합니다. 현재 인증서 인증 모드는 지원되지 않습니다. 
+> 현재 APN 및 FCM 플랫폼이 지원됩니다.
+APN 플랫폼은 토큰 인증 모드로 구성되어야 합니다. 현재 인증서 인증 모드는 지원되지 않습니다.
 
 알림 허브가 구성되면 Azure Resource Manager 클라이언트를 사용하여 또는 Azure Portal을 통해 허브에 대한 연결 문자열을 제공하여 Communication Services 리소스에 연결할 수 있습니다. 연결 문자열에는 `Send` 권한이 포함되어야 합니다. 허브 전용으로 `Send` 권한이 있는 액세스 정책을 따로 만드는 것이 좋습니다. [Notification Hubs 보안 및 액세스 정책](../../notification-hubs/notification-hubs-push-notification-security.md)에 대한 자세한 정보
 
@@ -74,10 +72,10 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Azure Portal 내의 푸시 알림 설정을 보여 주는 스크린샷":::
 
 > [!NOTE]
-> Azure Notification Hub 연결 문자열이 업데이트되면 Communication Services 리소스도 업데이트해야 합니다.  
+> Azure Notification Hub 연결 문자열이 업데이트되면 Communication Services 리소스도 업데이트해야 합니다.
 허브를 연결하는 방법에 대한 변경 내용은 최대 ``10``분 내에 데이터 평면(즉, 알림을 보낼 때)에 반영됩니다. 이전에 보낸 알림이 있는 **경우** 허브가 처음 연결되었을 때도 적용됩니다.
 
-### <a name="device-registration"></a>디바이스 등록 
+### <a name="device-registration"></a>디바이스 등록
 
 Communication Services에 디바이스 핸들을 등록하는 방법을 알아보려면 [음성 통화 빠른 시작](../quickstarts/voice-video-calling/getting-started-with-calling.md)을 참조하세요.
 

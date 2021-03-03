@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247576"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646047"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cofense Recipient Sync 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "98247576"
 > * Cofense Recipient Sync에서 더 이상 액세스할 필요가 없는 사용자 제거
 > * Azure AD와 Cofense Recipient Sync 간에 사용자 특성을 동기화된 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -117,19 +117,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |name.givenName|String|
    |name.familyName|String|
    |name.honorificSuffix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |phoneNumbers[type eq"home"].value|String|
-   |phoneNumbers[type eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |phoneNumbers[type eq"mobile"].value|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |addresses[type eq"other"].formatted|String|
-   |addresses[type eq"work"].formatted|String|
-   |addresses[type eq"work"].streetAddress|String|
-   |addresses[type eq"work"].locality|String|
-   |addresses[type eq"work"].region|String|
-   |addresses[type eq"work"].postalCode|String|
-   |addresses[type eq"work"].country|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |addresses[type eq "other"].formatted|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |emails[type eq "home"].value|String|
