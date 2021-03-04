@@ -1,14 +1,14 @@
 ---
-title: JSON과 Bicep 간에 Azure Resource Manager 템플릿 변환
-description: JSON 및 Bicep를 사용 하 여 개발 된 Azure Resource Manager 템플릿을 비교 합니다.
+title: JSON 및 Bicep의 Azure Resource Manager 템플릿에 대 한 구문 비교
+description: JSON 및 Bicep를 사용 하 여 개발 된 Azure Resource Manager 템플릿을 비교 하 고 언어 간에 변환 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 9388ed50f13d6885d0a0668b61a9141dae375244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745107"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036217"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>템플릿에 대 한 JSON 및 Bicep 비교
 
@@ -18,40 +18,21 @@ ms.locfileid: "101745107"
 
 JSON을 사용 하 여 ARM 템플릿을 개발 하는 데 익숙한 경우 다음 표를 사용 하 여 Bicep의 해당 구문에 대해 알아보세요.
 
-| 시나리오 | ARM 템플릿 | Bicep |
+| 시나리오 | Bicep | JSON |
 | -------- | ------------ | ----- |
-| 식 작성 | `"[func()]"` | `func()` |
-| 매개 변수 값 가져오기 | `[parameters('exampleParameter'))]` | `exampleParameter` |
-| 변수 값 가져오기 | `[variables('exampleVar'))]` | `exampleVar` |
-| 문자열 연결 | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
-| 리소스 속성 설정 | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
-| 논리적 AND를 반환 합니다. | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
-| 템플릿에서 리소스의 리소스 ID를 가져옵니다. | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
-| 템플릿의 리소스에서 속성을 가져옵니다. | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
-| 조건부로 값 설정 | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
-| 솔루션을 여러 파일로 분리 | 연결 된 템플릿 사용 | 모듈 사용 |
-| 배포의 대상 범위를 설정 합니다. | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
-| 종속성 설정 | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | 종속성의 자동 검색을 사용 하거나 수동으로 종속성을 설정 합니다. `dependsOn: [ stg ]` |
-
-리소스의 형식 및 버전을 선언 하려면 Bicep에서 다음을 사용 합니다.
-
-```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
-JSON의 해당 구문 대신:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
-    ...
-  }
-]
-```
+| 식 작성 | `func()` | `"[func()]"` |
+| 매개 변수 값 가져오기 | `exampleParameter` | `[parameters('exampleParameter'))]` |
+| 변수 값 가져오기 | `exampleVar` | `[variables('exampleVar'))]` |
+| 문자열 연결 | `'${namePrefix}-vm'` | `[concat(parameters('namePrefix'), '-vm')]` |
+| 리소스 속성 설정 | `sku: '2016-Datacenter'` | `"sku": "2016-Datacenter",` |
+| 논리적 AND를 반환 합니다. | `isMonday && isNovember` | `[and(parameter('isMonday'), parameter('isNovember'))]` |
+| 템플릿에서 리소스의 리소스 ID를 가져옵니다. | `nic1.id` | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` |
+| 템플릿의 리소스에서 속성을 가져옵니다. | `diagsAccount.properties.primaryEndpoints.blob` | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` |
+| 조건부로 값 설정 | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` |
+| 솔루션을 여러 파일로 분리 | 모듈 사용 | 연결 된 템플릿 사용 |
+| 배포의 대상 범위를 설정 합니다. | `targetScope = 'subscription'` | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` |
+| 종속성 설정 | 종속성의 자동 검색을 사용 하거나 수동으로 종속성을 설정 합니다. `dependsOn: [ stg ]` | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` |
+| 리소스 선언 | `resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {...}` | `"resources": [ { "type": "Microsoft.Compute/virtualMachines", "apiVersion": "2020-06-01", ... } ]` |
 
 ## <a name="recommendations"></a>권장 사항
 
@@ -63,10 +44,7 @@ JSON의 해당 구문 대신:
 
 Bicep CLI는 기존 ARM 템플릿을 Bicep 파일로 디컴파일 하는 명령을 제공 합니다. JSON 파일을 디컴파일 하려면 다음을 사용 합니다. `bicep decompile "path/to/file.json"`
 
-이 명령은 Bicep 작성을 위한 시작점을 제공 하지만 모든 템플릿에서는 명령이 작동 하지 않습니다. 명령이 실패 하거나 디컴파일을 이후의 문제를 해결 해야 할 수 있습니다. 현재 명령에는 다음과 같은 제한 사항이 있습니다.
-
-* 복사 루프를 사용 하는 템플릿은 디컴파일된 수 없습니다.
-* 중첩 된 템플릿은 ' inner ' 식 계산 범위를 사용 하는 경우에만 디컴파일된 수 있습니다.
+이 명령은 Bicep 작성을 위한 시작점을 제공 하지만 모든 템플릿에서는 명령이 작동 하지 않습니다. 명령이 실패 하거나 디컴파일을 이후의 문제를 해결 해야 할 수 있습니다. 현재 중첩 된 템플릿은 ' inner ' 식 계산 범위를 사용 하는 경우에만 디컴파일된 수 있습니다.
 
 리소스 그룹에 대 한 템플릿을 내보낸 다음 bicep 디컴파일 명령에 직접 전달할 수 있습니다. 다음 예제에서는 내보낸 템플릿을 디컴파일 하는 방법을 보여 줍니다.
 
@@ -100,4 +78,4 @@ bicep decompile main.json
 
 ## <a name="next-steps"></a>다음 단계
 
-Bicep 프로젝트에 대 한 자세한 내용은 [Project Bicep](https://github.com/Azure/bicep)를 참조 하세요.
+Bicep에 대 한 자세한 내용은 [Bicep 자습서](./bicep-tutorial-create-first-bicep.md)를 참조 하십시오.

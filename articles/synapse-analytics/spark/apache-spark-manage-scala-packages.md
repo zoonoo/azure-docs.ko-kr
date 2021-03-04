@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695965"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098709"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 Scala 및 Java 패키지 관리
 
@@ -37,13 +37,10 @@ Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 �
 
 작업 영역 패키지를 추가 하려면:
 1.   >  **작업 영역 패키지** 관리 탭으로 이동 합니다.
-2. 파일 선택기를 사용 하 여 휠 파일을 업로드 합니다.
-3. 파일이 Azure Synapse 작업 영역에 업로드 되 면 이러한 휠 파일을 지정 된 Apache Spark 풀에 추가할 수 있습니다.
+2. 파일 선택기를 사용 하 여 jar 파일을 업로드 합니다.
+3. 파일이 Azure Synapse 작업 영역에 업로드 되 면 이러한 jar 파일을 지정 된 Apache Spark 풀에 추가할 수 있습니다.
 
 ![작업 영역 패키지를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "작업 영역 패키지 보기")
-
-> [!IMPORTANT]
-> 현재 작업 영역 패키지를 설치 하는 작업은 데이터 반출 보호 (DEP) 작업 영역 내에서 아직 지원 되지 않습니다.
 
 ## <a name="pool-libraries"></a>풀 라이브러리
 Spark 응용 프로그램에 사용할 Scala 및 Java 패키지를 식별 한 후에는 Spark 풀에 설치할 수 있습니다. 풀 수준 라이브러리는 풀에서 실행 되는 모든 노트북 및 작업에 사용할 수 있습니다.

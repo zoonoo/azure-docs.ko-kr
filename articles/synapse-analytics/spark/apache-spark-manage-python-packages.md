@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695976"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098777"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 Python 라이브러리 관리
 
@@ -42,7 +42,7 @@ Spark 응용 프로그램에 사용할 Python 라이브러리를 확인 한 후�
 > [!IMPORTANT]
 > - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
 > - PySpark, Python, Scala/Java, .NET 또는 Spark 버전을 변경 하는 것은 지원 되지 않습니다.
-> - PyPI에서 패키지 설치는 DEP 사용 작업 영역 내에서 지원 되지 않습니다.
+> - PyPI, Conda 또는 기본 Conda 채널과 같은 외부 리포지토리에서 패키지를 설치 하는 작업은 DEP 사용 작업 영역 내에서 지원 되지 않습니다.
 
 ### <a name="install-python-packages"></a>Python 패키지 설치
 환경 사양 파일을 제공 하 여 PyPI 및 Conda-Forge 같은 리포지토리에서 Python 패키지를 설치할 수 있습니다. 
@@ -140,9 +140,6 @@ Python 휠 파일은 Python 라이브러리를 패키징하는 일반적인 방�
 
 ![작업 영역 패키지를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "작업 영역 패키지 보기")
 
-> [!IMPORTANT]
-> 현재 작업 영역 패키지를 설치 하는 작업은 데이터 반출 보호 (DEP) 작업 영역 내에서 아직 지원 되지 않습니다.
-
 ### <a name="storage-account"></a>스토리지 계정
 Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 모든 휠 파일을 업로드 하 여 Apache Spark 풀에 사용자 지정 기반 휠 패키지를 설치할 수 있습니다. 
 
@@ -160,8 +157,8 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 >[!WARNING]
 > 사용자 지정 휠 파일을 제공 하는 경우 사용자는 저장소 계정과 작업 영역 라이브러리 인터페이스 모두에서 휠 파일을 제공할 수 없습니다. 둘 다 제공 된 경우 작업 영역 패키지 목록에 지정 된 휠 파일만 설치 됩니다. 
 
-## <a name="session-scoped-libraries-preview"></a>세션 범위 라이브러리 (미리 보기)
-풀 수준 라이브러리 외에도 노트북 세션의 시작 부분에 세션 범위 라이브러리를 지정할 수 있습니다.  세션 범위 라이브러리를 사용 하면 노트북 세션 내에서 사용자 지정 Python 환경을 지정 하 고 사용할 수 있습니다. 
+## <a name="session-scoped-packages-preview"></a>세션 범위 패키지 (미리 보기)
+풀 수준 패키지 외에도 노트북 세션의 시작 부분에 세션 범위 라이브러리를 지정할 수 있습니다.  세션 범위 라이브러리를 사용 하면 노트북 세션 내에서 사용자 지정 Python 환경을 지정 하 고 사용할 수 있습니다. 
 
 세션 범위 라이브러리를 사용 하는 경우 다음 사항을 염두에 두어야 합니다.
    - 세션 범위 라이브러리를 설치할 때 현재 전자 필기장과 지정 된 라이브러리에 대 한 액세스 권한이 있습니다. 
@@ -187,3 +184,4 @@ for d in pkg_resources.working_set:
 ## <a name="next-steps"></a>다음 단계
 - 기본 라이브러리 보기: [Apache Spark 버전 지원](apache-spark-version-support.md)
 - 라이브러리 설치 오류 문제 해결: [라이브러리 오류 문제 해결](apache-spark-troubleshoot-library-errors.md)
+- Azure Data Lake Storage 계정을 사용 하 여 개인 Conda 채널을 만듭니다. [Conda 개인 채널](./spark/../apache-spark-custom-conda-channel.md)

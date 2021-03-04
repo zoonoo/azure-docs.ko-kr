@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 429845aa22b6d069b8d7233132de8eb3b24b2985
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674938"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043680"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Azure PowerShell 모듈 또는 Azure CLI를 사용 하 여 성능 계층 변경
 
@@ -117,7 +117,7 @@ $disk.Tier
 
 ## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>가동 중지 시간 없이 디스크의 성능 계층 변경 (미리 보기)
 
-가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM의 할당을 취소 하거나 디스크를 분리 하 여 계층을 변경할 필요가 없습니다. 미리 보기에 대 한 자세한 내용 및 등록 링크는 [가동 중지 시간 없이 성능 계층 변경 (미리 보기)](#changing-performance-tier-without-downtime-preview) 섹션을 참조 하세요.
+가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM의 할당을 취소 하거나 디스크를 분리 하 여 계층을 변경할 필요가 없습니다. 미리 보기에 대 한 자세한 내용 및 등록 링크는 [가동 중지 시간 없이 성능 계층 변경 (미리 보기)](#change-performance-tier-without-downtime-preview) 섹션을 참조 하세요.
 
 
 다음 스크립트는 [CreateUpdateDataDiskWithTier.js](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)샘플 템플릿을 사용 하 여 기준 계층 보다 높은 디스크의 계층을 업데이트 합니다. `<yourSubScriptionID>`,, `<yourResourceGroupName>` `<yourDiskName>` ,를 바꾼 `<yourDiskSize>` `<yourDesiredPerformanceTier>` 다음 스크립트를 실행 합니다.

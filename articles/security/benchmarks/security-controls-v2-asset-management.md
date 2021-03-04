@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbeb88b6aa542666481458fde97d7c63f467fa30
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051534"
 ---
 # <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
 자산 관리는 Azure 리소스에 대 한 보안 표시 및 관리를 보장 하는 컨트롤을 포함 합니다. 여기에는 보안 담당자, 자산 인벤토리에 대 한 보안 액세스, 서비스 및 리소스에 대 한 승인 관리 (인벤토리, 추적, 수정)에 대 한 권장 사항이 포함 됩니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 네트워크 보안의 세부 정보](../../governance/policy/samples/azure-security-benchmark#asset-management) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 네트워크 보안의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#asset-management) 를 참조 하세요.
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀이 자산의 위험에 대한 가시성 확보
 
@@ -154,7 +154,7 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 - [Azure Automation 변경 내용 추적 및 인벤토리 이해](../../automation/change-tracking/overview.md)
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **책임**: Customer
 

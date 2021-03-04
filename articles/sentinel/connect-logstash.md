@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578914"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035430"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용 하 여 데이터 원본을 Azure 센티널에 연결
 
 > [!IMPORTANT]
 > Logstash 출력 플러그 인을 사용 하 여 데이터를 수집 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-**Logstash 데이터 수집 엔진** 에 대 한 azure 센티널의 새 출력 플러그 인을 사용 하 여 이제 Logstash 태에서 원하는 모든 유형의 로그를 azure 센티널의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용 하 여 정의 하는 사용자 지정 테이블로 전송 됩니다.
+**Logstash 데이터 수집 엔진** 에 대해 azure 센티널의 출력 플러그 인을 사용 하 여 Logstash 태에서 원하는 모든 유형의 로그를 azure 센티널의 Log Analytics 작업 영역으로 직접 보낼 수 있습니다. 로그는 출력 플러그 인을 사용 하 여 정의 하는 사용자 지정 테이블로 전송 됩니다.
 
 Logstash 데이터 수집 엔진을 사용 하는 방법에 대해 자세히 알아보려면 [Logstash 태 시 시작](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)하기를 참조 하세요.
 
@@ -73,11 +73,13 @@ Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용�
 | `endpoint` | 문자열 | 선택적 필드입니다. 기본적으로 Log Analytics 끝점입니다. 이 필드를 사용 하 여 대체 끝점을 설정 합니다. |
 | `time_generated_field` | 문자열 | 선택적 필드입니다. 이 속성은 Log Analytics의 기본 **Timegenerated** 필드를 재정의 합니다. 데이터 원본에 타임 스탬프 필드의 이름을 입력 합니다. 필드의 데이터는 ISO 8601 형식 ()을 준수 해야 합니다. `YYYY-MM-DDThh:mm:ssZ` |
 | `key_names` | array | Log Analytics 출력 스키마 필드 목록을 입력 합니다. 각 목록 항목은 작은따옴표로 묶고 쉼표로 구분 된 전체 목록으로 묶어야 합니다. 아래 예제를 참조하세요. |
-| `plugin_flush_interval` | 숫자 | 선택적 필드입니다. Log Analytics 메시지 전송 사이의 최대 간격 (초)을 정의 하려면 설정 합니다. 기본값은 5입니다. |
+| `plugin_flush_interval` | number | 선택적 필드입니다. Log Analytics 메시지 전송 사이의 최대 간격 (초)을 정의 하려면 설정 합니다. 기본값은 5입니다. |
     | `amount_resizing` | boolean | True 또는 False입니다. 수신 되는 로그 데이터의 양에 따라 메시지 버퍼 크기를 조정 하는 자동 크기 조정 메커니즘을 사용 하거나 사용 하지 않도록 설정 합니다. |
-| `max_items` | 숫자 | 선택적 필드입니다. `amount_resizing`"False"로 설정 되어 있는 경우에만 적용 됩니다. 를 사용 하 여 메시지 버퍼 크기 (레코드)에 cap를 설정 합니다. 기본값은 2000입니다.  |
+| `max_items` | number | 선택적 필드입니다. `amount_resizing`"False"로 설정 되어 있는 경우에만 적용 됩니다. 를 사용 하 여 메시지 버퍼 크기 (레코드)에 cap를 설정 합니다. 기본값은 2000입니다.  |
+| `azure_resource_id` | 문자열 | 선택적 필드입니다. 데이터가 있는 Azure 리소스의 ID를 정의 합니다. <br>리소스 ID 값은 특히 [리소스 컨텍스트 RBAC](resource-context-rbac.md) 를 사용 하 여 특정 데이터에 대 한 액세스만 제공 하는 경우에 유용 합니다. |
+| | | |
 
-\* 작업 영역 리소스의 **에이전트 관리** 아래에서 작업 영역 ID 및 기본 키를 찾을 수 있습니다.
+* 작업 영역 리소스의 **에이전트 관리** 아래에서 작업 영역 ID 및 기본 키를 찾을 수 있습니다.
 
 #### <a name="sample-configurations"></a>샘플 구성
 

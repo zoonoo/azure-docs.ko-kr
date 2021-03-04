@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727824"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042439"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -831,7 +831,7 @@ ms.locfileid: "101727824"
 
     개인 키 콘텐츠가 주요 자격 증명 모음에 있는 경우 SFTP 연결 된 서비스에 직접 업로드 하는 경우 원래 키 파일이 작동할 수 있습니다.
 
-    자세한 내용은 [Azure Data Factory를 사용 하 여 SFTP 서버에 데이터 복사](./connector-sftp.md#using-ssh-public-key-authentication)를 참조 하세요. 개인 키 콘텐츠는 b a s e 64로 인코딩된 SSH 개인 키 콘텐츠입니다.
+    자세한 내용은 [Azure Data Factory를 사용 하 여 SFTP 서버에 데이터 복사](./connector-sftp.md#use-ssh-public-key-authentication)를 참조 하세요. 개인 키 콘텐츠는 b a s e 64로 인코딩된 SSH 개인 키 콘텐츠입니다.
 
     Base64 인코딩을 사용 하 여 원래 개인 키 파일 *전체* 를 인코딩하고 인코딩된 문자열을 키 자격 증명 모음에 저장 합니다. 원본 개인 키 파일은 파일에서 **업로드** 를 선택 하는 경우 SFTP 연결 된 서비스에서 사용할 수 있는 파일입니다.
 

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/03/2021
+ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807651"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049375"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -73,7 +73,7 @@ ms.locfileid: "99807651"
 
 부서의 범위 사용자가 액세스 권한이 있는 Data Factory를 등록 하면 백 엔드에서 다음 작업이 수행 됩니다.
 
-1. **DATA FACTORY MSI** 가 부서의 범위 RBAC 역할: **부서의 범위 Data 큐레이터** 에 추가 됩니다.
+1. **관리 id Data Factory** 부서의 범위 RBAC 역할: **부서의 범위 Data 큐레이터** 에 추가 됩니다.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="MSI Azure Data Factory를 보여 주는 스크린샷" lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,91 @@ Data factory 연결을 제거 하려면 다음을 수행 합니다.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="데이터 팩터리를 선택 하 여 연결을 제거 하는 방법을 보여 주는 스크린샷" lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>자체 호스팅 IR을 구성 하 여 온-프레미스 SQL에서 계보 수집
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>자체 호스팅 Integration Runtime를 구성 하 여 계보 수집
 
-Data Factory 복사 작업의 계보는 온-프레미스 SQL 데이터베이스에 사용할 수 있습니다. Azure Data Factory를 사용 하 여 데이터 이동에 대해 자체 호스팅 통합 런타임을 실행 하 고 Azure 부서의 범위에서 계보를 캡처하려면 버전이 4.8.7418.1 이상 인지 확인 합니다. 자체 호스팅 통합 런타임에 대 한 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조 하세요.
+Data Factory 복사 작업의 계보는 SQL 데이터베이스와 같은 온-프레미스 데이터 저장소에 사용할 수 있습니다. Azure Data Factory를 사용 하 여 데이터 이동에 대해 자체 호스팅 통합 런타임을 실행 하 고 Azure 부서의 범위에서 계보를 캡처하려면 버전이 5.0 이상 인지 확인 합니다. 자체 호스팅 통합 런타임에 대 한 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조 하세요.
 
 ## <a name="supported-azure-data-factory-activities"></a>지원 되는 Azure Data Factory 활동
 
 Azure 부서의 범위는 다음과 같은 Azure Data Factory 작업에서 런타임 계보를 캡처합니다.
 
-- 데이터 복사
-- 데이터 흐름
-- SSIS 패키지 실행
+- [데이터 복사](../data-factory/copy-activity-overview.md)
+- [데이터 흐름](../data-factory/concepts-data-flow-overview.md)
+- [SSIS 패키지 실행](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > 원본 또는 대상이 지원 되지 않는 데이터 저장소 시스템을 사용 하는 경우 Azure 부서의 범위가 계보를 삭제 합니다.
 
 Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 대로 Data Factory에서 지 원하는 데이터 시스템의 하위 집합만 지원 합니다.
 
-### <a name="data-factory-copy-data-support"></a>Data Factory 데이터 복사 지원
+### <a name="data-factory-copy-activity-support"></a>Data Factory 복사 작업 지원
 
-| 데이터 저장소 시스템 | 원본으로 지원됨 | 
+| 데이터 저장소 | 지원됨 | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | 예 | 
-| ADLS Gen2 | 예 | 
-| Azure Blob | 예 |
-| Azure Cosmos DB (SQL API) | 예 | 
-| Azure Cosmos DB (Mongo API) | 예 |
+| Azure Blob Storage | 예 |
 | Azure Cognitive Search | 예 | 
-| Azure Data Explorer | 예 | 
+| Azure Cosmos DB (SQL API) \* | 예 | 
+| MongoDB 용 Azure Cosmos DB API \* | 예 |
+| Azure 데이터 탐색기 \* | 예 | 
+| Azure Data Lake Storage Gen1 | 예 | 
+| Azure Data Lake Storage Gen2 | 예 | 
 | Azure Database for 민 DB \* | 예 | 
-| MYSQL 용 Azure 데이터베이스 \* | 예 | 
+| Azure Database for MySQL \* | 예 | 
 | Azure Database for PostgreSQL \* | 예 |
 | Azure File Storage | 예 | 
-| Azure Table Storage | 예 |
 | Azure SQL Database \* | 예 | 
-| Azure SQL MI \* | 예 | 
-| Azure Synapse Analytics (이전의 SQL DW) \* | 예 | 
-| SQL Server 온-프레미스  \* | 예 | 
+| Azure SQL Managed Instance \* | 예 | 
+| Azure Synapse 분석 \* | 예 | 
+| Azure Table Storage \* | 예 |
+| SQL Server \* | 예 | 
 | Amazon S3 | 예 | 
-| Teradata | 예 | 
-| SAP 테이블 커넥터 | 예 |
-| SAP ECC | 예 | 
-| Hive | 예 | 
+| 하이브의 \* | 예 | 
+| SAP ECC \* | 예 |
+| SAP 테이블 \* | 예 |
+| Teradata \* | 예 |
+
+*\* Azure 부서의 범위는 현재 계보 또는 스캔에 대 한 쿼리 또는 저장 프로시저를 지원 하지 않습니다. 계보는 테이블 및 뷰 원본 으로만 제한 됩니다.*
 
 > [!Note]
 > 계보 기능의 Data Factory 복사 작업에는 특정 성능 오버 헤드가 있습니다. 부서의 범위에서 data factory 연결을 설정 하는 사용자의 경우 완료 하는 데 시간이 오래 걸리는 특정 복사 작업을 확인할 수 있습니다. 대부분의 영향은 무시할 수 없습니다. 복사 작업을 완료 하는 데 평소 보다 시간이 오래 걸리는 경우 지원 담당자에 게 문의 하세요.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>복사 작업 계보에 대 한 알려진 제한 사항
+
+현재 다음과 같은 복사 작업 기능을 사용 하는 경우 해당 계보는 아직 지원 되지 않습니다.
+
+- 이진 형식을 사용 하 여 Azure Data Lake Storage Gen1에 데이터를 복사 합니다.
+- PolyBase 또는 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 합니다.
+- 이진 파일, 구분 기호로 분리 된 텍스트, Excel, JSON 및 XML 파일에 대 한 압축 설정입니다.
+- Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server 및 SAP 테이블의 원본 파티션 옵션입니다.
+- 파일당 최대 행 수 설정을 사용 하 여 파일 기반 싱크로 데이터를 복사 합니다.
+- 복사 중에 다른 열을 추가 합니다.
+
 ### <a name="data-factory-data-flow-support"></a>Data Factory 데이터 흐름 지원
 
-| 데이터 저장소 시스템 | 지원됨 |
+| 데이터 저장소 | 지원됨 |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | 예 |
-| ADLS Gen2 | 예 |
-| Azure Blob | 예 |
+| Azure Blob Storage | 예 |
+| Azure Data Lake Storage Gen1 | 예 |
+| Azure Data Lake Storage Gen2 | 예 |
 | Azure SQL Database \* | 예 |
-| Azure Synapse Analytics (이전의 SQL DW) \* | 예 |
+| Azure Synapse 분석 \* | 예 |
+
+*\* Azure 부서의 범위는 현재 계보 또는 스캔에 대 한 쿼리 또는 저장 프로시저를 지원 하지 않습니다. 계보는 테이블 및 뷰 원본 으로만 제한 됩니다.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>SSIS 패키지 지원 Data Factory 실행
 
-| 데이터 저장소 시스템 | 지원됨 |
+| 데이터 저장소 | 지원됨 |
 | ------------------- | ------------------- |
-| Azure Blob | 예 |
-| ADLS Gen1 | 예 |
-| ADLS Gen2 | 예 |
-| Azure SQL Database \* | 예 |
-| Azure SQL MI \*| 예 |
-| Azure Synapse Analytics (이전의 SQL DW) \* | 예 |
-| SQL Server 온-프레미스 \* | 예 |
+| Azure Blob Storage | 예 |
+| Azure Data Lake Storage Gen1 | 예 |
+| Azure Data Lake Storage Gen2 | 예 |
 | Azure File Storage | 예 |
+| Azure SQL Database \* | 예 |
+| Azure SQL Managed Instance \*| 예 |
+| Azure Synapse 분석 \* | 예 |
+| SQL Server \* | 예 |
 
-*\* SQL (Azure 및 온-프레미스) 시나리오의 경우 Azure 부서의 범위는 계보 또는 검색에 대 한 저장 프로시저 또는 스크립트를 지원 하지 않습니다. 계보는 테이블 및 뷰 원본 으로만 제한 됩니다.*
+*\* Azure 부서의 범위는 현재 계보 또는 스캔에 대 한 쿼리 또는 저장 프로시저를 지원 하지 않습니다. 계보는 테이블 및 뷰 원본 으로만 제한 됩니다.*
 
 > [!Note]
 > 이제 Azure Data Lake Storage Gen2가 일반 공급됩니다. 오늘부터 사용을 시작하는 것이 좋습니다. 자세한 내용은 [제품 페이지](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)를 참조하세요.
@@ -172,7 +187,7 @@ Azure 부서의 범위에서 지 원하는 몇 가지 계보 패턴이 있습니
 
 - **계보** 탭에서 셰이프를 가리키면 도구 설명의 자산에 대 한 추가 정보를 미리 볼 수 있습니다.
 - 노드 또는 가장자리를 선택 하 여 해당 하는 자산 유형을 확인 하거나 자산을 전환 합니다.
-- 데이터 집합의 열은 **계보** 탭의 왼쪽에 표시 됩니다. 열 수준 계보에 대 한 자세한 내용은 [열 수준 계보](catalog-lineage-user-guide.md#column-level-lineage)를 참조 하세요.
+- 데이터 집합의 열은 **계보** 탭의 왼쪽에 표시 됩니다. 열 수준 계보에 대 한 자세한 내용은 [데이터 집합 열 계보](catalog-lineage-user-guide.md#dataset-column-lineage)를 참조 하세요.
 
 ### <a name="data-lineage-for-11-operations"></a>1:1 작업에 대 한 데이터 계보
 

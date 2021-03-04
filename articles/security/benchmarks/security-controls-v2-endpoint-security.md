@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b22ba913370b27cd01319a14a2a627d7589ce4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718644"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051517"
 ---
 # <a name="security-control-v2-endpoint-security"></a>보안 제어 V2: 끝점 보안
 
 끝점 보안은 끝점 검색 및 응답의 컨트롤을 포함 합니다. 여기에는 Azure 환경에서 끝점에 대해 EDR (끝점 검색 및 응답) 및 맬웨어 방지 서비스를 사용 하는 작업이 포함 됩니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 끝점 보안의 세부 정보](../../governance/policy/samples/azure-security-benchmark#endpoint-security) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 끝점 보안의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#endpoint-security) 를 참조 하세요.
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: EDR (끝점 검색 및 응답) 사용
 

@@ -4,17 +4,17 @@ description: 로그 재생 서비스를 사용 하 여 SQL Server에서 SQL Mana
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: ''
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: bc0dc72c7547c8f74aec53b7153fc5384c6b634b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690790"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096839"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>로그 재생 서비스 (미리 보기)를 사용 하 여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ LRS는 자동 완성 또는 연속 모드에서 시작할 수 있습니다. 자�
 
 자동 완성에서 자동으로 또는 LRS에서 수동으로 중지 된 경우에는 SQL Managed Instance에서 온라인 상태로 전환 된 데이터베이스에 대해 복원 프로세스를 다시 시작할 수 없습니다. 자동 완성을 통해 마이그레이션이 완료 되 면 추가 백업 파일을 복원 하거나, 수동으로 데이터베이스를 삭제 하 고 LRS를 다시 시작 하 여 전체 백업 체인을 처음부터 복원 해야 하는 경우
 
-![SQL Managed Instance에 대해 설명 된 로그 재생 서비스 오케스트레이션 단계](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="SQL Managed Instance에 대해 설명 된 로그 재생 서비스 오케스트레이션 단계" border="false":::
     
 | 작업 | 세부 정보 |
 | :----------------------------- | :------------------------- |
@@ -193,18 +193,30 @@ WITH COMPRESSION, CHECKSUM
 Azure Blob Storage은 SQL Server와 SQL Managed Instance 간의 백업 파일에 대 한 중간 저장소로 사용 됩니다. LRS service에서 사용 하기 위해 목록 및 읽기 전용 권한이 있는 SAS 인증 토큰을 생성 해야 합니다. 이렇게 하면 LRS 서비스가 Azure Blob Storage에 액세스 하 고 백업 파일을 사용 하 여 SQL Managed Instance에서 해당 파일을 복원할 수 있습니다. LRS 사용에 대 한 SAS 인증을 생성 하려면 다음 단계를 따르세요.
 
 1. Azure Portal에서 Storage 탐색기에 액세스
+
 2. BLOB 컨테이너 확장
-3. Blob 컨테이너를 마우스 오른쪽 단추로 클릭 하 고 공유 액세스 서명 가져오기  ![ 로그 재생 서비스 SAS 인증 토큰 생성을 선택 합니다.](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+3. Blob 컨테이너를 마우스 오른쪽 단추로 클릭 하 고 공유 액세스 서명 가져오기를 선택 합니다.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="로그 재생 서비스-공유 액세스 서명 가져오기":::
+
 4. 토큰 만료 기간을 선택 합니다. 토큰이 마이그레이션 기간 동안 유효한 지 확인 합니다.
+
 5. 토큰-UTC 또는 현지 시간에 대 한 표준 시간대를 선택 합니다.
-    - 토큰의 표준 시간대와 SQL Managed Instance 일치 하지 않을 수 있습니다. SAS 토큰에 적절 한 시간 영역을 고려 하는 것이 적절 한지 확인 합니다. 가능 하면 계획 된 마이그레이션 기간 이전 및 이후 시간으로 표준 시간대를 설정 합니다.
+
+   - 토큰의 표준 시간대와 SQL Managed Instance 일치 하지 않을 수 있습니다. SAS 토큰에 적절 한 시간 영역을 고려 하는 것이 적절 한지 확인 합니다. 가능 하면 계획 된 마이그레이션 기간 이전 및 이후 시간으로 표준 시간대를 설정 합니다.
+
 6. 읽기 및 목록만 나열 권한만 선택 합니다.
-    - 다른 사용 권한을 선택 하거나, 그렇지 않으면 LRS를 시작할 수 없습니다. 이 보안 요구 사항은 의도적으로 설계 되었습니다.
-7. 만들기 단추를 클릭 합니다.  ![ 로그 재생 서비스 SAS 인증 토큰 생성](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-SAS 인증은 앞에서 지정한 시간 동안 생성 됩니다. 아래 스크린샷에 표시 된 것 처럼 생성 된 토큰의 URI 버전이 필요 합니다.
+   - 다른 사용 권한을 선택 하거나, 그렇지 않으면 LRS를 시작할 수 없습니다. 이 보안 요구 사항은 의도적으로 설계 되었습니다.
 
-![로그 재생 서비스 생성 SAS 인증 URI 예제](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+7. 만들기 단추 클릭
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="로그 재생 서비스-SAS 인증 토큰 생성":::
+
+   SAS 인증은 앞에서 지정한 시간 동안 생성 됩니다. 아래 스크린샷에 표시 된 것 처럼 생성 된 토큰의 URI 버전이 필요 합니다.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="로그 재생 서비스-URI 공유 액세스 서명 복사":::
 
 ### <a name="copy-parameters-from-sas-token-generated"></a>생성 된 SAS 토큰에서 매개 변수 복사
 
@@ -212,7 +224,7 @@ SAS 토큰을 적절 하 게 사용 하 여 LRS를 시작할 수 있도록 하�
 - StorageContainerUri 및 
 - 아래 이미지에 표시 된 것 처럼 물음표 (?)로 구분 된 StorageContainerSasToken입니다.
 
-    ![로그 재생 서비스 생성 SAS 인증 URI 예제](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="로그 재생 서비스 생성 SAS 인증 URI 예제" border="false":::
 
 - "Https://"로 시작 하는 첫 번째 부분은 LRS에 대 한 입력으로 공급 되는 StorageContainerURI 매개 변수에 물음표 (?)가 사용 됩니다. 이를 통해 데이터베이스 백업 파일이 저장 된 폴더에 대 한 정보를 LRS 수 있습니다.
 - "Sp =" 예제에서 물음표 (?) 다음에 시작 하는 두 번째 부분으로, 문자열의 끝까지 모든 방법이 StorageContainerSasToken 매개 변수입니다. 지정 된 시간 동안 유효한 실제 서명 된 인증 토큰입니다. 이 부분은 표시 된 대로 "sp ="로 시작할 필요가 없으며 사용자의 사례가 다를 수 있습니다.
@@ -221,11 +233,11 @@ SAS 토큰을 적절 하 게 사용 하 여 LRS를 시작할 수 있도록 하�
 
 1. 아래 스크린샷에 표시 된 것 처럼 물음표 (?)부터 시작 하 여 https://부터 시작 하 여 LRS를 시작 하기 위해 PowerShell 또는 CLI에서 StorageContainerUri 매개 변수로 사용할 토큰의 첫 번째 부분을 복사 합니다.
 
-    ![로그 재생 서비스 복사 StorageContainerUri 매개 변수](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="로그 재생 서비스 복사 StorageContainerUri 매개 변수":::
 
 2. 아래 스크린샷에 표시 된 것 처럼 물음표 (?)부터 시작 하 여 문자열의 끝까지 모든 방법에서 시작 하 여 토큰의 두 번째 부분을 복사 하 고 LRS를 시작 하기 위해 PowerShell 또는 CLI에서 StorageContainerSasToken 매개 변수로 사용 합니다.
 
-    ![로그 재생 서비스 복사 StorageContainerSasToken 매개 변수](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="로그 재생 서비스 복사 StorageContainerSasToken 매개 변수":::
 
 > [!IMPORTANT]
 > - Azure Blob Storage에 대 한 SAS 토큰에 대 한 사용 권한은 읽기 및 목록만 필요 합니다. SAS 인증 토큰에 대해 다른 사용 권한이 부여 되 면 LRS 서비스를 시작할 수 없습니다. 이러한 보안 요구 사항은 의도적으로 설계 되었습니다.

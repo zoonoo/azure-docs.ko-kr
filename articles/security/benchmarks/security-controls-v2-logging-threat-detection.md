@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720684"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042983"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
 
 로깅 및 위협 검색은 Azure에서 위협을 감지 하 고 Azure 서비스에 대 한 감사 로그를 사용, 수집 및 저장 하는 컨트롤을 포함 합니다. 여기에는 Azure 서비스에서 네이티브 위협 검색을 통해 고품질의 경고를 생성 하는 컨트롤을 사용 하 여 검색, 조사 및 재구성 프로세스를 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 로그를 수집 하 고, Azure 센티널, 시간 동기화 및 로그 보존으로 보안 분석을 중앙화 합니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 로깅 및 위협 검색의 세부 정보](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 로깅 및 위협 검색의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection) 를 참조 하세요.
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: d52998e477e44f89a35a70f7e2b5d49cbc68e386
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: edf7a7cdbd24249205fedb4654aa092755700910
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662795"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035656"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Redis 인스턴스에 대 한 엔터프라이즈 Azure 캐시에 대 한 활성 지역 복제 구성 (미리 보기)
 
@@ -36,7 +36,7 @@ ms.locfileid: "101662795"
 
 1. **구성** 을 클릭 하 여 완료 합니다.
 
-    ![캐시 연결](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
+    ![활성 지역 복제 구성 됨](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
 1. 지역에서 복제 그룹의 각 추가 캐시 인스턴스에 대해 위의 단계를 반복 합니다.
 

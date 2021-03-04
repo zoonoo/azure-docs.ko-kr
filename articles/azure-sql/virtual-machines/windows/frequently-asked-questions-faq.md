@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b58119ccc1551d12dfc9b09f76f6980618ba6221
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556304"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036251"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -91,9 +91,15 @@ ms.locfileid: "94556304"
 
    이때 다음과 같은 세 가지 방법을 사용할 수 있습니다. 기업계약 (EA) 고객 인 경우 [라이선스를 지 원하는 가상 머신 이미지](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL)중 하나를 프로 비전 할 수 있습니다 (byol (사용자 라이선스 보유)이 라고도 함). [소프트웨어 보증이](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)있는 경우 기존 PAYG (종 량 제) 이미지에서 [Azure 하이브리드 혜택](licensing-model-azure-hybrid-benefit-ahb-change.md) 를 사용 하도록 설정할 수 있습니다. 또는 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치할 수 있습니다. 포털 관리, 자동화 된 백업 및 자동화 된 패치와 같은 기능의 [확장](sql-agent-extension-manually-register-single-vm.md) 에 SQL Server VM을 등록 해야 합니다. 
 
+
+1. **고객이 Azure Virtual Machines에서 실행 되는 SQL Server 종 량 제 이미지에 연결 하기 위해 SQL Server Cal (클라이언트 액세스 라이선스)이 필요 한가요?**
+
+   아니요. 고객은 자신의 라이선스 가져오기를 사용 하 고 SQL Server SA 서버/CAL VM을 Azure Vm으로 이동할 때 Cal이 필요 합니다. 
+
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
    예. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/faq/)을 사용하도록 설정하여 PAYG(종량제) 갤러리 이미지를 BYOL(사용자 라이선스 필요)로 쉽게 전환할 수 있습니다.  자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 현재 이 기능은 공용 클라우드 및 Azure Government 클라우드 고객만 사용할 수 있습니다.
+
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 
@@ -135,7 +141,7 @@ ms.locfileid: "94556304"
    Software Assurance와 동등한 구독 권한을 고정 혜택으로 제공하는 종합적인 프로그램은 DR 혜택을 지원합니다. 여기에는 그러나 Open Value (OV-ES), OVS 기업계약 (Open Value Subscription), EA (기업계약 Subscription), EAS (서버 및 클라우드 등록)로 제한 되지 않습니다. 자세한 내용은 [제품 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하고 라이선스 연락처나 계정 관리자에게 문의하세요. 
 
    
- ## <a name="extension"></a>확장명
+ ## <a name="extension"></a>내선 번호
 
 1. **새 SQL IaaS 에이전트 확장을 사용 하 여 VM을 등록 하면 추가 비용이 발생 하나요?**
 
@@ -145,11 +151,11 @@ ms.locfileid: "94556304"
  
    예. 클래식 모델이 아닌 Resource Manager 모델을 사용하여 공용 클라우드에서 SQL Server VM을 배포한 경우에는 가능합니다. 다른 모든 고객은 새 SQL IaaS 에이전트 확장을 사용 하 여 등록할 수 있습니다. 그러나 [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) 혜택이 있는 고객만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)를 활성화하여 자신의 라이선스를 사용할 수 있습니다. 
 
-1. **VM 리소스를 이동 하거나 삭제 하는 경우 확장 ( _SqlVirtualMachine_ ) 리소스는 어떻게 되나요?** 
+1. **VM 리소스를 이동 하거나 삭제 하는 경우 확장 (_SqlVirtualMachine_) 리소스는 어떻게 되나요?** 
 
    Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
 
-1. **확장 ( _SqlVirtualMachine_ ) 리소스가 삭제 되는 경우 VM은 어떻게 되나요?**
+1. **확장 (_SqlVirtualMachine_) 리소스가 삭제 되는 경우 VM은 어떻게 되나요?**
 
     Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다. 
 
@@ -239,9 +245,98 @@ ms.locfileid: "94556304"
    
     예. 로컬 DTC가 SQL Server 2016 SP2 이상에서 지원됩니다. 그러나 장애 조치(failover) 중에 진행 중인 트랜잭션이 실패하여 다시 시도해야 하므로 Always On 가용성 그룹을 활용할 때는 애플리케이션을 테스트해야 합니다. 클러스터형 DTC는 Windows Server 2019부터 사용할 수 있습니다. 
 
+## <a name="sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장
+
+1. **Azure Marketplace의 SQL Server 이미지에서 프로비저닝된 SQL Server VM을 등록해야 하나요?**
+
+   아니요. Microsoft는 Azure Marketplace의 SQL Server 이미지에서 프로비저닝된 VM을 자동으로 등록합니다. VM이 Azure Marketplace의 SQL Server 이미지에서 프로 비전 *되지 않아* SQL Server 자체 설치 된 경우에만 확장에 등록 해야 합니다.
+
+1. **모든 고객에 게 SQL IaaS 에이전트 확장을 사용할 수 있나요?** 
+
+   예. Azure Marketplace에서 SQL Server 이미지를 사용 하지 않고 대신 자체 설치 된 SQL Server를 사용 하거나 사용자 지정 VHD를 가져온 경우에는 확장을 사용 하 여 SQL Server Vm을 등록 해야 합니다. 모든 유형의 구독 (직접, 기업계약 및 클라우드 솔루션 공급자)이 소유한 Vm은 SQL IaaS 에이전트 확장에 등록할 수 있습니다.
+
+1. **SQL IaaS 에이전트 확장을 사용 하 여 등록할 때 기본 관리 모드는 무엇입니까?**
+
+   SQL IaaS 에이전트 확장을 사용 하 여 등록할 때 기본 관리 모드는 *간단* 합니다. 확장을 사용 하 여 등록할 때 SQL Server 관리 속성이 설정 되지 않은 경우 모드가 lightweight로 설정 되 고 SQL Server 서비스가 다시 시작 되지 않습니다. 먼저 경량 모드에서 SQL IaaS 에이전트 확장에 등록 한 다음 유지 관리 기간 중에 전체로 업그레이드 하는 것이 좋습니다. 마찬가지로, [자동 등록 기능](sql-agent-extension-automatic-registration-all-vms.md)을 사용 하는 경우 기본 관리도 간단 합니다.
+
+1. **SQL IaaS 에이전트 확장에 등록 하기 위한 필수 구성 요소는 무엇 인가요?**
+
+   SQL Server VM에 설치 하는 것 외에는 SQL IaaS 에이전트 확장에 등록 하기 위한 필수 구성 요소가 없습니다. SQL IaaS 에이전트 확장이 전체 모드로 설치 된 경우에는 SQL Server 서비스가 다시 시작 되므로 유지 관리 기간 동안이 작업을 수행 하는 것이 좋습니다.
+
+1. **SQL IaaS 에이전트 확장에 등록 하면 내 VM에 에이전트를 설치 하나요?**
+
+   예, 전체 관리 효율성 모드로 SQL IaaS 에이전트 확장을 등록 하면 에이전트가 VM에 설치 됩니다. 경량 또는 NoAgent 모드에서 등록 하는 것은 아닙니다. 
+
+   SQL IaaS 에이전트 확장을 경량 모드로 등록 하면 SQL IaaS 에이전트 확장 *이진* 파일만 VM에 복사 되 고 에이전트는 설치 되지 않습니다. 이러한 이진 파일은 관리 모드가 전체로 업그레이드 될 때 에이전트를 설치 하는 데 사용 됩니다.
+
+
+1. **내 VM에서 SQL IaaS 에이전트 확장을 다시 시작 SQL Server를 등록 하 시겠습니까?**
+
+   등록 중 지정한 모드에 따라 달라집니다. Lightweight 또는 NoAgent 모드가 지정 된 경우 SQL Server 서비스는 다시 시작 되지 않습니다. 그러나 관리 모드를 full로 지정 하면 SQL Server 서비스가 다시 시작 됩니다. Windows Server 버전 2008이 아닌 경우 자동 등록 기능은 SQL Server Vm을 경량 모드로 등록 합니다 .이 경우 SQL Server VM NoAgent 모드로 등록 됩니다. 
+
+1. **SQL IaaS 에이전트 확장을 사용 하 여 등록할 때 경량 및 NoAgent 관리 모드의 차이점은 무엇 인가요?** 
+
+   NoAgent 관리 모드는 SQL Server 2008 및 SQL Server 2008 R2 on Windows Server 2008에 대해 유일 하 게 사용할 수 있는 관리 모드입니다. 이후 버전의 Windows Server에서는 사용 가능한 두 가지 관리 효율성 모드가 간단 하 고 완전 합니다. 
+
+   NoAgent 모드에서는 고객이 SQL Server 버전 및 버전 속성을 설정 해야 합니다. 경량 모드는 VM을 쿼리하여 SQL Server 인스턴스의 버전 및 에디션을 찾습니다.
+
+1. **SQL Server 라이선스 유형을 지정 하지 않고 SQL IaaS 에이전트 확장에 등록할 수 있나요?**
+
+   아니요. SQL IaaS 에이전트 확장을 사용 하 여 등록 하는 경우 SQL Server 라이선스 형식은 선택적 속성이 아닙니다. 모든 관리 효율성 모드 (NoAgent, 경량 및 full)에서 SQL IaaS 에이전트 확장에 등록할 때 SQL Server 라이선스 유형을 종 량 제 또는 Azure 하이브리드 혜택으로 설정 해야 합니다. Developer 또는 Evaluation edition과 같이 SQL Server의 무료 버전이 설치 되어 있는 경우 종 량 제 라이선스에 등록 해야 합니다. Azure 하이브리드 혜택는 Enterprise 및 Standard edition과 같은 유료 버전의 SQL Server 에서만 사용할 수 있습니다.
+
+1. **SQL Server IaaS 확장을 NoAgent 모드에서 full 모드로 업그레이드할 수 있나요?**
+
+   아니요. NoAgent 모드에서는 관리 효율성 모드를 full 또는 lightweight로 업그레이드할 수 없습니다. 이는 Windows Server 2008의 기술적 제한 사항입니다. 먼저 OS를 Windows Server 2008 R2 이상으로 업그레이드한 후에는 전체 관리 모드로 업그레이드할 수 있습니다. 
+
+1. **SQL Server IaaS 확장을 경량 모드에서 전체 모드로 업그레이드할 수 있나요?**
+
+   예. 관리 효율성 모드를 경량에서 full로 업그레이드 하는 것은 Azure PowerShell 또는 Azure Portal를 통해 지원 됩니다. 이렇게 하면 SQL Server 서비스가 다시 시작 됩니다.
+
+1. **SQL Server IaaS 확장을 전체 모드에서 NoAgent 또는 경량 관리 모드로 다운 그레이드할 수 있나요?**
+
+   아니요. SQL Server IaaS 확장 관리 모드는 다운그레이드가 지원되지 않습니다. 관리 효율성 모드는 전체 모드에서 경량 또는 NoAgent 모드로 다운 그레이드할 수 없으며 경량 모드에서 NoAgent 모드로 다운 그레이드할 수 없습니다. 
+
+   관리 효율성 모드를 전체 관리 기능으로 변경 하려면 sql 가상 컴퓨터 _리소스_ 를 삭제 하 여 Sql iaas 에이전트 확장에서 SQL Server VM [등록을 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) 하 고 다른 관리 모드에서 sql iaas 에이전트 확장을 사용 하 여 SQL Server VM를 다시 등록 합니다.
+
+1. **Azure Portal에서 SQL IaaS 에이전트 확장에 등록할 수 있나요?**
+
+   아니요. Azure Portal에서는 SQL IaaS 에이전트 확장을 사용 하 여 등록할 수 없습니다. SQL IaaS 에이전트 확장에 등록 하는 것은 Azure CLI 또는 Azure PowerShell 에서만 지원 됩니다. 
+
+1. **SQL Server 설치 하기 전에 SQL IaaS 에이전트 확장을 사용 하 여 VM을 등록할 수 있나요?**
+
+   아니요. SQL IaaS 에이전트 확장에 성공적으로 등록 하려면 VM에 하나 이상의 SQL Server (데이터베이스 엔진) 인스턴스가 있어야 합니다. VM에 SQL Server 인스턴스가 없으면 새 Microsoft.SqlVirtualMachine 리소스가 실패 상태가 됩니다.
+
+1. **여러 SQL Server 인스턴스가 있는 경우 SQL IaaS 에이전트 확장을 사용 하 여 VM을 등록할 수 있나요?**
+
+   예. VM에 기본 인스턴스가 제공 됩니다. SQL IaaS 에이전트 확장은 하나의 SQL Server (데이터베이스 엔진) 인스턴스만 등록 합니다. SQL IaaS 에이전트 확장은 여러 인스턴스의 경우 기본 SQL Server 인스턴스를 등록 합니다.
+
+1. **SQL IaaS 에이전트 확장을 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스를 등록할 수 있나요?**
+
+   예. Azure VM의 SQL Server 장애 조치 (failover) 클러스터 인스턴스는 경량 모드로 SQL IaaS 에이전트 확장에 등록 될 수 있습니다. 그러나 SQL Server 장애 조치(failover) 클러스터 인스턴스를 전체 관리 모드로 업그레이드할 수는 없습니다.
+
+1. **Always On 가용성 그룹이 구성 된 경우 SQL IaaS 에이전트 확장을 사용 하 여 VM을 등록할 수 있나요?**
+
+   예. Always On 가용성 그룹 구성에 참여 하는 경우 SQL IaaS 에이전트 확장을 사용 하 여 Azure VM에 SQL Server 인스턴스를 등록 하는 데 제한 사항이 없습니다.
+
+1. **SQL IaaS 에이전트 확장에 등록 하는 데 드는 비용이 나 완전 한 관리 모드로 업그레이드 하는 경우는 어떻게 되나요?**
+
+   없음 SQL IaaS 에이전트 확장에 등록 하거나 세 가지 관리 효율성 모드 중 하나를 사용 하는 것과 관련 된 요금은 없습니다. 확장을 사용 하 여 SQL Server VM를 관리 하는 것은 완전히 무료입니다. 
+
+1. **각 관리 모드를 사용할 때 성능에 미치는 영향은 무엇입니까?**
+
+   *에이전트 없음* 및 *경량* 관리 모드를 사용하는 경우에는 영향을 미치지 않습니다. OS에 설치된 두 서비스로부터 *전체* 관리 모드를 사용하는 경우 최소한의 영향만 미칩니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있으며 기본 제공 Windows 서비스 콘솔에 표시됩니다. 
+
+   두 서비스 이름은 다음과 같습니다.
+   - `SqlIaaSExtensionQuery`(표시 이름 - `Microsoft SQL Server IaaS Query Service`)
+   - `SQLIaaSExtension`(표시 이름 - `Microsoft SQL Server IaaS Agent`)
+
+1. **확장 어떻게 할까요? 제거 하 시겠습니까?**
+
+   SQL IaaS 에이전트 확장에서 SQL Server VM [등록을 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) 하 여 확장을 제거 합니다. 
+
 ## <a name="resources"></a>리소스
 
-**Windows VM** :
+**Windows VM**:
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM에서 SQL Server 프로 비전](create-sql-vm-portal.md)
@@ -250,7 +345,7 @@ ms.locfileid: "94556304"
 * [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](performance-guidelines-best-practices.md)
 * [Azure Virtual Machines에서 SQL Server에 대 한 응용 프로그램 패턴 및 개발 전략](application-patterns-development-strategies.md)
 
-**Linux VM** :
+**Linux VM**:
 
 * [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Linux VM에 SQL Server 프로 비전](../linux/sql-vm-create-portal-quickstart.md)

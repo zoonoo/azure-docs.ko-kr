@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 8602d43113f4ce21cdb430e1fa3e83f006c64753
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185566"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051891"
 ---
 # <a name="pronunciation-assessment"></a>발음 평가
 
@@ -28,7 +28,7 @@ ms.locfileid: "98185566"
 이 문서에서는 `PronunciationAssessmentConfig` SPEECH SDK를 사용 하 여를 설정 하 고 검색 하는 방법을 알아봅니다 `PronunciationAssessmentResult` .
 
 > [!NOTE]
-> 발음 평가 기능은 현재 지역 및 에서만 사용할 수 `westus` `eastasia` `centralindia` 있으며 언어만 지원 합니다 `en-US` .
+> 음성 평가 기능은 현재 언어만 지원 `en-US` 합니다.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>음성 SDK를 사용한 발음 평가
 
@@ -140,8 +140,8 @@ pronunciationAssessmentConfig.applyTo(speechRecognizer);
 
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
         var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-        var pronunciationScore = pronResult.pronunciationScore;
-        var wordLevelResult = pronResult.detailResult.Words;
+        var pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
+        var wordLevelResult = pronunciationAssessmentResult.detailResult.Words;
 },
 {});
 ```
@@ -174,19 +174,19 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 다음 표에서는 발음 평가에 대 한 구성 매개 변수를 나열 합니다.
 
-| 매개 변수 | Description | 필수 여부 |
+| 매개 변수 | 설명 | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
-| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본값: `Phoneme`. | 선택 사항 |
-| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | 선택 사항 |
-| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | 선택 사항 |
+| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | Optional |
+| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본값: `Phoneme`. | Optional |
+| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | Optional |
+| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | Optional |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>발음 평가 결과 매개 변수
 
 다음 표에서는 발음 평가의 결과 매개 변수를 보여 줍니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | `AccuracyScore` | 음성의 발음 정확도입니다. 정확도는 음소가 네이티브 스피커의 발음에 얼마나 근접 하 게 일치 하는지를 나타냅니다. 단어 및 전체 텍스트 수준 정확도 점수는 음소 수준 정확도 점수에서 집계 됩니다. |
 | `FluencyScore` | 지정 된 음성의 능숙입니다. 능숙는 음성이 단어 사이에서 기본 스피커의 자동 나누기 사용과 일치 하는지 여부를 나타냅니다. |

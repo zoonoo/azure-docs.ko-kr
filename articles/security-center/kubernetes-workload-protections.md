@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546264"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095598"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -21,7 +21,7 @@ ms.locfileid: "100546264"
 
 [Kubernetes 허용 제어를 사용 하 여 작업 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control) 에서 이러한 기능에 대해 자세히 알아보세요.
 
-Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 많은 컨테이너 보안 기능을 제공 합니다. 특히 다음에 대한 내용을 설명합니다.
+Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 많은 컨테이너 보안 기능을 제공 합니다. 구체적으로는 다음과 같습니다.
 
 - 컨테이너 [레지스트리에 대 한 Azure Defender의](defender-for-container-registries-introduction.md) 취약성에 대 한 컨테이너 레지스트리를 검색 합니다.
 - [Kubernetes 용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대 한 실시간 위협 검색 경고 가져오기
@@ -51,7 +51,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
 
 권장 사항을 구성 하려면  **Kubernetes에 대 한 Azure Policy 추가 기능** 을 설치 합니다. 
 
-- [확장의 자동 프로 비전 사용](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)에 설명 된 대로이 추가 기능을 자동으로 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
+- [Log Analytics 에이전트 및 확장의 자동 프로 비전 사용](security-center-enable-data-collection.md#auto-provision-mma)에 설명 된 대로이 추가 기능을 자동으로 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Security Center의 자동 프로 비전 도구를 사용 하 여 Kubernetes 용 정책 추가 기능 설치":::
 
@@ -80,12 +80,12 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
 
     | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성 필요 |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | 아니요                     |
-    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | No                     |
+    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | No                     |
+    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | No                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | No                     |
+    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | No                     |
+    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | No                     |
     | 컨테이너에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용되는 포트에서만 수신 대기해야 함                              | 무단 네트워크 액세스 제한     | **예**                |

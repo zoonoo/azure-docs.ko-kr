@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539723"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042609"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Application Insights에 대 한 Azure 웹 앱 확장 릴리스 정보
 
@@ -18,7 +18,7 @@ ms.locfileid: "86539723"
 
 Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아보세요](azure-web-apps.md) .
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 - 현재 확장 된 확장의 버전을 확인 하는 방법
     - `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`로 이동합니다. 자세한 내용은 [확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드](./azure-web-apps.md?tabs=net#troubleshooting) 를 참조 하세요.
@@ -27,6 +27,24 @@ Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아
     - 더 이상 지원 되지 않으므로 개인 사이트 확장을 제거 합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2838"></a>2.8.38
+
+- JAVA 확장: 2.5.1에서 [GA (Java Agent 3.0.2)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) 로 업그레이드 되었습니다.
+- Node.js 확장: AI SDK를 1.8.7에서 [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) 로 업데이트 했습니다.
+- .NET Core: 지원 되지 않는 버전 (2.0, 2.2, 3.0)을 제거 했습니다. 지원 되는 버전은 2.1 및 3.1입니다.
+
+### <a name="2837"></a>2.8.37
+
+- AppSvc Windows 확장: 모든 버전의 System.Diagnostics.DiagnosticSource.dll에서 .NET Core 작업을 수행 했습니다.
+
+### <a name="2836"></a>2.8.36
+
+- AppSvc Windows 확장: .NET Core에서 AI SDK와 함께 작동 하도록 설정 합니다.
+
+### <a name="2835"></a>2.8.35
+
+- AppSvc Windows 확장: .NET Core 3.1 지원을 추가 했습니다.
 
 ### <a name="2833"></a>2.8.33
 

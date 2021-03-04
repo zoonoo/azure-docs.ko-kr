@@ -1,17 +1,16 @@
 ---
 title: VM insights 게스트 상태 (미리 보기) 문제 해결
 description: VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 6ae0a9e20d6aad7200729419ece333d80e652c3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d8b37569ebaa8e75be601a1efd65a23a61aeaa75
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703922"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051942"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM insights 게스트 상태 (미리 보기) 문제 해결
 이 문서에서는 VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.

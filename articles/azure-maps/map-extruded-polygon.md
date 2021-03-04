@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890771"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044088"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
@@ -30,22 +30,21 @@ ms.locfileid: "92890771"
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="돌출 다각형" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>돌출 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a></iframe>
-
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>돌출 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a></iframe>
 
 ## <a name="add-data-driven-polygons"></a>데이터 중심 다각형 추가
 
-다각형 입체 면 레이어를 사용 하 여 choropleth 지도를 렌더링할 수 있습니다. `height` `fillColor` 밀어내기 계층의 및 속성을 `Polygon` 및 기능 기 하 도형에서 통계 변수의 측정으로 설정 합니다 `MultiPolygon` . 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 choropleth의 돌출 된 지도를 보여 줍니다.
+다각형 입체 면 레이어를 사용 하 여 choropleth 지도를 렌더링할 수 있습니다. `height` `fillColor` 밀어내기 계층의 및 속성을 `Polygon` 및 기능 기 하 도형에서 통계 변수의 측정으로 설정 합니다 `MultiPolygon` . 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 미국의 돌출 된 choropleth 지도를 보여 줍니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="돌출 choropleth 지도" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>돌출 choropleth map</a> 을 참조 하십시오 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>돌출 choropleth map</a> 을 참조 하십시오 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="add-a-circle-to-the-map"></a>맵에 원 추가
 
-Azure Maps에는 [여기](./extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터** 단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예를 들면 다음과 같습니다.
+Azure Maps에는 [여기](./extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터** 단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 다음은 그 예입니다. 
 
 ```javascript
 {
@@ -66,7 +65,7 @@ Azure Maps 웹 SDK는 이러한 `Point` 기능을 내부적으로 기능으로 �
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="드 론 어 스페이스 다각형" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone에 어 스페이스 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone에 어 스페이스 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용자 지정
@@ -75,7 +74,7 @@ CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen
 
 <br/>
 
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계
