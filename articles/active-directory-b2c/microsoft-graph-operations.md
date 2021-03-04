@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952236"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033625"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
@@ -124,7 +124,7 @@ Microsoft Graph API의 정책 키에 대 한 최상위 리소스는 [신뢰할 �
 - [애플리케이션 업데이트](/graph/api/application-update)
 - [ServicePrincipal 만들기](/graph/api/resources/serviceprincipal)
 - [Oauth2Permission Grant 만들기](/graph/api/resources/oauth2permissiongrant)
-- [응용 프로그램 삭제](/graph/api/application-delete)
+- [애플리케이션 삭제](/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>응용 프로그램 확장 속성
 
@@ -138,6 +138,14 @@ Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 
 
 Azure AD B2C 감사 로그에 액세스 하는 방법에 대 한 자세한 내용은 [감사 로그 Azure AD B2C 액세스](view-audit-logs.md)를 참조 하세요.
 
+## <a name="conditional-access"></a>조건부 액세스
+
+- [모든 조건부 액세스 정책을 나열 합니다.](/graph/api/resources/conditionalaccessroot-list-policies)
+- [조건부 액세스 정책의 속성 및 관계 읽기](/graph/api/conditionalaccesspolicy-get)
+- [새 조건부 액세스 정책 만들기](/graph/api/resources/application)
+- [조건부 액세스 정책 업데이트](/graph/api/conditionalaccesspolicy-update)
+- [조건부 액세스 정책 삭제](/graph/api/conditionalaccesspolicy-delete)
+
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>코드 샘플: 프로그래밍 방식으로 사용자 계정을 관리 하는 방법
 
 이 코드 샘플은 [MICROSOFT GRAPH SDK](/graph/sdks/sdks-overview) 를 사용 하 여 Microsoft Graph API와 상호 작용 하는 .net Core 콘솔 응용 프로그램입니다. 이 코드에서는 API를 호출 하 여 Azure AD B2C 테 넌 트에서 사용자를 프로그래밍 방식으로 관리 하는 방법을 보여 줍니다.
@@ -150,7 +158,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 코드 샘플을 가져온 후 사용자 환경에 맞게 구성한 다음 프로젝트를 빌드합니다.
 
 1. [Visual Studio](https://visualstudio.microsoft.com) 또는 [Visual Studio Code](https://code.visualstudio.com)에서 프로젝트를 엽니다.
-1. `src/appsettings.json` 엽니다.
+1. `src/appsettings.json`를 엽니다.
 1. 섹션에서 `appSettings` 을 `your-b2c-tenant` 테 넌 트의 이름으로 바꾸고,을 `Application (client) ID` `Client secret` 관리 응용 프로그램 등록 값으로 바꿉니다. 자세한 내용은 [Microsoft Graph 응용 프로그램 등록](microsoft-graph-get-started.md)을 참조 하세요.
 1. 리포지토리의 로컬 클론 내에서 콘솔 창을 열고 `src` 디렉터리로 전환한 다음 프로젝트를 빌드합니다.
 

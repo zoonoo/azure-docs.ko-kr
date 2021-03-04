@@ -13,12 +13,12 @@ ms.date: 2/18/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 7601b99cec70d982b663249855b05fcd636a9e62
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648709"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035070"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -110,7 +110,7 @@ JWT(JSON Web Token)는 세 부분으로 분할됩니다.
 | `name` | String | 사람이 인식할 수 있으며 토큰의 주체를 식별하는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | `scp` | 문자열, 공백으로 구분된 범위 목록 | 클라이언트 애플리케이션이 동의를 요청(및 수신)한 애플리케이션에 의해 노출된 범위 집합입니다. 앱은 이러한 범위가 앱에 의해 노출된 유효한 범위인지 확인하고 이러한 범위의 값을 기반으로 권한 부여 결정을 해야 합니다. [사용자 토큰](#user-and-application-tokens)에 대해서만 포함됩니다. |
 | `roles` | 문자열 배열, 권한 목록 | 요청 애플리케이션 또는 사용자가 호출할 수 있는 권한을 받은 사용자 애플리케이션에 의해 노출된 권한 집합입니다. [애플리케이션 토큰](#user-and-application-tokens)의 경우 클라이언트 자격 증명 흐름([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 중에 사용자 범위 대신 사용됩니다.  [사용자 토큰](#user-and-application-tokens)의 경우 대상 애플리케이션에서 사용자에게 할당된 역할로 채워집니다. |
-| `wids` | [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) GUID의 배열 | [관리자 역할 페이지](../roles/permissions-reference.md#role-template-ids)에 있는 역할 섹션에서 이 사용자에게 할당된 테넌트 전체 역할을 나타냅니다.  이 클레임은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다.  "All" 또는 "DirectoryRole"로 설정해야 합니다.  암시적 흐름을 통해 가져온 토큰에는 토큰 길이 문제로 인해 없을 수 있습니다. |
+| `wids` | [RoleTemplateID](../roles/permissions-reference.md#all-roles) GUID의 배열 | [AZURE AD 기본 제공 역할](../roles/permissions-reference.md#all-roles)에 있는 역할 섹션에서이 사용자에 게 할당 된 테 넌 트 전체 역할을 나타냅니다.  이 클레임은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다.  "All" 또는 "DirectoryRole"로 설정해야 합니다.  암시적 흐름을 통해 가져온 토큰에는 토큰 길이 문제로 인해 없을 수 있습니다. |
 | `groups` | GUID의 JSON 배열 | 주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다. 값이 null 이면 모든 그룹이 제외 되 고, 값이 "SecurityGroup" 이면 Active Directory 보안 그룹 멤버 자격만 포함 되 고, 값이 "All" 이면 보안 그룹과 Microsoft 365 메일 그룹이 모두 포함 됩니다. <br><br>암시적 권한 부여가 있는 `groups` 클레임 사용에 대한 자세한 내용은 아래 `hasgroups` 클레임을 참조하세요. <br>다른 흐름에서 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과분 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Microsoft Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. |
 | `hasgroups` | 부울 | 있는 경우 항상 `true`로, 사용자 하나 이상의 그룹에 있음을 나타냅니다. 전체 그룹 클레임이 URI 조각을 URL 길이 한도(현재 6개 이상 그룹)를 초과하여 확장할 경우 암시적 권한 부여 흐름에서 JWT에 대해 `groups` 클레임 대신 사용됩니다. 클라이언트가 Microsoft Graph API를 사용하여 사용자 그룹(`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`)을 결정해야 함을 표시합니다. |
 | `groups:src1` | JSON 개체 | 길이는 제한되지 않으나(위의 `hasgroups` 참조) 토큰에게는 너무 큰 토큰 요청의 경우 사용자의 전체 그룹 목록에 대한 링크가 포함됩니다. 분산된 클레임으로서의 JWT인 경우 SAML이 `groups` 클레임 대신에 새 클레임이 됩니다. <br><br>**JWT 값 예제**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |

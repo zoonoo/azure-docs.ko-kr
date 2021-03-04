@@ -1,17 +1,16 @@
 ---
 title: Log Analytics 게이트웨이를 사용 하 여 컴퓨터 연결 | Microsoft Docs
 description: Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스할 수 없는 경우 Azure Automation 및 Log Analytics 서비스에 데이터를 전송 하 여 장치와 Operations Manager 모니터링 컴퓨터를 연결 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c8b77e480f3a4f9ba342c6793a708ca6723ec34
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732023"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036574"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 

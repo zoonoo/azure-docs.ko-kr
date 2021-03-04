@@ -2,15 +2,15 @@
 title: ARM 템플릿 faq (질문과 대답)
 description: Azure Resource Manager 템플릿에 대 한 FAQ (질문과 대답) (ARM 템플릿).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561905"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036143"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -88,7 +88,7 @@ ms.locfileid: "97561905"
 
 * **새 템플릿 언어로 작업 하 고 있습니다. 이에 대 한 자세한 내용은 어디서 확인할 수 있나요?**
 
-  새 언어를 미리 보려면 [Project Bicep 리포지토리](https://github.com/Azure/bicep)를 참조 하세요. 새 언어에 대 한 정보를 유지 하려면 [알림을 등록](https://aka.ms/armLangUpdates)합니다.
+  새 언어에 대 한 자세한 내용은 [Bicep (미리 보기) 란?](bicep-overview.md)을 참조 하세요.
 
 * **YAML에서 템플릿 만들기를 지원 하기 위한 계획이 있나요?**
 
@@ -100,7 +100,7 @@ ms.locfileid: "97561905"
 
 * **JSON 템플릿을 새 템플릿 언어로 변환 하는 도구를 제공 하나요?**
 
-  예.
+  예. [Bicep로 JSON 디컴파일를](compare-template-syntax.md#decompile-json-to-bicep)참조 하세요.
 
 ## <a name="template-specs"></a>템플릿 사양
 

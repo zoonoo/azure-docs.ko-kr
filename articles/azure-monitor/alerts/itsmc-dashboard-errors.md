@@ -1,17 +1,16 @@
 ---
 title: ITSMC 대시보드의 커넥터 상태 오류
 description: IT 서비스 관리 커넥터 대시보드에 있는 일반적인 오류에 대해 알아봅니다.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 0b0dd584aee4a7647a3028ea20b517c0d74a330a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734743"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036455"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>ITSMC 대시보드의 커넥터 상태 오류
 

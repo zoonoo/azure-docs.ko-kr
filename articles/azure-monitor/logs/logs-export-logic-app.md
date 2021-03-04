@@ -2,17 +2,16 @@
 title: 논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure storage로 데이터 보관
 description: Azure Logic Apps 사용 하 여 Log Analytics 작업 영역에서 데이터를 쿼리하고 Azure Storage으로 보내는 방법을 설명 합니다.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700646"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035690"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure storage로 데이터 보관
 이 문서에서는 [Azure Logic Apps](../../logic-apps/index.yml) 를 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에서 데이터를 쿼리하고 Azure Storage로 보내는 방법에 대해 설명 합니다. 감사 및 규정 준수 시나리오에 대 한 Azure Monitor 로그 데이터를 내보내야 하거나 다른 서비스에서이 데이터를 검색할 수 있도록 하려면이 프로세스를 사용 합니다.  

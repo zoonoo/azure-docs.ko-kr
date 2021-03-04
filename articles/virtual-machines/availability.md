@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668302"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036931"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 가용성 옵션
 
@@ -55,7 +55,7 @@ Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹�
 
 **크기 집합에 대 한 오케스트레이션 모드**
 
-가상 머신 확장 집합 오케스트레이션 모드를 사용 하면 확장 집합에서 가상 머신 인스턴스를 관리 하는 방법을 더 자세히 제어할 수 있습니다. 확장 집합에서 균일 하거나 유연한 오케스트레이션 모드를 사용 하도록 설정할 수 있습니다. 균일 오케스트레이션은 인스턴스가 동일한 대규모 상태 비저장 워크 로드에 최적화 되어 있습니다. 유연한 오케스트레이션 (미리 보기)은 동일 하거나 여러 가상 머신 유형을 사용 하는 대규모의 고가용성을 위해 제공 됩니다. 이러한 [오케스트레이션 모드](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) 와 사용 하도록 설정 하는 방법에 대해 자세히 알아보세요.
+가상 머신 확장 집합 오케스트레이션 모드를 사용 하면 확장 집합에서 가상 머신 인스턴스를 관리 하는 방법을 더 자세히 제어할 수 있습니다. 확장 집합에서 균일 하거나 유연한 오케스트레이션 모드를 사용 하도록 설정할 수 있습니다. 균일 오케스트레이션은 인스턴스가 동일한 대규모 상태 비저장 워크 로드에 최적화 되어 있습니다. 유연한 오케스트레이션 (미리 보기)은 동일 하거나 여러 가상 머신 유형을 사용 하는 대규모의 고가용성을 위해 제공 됩니다. 이러한 [오케스트레이션 모드](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) 와 사용 하도록 설정 하는 방법에 대해 자세히 알아보세요.
 
 
 ## <a name="availability-sets"></a>가용성 집합

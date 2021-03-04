@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7c37fbead3f7b87da16e77caeda8286d05ca628b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735591"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035138"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -143,7 +143,7 @@ ms.locfileid: "92735591"
 1. 엔드포인트를 할당하려면 다음 명령을 실행합니다.
 
    ```azurecli
-   az spring-cloud app update -n solar-system-weather --is-public true
+   az spring-cloud app update -n solar-system-weather --assign-endpoint true
    ```
 
 1. 엔드포인트의 URL을 가져오려면 다음 명령을 실행합니다.
@@ -222,7 +222,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. 이전 단계에서 빌드된 JAR 파일을 사용하여 Azure Spring Cloud 마이크로서비스를 만듭니다. **gateway** , **auth-service** 및 **account-service** 라는 3개의 앱을 만들게 됩니다.
+1. 이전 단계에서 빌드된 JAR 파일을 사용하여 Azure Spring Cloud 마이크로서비스를 만듭니다. **gateway**, **auth-service** 및 **account-service** 라는 3개의 앱을 만들게 됩니다.
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -245,7 +245,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 1. 다음 명령을 사용하여 엔드포인트를 할당합니다.
 
     ```azurecli
-    az spring-cloud app update -n gateway --is-public true
+    az spring-cloud app update -n gateway --assign-endpoint true
     ```
 
 2. 애플리케이션이 실행 중인지 확인할 수 있도록 **게이트웨이** 애플리케이션에 공용 IP를 쿼리합니다.

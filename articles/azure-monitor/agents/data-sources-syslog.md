@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 Syslog 데이터 원본 수집
 description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, 생성되는 레코드에 대한 자세한 정보를 제공합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: e82e74f4cd325444221bbd2e1c060b7cd2f5c6c7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729201"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036737"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Syslog 데이터 원본 수집
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
@@ -48,11 +47,11 @@ Syslog 수집기에서 지원 되는 기능은 다음과 같습니다.
 Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다. Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure Portal에서 Syslog 구성
-Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Syslog를 구성 합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
+Log Analytics 작업 영역에 대 한 [에이전트 구성 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Syslog를 구성 합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
-먼저 **내 컴퓨터에 아래 구성 적용** 옵션을 선택한 다음 이름을 입력 하 고 클릭 하 여 새 기능을 추가할 수 있습니다 **+** . 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
+**기능 추가** 를 클릭 하 여 새 기능을 추가할 수 있습니다. 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 
-![Syslog 구성](media/data-sources-syslog/configure.png)
+[![Syslog 구성](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
 
 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. 각 Linux 에이전트에서 Syslog를 수동으로 구성 하려면 *내 컴퓨터에 아래 구성 적용* 확인란의 선택을 취소 합니다.
 

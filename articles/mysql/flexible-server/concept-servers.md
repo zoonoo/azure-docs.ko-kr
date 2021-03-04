@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240752"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034662"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 서버 개념
 
@@ -38,7 +38,7 @@ Azure Database for MySQL 유연한 서버:
 - 데이터베이스 서버 액세스에 대 한 가상 네트워크 통합을 제공 합니다.
 - 사용 하지 않을 때 유연한 서버를 일시 중지 하 여 비용을 절감 하는 방법을 제공 합니다.
 - 로그인, 방화벽, 사용자, 역할 구성 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다.
-- 는 현재 MySQL 5.7 버전에서 지원 됩니다. 자세한 내용은 [지원 되는 Azure Database for MySQL 엔진 버전](./concepts-supported-versions.md)을 참조 하세요.
+- 는 주 버전 MySQL 5.7 및 MySQL 8.0을 지원 합니다. 자세한 내용은 [지원 되는 Azure Database for MySQL 엔진 버전](./../concepts-supported-versions.md)을 참조 하세요.
 
 Azure Database for MySQL 유연한 서버 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 계산 계층, vCores 및 저장소 (GB)의 구성에 따라 서버 별로 구성 됩니다. 자세한 내용은 [compute and storage](./concepts-compute-storage.md)를 참조 하세요.
 

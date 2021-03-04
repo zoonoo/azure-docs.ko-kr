@@ -1,18 +1,17 @@
 ---
 title: ITSM 커넥터 및 연결 된 작업 삭제
 description: 이 문서에서는 ITSM 커넥터와 연결 된 작업 그룹을 삭제 하는 방법에 대해 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1fbaa48d104642984e604bc66a3aa914fbfed44c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e73510b6c61c58f6f0b2b8067a240214ee35a46c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617909"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036489"
 ---
 # <a name="deletion-of-unused-itsm-connectors"></a>사용 하지 않는 ITSM 커넥터 삭제
 

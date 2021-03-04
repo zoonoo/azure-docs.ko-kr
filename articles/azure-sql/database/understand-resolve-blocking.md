@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 2/24/2021
-ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691436"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034900"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -208,7 +208,7 @@ AND object_name(p.object_id) = '<table_name>';
 
 ## <a name="gather-information-from-extended-events"></a>확장 이벤트에서 정보 수집
 
-위의 정보 외에도 서버에서 작업 추적을 캡처하여 Azure SQL Database에서 차단 문제를 철저히 조사 해야 하는 경우가 많습니다. 예를 들어 세션이 트랜잭션 내에서 여러 문을 실행 하는 경우 전송 된 마지막 문만 표시 됩니다. 그러나 이전 문 중 하나에서 잠금이 유지 되는 이유가 원인일 수 있습니다. 추적을 사용 하면 현재 트랜잭션 내에서 세션에 의해 실행 된 모든 명령을 볼 수 있습니다.
+이전 정보 외에도 서버에서 작업 추적을 캡처하여 Azure SQL Database의 차단 문제를 철저히 조사 해야 하는 경우가 많습니다. 예를 들어 세션이 트랜잭션 내에서 여러 문을 실행 하는 경우 전송 된 마지막 문만 표시 됩니다. 그러나 이전 문 중 하나에서 잠금이 유지 되는 이유가 원인일 수 있습니다. 추적을 사용 하면 현재 트랜잭션 내에서 세션에 의해 실행 된 모든 명령을 볼 수 있습니다.
 
 SQL Server에서 추적을 캡처하는 방법에는 두 가지가 있습니다. 확장 이벤트 (Xevent) 및 프로파일러 추적. 그러나 [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) 는 Azure SQL Database에 대해 지원 되지 않는 추적 기술입니다. [확장 이벤트](/sql/relational-databases/extended-events/extended-events) 는 관찰 된 시스템에 더 많은 영향을 주지 않고 더 많은 영향을 주는 최신 추적 기술 이며, 해당 인터페이스는 SSMS (SQL Server Management Studio)에 통합 되어 있습니다. 
 
@@ -238,7 +238,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 ## <a name="identify-and-resolve-common-blocking-scenarios"></a>일반적인 차단 시나리오 식별 및 해결
 
-위의 정보를 검토 하 여 대부분의 차단 문제의 원인을 확인할 수 있습니다. 이 문서의 나머지 부분에서는이 정보를 사용 하 여 몇 가지 일반적인 차단 시나리오를 식별 하 고 해결 하는 방법을 설명 합니다. 이 토론에서는 차단 스크립트 (이전에 참조)를 사용 하 여 차단 Spid에 대 한 정보를 캡처하고 XEvent 세션을 사용 하 여 응용 프로그램 작업을 캡처한 것으로 가정 합니다.
+이전 정보를 검토 하 여 대부분의 차단 문제의 원인을 확인할 수 있습니다. 이 문서의 나머지 부분에서는이 정보를 사용 하 여 몇 가지 일반적인 차단 시나리오를 식별 하 고 해결 하는 방법을 설명 합니다. 이 토론에서는 차단 스크립트 (이전에 참조)를 사용 하 여 차단 Spid에 대 한 정보를 캡처하고 XEvent 세션을 사용 하 여 응용 프로그램 작업을 캡처한 것으로 가정 합니다.
 
 ## <a name="analyze-blocking-data"></a>차단 데이터 분석 
 
@@ -334,7 +334,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 | 5 | NULL | \>0 | 롤백 | 예. | 이 SPID의 확장 이벤트 세션에서 쿼리 제한 시간 또는 취소가 발생 했거나 단순히 rollback 문이 실행 되었음을 나타내는 주의가 표시 될 수 있습니다. |  
 | 6 | NULL | \>0 | sleeping | 올라가. Windows NT에서 세션이 더 이상 활성 상태가 아닌 것으로 확인 되 면 Azure SQL Database 연결이 끊어집니다. | `last_request_start_time`Sys.dm_exec_sessions 값이 현재 시간 보다 빠릅니다. |
 
-이러한 시나리오에서는 다음과 같은 시나리오가 확장 될 것입니다. 
+## <a name="detailed-blocking-scenarios"></a>자세한 차단 시나리오
 
 1.  실행 시간이 긴 일반적인 실행 쿼리로 인 한 차단
 
@@ -366,7 +366,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
     두 번째 쿼리의 출력은 트랜잭션 중첩 수준이 one 임을 나타냅니다. 트랜잭션에서 획득 한 모든 잠금은 트랜잭션이 커밋되거나 롤백될 때까지 유지 됩니다. 응용 프로그램이 트랜잭션을 명시적으로 열고 커밋하는 경우 통신 또는 기타 오류로 인해 세션 및 해당 트랜잭션이 열린 상태로 유지 될 수 있습니다. 
 
-    Sys.dm_tran_active_transactions에 따라 위의 스크립트를 사용 하 여 현재 커밋되지 않은 트랜잭션을 식별 합니다.
+    Sys.dm_tran_active_transactions에 따라이 문서의 앞부분에 나오는 스크립트를 사용 하 여 인스턴스 간에 현재 커밋되지 않은 트랜잭션을 식별 합니다.
 
     **해결** 방법:
 
@@ -377,6 +377,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
             *    클라이언트 응용 프로그램의 오류 처리기에서 `IF @@TRANCOUNT > 0 ROLLBACK TRAN` 다음 오류를 실행 합니다. 클라이언트 응용 프로그램에서 트랜잭션이 열려 있다고 생각 하지 않는 경우에도 마찬가지입니다. 일괄 처리 중에 호출 된 저장 프로시저에서 클라이언트 응용 프로그램의 지식 없이 트랜잭션을 시작할 수 있으므로 열려 있는 트랜잭션을 확인 해야 합니다. 쿼리를 취소 하는 것과 같은 특정 조건에서는 프로시저에서 현재 문을 실행 하는 것을 방지 하므로 프로시저에 트랜잭션을 확인 하 고 중단 하는 논리가 있는 경우 `IF @@ERROR <> 0` 에도이 롤백 코드는 이러한 경우에 실행 되지 않습니다.  
             *    연결 풀링을 응용 프로그램에서 사용 하는 경우 웹 기반 응용 프로그램과 같은 풀로 다시 연결을 해제 하기 전에 연결 풀링을 일시적으로 사용 하지 않도록 설정 하면 클라이언트 응용 프로그램에서 오류를 적절히 처리 하도록 수정할 때까지 문제를 완화할 수 있습니다. 연결 풀링을 사용 하지 않도록 설정 하면 연결을 해제 하면 Azure SQL Database 연결의 물리적 연결이 끊어지고 서버가 열려 있는 모든 트랜잭션을 롤백합니다.  
             *    `SET XACT_ABORT ON`연결에 사용 하거나 트랜잭션을 시작 하 고 오류 발생 시 정리 하지 않는 저장 프로시저에서를 사용 합니다. 런타임 오류가 발생 하는 경우이 설정은 열린 모든 트랜잭션을 중단 하 고 클라이언트에 컨트롤을 반환 합니다. 자세한 내용은 [SET XACT_ABORT (transact-sql)](/sql/t-sql/statements/set-xact-abort-transact-sql)를 참조 하세요.
+
     > [!NOTE]
     > 연결 풀에서 다시 사용 될 때까지 연결이 다시 설정 되지 않으므로 사용자가 트랜잭션을 열고 연결 풀에 대 한 연결을 해제할 수 있습니다. 그러나 몇 초 동안 다시 사용 되지 않을 수도 있습니다 .이 시간 동안 트랜잭션이 열려 있는 상태로 유지 됩니다. 연결이 다시 사용 되지 않는 경우 연결이 시간 초과 되 고 연결 풀에서 제거 되 면 트랜잭션이 중단 됩니다. 따라서 클라이언트 응용 프로그램이 해당 오류 처리기에서 트랜잭션을 중단 하거나를 사용 하 여 `SET XACT_ABORT ON` 이러한 잠재적 지연을 방지 하는 것이 좋습니다.
 
@@ -385,14 +386,14 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 1.  해당 클라이언트 응용 프로그램이 완료 될 때까지 모든 결과 행을 가져오지 않은 SPID에의 한 차단
 
-    서버에 쿼리를 보낸 후 모든 응용 프로그램은 모든 결과 행을 즉시 인출 하 여 완료 해야 합니다. 응용 프로그램에서 모든 결과 행을 인출 하지 않는 경우 다른 사용자를 차단 하 여 테이블에 대 한 잠금을 유지할 수 있습니다. 서버에 SQL 문을 투명 하 게 전송 하는 응용 프로그램을 사용 하는 경우 응용 프로그램은 모든 결과 행을 가져와야 합니다. 그렇지 않은 경우 (이 작업을 수행 하도록 구성할 수 없는 경우) 차단 문제를 해결할 수 없습니다. 문제를 방지 하기 위해 잘못 동작 하는 응용 프로그램을 보고 또는 의사 결정 지원 데이터베이스로 제한할 수 있습니다.
+    서버에 쿼리를 보낸 후 모든 응용 프로그램은 모든 결과 행을 즉시 인출 하 여 완료 해야 합니다. 응용 프로그램에서 모든 결과 행을 인출 하지 않는 경우 다른 사용자를 차단 하 여 테이블에 대 한 잠금을 유지할 수 있습니다. 서버에 SQL 문을 투명 하 게 전송 하는 응용 프로그램을 사용 하는 경우 응용 프로그램은 모든 결과 행을 가져와야 합니다. 그렇지 않은 경우 (이 작업을 수행 하도록 구성할 수 없는 경우) 차단 문제를 해결할 수 없습니다. 문제를 방지 하기 위해 주 OLTP 데이터베이스와는 별도로, 보고 또는 의사 결정 지원 데이터베이스로 잘못 동작 하는 응용 프로그램을 제한할 수 있습니다.
     
     > [!NOTE]
     > Azure SQL Database에 연결 하는 응용 프로그램에 대 한 [재시도 논리에 대 한 지침](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 을 참조 하세요. 
     
     **해결** 방법: 완료 될 결과의 모든 행을 인출 하기 위해 응용 프로그램을 다시 작성 해야 합니다. 쿼리의 [ORDER by 절에서 OFFSET 및 FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) 를 사용 하 여 서버 쪽 페이징을 수행 하지는 않습니다.
 
-1.  롤백 상태인 SPID로 인 한 차단
+1.  롤백 상태의 세션으로 인 한 차단
 
     사용자 정의 트랜잭션 외부에서 종료 되거나 취소 된 데이터 수정 쿼리가 롤백됩니다. 이는 클라이언트 네트워크 세션의 연결을 끊는 부작용으로 발생 하거나, 요청이 교착 상태가 발생 한 것으로 선택 된 경우에도 발생할 수 있습니다. 이는 롤백 **명령을** 나타낼 수 있는 sys.dm_exec_requests의 출력을 관찰 하 여 확인할 수 있으며 **percent_complete 열** 에 진행률이 표시 될 수 있습니다. 
 

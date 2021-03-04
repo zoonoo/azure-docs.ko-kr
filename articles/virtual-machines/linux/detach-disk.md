@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d8694a715e53f820556231ae6a549e98b2963fa1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897142"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035707"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
@@ -108,13 +108,10 @@ az vm disk detach \
 
 1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
 1. 가상 컴퓨터 블레이드에서 **디스크** 를 선택합니다.
-1. **디스크** 블레이드 상단에서 **편집** 을 선택합니다.
-1. **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 ![분리 단추 이미지](./media/detach-disk/detach.png) 분리 단추를 클릭합니다.
-1. 디스크를 제거한 후에 블레이드 상단에서 **저장** 을 클릭합니다.
+1. **디스크 블레이드에서 분리할** 데이터 디스크의 오른쪽 끝에 있는 **X** 단추를 선택 하 여 디스크를 분리 합니다.
+1. 디스크가 제거 된 후 블레이드 위쪽에서 **저장** 을 선택 합니다.
 
-디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
-
-
+디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다. 디스크가 삭제 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md)할 수 있습니다.

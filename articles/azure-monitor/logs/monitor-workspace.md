@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
 description: 작업 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710943"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034968"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
 Azure Monitor에서 Log Analytics 작업 영역의 성능 및 가용성을 유지 하려면 발생 하는 모든 문제를 사전에 검색할 수 있어야 합니다. 이 문서에서는 [작업](/azure/azure-monitor/reference/tables/operation) 테이블의 데이터를 사용 하 여 Log Analytics 작업 영역의 상태를 모니터링 하는 방법을 설명 합니다. 이 테이블은 모든 Log Analytics 작업 영역에 포함 되어 있으며 작업 영역에서 발생 하는 오류 및 경고를 포함 합니다. 이 데이터를 정기적으로 검토 하 고 작업 영역에 중요 한 인시던트가 있을 때 사전에 알리도록 경고를 만들어야 합니다.
@@ -40,7 +39,7 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure/az
 
 다음 표에서는 _LogOperation 함수의 범주에 대해 설명 합니다. 
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | 수집           | 데이터 수집 프로세스의 일부인 작업입니다. 자세한 내용은 다음을 참조하세요. |
 | 에이전트               | 에이전트 설치에 문제가 있음을 나타냅니다. |

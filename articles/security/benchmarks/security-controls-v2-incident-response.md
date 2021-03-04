@@ -4,21 +4,21 @@ description: Azure Security 벤치 마크 V2 인시던트 응답
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 002/22/2021
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9295482c2464eb80bc49fa707744f49a2fbebfd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698589"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035380"
 ---
 # <a name="security-control-v2-incident-response"></a>보안 제어 V2: 인시던트 응답
 
 인시던트 응답은 인시던트 응답 수명 주기 (준비, 검색 및 분석, 포함 및 인시던트 후 작업)의 제어를 포함 합니다. 여기에는 Azure Security Center 및 센티널과 같은 Azure 서비스를 사용 하 여 인시던트 응답 프로세스를 자동화 하는 작업이 포함 됩니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 인시던트 응답의 세부 정보](../../governance/policy/samples/azure-security-benchmark#incident-response) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 인시던트 응답의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#incident-response) 를 참조 하세요.
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 

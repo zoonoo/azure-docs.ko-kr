@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 workspace() 식 | Microsoft Docs
 description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 로그 쿼리에서 사용됩니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710909"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035571"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 

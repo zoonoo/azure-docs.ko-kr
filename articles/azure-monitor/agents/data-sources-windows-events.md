@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
 description: Azure Monitor에 의한 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고,생성되는 레코드에 대한 자세한 정보를 제공합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719868"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036601"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
 Windows 이벤트 로그는 windows 이벤트 로그에 많은 응용 프로그램을 작성 하기 때문에 Windows 가상 컴퓨터의 Log Analytics 에이전트에 대 한 가장 일반적인 [데이터 원본](../agents/agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -22,13 +21,13 @@ Windows 이벤트 로그는 windows 이벤트 로그에 많은 응용 프로그�
 ![Windows 이벤트](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Windows 이벤트 로그 수집
-Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Windows 이벤트 로그를 구성 합니다.
+Log Analytics 작업 영역에 대 한 [에이전트 구성 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Windows 이벤트 로그를 구성 합니다.
 
 Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력 하 고를 클릭 하 여 이벤트 로그를 추가할 수 있습니다 **+** .  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
 
 이벤트 로그 이름을 입력하면 Azure Monitor는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성* 을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
 
-![Windows 이벤트 구성](media/data-sources-windows-events/configure.png)
+[![Windows 이벤트 구성](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Windows 이벤트 로그의 중요 이벤트는 Azure Monitor 로그의 심각도 "오류"입니다.

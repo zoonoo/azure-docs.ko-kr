@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6e1ed39edfd3c395fbc3e4d26a4aa358d48a1d5b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 01bd3709050d8a2b57c1bf51920308188546fb31
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663082"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035486"
 ---
 # <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Azure Percept에 비전 AI 모델 배포
 
 이 가이드에 따라 Azure Percept Studio 내에서 Azure Percept 진한 비전 AI 모델을 배포 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
@@ -40,13 +40,11 @@ ms.locfileid: "101663082"
 
 1. 미리 학습 된 샘플 비전 모델 중 하나를 배포 하려는 경우 다음 페이지에서 **샘플 모델 배포** 를 클릭 합니다. 기존 [사용자 지정 비 코드 비전 솔루션](./tutorial-nocode-vision.md)을 배포 하려면 **Custom Vision 프로젝트 배포** 를 클릭 합니다.
 
-    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Percept devices 목록.":::
+    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="배포를 위한 모델 선택.":::
 
 1. 코드 없는 비전 솔루션을 배포 하기로 한 경우 프로젝트 및 기본 설정 모델 반복을 선택 하 고 **배포** 를 클릭 합니다.
 
 1. 샘플 모델을 배포 하려면 모델을 선택 하 고 **장치에 배포** 를 클릭 합니다.
-
-    :::image type="content" source="./media/how-to-deploy-model/select-sample-model.png" alt-text="Percept devices 목록.":::
 
 1. 모델 배포에 성공 하면 화면 오른쪽 위에 상태 메시지가 표시 됩니다. 추론 모델을 보려면 상태 메시지에서 **스트림 보기** 링크를 클릭 하 여 Devkit의 비전 SOM에서 RTSP 비디오 스트림을 확인 합니다.
 

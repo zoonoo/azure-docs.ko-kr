@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693131"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034545"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Azure AD 서비스 계정 관리
 
@@ -51,13 +51,13 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 
 **권한**
 
-* 서비스 계정에 기본 제공 역할을 할당 하지 마십시오. 대신 [Microsoft Graph에 대해 OAuth2 권한 부여 모델](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)을 사용 합니다.
+* 서비스 계정에 기본 제공 역할을 할당 하지 마십시오. 대신 [Microsoft Graph에 대해 OAuth2 권한 부여 모델](/graph/api/resources/oauth2permissiongrant)을 사용 합니다.
 
 * 서비스 사용자에 게 권한 있는 역할을 할당 해야 하는 경우 시간 제한 방식으로 특정 하 고 필요한 권한으로 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/roles/custom-create) 을 할당 하는 것이 좋습니다.
 
 * 관리자 권한으로 서비스 계정을 그룹의 멤버로 포함 하지 마십시오. 
 
-* [PowerShell을 사용 하 여 권한 있는 역할의 멤버를 열거](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)합니다 (예:).   
+* [PowerShell을 사용 하 여 권한 있는 역할의 멤버를 열거](/powershell/module/azuread/get-azureaddirectoryrolemember)합니다 (예:).   
 `Get-AzureADDirectoryRoleMember`및는 objectType "서비스 주체"를 필터링 합니다.
 
    또는 사용  
@@ -117,7 +117,7 @@ Azure AD 로그인 로그를 내보내고 Azure 센티널 등의 기존 SIEM (�
 
 서비스 계정에서 액세스 권한을 부여 하 고 범위를 정기적으로 검토 하 여 제거를 줄일 수 있는지 확인 합니다.
 
-* [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) 을 사용 하 여 서비스 계정에 대 한 동의가 부여 되는 범위를 [확인 하 고 문서화](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) 하는 자동화를 빌드합니다.
+* [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) 을 사용 하 여 서비스 계정에 대 한 동의가 부여 되는 범위를 [확인 하 고 문서화](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) 하는 자동화를 빌드합니다.
 
 * PowerShell을 사용 하 여 [기존 서비스 사용자의 자격 증명을 검토](https://github.com/AzureAD/AzureADAssessment) 하 고 유효성을 확인 합니다.
 
@@ -172,7 +172,7 @@ Microsoft의 free PowerShell 샘플은 서비스 주체의 OAuth2 권한 부여 
 
 **프로 비전 해제에 대 한 프로세스에는 다음 태스크가 포함 됩니다.**
 
-1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) 합니다.
+1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) 합니다.
 
    * 계정이 아직 활성 상태인 경우 후속 단계를 수행 하기 전에 해당 계정이 사용 되는 방법을 확인 합니다.
  

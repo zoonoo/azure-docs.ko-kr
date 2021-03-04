@@ -2,23 +2,21 @@
 title: Azure Resource Manager 템플릿에 대 한 Bicep 언어
 description: Azure Resource Manager 템플릿을 통해 Azure에 인프라를 배포 하기 위한 Bicep 언어에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746076"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036387"
 ---
 # <a name="what-is-bicep-preview"></a>Bicep (미리 보기) 란?
 
-Bicep은 Azure 리소스를 선언적으로 배포 하기 위한 언어입니다. 간결한 구문을 제공 하 고 모듈화 및 코드 다시 사용에 대 한 지원을 향상 시켜 제작 환경을 간소화 합니다. Bicep은 DSL (도메인별 언어) 이며, 특정 시나리오 또는 도메인에 맞게 설계 되었습니다. Bicep는 응용 프로그램을 작성 하는 데 사용 되는 일반적인 프로그래밍 언어는 아닙니다.
+Bicep은 Azure 리소스를 선언적으로 배포 하기 위한 언어입니다. 간결한 구문을 제공 하 고 코드 다시 사용에 대 한 지원을 향상 시켜 제작 환경을 단순화 합니다. Bicep은 DSL (도메인별 언어) 이며, 특정 시나리오 또는 도메인에 맞게 설계 되었습니다. Bicep는 응용 프로그램을 작성 하는 데 사용 되는 일반적인 프로그래밍 언어는 아닙니다.
 
-Bicep 템플릿 (ARM 템플릿)을 Azure Resource Manager는 투명 한 추상화입니다. 각 Bicep 파일은 표준 ARM 템플릿으로 컴파일됩니다. ARM 템플릿에서 유효한 리소스 유형, API 버전 및 속성은 Bicep 파일에서 유효 합니다.
+이전에는 JSON을 사용 하 여 템플릿 (ARM 템플릿) Azure Resource Manager를 개발 했습니다. 템플릿을 만들기 위한 JSON 구문은 자세한 정보를 사용할 수 있으며 복잡 한 식이 필요 합니다. Bicep는 JSON 템플릿의 기능을 잃지 않고이 환경을 개선 합니다. ARM 템플릿의 JSON에 대 한 투명 한 추상화입니다. 각 Bicep 파일은 표준 ARM 템플릿으로 컴파일됩니다. ARM 템플릿에서 유효한 리소스 유형, API 버전 및 속성은 Bicep 파일에서 유효 합니다.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 Bicep를 시작 하려면 [도구를 설치](https://github.com/Azure/bicep/blob/main/docs/installing.md)합니다.
 
@@ -30,7 +28,26 @@ Bicep로 변환 하려는 기존 ARM 템플릿이 있는 경우 [Bicep에 JSON �
 
 ## <a name="bicep-improvements"></a>Bicep 향상
 
-Bicep은 동등한 JSON에 비해 더 쉽고 간결한 구문을 제공 합니다. 식을 사용 하지 않습니다 `[...]` . 대신 함수를 직접 호출 하 고, 매개 변수 및 변수에서 값을 가져오고, 리소스를 참조 합니다. 구문에 대 한 전체 비교는 [템플릿에 대 한 JSON 및 Bicep 비교](compare-template-syntax.md)를 참조 하세요.
+Bicep은 동등한 JSON에 비해 더 쉽고 간결한 구문을 제공 합니다. 식을 사용 하지 않습니다 `[...]` . 대신 함수를 직접 호출 하 고 매개 변수 및 변수에서 값을 가져옵니다. 배포 된 각 리소스에 기호화 된 이름을 지정 하 여 템플릿에서 해당 리소스를 쉽게 참조할 수 있도록 합니다.
+
+예를 들어 다음 JSON은 리소스 속성에서 출력 값을 반환 합니다.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+Bicep에서 동일한 출력 식을 작성 하는 것이 더 쉽습니다. 다음 예에서는 템플릿 내에 정의 된 리소스에 대해 기호화 된 이름 **publicIP** 을 사용 하 여 동일한 속성을 반환 합니다.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+구문에 대 한 전체 비교는 [템플릿에 대 한 JSON 및 Bicep 비교](compare-template-syntax.md)를 참조 하세요.
 
 Bicep는 리소스 간의 종속성을 자동으로 관리 합니다. `dependsOn`리소스의 기호화 된 이름이 다른 리소스 선언에서 사용 되는 경우 설정을 피할 수 있습니다.
 

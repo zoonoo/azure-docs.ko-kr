@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726226"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036540"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
 Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](../agents/agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
@@ -78,7 +78,7 @@ Windows 및 Linux용 Azure 진단 확장은 항상 데이터를 Azure Storage �
 | Azure Storage Blob | 테이블 외에도 Azure Storage의 Blob에 데이터를 씁니다. |
 | Application Insights | VM에서 실행되는 애플리케이션의 데이터를 Application Insights에 수집하여 다른 애플리케이션 모니터링과 통합합니다. [Application Insights에 진단 데이터 보내기](diagnostics-extension-to-application-insights.md)를 참조하세요. |
 
-보통은 Log Analytics 에이전트를 사용하지만, Log Analytics 작업 영역에 스토리지의 WAD 데이터를 수집하여 Azure Monitor Logs를 통해 분석할 수도 있습니다. 데이터를 Log Analytics 작업 영역으로 직접 보낼 수 있고 추가 기능을 제공하는 솔루션과 인사이트를 지원합니다.  [Azure Storage에서 Azure 진단 로그 수집](../essentials/diagnostics-extension-logs.md)을 참조하세요. 
+보통은 Log Analytics 에이전트를 사용하지만, Log Analytics 작업 영역에 스토리지의 WAD 데이터를 수집하여 Azure Monitor Logs를 통해 분석할 수도 있습니다. 데이터를 Log Analytics 작업 영역으로 직접 보낼 수 있고 추가 기능을 제공하는 솔루션과 인사이트를 지원합니다.  [Azure Storage에서 Azure 진단 로그 수집](../agents/diagnostics-extension-logs.md)을 참조하세요. 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>LAD(Linux 진단 확장)

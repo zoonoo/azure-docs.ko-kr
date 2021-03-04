@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573329"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034747"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 기술 사양 및 규정 준수 
 
@@ -25,7 +25,7 @@ Azure Stack Edge Pro 장치에는 계산 및 메모리에 대 한 다음과 같�
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
-| CPU                     | 2 X Intel Xeon 실버 4214 (캐스케이드 Lake) CPU            |
+| CPU                     | 2 X Intel Xeon 실버 4214 (캐스케이드 Lake) CPU<br> 24 개 물리적 코어 (CPU 당 12 개)<br>48 논리 코어 (vCPUs) (CPU 당 24 개)       |
 | 메모리                  | 128 (8x16 GB) GB RAM <br> Dell Compatible 16gb PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC 등록 된 RDIMM       |
 
 
@@ -89,7 +89,7 @@ Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개
 |    부팅 SSD 용량                       |    240GB             |
 |    총 용량                          |    8.0 TB             |
 |    사용 가능한 총 용량                   |    ~ 4.19 TB          |
-|    RAID 구성                      |    미러링 및 패리티의 조합을 사용 하 여 스토리지 공간 다이렉트  |
+|    RAID 구성                      |    미러링 및 패리티의 조합을 사용 하 여 저장소 공간 다이렉트  |
 |    SAS 컨트롤러                          |    HBA330 12 Gbps     |
 
 <!--Remove based on feedback from Ravi

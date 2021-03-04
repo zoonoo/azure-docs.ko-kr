@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 내부, 외부, 동기화, 데이지 체인, 단계 오프셋
-ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276958"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034316"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Azure Kinect 장치 동기화 캡처
 
-Azure Kinect 하드웨어는 색 및 깊이 이미지의 캡처 시간을 맞출 수 있습니다. 동일한 장치의 카메라 간 맞춤은 **내부 동기화**입니다. 연결 된 여러 장치에 걸친 캡처 시간 정렬은 **외부 동기화**입니다.
+Azure Kinect 하드웨어는 색 및 깊이 이미지의 캡처 시간을 맞출 수 있습니다. 동일한 장치의 카메라 간 맞춤은 **내부 동기화** 입니다. 연결 된 여러 장치에 걸친 캡처 시간 정렬은 **외부 동기화** 입니다. 마이크 배열은 색 및 깊이 카메라와 독립적으로 작동 합니다.
 
 ## <a name="device-internal-synchronization"></a>장치 내부 동기화
 

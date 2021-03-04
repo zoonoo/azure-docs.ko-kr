@@ -1,24 +1,24 @@
 ---
-title: Azure Percept에 비전 AI 모델 배포
-description: Azure Percept Studio에서 Azure Percept에 비전 AI 모델을 배포 하는 방법을 알아봅니다.
+title: Azure Percept Studio에서 코드 없는 비전 솔루션에 대 한 이미지 캡처
+description: 코드를 사용 하지 않는 비전 솔루션을 위해 azure Percept Studio에서 Azure Percept 진한 이미지를 캡처하는 방법을 알아봅니다.
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5ad263f5ae3b0b8e91de30b620002e33086608b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662855"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035537"
 ---
-# <a name="capture-images-for-a-vision-project"></a>비전 프로젝트에 대한 이미지 캡처
+# <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Azure Percept Studio에서 비전 프로젝트용 이미지 캡처
 
 이 가이드에 따라 azure Percept Studio에서 기존 비전 프로젝트에 대 한 Azure Percept의 비전 SoM을 사용 하 여 이미지를 캡처합니다. 비전 프로젝트를 아직 만들지 않은 경우 [코드 없는 비전 자습서](./tutorial-nocode-vision.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
@@ -56,7 +56,7 @@ ms.locfileid: "101662855"
         1. **캡처 요금** 에서 선호 하는 이미징 요금을 선택 합니다.
         1. **대상** 에서 수집할 이미지의 총 수를 선택 합니다.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="사용 가능한 작업이 나열 된 Percept devices 페이지":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="이미지 캡처 화면":::
 
 모든 이미지는 [Custom Vision](https://www.customvision.ai/)에서 액세스할 수 있습니다.
 
