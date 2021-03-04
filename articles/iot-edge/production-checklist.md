@@ -4,19 +4,19 @@ description: 적절 한 인증서를 사용 하 여 장치를 설정 하 고 향
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7850763abe2ef40aea4ab3b97187d50f7060fa18
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 65710047d5d5d1cc6b835144f7778392fb20b797
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388773"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042269"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -38,14 +38,19 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 ### <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
-프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 설치된 CA 인증서는 config.yaml 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트 시나리오의 경우, config.xml 파일에 인증서가 선언 되지 않은 경우 IoT Edge 런타임은 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 프로덕션 시나리오의 경우 자체 서명 된 인증 기관에서 나 상용 인증 기관에서 구매한 장치 CA 인증서를 제공 해야 합니다.
+프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 그런 다음 해당 CA 인증서가 구성 파일의 IoT Edge 런타임으로 선언 됩니다. 개발 및 테스트 시나리오의 경우 구성 파일에 인증서가 선언 되지 않은 경우 IoT Edge 런타임에서 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 프로덕션 시나리오의 경우 자체 서명 된 인증 기관에서 나 상용 인증 기관에서 구매한 장치 CA 인증서를 제공 해야 합니다.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
 
 > [!NOTE]
 > 현재 libiothsm의 제한으로 인해 2038 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
+:::moniker-end
+
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에서 인증서 관리](how-to-manage-device-certificates.md)를 참조 하세요.
+IoT Edge 장치에 인증서를 설치 하 고 구성 파일에서 인증서를 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에서 인증서 관리](how-to-manage-device-certificates.md)를 참조 하세요.
 
 ### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 
@@ -54,10 +59,10 @@ IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참
 * 디바이스 펌웨어
 * 운영 체제 라이브러리
 * Moby와 같은 컨테이너 엔진
-* IoT Edge 디먼
+* IoT Edge
 * CA 인증서
 
-자세한 내용은 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요. 현재는 IoT Edge 디바이스에 물리적으로 또는 SSH를 통해 액세스해야만 IoT Edge 디먼을 업데이트할 수 있습니다. 업데이트할 장치가 많은 경우 업데이트 단계를 스크립트에 추가 하거나 Ansible와 같은 자동화 도구를 사용 하는 것이 좋습니다.
+자세한 내용은 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요. IoT Edge를 업데이트 하는 현재 방법에는 IoT Edge 장치에 대 한 물리적 또는 SSH 액세스 권한이 필요 합니다. 업데이트할 장치가 많은 경우 업데이트 단계를 스크립트에 추가 하거나 Ansible와 같은 자동화 도구를 사용 하는 것이 좋습니다.
 
 ### <a name="use-moby-as-the-container-engine"></a>Moby를 컨테이너 엔진으로 사용
 
@@ -74,7 +79,7 @@ IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참
 * MQTTWS
 * AMQPWS
 
-장치 자체의 config.xml 파일에서 IoT Edge 에이전트에 대 한 UpstreamProtocol 변수를 구성 합니다. 예를 들어 IoT Edge 장치가 AMQP 포트를 차단 하는 프록시 서버 뒤에 있는 경우 WebSocket을 통한 AMQP (AMQPWS)를 사용 하 여 IoT Hub에 대 한 초기 연결을 설정 하도록 IoT Edge 에이전트를 구성 해야 할 수 있습니다.
+장치 자체의 구성 파일에서 IoT Edge 에이전트에 대 한 UpstreamProtocol 변수를 구성 합니다. 예를 들어 IoT Edge 장치가 AMQP 포트를 차단 하는 프록시 서버 뒤에 있는 경우 WebSocket을 통한 AMQP (AMQPWS)를 사용 하 여 IoT Hub에 대 한 초기 연결을 설정 하도록 IoT Edge 에이전트를 구성 해야 할 수 있습니다.
 
 IoT Edge 디바이스가 연결된 다음, 향후 배포에서 두 런타임 모듈에 대한 UpstreamProtocol 변수를 계속 구성해야 합니다. 이 프로세스의 예제는 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)에 나와 있습니다.
 
@@ -203,7 +208,7 @@ Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리�
 
 ### <a name="review-outboundinbound-configuration"></a>아웃바운드/인바운드 구성 검토
 
-Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구성됩니다. 대부분의 IoT Edge 시나리오에서는 세 개의 연결만 있으면 됩니다. 컨테이너 엔진은 모듈 이미지를 포함하는 컨테이너 레지스트리(한 개 또는 여러 개)에 연결해야 합니다. IoT Edge 런타임은 디바이스 구성 정보를 검색하고 메시지 및 원격 분석을 보내기 위해 IoT Hub에 연결해야 합니다. 또한 자동 프로비저닝을 사용하는 경우, IoT Edge 디먼은 디바이스 프로비저닝 서비스에 연결해야 합니다. 자세한 내용은 [방화벽 및 포트 구성 규칙](troubleshoot.md#check-your-firewall-and-port-configuration-rules)을 참조하세요.
+Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구성됩니다. 대부분의 IoT Edge 시나리오에서는 세 개의 연결만 있으면 됩니다. 컨테이너 엔진은 모듈 이미지를 포함하는 컨테이너 레지스트리(한 개 또는 여러 개)에 연결해야 합니다. IoT Edge 런타임은 디바이스 구성 정보를 검색하고 메시지 및 원격 분석을 보내기 위해 IoT Hub에 연결해야 합니다. 자동 프로비저닝을 사용 하는 경우 IoT Edge 장치 프로 비전 서비스에 연결 해야 합니다. 자세한 내용은 [방화벽 및 포트 구성 규칙](troubleshoot.md#check-your-firewall-and-port-configuration-rules)을 참조하세요.
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>IoT Edge 장치에서 연결 허용
 
@@ -211,7 +216,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 * **IoT Edge 에이전트** 는 WebSockets 등을 통해 IoT Hub에 대한 영구적 AMQP/MQTT 연결을 엽니다.
 * **IoT Edge 허브** 는 WebSockets 등을 통해 IoT Hub에 대한 단일 영구적 AMQP 연결이나 여러 MQTT 연결을 엽니다.
-* **IoT Edge 디먼** 은 IoT Hub에 대한 HTTPS 호출을 간헐적으로 수행합니다.
+* **IoT Edge 서비스** 는 IoT Hub에 대 한 간헐적인 HTTPS 호출을 수행 합니다.
 
 세 가지 경우 모두, DNS 이름이 \*.azure-devices.net 패턴과 일치합니다.
 
@@ -248,7 +253,28 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
 
-Linux에서 IoT Edge 디먼은 기본 로깅 드라이버로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-IoTEdgeLog`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅할 JSON 드라이버 (기본값)를 사용 합니다.  
+Linux에서 IoT Edge 디먼은 기본 로깅 드라이버로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다.
+
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+
+버전 1.2부터 IoT Edge는 여러 디먼에 의존 합니다. 각 디먼의 로그는를 사용 하 여 개별적으로 쿼리할 수 있지만 `journalctl` 이 `iotedge system` 명령은 결합 된 로그를 쿼리 하는 편리한 방법을 제공 합니다.
+
+* 통합 `iotedge` 명령:
+
+  ```bash
+  sudo iotedge system logs
+  ```
+
+* 동일한 `journalctl` 명령:
+
+  ```bash
+  journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
+  ```
+
+:::moniker-end
+
+Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-IoTEdgeLog`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅할 JSON 드라이버 (기본값)를 사용 합니다.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -285,7 +311,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 다음은 그 예입니다. 
 
 ```yml
 "createOptions": {

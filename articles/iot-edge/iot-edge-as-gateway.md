@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec0bf6330b7b2268db84d86dc5a0d141fc24ce74
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371104"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040654"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 디바이스를 게이트웨이로 사용하는 방법
 
@@ -95,7 +95,7 @@ IoT Edge 장치는 투명 게이트웨이 관계의 부모와 자식을 모두 �
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-다운스트림 IoT Edge 장치에서 config.xml 파일의 **parent_hostname** 매개 변수를 사용 하 여 부모 장치를 가리킵니다.
+다운스트림 IoT Edge 장치에서 구성 파일의 **parent_hostname** 매개 변수를 사용 하 여 부모 장치를 가리킵니다.
 ::: moniker-end
 
 #### <a name="secure-connection"></a>보안 연결

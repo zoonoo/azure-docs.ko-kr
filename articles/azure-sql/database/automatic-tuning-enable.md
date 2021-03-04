@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042524"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로드의 성능을 향상 시키기 위해 수행할 수 있는 작업을 식별 하는 데이터 서비스를 자동으로 관리 합니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드** 로 알려져 있습니다.
 
@@ -47,7 +46,7 @@ Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로�
 > - 자동 조정 기본 설정이 없는 기존 서버는 Azure 기본값을 상속 하도록 자동으로 구성 됩니다. 이는 정의 되지 않은 상태에서 자동 조정을 위한 서버 설정이 현재 있는 모든 고객에 게 적용 됩니다.
 > - 새로 만든 서버는 Azure 기본값을 상속 하도록 자동으로 구성 됩니다 (이전에는 새 서버를 만들 때 자동 튜닝 구성이 정의 되지 않은 상태에 있는 경우와 다름).
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure SQL Database [서버](logical-servers.md) 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal에서 서버로 이동한 다음 메뉴에서 **자동 조정** 을 선택 합니다.
 
@@ -71,7 +70,7 @@ Azure SQL Database를 사용 하 여 각 데이터베이스에 대 한 자동 �
 > [!TIP]
 > 일반적으로 **서버 수준** 에서 자동 조정 구성을 관리 하 여 모든 데이터베이스에 동일한 구성 설정을 자동으로 적용할 수 있도록 하는 것이 좋습니다. 데이터베이스가 동일한 서버에서 설정을 상속하는 다른 데이터베이스와 다른 설정을 가지도록 해야 하는 경우에만 개별 데이터베이스에서 자동 조정을 구성합니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 **단일 데이터베이스** 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal의 데이터베이스로 이동 하 고 **자동 조정** 을 선택 합니다.
 
@@ -111,11 +110,26 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 자동 튜닝을 구성 하는 섹션인 T-sql 옵션에 대 한 자세한 내용은 [ALTER DATABASE SET 옵션 (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)을 참조 하세요.
 
-## <a name="disabled-by-the-system"></a>시스템에서 비활성화됨
+## <a name="troubleshooting"></a>문제 해결
 
-자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 경우 시스템에서 튜닝 옵션을 사용 하지 않도록 설정 됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.
+### <a name="automated-recommendation-management-is-disabled"></a>자동화 된 권장 사항 관리 사용 안 함
 
-## <a name="permissions"></a>사용 권한
+자동화 된 권장 사항 관리를 사용 하지 않도록 설정 했거나 시스템에서 간단히 사용 하지 않도록 설정 하는 오류 메시지의 경우 가장 일반적인 원인은 다음과 같습니다.
+- 쿼리 저장소를 사용할 수 없거나
+- 지정 된 데이터베이스에 대 한 읽기 전용 모드 쿼리 저장소 또는
+- 할당 된 저장소 공간을 사용 하 여 쿼리 저장소 실행이 중지 되었습니다.
+
+다음 단계를 고려 하 여이 문제를 해결할 수 있습니다.
+- T-sql을 사용 하 여 쿼리 저장소를 정리 하거나 데이터 보존 기간을 "auto"로 수정 하십시오. [쿼리 저장소에 대 한 권장 보존 및 캡처 정책을 구성](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy)하는 방법을 참조 하세요.
+- SSMS (SQL Server Management Studio)를 사용 하 고 다음 단계를 수행 합니다.
+  - Azure SQL Database에 연결
+  - 데이터베이스를 마우스 오른쪽 단추로 클릭 합니다.
+  - 속성으로 이동 하 여 쿼리 저장소를 클릭 합니다.
+  - 작업 모드를 Read-Write로 변경 합니다.
+  - 저장소 캡처 모드를 자동으로 변경
+  - 크기 기반 정리 모드를 자동으로 변경
+
+### <a name="permissions"></a>사용 권한
 
 자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 역할을 사용 해야 합니다. SQL 인증을 사용 하는 경우에만 Azure Portal 기능을 사용할 수 있는 것은 아닙니다.
 
@@ -123,7 +137,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
 
-[전자 메일 알림 자동 조정](automatic-tuning-email-notifications-configure.md) 가이드를 참조 하세요.
+자동 조정으로 만들어진 권장 사항에 대 한 자동화 된 전자 메일 알림을 받으려면 [전자 메일 알림 자동 조정](automatic-tuning-email-notifications-configure.md) 가이드를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

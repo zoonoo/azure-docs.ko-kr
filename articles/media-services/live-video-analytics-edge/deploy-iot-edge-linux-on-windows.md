@@ -3,12 +3,12 @@ title: Windows에서 Linux 용 IoT Edge에 배포-Azure
 description: 이 문서에서는 Windows 장치에서 Linux 용 IoT Edge에 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 5cf4184857f12065d808d7b528dbfe8258950cd8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745479"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042184"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Windows의 Linux (EFLOW) 장치에 대 한 IoT Edge에 배포
 
@@ -107,7 +107,7 @@ ms.locfileid: "101745479"
 ## <a name="next-steps"></a>다음 단계
 
 * 클라우드에서 관련 비디오를 기록 하는 것과 함께 동작 감지를 시도 합니다. [동작 검색, 비디오 클립 기록 Media Services](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) 빠른 시작의 단계를 따릅니다.
-* [라이브 비디오에서 AI](use-your-model-quickstart#overview) 실행 (위에서 이미 수행 된 필수 구성 요소 설치를 건너뛸 수 있음)
+* [라이브 비디오에서 AI](use-your-model-quickstart.md#overview) 실행 (위에서 이미 수행 된 필수 구성 요소 설치를 건너뛸 수 있음)
 * [VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) 을 사용 하 여 추가 미디어 그래프를 볼 수 있습니다.
 * RTSP 시뮬레이터를 사용 하는 대신 RTSP를 지 원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)  를 사용 합니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products/) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
 

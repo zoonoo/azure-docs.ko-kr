@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043017"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
@@ -84,8 +84,8 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 | 필터 시나리오 | 설명 |
 |-----------------|-------------|
-| 범위 필터 | Azure Cognitive Search에서는 필터 매개 변수를 사용 하 여 범위 쿼리를 작성 합니다. 자세한 내용 및 예제는 [범위 필터 예](search-query-simple-examples.md#example-4-range-filters)를 참조 하세요. |
-| 지리적 위치 검색 | 검색 가능한 필드가 [GeographyPoint](/rest/api/searchservice/supported-data-types)인 경우 "주변 찾기" 또는 맵 기반 검색 컨트롤에 대 한 필터 식을 만들 수 있습니다. 지리적 검색을 구동 하는 필드에는 좌표가 포함 됩니다. 자세한 내용 및 예제는 [지역 검색 예제](search-query-simple-examples.md#example-5-geo-search)를 참조 하세요. |
+| 범위 필터 | Azure Cognitive Search에서는 필터 매개 변수를 사용 하 여 범위 쿼리를 작성 합니다. 자세한 내용 및 예제는 [범위 필터 예](search-query-simple-examples.md#example-5-range-filters)를 참조 하세요. |
+| 지리적 위치 검색 | 검색 가능한 필드가 [GeographyPoint](/rest/api/searchservice/supported-data-types)인 경우 "주변 찾기" 또는 맵 기반 검색 컨트롤에 대 한 필터 식을 만들 수 있습니다. 지리적 검색을 구동 하는 필드에는 좌표가 포함 됩니다. 자세한 내용 및 예제는 [지역 검색 예제](search-query-simple-examples.md#example-6-geo-search)를 참조 하세요. |
 | 패싯 탐색 | 패싯의 이벤트에 대 한 응답으로 필터를 호출 하면 패싯 탐색 구조가 사용자에 게 전달 되는 탐색에 사용 됩니다 `onclick` . 따라서 패싯 및 필터는 직접 이동 합니다. 패싯 탐색을 추가 하는 경우에는 환경을 완료 하는 필터가 필요 합니다. 자세한 내용은 [패싯 필터를 작성 하는 방법](search-filters-facets.md)을 참조 하세요. |
 
 > [!NOTE]
@@ -101,12 +101,12 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 | 쿼리 유형 | 사용량 | 예제 및 자세한 정보 |
 |------------|--------|------------------------------|
-| [필드 지정 검색](query-lucene-syntax.md#bkmk_fields) | **`search`**  변수에 **`queryType=full`**  | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정 검색 예제](search-query-lucene-examples.md#example-2-fielded-search) |
-| [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** 변수에 **`queryType=full`** | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [근접 검색](query-lucene-syntax.md#bkmk_proximity) | **`search`** 변수에 **`queryType=full`** | 문서에서 서로 가까이 있는 용어를 찾습니다. <br/>[근접 검색 예제](search-query-lucene-examples.md#example-4-proximity-search) |
-| [용어 상승](query-lucene-syntax.md#bkmk_termboost) | **`search`** 변수에 **`queryType=full`** | 승격된 용어가 포함된 문서는 그렇지 않은 다른 문서보다 상대적으로 높은 순위를 매깁니다. <br/>[용어 상승 예제](search-query-lucene-examples.md#example-5-term-boosting) |
-| [정규식 검색](query-lucene-syntax.md#bkmk_regex) | **`search`** 변수에 **`queryType=full`** | 정규식의 콘텐츠를 기반으로 검색합니다. <br/>[정규식 예제](search-query-lucene-examples.md#example-6-regex) |
-|  [와일드 카드 또는 접두사 검색](query-lucene-syntax.md#bkmk_wildcard) | **`search`** 매개 변수를 *_`~`_* 사용 **`?`** 합니다. **`queryType=full`**| 접두사와 물결표(`~`) 또는 단일 문자(`?`)를 기반으로 검색합니다. <br/>[와일드카드 검색 예제](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [필드 지정 검색](query-lucene-syntax.md#bkmk_fields) | **`search`**  변수에 **`queryType=full`**  | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정 검색 예제](search-query-lucene-examples.md#example-1-fielded-search) |
+| [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** 변수에 **`queryType=full`** | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [근접 검색](query-lucene-syntax.md#bkmk_proximity) | **`search`** 변수에 **`queryType=full`** | 문서에서 서로 가까이 있는 용어를 찾습니다. <br/>[근접 검색 예제](search-query-lucene-examples.md#example-3-proximity-search) |
+| [용어 상승](query-lucene-syntax.md#bkmk_termboost) | **`search`** 변수에 **`queryType=full`** | 승격된 용어가 포함된 문서는 그렇지 않은 다른 문서보다 상대적으로 높은 순위를 매깁니다. <br/>[용어 상승 예제](search-query-lucene-examples.md#example-4-term-boosting) |
+| [정규식 검색](query-lucene-syntax.md#bkmk_regex) | **`search`** 변수에 **`queryType=full`** | 정규식의 콘텐츠를 기반으로 검색합니다. <br/>[정규식 예제](search-query-lucene-examples.md#example-5-regex) |
+|  [와일드 카드 또는 접두사 검색](query-lucene-syntax.md#bkmk_wildcard) | **`search`** 매개 변수를 *_`~`_* 사용 **`?`** 합니다. **`queryType=full`**| 접두사와 물결표(`~`) 또는 단일 문자(`?`)를 기반으로 검색합니다. <br/>[와일드카드 검색 예제](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>다음 단계
 

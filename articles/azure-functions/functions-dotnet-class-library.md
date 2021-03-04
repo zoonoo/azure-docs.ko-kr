@@ -1,21 +1,24 @@
 ---
-title: Azure Functions C# 개발자 참조
-description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
+title: 'Azure Functions를 사용 하 여 c # 함수 개발'
+description: 'C #을 사용 하 여 Azure Functions 런타임으로 in-process를 실행 하는 코드를 개발 하 고 게시 하는 방법을 이해 합니다.'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806318"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041198"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
+# <a name="develop-c-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 함수 개발
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 이 문서는 .NET 클래스 라이브러리의 C#을 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
+
+>[!IMPORTANT]
+>이 문서에서는 런타임과 함께 in-process를 실행 하는 .NET 클래스 라이브러리 함수를 지원 합니다. 함수는 c # 함수를 in-process로 실행 하 고 런타임과 분리 하 여 .NET 5.x도 지원 합니다. 자세히 알아보려면 [.net isolated 프로세스 함수](dotnet-isolated-process-guide.md)를 참조 하세요.
 
 C # 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
 
@@ -31,9 +34,11 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 
 | 함수 런타임 버전 | 최대 .NET 버전 |
 | ---- | ---- |
-| 함수 3(sp3) | .NET Core 3.1 |
+| 함수 3(sp3) | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
 | Functions 2.x | .NET Core 2.2 |
 | Functions 1.x | .NET Framework 4.7 |
+
+<sup>*</sup>[Out-of-process](dotnet-isolated-process-guide.md)를 실행 해야 합니다.
 
 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
 
@@ -94,9 +99,11 @@ public static class SimpleExample
 
 함수 시그니처에서 매개 변수의 순서는 중요하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
 
-### <a name="output-binding-example"></a>출력 바인딩 예제
+### <a name="output-bindings"></a>출력 바인딩
 
-다음 예제에서는 출력 큐 바인딩을 추가하여 이전 예제를 수정합니다. 이 함수는 함수를 다른 큐의 새 큐 메시지로 트리거하는 큐 메시지를 씁니다.
+함수는 출력 매개 변수를 사용 하 여 정의 된 0 개 또는 하나의 출력 바인딩을 가질 수 있습니다. 
+
+다음 예제에서는 라는 출력 큐 바인딩을 추가 하 여 앞의 예제를 수정 합니다 `myQueueItemCopy` . 함수는 함수를 트리거하는 메시지의 내용을 다른 큐의 새 메시지에 씁니다.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +119,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+출력 바인딩에 할당 된 값은 함수가 종료 될 때 기록 됩니다. 여러 출력 매개 변수에 값을 할당 하기만 하면 함수에서 둘 이상의 출력 바인딩을 사용할 수 있습니다. 
 
 바인딩 참조 문서(예: [스토리지 큐](functions-bindings-storage-queue.md))는 트리거, 입력 또는 출력 바인딩 특성에 사용할 수 있는 매개 변수 형식을 설명합니다.
 
@@ -361,7 +370,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>C# 함수의 사용자 지정 원격 분석 로깅
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>사용자 지정 원격 분석 로그
 
 함수에서 Application Insights로 사용자 지정 원격 분석 데이터를 전송하는 데 사용할 수 있는 Application Insights SDK의 Functions 관련 버전 [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights)가 있습니다. 명령 프롬프트에서 다음 명령을 사용하여 이 패키지를 설치합니다.
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대 한 Azure Active Directory를 사용 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: thweiss
-ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: acb82a66c8ef4adcfeef0fcb527c44512ad4feaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690909"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040875"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정 (미리 보기)에 대 한 Azure Active Directory를 사용 하 여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -370,6 +370,7 @@ Azure Cosmos DB RBAC를 사용 하는 경우 [진단 로그](cosmosdb-monitor-re
 - Azure Cosmos DB 계정 마다 최대 100 개의 역할 정의 및 2000 역할 할당을 만들 수 있습니다.
 - Azure AD 그룹 확인은 현재 200 개 이상의 그룹에 속한 id에 대해 지원 되지 않습니다.
 - Azure AD 토큰은 현재 Azure Cosmos DB 서비스로 전송 되는 각각의 개별 요청이 포함 된 헤더로 전달 되어 전체 페이로드 크기를 늘립니다.
+- [Azure Cosmos DB 탐색기](data-explorer.md) 를 통해 Azure AD를 사용 하 여 데이터에 액세스 하는 것은 아직 지원 되지 않습니다. Azure Cosmos DB 탐색기를 사용 하려면 사용자에 게 지금은 계정의 기본 키에 대 한 액세스 권한이 있어야 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

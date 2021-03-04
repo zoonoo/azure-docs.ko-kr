@@ -113,12 +113,12 @@
             - name: 필수 어플라이언스 식별
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
-            - name: 소프트웨어 설치
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy'
-              href: how-to-install-software.md
             - name: 네트워크 설정
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
               href: how-to-set-up-your-network.md
+            - name: 소프트웨어 설치
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              href: how-to-install-software.md
         - name: 센서 준비
           items:
             - name: 온보드 센서
@@ -155,7 +155,7 @@
         - name: 클라우드에서 센서 관리
           href: how-to-manage-sensors-on-the-cloud.md
         - name: 온-프레미스 관리 콘솔 관리
-          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure'
+          displayName: 'upgrade, activation, certificate, software update, backup, restore, proxy, password recovery'
           href: how-to-manage-the-on-premises-management-console.md
         - name: 위협 인텔리전스 패키지 작업
           href: how-to-work-with-threat-intelligence-packages.md

@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 뷰의 필터 | Microsoft Docs
 description: 사용자는 Azure Monitor 뷰의 필터를 사용 하 여 뷰 자체를 수정 하지 않고 특정 속성의 값을 기준으로 뷰의 데이터를 필터링 할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 988bb1467e7bf2cca31151d85c57677b235cab30
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618994"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043306"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 뷰의 필터
 사용자는 [Azure Monitor 뷰의](view-designer.md) **필터** 를 사용 하 여 뷰 자체를 수정 하지 않고 특정 속성의 값을 기준으로 뷰의 데이터를 필터링 할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.

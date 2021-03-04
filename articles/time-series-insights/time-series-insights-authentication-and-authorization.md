@@ -2,7 +2,6 @@
 title: API 인증 및 권한 부여 - Azure Time Series Insights | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 애플리케이션에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
-services: time-series-insights
 author: deepakpalled
 ms.author: shresha
 manager: dpalled
@@ -12,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 58c0f408e3ad80109efd3db79d6e4a0d881aed78
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724180"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041215"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
-비즈니스 요구 사항에 따라 솔루션은 Azure Time Series Insights 환경의 [api](https://docs.microsoft.com/en-us/rest/api/time-series-insights/reference-data-access-overview)와 상호 작용 하는 데 사용 하는 클라이언트 응용 프로그램을 하나 이상 포함할 수 있습니다. Azure Time Series Insights는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용 하 여 인증을 수행 합니다. 클라이언트를 인증 하려면 올바른 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 이 문서에서는 전달자 토큰을 가져오고 인증 하는 데 사용할 수 있는 몇 가지 자격 증명 가져오기 방법을 설명 합니다.
+비즈니스 요구 사항에 따라 솔루션은 Azure Time Series Insights 환경의 [api](/rest/api/time-series-insights/reference-data-access-overview)와 상호 작용 하는 데 사용 하는 클라이언트 응용 프로그램을 하나 이상 포함할 수 있습니다. Azure Time Series Insights는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용 하 여 인증을 수행 합니다. 클라이언트를 인증 하려면 올바른 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 이 문서에서는 전달자 토큰을 가져오고 인증 하는 데 사용할 수 있는 몇 가지 자격 증명 가져오기 방법을 설명 합니다.
 
 
   새 Azure Active Directory 블레이드를 사용 하 여 Azure Active Directory에 앱을 등록 하는 방법입니다. Azure Active Directory에 등록 된 앱은 사용자가에 인증 하 고 Azure Time Series Insights 환경에 연결 된 Azure Time Series insights API를 사용할 수 있도록 권한을 부여 받습니다.
@@ -34,7 +33,7 @@ ms.locfileid: "101724180"
 - 관리 ID를 사용하여 Azure Key Vault를 포함한 Azure AD 인증을 지원하는 모든 Azure 서비스에 인증할 수 있습니다.
 - 관리 ID는 추가 비용 없이 사용할 수 있습니다.
 
-관리 되는 id의 두 가지 유형에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 을 참조 하세요.
+관리 되는 id의 두 가지 유형에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../active-directory/managed-identities-azure-resources/overview.md) 을 참조 하세요.
 
 에서 관리 되는 id를 사용할 수 있습니다.
 
@@ -44,7 +43,7 @@ ms.locfileid: "101724180"
 - Azure Container instances
 - 기타 ...
 
-전체 목록은 [azure 리소스에 대 한 관리 되는 id를 지 원하는 azure 서비스를](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) 참조 하세요.
+전체 목록은 [azure 리소스에 대 한 관리 되는 id를 지 원하는 azure 서비스를](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 참조 하세요.
 
 ## <a name="azure-active-directory-app-registration"></a>Azure Active Directory 앱 등록
 
@@ -54,9 +53,9 @@ ms.locfileid: "101724180"
 
 포털에서 응용 프로그램을 등록 하는 경우 응용 프로그램 개체 및 서비스 주체 개체는 홈 테 넌 트에 자동으로 만들어집니다. Microsoft Graph Api를 사용 하 여 응용 프로그램을 등록/만들 경우에는 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다. 토큰을 요청 하려면 서비스 사용자 개체가 필요 합니다.
 
-응용 프로그램에 대 한 [보안](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist#security) 검사 목록을 검토 해야 합니다. 모범 사례로, 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)을 사용 해야 합니다.
+응용 프로그램에 대 한 [보안](../active-directory/develop/identity-platform-integration-checklist.md#security) 검사 목록을 검토 해야 합니다. 모범 사례로, 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)을 사용 해야 합니다.
 
-자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 를 참조 하세요.
+자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md) 를 참조 하세요.
 
 ## <a name="step-1-create-your-managed-identity-or-app-registration"></a>1 단계: 관리 id 또는 앱 등록 만들기
 
@@ -64,16 +63,16 @@ ms.locfileid: "101724180"
 
 ### <a name="managed-identity"></a>관리 ID
 
-관리 id를 만드는 데 사용 하는 단계는 코드의 위치 및 시스템 할당 또는 사용자 할당 id를 만드는 지 여부에 따라 달라 집니다. 차이점을 이해 하려면 [관리 되는 id 형식을](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) 읽습니다. Id 유형을 선택한 후에는 Azure AD 관리 id [설명서](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)에서 올바른 자습서를 찾아 따르십시오. 다음에 대 한 관리 id를 구성 하는 방법에 대 한 지침을 찾을 수 있습니다.
+관리 id를 만드는 데 사용 하는 단계는 코드의 위치 및 시스템 할당 또는 사용자 할당 id를 만드는 지 여부에 따라 달라 집니다. 차이점을 이해 하려면 [관리 되는 id 형식을](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 읽습니다. Id 유형을 선택한 후에는 Azure AD 관리 id [설명서](../active-directory/managed-identities-azure-resources/index.yml)에서 올바른 자습서를 찾아 따르십시오. 다음에 대 한 관리 id를 구성 하는 방법에 대 한 지침을 찾을 수 있습니다.
 
-- [Azure VM](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-during-creation-of-a-vm)
-- [App Service 및 Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
-- [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-managed-identity)
+- [Azure VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
+- [App Service 및 Azure Functions](../app-service/overview-managed-identity.md)
+- [Azure Container Instances](../container-instances/container-instances-managed-identity.md)
 - 기타 ...
 
 ### <a name="application-registration"></a>애플리케이션 등록
 
-[응용 프로그램 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application)에 나열 된 단계를 따릅니다.
+[응용 프로그램 등록](../active-directory/develop/quickstart-register-app.md#register-an-application)에 나열 된 단계를 따릅니다.
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
@@ -81,16 +80,16 @@ ms.locfileid: "101724180"
 
 Azure Time Series Insights 환경에서 요청을 받으면 먼저 호출자의 전달자 토큰에 대 한 유효성을 검사 합니다. 유효성 검사에 통과 하면 호출자가 인증 된 후 호출자에 게 요청 된 작업을 수행할 수 있는 권한이 있는지 확인 하는 검사가 수행 됩니다. 사용자 또는 서비스 사용자에 게 권한을 부여 하려면 먼저 해당 사용자 또는 서비스 사용자에 게 독자 또는 참가자 역할을 할당 하 여 환경에 대 한 액세스 권한을 부여 해야 합니다.
 
-- [Azure Portal](https://portal.azure.com/) UI를 통해 액세스 권한을 부여 하려면 [환경에 데이터 액세스 권한 부여](https://docs.microsoft.com/azure/time-series-insights/concepts-access-policies) 문서에 나와 있는 지침을 따르세요. 사용자를 선택할 때 이름 또는 ID로 관리 되는 id 또는 앱 등록을 검색할 수 있습니다.
+- [Azure Portal](https://portal.azure.com/) UI를 통해 액세스 권한을 부여 하려면 [환경에 데이터 액세스 권한 부여](concepts-access-policies.md) 문서에 나와 있는 지침을 따르세요. 사용자를 선택할 때 이름 또는 ID로 관리 되는 id 또는 앱 등록을 검색할 수 있습니다.
 
-- Azure CLI를 사용 하 여 액세스 권한을 부여 하려면 다음 명령을 실행 합니다. [여기](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/access-policy?view=azure-cli-latest) 에서 설명서를 검토 하 여 액세스를 관리 하는 데 사용할 수 있는 명령의 전체 목록을 확인 하세요.
+- Azure CLI를 사용 하 여 액세스 권한을 부여 하려면 다음 명령을 실행 합니다. [여기](/cli/azure/ext/timeseriesinsights/tsi/access-policy) 에서 설명서를 검토 하 여 액세스를 관리 하는 데 사용할 수 있는 명령의 전체 목록을 확인 하세요.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"
    ```
 
 > [!Note]
-> Azure CLI에 대 한 timeseriesinsights-environment-with-eventhub 확장에는 버전 2.11.0 이상이 필요 합니다. 확장은 az tsi 액세스 정책 명령을 처음 실행할 때 자동으로 설치 됩니다. 확장에 대해 [자세히 알아보세요](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) .
+> Azure CLI에 대 한 timeseriesinsights-environment-with-eventhub 확장에는 버전 2.11.0 이상이 필요 합니다. 확장은 az tsi 액세스 정책 명령을 처음 실행할 때 자동으로 설치 됩니다. 확장에 대해 [자세히 알아보세요](/cli/azure/azure-cli-extensions-overview) .
 
 ## <a name="step-3-requesting-tokens"></a>3 단계: 토큰 요청
 
@@ -107,37 +106,37 @@ Azure Time Series Insights 환경에서 요청을 받으면 먼저 호출자의 
 
 ### <a name="managed-identities"></a>관리 ID
 
-Azure App Service 또는 함수에서 액세스 하는 경우 [Azure 리소스에 대 한 토큰 가져오기](https://docs.microsoft.com/azure/app-service/overview-managed-identity)의 지침을 따릅니다.
+Azure App Service 또는 함수에서 액세스 하는 경우 [Azure 리소스에 대 한 토큰 가져오기](../app-service/overview-managed-identity.md)의 지침을 따릅니다.
 
 > [!TIP]
-> .NET 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 .NET 용 [Azure id 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) 를 사용 하는 것입니다. 
+> .NET 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 .NET 용 [Azure id 클라이언트 라이브러리](/dotnet/api/overview/azure/identity-readme) 를 사용 하는 것입니다. 
 
-.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 이 패키지는 단순함 및 보안상의 이점 때문에 널리 사용 되 고 있습니다. 개발자는 코드를 한 번 작성 하 여 클라이언트 라이브러리가 응용 프로그램 환경을 기반으로 인증 하는 방법을 결정 하도록 할 수 있습니다. 개발자 계정을 사용 하거나 관리 서비스 id를 사용 하 여 Azure에 배포 하는 방법 선행 AppAuthentication 라이브러리의 마이그레이션 지침은 [Azure로 Appauthentication을 읽습니다. Id 마이그레이션 지침](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet)을 참조 하세요.
+.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 이 패키지는 단순함 및 보안상의 이점 때문에 널리 사용 되 고 있습니다. 개발자는 코드를 한 번 작성 하 여 클라이언트 라이브러리가 응용 프로그램 환경을 기반으로 인증 하는 방법을 결정 하도록 할 수 있습니다. 개발자 계정을 사용 하거나 관리 서비스 id를 사용 하 여 Azure에 배포 하는 방법 선행 AppAuthentication 라이브러리의 마이그레이션 지침은 [Azure로 Appauthentication을 읽습니다. Id 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)을 참조 하세요.
 
 C # 및 .NET 용 Azure Id 클라이언트 라이브러리를 사용 하 여 Azure Time Series Insights에 대 한 토큰을 요청 합니다.
 
-    ```csharp
-    using Azure.Identity;
-    // ...
-    var credential = new DefaultAzureCredential();
-    var token = credential.GetToken(
-    new Azure.Core.TokenRequestContext(
-        new[] { "https://api.timeseries.azure.com/" }));
-   var accessToken = 토큰입니다. 토큰
-    ```
+   ```csharp
+   using Azure.Identity;
+   // ...
+   var credential = new DefaultAzureCredential();
+   var token = credential.GetToken(
+   new Azure.Core.TokenRequestContext(
+       new[] { "https://api.timeseries.azure.com/" }));
+   var accessToken = token.Token;
+   ```
 
 ### <a name="app-registration"></a>앱 등록
 
-* 개발자는 msal ( [Microsoft 인증 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) )을 사용 하 여 앱 등록에 대 한 토큰을 가져올 수 있습니다.
+* 개발자는 msal ( [Microsoft 인증 라이브러리](../active-directory/develop/msal-overview.md) )을 사용 하 여 앱 등록에 대 한 토큰을 가져올 수 있습니다.
 
 MSAL은 다음을 비롯 한 여러 응용 프로그램 시나리오에서 사용할 수 있습니다.
 
-* [단일 페이지 응용 프로그램 (JavaScript)](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview.md)
-* [사용자가 로그인하고 사용자를 대신하여 웹 API를 호출하는 웹 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-overview.md)
-* [로그인한 사용자를 대신하여 또 다른 다운스트림 웹 API를 호출하는 웹 API](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-overview.md)
-* [로그인 한 사용자를 대신 하 여 web API를 호출 하는 데스크톱 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview.md)
-* [대화형으로 로그인 한 사용자를 대신 하 여 WEB API를 호출 하는 모바일 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-overview.md)입니다.
-* [자체적으로 대신 웹 API를 호출하는 데스크톱/서비스 디먼 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
+* [단일 페이지 응용 프로그램 (JavaScript)](../active-directory/develop/scenario-spa-overview.md)
+* [사용자가 로그인하고 사용자를 대신하여 웹 API를 호출하는 웹 애플리케이션](../active-directory/develop/scenario-web-app-call-api-overview.md)
+* [로그인한 사용자를 대신하여 또 다른 다운스트림 웹 API를 호출하는 웹 API](../active-directory/develop/scenario-web-api-call-api-overview.md)
+* [로그인 한 사용자를 대신 하 여 web API를 호출 하는 데스크톱 응용 프로그램](../active-directory/develop/scenario-desktop-overview.md)
+* [대화형으로 로그인 한 사용자를 대신 하 여 WEB API를 호출 하는 모바일 응용 프로그램](../active-directory/develop/scenario-mobile-overview.md)입니다.
+* [자체적으로 대신 웹 API를 호출하는 데스크톱/서비스 디먼 애플리케이션](../active-directory/develop/scenario-daemon-overview.md)
 
 Gen2 환경의 앱 등록 및 쿼리 데이터로 토큰을 획득 하는 방법을 보여 주는 샘플 c # 코드는 [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs) 에서 샘플 앱 보기
 

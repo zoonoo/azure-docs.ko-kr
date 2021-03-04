@@ -6,12 +6,12 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 04/16/2020
-ms.openlocfilehash: 38db1e68adde21d0e566256e9393f6fa4fc58824
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: abf34a5ea83e74b0bd2a074108c5ef1014941093
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753793"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041334"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용 하 여 어플라이언스 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "96753793"
 - 물리적 서버용 어플라이언스를 설정 하려면 스크립트만 사용 하면 됩니다. [이 문서](how-to-set-up-appliance-physical.md)를 따릅니다.
 - Azure Government 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script-government.md)를 따릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 
@@ -64,7 +64,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 포털에서 또는 [�
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config
@@ -111,7 +111,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config
@@ -136,5 +136,5 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
 어플라이언스를 배포한 후에는 처음으로 구성 하 고 Azure Migrate 프로젝트에 등록 해야 합니다.
 
-- [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance)에 대 한 어플라이언스를 설정 합니다.
+- [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance)에 대 한 어플라이언스를 설정 합니다.
 - [Hyper-v](how-to-set-up-appliance-hyper-v.md#configure-the-appliance)에 대 한 어플라이언스를 설정 합니다.

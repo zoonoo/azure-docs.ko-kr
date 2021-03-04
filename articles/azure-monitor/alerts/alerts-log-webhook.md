@@ -6,13 +6,12 @@ ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
-ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 228193066c45421c4dddee1802aba1feed59e9c8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704398"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042677"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 
@@ -30,7 +29,7 @@ ms.locfileid: "101704398"
 
 기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
 
-| 매개 변수 | 변수 | Description |
+| 매개 변수 | 변수 | 설명 |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |

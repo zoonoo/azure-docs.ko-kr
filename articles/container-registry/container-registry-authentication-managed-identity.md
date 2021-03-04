@@ -3,12 +3,12 @@ title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987742"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041470"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -107,13 +107,13 @@ SSH 세션을 종료합니다.
 
 ### <a name="create-an-identity"></a>ID 만들기
 
-[az identity create](/cli/azure/identit#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리, 가상 머신 또는 다른 가상 머신을 만들 수 있습니다.
+[az identity create](/cli/azure/identity#az_identity_create) 명령을 사용하여 구독에서 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리, 가상 머신 또는 다른 가상 머신을 만들 수 있습니다.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-다음 단계에서 ID를 구성하려면 [az identity show][az-identity-show] 명령을 사용하여 ID의 리소스 ID 및 서비스 주체 ID를 변수에 저장합니다.
+다음 단계에서 id를 구성 하려면 [az identity show] [az_identity_show] 명령을 사용 하 여 id의 리소스 ID 및 서비스 주체 ID를 변수에 저장 합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

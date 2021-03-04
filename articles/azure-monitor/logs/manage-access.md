@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Log Analytics 작업 영역 관리 | Microsoft Docs
 description: 리소스, 작업 영역 또는 테이블 수준 사용 권한을 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에 저장 된 데이터에 대 한 액세스를 관리할 수 있습니다. 이 문서에서는를 완료 하는 방법을 자세히 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: bc03d8cdcaf0079ef15e648d16fd5656d9da368c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79bcca688146b2c2382876b6a61bc0eee34382a1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725682"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040960"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
@@ -162,7 +161,7 @@ Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
 Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| 사용 권한 | Description |
+| 사용 권한 | 설명 |
 | ---------- | ----------- |
 | `*/read`     | 다음을 포함해 모든 리소스 및 리소스 구성을 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행할 수 있는 완전 무제한 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
 | `Microsoft.Automation/automationAccounts/*` | Runbook 추가 및 편집을 포함해 Azure Automation 계정을 만들고 구성할 수 있습니다. |
@@ -189,7 +188,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 사용자가 리소스 컨텍스트 액세스를 사용 하 여 작업 영역에서 로그를 쿼리하면 해당 리소스에 대해 다음과 같은 사용 권한이 부여 됩니다.
 
-| 사용 권한 | Description |
+| 사용 권한 | 설명 |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>예:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
 | `Microsoft.Insights/diagnosticSettings/write` | 이 리소스에 대 한 로그를 설정할 수 있도록 진단 설정을 구성 하는 기능입니다. |

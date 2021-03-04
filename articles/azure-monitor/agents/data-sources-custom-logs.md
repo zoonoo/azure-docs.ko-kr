@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Log Analytics 에이전트를 사용하여 사용자 지정 로그 수집
 description: Azure Monitor는 Windows와 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다.  이 문서는 새 사용자 지정 로그를 정의하는 방법을 설명하고 Azure Monitor에서 만드는 레코드에 대한 자세한 정보를 제공합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719936"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042711"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 에이전트를 사용하여 사용자 지정 로그 수집
 
@@ -78,7 +77,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| Description | 경로 |
+| 설명 | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |

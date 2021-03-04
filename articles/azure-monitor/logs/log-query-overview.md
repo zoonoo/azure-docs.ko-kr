@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor의 로그 쿼리
 description: Azure Monitor에서 사용되는 Kusto 쿼리 언어에 대한 참조 정보입니다. Azure Monitor와 관련된 추가 요소와 Azure Monitor 로그 쿼리에 지원되지 않는 요소가 포함됩니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704228"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041028"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
 Azure Monitor 로그는 Azure 데이터 탐색기를 기반으로 하며 로그 쿼리는 동일한 Kusto 쿼리 언어 (KQL)를 사용 하 여 작성 됩니다. 이는 쉽게 읽고 제작할 수 있도록 설계 된 풍부한 언어 이므로 몇 가지 기본 지침을 사용 하 여 쿼리 작성을 시작할 수 있어야 합니다.

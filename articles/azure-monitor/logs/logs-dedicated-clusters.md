@@ -1,17 +1,16 @@
 ---
 title: 전용 클러스터 Azure Monitor 로그
 description: 데이터 모니터링에 대해 1TB를 초과 하는 데이터를 수집 하는 고객은 공유 클러스터 대신 전용을 사용할 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fbb8f82366ee961d10ce8a6bc098128bad6555a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707645"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041011"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 

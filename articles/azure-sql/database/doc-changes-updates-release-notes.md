@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703770"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042507"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance* 로 참조 하는 방법도 업데이트 했습니다.
 
@@ -73,7 +73,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ---
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
@@ -89,7 +89,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
   - <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">Sharepoint 2016 및 sharepoint 2019</a> 및 <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central 지원.</a>
   - <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">인스턴스 수준 데이터 정렬과</a> 원하는 <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">표준 시간대</a> 를 사용 하 여 관리 되는 인스턴스를 만듭니다.
   - Managed Instance가 이제 [기본 제공 방화벽](../managed-instance/management-endpoint-verify-built-in-firewall.md)으로 보호됩니다.
-  - [공용 끝점](../managed-instance/public-endpoint-configure.md)을 사용 하 여 SQL Managed Instance를 구성 하 고, [프록시를 재정의](connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 구성 하거나, 지정 시간 복원에 대해 <a href="/azure/azure-sql/database/automated-backups-overview">최대 35 일의 백업 보존을 구성</a> 합니다. [장기 백업 보존](long-term-retention-overview.md#sql-managed-instance-support)(최대 10년)은 현재 제한된 공개 미리 보기로 제공됩니다.  
+  - [공용 끝점](../managed-instance/public-endpoint-configure.md)을 사용 하 여 SQL Managed Instance를 구성 하 고, [프록시를 재정의](connectivity-architecture.md#connection-policy) 하 여 네트워크 성능을 향상 하거나, <a href="https://aka.ms/four-cores-sql-mi-update">Gen5 하드웨어 세대에서 4 개의 vcores</a> 를 구성 하거나, 지정 시간 복원에 대해 <a href="/azure/azure-sql/database/automated-backups-overview">최대 35 일의 백업 보존을 구성</a> 합니다. [장기 백업 보존](long-term-retention-overview.md) (최대 10 년)은 현재 공개 미리 보기로 제공 됩니다.  
   - 새로운 기능을 통해 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용하여 데이터베이스를 다른 데이터 센터에 지리적 복원하고</a>, [데이터베이스 이름을 바꾸고](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [가상 클러스터를 삭제](../managed-instance/virtual-cluster-delete.md)할 수 있습니다.
   - 기본 제공되는 새로운 [인스턴스 기여자 역할](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor)을 통해 보안 원칙에 따른 SoD(업무 분리) 준수 및 엔터프라이즈 표준 준수가 가능합니다.
   - SQL Managed Instance는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 및 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 다음 공용 지역에서도 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서부.

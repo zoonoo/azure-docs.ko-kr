@@ -3,15 +3,14 @@ title: 뷰 디자이너와 통합 문서 타일 변환 Azure Monitor
 description: Azure Monitor의 뷰에서 전환할 때 타일을 통합 문서로 변환 하는 방법에 대 한 세부 정보입니다.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 0fe1c5a4e6da1cb2955542c2651fcaf2d015b8f8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8d1840c0b1cea4c03312d38ed892fde94faa4c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619029"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043340"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor 뷰 디자이너 타일 변환
 [뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 기능은 추가 기능을 제공 하는 통합 문서로 단계적으로 교체 됩니다. 이 문서에서는 다양 한 타일을 통합 문서로 변환 하는 방법에 대해 자세히 설명 합니다.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 1d9f1c5beafb7b54c5fd0189dd738ff8e346a3e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 911238efafb948b304455cf75cc4ec2c3c605c76
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695991"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042098"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>SAP R3 브리지 패밀리에 대 한 메타 데이터 추출 ABAP 함수 모듈을 배포 합니다. 
 이 문서에서는 SAP Server에 ABAP 함수 모듈을 배포 하는 단계를 설명 합니다.
@@ -74,7 +74,7 @@ Sap Business Suite 4 HANA (S/4HANA), ECC 및 R/3 ERP 브리지는 SAP 서버에�
 
 3.  \"소스 코드 탭으로 이동 \" 합니다. 다음 두 가지 방법으로 함수에 대 한 코드를 배포할 수 있습니다.
 
-    a.  주 메뉴에서 \_ \_ 유틸리티 = \> 추가 유틸리티 = \> 업로드/다운로드 = 업로드를 선택 하 여 Z MITIDOWNLOAD.txt 파일을 업로드 \> 합니다.
+    a.  주 메뉴에서 유틸리티 = 추가 유틸리티 = 업로드/다운로드 = 업로드를 선택 하 여 텍스트 파일 [Z \_ MITI \_ 다운로드](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) 파일을 업로드 \> \> \> 합니다.
 
     b.  또는 파일을 열고 콘텐츠를 복사 하 여 \" 소스 코드 영역에 붙여 넣습니다 \" .
 

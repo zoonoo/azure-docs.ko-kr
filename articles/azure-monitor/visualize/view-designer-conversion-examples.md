@@ -3,15 +3,14 @@ title: Azure Monitor 뷰 디자이너에서 통합 문서 변환 예제
 description: 보기에서 Azure Monitor 통합 문서로 전환 하는 예입니다.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 126add52d5411c4121bc1624246ae4d2c6d5359e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bd57838dd3cceae308b55dd2d7fdbb55cec79ec4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620434"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043357"
 ---
 # <a name="view-designer-conversion-examples"></a>뷰 디자이너 변환 예제
 

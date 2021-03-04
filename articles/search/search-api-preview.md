@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670889"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041980"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -25,7 +25,7 @@ ms.locfileid: "101670889"
 |---------|------------------|-------------|---------------|
 | [**의미 체계 검색**](semantic-search-overview.md) | 관련성 (점수 매기기) | 의미 체계 순위 알고리즘, 쿼리 유형 및 쿼리 응답입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**맞춤법 검사기**](cognitive-search-aml-skill.md) | 쿼리 | 단순, 전체 및 의미 체계 쿼리를 위한 쿼리 용어 입력에 대 한 선택적 철자 수정 | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
-| SharePoint Online 인덱서 | 인덱서 데이터 원본 | SharePoint 콘텐츠의 인덱서 기반 인덱싱을 위한 새 데이터 원본입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**SharePoint Online 인덱서**](search-howto-index-sharepoint-online.md) | 인덱서 데이터 원본 | SharePoint 콘텐츠의 인덱서 기반 인덱싱을 위한 새 데이터 원본입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Azure Machine Learning (AML) 기술**](cognitive-search-aml-skill.md) | AI 보강| Azure Machine Learning에서 추론 끝점을 통합 하는 새 기술 유형입니다. [이 자습서](cognitive-search-tutorial-aml-custom-skill.md)를 시작합니다. | [검색 REST API 2020-06-30-미리 보기](/rest/api/searchservice/) 또는 2019-05-06-미리 보기를 사용 합니다. 포털에서 기술 디자인을 사용 하 여 Cognitive Search 및 Azure ML 서비스가 동일한 구독에 배포 되는 것으로 가정 합니다. |
 | [**featuresMode 매개 변수**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | 관련성 (점수 매기기) | 세부 정보를 포함 하는 관련성 점수 확장: 필드별 유사성 점수, 필드별 별 빈도 및 일치 하는 고유 토큰의 필드 당 수 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial)에서 이러한 데이터 요소를 사용할 수 있습니다. | Api-version = 2020-06 -30-Preview 또는 2019-05-06-Preview를 사용 하 여 [문서 검색 (REST)](/rest/api/searchservice/preview-api/search-documents) 을 사용 하 여이 쿼리 매개 변수를 추가 합니다. |
 | [**디버그 세션**](cognitive-search-debug-session.md) | 포털, AI 보강 (기술) | 기술와 관련 된 문제를 조사 하 고 해결 하는 데 사용 되는 세션 내 기술 편집기입니다. 디버그 세션 중에 적용 되는 픽스는 서비스의 기술에 저장할 수 있습니다. | 개요 페이지의 중간 페이지 링크를 사용 하 여 디버그 세션을 열 수 있습니다. |

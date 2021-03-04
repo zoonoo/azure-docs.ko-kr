@@ -1,17 +1,16 @@
 ---
 title: Log Analytics 자습서
 description: 이 자습서에서 Azure Monitor의 Log Analytics 기능을 사용하여 로그 쿼리를 작성 및 실행하고 Azure Portal에서 결과를 분석하는 방법을 알아봅니다.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723183"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041147"
 ---
 # <a name="log-analytics-tutorial"></a>Log Analytics 자습서
 Log Analytics는 Azure Monitor Logs에서 수집된 데이터에서 로그 쿼리를 편집 및 실행하고 그 결과를 대화형으로 분석하는 Azure Portal의 도구입니다. Log Analytics 쿼리를 사용하여 특정 조건과 일치하는 레코드를 검색하고, 추세를 식별하고, 패턴을 분석하고, 데이터에 대한 다양한 인사이트를 제공할 수 있습니다. 

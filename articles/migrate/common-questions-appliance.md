@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753878"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043068"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -36,21 +36,20 @@ Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습
 
 ## <a name="how-can-i-deploy-the-appliance"></a>어플라이언스를 배포 하려면 어떻게 해야 하나요?
 
-다음과 같이 어플라이언스를 배포할 수 있습니다.
+어플라이언스는 다음과 같은 몇 가지 방법을 사용하여 배포할 수 있습니다.
 
-- VMware Vm의 검색을 위한 템플릿 사용 (. OVA 파일) 및 Hyper-v Vm (. VHD 파일)을 통해 어플라이언스를 호스트 하는 새 VM을 만들 수 있습니다.
-- 템플릿을 사용 하지 않으려는 경우 포털의 zip 파일에서 다운로드할 수 있는 PowerShell 설치 관리자 스크립트를 사용 하 여 VMware Vm 또는 Hyper-v Vm을 검색 하기 위해 기존 물리적 또는 가상 머신에 어플라이언스를 배포할 수 있습니다.
-- 온-프레미스 또는 클라우드에서 실제 또는 가상 서버의 경우 항상 기존 서버에서 스크립트를 사용 하 여 어플라이언스를 배포 합니다.
-- Azure Government의 경우 세 어플라이언스 모두 PowerShell 설치 관리자 스크립트를 사용 하 여 배포할 수 있습니다.
+- VMware 또는 Hyper-v 환경 ([vmware 용 Ova 템플릿](how-to-set-up-appliance-vmware.md) 또는 [hyper-v 용 VHD](how-to-set-up-appliance-hyper-v.md))에서 실행 되는 서버에 대 한 템플릿을 사용 하 여 어플라이언스를 배포할 수 있습니다.
+- 템플릿을 사용 하지 않으려는 경우 [PowerShell 설치 관리자 스크립트](deploy-appliance-script.md)를 사용 하 여 VMware 또는 hyper-v 환경용 어플라이언스를 배포할 수 있습니다.
+- Azure Government에서 PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조 하세요.
+- 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화 된 서버에 대해서는 항상 PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조 하세요.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결 되나요?
 
 어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. 
 
 - 기기가 이러한 [Azure url](./migrate-appliance.md#url-access)에 연결할 수 있는지 확인 합니다. 
-- Microsoft 피어 링에서 Express 경로를 사용할 수 있습니다.  공용 피어 링은 더 이상 사용 되지 않으며 새로운 Express 경로 회로에 사용할 수 없습니다.
+- Microsoft 피어 링에서 Express 경로를 사용할 수 있습니다. 공용 피어 링은 더 이상 사용 되지 않으며 새로운 Express 경로 회로에 사용할 수 없습니다.
 - 개인 피어 링은 지원 되지 않습니다.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>어플라이언스 분석이 성능에 영향을 미칩니까?
@@ -109,7 +108,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Azure Migrate 프로젝트에 여러 개의 어플라이언스를 사용할 수 있나요?
 
-프로젝트에는 여러 개의 기기가 연결 되어 있을 수 있습니다. 그러나 어플라이언스는 하나의 프로젝트에만 연결할 수 있습니다. 
+프로젝트에는 여러 개의 어플라이언스를 등록할 수 있습니다. 그러나 한 어플라이언스는 하나의 프로젝트에만 등록할 수 있습니다.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Azure Migrate 어플라이언스/복제 어플라이언스는 동일한 vCenter에 연결할 수 있나요?
 
@@ -135,7 +134,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Azure VM에서 어플라이언스를 설정할 수 있나요?
 
-아니요. 현재이 옵션은 지원 되지 않습니다. 
+아니요. 현재이 옵션은 지원 되지 않습니다.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>ESXi 호스트에서 검색할 수 있나요?
 
@@ -150,6 +149,19 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 ## <a name="can-i-check-agent-health"></a>에이전트 상태를 확인할 수 있나요?
 
 예. 포털에서 Azure Migrate: 서버 평가 또는 Azure Migrate: 서버 마이그레이션 도구의 **에이전트 상태** 페이지로 이동 합니다. 여기에서 Azure 간의 연결 상태와 어플라이언스의 검색 및 평가 에이전트를 확인할 수 있습니다.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>VMware 어플라이언스에서 여러 서버 자격 증명을 추가할 수 있나요?
+
+예, 이제 소프트웨어 인벤토리를 수행 하는 여러 서버 자격 증명 (설치 된 응용 프로그램의 검색), 에이전트 없는 종속성 분석 및 SQL Server 인스턴스 및 데이터베이스 검색을 지원 합니다. 어플라이언스 구성 관리자에서 자격 증명을 제공 하는 방법에 [대해 자세히 알아보세요](tutorial-discover-vmware.md#provide-server-credentials) .
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>VMware 어플라이언스에서 어떤 유형의 서버 자격 증명을 추가할 수 있나요?
+어플라이언스 구성 관리자에서 도메인/Windows (비도메인)/Linux (비도메인)/SQL Server 인증 자격 증명을 제공할 수 있습니다. 자격 증명을 제공 하는 방법 및 자격 증명을 처리 하는 방법에 [대해 자세히 알아보세요](add-server-credentials.md) .
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>SQL 검색에 대해 Azure Migrate에서 지원 되는 SQL Server 연결 속성 유형
+Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화 합니다 (암호화 연결 속성은 TRUE로 설정 됨). 이러한 연결은 [Trustservercertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (TRUE로 설정 됨)로 암호화 됩니다. 전송 계층에서는 SSL을 사용 하 여 채널을 암호화 하 고 인증서 체인을 무시 하 여 신뢰의 유효성을 검사 합니다. [인증서의 루트 인증 기관을 신뢰](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 어플라이언스 서버를 설정 해야 합니다.
+
+서버를 시작할 때 서버에서 인증서를 프로 비전 하지 않은 경우 SQL Server는 로그인 패킷을 암호화 하는 데 사용 되는 자체 서명 된 인증서를 생성 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 
 ## <a name="next-steps"></a>다음 단계
 

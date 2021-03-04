@@ -1,17 +1,17 @@
 ---
 title: IoT Hub 가져오기에 대 한 장치 업데이트 이해 | Microsoft Docs
 description: IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오기 위한 주요 개념입니다.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/10/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c6c6707a74007898c3cd73250709f4df3fabb37d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4cd5e0c016b98a3dc9336237a5c1b14e6b0f5789
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040586"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트로 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트에서 장치에 대 한 업데이트를 배포 하려면 먼저 해당 업데이트를 장치 업데이트 서비스로 _가져와야_ 합니다. 업데이트를 가져오는 경우를 이해 하기 위한 몇 가지 중요 한 개념에 대 한 개요는 다음과 같습니다.

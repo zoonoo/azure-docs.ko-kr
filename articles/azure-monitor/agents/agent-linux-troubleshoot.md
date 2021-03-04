@@ -1,17 +1,16 @@
 ---
 title: Azure Log Analytics Linux 에이전트 문제 해결 | Microsoft Docs
 description: Azure Monitor에서 Linux 용 Log Analytics 에이전트와 관련 된 가장 일반적인 문제에 대 한 증상, 원인 및 해결 방법을 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 136e063f6d272589c609bad93532df025a15a68d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 202182d6485bc340a7f9bb34622e483dcc9ff891
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723625"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041878"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 

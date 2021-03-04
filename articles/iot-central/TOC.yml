@@ -183,6 +183,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: IoT Edge 디바이스 연결
       href: core/concepts-iot-edge.md
+    - name: 모범 사례
+      href: core/concepts-best-practices.md
 - name: 방법 가이드
   items:
     - name: 디바이스 개발 및 연결
