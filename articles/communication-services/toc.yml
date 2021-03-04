@@ -5,6 +5,8 @@
   items:
     - name: Azure Communication Services란?
       href: overview.md
+    - name: 지원 및 도움말 옵션
+      href: support.md
 - name: 빠른 시작
   expanded: true
   items:

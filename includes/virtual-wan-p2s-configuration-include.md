@@ -1,31 +1,46 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: virtual-wan
 author: cherylmc
+ms.author: cherylmc
+ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 411c28c0bbbf5ea659c6b6cca1e5bfae847ddd7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732493"
 ---
-1. **모든 리소스**로 이동합니다.
-1. 생성한 Virtual WAN을 선택합니다.
-1. 페이지 맨 위에서 **+사용자 VPN 구성 만들기**를 선택하여 **새 사용자 VPN 구성 만들기** 페이지를 엽니다.
+1. **모든 리소스** 로 이동하고 생성한 가상 WAN을 선택한 다음, 왼쪽 메뉴에서 **사용자 VPN 구성** 을 선택합니다.
+1. **사용자 VPN 구성** 페이지에서 페이지 상단의 **+사용자 VPN 구성 만들기** 를 선택하여 **새 사용자 VPN 구성 만들기** 페이지를 엽니다.
 
-   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.jpg" alt-text="사용자 VPN 구성":::
+   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.png" alt-text="사용자 VPN 구성 페이지의 스크린샷.":::
 
-1. **새 사용자 VPN 구성 만들기** 페이지에서 다음 필드를 채웁니다.
+1. **기본** 탭의 **인스턴스 세부 정보** 에서 VPN 구성에 할당할 **이름** 을 입력합니다.
+1. **터널 유형** 의 드롭다운 목록에서 원하는 터널 유형을 선택합니다. 터널 유형 옵션에는 **IKEv2 VPN**, **OpenVPN**, **OpenVpn 및 IkeV2** 가 있습니다.
+1. 선택한 터널 유형에 해당하는 다음 단계를 사용합니다. 모든 값을 지정한 후 **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 구성을 만듭니다.
 
-   * **구성 이름** - 구성을 참조하는 데 사용하려는 이름입니다.
-   * **터널 종류** - 터널에 대해 사용할 프로토콜입니다.
-   * **루트 인증서 이름** - 인증서에 대한 설명이 포함된 이름입니다.
-   * **공용 인증서 데이터** - Base-64로 인코딩된 X.509 인증서 데이터입니다.
-  
-1. **만들기**를 선택하여 구성을 만듭니다.
+   **IKEv2 VPN**
+
+   * **요구 사항:** **IKEv2** 터널 유형을 선택하면 인증 방법을 선택하도록 지시하는 메시지가 표시됩니다. IKEv2의 경우 인증 방법을 하나만 지정할 수 있습니다. Azure 인증서, Azure Active Directory 또는 RADIUS 기반 인증을 선택할 수 있습니다.
+ 
+   * **IPSec 사용자 지정 매개 변수:** IKE 1단계 및 IKE 2단계의 매개 변수를 사용자 정의하려면 IPsec 스위치를 **사용자 정의** 로 전환하고 매개 변수 값을 선택합니다. 사용자 지정 가능한 매개 변수에 대한 자세한 내용은 [사용자 지정 IPsec](../articles/virtual-wan/point-to-site-ipsec.md) 문서를 참조하세요.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="사용자 지정으로 전환한 IPsec 스위치의 스크린샷.":::
+
+   * **인증:** 페이지 하단의 **다음** 을 클릭하여 인증 방법으로 이동하거나 페이지 상단에서 적절한 탭을 클릭하여 사용하려는 인증 메커니즘으로 이동합니다. 방법을 선택하려면 스위치를 **예** 로 전환합니다.
+
+     이 예에서는 RADIUS 인증을 선택합니다. RADIUS 기반 인증의 경우 보조 RADIUS 서버 IP 주소와 서버 비밀을 제공할 수 있습니다.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="IKE의 스크린샷.":::
+
+   **OpenVPN**
+
+   * **요구 사항:** **OpenVPN** 터널 유형을 선택하면 인증 메커니즘을 선택하도록 지시하는 메시지가 표시됩니다. OpenVPN을 터널 유형으로 선택한 경우 여러 인증 방법을 지정할 수 있습니다. Azure 인증서, Azure Active Directory 또는 RADIUS 기반 인증의 하위 집합을 선택할 수 있습니다. RADIUS 기반 인증의 경우 보조 RADIUS 서버 IP 주소와 서버 비밀을 제공할 수 있습니다.
+
+   * **인증:** 페이지 하단의 **다음** 을 클릭하여 인증 방법으로 이동하거나 페이지 상단에서 적절한 탭을 클릭하여 사용하려는 인증 방법으로 이동합니다.
+   선택하려는 각 방법에서 **예** 로 전환하고 적절한 값을 입력합니다.
+
+     이 예제에서는 Azure Active Directory를 선택합니다.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/openvpn.png" alt-text="OpenVPN 페이지의 스크린샷.":::

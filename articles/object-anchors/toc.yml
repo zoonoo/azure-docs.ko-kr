@@ -1,0 +1,46 @@
+- name: Object Anchors 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Object Anchors 정보
+      href: overview.md
+    - name: 모범 사례
+      href: best-practices.md
+- name: 개념
+  items:
+    - name: 런타임 SDK 개요
+      href: concepts/sdk-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 모델 만들기
+      href: quickstarts/get-started-model-ingestion.md
+    - name: Unity 앱 만들기
+      expanded: true
+      items:
+        - name: HoloLens
+          href: quickstarts/get-started-unity-hololens.md
+        - name: MRTK를 사용한 HoloLens
+          href: quickstarts/get-started-unity-hololens-mrtk.md
+    - name: HoloLens DirectX 앱 만들기
+      href: quickstarts/get-started-hololens-directx.md
+- name: 샘플
+  items:
+    - name: Azure Object Anchors 샘플(GitHub)
+      href: 'https://github.com/Azure/azure-object-anchors'
+- name: 참조
+  items:
+    - name: Unity용 런타임 SDK
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.ObjectAnchors/'
+    - name: HoloLens C++/WinRT용 런타임 SDK
+      href: 'https://docs.microsoft.com/cpp/api/object-anchors/winrt/'
+- name: 리소스
+  items:
+    - name: 릴리스 정보
+      href: 'https://github.com/Azure/azure-object-anchors/releases'
+    - name: Azure Mixed Reality 리소스 관리 REST API
+      href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+    - name: FAQ
+      href: faq.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-object-anchors'

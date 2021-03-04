@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Azure Object Anchors 설명서
+summary: Object Anchors는 물리적 세계에서 개체를 감지하고 해당 개체의 3D 모델이 주어지면 6-DoF 포즈를 추정하는 데 사용할 수 있습니다.
+metadata:
+  title: Azure Object Anchors 설명서
+  description: Object Anchors를 사용하여 물리적 세계에서 개체를 감지하고 해당 개체의 3D 모델이 주어지면 6-DoF 포즈를 추정합니다.
+  services: azure-object-anchors
+  ms.service: azure-object-anchors
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+  ms.openlocfilehash: 84ef8d771f4471c11dd77422444a5be98d5c8212
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101742721"
+landingContent:
+- title: Azure Object Anchors 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Object Anchors란?
+      url: overview.md
+    - text: GitHub에서 릴리스 정보 보기
+      url: https://github.com/Azure/azure-object-anchors/releases
+- title: 주요 개념 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: SDK 개요
+      url: ./concepts/sdk-overview.md
+- title: 빠른 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 모델 변환
+      url: ./quickstarts/get-started-model-conversion.md
+    - text: Unity HoloLens
+      url: ./quickstarts/get-started-unity-hololens.md
+    - text: MRTK를 사용한 Unity HoloLens
+      url: ./quickstarts/get-started-unity-hololens-mrtk.md
+    - text: HoloLens DirectX
+      url: ./quickstarts/get-started-hololens-directx.md

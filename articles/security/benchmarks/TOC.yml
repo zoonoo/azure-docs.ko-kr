@@ -235,3 +235,11 @@
   items:
     - name: ASB 및 CIS 벤치마크 간 매핑
       href: v2-cis-benchmark.md
+    - name: Azure 보안 기본 사항
+      href: ../fundamentals/index.yml
+    - name: 클라우드의 공동 책임
+      href: ../fundamentals/shared-responsibility.md
+    - name: Azure Security Center
+      href: ../../security-center/index.yml
+    - name: Azure Security Benchmark Foundation 청사진 샘플
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml

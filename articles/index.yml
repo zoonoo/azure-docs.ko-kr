@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 58b5b8917aeeefb918914a598655da962019de34
-  ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+  ms.openlocfilehash: 2503d6f54efaa32ab76a9321543815e36f37cdcb
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100102974"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101709973"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -36,6 +36,12 @@ highlightedContent:
 productDirectory:
   title: Azure 제품 찾아보기
   items:
+  - title: Azure Percept
+    summary: 실리콘에서 서비스까지의 Edge 인텔리전스
+    imageSrc: ./media/index/azure-percept.svg
+    azureCategories:
+    - iot
+    url: azure-percept/index.yml
   - title: Anomaly Detector
     summary: 앱에 변칙 검색 기능을 쉽게 추가
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
@@ -174,7 +180,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/Custom-Vision-Service/index.yml
+    url: cognitive-services/custom-vision-service/index.yml
   - title: Data Science Virtual Machine
     summary: AI 개발이 용이하도록 미리 구성된 풍부한 환경
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
@@ -204,7 +210,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/ink-recognizer/index.yml
+    url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
   - title: Kinect DK
     summary: 고급 AI 센서가 탑재된 개발자 키트를 사용하여 컴퓨터 비전 및 음성 모델 빌드
     imageSrc: ./media/index/kinect-viewer.svg
@@ -408,6 +414,12 @@ productDirectory:
     - databases
     - iot
     url: cosmos-db/index.yml
+  - title: Apache Cassandra용 Azure Managed Instance
+    summary: 관리형 오픈 소스 Apache Cassandra 데이터 센터의 배포 및 크기 조정 자동화
+    imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+    azureCategories:
+    - databases
+    url: managed-instance-apache-cassandra/index.yml
   - title: Logic Apps
     summary: 코드를 작성하지 않고 클라우드에서 데이터 액세스 및 사용 자동화
     imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
@@ -507,7 +519,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/linux/index.yml
+    url: ./virtual-machines/index.yml
   - title: Service Fabric
     summary: Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션
     imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
@@ -557,7 +569,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/windows/index.yml
+    url: ./virtual-machines/index.yml
   - title: Azure Dev 공간
     summary: Azure AKS에서 마이크로 서비스 앱을 테스트하고 반복적으로 개발
     imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -1192,6 +1204,12 @@ productDirectory:
     azureCategories:
     - networking
     url: load-balancer/index.yml
+  - title: Azure Route Server(미리 보기)
+    summary: 네트워크 어플라이언스의 작업 관리 간소화
+    imageSrc: ./media/index/azure-route-server.svg
+    azureCategories:
+    - networking
+    url: route-server/index.yml
   - title: Virtual Network
     summary: 프라이빗 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-networks.svg

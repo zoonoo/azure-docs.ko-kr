@@ -10,12 +10,12 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: e04b9b98db26b3b9a024a60c6f82820fe20fcbf1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693104"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032197"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc Managed Instance 고가용성 사용
 
@@ -31,7 +31,7 @@ Azure Arc enabled Managed Instance는 컨테이너 화 된 응용 프로그램�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-- Kubernetes 클러스터에는 [공유 된 원격 저장소가](https://docs.microsoft.com/en-us/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) 있어야 합니다. 
+- Kubernetes 클러스터에는 [공유 된 원격 저장소가](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 있어야 합니다. 
 - 단일 복제본을 사용 하 여 배포 된 Azure Arc Managed Instance (기본값)
 
 1. Pod를 봅니다. 

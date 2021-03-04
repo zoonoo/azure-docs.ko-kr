@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d6b05b9656879f174d92d75ca8b188f7e74e5a1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef90a21ab8fad0e18542c1c88ee808237ff150c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032588"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Microsoft 영업 팀 및 파트너와 공동 판매 개요
 
@@ -70,7 +70,7 @@ Biz 앱 ISV 연결 프리미엄 동기 상태를 다음 제안 유형에 적용�
 - 고객 Engagement & PowerApps의 Dynamics 365
 - 운영을 위한 Dynamics 365
 
-_AZURE IP 공동 판매 incentivized_ 또는 Biz 앱에 대 한 제공 _ISV ISV 연결 프리미엄 동기_ 상태는 다음과 같은 상용 marketplace 혜택을 얻습니다.
+_AZURE IP 공동 판매 incentivized_ 상태를 달성 하는 제안은 다음과 같은 상용 marketplace 혜택을 얻습니다.
 
 - Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 되는 IaaS (infrastructure as a service) 솔루션 또는 SaaS (software as a service) 솔루션에 적용 됩니다. 자세한 내용은 [상업적 marketplace 서비스 요금](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)을 참조 하세요.
 - CSP (클라우드 솔루션 공급자) 파트너는 IaaS 솔루션 또는 SaaS 제품을 판매 하기 위해 10% 동기를 받습니다. CSP 프로그램에 대해 자세히 알아보려면 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조 하세요.

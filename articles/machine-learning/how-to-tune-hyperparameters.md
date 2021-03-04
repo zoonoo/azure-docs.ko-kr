@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691487"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032690"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델을 튜닝 하는 하이퍼 매개 변수
 
@@ -332,7 +332,7 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-는에 `HyperDriveConfig` 전달 된 매개 변수를 설정 합니다 `ScriptRunConfig script_run_config` . `script_run_config`그러면는 매개 변수를 학습 스크립트에 전달 합니다. 위의 코드 조각은 샘플 노트북 [학습, 하이퍼 매개 변수 튜닝 및 PyTorch를 사용 하 여 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)에서 가져옵니다. 이 샘플에서는 `learning_rate` 및 `momentum` 매개 변수가 튜닝 됩니다. 실행의 초기 중지는에 의해 결정 됩니다 `BanditPolicy` .이는 기본 메트릭이 외부에 있는 실행을 중지 `slack_factor` 합니다 ( [BanditPolicy 클래스 참조](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)참조). 
+는에 `HyperDriveConfig` 전달 된 매개 변수를 설정 합니다 `ScriptRunConfig script_run_config` . `script_run_config`그러면는 매개 변수를 학습 스크립트에 전달 합니다. 위의 코드 조각은 샘플 노트북 [학습, 하이퍼 매개 변수 튜닝 및 PyTorch를 사용 하 여 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)에서 가져옵니다. 이 샘플에서는 `learning_rate` 및 `momentum` 매개 변수가 튜닝 됩니다. 실행의 초기 중지는에 의해 결정 됩니다 `BanditPolicy` .이는 기본 메트릭이 외부에 있는 실행을 중지 `slack_factor` 합니다 ( [BanditPolicy 클래스 참조](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)참조). 
 
 샘플의 다음 코드에서는 튜닝 된 값을 수신, 구문 분석 및 학습 스크립트의 함수에 전달 하는 방법을 보여 줍니다 `fine_tune_model` .
 

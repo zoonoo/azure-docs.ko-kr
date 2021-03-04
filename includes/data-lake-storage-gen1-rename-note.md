@@ -5,18 +5,17 @@ services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 06/22/2018
+ms.date: 02/22/2021
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 8bae952db0bb1617bddcd736fba6fd60652f2ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4f7490e93e5b0ea94d22f4959ecfd8b911e3e09
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68968902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750779"
 ---
 > [!NOTE]
-> 이제 Azure Data Lake Storage Gen2가 일반 공급됩니다. 오늘부터 사용을 시작하는 것이 좋습니다. 자세한 내용은 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
-> 
+> **2024년 2월 29일** Azure Data Lake Storage Gen1은 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/)를 참조하세요. Azure Data Lake Storage Gen1을 사용하는 경우 해당 날짜 이전에 Azure Data Lake Storage Gen2로 마이그레이션해야 합니다. 방법을 알아보려면 [Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션](../articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)을 참조하세요. 
 
 

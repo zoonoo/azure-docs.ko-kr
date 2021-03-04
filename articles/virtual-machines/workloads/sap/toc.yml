@@ -197,6 +197,8 @@
               href: high-availability-guide-rhel.md
             - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 Red Hat Enterprise Linux에 대한 HA
               href: high-availability-guide-rhel-netapp-files.md
+            - name: RHEL의 SAP용 대규모 인스턴스 HA
+              href: large-instance-high-availability-rhel.md
         - name: Azure 인프라 준비
           items:
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows

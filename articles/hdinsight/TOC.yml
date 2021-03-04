@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: 개념
       items:
-        - name: HDInsight의 Apache 구성 요소
-          href: ./hdinsight-component-versioning.md
+        - name: 버전 관리
+          items:
+            - name: 버전 관리 소개
+              href: ./hdinsight-overview-versioning.md
+            - name: HDInsight 버전
+              href: ./hdinsight-component-versioning.md
+            - name: HDInsight 버전 4.0
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight 버전 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: 사용 중지된 HDInsight 버전
+              href: ./hdinsight-retired-versions.md
         - name: Enterprise Security Package
           href: ./enterprise-security-package.md
         - name: Hortonworks 릴리스 정보
@@ -650,7 +660,7 @@
             - name: IoT Hub와 함께 Apache Kafka 사용
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Confluent 스키마 레지스트리
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: 스트리밍 파이프라인 만들기
               items:
                 - name: 'Apache Spark, Apache Kafka 및 Azure Cosmos DB'
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: 관리
           items:
+            - name: 스토리지 계정 간에 Hive 테이블 복사
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Azure HDInsight에서 기본 Hive 메타스토어를 외부 메타스토어로 마이그레이션
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Apache Hive 쿼리 최적화

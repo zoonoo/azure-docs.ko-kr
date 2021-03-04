@@ -6,7 +6,7 @@
   items:
     - name: DSVM(Data Science Virtual Machine)이란?
       href: overview.md
-    - name: Data Science Virtual Machine에 포함된 도구
+    - name: Data Science Virtual Machine의 도구
       href: tools-included.md
 - name: 빠른 시작
   expanded: true

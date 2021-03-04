@@ -18,6 +18,9 @@
           href: get-started-cli.md
 - name: 개념
   items:
+    - name: 구성
+      href: configuration.md
+      displayName: Routing
     - name: Azure Functions를 통한 API 지원
       href: apis.md
     - name: 경로
@@ -42,6 +45,8 @@
       href: application-settings.md
     - name: 프런트 엔드 프레임워크 및 라이브러리 구성
       href: front-end-frameworks.md
+    - name: 배포 토큰 재설정
+      href: deployment-token-management.md
 - name: 자습서
   items:
     - name: 정적 사이트 생성기에서 게시

@@ -246,14 +246,18 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: '모니터링, 진단 및 문제 해결'
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: NFS 3.0 프로토콜 지원
+          items:
+            - name: 개요
+              href: network-file-system-protocol-support.md
+            - name: 성능 고려 사항
+              href: network-file-system-protocol-support-performance.md
         - name: 이벤트 처리
           href: storage-blob-event-overview.md
         - name: 페이지 Blob 기능
           href: storage-blob-pageblob-overview.md
         - name: 정적 웹 사이트
           href: storage-blob-static-website.md
-        - name: NFS 3.0 프로토콜 지원
-          href: network-file-system-protocol-support.md
     - name: 방법
       items:
         - name: 스토리지 계정 만들기 및 관리
@@ -391,6 +395,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 클라이언트 애플리케이션에 대한 TLS 버전 구성
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 네트워크 라우팅 기본 설정 구성
+                  href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 위협 보호를 위해 Azure Defender 구성
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Blob 데이터 보호
@@ -557,6 +563,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Storage Explorer 문제 해결
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage Explorer 명령줄 옵션
+              href: ../common/storage-explorer-command-line-options.md
             - name: Storage Explorer 보안
               href: ../common/storage-explorer-security.md
             - name: Storage Explorer Blob 버전 관리
@@ -883,3 +891,5 @@
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: 동영상
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: 파트너
+          href: ../solution-integration/

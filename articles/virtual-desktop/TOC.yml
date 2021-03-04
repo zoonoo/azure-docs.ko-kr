@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Azure Files 및 AD DS 사용
           href: create-file-share.md
+        - name: FSLogix 앱 컨테이너를 사용하여 Office 설치
+          href: fslogix-office-app-rule-editor.md
     - name: 호스트 풀 설정 구성
       items:
         - name: RDP 속성
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: 파일 공유 설정
           href: app-attach-file-share.md
+        - name: MSIXMGR 도구 설정
+          href: app-attach-msixmgr.md
     - name: Microsoft Teams 사용
       href: teams-on-wvd.md
     - name: Azure AD Multi-Factor Authentication 설정

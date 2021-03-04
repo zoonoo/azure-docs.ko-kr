@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ba630d5e2f8e3e581f394af2ee687a971d3a7a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693162"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032369"
 ---
 # <a name="securing-managed-identities"></a>관리 되는 id 보안
 
@@ -100,7 +100,7 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-이러한 요청을 필터링 할 수 있습니다. 자세한 내용은 [GET servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http)에 대 한 Graph 설명서를 참조 하세요.
+이러한 요청을 필터링 할 수 있습니다. 자세한 내용은 [GET servicePrincipal](/graph/api/serviceprincipal-get?view=)에 대 한 Graph 설명서를 참조 하세요.
 
 ## <a name="assess-the-security-of-managed-identities"></a>관리 id의 보안 평가 
 
@@ -140,7 +140,7 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
 [Azure 서비스 계정 관리](service-accounts-governing-azure.md)
 
-[온-프레미스 서비스 계정 소개](service-accounts-on-poremises.md)
+[온-프레미스 서비스 계정 소개](service-accounts-on-premises.md)
 
  
 

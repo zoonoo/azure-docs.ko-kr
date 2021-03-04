@@ -85,7 +85,7 @@
               href: create-routebased-vpn-gateway-cli.md
         - name: VPN Gateway 연결 확인
           href: vpn-gateway-verify-connection-resource-manager.md
-        - name: VPN Gateway 다시 설정
+        - name: VPN 게이트웨이 또는 연결 재설정
           href: reset-gateway.md
         - name: VPN Gateway 삭제
           items:
@@ -177,6 +177,10 @@
               href: about-vpn-profile-download.md
             - name: Intune - VPN 클라이언트 프로필 배포
               href: vpn-profile-intune.md
+        - name: 여러 인증 유형
+          items:
+            - name: Azure Portal
+              href: howto-point-to-site-multi-auth.md
         - name: OpenVPN
           items:
             - name: OpenVPN 터널 유형 구성
@@ -205,6 +209,8 @@
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: Azure CLI
               href: bgp-how-to-cli.md
+        - name: BGP 진단
+          href: bgp-diagnostics.md
         - name: 강제 터널링 구성
           items:
             - name: Azure PowerShell

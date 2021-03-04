@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c9df24a255d640c463bd62e8bdfe8a576df3b09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693120"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032418"
 ---
 # <a name="securing-service-principals"></a>서비스 사용자 보안
 
@@ -107,7 +107,7 @@ PowerShell 사용
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>사용자 계정에서 서비스 주체로 이동  
 Azure 사용자 계정을 서비스 사용자로 사용 하는 경우 [관리 되는 id](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) 또는 서비스 주체로 이동할 수 있는지 평가 합니다. 관리 id를 사용할 수 없는 경우 필요한 작업을 실행할 수 있는 충분 한 권한 및 범위가 있는 서비스 주체를 프로 비전 합니다. [응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)하거나 [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)을 사용 하 여 서비스 주체를 만들 수 있습니다.
 
-Microsoft Graph를 사용 하는 경우 [이 예제와 같이](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0)특정 API의 설명서를 확인 하 고 응용 프로그램에 대 한 사용 권한 유형이 지원 되는 것으로 표시 되는지 확인 합니다.
+Microsoft Graph를 사용 하는 경우 [이 예제와 같이](/powershell/azure/create-azure-service-principal-azureps)특정 API의 설명서를 확인 하 고 응용 프로그램에 대 한 사용 권한 유형이 지원 되는 것으로 표시 되는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -115,7 +115,7 @@ Microsoft Graph를 사용 하는 경우 [이 예제와 같이](https://docs.micr
 
 [서비스 주체 만들기](../develop/howto-create-service-principal-portal.md)
 
- [서비스 사용자 로그인 모니터링](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [서비스 사용자 로그인 모니터링](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
 
 **서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 다음을 확인 하세요.**
 
@@ -125,4 +125,4 @@ Microsoft Graph를 사용 하는 경우 [이 예제와 같이](https://docs.micr
 
 [Azure 서비스 계정 관리](service-accounts-governing-azure.md)
 
-[온-프레미스 서비스 계정 소개](service-accounts-on-poremises.md)
+[온-프레미스 서비스 계정 소개](service-accounts-on-premises.md)

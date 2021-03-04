@@ -99,6 +99,8 @@
           href: ipv6-public-ip-address-prefix.md
         - name: 라우팅 기본 설정
           href: routing-preference-overview.md
+        - name: 라우팅 기본 설정 무제한
+          href: routing-preference-unmetered.md
         - name: 공용 IP 보안 기준
           href: public-ip-security-baseline.md
     - name: 보안
@@ -113,7 +115,7 @@
           items:
             - name: 개요
               href: network-security-groups-overview.md
-            - name: 작동 방법
+            - name: 작동 방식
               href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹
           href: application-security-groups.md
@@ -274,6 +276,10 @@
                       href: configure-routing-preference-virtual-machine-powershell.md
                     - name: Azure CLI
                       href: configure-routing-preference-virtual-machine-cli.md
+                - name: VM에 대한 혼합 라우팅 기본 설정 구성
+                  href: routing-preference-mixed-network-adapter-portal.md
+                - name: AKS 클러스터에 대한 라우팅 기본 설정 구성
+                  href: routing-preference-azure-kubernetes-service-cli.md
     - name: 보안
       items:
         - name: 네트워크 트래픽 필터링
@@ -460,7 +466,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

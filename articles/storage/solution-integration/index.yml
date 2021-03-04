@@ -1,0 +1,56 @@
+### YamlMime:Landing
+title: Azure Storage 검증 파트너 솔루션 설명서
+summary: Azure Storage 검증 파트너 솔루션은 Azure Storage 플랫폼의 고급 시나리오를 지원합니다.
+metadata:
+  title: Azure Storage 검증 파트너 솔루션
+  description: Azure Storage 검증 파트너 솔루션은 Azure Storage 플랫폼의 고급 시나리오를 지원합니다.
+  services: storage
+  ms.service: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101742695"
+landingContent:
+- title: Azure 스토리지 분석 및 빅 데이터 파트너
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 검증된 Azure 스토리지 분석 파트너
+      url: .\validated-partners\analytics\partner-overview.md
+- title: Azure Storage 보관, 백업 및 BCDR 파트너
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 검증된 Azure Storage 보관 및 BCDR 파트너
+      url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Commvault 빠른 시작 가이드
+      url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - text: Veeam 빠른 시작 가이드
+      url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+- title: Azure Storage 컨테이너 솔루션 파트너
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 검증된 Azure Storage 컨테이너 솔루션 파트너
+      url: .\validated-partners\container-solutions\partner-overview.md
+- title: Azure Storage 데이터 관리 및 마이그레이션 파트너
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 검증된 Azure Storage 데이터 관리 및 마이그레이션 파트너
+      url: .\validated-partners\data-management\partner-overview.md
+- title: Azure Storage 기본 및 보조 스토리지 파트너
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 기본 및 보조 스토리지용 검증 파트너
+      url: .\validated-partners\primary-secondary-storage\partner-overview.md

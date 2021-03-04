@@ -176,7 +176,7 @@
     - name: 보고
       items:
         - name: 인증 방법 작업
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: SSPR 보고서
           href: howto-sspr-reporting.md
         - name: MFA 보고서

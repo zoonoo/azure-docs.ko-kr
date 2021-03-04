@@ -47,12 +47,19 @@
       items:
         - name: Marketplace 혜택
           href: gtm-your-marketplace-benefits.md
-        - name: 공동 판매 파트너 참여
-          href: marketplace-co-sell.md
-        - name: 파트너 센터의 공동 판매 옵션
-          href: commercial-marketplace-co-sell.md
-        - name: OCP GTM에서 공동 판매 솔루션 마이그레이션
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Microsoft와 공동 판매
+          items:
+            - name: 공동 판매 개요
+              href: marketplace-co-sell.md
+            - name: 공동 판매 요구 사항
+              href: co-sell-requirements.md
+            - name: 공동 판매 구성
+              href: commercial-marketplace-co-sell.md
+            - name: 공동 판매 상태 확인
+              href: co-sell-status.md
+            - name: OCP GTM에서 공동 판매 솔루션 마이그레이션
+              href: co-sell-solution-migration.md
         - name: CSP 파트너를 통한 재판매
           href: cloud-solution-providers.md
         - name: 프로그램 온보딩 연결 가이드
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: IoT Edge 모듈 기술 자산 준비
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: 사전 인증 검사 목록
+          href: iot-edge-checklist.md
     - name: 관리되는 서비스 제품
       items:
         - name: 관리되는 서비스 제품 계획
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: 공동 판매 상태 코드
       href: commercial-marketplace-co-sell-states.md
+    - name: 참조 아키텍처 다이어그램
+      href: reference-architecture-diagram.md
     - name: 범주 및 하위 범주
       href: categories.md
     - name: 지원되는 HTML 태그

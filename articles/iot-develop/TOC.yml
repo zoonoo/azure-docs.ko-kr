@@ -1,8 +1,8 @@
-- name: IoT 디바이스 및 애플리케이션 개발
+- name: IoT 디바이스 개발
   href: index.yml
 - name: 개요
   items:
-    - name: IoT 디바이스 및 애플리케이션 개발이란?
+    - name: IoT 디바이스 개발이란?
       href: about-iot-develop.md
     - name: 어떤 SDK를 사용해야 하는가?
       href: about-iot-sdks.md
@@ -22,7 +22,7 @@
 - name: 자습서
   items:
     - name: IoT 디바이스를 클라우드에 안전하게 연결
-      href: 'https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/'
+      href: /learn/paths/securely-connect-iot-devices/
 - name: 개념
   items:
     - name: 디바이스 개발자를 위한 연결 옵션

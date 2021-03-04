@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: bb132baf3e93242c1b228f0ac7f0cfb7f41e1164
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679841"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032520"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Windows, macOS, Linux 또는 [Azure Cloud Shell](../cloud-shell/overview.md) 에
 
 이 문서의 예는 대화형 이며 높은 권한이 필요 합니다. Azure CLI을 설치 해야 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-이제 `az` Windows 명령 프롬프트, PowerShell 또는 [Azure Cloud Shell](../cloud-shell/overview)에서 명령을 사용 하 여 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 
+이제 `az` Windows 명령 프롬프트, PowerShell 또는 [Azure Cloud Shell](../cloud-shell/overview.md)에서 명령을 사용 하 여 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 
 
 ### <a name="check-the-azure-cli-version"></a>Azure CLI 버전 확인
 
@@ -152,7 +152,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 
 ## <a name="create-or-delete-a-service"></a>서비스 만들기 또는 삭제
 
-[새 검색 서비스를 만들려면](search-create-service-portal) [**az search service create**](/cli/azure/search/service#az_search_service_show) 명령을 사용 합니다.
+[새 검색 서비스를 만들려면](search-create-service-portal.md) [**az search service create**](/cli/azure/search/service#az_search_service_show) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az search service create \

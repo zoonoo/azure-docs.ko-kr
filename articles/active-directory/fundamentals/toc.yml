@@ -51,6 +51,14 @@
               href: 9-secure-access-teams-sharepoint.md
         - name: 서비스 계정 보호
           items:
+            - name: Azure 서비스 계정 소개
+              href: service-accounts-introduction-azure.md
+            - name: 관리 ID 보안
+              href: service-accounts-managed-identities.md
+            - name: 서비스 주체 보안
+              href: service-accounts-principal.md
+            - name: Azure 서비스 계정 관리
+              href: service-accounts-governing-azure.md
             - name: 온-프레미스 서비스 계정 소개
               href: service-accounts-on-premises.md
             - name: 그룹 MSA 보안
@@ -228,7 +236,7 @@
           href: add-users-azure-active-directory.md
         - name: 사용자 프로필 정보 추가 또는 변경
           href: active-directory-users-profile-azure-portal.md
-        - name: 사용자의 암호 다시 설정
+        - name: 사용자의 암호 재설정
           href: active-directory-users-reset-password-azure-portal.md
         - name: 사용자에게 역할 할당
           href: active-directory-users-assign-role-azure-portal.md

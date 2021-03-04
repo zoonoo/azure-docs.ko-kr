@@ -150,8 +150,10 @@
           href: disable-user-sign-in-portal.md
         - name: 셀프 서비스 앱 할당 구성
           href: manage-self-service-access.md
-        - name: 홈 영역 검색
+        - name: Home Realm Discovery 정책을 통해 강제 자동 가속
           href: configure-authentication-for-federated-users-portal.md
+        - name: Home Realm Discovery 정책을 통해 로그인 자동 가속 방지
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: ID 관리를 Azure AD로 마이그레이션
       items:
         - name: 마이그레이션 리소스

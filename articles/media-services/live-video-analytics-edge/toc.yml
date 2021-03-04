@@ -51,6 +51,9 @@
         - name: HTTP 확장을 통한 OVMS 사용
           displayName: 'intel, OpenVINO'
           href: use-intel-openvino-tutorial.md
+        - name: gRPC 확장을 통한 OV DL 스트리머 사용
+          displayName: 'intel, OpenVINO DL Streamer'
+          href: use-intel-grpc-vas-tutorial.md
         - name: Custom Vision 사용
           href: custom-vision-tutorial.md
         - name: 공간 분석 사용
@@ -90,6 +93,8 @@
       href: create-custom-azure-resource-manager-role-how-to.md
     - name: IoT Edge 디바이스에 배포
       href: deploy-iot-edge-device.md
+    - name: Windows에서 Linux용 IoT Edge에 배포
+      href: deploy-iot-edge-linux-on-windows.md
     - name: 모니터링 및 로깅
       href: monitoring-logging.md
     - name: 녹음/녹화 재생

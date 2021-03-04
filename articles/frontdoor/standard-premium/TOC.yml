@@ -49,14 +49,16 @@
       href: how-to-configure-https-custom-domain.md
     - name: 경로 연결
       href: how-to-configure-route.md
+    - name: 규칙 집합 구성
+      href: how-to-configure-rule-set.md
     - name: 규칙 집합을 사용하여 보안 헤더 구성
       href: how-to-add-security-headers.md
     - name: 캐시 제거
       href: how-to-cache-purge.md
     - name: 압축
       href: how-to-compression.md
-    - name: Private Link 사용
-      href: how-to-enable-private-link.md
+    - name: 웹앱에 프라이빗 링크를 사용하도록 설정
+      href: how-to-enable-private-link-web-app.md
     - name: 로깅
       href: how-to-logs.md
     - name: 모니터링 및 경고

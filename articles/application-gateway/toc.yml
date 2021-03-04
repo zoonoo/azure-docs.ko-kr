@@ -158,6 +158,8 @@
           href: ingress-controller-install-existing.md
         - name: Helm을 통한 AKS 수신(그린필드)
           href: ingress-controller-install-new.md
+        - name: Helm 배포에서 AKS 추가 기능으로 마이그레이션
+          href: ingress-controller-migration.md
         - name: AKS 수신 컨트롤러 추가 기능 사용 안 함 및 다시 사용
           href: ingress-controller-disable-addon.md
         - name: 쿠키 선호도 사용
@@ -280,7 +282,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/applicationgateway
     - name: Azure 리소스 관리자
       displayName: ARM

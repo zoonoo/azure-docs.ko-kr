@@ -1,27 +1,27 @@
 ### YamlMime:Landing
-title: IoT 디바이스 및 애플리케이션 개발 설명서
-summary: 임베디드 디바이스를 개발하고 디바이스 지원 클라우드 애플리케이션을 구축하기 위한 Azure IoT 설명서를 살펴보세요.
+title: IoT 디바이스 개발 설명서
+summary: 클라우드 연결 임베디드 디바이스 및 디바이스 애플리케이션을 개발하기 위한 Azure IoT 설명서를 살펴보세요.
 metadata:
-  title: IoT 디바이스 및 애플리케이션 개발
-  description: Azure IoT를 사용하여 임베디드 디바이스 개발을 수행하고 디바이스 지원 클라우드 애플리케이션을 빌드하는 방법을 알아봅니다.
+  title: IoT 디바이스 개발
+  description: 클라우드 연결 임베디드 디바이스 및 디바이스 애플리케이션을 개발하기 위해 Azure IoT를 사용하는 방법을 알아봅니다.
   services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
   ms.date: 01/11/2021
-  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
-  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.openlocfilehash: bb3bd1766e20fd16fa996eb66008140009f6bd5d
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "100656280"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101721449"
 landingContent:
-- title: IoT 디바이스 및 애플리케이션 개발 정보
+- title: IoT 디바이스 개발 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure IoT 디바이스 및 애플리케이션 개발이란?
+    - text: Azure IoT 디바이스 개발이란?
       url: about-iot-develop.md
     - text: 어떤 SDK를 사용해야 하는가?
       url: about-iot-sdks.md

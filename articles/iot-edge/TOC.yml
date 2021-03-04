@@ -251,6 +251,8 @@
       href: how-to-create-test-certificates.md
     - name: Windows 디바이스 관리 스크립트
       href: reference-windows-scripts.md
+    - name: Windows의 Linux용 IoT Edge 스크립트
+      href: reference-iot-edge-for-linux-on-windows-scripts.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: 리소스

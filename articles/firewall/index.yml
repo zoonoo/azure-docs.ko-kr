@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 08/30/2019
-  ms.openlocfilehash: 05898a0e0cd0dc5d97edca483d89f45960c26071
-  ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+  ms.date: 02/24/2021
+  ms.openlocfilehash: dfc3513dd98a6dc1feecd1f66efe34bc61c6a5d5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98046313"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101741381"
 landingContent:
 - title: Azure Firewall에 대한 자세한 정보
   linkLists:
@@ -33,6 +33,20 @@ landingContent:
     links:
     - text: 새로운 기능
       url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+- title: Azure Firewall 프리미엄 미리 보기에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Firewall 프리미엄 미리 보기 기능
+      url: premium-features.md
+  - linkListType: concept
+    links:
+    - text: Azure Firewall 프리미엄 미리 보기 인증서
+      url: premium-certificates.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Firewall 프리미엄 미리 보기 배포 및 구성
+      url: premium-deploy.md
 - title: Azure Firewall 배포
   linkLists:
   - linkListType: tutorial

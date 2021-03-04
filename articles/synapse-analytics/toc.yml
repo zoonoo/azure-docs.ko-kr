@@ -419,7 +419,7 @@
           items:
             - name: 복원 지점 만들기
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Synapse SQL 풀 복원
+            - name: 전용 SQL 풀 복원
               href: ./backuprestore/restore-sql-pool.md
         - name: 관리 및 모니터링
           items:
@@ -552,6 +552,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Spark 작업 정의 제출
           href: ./spark/apache-spark-job-definitions.md
+        - name: Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 수준 메트릭 모니터링
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: 개념
       items:
         - name: Apache Spark
@@ -566,17 +570,21 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Notebooks
           href: ./spark/apache-spark-notebook-concept.md
+        - name: 패키지 관리
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: 모니터링 도구
           href: monitoring/how-to-monitor-spark-applications.md
     - name: 방법 가이드
       items:
         - name: Delta Lake 작업
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: 라이브러리 관리
+        - name: 패키지 관리
           items:
-            - name: 라이브러리 추가 및 관리
-              href: ./spark/apache-spark-azure-portal-add-libraries.md
-            - name: 라이브러리 설치 오류 문제 해결
+            - name: Python 패키지 관리
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Scala 패키지 관리
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Python 패키지 설치 오류 문제 해결
               href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Notebooks 및 IDE 도구 사용
           items:
@@ -851,7 +859,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST (영문)
+            - name: REST
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

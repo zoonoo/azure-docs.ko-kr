@@ -1,17 +1,16 @@
 ---
 title: Azure 리소스에서 리소스 로그를 수집하고 Azure Monitor로 분석
 description: Azure 리소스에서 Log Analytics 작업 영역(로그 쿼리를 사용하여 로그를 분석할 수 있는 작업 영역)으로 리소스 로그를 수집하도록 진단 설정을 구성하는 방법에 대한 자습서입니다.
-ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734148"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032877"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>자습서: Azure 리소스에서 리소스 로그 수집 및 분석
 

@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
-  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+  ms.openlocfilehash: 40effbde3ad1c0676eae4c79f72b84d04dbd62e7
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/15/2021
-  ms.locfileid: "98233953"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101698657"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -159,20 +159,20 @@ conceptualContent:
     footerLink:
       url: ../application-gateway/index.yml
       text: 자세히 보기
-  - title: 글로벌 부하 분산 장치
+  - title: 안전한 클라우드 CDN 및 글로벌 부하 분산 장치
     links:
     - url: ../frontdoor/front-door-overview.md
       itemType: overview
       text: Azure Front Door Service란?
+    - url: ../frontdoor/standard-premium/overview.md
+      itemType: overview
+      text: Azure Front Door 표준/프리미엄(미리 보기)이란?
     - url: ../frontdoor/front-door-custom-domain.md
       itemType: how-to-guide
       text: Azure Front Door Service에 사용자 지정 도메인 추가
     - url: ../frontdoor/front-door-how-to-redirect-https.md
       itemType: how-to-guide
       text: HTTP에서 HTTPS로 리디렉션
-    - url: ../frontdoor/front-door-troubleshoot-routing.md
-      itemType: how-to-guide
-      text: 라우팅 문제 해결
     footerLink:
       url: ../frontdoor/index.yml
       text: 자세히 보기

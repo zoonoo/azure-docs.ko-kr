@@ -68,6 +68,12 @@
           href: tutorial-migrate-aws-virtual-machines.md
         - name: GCP 인스턴스 마이그레이션
           href: tutorial-migrate-gcp-virtual-machines.md
+    - name: 컨테이너화
+      items:
+        - name: ASP.NET 앱 컨테이너화 및 AKS로 마이그레이션
+          href: tutorial-containerize-aspnet-kubernetes.md
+        - name: Java 웹앱 컨테이너화 및 AKS로 마이그레이션
+          href: tutorial-containerize-java-kubernetes.md
 - name: 개념
   items:
     - name: 일반
@@ -180,6 +186,8 @@
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
         - name: 마이그레이션 스케일링
           items:
+            - name: 에이전트 없는 복제 방법을 사용하여 VMware VM을 대규모로 마이그레이션하는 방법
+              href: how-to-scale-out-for-migration.md
             - name: 많은 수의 VM의 마이그레이션 자동화
               href: how-to-migrate-at-scale.md
             - name: VMware 마이그레이션을 자동화하는 방법

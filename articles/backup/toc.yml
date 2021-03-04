@@ -68,6 +68,8 @@
           href: azure-file-share-support-matrix.md
         - name: Azure Disk Backup 지원 매트릭스
           href: disk-backup-support-matrix.md
+        - name: Azure Blob 백업 지원 매트릭스
+          href: blob-backup-support-matrix.md
         - name: Active Directory 도메인 컨트롤러
           href: active-directory-backup-restore.md
         - name: Azure Policy에 지원되는 VM SKU
@@ -132,6 +134,8 @@
           href: backup-center-govern-environment.md
         - name: 작업 수행
           href: backup-center-actions.md
+        - name: 커뮤니티 리소스
+          href: backup-center-community.md
     - name: Azure VM 백업
       items:
         - name: 개요
@@ -224,6 +228,14 @@
           href: backup-managed-disks.md
         - name: 복원
           href: restore-managed-disks.md
+    - name: Azure Blob 백업
+      items:
+        - name: 개요
+          href: blob-backup-overview.md
+        - name: 구성 및 관리
+          href: blob-backup-configure-manage.md
+        - name: 복원
+          href: blob-restore.md
     - name: Azure 파일 공유 백업
       items:
         - name: 개요
@@ -437,6 +449,10 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
+    - name: 액세스 계층
+      items:
+        - name: 보관 액세스 계층
+          href: archive-tier-support.md
     - name: 문제 해결
       items:
         - name: Azure VM

@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Functions 설명서
-summary: Azure Functions는 애플리케이션을 실행하는 데 필요하며 지속적으로 업데이트되는 인프라 및 리소스를 모두 제공하는 주문형 클라우드 서비스입니다. 가장 중요한 코드 조각에 초점을 맞춘 Azure Functions가 나머지를 처리합니다. Azure Functions를 사용하여 웹 API를 빌드하고, 데이터베이스 변경에 응답하고, IoT 스트림을 처리하고, 메시지 큐를 관리하는 등의 작업을 수행할 수 있습니다.
+summary: Azure Functions는 애플리케이션을 실행하는 데 필요하며 지속적으로 업데이트되는 인프라 및 리소스를 모두 제공하는 주문형 클라우드 서비스입니다. 가장 중요한 코드 조각에 초점을 맞춘 Functions가 나머지를 처리합니다. Functions는 Azure에 서버리스 컴퓨팅을 제공합니다. Functions를 사용하여 웹 API를 빌드하고, 데이터베이스 변경에 응답하고, IoT 스트림을 처리하고, 메시지 큐를 관리하는 등의 작업을 수행할 수 있습니다.
 metadata:
   title: Azure Functions 설명서
-  description: Azure Functions는 애플리케이션을 실행하는 데 필요하며 지속적으로 업데이트되는 인프라 및 리소스를 모두 제공하는 주문형 클라우드 서비스입니다. 가장 중요한 코드 조각에 초점을 맞춘 Azure Functions가 나머지를 처리합니다. Azure Functions를 사용하여 웹 API를 빌드하고, 데이터베이스 변경에 응답하고, IoT 스트림을 처리하고, 메시지 큐를 관리하는 등의 작업을 수행할 수 있습니다.
+  description: Azure Functions는 애플리케이션을 실행하는 데 필요하며 지속적으로 업데이트되는 인프라 및 리소스를 모두 제공하는 주문형 클라우드 서비스입니다. 가장 중요한 코드 조각에 초점을 맞춘 Azure Functions가 나머지를 처리합니다. Functions는 Azure에 서버리스 컴퓨팅을 제공합니다. Azure Functions를 사용하여 웹 API를 빌드하고, 데이터베이스 변경에 응답하고, IoT 스트림을 처리하고, 메시지 큐를 관리하는 등의 작업을 수행할 수 있습니다.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 4d856232d2f0780852a1f369548b08012d124834
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100363035"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101729167"
 landingContent:
 - title: Azure Functions 정보
   linkLists:

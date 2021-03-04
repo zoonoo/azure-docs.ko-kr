@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 077fcfd38c42b722b73937d75eb65276fa93d2c8
-  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+  ms.openlocfilehash: ed8bd35ec93c8f61bdf9bb974446337159f6ddb0
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98807056"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101703820"
 landingContent:
 - title: Azure Backup에 대해 알아보기
   linkLists:
@@ -54,6 +54,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Azure Blob 백업
+      url: blob-backup-overview.md
     - text: Azure Disk Backup
       url: disk-backup-overview.md
     - text: 백업 센터

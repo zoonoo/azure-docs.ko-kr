@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버를 대규모로 배포 하도록 계획 하는 �
 description: Azure Arc 사용 서버에 대해 많은 수의 컴퓨터를 사용 하도록 설정 하 여 Azure에서 필수 보안, 관리 및 모니터링 기능의 구성을 간소화 하는 방법을 알아봅니다.
 ms.date: 02/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd02e7c0b4d65efde13fbc428a15d60adab174d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693094"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032231"
 ---
 # <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Azure Arc 사용 서버를 대규모로 배포 하기 위한 계획
 
@@ -71,7 +71,7 @@ ms.locfileid: "101693094"
 
 |Task |세부 정보 |Duration |
 |-----|-------|---------|
-| 미리 정의 된 설치 스크립트 다운로드 | 자동화 된 배포 요구 사항을 지원 하기 위해 연결 된 컴퓨터 에이전트를 대규모로 배포 하기 위해 미리 정의 된 설치 스크립트를 검토 하 고 사용자 지정 합니다.<br><br> 샘플 확장 온 보 딩 리소스:<br><br> * [규모에 맞게 기본 배포 스크립트](servers/onboard-service-principal.md)<br><br> * [Windows Server Vm에 대 한 확장 VMware vSphere 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)<br><br> * [VMware vSphere Linux Vm에 대 한 대규모 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)<br><br> * [Ansible를 사용 하 여 스케일 아웃 온 보 딩 AWS EC2 인스턴스](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)<br><br> * [PowerShell 원격을 사용 하 여 규모에 맞게 배포](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows에만 해당)| 요구 사항, 조직 프로세스 (예: 변경 및 Release Management) 및 사용 되는 자동화 방법에 따라 하나 이상의 일이 있습니다. |
+| 미리 정의 된 설치 스크립트 다운로드 | 자동화 된 배포 요구 사항을 지원 하기 위해 연결 된 컴퓨터 에이전트를 대규모로 배포 하기 위해 미리 정의 된 설치 스크립트를 검토 하 고 사용자 지정 합니다.<br><br> 샘플 확장 온 보 딩 리소스:<br><br> <ul><li> [규모에 맞게 기본 배포 스크립트](onboard-service-principal.md)</ul></li> <ul><li>[Windows Server Vm에 대 한 확장 VMware vSphere 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[VMware vSphere Linux Vm에 대 한 대규모 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Ansible를 사용 하 여 스케일 아웃 온 보 딩 AWS EC2 인스턴스](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[PowerShell 원격을 사용 하 여 규모에 맞게 배포](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows에만 해당)</ul></li>| 요구 사항, 조직 프로세스 (예: 변경 및 Release Management) 및 사용 되는 자동화 방법에 따라 하나 이상의 일이 있습니다. |
 | [서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Azure PowerShell 또는 포털을 사용 하 여 비 대화형으로 컴퓨터를 연결 하는 서비스 주체를 만듭니다.| 1시간 |
 | 대상 서버 및 컴퓨터에 연결 된 컴퓨터 에이전트 배포 |자동화 도구를 사용 하 여 서버에 스크립트를 배포 하 고 Azure에 연결 합니다.| 릴리스 요금제에 따라 1 일 이상, 단계별 출시 후에 수행 됩니다. |
 
@@ -83,7 +83,7 @@ ms.locfileid: "101693094"
 |-----|-------|---------|
 |Resource Health 경고 만들기 |서버에서 15 분 이상 Azure로 하트 비트 전송을 중지 하는 경우에는 오프 라인 상태 이거나, 네트워크 연결이 차단 되었거나, 에이전트가 실행 되 고 있지 않음을 의미할 수 있습니다. 이러한 인시던트를 응답 하 고 조사 하는 방법에 대 한 계획을 수립 하 고 [Resource Health 경고](../..//service-health/resource-health-alert-monitor-guide.md) 를 사용 하 여 시작 시 알림을 받을 수 있습니다.<br><br> 경고를 구성할 때 다음을 지정 합니다.<br> **리소스 종류**  =  **Azure Arc 사용 서버**<br> **현재 리소스 상태**  =  **사용할 수 없음**<br> **이전 리소스 상태**  =  **사용 가능** | 1시간 |
 |Azure Advisor 경고 만들기 | 최상의 경험과 최신 보안 및 버그 수정을 위해 Azure Arc 사용 서버 에이전트를 최신 상태로 유지 하는 것이 좋습니다. 최신 에이전트는 [Azure Advisor 경고](../../advisor/advisor-alerts-portal.md)로 식별 됩니다.<br><br> 경고를 구성할 때 다음을 지정 합니다.<br> **권장 사항 유형**  =  **최신 버전의 Azure 연결 된 컴퓨터 에이전트로 업그레이드** | 1시간 |
-|구독 또는 리소스 그룹 범위에 [Azure 정책 할당](../../governance/policy/assign-policy-portal.md) |**사용 VM용 Azure Monitor** 정책 및 요구 사항을 충족 하는 기타 사용자를 구독 또는 리소스 그룹 범위에 할당 하 여 모든 Arc 사용 서버를 자동으로 모니터링 하도록 구성 VM용 Azure Monitor 합니다.| 상황에 따라 다름 |
+|구독 또는 리소스 그룹 범위에 [Azure 정책 할당](../../governance/policy/assign-policy-portal.md) |**사용 VM용 Azure Monitor** [정책](../../azure-monitor/vm/vminsights-enable-policy.md) (및 요구 사항을 충족 하는 다른 사용자)을 구독 또는 리소스 그룹 범위에 할당 합니다. Azure Policy를 사용 하면 사용자 환경에서 VM용 Azure Monitor에 필요한 에이전트를 설치 하는 정책 정의를 할당할 수 있습니다.| 상황에 따라 다름 |
 |[Arc 사용 서버에 대 한 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) |Azure Automation에서 업데이트 관리를 구성 하 여 Arc 사용 서버에 등록 된 Windows 및 Linux 가상 머신에 대 한 운영 체제 업데이트를 관리 합니다. | 15분 |
 
 ## <a name="next-steps"></a>다음 단계

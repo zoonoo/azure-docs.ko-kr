@@ -314,7 +314,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Azure에서 클러스터 업그레이드
               href: service-fabric-cluster-upgrade.md
-            - name: 확장
+            - name: 크기 조정
               href: service-fabric-cluster-scaling.md
             - name: 클러스터 네트워킹 패턴
               href: service-fabric-patterns-networking.md
@@ -324,7 +324,7 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: 독립 실행형 클러스터 업그레이드
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: 확장
+            - name: 크기 조정
               href: service-fabric-cluster-scaling-standalone.md
         - name: 클러스터 리소스 관리자
           items:
@@ -356,7 +356,7 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: 서비스 이동
               href: service-fabric-cluster-resource-manager-movement-cost.md
-            - name: 자동 확장 서비스
+            - name: 자동 크기 조정 서비스
               href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: 모니터링 및 진단
       items:
@@ -448,12 +448,14 @@
           href: how-to-managed-cluster-vmss-extension.md
         - name: 관리형 클러스터 구성
           href: how-to-managed-cluster-configuration.md
+        - name: NSG 규칙 및 기타 관리형 클러스터 네트워킹 옵션 추가
+          href: how-to-managed-cluster-networking.md
         - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: 관리 ID를 사용하여 관리형 클러스터 구성
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
           href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: 관리형 클러스터 노드에 관리 ID 사용
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: 계획 및 준비
       items:
         - name: 클러스터 용량 계획

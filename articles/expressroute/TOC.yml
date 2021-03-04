@@ -136,6 +136,12 @@
           href: expressroute-howto-set-global-reach.md
         - name: Azure CLI
           href: expressroute-howto-set-global-reach-cli.md
+    - name: 개인 피어링을 위한 IPv6 지원 추가(미리 보기)
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-add-ipv6-portal.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-ipv6-powershell.md
     - name: 모니터링
       items:
         - name: 'ExpressRoute 모니터링, 메트릭 및 경고'
@@ -192,7 +198,7 @@
           href: expressroute-troubleshooting-expressroute-overview.md
         - name: 네트워크 성능 문제 해결
           href: expressroute-troubleshooting-network-performance.md
-        - name: 실패한 회로 다시 설정
+        - name: 실패한 회로 재설정
           href: reset-circuit.md
         - name: ARP 테이블 받기
           href: expressroute-troubleshooting-arp-resource-manager.md
