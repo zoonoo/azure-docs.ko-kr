@@ -1,15 +1,14 @@
 ---
 title: Azure Monitor 메트릭 및 자동 크기 조정에 대 한 배포 Api 사용 중지
 description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 하는 메트릭 및 크기 자동 조정 클래식 API의 사용이 중지됨
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: d818e06b13454633199488ca94e1ff8fbe418360
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0169de93b92de179c0ae9a36ff8dba3b7b1dc0fb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049035"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 

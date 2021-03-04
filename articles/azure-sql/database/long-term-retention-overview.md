@@ -8,25 +8,28 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale-msft
 ms.reviewer: mathoma, sstein
-ms.date: 05/18/2019
-ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/25/2021
+ms.openlocfilehash: cd1ba0516d8cb7fdaf3b8d4786cfe68240231303
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782623"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050973"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>장기 보존-Azure SQL Database 및 Azure SQL Managed Instance
 
-많은 응용 프로그램에는 Azure SQL Database 및 Azure SQL Managed Instance [자동 백업](automated-backups-overview.md)에서 제공 하는 7-35 일 외에 데이터베이스 백업을 보존 해야 하는 규제, 규정 준수 또는 기타 비즈니스 목적이 있습니다. LTR (장기 보존) 기능을 사용 하면 최대 10 년 동안 [중복성을 구성](automated-backups-overview.md#backup-storage-redundancy) 하 여 Azure Blob storage에 지정 된 SQL DATABASE 및 SQL Managed Instance 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
+많은 응용 프로그램에는 Azure SQL Database 및 Azure SQL Managed Instance [자동 백업](automated-backups-overview.md)에서 제공 하는 7-35 일 외에 데이터베이스 백업을 보존 해야 하는 규제, 규정 준수 또는 기타 비즈니스 목적이 있습니다. LTR (장기 보존) 기능을 사용 하면 최대 10 년 동안 [중복성을 구성](automated-backups-overview.md#backup-storage-redundancy) 하 여 Azure Blob storage에 지정 된 SQL DATABASE 및 SQL Managed Instance 전체 백업을 저장할 수 있습니다. 그러면 LTR 백업을 새 데이터베이스로 복원할 수 있습니다.
 
-장기 보존은 Azure SQL Database에 대해 사용 하도록 설정할 수 있으며, Azure SQL Managed Instance에 대해 제한 된 공개 미리 보기로 제공 됩니다. 이 문서에서는 장기 보존에 대 한 개념적 개요를 제공 합니다. 장기 보존을 구성 하려면 [AZURE SQL DATABASE Ltr 구성](long-term-backup-retention-configure.md) 및 [AZURE SQL Managed Instance ltr](../managed-instance/long-term-backup-retention-configure.md)구성을 참조 하세요. 
+장기 보존은 Azure SQL Database에 대해 사용 하도록 설정할 수 있으며 Azure SQL Managed Instance에 대 한 공개 미리 보기에서 사용할 수 있습니다. 이 문서에서는 장기 보존에 대 한 개념적 개요를 제공 합니다. 장기 보존을 구성 하려면 [AZURE SQL DATABASE Ltr 구성](long-term-backup-retention-configure.md) 및 [AZURE SQL Managed Instance ltr](../managed-instance/long-term-backup-retention-configure.md)구성을 참조 하세요. 
 
 > [!NOTE]
 > SQL 에이전트 작업을 사용하여 35일이 초과된 LTR의 대안으로 [복사 전용 데이터베이스 백업](/sql/relational-databases/backup-restore/copy-only-backups-sql-server)을 예약할 수 있습니다.
+
+> [!IMPORTANT]
+> Managed Instance에 대 한 장기 보존은 현재 Azure 공개 지역 에서만 공개 미리 보기로 제공 됩니다. 
 
 
 ## <a name="how-long-term-retention-works"></a>장기 보존 작동 방법
@@ -77,25 +80,20 @@ W=12주(84일), M=12개월(365일), Y=10년(3650일), WeekOfYear=15(4월 15일 �
 > [!NOTE]
 > 원래 주 데이터베이스가 장애 조치 (failover)를 일으킨 중단에서 복구 되 면 새 보조 데이터베이스가 됩니다. 따라서 백업 생성이 다시 시작되지 않고 기존 LTR 정책은 다시 주 데이터베이스가 될 때까지 적용되지 않습니다. 
 
-## <a name="sql-managed-instance-support"></a>SQL Managed Instance 지원
-
-Azure SQL Managed Instance에서 장기 백업 보존을 사용 하면 다음과 같은 제한 사항이 있습니다.
-
-- **제한 된 공개 미리 보기** -이 미리 보기는 EA 및 CSP 구독에만 사용할 수 있으며 제한 된 가용성이 적용 됩니다.  
-- [**PowerShell 전용**](../managed-instance/long-term-backup-retention-configure.md) -현재 Azure Portal 지원 되지 않습니다. LTR은 PowerShell을 사용 하 여 설정 해야 합니다. 
-
-등록을 요청 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만듭니다. 문제 유형에 대해 기술 문제를 선택 하 고, 서비스에서 SQL Managed Instance를 선택 하 고, 문제 유형에 대해 **백업, 복원 및 비즈니스 연속성/장기 백업 보존** 을 선택 합니다. 요청에서 SQL Managed Instance에 대 한 LTR의 제한 된 공개 미리 보기에 등록 하려는 상태를 확인 하세요.
 
 ## <a name="configure-long-term-backup-retention"></a>장기 백업 보존 구성
 
-Azure SQL Database에 대 한 Azure Portal 및 PowerShell 및 Azure SQL Managed Instance PowerShell을 사용 하 여 장기 백업 보존을 구성할 수 있습니다. LTR 스토리지에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다. 원본 데이터베이스와 동일한 구독의 기존 서버 또는 관리 되는 인스턴스로 데이터베이스를 복원할 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance에 대 한 Azure Portal 및 PowerShell을 사용 하 여 장기 백업 보존을 구성할 수 있습니다. LTR 스토리지에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다. 원본 데이터베이스와 동일한 구독의 기존 서버 또는 관리 되는 인스턴스로 데이터베이스를 복원할 수 있습니다.
 
-Azure Portal 또는 PowerShell을 사용 하 여 장기 보존을 구성 하거나 SQL Database 백업에서 데이터베이스를 복원 하는 방법을 알아보려면 [장기 백업 보존 Azure SQL Database 관리](long-term-backup-retention-configure.md) 를 참조 하세요.
+Azure Portal 또는 PowerShell을 사용 하 여 장기 보존을 구성 하거나 SQL Database 백업에서 데이터베이스를 복원 하는 방법을 알아보려면 [장기 백업 보존 Azure SQL Database 관리](long-term-backup-retention-configure.md)를 참조 하세요.
 
 PowerShell을 사용 하 여 장기 보존을 구성 하거나 SQL Managed Instance 백업에서 데이터베이스를 복원 하는 방법을 알아보려면 [AZURE sql Managed Instance 장기 백업 보존 관리](../managed-instance/long-term-backup-retention-configure.md)를 참조 하세요.
 
-LTR 스토리지에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다. 데이터베이스는 원본 데이터베이스와 동일한 구독 아래의 기존 서버로 복원될 수 있습니다. Azure Portal 또는 PowerShell을 사용 하 여 LTR 백업에서 데이터베이스를 복원 하는 방법을 알아보려면 [장기 백업 보존 Azure SQL Database 관리](long-term-backup-retention-configure.md)를 참조 하세요. 요청에서 SQL Managed Instance에 대해 LTR의 제한 된 공개 미리 보기에 등록 하려는 상태를 확인 하세요.
+LTR 스토리지에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다. 데이터베이스는 원본 데이터베이스와 동일한 구독 아래의 기존 서버로 복원될 수 있습니다. Azure Portal 또는 PowerShell을 사용 하 여 LTR 백업에서 데이터베이스를 복원 하는 방법을 알아보려면 [장기 백업 보존 Azure SQL Database 관리](long-term-backup-retention-configure.md)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략에서 필수입니다. 다른 SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
+데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략에서 필수입니다. 
+
+- 다른 SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
+- 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](../database/automated-backups-overview.md) 참조

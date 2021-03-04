@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 4b5cb9abe53cdb29cbc1b4c9711fb8efcf0348d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050837"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>AGIC 투구에서 AGIC 추가 기능으로 마이그레이션 
 
@@ -46,7 +46,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 또는이 [링크](https://portal.azure.com/?feature.aksagic=true) 를 사용 하 여 포털에서 AKS 클러스터로 이동 하 고 클러스터의 네트워킹 탭에서 AGIC 추가 기능을 사용 하도록 설정할 수 있습니다. 추가 기능을 대상으로 하는 Application Gateway 선택 하는 경우 드롭다운 메뉴에서 기존 Application Gateway를 선택 합니다. 
 
-![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="next-steps"></a>다음 단계
 - [**Application Gateway 수신 컨트롤러 문제 해결**](ingress-controller-troubleshoot.md): AGIC에 대 한 문제 해결 가이드 

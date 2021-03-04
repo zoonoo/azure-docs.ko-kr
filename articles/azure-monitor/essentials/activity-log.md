@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723302"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049188"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
 활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](./platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 위해 활동 로그를 [Azure Monitor 로그](../logs/data-platform-logs.md), azure Event Hubs에서 azure로 전달 하거나 보관을 위해 Azure Storage 전송 하는 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대 한 세부 정보를 제공 합니다.
@@ -200,7 +199,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | Description |
+    | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
     | StorageAccountId |No |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
@@ -243,7 +242,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 속성 | 필수 | Description |
+    | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | name |예 |로그 프로필의 이름입니다. |
     | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |

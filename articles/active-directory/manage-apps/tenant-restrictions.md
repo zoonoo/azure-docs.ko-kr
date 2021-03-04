@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687076"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050905"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "101687076"
 
 이 문서에서는 Microsoft 365에 대 한 테 넌 트 제한 사항에 중점을 둔 반면,이 기능은 사용자를 Single Sign-On Azure AD로 보내는 모든 앱을 보호 합니다. Microsoft 365에서 사용 하는 테 넌 트의 다른 Azure AD 테 넌 트에서 SaaS 앱을 사용 하는 경우 필요한 모든 테 넌 트가 허용 되는지 확인 합니다 (예: B2B 공동 작업 시나리오). 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)를 참조하세요.
 
-또한 테 넌 트 제한 기능은 OneDrive, Hotmail 및 Xbox.com와 같은 [모든 Microsoft 소비자 응용 프로그램](#blocking-consumer-applications) (MSA 앱)의 사용 차단을 지원 합니다.  이는 끝점에 대 한 별도의 헤더를 사용 `login.live.com` 하며 문서 끝에 자세히 설명 되어 있습니다.
+또한 테 넌 트 제한 기능은 OneDrive, Hotmail 및 Xbox.com와 같은 [모든 Microsoft 소비자 응용 프로그램](#blocking-consumer-applications-public-preview) (MSA 앱)의 사용 차단을 지원 합니다.  이는 끝점에 대 한 별도의 헤더를 사용 `login.live.com` 하며 문서 끝에 자세히 설명 되어 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

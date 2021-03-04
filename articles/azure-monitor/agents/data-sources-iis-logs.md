@@ -1,17 +1,16 @@
 ---
 title: Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 description: IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Azure Monitor에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2020
-ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732057"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050735"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](../data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.
@@ -26,7 +25,7 @@ Azure Monitor는 IIS에서 생성된 로그 파일의 항목을 수집하므로 
 
 Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
-Log Analytics 에이전트에 대 한 [고급 설정 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집** 을 선택하는 것 외에 다른 구성은 필요 없습니다.
+Log Analytics 에이전트의 [에이전트 구성 메뉴](../agents/agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집** 을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집

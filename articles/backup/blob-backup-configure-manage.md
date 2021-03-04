@@ -3,12 +3,12 @@ title: Azure Blob에 대 한 운영 백업 구성
 description: Azure Blob (미리 보기)에 대 한 운영 백업을 구성 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 7fe302de0e93575e7bb62f7c5cdefd7acc0720c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0dc490842389ba9286799aef5d37c1cf7c1ba64e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745749"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051075"
 ---
 # <a name="configure-operational-backup-for-azure-blobs-in-preview"></a>Azure Blob에 대 한 운영 백업 구성 (미리 보기)
 
@@ -170,4 +170,4 @@ Blob 백업은 저장소 계정 수준에서 구성 됩니다. 따라서 저장�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Blob 복원](blob-backup-support-matrix.md)
+- [Azure Blob 복원](blob-restore.md)

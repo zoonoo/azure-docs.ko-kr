@@ -2,13 +2,13 @@
 title: Azure Policy 사용 준수
 description: Azure Policy의 기본 제공 정책을 할당 하 여 Azure container registry의 준수 감사
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291021"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050582"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure container registry의 준수 감사
 
@@ -22,7 +22,7 @@ Azure Policy 사용에 대 한 요금은 없습니다.
 
 다음 기본 제공 정책 정의는 Azure Container Registry에만 적용 됩니다.
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 또한 기본 제공 네트워크 정책 정의를 참조 하세요. [Container Registry는 가상 네트워크 서비스 끝점을 사용 해야](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78)합니다.
 
@@ -43,8 +43,8 @@ Azure Portal, Azure 명령줄 도구 또는 Azure Policy Sdk를 사용 하 여 �
 
 ### <a name="policy-compliance-in-the-portal"></a>포털의 정책 준수:
 
-1. **모든 서비스**를 선택 하 고 **정책을**검색 합니다.
-1. **준수**를 선택 합니다.
+1. **모든 서비스** 를 선택 하 고 **정책을** 검색 합니다.
+1. **준수** 를 선택 합니다.
 1. 필터를 사용 하 여 준수 상태를 제한 하거나 정책을 검색 합니다.
 
     ![포털의 정책 준수](./media/container-registry-azure-policy/azure-policy-compliance.png)
@@ -75,7 +75,7 @@ az policy state list \
   --resource <policyID>
 ```
 
-또는 [az policy state list](/cli/azure/policy/state#az-policy-state-list) 를 실행 하 여 *myregistry*와 같은 특정 레지스트리 리소스의 JSON 형식 준수 상태를 반환 합니다.
+또는 [az policy state list](/cli/azure/policy/state#az-policy-state-list) 를 실행 하 여 *myregistry* 와 같은 특정 레지스트리 리소스의 JSON 형식 준수 상태를 반환 합니다.
 
 ```azurecli
 az policy state list \

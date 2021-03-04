@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720616"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051432"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대한 고객 Lockbox
 
@@ -24,7 +24,8 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 
 이 문서에서는 고객 Lockbox을 사용 하도록 설정 하는 방법과 이후 검토 및 감사를 위해 Lockbox 요청을 시작, 추적 및 저장 하는 방법을 설명 합니다.
 
-<a id='supported-services-and-scenarios-in-preview'># # 지원 되는 서비스 및 시나리오 (일반 공급)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>지원 되는 서비스 및 시나리오 (일반 공급)
 
 이제 고객 Lockbox에 대해 다음과 같은 서비스가 일반 공급 됩니다.
 

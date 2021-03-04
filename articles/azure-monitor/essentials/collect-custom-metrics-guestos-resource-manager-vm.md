@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.subservice: metrics
-ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731717"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049018"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 Azure Virtual Machine의 게스트 OS 성능 데이터는 다른 [플랫폼 메트릭](./monitor-azure-resource.md#monitoring-data)과 마찬가지로 자동으로 수집되지 않습니다. Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 설치하여 게스트 OS 메트릭을 메트릭 데이터베이스로 수집합니다. 이러한 메트릭은 근실시간 경고, 차트, 라우팅 및 REST API에서의 액세스를 비롯한 Azure Monitor 메트릭의 모든 기능에서 사용할 수 있습니다. 이 문서에서는 Resource Manager 템플릿을 사용하여 Windows 가상 머신에 대한 게스트 OS 성능 메트릭을 메트릭 데이터베이스로 보내는 프로세스에 대해 설명합니다. 

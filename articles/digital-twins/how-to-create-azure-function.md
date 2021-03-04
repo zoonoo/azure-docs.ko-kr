@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546077"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050004"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -65,7 +65,7 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core`
+* `Azure.Core.Pipeline`
 
 **옵션 2. 명령줄 도구를 사용 하 여 패키지를 추가 합니다 `dotnet` .**
 
@@ -75,7 +75,7 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.Identity
 dotnet add package System.Net.Http
-dotnet add package Azure.Core
+dotnet add package Azure.Core.Pipeline
 ```
 
 그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 함수에 다음 문을 추가 합니다. 

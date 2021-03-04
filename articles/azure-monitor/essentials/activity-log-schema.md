@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: c2cea95dba3be02b9db584b0650761cb2d640283
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 721563fa140dfddbfb5984db8465187fb90018e5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728776"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049171"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 Azure [활동 로그](./platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 범주와 각 항목에 대 한 스키마를 설명 합니다. 
@@ -38,7 +37,7 @@ Azure [활동 로그](./platform-logs-overview.md) 는 azure에서 발생 한 �
 ## <a name="categories"></a>범주
 활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](./resource-logs.md#send-to-azure-event-hubs)때 스키마가 다릅니다. [리소스 로그 스키마](./resource-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | [관리](#administrative-category) | Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 관리 이벤트의 예로는 가상 머신 만들기 및 네트워크 보안 그룹 삭제가 있습니다.<br><br>Resource Manager를 사용하여 사용자 또는 애플리케이션에서 수행하는 모든 작업은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 이벤트에는 구독에서 Azure 역할 기반 액세스 제어에 대 한 변경 내용도 포함 됩니다. |
 | [Service Health](#service-health-category) | Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 서비스 상태 이벤트 예제로 미국 동부의 SQL Azure에서 가동 중지 시간 발생이 있습니다. <br><br>서비스 상태 이벤트는 6가지 형태로 제공됩니다. 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안입니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성됩니다.

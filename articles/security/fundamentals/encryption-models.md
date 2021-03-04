@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854617"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051381"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -152,7 +152,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Machine Learning Studio (클래식) | 예         | 미리 보기, RSA 2048비트 | -               |
 | Content Moderator                | 예                | 예                | -                  |
 | Face                             | 예                | 예                | -                  |
-| Language Understanding           | 예                | 예                | -                  |
+| 언어 이해           | 예                | 예                | -                  |
 | Personalizer                     | 예                | 예                | -                  |
 | QnA Maker                        | 예                | 예                | -                  |
 | Speech Services                  | 예                | 예                | -                  |
@@ -181,7 +181,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | App Service                      | 예                | 예\*\*            | -                  |
 | Automation                       | 예                | 예\*\*            | -                  |
 | Azure 기능                  | 예                | 예\*\*            | -                  |
-| Azure portal                     | 예                | 예\*\*            | -                  |
+| Azure Portal                     | 예                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
 | Azure 관리 되는 응용 프로그램       | 예                | 예\*\*            | -                  |
 | Service Bus                      | 예                | 예                | -                  |
@@ -199,8 +199,8 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Databricks                 | 예                | 예                | -                  |
 | Azure Database Migration Service | 예                | 해당 없음\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | 예                | -                  | 예                |
-| Azure Repos                      | 예                | -                  | 예                |
+| Azure DevOps Services            | 예                | -                  | -                  |
+| Azure Repos                      | 예                | -                  | -                  |
 | **ID**                     |                    |                    |                    |
 | Azure Active Directory           | 예                | -                  | -                  |
 | Azure Active Directory Domain Services | 예          | 예                | -                  |

@@ -3,12 +3,12 @@ title: 보관 계층 지원 (미리 보기)
 description: Azure Backup에 대 한 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: cd9cfc5722dc644dd257738be797f162ac6dc995
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 30a7915332d1d7ecab87b0db1ddc6dacc0fa69c9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745852"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050650"
 ---
 # <a name="archive-tier-support-preview"></a>보관 계층 지원 (미리 보기)
 
@@ -35,6 +35,9 @@ Azure Backup는 스냅숏 및 표준 계층 외에도 보관 계층에서 장기
 
 - PowerShell을 사용 하 여 기능이 제공 됩니다.
 
+>[!NOTE]
+>Azure vm의 Azure Vm 및 SQL Server에 대 한 보관 계층 지원은 제한 된 signups를 사용 하는 제한 된 공개 미리 보기 상태입니다. 보관 지원에 등록 하려면이 [링크](https://aka.ms/ArchivePreviewInterestForm)를 사용 합니다.
+
 ## <a name="get-started-with-powershell"></a>PowerShell 시작
 
 1. [최신 PowerShell 모듈](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) (미리 보기)을 다운로드 합니다.
@@ -43,12 +46,30 @@ Azure Backup는 스냅숏 및 표준 계층 외에도 보관 계층에서 장기
 
    `Set-AzContext -Subscription "SubscriptionName"`
 
+1. 자격 증명 모음을 가져옵니다.
+
+    `$vault =  Get-AzRecoveryServicesVault -ResourceGroupName "rgName" -Name "vaultName"`
+
+1. 백업 항목의 목록을 가져옵니다.
+
+    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+
+1. 백업 항목을 가져옵니다.
+
+    - Azure virtual machines의 경우:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<vmName>'}`
+
+    - Azure virtual machines의 SQL Server:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+
 ## <a name="use-powershell"></a>PowerShell 사용
 
 ### <a name="check-archivable-recovery-points"></a>보관할 수 복구 지점의 확인
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
 그러면 보관으로 이동할 준비가 된 특정 백업 항목과 연결 된 모든 복구 지점이 나열 됩니다.
@@ -56,7 +77,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-1
 ### <a name="check-why-a-recovery-point-cannot-be-moved-to-archive"></a>복구 지점을 보관으로 이동할 수 없는 이유 확인
 
 ```azurepowershell
-$rp.RecoveryPointMoveReadinessInfo["ArchivedRP"]
+$rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
 여기서 `$rp[0]` 은 보관할 수 되지 않는 이유를 확인 하려는 복구 지점입니다.
@@ -79,13 +100,13 @@ False           Recovery-Point Type is not eligible for archive move as it is al
 >비용 절감은 다양 한 원인에 따라 다르며, 두 인스턴스에 대해 동일 하지 않을 수 있습니다.
 
 ```azurepowershell
-$recommendedRPs = SGet-AzRecoveryServicesRecommendedArchivableRPGroup -Item $BackupItem -StartDate $Startdate.ToUniversalTime() -EndDate $Enddate.ToUniversalTime() -VaultId $vault.ID 
+$RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivableRPGroup -Item $bckItm -VaultId $vault.ID
 ```
 
 ### <a name="move-to-archive"></a>보관으로 이동
 
 ```azurepowershell
-Move-AzRecoveryServicesRecoveryPoint -VaultId $vault.ID - RecoveryPoint $RecoveryPoint[10] -SourceTier VaultStandard -DestinationTier VaultArchive 
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
 
 이 명령은 보관할 수 복구 지점을 archive로 이동 합니다. 포털 및 PowerShell에서 이동 작업을 추적 하는 데 사용할 수 있는 작업을 반환 합니다.
@@ -95,7 +116,7 @@ Move-AzRecoveryServicesRecoveryPoint -VaultId $vault.ID - RecoveryPoint $Recover
 이 명령은 보관 된 복구 지점은 모두 반환 합니다.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
 ```
 
 ### <a name="restore-with-powershell"></a>PowerShell을 사용 하 여 복원
@@ -122,7 +143,7 @@ SQL Server 복원 하려면 [다음 단계](backup-azure-sql-automation.md#resto
 이동 및 복원 작업을 보려면 다음 PowerShell cmdlet을 사용 합니다.
 
 ```azurepowershell
-Get-AzRecoveryservicesBackupJob -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
 
 ## <a name="use-the-portal"></a>포털 사용

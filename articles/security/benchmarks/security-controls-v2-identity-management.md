@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f76ebf8609b5f4ac587800359a5cbb0c6f967f3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a36bd69ff5ddbc79e358d6f8a2c5b4d640c6d5c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698606"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051449"
 ---
 # <a name="security-control-v2-identity-management"></a>보안 제어 V2: Id 관리
 
 Id 관리는 Azure Active Directory를 사용 하 여 보안 id 및 액세스 제어를 설정 하는 컨트롤을 포함 합니다. 여기에는 응용 프로그램, 조건부 액세스 및 계정 변칙 모니터링에 대 한 Single Sign-On, 강력한 인증, 관리 되는 id (및 서비스 원칙)의 사용이 포함 됩니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: Identity Management의 세부 정보](../../governance/policy/samples/azure-security-benchmark#identity-management) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: Identity Management의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#identity-management) 를 참조 하세요.
 
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 

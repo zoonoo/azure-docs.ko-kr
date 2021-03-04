@@ -416,7 +416,7 @@
                 - name: Event Hubs로 보내기
                   href: agents/diagnostics-extension-stream-event-hubs.md
                 - name: 로그에 보내기
-                  href: essentials/diagnostics-extension-logs.md
+                  href: agents/diagnostics-extension-logs.md
                 - name: Application Insights로 보내기
                   href: agents/diagnostics-extension-to-application-insights.md
                 - name: 버전 기록
@@ -993,7 +993,7 @@
         - name: 상용 서비스 관련 FAQ
           href: vm/vminsights-ga-release-faq.md
         - name: FAQ
-          href: faq.md#azure-monitor-for-vms
+          href: faq.md#vm-insights
         - name: 작업 영역 구성
           href: vm/vminsights-configure-workspace.md
         - name: 에이전트 설치
@@ -1045,7 +1045,7 @@
         - name: 개요
           href: containers/container-insights-overview.md
         - name: FAQ
-          href: faq.md#azure-monitor-for-containers
+          href: faq.md#container-insights
         - name: 모니터링 사용
           items:
             - name: 모니터링 사용 개요

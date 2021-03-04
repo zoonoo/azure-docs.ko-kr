@@ -1,17 +1,16 @@
 ---
 title: PowerShell을 사용하여 Log Analytics 만들기 및 구성
 description: Azure Monitor의 Log Analytics 작업 영역은 온-프레미스 또는 클라우드 인프라에 있는 서버의 데이터를 저장합니다. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 378967657a487d27a9fdae16fe783bc0a3865d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d876a380bfc2d318cddc0964266cc3f0a870aa16
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620374"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050990"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용하여 Azure Monitor에서 Log Analytics 작업 영역 만들기 및 구성
 이 문서에서는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하는 방법을 보여 줍니다.  

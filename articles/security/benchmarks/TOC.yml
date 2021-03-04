@@ -242,4 +242,4 @@
     - name: Azure Security Center
       href: ../../security-center/index.yml
     - name: Azure Security Benchmark Foundation 청사진 샘플
-      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md

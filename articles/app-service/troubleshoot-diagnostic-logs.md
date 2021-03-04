@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6008304ea7c1d17363587a4fa5bf6017cb0903f9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586268"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049239"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | 없음 |
+|**사용 안 함** | None |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -116,7 +116,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- 기본적으로 ASP.NET Core는 [Microsoft. 확장명](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 을 사용 하 여 로깅 공급자를 사용 합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)을 참조하세요.
+- 기본적으로 ASP.NET Core는 [Microsoft. 확장명](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 을 사용 하 여 로깅 공급자를 사용 합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)을 참조하세요. WebJobs SDK 로깅에 대 한 자세한 내용은 [AZURE WEBJOBS sdk 시작](/azure/app-service/webjobs-sdk-get-started#enable-console-logging) 을 참조 하세요.
 
 ## <a name="stream-logs"></a>로그 스트리밍
 

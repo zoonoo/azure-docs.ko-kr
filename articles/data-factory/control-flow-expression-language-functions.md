@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 829afda7ba49d60e51f3a074d38e5a1d0ca924a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385628"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050055"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 
@@ -44,7 +44,7 @@ ms.locfileid: "100385628"
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
 |"\@\@"|'\@'를 포함하는 1개 문자열이 반환됩니다.|  
-|“\@”|'\@'를 포함하는 2개 문자열이 반환됩니다.|  
+|" \@"|'\@'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간* 이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -59,13 +59,33 @@ ms.locfileid: "100385628"
 |"Answer is: @{pipeline().parameters.myNumber}"| `Answer is: 42` 문자열을 반환합니다.|  
 |“\@concat(‘Answer is: ’, string(pipeline().parameters.myNumber))”| `Answer is: 42` 문자열을 반환합니다.|  
 |"대답은 다음과 같습니다. \@\@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
-  
+
 ## <a name="examples"></a>예
 
 ### <a name="complex-expression-example"></a>복합 식 예
 아래 예에서 작업 출력의 심층 하위 필드를 참조하는 복잡한 예를 보여 줍니다. 하위 필드로 계산되는 파이프라인 매개 변수를 참조하려면 subfield1 및 subfield2의 경우와 같이 점(.) 연산자 대신 [] 구문을 사용합니다.
 
-@activity('*activityName*'). 출력. *subfield1*. *subfield2*[pipeline (). parameters.*subfield3*]. *subfield4*
+`@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+### <a name="dynamic-content-editor"></a>동적 콘텐츠 편집기
+
+편집을 마치면 동적 콘텐츠 편집기가 자동으로 콘텐츠에서 문자를 이스케이프 합니다. 예를 들어 콘텐츠 편집기의 다음 콘텐츠는 두 개의 식 함수를 사용 하는 문자열 보간입니다. 
+
+```json
+{ 
+  "type": "@{if(equals(1, 2), 'Blob', 'Table' )}",
+  "name": "@{toUpper('myData')}"
+}
+```
+
+동적 콘텐츠 편집기는 위의 콘텐츠를 식으로 변환 `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` 합니다. 이 식의 결과는 아래에 표시 된 JSON 형식 문자열입니다.
+
+```json
+{
+  "type": "Table",
+  "name": "MYDATA"
+}
+```
 
 ### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 세트
 다음 예제에서는 BlobDataset은 **경로** 라는 매개 변수를 사용합니다. `dataset().path` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 
@@ -536,7 +556,7 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 and(<expression1>, <expression2>)
 ```
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
@@ -2392,7 +2412,7 @@ not(equals(1, 1))
 or(<expression1>, <expression2>)
 ```
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||

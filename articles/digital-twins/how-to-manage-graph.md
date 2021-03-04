@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530453"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050939"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -30,7 +30,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-또한 Azure Digital 쌍 (ADT) 탐색기 샘플을 사용 하 여 그래프를 변경할 수 있습니다 .이 샘플을 사용 하면 쌍과 그래프를 시각화 하 고, 백그라운드에서 SDK를 사용할 수 있습니다. 다음 섹션에서는이 샘플에 대해 자세히 설명 합니다.
+또한 Azure Digital 쌍 탐색기 샘플을 사용 하 여 그래프를 변경할 수 있습니다 .이 샘플을 사용 하면 쌍과 그래프를 시각화 하 고, 백그라운드에서 SDK를 사용할 수 있습니다. 다음 섹션에서는이 샘플에 대해 자세히 설명 합니다.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 

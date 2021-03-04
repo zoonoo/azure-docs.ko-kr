@@ -438,14 +438,6 @@
           href: manage/review-subscription-billing.md
         - name: 리소스 사용 검토
           href: manage/review-service-usage-api.md
-    - name: .NET 샘플
-      items:
-        - name: 청구서 API 코드 샘플
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: 사용량 API 코드 샘플
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: RateCard API 코드 샘플
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Cloudyn
   items:
     - name: 개요

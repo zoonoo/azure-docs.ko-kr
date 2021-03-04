@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381153"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049851"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -31,7 +31,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 링크 합니다.
 1. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 여 다시 만들어야 하는 모든 부분을 명확 하 게 파악할 수 있습니다.
 
@@ -52,18 +52,18 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
     - Azure IoT Hub Device Provisioning Service
 * 내 인스턴스에 연결 하는 다른 *개인 또는 회사 앱* 은 무엇 인가요?
 
-[Azure Portal](https://portal.azure.com), [Azure Digital twins api 및 Sdk](how-to-use-apis-sdks.md), [azure digital Twins CLI 명령](how-to-use-cli.md)또는 [Azure digital twins (ADT) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 하 여이 정보를 수집할 수 있습니다.
+[Azure Portal](https://portal.azure.com), [Azure Digital twins api 및 Sdk](how-to-use-apis-sdks.md), [azure digital Twins CLI 명령](how-to-use-cli.md)또는 [azure digital twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 하 여이 정보를 수집할 수 있습니다.
 
 ## <a name="prepare"></a>준비
 
-이 섹션에서는 원래 인스턴스에서 원래 모델, 쌍 및 그래프를 다운로드 하 여 인스턴스를 다시 만들 준비를 합니다. 이 문서에서는이 작업에 대 한 [ADT 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 합니다.
+이 섹션에서는 원래 인스턴스에서 원래 모델, 쌍 및 그래프를 다운로드 하 여 인스턴스를 다시 만들 준비를 합니다. 이 문서에서는이 작업에 대 한 [Azure Digital Twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 합니다.
 
 >[!NOTE]
 >인스턴스에 모델이 나 그래프가 포함 된 파일이 이미 있을 수 있습니다. 이 경우 누락 된 부분이 나 원래 이러한 파일을 업로드 한 이후 변경 되었을 수 있는 항목을 다시 다운로드할 필요가 없습니다. 예를 들어 새 데이터로 업데이트 된 쌍가 있을 수 있습니다.
 
-### <a name="limitations-of-adt-explorer"></a>ADT 탐색기의 제한 사항
+### <a name="limitations-of-azure-digital-twins-explorer"></a>Azure Digital Twins 탐색기의 제한 사항
 
-[ADT 탐색기 샘플](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 은 그래프의 시각적 표현을 지원 하 고 인스턴스와 시각적 상호 작용을 제공 하는 클라이언트 앱 샘플입니다. 이 문서에서는이를 사용 하 여 다운로드 한 후 나중에 다시 업로드, 모델, 쌍, 그래프를 다운로드 하는 방법을 보여 줍니다.
+[Azure Digital Twins 탐색기 샘플](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 은 그래프의 시각적 표현을 지원 하 고 인스턴스와 시각적 상호 작용을 제공 하는 클라이언트 앱 샘플입니다. 이 문서에서는이를 사용 하 여 다운로드 한 후 나중에 다시 업로드, 모델, 쌍, 그래프를 다운로드 하는 방법을 보여 줍니다.
 
 이 샘플은 완전 한 도구가 아닙니다. 스트레스 테스트는 되지 않았으며 큰 크기의 그래프를 처리 하도록 빌드되지 않았습니다. 따라서 다음과 같은 기본 샘플 제한 사항을 염두에 두어야 합니다.
 
@@ -77,27 +77,27 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 * [Azure Digital Twins CLI 명령](how-to-use-cli.md)
 * [Azure Digital Twins Api 및 Sdk](how-to-use-apis-sdks.md)
 
-### <a name="set-up-the-adt-explorer-application"></a>ADT 탐색기 응용 프로그램 설정
+### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Azure Digital Twins 탐색기 응용 프로그램 설정
 
-ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코드를 다운로드 하 고 컴퓨터에서 실행 되도록 설정 합니다.
+Azure Digital Twins 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코드를 다운로드 하 고 컴퓨터에서 실행 되도록 설정 합니다.
 
-샘플을 얻으려면 [ADT 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)를 참조 하세요. **Zip 다운로드** 단추를 선택 하 여이 샘플 코드의 .zip 파일을 컴퓨터에 **Azure_Digital_Twins__ADT__explorer.zip** 로 다운로드 합니다. 파일의 압축을 풉니다.
+샘플을 얻으려면 [Azure Digital Twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)를 참조 하세요. **Zip 다운로드** 단추를 선택 하 여이 샘플 코드의 .zip 파일을 컴퓨터에 **Azure_Digital_Twins__ADT__explorer.zip** 로 다운로드 합니다. 파일의 압축을 풉니다.
 
-그런 다음 ADT Explorer에 대 한 사용 권한을 설정 하 고 구성 합니다. Azure Digital Twins 빠른 시작의 [Azure Digital twins 및 ADT 탐색기 설정](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) 섹션에 있는 지침을 따르세요. 이 섹션에서는 다음 단계를 안내 합니다.
+다음으로, Azure Digital Twins 탐색기에 대 한 사용 권한을 설정 하 고 구성 합니다. Azure Digital Twins 빠른 시작의 azure 디지털 쌍 [및 Azure Digital Twins 탐색기 설정](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) 섹션에 있는 지침을 따르세요. 이 섹션에서는 다음 단계를 안내 합니다.
 
 1. Azure Digital Twins 인스턴스를 설정 합니다. 인스턴스가 이미 있으므로이 파트를 건너뛸 수 있습니다.
 1. 인스턴스에 대 한 액세스를 제공 하기 위해 로컬 Azure 자격 증명을 설정 합니다.
-1. ADT 탐색기를 실행 하 고 인스턴스에 연결 하도록 구성 합니다. 이동 하는 원래 Azure Digital Twins 인스턴스의 *호스트 이름을* 사용 합니다.
+1. Azure Digital Twins 탐색기를 실행 하 고 인스턴스에 연결 하도록 구성 합니다. 이동 하는 원래 Azure Digital Twins 인스턴스의 *호스트 이름을* 사용 합니다.
 
-이제 ADT 탐색기 샘플 앱이 컴퓨터의 브라우저에서 실행 되 고 있어야 합니다. 이 샘플은 원래 Azure Digital Twins 인스턴스에 연결 해야 합니다.
+이제 컴퓨터의 브라우저에서 Azure Digital Twins 탐색기 샘플 앱을 실행 해야 합니다. 이 샘플은 원래 Azure Digital Twins 인스턴스에 연결 해야 합니다.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Localhost: 3000에서 실행 중인 앱을 표시 하는 브라우저 창입니다. 앱은 ADT 탐색기 라고 하며 쿼리 탐색기, 모델 뷰, 그래프 뷰 및 속성 탐색기에 대 한 상자를 포함 합니다. 아직 화면 데이터는 없습니다." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Localhost: 3000에서 실행 중인 앱을 표시 하는 브라우저 창입니다. 앱을 Azure Digital Twins 탐색기 라고 하며 쿼리 탐색기, 모델 뷰, 그래프 뷰 및 속성 탐색기에 대 한 상자를 포함 합니다. 아직 화면 데이터는 없습니다." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 연결을 확인 하려면 **쿼리 실행** 단추를 선택 하 여 **그래프 탐색기** 상자에서 그래프의 모든 쌍 및 관계를 표시 하는 기본 쿼리를 실행 합니다.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="창의 오른쪽 위 모퉁이에서 실행 쿼리를 읽는 단추가 강조 표시 됩니다." lightbox="media/how-to-move-regions/run-query.png":::
 
-이 문서의 뒷부분에서이 항목을 다시 사용 하 여 대상 지역의 새 인스턴스에 이러한 항목을 다시 업로드할 수 있으므로 ADT 탐색기를 실행 상태로 둘 수 있습니다.
+이 문서의 뒷부분에서이 항목을 다시 사용 하 여 대상 지역의 새 인스턴스에 이러한 항목을 다시 업로드 하기 때문에 Azure Digital Twins 탐색기를 실행 상태로 둘 수 있습니다.
 
 ### <a name="download-models-twins-and-graph"></a>모델, 쌍 및 그래프 다운로드
 
@@ -131,17 +131,17 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 다음으로 원래의 복사본 인 새 인스턴스를 설정 합니다.
 
-#### <a name="upload-the-original-models-twins-and-graph-by-using-adt-explorer"></a>ADT 탐색기를 사용 하 여 원래 모델, twins 및 그래프 업로드
+#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Azure Digital Twins 탐색기를 사용 하 여 원래 모델, 쌍 및 그래프 업로드
 
 이 섹션에서는 모델, 쌍 및 그래프를 새 인스턴스에 다시 업로드할 수 있습니다. 원본 인스턴스에 모델, 쌍 또는 그래프가 없거나 새 인스턴스로 이동 하지 않으려는 경우에는 [다음 섹션](#re-create-endpoints-and-routes)으로 건너뛸 수 있습니다.
 
-그렇지 않으면 ADT 탐색기를 실행 하는 브라우저 창으로 돌아가 다음 단계를 수행 합니다.
+그렇지 않으면 Azure Digital Twins 탐색기를 실행 하는 브라우저 창으로 돌아가 다음 단계를 수행 합니다.
 
 ##### <a name="connect-to-the-new-instance"></a>새 인스턴스에 연결
 
-현재 ADT 탐색기는 원래의 Azure Digital Twins 인스턴스에 연결 됩니다. 창의 오른쪽 위 모퉁이에 있는 **로그인** 단추를 선택 하 여 새 인스턴스를 가리키도록 연결을 전환 합니다.
+현재 Azure Digital Twins 탐색기는 원래 Azure 디지털 쌍 인스턴스에 연결 됩니다. 창의 오른쪽 위 모퉁이에 있는 **로그인** 단추를 선택 하 여 새 인스턴스를 가리키도록 연결을 전환 합니다.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="창의 오른쪽 위 모퉁이에 있는 로그인 아이콘을 강조 표시 하는 ADT 탐색기입니다. 아이콘은 키의 실루엣으로 오버레이 된 사람의 간단한 실루엣을 보여 줍니다." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="창의 오른쪽 위 모퉁이에 있는 로그인 아이콘을 강조 표시 하는 Azure Digital Twins 탐색기. 아이콘은 키의 실루엣으로 오버레이 된 사람의 간단한 실루엣을 보여 줍니다." lightbox="media/how-to-move-regions/sign-in.png":::
 
 새 인스턴스를 반영 하도록 **ADT URL** 을 바꿉니다. 이 값을 변경 하 여 *https://{새 인스턴스 호스트 이름}* 을 읽습니다.
 
@@ -157,19 +157,19 @@ ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코�
 
 파일 선택기 상자에서 다운로드 한 그래프로 이동 합니다. Graph **. json** 파일을 선택 하 고 **열기** 를 선택 합니다.
 
-몇 초 후 ADT 탐색기에서 로드할 그래프의 미리 보기를 보여 주는 **가져오기** 뷰가 열립니다.
+몇 초 후에 Azure Digital Twins 탐색기에서 로드할 그래프의 미리 보기를 보여 주는 **가져오기** 보기가 열립니다.
 
-그래프 업로드를 확인 하려면 **그래프 뷰** 상자의 오른쪽 위 모퉁이에 있는 **저장** 아이콘을 선택 합니다.
+그래프 업로드를 확인하려면 **그래프 보기** 상자의 오른쪽 위 모서리에서 **저장** 아이콘을 선택합니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="그래프 미리 보기 창에서 저장 아이콘을 강조 표시 합니다." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="[그래프 미리 보기] 창에서 [저장] 아이콘이 강조 표시되어 있습니다." lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azure Digital 쌍 인스턴스에 업로드 합니다. 업로드 된 모델, 쌍 및 관계의 수를 알리는 성공 메시지가 표시 됩니다.
+이제 azure digital 쌍 탐색기는 모델 및 그래프 (쌍 및 관계 포함)를 새 Azure Digital 쌍 인스턴스에 업로드 합니다. 업로드 된 모델, 쌍 및 관계의 수를 알리는 성공 메시지가 표시 됩니다.
 
 :::row:::
     :::column:::
@@ -187,7 +187,7 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 
 그래프 **탐색기** 상자에 모든 해당 쌍 및 관계가 표시 되는 그래프가 표시 되어야 합니다. **모델 뷰** 상자에도 모델이 표시 됩니다.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="모델 뷰 상자에 강조 표시 된 두 개의 모델 및 그래프 탐색기 상자에 강조 표시 된 그래프를 보여 주는 ADT 탐색기의 뷰입니다." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="모델 뷰 상자에 강조 표시 된 두 개의 모델 및 그래프 탐색기 상자에 강조 표시 된 그래프를 보여 주는 Azure Digital Twins 탐색기의 뷰입니다." lightbox="media/how-to-move-regions/post-upload.png":::
 
 이러한 뷰는 모델, 쌍 및 그래프가 대상 지역의 새 인스턴스에 다시 업로드 되었는지 확인 합니다.
 
@@ -228,7 +228,7 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 
 * [Azure Portal](https://portal.azure.com). 포털은 새 인스턴스가 존재 하 고 올바른 대상 지역에 있는지 확인 하는 데 적합 합니다. 끝점 및 경로를 확인 하 고 다른 Azure 서비스에 대 한 연결을 확인 하는 데도 유용 합니다.
 * [Azure Digital Twins CLI 명령](how-to-use-cli.md)입니다. 이러한 명령은 새 인스턴스가 존재 하 고 올바른 대상 영역에 있는지 확인 하는 데 유용 합니다. 인스턴스 데이터를 확인 하는 데도 사용할 수 있습니다.
-* [ADT 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT 탐색기는 모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 적합 합니다.
+* [Azure Digital Twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins 탐색기는 모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 유용 합니다.
 * [Azure Digital Twins api 및 sdk](how-to-use-apis-sdks.md) 이러한 리소스는 모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 유용 합니다. 끝점과 경로를 확인 하는 데도 유용 합니다.
 
 원래 인스턴스로 실행 한 사용자 지정 앱 또는 종단 간 흐름을 실행 하 여 새 인스턴스와 제대로 작동 하는지 확인할 수도 있습니다.

@@ -3,14 +3,14 @@ title: 데이터 보안 Azure Automation
 description: 이 문서는 Azure Automation 개인 정보를 보호 하 고 데이터를 보호 하는 방법을 알아봅니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581117"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050820"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -41,7 +41,7 @@ Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log 
 
 ## <a name="data-retention"></a>데이터 보존
 
-Azure Automation에서 리소스를 삭제할 경우 영구적으로 제거하기 전에 감사를 위해 며칠 동안 보존됩니다. 이 기간 동안에는 리소스를 보거나 사용할 수 없습니다. 이 정책은 삭제되는 Automation 계정에 속한 리소스에도 적용됩니다.
+Azure Automation에서 리소스를 삭제할 경우 영구적으로 제거하기 전에 감사를 위해 며칠 동안 보존됩니다. 이 기간 동안에는 리소스를 보거나 사용할 수 없습니다. 이 정책은 삭제되는 Automation 계정에 속한 리소스에도 적용됩니다. 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다. 하지만 데이터를 더 오랜 기간 동안 유지해야 하는 경우 [Azure Automation 작업 데이터를 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)할 수 있습니다.
 
 다음 표에는 여러 리소스에 대한 보존 정책이 요약되어 있습니다.
 
@@ -54,9 +54,9 @@ Azure Automation에서 리소스를 삭제할 경우 영구적으로 제거하�
 | 모듈 |모듈은 사용자가 삭제한 후 30일이 지나면 영구적으로 제거됩니다. 또는 사용자가 모듈을 보유한 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
 | 노드 구성/MOF 파일 |이전 노드 구성은 새 노드 구성이 생성된 후 30일이 지나면 영구적으로 제거됩니다. |
 | 노드 보고서 |노드 보고서는 해당 노드에 대한 새 보고서가 생성된 후 90일이 지나면 영구적으로 제거됩니다. |
-| Runbook |Runbook은 사용자가 리소스를 삭제한 후 30일이 지나면 영구적으로 제거됩니다. 또는 사용자가 리소스를 보유한 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
+| Runbook |Runbook은 사용자가 리소스를 삭제 한 후 30 일이 지나면 영구적으로 제거 되 고, 사용자가 리소스<sup>1</sup>을 보유 하는 계정을 삭제 한 후 30 일이 지나면 영구적으로 제거 됩니다. |
 
-보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다. 하지만 데이터를 더 오랜 기간 동안 유지해야 하는 경우 [Azure Automation 작업 데이터를 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)할 수 있습니다.
+<sup>1</sup> Microsoft Azure 지원 서비스에 Azure 지원 인시던트를 제출 하 여 30 일 기간 내에 runbook을 복구할 수 있습니다. [Azure 지원 사이트로](/support/options) 이동 하 여 **지원 요청 제출** 을 선택 합니다.
 
 ## <a name="data-backup"></a>데이터 백업
 

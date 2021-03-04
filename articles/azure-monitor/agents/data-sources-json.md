@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 description: Linux용 Log Analytics 에이전트를 사용하여 Azure Monitor로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: cd216e277a64d6e3edc87dc4027550bc8c7c5bfa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fe80a5c117e8c94e5df946813a1c025747ff40e8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726243"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050701"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 2a225d4ea19cccea114e47cc61a8055d28e8cd99
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bbcfe4935843a00bc5274273e79f4ffc72dc25ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895293"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051058"
 ---
 # <a name="add-controls-to-a-map"></a>지도에 컨트롤 추가
 
@@ -58,11 +58,11 @@ map.controls.add(new atlas.control.PitchControl(), {
 
 ## <a name="add-compass-control"></a>나침반 컨트롤 추가
 
-나침반 컨트롤은 지도를 회전 하는 단추를 추가 합니다. 다음 코드 샘플에서는 [나침반 컨트롤](/javascript/api/azure-maps-control/atlas.control.compasscontrol) 클래스의 인스턴스를 만들고 지도의 왼쪽 아래 모퉁이에 추가 합니다.
+나침반 컨트롤은 지도를 회전 하는 단추를 추가 합니다. 다음 코드 샘플에서는 [Compsmi-s 컨트롤](/javascript/api/azure-maps-control/atlas.control.compasscontrol) 클래스의 인스턴스를 만들고 지도의 왼쪽 아래 모퉁이에 추가 합니다.
 
 ```javascript
 //Construct a compass control and add it to the map.
-map.controls.add(new atlas.control.Compass(), {
+map.controls.add(new atlas.control.CompassControl(), {
     position: 'bottom-left'
 });
 ```
@@ -105,7 +105,7 @@ map.controls.add([
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="탐색 제어 옵션" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>탐색 제어 옵션</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>탐색 제어 옵션</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 사용자 지정 된 탐색 컨트롤을 만들려면 클래스에서 확장 `atlas.Control` 하거나 HTML 요소를 만들고 지도 div 위에 배치 하는 클래스를 만듭니다. 이 UI 컨트롤이 map 함수를 호출 `setCamera` 하 여 맵을 이동 하도록 합니다. 

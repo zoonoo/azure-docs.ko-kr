@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39466ad621eff1a7d3490c936c90fbff6f63e0fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724424"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051551"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>보안 제어 V2: 백업 및 복구
 
 백업 및 복구는 서로 다른 서비스 계층의 데이터 및 구성 백업이 수행 되 고, 유효성을 검사 하 고, 보호 되도록 하는 컨트롤을 포함 합니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 백업 및 복구의 세부 정보](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 백업 및 복구의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery) 를 참조 하세요.
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: 정기적으로 자동 백업 확인
 
@@ -66,7 +66,7 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액
 
 - [고객 관리형 키를 사용하여 백업 데이터 암호화](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [공격 으로부터 하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -90,7 +90,7 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 Azure 역할 기반 액
 
 - [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Azure에서 Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **책임**: Customer
 

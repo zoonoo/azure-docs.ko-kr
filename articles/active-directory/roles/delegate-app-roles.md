@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071269"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051194"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -77,7 +77,7 @@ Azure AD에는 모든 응용 프로그램에 대해 Azure AD의 구성 관리에
 - 애플리케이션 관리자: 이 역할의 사용자는 엔터프라이즈 애플리케이션, 애플리케이션 등록 및 애플리케이션 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할은 위임 된 권한에 동의할 수 있는 기능 및 Microsoft Graph를 제외한 응용 프로그램 권한을 부여 합니다. 이 역할에 할당된 사용자는 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가되지 않습니다.
 - 클라우드 애플리케이션 관리자: 이 역할의 사용자는 애플리케이션 관리자 역할과 동일한 권한을 가집니다. 애플리케이션 프록시를 관리하는 기능은 제외됩니다. 이 역할에 할당된 사용자는 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가되지 않습니다.
 
-자세한 내용 및 이러한 역할에 대 한 설명을 보려면 [사용 가능한 역할](permissions-reference.md#available-roles)을 참조 하세요.
+자세한 내용 및 이러한 역할에 대 한 설명을 보려면 [AZURE AD 기본 제공 역할](permissions-reference.md)을 참조 하세요.
 
 [사용자에 게 역할 할당 Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) 방법 가이드의 지침에 따라 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자 역할을 할당 합니다.
 

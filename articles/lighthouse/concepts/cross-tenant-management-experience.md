@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699252"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050395"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -113,9 +113,11 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 [Azure Policy](../../governance/policy/index.yml):
 
 - 위임 된 구독 내에서 정책 정의 만들기 및 편집
+- 여러 테 넌 트에 정책 정의 및 정책 할당 배포
 - 위임 된 구독 내에서 고객 정의 정책 정의 할당
 - 고객은 자신이 직접 작성한 정책과 함께 서비스 공급자가 작성한 정책을 볼 수 있습니다.
 - [DeployIfNotExists를 재구성 하거나 관리 되는 테 넌 트 내에서 할당을 수정할](../how-to/deploy-policy-remediation.md) 수 있습니다.
+- 고객 테 넌 트의 비호환 리소스에 대 한 준수 세부 정보 보기는 현재 지원 되지 않습니다.
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 

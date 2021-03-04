@@ -2,17 +2,16 @@
 title: 분석 Azure Monitor 로그에 대 한 ETW (ETW(Windows용 이벤트 추적)) 이벤트 수집
 description: Azure Monitor 로그에서 분석을 위해 ETW(Windows용 이벤트 추적) (ETW)를 수집 하는 방법에 대해 알아봅니다.
 services: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 096d16bb2c7249ec99f37fbee9d8ffc8f0e45db2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719902"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050769"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>분석 Azure Monitor 로그에 대 한 ETW (ETW(Windows용 이벤트 추적)) 이벤트 수집
 
@@ -72,7 +71,7 @@ Get-NetEventProvider -ShowInstalled | Select-Object Name, Guid
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>4 단계: 저장소 계정 컬렉션 Log Analytics 구성
 
-Azure Storage에서 로그를 수집 하려면 [다음 지침](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) 을 따르세요. 구성 된 후에는 **Etwevent** 테이블 아래 LOG ANALYTICS에 ETW 이벤트 데이터가 표시 되어야 합니다.
+Azure Storage에서 로그를 수집 하려면 [다음 지침](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) 을 따르세요. 구성 된 후에는 **Etwevent** 테이블 아래 LOG ANALYTICS에 ETW 이벤트 데이터가 표시 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 필드](../logs/custom-fields.md) 를 사용 하 여 ETW 이벤트에서 구조 만들기

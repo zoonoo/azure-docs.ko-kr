@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 43dd047738538b0dcc76904e951eccea3a327c19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715960"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050242"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -140,7 +140,8 @@ MacOS 또는 Linux를 사용할 때 Visual Studio Code에서 논리 앱 프로�
 
 * JavaScript를 실행 하는 [인라인 코드 작업 동작](../logic-apps/logic-apps-add-run-inline-code.md) 을 사용 하려면 [Node.js 버전 2.x, 4.x 또는 12. x.](https://nodejs.org/en/download/releases/)x를 설치 합니다.
 
-  > [!TIP] Windows의 경우 MSI 버전을 다운로드 합니다. ZIP 버전을 대신 사용 하는 경우 운영 체제에 대 한 PATH 환경 변수를 사용 하 여 Node.js 수동으로 사용 하도록 설정 해야 합니다.
+  > [!TIP] 
+  > Windows의 경우 MSI 버전을 다운로드 합니다. ZIP 버전을 대신 사용 하는 경우 운영 체제에 대 한 PATH 환경 변수를 사용 하 여 Node.js 수동으로 사용 하도록 설정 해야 합니다.
 
 * Visual Studio Code에서 [기본 제공 HTTP](../connectors/connectors-native-webhook.md)웹 후크 트리거와 같은 webhook 기반 트리거 및 작업을 로컬로 실행 하려면 [콜백 URL에 대 한 전달을 설정](#webhook-setup)해야 합니다.
 
@@ -628,7 +629,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -652,7 +653,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
 
-   | 작업 상태 | 아이콘 | Description |
+   | 작업 상태 | 아이콘 | 설명 |
    |---------------|------|-------------|
    | **중단됨** | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |

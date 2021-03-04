@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 73bd2ac3159b674dd01c853bb540989fa10c8c28
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895022"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051364"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -101,7 +101,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -235,7 +235,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
         az vmss extension set -n "KeyVaultForLinux" `
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
-        --vm-name "<vmName>" `
+        --vmss-name "<vmssName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 다음 제한 사항/요구 사항에 주의하세요.

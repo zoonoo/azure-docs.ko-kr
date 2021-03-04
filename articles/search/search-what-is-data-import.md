@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422453"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049324"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>데이터 가져오기 개요-Azure Cognitive Search
 
@@ -52,7 +52,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 .NET SDK에서 개체에 데이터를 패키지 `IndexBatch` 합니다. 는 `IndexBatch` 개체의 컬렉션을 캡슐화 하며 `IndexAction` , 각 개체에는 문서 및 속성을 포함 하 여 해당 문서에 대해 수행할 작업을 Cognitive Search 합니다. 코드 예제는 [c # 빠른](search-get-started-dotnet.md)시작을 참조 하세요.
 
 
-| @search.action | Description | 각 문서에 대해 필요한 필드 | 참고 |
+| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. .NET SDK에서 여기에는 형식의 필드가 포함 됩니다 `DataType.Collection(DataType.String)` . REST API에는 형식의 필드가 포함 됩니다 `Collection(Edm.String)` . 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
@@ -63,7 +63,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 
 [REST API를 사용하여 인덱스를 검색](/rest/api/searchservice/Search-Documents)하는 두 가지 방법이 있습니다. 한 가지 방법은 쿼리 매개 변수가 요청 본문의 JSON 개체에 정의된 HTTP POST 요청을 발급하는 것입니다. 다른 방법은 쿼리 매개 변수가 요청 URL 내에 정의된 HTTP GET 요청을 발급하는 것입니다. 쿼리 매개 변수의 크기에 있어 POST는 GET보다 더 [큰 제한](/rest/api/searchservice/Search-Documents)이 있습니다. 따라서 GET을 사용하는 것이 보다 편리한 특별한 경우가 아니라면 게시를 사용하는 것이 좋습니다.
 
-POST 및 GET의 경우 요청 URL에 *서비스 이름* , *인덱스 이름* 및 *API 버전* 을 제공 해야 합니다. 
+POST 및 GET의 경우 요청 URL에 *서비스 이름*, *인덱스 이름* 및 *API 버전* 을 제공 해야 합니다. 
 
 GET의 경우 URL 끝의 *쿼리 문자열* 은 쿼리 매개 변수를 제공하는 위치입니다. URL 형식은 아래를 참조하세요.
 
@@ -77,10 +77,12 @@ POST의 형식은 동일 하지만 `api-version` 쿼리 문자열 매개 변수�
 
 끌어오기 모델은 지원되는 데이터 원본을 탐색하고 인덱스에 데이터를 자동으로 업로드합니다. Azure Cognitive Search에서이 기능은 *인덱서* 를 통해 구현 되며, 현재 이러한 플랫폼에 사용할 수 있습니다.
 
-+ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
++ [Azure BLOB Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure Vm에서 Azure SQL Database, SQL Managed Instance 및 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [SharePoint Online(미리 보기)](search-howto-index-sharepoint-online.md)
++ [Azure Data Lake Storage Gen2(미리 보기)](search-howto-index-azure-data-lake-storage.md)
 
 인덱서는 인덱스를 데이터 원본(일반적으로 테이블, 뷰 또는 이와 동등한 구조)에 연결하고 원본 필드를 인덱스에 해당하는 필드에 매핑합니다. 실행 중에 행 집합은 자동으로 JSON으로 변환되고 지정한 인덱스에 로드됩니다. 모든 인덱서는 데이터를 새로 고치는 빈도를 지정할 수 있도록 일정 예약을 지원합니다. 대부분의 인덱서는 데이터 원본에서 지원하는 경우 변경 내용 추적을 제공합니다. 새 문서를 인식하는 것 외에도 기존 문서에서 변경 사항 및 삭제를 추적하므로 인덱서는 인덱스에서 데이터를 적극적으로 관리해야 할 필요를 없애줍니다.
 

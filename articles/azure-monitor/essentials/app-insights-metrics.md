@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.subservice: application-insights
-ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731683"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049137"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
@@ -98,7 +97,7 @@ availabilityResults
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -114,7 +113,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -130,7 +129,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -146,7 +145,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -162,7 +161,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -184,7 +183,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 exceptions
@@ -199,7 +198,7 @@ exceptions
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 dependencies
