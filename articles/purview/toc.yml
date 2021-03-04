@@ -122,8 +122,6 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: 용어 템플릿 관리
             href: how-to-manage-term-templates.md
-          - name: 자산을 대량 편집하여 용어집 할당
-            href: how-to-bulk-edit-assets.md
       - name: 대량 편집
         items:
           - name: 자산을 대량 편집하여 주석 및 연락처에 태그 지정

@@ -3,13 +3,13 @@ title: Azure Kubernetes 서비스에서 호스트 기반 암호화 사용 (AKS)
 description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 암호화를 구성 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071853"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039736"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -23,9 +23,16 @@ ms.locfileid: "99071853"
 > [!NOTE]
 > 호스트 기반 암호화는 azure [지역][supported-regions] 에서 사용할 수 있으며, azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기만][supported-sizes]지원 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - `aks-preview`CLI 확장 v 0.4.73 이상 버전이 설치 되어 있는지 확인 합니다.
+- `EnableEncryptionAtHostPreview`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
+
+호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 **encryptionAtHost@microsoft.com** 에 사용할 수 있는 기능을 얻으려면 구독 id로 전자 메일을 보내세요. 
+
+> [!IMPORTANT]
+> **encryptionAtHost@microsoft.com** 계산 리소스에 대해 사용 하도록 설정 된 기능을 얻으려면 구독 id로 전자 메일을 보내야 합니다. 계산 리소스에 대해 스스로를 사용 하도록 설정할 수 없습니다.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 

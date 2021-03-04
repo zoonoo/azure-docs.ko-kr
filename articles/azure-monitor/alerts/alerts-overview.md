@@ -1,15 +1,14 @@
 ---
 title: Azure의 경고 및 알림 모니터링 개요
 description: Azure Monitor 경고 개요
-ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723591"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038053"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -76,7 +75,7 @@ ms.locfileid: "101723591"
 
 다음은 지원되는 경고 상태입니다.
 
-| 시스템 상태 | Description |
+| 시스템 상태 | 설명 |
 |:---|:---|
 | 새로 만들기 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 승인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
@@ -100,7 +99,7 @@ ms.locfileid: "101723591"
 
 페이지 위쪽의 드롭다운 메뉴에서 값을 선택 하 여이 뷰를 필터링 할 수 있습니다.
 
-| 열 | Description |
+| 열 | 설명 |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
@@ -108,7 +107,7 @@ ms.locfileid: "101723591"
 
 경고 페이지 위쪽에서 다음 값을 선택 하 여 다른 페이지를 엽니다.
 
-| 값 | Description |
+| 값 | 설명 |
 |:---|:---|
 | 총 경고 수 | 선택한 조건과 일치하는 총 경고 수입니다. 이 값을 선택하면 필터 없이 [모든 경고] 보기가 열립니다. |
 | 스마트 그룹 | 선택한 조건과 일치하는 경고에서 만들어진 스마트 그룹의 총수입니다. 이 값을 선택하면 [모든 경고] 보기에 스마트 그룹 목록이 열립니다.
@@ -146,7 +145,7 @@ ms.locfileid: "101723591"
 
 페이지 맨 위에 있는 드롭다운 메뉴에서 다음 값을 선택 하 여 뷰를 필터링 할 수 있습니다.
 
-| 열 | Description |
+| 열 | 설명 |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |

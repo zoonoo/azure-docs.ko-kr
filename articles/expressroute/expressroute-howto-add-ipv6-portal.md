@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: 67f296c7584fcf25af79f9125137aca07c9906fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 640e13261fa76fe89c9f5fbd038f20766c509025
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746084"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039048"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
@@ -98,6 +98,7 @@ I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사�
 * AZ Express 경로 게이트웨이 SKU를 통해 Azure의 배포에 연결
 * 비 AZ regions의 배포에 대 한 연결
 * Express 경로 회로 간의 Global Reach 연결
+* VWAN과 함께 Express 경로 사용
 
 ## <a name="next-steps"></a>다음 단계
 

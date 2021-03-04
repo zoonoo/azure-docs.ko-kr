@@ -1,18 +1,17 @@
 ---
 title: Log Analytics IT 서비스 관리 커넥터
 description: 이 문서에서는 ITSMC (IT 서비스 관리 커넥터)의 개요와이를 사용 하 여 Log Analytics에서 ITSMC 작업 항목을 모니터링 및 관리 하 고 문제를 빠르게 해결 하는 방법에 대 한 정보를 제공 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ba32cfa4bc5cd0b41a210cf88fb598afc3064495
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ac5d864d98742c6884f9511b6956e4166e2c19da
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617214"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037475"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 

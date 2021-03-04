@@ -6,97 +6,95 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038767"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
-이 문서에서는 Azure Migrate 어플라이언스의 필수 구성 요소 및 지원 요구 사항을 요약하고 있습니다. 
+이 문서에서는 Azure Migrate 어플라이언스의 필수 구성 요소 및 지원 요구 사항을 요약하고 있습니다.
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
 
 Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같습니다.
 
-**시나리오** | **도구** | **용도** 
+**시나리오** | **도구** | **사용 대상**
 --- | --- | ---
-**VMware VM 평가** | Azure Migrate: 서버 평가 | VMware VM을 검색합니다.<br/><br/> 컴퓨터 앱 및 종속성을 검색합니다.<br/><br/> 평가를 위해 컴퓨터 메타데이터 및 성능 메타데이터를 수집합니다.
-**VMware VM 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware VM을 검색합니다. <br/><br/> 에이전트 없는 마이그레이션을 사용하여 VMware VM을 복제합니다.
-**Hyper-V VM 평가** | Azure Migrate: 서버 평가 | Hyper-V VM을 검색합니다.<br/><br/> 평가를 위해 컴퓨터 메타데이터 및 성능 메타데이터를 수집합니다.
-**물리적 컴퓨터 평가** |  Azure Migrate: 서버 평가 |  물리적 서버(또는 물리적 서버로 처리하는 VM)를 검색합니다.<br/><br/> 평가를 위해 컴퓨터 메타데이터 및 성능 메타데이터를 수집합니다.
+**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | VMware 환경에서 실행 중인 서버 검색<br/><br/> 설치 된 응용 프로그램을 검색 하 고, 에이전트 없는 종속성 분석을 수행 하 고, SQL Server 인스턴스와 데이터베이스를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**VMware 환경에서 실행 되는 서버에 대 한 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경에서 실행 중인 서버를 검색 합니다. <br/><br/> 서버에 에이전트를 설치 하지 않고 서버를 복제 합니다.
+**Hyper-v 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | Hyper-v 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**온-프레미스에서 물리적 또는 가상화 된 서버 검색 및 평가** |  Azure Migrate: 서버 평가 |  온-프레미스에서 물리적 또는 가상화 된 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
 
 ## <a name="deployment-methods"></a>배포 방법
 
 어플라이언스는 다음과 같은 몇 가지 방법을 사용하여 배포할 수 있습니다.
 
-- VMware VM 및 Hyper-V VM용 템플릿(VMware용 OVA 템플릿 또는 Hyper-V용 VHD 템플릿)을 사용하여 어플라이언스를 배포할 수 있습니다.
-- 템플릿을 사용하지 않으려면 PowerShell 스크립트를 사용하여 VMware 또는 Hyper-V용 어플라이언스를 배포할 수 있습니다.
-- Azure Government에서는 스크립트를 사용하여 어플라이언스를 배포해야 합니다.
-- 물리적 서버의 경우 항상 스크립트를 사용하여 어플라이언스를 배포합니다.
+- VMware 또는 Hyper-v 환경 ([vmware 용 Ova 템플릿](how-to-set-up-appliance-vmware.md) 또는 [hyper-v 용 VHD](how-to-set-up-appliance-hyper-v.md))에서 실행 되는 서버에 대 한 템플릿을 사용 하 여 어플라이언스를 배포할 수 있습니다.
+- 템플릿을 사용 하지 않으려는 경우 [PowerShell 설치 관리자 스크립트](deploy-appliance-script.md)를 사용 하 여 VMware 또는 hyper-v 환경용 어플라이언스를 배포할 수 있습니다.
+- Azure Government에서 PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조 하세요.
+- 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화 된 서버에 대해서는 항상 PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조 하세요.
 - 다운로드 링크는 아래 표에 나와 있습니다.
 
 
-## <a name="appliance---vmware"></a>어플라이언스 - VMware 
+## <a name="appliance---vmware"></a>어플라이언스 - VMware
 
 다음 표에는 VMware에 대한 Azure Migrate 어플라이언스 요구 사항이 요약되어 있습니다.
 
+> [!Note]
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+
 **요구 사항** | **VMware** 
 --- | ---
-**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/> - **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션하고, 복제된 컴퓨터와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.
-**지원되는 배포** | OVA 템플릿을 사용하여 VMware VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 VMware VM 또는 물리적 컴퓨터로 배포합니다.
-**프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**검색 제한** | 어플라이언스는 vCenter Server에서 최대 10,000개의 VMware VM을 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
-**OVA 템플릿** | 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140333) 에서 다운로드<br/><br/> 다운로드 크기는 11.9 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-vmware)를 참조 하세요.<br/><br/> 
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> VMware VM에서 어플라이언스를 실행하는 경우 요구 사항을 충족하는 VM을 할당하는 데 충분한 리소스가 vCenter Server에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.
-**VMware 요구 사항** | 어플라이언스를 VMware VM으로 배포하는 경우 버전 5.5 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> vCenter Server에서 5.5, 6.0, 6.5 또는 6.7을 실행합니다.
-**VDDK(에이전트 없는 마이그레이션)** | 어플라이언스를 VMware VM으로 배포하고 에이전트 없는 마이그레이션을 실행하는 경우 VMware vSphere VDDK를 어플라이언스 VM에 설치해야 합니다.
-**해시 값 - OVA** | OVA 템플릿 해시 값을 [확인](tutorial-discover-vmware.md#verify-security)합니다.
-**해시 값 - PowerShell 스크립트** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
-
-
-
+**권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **VMware discovery agent**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **VMware 평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.<br/>- **DRA 에이전트**: 서버 복제를 오케스트레이션 하 고 복제 된 서버와 Azure 간의 통신을 조정 합니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 서버를 복제 하는 경우에만 사용 됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 서버를 복제 하는 경우에만 사용 됩니다.<br/>- **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타 데이터를 Azure에 보냅니다.
+**프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.
+**검색 제한** | 어플라이언스는 vCenter Server에서 실행 되는 최대 1만 개의 서버를 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
+**지원되는 배포** | OVA 템플릿을 사용 하 여 vCenter Server에서 실행 되는 새 서버로 배포 합니다.<br/><br/> PowerShell 설치 관리자 스크립트를 사용 하 여 Windows Server 2016를 실행 하는 기존 서버에 배포 합니다.
+**OVA 템플릿** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140333) 에서 다운로드<br/><br/> 다운로드 크기는 11.9 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다.<br/>평가 기간이 만료에 근접 한 경우 OVA 템플릿을 사용 하 여 새 어플라이언스를 다운로드 하 고 배포 하거나 어플라이언스 서버의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**OVA 확인** | 해시 값을 확인 하 여 프로젝트에서 다운로드 한 OVA 템플릿이 [있는지 확인](tutorial-discover-vmware.md#verify-security) 합니다.
+**PowerShell 스크립트** | PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 하는 방법에 대해서는이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) 를 참조 하세요.<br/><br/> 
+**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 32 GB RAM, 8 개 vCPUs, 80 g b의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 서버에서 실행 되어야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> OVA 템플릿을 사용 하 여 어플라이언스를 배포 하는 경우 하드웨어 요구 사항을 충족 하는 서버를 만들기 위해 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+**VMware 요구 사항** | VCenter Server에서 어플라이언스를 서버로 배포 하는 경우 5.5, 6.0, 6.5 또는 6.7을 실행 하는 vCenter Server 및 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 
+**VDDK(에이전트 없는 마이그레이션)** | 서버에 대 한 에이전트 없는 마이그레이션을 위해 어플라이언스를 활용 하려면 VMware vSphere VDDK을 어플라이언스 서버에 설치 해야 합니다.
 
 ## <a name="appliance---hyper-v"></a>어플라이언스 - Hyper-V
 
 **요구 사항** | **Hyper-V** 
 --- | ---
-**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/>- **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
-**지원되는 배포** | VHD 템플릿을 사용하여 Hyper-V VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 Hyper-V VM 또는 물리적 컴퓨터로 배포합니다.
-**프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**검색 제한** | 어플라이언스는 최대 5,000개의 Hyper-V VM을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
-**VHD 템플릿** | VHD를 포함하여 압축된 폴더입니다. 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140422)에서 다운로드 합니다.<br/><br/> 다운로드 크기는 8.91 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
-**소프트웨어/하드웨어** _   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-v VM으로 실행 하는 경우에는 Hyper-v 호스트에 하드웨어 요구 사항을 할당 하는 데 충분 한 리소스가 필요 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
-_ *Hyper-v 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
-**해시 값 - VHD** | [확인](tutorial-discover-hyper-v.md#verify-security) VHD 템플릿 해시 값입니다.
-**해시 값 - PowerShell 스크립트** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
-
+**권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.
+**프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.
+**검색 제한** | 어플라이언스는 Hyper-v 환경에서 실행 되는 최대 5000 개의 서버를 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
+**지원되는 배포** | VHD 템플릿을 사용 하 여 Hyper-v 호스트에서 실행 중인 서버로 배포 합니다.<br/><br/> PowerShell 설치 관리자 스크립트를 사용 하 여 Windows Server 2016를 실행 하는 기존 서버에 배포 합니다.
+**VHD 템플릿** | VHD를 포함 하는 Zip 파일입니다. 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140422)에서 다운로드 합니다.<br/><br/> 다운로드 크기는 8.91 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다.<br/> 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 서버의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
+**VHD 확인** | 해시 값을 확인 하 여 프로젝트에서 다운로드 한 VHD 템플릿이 [있는지 확인](tutorial-discover-hyper-v.md#verify-security) 합니다.
+**PowerShell 스크립트** | PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 하는 방법에 대해서는이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) 를 참조 하세요.<br/>
+**하드웨어 및 네트워크 요구 사항**  |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 서버에서 실행 되어야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> Hyper-v 호스트에서 실행 되는 서버로 어플라이언스를 실행 하는 경우 하드웨어 요구 사항을 충족 하는 서버를 만들기 위해 호스트에 충분 한 리소스가 필요 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+**Hyper-V 요구 사항** | VHD 템플릿으로 어플라이언스를 배포 하는 경우 Azure Migrate에서 제공 하는 어플라이언스는 Hyper-v VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다.
 
 ## <a name="appliance---physical"></a>어플라이언스 - 물리적 서버
 
 **요구 사항** | **물리적 서버** 
 --- | ---
-**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다. <br/><br/> - **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
-**지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
-**프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
+**권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.
+**프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
-**PowerShell 스크립트** | 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 폴더의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 있는 컴퓨터에서 실행 되어야 하며, 80 GB의 디스크 저장소에 해당 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
-**해시 값** | PowerShell 스크립트 해시 값을 [확인](tutorial-discover-physical.md#verify-security)합니다.
+**지원되는 배포** | PowerShell 설치 관리자 스크립트를 사용 하 여 Windows Server 2016를 실행 하는 기존 서버에 배포 합니다.
+**PowerShell 스크립트** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 파일의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
+**스크립트 확인** | 해시 값을 확인 하 여 프로젝트에서 다운로드 한 PowerShell 설치 관리자 스크립트를 [확인](tutorial-discover-physical.md#verify-security) 합니다.
+**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 포함 된 서버에서 실행 되어야 합니다 (80 g b의 디스크 저장소).<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+
 
 ## <a name="url-access"></a>URL 액세스
 
 Azure Migrate 어플라이언스는 인터넷에 연결해야 합니다.
 
 - 어플라이언스를 배포하는 경우 Azure Migrate에서 필요한 URL에 대한 연결을 확인합니다.
-- 목록의 모든 URL에 대한 액세스를 허용해야 합니다. 평가만 수행하는 경우 VMware 에이전트 없는 마이그레이션에만 필요한 것으로 표시된 URL을 건너뛸 수 있습니다.
+- 목록의 모든 URL에 대한 액세스를 허용해야 합니다. 평가만 수행 하는 경우 VMware 에이전트 없는 마이그레이션에 필수로 표시 된 Url을 건너뛸 수 있습니다.
 -  URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다.
 
 ### <a name="public-cloud-urls"></a>퍼블릭 클라우드 URL
@@ -106,11 +104,11 @@ Azure Migrate 어플라이언스는 인터넷에 연결해야 합니다.
 *.portal.azure.com  | Azure Portal로 이동합니다.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *. office.com | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
-management.azure.com | 어플라이언스에서 Azure Migrate 서비스와 통신할 수 있도록 Azure AD 앱을 만듭니다.
-*.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
-*.vault.azure.net | Azure Key Vault에서 비밀을 관리합니다. 참고: 복제할 컴퓨터에서 이 URL에 액세스할 수 있는지 확인합니다.
-aka.ms/* | aka 링크에 대한 액세스를 허용합니다. Azure Migrate 어플라이언스 업데이트에 사용됩니다.
-download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
+management.azure.com | 어플라이언스에 대 한 Azure AD 앱을 만들어 Azure Migrate와 통신 합니다.
+*.services.visualstudio.com | 내부 모니터링에 사용 되는 어플라이언스 로그를 업로드 합니다.
+*.vault.azure.net | Azure Key Vault에서 비밀을 관리합니다.<br/> 참고: 복제할 서버에이에 대 한 액세스 권한이 있는지 확인 합니다.
+aka.ms/* | 즉, 링크에 대 한 액세스 허용 어플라이언스 서비스에 대 한 최신 업데이트를 다운로드 하 고 설치 하는 데 사용 됩니다.
+download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 \*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Azure Migrate 서비스 URL에 연결합니다.
 \*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
@@ -124,35 +122,32 @@ download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 �
 graph.windows.net | Azure 구독에 로그인합니다.
 login.microsoftonline.us  | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
 management.usgovcloudapi.net | 어플라이언스에서 Azure Migrate 서비스와 통신할 수 있도록 Azure AD 앱을 만듭니다.
-*.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
+*.services.visualstudio.com | 내부 모니터링에 사용 되는 어플라이언스 로그를 업로드 합니다.
 *.vault.usgovcloudapi.net | Azure Key Vault에서 비밀을 관리합니다.
-aka.ms/* | aka 링크에 대한 액세스를 허용합니다. Azure Migrate 어플라이언스 업데이트에 사용됩니다.
-download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
+aka.ms/* | 즉, 링크에 대 한 액세스 허용 어플라이언스 서비스에 대 한 최신 업데이트를 다운로드 하 고 설치 하는 데 사용 됩니다.
+download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 *.servicebus.usgovcloudapi.net  | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure Migrate 서비스 URL에 연결합니다.
 *. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
 *.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
-*.applicationinsights.us | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
-
-
-
+*.applicationinsights.us | 내부 모니터링에 사용 되는 어플라이언스 로그를 업로드 합니다.
 
 
 ## <a name="collected-data---vmware"></a>수집되는 데이터 - VMware
 
-어플라이언스는 메타데이터, 성능 데이터 및 종속성 분석 데이터를 수집합니다(에이전트 없는 [종속성 분석](concepts-dependency-visualization.md)이 사용되는 경우).
+어플라이언스는 구성 메타 데이터, 성능 메타 데이터 및 서버 종속성 데이터 (에이전트 없는 [종속성 분석이](concepts-dependency-visualization.md) 사용 되는 경우)를 수집 합니다.
 
 ### <a name="metadata"></a>메타데이터
 
-Azure Migrate 어플라이언스에서 검색된 메타데이터를 사용하면 컴퓨터와 앱을 Azure로 마이그레이션할 준비가 되었는지, 적절한 크기의 컴퓨터와 앱으로 마이그레이션할 준비가 되었는지, 비용 계획을 파악하고 애플리케이션 종속성을 분석할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
+Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하면 서버를 Azure로 마이그레이션할 준비가 되었는지, 올바른 크기의 서버를 계획 하 고, 응용 프로그램 종속성을 분석할 수 있는지를 파악할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
 
-어플라이언스에서 수집하여 Azure에 보내는 VMware VM 메타데이터의 전체 목록은 다음과 같습니다.
+다음은 기기가 수집 하 여 Azure로 보내는 서버 메타 데이터의 전체 목록입니다.
 
 **데이터** | **카운터**
 --- | --- 
-**컴퓨터 세부 정보** | 
-VM ID | vm.Config.InstanceUuid 
-VM 이름 | vm.Config.Name
+**서버 세부 정보** | 
+서버 ID입니다. | vm.Config.InstanceUuid 
+서버 이름 | vm.Config.Name
 vCenter Server ID | VMwareClient.Instance.Uuid
 VM 설명 | vm.Summary.Config.Annotation
 라이선스 제품 이름 | vm.Client.ServiceContent.About.LicenseProductName
@@ -210,80 +205,153 @@ NIC 읽기 처리량(MB/초) | net.received.average | VM 크기 계산
 NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 
-### <a name="installed-apps-metadata"></a>설치 된 앱 메타 데이터
+### <a name="installed-applications-data"></a>설치 된 응용 프로그램 데이터
 
-응용 프로그램 검색은 설치 된 응용 프로그램 및 운영 체제 데이터를 수집 합니다.
+어플라이언스는 서버에서 설치 된 응용 프로그램, 역할 및 기능에 대 한 데이터를 수집 합니다.
 
-#### <a name="windows-vm-apps-data"></a>Windows VM 앱 데이터
+#### <a name="windows-server-application-data"></a>Windows server 응용 프로그램 데이터
 
-다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 설치 된 응용 프로그램 데이터입니다. 이 데이터는 Azure에 보냅니다.
+다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 응용 프로그램 데이터입니다.
 
 **Data** | **레지스트리 위치** | **키**
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | 게시자
 
-#### <a name="windows-vm-features-data"></a>Windows VM 기능 데이터
+#### <a name="windows-server-features-data"></a>Windows server 기능 데이터
 
-다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 기능 데이터입니다. 이 데이터는 Azure에 보냅니다.
+다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 기능 데이터입니다.
 
 **Data**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+속성  | Get-WindowsFeature  | 속성
 기능 유형 | Get-WindowsFeature  | FeatureType
 Parent  | Get-WindowsFeature  | Parent
 
-#### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server 메타 데이터
+#### <a name="sql-server-metadata"></a>메타 데이터 SQL Server
 
-응용 프로그램 검색에 사용 하도록 설정 된 Microsoft SQL server를 실행 하는 Vm에서 기기가 수집 하는 SQL server 메타 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
+다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 SQL Server 데이터입니다.
 
 **Data**  | **레지스트리 위치**  | **키**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+속성  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 
-#### <a name="windows-vm-operating-system-data"></a>Windows VM 운영 체제 데이터
+#### <a name="windows-server-operating-system-data"></a>Windows server 운영 체제 데이터
 
-다음은 기기가 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM을 수집 하는 운영 체제 데이터입니다. 이 데이터는 Azure에 보냅니다.
+다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 운영 체제 데이터입니다.
 
-데이터  | WMI 클래스(WMI class)  | WMI 클래스 속성
+**Data**  | **WMI 클래스**  | **WMI 클래스 속성**
 --- | --- | ---
-Name  | Win32_operatingsystem  | 캡션
+속성  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
-#### <a name="linux-vm-apps-data"></a>Linux VM 앱 데이터
+#### <a name="linux-server-application-data"></a>Linux 서버 응용 프로그램 데이터
 
-다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 설치 된 응용 프로그램 데이터입니다. VM의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다. 이 데이터는 Azure에 보냅니다.
+다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 응용 프로그램 데이터입니다. 서버의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다.
 
-데이터  | 명령
+**Data**  | **명령**
 --- | --- 
-Name | rpm, dpkg, snap
+속성 | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
 
-#### <a name="linux-vm-operating-system-data"></a>Linux VM 운영 체제 데이터
+#### <a name="linux-server-operating-system-data"></a>Linux 서버 운영 체제 데이터
 
-다음은 기기가 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM을 수집 하는 운영 체제 데이터입니다. 이 데이터는 Azure에 보냅니다.
+다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 운영 체제 데이터입니다.
 
-**Data**  | **Command** 
---- | --- | ---
-Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+**Data**  | **명령**
+--- | --- 
+속성 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architecture | uname
 
+### <a name="sql-server-instances-and-databases-data"></a>SQL Server 인스턴스 및 데이터베이스 데이터
 
-### <a name="app-dependencies-metadata"></a>앱 종속성 메타데이터
+어플라이언스는 SQL Server 인스턴스 및 데이터베이스에서 데이터를 수집 합니다.
 
-에이전트 없는 종속성 분석은 연결 및 프로세스 데이터를 수집합니다.
+> [!Note]
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
 
-#### <a name="windows-vm-app-dependencies-data"></a>Windows VM 응용 프로그램 종속성 데이터
+#### <a name="sql-database-metadata"></a>SQL 데이터베이스 메타 데이터
 
-어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 VM으로부터 수집하는 연결 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
+**데이터베이스 메타 데이터** | **뷰/SQL Server 속성**
+--- | ---
+데이터베이스의 고유 식별자 | sys.databases
+서버 정의 데이터베이스 ID | sys.databases
+데이터베이스 이름 | sys.databases
+데이터베이스의 호환성 수준 | sys.databases
+데이터베이스의 데이터 정렬 이름 | sys.databases
+데이터베이스의 상태입니다. | sys.databases
+데이터베이스 크기 (Mb) | sys.master_files
+데이터 파일을 포함 하는 위치의 드라이브 문자 | SERVERPROPERTY 및 Software\Microsoft\MSSQLServer\MSSQLServer
+데이터베이스 파일 목록 | sys. 데이터베이스, sys.master_files
+Service broker 사용 여부 | sys.databases
+데이터베이스에 변경 데이터 캡처가 설정 되어 있습니다. | sys.databases
 
-**Data** | **사용되는 명령** 
+#### <a name="sql-server-metadata"></a>메타 데이터 SQL Server
+
+**서버 메타 데이터** | **뷰/s q m 서버 속성**
+--- | ---
+서버 이름 |SERVERPROPERTY 
+FQDN | 설치 된 응용 프로그램의 검색에서 파생 된 연결 문자열
+설치 ID | sys.dm_server_registry
+서버 버전 | SERVERPROPERTY
+서버 버전 | SERVERPROPERTY
+서버 호스트 플랫폼 (Windows/Linux) | SERVERPROPERTY
+서버의 제품 수준 (RTM SP CTP) | SERVERPROPERTY 
+기본 백업 경로 | SERVERPROPERTY
+데이터 파일의 기본 경로 | SERVERPROPERTY 및 Software\Microsoft\MSSQLServer\MSSQLServer
+로그 파일의 기본 경로 | SERVERPROPERTY 및 Software\Microsoft\MSSQLServer\MSSQLServer
+아니요. 서버의 코어 | sys.dm_os_schedulers, sys.dm_os_sys_info
+서버 데이터 정렬 이름 | SERVERPROPERTY
+아니요. 온라인 상태가 표시 된 서버의 코어 | sys.dm_os_schedulers
+고유 서버 ID | sys.dm_server_registry
+HA 사용 또는 사용 안 함 | SERVERPROPERTY
+버퍼 풀 확장 사용 또는 사용 안 함 | sys.dm_os_buffer_pool_extension_configuration
+장애 조치 (Failover) 클러스터 구성 여부 | SERVERPROPERTY
+Windows 인증 모드만 사용 하는 서버 | SERVERPROPERTY 
+서버 설치 PolyBase | SERVERPROPERTY 
+아니요. 시스템의 논리적 Cpu | sys.dm_server_registry, sys.dm_os_sys_info
+하나의 실제 프로세서 패키지에 의해 노출 되는 논리적 또는 물리적 코어의 비율 | sys.dm_os_schedulers, sys.dm_os_sys_info
+시스템에 실제 Cpu가 없습니다. | sys.dm_os_schedulers, sys.dm_os_sys_info
+마지막으로 시작한 날짜 및 시간 서버 | sys.dm_server_registry
+최대 서버 메모리 사용 (Mb) | sys.dm_os_process_memory
+합계 번호. 모든 데이터베이스에서 사용자 수 | sys. 데이터베이스, sys. 로그인
+모든 사용자 데이터베이스의 총 크기 | sys.databases
+임시 데이터베이스의 크기 | sys.master_files, sys.configurations sys.dm_os_sys_info
+아니요. 로그인 | sys. 로그인
+연결 된 서버 목록 | sys.servers
+에이전트 작업 목록 | [msdb]. [dbo]. [sysjobs], [sys]. [syslogins], [msdb]. [dbo]. syscategories
+
+### <a name="performance-metadata"></a>성능 메타 데이터
+
+**성능** | **뷰/s q m 서버 속성** | **평가 영향**
+--- | --- | ---
+CPU 사용률 SQL Server| sys.dm_os_ring_buffers| 권장 SKU 크기 (CPU 차원)
+SQL 논리 CPU 수| sys.dm_os_sys_info| 권장 SKU 크기 (CPU 차원)
+사용 중인 SQL 실제 메모리| sys.dm_os_process_memory| 사용 안 함
+SQL 메모리 사용률 비율| sys.dm_os_process_memory | 사용 안 함
+데이터베이스 CPU 사용률| sys.dm_exec_query_stats, sys.dm_exec_plan_attributes| 권장 SKU 크기 (CPU 차원)
+사용 중인 데이터베이스 메모리 (버퍼 풀)| sys.dm_os_buffer_descriptors| 권장 SKU 크기 (메모리 차원)
+파일 읽기/쓰기 IO| sys.dm_io_virtual_file_stats, sys.master_files| 권장 SKU 크기 (IO 차원)
+읽기/쓰기 파일의 개수| sys.dm_io_virtual_file_stats, sys.master_files| 권장 SKU 크기 (처리량 차원)
+파일 IO 정지 읽기/쓰기 (밀리초)| sys.dm_io_virtual_file_stats, sys.master_files| 권장 SKU 크기 (IO 대기 시간 차원)
+파일 크기| sys.master_files| 권장 SKU 크기 (저장소 차원)
+
+
+### <a name="application-dependency-data"></a>응용 프로그램 종속성 데이터
+
+에이전트 없는 종속성 분석은 연결을 수집 하 고 데이터를 처리 합니다.
+
+#### <a name="windows-server-dependencies-data"></a>Windows server 종속성 데이터
+
+다음은 기기가 각 Windows 서버에서 수집 하는 연결 데이터 이며 에이전트 없는 종속성 분석에 사용 됩니다.
+
+**Data** | **명령** 
 --- | --- 
 로컬 포트 | netstat
 로컬 IP 주소 | netstat
@@ -293,8 +361,7 @@ TCP 연결 상태 | netstat
 프로세스 ID | netstat
 활성 연결 수 | netstat
 
-
-어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 VM으로부터 수집하는 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
+다음은 기기가 각 Windows 서버에서 수집 하는 연결 데이터 이며 에이전트 없는 종속성 분석에 사용 됩니다.
 
 **Data** | **WMI 클래스** | **WMI 클래스 속성**
 --- | --- | ---
@@ -302,11 +369,11 @@ TCP 연결 상태 | netstat
 프로세스 인수 | Win32_Process | 명령줄
 애플리케이션 이름 | Win32_Process | ExecutablePath 속성의 VersionInfo.ProductName 매개 변수
 
-#### <a name="linux-vm-app-dependencies-data"></a>Linux VM 앱 종속성 데이터
+#### <a name="linux-server-dependencies-data"></a>Linux server 종속성 데이터
 
-어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 Linux VM으로부터 수집하는 연결 및 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
+다음은 기기가 에이전트 없는 종속성 분석에 사용 하도록 설정 된 각 Linux 서버에서 수집 하는 연결 데이터입니다.
 
-**Data** | **사용되는 명령** 
+**Data** | **명령** 
 --- | ---
 로컬 포트 | netstat 
 로컬 IP 주소 | netstat 
@@ -320,20 +387,19 @@ TCP 연결 상태 | netstat
 애플리케이션 이름 | dpkg 또는 rpm
 
 
-
 ## <a name="collected-data---hyper-v"></a>수집되는 데이터 - Hyper-V
 
-어플라이언스는 메타데이터, 성능 데이터 및 종속성 분석 데이터를 수집합니다(에이전트 없는 [종속성 분석](concepts-dependency-visualization.md)이 사용되는 경우).
+어플라이언스는 Hyper-v 환경에서 실행 되는 서버에서 구성 및 성능 메타 데이터를 수집 합니다.
 
 ### <a name="metadata"></a>메타데이터
-Azure Migrate 어플라이언스에서 검색된 메타데이터를 사용하면 컴퓨터와 앱을 Azure로 마이그레이션할 준비가 되었는지, 적절한 크기의 컴퓨터와 앱으로 마이그레이션할 준비가 되었는지, 비용 계획을 파악하고 애플리케이션 종속성을 분석할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
+Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하 여 서버를 Azure로 마이그레이션할 준비가 되었는지, 올바른 크기의 서버 및 계획 비용을 파악할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
 
-어플라이언스에서 수집하여 Azure에 보내는 Hyper-V VM 메타데이터의 전체 목록은 다음과 같습니다.
+다음은 기기가 수집 하 여 Azure로 보내는 서버 메타 데이터의 전체 목록입니다.
 
-**데이터** | **WMI 클래스** | **WMI 클래스 속성**
+**Data** | **WMI 클래스** | **WMI 클래스 속성**
 --- | --- | ---
-**컴퓨터 세부 정보** | 
-BIOS _ Msvm_BIOSElement의 일련 번호 | BIOSSerialNumber
+**서버 세부 정보** | 
+BIOS의 일련 번호 | Msvm_BIOSElement | BIOSSerialNumber
 VM 유형(Gen 1 또는 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
 VM 표시 이름 | Msvm_VirtualSystemSettingData | ElementName
 VM 버전 | Msvm_ProcessorSettingData | VirtualQuantity
@@ -357,7 +423,7 @@ NIC MAC ID(레거시 NIC) | MsvmEmulatedEthernetPortSetting Data | 주소
 
 ### <a name="performance-data"></a>성능 데이터
 
-어플라이언스에서 수집하여 Azure에 보내는 Hyper-V VM 성능 데이터는 다음과 같습니다.
+다음은 기기가 수집 하 여 Azure에 전송 하는 서버 성능 데이터입니다.
 
 **성능 카운터 클래스** | **카운터** | **평가 영향**
 --- | --- | ---
@@ -375,15 +441,17 @@ Hyper-V 가상 네트워크 어댑터 | 보낸 바이트 수/초 | VM 크기 계
 
 ## <a name="collected-data---physical"></a>수집되는 데이터 - 물리적 서버
 
-어플라이언스는 메타데이터, 성능 데이터 및 종속성 분석 데이터를 수집합니다(에이전트 없는 [종속성 분석](concepts-dependency-visualization.md)이 사용되는 경우).
+어플라이언스는 온-프레미스를 실행 하는 물리적 또는 가상 서버에서 구성 및 성능 메타 데이터를 수집 합니다.
 
-### <a name="windows-metadata"></a>Windows 메타데이터
+### <a name="metadata"></a>메타데이터
 
-Azure Migrate 어플라이언스에서 검색된 메타데이터를 사용하면 컴퓨터와 앱을 Azure로 마이그레이션할 준비가 되었는지, 적절한 크기의 컴퓨터와 앱으로 마이그레이션할 준비가 되었는지, 비용 계획을 파악하고 애플리케이션 종속성을 분석할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
+Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하 여 서버를 Azure로 마이그레이션할 준비가 되었는지, 올바른 크기의 서버 및 계획 비용을 파악할 수 있습니다. Microsoft는 라이선스 규정 준수 감사에서 이 데이터를 사용하지 않습니다.
+
+### <a name="windows-server-metadata"></a>Windows server 메타 데이터
 
 어플라이언스에서 수집하여 Azure에 보내는 Windows 서버 메타데이터의 전체 목록은 다음과 같습니다.
 
-**데이터** | **WMI 클래스** | **WMI 클래스 속성**
+**Data** | **WMI 클래스** | **WMI 클래스 속성**
 --- | --- | ---
 FQDN | Win32_ComputerSystem | Domain, Name, PartOfDomain
 프로세서 코어 수 | Win32_PRocessor | NumberOfCores
@@ -400,11 +468,11 @@ NIC 목록 | Win32_NetworkAdapterConfiguration | Description, Index
 NIC IP 주소 | Win32_NetworkAdapterConfiguration | IPAddress
 NIC MAC 주소 | Win32_NetworkAdapterConfiguration | MACAddress
 
-### <a name="linux-metadata"></a>Linux 메타데이터
+### <a name="linux-server-metadata"></a>Linux 서버 메타 데이터
 
 어플라이언스에서 수집하여 Azure에 보내는 Linux 서버 메타데이터의 전체 목록은 다음과 같습니다.
 
-**데이터** | **Linux** 
+**Data** | **명령** 
 --- | --- 
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 프로세서 코어 수 |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
@@ -439,7 +507,7 @@ NIC당 전송된 데이터 | BWin32_PerfFormattedData_Tcpip_NetworkInterface | B
 
 어플라이언스에서 수집하여 Azure에 보내는 Linux 서버 성능 데이터는 다음과 같습니다.
 
-**Data** | **Linux** 
+**Data** | **명령** 
 --- | --- 
 CPU 사용량 | cat /proc/stat/| grep 'cpu' /proc/stat
 메모리 사용량 | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
@@ -452,11 +520,11 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 
-어플라이언스에서 실행되는 Azure Migrate 에이전트가 업데이트되면 어플라이언스가 업그레이드됩니다. 이는 어플라이언스에서 기본적으로 자동 업데이트를 사용하도록 설정되어 있으므로 자동으로 수행됩니다. 이 기본 설정을 변경하여 어플라이언스 서비스를 수동으로 업데이트할 수 있습니다.
+어플라이언스를 실행 하는 Azure Migrate 서비스가 업데이트 되 면 기기가 업그레이드 됩니다. 이는 어플라이언스에서 기본적으로 자동 업데이트를 사용하도록 설정되어 있으므로 자동으로 수행됩니다. 이 기본 설정을 변경하여 어플라이언스 서비스를 수동으로 업데이트할 수 있습니다.
 
 ### <a name="turn-off-auto-update"></a>자동 업데이트 해제
 
-1. 어플라이언스를 실행하는 컴퓨터에서 레지스트리 편집기를 엽니다.
+1. 어플라이언스를 실행 하는 서버에서 레지스트리 편집기를 엽니다.
 2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
 3. 자동 업데이트를 해제하려면 DWORD 값이 0인 **AutoUpdate** 레지스트리 키를 만듭니다.
 
@@ -506,7 +574,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 
 ### <a name="manually-update-an-older-version"></a>이전 버전을 수동으로 업데이트
 
-구성 요소 중 하나에 대해 이전 버전을 실행하고 있는 경우 서비스를 제거하고 최신 버전으로 수동으로 업데이트해야 합니다.
+서비스의 이전 버전을 실행 하는 경우 서비스를 제거 하 고 최신 버전으로 수동으로 업데이트 해야 합니다.
 
 1. 최신 어플라이언스 서비스 버전을 확인하려면 LatestComponents.json 파일을 [다운로드](https://aka.ms/latestapplianceservices)합니다.
 2.    다운로드되면 메모장에서 LatestComponents.json 파일을 엽니다.

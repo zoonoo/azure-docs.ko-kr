@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e44e7c5d04695d5bd65d2eedc5474889a707c8bd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 153f99d100ea1a456f960293f3806a739fe1d593
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882147"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038733"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>스프링 클라우드 Resilience4J 회로 차단기 메트릭 (미리 보기) 수집
 
@@ -20,7 +20,7 @@ ms.locfileid: "98882147"
 
 [스프링-회로 차단기 데모](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) 를 사용 하 여 작동 방식을 표시 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Java [In-Process agent for Application Insights 가이드](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 java In-Process 에이전트를 사용 하도록 설정 합니다. 
 
@@ -42,9 +42,9 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. 끝점을 사용 하 여 응용 프로그램 만들기
 
 ```azurecli
-az spring-cloud app create --name resilience4j --is-public \
+az spring-cloud app create --name resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --is-public \
+az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
 ```
 
@@ -123,7 +123,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [애플리케이션 인사이트](./spring-cloud-howto-application-insights.md)
 * [분산된 추적](spring-cloud-tutorial-distributed-tracing.md)

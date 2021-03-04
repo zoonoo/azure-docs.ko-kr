@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c56e7318e24b802ae9ad605a0c9ae5f88397ec8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680580"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039787"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Route Server 만들기 및 구성
 
@@ -70,7 +70,7 @@ RouteServerSubnet ID는 다음과 같습니다.
 다음 명령을 사용하여 Route Server를 만듭니다.
 
 ```azurepowershell-interactive 
-New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
 ```
 
 위치는 가상 네트워크의 위치와 일치해야 합니다. HostedSubnet은 이전 섹션에서 얻은 RouteServerSubnet ID입니다.
@@ -80,7 +80,7 @@ New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location
 다음 명령을 사용하여 Route Server에서 NVA로의 BGP 피어링을 설정합니다.
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_asn” -RouteServerName "myRouteServer -ResourceGroupName ”RouteServerRG”
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 "nva_ip"는 NVA에 할당된 가상 네트워크 IP입니다. "nva_asn"은 NVA에 구성된 ASN(자치 시스템 번호)입니다. ASN은 65515-65520 범위 이외의 16비트 숫자가 될 수 있습니다. 이 ASN 범위는 Microsoft에서 예약되어 있습니다.
@@ -88,7 +88,7 @@ Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_a
 중복성을 위해 다른 NVA 또는 동일한 NVA의 다른 인스턴스와의 피어링을 설정하려면 다음 명령을 사용합니다.
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn “nva2_asn” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 ## <a name="complete-the-configuration-on-the-nva"></a>NVA에 대한 구성 완료
@@ -96,7 +96,7 @@ Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn �
 NVA에 대한 구성을 완료하고 BGP 세션을 사용하도록 설정하려면 Azure Route Server의 IP 및 ASN이 필요합니다. 다음 명령을 사용하여 이 정보를 가져올 수 있습니다.
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterName “myRouteServer” -ResourceGroupName “RouteServerRG”
+Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 출력에는 다음 정보가 포함됩니다.
@@ -113,13 +113,13 @@ ExpressRoute 게이트웨이와 Azure VPN Gateway가 동일한 VNet에 있으며
 1. Azure Route Server와 게이트웨이 간의 경로 교환을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
 ```
 
 2. Azure Route Server와 게이트웨이 간의 경로 교환을 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -137,13 +137,13 @@ Azure Route Server가 더 이상 필요하지 않은 경우 다음 명령을 사
 1. 다음 명령을 사용하여 Azure Route Server와 NVA 간의 BGP 피어링을 제거합니다.
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. 다음 명령을 사용하여 Azure Route Server를 제거합니다.
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="next-steps"></a>다음 단계

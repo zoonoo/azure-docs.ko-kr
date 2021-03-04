@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691827"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039923"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -106,10 +106,7 @@ ms.locfileid: "101691827"
 
 1. Azure Batch 서비스는 작업 영역에서 작업을 수신 하 고 계산 리소스로 프로 비전 된 공용 부하 분산 장치를 통해 학습 작업을 계산 환경으로 전송 합니다. 
 
-1. 계산 리소스는 작업을 받고 학습을 시작 합니다. 계산 리소스는 보안 저장소 계정에 액세스 하 여 학습 파일을 다운로드 하 고 출력을 업로드 합니다. 
-
-![VNet을 사용 하는 동안 Azure Machine Learning 학습 작업을 제출 하는 방법을 보여 주는 아키텍처 다이어그램](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. 계산 리소스는 작업을 받고 학습을 시작 합니다. 계산 리소스는 보안 저장소 계정에 액세스 하 여 학습 파일을 다운로드 하 고 출력을 업로드 합니다.
 
 ### <a name="limitations"></a>제한 사항
 

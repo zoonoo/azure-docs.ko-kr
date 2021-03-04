@@ -1,24 +1,23 @@
 ---
 title: Azure Monitor에서 IT 서비스 관리 커넥터-보안 내보내기-Azure 구성
 description: 이 문서에서는 itsm 제품/서비스를 Azure Monitor의 보안 내보내기와 연결 하 여 ITSM 작업 항목을 중앙에서 모니터링 하 고 관리 하기 위해 Azure를 구성 하는 방법을 보여 줍니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 62167b8fd72c660e50378a9492528aa5b70bbee7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eb9430e3d280c52cf84c61f0a44cb12152ac054
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037543"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>보안 내보내기를 사용 하 여 ITSM 도구를 연결 하도록 Azure 구성
 
 이 문서에서는 "보안 내보내기"를 사용 하기 위해 Azure를 구성 하는 방법에 대 한 정보를 제공 합니다.
 "보안 내보내기"를 사용 하려면 다음 단계를 수행 합니다.
 
-1. [Azure AD에 앱을 등록합니다.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
+1. [Azure AD에 앱을 등록 합니다.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
 1. [서비스 주체를 정의 합니다.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
 1. [보안 Webhook 작업 그룹을 만듭니다.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
 1. 파트너 환경을 구성 합니다.
@@ -30,7 +29,7 @@ ms.locfileid: "100620839"
 
 Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세요.
 
-1. [Microsoft id 플랫폼에 응용 프로그램 등록](../../active-directory/develop/quickstart-register-app.md)의 단계를 따릅니다.
+1. [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md) 단계를 수행합니다.
 2. Azure AD에서 **응용 프로그램 노출** 을 선택 합니다.
 3. **응용 프로그램 ID URI** 에 대해 **설정** 을 선택 합니다.
 
@@ -44,7 +43,7 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 
 이 단계는 동일한 [PowerShell 명령을](../alerts/action-groups.md#secure-webhook-powershell-script)통해 수행할 수 있습니다.
 
-## <a name="create-a-secure-webhook-action-group"></a>보안 Webhook 작업 그룹 만들기
+## <a name="create-a-secure-webhook-action-group"></a>보안 웹후크 작업 그룹 만들기
 
 응용 프로그램을 Azure AD에 등록 한 후에는 작업 그룹의 보안 Webhook 작업을 사용 하 여 Azure 경고에 따라 ITSM 도구에서 작업 항목을 만들 수 있습니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: e5053284de18740b761df3e5df256cc79d2e8f1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e95f6fdff164a6f5f9d4af4f19b1876d1483a70c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698691"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038716"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 
@@ -41,7 +41,7 @@ ms.locfileid: "101698691"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 했는지 확인 합니다. 
-* Log Analytics 작업 영역 보다 다른 지역/구독에 속한 Azure VM을 사용 하는 경우 해당 구독 및 지역에 대해 Network Watcher를 사용할 수 있는지 확인 합니다.   
+* Log Analytics 작업 영역 보다 다른 지역/구독에 속한 Azure VM이 끝점으로 사용 되는 경우 해당 구독 및 지역에 대해 Network Watcher를 사용 하도록 설정 해야 합니다.   
 * Log Analytics 에이전트가 설치 된 Azure 가상 머신은 Network Watcher 확장을 사용 하 여 사용 하도록 설정 해야 합니다.
 
 ## <a name="migrate-the-tests"></a>테스트 마이그레이션

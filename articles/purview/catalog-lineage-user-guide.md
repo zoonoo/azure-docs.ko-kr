@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cd4bba1bacbdb21a6bff4fcc5d3c1f3b2166ec35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694073"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039985"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure 부서의 범위 Data Catalog 계보 사용자 가이드
 
@@ -31,7 +31,7 @@ Azure 부서의 범위의 플랫폼 기능 중 하나는 데이터 프로세스�
 
 | 데이터 처리 시스템 | 지원 되는 범위 |
 | ---------------------- | ------------|
-| Azure 데이터 팩터리 | [복사 활동](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [SSIS 패키지 실행 작업](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure 데이터 팩터리 | [복사 활동](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [SSIS 패키지 실행 작업](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [스냅숏 공유](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>데이터 저장소 시스템

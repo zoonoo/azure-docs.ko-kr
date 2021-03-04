@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828087"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037254"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -32,6 +33,17 @@ AI 보강는 이미지, blob 및 기타 구조화 되지 않은 데이터 원본
 Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Computer Vision](../cognitive-services/computer-vision/index.yml) 및 [Text Analytics](../cognitive-services/text-analytics/overview.md)의 미리 학습 된 기계 학습 모델을 기반으로 합니다. 콘텐츠를 처리 하는 동안 이러한 리소스를 활용 하려는 경우 Cognitive Services 리소스를 연결할 수 있습니다.
 
 자연어 및 이미지 처리는 데이터 수집 단계에서 적용되며, 여기서 결과는 Azure Cognitiv Search의 검색 가능한 인덱스에서 문서의 컴퍼지션 중 일부가 됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다.  
+
+## <a name="feature-availability"></a>기능 가용성
+
+AI 보강는 Azure Cognitive Services도 사용할 수 있는 지역에서 사용할 수 있습니다.  [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지에서 AI 보강의 현재 가용성을 확인할 수 있습니다.  AI 보강은 다음을 제외 하 고 지원 되는 모든 지역에서 사용할 수 있습니다.
+
++ 오스트레일리아 남동부
++ 중국 북부 2
++ 노르웨이 동부
++ 독일 중서부
+
+검색 서비스가 이러한 지역 중 하나에 있는 경우 기술력과를 만들고 사용할 수 없지만 다른 모든 검색 서비스 기능은 사용할 수 있으며 완전히 지원 됩니다.
 
 ## <a name="when-to-use-ai-enrichment"></a>AI 보강를 사용 하는 경우
 
@@ -107,7 +119,7 @@ Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Compu
 
 1. 데이터 원본, 기술 집합 및 인덱스를 참조하는 [인덱서](/rest/api/searchservice/create-indexer)를 정의합니다.
 
-1. 인덱서 내에 *outputFieldMappings*를 추가합니다. 이 섹션에서는 기술 집합(3단계)의 출력을 인덱스 스키마(4단계)의 입력 필드에 매핑합니다.
+1. 인덱서 내에 *outputFieldMappings* 를 추가합니다. 이 섹션에서는 기술 집합(3단계)의 출력을 인덱스 스키마(4단계)의 입력 필드에 매핑합니다.
 
 1. Azure Cognitive Search에서 인덱서를 표현하기 위해 방금 만든 *인덱서 만들기* 요청(요청 본문에 인덱서 정의가 있는 POST 요청)을 보냅니다. 이 단계는 인덱서를 실행하여 파이프라인을 호출하는 방법에 대한 내용입니다.
 

@@ -9,30 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 376c61f6a5ba94492cac26950465c61e3d8fe4ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756334"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038563"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>시나리오: web Api를 호출 하는 web API
 
 Web Api를 호출 하는 web API를 빌드하기 위해 알아야 할 내용을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 보호 된 웹 API가 다른 웹 Api를 호출 하는이 시나리오는 [시나리오: 보호 된 WEB API](scenario-protected-web-api-overview.md)를 기반으로 합니다.
 
 ## <a name="overview"></a>개요
 
 - 웹, 데스크톱, 모바일 또는 단일 페이지 응용 프로그램 클라이언트 (함께 제공 된 다이어그램에 표시 되지 않음)는 보호 된 웹 API를 호출 하 고 "Authorization" HTTP 헤더에 JSON Web Token (JWT) 전달자 토큰을 제공 합니다.
-- 보호 된 웹 API는 토큰의 유효성을 검사 하 고 MSAL (Microsoft Authentication Library) 메서드를 사용 하 여 `AcquireTokenOnBehalfOf` Azure Active Directory (AZURE AD)에서 다른 토큰을 요청 합니다. 따라서 보호 된 웹 api는 사용자를 대신 하 여 두 번째 WEB api 또는 다운스트림 웹 api를 호출할 수 있습니다.
-- 보호 된 웹 API는 나중에 `AcquireTokenSilent` 를 호출 하 여 동일한 사용자를 대신 하 여 다른 다운스트림 api에 대 한 토큰을 요청할 수도 있습니다. `AcquireTokenSilent` 필요한 경우 토큰을 새로 고칩니다.
-
+- 보호 된 웹 API는 토큰의 유효성을 검사 하 고 MSAL (Microsoft Authentication Library) 메서드를 사용 하 여 `AcquireTokenOnBehalfOf` Azure Active Directory (AZURE AD)에서 다른 토큰을 요청 합니다. 따라서 보호 된 웹 api는 사용자를 대신 하 여 두 번째 WEB api 또는 다운스트림 웹 api를 호출할 수 있습니다. `AcquireTokenOnBehalfOf` 필요한 경우 토큰을 새로 고칩니다.
 ![Web API를 호출 하는 web API 다이어그램](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>특수 적용 사항

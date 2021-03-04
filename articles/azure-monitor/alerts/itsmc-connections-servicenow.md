@@ -1,17 +1,16 @@
 ---
 title: IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
 description: Azure Monitor에서 ServiceNow를 IT 서비스 관리 커넥터 (ITSMC)와 연결 하 여 ITSMC 작업 항목을 중앙에서 모니터링 하 고 관리 하는 방법을 알아봅니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: daaaf25bc1739b57d4696dc8978a330b00b08f70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 51d16ae53e34dacfc41e3d31b01115f9c55ca9f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617949"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039549"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
 

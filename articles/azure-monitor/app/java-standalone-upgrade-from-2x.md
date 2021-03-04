@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040246"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK에서 업그레이드
 
@@ -219,11 +219,24 @@ Application Insights 2.x 에이전트를 사용 하는 경우 2.x `-javaagent:` 
 
 이전에는 2.x SDK에서 요청 원격 분석의 작업 이름도 종속성 원격 분석에서 설정 했습니다.
 Application Insights Java 3.0은 더 이상 종속성 원격 분석에서 작업 이름을 채우지 않습니다.
-종속성 원격 분석의 부모인 요청의 작업 이름을 확인 하려는 경우 종속성 테이블에서 요청 테이블로 조인 하는 로그 (Kusto) 쿼리를 작성할 수 있습니다.
+종속성 원격 분석의 부모인 요청에 대 한 작업 이름을 확인 하려는 경우 종속성 테이블에서 요청 테이블로 조인 하는 로그 (Kusto) 쿼리를 작성할 수 있습니다. 예를 들면
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>2.x SDK 로깅 어 펜더
 
-3.0 에이전트는 로깅 어 펜더을 구성할 필요 없이 [로깅을 자동으로 수집](./java-standalone-config#auto-collected-logging) 합니다.
+3.0 에이전트는 로깅 어 펜더을 구성할 필요 없이 [로깅을 자동으로 수집](./java-standalone-config.md#auto-collected-logging) 합니다.
 2.x SDK 로깅 어 펜더을 사용 하는 경우 3.0 에이전트에 의해 표시 되지 않으므로 제거할 수 있습니다.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>2.x SDK 스프링 부팅 스타터

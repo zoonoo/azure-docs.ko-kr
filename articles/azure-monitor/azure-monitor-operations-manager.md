@@ -1,17 +1,16 @@
 ---
 title: 기존 Operations Manager 고객에 대 한 Azure Monitor
 description: Operations Manager의 기존 사용자에 대 한 지침을 통해 클라우드로 전환 하는 동안 특정 작업에 대 한 모니터링을 Azure Monitor로 전환할 수 있습니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d92b7c2f01a7e9ef12bc2bb422cfb6ed0076f73
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728963"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039379"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>기존 Operations Manager 고객에 대 한 Azure Monitor
 이 문서는 현재 [System Center Operations Manager](/system-center/scom/welcome) 를 사용 하 고 비즈니스 응용 프로그램 및 기타 리소스를 Azure로 마이그레이션할 때 [Azure Monitor](overview.md) 전환을 계획 하는 고객을 위한 지침을 제공 합니다. 이 문서에서는 비즈니스 및 IT 운영 요구 사항을 손상 시 키 지 않고 최대한 많은 Operations Manager 기능을 Azure Monitor 최대한 활용 하 여 클라우드로 완전히 전환 하는 것으로 가정 합니다. 

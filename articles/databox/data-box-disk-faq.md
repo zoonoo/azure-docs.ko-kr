@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724832"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039107"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -55,7 +55,7 @@ A. 각각 8tb 용량 (7tb의 사용 가능한 용량)이 있는 5 개 디스크�
 A.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성](data-box-disk-overview.md#region-availability)으로 이동합니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>17. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 유럽 서부, 유럽, 대한민국 및 일본 내 모든 지역에 대해 지원 됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+A. Data Box Disk는 미국, 캐나다, EU, 영국, 오스트레일리아, 싱가포르, 인도, 중국, 홍콩, 일본, 대한민국 및 남부 지역의 모든 지역에서 지원 됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>17. 한 국가/지역에 있는 원본 데이터를 다른 국가의 Azure 지역으로 가져오려면 어떻게 하나요?
 A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데이터 수집을 지원 하며 국가별 테두리를 교차 하지 않습니다. 유일한 예외는 EU (유럽 연합)의 주문에 대 한 것입니다. 여기에서 Data Box 디스크는 EU 국가/지역에 제공 될 수 있습니다.
@@ -199,7 +199,7 @@ A.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 파일을 VM의 디스크에 복사합니다.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>17. Data Box Disk에 여러 개의 스토리지 계정을 사용할 수 있나요?
-A.  아니요. Data Box Disk에는 현재 하나의 스토리지 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 현재 Azure 퍼블릭 클라우드에서 미국, 서유럽 및 북유럽의 스토리지 계정만 지원됩니다.
+A.  아니요. Data Box Disk에는 현재 하나의 스토리지 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>17. Data Box Disk에서 데이터에 사용할 수 있는 도구 세트는 무엇입니까?
 A. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도구가 있습니다.

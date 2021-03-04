@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745933"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038869"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
@@ -60,8 +60,8 @@ IPv6 지원을 추가 하기 전에 먼저 구독을 등록 해야 합니다. �
 
 3. 기존 IPv4 개인 피어 링 구성에 IPv6 개인 피어 링을 추가 합니다. 기본 링크 및 보조 링크에 대해 소유 하 고 있는/126 IPv6 서브넷을 제공 합니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이러한 각 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다.
 
-> [!Note]
-> 피어 ASN 및 VlanId는 IPv4 개인 피어 링 구성에 있는 것과 일치 해야 합니다.
+    > [!Note]
+    > 피어 ASN 및 VlanId는 IPv4 개인 피어 링 구성에 있는 것과 일치 해야 합니다.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -175,6 +175,7 @@ I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사�
 * AZ Express 경로 게이트웨이 SKU를 통해 Azure의 배포에 연결
 * 비 AZ regions의 배포에 대 한 연결
 * Express 경로 회로 간의 Global Reach 연결
+* VWAN과 함께 Express 경로 사용
 
 ## <a name="next-steps"></a>다음 단계
 

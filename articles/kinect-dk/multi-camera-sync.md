@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, 사양, 하드웨어, 진한, 기능, 깊이, 색, RGB, IMU, 배열, 깊이, 다중 동기화
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592282"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039957"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>여러 Azure Kinect 진한 장치 동기화
 
@@ -36,6 +36,9 @@ ms.locfileid: "97592282"
 ## <a name="plan-your-multi-device-configuration"></a>다중 장치 구성 계획
 
 시작 하기 전에 [Azure KINECT 진한 하드웨어 사양](hardware-specification.md) 및 [azure Kinect 진한 깊이 카메라](depth-camera.md)를 확인 해야 합니다.
+
+> [!NOTE]  
+> 외부 플라스틱 커버를 제거 하 여 동기화 및 동기화를 제공 합니다.
 
 ### <a name="select-a-device-configuration"></a>장치 구성 선택
 
@@ -63,6 +66,9 @@ ms.locfileid: "97592282"
 ![외부 트리거 신호에 대 한 케이블 구성](./media/resources/camera-trigger-signal.jpg)
 
 외부 장비를 사용 하는 방법에 대 한 자세한 내용은 [외부 동기화 장치에 Azure Kinect 레코더 사용](record-external-synchronized-units.md) 을 참조 하세요.
+
+> [!NOTE]  
+> Sync Out은 RGB 카메라에 대 한 VSync입니다. 모든 장치에 대 한 타임 스탬프는 0으로 설정 되 고 개수를 계산 합니다. Microsoft는 동기화 펄스의 최소 및 최대 너비를 규정 하지 않으며, Azure Kinect 진한에서 동기화를 통해 생성 된 펄스를 모방 것이 좋습니다.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>카메라 설정 및 소프트웨어 구성 계획
 

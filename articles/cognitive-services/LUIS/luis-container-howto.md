@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040195"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>LUIS 용 Docker 컨테이너 설치 및 실행
 
@@ -33,7 +33,7 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
@@ -113,8 +113,8 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 |패키지 형식|쿼리 엔드포인트 API|쿼리 가용성|패키지 파일 이름 형식|
 |--|--|--|--|
 |바뀔|GET, POST|컨테이너만|`{APP_ID}_v{APP_VERSION}.gz`|
-|준비|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
-|생산|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
+|스테이징|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
+|프로덕션|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > LUIS 패키지 파일의 이름을 바꾸거나 변경 하거나 덮어쓰거나 압축을 해제 하지 마십시오.
@@ -281,7 +281,7 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 |`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
 |`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 true입니다.|
 
-**_
+***
 
 ### <a name="query-the-luis-app"></a>LUIS 앱 쿼리
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-_ *스테이징** 환경에 대 한 쿼리를 만들려면 `production` 경로에서을로 바꿉니다 `staging` .
+**스테이징** 환경에 대 한 쿼리를 만들려면 `production` 경로에서을로 바꿉니다 `staging` .
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 버전 이름은 최대 10자이며 URL에 허용되는 문자만 포함합니다.
 
-**_
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>활성 학습에 대한 엔드포인트 로그 가져오기
 
@@ -346,7 +346,7 @@ LUIS 컨테이너에 대 한 출력 탑재를 지정 하면 앱 쿼리 로그 �
 /output/luis/{INSTANCE_ID}/
 ```
 
-LUIS 포털에서 앱을 선택한 다음 _ *끝점 로그 가져오기**를 선택 하 여 이러한 로그를 업로드 합니다.
+LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기** 를 선택하여 이 로그를 업로드합니다.
 
 ![활성 학습에 대한 컨테이너의 로그 파일 가져오기](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

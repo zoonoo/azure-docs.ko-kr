@@ -5,13 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
-ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717862"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037849"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -245,7 +244,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **작업 규칙 매개 변수를 확인 했나요?**  
 
-    [작업 규칙 설명서](../alerts/alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) 명령을 확인 합니다. 
+    [작업 규칙 설명서](../alerts/alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) 명령을 확인 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

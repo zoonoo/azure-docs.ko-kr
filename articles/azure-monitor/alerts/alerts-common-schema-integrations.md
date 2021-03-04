@@ -2,14 +2,13 @@
 title: Logic Apps와 공통 경고 스키마를 통합 하는 방법
 description: 일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 459ac43a6260e046befbe58d3531bac494903d51
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738670"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038342"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps와 공통 경고 스키마를 통합 하는 방법
 

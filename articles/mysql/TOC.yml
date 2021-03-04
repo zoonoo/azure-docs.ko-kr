@@ -97,7 +97,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -413,7 +413,7 @@
         - name: 유연한 서버란?
           href: flexible-server/overview.md
         - name: 지원되는 버전
-          href: flexible-server/concepts-supported-versions.md
+          href: concepts-supported-versions.md
         - name: 컴퓨팅 및 스토리지
           href: flexible-server/concepts-compute-storage.md
     - name: 빠른 시작
@@ -444,7 +444,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI

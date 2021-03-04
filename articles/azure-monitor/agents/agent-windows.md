@@ -1,17 +1,16 @@
 ---
 title: Windows 머신에 Log Analytics 에이전트 설치
 description: 이 문서에서는 Windows용 Log Analytics 에이전트를 사용하여 다른 클라우드 또는 온-프레미스에 호스트된 Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 설명합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: 50bfed0ee4346955a9e478e7567f00610d8184f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: aec39b86f9651539028efce93ba6a88c3be75b0c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708665"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038313"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.

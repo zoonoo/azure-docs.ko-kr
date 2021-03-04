@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693212"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039328"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Azure Cosmos DB 노트북 갤러리에 노트북 게시
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 기본 제공 Jupyter 노트북은 Azure Portal의 Azure Cosmos DB 계정에 직접 통합 됩니다. 이러한 노트북을 사용 하 여 Azure Portal에서 데이터를 분석 하 고 시각화할 수 있습니다. Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 [29 개 지역](#supported-regions)에서 사용할 수 있습니다. 노트북을 사용 하려면 [새 Cosmos 계정을 만들거나](#create-a-new-cosmos-account) 이러한 지역 중 하나에 있는 [기존 계정에서 노트북을 사용 하도록 설정](#enable-notebooks-in-an-existing-cosmos-account) 합니다.
+Azure Cosmos DB 기본 제공 Jupyter 노트북은 Azure Portal의 Azure Cosmos DB 계정에 직접 통합 됩니다. 이러한 노트북을 사용 하 여 Azure Portal에서 데이터를 분석 하 고 시각화할 수 있습니다. Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 [많은 지역](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all)에서 사용할 수 있습니다. 노트북을 사용 하려면 [새 Cosmos 계정을 만들거나](create-cosmosdb-resources-portal.md) 이러한 지역 중 하나에 있는 [기존 계정에서 노트북을 사용 하도록 설정](enable-notebooks.md) 합니다.
 
 Azure Portal의 노트북 환경에는 Azure Cosmos DB 팀에서 게시 한 몇 가지 샘플이 있습니다. 또한 사용자 고유의 노트북을 게시 하 고 공유할 수 있는 공용 갤러리가 있습니다. 갤러리에 노트북을 게시 한 후에는 모든 Azure Cosmos DB 사용자가 보고 사용할 수 있습니다. 이 문서에서는 공용 갤러리에서 노트북을 사용 하 고 갤러리에 노트북을 게시 하는 방법을 알아봅니다.
 
@@ -53,7 +53,7 @@ Azure Portal의 노트북 환경에는 Azure Cosmos DB 팀에서 게시 한 몇 
 
    ...를 선택 하 여 **갤러리에 게시** 옵션을 찾을 수도  있습니다. 노트북 이름 옆에 있는 단추:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="갤러리에 게시할 노트북을 선택 합니다.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="갤러리에 게시할 노트북을 선택 하는 또 다른 방법입니다.":::
 
 1. 다음 세부 정보를 사용 하 여 **갤러리에 게시 폼을** 채웁니다.
 
@@ -61,11 +61,10 @@ Azure Portal의 노트북 환경에는 Azure Cosmos DB 팀에서 게시 한 몇 
    * **설명:**  노트북의 용도에 대 한 간단한 설명입니다.
    * **태그:** 태그는 선택 사항이 며 키워드로 검색할 때 결과를 필터링 하는 데 사용 됩니다.
    * **커버 이미지:** 노트북을 게시할 때 표지 페이지에서 사용 되는 이미지입니다. 다음 옵션 중 하나를 선택할 수 있습니다.
-
-     * **사용자 지정 이미지** -컴퓨터에서 이미지를 업로드할 수 있습니다. 가로 세로 비율이 256x144 인 이미지 파일을 선택 합니다.
-     * **Url** -이미지가 위치한 공개적으로 액세스할 수 있는 url을 제공 합니다.
-     * **스크린샷** 만들기-열려 있는 노트북의 스크린샷에 자동으로 이동 하 여 미리 보기에 업로드 합니다.
-     * 표시 출력을 포함 하는 첫 번째 셀의 출력 출력 출력을 **사용** 합니다. Markdown/text만 표시 하는 셀은 표시 출력으로 계산 되지 않습니다.
+   * **사용자 지정 이미지** -컴퓨터에서 이미지를 업로드할 수 있습니다. 가로 세로 비율이 256x144 인 이미지 파일을 선택 합니다.
+   * **Url** -이미지가 위치한 공개적으로 액세스할 수 있는 url을 제공 합니다.
+   * **스크린샷** 만들기-열려 있는 노트북의 스크린샷에 자동으로 이동 하 여 미리 보기에 업로드 합니다.
+   * 표시 출력을 포함 하는 첫 번째 셀의 출력 출력 출력을 **사용** 합니다. Markdown/text만 표시 하는 셀은 표시 출력으로 계산 되지 않습니다.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="갤러리에 게시 양식을 작성 합니다.":::
 

@@ -1,15 +1,14 @@
 ---
 title: Log Analytics 경고 REST API 사용
 description: Log Analytics 경고 REST API를 사용 하 여 Log Analytics의 일부인 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33f5ce86a21a9aad110db162849ff3e3c7bbb2b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717811"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037492"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리 
 
@@ -27,7 +26,7 @@ Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API�
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
@@ -95,7 +94,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
 | `Name` |경고에 대한 표시 이름입니다. |
@@ -149,7 +148,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 
 임계값은 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
 | `Value` |임계값에 대한 값입니다. |

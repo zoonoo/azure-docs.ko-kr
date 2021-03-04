@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50358eed580bbd83f25386feb0068a252060672b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735763"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037118"
 ---
 # <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
 
 데이터 보호는 미사용 데이터 보호, 전송 중 및 권한이 부여 된 액세스 메커니즘을 통한 제어를 포함 합니다. 여기에는 Azure에서 액세스 제어, 암호화 및 로깅을 사용 하 여 중요 한 데이터 자산을 검색, 분류, 보호 및 모니터링 하는 작업이 포함 됩니다.
 
-해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 데이터 보호의 세부 정보](../../governance/policy/samples/azure-security-benchmark#data-protection) 를 참조 하세요.
+해당 하는 기본 제공 Azure Policy를 보려면 [Azure 보안 벤치 마크 규정 준수 기본 제공 이니셔티브: 데이터 보호의 세부 정보](../../governance/policy/samples/azure-security-benchmark.md#data-protection) 를 참조 하세요.
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: 중요한 데이터 검색, 분류 및 레이블 지정
 

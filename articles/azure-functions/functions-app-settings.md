@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378301"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040348"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -80,7 +80,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경에 따라 앱 동작을 구성 합니다. [초기화 하는 동안](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)이 값을 읽습니다. `AZURE_FUNCTIONS_ENVIRONMENT`는 임의의 값으로 설정할 수 있지만 [개발](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [준비](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)및 [프로덕션](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)의 [세 가지 값](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) 이 지원 됩니다. 가 `AZURE_FUNCTIONS_ENVIRONMENT` 설정 되지 않은 경우 로컬 환경 및 Azure에서 기본적으로로 설정 `Development` `Production` 됩니다. 런타임 환경을 설정 하는 대신이 설정을 사용 해야 합니다 `ASPNETCORE_ENVIRONMENT` . 
+버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경에 따라 앱 동작을 구성 합니다. 초기화 하는 동안이 값을 읽고 임의의 값으로 설정할 수 있습니다. 런타임에는, 및의 값만 `Development` `Staging` `Production` 허용 됩니다. Azure에서 실행 하는 경우이 응용 프로그램 설정이 표시 되지 않으면 환경을로 간주 합니다 `Production` . `ASPNETCORE_ENVIRONMENT`Azure에서 런타임 환경을 이외의 항목으로 변경 해야 하는 경우 대신이 설정을 사용 `Production` 합니다. Azure Functions Core Tools `AZURE_FUNCTIONS_ENVIRONMENT` `Development` 로컬 컴퓨터에서 실행 되는 경우로 설정 되며,이는 파일의 local.settings.js에서 재정의할 수 없습니다. 자세히 알아보려면 [환경 기반 시작 클래스 및 메서드](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods)를 참조 하세요.
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
