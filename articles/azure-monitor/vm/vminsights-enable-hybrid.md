@@ -1,17 +1,16 @@
 ---
 title: 하이브리드 환경에 대한 Azure Monitor 사용
 description: 이 문서에서는 하나 이상의 가상 머신을 포함 하는 하이브리드 클라우드 환경에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731275"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046641"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대해 VM insights 사용
 이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부의 가상 머신에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -80,7 +79,7 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692201"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048508"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 대한 프라이빗 엔드포인트 구성
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -118,7 +118,8 @@ Synapse 작업 영역에서이 계정에 대 한 네트워크 격리를 구성 �
    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --network-acl-bypass AzureServices --network-acl-bypass-resource-ids "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
    ```
 
-   > 두고 Azure Cosmos DB 계정 및 Azure Synapse Analytics 작업 영역은 동일한 AD (Azure Active Directory) 테 넌 트 아래에 있어야 합니다.
+   > [!NOTE]
+   > Azure Cosmos DB 계정 및 Azure Synapse Analytics 작업 영역은 동일한 AD (Azure Active Directory) 테 넌 트 아래에 있어야 합니다.
 
 2. 이제 Azure Synapse 링크를 통해 T-sql 쿼리를 사용 하 여 서버를 사용 하지 않는 SQL 풀에서 계정에 액세스할 수 있습니다. 그러나 분석 저장소에서 데이터에 대 한 네트워크 격리를 보장 하려면이 계정에 대 한 **분석** 관리 개인 끝점을 추가 해야 합니다. 그렇지 않으면 분석 저장소의 데이터는 공용 액세스에서 차단 되지 않습니다.
 

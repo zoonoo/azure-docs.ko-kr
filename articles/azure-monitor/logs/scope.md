@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor Log Analytics의 로그 쿼리 범위
 description: Azure Monitor Log Analytics에서 로그 쿼리의 범위 및 시간 범위를 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 892c79d7908903b95a3bbbae2857933d877c7fba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619484"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047182"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
 [Azure Portal에서 Log Analytics](../logs/log-analytics-tutorial.md)에 [로그 쿼리](../logs/log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
@@ -48,7 +47,7 @@ ms.locfileid: "100619484"
 쿼리 범위는 해당 리소스 또는 리소스 집합에 대 한 데이터가 있는 작업 영역을 이미 포함 하 고 있으므로 리소스로 범위가 지정 된 경우 쿼리에서 다음 명령을 사용할 수 없습니다.
 
 - [app](../logs/app-expression.md)
-- [환경이](../logs/workspace-expression.md)
+- [작업 영역](../logs/workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>쿼리 범위 제한

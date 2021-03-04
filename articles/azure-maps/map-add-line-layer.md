@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891162"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048140"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>맵에 선 계층 추가
 
@@ -66,7 +66,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>선에 스트로크 그라데이션 추가
 
-선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션으로 선을 채워서 한 선분에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용하여 시간 및 거리에 따른 변경이나 연결된 개체 선의 다른 온도를 나타낼 수 있습니다. 선에 이 피처를 적용하기 위해서는 데이터 원본의 `lineMetrics` 옵션을 true로 설정하고 색 그라데이션 식을 선의 `strokeColor` 옵션에 전달할 수 있어야 합니다. 스트로크 그라데이션 식은 계산된 선 메트릭을 식에 노출하는 `['line-progress']` 데이터 식을 참조해야 합니다.
+선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션으로 선을 채워서 한 선분에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용하여 시간 및 거리에 따른 변경이나 연결된 개체 선의 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본에 옵션이로 설정 되어 있어야 하 `lineMetrics` `true` 고 색 그라데이션 식이 줄의 옵션으로 전달 될 수 있습니다 `strokeColor` . 스트로크 그라데이션 식은 계산된 선 메트릭을 식에 노출하는 `['line-progress']` 데이터 식을 참조해야 합니다.
 
 <br/>
 

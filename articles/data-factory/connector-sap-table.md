@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: c3c874b2e6362ceb5b4746f67614b5d85991efbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 63509262b8a75eebaffc34eca9861fe6748ff969
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712983"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048457"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -66,9 +66,9 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 - Data Factory SAP 테이블 커넥터에서 사용 되는 SAP 사용자에 게는 다음 사용 권한이 있어야 합니다.
 
   - RFC (원격 함수 호출) 대상을 사용 하기 위한 권한 부여입니다.
-  - S_SDSAUTH 권한 부여 개체의 실행 작업 또는 S_RFC의 Execute 활동에 대 한 사용 권한 (FUGR-RFC1, SYST, SYSU FUNC-RFCPING, RFC_FUNCTION_SEARCH ACTVT – 16 권한 부여 개체) 
+  - S_SDSAUTH 권한 부여 개체의 실행 작업에 대 한 사용 권한입니다. 과반수 권한 부여 개체에서 SAP Note 40089을 참조할 수 있습니다. 특정 Rfc는 기본 NCo 커넥터에 필요 합니다 (예: RFC_FUNCTION_SEARCH). 
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -78,7 +78,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 다음은 SAP BW 열려 있는 허브 연결 된 서비스에 대해 지원 되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>를 사용 하 여 SAP 응용 프로그램 서버에 연결 합니다. | No |
@@ -186,7 +186,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -218,7 +218,7 @@ SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려�
 
 SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 속성                         | Description                                                  | 필수 |
+| 속성                         | 설명                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | No       |

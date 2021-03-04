@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691521"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046451"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 - *서버 감사를 사용 하는* 경우에는 *항상 데이터베이스에 적용* 됩니다. 데이터베이스 감사 설정에 관계없이 데이터베이스를 감사합니다.
 
+- 감사 정책이 데이터베이스 수준에서 Log Analytics 작업 영역 또는 이벤트 허브 대상으로 정의 된 경우 다음 작업은 원본 데이터베이스 수준 감사 정책을 유지 하지 않습니다.
+    - [데이터베이스 복사](database-copy.md)
+    - [지정 시간 복원](recovery-using-backups.md)
+    - [지역에서 복제](active-geo-replication-overview.md) (보조 데이터베이스는 데이터베이스 수준 감사를 포함 하지 않음)
+
 - 서버에서 활성화 하는 것 외에도 데이터베이스에서 감사를 사용 하도록 설정 하면 서버 감사 설정을 재정의 하거나 변경 *하지* 않습니다. 두 감사는 함께 존재합니다. 즉, 데이터베이스는 동시에 두 번 감사됩니다(서버 정책에서 한 번, 데이터베이스 정책에서 한번).
 
    > [!NOTE]
@@ -94,7 +99,8 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
   > [!NOTE]
-  > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
+  > - 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
+  > - 감사가 Azure Portal 또는 PowerShell cmdlet을 통해 Log Analytics 작업 영역 또는 짝수 허브 대상으로 구성 되 면 "SQLSecurityAuditEvents" 범주가 설정 된 [진단 설정이](../../azure-monitor/essentials/diagnostic-settings.md) 만들어집니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
@@ -104,18 +110,18 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 
 4. 데이터베이스 수준에서 감사를 사용하도록 설정하려면 **감사** 를 **켜짐** 으로 전환합니다. 서버 감사를 사용하는 경우 데이터베이스 구성 감사가 서버 감사와 나란히 존재합니다.
 
-5. 감사 로그를 기록 하는 위치를 구성 하는 여러 옵션이 있습니다. Azure storage 계정에 로그를 기록 하 고, Azure Monitor 로그 (미리 보기)에서 사용할 수 있도록 Log Analytics 작업 영역에 기록 하거나, 이벤트 허브 (미리 보기)를 사용 하 여 이벤트 허브에 로그를 쓸 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
+5. 감사 로그를 기록 하는 위치를 구성 하는 여러 옵션이 있습니다. Azure storage 계정에 로그를 기록 하거나, Azure Monitor 로그에서 사용 하기 위해 Log Analytics 작업 영역에 기록 하거나, 이벤트 허브를 사용 하 여 이벤트 허브에 로그를 쓸 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
   
    ![스토리지 옵션](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Microsoft 지원 작업 감사 (미리 보기)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Microsoft 지원 작업 감사
 
-Azure SQL Server에 대 한 Microsoft 지원 작업 (미리 보기) 감사를 통해 지원 요청 중에 서버에 액세스 해야 하는 경우 Microsoft 지원 엔지니어의 작업을 감사할 수 있습니다. 감사와 함께이 기능을 사용 하 여 직원에 게 더 많은 투명성을 사용 하 고 변칙 검색, 추세 시각화 및 데이터 손실 방지를 허용 합니다.
+Azure SQL Server에 대 한 Microsoft 지원 작업의 감사를 통해 지원 요청 중에 서버에 액세스 해야 하는 경우 Microsoft 지원 엔지니어의 작업을 감사할 수 있습니다. 감사와 함께이 기능을 사용 하 여 직원에 게 더 많은 투명성을 사용 하 고 변칙 검색, 추세 시각화 및 데이터 손실 방지를 허용 합니다.
 
-Microsoft 지원 작업 (미리 보기)에 대 한 감사를 사용 하도록 설정 하려면 **AZURE SQL server** 창의 보안 제목에서 **감사** 로 이동 하 고 **Microsoft 지원 작업 (미리 보기)의 감사** 를 **켜기** 로 전환 합니다.
+Microsoft 지원 작업의 감사를 사용 하도록 설정 하려면 **AZURE SQL server** 창의 보안 제목에서 **감사** 로 이동 하 여 **Microsoft 지원 작업의 감사** 를 **켜기** 로 전환 합니다.
 
   > [!IMPORTANT]
-  > Microsoft 지원 운영 (미리 보기) 감사는 저장소 계정 대상을 지원 하지 않습니다. 기능을 사용 하도록 설정 하려면 Log Analytics 작업 영역 또는 이벤트 허브 대상을 구성 해야 합니다.
+  > Microsoft 지원 운영의 감사는 저장소 계정 대상을 지원 하지 않습니다. 기능을 사용 하도록 설정 하려면 Log Analytics 작업 영역 또는 이벤트 허브 대상을 구성 해야 합니다.
 
 ![Microsoft 지원 작업 스크린샷](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ AzureDiagnostics
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Log Analytics 대상 감사
   
-Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보** 를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인** 을 클릭합니다.
+Log Analytics 작업 영역에 감사 로그를 기록 하도록 구성 하려면 **Log Analytics** 를 선택 하 고 **Log Analytics 세부 정보** 를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인** 을 클릭합니다.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Azure Monitor Log Analytics 작업 영역에 대 한 자세한 내용은 [Azure 
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상 감사
 
-이벤트 허브에 감사 로그 작성을 구성하려면 **이벤트 허브(미리 보기)** 를 선택하고 **이벤트 허브 세부 정보** 를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인** 을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
+이벤트 허브에 대 한 감사 로그 쓰기를 구성 하려면 **이벤트** 허브를 선택 하 고 **이벤트 허브 세부 정보** 를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인** 을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 

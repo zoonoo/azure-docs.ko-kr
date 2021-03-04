@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 040fcde35707074ffaf102ed6c224b2f47a084bb
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1706b60a61bd3b507d9fbcf555e478b388f51168
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679349"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047573"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>기호 계층 추가 (Android SDK)
 
@@ -22,7 +22,7 @@ ms.locfileid: "97679349"
 > [!TIP]
 > 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 옵션을로 설정 `eq(geometryType(), "Point")` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 옵션을로 설정 `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))` 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
 
@@ -132,6 +132,52 @@ SymbolLayer layer = new SymbolLayer(source,
 
 > [!TIP]
 > 기호 계층이 있는 텍스트만 렌더링 하려면 `iconImage` 아이콘 옵션의 속성을로 설정 하 여 아이콘을 숨길 수 있습니다 `"none"` .
+
+## <a name="modify-symbol-colors"></a>기호 색 수정
+
+Azure Maps Android SDK는 기본 표식 아이콘의 미리 정의 된 색 변형 집합과 함께 제공 됩니다. 예를 들어, `marker-red` `iconImage` 기호 계층의 옵션에를 전달 하 여 해당 계층에 있는 표식 아이콘의 빨간색 버전을 렌더링할 수 있습니다. 
+
+```java
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("marker-red")
+);
+```
+
+아래 표에는 사용할 수 있는 모든 기본 제공 아이콘 이미지 이름이 나열 되어 있습니다. 이러한 모든 마커는 재정의할 수 있는 색 리소스에서 색을 가져옵니다. 이 표식의 기본 채우기 색을 재정의 하는 것 외에도 그러나 이러한 표식 중 하나의 색을 재정의 하는 것은 해당 아이콘 이미지를 사용 하는 모든 계층에 적용 됩니다.
+
+| 아이콘 이미지 이름 | 색 리소스 이름 |
+|-----------------|---------------------|
+| `marker-default` | `mapcontrol_marker_default` |
+| `marker-black` | `mapcontrol_marker_black` |
+| `marker-blue` | `mapcontrol_marker_blue` |
+| `marker-darkblue` | `mapcontrol_marker_darkblue` |
+| `marker-red` | `mapcontrol_marker_red` |
+| `marker-yellow` | `mapcontrol_marker_yellow` |
+
+색 리소스 이름을 사용 하 여 모든 표식의 테두리 색을 재정의할 수도 있습니다 `mapcontrol_marker_border` . 이러한 표식의 색은 앱의 파일에서 같은 이름으로 색을 추가 하 여 재정의할 수 있습니다 `colors.xml` . 예를 들어 다음 `colors.xml` 파일은 기본 표식 색을 밝은 녹색으로 설정 합니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mapcontrol_marker_default">#00FF00</color>
+</resources>
+```
+
+다음은 기본 표식에 대 한 추가 사용자 지정 버전을 만들기 위해 수정할 수 있는 기본 표식 벡터 XML의 수정 된 버전입니다. 수정 된 버전은 `drawable` 앱의 폴더에 추가 되 고를 사용 하 여 맵 이미지 스프라이트에 추가 된 `map.images.add` 다음 기호 계층과 함께 사용할 수 있습니다.
+
+```xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.5dp"
+    android:height="36.5dp"
+    android:viewportWidth="24.5"
+    android:viewportHeight="36.5">
+    <path
+        android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/mapcontrol_marker_default"
+        android:strokeColor="@color/mapcontrol_marker_border"/>
+</vector>
+```
 
 ## <a name="next-steps"></a>다음 단계
 

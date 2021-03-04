@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69f78f6e70fa4f0b04ca7527751085ec0265363a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570399"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048219"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
 
@@ -89,12 +89,19 @@ Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사
 
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>사용자 지정 역할 및 고급 Azure RBAC
 
-- Azure 기본 제공 역할을 사용 하는 것 외에도 azure에 대 한 azure 사용자 지정 역할을 만들 수 있습니다. Azure 센티널에 대 한 azure 사용자 지정 역할은 azure 센티널 및 [azure Log Analytics 리소스](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)에 대 한 [특정 권한을](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) 기반으로 하 여 다른 [azure 사용자 지정 역할](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)을 만드는 것과 동일한 방식으로 만들어집니다.
+- **사용자 지정 역할**. Azure 기본 제공 역할을 사용 하는 것 외에도 azure에 대 한 azure 사용자 지정 역할을 만들 수 있습니다. Azure 센티널에 대 한 azure 사용자 지정 역할은 azure 센티널 및 [azure Log Analytics 리소스](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)에 대 한 [특정 권한을](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) 기반으로 하 여 다른 [azure 사용자 지정 역할](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)을 만드는 것과 동일한 방식으로 만들어집니다.
 
-- Azure 센티널 작업 영역에서 데이터에 대해 고급 Azure 역할 기반 액세스 제어를 Log Analytics 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 중심 Azure RBAC가 모두 포함됩니다. Log Analytics 역할에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions)를 참조하세요.
+- **RBAC를 Log Analytics** 합니다. Azure 센티널 작업 영역에서 데이터에 대해 고급 Azure 역할 기반 액세스 제어를 Log Analytics 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 컨텍스트 Azure RBAC가 모두 포함 됩니다. 자세한 내용은 다음을 참조하십시오.
+
+    - [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions)
+
+    - [Azure 센티널 용 리소스 컨텍스트 RBAC](resource-context-rbac.md)
+    - [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
+
+    리소스 컨텍스트 및 테이블 수준 RBAC는 전체 Azure 센티널 환경에 대 한 액세스를 허용 하지 않고 Azure 센티널 작업 영역에서 특정 데이터에 대 한 액세스를 제공 하는 두 가지 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure 센티널 사용자를 위해 역할을 수행 하는 방법 및 사용자가 수행할 수 있는 각 역할에 대해 알아보았습니다.
 
-* [Azure 센티널 블로그](https://aka.ms/azuresentinelblog). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+Azure [센티널 블로그의](https://aka.ms/azuresentinelblog)azure 보안 및 규정 준수에 대 한 블로그 게시물을 찾습니다.

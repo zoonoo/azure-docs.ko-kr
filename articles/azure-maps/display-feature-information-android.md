@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 37b5ab1c144ed81d995da40b87edeaccdcad7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 4e84bd821d53048b134db635c7ec541db74fbf11
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679996"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047719"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 
-공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 식당의 위치를 나타낼 수 있으며 해당 식당에 대 한 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식이 될 수 있습니다. 이 메타 데이터는 GeoJSON의 속성으로 추가할 수 있습니다 `Feature` . 다음 코드에서는 `title` 값이 "Hello World!" 인 속성을 사용 하 여 간단한 point 기능을 만듭니다.
+공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 식당의 위치를 나타낼 수 있으며 해당 식당에 대 한 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식이 될 수 있습니다. 이 메타 데이터는 GeoJSON의 속성으로 추가할 수 있습니다 `Feature` . 다음 코드에서는 `title` 값이 "헬로 월드!" 인 속성을 사용 하 여 간단한 point 기능을 만듭니다.
 
 ```java
 //Create a data source and add it to the map.
@@ -75,6 +75,81 @@ map.events.add((OnFeatureClick) (features) -> {
 - [대화 상자-대화](https://developer.android.com/guide/topics/ui/dialogs) 상자는 사용자에 게 결정을 하거나 추가 정보를 입력 하 라는 메시지를 표시 하는 작은 창입니다. 대화 상자는 화면을 채우지 않으며 작업을 계속 하기 전에 사용자가 작업을 수행 해야 하는 모달 이벤트에 일반적으로 사용 됩니다.
 - 현재 활동에 [조각을](https://developer.android.com/guide/components/fragments) 추가 합니다.
 - 다른 활동 또는 뷰로 이동 합니다.
+
+## <a name="display-a-popup"></a>팝업 표시
+
+Azure Maps Android SDK는 `Popup` 맵의 위치에 고정 된 UI 주석 요소를 쉽게 만들 수 있도록 하는 클래스를 제공 합니다. 팝업의 경우에는 상대적인 레이아웃을 포함 하는 뷰를 팝업의 옵션으로 전달 해야 합니다 `content` . 다음은 배경 위에 짙은 텍스트를 표시 하는 간단한 레이아웃 예제입니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:width="200dp"/>
+
+</RelativeLayout>
+```
+
+위의 레이아웃이 응용 프로그램의 폴더에 있는 라는 파일에 저장 되어 있다고 가정 하면 `popup_text.xml` `res -> layout` 다음 코드는 팝업을 만들어 맵에 추가 합니다. 기능을 클릭 하면 레이아웃 `title` 을 사용 하 여 속성을 표시 `popup_text.xml` 하며,이 레이아웃의 아래쪽 가운데는 맵의 지정 된 위치에 고정 됩니다.
+
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
+
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
+
+    //Access the text view within the custom view and set the text to the title property of the feature.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText(props.get("title").getAsString());
+
+    //Get the coordinates from the clicked feature and create a position object.
+    List<Double> c = ((Point)(f.geometry())).coordinates();
+    Position pos = new Position(c.get(0), c.get(1));
+
+    //Set the options on the popup.
+    popup.setOptions(
+        //Set the popups position.
+        position(pos),
+
+        //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),
+
+        //Set the content of the popup.
+        content(customView)
+
+        //Optionally, hide the close button of the popup.
+        //, closeButton(false)
+    );
+
+    //Open the popup.
+    popup.open();
+});
+
+```
+
+다음 화면 캡처는 기능을 클릭 하 고 지도의 이동 시 지정 된 위치에 고정 되어 있을 때 나타나는 팝업을 보여 줍니다.
+
+![표시 되는 popup의 애니메이션이 지도의 위치에 고정 된 popup과 함께 이동 됨](./media/display-feature-information-android/android-popup.gif)
 
 ## <a name="next-steps"></a>다음 단계
 

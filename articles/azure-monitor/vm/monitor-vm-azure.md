@@ -2,17 +2,16 @@
 title: Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 description: Azure Monitor를 사용하여 Azure의 가상 머신에서 모니터링 데이터를 수집하고 분석하는 방법을 설명합니다.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 6209389843b19d933bdce2726b55946b8839a264
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731377"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047046"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](../essentials/monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -56,7 +55,7 @@ Azure의 가상 머신은 [모니터링 데이터](../essentials/monitor-azure-r
 | 구성 단계 | 완료되는 작업 | 사용되는 기능 |
 |:---|:---|:---|
 | 구성 없음 | - 메트릭에 호스트 플랫폼 메트릭이 수집됨<br>- 활동 로그가 수집됨 | - 호스트의 메트릭 탐색기<br>- 호스트의 메트릭 경고<br>- 활동 로그 경고 |
-| [VM insights 사용](#enable-azure-monitor-for-vms) | - Log Analytics 에이전트가 설치됨<br>- 종속성 에이전트가 설치됨<br>- 게스트 성능 데이터가 로그에 수집됨<br>- 프로세스 및 종속성 세부 정보가 로그에 수집됨 | - 게스트 성능 데이터에 대한 성능 차트 및 통합 문서<br>- 게스트 성능 데이터에 대한 로그 쿼리<br>- 게스트 성능 데이터에 대한 로그 경고<br>- 종속성 맵 |
+| [VM insights 사용](#enable-vm-insights) | - Log Analytics 에이전트가 설치됨<br>- 종속성 에이전트가 설치됨<br>- 게스트 성능 데이터가 로그에 수집됨<br>- 프로세스 및 종속성 세부 정보가 로그에 수집됨 | - 게스트 성능 데이터에 대한 성능 차트 및 통합 문서<br>- 게스트 성능 데이터에 대한 로그 쿼리<br>- 게스트 성능 데이터에 대한 로그 경고<br>- 종속성 맵 |
 | [진단 확장 및 telegraf 에이전트 설치](#enable-diagnostics-extension-and-telegraf-agent) | - 게스트 성능 데이터가 메트릭에 수집됨 | - 게스트의 메트릭 탐색기<br>- 게스트에 대한 메트릭 경고  |
 | [Log Analytics 작업 영역 구성](#configure-log-analytics-workspace) | - 게스트에서 이벤트가 수집됨 | - 게스트 이벤트에 대한 로그 쿼리<br>- 게스트 이벤트에 대한 로그 경고 |
 | [가상 머신에 대한 진단 설정 만들기](#collect-platform-metrics-and-activity-log) | - 로그에 플랫폼 메트릭이 수집됨<br>- 로그에 활동 로그가 수집됨 | -호스트 메트릭에 대 한 로그 쿼리<br>- 호스트 메트릭에 대한 로그 경고<br>- 활동 로그에 대한 로그 쿼리

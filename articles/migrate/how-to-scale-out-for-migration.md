@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745581"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048015"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 VMware 가상 컴퓨터의 에이전트 없는 마이그레이션 확장
 
@@ -153,7 +153,7 @@ ms.locfileid: "101745581"
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="가져오기 성공":::
 
 > [!IMPORTANT]
-> 기본 어플라이언스에서 vCenter Server 자격 증명을 편집 하는 경우 구성 파일을 스케일 아웃 어플라이언스로 다시 가져와서 최신 구성을 가져오고 지속적인 복제를 계속 합니다.<br/> 규모 확장 기기가 더 이상 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 해야 합니다. 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 하는 방법에 [**대해 자세히 알아보세요**](./common-questions-appliance) .
+> 기본 어플라이언스에서 vCenter Server 자격 증명을 편집 하는 경우 구성 파일을 스케일 아웃 어플라이언스로 다시 가져와서 최신 구성을 가져오고 지속적인 복제를 계속 합니다.<br/> 규모 확장 기기가 더 이상 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 해야 합니다. 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 하는 방법에 [**대해 자세히 알아보세요**](./common-questions-appliance.md) .
 
 ## <a name="replicate"></a>복제
 

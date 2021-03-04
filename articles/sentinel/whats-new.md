@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729711"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048185"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -32,8 +32,44 @@ ms.locfileid: "101729711"
 
 ## <a name="february-2021"></a>2021년 2월
 
+- [타사 데이터 커넥터](#third-party-data-connectors)
 - [엔터티 페이지의 UEBA 정보](#ueba-insights-in-the-entity-page)
 - [향상 된 인시던트 검색](#improved-incident-search)
+
+### <a name="third-party-data-connectors"></a>타사 데이터 커넥터
+
+Microsoft의 타사 통합 컬렉션은 지난 2 개월 동안 30 개의 커넥터가 추가 될 때까지 계속 증가 하 고 있습니다. 목록은 다음과 같습니다.
+
+- [Agari 피싱 방어 및 브랜드 보호](connect-agari-phishing-defense.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Active Directory용 Alsid](connect-alsid-active-directory.md)
+- [Apache HTTP 서버](connect-apache-http-server.md)
+- [아루바 ClearPass](connect-aruba-clearpass.md)
+- [Blackberry CylancePROTECT](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Cisco Firepower eStreamer](connect-data-sources.md)
+- [Cisco Meraki](connect-cisco-meraki.md)
+- [Cisco Umbrella](connect-cisco-umbrella.md)
+- [Cisco UCS (통합 컴퓨팅 시스템)](connect-cisco-ucs.md)
+- [ESET Enterprise Inspector](connect-data-sources.md)
+- [ESET 보안 관리 센터](connect-data-sources.md)
+- [Google 작업 영역 (이전 G Suite)](connect-google-workspace.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
+- [Juniper SRX](connect-juniper-srx.md)
+- [Net](connect-data-sources.md)
+- [NXLog DNS 로그](connect-nxlog-dns.md)
+- [NXLog Linux 감사](connect-nxlog-linuxaudit.md)
+- [Onapsis 플랫폼](connect-data-sources.md)
+- [POD (proofpoint on demand On Demand Email Security)](connect-proofpoint-pod.md)
+- [Qualys 취약성 관리 기술 자료](connect-data-sources.md)
+- [Salesforce 서비스 클라우드](connect-salesforce-service-cloud.md)
+- [SonicWall 방화벽](connect-data-sources.md)
+- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
+- [Squid Proxy](connect-squid-proxy.md)
+- [Symantec Endpoint Protection](connect-data-sources.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [추세 마이크로 XDR](connect-data-sources.md)
+- [VMWare ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>엔터티 페이지의 UEBA 정보
 
@@ -66,6 +102,7 @@ Azure 센티널에서 인시던트를 검색할 때 이제 다음 인시던트 �
 - [분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az. SecurityInsights PowerShell 모듈 (공개 미리 보기)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database 커넥터](#sql-database-connector)
+- [Dynamics 365 커넥터](#dynamics-365-connector)
 - [향상 된 인시던트 설명](#improved-incident-comments)
 - [전용 Log Analytics 클러스터](#dedicated-log-analytics-clusters)
 - [논리 앱 관리 id](#logic-apps-managed-identities)
@@ -81,7 +118,7 @@ Azure 센티널에서 인시던트를 검색할 때 이제 다음 인시던트 �
 -   확장 된 자동 완성 지원.
 -   실시간 쿼리 유효성 검사 이제 쿼리의 오류는 스크롤 막대에 빨간색 블록으로 표시 되 고 **규칙 논리 설정** 탭 이름에 빨간색 점으로 표시 됩니다. 또한 오류가 있는 쿼리는 저장할 수 없습니다.
 
-자세한 내용은 [자습서: 즉시 위협 검색](tutorial-detect-threats-built-in.md)을 참조 하세요.
+자세한 내용은 [자습서: 위협 검색을 위한 사용자 지정 분석 규칙 만들기](tutorial-detect-threats-custom.md)를 참조 하세요.
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Az. SecurityInsights PowerShell 모듈 (공개 미리 보기)
 
 이제 Azure 센티널은 새로운 [Az. SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell 모듈을 지원 합니다.
@@ -99,6 +136,12 @@ CI/CD 파이프라인에 대해 [ARM (Azure Resource Manager](../azure-resource-
 Azure SQL은 사용자 개입 없이 업그레이드, 패치, 백업 및 모니터링과 같은 대부분의 데이터베이스 관리 기능을 처리 하는 완전히 관리 되는 PaaS (Platform as a Service) 데이터베이스 엔진입니다.
 
 자세한 내용은 [AZURE SQL database 진단 및 감사 로그 연결](connect-azure-sql-logs.md)을 참조 하세요.
+
+### <a name="dynamics-365-connector"></a>Dynamics 365 커넥터
+
+이제 azure 센티널은 Dynamics 365 응용 프로그램의 사용자, 관리자 및 지원 활동 로그를 Azure 센티널로 수집할 수 있는 Microsoft Dynamics 365 용 커넥터를 제공 합니다. 이 데이터를 사용 하 여 전체 데이터 처리 작업을 감사 하 고 가능한 보안 위반을 분석 하는 데 도움을 줍니다.
+
+자세한 내용은 [Dynamics 365 활동 로그를 Azure 센티널에 연결](connect-dynamics-365.md)을 참조 하세요.
 
 ### <a name="improved-incident-comments"></a>향상 된 인시던트 설명
 
@@ -185,15 +228,14 @@ Azure 센티널은 Log Analytics 에이전트를 사용 하 여 Windows 보안 �
 자세한 내용은 [Log Analytics 설명서](../azure-monitor/agents/log-analytics-agent.md) 및 [Log Analytics 에이전트 릴리스 정보](https://github.com/microsoft/OMS-Agent-for-Linux/releases)를 참조 하세요.
 ## <a name="november-2020"></a>2020년 11월
 
-- [Azure 센티널에서 Logic Apps 플레이 북 모니터링](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Azure 센티널에서 플레이 북의 상태 모니터링](#monitor-your-playbooks-health-in-azure-sentinel)
 - [Microsoft 365 Defender 커넥터 (공개 미리 보기)](#microsoft-365-defender-connector-public-preview)
-### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Azure 센티널에서 Logic Apps 플레이 북 모니터링
 
-이제 azure 센티널은 작업, 비즈니스 프로세스 및 워크플로를 예약, 자동화 및 오케스트레이션 하는 데 도움이 되는 클라우드 서비스인 [Azure 로그 앱](../logic-apps/index.yml)과 통합 됩니다.
+### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Azure 센티널에서 플레이 북의 상태 모니터링
 
-인시던트를 만들 때 또는 인시던트를 심사 하 고 사용할 때 자동으로 호출할 수 있는 플레이 북으로 Azure 센티널의 Azure 논리 앱을 사용 합니다. 
+Azure 센티널 플레이 북은 작업, 비즈니스 프로세스 및 워크플로를 예약, 자동화 및 오케스트레이션 하는 데 도움이 되는 클라우드 서비스인 [Azure 로그 앱](../logic-apps/index.yml)에서 빌드된 워크플로를 기반으로 합니다. 플레이 북은 인시던트를 만들 때 또는 인시던트를 심사 하 고 작업 하는 경우 자동으로 호출 될 수 있습니다. 
 
-Azure Logic Apps으로 추가 하는 것을 포함 하 여 플레이 북의 상태, 성능 및 사용에 대 한 통찰력을 제공 하기 위해 **playbooks 상태 모니터링** 이라는 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md) 를 추가 했습니다. 
+플레이 북의 상태, 성능 및 사용에 대 한 통찰력을 제공 하기 위해 **playbooks 상태 모니터링** 이라는 [통합 문서](../azure-monitor/visualize/workbooks-overview.md) 를 추가 했습니다. 
 
 플레이 **북 상태 모니터링** 통합 문서를 사용 하 여 플레이 북의 상태를 모니터링 하거나 성공 또는 실패 한 실행 양에 대 한 비정상을 찾습니다. 
 

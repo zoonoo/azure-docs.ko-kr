@@ -4,13 +4,15 @@ ms.author: cherylmc
 ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 567c0bb75c30a1f0ccdcde7ec1b0f04f5d6e54c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732493"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048263"
 ---
+[!INCLUDE [Portal feature rollout](virtual-wan-portal-feature-rollout.md)]
+
 1. **모든 리소스** 로 이동하고 생성한 가상 WAN을 선택한 다음, 왼쪽 메뉴에서 **사용자 VPN 구성** 을 선택합니다.
 1. **사용자 VPN 구성** 페이지에서 페이지 상단의 **+사용자 VPN 구성 만들기** 를 선택하여 **새 사용자 VPN 구성 만들기** 페이지를 엽니다.
 
@@ -23,7 +25,7 @@ ms.locfileid: "101732493"
    **IKEv2 VPN**
 
    * **요구 사항:** **IKEv2** 터널 유형을 선택하면 인증 방법을 선택하도록 지시하는 메시지가 표시됩니다. IKEv2의 경우 인증 방법을 하나만 지정할 수 있습니다. Azure 인증서, Azure Active Directory 또는 RADIUS 기반 인증을 선택할 수 있습니다.
- 
+
    * **IPSec 사용자 지정 매개 변수:** IKE 1단계 및 IKE 2단계의 매개 변수를 사용자 정의하려면 IPsec 스위치를 **사용자 정의** 로 전환하고 매개 변수 값을 선택합니다. 사용자 지정 가능한 매개 변수에 대한 자세한 내용은 [사용자 지정 IPsec](../articles/virtual-wan/point-to-site-ipsec.md) 문서를 참조하세요.
 
      :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="사용자 지정으로 전환한 IPsec 스위치의 스크린샷.":::

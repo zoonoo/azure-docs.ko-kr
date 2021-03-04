@@ -1,17 +1,16 @@
 ---
 title: 통합 문서를 사용 하 여 대화형 보고서 VM 정보 만들기
 description: VM insights에 대해 미리 정의 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731292"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046519"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>통합 문서를 사용 하 여 대화형 보고서 VM 정보 만들기
 
@@ -26,7 +25,7 @@ ms.locfileid: "101731292"
 
 다음 표에서는 시작 하기 위해 VM 정보에 포함 된 통합 문서를 요약 합니다.
 
-| 통합 문서 | Description | Scope |
+| 통합 문서 | 설명 | Scope |
 |----------|-------------|-------|
 | 성능 | 사용 하도록 설정한 모든 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 상위 N 개 목록 및 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 대규모 |
 | 성능 카운터 | 광범위 한 성능 카운터 집합에 대 한 상위 N 개 차트 뷰입니다. | 대규모 |

@@ -1,23 +1,22 @@
 ---
 title: VM insights 란?
 description: Azure Vm의 상태와 성능을 모니터링 하 고 응용 프로그램 구성 요소와 해당 종속성을 자동으로 검색 하 고 매핑하는 VM 정보에 대 한 개요입니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 967ff9672f55af3e9c5d2e7c3c3dbc7d2ff6cb3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707373"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046417"
 ---
 # <a name="overview-of-vm-insights"></a>VM 정보 개요
 
 VM insights는 실행 중인 프로세스 및 다른 리소스에 대 한 종속성을 포함 하 여 가상 머신 및 가상 머신 확장 집합의 성능 및 상태를 모니터링 합니다. 이를 통해 성능 병목 현상 및 네트워크 문제를 식별 하 여 중요 한 응용 프로그램의 예측 가능한 성능 및 가용성을 제공할 수 있으며 문제가 다른 종속성과 관련 되어 있는지 여부를 파악할 수도 있습니다.
 
-VM insights는 다음에 대 한 Windows 및 Linux 운영 체제를 지원 합니다.
+VM insights는 다음 컴퓨터에서 Windows 및 Linux 운영 체제를 지원 합니다.
 
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합

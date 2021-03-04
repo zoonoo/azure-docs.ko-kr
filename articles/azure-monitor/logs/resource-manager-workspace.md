@@ -1,17 +1,16 @@
 ---
 title: Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플
 description: Log Analytics 작업 영역을 배포하고 Azure Monitor에서 데이터 원본을 구성하기 위한 샘플 Azure Resource Manager 템플릿입니다.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5c1ef7d8de32564e2b1d3b1578fcd72cefde0327
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725597"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047148"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.

@@ -1,17 +1,16 @@
 ---
 title: VM 정보에서 경고
 description: VM insights에서 수집 된 성능 데이터에서 경고 규칙을 만드는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704058"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046808"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>VM insights에서 경고를 만드는 방법
 [Azure Monitor의 경고](../alerts/alerts-overview.md) 는 모니터링 데이터에서 관심 있는 데이터 및 패턴을 사전에 알려 줍니다. VM insights는 미리 구성 된 경고 규칙을 포함 하지 않지만 수집 하는 데이터를 기반으로 사용자 고유의 사용자를 만들 수 있습니다. 이 문서에서는 샘플 쿼리 집합을 포함 하 여 경고 규칙을 만드는 방법에 대 한 지침을 제공 합니다.

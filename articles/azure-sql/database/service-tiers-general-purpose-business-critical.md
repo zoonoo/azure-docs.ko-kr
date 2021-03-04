@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 95e11e98be8a58611a435de533ffcc16ec5ce357
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165776"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048559"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
 
 다음 표에서는 최신 세대에 대 한 서비스 계층의 주요 차이점에 대해 설명 합니다 (Gen5). 서비스 계층 특성은 SQL Database 및 SQL Managed Instance에서 다를 수 있습니다.
 
-|-| 리소스 유형 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
+|-| 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** | |  예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대부분의 비즈니스 워크로드. 자동 크기 조정 저장소 크기는 최대 100 TB, 유체 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원입니다. | 트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류에서 사용 가능:** ||SQL Database/SQL Managed Instance | 단일 Azure SQL Database | SQL Database/SQL Managed Instance |
@@ -95,7 +95,7 @@ MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused]
 데이터베이스 백업용 저장소는 SQL Database 및 SQL Managed Instance의 PITR (특정 시점 복원) 및 [LTR (장기 보존)](long-term-retention-overview.md) 기능을 지원 하기 위해 할당 됩니다. 이 스토리지는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다.
 
 - **PITR**: 개별 데이터베이스 백업은 [읽기 액세스 지역 중복 (RA-GRS) 저장소](../../storage/common/geo-redundant-design.md) 로 자동 복사 됩니다. 저장소 크기는 새 백업이 생성 될 때 동적으로 늘어납니다. 저장소는 매주 전체 백업, 일별 차등 백업 및 5 분 마다 복사 되는 트랜잭션 로그 백업에 사용 됩니다. 저장소 사용량은 데이터베이스의 변경 률과 백업 보존 기간에 따라 달라 집니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터베이스 크기의 100% (1x)와 같은 최소 저장소 크기는 추가 요금 없이 제공 됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
-- **LTR**: 최대 10 년 동안 전체 백업의 장기 보존을 구성 하는 옵션도 있습니다 .이 기능은 [SQL Managed Instance에 대해 제한 된 공개 미리 보기로](long-term-retention-overview.md#sql-managed-instance-support)제공 됩니다. LTR 정책을 설정 하는 경우 이러한 백업은 RA GRS 저장소에 자동으로 저장 되지만 백업 복사 빈도를 제어할 수 있습니다. 서로 다른 규정 준수 요구 사항을 충족 하기 위해 주별, 월별 및/또는 매년 백업에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 선택한 구성에 따라 LTR 백업에 사용 되는 저장소의 양이 결정 됩니다. LTR 저장소의 비용을 예상 하려면 LTR 가격 계산기를 사용할 수 있습니다. 자세한 내용은 [장기 보존 SQL Database](long-term-retention-overview.md)를 참조 하세요.
+- **LTR**: [SQL Managed Instance](long-term-retention-overview.md)최대 10 년 동안 전체 백업의 장기 보존을 구성 하는 옵션도 있습니다. LTR 정책을 설정 하는 경우 이러한 백업은 RA GRS 저장소에 자동으로 저장 되지만 백업 복사 빈도를 제어할 수 있습니다. 서로 다른 규정 준수 요구 사항을 충족 하기 위해 주별, 월별 및/또는 매년 백업에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 선택한 구성에 따라 LTR 백업에 사용 되는 저장소의 양이 결정 됩니다. LTR 저장소의 비용을 예상 하려면 LTR 가격 계산기를 사용할 수 있습니다. 자세한 내용은 [장기 보존 SQL Database](long-term-retention-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

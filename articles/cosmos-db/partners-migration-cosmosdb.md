@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090506"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048151"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,12 +26,11 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, 소매점 (인벤토리), 운영 분석 (Spark), 서버를 사용 하지 않는 아키텍처, 앱 개발 | 미국 |
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, 개인 설정 일반 정품 (인벤토리), 서버 리스 아키텍처 NoSQL 마이그레이션, 앱 개발|   미국 |
 |[Avanade](https://www.avanade.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 | 오스트리아, 독일, 스위스, 이탈리아, 노르웨이, 스페인, 영국, 캐나다 |
-|[Accenture](https://www.accenture.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 |Global|
+|[Accenture](https://www.accenture.com/) | IoT, 소매점 (인벤토리), 서버를 사용 하지 않는 아키텍처, 앱 개발 |전역|
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, 개인 설정, 소매 (인벤토리), 운영 분석 (Spark), 서버 리스 아키텍처, 앱 개발|    미국     |  
 | [Capgemini](https://www.capgemini.com/) | 소매점 (재고), IoT, 운영 분석 (Spark), 앱 개발 | 미국, 프랑스, 영국, 네덜란드, 핀란드  |
 | [Cognizant](https://www.cognizant.com/) | IoT, 개인 설정, 소매점 (인벤토리), 운영 분석 (Spark), 앱 개발 |미국, 캐나다, 영국, 덴마크, 네덜란드, 스위스, 오스트레일리아, 일본 |
 |[Infosys](https://www.infosys.com/)     | 앱 개발      |    미국    |  
-| [Lagash 시스템](https://www.devex.com/organizations/lagash-systems-131346) | IoT, 서버를 사용 하지 않는 아키텍처, 앱 개발 | 아르헨티나, 칠레, 콜롬비아, 멕시코|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | 실시간 개인 설정, 소매 재고, 앱 개발 | 브라질|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     개인 설정, 소매점 (인벤토리), 운영 분석 (Spark), 앱 개발  |    미국     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   NoSQL 마이그레이션      |   미국      |

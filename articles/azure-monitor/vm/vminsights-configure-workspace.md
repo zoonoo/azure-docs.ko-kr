@@ -1,18 +1,17 @@
 ---
 title: VM insights에 대 한 Log Analytics 작업 영역 구성
 description: VM insights에서 사용 하는 Log Analytics 작업 영역을 만들고 구성 하는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: dc7e6c42837ccaa56c7a211deb646c934ec137a4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a0e04772cfc1c9be77c0ad8b32b0e93be8b9f54
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717131"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046723"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>VM insights에 대 한 Log Analytics 작업 영역 구성
 VM insights는 Azure Monitor에서 하나 이상의 Log Analytics 작업 영역에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM insights에 대해 구성 하는 방법을 설명 합니다.

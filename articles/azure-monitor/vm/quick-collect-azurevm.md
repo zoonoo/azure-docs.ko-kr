@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집 | Microsoft Docs
 description: Log Analytics를 사용하여 Log Analytics 에이전트 VM 확장을 사용하도록 설정하고 Azure VM에서 데이터 수집을 사용하도록 설정하는 방법을 알아봅니다.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e267682118c4ba6fe25c11a4ae5088916d0e6fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f73614253a1ce442d2a93ce5e9b9d7051542511
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736987"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047029"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신에서 데이터 수집
 

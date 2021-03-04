@@ -13,81 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c404aa93669cd95dccb0ad185d71d2ec16256d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048236"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
-
-
 이 문서에는 Azure 센티널 사용에 대 한 자세한 정보를 얻는 데 도움이 되는 리소스가 나열 되어 있습니다.
 
-- **Azure Logic Apps 커넥터**: <https://docs.microsoft.com/connectors/>
+## <a name="learn-more-about-creating-queries"></a>쿼리 만들기에 대 한 자세한 정보
 
+Azure 센티널은 Azure Monitor Log Analytics의 Kusto 쿼리 언어 (KQL)를 사용 하 여 쿼리를 작성 합니다. 자세한 내용은 다음을 참조하십시오.
 
-## <a name="auditing-and-reporting"></a>감사 및 보고
-Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 유지 관리 됩니다.
+- [KQL 개념](/azure/data-explorer/kusto/concepts/)
+- [KQL 쿼리](/azure/data-explorer/kusto/query/)
+- [KQL 빠른 참조 가이드를 참조](/azure/data-explorer/kql-quick-reference)하세요.
+- [KQL 쿼리 시작](../azure-monitor/logs/get-started-queries.md)
 
-다음과 같은 지원 되는 작업을 감사할 수 있습니다.
+## <a name="learn-more-about-creating-automation"></a>Automation 만들기에 대 한 자세한 정보
 
-|작업 이름|    리소스 종류|
-|----|----|
-|통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
-|통합 문서 삭제    |Microsoft Insights/통합 문서|
-|워크플로 설정   |Microsoft.Logic/workflows|
-|워크플로 삭제    |Microsoft.Logic/workflows|
-|저장 된 검색 만들기    |OperationalInsights/작업 영역/savedSearches|
-|저장 된 검색 삭제    |OperationalInsights/작업 영역/savedSearches|
-|경고 규칙 업데이트 |Microsoft SecurityInsights/alertRules|
-|경고 규칙 삭제 |Microsoft SecurityInsights/alertRules|
-|경고 규칙 응답 작업 업데이트 |Microsoft SecurityInsights/alertRules/작업|
-|경고 규칙 응답 작업 삭제 |Microsoft SecurityInsights/alertRules/작업|
-|책갈피 업데이트   |Microsoft SecurityInsights/책갈피|
-|책갈피 삭제   |Microsoft SecurityInsights/책갈피|
-|업데이트 사례   |Microsoft SecurityInsights/사례|
-|업데이트 사례 조사  |Microsoft SecurityInsights/사례/조사|
-|사례 설명 만들기   |Microsoft SecurityInsights/사례/설명|
-|데이터 커넥터 업데이트 |Microsoft SecurityInsights/dataConnectors|
-|데이터 커넥터 삭제 |Microsoft SecurityInsights/dataConnectors|
-|업데이트 설정    |Microsoft SecurityInsights/설정|
+기본 제공 플레이 북의 갤러리를 확대 하 여 Azure Logic Apps를 사용 하 여 Azure 센티널에서 자동화를 만듭니다. 
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Azure 센티널에서 감사 및 보고 데이터 보기
+자세한 내용은 [Azure Logic Apps 커넥터](https://docs.microsoft.com/connectors/)를 참조 하세요.
 
-Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음 연구 및 분석을 수행할 수 있습니다.
+## <a name="comment-on-our-blogs-and-forums"></a>블로그 및 포럼에 대 한 의견
 
-1. [Azure 활동](connect-azure-activity.md) 데이터 원본에 연결 합니다. 이 작업을 수행한 후에 감사 이벤트는 AzureActivity 라는 **로그** 화면에서 새 테이블로 스트리밍됩니다.
+사용자의 의견을 주시면 감사 합니다.
 
-1. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.
+Azure 센티널의 TechCommunity 공간:
 
-    예를 들어 특정 분석 규칙을 편집 하는 마지막 사용자를 확인 하려면 다음 쿼리를 사용 합니다 (를 확인 하려는 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 규칙의 규칙 ID로 대체).
+- [최근 블로그 게시물 보기 및 주석](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
+- [Azure 센티널에 대 한 사용자 고유의 질문 게시](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-    ```kusto
-    AzureActivity
-    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
-    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    | project Caller , TimeGenerated , Properties
-    ```
+또한 [사용자 음성](https://feedback.azure.com/forums/920458-azure-sentinel) 프로그램을 통해 향상 된 기능에 대 한 제안을 보낼 수 있습니다.
 
+## <a name="join-the-azure-sentinel-github-community"></a>Azure 센티널 GitHub 커뮤니티에 가입
 
-## <a name="blogs-and-forums"></a>블로그 및 포럼
+[Azure 센티널 GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel) 는 위협 검색 및 자동화를 위한 강력한 리소스입니다. 
 
-사용자의 의견을 환영 합니다.
+Microsoft 보안 분석가들은 새로운 통합 문서, 플레이 북 및 헌팅 쿼리를 지속적으로 만들고 추가하며, 작업 환경에서 사용할 수 있게 커뮤니티에 게시하고 있습니다. 
 
-- Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) 에 **질문을 게시** 합니다. 
-
-- [사용자 음성](https://feedback.azure.com/forums/920458-azure-sentinel) 프로그램 **을 통해 향상 된 기능에 대 한 제안을 보냅니다** .
-
-- Azure 센티널 블로그 게시물을 **보고 의견을 보내** 드립니다.
-
-    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
-    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
+개인 커뮤니티 GitHub 리포지토리에서 샘플 콘텐츠를 다운로드 하 여 Azure 센티널에 대 한 사용자 지정 통합 문서, 구하기 쿼리, 전자 필기장 및 플레이 북을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

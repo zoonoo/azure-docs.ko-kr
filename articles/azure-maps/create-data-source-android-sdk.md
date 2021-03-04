@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674646"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047675"
 ---
 # <a name="create-a-data-source-android-sdk"></a>데이터 원본 만들기 (Android SDK)
 
@@ -360,14 +360,17 @@ Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-til
 - 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
 - Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
 
+> [!TIP]
+> 웹 SDK를 사용 하 여 Azure Maps render service에서 벡터 또는 래스터 이미지 타일을 사용 하는 경우를 `atlas.microsoft.com` 자리 표시자로 바꿀 수 있습니다 `azmapsdomain.invalid` . 이 자리 표시자는 맵에 사용 되는 동일한 도메인으로 바뀌고 동일한 인증 세부 정보도 자동으로 추가 됩니다. 이렇게 하면 Azure Active Directory 인증을 사용 하는 경우 렌더링 서비스에 대 한 인증이 매우 간단해 집니다.
+
 지도에 벡터 타일 원본의 데이터를 표시 하려면 데이터 렌더링 계층 중 하나에 원본을 연결 합니다. 벡터 원본을 사용 하는 모든 계층은 옵션에 값을 지정 해야 합니다 `sourceLayer` . 다음 코드는 Azure Maps traffic flow vector 타일 서비스를 벡터 타일 원본으로 로드 한 다음 선 계층을 사용 하 여 지도에 표시 합니다. 이 벡터 타일 원본에는 원본 계층에서 "트래픽 흐름" 이라는 단일 데이터 집합이 있습니다. 이 데이터 집합의 줄 데이터에는 `traffic_level` 이 코드에서 색을 선택 하 고 선의 크기를 조정 하는 데 사용 되는 라는 속성이 있습니다.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );

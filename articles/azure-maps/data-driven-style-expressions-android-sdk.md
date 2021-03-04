@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 61d7a295d86fd7da74dee03cd35c79feea0218ed
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681734"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047743"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>데이터 기반 스타일 식 (Android SDK)
 
@@ -27,7 +27,7 @@ Azure Maps Android SDK Azure Maps 웹 SDK와 거의 동일한 스타일 식을 �
 |---------------------|-------------|
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
 | [색 식](#color-expressions) | 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다. |
-| [조건식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
+| [조건부 식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
 | [데이터 식](#data-expressions) | 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. |
 | [보간 및 단계 식](#interpolate-and-step-expressions) | 보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. |
 | [JSON 기반 식](#json-based-expressions) | Android SDK를 사용 하 여 웹 SDK에 대해 만든 스타일 원시 JSON 기반 식을 쉽게 다시 사용할 수 있습니다. |  
@@ -144,21 +144,21 @@ Expression exp = Expression.raw("['get','title']")
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `accumulated()` | number | 지금까지 누적 된 클러스터 속성 값을 가져옵니다. |
-| `at(number | Expression, Expression)` | value | 배열에서 항목을 검색 합니다. |
+| `at(number | Expression, Expression)` | 값 | 배열에서 항목을 검색 합니다. |
 | `geometryType()` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `get(string | Expression)` \| `get(string | Expression, Expression)` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `get(string | Expression)` \| `get(string | Expression, Expression)` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `has(string | Expression)` \| `has(string | Expression, Expression)` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `id()` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `id()` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `in(string | number | Expression, Expression)` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `length(string | Expression)` | number | 문자열이 나 배열의 길이를 가져옵니다. |
-| `properties()`| value | 기능 속성 개체를 가져옵니다. |
+| `properties()`| 값 | 기능 속성 개체를 가져옵니다. |
 
 다음 웹 SDK 스타일 식은 Android SDK 지원 되지 않습니다.
 
 - 인덱스-
 - slice
 
-**예제**
+**예**
 
 식을 사용 하 여 식에서 직접 기능의 속성에 액세스할 수 있습니다 `get` . 이 예에서는 기능 값을 사용 하 여 `zoneColor` 거품형 계층의 color 속성을 지정 합니다.
 
@@ -336,7 +336,7 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 match(Expression input, Expression defaultOutput, Expression.Stop... stops)
 ```
 
-**예제**
+**예**
 
 다음 예에서는 `entityType` 거품형 계층에서 Point 기능의 속성을 검색 하 여 일치 하는 항목을 찾습니다. 일치 하는 항목이 발견 되 면 지정 된 값이 반환 되거나 대체 (fallback) 값이 반환 됩니다.
 
@@ -470,7 +470,7 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
-모든 색 매개 변수가 숫자인 경우 식으로 래핑할 필요가 없습니다 `literal` . 예를 들면 다음과 같습니다.
+모든 색 매개 변수가 숫자인 경우 식으로 래핑할 필요가 없습니다 `literal` . 다음은 그 예입니다. 
 
 ```java
 BubbleLayer layer = new BubbleLayer(dataSource,
@@ -502,7 +502,7 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 |------------|-------------|-------------|
 | `concat(string...)` \| `concat(Expression...)` | 문자열 | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. `toString`필요한 경우 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
 | `downcase(string)` \| `downcase(Expression)` | 문자열 | 지정된 문자열을 소문자로 변환합니다. |
-| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| boolean | 입력 문자열이 현재 글꼴 스택에서 지 원하는 문자 집합을 사용 하는지 여부를 확인 합니다. `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
+| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| boolean | 입력 문자열이 현재 글꼴 스택에서 지 원하는 문자 집합을 사용 하는지 여부를 확인 합니다. 예: `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
 | `resolvedLocale(Expression collator)` | 문자열 | 제공 된 병합기에서 사용 하는 로캘의 IETF 언어 태그를 반환 합니다. 이는 기본 시스템 로캘을 확인 하거나 요청 된 로캘이 성공적으로 로드 되었는지 여부를 확인 하는 데 사용할 수 있습니다. |
 | `upcase(string)` \| `upcase(Expression)` | 문자열 | 지정된 문자열을 대문자로 변환합니다. |
 
@@ -545,7 +545,7 @@ interpolate(Expression.Interpolator interpolation, Expression number, Expression
 
 식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다 `interpolate` .
 
-| 이름 | 설명 | 
+| 속성 | 설명 | 
 |------|-------------|
 | `linear()` | 중지점의 쌍 사이를 선형으로 보간합니다.  |
 | `exponential(number)` \| `exponential(Expression)` | 정지 사이에 지를 보간합니다. "Base"가 지정 되 고 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. 1에 가까운 "기본" 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.|
@@ -662,7 +662,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 부드러운 그라데이션을 사용 하 여 열 지도를 색상화 하는 것 외에도 식을 사용 하 여 범위 집합 내에서 색을 지정할 수 있습니다 `step` . 열 지도를 색으로 하는 식을 사용 하 여 `step` 윤곽선 또는 방사형 스타일 맵과 유사한 범위로 밀도를 시각적으로 나눕니다.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -679,6 +679,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 자세한 내용은 [열 지도 계층 추가](map-add-heat-map-layer-android.md) 설명서를 참조 하세요.
+
+### <a name="line-progress-expression"></a>줄 진행률 식
+
+줄 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색 하 고로 정의 됩니다 `lineProgress()` . 이 값은 0에서 1 사이의 숫자입니다. 또는 식과 함께 사용 `interpolation` `step` 됩니다. 이 식은 `strokeGradient` 선 계층의 옵션에만 사용할 수 있습니다.
+
+> [!NOTE]
+> `strokeGradient`선 계층의 옵션을 사용 하려면 `lineMetrics` 데이터 소스의 옵션을로 설정 해야 합니다 `true` .
+
+**예제**
+
+이 예제에서는 식을 사용 하 여 `lineProgress()` 선의 스트로크에 색 그라데이션을 적용 합니다.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[라이브 예제 참조](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>텍스트 필드 형식 식
 

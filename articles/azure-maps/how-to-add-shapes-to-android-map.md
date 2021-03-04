@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1712cedab9cef23108fcc48b8e09bdc3e33065c4
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 25785ae7a214d6122fb90b80e8f0725a3468c48d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679488"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047611"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>지도에 다각형 계층 추가 (Android SDK)
 
 이 문서에서는 다각형 계층을 사용하여 맵에 `Polygon` 및 `MultiPolygon` 기능 기하 도형의 영역을 렌더링하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
 
@@ -97,6 +97,47 @@ map.layers.add(new LineLayer(source,
 > [!TIP]
 > 선 계층을 사용 하 여 다각형의 개요를 표시 하는 경우 각 점 배열의 시작점과 끝점이 동일 하도록 다각형의 모든 고리를 닫아야 합니다. 이 작업을 수행 하지 않으면 선 계층이 다각형의 마지막 점을 첫 번째 점에 연결 하지 못할 수 있습니다.
 
+## <a name="fill-a-polygon-with-a-pattern"></a>패턴을 사용하여 다각형 채우기
+
+색을 사용한 다각형 채우기 외에도 이미지 패턴을 사용하여 다각형을 채울 수 있습니다. 지도 이미지 스프라이트 리소스에 이미지 패턴을 로드 한 다음 `fillPattern` 다각형 계층의 옵션을 사용 하 여이 이미지를 참조 합니다.
+
+```java
+//Load an image pattern into the map image sprite.
+map.images.add("fill-checker-red", R.drawable.fill_checker_red);
+
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
+            Point.fromLngLat(-50, -20),
+            Point.fromLngLat(0, 40),
+            Point.fromLngLat(50, -20),
+            Point.fromLngLat(-50, -20)
+        )
+    )
+));
+
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source,
+        fillPattern("fill-checker-red"),
+        fillOpacity(0.5f)
+), "labels");
+```
+
+이 샘플에서는 다음 이미지가 응용 프로그램의 그릴 폴더에 로드 되었습니다.
+
+| ![자주색 화살표 아이콘 이미지](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
+|:-----------------------------------------------------------------------:|
+| fill_checker_red.png                                                    |
+
+다음은 지도의 채우기 패턴이 있는 다각형을 렌더링 하는 위의 코드의 스크린샷입니다.
+
+![지도에서 채우기 패턴이 렌더링 된 다각형](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
+
 ## <a name="next-steps"></a>다음 단계
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
@@ -109,3 +150,6 @@ map.layers.add(new LineLayer(source,
 
 > [!div class="nextstepaction"]
 > [선 계층 추가](android-map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [다각형 입체 면 레이어 추가](map-extruded-polygon-android.md)

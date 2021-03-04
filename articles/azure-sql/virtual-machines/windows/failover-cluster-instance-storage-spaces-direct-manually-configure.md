@@ -1,6 +1,6 @@
 ---
-title: 스토리지 공간 다이렉트를 사용 하 여 FCI 만들기
-description: 스토리지 공간 다이렉트를 사용 하 여 Azure virtual machines에서 SQL Server를 사용 하 여 FCI (장애 조치 (failover) 클러스터 인스턴스)를 만듭니다.
+title: 저장소 공간 다이렉트를 사용 하 여 FCI 만들기
+description: 저장소 공간 다이렉트를 사용 하 여 Azure virtual machines에서 SQL Server를 사용 하 여 FCI (장애 조치 (failover) 클러스터 인스턴스)를 만듭니다.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357809"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048644"
 ---
-# <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>스토리지 공간 다이렉트를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
+# <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>저장소 공간 다이렉트를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 Azure Virtual Machines (Vm)에서 SQL Server와 함께 [스토리지 공간 다이렉트](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 를 사용 하 여 fci (장애 조치 (failover) 클러스터 인스턴스)를 만드는 방법을 설명 합니다. 스토리지 공간 다이렉트는 Windows 클러스터의 노드 (Azure Vm) 간에 저장소 (데이터 디스크)를 동기화 하는 소프트웨어 기반 VSAN (가상 저장 영역 네트워크) 역할을 합니다. 
+이 문서에서는 Azure Virtual Machines (Vm)에서 SQL Server와 함께 [저장소 공간 다이렉트](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 를 사용 하 여 fci (장애 조치 (failover) 클러스터 인스턴스)를 만드는 방법을 설명 합니다. 저장소 공간 다이렉트는 Windows 클러스터의 노드 (Azure Vm) 간에 저장소 (데이터 디스크)를 동기화 하는 소프트웨어 기반 VSAN (가상 저장 영역 네트워크) 역할을 합니다. 
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
 
 ## <a name="overview"></a>개요 
 
-[S2D (스토리지 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 는 수렴 형 및 하이퍼 수렴 형의 두 가지 아키텍처 유형을 지원 합니다. 하이퍼 수렴 형 인프라는 저장소를 클러스터 된 응용 프로그램을 호스트 하는 동일한 서버에 배치 하므로 저장소는 각 SQL Server FCI 노드에 있습니다. 
+[S2D (저장소 공간 다이렉트)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 는 수렴 형 및 하이퍼 수렴 형의 두 가지 아키텍처 유형을 지원 합니다. 하이퍼 수렴 형 인프라는 저장소를 클러스터 된 응용 프로그램을 호스트 하는 동일한 서버에 배치 하므로 저장소는 각 SQL Server FCI 노드에 있습니다. 
 
-다음 다이어그램에서는 Azure Vm에서 SQL Server와 함께 하이퍼 수렴 형 스토리지 공간 다이렉트를 사용 하는 전체 솔루션을 보여 줍니다. 
+다음 다이어그램에서는 Azure Vm에서 SQL Server와 함께 하이퍼 수렴 형 저장소 공간 다이렉트를 사용 하는 전체 솔루션을 보여 줍니다. 
 
-![하이퍼 수렴 형 스토리지 공간 다이렉트를 사용 하는 전체 솔루션의 다이어그램](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
+![하이퍼 수렴 형 저장소 공간 다이렉트를 사용 하는 전체 솔루션의 다이어그램](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 
 위의 다이어그램은 동일한 리소스 그룹에서 다음 리소스를 보여 줍니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "97357809"
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-다음 단계에 대 한 자세한 내용은 [Windows Server 2016의 스토리지 공간 다이렉트를 사용 하 여 하이퍼 수렴 형 솔루션](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 "3 단계: 스토리지 공간 다이렉트 구성" 섹션의 지침을 참조 하세요.
+다음 단계에 대 한 자세한 내용은 [Windows Server 2016의 저장소 공간 다이렉트를 사용 하 여 하이퍼 수렴 형 솔루션](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 "3 단계: 저장소 공간 다이렉트 구성" 섹션의 지침을 참조 하세요.
 
 
 ## <a name="validate-the-cluster"></a>클러스터 유효성 검사
@@ -151,9 +151,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="add-storage"></a>스토리지 추가
 
-스토리지 공간 다이렉트용 디스크는 비어 있어야 하며 파티션 또는 다른 데이터를 포함할 수 없습니다. 디스크를 정리 하려면 [스토리지 공간 다이렉트 배포](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives)의 지침을 따르세요.
+스토리지 공간 다이렉트용 디스크는 비어 있어야 하며 파티션 또는 다른 데이터를 포함할 수 없습니다. 디스크를 정리 하려면 [저장소 공간 다이렉트 배포](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives)의 지침을 따르세요.
 
-1. [스토리지 공간 다이렉트를 사용 하도록 설정](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct)합니다.
+1. [저장소 공간 다이렉트를 사용 하도록 설정](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct)합니다.
 
    다음 PowerShell 스크립트는 스토리지 공간 다이렉트를 활성화합니다.  
 
@@ -173,9 +173,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
    이전 명령을 실행 한 후 800 GB 볼륨이 클러스터 리소스로 탑재 됩니다. 볼륨은 `C:\ClusterStorage\Volume1\`에 있습니다.
 
-   이 스크린샷에서는 스토리지 공간 다이렉트 포함 된 CSV를 보여줍니다.
+   이 스크린샷에서는 저장소 공간 다이렉트 포함 된 CSV를 보여줍니다.
 
-   ![스토리지 공간 다이렉트 포함 된 클러스터 공유 볼륨의 스크린샷](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
+   ![저장소 공간 다이렉트 포함 된 클러스터 공유 볼륨의 스크린샷](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
 
 
 
@@ -199,7 +199,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. **SQL Server 장애 조치(failover) 클러스터 새로 설치** 를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-   FCI 데이터 디렉터리는 클러스터형 스토리지에 있어야 합니다. 스토리지 공간 다이렉트를 사용 하는 경우 공유 디스크가 아니라 각 서버의 볼륨에 대 한 탑재 지점입니다. 스토리지 공간 다이렉트는 두 노드 간에 볼륨을 동기화합니다. 볼륨은 CSV로 클러스터에 표시 됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
+   FCI 데이터 디렉터리는 클러스터형 스토리지에 있어야 합니다. 저장소 공간 다이렉트를 사용 하는 경우 공유 디스크가 아니라 각 서버의 볼륨에 대 한 탑재 지점입니다. 스토리지 공간 다이렉트는 두 노드 간에 볼륨을 동기화합니다. 볼륨은 CSV로 클러스터에 표시 됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
 
    ![데이터 디렉터리](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
 
@@ -236,17 +236,19 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 를 만들거나 SQL SERVER 2019 CU2 (이상) 및 Windows Server 2016 이상을 사용 하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
 
+클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
+
 ## <a name="limitations"></a>제한 사항
 
 - Azure virtual machines는 Csv의 저장소와 [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 사용 하는 Windows Server 2019에서 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 지원 합니다.
-- NTFS 형식 디스크로 연결 된 디스크는 클러스터에 저장소를 추가 하는 경우 디스크 자격 옵션을 선택 취소 하거나 선택 취소 하는 경우에만 스토리지 공간 다이렉트와 함께 사용할 수 있습니다. 
+- NTFS 형식 디스크로 연결 된 디스크는 클러스터에 저장소를 추가 하는 경우 디스크 자격 옵션을 선택 취소 하거나 선택 취소 하는 경우에만 저장소 공간 다이렉트와 함께 사용할 수 있습니다. 
 - [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
 
-스토리지 공간 다이렉트 적절 한 FCI 저장소 솔루션이 아니면 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 또는 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 대신 사용 하 여 fci를 만드는 것이 좋습니다. 
+저장소 공간 다이렉트 적절 한 FCI 저장소 솔루션이 아니면 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 또는 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 대신 사용 하 여 fci를 만드는 것이 좋습니다. 
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 

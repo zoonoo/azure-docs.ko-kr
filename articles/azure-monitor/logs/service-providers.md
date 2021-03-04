@@ -1,17 +1,16 @@
 ---
 title: 서비스 공급자에 대 한 Azure Monitor 로그 | Microsoft Docs
 description: Azure Monitor 로그는 MSPs (관리 서비스 공급자), 대기업, Isv (독립 소프트웨어 공급 업체) 및 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리 및 모니터링 하는 데 도움이 될 수 있습니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5f1421da10c4748dd78e4c6790568285fa646979
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717386"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047114"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 

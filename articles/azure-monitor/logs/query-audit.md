@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 감사 쿼리
 description: Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 하는 로그 쿼리 감사 로그의 세부 정보입니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 70741e91830027e210afce75e93d931d70bdbed1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 28dfac7de8e73adf577b0a13e5fbd8740b1e3b06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617454"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047420"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
 로그 쿼리 감사 로그는 Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 합니다. 여기에는 쿼리가 실행 된 시간, 실행 한 사람, 사용 된 도구, 쿼리 텍스트, 쿼리 실행을 설명 하는 성능 통계 등의 정보가 포함 됩니다.
@@ -20,7 +19,7 @@ ms.locfileid: "100617454"
 ## <a name="configure-query-auditing"></a>쿼리 감사 구성
 쿼리 감사는 Log Analytics 작업 영역에서 [진단 설정을](../essentials/diagnostic-settings.md) 사용 하 여 사용 하도록 설정 됩니다. 이를 통해 현재 작업 영역 또는 구독의 다른 작업 영역에 감사 데이터를 전송 하거나, azure Event Hubs에 azure 외부에서 보내거나 보관을 위해 Azure Storage으로 보낼 수 있습니다. 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 다음 위치 중 하나에서 Azure Portal의 Log Analytics 작업 영역에 대 한 진단 설정에 액세스 합니다.
 
 - **Azure Monitor** 메뉴에서 **진단 설정** 을 선택 하 고 작업 영역을 찾아 선택 합니다.

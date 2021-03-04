@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391986"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046349"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -35,7 +35,7 @@ Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하는 자동 프�
 
 X.509 인증을 사용 하는 경우 다운스트림 장치에 대 한 인증서를 생성 합니다. 불투명 게이트웨이 문서에 사용한 것과 동일한 루트 CA 인증서 및 인증서 생성 스크립트를 다시 사용할 수 있도록 합니다.
 
-이 문서에서는 여러 위치에서 게이트웨이 호스트 이름을 참조합니다. 게이트웨이 호스트 이름은 IoT Edge 게이트웨이 디바이스에서 config.yaml 파일의 **hostname** 매개 변수에 선언됩니다. 그리고 다운스트림 디바이스의 연결 문자열에서 참조됩니다. 다운스트림 장치에서 DNS 또는 호스트 파일 항목을 사용 하 여 게이트웨이 호스트 이름을 IP 주소로 확인할 수 있어야 합니다.
+이 문서에서는 여러 위치에서 게이트웨이 호스트 이름을 참조합니다. 게이트웨이 호스트 이름은 IoT Edge 게이트웨이 장치에 있는 구성 파일의 **hostname** 매개 변수에 선언 됩니다. 그리고 다운스트림 디바이스의 연결 문자열에서 참조됩니다. 다운스트림 장치에서 DNS 또는 호스트 파일 항목을 사용 하 여 게이트웨이 호스트 이름을 IP 주소로 확인할 수 있어야 합니다.
 
 ## <a name="register-device-with-iot-hub"></a>IoT Hub를 사용 하 여 장치 등록
 
@@ -192,7 +192,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 * 인증 방법 (대칭 키 또는 x.509 인증서에 상관 없음)
   * 대칭 키 인증을 사용 하는 경우 기본 키 또는 보조 키를 제공 합니다. `SharedAccessKey={key}`
   * X.509 인증서 인증을 사용 하는 경우 플래그를 제공 합니다. `x509=true`
-* 디바이스가 통과하는 게이트웨이 디바이스. IoT Edge 게이트웨이 디바이스의 config.yaml 파일 에서 **호스트 이름** 값을 제공합니다. `GatewayHostName={gateway hostname}`
+* 디바이스가 통과하는 게이트웨이 디바이스. IoT Edge 게이트웨이 장치의 구성 파일에서 **호스트 이름** 값을 제공 합니다. `GatewayHostName={gateway hostname}`
 
 최종적으로 전체 연결 문자열은 다음과 같습니다.
 
@@ -206,7 +206,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 다음은 그 예입니다. 
 
 ```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

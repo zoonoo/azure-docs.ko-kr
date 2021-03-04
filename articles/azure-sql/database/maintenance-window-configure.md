@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663442"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048610"
 ---
 # <a name="configure-maintenance-window-preview"></a>유지 관리 기간 구성 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 1. 유지 관리 기간을 설정 하려는 관리 되는 인스턴스로 이동 합니다.
 1. **설정** 메뉴에서 **유지 관리** 를 선택한 다음 원하는 유지 관리 기간을 선택 합니다.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database 유지 관리 페이지":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="SQL 관리 되는 인스턴스 유지 관리 페이지":::
 
 
 

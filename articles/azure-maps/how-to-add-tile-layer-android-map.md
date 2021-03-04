@@ -3,17 +3,18 @@ title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
 description: 지도에 타일 계층을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 날씨 레이더 오버레이를 지도에 추가 하는 예제를 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679302"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047505"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>지도에 타일 계층 추가 (Android SDK)
 
@@ -36,14 +37,17 @@ ms.locfileid: "97679302"
 * `{quadkey}` - Bing Maps 타일 시스템 명명 규칙에 따라 타일 Quadkey 식별자입니다.
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 * `{subdomain}` -하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
+* `azmapsdomain.invalid` -맵에 사용 되는 것과 동일한 값을 사용 하 여 도메인 및 타일 요청의 인증을 정렬 하는 자리 표시자입니다. Azure Maps에서 호스트 하는 타일 서비스를 호출할 때이를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 
 ## <a name="add-a-tile-layer-to-the-map"></a>지도에 타일 계층 추가
 
 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 "x, y, zoom" 배열 시스템을 사용 합니다. 이 타일 계층의 소스는 [OpenSeaMap 프로젝트](https://openseamap.org/index.php)이며,이 프로젝트에는 다양 한 원본 해리 차트가 포함 되어 있습니다. 타일 계층을 볼 때 종종 지도의 도시 레이블을 명확 하 게 볼 수 있는 것이 좋습니다. 이 동작은 지도 레이블 계층 아래에 타일 계층을 삽입 하 여 수행할 수 있습니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 다음 스크린샷은 진한 회색조 스타일을 포함 하는 지도에서 해리 정보의 타일 계층을 표시 하는 위의 코드를 보여 줍니다.
 
 ![타일 계층을 표시 하는 Android 맵](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-지도 스타일을 설정 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+지도에서 이미지를 오버레이 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [지도 스타일 변경](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [열 지도 추가](map-add-heat-map-layer-android.md)
+> [이미지 레이어](map-add-image-layer-android.md)

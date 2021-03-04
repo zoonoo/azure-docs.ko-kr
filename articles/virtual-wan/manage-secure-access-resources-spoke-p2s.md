@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051533"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048264"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 스포크 Vnet의 리소스에 대 한 보안 액세스 관리
 
@@ -50,8 +50,6 @@ ms.locfileid: "98051533"
 * **Radius 기반 인증:** Radius 서버 IP, Radius 서버 비밀 및 인증서 정보를 가져옵니다.
 
 * **Azure 인증서:** 이 구성의 경우 인증서가 필요 합니다. 인증서를 생성 하거나 가져와야 합니다. 클라이언트 인증서는 각 클라이언트에 필요 합니다. 또한 루트 인증서 정보 (공개 키)를 업로드 해야 합니다. 필요한 인증서에 대 한 자세한 내용은 [인증서 생성 및 내보내기](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)를 참조 하세요.
-
-다음 예제에서는 Azure 인증서 인증을 보여 줍니다.
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -131,7 +129,7 @@ Azure 방화벽의 동작을 지시 하는 규칙을 만듭니다. 허브를 보
 1. VNet 연결 및 분기 연결 개인 트래픽이 Azure 방화벽으로 보호 되는지 확인 합니다.
 1. **저장** 을 선택합니다.
 
-## <a name="validate"></a><a name="validate"></a>유효화
+## <a name="validate"></a><a name="validate"></a>유효성 검사
 
 보안 허브의 설정을 확인 합니다.
 

@@ -7,12 +7,12 @@ author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4f3210fb46d5b4a772cdbb125cc5481d7cdd5995
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5dc5d27d0364bf64d9f8b695213c2f71cc822949
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048491"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure Container Registry에 대한 Azure Policy 기본 제공 정의
 
@@ -26,6 +26,7 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크�
 
 ## <a name="next-steps"></a>다음 단계
 
+- [정책 할당 및 준수 검토](container-registry-azure-policy.md)에 대 한 지침을 참조 하세요.
 - [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 기능을 참조하세요.
 - [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../governance/policy/concepts/effects.md)를 검토합니다.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892947"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047488"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -64,12 +64,15 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 이 샘플에서는 KML 그라운드 오버레이 정보를 지도에 이미지 계층으로 추가 하는 방법을 보여 줍니다. KML 접지 오버레이는 북쪽, 남쪽, 동쪽 및 서 부 좌표와 시계 반대 방향 회전을 제공 합니다. 그러나 이미지 계층에는 이미지의 각 모퉁이에 대 한 좌표가 필요 합니다. 이 샘플의 KML 그라운드 오버레이는 Chartres cathedral에 대 한 것 이며 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)에서 원본입니다.
 
-이 코드는 ImageLayer 클래스의 정적 함수를 사용 합니다 `getCoordinatesFromEdges` . [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) KML 접지 오버레이의 북쪽, 남부, 동부, 서 부 및 회전 정보를 사용 하 여 이미지의 네 모퉁이를 계산 합니다.
+이 코드는 ImageLayer 클래스의 정적 함수를 사용 합니다 `getCoordinatesFromEdges` . [](/javascript/api/azure-maps-control/atlas.layer.imagelayer) KML 접지 오버레이의 북쪽, 남부, 동부, 서 부 및 회전 정보를 사용 하 여 이미지의 네 모퉁이를 계산 합니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='이미지 계층으로 KML 지면 오버레이' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>이미지 계층으로 KML 지면 오버레이</a>를 참조하세요.
 </iframe>
+
+> [!TIP]
+> `getPixels` `getPositions` 이미지 계층 클래스의 및 함수를 사용 하 여 배치 된 이미지 계층의 지리적 좌표와 로컬 이미지 픽셀 좌표로 변환 합니다.
 
 ## <a name="customize-an-image-layer"></a>이미지 계층 사용자 지정
 

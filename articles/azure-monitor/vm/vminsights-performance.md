@@ -1,17 +1,16 @@
 ---
 title: VM 정보를 사용 하 여 성능을 차트로 만드는 방법
 description: 성능은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑하는 VM 정보 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 9c69ea3da71063d7e20ebf31ae2eb3df9a51e2c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725444"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046468"
 ---
 # <a name="how-to-chart-performance-with-vm-insights"></a>VM 정보를 사용 하 여 성능을 차트로 만드는 방법
 

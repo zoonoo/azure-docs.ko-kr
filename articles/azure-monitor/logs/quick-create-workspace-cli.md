@@ -1,17 +1,16 @@
 ---
 title: Azure CLI를 사용하여 Log Analytics 작업 영역 만들기 | Microsoft Docs
 description: Azure CLI를 사용하여 온-프레미스 환경에서 관리 솔루션 및 데이터 수집이 가능하도록 Log Analytics 작업 영역을 만드는 방법에 대해 알아봅니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 09e98429b42ced58849851f5bb26477adaec9d68
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e1fc816e32e563161e1604bdcd7a7006353e4ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619544"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047386"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
 

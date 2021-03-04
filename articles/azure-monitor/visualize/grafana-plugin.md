@@ -1,15 +1,14 @@
 ---
 title: Grafana를 사용하여 Azure 서비스 및 애플리케이션 모니터링
 description: Azure Monitor 및 Application Insights 데이터를 라우팅하여 Grafana에서 볼 수 있도록 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: e882b9d19564dab1ef2c0abb34b5d557cb4a5821
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620474"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048661"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
