@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560528"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094659"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Azure 기업계약 역할 관리
 
@@ -197,12 +197,12 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함 |none|가격 없음|
 |None|해당 없음 |소유자|소매 가격|
 
-엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. Azure 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. Azure 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure의 청구 정보에 대한 액세스 관리](manage-billing-access.md)
-- [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)
 - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
