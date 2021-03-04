@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590347"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101038"
 ---
 # <a name="azure-threat-protection"></a>Azure 위협 방지
 
@@ -368,6 +368,6 @@ Azure Marketplace에서 사용할 수 있는 웹 애플리케이션 방화벽의
 
 ## <a name="next-steps"></a>다음 단계
 
-- [오늘날의 위협에 대한 응답](../../security-center/security-center-alerts-overview.md#respond-threats): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
+- [오늘날의 위협에 대한 응답](../../security-center/security-center-managing-and-responding-alerts.md): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
 
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): 데이터베이스에 잠재적인 위협에 대한 우려 사항을 해결하는 데 도움이 됩니다.

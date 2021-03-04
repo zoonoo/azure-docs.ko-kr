@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 50b858d0bf05aa46ea20a6cf9e088376be2996e3
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: beaeb0131a2c9b326d663f6fcbb8273a9b52b412
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693429"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100970"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -46,9 +46,9 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 결과에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. 페이지에서 Ajax 호출이 수행 되 면 새 고유 ID ( `qJSXU` )가 종속성 원격 분석에 할당 되 고 페이지 보기의 id가로 사용 됩니다 `operation_ParentId` . 그러면 서버 요청에서 Ajax ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | 이름                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
-| pageView   | Stock page                |              | STYz               | STYz         |
+| pageView   | Stock page                | STYz         |                    | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |

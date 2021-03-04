@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e49d8bcc55036b21f53720aab17be02edb114d4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570824"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100256"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -141,7 +141,6 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 이해](./security-center-alerts-overview.md)
 * [자습서: 보안 인시던트에 대응](tutorial-security-incident.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544819"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100273"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -117,7 +117,7 @@ ms.locfileid: "100544819"
 |[엔드포인트용 Microsoft Defender](harden-docker-hosts.md)(1)|✔|-|
 |[AWS 계정 연결](quickstart-onboard-aws.md)(1)|-|-|
 |[GCP 계정 연결](quickstart-onboard-gcp.md)(1)|-|-|
-|[연속 내보내기](continuous-export.md)|✔|✔(2)|
+|[연속 내보내기](continuous-export.md)|✔|✔|
 |[워크플로 자동화](workflow-automation.md)|✔|✔|
 |[권장 사항 제외 규칙](exempt-resource.md)|-|-|
 |[경고 비표시 규칙](alerts-suppression-rules.md)|✔|✔|

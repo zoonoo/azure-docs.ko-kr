@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742605"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101378"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -143,7 +143,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 * 상태 프로브는 현재 구성할 수 없습니다. 기본 상태 프로브는 20 초 마다 지역 부하 분산 장치에 대 한 가용성 정보를 자동으로 수집 합니다. 
 
-* Azure Kubernetes Service (AKS)와의 통합을 현재 사용할 수 없습니다. AKS 공용 부하 분산 장치를 사용 하 여 지역 간 부하 분산 장치를 배포 하는 경우 연결 손실이 발생 합니다.
+* Azure Kubernetes Service (AKS)와의 통합을 현재 사용할 수 없습니다. 백 엔드에 배포 된 AKS 클러스터가 있는 표준 부하 분산 장치를 사용 하 여 지역 간 부하 분산 장치를 배포할 때 연결 손실이 발생 합니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 지역 간 부하 분산 장치는 표준 부하 분산 장치의 [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) 를 공유 합니다.

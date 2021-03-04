@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132735"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100715"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -30,7 +30,7 @@ Security Center는 구독의 Azure Resource Manager 기반 ACR 레지스트리�
 
 Qualys 또는 Security Center에서 문제가 발견되면 Security Center 대시보드에 알림이 표시됩니다. Security Center는 모든 취약성에 대해 심각도 분류 및 문제 해결 방법에 대한 지침과 실행 가능한 권장 사항을 제공합니다. Security Center의 컨테이너 관련 권장 사항에 대한 자세한 내용은 [권장 사항 참조 목록](recommendations-reference.md#recs-compute)을 참조하세요.
 
-Security Center는 검사기의 검사 결과를 필터링하고 분류합니다. 이미지가 정상 상태이면 Security Center에서 정상 상태로 표시합니다. Security Center는 해결해야 할 문제가 있는 이미지에 대해서만 보안 권장 사항을 생성합니다. Security Center는 보고된 각 취약성 및 심각도 분류의 세부 정보를 제공합니다. 또한 각 이미지에 있는 특정 취약성을 해결하는 방법에 대한 지침을 제공합니다.
+Security Center는 검사기의 검사 결과를 필터링하고 분류합니다. 이미지가 정상이면 Security Center는 이미지를 정상으로 표시합니다. Security Center는 해결해야 할 문제가 있는 이미지에 대해서만 보안 권장 사항을 생성합니다. Security Center는 보고된 각 취약성 및 심각도 분류의 세부 정보를 제공합니다. 또한 각 이미지에 있는 특정 취약성을 해결하는 방법에 대한 지침을 제공합니다.
 
 Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 않는 정보 알림이 발생할 가능성을 줄입니다.
 
@@ -76,7 +76,7 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 예. 결과는 [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/)에 있습니다. 또한 모든 리소스에 대한 Kusto 같은 API인 ARG(Azure Resource Graph)를 사용할 수 있습니다. 쿼리로 특정 검사를 페치할 수 있습니다.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>어떤 레지스트리 유형이 검사되나요? 어떤 유형에 요금이 청구되나요?
-컨테이너 레지스트리용 Azure Defender에서 지원하는 컨테이너 레지스트리 유형의 목록은 [가용성](defender-for-container-registries-usage.md#availability)을 참조하세요.
+컨테이너 레지스트리용 Azure Defender에서 지원하는 컨테이너 레지스트리 유형의 목록은 [가용성](#availability)을 참조하세요.
 
 지원되지 않는 레지스트리를 Azure 구독에 연결하면 검사되지 않으며 요금이 청구되지 않습니다.
 

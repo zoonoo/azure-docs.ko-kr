@@ -1,15 +1,16 @@
 ---
 title: Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897261"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101106"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
@@ -29,36 +30,8 @@ Azure Kubernetes Service (AKS) 템플릿의 Hyperledger 패브릭을 사용 하 
 옵션 | 서비스 모델 | 일반적인 사용 사례
 -------|---------------|-----------------
 솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 이 템플릿은 blockchain 네트워크 유형에 대해 계산, 네트워킹 및 저장소 서비스 Microsoft Azure 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
-[Azure Blockchain 서비스](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, 컨소시엄 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에 대해 Azure Blockchain 서비스를 사용 합니다.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, 컨소시엄 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에 대해 Azure Blockchain 서비스를 사용 합니다.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain 워크 벤치 미리 보기는 블록 체인 응용 프로그램을 만들고 배포 하 여 다른 조직과 비즈니스 프로세스 및 데이터를 공유 하는 데 도움이 되는 Azure 서비스 및 기능 모음입니다. 블록 체인 솔루션을 프로토타입 하거나 블록 체인 응용 프로그램에 대 한 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain 워크 벤치는 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Hyperledger 패브릭 컨소시엄 아키텍처
-
-Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 노드가 포함 된 주문 서비스와 조직을 배포 해야 합니다. Azure Kubernetes 서비스 솔루션 템플릿의 Hyperledger 패브릭을 사용 하 여 주문 노드나 피어 노드를 만들 수 있습니다. 만들려는 각 노드에 대 한 템플릿을 배포 해야 합니다.
-
-템플릿 배포의 일부로 생성 되는 기본 구성 요소는 다음과 같습니다.
-
-- **Orderer 노드**: 원장에서 트랜잭션 순서 지정을 담당 하는 노드입니다. 다른 노드와 함께, 정렬 된 노드는 Hyperledger 패브릭 네트워크의 주문 서비스를 형성 합니다.
-
-- **피어 노드**: 주로 네트워크의 기본 요소인 원장 및 스마트 계약을 호스트 하는 노드입니다.
-
-- **패브릭 ca**: Hyperledger 패브릭에 대 한 CA (인증 기관)입니다. 패브릭 CA를 사용 하 여 인증 기관을 호스트 하는 서버 프로세스를 초기화 하 고 시작할 수 있습니다. Id 및 인증서를 관리할 수 있습니다. 템플릿의 일부로 배포 된 각 AKS 클러스터에는 기본적으로 패브릭 CA pod가 있습니다.
-
-- 예: 피어 노드에 대 한 세계 주 데이터베이스 **입니다.** LevelDB는 피어 노드에 포함 된 기본 상태 데이터베이스입니다. Chaincode 데이터를 단순 키/값 쌍으로 저장 하 고 키, 키 범위 및 복합 키 쿼리만 지원 합니다. Chaincode 데이터 값이 JSON으로 모델링 될 때 풍부한 쿼리를 지 원하는 대체 상태 데이터베이스 (선택 사항)입니다.
-
-배포의 템플릿은 구독에서 다양 한 Azure 리소스를 회전 합니다. 배포 된 Azure 리소스는 다음과 같습니다.
-
-- **AKS cluster**: 고객이 제공한 입력 매개 변수에 따라 구성 된 Azure Kubernetes 서비스 클러스터입니다. AKS 클러스터에는 하이퍼 원장 패브릭 네트워크 구성 요소를 실행 하기 위해 구성 된 다양 한 pod이 있습니다. 만든 pod는 다음과 같습니다.
-
-  - **패브릭 도구**: Hyperledger 패브릭 구성 요소를 구성 하는 도구입니다.
-  - **Orderer/피어 pod**: Hyperledger 패브릭 네트워크의 노드입니다.
-  - **프록시**: 클라이언트 응용 프로그램에서 AKS 클러스터와 통신할 수 있는 N워 ix 프록시 pod입니다.
-  - **패브릭 ca**: 패브릭 ca를 실행 하는 pod입니다.
-- **PostgreSQL**: 패브릭 CA id를 유지 관리 하는 데이터베이스 인스턴스입니다.
-
-- **Key vault**: 패브릭 CA 자격 증명과 고객이 제공한 루트 인증서를 저장 하기 위해 배포 된 Azure Key Vault 서비스의 인스턴스입니다. 템플릿 배포를 다시 시도 하는 경우 템플릿 메커니즘을 처리 하려면 자격 증명 모음을 사용 합니다.
-- **Managed disk**: 원장 및 피어 노드의 세계 주 데이터베이스에 대 한 영구 저장소를 제공 하는 Azure Managed Disks 서비스의 인스턴스입니다.
-- **공용 IP**: 클러스터와의 통신을 위해 배포 된 AKS 클러스터의 끝점입니다.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>가져오므로 및 피어 조직 배포
 
@@ -85,10 +58,10 @@ Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 �
     - **조직 이름**: 다양 한 데이터 평면 작업에 필요한 Hyperledger 패브릭 조직의 이름을 입력 합니다. 조직 이름은 배포 마다 고유 해야 합니다.
     - **패브릭 네트워크 구성 요소**: 설정 하려는 blockchain 네트워크 구성 요소를 기준으로 **정렬 서비스** 또는 **피어 노드** 를 선택 합니다.
     - **노드 수**: 다음은 두 가지 유형의 노드입니다.
-        - **주문 서비스**: 네트워크에 내결함성을 제공할 노드 수를 선택 합니다. 지원 되는 주문 노드 수는 3, 5, 7입니다.
-        - **피어 노드**: 요구 사항에 따라 1 ~ 10 개의 노드를 선택할 수 있습니다.
-    - **피어 노드 전 세계 상태 데이터베이스**: leveldb와 **패브릭 네트워크 구성 요소** 드롭다운 목록에서 **피어 노드** 를 선택 하면이 필드가 표시 됩니다.
-    - **패브릭 ca 사용자 이름**: 패브릭 ca 인증에 사용 되는 사용자 이름을 입력 합니다.
+        - **주문 서비스**: 원장의 트랜잭션 순서를 담당 하는 노드입니다. 네트워크에 내결함성을 제공할 노드 수를 선택 합니다. 지원 되는 주문 노드 수는 3, 5, 7입니다.
+        - **피어 노드**: 원장 및 스마트 계약을 호스팅하는 노드입니다. 요구 사항에 따라 1 ~ 10 개의 노드를 선택할 수 있습니다.
+    - **피어 노드 전 세계 상태 데이터베이스**: 피어 노드에 대 한 세계 주 데이터베이스입니다. LevelDB는 피어 노드에 포함 된 기본 상태 데이터베이스입니다. Chaincode 데이터를 단순 키/값 쌍으로 저장 하 고 키, 키 범위 및 복합 키 쿼리만 지원 합니다. Chaincode 데이터 값이 JSON으로 모델링 될 때 풍부한 쿼리를 지 원하는 대체 상태 데이터베이스 (선택 사항)입니다. **패브릭 네트워크 구성 요소** 드롭다운 목록에서 **피어 노드** 를 선택 하면이 필드가 표시 됩니다.
+    - **패브릭 CA 사용자 이름**: 패브릭 인증 기관에서 인증 기관을 호스트 하는 서버 프로세스를 초기화 하 고 시작할 수 있습니다. Id 및 인증서를 관리할 수 있습니다. 템플릿의 일부로 배포 된 각 AKS 클러스터에는 기본적으로 패브릭 CA pod가 있습니다. 패브릭 CA 인증에 사용 되는 사용자 이름을 입력 합니다.
     - **패브릭 ca 암호**: 패브릭 ca 인증에 대 한 암호를 입력 합니다.
     - **암호 확인**: 패브릭 CA 암호를 확인 합니다.
     - **인증서**: 자체 루트 인증서를 사용 하 여 패브릭 ca를 초기화 하려면 **패브릭 ca에 루트 인증서 업로드** 옵션을 선택 합니다. 그렇지 않으면 패브릭 CA가 기본적으로 자체 서명 된 인증서를 만듭니다.
@@ -96,11 +69,21 @@ Azure에서 하이퍼 원장 패브릭 네트워크를 빌드하려면 피어 �
     - **루트 인증서 개인 키**: 루트 인증서의 개인 키를 업로드 합니다. 공용 키와 개인 키를 결합 한. pem 인증서가 있는 경우 여기에도 업로드 합니다.
 
 
-6. **AKS 클러스터 설정** 탭을 선택 하 여 하이퍼 원장 패브릭 네트워크 구성 요소가 설정 되는 기본 인프라의 Azure Kubernetes Service 클러스터 구성을 정의 합니다.
+6. **AKS 클러스터 설정** 탭을 선택 하 여 Azure Kubernetes Service 클러스터 구성을 정의 합니다. AKS 클러스터에는 하이퍼 원장 패브릭 네트워크 구성 요소를 실행 하기 위해 구성 된 다양 한 pod이 있습니다. 배포 된 Azure 리소스는 다음과 같습니다.
+
+    - **패브릭 도구**: Hyperledger 패브릭 구성 요소를 구성 하는 도구입니다.
+    - **Orderer/피어 pod**: Hyperledger 패브릭 네트워크의 노드입니다.
+    - **프록시**: 클라이언트 응용 프로그램에서 AKS 클러스터와 통신할 수 있는 N워 ix 프록시 pod입니다.
+    - **패브릭 ca**: 패브릭 ca를 실행 하는 pod입니다.
+    - **PostgreSQL**: 패브릭 CA id를 유지 관리 하는 데이터베이스 인스턴스입니다.
+    - **Key vault**: 패브릭 CA 자격 증명과 고객이 제공한 루트 인증서를 저장 하기 위해 배포 된 Azure Key Vault 서비스의 인스턴스입니다. 템플릿 배포를 다시 시도 하는 경우 템플릿 메커니즘을 처리 하려면 자격 증명 모음을 사용 합니다.
+    - **Managed disk**: 원장 및 피어 노드의 세계 주 데이터베이스에 대 한 영구 저장소를 제공 하는 Azure Managed Disks 서비스의 인스턴스입니다.
+    - **공용 IP**: 클러스터와의 통신을 위해 배포 된 AKS 클러스터의 끝점입니다.
+
+    다음 세부 정보를 입력합니다. 
 
     ![A K S 클러스터 설정 탭을 보여 주는 스크린샷](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. 다음 세부 정보를 입력합니다.
     - **Kubernetes cluster name**: 필요한 경우 AKS 클러스터의 이름을 변경 합니다. 이 필드는 제공 된 리소스 접두사에 따라 미리 채워져 있습니다.
     - **Kubernetes version**: 클러스터에 배포할 Kubernetes의 버전을 선택 합니다. **기본** 탭에서 선택한 지역에 따라 지원 되는 버전을 변경할 수 있습니다.
     - **Dns 접두사**: AKS 클러스터에 대 한 Dns (Domain name System) 이름 접두사를 입력 합니다. 클러스터를 만든 후 컨테이너를 관리할 때 DNS를 사용 하 여 Kubernetes API에 연결 합니다.
@@ -294,7 +277,7 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
+`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 다음은 그 예입니다. 
 
   - `<anchorPeersList>` `"peer1"` Peer1 노드만 앵커 피어로 설정 하려는 경우로 설정 합니다.
   - `<anchorPeersList>` `"peer1" "peer3"` Peer1 및 peer3 노드를 앵커 피어로 설정 하려는 경우로 설정 합니다.
@@ -334,7 +317,7 @@ CHANNEL_NAME=<channelName>
 ```
 명령은 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 chaincode를 설치 `ORGNAME` 합니다. 두 개 이상의 피어 조직이 채널에 있고 chaincode를 모두 설치 하려면 각 피어 조직에 대해이 명령을 별도로 실행 합니다.  
 
-다음 단계를 수행하세요.  
+다음 단계를 수행합니다.  
 
 1.  `ORGNAME` `USER_IDENTITY` 에 따라 및을 설정 하 `peerOrg1` 고 `./azhlf chaincode install` 명령을 실행 합니다.  
 2.  `ORGNAME` `USER_IDENTITY` 에 따라 및을 설정 하 `peerOrg2` 고 `./azhlf chaincode install` 명령을 실행 합니다.  
@@ -351,7 +334,7 @@ CHANNEL_NAME=<channelName>
 
 플래그를 사용 하 여 컬렉션의 구성 JSON 파일을 전달할 수도 있습니다 `--collections-config` . 또는 `-t` 전용 트랜잭션에 사용 되는 chaincode를 인스턴스화하는 동안 플래그를 사용 하 여 임시 인수를 설정 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
@@ -359,7 +342,7 @@ CHANNEL_NAME=<channelName>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 개인 데이터 chaincode의 인스턴스화에 대해 정의 된 컬렉션을 포함 하는 JSON 파일에 대 한 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 상대적인 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다 `./samples/chaincode/src/private_marbles/collections_config.json` .
-`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 명령을 한 번 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 전송 된 후 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 그런 다음 Chaincode은 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  
@@ -385,7 +368,7 @@ CHANNEL_NAME=<channelName>
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`.
+보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`
 
 *AzhlfTool* 를 사용 하 여 chaincode를 설치 하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달 합니다. Chaincode는 해당 조직의 모든 피어 노드에 설치 됩니다. 
 

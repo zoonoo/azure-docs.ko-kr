@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be37f2d361b6bb164a3e01b9ac6f115294137dd0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735865"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099542"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -193,6 +193,12 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 1. 자세한 내용과 영향을 받는 컴퓨터의 목록에서 경고를 선택 합니다.
 
+    경고 페이지에서는 경고에 대 한 자세한 정보를 표시 하 고, 위협을 완화 하는 방법에 대 한 권장 사항과 함께 **작업 수행** 링크를 제공 합니다.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="적응 응용 프로그램 제어 경고의 시작 시간은 ":::
+
+    > [!NOTE]
+    > 적응 응용 프로그램 컨트롤은 12 시간 마다 한 번씩 이벤트를 계산 합니다. 경고 페이지에 표시 되는 "작업 시작 시간"은 의심 스러운 프로세스가 활성화 된 시간이 **아니라** 적응 응용 프로그램 제어에서 경고를 만든 시간입니다.
 
 
 ## <a name="move-a-machine-from-one-group-to-another"></a>컴퓨터를 한 그룹에서 다른 그룹으로 이동

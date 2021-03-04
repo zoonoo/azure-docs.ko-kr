@@ -3,17 +3,18 @@ title: Android maps에 대 한 데이터 원본 만들기 | Microsoft Azure 맵
 description: 지도의 데이터 원본을 만드는 방법에 대해 알아보세요. Azure Maps Android SDK에서 사용 하는 데이터 원본에 대해 알아봅니다. GeoJSON 원본 및 벡터 타일.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/03/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: e870134e2ecd431aa3e5c02638120027f0d47df2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047675"
+ms.locfileid: "102101463"
 ---
 # <a name="create-a-data-source-android-sdk"></a>데이터 원본 만들기 (Android SDK)
 
@@ -25,6 +26,8 @@ Azure Maps Android SDK 데이터 원본에 데이터를 저장 합니다. 데이
 ## <a name="geojson-data-source"></a>GeoJSON 데이터 원본
 
 Azure Maps은 기본 데이터 모델 중 하나로 GeoJSON를 사용 합니다. GeoJSON는 지리 공간적 데이터를 JSON 형식으로 나타내는 데 사용할 수 있는 지리 공간적 표준 방식입니다. Azure Maps Android SDK에서 사용할 수 있는 GeoJSON 클래스를 사용 하 여 GeoJSON 데이터를 쉽게 만들고 serialize 할 수 있습니다. GeoJSON 데이터를 로드 하 고 클래스에 저장 `DataSource` 한 다음 레이어를 사용 하 여 렌더링 합니다. 다음 코드는 Azure Maps에서 GeoJSON 개체를 만드는 방법을 보여 줍니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 /*
@@ -53,7 +56,42 @@ feature.addStringProperty("custom-property", "value");
 source.add(feature);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+/*
+    Raw GeoJSON feature
+    
+    {
+         "type": "Feature",
+         "geometry": {
+             "type": "Point",
+             "coordinates": [-100, 45]
+         },
+         "properties": {
+             "custom-property": "value"
+         }
+    }
+
+*/
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45))
+
+//Add a property to the feature.
+feature.addStringProperty("custom-property", "value")
+
+//Add the feature to the data source.
+source.add(feature)
+```
+
+::: zone-end
+
 또는 아래와 같이 먼저 속성을 JsonObject로 로드 한 다음이를 만들 때 기능에 전달할 수 있습니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a JsonObject to store properties for the feature.
@@ -62,6 +100,20 @@ properties.addProperty("custom-property", "value");
 
 Feature feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a JsonObject to store properties for the feature.
+val properties = JsonObject()
+properties.addProperty("custom-property", "value")
+
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties)
+```
+
+::: zone-end
 
 GeoJSON 기능을 만든 후에는 맵의 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다 `sources` . 다음 코드에서는를 만들고 `DataSource` 맵에 추가 하 고 데이터 원본에 기능을 추가 하는 방법을 보여 줍니다.
 
@@ -75,6 +127,8 @@ source.add(feature);
 ```
 
 다음 코드에서는 GeoJSON 기능, FeatureCollection 및 geometry를 만드는 여러 가지 방법을 보여 줍니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //GeoJSON Point Geometry
@@ -112,9 +166,53 @@ FeatureCollection featureCollectionFromSingleFeature = FeatureCollection.fromFea
 FeatureCollection featureCollection = FeatureCollection.fromFeatures(listOfFeatures);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//GeoJSON Point Geometry
+val point = Point.fromLngLat(LONGITUDE, LATITUDE)
+
+//GeoJSON Point Geometry
+val linestring = LineString.fromLngLats(PointList)
+
+//GeoJSON Polygon Geometry
+val polygon = Polygon.fromLngLats(listOfPointList)
+
+val polygonFromOuterInner = Polygon.fromOuterInner(outerLineStringObject, innerLineStringObject)
+
+//GeoJSON MultiPoint Geometry
+val multiPoint = MultiPoint.fromLngLats(PointList)
+
+//GeoJSON MultiLineString Geometry
+val multiLineStringFromLngLat = MultiLineString.fromLngLats(listOfPointList)
+
+val multiLineString = MultiLineString.fromLineString(singleLineString)
+
+//GeoJSON MultiPolygon Geometry
+val multiPolygon = MultiPolygon.fromLngLats(listOflistOfPointList)
+
+val multiPolygonFromPolygon = MultiPolygon.fromPolygon(polygon)
+
+val multiPolygonFromPolygons = MultiPolygon.fromPolygons(PolygonList)
+
+//GeoJSON Feature
+val pointFeature = Feature.fromGeometry(Point.fromLngLat(LONGITUDE, LATITUDE))
+
+//GeoJSON FeatureCollection 
+val featureCollectionFromSingleFeature = FeatureCollection.fromFeature(pointFeature)
+
+val featureCollection = FeatureCollection.fromFeatures(listOfFeatures)
+```
+
+::: zone-end
+
 ### <a name="serialize-and-deserialize-geojson"></a>GeoJSON Serialize 및 deserialize
 
 기능 컬렉션, 기능 및 geometry 클래스에는 모두 `fromJson()` `toJson()` serialization에 도움이 되는 정적 메서드가 있습니다. 메서드를 통해 전달 된 형식이 지정 된 유효한 JSON 문자열은 `fromJson()` geometry 개체를 만듭니다. `fromJson()`또한이 메서드는 Gson 또는 기타 serialization/deserialization 전략을 사용할 수 있음을 의미 합니다. 다음 코드에서는 문자열 형식 GeoJSON 기능을 사용 하 고이를 Feature 클래스로 deserialize 한 다음 다시 GeoJSON 문자열로 serialize 하는 방법을 보여 줍니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Take a stringified GeoJSON object.
@@ -136,11 +234,39 @@ Feature feature = Feature.fromJson(GeoJSON_STRING);
 String featureString = feature.toJson();
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Take a stringified GeoJSON object.
+val GeoJSON_STRING = ("{"
+        + "      \"type\": \"Feature\","
+        + "      \"geometry\": {"
+        + "            \"type\": \"Point\""
+        + "            \"coordinates\": [-100, 45]"
+        + "      },"
+        + "      \"properties\": {"
+        + "            \"custom-property\": \"value\""
+        + "      },"
+        + "}")
+
+//Deserialize the JSON string into a feature.
+val feature = Feature.fromJson(GeoJSON_STRING)
+
+//Serialize a feature collection to a string.
+val featureString = feature.toJson()
+```
+
+::: zone-end
+
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>웹 또는 자산 폴더에서 GeoJSON 데이터 가져오기
 
 대부분의 GeoJSON 파일은 FeatureCollection을 포함 합니다. GeoJSON 파일을 문자열로 읽고 메서드를 사용 `FeatureCollection.fromJson` 하 여 deserialize 합니다.
 
 다음 코드는 웹 또는 로컬 자산 폴더에서 문자열로 데이터를 가져오고 콜백 함수를 통해 UI 스레드에 반환 하는 다시 사용할 수 있는 클래스입니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 import android.content.Context;
@@ -315,7 +441,78 @@ public class Utils {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.webkit.URLUtil
+import java.net.URL
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
+class Utils {
+    companion object {
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            */
+        fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
+            importData(urlOrFileName, context, callback, null)
+        }
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            * @param error A callback function to return errors to.
+            */
+        public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
+            if (urlOrFileName != null && callback != null) {
+                val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+                    var data: String? = null
+                    
+                    try {
+                        data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
+                            URL(urlOrFileName).readText()
+                        } else { //Assume file is in assets folder.
+                            context.assets.open(urlOrFileName).bufferedReader().use{
+                                it.readText()
+                            }
+                        }
+
+                        handler.post {
+                            //Ensure the resulting data string is not null or empty.
+                            if (data != null && !data.isEmpty()) {
+                                callback(data)
+                            } else {
+                                error!!("No data imported.")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        error!!(e.message)
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+::: zone-end
+
 아래 코드에서는이 유틸리티를 사용 하 여 GeoJSON 데이터를 문자열로 가져오고 콜백을 통해 UI 스레드에 반환 하는 방법을 보여 줍니다. 콜백에서 문자열 데이터를 GeoJSON 기능 컬렉션으로 serialize 하 고 데이터 원본에 추가할 수 있습니다. 필요에 따라 지도 카메라를 업데이트 하 여 데이터에 초점을 맞출 수 있습니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -344,6 +541,41 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Import the GeoJSON data and add it to the data source.
+Utils.importData("SamplePoiDataSet.json", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+            val fc = FeatureCollection.fromJson(result!!)
+
+        //Add the feature collection to the data source.
+        source.add(fc)
+
+        //Optionally, update the maps camera to focus in on the data.
+
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc);
+
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+
+            //Padding added to account for pixel size of rendered points.
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 ## <a name="vector-tile-source"></a>벡터 타일 원본
 
 벡터 타일 소스는 벡터 타일 계층에 액세스 하는 방법을 설명 합니다. 클래스를 사용 `VectorTileSource` 하 여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 계층은 타일 계층과 비슷하지만 동일 하지는 않습니다. 타일 계층은 래스터 이미지입니다. 벡터 타일 계층은 압축 파일 ( **Pf** 형식)입니다. 이 압축 파일은 벡터 맵 데이터 및 하나 이상의 계층을 포함 합니다. 각 계층의 스타일에 따라 파일을 클라이언트에서 렌더링 하 고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 요소, 선 및 다각형 형식의 지리적 기능이 포함 되어 있습니다. 래스터 타일 계층 대신 벡터 타일 계층을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
@@ -364,6 +596,8 @@ Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-til
 > 웹 SDK를 사용 하 여 Azure Maps render service에서 벡터 또는 래스터 이미지 타일을 사용 하는 경우를 `atlas.microsoft.com` 자리 표시자로 바꿀 수 있습니다 `azmapsdomain.invalid` . 이 자리 표시자는 맵에 사용 되는 동일한 도메인으로 바뀌고 동일한 인증 세부 정보도 자동으로 추가 됩니다. 이렇게 하면 Azure Active Directory 인증을 사용 하는 경우 렌더링 서비스에 대 한 인증이 매우 간단해 집니다.
 
 지도에 벡터 타일 원본의 데이터를 표시 하려면 데이터 렌더링 계층 중 하나에 원본을 연결 합니다. 벡터 원본을 사용 하는 모든 계층은 옵션에 값을 지정 해야 합니다 `sourceLayer` . 다음 코드는 Azure Maps traffic flow vector 타일 서비스를 벡터 타일 원본으로 로드 한 다음 선 계층을 사용 하 여 지도에 표시 합니다. 이 벡터 타일 원본에는 원본 계층에서 "트래픽 흐름" 이라는 단일 데이터 집합이 있습니다. 이 데이터 집합의 줄 데이터에는 `traffic_level` 이 코드에서 색을 선택 하 고 선의 크기를 조정 하는 데 사용 되는 라는 속성이 있습니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
@@ -407,6 +641,50 @@ LineLayer layer = new LineLayer(source,
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
+val trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}"
+
+//Create a vector tile source and add it to the map.
+val source = VectorTileSource(
+    tiles(arrayOf(trafficFlowUrl)),
+    maxSourceZoom(22)
+)
+map.sources.add(source)
+
+//Create a layer for traffic flow lines.
+val layer = LineLayer(
+    source,  //The name of the data layer within the data source to pass into this rendering layer.
+    sourceLayer("Traffic flow"),  //Color the roads based on the traffic_level property.
+    strokeColor(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, color(Color.RED)),
+            stop(0.33, color(Color.YELLOW)),
+            stop(0.66, color(Color.GREEN))
+        )
+    ),  //Scale the width of roads based on the traffic_level property.
+    strokeWidth(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, 6),
+            stop(1, 1)
+        )
+    )
+)
+
+//Add the traffic flow layer below the labels to make the map clearer.
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 ![트래픽 흐름 수준을 표시 하는 색으로 구분 된 이동 선이 있는 지도](media/create-data-source-android-sdk/android-vector-tile-source-line-layer.png)
 
 ## <a name="connecting-a-data-source-to-a-layer"></a>계층에 데이터 원본 연결
@@ -420,6 +698,8 @@ map.layers.add(layer, "labels");
 - [다각형 계층](how-to-add-shapes-to-android-map.md) -단색 또는 이미지 패턴으로 다각형 영역을 채웁니다.
 
 다음 코드에서는 데이터 원본을 만들고 지도에 추가한 다음 거품형 계층에 연결 하는 방법을 보여 줍니다. 그런 다음 원격 위치에서 데이터 원본으로 GeoJSON point 데이터를 가져옵니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -452,6 +732,42 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a layer that defines how to render points in the data source and add it to the map.
+val layer = BubbleLayer(source)
+map.layers.add(layer)
+
+//Import the geojson data and add it to the data source.
+Utils.importData("URL_or_FilePath_to_GeoJSON_data", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+        val fc = FeatureCollection.fromJson(result!!)
+    
+        //Add the feature collection to the data source.
+        dataSource.add(fc)
+    
+        //Optionally, update the maps camera to focus in on the data.
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc)
+    
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 이러한 데이터 소스에 연결 하지 않는 추가 렌더링 계층이 있지만 렌더링을 위해 데이터를 직접 로드 합니다.
 
 - [타일 계층](how-to-add-tile-layer-android-map.md) -수퍼는 지도 위에 래스터 타일 계층을 적용 합니다.
@@ -465,6 +781,8 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
 대부분의 매핑 플랫폼에서 다각형 개체, 선 개체 및 다각형의 각 위치에 대 한 pin이 필요 합니다. 다각형이 수정 될 때 줄과 핀을 수동으로 업데이트 해야 하며,이는 빠르게 복잡 해질 수 있습니다.
 
 Azure Maps를 사용 하는 경우 아래 코드와 같이 데이터 소스에 단일 다각형이 필요 합니다.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -497,8 +815,48 @@ BubbleLayer bubbleLayer = new BubbleLayer(source,
 map.layers.add(new Layer[] { polygonLayer, lineLayer, bubbleLayer });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a polygon and add it to the data source.
+source.add(Polygon.fromLngLats())
+
+//Create a polygon layer to render the filled in area of the polygon.
+val polygonLayer = PolygonLayer(
+    source,
+    fillColor("rgba(255,165,0,0.2)")
+)
+
+//Create a line layer for greater control of rendering the outline of the polygon.
+val lineLayer = LineLayer(
+    source,
+    strokeColor("orange"),
+    strokeWidth(2f)
+)
+
+//Create a bubble layer to render the vertices of the polygon as scaled circles.
+val bubbleLayer = BubbleLayer(
+    source,
+    bubbleColor("orange"),
+    bubbleRadius(5f),
+    bubbleStrokeColor("white"),
+    bubbleStrokeWidth(2f)
+)
+
+//Add all layers to the map.
+map.layers.add(arrayOf<Layer>(polygonLayer, lineLayer, bubbleLayer))
+```
+
+::: zone-end
+
 > [!TIP]
-> 메서드를 사용 하 여 지도에 레이어를 추가 하는 경우 `map.layers.add` 기존 계층의 ID 또는 인스턴스를 두 번째 매개 변수로 전달할 수 있습니다. 그러면 기존 계층 아래에 추가 되는 새 계층이 삽입 됩니다. 계층 ID를 전달 하는 이외에서이 메서드는 다음 값도 지원 합니다.
+> 메서드를 사용 하 여 지도에 레이어를 추가 하는 경우 `map.layers.add` 기존 계층의 ID 또는 인스턴스를 두 번째 매개 변수로 전달할 수 있습니다. 그러면 기존 계층 아래에 추가 되는 새 계층이 삽입 됩니다. 계층 ID를 전달 하는 것 외에도이 메서드는 다음 값도 지원 합니다.
 >
 > - `"labels"` -지도 레이블 계층 아래에 새 계층을 삽입 합니다.
 > - `"transit"` -지도 이동 및 전송 계층 아래에 새 계층을 삽입 합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6222491d35317e549a3d21f29395b9c25813ea9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807993"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100358"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 
@@ -36,7 +36,7 @@ ms.locfileid: "97807993"
 
 1. 완료 되 면 문제가 해결 되었는지 알려 주는 알림이 표시 됩니다.
 
-## <a name="quick-fix-remediation"></a>빠른 수정 재구성
+## <a name="quick-fix-remediation"></a>빠른 수정
 
 업데이트를 간소화 하 고 환경 보안을 개선 하기 위해 (그리고 보안 점수를 늘리기) 많은 권장 사항에 빠른 수정 옵션이 포함 되어 있습니다.
 
@@ -82,4 +82,4 @@ ms.locfileid: "97807993"
 이 문서에서는 Security Center의 권장 사항을 수정 하는 방법을 보여 줍니다. Security Center에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [보안 정책, 이니셔티브 및 권장 사항은 무엇 인가요?](security-policy-concept.md)

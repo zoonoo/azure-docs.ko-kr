@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014580"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100732"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사
 
@@ -21,8 +21,6 @@ ms.locfileid: "96014580"
 **컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정하면 레지스트리로 푸시하는 모든 이미지가 즉시 스캔됩니다. 또한 지난 30 일 내에 끌어온 이미지도 검색 됩니다. 
 
 스캐너는 Security Center에 대 한 취약성을 보고 하는 경우 결과 및 관련 정보를 권장 사항으로 제공 Security Center. 또한 결과에는 재구성 단계, 관련 CVEs, CVES 점수 등의 관련 정보가 포함 됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별 된 취약성을 볼 수 있습니다.
-
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Azure 컨테이너 레지스트리의 이미지 취약성 식별 

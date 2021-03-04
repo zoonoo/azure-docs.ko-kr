@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c0d153ff8125a6ef16a69aec72a27dd4b234eab5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038869"
+ms.locfileid: "102100052"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
@@ -175,7 +175,7 @@ I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사�
 * AZ Express 경로 게이트웨이 SKU를 통해 Azure의 배포에 연결
 * 비 AZ regions의 배포에 대 한 연결
 * Express 경로 회로 간의 Global Reach 연결
-* VWAN과 함께 Express 경로 사용
+* 가상 WAN과 함께 Express 경로 사용
 
 ## <a name="next-steps"></a>다음 단계
 

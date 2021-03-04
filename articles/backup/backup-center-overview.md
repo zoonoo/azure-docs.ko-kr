@@ -3,12 +3,12 @@ title: 백업 센터 개요
 description: 이 문서에서는 Azure에 대 한 백업 센터의 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725376"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100001"
 ---
 # <a name="overview-of-backup-center"></a>백업 센터 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "101725376"
 
 ## <a name="get-started"></a>시작하기
 
-Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센터** 를 검색 하 고 **Backup 센터 (미리 보기)** 대시보드로 이동 합니다.
+Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센터** 를 검색 하 고 **backup 센터** 대시보드로 이동 합니다.
 
 ![백업 센터 검색](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센
 
 **작업** 타일에서 최근 24 시간 동안의 백업 공간에 트리거된 모든 백업 및 복원 관련 작업의 요약 된 보기를 볼 수 있습니다. 완료, 실패 및 진행 중인 작업 수에 대 한 정보를 볼 수 있습니다. 이 타일에서 숫자 중 하나를 선택 하면 특정 데이터 원본 유형, 작업 유형 및 상태에 대 한 작업에 대 한 자세한 정보를 볼 수 있습니다.
 
-백업 **인스턴스** 타일의 백업 공간에 있는 모든 백업 인스턴스의 요약 된 보기를 볼 수 있습니다. 예를 들어 보호를 위해 여전히 구성 된 인스턴스 수와 비교할 때 일시 삭제 된 상태의 백업 인스턴스 수를 확인할 수 있습니다. 이 타일에서 숫자 중 하나를 선택 하면 특정 데이터 원본 유형 및 보호 상태에 대 한 백업 인스턴스에 대 한 자세한 정보를 볼 수 있습니다.
+백업 **인스턴스** 타일의 백업 공간에 있는 모든 백업 인스턴스의 요약 된 보기를 볼 수 있습니다. 예를 들어 보호를 위해 여전히 구성 된 인스턴스 수와 비교할 때 일시 삭제 된 상태의 백업 인스턴스 수를 확인할 수 있습니다. 이 타일에서 숫자 중 하나를 선택 하면 특정 데이터 원본 유형 및 보호 상태에 대 한 백업 인스턴스에 대 한 자세한 정보를 볼 수 있습니다. 또한 기본 데이터 원본을 찾을 수 없는 모든 백업 인스턴스를 볼 수 있습니다. 즉, 데이터 원본이 삭제 되거나 데이터 원본에 액세스할 수 없는 경우도 있습니다.
 
 백업 센터의 기능을 이해 하려면 다음 비디오를 시청 하세요.
 

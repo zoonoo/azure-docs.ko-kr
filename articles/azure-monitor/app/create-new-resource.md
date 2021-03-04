@@ -3,19 +3,19 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575616"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100936"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
 Azure 애플리케이션 Insights는 Microsoft Azure *리소스* 에 응용 프로그램에 대 한 데이터를 표시 합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후에는 해당 계측 키를 가져오고이를 사용 하 여 Application Insights SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결 합니다.
 
 > [!IMPORTANT]
-> 클래식 Application Insights는 더 이상 사용 되지 않습니다. [작업 영역 기반 Application Insights로 업그레이드 하는 방법에 대 한 지침](convert-classic-resource.md)을 따르세요.
+> [클래식 Application Insights는 더 이상 사용 되지 않습니다](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). [작업 영역 기반 Application Insights로 업그레이드 하는 방법에 대 한 지침](convert-classic-resource.md)을 따르세요.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 

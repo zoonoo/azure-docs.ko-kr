@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: bf9ffe3640c704fb1da51f6f9c2fe42ca5d46851
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047556"
+ms.locfileid: "102101480"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -172,7 +172,8 @@ Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights �
 * privatelink--opinsights-azure-com
 * privatelink-azure-automation-net
 
-이러한 각 영역은 특정 Azure Monitor 끝점을 개인 끝점 VNet의 Ip 풀에서 개인 Ip에 매핑합니다.
+> [!NOTE]
+> 이러한 각 영역은 특정 Azure Monitor 끝점을 VNet의 Ip 풀에서 개인 Ip에 매핑합니다. 아래 이미지의 IP 주소 showns만 예입니다. 대신 사용자의 네트워크에서 개인 Ip를 표시 해야 합니다.
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-azure-com
 이 영역에는 Azure Monitor에서 사용 하는 전역 끝점이 포함 되어 있습니다. 즉, 이러한 끝점은 특정 리소스가 아니라 모든 리소스를 고려 하는 요청을 처리 합니다. 이 영역에는 다음에 대 한 끝점이 매핑되어야 합니다.
@@ -218,7 +219,7 @@ Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스 메뉴에
 
 ### <a name="exceptions"></a>예외
 위에서 설명한 대로 액세스를 제한 하는 것은 Azure Resource Manager에는 적용 되지 않으므로 다음과 같은 제한 사항이 있습니다.
-* 데이터에 대 한 액세스-공용 네트워크에서 쿼리를 차단/허용 하는 것이 대부분의 Log Analytics 환경에 적용 되는 반면, 일부는 Azure Resource Manager를 통해 쿼리 데이터를 경험 하므로 리소스 관리자에도 개인 링크 설정이 적용 되지 않는 한 데이터를 쿼리할 수 없습니다. (기능이 곧 제공 될 예정입니다.) 여기에는 Azure Monitor 솔루션, 통합 문서, 통찰력 및 LogicApp 커넥터가 포함 됩니다.
+* 데이터에 대 한 액세스-공용 네트워크에서 쿼리를 차단/허용 하는 것이 대부분의 Log Analytics 환경에 적용 되는 반면, 일부는 Azure Resource Manager를 통해 쿼리 데이터를 경험 하므로 리소스 관리자에도 개인 링크 설정이 적용 되지 않는 한 데이터를 쿼리할 수 없습니다. (기능이 곧 제공 될 예정입니다.) Azure Monitor 솔루션, 통합 문서 및 정보, LogicApp 커넥터 등을 예로 들 수 있습니다.
 * 작업 영역 관리-작업 영역 설정 및 구성 변경 내용 (이러한 액세스 설정을 설정 하거나 해제 하는 등)은 Azure Resource Manager를 통해 관리 됩니다. 적절 한 역할, 권한, 네트워크 제어 및 감사를 사용 하 여 작업 영역 관리에 대 한 액세스를 제한 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
 
 > [!NOTE]
@@ -248,17 +249,17 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 > [!NOTE]
 > 포털이 아닌 사용 환경은 모니터링 되는 워크 로드를 포함 하는 개인 연결 VNET 에서도 실행 해야 합니다.
 
-모니터링되는 워크로드를 호스팅하는 리소스를 프라이빗 링크에 추가해야 합니다. App Services에서 이 작업을 수행하는 방법을 보여 주는 [설명서](../../app-service/networking/private-endpoint.md)가 있습니다.
+모니터링되는 워크로드를 호스팅하는 리소스를 프라이빗 링크에 추가해야 합니다. 예를 들어 [Azure 웹 앱에 대 한 개인 끝점 사용](../../app-service/networking/private-endpoint.md)을 참조 하세요.
 
 액세스를 이 방법으로 제한하는 경우 Application Insights 리소스의 데이터에만 적용됩니다. 그러나 이러한 액세스 설정을 설정 하거나 해제 하는 등의 구성 변경 내용은 Azure Resource Manager에 의해 관리 됩니다. 따라서 적절 한 역할, 권한, 네트워크 제어 및 감사를 사용 하 여 리소스 관리자에 대 한 액세스를 제한 해야 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights를 완벽하게 보호하려면 Application Insights 리소스 및 기본 Log Analytics 작업 영역에 대한 액세스를 모두 잠가야 합니다.
 >
-> 코드 수준 진단 (프로파일러/디버거)에서는 개인 링크를 지원 하기 위해 고유한 저장소 계정을 제공 해야 합니다. 이 작업을 수행 하는 방법에 대 한 [설명서](../app/profiler-bring-your-own-storage.md) 는 다음과 같습니다.
+> 코드 수준 진단 (프로파일러/디버거)에서는 개인 링크를 지원 하기 위해 [고유한 저장소 계정을 제공](../app/profiler-bring-your-own-storage.md) 해야 합니다.
 
 ### <a name="handling-the-all-or-nothing-nature-of-private-links"></a>Private 링크의 All 또는 Nothing 특성 처리
-[개인 링크 설정 계획](#planning-your-private-link-setup)에 설명 된 대로 단일 리소스에 대 한 개인 링크를 설정 하면 해당 네트워크의 모든 Azure Monitor 리소스 및 동일한 DNS를 공유 하는 다른 네트워크에도 영향을 줍니다. 이렇게 하면 온 보 딩 프로세스를 어렵게 만들 수 있습니다. 다음 옵션을 살펴보세요.
+[개인 링크 설정 계획](#planning-your-private-link-setup)에 설명 된 대로 단일 리소스에 대 한 개인 링크를 설정 하면 해당 네트워크의 모든 Azure Monitor 리소스 및 동일한 DNS를 공유 하는 다른 네트워크에도 영향을 줍니다. 이 동작은 온 보 딩 프로세스를 어렵게 만들 수 있습니다. 다음 옵션을 살펴보세요.
 
 * 가장 간단 하 고 가장 안전한 방법은 AMPLS에 모든 Application Insights 구성 요소를 추가 하는 것입니다. 다른 네트워크 에서도 계속 액세스 하려는 구성 요소의 경우 "수집/쿼리에 대 한 공용 인터넷 액세스 허용" 플래그를 예 (기본값)로 설정 된 상태로 둡니다.
 * 네트워크 격리-스포크 vnet을 사용 하 여 (또는에 맞출 수 있는 경우) [Azure에서 허브-스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)의 지침을 따릅니다. 그런 다음 관련 스포크 Vnet에서 별도의 개인 링크 설정을 설정 합니다. Dns 영역을 다른 스포크 네트워크와 공유 하면 dns [재정의가](#the-issue-of-dns-overrides)발생 하므로 dns 영역도 분리 해야 합니다.

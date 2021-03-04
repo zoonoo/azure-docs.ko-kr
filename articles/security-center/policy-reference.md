@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729926"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099831"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 
@@ -44,13 +44,4 @@ Security Center에서 모니터링 하는 기본 제공 정책에 대 한 자세
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Security Center의 Azure Policy 보안 정책 정의에 대해 알아보았습니다. 자세히 알아보려면 다음 문서를 참조 하세요.
-
-- [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 기능을 참조하세요.
-- [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)를 검토합니다.
-- [정책 효과 이해](../governance/policy/concepts/effects.md)를 검토합니다.
-- [Azure Security Center 계획 및 운영 가이드](./security-center-planning-and-operations-guide.md): Azure Security Center에서 디자인 고려 사항을 계획 하 고 이해 하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 상태 모니터링](./security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 경고 관리 및 대응](./security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-- [Azure Security Center에서 파트너 솔루션 모니터링](./security-center-partner-integration.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure Policy](../governance/policy/overview.md): Azure 리소스를 감사 하 고 관리 하는 방법을 알아봅니다.
+이 문서에서는 Security Center의 Azure Policy 보안 정책 정의에 대해 알아보았습니다. 이니셔티브, 정책 및 이러한 정책이 Security Center의 권장 사항과 어떻게 관련 되는지에 대 한 자세한 내용은 [보안 정책, 이니셔티브 및 권장 사항 이란?](security-policy-concept.md)을 참조 하세요.

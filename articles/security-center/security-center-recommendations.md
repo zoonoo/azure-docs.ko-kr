@@ -1,57 +1,22 @@
 ---
 title: Azure Security Center의 보안 권장 사항
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526527"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100341"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
+# <a name="review-your-security-recommendations"></a>보안 권장 사항 검토
 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
-
-
-## <a name="what-are-security-recommendations"></a>보안 권장 사항이란?
-
-Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
-
-권장 사항은 리소스를 보호 하 고 강화 하기 위해 수행할 작업입니다. 
-
-각 권장 사항은 다음을 제공 합니다.
-
-- 문제에 대 한 간단한 설명입니다.
-- 권장 사항을 구현 하기 위해 수행할 수정 단계
-- 영향을 받는 리소스
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Microsoft에서 보안 및 강화가 필요한 항목을 어떻게 결정 하나요?
-
-Security Center 권장 사항은 Azure 보안 벤치마크를 기반으로 합니다. 거의 모든 권장 사항에는 벤치 마크의 요구 사항에서 파생 되는 기본 정책이 있습니다.
-
-Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다. [Azure 보안 벤치마크](../security/benchmarks/introduction.md)에 대해 자세히 알아보세요.
-
-권장 사항에 대 한 세부 정보를 검토 하는 경우 기본 정책을 확인 하는 것이 도움이 되는 경우가 많습니다. 정책에서 지 원하는 모든 권장 사항에 대해 권장 사항 세부 정보 페이지의 **정책 정의 보기** 링크를 사용 하 여 관련 정책에 대 한 Azure Policy 항목으로 직접 이동 합니다.
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="권장 사항을 지 원하는 특정 정책에 대 한 Azure Policy 페이지로 연결":::
-
-이 링크를 사용 하 여 정책 정의를 확인 하 고 평가 논리를 검토 합니다. 
-
-[보안 권장 사항 참조 가이드](recommendations-reference.md)의 권장 사항 목록을 검토 하는 경우 정책 정의 페이지에 대 한 링크도 표시 됩니다.
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Azure Security Center 권장 사항 참조 페이지에서 직접 특정 정책에 대 한 Azure Policy 페이지 액세스":::
 
 ## <a name="monitor-recommendations"></a>권장 사항 모니터링 <a name="monitor-recommendations"></a>
 

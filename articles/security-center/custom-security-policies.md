@@ -6,22 +6,25 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+zone_pivot_groups: manage-asc-initiatives
+ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559034"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100868"
 ---
-# <a name="using-custom-security-policies"></a>사용자 지정 보안 정책 사용
+# <a name="create-custom-security-initiatives-and-policies"></a>사용자 지정 보안 이니셔티브 및 정책 만들기
 
 시스템 및 환경 보호를 위해 Azure Security Center는 보안 권장 사항을 제공합니다. 이러한 권장 사항은 모든 고객에게 제공되는 일반적인 기본 보안 정책에 통합되는 업계 모범 사례를 기반으로 합니다. 또한 업계 및 규제 표준에 대한 Azure Security Center의 정보를 활용합니다.
 
 이 기능을 사용하여 사용자 고유의 *사용자 지정* 이니셔티브를 추가할 수 있습니다. 그러면 환경이 사용자가 만든 정책을 따르지 않을 경우 권장 사항이 제공됩니다. [규정 준수 개선](security-center-compliance-dashboard.md) 자습서에 설명된 대로 사용자가 만든 사용자 지정 이니셔티브는 규정 준수 대시보드에 기본 제공 이니셔티브와 함께 나타납니다.
 
 [Azure Policy 설명서](../governance/policy/concepts/definition-structure.md#definition-location)에 설명된 대로 관리 그룹 또는 구독을 사용자 지정 이니셔티브의 위치로 지정해야 합니다. 
+
+::: zone pivot="azure-portal"
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>구독에 사용자 지정 이니셔티브를 추가하려면 
 
@@ -68,6 +71,113 @@ ms.locfileid: "96559034"
 1. 정책에 대한 결과 권장 사항을 보려면 사이드바에서 **권장 사항** 을 클릭하여 권장 사항 페이지를 엽니다. 권장 사항이 "사용자 지정" 레이블과 함께 표시되고 약 1시간 내에 사용할 수 있습니다.
 
     [![사용자 지정 권장 사항](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>REST API를 사용 하 여 Azure Policy에서 보안 정책 구성
+
+Azure Policy와 네이티브 통합의 일환으로, Azure Security Center를 사용하면 Azure Policy의 REST API를 활용하여 정책 할당을 생성할 수 있습니다. 다음 지침은 기존 할당에 대한 사용자 지정은 물론 정책 할당 생성 과정을 안내합니다. 
+
+Azure Policy의 중요 개념: 
+
+- **정책 정의** 는 규칙입니다. 
+
+- **이니셔티브** 는 정책 정의 (규칙)의 컬렉션입니다. 
+
+- **할당** 은 특정 범위 (관리 그룹, 구독 등)에 대 한 이니셔티브 또는 정책의 응용 프로그램입니다. 
+
+Security Center에는 모든 보안 정책을 포함 하는 기본 제공 이니셔티브 인 Azure 보안 벤치 마크가 있습니다. Azure 리소스에 대 한 Security Center의 정책을 평가 하려면 평가 하려는 관리 그룹 또는 구독에 대 한 할당을 만들어야 합니다.
+
+기본 제공 이니셔티브에는 모든 Security Center의 정책이 기본적으로 사용하도록 설정되어 있습니다. 기본 제공 이니셔티브에서 특정 정책을 사용 하지 않도록 선택할 수 있습니다. 예를 들어 **웹 응용 프로그램 방화벽** 을 제외한 모든 Security Center 정책을 적용 하려면 정책 효과 매개 변수의 값을 **사용 안 함으로** 변경 합니다.
+
+## <a name="api-examples"></a>API 예제
+
+다음 예제에서 다음 변수를 바꿉니다.
+
+- **{scope}** 정책을 적용 중인 관리 그룹 또는 구독의 이름을 입력 합니다.
+- **{policyAssignmentName}** 관련 정책 할당의 이름을 입력 합니다.
+- **{name}** 사용자의 이름을 입력 하거나 정책 변경을 승인한 관리자의 이름을 입력 합니다.
+
+이 예제는 구독 또는 관리 그룹에 기본 제공 Security Center 이니셔티브를 할당하는 방법을 보여줍니다.
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+이 예제는 다음 정책을 사용하지 않도록 설정하고, 기본 제공 Security Center 이니셔티브를 구독에 할당하는 방법을 보여줍니다. 
+
+- 시스템 업데이트(“systemUpdatesMonitoringEffect”) 
+
+- 보안 구성("systemConfigurationsMonitoringEffect") 
+
+- 엔드포인트 보호("endpointProtectionMonitoringEffect") 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+이 예제는 할당을 제거하는 방법을 보여줍니다.
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
 
 ## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>세부 정보를 사용 하 여 사용자 지정 권장 사항 향상
 

@@ -25,10 +25,8 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: 가상 네트워크 연결
       href: tutorial-connect-virtual-networks-portal.md
-    - name: NAT 게이트웨이 만들기
-      href: quickstart-create-nat-gateway-portal.md
     - name: NAT 게이트웨이 만들기 및 유효성 검사
-      href: tutorial-create-validate-nat-gateway-portal.md
+      href: tutorial-create-nat-gateway-portal.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -466,7 +464,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

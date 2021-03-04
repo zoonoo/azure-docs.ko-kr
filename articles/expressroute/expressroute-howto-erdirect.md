@@ -7,25 +7,34 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f54c22a0c2f7bf89d790dbd33f748446a871d224
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014521"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099950"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
 Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통해 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
-Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
+Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록 하려면 Azure PowerShell를 통해 다음을 수행 하세요.
+1.  Azure에 로그인 하 고 등록 하려는 구독을 선택 합니다.
 
-* **ExpressRoute Direct** 를 사용하여 수행하려는 시나리오
-* 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
-* 구현을 위한 타임라인
-* 기타 궁금한 점이 있는 경우
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. 다음 명령을 사용 하 여 공개 미리 보기에 대 한 구독을 등록 합니다.
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+등록 한 후에는 **Microsoft 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 

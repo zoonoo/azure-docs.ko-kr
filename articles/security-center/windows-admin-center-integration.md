@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511987"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101310"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Security Center를 사용 하 여 Windows 관리 센터 리소스 보호
 
@@ -21,7 +21,7 @@ Windows 관리 센터는 Windows server에 대 한 관리 도구입니다. 시�
 
 > [!NOTE]
 > Azure 구독과 연결 된 Log Analytics 작업 영역에는 Windows 관리 센터 통합을 사용 하도록 설정 하기 위해 Azure Defender를 사용 하도록 설정 해야 합니다.
-> Azure Defender는 구독 및 작업 영역에서 이전에 사용 하지 않은 경우 처음 30 일 동안 무료입니다. 자세한 내용은 [가격 책정 정보 페이지](security-center-pricing.md)를 참조 하세요.
+> Azure Defender는 구독 및 작업 영역에서 이전에 사용 하지 않은 경우 처음 30 일 동안 무료입니다. 선택한 통화와 해당 지역에 따라 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조 하세요.
 >
 
 Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등록 하는 경우 다음을 수행할 수 있습니다.

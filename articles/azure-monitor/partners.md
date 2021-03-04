@@ -3,12 +3,12 @@ title: Azure Monitor와 통합 하는 파트너
 description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b971aa70411212e96c39e6bf824fa9e28bd8a1f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052367"
+ms.locfileid: "102101021"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -291,8 +291,7 @@ Site24x7 Azure 모니터링을 사용 하면 다음을 수행할 수 있습니�
 * SQL, Exchange, Active Directory, Office 365, IIS 및 Hyper-v 응용 프로그램을 포함 한 전체 Microsoft ecosphere를 모니터링 합니다.
 * Microsoft 팀, PagerDuty, Zapier 등과 같은 타사 서비스와 원활 하 게 통합 하세요.
 
-[사이트 연중 무휴 설명서](https://www.site24x7.com/)
-
+[Site24X7 설명서](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>SolarWinds
 
