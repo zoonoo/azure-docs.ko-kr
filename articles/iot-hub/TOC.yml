@@ -349,6 +349,16 @@
           href: iot-hub-azure-service-health-integration.md
         - name: Event Grid에서 디바이스 연결 상태 이벤트 정렬
           href: iot-hub-how-to-order-connection-state-events.md
+    - name: 업데이트 배포
+      items:
+        - name: 디바이스 업데이트 계정 만들기
+          href: /iot-hub-device-update/create-device-update-account.md
+        - name: 업데이트 가져오기
+          href: /iot-hub-device-update/import-update.md
+        - name: 업데이트 그룹 만들기
+          href: /iot-hub-device-update/create-update-group.md
+        - name: 업데이트 배포
+          href: /iot-hub-device-update/deploy-update.md
     - name: 실제 디바이스 사용
       items:
         - name: 온라인 시뮬레이터 사용

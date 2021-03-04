@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673955"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030711"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
@@ -48,7 +48,13 @@ ms.locfileid: "101673955"
 
 [인스턴스 크기 유연성 비율](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-이 파일을 프로그래밍 방식으로 사용할 수 있도록 파일 URL과 스키마가 수정 됩니다. 곧 API를 통해 데이터를 사용할 수 있습니다.
+Azure는 파일을 프로그래밍 방식으로 사용할 수 있도록 링크 및 스키마를 업데이트 된 상태로 유지 합니다.
+
+## <a name="view-vm-size-recommendations"></a>VM 크기 권장 사항 보기
+
+Azure는 구매 환경에서 권장 되는 VM 크기를 보여 줍니다. 가장 작은 크기 권장 사항을 보려면 **가장 작은 크기로 그룹화** 를 선택 합니다.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="권장 수량을 보여 주는 스크린샷" lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>다음 단계
 

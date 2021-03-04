@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d516bcb224f7a7b5943214f28cffb7da3ea0871f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499325"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031602"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -382,11 +382,9 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **해당하는 프리미엄 SSD 디스크 크기에 대해 버스트 기능을 지원하는 지역은 어디인가요?**
 
-버스트 기능은 현재 Azure 퍼블릭 클라우드의 모든 지역에서 지원되며, 소버린 클라우드도 곧 지원할 예정입니다. 
+신용 기반 버스트는 현재 Azure 공용 클라우드의 모든 지역에서 지원 됩니다. 소 버린 클라우드는 현재 지원 되지 않습니다.
 
-**4/8/16GiB Managed Disk 크기(P1/P2/P3, E1/E2/E3)를 지원하는 지역은 어디인가요?**
-
-이러한 새 디스크 크기는 현재 Azure 퍼블릭 클라우드의 모든 지역에서 지원되며, 소버린 클라우드도 곧 지원할 예정입니다. 
+주문형 버스트는 미국 서 부 에서만 사용할 수 있습니다.
 
 **비관리 디스크 또는 페이지 Blob에서 P1/P2/P3 디스크 크기가 지원되나요?**
 

@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590552"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676400"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요. [미리 보기 기능 목록](search-api-preview.md)을 확인하여 공개 미리 보기의 기능을 봅니다.
+서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요. 아직 일반 공급되지 않은 포괄적인 기능 목록은 [미리 보기 기능 목록](search-api-preview.md)을 확인하여 볼 수 있습니다.
+
+## <a name="march-2021"></a>2021년 3월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
+|------------------------------|---------------|---------------|
+| [의미 체계 검색](semantic-search-overview.md) | 검색 결과를 수정하여 더 많은 관련 결과를 생성하는 쿼리 관련 기능의 컬렉션입니다. 검색 요청을 약간만 변경하면 기존 인덱스에서 이러한 기능을 사용해볼 수 있습니다.</br></br>[의미 체계 쿼리](semantic-how-to-query-request.md)는 자연어 처리의 향상된 기능을 활용하여 순위 작성을 개선하고 쿼리 의도를 이해하여 답변, 캡션 및 의미론적 강조 표시를 제공하는 새로운 쿼리 유형입니다.</br></br>[의미 체계 순위 및 응답(답변, 캡션 및 강조 표시)](semantic-how-to-query-response.md)은 의미 체계 쿼리를 정의하는 알고리즘과 응답의 구조를 말합니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 및 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
+| [맞춤법 검사 쿼리 용어](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 맞춤법 오류를 검사하도록 할 수 있습니다. `speller` 옵션은 모든 쿼리 유형(단순, 전체 또는 의미 체계)에서 작동합니다. |  공개 미리 보기, REST 전용, api-version=2020-06-30-Preview|
+| [SharePoint Online 인덱서](search-howto-index-sharepoint-online.md) | 이 인덱서는 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있도록 SharePoint Online 사이트에 연결합니다. | 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>2021년 2월
 

@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 로그 레코드의 표준 열 | Microsoft Docs
 description: Azure Monitor 로그의 여러 데이터 형식에 공통적인 열에 대해 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704126"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030769"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 열
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../logs/data-platform-logs.md)각각 고유한 열 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에서 공통 되는 표준 열이 있습니다. 이 문서에서는 이러한 열에 대해 설명 하 고 쿼리에서 이러한 열을 사용 하는 방법에 대 한 예제를 제공 합니다.

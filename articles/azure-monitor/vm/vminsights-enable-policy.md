@@ -1,17 +1,16 @@
 ---
 title: Azure Policy를 사용 하 여 VM insights 사용
 description: Azure Policy를 사용 하 여 여러 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707543"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031959"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Azure Policy를 사용 하 여 VM insights 사용
 이 문서에서는 Azure Policy를 사용 하 여 azure Arc (미리 보기)와 연결 된 Azure virtual machines 또는 하이브리드 가상 머신에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. Azure Policy를 사용 하면 Azure 환경에서 VM 정보에 필요한 에이전트를 설치 하는 정책 정의를 할당 하 고 각 가상 머신이 만들어질 때 자동으로 Vm에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. VM insights는 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 기능을 제공 합니다. Azure Policy에서 직접 작업 하는 대신이 기능을 사용 합니다.
@@ -19,7 +18,7 @@ ms.locfileid: "101707543"
 Azure Policy에 익숙하지 않은 경우 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md)에서 간략하게 소개 하세요.
 
 > [!NOTE]
-> Azure 가상 머신 확장 집합에 Azure Policy를 사용 하거나 Azure virtual machines를 사용 하도록 Azure Policy 직접 작업 하려면 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md#azure-monitor-for-vms)를 참조 하세요.
+> Azure 가상 머신 확장 집합에 Azure Policy를 사용 하거나 Azure virtual machines를 사용 하도록 Azure Policy 직접 작업 하려면 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md#vm-insights)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
@@ -60,7 +59,7 @@ VM insights는 Azure virtual machines에 Log Analytics 에이전트 및 종속�
 
 다음 표에는이 보기의 정보에 대 한 설명이 나와 있습니다.
 
-| 함수 | Description | 
+| 함수 | 설명 | 
 |----------|-------------| 
 | **범위** | 관리 그룹 계층을 통해 드릴 다운할 수 있는 권한으로 액세스 하거나 상속한 관리 그룹 및 구독입니다.|
 | **Role** | 사용자의 역할은 독자, 소유자 또는 참가자 일 수 있습니다. 구독에 대 한 액세스 권한은 있지만 자신이 속한 관리 그룹에 대 한 액세스 권한이 없는 경우에는이 값이 비어 있습니다. 이 역할은 정책 또는 이니셔티브 (소유자)를 할당 하거나, 편집 하거나, 준수를 확인 하는 등 볼 수 있는 데이터와 수행할 수 있는 작업을 결정 합니다. |

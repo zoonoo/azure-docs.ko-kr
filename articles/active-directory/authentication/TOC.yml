@@ -158,6 +158,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: SMS 기반 인증 사용
       href: howto-authentication-sms-signin.md
+    - name: 양방향 SMS가 지원되지 않음
+      href: how-to-authentication-two-way-sms-unsupported.md
     - name: 이메일 주소 로그인 사용
       href: howto-authentication-use-email-signin.md
     - name: Azure AD 스마트 잠금
@@ -173,7 +175,7 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: 보고
       items:
-        - name: 사용량 및 인사이트
+        - name: 인증 방법 작업
           href: howto-authentication-methods-usage-insights.md
         - name: SSPR 보고서
           href: howto-sspr-reporting.md

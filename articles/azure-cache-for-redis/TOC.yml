@@ -100,8 +100,10 @@
           href: cache-private-link.md
         - name: 영역 중복성 사용
           href: cache-how-to-zone-redundancy.md
-        - name: 지리적 복제 설정
+        - name: OSS 지역에서 복제 설정
           href: cache-how-to-geo-replication.md
+        - name: 엔터프라이즈 활성 지역에서 복제 설정
+          href: cache-how-to-active-geo-replication.md
         - name: 예약 용량으로 저장
           href: cache-reserved-pricing.md
         - name: Azure Cache for Redis로 마이그레이션
@@ -182,7 +184,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/redis/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

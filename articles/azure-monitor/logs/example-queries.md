@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor의 Log Analytics은 자체적으로 실행 하거나 사용자 고유의 쿼리를 위한 시작 지점으로 사용할 수 있는 예제 쿼리 집합을 제공 합니다.
 description: 필요에 따라 시작 하 고 수정할 수 있는 쿼리
-ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: e421676ab8c44abc3432ab7ac45aecf98c98c304
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4f20032febe1c4afe9cb0964c1b448eaa018103
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708036"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030854"
 ---
 # <a name="example-queries-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 예제 쿼리
 Log Analytics은 자체적으로 실행 하거나 고유한 쿼리를 위한 시작 지점으로 사용할 수 있는 예제 쿼리 집합을 제공 합니다. 이 문서에서는 예제 쿼리와 이러한 쿼리를 사용 하는 방법을 설명 합니다.

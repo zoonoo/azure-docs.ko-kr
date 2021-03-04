@@ -4,12 +4,12 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET 성�
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583893"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031364"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -21,7 +21,7 @@ Windows는 광범위한 [성능 카운터](/windows/desktop/perfctrs/about-perfo
 
 ![Application Insights에서 보고하는 시스템 성능 카운터](./media/performance-counters/performance-counters.png)
 
-ASP.NET/ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 현재 기본 카운터는 다음과 같습니다.
+ASP.NET 웹 응용 프로그램에 대해 수집 되도록 구성 된 현재 기본 카운터는 다음과 같습니다.
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -31,6 +31,14 @@ ASP.NET/ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 
 - Process\\Private Bytes
 - Process\\IO Data Bytes/sec
 - ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
+
+ASP.NET Core 웹 응용 프로그램에 대해 수집 되도록 구성 된 현재 기본 카운터는 다음과 같습니다.
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
 - Processor(_Total)\\% Processor Time
 
 ## <a name="add-counters"></a>카운터 추가

@@ -4,15 +4,14 @@ description: Azure Monitor를 사용 하 여 Azure Monitor에서 Azure 데이터
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8bc47eb2a6a22224f4df186136da2c184979ea24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031126"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
 Azure Monitor는 Azure 데이터 탐색기, [Application Insights](../app/app-insights-overview.md)및 [Log Analytics](../logs/data-platform-logs.md)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 서비스 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.

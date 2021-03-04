@@ -8,10 +8,13 @@
 - name: 개념
   expanded: true
   items:
-    - name: 가상 머신
-      href: automanage-virtual-machines.md
-    - name: VM에 대한 모범 사례
-      href: virtual-machines-best-practices.md
+    - name: Linux용 Automanage
+      href: automanage-linux.md
+    - name: Windows Server용 Automanage
+      href: automanage-windows-server.md
+      items:
+        - name: 새 가상 머신에 대한 핫패치
+          href: automanage-hotpatch.md
 - name: 방법
   expanded: true
   items:

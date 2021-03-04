@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103892"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645894"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법
 
@@ -36,6 +36,9 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>사용자 또는 해당 조직이 작성한 애플리케이션 제거
 
 사용자 또는 해당 조직이 등록한 애플리케이션은 테넌트에서 애플리케이션 개체와 서비스 주체 개체 모두로 표시됩니다. 자세한 내용은 [애플리케이션 개체 및 서비스 사용자 개체](./app-objects-and-service-principals.md)를 참조하세요.
+
+> [!NOTE]
+> 애플리케이션을 삭제하면 애플리케이션의 홈 디렉터리에 있는 서비스 주체 개체도 삭제됩니다. 다중 테넌트 애플리케이션의 경우에는 다른 디렉터리의 서비스 주체 개체가 삭제되지 않습니다.
 
 애플리케이션을 삭제하려면 애플리케이션의 소유자 목록에 있거나 관리 권한이 있어야 합니다.
 

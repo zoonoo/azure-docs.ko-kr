@@ -1,22 +1,22 @@
 ---
 title: 새 업데이트를 가져오는 방법 | Microsoft Docs
 description: IoT Hub에 대 한 IoT Hub 장치 업데이트로 새 업데이트를 가져오기 위한 How-To 가이드입니다.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663291"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030735"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
@@ -53,7 +53,7 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    빠른 참조를 위해 위의 매개 변수에 대 한 몇 가지 예제 값은 다음과 같습니다. 전체 설명서는 아래의 전체 가져오기 매니페스트 스키마를 참조 하세요.
+    빠른 참조를 위해 위의 매개 변수에 대 한 몇 가지 예제 값은 다음과 같습니다. 자세한 내용은 전체 [가져오기 매니페스트 스키마](import-schema.md) 를 볼 수도 있습니다.
 
     | 매개 변수 | 설명 |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
     | installedCriteria | <ul><li>업데이트 유형에 대 한 SWVersion 값을 지정 합니다. `microsoft/swupdate:1`</li><li>업데이트 형식에 권장 값을 지정 `microsoft/apt:1` 합니다.
     | updateFilePath | 컴퓨터의 업데이트 파일 경로
 
-    전체 가져오기 매니페스트 스키마
-
-    | 속성 | Type | 설명 | 제한 |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | `UpdateId` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다. | Id를 업데이트 합니다. |
-    | UpdateType | 문자열 | 업데이트 형식: <ul><li>`microsoft/apt:1`참조 에이전트를 사용 하 여 패키지 기반 업데이트를 수행 하는 경우를 지정 합니다.</li><li>`microsoft/swupdate:1`참조 에이전트를 사용 하 여 이미지 기반 업데이트를 수행 하는 경우를 지정 합니다.</li><li>`microsoft/simulator:1`샘플 에이전트 시뮬레이터를 사용 하는 경우를 지정 합니다.</li><li>사용자 지정 에이전트를 개발 하는 경우 사용자 지정 유형을 지정 합니다.</li></ul> | <ul><li>형식: `{provider}/{type}:{typeVersion}`</li><li>최대 32 문자 합계</li></ul> |
-    | InstalledCriteria | 문자열 | 업데이트가 성공적으로 적용 되었는지 여부를 확인 하기 위해 에이전트에서 해석 되는 문자열:  <ul><li>업데이트 형식에 대해 SWVersion **값** 을 지정 `microsoft/swupdate:1` 합니다.</li><li>`{name}-{version}` `microsoft/apt:1` APT 파일에서 가져온 이름 및 버전에 대 한 업데이트 유형을 지정 합니다.</li><li>업데이트 유형에 대 한 업데이트 파일의 해시를 지정 `microsoft/simulator:1` 합니다.</li><li>사용자 지정 에이전트를 개발 하는 경우 사용자 지정 문자열을 지정 합니다.</li></ul> | 최대 64 문자 |
-    | 호환성 | 개체의 배열 `CompatibilityInfo` | 이 업데이트와 호환 되는 장치의 호환성 정보입니다. | 최대 10 개 항목 |
-    | CreatedDateTime | 날짜/시간 | 업데이트를 만든 날짜와 시간입니다. | UTC로 구분 된 ISO 8601 날짜 및 시간 형식 |
-    | ManifestVersion | 문자열 | 매니페스트 스키마 버전을 가져옵니다. `2.0`인터페이스 및 인터페이스와 호환 되는을 지정 `urn:azureiot:AzureDeviceUpdateCore:1` `urn:azureiot:AzureDeviceUpdateCore:4` 합니다.</li></ul> | `2.0`이어야 합니다. |
-    | 파일 | 개체의 배열 `File` | 페이로드 파일 업데이트 | 최대 5 개 파일 |
-
-참고: 모든 필드는 필수입니다.
 
 ## <a name="review-generated-import-manifest"></a>생성 된 가져오기 매니페스트 검토
 

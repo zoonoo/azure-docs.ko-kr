@@ -2,13 +2,13 @@
 title: Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성
 description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 방화벽 설정을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324164"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031840"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성 
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다. Event Grid에서 지 원하는 네트워크 보안 기능에 대 한 자세한 내용은 [Event Grid 네트워크 보안](network-security.md)을 참조 하세요.
@@ -16,7 +16,7 @@ ms.locfileid: "91324164"
 이 문서에서는 Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 설정을 구성 하는 방법을 설명 합니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
-이 섹션에서는 Azure Portal를 사용 하 여 인바운드 IP 방화벽 규칙을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인**에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
+이 섹션에서는 Azure Portal를 사용 하 여 인바운드 IP 방화벽 규칙을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인** 에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 event grid 토픽 또는 도메인으로 이동 하 고 **네트워킹** 탭으로 전환 합니다.
 2. 인터넷을 포함 한 모든 네트워크에서 리소스에 액세스할 수 있도록 **공용 네트워크** 를 선택 합니다. 
@@ -27,26 +27,13 @@ ms.locfileid: "91324164"
 3. 개인 끝점 연결만이 리소스에 액세스할 수 있도록 하려면 **전용 끝점을 선택 합니다** . 이 페이지의 **개인 끝점 연결** 탭을 사용 하 여 연결을 관리할 수 있습니다. 
 
     ![공용 네트워크 페이지](./media/configure-firewall/private-endpoints-page.png)
-4. 도구 모음에서 **저장**을 선택합니다. 
+4. 도구 모음에서 **저장** 을 선택합니다. 
 
 
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
-이 섹션에서는 Azure CLI 명령을 사용 하 여 인바운드 IP 규칙을 사용 하 여 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인**에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
+이 섹션에서는 Azure CLI 명령을 사용 하 여 인바운드 IP 규칙을 사용 하 여 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인** 에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
 
-
-### <a name="prerequisites"></a>필수 구성 요소
-다음 명령을 실행 하 여 CLI의 Azure Event Grid 확장을 업데이트 합니다. 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-확장이 설치 되지 않은 경우 다음 명령을 실행 하 여 설치 합니다. 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>공용 네트워크 액세스 사용 또는 사용 안 함
 기본적으로 토픽 및 도메인에 대해 공용 네트워크 액세스를 사용할 수 있습니다. 명시적으로 사용 하도록 설정 하거나 사용 하지 않도록 설정할 수도 있습니다. 인바운드 IP 방화벽 규칙을 구성 하 여 트래픽을 제한할 수 있습니다. 
@@ -160,9 +147,9 @@ az eventgrid topic update \
 
 
 ## <a name="use-powershell"></a>PowerShell 사용
-이 섹션에서는 Azure PowerShell 명령을 사용 하 여 인바운드 IP 방화벽 규칙을 사용 하 여 Azure Event Grid 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인**에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
+이 섹션에서는 Azure PowerShell 명령을 사용 하 여 인바운드 IP 방화벽 규칙을 사용 하 여 Azure Event Grid 항목을 만드는 방법을 보여 줍니다. 이 섹션에 표시 된 단계는 항목에 대 한 것입니다. 비슷한 단계를 사용 하 여 **도메인** 에 대 한 인바운드 IP 규칙을 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 에 대 한 지침을 수행 하 여 Azure Active Directory 응용 프로그램을 만들고 다음 값을 적어둡니다.
 
 - 디렉터리(테넌트) ID

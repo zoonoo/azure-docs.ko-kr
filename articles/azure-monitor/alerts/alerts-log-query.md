@@ -5,13 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
-ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7d65d7c65dabde3834458a36b50216878f7cf8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717981"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031296"
 ---
 # <a name="optimizing-log-alert-queries"></a>로그 경고 쿼리 최적화
 이 문서에서는 최적의 성능을 얻기 위해 [로그 경고](./alerts-unified-log.md) 쿼리를 작성 하 고 변환 하는 방법을 설명 합니다. 최적화 된 쿼리는 자주 실행 되는 경고의 대기 시간과 로드를 줄입니다.

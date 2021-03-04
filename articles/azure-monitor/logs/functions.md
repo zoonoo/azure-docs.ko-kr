@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 함수 | Microsoft Docs
 description: 이 문서에서는 함수를 사용하여 Azure Monitor의 한 쿼리에서 다른 로그 쿼리를 호출하는 방법을 설명합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9b2466bbe061dc147d020104b13da197840fe40a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708869"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030786"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -21,7 +20,7 @@ ms.locfileid: "101708869"
 
 **저장** 을 클릭한 후, 다음 표의 정보를 지정하여 Azure Portal에서 Log Analytics로 함수를 만듭니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |:---|:---|
 | 속성           | **쿼리 탐색기** 에 나타나는 쿼리의 표시 이름입니다. |
 | 다른 이름으로 저장        | 함수 |

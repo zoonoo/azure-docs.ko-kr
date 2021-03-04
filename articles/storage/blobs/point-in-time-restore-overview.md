@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980520"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031636"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 blob에 대 한 지정 시간 복원
 
 지정 시간 복원은 블록 blob 데이터를 이전 상태로 복원할 수 있도록 하 여 실수로 인 한 삭제 또는 손상 으로부터 보호 합니다. 특정 시점 복원은 사용자 또는 응용 프로그램이 실수로 데이터를 삭제 하거나 응용 프로그램 오류로 인해 데이터가 손상 되는 경우에 유용 합니다. 또한 지정 시간 복원은 추가 테스트를 실행 하기 전에 데이터 집합을 알려진 상태로 되돌려야 하는 테스트 시나리오를 가능 하 게 합니다.
 
-특정 시점 복원은 범용 v2 저장소 계정에 대해서만 지원 됩니다. 핫 및 쿨 액세스 계층의 데이터만 지정 시간 복원을 사용 하 여 복원할 수 있습니다.
+지정 시간 복원은 표준 성능 계층의 범용 v2 저장소 계정에 대해서만 지원 됩니다. 핫 및 쿨 액세스 계층의 데이터만 지정 시간 복원을 사용 하 여 복원할 수 있습니다.
 
 저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [블록 blob 데이터에 지정 시간 복원 수행](point-in-time-restore-manage.md)을 참조 하세요.
 

@@ -174,7 +174,7 @@
           href: security-baseline.md
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
-        - name: 데이터 암호화.
+        - name: 데이터 암호화
           href: concept-data-encryption.md
     - name: Responsible ML
       items:
@@ -321,11 +321,14 @@
             - name: 레이블로 데이터 세트 만들기
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: 데이터 가져오기
+        - name: 데이터 가져오기 및 준비
           items:
             - name: Azure Data Factory로 데이터 수집
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Azure Synapse를 사용한 데이터 준비
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: 데이터 수집을 위한 DevOps
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Azure Storage에 연결(Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: 스토리지에 대한 ID 기반 데이터 액세스
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: 데이터 저장소에서 데이터 가져오기(Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: 로그 사용 설정
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: 로그 보기
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: 실행에 대한 로그 및 메트릭 보기
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: TensorBoard로 시각화 실행
               displayName: 'log, monitor, metrics'
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: ML 파이프라인 배포(Python)
           href: how-to-deploy-pipelines.md
+        - name: ML 파이프라인에서 Azure Synapse Apache spark 풀 사용(Python)
+          href: how-to-use-synapsesparkstep.md
         - name: 파이프라인 트리거
           href: how-to-trigger-published-pipeline.md
         - name: 디자이너(끌어서 놓기)

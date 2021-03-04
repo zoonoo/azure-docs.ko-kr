@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241610"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030616"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>런타임 변경으로 인 한 U-SQL 런타임 오류 문제를 해결 하는 방법 알아보기
 
@@ -55,7 +55,7 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 ## <a name="known-issues"></a>알려진 문제
 
-* SCRIPT.USQL 스크립트에서 파일 버전 12.0.3에 대 한 Newtonsoft.Js를 참조 하면 다음과 같은 컴파일 오류가 발생 합니다.
+1. SCRIPT.USQL 스크립트에서 파일 버전 12.0.3에 대 한 Newtonsoft.Js를 참조 하면 다음과 같은 컴파일 오류가 발생 합니다.
 
     *"죄송 합니다. Data Lake Analytics 계정에서 실행 되는 작업은 더 느리게 실행 되거나 완료 되지 않을 수 있습니다. 예기치 않은 문제로 인해이 기능이 Azure Data Lake Analytics 계정으로 자동으로 복원 되지 않습니다. Azure Data Lake 엔지니어가 조사를 위해 연락 했습니다. "*  
 
@@ -65,9 +65,13 @@ release_YYYYMMDD_adl_buildno [_modifier]
     `...`
 
     **해결** 방법: 파일 v 12.0.2에서 Newtonsoft.Js를 사용 하세요.
+2. 고객은 스토어에서 임시 파일 및 폴더를 볼 수 있습니다. 이러한 항목은 일반적인 작업 실행의 일부로 생성 되지만 일반적으로 고객에 게 표시 되기 전에 삭제 됩니다. 드물지만 무작위로 적용 되는 특정 상황에서는 일정 기간 동안 계속 표시 될 수 있습니다. 결과적으로 삭제 되 고 사용자 저장소의 일부로 계산 되지 않거나 모든 형식의 요금이 생성 됩니다. 고객의 작업 논리에 따라 문제가 발생할 수 있습니다. 예를 들어 작업에서 폴더의 모든 파일을 열거 한 다음 파일 목록을 비교 하는 경우 예기치 않은 임시 파일이 표시 되어 실패할 수 있습니다. 마찬가지로, 다운스트림 작업에서 추가 처리를 위해 지정 된 폴더의 모든 파일을 열거 하는 경우 임시 파일을 열거할 수도 있습니다.  
+
+    **해결** 방법: 런타임은 임시 파일이 현재 출력 폴더 보다 계정 수준 임시 폴더에 저장 되는 런타임에 식별 됩니다. 임시 파일은이 새 임시 폴더에 기록 되 고 작업 실행이 끝날 때 삭제 됩니다.  
+    이 픽스는 고객 데이터를 처리 하기 때문에, 먼저 MSFT 내에서이 수정 사항을 확인 하는 것이 매우 중요 합니다. 이 픽스는 2021 년 중간에 베타 런타임으로 사용할 수 있으며, 2021 년의 두 번째 절반에서 기본 런타임으로 사용할 수 있습니다. 
 
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)

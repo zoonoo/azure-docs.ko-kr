@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: tyao
-ms.openlocfilehash: f3250101449971ffd985fcfcce400870e2a3d50f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745366"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030582"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>개인 링크를 사용 하 여 Azure Front 문을 웹 앱 원본에 연결
 
@@ -73,4 +73,4 @@ ms.locfileid: "101745366"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 웹 앱을 사용한 개인 링크 서비스](../../app-service/networking/private-endpoint)에 대해 알아봅니다.
+[Azure 웹 앱을 사용한 개인 링크 서비스](../../app-service/networking/private-endpoint.md)에 대해 알아봅니다.

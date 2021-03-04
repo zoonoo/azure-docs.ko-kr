@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717403"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030837"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -64,7 +64,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요인 | Description |
+| 요인 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -87,9 +87,9 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서
 
     > [!NOTE]
     > 로그는 관련 리소스와 올바르게 연결 된 경우에만 리소스 컨텍스트 쿼리에서 사용할 수 있습니다. 현재 다음과 같은 리소스에는 제한이 있습니다.
-    > - Azure 외부의 컴퓨터
+    > - Azure 외부의 컴퓨터- [서버에 대 한 Azure Arc](../../azure-arc/servers/index.yml) 를 통해서만 리소스 컨텍스트를 지원 합니다.
     > - Service Fabric
-    > - Application Insights
+    > - Application Insights- [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md) 를 사용 하는 경우에만 리소스 컨텍스트에 지원 됨
     >
     > 쿼리를 실행 하 고 관심이 있는 레코드를 검사 하 여 로그가 리소스와 제대로 연결 되어 있는지 테스트할 수 있습니다. [_ResourceId](./log-standard-columns.md#_resourceid) 속성에 올바른 리소스 ID가 있으면 리소스 중심 쿼리에서 데이터를 사용할 수 있습니다.
 

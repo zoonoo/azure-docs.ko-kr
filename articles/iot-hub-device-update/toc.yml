@@ -1,0 +1,94 @@
+- name: IoT Hub용 디바이스 업데이트 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: IoT Hub용 디바이스 업데이트란?
+      href: understand-device-update.md
+- name: 자습서
+  items:
+    - name: Raspberry Pi에서 이미지 업데이트
+      href: device-update-raspberry-pi.md
+    - name: 시뮬레이터에서 디바이스 업데이트 사용
+      href: device-update-simulator.md
+    - name: Ubuntu Server 18.04 x64의 패키지 업데이트
+      href: device-update-ubuntu-agent.md
+- name: 개념
+  items:
+    - name: 디바이스 업데이트 계정 및 인스턴스
+      href: device-update-resources.md
+    - name: 디바이스 업데이트 사용자 역할 및 액세스
+      href: device-update-control-access.md
+    - name: 디바이스 업데이트 APT 매니페스트
+      href: device-update-apt-manifest.md
+    - name: 디바이스 업데이트 준수
+      href: device-update-compliance.md
+    - name: 디바이스 업데이트 그룹
+      href: device-update-groups.md
+    - name: 디바이스 업데이트에서 플러그 앤 플레이를 사용하는 방법
+      href: device-update-plug-and-play.md
+    - name: 디바이스 업데이트 네트워킹 요구 사항
+      href: device-update-networking.md
+    - name: 디바이스 업데이트 에이전트
+      href: device-update-agent-overview.md
+    - name: 디바이스 업데이트 구성 파일
+      href: device-update-configuration-file.md
+    - name: 디바이스 업데이트 매니페스트
+      href: update-manifest.md
+    - name: 디바이스 업데이트를 보호하는 방법
+      href: device-update-security.md
+    - name: 연결이 끊긴 디바이스 지원
+      href: connected-cache-disconnected-device-update.md
+    - name: IoT Hub용 디바이스 업데이트의 Microsoft 연결된 캐시 구성
+      href: connected-cache-configure.md
+- name: 방법 가이드
+  items:
+    - name: 디바이스 업데이트 계정 만들기
+      href: create-device-update-account.md
+    - name: 디바이스 업데이트 에이전트 프로비저닝
+      href: device-update-agent-provisioning.md
+    - name: 업데이트 가져오기
+      href: import-update.md
+    - name: 디바이스 업데이트 그룹 만들기
+      href: create-update-group.md
+    - name: 디바이스 업데이트 배포
+      href: deploy-update.md
+    - name: 디바이스 업데이트 배포
+      href: deploy-update.md
+    - name: 단일 수준 Microsoft 연결된 캐시
+      href: connected-cache-single-level.md
+    - name: 중첩 수준 Microsoft 연결된 캐시
+      href: connected-cache-nested-level.md
+    - name: IIOT(산업용 IoT)를 위한 Microsoft 연결된 캐시
+      href: connected-cache-industrial-iot-nested.md
+    - name: 문제 해결
+      items:
+        - name: 디바이스 업데이트 문제 해결
+          href: troubleshoot-device-update.md
+- name: 참조
+  items:
+    - name: 디바이스 업데이트 클라이언트 오류 코드
+      href: device-update-error-codes.md
+- name: 리소스
+  items:
+    - name: 지원 및 도움말 옵션
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Azure IoT 서비스
+      items:
+        - name: IoT Hub
+          href: ./index.yml
+        - name: IoT Hub Device Provisioning Service
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: IoT 솔루션 가속기
+          href: ../iot-accelerators/index.yml
+        - name: IoT 플러그 앤 플레이
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: 배달 최적화
+      href: 'https://github.com/microsoft/do-client'

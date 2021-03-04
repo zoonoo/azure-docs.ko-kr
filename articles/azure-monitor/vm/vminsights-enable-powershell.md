@@ -1,17 +1,16 @@
 ---
 title: PowerShell을 사용 하 여 VM insights 사용
 description: Azure PowerShell를 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b51a49abda76a4d1433336cf73dc9a0dd6e40787
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717080"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031876"
 ---
 # <a name="enable-vm-insights-using-powershell"></a>PowerShell을 사용 하 여 VM insights 사용
 이 문서에서는 PowerShell을 사용 하 여 Azure virtual machines에서 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.

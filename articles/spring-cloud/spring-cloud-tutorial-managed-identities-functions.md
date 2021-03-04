@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 8ea8376307807abff8227d82bb6de7956fa3de99
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a33ba6813b4a67de7f46f3576a44fa7411278ba7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088536"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031789"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Azure Spring Cloud 앱에서 Azure Functions 호출
 
@@ -52,7 +52,7 @@ az storage account create --name <your-storageaccount-name> --resource-group myR
 az functionapp create --name <your-functionapp-name> --resource-group myResourceGroup --consumption-plan-location eastus --os-type windows --runtime node --storage-account <your-storageaccount-name> --functions-version 3
 ```
 
-반환된 **hostNames**를 적어 둡니다. 형식은 "https://<your-functionapp-name>.azurewebsites.net"입니다. 이는 다음 단계에서 사용됩니다.
+반환된 **hostNames** 를 적어 둡니다. 형식은 "https://<your-functionapp-name>.azurewebsites.net"입니다. 이는 다음 단계에서 사용됩니다.
 
 
 ## <a name="enable-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
@@ -119,7 +119,7 @@ az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup 
 다음 예제에서는 `--assign-identity` 매개 변수에서 요청한 대로 시스템이 할당한 관리 ID를 사용하여 `msiapp`이라는 앱을 만듭니다.
 
 ```azurecli
-az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --is-public true --assign-identity
+az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
 ```
 
 ## <a name="build-sample-spring-boot-app-to-invoke-the-function"></a>함수를 호출하는 Spring Boot 앱 샘플 빌드
@@ -139,7 +139,7 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
     vim src/main/resources/application.properties
     ```
 
-    관리 ID를 Azure Spring Cloud 앱에 사용하려면 다음 내용이 포함된 속성을 *src/main/resources/application.properties*에 추가합니다.
+    관리 ID를 Azure Spring Cloud 앱에 사용하려면 다음 내용이 포함된 속성을 *src/main/resources/application.properties* 에 추가합니다.
 
     ```
     azure.function.uri=https://<your-functionapp-name>.azurewebsites.net

@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: 다중 모델 기능
           href: multi-model-features.md
+        - name: 예약된 유지 관리
+          items:
+            - name: 유지 관리 기간
+              href: database/maintenance-window.md
+            - name: 유지 관리 기간 구성
+              href: database/maintenance-window-configure.md
+            - name: 유지 관리 기간 FAQ
+              href: database/maintenance-window-faq.yml
+            - name: 고급 알림
+              href: database/advance-notifications.md
         - name: 메모리 내 OLTP
           href: in-memory-oltp-overview.md
         - name: 임시 테이블

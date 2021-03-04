@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762931"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031704"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -238,10 +238,10 @@ az storage account or-policy show \
 
 다음 표에는 각 시나리오에서 JSON 파일의 정책 ID 및 규칙 Id에 사용할 값이 요약 되어 있습니다.
 
-| 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID 및 규칙 Id를이 값으로 설정 ... |
-|-|-|
-| 대상 계정 | 문자열 값의 *기본값* 입니다. Azure Storage에서 정책 ID 및 규칙 Id를 만듭니다. |
-| 원본 계정 | 대상 계정에 정의 된 정책을 JSON 파일로 다운로드 하는 경우 반환 되는 정책 ID 및 규칙 Id의 값입니다. |
+| 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID를이 값으로 설정 합니다. | 규칙 Id를이 값으로 설정 합니다. |
+|-|-|-|
+| 대상 계정 | 문자열 값의 *기본값* 입니다. Azure Storage에서 정책 ID 값을 만듭니다. | 빈 문자열입니다. Azure Storage에서 규칙 ID 값을 만듭니다. |
+| 원본 계정 | 대상 계정에 정의 된 정책을 JSON 파일로 다운로드 하는 경우 반환 되는 정책 ID의 값입니다. | 대상 계정에 정의 된 정책을 JSON 파일로 다운로드 하는 경우 반환 되는 규칙 Id의 값입니다. |
 
 다음 예에서는 접두사 *b* 와 일치 하는 단일 규칙을 사용 하 여 대상 계정에 대 한 복제 정책을 정의 하 고 복제할 blob에 대 한 최소 생성 시간을 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -253,7 +253,7 @@ az storage account or-policy show \
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ az storage account or-policy show \
 
 Azure Portal의 JSON 파일을 사용 하 여 대상 계정에서 개체 복제를 구성 하려면 다음 단계를 수행 합니다.
 
-1. 대상 계정에 대 한 복제 정책을 정의 하는 로컬 JSON 파일을 만듭니다. Azure Storage에서 정책 ID를 정의 하도록 **Policyid** 필드를 **default** 로 설정 합니다.
+1. 대상 계정에 대 한 복제 정책을 정의 하는 로컬 JSON 파일을 만듭니다. Azure Storage에서 정책 ID를 정의 하도록 **Policyid** 필드를 *default* 로 설정 합니다.
 
     복제 정책을 정의 하는 JSON 파일을 만드는 쉬운 방법은 먼저 Azure Portal의 두 저장소 계정 간에 테스트 복제 정책을 만드는 것입니다. 그런 다음 필요에 따라 복제 규칙을 다운로드 하 고 JSON 파일을 수정할 수 있습니다.
 

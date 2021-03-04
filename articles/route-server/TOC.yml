@@ -1,0 +1,45 @@
+- name: Route Server 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Route Server(미리 보기)란?
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: Route Server 구성 - PowerShell
+      href: quickstart-configure-route-server-powershell.md
+    - name: Route Server 구성 - CLI
+      href: quickstart-configure-route-server-cli.md
+  expanded: true
+- name: 개념
+  items:
+    - name: 경로 서버 FAQ
+      href: route-server-faq.md
+    - name: ExpressRoute 및 Azure VPN 지원
+      href: expressroute-vpn-support.md
+- name: 방법 가이드
+  items:
+    - name: Route Server 문제 해결
+      href: troubleshoot-route-server.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/?view=azps-5.5.0#route
+    - name: Azure CLI
+      href: /cli/azure/network/routeserver?view=azure-cli-latest
+    - name: REST
+      href: /rest/api/virtualwan/virtualhubipconfiguration
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 네트워킹 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=routeserver'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/'
