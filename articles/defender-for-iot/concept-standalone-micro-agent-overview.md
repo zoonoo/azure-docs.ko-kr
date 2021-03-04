@@ -1,5 +1,5 @@
 ---
-title: 독립 실행형 마이크로 에이전트 개요 (미리 보기)
+title: 독립 실행형 마이크로 에이전트 개요
 titleSuffix: Azure Defender for IoT
 description: IoT 용 Azure Defender 보안 에이전트를 사용 하 여 새 IoT 장치 및 Azure IoT 프로젝트에 직접 보안을 빌드할 수 있습니다.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/19/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 84afa4205b57481efc3ed9df805cfa7a3657a6c8
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: a3f71860801c7f611a10acd4ec4e8f8ed03ab20a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809881"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120082"
 ---
-# <a name="standalone-micro-agent-overview-preview"></a>독립 실행형 마이크로 에이전트 개요 (미리 보기)
+# <a name="standalone-micro-agent-overview"></a>독립 실행형 마이크로 에이전트 개요 
 
 보안은 IoT 구현자의 거의 보편적인 문제입니다. IoT 장치에는 끝점 모니터링, 보안 상태 관리 및 위협 검색에 대 한 고유한 요구 사항이 있으며,이는 매우 구체적인 성능 요구 사항이 있습니다. 
 
@@ -47,4 +47,4 @@ IoT 마이크로 에이전트의 Azure Defender는 쉽게 배포할 수 있으�
 
 ## <a name="next-steps"></a>다음 단계
 
-[마이크로 에이전트 인증 방법 (미리 보기)](concept-security-agent-authentication.md)을 확인 합니다.
+[마이크로 에이전트 인증 방법을 ](concept-security-agent-authentication.md)확인 합니다.

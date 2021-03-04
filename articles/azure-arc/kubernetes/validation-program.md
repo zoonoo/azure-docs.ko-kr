@@ -2,18 +2,18 @@
 title: Azure Arc Kubernetes 유효성 검사 프로그램 사용
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Kubernetes 배포에 대 한 Arc 유효성 검사 프로그램을 설명 합니다.
 keywords: Kubernetes, Arc, Azure, K8s, 유효성 검사
-ms.openlocfilehash: 0d7756f407a3a176c8913d99bdb45a5026300569
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 819df906add6275997e01fab310fe8dd57a87b51
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689218"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121374"
 ---
 # <a name="azure-arc-validation-program"></a>Azure Arc 유효성 검사 프로그램
 
@@ -61,6 +61,6 @@ Azure Arc 지원 Kubernetes는 모든 CNCF(Cloud Native Computing Foundation) �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클러스터를 Azure Arc에 연결](./connect-cluster.md)
-* [Arc 사용 Kubernetes 클러스터에 대 한 구성 만들기](./use-gitops-connected-cluster.md)
-* [Azure Policy를 사용 하 여 대규모로 구성 적용](./use-azure-policy.md)
+클러스터를 Azure Arc에 연결 하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [클러스터를 Azure Arc에 연결](./quickstart-connect-cluster.md)

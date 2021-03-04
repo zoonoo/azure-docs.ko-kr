@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a59e573c9b24d9a8b5577b55d143fcaca67952f0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688641"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120762"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>앱에 셀프 서비스 가입 사용자 흐름 추가
 
 > [!NOTE]
 > 이 문서에서 설명 하는 기능 중 일부는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

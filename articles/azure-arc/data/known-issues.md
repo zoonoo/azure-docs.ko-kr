@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693107"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122003"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>알려진 문제-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101693107"
 
 ## <a name="february-2021"></a>2021년 2월
 
-
 - 연결 된 클러스터 모드 사용 안 함
-- Azure Arc enabled PostgreSQL Hyperscale은 지정 된 상대 시점으로 복원할 수 없는 경우 부정확 한 오류 메시지를 반환 합니다. 예를 들어 백업에 포함 된 것 보다 오래 된 복원 시점을 지정한 경우 복원에 실패 하 고와 같은 오류 메시지가 표시 `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}` 됩니다. 이 경우 백업이 있는 날짜 범위 내에 있는 특정 시점을 표시 한 후에 명령을 다시 시작 합니다. 이 범위를 확인 하려면 백업을 나열 하 고 해당 백업을 수행한 날짜를 확인 합니다.
-- 전체 복원을 수행할 때 백업 id가 필요 합니다. 기본적으로 백업 id를 표시 하지 않는 경우 최신 백업이 사용 됩니다. 이 릴리스에서는이 작업을 수행할 수 없습니다.
 
 ## <a name="introduced-prior-to-february-2021"></a>2 월 2021 일 이전에 도입 되었습니다.
 

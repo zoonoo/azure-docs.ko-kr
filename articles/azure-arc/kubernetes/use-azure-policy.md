@@ -2,22 +2,20 @@
 title: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 7f85050666c383ba49730bd88ce1f26d55607e7a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121459"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 적용
-
-## <a name="overview"></a>개요
 
 Azure Policy를 사용 하 여 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` Azure Arc 사용 Kubernetes 클러스터 ()에서 대규모로 구성 (리소스 유형)을 적용할 수 있습니다 `Microsoft.Kubernetes/connectedclusters` .
 
@@ -69,4 +67,4 @@ Azure Policy를 사용 하려면 기존 정책 정의를 선택 하 고 정책 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Arc에서 Kubernetes 클러스터를 사용하는 컨테이너에 대한 Azure Monitor 설정](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)
+[Azure Arc Enabled Kubernetes 클러스터를 사용 하 여 컨테이너에 대 한 Azure Monitor를 설정](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)합니다.

@@ -2,18 +2,18 @@
 title: Azure Arc 활성화 된 Kubernetes에 대 한 온 보 딩 서비스 주체 만들기
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: 'Azure Arc 활성화 된 온 보 딩 서비스 주체 만들기 '
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 610b355073473f0e492350753a523b7943666f13
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650349"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121748"
 ---
 # <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Azure Arc 활성화 된 Kubernetes에 대 한 온 보 딩 서비스 주체 만들기
 
@@ -89,4 +89,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Policy를 사용하여 클러스터 구성 관리](./use-azure-policy.md)
+[Azure Policy를 사용 하 여](./use-azure-policy.md)클러스터 구성을 관리 합니다.

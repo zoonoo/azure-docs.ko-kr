@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
-ms.openlocfilehash: 688fabb7138ad71a978051e742dd8397042ffcf1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9ec914e5fea0d54f4705e8f14f5a64fa80c1adfe
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744672"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120031"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
 
-이 문서에서는 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 사용할 수 있는 시/도 코드를 나열 합니다. 해당 하는 경우 [제품의 공동 판매 페이지에서 연락처 정보](commercial-marketplace-co-sell.md#contacts)를 제공할 때 이러한 코드를 사용 하 여 시/도 정보를 제공 합니다.
+이 문서에서는 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 사용할 수 있는 시/도 코드를 나열 합니다. 해당 하는 경우 [제품의 공동 판매 페이지에서 연락처 정보](commercial-marketplace-co-sell.md#enter-your-contacts)를 제공할 때 이러한 코드를 사용 하 여 시/도 정보를 제공 합니다.
 
 ## <a name="us-states-and-territories"></a>미국 주 및 지역
 

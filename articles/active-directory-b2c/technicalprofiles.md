@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096040"
+ms.locfileid: "102120507"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -54,7 +54,7 @@ ms.locfileid: "102096040"
 1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 기술 프로필의 세션 상태를 복원 합니다.
 1. **입력 클레임 변환** -기술 프로필을 시작 하기 전에 Azure AD B2C 입력 [클레임 변환을](claimstransformations.md)실행 합니다.
 1. **입력 클레임** -기술 프로필에 사용 되는 클레임 모음에서 클레임을 선택 합니다.
-1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 다음은 그 예입니다. 
+1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예를 들면 다음과 같습니다.
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.
@@ -121,7 +121,7 @@ ms.locfileid: "102096040"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` 또는 `None` 입니다. |
-| Handler | No | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
+| Handler | 예 | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
 
 ## <a name="metadata"></a>메타데이터
 
@@ -191,7 +191,7 @@ ms.locfileid: "102096040"
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | No | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
+| Id | 예 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
 | StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
 
 ## <a name="input-claims-transformations"></a>입력 클레임 변환
@@ -252,8 +252,8 @@ ms.locfileid: "102096040"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의 되어 있습니다. |
-| DefaultValue | No | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | 예 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="display-claims"></a>클레임 표시
 
@@ -262,7 +262,7 @@ ms.locfileid: "102096040"
 - 클레임 유형은 화면에 표시할 클레임에 대 한 참조입니다. 
   - 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** 요소의 **필수** 특성을로 설정 `true` 합니다.
   - 표시 클레임 값을 미리 채우려면 앞에서 설명한 입력 클레임을 사용 합니다. 이 요소는 기본값을 포함할 수도 있습니다.
-  - **DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`로 이름을 지정할 수 있습니다.
+  - **DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`입니다.
 - 표시 컨트롤은 특수 기능이 있고 Azure AD B2C 백 엔드 서비스와 상호 작용 하는 사용자 인터페이스 요소입니다. 이를 통해 사용자는 백 엔드에서 유효성 검사 기술 프로필을 호출 하는 페이지에서 작업을 수행할 수 있습니다. 예를 들어 전자 메일 주소, 전화 번호 또는 고객 충성도 번호를 확인 합니다.
 
 **DisplayClaims** 의 요소 순서는 Azure AD B2C 화면에서 클레임을 렌더링 하는 순서를 지정 합니다. 
@@ -279,8 +279,8 @@ ms.locfileid: "102096040"
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | No | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DisplayControlReferenceId | No | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DisplayControlReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
 | 필수 | 예 | 표시 클레임이 필요한 지 여부를 나타냅니다. |
 
 다음 예제에서는 자체 어설션된 기술 프로필의에 표시 클레임 및 표시 컨트롤을 사용 하는 방법을 보여 줍니다.
@@ -326,8 +326,8 @@ ms.locfileid: "102096040"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | No | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | 예 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 다음 예제에서는 새 로컬 계정을 만드는 **AAD UserWriteUsingLogonEmail** 기술 프로필 또는 [스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts)이 다음 클레임을 유지 합니다.
 
@@ -357,9 +357,9 @@ ms.locfileid: "102096040"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | No | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
-|AlwaysUseDefaultValue |No |기본값을 강제로 사용합니다.  |
-| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. 파트너 클레임 유형 특성을 지정 하지 않으면 지정 된 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | 예 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
+|AlwaysUseDefaultValue |예 |기본값을 강제로 사용합니다.  |
+| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. 파트너 클레임 유형 특성을 지정 하지 않으면 지정 된 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="output-claims-transformations"></a>출력 클레임 변환
 
@@ -555,7 +555,7 @@ ms.locfileid: "102096040"
 
 ## <a name="enabled-for-user-journeys"></a>사용자 경험 사용
 
-사용자 경험의 [ClaimsProviderSelections](userjourneys.md#claimsproviderselection)는 클레임 공급자 선택 옵션과 해당 순서를 정의합니다. **EnabledForUserJourneys** 요소를 사용하여 사용자에게 제공되는 클레임 공급자를 필터링합니다. **EnabledForUserJourneys** 요소에는 다음 값 중 하나가 포함됩니다.
+사용자 경험의 [ClaimsProviderSelections](userjourneys.md#identity-provider-selection)는 클레임 공급자 선택 옵션과 해당 순서를 정의합니다. **EnabledForUserJourneys** 요소를 사용하여 사용자에게 제공되는 클레임 공급자를 필터링합니다. **EnabledForUserJourneys** 요소에는 다음 값 중 하나가 포함됩니다.
 
 - **Always** - 항상 기술 프로필을 실행합니다.
 - **Never** - 기술 프로필을 건너뜁니다.

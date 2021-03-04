@@ -8,17 +8,17 @@ ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 6da700fdd8149a7fff92ed0edef2015e354eca05
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f8daed736f1d7f5ecf77a5b44f95d191eb5930f8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660042"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120456"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>빠른 시작: 통화 앱으로 Teams 미팅 참가
 
 > [!IMPORTANT]
-> [Teams 테넌트 상호 운용성](../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
+> [Teams 테넌트 상호 운용성](../../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
 
 JavaScript 클라이언트 라이브러리를 사용하여 호출 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요.
 

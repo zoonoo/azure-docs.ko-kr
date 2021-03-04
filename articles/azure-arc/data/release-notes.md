@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686685"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121952"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -36,7 +36,7 @@ Azure Data CLI ( `azdata` ) 버전 번호: 20.3.1. 에서 다운로드 [https://
 - Azure Arc enabled PostgreSQL Hyperscale Azure Data Studio: 
    - 이제 개요 페이지에 노드당 항목별 서버 그룹의 상태가 표시 됩니다.
    - 이제 새 속성 페이지를 사용 하 여 서버 그룹에 대 한 자세한 정보를 표시할 수 있습니다.
-   - **노드 매개 변수** 페이지에서 Postgres 엔진 매개 변수 구성 =
+   - **노드 매개 변수** 페이지에서 Postgres 엔진 매개 변수 구성
 
 이 릴리스와 관련 된 문제는 [알려진 문제-Azure Arc 사용 데이터 서비스 (미리 보기)](known-issues.md) 를 참조 하세요.
 

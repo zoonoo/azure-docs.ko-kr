@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400016"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120745"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -35,7 +35,7 @@ ms.locfileid: "97400016"
 
 **UserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 정책의 다른 요소에서 사용자 경험을 참조하는 데 사용할 수 있는 사용자 경험의 식별자입니다. [신뢰 당사자 정책](relyingparty.md)의 **DefaultUserJourney** 요소는 이 특성을 가리킵니다. |
 
@@ -58,7 +58,7 @@ ms.locfileid: "97400016"
 
 **AuthorizationTechnicalProfile** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | TechnicalProfileReferenceId | 예 | 실행할 기술 프로필의 식별자입니다. |
 
@@ -92,7 +92,7 @@ ms.locfileid: "97400016"
 
 **OrchestrationStep** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Order` | 예 | 오케스트레이션 단계의 순서입니다. |
 | `Type` | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**Getclaims** -오케스트레이션 단계가 구성을 통해 신뢰 당사자 로부터 Azure AD B2C으로 전송 된 클레임 데이터를 처리 하도록 지정 합니다 `InputClaims` .</li><li>**InvokeSubJourney** -오케스트레이션 단계가 공개 미리 보기로 [클레임을 교환](subjourneys.md) 하는 것을 나타냅니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> |
@@ -121,7 +121,7 @@ ms.locfileid: "97400016"
 
 **사전 조건** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 이 전제 조건에 대해 수행할 확인이나 쿼리의 유형입니다. 값은 **ClaimsExist**(지정한 클레임이 사용자의 현재 클레임 집합에 있으면 작업을 수행해야 함을 지정함) 또는 **ClaimEquals**(지정한 클레임이 있으며 해당 값이 지정된 값과 같으면 작업을 수행해야 함을 지정함)일 수 있습니다. |
 | `ExecuteActionsIf` | 예 | true 또는 false 테스트를 사용하여 전제 조건의 작업을 수행해야 하는지를 결정합니다. |
@@ -189,9 +189,12 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="identity-provider-selection"></a>ID 공급자 선택 영역
 
-`ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp` 유형의 오케스트레이션 단계는 사용자가 로그인하는 데 사용할 수 있는 클레임 공급자 목록을 포함할 수 있습니다. `ClaimsProviderSelections` 요소 내의 요소 순서는 사용자에게 표시되는 ID 공급자 순서를 제어합니다.
+Id 공급자 선택을 통해 사용자는 옵션 목록에서 작업을 선택할 수 있습니다. Id 공급자 선택은 다음 두 오케스트레이션 단계로 구성 됩니다. 
+
+1. **단추** -형식으로 시작 `ClaimsProviderSelection` 하거나 `CombinedSignInAndSignUp` 사용자가 선택할 수 있는 옵션 목록이 포함 되어 있습니다. 요소 내의 옵션 순서는 `ClaimsProviderSelections` 사용자에 게 표시 되는 단추의 순서를 제어 합니다.
+2. **작업** -뒤에 형식이 나옵니다 `ClaimsExchange` . Claim이상 변경에는 작업 목록이 포함 됩니다. 작업은 [OAuth2](oauth2-technical-profile.md), [openid connect Connect](openid-connect-technical-profile.md), [클레임 변환](claims-transformation-technical-profile.md)또는 [자체 어설션된](self-asserted-technical-profile.md)과 같은 기술 프로필에 대 한 참조입니다. 사용자가 단추 중 하나를 클릭 하면 해당 작업이 실행 됩니다.
 
 **ClaimsProviderSelections** 요소에는 다음 요소가 포함 됩니다.
 
@@ -201,13 +204,13 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsProviderSelections** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | DisplayOption| 예 | 단일 클레임 공급자를 선택할 수 있는 사례의 동작을 제어 합니다. 가능한 값: `DoNotShowSingleProvider` (기본값) 사용자가 페더레이션 id 공급자로 즉시 리디렉션됩니다. 또는 `ShowSingleProvider` Azure AD B2C 단일 id 공급자를 선택 하 여 로그인 페이지를 표시 합니다. 이 특성을 사용 하려면 [콘텐츠 정의 버전이](page-layout.md) 이상 이어야 합니다 `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` .|
 
 **ClaimsProviderSelection** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | 예 | 클레임 공급자 선택 항목의 다음 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 ValidationClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
 | ValidationClaimsExchangeId | 예 | 클레임 공급자 선택 항목의 유효성을 검사하기 위해 현재 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 TargetClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
@@ -242,7 +245,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>
@@ -259,7 +262,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsExchange** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 교환 단계의 식별자입니다. 식별자는 정책의 클레임 공급자 선택 단계에서 클레임 교환을 참조하는 데 사용됩니다. |
 | TechnicalProfileReferenceId | 예 | 실행할 기술 프로필의 식별자입니다. |
@@ -276,6 +279,6 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **후보** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | SubJourneyReferenceId | 예 | 실행할 [하위](subjourneys.md) 경험의 식별자입니다. |

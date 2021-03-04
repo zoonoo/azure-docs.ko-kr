@@ -2,30 +2,31 @@
 title: GitOps를 사용 하는 CI/CD 워크플로-Azure Arc enabled Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: 이 문서에서는 GitOps를 사용 하 여 CI/CD 워크플로에 대 한 개념적 개요를 제공 합니다.
 keywords: GitOps, Kubernetes, K8s, Azure, 투구, Arc, AKS, Azure Kubernetes Service, 컨테이너, CI, CD, Azure DevOps
-ms.openlocfilehash: 044275db0977a20474aa1451324486ad1750a7f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054918"
+ms.locfileid: "102121782"
 ---
-# <a name="overview"></a>개요
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>GitOps를 사용 하는 CI/CD 워크플로-Azure Arc enabled Kubernetes
 
 최신 Kubernetes 배포에는 여러 응용 프로그램, 클러스터 및 환경이 있습니다. GitOps를 사용 하 여 이러한 복잡 한 기능을 보다 쉽게 관리할 수 있으며 Git를 사용 하 여 Kubernetes 환경의 원하는 상태를 선언적으로 추적할 수 있습니다. 일반적인 Git 도구를 사용 하 여 클러스터 상태를 추적 하면 책임을 늘리고, 오류 조사를 용이 하 게 하 고, 자동화를 통해 환경을 관리할 수 있습니다.
 
-이 문서에서는 Azure Arc, Azure Repos 및 Azure Pipelines를 사용 하 여 응용 프로그램 변경의 전체 수명 주기에서 GitOps를 실현 하는 방법에 대 한 개념적 개요를 제공 합니다. 개발자에서 GitOps 제어 Kubernetes 환경으로 응용 프로그램의 단일 변경에 대 한 종단 간 예제를 살펴봅니다.
+이 개념적 개요에서는 Azure Arc, Azure Repos 및 Azure Pipelines를 사용 하 여 전체 응용 프로그램 변경 수명 주기의 현실로 GitOps를 설명 합니다. GitOps 제어 Kubernetes 환경에 대 한 단일 응용 프로그램 변경의 [예로 이동](#example-workflow) 합니다.
 
 ## <a name="architecture"></a>Architecture
 
 하나 이상의 Kubernetes 환경에 배포 된 응용 프로그램을 고려 합니다.
 
 ![GitOps CI/CD 아키텍처](./media/gitops-arch.png)
+
 ### <a name="application-repo"></a>응용 프로그램 리포지토리
 응용 프로그램 리포지토리에는 개발자가 내부 루프 중에 작업 하는 응용 프로그램 코드가 포함 되어 있습니다. 이 리포지토리에는 응용 프로그램의 배포 템플릿이 투구 또는 Kustomize과 같은 일반 형식으로 있습니다. 환경 관련 값은 저장 되지 않습니다. 이 리포지토리의 변경 내용은 배포 프로세스를 시작 하는 PR 또는 CI 파이프라인을 호출 합니다.
 ### <a name="container-registry"></a>Container Registry
@@ -39,9 +40,9 @@ Flux는 각 클러스터에서 실행 되며 원하는 상태를 유지 관리 �
 ### <a name="cd-pipeline"></a>CD 파이프라인
 성공적인 CI 빌드에 의해 CD 파이프라인이 자동으로 트리거됩니다. 이전에 게시 된 템플릿을 사용 하 고 환경 값을 대체 하며 GitOps 리포지토리로 PR을 열어 하나 이상의 Kubernetes 클러스터에 대 한 원하는 상태 변경을 요청 합니다. 클러스터 관리자는 상태 변경 PR을 검토 하 고 GitOps 리포지토리에 병합을 승인 합니다. 그러면 파이프라인은 PR이 완료 될 때까지 대기 하므로 Flux가 상태 변경을 선택할 수 있습니다.
 ### <a name="gitops-repo"></a>GitOps 리포지토리
-GitOps 리포지토리는 클러스터의 모든 환경에 대 한 현재 desired 상태를 나타냅니다. 이 리포지토리에 대 한 모든 변경 내용은 각 클러스터의 Flux 서비스에 의해 선택 되 고 배포 됩니다. Pr는 원하는 상태를 변경 하 고, 검토 하 고, 병합 하 여 만듭니다. 이러한 Pr에는 배포 템플릿과 그 결과 렌더링 된 Kubernetes 매니페스트 모두에 대 한 변경 내용이 포함 되어 있습니다. 하위 수준으로 렌더링 된 매니페스트는 템플릿 수준에서 일반적으로 보이지 않는 변경 내용에 대 한 신중한 검사를 허용 하 여 템플릿 대체 뒤의 예상치를 방지 합니다.
+GitOps 리포지토리는 클러스터의 모든 환경에 대 한 현재 desired 상태를 나타냅니다. 이 리포지토리에 대 한 모든 변경 내용은 각 클러스터의 Flux 서비스에 의해 선택 되 고 배포 됩니다. Pr는 원하는 상태를 변경 하 고, 검토 하 고, 병합 하 여 만듭니다. 이러한 Pr에는 배포 템플릿과 그 결과 렌더링 된 Kubernetes 매니페스트 모두에 대 한 변경 내용이 포함 되어 있습니다. 낮은 수준으로 렌더링 된 매니페스트를 사용 하면 일반적으로 템플릿 수준에서 보이지 않는 변경 내용 검사를 보다 신중 하 게 수행할 수 있습니다.
 ### <a name="kubernetes-clusters"></a>Kubernetes 클러스터
-하나 이상의 Azure Arc 사용 Kubernetes 클러스터는 응용 프로그램에 필요한 다양 한 환경을 제공 합니다. 예를 들어 단일 클러스터는 서로 다른 네임 스페이스를 통해 개발 및 QA 환경을 모두 제공할 수 있습니다. 두 번째 클러스터는 환경 및 보다 세분화 된 제어를 더 쉽게 분리할 수 있습니다.
+하나 이상의 Azure Arc 사용 Kubernetes 클러스터는 응용 프로그램에 필요한 여러 환경에 사용 됩니다. 예를 들어 단일 클러스터는 서로 다른 네임 스페이스를 통해 개발 및 QA 환경을 모두 제공할 수 있습니다. 두 번째 클러스터는 환경 및 보다 세분화 된 제어를 더 쉽게 분리할 수 있습니다.
 ## <a name="example-workflow"></a>예제 워크플로
 응용 프로그램 개발자로 서 Alice는 다음을 수행 합니다.
 * 응용 프로그램 코드를 작성 합니다.
@@ -73,4 +74,4 @@ Alice는 응용 프로그램이 여러 환경에서 실행할 수 있어야 하�
 8.  모든 환경에서 성공적인 배포를 수신 하면 파이프라인이 완료 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Arc를 사용 하는 구성 및 GitOps Kubernetes](./conceptual-configurations.md)
+[Azure Arc Enabled Kubernetes를 사용 하 여](./conceptual-configurations.md) 클러스터와 Git 리포지토리 간의 연결을 구성 리소스로 만드는 방법에 대해 자세히 알아보세요.

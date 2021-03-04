@@ -3,18 +3,18 @@ title: Veeam을 사용 하 여 Azure에 데이터 백업
 titleSuffix: Azure Blob Storage Docs
 description: 웹 페이지에서는 Veeam 백업 및 복구에 대 한 저장소 대상 및 복구 위치로 Azure를 활용 하기 위해 고려해 야 하는 요소에 대 한 개요를 제공 합니다.
 keywords: Veeam,, 클라우드로 백업, 백업, Azure에 백업, 재해 복구, 비즈니스 연속성
-author: Karl Rautenstrauch
+author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
 ms.service: Storage
 ms.subservice: Blob Storage
-ms.openlocfilehash: 9f07703d23c3be6e842a54ba4bb0d46467ccb71d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b7bc20d80887df5a5ad235c87238b0239abadc0a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745949"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101582"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Veeam을 사용 하 여 Azure에 백업
 

@@ -2,18 +2,18 @@
 title: Azure Arc 사용 Kubernetes 에이전트 아키텍처
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 에이전트의 아키텍처 개요를 제공 합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650535"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121901"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc 사용 Kubernetes 에이전트 아키텍처
 
@@ -68,8 +68,8 @@ ms.locfileid: "101650535"
 | 에이전트의 리소스 소비 (메모리/CPU) | 진단 및 지원 가능성 | 에이전트가 Azure에 푸시 |
 | 모든 에이전트 컨테이너의 로그 | 진단 및 지원 가능성 | 에이전트가 Azure에 푸시 |
 | 에이전트 업그레이드 가용성 | 에이전트 업그레이드 | 에이전트가 Azure에서 끌어옵니다. |
-| 필요한 구성 상태: Git 리포지토리 URL, flux 연산자 매개 변수, 개인 키, 알려진 호스트 콘텐츠, HTTPS 사용자 이름, 토큰 또는 암호 | Configuration | 에이전트가 Azure에서 끌어옵니다. |
-| Flux 운영자 설치 상태 | Configuration | 에이전트가 Azure에 푸시 |
+| 필요한 구성 상태: Git 리포지토리 URL, flux 연산자 매개 변수, 개인 키, 알려진 호스트 콘텐츠, HTTPS 사용자 이름, 토큰 또는 암호 | 구성 | 에이전트가 Azure에서 끌어옵니다. |
+| Flux 운영자 설치 상태 | 구성 | 에이전트가 Azure에 푸시 |
 | 클러스터 내에서 게이트 키퍼를 적용 해야 하는 Azure Policy 할당 | Azure Policy | 에이전트가 Azure에서 끌어옵니다. |
 | 클러스터 내 정책 사항을의 감사 및 준수 상태 | Azure Policy | 에이전트가 Azure에 푸시 |
 | 고객 작업에 대 한 메트릭 및 로그 | Azure Monitor | 에이전트는 고객의 테 넌 트 및 구독에서 Log Analytics 작업 영역 리소스에 푸시합니다. |
@@ -93,5 +93,5 @@ ms.locfileid: "101650535"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클러스터를 Azure Arc에 연결](./quickstart-connect-cluster.md)
-* [구성의 개념적 개요](./conceptual-configurations.md)
+* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./connect-cluster.md)빠른 시작을 안내 합니다.
+* [Azure Arc Enabled Kubernetes를 사용](./conceptual-configurations.md)하 여 클러스터와 Git 리포지토리 간의 연결을 구성 리소스로 만드는 방법에 대해 자세히 알아보세요.

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d978410cae2b2de1a2f6711de82ae71a1da168c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745276"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120133"
 ---
 # <a name="co-sell-requirements"></a>공동 판매 요구 사항
 
@@ -24,7 +24,7 @@ ms.locfileid: "101745276"
 | ------------ | ------------- |
 | 공동 판매 준비 안 함 | [공동 판매 준비 상태에 대 한 최소 요구 사항이](#requirements-for-co-sell-ready-status) 충족 되지 않았습니다. |
 | 공동 판매 준비 | [공동 판매 준비 상태에 대 한 모든 요구 사항이](#requirements-for-co-sell-ready-status) 충족 되었습니다. |
-| Azure IP 공동 판매 incentivized | [이러한 추가 요구 사항](#requirements-for-IP-Co-sell-incentivized-status)외에도 공동 판매 준비 요구 사항이 충족 되었습니다. |
+| Azure IP 공동 판매 incentivized | [이러한 추가 요구 사항](#requirements-for-ip-co-sell-incentivized-status)외에도 공동 판매 준비 요구 사항이 충족 되었습니다. |
 | Biz 앱 ISV 연결 프리미엄 동기  | 이 상태는 Dynamics 365 및 Power Apps 제품에 적용 되며, [이 상태에 대 한 모든 요구 사항이](#requirements-for-biz-apps-isv-connect-premium-incentive-status) 충족 되었음을 나타냅니다. |
 |||
 

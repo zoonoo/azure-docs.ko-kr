@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880358"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120184"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>OCP GTM에서 상업적 marketplace로 공동 판매 솔루션 마이그레이션
 
@@ -136,7 +136,7 @@ OCP GTM 솔루션의 솔루션이 더 이상 관련이 없는 경우이 옵션�
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="제안 개요는 파트너 센터의 설정 탭입니다.":::
 
-3. Microsoft 판매자 관련 세부 정보 중 일부는 OCP GTM 솔루션에서 복사 되었습니다. **Microsoft와 공동** 판매 탭에서 나머지 필수 정보를 완료 하 여 제품을 공동 판매 하도록 준비 합니다. 완료 되 면 **검토 및 게시** 를 선택 합니다. 자세한 내용은 [파트너 센터에서 공동 판매 자료를 제출 하는 방법](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)을 참조 하세요.
+3. Microsoft 판매자 관련 세부 정보 중 일부는 OCP GTM 솔루션에서 복사 되었습니다. **Microsoft와 공동** 판매 탭에서 나머지 필수 정보를 완료 하 여 제품을 공동 판매 하도록 준비 합니다. 완료 되 면 **검토 및 게시** 를 선택 합니다. 자세한 내용은 [파트너 센터에서 공동 판매 자료를 제출 하는 방법](marketplace-co-sell.md)을 참조 하세요.
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="파트너 센터의 제품 공동 판매 탭":::
 
@@ -154,5 +154,5 @@ OCP GTM 솔루션의 솔루션이 더 이상 관련이 없는 경우이 옵션�
 ## <a name="next-steps"></a>다음 단계
 
 - [CSP 파트너를 통한 재판매](cloud-solution-providers.md)
-- [파트너 센터에서 공동 판매 자료를 제출 하는 방법](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [파트너 센터에서 공동 판매 자료를 제출 하는 방법](marketplace-co-sell.md)
 - 이러한 [faq](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) 보기 (PDF)

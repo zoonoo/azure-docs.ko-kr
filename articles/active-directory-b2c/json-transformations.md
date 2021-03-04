@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998433"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119878"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "91998433"
 | InputParameter | 점 표기법 다음에 나오는 문자열 | 문자열 | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
 | OutputClaim | outputClaim | 문자열 | 생성 된 JSON 문자열입니다. |
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 다음 예제에서는 "email" 및 "otp"의 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
 
@@ -117,8 +117,8 @@ ms.locfileid: "91998433"
 - 입력 클레임:
   - **전자 메일**, 변환 클레임 유형  **customerentity. 전자 메일**: " john.s@contoso.com "
   - **objectId**, 변환 클레임 유형 **Customerentity. userobjectid** "01234567-89ab-cdef-0123-456789abcdef"
-  - **objectId**, 변환 클레임 유형 **Customerentity. firstName** "John"
-  - **objectId**, 변환 클레임 유형 **Customerentity. lastName** "Smith"
+  - **givenName** 변환 클레임 유형 **Customerentity. firstName** "John"
+  - **성**, 변환 클레임 유형 **Customerentity. lastName** "Smith"
 - 입력 매개 변수:
   - **customerEntity.role.name**: "Administrator"
   - **customerEntity.role.id** 1
@@ -357,7 +357,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 다음 예제에서는 클레임 변환이 다음 XML 데이터를 JSON 형식으로 변환합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 입력 클레임:
 
 ```xml

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e4e90d91b8e6ae017f00e37304c4da56cd618732
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095309"
+ms.locfileid: "102119776"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -44,9 +44,9 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 다음 섹션은 사용 가능한 클레임 해결 프로그램을 나열합니다.
 
-### <a name="culture"></a>culture
+### <a name="culture"></a>문화권
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
@@ -55,7 +55,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="policy"></a>정책
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 신뢰 당사자 정책 이름입니다. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
@@ -64,36 +64,36 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age` | 해당 없음 |
+| {OIDC:MaxAge} | `max_age` | N/A |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC: Password}| [리소스 소유자 암호 자격 증명](ropc-custom.md) 은 사용자의 암호를 전달 합니다.| password1| 
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
 | {OIDC: RedirectUri} |`redirect_uri` 쿼리 문자열 매개 변수입니다. | https://jwt.ms |
-| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC: Scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 | {OIDC: Username}| [리소스 소유자 암호 자격 증명](ropc-custom.md) 은 사용자의 사용자 이름을 전달 합니다.| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |날짜 시간(UTC)입니다.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |정책 배포 모드입니다.  | 프로덕션 |
-| {Context: HostName} | 현재 요청에 대 한 호스트 이름입니다.  | contoso.b2clogin.com |
+| {Context: HostName} | 현재 요청의 호스트 이름입니다.  | contoso.b2clogin.com |
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
 | {Context: KMSI} | [로그인 상태 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 선택 했는지 여부를 나타냅니다. |  true |
 
 ### <a name="claims"></a>클레임 
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
 | {클레임: 클레임 유형} | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 클레임 유형의 식별자입니다.  예를 들면 `{Claim:displayName}` , 또는 `{Claim:objectId}` 입니다. | 클레임 유형 값입니다.|
 
@@ -102,24 +102,24 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | Hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
 | {OAUTH-KV:loyalty_number} | 쿼리 문자열 매개 변수입니다. | 1234 |
-| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | N/A |
 
 ### <a name="oauth2"></a>OAuth2
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | 액세스 토큰. | 해당 없음 |
-| {oauth2: refresh_token} | 토큰 새로 고침. | 해당 없음 |
+| {oauth2:access_token} | 액세스 토큰. | N/A |
+| {oauth2: refresh_token} | 토큰 새로 고침. | N/A |
 
 
 ### <a name="saml"></a>SAML
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`SAML 요청의 요소 값입니다. | urn: oasis: names: tc: SAML: 2.0: ac: 클래스: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format` `NameIDPolicy` SAML 요청의 요소에 있는 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |

@@ -2,18 +2,18 @@
 title: Azure Arc 사용 Kubernetes 에이전트 업그레이드
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Arc 사용 Kubernetes에 대 한 컨트롤 에이전트 업그레이드
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너, 에이전트, 업그레이드
-ms.openlocfilehash: 3a5355269db4ccfc91612f661b464556b22c1d35
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121918"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Azure Arc 사용 Kubernetes 에이전트 업그레이드
 
@@ -84,6 +84,6 @@ Azure Arc enabled Kubernetes는 에이전트의 버전을 관리 하기 위해�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클러스터를 Azure Arc에 연결](./connect-cluster.md)
-* [Arc 사용 Kubernetes 클러스터에 대 한 구성 만들기](./use-gitops-connected-cluster.md)
-* [Azure Policy를 사용 하 여 대규모로 구성 적용](./use-azure-policy.md)
+* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./connect-cluster.md)빠른 시작을 안내 합니다.
+* Kubernetes 클러스터에 연결 된 Azure Arc가 이미 있나요? [Arc Enabled Kubernetes 클러스터에 대 한 구성을 만듭니다](./use-gitops-connected-cluster.md).
+* Azure Policy를 사용 하 여 [대규모 구성을 적용](./use-azure-policy.md)하는 방법을 알아봅니다.

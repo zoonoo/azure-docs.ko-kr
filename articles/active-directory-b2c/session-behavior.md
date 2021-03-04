@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096142"
+ms.locfileid: "102120626"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -29,7 +29,7 @@ Single Sign-On를 통해 사용자는 단일 계정으로 한 번 로그인 하 
 
 사용자가 응용 프로그램에 처음으로 로그인 하면 Azure AD B2C 쿠키 기반 세션을 유지 합니다. 후속 인증 요청 시 Azure AD B2C은 쿠키 기반 세션을 읽고 유효성을 검사 하며, 사용자에 게 다시 로그인 하 라는 메시지를 표시 하지 않고 액세스 토큰을 발급 합니다. 쿠키 기반 세션이 만료 되거나 유효 하지 않게 되 면 사용자에 게 다시 로그인 하 라는 메시지가 표시 됩니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -71,7 +71,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 다음을 포함 하 여 Azure AD B2C 세션 동작을 구성할 수 있습니다.
 
-- **웹 앱 세션 수명 (분)** -인증에 성공한 후 Azure AD B2C 세션 쿠키가 사용자 브라우저에 저장 되는 시간입니다. 세션 수명은 15에서 720 분 사이의 값으로 설정할 수 있습니다.
+- **웹 앱 세션 수명 (분)** -인증에 성공한 후 Azure AD B2C 세션 쿠키가 사용자 브라우저에 저장 되는 시간입니다. 세션 수명은 최대 24 시간까지 설정할 수 있습니다.
 
 - **웹 앱 세션 제한 시간** -세션이 세션 수명 설정 또는 로그인 유지 (kmsi) 설정에 의해 확장 되는 방법을 나타냅니다.
   - **롤링** -사용자가 쿠키 기반 인증 (기본값)을 수행할 때마다 세션이 확장 됨을 나타냅니다.

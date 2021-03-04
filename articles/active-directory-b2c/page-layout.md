@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: df94bb5e6066b83afd566181debbc0872dc1a5b4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492249"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120265"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -76,7 +76,7 @@ ms.locfileid: "99492249"
 
 **2.1.2**
 - 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.
-- "암호 찾기" 링크를 소셜 IDP와 같은 클레임 교환으로 사용 하도록 허용 합니다.
+- "암호 찾기" 링크를 클레임 교환으로 사용 하도록 허용 합니다. 자세한 내용은 [셀프 서비스 암호 재설정](add-password-reset-policy.md#self-service-password-reset-recommended)을 참조 하세요.
 
 **2.1.1**
 - `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.

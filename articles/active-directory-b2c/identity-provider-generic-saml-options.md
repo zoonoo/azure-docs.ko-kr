@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44a084266a083b2cc7c0609e4bfedb10a018585d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107556"
+ms.locfileid: "102119827"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자 옵션 구성
 
@@ -43,8 +43,8 @@ Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자와의 페더�
 출력 클레임 요소는 다음 특성을 포함 합니다.
 
 - **ClaimTypeReferenceId** 는 클레임 유형에 대한 참조입니다. 
-- **PartnerClaimType** 은 Azure Insights에 나타나는 속성의 이름입니다. 구문을 사용 합니다 `{property:NAME}` . 여기서 `NAME` 는 이벤트에 속성을 추가 합니다.
-- **DefaultValue** 는 이벤트 이름과 같이 기록 되는 미리 정의 된 값입니다. 사용자 경험에 사용 되는 클레임입니다 (예: id 공급자 이름). 클레임이 비어 있으면 기본값이 사용 됩니다. 예를 들어 `identityProvider` 클레임은 Facebook과 같은 페더레이션 기술 프로필에 의해 설정 됩니다. 클레임이 비어 있으면 사용자가 로컬 계정으로 로그인 하는 것을 나타냅니다. 따라서 기본값은 *Local* 로 설정 됩니다. 응용 프로그램 ID 또는 사용자 IP 주소와 같은 컨텍스트 값을 사용 하 여 [클레임 확인자](claim-resolver-overview.md) 를 기록할 수도 있습니다.
+- 지 속성은 SAML 어설션이 표시 되는 속성의 **이름입니다.** 
+- **DefaultValue** 는 미리 정의 된 기본값입니다. 클레임이 비어 있으면 기본값이 사용 됩니다. 상관 관계 ID 또는 사용자 IP 주소와 같은 컨텍스트 값을 사용 하 여 [클레임 해결 프로그램](claim-resolver-overview.md) 을 사용할 수도 있습니다.
 
 ### <a name="subject-name"></a>주체 이름
 
@@ -170,7 +170,7 @@ SAML 권한 부여 요청 `<NameID>` 요소는 saml 이름 식별자 형식을 �
 
 기본적으로 SAML 권한 부여 요청은 정책을 지정 합니다 `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` . 이는 요청 된 주체에 대해 id 공급자가 지 원하는 모든 형식의 식별자를 사용할 수 있음을 나타냅니다.
 
-이 동작을 변경 하려면 id 공급자 설명서를 참조 하 여 지원 되는 이름 ID 정책에 대 한 지침을 참조 하세요. 그런 다음 `NameIdPolicyFormat` 해당 정책 형식으로 메타 데이터를 추가 합니다. 다음은 그 예입니다. 
+이 동작을 변경 하려면 id 공급자 설명서를 참조 하 여 지원 되는 이름 ID 정책에 대 한 지침을 참조 하세요. 그런 다음 `NameIdPolicyFormat` 해당 정책 형식으로 메타 데이터를 추가 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <Metadata>
@@ -372,7 +372,7 @@ SAML 응답 어설션을 암호화하려면 다음 단계를 수행합니다.
 
 Saml id 공급자와의 페더레이션을 구성 하 고 디버그 하는 데 도움이 되도록 saml 프로토콜에 대 한 브라우저 확장을 사용할 수 있습니다. 예를 들어 Chrome 용 [Saml DevTools 확장](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) , FireFox 용 [saml 추적 기능](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) 또는에 [지 또는 IE 개발자 도구](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957)를 사용할 수 있습니다.
 
-이러한 도구를 사용 하 여 Azure AD B2C와 SAML id 공급자 간의 통합을 확인할 수 있습니다. 다음은 그 예입니다. 
+이러한 도구를 사용 하 여 Azure AD B2C와 SAML id 공급자 간의 통합을 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * SAML 요청에 서명이 포함 되어 있는지 확인 하 고 권한 부여 요청에 로그인 하는 데 사용 되는 알고리즘을 결정 합니다.
 * 섹션 아래에서 클레임 (어설션)을 가져옵니다 `AttributeStatement` .

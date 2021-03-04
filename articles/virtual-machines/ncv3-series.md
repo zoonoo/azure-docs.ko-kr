@@ -1,18 +1,18 @@
 ---
 title: NCv3 시리즈-Azure Virtual Machines
 description: NCv3 시리즈 Vm에 대 한 사양입니다.
-ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: d42b4eac09579dfa09cc07bfbbfffa1bbdaa65b5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 313ca9ddb893ad2d84fdb3f808bdee38dfc9e846
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670205"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119759"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 

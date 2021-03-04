@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: 예약 된 유지 관리 및 업데이트에 대 한 CloudSimple 서비스 프로세스를 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/04/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025030"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120711"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
 
@@ -39,7 +39,7 @@ CloudSimple은 다음 오류를 지속적으로 모니터링 합니다.
 * 실제 NIC 포트
 * 서버
 * 팬
-* 전원
+* 고급
 * 스위치
 * 스위치 포트
 
@@ -100,7 +100,7 @@ CloudSimple은 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, 
 * **업데이트**. VMware stack 구성 요소의 부 버전 변경입니다.
 * **업그레이드**. VMware stack 구성 요소의 주 버전 변경
 
-CloudSimple은 VMware에서 사용할 수 있게 되는 즉시 중요 한 보안 패치를 테스트 합니다. SLA 당 CloudSimple은 1 주일 내 사설 클라우드 환경에 대 한 보안 패치를 롤업 합니다.
+CloudSimple은 VMware에서 사용할 수 있게 되는 즉시 중요 한 보안 패치를 테스트 합니다. 
 
 CloudSimple은 VMware 소프트웨어 구성 요소에 분기별 유지 관리 업데이트를 제공 합니다. 새 주 버전의 VMware 소프트웨어를 사용할 수 있는 경우 CloudSimple은 고객과 연동 하 여 업그레이드를 위한 적절 한 유지 관리 기간을 조정 합니다.
 

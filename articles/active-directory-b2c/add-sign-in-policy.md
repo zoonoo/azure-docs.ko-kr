@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660372"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119912"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 로그인 흐름 설정
 
@@ -30,11 +30,11 @@ ms.locfileid: "98660372"
 * 사용자가 Azure AD B2C 로컬 계정으로 로그인 할 수 있음
 * 소셜 계정을 사용 하 여 등록 또는 로그인
 * 암호 재설정
-* 사용자가 Azure AD B2C 로컬 계정에 등록할 수 없습니다. 계정을 만들려면 관리자가 [MS Graph API](microsoft-graph-operations.md)를 사용할 수 있습니다.
+* 사용자는 Azure AD B2C 로컬 계정에 등록할 수 없습니다. 관리자는 계정을 만들기 위해 [Azure Portal](manage-users-portal.md#create-a-consumer-user)또는 [MS Graph API](microsoft-graph-operations.md)를 사용할 수 있습니다.
 
 ![프로필 편집 흐름](./media/add-sign-in-policy/sign-in-user-flow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.
 
@@ -75,26 +75,34 @@ ms.locfileid: "98660372"
 1. 요소에 다음 클레임 공급자를 추가 합니다 `ClaimsProviders` .
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. 요소 내에 `<BuildingBlocks>` 다음 [contentdefinition](contentdefinitions.md) 을 추가 하 여 버전 1.2.0 또는 최신 데이터 URI를 참조 합니다.
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>정책 업데이트 및 테스트
@@ -103,7 +111,7 @@ ms.locfileid: "98660372"
 1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **ID 경험 프레임워크** 를 선택합니다.
-1. **사용자 지정 정책 업로드** 를 선택한 후 변경한 두 정책 파일을 업로드합니다.
+1. **사용자 지정 정책 업로드** 를 선택 하 고 변경한 정책 파일을 업로드 *TrustFrameworkExtensions.xml* 합니다.
 1. 업로드 한 로그인 정책을 선택 하 고 **지금 실행** 단추를 클릭 합니다.
 1. 등록 링크를 사용 하지 않고 만든 계정 (MS Graph API 사용)을 사용 하 여 로그인 할 수 있어야 합니다.
 

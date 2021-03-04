@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203251"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120285"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 
@@ -31,7 +31,7 @@ ms.locfileid: "85203251"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | 항목 | 문자열 | 출력 클레임에 추가할 ClaimType입니다. |
-| InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
+| InputClaim | collection | stringCollection | 출력 클레임에 추가 되는 문자열 컬렉션입니다. 컬렉션에 항목이 포함 되어 있으면 클레임 변환은 항목을 복사 하 고 출력 컬렉션 클레임의 끝에 항목을 추가 합니다. |
 | OutputClaim | collection | stringCollection | 이 클레임 변환 후에 생성 된 ClaimType이 입력 클레임에 지정 된 값을 사용 하 여 호출 된 경우 |
 
 신규 또는 기존 stringCollection에 문자열을 추가하려면 이 클레임 변환을 사용합니다. 이 클레임 변환은 일반적으로 **AAD-UserWriteUsingAlternativeSecurityId** 기술 프로필에서 사용됩니다. 새 소셜 계정을 만들기 전에 **CreateOtherMailsFromEmail** 클레임 변환은 ClaimType을 읽고 값을 **otherMails** ClaimType에 추가합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "85203251"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
+| InputClaim | collection | stringCollection | 출력 클레임에 추가 되는 문자열 컬렉션입니다. 컬렉션에 항목이 포함 되어 있으면 클레임 변환은 항목을 복사 하 고 출력 컬렉션 클레임의 끝에 항목을 추가 합니다. |
 | InputParameter | 항목 | 문자열 | 출력 클레임에 추가할 값입니다. |
 | OutputClaim | collection | stringCollection | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -134,7 +134,7 @@ StringCollection 클레임 형식에 요소가 포함 되어 있는지 확인 �
 |InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
 | OutputClaim | outputClaim | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 컬렉션에 이러한 문자열이 포함 된 경우의 부울 표시기 |
 
-다음 예에서는 `roles` stringCollection 클레임 형식에 **admin**값이 포함 되어 있는지 여부를 확인 합니다.
+다음 예에서는 `roles` stringCollection 클레임 형식에 **admin** 값이 포함 되어 있는지 여부를 확인 합니다.
 
 ```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
