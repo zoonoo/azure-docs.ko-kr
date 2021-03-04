@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c70c575464d82f714022291406418cdd1ca0f8d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954667"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102094969"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -224,7 +224,7 @@ NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 
 >NAT 게이트웨이 리소스의 영역 속성은 변경할 수 없습니다.  원하는 지역 또는 영역 기본 설정을 사용하여 NAT 게이트웨이 리소스를 다시 배포합니다.
 
 >[!NOTE] 
->영역이 지정되지 않은 경우 IP 주소 자체는 영역 중복이 아닙니다.  IP 주소를 특정 영역에 만들지 않은 경우 [표준 Load Balancer의 프런트 엔드는 영역 중복](../load-balancer/load-balancer-standard-availability-zones.md#frontend)입니다.  이는 NAT에 적용되지 않습니다.  지역 또는 영역 격리만 지원됩니다.
+>영역이 지정되지 않은 경우 IP 주소 자체는 영역 중복이 아닙니다.  IP 주소를 특정 영역에 만들지 않은 경우 [표준 Load Balancer의 프런트 엔드는 영역 중복](../load-balancer/load-balancer-standard-availability-zones.md)입니다.  이는 NAT에 적용되지 않습니다.  지역 또는 영역 격리만 지원됩니다.
 
 ## <a name="performance"></a>성능
 
@@ -350,20 +350,3 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 * [가상 네트워크 NAT](nat-overview.md)에 대해 알아봅니다.
 * [NAT 게이트웨이 리소스에 대한 메트릭 및 경고](nat-metrics.md)에 대해 알아봅니다.
 * [NAT 게이트웨이 리소스 문제 해결](troubleshoot-nat.md)에 대해 알아봅니다.
-* NAT 게이트웨이의 유효성 검사 자습서
-  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [포털](tutorial-create-validate-nat-gateway-portal.md)
-* NAT 게이트웨이 리소스 배포 빠른 시작
-  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [포털](./quickstart-create-nat-gateway-portal.md)
-  - [템플릿](./quickstart-create-nat-gateway-template.md)
-* NAT 게이트웨이 리소스 API에 대한 자세한 정보
-  - [REST API](/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](/cli/azure/network/nat/gateway)
-  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
-* [가용성 영역](../availability-zones/az-overview.md)에 대해 알아봅니다.
-* [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md)에 대해 알아봅니다.
-* [가용성 영역 및 표준 부하 분산 장치](../load-balancer/load-balancer-standard-availability-zones.md)에 대해 알아봅니다.
-* [UserVoice에서 Virtual Network NAT에 대해 다음에 빌드할 항목을 알려줍니다](https://aka.ms/natuservoice).

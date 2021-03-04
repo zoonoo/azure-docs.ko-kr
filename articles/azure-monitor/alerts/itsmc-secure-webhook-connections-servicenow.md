@@ -1,17 +1,16 @@
 ---
 title: ServiceNow를 사용 하 여 Azure Monitor에서 IT 서비스 관리 커넥터 보안 내보내기
 description: 이 문서에서는 Azure Monitor에서 보안 내보내기의 ServiceNow를 사용 하 여 ITSM 제품/서비스를 연결 하는 방법을 보여 줍니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 02b167219a4f1604d340d72f9dc47e67919c2542
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f296037a56b25255c7f7c7d48a8e8b7d4889052f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714139"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041640"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Azure Monitor에 ServiceNow 연결
 

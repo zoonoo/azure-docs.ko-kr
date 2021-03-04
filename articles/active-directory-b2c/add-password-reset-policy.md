@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7f597010f86e0f962f250dcd87d6c78f401a73d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e4926fb228837c3ec0573af8ee5b15da5fd7431
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688987"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033984"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -206,7 +206,7 @@ ms.locfileid: "101688987"
 
 ### <a name="set-the-user-journey-to-be-executed"></a>실행할 사용자 경험 설정
 
-사용자 경험을 수정 하거나 만들었기 때문에 **신뢰** 당사자 섹션에서이 사용자 지정 정책에 대해 Azure AD B2C 실행 되는 여행을 지정 합니다. [RelyingParty](../articles/active-directory-b2c/relyingparty.md) 요소 내에서 **defaultuserjourney** 요소를 찾습니다. **ClaimsProviderSelections** 를 추가한 사용자 경험의 ID와 일치 하도록 **defaultuserjourney** 를 업데이트 합니다.
+사용자 경험을 수정 하거나 만들었기 때문에 **신뢰** 당사자 섹션에서이 사용자 지정 정책에 대해 Azure AD B2C 실행 되는 여행을 지정 합니다. [RelyingParty](relyingparty.md) 요소 내에서 **defaultuserjourney** 요소를 찾습니다. **ClaimsProviderSelections** 를 추가한 사용자 경험의 ID와 일치 하도록 **defaultuserjourney** 를 업데이트 합니다.
 
 ```xml
 <RelyingParty>

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624840"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095666"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Custom Vision 프로젝트에 대 한 도메인 선택
 
@@ -37,7 +37,7 @@ Custom Vision 프로젝트의 설정 탭에서 프로젝트에 대 한 도메인
 |도메인|목적|
 |---|---|
 |__일반__| 광범위한 개체 감지 작업에 맞게 최적화됩니다. 다른 도메인이 적절 하지 않거나 선택할 도메인을 잘 모를 경우 일반 도메인을 선택 합니다. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__일반 [A1]__| 일반 도메인과 비슷한 유추 시간을 사용 하 여 정확도가 향상 되도록 최적화 되었습니다. 더 정확한 영역 위치 요구, 큰 데이터 집합 또는 더 까다로운 사용자 시나리오에 권장 됩니다. 이 도메인에는 학습 시간이 더 필요 하 고 결과는 결정적이 지 않습니다. 제공 된 것과 동일한 학습 데이터와 +-1% mAP의 차이가 있습니다. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__일반 [A1]__| 일반 도메인과 비슷한 유추 시간을 사용 하 여 정확도가 향상 되도록 최적화 되었습니다. 더 정확한 영역 위치 요구, 큰 데이터 집합 또는 더 까다로운 사용자 시나리오에 권장 됩니다. 이 도메인에는 학습 시간이 더 필요 하며 결과는 결정적이 지 않습니다. 제공 된 학습 데이터와 +-1% 평균 전체 자릿수 (맵)의 차이가 필요 합니다. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__로고__|이미지에서 브랜드 로고를 찾도록 최적화됩니다. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__선반 위의 제품__|선반에서 제품을 검색하고 분류하는 데 최적화되어 있습니다. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__압축 도메인__| Edge 장치에서 실시간 개체 검색의 제약 조건에 맞게 최적화 되었습니다.|

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6dda65be98934ce90e985b241078ae8019afb7e0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361267"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095734"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS 추가
 
@@ -34,9 +34,9 @@ ms.locfileid: "100361267"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 AD FS 사용자 계정에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML ID 공급자 기술 프로필](saml-identity-provider-technical-profile.md)을 추가하여 로그인할 수 있습니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 AD FS 사용자 계정에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML id 공급자](identity-provider-generic-saml.md) 를 추가 하 여 로그인을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -62,7 +62,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 사용자가 AD FS 계정을 사용 하 여 로그인 하도록 하려면 끝점을 통해 통신할 수 있는 Azure AD B2C 클레임 공급자로 계정을 정의 해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
-정책 확장 파일의 **ClaimsProviders** 요소에 추가 하 여 AD FS 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML ID 공급자 기술 프로필 정의](saml-identity-provider-technical-profile.md)를 참조하세요.
+정책 확장 파일의 **ClaimsProviders** 요소에 추가 하 여 AD FS 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML id 공급자 정의](identity-provider-generic-saml.md)를 참조 하세요.
 
 1. *TrustFrameworkExtensions.xml* 을 엽니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
@@ -217,7 +217,7 @@ AD FS Windows 응용 프로그램 로그를 사용 하도록 구성 됩니다. A
 
 #### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>옵션 1: Azure AD B2C에서 서명 알고리즘 설정  
 
-Azure AD B2C에서 SAML 요청에 서명 하는 방법을 구성할 수 있습니다. [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) 메타 데이터는 `SigAlg` SAML 요청에서 매개 변수 (쿼리 문자열 또는 post 매개 변수)의 값을 제어 합니다. 다음 예에서는 서명 알고리즘을 사용 하도록 Azure AD B2C를 구성 합니다 `rsa-sha256` .
+Azure AD B2C에서 SAML 요청에 서명 하는 방법을 구성할 수 있습니다. [XmlSignatureAlgorithm](identity-provider-generic-saml.md) 메타 데이터는 `SigAlg` SAML 요청에서 매개 변수 (쿼리 문자열 또는 post 매개 변수)의 값을 제어 합니다. 다음 예에서는 서명 알고리즘을 사용 하도록 Azure AD B2C를 구성 합니다 `rsa-sha256` .
 
 ```xml
 <Metadata>

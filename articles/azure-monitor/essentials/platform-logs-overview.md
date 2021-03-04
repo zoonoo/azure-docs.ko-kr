@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725852"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033302"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Azure 플랫폼 로그 개요
 플랫폼 로그는 Azure 리소스 및 해당 리소스가 종속 된 Azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 보존 하기 위해 특정 플랫폼 로그를 하나 이상의 대상으로 전달 하도록 구성 해야 하는 경우에도 자동으로 생성 됩니다. 이 문서에서는 제공 하는 정보와 수집 및 분석을 위해 구성 하는 방법을 비롯 하 여 플랫폼 로그의 개요를 제공 합니다.

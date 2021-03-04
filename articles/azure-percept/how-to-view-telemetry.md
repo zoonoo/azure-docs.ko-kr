@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b03cd8bc71f87e3ce7984a55d330bc116614f928
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07abbc5f5e85c75b73774d11b6b81dd2085735b7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663210"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095326"
 ---
 # <a name="view-your-azure-percept-dks-model-inference-telemetry"></a>Azure Percept 진한 모델 유추 원격 분석 보기
 
@@ -22,7 +22,7 @@ ms.locfileid: "101663210"
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
-- [Azure Percept DK 설정 환경](./quickstart-percept-dk-set-up.md): Devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, Devkit를 IoT Hub에 연결했습니다.
+- [Azure Percept DK 설정 환경](./quickstart-percept-dk-set-up.md): devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, devkit를 IoT Hub에 연결
 - [사용자의 Azure Percept에 배포 된 비전 AI 모델](./how-to-deploy-model.md)
 
 ## <a name="view-telemetry"></a>원격 분석 보기
@@ -35,7 +35,7 @@ ms.locfileid: "101663210"
 
 1. Azure IoT 탐색기에 IoT Hub 연결 합니다.
 
-    1. [Azure 포털](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home)로 이동합니다.
+    1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
     1. **모든 리소스** 를 선택합니다.
 
@@ -70,5 +70,4 @@ ms.locfileid: "101663210"
     1. **시작** 을 클릭 하 여 장치에서 원격 분석 이벤트를 봅니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-[Azure PERCEPT 진한 비디오 스트림을](how-to-view-video-stream.md)보는 방법에 대해 알아봅니다.
+[Azure PERCEPT 진한 비디오 스트림을](./how-to-view-video-stream.md)보는 방법에 대해 알아봅니다.

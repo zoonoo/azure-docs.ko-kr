@@ -3,13 +3,12 @@ title: 활동 로그 경고에 사용된 웹후크 스키마 이해
 description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되는 JSON 스키마에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.subservice: alerts
-ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 31b9f4b41d741475a031efd4392c7df2fd2260c4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701147"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034339"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.

@@ -1,17 +1,16 @@
 ---
 title: Service Management 커넥터용 웹 앱 만들기
 description: 자동화 스크립트를 사용하여 Azure의 IT Service Management Connector에 연결하고 ITSM 작업 항목을 중앙에서 모니터링 및 관리하는 Service Manager 웹앱을 만듭니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 16b48ac213168eaa58de5b0603025b2d48bb5ed5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614404"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041674"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 

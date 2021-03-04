@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca73e020009817001f309ddf29c2984a8541026
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527481"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033557"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>전화 기반 MFA (multi-factor authentication) 보안
 
@@ -24,7 +24,7 @@ ms.locfileid: "99527481"
 
 Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA)를 사용 하 여 사용자는 확인을 위해 등록 하는 전화 번호에서 자동 음성 통화를 받도록 선택할 수 있습니다. 악의적인 사용자는 MFA 등록 프로세스를 완료 하지 않고 여러 계정을 만들고 전화 통화를 하 여이 방법을 활용할 수 있습니다. 이러한 많은 실패 한 등록 시도는 허용 된 등록 시도를 고갈 하 여 다른 사용자가 Azure AD B2C 테 넌 트의 새 계정에 등록 하지 못하게 할 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Monitor를 사용 하 여 전화 인증 오류를 모니터링 하 고 사기성 등록을 완화할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 [Log Analytics 작업 영역](azure-monitor.md)을 만듭니다.
 
@@ -89,7 +89,7 @@ GitHub의 [Azure AD B2C 보고서 & 경고](https://github.com/azure-ad-b2c/siem
 - **권장 되** 는 버전의 사용자 흐름을 사용 하 여 다음을 수행 합니다.
      
    - MFA에 대해 [전자 메일 OTP (일회용 암호 기능)를 사용 하도록 설정](phone-authentication-user-flows.md) 합니다 (등록 및 로그인 흐름 모두에 적용 됨).
-   - 위치에 따라 로그인을 차단 하 [는 조건부 액세스 정책을 구성](conditional-access-identity-protection-setup.md) 합니다 (등록 흐름이 아닌 로그인 흐름에만 적용 됨).
+   - 위치에 따라 로그인을 차단 하 [는 조건부 액세스 정책을 구성](conditional-access-user-flow.md) 합니다 (등록 흐름이 아닌 로그인 흐름에만 적용 됨).
    - API 커넥터를 사용 하 여 reCAPTCHA (등록 흐름에 적용) [와 같은 봇 솔루션과 통합](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) 합니다.
 
 - 사용자가 전화 번호를 확인 하는 드롭다운 메뉴에서 조직과 관련이 없는 국가 코드를 제거 합니다 .이 변경 내용은 향후 등록에 적용 됩니다.

@@ -1,5 +1,5 @@
 ---
-title: Ontology 무엇 인가요?
+title: 온톨로지란?
 titleSuffix: Azure Digital Twins
 description: 특정 도메인에서의 모델링을 위한 DTDL 업계 온톨로지에 대해 알아봅니다.
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b53cac6e732fb568ba799534d9ad9168fd65eab1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561531"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034696"
 ---
-# <a name="what-is-an-ontology"></a>Ontology 무엇 인가요? 
+# <a name="what-is-an-ontology"></a>온톨로지란? 
 
 Azure Digital Twins 솔루션의 어휘는 환경에 존재 하는 엔터티의 유형을 설명 하는 [모델](concepts-models.md)을 사용 하 여 정의 됩니다.
 
@@ -58,7 +58,7 @@ Azure Digital Twins에 ontology를 통합 하기 위해 어떤 전략을 선택 
 
 그런 후에는 Azure Digital Twins 인스턴스에서 모델을 사용할 수 있습니다. 
 
-[Azure digital 쌍 (ADT) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 또는 [ADT 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)와 같은 샘플을 시각화 하거나,이를 사용 하 여 [디지털](concepts-twins-graph.md)쌍을 만들 수 있습니다.
+[Azure digital 쌍 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 또는 [azure digital 쌍 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)와 같은 샘플을 시각화 하거나,이를 사용 하 여 [디지털](concepts-twins-graph.md)쌍을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

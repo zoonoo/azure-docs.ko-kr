@@ -2,17 +2,16 @@
 title: Azure Portal에서 디스크 메트릭 사용 중단 | Microsoft Docs
 description: 더 이상 사용 되지 않는 디스크 메트릭과 새 메트릭을 사용 하도록 메트릭 경고를 업데이트 하는 방법에 대해 알아봅니다.
 services: azure-monitor
-ms.subservice: metrics
 ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 607ccacbfff86decaecaad0a869c8c0fe7500680
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616524"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033404"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Azure Portal에서 디스크 메트릭 사용 중단
 

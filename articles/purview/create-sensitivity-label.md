@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693529"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049549"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -120,7 +120,10 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터에서 민감도 레이블 만들기" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. 레이블 이름을로 합니다. 그런 다음 **이 레이블의 범위 정의** 에서 **파일 및 메일** 및 **Azure 부서의 범위 자산** 을 선택 합니다.
+1. 레이블 이름을로 합니다. 그런 다음 **이 레이블의 범위 정의** 에서 다음을 수행 합니다.
+
+    - 모든 경우에 **Azure 부서의 범위 자산** 을 선택 합니다.
+    - 파일에 레이블을 보내려면 **파일 & 전자 메일** 도 선택 합니다. 이 옵션은 데이터베이스 자산에만 레이블을 추가할 필요는 없습니다. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터에서 레이블 만들기" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 

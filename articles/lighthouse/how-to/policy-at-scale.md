@@ -1,14 +1,14 @@
 ---
 title: 대규모로 위임된 구독에 Azure Policy 배포
 description: Azure Lighthouse를 사용 하 여 여러 테 넌 트에 정책 정의 및 정책 할당을 배포 하는 방법을 알아봅니다.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412071"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049783"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> 여러 테 넌 트에 정책을 배포할 수 있지만, 현재는이 테 넌 트에서 비규격 리소스에 대 한 [호환성 세부 정보를 볼](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) 수 없습니다.
+
 ## <a name="validate-the-policy-deployment"></a>정책 배포의 유효성 검사
 
 Azure Resource Manager 템플릿을 배포한 후에는 위임 된 구독 중 하나에서 **EnableHttpsTrafficOnly** 가 **false** 로 설정 된 저장소 계정을 만들어 정책 정의가 성공적으로 적용 되었는지 확인할 수 있습니다. 정책 할당으로 인해 이 스토리지 계정을 만들 수 없습니다.  
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> 여러 테 넌 트에 정책을 배포할 수 있지만, 현재는이 테 넌 트에서 비규격 리소스에 대 한 [호환성 세부 정보를 볼](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

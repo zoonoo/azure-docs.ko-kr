@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341688"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095547"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
@@ -29,14 +29,14 @@ Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수�
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?
-Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 이 파일에 액세스 하려면 [포털에 로그인](https://portal.azure.com)하 고 **찾아보기**를 선택한 다음 **Security Center**로 스크롤합니다.
+Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 이 파일에 액세스 하려면 [포털에 로그인](https://portal.azure.com)하 고 **찾아보기** 를 선택한 다음 **Security Center** 로 스크롤합니다.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Azure Security Center에서는 어떤 Azure 리소스를 모니터링하나요?
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * Vm (가상 머신) ( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
-* 가상 머신 크기 집합
+* 가상 머신 확장 집합
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 * [제품 개요에 나열 된 많은 Azure PaaS 서비스](features-paas.md)
 
@@ -46,10 +46,10 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 
 
 
-## <a name="what-is-a-security-policy"></a>보안 정책이란?
-보안 정책은 지정된 구독 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Azure Security Center에서 회사의 보안 요구 사항 및 애플리케이션 형식 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대한 정책을 정의합니다.
+## <a name="what-is-a-security-initiative"></a>보안 이니셔티브 란?
+보안 이니셔티브는 지정 된 구독 내에서 리소스에 대해 권장 되는 제어 (정책) 집합을 정의 합니다. Azure Security Center에서는 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대 한 이니셔티브를 할당 합니다.
 
-Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 보안 권장 사항과 모니터링이 결정됩니다. 보안 정책에 대해 자세히 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
+Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 보안 권장 사항과 모니터링이 결정됩니다. [보안 정책, 이니셔티브 및 권장 사항](security-policy-concept.md)에 대해 자세히 알아보세요.
 
 
 ## <a name="who-can-modify-a-security-policy"></a>보안 정책을 누가 수정할 수 있나요?

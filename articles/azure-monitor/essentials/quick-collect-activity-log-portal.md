@@ -1,17 +1,16 @@
 ---
 title: Azure Portal을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 description: Azure Portal을 사용하여 Log Analytics 작업 영역 및 Azure Monitor 로그에 활동 로그를 보내는 진단 설정을 만듭니다.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fec1f4f3ae13f6c9ed5fdd7ffbcd143e5c5e5f52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734284"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033251"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Azure Portal을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 활동 로그는 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Log Analytics 작업 영역 및 Azure Monitor Logs에 활동 로그를 보내는 진단 설정을 만드는 방법을 보여 줍니다. Azure Monitor Logs에서는 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 활동 로그를 분석하고 [로그 경고](../alerts/alerts-log-query.md) 및 [통합 문서](../visualize/workbooks-overview.md)와 같은 다른 기능을 사용할 수 있습니다. 

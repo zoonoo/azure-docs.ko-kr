@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651890"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034594"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "101651890"
 
 ## <a name="to-reset-a-password"></a>암호를 다시 설정하려면
 
-1. 사용자 관리자 또는 암호 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md#available-roles)을 참조하세요.
+1. 사용자 관리자 또는 암호 관리자 권한으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 사용 가능한 역할에 대 한 자세한 내용은 [AZURE AD 기본 제공 역할](../roles/permissions-reference.md) 을 참조 하세요.
 
 2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정** 을 선택합니다.
 

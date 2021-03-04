@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/19/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 020f727674449523a57a608e8930d67e0f239cf6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746020"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034611"
 ---
 # <a name="runtime-sdk-overview"></a>런타임 SDK 개요
 
@@ -25,7 +25,7 @@ ms.locfileid: "101746020"
 
 ### <a name="objectmodel"></a>ObjectModel
 
-[Objectmodel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) 은 물리적 개체의 기 하 도형을 나타내며 검색 및 포즈 예측에 필요한 매개 변수를 인코딩합니다. [개체 앵커 서비스](../quickstarts/get-started-model-ingestion.md)를 사용 하 여 만들어야 합니다. 그런 다음 응용 프로그램은 개체 앵커 API를 사용 하 여 생성 된 모델 파일을 로드 하 고 시각화를 위해 해당 모델에 포함 된 메시를 쿼리할 수 있습니다.
+[Objectmodel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) 은 물리적 개체의 기 하 도형을 나타내며 검색 및 포즈 예측에 필요한 매개 변수를 인코딩합니다. [개체 앵커 서비스](../quickstarts/get-started-model-conversion.md)를 사용 하 여 만들어야 합니다. 그런 다음 응용 프로그램은 개체 앵커 API를 사용 하 여 생성 된 모델 파일을 로드 하 고 시각화를 위해 해당 모델에 포함 된 메시를 쿼리할 수 있습니다.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
@@ -103,7 +103,7 @@ if(status != ObjectObserverStatus.Allowed)
 }
 ```
 
-그런 다음 응용 프로그램은 개체 관찰자를 만들고 [개체 앵커 수집 서비스](../quickstarts/get-started-model-ingestion.md)에 의해 생성 된 필요한 모델을 로드 합니다.
+그런 다음 응용 프로그램은 개체 관찰자를 만들고 [개체 앵커 모델 변환 서비스](../quickstarts/get-started-model-conversion.md)에 의해 생성 된 필요한 모델을 로드 합니다.
 
 ```cs
 var observer = new ObjectObserver();

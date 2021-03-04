@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 에이전트 설치
 description: Azure virtual machines 및 Azure Arc 사용 서버에 Azure Monitor 에이전트 (AMA)를 설치 하는 옵션입니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6bf0e8b90ca50a90f84c18981ab6accae8477b46
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719953"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034315"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트 설치 (미리 보기)
 이 문서에서는 Azure virtual machines와 Azure Arc 사용 서버 모두에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 를 설치 하는 데 사용할 수 있는 여러 옵션을 제공 하며, 에이전트가 수집 해야 하는 데이터를 정의 하는 [데이터 수집 규칙을 사용 하 여 연결](data-collection-rule-azure-monitor-agent.md) 을 만드는 옵션도 제공 합니다.

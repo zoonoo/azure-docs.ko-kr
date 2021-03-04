@@ -1,17 +1,16 @@
 ---
 title: ITSMC의 문제 해결
 description: IT 서비스 관리 커넥터에서 일반적인 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7094bf07453c06831fecfa2056480bf498b26a72
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737208"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041623"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>IT 서비스 관리 커넥터 문제 해결
 

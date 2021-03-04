@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558144"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034764"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Understand twin models in Azure Digital Twins(Azure Digital Twins의 트윈 모델 이해)
 
@@ -65,7 +65,7 @@ Azure Digital Twins 모델에 대 한 속성 및 원격 분석의 차이점은 �
 
 결과적으로, Azure Digital Twins에서 모델을 디자인할 때 대부분의 경우 **속성** 을 사용 하 여 쌍을 모델링할 것입니다. 이를 통해 백업 저장소와 데이터 필드를 읽고 쿼리 하는 기능을 사용할 수 있습니다.
 
-원격 분석 및 속성은 종종 장치에서 수신 되는 데이터를 처리 하기 위해 함께 작동 합니다. Azure Digital Twins로의 모든 수신은 [api](how-to-use-apis-sdks.md)를 통해 발생 하므로 일반적으로 수신 함수를 사용 하 여 장치에서 원격 분석 또는 속성 이벤트를 읽고 ADT의 응답으로 속성을 설정 합니다. 
+원격 분석 및 속성은 종종 장치에서 수신 되는 데이터를 처리 하기 위해 함께 작동 합니다. Azure Digital Twins로의 모든 수신은 [api](how-to-use-apis-sdks.md)를 통해 발생 하므로 일반적으로 수신 함수를 사용 하 여 장치에서 원격 분석 또는 속성 이벤트를 읽고 Azure Digital twins의 속성을 응답으로 설정 합니다. 
 
 Azure Digital Twins API에서 원격 분석 이벤트를 게시할 수도 있습니다. 다른 원격 분석과 마찬가지로이 이벤트는를 처리 하는 수신기를 필요로 하는 수명이 짧은 이벤트입니다.
 
@@ -92,7 +92,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface* 입니다. |
@@ -154,7 +154,7 @@ _**Azure Digital Twins에 모델 업로드**_
 
 _**모델 시각화**_
 
-Azure Digital Twins 인스턴스에 모델을 업로드 한 후에는 [**ADT 모델 시각화 도우미**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용 하 여 상속 및 모델 관계를 포함 하 여 Azure Digital twins 인스턴스에서 모델을 볼 수 있습니다. 이 샘플은 현재 초안 상태입니다. 디지털 쌍 개발 커뮤니티를 확장 하 고 샘플에 참여 하는 것이 좋습니다. 
+Azure Digital Twins 인스턴스에 모델을 업로드 한 후에는 azure digital [**Twins 모델 시각화 도우미**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용 하 여 상속 및 모델 관계를 포함 하 여 Azure Digital twins 인스턴스에서 모델을 볼 수 있습니다. 이 샘플은 현재 초안 상태입니다. 디지털 쌍 개발 커뮤니티를 확장 하 고 샘플에 참여 하는 것이 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703004"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041504"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -51,7 +51,7 @@ ms.locfileid: "101703004"
 
     그러면 **digital-twins-samples-master.zip** 같이 샘플 리포지토리의 복사본이 컴퓨터에 다운로드 됩니다. 폴더의 압축을 풉니다.
 * [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
-    -  샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
+    -  샘플 링크로 이동 하 고 동일한 다운로드 프로세스를 사용 하 여 _**digitaltwins-signalr-webapp-sample-main.zip**_ 하는 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -139,7 +139,7 @@ Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTS
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="' Negotiate ' 함수의 Azure Portal 뷰입니다. ' 함수 URL 가져오기 ' 단추가 강조 표시 되 고 '/api '부터 시작 하 여 URL의 일부가 강조 표시 됩니다.":::
 
-1. Visual Studio 또는 원하는 코드 편집기를 사용 하 여 [*샘플 응용 프로그램 다운로드*](#download-the-sample-applications) 섹션에서 다운로드 한 압축을 푼 _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ 폴더를 엽니다.
+1. Visual Studio 또는 원하는 코드 편집기를 사용 하 여 [*샘플 응용 프로그램 다운로드*](#download-the-sample-applications) 섹션에서 다운로드 한 압축을 푼 _**digitaltwins-signalr-webapp-main**_ 폴더를 엽니다.
 
 1. *Src/App.js* 파일을 열고의 함수 url을 `HubConnectionBuilder` 이전 단계에서 저장 한 **NEGOTIATE** 함수의 HTTP 끝점 url로 바꿉니다.
 
@@ -148,7 +148,7 @@ Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTS
             .withUrl('<Function URL>')
             .build();
     ```
-1. Visual Studio의 *개발자 명령 프롬프트* 또는 컴퓨터의 모든 명령 창에서 *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* 폴더로 이동 합니다. 다음 명령을 실행 하 여 종속 노드 패키지를 설치 합니다.
+1. Visual Studio의 *개발자 명령 프롬프트* 또는 컴퓨터의 모든 명령 창에서 *digitaltwins-signalr-webapp-sample-main\src* 폴더로 이동 합니다. 다음 명령을 실행 하 여 종속 노드 패키지를 설치 합니다.
 
     ```cmd
     npm install
@@ -175,7 +175,7 @@ Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTS
 
 ### <a name="see-the-results"></a>결과 보기
 
-작업의 결과를 확인 하려면 **SignalR 통합 웹 앱 샘플** 을 시작 합니다. 다음 명령을 실행 하 여 *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* 위치의 모든 콘솔 창에서이 작업을 수행할 수 있습니다.
+작업의 결과를 확인 하려면 **SignalR 통합 웹 앱 샘플** 을 시작 합니다. 다음 명령을 실행 하 여 *digitaltwins-signalr-webapp-sample-main\src* 위치의 모든 콘솔 창에서이 작업을 수행할 수 있습니다.
 
 ```cmd
 npm start
@@ -203,7 +203,7 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 az group delete --name <your-resource-group>
 ```
 
-마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*digital-twins-samples-master.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.
+마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip* 및 압축을 푼 대응 항목)을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,18 +1,17 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 description: ARM 템플릿을 사용하여 Log Analytics 작업 영역 및 Azure Monitor 로그에 활동 로그를 보내는 진단 설정을 만듭니다.
-ms.subservice: logs
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 56810cffcb9665810c452276be34e6924fd992b2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734352"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033285"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 
