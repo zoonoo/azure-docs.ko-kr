@@ -7,12 +7,12 @@ ms.author: v-anjaso
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: b4a44433a9761bd387b24164653c8ed1538713ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 80a35ab41b05609642667da9e8561921ecc20852
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721595"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051714"
 ---
 # <a name="about-your-application"></a>애플리케이션 정보
 
@@ -33,7 +33,7 @@ IoT Central 응용 프로그램에 대 한 정보를 얻으려면:
 
 1. **앱** 정보 페이지에는 응용 프로그램에 대 한 정보가 표시 됩니다.  
 
-    :::image type="content" source="media/howto-get-app-info/about-your-app.png" alt-text="앱 스크린샷 정보":::
+    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="앱 스크린샷 정보":::
 
     정보 **복사** 단추를 사용 하 여 정보를 클립보드에 복사 합니다.
 

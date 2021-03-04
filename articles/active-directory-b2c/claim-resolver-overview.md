@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e4e90d91b8e6ae017f00e37304c4da56cd618732
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508019"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095309"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -86,7 +86,8 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |날짜 시간(UTC)입니다.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |정책 배포 모드입니다.  | 생산 |
+| {Context:DeploymentMode} |정책 배포 모드입니다.  | 프로덕션 |
+| {Context: HostName} | 현재 요청에 대 한 호스트 이름입니다.  | contoso.b2clogin.com |
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
 | {Context: KMSI} | [로그인 상태 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 선택 했는지 여부를 나타냅니다. |  true |
 
@@ -141,7 +142,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 |[Openid connect Connect](openid-connect-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[클레임 변환](claims-transformation-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful 공급자](restful-technical-profile.md) 기술 프로필| `InputClaim`| 1, 2|
-|[SAML id 공급자](saml-identity-provider-technical-profile.md)  기술 프로필| `OutputClaim`| 1, 2|
+|[SAML id 공급자](identity-provider-generic-saml.md)  기술 프로필| `OutputClaim`| 1, 2|
 |[자체 어설션된](self-asserted-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

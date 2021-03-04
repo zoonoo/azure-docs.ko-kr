@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 77dab865b2b023f59e6776349b4045107bdb3a29
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556818"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095496"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -134,7 +134,7 @@ Identity Experience Framework는 모든 단계 조합을 사용하여 사용자 
 
 ## <a name="protocols-and-tokens"></a>프로토콜 및 토큰
 
-- 애플리케이션의 경우 Azure AD B2C는 사용자 경험에 대해 [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) 및 [SAML 프로토콜](connect-with-saml-service-providers.md)을 지원합니다. 애플리케이션은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 경험을 시작합니다. Azure AD B2C에 대한 요청의 결과는 [ID 토큰, 액세스 토큰](tokens-overview.md) 또는 SAML 토큰과 같은 보안 토큰입니다. 이 보안 토큰은 애플리케이션 내에서 사용자의 ID를 정의합니다.
+- 애플리케이션의 경우 Azure AD B2C는 사용자 경험에 대해 [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) 및 [SAML 프로토콜](saml-service-provider.md)을 지원합니다. 애플리케이션은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 경험을 시작합니다. Azure AD B2C에 대한 요청의 결과는 [ID 토큰, 액세스 토큰](tokens-overview.md) 또는 SAML 토큰과 같은 보안 토큰입니다. 이 보안 토큰은 애플리케이션 내에서 사용자의 ID를 정의합니다.
 
 - 외부 ID의 경우 Azure AD B2C는 모든 OAuth 1.0, OAuth 2.0, OpenID Connect 및 SAML ID 공급자와의 페더레이션을 지원합니다.
 

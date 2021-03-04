@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 모니터링하는 항목
 description: Azure Monitor에서 모니터링하는 모든 서비스 및 기타 리소스에 대한 참조입니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 7c8f1a45f46975b489690eded5b094ffee94dbf1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728402"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052282"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 

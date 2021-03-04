@@ -1,17 +1,16 @@
 ---
 title: 데이터 수집 규칙을 사용 하 여 VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
 description: 리소스 관리자 템플릿을 사용 하 여 대규모로 VM insights 게스트 상태에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731224"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052146"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>데이터 수집 규칙을 사용 하 여 VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
 [VM insights 게스트 상태](vminsights-health-overview.md) 를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 데이터 수집 규칙을 사용 하 여 여러 가상 컴퓨터에서 기본 모니터링을 수정 하는 방법을 설명 합니다.
@@ -20,7 +19,7 @@ ms.locfileid: "101731224"
 ## <a name="monitors"></a>모니터
 가상 컴퓨터의 상태는 각 모니터의 [상태 롤업에](vminsights-health-overview.md#health-rollup-policy) 따라 결정 됩니다. 다음 표에 표시 된 것 처럼 VM insights 게스트 상태에는 두 가지 유형의 모니터가 있습니다.
 
-| 모니터 | Description |
+| 모니터 | 설명 |
 |:---|:---|
 | 유닛 모니터 | 리소스 또는 애플리케이션의 일부 측면을 측정합니다. 리소스의 성능 또는 가용성을 확인하기 위해 성능 카운터를 검사할 수 있습니다. |
 | 집계 모니터 | 여러 모니터를 그룹화하여 집계된 단일 성능 상태를 제공합니다. 집계 모니터에는 하나 이상의 단위 모니터와 기타 집계 모니터가 포함될 수 있습니다. |
@@ -30,7 +29,7 @@ VM insights 게스트 상태 및 해당 구성에서 사용 하는 모니터 집
 ## <a name="monitor-properties"></a>모니터 속성
 다음 표에서는 각 모니터에서 구성할 수 있는 속성에 대해 설명 합니다.
 
-| 속성 | 모니터 | Description |
+| 속성 | 모니터 | 설명 |
 |:---|:---|:---|
 | 사용 | 집계<br>단위 | True 이면 상태 모니터가 계산 되어 가상 컴퓨터의 상태에 기여 합니다. 경고를 사용 하도록 설정 된 경고를 트리거할 수 있습니다. |
 | 경고 | 집계<br>단위 | True 이면 비정상 상태로 이동할 때 모니터에 대 한 경고가 트리거됩니다. False 이면 모니터의 상태는 여전히 경고를 트리거할 수 있는 가상 컴퓨터의 상태에 영향을 주지 않습니다. |
@@ -49,9 +48,9 @@ VM insights 게스트 상태 및 해당 구성에서 사용 하는 모니터 집
 
 | 모니터 | 사용 | 경고 | 경고 | 위험 | 평가 빈도 | Lookback | 평가 유형 | Min 샘플 | 최대 샘플 |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| CPU 사용률  | True | False | 없음 | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
-| 사용 가능한 메모리 | True | False | 없음 | \< 100 M B | 60초 | 240 초 | Max | 2 | 3 |
-| 파일 시스템      | True | False | 없음 | \< 100 M B | 60초 | 120 초 | Max | 1 | 1 |
+| CPU 사용률  | True | False | None | \> 90%    | 60초 | 240 초 | 최소값 | 2 | 3 |
+| 사용 가능한 메모리 | True | False | None | \< 100 M B | 60초 | 240 초 | Max | 2 | 3 |
+| 파일 시스템      | True | False | None | \< 100 M B | 60초 | 120 초 | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>재정의
@@ -198,7 +197,7 @@ VM insights 게스트 상태 및 해당 구성에서 사용 하는 모니터 집
 }
 ```
 
-| 요소 | 필수 | Description | 
+| 요소 | 필수 | 설명 | 
 |:---|:---|:---|
 | `isEnabled` | 예 | True로 설정 되 면 모니터는 위험 또는 경고 상태로 전환 될 때 경고를 생성 하 고 정상 상태로 돌아갈 때 경고를 해결 합니다. False 이거나 생략 된 경우 경고가 생성 되지 않습니다.  |
 
@@ -224,7 +223,7 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 }
 ```
 
-| 요소 | 필수 | Description | 
+| 요소 | 필수 | 설명 | 
 |:---|:---|:---|
 | `evaluationFrequencySecs` | 예 | 상태 평가 빈도를 정의 합니다. 각 모니터는 에이전트가 시작 될 때와 이후에이 매개 변수에 의해 정의 된 정기적인 간격에 따라 평가 됩니다. |
 | `lookbackSecs`   | No | Lookback 창의 크기 (초)입니다. |
@@ -246,7 +245,7 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 },
 ```
 
-| 속성 | 필수 | Description | 
+| 속성 | 필수 | 설명 | 
 |:---|:---|:---|
 | `isEnabled` | 예 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
 | `threshold` | No | 평가 값을 비교 하는 임계값을 정의 합니다. |
@@ -264,7 +263,7 @@ Lookback interval에 더 작은 샘플이 있는 경우 `minSamples` 모니터�
 },
 ```
 
-| 속성 | 필수 | Description | 
+| 속성 | 필수 | 설명 | 
 |:---|:---|:---|
 | `isEnabled` | 예 | 조건을 사용할 수 있는지 여부를 지정 합니다. **False** 로 설정 하면 임계값 및 연산자 속성을 설정할 수 있지만 조건이 사용 되지 않습니다. |
 | `threshold` | No | 평가 값을 비교 하는 임계값을 정의 합니다. |

@@ -1,18 +1,17 @@
 ---
 title: VM insights 게스트 상태 (미리 보기) 사용
 description: 구독에서 VM insights 게스트 상태를 사용 하도록 설정 하는 방법 및 Vm을 등록 하는 방법에 대해 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733723"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052163"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>VM insights 게스트 상태 (미리 보기) 사용
 VM insights 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 구독에서이 기능을 사용 하도록 설정 하는 방법과 각 가상 컴퓨터에 대해 게스트 모니터링을 사용 하도록 설정 하는 방법을 설명 합니다.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805397"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096040"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -40,8 +40,8 @@ ms.locfileid: "99805397"
 - [Openid connect](openid-connect-technical-profile.md) 를 모든 openid connect connect 프로토콜 id 공급자와 연결 합니다.
 - [전화 계수](phone-factor-technical-profile.md) -전화 번호 등록 및 확인을 지원 합니다.
 - [RESTful provider](restful-technical-profile.md) -사용자 입력의 유효성을 검사 하거나, 사용자 데이터를 보강 하거나, lob (기간 업무) 응용 프로그램과 통합 하는 등 REST API 서비스에 대 한 호출입니다.
-- Saml [id 공급자](saml-identity-provider-technical-profile.md) -saml 프로토콜 id 공급자와 페더레이션.
-- [Saml 토큰 발급자](saml-issuer-technical-profile.md) -신뢰 당사자 응용 프로그램으로 다시 반환 되는 saml 토큰을 내보냅니다.
+- Saml [id 공급자](identity-provider-generic-saml.md) -saml 프로토콜 id 공급자와 페더레이션.
+- [Saml 토큰 발급자](saml-service-provider.md) -신뢰 당사자 응용 프로그램으로 다시 반환 되는 saml 토큰을 내보냅니다.
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
 - [세션 관리](custom-policy-reference-sso.md) - 여러 유형의 세션을 처리합니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "99805397"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` 또는 `None` 입니다. |
-| Handler | 아니요 | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
+| Handler | No | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
 
 ## <a name="metadata"></a>메타데이터
 
@@ -175,9 +175,9 @@ ms.locfileid: "99805397"
 
 와 통합 하는 서비스와의 트러스트를 설정 하기 위해 Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md)형식으로 저장 합니다. 기술 프로필을 실행 하는 동안 Azure AD B2C는 Azure AD B2C 정책 키에서 암호화 키를 검색 합니다. 그런 다음는 트러스트 설정, 암호화 또는 토큰 서명 키를 사용 합니다. 이러한 트러스트는 다음으로 구성 됩니다.
 
-- [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)및 [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys) id 공급자와 페더레이션
+- [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)및 [SAML](identity-provider-generic-saml.md) id 공급자와 페더레이션
 - [REST API services](secure-rest-api.md) 를 사용 하 여 연결 보호
-- [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) 및 [SAML](saml-issuer-technical-profile.md#cryptographic-keys) 토큰 서명 및 암호화
+- [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) 및 [SAML](saml-service-provider.md) 토큰 서명 및 암호화
 
 **CryptographicKeys** 요소에는 다음 요소가 포함됩니다.
 
@@ -191,7 +191,7 @@ ms.locfileid: "99805397"
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 아니요 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
+| Id | No | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
 | StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
 
 ## <a name="input-claims-transformations"></a>입력 클레임 변환
@@ -252,8 +252,8 @@ ms.locfileid: "99805397"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의 되어 있습니다. |
-| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | No | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="display-claims"></a>클레임 표시
 
@@ -279,8 +279,8 @@ ms.locfileid: "99805397"
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DisplayControlReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
+| ClaimTypeReferenceId | No | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DisplayControlReferenceId | No | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
 | 필수 | 예 | 표시 클레임이 필요한 지 여부를 나타냅니다. |
 
 다음 예제에서는 자체 어설션된 기술 프로필의에 표시 클레임 및 표시 컨트롤을 사용 하는 방법을 보여 줍니다.
@@ -326,8 +326,8 @@ ms.locfileid: "99805397"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | No | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 다음 예제에서는 새 로컬 계정을 만드는 **AAD UserWriteUsingLogonEmail** 기술 프로필 또는 [스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts)이 다음 클레임을 유지 합니다.
 
@@ -357,9 +357,9 @@ ms.locfileid: "99805397"
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
-|AlwaysUseDefaultValue |아니요 |기본값을 강제로 사용합니다.  |
-| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. 파트너 클레임 유형 특성을 지정 하지 않으면 지정 된 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| DefaultValue | No | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
+|AlwaysUseDefaultValue |No |기본값을 강제로 사용합니다.  |
+| PartnerClaimType | No | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. 파트너 클레임 유형 특성을 지정 하지 않으면 지정 된 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="output-claims-transformations"></a>출력 클레임 변환
 

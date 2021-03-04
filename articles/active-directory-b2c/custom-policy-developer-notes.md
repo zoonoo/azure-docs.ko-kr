@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218777"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095802"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -70,7 +70,7 @@ ms.locfileid: "99218777"
 | [OAuth2 암시적 흐름](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 리소스 소유자 암호 자격 증명](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST 바인딩 및 리디렉션 바인딩 |
+| [SAML2](saml-service-provider.md)  |  |  |X  | POST 바인딩 및 리디렉션 바인딩 |
 | OAuth1 |  |  |  | 지원되지 않습니다. |
 | WSFED | X |  |  |  |
 
@@ -81,7 +81,7 @@ ms.locfileid: "99218777"
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | 예: Google+  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | 예: Facebook  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | 예: Twitter |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | 예: Salesforce, ADFS |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | 예: Salesforce, ADFS |
 | WSFED| X |  |  |  |
 
 

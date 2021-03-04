@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584744"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051908"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -272,6 +272,44 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 쌍에 �
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="return-precise-answers"></a>정확한 답변 반환
+
+### <a name="generate-answer-api"></a>응답 API 생성 
+
+사용자는 관리 되는 QnA Maker 리소스를 사용할 때 [정확한 답변](../reference-precise-answering.md) 을 사용할 수 있습니다. AnswerSpanRequest 매개 변수는 동일한에 대해 업데이트 되어야 합니다.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+마찬가지로 사용자는 answerSpanRequest 매개 변수를 설정 하지 않고 정확한 답변을 사용 하지 않도록 선택할 수 있습니다.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### <a name="bot-settings"></a>봇 설정
+
+Bot service에 대 한 정확한 응답 설정을 구성 하려면 bot App service 리소스로 이동 합니다. 그런 다음, 다음 설정을 추가 하 여 구성을 업데이트 해야 합니다.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|디스플레이 구성|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|정확한 답변만|true|true|
+|긴 대답|false|false|
+|길고 정확한 답변 모두|true|false|
 
 ## <a name="common-http-errors"></a>일반 HTTP 오류
 

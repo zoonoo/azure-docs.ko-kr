@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694141"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096125"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>데이터 반출 보호를 사용 하는 작업 영역 만들기
 이 문서에서는 데이터 반출 보호를 사용 하도록 설정 된 작업 영역을 만드는 방법과이 작업 영역에 대해 승인 된 Azure AD 테 넌 트를 관리 하는 방법을 설명 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "101694141"
 >[!Note]
 >작업 영역을 만든 후에는 관리 되는 가상 네트워크 및 데이터 반출 보호에 대 한 작업 영역 구성을 변경할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - Azure에서 작업 영역 리소스를 만들 수 있는 권한.
 - 관리 되는 개인 끝점을 만들 수 있는 작업 영역 권한을 Synapse 합니다.
 - 네트워킹 리소스 공급자에 등록 된 구독입니다. [자세한 정보](../../azure-resource-manager/management/resource-providers-and-types.md)
@@ -50,7 +50,9 @@ ms.locfileid: "101694141"
 >작업 영역 테 넌 트 이외의 테 넌 트에 있는 리소스는 SQL 풀에 연결 하기 위해 방화벽 규칙을 차단 하지 않아야 합니다. 작업 영역에서 관리 되는 가상 네트워크 (예: Spark 클러스터) 내의 리소스는 방화벽으로 보호 되는 리소스에 대 한 관리 되는 개인 링크를 통해 연결할 수 있습니다.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
-사용자는 PyPI와 같은 공용 리포지토리에서 Python 패키지를 설치 하는 환경 구성 파일을 제공할 수 있습니다. 데이터 반출 보호 된 작업 영역에서 아웃 바운드 리포지토리에 대 한 연결이 차단 됩니다. 결과적으로 PyPI와 같은 공용 리포지토리에서 설치 된 Python 라이브러리는 지원 되지 않습니다. 대신, 사용자가 기본 Azure Data Lake Storage 계정 내에 개인 채널을 만들고 해당 Conda 환경 구성 파일 내에서 해당 채널을 참조할 수 있습니다. 
+사용자는 PyPI와 같은 공용 리포지토리에서 Python 패키지를 설치 하는 환경 구성 파일을 제공할 수 있습니다. 데이터 반출 보호 된 작업 영역에서 아웃 바운드 리포지토리에 대 한 연결이 차단 됩니다. 결과적으로 PyPI와 같은 공용 리포지토리에서 설치 된 Python 라이브러리는 지원 되지 않습니다. 
+
+또는 사용자가 기본 Azure Data Lake Storage 계정 내에서 작업 영역 패키지를 업로드 하거나 개인 채널을 만들 수 있습니다. 자세한 내용은 [Azure Synapse Analytics의 패키지 관리](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 를 참조 하세요. 
   
 ## <a name="next-steps"></a>다음 단계
 

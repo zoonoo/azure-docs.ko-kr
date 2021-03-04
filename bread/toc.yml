@@ -174,7 +174,7 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Azure Object Understanding
+    - name: Azure 개체 이해
       tocHref: /azure/object-understanding/
       topicHref: /azure/object-understanding/
     - name: Container Registry
@@ -212,10 +212,10 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
-        - name: Azure Percept
+        - name: Azure Percept 개요
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
-        - name: IoT Hub용 디바이스 업데이트
+        - name: IoT Hub용 디바이스 업데이트 문서
           tocHref: /azure/iot-hub-device-update/
           topicHref: /azure/iot-hub-device-update/
         - name: IoT Hub
@@ -266,8 +266,8 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Confluent Cloud용 Apache Kafka
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -457,7 +457,7 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Apache Cassandra용 Managed Instance
+    - name: Apache Cassandra에 대 한 Managed Instance
       tocHref: /azure/managed-instance-apache-cassandra/
       topicHref: /azure/managed-instance-apache-cassandra/
     - name: 스토리지
@@ -691,7 +691,7 @@
         - name: Peering Service
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
-        - name: Route Server(미리 보기)
+        - name: Azure Route Server(미리 보기) 정보
           tocHref: /azure/route-server/
           topicHref: /azure/route-server/
         - name: Traffic Manager

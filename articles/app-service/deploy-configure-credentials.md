@@ -5,17 +5,20 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560422"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052350"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 로컬 컴퓨터에서 앱 배포를 보호 하기 위해 [Azure App Service](./overview.md) 는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)에 대 한 두 가지 유형의 자격 증명을 지원 합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일하지 않습니다.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+
+> [!NOTE]
+> 이전 배포 환경인 Azure Portal의 **개발 센터 (클래식)** 페이지는 2021 년 3 월부터 더 이상 사용 되지 않습니다. 이 변경 내용은 앱의 기존 배포 설정에 영향을 주지 않으며, **배포 센터** 페이지에서 계속 해 서 앱 배포를 관리할 수 있습니다.
 
 ## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>사용자 범위 자격 증명 구성
 
@@ -71,13 +74,13 @@ Git 배포가 구성된 경우 페이지에 **Git/배포 사용자 이름** 이 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-[Az webapp deployment](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) 명령을 사용 하 여 응용 프로그램 범위 자격 증명을 가져옵니다. 예를 들면 다음과 같습니다.
+[Az webapp deployment](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) 명령을 사용 하 여 응용 프로그램 범위 자격 증명을 가져옵니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-[로컬 Git 배포](deploy-local-git.md)의 경우, 응용 프로그램 범위 자격 증명이 이미 포함 된 상태에서 [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) 명령을 사용 하 여 앱에 대 한 Git 원격 URI를 가져올 수도 있습니다. 예를 들면 다음과 같습니다.
+[로컬 Git 배포](deploy-local-git.md)의 경우, 응용 프로그램 범위 자격 증명이 이미 포함 된 상태에서 [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) 명령을 사용 하 여 앱에 대 한 Git 원격 URI를 가져올 수도 있습니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
@@ -85,7 +88,7 @@ az webapp deployment list-publishing-credentials --resource-group <group-name> -
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-[AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) 명령을 사용 하 여 응용 프로그램 범위 자격 증명을 가져옵니다. 예를 들면 다음과 같습니다.
+[AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) 명령을 사용 하 여 응용 프로그램 범위 자격 증명을 가져옵니다. 다음은 그 예입니다. 
 
 ```azurepowershell-interactive
 Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>

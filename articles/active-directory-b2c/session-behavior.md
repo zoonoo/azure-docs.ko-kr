@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646584"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096142"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -251,7 +251,7 @@ SessionExpiryInSeconds의 값을 짧은 기간 (1200 초)으로 설정 하는 �
 3. 페더레이션된 id 공급자에서 로그 아웃 하려고 합니다.
    - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 지정 하는 경우 `end_session_endpoint` 입니다.
    - OAuth2- [id 공급자 메타 데이터](oauth2-technical-profile.md#metadata) 에 위치가 포함 된 경우 `end_session_endpoint`
-   - SAML- [id 공급자 메타 데이터](saml-identity-provider-technical-profile.md#metadata) 에 위치가 포함 된 경우 `SingleLogoutService`
+   - SAML- [id 공급자 메타 데이터](identity-provider-generic-saml.md) 에 위치가 포함 된 경우 `SingleLogoutService`
 4. 필요에 따라 다른 응용 프로그램에서 로그 아웃 합니다. 자세한 내용은 [Single sign-on](#single-sign-out) 섹션을 참조 하세요.
 
 > [!NOTE]

@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor에서 로그 쿼리 시작 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor에서 로그 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8cbf3f00da8b647804d0f541b35d8f8c1acb4e04
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c87b70c74a5de9cc4b6c48935b93fdd13295f0f8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598310"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052333"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
@@ -107,7 +106,7 @@ SecurityEvent
 
 필터 조건을 작성하는 경우 다음 식을 사용할 수 있습니다.
 
-| 식 | Description | 예제 |
+| 식 | 설명 | 예제 |
 |:---|:---|:---|
 | == | 같은지 여부를 확인<br>(대/소문자 구분) | `Level == 8` |
 | =~ | 같은지 여부를 확인<br>(대/소문자 구분하지 않음) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

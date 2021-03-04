@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576680"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095020"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -447,7 +447,18 @@ Traffic Manager를 사용하면 시작하는 HTTP(S) 상태 검사에서 사용�
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>상태 검사가 시작되는 IP 주소는 무엇인가요?
 
-[여기](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)를 클릭하여 Traffic Manager 상태 검사가 시작될 수 있는 IP 주소를 나열하는 JSON 파일을 볼 수 있습니다. JSON 파일에 나열된 IP를 검토하여 이 목록의 IP 주소에서 들어오는 연결의 엔드포인트에서 상태 검사가 허용되는지 확인합니다.
+Traffic Manager 상태 검사가 시작 될 수 있는 IP 주소 목록을 검색 하는 방법을 알아보려면 [여기](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 클릭 하세요. REST API, Azure CLI 또는 Azure PowerShell를 사용 하 여 최신 목록을 검색할 수 있습니다. 나열 된 ip를 검토 하 여 해당 IP 주소에서 들어오는 연결이 해당 상태를 확인 하는 끝점에서 허용 되는지 확인 합니다.
+
+Azure PowerShell 사용 예:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> 공용 IP 주소는 예 고 없이 변경 될 수 있습니다. 서비스 태그 검색 API 또는 다운로드 가능한 JSON 파일을 사용 하 여 최신 정보를 검색 해야 합니다.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Traffic Manager에서 내 엔드포인트에 대해 수행하는 예상 상태 검사 수는 몇 개인가요?
 
@@ -497,7 +508,7 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 
 다음 테이블에서는 중첩 엔드포인트에 대한 Traffic Manager의 상태 검사 동작에 대해 설명합니다.
 
-| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 참고 |
+| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 메모 |
 | --- | --- | --- |
 | 사용 안 함. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 엔드포인트 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 엔드포인트를 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
 | Degraded. 하나 이상의 자식 프로필 엔드포인트가 Degraded 상태입니다. |Online: 자식 프로필의 Online 엔드포인트 수가 MinChildEndpoints 값 이상입니다.<BR>CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 엔드포인트 수 합계가 MinChildEndpoints 값 이상입니다.<BR>Degraded: 그렇지 않은 경우 |트래픽이 CheckingEndpoint 상태의 엔드포인트로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 엔드포인트의 성능이 항상 저하됩니다. |

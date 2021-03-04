@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f1d5d732433a78b8e3e7ff94bd6aaa2eea8f4a87
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051789"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 
@@ -18,7 +18,7 @@ ms.locfileid: "99092354"
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -240,8 +240,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 `-Result` 매개 변수를 사용하여 종료된 작업이 성공적으로 완료되었는지 여부를 검색합니다. 다음 값을 포함합니다.
 
 * Cancelled
-* Failed
-* 없음
+* 실패
+* None
 * 성공
 
 ``` powershell
@@ -296,9 +296,6 @@ Stop-AdlJob -Account $adla -JobID $jobID
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-## <a name="analyzing-job-history"></a>작업 기록 분석
-
-Azure PowerShell을 사용하여 Data Lake 분석에서 실행된 작업의 기록을 분석하는 것은 강력한 기술입니다. 사용량 및 비용에 대해 이해하는 데 사용할 수 있습니다. [작업 기록 분석 샘플 리포지토리](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)를 확인하여 자세히 알아볼 수 있습니다.  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>작업 파이프라인 및 되풀이 나열
 

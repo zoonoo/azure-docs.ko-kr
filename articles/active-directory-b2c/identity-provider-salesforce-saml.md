@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cfdd96ffa9e7758fc594f7e7ae53c84495b8b2e8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953821"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095411"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 SAML 프로토콜을 사용 하 여 Salesforce SAML 공급자로 로그인 설정
 
@@ -33,9 +33,9 @@ ms.locfileid: "98953821"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure AD B2C(Azure Active Directory B2C)의 [사용자 지정 정책](custom-policy-overview.md)을 사용하여 사용자가 Salesforce 조직에서 로그인할 수 있도록 설정하는 방법을 설명합니다. 사용자 지정 정책에 [SAML ID 공급자 기술 프로필](saml-identity-provider-technical-profile.md)을 추가하여 로그인할 수 있습니다.
+이 문서에서는 Azure AD B2C(Azure Active Directory B2C)의 [사용자 지정 정책](custom-policy-overview.md)을 사용하여 사용자가 Salesforce 조직에서 로그인할 수 있도록 설정하는 방법을 설명합니다. 사용자 지정 정책에 [SAML id 공급자](identity-provider-generic-saml.md) 를 추가 하 여 로그인을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 - [Developer Edition 평가판 계정](https://developer.salesforce.com/signup)을 아직 등록하지 않았으면 등록합니다. 이 문서에서는 [Salesforce Lightning 환경](https://developer.salesforce.com/page/Lightning_Experience_FAQ)을 사용합니다.
@@ -100,7 +100,7 @@ ms.locfileid: "98953821"
 
 사용자가 Salesforce 계정을 사용하여 로그인하도록 하려는 경우 Azure AD B2C가 엔드포인트를 통해 통신할 수 있는 클레임 공급자로 계정을 정의해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
-정책의 확장 파일에서 **ClaimsProviders** 요소에 Salesforce 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML ID 공급자 기술 프로필 정의](saml-identity-provider-technical-profile.md)를 참조하세요.
+정책의 확장 파일에서 **ClaimsProviders** 요소에 Salesforce 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML id 공급자 정의](identity-provider-generic-saml.md)를 참조 하세요.
 
 1. *TrustFrameworkExtensions.xml* 을 엽니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.

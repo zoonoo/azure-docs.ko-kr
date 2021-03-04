@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647560"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096023"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -89,6 +89,8 @@ FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable �
 사용자는 로그인 인터페이스에서 FIDO2 보안 키를 등록한 다음에 인증의 기본 수단으로 선택할 수 있습니다. 이러한 FIDO2 보안 키는 일반적으로 USB 디바이스이지만 Bluetooth 또는 NFC를 사용할 수도 있습니다. 인증을 처리하는 하드웨어 디바이스를 사용하면 노출되거나 추측될 수 있는 암호가 없으므로 계정의 보안이 강화됩니다.
 
 FIDO2 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+
+개발자가 [개발 하는 응용 프로그램에서 FIDO2 auth를 지원](../develop/support-fido2-authentication.md)하려는 개발자를 위한 모범 사례 뿐만 아니라, [AZURE AD로 FIDO2 인증을 지 원하는 브라우저](fido2-compatibility.md)에 대 한 참조 문서를 제공 합니다.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

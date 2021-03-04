@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor의 Log Analytics 개요
 description: Azure Monitor 로그의 데이터를 분석 하기 위해 로그 쿼리를 편집 및 실행 하는 데 사용 되는 Azure Portal의 도구인 Log Analytics 설명 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723166"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052299"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Azure Monitor의 Log Analytics 개요
 Log Analytics는 Azure Monitor 로그의 데이터로 로그 쿼리를 편집 및 실행 하는 데 사용 되는 Azure Portal 도구입니다. 레코드 집합을 반환 하는 간단한 쿼리를 작성 한 다음 Log Analytics 기능을 사용 하 여 정렬, 필터링 및 분석할 수 있습니다. 또는 통계 분석을 수행 하 고 차트에서 결과를 시각화 하 여 특정 추세를 식별 하는 고급 쿼리를 작성할 수 있습니다. 쿼리 결과를 대화형으로 사용 하거나 쿼리 경고 또는 통합 문서 로그와 같은 다른 Azure Monitor 기능과 함께 사용 하는 경우에는 쓰기 및 테스트를 사용 하는 도구 Log Analytics. 
@@ -37,7 +36,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 ### <a name="1-top-action-bar"></a>1. 위쪽 작업 모음
 쿼리 창에서 쿼리를 사용 하기 위한 컨트롤입니다.
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 |:---|:---|
 | Scope | 쿼리에 사용 되는 데이터의 범위를 지정 합니다. 이는 Log Analytics 작업 영역에 있는 모든 데이터 이거나 여러 작업 영역에서 특정 리소스에 대 한 데이터 일 수 있습니다. [쿼리 범위](./scope.md)를 참조 하세요. |
 | 실행 단추 | 쿼리 창에서 선택한 쿼리를 실행 하려면 클릭 합니다. Shift + enter를 눌러 쿼리를 실행할 수도 있습니다. |
@@ -79,7 +78,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 #### <a name="chart-view"></a>차트 보기
 사용 가능한 여러 차트 종류 중 하나로 결과를 표시 합니다. 쿼리의 **render** 명령에 차트 종류를 지정 하거나 **시각화 유형** 드롭다운에서 선택할 수 있습니다.
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 |:---|:---|
 | **시각화 유형** | 표시할 차트의 유형입니다. |
 | **X 축** | X 축에 사용할 결과의 열입니다. 

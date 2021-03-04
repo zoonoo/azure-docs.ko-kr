@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 23d00acc03ee879036a823f0c3d7fe2f67902e31
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: aafd4c6695101042cb30a44e1d2bd30611256779
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797008"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096159"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
@@ -99,4 +99,4 @@ Security Center 내에서 이러한 취약성 스캐너의 결과를 검토하�
 이 문서에서는 Azure Defender의 이점에 대해 알아보았습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)
+> [Azure Defender 사용](enable-azure-defender.md)

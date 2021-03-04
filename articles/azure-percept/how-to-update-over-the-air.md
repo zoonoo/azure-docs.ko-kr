@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: aa8f696b6a26e812256be4e93975844f2c721b6e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663012"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095394"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>무선을 통해 Azure Percept 진한를 업데이트 합니다.
 
@@ -92,9 +92,9 @@ IoT Hub에 대 한 장치 업데이트를 사용 하면 Azure Percept의 특정 
 1. 올바른 장치 그룹이 대상 장치 그룹으로 선택 되어 있는지 확인 합니다. 배포 **시작 날짜** 와 **시작 시간** 을 선택 하 고 **배포 만들기** 를 클릭 합니다. 
 
     >[!CAUTION]
-    >시작 시간을 이전으로 설정 하면 배포가 즉시 트리거됩니다.
+    >과거의 시작 시간을 설정 하면 배포가 즉시 트리거됩니다.
  
-1. 준수 차트를 확인 합니다. 업데이트가 현재 진행 중인 것을 볼 수 있습니다.
+1. 준수 차트를 확인 합니다. 이제 업데이트가 진행 중인 것으로 표시됩니다.
  
 1. 업데이트가 완료 되 면 준수 차트에 새 업데이트 상태가 반영 됩니다.
  
