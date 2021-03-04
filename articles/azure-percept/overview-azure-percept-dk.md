@@ -7,26 +7,27 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4fd0a7cb575a109d1393527b48de3fa4e3446167
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663467"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098335"
 ---
 # <a name="azure-percept-dk-overview"></a>Azure Percept DK 개요
 
-Azure Percept 진한은 비전 AI 개념 증명을 개발 하기 위해 설계 된 edge AI 개발 키트입니다. [Azure Percept Studio](./overview-azure-percept-studio.md)와 함께 사용 하는 경우 다양 한 시각 ai 응용 프로그램에 대 한 edge ai 솔루션을 빌드하기 위한 강력 하 고 사용 하기 간편한 플랫폼이 됩니다. [Microsoft online 스토어](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 구매할 수 있습니다.
+Azure Percept 진한은 비전 및 오디오 AI 개념 증명을 개발 하기 위해 설계 된 edge AI 및 IoT 개발 키트입니다. [Azure Percept Studio](./overview-azure-percept-studio.md) 및 [azure Percept Audio](./overview-azure-percept-audio.md)와 결합 하면 광범위 한 시각 또는 오디오 AI 응용 프로그램을 위한 edge AI 솔루션을 빌드하는 데 사용할 수 있는 강력 하 고 간편한 플랫폼이 됩니다. [Microsoft online 스토어](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 구매할 수 있습니다.
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="이미지로.":::
+:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept 진한 장치.":::
 
 ## <a name="key-features"></a>주요 기능
 
 - 에 **지에서 AI를 실행 하는 기능** 입니다. 기본 제공 하드웨어 가속을 사용 하면 클라우드에 연결 하지 않고도 비전 AI 모델을 실행할 수 있습니다.
 - **기본 제공 되는 신뢰 보안의 하드웨어 루트** 입니다. 자세한 내용은 [Azure Percept 보안](./overview-percept-security.md) 개요를 참조 하세요.
 - **[Azure Percept Studio](./overview-azure-percept-studio.md) 및 기타 azure 서비스와의 원활한 통합** 예: Azure IoT Hub, Azure Cognitive Services 및 [라이브 비디오 분석](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **선택적 [Azure Percept Audio](./overview-azure-percept-audio.md) 와 원활한 통합**
 - **상위 AI 플랫폼을 지원** 합니다. 예: ONNX 및 TensorFlow.
-- **80/20 railing 시스템과의 통합** 입니다. 프로덕션 환경에서 프로토타입 빌드를 용이 하 게 합니다. [8/20 통합](./overview-8020-integration.md)에 대해 자세히 알아보세요.
+- **80/20 railing 시스템과의 통합** 입니다. 프로덕션 환경에서 프로토타입 빌드를 용이 하 게 합니다. [80/20 통합](./overview-8020-integration.md)에 대해 자세히 알아보세요.
 
 ## <a name="hardware-components"></a>하드웨어 구성 요소
 

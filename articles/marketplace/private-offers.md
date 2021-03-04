@@ -6,13 +6,13 @@ ms.service: marketplace
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 01/28/2021
-ms.openlocfilehash: 786ecbf553ace6a90515347e8138eeb6e022589b
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/22/2021
+ms.openlocfilehash: 7c02c41379cfb886fd7e6f84486d815d3cdbfb5b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063099"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097179"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
@@ -22,11 +22,11 @@ ms.locfileid: "99063099"
 
 개인 제안을 만들면 게시자는 회사에서 요구 하는 기능을 사용 하 여 대상 고객에 게 사용자 지정 된 솔루션을 개인적으로 제공할 수 있습니다.
 
-- _가격 책정 협상_ 을 통해 게시자가 할인을 확장하고 공개적으로 사용 가능한 제품의 가격 책정을 목록에서 지울 수 있습니다.
-- _프라이빗 사용 약관_ 을 사용하면 게시자가 사용 약관을 특정 고객에게 맞게 조정할 수 있습니다.
-- _특별 한 구성을_ 통해 게시자는 Virtual Machines, Azure 응용 프로그램 및 SaaS (software as a service)를 개별 고객의 요구에 맞게 조정할 수 있습니다. 이 옵션을 사용 하면 게시자가 모든 고객에 게 해당 기능을 실행 하기 전에 새 제품 기능에 대 한 미리 보기 액세스를 제공할 수도 있습니다.
+- *가격 책정 협상* 을 통해 게시자가 할인을 확장하고 공개적으로 사용 가능한 제품의 가격 책정을 목록에서 지울 수 있습니다.
+- *프라이빗 사용 약관* 을 사용하면 게시자가 사용 약관을 특정 고객에게 맞게 조정할 수 있습니다.
+- *특별 한 구성을* 통해 게시자는 Virtual Machines, Azure 응용 프로그램 및 SaaS (software as a service)를 개별 고객의 요구에 맞게 조정할 수 있습니다. 이 옵션을 사용 하면 게시자가 모든 고객에 게 해당 기능을 실행 하기 전에 새 제품 기능에 대 한 미리 보기 액세스를 제공할 수도 있습니다.
 
-개인 제공을 통해 게시자는 사용자 지정 거래 및 구성을 협상 하 고 제공 하는 데 필요한 유연성과 제어를 통해 공용 marketplace의 규모와 글로벌 가용성을 활용할 수 있습니다. 이제 기업에서 기대한 방법으로 구입 하 고 판매할 수 있습니다. 
+개인 제공을 통해 게시자는 사용자 지정 거래 및 구성을 협상 하 고 제공 하는 데 필요한 유연성과 제어를 통해 공용 marketplace의 규모와 글로벌 가용성을 활용할 수 있습니다. 이제 기업은 언제 든 지 구입 하 고 판매할 수 있습니다.
 
 ## <a name="create-private-offers-using-plans"></a>요금제를 사용 하 여 개인 제안 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "99063099"
 - 관리 서비스
 - SaaS 제품
 
-비공개 요금제는 제품의 구성 요소 이며 대상 고객 에게만 표시 되 고 구입 가능 됩니다. 비공개 요금제는 대상 고객 에게만 표시 되 고 구입 가능 됩니다.  개인 계획은 Azure Global 및 Azure Government 모두의 고객에 게 제공 될 수 있습니다.
+비공개 요금제는 제품의 구성 요소 이며 대상 고객 에게만 표시 되 고 구입 가능 됩니다. 비공개 요금제는 대상 고객 에게만 표시 되 고 구입 가능 됩니다. 개인 계획은 Azure Global 및 Azure Government 모두의 고객에 게 제공 될 수 있습니다.
 
 비공개 요금제는 공개 계획에 이미 게시 된 기본 이미지 및/또는 제안 메타 데이터를 다시 사용할 수 있습니다. 이 옵션을 사용 하면 게시자가 동일한 기본 이미지의 여러 버전을 게시 하 고 메타 데이터를 제공할 필요 없이 공용 제품의 여러 개인 변형을 만들 수 있습니다. Azure 가상 머신 및 Azure 응용 프로그램 제공의 경우에만 비공개 계획에서 공개 요금제를 사용 하 여 기본 이미지를 공유 하는 경우 제품의 기본 이미지에 대 한 모든 변경 내용이 해당 기본 이미지를 사용 하 여 모든 공용 및 비공개 계획에 전파 됩니다.
 
@@ -70,13 +70,12 @@ Azure Portal에 로그인 한 후에는 다음 단계에 따라 개인 제품을
 
 개인 제안은 검색 결과에 표시 되 고 다른 모든 제품 처럼 명령줄 및 Azure Resource Manager 템플릿을 통해 배포할 수 있습니다.
 
-![[프라이빗 제품]](./media/marketplace-publishers-guide/private-offer.png)
+[![[개인 제공이 검색 결과에 표시 됩니다.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
 
 또한 프라이빗 제품은 검색 결과에 나타납니다. **비공개** 배지만 찾습니다.
 
 >[!Note]
 >CSP (클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정 된 구독은 개인 제공을 지원 하지 않습니다.
-
 
 <!---
 ## Next steps

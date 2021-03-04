@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a659ea897f013e504668789a7d5671420ff70a9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727008"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099083"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -41,7 +41,7 @@ Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 �
 | 양상                          | 세부 정보                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
-| 가격 책정:                        | [서버용 Azure Defender](security-center-pricing.md) 필요                                                                                                                                                                                                                                             |
+| 가격 책정:                        | [서버용 Azure Defender](defender-for-servers-introduction.md) 필요                                                                                                                                                                                                                                             |
 | 지원되는 플랫폼:            |  • Windows를 실행 하는 Azure 컴퓨터<br> • Windows를 실행 하는 Azure Arc 컴퓨터|
 | 지원 되는 Windows 버전:  |   • **GA (일반 공급)-** Windows Server 2016, 2012 R2 및 2008 R2 s p 1에서 검색<br> • **미리 보기-** windows Server 2019, [Wvd (windows 가상 데스크톱](../virtual-desktop/overview.md)) 및 [windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (이전에는 evd (가상 데스크톱) 용 enterprise)<br>이러한 통합을 사용한 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.|
 | 지원 되지 않는 운영 체제:  |  • Windows 10 (EVD 또는 WVD 이외의)<br> • Linux|
@@ -83,8 +83,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
         - 온-프레미스 컴퓨터에 Defender를 끝점에 배포 하는 경우 [Azure arc 사용 서버와 하이브리드 컴퓨터 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) 에 설명 된 대로 azure arc에 연결 합니다.
     - 또한 **Windows Server 2019 컴퓨터** 의 경우 유효한 에이전트를 실행 하 고 MicrosoftMonitoringAgent 확장을 포함 하는지 확인 합니다.
 
-1. **서버에 대해 Azure Defender를** 사용 하도록 설정 합니다. [Azure Security Center 가격 책정을](security-center-pricing.md#enable-azure-defender)참조 하세요.
-
+1. **서버에 대해 Azure Defender를** 사용 하도록 설정 합니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)을 참조 하세요.
 
 1. 서버에서 끝점에 대해 Microsoft Defender를 이미 사용 허가 하 고 배포한 경우 [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)에 설명 된 절차를 사용 하 여 제거 합니다.
 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.

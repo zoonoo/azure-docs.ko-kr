@@ -2,23 +2,18 @@
 title: Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs
 description: Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032680"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099253"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -39,7 +34,7 @@ Azure Defender 고객에 게 제공 되는 기본 제공 스캐너를 비롯 하
 
 Security Center는 다음에 대한 취약성 분석도 제공합니다.
 
-* SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)을 참조하세요.
+* SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)을 참조하세요.
 * 이미지 Azure Container Registry- [컨테이너 레지스트리에 대해 Azure Defender를 사용 하 여 취약성에 대 한 이미지 검색을](defender-for-container-registries-usage.md) 참조 하세요.
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
@@ -88,8 +83,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 Security Center는 Azure에서 실행 되는 보안 솔루션을 자동으로 검색 하지만 Security Center에 연결 되지 않고 **검색 된 솔루션** 섹션에 솔루션을 표시 합니다. 이러한 솔루션에는 [Azure AD ID 보호](../active-directory/identity-protection/overview-identity-protection.md)및 파트너 솔루션과 같은 Azure 솔루션이 포함 됩니다.
 
 > [!NOTE]
-> 검색 된 솔루션 기능에 대해 구독 수준에서 **Azure Defender** 를 사용 하도록 설정 합니다. 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md) 을 참조 하세요.
->
+> 검색 된 솔루션 기능에 대해 구독 수준에서 **Azure Defender** 를 사용 하도록 설정 합니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)에서 자세히 알아보세요.
 
 Security Center와 통합 하기 위해 솔루션에서 **연결** 을 선택 하 고 보안 경고에 대 한 알림을 받습니다.
 
@@ -103,7 +97,4 @@ Security Center와 통합 하기 위해 솔루션에서 **연결** 을 선택 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. 관련 정보는 다음 문서를 참조 하세요.
-
-* [Security Center 데이터를 지속적으로 내보냅니다](continuous-export.md). Azure 센티널 또는 다른 SIEM과의 통합을 설정 하는 방법에 대해 알아봅니다.
-* [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. Azure 센티널 또는 기타 SIEM과의 통합을 설정 하는 방법에 대 한 자세한 내용은 [데이터 Security Center 연속 내보내기](continuous-export.md)를 참조 하세요.

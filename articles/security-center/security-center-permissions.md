@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922610"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099185"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -59,6 +59,5 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 
 - [Security Center에서 보안 정책 설정](tutorial-security-policy.md)
 - [Security Center의 보안 권장 사항 관리](security-center-recommendations.md)
-- [Azure 리소스의 보안 상태 모니터링](security-center-monitoring.md)
 - [Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
 - [파트너 보안 솔루션 모니터링](./security-center-partner-integration.md)

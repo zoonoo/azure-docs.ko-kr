@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
-ms.date: 02/24/2021
-ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 8dde5c6206087c8bb1c1f456a0c858abbccf0cc4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712779"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096312"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR에 대 한 진단 로깅 사용
 
@@ -50,7 +50,7 @@ ms.locfileid: "101712779"
 
 
 > [!Note] 
-> Log Analytics에 첫 번째 로그가 표시 되는 데 최대 15 분이 걸릴 수 있습니다.  
+> Log Analytics에 첫 번째 로그가 표시 되는 데 최대 15 분이 걸릴 수 있습니다. 또한 리소스 그룹이 나 구독 간에 Azure API를 이동 하는 경우 이동이 완료 되 면 설정을 업데이트 합니다. 
  
 진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](../azure-monitor/essentials/platform-logs-overview.md) 를 참조 하세요.
 

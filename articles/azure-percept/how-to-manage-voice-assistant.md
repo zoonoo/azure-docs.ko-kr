@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663045"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099015"
 ---
 # <a name="managing-your-voice-assistant"></a>음성 도우미 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "101663045"
 
 1. 데모 페이지에서 **사용자 지정 키워드** 옆의 **변경** 을 클릭 합니다.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="이미지로.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="접객 데모 창을 보여 주는 스크린샷":::
 
     데모 페이지가 열려 있지 않으면 장치 페이지로 이동 하 여 (아래 참조), 데모에 액세스 하려면 **작업** 아래에서 **음성 도우미 테스트** 를 클릭 합니다.
 
@@ -40,17 +40,17 @@ ms.locfileid: "101663045"
 
 1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)의 개요 페이지에 있는 왼쪽 메뉴 창에서 **장치** 를 클릭 합니다.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="이미지로.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="장치가 강조 표시 된 Azure Percept Studio 개요 페이지의 스크린샷":::
 
 1. 음성 도우미 응용 프로그램이 배포 된 장치를 선택 합니다.
 
 1. **음성** 탭을 엽니다.
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="이미지로.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="음성 탭이 강조 표시 된 edge 장치 페이지의 스크린샷":::
 
 1. **키워드** 옆의 **변경** 을 클릭 합니다.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="이미지로.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="사용 가능한 음성 솔루션 작업의 스크린샷":::
 
 1. 사용 가능한 키워드 중 하나를 선택 하 고 **저장** 을 클릭 하 여 변경 내용을 적용 합니다.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8d150228be2cf6deff3bc2fd0a0599cca70d24ac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8dda18271de9b7d65246f0882ee7a68191031c05
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663015"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096618"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>SSH를 통해 Azure Percept 진한 사용자에 연결
 
@@ -24,7 +24,8 @@ ms.locfileid: "101663015"
 - SSH 클라이언트
     - 호스트 컴퓨터에서 Windows를 실행 하는 경우 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 는 효과적인 SSH 클라이언트 이며이 가이드 전체에서 사용 됩니다.
     - 호스트 컴퓨터에서 Linux 또는 OS X를 실행 하는 경우 SSH 서비스는 이러한 운영 체제에 포함 되며 별도의 클라이언트 응용 프로그램 없이 실행 될 수 있습니다. SSH 서비스를 실행 하는 방법에 대 한 자세한 내용은 운영 체제 제품 설명서를 참조 하십시오.
-- Azure Percept 진한
+- Azure Percept DK
+- [Azure PERCEPT 진한 온 보 딩 환경](./quickstart-percept-dk-set-up.md) 에서 SSH 로그인 계정 설정
 
 ## <a name="initiate-the-ssh-connection"></a>SSH 연결 시작
 
@@ -48,15 +49,8 @@ ms.locfileid: "101663015"
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="이미지로.":::
 
-1. PuTTY 터미널에 로그인 합니다. OOBE를 실행 하는 동안 SSH 사용자 이름 및 암호를 설정 하는 경우 메시지가 표시 되 면 해당 로그인 자격 증명을 입력 합니다. 그렇지 않으면 다음을 입력 합니다.  
-
-    1. 로그인: root
-    1. 암호: p@ssw0rd
-
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="PuTTY 터미널 창.":::  
+1. 온 보 딩 환경에서 만든 SSH 사용자 이름 및 암호를 사용 하 여 PuTTY 터미널에 로그인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 SSH를 통해 Azure Percept 진한에 성공적으로 연결한 후 문제 해결, USB 업데이트 및 DiagTool 또는 SoftAP 도구 실행을 포함 하 여 다양 한 작업을 수행할 수 있습니다.
-
-

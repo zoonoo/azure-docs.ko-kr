@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047862"
+ms.locfileid: "102096193"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -62,7 +62,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **처리** | **VMware 어플라이언스** | **Hyper-v 어플라이언스** | **물리적 어플라이언스**
 ---|---|---|---
-**검색 시작**| 어플라이언스는 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 어플라이언스 구성 관리자에서 구성할 수 있습니다. | 어플라이언스는 WinRM 포트 5985 (HTTP)에서 Hyper-v 호스트와 통신 합니다. | 어플라이언스는 포트 22 (TCP)를 통해 Linux 서버를 통해 WinRM 포트 5985 (HTTP)를 통해 Windows 서버와 통신 합니다.
+**검색 시작** | 어플라이언스는 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 어플라이언스 구성 관리자에서 구성할 수 있습니다. | 어플라이언스는 WinRM 포트 5985 (HTTP)에서 Hyper-v 호스트와 통신 합니다. | 어플라이언스는 포트 22 (TCP)를 통해 Linux 서버를 통해 WinRM 포트 5985 (HTTP)를 통해 Windows 서버와 통신 합니다.
 **구성 및 성능 메타 데이터 수집** | 어플라이언스는 포트 443 (기본 포트) 또는에서 수신 대기 vCenter Server 다른 포트에서 연결 하 여 vSphere Api를 사용 하 여 vCenter Server에서 실행 되는 서버의 메타 데이터를 수집 합니다. | 어플라이언스는 포트 5985의 호스트가 포함 된 CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v 호스트에서 실행 되는 서버의 메타 데이터를 수집 합니다.| 어플라이언스는 포트 5985의 서버와 함께 CIM(Common Information Model) (CIM) 세션을 사용 하 여 Windows 서버에서 메타 데이터를 수집 하 고 포트 22에서 SSH 연결을 사용 하 여 Linux 서버
 **검색 데이터 보내기** | 어플라이언스는 Azure Migrate에 수집 된 데이터를 보냅니다. 서버 평가 및 Azure Migrate: SSL 포트 443을 통한 서버 마이그레이션.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요). | 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 서버 평가.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).| 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 서버 평가.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).
 **데이터 수집 빈도** | 구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 20 초 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다. <br/><br/> 소프트웨어 인벤토리 데이터는 12 시간 마다 한 번씩 Azure에 전송 됩니다. <br/><br/> 에이전트 없는 종속성 데이터는 어플라이언스로 집계 되 고 6 시간 마다 Azure로 전송 되는 5 분 마다 수집 됩니다. <br/><br/> SQL Server 구성 데이터는 24 시간 마다 업데이트 되며 성능 데이터는 30 초 마다 캡처됩니다.| 구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 30 초 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다.|  구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 5 분 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다.

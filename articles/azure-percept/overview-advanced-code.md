@@ -7,24 +7,26 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: bd366c05be1b9d5b2a1bff238cfbaaa9dd290508
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f40d9a1285f1eb625a9e33387f2cc9fafcbc3322
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663195"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098403"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Azure Percept를 사용한 고급 개발
 Azure Percept를 통해 소프트웨어 개발자와 데이터 과학자는 AI 수명 주기 관리를 위해 고급 코드 워크플로를 사용할 수 있습니다. 성장 하는 오픈 소스 라이브러리를 통해 예제를 사용 하 여 AI 개발 과정을 시작 하 고 프로덕션 준비가 된 솔루션을 빌드할 수 있습니다.
 
 ## <a name="get-started-with-the-advanced-development-tutorials"></a>고급 개발 자습서 시작
 
-이 [Jupyter 노트북](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) 은 bowls를 검색 하기 위한 사용자 지정 데이터 집합을 사용 하 여 Python의 AzureML에 미리 학습 된 TensorFlow 모델 (MobileNetSSDV2Lite)을 사용 하 여 전송 학습을 수행 합니다. Bowl 탐지기를 학습 하 고 프로젝트의 산타 Cruz devkit에 배포 하는 데 노트북을 사용 하는 과정을 안내 하는 두 가지 자습서 옵션이 있습니다.
+사용 가능한 모든 [Azure PERCEPT AI 모델](./overview-ai-models.md)에 대해 알아봅니다.
 
-- [클라우드 개발](./advanced-development-cloud.md):이 자습서에서는 원격 계산 인스턴스를 사용 하 여 [Azure Machine Learning 포털](https://ml.azure.com) 에서 노트북을 실행 합니다.
+최신 지침, 자습서 및 다음과 같은 항목에 대 한 자세한 내용은 [Azure PERCEPT 진한 고급 개발 GitHub](https://github.com/microsoft/azure-percept-advanced-development) 를 참조 하세요.
 
-- [로컬 개발](./advanced-development-local.md):이 자습서에서는 원격 계산 인스턴스를 사용 하 여 VS Code 내에서 로컬로 노트북을 실행 합니다.
+* 장치에 사용자 지정 AI 모델 가져오기
+* 모델을 업데이트 하는 과정은 이미 전송 학습을 통해 지원 됩니다.
+* 기타
 
 ## <a name="next-steps"></a>다음 단계
 
-사용 가능한 모든 [Azure PERCEPT AI 모델](./overview-ai-models.md)에 대해 알아봅니다.
+사용 가능한 모든 [Azure PERCEPT AI 모델](./overview-ai-models.md)에 대해 알아봅니다. 이러한 모델이 사용자의 요구에 맞지 않는 경우에는 언제 든 지 고급 코드를 사용 하 여 사용자 고유의 모델 또는 컴퓨터 비전 파이프라인을 Percept 진한 사용자에 게 제공 하 고 다른 사용자에 게 도움이 되는 경우 끌어오기 요청을 열 수 있습니다.

@@ -12,12 +12,12 @@ ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 13cff9f3a6037a16d7c3b9cf233d26c6e9518bc1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b6fb5f680dfa5e2c87533083e3df4c2bae1ed12a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756108"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097026"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼에 대 한 관리자 동의
 
@@ -33,19 +33,16 @@ ms.locfileid: "98756108"
 
 조직의 관리자에 게 사용 권한을 요청할 준비가 되 면 Microsoft identity platform *admin 동의 끝점* 으로 사용자를 리디렉션할 수 있습니다.
 
-```HTTP
-// Line breaks are for legibility only.
-GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&state=12345
-&redirect_uri=http://localhost/myapp/permissions
-&scope=
-https://graph.microsoft.com/calendars.read
-https://graph.microsoft.com/mail.send
+```none
+https://login.microsoftonline.com/{tenant}/v2.0/adminconsent
+        ?client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+        &scope=https://graph.microsoft.com/Calendars.Read https://graph.microsoft.com/Mail.Send
+        &redirect_uri=http://localhost/myapp/permissions
+        &state=12345
 ```
 
-| 매개 변수 | 조건 | Description |
-| ---: | ---: | :---: |
+| 매개 변수 | 조건 | 설명 |
+| :--- | :--- | :--- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `organizations`으로 일반 참조될 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
@@ -58,12 +55,16 @@ https://graph.microsoft.com/mail.send
 
 관리자가 앱에 대한 사용 권한을 승인하는 경우 성공적인 응답은 다음과 같습니다.
 
-```
-http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
+```none
+http://localhost/myapp/permissions
+    ?admin_consent=True
+    &tenant=fa00d692-e9c7-4460-a743-29f2956fd429
+    &scope=https://graph.microsoft.com/Calendars.Read https://graph.microsoft.com/Mail.Send
+    &state=12345
 ```
 
-| 매개 변수 | Description |
-| ---: | :---: |
+| 매개 변수 | 설명 |
+| :--- | :--- |
 | `tenant`| 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다.|
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다.|
 | `scope` | 응용 프로그램에 대 한 액세스 권한이 부여 된 사용 권한 집합입니다.|
@@ -71,12 +72,19 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 ### <a name="error-response"></a>오류 응답
 
-`http://localhost/myapp/permissions?error=consent_required&error_description=AADSTS65004%3a+The+resource+owner+or+authorization+server+denied+the+request.%0d%0aTrace+ID%3a+d320620c-3d56-42bc-bc45-4cdd85c41f00%0d%0aCorrelation+ID%3a+8478d534-5b2c-4325-8c2c-51395c342c89%0d%0aTimestamp%3a+2019-09-24+18%3a34%3a26Z&admin_consent=True&tenant=fa15d692-e9c7-4460-a743-29f2956fd429&state=12345`
+```none
+http://localhost/myapp/permissions
+        ?admin_consent=True
+        &tenant=fa15d692-e9c7-4460-a743-29f2956fd429
+        &error=consent_required
+        &error_description=AADSTS65004%3a+The+resource+owner+or+authorization+server+denied+the+request.%0d%0aTrace+ID%3a+d320620c-3d56-42bc-bc45-4cdd85c41f00%0d%0aCorrelation+ID%3a+8478d534-5b2c-4325-8c2c-51395c342c89%0d%0aTimestamp%3a+2019-09-24+18%3a34%3a26Z
+        &state=12345
+```
 
 성공적인 응답에 표시 되는 매개 변수에를 추가 하면 오류 매개 변수가 아래와 같이 표시 됩니다.
 
 | 매개 변수 | Description |
-|-------------------:|:-------------------------------------------------------------------------------------------------:|
+|:-------------------|:-------------------------------------------------------------------------------------------------|
 | `error` | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다.|
 | `error_description` | 개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다.|
 | `tenant`| 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다.|

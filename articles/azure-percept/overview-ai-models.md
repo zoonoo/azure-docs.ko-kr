@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 28a8de231f179cf69342da81e6a2ae1989d2a5d6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041589"
+ms.locfileid: "102098369"
 ---
 # <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
 
@@ -52,6 +52,8 @@ Azure Percept Studio를 통해 코딩을 요구 하지 않고 사용자 지정 [
 
 ## <a name="advanced-development"></a>고급 개발
 
-고급 개발자를 위해 사용 가능한 [Jupyter 노트북](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) 은 개체 검색을 위해 사용자 지정 데이터 집합을 사용 하 여 Python의 미리 학습 된 TensorFlow 모델 (MobileNetSSDV2Lite)을 사용 하 여 전송 학습을 수행 합니다. 노트북은 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview) 를 통해 원격 계산 인스턴스를 활용 하며, AzureML 포털을 사용 하거나 [Visual Studio Code](https://code.visualstudio.com/)에서 로컬로 실행할 수 있습니다.
+최신 지침, 자습서 및 다음과 같은 항목에 대 한 자세한 내용은 [Azure PERCEPT 진한 고급 개발 GitHub](https://github.com/microsoft/azure-percept-advanced-development) 를 참조 하세요.
 
-또한 고급 AI 솔루션을 개발 하는 데 필요한 모든 도구를 설치 하 고 구성 하는 데이터 집합 및 [개발 도구 팩 설치 관리자](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md)를 관리 하기 위한 몇 가지 유용한 Python [스크립트가](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) 포함 되어 있습니다.
+* 장치에 사용자 지정 AI 모델 가져오기
+* 모델을 업데이트 하는 과정은 이미 전송 학습을 통해 지원 됩니다.
+* 기타

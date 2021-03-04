@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate Server Migration을 사용 하 여 Express 경로를 통해 데이터 복제
 description: Azure Migrate Server Migration을 사용 하 여 복제에 Azure Express 경로를 사용 하는 방법
-author: ms-deseelam
+author: DeSeelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: fe44ff423240cbe24d91cef0c0f4bb803ad8df98
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745564"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098845"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Azure Migrate로 Express 경로를 통해 데이터 복제: 서버 마이그레이션
 

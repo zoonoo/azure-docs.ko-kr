@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634069"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096975"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -44,7 +44,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|<ul><li>리소스 그룹에 대 한 **보안 관리자** 또는 **소유자**</li><li>대상 리소스에 대 한 쓰기 권한</li><li>아래에서 설명 하는 ' DeployIfNotExist ' 정책을 사용 하는 경우에는 정책을 할당할 수 Azure Policy 있는 권한도 필요 합니다.</li></ul>|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 기타 정부<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 기타 정부<br>![예](./media/icons/yes-icon.png) 중국 정부|
 |||
 
 
@@ -251,7 +251,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 ### <a name="is-continuous-export-available-with-azure-security-center-free"></a>연속 내보내기는 Azure Security Center 무료로 사용할 수 있나요?
 
-예! Azure Defender를 사용 하도록 설정한 경우에만 많은 Security Center 경고가 제공 됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시 된 경고를 확인 하는 것입니다.
+예. Azure Defender를 사용 하도록 설정한 경우에만 많은 Security Center 경고가 제공 됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시 된 경고를 확인 하는 것입니다.
 
 
 

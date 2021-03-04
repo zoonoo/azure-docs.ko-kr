@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633496"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099338"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
 이 항목에서는 Security Center의 경고를 확인 하 고 처리 하 고 리소스를 보호 하는 방법을 보여 줍니다.
 
-보안 경고를 트리거하는 고급 검색은 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. 업그레이드 하려면 [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)을 참조 하세요.
+보안 경고를 트리거하는 고급 검색은 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. 업그레이드 하려면 [Azure Defender 사용](enable-azure-defender.md)을 참조 하세요.
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.

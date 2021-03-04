@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720752"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099406"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Azure Security Center의 SQL information protection 정책
  
@@ -32,7 +32,7 @@ SQL information protection의 [데이터 검색 및 분류 메커니즘](../azur
 Security Center 내의 information protection 정책 옵션은 분류 엔진의 기본값으로 사용 되는 미리 정의 된 레이블 집합 및 정보 유형을 제공 합니다. 아래에 설명 된 대로 조직의 요구 사항에 따라 정책을 사용자 지정할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure 테 넌 트에 대 한 정보 보호 정책을 사용자 지정 하려면 테 넌 트의 루트 관리 그룹에 대 한 관리 권한이 필요 합니다. 자세한 내용은 [Azure Security Center에 대 한 테 넌 트 전체 가시성을 활용](security-center-management-groups.md)하세요.
+> Azure 테 넌 트에 대 한 정보 보호 정책을 사용자 지정 하려면 테 넌 트의 루트 관리 그룹에 대 한 관리 권한이 필요 합니다. [권한 부여 및 요청 테 넌 트 전체 표시 유형에](tenant-wide-permissions-management.md)대해 자세히 알아보세요.
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="SQL information protection 정책을 표시 하는 페이지":::
  
@@ -58,7 +58,7 @@ Information protection 정책에 액세스 하는 방법에는 다음 세 가지
 Security Center의 **가격 책정 및 설정** 페이지에서 **SQL information protection** 을 선택 합니다.
 
 > [!NOTE]
-> 이 옵션은 테 넌 트 수준의 사용 권한이 있는 사용자에 대해서만 표시 됩니다. [자신에 게 테 넌 트 전체 사용 권한을 부여](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)합니다.
+> 이 옵션은 테 넌 트 수준의 사용 권한이 있는 사용자에 대해서만 표시 됩니다. [자신에 게 테 넌 트 전체 사용 권한을 부여](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)합니다.
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Azure Security Center의 가격 책정 및 설정 페이지에서 SQL Information Protection 정책에 액세스":::
 

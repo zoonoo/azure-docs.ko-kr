@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 02292d4559697bc38d47811fe392dc86427515b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d684311ef959ac13f3be8bac7ffbbb06a741962a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662935"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097706"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>개발자 도구 팩 설치 관리자 개요
 
@@ -84,6 +84,8 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
 
         > [!NOTE]
         > Docker는 최신 버전의 macOS에서 Docker 데스크톱을 지원 합니다. 즉, 현재 macOS 릴리스와 이전 두 릴리스가 있습니다. 새 주요 버전의 macOS를 일반적으로 사용할 수 있게 되 면 Docker는 가장 오래 된 버전을 지원 하 고 최신 버전의 macOS (이전 두 릴리스와 함께)를 지원 합니다. Docker Desktop은 현재 macOS Mojave, macOS Catalina.properties 및 macOS Big 성를 지원 합니다.
+        > 
+        - 설치 관리자는 Apple M1에서 지원 되지 않습니다.
 
 ## <a name="instructions"></a>Instructions
 
@@ -99,7 +101,7 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
     
         1. 다운로드 한 후 Dev-Tools-Pack-Installer 파일을 응용 프로그램 폴더로 이동 합니다.
         
-        1. "Dev-Tools-Pack-Installer"를 클릭 하 여 설치 마법사를 엽니다.
+        1. **Dev-Tools-Pack-Installer** 를 클릭 하 여 설치 마법사를 엽니다.
         
         1. "미확인 개발자" 보안 대화 상자가 표시 되는 경우:
         
@@ -123,7 +125,7 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
                 
             1. AppImage 실행 파일을 만들려면 터미널에서 다음을 입력 합니다.
             
-                1. chmod + x Dev-Tools-Pack-Installer. AppImage
+                1. chmod + x **Dev-Tools-Pack-Installer. AppImage**
                 
             1. 터미널에서 설치 관리자를 실행 하려면 다음을 입력 합니다.
             
@@ -141,11 +143,11 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
 
 1. **개발 도구 팩 설치 관리자 설치** 페이지에서 **라이선스 보기** 를 클릭 하 여 설치 관리자에 포함 된 각 소프트웨어 패키지의 사용권 계약을 확인 합니다. 사용권 계약 조건에 동의 하면 확인란을 선택 하 고 **다음** 을 클릭 합니다.
 
-    ![설치 관리자의 사용권 계약 화면입니다.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_license_agreements.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-license-agreements.png" alt-text="설치 관리자의 사용권 계약 화면입니다.":::
 
 1. **개인정보 취급** 방침을 클릭 하 여 Microsoft 개인 정보 취급 방침을 검토 합니다. 개인정보 처리 방침 약관에 동의 하 고 Microsoft에 진단 데이터를 보내려면 **예** 를 선택 하 고 **다음** 을 클릭 합니다. 그렇지 않은 경우 **아니요** 를 선택 하 고 **다음** 을 클릭 합니다.
 
-    ![설치 관리자의 개인 정보 취급 방침 계약 화면입니다.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_privacy_statement.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-privacy-statement.png" alt-text="설치 관리자의 개인 정보 취급 방침 계약 화면입니다.":::
 
 1. **구성 요소 구성** 페이지에서 설치 하려는 선택적 도구를 선택 합니다 (필수 도구는 기본적으로 설치 됨).
 
@@ -153,11 +155,11 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
 
     1. 설치 **를 클릭 하** 여 설치를 계속 합니다.
 
-    ![사용 가능한 소프트웨어 패키지를 보여 주는 설치 관리자 화면](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_configure_components.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-configure-components.png" alt-text="사용 가능한 소프트웨어 패키지를 보여 주는 설치 관리자 화면":::
 
 1. 선택한 모든 구성 요소를 성공적으로 설치 하면 마법사가 **설치 마법사 완료** 페이지로 진행 됩니다. **마침** 을 클릭 하 여 설치 관리자를 종료 합니다.
 
-    ![설치 관리자 완료 화면.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_finish.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-finish.png" alt-text="설치 관리자 완료 화면.":::
 
 ## <a name="docker-status-check"></a>Docker 상태 확인
 
@@ -168,12 +170,12 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
       1. 시스템 트레이 숨김 아이콘을 확장 합니다.
       
          1. 숨겨진 경우 시스템 트레이 숨김 아이콘을 확장 합니다.
-         
-            * ![시스템 트레이](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/SystemTray.png)
+
+            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="시스템 트레이.":::
          
          1. Docker 바탕 화면 아이콘에 ' Docker 데스크톱이 실행 중입니다. '가 표시 되는지 확인 합니다.
-         
-            * ![Docker 상태](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/DockerStatusRunning.png)
+
+            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Docker 상태.":::
          
          1. 시스템 트레이에 위에 나열 된 아이콘이 표시 되지 않으면 시작 메뉴에서 Docker Desktop을 시작 합니다.
          
@@ -181,4 +183,4 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
 
 ## <a name="next-steps"></a>다음 단계
 
-고급 [개발 자습서 (로컬)](./advanced-development-local.md)를 확인 하 여 Azure Percept에 대 한 고급 개발을 시작 하세요.
+Azure Percept 진한 Azure에 대 한 고급 개발을 시작 하려면 [Azure Percept advanced development 리포지토리](https://github.com/microsoft/azure-percept-advanced-development) 를 확인 하세요.

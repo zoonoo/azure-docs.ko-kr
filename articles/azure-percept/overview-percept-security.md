@@ -7,25 +7,25 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: b5a345139114842c83cb1f11792076efb1461870
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a08876cde9fac64c3a361b469049b4e33678a86f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663718"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098148"
 ---
 # <a name="azure-percept-security-overview"></a>Azure Percept 보안 개요
 
-Azure Percept 진한 장치는 모든 장치에서 기본 제공 되는 신뢰의 하드웨어 루트를 사용 하 여 설계 되었습니다. 카메라, 마이크, 유추 데이터 등의 개인 정보 보호 센서를 보호 하 고, Azure Percept Studio 서비스에 대 한 장치 인증 및 권한 부여를 사용 하도록 설정 합니다.
+Azure Percept 진한 장치는 신뢰의 하드웨어 루트: 모든 장치에 대 한 추가 기본 제공 보안을 사용 하 여 설계 되었습니다. 카메라, 마이크, 유추 데이터 등의 개인 정보 보호 센서를 보호 하 고, Azure Percept Studio 서비스에 대 한 장치 인증 및 권한 부여를 사용 하도록 설정 합니다.
 
 > [!NOTE]
-> Azure Percept 진한은 개발 및 테스트 환경과 개념 증명 시나리오에서 사용 하기 위한 것입니다.
+> Azure Percept 진한은 개발 및 테스트 환경 에서만 사용이 허가 됩니다.
 
 ## <a name="devices"></a>디바이스
 
-### <a name="azure-percept-dk"></a>Azure Percept 진한
+### <a name="azure-percept-dk"></a>Azure Percept DK
 
-Azure Percept에는 장치를 Azure 장치 프로 비전 서비스에 안전 하 게 연결 하는 데 활용할 수 있는 TPM (신뢰할 수 있는 플랫폼 모듈) 버전 2.0이 포함 되어 있습니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/resource/tpm-library-specification/) 또는 ISO/IEC 11889 사양에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. DPS에서 안전 하 게 장치를 프로 비전 하는 방법에 대 한 자세한 내용은 [장치 프로 비전 서비스-TPM 증명 Azure IoT Hub](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation)를 참조 하세요.
+Azure Percept에는 추가 보안을 사용 하 여 장치를 Azure 장치 프로 비전 서비스에 연결 하는 데 활용할 수 있는 TPM (신뢰할 수 있는 플랫폼 모듈) 버전 2.0이 포함 되어 있습니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/resource/tpm-library-specification/) 또는 ISO/IEC 11889 사양에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. DPS에서 안전 하 게 장치를 프로 비전 하는 방법에 대 한 자세한 내용은 [장치 프로 비전 서비스-TPM 증명 Azure IoT Hub](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation)를 참조 하세요.
 
 ### <a name="azure-percept-system-on-module-som"></a>Azure SOM (Percept system on module)
 
@@ -37,11 +37,11 @@ Azure Percept 장치는 하드웨어 루트 트러스트를 사용 하 여 펌�
 
 ### <a name="iot-edge"></a>IoT Edge
 
-Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 azure Percept Studio 및 기타 Azure 서비스에 안전 하 게 연결 됩니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06)를 참조 하세요.
+Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 추가 보안 및 기타 Azure 서비스를 사용 하 여 Azure Percept Studio에 연결 합니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06)를 참조 하세요.
 
 ### <a name="device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트
 
-IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 가능한 보안을 제공 하는 안전 하 고 확장 가능 하며 안정적인 공중파 업데이트를 사용할 수 있습니다. 풍부한 관리 제어 기능을 제공 하 고 정보를 통해 규정 준수를 업데이트 합니다. Azure Percept 진한에는 펌웨어에서 OS 계층으로의 복원 력 업데이트 (A/B)를 제공 하는 사전 통합 된 장치 업데이트 솔루션이 포함 되어 있습니다.
+IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 가능한 보안을 제공 하는 더 안전 하 고 확장 가능 하며 안정적인 공중파 업데이트를 사용할 수 있습니다. 풍부한 관리 제어 기능을 제공 하 고 정보를 통해 규정 준수를 업데이트 합니다. Azure Percept 진한에는 펌웨어에서 OS 계층으로의 복원 력 업데이트 (A/B)를 제공 하는 사전 통합 된 장치 업데이트 솔루션이 포함 되어 있습니다.
 
 <!---I think the below topics need to be somewhere else, (i.e. not on the main page)
 --->
@@ -57,16 +57,19 @@ IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 
 |*. auth.azureperceptdk.azure.net|   443|    Azure 진한 SOM 인증 및 권한 부여|
 |*. auth.projectsantacruz.azure.net| 443|    Azure 진한 SOM 인증 및 권한 부여|
 
-또한 [AZURE IOT Edge에서 사용 하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
+또한 [Azure IoT Edge에서 사용 하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
 
-## <a name="additional-recommendations-for-deployment-to-production"></a>프로덕션 환경에 대 한 추가 권장 사항
+<!---
+## Additional Recommendations for Deployment to Production
 
-Azure Percept는 기본 제공 되는 다양 한 보안 기능을 제공 합니다. Microsoft는 현재 릴리스에 포함 된 강력한 보안 기능 외에도 프로덕션 배포를 고려할 때 다음과 같은 지침을 제안 합니다.
+Azure Percept DK offers a great variety of security capabilities out of the box. In addition to those powerful security features included in the current release, Microsoft also suggests the following guidelines when considering production deployments:
 
-- 장치 자체의 강력한 물리적 보호
-- 미사용 데이터 암호화를 사용할 수 있도록 설정
-- 장치 상태를 지속적으로 모니터링 하 고 경고에 신속 하 게 응답
-- 장치에 대 한 액세스 권한이 있는 관리자 수 제한
+- Strong physical protection of the device itself
+- Ensuring data at rest encryption is enabled
+- Continuously monitoring the device posture and quickly responding to alerts
+- Limiting the number of administrators who have access to the device
+--->
+
 
 ## <a name="next-steps"></a>다음 단계
 

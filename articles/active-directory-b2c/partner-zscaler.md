@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fe427150b15c6bccb97172ae751235d388c95c7b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dbeb3cd4fccf80f434e6c7ac08c658632f64b135
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675029"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096856"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Zscaler Private 액세스 구성
 
@@ -44,7 +44,7 @@ ZPA 통합에는 다음 구성 요소가 포함 됩니다.
 
 시퀀스는 다음 표에 설명 되어 있습니다.
 
-|단계 | Description |
+|단계 | 설명 |
 | :-----:| :-----------|
 | 1 | 사용자가 ZPA 사용자 포털 또는 ZPA 브라우저 액세스 응용 프로그램에 도착 합니다.
 | 2 | 사용자가 웹 응용 프로그램에 액세스할 수 있도록 허용할지 여부를 결정 하려면 ZPA에 사용자 컨텍스트 정보가 필요 합니다. 사용자를 인증 하기 위해 ZPA는 Azure AD B2C 로그인 페이지에 대 한 SAML 리디렉션을 수행 합니다.  
@@ -100,11 +100,11 @@ Azure AD B2C 테 넌 트에서 사용자 지정 정책을 구성 하려면 [Azur
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>3 단계: Azure AD B2C에서 SAML 응용 프로그램으로 ZPA 등록
 
-Azure AD B2C에서 SAML 응용 프로그램을 구성 하려면 [Azure AD B2C에 saml 응용 프로그램 등록](./connect-with-saml-service-providers.md)을 참조 하세요. 
+Azure AD B2C에서 SAML 응용 프로그램을 구성 하려면 [Azure AD B2C에 saml 응용 프로그램 등록](./saml-service-provider.md)을 참조 하세요. 
 
-["3.2 정책 메타 데이터 업로드 및 테스트"](./connect-with-saml-service-providers.md#32-upload-and-test-your-policy-metadata)단계에서 Azure AD B2C에 사용 되는 IdP SAML 메타 데이터 URL을 복사 하거나 적어 둡니다. 나중에 필요합니다.
+["정책 업로드"](./saml-service-provider.md#upload-your-policy)단계에서 Azure AD B2C에 사용 되는 IdP SAML 메타 데이터 URL을 복사 하거나 적어 둡니다. 나중에 필요합니다.
 
-["4.2 응용 프로그램 매니페스트 업데이트"](./connect-with-saml-service-providers.md#42-update-the-app-manifest)단계를 수행 하 여 지침을 따르세요. 4.2 단계에서 다음과 같이 응용 프로그램 매니페스트 속성을 업데이트 합니다.
+["Azure AD B2C에서 응용 프로그램 구성"](./saml-service-provider.md#configure-your-application-in-azure-ad-b2c)단계를 수행 하 여 지침을 따르세요. 4.2 단계에서 다음과 같이 응용 프로그램 매니페스트 속성을 업데이트 합니다.
 
 - **IdentifierUris**: 이전에 "1.6. b 단계"에서 복사한 서비스 공급자 엔터티 ID를 사용 합니다.  
 - **SamlMetadataUrl**: ZPA가 SAML 메타 데이터 URL을 호스팅하지 않으므로이 속성을 건너뜁니다.  
@@ -150,6 +150,6 @@ ZPA 사용자 포털 또는 브라우저 액세스 응용 프로그램으로 이
 자세한 내용은 다음 문서를 검토 하세요.
 
 - [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md)
-- [Azure AD B2C에 SAML 애플리케이션 등록](./connect-with-saml-service-providers.md)
+- [Azure AD B2C에 SAML 애플리케이션 등록](./saml-service-provider.md)
 - [ZPA에 대 한 단계별 구성 가이드](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Single Sign-On에 대 한 IdP 구성](https://help.zscaler.com/zpa/configuring-idp-single-sign)

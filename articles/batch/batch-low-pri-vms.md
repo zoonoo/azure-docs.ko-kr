@@ -3,14 +3,14 @@ title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 author: mscurrell
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: 9214ef83ec9b8bef4fb7bc7489aa0ab388f67c0d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507278"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098471"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
@@ -25,9 +25,9 @@ Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워�
 > [!NOTE]
 > 이제 [스폿 VM](https://azure.microsoft.com/pricing/spot/)은 [단일 인스턴스 VM](../virtual-machines/spot-vms.md) 및 [VM 확장 집합](../virtual-machine-scale-sets/use-spot.md)에 사용 가능합니다. 스폿 VM은 우선 순위가 낮은 VM이 개선된 것으로, 스폿 VM을 할당하는 경우 가격 책정이 다를 수 있고 선택적인 최대 가격을 설정할 수 있다는 점에서 다릅니다.
 >
-> Azure Batch 풀은 새 버전의 [Batch API 및 도구](./batch-apis-tools.md)를 사용하여 출시 후 몇 개월 이내에 스폿 VM을 지원합니다. 스폿 VM 지원이 제공되면 우선 순위가 낮은 VM은 더 이상 사용되지 않습니다. 스폿 VM으로 마이그레이션하기에 충분한 시간을 허용하기 위해 최소 12개월 동안 현재 API 및 도구 버전을 사용하여 계속 지원합니다.
+>Azure Batch 풀은 나중에 새 버전의 [Batch api 및 도구](./batch-apis-tools.md)를 사용 하 여 스폿 vm을 지원 하기 시작 합니다. 지점 VM 지원 기능을 사용할 수 있게 되 면 우선 순위가 낮은 Vm은 더 이상 사용 되지 않습니다. 현재 Api 및 도구 버전을 사용 하 여 최소 12 개월 동안 현재 Api 및 도구 버전을 사용 하 여 지점 Vm으로의 마이그레이션에 충분 한 시간을 허용 합니다.
 >
-> 스폿 VM은 [클라우드 서비스 구성](/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀에 지원되지 않습니다. 스폿 VM을 사용하려면 클라우드 서비스 풀을 [가상 머신 구성](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀로 마이그레이션해야 합니다.
+> 지점 Vm은 가상 컴퓨터 구성 풀에 대해서만 지원 됩니다. 지점 Vm을 사용 하려면 클라우드 서비스 구성 풀을 [가상 컴퓨터 구성 풀로 마이그레이션해야](batch-pool-cloud-service-to-virtual-machine-configuration.md)합니다.
 
 ## <a name="batch-support-for-low-priority-vms"></a>우선 순위가 낮은 VM에 대한 Batch 지원
 

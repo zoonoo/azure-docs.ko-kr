@@ -6,20 +6,25 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/12/2020
-ms.author: matjazl
-ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.author: zxue
+ms.openlocfilehash: 5e24c7666fd2ece7d284b7705bc481866d7604de
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621881"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097043"
 ---
 # <a name="configure-private-link"></a>개인 링크 구성
 
 개인 링크를 사용 하면 가상 네트워크의 개인 IP 주소를 사용 하 여 안전 하 게 안전 하 게 연결 하는 네트워크 인터페이스인 개인 끝점을 통해 FHIR 용 Azure API에 액세스할 수 있습니다. 개인 링크를 사용 하 여 공용 DNS를 통하지 않고도 Vnet에서 자사 서비스로 안전 하 게 서비스에 액세스할 수 있습니다. 이 문서에서는 FHIR 용 Azure API에 대 한 개인 끝점을 만들고, 테스트 하 고, 관리 하는 방법을 안내 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+>[!Note]
+>개인 링크를 사용 하도록 설정한 후에는 개인 링크 및 Azure API for FHIR을 한 리소스 그룹에서 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다. 이동 하려면 먼저 개인 링크를 삭제 한 다음, 이동이 완료 되 면 Azure API를 FHIR로 이동 하 고 새 개인 링크를 만듭니다. 개인 링크를 삭제 하기 전에 잠재적인 보안 효과를 평가 합니다.
+>
+>Azure API for FHIR에 대해 감사 로그 내보내기 및/메트릭을 사용 하는 경우 포털에서 진단 설정을 통해 내보내기 설정을 업데이트 합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 개인 끝점을 만들기 전에 먼저 만들어야 할 몇 가지 Azure 리소스가 있습니다.
 
