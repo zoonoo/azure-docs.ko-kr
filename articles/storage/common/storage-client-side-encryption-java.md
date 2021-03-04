@@ -6,17 +6,17 @@ author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78baaa3f794bed870b40fb3975f6b80ff37e90f0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817509"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043731"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "91817509"
 스토리지 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
-클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **upload*** 메서드 또는 **openOutputStream** 메서드를 사용할 때 암호화가 지원됩니다. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.  
+클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **upload** _ 메서드나 _ *openOutputStream** 메서드를 사용할 때 암호화가 지원 됩니다. 다운로드는 전체 및 범위 다운로드가 모두 지원됩니다.  
 
 암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
@@ -122,7 +122,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 3. 암호화 정책을 생성하는 동안 캐싱 확인자를 입력으로 사용합니다.
    주요 자격 증명 모음 사용법에 대한 자세한 내용은 암호화 코드 샘플에서 찾을 있습니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 암호화 지원은 Java용 스토리지 클라이언트 라이브러리에만 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -152,7 +152,13 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** 을 사용합니다.
 
 ### <a name="blob-service-encryption"></a>Blob service 암호화
-**BlobEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions**를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**BlobEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions** 를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+
+# <a name="java-v12"></a>[Java v12](#tab/java)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+
+# <a name="java-v8"></a>[Java v8](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -172,9 +178,16 @@ blob.upload(stream, size, null, options, null);
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 blob.download(outputStream, null, options, null);
 ```
+---
 
 ### <a name="queue-service-encryption"></a>큐 서비스 암호화
-**QueueEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions**를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+**QueueEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions** 를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
+
+# <a name="java-v12"></a>[Java v12](#tab/java)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+
+# <a name="java-v8"></a>[Java v8](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -192,11 +205,18 @@ queue.addMessage(message, 0, 0, options, null);
 // Retrieve message
 CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
+---
 
 ### <a name="table-service-encryption"></a>Table service 암호화
-암호화 정책을 만들고 요청 옵션에 설정 하는 것 외에도 **TableRequestOptions**에서 두 번째 **해결** 프로그램을 지정 하거나 엔터티의 getter 및 setter에 [Encrypt] 특성을 설정 해야 합니다.
+암호화 정책을 만들고 요청 옵션에 설정 하는 것 외에도 **TableRequestOptions** 에서 두 번째 **해결** 프로그램을 지정 하거나 엔터티의 getter 및 setter에 [Encrypt] 특성을 설정 해야 합니다.
 
 ### <a name="using-the-resolver"></a>확인자를 사용하여
+
+# <a name="java-v12"></a>[Java v12](#tab/java)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+
+# <a name="java-v8"></a>[Java v8](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -228,9 +248,16 @@ retrieveOptions.setEncryptionPolicy(policy);
 TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
 TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
+---
 
 ### <a name="using-attributes"></a>특성 사용
-앞서 설명한 것처럼 엔터티가 TableEntity를 구현하는 경우 **EncryptionResolver**를 지정하는 대신 [Encrypt] 특성으로 속성 getter와 setter를 데코레이트할 수 있습니다.
+앞서 설명한 것처럼 엔터티가 TableEntity를 구현하는 경우 **EncryptionResolver** 를 지정하는 대신 [Encrypt] 특성으로 속성 getter와 setter를 데코레이트할 수 있습니다.
+
+# <a name="java-v12"></a>[Java v12](#tab/java)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+
+# <a name="java-v8"></a>[Java v8](#tab/java8)
 
 ```java
 private string encryptedProperty1;
@@ -245,6 +272,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
     this.encryptedProperty1 = encryptedProperty1;
 }
 ```
+---
 
 ## <a name="encryption-and-performance"></a>암호화 및 성능
 

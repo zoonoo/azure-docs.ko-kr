@@ -4,19 +4,19 @@ description: Azure IoT Edge 디바이스를 다운스트림 디바이스의 정�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370430"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046026"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -26,10 +26,9 @@ ms.locfileid: "100370430"
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->현재 상황:
+>IoT Edge 버전 1.1 이상에서 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
 >
-> * Edge 가능 디바이스는 IoT Edge 게이트웨이에 연결할 수 없습니다.
-> * 다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
+>다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
 
 ::: moniker-end
 
@@ -37,9 +36,7 @@ ms.locfileid: "100370430"
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->현재 상황:
->
-> * 다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
+>다운스트림 디바이스는 파일 업로드를 사용할 수 없습니다.
 
 ::: moniker-end
 
@@ -51,7 +48,17 @@ ms.locfileid: "100370430"
 
 장치가 게이트웨이로 작동 하려면 다운스트림 장치에 안전 하 게 연결 해야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우 다운스트림 장치는 투명 게이트웨이 역할을 하는 IoT Edge 장치에 연결할 수 있습니다. 적절 한 보안을 유지 하기 위해 다운스트림 장치는 게이트웨이 장치의 id를 확인 해야 합니다. 이 id 검사는 장치에서 잠재적으로 악성 게이트웨이에 연결 하는 것을 방지 합니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 다운스트림 디바이스는 [Azure IoT Hub](../iot-hub/index.yml) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 이러한 응용 프로그램은 종종 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용 합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+다운스트림 디바이스는 [Azure IoT Hub](../iot-hub/index.yml) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 이러한 응용 프로그램은 종종 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용 합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다.
+:::moniker-end
+<!-- end 1.2 -->
 
 디바이스-게이트웨이 토폴로지에 필요한 신뢰를 설정하는 어떤 인증서 인프라도 만들 수 있습니다. 이 문서에서는 IoT Hub에서 [X.509 ca 보안](../iot-hub/iot-hub-x509ca-overview.md) 을 사용 하도록 설정 하는 데 사용 하는 것과 동일한 인증서 설정을 가정 합니다. 여기에는 특정 iot Hub (iot HUB 루트 CA)와 연결 된 x.509 ca 인증서,이 ca로 서명 된 일련의 인증서 및 IOT EDGE 장치용 ca가 포함 됩니다.
 
@@ -64,7 +71,7 @@ ms.locfileid: "100370430"
 
 IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
-장치가 준비 되지 않은 경우 Azure 가상 머신에서 하나를 만들 수 있습니다. [가상 Linux 장치에 첫 번째 IoT Edge 모듈 배포](quickstart-linux.md) 의 단계에 따라 IoT Hub를 만들고, 가상 머신을 만들고, IoT Edge 런타임을 구성 합니다. 
+장치가 준비 되지 않은 경우 Azure 가상 머신에서 하나를 만들 수 있습니다. [가상 Linux 장치에 첫 번째 IoT Edge 모듈 배포](quickstart-linux.md) 의 단계에 따라 IoT Hub를 만들고, 가상 머신을 만들고, IoT Edge 런타임을 구성 합니다.
 
 ## <a name="set-up-the-device-ca-certificate"></a>장치 CA 인증서 설정
 
@@ -72,7 +79,7 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
 ![게이트웨이 인증서 설정](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-루트 CA 인증서와 장치 CA 인증서 (개인 키 포함)는 IoT Edge 게이트웨이 장치에 있어야 하 고 IoT Edge 구성. yaml 파일에서 구성 해야 합니다. 이 경우 *루트 CA 인증서* 는이 IoT Edge 시나리오에 대 한 최상위 인증 기관을 의미 합니다. 게이트웨이 장치 CA 인증서와 다운스트림 장치 인증서가 동일한 루트 CA 인증서로 롤업 되어야 합니다.
+루트 CA 인증서와 장치 CA 인증서 (개인 키 포함)가 IoT Edge 게이트웨이 장치에 있어야 하 고 IoT Edge 구성 파일에 구성 되어 있어야 합니다. 이 경우 *루트 CA 인증서* 는이 IoT Edge 시나리오에 대 한 최상위 인증 기관을 의미 합니다. 게이트웨이 장치 CA 인증서와 다운스트림 장치 인증서가 동일한 루트 CA 인증서로 롤업 되어야 합니다.
 
 >[!TIP]
 >IoT Edge 장치에 루트 CA 인증서 및 장치 CA 인증서를 설치 하는 프로세스는 [IoT Edge 장치에서 인증서 관리](how-to-manage-device-certificates.md)에 자세히 설명 되어 있습니다.
@@ -85,7 +92,7 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
 프로덕션 시나리오의 경우 사용자 고유의 인증 기관으로 이러한 파일을 생성 해야 합니다. 개발 및 테스트 시나리오의 경우 데모 인증서를 사용할 수 있습니다.
 
-1. 데모 인증서를 사용 하는 경우 데모 인증서 만들기의 지침을 사용 하 여 [IoT Edge 장치 기능을 테스트](how-to-create-test-certificates.md) 하 여 파일을 만듭니다. 해당 페이지에서 다음 단계를 수행 해야 합니다.
+본인의 인증 기관이 없고 데모 인증서를 사용 하려는 경우 데모 인증서 만들기의 지침에 따라 [IoT Edge 장치 기능을 테스트 하](how-to-create-test-certificates.md) 여 파일을 만듭니다. 해당 페이지에서 다음 단계를 수행 해야 합니다.
 
    1. 시작 하려면 장치에서 인증서를 생성 하는 스크립트를 설정 합니다.
    2. 루트 CA 인증서를 만듭니다. 이러한 지침이 끝날 때 루트 CA 인증서 파일을 갖게 됩니다.
@@ -94,24 +101,55 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` 또는
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. 다른 컴퓨터에서 인증서를 만든 경우 IoT Edge 장치에 복사 합니다.
+다른 컴퓨터에서 인증서를 만든 경우 IoT Edge 장치에 복사 하 여 다음 단계를 진행 합니다.
 
-3. IoT Edge 장치에서 보안 디먼 구성 파일을 엽니다.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+1. IoT Edge 장치에서 보안 디먼 구성 파일을 엽니다.
+
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. 파일의 **인증서 설정** 섹션을 찾습니다. **인증서** 로 시작 하는 네 줄의 주석 처리를 제거 하 고 다음 속성에 대 한 값으로 세 파일에 파일 uri를 제공 합니다.
+1. 파일의 **인증서 설정** 섹션을 찾습니다. **인증서** 로 시작 하는 네 줄의 주석 처리를 제거 하 고 다음 속성에 대 한 값으로 세 파일에 파일 uri를 제공 합니다.
    * **device_ca_cert**: 장치 ca 인증서
    * **device_ca_pk**: 장치 ca 개인 키
    * **trusted_ca_certs**: 루트 ca 인증서
 
    **인증서:** 줄에 앞의 공백이 없고 다른 줄이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
 
-5. 파일을 저장하고 닫습니다.
+1. 파일을 저장하고 닫습니다.
 
-6. IoT Edge를 다시 시작 합니다.
+1. IoT Edge를 다시 시작 합니다.
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. IoT Edge 장치에서 구성 파일을 엽니다. `/etc/aziot/config.toml`
+
+   >[!TIP]
+   >구성 파일이 장치에 아직 없는 경우 템플릿으로를 사용 `/etc/aziot/config.toml.edge.template` 하 여 만듭니다.
+
+1. `trust_bundle_cert`매개 변수를 찾습니다. 이 줄의 주석 처리를 제거 하 고 장치에서 루트 CA 인증서 파일에 대 한 파일 URI를 제공 합니다.
+
+1. `[edge_ca]`파일의 섹션을 찾습니다. 이 섹션에서 세 줄의 주석 처리를 제거 하 고 인증서 및 키 파일에 대 한 파일 Uri를 다음 속성의 값으로 제공 합니다.
+   * **cert**: 장치 CA 인증서
+   * **pk**: 장치 CA 개인 키
+
+1. 파일을 저장하고 닫습니다.
+
+1. IoT Edge를 다시 시작 합니다.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="deploy-edgehub-and-route-messages"></a>EdgeHub 배포 및 메시지 라우팅
 
@@ -137,7 +175,7 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 5. **다음: 경로** 를 선택 합니다.
 
-6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 다음은 그 예입니다. 
 
    * 모듈이 나 다운스트림 장치에서 IoT Hub 하 여 모든 메시지를 보내는 경로입니다.
        * **이름**: `allMessagesToHub`

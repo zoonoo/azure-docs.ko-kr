@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 02/18/2021
 ms.author: radeltch
-ms.openlocfilehash: e8d58a74f9ce8489465934398014dd4af3309a9e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669834"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045839"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -82,6 +82,9 @@ ms.locfileid: "101669834"
 * [장애 조치 (Failover) 클러스터에 (A) SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Azure NetApp Files에 대한 SMB 볼륨 만들기](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
+
+> [!IMPORTANT]
+> 주의: smb [Azure NetApp Files][anf-azure-doc] 공유에서 swpm을 사용 하는 SAP 시스템을 설치 하는 경우에는 "warningPerm가 정의 되어 있지 않습니다."와 같은 사용 권한이 부족 하 여 설치 오류가 발생할 수 있습니다. 오류를 방지 하려면 SWPM 컨텍스트를 실행 하는 사용자에 게 SAP 시스템을 설치 하는 동안 상승 된 권한 "도메인 관리자"가 필요 합니다.  
 
 ## <a name="overview"></a>개요
 

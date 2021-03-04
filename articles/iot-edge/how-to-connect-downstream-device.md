@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437034"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046128"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "96437034"
 
 이 문서에서 *게이트웨이* 및 *IoT Edge 게이트웨이* 라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 장치 CA 인증서를 생성 하는 데 사용 된 루트 CA 인증서 파일을 사용 하 여 다운스트림 장치에서 사용할 수 있는 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 데모 인증서를 사용 하는 경우 루트 CA 인증서를 **azure-iot-test-only** 라고 합니다.
 * [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 된 대로 게이트웨이 장치를 가리키는 수정 된 연결 문자열이 있어야 합니다.
@@ -127,7 +127,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    예: `<path>/azure-iot-test-only.root.ca.cert.pem`.
+    예들 들어 `<path>/azure-iot-test-only.root.ca.cert.pem`입니다.
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -214,7 +214,7 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 
 리프 장치가 게이트웨이 장치에 간헐적으로 연결 되어 있는 경우 다음 단계를 수행 하 여 해결 합니다.
 
-1. 연결 문자열의 게이트웨이 호스트 이름이 게이트웨이 장치에 있는 IoT Edge 구성. yaml 파일의 hostname 값과 동일 합니까?
+1. 연결 문자열의 게이트웨이 호스트 이름이 게이트웨이 장치의 IoT Edge 구성 파일에 있는 호스트 이름 값과 동일 합니까?
 2. 게이트웨이 호스트 이름을 IP 주소로 확인할 수 있나요? DNS를 사용 하거나 리프 장치에 호스트 파일 항목을 추가 하 여 간헐적 연결을 해결할 수 있습니다.
 3. 통신 포트가 방화벽에서 열려 있나요? 사용 된 프로토콜 (MQTTS: 8883/AMQPS: 5671/HTTPS: 433)을 기반으로 하는 통신은 다운스트림 장치와 투명 IoT Edge 사이에서 가능 해야 합니다.
 

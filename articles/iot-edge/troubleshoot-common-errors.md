@@ -4,19 +4,19 @@ description: IoT Edge 솔루션을 배포할 때 발생 하는 일반적인 문�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382211"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045975"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -75,7 +75,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 예를 들면 다음과 같습니다.
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 다음은 그 예입니다. 
 
 ```json
 {
@@ -103,7 +103,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
+IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 다음은 그 예입니다. 
 
 ```json
 "createOptions": {
@@ -216,6 +216,9 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 
 이 오류를 표시하는 경우 가상 머신의 DNS 이름을 구성한 다음, 설정 명령에서 DNS 이름을 호스트 이름으로 설정하여 해결할 수 있습니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Azure Portal에서 가상 머신의 개요 페이지로 이동합니다.
 2. DNS 이름에서 **구성** 을 선택합니다. 가상 머신에 DNS 이름이 이미 구성되어 있으면 새 이름을 구성할 필요가 없습니다.
 
@@ -236,6 +239,39 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Azure Portal에서 가상 머신의 개요 페이지로 이동합니다.
+
+2. DNS 이름에서 **구성** 을 선택합니다. 가상 머신에 DNS 이름이 이미 구성되어 있으면 새 이름을 구성할 필요가 없습니다.
+
+   ![가상 머신의 DNS 이름 구성](./media/troubleshoot/configure-dns.png)
+
+3. **DNS 이름 레이블** 에 대한 값을 입력하고 **저장** 을 선택합니다.
+
+4. 새 DNS 이름 (형식 이어야 함)을 복사 합니다. **\<DNSnamelabel\> \<vmlocation\> cloudapp.azure.com**.
+
+5. IoT Edge 장치에서 구성 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. 의 값을 `hostname` DNS 이름으로 바꿉니다.
+
+7. 파일을 저장 하 고 닫은 다음 IoT Edge에 변경 내용을 적용 합니다.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Windows에서 IoT Edge 디먼 로그를 가져올 수 없습니다.
 
@@ -343,7 +379,7 @@ IoT Edge 데몬이 올바른 구성 파일을 사용 하 여 활성화 되어 �
 
 **근본 원인:**
 
-게이트웨이 뒤에 있는 장치를 IoT Edge는 `parent_hostname` config.xml 파일의 필드에 지정 된 부모 IoT Edge 장치에서 모듈 이미지를 가져옵니다. `Could not perform HTTP request`오류는 자식 장치가 HTTP를 통해 부모 장치에 연결할 수 없음을 의미 합니다.
+게이트웨이 뒤에 있는 장치를 IoT Edge `parent_hostname` 구성 파일의 필드에 지정 된 부모 IoT Edge 장치에서 모듈 이미지를 가져옵니다. `Could not perform HTTP request`오류는 자식 장치가 HTTP를 통해 부모 장치에 연결할 수 없음을 의미 합니다.
 
 **해결 방법:**
 

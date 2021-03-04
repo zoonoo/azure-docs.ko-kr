@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 04/09/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ee51b31246760e4619eef1e16e800b16ea886de0
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: f4b33b0156f1a5e27f71509cad637684a0332413
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430716"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046162"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -29,7 +29,7 @@ ms.locfileid: "99430716"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -52,10 +52,14 @@ X.509를 사용 하 여 자동 프로비저닝을 설정 하려면 다음 파일
 * 하나 이상의 장치 id와 중간 인증서가 있어야 하는 전체 체인 인증서. 전체 체인 인증서는 IoT Edge 런타임에 전달 됩니다.
 * 인증서 신뢰 체인의 중간 또는 루트 CA 인증서입니다. 이 인증서는 그룹 등록을 만드는 경우 DPS에 업로드 됩니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 > [!NOTE]
 > 현재 libiothsm의 제한으로 인해 2038 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
-### <a name="use-test-certificates"></a>테스트 인증서 사용
+:::moniker-end
+
+### <a name="use-test-certificates-optional"></a>테스트 인증서 사용 (선택 사항)
 
 새 id 인증서를 만드는 데 사용할 수 있는 인증 기관이 없고이 시나리오를 사용해 보려는 경우 git 리포지토리에 Azure IoT Edge는 테스트 인증서를 생성 하는 데 사용할 수 있는 스크립트가 포함 되어 있습니다. 이러한 인증서는 개발 테스트용 으로만 설계 되었으며 프로덕션 환경에서는 사용 하지 않아야 합니다.
 
@@ -227,18 +231,21 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 
 ### <a name="linux-device"></a>Linux 장치
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. IoT Edge 장치에서 구성 파일을 엽니다.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
    ```
 
-1. 파일의 프로 비전 구성 섹션을 찾습니다. DPS 대칭 키 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+1. 파일의 프로 비전 구성 섹션을 찾습니다. DPS x.509 certificate 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
 
    `provisioning:`줄은 앞에 공백이 없어야 하며 중첩 항목은 두 개의 공백으로 들여쓰기 되어야 합니다.
 
    ```yml
-   # DPS TPM provisioning configuration
+   # DPS X.509 provisioning configuration
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
@@ -252,8 +259,6 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
    #  dynamic_reprovisioning: false
    ```
 
-   필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
-
 1. , 및의 값 `scope_id` 을 `identity_cert` `identity_pk` DPS 및 장치 정보로 업데이트 합니다.
 
    X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다. 
@@ -261,13 +266,74 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. `registration_id`원하는 경우 장치에 대 한를 제공 하거나,이 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
+1. 필요에 따라 `registration_id` 장치에 대 한를 제공 합니다. 그렇지 않으면 해당 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
+
+1. 필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
+
+1. Config.xml 파일을 저장 한 후 닫습니다.
 
 1. 디바이스에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. IoT Edge 설치의 일부로 제공 되는 템플릿 파일을 기반으로 장치에 대 한 구성 파일을 만듭니다.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. IoT Edge 장치에서 구성 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. 파일의 **프로 비전** 섹션을 찾습니다. X.509 인증서를 사용 하 여 DPS 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+
+   ```toml
+   # DPS provisioning with X.509 certificate
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "x509"
+   # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+
+   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+
+   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
+
+1. , 및의 값 `id_scope` 을 `identity_cert` `identity_pk` DPS 및 장치 정보로 업데이트 합니다.
+
+   Id 인증서 값을 파일 URI로 제공 하거나 EST 또는 로컬 인증 기관을 사용 하 여 동적으로 실행할 수 있습니다. 사용 하도록 선택한 형식에 따라 한 줄의 주석 처리를 제거 합니다.
+
+   Id 개인 키 값은 파일 URI 또는 PKCS # 11 URI로 제공 될 수 있습니다. 사용 하도록 선택한 형식에 따라 한 줄의 주석 처리를 제거 합니다.
+
+   PKCS # 11 Uri를 사용 하는 경우 구성 파일에서 **pkcs # 11** 섹션을 찾고 pkcs # 11 구성에 대 한 정보를 제공 합니다.
+
+1. 필요에 따라 `registration_id` 장치에 대 한를 제공 합니다. 그렇지 않으면 해당 줄을 주석으로 처리 하 여 id 인증서의 일반 이름으로 장치를 등록 합니다.
+
+1. 파일을 저장하고 닫습니다.
+
+1. IoT Edge에 대 한 구성 변경 내용을 적용 합니다.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="windows-device"></a>Windows 디바이스
 
@@ -287,7 +353,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
    ```
 
    >[!TIP]
-   >Config.xml 파일은 인증서 및 키 정보를 파일 Uri로 저장 합니다. 그러나 Initialize-IoTEdge 명령은이 형식 지정 단계를 처리 하므로 장치의 인증서 및 키 파일에 대 한 절대 경로를 제공할 수 있습니다.
+   >구성 파일은 인증서 및 키 정보를 파일 Uri로 저장 합니다. 그러나 Initialize-IoTEdge 명령은이 형식 지정 단계를 처리 하므로 장치의 인증서 및 키 파일에 대 한 절대 경로를 제공할 수 있습니다.
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
@@ -298,6 +364,9 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 디바이스에서 다음 명령을 사용하여 런타임이 성공적으로 설치되고 시작되는지 확인합니다.
 
 ### <a name="linux-device"></a>Linux 장치
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 IoT Edge 서비스의 상태를 확인합니다.
 
@@ -316,6 +385,29 @@ journalctl -u iotedge --no-pager --no-full
 ```cmd/sh
 iotedge list
 ```
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 서비스의 상태를 확인합니다.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+서비스 로그를 검사 합니다.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+실행 중인 모듈을 나열합니다.
+
+```cmd/sh
+sudo iotedge list
+```
+:::moniker-end
 
 ### <a name="windows-device"></a>Windows 디바이스
 

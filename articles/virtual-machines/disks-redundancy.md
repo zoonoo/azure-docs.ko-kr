@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cafbff86a55ad0bed7da17fcef1aea2b0a53d1b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679712"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043646"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>관리 디스크에 대 한 중복성 옵션
 
@@ -34,7 +34,7 @@ LRS (로컬 중복 저장소)는 선택한 지역의 단일 데이터 센터 내
 
 ZRS (영역 중복 저장소)는 선택한 지역에 있는 세 개의 Azure 가용성 영역에서 Azure 관리 디스크를 동기적으로 복제 합니다. 각 가용성 영역은 독립적인 전원, 냉각 및 네트워킹을 갖춘 별도의 물리적 위치입니다. 
 
-ZRS 디스크를 사용 하면 가용성 영역에서 오류를 복구할 수 있습니다. 전체 영역 작동이 중단 되 면 다른 영역의 VM에 ZRS 디스크를 연결할 수 있습니다. 또한 공유 디스크와 함께 ZRS 디스크를 사용 하 여 SQL FCI, SAP ASCS/SCS 또는 GFS2와 같은 클러스터 된 응용 프로그램 또는 배포 된 응용 프로그램의 가용성을 향상 시킬 수 있습니다. ZRS와 [가용성 영역](../availability-zones/az-overview.md)를 모두 활용 하기 위해 공유 된 ZRS 디스크를 다른 영역의 기본 및 보조 vm에 연결할 수 있습니다. 주 영역에 오류가 발생 하면 [SCSI 영구 예약](disks-shared-enable.md#supported-scsi-pr-commands)을 사용 하 여 보조 VM으로 신속 하 게 장애 조치할 수 있습니다.
+ZRS 디스크를 사용 하면 가용성 영역에서 오류를 복구할 수 있습니다. 전체 영역 작동이 중단 되 면 다른 영역의 VM에 ZRS 디스크를 연결할 수 있습니다. ZRS 디스크를 공유 디스크로 사용 하 여 SQL FCI, SAP ASCS/SCS 또는 GFS2와 같은 클러스터 된 응용 프로그램 또는 배포 된 응용 프로그램의 가용성을 향상 시킬 수도 있습니다. ZRS와 [가용성 영역](../availability-zones/az-overview.md)를 모두 활용 하기 위해 공유 된 ZRS 디스크를 다른 영역의 기본 및 보조 vm에 연결할 수 있습니다. 주 영역에 오류가 발생 하면 [SCSI 영구 예약](disks-shared-enable.md#supported-scsi-pr-commands)을 사용 하 여 보조 VM으로 신속 하 게 장애 조치할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -56,7 +56,7 @@ ZRS 디스크를 사용 하면 가용성 영역에서 오류를 복구할 수 �
 
 ### <a name="create-zrs-managed-disks"></a>ZRS managed disks 만들기
 
-`2020-12-01`ZRS 디스크를 만들려면 Azure Resource Manager 템플릿에 API를 사용 해야 합니다.
+`2020-12-01`Azure Resource Manager 템플릿에 API를 사용 하 여 ZRS 디스크를 만듭니다.
 
 #### <a name="create-a-vm-with-zrs-disks"></a>ZRS 디스크를 사용 하 여 VM 만들기
 
@@ -120,3 +120,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+- 이러한 샘플 [Azure Resource Manager 템플릿을 사용 하 여 ZRS 디스크를 사용 하는 VM을 만듭니다](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).

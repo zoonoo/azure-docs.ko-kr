@@ -14,7 +14,7 @@
   expanded: true
   items:
     - name: 모델 만들기
-      href: quickstarts/get-started-model-ingestion.md
+      href: quickstarts/get-started-model-conversion.md
     - name: Unity 앱 만들기
       expanded: true
       items:

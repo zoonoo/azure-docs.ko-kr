@@ -5,30 +5,30 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 4/3/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bfb61a5434089fffab9d8ceb9c7b0fbca528cac5
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 73d1d873df58c672e9db6b9e4e17ed58e1a6397e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430614"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046196"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
 Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 를 사용 하 여 자동 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
-이 문서에서는 다음 단계를 수행 하 여 IoT Edge 장치에서 대칭 키 증명을 사용 하 여 장치 프로 비전 서비스 개별 등록을 만드는 방법을 보여 줍니다.
+이 문서에서는 다음 단계를 수행 하 여 IoT Edge 장치에서 대칭 키 증명을 사용 하 여 장치 프로 비전 서비스 개별 또는 그룹 등록을 만드는 방법을 보여 줍니다.
 
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
-* 디바이스에 대한 개별 등록을 만듭니다.
+* 장치에 대 한 등록을 만듭니다.
 * IoT Edge 런타임을 설치 하 고 IoT Hub에 연결 합니다.
 
 대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [x.509 인증서](../iot-dps/concepts-x509-attestation.md) 를 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 IoT Hub
 * 실제 또는 가상 장치
@@ -72,8 +72,8 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
    1. IoT Edge 장치에 대 한 등록이 되도록 선언 하려면 **True** 를 선택 합니다. 그룹 등록의 경우 모든 장치는 장치를 IoT Edge 해야 합니다. 그렇지 않으면 장치를 모두 사용할 수 없습니다.
 
-   > [!TIP]
-   > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
+      > [!TIP]
+      > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
 
    1. 장치 프로 비전 서비스의 할당 정책에서 **허브에 장치를 할당** 하거나이 등록과 관련 된 다른 값을 선택 하는 방법에 대 한 기본값을 적용 합니다.
 
@@ -169,10 +169,12 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 * DPS 등록에서 복사한 **기본 키** 입니다.
 
 > [!TIP]
-> 그룹 등록의 경우 DPS 등록 키가 아닌 각 장치의 [파생 키](#derive-a-device-key) 가 필요 합니다.
+> 그룹 등록의 경우 DPS 등록 기본 키가 아니라 각 장치의 [파생 키](#derive-a-device-key) 가 필요 합니다.
 
 ### <a name="linux-device"></a>Linux 장치
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. IoT Edge 장치에서 구성 파일을 엽니다.
 
    ```bash
@@ -197,15 +199,66 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
    #  dynamic_reprovisioning: false
    ```
 
-   필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
-
 1. , 및의 값 `scope_id` 을 `registration_id` `symmetric_key` DPS 및 장치 정보로 업데이트 합니다.
+
+1. 필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
 
 1. 디바이스에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. IoT Edge 설치의 일부로 제공 되는 템플릿 파일을 기반으로 장치에 대 한 구성 파일을 만듭니다.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. IoT Edge 장치에서 구성 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. 파일의 **프로 비전** 섹션을 찾습니다. 대칭 키를 사용 하 여 DPS 프로 비전을 위한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+
+   ```toml
+   # DPS provisioning with symmetric key
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "symmetric_key"
+   registration_id = "<REGISTRATION_ID>"
+
+   symmetric_key = "<PRIMARY_KEY OR DERIVED_KEY>"
+   ```
+
+1. , 및의 값 `id_scope` 을 `registration_id` `symmetric_key` DPS 및 장치 정보로 업데이트 합니다.
+
+   대칭 키 매개 변수는 인라인 키, 파일 URI 또는 PKCS # 11 URI 값을 사용할 수 있습니다. 사용 중인 형식을 기반으로 한 대칭 키 줄의 주석 처리를 제거 합니다.
+
+   PKCS # 11 Uri를 사용 하는 경우 구성 파일에서 **pkcs # 11** 섹션을 찾고 pkcs # 11 구성에 대 한 정보를 제공 합니다.
+
+1. Config.xml 파일을 저장 한 후 닫습니다.
+
+1. IoT Edge에 대 한 구성 변경 내용을 적용 합니다.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="windows-device"></a>Windows 디바이스
 
@@ -228,6 +281,9 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 ### <a name="linux-device"></a>Linux 장치
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 IoT Edge 서비스의 상태를 확인합니다.
 
 ```cmd/sh
@@ -245,6 +301,31 @@ journalctl -u iotedge --no-pager --no-full
 ```cmd/sh
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 서비스의 상태를 확인합니다.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+서비스 로그를 검사 합니다.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+실행 중인 모듈을 나열합니다.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
 
 ### <a name="windows-device"></a>Windows 디바이스
 

@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 배포
 description: Azure 구독의 모든 리소스를 모니터링 하는 Azure Monitor의 전체 구현을 수행 하는 데 필요한 여러 단계에 대해 설명 합니다.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708257"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044003"
 ---
 # <a name="deploy-azure-monitor"></a>Azure Monitor 배포
 모든 Azure 리소스의 모니터링에 Azure Monitor를 사용 하도록 설정 하는 것은 Azure Monitor 구성 요소를 구성 하 고 Azure 리소스를 구성 하 여 Azure Monitor 수집할 모니터링 데이터를 생성 하는 것입니다. 이 문서에서는 Azure 구독의 모든 리소스를 모니터링 하기 위해 일반적인 구성을 사용 하 Azure Monitor의 전체 구현을 수행 하는 데 필요한 여러 단계를 설명 합니다. 각 단계에 대 한 기본 설명은 자세한 구성 요구 사항에 대 한 다른 설명서에 대 한 링크와 함께 제공 됩니다.

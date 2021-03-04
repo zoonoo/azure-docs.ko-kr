@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5f28e2c2d370329dbee0fb76284a4b76b2b945e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d46ad8238faa42ca657b18b3997407d91a224537
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376513"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045924"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
 
@@ -42,7 +42,7 @@ iotedge check
 
 문제 해결 도구는 다음과 같은 세 가지 범주로 정렬 된 많은 검사를 실행 합니다.
 
-* *구성 검사* 에서는 구성 *. yaml* 및 컨테이너 엔진과 관련 된 문제를 포함 하 여 IoT Edge 장치가 클라우드에 연결 되지 못하게 하는 세부 정보를 검사 합니다.
+* *구성 검사* 는 구성 파일 및 컨테이너 엔진과 관련 된 문제를 포함 하 여 IoT Edge 장치가 클라우드에 연결 되지 못하게 하는 세부 정보를 검사 합니다.
 * *연결 확인* 은 IoT Edge 런타임이 호스트 장치의 포트에 액세스할 수 있고 모든 IoT Edge 구성 요소가 IoT Hub에 연결할 수 있는지 확인 합니다. IoT Edge 장치가 프록시 뒤에 있는 경우이 검사 집합은 오류를 반환 합니다.
 * *프로덕션 준비 검사* 는 장치 인증 기관 (CA) 인증서 및 모듈 로그 파일 구성의 상태와 같은 권장 프로덕션 모범 사례를 확인 합니다.
 
@@ -102,6 +102,9 @@ iotedge support-bundle --since 6h
 
 Linux에서:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 * IoT Edge 보안 관리자의 상태를 확인 합니다.
 
    ```bash
@@ -110,32 +113,68 @@ Linux에서:
 
 * IoT Edge 보안 관리자의 로그를 확인 합니다.
 
-    ```bash
-    sudo journalctl -u iotedge -f
-    ```
+   ```bash
+   sudo journalctl -u iotedge -f
+   ```
 
 * IoT Edge security manager의 자세한 로그를 확인 합니다.
 
-  * IoT Edge 디먼 설정을 편집 합니다.
+  1. IoT Edge 디먼 설정을 편집 합니다.
 
-      ```bash
-      sudo systemctl edit iotedge.service
-      ```
+     ```bash
+     sudo systemctl edit iotedge.service
+     ```
 
-  * 다음 줄을 업데이트합니다.
+  2. 다음 줄을 업데이트합니다.
 
-      ```bash
-      [Service]
-      Environment=IOTEDGE_LOG=edgelet=debug
-      ```
+     ```bash
+     [Service]
+     Environment=IOTEDGE_LOG=edgelet=debug
+     ```
 
-  * IoT Edge 보안 디먼을 다시 시작합니다.
+  3. IoT Edge 보안 디먼을 다시 시작 합니다.
 
-      ```bash
-      sudo systemctl cat iotedge.service
-      sudo systemctl daemon-reload
-      sudo systemctl restart iotedge
-      ```
+     ```bash
+     sudo systemctl cat iotedge.service
+     sudo systemctl daemon-reload
+     sudo systemctl restart iotedge
+     ```
+<!--end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* IoT Edge 시스템 서비스의 상태를 확인 합니다.
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* IoT Edge 시스템 서비스의 로그를 확인 합니다.
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* 디버그 수준 로그를 사용 하 여 IoT Edge 시스템 서비스에 대 한 자세한 로그를 확인 합니다.
+
+  1. 디버그 수준 로그를 사용 하도록 설정 합니다.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. 디버깅 후 기본 정보 수준 로그로 다시 전환 합니다.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+<!-- end 1.2 -->
+:::moniker-end
 
 Windows에서:
 
@@ -159,52 +198,17 @@ Windows에서:
 
 * IoT Edge security manager의 자세한 로그를 확인 합니다.
 
-  * 시스템 수준 환경 변수를 추가 합니다.
+  1. 시스템 수준 환경 변수를 추가 합니다.
 
-      ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-      ```
+     ```powershell
+     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
+     ```
 
-  * IoT Edge 보안 디먼을 다시 시작합니다.
+  2. IoT Edge 보안 디먼을 다시 시작합니다.
 
-      ```powershell
-      Restart-Service iotedge
-      ```
-
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IoT Edge security manager가 실행 되 고 있지 않은 경우 yaml 구성 파일을 확인 합니다.
-
-> [!WARNING]
-> YAML 파일은 탭을 들여쓰기로 포함할 수 없습니다. 2 공백을 대신 사용합니다. 최상위 요소에는 선행 공백이 없어야 합니다.
-
-Linux에서:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-Windows에서:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-### <a name="restart-the-iot-edge-security-manager"></a>IoT Edge 보안 관리자를 다시 시작합니다.
-
-문제가 여전히 지속되는 경우 IoT Edge 보안 관리자를 다시 시작할 수 있습니다.
-
-Linux에서:
-
-   ```cmd
-   sudo systemctl restart iotedge
-   ```
-
-Windows에서:
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+     ```powershell
+     Restart-Service iotedge
+     ```
 
 ## <a name="check-container-logs-for-issues"></a>문제에 대한 컨테이너 로그 확인
 
@@ -217,6 +221,9 @@ iotedge logs <container name>
 장치에서 모듈에 대 한 [직접 메서드](how-to-retrieve-iot-edge-logs.md#upload-module-logs) 호출을 사용 하 여 Azure Blob Storage에 해당 모듈의 로그를 업로드할 수도 있습니다.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>IoT Edge 허브를 통과 하는 메시지 보기
+
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
 
 IoT Edge 허브를 통과 하는 메시지를 보고 런타임 컨테이너의 자세한 로그에서 정보를 수집할 수 있습니다. 이러한 컨테이너에서 자세한 로그를 켜려면 yaml 구성 파일에서 `RuntimeLogLevel`을 설정합니다. 파일을 열려면:
 
@@ -256,7 +263,29 @@ Windows에서:
 
 파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
-IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. [Visual Studio Code에 대 한 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용 하 여 이러한 메시지를 확인 합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 허브를 통과 하는 메시지를 보고 런타임 컨테이너의 자세한 로그에서 정보를 수집할 수 있습니다. 이러한 컨테이너에서 자세한 로그를 설정 하려면 `RuntimeLogLevel` 배포 매니페스트에서 환경 변수를 설정 합니다.
+
+IoT Edge 허브를 통과 하는 메시지를 보려면 `RuntimeLogLevel` `debug` edgeHub 모듈에 대해 환경 변수를로 설정 합니다.
+
+EdgeHub 및 edgeAgent 모듈에는 모두이 런타임 로그 환경 변수가 있으며 기본값은로 설정 `info` 됩니다. 이 환경 변수는 다음 값을 사용할 수 있습니다.
+
+* 심각한
+* error
+* warning
+* 정보
+* debug
+* verbose
+
+<!-- end 1.2 -->
+:::moniker-end
+
+IoT Hub와 IoT 장치 간에 전송 되는 메시지를 확인할 수도 있습니다. [Visual Studio Code에 대 한 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용 하 여 이러한 메시지를 확인 합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
 
 ## <a name="restart-containers"></a>컨테이너 다시 시작
 

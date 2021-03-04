@@ -3,15 +3,14 @@ title: Azure Monitor 뷰 디자이너에서 통합 문서 변환 요약 및 액�
 description: Azure Monitor의 뷰에서 전환할 때 통합 문서에 액세스 하는 데 필요한 권한입니다.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c5b3096c4eb8cf71ff1d13476fa09cc65ef413a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613113"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043393"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>뷰 디자이너에서 통합 문서 변환 요약 및 액세스
 [뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 기능은 추가 기능을 제공 하는 통합 문서와 함께 단계적으로 제공 됩니다. 이 문서에서는 통합 문서에 액세스 하는 데 필요한 개요 요약 및 사용 권한을 만드는 방법을 자세히 설명 합니다.

@@ -1,17 +1,16 @@
 ---
 title: IT 서비스 관리 커넥터와 SCSM 연결
 description: 이 문서에서는 ITSMC 작업 항목을 중앙에서 모니터링 하 고 관리 하기 위해 Azure Monitor에서 ITSMC (IT 서비스 관리 커넥터)를 사용 하는 방법에 대 한 정보를 제공 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 32cc45f318e6310ca89f3341add7164a0712f416
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f80c42be217d062510c687075cf46b4e7539419
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617959"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045346"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 System Center Service Manager 연결
 

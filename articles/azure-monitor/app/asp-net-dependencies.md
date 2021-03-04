@@ -4,12 +4,12 @@ description: Application Insights를 사용 하 여 온-프레미스 또는 Micr
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045295"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -88,6 +88,9 @@ SDK에서 자동으로 수집 되지 않는 종속성의 경우 표준 자동 �
 웹 페이지의 경우 JavaScript SDK Application Insights AJAX 호출을 종속성으로 자동 수집 합니다.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>전체 SQL 쿼리를 가져오기 위한 고급 SQL 추적
+
+> [!NOTE]
+> SQL 텍스트 컬렉션을 사용 하려면 Azure Functions 별도의 설정이 필요 합니다. 자세한 내용을 보려면 [Azure Functions에 대 한 모니터링 구성](../../azure-functions/configure-monitoring.md) 을 참조 하세요.
 
 SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 되 고 수집 된의 이름으로 저장 됩니다 `DependencyTelemetry` . 전체 SQL 쿼리 텍스트를 포함할 수 있는 ' data ' 라는 추가 필드가 있습니다.
 

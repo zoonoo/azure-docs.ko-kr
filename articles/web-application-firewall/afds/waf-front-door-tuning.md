@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8752886bc5304de420083212d29ccd3e1cb14084
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488241"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043697"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Azure Front 도어 용 WAF (웹 응용 프로그램 방화벽) 튜닝
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 요청을 시도 하면 WAF는 매개 변수 또는 필드에 *1 = 1* 문자열을 포함 하는 트래픽을 차단 합니다. 이는 종종 SQL 삽입 공격과 관련 된 문자열입니다. 로그를 확인 하 고 요청의 타임 스탬프와 차단/일치 된 규칙을 확인할 수 있습니다.
  
-다음 예제에서는 `FrontdoorWebApplicationFirewallLog` 규칙 일치 때문에 생성 된 로그를 탐색 합니다.
+다음 예제에서는 `FrontdoorWebApplicationFirewallLog` 규칙 일치 때문에 생성 된 로그를 탐색 합니다. 다음 Log Analytics 쿼리를 사용 하 여 지난 24 시간 이내에 차단 된 요청을 찾을 수 있습니다.
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-"RequestUri" 필드에서 특별히 요청이 수행 된 것을 볼 수 있습니다 `/api/Feedbacks/` . `942110`"RuleName" 필드에서 규칙 ID를 찾을 수도 있습니다. 규칙 ID를 알면 [OWASP ModSecurity Core 규칙 집합 공식 리포지토리로](https://github.com/coreruleset/coreruleset) 이동 하 고 해당 [규칙 id](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) 로 검색 하 여 코드를 검토 하 고이 규칙과 일치 하는 항목을 정확 하 게 이해할 수 있습니다. 
+필드에서 `requestUri` 특별히 요청이 수행 된 것을 볼 수 있습니다 `/api/Feedbacks/` . 자세히 살펴보기, 필드에서 규칙 ID를 찾을 `942110` `ruleName` 수도 있습니다. 규칙 ID를 알면 [OWASP ModSecurity Core 규칙 집합 공식 리포지토리로](https://github.com/coreruleset/coreruleset) 이동 하 고 해당 [규칙 id](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) 로 검색 하 여 코드를 검토 하 고이 규칙과 일치 하는 항목을 정확 하 게 이해할 수 있습니다. 
  
 그런 다음 필드를 확인 하 여 `action` 이 규칙이 일치 하는 경우 요청을 차단 하도록 설정 된 것을 확인 하 고,가로 설정 되었으므로 WAF에 의해 요청이 실제로 차단 되었음을 확인 합니다 `policyMode` `prevention` . 
  
@@ -197,6 +205,9 @@ Azure PowerShell를 사용 하 여 관리 되는 규칙을 사용 하지 않으�
 
 ![WAF 규칙](../media/waf-front-door-tuning/waf-rules.png)
 
+> [!TIP]
+> WAF 정책에 대 한 모든 변경 내용을 문서화 하는 것이 좋습니다. 거짓 긍정 검색을 보여 주는 예제 요청을 포함 하 고, 사용자 지정 규칙을 추가 했거나, 규칙 또는 규칙 집합을 사용 하지 않도록 설정 하거나, 예외를 추가한 이유를 명확 하 게 설명 합니다. 이 설명서는 나중에 응용 프로그램을 다시 디자인 하 고 변경 내용이 여전히 유효한 지 확인 해야 하는 경우에 유용할 수 있습니다. 감사 된 적이 있는 경우 또는 해당 기본 설정에서 WAF 정책을 다시 구성한 이유를 정당화 해야 할 수도 있습니다.
+
 ## <a name="finding-request-fields"></a>요청 필드 찾기
 
 [Fiddler](https://www.telerik.com/fiddler)와 같은 브라우저 프록시를 사용 하 여 개별 요청을 검사 하 고 웹 페이지의 특정 필드를 확인할 수 있습니다. 이 기능은 WAF의 제외 목록을 사용 하 여 검사에서 특정 필드를 제외 해야 하는 경우에 유용 합니다.
@@ -256,7 +267,7 @@ Fiddler는 요청 헤더 이름을 찾을 때 유용한 도구입니다. 다음 
 
 ![헤더를 보여 주는 Fiddler 요청](../media/waf-front-door-tuning/fiddler-request-header-name.png)
 
-요청 및 응답 헤더를 보는 또 다른 방법은 Edge 또는 Chrome과 같은 브라우저의 개발자 도구 내에서 확인 하는 것입니다. F12 키를 누르거나 마우스 오른쪽 단추를 클릭 하 **Inspect**>  ->  **개발자 도구** 검사 하 고 **네트워크** 탭을 선택할 수 있습니다. 웹 페이지를 로드 하 고 검사 하려는 요청을 클릭 합니다.
+요청 및 응답 헤더를 보는 또 다른 방법은 Edge 또는 Chrome과 같은 브라우저의 개발자 도구 내에서 확인 하는 것입니다. F12 키를 누르거나 마우스 오른쪽 단추를 클릭 하 >  ->  **개발자 도구** 검사 하 고 **네트워크** 탭을 선택할 수 있습니다. 웹 페이지를 로드 하 고 검사 하려는 요청을 클릭 합니다.
 
 ![네트워크 검사기 요청](../media/waf-front-door-tuning/network-inspector-request.png)
 

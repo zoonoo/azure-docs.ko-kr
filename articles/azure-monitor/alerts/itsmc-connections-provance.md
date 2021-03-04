@@ -1,17 +1,16 @@
 ---
 title: IT 서비스 관리 커넥터를 사용 하 여 Provance 연결
 description: 이 문서에서는 ITSMC 작업 항목을 중앙에서 모니터링 하 고 관리 하기 위해 Azure Monitor에서 ITSMC (IT 서비스 관리 커넥터)로 Provance 하는 방법에 대 한 정보를 제공 합니다.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 38aff6bf0851e97558fb8870a08f33bb0bcb0392
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 542b127823a73058f319e6a39c001bd563f042ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045380"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 Provance 연결
 

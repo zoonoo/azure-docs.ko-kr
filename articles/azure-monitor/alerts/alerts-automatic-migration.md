@@ -3,13 +3,12 @@ title: Azure Monitor 클래식 경고에 대 한 자동 마이그레이션 프�
 description: 자동 마이그레이션 프로세스가 작동 하는 방식을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
-ms.openlocfilehash: 65409a1710a2b4c6b6d5a52c5129ec3e82dc7cc2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92aaffcea7a7c96cd77aade318520b093eed3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734862"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045465"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>기존 경고 규칙에 대 한 자동 마이그레이션 프로세스 이해
 

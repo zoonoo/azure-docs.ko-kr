@@ -4,7 +4,7 @@ description: IoT Edge 장치를 구성 하 여 Azure IoT Edge 게이트웨이 �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 709b986cc06aada45a0f541142b89fc3537f8ba8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629406"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046094"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
 
@@ -25,6 +25,8 @@ ms.locfileid: "98629406"
 
 >[!NOTE]
 >이 기능에는 Linux 컨테이너를 실행하는 IoT Edge 버전 1.2(공개 미리 보기로 제공됨)가 필요합니다.
+>
+>이 문서에서는 IoT Edge 버전 1.2의 최신 미리 보기 릴리스를 반영 합니다. 장치가 [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) 이상 버전을 실행 하 고 있는지 확인 합니다. 장치에서 최신 미리 보기 버전을 가져오는 단계는 [Linux 용 Azure IoT Edge 설치 (버전 1.2)](how-to-install-iot-edge.md) 또는 [버전 1.2에 IoT Edge 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조 하세요.
 
 게이트웨이 시나리오에서 IoT Edge 장치는 게이트웨이 및 다운스트림 장치 일 수 있습니다. 여러 IoT Edge 게이트웨이를 계층화 하 여 장치 계층 구조를 만들 수 있습니다. 다운스트림 (또는 자식) 장치는 게이트웨이 또는 부모 장치를 통해 메시지를 인증 하 고 보내거나 받을 수 있습니다.
 
@@ -39,7 +41,7 @@ ms.locfileid: "98629406"
 * **게이트웨이 검색**: 자식 장치가 로컬 네트워크에서 해당 부모 장치를 찾을 수 있는지 확인 합니다.
 * **보안 연결**: 동일한 체인에 포함 된 신뢰할 수 있는 인증서를 사용 하 여 보안 연결을 설정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 무료 또는 표준 IoT hub
 * 두 개 이상의 **IoT Edge 장치**, 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
@@ -103,9 +105,6 @@ Azure CLI에 대 한 [azure iot](/cli/azure/ext/azure-iot) 확장은 iot 리소�
 * 루트 인증서 체인에 포함 하려는 **중간 인증서**
 * 루트 및 중간 인증서에 의해 생성 된 **장치 CA 인증서** 및 **개인 키** 입니다. 게이트웨이 계층의 각 IoT Edge 장치에 대해 하나의 고유한 장치 CA 인증서가 필요 합니다.
 
->[!NOTE]
->현재 libiothsm의 제한으로 인해 2038 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
-
 자체 서명 된 인증 기관을 사용 하거나 신뢰할 수 있는 상업적 인증 기관 (예: Baltimore, Verisign, Digicert 또는 GlobalSign)에서 구매할 수 있습니다.
 
 사용할 자체 인증서가 없는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다. 이 문서의 단계에 따라 하나의 루트 및 중간 인증서 집합을 만든 다음 각 장치에 대 한 IoT Edge 장치 CA 인증서를 만듭니다.
@@ -124,7 +123,7 @@ Azure CLI에 대 한 [azure iot](/cli/azure/ext/azure-iot) 확장은 iot 리소�
 
 다음 단계를 사용 하 여 장치에 IoT Edge를 구성 합니다.
 
-Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉터리에 대 한 읽기 권한이 있는지 확인 합니다.
+사용자 **iotedge** 에 인증서 및 키를 보유 하는 디렉터리에 대 한 읽기 권한이 있는지 확인 합니다.
 
 1. 이 IoT Edge 장치에 **루트 CA 인증서** 를 설치 합니다.
 
@@ -140,19 +139,16 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
 
    이 명령은 하나의 인증서가/etc/ssl/certs.에 추가 되었음을 출력 해야 합니다.
 
-1. IoT Edge 보안 디먼 구성 파일을 엽니다.
+1. IoT Edge 구성 파일을 엽니다.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo nano /etc/aziot/config.toml
    ```
 
-1. Config.xml 파일에서 **certificate** 섹션을 찾습니다. 인증서를 가리키도록 3 개의 인증서 필드를 업데이트 합니다. 파일 URI 경로(`file:///<path>/<filename>` 형식임)를 제공합니다.
+   >[!TIP]
+   >구성 파일이 장치에 아직 없는 경우 템플릿으로를 사용 하 여 `/etc/aziot/config.toml.edge.template` 만듭니다.
 
-   * **device_ca_cert**:이 장치에 고유한 장치 ca 인증서에 대 한 파일 URI 경로입니다.
-   * **device_ca_pk**:이 장치에 고유한 장치 ca 개인 키에 대 한 파일 URI 경로입니다.
-   * **trusted_ca_certs**: 게이트웨이 계층의 모든 장치에서 공유 하는 루트 ca 인증서에 대 한 파일 URI 경로입니다.
-
-1. Config.xml 파일에서 **hostname** 매개 변수를 찾습니다. 호스트 이름을 FQDN (정규화 된 도메인 이름) 또는 IoT Edge 장치의 IP 주소로 업데이트 합니다.
+1. 구성 파일에서 **Hostname** 섹션을 찾습니다. 매개 변수를 포함 하는 줄의 주석 처리 `hostname` 를 제거 하 고 값을 FQDN (정규화 된 도메인 이름) 또는 IoT Edge 장치의 IP 주소로 업데이트 합니다.
 
    이 매개 변수 값은 다운스트림 장치에서이 게이트웨이에 연결 하는 데 사용 하는 것입니다. 호스트 이름은 기본적으로 컴퓨터 이름을 사용 하지만 다운스트림 장치를 연결 하려면 FQDN 또는 IP 주소가 필요 합니다.
 
@@ -160,33 +156,38 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
 
    게이트웨이 계층 구조 전체에서 호스트 이름 패턴과 일치 해야 합니다. Fqdn 또는 IP 주소 중 하나만 사용 합니다.
 
-1. **이 장치가 자식 장치인 경우** **parent_hostname** 매개 변수를 찾습니다. 부모 장치의 FQDN 또는 IP 주소가 되도록 **parent_hostname** 필드를 업데이트 하 고 부모 구성 파일에서 호스트 이름으로 제공 된 것과 일치 합니다.
+1. *이 장치가 자식 장치인 경우* **부모 호스트 이름** 섹션을 찾습니다. 부모 장치의 `parent_hostname` 구성 파일에서 호스트 이름으로 제공 된 것과 일치 하는 것과 일치 하는 부모 장치의 FQDN 또는 IP 주소가 되도록 매개 변수를 주석 처리를 제거 하 고 업데이트 합니다.
+
+1. **신뢰 번들 인증서** 섹션을 찾습니다. `trust_bundle_cert`장치에서 루트 CA 인증서에 대 한 파일 URI를 사용 하 여 매개 변수를 제거 하 고 업데이트 합니다.
 
 1. 이 기능은 공개 미리 보기 상태 이지만 시작 시 IoT Edge 에이전트의 공개 미리 보기 버전을 사용 하도록 IoT Edge 장치를 구성 해야 합니다.
 
-   **에이전트** yaml 섹션을 찾고 이미지 값을 공개 미리 보기 이미지로 업데이트 합니다.
+   기본에 **지 에이전트** 섹션을 찾고 이미지 값을 공개 미리 보기 이미지로 업데이트 합니다.
 
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   ```toml
+   [agent.config]
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
    ```
 
-1. `Ctrl+O`Config.xml 파일을 저장 () 하 고 닫습니다. `Ctrl+X`
+1. 구성 파일에서 **EDGE CA 인증서** 섹션을 찾습니다. 이 섹션에서 줄의 주석 처리를 제거 하 고 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로를 제공 합니다.
+
+   ```toml
+   [edge_ca]
+   cert = "file:///<path>/<device CA cert>"
+   pk = "file:///<path>/<device CA key>"
+   ```
+
+1. `Ctrl+O`구성 파일을 저장 () 하 고 닫습니다 `Ctrl+X` .
 
 1. 이전에 IoT Edge에 다른 인증서를 사용한 경우 다음 두 디렉터리의 파일을 삭제 하 여 새 인증서가 적용 되었는지 확인 합니다.
 
-   * `/var/lib/iotedge/hsm/certs`
-   * `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/aziot/certd/certs`
+   * `/var/lib/aziot/keyd/keys`
 
-1. IoT Edge 서비스를 다시 시작 하 여 변경 내용을 적용 합니다.
+1. 변경 내용을 적용합니다.
 
    ```bash
-   sudo systemctl restart iotedge
+   sudo iotedge config apply
    ```
 
 1. 구성에서 오류를 확인 합니다.
@@ -202,7 +203,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
 
 이 기능은 공개 미리 보기 상태 이지만 IoT Edge 런타임 모듈의 공개 미리 보기 버전을 사용 하도록 IoT Edge 장치를 구성 해야 합니다. 이전 섹션에서는 시작할 때 edgeAgent를 구성 하는 단계에 대해 설명 합니다. 또한 장치에 대 한 배포에서 런타임 모듈을 구성 해야 합니다.
 
-1. 공개 미리 보기 이미지를 사용 하도록 edgeHub 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` 합니다.
+1. 공개 미리 보기 이미지를 사용 하도록 edgeHub 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4` 합니다.
 
 1. EdgeHub 모듈에 대해 다음과 같은 환경 변수를 구성 합니다.
 
@@ -211,7 +212,7 @@ Linux에서 사용자 **iotedge** 에 인증서와 키를 보유 하는 디렉�
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. 공개 미리 보기 이미지를 사용 하도록 edgeAgent 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` 합니다.
+1. 공개 미리 보기 이미지를 사용 하도록 edgeAgent 모듈을 구성 `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4` 합니다.
 
 ## <a name="network-isolate-downstream-devices"></a>네트워크 격리 다운스트림 장치
 
@@ -356,21 +357,20 @@ API 프록시 모듈은 하나의 레지스트리 모듈로만 라우팅할 수 
 
 IoT Edge 에이전트는 IoT Edge 장치에서 시작 하는 첫 번째 런타임 구성 요소입니다. 다운스트림 IoT Edge 장치가 시작 될 때 edgeAgent module 이미지에 액세스할 수 있는지 확인 한 다음 배포에 액세스 하 고 나머지 모듈 이미지를 시작할 수 있습니다.
 
-IoT Edge 장치에서 config.xml 파일로 이동 하 여 인증 정보, 인증서 및 부모 호스트 이름을 제공 하는 경우 edgeAgent 컨테이너 이미지도 업데이트 합니다.
+IoT Edge 장치의 구성 파일로 이동 하 여 해당 인증 정보, 인증서 및 부모 호스트 이름을 제공 하는 경우 edgeAgent 컨테이너 이미지도 업데이트 합니다.
 
 최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 다음은 그 예입니다. 
 
-```yml
-agent:
-  name: "edgeAgent"
-  type: "docker"
-  env: {}
-  config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
-    auth: {}
+```toml
+[agent]
+name = "edgeAgent"
+type = "docker"
+
+[agent.config]
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
 ```
 
-로컬 컨테이너 레지스트리를 사용 하거나 장치에서 수동으로 컨테이너 이미지를 제공 하는 경우에는 그에 따라 config.xml 파일을 업데이트 합니다.
+로컬 컨테이너 레지스트리를 사용 하거나 장치에서 수동으로 컨테이너 이미지를 제공 하는 경우 구성 파일을 적절 하 게 업데이트 합니다.
 
 #### <a name="configure-runtime-and-deploy-proxy-module"></a>런타임 구성 및 프록시 배포 모듈
 

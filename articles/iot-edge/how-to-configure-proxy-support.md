@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: 7fc57b46055281c64b39767047f6b7cb5b748ad2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 22cea6a641a03d60565e62e64ccdeef72437d476
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373830"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046145"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -23,19 +23,19 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 이 문서에서는 프록시 서버 뒤에 IoT Edge 장치를 구성 하 고 관리 하는 다음 4 단계를 안내 합니다.
 
-1. [**장치에 IoT Edge 런타임 설치**](#install-the-runtime-through-a-proxy)
+1. [**장치에 IoT Edge 런타임 설치**](#install-iot-edge-through-a-proxy)
 
    IoT Edge 설치 스크립트는 인터넷에서 패키지와 파일을 끌어오고 장치에서 프록시 서버를 통해 통신 하 여 요청을 수행 해야 합니다. Windows 장치의 경우 설치 스크립트에도 오프 라인 설치 옵션이 제공 됩니다.
 
    이 단계는 IoT Edge 장치를 처음 설정할 때 구성 하는 일회성 프로세스입니다. IoT Edge 런타임을 업데이트 하는 경우에도 동일한 연결이 필요 합니다.
 
-2. [**장치에서 Docker 디먼 및 IoT Edge 디먼 구성**](#configure-the-daemons)
+2. [**장치에서 IoT Edge 및 컨테이너 런타임 구성**](#configure-iot-edge-and-moby)
 
-   IoT Edge는 장치에서 두 디먼를 사용 하며, 둘 다 프록시 서버를 통해 웹 요청을 수행 해야 합니다. IoT Edge 디먼은 IoT Hub와의 통신을 담당 합니다. Moby 디먼은 컨테이너 관리를 담당 하므로 컨테이너 레지스트리와 통신 합니다.
+   IoT Edge는 IoT Hub와의 통신을 담당 합니다. 컨테이너 런타임은 컨테이너를 관리 하는 역할을 담당 하므로 컨테이너 레지스트리와 통신 합니다. 이러한 구성 요소는 모두 프록시 서버를 통해 웹 요청을 수행 해야 합니다.
 
    이 단계는 IoT Edge 장치를 처음 설정할 때 구성 하는 일회성 프로세스입니다.
 
-3. [**장치의 구성. yaml 파일에서 IoT Edge 에이전트 속성 구성**](#configure-the-iot-edge-agent)
+3. [**장치의 구성 파일에서 IoT Edge 에이전트 속성 구성**](#configure-the-iot-edge-agent)
 
    IoT Edge 디먼은 처음에 edgeAgent 모듈을 시작 합니다. 그런 다음 edgeAgent 모듈은 IoT Hub에서 배포 매니페스트를 검색 하 고 다른 모든 모듈을 시작 합니다. IoT Edge 에이전트가 IoT Hub에 대 한 초기 연결을 설정 하려면 장치 자체에서 수동으로 edgeAgent module 환경 변수를 구성 합니다. 초기 연결 후 edgeAgent 모듈을 원격으로 구성할 수 있습니다.
 
@@ -59,7 +59,7 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 * **proxy_port** 는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다.
 
-## <a name="install-the-runtime-through-a-proxy"></a>프록시를 통해 런타임 설치
+## <a name="install-iot-edge-through-a-proxy"></a>프록시를 통해 IoT Edge 설치
 
 IoT Edge 장치가 Windows 또는 Linux에서 실행 되는지 여부에 관계 없이 프록시 서버를 통해 설치 패키지에 액세스 해야 합니다. 운영 체제에 따라 프록시 서버를 통해 IoT Edge 런타임을 설치 하는 단계를 수행 합니다.
 
@@ -95,7 +95,7 @@ Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyC
 
 프록시 매개 변수에 대한 자세한 내용은 [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)를 참조하세요. Windows 설치 매개 변수에 대 한 자세한 내용은 [windows의 IoT Edge에 대 한 PowerShell 스크립트](reference-windows-scripts.md)를 참조 하세요.
 
-## <a name="configure-the-daemons"></a>디먼 구성
+## <a name="configure-iot-edge-and-moby"></a>IoT Edge 및 Moby 구성
 
 IoT Edge은 IoT Edge 장치에서 실행 되는 두 개의 디먼에 의존 합니다. Moby 데몬에는 컨테이너 레지스트리에서 컨테이너 이미지를 가져오기 위한 웹 요청이 있습니다. IoT Edge 디먼은 웹 요청을 전송하여 IoT Hub와 통신합니다.
 
@@ -117,6 +117,9 @@ IoT Edge 디먼은 Moby 디먼과 비슷한 방식으로 구성 됩니다. 사�
 IoT Edge 디먼은 항상 HTTPS를 사용 하 여 IoT Hub에 요청을 보냅니다.
 
 #### <a name="linux"></a>Linux
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 터미널에서 편집기를 열어 IoT Edge 디먼을 구성합니다.
 
@@ -148,6 +151,58 @@ sudo systemctl restart iotedge
 ```bash
 systemctl show --property=Environment iotedge
 ```
+:::moniker-end
+<!--end 1.1-->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+터미널에서 편집기를 열어 IoT Edge 디먼을 구성합니다.
+
+```bash
+sudo systemctl edit aziot-edged
+```
+
+다음 텍스트를 입력 하 고를 **\<proxy URL>** 프록시 서버 주소 및 포트로 바꿉니다. 그런 다음 입력 내용을 저장하고 편집기를 종료합니다.
+
+```ini
+[Service]
+Environment="https_proxy=<proxy URL>"
+```
+
+1.2 버전부터 IoT Edge IoT id 서비스를 사용 하 여 IoT Hub 또는 IoT Hub Device Provisioning Service으로 장치 프로 비전을 처리 합니다. 터미널에서 편집기를 열어 IoT id 서비스 데몬을 구성 합니다.
+
+```bash
+sudo systemctl edit aziot-identityd
+```
+
+다음 텍스트를 입력 하 고를 **\<proxy URL>** 프록시 서버 주소 및 포트로 바꿉니다. 그런 다음 입력 내용을 저장하고 편집기를 종료합니다.
+
+```ini
+[Service]
+Environment="https_proxy=<proxy URL>"
+```
+
+Service manager를 새로 고쳐 새 구성을 선택 합니다.
+
+```bash
+sudo systemctl daemon-reload
+```
+
+IoT Edge 시스템 서비스를 다시 시작 하 여 두 디먼의 변경 내용이 적용 되도록 합니다.
+
+```bash
+sudo iotedge system restart
+```
+
+환경 변수가 만들어졌고 새 구성이 로드 되었는지 확인 합니다.
+
+```bash
+systemctl show --property=Environment aziot-edged
+systemctl show --property=Environment aziot-identityd
+```
+:::moniker-end
+<!--end 1.2-->
 
 #### <a name="windows"></a>Windows
 
@@ -165,9 +220,12 @@ Restart-Service iotedge
 
 ## <a name="configure-the-iot-edge-agent"></a>IoT Edge 에이전트 구성
 
-IoT Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작되는 모듈로, IoT Edge config.yaml 파일의 정보에 따라 처음으로 시작됩니다. 그런 후에 이 에이전트에서 IoT Hub에 연결하여 배포 매니페스트를 검색합니다. 배포 매니페스트는 디바이스에서 배포해야 하는 다른 모듈을 선언합니다.
+IoT Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작되는 모듈로, IoT Edge 구성 파일의 정보에 따라 처음으로 시작 됩니다. 그런 후에 이 에이전트에서 IoT Hub에 연결하여 배포 매니페스트를 검색합니다. 배포 매니페스트는 디바이스에서 배포해야 하는 다른 모듈을 선언합니다.
 
 이 단계는 초기 장치를 설치 하는 동안 IoT Edge 장치에서 한 번 수행 됩니다.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. IoT Edge 디바이스에서 config.yaml 파일을 엽니다. Linux 시스템에서 이 파일의 위치는 **/etc/iotedge/config.yaml** 입니다. Windows 시스템에서 이 파일의 위치는 **C:\ProgramData\iotedge\config.yaml** 입니다. 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 `sudo` 원하는 텍스트 편집기에서 파일을 열기 전에 명령을 사용 합니다. Windows에서 관리자 권한으로 메모장과 같은 텍스트 편집기를 열고 파일을 엽니다.
 
@@ -201,17 +259,54 @@ IoT Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작�
       Restart-Service iotedge
       ```
 
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. IoT Edge 장치에서 구성 파일을 엽니다 `/etc/aziot/config.toml` . 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 `sudo` 원하는 텍스트 편집기에서 파일을 열기 전에 명령을 사용 합니다.
+
+2. 구성 파일에서 `[agent]` 시작 시 사용할 edgeAgent 모듈에 대 한 모든 구성 정보를 포함 하는 섹션을 찾습니다. IoT Edge 에이전트 정의에는 `[agent.env]` 환경 변수를 추가할 수 있는 하위 섹션이 포함 되어 있습니다.
+
+3. 환경 변수 섹션에 **https_proxy** 매개 변수를 추가 하 고 프록시 URL을 해당 값으로 설정 합니다.
+
+   ```toml
+   [agent.env]
+   # "RuntimeLogLevel" = "debug"
+   # "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
+   ```
+
+4. IoT Edge 런타임은 기본적으로 AMQP를 사용하여 IoT Hub와 통신합니다. 그런데 일부 프록시 서버는 AMQP 포트를 차단합니다. 이 경우에는 WebSocket을 통해 AMQP를 사용하도록 edgeAgent도 구성해야 합니다. 매개 변수의 주석 처리를 제거 `UpstreamProtocol` 합니다.
+
+   ```toml
+   [agent.env]
+   # "RuntimeLogLevel" = "debug"
+   "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
+   ```
+
+5. 변경 내용을 저장하고 편집기를 닫습니다. 최신 변경 내용을 적용 합니다.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
 ## <a name="configure-deployment-manifests"></a>배포 매니페스트 구성  
 
 IoT Edge 장치가 프록시 서버와 작동 하도록 구성 된 후에는 이후 배포 매니페스트에서 HTTPS_PROXY 환경 변수를 계속 선언 해야 합니다. Azure Portal 마법사를 사용 하거나 배포 매니페스트 JSON 파일을 편집 하 여 배포 매니페스트를 편집할 수 있습니다.
 
-두 개의 런타임 모듈인 edgeAgent와 edgeHub가 프록시 서버를 통해 통신하도록 항상 구성하여 IoT Hub와의 연결을 유지할 수 있게 합니다. EdgeAgent 모듈에서 프록시 정보를 제거 하는 경우 연결을 다시 설정 하는 유일한 방법은 이전 섹션에 설명 된 대로 장치에서 config.xml 파일을 편집 하는 것입니다.
+두 개의 런타임 모듈인 edgeAgent와 edgeHub가 프록시 서버를 통해 통신하도록 항상 구성하여 IoT Hub와의 연결을 유지할 수 있게 합니다. EdgeAgent 모듈에서 프록시 정보를 제거 하는 경우에는 이전 섹션에 설명 된 대로 장치에서 구성 파일을 편집 하 여 연결을 다시 설정 하는 방법만 사용할 수 있습니다.
 
 EdgeAgent 및 edgeHub 모듈 외에도 다른 모듈에는 프록시 구성이 필요할 수 있습니다. Blob 저장소와 같은 IoT Hub 외에 Azure 리소스에 액세스 해야 하는 모듈에는 배포 매니페스트 파일에 지정 된 HTTPS_PROXY 변수가 있어야 합니다.
 
 다음 절차는 IoT Edge 장치의 수명 내내 적용 됩니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 **모듈 설정** 마법사를 사용 하 여 IoT Edge 장치에 대 한 배포를 만드는 경우 모든 모듈에는 프록시 서버 연결을 구성할 수 있는 **환경 변수** 섹션이 있습니다.
 
@@ -219,7 +314,7 @@ IoT Edge 에이전트 및 IoT Edge 허브 모듈을 구성 하려면 마법사�
 
 ![고급 Edge 런타임 설정 구성](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-IoT Edge 에이전트 및 IoT Edge 허브 모듈 정의에 모두 **https_proxy** 환경 변수를 추가합니다. IoT Edge 디바이스의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 IoT Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다.
+IoT Edge 에이전트 및 IoT Edge 허브 모듈 정의에 모두 **https_proxy** 환경 변수를 추가합니다. IoT Edge 장치의 구성 파일에 **Upstreamprotocol** 환경 변수를 포함 한 경우 IoT Edge 에이전트 모듈 정의에도 추가 합니다.
 
 ![Https_proxy 환경 변수 설정](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 

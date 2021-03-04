@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 1a276915f8132f2941bfb4425011c2d34454093b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693886"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043714"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대 한 오케스트레이션 모드 
 
@@ -73,7 +73,7 @@ VM을 만들어 유연한 확장 집합에 추가 하는 경우 Azure 명명 규
 | order by resourceGroup desc, name desc 
 ```
 
-[Azure 리소스 그래프](../governance/resource-graph/overview) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음과 같습니다.
+[Azure 리소스 그래프](../governance/resource-graph/overview.md) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음을 수행할 수 있습니다.
 - 리소스 그룹 또는 구독에서 Vm을 나열 합니다.
 - 확장 옵션을 사용 하 여 구독에 있는 모든 Vm에 대 한 인스턴스 보기 (장애 도메인 할당, 전원 및 프로 비전 상태)를 검색 합니다.
 - Get VM API 및 명령을 사용 하 여 단일 인스턴스에 대 한 모델 및 인스턴스 뷰를 가져옵니다.

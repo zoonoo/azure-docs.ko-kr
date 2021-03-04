@@ -2,13 +2,13 @@
 title: 템플릿의 매개 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 매개 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 3b5da4b14fc338ba81be39d1e3ff6965294f0a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710637"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043935"
 ---
 # <a name="parameters-in-arm-templates"></a>ARM 템플릿의 매개 변수
 
@@ -216,6 +216,8 @@ param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
 
+---
+
 ## <a name="length-constraints"></a>길이 제약 조건
 
 문자열 및 배열 매개 변수의 최소 및 최대 길이를 지정할 수 있습니다. 제약 조건 중 하나 또는 둘 다를 설정할 수 있습니다. 문자열의 경우 길이는 문자 수를 나타냅니다. 배열의 경우 길이는 배열의 항목 수를 나타냅니다.
@@ -279,7 +281,7 @@ param month int
 
 ---
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 
 매개 변수에 대 한 설명을 추가 하 여 템플릿의 사용자가 제공 하는 값을 이해할 수 있도록 할 수 있습니다. 포털을 통해 템플릿을 배포하는 경우 설명에 제공하는 텍스트가 자동으로 해당 매개 변수에 대한 팁으로 사용됩니다. 텍스트에 매개 변수 이름에서 유추할 수 있는 것 보다 많은 정보가 제공 되는 경우에만 설명을 추가 합니다.
 
@@ -471,7 +473,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
 
 다음 예제에서는 매개 변수를 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 템플릿 함수를 사용하는 방법을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 |[parameter 개체](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | 매개 변수에 대한 개체 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |

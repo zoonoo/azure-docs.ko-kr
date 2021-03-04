@@ -1,17 +1,16 @@
 ---
 title: 통합 문서에 대한 Resource Manager 템플릿 샘플
 description: Azure Monitor 통합 문서를 배포하기 위한 Azure Resource Manager 템플릿 샘플입니다.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 1a3a67ff223199663d35ffad3b39cdbf0c020d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd477d30c74f12e2836f41facec23103547c31b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597866"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043510"
 ---
 # <a name="resource-manager-template-samples-for-workbooks-in-azure-monitor"></a>Azure Monitor의 통합 문서에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor의 통합 문서를 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.

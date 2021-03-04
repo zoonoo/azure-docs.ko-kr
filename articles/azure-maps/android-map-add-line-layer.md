@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 3e68be79a4405af103512a9009187857a0d9af39
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 62002b776262e97dd34db1d9ecd3b7b0e09f46f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681746"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044234"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>지도에 선 계층 추가 (Android SDK)
 
@@ -22,7 +22,7 @@ ms.locfileid: "97681746"
 > [!TIP]
 > 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 선을 렌더링합니다. LineString geometry 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 옵션을로 설정 `eq(geometryType(), "LineString")` 합니다. MultiLineString 기능도 포함 하려면 `filter` 계층의 옵션을로 설정 `any(eq(geometryType(), "LineString"), eq(geometryType(), "MultiLineString"))` 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
 
@@ -110,20 +110,21 @@ map.layers.add(layer, "labels");
 
 ![선 계층에서 렌더링 된 데이터 드라이브 스타일 선으로 매핑](media/android-map-add-line-layer/android-line-layer-data-drive-style.png)
 
-## <a name="add-symbols-along-a-line"></a>선을 따라 기호 추가
+## <a name="add-a-stroke-gradient-to-a-line"></a>선에 스트로크 그라데이션 추가
 
-이 샘플에서는 맵의 선을 따라 화살표 아이콘을 추가하는 방법을 보여 줍니다. 기호 계층을 사용 하는 경우 `symbolPlacement` 옵션을로 설정 `SymbolPlacement.LINE` 합니다. 이 옵션은 선을 따라 기호를 렌더링하고 아이콘(0도 = 오른쪽)을 회전합니다.
+선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션으로 선을 채워서 한 선분에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용하여 시간 및 거리에 따른 변경이나 연결된 개체 선의 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본에 옵션이로 설정 되어 있어야 하 `lineMetrics` `true` 고 색 그라데이션 식이 줄의 옵션으로 전달 될 수 있습니다 `strokeColor` . 스트로크 그라데이션 식은 계산된 선 메트릭을 식에 노출하는 `lineProgress` 데이터 식을 참조해야 합니다.
 
 ```java
 //Create a data source and add it to the map.
-DataSource source = new DataSource();
+source = new DataSource(
+    //Enable line metrics on the data source. This is needed to enable support for strokeGradient.
+    withLineMetrics(true)
+);
 map.sources.add(source);
 
-//Load a image of an arrow into the map image sprite and call it "arrow-icon".
-map.images.add("arrow-icon", R.drawable.purple-arrow-right);
-
-//Create and add a line to the data source.
-source.add(LineString.fromLngLats(Arrays.asList(
+//Create a line and add it to the data source.
+source.add(LineString.fromLngLats(
+    Arrays.asList(
         Point.fromLngLat(-122.18822, 47.63208),
         Point.fromLngLat(-122.18204, 47.63196),
         Point.fromLngLat(-122.17243, 47.62976),
@@ -139,7 +140,65 @@ source.add(LineString.fromLngLats(Arrays.asList(
         Point.fromLngLat(-122.11595, 47.66712),
         Point.fromLngLat(-122.11063, 47.66735),
         Point.fromLngLat(-122.10668, 47.67035),
-        Point.fromLngLat(-122.10565, 47.67498))));
+        Point.fromLngLat(-122.10565, 47.67498)
+    )
+));
+
+//Create a line layer and pass in a gradient expression for the strokeGradient property.
+map.layers.add(new LineLayer(source,
+    strokeWidth(6f),
+
+    //Pass an interpolate or step expression that represents a gradient.
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+));
+```
+
+다음 스크린샷은 그라데이션 스트로크 색을 사용 하 여 렌더링 된 선을 표시 하는 위의 코드를 보여 줍니다.
+
+![선 계층에서 그라데이션 패스로 렌더링 된 선으로 맵](media/android-map-add-line-layer/android-line-layer-gradient.jpg)
+
+## <a name="add-symbols-along-a-line"></a>선을 따라 기호 추가
+
+이 샘플에서는 맵의 선을 따라 화살표 아이콘을 추가하는 방법을 보여 줍니다. 기호 계층을 사용 하는 경우 `symbolPlacement` 옵션을로 설정 `SymbolPlacement.LINE` 합니다. 이 옵션은 선을 따라 기호를 렌더링하고 아이콘(0도 = 오른쪽)을 회전합니다.
+
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Load a image of an arrow into the map image sprite and call it "arrow-icon".
+map.images.add("arrow-icon", R.drawable.purple-arrow-right);
+
+//Create and add a line to the data source.
+source.add(LineString.fromLngLats(Arrays.asList(
+    Point.fromLngLat(-122.18822, 47.63208),
+    Point.fromLngLat(-122.18204, 47.63196),
+    Point.fromLngLat(-122.17243, 47.62976),
+    Point.fromLngLat(-122.16419, 47.63023),
+    Point.fromLngLat(-122.15852, 47.62942),
+    Point.fromLngLat(-122.15183, 47.62988),
+    Point.fromLngLat(-122.14256, 47.63451),
+    Point.fromLngLat(-122.13483, 47.64041),
+    Point.fromLngLat(-122.13466, 47.64422),
+    Point.fromLngLat(-122.13844, 47.65440),
+    Point.fromLngLat(-122.13277, 47.66515),
+    Point.fromLngLat(-122.12779, 47.66712),
+    Point.fromLngLat(-122.11595, 47.66712),
+    Point.fromLngLat(-122.11063, 47.66735),
+    Point.fromLngLat(-122.10668, 47.67035),
+    Point.fromLngLat(-122.10565, 47.67498)))
+);
 
 //Create a line layer and add it to the map.
 map.layers.add(new LineLayer(source,
@@ -175,7 +234,7 @@ map.layers.add(new SymbolLayer(source,
 |:-----------------------------------------------------------------------:|
 |                                                  |
 
-아래 스크린샷에서는 위의 코드를 통해 화살표 아이콘이 표시 된 선을 렌더링 하는 방법을 보여 줍니다.
+아래 스크린샷은 화살표 아이콘이 있는 선을 표시 하는 위의 코드를 보여 줍니다.
 
 ![줄 계층에서 화살표가 렌더링 되는 데이터 드라이브 스타일 선으로 매핑](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 
