@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7103b11b7ee268acbddd8b402e1be1d44074f54d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234072"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211079"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>응용 프로그램의 고가용성을 위해 트래픽 라우팅-Azure CLI
 
@@ -49,7 +49,7 @@ az group delete --name myResourceGroup2 --yes
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az appservice plan create](/cli/azure/appservice/plan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
-| [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
+| [az webapp create](/cli/azure/webapp#az-webapp-create) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Azure Traffic Manager 프로필을 만듭니다. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Azure Traffic Manager 프로필에 엔드포인트를 추가합니다. |
 

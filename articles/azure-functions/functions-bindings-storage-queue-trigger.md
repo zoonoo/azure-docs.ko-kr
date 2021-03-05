@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381497"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210770"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -378,11 +378,11 @@ Python에서는 특성을 지원하지 않습니다.
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
  
-이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+이러한 형식을 사용하는 예제는 [확장에 대한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -399,15 +399,15 @@ Python에서는 특성을 지원하지 않습니다.
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 
-이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+이러한 형식을 사용하는 예제는 [확장에 대한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
+[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

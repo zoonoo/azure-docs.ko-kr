@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: acd2ae54d81fb508d5f8c02262cf8c2f0f071fb5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8697e64eac69af8b8552f01fb6a03da0488a7cc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016797"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210100"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 Key Vault 만들기 및 구성
 
@@ -36,7 +36,7 @@ Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
-Azure CLI 또는 Azure PowerShell을 사용하기 전에 먼저 Azure 구독에 연결해야 합니다. 메시지가 표시되면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps?view=azps-2.5.0) 또는 자격 증명을 Azure Portal에 제공합니다.
+Azure CLI 또는 Azure PowerShell을 사용하기 전에 먼저 Azure 구독에 연결해야 합니다. 메시지가 표시되면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli), [Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps?view=azps-2.5.0) 또는 자격 증명을 Azure Portal에 제공합니다.
 
 ```azurecli-interactive
 az login

@@ -4,17 +4,17 @@ description: 암호화 범위는 컨테이너 또는 개별 blob의 수준에서
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/22/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35395a30f7d58b9edb3aa7622a35e8c4a62dc76f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017392"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211365"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Blob 저장소의 암호화 범위 (미리 보기)
 
@@ -26,15 +26,14 @@ Microsoft 관리 키 또는 Azure Key Vault에 저장 된 고객 관리 키를 �
 
 암호화 범위를 만든 후에는 컨테이너 또는 blob를 만들도록 요청에 대 한 암호화 범위를 지정할 수 있습니다. 암호화 범위를 만드는 방법에 대 한 자세한 내용은 [암호화 범위 만들기 및 관리 (미리 보기)](encryption-scope-manage.md)를 참조 하세요.
 
-> [!NOTE]
+> [!IMPORTANT]
+> 암호화 범위는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+>
+> 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
+>
 > 미리 보기 중에는 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS) 계정에서 암호화 범위가 지원 되지 않습니다.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> 암호화 범위 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
->
-> 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
 
 ## <a name="create-a-container-or-blob-with-an-encryption-scope"></a>암호화 범위를 사용 하 여 컨테이너 또는 blob 만들기
 

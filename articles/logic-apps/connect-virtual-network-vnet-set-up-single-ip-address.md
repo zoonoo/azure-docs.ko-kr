@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 40f4845ecc21d05ca5e8394dccba080f8a1f8936
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e88c4bf05d88007a6e19b568f1bc1085e24b0325
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049714"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211059"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 하나 이상의 통합 서비스 환경에 대해 단일 IP 주소를 설정 합니다.
 
@@ -97,7 +97,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
    * [Azure Firewall 규칙 처리 논리](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Azure Firewall FAQ](../firewall/firewall-faq.yml)
    * [Azure PowerShell: AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## <a name="next-steps"></a>다음 단계
 

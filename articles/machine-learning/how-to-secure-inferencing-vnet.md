@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8c47478f1fccfac0c59b4a58a2767013490f869d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178663"
+ms.locfileid: "102209498"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -35,7 +35,7 @@ ms.locfileid: "102178663"
 > - 개인 링크를 사용 하는 AKS 클러스터
 > - ACI(Azure Container Instances)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -221,7 +221,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > CLI를 사용 하 여 내부 부하 분산 장치를 사용 하 여 AKS 클러스터를 만들 수 있습니다. 내부 부하 분산 장치를 사용 하도록 기존 클러스터를 업그레이드 하는 데 az ml 명령이 없습니다.
 
-자세한 내용은 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
 ---
 

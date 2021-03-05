@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033798"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209682"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Table storage 출력 바인딩
 
@@ -418,7 +418,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Tablestorageoutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) 주석을 사용 하 여 함수에서 테이블 저장소 행을 출력 하는 두 가지 옵션이 있습니다.
+[Tablestorageoutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) 주석을 사용 하 여 함수에서 테이블 저장소 행을 출력 하는 두 가지 옵션이 있습니다.
 
 - **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
 

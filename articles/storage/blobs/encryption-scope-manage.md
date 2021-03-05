@@ -4,23 +4,28 @@ description: 암호화 범위를 만들어 컨테이너 또는 blob 수준에서
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017409"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209594"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>암호화 범위 만들기 및 관리 (미리 보기)
 
 암호화 범위 (미리 보기)를 사용 하면 개별 blob 또는 컨테이너 수준에서 암호화를 관리할 수 있습니다. 암호화 범위는 스토리지 계정 내의 안전한 인클레이브에 Blob 데이터를 격리합니다. 암호화 범위를 사용 하 여 동일한 저장소 계정에 있지만 다른 고객에 게 속한 데이터 간에 보안 경계를 만들 수 있습니다. 암호화 범위에 대 한 자세한 내용은 [Blob storage의 암호화 범위 (미리 보기)](encryption-scope-overview.md)를 참조 하세요.
 
 이 문서에서는 암호화 범위를 만드는 방법을 보여 줍니다. 또한 blob 또는 컨테이너를 만들 때 암호화 범위를 지정 하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 암호화 범위는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+>
+> 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

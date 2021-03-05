@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 7c2a1f6de4e006cbb1b8566504fd16280c129f23
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582488"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210804"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` 다른 모든 경우 (v1.0 [액세스 토큰](access-tokens.md)의 경우)
 > 자세한 내용은 Microsoft. Identity. 웹 [소스 코드](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)를 참조 하세요.
 
-위의 코드 조각은 [ASP.NET Core WEB API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)에서 추출 됩니다. **AddMicrosoftIdentityWebApiAuthentication** 의 세부 정보는 [Microsoft. Identity. 웹](microsoft-identity-web.md)에서 확인할 수 있습니다. 이 메서드는 토큰의 유효성을 검사 하는 방법에 대 한 미들웨어에 지시 하는 [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview)를 호출 합니다.
+위의 코드 조각은 [ASP.NET Core WEB API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)에서 추출 됩니다. **AddMicrosoftIdentityWebApiAuthentication** 의 세부 정보는 [Microsoft. Identity. 웹](microsoft-identity-web.md)에서 확인할 수 있습니다. 이 메서드는 토큰의 유효성을 검사 하는 방법에 대 한 미들웨어에 지시 하는 [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi)를 호출 합니다.
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 

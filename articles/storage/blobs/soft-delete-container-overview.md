@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390184"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211144"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
@@ -27,8 +27,8 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 - Blob 버전 관리-blob의 이전 버전을 자동으로 유지 관리 합니다. Blob 버전 관리를 사용 하는 경우 데이터를 잘못 수정 하거나 삭제 한 경우 이전 버전의 blob을 복원 하 여 데이터를 복구할 수 있습니다. Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리 사용 및 관리](versioning-enable.md)를 참조 하세요.
 - Blob 일시 삭제-삭제 된 blob 또는 버전을 복원 합니다. Blob 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제 설정 및 관리](soft-delete-blob-enable.md)를 참조 하세요.
 
-> [!WARNING]
-> 저장소 계정 삭제는 실행 취소할 수 없습니다. 컨테이너 일시 삭제는 저장소 계정 삭제를 방지 하는 것이 아니라 해당 계정의 컨테이너 삭제에 대해서만 보호 합니다. 저장소 계정이 삭제 되지 않도록 보호 하려면 저장소 계정 리소스에 대 한 잠금을 구성 합니다. Azure Resource Manager 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+> [!IMPORTANT]
+> 컨테이너 일시 삭제는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 ## <a name="how-container-soft-delete-works"></a>컨테이너 일시 삭제 작동 방식
 
@@ -46,12 +46,12 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 
 컨테이너 일시 삭제를 사용 하지 않도록 설정 해도 이전에 일시 삭제 된 컨테이너는 영구적으로 삭제 되지 않습니다. 일시 삭제 된 모든 컨테이너는 컨테이너가 삭제 된 시간에 적용 된 보존 기간이 만료 되 면 영구적으로 삭제 됩니다.
 
+> [!IMPORTANT]
+> 컨테이너 일시 삭제는 저장소 계정 삭제를 방지 하는 것이 아니라 해당 계정의 컨테이너 삭제에 대해서만 보호 합니다. 저장소 계정이 삭제 되지 않도록 보호 하려면 저장소 계정 리소스에 대 한 잠금을 구성 합니다. Azure Resource Manager 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+
 ## <a name="about-the-preview"></a>미리 보기 정보
 
 컨테이너 일시 삭제는 모든 Azure 지역에서 미리 보기로 제공 됩니다.
-
-> [!IMPORTANT]
-> 컨테이너 일시 삭제 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
 
 Azure Storage REST API 버전 2019-12-12 이상에서는 컨테이너 일시 삭제를 지원 합니다.
 

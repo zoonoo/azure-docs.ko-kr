@@ -7,12 +7,12 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f5a7693eeced1028d84598a6db3728776f845f7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 543c3f1c72857098540cc2a77e8a0093b907b799
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741619"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210838"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>IoT Hub에서 Azure IoT Central로 장치를 전송 하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "101741619"
 
 ## <a name="to-move-the-device-to-azure-iot-central"></a>장치를 Azure IoT Central로 이동 하려면
 
-장치를 IOT Hub에서 IoT Central에 연결 하려면 다음을 사용 하 여 장치를 업데이트 해야 합니다.
+장치를 IoT Hub에서 IoT Central에 연결 하려면 다음을 사용 하 여 장치를 업데이트 해야 합니다.
 
 * IoT Central 응용 프로그램의 [범위 ID](../../iot-dps/concepts-service.md) 입니다.
 * [그룹 SAS](concepts-get-connected.md) 키 또는 x.509 인증서에서 파생 된 키 [입니다.](../../iot-hub/iot-hub-x509ca-overview.md)

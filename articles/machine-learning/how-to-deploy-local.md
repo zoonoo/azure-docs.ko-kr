@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8f22f1af04d59b4c1fb7f19a3d6815b61cac5fbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600356"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211230"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>로컬 컴퓨터에서 Azure Machine Learning를 사용 하 여 학습 한 모델 배포 
 
@@ -185,8 +185,8 @@ Docker를 사용 하 여 모델을 웹 서비스로 배포 하는 것이 가장 
 모델을 다운로드할 수 있습니다.  
 
 - 포털에서 **모델** 탭을 선택 하 고 원하는 모델을 선택한 다음 **세부 정보** 페이지에서 **다운로드** 를 선택 합니다.
-- 명령줄에서를 사용 `az ml model download` 합니다. [모델 다운로드를 참조 하세요.](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false)
-- Python SDK `Model.download()` 메서드 사용. [모델 클래스를 참조 하세요.](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false)
+- 명령줄에서를 사용 `az ml model download` 합니다. [모델 다운로드를 참조 하세요.](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download)
+- Python SDK `Model.download()` 메서드 사용. [모델 클래스를 참조 하세요.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-)
 
 Azure 모델은 Python pickle 파일 (. model.pkl extension)로 패키지 된 하나 이상의 직렬화 된 Python 개체입니다. Pickle 파일의 내용은 기계 학습 라이브러리나 모델 학습에 사용 되는 기술에 따라 달라 집니다. 예를 들어 자습서에서 모델을 사용 하는 경우 다음을 사용 하 여 모델을 로드할 수 있습니다.
 

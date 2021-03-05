@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae6b4f38772cd6c6755ece78fb5c47834a616204
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737412"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211637"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -81,9 +81,9 @@ WAF로 보호 되지 않는 웹 사용 리소스에 대해 Security Center의 �
 
 적용 된 태그 메타 데이터에 따라 Azure WAF (웹 응용 프로그램 방화벽) 정책에 규칙 및 규칙 그룹을 적용 합니다.
 
-- [Application Gateway의 WAF 정책](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [Application Gateway의 WAF 정책](/cli/azure/network/application-gateway/waf-policy) 
 
-- [전면 도어의 WAF 정책](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [전면 도어의 WAF 정책](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Azure Security Center 모니터링**: 해당 없음
 

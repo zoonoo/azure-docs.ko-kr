@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 9e6777a082dcda76c7c7df6bd1b55611cf5cdf84
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: dfa6b8eaa5f4ce8b2ebfb24a280e048ed3b19dda
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493162"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211518"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,8 +24,8 @@ SQL API 계정 Azure Cosmos DB에서는 두 가지 방법으로 데이터를 읽
 다음은 각 SDK를 사용 하 여 **요소 읽기** 를 수행 하는 방법에 대 한 몇 가지 예입니다.
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
-- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
+- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 **Sql 쿼리** -JSON 쿼리 언어로 구조적 쿼리 언어 (sql)를 사용 하 여 쿼리를 작성 하 여 데이터를 쿼리할 수 있습니다. 쿼리는 항상 최소 2.3 요청 단위를 비용으로 청구 하며, 일반적으로 지점 읽기 보다 더 높은 가변 대기 시간을 갖습니다. 쿼리에서 많은 항목을 반환할 수 있습니다.

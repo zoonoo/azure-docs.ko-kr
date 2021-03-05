@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: a32a5a04c5c71cc06d60f3d2f21946f5361a2afd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: mimckitt
+ms.openlocfilehash: a62c9bbde0726c8dec8fba1f69e221bd4e4b63bc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843250"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209852"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
 이 문서에서는 확장 집합의 인스턴스 ID와 이것이 노출되는 다양한 방식을 설명합니다.
@@ -27,7 +27,7 @@ REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/reso
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage`(자세한 내용은 [Powershell 설명서](/powershell/module/az.compute/set-azvmssvm) 참조)
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (자세한 내용은 [cli 설명서](/cli/azure/vmss?view=azure-cli-latest)참조).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (자세한 내용은 [cli 설명서](/cli/azure/vmss)참조).
 
 확장 집합에 있는 모든 인스턴스를 나열하여 인스턴스 ID 목록을 가져올 수 있습니다.
 
@@ -35,7 +35,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`(자세한 내용은 [Powershell 설명서](/powershell/module/az.compute/get-azvmssvm) 참조)
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (자세한 내용은 [cli 설명서](/cli/azure/vmss?view=azure-cli-latest)참조).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (자세한 내용은 [cli 설명서](/cli/azure/vmss)참조).
 
 [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 확장 집합의 VM을 나열할 수도 있습니다.
 

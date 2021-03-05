@@ -7,12 +7,12 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 26b551b5e3c21dcd77a5656a6f8a18c5de4feaf1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee187c2713ea0150a6bcf99906fde76e60dd06c1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723472"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209954"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -67,8 +67,8 @@ ms.locfileid: "101723472"
   모든 서비스는 연결 문자열에서 명시적으로 재정의 될 수 있습니다.
    - `IngestionEndpoint` (예: `https://dc.applicationinsights.azure.com` )
    - `LiveEndpoint` (예: `https://live.applicationinsights.azure.com` )
-   - `ProfilerEndpoint` (예: `https://profiler.applicationinsights.azure.com` )
-   - `SnapshotEndpoint` (예: `https://snapshot.applicationinsights.azure.com` )
+   - `ProfilerEndpoint` (예: `https://profiler.monitor.azure.com` )
+   - `SnapshotEndpoint` (예: `https://snapshot.monitor.azure.com` )
 
 #### <a name="endpoint-schema"></a>끝점 스키마
 

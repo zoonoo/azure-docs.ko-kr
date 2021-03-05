@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8ea3f36d4e63b3439691772c25e7b3af77dcdb02
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740388"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210039"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "97740388"
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
 
@@ -49,7 +49,7 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조하세요.
+다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
 ## <a name="install-the-machine-learning-extension"></a>기계 학습 확장 설치
 
@@ -109,7 +109,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
+리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group)을 참조하세요.
 
 ### <a name="automatically-create-required-resources"></a>자동으로 필수 리소스 만들기
 
@@ -291,7 +291,7 @@ az ml workspace list
 ]
 ```
 
-자세한 내용은 [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-list) 설명서를 참조하세요.
 
 ## <a name="get-workspace-information"></a>작업 영역 정보 가져오기
 
@@ -324,7 +324,7 @@ az ml workspace show -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-자세한 내용은 [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-show) 설명서를 참조하세요.
 
 ## <a name="update-a-workspace"></a>작업 영역 업데이트
 
@@ -357,7 +357,7 @@ az ml workspace update -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-자세한 내용은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-update) 설명서를 참조하세요.
 
 ## <a name="share-a-workspace-with-another-user"></a>다른 사용자와 작업 영역 공유
 
@@ -369,7 +369,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 Azure Machine Learning의 azure RBAC (역할 기반 액세스 제어)에 대 한 자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
 
-자세한 내용은 [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-share) 설명서를 참조하세요.
 
 ## <a name="sync-keys-for-dependent-resources"></a>종속 리소스의 키 동기화
 
@@ -381,7 +381,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 키 변경에 대한 자세한 내용은 [스토리지 액세스 키 다시 생성](how-to-change-storage-access-key.md)을 참조하세요.
 
-자세한 내용은 [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-sync-keys) 설명서를 참조하세요.
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제
 
@@ -400,7 +400,7 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 az group delete -g <resource-group-name>
 ```
 
-자세한 내용은 [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-delete) 설명서를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -421,4 +421,4 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 ## <a name="next-steps"></a>다음 단계
 
-기계 학습용 Azure CLI 확장에 대한 자세한 내용은 [az ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest) 설명서를 참조하세요.
+기계 학습용 Azure CLI 확장에 대한 자세한 내용은 [az ml](/cli/azure/ext/azure-cli-ml/ml) 설명서를 참조하세요.

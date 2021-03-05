@@ -9,12 +9,12 @@ ms.date: 1/20/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 5a27f38e92955c0aa240f6be394aacd187c3a8b8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370906"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211025"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 가지 질문에 답변해 야 합니다.
@@ -35,7 +35,7 @@ Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 �
 ## <a name="prerequisites"></a>사전 요구 사항
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
-- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 Azure 파일 공유는 공유 스토리지 풀을 나타내는 최상위 개체인 *스토리지 계정* 에 배포됩니다. 이 저장소 풀은 여러 파일 공유를 배포 하는 데 사용할 수 있습니다. 
@@ -51,7 +51,7 @@ Azure Portal를 통해 저장소 계정을 만들려면 대시보드에서 **+ �
 
 ![브라우저에서 저장소 계정 빨리 만들기 옵션의 스크린샷](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
-#### <a name="basics"></a>기본
+#### <a name="basics"></a>기본 사항
 저장소 계정 만들기를 완료 하는 첫 번째 섹션에는 **기본** 사항이 지정 되어 있습니다. 여기에는 저장소 계정을 만드는 데 필요한 모든 필드가 포함 됩니다. GPv2 저장소 계정을 만들려면 **성능** 라디오 단추가 *표준* 으로 설정 되어 있는지 확인 하 고 **계정 종류** 드롭다운 목록을 *StorageV2 (범용 v2)* 로 선택 합니다.
 
 ![StorageV2가 선택 된 표준 및 계정 종류가 선택 된 성능 라디오 단추의 스크린샷](media/storage-how-to-create-file-share/create-storage-account-1.png)
@@ -84,7 +84,7 @@ FileStorage 저장소 계정을 만들려면 **성능** 라디오 단추가 *프
 > [!Important]  
 > Blob 액세스 계층을 선택 해도 파일 공유의 계층에는 영향을 주지 않습니다.
 
-#### <a name="tags"></a>태그
+#### <a name="tags"></a>태그들
 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다. 이러한 항목은 선택 사항이 며 저장소 계정을 만든 후에 적용할 수 있습니다.
 
 #### <a name="review--create"></a>검토 + 만들기
@@ -213,7 +213,7 @@ New-AzRmStorageShare `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-명령을 사용 하 여 Azure 파일 공유를 만들 수 있습니다 [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) . 다음 Azure CLI 명령에서는 `$resourceGroupName` `$storageAccountName` Azure CLI를 사용 하 여 저장소 계정 만들기 섹션에서 위에 정의 된 대로 변수를 설정 했다고 가정 합니다.
+명령을 사용 하 여 Azure 파일 공유를 만들 수 있습니다 [`az storage share-rm create`](/cli/azure/storage/share-rm#az_storage_share_rm_create) . 다음 Azure CLI 명령에서는 `$resourceGroupName` `$storageAccountName` Azure CLI를 사용 하 여 저장소 계정 만들기 섹션에서 위에 정의 된 대로 변수를 설정 했다고 가정 합니다.
 
 > [!Important]  
 > 프리미엄 파일 공유의 경우 `--quota` 매개 변수는 프로 비전 된 파일 공유 크기를 참조 합니다. 프로 비전 된 파일 공유 크기는 사용량에 관계 없이 요금이 청구 되는 금액입니다. 표준 파일 공유는 프로 비전 된 크기가 아닌 사용량을 기준으로 요금이 청구 됩니다.

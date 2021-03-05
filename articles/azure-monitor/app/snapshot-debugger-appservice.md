@@ -6,18 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728997"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211620"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
 스냅숏 디버거는 현재 Windows 서비스 계획에서 Azure App Service 실행 되는 ASP.NET 및 ASP.NET Core 앱을 지원 합니다.
 
-스냅숏 디버거를 사용 하는 경우 기본 서비스 계층 이상에서 응용 프로그램을 실행 하는 것이 좋습니다.
+스냅숏 디버거를 사용 하는 경우 기본 서비스 계층에서 응용 프로그램을 실행 하는 것이 좋습니다.
+
 대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리 나 디스크 공간이 없습니다.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> 스냅숏 디버거 사용
@@ -52,6 +53,16 @@ ms.locfileid: "101728997"
 4. 이제 App Services 앱 설정을 사용 하 여 스냅숏 디버거를 사용할 수 있습니다.
 
     ![스냅숏 디버거에 대 한 앱 설정][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>다른 클라우드에 대 한 스냅숏 디버거 사용
+
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 하 고 Application Insights 연결 문자열을 통해 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide) 에 있습니다.
+
+|연결 문자열 속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
 
 ## <a name="disable-snapshot-debugger"></a>스냅숏 디버거 사용 안 함
 

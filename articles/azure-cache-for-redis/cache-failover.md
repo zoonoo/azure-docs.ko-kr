@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210736"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 장애 조치 (Failover) 및 패치
 
@@ -72,6 +72,10 @@ Redis 용 Azure Cache 서비스는 최신 플랫폼 기능 및 픽스를 사용 
 장애 조치 (failover)를 완전히 방지할 수 없기 때문에, 연결 중단 및 실패 한 요청에 대 한 복원을 위해 클라이언트 응용 프로그램을 작성 합니다 대부분의 클라이언트 라이브러리는 캐시 끝점에 자동으로 다시 연결 되지만 일부는 실패 한 요청을 다시 시도 합니다. 응용 프로그램 시나리오에 따라 백오프와 함께 재시도 논리를 사용 하는 것이 적합할 수 있습니다.
 
 클라이언트 응용 프로그램의 복원 력을 테스트 하려면 [다시 부팅](cache-administration.md#reboot) 을 연결 중단을 위한 수동 트리거로 사용 합니다. 또한 캐시에서 [업데이트를 예약](cache-administration.md#schedule-updates) 하는 것이 좋습니다. 지정 된 주간 windows에서 Redis 런타임 패치를 적용 하도록 관리 서비스에 지시 합니다. 이러한 창은 잠재적 인시던트를 방지 하기 위해 일반적으로 클라이언트 응용 프로그램 트래픽이 적은 경우에 발생 합니다.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>계획 된 유지 관리를 미리 알릴 수 있나요?
+
+이제 Azure Cache for Redis는 계획 된 업데이트 전에 30 초 동안 [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) 이라는 게시/구독 채널에 알림을 게시 합니다. 이러한 알림은 런타임 알림 이며 특히, 회로 차단기를 사용 하 여 계획 된 업데이트 중에 캐시 또는 버퍼 명령을 우회할 수 있는 응용 프로그램에 대해 빌드됩니다. 이는 며칠 또는 몇 시간을 미리 알릴 수 있는 메커니즘이 아닙니다.
 
 ### <a name="client-network-configuration-changes"></a>클라이언트 네트워크 구성 변경
 

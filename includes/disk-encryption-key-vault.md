@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26a9e931c42822218e7935f50c1f222ac33c34f2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015380"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210101"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "96015380"
 
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-[az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) Azure CLI 명령 또는 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell 명령을 사용하거나 [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) Azure CLI 명령 또는 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell 명령을 사용하거나 [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 만듭니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *이미 키 자격 증명 모음이 있는 경우 [키 자격 증명 모음 고급 액세스 정책 설정](#set-key-vault-advanced-access-policies)으로 건너뛸 수 있습니다.*
 
-[az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
+[az keyvault create](/cli/azure/keyvault#az-keyvault-create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
 
 >[!WARNING]
 > 키 자격 증명 모음과 VM이 동일한 구독에 있어야 합니다. 또한 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 구독 및 지역에 있는 Key Vault를 만들고 사용합니다. 
@@ -120,7 +120,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시** 로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용** 이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 을 선택합니다. 
-4. **Save** 을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -129,7 +129,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다.
 
-Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 명령, Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 또는 [Azure Portal](https://portal.azure.com/)을 사용하여 새 KEK를 생성할 수 있습니다. RSA 키 유형을 생성해야 합니다. Azure Disk Encryption은 아직 타원 곡선 키 사용을 지원하지 않습니다.
+Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) 명령, Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 또는 [Azure Portal](https://portal.azure.com/)을 사용하여 새 KEK를 생성할 수 있습니다. RSA 키 유형을 생성해야 합니다. Azure Disk Encryption은 아직 타원 곡선 키 사용을 지원하지 않습니다.
 
 대신 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../articles/key-vault/keys/hsm-protected-keys.md)를 참조하세요.
 
@@ -145,15 +145,15 @@ Azure Disk Encryption은 키 자격 증명 모음 비밀 및 KEK URL의 일부�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 명령을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
+Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) 명령을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
-대신 Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
+대신 Azure CLI [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
 
-두 경우 모두 Azure CLI [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) --key-encryption-key 매개 변수에 KEK의 이름을 제공합니다. 
+두 경우 모두 Azure CLI [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) --key-encryption-key 매개 변수에 KEK의 이름을 제공합니다. 
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>" --key-encryption-key "myKEK"
@@ -167,7 +167,7 @@ Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvau
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
 ```
 
-대신 Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
+대신 Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
 
 두 경우 모두 Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId 및 -KeyEncryptionKeyUrl 매개 변수에 KEK 키 자격 증명 모음의 ID와 KEK의 URL을 제공합니다. 이 예제에서는 디스크 암호화 키와 KEK 모두에 동일한 키 자격 증명 모음을 사용하고 있다고 가정합니다.
 

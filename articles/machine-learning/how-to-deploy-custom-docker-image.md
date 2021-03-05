@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4a9e374923f6317f7a325979dca1810fad91aeb6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695353"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209475"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -43,7 +43,7 @@ Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사�
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) 
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](../container-registry/index.yml) 또는 기타 Docker 레지스트리
 * 이 문서의 단계에서는 모델 배포의 일부로 __유추 구성__ 개체를 만들고 사용 하는 방법을 잘 알고 있다고 가정 합니다. 자세한 내용은 [배포할 위치 및 방법](how-to-deploy-and-where.md)을 참조 하세요.
@@ -207,7 +207,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 * 이미지가 __개인 리포지토리에__ 있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__ 입니다. 예: `myregistry.azureecr.io`.
+    * 레지스트리 __주소__ 입니다. 예들 들어 `myregistry.azureecr.io`입니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.

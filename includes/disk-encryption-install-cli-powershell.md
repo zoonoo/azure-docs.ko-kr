@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: be6de283ed230a6e6a6b4986abb0a36386e36925
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555939"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211994"
 ---
 Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬에 설치하고 Azure 구독에 연결해야 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)의 단계에 따라 로컬에 설치할 수 있습니다.
+[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure CLI 설치](/cli/azure/install-azure-cli)의 단계에 따라 로컬에 설치할 수 있습니다.
 
-[Azure CLI에서 Azure 계정에 로그인](/cli/azure/authenticate-azure-cli)하려면 [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용합니다.
+[Azure CLI에서 Azure 계정에 로그인](/cli/azure/authenticate-azure-cli)하려면 [az login](/cli/azure/reference-index#az-login) 명령을 사용합니다.
 
 ```azurecli
 az login

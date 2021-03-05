@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 8e5bb7bffddaedbf6349611c17e8d9cbec3c4139
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2192cdb3072edba2e5597a697feef99ba4d2070d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172683"
+ms.locfileid: "102210260"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "102172683"
 > [Azure 정적 Web Apps](../../static-web-apps/index.yml)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
 > Azure 정적 Web Apps는 자동으로 GitHub 작업 워크플로를 만듭니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독 및 GitHub 계정. 
 
@@ -37,7 +37,7 @@ Azure 구독 및 GitHub 계정.
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 자리 표시자를 `myStaticSite` Azure Storage에서 호스트 되는 사이트의 이름으로 바꿉니다. 
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746765"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211671"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Azure Front 도어 용 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 
@@ -24,7 +24,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 
 ## <a name="configure-a-waf-policy-with-the-azure-portal"></a>Azure Portal를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: 항상 사용 가능한 글로벌 웹 응용 프로그램에 대 한 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명 된 지침에 따라 Azure Front 도어 프로필을 만듭니다.
 
@@ -37,8 +37,8 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
    |설정  |값  |
    |---------|---------|
    |정책     |전역 WAF (전방 도어)|
-   |구독     |구독 선택|
-   |리소스 그룹     |프런트 도어가 있는 리소스 그룹을 선택 합니다.|
+   |Subscription     |구독 선택|
+   |Resource group     |프런트 도어가 있는 리소스 그룹을 선택 합니다.|
    |정책 이름     |정책 이름 입력|
    |정책 상태     |사용|
 
@@ -53,7 +53,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
    |설정  |값  |
    |---------|---------|
    |사용자 지정 규칙 이름     |FdWafCustRule|
-   |Status     |사용|
+   |상태     |사용|
    |규칙 유형     |일치|
    |우선 순위    |100|
    |일치 유형     |IP 주소|
@@ -83,7 +83,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Azure CLI를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 IP 제한 정책 구성을 시작 하기 전에 CLI 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Azure CLI 환경 설정
@@ -95,7 +95,7 @@ IP 제한 정책 구성을 시작 하기 전에 CLI 환경을 설정 하 고 Azu
 
 ### <a name="create-a-waf-policy"></a>WAF 정책 만들기
 
-[Az network front 도어 waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) 명령을 사용 하 여 waf 정책을 만듭니다. 다음 예에서는 정책 이름 *IPAllowPolicyExampleCLI* 을 고유한 정책 이름으로 바꿉니다.
+[Az network front 도어 waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) 명령을 사용 하 여 waf 정책을 만듭니다. 다음 예에서는 정책 이름 *IPAllowPolicyExampleCLI* 을 고유한 정책 이름으로 바꿉니다.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>사용자 지정 IP 액세스 제어 규칙 추가
 
-[Az network front f-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) 명령을 사용 하 여 방금 만든 waf 정책에 대 한 사용자 지정 IP 액세스 제어 규칙을 추가 합니다.
+[Az network front f-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) 명령을 사용 하 여 방금 만든 waf 정책에 대 한 사용자 지정 IP 액세스 제어 규칙을 추가 합니다.
 
 다음 예제에서:
 -  *IPAllowPolicyExampleCLI* 를 앞에서 만든 고유한 정책으로 바꿉니다.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>WAF 정책의 ID 찾기 
-[Az network front 도어 waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) 명령을 사용 하 여 WAF 정책의 ID를 찾습니다. 다음 예제의 *IPAllowPolicyExampleCLI* 을 앞에서 만든 고유한 정책으로 바꿉니다.
+[Az network front 도어 waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) 명령을 사용 하 여 WAF 정책의 ID를 찾습니다. 다음 예제의 *IPAllowPolicyExampleCLI* 을 앞에서 만든 고유한 정책으로 바꿉니다.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ az network front-door waf-policy rule match-condition add \
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Azure Front 도어 프런트 엔드 호스트에 WAF 정책 연결
 
-[Az network front-도어 update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) 명령을 사용 하 여 Azure Front 도어가 *WebApplicationFirewallPolicyLink* id를 정책 id로 설정 합니다. *IPAllowPolicyExampleCLI* 를 앞에서 만든 고유한 정책으로 바꿉니다.
+[Az network front-도어 update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) 명령을 사용 하 여 Azure Front 도어가 *WebApplicationFirewallPolicyLink* id를 정책 id로 설정 합니다. *IPAllowPolicyExampleCLI* 를 앞에서 만든 고유한 정책으로 바꿉니다.
 
    ```azurecli
    az network front-door update \
@@ -162,7 +162,7 @@ az network front-door waf-policy rule match-condition add \
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 IP 제한 정책 구성을 시작 하기 전에 PowerShell 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정

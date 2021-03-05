@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027257"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210821"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -54,7 +54,7 @@ SP (서비스 주체)를 사용 하려면 먼저 SP를 만들고 작업 영역�
 >
 > 최소한의 액세스 권한을 부여 하는 이유는 서비스 사용자가 암호를 사용 하 여 인증 하 고 암호가 자동화 스크립트의 일부로 저장 될 수 있기 때문입니다. 암호가 유출 되는 경우 특정 작업에 필요한 최소한의 액세스 권한이 있으면 SP의 악성 사용이 최소화 됩니다.
 
-SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가장 쉬운 방법은 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용 하는 것입니다. 서비스 사용자를 만들고 작업 영역에 대 한 액세스 권한을 부여 하려면 다음 단계를 사용 합니다.
+SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가장 쉬운 방법은 [Azure CLI](/cli/azure/install-azure-cli)를 사용 하는 것입니다. 서비스 사용자를 만들고 작업 영역에 대 한 액세스 권한을 부여 하려면 다음 단계를 사용 합니다.
 
 > [!NOTE]
 > 이러한 모든 단계를 수행 하려면 구독에 대 한 관리자 여야 합니다.
@@ -67,9 +67,9 @@ SP를 만들고 작업 영역에 대 한 액세스 권한을 부여 하는 가�
 
     CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. CLI가 브라우저를 열 수 없는 경우에는 사용자가 브라우저를 열고 명령줄의 지침을 따릅니다. 지침에 따라 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)으로 이동하고 인증 코드를 입력합니다.
 
-    여러 Azure 구독이 있는 경우 명령을 사용 하 여 구독을 `az account set -s <subscription name or ID>` 설정할 수 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조하세요.
+    여러 Azure 구독이 있는 경우 명령을 사용 하 여 구독을 `az account set -s <subscription name or ID>` 설정할 수 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조하세요.
 
-    다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조하세요.
+    다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
 1. Azure Machine Learning 확장을 설치 합니다.
 
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Azure CLI에서 서비스 주체를 사용 합니다.
 
-Azure CLI 명령에 대해 서비스 주체를 사용할 수 있습니다. 자세한 내용은 [서비스 주체를 사용 하 여 로그인](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)을 참조 하세요.
+Azure CLI 명령에 대해 서비스 주체를 사용할 수 있습니다. 자세한 내용은 [서비스 주체를 사용 하 여 로그인](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal)을 참조 하세요.
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>REST API에서 서비스 주체 사용 (미리 보기)
 

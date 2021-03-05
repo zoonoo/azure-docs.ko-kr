@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896463"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209362"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -52,7 +52,7 @@ QnA Maker 서비스는 단일 QnA Maker 서비스와 모든 해당 기술 자료
 
 ## <a name="change-azure-cognitive-search"></a>Azure Cognitive Search 변경
 
-QnA Maker 서비스에 연결 된 [Cognitive Search 서비스를 변경 하는 방법](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
+QnA Maker 서비스에 연결 된 [Cognitive Search 서비스를 변경 하는 방법](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
 
 ## <a name="change-default-answer"></a>기본 답변 변경
 

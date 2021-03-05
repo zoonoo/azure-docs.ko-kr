@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675532"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211943"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Azure Functions에서 .NET 및 .NET Core 앱에 대 한 스냅숏 디버거 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "98675532"
 
 대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리 나 디스크 공간이 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [함수 앱에서 Application Insights 모니터링 사용](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
@@ -123,6 +123,35 @@ namespace SnapshotCollectorAzureFunction
   }
 }
 ```
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>다른 클라우드에 대 한 스냅숏 디버거 사용
+
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
+
+다음은 `host.json` 미국 정부 클라우드 에이전트 끝점으로 업데이트 된의 예입니다.
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
+다음은 스냅숏 디버거 에이전트 끝점의 지원 되는 재정의입니다.
+
+|속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
 ## <a name="disable-snapshot-debugger"></a>스냅숏 디버거 사용 안 함
 

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc7c0a476f57048c7caefb6001918d314c991ee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655720"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209699"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
@@ -59,7 +59,7 @@ Azure Machine Learning은 기계 학습 수명 주기의 다양한 지점에서 
 
 이벤트를 설정할 때 특정 이벤트 데이터에 대한 트리거에만 필터를 적용할 수 있습니다. 아래 예제의 실행 상태가 변경된 이벤트를 실행 유형으로 필터링 할 수 있습니다. 이 이벤트는 조건이 충족될 때만 트리거됩니다. 필터링할 수 있는 이벤트 데이터에 대한 자세한 내용은 [Azure Machine Learning 이벤트 그리드 스키마](../event-grid/event-schema-machine-learning.md)를 참조하세요. 
 
-Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access control (Azure RBAC)에 의해 보호 됩니다. 작업 영역의 [기여자 또는 소유자](how-to-assign-roles.md#default-roles)만이 이벤트 구독을 만들고, 업데이트하고, 삭제할 수 있습니다.  이벤트 구독을 [만드는 동안](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) 또는 나중에 이벤트 구독에 필터를 적용할 수 있습니다. 
+Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access control (Azure RBAC)에 의해 보호 됩니다. 작업 영역의 [기여자 또는 소유자](how-to-assign-roles.md#default-roles)만이 이벤트 구독을 만들고, 업데이트하고, 삭제할 수 있습니다.  이벤트 구독을 [만드는 동안](/cli/azure/eventgrid/event-subscription) 또는 나중에 이벤트 구독에 필터를 적용할 수 있습니다. 
 
 
 1. Azure Portal로 이동하여 새 구독 또는 기존 구독을 선택합니다. 
@@ -130,7 +130,7 @@ Azure Event Grid를 사용하는 고객은 분리형 메시지 처리기를 만�
 
 ### <a name="set-up-with-the-cli"></a>CLI를 사용하여 설정
 
-최신 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 설치해도 되고, Azure 구독의 일부로 제공되는 Azure Cloud Shell를 사용해도 됩니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치해도 되고, Azure 구독의 일부로 제공되는 Azure Cloud Shell를 사용해도 됩니다.
 
 Event Grid 확장을 설치하려면 CLI에서 다음 명령을 사용합니다.
 

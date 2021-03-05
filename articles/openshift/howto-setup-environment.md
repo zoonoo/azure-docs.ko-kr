@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9654711a1399c2708ce8c9150b79eefa73387c03
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c253c6bf81305b9b336525c20980cf9599463648
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635029"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209869"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -43,7 +43,7 @@ az --version
 
 예를 들어 출력의 첫 번째 줄에 CLI 버전이 포함 됩니다 `azure-cli (2.0.65)` .
 
-새 설치 또는 업그레이드가 필요한 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 지침은 다음과 같습니다.
+새 설치 또는 업그레이드가 필요한 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli) 하는 지침은 다음과 같습니다.
 
 또는 [Azure Cloud Shell](../cloud-shell/overview.md)를 사용할 수 있습니다. Azure Cloud Shell 사용 하는 경우 [Azure Red Hat OpenShift 클러스터 만들기 및 관리](tutorial-create-cluster.md) 자습서 시리즈를 따라 진행 하려는 경우 **Bash** 환경을 선택 해야 합니다.
 

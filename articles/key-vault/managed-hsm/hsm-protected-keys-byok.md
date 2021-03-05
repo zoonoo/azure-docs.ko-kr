@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376057"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212113"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 된 키를 관리 되는 HSM으로 가져오기 (BYOK)
 
@@ -46,7 +46,7 @@ ms.locfileid: "100376057"
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 관리 되는 HSM은 구독에서 [지원 되는 hsm 목록을](#supported-hsms) 표시 합니다. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
+* 관리 되는 HSM은 구독에서 [지원 되는 hsm 목록을](#supported-hsms) 표시 합니다. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +56,7 @@ CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 살펴보세요.
+CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 살펴보세요.
 
 ## <a name="supported-hsms"></a>지원되는 HSM
 
@@ -69,8 +69,8 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[Cryptomathic BYOK 도구 및 설명서](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|제조업체, 서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 StorMagic 사이트](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)를 참조하세요.|[SvKMS 및 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
-|IBM|제조업체|IBM 476x, CryptoExpress|[IBM Enterprise 키 관리 파운데이션](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
-|Utimaco|제조업체,<br/>서비스로 제공되는 HSM|u. 트러스트 앵커, CryptoServer|[Utimaco BYOK 도구 및 통합 가이드](https://support.hsm.utimaco.com/support/downloads/byok)|
+|IBM|제조업체|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Utimaco|제조업체,<br/>서비스로 제공되는 HSM|u.trust Anchor, CryptoServer|[Utimaco BYOK 도구 및 통합 가이드](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
@@ -82,7 +82,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 |대상 키|
 ||RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 ||EC|P-256<br />P-384<br />P-521|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
-||대칭 키 (oct-HSM)|128 비트<br />192 비트<br />256 비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
+||대칭 키 (oct-HSM)|128비트<br />192 비트<br />256 비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 ||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성 하 고 관리 되는 HSM으로 전송
 
@@ -105,7 +105,7 @@ KEK는 다음과 같아야 합니다.
 > [!NOTE]
 > KEK의 유일하게 허용되는 키 작업은 'import'여야 합니다. 'import'는 다른 모든 키 작업과 상호 배타적 관계입니다.
 
-[az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
+[az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
 
 ```azurecli-interactive
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
@@ -115,7 +115,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>2단계: KEK 공개 키 다운로드
 
-[az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
+[az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
 
 ```azurecli-interactive
 az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -137,7 +137,7 @@ BYOK 파일을 연결된 컴퓨터로 전송합니다.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>4 단계: 관리 되는 HSM에 키 전송
 
-키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [Az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) 명령을 사용 하 여 byok 파일을 관리 되는 HSM에 업로드 합니다.
+키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [Az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) 명령을 사용 하 여 byok 파일을 관리 되는 HSM에 업로드 합니다.
 
 ```azurecli-interactive
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok

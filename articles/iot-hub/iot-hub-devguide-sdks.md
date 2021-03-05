@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 173e6e125387ba7d2755d9fff9387af0be21fffc
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095234"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211756"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -78,14 +78,14 @@ Java용 Azure IoT Hub 디바이스 SDK:
 * [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) 프로젝트에 추가
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-java)
 * [API 참조](/java/api/com.microsoft.azure.sdk.iot.device)
-* [모듈 참조](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable&preserve-view=true)
+* [모듈 참조](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
 Node.js용 Azure IoT Hub 디바이스 SDK:
 
 * [npm](https://www.npmjs.com/package/azure-iot-device)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-node)
 * [API 참조](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
-* [모듈 참조](/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest&preserve-view=true)
+* [모듈 참조](/javascript/api/azure-iot-device/moduleclient)
 
 Python용 Azure IoT Hub 디바이스 SDK:
 
@@ -165,12 +165,12 @@ Java용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) 프로젝트에 추가
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [API 참조](/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable&preserve-view=true)
+* [API 참조](/java/api/com.microsoft.azure.sdk.iot.provisioning.device)
 
 Node.js용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [API 참조](/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest&preserve-view=true)
+* [API 참조](/javascript/api/overview/azure/iothubdeviceprovisioning)
 * npm에서 [디바이스 SDK](https://badge.fury.io/js/azure-iot-provisioning-device) 및 [서비스 SDK](https://badge.fury.io/js/azure-iot-provisioning-service) 다운로드
 
 Python용 Azure 프로비저닝 디바이스 및 서비스 SDK:

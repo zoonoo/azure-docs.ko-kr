@@ -3,12 +3,12 @@ title: 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주
 description: 이 문서에서는 사용자 지정 Azure Resource Manager 역할을 만들고 Azure CLI을 사용 하 여 IoT Edge에서 Live Video Analytics에 대 한 서비스 주체에 할당 하는 방법을 안내 합니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425729"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210447"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
 
@@ -16,7 +16,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
 
 이 문서에서는 Azure Cloud Shell를 사용 하 여 사용자 지정 Azure Resource Manager 역할을 만들고이를 사용 하 여 서비스 주체를 만드는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>사전 요구 사항  
 
 이 문서의 필수 구성 요소는 다음과 같습니다.
 
@@ -49,7 +49,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. [리소스 그룹](/cli/azure/group?view=azure-cli-latest#az-group-create) 및 [저장소 계정을](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)만듭니다.
+1. [리소스 그룹](/cli/azure/group#az-group-create) 및 [저장소 계정을](/cli/azure/storage/account#az-storage-account-create)만듭니다.
 1. 이제 Cloud Shell에서 다음 명령 템플릿을 사용 하 여 Azure Media Services 계정을 만듭니다.
 
     ```
@@ -85,8 +85,8 @@ az ams account sp create --account-name < yourAMSAccountName > --resource-group 
 ```
 1. 암호 인증을 사용 하는 서비스 사용자에 대 한 출력에는 암호 키 (이 경우 "AadSecret" 매개 변수)가 포함 됩니다. 
 
-    이 값은 검색할 수 없으므로 복사해야 합니다. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials)하세요.
-1. AppId 및 테 넌 트 키는 각각 "AadClientId" 및 "AadTenantId"로 출력에 표시 됩니다. 서비스 사용자 인증에 사용 됩니다. 해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
+    이 값은 검색할 수 없으므로 복사해야 합니다. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials)하세요.
+1. AppId 및 테 넌 트 키는 각각 "AadClientId" 및 "AadTenantId"로 출력에 표시 됩니다. 서비스 사용자 인증에 사용 됩니다. 해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
 
 ### <a name="create-a-custom-role-definition"></a>사용자 지정 역할 정의 만들기  
 
@@ -171,7 +171,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 “objectId” : “<yourObjectId>”,
 ```
 
-[Az role 할당 create command](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template을 사용 하 여 사용자 지정 역할을 서비스 사용자와 연결 합니다.
+[Az role 할당 create command](/cli/azure/role/assignment#az-role-assignment-create) template을 사용 하 여 사용자 지정 역할을 서비스 사용자와 연결 합니다.
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b4c705e65b5b8c4f9e34dc5ff1474e87da5bee02
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594449"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209792"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>CLI를 사용하여 유지 관리 상태 확인
 
-계획된 유지 관리 정보는 [az vmss list-instances](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances)를 사용하여 볼 수 있습니다.
+계획된 유지 관리 정보는 [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances)를 사용하여 볼 수 있습니다.
  
 유지 관리가 계획된 경우에만 유지 관리 정보가 반환됩니다. VM 인스턴스에 영향을 주는 유지 관리가 예약되지 않은 경우 이 명령에서 유지 관리 정보를 반환하지 않습니다. 
 
