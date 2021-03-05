@@ -4,13 +4,13 @@ description: 이 문서에서는 센서 파트너 통합에 대해 설명합니�
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: v-ummehabiba
+ms.openlocfilehash: 8d1b8203fa50609daf59431c2cfecba68eba52b1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001595"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179751"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -131,7 +131,7 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
 - /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
 - /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-  DeviceModel | Description |
+  DeviceModel | 설명 |
   --- | ---
   Type(node, gateway)  | 디바이스의 유형(노드 또는 게이트웨이)입니다. |
   제조업체  | 제조업체의 이름입니다. |

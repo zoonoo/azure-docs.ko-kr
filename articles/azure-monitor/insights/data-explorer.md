@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582349"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179139"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure 데이터 탐색기 Azure Monitor (미리 보기)
 
@@ -103,10 +103,10 @@ Azure 데이터 탐색기 Azure Monitor는 로그와 메트릭을 결합 하 여
 
 사용자는 **사용 현황** 탭에서 클러스터의 명령 및 쿼리 성능에 대해 자세히 알아볼 수 있습니다. 이 페이지에서 다음을 수행할 수 있습니다.
  
- - 가장 많은 쿼리를 보내고 가장 많은 CPU와 메모리를 사용 하는 사용자 및 응용 프로그램을 확인 합니다. 따라서 클러스터에서 처리할 가장 많은 쿼리를 전송 하는 사용자를 이해할 수 있습니다.
- - 실패 한 쿼리의 상위 사용자 및 응용 프로그램을 식별 합니다.
- - 사용자 및 응용 프로그램을 기준으로 지난 16 일간의 일별 평균 기록에 비해 쿼리 수의 최근 변경 내용을 확인 합니다.
- - 사용자, 응용 프로그램 및 명령 유형별로 쿼리, 메모리 및 CPU 소비 수의 추세 및 최대 수를 식별 합니다.
+ - 가장 많은 쿼리를 전송 하거나 가장 많은 CPU와 메모리를 사용 하는 작업 그룹, 사용자 및 응용 프로그램을 확인 합니다 .이를 통해 클러스터에서 처리 하기에 가장 많은 쿼리를 전송 하는 작업을 파악할 수 있습니다.
+ - 실패 한 쿼리의 상위 작업 그룹, 사용자 및 응용 프로그램을 식별 합니다.
+ - 작업 그룹, 사용자 및 응용 프로그램을 기준으로 지난 16 일간의 일별 평균 기록에 비해 쿼리 수의 최근 변경 내용을 확인 합니다.
+ - 작업 그룹, 사용자, 응용 프로그램 및 명령 유형별로 쿼리, 메모리 및 CPU 소비 수의 추세 및 최대 수를 식별 합니다.
 
 [![명령 및 쿼리 수를 기준으로 상위 응용 프로그램의 도넛형 차트, 명령 및 쿼리 수 별 상위 주체, 명령 유형별 상위 명령 등의 작업 보기 스크린샷](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

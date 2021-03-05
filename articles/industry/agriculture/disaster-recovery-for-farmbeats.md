@@ -4,13 +4,13 @@ description: 이 문서에서는 데이터 복구가 데이터 손실을 방지 
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
-ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 9ece624546cab1b8b6fab8c19f4401bd050f6267
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164213"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179887"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>FarmBeats에 대 한 재해 복구
 
@@ -26,7 +26,7 @@ ms.locfileid: "92164213"
 
 ## <a name="enable-data-redundancy"></a>데이터 중복성 사용
 
-FarmBeats는 **azure storage**, **Cosmos DB** 및 **Time Series Insights**세 가지 azure 자사 서비스에 데이터를 저장 합니다. 다음 단계를 사용 하 여 쌍을 이루는 Azure 지역에 이러한 서비스에 대 한 데이터 중복성을 사용 하도록 설정 합니다.
+FarmBeats는 **azure storage**, **Cosmos DB** 및 **Time Series Insights** 세 가지 azure 자사 서비스에 데이터를 저장 합니다. 다음 단계를 사용 하 여 쌍을 이루는 Azure 지역에 이러한 서비스에 대 한 데이터 중복성을 사용 하도록 설정 합니다.
 
 1.  **Azure Storage** -이 지침에 따라 FarmBeats 배포의 각 저장소 계정에 대해 데이터 중복성을 사용 하도록 설정 합니다.
 2.  **Azure Cosmos DB** -이 지침에 따라 FarmBeats 배포 Cosmos DB 계정에 대 한 데이터 중복성을 사용 하도록 설정 합니다.

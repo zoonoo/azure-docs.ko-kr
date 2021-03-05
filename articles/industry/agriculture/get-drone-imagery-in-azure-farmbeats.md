@@ -4,13 +4,13 @@ description: 이 문서에서는 파트너에서 드 론 이미지를 가져오�
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: 18932d2ddb60242b4d7874dddf0349a62cd5c738
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88508807"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177609"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>드 론 파트너에서 드 론 이미지 가져오기
 
@@ -42,7 +42,7 @@ FarmBeats와의 통합을 사용 하도록 설정 하려면 장치 공급자에 
 
     ![포털의 오른쪽 위 막대에서 Azure Cloud Shell 열기](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. 환경이 **PowerShell**로 설정 되었는지 확인 합니다.
+3. 환경이 **PowerShell** 로 설정 되었는지 확인 합니다.
 
     ![PowerShell 설정](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
@@ -85,7 +85,7 @@ FarmBeats와의 통합을 사용 하도록 설정 하려면 장치 공급자에 
 
 ## <a name="view-all-drone-maps"></a>모든 드 론 맵 보기
 
-드 론 공급자가 업로드 한 파일 및 이미지가 **Maps** 섹션에 표시 됩니다. **맵** 섹션을 선택 하 고 **팜으로**필터링 한 다음, 보고 다운로드할 적절 한 파일을 선택 합니다.
+드 론 공급자가 업로드 한 파일 및 이미지가 **Maps** 섹션에 표시 됩니다. **맵** 섹션을 선택 하 고 **팜으로** 필터링 한 다음, 보고 다운로드할 적절 한 파일을 선택 합니다.
 
   ![Maps 섹션](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727800"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177790"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>저장소 이벤트에 대 한 응답으로 파이프라인을 실행 하는 트리거 만들기
 
@@ -26,7 +26,6 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. *Microsoft EventGrid/Eventgrid/** 작업을 수행할 수 있어야 합니다. 이 작업은 EventGrid Eventgrid 참여자 기본 제공 역할의 일부입니다.
 
@@ -34,11 +33,11 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 이 섹션에서는 Azure Data Factory 사용자 인터페이스 내에서 저장소 이벤트 트리거를 만드는 방법을 보여 줍니다.
 
-1. **제작 캔버스** 로 이동합니다.
+1. 연필 기호와 함께 표시 되는 **편집** 탭으로 전환 합니다. 
 
-1. 왼쪽 아래 모서리에서 **트리거** 단추 클릭
+1. 메뉴에서 **트리거** 를 선택 하 고 **새로 만들기/편집** 을 선택 합니다. 
 
-1. **+ 새로 만들기** 를 클릭하여 트리거 측면 탐색 만들기 열기
+1. **트리거 추가** 페이지에서 **트리거 선택**...을 선택 하 고 **+ 새로 만들기** 를 선택 합니다. 
 
 1. 트리거 유형 **저장소 이벤트** 를 선택 합니다.
 
@@ -107,4 +106,5 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 ## <a name="next-steps"></a>다음 단계
 
-트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#trigger-execution)를 참조하세요.
+* 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#trigger-execution)를 참조하세요.
+* 파이프라인에서 트리거 메타 데이터를 참조 하는 방법에 대해 알아봅니다. [파이프라인 실행의 참조 트리거 메타 데이터](how-to-use-trigger-parameterization.md) 를 참조 하세요.

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098335"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179377"
 ---
 # <a name="azure-percept-dk-overview"></a>Azure Percept DK 개요
 
@@ -24,7 +24,7 @@ Azure Percept 진한은 비전 및 오디오 AI 개념 증명을 개발 하기 �
 
 - 에 **지에서 AI를 실행 하는 기능** 입니다. 기본 제공 하드웨어 가속을 사용 하면 클라우드에 연결 하지 않고도 비전 AI 모델을 실행할 수 있습니다.
 - **기본 제공 되는 신뢰 보안의 하드웨어 루트** 입니다. 자세한 내용은 [Azure Percept 보안](./overview-percept-security.md) 개요를 참조 하세요.
-- **[Azure Percept Studio](./overview-azure-percept-studio.md) 및 기타 azure 서비스와의 원활한 통합** 예: Azure IoT Hub, Azure Cognitive Services 및 [라이브 비디오 분석](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 및 기타 azure 서비스와의 원활한 통합** 예: Azure IoT Hub, Azure Cognitive Services 및 [라이브 비디오 분석](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
 - **선택적 [Azure Percept Audio](./overview-azure-percept-audio.md) 와 원활한 통합**
 - **상위 AI 플랫폼을 지원** 합니다. 예: ONNX 및 TensorFlow.
 - **80/20 railing 시스템과의 통합** 입니다. 프로덕션 환경에서 프로토타입 빌드를 용이 하 게 합니다. [80/20 통합](./overview-8020-integration.md)에 대해 자세히 알아보세요.

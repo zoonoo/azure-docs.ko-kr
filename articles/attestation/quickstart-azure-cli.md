@@ -7,18 +7,18 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429248"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178714"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Attestation 설정
 
-[Azure CLI를 사용하여 Azure Attestation](/cli/azure/ext/attestation/attestation?view=azure-cli-latest)을 시작합니다.
+[Azure CLI를 사용하여 Azure Attestation](/cli/azure/ext/attestation/attestation)을 시작합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -69,13 +69,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음은 증명 공급자를 만들고 관리하는 데 사용할 수 있는 명령입니다.
 
-1. [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) 명령을 실행하여 정책 서명 요구 사항 없이 증명 공급자를 만듭니다.
+1. [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) 명령을 실행하여 정책 서명 요구 사항 없이 증명 공급자를 만듭니다.
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) 명령을 실행하여 상태 및 AttestURI와 같은 증명 공급자 속성을 검색합니다.
+1. [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) 명령을 실행하여 상태 및 AttestURI와 같은 증명 공급자 속성을 검색합니다.
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    TagsTable:
    ```
 
-[az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) 명령을 사용하여 증명 공급자를 삭제할 수 있습니다.
+[az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) 명령을 사용하여 증명 공급자를 삭제할 수 있습니다.
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 여기에 설명된 명령을 사용하여 한 번의 하나의 증명 유형으로 증명 공급자에 대한 정책 관리를 제공합니다.
 
-[az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) 명령은 지정된 TEE에 대한 현재 정책을 반환합니다.
+[az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) 명령은 지정된 TEE에 대한 현재 정책을 반환합니다.
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ az attestation policy show --name "myattestationprovider" --resource-group "MyRe
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-[az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) 명령을 사용하여 지정된 증명 유형에 대한 새 정책을 설정합니다.
+[az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) 명령을 사용하여 지정된 증명 유형에 대한 새 정책을 설정합니다.
 
 파일 경로를 사용하여 지정된 종류의 증명 유형에 대해 텍스트 형식으로 정책을 설정하려면 다음을 수행합니다.
 

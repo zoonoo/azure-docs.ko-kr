@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750336"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178367"
 ---
 ## <a name="disk-level-bursting"></a>디스크 수준 버스트
 
@@ -63,15 +63,14 @@ Second는 버스트 트랜잭션 비용입니다. 두 시간 슬롯에서 디스
 
 신용 기반 버스트는 Azure 공용, 정부 및 중국 클라우드의 모든 지역에서 P20 하 고 작은 디스크 크기에 사용할 수 있습니다. 기본적으로 디스크 버스트는 지원 되는 디스크 크기의 모든 신규 및 기존 배포에서 사용 하도록 설정 됩니다. VM 수준 버스트는 신용 기반 버스트만 사용 합니다.
 
-### <a name="virtual-machine-level-bursting"></a>가상 컴퓨터 수준 버스트
-다음 지원 되는 크기의 공용 클라우드의 모든 지역에서 VM 수준 버스트 지원이 사용 됩니다. 
-- [Lsv2 시리즈](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>가상 컴퓨터 수준 버스트
 
-VM 수준 버스트는 다음과 같은 지원 되는 크기에 대 한 미국 중부 지역 에서도 사용할 수 있습니다.
+VM 수준 버스트는 버스트에 신용 기반 모델만 사용 하며,이 모델을 지 원하는 모든 Vm에 대해 기본적으로 사용 하도록 설정 되어 있습니다.
+
+VM 수준 버스트는 다음과 같은 지원 되는 크기의 Azure 공용 클라우드의 모든 지역에서 사용 하도록 설정 됩니다. 
+- [Lsv2 시리즈](../articles/virtual-machines/lsv2-series.md)
 - [Dv3 및 Dsv3 시리즈](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Ev3 및 Esv3 시리즈](../articles/virtual-machines/ev3-esv3-series.md)
-
-기본적으로이를 지 원하는 가상 컴퓨터에는 버스트가 사용 됩니다.
 
 ## <a name="bursting-flow"></a>버스트 흐름
 

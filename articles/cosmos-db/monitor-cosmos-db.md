@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: e23318684294a833c59fd5666db8c0a14efde890
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f18d1850cb6ccf28ff70f826e3d4bfe74ae05c40
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658506"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178731"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -125,7 +125,7 @@ Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네
 
 ## <a name="analyzing-logs"></a><a id="analyze-log-data"></a> 로그 분석
 
-Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이 있는 테이블에 저장됩니다.
+Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다.
 
 Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다. Azure Cosmos DB에 대해 수집 되는 리소스 로그의 유형 목록은 [모니터링 Azure Cosmos DB 데이터 참조](monitor-cosmos-db-reference.md#resource-logs)를 참조 하세요.
 

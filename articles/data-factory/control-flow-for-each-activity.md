@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385611"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177789"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -72,8 +72,8 @@ name | for-each 작업의 이름입니다. | String | 예
 type | **ForEach** 로 설정되어야 합니다. | String | 예
 isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential** 이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
 batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 상한 동시성 제한 이지만 각 활동은 항상이 숫자에서 실행 되지 않습니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
-항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | Yes
-활동 | 실행할 작업 | 작업 목록 | Yes
+항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | 예
+활동 | 실행할 작업 | 작업 목록 | 예
 
 ## <a name="parallel-execution"></a>병렬 실행
 **isSequential** 이 false로 설정된 경우 최대 20개의 동시 반복에서 병렬로 작업이 반복됩니다. 이 설정은 주의해서 사용해야 합니다. 동시 반복을 동일한 폴더의 다른 파일에 쓰는 것은 괜찮습니다. 동시 반복을 동시에 정확히 동일한 파일에 쓸 경우 오류가 발생할 가능성이 높습니다. 
@@ -483,6 +483,7 @@ ForEach 작업 및 제안된 해결 방법의 몇 가지 제한 사항은 다음
 |---|---|
 | ForEach 루프를 또 다른 ForEach 루프(또는 Until 루프) 내부에 중첩할 수 없습니다. | 중첩된 루프가 있는 내부 파이프라인을 통해 외부 ForEach 루프가 있는 외부 파이프라인을 반복하는 두 수준의 파이프라인을 설계합니다. |
 | ForEach 작업에는 병렬 처리를 위한 최대 50개 `batchCount` 및 최대 100,000개 항목이 있습니다. | 내부 파이프라인을 통해 ForEach 작업이 있는 외부 파이프라인을 반복하는 두 수준의 파이프라인을 설계합니다. |
+| 변수는 전체 파이프라인에 대 한 전역 변수 이며 ForEach 또는 다른 활동으로 범위가 한정 되지 않으므로 병렬로 실행 되는 ForEach 활동 내에서 SetVariable을 사용할 수 없습니다. | 순차 ForEach를 사용 하거나 ForEach (자식 파이프라인에서 처리 되는 변수/매개 변수) 내에서 Execute 파이프라인을 사용 하는 것이 좋습니다.|
 | | |
 
 ## <a name="next-steps"></a>다음 단계

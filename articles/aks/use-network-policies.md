@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책�
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1d3aa49a749890783fdae589edab3d1910b2ac73
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729422"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178901"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -203,7 +203,7 @@ az aks create \
     --network-policy calico
 ```
 
-클러스터를 만드는 데 몇 분이 걸립니다. 기본적으로 클러스터는 Linux 노드 풀만 사용 하 여 만들어집니다. Windows 노드 풀을 사용 하려면 하나를 추가할 수 있습니다. 다음은 그 예입니다. 
+클러스터를 만드는 데 몇 분이 걸립니다. 기본적으로 클러스터는 Linux 노드 풀만 사용 하 여 만들어집니다. Windows 노드 풀을 사용 하려면 하나를 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az aks nodepool add \
@@ -558,12 +558,12 @@ kubectl delete namespace development
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

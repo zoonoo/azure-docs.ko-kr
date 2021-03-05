@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981309"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178663"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -35,8 +35,7 @@ ms.locfileid: "99981309"
 > - 개인 링크를 사용 하는 AKS 클러스터
 > - ACI(Azure Container Instances)
 
-
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -58,7 +57,6 @@ ms.locfileid: "99981309"
 > [!div class="checklist"]
 > * [Azure Kubernetes 서비스에서 고급 네트워킹 구성 (AKS)](../aks/configure-azure-cni.md#prerequisites)의 필수 구성 요소를 따릅니다.
 > * AKS 인스턴스와 가상 네트워크는 동일한 지역에 있어야 합니다. 가상 네트워크의 작업 영역에서 사용 하는 Azure Storage 계정의 보안을 유지 하는 경우 AKS 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
-
 
 가상 네트워크의 AKS를 작업 영역에 추가 하려면 다음 단계를 사용 합니다.
 
@@ -274,7 +272,7 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 네 부분으로 구성 된 가상 네트워크 시리즈의 3 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
+이 문서는 5 부 가상 네트워크 시리즈의 4 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
 
 * [1 부: 가상 네트워크 개요](how-to-network-security-overview.md)
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)

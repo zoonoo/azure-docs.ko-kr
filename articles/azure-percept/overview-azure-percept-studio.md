@@ -7,16 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: d850b47078f504b8ccb23d8c0a43811e99dc71d8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7650e80273567a693c3566fede068678b3cc5b17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098352"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179411"
 ---
 # <a name="azure-percept-studio-overview"></a>Azure Percept Studio 개요
 
-Azure Percept Studio는 edge AI 모델 및 솔루션을 만들기 위한 단일 시작 지점입니다. Azure Percept Studio를 사용 하면 edge AI 지원 하드웨어와 강력한 Azure AI 및 IoT cloud 서비스를 쉽게 통합할 수 있도록 하는 안내 워크플로를 검색 하 고 완료할 수 있습니다.
+[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 는 edge AI 모델 및 솔루션을 만들기 위한 단일 시작 지점입니다. Azure Percept Studio를 사용 하면 edge AI 지원 하드웨어와 강력한 Azure AI 및 IoT cloud 서비스를 쉽게 통합할 수 있도록 하는 안내 워크플로를 검색 하 고 완료할 수 있습니다.
 
 스튜디오에서는에 지 AI 지원 장치를 초기 및 지속적인 학습 데이터 뿐만 아니라 모델 반복의 배포 대상으로 수집 하기 위한 끝점으로 볼 수 있습니다. 장치 및 학습 데이터에 액세스 하면 [시각](./tutorial-nocode-vision.md) 및 [음성](./tutorial-no-code-speech.md) 시나리오 모두에 대 한 빠른 프로토타입 및 반복적인 Edge AI 모델 개발을 수행할 수 있습니다.
 
@@ -32,8 +32,7 @@ Azure Percept Studio의 워크플로는 Azure IoT Hub, Custom Vision, Speech Stu
 
 ## <a name="next-steps"></a>다음 단계
 
-<!-- [here](https://go.microsoft.com/fwlink/?linkid=2135819). -->
-
+- [여기](https://go.microsoft.com/fwlink/?linkid=2135819) 에서 Azure Percept Studio를 확인 하세요.
 - [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270) 에서 AZURE Percept 진한 및 Azure Percept Audio 액세서리 가져오기
 - Azure Percept 진한 설치 [빠른 시작 가이드](./quickstart-percept-dk-set-up.md) 를 완료 합니다.
 - 코드 없는 [비전](./tutorial-nocode-vision.md) 및 [음성](./tutorial-no-code-speech.md) 솔루션 빌드에 대 한 자습서를 사용해 보세요.

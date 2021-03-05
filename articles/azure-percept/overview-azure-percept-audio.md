@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8884663b3f0e861e62f48c3aab680f0f31e74428
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8f84fb6bf37a3d3b61f4cad2c89745447aa88a36
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098386"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179394"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Azure Percept 오디오 소개
 
@@ -65,7 +65,7 @@ Azure Percept Audio passes the audio input to the Azure Percept DK carrier board
 
 ## <a name="build-a-no-code-prototype"></a>코드 없는 프로토타입 빌드
 
-의료, 의료, 재고 및 자동차 시나리오에 대 한 Azure Percept 음성 도우미 템플릿을 사용 하 여 비 [코드 음성 솔루션](./tutorial-no-code-speech.md) 을 빌드합니다.
+Azure [Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 에서 의료, 의료, 재고 및 자동차 시나리오에 대 한 azure Percept voice assistant 템플릿을 사용 하 여 [코드 없는 음성 솔루션](./tutorial-no-code-speech.md) 을 빌드합니다.
 
 ### <a name="manage-your-no-code-speech-solution"></a>코드 없는 음성 솔루션 관리
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cca8a93330e5ddd965d27532895ed1d6702c123
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881014"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179649"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
@@ -125,7 +125,7 @@ AzCopy은 저장소 계정 간에 파일을 복사 하는 데 사용할 수 있�
 
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
-`--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+`--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `--recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `--include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
 
 #### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 업로드 
 
@@ -220,7 +220,7 @@ AzCopy은 저장소 계정 간에 파일을 복사 하는 데 사용할 수 있�
 
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
-`--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+`--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `--recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `--include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
 
 #### <a name="download-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 다운로드 
 

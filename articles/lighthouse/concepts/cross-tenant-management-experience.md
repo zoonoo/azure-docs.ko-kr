@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050395"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177922"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -67,6 +67,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 [Azure Backup](../../backup/index.yml):
 
 - [온-프레미스 워크 로드, Azure vm, azure 파일 공유 등에서](../..//backup/backup-overview.md#what-can-i-back-up) 고객 데이터 백업 및 복원
+- [백업 센터](../../backup/backup-center-overview.md) 에서 모든 위임 된 고객 리소스에 대 한 데이터 보기
 - [Backup 탐색기](../../backup/monitor-azure-backup-with-backup-explorer.md)를 사용하여 백업 항목의 작동 정보(백업에 대해 아직 구성되지 않은 Azure 리소스 포함) 및 위임된 구독에 대한 모니터링 정보(작업 및 경고)를 볼 수 있도록 지원합니다. Backup 탐색기는 현재 Azure VM 데이터에만 사용할 수 있습니다.
 - 위임된 구독에서 [Backup 보고서](../../backup/configure-reports.md)를 사용하여 기록 추세를 추적하고, 백업 스토리지 사용량을 분석하고, 백업 및 복원을 감사합니다.
 

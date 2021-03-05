@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654798"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178119"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Cache for Redis의 모범 사례 
 이러한 모범 사례를 따르면 Azure Cache for Redis 인스턴스에 대 한 성능 및 비용 효율적 사용을 최대화할 수 있습니다.
@@ -51,7 +51,7 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
 ## <a name="client-library-specific-guidance"></a>클라이언트 라이브러리 관련 지침
  * [StackExchange (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-어떤 클라이언트를 사용 해야 하나요?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [(Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [(Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.JS](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +73,8 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
  * 테스트에 사용 되는 클라이언트 VM은 Redis cache 인스턴스와 **동일한 지역에** 있어야 합니다.
  * 더 나은 하드웨어를 제공 하 고 최상의 결과를 제공 하므로 클라이언트에 **DV2 VM 시리즈를 사용 하는 것이 좋습니다** .
  * 사용 하는 클라이언트 VM에는 테스트 중인 캐시와 *최소한 많은 계산 및 대역폭이* 있는지 확인 합니다. 
+ * 캐시의 **장애 조치 (failover) 조건에서 테스트** 합니다. 안정적인 상태 조건 에서만 캐시의 성능을 테스트 하는 것은 중요 합니다. 또한 장애 조치 (failover) 조건에서 테스트 하 고 해당 시간 동안 캐시에서 CPU/서버 부하를 측정 합니다. [주 노드를 다시 부팅](cache-administration.md#reboot)하 여 장애 조치 (failover)를 시작할 수 있습니다. 이렇게 하면 장애 조치 (failover) 상태 (업데이트 중에 발생 하 고 계획 되지 않은 이벤트 중에 발생할 수 있음)에 따라 응용 프로그램이 어떻게 동작 하는지 확인할 수 있습니다. 성능에 영향을 줄 수 있는 장애 조치 (failover) 중에도 CPU/서버 부하를 최대 80%까지 don't't 것이 좋습니다.
+ * **프리미엄 P2** 이상은 4 개 이상의 코어가 있는 vm에서 호스팅됩니다. 이는 여러 코어에 TLS 암호화/암호 해독 작업을 분산 하 여 전체 CPU 사용량을 줄일 때 유용 합니다.  [VM 크기 및 코어에 대 한 자세한 내용은 여기를 참조 하세요.](cache-planning-faq.md#azure-cache-for-redis-performance)
  * Windows를 사용 하는 경우 클라이언트 컴퓨터에서 **VRSS를 사용 하도록 설정** 합니다.  [자세한 내용을 보려면 여기를 참조하세요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  PowerShell 스크립트 예제:
      >PowerShell-Set-executionpolicy Enable-NetAdapterRSS-Name (Get-netadapter). 이름의 
 

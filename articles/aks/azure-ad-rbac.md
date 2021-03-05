@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service)에서 Kubernetes (역할 기반 acce
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 89bf785a082ff479dcd824a773123fcd061dc22d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 585e51f5131bf20d39cf43ab2e843774d61a708f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576114"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178238"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Kubernetes 역할 기반 access control 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
 
@@ -28,7 +28,7 @@ Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.
 
 이 문서에서는 Kubernetes RBAC 및 Azure AD에서 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 주는 데 사용할 수 있는 두 개의 사용자 역할을 만들어 보겠습니다. 다음 두 가지 예제 역할이 사용 됩니다.
 
-* **애플리케이션 개발자**
+* **응용 프로그램 개발자**
     * *Appdev* 그룹의 일부인 *aksdev* 이라는 사용자입니다.
 * **사이트 안정성 엔지니어**
     * *Opssre* 그룹의 일부인 *akssre* 이라는 사용자입니다.
@@ -401,7 +401,7 @@ Id 및 리소스 제어에 대 한 모범 사례는 [AKS의 인증 및 권한 �
 [kubectl-run]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-ad-aks-cli]: azure-ad-integration-cli.md
 [az-aks-show]: /cli/azure/aks#az-aks-show

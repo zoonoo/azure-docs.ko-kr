@@ -1,18 +1,18 @@
 ---
 title: Azure Machine Learning Studio와 Azure Stream Analytics 통합 (클래식)
 description: 이 문서에서는 사용자 정의 함수를 사용 하 여 Azure Machine Learning Studio (클래식)을 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 89b1b91270d1fe30ffcb5ae0caa5f319aa616683
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178527"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Azure Stream Analytics 및 Azure Machine Learning Studio를 사용 하 여 감정 분석 (클래식)
 
@@ -34,7 +34,7 @@ ms.locfileid: "98015303"
 
 시작하기 전에 다음이 필요합니다.
 
-* 활성 Azure 구독
+* 활성화된 Azure 구독.
 
 * 일부 Twitter 데이터가 포함 된 CSV 파일입니다. [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv)에서 샘플 파일을 다운로드 하거나 파일을 직접 만들 수 있습니다. 실제 시나리오에서는 Twitter 데이터 스트림에서 직접 데이터를 가져옵니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "98015303"
 
 3. **검토 + 만들기** 를 선택합니다. 그런 다음 **만들기** 를 선택 하 여 저장소 계정을 배포 합니다.
 
-4. 배포가 완료 되 면 저장소 계정으로 이동 합니다. **Blob service** 아래에서 **컨테이너** 를 선택합니다. 그런 다음, **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
+4. 배포가 완료 되 면 저장소 계정으로 이동 합니다. **Blob service** 에서 **컨테이너** 를 선택합니다. 그런 다음, **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
 
    ![입력에 대한 Blob Storage 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393431"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177864"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -107,7 +107,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 SAP 테이블 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource** 로 설정해야 합니다. | 예 |
 | listName | SharePoint Online 목록의 이름입니다. | 예 |
@@ -140,7 +140,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링을 위한 사용자 지정 OData 쿼리 옵션입니다. 예: `"$top=10&$select=Title,Number"`. | 예 |
@@ -232,6 +232,9 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
         - **요청 메서드**: GET
         - **추가 헤더**: 업스트림 웹 작업에서 생성한 전달자 토큰을 인증 헤더로 사용하는 다음 식 `@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`을 사용합니다. 웹 작업 이름을 바꿉니다.
     - 보통처럼 복사 작업 싱크를 구성합니다.
+
+> [!NOTE]
+> Azure AD 응용 프로그램에 `FullControl` SharePoint Online에 대 한 권한이 있는 경우에도 IRM을 사용 하도록 설정 된 문서 라이브러리에서 파일을 복사할 수 없습니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

@@ -2,13 +2,13 @@
 title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
 description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대 한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/03/2021
+ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881217"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179700"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
@@ -52,6 +52,8 @@ ms.locfileid: "98881217"
     ```
     , 등의 다른 도구를 사용 하는 경우에는 동일한 명령을 사용할 수 있습니다 `tnc` `ping` . 
 - 이전 단계에서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용 하 여 도움을 주지 않고 분석 하는 경우 네트워크 추적을 가져옵니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/) 에 문의 하세요. 
+- 연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 [허용 목록에 추가 해야 하는 ip 주소](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list)를 참조 하세요. 
+
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>서비스 업그레이드/다시 시작 시 발생할 수 있는 문제
 

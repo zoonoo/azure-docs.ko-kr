@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682434"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178078"
 ---
 이 단계에서는 AdventureWorksLT 샘플 데이터를 사용하는 [논리 SQL 서버](../database/logical-servers.md) 및 [단일 데이터베이스](../database/single-database-overview.md)를 만듭니다. Azure Portal 메뉴와 화면을 사용하거나 Azure Cloud Shell에서 Azure CLI 또는 PowerShell 스크립트를 사용하여 데이터베이스를 만들 수 있습니다.
 
@@ -151,11 +151,11 @@ az sql db create \
 
 | 명령 | 설명 |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | 현재 활성 구독이 되도록 구독을 설정합니다. |
+| [az account set](/cli/azure/account#az-account-set) | 현재 활성 구독이 되도록 구독을 설정합니다. |
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 데이터베이스 및 탄력적 풀을 호스트하는 서버를 만듭니다. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | 서버 수준 방화벽 규칙을 만듭니다. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | 데이터베이스를 만듭니다. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | 데이터베이스를 만듭니다. |
 
 Azure SQL Database Azure CLI 샘플에 대한 자세한 내용은 [Azure CLI 샘플](../database/az-cli-script-samples-content-guide.md)을 참조하세요.
 

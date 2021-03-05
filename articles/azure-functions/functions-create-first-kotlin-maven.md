@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 721fbaf1a3b2418677d07e8ac39fa733164c1459
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035243"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179564"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -158,7 +158,7 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
+Azure Functions에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)합니다.
 
 ```azurecli
 az login

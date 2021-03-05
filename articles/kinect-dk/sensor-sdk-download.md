@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 업데이트 다운로드, 최신, 사용 가능, 설치
-ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 591fcba4c887e298cf667c5d95c19184bc213ffe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505480"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179632"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Azure Kinect 센서 SDK 다운로드
 
@@ -41,18 +41,23 @@ Azure Kinect 센서 SDK 및 펌웨어의 최신 버전 및 이전 버전에 대 
 
 먼저 [여기](/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
 
-이제 필요한 패키지를 설치할 수 있습니다. `k4a-tools` 패키지에는 [Azure Kinect 뷰어](azure-kinect-viewer.md), [Azure Kinect 레코더](record-sensor-streams-file.md) 및 [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)가 포함되어 있습니다. 설치하려면 다음을 실행합니다.
+이제 필요한 패키지를 설치할 수 있습니다. `k4a-tools` 패키지에는 [Azure Kinect 뷰어](azure-kinect-viewer.md), [Azure Kinect 레코더](record-sensor-streams-file.md) 및 [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)가 포함되어 있습니다. 패키지를 설치 하려면 다음을 실행 합니다.
 
- `sudo apt install k4a-tools`
+`sudo apt install k4a-tools`
+ 
+이 명령은 최신 버전의를 비롯 하 여 도구가 제대로 작동 하는 데 필요한 종속성 패키지를 설치 합니다 `libk4a<major>.<minor>` . 루트 사용자가 아닌 Azure Kinect 진한 액세스를 위해 udev 규칙을 추가 해야 합니다. 지침은 [Linux 장치 설정](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md#linux-device-setup)을 참조 하세요. 대신, 장치를 루트로 사용 하는 응용 프로그램을 시작할 수 있습니다.
 
- `libk4a<major>.<minor>-dev` 패키지에는 `libk4a`에 대해 빌드할 헤더와 CMake 파일이 포함되어 있습니다.
-`libk4a<major>.<minor>` 패키지에는 `libk4a`에 종속된 실행 파일을 실행하는 데 필요한 공유 개체가 포함되어 있습니다.
+패키지에는 `libk4a<major>.<minor>-dev` 응용 프로그램/실행 파일을 빌드하기 위한 헤더 및 cmake 파일이 포함 되어 있습니다 `libk4a` .
 
- 기본 자습서에는 `libk4a<major>.<minor>-dev` 패키지가 필요합니다. 설치하려면 다음을 실행합니다.
+패키지에는 `libk4a<major>.<minor>` 에 종속 된 응용 프로그램/실행 파일을 실행 하는 데 필요한 공유 개체가 포함 되어 있습니다 `libk4a` .
 
- `sudo apt install libk4a1.1-dev`
+기본 자습서에는 `libk4a<major>.<minor>-dev` 패키지가 필요합니다. 패키지를 설치 하려면 다음을 실행 합니다.
+
+`sudo apt install libk4a<major>.<minor>-dev` 
 
 명령이 성공하면 SDK를 사용할 준비가 된 것입니다.
+
+와 일치 하는 버전의를 설치 `libk4a<major>.<minor>` 해야 `libk4a<major>.<minor>-dev` 합니다. 예를 들어 패키지를 설치 하는 경우 `libk4a4.1-dev` `libk4a4.1` 공유 개체 파일의 일치 하는 버전을 포함 하는 해당 패키지를 설치 합니다. 최신 버전의 경우 `libk4a` 다음 섹션의 링크를 참조 하세요.
 
 ## <a name="change-log-and-older-versions"></a>변경 로그 및 이전 버전
 
