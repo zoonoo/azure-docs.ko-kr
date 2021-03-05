@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 49bfca118e53bbe3e4287b2ce25e5baffa717175
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987933"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217332"
 ---
 # <a name="manage-qna-maker-app"></a>QnA Maker 앱 관리
 
@@ -29,7 +29,7 @@ QnA Maker 서비스에서는 특정 기술 자료를 공유할 수 없습니다.
 
 ### <a name="add-a-user-account-to-the-qna-maker-resource"></a>QnA Maker 리소스에 사용자 계정 추가
 
-다음 단계는 협력자 역할을 사용 하지만 이러한 단계를 사용 하 여 [역할](../reference-role-based-access-control.md) 을 추가할 수 있습니다.
+다음 단계는 협력자 역할을 사용 하지만 이러한 단계를 사용 하 여 역할을 추가할 수 있습니다.
 
 1. [Azure](https://portal.azure.com/) portal에 로그인 하 고 QnA Maker 리소스로 이동 합니다.
 

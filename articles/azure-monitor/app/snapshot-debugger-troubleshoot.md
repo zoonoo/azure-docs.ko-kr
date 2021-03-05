@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731955"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217417"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다.
 
 스냅숏이 생성 되지 않는 여러 가지 이유가 있을 수 있습니다. 먼저 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>적절 한 스냅숏 디버거 끝점을 사용 하 고 있는지 확인 합니다.
+
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
+
+Application Insights SDK를 사용 하는 App Service 및 응용 프로그램의 경우 아래에 정의 된 대로 스냅숏 디버거에 대해 지원 되는 재정의를 사용 하 여 연결 문자열을 업데이트 해야 합니다.
+
+|연결 문자열 속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
+
+함수 앱의 경우 `host.json` 아래의 지원 되는 재정의를 사용 하 여를 업데이트 해야 합니다.
+
+|속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+다음은 `host.json` 미국 정부 클라우드 에이전트 끝점으로 업데이트 된의 예입니다.
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>스냅샷 상태 확인 사용
 몇 가지 일반적인 문제로 인해 [디버그 스냅샷 열기]가 표시되지 않습니다. 오래된 스냅샷 수집기를 사용했거나(예: 일일 업로드 제한에 도달), 스냅샷을 업로드하는 데 시간이 오래 걸렸을 수도 있습니다. [스냅샷 상태 확인]을 사용하여 일반적인 문제를 해결합니다.

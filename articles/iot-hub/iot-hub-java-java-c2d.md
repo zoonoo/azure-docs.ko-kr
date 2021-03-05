@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 763b9e05adc07c02265dbb511c073b42df44ea95
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ae1850add94d83278b0fe1905dfa6e53c71fc8e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146854"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217893"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-디바이스 메시지 보내기
 
@@ -51,7 +51,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * [IoT Hub에서 허브로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md) 빠른 시작 또는 [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서의 전체 작업 버전
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](/java/azure/jdk/). JDK 8용 다운로드를 가져오려면 **장기 지원** 에서 **Java 8** 을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -101,7 +101,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 * 메시지를 중단 하면 나중에 사용 하기 위해 장치 큐에 메시지를 보관 IoT Hub 합니다.
 * 메시지를 거부 합니다 .이 메시지는 장치 큐에서 메시지를 영구적으로 제거 합니다.
 
-장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent*이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
+장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent* 이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
 
 클라우드-장치 메시지 수명 주기에 대 한 세부 정보를 포함 하 여 클라우드-장치 메시지를 처리 IoT Hub는 방법에 대 한 자세한 내용은 [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조 하세요.
 
@@ -110,7 +110,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -118,7 +118,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **send-c2d-messages**라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **send-c2d-messages** 라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -137,7 +137,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client** 의 최신 버전을 확인할 수 있습니다.
 
 4. pom.xml 파일을 저장하고 닫습니다.
 

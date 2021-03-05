@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d39ade2536b96bf5e665ecfc01e81232f2fec075
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797562"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217944"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,12 +99,12 @@ Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전�
 Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 프로 비전 된 처리량을 검색할 수 있습니다.
 
 * .NET SDK의 [컨테이너. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) .
-* Java SDK의 [CosmosContainer 처리량](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) 입니다.
+* Java SDK의 [CosmosContainer 처리량](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) 입니다.
 
 이러한 메서드의 응답에는 컨테이너 또는 데이터베이스에 대해 [프로 비전 된 최소 처리량](concepts-limits.md#storage-and-database-operations) 도 포함 됩니다.
 
 * .NET SDK의 [ThroughputResponse](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) .
-* Java SDK에서 [ThroughputResponse ()를 처리](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) 합니다.
+* Java SDK에서 [ThroughputResponse ()를 처리](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) 합니다.
 
 실제 최소/s는 계정 구성에 따라 다를 수 있습니다. 그러나 일반적으로 다음의 최대값입니다.
 
@@ -117,7 +117,7 @@ Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베
 Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 프로 비전 된 처리량을 확장할 수 있습니다.
 
 * .NET SDK의 [컨테이너. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) .
-* Java SDK의 [ReplaceThroughput CosmosContainer.](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true)
+* Java SDK의 [ReplaceThroughput CosmosContainer.](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput)
 
 **프로 비전 된 처리량을 줄이면** [최소한](#current-provisioned-throughput)의 작업을 수행할 수 있습니다.
 
@@ -129,7 +129,7 @@ Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스
 [현재 프로 비전 된 처리량](#current-provisioned-throughput) 을 읽고 다음을 사용 하 여 크기 조정 진행률을 프로그래밍 방식으로 확인할 수 있습니다.
 
 * .NET SDK의 [IsReplacePending ThroughputResponse.](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true)
-* Java SDK의 [isReplacePending ()을 ThroughputResponse.](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true)
+* Java SDK의 [isReplacePending ()을 ThroughputResponse.](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending)
 
 [Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다.
 

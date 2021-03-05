@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d0ccaf15df62b566b5a52ee7a4031ba7e270a4ae
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092537"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218114"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,13 +24,13 @@ ms.locfileid: "93092537"
 
 현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 대량 실행 기 Java 라이브러리를 사용 하는 방법을 설명 합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요. 설명 된 대량 실행자 라이브러리는 [Azure Cosmos DB java SYNC SDK](sql-api-sdk-java.md) v 2에만 사용할 수 있으며 java 대량 지원을 위한 현재 권장 솔루션입니다. 이 버전은 현재 2.x, 4.x 또는 기타 상위 SDK 버전에서 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.  
 
 * Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해](https://azure.microsoft.com/try/cosmosdb/) 볼 수 있습니다. 또는 엔드포인트가 `https://localhost:8081`인 [Azure Cosmos DB 에뮬레이터](./local-emulator.md)를 사용할 수 있습니다. 기본 키는 [인증 요청](local-emulator.md#authenticate-requests)에 제공됩니다.  
 
-* [JDK (Java Development Kit) 1.7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
+* [JDK (Java Development Kit) 1.7 이상](/java/azure/jdk/)  
   - Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.  
 
   - JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.

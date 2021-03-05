@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 68908b7d62b8211c202262112831d5d2b523f594
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53a82ba545fa1709d1b79f3ff6b18f1817736bb7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146962"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217859"
 ---
 # <a name="get-started-with-device-twins-java"></a>디바이스 쌍 시작(Java)
 
@@ -31,7 +31,7 @@ ms.locfileid: "92146962"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](/java/azure/jdk/). JDK 8용 다운로드를 가져오려면 **장기 지원** 에서 **Java 8** 을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -55,11 +55,11 @@ ms.locfileid: "92146962"
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
-이 섹션에서는 **myDeviceId**와 연결된 IoT Hub의 디바이스 쌍에 태그로 위치 메타데이터를 추가하는 Java 앱을 만듭니다. 먼저 앱은 미국에 있는 디바이스에 대한 IoT 허브를 쿼리한 다음 셀룰러 네트워크 연결을 보고하는 디바이스에 대한 IoT 허브를 쿼리합니다.
+이 섹션에서는 **myDeviceId** 와 연결된 IoT Hub의 디바이스 쌍에 태그로 위치 메타데이터를 추가하는 Java 앱을 만듭니다. 먼저 앱은 미국에 있는 디바이스에 대한 IoT 허브를 쿼리한 다음 셀룰러 네트워크 연결을 보고하는 디바이스에 대한 IoT 허브를 쿼리합니다.
 
-1. 개발 머신에서 **iot-node.js-getstarted**라는 빈 폴더를 만듭니다.
+1. 개발 머신에서 **iot-node.js-getstarted** 라는 빈 폴더를 만듭니다.
 
-2. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-twin-getstarted** 폴더에서 **add-tags-query**라는 Maven 프로젝트를 만듭니다.
+2. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-twin-getstarted** 폴더에서 **add-tags-query** 라는 Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -79,7 +79,7 @@ ms.locfileid: "92146962"
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client** 의 최신 버전을 확인할 수 있습니다.
 
 5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
@@ -220,7 +220,7 @@ ms.locfileid: "92146962"
 
 이 섹션에서는 IoT Hub로 전송되는 reported 속성 값을 설정하는 Java 콘솔 앱을 만듭니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-twin-getstarted** 폴더에 **simulated-device**라는 새 Maven 프로젝트를 만듭니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-twin-getstarted** 폴더에 **simulated-device** 라는 새 Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -239,7 +239,7 @@ ms.locfileid: "92146962"
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client** 의 최신 버전을 확인할 수 있습니다.
 
 4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 디바이스 클라이언트 SDK에서 로깅을 구현하는 데 사용하는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 맞게 NOP를 구성합니다. 이 구성은 선택 사항이지만, 건너뛰면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 디바이스 클라이언트 SDK에 로그인하는 방법에 대한 자세한 내용은 *Java용 Azure IoT 디바이스 SDK 샘플* 추가 정보 파일에서 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)을 참조하세요.
 

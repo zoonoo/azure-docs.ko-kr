@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717760"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218012"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -56,11 +56,11 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 
 [Azure Resource Manager 템플릿](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings)를 사용 하 여 이러한 값을 설정할 수 있습니다.
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>수동으로 다른 클라우드에 프로파일러를 사용하도록 설정
+## <a name="enable-profiler-for-other-clouds"></a>다른 클라우드에 대해 프로파일러 사용
 
-다른 클라우드에 프로파일러를 사용하도록 설정하려는 경우 아래 앱 설정을 사용할 수 있습니다.
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
 
-|앱 설정    | 미국 정부 값| 중국 클라우드 |   
+|앱 설정    | 미국 정부 클라우드 | 중국 클라우드 |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |

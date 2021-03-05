@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 2a02dc94c0dc0939e6c1eef624fc6fe65fb98ac6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3529361cacf0890b7c4752bbd745a9240020b4f3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147013"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217825"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Java)
 
@@ -52,7 +52,7 @@ ms.locfileid: "92147013"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](/java/azure/jdk/). JDK 8용 다운로드를 가져오려면 **장기 지원** 에서 **Java 8** 을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -130,7 +130,7 @@ ms.locfileid: "92147013"
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -138,7 +138,7 @@ ms.locfileid: "92147013"
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 Java 콘솔 앱을 만듭니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **read-file-upload-notification**이라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **read-file-upload-notification** 이라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -157,7 +157,7 @@ ms.locfileid: "92147013"
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client** 의 최신 버전을 확인할 수 있습니다.
 
 4. `pom.xml` 파일을 저장하고 닫습니다.
 

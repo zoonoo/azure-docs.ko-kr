@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 36092e0bb7d0249837d2eaa7898e9231ecb5f5a9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3e98cfc2d8c7fb8d40c8565a1c620f123ce171ff
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147003"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217842"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -39,7 +39,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* **lockDoor**라는 직접 메서드를 구현하는 디바이스 앱을 만듭니다. 또한 이 디바이스 앱은 백 엔드 앱에서 원하는 속성 변경 내용을 수신합니다.
+* **lockDoor** 라는 직접 메서드를 구현하는 디바이스 앱을 만듭니다. 또한 이 디바이스 앱은 백 엔드 앱에서 원하는 속성 변경 내용을 수신합니다.
 
 * 여러 디바이스에 대해 **lockDoor** 직접 메서드를 호출하는 작업을 만드는 백 엔드 앱을 만듭니다. 다른 작업이 여러 디바이스로 원하는 속성 업데이트를 보냅니다.
 
@@ -54,7 +54,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](/java/azure/jdk/). JDK 8용 다운로드를 가져오려면 **장기 지원** 에서 **Java 8** 을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -88,9 +88,9 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 앱을 만들려면 다음을 수행합니다.
 
-1. 개발 머신에서 **iot-java-schedule-jobs**라는 빈 폴더를 만듭니다.
+1. 개발 머신에서 **iot-java-schedule-jobs** 라는 빈 폴더를 만듭니다.
 
-2. **iot-java-schedule-jobs** 폴더에서 명령 프롬프트를 통해 다음 명령을 사용하여 **schedule-jobs**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+2. **iot-java-schedule-jobs** 폴더에서 명령 프롬프트를 통해 다음 명령을 사용하여 **schedule-jobs** 라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -110,7 +110,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client** 의 최신 버전을 확인할 수 있습니다.
 
 5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
@@ -163,7 +163,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-10. **App** 클래스에 다음 메서드를 추가하여 디바이스 쌍에서 원하는 속성 **Building** 및 **Floor**를 업데이트하는 작업을 예약합니다.
+10. **App** 클래스에 다음 메서드를 추가하여 디바이스 쌍에서 원하는 속성 **Building** 및 **Floor** 를 업데이트하는 작업을 예약합니다.
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -306,7 +306,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 섹션에서는 IoT Hub에서 전송한 원하는 속성을 처리하고 직접 메서드 호출을 구현하는 Java 콘솔 앱을 만듭니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-schedule-jobs** 폴더에 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **iot-java-schedule-jobs** 폴더에 **simulated-device** 라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -325,7 +325,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client** 의 최신 버전을 확인할 수 있습니다.
 
 4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 디바이스 클라이언트 SDK에서 로깅을 구현하는 데 사용하는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 맞게 NOP를 구성합니다. 이 구성은 선택 사항이지만, 건너뛰면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 디바이스 클라이언트 SDK에 로그인하는 방법에 대한 자세한 내용은 *Java용 Azure IoT 디바이스 SDK 샘플* 추가 정보 파일에서 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)을 참조하세요.
 

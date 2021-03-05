@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098369"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218165"
 ---
 # <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
 
@@ -29,9 +29,9 @@ Azure Percept Studio에는 다음 응용 프로그램에 대 한 샘플 모델�
 
 미리 학습 된 모델을 사용 하는 경우 코딩 또는 학습 데이터 수집이 필요 하지 않습니다. 포털에서 Azure Percept 진한 모델을 배포 하 고 devkit의 비디오 스트림을 열어 작업 추론 모델을 확인 하면 됩니다. [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer/releases) 도구를 통해 모델 추론 원격 분석에 액세스할 수도 있습니다.
 
-## <a name="pre-built-solutions"></a>미리 작성 된 솔루션
+## <a name="reference-solutions"></a>참조 솔루션
 
-[사용자 검색을 위한 공간 분석 미리 작성 된 솔루션](https://github.com/george-moore/Santa-Cruz-AI-App) 을 사용할 수도 있습니다. 미리 작성 된 솔루션은 사용자 정의 영역 진입/종료 이벤트로 계산 되는에 지 기반 사용자를 제공 하는 오픈 소스 AI 응용 프로그램입니다. 온-프레미스에 지 장치의 비디오 및 AI 출력은 Azure 웹 사이트로 실행 되는 사용자 인터페이스를 사용 하 여 [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)egressed 됩니다. AI 추론는 사용자 검색을 위한 오픈 소스 AI 모델에 의해 제공 됩니다.
+[참조 솔루션을 계산](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) 하는 사용자도 사용할 수 있습니다. 이 참조 솔루션은 사용자 정의 영역 진입/종료 이벤트로 계산 되는에 지 기반 사용자를 제공 하는 오픈 소스 AI 응용 프로그램입니다. 온-프레미스에 지 장치의 비디오 및 AI 출력은 Azure 웹 사이트로 실행 되는 사용자 인터페이스를 사용 하 여 [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)egressed 됩니다. AI 추론는 사용자 검색을 위한 오픈 소스 AI 모델에 의해 제공 됩니다.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="공간 분석 미리 작성 된 솔루션 gif.":::
 

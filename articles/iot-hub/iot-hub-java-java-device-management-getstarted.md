@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 28b82c87442257124f286a5e7c949afe7f001019
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f05e1a458bc83fe4042c4b6cf35d9aa2095868ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146937"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217961"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -54,7 +54,7 @@ ms.locfileid: "92146937"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). JDK 8용 다운로드를 가져오려면 **장기 지원**에서 **Java 8**을 선택해야 합니다.
+* [Java SE Development Kit 8](/java/azure/jdk/). JDK 8용 다운로드를 가져오려면 **장기 지원** 에서 **Java 8** 을 선택해야 합니다.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -88,9 +88,9 @@ ms.locfileid: "92146937"
 
 이 콘솔 앱은 IoT Hub에 연결하여 직접 메서드를 호출하고 보고된 속성을 읽습니다.
 
-1. **dm-get-started**라는 빈 폴더를 만듭니다.
+1. **dm-get-started** 라는 빈 폴더를 만듭니다.
 
-2. 명령 프롬프트에서 다음 명령을 사용하여 **dm-get-started** 폴더에 **trigger-reboot**라는 Maven 프로젝트를 만듭니다.
+2. 명령 프롬프트에서 다음 명령을 사용하여 **dm-get-started** 폴더에 **trigger-reboot** 라는 Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -110,7 +110,7 @@ ms.locfileid: "92146937"
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client** 의 최신 버전을 확인할 수 있습니다.
 
 5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
@@ -241,7 +241,7 @@ ms.locfileid: "92146937"
 
 이 섹션에서는 디바이스를 시뮬레이트하는 Java 콘솔 앱을 만듭니다. 이 앱은 IoT Hub의 재부팅 직접 메서드 호출을 수신하고 그 즉시 해당 호출에 응답합니다. 그런 다음 잠시 유휴 상태로 전환하여 재부팅 프로세스를 시뮬레이트한 후 보고된 속성을 사용하여 **trigger-reboot** 백 엔드 앱에 재부팅이 완료되었음을 알립니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **dm-get-started** 폴더에 **simulated-device**라는 Maven 프로젝트를 만듭니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **dm-get-started** 폴더에 **simulated-device** 라는 Maven 프로젝트를 만듭니다.
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -260,7 +260,7 @@ ms.locfileid: "92146937"
     ```
 
     > [!NOTE]
-    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
+    > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client** 의 최신 버전을 확인할 수 있습니다.
 
 4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 디바이스 클라이언트 SDK에서 로깅을 구현하는 데 사용하는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 맞게 NOP를 구성합니다. 이 구성은 선택 사항이지만, 건너뛰면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 디바이스 클라이언트 SDK에 로그인하는 방법에 대한 자세한 내용은 *Java용 Azure IoT 디바이스 SDK 샘플* 추가 정보 파일에서 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)을 참조하세요.
 
@@ -415,7 +415,7 @@ ms.locfileid: "92146937"
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-16. **DeviceClient**를 인스턴스화하려면 **main** 메서드의 코드를 다음 코드로 바꿉니다.
+16. **DeviceClient** 를 인스턴스화하려면 **main** 메서드의 코드를 다음 코드로 바꿉니다.
 
     ```java
     System.out.println("Starting device client sample...");

@@ -7,25 +7,25 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e66edb1325d1c603e89f877f1d34f60c136eb1db
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a4553ceee482fb232e9ab56deca650be93f9dc6b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740727"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218046"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI 스크립트 샘플-논리 앱 만들기
 
-이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic?view=azure-cli-latest)()을 통해 샘플 논리 앱을 만듭니다 `az logic` . Azure CLI를 통해 논리 앱을 만들고 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI의 Logic Apps 빠른](quickstart-logic-apps-azure-cli.md)시작을 참조 하세요.
+이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic)()을 통해 샘플 논리 앱을 만듭니다 `az logic` . Azure CLI를 통해 논리 앱을 만들고 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI의 Logic Apps 빠른](quickstart-logic-apps-azure-cli.md)시작을 참조 하세요.
 
 > [!WARNING]
-> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다* . 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
+> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 로컬 컴퓨터에 설치된 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
-* 컴퓨터에 설치된 [Logic Apps Azure CLI 확장](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest). 이 확장을 설치하려면 `az extension add --name logic` 명령을 사용합니다.
+* 로컬 컴퓨터에 설치된 [Azure CLI](/cli/azure/install-azure-cli)
+* 컴퓨터에 설치된 [Logic Apps Azure CLI 확장](/cli/azure/azure-cli-extensions-list). 이 확장을 설치하려면 `az extension add --name logic` 명령을 사용합니다.
 * 논리 앱에 대 한 [워크플로 정의](quickstart-logic-apps-azure-cli.md#workflow-definition) 입니다. 이 JSON 파일은 [워크플로 정의 언어 스키마](logic-apps-workflow-definition-language.md)를 따라야 합니다.
 * 논리 앱과 동일한 리소스 그룹에서 지원 되는 [Logic Apps 커넥터](../connectors/apis-list.md) 를 통해 전자 메일 계정에 대 한 API 연결 이 예제에서는 [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) 커넥터를 사용 하지만 [Outlook.com](../connectors/connectors-create-api-outlook.md)와 같은 다른 커넥터를 사용할 수도 있습니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "92740727"
 
 * Azure Portal에 로그인하고 `az login`을 실행하여 구독이 활성 상태인지 확인합니다.
 
-* 터미널 또는 명령 창에서 `az --version`을 실행하여 Azure CLI 버전을 확인합니다. 최신 버전은 [최신 릴리스 정보](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest)를 참조하세요.
+* 터미널 또는 명령 창에서 `az --version`을 실행하여 Azure CLI 버전을 확인합니다. 최신 버전은 [최신 릴리스 정보](/cli/azure/release-notes-azure-cli)를 참조하세요.
 
-  * 최신 버전이 없는 경우 [사용 중인 운영 체제 또는 플랫폼의 설치 가이드](/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 설치를 업데이트합니다.
+  * 최신 버전이 없는 경우 [사용 중인 운영 체제 또는 플랫폼의 설치 가이드](/cli/azure/install-azure-cli)에 따라 설치를 업데이트합니다.
 
 ### <a name="sample-workflow-explanation"></a>샘플 워크플로 설명
 
@@ -197,12 +197,12 @@ az group delete --name testResourceGroup --yes
 
 | 명령 | 메모 |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 논리 앱의 리소스가 저장 되는 리소스 그룹을 만듭니다. |
-| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) | 매개 변수에 정의 된 워크플로를 기반으로 논리 앱을 만듭니다 `--definition` . |
-| [`az group delete`](/cli/azure/vm/extension?view=azure-cli-latest) | 리소스 그룹 및 모든 중첩 된 리소스를 삭제 합니다. |
+| [`az group create`](/cli/azure/group#az-group-create) | 논리 앱의 리소스가 저장 되는 리소스 그룹을 만듭니다. |
+| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | 매개 변수에 정의 된 워크플로를 기반으로 논리 앱을 만듭니다 `--definition` . |
+| [`az group delete`](/cli/azure/vm/extension) | 리소스 그룹 및 모든 중첩 된 리소스를 삭제 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/?view=azure-cli-latest)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/)를 참조하세요.
 
 [Microsoft 코드 샘플 브라우저](/samples/browse/?products=azure-logic-apps)에서 더 많은 Logic Apps CLI 스크립트 샘플을 찾을 수 있습니다.

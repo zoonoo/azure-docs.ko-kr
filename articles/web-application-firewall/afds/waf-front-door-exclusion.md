@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1b94a3d8675461779fa9d543bf0153b165ab4fb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563463"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217587"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>프런트 도어 서비스 제외 목록이 포함 된 WAF (웹 응용 프로그램 방화벽) 
 
-경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
+경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Azure Portal를 사용 하 여 제외 목록 구성
 **관리 되는 규칙** 의 waf 포털에서 **제외 관리** 에 액세스할 수 있습니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "94563463"
 
 정확히 일치하는 요청 헤더, 본문, 쿠키 또는 쿼리 문자열 특성을 지정할 수 있습니다.  또는 필요한 경우 부분 일치를 지정할 수도 있습니다. 다음 연산자는 지원 되는 일치 조건입니다.
 
-- **equals** : 정확한 일치에 사용됩니다. 예를 들어 **bearerToken** 라는 헤더를 선택 하려면 **bearerToken** 로 설정 된 선택기와 equals 연산자를 사용 합니다.
-- **starts with** : 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
-- **ends with** : 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
-- **contains** : 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
-- **같음 any** :이 연산자는 모든 요청 필드와 일치 합니다. *는 선택기 값입니다.
+- **equals**: 정확한 일치에 사용됩니다. 예를 들어 **bearerToken** 라는 헤더를 선택 하려면 **bearerToken** 로 설정 된 선택기와 equals 연산자를 사용 합니다.
+- **starts with**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
+- **ends with**: 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
+- **contains**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
+- **같음 any**:이 연산자는 모든 요청 필드와 일치 합니다. *는 선택기 값입니다.
 
 헤더 및 쿠키 이름은 대/소문자를 구분 하지 않습니다.
 
