@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008202"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176980"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 완료
 
@@ -29,7 +29,7 @@ ms.locfileid: "100008202"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure AD Premium P2
 - 전역 관리자, 사용자 관리자, 보안 관리자 또는 보안 읽기 권한자
@@ -59,7 +59,7 @@ ms.locfileid: "100008202"
     ![Microsoft 365 그룹 간의 게스트 액세스 검토](./media/complete-access-review/all-company-group-results.png)
 
 
-    Microsoft 365 그룹 (미리 보기)에서 게스트 액세스를 검토 하는 액세스 검토를 보는 경우 개요 블레이드에는 검토의 각 그룹이 나열 됩니다. 
+    Microsoft 365 그룹 간의 게스트 액세스를 검토 하는 액세스 검토를 보는 경우 개요 블레이드에는 검토의 각 그룹이 나열 됩니다. 
    
     ![Microsoft 365 그룹 간의 게스트 액세스 검토](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

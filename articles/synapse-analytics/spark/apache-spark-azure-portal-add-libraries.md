@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123091"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176419"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 
@@ -61,10 +61,14 @@ Azure Synapse Analytics 풀 관리 기능을 사용 하 여 지정 된 서버를
 
 세션 범위 패키지를 사용 하면 사용자가 세션을 시작할 때 패키지 종속성을 정의할 수 있습니다. 세션 범위 패키지를 설치 하는 경우 현재 세션에만 지정 된 패키지에 대 한 액세스 권한이 있습니다. 따라서 이러한 세션 범위 패키지는 동일한 Apache Spark 풀을 사용 하는 다른 세션 또는 작업에 영향을 주지 않습니다. 또한 이러한 라이브러리는 기본 런타임 및 풀 수준 패키지 위에 설치 됩니다. 
 
+이러한 패키지는 Python 환경에 자동으로 추가 됩니다. 패키지는 *requirements.txt* 파일에 언급 해서는 안 됩니다.
+
+이 메서드는 현재 파일에만 포트를 확인 `*.whl` 합니다. `*.tar.gz`컨테이너에 파일을 추가 하지 마세요.
+
 세션 범위 패키지를 관리 하는 방법에 대 한 자세한 내용을 보려면 다음 방법 가이드를 참조 하세요.
 
 - [Python 세션 패키지 (미리 보기):](./apache-spark-manage-python-packages.md) 세션을 시작할 때 인기 있는 리포지토리에서 추가 Python 패키지를 설치 하는 데 Conda 환경을 제공 합니다 *.* 
-- [Scala/Java 세션 패키지: ](./apache-spark-manage-scala-packages.md) 세션을 시작할 때를 사용 하 여 설치할 jar 파일 목록을 제공 ```%%configure``` 합니다.
+- [Scala/Java 세션 패키지: ](./apache-spark-manage-scala-packages.md) 세션을 시작할 때를 사용 하 여 설치할 jar 파일 목록을 제공 `%%configure` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 기본 라이브러리 보기: [Apache Spark 버전 지원](apache-spark-version-support.md)

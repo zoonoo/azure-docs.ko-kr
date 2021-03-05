@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032520"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176759"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -41,48 +41,7 @@ Windows, macOS, Linux 또는 [Azure Cloud Shell](../cloud-shell/overview.md) 에
 
 서비스 내에서 콘텐츠 작성 및 관리는 [Search Service REST API](/rest/api/searchservice/) 또는 [.net SDK](/dotnet/api/overview/azure/search.documents-readme)를 통해 진행 됩니다. 콘텐츠에 대 한 전용 PowerShell 명령은 없지만 REST 또는 .NET Api를 호출 하 여 인덱스를 만들고 로드 하는 스크립트를 작성할 수 있습니다.
 
-<a name="check-versions-and-load"></a>
-
-## <a name="check-versions-and-upgrade"></a>버전 확인 및 업그레이드
-
-이 문서의 예는 대화형 이며 높은 권한이 필요 합니다. Azure CLI을 설치 해야 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-이제 `az` Windows 명령 프롬프트, PowerShell 또는 [Azure Cloud Shell](../cloud-shell/overview.md)에서 명령을 사용 하 여 Azure CLI를 실행할 수 있습니다. PowerShell은 Windows 명령 프롬프트에서 사용할 수 없는 일부 탭 완성 기능을 제공합니다. 
-
-### <a name="check-the-azure-cli-version"></a>Azure CLI 버전 확인
-
-Azure CLI 설치 되어 있는지 확실 하지 않은 경우 확인 단계로 다음 명령을 실행 합니다. 
-
-```azurecli-interactive
-az --version
-```
-이 명령이 작동 하지 않는 경우 설치 Azure CLI을 가져오려면 [Azure CLI 설치](/cli/azure/install-azure-cli) 를 참조 하세요.
-
-버전 2.11.0 이상이 면 `az upgrade` 명령을 실행 하 여 CLI를 최신 버전으로 업데이트할 수 있습니다.
-
-```azurecli-interactive
-az upgrade
-```
-
-### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>브라우저 로그인 토큰을 사용 하 여 Azure에 연결
-
-포털 로그인 자격 증명을 사용 하 여 Azure CLI 구독에 연결할 수 있습니다. 또는 [서비스 주체를 사용 하 여 비 대화형으로 인증할](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)수 있습니다.
-
-```azurecli-interactive
-az login
-```
-
-여러 Azure 구독을 보유 하는 경우 Azure 구독을 설정 합니다. 현재 구독 목록을 보려면 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az account list --output table
-```
-
-구독을 지정하려면 다음 명령을 실행합니다. 다음 예제에서 구독 이름은 `ContosoSubscription`입니다.
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -262,7 +221,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint

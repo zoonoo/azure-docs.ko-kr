@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: b15e39b55dfe49a3fb3c1e0e38798570efdf46bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6d51210867e83c6acc74ca890ab65b195dc64fc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592769"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176674"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저* 를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 기본적으로 **> Application Insights 원격 분석 추가** 를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 ApplicationInsights.config 파일은 프로젝트 루트 폴더에 만들어지고 컴파일 시 bin 폴더에 복사 됩니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
+구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 기본적으로 **> Application Insights 원격 분석 추가** 를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 ApplicationInsights.config 파일은 프로젝트 루트 폴더에 만들어지고 컴파일된 경우 bin 폴더에 복사 됩니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
 
 [웹 페이지에서 SDK][client]를 제어할 동급의 파일은 없습니다.
 

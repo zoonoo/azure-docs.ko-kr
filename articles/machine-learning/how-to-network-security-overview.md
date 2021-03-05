@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039923"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175008"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,13 +28,13 @@ ms.locfileid: "102039923"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [네트워크 보안 그룹(NSG)](../virtual-network/network-security-groups-overview.md)
++ [NSG (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
 + [네트워크 방화벽](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>예제 시나리오
@@ -175,7 +175,7 @@ Azure Machine Learning 작업 영역 리소스 및 공용 인터넷에 대 한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 네 부분으로 구성 된 가상 네트워크 시리즈의 1 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
+이 문서는 5 부 가상 네트워크 시리즈의 1 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
 
 * [2 부: 가상 네트워크 개요](how-to-secure-workspace-vnet.md)
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)

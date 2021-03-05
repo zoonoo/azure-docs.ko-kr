@@ -5,22 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 77a1c02c1ec59778521104e57f3bf3de8e52fa44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738993"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177417"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "101738993"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |Description  |
+    |옵션  |설명  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
@@ -104,46 +104,57 @@ ms.locfileid: "101738993"
 1. https://portal.azure.com/에 로그온합니다.
 2. **가져오기/내보내기 작업** 을 검색 합니다.
 
-    ![가져오기/내보내기 작업에서 검색](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+   ![가져오기/내보내기 작업에서 검색](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. **+새로 만들기** 를 선택합니다.
 
-    ![새로 만들기를 선택 하 여 새를 만듭니다. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+   ![새로 만들기를 선택 하 여 새를 만듭니다. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. **기본 사항** 에서
 
-   * **Azure로 가져오기** 를 선택합니다.
-   * 가져오기 작업을 설명하는 이름을 입력합니다. 이름을 사용하여 작업 진행 상황을 추적합니다.
-       * 이름에는 소문자, 숫자 및 하이픈만 포함할 수 있습니다.
-       * 이름은 문자로 시작해야 하며, 공백은 포함할 수 없습니다.
-   * 구독을 선택합니다.
-   * 리소스 그룹을 입력하거나 선택합니다.
+   1. 구독을 선택합니다.
+   1. 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 고 새 리소스 그룹을 만듭니다.
+   1. 가져오기 작업을 설명하는 이름을 입력합니다. 이름을 사용하여 작업 진행 상황을 추적합니다.
+      * 이름에는 소문자, 숫자 및 하이픈만 포함할 수 있습니다.
+      * 이름은 문자로 시작해야 하며, 공백은 포함할 수 없습니다.
 
-     ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+   1. **Azure로 가져오기** 를 선택합니다.
+
+    ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    계속 하려면 **>다음: 작업 세부 정보** 를 선택 합니다.
 
 5. **작업 세부 정보** 에서:
 
-   * 드라이브 준비 단계에서 얻은 드라이브 저널 파일을 업로드합니다. `waimportexport.exe version1`이 사용된 경우 준비한 각 드라이브에 대해 파일을 하나씩 업로드합니다. 저널 파일 크기가 2MB를 초과하면 저널 파일을 사용하여 만든 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`도 사용할 수 있습니다.
-   * 데이터가 저장될 대상 스토리지 계정을 선택합니다.
-   * 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
+   1. 이전 [1단계: 드라이브 준비](#step-1-prepare-the-drives) 중에 만든 업무 일지 파일을 업로드합니다. `waimportexport.exe version1`이 사용된 경우 준비한 각 드라이브에 대해 파일을 하나씩 업로드합니다. 저널 파일 크기가 2MB를 초과하면 저널 파일을 사용하여 만든 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`도 사용할 수 있습니다.
+   1. 주문에 대 한 대상 Azure 지역을 선택 합니다.
+   1. 가져오기에 사용할 저장소 계정을 선택 합니다.
+      
+      하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
+   1. 자세한 정보 표시 로그를 저장 하지 않으려면 **' waimportexport ' blob 컨테이너 옵션에서 자세한 정보 표시 로그 저장** 을 선택 취소 합니다.
 
-   ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
 
-6. **반송 정보** 에서:
+   계속 하려면 **다음: 배송 >** 을 선택 합니다.
 
-   * 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
-   * 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
-   * 완전 하 고 유효한 연락처 이름, 전화 번호, 전자 메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공 합니다.
+6. **배송** 중:
+
+   1. 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우 드롭다운에서 기존 옵션을 선택 합니다. 에서 `adbops@microsoft.com`  사용 하려는 운송 업체와 관련 된 정보를 사용 하 여 Azure Data Box 운영 팀에 문의 하세요.
+   1. 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
+   1.  완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
 
        > [!TIP]
        > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-     ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-7. **요약** 에서:
+   **검토 + 만들기** 를 선택하여 계속 진행합니다.
 
-   * 요약에 제공된 직업 정보를 검토합니다. 작업 이름과 디스크를 Azure로 반송할 Azure 데이터 센터 배송 주소를 적어 둡니다. 이 정보는 나중에 운송 레이블에 사용됩니다.
-   * **확인** 을 클릭하여 가져오기 작업을 만듭니다.
+7. 주문 요약:
+
+   1. **약관** 을 검토 한 다음 "제공 된 모든 정보가 올바르고 사용 약관에 동의 함"을 선택 합니다. 그런 다음 유효성 검사가 수행 됩니다.
+   1. 요약에 제공된 직업 정보를 검토합니다. 작업 이름과 디스크를 Azure로 반송할 Azure 데이터 센터 배송 주소를 적어 둡니다. 이 정보는 나중에 운송 레이블에 사용됩니다.
+   1. **만들기** 를 선택합니다.
 
      ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 

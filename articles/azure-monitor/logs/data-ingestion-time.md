@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030888"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176657"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
-대기 시간은 모니터링되는 시스템에서 데이터가 생성된 시간과 Azure Monitor에서 데이터를 분석에 사용할 수 있는 시간을 참조합니다. 로그 데이터를 수집하기 위한 일반적인 대기 시간은 2분에서 5분 사이입니다. 특정 데이터에 대한 특정 대기 시간은 아래에 설명된 다양한 요인에 따라 달라집니다.
+대기 시간은 모니터링되는 시스템에서 데이터가 생성된 시간과 Azure Monitor에서 데이터를 분석에 사용할 수 있는 시간을 참조합니다. 로그 데이터를 수집 하는 일반적인 대기 시간은 20 초에서 3 분 사이입니다. 그러나 특정 데이터의 특정 대기 시간은 아래에 설명 된 다양 한 요인에 따라 달라 집니다.
 
 
 ## <a name="factors-affecting-latency"></a>대기 시간에 영향을 주는 요인
 특정 데이터 집합의 총 수집 시간을 다음과 같은 상위 수준 영역으로 분석할 수 있습니다. 
 
-- 에이전트 시간 - 이벤트를 검색하고, 수집한 다음, Azure Monitor 수집 지점에 로그 레코드로 보내는 시간입니다. 대부분의 경우, 이 프로세스는 에이전트가 처리합니다.
+- 에이전트 시간-이벤트를 검색 하 여 수집한 후 로그 레코드로 Azure Monitor 로그 수집 지점으로 전송 하는 시간입니다. 대부분의 경우, 이 프로세스는 에이전트가 처리합니다. 네트워크에 의해 추가 대기 시간이 발생할 수 있습니다.
 - 파이프라인 시간 - 수집 파이프라인이 로그 레코드를 처리하는 시간입니다. 여기에는 이벤트 속성 구문 분석, 잠재적으로 계산된 정보 추가 등이 포함됩니다.
 - 인덱싱 시간 - 로그 레코드를 Azure Monitor 빅 데이터 저장소로 수집하는 데 소요되는 시간입니다.
 
@@ -36,16 +36,17 @@ Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 �
 - Active Directory 복제 솔루션은 5일마다 해당 평가를 수행하는 반면, Active Directory 평가 솔루션은 Active Directory 인프라를 매주 평가합니다. 에이전트는 평가가 완료된 경우에만 이러한 로그를 수집합니다.
 
 ### <a name="agent-upload-frequency"></a>에이전트 업로드 빈도
-Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 로그를 버퍼링하고 주기적으로 Azure Monitor에 업로드합니다. 업로드 빈도는 데이터 형식에 따라 30초에서 2분 사이입니다. 대부분의 데이터는 1분 이내에 업로드됩니다. 네트워크 조건 때문에 이 데이터가 Azure Monitor 수집 지점에 도달하는 대기 시간이 지연될 수도 있습니다.
+Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 로그를 버퍼링하고 주기적으로 Azure Monitor에 업로드합니다. 업로드 빈도는 데이터 형식에 따라 30초에서 2분 사이입니다. 대부분의 데이터는 1분 이내에 업로드됩니다. 
+
+### <a name="network"></a>네트워크
+네트워크 상태 Azure Monitor 로그 수집 지점에 도달 하기 위해이 데이터의 대기 시간에 부정적인 영향을 줄 수 있습니다.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Azure 활동 로그, 리소스 로그 및 메트릭
-Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 수 있는 추가 시간을 추가합니다.
+Azure 데이터는 처리를 위해 Azure Monitor 로그 수집 지점에서 사용할 수 있게 되는 추가 시간을 추가 합니다.
 
-- 리소스 로그의 데이터는 Azure 서비스에 따라 2-15 분이 소요 됩니다. 사용자 환경에서 이 대기 시간을 검사하려면 [아래의 쿼리](#checking-ingestion-time)를 참조하세요.
-- Azure 플랫폼 메트릭은 Log Analytics 수집 지점으로 보내는 데 3분이 걸립니다.
-- 활동 로그 데이터는 Log Analytics 수집 지점으로 보내는데 약 10-15분이 걸립니다.
-
-수집 시점에서 데이터를 사용할 수 있게 되면 쿼리하는 데 2-5분이 더 걸립니다.
+- 리소스 로그는 일반적으로 Azure 서비스에 따라 30-90 초를 추가 합니다. 일부 Azure 서비스 (특히 Azure SQL Database 및 Azure Virtual Network)는 현재 5 분 간격으로 로그를 보고 합니다. 이를 개선 하기 위해 작업이 진행 중입니다. 사용자 환경에서 이 대기 시간을 검사하려면 [아래의 쿼리](#checking-ingestion-time)를 참조하세요.
+- Azure platform 메트릭은 Azure Monitor 로그 수집 지점으로 내보낼 추가 3 분이 소요 됩니다.
+- 레거시 통합이 사용 되는 경우 활동 로그 데이터는 추가 10-15 분이 걸릴 수 있습니다. 구독 수준 진단 설정을 사용 하 여 활동 로그를 Azure Monitor 로그에 수집 하는 것이 좋습니다 .이 경우 추가 대기 시간이 약 30 초 정도 발생 합니다.
 
 ### <a name="management-solutions-collection"></a>관리 솔루션 수집
 일부 솔루션은 에이전트에서 데이터를 수집하지 않고 추가 대기 시간을 도입하는 수집 방법을 사용할 수 있습니다. 일부 솔루션은 거의 실시간으로 수집하지 않고 주기적으로 데이터를 수집합니다. 특정 예제는 다음과 같습니다.
@@ -56,6 +57,9 @@ Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 
 각 솔루션에 대한 문서를 참조하여 해당 수집 빈도를 확인하세요.
 
 ### <a name="pipeline-process-time"></a>파이프라인 프로세스 시간
+
+수집 지점에서 사용할 수 있게 되 면 데이터를 쿼리 하는 데 30-60 초 정도 추가 됩니다.
+
 로그 레코드가 Azure Monitor 파이프라인으로 수집 ( [_TimeReceived](./log-standard-columns.md#_timereceived) 속성에서 식별 됨), 테 넌 트 격리를 보장 하 고 데이터가 손실 되지 않도록 하기 위해 임시 저장소에 기록 됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다. 대기 시간을 증가시키는 또 다른 프로세스는 사용자 지정 로그를 처리하는 프로세스입니다. 경우에 따라 이 프로세스로 인해 로그에 에이전트가 파일에서 수집하는 대기 시간이 몇 분 정도 추가될 수 있습니다.
 
 ### <a name="new-custom-data-types-provisioning"></a>새 사용자 지정 데이터 형식 프로비저닝

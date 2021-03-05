@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea6b567d7b48e504d9b79dad568da7170ada5326
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58e910a721bea95e74a004ae306f1bbc3ade62f2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706829"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174158"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -24,16 +24,16 @@ ms.locfileid: "101706829"
 
 얼굴 서비스는 기계 학습 모델을 사용 하 여 이미지에서 인간 얼굴에 대 한 작업을 수행 합니다. 사용자 의견에 따라 모델의 정확도를 지속적으로 향상 시키고 연구를 진행 하면서 이러한 향상 된 기능을 모델 업데이트로 제공 합니다. 개발자는 사용 하려는 얼굴 인식 모델의 버전을 지정 하는 옵션을 사용할 수 있습니다. 사용 사례에 가장 잘 맞는 모델을 선택할 수 있습니다.
 
-Azure Face 서비스는 세 가지 인식 모델을 사용할 수 있습니다. 이러한 모델을 사용 하 여 만든 FaceLists 또는 **PersonGroup** 를 사용 하는 고객에 대해 이전 버전과의 호환성을 보장 하기 위해 모델 _recognition_01_ (게시 된 2017) 및 _recognition_02_ (게시 2019)가 계속 지원 됩니다. **FaceList** 또는 **Persongroup** 는 항상 생성 된 인식 모델을 사용 하며, 새 얼굴은 추가 될 때이 모델과 연결 됩니다. 이를 만든 후에는 변경할 수 없으며, 고객은 해당 **FaceList** 또는 **PersonGroup** 에 해당 하는 인식 모델을 사용 해야 합니다.
+Azure Face 서비스에는 사용할 수 있는 4 가지 인식 모델이 있습니다. 이러한 모델을 사용 하 여 만든 FaceLists 또는 **PersonGroup** 를 사용 하는 고객에 대해 이전 버전과의 호환성을 보장 하기 위해 모델 _recognition_01_ (게시 된 2017), _recognition_02_ (게시 된 2019) 및 _recognition_03_ (게시 된 2020)가 계속 지원 됩니다. **FaceList** 또는 **Persongroup** 는 항상 생성 된 인식 모델을 사용 하며, 새 얼굴은 추가 될 때이 모델과 연결 됩니다. 이를 만든 후에는 변경할 수 없으며, 고객은 해당 **FaceList** 또는 **PersonGroup** 에 해당 하는 인식 모델을 사용 해야 합니다.
 
 사용자 편의를 위해 이후 인식 모델로 이동할 수 있습니다. 그러나 사용자가 선택한 인식 모델을 사용 하 여 새 FaceLists 및 PersonGroups를 만들어야 합니다.
 
-_Recognition_03_ 모델 (게시 된 2020)은 현재 사용할 수 있는 가장 정확한 모델입니다. 새 고객의 경우이 모델을 사용 하는 것이 좋습니다. _Recognition_03_ 은 유사성 비교와 사용자 일치 비교에 대 한 향상 된 정확도를 제공 합니다. 각 모델은 서로 독립적으로 작동 하며 한 모델에 대해 설정 된 신뢰도 임계값은 다른 인식 모델에서 비교할 수 없습니다.
+_Recognition_04_ 모델 (게시 된 2021)은 현재 사용할 수 있는 가장 정확한 모델입니다. 새 고객의 경우이 모델을 사용 하는 것이 좋습니다. _Recognition_04_ 은 유사성 비교와 사용자 일치 비교에 대 한 향상 된 정확도를 제공 합니다. _Recognition_04_ 는 얼굴 커버 (surgical 마스크, N95 마스크, 천으로 마스크)를 입고 등록 된 사용자에 대 한 인식을 향상 시킵니다. 이제 최신 _detection_03_ 모델을 사용 하 여 등록 된 사용자가 얼굴 커버를 작성 하 고 있는지 확인 하 고 최신 _recognition_04_ 모델을 사용 하는 사람을 인식 하는 안전 하 고 원활한 사용자 환경을 만들 수 있습니다. 각 모델은 서로 독립적으로 작동 하며 한 모델에 대해 설정 된 신뢰도 임계값은 다른 인식 모델에서 비교할 수 없습니다.
 
 모델 충돌을 방지 하면서 여러 얼굴 작업에서 선택한 모델을 지정 하는 방법을 알아봅니다. 고급 사용자 이며 최신 모델로 전환 해야 하는지 여부를 결정 하려는 경우 [다른 모델 평가](#evaluate-different-models) 섹션으로 건너뛰어 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과를 비교 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 그렇지 않은 경우 먼저 다음 가이드를 참조 하세요.
 
@@ -51,6 +51,7 @@ AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 
 * recognition_01
 * recognition_02
 * recognition_03
+* recognition_04
 
 
 필요에 따라 _returnRecognitionModel_ 매개 변수 (기본값 **false**)를 지정 하 여 응답에서 _recognitionModel_ 을 반환할지 여부를 나타낼 수 있습니다. 따라서 [얼굴 검색] REST API에 대 한 요청 URL은 다음과 같이 표시 됩니다.
@@ -91,10 +92,10 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 .NET 클라이언트 라이브러리에 대 한 다음 코드 예제를 참조 하세요.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-이 코드는 `My face collection` 기능 추출에 대 한 _recognition_03_ 모델을 사용 하 여 라는 얼굴 목록을 만듭니다. 이 얼굴 목록을 검색 하 여 새롭게 검색 된 면에서 유사한 얼굴을 검색 하는 경우에는 _recognition_03_ 모델을 사용 하 여 해당 얼굴을 감지 해야 합니다 ([얼굴 감지]). 이전 섹션과 마찬가지로 모델은 일관적 이어야 합니다.
+이 코드는 `My face collection` 기능 추출에 대 한 _recognition_04_ 모델을 사용 하 여 라는 얼굴 목록을 만듭니다. 이 얼굴 목록을 검색 하 여 새롭게 검색 된 면에서 유사한 얼굴을 검색 하는 경우에는 _recognition_04_ 모델을 사용 하 여 해당 얼굴을 감지 해야 합니다 ([얼굴 감지]). 이전 섹션과 마찬가지로 모델은 일관적 이어야 합니다.
 
 [유사한 API 찾기] 에는 변경 내용이 없습니다. 검색 에서만 모델 버전을 지정 합니다.
 
@@ -105,10 +106,10 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 ## <a name="evaluate-different-models"></a>다른 모델 평가
 
 사용자 고유의 데이터에 대 한 다양 한 인식 모델의 성능을 비교 하려는 경우 다음을 수행 해야 합니다.
-1. _Recognition_01_, _recognition_02_ 및 _recognition_03_ 를 각각 사용 하 여 세 개의 PersonGroups를 만듭니다.
-1. 이미지 데이터를 사용 하 여 얼굴을 감지 하 고이 세 **PersonGroup** 내에 있는 **사람** 에 게 등록 합니다. 
+1. _Recognition_01_, _recognition_02_, _recognition_03_ 및 _recognition_04_ 를 각각 사용 하 여 4 개의 PersonGroups을 만듭니다.
+1. 이미지 데이터를 사용 하 여 얼굴을 감지 하 고 이러한 4 개의 **PersonGroup** 내에 있는 **사람** 에 게 등록 합니다. 
 1. PersonGroup 교육 API를 사용 하 여 PersonGroups를 학습 합니다.
-1. 세 개의 **PersonGroup** 를 모두 확인 하 고 결과를 비교 하 여 테스트 합니다.
+1. PersonGroup를 사용 하 여 테스트-4 개의 모든 s를 식별 하 고 결과를 비교 합니다.
 
 
 일반적으로 신뢰도 임계값을 지정 하는 경우 (0에서 1 사이의 값과 얼굴을 식별 하는 모델의 확신 정도를 결정 하는 값) 모델 마다 다른 임계값을 사용 해야 할 수 있습니다. 한 모델에 대 한 임계값은 다른 모델에 대 한 임계값을 공유 하는 것이 아니며 반드시 동일한 결과를 생성 하는 것은 아닙니다.

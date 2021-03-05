@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727960"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175875"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -190,7 +190,7 @@ ADF에 대해 Oauth를 구성 하지 않았습니다. URL이 잘못 구성 되�
 
 ##### <a name="resolution"></a>해결 방법
 
-먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. ADF 서비스에서 먼저 시도 하기 때문에 구성을 고객 조직으로 설정 해야 https://hostname/api/v3/search/repositories?q=user%3 합니다. <customer credential> 및가 실패 합니다. 그런 다음 시도 하 여 https://hostname/api/v3/orgs/ <vaorg> / <repo> 성공 합니다. 
+먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. 구성을 고객 조직으로 설정 해야 합니다. 예를 들어 ADF는 먼저 시도 하 고 실패 *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> 합니다.* 그런 *https://hostname/api/v3/orgs/ <org> / <repo> 다음 시도 하* 고 성공 합니다. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구
 
@@ -203,7 +203,8 @@ ADF에 대해 Oauth를 구성 하지 않았습니다. URL이 잘못 구성 되�
 
 원본 컨트롤이 없으면 백 엔드에서 삭제 된 Data Factory를 복구할 수 없습니다. 서비스에서 삭제 된 명령을 받으면 인스턴스가 삭제 되 고 백업이 저장 되지 않기 때문입니다.
 
-#### <a name="resoloution"></a>Resoloution
+#### <a name="resolution"></a>해결 방법
+
 원본 제어를 포함 하는 삭제 된 Data Factory를 복구 하려면 다음 단계를 참조 하세요.
 
  * 새 Azure Data Factory을 만듭니다.

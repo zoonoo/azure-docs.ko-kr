@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b25d312e6710a07f523c4acdb0fd4b970ce4a2d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 12807e83f7841bc67999ce385d0cb82bf15f4c71
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740089"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175994"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Azure NetApp Files 서비스에 대 한 볼륨 하드 할당량을 변경 하는 것은 무엇 인가요?
 
@@ -185,8 +185,8 @@ ANFCapacityManager를 설치한 후에는 다음 동작을 수행할 수 있습�
 
 Azure CLI 및 Azure PowerShell를 비롯 한 [AZURE NETAPP FILES CLI 도구](azure-netapp-files-sdk-cli.md#cli-tools)를 사용 하 여 볼륨 또는 용량 풀 크기를 수동으로 변경할 수 있습니다.  다음 두 명령을 사용 하 여 Azure NetApp Files 볼륨 및 풀 리소스를 관리할 수 있습니다.  
 
-* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
-* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume)
 
 Azure CLI를 사용 하 여 Azure NetApp Files 리소스를 관리 하려면 Azure Portal을 열고 메뉴 모음의 맨 위에 있는 Azure **Cloud Shell** 링크를 선택 합니다. 
 
@@ -196,13 +196,13 @@ Azure CLI를 사용 하 여 Azure NetApp Files 리소스를 관리 하려면 Azu
 
 [![Cloud Shell 창을 ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) 보여 주는 스크린샷](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-다음 예에서는 명령을 사용 하 여 볼륨의 크기를 [표시](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-show) 하 고 [업데이트](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-update) 합니다.
+다음 예에서는 명령을 사용 하 여 볼륨의 크기를 [표시](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) 하 고 [업데이트](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) 합니다.
  
 [![PowerShell을 사용 하 여 볼륨 크기 ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) 를 보여 주는 스크린샷](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [![PowerShell을 사용 하 여 볼륨 크기 ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) 를 업데이트 하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-다음 예에서는 명령을 사용 하 여 용량 풀의 크기를 [표시](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-show) 하 고 [업데이트](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-update) 합니다.
+다음 예에서는 명령을 사용 하 여 용량 풀의 크기를 [표시](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) 하 고 [업데이트](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) 합니다.
 
 [![PowerShell을 사용 하 여 용량 풀 크기 ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) 를 보여 주는 스크린샷](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

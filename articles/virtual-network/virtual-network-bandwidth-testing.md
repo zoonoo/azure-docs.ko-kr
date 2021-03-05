@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 27cc55978582468c759603571bd8b0e69f29db5d
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: abcd2f6e23ea0c7c26b2ee26b2f6ca4ad502b769
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226576"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177184"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -93,15 +93,19 @@ nttcp-for-linux를 사용합니다. <https://github.com/Microsoft/ntttcp-for-lin
 
 Linux VM(송신기 및 수신기 둘 다)에서 다음 명령을 실행하여 VM에서 ntttcp-for-linux를 준비합니다.
 
-CentOS - Git 설치:
+CentOS-gcc 및 git 설치:
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
-Ubuntu - Git 설치:
+Ubuntu-빌드-필수 및 git 설치:
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
+```
+SUSE-git-core, gcc를 설치 하 고 다음을 수행 합니다.
+``` bash
+  zypper in -y git-core gcc make
 ```
 둘 다에서 만들고 설치합니다.
 ``` bash

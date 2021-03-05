@@ -11,17 +11,16 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029535"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176215"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
 이 문서에서는 가상 네트워크에서 Azure Machine Learning 작업 영역 및 연결 된 리소스를 보호 하는 방법에 대해 알아봅니다.
-
 
 이 문서는 Azure Machine Learning 워크플로를 보호 하는 과정을 안내 하는 5 부 시리즈의 2 부입니다. 먼저 전체 아키텍처를 이해 하려면 [1 부: VNet 개요](how-to-network-security-overview.md) 를 읽어 보는 것이 좋습니다. 
 
@@ -37,7 +36,7 @@ ms.locfileid: "97029535"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -296,7 +295,7 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 네 부분으로 구성 된 가상 네트워크 시리즈의 1 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
+이 문서는 5 부 가상 네트워크 시리즈의 2 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
 
 * [1 부: 가상 네트워크 개요](how-to-network-security-overview.md)
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)

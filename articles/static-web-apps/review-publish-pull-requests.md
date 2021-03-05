@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 78d2f3b399e26ca0c6036fd74fa1fba49d1f21f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042779"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172743"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 사전 프로덕션 환경에서 끌어오기 요청 검토 미리 보기
 
@@ -109,7 +109,7 @@ URL을 자세히 살펴보면 다음과 같이 구성된 것을 볼 수 있습�
 > [!WARNING]
 > 사전 프로덕션 환경에 대한 액세스는 제한되지 않으므로 중요한 콘텐츠를 스테이징된 버전에 게시할 때는 주의해야 합니다.
 
-Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 SKU 계층에 따라 달라집니다. 예를 들어 무료 계층을 사용하는 경우 프로덕션 환경 외에도 하나의 사전 프로덕션 환경을 사용할 수 있습니다.
+Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 SKU 계층에 따라 달라집니다. 예를 들어 무료 계층을 사용 하는 경우 프로덕션 환경 외에도 3 프리 프로덕션 환경을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

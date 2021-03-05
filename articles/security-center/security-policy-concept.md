@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
-ms.openlocfilehash: a5aae4013067ba37334e3e85a9e7ef882efd1dd2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/04/2021
+ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107673"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176436"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>보안 정책, 이니셔티브 및 권장 사항은 무엇 인가요?
 
@@ -25,6 +25,7 @@ Azure Policy에서 만든 Azure 정책 정의는 제어 하려는 특정 보안 
 
 이러한 정책 정의 (기본 제공 또는 사용자 지정)를 구현 하려면 해당 정의를 할당 해야 합니다. Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책 중 하나를 할당할 수 있습니다.
 
+Azure Policy에는 다양 한 유형의 정책이 있습니다. Security Center는 주로 특정 조건 및 구성을 확인 하는 ' 감사 ' 정책을 사용 하 고 규정 준수에 대해 보고 합니다. 보안 설정을 적용 하는 데 사용할 수 있는 "적용" 정책도 있습니다.
 
 ## <a name="what-is-a-security-initiative"></a>보안 이니셔티브 란?
 
@@ -38,7 +39,7 @@ Azure Security Center의 모든 구독에 자동으로 할당 되는 기본 이�
 
 Security Center에서는 보안 이니셔티브 및 정책을 사용 하기 위한 다음과 같은 옵션을 제공 합니다.
 
-- 기본 **제공 기본 이니셔티브 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' Azure Security 벤치 마크 ' 라는 이니셔티브는 등록 된 모든 Security Center 구독에 자동으로 할당 됩니다. 이 이니셔티브를 사용자 지정 하려면 내부에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](./policy-reference.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
+- 기본 **제공 기본 이니셔티브 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' Azure Security 벤치 마크 ' 라는 이니셔티브는 등록 된 모든 Security Center 구독에 자동으로 할당 됩니다. 이 이니셔티브를 사용자 지정 하기 위해 정책의 매개 변수를 편집 하 여 내에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](./policy-reference.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
 
 - **사용자 고유의 사용자 지정 이니셔티브 추가** -구독에 적용 되는 보안 이니셔티브를 사용자 지정 하려는 경우 Security Center 내에서 수행할 수 있습니다. 그러면 컴퓨터가 만든 정책을 따르지 않는 경우 권장 사항을 받게 됩니다. 사용자 지정 정책 빌드 및 할당에 대 한 지침은 [사용자 지정 보안 이니셔티브 및 정책 사용](custom-security-policies.md)을 참조 하세요.
 
@@ -46,9 +47,9 @@ Security Center에서는 보안 이니셔티브 및 정책을 사용 하기 위�
 
 ## <a name="what-is-a-security-recommendation"></a>보안 권장 사항이란?
 
-Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다. 관련 정책에 대해 리소스를 평가 하 고 정의 된 요구 사항을 충족 하지 않는 리소스를 식별 하는 것이 좋습니다.
+정책을 사용 하 여 Security Center 리소스의 준수 상태를 주기적으로 분석 하 여 잠재적인 보안 잘못 된 문제 및 약점을 식별 합니다. 그런 다음 이러한 문제를 해결 하는 방법에 대 한 권장 사항을 제공 합니다. 권장 사항은 관련 정책에 대해 리소스를 평가 하 고 정의 된 요구 사항을 충족 하지 않는 리소스를 식별 하는 결과입니다.
 
-Azure Security Center은 선택한 이니셔티브에 따라 보안 권장 사항을 적용 합니다. 
+Security Center은 선택한 이니셔티브에 따라 보안 권장 사항을 적용 합니다. 이니셔티브의 정책을 리소스와 비교 하 여 호환 되지 않는 정책을 하나 이상 찾으면 Security Center 권장 사항으로 제공 됩니다.
 
 권장 사항은 리소스를 보호 하 고 강화 하기 위해 수행할 수 있는 작업입니다. 각 권장 사항은 다음 정보를 제공 합니다.
 

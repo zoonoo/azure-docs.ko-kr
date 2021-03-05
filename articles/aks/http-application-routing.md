@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25fc021a48e8936f242df35f7485fc59a93bba13
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125872"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172803"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -26,8 +26,8 @@ HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes
 
 추가 기능에서는 [Kubernetes 수신 컨트롤러][ingress] 와 [외부 DNS][external-dns] 컨트롤러의 두 구성 요소를 배포 합니다.
 
-- **수신 컨트롤러** : 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
-- **외부 DNS 컨트롤러** : Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대 한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시 하 고 구현 합니다.
+- **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
 
@@ -280,8 +280,8 @@ ingress "aks-helloworld" deleted
 AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 HTTPS 수신][ingress-https]을 참조하세요.
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli

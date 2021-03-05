@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/22/2021
+ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702558"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177286"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -203,20 +203,24 @@ Azure Portal 또는 Azure Resource Manager 템플릿에 대해 다음 단계를 
    | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **정책 이름** | 예 | 권한 부여 정책에 사용하려는 이름입니다. |
-   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 클레임 값은 [최대 문자 수](logic-apps-limits-and-config.md#authentication-limits)로 제한 됩니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID**(JSON Web Token ID) <p><p>**클레임** 목록에는 적어도  `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 가진 발급자 클레임이 포함 되어야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
+   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 클레임 값은 [최대 문자 수](logic-apps-limits-and-config.md#authentication-limits)로 제한 됩니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID** (JSON Web Token 식별자) <p><p>**클레임** 목록에는 적어도  `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 가진 발급자 클레임이 포함 되어야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
    |||
 
 1. 또 다른 클레임을 추가하려면 다음 옵션 중에서 선택합니다.
 
    * 다른 클레임 유형을 추가하려면 **표준 클레임 추가** 를 선택하고 클레임 유형을 선택한 후 클레임 값을 지정합니다.
 
-   * 자체 클레임을 추가하려면 **사용자 지정 클레임 추가** 를 선택하고 사용자 지정 클레임 값을 지정합니다.
+   * 사용자 고유의 클레임을 추가 하려면 **사용자 지정 클레임 추가** 를 선택 합니다. 자세한 내용은 [앱에 선택적 클레임을 제공 하는 방법](../active-directory/develop/active-directory-optional-claims.md)을 참조 하세요. 사용자 지정 클레임은 JWT ID의 일부로 저장 됩니다. 예를 들면 `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` 입니다. 
 
 1. 권한 부여 정책을 더 추가하려면 **정책 추가** 를 선택합니다. 이전 단계를 반복하여 정책을 설정합니다.
 
 1. 완료되면 **저장** 을 선택합니다.
 
 1. `Authorization`요청 기반 트리거 출력에 액세스 토큰의 헤더를 포함 하려면 [요청 트리거 출력에 ' Authorization ' 헤더 포함](#include-auth-header)을 참조 하세요.
+
+
+정책과 같은 워크플로 속성은 Azure Portal의 논리 앱의 코드 뷰에 나타나지 않습니다. 정책에 프로그래밍 방식으로 액세스 하려면 ARM (Azure Resource Manager)을 통해 다음 API를 호출 `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` 합니다. Azure 구독 ID, 리소스 그룹 이름 및 워크플로 이름에 대 한 자리 표시자 값을 대체 해야 합니다.
+
 
 <a name="define-authorization-policy-template"></a>
 
@@ -1126,7 +1130,7 @@ Authorization: OAuth realm="Photos",
 
    **관리 되는 커넥터 트리거 및 작업**
 
-   | 속성(디자이너) | 필수 | 값 | Description |
+   | 속성(디자이너) | 필수 | 값 | 설명 |
    |---------------------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> ||
    | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |

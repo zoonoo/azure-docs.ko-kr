@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터를 업그레이드 하 
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 1d3c275758a1e241a531b65d1897903153efab94
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 11218fc0cd754e9793067c449fdcb7589688dc2e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567457"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176351"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -120,7 +120,7 @@ myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded       
 
 클러스터를 수동으로 업그레이드 하는 것 외에도 클러스터에서 자동 업그레이드 채널을 설정할 수 있습니다. 다음 업그레이드 채널을 사용할 수 있습니다.
 
-|채널| 작업 | 예제
+|채널| 작업 | 예
 |---|---|---|
 | `none`| 자동 업그레이드를 사용 하지 않도록 설정 하 고 클러스터를 현재 버전의 Kubernetes에 보관 합니다.| 변경 되지 않은 상태로 유지 되는 경우 기본 설정|
 | `patch`| 보조 버전을 동일 하 게 유지 하면서 클러스터를 사용할 수 있게 되 면 지원 되는 최신 패치 버전으로 자동 업그레이드 합니다.| 예를 들어 클러스터가 버전 *1.17.7* 을 실행 하 고 *1.17.9*, *1.18.4*, *1.18.6* 및 *1.19.1* 을 사용할 수 있는 경우 클러스터가 *1.17.9* 로 업그레이드 됩니다.|
@@ -136,19 +136,19 @@ AKS 클러스터에 대 한 클러스터 자동 업그레이드는 미리 보기
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-`AutoUpgradePreview`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+`AutoUpgradePreview`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -184,8 +184,8 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster

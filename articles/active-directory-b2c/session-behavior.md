@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120626"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175110"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -29,7 +29,7 @@ Single Sign-On를 통해 사용자는 단일 계정으로 한 번 로그인 하 
 
 사용자가 응용 프로그램에 처음으로 로그인 하면 Azure AD B2C 쿠키 기반 세션을 유지 합니다. 후속 인증 요청 시 Azure AD B2C은 쿠키 기반 세션을 읽고 유효성을 검사 하며, 사용자에 게 다시 로그인 하 라는 메시지를 표시 하지 않고 액세스 토큰을 발급 합니다. 쿠키 기반 세션이 만료 되거나 유효 하지 않게 되 면 사용자에 게 다시 로그인 하 라는 메시지가 표시 됩니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -194,7 +194,7 @@ KMSI 확인란을 등록 및 로그인 페이지에 추가 하려면 `setting.en
 
 ### <a name="configure-a-relying-party-file"></a>신뢰 당사자 파일 구성
 
-만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
+만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다. KeepAliveInDays 매개 변수를 사용 하 여 로그인 하는 데 사용 되는 긴 시간 (KMSI) 세션 쿠키의 유지 기간을 구성할 수 있습니다. 예를 들어 값을 30으로 설정 하면 KMSI 세션 쿠키가 30 일 동안 유지 됩니다. 값의 범위는 1 ~ 90 일입니다.
 
 1. 사용자 지정 정책 파일(예: *SignUpOrSignin.xml*)을 엽니다.
 1. `<UserJourneyBehaviors>`자식 노드가 아직 없으면 `<RelyingParty>` 노드에 추가 합니다. 바로 뒤에 위치 해야 합니다 `<DefaultUserJourney ReferenceId="User journey Id" />` (예:) `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .

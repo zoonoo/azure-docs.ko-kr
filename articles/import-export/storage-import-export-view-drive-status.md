@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706425"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176150"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Azure Import/Export의 상태 보기
 
 이 아티클에서는 Azure Import/Export 작업에 대한 드라이브 및 작업 상태를 확인하는 방법을 설명합니다. Azure Import/Export 서비스를 사용하여 Azure Blob 및 Azure Files에 대량의 데이터를 안전하게 전송합니다. 이 서비스는 Azure Blob Storage에서 데이터를 내보내는 데도 사용됩니다.  
 
 ## <a name="view-job-and-drive-status"></a>작업 및 드라이브 상태 보기
-**가져오기/내보내기** 탭을 선택 하 여 Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. 작업 목록이 페이지에 표시 됩니다.
+Azure Portal의 **가져오기/내보내기** 탭에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다.
+1. https://portal.azure.com/에 로그온합니다.
+2. **가져오기/내보내기 작업** 을 검색 합니다.
 
-![작업 상태 보기](./media/storage-import-export-service/jobstate.png)
+    ![가져오기/내보내기 작업에서 검색](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. 가져오기/내보내기 작업 목록이 페이지에 표시 됩니다.
+
+    ![작업 상태 보기](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. 작업 정보를 보려면 작업을 선택 하 고 클릭 합니다.
+
+   ![자세한 작업 상태 보기](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>작업 상태 보기
 
 프로세스에서 드라이브 위치에 따라 다음 작업 상태 중 하나가 표시됩니다.
@@ -36,7 +47,7 @@ ms.locfileid: "98706425"
 | 전송 중 | 하나 이상의 드라이브에서 처리를 시작하면 작업 상태가 **전송 중** 으로 설정됩니다. 자세한 내용은 [드라이브 상태](#view-drive-status)로 이동하세요. |
 | 패키징 | 모든 드라이브에서 처리를 완료한 후에 고객에게 드라이브를 반송할 때까지 작업은 **포장 중** 상태가 됩니다. |
 | 완료됨 | 사용자에게 모든 드라이브를 반송한 후에 작업이 오류 없이 완료되면 작업은 **완료됨** 상태로 설정됩니다. **완료됨** 상태에서 90일이 경과하면 작업이 자동으로 삭제됩니다. |
-| 닫힘 | 모든 드라이브를 다시 배송 한 후에는 작업을 처리 하는 동안 오류가 발생 하면 작업이 **종결** 됨으로 설정 됩니다. **종료됨** 상태에서 90일이 경과하면 작업이 자동으로 삭제됩니다. |
+| 해결됨 | 모든 드라이브를 다시 배송 한 후에는 작업을 처리 하는 동안 오류가 발생 하면 작업이 **종결** 됨으로 설정 됩니다. **종료됨** 상태에서 90일이 경과하면 작업이 자동으로 삭제됩니다. |
 
 ## <a name="view-drive-status"></a>드라이브 상태 보기
 
@@ -56,14 +67,14 @@ ms.locfileid: "98706425"
 
 Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타냅니다.
 
-![드라이브 상태 보기](./media/storage-import-export-service/drivestate.png)
+![드라이브 상태 보기](./media/storage-import-export-view-drive-status/drive-state.png)
 
 다음 표에서는 드라이브 오류 상태 및 각 상태에 대해 수행하는 작업을 설명합니다.
 
 | 드라이브 상태 | 이벤트 | 해결 방법/다음 단계 |
 |:--- |:--- |:--- |
-| 수신되지 않음 | **NeverReceived** 로 표시 된 드라이브가 작업 배송의 일부로 수신 되지 않았기 때문에 다른 배송에 도착 합니다. | 작업 팀은 드라이브를 **수신됨** 상태로 전환합니다. |
-| 해당 없음 | 작업의 일부가 아닌 드라이브가 데이터 센터에 다른 작업의 일부로 도착 합니다. | 드라이브가 추가 드라이브로 표시 됩니다. 원본 패키지와 연결 된 작업이 완료 되 면 사용자에 게 반환 됩니다. |
+| 수신 안 됨 | **NeverReceived** 로 표시 된 드라이브가 작업 배송의 일부로 수신 되지 않았기 때문에 다른 배송에 도착 합니다. | 작업 팀은 드라이브를 **수신됨** 상태로 전환합니다. |
+| N/A | 작업의 일부가 아닌 드라이브가 데이터 센터에 다른 작업의 일부로 도착 합니다. | 드라이브가 추가 드라이브로 표시 됩니다. 원본 패키지와 연결 된 작업이 완료 되 면 사용자에 게 반환 됩니다. |
 
 ## <a name="time-to-process-job"></a>작업 처리 시간
 Import/Export 작업을 처리하는 데 걸리는 시간은 다음과 같은 다양한 요인에 따라 달라집니다.

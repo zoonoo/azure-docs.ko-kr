@@ -2,7 +2,7 @@
 title: 그룹 & 응용 프로그램에 대 한 액세스 검토 만들기-Azure AD
 description: Azure Active Directory 액세스 검토에서 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만드는 방법에 대해 알아봅니다.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778592"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176878"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "96778592"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -80,7 +80,7 @@ ms.locfileid: "96778592"
     - **그룹 소유자** (팀 또는 그룹에 대 한 검토를 수행 하는 경우에만 사용 가능)
     - **선택한 사용자 또는 그룹**
     - **사용자가 자신의 액세스를 검토 합니다.**
-    - **모드 사용자의 관리자입니다.**
+    - **사용자의 관리자입니다.**
     **사용자** 또는 **그룹 소유자** 중 하나를 선택 하는 경우 대체 검토자를 지정 하는 옵션도 있습니다. 사용자가 디렉터리에 관리자를 지정 하지 않았거나 그룹에 소유자가 없는 경우에는 대체 검토자가 검토를 수행 하 라는 메시지가 표시 됩니다.
 
     ![새 액세스 검토](./media/create-access-review/new-access-review.png)
@@ -155,7 +155,7 @@ ms.locfileid: "96778592"
 |자동 검토 | 검토 하지 않은 모든 사용자에 대해 시스템에서 결정을 기록 했습니다. 자동 적용이 사용 하도록 설정 **된 경우 검토를 계속** 진행할 준비가 되었습니다. |
 |넣으려면 | 승인 된 사용자에 대 한 액세스는 변경 되지 않습니다. |
 |적용됨 | 거부 된 사용자 (있는 경우)가 리소스 또는 디렉터리에서 제거 되었습니다. |
-|Failed | 검토를 진행할 수 없습니다. 이 오류는 테 넌 트 삭제, 라이선스 변경 또는 기타 내부 테 넌 트 변경 내용과 관련이 있을 수 있습니다. |
+|실패 | 검토를 진행할 수 없습니다. 이 오류는 테 넌 트 삭제, 라이선스 변경 또는 기타 내부 테 넌 트 변경 내용과 관련이 있을 수 있습니다. |
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 

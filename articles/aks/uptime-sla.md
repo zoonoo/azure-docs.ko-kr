@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9f8f697da7499d370c96b77e7e543dec9fbafa3e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664098"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176334"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -76,7 +76,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-새 리소스 그룹을 만듭니다.
+새 리소스 그룹 만들기:
 
 ```azurecli-interactive
 # Create a resource group
@@ -135,6 +135,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

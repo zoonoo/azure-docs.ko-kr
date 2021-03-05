@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101378"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176725"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 
 * 여러 지역에서 발생 하는 들어오는 트래픽
 * 다음으로 최적의 지역 배포에 대 한 [즉각적인 글로벌 장애 조치 (failover)](#regional-redundancy)
-* 매우 [대기 시간](#ultra-low-latency)으로 가장 가까운 Azure 지역에 지역 간 배포를 로드 합니다.
+* 매우 [짧은 대기 시간](#ultra-low-latency)으로 가장 가까운 Azure 지역에 대 한 지역에 분산을 로드 합니다.
 * 단일 끝점 뒤에 [확장/축소](#ability-to-scale-updown-behind-a-single-endpoint) 하는 기능
 * [고정 IP](#static-ip)
 * [클라이언트 IP 유지](#client-ip-preservation)

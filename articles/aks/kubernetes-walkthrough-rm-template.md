@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 6b0d31bdff9afcc5c33ebe6224c372eb6bcb05bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 56bacf1ae68081d5822fdb0e80762926d4eb581c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578796"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173735"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -310,10 +310,10 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-browse
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli

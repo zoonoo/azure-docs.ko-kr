@@ -1,5 +1,5 @@
 ---
-title: 데이터 signature.frm Azure IoT Hub의 실시간 데이터 시각화 – Power BI
+title: Azure IoT Hub에서 데이터의 실시간 데이터 시각화 – Power BI
 description: Power BI를 사용하여 센서에서 수집하여 Azure IoT Hub로 보낸 온도 및 습도 데이터를 시각화합니다.
 author: robinsh
 keywords: 실시간 데이터 시각화, 라이브 데이터 시각화, 센서 데이터 시각화
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146770"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177337"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -42,7 +42,7 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
   * 구독 중인 Azure IoT Hub
   * 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 
-* Power BI 계정 ([무료로 Power BI 사용해 보기](https://powerbi.microsoft.com/))
+* Power BI 계정. ([무료로 Power BI 사용해 보기](https://powerbi.microsoft.com/))
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -52,7 +52,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 ### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업** 을 선택합니다.
 
 2. 작업에 대한 다음 정보를 입력합니다.
 
@@ -64,15 +64,15 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    ![Azure에서 Stream Analytics 작업 만들기](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics 작업에 입력 추가
 
 1. Stream Analytics 작업을 엽니다.
 
-2. **작업 토폴로지**에서 **입력**을 선택합니다.
+2. **작업 토폴로지** 에서 **입력** 을 선택합니다.
 
-3. **입력** 창에서 **스트림 입력 추가**를 선택 하 고 드롭다운 목록에서 **IoT Hub** 을 선택 합니다. 새 입력 창에서 다음 정보를 입력 합니다.
+3. **입력** 창에서 **스트림 입력 추가** 를 선택 하 고 드롭다운 목록에서 **IoT Hub** 을 선택 합니다. 새 입력 창에서 다음 정보를 입력 합니다.
 
    **입력 별칭**: 입력에 대 한 고유한 별칭을 입력 합니다.
 
@@ -82,9 +82,9 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **IoT Hub**:이 자습서에 사용 하 고 있는 IoT Hub를 선택 합니다.
 
-   **엔드포인트**: **메시징**을 선택합니다.
+   **엔드포인트**: **메시징** 을 선택합니다.
 
-   **공유 액세스 정책 이름**: Stream Analytics 작업에서 IoT hub에 사용할 공유 액세스 정책의 이름을 선택 합니다. 이 자습서에서는 *서비스*를 선택할 수 있습니다. *서비스* 정책은 기본적으로 새 iot hub에서 만들어지고 iot hub가 노출 하는 클라우드 쪽 끝점에서 보내고 받을 수 있는 권한을 부여 합니다. 자세히 알아보려면 [액세스 제어 및 권한](iot-hub-devguide-security.md#access-control-and-permissions)을 참조 하세요.
+   **공유 액세스 정책 이름**: Stream Analytics 작업에서 IoT hub에 사용할 공유 액세스 정책의 이름을 선택 합니다. 이 자습서에서는 *서비스* 를 선택할 수 있습니다. *서비스* 정책은 기본적으로 새 iot hub에서 만들어지고 iot hub가 노출 하는 클라우드 쪽 끝점에서 보내고 받을 수 있는 권한을 부여 합니다. 자세히 알아보려면 [액세스 제어 및 권한](iot-hub-devguide-security.md#access-control-and-permissions)을 참조 하세요.
 
    **공유 액세스 정책 키**:이 필드는 공유 액세스 정책 이름을 선택 하 여 자동으로 채워집니다.
 
@@ -94,13 +94,13 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    ![Azure에서 Stream Analytics 작업에 입력 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
-1. **작업 토폴로지**에서 **출력**을 선택합니다.
+1. **작업 토폴로지** 에서 **출력** 을 선택합니다.
 
-2. **출력** 창에서 **추가** 를 선택 하 고 **Power BI**합니다.
+2. **출력** 창에서 **추가** 를 선택 하 고 **Power BI** 합니다.
 
 3. **Power BI-새 출력** 창에서 **권한 부여** 를 선택 하 고 프롬프트에 따라 Power BI 계정에 로그인 합니다.
 
@@ -118,11 +118,11 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    ![Azure에서 Stream Analytics 작업에 출력 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
 
-5. **저장**을 선택합니다.
+5. **저장** 을 선택합니다.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
 
-1. **작업 토폴로지**에서 **쿼리**를 선택합니다.
+1. **작업 토폴로지** 에서 **쿼리** 를 선택합니다.
 
 2. `[YourInputAlias]`를 작업의 입력 별칭으로 바꿉니다.
 
@@ -130,11 +130,11 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    ![Azure에서 Stream Analytics 작업에 쿼리 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png)
 
-4. **쿼리 저장**을 선택합니다.
+4. **쿼리 저장** 을 선택합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**을 선택  >  **Now**  >  **Start**합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
+Stream Analytics 작업에서 **개요** 를 선택한 다음 시작 **시작** 을 선택  >    >  합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
 
 ![Azure에서 Stream Analytics 작업 실행](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
 
@@ -146,9 +146,9 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
 
 2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 
-3. **내 작업 영역**에서 사용한 작업 영역을 선택 합니다.
+3. **내 작업 영역** 에서 사용한 작업 영역을 선택 합니다.
 
-4. **데이터 세트**를 선택합니다.
+4. **데이터 세트** 를 선택합니다.
 
    Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다.
 
@@ -162,9 +162,9 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
 
    2. **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다.
 
-   3. **시각화** 창에서 **EventEnqueuedUtcTime**을 **축**으로 끌어갑니다.
+   3. **시각화** 창에서 **EventEnqueuedUtcTime** 을 **축** 으로 끌어갑니다.
 
-   4. **온도**를 **값**으로 끌어갑니다.
+   4. **온도** 를 **값** 으로 끌어갑니다.
 
       꺾은선형 차트가 만들어집니다. x축은 UTC 표준 시간대의 날짜와 시간을 표시하고, y축은 센서의 온도를 표시합니다.
 
@@ -174,11 +174,11 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
 
    ![습도에 대한 꺾은선형 차트를 Microsoft Power BI 보고서에 추가](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-humidity.png)
 
-8. **저장**을 선택하여 보고서를 저장합니다.
+8. **저장** 을 선택하여 보고서를 저장합니다.
 
 9. 왼쪽 창에서 **보고서** 를 선택 하 고 방금 만든 보고서를 선택 합니다.
 
-10. **파일**  >  **웹에 게시를**선택 합니다.
+10. **파일**  >  **웹에 게시를** 선택 합니다.
 
     ![Microsoft Power BI 보고서의 웹에 게시를 선택 합니다.](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-publish-to-web.png)
 
@@ -187,7 +187,7 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
     >
     > ![관리자에 게 문의 알림](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
-11. **Embed 코드 만들기**를 선택 하 고 **게시**를 선택 합니다.
+11. **Embed 코드 만들기** 를 선택 하 고 **게시** 를 선택 합니다.
 
 보고서 액세스를 위해 누구와 든 공유할 수 있는 보고서 링크와 보고서를 블로그 또는 웹 사이트에 통합 하는 데 사용할 수 있는 코드 조각이 제공 됩니다.
 

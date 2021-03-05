@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090601"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176861"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -184,7 +184,7 @@ PowerShell을 사용 하 여 Active Directory 포리스트에서 *원활한 SSO*
 
    >[!NOTE]
    >그룹의 멤버는 단계적 롤아웃을 사용하도록 자동으로 설정됩니다. 중첩 그룹 및 동적 그룹은 단계적 롤아웃을 지원하지 않습니다.
-   >새 그룹을 추가 하는 경우 그룹의 사용자 (새 그룹에 대 한 최대 200 명의 사용자)가 관리 되는 auth immidiatly를 사용 하도록 업데이트 됩니다. 사용자를 추가 하거나 제거 하는 그룹을 편집 하면 변경 내용이 적용 되는 데 최대 24 시간이 걸릴 수 있습니다.
+   >새 그룹을 추가 하는 경우 그룹의 사용자 (새 그룹에 대 한 최대 200 명의 사용자)가 관리 되는 인증을 즉시 사용 하도록 업데이트 됩니다. 사용자를 추가 하거나 제거 하는 그룹을 편집 하면 변경 내용이 적용 되는 데 최대 24 시간이 걸릴 수 있습니다.
    >원활한 SSO는 사용자가 원활한 SSO 그룹 뿐만 아니라 PTA 또는 PHS 그룹에 있는 경우에만 적용 됩니다.
 
 ## <a name="auditing"></a>감사

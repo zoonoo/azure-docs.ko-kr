@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 2da2ae01e92ae2751f9f26e005579bad9911330a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738738"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174362"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -68,7 +68,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-[Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+[Azure CLI 명령을](/cli/azure/feature) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기 
 
@@ -195,7 +195,7 @@ NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la
 
 1. `ls`Linux 명령을 사용 하 여 디렉터리에서 복원 하려는 파일을 나열 합니다 `.snapshot` . 
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -210,7 +210,7 @@ NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la
 
 2. 명령을 사용 `cp` 하 여 부모 디렉터리에 파일을 복사 합니다.  
 
-    다음은 그 예입니다.  
+    예를 들면 다음과 같습니다. 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 

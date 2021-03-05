@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 04699890af2cfe835ecca6ee983808d7d8d002c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913486"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174192"
 ---
 # <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
@@ -28,7 +28,7 @@ ms.locfileid: "92913486"
 
 최신 모델을 사용 해야 하는지 확실 하지 않은 경우 [다른 모델 평가](#evaluate-different-models) 섹션으로 건너뛰어 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과를 비교 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 AI 얼굴 감지의 개념에 대해 잘 알고 있어야 합니다. 그렇지 않은 경우 얼굴 검색 개념 가이드 또는 방법 가이드를 참조 하세요.
 
@@ -43,6 +43,7 @@ AI 얼굴 감지의 개념에 대해 잘 알고 있어야 합니다. 그렇지 �
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 [얼굴 검색] REST API에 대 한 요청 URL은 다음과 같습니다.
 
@@ -52,7 +53,7 @@ AI 얼굴 감지의 개념에 대해 잘 알고 있어야 합니다. 그렇지 �
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>지정 된 모델의 사용자에 게 얼굴 추가
@@ -62,17 +63,17 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, rec
 .NET 클라이언트 라이브러리에 대 한 다음 코드 예제를 참조 하세요.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-이 코드는 ID를 사용 하 여 **PersonGroup** 를 만들고 `mypersongroupid` 여기에 **사람** 을 추가 합니다. 그런 다음 모델을 사용 하 여이 **사용자** 에 게 얼굴을 추가 합니다 `detection_02` . *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 사용 `detection_01` 합니다.
+이 코드는 ID를 사용 하 여 **PersonGroup** 를 만들고 `mypersongroupid` 여기에 **사람** 을 추가 합니다. 그런 다음 모델을 사용 하 여이 **사용자** 에 게 얼굴을 추가 합니다 `detection_03` . *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 사용 `detection_01` 합니다.
 
 > [!NOTE]
 > **Person** 개체의 모든 면에 대해 동일한 검색 모델을 사용할 필요는 없으며, **개인** 개체와 비교할 새 얼굴을 검색할 때 동일한 검색 모델을 사용할 필요가 없습니다 (예: [얼굴 식별] API).
@@ -82,13 +83,13 @@ await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imag
 또한 기존 **FaceList** 개체에 얼굴을 추가할 때 검색 모델을 지정할 수 있습니다. .NET 클라이언트 라이브러리에 대 한 다음 코드 예제를 참조 하세요.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-이 코드는 라는 **FaceList** 를 만들고 모델을 사용 하 여 `My face collection` 얼굴을 추가 합니다 `detection_02` . *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 사용 `detection_01` 합니다.
+이 코드는 라는 **FaceList** 를 만들고 모델을 사용 하 여 `My face collection` 얼굴을 추가 합니다 `detection_03` . *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 사용 `detection_01` 합니다.
 
 > [!NOTE]
 > **FaceList** 개체의 모든 면에 대해 동일한 검색 모델을 사용할 필요가 없으며 **FaceList** 개체와 비교할 새 얼굴을 검색할 때 동일한 검색 모델을 사용할 필요가 없습니다.
@@ -97,14 +98,14 @@ await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: 
 
 여러 가지 표면 검색 모델은 여러 작업에 최적화 되어 있습니다. 차이점에 대 한 개요는 다음 표를 참조 하세요.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|모든 얼굴 검색 작업에 대 한 기본 선택입니다. | 2019 년 5 월에 출시 되었으며 선택적으로 모든 얼굴 검색 작업에서 사용할 수 있습니다.
-|작은, 사이드 보기 또는 흐린 면에서 최적화 되지 않았습니다.  | 작은, 사이드 보기 및 흐린 면에서 정확도가 향상 되었습니다. |
-|검색 호출에 지정 된 경우 face 특성 (head 포즈, age, emotion 등)을 반환 합니다. |  는 face 특성을 반환 하지 않습니다.     |
-|검색 호출에 지정 된 경우 face 랜드마크을 반환 합니다.   | 는 face 랜드마크을 반환 하지 않습니다.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|모든 얼굴 검색 작업에 대 한 기본 선택입니다. | 2019 년 5 월에 출시 되었으며 선택적으로 모든 얼굴 검색 작업에서 사용할 수 있습니다. |  2 월 2021에 출시 되었으며 선택적으로 모든 얼굴 검색 작업에서 사용할 수 있습니다.
+|작은, 사이드 보기 또는 흐린 면에서 최적화 되지 않았습니다.  | 작은, 사이드 보기 및 흐린 면에서 정확도가 향상 되었습니다. | 더 작은 얼굴 (64x64 픽셀) 및 회전 된 얼굴 방향을 포함 하 여 향상 된 정확도
+|검색 호출에 지정 된 경우 주 얼굴 특성 (head 포즈, age, emotion 등)을 반환 합니다. |  는 face 특성을 반환 하지 않습니다.     | 는 검색 호출에 지정 된 경우 "faceMask" 및 "noseAndMouthCovered" 특성을 반환 합니다.
+|검색 호출에 지정 된 경우 face 랜드마크을 반환 합니다.   | 는 face 랜드마크을 반환 하지 않습니다.  | 는 face 랜드마크을 반환 하지 않습니다.
 
-및 모델의 성능을 비교 하는 가장 좋은 `detection_01` 방법은 `detection_02` 샘플 데이터 집합에서 사용 하는 것입니다. 각 검색 모델을 사용 하 여 다양 한 이미지, 특히 표시 하기 어려운 여러 얼굴 또는 얼굴의 이미지에 대해 [얼굴 검색] API를 호출 하는 것이 좋습니다. 각 모델에서 반환 하는 얼굴 수에 주의 해야 합니다.
+검색 모델의 성능을 비교 하는 가장 좋은 방법은 샘플 데이터 집합에서 사용 하는 것입니다. 각 검색 모델을 사용 하 여 다양 한 이미지, 특히 표시 하기 어려운 여러 얼굴 또는 얼굴의 이미지에 대해 [얼굴 검색] API를 호출 하는 것이 좋습니다. 각 모델에서 반환 하는 얼굴 수에 주의 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

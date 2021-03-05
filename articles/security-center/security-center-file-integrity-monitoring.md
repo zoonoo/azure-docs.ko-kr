@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 07a36bb9b9e3baea2136c23208d268c2c196e70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099457"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176538"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용 하 여 Azure Security Center에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
@@ -31,7 +31,7 @@ ms.locfileid: "102099457"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md)가 필요 합니다.<br>FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
 |필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예 ](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .gov, 기타 .gov)<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예 ](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .gov, 기타 .gov)<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/overview) 사용 장치입니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Security Center의 FIM이란?

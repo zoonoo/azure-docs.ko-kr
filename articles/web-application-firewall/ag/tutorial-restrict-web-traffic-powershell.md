@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 08/31/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3956c06a0120ad28599c47279b60e6f5dd30204e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225189"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174515"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet* 이라는 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet* 이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress* 라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -84,7 +84,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress*를 애플리케이션 게이트웨이에 할당합니다.
+[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet* 을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress* 를 애플리케이션 게이트웨이에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -108,7 +108,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대한 *appGatewayBackendPool*이라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
+[New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대한 *appGatewayBackendPool* 이라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -126,7 +126,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 수신기는 애플리케이션 게이트웨이를 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하도록 설정해야 합니다. 이 예제에서는 루트 URL에서 트래픽을 수신 대기하는 기본 수신기를 만듭니다. 
 
-이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *mydefaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트가 포함된 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 *mydefaultListener* 라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *rule1* 이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -145,7 +145,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>WAF를 사용하여 애플리케이션 게이트웨이 만들기
 
-이제 필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy)를 사용하여 방화벽 정책을 지정합니다. 그런 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다.
+이제 필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy)를 사용하여 방화벽 정책을 지정합니다. 그런 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 *myAppGateway* 라는 애플리케이션 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -251,7 +251,7 @@ Update-AzVmss `
 
 ### <a name="create-the-storage-account"></a>스토리지 계정 만들기
 
-[New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
+[New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 *myagstore1* 이라는 스토리지 계정을 만듭니다.
 
 ```azurepowershell-interactive
 $storageAccount = New-AzStorageAccount `
@@ -277,7 +277,7 @@ $store = Get-AzStorageAccount `
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
-  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
   -RetentionInDays 30
