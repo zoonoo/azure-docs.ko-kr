@@ -5,6 +5,14 @@
   items:
     - name: Azure Security Center란?
       href: security-center-introduction.md
+    - name: Azure Defender란?
+      href: azure-defender.md
+    - name: 새로운 기능
+      displayName: 'changelog, news, release notes'
+      href: release-notes.md
+    - name: 예정된 중요한 변경 내용
+      displayName: 'release notes, changelog, news'
+      href: upcoming-changes.md
     - name: 가용성
       items:
         - name: 지원 플랫폼
@@ -14,71 +22,22 @@
           href: security-center-services.md
         - name: Azure PaaS 리소스에 대한 기능 적용 범위
           href: features-paas.md
-    - name: 새로운 기능
-      items:
-        - name: 릴리스 정보
-          displayName: 'changelog, news'
-          href: release-notes.md
-        - name: 예정된 중요한 변경 내용
-          displayName: 'release notes, changelog, news'
-          href: upcoming-changes.md
-        - name: 보관된 릴리스 정보(6개월 이상)
-          displayName: 'changelog, news'
-          href: release-notes-archive.md
-    - name: Security Center 기본 사항
-      items:
-        - name: Security Center 개요 페이지
-          href: overview-page.md
-        - name: 보안 권장 사항
-          href: recommendations-reference.md
-        - name: 보안 경고 및 의도 kill 체인
-          href: alerts-reference.md
-        - name: Microsoft에서 고객 데이터를 보호하는 방법
-          href: security-center-data-security.md
-        - name: 사용 권한
+        - name: 사용자 역할 및 권한
+          displayName: RBAC
           href: security-center-permissions.md
-    - name: Azure Defender의 고급 보안
-      items:
-        - name: Azure Defender 개요
-          href: azure-defender.md
-        - name: 서버용 Azure Defender
-          displayName: VM
-          href: defender-for-servers-introduction.md
-        - name: App Service용 Azure Defender
-          href: defender-for-app-service-introduction.md
-        - name: 스토리지용 Azure Defender
-          displayName: 'blob, adls, files'
-          href: defender-for-storage-introduction.md
-        - name: SQL용 Azure Defender
-          displayName: database
-          href: defender-for-sql-introduction.md
-        - name: Key Vault용 Azure Defender
-          displayName: 'KV, akv'
-          href: defender-for-key-vault-introduction.md
-        - name: Azure Defender for Resource Manager
-          displayName: ARM
-          href: defender-for-resource-manager-introduction.md
-        - name: Azure Defender for DNS
-          displayName: domain
-          href: defender-for-dns-introduction.md
-        - name: Kubernetes용 Azure Defender
-          displayName: 'clusters, k8s, aks'
-          href: defender-for-kubernetes-introduction.md
-        - name: 컨테이너 레지스트리용 Azure Defender
-          displayName: 'ACR, registry, images'
-          href: defender-for-container-registries-introduction.md
-        - name: 추가 위협 방지
-          href: other-threat-protections.md
-    - name: Security Center의 컨테이너 보안 기능
-      displayName: 'kubernetes, aks, acr, registries, k8s'
-      href: container-security.md
-    - name: 가격 책정
-      href: security-center-pricing.md
+        - name: Security Center 무료 및 Azure Defender 사용
+          href: security-center-pricing.md
 - name: 빠른 시작
   items:
-    - name: 시작하기
+    - name: 1. 구독에서 Security Center 사용
       href: security-center-get-started.md
-    - name: 하이브리드 환경 설정
+    - name: 2. Azure Defender 사용
+      href: enable-azure-defender.md
+    - name: 3. 자동 프로비저닝 구성
+      href: security-center-enable-data-collection.md
+    - name: 4. 이메일 알림 설정
+      href: security-center-provide-security-contact-details.md
+    - name: 5. 하이브리드 및 다중 클라우드 머신 연결
       items:
         - name: Azure 이외 머신 연결
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
@@ -89,17 +48,12 @@
         - name: GCP 계정 연결
           displayName: 'hybrid, multicloud, google'
           href: quickstart-onboard-gcp.md
-    - name: PowerShell을 사용하여 온보딩 자동화
-      href: security-center-powershell-onboarding.md
-    - name: 관리 그룹에 Security Center 사용
-      href: onboard-management-group.md
-    - name: 자동 프로비저닝 구성
-      href: security-center-enable-data-collection.md
-    - name: 이메일 알림 설정
-      href: security-center-provide-security-contact-details.md
-    - name: ARM 템플릿을 사용하여 경고에 대한 자동 응답 만들기
-      displayName: Resource Manager
+    - name: 6. 경고에 대한 자동 응답 만들기
+      displayName: 'Resource Manager, ARM'
       href: quickstart-automation-alert.md
+    - name: 7. 규정 준수 대시보드에 대한 표준 선택
+      displayName: 'regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA'
+      href: update-regulatory-compliance-packages.md
 - name: 자습서
   items:
     - name: 계획 및 운영 가이드
@@ -114,74 +68,59 @@
       href: tutorial-security-policy.md
 - name: 개념
   items:
-    - name: 클라우드 보안 태세 관리
+    - name: 클라우드 보안 태세 관리 개념
       items:
-        - name: 자산 인벤토리로 리소스 관리
-          href: asset-inventory.md
-        - name: 보안 점수
+        - name: '정책, 이니셔티브 및 권장 사항'
+          href: security-policy-concept.md
+        - name: 보안 점수 및 보안 제어
           href: secure-score-security-controls.md
-        - name: 보안 권장 사항 개요
-          href: security-center-recommendations.md
-        - name: 권장 사항을 사용하여 보안 강화
-          href: security-center-using-recommendations.md
-        - name: 보안 기준
-          href: security-baseline.md
-        - name: 테넌트 간 관리
-          href: security-center-cross-tenant-management.md
-        - name: Windows Admin Center 서버 보호
-          href: windows-admin-center-integration.md
-        - name: 보안 솔루션 통합 및 데이터 원본
-          href: security-center-partner-integration.md
+        - name: 권장 사항 참조 목록
+          href: recommendations-reference.md
+    - name: 클라우드 워크로드 보호 개념
+      items:
+        - name: 보안 경고 및 인시던트
+          href: security-center-alerts-overview.md
+        - name: 경고의 참조 목록
+          href: alerts-reference.md
+- name: 방법 가이드
+  items:
+    - name: 개요 대시보드 사용
+      displayName: 'overview, compliance, inventory'
+      href: overview-page.md
+    - name: Azure Defender 대시보드 사용
+      href: azure-defender-dashboard.md
+    - name: 보안 점수 액세스 및 추적
+      href: secure-score-access-and-track.md
+    - name: 자산 인벤토리로 리소스 관리
+      href: asset-inventory.md
+    - name: Security Center 데이터에 대한 대화형 보고서 작성
+      displayName: 'workbooks, Secure Score Over Time, Vulnerability Assessment Findings'
+      href: custom-dashboards-azure-workbooks.md
     - name: 보안 권장 사항을 사용하여 보안 향상
       items:
+        - name: 보안 권장 사항 검토
+          href: security-center-recommendations.md
         - name: 추천 수정
           href: security-center-remediate-recommendations.md
         - name: 강제 적용/거부를 사용한 잘못된 구성 방지
           displayName: recommendations
           href: prevent-misconfigurations.md
-        - name: 보안 상태 강화
-          href: security-center-monitoring.md
-        - name: 권장 사항 참조 목록
-          href: recommendations-reference.md
-        - name: 보안 권장 사항 관리
-          items:
-            - name: 권장 사항에 대한 응답 자동화
-              displayName: workflow
-              href: workflow-automation.md
-            - name: 권장 사항에서 리소스 제외
-              href: exempt-resource.md
-        - name: 네트워크 리소스 사용
-          href: security-center-network-recommendations.md
-        - name: ID 및 액세스 보호
-          href: security-center-identity-access.md
-    - name: 보안 경고에 대한 자세한 정보
-      items:
-        - name: 보안 경고 개요
-          href: security-center-alerts-overview.md
-        - name: 경고의 참조 목록
-          href: alerts-reference.md
-        - name: 경고 스키마
-          href: alerts-schemas.md
-        - name: 보안 인시던트 개요
-          href: security-center-alerts-cloud-smart.md
-- name: 방법 가이드
-  items:
-    - name: Azure Defender 대시보드 사용
-      href: azure-defender-dashboard.md
-    - name: 보안 정책 구성 및 규정 준수 표준
-      items:
-        - name: 사용자 지정 보안 정책 만들기
+        - name: 권장 사항에 대한 응답 자동화
+          displayName: workflow
+          href: workflow-automation.md
+        - name: 권장 사항에서 리소스 제외
+          href: exempt-resource.md
+        - name: 사용자 지정 보안 이니셔티브 및 정책 만들기
           href: custom-security-policies.md
-        - name: Azure Policy REST API를 사용하여 정책 관리
-          href: configure-security-policy-azure-policy.md
-        - name: 규정 준수 대시보드에 대한 표준 선택
-          displayName: 'regulatory, regulation, CIS, PCI DSS, ISO, SOC, Benchmark, Azure Security Benchmark, HIPAA'
-          href: update-regulatory-compliance-packages.md
-    - name: 서버용 Azure Defender 사용
+    - name: 서버용 Azure Defender로 머신 보호
+      displayName: 'hybrid, arc, Azure Defender for machines'
       items:
+        - name: 서버용 Azure Defender 개요
+          displayName: VM
+          href: defender-for-servers-introduction.md
         - name: 취약성 검색
           items:
-            - name: 머신용 통합 VA 스캐너
+            - name: 통합 VA 스캐너로 머신 검사
               displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: BYOL VA 솔루션을 사용하여 VM 검사
@@ -204,10 +143,10 @@
         - name: 통합된 Microsoft Defender for Endpoint 라이선스 사용
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
-        - name: 적응형 애플리케이션 제어 관리
-          displayName: 'aac, whitelist, allowlist, reviewgroup'
+        - name: 머신에 대한 안전 애플리케이션 목록 정의
+          displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
-        - name: 파일 무결성 모니터링 사용
+        - name: 파일 무결성 모니터링을 사용하여 파일 및 레지스트리에 대한 변경 내용 추적
           items:
             - name: 파일 무결성 모니터링 개요
               displayName: 'fim, change'
@@ -215,47 +154,120 @@
             - name: 파일 무결성 모니터링을 사용하는 기준 비교
               displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
-        - name: 적응형 네트워크 강화 관리
+        - name: 적응형 네트워크 강화를 통해 네트워크 보안 상태 개선
           displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: Docker 호스트 강화
           displayName: containers
           href: harden-docker-hosts.md
-    - name: SQL용 Azure Defender 사용
-      href: defender-for-sql-usage.md
-      displayName: 'hybrid, arc'
-    - name: 컨테이너 레지스트리용 Azure Defender 사용
+    - name: SQL 리소스 보호
       items:
+        - name: SQL용 Azure Defender 개요
+          displayName: database
+          href: defender-for-sql-introduction.md
+        - name: 머신에서 SQL 서버용 Defender 사용
+          href: defender-for-sql-usage.md
+          displayName: 'hybrid, arc, Azure Defender'
+        - name: SQL 리소스에서 취약성 검색
+          href: defender-for-sql-on-machines-vulnerability-assessment.md
+          displayName: 'hybrid, arc, Azure Defender'
+        - name: SQL 서버에서 취약성 검색 사용 안 함
+          displayName: 'VA, registry, vulnerabilities'
+          href: defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview
+        - name: SQL 정보 보호 정책 사용자 지정
+          displayName: 'sql, database, data discovery'
+          href: security-center-info-protection-policy.md
+    - name: 컨테이너화된 환경 보호
+      displayName: Azure Defender
+      items:
+        - name: Security Center의 컨테이너 보안 기능
+          displayName: 'kubernetes, aks, acr, registries, k8s'
+          href: container-security.md
+        - name: Kubernetes용 Defender 개요
+          displayName: 'clusters, k8s, aks'
+          href: defender-for-kubernetes-introduction.md
+        - name: 컨테이너 레지스트리용 Defender 개요
+          displayName: 'ACR, registry, images'
+          href: defender-for-container-registries-introduction.md
         - name: 취약성에 대한 레지스트리 이미지 스캔
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md
         - name: 특정 이미지 취약점 발견 사용 안 함
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
-    - name: 경고 및 권장 사항 내보내기
+        - name: Kubernetes 워크로드 보호
+          displayName: 'k8s, containers, aks'
+          href: kubernetes-workload-protections.md
+    - name: Azure App Service 웹앱 및 API 보호
+      displayName: 'Azure Defender for App Service, defender for app'
+      href: defender-for-app-service-introduction.md
+    - name: Azure Storage 계정 보호
+      displayName: 'blob, adls, files, Azure Defender for Storage, Defender for Storage'
+      href: defender-for-storage-introduction.md
+    - name: Key Vault 키 및 비밀 보호
       items:
-        - name: 'SIEM, SOAR 또는 ITSM으로 내보내기'
-          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
-          href: export-to-siem.md
-        - name: Log Analytics 작업 영역 또는 Azure Event Hub로 내보내기
-          displayName: continuous
-          href: continuous-export.md
-        - name: 모든 경고에 대한 CSV 보고서 다운로드
-          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: 보안 경고 처리
-      items:
-        - name: 보안 경고 관리
-          href: security-center-managing-and-responding-alerts.md
-        - name: 경고 억제 규칙 만들기 및 관리
-          href: alerts-suppression-rules.md
+        - name: Key Vault용 Azure Defender 개요
+          displayName: 'KV, akv'
+          href: defender-for-key-vault-introduction.md
         - name: Key Vault용 Azure Defender 경고에 응답
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
-        - name: Azure Defender for DNS 경고에 대한 대응
-          href: defender-for-dns-usage.md
+    - name: 리소스 관리 작업 모니터링
+      items:
+        - name: Azure Defender for Resource Manager 개요
+          displayName: ARM
+          href: defender-for-resource-manager-introduction.md
         - name: Azure Defender for Resource Manager 경고에 대한 대응
           displayName: arm
           href: defender-for-resource-manager-usage.md
+    - name: Azure 리소스에서 DNS 쿼리 모니터링
+      items:
+        - name: DNS용 Azure Defender 개요
+          displayName: 'domain, Defender for DNS'
+          href: defender-for-dns-introduction.md
+        - name: Azure Defender for DNS 경고에 대한 대응
+          href: defender-for-dns-usage.md
+    - name: Windows Admin Center 서버 보호
+      href: windows-admin-center-integration.md
+    - name: 보안 솔루션 통합 및 데이터 원본
+      href: security-center-partner-integration.md
+    - name: 네트워크 리소스 사용
+      href: security-center-network-recommendations.md
+    - name: ID 및 액세스 보호
+      href: security-center-identity-access.md
+    - name: Security Center의 추가 위협 방지 사용
+      href: other-threat-protections.md
+    - name: '구독, 사용자 및 권한 관리'
+      items:
+        - name: 관리 그룹 및 구독 구성
+          href: security-center-management-groups.md
+        - name: 테넌트 전체 사용 권한 부여 및 요청
+          displayName: 'global admin, Azure Active Directory (AD), AAD'
+          href: tenant-wide-permissions-management.md
+        - name: 관리 그룹에 Security Center 사용
+          href: onboard-management-group.md
+        - name: 교차 테넌트 관리 설정
+          href: security-center-cross-tenant-management.md
+        - name: PowerShell을 사용하여 온보딩 자동화
+          href: security-center-powershell-onboarding.md
+    - name: '경고, 인시던트 및 위협 보고서 관리'
+      items:
+        - name: 보안 경고에 대응
+          href: security-center-managing-and-responding-alerts.md
+        - name: 경고 억제 규칙 만들기 및 관리
+          href: alerts-suppression-rules.md
+        - name: 경고 및 권장 사항 내보내기
+          items:
+            - name: 'SIEM, SOAR 또는 ITSM으로 내보내기'
+              displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+              href: export-to-siem.md
+            - name: Log Analytics 작업 영역 또는 Azure Event Hub로 내보내기
+              displayName: continuous
+              href: continuous-export.md
+            - name: 모든 경고에 대한 CSV 보고서 다운로드
+              href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
+            - name: 경고 스키마
+              href: alerts-schemas.md
         - name: 보안 인시던트 관리
           href: security-center-incident.md
         - name: 위협 인텔리전스 보고서 생성
@@ -266,18 +278,17 @@
         - name: 경고에 대한 응답 자동화
           displayName: workflow
           href: workflow-automation.md
-    - name: Kubernetes 워크로드 보호
-      displayName: 'k8s, containers, aks'
-      href: kubernetes-workload-protections.md
-    - name: 테넌트 전체 가시성 얻기
-      href: security-center-management-groups.md
-    - name: SQL 정보 보호 정책 사용자 지정
-      displayName: 'sql, database, data discovery'
-      href: security-center-info-protection-policy.md
 - name: 참조
   items:
-    - name: REST API
+    - name: 보관된 릴리스 정보(6개월 이상)
+      displayName: 'changelog, news'
+      href: release-notes-archive.md
+    - name: Microsoft에서 고객 데이터를 보호하는 방법
+      href: security-center-data-security.md
+    - name: REST API 설명서
       href: /rest/api/securitycenter/
+    - name: 보안 기준
+      href: security-baseline.md
     - name: Azure Security Center에 대한 FAQ
       items:
         - name: 일반적인 질문
