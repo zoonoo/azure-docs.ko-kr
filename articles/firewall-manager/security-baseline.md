@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742384"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200141"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Azure 방화벽 관리자에 대 한 azure 보안 기준
 
@@ -338,7 +338,7 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리�
 
 **지침**: 공격 노출 영역을 최소화 하는 데 더 이상 필요 하지 않은 경우 Azure 방화벽 관리자 리소스를 제거 합니다. 사용자는 Azure Portal, CLI 또는 REST Api를 통해 Azure 방화벽 관리자 리소스를 관리할 수 있습니다.
 
-- [Azure 방화벽 정책 CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Azure 방화벽 정책 CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Azure 네트워크 CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -557,7 +557,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure 방화벽 정책 템플릿 참조](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Azure 방화벽 정책 CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Azure 방화벽 정책 CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [엔터프라이즈 규모 방문 영역의 guardrails 구현에 대 한 그림](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

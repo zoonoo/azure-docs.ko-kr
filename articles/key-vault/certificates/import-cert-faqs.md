@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 78ec0af0acbb74436af16abba75d64de061d5268
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254362"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202168"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Azure Key Vault 인증서 가져오기 FAQ
 
 이 문서에서는 Azure Key Vault 인증서 가져오기에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Azure Key Vault에서 인증서를 가져오려면 어떻게 해야 하나요?
 
@@ -43,7 +43,7 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Azure Portal를 통해 인증서를 가져올 때 "문제가 발생 했습니다." 오류가 발생 합니다. 자세히 조사 하려면 어떻게 해야 하나요?
     
-보다 설명적인 오류를 보려면 [Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) 또는 [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)을 사용 하 여 인증서 파일을 가져옵니다.
+보다 설명적인 오류를 보려면 [Azure CLI](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) 또는 [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)을 사용 하 여 인증서 파일을 가져옵니다.
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>"오류 유형: 액세스 거부 또는 사용자가 인증서를 가져올 수 없습니다."를 어떻게 해결할 수 있나요?
     

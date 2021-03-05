@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364374"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202045"
 ---
 # <a name="delete-resources-from-azure"></a>Azure에서 리소스 삭제
 
@@ -44,7 +44,7 @@ Azure Arc의 전용 리소스 그룹을 사용 하 여 데이터 서비스를 �
 
 - Azure Arc 사용 데이터 서비스 리소스가 생성 된 Azure Portal에서 리소스 그룹으로 이동 합니다.
 - **리소스 그룹 삭제** 단추를 클릭 합니다.
-- 리소스 그룹 이름을 입력 하 여 삭제를 확인 하 고 **삭제**를 클릭 합니다.
+- 리소스 그룹 이름을 입력 하 여 삭제를 확인 하 고 **삭제** 를 클릭 합니다.
 
 ## <a name="delete-specific-resources-in-the-resource-group"></a>리소스 그룹에서 특정 리소스를 삭제 합니다.
 
@@ -53,7 +53,7 @@ Azure Arc의 전용 리소스 그룹을 사용 하 여 데이터 서비스를 �
 - Azure Arc 사용 데이터 서비스 리소스가 생성 된 Azure Portal에서 리소스 그룹으로 이동 합니다.
 - 삭제할 모든 리소스를 선택 합니다.
 - 삭제 단추를 클릭 합니다.
-- ' 예 '를 입력 하 여 삭제를 확인 하 고 **삭제**를 클릭 합니다.
+- ' 예 '를 입력 하 여 삭제를 확인 하 고 **삭제** 를 클릭 합니다.
 
 ## <a name="delete-resources-using-the-azure-cli"></a>Azure CLI를 사용 하 여 리소스 삭제
 
@@ -64,10 +64,10 @@ Azure CLI를 사용 하 여 특정 Azure Arc 사용 데이터 서비스 리소�
 Azure CLI를 사용 하 여 Azure에서 SQL 관리 되는 인스턴스 리소스를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
 ```azurecli
-az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
+az resource delete --name <sql instance name> --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name sql1 --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group rg1
+#az resource delete --name sql1 --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group rg1
 ```
 
 ### <a name="delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli"></a>Azure CLI를 사용 하 여 PostgreSQL Hyperscale server 그룹 리소스를 삭제 합니다.
@@ -75,10 +75,10 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 Azure CLI를 사용 하 여 Azure에서 PostgreSQL Hyperscale server 그룹 리소스를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
 ```azurecli
-az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
+az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureArcData/postgresInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name pg1 --resource-type Microsoft.AzureData/postgresInstances --resource-group rg1
+#az resource delete --name pg1 --resource-type Microsoft.AzureArcData/postgresInstances --resource-group rg1
 ```
 
 ### <a name="delete-azure-arc-data-controller-resources-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Arc 데이터 컨트롤러 리소스 삭제
@@ -89,10 +89,10 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 Azure CLI 사용 하 여 Azure에서 Azure Arc 데이터 컨트롤러를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
 ```azurecli
-az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
+az resource delete --name <data controller name> --resource-type Microsoft.AzureArcData/dataControllers --resource-group <resource group name>
 
 #Example
-#az resource delete --name dc1 --resource-type Microsoft.AzureData/dataControllers --resource-group rg1
+#az resource delete --name dc1 --resource-type Microsoft.AzureArcData/dataControllers --resource-group rg1
 ```
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Azure CLI를 사용 하 여 리소스 그룹 삭제

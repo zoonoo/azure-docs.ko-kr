@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: 6496e944d30724fe9e8db7168f9c9cb1552dcd1b
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: d414b86ff81a33f9e818a0a28031e73d88cabec2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "98203334"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202266"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -26,13 +26,13 @@ ms.locfileid: "98203334"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - 다른 Azure 구독에서 CLI 명령을 실행 해야 하는 경우 [활성 구독 변경](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription&preserve-view=true)을 참조 하세요.
+ - 다른 Azure 구독에서 CLI 명령을 실행 해야 하는 경우 [활성 구독 변경](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription)을 참조 하세요.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-[Az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create&preserve-view=true) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예를 들면 다음과 같습니다.
+[Az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -65,11 +65,11 @@ az iot central app create \
 
 ## <a name="view-your-applications"></a>애플리케이션 보기
 
-[Az iot central app list](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-list&preserve-view=true) 명령을 사용 하 여 IoT Central 응용 프로그램을 나열 하 고 메타 데이터를 볼 수 있습니다.
+[Az iot central app list](/cli/azure/iot/central/app#az-iot-central-app-list) 명령을 사용 하 여 IoT Central 응용 프로그램을 나열 하 고 메타 데이터를 볼 수 있습니다.
 
 ## <a name="modify-an-application"></a>애플리케이션 수정
 
-[Az iot central app update](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-update&preserve-view=true) 명령을 사용 하 여 IoT Central 응용 프로그램의 메타 데이터를 업데이트 합니다. 예를 들어 애플리케이션의 표시 이름을 변경합니다.
+[Az iot central app update](/cli/azure/iot/central/app#az-iot-central-app-update) 명령을 사용 하 여 IoT Central 응용 프로그램의 메타 데이터를 업데이트 합니다. 예를 들어 애플리케이션의 표시 이름을 변경합니다.
 
 ```azurecli-interactive
 az iot central app update --name myiotcentralapp \
@@ -79,7 +79,7 @@ az iot central app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-[Az iot central app delete](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-delete&preserve-view=true) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 예를 들면 다음과 같습니다.
+[Az iot central app delete](/cli/azure/iot/central/app#az-iot-central-app-delete) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az iot central app delete --name myiotcentralapp \

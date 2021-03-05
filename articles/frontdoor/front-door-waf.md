@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279219"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201059"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "92279219"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest)하여 Azure CLI를 시작하세요.
+- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](/cli/azure/get-started-with-azure-cli)하여 Azure CLI를 시작하세요.
 
   > [!TIP] 
   > Azure CLI를 시작하는 쉽고 빠른 방법 [Azure Cloud Shell의 Bash](../cloud-shell/quickstart.md)를 사용하는 것입니다.
@@ -48,7 +48,7 @@ ms.locfileid: "92279219"
    ```
 
 > [!NOTE] 
-> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest)를 참조하세요.
+> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](/cli/azure/ext/front-door)를 참조하세요.
 
 ## <a name="create-an-azure-front-door-resource"></a>Azure Front Door 리소스 만들기
 
@@ -144,7 +144,7 @@ Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
+이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
 
 ```azurecli-interactive
   az group delete \

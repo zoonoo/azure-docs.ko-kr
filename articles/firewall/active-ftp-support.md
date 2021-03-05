@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 2c89eb19025212490d29c97a061da52e779ecf42
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 47bced3c3c4f01212af6919d51adc5dfc2e6e1b5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704400"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200071"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Azure 방화벽 활성 FTP 지원
 
@@ -29,7 +29,7 @@ Azure PowerShell를 사용 하 여 배포 하려면 `AllowActiveFTP` 매개 변�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 배포 하려면 `--allow-active-ftp` 매개 변수를 사용 합니다. 자세한 내용은 [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest#ext_azure_firewall_az_network_firewall_create-optional-parameters)를 참조 하세요. 
+Azure CLI를 사용 하 여 배포 하려면 `--allow-active-ftp` 매개 변수를 사용 합니다. 자세한 내용은 [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall#ext_azure_firewall_az_network_firewall_create-optional-parameters)를 참조 하세요. 
 
 ## <a name="azure-resource-manager-arm-template"></a>ARM(Azure Resource Manager) 템플릿
 

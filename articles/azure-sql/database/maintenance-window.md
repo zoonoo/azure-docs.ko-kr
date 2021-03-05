@@ -10,53 +10,54 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/04/2021
-ms.openlocfilehash: 0a9a4b2de03c62640bb1c643d3ff3da4139d42a4
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: cf3404f364a7beee67cfa7dc523b9fd4b7b9985a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101208"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201314"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-유지 관리 기간 기능을 사용 하면 [Azure SQL Database](sql-database-paas-overview.md) 및 [SQL 관리 되는 인스턴스에](../managed-instance/sql-managed-instance-paas-overview.md)대 한 예측 가능한 유지 관리 기간 일정을 구성할 수 있습니다. 
+유지 관리 기간 기능을 사용 하면 [Azure SQL Database](sql-database-paas-overview.md) 및 [Azure SQL 관리 되는 인스턴스](../managed-instance/sql-managed-instance-paas-overview.md) 리소스에 대 한 유지 관리 일정을 구성 하 여 작업에 대 한 예측 가능 하 고 중단을 줄일 수 있습니다. 
 
-유지 관리 이벤트에 대 한 자세한 내용은 [Azure SQL Database 및 AZURE SQL Managed Instance에서 azure 유지 관리 이벤트 계획](planned-maintenance.md)을 참조 하세요.
+> [!Note]
+> 유지 관리 기간 기능은 하드웨어 오류와 같은 계획 되지 않은 이벤트를 보호 하지 않으며,이로 인해 짧은 연결 중단이 발생할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
-Azure는 Azure SQL Database 및 SQL Managed Instance 리소스에 대 한 계획 된 유지 관리 업데이트를 정기적으로 수행 하 여 기본 하드웨어, OS (운영 체제) 및 SQL 엔진을 포함 한 소프트웨어에 대 한 업데이트를 포함 합니다. 유지 관리 업데이트 중에는 리소스를 완전히 사용할 수 있고 액세스할 수 있지만 일부 유지 관리 업데이트에는 유지 관리 업데이트를 적용 하는 짧은 시간 (평균 시간 동안 8 초) 동안 인스턴스가 오프 라인으로 전환 되기 때문에 장애 조치 (failover)가 필요 합니다.  계획 된 유지 관리 업데이트는 평균적으로 35 일 마다 한 번씩 발생 합니다. 즉, 고객은 Azure SQL Database 또는 SQL 관리 되는 인스턴스 마다 매월 계획 된 유지 관리 이벤트를 예상 하 고, 고객에 의해 선택 된 유지 관리 기간 동안에만 발생 합니다.   
+Azure는 정기적으로 SQL Database 및 SQL Managed Instance 리소스의 [계획 된 유지 관리](planned-maintenance.md) 를 수행 합니다. Azure SQL 유지 관리 이벤트 중에 데이터베이스는 모두 사용할 수 있지만, 경우에 따라 리소스 재구성이 필요 하므로 [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) 및 [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance)에 대 한 각 가용성 sla 내에서 짧은 장애 조치 (failover)가 발생할 수 있습니다.
 
-유지 관리 기간은 예정 된 유지 관리 이벤트로 인해 발생할 수 있는 일시적인 연결 문제에 대해 복원 력이 없는 비즈니스 작업을 위한 것입니다.
+유지 관리 기간은 데이터베이스 또는 인스턴스 장애 조치 (failover)에 대 한 복원 력이 없고 계획 된 유지 관리 이벤트로 인 한 단기 연결 중단을 검색할 수 없는 프로덕션 작업을 위한 것입니다. 기본 설정 된 유지 관리 기간을 선택 하 여 사용량이 많은 업무 시간 외에 발생 하는 계획 된 유지 관리의 영향을 최소화할 수 있습니다. 복원 력 워크 로드와 비프로덕션 워크 로드는 Azure SQL의 기본 유지 관리 정책을 사용 합니다.
 
-유지 관리 기간은 Azure Portal, PowerShell, CLI 또는 Azure API를 사용 하 여 구성할 수 있습니다. 만들거나 기존 SQL database 및 SQL 관리 되는 인스턴스에 대해 구성할 수 있습니다.
+유지 관리 기간은 만들거나 기존 Azure SQL 리소스에 대해 구성할 수 있습니다. Azure Portal, PowerShell, CLI 또는 Azure API를 사용 하 여 구성할 수 있습니다.
 
 > [!Important]
 > 유지 관리 기간을 구성 하는 작업은 Azure SQL 리소스의 서비스 계층을 변경 하는 것과 유사한 장기 실행 비동기 작업입니다. 작업을 수행 하는 동안 작업을 수행 하는 동안 리소스를 사용할 수 있습니다. 단, 작업 끝에서 발생 하는 짧은 장애 조치 (failover)는 제외 하 고 장기 실행 트랜잭션이 중단 된 경우에도 일반적으로 최대 8 초 장애 조치 (failover)의 영향을 최소화 하려면 사용량이 많은 시간 외에 작업을 수행 해야 합니다.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>유지 관리 기간을 사용 하 여 예측 가능성 향상
 
-기본적으로 모든 Azure SQL Database 및 관리 되는 인스턴스 데이터베이스는 매일 오후 5 시 하는 동안에만 업데이트 되어 업무 시간에 대 한 최대 중단을 방지 합니다. 현지 시간은 리소스를 호스트 하는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 의해 결정 됩니다. 두 가지 추가 유지 관리 기간을 선택 하 여 데이터베이스에 적합 한 시간에 대 한 유지 관리 업데이트를 추가로 조정할 수 있습니다.
+기본적으로 Azure SQL 유지 관리 정책은 일상 업무 시간 동안 중단을 방지 하기 위해 오전 8 시 기간 동안 현지 시간을 오후 5 시 하는 데 사용 됩니다. 현지 시간은 리소스를 호스트 하는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 의해 결정 됩니다. 즉, _기본 유지 관리 기간_ 을 사용 하면 오후 5 시 및 오전 8 시 다음 날 마다 유지 관리할 수 있습니다. 두 개의 추가 유지 관리 기간을 선택 하 여 Azure SQL 리소스에 적합 한 시간에 대 한 유지 관리 업데이트를 추가로 조정할 수 있습니다.
  
 * 평일 창, 오전 10 시 ~ 오전 6 시 현지 시간 월요일 – 목요일
 * 주말 창, 오전 10 시 ~ 오전 6 시 현지 시간 금요일-일요일
 
-유지 관리 기간을 선택 하 고 서비스 구성을 완료 한 후에는 계획 된 모든 유지 관리 업데이트가 선택한 기간 동안에만 발생 합니다.   
+유지 관리 기간을 선택 하 고 서비스 구성이 완료 되 면 선택한 기간 동안에만 계획 된 유지 관리가 수행 됩니다.   
 
-> [!Note]
-> 계획 된 유지 관리 업데이트 외에도, 드문 경우 지만 계획 되지 않은 유지 관리 이벤트로 인해 가용성이 저하 될 수 있습니다. 
+> [!Important]
+> 중요 보안 패치를 적용 하는 것과 같이 작업의 연기 심각한 영향을 야기 하는 드문 경우에는 구성 된 유지 관리 기간이 일시적으로 재정의 될 수 있습니다. 
 
 ### <a name="cost-and-eligibility"></a>비용 및 자격
 
-유지 관리 기간을 구성 하 고 사용 하는 것은 적합 한 모든 [제품 유형](https://azure.microsoft.com/support/legal/offer-details/)(종 량 제, CSP (클라우드 솔루션 공급자), microsoft Enterprise 또는 Microsoft 고객 계약)에 대 한 무료입니다.
+유지 관리 기간을 구성 하 고 사용 하는 것은 적합 한 모든 [제품 유형](https://azure.microsoft.com/support/legal/offer-details/)(종 량 제, CSP (클라우드 솔루션 공급자), microsoft 기업계약 또는 Microsoft 고객 계약)에 대 한 무료입니다.
 
 > [!Note]
 > Azure 제안은 사용자가 소유한 Azure 구독의 유형을 말합니다. 예를 들어 [종 량 제 요금이](https://azure.microsoft.com/offers/ms-azr-0003p/)있는 구독, [Azure in Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/)및 [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) 은 모두 Azure 제품입니다. 각 제품 또는 요금제에는 서로 다른 용어와 이점이 있습니다. 제안 또는 계획이 구독의 개요에 표시 됩니다. 구독을 다른 제품으로 전환 하는 방법에 대 한 자세한 내용은 [Azure 구독을 다른 제품으로 변경](/azure/cost-management-billing/manage/switch-azure-offer)을 참조 하세요.
 
 ## <a name="advance-notifications"></a>고급 알림
 
-유지 관리 알림을 구성 하 여 예정 된 예정 된 유지 관리 이벤트에 대 한 경고를 유지 관리 시간 및 유지 관리 기간이 완료 될 때 24 시간 동안 Azure SQL Database 수 있습니다. 자세한 내용은 [고급 알림](advance-notifications.md)을 참조 하세요.
+유지 관리 알림은 유지 관리 시간 및 유지 관리가 완료 될 때 Azure SQL Database 24 시간 동안의 예정 된 유지 관리 이벤트에 대해 경고 하도록 구성할 수 있습니다. 자세한 내용은 [고급 알림](advance-notifications.md)을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
@@ -102,6 +103,25 @@ Azure는 Azure SQL Database 및 SQL Managed Instance 리소스에 대 한 계획
 
 Azure SQL 관리 되는 인스턴스의 클라이언트 연결 정책에 대 한 자세한 내용은 [AZURE sql Managed Instance 연결 유형](../../azure-sql/managed-instance/connection-types-overview.md)을 참조 하세요.
 
+## <a name="considering-specifics-of-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 구체적인 고려
+
+Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 실행 되는 격리 된 전용 가상 머신의 전용 집합에서 호스트 되는 서비스 구성 요소로 구성 됩니다. 이러한 가상 머신은 여러 관리 되는 인스턴스를 호스트할 수 있는 [가상 클러스터](https://docs.microsoft.com/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) 를 형성 합니다. 한 서브넷의 인스턴스에 구성 된 유지 관리 기간은 가상 클러스터 간의 인스턴스 배포 및 서브넷 내의 가상 클러스터 수에 영향을 줄 수 있습니다. 몇 가지 효과를 고려해 야 할 수 있습니다.
+
+### <a name="maintenance-window-configuration-is-long-running-operation"></a>유지 관리 기간 구성이 장기 실행 작업입니다. 
+가상 클러스터에서 호스트 되는 모든 인스턴스는 유지 관리 기간을 공유 합니다. 기본적으로 모든 관리 되는 인스턴스는 기본 유지 관리 기간을 사용 하 여 가상 클러스터에서 호스팅됩니다. 관리 되는 인스턴스를 만드는 동안 다른 유지 관리 기간을 지정 하는 것은 해당 유지 관리 기간이 있는 가상 클러스터에 배치 해야 함을 의미 합니다. 서브넷에 이러한 가상 클러스터가 없는 경우 인스턴스를 수용 하기 위해 먼저 새 가상 클러스터를 만들어야 합니다. 기존 가상 클러스터에서 추가 인스턴스를 수용 하려면 클러스터 크기 조정이 필요할 수 있습니다. 두 작업은 모두 관리 되는 인스턴스에 대해 유지 관리 기간을 구성 하는 기간에 적용 됩니다.
+관리 되는 인스턴스에서 유지 관리 기간을 구성 하는 데 필요한 기간은 [인스턴스 관리 작업의 예상 기간](https://docs.microsoft.com/azure/azure-sql/managed-instance/management-operations-overview#duration)을 사용 하 여 계산할 수 있습니다.
+
+> [!Important]
+> 작업이 끝날 때 짧은 장애 조치 (failover)가 수행 되며, 일반적으로 장기 실행 중단 된 트랜잭션의 경우에도 최대 8 초가 걸립니다. 장애 조치 (failover)의 영향을 최소화 하려면 사용량이 많은 시간 외에 작업을 수행 해야 합니다.
+
+### <a name="ip-address-space-requirements"></a>IP 주소 공간 요구 사항
+서브넷의 새 가상 클러스터 마다 [가상 클러스터 ip 주소 할당](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size)에 따라 추가 IP 주소가 필요 합니다. 또한 기존 관리 되는 인스턴스에 대 한 유지 관리 기간을 변경 하려면 해당 서비스 계층에 대 한 vCores 크기 조정 시나리오에서와 마찬가지로 [임시 추가 IP 용량이](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) 필요 합니다.
+
+### <a name="ip-address-change"></a>IP 주소 변경
+유지 관리 기간을 구성 하 고 변경 하면 서브넷의 IP 주소 범위 내에서 인스턴스의 IP 주소가 변경 됩니다.
+
+> [!Important]
+>  IP 주소 변경 후에 NSG 및 방화벽 규칙이 데이터 트래픽을 차단 하지 않는지 확인 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

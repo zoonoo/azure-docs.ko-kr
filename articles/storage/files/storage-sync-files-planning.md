@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 동기화 배포에 대한 계획 | Microsoft Docs
-description: 온-프레미스 Windows Server 또는 클라우드 VM에서 다양 한 Azure 파일 공유를 캐시할 수 있는 서비스인 Azure 파일 동기화를 사용 하 여 배포를 계획 합니다.
+description: 온-프레미스 Windows Server 또는 클라우드 VM에서 여러 Azure 파일 공유를 캐시할 수 있는 서비스인 Azure 파일 동기화를 사용 하 여 배포를 계획 합니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219479"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202385"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -22,7 +22,7 @@ ms.locfileid: "99219479"
         [![Azure 파일 동기화를 소개하는 인터뷰 및 데모 - 재생하려면 클릭하세요!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Azure 파일 동기화는 온-프레미스 Windows Server 또는 클라우드 VM에서 많은 Azure 파일 공유를 캐시할 수 있는 서비스입니다. 
+        Azure 파일 동기화은 온-프레미스 Windows Server 또는 클라우드 VM에서 여러 Azure 파일 공유를 캐시할 수 있게 해 주는 서비스입니다. 
         
         이 문서에서는 Azure 파일 동기화 개념 및 기능을 소개합니다. Azure 파일 동기화에 익숙해지면 [Azure 파일 동기화 배포 가이드](storage-sync-files-deployment-guide.md)에 따라 이 서비스를 사용해 보는 것이 좋습니다.        
     :::column-end:::
@@ -52,16 +52,19 @@ Azure 파일 동기화 배포에는 다음과 같은 세 가지 기본 관리 �
 동기화 그룹에는 하나의 클라우드 엔드포인트 또는 Azure 파일 공유와 하나 이상의 서버 엔드포인트가 포함됩니다. 서버 엔드포인트 개체에는 Azure 파일 동기화의 캐싱 기능을 제공하는 **클라우드 계층화** 기능을 구성하는 설정이 포함되어 있습니다. Azure 파일 공유와 동기화하려면 Azure 파일 공유가 포함된 스토리지 계정이 스토리지 동기화 서비스와 동일한 Azure 지역에 있어야 합니다.
 
 > [!Important]  
-> 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+> 동기화 그룹의 클라우드 끝점 또는 서버 끝점의 네임 스페이스를 변경 하 고 파일을 동기화 그룹의 다른 끝점과 동기화 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
-### <a name="management-guidance"></a>관리 지침
-Azure 파일 동기화를 배포하는 경우 다음을 수행하는 것이 좋습니다.
+### <a name="consider-the-count-of-storage-sync-services-needed"></a>필요한 저장소 동기화 서비스 수를 고려 합니다.
+이전 섹션에서는 *저장소 동기화 서비스* Azure 파일 동기화에 대해 구성할 핵심 리소스에 대해 설명 합니다. Windows Server는 하나의 저장소 동기화 서비스에만 등록할 수 있습니다. 따라서 단일 저장소 동기화 서비스만 배포 하 고 모든 서버를 등록 하는 것이 가장 좋습니다. 
 
-- Azure 파일 배포에서 Windows 파일 공유와 1:1로 공유합니다. 서버 엔드포인트 개체를 사용하면 동기화 관계의 서버 쪽에서 동기화 토폴로지를 설정하는 방법을 유연하게 설정할 수 있습니다. 관리를 간소화하려면 서버 엔드포인트의 경로가 Windows 파일 공유의 경로와 일치하도록 합니다. 
+다음이 있는 경우에만 여러 저장소 동기화 서비스를 만듭니다.
+* 서로 간에 데이터를 교환 하지 않아야 하는 고유한 서버 집합입니다. 이 경우 다른 저장소 동기화 서비스의 동기화 그룹에서 클라우드 끝점으로 이미 사용 중인 Azure 파일 공유와 동기화 할 특정 서버 집합을 제외 하도록 시스템을 설계 하려고 합니다. 다른 저장소 동기화 서비스에 등록 된 Windows 서버는 동일한 Azure 파일 공유와 동기화 할 수 없다는 것을 확인할 수 있습니다.
+* 단일 저장소 동기화 서비스에서 지원할 수 있는 것 보다 더 많은 등록 된 서버 또는 동기화 그룹을 포함 해야 합니다. 자세한 내용은 [Azure 파일 동기화 규모 목표](storage-files-scale-targets.md#azure-file-sync-scale-targets) 를 검토 하세요.
 
-- 스토리지 동기화 서비스를 최대한 적게 사용합니다. 이렇게 하면 Windows Server를 한 번에 하나의 스토리지 동기화 서비스에만 등록할 수 있으므로 여러 서버 엔드포인트가 포함된 동기화 그룹이 있는 경우 관리가 간소화됩니다. 
+## <a name="plan-for-balanced-sync-topologies"></a>균형 잡힌 동기화 토폴로지 계획
+리소스를 배포 하기 전에 로컬 서버에서 동기화 할 내용을 계획 하 고 Azure 파일 공유를 사용 하는 것이 중요 합니다. 계획을 만들면 필요한 저장소 계정 수, Azure 파일 공유 및 동기화 리소스의 수를 결정 하는 데 도움이 됩니다. 이러한 고려 사항은 데이터가 현재 Windows Server 또는 장기 사용 하려는 서버에 없는 경우에도 여전히 관련이 있습니다. [마이그레이션 섹션](#migration) 에서는 상황에 맞는 적절 한 마이그레이션 경로를 결정 하는 데 도움이 될 수 있습니다.
 
-- Azure 파일 공유를 배포할 때 스토리지 계정의 IOPS 제한 사항에 주의합니다. 파일 공유를 스토리지 계정과 1:1로 매핑하는 것이 가장 좋지만, 조직과 Azure 모두의 다양한 제한과 제약으로 인해 항상 가능한 것은 아닙니다. 하나의 스토리지 계정에 파일 공유를 하나만 배포할 수 없는 경우 많은 작업을 수행하는 공유와 적은 작업을 수행하는 공유를 고려하여 가장 많이 사용하는 파일 공유가 동일한 스토리지 계정에 함께 포함되지 않도록 하십시오.
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## <a name="windows-file-server-considerations"></a>Windows 파일 서버 고려 사항
 Windows Server에서 동기화 기능을 사용하도록 설정하려면 다운로드 가능한 Azure 파일 동기화 에이전트를 설치해야 합니다. Azure 파일 동기화 에이전트는 서버 엔드포인트의 변경을 모니터링하고 동기화 세션을 시작하는 백그라운드 Windows 서비스인 `FileSyncSvc.exe` 및 클라우드 계층화와 빠른 재해 복구를 지원하는 파일 시스템 필터인 `StorageSync.sys`의 두 가지 주요 구성 요소를 제공합니다.  
@@ -203,7 +206,7 @@ Azure 파일 동기화는 Windows Server 2012 R2에서 동일한 볼륨의 데�
 - 클라우드 계층화를 사용하도록 설정한 후 볼륨에서 데이터 중복 제거를 사용하도록 설정하면, 초기 중복 제거 최적화 작업을 통해 아직 계층화되지 않은 볼륨에서 파일을 최적화하며 클라우드 계층화에 다음과 같은 영향을 미칩니다.
     - 사용 가능한 공간 정책은 열 지도를 사용하여 볼륨의 사용 가능한 공간에 따라 파일을 계속 계층화합니다.
     - 날짜 정책은 파일에 액세스하는 중복 제거 최적화 작업으로 인해 다른 방법으로 계층화될 수 있는 파일의 계층화를 건너뜁니다.
-- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
+- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
     - 예제: MinimumFileAgeDays 설정이 7일이고 클라우드 계층화 날짜 정책이 30일인 경우 날짜 정책은 37일 후에 파일을 계층화합니다.
     - 참고: 파일이 Azure 파일 동기화를 통해 계층화되면 중복 제거 최적화 작업에서 해당 파일을 건너뜁니다.
 - Azure 파일 동기화 에이전트가 설치된 Windows Server 2012 R2를 실행하는 서버가 Windows Server 2016 또는 Windows Server 2019로 업그레이드되면, 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원하기 위해 다음 단계를 수행해야 합니다.  
@@ -320,15 +323,9 @@ Azure 스토리지 계정에는 전송 중 암호화를 요구하는 스위치�
 > 지역 중복 및 지리적 영역 중복 스토리지는 스토리지를 보조 지역에 수동으로 장애 조치할 수 있습니다. Azure 파일 동기화를 사용하는 경우 데이터를 손실할 가능성이 높으므로 재해 발생 시 이 작업을 수행하지 않는 것이 좋습니다. 스토리지의 수동 장애 조치를 시작하려는 재해가 발생하는 경우 Microsoft에서 지원 사례를 열어 Azure 파일 동기화에서 보조 엔드포인트와의 동기화를 다시 시작하도록 해야 합니다.
 
 ## <a name="migration"></a>마이그레이션
-기존 Windows 파일 서버가 있는 경우 데이터를 새 서버로 이동할 필요 없이 Azure 파일 동기화를 직접 설치할 수 있습니다. Azure 파일 동기화를 채택하는 과정의 일환으로 새 Windows 파일 서버로 마이그레이션하려는 경우 데이터를 이동할 수 있는 몇 가지 방법은 다음과 같습니다.
+기존 Windows 파일 서버 2012R2 이상 버전을 사용 하는 경우 데이터를 새 서버로 이동 하지 않고 직접 설치할 수 Azure 파일 동기화. Azure 파일 동기화 채택을 위한 일부로 새 Windows 파일 서버로 마이그레이션하려는 경우 또는 데이터가 현재 NAS (네트워크 연결 저장소)에 있는 경우이 데이터와 Azure 파일 동기화를 사용 하는 몇 가지 가능한 마이그레이션 방법이 있습니다. 선택 해야 하는 마이그레이션 방법은 현재 데이터가 있는 위치에 따라 달라 집니다. 
 
-- 이전 파일 공유 및 새 파일 공유에 대한 서버 엔드포인트를 만들고, Azure 파일 동기화에서 서버 엔드포인트 간에 데이터를 동기화하도록 합니다. 이 방법의 장점은 Azure 파일 동기화에서 클라우드 계층화를 인식하므로 새 파일 서버에서 스토리지를 매우 쉽게 초과 구독할 수 있다는 것입니다. 준비가 되면 최종 사용자를 새 서버의 파일 공유로 잘라내고 이전 파일 공유의 서버 엔드포인트를 제거할 수 있습니다.
-
-- 새 파일 서버에만 서버 엔드포인트를 만들고 `robocopy`를 사용하여 이전 파일 공유에서 데이터를 복사합니다. 새 서버의 파일 공유 토폴로지(각 볼륨에 있는 공유 수, 각 볼륨의 사용 가능 여부 등)에 따라 온-프레미스 데이터 센터 내의 기존 서버에서 새 서버로의 `robocopy`가 Azure 파일 동기화를 통해 데이터를 Azure로 이동하는 것보다 더 빨리 완료될 것으로 예상되므로 추가 스토리지를 임시로 프로비저닝해야 할 수도 있습니다.
-
-또한 Data Box를 사용하여 데이터를 Azure 파일 동기화 배포로 마이그레이션할 수 있습니다. 고객이 Data Box를 사용하여 데이터를 수집하려는 대부분의 경우 배포 속도가 향상되거나 제한된 대역폭 시나리오에 도움이 된다고 생각하므로 이 작업을 수행합니다. Data Box를 사용하여 데이터를 Azure 파일 동기화 배포 환경에 수집하면 대역폭 사용률이 감소하는 것이 사실이지만, 대부분의 시나리오에서는 위에서 설명한 방법 중 하나를 통해 온라인 데이터 업로드를 추진하는 것이 더 빠를 수 있습니다. Data Box를 사용하여 데이터를 Azure 파일 동기화 배포에 수집하는 방법에 대한 자세한 내용은 [Azure Data Box를 사용하여 데이터를 Azure 파일 동기화로 마이그레이션](storage-sync-offline-data-transfer.md)을 참조하세요.
-
-고객이 데이터를 새 Azure 파일 동기화 배포로 마이그레이션할 때 일반적으로 저지르는 실수는 데이터를 Windows 파일 서버가 아닌 Azure 파일 공유에 직접 복사하는 것입니다. Azure 파일 동기화는 Azure 파일 공유에서 모든 새 파일을 식별하고 이를 Windows 파일 공유에 다시 동기화하지만, 일반적으로 Windows 파일 서버를 통해 데이터를 로드하는 것보다 훨씬 느립니다. AzCopy와 같은 Azure 복사 도구를 사용 하는 경우 최신 버전을 사용 하는 것이 중요 합니다. [파일 복사 도구 표](storage-files-migration-overview.md#file-copy-tools) 를 확인 하 여 타임 스탬프 및 acl과 같은 파일의 모든 중요 한 메타 데이터를 복사할 수 있도록 Azure copy tools의 개요를 확인 하세요.
+시나리오에 대 한 자세한 지침을 찾을 수 있는 [Azure 파일 동기화 및 Azure 파일 공유 마이그레이션 개요](storage-files-migration-overview.md) 문서를 확인 하세요.
 
 ## <a name="antivirus"></a>바이러스 백신
 바이러스 백신은 알려진 악성 코드에 대 한 파일을 검사 하는 방식으로 작동 하기 때문에 바이러스 백신 제품으로 인해 계층화 된 파일의 회수로 인해 송신 비용이 높아질 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
@@ -342,6 +339,9 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 클라우드 계층화를 사용 하는 경우 서버 끝점을 직접 백업 하는 솔루션이 나 서버 끝점이 있는 VM을 사용 하면 안 됩니다. 클라우드 계층화를 사용 하면 데이터의 하위 집합만 서버 끝점에 저장 되며 전체 데이터 집합은 Azure 파일 공유에 상주 합니다. 사용 되는 백업 솔루션에 따라 계층화 된 파일은 무시 되 고 백업 되지 않습니다 (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성이 설정 되어 있기 때문에). 또는 디스크로 회수 되어 송신 요금이 높아집니다. 클라우드 백업 솔루션을 사용 하 여 Azure 파일 공유를 직접 백업 하는 것이 좋습니다. 자세한 내용은 [azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 또는 백업 공급자에 게 문의 하 여 azure 파일 공유 백업 지원을 참조 하세요.
 
 온-프레미스 백업 솔루션을 사용 하려는 경우 클라우드 계층화를 사용 하지 않는 동기화 그룹의 서버에서 백업을 수행 해야 합니다. 복원을 수행할 때 볼륨 수준 또는 파일 수준 복원 옵션을 사용합니다. 파일 수준 복원 옵션을 사용하여 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.  볼륨 수준 복원은 Azure 파일 공유 또는 기타 서버 엔드포인트의 최신 파일 버전을 대체하지 않습니다.
+
+> [!WARNING]
+> Robocopy/B 스위치는 Azure 파일 동기화 지원 되지 않습니다. Azure 파일 동기화 서버 끝점과 함께 Robocopy/B 스위치를 소스로 사용 하면 파일 손상이 발생할 수 있습니다.
 
 > [!Note]  
 > BMR(완전 복구) 복원은 예기치 않은 결과가 발생할 수 있으며 현재 지원되지 않습니다.

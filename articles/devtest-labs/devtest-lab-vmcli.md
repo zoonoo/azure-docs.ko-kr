@@ -3,12 +3,12 @@ title: Azure CLI를 사용 하 여 DevTest Labs에서 가상 컴퓨터 만들기
 description: Azure DevTest Labs를 사용하여 Azure CLI에서 가상 머신을 만들고 관리하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 57510a722ab6a34b9d498e74a140d6f350c8fc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482839"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201467"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리
 이 빠른 시작에서는 랩에서 개발 컴퓨터를 만들고, 시작 하 고, 연결 하 고, 업데이트 하 고, 정리 하는 과정을 안내 합니다. 
@@ -40,7 +40,7 @@ az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTe
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-**이미지 형식** 인수가 **갤러리** 에서 **사용자 지정**으로 변경 되었습니다. 이미지 이름은 Azure Portal에서 가상 컴퓨터를 만들 때 표시 되는 것과 일치 합니다.
+**이미지 형식** 인수가 **갤러리** 에서 **사용자 지정** 으로 변경 되었습니다. 이미지 이름은 Azure Portal에서 가상 컴퓨터를 만들 때 표시 되는 것과 일치 합니다.
 
 다음 명령은 ssh 인증을 사용 하 여 marketplace 이미지에서 VM을 만듭니다.
 
@@ -48,7 +48,7 @@ az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTe
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-**이미지 형식** 매개 변수를 **수식**으로 설정 하 여 수식을 기반으로 가상 컴퓨터를 만들 수도 있습니다. 가상 컴퓨터의 특정 가상 네트워크를 선택 해야 하는 경우 **vnet 이름** 및 **서브넷** 매개 변수를 사용 합니다. 자세한 내용은 [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create)를 참조 하세요.
+**이미지 형식** 매개 변수를 **수식** 으로 설정 하 여 수식을 기반으로 가상 컴퓨터를 만들 수도 있습니다. 가상 컴퓨터의 특정 가상 네트워크를 선택 해야 하는 경우 **vnet 이름** 및 **서브넷** 매개 변수를 사용 합니다. 자세한 내용은 [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create)를 참조 하세요.
 
 ## <a name="verify-that-the-vm-is-available"></a>VM을 사용할 수 있는지 확인합니다.
 명령을 사용 하 여 `az lab vm show` 시작 하 고 연결 하기 전에 VM을 사용할 수 있는지 확인 합니다. 
@@ -153,4 +153,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure DevTest Labs에 대 한 Azure CLI 설명서](/cli/azure/lab?view=azure-cli-latest)콘텐츠를 참조 하세요. 
+[Azure DevTest Labs에 대 한 Azure CLI 설명서](/cli/azure/lab)콘텐츠를 참조 하세요. 

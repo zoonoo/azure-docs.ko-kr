@@ -3,12 +3,12 @@ title: 명령줄 도구를 사용 하 여 Vm을 시작 및 중지 Azure DevTest 
 description: 명령줄 도구를 사용 하 여 Azure DevTest Labs에서 가상 머신을 시작 하 고 중지 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476419"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201195"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>명령줄 도구를 사용 하 여 가상 컴퓨터 Azure DevTest Labs 시작 및 중지
 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용 하 여 Azure DevTest Labs에서 랩에서 가상 머신을 시작 하거나 중지 하는 방법을 보여 줍니다. PowerShell/CLI 스크립트를 만들어 이러한 작업을 자동화할 수 있습니다. 
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 는 DevTest Labs vm의 시작 및 중지를 자동화 하는 또 다른 방법입니다. Azure CLI는 다른 운영 체제에 [설치할](/cli/azure/install-azure-cli?view=azure-cli-latest) 수 있습니다. 다음 스크립트는 랩에서 VM을 시작 및 중지 하기 위한 명령을 제공 합니다. 
+[Azure CLI](/cli/azure/get-started-with-azure-cli) 는 DevTest Labs vm의 시작 및 중지를 자동화 하는 또 다른 방법입니다. Azure CLI는 다른 운영 체제에 [설치할](/cli/azure/install-azure-cli) 수 있습니다. 다음 스크립트는 랩에서 VM을 시작 및 중지 하기 위한 명령을 제공 합니다. 
 
 ```azurecli
 # Sign in to Azure

@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: kriti-ms
+ms.author: krsh
+ms.openlocfilehash: e3d20b5e9206cf05d749f75982a07937a8caf078
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182431"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201093"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure Marketplace에서 VM (가상 컴퓨터) 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 
@@ -24,13 +24,11 @@ ms.locfileid: "89182431"
 
 질문이 있는 경우 [문의해](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)주시기 바랍니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>내 VM 이미지의 사용자가 중단을 경험 하나요?
 
 VM 이미지의 사용자에 게는 가동 중단이 발생 하지 않습니다. 
-
-첫 번째 단계에서는 실행 중인 vm이 없는 VM 이미지만 이동 합니다. 이러한 이미지에 대 한 사용자가 없으므로 영향을 주지 않습니다. 이후 단계에 대해서도 사용자에 게 영향을 주지 않습니다.
 
 ### <a name="how-long-does-it-take-for-the-process-to-complete"></a>프로세스를 완료 하는 데 소요 되는 시간
 

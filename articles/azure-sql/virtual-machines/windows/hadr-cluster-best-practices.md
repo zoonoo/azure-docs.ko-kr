@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358812"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201773"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ AlwaysOn SQL Server를 사용 하 여 Azure Vm에서 Windows 장애 조치 (Fail
 다음 표에서는 Azure VM과 함께 사용 하기 위해 권장 되는 순서 대로 사용 가능한 쿼럼 옵션을 보여 줍니다. 여기에는 디스크 감시를 선호 하는 옵션이 있습니다. 
 
 
-||[디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)  |[파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+||[디스크 미러링 모니터](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)  |[파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**지원되는 OS**| 모두 |Windows Server 2016+| 모두|
 
@@ -76,9 +76,7 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 
 ### <a name="file-share-witness"></a>파일 공유 감시
 
-파일 공유 감시는 일반적으로 Windows Server를 실행 하는 파일 서버에 구성 되는 SMB 파일 공유입니다. 이는 감시 파일에 클러스터링 정보를 유지 하지만 클러스터 데이터베이스의 복사본은 저장 하지 않습니다. Azure에서 파일 공유 감시로 사용할 [azure 파일 공유](../../../storage/files/storage-how-to-create-file-share.md) 를 구성 하거나 별도의 가상 머신에서 파일 공유를 사용할 수 있습니다.
-
-Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 탑재](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share)하는 데 사용한 것과 동일한 프로세스를 사용 하 여 탑재할 수 있습니다. 
+파일 공유 감시는 일반적으로 Windows Server를 실행 하는 파일 서버에 구성 되는 SMB 파일 공유입니다. 이는 감시 파일에 클러스터링 정보를 유지 하지만 클러스터 데이터베이스의 복사본은 저장 하지 않습니다. Azure에서 별도의 가상 머신에서 파일 공유를 구성할 수 있습니다.
 
 시작 하려면 [파일 공유 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 

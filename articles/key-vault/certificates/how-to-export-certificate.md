@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b5cf7f2e5957ef57009c1b461ae81863d6d8ab9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233647"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199971"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-자세한 내용은 [예제 및 매개 변수 정의](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)를 보세요.
+자세한 내용은 [예제 및 매개 변수 정의](/cli/azure/keyvault/certificate#az-keyvault-certificate-download)를 보세요.
 
 인증서로 다운로드하는 것은 공개 부분을 가져오는 것을 의미합니다. 프라이빗 키와 퍼블릭 메타데이터가 모두 필요한 경우 이를 비밀로 다운로드할 수 있습니다.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-자세한 내용은 [매개 변수 정의](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)를 참조하세요.
+자세한 내용은 [매개 변수 정의](/cli/azure/keyvault/secret#az-keyvault-secret-download)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

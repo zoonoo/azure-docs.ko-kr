@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3806578f5d1af61329e2e32fa3e8eceb9afa4d42
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713969"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201756"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -219,7 +219,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 | ALL               | ALL    | ALL     | ALL     |
 
 > [!NOTE]
-> 로거가로 거에 전달 되 면 로그 메시지 (및 예외)는 테이블 대신 테이블의 Azure Portal에 표시 됩니다 `exceptions` `traces` .
+> 예외 개체가로 거에 전달 되 면 로그 메시지 (및 예외 개체 세부 정보)는 테이블 대신 테이블의 Azure Portal에 표시 됩니다 `exceptions` `traces` .
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
 

@@ -3,16 +3,16 @@ title: Azure Event Grid 구독 스키마
 description: 이 문서에서는 Azure Event Grid 사용 하 여 이벤트를 구독할 수 있는 속성을 설명 합니다. 구독 스키마를 Event Grid 합니다.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119075"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199954"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid 구독 스키마
 
-Event Grid 구독을 만들려면 이벤트 만들기 구독 작업에 요청을 보냅니다. 다음 형식을 사용합니다.
+Event Grid 구독을 만들려면 이벤트 만들기 구독 작업에 요청을 보냅니다. 이때 다음 형식을 사용합니다.
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -25,13 +25,13 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 이벤트 구독 이름은 길이가 3-64자이어야 하며 a-z, A-Z, 0-9 및 "-"만을 포함할 수 있습니다. 문서는 요청 본문에 대한 속성 및 스키마를 설명합니다.
- 
+ 
 ## <a name="event-subscription-properties"></a>이벤트 구독 속성
 
 | 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| destination | object | 엔드포인트를 정의하는 개체입니다. |
-| filter | object | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
+| destination | 개체 | 엔드포인트를 정의하는 개체입니다. |
+| filter | 개체 | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
 
 ### <a name="destination-object"></a>대상 개체
 
@@ -48,6 +48,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 | subjectBeginsWith | 문자열 | 이벤트 메시지의 제목 필드에 대한 접두사-일치 필터입니다. 기본값 또는 빈 문자열은 모두 일치합니다. | 
 | subjectEndsWith | 문자열 | 이벤트 메시지의 제목 필드에 대한 접미사-일치 필터입니다. 기본값 또는 빈 문자열은 모두 일치합니다. |
 | isSubjectCaseSensitive | 문자열 | 필터에 대한 대/소문자 구분 일치를 제어합니다. |
+| enableAdvancedFilteringOnArrays | boolean | 고급 필터링에서 키에 배열을 사용할 수 있도록 합니다. 자세한 내용은 [고급 필터링](event-filtering.md#advanced-filtering)을 참조 하세요. |
 
 
 ## <a name="example-subscription-schema"></a>예제 구독 스키마

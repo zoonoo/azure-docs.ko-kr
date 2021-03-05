@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676206"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200090"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>CLI를 사용하여 Internet Analyzer 테스트 만들기(미리 보기)
 
@@ -37,7 +37,7 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 
 ## <a name="profile-and-test-creation"></a>프로필 및 테스트 만들기
 1. [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)의 **미리 보기에 참여하는 방법** 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
-2. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
 3. `login` 명령을 실행하여 CLI 세션을 시작합니다.
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 
 5. Internet Analyzer 공개 미리 보기에 대한 액세스 권한을 부여받은 구독 ID를 선택합니다.
 
-    로그인하면 Azure 계정에 연결된 구독 목록이 나타납니다. `isDefault: true`가 있는 구독 정보는 로그인한 후 현재 활성화된 구독입니다. 다른 구독을 선택하려면 전환할 구독 ID와 함께 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조하세요.
+    로그인하면 Azure 계정에 연결된 구독 목록이 나타납니다. `isDefault: true`가 있는 구독 정보는 로그인한 후 현재 활성화된 구독입니다. 다른 구독을 선택하려면 전환할 구독 ID와 함께 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조하세요.
 
-    비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)에서 자세히 설명됩니다.
+    비 대화형으로 로그인할 수 있는 방법도 여러 가지가 있으며, 이는 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명됩니다.
 
 6. **[선택 사항]** 새 Azure 리소스 그룹을 만듭니다.
     ```azurecli-interactive
@@ -132,6 +132,6 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 지원되는 명령 및 사용 예제의 전체 목록을 보려면 [Internet Analyzer CLI 참조](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest)를 찾아봅니다.
+* 지원되는 명령 및 사용 예제의 전체 목록을 보려면 [Internet Analyzer CLI 참조](/cli/azure/ext/internet-analyzer/internet-analyzer)를 찾아봅니다.
 * [인터넷 분석기 FAQ](internet-analyzer-faq.md)를 읽어보세요.
 * [Internet Analyzer 클라이언트](internet-analyzer-embed-client.md)를 포함하고 [사용자 지정 엔드포인트](internet-analyzer-custom-endpoint.md)를 만드는 방법에 대해 자세히 알아보세요.

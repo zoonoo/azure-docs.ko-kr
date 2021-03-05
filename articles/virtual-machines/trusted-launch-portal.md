@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fca11ce1cfa09fb680c2b288e40fa5f51337bdb8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124655"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200787"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>신뢰할 수 있는 시작을 사용 하도록 설정 된 VM 배포 (미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "102124655"
 1. **가상 컴퓨터** 페이지에서 **추가** 를 선택한 다음 **가상 컴퓨터** 를 선택 합니다.
 1. **프로젝트 세부 정보** 아래에서 올바른 구독을 선택 했는지 확인 합니다.
 1. **리소스 그룹** 에서 **새로 만들기** 를 선택 하 고 리소스 그룹의 이름을 입력 하거나 드롭다운 목록에서 기존 리소스 그룹을 선택 합니다.
-1. **인스턴스 정보** 에서 가상 컴퓨터 이름에 대 한 이름을 입력 하 고 신뢰할 수 있는 시작을 지 원하는 지역을 선택 합니다.
+1. **인스턴스 정보** 에서 가상 컴퓨터 이름에 대 한 이름을 입력 하 고 [신뢰할 수 있는 시작](trusted-launch.md#public-preview-limitations)을 지 원하는 지역을 선택 합니다.
 1. **이미지** 에서 [신뢰할 수 있는 시작을 지 원하는 이미지](trusted-launch.md#public-preview-limitations)를 선택 합니다. 이미지의 Gen 1 버전만 표시 될 수 있습니다. 즉, 다음 단계로 이동 합니다.
 1. 페이지 위쪽에서 선택 하 여 **고급** 탭으로 전환 합니다.
 1. **VM 생성** 섹션으로 스크롤한 다음 **Gen 2** 를 선택 합니다.
@@ -140,7 +140,7 @@ Azure Security Center를 사용 하 여 신뢰할 수 있는 시작 Vm에 대 �
 
 UEFI 보안 부팅을 위해 서명 해야 하는 경우도 있습니다.  예를 들어 Ubuntu 용 [보안 부팅에 대 한 항목을 서명 하는 방법을](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) 살펴보겠습니다. 이러한 경우, VM에 대해 MOK 유틸리티를 등록 하는 키를 입력 해야 합니다. 이렇게 하려면 Azure 직렬 콘솔을 사용 하 여 MOK 유틸리티에 액세스 해야 합니다.
 
-1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다.
+1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다. 자세한 내용은 [Linux 용 직렬 콘솔](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux)을 참조 하세요.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **가상 컴퓨터** 를 검색 하 고 목록에서 VM을 선택 합니다.
 1. 왼쪽 메뉴의 **지원 + 문제 해결** 에서 **직렬 콘솔** 를 선택 합니다. 페이지는 직렬 콘솔을 사용 하 여 오른쪽으로 열립니다.

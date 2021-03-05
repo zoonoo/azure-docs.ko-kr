@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: tyao
-ms.openlocfilehash: 885582481e3783bdd4fbad40a24499f42a40ce24
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 885b4d132208ab6f8b470d147438e26a5fd4bab7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193450"
+ms.locfileid: "102201671"
 ---
 # <a name="connect-azure-front-door-premium-to-a-storage-account-origin-with-private-link"></a>개인 링크를 사용 하 여 Azure 전면 도어 프리미엄을 저장소 계정 원본에 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "102193450"
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="enable-private-link-to-a-storage-account-in-azure-front-door-premium"></a>Azure 전면 도어 프리미엄에서 저장소 계정에 대 한 개인 링크를 사용 하도록 설정
+## <a name="enable-private-link-to-a-storage-account"></a>저장소 계정에 대 한 개인 링크 사용
  
 이 섹션에서는 개인 링크 서비스를 Azure 전면 도어의 개인 네트워크에서 만든 개인 끝점에 매핑합니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "102193450"
 
 1. 그런 다음 **추가** 를 선택 하 여 구성을 저장 합니다.
 
-## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-the-storage-account"></a>저장소 계정에서 Azure Front 도어 Premium 개인 끝점 연결 승인
+## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>저장소 계정에서 개인 끝점 연결 승인
 
 1. 마지막 섹션에서 개인 링크를 구성 하는 저장소 계정으로 이동 합니다. **설정** 아래에서 **네트워킹** 을 선택 합니다.
 

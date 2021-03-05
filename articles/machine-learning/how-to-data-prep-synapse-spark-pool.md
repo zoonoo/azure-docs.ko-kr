@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eeb7b82d9c3bfe21019d5d68f82c2e6d7a2bf68
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 22945cdaff2696a15d5b119bd0f32fd0a179ebf7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171516"
+ms.locfileid: "102202096"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-preparation-preview"></a>데이터 준비를 위해 (Azure Synapse Analytics에서 구동) Apache Spark 풀 연결 (미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "102171516"
 
 Azure Synapse Analytics와 Azure Machine Learning (미리 보기)를 통합 하면 Azure Synapse에서 지원 되는 Apache Spark 풀을 연결 하 여 대화형 데이터 탐색 및 준비를 수행할 수 있습니다. 이 통합을 사용 하면 기계 학습 모델을 학습 하는 데 사용 하는 것과 동일한 Python 노트북 내에서 대규모로 데이터 준비를 위한 전용 계산을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 
@@ -98,7 +98,7 @@ linked_service = LinkedService.register(workspace = ws,
 
    |필드| 설명    
    |---|---
-   |Name| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
+   |이름| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
    |구독 이름 | Machine learning 작업 영역에 연결 된 구독의 이름을 선택 합니다. 
    |Synapse 작업 영역 | 연결 하려는 Synapse 작업 영역을 선택 합니다. 
    
@@ -357,10 +357,6 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
-
-## <a name="example-notebook"></a>예제 Notebook
-
-Azure Synapse Analytics 및 Azure Machine Learning를 사용 하 여 단일 노트북에서 데이터 준비 및 모델 학습을 수행 하는 방법에 대 한 자세한 코드 예제는이 [종단 간 노트북](../synapse-analytics/overview-what-is.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

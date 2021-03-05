@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588797"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200035"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -153,7 +153,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 [Azure App Service의 웹앱 기능](../app-service/overview.md)은 웹 애플리케이션을 호스트하기 위한 PAAS(Platform as a Service)를 제공합니다. Azure App Service에서 호스트되는 웹 애플리케이션은 추가 보안, 부하 분산 및 확장성과 같은 강력한 Azure 기능과 연속 배포, 패키지 관리 등과 같은 Azure 및 파트너 DevOps 솔루션의 이점을 누릴 수 있습니다. Azure App Service는 널리 사용되는 여러 언어로 개발되고 Windows 또는 Linux 인프라에 배포된 웹 애플리케이션을 지원합니다.
 
-이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](/cli/azure/webapp?view=azure-cli-latest) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 리소스 그룹을 추가하고](#add-a-consumer-group-to-your-iot-hub), [IoT Hub의 서비스 연결 문자열을 가져오고](#get-a-service-connection-string-for-your-iot-hub), [GitHub에서 웹앱을 다운로드하는](#download-the-web-app-from-github) 단계를 완료했는지 확인합니다.
+이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](/cli/azure/webapp) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 리소스 그룹을 추가하고](#add-a-consumer-group-to-your-iot-hub), [IoT Hub의 서비스 연결 문자열을 가져오고](#get-a-service-connection-string-for-your-iot-hub), [GitHub에서 웹앱을 다운로드하는](#download-the-web-app-from-github) 단계를 완료했는지 확인합니다.
 
 1. [App Service 플랜](../app-service/overview-hosting-plans.md)은 App Service에서 호스트된 앱에서 실행할 컴퓨팅 리소스 세트를 정의합니다. 이 자습서에서는 개발자/무료 계층을 사용하여 웹앱을 호스트합니다. 무료 계층을 사용하여 웹앱은 다른 고객의 앱을 포함하여 다른 App Service 앱과 공유된 Windows 리소스에서 실행됩니다. 또한 Azure는 Linux 컴퓨팅 리소스에 웹앱을 배포하기 위한 App Service 플랜을 제공합니다. 사용하려는 App Service 플랜이 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 컨테이너 그룹 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb31eeda83532c408a303e879439006bcd7d4e45
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82928723"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200651"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
@@ -42,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-새 DNS 이름 레이블 *myapplication*으로 컨테이너 그룹을 업데이트 하 고 나머지 속성을 이전에 사용한 값으로 설정 합니다.
+새 DNS 이름 레이블 *myapplication* 으로 컨테이너 그룹을 업데이트 하 고 나머지 속성을 이전에 사용한 값으로 설정 합니다.
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -78,7 +78,7 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **컨테이너 그룹**이 여러 번 언급되었습니다. Azure Container Instances의 모든 컨테이너는 컨테이너 그룹에 배포되고, 이 컨테이너 그룹에는 둘 이상의 컨테이너가 포함될 수 있습니다.
+이 문서에서는 **컨테이너 그룹** 이 여러 번 언급되었습니다. Azure Container Instances의 모든 컨테이너는 컨테이너 그룹에 배포되고, 이 컨테이너 그룹에는 둘 이상의 컨테이너가 포함될 수 있습니다.
 
 [Azure Container Instances의 컨테이너 그룹](./container-instances-container-groups.md)
 
@@ -89,6 +89,6 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-create]: /cli/azure/container#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-container-export]: /cli/azure/container#az-container-export

@@ -7,18 +7,18 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179370"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200940"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트에 대 한 개발 환경 구성
 
 배포 스크립트 이미지를 사용 하 여 ARM 템플릿 배포 스크립트를 개발 하 고 테스트 하기 위한 개발 환경을 만드는 방법에 대해 알아봅니다. [Azure container instance](../../container-instances/container-instances-overview.md) 를 만들거나 [Docker](https://docs.docker.com/get-docker/)를 사용할 수 있습니다. 이 문서에서는 두 옵션을 모두 다룹니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-powershell-container"></a>Azure PowerShell 컨테이너
 
@@ -357,7 +357,7 @@ Azure Portal 또는 Azure CLI를 사용 하 여 파일을 업로드할 수도 �
 템플릿에 지정 된 기본 컨테이너 이미지는 **mcr.microsoft.com/azure-cli:2.9.1** 입니다. [지원 되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list)목록을 참조 하세요.
 
 > [!IMPORTANT]
-> 배포 스크립트는 MCR (Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용 합니다. 배포 스크립트의 CLI 이미지를 인증 하는 데 한 달이 소요 됩니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요. 지원 되지 않는 버전을 사용 하는 경우 오류 메시지에 지원 되는 버전이 나열 됩니다.
+> 배포 스크립트는 MCR (Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용 합니다. 배포 스크립트의 CLI 이미지를 인증 하는 데 한 달이 소요 됩니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli)를 참조하세요. 지원 되지 않는 버전을 사용 하는 경우 오류 메시지에 지원 되는 버전이 나열 됩니다.
 
 템플릿은 1800 초 후에 컨테이너 인스턴스를 일시 중단 합니다. 컨테이너 인스턴스가 터미널 상태가 되 고 세션이 종료 되기까지 30 분이 소요 됩니다.
 
