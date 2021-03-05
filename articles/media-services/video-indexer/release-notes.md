@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715159"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203728"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,12 @@ ms.locfileid: "101715159"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="march-2021"></a>2021년 3월
+
+이제 다른 가격대의 새로운 오디오 기능 번들에서 오디오 분석을 사용할 수 있습니다. 새로운 **기본 오디오** 분석 사전 설정은 음성 기록, 번역 및 서식 출력 캡션과 자막만 추출 하는 저렴 한 옵션을 제공 합니다. **기본 오디오** 사전 설정은 기록에 대 한 선과 캡션 및 부제목 서식 지정을 위한 별도의 줄을 포함 하 여 청구서에 두 개의 개별 미터를 생성 합니다. 가격 책정에 대 한 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지를 참조 하세요.
+
+새로 추가 된 번들은   ->  **비디오 + 오디오 인덱싱** 드롭다운 상자 아래에서 고급 옵션 **기본 오디오** 사전 설정을 선택 하 여 파일을 인덱싱 또는 다시 인덱싱할 때 사용할 수 있습니다.
 
 ## <a name="february-2021"></a>2021년 2월
 

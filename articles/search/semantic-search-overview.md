@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: eedb3dfeafbd378cfff7afb04fcc2b9aa6e791d6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e9cbb7daf61397064bd79f30d851d96fdf63f5a0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679825"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203235"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
@@ -27,7 +27,7 @@ ms.locfileid: "101679825"
 
 공개 미리 보기 기능에는 다음이 포함 됩니다.
 
-+ 검색 쿼리 용어의 컨텍스트나 의미 체계 의미에 따라 관련 문서를 검색 하는 의미 체계 순위 알고리즘
++ 검색 쿼리 용어의 컨텍스트나 의미 체계 의미를 기준으로 결과를 점수를 지정 하는 의미 체계 순위 모델
 + 관련 된 통로를 강조 표시 하는 의미 체계 캡션
 + 결과에서 작성 된 쿼리에 대 한 의미 체계 대답
 + 쿼리 용어가 검색 엔진에 도달 하기 전에 오타를 수정 하는 맞춤법 검사
@@ -44,7 +44,9 @@ ms.locfileid: "101679825"
 
 ## <a name="availability-and-pricing"></a>가용성 및 가격 책정
 
-의미 체계 순위는 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부 2, 서유럽, 유럽 서부 등의 지역 중 하나에 있는 표준 계층 (S1, S2, S3)에서 만든 검색 서비스에 대 한 등록 [등록](https://aka.ms/SemanticSearchPreviewSignup)을 통해 사용할 수 있습니다. 맞춤법 수정은 동일한 지역에서 사용할 수 있지만 계층 제한은 없습니다. 계층 및 지역 조건을 충족 하는 기존 서비스가 있으면 등록만 필요 합니다.
+의미 체계 순위는 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부 2, 서유럽, 유럽 서부 등의 지역 중 하나에 있는 표준 계층 (S1, S2, S3)에서 만든 검색 서비스에 대 한 등록 [등록](https://aka.ms/SemanticSearchPreviewSignup)을 통해 사용할 수 있습니다. 명시 된 지역의 S1 이상에서 기존 검색 서비스는 미리 보기를 대상으로 합니다 (새 서비스를 만들 필요는 없음).
+
+맞춤법 수정은 동일한 지역에서 사용할 수 있지만, 계층 제한과 등록 요구 사항은 없습니다. 
 
 3 월 2 일부 터 3 월 1 일까 지 미리 보기 시작 사이에는 무료로 제공 됩니다. 4 월 1 일부 터이 기능을 실행 하는 계산 비용은 청구 가능 이벤트가 됩니다. 예상 비용은 25만 쿼리의 경우 약 USD $500/월입니다. [Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/) 에서 설명 하 고 [비용을 예측 하 고 관리](search-sku-manage-costs.md)하는 자세한 비용 정보를 찾을 수 있습니다.
 

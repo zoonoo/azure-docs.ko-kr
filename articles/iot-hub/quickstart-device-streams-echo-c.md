@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 403fe82c46c90c5f8efb48ce0a394a2f63488fed
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: fd179bf17f481ae84f768d619c6ddc0b9afab280
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624628"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202555"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -114,7 +114,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-디바이스를 연결하려면 먼저 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true)에서 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
+디바이스를 연결하려면 먼저 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot)에서 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 

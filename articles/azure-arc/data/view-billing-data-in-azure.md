@@ -9,17 +9,17 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7ef1cd43d2efbc5ab92cc2b4cba4d237805d8921
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687535"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202657"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>청구 데이터를 Azure에 업로드 하 고 Azure Portal에서 확인
 
 > [!IMPORTANT] 
->  미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다. 청구 시스템이 종단 간 작동 하더라도 청구 측정기는 $0로 설정 됩니다.  이 시나리오를 수행 하는 경우 현재 **하이브리드 data services** 라는 서비스 및 microsoft 라는 유형의 리소스에 대 한 청구에 항목이 표시 됩니다 **. AzureData/ `<resource type>`**. 사용자가 만든 각 데이터 서비스에 대 한 레코드를 볼 수 있지만 각 레코드에는 $0에 대 한 요금이 청구 됩니다.
+>  미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다. 청구 시스템이 종단 간 작동 하더라도 청구 측정기는 $0로 설정 됩니다.  이 시나리오를 수행 하는 경우 현재 **하이브리드 data services** 라는 서비스 및 **`<resource type>` Microsoft azurearcdata/** 형식의 리소스에 대 한 청구에 항목이 표시 됩니다. 사용자가 만든 각 데이터 서비스에 대 한 레코드를 볼 수 있지만 각 레코드에는 $0에 대 한 요금이 청구 됩니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -119,7 +119,7 @@ Azure Portal에서 청구 데이터를 보려면 다음 단계를 따르세요.
 1. 범위가 데이터 서비스 리소스를 만든 구독으로 설정 되어 있는지 확인 합니다.
 1. 보기 위쪽의 범위 선택기 옆에 있는 보기 드롭다운에서 **리소스 별로 비용** 을 선택 합니다.
 1. 데이터 서비스 리소스를 만들 때 타이밍을 제공 하기 위해 날짜 필터가 **이 월** 또는 다른 시간 범위로 설정 되었는지 확인 합니다.
-1.    =  `microsoft.azuredata/<data service type>` Azure Arc 사용 설정 데이터 서비스의 한 가지 유형 으로만 필터링 하려는 경우 필터 추가를 클릭 하 여 리소스 유형별로 필터를 추가 합니다.
+1.    =  `Microsoft.AzureArcData/<data service type>` Azure Arc 사용 설정 데이터 서비스의 한 가지 유형 으로만 필터링 하려는 경우 필터 추가를 클릭 하 여 리소스 유형별로 필터를 추가 합니다.
 1. 이제 Azure에 생성 및 업로드 된 모든 리소스의 목록이 표시 됩니다. 청구 측정기가 $0 이므로 비용은 항상 $0이 됩니다.
 
 ## <a name="download-billing-data"></a>청구 데이터 다운로드
@@ -159,5 +159,5 @@ Azure Portal에서 청구 데이터 파일의 유효성을 검사할 수 있습�
 7. 생성 된 폴더 및 파일을 드릴 다운 하 고 생성 된 .csv 파일 중 하나를 클릭 합니다.
 8. **다운로드** 단추를 클릭 하 여 로컬 다운로드 폴더에 파일을 저장 합니다.
 9. Excel과 같은 .csv 파일 뷰어를 사용 하 여 파일을 엽니다.
-10. **리소스 유형의** 행만 표시 하도록 결과를 필터링  =  `Microsoft.AzureData/<data service resource type` 합니다.
+10. **리소스 유형의** 행만 표시 하도록 결과를 필터링  =  `Microsoft.AzureArcData/<data service resource type` 합니다.
 11. 인스턴스를 사용 하는 데 사용 된 시간을 현재 24 시간에서 사용 된 시간 (%)이 표시 됩니다.

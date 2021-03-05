@@ -3,12 +3,12 @@ title: Azure Functions를 사용 하 여 Azure DevTest Labs 확장 Microsoft Doc
 description: Azure Functions를 사용 하 여 Azure DevTest Labs를 확장 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a51f0935540df18cfb8805902bbe2c4ec365291
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203677"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Azure Functions를 사용하여 DevTest Labs 연장
 Azure Functions를 사용 하 여 DevTest Labs에서 이미 지 원하는 것 이상의 추가 시나리오를 지원할 수 있습니다. Azure Functions를 사용 하 여 비즈니스 관련 요구에 맞게 서비스의 기본 제공 기능을 확장할 수 있습니다. 다음 목록에서는 가능한 몇 가지 시나리오를 제공 합니다. 이 문서에서는 이러한 샘플 시나리오 중 하나를 구현 하는 방법을 보여 줍니다.
@@ -36,17 +36,17 @@ Azure Functions를 사용 하 여 DevTest Labs에서 이미 지 원하는 것 �
 ## <a name="how-it-works"></a>작동 방법
 사용자가 DevTest Labs에서 **내부 지원** 페이지를 선택 하면 vm, 랩 소유자 및 지원 연락처에 대 한 정보를 포함 하는 미리 채워진 페이지가 제공 됩니다.  
 
-**새로 고칠 때 여기를 선택** 하세요. 단추를 선택 하면이 페이지는 첫 번째 Azure Function: **updateinternalsupportpage**를 호출 합니다. 함수는 DevTest Labs 정보를 쿼리 한 다음 **내부 지원** 페이지를 새 정보로 다시 작성 합니다.
+**새로 고칠 때 여기를 선택** 하세요. 단추를 선택 하면이 페이지는 첫 번째 Azure Function: **updateinternalsupportpage** 를 호출 합니다. 함수는 DevTest Labs 정보를 쿼리 한 다음 **내부 지원** 페이지를 새 정보로 다시 작성 합니다.
 
-Windows 업데이트 아티팩트가 최근에 적용 되지 않은 모든 Vm에 대해 수행할 수 있는 추가 작업이 있습니다. VM에 Windows 업데이트를 적용 하는 단추가 있습니다. VM에 대 한 ***Windows Update 실행** 단추를 선택 하면 페이지에서 두 번째 Azure Function: **ApplyWindowsUpdateArtifact**를 호출 합니다. 이 함수는 가상 머신이 실행 되 고 있는지 여부를 확인 하 고, 그렇다면 [Windows 업데이트](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) 아티팩트를 직접 적용 합니다.
+Windows 업데이트 아티팩트가 최근에 적용 되지 않은 모든 Vm에 대해 수행할 수 있는 추가 작업이 있습니다. VM에 Windows 업데이트를 적용 하는 단추가 있습니다. VM에 대 한 ***Windows Update 실행** 단추를 선택 하면 페이지에서 두 번째 Azure Function: **ApplyWindowsUpdateArtifact** 를 호출 합니다. 이 함수는 가상 머신이 실행 되 고 있는지 여부를 확인 하 고, 그렇다면 [Windows 업데이트](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) 아티팩트를 직접 적용 합니다.
 
 ## <a name="step-by-step-walkthrough"></a>단계별 안내
 이 섹션에서는 **내부 지원** 페이지를 업데이트 하는 데 필요한 Azure 리소스를 설정 하는 방법에 대 한 단계별 지침을 제공 합니다. 이 연습에서는 DevTest Labs를 확장 하는 한 가지 예를 제공 합니다. 다른 시나리오에이 패턴을 사용할 수 있습니다.
 
 ### <a name="step-1-create-a-service-principal"></a>1 단계: 서비스 주체 만들기 
-첫 번째 단계는 랩을 포함 하는 구독에 대 한 사용 권한이 있는 서비스 주체를 가져오는 것입니다. 서비스 주체는 암호 기반 인증을 사용 해야 합니다. [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)또는 [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)를 사용 하 여이 작업을 수행할 수 있습니다. 사용할 서비스 주체가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
+첫 번째 단계는 랩을 포함 하는 구독에 대 한 사용 권한이 있는 서비스 주체를 가져오는 것입니다. 서비스 주체는 암호 기반 인증을 사용 해야 합니다. [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)또는 [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)를 사용 하 여이 작업을 수행할 수 있습니다. 사용할 서비스 주체가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
 
-서비스 사용자의 **응용 프로그램 id**, **키**및 **테 넌 트 id** 를 적어둡니다. 이 연습의 뒷부분에서 필요 합니다. 
+서비스 사용자의 **응용 프로그램 id**, **키** 및 **테 넌 트 id** 를 적어둡니다. 이 연습의 뒷부분에서 필요 합니다. 
 
 ### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>2 단계: 샘플 다운로드 및 Visual Studio 2019에서 열기
 리포지토리를 복제 하거나 [여기](https://github.com/Azure/azure-devtestlab/archive/master.zip)에서 리포지토리를 다운로드 하 여 [c # Azure Functions 샘플](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) 의 복사본을 로컬로 다운로드 합니다.  
@@ -58,7 +58,7 @@ Windows 업데이트 아티팩트가 최근에 적용 되지 않은 모든 Vm에
 1. 솔루션을 빌드합니다. **빌드** 및 **솔루션 빌드** 메뉴 항목을 차례로 선택 합니다.
 
 ### <a name="step-3-deploy-the-sample-to-azure"></a>3 단계: Azure에 샘플 배포
-Visual Studio의 **솔루션 탐색기** 창에서 **AzureFunctions** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **게시**를 선택 합니다. 마법사에 따라 새 또는 기존 Azure 함수 앱에 대 한 게시를 완료 합니다. Visual Studio를 사용 하 여 Azure 함수 개발 및 배포에 대 한 자세한 내용은 [Visual studio를 사용 하 여 Azure Functions 개발](../azure-functions/functions-develop-vs.md)을 참조 하세요.
+Visual Studio의 **솔루션 탐색기** 창에서 **AzureFunctions** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **게시** 를 선택 합니다. 마법사에 따라 새 또는 기존 Azure 함수 앱에 대 한 게시를 완료 합니다. Visual Studio를 사용 하 여 Azure 함수 개발 및 배포에 대 한 자세한 내용은 [Visual studio를 사용 하 여 Azure Functions 개발](../azure-functions/functions-develop-vs.md)을 참조 하세요.
 
 ![게시 대화 상자](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
 
@@ -78,7 +78,7 @@ Visual Studio의 **솔루션 탐색기** 창에서 **AzureFunctions** 프로젝�
 
 
 ### <a name="step-5--update-application-settings"></a>5 단계: 응용 프로그램 설정 업데이트
-Visual Studio에서 Azure 함수를 게시 한 후 **작업**아래에서 **편집 Azure App Service 설정을** 선택 합니다. 다음 응용 프로그램 설정 (원격)을 업데이트 합니다.
+Visual Studio에서 Azure 함수를 게시 한 후 **작업** 아래에서 **편집 Azure App Service 설정을** 선택 합니다. 다음 응용 프로그램 설정 (원격)을 업데이트 합니다.
 
 - AzureFunctionUrl_ApplyUpdates
 - AzureFunctionUrl_UpdateSupportPage

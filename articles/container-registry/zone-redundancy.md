@@ -4,12 +4,12 @@ description: Azure Container Registry에서 영역 중복성을 사용 하도록
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738109"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203864"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원 력 및 고가용성을 위해 Azure Container Registry에서 영역 중복성 사용
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>영역 사용 레지스트리 만들기
 
-[Az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) 명령을 실행 하 여 프리미엄 서비스 계층에서 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역을 선택 합니다. 다음 예제에서 영역 중복성은 *e미국* 지역에서 사용 하도록 설정 됩니다. `az acr create`자세한 레지스트리 옵션은 명령 도움말을 참조 하세요.
+[Az acr create](/cli/azure/acr#az_acr_create) 명령을 실행 하 여 프리미엄 서비스 계층에서 영역 중복 레지스트리를 만듭니다. Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역을 선택 합니다. 다음 예제에서 영역 중복성은 *e미국* 지역에서 사용 하도록 설정 됩니다. `az acr create`자세한 레지스트리 옵션은 명령 도움말을 참조 하세요.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ az acr create \
 
 ### <a name="create-zone-redundant-replication"></a>영역 중복 복제 만들기
 
-[Az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) 명령을 실행 하 여 *westus2* 과 같은 Azure Container Registry의 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 영역 중복 레지스트리 복제본을 만듭니다. 
+[Az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) 명령을 실행 하 여 *westus2* 과 같은 Azure Container Registry의 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 영역 중복 레지스트리 복제본을 만듭니다. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ az group create --name <resource-group-name> --location eastus
   }
 ```
 
-다음 [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
+다음 [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
 
 * 고유한 레지스트리 이름 또는 매개 변수 없이 템플릿을 배포 하 고 고유한 이름을 만듭니다.
 * 가용성 영역을 지 원하는 복제본의 위치 (예: *westus2* )

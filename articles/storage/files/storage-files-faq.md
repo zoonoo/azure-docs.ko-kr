@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737616"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202640"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -119,26 +119,38 @@ ms.locfileid: "101737616"
 
 * <a id="sizeondisk-versus-size"></a>
   **Azure 파일 동기화를 사용한 후에 Azure 파일에 대한 *디스크 크기* 속성이 *크기* 속성과 일치하지 않는 이유는 무엇인가요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#sizeondisk-versus-size) 참조
+  [클라우드 계층화 Azure 파일 동기화 이해](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)를 참조 하세요.
 
 * <a id="is-my-file-tiered"></a>
   **파일이 계층화되어 있는지 여부를 어떻게 알 수 있나요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#is-my-file-tiered) 참조
+  [계층화 된 파일 Azure 파일 동기화 관리 하는 방법을](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered)참조 하세요.
 
 * <a id="afs-recall-file"></a>**사용하려는 파일이 계층화되어 있습니다. 파일을 로컬에서 사용하기 위해 디스크로 회수할 수 있는 방법은 무엇인가요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-recall-file) 참조
+  [계층화 된 파일 Azure 파일 동기화 관리 하는 방법을](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk)참조 하세요.
 
 * <a id="afs-force-tiering"></a>
   **파일 또는 디렉터리를 강제로 계층화하려면 어떻게 해야 하나요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-force-tiering) 참조
+  [계층화 된 파일 Azure 파일 동기화 관리 하는 방법을](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered)참조 하세요.
 
 * <a id="afs-effective-vfs"></a>
   **볼륨에 여러 서버 엔드포인트가 있는 경우 *사용 가능한 볼륨 공간* 은 어떻게 해석되나요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-effective-vfs) 참조
+  [Azure 파일 동기화 클라우드 계층화 정책 선택](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume)을 참조 하세요.
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **클라우드 계층화를 사용 하지 않도록 설정 했습니다. 서버 끝점 위치에 계층화 된 파일이 있는 이유는 무엇 인가요?**  
-  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-tiering-disabled) 참조
+    계층화 된 파일이 서버 끝점 위치에 있을 수 있는 두 가지 이유는 다음과 같습니다.
+
+    - 기존 동기화 그룹에 새 서버 끝점을 추가 하는 경우 초기 다운로드 모드에 대해 네임 스페이스 첫 번째 옵션 또는 회수 네임 스페이스만 옵션을 선택 하면 파일이 로컬로 다운로드 될 때까지 계층화 된 것으로 표시 됩니다. 이 문제를 방지 하려면 초기 다운로드 모드에 대해 계층화 된 파일 사용 안 됨 옵션을 선택 합니다. 수동으로 파일을 회수 하려면 [invoke-storagesyncfilerecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet을 사용 합니다.
+
+    - 서버 끝점에서 클라우드 계층화를 사용 하도록 설정 하 고 사용 하지 않도록 설정한 경우 파일에 액세스할 때까지 파일이 계층화 된 상태로 유지 됩니다.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **계층화 된 파일이 Windows 탐색기에서 미리 보기 또는 미리 보기를 표시 하지 않는 이유는 무엇 인가요?**  
+    계층화 된 파일의 경우에는 미리 보기와 미리 보기가 서버 끝점에 표시 되지 않습니다. 이 동작은 Windows의 미리 보기 캐시 기능이 오프 라인 특성을 사용 하 여 파일 읽기를 의도적으로 건너뜀 때문에 예상 됩니다. 클라우드 계층화를 사용 하는 경우 계층화 된 파일을 통해 읽으면 해당 파일을 다운로드 (회수) 합니다.
+
+    이 동작은 Azure 파일 동기화에 한정 되지 않으며, Windows 탐색기에는 오프 라인 특성 집합이 있는 모든 파일에 대 한 "회색 X"가 표시 됩니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시 됩니다. 이 동작에 대 한 자세한 설명은 다음을 참조 하세요. [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    계층화 된 파일을 관리 하는 방법에 대 한 질문은 [계층화 된 파일을 관리 하는 방법](storage-sync-how-to-manage-tiered-files.md)을 참조 하세요.
 
 * <a id="afs-files-excluded"></a>
   **어떤 파일과 폴더가 Azure 파일 동기화에서 자동으로 제외되나요?**  
@@ -274,7 +286,7 @@ ms.locfileid: "101737616"
     2.  "Active Directory 도메인 및 트러스트" 콘솔을 엽니다.
     3.  파일 공유에 액세스 하려는 도메인을 마우스 오른쪽 단추로 클릭 한 다음 "트러스트" 탭을 클릭 하 고 보내는 트러스트에서 포리스트 B 도메인을 선택 합니다. 두 포리스트 간에 트러스트를 구성 하지 않은 경우 먼저 트러스트를 설정 해야 합니다.
     4.  "속성 ..."을 클릭 합니다. 그런 다음 "이름 접미사 라우팅"
-    5.  "*. File.core.windows.net" surffix가 표시 되는지 확인 합니다. 그렇지 않은 경우 ' 새로 고침 '을 클릭 합니다.
+    5.  "*. File.core.windows.net" 접미사가 표시 되는지 확인 합니다. 그렇지 않은 경우 ' 새로 고침 '을 클릭 합니다.
     6.  "*. File.core.windows.net"를 선택한 다음 "사용" 및 "적용"을 클릭 합니다.
 
 * <a id=""></a>

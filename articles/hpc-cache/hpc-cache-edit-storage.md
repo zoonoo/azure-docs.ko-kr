@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654510"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204034"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -161,7 +161,7 @@ Azure Portal의 **저장소 대상** 페이지에서 사용 모델을 변경 합
 
 [AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
-[Az hpc-cache-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) 명령을 사용 합니다.
+[Az hpc-cache-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) 명령을 사용 합니다.
 
 Update 명령은 NFS 저장소 대상을 추가 하는 데 사용 하는 명령과 거의 동일 합니다. 자세한 내용과 예제는 [NFS 저장소 대상 만들기](hpc-cache-add-storage.md#create-an-nfs-storage-target) 를 참조 하세요.
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965785"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203626"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 영역을 관리하는 방법
 
@@ -47,7 +47,7 @@ ms.locfileid: "94965785"
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
-콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 을 참조 하세요.
+콘솔 창을 열고 자격 증명을 사용하여 인증합니다. 자세한 내용은 [Azure CLI에서 Azure에 로그인](/cli/azure/authenticate-azure-cli) 을 참조 하세요.
 
 ```
 az login
@@ -85,7 +85,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>도움말 보기
 
-Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  예를 들면 다음과 같습니다.
+Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  다음은 그 예입니다. 
 
 ```azurecli
 az network dns --help

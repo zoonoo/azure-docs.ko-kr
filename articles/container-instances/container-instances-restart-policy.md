@@ -3,12 +3,12 @@ title: 한 번 실행 태스크에 대 한 정책 다시 시작
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49280549fa834b82574f81494f1cf44817d8be5d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798944"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203830"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -56,7 +56,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances는 컨테이너를 시작한 다음, 애플리케이션(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated**으로 설정됩니다. [az container show][az-container-show] 명령을 사용하여 컨테이너의 상태를 확인할 수 있습니다.
+Azure Container Instances는 컨테이너를 시작한 다음, 애플리케이션(또는 이 경우 스크립트)이 종료될 때 컨테이너를 중지합니다. Azure Container Instances가 다시 시작 정책이 `Never` 또는 `OnFailure`인 컨테이너를 중지하면 컨테이너의 상태가 **Terminated** 으로 설정됩니다. [az container show][az-container-show] 명령을 사용하여 컨테이너의 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az container show \
@@ -71,7 +71,7 @@ az container show \
 "Terminated"
 ```
 
-예제 컨테이너의 상태가 *Terminated*로 표시되면 컨테이너 로그를 확인하여 작업 출력을 볼 수 있습니다. 스크립트의 출력을 보려면 [az container logs][az-container-logs] 명령을 실행합니다.
+예제 컨테이너의 상태가 *Terminated* 로 표시되면 컨테이너 로그를 확인하여 작업 출력을 볼 수 있습니다. 스크립트의 출력을 보려면 [az container logs][az-container-logs] 명령을 실행합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -104,7 +104,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

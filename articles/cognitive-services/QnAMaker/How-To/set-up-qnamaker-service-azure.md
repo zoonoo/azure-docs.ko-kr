@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0f03cd536d329a94ec80ef884c380c79b5687289
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7137b26dcf951f98473f0fcc139f563438ce8878
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096616"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203473"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -92,69 +92,6 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
     ![리소스가 새로운 QnA Maker 관리 (미리 보기) 서비스를 만듦](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     _Cognitive Services_ 형식의 리소스에는 _구독_ 키가 있습니다.
-    
----
-
-## <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
-1. [가상 네트워크를 구성](../../cognitive-services-virtual-networks.md?tabs=portal)하 여 공용 액세스에서 인지 서비스 리소스를 보호 합니다.
-2. 공용 액세스에서 App Service (QnA Runtime)를 보호 합니다.
-
-   ##### <a name="add-ips-to-app-service-allowlist"></a>App Service allowlist에 Ip 추가
-
-    * 인지 서비스 Ip의 트래픽만 허용 합니다. 이러한 설정은 서비스 태그에 이미 포함 되어 `CognitiveServicesManagement` 있습니다. 이는 app service를 호출 하 고 Azure Search 서비스를 업데이트 하는 Api (만들기/업데이트 KB)를 작성 하는 데 필요 합니다. [서비스 태그에 대 한 자세한 정보를](../../../virtual-network/service-tags-overview.md) 확인 하세요.
-    * 또한 Bot service, QnA Maker portal (corpnet 일 수 있음) 등의 다른 진입점을 허용 하 고, 예측 "GenerateAnswer" API 액세스를 위한 것입니다.
-    * IP 주소 범위를 allowlist에 추가 하려면 다음 단계를 수행 하세요.
-
-      * [모든 서비스 태그의 IP 범위를](https://www.microsoft.com/download/details.aspx?id=56519)다운로드 합니다.
-      * "CognitiveServicesManagement"의 Ip를 선택 합니다.
-      * App Service 리소스의 네트워킹 섹션으로 이동 하 고 "액세스 제한 구성" 옵션을 클릭 하 여 allowlist에 Ip를 추가 합니다.
-
-    ![인바운드 포트 예외](../media/inbound-ports.png)    
-
-    또한 App Service에 대해 동일한 작업을 수행 하는 자동화 된 스크립트가 있습니다. GitHub에서 allowlist을 [구성 하는 PowerShell 스크립트](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) 를 찾을 수 있습니다. 구독 id, 리소스 그룹 및 실제 App Service 이름을 스크립트 매개 변수로 입력 해야 합니다. 스크립트를 실행 하면 App Service allowlist에 Ip가 자동으로 추가 됩니다.
-
-    ##### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>QnA Maker를 호스트 App Service Environment 구성 App Service
-    ASE (App Service Environment)를 사용 하 여 QnA Maker App Service를 호스트할 수 있습니다. 다음 단계를 따르세요.
-
-    1. App Service Environment 만들고 "external"으로 표시 합니다. 지침은 [자습서](../../../app-service/environment/create-external-ase.md) 를 따르세요.
-    2.  App Service Environment 내에서 App service를 만듭니다.
-        * App service에 대 한 구성을 확인 하 고 응용 프로그램 설정으로 ' PrimaryEndpointKey '를 추가 합니다. ' PrimaryEndpointKey '의 값을 " \<app-name\> -primaryendpointkey"로 설정 해야 합니다. 앱 이름은 App service URL에 정의 됩니다. 예를 들어 App service URL이 "mywebsite.myase.p.azurewebsite.net" 인 경우 응용 프로그램 이름은 "mywebsite"입니다. 이 경우 ' PrimaryEndpointKey '의 값을 "mywebsite-PrimaryEndpointKey"로 설정 해야 합니다.
-        * Azure search 서비스를 만듭니다.
-        * Azure Search 및 앱 설정이 적절히 구성 되어 있는지 확인 합니다. 
-          이 [자습서](../reference-app-service.md?tabs=v1#app-service)를 수행 하세요.
-    3.  App Service Environment 연결 된 네트워크 보안 그룹을 업데이트 합니다.
-        * 요구 사항에 따라 미리 만든 인바운드 보안 규칙을 업데이트 합니다.
-        * 소스를 ' Service Tag '로, 소스 서비스 태그를 ' CognitiveServicesManagement '로 사용 하 여 새 인바운드 보안 규칙을 추가 합니다.
-    4.  QnA Maker 끝점을 위에서 만든 App Service 끝점 (https://mywebsite.myase.p.azurewebsite.net)으로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
-    
-3. VNET 내의 개인 끝점으로 Cognitive Search 구성
-
-    QnA Maker 리소스를 만드는 동안 검색 인스턴스가 생성 되는 경우 Cognitive Search을 강제 적용 하 여 고객의 VNet 내에서 완전히 생성 된 개인 끝점 구성을 지원할 수 있습니다.
-
-    모든 리소스를 동일한 지역에 만들어 개인 끝점을 사용 해야 합니다.
-
-    * QnA Maker 리소스
-    * 새 Cognitive Search 리소스
-    * 새 Virtual Network 리소스
-
-    [Azure Portal](https://portal.azure.com)에서 다음 단계를 완료 합니다.
-
-    1. [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)를 만듭니다.
-    1. 끝점 연결 (데이터)을 _개인_ 으로 설정 하 여 새 Cognitive Search 리소스를 만듭니다. 1 단계에서 만든 QnA Maker 리소스와 동일한 지역에 리소스를 만듭니다. [Cognitive Search 리소스를 만드는](../../../search/search-create-service-portal.md)방법에 대해 자세히 알아보고이 링크를 사용 하 여 [리소스의 만들기 페이지로](https://ms.portal.azure.com/#create/Microsoft.Search)직접 이동 합니다.
-    1. 새 [Virtual Network 리소스](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM)를 만듭니다.
-    1. 이 절차의 1 단계에서 만든 App service 리소스에서 VNET을 구성 합니다.
-        1. 2 단계에서 만든 새 Cognitive Search 리소스에 대해 VNET에 새 DNS 항목을 만듭니다. Cognitive Search IP 주소입니다.
-    1. 2 단계에서 만든 [새 Cognitive Search 리소스에 App service를 연결](#configure-qna-maker-to-use-different-cognitive-search-resource) 합니다. 그런 다음 1 단계에서 만든 원래 Cognitive Search 리소스를 삭제할 수 있습니다.
-
-    [QnA Maker 포털](https://www.qnamaker.ai/)에서 첫 번째 기술 자료를 만듭니다.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
-
-1. [가상 네트워크를 구성](../../cognitive-services-virtual-networks.md?tabs=portal)하 여 공용 액세스에서 인지 서비스 리소스를 보호 합니다.
-2. Azure Search 리소스에 대 한 [개인 끝점을 만듭니다](../reference-private-endpoint.md) .
 
 ---
 

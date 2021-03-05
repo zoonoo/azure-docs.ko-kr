@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545686"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203150"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -24,7 +24,7 @@ ms.locfileid: "100545686"
 
 | 이는 영향을 미칩니까? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| &nbsp;Azure &nbsp; Digital &nbsp; twins에서이는 다음 명령 그룹에 영향을 줍니다.<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | 이는 Cloud Shell의 알려진 문제에 대 한 결과입니다. [*Cloud Shell에서 토큰을 일시적으로 가져오지 못했습니다. 400 클라이언트 오류: 잘못 된 요청*](https://github.com/Azure/azure-cli/issues/11749)입니다.<br><br>이렇게 하면 Azure Digital Twins 인스턴스 인증 토큰과 Cloud Shell의 기본 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 기반 인증에 문제가 발생 합니다. <br><br>이는 또는 명령 그룹의 Azure Digital Twins 명령에는 영향을 주지 않습니다 `az dt` `az dt endpoint` . 다른 유형의 인증 토큰 (Azure Resource Manager 기반)을 사용 하므로 Cloud Shell의 관리 되는 id 인증에 문제가 없는 것입니다. | 이 문제를 해결 하는 한 가지 방법은 `az login` Cloud Shell에서 명령을 다시 실행 하 고 후속 로그인 단계를 완료 하는 것입니다. 그러면 세션이 관리 되는 id 인증 외부로 전환 되어 근본 문제가 방지 됩니다. 그런 다음 명령을 다시 실행할 수 있습니다.<br><br>또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료할 수 있습니다.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Azure Portal 아이콘 표시줄의 Cloud Shell 아이콘 이미지" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다. |
+| &nbsp;Azure &nbsp; Digital &nbsp; twins에서이는 다음 명령 그룹에 영향을 줍니다.<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | 이는 Cloud Shell의 알려진 문제에 대 한 결과입니다. [*Cloud Shell에서 토큰을 일시적으로 가져오지 못했습니다. 400 클라이언트 오류: 잘못 된 요청*](https://github.com/Azure/azure-cli/issues/11749)입니다.<br><br>이렇게 하면 Azure Digital Twins 인스턴스 인증 토큰과 Cloud Shell의 기본 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 기반 인증에 문제가 발생 합니다. <br><br>이는 또는 명령 그룹의 Azure Digital Twins 명령에는 영향을 주지 않습니다 `az dt` `az dt endpoint` . 다른 유형의 인증 토큰 (Azure Resource Manager 기반)을 사용 하므로 Cloud Shell의 관리 되는 id 인증에 문제가 없는 것입니다. | 이 문제를 해결 하는 한 가지 방법은 `az login` Cloud Shell에서 명령을 다시 실행 하 고 후속 로그인 단계를 완료 하는 것입니다. 그러면 세션이 관리 되는 id 인증 외부로 전환 되어 근본 문제가 방지 됩니다. 그런 다음 명령을 다시 실행할 수 있습니다.<br><br>또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료할 수 있습니다.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Azure Portal 아이콘 표시줄의 Cloud Shell 아이콘 이미지" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설치 후 역할 할당이 누락 되었습니다.

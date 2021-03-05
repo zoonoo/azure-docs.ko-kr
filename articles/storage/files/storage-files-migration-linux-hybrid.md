@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879985"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202691"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -39,7 +39,7 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 * Windows Server 2019 인스턴스를 가상 컴퓨터 또는 물리적 서버로 만듭니다. Windows Server 2012 R2는 최소 요구 사항입니다. Windows Server 장애 조치 (failover) 클러스터도 지원 됩니다.
 * DAS (직접 연결 된 저장소)를 프로 비전 하거나 추가 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
-  Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
+  Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
 
   1. 디스크에 맞는 파일 집합을 이동 합니다.
   2. 파일 동기화 및 클라우드 계층화 참여를 허용 합니다.
@@ -98,7 +98,7 @@ Windows Server 대상 폴더에 대 한 첫 번째 로컬 복사본을 실행 �
 
 다음 Robocopy 명령은 Linux Samba 서버 저장소의 파일을 Windows Server 대상 폴더로 복사 합니다. Windows Server에서 Azure 파일 공유와 동기화 합니다. 
 
-Linux Samba 서버에서 파일이 차지 하는 것 보다 더 작은 저장소를 Windows Server 인스턴스에서 프로 비전 한 경우 클라우드 계층화를 구성 했습니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering.md) 는 시작 되 고 이미 동기화 된 계층 파일을 시작 합니다. 클라우드 계층화는 Linux Samba 서버에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 볼륨의 사용 가능한 공간 99%의 정책에 도달 합니다.
+Linux Samba 서버에서 파일이 차지 하는 것 보다 더 작은 저장소를 Windows Server 인스턴스에서 프로 비전 한 경우 클라우드 계층화를 구성 했습니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 는 시작 되 고 이미 동기화 된 계층 파일을 시작 합니다. 클라우드 계층화는 Linux Samba 서버에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 볼륨의 사용 가능한 공간 99%의 정책에 도달 합니다.
 
 사용자가 클라우드 및 계층에 로컬로 동기화 하 여 로컬 디스크 공간이 부족 하 게 되는 것 보다 Robocopy는 파일을 더 빠르게 이동할 수 있습니다. 그러면 Robocopy가 실패 합니다. 문제를 방지 하는 순서 대로 공유를 수행 하는 것이 좋습니다. 예를 들어 모든 공유에 대해 한 번에 Robocopy 작업을 시작 하지 않는 것이 좋습니다. 또는 Windows Server 인스턴스에서 사용 가능한 공간의 현재 크기에 맞는 공유를 이동 하는 것이 좋습니다. Robocopy 작업이 실패 하는 경우 다음 미러/제거 옵션을 사용 하는 한 명령을 언제 든 지 다시 실행할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: cd4bba1bacbdb21a6bff4fcc5d3c1f3b2166ec35
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039985"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202912"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure 부서의 범위 Data Catalog 계보 사용자 가이드
 
@@ -49,6 +49,8 @@ Azure ML과 같은 데이터 시스템 및 Azure 부서의 범위에 계보를 P
 | Power BI | [데이터 집합, 데이터 흐름, 보고서 & 대시보드](register-scan-power-bi-tenant.md)
 
 ## <a name="get-started-with-lineage"></a>계보 시작
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 부서의 범위의 계보에는 데이터 집합 및 프로세스가 포함 됩니다. 데이터 집합은 노드 라고도 하며, 프로세스를 가장자리 라고도 합니다.
 

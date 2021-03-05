@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a36b37c1f0118055d931f785f570a10041e2dbfc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d5a81a56e6b29bb0cad681876b9476809bd9f3cb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965700"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203439"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>개인 DNS 영역 및 레코드를 보호 하는 방법
 
@@ -218,7 +218,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-동일한 명령을 [Azure CLI를 통해 사용](/cli/azure/lock?view=azure-cli-latest#az-lock-create)할 수도 있습니다.
+동일한 명령을 [Azure CLI를 통해 사용](/cli/azure/lock#az-lock-create)할 수도 있습니다.
 
 ```azurecli-interactive
 # Lock a DNS zone

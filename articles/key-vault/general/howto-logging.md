@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108741"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204017"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>키 자격 증명 모음 로깅을 사용하는 방법
 
 하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 기능에 대 한 자세한 내용은 [Key Vault 로깅](logging.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "98108741"
 
 키 로깅을 설정 하는 첫 번째 단계는 주요 자격 증명 모음을 포함 하는 구독에 연결 하는 것입니다. 계정과 연결 된 구독이 여러 개 있는 경우에 특히 중요 합니다.
 
-Azure CLI를 사용 하 여 [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) 명령을 사용 하 여 모든 구독을 확인 한 다음 [az account set](/cli/azure/account?view=azure-cli-latest#az_account_set)를 사용 하 여 하나에 연결할 수 있습니다.
+Azure CLI를 사용 하 여 [az account list](/cli/azure/account#az_account_list) 명령을 사용 하 여 모든 구독을 확인 한 다음 [az account set](/cli/azure/account#az_account_set)를 사용 하 여 하나에 연결할 수 있습니다.
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 또한 저장소 계정 이름을 제공 해야 합니다. 저장소 계정 이름은 길이가 3 자에서 24 자 사이이 고 숫자 및 소문자만 사용 해야 합니다.  마지막으로 "Standard_LRS" SKU의 저장소 계정을 만듭니다.
 
-Azure CLI를 사용 하 여 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) 명령을 사용 합니다.
+Azure CLI를 사용 하 여 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ $sa.id
 
 ## <a name="obtain-your-key-vault-resource-id"></a>주요 자격 증명 모음 리소스 ID 가져오기
 
-[CLI 빠른](quick-create-cli.md) 시작 및 [PowerShell 빠른](quick-create-powershell.md)시작에서 고유 이름으로 키를 만들었습니다.  아래 단계에서 해당 이름을 다시 사용 합니다.  키 자격 증명 모음의 이름을 기억할 수 없는 경우 Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) 명령 또는 Azure PowerShell [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) cmdlet을 사용 하 여 나열할 수 있습니다.
+[CLI 빠른](quick-create-cli.md) 시작 및 [PowerShell 빠른](quick-create-powershell.md)시작에서 고유 이름으로 키를 만들었습니다.  아래 단계에서 해당 이름을 다시 사용 합니다.  키 자격 증명 모음의 이름을 기억할 수 없는 경우 Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) 명령 또는 Azure PowerShell [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) cmdlet을 사용 하 여 나열할 수 있습니다.
 
-키 자격 증명 모음 이름을 사용 하 여 리소스 ID를 찾습니다.  Azure CLI를 사용 하 여 [az keyvault show](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show) 명령을 사용 합니다.
+키 자격 증명 모음 이름을 사용 하 여 리소스 ID를 찾습니다.  Azure CLI를 사용 하 여 [az keyvault show](/cli/azure/keyvault#az_keyvault_show) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 ## <a name="enable-logging-using-azure-powershell"></a>Azure PowerShell을 통해 로깅 사용
 
-Key Vault에 대 한 로깅을 사용 하도록 설정 하려면 저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) 명령 또는 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) cmdlet을 사용 합니다.
+Key Vault에 대 한 로깅을 사용 하도록 설정 하려면 저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings) 명령 또는 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) cmdlet을 사용 합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 필요에 따라 로그에 대 한 보존 정책을 설정 하 여 오래 된 로그가 지정 된 시간 후에 자동으로 삭제 되도록 할 수 있습니다. 예를 들어 90 일 보다 오래 된 로그를 자동으로 삭제 하는 보존 정책을 설정할 수 있습니다.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
 
 Key Vault 로그는 제공 된 저장소 계정의 "insights-로그-auditevent" 컨테이너에 저장 됩니다. 로그를 보려면 Blob을 다운로드해야 합니다.
 
-먼저 컨테이너의 모든 blob을 나열 합니다.  Azure CLI를 사용 하 여 [az storage blob list](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list) 명령을 사용 합니다.
+먼저 컨테이너의 모든 blob을 나열 합니다.  Azure CLI를 사용 하 여 [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Azure CLI 명령 또는 Azure PowerShell cmdlet의 출력에서 볼 수 있듯�
 
 동일한 스토리지 계정을 사용하여 여러 리소스에 대한 로그를 수집할 수 있으므로 Blob 이름의 전체 리소스 ID는 필요한 Blob에 액세스하거나 다운로드하는 데 유용합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-Azure CLI를 사용 하 여 [az storage blob download](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download) 명령을 사용 하 고 blob의 이름과 결과를 저장 하려는 파일의 경로를 전달 합니다.
+Azure CLI를 사용 하 여 [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 명령을 사용 하 고 blob의 이름과 결과를 저장 하려는 파일의 경로를 전달 합니다.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

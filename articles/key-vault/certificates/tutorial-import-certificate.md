@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 626d7f161d23e6105eea0ca160cd2c9be0ed0ea0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b7b15c1c4952f6e0a606b1ed46f1588c536b4ae2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935940"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204085"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>자습서: Azure Key Vault에서 인증서 가져오기
 
@@ -104,9 +104,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-[매개 변수](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)에 대해 자세히 알아봅니다.
+[매개 변수](/cli/azure/keyvault/certificate#az-keyvault-certificate-import)에 대해 자세히 알아봅니다.
 
-인증서를 가져온 후 [인증서 표시](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)를 사용하여 인증서를 볼 수 있습니다.
+인증서를 가져온 후 [인증서 표시](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)를 사용하여 인증서를 볼 수 있습니다.
 
 
 ```azurecli

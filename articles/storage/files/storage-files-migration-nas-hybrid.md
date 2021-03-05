@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882266"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202674"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용 하 여 NAS (네트워크 연결 저장소)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -45,7 +45,7 @@ Azure Files [마이그레이션 개요 문서](storage-files-migration-overview.
 * 최소 2012R2-가상 머신 또는 물리적 서버로 Windows Server 2019을 만듭니다. Windows Server 장애 조치 (failover) 클러스터도 지원 됩니다.
 * 직접 연결 된 저장소 (지원 되지 않는 NAS와 비교 하 여 DAS)를 프로 비전 하거나 추가 합니다.
 
-    Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 NAS 어플라이언스에서 현재 사용 중인 것 보다 작을 수 있습니다.
+    Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 NAS 어플라이언스에서 현재 사용 중인 것 보다 작을 수 있습니다.
     그러나 이후 단계에서 더 큰 NAS 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
 
     1. 디스크에 맞는 파일 집합을 이동 합니다.
@@ -105,7 +105,7 @@ Windows Server 대상 폴더에 대 한 첫 번째 로컬 복사본을 실행 �
 
 다음 RoboCopy 명령은 NAS 저장소의 파일을 Windows Server 대상 폴더로 복사 합니다. Windows Server가 Azure 파일 공유와 동기화 합니다. 
 
-NAS 어플라이언스에서 파일을 차지 하는 것 보다 더 작은 저장소를 Windows 서버에서 프로 비전 한 경우 클라우드 계층화를 구성 했습니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering.md) 는 이미 동기화 된 및 계층 파일에서 시작 됩니다. 클라우드 계층화는 NAS 어플라이언스에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 99%의 사용 가능한 볼륨 공간에 도달 합니다.
+NAS 어플라이언스에서 파일을 차지 하는 것 보다 더 작은 저장소를 Windows 서버에서 프로 비전 한 경우 클라우드 계층화를 구성 했습니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 는 이미 동기화 된 및 계층 파일에서 시작 됩니다. 클라우드 계층화는 NAS 어플라이언스에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 99%의 사용 가능한 볼륨 공간에 도달 합니다.
 따라서 RoboCopy는 클라우드 및 계층에 로컬로 동기화 하 여 로컬 디스크 공간이 부족 하 게 되는 것 보다 더 빠르게 파일을 이동할 수 있습니다. RoboCopy가 실패 합니다. 이를 방지 하는 순서 대로 공유를 수행 하는 것이 좋습니다. 예를 들어 모든 공유에 대해 RoboCopy 작업을 동시에 시작 하거나 Windows Server에서 현재 사용 가능한 공간의 크기에 맞는 공유만 이동 하는 것은 몇 가지입니다.
 
 ```console
@@ -208,13 +208,13 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> NAS의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든** _ 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률 (20%)에 더 적합 한 값으로 조정 합니다. 
+> 모든 데이터를 NAS에서 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든***  동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 거의 액세스 하지 않는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우에만 보관 데이터를 보관 하 고 나머지는 다른 시나리오에 대 한 저장소 공간을 예약 하는 것입니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 _ "Volume full" *로 실패 하는 것입니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다. 목표는 볼륨에서 99%의 사용 가능한 공간에 도달 하는 것입니다.
+실행할 수 있는 가장 가능성이 높은 문제는 RoboCopy 명령이 Windows Server 쪽에서 *"볼륨 전체"* 와 함께 실패 하는 것입니다. 클라우드 계층화는 1 시간 마다 한 번씩 작동 하 여 로컬 Windows Server 디스크에서 콘텐츠를 이동할 동기화 했습니다. 목표는 볼륨에서 99%의 사용 가능한 공간에 도달 하는 것입니다.
 
 동기화 진행률 및 클라우드 계층화의 디스크 공간을 확보 합니다. Windows 서버의 파일 탐색기에서이를 확인할 수 있습니다.
 

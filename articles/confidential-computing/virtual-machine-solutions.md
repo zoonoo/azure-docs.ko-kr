@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560847"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204187"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure 가상 머신의 솔루션
 
@@ -29,7 +29,7 @@ Azure 기밀 컴퓨팅 가상 머신은 클라우드에서 처리되는 동안 �
 
 ### <a name="current-available-sizes-and-regions"></a>현재 사용 가능한 크기 및 지역
 
-사용 가능한 지역 및 가용성 영역에서 일반적으로 사용할 수 있는 모든 기밀 계산 VM 크기의 목록을 얻으려면 [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)에서 다음 명령을 실행합니다.
+사용 가능한 지역 및 가용성 영역에서 일반적으로 사용할 수 있는 모든 기밀 계산 VM 크기의 목록을 얻으려면 [Azure CLI](/cli/azure/install-azure-cli-windows)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az vm list-skus `

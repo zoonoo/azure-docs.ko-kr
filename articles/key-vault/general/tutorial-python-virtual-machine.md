@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285301"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203541"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>자습서: Python에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -66,7 +66,7 @@ az login
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Azure 포털](../../virtual-machines/windows/quick-create-portal.md) |
 
-Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser* 라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh* )에 배치하는 데 사용됩니다. 
+Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser* 라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh*)에 배치하는 데 사용됩니다. 
 
 ```azurecli-interactive
 az vm create \
@@ -81,7 +81,7 @@ az vm create \
 
 ## <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
 
-Azure CLI [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 명령을 사용하여 가상 머신의 시스템 할당 ID를 만듭니다.
+Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) 명령을 사용하여 가상 머신의 시스템 할당 ID를 만듭니다.
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

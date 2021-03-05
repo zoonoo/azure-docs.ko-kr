@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988375"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202760"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Azure 부서의 범위의 사용자 지정 분류 
 
@@ -91,24 +91,50 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 Id의 인스턴
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="새 분류 규칙 추가" border="true":::
 
-5. **새 분류 규칙** 대화 상자가 열립니다. 새 규칙에 대 한 구성 정보를 입력 합니다.
+5. **새 분류 규칙** 대화 상자가 열립니다. 필드를 입력 하 고 **정규식 규칙** 또는 **사전 규칙** 을 만들지 여부를 결정 합니다.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="새 분류 규칙 만들기" border="true":::
+    |필드     |설명  |
+    |---------|---------|
+    |속성   |    필수 사항입니다. 최대 크기는 100 자입니다.    |
+    |설명      |선택 사항입니다. 최대 크기는 256 자입니다.    |
+    |분류 이름    | 필수 요소. 드롭다운 목록에서 분류 이름을 선택 하 여 일치 하는 항목이 있는 경우 스캐너에 적용 하도록 지시 합니다.        |
+    |시스템 상태   |  필수 요소. 옵션은 사용 또는 사용 안 함입니다. 기본값은 Enabled입니다.    |
 
-|필드     |설명  |
-|---------|---------|
-|속성   |    필수 사항입니다. 최대 크기는 100 자입니다.    |
-|설명      |선택 사항입니다. 최대 크기는 256 자입니다.    |
-|분류 이름    | 필수 요소. 드롭다운 목록에서 분류 이름을 선택 하 여 일치 하는 항목이 있는 경우 스캐너에 적용 하도록 지시 합니다.        |
-|시스템 상태   |  필수 요소. 옵션은 사용 또는 사용 안 함입니다. 기본값은 Enabled입니다.    |
-|데이터 패턴    |선택 사항입니다. 데이터 필드에 저장 된 데이터를 나타내는 정규식입니다. 한도가 매우 많습니다. 이전 예제에서 데이터 패턴은 단어를 문자 그대로 하는 직원 ID를 테스트 합니다 `Employee{GUID}` .  |
-|열 패턴    |선택 사항입니다. 일치 시키려는 열 이름을 나타내는 정규식입니다. 한도가 매우 많습니다.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="새 분류 규칙 만들기" border="true":::
 
-**데이터 패턴** 에는 두 가지 옵션이 있습니다.
+### <a name="creating-a-regular-expression-rule"></a>정규식 규칙 만들기
 
-- **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행 하기 전에 열에 있어야 하는 고유한 데이터 값의 총 수입니다. 제안 값은 8입니다. 이 값은 2에서 32 사이의 범위로 수동으로 조정할 수 있습니다. 스캐너에서 정확 하 게 분류 하기 위한 충분 한 데이터가 열에 포함 되어 있는지 확인 하려면 시스템에서이 값이 필요 합니다. 예를 들어 값이 1 인 여러 행이 포함 된 열은 분류 되지 않습니다. 한 행에 값이 포함 되 고 나머지 행은 null 값을 포함 하는 열도 분류 되지 않습니다. 여러 패턴을 지정 하는 경우이 값이 각 패턴에 적용 됩니다.
+1. 정규식 규칙을 만드는 경우 다음 화면이 표시 됩니다. 필요에 따라 규칙에 대해 **제안 된 regex 패턴을 생성** 하는 데 사용 되는 파일을 업로드할 수 있습니다.
 
-- **최소 일치 임계값**:이 설정을 사용 하 여 스캐너가 적용 되도록 스캐너에서 찾아야 하는 열에 있는 데이터 값의 최소 비율을 설정할 수 있습니다. 제안 값은 60%입니다. 이 설정에 주의 해야 합니다. 60% 미만의 수준을 줄이면 카탈로그에 거짓-긍정 분류를 도입할 수 있습니다. 여러 데이터 패턴을 지정 하는 경우이 설정은 사용 하지 않도록 설정 되 고 값은 60%로 고정 됩니다.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="새 regex 규칙 만들기" border="true":::
+
+1. 제안 된 regex 패턴을 생성 하기로 결정 한 경우 파일을 업로드 한 후 제안 된 패턴 중 하나를 선택 하 고 **패턴에 추가** 를 클릭 하 여 제안 된 데이터 및 열 패턴을 사용 합니다. 제안 된 패턴을 조정 하거나 파일을 업로드 하지 않고 사용자 고유의 패턴을 입력할 수도 있습니다.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="제안 된 regex 생성" border="true":::
+
+    |필드     |설명  |
+    |---------|---------|
+    |데이터 패턴    |선택 사항입니다. 데이터 필드에 저장 된 데이터를 나타내는 정규식입니다. 한도가 매우 많습니다. 이전 예제에서 데이터 패턴은 단어를 문자 그대로 하는 직원 ID를 테스트 합니다 `Employee{GUID}` .  |
+    |열 패턴    |선택 사항입니다. 일치 시키려는 열 이름을 나타내는 정규식입니다. 한도가 매우 많습니다.          |
+
+1. **데이터 패턴** 에는 다음과 같은 두 가지 임계값을 설정할 수 있습니다.
+
+    - **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행 하기 전에 열에 있어야 하는 고유한 데이터 값의 총 수입니다. 제안 값은 8입니다. 이 값은 2에서 32 사이의 범위로 수동으로 조정할 수 있습니다. 스캐너에서 정확 하 게 분류 하기 위한 충분 한 데이터가 열에 포함 되어 있는지 확인 하려면 시스템에서이 값이 필요 합니다. 예를 들어 값이 1 인 여러 행이 포함 된 열은 분류 되지 않습니다. 한 행에 값이 포함 되 고 나머지 행은 null 값을 포함 하는 열도 분류 되지 않습니다. 여러 패턴을 지정 하는 경우이 값이 각 패턴에 적용 됩니다.
+
+    - **최소 일치 임계값**:이 설정을 사용 하 여 스캐너가 적용 되도록 스캐너에서 찾아야 하는 열에 있는 고유한 데이터 값의 최소 비율을 설정할 수 있습니다. 제안 값은 60%입니다. 이 설정에 주의 해야 합니다. 60% 미만의 수준을 줄이면 카탈로그에 거짓-긍정 분류를 도입할 수 있습니다. 여러 데이터 패턴을 지정 하는 경우이 설정은 사용 하지 않도록 설정 되 고 값은 60%로 고정 됩니다.
+
+1. 이제 규칙을 확인 하 고 **만들** 수 있습니다.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="만들기 전에 규칙 확인" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>사전 규칙 만들기
+
+1.  사전 규칙을 만드는 경우 다음 화면이 표시 됩니다. 단일 열에서 만드는 분류에 대해 가능한 모든 값이 포함 된 파일을 업로드 합니다.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="사전 규칙 만들기" border="true":::
+
+1.  사전이 생성 된 후에는 고유한 일치 및 최소 일치 임계값을 조정 하 고 규칙을 제출할 수 있습니다.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="사전 규칙 만들기" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

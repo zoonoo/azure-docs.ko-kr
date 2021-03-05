@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716128"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202963"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Azure 디지털 쌍 이벤트 라우팅 (미리 보기)에 대 한 관리 id 사용: Azure CLI
 
@@ -40,7 +40,7 @@ Azure Digital Twins 인스턴스에서 시스템 할당 id를 사용 하도록 �
 
 이 섹션에서는 현재 만들어지는 Azure Digital Twins 인스턴스에서 시스템 관리 id를 사용 하도록 설정 하는 방법에 대해 알아봅니다. 
 
-`--assign-identity`인스턴스를 만드는 데 사용 되는 명령에 매개 변수를 추가 하 여이 작업을 수행 `az dt create` 합니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) 또는 [Azure Digital twins 인스턴스를 설정 하기 위한 일반 지침](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)을 참조 하세요.
+`--assign-identity`인스턴스를 만드는 데 사용 되는 명령에 매개 변수를 추가 하 여이 작업을 수행 `az dt create` 합니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) 또는 [Azure Digital twins 인스턴스를 설정 하기 위한 일반 지침](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)을 참조 하세요.
 
 시스템 관리 id를 사용 하 여 인스턴스를 만들려면  `--assign-identity` 다음과 같이 매개 변수를 추가 합니다.
 
@@ -97,9 +97,9 @@ Azure Digital Twins에서 라우팅에 대해 지원 되는 끝점, 경로 및 �
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-이 명령을 사용 하 여 역할 할당에 대 한 추가 예제는 [ **az dt create** reference 설명서](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create)를 참조 하세요.
+이 명령을 사용 하 여 역할 할당에 대 한 추가 예제는 [ **az dt create** reference 설명서](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create)를 참조 하세요.
 
-또는 [**az role 할당**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) 명령 그룹을 사용 하 여 역할을 만들고 관리할 수도 있습니다. 이는 create 명령을 사용 하 여 역할 할당을 그룹화 하지 않으려는 추가 시나리오를 지 원하는 데 사용할 수 있습니다.
+또는 [**az role 할당**](/cli/azure/role/assignment) 명령 그룹을 사용 하 여 역할을 만들고 관리할 수도 있습니다. 이는 create 명령을 사용 하 여 역할 할당을 그룹화 하지 않으려는 추가 시나리오를 지 원하는 데 사용할 수 있습니다.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Id 기반 인증을 사용 하 여 끝점 만들기
 
@@ -108,7 +108,7 @@ Azure Digital Twins 인스턴스에 대해 시스템 관리 id를 설정 하 고
 >[!NOTE]
 > 키 기반 id로 이미 만들어진 끝점을 편집 하 여 id 기반 인증으로 변경할 수는 없습니다. 끝점을 처음 만들 때 인증 유형을 선택 해야 합니다.
 
-이 작업은 `--auth-type` `az dt endpoint create` 끝점을 만드는 데 사용 되는 명령에 매개 변수를 추가 하 여 수행 됩니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) 또는 [Azure 디지털 쌍 끝점 설정에 대 한 일반 지침](how-to-manage-routes-apis-cli.md#create-the-endpoint)을 참조 하세요.
+이 작업은 `--auth-type` `az dt endpoint create` 끝점을 만드는 데 사용 되는 명령에 매개 변수를 추가 하 여 수행 됩니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt/endpoint/create) 또는 [Azure 디지털 쌍 끝점 설정에 대 한 일반 지침](how-to-manage-routes-apis-cli.md#create-the-endpoint)을 참조 하세요.
 
 Id 기반 인증을 사용 하는 끝점을 만들려면 `IdentityBased` 매개 변수를 사용 하 여 인증 유형을 지정 합니다  `--auth-type` . 아래 예제에서는 Event Hubs 끝점에 대 한이를 보여 줍니다.
 

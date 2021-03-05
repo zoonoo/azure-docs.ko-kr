@@ -7,24 +7,23 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ef138210f951fceac21301d37a2805405ed0ecef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d1cbd314861a4d5079a5c8e5213f45c7164344f0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736596"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204170"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
 이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview-v1.md) 의 지침을 Azure Data Factory 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다.
 콘텐츠는 Azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 Azure Data Factory에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure Data Factory에 적용할 수 없는 **컨트롤** 은 제외 되었습니다.
 
- 
 Azure Data Factory 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보려면 [전체 Azure Data Factory 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -42,7 +41,7 @@ Self-Hosted IRs는 온-프레미스 컴퓨터 또는 가상 네트워크 내의 
 
 - [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [가상 네트워크에 Azure-SSIS IR 연결](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration)
+- [가상 네트워크에 Azure-SSIS IR 연결](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)
 
 - [Azure 개인 링크 이해](../private-link/private-link-overview.md)
 
@@ -491,7 +490,7 @@ Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 VM에
 
 ## <a name="data-protection"></a>데이터 보호
 
-자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -867,11 +866,11 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Firewall이란?](../firewall/overview.md)
 
-- [Azure 웹 애플리케이션 방화벽이란?](../web-application-firewall/overview.md)
+- [Azure 웹 응용 프로그램 방화벽 이란?](../web-application-firewall/overview.md)
 
 - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
-- [Azure Virtual Network란?](../virtual-network/virtual-networks-overview.md)
+- [Azure Virtual Network 이란?](../virtual-network/virtual-networks-overview.md)
 
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 
@@ -1156,7 +1155,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 ## <a name="incident-response"></a>사고 대응
 
-자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조하세요.
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1244,5 +1243,5 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
+- [Azure Security 벤치 마크 V2 개요](/azure/security/benchmarks/overview) 를 참조 하세요.
 - [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.

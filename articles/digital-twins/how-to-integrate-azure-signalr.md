@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041504"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203898"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -88,7 +88,7 @@ Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTS
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="SignalR 인스턴스에 대 한 키 페이지를 표시 하는 Azure Portal의 스크린샷 기본 연결 문자열 옆의 ' 클립보드로 복사 ' 아이콘이 강조 표시 됩니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 함수의 앱 설정에 Azure SignalR **연결 문자열** 을 추가 합니다. 또한 자리 표시자를 [자습서 필수 구성 요소](how-to-integrate-azure-signalr.md#prerequisites)에서 리소스 그룹 및 app service/함수 앱 이름으로 바꿉니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)되어 있는 경우 로컬로 실행할 수 있습니다.
+1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 함수의 앱 설정에 Azure SignalR **연결 문자열** 을 추가 합니다. 또한 자리 표시자를 [자습서 필수 구성 요소](how-to-integrate-azure-signalr.md#prerequisites)에서 리소스 그룹 및 app service/함수 앱 이름으로 바꿉니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli)되어 있는 경우 로컬로 실행할 수 있습니다.
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -189,7 +189,7 @@ npm start
 
 이 문서에서 만든 리소스가 더 이상 필요 하지 않은 경우 다음 단계에 따라 삭제 합니다. 
 
-Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 리소스 그룹을 제거 하면 제거 됩니다.
+Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 리소스 그룹을 제거 하면 제거 됩니다.
 * Azure Digital Twins 인스턴스 (종단 간 자습서에서)
 * IoT hub 및 허브 장치 등록 (종단 간 자습서에서)
 * event grid 토픽 및 관련 구독

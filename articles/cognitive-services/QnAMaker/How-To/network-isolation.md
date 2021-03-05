@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e9b45c72e5fb4cbd9e548727faf8946e3e5ba8f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8fe8c07866b23e5d990b71bfc9cd556c338634d3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102125088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203371"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
@@ -57,6 +57,8 @@ App service allowlist에 Ip를 추가 하 여 액세스를 제한 하거나 QnA 
    1. [모든 서비스 태그의 IP 범위를](https://www.microsoft.com/download/details.aspx?id=56519)다운로드 합니다.
    2. "CognitiveServicesManagement"의 Ip를 선택 합니다.
    3. App Service 리소스의 네트워킹 섹션으로 이동 하 고 "액세스 제한 구성" 옵션을 클릭 하 여 allowlist에 Ip를 추가 합니다.
+
+    ![인바운드 포트 예외](../media/inbound-ports.png)
 
 또한 App Service에 대해 동일한 작업을 수행 하는 자동화 된 스크립트가 있습니다. GitHub에서 allowlist을 [구성 하는 PowerShell 스크립트](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) 를 찾을 수 있습니다. 구독 id, 리소스 그룹 및 실제 App Service 이름을 스크립트 매개 변수로 입력 해야 합니다. 스크립트를 실행 하면 App Service allowlist에 Ip가 자동으로 추가 됩니다.
 

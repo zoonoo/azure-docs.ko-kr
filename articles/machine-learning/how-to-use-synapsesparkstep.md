@@ -10,18 +10,18 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f52686f991e3d14a8cde82c602b182874305f27d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184103"
+ms.locfileid: "102203694"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Machine learning 파이프라인 (미리 보기)에서 Apache Spark (Azure Synapse Analytics에서 구동)를 사용 하는 방법
 
 이 문서에서는 Azure Synapse Analytics에서 제공 하는 Apache Spark 풀을 Azure Machine Learning 파이프라인의 데이터 준비 단계에 대 한 계산 대상으로 사용 하는 방법에 대해 알아봅니다. 단일 파이프라인이 특정 단계에 적합 한 계산 리소스 (예: 데이터 준비 또는 학습)를 사용할 수 있는 방법을 알아봅니다. Spark 단계에 대 한 데이터를 준비 하는 방법과 다음 단계에 전달 하는 방법을 확인할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -90,8 +90,6 @@ synapse_compute.wait_for_completion()
 구성이 만들어지면 `ComputeTarget` `Workspace` `ComputeTargetAttachConfiguration` machine learning 작업 영역 내에서 계산을 참조 하려는, 및 이름을 전달 하 여 기계 학습을 만듭니다. 에 대 한 호출은 `ComputeTarget.attach()` 비동기 이므로 샘플은 호출이 완료 될 때까지 차단 됩니다.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>연결 된 `SynapseSparkStep` Apache Spark 풀을 사용 하는 만들기
-
-[Apache spark 풀의 샘플 노트북 Spark 작업](https://github.com/azure/machinelearningnotebooks) 은 간단한 기계 학습 파이프라인을 정의 합니다. 먼저 노트북은 `synapse_compute` 이전 단계에서 정의 된에서 구동 하는 데이터 준비 단계를 정의 합니다. 그런 다음, 노트북은 계산 대상에서 제공 하는 학습 단계를 학습에 더 적합 하 게 정의 합니다. 샘플 노트북은 Titanic 생존 데이터베이스를 사용 하 여 데이터 입력 및 출력을 보여 줍니다. 실제로 데이터를 정리 하거나 예측 모델을 만들지 않습니다. 이 샘플에 대 한 실제 교육은 없으므로 학습 단계에서는 저렴 한 CPU 기반 계산 리소스를 사용 합니다.
 
 데이터 `DatasetConsumptionConfig` 는 테이블 형식 데이터 또는 파일 집합을 포함할 수 있는 개체를 통해 기계 학습 파이프라인으로 흐릅니다. 데이터는 종종 작업 영역 데이터 저장소의 blob 저장소에 있는 파일에서 제공 됩니다. 다음 코드는 machine learning 파이프라인에 대 한 입력을 만들기 위한 몇 가지 일반적인 코드를 보여 줍니다.
 
@@ -228,7 +226,7 @@ step_2 = PythonScriptStep(script_name="train.py",
 
 모든 단계를 정의한 후 파이프라인을 만들고 실행할 수 있습니다. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])

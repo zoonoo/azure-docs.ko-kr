@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: edb6748009ef9660c020c77e411ce55f60b45791
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 3cb5dd88572fda7a939aa529a5372d72575ffdbb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124604"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203286"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -43,8 +43,8 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | 개인 링크 리소스 유형/하위 리소스 |사설 DNS 영역 이름 | 공용 DNS 영역 전달자 |
 |---|---|---|
 | Azure Automation/(Microsoft Automation/automationAccounts)/Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
-| Azure SQL Database (Microsoft .Sql/servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
-| Azure Synapse Analytics (Microsoft .Sql/servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Azure SQL Database (Microsoft .Sql/servers)/sqlServer | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft .Sql/servers)/sqlServer  | privatelink.database.windows.net | database.windows.net |
 | 저장소 계정 (Microsoft Storage/storageAccounts)/Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | 저장소 계정 (Microsoft Storage/storageAccounts)/테이블 (테이블, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | 저장소 계정 (Microsoft Storage/storageAccounts)/Queue (queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |

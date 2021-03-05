@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784900"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202487"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지를 빌드하고 배포 합니다.
 
@@ -227,7 +227,7 @@ Debug\pnpbridge_bin.exe
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- Azure 리소스를 관리 하기 위해 WSL 2 환경에 설치 된 [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) 입니다.
+- Azure 리소스를 관리 하기 위해 WSL 2 환경에 설치 된 [Azure CLI](/cli/azure/install-azure-cli-apt) 입니다.
 
   > [!TIP]
   > 원하는 경우 `az` CLI가 사전 설치 된 [Azure Cloud Shell](https://shell.azure.com/) 에서 명령을 실행할 수 있습니다.

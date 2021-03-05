@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbaa83b38482203655f7de98cd5bbfec3ef7a870
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417859"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202946"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기): Azure CLI
 
@@ -41,7 +41,7 @@ ms.locfileid: "100417859"
 
 ### <a name="add-a-private-endpoint-to-an-existing-instance"></a>기존 인스턴스에 개인 끝점 추가
 
-개인 끝점을 만들어 Azure Digital Twins 인스턴스에 연결 하려면 [**az network private-endpoint create**](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create) 명령을 사용 합니다. 매개 변수에 정규화 된 ID를 사용 하 여 Azure Digital Twins 인스턴스를 식별 `--private-connection-resource-id` 합니다.
+개인 끝점을 만들어 Azure Digital Twins 인스턴스에 연결 하려면 [**az network private-endpoint create**](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) 명령을 사용 합니다. 매개 변수에 정규화 된 ID를 사용 하 여 Azure Digital Twins 인스턴스를 식별 `--private-connection-resource-id` 합니다.
 
 다음은 명령을 사용 하 여 필수 매개 변수만 있는 개인 끝점을 만드는 예제입니다.
 
@@ -49,25 +49,25 @@ ms.locfileid: "100417859"
 az network private-endpoint create --connection-name {private_link_service_connection} -n {name_for_private_endpoint} -g {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
 ```
 
-필수 및 선택적 매개 변수의 전체 목록과 더 많은 개인 끝점 생성 예제는 [ **az network private 엔드포인트 create** reference 설명서](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create)를 참조 하세요.
+필수 및 선택적 매개 변수의 전체 목록과 더 많은 개인 끝점 생성 예제는 [ **az network private 엔드포인트 create** reference 설명서](/cli/azure/network/private-endpoint#az_network_private_endpoint_create)를 참조 하세요.
 
 ### <a name="manage-private-endpoint-connections-on-the-instance"></a>인스턴스의 개인 끝점 연결 관리
 
-Azure Digital Twins 인스턴스에 대해 개인 끝점을 만든 후에는 [**az dt network 개인 끝점 연결**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 인스턴스와 관련 된 개인 끝점 **연결** 을 계속 관리할 수 있습니다. 작업에는 다음 항목이 포함됩니다.
+Azure Digital Twins 인스턴스에 대해 개인 끝점을 만든 후에는 [**az dt network 개인 끝점 연결**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection) 명령을 사용 하 여 인스턴스와 관련 된 개인 끝점 **연결** 을 계속 관리할 수 있습니다. 작업에는 다음 항목이 포함됩니다.
 * 개인 끝점 연결 표시
 * 개인 끝점 연결의 상태를 설정 합니다.
 * 개인 끝점 연결을 삭제 합니다.
 * 인스턴스에 대 한 모든 개인 끝점 연결 나열
 
-자세한 내용 및 예제는 [ **az dt network private-endpoint** reference 설명서](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest&preserve-view=true)를 참조 하세요.
+자세한 내용 및 예제는 [ **az dt network private-endpoint** reference 설명서](/cli/azure/ext/azure-iot/dt/network/private-endpoint)를 참조 하세요.
 
 ### <a name="manage-other-private-link-information-on-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스에서 다른 개인 링크 정보 관리
 
-[**Az dt network Private Link**](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 인스턴스의 개인 링크 상태에 대 한 추가 정보를 가져올 수 있습니다. 작업에는 다음 항목이 포함됩니다.
+[**Az dt network Private Link**](/cli/azure/ext/azure-iot/dt/network/private-link) 명령을 사용 하 여 인스턴스의 개인 링크 상태에 대 한 추가 정보를 가져올 수 있습니다. 작업에는 다음 항목이 포함됩니다.
 * Azure Digital Twins 인스턴스와 연결 된 개인 링크 나열
 * 인스턴스와 연결 된 개인 링크를 표시 합니다.
 
-자세한 내용 및 예제는 [ **az dt network private link** reference 설명서](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true)를 참조 하세요.
+자세한 내용 및 예제는 [ **az dt network private link** reference 설명서](/cli/azure/ext/azure-iot/dt/network/private-link)를 참조 하세요.
 
 ## <a name="disable--enable-public-network-access-flags"></a>공용 네트워크 액세스 플래그 사용/사용 안 함
 
@@ -79,7 +79,7 @@ Azure Digital Twins 인스턴스에 대해 개인 끝점을 만든 후에는 [**
 
 ### <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-Azure CLI에서 `--public-network-access` 명령에 매개 변수를 추가 하 여 공용 네트워크 액세스를 사용 하지 않도록 설정 하거나 사용 하도록 설정할 수 있습니다 `az dt create` . 이 명령을 사용 하 여 새 인스턴스를 만들 수도 있지만이 명령을 사용 하 여 이미 존재 하는 인스턴스의 이름을 제공 하 여 기존 인스턴스의 속성을 편집할 수 있습니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) 또는 [Azure Digital twins 인스턴스를 설정 하기 위한 일반 지침](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)을 참조 하세요.
+Azure CLI에서 `--public-network-access` 명령에 매개 변수를 추가 하 여 공용 네트워크 액세스를 사용 하지 않도록 설정 하거나 사용 하도록 설정할 수 있습니다 `az dt create` . 이 명령을 사용 하 여 새 인스턴스를 만들 수도 있지만이 명령을 사용 하 여 이미 존재 하는 인스턴스의 이름을 제공 하 여 기존 인스턴스의 속성을 편집할 수 있습니다. 이 명령에 대 한 자세한 내용은 해당 [참조 설명서](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) 또는 [Azure Digital twins 인스턴스를 설정 하기 위한 일반 지침](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)을 참조 하세요.
 
 Azure Digital Twins 인스턴스에 대해 공용 네트워크 액세스를 **사용 하지 않도록 설정** 하려면 `--public-network-access` 다음과 같이 매개 변수를 사용 합니다.
 

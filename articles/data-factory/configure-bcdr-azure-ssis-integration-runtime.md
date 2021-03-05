@@ -11,13 +11,13 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: 73c27204ee8730c95d1cbeecf8777767173e73d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 2744d51b6d68ed494050be10a9f0e4d1f59cdc49
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710256"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204068"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>BCDR (비즈니스 연속성 및 재해 복구)를 위한 Azure SSIS 통합 런타임 구성 
 
@@ -35,13 +35,19 @@ BCDR의 경우 Azure SQL Database/Managed Instance 장애 조치 (failover) 그�
 
 Azure SQL Database 장애 조치 (failover) 그룹과 동기화 된 상태에서 작동 하는 이중 대기 Azure-SSIS IR 쌍을 구성 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal/ADF UI를 사용 하 여 주 지역에서 SSISDB를 호스트 하기 위해 주 Azure SQL Database 서버와 함께 새 Azure-SSIS IR을 만들 수 있습니다. 기본 Azure SQL Database 서버에서 호스트 하는 SSIDB에 이미 연결 되어 있는 기존 Azure-SSIS IR가 있고 계속 실행 중인 경우 다시 구성 하려면 먼저 중지 해야 합니다. 이는 기본 Azure-SSIS IR입니다. **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 기본 및 보조 AZURE-SSIS IRs의 쌍을 식별 하는 이름을 입력 합니다. 기본 Azure-SSIS IR 만들기를 완료 하면 읽기/쓰기 액세스를 사용 하 여 사용자를 대신 하 여 생성 되는 기본 SSISDB가 시작 되 고 연결 됩니다. 방금 다시 구성한 경우 다시 시작 해야 합니다.
+1. Azure Portal/ADF UI를 사용 하 여 주 지역에서 SSISDB를 호스트 하기 위해 주 Azure SQL Database 서버와 함께 새 Azure-SSIS IR을 만들 수 있습니다. 기본 Azure SQL Database 서버에서 호스트 하는 SSIDB에 이미 연결 되어 있는 기존 Azure-SSIS IR가 있고 계속 실행 중인 경우 다시 구성 하려면 먼저 중지 해야 합니다. 이는 기본 Azure-SSIS IR입니다.
+
+   **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 기본 및 보조 AZURE-SSIS IRs의 쌍을 식별 하는 이름을 입력 합니다. 기본 Azure-SSIS IR 만들기를 완료 하면 읽기/쓰기 액세스를 사용 하 여 사용자를 대신 하 여 생성 되는 기본 SSISDB가 시작 되 고 연결 됩니다. 방금 다시 구성한 경우 다시 시작 해야 합니다.
 
 1. Azure Portal를 사용 하 여 주 SSISDB가 주 Azure SQL Database 서버의 **개요** 페이지에 만들어졌는지 여부를 확인할 수 있습니다. 만들어진 후에는 [기본 및 보조 Azure SQL Database 서버에 대 한 장애 조치 (failover) 그룹을 만들고](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) **장애 조치 (failover) 그룹** 페이지에서 SSISDB를 추가할 수 있습니다. 장애 조치 (failover) 그룹을 만든 후에는 보조 Azure SQL Database 서버의 **개요** 페이지에서 읽기 전용 액세스 권한으로 주 SSISDB가 보조 데이터베이스에 복제 되었는지 여부를 확인할 수 있습니다.
 
-1. Azure Portal/ADF UI를 사용 하 여 보조 지역에서 SSISDB를 호스트 하는 보조 Azure SQL Database 서버를 사용 하 여 다른 Azure-SSIS IR을 만들 수 있습니다. 이는 보조 Azure-SSIS IR입니다. 전체 BCDR에 종속 된 모든 리소스 (예: 사용자 지정 설치 스크립트/파일을 저장 하기 위한 Azure Storage, 오케스트레이션/예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 생성 되었는지 확인 합니다. **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 대해 동일한 이름을 입력 하 여 기본 및 보조 AZURE-SSIS IRs 쌍을 식별 합니다. 보조 Azure-SSIS IR 만들기를 완료 하면 시작 되 고 보조 SSISDB에 연결 됩니다.
+1. Azure Portal/ADF UI를 사용 하 여 보조 지역에서 SSISDB를 호스트 하는 보조 Azure SQL Database 서버를 사용 하 여 다른 Azure-SSIS IR을 만들 수 있습니다. 이는 보조 Azure-SSIS IR입니다. 전체 BCDR에 종속 된 모든 리소스 (예: 사용자 지정 설치 스크립트/파일을 저장 하기 위한 Azure Storage, 오케스트레이션/예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 생성 되었는지 확인 합니다.
 
-1. SSISDB 장애 조치 (failover)가 발생할 때 가동 중지 시간이 거의 발생 하지 않도록 하려면 두 Azure SSIS IRs를 실행 합니다. 주 Azure-SSIS IR만 기본 SSISDB에 액세스 하 여 패키지 실행 로그를 가져오고 실행할 수 있을 뿐만 아니라 패키지 실행 로그를 기록 하 고 실행할 수 있으며, 보조 Azure-SSIS IR는 Azure Files와 같은 다른 위치에 배포 된 패키지에 대해서만 동일한 작업을 수행할 수 있습니다. 실행 비용을 최소화 하려면 보조 Azure-SSIS IR를 만든 후 중지할 수 있습니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs에서 역할을 교환 합니다. 기본 Azure-SSIS IR 중지 된 경우 다시 시작 해야 합니다. 사용 되는 가상 네트워크 및 삽입 방법에 삽입 되었는지 여부에 따라 실행 하는 데 5 분 또는 약 20-30 분이 소요 됩니다.
+   **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 대해 동일한 이름을 입력 하 여 기본 및 보조 AZURE-SSIS IRs 쌍을 식별 합니다. 보조 Azure-SSIS IR 만들기를 완료 하면 시작 되 고 보조 SSISDB에 연결 됩니다.
+
+1. SSISDB 장애 조치 (failover)가 발생할 때 가동 중지 시간이 거의 발생 하지 않도록 하려면 두 Azure SSIS IRs를 실행 합니다. 주 Azure-SSIS IR만 기본 SSISDB에 액세스 하 여 패키지 실행 로그를 가져오고 실행할 수 있을 뿐만 아니라 패키지 실행 로그를 기록 하 고 실행할 수 있으며, 보조 Azure-SSIS IR는 Azure Files와 같은 다른 위치에 배포 된 패키지에 대해서만 동일한 작업을 수행할 수 있습니다.
+
+   실행 비용을 최소화 하려면 보조 Azure-SSIS IR를 만든 후 중지할 수 있습니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs에서 역할을 교환 합니다. 기본 Azure-SSIS IR 중지 된 경우 다시 시작 해야 합니다. 사용 되는 가상 네트워크 및 삽입 방법에 삽입 되었는지 여부에 따라 실행 하는 데 5 분 또는 약 20-30 분이 소요 됩니다.
 
 1. [오케스트레이션/일정 예약 실행을 위해 ADF를 사용](./how-to-invoke-ssis-package-ssis-activity.md)하는 경우 SSIS 패키지 작업 및 연결 된 트리거를 실행 하는 모든 관련 ADF 파이프라인이 처음에는 트리거를 사용 하지 않도록 설정 하 여 보조 ADF로 복사 되었는지 확인 합니다. SSISDB 장애 조치 (failover)가 발생 하는 경우이를 사용 하도록 설정 해야 합니다.
 
@@ -53,9 +59,13 @@ Azure SQL Managed Instance 장애 조치 (failover) 그룹과 동기화 할 수 
 
 1. Azure Portal를 사용 하 여 기본 Azure SQL Managed Instance의 **장애 조치 (Failover) 그룹** 페이지에서 [기본 및 보조 Azure sql 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만들](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) 수 있습니다.
 
-1. Azure Portal/ADF UI를 사용 하 여 기본 지역에서 SSISDB를 호스트 하는 기본 Azure SQL Managed Instance를 사용 하 여 새 Azure-SSIS IR을 만들 수 있습니다. 기본 Azure SQL Managed Instance에서 호스트 하는 SSIDB에 이미 연결 되어 있는 기존 Azure-SSIS IR 이미 실행 중인 경우 다시 구성 하려면 먼저 중지 해야 합니다. 이는 기본 Azure-SSIS IR입니다. **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 기본 및 보조 AZURE-SSIS IRs의 쌍을 식별 하는 이름을 입력 합니다. 기본 Azure-SSIS IR 만들기를 완료 하면 읽기/쓰기 액세스를 사용 하 여 사용자를 대신 하 여 생성 되는 기본 SSISDB가 시작 되 고 연결 됩니다. 방금 다시 구성한 경우 다시 시작 해야 합니다. 보조 Azure SQL Managed Instance의 **개요** 페이지에 있는 읽기 전용 액세스 권한으로 주 SSISDB가 보조 데이터베이스에 복제 되었는지 여부를 확인할 수도 있습니다.
+1. Azure Portal/ADF UI를 사용 하 여 기본 지역에서 SSISDB를 호스트 하는 기본 Azure SQL Managed Instance를 사용 하 여 새 Azure-SSIS IR을 만들 수 있습니다. 기본 Azure SQL Managed Instance에서 호스트 하는 SSIDB에 이미 연결 되어 있는 기존 Azure-SSIS IR 이미 실행 중인 경우 다시 구성 하려면 먼저 중지 해야 합니다. 이는 기본 Azure-SSIS IR입니다.
 
-1. Azure Portal/ADF UI를 사용 하 여 보조 지역에서 SSISDB를 호스트 하는 보조 Azure SQL Managed Instance를 사용 하 여 다른 Azure-SSIS IR을 만들 수 있습니다. 이는 보조 Azure-SSIS IR입니다. 전체 BCDR에 종속 된 모든 리소스 (예: 사용자 지정 설치 스크립트/파일을 저장 하기 위한 Azure Storage, 오케스트레이션/예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 생성 되었는지 확인 합니다. **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 대해 동일한 이름을 입력 하 여 기본 및 보조 AZURE-SSIS IRs 쌍을 식별 합니다. 보조 Azure-SSIS IR 만들기를 완료 하면 시작 되 고 보조 SSISDB에 연결 됩니다.
+   **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 기본 및 보조 AZURE-SSIS IRs의 쌍을 식별 하는 이름을 입력 합니다. 기본 Azure-SSIS IR 만들기를 완료 하면 읽기/쓰기 액세스를 사용 하 여 사용자를 대신 하 여 생성 되는 기본 SSISDB가 시작 되 고 연결 됩니다. 방금 다시 구성한 경우 다시 시작 해야 합니다. 보조 Azure SQL Managed Instance의 **개요** 페이지에 있는 읽기 전용 액세스 권한으로 주 SSISDB가 보조 데이터베이스에 복제 되었는지 여부를 확인할 수도 있습니다.
+
+1. Azure Portal/ADF UI를 사용 하 여 보조 지역에서 SSISDB를 호스트 하는 보조 Azure SQL Managed Instance를 사용 하 여 다른 Azure-SSIS IR을 만들 수 있습니다. 이는 보조 Azure-SSIS IR입니다. 전체 BCDR에 종속 된 모든 리소스 (예: 사용자 지정 설치 스크립트/파일을 저장 하기 위한 Azure Storage, 오케스트레이션/예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 생성 되었는지 확인 합니다.
+
+   **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 대해 동일한 이름을 입력 하 여 기본 및 보조 AZURE-SSIS IRs 쌍을 식별 합니다. 보조 Azure-SSIS IR 만들기를 완료 하면 시작 되 고 보조 SSISDB에 연결 됩니다.
 
 1. Azure SQL Managed Instance는 DMK (데이터베이스 마스터 키)를 사용 하 여 데이터를 암호화 하 여 SSISDB와 같은 데이터베이스의 중요 한 데이터를 보호할 수 있습니다. DMK 자체는 기본적으로 SMK (서비스 마스터 키)를 사용 하 여 암호화 됩니다. 작성 시점에 Azure SQL Managed Instance 장애 조치 (failover) 그룹은 기본 Azure SQL Managed Instance에서 SMK을 복제 하지 않으므로 장애 조치 (failover)가 발생 한 후에는 보조 Azure SQL Managed Instance에서 SSISDB를 암호 해독할 수 없습니다. 이 문제를 해결 하려면 DMK에 대 한 암호 암호화를 추가 하 여 보조 Azure SQL Managed Instance에서 암호를 해독할 수 있습니다. SSMS를 사용 하 여 다음 단계를 완료 합니다.
 
@@ -71,7 +81,9 @@ Azure SQL Managed Instance 장애 조치 (failover) 그룹과 동기화 할 수 
       EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
       ```
 
-1. SSISDB 장애 조치 (failover)가 발생할 때 가동 중지 시간이 거의 발생 하지 않도록 하려면 두 Azure SSIS IRs를 실행 합니다. 주 Azure-SSIS IR만 기본 SSISDB에 액세스 하 여 패키지 실행 로그를 가져오고 실행할 수 있을 뿐만 아니라 패키지 실행 로그를 기록 하 고 실행할 수 있으며, 보조 Azure-SSIS IR는 Azure Files와 같은 다른 위치에 배포 된 패키지에 대해서만 동일한 작업을 수행할 수 있습니다. 실행 비용을 최소화 하려면 보조 Azure-SSIS IR를 만든 후 중지할 수 있습니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs에서 역할을 교환 합니다. 기본 Azure-SSIS IR 중지 된 경우 다시 시작 해야 합니다. 사용 되는 가상 네트워크 및 삽입 방법에 삽입 되었는지 여부에 따라 실행 하는 데 5 분 또는 약 20-30 분이 소요 됩니다.
+1. SSISDB 장애 조치 (failover)가 발생할 때 가동 중지 시간이 거의 발생 하지 않도록 하려면 두 Azure SSIS IRs를 실행 합니다. 주 Azure-SSIS IR만 기본 SSISDB에 액세스 하 여 패키지 실행 로그를 가져오고 실행할 수 있을 뿐만 아니라 패키지 실행 로그를 기록 하 고 실행할 수 있으며, 보조 Azure-SSIS IR는 Azure Files와 같은 다른 위치에 배포 된 패키지에 대해서만 동일한 작업을 수행할 수 있습니다.
+
+   실행 비용을 최소화 하려면 보조 Azure-SSIS IR를 만든 후 중지할 수 있습니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs에서 역할을 교환 합니다. 기본 Azure-SSIS IR 중지 된 경우 다시 시작 해야 합니다. 사용 되는 가상 네트워크 및 삽입 방법에 삽입 되었는지 여부에 따라 실행 하는 데 5 분 또는 약 20-30 분이 소요 됩니다.
 
 1. [오케스트레이션/일정 예약 실행을 위해 AZURE SQL Managed Instance 에이전트를 사용](./how-to-invoke-ssis-package-managed-instance-agent.md)하는 경우 처음에는 일정을 사용 하지 않도록 설정 하 여 해당 작업 단계 및 관련 일정이 포함 된 모든 관련 SSIS 작업이 보조 Azure SQL Managed Instance에 복사 되었는지 확인 합니다. SSMS를 사용 하 여 다음 단계를 완료 합니다.
 

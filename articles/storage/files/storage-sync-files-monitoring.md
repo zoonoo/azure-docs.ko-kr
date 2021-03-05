@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576783"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202504"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -111,7 +111,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 - 포털의 **서버 끝점 상태** 및 **동기화 작업** 은 서버의 원격 분석 이벤트 로그에 기록 되는 동기화 이벤트 (ID 9102 및 9302)를 기반으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 동기화 세션이 실패 한 경우 현재 동기화 세션이 진행 중인 동안 (파일이 적용 되는 한) 서버 끝점은 여전히 포털에서 **정상** 상태로 표시 됩니다. 동기화 세션이 완료 되 면 이벤트 ID 9302이 동기화 진행률 이벤트 및 이벤트 ID 9102가 기록 됩니다.  자세한 내용은 [동기화 상태](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) 및 [동기화 진행률](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)을 참조 하세요. 서버 끝점 상태에 **오류가** 표시 되거나 **작업이 없는** 경우 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) 에서 지침을 참조 하세요.
 - 포털에서 **동기화 되지 않는 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9121을 기반으로 합니다. 이 이벤트는 동기화 세션이 완료 되 면 각 항목당 오류에 대해 기록 됩니다. 항목별 오류를 해결 하려면 [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
-- 포털에서 **클라우드 계층화 효율성** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. 클라우드 계층화 효율성을 위해 제공 되는 데이터는 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9071을 기반으로 합니다. 자세한 내용은 [클라우드 계층화 개요](./storage-sync-cloud-tiering.md)를 참조하세요.
+- 포털에서 **클라우드 계층화 효율성** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. 클라우드 계층화 효율성을 위해 제공 되는 데이터는 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9071을 기반으로 합니다. 자세히 알아보려면 [클라우드 계층화 모니터링](./storage-sync-monitor-cloud-tiering.md)을 참조 하세요.
 - 포털에서 계층화 및 **회수 오류가 발생** **하지 않은 파일** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. **계층화 되지 않은 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 id 9003을 기반으로 하며, **회수 오류** 는 이벤트 id 9006을 기반으로 합니다. 계층 또는 회수에 실패 한 파일을 조사 하려면 [계층에 실패 한 파일의 문제를 해결 하는 방법](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) 및 [회수에 실패 한 파일의 문제를 해결](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled)하는 방법을 참조 하세요.
 
 ### <a name="metric-charts"></a>메트릭 차트

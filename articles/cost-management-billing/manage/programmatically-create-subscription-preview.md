@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844338"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202997"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -165,7 +165,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| 요소 이름  | 필수 | Type   | Description                                                                                               |
+| 요소 이름  | 필수 | Type   | 설명                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | 예      | String | 구독의 표시 이름입니다. 지정되지 않은 경우 “Microsoft Azure 엔터프라이즈”와 같은 제품의 이름으로 설정됩니다.                                 |
 | `offerType`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
@@ -183,7 +183,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| 요소 이름  | 필수 | Type   | Description |
+| 요소 이름  | 필수 | Type   | 설명 |
 |---------------|----------|--------|----|
 | `Name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈*)으로 설정됩니다. |
 | `OfferType`   | 예      | String | 구독 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
@@ -198,13 +198,13 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 먼저 `az extension add --name subscription`을 실행하여 미리 보기 확장을 설치합니다.
 
-아래 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true) 명령에서 `<enrollmentAccountObjectId>`를 첫 번째 단계에서 복사한 `name`(```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)으로 바꿔서 실행합니다. 소유자를 지정하려면 [사용자 개체 ID를 가져오는 방법](grant-access-to-create-subscription.md#userObjectId)을 참조하세요.
+아래 [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create) 명령에서 `<enrollmentAccountObjectId>`를 첫 번째 단계에서 복사한 `name`(```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)으로 바꿔서 실행합니다. 소유자를 지정하려면 [사용자 개체 ID를 가져오는 방법](grant-access-to-create-subscription.md#userObjectId)을 참조하세요.
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| 요소 이름  | 필수 | Type   | Description |
+| 요소 이름  | 필수 | Type   | 설명 |
 |---------------|----------|--------|------------|
 | `display-name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈*)으로 설정됩니다.|
 | `offer-type`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
@@ -213,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 이메일 주소입니다. `owner-object-id` 대신 매개 변수를 사용할 수 있습니다.|
 | `owner-spn` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `owner-object-id` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true)이 서비스 주체에 있어야 합니다.|
 
-모든 매개 변수의 전체 목록을 보려면 [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true)를 참조하세요.
+모든 매개 변수의 전체 목록을 보려면 [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create)를 참조하세요.
 
 ---
 
