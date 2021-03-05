@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726396"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216386"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -596,7 +596,7 @@ HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하�
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-이 구성으로 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_ 를 지원할 수 있습니다.
+이 구성을 통해 함수 코드는 주소, _범주_ 및 _id_ 의 두 매개 변수를 지원할 수 있습니다. URL에서 경로 매개 변수가 토큰화 되는 방법에 대 한 자세한 내용은 [ASP.NET Core 라우팅](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference)을 참조 하세요.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

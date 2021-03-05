@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095020"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215462"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -306,7 +306,7 @@ Traffic Manager 프로필의 Azure 지역 외부에서 호스팅되는 외부 �
 
 Azure Web Apps의 경우 여러 구독에서 엔드포인트를 사용하는 것은 가능하지 않습니다. Azure Web Apps은 Web Apps와 함께 사용되는 모든 사용자 지정 도메인 이름을 단일 구독 내에서만 사용할 것을 요구합니다. 여러 구독에서 동일한 도메인 이름을 가지고 Web Apps를 사용하는 것은 불가능합니다.
 
-다른 엔드포인트 유형의 경우 Traffic Manager를 둘 이상의 구독에서 엔드포인트와 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 엔드포인트를 Traffic Manager에 추가할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 이러한 권한을 부여할 수 있습니다. [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) 또는 [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create)를 사용 하 여 다른 구독의 끝점을 추가할 수 있습니다.
+다른 엔드포인트 유형의 경우 Traffic Manager를 둘 이상의 구독에서 엔드포인트와 함께 사용할 수 있습니다. Traffic Manager 프로필을 구성하는 사용자에게 엔드포인트에 대한 읽기 권한이 있는 한, Resource Manager에서 모든 구독의 엔드포인트를 Traffic Manager에 추가할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 이러한 권한을 부여할 수 있습니다. [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) 또는 [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create)를 사용 하 여 다른 구독의 끝점을 추가할 수 있습니다.
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?
 

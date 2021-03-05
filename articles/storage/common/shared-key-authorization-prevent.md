@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591537"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215581"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대 한 공유 키 권한 부여 방지 (미리 보기)
 
@@ -22,12 +22,8 @@ Azure Storage 계정에 대 한 모든 보안 요청에는 권한이 있어야 �
 
 저장소 계정에 대 한 공유 키 인증을 허용 하지 않을 경우 Azure Storage는 계정 액세스 키로 권한이 부여 된 해당 계정에 대 한 모든 후속 요청을 거부 합니다. Azure AD로 인증 된 보안 요청만 성공 합니다. Azure AD 사용에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 
-> [!WARNING]
-> Azure Storage는 Blob 및 큐 저장소에 대 한 요청에 대해서만 Azure AD 인증을 지원 합니다. 저장소 계정에 대 한 공유 키를 사용 하 여 권한 부여를 허용 하지 않는 경우 공유 키 인증을 사용 하는 Azure Files 또는 테이블 저장소에 대 한 요청이 실패 합니다. Azure Portal는 항상 공유 키 인증을 사용 하 여 파일 및 테이블 데이터에 액세스 하기 때문에 저장소 계정에 대 한 공유 키를 사용 하 여 권한 부여를 허용 하지 않는 경우에는 Azure Portal의 파일 또는 테이블 데이터에 액세스할 수 없습니다.
->
-> 공유 키를 통해 계정에 대 한 액세스를 허용 하지 않거나 Azure Files 또는 테이블 저장소 작업을 지 원하는 저장소 계정에이 설정을 적용 하지 않으려면 Azure Files 또는 테이블 저장소 데이터를 별도의 저장소 계정으로 마이그레이션하는 것이 좋습니다.
->
-> 저장소 계정에 대 한 공유 키 액세스를 허용 하지 않으면 Azure Files에 대 한 SMB 연결에 영향을 주지 않습니다.
+> [!IMPORTANT]
+> 공유 키 권한 부여를 허용 하지 않는 것은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 이 문서에서는 공유 키 인증을 사용 하 여 보낸 요청을 검색 하는 방법 및 저장소 계정에 대 한 공유 키 인증을 수정 하는 방법을 설명 합니다. 미리 보기에 등록 하는 방법을 알아보려면 [미리 보기 정보](#about-the-preview)를 참조 하세요.
 
@@ -133,11 +129,23 @@ Azure Portal에서 저장소 계정에 대 한 공유 키 인증을 허용 하�
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="계정에 대 한 공유 키 액세스를 허용 하지 않는 방법을 보여 주는 스크린샷":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+PowerShell을 사용 하 여 저장소 계정에 대 한 공유 키 인증을 허용 하지 않으려면 [Az. Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 3.4.0 이상을 설치 합니다. 다음으로 새 또는 기존 저장소 계정에 대해 **Allowsharedkeyaccess** 속성을 구성 합니다.
+
+다음 예제에서는 PowerShell을 사용 하 여 기존 저장소 계정에 대 한 공유 키로 액세스를 허용 하지 않도록 하는 방법을 보여 줍니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI 된 저장소 계정에 대 한 공유 키 인증을 허용 하지 않으려면 Azure CLI 버전 2.9.1 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로 새 또는 기존 저장소 계정에 대해 **Allowsharedkeyaccess** 속성을 구성 합니다.
 
-다음 예에서는 Azure CLI를 사용 하 여 **Allowsharedkeyaccess** 속성을 설정 하는 방법을 보여 줍니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 예에서는 Azure CLI를 사용 하 여 기존 저장소 계정에 대 한 공유 키로 액세스를 허용 하지 않도록 하는 방법을 보여 줍니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -236,12 +244,17 @@ resources
 | Azure IoT Hub | 지원됨. 자세한 내용은 [가상 네트워크에 대 한 지원 IoT Hub](../../iot-hub/virtual-network-support.md)를 참조 하세요. |
 | Azure Cloud Shell | Azure Cloud Shell은 Azure Portal의 통합 셸입니다. Azure Cloud Shell는 저장소 계정의 Azure 파일 공유에서 지 속성 파일을 호스트 합니다. 이러한 파일은 해당 저장소 계정에 대해 공유 키 권한이 허용 되지 않는 경우 액세스할 수 없게 됩니다. 자세한 내용은 [연결 Microsoft Azure 파일 저장소](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage)를 참조 하세요. <br /><br /> 공유 키 액세스가 허용 되지 않는 저장소 계정을 관리 하기 위해 Azure Cloud Shell에서 명령을 실행 하려면 먼저 Azure RBAC를 통해 이러한 계정에 필요한 사용 권한이 부여 되었는지 확인 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요. |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>전환 Azure Files 및 테이블 저장소 작업
+
+Azure Storage는 Blob 및 큐 저장소에 대 한 요청에 대해서만 Azure AD 인증을 지원 합니다. 저장소 계정에 대 한 공유 키를 사용 하 여 권한 부여를 허용 하지 않는 경우 공유 키 인증을 사용 하는 Azure Files 또는 테이블 저장소에 대 한 요청이 실패 합니다. Azure Portal는 항상 공유 키 인증을 사용 하 여 파일 및 테이블 데이터에 액세스 하기 때문에 저장소 계정에 대 한 공유 키를 사용 하 여 권한 부여를 허용 하지 않는 경우에는 Azure Portal의 파일 또는 테이블 데이터에 액세스할 수 없습니다.
+
+공유 키를 통해 계정에 대 한 액세스를 허용 하지 않거나 Azure Files 또는 테이블 저장소 작업을 지 원하는 저장소 계정에이 설정을 적용 하지 않으려면 Azure Files 또는 테이블 저장소 데이터를 별도의 저장소 계정으로 마이그레이션하는 것이 좋습니다.
+
+저장소 계정에 대 한 공유 키 액세스를 허용 하지 않으면 Azure Files에 대 한 SMB 연결에 영향을 주지 않습니다.
+
 ## <a name="about-the-preview"></a>미리 보기 정보
 
 공유 키 권한 부여를 허용 하지 않는 미리 보기는 Azure 공용 클라우드에서 사용할 수 있습니다. Azure Resource Manager 배포 모델만 사용 하는 저장소 계정에 대해서만 지원 됩니다. Azure Resource Manager 배포 모델을 사용 하는 저장소 계정에 대 한 자세한 내용은 [저장소 계정 유형](storage-account-overview.md#types-of-storage-accounts)을 참조 하세요.
-
-> [!IMPORTANT]
-> 이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다.
 
 미리 보기에는 다음 섹션에서 설명 하는 제한 사항이 포함 되어 있습니다.
 

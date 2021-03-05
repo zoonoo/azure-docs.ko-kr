@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 719dcecf3091e03fbcbe6a82d4c618f54243c4e1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183984"
+ms.locfileid: "102215343"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -83,9 +83,12 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL 용 Azure DB-단일 서버 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 퍼블릭 미리 보기 |
+|   | Oracle | ✔ | 공개 미리 보기 (2021 년 5 월 1 일 이후에는 사용 되지 않음) |
 | **Azure DB for PostgreSQL-Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
+
+> [!IMPORTANT]
+> "Oracle to Azure Database for PostgreSQL" 마이그레이션 시나리오 (현재 미리 보기 상태)는 2021 년 5 월 1 일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공 하 고 Oracle에서 PostgreSQL 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle to Azure Database for PostgreSQL migration guide] (를 참조 하세요 https://aka.ms/OracletoPGguide) .
 
 
 ## <a name="next-steps"></a>다음 단계

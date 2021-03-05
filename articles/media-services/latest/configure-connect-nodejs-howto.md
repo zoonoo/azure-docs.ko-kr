@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: ab0113823bb5751828a71a9afd8c474091272e16
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724628"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216431"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-Node.js
 
@@ -224,13 +224,13 @@ main().catch((err) => {
 
 ## <a name="see-also"></a>참고 항목
 
-- [Node.jsAzure Media Services 모듈에 대 한 참조 설명서 ](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
-- [개발자 Node.js JavaScript & Azure](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Node.jsAzure Media Services 모듈에 대 한 참조 설명서 ](/javascript/api/overview/azure/media-services)
+- [개발자 Node.js JavaScript & Azure](/azure/developer/javascript/)
 - [@azure/azure-sdk-for-jsGit 허브 리포지토리의 Media Services 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Node.js 개발자를 위한 Azure 패키지 설명서](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Node.js 개발자를 위한 Azure 패키지 설명서](/javascript/api/overview/azure/)
 - [Media Services 개념](concepts-overview.md)
 - [npm 설치 @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [개발자 Node.js JavaScript & Azure](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [개발자 Node.js JavaScript & Azure](/azure/developer/javascript/)
 - [리포지토리의 소스 코드 Media Services @azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>다음 단계

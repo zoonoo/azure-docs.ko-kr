@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934396"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215734"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -154,9 +154,9 @@ _**표 1: 데이터 용어 사전**_
 | NormalizedUsage | 정규화된 사용량 | 고객이 배포한 자산에서 사용 되는 총 표준화 된 사용 단위입니다.<br>정규화된 사용 시간은 VM 코어 수를 고려하도록 정규화된 사용 시간으로 정의됩니다([VM 코어 수] x [가공되지 않은 사용량 시간])으로 계산됩니다. "SHAREDCORE"로 지정된 VM은 [VM 코어 수] 승수로 1/6(0.1666)을 사용합니다. |
 | MeteredUsage | 요금제 사용량 | 고객이 배포한 제품을 사용 하 여 구성 된 미터에서 사용 하는 총 사용량 단위입니다. |
 | RawUsage | 원시 사용량 | 고객이 배포한 자산에서 사용 하는 총 원시 사용 단위입니다.<br>원시 사용 시간은 Vm이 사용 단위를 기준으로 실행 되는 시간의 양에 따라 정의 됩니다. |
-| 예상 요금 소계(CC) | 고객 통화의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 열은 가격 (CC)과 사용 수량입니다. |
-| 예상 요금 소계(PC) | 지급 Currency의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 이 열은 예상 가격 (PC) 및 사용 수량을 곱한 것입니다. |
-||||
+| 예상 요금 소계(CC) | 고객 통화의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 열은 가격 (참조) 및 원시 사용의 곱입니다. |
+| 예상 요금 소계(PC) | 지급 Currency의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 이 열은 예상 가격 (PC) 및 원시 사용의 곱입니다. |
+|
 
 ### <a name="usage-page-filters"></a>사용 페이지 필터
 

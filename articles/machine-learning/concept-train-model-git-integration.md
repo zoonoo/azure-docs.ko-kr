@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 53459ad766ffcf156d2906a38666a14c4883b5e8
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099475"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215938"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -123,7 +123,7 @@ SSH는 메시지 가로채기 ( [man-in-the-middle) 공격](/previous-versions/w
 
 Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. `git`개발 환경에서이 명령을 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
-| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | Description |
+| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | 설명 |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
@@ -192,7 +192,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-자세한 내용은 [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) reference 설명서를 참조 하세요.
+자세한 내용은 [az ml run](/cli/azure/ext/azure-cli-ml/ml/run) reference 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

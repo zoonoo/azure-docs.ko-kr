@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 96640e55d1ad71bc0e448976b2c9f1fa85b2ab62
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696276"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216601"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,7 +50,7 @@ ms.locfileid: "97696276"
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**시작**|[Java SDK 시작](./create-sql-api-java.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)|
-|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>릴리스 정보
 

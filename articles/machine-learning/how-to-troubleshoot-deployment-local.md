@@ -11,25 +11,25 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 225cb8d7bc35491ceefe444664afe175c7f7ea01
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ebd984ad6fd91aa29af9766042a03bc56efe17eb
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954938"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215751"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>로컬 모델 배포 문제 해결
 
 Azure Container Instances (ACI) 또는 Azure Kubernetes 서비스 (AKS)에 대 한 배포 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.  로컬 웹 서비스를 사용 하면 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 쉽게 파악 하 고 해결할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * 옵션 A (**권장**)-Azure Machine Learning 계산 인스턴스에서 로컬로 디버그
    * [계산 인스턴스가](how-to-deploy-local-container-notebook-vm.md) 실행 되는 Azure Machine Learning 작업 영역
 * 옵션 B-계산에서 로컬로 디버그
    * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
-   * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+   * [Azure CLI](/cli/azure/install-azure-cli)
    * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
    * 로컬 시스템에 작동 하는 Docker가 설치 되어 있어야 합니다. 
    * Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.

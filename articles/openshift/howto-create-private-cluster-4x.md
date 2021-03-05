@@ -8,12 +8,12 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 633b8e6b0d9694119b5371f921af90c524936926
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5a6eafa6b2380ee61c0de2e329a1751ec7d59c1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633617"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216074"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 프라이빗 클러스터 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "100633617"
 > * 필수 구성 요소를 설정하고 필요한 가상 네트워크 및 서브넷 만들기
 > * 프라이빗 API 서버 엔드포인트 및 프라이빗 수신 컨트롤러를 사용하여 클러스터 배포
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

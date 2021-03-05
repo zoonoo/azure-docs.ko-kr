@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762778"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215547"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>모델 변환에 Azure Blob Storage 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "98762778"
 저장소 계정 및 blob 컨테이너 만들기는 다음 도구 중 하나를 사용 하 여 수행할 수 있습니다.
 
 - [Azure Portal](https://portal.azure.com)
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Sdk (c #, Python ...)
 
@@ -52,7 +52,7 @@ SAS URI는 다음 중 하나를 사용 하 여 생성할 수 있습니다.
 
 - az PowerShell module
   - [예제 PowerShell 스크립트](../../samples/powershell-example-scripts.md) 를 참조 하세요.
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - 컨테이너 "공유 액세스 서명 가져오기"를 마우스 오른쪽 단추로 클릭 (읽기, 입력 컨테이너에 대 한 액세스 나열, 출력 컨테이너에 대 한 쓰기 권한)
 - Sdk (c #, Python ...)

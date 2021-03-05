@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5c85095e767c0e92c22410054ac4f8fc5267660
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1f78d7185415b66445c78f3b4cdb54ed0d63cb0a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097144"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216618"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 스프링 데이터 Azure Cosmos DB v2: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "93097144"
 > * [Azure Cosmos DB의 Spring Data Gremlin](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > 신속 하 게 진행 하 고 싶으세요?
-> 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)을 설치 합니다.
+> 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/)을 설치 합니다.
 > 2. [스타터](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)를 사용 하 여 스프링 데이터 Azure Cosmos DB 앱을 만듭니다. 간단합니다.
 > 3. 기본 Azure Cosmos DB 요청을 안내 하는 [스프링 데이터 Azure Cosmos DB 개발자 가이드를 참조](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)하세요.
 >
@@ -85,11 +85,11 @@ ms.locfileid: "93097144"
 ### <a name="225-may-19-2020"></a>2.2.5 (2020 년 5 월 19 일)
 #### <a name="new-features"></a>새 기능
 * Azure Cosmos DB 버전을 3.7.3로 업데이트 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * Azure Cosmos DB SDK 3.7.3의 메모리 누수 수정과 Netty 버전 업그레이드를 포함 합니다.
 
 ### <a name="224-april-6-2020"></a>2.2.4 (4 월 6 일, 2020)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * `allowTelemetry`에서 고려할 플래그를 수정 `CosmosDbConfig` 합니다.
 * `TTL`컨테이너의 속성을 수정 합니다.
 
@@ -97,19 +97,19 @@ ms.locfileid: "93097144"
 #### <a name="new-features"></a>새 기능
 * `findAll`파티션 키 API를 기준으로 새를 추가 합니다.
 * Azure Cosmos DB 버전을 3.7.0로 업데이트 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * 수정 `collectionName`  ->  `containerName` .
 * `entityClass`및를 수정 `domainClass`  ->  `domainType` 합니다.
 * "입력 엔터티 대신 리포지토리에 저장 된 반환 엔터티 컬렉션"을 수정 합니다.
 
 ### <a name="2110-february-25-2020"></a>2.1.10 (2 월 25 일, 2020)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * Backports는 "입력 엔터티 대신 리포지토리에 저장 된 반환 엔터티 컬렉션"을 수정 합니다.
 
 ### <a name="222-january-15-2020"></a>2.2.2 (1 월 15 일 2020)
 #### <a name="new-features"></a>새 기능
 * Azure Cosmos DB 버전을 3.6.0로 업데이트 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 
 ### <a name="221-december-31-2019"></a>2.2.1 (2019 년 12 월 31 일)
 #### <a name="new-features"></a>새 기능
@@ -117,7 +117,7 @@ ms.locfileid: "93097144"
 * 자동 컬렉션 만들기를 사용 하거나 사용 하지 않도록 주석 필드를 추가 합니다.
 * 예외 처리를 향상 시킵니다. `CosmosClientException`를 통해 노출 `CosmosDBAccessException` 합니다.
 * `requestCharge`및를 `activityId` 통해를 노출 `ResponseDiagnostics` 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * SDK 3.5.0 업데이트는 Cosmos DB HTTP 응답 헤더가 8192 바이트 보다 크면 "" ConsistencyPolicy defaultConsistencyLevel ()이 (가) 제한 된 부실 접두사에서 실패 합니다. "라는 오류를 수정 합니다.
 * `findById`메서드의 동작을 수정 합니다. 이전에는이 메서드가 예외를 throw 하는 대신 엔터티를 찾지 못한 경우 빈 결과를 반환 했습니다.
 * 가 사용 된 경우 다음 페이지에 정렬이 적용 되지 않는 버그를 수정 `CosmosPageRequest` 합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "93097144"
 ### <a name="219-december-26-2019"></a>2.1.9 (2019 년 12 월 26 일)
 #### <a name="new-features"></a>새 기능
 * 자동 컬렉션 만들기를 사용 하거나 사용 하지 않도록 주석 필드를 추가 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 *  `findById`메서드의 동작을 수정 합니다. 이전에는이 메서드가 예외를 throw 하는 대신 엔터티를 찾지 못한 경우 빈 결과를 반환 했습니다.
 
 ### <a name="220-october-21-2019"></a>2.2.0 (2019 년 10 월 21 일)
@@ -138,7 +138,7 @@ ms.locfileid: "93097144"
 * `findByIdAndPartitionKey`및 api를 추가 `deleteByIdAndPartitionKey` 합니다.
 * Azure documentdb에서 종속성을 제거 합니다.
 * Azure Cosmos DB에 대 한 rebrands DocumentDB.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * "PageSize가 리포지토리의 총 항목 보다 작은 경우 정렬 시 예외가 throw 됩니다."를 수정 합니다.
 
 ### <a name="218-october-18-2019"></a>2.1.8 (2019 년 10 월 18 일)
@@ -157,14 +157,14 @@ ms.locfileid: "93097144"
 * 사후 Cosmos 리포지토리 지원에 대 한 다른 구성 변경 사항을 추가 합니다.
 
 ### <a name="212-march-19-2019"></a>2.1.2 (3 월 19 일, 2019)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * `applicationInsights`다음에 대 한 종속성을 제거 합니다.
     * 종속성이 polluting 잠재적 위험이 있습니다.
     * Java 11 비호환.
     * CPU 및/또는 메모리에 대 한 잠재적 성능 저하를 방지 합니다.
 
 ### <a name="207-march-20-2019"></a>2.0.7 (3 월 20 일, 2019)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * Backport `applicationInsights` 는 다음에 대 한 종속성을 제거 합니다.
     * 종속성이 polluting 잠재적 위험이 있습니다.
     * Java 11 비호환.
@@ -186,7 +186,7 @@ ms.locfileid: "93097144"
 #### <a name="new-features"></a>새 기능
 * 및 키워드 `exists` 를 추가 `startsWith` 합니다.
 * 추가 정보를 업데이트 합니다.
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * "엔터티에 대해 직접 자체 href를 호출할 수 없습니다."를 수정 합니다.
 * "수집이 생성 되지 않으면 findAll이 실패 합니다."를 수정 합니다.
 
@@ -198,7 +198,7 @@ ms.locfileid: "93097144"
 * 스프링 데이터 cosmosdb의 구성을 간소화 합니다.
 * `deleteCollection`및 api를 추가 `deleteAll` 합니다.
 
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
+#### <a name="key-bug-fixes"></a>주요 버그 수정
 * 버그 수정 및 결함 완화.
 
 ## <a name="faq"></a>FAQ

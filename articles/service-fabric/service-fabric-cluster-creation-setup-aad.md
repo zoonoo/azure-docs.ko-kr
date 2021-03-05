@@ -3,12 +3,12 @@ title: 클라이언트 인증에 대한 Azure Active Directory 설정
 description: Service Fabric 클러스터에 대한 클라이언트를 인증하려면 Azure AD(Azure Active Directory)를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258771"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215972"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
 
@@ -51,9 +51,9 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 
 PowerShell 명령을 실행 하 여 *TenantId* 를 찾을 수 있습니다 `Get-AzureSubscription` . 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
 
-*ClusterName*은 스크립트로 만든 Azure AD 애플리케이션의 접두사로 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
+*ClusterName* 은 스크립트로 만든 Azure AD 애플리케이션의 접두사로 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
 
-*WebApplicationReplyUrl*은 Azure AD에서 로그인을 마친 후에 사용자에게 반환하는 기본 엔드포인트입니다. 이 끝점을 클러스터에 대 한 Service Fabric Explorer 끝점으로 설정 합니다. 기존 클러스터를 나타내는 Azure AD 응용 프로그램을 만드는 경우이 URL이 기존 클러스터의 끝점과 일치 하는지 확인 합니다. 새 클러스터에 대 한 응용 프로그램을 만드는 경우 클러스터에 포함 되는 끝점을 계획 하 고 기존 클러스터의 끝점을 사용 하지 않도록 해야 합니다. 기본적으로 Service Fabric Explorer 끝점은 다음과 같습니다.
+*WebApplicationReplyUrl* 은 Azure AD에서 로그인을 마친 후에 사용자에게 반환하는 기본 엔드포인트입니다. 이 끝점을 클러스터에 대 한 Service Fabric Explorer 끝점으로 설정 합니다. 기존 클러스터를 나타내는 Azure AD 응용 프로그램을 만드는 경우이 URL이 기존 클러스터의 끝점과 일치 하는지 확인 합니다. 새 클러스터에 대 한 응용 프로그램을 만드는 경우 클러스터에 포함 되는 끝점을 계획 하 고 기존 클러스터의 끝점을 사용 하지 않도록 해야 합니다. 기본적으로 Service Fabric Explorer 끝점은 다음과 같습니다.
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -104,7 +104,7 @@ Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS5
 Service Fabric Explorer를 나타내는 클러스터(웹) 애플리케이션이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 애플리케이션 **REPLY URL** 목록에 표시되지 않습니다.
 
 #### <a name="solution"></a>솔루션
-클러스터에 대 한 Azure AD 앱 등록 페이지에서 **인증**을 선택 하 고, **리디렉션 uri** 섹션에서 목록에 Service Fabric Explorer URL을 추가 합니다. 변경 내용을 저장합니다.
+클러스터에 대 한 Azure AD 앱 등록 페이지에서 **인증** 을 선택 하 고, **리디렉션 uri** 섹션에서 목록에 Service Fabric Explorer URL을 추가 합니다. 변경 내용을 저장합니다.
 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 
@@ -138,7 +138,7 @@ Azure Active Directory 애플리케이션 및 사용자에 대한 역할을 설�
 
 
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

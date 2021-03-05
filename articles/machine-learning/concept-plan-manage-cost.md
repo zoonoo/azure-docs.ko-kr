@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 9ee5c8dcfb23b758a92e7b50f33a905852948e5a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: be8b11b6ddf715e5d6226372e8d03b42dec5fc7d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877478"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215989"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -33,7 +33,7 @@ Machine learning 모델을 학습 하는 경우 관리 되는 Azure Machine Lear
 * 낮은 우선 순위의 가상 머신 (VM) 사용
 * Azure Reserved VM Instance 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. 
 
@@ -57,7 +57,7 @@ Azure Machine Learning는 새 리소스를 배포할 때 Azure Machine Learning�
 
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>일반적으로 Azure Machine Learning으로 계산 되는 비용
 
-Azure Machine Learning 작업 영역에 대 한 리소스를 만들 때 다른 Azure 서비스에 대 한 리소스도 생성 됩니다. 관련 토폴로지는 다음과 같습니다.
+Azure Machine Learning 작업 영역에 대 한 리소스를 만들 때 다른 Azure 서비스에 대 한 리소스도 생성 됩니다. 다음 창이 여기에 포함됩니다.
 
 * [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 기본 계정
 * [Azure 블록 Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (범용 v1)
@@ -71,7 +71,7 @@ Azure Portal 또는 Azure CLI에서 Azure Machine Learning 작업 영역을 삭�
 * Azure Container Registry
 * Azure 블록 Blob Storage
 * Key Vault
-* 애플리케이션 정보
+* Application Insights
 
 이러한 종속 리소스와 함께 작업 영역을 삭제 하려면 SDK를 사용 합니다.
 
@@ -121,7 +121,7 @@ AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정
 + 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
-Amlcompute [SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) [AMLCOMPUTE CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
+Amlcompute [SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) [AMLCOMPUTE CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

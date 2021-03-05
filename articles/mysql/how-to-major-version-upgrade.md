@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 13cf315291cdf788951e352e430976851b30ce0c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702150"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216720"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>단일 서버의 주 버전 업그레이드 Azure Database for MySQL
 
@@ -59,7 +59,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
  
    이 업그레이드를 수행 하려면 버전 2.16.0 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. az version을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 az upgrade를 실행합니다.
 
-2. 로그인 한 후 [az mysql server upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) 명령을 실행 합니다.
+2. 로그인 한 후 [az mysql server upgrade](/cli/azure/mysql/server#az_mysql_server_upgrade) 명령을 실행 합니다.
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"

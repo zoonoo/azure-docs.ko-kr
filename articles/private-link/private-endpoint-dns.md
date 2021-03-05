@@ -2,17 +2,17 @@
 title: Azure 개인 끝점 DNS 구성
 description: Azure 개인 끝점 DNS 구성 알아보기
 services: private-link
-author: allensu
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 3cb5dd88572fda7a939aa529a5372d72575ffdbb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 42c5b315c9c3560c400c685448a11dc61bf64eb6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203286"
+ms.locfileid: "102215615"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -79,7 +79,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Cognitive Services (Cognitiveservices account/accounts)/계정 | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure 파일 동기화 (Microsoft.storagesync/storageSyncServices)/afs |  privatelink.afs.azure.net  |  afs.azure.net  |
 | Azure Data Factory (DataFactory/factory)/dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
-| Azure Data Factory (DataFactory/factory)/포털 |  privatelink.azure.com  |  azure.com  |
+| Azure Data Factory (DataFactory/factory)/포털 |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Redis 용 Azure 캐시 (Redis/)/redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
 <sup>1</sup> IoT Hub의 기본 제공 Event Hub 호환 끝점과 함께 사용 합니다. 자세히 알아보려면 [IoT Hub의 기본 제공 끝점에 대 한 개인 링크 지원](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint) 을 참조 하세요.
@@ -97,7 +97,6 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Database for PostgreSQL - 단일 서버(Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Azure Database for MySQL(Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Azure Database for MariaDB(Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
-
 
 ## <a name="dns-configuration-scenarios"></a>DNS 구성 시나리오
 
