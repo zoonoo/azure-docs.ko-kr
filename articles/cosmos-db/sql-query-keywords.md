@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f3c4ef56feb77e9b01375b8b5dbdb567f5bfadb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659837"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179972"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -117,7 +117,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 다음과 같은 와일드 카드 문자를 사용할 수 있습니다.
 
-| 와일드카드 문자 | Description                                                  | 예제                                     |
+| 와일드카드 문자 | Description                                                  | 예                                     |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
 | %                    | 0 개 이상의 문자를 가진 문자열                      | WHERE c. "%,% PS%"와 같은 설명      |
 | _ (밑줄)     | 임의의 단일 문자                                       | WHERE c. "% SO_PS%"와 같은 설명      |
@@ -135,7 +135,7 @@ FROM c
 WHERE c.description LIKE "%fruit%"
 ```
 
-`%`패턴의 시작 부분에 문자만 사용 하는 경우로 시작 하는 설명이 포함 된 항목만 반환 합니다 `fruit` .
+`%`패턴 끝에 문자만 사용 하는 경우로 시작 하는 설명이 포함 된 항목만 반환 합니다 `fruit` .
 
 ```sql
 SELECT *

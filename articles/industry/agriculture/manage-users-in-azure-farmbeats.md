@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure FarmBeats에서 사용자를 관리 하�
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: v-umha
-ms.openlocfilehash: e2769e97dde7f0b99bd29da9c6eb65954bc84dd2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: v-ummehabiba
+ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677561"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179904"
 ---
 # <a name="manage-users"></a>사용자 관리
 
 Azure FarmBeats에는 Azure Active Directory (Azure AD) 인스턴스에 속한 사용자를 위한 사용자 관리가 포함 되어 있습니다. Azure FarmBeats 인스턴스에 사용자를 추가 하 여 Api에 액세스 하 고, 생성 된 맵을 확인 하 고, 팜에서 센서 원격 분석에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure FarmBeats 설치가 필요 합니다. 자세한 내용은 [Azure FarmBeats 설치](install-azure-farmbeats.md)를 참조 하세요.
 - Azure FarmBeats 인스턴스에서 추가 하거나 제거할 사용자의 전자 메일 Id입니다.
@@ -30,8 +30,8 @@ Azure FarmBeats는 인증, 액세스 제어 및 역할에 Azure AD를 사용 합
 
 Azure FarmBeats는 두 가지 유형의 사용자 역할을 지원 합니다.
 
- - **관리자** : Azure FarmBeats Datahub api에 대 한 전체 액세스 권한이 있습니다. 이 역할의 사용자는 모든 Azure FarmBeats Datahub 개체를 쿼리하고 FarmBeats Accelerator에서 모든 작업을 수행할 수 있습니다.
- - **읽기 전용** : FarmBeats Datahub api에 대 한 읽기 전용 액세스입니다. 사용자는 Datahub Api, 액셀러레이터 키 대시보드 및 맵을 볼 수 있습니다. 읽기 전용 액세스 권한이 있는 사용자는 맵 생성, 장치 연결, 팜 만들기 등의 작업을 수행할 수 없습니다.
+ - **관리자**: Azure FarmBeats Datahub api에 대 한 전체 액세스 권한이 있습니다. 이 역할의 사용자는 모든 Azure FarmBeats Datahub 개체를 쿼리하고 FarmBeats Accelerator에서 모든 작업을 수행할 수 있습니다.
+ - **읽기 전용**: FarmBeats Datahub api에 대 한 읽기 전용 액세스입니다. 사용자는 Datahub Api, 액셀러레이터 키 대시보드 및 맵을 볼 수 있습니다. 읽기 전용 액세스 권한이 있는 사용자는 맵 생성, 장치 연결, 팜 만들기 등의 작업을 수행할 수 없습니다.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Azure FarmBeats에 사용자 추가
 

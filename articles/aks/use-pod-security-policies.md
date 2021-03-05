@@ -4,21 +4,26 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371229"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180312"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
 > [!WARNING]
-> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되었으며** , [AKS에 대 한 Azure Policy를 위해](use-pod-security-on-azure-policy.md)2021 년 6 월 30 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
+> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되었으며** , [AKS에 대 한 Azure Policy를 위해](use-azure-policy.md)2021 년 6 월 30 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
 >
 > Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
 >
-> AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. [Pod 보안 정책 (미리 보기)에서 Azure Policy로 마이그레이션하](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy)는 방법에 대 한 자세한 내용을 보려면 여기를 클릭 하세요.
+> AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. Pod 보안 정책에서 마이그레이션하려면 클러스터에서 다음 작업을 수행 해야 합니다.
+> 
+> 1. 클러스터에서 [pod 보안 정책 사용 안 함](#clean-up-resources)
+> 1. [Azure Policy 추가 기능][kubernetes-policy-reference] 사용
+> 1. [사용 가능한 기본 제공 정책][policy-samples] 에서 원하는 Azure 정책 사용
+> 1. [Pod 보안 정책과 Azure Policy 간의 동작 변경 내용을](#behavior-changes-between-pod-security-policy-and-azure-policy) 검토 합니다.
 
 AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod을 제한할 수 있습니다. 허용 하지 않는 리소스를 요청 하는 pod는 AKS 클러스터에서 실행할 수 없습니다. Pod 보안 정책을 사용 하 여이 액세스를 정의 합니다. 이 문서에서는 pod 보안 정책을 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 
@@ -77,6 +82,26 @@ AKS 클러스터에서 pod 보안 정책을 사용 하도록 설정 하면 일�
 * Pod 보안 정책 기능 사용
 
 기본 정책의 제한 pod 배포를 표시 하기 위해이 문서에서는 먼저 pod 보안 정책 기능을 사용 하도록 설정한 다음 사용자 지정 정책을 만듭니다.
+
+### <a name="behavior-changes-between-pod-security-policy-and-azure-policy"></a>Pod 보안 정책과 Azure Policy 간의 동작 변경 내용
+
+다음은 pod 보안 정책과 Azure Policy 간의 동작 변경 내용에 대 한 요약입니다.
+
+|시나리오| Pod 보안 정책 | Azure Policy |
+|---|---|---|
+|설치|Pod 보안 정책 기능 사용 |Azure Policy 추가 기능 사용
+|정책 배포| Pod 보안 정책 리소스 배포| 구독 또는 리소스 그룹 범위에 Azure 정책을 할당 합니다. Kubernetes 리소스 응용 프로그램에 Azure Policy 추가 기능이 필요 합니다.
+| 기본 정책 | Pod 보안 정책을 AKS에서 사용 하도록 설정 하면 기본 권한 및 무제한 정책이 적용 됩니다. | Azure Policy 추가 기능을 사용 하도록 설정 하면 기본 정책이 적용 되지 않습니다. Azure Policy에서 정책을 명시적으로 사용 하도록 설정 해야 합니다.
+| 정책을 만들고 할당할 수 있는 사람 | 클러스터 관리자가 pod 보안 정책 리소스를 만듭니다. | 사용자에 게는 AKS 클러스터 리소스 그룹에 대 한 ' owner ' 또는 ' 리소스 정책 참가자 '의 최소 역할이 있어야 합니다. -API를 통해 사용자는 AKS 클러스터 리소스 범위에서 정책을 할당할 수 있습니다. 사용자에 게 AKS 클러스터 리소스에 대 한 최소 ' 소유자 ' 또는 ' 리소스 정책 참가자 ' 권한이 있어야 합니다. -Azure Portal 관리 그룹/구독/리소스 그룹 수준에서 정책을 할당할 수 있습니다.
+| 권한 부여 정책| 사용자 및 서비스 계정에는 pod 보안 정책을 사용 하기 위한 명시적 권한이 필요 합니다. | 정책에 권한을 부여 하는 데 추가 할당이 필요 하지 않습니다. Azure에서 정책이 할당 되 면 모든 클러스터 사용자는 이러한 정책을 사용할 수 있습니다.
+| 정책 적용 가능성 | 관리 사용자는 pod 보안 정책의 적용을 무시 합니다. | 모든 사용자 (관리자 & 관리자가 아닌)는 동일한 정책을 볼 수 있습니다. 사용자를 기반으로 하는 특별 한 대/소문자가 없습니다. 정책 응용 프로그램은 네임 스페이스 수준에서 제외할 수 있습니다.
+| 정책 범위 | Pod 보안 정책은 namespaced 되지 않습니다. | Azure Policy에서 사용 하는 제약 조건 템플릿은 namespaced 되지 않습니다.
+| 거부/감사/변형 동작 | Pod 보안 정책은 거부 동작만 지원 합니다. 만들기 요청에 대 한 기본값을 사용 하 여 변형을 수행할 수 있습니다. 업데이트 요청 중에 유효성 검사를 수행할 수 있습니다.| Azure Policy 감사 & 거부 동작을 모두 지원 합니다. 변형은 아직 지원 되지 않지만 계획 되었습니다.
+| Pod 보안 정책 준수 | Pod 보안 정책을 사용 하기 전에 존재 했던 pod의 준수에 대 한 가시성은 없습니다. Pod 보안 정책을 사용 하도록 설정한 후에 만든 비규격 pod는 거부 됩니다. | Azure 정책을 적용 하기 전에 있던 비규격 pod 정책 위반에 표시 됩니다. 정책이 거부 효과로 설정 된 경우 Azure 정책을 사용 하도록 설정한 후에 만든 비규격 pod가 거부 됩니다.
+| 클러스터에서 정책을 보는 방법 | `kubectl get psp` | `kubectl get constrainttemplate` -모든 정책이 반환 됩니다.
+| Pod 보안 정책 표준-권한 | 기능을 사용 하도록 설정 하면 기본적으로 권한 있는 pod 보안 정책 리소스가 생성 됩니다. | 특권 모드는 제한이 없음을 의미 하므로 Azure Policy 할당이 없는 것과 같습니다.
+| [Pod 보안 정책 표준-기준선/기본값](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | 사용자가 pod 보안 정책 기준 리소스를 설치 합니다. | Azure Policy는 기본 제공 기본 [이니셔티브](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) 를 제공 하 여 기준 pod 보안 정책에 매핑됩니다.
+| [Pod 보안 정책 표준-제한 됨](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | 사용자가 pod 보안 정책 제한 리소스를 설치 합니다. | Azure Policy는 제한 된 pod 보안 정책에 매핑되는 [기본 제공 제한 이니셔티브](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) 를 제공 합니다.
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>AKS 클러스터에서 pod 보안 정책 사용
 
@@ -453,3 +478,4 @@ Pod 네트워크 트래픽을 제한 하는 방법에 대 한 자세한 내용�
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice

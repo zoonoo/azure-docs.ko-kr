@@ -6,23 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348477"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180941"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
 이 문서에서는 Azure CLI 사용 하 여 가상 네트워크 리소스와 AKS 클러스터를 만들고 구성한 다음 가상 노드를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-> [!NOTE]
-> [이 문서](virtual-nodes.md) 에서는 가상 노드를 사용 하 여 지역 가용성 및 제한 사항에 대 한 개요를 제공 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 가상 노드는 ACI(Azure Container Instances)에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹 (AZURE cni)을 사용 하 여 만든 AKS 클러스터 에서만 작동 합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹 (kubenet)을 사용 하 여 생성 됩니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> AKS를 사용 하 여 가상 노드를 사용 하기 전에 [AKS 가상 노드의 제한과][virtual-nodes-aks] [ACI의 가상 네트워킹 제한][virtual-nodes-networking-aci]사항을 검토 하세요. 이러한 제한 사항은 AKS 클러스터와 가상 노드의 위치, 네트워킹 구성 및 기타 구성 세부 사항에 영향을 줍니다.
 
 이전에 ACI를 사용하지 않은 경우 구독에서 서비스 공급자를 등록합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
@@ -352,3 +353,5 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

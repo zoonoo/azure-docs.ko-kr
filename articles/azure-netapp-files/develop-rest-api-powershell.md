@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 72c574779d63a3629ea3c99529686b7d3247fe25
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2e169bb4f7be8b52657d2caf8f05643875a8348c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931209"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180380"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>PowerShell을 사용 하 여 REST API를 사용 하 여 Azure NetApp Files 개발
 
@@ -34,7 +34,7 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Azure NetApp Files REST API 액세스  
 
-1. 아직 설치하지 않은 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
+1. 아직 설치하지 않은 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다.
 2. Azure AD(Azure Active Directory)에 서비스 주체를 만듭니다.
    1. [충분한 권한](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)이 있는지 확인합니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1bcd0ea253db01d626ef1887ef0983d30ca794b9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 93fd682f252ac3f85c642633484a9c4eb6c2fb4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209982"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180856"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -166,7 +166,7 @@ Azure Front 도어에서 응용 프로그램으로 들어오는 트래픽은 Azu
 
 다음 중 하나를 수행 하 여 프로그래밍 방식으로 액세스 제한을 추가할 수 있습니다. 
 
-* [Azure CLI를](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true)사용 합니다. 예를 들면 다음과 같습니다.
+* [Azure CLI를](/cli/azure/webapp/config/access-restriction)사용 합니다. 예를 들면 다음과 같습니다.
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \

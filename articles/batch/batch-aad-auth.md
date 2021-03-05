@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252643"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180023"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -41,7 +41,7 @@ Azure AD로 인증하려면 이 엔드포인트를 테넌트 ID(디렉터리 ID)
 >
 > 통합 인증을 사용하여 인증할 때 테넌트별 엔드포인트는 선택 사항이지만 권장됩니다. 그러나 Azure AD 공통 엔드포인트도 사용할 수 있습니다. 공통 엔드포인트는 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다. 공통 엔드포인트는 `https://login.microsoftonline.com/common`입니다.
 
-Azure AD 끝점에 대 한 자세한 내용은 [인증 및 권한 부여]()를 참조 하세요. /active-directory/develop/authentication-vs-authorization.md).
+Azure AD 끝점에 대 한 자세한 내용은 [인증 및 권한 부여](../active-directory/develop/authentication-vs-authorization.md)를 참조 하세요.
 
 ### <a name="batch-resource-endpoint"></a>Batch 리소스 엔드포인트
 

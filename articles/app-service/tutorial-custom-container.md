@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b3507e22c691f3e3ca9f9e6562a313e95e42f080
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 5d3a714230f0279bd68b39cd02624866b9b3bacf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900198"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180516"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -211,7 +211,7 @@ https://<app-name>.scm.azurewebsites.net/api/logstream
 
 ::: zone pivot="container-linux"
 
-Azure App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 호스팅합니다. 기본 제공 이미지 목록을 보려면 ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes) Azure CLI 명령을 실행합니다. 이러한 이미지가 요구 사항에 맞지 않는 경우 사용자 지정 이미지를 빌드하고 배포할 수 있습니다.
+Azure App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 호스팅합니다. 기본 제공 이미지 목록을 보려면 ['az webapp list-runtimes --linux'](/cli/azure/webapp#az-webapp-list-runtimes) Azure CLI 명령을 실행합니다. 이러한 이미지가 요구 사항에 맞지 않는 경우 사용자 지정 이미지를 빌드하고 배포할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -333,7 +333,7 @@ ENTRYPOINT ["init.sh"]
 
 이 섹션과 다음 섹션에서는 Azure에서 이미지를 푸시할 리소스를 프로비저닝한 다음, 컨테이너를 Azure App Service에 배포합니다. 먼저 이러한 모든 리소스를 수집할 리소스 그룹을 만듭니다.
 
-[az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create)를 실행하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create)를 실행하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -345,7 +345,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
 이 섹션에서는 이미지를 App Service에서 배포할 수 있는 Azure Container Registry로 푸시합니다.
 
-1. [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) 명령을 실행하여 Azure Container Registry를 만듭니다.
+1. [`az acr create`](/cli/azure/acr#az-acr-create) 명령을 실행하여 Azure Container Registry를 만듭니다.
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -353,7 +353,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
     
     `<registry-name>`을 레지스트리에 적합한 이름으로 바꿉니다. 이름은 문자와 숫자만 포함해야 하며 모든 Azure에서 고유해야 합니다.
 
-1. [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) 명령을 실행하여 레지스트리에 대한 자격 증명을 검색합니다.
+1. [`az acr show`](/cli/azure/acr#az-acr-show) 명령을 실행하여 레지스트리에 대한 자격 증명을 검색합니다.
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -400,7 +400,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
 컨테이너를 Azure App Service에 배포하려면 먼저 App Service에서 웹앱을 만든 다음, 이 웹앱을 컨테이너 레지스트리에 연결합니다. 웹앱이 시작되면 App Service에서 자동으로 레지스트리로부터 이미지를 가져옵니다.
 
-1. [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create) 명령을 사용하여 App Service 계획을 만듭니다.
+1. [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) 명령을 사용하여 App Service 계획을 만듭니다.
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -408,7 +408,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
     App Service 계획은 웹앱을 호스팅하는 가상 머신에 해당합니다. 기본적으로 이전 명령은 첫 달 동안 무료로 사용할 수 있는 저렴한 [B1 가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)을 사용합니다. 이 계층은 `--sku` 매개 변수를 사용하여 제어할 수 있습니다.
 
-1. [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create) 명령을 사용하여 웹앱을 만듭니다.
+1. [`az webpp create`](/cli/azure/webapp#az-webapp-create) 명령을 사용하여 웹앱을 만듭니다.
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -416,7 +416,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
     
     `<app-name>`을 모든 Azure에서 고유한 웹앱의 이름으로 바꿉니다. 또한 `<registry-name>`을 이전 섹션의 레지스트리 이름으로 바꿉니다.
 
-1. [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set)을 사용하여 `WEBSITES_PORT` 환경 변수를 앱 코드에서 예상한 대로 설정합니다. 
+1. [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set)을 사용하여 `WEBSITES_PORT` 환경 변수를 앱 코드에서 예상한 대로 설정합니다. 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -426,7 +426,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
     
     이 환경 변수에 대한 자세한 내용은 [샘플의 GitHub 리포지토리에 있는 추가 정보](https://github.com/Azure-Samples/docker-django-webapp-linux)를 참조하세요.
 
-1. [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign) 명령을 사용하여 [관리 ID](./overview-managed-identity.md)를 웹앱에 사용하도록 설정합니다.
+1. [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) 명령을 사용하여 [관리 ID](./overview-managed-identity.md)를 웹앱에 사용하도록 설정합니다.
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -436,7 +436,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
     관리 ID를 사용하면 특정 자격 증명 없이도 다른 Azure 리소스에 액세스할 수 있는 권한을 웹앱에 부여할 수 있습니다.
 
-1. [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show) 명령을 사용하여 다음 단계에서 필요한 구독 ID를 검색합니다.
+1. [`az account show`](/cli/azure/account#az-account-show) 명령을 사용하여 다음 단계에서 필요한 구독 ID를 검색합니다.
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -459,7 +459,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
 
 이미지가 컨테이너 레지스트리로 푸시되고 App Service가 완전히 프로비저닝되면 다음 단계를 완료할 수 있습니다.
 
-1. [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) 명령을 사용하여 웹앱에 배포할 컨테이너 레지스트리와 이미지를 지정합니다.
+1. [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) 명령을 사용하여 웹앱에 배포할 컨테이너 레지스트리와 이미지를 지정합니다.
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io

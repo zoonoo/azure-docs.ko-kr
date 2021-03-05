@@ -43,10 +43,6 @@
           href: tutorial-sql-server-to-managed-instance.md
         - name: Azure SQL Managed Instance로(온라인)
           href: tutorial-sql-server-managed-instance-online.md
-    - name: RDS SQL Server 마이그레이션
-      items:
-        - name: Azure SQL Database 또는 SQL Managed Instance로
-          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: MySQL 마이그레이션
       items:
         - name: Azure Database for MySQL로
@@ -137,8 +133,6 @@
               href: known-issues-dms-hybrid-mode.md
         - name: 알려진 마이그레이션 문제
           items:
-            - name: SQL Database
-              href: known-issues-azure-sql-online.md
             - name: SQL Managed Instance
               href: known-issues-azure-sql-db-managed-instance-online.md
             - name: MySQL용 Azure DB

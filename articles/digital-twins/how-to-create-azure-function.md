@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2419761c195258c60561e284abf0227b915ed4f6
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8ed4e550ea441d5d99a3debb6bf37eb7db2a4a20
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123635"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180176"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -56,29 +56,14 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 함수 앱에 SDK를 추가 하 여 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
 
-SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual Studio의 NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나, 명령줄 도구에서를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` . 선호 하는 방법에 대 한 다음 단계를 수행 합니다.
+SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual Studio의 NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나, 명령줄 도구에서를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` .
 
-**옵션 1. Visual Studio 패키지 관리자를 사용 하 여 패키지 추가:**
-    
-프로젝트를 마우스 오른쪽 단추로 선택 하 고 목록에서 _NuGet 패키지 관리_ 를 선택 합니다. 그런 다음 열리는 창에서 _찾아보기_ 탭을 선택 하 고 다음 패키지를 검색 합니다. _설치_ 를 선택 하 고 사용권 계약에 _동의_ 하 여 패키지를 설치 합니다.
+* [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure. Id](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure. 핵심](https://www.nuget.org/packages/Azure.Core/)
 
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity`
-* `System.Net.Http`
-* `Azure.Core.Pipeline`
-
-**옵션 2. 명령줄 도구를 사용 하 여 패키지를 추가 합니다 `dotnet` .**
-
-또는 `dotnet add` 명령줄 도구에서 다음 명령을 사용할 수 있습니다.
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core
-dotnet add package Azure.Identity
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
-
-그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 함수에 다음 문을 추가 합니다. 
+그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 이러한 패키지에 대 한 다음 문을 함수에 추가 합니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -116,108 +101,118 @@ dotnet add package Azure.Core.Pipeline
 
 Azure CLI 또는 Azure Portal를 사용 하 여 함수 앱에 대 한 보안 액세스를 설정할 수 있습니다. 아래의 기본 옵션에 대 한 단계를 수행 합니다.
 
-### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>옵션 1: CLI를 사용 하 여 함수 앱에 대 한 보안 액세스 설정
+# <a name="cli"></a>[CLI](#tab/cli)
 
-이전 예의 함수 해골은 Azure 디지털 쌍으로 인증 하기 위해 전달자 토큰을 전달 해야 합니다. 이 전달자 토큰이 전달 되었는지 확인 하려면 함수 앱에 대해 [MSI (관리 서비스 ID)](../active-directory/managed-identities-azure-resources/overview.md) 를 설정 해야 합니다. 이 작업은 각 함수 앱에 대해 한 번만 수행 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com) 또는 [로컬 Azure CLI 설치](/cli/azure/install-azure-cli)에서 이러한 명령을 실행할 수 있습니다.
 
-시스템 관리 id를 만들고 Azure Digital Twins 인스턴스의 _**Azure Digital Twins 데이터 소유자**_ 역할에 함수 앱의 id를 할당할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
+### <a name="assign-access-role"></a>액세스 역할 할당
 
-[Azure Cloud Shell](https://shell.azure.com) 를 사용 하 여 명령을 실행 합니다.
+이전 예의 함수 해골은 Azure 디지털 쌍으로 인증 하기 위해 전달자 토큰을 전달 해야 합니다. 이 전달자 토큰이 전달 되었는지 확인 하려면 Azure 디지털 쌍에 액세스 하도록 함수 앱에 대 한 [MSI (관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md) ) 권한을 설정 해야 합니다. 이 작업은 각 함수 앱에 대해 한 번만 수행 해야 합니다.
 
-다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 _principalId_ 필드를 기록해 둡니다.
+함수 앱의 시스템 관리 id를 사용 하 여 Azure Digital Twins 인스턴스에 대 한 _**Azure 디지털 쌍 데이터 소유자**_ 역할을 제공할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
 
-```azurecli-interactive 
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
-```
-다음 명령의 _principalId_ 값을 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 할당합니다.
+1. 다음 명령을 사용 하 여 함수에 대 한 시스템 관리 id의 세부 정보를 확인 합니다. 출력에서 _principalId_ 필드를 기록해 둡니다.
 
-```azurecli-interactive 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Id의 세부 정보를 표시 하는 대신 결과가 비어 있는 경우이 명령을 사용 하 여 함수에 대 한 시스템 관리 id를 새로 만듭니다.
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > 출력에는 다음 단계에 필요한 _principalid_ 값을 포함 하 여 id의 세부 정보가 표시 됩니다. 
+
+1. 다음 명령의 _principalId_ 값을 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 할당합니다.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+### <a name="configure-application-settings"></a>애플리케이션 설정 구성
+
 마지막으로 **환경 변수** 를 설정 하 여 함수에서 Azure Digital twins 인스턴스의 URL에 액세스할 수 있도록 합니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요. 
 
 > [!TIP]
-> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름* 앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름* 시작 부분에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 확인 하려면을 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
-### <a name="option-2-set-up-security-access-for-the-function-app-using-azure-portal"></a>옵션 2: Azure Portal을 사용 하 여 함수 앱에 대 한 보안 액세스 설정
 
-시스템 할당 관리 id를 사용 하면 Azure 리소스가 코드에 자격 증명을 저장 하지 않고도 클라우드 서비스 (예: Azure Key Vault)에 인증할 수 있습니다. 사용 하도록 설정 되 면 Azure 역할 기반 액세스 제어를 통해 필요한 모든 권한을 부여할 수 있습니다. 이 유형의 관리 되는 id의 수명 주기는이 리소스의 수명 주기에 연결 됩니다. 또한 각 리소스 (예: 가상 머신)에는 시스템 할당 관리 id가 하나만 있을 수 있습니다.
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-[Azure Portal](https://portal.azure.com/)에서 이전에 만든 함수 앱 이름으로 검색 표시줄에서 _함수 앱_ 을 검색 합니다. 목록에서 *함수 앱* 을 선택 합니다. 
+[Azure Portal](https://portal.azure.com/)에서 다음 단계를 완료 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
+### <a name="assign-access-role"></a>액세스 역할 할당
 
-함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
-_시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_ 하는 팝업이 표시 됩니다.
-_예_ 단추를 선택 합니다. 
+시스템 할당 관리 id를 사용 하면 Azure 리소스가 코드에 자격 증명을 저장 하지 않고도 클라우드 서비스 (예: Azure Key Vault)에 인증할 수 있습니다. 사용 하도록 설정 되 면 Azure 역할 기반 액세스 제어를 통해 필요한 모든 권한을 부여할 수 있습니다. 이 유형의 관리 되는 id의 수명 주기는이 리소스의 수명 주기에 연결 됩니다. 또한 각 리소스에는 하나의 시스템 할당 관리 id만 있을 수 있습니다.
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 Id 페이지에서 시스템 할당 관리 id를 사용 하도록 설정 하는 옵션을 예로 설정 합니다. Status 옵션은 On으로 설정 되어 있습니다.":::
+1. [Azure Portal](https://portal.azure.com/)에서 검색 창에 해당 이름을 입력 하 여 함수 앱을 검색 합니다. 결과에서 앱을 선택 합니다. 
 
-함수가 Azure Active Directory에 성공적으로 등록 되었음을 알림에서 확인할 수 있습니다.
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal의 스크린샷: 포털의 위쪽 표시줄에서 종 모양의 아이콘을 선택 하는 알림 목록입니다. 사용자가 시스템 할당 관리 id를 사용 하도록 설정 되었다는 알림이 있습니다.":::
+1. 함수 앱 페이지의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 함수에 대 한 관리 id를 사용 합니다. _시스템 할당_ 페이지에서 _상태가_ **켜기** 로 설정 되어 있는지 확인 합니다 (그렇지 않은 경우 지금 설정 하 고 변경 내용을 *저장* 함).
 
-또한 다음 섹션에서 사용 되므로 _id_ 페이지에 표시 된 **개체 id** 를 확인 합니다.
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 Id 페이지의 상태 옵션은 On으로 설정 되어 있습니다." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Azure Portal 스크린샷: Azure 함수의 Id 페이지에서 개체 ID 필드를 강조 표시 합니다.":::
+1. Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가 열립니다.
 
-### <a name="assign-access-roles-using-azure-portal"></a>Azure Portal를 사용 하 여 액세스 역할 할당
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Azure Portal 스크린샷: Azure 함수의 Id 페이지에서 사용 권한 아래에 있는 Azure 역할 할당 단추를 강조 표시 합니다." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
+    _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal 스크린샷: Azure 함수의 Id 페이지에서 사용 권한 아래에 있는 Azure 역할 할당 단추를 강조 표시 합니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Azure Portal 스크린샷: Azure 역할 할당 페이지에서 + 역할 할당 추가 (미리 보기)를 강조 표시 합니다." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음을 선택 합니다.
+1. 열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음 값을 선택 합니다.
 
-* _범위_: 리소스 그룹
-* _구독_: Azure 구독을 선택 합니다.
-* _리소스 그룹_: 드롭다운에서 리소스 그룹을 선택 합니다.
-* _역할_: 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
+    * **범위**: 리소스 그룹
+    * **구독**: Azure 구독을 선택 합니다.
+    * **리소스 그룹**: 드롭다운에서 리소스 그룹을 선택 합니다.
+    * **역할**: 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
 
-_저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
+    _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal의 스크린샷: 새 역할 할당을 추가 하는 대화 상자 (미리 보기) 범위, 구독, 리소스 그룹 및 역할에 대 한 필드가 있습니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Azure Portal의 스크린샷: 새 역할 할당을 추가 하는 대화 상자 (미리 보기) 범위, 구독, 리소스 그룹 및 역할에 대 한 필드가 있습니다.":::
 
-### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
+### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 하기 위해 **환경 변수** 를 설정할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요. 응용 프로그램 설정은 Azure Digital Twins 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
 
 인스턴스 URL을 사용 하 여 환경 변수를 설정 하려면 먼저 Azure Digital Twins 인스턴스의 호스트 이름을 찾아 URL을 가져옵니다. [Azure Portal](https://portal.azure.com) 검색 창에서 인스턴스를 검색 합니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 이 값을 복사합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal의 스크린샷: Azure Digital Twins 인스턴스의 개요 페이지에서 호스트 이름 값이 강조 표시 됩니다.":::
+:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Azure Portal의 스크린샷: Azure Digital Twins 인스턴스의 개요 페이지에서 호스트 이름 값이 강조 표시 됩니다.":::
 
-이제 다음 단계에 따라 응용 프로그램 설정을 만들 수 있습니다.
+이제 다음 단계를 사용 하 여 응용 프로그램 설정을 만들 수 있습니다.
 
 1. 포털 검색 창에서 함수 앱을 검색 하 고 결과에서 선택 합니다.
-1. 왼쪽의 탐색 모음에서 _구성_ 을 선택 하 여 새 응용 프로그램 설정을 만듭니다.
-1. _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal 스크린샷: 포털 검색 표시줄에서 함수 앱의 이름을 검색 하는 중 이며 검색 결과가 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 구성 페이지에서 새 응용 프로그램 설정을 만드는 단추가 강조 표시 됩니다.":::
+1. 왼쪽의 탐색 모음에서 _구성_ 을 선택 합니다. _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
 
-열리는 창에서 위에 복사 된 호스트 이름 값을 사용 하 여 응용 프로그램 설정을 만듭니다.
-* **이름**: ADT_SERVICE_URL
-* **값**: https://{-azure-name}
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal의 스크린샷: 함수 앱에 대 한 구성 페이지에서 새 응용 프로그램 설정을 만드는 단추가 강조 표시 됩니다.":::
 
-_확인_ 을 선택 하 여 응용 프로그램 설정을 만듭니다.
+1. 열리는 창에서 위에 복사 된 호스트 이름 값을 사용 하 여 응용 프로그램 설정을 만듭니다.
+    * **이름**: ADT_SERVICE_URL
+    * **값**: https://{-azure-name}
+    
+    _확인_ 을 선택 하 여 응용 프로그램 설정을 만듭니다.
+    
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal의 스크린샷: 응용 프로그램 설정 추가/편집 페이지에서 이름 및 값 필드를 입력 한 후 확인 단추가 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal의 스크린샷: 응용 프로그램 설정 추가/편집 페이지에서 이름 및 값 필드를 입력 한 후 확인 단추가 강조 표시 됩니다.":::
+1. 설정을 만들면 _응용 프로그램 설정_ 탭에 다시 표시 됩니다. 목록에 *ADT_SERVICE_URL* 나타나는지 확인 한 다음 _저장_ 단추를 선택 하 여 새 응용 프로그램 설정을 저장 합니다.
 
-_이름_ 필드에 응용 프로그램 이름을 사용 하 여 응용 프로그램 설정을 볼 수 있습니다. 그런 다음 _저장_ 단추를 선택 하 여 응용 프로그램 설정을 저장 합니다.
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal의 스크린샷: 새 ADT_SERVICE_URL 설정이 강조 표시 된 응용 프로그램 설정 페이지 저장 단추도 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal의 스크린샷: 새 ADT_SERVICE_URL 설정이 강조 표시 된 응용 프로그램 설정 페이지 저장 단추도 강조 표시 됩니다.":::
+1. 응용 프로그램 설정에 대 한 변경 내용을 적용 하려면 응용 프로그램을 다시 시작 해야 합니다. 따라서 메시지가 표시 되 면 _계속_ 을 선택 하 여 응용 프로그램을 다시 시작 합니다.
 
-응용 프로그램 설정을 변경 하려면 응용 프로그램을 다시 시작 해야 적용 됩니다. _계속_ 을 선택 하 여 응용 프로그램을 다시 시작 합니다.
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal 스크린샷: 응용 프로그램을 다시 시작 하는 응용 프로그램 설정이 변경 된 것을 확인할 수 있습니다. 계속 단추가 강조 표시 됩니다.":::
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal 스크린샷: 응용 프로그램을 다시 시작 하는 응용 프로그램 설정이 변경 된 것을 확인할 수 있습니다. 계속 단추가 강조 표시 됩니다.":::
-
-_알림_ 아이콘을 선택 하 여 응용 프로그램 설정이 업데이트 된 것을 볼 수 있습니다. 응용 프로그램 설정이 만들어지지 않은 경우 위의 프로세스에 따라 응용 프로그램 설정 추가를 다시 시도할 수 있습니다.
-
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal의 스크린샷: 포털의 위쪽 표시줄에서 종 모양의 아이콘을 선택 하는 알림 목록입니다. 웹 앱 설정이 성공적으로 업데이트 되었다는 알림이 있습니다.":::
+---
 
 ## <a name="next-steps"></a>다음 단계
 

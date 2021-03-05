@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791446"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180244"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화 모범 사례 
 
@@ -41,18 +41,22 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 
 ### <a name="database-accounts-with-least-required-privileges"></a>필요한 최소 권한이 있는 데이터베이스 계정
 
--   **동기화 설정의 경우** . 테이블 만들기/변경, 데이터베이스 변경, 프로시저 만들기, 스키마 선택/변경, 사용자 정의 형식 만들기.
+-   **동기화 설정의 경우**. 테이블 만들기/변경, 데이터베이스 변경, 프로시저 만들기, 스키마 선택/변경, 사용자 정의 형식 만들기.
 
--   **진행 중인 동기화의 경우** . 동기화를 위해 선택 된 테이블 및 동기화 메타 데이터와 추적 테이블에서 선택/삽입/업데이트/삭제 서비스에서 생성 된 저장 프로시저에 대 한 Execute 권한 사용자 정의 테이블 형식에 대 한 Execute 권한
+-   **진행 중인 동기화의 경우**. 동기화를 위해 선택 된 테이블 및 동기화 메타 데이터와 추적 테이블에서 선택/삽입/업데이트/삭제 서비스에서 생성 된 저장 프로시저에 대 한 Execute 권한 사용자 정의 테이블 형식에 대 한 Execute 권한
 
--   **프로비전 해제의 경우** . 동기화 중 테이블 부분 변경, 동기화 메타데이터 테이블에서 선택/삭제, 동기화 추적 테이블, 저장 프로시저 및 사용자 정의 형식 제어.
+-   **프로비전 해제의 경우**. 동기화 중 테이블 부분 변경, 동기화 메타데이터 테이블에서 선택/삭제, 동기화 추적 테이블, 저장 프로시저 및 사용자 정의 형식 제어.
 
 Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약 조건 내에서 작업을 수행하려면 다음 옵션을 고려해 봅니다.
 
--   자격 증명을 다른 단계로 변경합니다(예를 들어 설정에는 *credentials1* , 진행 중에는 *credentials2* ).  
+-   자격 증명을 다른 단계로 변경합니다(예를 들어 설정에는 *credentials1*, 진행 중에는 *credentials2*).  
 -   자격 증명의 권한을 변경합니다(즉, 동기화를 설정한 후 사용 권한을 변경).
 
-## <a name="setup"></a>설정
+### <a name="auditing"></a>감사
+
+동기화 그룹의 데이터베이스 수준에서 감사를 사용 하도록 설정 하는 것이 좋습니다. 
+
+## <a name="setup"></a>설치 프로그램
 
 ### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
 
@@ -202,7 +206,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 시나리오를 방지하려면 데이터베이스를 여러 에이전트에 등록하지 마세요.
 
@@ -224,7 +228,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 동기화 할 복잡 한 스키마가 있는 경우 동기화 메타 데이터 데이터베이스에 더 낮은 SKU (예: 기본)가 있는 경우 스키마를 새로 고치는 동안 "작업 시간 제한"이 발생할 수 있습니다. 
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 문제를 완화 하려면 S3와 같이 더 높은 SKU를 갖도록 동기화 메타 데이터 데이터베이스를 확장 하세요. 
 

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6ed9b316fceeb30a775e2e0d90e7bbb0a07278cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180500"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -116,7 +116,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 모든 자동화된 Machine Learning 실험에서 알고리즘 성능을 향상시킬 수 있도록 데이터가 자동으로 크기 조정되거나 정규화됩니다. 모델 학습 중에 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용됩니다. AutoML을 사용 하 여 모델에서 [과도 하 게 분산 되 고 불균형 된 데이터를 방지](concept-manage-ml-pitfalls.md) 하는 방법을 알아봅니다.
 
-|크기 조정&nbsp;&&nbsp;정규화| Description |
+|크기 조정 &nbsp; & &nbsp; 처리| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 평균을 제거하고 단위 분산으로 크기 조정하여 기능을 표준화합니다.  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최솟값과 최댓값을 기준으로 각 기능의 크기를 조정하여 기능을 변환합니다.  |
