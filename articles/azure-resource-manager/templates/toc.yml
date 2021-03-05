@@ -4,6 +4,8 @@
   items:
     - name: ARM 템플릿이란?
       href: overview.md
+    - name: Bicep 개요
+      href: bicep-overview.md
 - name: 빠른 시작
   items:
     - name: 템플릿 만들기 - 포털
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: 개요
-          href: bicep-overview.md
-        - name: JSON에서 Bicep으로 이동
+        - name: JSON과 Bicep 비교
           href: compare-template-syntax.md
     - name: 질문과 대답
       href: frequently-asked-questions.md

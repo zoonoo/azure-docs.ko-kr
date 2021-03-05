@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef1c4d87be39b6af90ed07cba9249cca4cf8bd6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937545"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036030"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -21,12 +21,7 @@ ms.locfileid: "96937545"
 
 ## <a name="getting-help"></a>도움말 보기
 
-개발자는 Communication Services [GitHub 리포지토리](https://github.com/Azure/communication)에서 질문을 제출하고, 기능을 제안하고, 문제를 보고하는 것이 좋습니다. 다른 포럼은 다음과 같습니다.
-
-* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
-
-Azure 구독 [지원 계획](https://azure.microsoft.com/support/plans/)에 따라 [Azure Portal](https://azure.microsoft.com/support/create-ticket/)을 통해 지원 티켓을 직접 제출할 수 있습니다.
+개발자는 질문을 제출하고, 기능을 제안하고, 문제를 보고하는 것이 좋습니다. 이를 지원하기 위해 지원 옵션이 나열된 [전용 지원 및 도움말 옵션 페이지](../support.md)가 있습니다.
 
 특정 유형의 문제를 해결하는 데 도움이 되도록 다음 정보 중 하나를 입력하라는 메시지가 표시될 수 있습니다.
 
@@ -107,7 +102,6 @@ Log.d(call.getCallId())
 ```
 ---
 
-
 ## <a name="access-your-sms-message-id"></a>SMS 메시지 ID에 액세스
 
 SMS 문제의 경우 응답 개체에서 메시지 ID를 수집할 수 있습니다.
@@ -130,9 +124,6 @@ console.log(result); // your message ID will be in the result
 ---
 
 ## <a name="enable-and-access-call-logs"></a>통화 로그 활성화 및 액세스
-
-
-
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -166,7 +157,6 @@ Android Studio의 경우 시뮬레이터와 디바이스 모두에서 보기 > �
 
 ---
 
-
 ## <a name="calling-client-library-error-codes"></a>통화 클라이언트 라이브러리 오류 코드
 
 Azure Communication Services 통화 클라이언트 라이브러리는 다음 오류 코드를 사용하여 통화 문제를 해결하는 데 도움을 줍니다. 이러한 오류 코드는 통화가 종료된 후 `call.callEndReason` 속성을 통해 노출됩니다.
@@ -184,7 +174,6 @@ Azure Communication Services 통화 클라이언트 라이브러리는 다음 �
 | 490, 491, 496, 487, 498 | 로컬 엔드포인트 네트워크 문제. | 네트워크를 확인합니다. |
 | 500, 503, 504 | Communication Services 인프라 오류입니다. | Azure Portal을 통해 지원 요청을 제출합니다. |
 | 603 | 원격 Communication Services 참가자가 전역적으로 거부한 호출 | 예상 동작. |
-
 
 ## <a name="related-information"></a>관련 정보
 - [로그 및 진단](logging-and-diagnostics.md)

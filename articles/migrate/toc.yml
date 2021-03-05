@@ -36,6 +36,8 @@
           items:
             - name: Azure VM으로 마이그레이션할 VMware VM 평가
               href: tutorial-assess-vmware-azure-vm.md
+            - name: Azure SQL로 마이그레이션할 SQL 인스턴스 평가
+              href: tutorial-assess-sql.md
             - name: AVS로 마이그레이션할 VMware VM 평가
               href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Azure로 마이그레이션할 Hyper-V VM 평가
@@ -102,6 +104,8 @@
       items:
         - name: 평가 개요(Azure VM으로 마이그레이션)
           href: concepts-assessment-calculation.md
+        - name: 평가 개요(Azure SQL로 마이그레이션)
+          href: concepts-azure-sql-assessment-calculation.md
         - name: 평가 개요(AVS로 마이그레이션)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: 평가 모범 사례
@@ -144,8 +148,12 @@
               href: deploy-appliance-script-government.md
         - name: VMware VM에 대한 검색 범위 제한
           href: set-discovery-scope.md
+        - name: 서버 자격 증명을 추가하는 방법
+          href: add-server-credentials.md
         - name: 애플리케이션/역할/기능 검색
           href: how-to-discover-applications.md
+        - name: 기존 프로젝트에서 SQL 인스턴스 검색
+          href: how-to-discover-sql-existing-project.md
         - name: 머신 종속성 분석(에이전트 기반)
           href: how-to-create-group-machine-dependencies.md
         - name: 머신 종속성 분석(에이전트 없음)
@@ -158,6 +166,8 @@
           href: how-to-create-a-group.md
         - name: Azure VM 평가 만들기
           href: how-to-create-assessment.md
+        - name: Azure SQL 평가 만들기
+          href: how-to-create-azure-sql-assessment.md
         - name: AVS 평가 만들기
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: SQL Server 데이터베이스 평가
@@ -176,6 +186,8 @@
       items:
         - name: 마이그레이션 도구 추가
           href: how-to-migrate.md
+        - name: ExpressRoute를 사용하여 복제
+          href: replicate-using-expressroute.md
         - name: 마이그레이션을 위한 머신 준비
           href: prepare-for-migration.md
         - name: Windows 2003 서버 마이그레이션 준비

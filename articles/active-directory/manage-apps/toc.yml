@@ -34,7 +34,13 @@
       href: application-proxy-add-on-premises-application.md
 - name: 샘플
   items:
-    - name: 애플리케이션 프록시에 대한 Azure PowerShell 샘플
+    - name: 앱 관리 PowerShell 샘플
+      items:
+        - name: 앱 관리 샘플 개요
+          href: app-management-powershell-samples.md
+        - name: '모든 앱 등록, 비밀 및 인증서 내보내기'
+          href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: 앱 프록시 PowerShell 샘플
       href: application-proxy-powershell-samples.md
 - name: 개념
   expanded: true

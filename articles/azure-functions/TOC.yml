@@ -197,6 +197,9 @@
           href: supported-languages.md
         - name: C#(클래스 라이브러리)
           href: functions-dotnet-class-library.md
+        - name: C#(격리된 프로세스)
+          displayName: '.NET isolated, .NET 5'
+          href: dotnet-isolated-process-guide.md
         - name: C# 스크립트(.csx)
           href: functions-reference-csharp.md
         - name: F#

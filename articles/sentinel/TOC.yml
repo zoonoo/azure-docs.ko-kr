@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: 개념
   items:
-    - name: 역할을 사용하여 권한 할당
-      href: roles.md
+    - name: 액세스 관리
+      items:
+        - name: Azure Sentinel의 권한
+          href: roles.md
+        - name: 리소스에 따른 액세스 관리
+          href: resource-context-rbac.md
     - name: 고급 다단계 공격 탐지
       href: fusion.md
     - name: 사용자 고유의 기계 학습 플랫폼 가져오기
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: 인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
       href: manage-soc-with-incident-metrics.md
+    - name: Azure Sentinel 쿼리 및 활동 감사
+      href: audit-sentinel-data.md
     - name: 사냥
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Azure Sentinel 제거
       href: offboard.md
+    - name: 고급 RBAC 구현
+      items: null
 - name: 참조
   items:
     - name: Azure RBAC 역할
@@ -293,8 +301,8 @@
   items:
     - name: 유용한 리소스
       href: resources.md
-    - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
-      href: /archive/blogs/azuresecurity/
+    - name: Azure Sentinel 블로그
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: 가격 책정

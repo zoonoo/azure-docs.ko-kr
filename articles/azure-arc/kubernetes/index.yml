@@ -2,21 +2,21 @@
 title: Azure Arc 지원 Kubernetes
 summary: Azure Arc로 Kubernetes 클러스터를 관리하는 방법 알아보기
 metadata:
-  title: Azure Arc 지원 Kubernetes
+  title: Azure Arc를 지원하는 Kubernetes
   description: Azure에서 온-프레미스 머신을 관리하는 방법에 대해 알아보기
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: e9acbb8206985fbc9edebba8d4183ca1a97736f7
+  ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101647849"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102121663"
 landingContent:
-- title: Azure Arc를 사용하여 Kubernetes 클러스터를 Azure에 연결
+- title: Azure Arc를 지원하는 Kubernetes에 대한 정보
   linkLists:
   - linkListType: overview
     links:
@@ -30,6 +30,8 @@ landingContent:
       url: conceptual-agent-architecture.md
     - text: 구성 및 GitOps
       url: conceptual-configurations.md
+    - text: GitOps를 사용하는 CI/CD 워크플로
+      url: conceptual-gitops-ci-cd.md
     - text: 질문과 대답
       url: faq.md
 - title: 시작
@@ -44,6 +46,8 @@ landingContent:
     links:
     - text: GitOps를 사용하여 구성 배포
       url: tutorial-use-gitops-connected-cluster.md
+    - text: GitOps를 통한 CI/CD 구현
+      url: tutorial-gitops-ci-cd.md
 - title: 클러스터 구성, 제어 및 모니터링
   linkLists:
   - linkListType: how-to-guide

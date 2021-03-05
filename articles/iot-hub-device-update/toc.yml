@@ -40,6 +40,8 @@
       href: connected-cache-disconnected-device-update.md
     - name: IoT Hub용 디바이스 업데이트의 Microsoft 연결된 캐시 구성
       href: connected-cache-configure.md
+    - name: 가져오기 관련 스키마 및 기타 정보
+      href: import-schema.md
 - name: 방법 가이드
   items:
     - name: 디바이스 업데이트 계정 만들기

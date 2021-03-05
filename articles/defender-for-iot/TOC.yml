@@ -27,12 +27,12 @@
         - name: IoT 에이전트 기반 솔루션을 위해 Defender에 온보드
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+        - name: Defender for IoT 마이크로 에이전트 설치
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
-        - name: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+        - name: Defender IoT 마이크로 에이전트 모듈 쌍 만들기
           href: quickstart-create-micro-agent-module-twin.md
-        - name: 소스 코드에서 IoT용 Defender 마이크로 에이전트 빌드(미리 보기)
+        - name: 소스 코드에서 Defender for IoT 마이크로 에이전트 빌드
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Azure RTOS용 보안 모듈 구성
@@ -56,18 +56,18 @@
           href: concept-key-concepts.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
-        - name: 에이전트 포트폴리오 개요 및 OS 지원(미리 보기)
+        - name: 에이전트 포트폴리오 개요 및 OS 지원
           displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
-        - name: 독립 실행형 마이크로 에이전트 개요(미리 보기)
+        - name: 독립 실행형 마이크로 에이전트 개요
           displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
-        - name: 보안 에이전트 인증(미리 보기)
+        - name: 보안 에이전트 인증
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: 보안 상태 - CIS 벤치마크
           href: concept-security-posture.md
-        - name: 이벤트 집계(미리 보기)
+        - name: 이벤트 집계
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: IoT Hub에 대한 기본 제공 경고
@@ -249,9 +249,6 @@
           displayName: 'data, collection, geolocation, log analytics, raw events'
           href: how-to-configure-agent-based-solution.md
         - name: CIS 벤치마크 권장 사항 조사
-          displayName: 'investigation, queries, investigate'
-          href: how-to-configure-agent-based-solution.md
-        - name: CIS 벤치마크 권장 사항 조사
           href: how-to-investigate-cis-benchmark.md
         - name: 사용자 지정 경고 만들기
           displayName: security group
@@ -300,7 +297,7 @@
               href: how-to-investigate-device.md
 - name: 문제 해결
   items:
-    - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
+    - name: Defender IoT 마이크로 에이전트 문제 해결
       displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: 기능 지원 및 사용 중지

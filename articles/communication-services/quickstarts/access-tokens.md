@@ -1,7 +1,7 @@
 ---
 title: 빠른 시작 - 액세스 토큰 만들기 및 관리
 titleSuffix: An Azure Communication Services quickstart
-description: Azure Communication Services 관리 클라이언트 라이브러리를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
+description: Azure Communication Services ID 클라이언트 라이브러리를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,18 +10,16 @@ ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 246b8041e7e12ea1a1391cb4690d02892bc31b63
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 8937210b366981d9768e5329989a8ad14f5e8f35
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325317"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657062"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-Communication Services Administration 클라이언트 라이브러리를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 호출 클라이언트 라이브러리가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services 클라이언트 라이브러리를 초기화합니다.
+Communication Services ID 클라이언트 라이브러리를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 호출 클라이언트 라이브러리가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services 클라이언트 라이브러리를 초기화합니다.
 
 이 자습서 전체에서 이미지에 표시되는 모든 가격은 데모용일 뿐입니다.
 
@@ -69,7 +67,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 > [!div class="checklist"]
 > * ID 관리
 > * 액세스 토큰 발급
-> * Communication Services 관리 클라이언트 라이브러리 사용
+> * Communication Services ID 클라이언트 라이브러리 사용
 
 
 > [!div class="nextstepaction"]
@@ -80,4 +78,3 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
  - [인증에 대한 자세한 정보](../concepts/authentication.md)
  - [앱에 채팅 추가](./chat/get-started.md)
  - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)
- 

@@ -23,12 +23,10 @@
           href: access-api-howto.md
         - name: Azure Cloud Shell 설정
           href: ../../cloud-shell/overview.md
-        - name: REST를 사용하여 개발
+        - name: Media Services에 연결
           items:
-            - name: Postman으로 연결
+            - name: REST 및 Postman과 연결
               href: media-rest-apis-with-postman.md
-        - name: SDK를 사용하여 개발
-          items:
             - name: Java로 연결
               href: configure-connect-java-howto.md
             - name: .NET으로 연결
@@ -51,6 +49,8 @@
       items:
         - name: ARM을 사용하여 계정 만들기
           href: quickstart-arm-template-account.md
+    - name: Python 기본 인코딩 빠른 시작
+      href: quickstart-basic-encoding-python.md
 - name: 자습서
   items:
     - name: .NET

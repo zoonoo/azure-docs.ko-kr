@@ -138,9 +138,9 @@
         - name: Kubernetes에 대한 Azure Policy
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Azure Policy로 포드 보안
+        - name: Azure Policy로 AKS 보안
           displayName: 'aks, psp, rego, opa'
-          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: 게스트 구성을 사용하여 VM 감사
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

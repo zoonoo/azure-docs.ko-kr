@@ -11,14 +11,16 @@
       href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: 예약 권장 사항
       href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure 예약 할인이 적용되는 방식
-      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: 할인 적용 방식
       items:
+        - name: Azure 예약 할인이 적용되는 방식
+          href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: App Service
           href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Azure Cache for Redis
           href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure 데이터 팩터리
+          href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cosmos DB
           href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Database for MariaDB
@@ -68,6 +70,8 @@
           href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Azure Cache for Redis 예약
           href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure 데이터 팩터리
+          href: ../../data-factory/data-flow-reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Azure Database for MariaDB
           href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Azure Database for MySQL
@@ -120,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: 문제 해결
       items:
+        - name: 테넌트 간 전송 문제 해결
+          href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 적격 구독 없음
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 사용률 문제 해결

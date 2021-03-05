@@ -150,6 +150,8 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
+        - name: Apple(미리 보기)
+          href: identity-provider-apple-id.md
         - name: Azure AD(단일 테넌트)
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD(다중 테넌트)
@@ -217,11 +219,11 @@
           href: configure-tokens.md
     - name: 사용자 지정 특성 정의
       href: user-flow-custom-attributes.md
-    - name: ID 보호 및 조건부 액세스
+    - name: 위험 기반 인증
       items:
-        - name: ID 보호 및 조건부 액세스 설정
-          href: conditional-access-identity-protection-setup.md
-        - name: 조건부 액세스 추가
+        - name: ID 보호를 통한 위험 조사
+          href: identity-protection-investigate-risk.md
+        - name: 조건부 액세스 구성
           href: conditional-access-user-flow.md
     - name: 나이 제한 구성
       href: basic-age-gating.md
@@ -327,9 +329,6 @@
                       href: aad-sspr-technical-profile.md
                     - name: 클레임 변환
                       href: claims-transformation-technical-profile.md
-                    - name: 조건부 액세스
-                      href: conditional-access-technical-profile.md
-                      displayName: ca
                     - name: ID 토큰 힌트
                       href: id-token-hint.md
                     - name: JWT 토큰 발급자

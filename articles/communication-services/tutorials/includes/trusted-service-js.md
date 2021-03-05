@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: a16846b8859f93a2d376691115e4b2dd0a7163b6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 6790335e5aa63f515cd125f31a8ccd7877132c10
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633273"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661346"
 ---
 ## <a name="download-code"></a>코드 다운로드
 
@@ -23,8 +23,8 @@ ms.locfileid: "98633273"
 
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
 - [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).
-- [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `node --version` 명령을 사용하여 버전을 확인합니다. 
-- Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
+- [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `node --version` 명령을 사용하여 버전을 확인합니다.
+- Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 - 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](../../quickstarts/create-communication-resource.md).
 
 ## <a name="overview"></a>개요
@@ -74,13 +74,13 @@ module.exports = async function (context, req) {
 
 ### <a name="install-communication-services-libraries"></a>Communication Services 라이브러리 설치
 
-`Administration` 라이브러리를 사용하여 `User Access Tokens`를 생성합니다.
+`Identity` 라이브러리를 사용하여 `User Access Tokens`를 생성합니다.
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services 관리 클라이언트 라이브러리를 설치합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services ID 클라이언트 라이브러리를 설치합니다.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -89,7 +89,7 @@ npm install @azure/communication-administration --save
 `index.js` 파일의 위쪽에서 `CommunicationIdentityClient`에 대한 인터페이스를 가져옵니다.
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## <a name="access-token-generation"></a>액세스 토큰 생성
@@ -102,7 +102,7 @@ Azure 함수에서 `User Access Tokens`를 생성할 수 있도록 하려면 먼
 const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 ```
 
-다음으로, `User Access Tokens`를 생성하도록 원래 함수를 수정합니다. 
+다음으로, `User Access Tokens`를 생성하도록 원래 함수를 수정합니다.
 
 `User Access Tokens`는 `createUser` 메서드에서 사용자를 만들어 생성됩니다. 사용자가 만들어지면 `issueToken` 메서드를 사용하여 Azure 함수에서 반환하는 해당 사용자에 대한 토큰을 생성할 수 있습니다.
 
@@ -136,7 +136,7 @@ module.exports = async function (context, req) {
 
 Azure 함수를 배포하려면 [단계별 지침](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)을 따를 수 있습니다.
 
-일반적으로 다음을 수행해야 합니다.
+요약하면 다음을 수행하게 됩니다.
 1. Visual Studio에서 Azure에 로그인합니다.
 2. 프로젝트를 Azure 계정에 게시합니다. 여기서는 기존 구독을 선택해야 합니다.
 3. Visual Studio 마법사를 사용하여 새 Azure 함수 리소스를 만들거나 기존 리소스를 사용합니다. 새 리소스의 경우 원하는 지역, 런타임 및 고유 식별자로 구성해야 합니다.

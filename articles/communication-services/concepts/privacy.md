@@ -8,22 +8,24 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572030"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656196"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항을 충족할 수 있도록 고객을 지원하기 위해 노력하고 있습니다. 애플리케이션을 사용하는 사용자와 직접적인 관계가 있는 Communication Services를 사용하는 개발자는 잠재적으로 해당 사용자의 데이터를 제어할 수 있습니다. Azure Communication Services는 사용자를 대신하여 이 데이터를 저장하므로 이 데이터의 프로세서가 될 가능성이 높습니다. 이 페이지에는 서비스에서 데이터를 보존하는 방법과 이 데이터를 식별하고, 내보내고, 삭제하는 방법이 요약되어 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주
 
-Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 그러나 데이터가 다른 지역에서 전송되거나 처리될 수 있지만, 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+
+## <a name="data-residency-and-events"></a>데이터 보존 및 이벤트
+
+Azure Communication Services로 구성된 모든 Event Grid 시스템 토픽은 글로벌 위치에 만들어집니다. 안정적으로 제공하기 위해 글로벌 Event Grid 시스템 토픽은 모든 Microsoft 데이터 센터에 이벤트 데이터를 저장할 수 있습니다. Azure Communication Services를 사용하여 Event Grid를 구성하면 사용자가 제어하는 Azure 리소스인 Event Grid에 이벤트 데이터를 제공합니다. Azure Communication Services는 Azure Event Grid를 활용하도록 구성될 수 있지만, Event Grid 리소스와 여기에 저장된 데이터를 관리해야 합니다.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>사용자와 Azure Communication Services ID의 관계
 
@@ -61,7 +63,7 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ### <a name="sms"></a>sms
 
-보내고 받은 SMS 메시지는 서비스에서 임시로 처리되며 보존되지 않습니다. 
+보내고 받은 SMS 메시지는 서비스에서 임시로 처리되며 보존되지 않습니다.
 
 ### <a name="pstn-voice-calling"></a>PSTN 음성 통화
 

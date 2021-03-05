@@ -11,20 +11,20 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 061a7787183918aaee529b686c1478cd4d4b396b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659695"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661599"
 ---
 # <a name="quickstart-send-an-sms-message"></a>빠른 시작: SMS 메시지 보내기
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 > [!IMPORTANT]
 > SMS 메시지는 미국 전화 번호로 송수신할 수 있습니다. 다른 지역에 있는 전화 번호는 아직 Communication Services SMS에서 지원되지 않습니다.
-> 자세한 내용은 **[전화 및 SMS 솔루션 계획](../../concepts/telephony-sms/plan-solution.md)** 을 참조하세요.
+> 자세한 내용은 **[전화 번호 형식](../../concepts/telephony-sms/plan-solution.md)** 을 참조하세요.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -58,7 +58,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 > [SMS 이벤트 구독](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [PSTN 솔루션 계획](../../concepts/telephony-sms/plan-solution.md)
+> [전화 번호 유형](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [SMS에 대한 자세한 정보](../../concepts/telephony-sms/concepts.md)

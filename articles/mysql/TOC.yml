@@ -97,7 +97,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -444,7 +444,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -553,6 +553,9 @@
     - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: MySQL용 dbForge Studio를 사용하여 데이터 마이그레이션
+      href: concepts-migrate-dbforge-studio-for-mysql.md
+      displayName: 'migrate, dbforge'
     - name: MySQL Workbench를 사용하여 데이터 마이그레이션
       href: concepts-migrate-import-export.md
       displayName: 'import , migrate, export'

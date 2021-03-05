@@ -958,6 +958,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Security Center의 포털 페이지
+- id: manage-asc-initiatives
+  title: Security Center 이니셔티브 관리
+  prompt: Security Center 이니셔티브를 어떻게 관리하나요?
+  pivots:
+  - id: azure-portal
+    title: Azure Portal에서
+  - id: rest-api
+    title: REST API 사용
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: 운영 체제/콘솔
   prompt: 운영 체제 및 콘솔 선택
@@ -1007,7 +1015,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: rest-api
-    title: REST
+    title: REST (영문)
 - id: app-service-webjob
   title: WebJob 형식
   prompt: WebJob 유형 선택
@@ -1045,9 +1053,9 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin(Android)
 metadata:
-  ms.openlocfilehash: cd30fa892e20dc82c0e314c76d72c2c8d3583bd1
-  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+  ms.openlocfilehash: 3e17c3c00f5df915394ee81646d8bc3883a8e1ee
+  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102032452"
+  ms.locfileid: "102097515"

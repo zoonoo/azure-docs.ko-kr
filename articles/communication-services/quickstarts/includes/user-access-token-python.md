@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: b4a5dcbd6bc0a6468e8ac8cc7edc8589ea380b28
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aefad6670e937fcb7994688c8c6e846c3cab94e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749913"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,28 +70,22 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-또는 관리 ID가 설정된 경우([관리 ID 사용](../managed-identity.md) 참조) 관리 ID로 인증할 수도 있습니다.
-```python
-const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
-var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
-```
-
 ## <a name="create-an-identity"></a>ID 만들기
 
 Azure Communication Services는 경량 ID 디렉터리를 유지 관리합니다. `create_user` 메서드를 사용하여 고유한 `Id`가 있는 디렉터리에 새 항목을 만듭니다. 애플리케이션 사용자에게 매핑하여 수신된 ID를 저장합니다. 예를 들어 애플리케이션 서버의 데이터베이스에 저장합니다. ID는 나중에 액세스 토큰을 발급하는 데 필요합니다.
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier + ":")
+print("\nCreated an identity with ID: " + identity.identifier)
 ```
 
 ## <a name="issue-access-tokens"></a>액세스 토큰 발급
 
-`get_token` 메서드를 사용하여 이미 존재하는 Communication Services ID에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요. 매개 변수 `CommunicationUserIdentifier`의 새 인스턴스는 Azure Communication Service ID의 문자열 표현에 따라 구성될 수 있습니다.
+`issue_token` 메서드를 사용하여 이미 존재하는 Communication Services ID에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요. 매개 변수 `communicationUser`의 새 인스턴스는 Azure Communication Service ID의 문자열 표현에 따라 구성될 수 있습니다.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.get_token(identity, ["voip"])
+token_result = client.issue_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -99,21 +93,36 @@ print(token_result.token)
 
 액세스 토큰은 다시 발급해야 하는 단기 자격 증명입니다. 이렇게 하지 않으면 애플리케이션의 사용자 환경이 중단될 수 있습니다. `expires_on` 응답 속성은 액세스 토큰의 수명을 나타냅니다.
 
-## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
+## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>ID를 만들고 동일한 요청 내에서 액세스 토큰을 발급합니다.
 
-액세스 토큰을 새로 고치려면 `CommunicationUserIdentifier` 개체를 사용하여 다시 발급합니다.
+`create_user_with_token` 메서드를 사용하여 Communication Services ID를 만들고 이에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요.
 
 ```python
+# Issue an identity and an access token with the "voip" scope for the new identity
+identity_token_result = client.create_user_with_token(["voip"])
+identity = identity_token_result[0].identifier
+token = identity_token_result[1].token
+expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+print("\nCreated an identity with ID: " + identity)
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
+print(token)
+```
+
+## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
+
+액세스 토큰을 새로 고치려면 `CommunicationUser` 개체를 사용하여 다시 발급합니다.
+
+```python  
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token( identity, ["voip"])
+identity = CommunicationUser(existingIdentity)
+token_result = client.issue_token( identity, ["voip"])
 ```
 
 ## <a name="revoke-access-tokens"></a>액세스 토큰 취소
 
 경우에 따라 액세스 토큰을 명시적으로 취소할 수 있습니다. 예를 들어 애플리케이션의 사용자가 서비스에 인증하는 데 사용하는 암호를 변경하는 경우입니다. 메서드 `revoke_tokens`는 ID에 발급된 모든 활성 액세스 토큰을 무효화합니다.
 
-```python
+```python  
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```
@@ -132,5 +141,5 @@ print("\nDeleted the identity with ID: " + identity.identifier)
 콘솔 프롬프트에서 *issue-access-token.py* 파일이 포함된 디렉터리로 이동한 후, 다음 `python` 명령을 실행하여 앱을 실행합니다.
 
 ```console
-python ./issue-access-token.py
+python ./issue-access-tokens.py
 ```

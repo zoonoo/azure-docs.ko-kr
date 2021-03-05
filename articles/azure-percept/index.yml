@@ -10,12 +10,12 @@ metadata:
   author: elqu20
   ms.author: v-elqu
   ms.date: 02/11/2021
-  ms.openlocfilehash: 6c7479b33a78432d5b6aea2c02656e8b250b70c7
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: b979f147c67e8e877b5bb0e9d3dc557317c7aa50
+  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101658173"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102097498"
 landingContent:
 - title: Azure Percept란?
   linkLists:
@@ -45,8 +45,22 @@ landingContent:
       url: azure-percept-dk-datasheet.md
     - text: Azure Percept Vision 데이터시트
       url: azure-percept-vision-datasheet.md
+    - text: 문제 해결
+      url: troubleshoot-dev-kit.md
+- title: Azure Percept Audio 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Percept Audio 설정
+      url: quickstart-percept-audio-setup.md
+  - linkListType: reference
+    links:
     - text: Azure Percept Audio 데이터시트
       url: azure-percept-audio-datasheet.md
+    - text: Azure Percept Audio 문제 해결
+      url: troubleshoot-audio-accessory-speech-module.md
+    - text: Azure Percept Audio LED 및 단추
+      url: audio-button-led-behavior.md
 - title: 코드 없는 비전 AI 프로토타입 빌드
   linkLists:
   - linkListType: tutorial
@@ -63,20 +77,10 @@ landingContent:
       url: how-to-capture-images.md
     - text: Devkit의 원격 분석 데이터 보기
       url: how-to-view-telemetry.md
-- title: Azure Percept Audio 시작
-  linkLists:
-  - linkListType: quickstart
+  - linkListType: concept
     links:
-    - text: Azure Percept Audio 설정
-      url: quickstart-percept-audio-setup.md
-  - linkListType: reference
-    links:
-    - text: Azure Percept Audio 데이터시트
-      url: azure-percept-audio-datasheet.md
-    - text: Azure Percept Audio 문제 해결
-      url: troubleshoot-audio-accessory-speech-module.md
-    - text: Azure Percept Audio LED 및 단추
-      url: audio-button-led-behavior.md
+    - text: AI 솔루션 작업
+      url: overview-ai-models.md
 - title: 코드 없는 음성 도우미 솔루션 빌드
   linkLists:
   - linkListType: tutorial
@@ -85,22 +89,20 @@ landingContent:
       url: tutorial-no-code-speech.md
   - linkListType: how-to-guide
     links:
-    - text: 음성 도우미 구성
-      url: how-to-configure-voice-assistant.md
     - text: 음성 도우미 관리
       url: how-to-manage-voice-assistant.md
+    - text: IoT Hub를 사용하여 음성 도우미 구성
+      url: how-to-configure-voice-assistant.md
 - title: Azure Percept를 사용한 고급 개발
   linkLists:
   - linkListType: overview
     links:
     - text: 고급 개발 개요
       url: overview-advanced-code.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
-    - text: 클라우드 서비스를 사용한 고급 개발
-      url: advanced-development-cloud.md
-    - text: 로컬 도구를 사용한 고급 개발
-      url: advanced-development-local.md
+    - text: Dev Tools Pack 설치 관리자
+      url: dev-tools-installer.md
 - title: Azure Percept DK를 최신 상태로 유지
   linkLists:
   - linkListType: overview
@@ -109,7 +111,7 @@ landingContent:
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:
-    - text: 업데이트 설정
+    - text: 무선 업데이트 설정
       url: how-to-set-up-over-the-air-updates.md
     - text: 무선 업데이트
       url: how-to-update-over-the-air.md

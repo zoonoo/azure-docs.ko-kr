@@ -166,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: 파일 이름 확장명 인사이트 보기
             href: file-extension-insights.md
+      - name: 보안 및 네트워킹
+        items:
+          - name: 프라이빗 엔드포인트 관리
+            href: catalog-private-link.md
   - name: 참조
     items:
       - name: 지원되는 분류

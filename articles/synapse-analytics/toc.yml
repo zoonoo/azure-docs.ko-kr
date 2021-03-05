@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: 전용 SQL 풀(이전에는 SQL DW)로 전환
+- name: 전용 SQL 풀(이전의 SQL DW)로 전환 >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: 개요
   items:
@@ -48,17 +48,19 @@
   items:
     - name: 빠른 시작
       items:
-        - name: Azure Portal을 사용하여 작업 영역 만들기
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Azure CLI를 사용하여 작업 영역 만들기
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Azure PowerShell을 사용하여 작업 영역 만들기
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: 템플릿을 사용하여 배포
-          href: quickstart-deployment-template-workspaces.md
+        - name: 작업 영역 만들기
+          items:
+            - name: Azure portal
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: Azure CLI
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: ARM 템플릿
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Power BI 작업 영역 연결
           href: quickstart-power-bi.md

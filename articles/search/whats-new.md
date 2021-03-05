@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676400"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694600"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -23,7 +23,7 @@ ms.locfileid: "101676400"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
 |------------------------------|---------------|---------------|
-| [의미 체계 검색](semantic-search-overview.md) | 검색 결과를 수정하여 더 많은 관련 결과를 생성하는 쿼리 관련 기능의 컬렉션입니다. 검색 요청을 약간만 변경하면 기존 인덱스에서 이러한 기능을 사용해볼 수 있습니다.</br></br>[의미 체계 쿼리](semantic-how-to-query-request.md)는 자연어 처리의 향상된 기능을 활용하여 순위 작성을 개선하고 쿼리 의도를 이해하여 답변, 캡션 및 의미론적 강조 표시를 제공하는 새로운 쿼리 유형입니다.</br></br>[의미 체계 순위 및 응답(답변, 캡션 및 강조 표시)](semantic-how-to-query-response.md)은 의미 체계 쿼리를 정의하는 알고리즘과 응답의 구조를 말합니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 및 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
+| [의미 체계 검색](semantic-search-overview.md) | 적은 노력으로 검색 결과의 관련성을 향상시키는 쿼리 관련 기능 컬렉션입니다. 검색 요청을 약간만 변경하면 기존 인덱스에서 이러한 기능을 사용해볼 수 있습니다.</br></br>[의미 체계 쿼리](semantic-how-to-query-request.md)는 자연어 처리의 향상된 기능을 활용하여 순위 작성을 개선하고 쿼리 의도를 이해하여 답변, 캡션 및 의미론적 강조 표시를 제공하는 새로운 쿼리 유형입니다.</br></br>[의미 체계 순위 및 응답(답변, 캡션 및 강조 표시)](semantic-how-to-query-response.md)은 결과를 평가하는 모델과 응답에 구조를 추가하는 모델의 기능을 말합니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 및 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
 | [맞춤법 검사 쿼리 용어](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 맞춤법 오류를 검사하도록 할 수 있습니다. `speller` 옵션은 모든 쿼리 유형(단순, 전체 또는 의미 체계)에서 작동합니다. |  공개 미리 보기, REST 전용, api-version=2020-06-30-Preview|
 | [SharePoint Online 인덱서](search-howto-index-sharepoint-online.md) | 이 인덱서는 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있도록 SharePoint Online 사이트에 연결합니다. | 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
 
@@ -46,7 +46,7 @@ ms.locfileid: "101676400"
 | 월 | 기능 | 설명 |
 |-------|---------|-------------|
 | 11월 | [고객 관리형 키 암호화(확장)](search-security-manage-encryption-keys.md) | 검색 서비스에서 만들고 관리하는 자산의 전체 범위에 대해 고객 관리형 암호화를 확장합니다. 일반 공급.|
-| 9월 | [Visual Studio Code용 Azure Cognitive Search 확장](search-get-started-vs-code.md) | 인덱스, 인덱서, 데이터 원본 및 기술 세트를 만들기 위한 작업 영역, 탐색, 인텔리전스 및 템플릿을 추가합니다. | 퍼블릭 미리 보기 |
+| 9월 | [Visual Studio Code용 Azure Cognitive Search 확장](search-get-started-vs-code.md) | 인덱스, 인덱서, 데이터 원본 및 기술 세트를 만들기 위한 작업 영역, 탐색, 인텔리전스 및 템플릿을 추가합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.| 
 | 9월 | [관리 서비스 ID(인덱서)](search-howto-managed-identities-data-sources.md) | 일반 공급.  |
 | 9월 | [프라이빗 링크를 사용하는 아웃바운드 요청](search-indexer-howto-access-private.md) | 일반 공급.  |
 | 9월 | [관리 REST API(2020-08-01)](/rest/api/searchmanagement/management-api-versions) | 일반 공급. |

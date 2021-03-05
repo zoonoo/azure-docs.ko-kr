@@ -337,6 +337,8 @@
               href: migration-guides/database/sql-server-to-sql-database-overview.md
             - name: Migrate
               href: migration-guides/database/sql-server-to-sql-database-guide.md
+            - name: 평가 규칙
+              href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
     - name: 개념
       items:
         - name: 연결 아키텍처
@@ -757,6 +759,8 @@
               href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: 성능 기준선
               href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+            - name: 평가 규칙
+              href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
     - name: 개념
       items:
         - name: 리소스 한계
@@ -1137,7 +1141,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 필수 구성 요소
+                            - name: 사전 요구 사항
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

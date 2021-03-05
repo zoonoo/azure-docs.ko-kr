@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cb253ebfd8269779adf02dcbc01d7998590ce78c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888728"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657165"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure Communication Services에서 이벤트 처리
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)와 통합되어 안정적이고 확장 가능하며 안전한 방식으로 실시간 이벤트 알림을 제공합니다. 이 문서의 목적은 Communication Services 이벤트를 수신하도록 애플리케이션을 구성하는 데 도움을 주는 것입니다. 예를 들어, Communication Services 리소스와 연결된 전화 번호로 SMS 메시지를 받을 때마다 데이터베이스를 업데이트하고, 작업 항목을 만들고, 푸시 알림을 제공할 수 있습니다.
 
@@ -26,9 +24,12 @@ Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Azure Event Grid의 이벤트 모델을 보여 주는 다이어그램.":::
 
+> [!NOTE]
+> 데이터 보존과 이벤트 처리의 관계에 대한 자세한 내용은 [데이터 보존 개념 설명서](./privacy.md)를 참조하세요.
+
 ## <a name="events-types"></a>이벤트 유형
 
-Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. 
+Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.
 
 Azure Communication Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 
@@ -204,7 +205,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Microsoft.Communication.ChatThreadCreatedWithUser event 
+### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Microsoft.Communication.ChatThreadCreatedWithUser event
 
 ```json
 [{
@@ -262,7 +263,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event 
+### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event
 
 ```json
 [{

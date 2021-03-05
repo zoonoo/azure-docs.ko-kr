@@ -1,6 +1,6 @@
 - name: 전용 SQL 풀(이전에는 SQL DW)
   href: sql-data-warehouse-overview-what-is.md
-- name: Azure Synapse로 전환
+- name: Azure Synapse로 전환 >
   href: ../overview-what-is.md
 - name: 개요
   items:
@@ -134,7 +134,7 @@
       items:
         - name: 개요
           href: design-elt-data-loading.md
-        - name: 최선의 구현 방법
+        - name: 모범 사례
           href: guidance-for-loading-data.md
         - name: Columnstore 압축
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md

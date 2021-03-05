@@ -6,6 +6,8 @@
       href: overview.md
 - name: 빠른 시작
   items:
+    - name: Route Server 구성 - 포털
+      href: quickstart-configure-route-server-portal.md
     - name: Route Server 구성 - PowerShell
       href: quickstart-configure-route-server-powershell.md
     - name: Route Server 구성 - CLI
@@ -27,7 +29,7 @@
       href: /powershell/module/az.network/?view=azps-5.5.0#route
     - name: Azure CLI
       href: /cli/azure/network/routeserver?view=azure-cli-latest
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualwan/virtualhubipconfiguration
 - name: 리소스
   items:
