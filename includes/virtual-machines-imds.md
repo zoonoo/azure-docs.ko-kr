@@ -8,15 +8,13 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123686"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175716"
 ---
-# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
-
 IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 합니다. 가상 컴퓨터를 관리 하 고 구성 하는 데 사용할 수 있습니다.
 이 정보에는 SKU, 저장소, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [끝점 범주 요약](#endpoint-categories)을 참조 하세요.
 

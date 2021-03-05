@@ -5,12 +5,12 @@ description: 문제 해결 및 유지 관리 작업을 위해 AKS (Azure Kuberne
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: b55d9f838471f01b1c77b732f6a728aa99c25a74
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cfac73c66969148927897de7ed6da0c56aa276a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591116"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173820"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 RDP를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드에 연결
 
@@ -158,8 +158,8 @@ az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --n
 
 <!-- INTERNAL LINKS -->
 [aks-windows-cli]: windows-container-cli.md
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-vm-delete]: /cli/azure/vm#az-vm-delete
 [azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli

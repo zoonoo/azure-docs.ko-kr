@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661207"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174838"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
@@ -25,7 +25,7 @@ ms.locfileid: "98661207"
 
 [사용자 지정 정책을 사용 하 여 클레임 추가 및 사용자 입력 사용자 지정](configure-user-input.md) 문서에서 기본 제공 [사용자 프로필 특성](user-profile-attributes.md)을 사용 하는 방법을 알아봅니다. 이 문서에서는 Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 사용자 지정 특성을 사용 하도록 설정 합니다. 나중에 [사용자 흐름이](user-flow-overview.md) 나 사용자 [지정 정책](custom-policy-get-started.md) 에서 새 특성을 사용자 지정 클레임으로 동시에 사용할 수 있습니다.
 
-Azure AD B2C 디렉터리에는 [기본 제공 특성 집합이](user-profile-attributes.md)제공 됩니다. 그러나 다음과 같은 경우에 특정 시나리오를 관리 하기 위해 고유한 특성을 만들어야 하는 경우가 많습니다.
+Azure AD B2C 디렉터리에는 [기본 제공 특성 집합](user-profile-attributes.md)이 함께 제공됩니다. 그러나 다음과 같은 경우에 특정 시나리오를 관리 하기 위해 고유한 특성을 만들어야 하는 경우가 많습니다.
 
 * 고객 지향 응용 프로그램은 **LoyaltyId** 특성을 유지 해야 합니다.
 * Id 공급자에는 유지 되어야 하는 고유한 사용자 id **uniqueUserGUID** 이 있습니다.
@@ -33,7 +33,7 @@ Azure AD B2C 디렉터리에는 [기본 제공 특성 집합이](user-profile-at
 
 Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합을 확장할 수 있습니다. 또한 [Microsoft Graph API](microsoft-graph-operations.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -83,7 +83,7 @@ Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합�
 
 ## <a name="using-custom-attribute-with-ms-graph-api"></a>MS Graph API와 함께 사용자 지정 특성 사용
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 `ApplicationClientID` 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다 `b2c-extensions-app` . 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 다음은 그 예입니다. 
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 `ApplicationClientID` 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다 `b2c-extensions-app` . 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -97,22 +97,27 @@ Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이�
 
 1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 1. ClaimsProviders 요소를 찾습니다. ClaimsProviders 요소에 새 ClaimsProvider를 추가 합니다.
-1. 를 `ApplicationObjectId` 이전에 기록한 개체 ID로 바꿉니다. 그런 다음 `ClientId` 를 아래 코드 조각에서 이전에 기록한 응용 프로그램 ID로 바꿉니다.
+1. 열기 및 닫기 요소 사이에 이전에 기록한 **응용 프로그램 ID** 를 삽입 합니다 `<Item Key="ClientId">` `</Item>` .
+1. 이전에 기록한 **응용 프로그램 ObjectID** 를 여는 `<Item Key="ApplicationObjectId">` 요소와 닫는 요소 사이에 삽입 합니다 `</Item>` .
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## <a name="upload-your-custom-policy"></a>사용자 지정 정책 업로드
@@ -132,7 +137,7 @@ Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이�
 
 사용자 지정 정책에서 사용 하기 전이나 후에 포털 UI를 사용 하 여 이러한 특성을 만들 수 있습니다. 포털에서 **loyaltyId** 특성을 만드는 경우 다음과 같이 참조 해야 합니다.
 
-|속성     |사용 대상 |
+|Name     |사용 대상 |
 |---------|---------|
 |`extension_loyaltyId`  | 사용자 지정 정책|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|

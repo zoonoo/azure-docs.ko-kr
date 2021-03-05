@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733843"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175654"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -141,7 +141,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 - `azPowerShellVersion`/`azCliVersion`: 사용할 모듈 버전을 지정 합니다. [지원 되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list)목록을 참조 하세요. [지원 되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list)목록을 참조 하세요.
 
   >[!IMPORTANT]
-  > 배포 스크립트는 MCR (Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용 합니다. 배포 스크립트의 CLI 이미지를 인증하는 데 약 한 달이 걸립니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요. 지원 되지 않는 버전을 사용 하는 경우 오류 메시지에 지원 되는 버전이 나열 됩니다.
+  > 배포 스크립트는 MCR (Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용 합니다. 배포 스크립트의 CLI 이미지를 인증하는 데 약 한 달이 걸립니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli)를 참조하세요. 지원 되지 않는 버전을 사용 하는 경우 오류 메시지에 지원 되는 버전이 나열 됩니다.
 
 - `arguments`: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
 
@@ -149,7 +149,7 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
 
   인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프** 를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 `-name \"John Dole\"` 입니다. 이스케이프 된 문자열은 `-name \\\"John Dole\\\"` 입니다.
 
-  Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 `\"` 를로 바꿉니다 `\\\"` . 예:
+  Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 `\"` 를로 바꿉니다 `\\\"` . 예를 들면 다음과 같습니다.
 
   ```json
   replace(string(parameters('tables')), '\"', '\\\"')
@@ -377,10 +377,10 @@ Timeout             : PT1H
 
 Azure CLI를 사용 하 여 구독 또는 리소스 그룹 범위에서 배포 스크립트를 관리할 수 있습니다.
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete): deployment 스크립트를 삭제 합니다.
-- [az deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list): 모든 배포 스크립트를 나열 합니다.
-- [az deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show): deployment 스크립트를 검색 합니다.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log): deployment script logs를 표시 합니다.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): deployment 스크립트를 삭제 합니다.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): 모든 배포 스크립트를 나열 합니다.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): deployment 스크립트를 검색 합니다.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): deployment script logs를 표시 합니다.
 
 List 명령 출력은 다음과 유사 합니다.
 

@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755914"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175391"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -55,7 +55,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |-----|--------|-------------|
 |`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT 토큰 임을 나타냅니다.|
 |`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
-|`kid` | String | 이 토큰에 서명하는 데 사용되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
+|`kid` | String | 이 토큰을 확인 하는 데 사용 되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
 |`x5t` | String | `kid`와 동일합니다(사용 및 값). 그러나 호환성을 위해 v1.0 `id_tokens`로만 내보내는 레거시 클레임입니다. |
 
 ### <a name="payload-claims"></a>페이로드 클레임

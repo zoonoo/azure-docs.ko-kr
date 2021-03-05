@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 335879af93834665985fe2c14ce3cbd827387920
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606983"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172142"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
-워크플로를 통해 데이터베이스 업데이트를 [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md)에 배포하여 [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)를 시작합니다. 
+워크플로를 통해 데이터베이스 업데이트를 [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md)에 배포하여 [GitHub Actions](https://docs.github.com/en/actions)를 시작합니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,7 +41,7 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 `server-name` 자리 표시자를 Azure에서 호스팅되는 SQL 서버의 이름으로 바꿉니다. `subscription-id` 및 `resource-group`을 SQL 서버에 연결된 구독 ID 및 리소스 그룹으로 바꿉니다.  
 

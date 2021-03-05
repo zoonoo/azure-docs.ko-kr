@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519493"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175671"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -115,9 +115,9 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 | 범주 | 값 |
 | ------------- | ------------- |
-| 지원 되는 버전 | 1.2.0 (ubuntu 16.04), 1.4.0 (Ubuntu 18.04, Windows 2019) |
+| 지원 되는 버전 | 1.2.0 (ubuntu 16.04), 1.7.1 for (Ubuntu 18.04, Windows 2019) |
 | 지원 되는 DSVM 버전      | Windows Server 2019<br>Ubuntu 18.04<br> Ubuntu 16.04 |
-| DSVM에 구성/설치 방법  | [Python 3.5](dsvm-tools-languages.md#python-linux-edition)에 설치 됩니다. 샘플 Jupyter 노트북이 포함 되어 있고 샘플이/dsvm/samples/pytorch.에 있습니다. |
+| DSVM에 구성/설치 방법  | Py37_pytorch conda 환경에서 [Python 3.7](dsvm-tools-languages.md#python-linux-edition) 에 설치 됩니다. 샘플 Jupyter 노트북이 포함 되어 있고 샘플이/dsvm/samples/pytorch.에 있습니다. |
 | 실행 방법      | 터미널: 올바른 환경을 활성화 한 다음 Python을 실행 합니다.<br/>* [Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): 연결을 클릭 한 다음 샘플에 대 한 PyTorch 디렉터리를 엽니다.  |
 
 ## <a name="tensorflow"></a>[Tensorflow](https://www.tensorflow.org/)

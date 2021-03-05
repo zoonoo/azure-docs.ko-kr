@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 5dd960dde72b879515bd948c4731ead135bef4b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035053"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175549"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -84,6 +84,9 @@ Azure 구독 권한을 확인하려면
    ![응용 프로그램의 이름을 입력 합니다.](./media/howto-create-service-principal-portal/create-app.png)
 
 Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
+
+> [!NOTE]
+> Azure AD에서 동일한 이름으로 여러 응용 프로그램을 등록할 수 있지만 응용 프로그램에는 서로 다른 응용 프로그램 (클라이언트) Id가 있어야 합니다.
 
 ## <a name="assign-a-role-to-the-application"></a>응용 프로그램에 역할 할당
 

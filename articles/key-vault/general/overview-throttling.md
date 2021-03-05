@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289685"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175756"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 
@@ -24,7 +24,7 @@ ms.locfileid: "93289685"
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Key Vault가 한도를 처리하는 방법
 
-Key Vault의 서비스 제한은 리소스의 오용을 방지 하 고 모든 Key Vault 클라이언트에 대해 서비스 품질을 보장 합니다. 서비스 임계값이 초과 되 면 해당 클라이언트에서 일정 기간 동안 추가 요청을 제한 하는 Key Vault HTTP 상태 코드 429 (너무 많은 요청)을 반환 하 고 요청이 실패 합니다. Key Vault에서 추적 하는 제한 제한에 429 수를 반환 하는 실패 한 요청입니다. 
+Key Vault의 서비스 제한은 리소스의 오용을 방지 하 고 모든 Key Vault 클라이언트에 대해 서비스 품질을 보장 합니다. 서비스 임계값이 초과 되 면 해당 클라이언트에서 일정 기간 동안 추가 요청을 제한 하는 Key Vault HTTP 상태 코드 429 (너무 많은 요청)을 반환 하 고 요청이 실패 합니다. 429을 반환 하는 실패 한 요청은 Key Vault에서 추적 하는 제한 제한에 계산 되지 않습니다. 
 
 Key Vault는 원래 배포 시 암호를 저장 하 고 검색 하는 데 사용 하도록 설계 되었습니다.  전 세계에서 진화 하 고 Key Vault는 런타임에 암호를 저장 하 고 검색 하는 데 사용 되 고 있으며, 응용 프로그램 및 서비스에서 데이터베이스와 같은 Key Vault를 사용 하려고 합니다.  현재 한도는 높은 처리량 속도를 지원 하지 않습니다.
 
@@ -41,14 +41,14 @@ Key Vault는 원래 [Azure Key Vault 서비스 제한](service-limits.md)에 지
 
 | 자격 증명 모음 이름 | 자격 증명 모음 지역 | 개체 유형 (비밀, 키 또는 인증서) | 작업 * | 키 유형 | 키 길이 또는 곡선 | HSM 키 인가요?| 안정적인 상태 RPS 필요 | 최고 RPS 필요 |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | 키 | 로그인 | EC | P-256 | 예 | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | 키 | Sign | EC | P-256 | 예 | 200 | 1000 |
 
 \* 가능한 값의 전체 목록은 [Azure Key Vault 작업](/rest/api/keyvault/key-operations)을 참조 하세요.
 
 추가 용량이 승인 되 면 용량 향상의 결과로 다음 사항에 유의 하세요.
 1. 데이터 일관성 모델이 변경 됩니다. 추가 처리량 용량으로 자격 증명 모음을 허용 하는 경우에는 Key Vault 서비스 데이터 일관성이 변경 됩니다 (기본 Azure Storage 서비스를 유지할 수 없어 더 높은 볼륨 RPS를 충족 시키는 데 필요).  간략하게 설명하자면,
   1. **허용 목록 사용** 안 함: Key Vault 서비스에서 쓰기 작업의 결과를 반영 합니다 (예: SecretSet, CreateKey)를 후속 호출에서 즉시 호출 합니다 (예: SecretGet, KeySign).
-  1. **허용 목록 사용** : Key Vault 서비스는 쓰기 작업의 결과를 반영 합니다 (예: SecretSet, CreateKey) 이후의 호출에서 60 초 이내 (예: SecretGet, KeySign).
+  1. **허용 목록 사용**: Key Vault 서비스는 쓰기 작업의 결과를 반영 합니다 (예: SecretSet, CreateKey) 이후의 호출에서 60 초 이내 (예: SecretGet, KeySign).
 1. 클라이언트 코드는 429 재시도에 대해 백오프 정책을 준수 해야 합니다. Key Vault 서비스를 호출 하는 클라이언트 코드는 429 응답 코드를 받을 때 Key Vault 요청을 즉시 다시 시도 하면 안 됩니다.  여기에 게시 된 Azure Key Vault 제한 지침은 429 Http 응답 코드를 받을 때 지 수 백오프를 적용 하는 것을 권장 합니다.
 
 더 높은 제한 한도에 대한 유효한 비즈니스 사례가 있을 경우 Microsoft에 연락해 주세요.

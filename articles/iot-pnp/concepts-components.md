@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eef8179567d83e3727c3ab949eef2706ce2a9b16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330005"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175807"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>모델의 IoT 플러그 앤 플레이 구성 요소
 
@@ -56,7 +56,7 @@ IoT 플러그 앤 플레이 규칙에서 디바이스는 IoT Hub에 연결할 �
 ...
 ```
 
-모델은 구성 요소를 명시적으로 정의 하지 않지만 모든 원격 분석, 속성 및 명령 정의를 포함 하는 단일 _기본 구성 요소가_있는 것 처럼 동작 합니다.
+모델은 구성 요소를 명시적으로 정의 하지 않지만 모든 원격 분석, 속성 및 명령 정의를 포함 하는 단일 _기본 구성 요소가_ 있는 것 처럼 동작 합니다.
 
 다음 스크린샷은 Azure IoT 탐색기 도구에 모델을 표시 하는 방법을 보여 줍니다.
 
@@ -64,7 +64,7 @@ IoT 플러그 앤 플레이 규칙에서 디바이스는 IoT Hub에 연결할 �
 
 모델 ID는 다음 스크린샷에 표시 된 것 처럼 장치 쌍 속성에 저장 됩니다.
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Azure IoT 탐색기의 기본 구성 요소":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="디지털 쌍 속성의 모델 ID":::
 
 구성 요소가 없는 DTDL 모델은 단일 원격 분석, 속성 및 명령 집합을 사용 하는 장치 또는 IoT Edge 모듈에 유용 하 게 사용할 수 있습니다. 구성 요소를 사용 하지 않는 모델을 사용 하면 기존 장치 또는 모듈을 IoT 플러그 앤 플레이 장치 또는 모듈로 쉽게 마이그레이션할 수 있습니다. 구성 요소를 정의할 필요 없이 실제 장치 또는 모듈을 설명 하는 DTDL 모델을 만듭니다.
 

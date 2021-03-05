@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: d3aa0ca83b28708fde81cba12993ac6e79e79a88
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8e5bb7bffddaedbf6349611c17e8d9cbec3c4139
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760617"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172683"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "98760617"
 > [Azure 정적 Web Apps](../../static-web-apps/index.yml)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
 > Azure 정적 Web Apps는 자동으로 GitHub 작업 워크플로를 만듭니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure 구독 및 GitHub 계정. 
 
@@ -131,7 +131,7 @@ Azure 구독 및 GitHub 계정.
           with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ``` 
 
 1. Azure에서 로그아웃하는 작업을 추가하여 워크플로를 완성합니다. 완성된 워크플로는 다음과 같습니다. 파일이 리포지토리의 `.github/workflows` 폴더에 표시됩니다.
@@ -165,7 +165,7 @@ Azure 구독 및 GitHub 계정.
           with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
       
       # Azure logout 
         - name: logout

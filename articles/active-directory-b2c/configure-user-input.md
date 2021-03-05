@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb7cba1de280793a1ca98687c71355c1ea702d4c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e76fe1c26f428403a79a3605b7a41f761fe2a4bb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171623"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 특성 추가 및 사용자 입력 사용자 지정
 
@@ -32,7 +32,7 @@ ms.locfileid: "97585227"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 등록 과정 중에 새 특성을 수집 합니다. 사용자의 도시를 가져오고, 드롭다운으로 구성 하 고, 제공 해야 하는지 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -198,7 +198,7 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
 </ClaimsProvider>
 ```
 
-페더레이션된 계정으로 초기 로그인 한 후 도시 클레임을 수집 하려면 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다 `SelfAsserted-Social` . 로컬 및 페더레이션된 계정 사용자가 나중에 프로필 데이터를 편집할 수 있도록 하려면 출력 클레임을 기술 프로필에 추가 합니다 `SelfAsserted-ProfileUpdate` . 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 출력 클레임의 전체 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
+페더레이션된 계정으로 초기 로그인 한 후 도시 클레임을 수집 하려면 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다 `SelfAsserted-Social` . 로컬 및 페더레이션된 계정 사용자가 나중에 프로필 데이터를 편집할 수 있도록 하려면 기술 프로필에 입력 및 출력 클레임을 추가 `SelfAsserted-ProfileUpdate` 합니다. 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 출력 클레임의 전체 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
 
 ```xml
 <ClaimsProvider>
@@ -206,6 +206,9 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
     <TechnicalProfile Id="SelfAsserted-Social">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName"/>
@@ -215,6 +218,9 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
     </TechnicalProfile>
     <!--Edit profile page-->
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName" />

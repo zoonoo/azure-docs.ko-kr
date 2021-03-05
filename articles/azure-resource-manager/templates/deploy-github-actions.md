@@ -4,12 +4,12 @@ description: GitHub 작업을 사용 하 여 Azure Resource Manager 템플릿 (A
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 243316b32d5b0cf62f03ae77d8a9fb919743ace1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762081"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172833"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>GitHub 작업을 사용 하 여 ARM 템플릿 배포
 
@@ -17,7 +17,7 @@ ms.locfileid: "98762081"
 
 [Azure Resource Manager 템플릿 배포 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) 을 사용 하 여 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿) 배포를 자동화할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "98762081"
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 아직 없는 경우 리소스 그룹을 만듭니다.
 

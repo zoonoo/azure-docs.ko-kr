@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: e28b66844eaa0b73c2654175dea2e31d3cd75f5d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900283"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172099"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -125,7 +125,7 @@ az lock delete --name $lockName --resource-group $resourceGroupName
 - 템플릿에 전체 인프라가 포함 되어 있기 때문에 향후 솔루션 배포를 자동화 합니다.
 - 솔루션을 나타내는 JSON (JavaScript Object Notation)을 살펴보면 템플릿 구문에 대해 알아봅니다.
 
-리소스 그룹의 모든 리소스를 내보내려면 [az group export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) 를 사용 하 고 리소스 그룹 이름을 제공 합니다.
+리소스 그룹의 모든 리소스를 내보내려면 [az group export](/cli/azure/group#az_group_export) 를 사용 하 고 리소스 그룹 이름을 제공 합니다.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

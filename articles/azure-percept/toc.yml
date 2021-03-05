@@ -90,6 +90,8 @@
           href: vision-solution-troubleshooting.md
         - name: Azure Percept Audio 문제 해결
           href: troubleshoot-audio-accessory-speech-module.md
+        - name: 알려진 문제
+          href: known-issues.md
 - name: 참조
   items:
     - name: Azure Percept 디바이스 데이터시트

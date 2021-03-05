@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994845"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175093"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -149,6 +149,42 @@ ms.locfileid: "95994845"
     - **value**: Contoso 서비스 약관...
 - 출력 클레임:
     - **createdClaim**: TOS ClaimType은 "Contoso 사용 약관..." 값을 포함합니다.
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+입력 클레임 값이 출력 클레임 조건자와 일치 하는 경우 클레임 값을 다른 값으로 복사 합니다. 
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | 문자열 | 복사할 클레임 유형입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환이 호출 된 후에 생성 된 클레임 유형입니다. 입력 클레임의 값은이 클레임 조건자에 대해 확인 됩니다. |
+
+다음 예에서는 signInName가 전화 번호 인 경우에만 signInName 클레임 값을 phoneNumber 클레임에 복사 합니다. 전체 샘플을 보려면 [전화 번호 또는 전자 메일 로그인](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) 시작 팩 정책을 참조 하세요.
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>예 1
+
+- 입력 클레임:
+    - **Inputclaim**: bob@contoso.com
+- 출력 클레임:
+    - **outputclaim**: 출력 클레임이 원래 값에서 변경 되지 않습니다.
+
+### <a name="example-2"></a>예제 2
+
+- 입력 클레임:
+    - **Inputclaim**: + 11234567890
+- 출력 클레임:
+    - **outputClaim**: +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -964,7 +1000,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
 Azure AD B2C 사용자 지정 정책의 클레임 변환 식은 테넌트 ID 및 기술 프로필 ID에 대한 컨텍스트 정보를 제공합니다.
 
-  | 식 | Description | 예제 |
+  | 식 | 설명 | 예제 |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | 기술 프로필 ID 이름입니다. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |

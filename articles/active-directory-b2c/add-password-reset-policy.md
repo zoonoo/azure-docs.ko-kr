@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8e4926fb228837c3ec0573af8ee5b15da5fd7431
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033984"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171657"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "102033984"
 
 사용자를 임의의 암호로 Azure AD B2C로 마이그레이션한 후의 일반적인 방법은 사용자가 전자 메일 주소를 확인 하 고 처음 로그인 할 때 암호를 다시 설정 하도록 하는 것입니다. 관리자가 암호를 변경한 후에도 사용자가 암호를 다시 설정 하도록 하는 것이 일반적입니다. 이 기능을 사용 하려면 [암호 재설정 강제](force-password-reset.md) 사용을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -301,5 +301,3 @@ ms.locfileid: "102033984"
 ## <a name="next-steps"></a>다음 단계
 
 [암호 재설정을 강제](force-password-reset.md)설정 합니다.
-
-

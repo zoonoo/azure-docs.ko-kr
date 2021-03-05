@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: justinha
-ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 48ce982a6d6d7a3ed12d6e3b4711d111dec4d6f8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620191"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174634"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -78,7 +78,7 @@ Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 
 | **LDAPS(보안 LDAP)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP 읽기**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP 쓰기**                                    | **&#x2713;** (관리되는 도메인 내) | **&#x2713;** |
-| **지리적 분산 배포**                   | **&#x2715;** | **&#x2713;** |
+| **지리적 분산 배포**                   | **&#x2713;** | **&#x2713;** |
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS 및 Azure AD
 

@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ace0847f1b6df646bf0d9a6c8507f4660ab02c8b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 13f78691a3652cc82e261f807c690c04cebec3b4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046213"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175519"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -31,7 +31,7 @@ ms.locfileid: "102046213"
 >
 > 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Hyper-V를 사용하도록 설정된](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -240,8 +240,8 @@ IoT Edge 런타임은 장치를 자동으로 프로 비전 하도록 TPM에 액�
 4. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow iotedge access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
    ```
 
 5. 파일을 저장하고 종료합니다.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120745"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174668"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ ms.locfileid: "102120745"
 
 #### <a name="precondition"></a>Precondition
 
+오케스트레이션 단계에 정의 된 전제 조건에 따라 오케스트레이션 단계를 조건부로 실행할 수 있습니다. 사전 조건에는 다음과 같은 두 가지 유형이 있습니다.
+ 
+- **클레임이 존재** 함-지정 된 클레임이 사용자의 현재 클레임 모음에 있는 경우 작업을 수행 하도록 지정 합니다.
+- **클레임 같음** -지정 된 클레임이 존재 하 고 해당 값이 지정 된 값과 같은 경우 작업을 수행 하도록 지정 합니다. 이 검사는 대/소문자를 구분 하는 서 수 비교를 수행 합니다. 부울 클레임 유형을 확인 하는 경우 `True` , 또는를 사용 `False` 합니다.
+
 **사전 조건** 요소는 다음 특성을 포함 합니다.
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 이 전제 조건에 대해 수행할 확인이나 쿼리의 유형입니다. 값은 **ClaimsExist**(지정한 클레임이 사용자의 현재 클레임 집합에 있으면 작업을 수행해야 함을 지정함) 또는 **ClaimEquals**(지정한 클레임이 있으며 해당 값이 지정된 값과 같으면 작업을 수행해야 함을 지정함)일 수 있습니다. |
-| `ExecuteActionsIf` | 예 | true 또는 false 테스트를 사용하여 전제 조건의 작업을 수행해야 하는지를 결정합니다. |
+| `ExecuteActionsIf` | 예 | `true`또는 `false` 테스트를 사용 하 여 사전 조건에서 작업을 수행할지 여부를 결정 합니다. |
 
 **Precondition** 요소에는 다음과 같은 요소가 포함됩니다.
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 값 | 1:n | 쿼리할 ClaimTypeReferenceId입니다. 확인할 값은 다른 value 요소에 포함되어 있습니다.</li></ul>|
+| 값 | 1:2 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의 되어 있습니다. 전제 조건이의 형식인 경우 `ClaimEquals` 두 번째 요소는 `Value` 확인할 값을 포함 합니다. |
 | 작업 | 1:1 | 오케스트레이션 단계 내에서 수행한 전제 조건 확인의 결과가 true이면 수행해야 하는 작업입니다. `Action`의 값이 `SkipThisOrchestrationStep`으로 설정된 경우 연결된 `OrchestrationStep`이 실행되면 안 됩니다. |
 
 #### <a name="preconditions-examples"></a>Preconditions 예제
@@ -189,7 +194,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 </OrchestrationStep>
 ```
 
-## <a name="identity-provider-selection"></a>ID 공급자 선택 영역
+## <a name="claims-provider-selection"></a>클레임 공급자 선택
 
 Id 공급자 선택을 통해 사용자는 옵션 목록에서 작업을 선택할 수 있습니다. Id 공급자 선택은 다음 두 오케스트레이션 단계로 구성 됩니다. 
 
@@ -215,7 +220,7 @@ Id 공급자 선택을 통해 사용자는 옵션 목록에서 작업을 선택�
 | TargetClaimsExchangeId | 예 | 클레임 공급자 선택 항목의 다음 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 ValidationClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
 | ValidationClaimsExchangeId | 예 | 클레임 공급자 선택 항목의 유효성을 검사하기 위해 현재 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 TargetClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
 
-### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection 예제
+### <a name="claims-provider-selection-example"></a>클레임 공급자 선택 예제
 
 다음 오케스트레이션 단계에서 사용자는 Facebook, LinkedIn, Twitter, Google 또는 로컬 계정을 사용 하 여 로그인 하도록 선택할 수 있습니다. 사용자가 소셜 ID 공급자 중 하나를 선택하면 `TargetClaimsExchangeId` 특성에 지정된 선택한 클레임 교환을 사용하여 두 번째 오케스트레이션 단계가 실행됩니다. 두 번째 오케스트레이션 단계에서는 로그인 프로세스를 완료할 수 있도록 사용자를 소셜 ID 공급자로 리디렉션합니다. 사용자가 로컬 계정을 사용하여 로그인하도록 선택하는 경우 Azure AD B2C는 같은 오케스트레이션 단계(같은 등록 또는 로그인 페이지)로 유지되며 두 번째 오케스트레이션 단계는 건너뜁니다.
 

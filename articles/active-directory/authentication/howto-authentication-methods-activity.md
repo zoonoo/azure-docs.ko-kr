@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693182"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175314"
 ---
 # <a name="authentication-methods-activity"></a>인증 방법 작업 
 
@@ -26,10 +26,17 @@ ms.locfileid: "101693182"
 
 ## <a name="permissions-and-licenses"></a>권한 및 라이선스
 
-다음 역할은 사용 및 정보에 액세스할 수 있습니다.
+다음 권한이 있는 기본 제공 및 사용자 지정 역할은 인증 방법 작업 블레이드 및 Api에 액세스할 수 있습니다.
+
+- Microsoft. directory/auditLogs/allProperties/read
+- Microsoft. directory/signInReports/allProperties/read
+
+필요한 사용 권한이 있는 역할은 다음과 같습니다.
 
 - 보고서 구독자
 - 보안 Reader
+- 전역 Reader
+- 보안 운영자
 - 보안 관리자
 - 전역 관리자
 
@@ -100,7 +107,7 @@ ms.locfileid: "101693182"
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
 - 사용자 계정 이름
-- 속성
+- Name
 - MFA 지원 가능 (지원 안 함)
 - Passwordless 가능 (지원 안 함)
 - SSPR 등록 (등록 됨, 등록 되지 않음)
@@ -122,11 +129,12 @@ ms.locfileid: "101693182"
 - 상태 (성공, 실패)
 - 실패 이유 (설명)
 
-  ![사용량 페이지의 스크린샷](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![등록 및 다시 설정 이벤트의 스크린샷](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>제한 사항
 
-임시 액세스 통과 (탭) 등록은 짧은 기간 동안만 유효 하기 때문에 보고서의 등록 탭에 반영 되지 않습니다.
+- 보고서의 데이터는 실시간으로 업데이트 되지 않으며 최대 몇 시간의 대기 시간을 반영할 수 있습니다.
+- 임시 액세스 단계 등록은 짧은 기간 동안만 유효 하기 때문에 보고서의 등록 탭에 반영 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

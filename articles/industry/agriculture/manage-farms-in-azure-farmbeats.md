@@ -4,13 +4,13 @@ description: 팜을 관리 하는 방법을 설명 합니다.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 050b3b4d67eda9b6c9b4621c014e3e6baad34053
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167936"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173803"
 ---
 # <a name="manage-farms"></a>팜 관리
 
@@ -28,8 +28,8 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
     ![팜 페이지를 보여 주는 스크린샷](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. **팜 만들기** 를 선택 하 **고 이름**, **자르기** 및 **주소**를 제공 합니다.
-3. **팜 경계 정의**(필수 필드)에서 **지도에 표시** 또는 **붙여넣기 GeoJSON 코드**를 선택 합니다.
+2. **팜 만들기** 를 선택 하 **고 이름**, **자르기** 및 **주소** 를 제공 합니다.
+3. **팜 경계 정의**(필수 필드)에서 **지도에 표시** 또는 **붙여넣기 GeoJSON 코드** 를 선택 합니다.
 
 팜 경계를 정의 하는 두 가지 방법은 다음과 같습니다.
 
@@ -58,7 +58,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 **팜** 페이지에는 생성 된 팜 목록이 표시 됩니다.
 
 1.  팜을 보고 편집할 팜을 선택 합니다.
-2.  팜 **편집** 을 선택 하 여 팜 정보를 편집 합니다. **팜 세부 정보** 창에서 **팜 경계** 필드의 **이름**, **자르기**, **주소**및 정의를 편집할 수 있습니다.
+2.  팜 **편집** 을 선택 하 여 팜 정보를 편집 합니다. **팜 세부 정보** 창에서 **팜 경계** 필드의 **이름**, **자르기**, **주소** 및 정의를 편집할 수 있습니다.
 
     ![Farm Beats 프로젝트](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 

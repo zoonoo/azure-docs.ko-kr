@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649226"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175348"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -187,6 +187,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp-사용 되는 앱은 조건부 액세스에 대해 승인 된 앱이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
 | AADSTS53003 | BlockedByConditionalAccess-조건부 액세스 정책에 의해 액세스가 차단 되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - 사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다. |
+| AADSTS53011 | 사용자가 홈 테 넌 트의 위험으로 인해 차단 되었습니다. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|

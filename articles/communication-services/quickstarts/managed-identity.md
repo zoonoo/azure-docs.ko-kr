@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee691d4809a68a0ba60f60a2240b76a1e53104bc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692184"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171576"
 ---
 # <a name="use-managed-identities-net"></a>관리 ID 사용(.NET)
 
@@ -25,7 +25,7 @@ ms.locfileid: "101692184"
 ## <a name="prerequisites"></a>사전 요구 사항
 
  - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free)
- - 활성 Communication Services 리소스 및 연결 문자열. [Communication Services 리소스를 만듭니다](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
+ - 활성 Communication Services 리소스 및 연결 문자열 [Communication Services 리소스를 만듭니다](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## <a name="setting-up"></a>설치
 
@@ -83,7 +83,7 @@ using Azure.Communication.Sms;
 다음 코드 예제에서는 Azure Active Directory 토큰을 사용 하 여 서비스 클라이언트 개체를 만든 다음 클라이언트를 사용 하 여 새 사용자에 대 한 토큰을 발급 하는 방법을 보여 줍니다.
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEndpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
      

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559542"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171549"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -39,8 +39,7 @@ ms.locfileid: "97559542"
 > [!IMPORTANT]
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 를 참조 하세요.
 
@@ -95,7 +94,7 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 
 다음 표에서는 작업 영역 기본 저장소 계정에 대해 관리 id 인증을 사용 하도록 설정 해야 하는 이유에 대해 설명 합니다.
 
-|스토리지 계정  | 메모  |
+|스토리지 계정  | 참고  |
 |---------|---------|
 |작업 영역 기본 blob storage| 디자이너에서 모델 자산을 저장 합니다. 디자이너에서 모델을 배포 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. <br> <br> 관리 id를 사용 하도록 구성 된 기본이 아닌 데이터 저장소를 사용 하는 경우 디자이너 파이프라인을 시각화 하 고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 id를 사용 하도록 설정 하지 않고 학습 된 모델을 배포 하려고 하면 사용 중인 다른 데이터 저장소에 관계 없이 배포가 실패 합니다.|
 |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장 합니다. AutoML 실험을 제출 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. |
@@ -106,7 +105,6 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 > 이 문제를 방지 하려면 두 가지 옵션이 있습니다. 1) 작업 영역을 만들 때 자동으로 만들어지는 기본 파일 저장소를 사용 합니다. 2) 고유한 파일 저장소를 가져오려면 작업 영역을 만드는 동안 파일 저장소가 VNet 외부에 있는지 확인 합니다. 작업 영역을 만든 후 가상 네트워크에 저장소 계정을 추가 합니다.
 >
 > 이 문제를 해결 하려면 가상 네트워크에서 파일 저장소 계정을 제거한 다음 가상 네트워크에 다시 추가 합니다.
-
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>저장소 개인 링크에 대 한 작업 영역 관리 id __판독기__ 액세스 권한 부여
 
@@ -134,7 +132,7 @@ __Azure blob storage__ 의 경우 blob storage에서 데이터를 읽을 수 있
 
 Azure RBAC 및 POSIX 스타일의 Acl (액세스 제어 목록)을 모두 사용 하 여 가상 네트워크 내에서 데이터 액세스를 제어할 수 있습니다.
 
-Azure RBAC를 사용 하려면 [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 작업 영역 관리 id를 추가 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조 하세요.
+Azure RBAC를 사용 하려면 [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 작업 영역 관리 id를 추가 합니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조하세요.
 
 Acl을 사용 하려면 다른 보안 원칙과 마찬가지로 작업 영역 관리 id에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조 하세요.
 
@@ -162,7 +160,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](/sql/t-sql/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 네 부분으로 구성 된 가상 네트워크 시리즈의 선택적 부분입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
+이 문서는 5 부분으로 구성 된 가상 네트워크 시리즈의 5 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
 
 * [1 부: 가상 네트워크 개요](how-to-network-security-overview.md)
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)
