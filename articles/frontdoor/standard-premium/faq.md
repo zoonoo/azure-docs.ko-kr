@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a42601b696f292e9d2a9da90070fea3662acae87
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6f6d71dec9726f009ab9a56e0a49ba21f5d218fd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099907"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181026"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에 대 한 질문과 대답
 
@@ -85,7 +85,11 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>내 백 엔드에 대 한 액세스를 Azure Front 도어로 어떻게 할까요? 잠글 수 있나요?
 
-응용 프로그램을 잠가 특정 Front 문의 트래픽만 허용 하려면 백 엔드에 대 한 IP Acl을 설정 해야 합니다. 그런 다음, 프런트 도어가 보낸 헤더의 특정 값으로 백 엔드의 트래픽을 제한 합니다. 이러한 단계는 아래에 자세히 설명 되어 있습니다.
+특정 Front 도어 인스턴스의 트래픽만 허용 하도록 응용 프로그램을 잠그는 가장 좋은 방법은 개인 끝점을 통해 응용 프로그램을 게시 하는 것입니다. 프런트 도어와 응용 프로그램 간의 네트워크 트래픽은 VNet을 통과 하 고 Microsoft 백본 네트워크의 개인 링크로 이동 하 여 공용 인터넷의 노출을 제거 합니다.
+
+[개인 링크를 사용 하 여 Front 도어의 원본 보안](concept-private-link.md)에 대해 자세히 알아보세요.  
+
+특정 Front 도어의 트래픽만 허용 하도록 응용 프로그램을 잠그는 다른 방법은 백 엔드에 대 한 IP Acl을 설정 해야 합니다. 그런 다음, 프런트 도어가 보낸 헤더의 특정 값으로 백 엔드의 트래픽을 제한 합니다. 이러한 단계는 아래에 자세히 설명 되어 있습니다.
 
 * 백 엔드에 대 한 IP ACLing를 구성 하 여 Azure 전면 도어의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽을 허용 합니다. 백 엔드를 ACLing 하려면 아래의 IP 세부 정보를 참조 하세요.
  

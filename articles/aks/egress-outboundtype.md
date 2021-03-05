@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 사용자 지정 송신 경로�
 services: container-service
 ms.topic: article
 ms.date: 06/29/2020
-ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 72ba90510afb00ee001c97612e88f452039f53a4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348137"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182131"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>User-Defined 경로를 사용 하 여 클러스터 송신 사용자 지정
 
@@ -81,5 +81,5 @@ Azure 부하 분산 장치는 [규칙이 배치 될 때까지 요금이 부과 �
 [경로 테이블을 만들거나 변경하거나 삭제하는 방법](../virtual-network/manage-route-table.md)을 참조하세요.
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

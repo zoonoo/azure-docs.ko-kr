@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875249"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181519"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -29,7 +29,7 @@ Blob storage 이벤트를 시도 하려면 다음 빠른 시작 문서를 참조
 
 |이 도구를 사용 하려면 다음을 수행 합니다.    |이 문서를 참조 하세요. |
 |--|-|
-|Azure Portal    |[빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure portal    |[빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[빠른 시작: PowerShell을 사용 하 여 웹 끝점에 저장소 이벤트 라우팅](./storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[빠른 시작: Azure CLI 사용 하 여 저장소 이벤트를 웹 끝점으로 라우팅](./storage-blob-event-quickstart.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
@@ -98,7 +98,7 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 > * 잠시 후 메시지가 도착할 수 있으므로 etag 필드를 사용 하 여 개체에 대 한 정보가 아직 최신 상태 인지를 파악 합니다. Etag 필드를 사용 하는 방법을 알아보려면 [Blob storage에서 동시성 관리](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)를 참조 하세요.
 > * 메시지가 잘못 된 순서로 도착할 수 있으므로 sequencer 필드를 사용 하 여 특정 개체에 대 한 이벤트의 순서를 이해 합니다. Sequencer 필드는 특정 blob 이름에 대 한 이벤트의 논리적 시퀀스를 나타내는 문자열 값입니다. 표준 문자열 비교를 사용 하 여 동일한 blob 이름에서 두 이벤트의 상대 시퀀스를 이해할 수 있습니다.
-> * 저장소 이벤트는 구독자에 게 한 번 이상 배달 되도록 보장 하므로 모든 메시지가 출력 됩니다. 그러나 구독을 다시 시도 하거나 사용할 수 있기 때문에 중복 된 메시지가 때때로 발생할 수 있습니다. 메시지 배달 및 다시 시도에 대 한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](../../event-grid/delivery-and-retry.md)를 참조 하세요.
+> * 저장소 이벤트는 구독자에 게 한 번 이상 배달 되도록 보장 하므로 모든 메시지가 출력 됩니다. 그러나 백 엔드 노드 및 서비스 간 재시도 또는 구독의 가용성 때문에 중복 메시지가 발생할 수 있습니다. 메시지 배달 및 다시 시도에 대 한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](../../event-grid/delivery-and-retry.md)를 참조 하세요.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
 > * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.

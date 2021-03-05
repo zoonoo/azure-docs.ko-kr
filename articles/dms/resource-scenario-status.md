@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319915"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183984"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -29,7 +29,7 @@ Azure Database Migration Service를 사용 하 여 오프 라인 또는 온라�
 
 ## <a name="migration-scenario-status"></a>마이그레이션 시나리오 상태
 
-Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태는 시간에 따라 다릅니다. 일반적으로 시나리오는 **비공개 미리 보기**에서 처음 릴리스 되었습니다. 비공개 미리 보기에 참여 하려면 고객이 [DMS preview 사이트](https://aka.ms/dms-preview)를 통해 추천을 제출 해야 합니다. 비공개 미리 보기 후에는 시나리오 상태가 **공개 미리 보기로**변경 됩니다. Azure Database Migration Service 사용자는 사용자 인터페이스에서 직접 공개 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 등록은 필요 하지 않습니다.  그러나 공개 미리 보기의 마이그레이션 시나리오는 모든 지역에서 사용 하지 못할 수 있으며 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 공개 미리 보기 후에는 시나리오 상태가 **일반적으로 사용 가능**으로 변경 됩니다. GA (일반 공급)는 최종 릴리스 상태 이며 기능이 완전 하 고 모든 사용자가 액세스할 수 있습니다.
+Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태는 시간에 따라 다릅니다. 일반적으로 시나리오는 **비공개 미리 보기** 에서 처음 릴리스 되었습니다. 비공개 미리 보기에 참여 하려면 고객이 [DMS preview 사이트](https://aka.ms/dms-preview)를 통해 추천을 제출 해야 합니다. 비공개 미리 보기 후에는 시나리오 상태가 **공개 미리 보기로** 변경 됩니다. Azure Database Migration Service 사용자는 사용자 인터페이스에서 직접 공개 미리 보기로 마이그레이션 시나리오를 사용해 볼 수 있습니다. 등록은 필요 하지 않습니다.  그러나 공개 미리 보기의 마이그레이션 시나리오는 모든 지역에서 사용 하지 못할 수 있으며 최종 릴리스 전에 추가 변경 사항이 발생할 수 있습니다. 공개 미리 보기 후에는 시나리오 상태가 **일반적으로 사용 가능** 으로 변경 됩니다. GA (일반 공급)는 최종 릴리스 상태 이며 기능이 완전 하 고 모든 사용자가 액세스할 수 있습니다.
 
 ## <a name="migration-scenario-support"></a>마이그레이션 시나리오 지원
 
@@ -45,7 +45,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 오프라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| 대상  | 원본 | 지원 | 상태 |
+| Target  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | X |  |
@@ -56,7 +56,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | X |   |
+| **MySQL용 Azure DB** | MySQL | X |   |
 |   | RDS MySQL | X |   |
 | **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
@@ -67,18 +67,18 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 온라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| 대상  | 원본 | 지원 | 상태 |
+| Target  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
+| **Azure SQL DB** | SQL Server | X | GA |
+|   | RDS SQL | X | GA |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
+|   | RDS SQL | X | GA |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | ✔ | GA |
+| **MySQL용 Azure DB** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL 용 Azure DB-단일 서버 | ✔ | GA |

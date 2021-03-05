@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 0f5ecef1716a503b7d27d0f5cdde15a4560c0e61
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1753f2bb649e73d7a5fe6c1cc32361a418ea7f63
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100248"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181808"
 ---
 # <a name="overview-of-azure-front-door-standardpremium-sku-preview"></a>Azure 전면 도어 표준/프리미엄 SKU 개요 (미리 보기)
 
@@ -56,10 +56,10 @@ Azure Front 도어가 3 개의 다른 Sku, [Azure Front 도어](../front-door-ov
 | 압축 | 예 | 예   |
 | 전역 부하 분산 | 예  | 예 |
 | 계층 7 라우팅 | 예 | 예 |
-| URL 재작성 | 예 | 예 |
+| URL 다시 쓰기 | 예 | 예 |
 | 규칙 엔진 | 예 | 예 |
 | 개인 원본 (개인 링크) | 예 | 예 |
-| WAF | 예 | 예 |
+| WAF | 사용자 지정 규칙만 | 예 |
 | Bot 보호 | 예 | 예 |
 | 향상 된 메트릭 및 진단 | 예 | 예 |
 | 트래픽 보고서 | 예 | 예 |

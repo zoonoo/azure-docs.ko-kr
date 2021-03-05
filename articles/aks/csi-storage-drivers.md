@@ -5,19 +5,19 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2af4f9e2ea1dc0fcb8e5f40e0024297124292b49
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fa40ab22f0c1ebf47bb490a50f782a848d1441e1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074824"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182114"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 Azure 디스크 및 Azure Files에 대 한 CSI (Container Storage Interface) 드라이버를 사용 하도록 설정
 
 CSI (Container Storage Interface)는 Kubernetes에서 임의 블록 및 파일 저장소 시스템을 컨테이너 화 된 작업에 노출 하는 표준입니다. AKS (Azure Kubernetes Service)는 CSI을 채택 하 고 사용 하 여 코어 Kubernetes 코드를 터치 하 고 해당 릴리스 주기를 기다릴 필요 없이 Kubernetes에서 새로운 기존 저장소 시스템을 제공 하거나 새로운 기능을 제공 하기 위해 플러그 인을 작성, 배포 및 반복할 수 있습니다.
 
 AKS의 CSI storage driver support를 사용 하면 기본적으로 다음을 사용할 수 있습니다.
-- [*Azure 디스크*](azure-disk-csi.md)는 Kubernetes *datadisk* 리소스를 만드는 데 사용할 수 있습니다. 디스크는 고성능 Ssd에서 지원 되는 Azure Premium Storage 또는 일반 Hdd 또는 표준 Ssd에서 지 원하는 Azure Standard Storage를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크 로드의 경우 Premium Storage를 사용 합니다. Azure 디스크는 *Readwriteonce 번*탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
+- [*Azure 디스크*](azure-disk-csi.md)는 Kubernetes *datadisk* 리소스를 만드는 데 사용할 수 있습니다. 디스크는 고성능 Ssd에서 지원 되는 Azure Premium Storage 또는 일반 Hdd 또는 표준 Ssd에서 지 원하는 Azure Standard Storage를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크 로드의 경우 Premium Storage를 사용 합니다. Azure 디스크는 *Readwriteonce 번* 탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
 - [*Azure Files*](azure-files-csi.md)는 Azure Storage 계정에서 지원 되는 SMB 3.0 공유를 pod에 탑재 하는 데 사용할 수 있습니다. Azure Files를 사용 하 여 여러 노드와 pod 간에 데이터를 공유할 수 있습니다. Azure Files 일반 Hdd에서 지 원하는 Azure Standard Storage 또는 고성능 Ssd에서 지원 되는 Azure Premium Storage를 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -38,19 +38,19 @@ AKS의 CSI storage driver support를 사용 하면 기본적으로 다음을 사
 
 Azure 디스크 및 Azure Files에 대 한 CSI 드라이버를 사용할 수 있는 AKS 클러스터를 만들려면 `EnableAzureDiskFileCSIDriver` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
 
-`EnableAzureDiskFileCSIDriver`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+`EnableAzureDiskFileCSIDriver`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
 ```
 
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -60,7 +60,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-CSI storage 드라이버를 사용할 수 있는 AKS 클러스터 또는 노드 풀을 만들려면 최신 *AKS-미리 보기* Azure CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 설치 합니다.
+CSI storage 드라이버를 사용할 수 있는 AKS 클러스터 또는 노드 풀을 만들려면 최신 *AKS-미리 보기* Azure CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -75,7 +75,7 @@ az extension update --name aks-preview
 
 다음 CLI 명령을 사용 하 여 Azure 디스크에 CSI storage 드라이버를 사용 하 고 Azure Files 수 있는 새 클러스터를 만듭니다. 플래그를 사용 `--aks-custom-headers` 하 여 기능을 설정 `EnableAzureDiskFileCSIDriver` 합니다.
 
-Azure 리소스 그룹을 만듭니다.
+Azure 리소스 그룹 만들기:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -132,8 +132,8 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

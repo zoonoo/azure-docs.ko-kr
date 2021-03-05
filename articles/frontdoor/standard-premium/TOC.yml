@@ -57,8 +57,12 @@
       href: how-to-cache-purge.md
     - name: 압축
       href: how-to-compression.md
-    - name: 웹앱에 프라이빗 링크를 사용하도록 설정
-      href: how-to-enable-private-link-web-app.md
+    - name: Private Link 사용
+      items:
+        - name: 스토리지 계정에 연결
+          href: how-to-enable-private-link-storage-account.md
+        - name: 웹앱에 연결
+          href: how-to-enable-private-link-web-app.md
     - name: 로깅
       href: how-to-logs.md
     - name: 모니터링 및 경고

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734235"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183627"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 Azure Functions에 machine learning 모델 배포 
 
@@ -23,10 +23,10 @@ Redis 용 Azure Cache는 매우 성능이 뛰어나고 확장 가능 합니다. 
 > Azure Machine Learning와 Azure Functions를 모두 사용할 수 있지만 함수에 대 한 Machine Learning 서비스에서 모델을 패키징하는 기능은 미리 보기 상태입니다.  
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](../machine-learning/how-to-manage-workspace.md) 문서를 참조 하세요.
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](../machine-learning/tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
 
 > [!IMPORTANT]

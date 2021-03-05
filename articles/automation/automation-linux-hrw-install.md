@@ -3,14 +3,14 @@ title: Azure Automation에 Linux Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 Linux 기반 컴퓨터에서 runbook을 실행 하는 Azure Automation Hybrid Runbook Worker를 설치 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/18/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708920"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182335"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -20,7 +20,7 @@ Linux Hybrid Runbook Worker는 Runbook을 승격이 필요한 명령을 실행�
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -48,7 +48,7 @@ Hybrid Runbook Worker 기능은 다음 배포를 지원 합니다. 모든 운영
 * Red Hat Enterprise Linux Server 5, 6, 7 및 8
 * Debian GNU/Linux 6, 7, 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04 LTS
-* SUSE Linux Enterprise Server 12 및 15
+* SUSE Linux Enterprise Server 12 및 15 (SUSE 버전 번호가 13 또는 14 인 버전은 릴리스 하지 않음)
 
 > [!IMPORTANT]
 > 시스템 Hybrid Runbook Worker 역할에 따라 달라 지는 업데이트 관리 기능을 사용 하도록 설정 하기 전에 [여기](update-management/overview.md#supported-operating-systems)에서 지 원하는 배포를 확인 합니다.
@@ -66,7 +66,7 @@ Linux 시스템 및 사용자 Hybrid Runbook Worker에 대 한 최소 요구 사
 |Glibc |GNU C 라이브러리| 2.5-12 |
 |Openssl| OpenSSL 라이브러리 | 1.0(TLS 1.1 및 TLS 1.2가 지원됨)|
 |Curl | cURL 웹 클라이언트 | 7.15.5|
-|Python-ctypes | Python 2.x 필요 |
+|Python-ctypes | Python 2.x 또는 Python 3.x가 필요 합니다. |
 |PAM | 플러그형 인증 모듈|
 | **선택적 패키지** | **설명** | **최소 버전**|
 | PowerShell Core | PowerShell runbook을 실행 하려면 PowerShell Core를 설치 해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요. | 6.0.0 |
@@ -90,13 +90,16 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 
 |Runbook 형식 | 지원됨 |
 |-------------|-----------|
-|Python 2 |예 |
-|PowerShell |예<sup>1</sup> |
-|PowerShell 워크플로 |No |
-|그래픽 |No |
-|그래픽 PowerShell 워크플로 |No |
+|Python 3 (미리 보기)|예, 다음에만 필요 합니다. SUSE LES 15, RHEL 8 및 CentOS 8|
+|Python 2 |예,<sup>Python 3이</sup> 필요 하지 않은 모든 배포판의 경우 |
+|PowerShell |예<sup>2</sup> |
+|PowerShell 워크플로 |예 |
+|그래픽 |예 |
+|그래픽 PowerShell 워크플로 |예 |
 
-<sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
+<sup>1</sup> [지원 되는 Linux 운영 체제](#supported-linux-operating-systems)를 참조 하세요.
+
+<sup>2</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 
 ### <a name="network-configuration"></a>네트워크 구성
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0a56cfc147d4fb5cbdccf13363ad28bc602d8216
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525401"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182760"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Azure SQL Managed Instance의 데이터베이스를 이전 시점으로 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,8 +46,8 @@ SQL Managed Instance에 대 한 지정 시간 복원에는 다음과 같은 제�
 
 |           |기존 DB를 SQL Managed Instance 동일한 인스턴스로 복원| 기존 DB를 다른 SQL Managed Instance으로 복원|삭제 된 DB를 동일한 SQL Managed Instance로 복원|삭제 된 DB를 다른 SQL Managed Instance으로 복원|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| 예|아니요 |예|아니요|
-|**Azure CLI**|예 |예 |아니요|아니요|
+|**Azure Portal**| 예|예 |예|예|
+|**Azure CLI**|예 |예 |예|예|
 |**PowerShell**| 예|예 |예|예|
 
 ## <a name="restore-an-existing-database"></a>기존 데이터베이스 복원
@@ -110,7 +110,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI 아직 설치 되지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
+Azure CLI 아직 설치 되지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 Azure CLI를 사용 하 여 데이터베이스를 복원 하려면 다음 명령에서 매개 변수의 값을 지정 합니다. 그런 다음 명령을 실행 합니다.
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-사용 가능한 매개 변수에 대 한 자세한 내용은 [SQL Managed Instance에서 데이터베이스를 복원 하는 CLI 설명서](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore)를 참조 하세요.
+사용 가능한 매개 변수에 대 한 자세한 내용은 [SQL Managed Instance에서 데이터베이스를 복원 하는 CLI 설명서](/cli/azure/sql/midb#az-sql-midb-restore)를 참조 하세요.
 
 ---
 

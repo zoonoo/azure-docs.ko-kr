@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 13dd2f81aa7714c37e329d3a9e63a3cfcfd43cb0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b13c19aea3c3d36bd1cb4237278e5f0edbb8ed54
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181723"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -76,7 +76,7 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="35":::
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 호스트 빌더 파이프라인에 대 한 액세스 권한이 있는 경우 초기화 하는 동안 앱 별 구성을 설정할 수 있습니다. 이러한 구성은 별도의 프로세스로 실행 되는 함수 앱에 적용 됩니다. 함수 호스트나 트리거 및 바인딩 구성을 변경 하려면 [ 파일에host.js](functions-host-json.md)를 사용 해야 합니다.      
 
@@ -114,7 +114,7 @@ Api의 전체 미들웨어 등록 집합은 아직 노출 되지 않지만 미�
 
 바인딩은 메서드, 매개 변수 및 반환 형식에 대해 특성을 사용 하 여 정의 됩니다. 함수 메서드는 `Function` 다음 예제와 같이 입력 매개 변수에 적용 되는 및 트리거 특성이 있는 메서드입니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-16" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-14" :::
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 이전 예제 함수는 큐 메시지에 의해 트리거되고 큐 메시지는 매개 변수의 메서드에 전달 됩니다 `myQueueItem` .
 
@@ -132,7 +132,7 @@ HTTP 트리거의 경우 및를 사용 `HttpRequestData` 하 여 `HttpResponseDa
 
 출력 바인딩에 쓰려면 바인딩된 서비스에 쓰는 방법을 정의 하는 함수 메서드에 출력 바인딩 특성을 적용 해야 합니다. 메서드에서 반환 되는 값은 출력 바인딩에 기록 됩니다. 예를 들어 다음 예제에서는 `functiontesting2` 출력 바인딩을 사용 하 여 라는 메시지 큐에 문자열 값을 씁니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-23" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-21" :::
 
 ### <a name="multiple-output-bindings"></a>여러 출력 바인딩
 
@@ -148,7 +148,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 코드는 HTTP 트리거입니다. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="15-30" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="13-27" :::
 
 ## <a name="logging"></a>로깅
 
@@ -156,7 +156,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 예제에서는를 가져오고 함수 내에서 로그를 작성 하는 방법을 보여 줍니다 `ILogger` .
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="19-20" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="17-18" ::: 
 
 의 다양 한 방법을 사용 `ILogger` 하 여 또는와 같은 다양 한 로그 수준을 작성 `LogWarning` `LogError` 합니다. 로그 수준에 대 한 자세한 내용은 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요.
 
@@ -180,7 +180,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
 | 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |
 | 아티팩트의 function.js | 생성된 계획 | 생성 되지 않음 |
-| Configuration | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 [사용자 지정 초기화](#configuration) |
+| 구성 | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 [사용자 지정 초기화](#configuration) |
 | 종속성 주입 | [지원됨](functions-dotnet-dependency-injection.md)  | [지원됨](#dependency-injection) |
 | 미들웨어 | 지원되지 않음 | [지원됨](#middleware) |
 | 콜드 시작 시간 | 일반 | 적시에 시작 되기 때문에 더 깁니다. 잠재적 지연을 줄이기 위해 Windows 대신 Linux에서를 실행 합니다. |

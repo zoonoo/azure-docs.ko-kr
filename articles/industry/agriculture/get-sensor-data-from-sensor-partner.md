@@ -4,13 +4,13 @@ description: 이 문서에서는 파트너에서 센서 데이터를 가져오�
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168531"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182777"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -50,13 +50,13 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
       b. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats datahub와 동일한 이름을 갖게 됩니다.
 
-      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위** 를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure Portal 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. 환경이 **PowerShell**로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
+4. 환경이 **PowerShell** 로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
 
     ![PowerShell 도구 모음 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -92,7 +92,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 > 1. Datahub API 끝점 이름은 소문자 여야 합니다.
 > 2. Datahub API 끝점에 대 한 farmbeats 웹 사이트 이름 url을 복사 하는 경우 후행 슬래시 (/)가 없는지 확인 합니다.
 
-9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
+9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **EventHub 연결 문자열** 의 값을 캡처합니다.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>생성 된 자격 증명을 사용 하 여 장치 데이터 통합
 
@@ -127,7 +127,7 @@ FarmBeats를 연결 하기 위해 장치 파트너에 게이를 제공 해야 �
 다음 단계를 수행합니다.
 
 1. 홈 페이지의 메뉴에서 **장치** 를 선택 합니다.
-  장치 **페이지에** 는 장치 유형, 모델, 상태, 배치한 팜 및 메타 데이터에 대 한 마지막 업데이트 날짜가 표시 됩니다. 기본적으로 팜 열은 *NULL*로 설정 됩니다. 팜에 장치를 할당 하도록 선택할 수 있습니다. 자세한 내용은 [장치 할당](#assign-devices)을 참조 하세요.
+  장치 **페이지에** 는 장치 유형, 모델, 상태, 배치한 팜 및 메타 데이터에 대 한 마지막 업데이트 날짜가 표시 됩니다. 기본적으로 팜 열은 *NULL* 로 설정 됩니다. 팜에 장치를 할당 하도록 선택할 수 있습니다. 자세한 내용은 [장치 할당](#assign-devices)을 참조 하세요.
 2. 장치를 선택 하 여 장치 속성, 원격 분석 및 장치에 연결 된 자식 장치를 확인 합니다.
 
     ![디바이스 페이지](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
@@ -147,12 +147,12 @@ FarmBeats를 연결 하기 위해 장치 파트너에 게이를 제공 해야 �
 센서 데이터가 전달 된 후 센서를 배포한 팜에 할당할 수 있습니다.
 
 1. 홈 페이지의 메뉴에서 **팜** 을 선택 합니다. **팜** 목록 페이지가 나타납니다.
-2. 장치를 할당 하려는 팜을 선택 하 고 **장치 추가**를 선택 합니다.
+2. 장치를 할당 하려는 팜을 선택 하 고 **장치 추가** 를 선택 합니다.
 3. **장치 추가** 창이 나타납니다. 팜에 할당 하려는 장치를 선택 합니다.
 
     ![장치 추가 창](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-4. **장치 추가**를 선택 합니다. 또는 **장치** 메뉴로 이동 하 여 팜에 할당 하려는 장치를 선택 하 고 **장치 연결**을 선택 합니다.
+4. **장치 추가** 를 선택 합니다. 또는 **장치** 메뉴로 이동 하 여 팜에 할당 하려는 장치를 선택 하 고 **장치 연결** 을 선택 합니다.
 5. **장치 연결** 창의 드롭다운 목록에서 팜을 선택 하 고 **모두에 적용** 을 선택 하 여 선택한 모든 장치에 팜을 연결 합니다.
 
     ![장치 연결 창](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)

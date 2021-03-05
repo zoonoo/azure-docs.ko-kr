@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655861"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182250"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -28,7 +28,7 @@ ms.locfileid: "97655861"
 
 ## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
-[WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지, 버전 **3.0.5** 이상이 필요 합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 리포지토리에 있습니다. 
+[WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지, 버전 **3.0.5** 이상이 필요 합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup) GitHub 리포지토리에 있습니다. 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 

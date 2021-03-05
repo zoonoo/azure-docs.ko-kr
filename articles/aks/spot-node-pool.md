@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f838b2a78f1c6993aa247f2944d4f2a9b1e9556
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078954"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181128"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터에 스폿 노드 풀 추가
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * 별색 노드 풀은 Virtual Machine Scale Sets를 사용 해야 합니다.
 * ScaleSetPriority 또는 SpotMaxPrice를 만든 후에는 변경할 수 없습니다.
 * SpotMaxPrice를 설정 하는 경우 값은-1 이거나 최대 5 개의 소수 자릿수를 포함 하는 양수 값 이어야 합니다.
-* 별색 노드 풀에는 *kubernetes.azure.com/scalesetpriority:spot* , taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 및 system pod에는 선호도가 포함 됩니다.
+* 별색 노드 풀에는 *kubernetes.azure.com/scalesetpriority:spot*, taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 및 system pod에는 선호도가 포함 됩니다.
 * 별색 노드 풀에서 작업을 예약 하려면 [해당 toleration][spot-toleration] 를 추가 해야 합니다.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>AKS 클러스터에 스폿 노드 풀 추가
@@ -113,7 +113,7 @@ spec:
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

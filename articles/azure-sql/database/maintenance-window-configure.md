@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/04/2021
-ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101242"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183202"
 ---
 # <a name="configure-maintenance-window-preview"></a>유지 관리 기간 구성 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>SQL Database 및 탄력적 풀 유지 관리 기간 검색
 
-다음 예에서는 [az maintenance public 구성 list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용 하 여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환 합니다. 데이터베이스 및 탄력적 풀의 경우를 `maintenanceScope` 로 설정 `SQLDB` 합니다.
+다음 예에서는 [az maintenance public 구성 list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용 하 여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환 합니다. 데이터베이스 및 탄력적 풀의 경우를 `maintenanceScope` 로 설정 `SQLDB` 합니다.
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>SQL Managed Instance 유지 관리 기간 검색
 
-다음 예에서는 [az maintenance public 구성 list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용 하 여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환 합니다. 관리 되는 인스턴스의 경우 `maintenanceScope` 를로 설정 `SQLManagedInstance` 합니다.
+다음 예에서는 [az maintenance public 구성 list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) 명령을 사용 하 여 *eastus2* 지역에 대해 사용 가능한 유지 관리 기간을 반환 합니다. 관리 되는 인스턴스의 경우 `maintenanceScope` 를로 설정 `SQLManagedInstance` 합니다.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

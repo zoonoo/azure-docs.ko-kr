@@ -6,12 +6,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374000"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183491"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -58,7 +58,7 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 |description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
 |type|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|예|
 |linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.|예|
-|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|Yes|
+|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|예|
 |baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|예|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. 이는 배열이 될 수 있습니다 \<string, object> .|예|
 
@@ -114,10 +114,10 @@ Databricks 활동의 *baseparameters* 속성을 사용 하 여 데이터 팩터�
 
 1. 노트북에서 returnValue [("")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) 를 호출 하면 해당 하는 "returnValue"이 data factory로 반환 됩니다.
 
-2. 와 같은 식을 사용 하 여 data factory의 출력을 사용할 수 있습니다 `'@activity('databricks notebook activity name').output.runOutput'` .
+2. 와 같은 식을 사용 하 여 data factory의 출력을 사용할 수 있습니다 `@{activity('databricks notebook activity name').output.runOutput}` . 
 
    > [!IMPORTANT]
-   > JSON 개체를 전달 하는 경우 속성 이름을 추가 하 여 값을 검색할 수 있습니다. 예: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > JSON 개체를 전달 하는 경우 속성 이름을 추가 하 여 값을 검색할 수 있습니다. 예: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Databricks에서 라이브러리를 업로드하는 방법
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387618"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183644"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Azure Synapse Analytics의 데이터 통합 및 Azure Data Factory
 
@@ -36,6 +36,7 @@ Azure Synapse Analytics에서 Synapse 파이프라인 및 데이터 흐름과 �
 | **GIT 리포지토리 통합** | GIT 통합 | ✓ | ✓ |
 | **Monitoring**           | 데이터 흐름에 대 한 Spark 작업 모니터링 | ✗ | ✓<br><small>*Synapse Spark 풀 활용* |
 |                          | Azure Monitor와 통합 | ✓ | ✗ |
+| **계보** | 부서의 범위에 파이프라인 계보 데이터 게시를 지원 합니다.  | ✓ | ✗ |  
 
 > [!Note]
 > Ttl ( **time To Live** )은 Spark 클러스터가 데이터 흐름을 실행 한 후 일정 기간 동안 *준비 상태를 유지할* 수 있도록 하는 Azure Integration Runtime 설정입니다.

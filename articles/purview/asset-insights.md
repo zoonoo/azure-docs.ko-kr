@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575349"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183083"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 Asset insights
 
@@ -25,7 +25,7 @@ ms.locfileid: "96575349"
 > * 데이터의 멋진 뷰를 가져옵니다.
 > * 드릴 다운 하 여 더 많은 자산 개수 정보를 확인 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "96575349"
 Azure 부서의 범위에서 원본 유형을 등록 하 고 검색할 수 있습니다. 검색이 완료 되 면 자산 정보에서 자산 배포를 볼 수 있습니다. 그러면 분류 및 리소스 집합을 기준으로 데이터 공간 상태를 알 수 있습니다. 데이터 크기가 변경 되었는지 여부도 알려줍니다.
 
 > [!NOTE]
-> 원본 유형을 검사 한 후에는 새 자산을 반영 하기 위해 자산 정보를 최대 1 시간까지 제공 합니다.
+> 원본 유형을 검사 한 후 새 자산을 반영 하기 위해 Asset Insights 3-8 시간을 제공 합니다. 배포 영역이 나 워크 로드 크기의 트래픽이 많기 때문에 지연이 발생할 수 있습니다. 자세한 내용은 필드 지원 팀에 문의 하세요.
 
 1. Azure Portal에서 Azure 부서의 범위 리소스로 이동 합니다.
 
@@ -94,7 +94,7 @@ Asset Insights의 다음 두 그래프는 파일 기반 원본 유형의 분포�
 
 1. 경로를 선택 하 여 자산 목록을 표시 합니다.
 
-파일 기반 소스 형식의 두 번째 그래프는 **_리소스 집합과 연결 되지 않은 파일_** 입니다. 모든 파일이 리소스 집합에 롤업되는 것으로 간주 되는 경우이 그래프는 롤업되는 자산이 무엇 인지 파악 하는 데 도움이 될 수 있습니다. 누락 된 자산은 폴더의 잘못 된 파일 패턴을 나타낼 수 있습니다. 다른 그래프의 경우와 동일한 단계를 수행 하 여 파일에 대 한 자세한 내용을 확인 합니다.
+파일 기반 소스 형식의 두 번째 그래프는 ***리소스 집합과 연결 되지 않은 파일*** 입니다. 모든 파일이 리소스 집합에 롤업되는 것으로 간주 되는 경우이 그래프는 롤업되는 자산이 무엇 인지 파악 하는 데 도움이 될 수 있습니다. 누락 된 자산은 폴더의 잘못 된 파일 패턴을 나타낼 수 있습니다. 다른 그래프의 경우와 동일한 단계를 수행 하 여 파일에 대 한 자세한 내용을 확인 합니다.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="파일 기반 자산 보기":::  
 

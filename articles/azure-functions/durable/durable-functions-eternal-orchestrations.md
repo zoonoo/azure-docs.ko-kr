@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82108ae0b2cabaab6dfa47c8bb5e893a44df38af
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506369"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182063"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
-*영구 오케스트레이션*은 절대로 종료하지 않는 오케스트레이터 함수이며, 집계기 및 무한 루프가 필요한 모든 시나리오에 [지속성 함수](durable-functions-overview.md)를 사용하려는 경우에 유용합니다.
+*영구 오케스트레이션* 은 절대로 종료하지 않는 오케스트레이터 함수이며, 집계기 및 무한 루프가 필요한 모든 시나리오에 [지속성 함수](durable-functions-overview.md)를 사용하려는 경우에 유용합니다.
 
 ## <a name="orchestration-history"></a>오케스트레이션 기록
 
@@ -22,12 +22,12 @@ ms.locfileid: "86506369"
 
 ## <a name="resetting-and-restarting"></a>다시 설정 및 다시 시작
 
-무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` 오케스트레이션 트리거 바인딩의 (.net), `continueAsNew` (JavaScript) 또는 `continue_as_new` (Python) 메서드 [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger)를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
+무한 루프를 사용 하는 대신 orchestrator 함수는 `ContinueAsNew` 오케스트레이션 트리거 바인딩의 (.net), `continueAsNew` (JavaScript) 또는 `continue_as_new` (Python) 메서드 [](durable-functions-bindings.md#orchestration-trigger)를 호출 하 여 해당 상태를 다시 설정 합니다. 이 메서드는 다음 오케스트레이터 함수 생성을 위한 새 입력이 되는 단일 JSON 직렬화 가능 매개 변수를 사용합니다.
 
 `ContinueAsNew`가 호출되면 인스턴스에서 종료되기 전에 자체의 큐에 메시지를 넣습니다. 이 메시지는 새 입력 값으로 인스턴스를 다시 시작합니다. 동일한 인스턴스 ID를 유지하지만 오케스트레이터 함수의 기록이 효과적으로 잘립니다.
 
 > [!NOTE]
-> 지속성 작업 프레임워크는 동일한 인스턴스 ID를 유지하지만, `ContinueAsNew`로 다시 설정되는 오케스트레이터 함수에 대해 내부적으로 새 *실행 ID*를 만듭니다. 일반적으로 이 실행 ID는 외부적으로 노출되지 않지만 오케스트레이션 실행을 디버그할 때 알고 있으면 유용할 수 있습니다.
+> 지속성 작업 프레임워크는 동일한 인스턴스 ID를 유지하지만, `ContinueAsNew`로 다시 설정되는 오케스트레이터 함수에 대해 내부적으로 새 *실행 ID* 를 만듭니다. 일반적으로 이 실행 ID는 외부적으로 노출되지 않지만 오케스트레이션 실행을 디버그할 때 알고 있으면 유용할 수 있습니다.
 
 ## <a name="periodic-work-example"></a>정기 작업 예제
 
@@ -66,7 +66,7 @@ module.exports = df.orchestrator(function*(context) {
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
     yield context.df.createTimer(nextCleanup.toDate());
 
-    context.df.continueAsNew(undefined);
+    yield context.df.continueAsNew(undefined);
 });
 ```
 
@@ -154,7 +154,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 오케스트레이터 함수가 결국 완료되어야 하는 경우에는 `ContinueAsNew`를 *호출하지 않고* 함수가 종료되도록 해야 합니다.
 
-오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 `TerminateAsync` 오케스트레이션 클라이언트 바인딩의 (.net), `terminate` (JavaScript) 또는 `terminate` (Python) 메서드를 사용 하 [orchestration client binding](durable-functions-bindings.md#orchestration-client) 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
+오 케 스트레이 터 함수가 무한 루프에 있고 중지 되어야 하는 경우 `TerminateAsync` 오케스트레이션 클라이언트 바인딩의 (.net), `terminate` (JavaScript) 또는 `terminate` (Python) 메서드를 사용 하 [](durable-functions-bindings.md#orchestration-client) 여 중지 합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

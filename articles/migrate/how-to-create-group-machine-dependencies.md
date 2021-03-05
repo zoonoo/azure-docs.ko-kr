@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 1a3f2ae4829c7f4ae41d31e2a2fc35d79adf3d4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 772602a11878276da3b81b84e7f4016997375077
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596700"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183066"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -22,14 +22,14 @@ ms.locfileid: "100596700"
 - 다음에 대 한 에이전트 기반 종속성 분석의 지원 및 배포 요구 사항을 검토 합니다.
     - [VMware VM](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [물리적 서버](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Hyper-v vm](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [Hyper-V VM](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - 다음을 확인합니다.
     - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](./create-manage-projects.md) .
     - Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
     - 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. 어플라이언스 설정:
-        - [VMware](how-to-set-up-appliance-vmware.md) Vm.
-        - [Hyper-v](how-to-set-up-appliance-hyper-v.md) Vm.
-        - [물리적 서버](how-to-set-up-appliance-physical.md).
+        - [VMware](how-to-set-up-appliance-vmware.md) Vm
+        - [Hyper-v](how-to-set-up-appliance-hyper-v.md) Vm
+        - [물리적 서버](how-to-set-up-appliance-physical.md)
 - 종속성 시각화를 사용 하려면 Azure Migrate 프로젝트와 [Log Analytics 작업 영역](../azure-monitor/logs/manage-access.md) 을 연결 합니다.
     - Azure Migrate 어플라이언스를 설정 하 고 Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다.
     - Azure Migrate 프로젝트를 포함 하는 구독에 작업 영역이 있는지 확인 합니다.

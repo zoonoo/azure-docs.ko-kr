@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 6a89d225b747f116ed75bbe2e6928ec2a74f9c5e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cb034c42ceee870ed7be72eb5ff7d29c42b72f36
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655958"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183593"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "101655958"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -321,7 +321,7 @@ VM 또는 HDInsight 클러스터를 Azure Machine Learning 작업 영역에 연�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 네 부분으로 구성 된 가상 네트워크 시리즈의 3 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
+이 문서는 5 부 가상 네트워크 시리즈의 3 부입니다. 가상 네트워크를 보호 하는 방법을 알아보려면 나머지 문서를 참조 하세요.
 
 * [1 부: 가상 네트워크 개요](how-to-network-security-overview.md)
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)

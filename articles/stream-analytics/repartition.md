@@ -4,15 +4,15 @@ description: 이 문서에서는 분할을 사용 하 여 병렬화 할 수 없�
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.date: 09/19/2019
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72f81a0eac81acdca71c8ed81695789c417898ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 95749f2acea6b605cfdba5a4f3d4f5526e751c5a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014198"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182539"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>다시 분할을 사용 하 여 Azure Stream Analytics 처리 최적화
 
@@ -23,25 +23,47 @@ ms.locfileid: "98014198"
 * 입력 스트림에 대 한 파티션 키를 제어 하지 않습니다.
 * 원본 "sprays" 입력은 나중에 병합 해야 하는 여러 파티션에 걸쳐 입력 합니다.
 
-단지 섞는 Event Hubs에 대 한 **PartitionId** 와 같은 자연 입력 체계에 따라 분할 된 되지 않는 스트림에서 데이터를 처리 하는 경우에는 다시 분할 또는가 필요 합니다. 다시 분할 하면 각 분할 영역을 독립적으로 처리할 수 있으므로 스트리밍 파이프라인을 선형으로 확장할 수 있습니다.
+단지 섞는 Event Hubs에 대 한 **PartitionId** 와 같은 자연 입력 체계에 따라 분할 된 되지 않는 스트림에서 데이터를 처리 하는 경우에는 다시 분할 또는가 필요 합니다. 다시 분할 하면 각 분할 영역을 독립적으로 처리할 수 있으므로 스트리밍 파이프라인을 선형으로 확장할 수 있습니다. 
 
 ## <a name="how-to-repartition"></a>다시 분할 하는 방법
+다음 두 가지 방법으로 입력을 다시 분할할 수 있습니다.
+1. 분할을 수행 하는 별도의 Stream Analytics 작업을 사용 합니다.
+2. 단일 작업을 사용 하지만 사용자 지정 분석 논리 전에 먼저 다시 분할을 수행 합니다.
 
-다시 분할 하려면 쿼리의 **PARTITION BY** 문 뒤 **에 키워드를** 사용 합니다. 다음 예에서는 **DeviceID** 로 데이터를 파티션 수 10으로 분할 합니다. **DeviceID** 의 해시를 사용 하 여 어떤 파티션이 어떤 파티션을 허용 해야 하는지 결정 합니다. 데이터가 분할 된 쓰기를 지원 하 고 10 개의 파티션이 있는 경우 분할 된 각 스트림에 대해 독립적으로 데이터가 플러시됩니다.
-
+### <a name="creating-a-separate-stream-analytics-job-to-repartition-input"></a>입력을 다시 분할 하는 별도의 Stream Analytics 작업 만들기
+파티션 키를 사용 하 여 이벤트 허브 출력에 대 한 입력 및 쓰기를 읽는 작업을 만들 수 있습니다. 그런 다음이 이벤트 허브는 분석 논리를 구현 하는 다른 Stream Analytics 작업에 대 한 입력으로 사용할 수 있습니다. 작업에서이 이벤트 허브 출력을 구성 하는 경우 Stream Analytics에서 데이터를 다시 분할 하는 데 사용할 파티션 키를 지정 해야 합니다. 
 ```sql
+-- For compat level 1.2 or higher
 SELECT * 
 INTO output
 FROM input
-PARTITION BY DeviceID 
-INTO 10
+
+--For compat level 1.1 or lower
+SELECT *
+INTO output
+FROM input PARTITION BY PartitionId
+```
+
+### <a name="repartition-input-within-a-single-stream-analytics-job"></a>단일 Stream Analytics 작업 내에서 입력 다시 분할
+먼저 입력을 다시 분할 한 다음 쿼리의 다른 단계에서 사용할 수 있는 단계를 쿼리에 도입할 수도 있습니다. 예를 들어 **DeviceId** 를 기준으로 입력을 다시 분할 하려는 경우 쿼리는 다음과 같습니다.
+```sql
+WITH RepartitionedInput AS 
+( 
+SELECT * 
+FROM input PARTITION BY DeviceID
+)
+
+SELECT DeviceID, AVG(Reading) as AvgNormalReading  
+INTO output
+FROM RepartitionedInput  
+GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
 다음 예제 쿼리는 다시 분할 데이터의 두 스트림을 조인 합니다. 다시 분할 데이터의 두 스트림을 조인 하는 경우 스트림은 동일한 파티션 키와 수를 가져야 합니다. 결과는 파티션 구성표가 동일한 스트림입니다.
 
 ```sql
-WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
-step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
+WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID),
+step2 AS (SELECT * FROM input2 PARTITION BY DeviceID)
 
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```

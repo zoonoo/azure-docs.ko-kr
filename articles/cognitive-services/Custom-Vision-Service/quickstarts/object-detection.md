@@ -7,16 +7,16 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/25/2020
+ms.date: 02/25/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 사용자 지정 버전
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4f0efa450e6c2471f2643e63b3ea36287d7d83d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5eb910ed4f7c15a4755dd8f494771a56c4c64230
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021362"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184235"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>빠른 시작: Custom Vision 클라이언트 라이브러리를 사용하여 개체 검색 프로젝트 만들기
 

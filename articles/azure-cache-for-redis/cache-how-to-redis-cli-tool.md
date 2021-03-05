@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375309"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183389"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Redis 용 Azure Cache와 함께 Redis 명령줄 도구 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "100375309"
 
 캐시에 액세스하는 데 필요한 정보를 다음 세 가지 방법으로 수집할 수 있습니다.
 
-1. Azure CLI([az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) 사용)
+1. Azure CLI([az redis list-keys](/cli/azure/redis#az-redis-list-keys) 사용)
 2. Azure PowerShell([Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey) 사용)
 3. Azure Portal 사용.
 

@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503953"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183814"
 ---
 # <a name="use-purview-studio"></a>Purview Studio 사용
 
 이 문서에서는 Azure 부서의 범위의 몇 가지 주요 기능에 대 한 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Portal에서 Active 부서의 범위 계정이 이미 만들어지고 사용자에 게 부서의 범위 Studio에 액세스할 수 있는 권한이 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "97503953"
 
 * 부서의 범위 계정을 시작 하려면 Azure Portal 부서의 범위 계정으로 이동 하 여 시작 하려는 계정을 선택 하 고 계정을 시작 합니다.
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Azure 부서의 범위 계정 카탈로그를 시작 하기 위한 선택 항목의 스크린샷":::
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Azure Purview 계정 카탈로그를 시작하기 위한 선택 항목의 스크린샷":::
 
 * 부서의 범위 계정을 시작 하는 또 다른 방법은로 이동 하 여 `https://web.purview.azure.com` **Azure Active Directory** 을 선택 하 고 계정 이름을 선택 하 여 계정을 시작 하는 것입니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "97503953"
 
 다음 목록에서는 **홈 페이지** 의 주요 기능을 요약 합니다. 목록의 각 숫자는 이전 스크린샷에서 강조 표시 된 숫자에 해당 합니다.
 
-1. 카탈로그의 이름입니다. **관리 센터** > **계정 정보* 에서 카탈로그 이름을 설정할 수 있습니다.
+1. 카탈로그의 이름입니다. **관리 센터**  >  **계정 정보** 에서 카탈로그 이름을 설정할 수 있습니다.
 
 2. 카탈로그 분석에는 다음의 수가 표시 됩니다.
     - 사용자, 그룹 및 응용 프로그램

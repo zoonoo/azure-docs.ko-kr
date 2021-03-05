@@ -4,14 +4,14 @@ description: 이 문서에서는 이미지 파트너 통합에 대해 설명 합
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1bc723892e29ccc24a7612cfbe50d4b274cdacdf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675939"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183797"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -138,10 +138,10 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 1.  업로드할 이미지 유형에 따라 다음 필드에 대해 새 확장 유형을 만듭니다.
 
-    - **장면 소스** : 예: drone_partner_name
-    - **장면 유형** (예: 드 론)
-    - **장면 파일 형식** (예: chlorophyll index)
-    - **장면 파일 콘텐츠 형식** (예: image/tiff)
+    - **장면 소스**: 예: drone_partner_name
+    - **장면 유형**(예: 드 론)
+    - **장면 파일 형식**(예: chlorophyll index)
+    - **장면 파일 콘텐츠 형식**(예: image/tiff)
 
 2.  /팜 API를 호출 하 여 Azure FarmBeats 시스템 내에서 팜 목록을 가져옵니다.
 3.  고객에 게 팜 목록에서 단일 팜을 선택할 수 있는 기능을 제공 합니다.

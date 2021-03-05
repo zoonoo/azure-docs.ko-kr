@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919785"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183406"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -130,7 +130,7 @@ ms.locfileid: "98919785"
 |EnableTelemetry |bool, 기본값: true | 동적 |원격 분석 사용 여부 |
 |FailuresOnlyHttpTelemetry | bool, 기본값: false | 동적 | HTTP 원격 분석 캡처를 사용하는 경우, 실패한 요청만 캡처합니다. 원격 분석을 위해 생성되는 이벤트 수를 줄이는 데 유용합니다. |
 |HttpTelemetryCapturePercentage | int, 기본값: 50 | 동적 | HTTP 원격 분석 캡처를 사용하는 경우, 임의 비율의 요청만 캡처합니다. 원격 분석을 위해 생성되는 이벤트 수를 줄이는 데 유용합니다. |
-|MaxDiskQuotaInMB |int, 기본값: 65536 | 동적 |Windows Fabric 로그 파일의 디스크 할당량(MB) |
+|MaxDiskQuotaInMB |int, 기본값: 65536 | 동적 |Windows 및 Linux Fabric 로그 파일에 대 한 디스크 할당량 (MB)입니다. |
 |ProducerInstances |String | 동적 |DCA 생산자 인스턴스 목록 |
 
 ## <a name="dnsservice"></a>DnsService

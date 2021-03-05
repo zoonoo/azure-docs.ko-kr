@@ -10,16 +10,23 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 49d8eeaa8d1160659a456f147a6a5e27f923af33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a66f65d48a14853ec1da08f5d83b777f4fdac846
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733468"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183321"
 ---
 # <a name="whats-new-in-face-service"></a>Face 서비스의 새로운 기능이란?
 
 Azure Face 서비스는 지속적으로 업데이트 됩니다. 이 문서를 사용 하면 향상 된 기능, 수정 사항 및 설명서 업데이트를 최신 상태로 유지할 수 있습니다.
+
+## <a name="february-2021"></a>2021년 2월
+
+* 새 Face API 검색 모델: 새 검색 03 모델은 현재 사용할 수 있는 가장 정확한 검색 모델입니다. 새 고객 인 경우이 모델을 사용 하는 것이 좋습니다. 검색 03은 이미지 (64x64 픽셀)에서 발견 되는 작은 얼굴의 리콜 및 정밀도를 모두 향상 시킵니다. 추가 개선 사항으로는 거짓 긍정의 전반적인 감소 및 회전 된 얼굴 방향에 대 한 향상 된 검색이 포함 됩니다. 검색 03과 새 인식 04을 결합 하면 인식 정확도도 향상 됩니다. 자세한 내용은 [얼굴 검색 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) 을 참조 하세요.
+* 얼굴 마스크 특성: 얼굴 마스크 특성은 `"noseAndMouthCovered"` 얼굴 마스크가 의도 한 대로 마모 되었는지 여부를 검색 하는 추가 특성과 함께 최신 검색 03 모델과 함께 사용할 수 있습니다. 최신 마스크 검색 기능을 사용 하려면 사용자가 API 요청에서 검색 모델을 지정 해야 합니다. _detectionModel_ 매개 변수를 사용 하 여 모델 버전을에 할당 `detection_03` 합니다. 자세한 내용은 [얼굴 검색 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) 을 참조 하세요.
+* 새 Face API 인식 모델: 새 인식 04 모델은 현재 사용할 수 있는 가장 정확한 인식 모델입니다. 새 고객 인 경우 확인 및 식별을 위해이 모델을 사용 하는 것이 좋습니다. 얼굴 커버 (surgical 마스크, N95 마스크, 천을 마스크)를 포함 하는 등록 된 사용자에 대 한 인식 향상을 포함 하 여 인식 03의 정확도를 향상 시킵니다. 이제 고객은 등록 된 사용자가 최신 검색 03 모델을 사용 하 여 얼굴 커버를 작성 하 고 있는지 여부를 검색 하는 안전 하 고 원활한 사용자 환경을 구축 하 고, 최신 인식 04 모델을 사용 하는 사용자를 인식할 수 있습니다. 자세한 내용은 [얼굴 인식 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) 을 참조 하세요.
+
 
 ## <a name="january-2021"></a>2021년 1월
 * Face API를 사용 하는 경우 대기 시간 완화: 얼굴 팀은 서비스 및 가능한 완화 전략을 사용할 때 잠재적 대기 시간 원인을 자세히 설명 하는 새 문서를 게시 했습니다. [Face 서비스를 사용할 때 대기 시간 감소](./face-api-how-to-topics/how-to-mitigate-latency.md)를 참조 하세요.

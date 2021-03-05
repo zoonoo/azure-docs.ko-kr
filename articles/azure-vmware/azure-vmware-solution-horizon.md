@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c34d0ac7806f8284e893cf3ad4f3c82dd404ff41
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684878"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181400"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -212,6 +212,10 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 ### <a name="azure-instance-types"></a>Azure 인스턴스 유형
 
 수평 인프라에 필요한 Azure virtual machine 크기를 이해 하려면 [여기](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution)에서 찾을 수 있는 VMware의 지침을 참조 하세요.
+
+## <a name="references"></a>참조
+[Linux 용 수평 에이전트에 대 한 시스템 요구 사항](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure VMware 솔루션의 VMware 수평에 대해 자세히 알아보려면 [Vmware 수평 FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)를 참조 하세요.

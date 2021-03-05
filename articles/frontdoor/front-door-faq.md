@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 06ad8bf169e2b4b44f4f6a8ec5155aa6722a038c
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: ba859a0ad8edacfa2e51486b150f94b3dea37a16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182896"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -86,6 +86,8 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 앞으로의 경로에 대 한 경로는 정렬 되지 않으며 가장 일치 하는 항목에 따라 특정 경로가 선택 됩니다. [프런트 도어가 요청을 라우팅 규칙에 일치 시키는 방법](front-door-route-matching.md)에 대해 자세히 알아보세요.
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>내 백 엔드에 대 한 액세스를 Azure Front 도어로 어떻게 할까요? 잠글 수 있나요?
+
+> [! 알림] 새 SKU Front 도어 Premium은 개인 끝점을 통해 응용 프로그램을 잠그는 보다 권장 된 방법을 제공 합니다. [개인 끝점에 대 한 자세한 정보](./standard-premium/concept-private-link.md)
 
 응용 프로그램을 잠가 특정 Front 도어의 트래픽만 수락 하려면 백 엔드에 대 한 IP Acl을 설정 하 고 백 엔드의 트래픽을 Front 도어가 보낸 헤더 ' X-Azure-FDID '의 특정 값으로 제한 해야 합니다. 이러한 단계는 아래에 자세히 설명 되어 있습니다.
 

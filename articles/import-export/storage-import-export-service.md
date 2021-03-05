@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706471"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181861"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
@@ -79,7 +79,7 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 >
 > 해외 (데이터 센터 국가/지역 외부) 배송에 대해 국제 운송 업체 계정을 공유 하세요.
 
- ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
+ ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/import-job.png)
 
 데이터 가져오기에 대한 단계별 지침을 보려면 다음으로 이동합니다.
 
@@ -108,7 +108,7 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 >
 > 해외 (데이터 센터 국가/지역 외부) 배송에 대해 국제 운송 업체 계정을 공유 하세요.
   
- ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
+ ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/export-job.png)
 
 데이터 내보내기에 대한 단계별 지침을 알아보려면 [Azure Blob에서 데이터 내보내기](storage-import-export-data-from-blobs.md)를 참조하세요.
 

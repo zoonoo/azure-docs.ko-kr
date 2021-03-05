@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 5a02901b2dfc589033c7249cddf463a581eea720
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99e9994d01e4579bf6ef2e369e0fe85c48af52ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696005"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182437"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>RHEL의 SAP 용 Azure 대규모 인스턴스 고가용성
 
@@ -648,19 +648,20 @@ ms.locfileid: "101696005"
 
 18. 커널을 충돌 하 여 SBD 펜스를 테스트 합니다.
 
-   * 커널 충돌을 트리거합니다.
+    * 커널 충돌을 트리거합니다.
 
-    ```
-    echo c > /proc/sysrq-trigger
+      ```
+      echo c > /proc/sysrq-trigger
 
-    System must reboot after 5 Minutes (BMC timeout) or the value which is
-    set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
-    ```
+      System must reboot after 5 Minutes (BMC timeout) or the value which is
+      set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
+      ```
   
-   * 실행할 두 번째 테스트는 PC 명령을 사용 하 여 노드를 fence 하는 것입니다.
-    ```
-    pcs stonith fence sollabdsm36
-    ```
+    * 실행할 두 번째 테스트는 PC 명령을 사용 하 여 노드를 fence 하는 것입니다.
+
+      ```
+      pcs stonith fence sollabdsm36
+      ```
   
 
 19. SAP HANA 클러스터링의 나머지 부분에서는를 설정 하 여 STONITH를 사용 하지 않도록 설정할 수 있습니다.

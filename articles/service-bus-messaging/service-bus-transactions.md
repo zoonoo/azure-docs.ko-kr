@@ -2,14 +2,14 @@
 title: Azure Service Bus에서 트랜잭션 처리 개요
 description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 전송 via 기능에 대 한 개요를 제공 합니다.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684794"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183746"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
@@ -43,9 +43,11 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 전송 큐 또는 토픽 자체가 보낸 사람의 입력 메시지 원본인 경우이 트랜잭션 기능의 성능이 명백 하 게 됩니다. 즉, 한 원자성 작업에서 입력 메시지에 대 한 전체 (또는 지연 또는 배달 못 한 편지) 작업을 수행 하는 동안 메시지를 대상 큐 또는 항목 "via"를 통해 전송 큐 또는 토픽으로 전송할 수 Service Bus. 
 
+토픽 구독에서 받은 다음 동일한 트랜잭션에서 큐 또는 토픽으로 전송 해야 하는 경우에는 전송 엔터티가 토픽 이어야 합니다. 이 시나리오에서는 트랜잭션 범위에서를 사용 하 여 구독에서 수신 항목의 트랜잭션 범위를 시작 하 고 전송 항목을 통해 큐 또는 토픽 대상으로 보냅니다. 
+
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 다음은 그 예입니다. 
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

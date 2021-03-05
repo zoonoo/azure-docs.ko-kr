@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: dc1e54106e2f31c7390d784cba6f92cf775e963c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572696"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181451"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -42,6 +42,7 @@ ms.locfileid: "100572696"
 
 | 사용 권한 | 이유 |
 |---|---|
+| ContainerService/managedClusters/*  <br/> | 사용자를 만들고 클러스터를 운영 하는 데 필요 합니다.
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | LoadBalancer 서비스에 대 한 부하 분산 장치를 구성 하는 데 필요 합니다. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | LoadBalancer 서비스의 공용 Ip를 찾고 구성 하는 데 필요 합니다. |
 | Microsoft.Network/publicIPAddresses/join/action | LoadBalancer 서비스에 대 한 공용 Ip를 구성 하는 데 필요 합니다. |
