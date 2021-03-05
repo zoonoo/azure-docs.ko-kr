@@ -3,14 +3,14 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 개요 제거
 description: 이 문서에서는 작업 시간 외 VM 시작/중지 기능을 제거 하 고 Log Analytics 작업 영역에서 Automation 계정의 연결을 해제 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723846"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122088"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Automation 계정에서 작업 시간 외 VM 시작/중지 제거
 
@@ -24,21 +24,7 @@ ms.locfileid: "101723846"
 
 ## <a name="delete-the-dedicated-resource-group"></a>전용 리소스 그룹을 삭제 합니다.
 
-1. 에서 Azure에 로그인 [https://portal.azure.com](https://portal.azure.com) 합니다.
-
-2. Automation 계정으로 이동 하 고 **관련 리소스** 에서 **연결 된 작업 영역** 을 선택 합니다.
-
-3. **작업 영역으로 이동** 을 선택합니다.
-
-4. **일반** 아래에서 **솔루션** 을 클릭합니다.
-
-5. 솔루션 페이지에서 **Start-Stop-VM[workspace]** 를 선택합니다.
-
-6. **Vmmanagementsolution [Workspace]** 페이지의 메뉴에서 **삭제** 를 선택 합니다.
-
-    ![VM 관리 기능 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-7. 작업 시간 외 VM 시작/중지 지원 하도록 만들어진 리소스 그룹을 삭제 하려면 [Azure Resource Manager 리소스 그룹 및 리소스 삭제](../azure-resource-manager/management/delete-resource-group.md) 문서에 설명 된 단계를 수행 합니다.
+리소스 그룹을 삭제 하려면 [리소스 그룹 및 리소스 삭제 Azure Resource Manager](../azure-resource-manager/management/delete-resource-group.md) 문서에 설명 된 단계를 따르세요.
 
 ## <a name="delete-the-automation-account"></a>Automation 계정 삭제
 

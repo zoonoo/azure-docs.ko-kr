@@ -3,12 +3,12 @@ title: 템플릿의 매개 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 매개 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043935"
+ms.locfileid: "102123397"
 ---
 # <a name="parameters-in-arm-templates"></a>ARM 템플릿의 매개 변수
 
@@ -16,7 +16,7 @@ ms.locfileid: "102043935"
 
 리소스 관리자는 배포 작업을 시작 하기 전에 매개 변수 값을 확인 합니다. 템플릿에서 매개 변수를 사용 하는 경우에는 리소스 관리자이 매개 변수를 확인 된 값으로 바꿉니다.
 
-각 매개 변수는 [데이터 형식](template-syntax.md#data-types)중 하나로 설정 되어야 합니다.
+각 매개 변수는 [데이터 형식](data-types.md)중 하나로 설정 되어야 합니다.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

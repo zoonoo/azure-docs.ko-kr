@@ -2,14 +2,14 @@
 title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731364"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124247"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -69,12 +69,15 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 > [!NOTE]
 > 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VM을 참조하세요.
 
+Vm을 만들 때 다음 지침을 따르세요.
+
 - 관리 디스크로 VM이 생성되었는지 확인합니다. VM을 만들 때 기본 스토리지 설정입니다.
 - 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.
 - 연결된 데이터 디스크를 사용하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 - 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하도록 해야 합니다. Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상합니다.
 - OS 디스크가 암호화 되지 않았는지 확인 합니다.
-- VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.  
+- VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.
+- 더 빠른 풀 프로 비전을 위해 VM의 OS 디스크에 대 한 [ReadWrite disk cache 설정을](../virtual-machines/premium-storage-performance.md#disk-caching) 사용 합니다.
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기
 

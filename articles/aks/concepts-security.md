@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686024"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122377"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -40,7 +40,10 @@ Kubernetes RBAC (Kubernetes) 및 Azure RBAC를 사용 하 여 API 서버에 대 
 
 ## <a name="node-security"></a>노드 보안
 
-AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. Linux 노드는 Moby 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu 배포를 실행 합니다. Windows Server 노드는 최적화 된 Windows Server 2019 릴리스를 실행 하 고 Moby 컨테이너 런타임도 사용 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
+AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. Linux 노드는 또는 Moby 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu 배포를 실행 `containerd` 합니다. Windows Server 노드는 최적화 된 Windows Server 2019 릴리스를 실행 하 고 `containerd` 또는 Moby 컨테이너 런타임도 사용 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
+
+> [!NOTE]
+> Kubernetes 버전 1.19 노드 풀을 사용 하 여 클러스터를 AKS 하 고 컨테이너 런타임으로 더 많이 사용 `containerd` 합니다. 노드 풀에 대해 v 1.19 이전에 Kubernetes를 사용 하는 AKS 클러스터는 [Moby](https://mobyproject.org/) (업스트림 docker)를 컨테이너 런타임으로 사용 합니다.
 
 Azure 플랫폼은 매일 매일 Linux 노드에 OS 보안 패치를 자동으로 적용 합니다. Linux OS 보안 업데이트에서 호스트를 다시 부팅 해야 하는 경우 다시 부팅이 자동으로 수행 되지 않습니다. Linux 노드를 수동으로 다시 부팅 하거나, Kubernetes에 대 한 오픈 소스 재부팅 디먼 인 [Kured][kured]를 사용 하는 것이 일반적인 방법입니다. Kured는 [DaemonSet][aks-daemonsets]으로 실행하며 다시 부팅해야 함을 표시하는 파일의 존재에 대한 각 노드를 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 

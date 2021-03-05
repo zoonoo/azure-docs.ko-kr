@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c60aac675a76d8cb25463f8b0ca1b2dc563d1179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 415d50258ce5fc8416dd908bf53f812e72a10f48
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730323"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124502"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>사용자 지정 변환-.NET을 사용 하 여 인코딩하는 방법
 
@@ -52,11 +52,11 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 [Transform](/rest/api/media/transforms)을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인해야 합니다. 아래 코드를 참조하세요. Media Services v3에서 엔터티에 대 한 **Get** 메서드는 엔터티가 존재 하지 않는 경우 **null** 을 반환 합니다 (이름에 대 한 대/소문자를 구분 하지 않음).
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 예제에서는이 변환을 사용할 때 생성 하려는 출력 집합을 정의 합니다. 먼저 오디오 인코딩에 대해 AacAudio 계층을 추가 하 고 비디오 인코딩에 대해 경우 h264video 계층 두 개를 추가 합니다. 비디오 레이어에서 출력 파일 이름에 사용할 수 있도록 레이블을 할당 합니다. 다음에는 출력에 미리 보기도 포함 하려고 합니다. 아래 예제에서는 입력 비디오의 해상도는 50%로 생성 되 고 입력 비디오의 길이는 {25%, 50%, 75%} 인 3 개의 타임 스탬프에 생성 된 이미지를 PNG 형식으로 지정 합니다. 마지막으로, 출력 파일에 대 한 형식을 지정 합니다. 즉, 비디오 + 오디오의 경우, 다른 하나는 미리 보기로 지정 합니다. 여러 H264Layers 있으므로 계층 당 고유한 이름을 생성 하는 매크로를 사용 해야 합니다. `{Label}`또는 매크로를 사용할 수 있습니다 `{Bitrate}` .이 예제에서는 이전을 보여 줍니다.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
 
 ## <a name="next-steps"></a>다음 단계
 

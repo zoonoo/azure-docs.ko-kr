@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06ad8bf169e2b4b44f4f6a8ec5155aa6722a038c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741857"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124060"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -99,7 +99,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 
 - `Front Door ID`프런트 도어 포털 페이지의 개요 섹션에서 값을 찾습니다. 그런 다음 해당 값을 사용 하 여 프런트 도어에서 백 엔드로 보낸 들어오는 헤더 '**X-Azure-fdid**'를 필터링 하 여 고유한 특정 Front 도어 인스턴스만 허용 되도록 할 수 있습니다 (위의 IP 범위는 다른 고객의 다른 전방 도어 인스턴스와 공유 됨).
 
-- 백 엔드 웹 서버에서 규칙 필터링을 적용 하 여 결과 ' X-y ' 헤더 값을 기준으로 트래픽을 제한 합니다. Azure App Service와 같은 일부 서비스는 응용 프로그램 또는 호스트를 변경할 필요 없이이 [헤더 기반 필터링](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) 기능을 제공 합니다.
+- 백 엔드 웹 서버에서 규칙 필터링을 적용 하 여 결과 ' X-y ' 헤더 값을 기준으로 트래픽을 제한 합니다. Azure App Service와 같은 일부 서비스는 응용 프로그램 또는 호스트를 변경할 필요 없이이 [헤더 기반 필터링](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) 기능을 제공 합니다.
 
   [Microsoft 인터넷 정보 서비스 (IIS)](https://www.iis.net/)에 대 한 예제는 다음과 같습니다.
 
@@ -147,7 +147,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 

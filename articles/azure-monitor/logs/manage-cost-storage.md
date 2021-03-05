@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/31/2021
+ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 32a34acb454dc87a46e59e8c1231d043a55b7cab
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1ec8c65a1babe707175eb891592694dd0524711b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051092"
+ms.locfileid: "102123601"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -39,17 +39,17 @@ Log Analytics에 대한 기본 가격은 수집된 데이터 볼륨을 기반으
   
 종량제 모델 외에도 Log Analytics에는 종량제 가격에 비해 최대 25%의 비용을 절약할 수 있는 **용량 예약** 계층이 있습니다. 용량 예약 가격 책정을 통해 일일 100GB로 시작되는 예약을 구매할 수 있습니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다. 용량 예약 계층은 31일의 약정 기간이 있습니다. 약정 기간 동안에는 더 높은 수준의 용량 예약 계층(31일의 약정 기간을 다시 시작함)으로 변경할 수 있으며 다만 약정 기간이 완료될 때까지 종량제 또는 더 낮은 용량 예약 계층으로 다시 이동할 수는 없습니다. 용량 예약 계층에 대한 요금은 일일 기준으로 청구됩니다. Log Analytics 종량제 및 용량 예약 가격에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/). 
 
-모든 가격 책정 계층에서 이벤트의 데이터 크기는이 이벤트에 대 한 Log Analytics에 저장 된 속성의 문자열 표현에서 계산 됩니다. 데이터는 에이전트에서 전송 되거나 수집 프로세스 중에 추가 되는지 여부가 결정 됩니다. 여기에는 데이터가 수집 된 후 Log Analytics 저장 될 때 추가 되는 [사용자 지정 필드가](../logs/custom-fields.md) 포함 됩니다. 일부 [Log Analytics 표준 속성](../logs/log-standard-columns.md)을 비롯 하 여 모든 데이터 형식에 공통적인 몇 가지 속성은 이벤트 크기 계산에서 제외 됩니다. 여기에는,, `_ResourceId` 및가 포함 됩니다 `_ItemId` `_IsBillable` `_BilledSize` `Type` . Log Analytics에 저장 된 다른 모든 속성은 이벤트 크기 계산에 포함 됩니다. 일부 데이터 형식에는 AzureActivity, 하트 비트 및 사용 유형과 같은 데이터 수집 요금을 모두 사용할 수 없습니다. 데이터 수집에 대 한 청구에서 이벤트가 제외 되었는지 여부를 확인 하려면 `_IsBillable` [아래](#data-volume-for-specific-events)와 같이 속성을 사용 하면 됩니다. 사용량은 GB 단위로 보고 됩니다 (1.0 E9 바이트). 
+모든 가격 책정 계층에서 이벤트의 데이터 크기는이 이벤트에 대 한 Log Analytics에 저장 된 속성의 문자열 표현에서 계산 됩니다. 데이터는 에이전트에서 전송 되거나 수집 프로세스 중에 추가 되는지 여부가 결정 됩니다. 여기에는 데이터가 수집 된 후 Log Analytics 저장 될 때 추가 되는 [사용자 지정 필드가](custom-fields.md) 포함 됩니다. 일부 [Log Analytics 표준 속성](./log-standard-columns.md)을 비롯 하 여 모든 데이터 형식에 공통적인 몇 가지 속성은 이벤트 크기 계산에서 제외 됩니다. 여기에는,,, 및가 포함 됩니다 `_ResourceId` `_SubscriptionId` `_ItemId` `_IsBillable` `_BilledSize` `Type` . Log Analytics에 저장 된 다른 모든 속성은 이벤트 크기 계산에 포함 됩니다. 일부 데이터 형식에는 AzureActivity, 하트 비트 및 사용 유형과 같은 데이터 수집 요금을 모두 사용할 수 없습니다. 데이터 수집에 대 한 청구에서 이벤트가 제외 되었는지 여부를 확인 하려면 `_IsBillable` [아래](#data-volume-for-specific-events)와 같이 속성을 사용 하면 됩니다. 사용량은 GB 단위로 보고 됩니다 (1.0 E9 바이트). 
 
 또한 [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [구성 관리](https://azure.microsoft.com/pricing/details/automation/) 같은 일부 솔루션에는 저마다 고유한 가격 책정 모델이 있습니다. 
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics 전용 클러스터
 
-Log Analytics 전용 클러스터는 단일 관리형 Azure Data Explorer 클러스터로 수집된 작업 영역들의 컬렉션이며, [고객 관리형 키](../logs/customer-managed-keys.md) 등의 고급 시나리오를 지원합니다.  Log Analytics 전용 클러스터는 최소 1000 g b/일로 구성 해야 하는 용량 예약 가격 책정 모델을 사용 합니다. 이 용량 수준은 종 량 제 가격 책정과 비교 하 여 25% 할인 됩니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다. 예약 수준을 늘린 후 클러스터 용량 예약은 31일의 약정 기간이 있습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제든지 늘릴 수는 있습니다. 작업 영역이 클러스터에 연결 된 경우 해당 작업 영역에 대 한 데이터 수집 청구는 구성 된 용량 예약 수준을 사용 하 여 클러스터 수준에서 수행 됩니다. [Log Analytics 클러스터를 만들고](../logs/customer-managed-keys.md#create-cluster) [이 클러스터에 작업 영역을 연결](../logs/customer-managed-keys.md#link-workspace-to-cluster)하는 방법에 대해 자세히 알아보세요. 용량 예약 가격 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
+Log Analytics 전용 클러스터는 단일 관리형 Azure Data Explorer 클러스터로 수집된 작업 영역들의 컬렉션이며, [고객 관리형 키](customer-managed-keys.md) 등의 고급 시나리오를 지원합니다.  Log Analytics 전용 클러스터는 최소 1000 g b/일로 구성 해야 하는 용량 예약 가격 책정 모델을 사용 합니다. 이 용량 수준은 종 량 제 가격 책정과 비교 하 여 25% 할인 됩니다. 예약 수준을 초과하는 모든 사용량에 대한 요금은 종량제 요율로 청구됩니다. 예약 수준을 늘린 후 클러스터 용량 예약은 31일의 약정 기간이 있습니다. 약정 기간 동안에는 용량 예약 수준을 낮출 수는 없지만 언제든지 늘릴 수는 있습니다. 작업 영역이 클러스터에 연결 된 경우 해당 작업 영역에 대 한 데이터 수집 청구는 구성 된 용량 예약 수준을 사용 하 여 클러스터 수준에서 수행 됩니다. [Log Analytics 클러스터를 만들고](customer-managed-keys.md#create-cluster) [이 클러스터에 작업 영역을 연결](customer-managed-keys.md#link-workspace-to-cluster)하는 방법에 대해 자세히 알아보세요. 용량 예약 가격 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
-클러스터 용량 예약 수준은에서 매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다 `Capacity` `Sku` . `Capacity`는 GB 단위로 지정되며 일일 100GB의 증분 단위로 일일 1000GB 이상의 값을 가질 수 있습니다. 이 내용은 [고객이 관리 하는 키 Azure Monitor](../logs/customer-managed-keys.md#create-cluster)에 자세히 설명 되어 있습니다. 클러스터에서 일일 2000GB를 초과하는 예약이 필요한 경우, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)에 문의하세요.
+클러스터 용량 예약 수준은에서 매개 변수를 사용 하 여 Azure Resource Manager 프로그래밍 방식으로 구성 됩니다 `Capacity` `Sku` . `Capacity`는 GB 단위로 지정되며 일일 100GB의 증분 단위로 일일 1000GB 이상의 값을 가질 수 있습니다. 이 내용은 [고객이 관리 하는 키 Azure Monitor](customer-managed-keys.md#create-cluster)에 자세히 설명 되어 있습니다. 클러스터에서 일일 2000GB를 초과하는 예약이 필요한 경우, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)에 문의하세요.
 
-클러스터에서 사용 하기 위한 두 가지 모드의 요금 청구 방법이 있습니다. `billingType` [클러스터를 구성할](../logs/customer-managed-keys.md#customer-managed-key-operations)때 매개 변수를 통해 지정할 수 있습니다. 두 모드는 다음과 같습니다. 
+클러스터에서 사용 하기 위한 두 가지 모드의 요금 청구 방법이 있습니다. `billingType` [클러스터를 구성할](customer-managed-keys.md#customer-managed-key-operations)때 매개 변수를 통해 지정할 수 있습니다. 두 모드는 다음과 같습니다. 
 
 1. **Cluster**:이 경우 (기본값) 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 됩니다. 클러스터의 일별 청구 금액을 계산하기 위해 클러스터에 연결된 각 작업 영역의 수집된 데이터 수량이 집계됩니다. [Azure Security Center](../../security-center/index.yml)에서 노드별 할당은 클러스터의 모든 작업 영역에서 집계된 데이터의 이러한 집계에 앞서 작업 영역 수준에서 적용됩니다. 
 
@@ -79,7 +79,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 많은 유용한 기능을 제공합니다. 예를 들어, “비용 분석” 기능을 사용하면 Azure 리소스에 대한 지출 내역을 확인할 수 있습니다. 먼저 "리소스 종류"를 Log Analytics 사용 하 여 필터를 추가 합니다 (Log Analytics 및 operationalinsights/Log Analytics 클러스터에 대 한 operationalinsights/작업 영역). 그런 다음, "그룹화 방법"에서 "미터 범주" 또는 "미터"를 선택합니다.  Azure Security Center 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
 
-사용량에 대한 자세한 내용은 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)하면 확인할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 "미터 범주"열에서 필터링을 진행하여 "Log Analytics", "Insight & Analytics"(일부 레거시 가격 책정 계층에서 사용됨) 및 "Azure Monitor"(용량 예약 가격 책정 계층에서 사용됨)를 각각 표시한 다음, "작업 영역 포함" 또는 "클러스터 포함"(후자의 경우, Log Analytics 클러스터 사용량을 포함)에 해당되는 "인스턴스 ID" 열에서 하나의 필터를 추가하면 Log Analytics 작업 영역의 사용량을 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다.  [Microsoft Azure 청구 방식을 이해](../../cost-management-billing/understand/review-individual-bill.md)하는 데 도움이 되는 자세한 정보를 제공합니다. 
+사용량에 대한 자세한 내용은 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)하면 확인할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 "측정기 범주" 열을 기준으로 필터링 하 여 "Log Analytics"를 표시 하는 Log Analytics 작업 영역의 사용을 찾을 수 있습니다. Insight and Analytics "(일부 레거시 가격 책정 계층에서 사용 됨) 및" Azure Monitor "(용량 예약 가격 책정 계층에서 사용 됨)로 이동한 다음" 인스턴스 ID "열에" 포함 작업 영역 "또는" 클러스터 포함 "(Log Analytics 클러스터 사용 포함)에 필터를 추가 합니다. 사용량은 “사용한 수량” 열에 표시되며 각 항목에 대한 단위는 “측정 단위” 열에 표시됩니다.  [Microsoft Azure 청구 방식을 이해](../../cost-management-billing/understand/review-individual-bill.md)하는 데 도움이 되는 자세한 정보를 제공합니다. 
 
 ## <a name="changing-pricing-tier"></a>가격 책정 계층 변경
 
@@ -93,7 +93,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
     
 3. 지난 31일간의 사용량을 기준으로 예상 비용을 검토한 후 가격 책정 계층을 변경하려면 **선택** 을 클릭하세요.  
 
-`sku` 매개 변수(Azure Resource Manager 템플릿의 `pricingTier`)를 사용하여 [Azure Resource Manager를 통해 가격 책정 계층을 설정](../logs/resource-manager-workspace.md)할 수도 있습니다. 
+`sku` 매개 변수(Azure Resource Manager 템플릿의 `pricingTier`)를 사용하여 [Azure Resource Manager를 통해 가격 책정 계층을 설정](../samples/resource-manager-workspace.md)할 수도 있습니다. 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
@@ -127,7 +127,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics 및 Security Center
 
-[Azure Security Center](../../security-center/index.yml) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Security Center는 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, Securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 집합에 대해 500 m b/노드/일을 할당 하 고, 작업 영역에서 업데이트 관리 솔루션이 실행 되 고 있지 않거나 솔루션 대상 지정을 사용 하는 경우 업데이트 및 UpdateSummary 데이터 형식을 제공 합니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당이 결합 되 고 공동으로 모든 청구 가능 수집 데이터에 적용 됩니다.  
+[Azure Security Center](../../security-center/index.yml) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Security Center는 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, Securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus)의 다음 하위 집합에 대해 500 m b/노드/일 할당을 제공 하 고, 업데이트 관리 솔루션이 작업 영역에서 실행 되 고 있지 않거나 솔루션 대상 지정을 사용 하는 경우 업데이트 및 UpdateSummary 데이터 형식을 제공 합니다 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당이 결합 되 고 공동으로 모든 청구 가능 수집 데이터에 적용 됩니다.  
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
@@ -145,7 +145,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 보존이 낮아질 때 새 보존 설정 보다 오래 된 데이터를 제거 하기 전에 몇 일의 유예 기간이 있습니다. 
 
-**데이터 보존** 페이지에서는 30, 31, 60, 90, 120, 180, 270, 365, 550 및 730 일의 보존 설정을 사용할 수 있습니다. 다른 설정이 필요한 경우 매개 변수를 사용 하 여 [Azure Resource Manager](../logs/resource-manager-workspace.md) 를 사용 하 여 구성할 수 있습니다 `retentionInDays` . 데이터 보존 기간을 30 일로 설정 하는 경우 매개 변수를 사용 하 여 오래 된 데이터의 즉시 제거를 트리거할 수 있습니다 `immediatePurgeDataOn30Days` (몇 일 유예 기간 제거). 이는 즉각적인 데이터 제거가 필수적인 경우 준수 관련 시나리오에 유용할 수 있습니다. 이 즉시 제거 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
+**데이터 보존** 페이지에서는 30, 31, 60, 90, 120, 180, 270, 365, 550 및 730 일의 보존 설정을 사용할 수 있습니다. 다른 설정이 필요한 경우 매개 변수를 사용 하 여 [Azure Resource Manager](../samples/resource-manager-workspace.md) 를 사용 하 여 구성할 수 있습니다 `retentionInDays` . 데이터 보존 기간을 30 일로 설정 하는 경우 매개 변수를 사용 하 여 오래 된 데이터의 즉시 제거를 트리거할 수 있습니다 `immediatePurgeDataOn30Days` (몇 일 유예 기간 제거). 이는 즉각적인 데이터 제거가 필수적인 경우 준수 관련 시나리오에 유용할 수 있습니다. 이 즉시 제거 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
 
 30 일 보존이 있는 작업 영역은 실제로 31 일 동안 데이터를 보존할 수 있습니다. 데이터를 30 일 동안 유지 해야 하는 경우에는 Azure Resource Manager를 사용 하 여 보존 기간을 30 일로 설정 하 고 `immediatePurgeDataOn30Days` 매개 변수를 사용 합니다.  
 
@@ -215,7 +215,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 > 작업 영역에서 많은 양의 데이터를 수신 하는 경우에는 지정 된 cap 수준 및 일부 초과 데이터를 정확 하 게 사용할 수 있으므로 일일 한도는 데이터 수집을 중지할 수 없습니다. 일일 상한 동작을 조사 하는 데 도움이 되는 쿼리는 [아래](#view-the-effect-of-the-daily-cap) 를 참조 하세요. 
 
 > [!WARNING]
-> 일일 한도는 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고는 [Azure Security Center 매일](#log-analytics-and-security-center) (WindowsEvent, securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus, Update 및 UpdateSummary)에 포함 된 데이터 형식의 수집을 중지 하지 않습니다. 
+> 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고 일일 한도는 데이터 형식 WindowsEvent, SecurityAlert, Securityalert, SecurityBaselineSummary, Securityalert, Securityalert, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update 및 UpdateSummary의 컬렉션을 중지 하지 않습니다. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 
@@ -258,7 +258,7 @@ Usage
 - 대상: Log Analytics 리소스 선택
 - 조건: 
    - 신호 이름: 사용자 지정 로그 검색
-   - 검색 쿼리: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+   - 검색 쿼리: `_LogOperation | where Operation == "Data Collection Status" | where Detail contains "OverQuota"`
    - 기준: 결과의 수
    - 조건: 초과
    - 임계값: 0
@@ -322,7 +322,7 @@ find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(n
 
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../logs/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식(아래 참조)을 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../log-query/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식(아래 참조)을 쿼리합니다.
 
 ## <a name="understanding-ingested-data-volume"></a>수집된 데이터 볼륨을 파악
 
@@ -340,7 +340,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-여기서 `where _IsBillable = true` 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 에 [대해 자세히 알아보세요](../logs/log-standard-columns.md#_isbillable) `_IsBillable` .
+여기서 `where _IsBillable = true` 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 에 [대해 자세히 알아보세요](./log-standard-columns.md#_isbillable) `_IsBillable` .
 
 ### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
 
@@ -383,7 +383,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-`Usage` 데이터 형식에는 컴퓨터 수준의 정보가 포함되지 않습니다. 컴퓨터당 수집된 데이터의 **크기** 를 보려면 바이트 단위의 크기를 제공하는 `_BilledSize` [ 속성](../logs/log-standard-columns.md#_billedsize)을 사용합니다.
+`Usage` 데이터 형식에는 컴퓨터 수준의 정보가 포함되지 않습니다. 컴퓨터당 수집된 데이터의 **크기** 를 보려면 바이트 단위의 크기를 제공하는 `_BilledSize` [ 속성](./log-standard-columns.md#_billedsize)을 사용합니다.
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
@@ -393,7 +393,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | sort by BillableDataBytes nulls last
 ```
 
-`_IsBillable` [속성](../logs/log-standard-columns.md#_isbillable)은 수집된 데이터에서 요금이 발생하는지 여부를 지정합니다. 
+`_IsBillable` [속성](./log-standard-columns.md#_isbillable)은 수집된 데이터에서 요금이 발생하는지 여부를 지정합니다. 
 
 컴퓨터당 청구 가능한 이벤트 **수** 를 보려면 다음을 사용합니다. 
 
@@ -406,11 +406,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../logs/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식을 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../log-query/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식을 쿼리합니다.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독별 데이터 볼륨
 
-Azure에서 호스트되는 노드의 데이터에 대해서는 __컴퓨터별__ 로 수집된 데이터의 **크기** 를 가져올 수 있으며 _ResourceId [속성](../logs/log-standard-columns.md#_resourceid)을 사용할 수 있는데 이는 리소스에 대한 전체 경로를 제공합니다.
+Azure에서 호스트되는 노드의 데이터에 대해서는 __컴퓨터별__ 로 수집된 데이터의 **크기** 를 가져올 수 있으며 _ResourceId [속성](./log-standard-columns.md#_resourceid)을 사용할 수 있는데 이는 리소스에 대한 전체 경로를 제공합니다.
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -445,7 +445,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 ```
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../logs/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. 구독별, 리소스 그룹별 또는 리소스 이름별 결과가 필요하지 않다면 사용량 데이터 형식에 대해 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](../log-query/query-optimization.md#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. 구독별, 리소스 그룹별 또는 리소스 이름별 결과가 필요하지 않다면 사용량 데이터 형식에 대해 쿼리합니다.
 
 > [!WARNING]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터** 일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
@@ -479,7 +479,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 
 | 높은 데이터 볼륨의 소스 | 데이터 볼륨을 줄이는 방법 |
 | -------------------------- | ------------------------- |
-| 컨테이너 인사이트         | 필요한 데이터만 수집 하도록 [컨테이너 정보를 구성](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) 합니다. |
+| 컨테이너 인사이트         | 필요한 데이터만 수집 하도록 [컨테이너 정보를 구성](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) 합니다. |
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](../../security-center/security-center-enable-data-collection.md#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [감사 레지스트리](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](../agents/data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](../agents/data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
@@ -487,12 +487,12 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | AzureDiagnostics           | [리소스 로그 수집](../essentials/diagnostic-settings.md#create-in-azure-portal) 을 다음으로 변경: <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 | Application Insights | 검토 옵션 [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](../insights/azure-sql.md) | [AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) 를 사용 하 여 감사 설정을 조정 합니다. |
-| Azure Sentinel | 최근 추가 데이터 볼륨의 원본으로 사용 하도록 설정 된 모든 [센티널 데이터 원본을](../../sentinel/connect-data-sources.md) 검토 합니다. |
+| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | [AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) 를 사용 하 여 감사 설정을 조정 합니다. |
+| Azure Sentinel | 최근 추가 데이터 볼륨의 원본으로 사용 하도록 설정 된 모든 [센티널 데이터 원본을](https://docs.microsoft.com/azure/sentinel/connect-data-sources) 검토 합니다. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>노드당 가격 책정 계층에서 청구되는 노드를 가져오기
 
-작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우, 노드로 요금이 청구되는 컴퓨터 목록을 가져오려면 **청구된 데이터 형식**(일부 데이터 형식은 무료)을 전송하는 노드를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](../logs/log-standard-columns.md#_isbillable)을 사용하고 정규화된 도메인 이름(FQDN)의 맨 왼쪽 필드를 사용합니다. 이는 (노드 수를 계산하고 그 요금이 청구되는 단위인) 시간당 데이터 요금이 청구되는 컴퓨터의 수를 다음과 같이 반환합니다.
+작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우, 노드로 요금이 청구되는 컴퓨터 목록을 가져오려면 **청구된 데이터 형식**(일부 데이터 형식은 무료)을 전송하는 노드를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](./log-standard-columns.md#_isbillable)을 사용하고 정규화된 도메인 이름(FQDN)의 맨 왼쪽 필드를 사용합니다. 이는 (노드 수를 계산하고 그 요금이 청구되는 단위인) 시간당 데이터 요금이 청구되는 컴퓨터의 수를 다음과 같이 반환합니다.
 
 ```kusto
 find where TimeGenerated > ago(24h) project Computer, TimeGenerated
@@ -502,8 +502,6 @@ find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 ```
 
 ### <a name="getting-security-and-automation-node-counts"></a>보안 및 Automation 노드의 수 가져오기
-
-“노드별 (OMS)” 가격 책정 계층에 속하는 경우 사용하는 노드 및 솔루션 수에 따라 비용이 청구됩니다. 요금이 청구되는 Insights 및 Analytics 노드의 수는 **사용량 및 예상 비용** 페이지의 표에 표시됩니다.  
 
 고유한 보안 노드의 수를 보려면 다음 쿼리를 사용할 수 있습니다.
 
@@ -559,11 +557,17 @@ union
 
 ```kusto
 // Set these parameters before running query
-let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+// Pricing details available at https://azure.microsoft.com/en-us/pricing/details/monitor/
+let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
+let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
-let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the query is taking too long)
+let CarRes100Price = 196.; // Enter your price for the 100 GB/day Capacity Reservation
+let CarRes200Price = 368.; // Enter your price for the 200 GB/day Capacity Reservation
+let CarRes300Price = 540.; // Enter your price for the 300 GB/day Capacity Reservation
+let CarRes400Price = 704.; // Enter your price for the 400 GB/day Capacity Reservation
+let CarRes500Price = 865.; // Enter your price for the 500 GB/day Capacity Reservation
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
@@ -591,16 +595,35 @@ union *
     | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
 ) on day
 | extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
-| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
-             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
-             DataGB * PerGBPrice)
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
              max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
 | extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerNodeOveragePrice
-| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
-             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
-| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| extend billableGB = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)), DataGB )
+| extend PerGBDailyCost = billableGB * PerGBPrice
+| extend CapRes100DailyCost = CarRes100Price + max_of(billableGB - 100, 0.)* PerGBPrice
+| extend CapRes200DailyCost = CarRes200Price + max_of(billableGB - 200, 0.)* PerGBPrice
+| extend CapRes300DailyCost = CarRes300Price + max_of(billableGB - 300, 0.)* PerGBPrice
+| extend CapRes400DailyCost = CarRes400Price + max_of(billableGB - 400, 0.)* PerGBPrice
+| extend CapResLevel500AndAbove = max_of(floor(billableGB, 100),500)
+| extend CapRes500AndAboveDailyCost = CarRes500Price*CapResLevel500AndAbove/500 + max_of(billableGB - CapResLevel500AndAbove, 0.)* PerGBPrice
+| extend MinCost = min_of(
+    PerNodeDailyCost,PerGBDailyCost,CapRes100DailyCost,CapRes200DailyCost,
+    CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost)
+| extend Recommendation = case(
+    MinCost == PerNodeDailyCost, "Per node tier",
+    MinCost == PerGBDailyCost, "Pay-as-you-go tier",
+    MinCost == CapRes100DailyCost, "Capacity Reservation (100 GB/day)",
+    MinCost == CapRes200DailyCost, "Capacity Reservation (200 GB/day)",
+    MinCost == CapRes300DailyCost, "Capacity Reservation (300 GB/day)",
+    MinCost == CapRes400DailyCost, "Capacity Reservation (400 GB/day)",
+    MinCost == CapRes500AndAboveDailyCost, strcat("Capacity Reservation (",CapResLevel500AndAbove," GB/day)"),
+    "Error"
+)
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, 
+    CapRes100DailyCost, CapRes200DailyCost, CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost, Recommendation 
+| sort by day asc
 //| project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```

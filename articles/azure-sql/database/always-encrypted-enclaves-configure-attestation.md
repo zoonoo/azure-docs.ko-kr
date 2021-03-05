@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555670"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122581"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 논리 서버에 대 한 Azure 증명 구성
 
@@ -66,10 +66,14 @@ authorizationrules
 
 위의 정책은 다음을 확인 합니다.
 
-- Azure SQL Database 내부의 enclave는 디버깅을 지원 하지 않습니다 .이는 enclave가 제공 하는 보호 수준을 줄입니다.
-- Enclave 내 라이브러리의 제품 ID는 보안 enclaves (4639)를 사용 하 여 Always Encrypted에 할당 된 제품 ID입니다.
-- 라이브러리의 svn (버전 ID)이 0 보다 큽니다.
+- Azure SQL Database 내부의 enclave는 디버깅을 지원 하지 않습니다. 
+  > Enclaves는 디버깅을 사용 하지 않거나 사용 하도록 설정 하 여 로드할 수 있습니다. 디버깅 지원은 개발자가 enclave에서 실행 되는 코드의 문제를 해결할 수 있도록 설계 되었습니다. 프로덕션 시스템에서 디버깅을 사용 하면 관리자가 enclave의 콘텐츠를 검사 하 여 enclave가 제공 하는 보호 수준을 낮출 수 있습니다. 권장 되는 정책은 악의적인 관리자가 enclave 컴퓨터를 통해 디버깅 지원을 설정 하려고 시도 하는 경우 증명이 실패 하도록 하는 디버깅을 사용 하지 않도록 설정 합니다. 
+- Enclave의 제품 ID는 보안 enclaves를 사용 하 여 Always Encrypted에 할당 된 제품 ID와 일치 합니다.
+  > 각 enclave에는 다른 enclaves의 enclave를 차별화 하는 고유한 제품 ID가 있습니다. Always Encrypted enclave에 할당 된 제품 ID는 4639입니다. 
+- 라이브러리의 SVN (보안 버전 번호)이 0 보다 큽니다.
+  > SVN을 통해 Microsoft는 enclave 코드에서 식별 된 잠재적 보안 버그에 응답할 수 있습니다. 보안 문제가 dicovered 되 고 수정 되는 경우 Microsoft는 새 (증가 된) SVN을 사용 하 여 새 버전의 enclave을 배포 합니다. 위의 권장 정책은 새 SVN을 반영 하도록 업데이트 됩니다. 권장 정책과 일치 하도록 정책을 업데이트 하 여 악의적인 관리자가 이전 및 안전 하지 않은 enclave를 로드 하려고 하면 증명이 실패 합니다.
 - Enclave의 라이브러리가 Microsoft 서명 키를 사용 하 여 서명 되었습니다. mrsigner 클레임의 값은 서명 키의 해시입니다.
+  > 증명의 주요 목표 중 하나는 enclave에서 실행 되는 이진이 실행 되어야 하는 이진 임을 클라이언트에 게 유도 하는 것입니다. 증명 정책은 이러한 용도로 두 가지 메커니즘을 제공 합니다. 하나는 enclave에서 실행 되어야 하는 이진의 해시 인 **mrenclave** 클레임입니다. **Mrenclave** 문제는 이진 해시가 코드를 변경 하는 경우에도 변경 될 수 있기 때문에 enclave에서 실행 되는 코드를 수정 하기가 어렵습니다. 따라서 enclave binary에 서명 하는 데 사용 되는 키의 해시 인 **mrsigner** 를 사용 하는 것이 좋습니다. Microsoft가 enclave를 다시 사용할 때 **mrsigner** 은 서명 키가 변경 되지 않는 한 동일 하 게 유지 됩니다. 이러한 방식으로 고객의 응용 프로그램을 손상 시 키 지 않고 업데이트 된 이진 파일을 배포 하는 것은 가능 합니다. 
 
 > [!IMPORTANT]
 > Enclave 내에서 실행 되는 코드의 유효성을 검사 하지 않는 Intel SGX enclaves에 대 한 기본 정책을 사용 하 여 증명 공급자를 만듭니다. Microsoft는 보안 enclaves을 사용 하는 Always Encrypted에 대해 위의 권장 정책을 설정 하 고 기본 정책은 사용 하지 않는 것을 강력 하 게 권고 합니다.
@@ -149,6 +153,6 @@ New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName 
 
 - [보안 Enclave를 사용한 Always Encrypted 키 관리](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)

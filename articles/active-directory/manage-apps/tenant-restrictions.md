@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050905"
+ms.locfileid: "102123023"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -67,7 +67,7 @@ ms.locfileid: "102050905"
 
 - Azure AD Premium 1 라이선스는 테 넌 트 제한을 사용 하는 데 필요 합니다.
 
-#### <a name="configuration"></a>Configuration
+#### <a name="configuration"></a>구성
 
 Login.microsoftonline.com, login.microsoft.com 및 login.windows.net에 보내는 각 요청에 대해 두 개의 HTTP 헤더를 삽입 *합니다.* 
 
@@ -178,9 +178,9 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
       }
    ```
 
-여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 다음은 그 예입니다.
+   여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 다음은 그 예입니다.
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. CustomRules 파일을 저장한 후 닫습니다.
 

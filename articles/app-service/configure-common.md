@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: ec9e3b6ca4b07003852681523a21b87ab7b8671b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: a865c1070150b31399b5b738a0a469a07e0b13de
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825963"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122360"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -272,8 +272,6 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 
 ## <a name="configure-language-stack-settings"></a>언어 스택 설정 구성
 
-Linux 앱의 경우 다음을 참조 하세요.
-
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.JS](configure-language-nodejs.md)
 - [PHP](configure-language-php.md)
@@ -290,7 +288,7 @@ Linux 앱의 경우 다음을 참조 하세요.
 - [Azure App Service에서 사용자 지정 도메인 이름 구성]
 - [Azure App Service에서 스테이징 환경 설정]
 - [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
-- [진단 로그 사용](troubleshoot-diagnostic-logs.md)
+- [진단 로그 활성화](troubleshoot-diagnostic-logs.md)
 - [Azure App Service에서 앱 크기 조정]
 - [Azure App Service의 기본 사항 모니터링]
 - [Xdt를 사용 하 여 applicationHost.config 설정 변경](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)

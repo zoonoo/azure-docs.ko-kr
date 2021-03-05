@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373313"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123686"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -42,13 +42,13 @@ IMDS에 액세스 하려면 [Azure Resource Manager](/rest/api/resources/) 또�
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
 ```
 
 ---
@@ -196,7 +196,7 @@ http://169.254.169.254/metadata/instance/network/interface/0?api-version=<versio
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -248,9 +248,7 @@ IMDS는 버전이 지정 되며 HTTP 요청에서 API 버전을 지정 하는 �
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
-
-> [!NOTE]
-> 버전 2020-10-01은 현재 롤아웃 중 이며, 일부 지역에서는 아직 사용할 수 없습니다.
+- 2020-12-01
 
 ### <a name="swagger"></a>Swagger
 
@@ -273,6 +271,7 @@ IMDS API에는 서로 다른 데이터 소스를 나타내는 여러 끝점 범�
 | `/metadata/attested` | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 | `/metadata/identity` | [IMDS를 통한 관리 되는 id](#managed-identity) 참조 | 2018-02-01
 | `/metadata/instance` | [인스턴스 메타 데이터](#instance-metadata) 를 참조 하세요. | 2017-04-02
+| `/metadata/loadbalancer` | [IMDS를 통해 Load Balancer 메타 데이터 검색](#load-balancer-metadata) 을 참조 하세요. | 2020-10-01
 | `/metadata/scheduledevents` | [IMDS를 통해 Scheduled Events](#scheduled-events) 를 참조 하세요. | 2017-08-01
 | `/metadata/versions` | [버전](#versions) 참조 | N/A
 
@@ -336,6 +335,7 @@ GET /metadata/instance
 |------|-------------|--------------------|
 | `azEnvironment` | VM이 실행되는 Azure 환경 | 2018-10-01
 | `customData` | 이 기능은 현재 사용할 수 없습니다. 이 설명서를 사용할 수 있게 되 면 업데이트 합니다. | 2019-02-01
+| `evictionPolicy` | [지점 VM](../articles/virtual-machines/spot-vms.md) 이 제거 되는 방법을 설정 합니다. | 2020-12-01
 | `isHostCompatibilityLayerVm` | VM이 호스트 호환성 계층에서 실행 되는지 확인 합니다. | 2020-06-01
 | `licenseType` | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)라이선스의 유형입니다. AHB 사용 Vm에 대해서만 제공 됩니다. | 2020-09-01
 | `location` | VM을 실행하는 Azure 지역 | 2017-04-02
@@ -349,6 +349,7 @@ GET /metadata/instance
 | `plan` | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 | `platformUpdateDomain` |  VM을 실행 중인 [업데이트 도메인](../articles/virtual-machines/manage-availability.md) | 2017-04-02
 | `platformFaultDomain` | VM을 실행 중인 [장애 도메인](../articles/virtual-machines/manage-availability.md) | 2017-04-02
+| `priority` | VM의 우선 순위입니다. 자세한 내용은 [지점 vm](../articles/virtual-machines/spot-vms.md) 을 참조 하세요. | 2020-12-01
 | `provider` | VM의 공급자 | 2018-10-01
 | `publicKeys` | VM 및 경로에 할당된 [공개 키 컬렉션](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 | `publisher` | VM 이미지 게시자 | 2017-04-02
@@ -423,13 +424,6 @@ OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 �
 | `ipv6.ipAddress` | VM의 로컬 IPv6 주소 | 2017-04-02
 | `macAddress` | VM MAC 주소 | 2017-04-02
 
-**VM 태그**
-
-VM 태그는 인스턴스/컴퓨팅/태그 엔드포인트 아래 인스턴스 API에 포함되어 있습니다.
-태그를 특정 분류법에 따라 논리적으로 정리하기 위해 Azure VM에 태그가 적용되었을 수 있습니다. VM에 할당된 태그는 아래 요청을 사용하여 검색할 수 있습니다.
-
-`tags` 필드는 태그가 세미콜론으로 구분된 문자열입니다. 이 출력은 태그 자체에서 세미콜론을 사용 하는 경우 문제가 될 수 있습니다. 프로그래밍 방식으로 태그를 추출 하도록 파서를 작성 한 경우에는 필드를 사용 해야 합니다 `tagsList` . `tagsList`필드는 구분 기호가 없는 JSON 배열 이므로 구문 분석 하기가 더 쉽습니다.
-
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>샘플 1: Azure에서 실행 중인 VM 추적
 
@@ -440,7 +434,7 @@ VM 태그는 인스턴스/컴퓨팅/태그 엔드포인트 아래 인스턴스 A
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"| ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -468,7 +462,7 @@ IMDS를 통해이 데이터를 직접 쿼리할 수 있습니다.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -485,7 +479,98 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>샘플 3: 지원 사례에서 VM에 대 한 추가 정보 가져오기
+#### <a name="sample-3-get-vm-tags"></a>샘플 3: VM 태그 가져오기
+
+VM 태그는 인스턴스/컴퓨팅/태그 엔드포인트 아래 인스턴스 API에 포함되어 있습니다.
+태그를 특정 분류법에 따라 논리적으로 정리하기 위해 Azure VM에 태그가 적용되었을 수 있습니다. VM에 할당된 태그는 아래 요청을 사용하여 검색할 수 있습니다.
+
+**요청**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+```
+
+---
+
+**응답**
+
+```
+Department:IT;ReferenceNumber:123456;TestStatus:Pending
+```
+
+`tags` 필드는 태그가 세미콜론으로 구분된 문자열입니다. 이 출력은 태그 자체에서 세미콜론을 사용 하는 경우 문제가 될 수 있습니다. 프로그래밍 방식으로 태그를 추출 하도록 파서를 작성 한 경우에는 필드를 사용 해야 합니다 `tagsList` . `tagsList`필드는 구분 기호가 없는 JSON 배열 이므로 구문 분석 하기가 더 쉽습니다. VM에 할당 된 tagsList는 아래 요청을 사용 하 여 검색할 수 있습니다.
+
+**요청**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
+```
+
+---
+
+**응답**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```json
+{
+    "value":  [
+                  {
+                      "name":  "Department",
+                      "value":  "IT"
+                  },
+                  {
+                      "name":  "ReferenceNumber",
+                      "value":  "123456"
+                  },
+                  {
+                      "name":  "TestStatus",
+                      "value":  "Pending"
+                  }
+              ],
+    "Count":  3
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "ReferenceNumber",
+    "value": "123456"
+  },
+  {
+    "name": "TestStatus",
+    "value": "Pending"
+  }
+]
+```
+
+---
+
+
+#### <a name="sample-4-get-more-information-about-the-vm-during-support-case"></a>샘플 4: 지원 사례에서 VM에 대 한 추가 정보 얻기
 
 서비스 공급자는 지원 요청을 받을 수 있으며 이 때 VM에 대해 자세한 정보를 알아야 하는 경우가 있습니다. 고객에게 컴퓨팅 메타데이터를 공유하도록 요청하면 지원 전문가가 Azure에서 VM의 종류에 대해 알 수 있도록 기본 정보가 제공될 수 있습니다.
 
@@ -494,7 +579,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -510,6 +595,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
 
+#### <a name="windows"></a>[Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -517,13 +603,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "licenseType":  "Windows_Client",
     "location": "westus",
     "name": "examplevmname",
-    "offer": "Windows",
+    "offer": "WindowsServer",
     "osProfile": {
         "adminUsername": "admin",
         "computerName": "examplevmname",
         "disablePasswordAuthentication": "true"
     },
-    "osType": "linux",
+    "osType": "Windows",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -548,7 +634,108 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "secureBootEnabled": "true",
         "virtualTpmEnabled": "false"
     },
-    "sku": "Windows-Server-2012-R2-Datacenter",
+    "sku": "2019-Datacenter",
+    "storageProfile": {
+        "dataDisks": [{
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+                "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }],
+        "imageReference": {
+            "id": "",
+            "offer": "WindowsServer",
+            "publisher": "MicrosoftWindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+        },
+        "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Windows",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+```json
+{
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "UbuntuServer",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
             "caching": "None",
@@ -593,7 +780,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "storageAccountType": "Standard_LRS"
             },
             "name": "exampleosdiskname",
-            "osType": "Linux",
+            "osType": "linux",
             "vhd": {
                 "uri": ""
             },
@@ -610,7 +797,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>샘플 4: VM이 실행 되는 Azure 환경 가져오기
+---
+
+#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>샘플 5: VM이 실행 되는 Azure 환경 가져오기
 
 Azure에는 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)와 같은 다양한 소버린 클라우드가 있습니다. 경우에 따라 몇 가지 런타임 결정을 내리려면 Azure 환경이 필요합니다. 다음 샘플에서는 이러한 동작을 수행하는 방법을 보여줍니다.
 
@@ -619,7 +808,7 @@ Azure에는 [Azure Government](https://azure.microsoft.com/overview/clouds/gover
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -646,14 +835,14 @@ AzurePublicCloud
 | [Azure 독일](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### <a name="sample-5-retrieve-network-information"></a>샘플 5: 네트워크 정보 검색
+#### <a name="sample-6-retrieve-network-information"></a>샘플 6: 네트워크 정보 검색
 
 **요청**
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -693,12 +882,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 }
 ```
 
-#### <a name="sample-6-retrieve-public-ip-address"></a>샘플 6: 공용 IP 주소 검색
+#### <a name="sample-7-retrieve-public-ip-address"></a>샘플 7: 공용 IP 주소 검색
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -724,7 +913,7 @@ GET /metadata/attested/document
 | 속성 | 필수/선택 | 설명 |
 |------|-------------------|-------------|
 | `api-version` | 필수 | 요청을 처리 하는 데 사용 되는 버전입니다.
-| `nonce` | 선택 사항 | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
+| `nonce` | Optional | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
 
 #### <a name="response"></a>응답
 
@@ -792,7 +981,7 @@ Azure Resource Manager를 사용 하 여 만든 vm의 경우 문서 `vmId` 를 `
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -913,8 +1102,12 @@ openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -un
 
 이 기능을 사용하도록 설정하는 자세한 단계는 [액세스 토큰 획득](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요.
 
+## <a name="load-balancer-metadata"></a>메타 데이터 Load Balancer
+가상 컴퓨터 또는 가상 컴퓨터 집합 인스턴스를 Azure 표준 Load Balancer 뒤에 두면 IMDS를 사용 하 여 부하 분산 장치 및 인스턴스와 관련 된 메타 데이터를 검색할 수 있습니다. 자세한 내용은 [부하 분산 장치 정보 검색](../articles/load-balancer/instance-metadata-service-load-balancer.md)을 참조 하세요.
+
 ## <a name="scheduled-events"></a>예약된 이벤트
 IMDS를 사용 하 여 예약 된 이벤트의 상태를 가져올 수 있습니다. 그런 다음 사용자는 이러한 이벤트에 대해 실행할 작업 집합을 지정할 수 있습니다. 자세한 내용은 [Linux의 예약 된 이벤트](../articles/virtual-machines/linux/scheduled-events.md) 또는 [Windows에 대 한 예약 된 이벤트](../articles/virtual-machines/windows/scheduled-events.md)를 참조 하세요.
+
 
 ## <a name="sample-code-in-different-languages"></a>여러 언어의 샘플 코드
 

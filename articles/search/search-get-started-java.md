@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/25/2021
+ms.date: 03/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e05e41ca0c293e31a29dc25a7b4ec7b87734246
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: f833c0539d4aa28033cd6f76c1ca7cec7f11f6b5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509421"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124570"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>빠른 시작: Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "99509421"
 > * [Python](search-get-started-python.md)
 > * [REST (영문)](search-get-started-rest.md)
 
-[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/) 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](https://developers.google.com/sheets/api/quickstart/java)할 수 있습니다.
+[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/) 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](hhttps://github.com/Azure-Samples/azure-search-java-samples)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

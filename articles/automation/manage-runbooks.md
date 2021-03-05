@@ -3,14 +3,14 @@ title: Azure Automation에서 Runbook 관리
 description: 이 문서에서는 Azure Automation에서 Runbook을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/23/2020
+ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af767ab37e8e77195b7d13b24ea78f4fb88485fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122139"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -23,6 +23,7 @@ Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 �
 * [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 * [Automation Runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습](automation-powershell-workflow.md)
 * [Azure Automation에서 Python 2 패키지 관리](python-packages.md)
+* [Azure Automation에서 Python 3 패키지 (미리 보기) 관리](python-3-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 만들기
 
@@ -45,7 +46,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Runbook 가져오기
 
-PowerShell 또는 PowerShell 워크플로( **.ps1**) 스크립트, 그래픽 Runbook( **.graphrunbook**) 또는 Python 2 스크립트( **.py**)를 가져와 고유한 Runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
+PowerShell 또는 PowerShell 워크플로 (**ps1**) 스크립트, 그래픽 runbook (**Graphrunbook**) 또는 python 2 또는 python 3 스크립트 (**. py**)를 가져와서 고유한 runbook을 만들 수 있습니다. 다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
 * 워크플로가 포함되지 않은 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다. PowerShell 워크플로 Runbook으로 가져오는 경우 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
 

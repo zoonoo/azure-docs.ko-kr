@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: d0085dc1cd7afa1fd8f557db27d30fd76ca05fac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: edb6748009ef9660c020c77e411ce55f60b45791
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732737"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124604"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -73,7 +73,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Event Grid(Microsoft.EventGrid/topics) / 토픽 | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Event Grid(Microsoft.EventGrid/domains) / 도메인 | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Web Apps (Microsoft 웹/사이트)/사이트 | privatelink.azurewebsites.net | azurewebsites.net |
-| Azure Machine Learning (MachineLearningServices/작업 영역)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>aznbcontent.net |
+| Azure Machine Learning (MachineLearningServices/작업 영역)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net |
 | SignalR (SignalRService/SignalR)/signalR | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Cognitiveservices account/accounts)/계정 | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |

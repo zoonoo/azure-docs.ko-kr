@@ -9,18 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 69313b48b505bd0b53df6f15f636e2903f41ebfd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661106"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124009"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-28"></a>2021-02-28
+### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Azure Machine Learning Studio 노트북 환경 (2 월 업데이트)
++ **새로운 기능**
+  + [기본 터미널 (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다.
+  + [노트북 코드 조각 (미리 보기)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). 이제는 일반적인 Azure ML 코드 발췌를 편리 하 게 이용할 수 있습니다. 도구 모음을 통해 액세스할 수 있는 코드 조각 패널로 이동 하거나 Ctrl + 스페이스바를 사용 하 여 코드 내 조각 메뉴를 활성화 합니다.  
+  + [바로 가기 키](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys) Jupyter에서 사용할 수 있는 바로 가기 키가 포함 된 전체 패리티입니다. 
+  + 셀 매개 변수를 지정 합니다. 노트북의 셀이 있는 사용자가 매개 변수 셀 이며 계산 인스턴스에서 [용지 제분소](https://github.com/nteract/papermill) 를 통해 매개 변수가 있는 노트북을 실행할 수 있습니다.
+  + 터미널 및 커널 세션 관리자: 사용자가 계산에서 실행 되는 모든 커널 및 터미널 세션을 관리할 수 있습니다.
+  + 공유 단추. 사용자는 이제 파일을 마우스 오른쪽 단추로 클릭 하 고 공유 단추를 사용 하 여 전자 필기장 파일 탐색기에서 모든 파일을 공유할 수 있습니다.
+
+
++ **버그 수정 및 향상 된 기능**
+  + 페이지 로드 시간 향상
+  + 성능 향상 
+  + 향상 된 속도 및 커널 안정성
+  + 진행 중인 모든 [계산 인스턴스 작업](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)에 대 한 진행률을 표시 하는 회전 휠이 추가 되었습니다.
+  + 파일 탐색기에서 마우스 오른쪽 단추를 클릭 합니다. 이제 파일을 마우스 오른쪽 단추로 클릭 하면 파일 작업이 열립니다. 
 
 ## <a name="2021-02-16"></a>2021-02-16
 
@@ -1702,13 +1720,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
         ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
+        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
 
         ```python
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1717,7 +1735,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
         ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
@@ -2041,7 +2059,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + `read_parquet`Spark에서 실행 하는 경우의 성능이 개선 되었습니다.
   + `column_type_builder`모호한 날짜 형식의 단일 열에 대해 실패 한 경우 문제가 해결 되었습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **미리 보기 기능**
   + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
   + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
@@ -2320,7 +2338,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + 이제 기존 원격 계산 클러스터에서 기존 스크립트 실행을 다시 제출할 수 있습니다.
   + 이제 파이프라인 탭에서 새 매개 변수를 사용 하 여 게시 된 파이프라인을 실행할 수 있습니다.
   + 이제 실행 세부 정보에서 새로운 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 전송 된 노트북을 다운로드 하 여 실행을 시작할 수도 있습니다.
@@ -2378,7 +2396,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 + **버그 수정 및 향상 된 기능**
   + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **새로운 기능**
   + 새 보고서 끌어서 놓기 테이블 편집기 환경 사용자는 테이블의 미리 보기가 표시 되는 테이블 영역에서 열을 끌 수 있습니다. 열을 다시 정렬할 수 있습니다.

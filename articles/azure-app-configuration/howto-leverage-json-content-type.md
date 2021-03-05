@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565775"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122156"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>콘텐츠 형식을 활용 하 여 앱 구성에 JSON 키-값 저장
 
@@ -25,9 +25,9 @@ ms.locfileid: "94565775"
 ## <a name="overview"></a>개요
 
 앱 구성에서 JSON 미디어 형식을 키-값의 콘텐츠 형식으로 사용 하 여 다음과 같은 이점을 얻을 수 있습니다.
-- **간단한 데이터 관리** : 배열과 같은 키 값을 관리 하는 것이 Azure Portal에서 훨씬 더 쉬워집니다.
-- **향상 된 데이터 내보내기** : 기본 형식, 배열 및 JSON 개체는 데이터를 내보내는 동안 보존 됩니다.
-- **앱 구성 공급자의 기본 지원** : JSON 콘텐츠가 있는 키-값은 응용 프로그램의 앱 구성 공급자 라이브러리에서 사용 하는 경우 정상적으로 작동 합니다.
+- **간단한 데이터 관리**: 배열과 같은 키 값을 관리 하는 것이 Azure Portal에서 훨씬 더 쉬워집니다.
+- **향상 된 데이터 내보내기**: 기본 형식, 배열 및 JSON 개체는 데이터를 내보내는 동안 보존 됩니다.
+- **앱 구성 공급자의 기본 지원**: JSON 콘텐츠가 있는 키-값은 응용 프로그램의 앱 구성 공급자 라이브러리에서 사용 하는 경우 정상적으로 작동 합니다.
 
 #### <a name="valid-json-content-type"></a>유효한 JSON 콘텐츠 형식
 
@@ -55,7 +55,7 @@ ms.locfileid: "94565775"
 > [!NOTE]
 > 이 문서의 나머지 부분에서는 유효한 JSON content-type 및 유효한 JSON 값을 포함 하는 앱 구성의 키-값을 **json 키-값** 이라고 합니다. 
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
 > * 앱 구성에서 JSON 키-값을 만듭니다.
 > * Json 파일에서 JSON 키-값을 가져옵니다.
@@ -80,7 +80,7 @@ JSON 키-값은 Azure Portal Azure CLI 사용 하거나 JSON 파일에서 가져
 
 ### <a name="create-json-key-values-using-azure-portal"></a>Azure Portal를 사용 하 여 JSON 키-값 만들기
 
-앱 구성 저장소로 이동 하 여 **구성 탐색기**  >  **Create**  >  **키-값** 만들기를 선택 하 여 다음 키-값 쌍을 추가 합니다.
+앱 구성 저장소로 이동 하 여 **구성 탐색기**  >    >  **키-값** 만들기를 선택 하 여 다음 키-값 쌍을 추가 합니다.
 
 | 키 | 값 | 콘텐츠 유형 |
 |---|---|---|
@@ -175,12 +175,28 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>응용 프로그램에서 JSON 키-값 사용
 
-응용 프로그램에서 JSON 키 값을 사용 하는 가장 쉬운 방법은 앱 구성 공급자 라이브러리를 사용 하는 것입니다. 공급자 라이브러리를 사용 하면 응용 프로그램에서 JSON 키 값의 특수 처리를 구현할 필요가 없습니다. 다른 JSON 구성 공급자 라이브러리와 동일한 방식으로 응용 프로그램에 대해 항상 deserialize 됩니다. 
+응용 프로그램에서 JSON 키 값을 사용 하는 가장 쉬운 방법은 앱 구성 공급자 라이브러리를 사용 하는 것입니다. 공급자 라이브러리를 사용 하면 응용 프로그램에서 JSON 키 값의 특수 처리를 구현할 필요가 없습니다. 응용 프로그램의 네이티브 구성과 일치 하도록 구문 분석 되 고 변환 됩니다.
+
+예를 들어 앱 구성에 다음 키 값이 있는 경우:
+
+| 키 | 값 | 콘텐츠 유형 |
+|---|---|---|
+| 설정 | {"FontSize": 24, "UseDefaultRouting": false} | application/json |
+
+.NET 응용 프로그램 구성에는 다음과 같은 키 값이 있습니다.
+
+| 키 | 값 |
+|---|---|
+| 설정: FontSize | 24 |
+| 설정: UseDefaultRouting | false |
+
+새 키에 직접 액세스 하거나 [구성 값을 .net 개체의 인스턴스에 바인딩하도록](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern)선택할 수 있습니다.
+
 
 > [!Important]
 > JSON 키 값에 대 한 기본 지원은 .NET configuration provider 버전 4.0.0 이상에서 사용할 수 있습니다. 자세한 내용은 [*다음 단계*](#next-steps) 섹션을 참조 하세요.
 
-SDK 또는 REST API를 사용 하 여 콘텐츠 형식에 따라 앱 구성에서 키-값을 읽는 경우 응용 프로그램은 표준 JSON 역직렬 변환기를 사용 하 여 JSON 키 값의 값을 deserialize 해야 합니다.
+SDK 또는 REST API를 사용 하 여 콘텐츠 형식에 따라 앱 구성에서 키-값을 읽는 경우 응용 프로그램은 JSON 키-값의 값을 구문 분석 해야 합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

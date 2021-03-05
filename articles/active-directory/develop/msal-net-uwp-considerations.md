@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8a8aab447007eb574a7a4bc532d8177bd0d8b345
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063453"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122479"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>MSAL.NET와 함께 유니버설 Windows 플랫폼 사용 시 고려 사항
 MSAL.NET에서 UWP (유니버설 Windows 플랫폼)를 사용 하는 응용 프로그램 개발자는이 문서에서 제공 하는 개념을 고려해 야 합니다.
 
 ## <a name="the-usecorporatenetwork-property"></a>UseCorporateNetwork 속성
-WinRT (Windows 런타임) 플랫폼에서에는 `PublicClientApplication` 부울 속성이 `UseCorporateNetwork` 있습니다. 사용자가 페더레이션된 Azure Active Directory (Azure AD) 테 넌 트를 포함 하는 계정에 로그인 한 경우이 속성을 사용 하 여 Windows 8.1 응용 프로그램 및 UWP 응용 프로그램에서 IWA (Windows 통합 인증)의 이점을 누릴 수 있습니다. 운영 체제에 로그인 한 사용자는 SSO (Single Sign-On)를 사용할 수도 있습니다. 속성을 설정 하면 `UseCorporateNetwork` MSAL.NET는 WAB (web authentication broker)를 사용 합니다.
+WinRT (Windows 런타임) 플랫폼에서에는 `PublicClientApplication` 부울 속성이 `UseCorporateNetwork` 있습니다. 이 속성을 사용 하면 Windows 10 응용 프로그램 및 UWP 응용 프로그램에서 페더레이션 Azure Active Directory (Azure AD) 테 넌 트가 있는 계정에 로그인 한 경우 Windows 통합 인증 (IWA)의 이점을 누릴 수 있습니다. 운영 체제에 로그인 한 사용자는 SSO (Single Sign-On)를 사용할 수도 있습니다. 속성을 설정 하면 `UseCorporateNetwork` MSAL.NET는 WAB (web authentication broker)를 사용 합니다.
 
 > [!IMPORTANT]
 > 속성을 `UseCorporateNetwork` true로 설정 하면 응용 프로그램 개발자가 응용 프로그램에서 IWA를 사용 하도록 설정 했다고 가정 합니다. IWA를 사용 하도록 설정 하려면

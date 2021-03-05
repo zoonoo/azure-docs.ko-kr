@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733019"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123278"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -87,6 +87,20 @@ IoT Central [장치 템플릿을](concepts-device-templates.md) 사용 하 여 I
 * IoT Central에서 명령을 호출 하는 데 사용 하는 연산자에 대 한 UI를 표시할 수 있도록 장치가 응답 하는 명령입니다.
 
 IoT Edge 장치는 원격 분석을 전송 하 고, 속성 값을 동기화 하 고, 표준 장치와 같은 방식으로 명령에 응답할 수 있습니다. 따라서 IoT Edge 장치에는 IoT Central 장치 템플릿이 필요 합니다.
+
+### <a name="iot-edge-device-templates"></a>장치 템플릿 IoT Edge
+
+장치 템플릿 IoT Central 모델을 사용 하 여 장치의 기능을 설명 합니다. 다음 다이어그램은 IoT Edge 장치의 모델 구조를 보여 줍니다.
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="IoT Central에 연결 된 IoT Edge 장치의 모델 구조" border="false":::
+
+IoT Central은 다음과 같이 IoT Edge 장치를 모델링 합니다.
+
+* 모든 IoT Edge 장치 템플릿에는 기능 모델이 있습니다.
+* 배포 매니페스트에 나열 된 모든 사용자 지정 모듈에 대해 모듈 기능 모델이 생성 됩니다.
+* 각 모듈 기능 모델과 장치 모델 간에 관계가 설정 됩니다.
+* 모듈 기능 모델은 하나 이상의 모듈 인터페이스를 구현 합니다.
+* 각 모듈 인터페이스에는 원격 분석, 속성 및 명령이 포함됩니다.
 
 ### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>IoT Edge 배포 매니페스트 및 IoT Central 장치 템플릿
 

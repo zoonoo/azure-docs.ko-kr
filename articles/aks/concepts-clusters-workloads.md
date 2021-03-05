@@ -4,12 +4,12 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373235"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122445"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -36,7 +36,7 @@ Kubernetes 클러스터는 다음 두 가지 구성 요소로 구분됩니다.
 
 ![Kubernetes 제어 평면 및 노드 구성 요소](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="control-plane"></a>제어 평면
+## <a name="control-plane"></a>컨트롤 플레인
 
 AKS 클러스터를 만들면 컨트롤 평면이 자동으로 만들어지고 구성 됩니다. 이 컨트롤 평면은 사용자 로부터 추상화 된 관리 되는 Azure 리소스로 제공 됩니다. 제어 평면에 대 한 비용은 없으며 AKS 클러스터의 일부인 노드만 있습니다. 제어 평면과 해당 리소스는 클러스터를 만든 지역에만 있습니다.
 
@@ -61,7 +61,7 @@ AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면�
 
 - 는 `kubelet` 제어 평면의 오케스트레이션 요청을 처리 하 고 요청 된 컨테이너의 실행을 예약 하는 Kubernetes 에이전트입니다.
 - 가상 네트워킹은 각 노드의 *kube-proxy* 에서 처리됩니다. 프록시는 네트워크 트래픽을 라우팅하고 서비스와 Pod에 대한 IP 주소 지정을 관리합니다.
-- *컨테이너 런타임* 은 컨테이너화된 애플리케이션을 실행하고 가상 네트워크 및 스토리지와 같은 추가 리소스와 상호 작용할 수 있게 하는 구성 요소입니다. AKS에서 Moby는 컨테이너 런타임으로 사용 됩니다.
+- *컨테이너 런타임* 은 컨테이너화된 애플리케이션을 실행하고 가상 네트워크 및 스토리지와 같은 추가 리소스와 상호 작용할 수 있게 하는 구성 요소입니다. Kubernetes 버전 1.19 노드 풀을 사용 하 여 클러스터를 AKS 하 고 컨테이너 런타임으로 더 많이 사용 `containerd` 합니다. 노드 풀에 대해 v 1.19 이전에 Kubernetes를 사용 하는 AKS 클러스터는 [Moby](https://mobyproject.org/) (업스트림 docker)를 컨테이너 런타임으로 사용 합니다.
 
 ![Kubernetes 노드용 Azure 가상 머신 및 지원 리소스](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -69,7 +69,7 @@ AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면�
 
 AKS에서 클러스터의 노드에 대 한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019을 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장 하는 경우 Azure 플랫폼은 요청 된 Vm 수를 만들고 구성 합니다. 사용자가 수행할 수 있는 수동 구성은 없습니다. 에이전트 노드는 표준 가상 머신으로 청구 되므로 사용 중인 VM 크기에 [대 한 모든][reservation-discounts]할인이 자동으로 적용 됩니다.
 
-다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어, Moby 이외의 컨테이너 런타임을 사용 하려는 경우를 사용 `aks-engine` 하 여 현재 요구를 충족 하는 Kubernetes 클러스터를 구성 하 고 배포할 수 있습니다.
+다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 또는 Moby 이외의 컨테이너 런타임을 사용 하려는 경우를 `containerd` 사용 `aks-engine` 하 여 현재 요구를 충족 하는 Kubernetes 클러스터를 구성 하 고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 

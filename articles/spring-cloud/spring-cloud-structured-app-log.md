@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
-ms.author: brendanm
+ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701946"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124468"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 구조적 응용 프로그램 로그
 
@@ -32,7 +32,7 @@ ms.locfileid: "101701946"
 | message       | 문자열      |     No    | 메시지         | 로그 메시지              |
 | stackTrace    | 문자열      |     No    | StackTrace      | 예외 스택 추적    |
 | exceptionClass| 문자열      |     No    | ExceptionClass  | 예외 클래스 이름     |
-| mdc           | 중첩 된 JSON |     No    |                 | 매핑된 진단 컨텍스트|
+| mdc           | 중첩 된 JSON |     예    |                 | 매핑된 진단 컨텍스트|
 | mdc. traceId   | 문자열      |     No    | TraceId         |분산 추적의 추적 Id|
 | spanId    | 문자열      |     No    | SpanId          |분산 추적의 범위 Id |
 |               |             |           |                 |                          |

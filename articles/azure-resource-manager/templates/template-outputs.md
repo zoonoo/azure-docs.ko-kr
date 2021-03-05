@@ -3,18 +3,18 @@ title: 템플릿의 출력
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2b6a6afa127bf43102103baadae576233843f00d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703837"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123414"
 ---
 # <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
 
-각 출력 값의 형식은 [데이터 형식](template-syntax.md#data-types)중 하나로 확인 되어야 합니다.
+각 출력 값의 형식은 [데이터 형식](data-types.md)중 하나로 확인 되어야 합니다.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

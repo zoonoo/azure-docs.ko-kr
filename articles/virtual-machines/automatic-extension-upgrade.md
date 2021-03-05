@@ -3,17 +3,17 @@ title: Azure의 Vm 및 확장 집합에 대 한 자동 확장 업그레이드
 description: Azure의 가상 머신 및 가상 머신 확장 집합에 대해 자동 확장 업그레이드를 사용 하도록 설정 하는 방법을 알아봅니다.
 author: mayanknayar
 ms.service: virtual-machines
-ms.subservice: automatic-extension-upgrades
+ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: 104eada6dc342c21b8da2f409756e9f34c103936
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fa4fa1c43ab9d31b879bdec8e724e896bd16e14c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668336"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123906"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>미리 보기: Azure에서 Vm 및 확장 집합에 대 한 자동 확장 업그레이드
 

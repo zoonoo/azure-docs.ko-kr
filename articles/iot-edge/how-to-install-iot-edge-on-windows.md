@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ba1401696092f5a16ffa21859a9b485e94c5d792
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736511"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123193"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
 
@@ -174,7 +174,7 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
    ```
 
    > [!NOTE]
-   > 매개 변수 없이이 명령을 실행 하거나 선택적으로 매개 변수를 사용 하 여 배포를 사용자 지정할 수 있습니다. [Windows PowerShell 스크립트 참조에서 Linux에 대 한 IoT Edge](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) 를 참조 하 여 해당 의미를 확인할 수 있습니다.
+   > 매개 변수 없이이 명령을 실행 하거나 선택적으로 매개 변수를 사용 하 여 배포를 사용자 지정할 수 있습니다. [Windows PowerShell 스크립트 참조에서 Linux에 대 한 IoT Edge](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) 를 참조 하 여 해당 의미를 확인할 수 있습니다.
 
 1. 사용 조건에 동의 하려면 ' Y '를 입력 하십시오.
 
@@ -340,8 +340,6 @@ Windows에서 Linux에 대 한 IoT Edge이 IoT Edge 장치에 성공적으로 �
        ```bash
        sudo iotedge check
        ```
-
----
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

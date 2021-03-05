@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733434"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123312"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -43,7 +43,7 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 
 가장 좋은 답은 간단한 대답 이지만 너무 간단 하지 않습니다. 및와 같은 대답은 사용 하지 마십시오 `yes` `no` . 답변이 다른 소스에 연결 되거나 미디어 및 링크를 사용 하 여 풍부한 환경을 제공 해야 하는 경우에는 [메타 데이터 태그](../how-to/edit-knowledge-base.md#add-metadata) 지정을 사용 하 여 답변을 구분 하 고 속성에서 메타 데이터 태그로 [쿼리를 제출](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) 하 여 `strictFilters` 올바른 응답 버전을 가져옵니다.
 
-|답변|Follup 프롬프트|
+|답변|후속 프롬프트 추가|
 |--|--|
 |키보드의 전원 단추를 사용 하 여 Surface 노트북의 전원을 켭니다.|* 중지, 종료 및 다시 시작에 대 한 키 조합입니다.<br>* Surface 노트북을 하드 부팅 하는 방법<br>* Surface 노트북에 대 한 BIOS를 변경 하는 방법<br>* 절전 모드, 종료 및 다시 시작 간의 차이점|
 |고객 서비스는 하루 24 시간 동안 전화, Skype 및 문자 메시지를 통해 사용할 수 있습니다.|* 판매에 대 한 연락처 정보입니다.<br> * 사용자가 방문 하는 사무실 및 스토어 위치 및 시간입니다.<br> * Surface 노트북의 액세서리|

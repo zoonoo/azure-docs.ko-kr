@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499291"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123941"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,11 +23,11 @@ ms.locfileid: "96499291"
 
 고객이 관리 하는 키를 통한 서버 쪽 암호화는 Azure Key Vault을 사용 합니다. [Rsa 키](../key-vault/keys/hsm-protected-keys.md) 를 주요 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 설정 되어 있어야 합니다.
 
-- 고객 관리 키만 사용 하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)을 사용 하 여 서버 쪽 암호화에서 고객이 관리 하는 키를 사용 하는 방법에 대 한 문서를 참조 하세요.
+- 고객 관리 키만 사용 하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation)을 사용 하 여 서버 쪽 암호화에서 고객이 관리 하는 키를 사용 하는 방법에 대 한 문서를 참조 하세요.
 
 - 플랫폼 관리 및 고객 관리 키를 모두 사용 하려면 (이중 암호화의 경우) [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) 또는 [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)을 사용 하 여 미사용에서 이중 암호화를 사용 하도록 설정 하는 방법에 대 한 문서를 참조 하세요.
 
@@ -130,7 +130,7 @@ New-AzGalleryImageVersion `
 
 공유 이미지 갤러리에서 VM (가상 머신)을 만들고, 고객 관리 키를 사용 하 여 디스크를 암호화할 수 있습니다. 구문은 이미지에서 [일반화](vm-generalized-image-version-powershell.md) 된 VM 또는 [특수](vm-specialized-image-version-powershell.md) 한 VM을 만드는 것과 동일 합니다. 확장 매개 변수 집합을 사용 하 여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` VM 구성에 추가 합니다.
 
-데이터 디스크의 경우 AzVMDataDisk를 `-DiskEncryptionSetId $setID` 사용할 때 매개 변수 [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)를 추가 합니다.
+데이터 디스크의 경우 AzVMDataDisk를 `-DiskEncryptionSetId $setID` 사용할 때 매개 변수 [](/powershell/module/az.compute/add-azvmdatadisk)를 추가 합니다.
 
 
 ## <a name="cli"></a>CLI 

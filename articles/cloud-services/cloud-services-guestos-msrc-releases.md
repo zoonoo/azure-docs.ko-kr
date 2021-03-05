@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 2/19/2021
-ms.author: gunnarcms
-ms.openlocfilehash: b2e0df6d9e2865dad206b78273c1c24998d3d5c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.author: gunnarc
+ms.openlocfilehash: 1d15620d5539f5e4de310367d34f20986f28603d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706948"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123924"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.

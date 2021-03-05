@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2419761c195258c60561e284abf0227b915ed4f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050004"
+ms.locfileid: "102123635"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -86,7 +86,7 @@ dotnet add package Azure.Core.Pipeline
 
 이제 클래스 수준 변수를 선언 하 고 함수가 Azure Digital Twins에 액세스할 수 있게 하는 인증 코드를 추가 합니다. _Function1.cs_ 파일의 함수에 다음을 추가 합니다.
 
-* Azure Digital Twins 서비스 URL을 환경 변수로 읽는 코드입니다. 함수에 하드 코딩 하는 대신 환경 변수에서 서비스 URL을 읽는 것이 좋습니다.
+* Azure Digital Twins 서비스 URL을 **환경 변수로** 읽는 코드입니다. 함수에 하드 코딩 하는 대신 환경 변수에서 서비스 URL을 읽는 것이 좋습니다. 이 환경 변수의 값은이 [문서의 뒷부분에서](#set-up-security-access-for-the-function-app)설정 합니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요.
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -134,7 +134,7 @@ az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(fu
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
+마지막으로 **환경 변수** 를 설정 하 여 함수에서 Azure Digital twins 인스턴스의 URL에 액세스할 수 있도록 합니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요. 
 
 > [!TIP]
 > Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름* 앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -183,7 +183,7 @@ _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
 
-환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
+함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 하기 위해 **환경 변수** 를 설정할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요. 응용 프로그램 설정은 Azure Digital Twins 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
 
 인스턴스 URL을 사용 하 여 환경 변수를 설정 하려면 먼저 Azure Digital Twins 인스턴스의 호스트 이름을 찾아 URL을 가져옵니다. [Azure Portal](https://portal.azure.com) 검색 창에서 인스턴스를 검색 합니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 이 값을 복사합니다.
 

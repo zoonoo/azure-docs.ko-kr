@@ -3,12 +3,12 @@ title: 템플릿의 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿) 및 Bicep 파일에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700340"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123380"
 ---
 # <a name="variables-in-arm-templates"></a>ARM 템플릿의 변수
 
@@ -20,7 +20,7 @@ ms.locfileid: "101700340"
 
 ## <a name="define-variable"></a>변수 정의
 
-변수를 정의할 때 변수에 대 한 [데이터 형식을](template-syntax.md#data-types) 지정 하지 않습니다. 대신 값 또는 템플릿 식을 제공 합니다. 변수 형식은 확인 된 값에서 유추 됩니다. 다음 예에서는 변수를 문자열로 설정 합니다.
+변수를 정의할 때 변수에 대 한 [데이터 형식을](data-types.md) 지정 하지 않습니다. 대신 값 또는 템플릿 식을 제공 합니다. 변수 형식은 확인 된 값에서 유추 됩니다. 다음 예에서는 변수를 문자열로 설정 합니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 

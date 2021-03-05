@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 78eed4086c04ceca677a96f03875481e56206e0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 070b2e3b88c1ff20b52d2c5cade7ad42c6d4d734
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724023"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122428"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -25,6 +25,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 ## <a name="limitations"></a>제한 사항 
 
 * AKS에서 관리 되는 Azure AD 통합을 사용 하지 않도록 설정할 수 없음
+* AKS로 관리 되는 Azure AD 통합 클러스터를 레거시 AAD로 변경 하는 것은 지원 되지 않습니다.
 * AKS로 관리 되는 Azure AD 통합에 대 한 Kubernetes RBAC 사용 클러스터가 지원 되지 않음
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
@@ -261,7 +262,7 @@ AKS 관리 Azure AD 통합을 사용 하 여 AKS 클러스터와 just-in-time �
 1. *활성* 의 할당 유형, 원하는 기간을 선택 하 고 근거를 제공 합니다. 계속할 준비가 되 면 *할당* 을 선택 합니다. 할당 형식에 대 한 자세한 내용은 [Privileged Identity Management에서 권한 있는 액세스 그룹 (미리 보기)에 대 한 자격 할당][aad-assignments]을 참조 하세요.
     :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Azure Portal의 할당 추가 설정 화면이 표시 됩니다. ' 활성 '의 할당 유형을 선택 하 고 샘플 사유를 지정 했습니다. ' 할당 ' 옵션이 강조 표시 됩니다.":::
 
-할당이 완료 되 면 클러스터에 액세스 하 여 just-in-time 액세스가 작동 하는지 확인 합니다. 다음은 그 예입니다. 
+할당이 완료 되 면 클러스터에 액세스 하 여 just-in-time 액세스가 작동 하는지 확인 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster

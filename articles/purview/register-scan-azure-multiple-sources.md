@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696017"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123567"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Azure 여러 소스 등록 및 검색
 
@@ -95,12 +95,12 @@ Azure 다중 소스에 대 한 인증을 설정 하는 방법에는 다음 두 �
     1. **부모 수준** 에서 MSI 또는 특정 서비스 주체 유형 자격 증명을 선택할 수 있습니다 .이 자격 증명은 구독 또는 리소스 그룹의 모든 리소스 유형에 사용 하도록 선택할 수 있습니다.
     1. 특정 리소스 종류를 선택 하 고 해당 리소스 종류에 대해 **다른 자격 증명을 적용할** 수도 있습니다.
     1. 각 자격 증명은 특정 유형 아래의 모든 리소스에 대 한 인증 방법으로 간주 됩니다.
-    1. 위의이 [섹션](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) 에 설명 된 대로 성공적으로 검색 하려면 리소스에 대해 선택한 자격 증명을 설정 해야 합니다.
+    1. 위의이 [섹션](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) 에 설명 된 대로 성공적으로 검색 하려면 리소스에 대해 선택한 자격 증명을 설정 해야 합니다.
 1. 각 형식 내에서 이름으로 모든 리소스 또는 하위 집합을 검색 하도록 선택할 수 있습니다.
     1. 이 **옵션을 그대로** 두면 이후 검색 실행 에서도 해당 형식의 이후 리소스가 검색 됩니다.
     1. 특정 저장소 계정 또는 SQL 데이터베이스를 선택 하는 경우 나중에 검색이 명시적으로 편집 되지 않는 한이 구독 또는 리소스 그룹 내에서 해당 형식으로 만든 이후 리소스가 검색에 포함 되지 않습니다.
  
-1.  계속하려면 **계속** 을 클릭합니다. 구독 또는 리소스 그룹에 대 한 판독기로 부서의 범위 MSI를 적용 했는지 확인 하기 위한 액세스를 테스트 합니다. 오류 메시지가 발생 한 경우 [여기](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) 에 있는 지침을 따르세요.
+1.  계속하려면 **계속** 을 클릭합니다. 구독 또는 리소스 그룹에 대 한 판독기로 부서의 범위 MSI를 적용 했는지 확인 하기 위한 액세스를 테스트 합니다. 오류 메시지가 발생 한 경우 [여기](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) 에 있는 지침을 따르세요.
 
 1.  이전 단계에서 선택한 각 리소스 종류에 대 한 **검사 규칙 집합** 을 선택 합니다. 검색 규칙 집합을 인라인으로 만들 수도 있습니다.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Azure 다중 검색 규칙 집합 선택":::

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: c305ee78abac7e175dc086666dfd1e2926f8da2b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097825"
+ms.locfileid: "102124162"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
@@ -88,7 +88,7 @@ IPv6 개인 피어 링을 사용 하 여 가용성 영역 있는 지역에서 �
 
 2. [이중 스택 게이트웨이 서브넷을 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) . FastPath를 사용 하려는 경우 ErGw3AZ를 사용 합니다.
+3. 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) . FastPath를 사용 하려는 경우 ErGw3AZ를 사용 합니다 (이는 Express 경로 직접를 사용 하는 회로에만 사용할 수 있음).
 
 4. [Express 경로 회로에 가상 네트워크를 연결](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)합니다.
 
@@ -99,6 +99,8 @@ I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사�
 * 비 AZ regions의 배포에 대 한 연결
 * Express 경로 회로 간의 Global Reach 연결
 * 가상 WAN과 함께 Express 경로 사용
+* 비-Express 경로 직접 회로가 포함 된 FastPath
+* VPN Gateway과 함께 사용
 
 ## <a name="next-steps"></a>다음 단계
 

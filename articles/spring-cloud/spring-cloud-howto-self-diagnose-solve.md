@@ -7,20 +7,20 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904297"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122870"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 문제를 자체 진단 하 고 해결 하는 방법
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
-Azure 스프링 클라우드 진단은 앱 문제를 해결 하는 데 도움이 되는 대화형 환경입니다. 구성이 필요하지 않습니다. 문제가 발견 되 면 Azure 스프링 클라우드 진단은 문제를 해결 하 고 문제를 해결 하는 데 도움이 되는 정보를 안내해 줍니다.
+Azure 스프링 클라우드 진단은 구성 없이 앱 문제를 해결 하는 대화형 환경입니다. Azure 스프링 클라우드 진단은 문제를 식별 하 고 문제를 해결 하 고 문제를 해결 하는 데 도움이 되는 정보를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -30,7 +30,7 @@ Azure 스프링 클라우드 진단은 앱 문제를 해결 하는 데 도움이
 ## <a name="navigate-to-the-diagnostics-page"></a>진단 페이지로 이동 합니다.
 1. Azure Portal에 로그인합니다.
 2. Azure Spring Cloud **개요** 페이지로 이동합니다.
-3. 페이지의 왼쪽에 있는 메뉴에서 **진단 및 해결 문제를** 엽니다.
+3. 왼쪽 탐색 창에서 **문제 진단 및 해결** 을 선택 합니다.
 
  ![진단, 해결 대화 상자](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 
@@ -39,7 +39,7 @@ Azure 스프링 클라우드 진단은 앱 문제를 해결 하는 데 도움이
 
  ![검색 문제](media/spring-cloud-diagnose/search-detectors.png)
 
-**구성 서버 상태 검사**, **구성 서버 상태**또는 **구성 서버 업데이트 기록** 의 선택은 다양 한 결과를 표시 합니다.
+**구성 서버 상태 검사**, **구성 서버 상태** 또는 **구성 서버 업데이트 기록** 의 선택은 다양 한 결과를 표시 합니다.
 
 ![문제 옵션](media/spring-cloud-diagnose/detectors-options.png)
 

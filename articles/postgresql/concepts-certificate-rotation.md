@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: c9bc6e3822ac6c014b9ff00e9cd81bbe707628fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6dc687879eb646b4abd081b40bce292d20ff3186
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736069"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123992"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -83,7 +83,7 @@ Azure database for PostgreSQL 사용자는 미리 정의 된 인증서를 사용
 
 ## <a name="what-if-we-removed-the-baltimorecybertrustroot-certificate"></a>Baltimorecybertrustroot.crt.pem 인증서를 제거 하면 어떻게 되나요?
 
-Azure Database for PostgreSQL 서버에 연결 하는 동안 연결 오류가 시작 됩니다. 연결을 유지 하려면 [baltimorecybertrustroot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate를 사용 하 여 SSL을 다시 [구성](howto-configure-ssl.md) 해야 합니다.
+Azure Database for PostgreSQL 서버에 연결 하는 동안 연결 오류가 시작 됩니다. 연결을 유지 하려면 [baltimorecybertrustroot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate를 사용 하 여 SSL을 다시 구성 해야 합니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

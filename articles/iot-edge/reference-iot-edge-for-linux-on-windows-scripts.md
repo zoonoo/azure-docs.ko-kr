@@ -8,12 +8,12 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0af571f67862c91371b01bee6227d5fb6b291be
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0881363a3f13f0ddf34157a1fffe6c26d0c0b692
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746100"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122853"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge PowerShell 스크립트
 
@@ -149,4 +149,4 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 * [Windows에서 Linux 용 Azure IoT Edge 설치](how-to-install-iot-edge-windows.md)
 
-* PowerShell을 통해 사용할 수 있는 모든 명령에 대 한 자세한 내용은 [Windows powershell 용 IoT Edge powershell 스크립트 참조](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) 를 참조 하세요.
+* PowerShell을 통해 사용할 수 있는 모든 명령에 대 한 자세한 내용은 [Windows powershell 용 IoT Edge powershell 스크립트 참조](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) 를 참조 하세요.

@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fff9f9e809c61761ae22bc64cb0810b6e8b98f07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032418"
+ms.locfileid: "102122700"
 ---
-# <a name="securing-service-principals"></a>서비스 사용자 보안
+# <a name="securing-service-principals"></a>서비스 주체 보안
 
 Azure Active Directory (Azure AD) [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 는 단일 테 넌 트 또는 디렉터리의 응용 프로그램 개체에 대 한 로컬 표현입니다.  응용 프로그램 인스턴스의 id로 작동 합니다. 서비스 주체는 응용 프로그램에 액세스할 수 있는 사용자와 응용 프로그램이 액세스할 수 있는 리소스를 정의 합니다. 응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 응용 프로그램 개체를 참조 합니다. 테 넌 트는 서비스 사용자의 로그인 및 리소스에 대 한 액세스를 보호 합니다.  
 
@@ -115,13 +115,13 @@ Microsoft Graph를 사용 하는 경우 [이 예제와 같이](/powershell/azure
 
 [서비스 주체 만들기](../develop/howto-create-service-principal-portal.md)
 
- [서비스 사용자 로그인 모니터링](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
+ [서비스 사용자 로그인 모니터링](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 다음을 확인 하세요.**
 
 [Azure 서비스 계정 소개](service-accounts-introduction-azure.md)
 
-[관리 되는 id 보안](service-accounts-managed-identities.md)
+[관리 ID 보안](service-accounts-managed-identities.md)
 
 [Azure 서비스 계정 관리](service-accounts-governing-azure.md)
 

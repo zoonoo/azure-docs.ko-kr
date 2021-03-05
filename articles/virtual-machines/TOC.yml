@@ -1346,7 +1346,7 @@
             - name: 상용 서비스 관련 FAQ
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: FAQ
-              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
+              href: ../azure-monitor/faq.md
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요

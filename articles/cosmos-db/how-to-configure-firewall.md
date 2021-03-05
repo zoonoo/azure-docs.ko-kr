@@ -4,15 +4,15 @@ description: Azure Cosmos 계정에서 방화벽을 지원하도록 IP 액세스
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4e01375388f12b828d9adcb1e2ed8851061a0bf
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560732"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122717"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ IP 방화벽을 사용하여 Azure Cosmos DB 계정에 저장된 데이터를 �
 
 Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고 탐색 메뉴에서 **방화벽 및 가상 네트워크** 를 선택합니다. **다음에서 액세스 허용** 값을 **선택한 네트워크** 로 변경한 다음, **저장** 을 선택합니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷":::
+![Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/azure-portal-firewall.png)
 
 IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범위 및 스위치를 지정하는 기능을 제공합니다. 스위치를 사용하면 다른 Azure 서비스 및 Azure Portal에 액세스할 수 있습니다. 이러한 스위치에 대한 세부 정보는 다음 섹션에 나와 있습니다.
 
@@ -48,7 +48,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
-|Azure 지역|IP 주소|
+|지역|IP 주소|
 |------|----------|
 |독일|51.4.229.218|
 |중국|139.217.8.252|
@@ -57,13 +57,13 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 다음 스크린샷에 표시 된 것 처럼 **Azure Portal에서 액세스 허용** 옵션을 선택 하 여 Azure Portal에 액세스 하도록 요청할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷":::
+![Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/enable-azure-portal.png)
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>글로벌 Azure 데이터 센터 또는 Azure 내 다른 원본의 요청 허용
 
 고정 IP를 제공하지 않는 서비스(예: Azure Stream Analytics 및 Azure Functions)에서 Azure Cosmos DB 계정에 액세스하는 경우 IP 방화벽을 사용하여 액세스를 제한할 수 있습니다. 다음 스크린샷에 표시 된 것 처럼 **azure 데이터 센터 내에서 연결 허용** 옵션을 선택 하 여 azure 내의 다른 원본에서 액세스를 사용 하도록 설정할 수 있습니다.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Azure 데이터 센터에서 연결을 허용 하는 방법을 보여 주는 스크린샷":::
+![Azure 데이터 센터에서 연결을 허용 하는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/enable-azure-services.png)
 
 이 옵션을 사용 하도록 설정 하면 허용 되는 `0.0.0.0` ip 주소 목록에 ip 주소가 추가 됩니다. `0.0.0.0`Ip 주소는 Azure 데이터 센터 ip 범위에서 Azure Cosmos DB 계정에 대 한 요청을 제한 합니다. 이 설정은 Azure Cosmos DB 계정에 대해 다른 IP 범위의 액세스를 허용하지 않습니다.
 
@@ -103,6 +103,12 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 ### <a name="requests-from-the-internet"></a>인터넷의 요청
 
 인터넷에 있는 컴퓨터에서 Azure Cosmos DB 계정에 액세스하는 경우 머신의 클라이언트 IP 주소 또는 IP 주소 범위를 사용자 계정의 허용되는 IP 주소 목록에 추가해야 합니다.
+
+### <a name="add-outbound-rules-to-the-firewall"></a>아웃 바운드 규칙을 방화벽에 추가
+
+방화벽 설정에 추가할 아웃 바운드 IP 범위의 현재 목록에 액세스 하려면 [AZURE IP 범위 및 서비스 태그 다운로드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요.
+
+목록을 자동화 하려면 [서비스 태그 검색 API (공개 미리 보기) 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)을 참조 하세요.
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 

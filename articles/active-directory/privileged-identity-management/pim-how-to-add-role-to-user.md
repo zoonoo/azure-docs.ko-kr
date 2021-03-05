@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4374067fe0070c379a76ef5f59bb6aef5b29fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004673"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123108"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -101,7 +101,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
 
-기존 역할 할당을 업데이트하거나 제거하려면 다음 단계를 수행합니다.
+기존 역할 할당을 업데이트하거나 제거하려면 다음 단계를 수행합니다. **AZURE Ad P2 사용이 허가 된 고객만** 해당: azure ad 및 PRIVILEGED IDENTITY MANAGEMENT (PIM)을 통해 역할에 활성으로 그룹을 할당 하지 않습니다. 자세한 설명은 [알려진 문제](../roles/groups-concept.md#known-issues)를 참조 하세요.
 
 1. **Azure AD Privileged Identity Management** 를 엽니다.
 
@@ -173,7 +173,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 ## <a name="remove-a-user-from-a-role"></a>역할에서 사용자 제거
 
-역할 할당에서 사용자를 제거할 수 있지만 항상 영구 전역 관리자 인 사용자가 하나 이상 있는지 확인 해야 합니다. 사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 액세스 권한을 검토하기 시작](pim-how-to-start-security-review.md)할 수 있습니다.
+역할 할당에서 사용자를 제거할 수 있지만 영구 전역 관리자인 사용자가 최소 한 명은 항상 있어야 합니다. 사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 액세스 권한을 검토하기 시작](pim-how-to-start-security-review.md)할 수 있습니다.
 
 Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단계를 수행 합니다.
 
