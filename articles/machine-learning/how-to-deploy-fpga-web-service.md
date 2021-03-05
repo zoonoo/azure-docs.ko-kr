@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 9e43291325510f92f2e5fd6c07cdb9257fdede9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 39c7d980bf9a90e5f72dfc9366d0ec44204b1ed2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033071"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212793"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 ML 모델을 필드 프로그래밍 가능 게이트 배열 (FPGAs)에 배포 
 
@@ -31,7 +31,7 @@ FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧�
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서| 약어 |Description|
+|프로세서| 약어 |설명|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU (텐서 Processor Unit)와 같은 사용자 지정 회로는 최고 수준의 효율성을 제공 합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
@@ -60,7 +60,7 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전
 
 이 예제에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만듭니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
 
@@ -68,7 +68,7 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전
  
 - 하드웨어 가속 모델 패키지:  `pip install --upgrade azureml-accel-models[cpu]`    
     
-- [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 - FPGA 할당량입니다. [할당량에 대 한 요청](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u)을 제출 하거나이 CLI 명령을 실행 하 여 할당량을 확인 합니다. 
 

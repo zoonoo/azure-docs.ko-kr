@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: ffc1a0a401de634c1932b9653f231b377c4f154e
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 87dde7662050794a24cf976a0bae6237b91d29b2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591925"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213711"
 ---
 # <a name="active-learning"></a>능동적 학습
 
@@ -128,7 +128,7 @@ QnA Maker에는 가장 적합 한 답변에 대 한 명시적인 피드백이 �
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)합니다.
+활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)합니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 

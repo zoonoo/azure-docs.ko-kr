@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 055df9d2290ee445e2a7201acd374508a86e839f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520666"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213321"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -307,7 +307,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 * [Azure Portal](#azure-portal-assign-access)
 * [Azure Resource Manager 템플릿](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - 자세한 내용은 [Azure RBAC 및 Azure PowerShell을 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
-* Azure CLI([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
+* Azure CLI([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>

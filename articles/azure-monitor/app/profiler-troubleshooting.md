@@ -6,16 +6,25 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ab719b47245f3adc2fba610f9c0473868889a7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711453"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213796"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>일반 문제 해결
+
+### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>적절 한 프로파일러 끝점을 사용 하 고 있는지 확인 합니다.
+
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
+
+|앱 설정    | 미국 정부 클라우드 | 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profiler가 실행되는 동안 애플리케이션에 대한 요청이 있을 때만 프로필에 업로드됨
 

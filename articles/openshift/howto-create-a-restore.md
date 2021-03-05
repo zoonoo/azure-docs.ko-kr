@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 6a4c226527f94a9fca4c8106df3827c9222657a1
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 8a9bb191390056caf7d5ba3b42c278205177d5a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633226"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213015"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Azure Red Hat OpenShift 4 클러스터 응용 프로그램 복원 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "100633226"
 > * 필수 구성 요소를 설정 하 고 필요한 도구를 설치 합니다.
 > * Azure Red Hat OpenShift 4 응용 프로그램 복원 만들기
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

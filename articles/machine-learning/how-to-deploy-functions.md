@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 88408c4d1c1936d364029f73d9e7b2be0bcf9d84
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327171"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213116"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * 작업 영역에 등록 된 학습 된 기계 학습 모델입니다. 모델이 없는 경우 [이미지 분류 자습서: 학습 모델 학습](tutorial-train-models-with-aml.md) 및 등록을 사용 합니다.
 
     > [!IMPORTANT]

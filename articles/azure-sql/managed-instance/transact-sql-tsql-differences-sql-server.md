@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 1/12/2021
+ms.date: 3/5/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691198"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212725"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -252,7 +252,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 기본적으로 설정되고 변경할 수 없는 옵션은 다음과 같습니다.
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 수정할 수 없는 옵션은 다음과 같습니다.
@@ -471,6 +471,10 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 - `sys.routes`: 필수 구성 요소로 sys.routes에서 주소를 선택해야 합니다. 주소는 모든 경로에서 LOCAL이어야 합니다. [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)를 참조하세요.
 - `CREATE ROUTE`: `LOCAL` 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다. [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql)를 참조하세요.
 - `ALTER ROUTE`: `LOCAL` 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 사용할 수 없습니다. [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql)를 참조하세요. 
+
+Service broker는 기본적으로 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다. 다음 ALTER DATABSE 옵션은 지원 되지 않습니다.
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### <a name="stored-procedures-functions-and-triggers"></a>저장 프로시저, 함수, 트리거
 

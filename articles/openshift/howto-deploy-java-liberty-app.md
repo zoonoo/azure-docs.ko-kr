@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 08fd3ab112498a983b438d5ba1f1f100816cbf5d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633889"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212997"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "100633889"
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드를 성공적으로 진행 하려면 다음 필수 구성 요소를 완료 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "100633889"
 1. Java SE 구현 (예: [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9))을 설치 합니다.
 1. [Maven](https://maven.apache.org/download.cgi) 3.5.0 이상을 설치 합니다.
 1. OS에 대 한 [Docker](https://docs.docker.com/get-docker/) 를 설치 합니다.
-1. [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 이상을 설치 합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 이상을 설치 합니다.
 1. [`envsubst`](https://command-not-found.com/envsubst)운영 체제에 사전 설치 되지 않은 경우를 확인 하 고 설치 합니다.
 1. 로컬 시스템에서이 샘플에 대 한 코드를 복제 합니다. 이 샘플은 [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro)에 있습니다.
 1. [Azure Red Hat OpenShift 4 클러스터 만들기](./tutorial-create-cluster.md)의 지침을 따릅니다.
@@ -40,7 +40,7 @@ ms.locfileid: "100633889"
 
    클러스터에서 메모리를 많이 사용 하는 응용 프로그램을 실행 하려는 경우 매개 변수를 사용 하 여 작업자 노드에 대 한 적절 한 가상 컴퓨터 크기를 지정 합니다 `--worker-vm-size` . 예를 들어 `Standard_E4s_v3` 는 클러스터에 Elasticsearch 연산자를 설치 하기 위한 최소 가상 머신 크기입니다. 자세한 내용은 다음을 참조하세요.
 
-   * [클러스터를 만드는 Azure CLI](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [클러스터를 만드는 Azure CLI](/cli/azure/aro#az-aro-create)
    * [메모리 최적화를 위해 지원 되는 가상 머신 크기](./support-policies-v4.md#memory-optimized)
    * [Elasticsearch 연산자를 설치 하기 위한 필수 구성 요소](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 

@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f01404f63a32e3a23413b8eaca64f679f7036d8
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: eda45b1a1a011a646915cf45e45218ae168a2af6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635165"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213082"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (포털)
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 46b8f153e65f436fa1062a0606e0fb0136d972a5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 0a536781f3218807c36f6eefe738b9a375de8d4b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824598"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213133"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기존 모델 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "97824598"
 
 이 문서의 개념 및 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
   + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=trueworkspace)를 참조 하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "97824598"
 
 * [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)입니다.  
 
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* [Azure CLI](/cli/azure/install-azure-cli) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 * 학습된 모델. 모델은 개발 환경에서 하나 이상의 파일에 유지 되어야 합니다. <br><br>학습 된 모델 등록을 보여 주기 위해이 문서의 예제 코드에서는 [Paolo Ripamonti의 Twitter 감정 분석 프로젝트](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)의 모델을 사용 합니다.
 
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > 또한 `tags` `properties` 등록 된 모델에 추가 및 사전 개체를 설정할 수 있습니다. 이러한 값은 나중에 특정 모델을 식별 하는 데 사용할 수 있습니다. 예를 들어 프레임 워크, 학습 매개 변수 등이 사용 됩니다.
 
-자세한 내용은 [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference를 참조 하세요.
+자세한 내용은 [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register) reference를 참조 하세요.
 
 
 일반적인 모델 등록에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
@@ -100,7 +100,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 + [환경을 사용 하는 방법](how-to-use-environments.md)
 + [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) 참조입니다.
@@ -268,7 +268,7 @@ CLI에서 모델을 배포 하려면 다음 명령을 사용 합니다. 이 명�
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
 배포에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 

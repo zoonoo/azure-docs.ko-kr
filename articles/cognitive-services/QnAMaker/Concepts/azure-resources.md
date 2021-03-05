@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f5a248b8701c71b2dcf0415c6656b9b565535232
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096532"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214170"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -126,7 +126,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 |[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) SKU를 App Service 하 고 Cognitive Search 계층을 확인 하 고 [Cognitive Search 복제본을 만듭니다](../../../search/search-capacity-planning.md) .|기술 자료가 채팅 봇과 같은 클라이언트 앱에서 더 많은 요청을 처리 해야 합니다.|
 |[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search 서비스|많은 기술 자료를 사용할 예정입니다.|
 
-[Azure Portal에서 App Service를 업데이트](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)하 여 최신 런타임 업데이트를 가져옵니다.
+[Azure Portal에서 App Service를 업데이트](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)하 여 최신 런타임 업데이트를 가져옵니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
@@ -307,7 +307,7 @@ QnA Maker 리소스에서 만든 첫 번째 기술 자료는 Cognitive Search �
 
 포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
 
-QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 인지 서비스 리소스를 사용 하도록 QnA Maker를 [구성 하는 방법](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
+QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 인지 서비스 리소스를 사용 하도록 QnA Maker를 [구성 하는 방법](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
 
 ### <a name="app-service-and-app-service-plan"></a>App service 및 App service 계획
 
@@ -317,7 +317,7 @@ QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 �
 
 `{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](../../../azure-monitor/app/app-insights-overview.md) 은 채팅 로그 및 원격 분석을 수집 하는 데 사용 됩니다. 서비스에 대 한 자세한 내용은 common [Kusto 쿼리](../how-to/get-analytics-knowledge-base.md) 를 참조 하세요.
 
@@ -330,7 +330,7 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 
 |Cognitive Services|X|디자인에서 불가능|
 |App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
 |App Service|X|디자인에서 불가능|
-|애플리케이션 정보|✔|공유할 수 있습니다.|
+|Application Insights|✔|공유할 수 있습니다.|
 |Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름이 인 동의어 맵이 `synonym-map` QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)

@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0e9e7c5fccf56077e138ffe24226344257bb3a13
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 06f7bfea9a88627733eb9ce9166e05d05790e23a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636291"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213065"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (CLI)
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Azure Active Directory 응용 프로그램을 구성 하는 데 사용할 클러스터 관련 Url을 검색 합니다.
 

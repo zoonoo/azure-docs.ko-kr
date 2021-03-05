@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534705"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212470"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -36,7 +36,7 @@ Key Vault에 대한 액세스는 두 인터페이스, 즉 **관리 평면** 및 
 
 * **그룹** 보안 주체는 Azure Active Directory에서 만든 사용자 세트를 식별합니다. 그룹에 할당된 모든 역할 또는 사용 권한은 그룹 내의 모든 사용자에 부여됩니다.
 
-* **서비스 주체** 는 애플리케이션 또는 서비스를 식별하는 보안 주체의 유형입니다. 즉, 사용자 또는 그룹이 아닌 코드 조각입니다. 서비스 주체의 개체 ID를 **클라이언트 ID** 라고 하며, 사용자 이름처럼 작동합니다. 서비스 주체의 **클라이언트** 암호 또는 **인증서** 는 암호 처럼 작동 합니다. 많은 Azure 서비스는 **클라이언트 ID** 및 **인증서** 의 자동화 된 관리를 통해 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 할당을 지원 합니다. 관리 id는 Azure 내에서 인증에 가장 안전 하 고 권장 되는 옵션입니다.
+* **서비스 주체** 는 응용 프로그램 또는 서비스를 식별 하는 보안 주체의 유형입니다. 즉, 사용자 또는 그룹이 아닌 코드 조각입니다. 서비스 주체의 개체 ID를 **클라이언트 ID** 라고 하며, 사용자 이름처럼 작동합니다. 서비스 주체의 **클라이언트** 암호 또는 **인증서** 는 암호 처럼 작동 합니다. 많은 Azure 서비스는 **클라이언트 ID** 및 **인증서** 의 자동화 된 관리를 통해 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 할당을 지원 합니다. 관리 id는 Azure 내에서 인증에 가장 안전 하 고 권장 되는 옵션입니다.
 
 Key Vault 인증에 대 한 자세한 내용은 [Azure Key Vault에 인증](authentication.md) 을 참조 하세요.
 
@@ -146,7 +146,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 개인 끝점에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 Key Vault](./private-link-service.md) 을 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 예제에서는 TLS/SSL에 인증서를 사용 하는 응용 프로그램을 개발 하 고, Azure Storage 데이터를 저장 하 고, Azure Storage 데이터를 암호화 하기 위한 RSA 2048 비트 키를 개발 합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
@@ -187,7 +187,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 | 보안 팀 | [키 자격 증명 모음 기여자](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | [Key Vault 관리자](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None | None |
 | 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
-| Azure Storage 계정 | None | 키: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service 암호화 사용자](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Azure Storage 계정 | 없음 | 키: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service 암호화 사용자](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
 | 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | [Key Vault 판독기](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault 비밀 사용자](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. Vm (또는 Azure App Service의 Web Apps 기능)을 배포 하려면 개발자와 운영자에 게 배포 액세스 권한이 있어야 합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.

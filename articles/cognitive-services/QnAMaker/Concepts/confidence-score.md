@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346378"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214051"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>답변의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
@@ -53,7 +53,7 @@ ms.locfileid: "96346378"
 - **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예를 들어* , 임계값을 **30** 으로 설정 하면 "내 KB를 편집할 수 있는 위치"와 같은 쿼리에 대 한 답을 제공할 수 있습니다.
 
 > [!NOTE]
-> QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)를 참조하세요.
+> QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)를 참조하세요.
 
 ## <a name="set-threshold"></a>임계값 설정
 

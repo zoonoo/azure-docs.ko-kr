@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fcea6a44f5379ff3da5b348ae45486be6c2516a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 295228e9eaa3529b05055869bd46f9aefc938a6f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212776"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -41,7 +41,7 @@ Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져
 
 * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
+* [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -123,7 +123,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure portal | management.azure.com | management.azure.us | management.azure.cn |
-| Azure 리소스 관리자 | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
+| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Azure Machine Learning 호스트**
 

@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7e0d93d3fd179d672b49967c575bbfb9c0fc5de0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495290"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213694"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 모델 사용
 
@@ -40,10 +40,10 @@ IoT Hub 장치 연결 흐름의 일부로 장치 모델 ID를 사용 하 여 솔
 
 ### <a name="get-device-twin-api"></a>장치 쌍 API 가져오기
 
-솔루션은 [장치 쌍 가져오기](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
+솔루션은 [장치 쌍 가져오기](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
 
 > [!TIP]
-> 모듈 및 IoT Edge 모듈의 경우 [ModuleClient](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable)를 사용 합니다.
+> 모듈 및 IoT Edge 모듈의 경우 [ModuleClient](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin)를 사용 합니다.
 
 다음 장치 쌍 응답 코드 조각에는 `modelId` IoT 플러그 앤 플레이 장치의 모델 ID가 포함 되어 있습니다.
 

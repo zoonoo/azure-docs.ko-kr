@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b4994f7014abfafd3853745a4314a75be011c4e4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898141"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213490"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -94,12 +94,12 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 |언어|API|
 |---|---|
 |REST (영문)|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Assets](assets-concept.md)
 * [스트리밍 정책](streaming-policy-concept.md)
