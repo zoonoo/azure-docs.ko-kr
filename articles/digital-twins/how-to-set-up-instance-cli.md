@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 7108ee956c18fbcc150b56cbcb8ae1c69841dda4
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044478"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198590"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -93,7 +93,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins CLI 명령을 사용 하 여 인스턴스에서 개별 REST API 호출을 테스트 합니다. 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
 
 또는 인증 코드를 사용 하 여 인스턴스에 클라이언트 응용 프로그램을 연결 하는 방법을 참조 하세요.

@@ -3,12 +3,12 @@ title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328830"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198679"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -25,15 +25,8 @@ ms.locfileid: "92328830"
 
 이벤트 도메인은 Storage 및 IoT Hub와 같은 Azure 서비스에서 사용하는 것과 동일한 아키텍처를 사용하여 이벤트를 게시합니다. 이벤트 도메인을 사용하면 수천 개의 토픽에 이벤트를 게시할 수 있습니다. 도메인 역시 각 토픽에 대한 권한 부여 및 인증 제어를 제공하므로 테넌트를 분할할 수 있습니다.
 
-### <a name="example-use-case"></a>사용 사례 예
-
-이벤트 도메인을 가장 쉽게 설명하는 방법은 예제입니다. Contoso 생성 기계를 실행 하는 경우, 예를 들어 tractors, 장비 장비 및 기타 많은 기계를 제조할 수 있습니다. 비즈니스의 일부로, 여러분은 장비 유지 관리, 시스템 상태 및 계약 업데이트에 대한 실시간 정보를 고객에게 푸시합니다. 이 모든 정보는 회사 앱, 고객 엔드포인트, 고객이 설치한 기타 인프라를 비롯한 다양한 엔드포인트로 이동합니다.
-
-이벤트 도메인을 사용하면 Contoso Construction Machinery를 단일 이벤트 엔터티로 모델링할 수 있습니다. 각 고객은 도메인 내의 토픽으로 표시됩니다. 인증 및 권한 부여는 Azure Active Directory를 사용하여 처리됩니다. 각 고객은 토픽을 구독하고 자신에게 전달된 이벤트를 가져올 수 있습니다. 이벤트 도메인을 통해 관리되는 액세스는 고객이 자신의 토픽에만 액세스할 수 있도록 보장합니다.
-
-또한 모든 고객 이벤트를 게시할 수 있는 단일 엔드포인트를 제공합니다. Event Grid는 각 토픽이 해당 테넌트로 범위가 지정된 이벤트만 인식하도록 처리합니다.
-
-![Contoso Construction 예제](./media/event-domains/contoso-construction-example.png)
+## <a name="example-use-case"></a>사용 사례 예
+[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>액세스 관리
 
@@ -107,6 +100,8 @@ Event Grid에는 Azure RBAC를 사용 하 여 이벤트 도메인 작업을 용�
 이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리 되는 id 사용
 description: 다른 Azure 서비스를 사용 하 여 인증할 수 있는 Azure Container Instances에서 관리 되는 id를 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558949"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198322"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -53,13 +53,13 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 
 이 문서의 예제에서는 Azure Container Instances에서 관리 되는 id를 사용 하 여 Azure key vault 비밀에 액세스 합니다. 
 
-먼저, 다음 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[Az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용 하 여 주요 자격 증명 모음을 만듭니다. 고유 키 자격 증명 모음 이름을 지정 해야 합니다. 
+[Az keyvault create](/cli/azure/keyvault#az-keyvault-create) 명령을 사용 하 여 주요 자격 증명 모음을 만듭니다. 고유 키 자격 증명 모음 이름을 지정 해야 합니다. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-[Az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용 하 여 주요 자격 증명 모음에 샘플 암호를 저장 합니다.
+[Az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) 명령을 사용 하 여 주요 자격 증명 모음에 샘플 암호를 저장 합니다.
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Azure Container Instances에서 사용자 할당 또는 시스템 할당 관리 
 
 ### <a name="create-an-identity"></a>ID 만들기
 
-먼저 [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 키 자격 증명 모음을 만드는 데 사용 되는 것과 동일한 리소스 그룹을 사용 하거나 다른 자격 증명 모음을 사용할 수 있습니다.
+먼저 [az identity create](/cli/azure/identity#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 키 자격 증명 모음을 만드는 데 사용 되는 것과 동일한 리소스 그룹을 사용 하거나 다른 자격 증명 모음을 사용할 수 있습니다.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-다음 단계에서 ID를 사용하려면 [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) 명령을 사용하여 ID의 서비스 주체 ID 및 리소스 ID를 변수에 저장합니다.
+다음 단계에서 ID를 사용하려면 [az identity show](/cli/azure/identity#az-identity-show) 명령을 사용하여 ID의 서비스 주체 ID 및 리소스 ID를 변수에 저장합니다.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -109,7 +109,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>사용자 할당 id에 키 자격 증명 모음에 대 한 액세스 권한 부여
 
-다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 사용자 할당 id를 사용 하 여 키 자격 증명 모음에서 암호를 가져올 수 있습니다.
+다음 [az keyvault set-policy](/cli/azure/keyvault) 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 사용자 할당 id를 사용 하 여 키 자격 증명 모음에서 암호를 가져올 수 있습니다.
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -121,7 +121,7 @@ resourceID=$(az identity show \
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>컨테이너 그룹에 사용자 할당 id 사용
 
-다음 [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) 명령을 실행 하 여 Microsoft의 이미지를 기반으로 컨테이너 인스턴스를 만듭니다 `azure-cli` . 이 예제에서는 Azure CLI를 실행 하 여 다른 Azure 서비스에 액세스 하는 데 대화형으로 사용할 수 있는 단일 컨테이너 그룹을 제공 합니다. 이 섹션에서는 기본 운영 체제만 사용 됩니다. 컨테이너에서 Azure CLI를 사용 하는 예제는 [컨테이너 그룹에서 시스템 할당 Id 사용](#enable-system-assigned-identity-on-a-container-group)을 참조 하세요. 
+다음 [az container create](/cli/azure/container#az-container-create) 명령을 실행 하 여 Microsoft의 이미지를 기반으로 컨테이너 인스턴스를 만듭니다 `azure-cli` . 이 예제에서는 Azure CLI를 실행 하 여 다른 Azure 서비스에 액세스 하는 데 대화형으로 사용할 수 있는 단일 컨테이너 그룹을 제공 합니다. 이 섹션에서는 기본 운영 체제만 사용 됩니다. 컨테이너에서 Azure CLI를 사용 하는 예제는 [컨테이너 그룹에서 시스템 할당 Id 사용](#enable-system-assigned-identity-on-a-container-group)을 참조 하세요. 
 
 `--assign-identity` 매개 변수는 그룹에 사용자 할당 관리 ID를 전달합니다. 장기 실행 명령이 컨테이너가 계속 실행되도록 합니다. 이 예제에서는 키 자격 증명 모음을 만드는 데 사용 된 것과 동일한 리소스 그룹을 사용 하지만 다른 자격 증명 모음을 지정할 수 있습니다.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-몇 초 내에 Azure CLI로부터 배포가 완료되었음을 알려주는 응답을 받습니다. [Az container show](/cli/azure/container?view=azure-cli-latest#az-container-show) 명령을 사용 하 여 해당 상태를 확인 합니다.
+몇 초 내에 Azure CLI로부터 배포가 완료되었음을 알려주는 응답을 받습니다. [Az container show](/cli/azure/container#az-container-show) 명령을 사용 하 여 해당 상태를 확인 합니다.
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>컨테이너 그룹에서 시스템 할당 id 사용
 
-다음 [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) 명령을 실행 하 여 Microsoft의 이미지를 기반으로 컨테이너 인스턴스를 만듭니다 `azure-cli` . 이 예제에서는 Azure CLI를 실행 하 여 다른 Azure 서비스에 액세스 하는 데 대화형으로 사용할 수 있는 단일 컨테이너 그룹을 제공 합니다. 
+다음 [az container create](/cli/azure/container#az-container-create) 명령을 실행 하 여 Microsoft의 이미지를 기반으로 컨테이너 인스턴스를 만듭니다 `azure-cli` . 이 예제에서는 Azure CLI를 실행 하 여 다른 Azure 서비스에 액세스 하는 데 대화형으로 사용할 수 있는 단일 컨테이너 그룹을 제공 합니다. 
 
 추가 값 없는 `--assign-identity` 매개 변수를 사용하여 그룹에 대해 시스템 할당 관리 ID를 사용하도록 설정할 수 있습니다. Id의 범위는 컨테이너 그룹의 리소스 그룹입니다. 장기 실행 명령이 컨테이너가 계속 실행되도록 합니다. 이 예제에서는 id의 범위에 있는 key vault를 만드는 데 사용 된 것과 동일한 리소스 그룹을 사용 합니다.
 
@@ -255,7 +255,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>컨테이너 그룹에 키 자격 증명 모음에 대 한 액세스 권한 부여
 
-다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 시스템 관리 id를 사용 하 여 키 자격 증명 모음에서 암호를 가져올 수 있습니다.
+다음 [az keyvault set-policy](/cli/azure/keyvault) 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 시스템 관리 id를 사용 하 여 키 자격 증명 모음에서 암호를 가져올 수 있습니다.
 
 ```azurecli-interactive
  az keyvault set-policy \

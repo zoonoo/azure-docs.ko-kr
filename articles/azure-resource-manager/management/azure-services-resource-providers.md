@@ -3,12 +3,12 @@ title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 581c25b384bf6e2865a21f083ba12eef2e5e8bcd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cc9793bfc0ca6cc0afbede241534453209685d94
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733790"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198934"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -35,14 +35,14 @@ ms.locfileid: "98733790"
 | AutonomousSystems | [자치 시스템](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware 솔루션](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft AzureArcData | Azure Arc 사용 데이터 서비스 레지스트리 |
+| Microsoft AzureArcData | Azure Arc 지원 데이터 서비스 |
 | Microsoft.AzureData | SQL Server 레지스트리 |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft 청구- [등록](#registration) 됨 | [Cost Management 및 청구](/azure/billing/) |
 | Microsoft.BingMaps | [Bing 지도](/BingMaps/#pivot=main&panel=BingMapsAPI) |
-| Microsoft.Blockchain | [Azure Blockchain 서비스](../../blockchain/workbench/index.yml) |
+| Microsoft.Blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Azure Blockchain 토큰](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |

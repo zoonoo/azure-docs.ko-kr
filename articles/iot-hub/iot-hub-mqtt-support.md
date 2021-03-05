@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 728014c53ab019f25bdc9b097c8b493411833aaa
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095682"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198849"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -160,7 +160,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
   SAS 토큰을 생성하는 방법에 관한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Azure Iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az IoT hub](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) 를 사용 하 여 사용자 고유의 코드에 복사 하 고 붙여넣을 수 있는 sas 토큰을 빠르게 생성할 수도 있습니다.
+  테스트할 때 플랫폼 간 [Azure Iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 CLI 확장 명령 [az IoT hub](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) 를 사용 하 여 사용자 고유의 코드에 복사 하 고 붙여넣을 수 있는 sas 토큰을 빠르게 생성할 수도 있습니다.
 
 ### <a name="for-azure-iot-tools"></a>Azure IoT Tools의 경우
 

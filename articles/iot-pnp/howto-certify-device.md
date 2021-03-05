@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b3ba007f03b3aa4883d9455dc43b2bc19676da59
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 43a568149ccf85579b4f8190974fff872d6e09ea
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803972"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199648"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스를 인증하는 방법
 
 IoT 플러그 앤 플레이 디바이스 인증 프로그램에는 디바이스가 IoT 플러그 앤 플레이 인증 요구 사항을 충족하는지 확인하는 도구가 포함되어 있습니다. 또한이 도구를 통해 조직에서는 IoT 플러그 앤 플레이 장치의 가용성에 대 한 인식을 지원할 수 있습니다. 이러한 인증 된 장치는 IoT 솔루션에 맞게 조정 되 고 출시 시간을 단축 하는 데 도움이 됩니다.
 
-이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
+이 문서에서는 다음 방법을 보여 줍니다.
 
 - Azure CLI에 대 한 Azure IoT 명령줄 도구 확장을 설치 합니다.
 - IoT 플러그 앤 플레이 테스트를 실행 하 여 개발 단계에서 장치 응용 프로그램의 유효성을 검사 합니다.  
@@ -51,13 +51,13 @@ IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 �
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Azure IoT 확장 CLI를 사용하여 테스트
 
-Azure [IOT CLI 확장](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) 을 사용 하면 Azure 인증 장치 포털을 통해 인증을 위해 장치를 제출 하기 전에 장치 구현이 모델과 일치 하는지 확인할 수 있습니다.
+Azure [IOT CLI 확장](/cli/azure/ext/azure-iot/iot/product) 을 사용 하면 Azure 인증 장치 포털을 통해 인증을 위해 장치를 제출 하기 전에 장치 구현이 모델과 일치 하는지 확인할 수 있습니다.
 
 다음 단계는 CLI를 사용 하 여 인증 테스트를 준비 하 고 실행 하는 방법을 보여 줍니다.
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Azure CLI에 대 한 Azure IoT 확장을 설치 합니다.
 
-사용자 환경에서 [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) 설정 하려면 설치 지침을 참조 하세요.
+사용자 환경에서 [Azure CLI](/cli/azure) 설정 하려면 설치 지침을 참조 하세요.
 
 Azure IoT 확장을 설치 하려면 다음 명령을 실행 합니다.
 
@@ -65,7 +65,7 @@ Azure IoT 확장을 설치 하려면 다음 명령을 실행 합니다.
 az extension add --name azure-iot
 ```
 
-자세한 내용은 [Azure IoT에 대 한 Azure CLI](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest)를 참조 하세요.
+자세한 내용은 [Azure IoT에 대 한 Azure CLI](/cli/azure/azure-cli-reference-for-iot)를 참조 하세요.
 
 ### <a name="create-a-new-product-test"></a>새 제품 테스트 만들기
 
@@ -79,7 +79,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> CLI를 사용 하는 경우 구독에 [로그인](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) 해야 합니다.
+> CLI를 사용 하는 경우 구독에 [로그인](/cli/azure/authenticate-azure-cli) 해야 합니다.
 
 명령의 JSON 출력에는 `primaryKey` `registrationId` 장치를 연결할 때 사용할, 및가 포함 `scopeID` 됩니다.
 

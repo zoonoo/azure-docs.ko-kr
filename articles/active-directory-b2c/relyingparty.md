@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 488065b0a1865484e96ea574b3031f2bf61869dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120592"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198441"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -109,7 +109,7 @@ ms.locfileid: "102120592"
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
-`DefaultUserJourney` 요소는 일반적으로 기본 또는 확장 정책에서 정의되는 사용자 경험의 식별자에 대한 참조를 지정합니다. 다음 예제에서는 **RelyingParty** 요소에 지정된 등록 또는 로그인 사용자 경험을 보여 줍니다.
+`DefaultUserJourney`요소는 기본 또는 확장 정책에 정의 된 사용자 경험의 식별자에 대 한 참조를 지정 합니다. 다음 예제에서는 **RelyingParty** 요소에 지정된 등록 또는 로그인 사용자 경험을 보여 줍니다.
 
 *B2C_1A_signup_signin* 정책:
 
@@ -219,6 +219,21 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
 
+### <a name="metadata"></a>메타데이터
+
+프로토콜이 인 경우 `SAML` 메타 데이터 요소에는 다음 요소가 포함 됩니다. 자세한 내용은 [Azure AD B2C에서 SAML 응용 프로그램을 등록 하는 옵션](saml-service-provider-options.md)을 참조 하세요.
+
+| attribute | 필수 | 설명 |
+| --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | 예 | IDP 시작 흐름이 지원 되는지 여부를 나타냅니다. 가능한 값: `true` 또는 `false` (기본값) | 
+| XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 응답에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성 하려면 [saml 발급자 기술 프로필 메타 데이터](saml-issuer-technical-profile.md#metadata)를 참조 하세요. |
+| DataEncryptionMethod | 예 | AES (AES(Advanced Encryption Standard)) 알고리즘을 사용 하 여 데이터를 암호화 하는 데 사용 하 Azure AD B2C 방법을 나타냅니다. 메타 데이터는 `<EncryptedData>` SAML 응답의 요소 값을 제어 합니다. 가능한 값은 `Aes256`(기본값), `Aes192`, `Sha512` 또는 ` Aes128`입니다. |
+| KeyEncryptionMethod| 예 | Azure AD B2C에서 데이터를 암호화 하는 데 사용 된 키의 복사본을 암호화 하는 데 사용 하는 메서드를 나타냅니다. 메타 데이터는  `<EncryptedKey>` SAML 응답의 요소 값을 제어 합니다. 가능한 값: ` Rsa15` (기본값)-RSA PKCS (공개 키 암호화 표준) 버전 1.5 알고리즘, ` RsaOaep` -RSA 최적 OAEP (비대칭 암호화 패딩) 암호화 알고리즘입니다. |
+| UseDetachedKeys | 예 |  가능한 값은 `true` 또는 `false`(기본값)입니다. 값을로 설정 하면 `true` Azure AD B2C는 암호화 된 어설션의 형식을 변경 합니다. 분리 된 키를 사용 하면 EncryptedData와는 달리 암호화 된 어설션을 EncrytedAssertion의 자식으로 추가 합니다. |
+| WantsSignedResponses| 예 | Azure AD B2C SAML 응답의 섹션에 서명할지 여부를 나타냅니다 `Response` . 가능한 값은 `true` (기본값) 또는 `false` 입니다.  |
+| RemoveMillisecondsFromDateTime| 예 | SAML 응답 내의 datetime 값에서 밀리초를 제거할지 여부를 나타냅니다. 여기에는 IssueInstant, NotBefore, NotOnOrAfter 및 AuthnInstant가 포함 됩니다. 가능한 값은 `false` (기본값) 또는 `true` 입니다.  |
+
+
 ### <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
@@ -238,8 +253,9 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 **SubjectNameingInfo** 요소를 사용하여 토큰 제목의 값을 제어합니다.
+
 - **JWT 토큰** - `sub` 클레임입니다. 애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 토큰을 사용해 리소스에 액세스할 때 이 값을 사용하면 안전하게 권한 부여 확인을 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. 자세한 내용은 [토큰, 세션 및 Single Sign-On 구성](session-behavior.md)을 참조하세요.
-- **SAML 토큰** - subject 요소를 식별하는 `<Subject><NameID>` 요소입니다. NameId 형식을 수정할 수 있습니다.
+- **SAML 토큰** - `<Subject><NameID>` subject 요소를 식별 하는 요소입니다. NameId 형식을 수정할 수 있습니다.
 
 **SubjectNamingInfo** 요소에는 다음과 같은 특성이 포함됩니다.
 

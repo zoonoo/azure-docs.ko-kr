@@ -7,21 +7,23 @@ ms.service: virtual-machines-linux
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0fecf9f16cd1069b140e61a019a43510b59e76e8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199171"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Xrdp를 설치 및 구성 하 여 Linux VM과 함께 원격 데스크톱 사용
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Ubuntu에서 원격 데스크톱을 사용 하도록 xrdp 설치 및 구성
 
-Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Resource Manager 배포 모델을 사용하여 Linux VM에 대해 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
+Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Ubuntu를 실행 하는 Linux VM에 대 한 데스크톱 환경 ([xfce](https://www.xfce.org)) 및 원격 데스크톱 ([xrdp](http://xrdp.org))을 설치 하 고 구성 하는 방법을 자세히 설명 합니다.
 
+이 문서는 Ubuntu 18.04 VM을 사용 하 여 쓰여진 고 테스트 되었습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
 이 문서에는 Azure에 있는 기존 Ubuntu 18.04 LTS VM이 필요합니다. VM을 만들어야 하는 경우 다음 방법 중 하나를 사용합니다.
 
 - [Azure CLI](quick-create-cli.md)

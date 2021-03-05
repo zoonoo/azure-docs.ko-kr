@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 951c52cdba191aa291061259e1c15b9190513770
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092723"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199903"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "99092723"
 
 이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 여러 데이터 스트림의 상관 관계를 발견하고 정보를 Time Series Insights로 전송하기 전에 표준화할 수 있으므로 Time Series Insights에 데이터를 공급하는 좋은 방법이 됩니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twins 인스턴스가** 있어야 합니다. 이 인스턴스는 데이터를 기반으로 하는 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 하며, Time Series Insights에서 추적 되는 데이터를 확인 하기 위해 쌍 정보를 몇 번 업데이트 해야 합니다. 
 
@@ -56,7 +56,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
+3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
 
     ```azurecli-interactive
         az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
@@ -73,7 +73,7 @@ Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to
     >[!NOTE]
     >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제** 가 있습니다.
     >
-    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
+    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](/cli/azure/install-azure-cli)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
 
     ```azurecli-interactive
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -117,7 +117,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
     ```azurecli-interactive
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
+3. 보내기 및 받기 권한을 사용 하 여 [권한 부여 규칙](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) 을 만듭니다. 규칙의 이름을 지정 합니다.
 
     ```azurecli-interactive
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
@@ -173,7 +173,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>IoT 데이터를 Azure Digital Twins로 보내기 시작
 
-Time Series Insights로 데이터를 보내기 시작 하려면 변경 데이터 값을 사용 하 여 Azure Digital Twins에서 디지털 쌍 속성 업데이트를 시작 해야 합니다. [Az dt 쌍 update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext-azure-iot-az-dt-twin-update) 명령을 사용 합니다.
+Time Series Insights로 데이터를 보내기 시작 하려면 변경 데이터 값을 사용 하 여 Azure Digital Twins에서 디지털 쌍 속성 업데이트를 시작 해야 합니다. [Az dt 쌍 update](/cli/azure/ext/azure-iot/dt/twin#ext-azure-iot-az-dt-twin-update) 명령을 사용 합니다.
 
 종단 간 자습서 ([*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md))를 사용 하 여 환경 설정에 도움이 되는 경우 샘플에서 *DeviceSimulator* 프로젝트를 실행 하 여 시뮬레이트된 IoT 데이터 보내기를 시작할 수 있습니다. 지침은 자습서의 [*시뮬레이션 구성 및 실행*](tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 있습니다.
 

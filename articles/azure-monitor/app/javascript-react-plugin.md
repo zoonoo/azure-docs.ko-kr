@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593645"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199342"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 플러그 인 반응
 
@@ -161,7 +161,11 @@ export default MyComponent;
 
 ### `useTrackEvent`
 
-`useTrackEvent`후크는 응용 프로그램이 추적 해야 할 수 있는 사용자 지정 이벤트 (예: 단추 클릭 또는 기타 API 호출)를 추적 하는 데 사용 됩니다. 두 개의 인수를 사용 합니다. 첫 번째 인수는 후크에서 가져올 수 있는 Application Insights 인스턴스이고 `useAppInsightsContext` 이벤트의 이름입니다.
+`useTrackEvent`후크는 응용 프로그램이 추적 해야 할 수 있는 사용자 지정 이벤트 (예: 단추 클릭 또는 기타 API 호출)를 추적 하는 데 사용 됩니다. 다음 네 가지 인수를 사용 합니다.
+-   Application Insights 인스턴스 (후크에 가져올 수 있음 `useAppInsightsContext` )
+-   이벤트의 이름입니다.
+-   추적 해야 하는 변경 내용을 캡슐화 하는 이벤트 데이터 개체입니다.
+-   skipFirstRun (선택 사항) `trackEvent` 초기화에 대 한 호출 호출을 건너뛰는 플래그입니다. 기본값은 `true`로 설정됩니다.
 
 ```javascript
 import React, { useState, useEffect } from "react";

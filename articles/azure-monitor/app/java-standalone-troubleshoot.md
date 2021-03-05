@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199614"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -45,7 +45,7 @@ Java 3.0 Preview 에이전트에서 업그레이드 하는 경우 모든 [구성
 
 특정 로깅 문이 로깅 프레임 워크의 구성 된 임계값을 충족 하는지 확인 하는 가장 좋은 방법은 일반 응용 프로그램 로그 (예: 파일 또는 콘솔)에 표시 되는지 확인 하는 것입니다.
 
-또한 예외가로 거에 전달 되는 경우 로그 메시지 (및 예외)는 테이블 대신 테이블의 Azure Portal에 표시 됩니다 `exceptions` `traces` .
+또한 예외 개체가로 거에 전달 되는 경우 로그 메시지 (및 예외 개체 세부 정보)는 테이블 대신 테이블의 Azure Portal에 표시 됩니다 `exceptions` `traces` .
 
 자세한 내용은 [자동 수집 된 로깅 구성](./java-standalone-config.md#auto-collected-logging) 을 참조 하세요.
 

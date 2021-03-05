@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b9a491b639cd1b960ffe3b7164a0940770792148
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107523"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198475"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램을 등록 하는 옵션
 
@@ -60,6 +60,54 @@ Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 신�
     <Protocol Name="SAML2"/>
     <Metadata>
       <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+### <a name="encryption-method"></a>암호화 방법
+
+SAML 어설션 데이터를 암호화 하는 데 사용 되는 암호화 방법을 구성 하려면 `DataEncryptionMethod` 신뢰 당사자 내에서 메타 데이터 키를 설정 합니다. 가능한 값은 `Aes256` (기본값), `Aes192` , `Sha512` 또는 `Aes128` 입니다. 메타 데이터는 `<EncryptedData>` SAML 응답의 요소 값을 제어 합니다.
+
+SAML 어설션 데이터를 암호화 하는 데 사용 된 키의 복사본을 암호화 하는 데 사용 되는 암호화 방법을 구성 하려면 `KeyEncryptionMethod` 신뢰 당사자 내에서 메타 데이터 키를 설정 합니다. 가능한 값은 `Rsa15` (기본값)-RSA PKCS (공개 키 암호화 표준) 버전 1.5 알고리즘 및 `RsaOaep` -RSA 최적 OAEP (비대칭 암호화 패딩) 암호화 알고리즘입니다.  메타 데이터는  `<EncryptedKey>` SAML 응답의 요소 값을 제어 합니다.
+
+다음 예제에서는 `EncryptedAssertion` SAML 어설션의 섹션을 보여 줍니다. 암호화 된 데이터 메서드는이 `Aes128` 고 암호화 된 키 메서드는 `Rsa15` 입니다.
+
+```xml
+<saml:EncryptedAssertion>
+  <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" Type="http://www.w3.org/2001/04/xmlenc#Element">
+    <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+    <dsig:KeyInfo>
+      <xenc:EncryptedKey>
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+        <xenc:CipherData>
+          <xenc:CipherValue>...</xenc:CipherValue>
+        </xenc:CipherData>
+      </xenc:EncryptedKey>
+    </dsig:KeyInfo>
+    <xenc:CipherData>
+      <xenc:CipherValue>...</xenc:CipherValue>
+    </xenc:CipherData>
+  </xenc:EncryptedData>
+</saml:EncryptedAssertion>
+```
+
+암호화 된 어설션의 형식을 변경할 수 있습니다. 암호화 형식을 구성 하려면 `UseDetachedKeys` 신뢰 당사자 내에서 메타 데이터 키를 설정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 값이로 설정 되 면 `true` 분리 된 키는와는 달리 암호화 된 어설션을의 자식으로 추가 합니다 `EncrytedAssertion` `EncryptedData` .
+
+암호화 방법 및 형식을 구성 하 고, [신뢰 당사자 기술 프로필](relyingparty.md#technicalprofile)내에서 메타 데이터 키를 사용 합니다.
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="DataEncryptionMethod">Aes128</Item>
+      <Item Key="KeyEncryptionMethod">Rsa15</Item>
+      <Item Key="UseDetachedKeys">false</Item>
     </Metadata>
    ..
   </TechnicalProfile>
@@ -114,7 +162,7 @@ SAML 테스트 앱을 사용 하 여 테스트 하는 데 사용할 수 있는 �
 
 SAML 어설션에 서명 하는 데 사용 되는 서명 알고리즘을 구성할 수 있습니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 및 `Sha1`입니다. 기술 프로필 및 응용 프로그램에서 동일한 서명 알고리즘을 사용 하는지 확인 합니다. 인증서가 지원하는 알고리즘만 사용하세요.
 
-`XmlSignatureAlgorithm`RelyingParty metadata 노드 내에서 메타 데이터 키를 사용 하 여 서명 알고리즘을 구성 합니다.
+`XmlSignatureAlgorithm`신뢰 당사자 메타 데이터 요소 내에서 메타 데이터 키를 사용 하 여 서명 알고리즘을 구성 합니다.
 
 ```xml
 <RelyingParty>
@@ -132,7 +180,7 @@ SAML 어설션에 서명 하는 데 사용 되는 서명 알고리즘을 구성�
 
 ## <a name="saml-response-lifetime"></a>SAML 응답 수명
 
-SAML 응답이 유효한 상태로 유지 되는 기간을 구성할 수 있습니다. `TokenLifeTimeInSeconds`SAML 토큰 발급자 기술 프로필 내에서 메타 데이터 항목을 사용 하 여 수명을 설정 합니다. 이 값은 `NotBefore` 토큰 발급 시간에 계산 된 타임 스탬프에서 경과할 수 있는 시간 (초)입니다. 자동으로 선택 된 시간은 현재 시간입니다. 기본 수명은 300 초 (5 분)입니다.
+SAML 응답이 유효한 상태로 유지 되는 기간을 구성할 수 있습니다. `TokenLifeTimeInSeconds`SAML 토큰 발급자 기술 프로필 내에서 메타 데이터 항목을 사용 하 여 수명을 설정 합니다. 이 값은 `NotBefore` 토큰 발급 시간에 계산 된 타임 스탬프에서 경과할 수 있는 시간 (초)입니다. 기본 수명은 300 초 (5 분)입니다.
 
 ```xml
 <ClaimsProvider>
@@ -170,6 +218,26 @@ SAML 응답 타임 스탬프에 적용 되는 시간 오차를 구성할 수 있
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <Item Key="TokenNotBeforeSkewInSeconds">120</Item>
+      </Metadata>
+      ...
+    </TechnicalProfile>
+```
+
+## <a name="remove-milliseconds-from-date-and-time"></a>날짜 및 시간에서 밀리초를 제거 합니다.
+
+SAML 응답 내의 datetime 값에서 밀리초를 제거할지 여부를 지정할 수 있습니다 (IssueInstant, NotBefore, NotOnOrAfter 및 AuthnInstant 포함). 밀리초를 제거 하려면 `RemoveMillisecondsFromDateTime
+` 신뢰 당사자 내에서 메타 데이터 키를 설정 합니다. 가능한 값은 `false` (기본값) 또는 `true` 입니다.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+      <Metadata>
+        <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
       ...
     </TechnicalProfile>

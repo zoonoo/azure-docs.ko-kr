@@ -328,6 +328,8 @@
       items:
         - name: JSON과 Bicep 비교
           href: compare-template-syntax.md
+    - name: 데이터 형식
+      href: data-types.md
     - name: 질문과 대답
       href: frequently-asked-questions.md
     - name: 클라우드 일관성을 위한 템플릿
@@ -543,7 +545,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

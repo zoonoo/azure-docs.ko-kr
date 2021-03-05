@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9566560aaebaaa7ba3fc6d963a30637e33118077
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8f2bd316c733f4680a266d609e1cc95a4879016d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651062"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198526"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -57,7 +57,7 @@ Azure Portal에서 사용할 수 있는 Azure AD Multi-Factor Authentication 설
 
 ## <a name="block-and-unblock-users"></a>사용자 차단 및 차단 해제
 
-사용자의 장치를 분실 하거나 도난당 한 경우 연결 된 계정에 대 한 Azure AD Multi-Factor Authentication 시도를 차단할 수 있습니다. 차단 된 사용자에 대 한 모든 Azure AD Multi-Factor Authentication 시도는 자동으로 거부 됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
+사용자의 장치를 분실 하거나 도난당 한 경우 연결 된 계정에 대 한 Azure AD Multi-Factor Authentication 시도를 차단할 수 있습니다. 차단 된 사용자에 대 한 모든 Azure AD Multi-Factor Authentication 시도는 자동으로 거부 됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. [테 넌 트의 사용자를 차단 및 차단 해제](https://www.youtube.com/watch?v=WdeE1On4S1o) 하는 방법에 대 한 비디오를 게시 하 여이 작업을 수행 하는 방법을 보여 줍니다.
 
 ### <a name="block-a-user"></a>사용자 차단
 
@@ -311,7 +311,7 @@ Azure AD Multi-Factor Authentication의 _신뢰할 수_ 있는 ip 기능은 정�
 
 다음과 같은 확인 방법을 사용할 수 있습니다.
 
-| 방법 | Description |
+| 메서드 | Description |
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
 | 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 관리자는 이전에 양방향 SMS를 사용한 사용자에게 다른 방법을 사용하도록 설정해야 합니다.|

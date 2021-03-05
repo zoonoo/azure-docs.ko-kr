@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 14ced0c66b42b6f18c946d0c75091be1af5598f5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548871"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197795"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -26,7 +26,7 @@ Azure Dev Spaces를 사용하는 동안 문제가 발생하는 경우 [Azure Dev
 
 Visual Studio의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정합니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 이와 같이 환경 변수가 사용되면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
 
-CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 *‘TEMP’* 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 *‘TEMP’* 디렉터리는 일반적으로 `/tmp`입니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)에서 로깅을 사용하도록 설정했는지 확인합니다.
+CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 *‘TEMP’* 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 *‘TEMP’* 디렉터리는 일반적으로 `/tmp`입니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables)에서 로깅을 사용하도록 설정했는지 확인합니다.
 
 또한 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. `azds.yaml` 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount* 가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 애플리케이션을 구성하기 위해 *replicaCount* 를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
 
@@ -91,7 +91,7 @@ azure-cli                         2.0.60 *
 
 2\.0.63 이전 버전의 Azure CLI를 사용하여 `az aks use-dev-spaces`를 실행하는 경우 오류 메시지가 표시되더라도 설치는 성공적으로 수행됩니다. 아무런 문제 없이 `azds`를 계속 사용할 수 있습니다.
 
-이 이슈를 해결하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)의 설치를 2.0.63 이상으로 업데이트합니다. 이 업데이트는 `az aks use-dev-spaces`를 실행할 때 나타나는 오류 메시지를 해결합니다. 또는 현재 버전의 Azure CLI 및 Azure Dev Spaces CLI를 계속 사용할 수 있습니다.
+이 이슈를 해결하려면 [Azure CLI](/cli/azure/install-azure-cli)의 설치를 2.0.63 이상으로 업데이트합니다. 이 업데이트는 `az aks use-dev-spaces`를 실행할 때 나타나는 오류 메시지를 해결합니다. 또는 현재 버전의 Azure CLI 및 Azure Dev Spaces CLI를 계속 사용할 수 있습니다.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>"kube-apiserver에 연결할 수 없습니다." 오류 발생
 

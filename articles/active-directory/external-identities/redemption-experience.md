@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649321"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199631"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -35,6 +34,7 @@ ms.locfileid: "101649321"
 ![공통 끝점 로그인](media/redemption-experience/common-endpoint-flow-small.png)
 
 그러면 사용자가 전자 메일 주소로 로그인 하거나 구성한 id 공급자를 선택할 수 있는 테 넌 트 끝점으로 리디렉션됩니다.
+
 ## <a name="redemption-through-a-direct-link"></a>직접 링크를 통해 상환
 
 초대 전자 메일 또는 응용 프로그램의 공통 URL 대신 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 그러려면 먼저 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) 또는 [PowerShell](./b2b-quickstart-invite-powershell.md)을 통해 게스트 사용자를 디렉터리에 추가해야 합니다. 그런 다음, 직접 로그온 링크를 비롯한 [사용자 지정 가능한 방법을 사용하여 사용자에게 애플리케이션을 배포](../manage-apps/end-user-experiences.md)할 수 있습니다. 게스트가 초대 이메일 대신 직접 링크를 사용하더라도 최초 동의 과정을 거치게 됩니다.
@@ -73,7 +73,7 @@ ms.locfileid: "101649321"
 
 3. 관리자가 [Google 페더레이션](./google-federation.md)을 사용하도록 설정했으면 Azure AD는 사용자의 도메인 접미사가 gmail.com인지 아니면 googlemail.com인지 확인한 후 사용자를 Google로 리디렉션합니다.
 
-4. 사용 프로세스에서는 사용자에게 기존 개인 MSA([Microsoft 계정)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)가 있는지 확인합니다.
+4. 상환 프로세스는 사용자에 게 JIT (just-in-time) 횟수가에 대 한 기존 MSA (개인 [Microsoft 계정)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 가 있는지를 확인 하지만 초대 전자 메일을 상환 하는 경우에는 연결 하지 않습니다. 사용자에 게 기존 MSA가 이미 있는 경우 기존 MSA를 사용 하 여 로그인 합니다.
 
 5. 사용자의 **홈 디렉터리** 가 확인되면 로그인을 위해 사용자가 해당 ID 공급자로 전송됩니다.  
 

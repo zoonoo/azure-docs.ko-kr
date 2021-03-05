@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928930"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198611"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
@@ -136,13 +136,13 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-1. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true)하고, 출력에서 새 프로비저닝 서비스 및 IoT 허브를 찾습니다.
+1. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열](/cli/azure/resource#az-resource-list)하고, 출력에서 새 프로비저닝 서비스 및 IoT 허브를 찾습니다.
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. 허브가 이미 DPS 리소스에 연결되어 있는지 확인하려면 다음 [DPS 확장 표시 명령](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true)을 실행합니다.
+2. 허브가 이미 DPS 리소스에 연결되어 있는지 확인하려면 다음 [DPS 확장 표시 명령](/cli/azure/iot/dps#az_iot_dps_show)을 실행합니다.
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>

@@ -2,13 +2,13 @@
 title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/26/2021
-ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721959"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197778"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -58,13 +58,27 @@ ms.locfileid: "101721959"
 * values-키와 비교할 값입니다.
 
 ## <a name="key"></a>키
-키는 필터링에 사용 중인 이벤트 데이터의 필드입니다. 숫자, 부울, 문자열 또는 배열일 수 있습니다. **Event Grid 스키마** 의 이벤트에 대해,,,, `ID` `Topic` `Subject` `EventType` `DataVersion` 또는 이벤트 데이터 ( `data.key1` 예:)에 대해 다음 값을 사용 합니다.
+키는 필터링에 사용 중인 이벤트 데이터의 필드입니다. 다음 유형 중 하나일 수 있습니다.
+
+- 숫자
+- 부울
+- String
+- Array입니다. `enableAdvancedFilteringOnArrays`이 기능을 사용 하려면 속성을 true로 설정 해야 합니다. 현재 Azure Portal이 기능 사용을 지원 하지 않습니다. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+**Event Grid 스키마** 의 이벤트에 대해,,,, `ID` `Topic` `Subject` `EventType` `DataVersion` 또는 이벤트 데이터 ( `data.key1` 예:)에 대해 다음 값을 사용 합니다.
 
 **클라우드 이벤트 스키마** 의 이벤트에 대해 키에 `eventid` ,, `source` `eventtype` , `eventtypeversion` 또는 이벤트 데이터 값 (예:)을 사용 `data.key1` 합니다.
 
-**사용자 지정 입력 스키마** 의 경우와 같이 이벤트 데이터 필드를 사용 `data.key1` 합니다.
-
-데이터 섹션의 필드에 액세스 하려면 `.` (점) 표기법을 사용 합니다. 예를 들어 `data.sitename` , `data.appEventTypeDetail.action` `sitename` `action` 다음 샘플 이벤트에 대해 또는에 액세스 합니다.
+**사용자 지정 입력 스키마** 의 경우와 같이 이벤트 데이터 필드를 사용 `data.key1` 합니다. 데이터 섹션의 필드에 액세스 하려면 `.` (점) 표기법을 사용 합니다. 예를 들어 `data.sitename` , `data.appEventTypeDetail.action` `sitename` `action` 다음 샘플 이벤트에 대해 또는에 액세스 합니다.
 
 ```json
     "data": {
@@ -80,10 +94,8 @@ ms.locfileid: "101721959"
     },
 ```
 
-
 ## <a name="values"></a>값
 값은 number, string, boolean 또는 array 일 수 있습니다.
-
 
 ## <a name="operators"></a>연산자
 

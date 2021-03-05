@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure DevTest Labs의 랩에서 가상 머신�
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 45d5b3453e29571760d47d52a1a21288be31ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3802837685281339f0ca355c677e1a0ceac067
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136129"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198203"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure CLI를 사용하여 Azure DevTest Labs의 랩에서 가상 머신 중지 및 삭제
 
@@ -29,8 +29,8 @@ ms.locfileid: "88136129"
 
 | 명령 | 메모 |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-stop) | 랩에서 VM(가상 머신)을 중지합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
-| [az lab vm delete](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-delete) | 랩에서 VM(가상 머신)을 삭제합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
+| [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) | 랩에서 VM(가상 머신)을 중지합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
+| [az lab vm delete](/cli/azure/lab/vm#az-lab-vm-delete) | 랩에서 VM(가상 머신)을 삭제합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

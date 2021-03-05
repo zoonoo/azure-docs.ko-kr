@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071701"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198543"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 - Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -48,7 +48,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 ### <a name="create-the-endpoint"></a>끝점 만들기
 
-끝점 리소스를 만든 후에는 Azure Digital Twins 끝점에 사용할 수 있습니다. 다음 예제에서는 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 끝점을 만드는 방법을 보여 줍니다. 명령의 자리 표시자를 사용자 고유의 리소스의 세부 정보로 바꿉니다.
+끝점 리소스를 만든 후에는 Azure Digital Twins 끝점에 사용할 수 있습니다. 다음 예제에서는 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) 명령을 사용 하 여 끝점을 만드는 방법을 보여 줍니다. 명령의 자리 표시자를 사용자 고유의 리소스의 세부 정보로 바꿉니다.
 
 Event Grid 끝점을 만들려면:
 
@@ -119,7 +119,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
     
 #### <a name="create-the-dead-letter-endpoint"></a>배달 못 한 편지 엔드포인트 만들기
 
-배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) 명령에 다음 배달 못한 편지 매개 변수를 추가 합니다.
+배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) 명령에 다음 배달 못한 편지 매개 변수를 추가 합니다.
 
 매개 변수의 값은 [이전 섹션](#set-up-storage-resources)에서 수집한 저장소 계정 이름, 컨테이너 이름 및 SAS 토큰으로 구성 된 **배달 못 한 편지 sas URI** 입니다. 이 매개 변수는 키 기반 인증을 사용 하 여 끝점을 만듭니다.
 
@@ -204,7 +204,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 하나의 경로에서 여러 알림과 이벤트 유형을 선택할 수 있어야 합니다. 
 
-이벤트 경로는 Azure Digital Twins [ **eventroutes** 데이터 평면 api](/rest/api/digital-twins/dataplane/eventroutes) 또는 [ **az dt route** CLI 명령을](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true)사용 하 여 만들 수 있습니다. 이 섹션의 나머지 부분에서는 만들기 프로세스를 안내 합니다.
+이벤트 경로는 Azure Digital Twins [ **eventroutes** 데이터 평면 api](/rest/api/digital-twins/dataplane/eventroutes) 또는 [ **az dt route** CLI 명령을](/cli/azure/ext/azure-iot/dt/route)사용 하 여 만들 수 있습니다. 이 섹션의 나머지 부분에서는 만들기 프로세스를 안내 합니다.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Api 및 c # SDK를 사용 하 여 경로 만들기
 
@@ -225,7 +225,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 ### <a name="create-routes-with-the-cli"></a>CLI를 사용 하 여 경로 만들기
 
-Azure Digital Twins CLI에 대해 [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 경로를 관리할 수도 있습니다. 
+Azure Digital Twins CLI에 대해 [az dt route](/cli/azure/ext/azure-iot/dt/route) 명령을 사용 하 여 경로를 관리할 수도 있습니다. 
 
 CLI 사용 방법과 사용할 수 있는 명령에 대 한 자세한 내용은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)을 참조 하세요.
 

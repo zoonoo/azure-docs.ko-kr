@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95994498"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199189"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -83,18 +83,22 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 다음 값을 지정할 수 있습니다.
+이 매개 변수를 사용 하 여 오디오 또는 비디오 파일에 적용할 AI 번들을 정의 합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 다음 값을 지정할 수 있습니다.
 
-- `AudioOnly` – 오디오만(비디오 무시) 사용하여 인사이트를 인덱싱하고 추출합니다.
-- `VideoOnly` -비디오만 사용 하 여 정보 인덱싱 및 추출 (오디오 무시)
-- `Default` – 오디오와 비디오를 모두 사용하여 인사이트를 인덱싱하고 추출합니다.
-- `DefaultWithNoiseReduction` – 오디오 스트림에 노이즈 감소 알고리즘을 적용하는 한편, 오디오와 비디오 모두에서 인사이트를 인덱싱하고 추출합니다.
+- `AudioOnly` – 오디오만 사용 하 여 정보를 인덱싱하고 추출 합니다 (비디오 무시).
+- `VideoOnly` -비디오 전용 (오디오 무시)을 사용 하 여 정보를 인덱싱하고 추출 합니다.
+- `Default` – 오디오와 비디오를 모두 사용 하 여 정보를 인덱싱하고 추출 합니다.
+- `DefaultWithNoiseReduction` – 오디오 및 비디오에서 정보를 인덱싱하고 추출할 때 오디오 스트림에 노이즈 감소 알고리즘을 적용 합니다.
+
+    `DefaultWithNoiseReduction`이제 값이 기본 사전 설정 (사용 되지 않음)에 매핑됩니다.
+- `BasicAudio` -기본 오디오 기능 (녹음, 번역, 서식 출력 캡션 및 자막)만 포함 하 여 오디오만 사용 하 여 (비디오 무시) 정보를 인덱싱하고 추출 합니다.
+ - `AdvancedAudio` -표준 오디오 분석 외에도 고급 오디오 기능 (오디오 이벤트 검색)을 포함 하 여 오디오만 사용 하 여 (비디오 무시) 정보를 인덱싱하고 추출 합니다.
 
 > [!NOTE]
 > Video Indexer는 최대 두 개의 오디오 트랙을 포함 합니다. 파일에 더 많은 오디오 트랙이 있는 경우 하나의 트랙으로 처리 됩니다.<br/>
 트랙을 별도로 인덱싱 하려면 관련 오디오 파일을 추출 하 고로 인덱스를 만들어야 `AudioOnly` 합니다.
 
-가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
+가격은 선택한 인덱싱 옵션에 따라 달라집니다. 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조 하세요.
 
 #### <a name="priority"></a>priority
 
@@ -317,7 +321,7 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|Description|
+|상태 코드|ErrorType(응답 본문 내)|설명|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

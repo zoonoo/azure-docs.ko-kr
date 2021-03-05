@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199665"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "101715703"
 
 이 문서에서는 다음 단계를 통해 Azure Digital Twins Api와 상호 작용 하도록 [Postman REST 클라이언트](https://www.getpostman.com/) 를 구성 하는 방법을 설명 합니다.
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 를 사용 하 여 postman에서 API 요청을 수행 하는 데 사용할 전달자 토큰을 가져옵니다.
+1. [Azure CLI](/cli/azure/install-azure-cli) 를 사용 하 여 postman에서 API 요청을 수행 하는 데 사용할 전달자 토큰을 가져옵니다.
 1. Postman collection을 설정 하 고 전달자 토큰을 사용 하 여 인증을 위해 Postman REST 클라이언트를 구성 합니다.
 1. 구성 된 Postman을 사용 하 여 Azure Digital Twins Api에 요청을 만들고 보냅니다.
 
@@ -41,9 +41,9 @@ Postman을 사용 하 여 Azure Digital Twins Api에 액세스 하는 작업을 
 
 이제 Postman과 Azure Digital Twins 인스턴스를 설정 했으므로 Postman 요청이 Azure Digital Twins Api에 대 한 권한을 부여 하는 데 사용할 수 있는 전달자 토큰을 가져와야 합니다.
 
-이 토큰을 얻을 수 있는 몇 가지 방법이 있습니다. 이 문서에서는 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 를 사용 하 여 Azure 계정에 로그인 하 고 해당 방식으로 토큰을 가져옵니다.
+이 토큰을 얻을 수 있는 몇 가지 방법이 있습니다. 이 문서에서는 [Azure CLI](/cli/azure/install-azure-cli) 를 사용 하 여 Azure 계정에 로그인 하 고 해당 방식으로 토큰을 가져옵니다.
 
-Azure CLI를 [로컬로 설치한](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)경우 컴퓨터에서 명령 프롬프트를 시작 하 여 다음 명령을 실행할 수 있습니다.
+Azure CLI를 [로컬로 설치한](/cli/azure/install-azure-cli)경우 컴퓨터에서 명령 프롬프트를 시작 하 여 다음 명령을 실행할 수 있습니다.
 그렇지 않으면 브라우저에서 [Azure Cloud Shell](https://shell.azure.com) 창을 열고 여기에서 명령을 실행할 수 있습니다.
 
 1. 먼저, 다음 명령을 실행 하 여 적절 한 자격 증명을 사용 하 여 Azure에 로그인 했는지 확인 합니다.
@@ -52,7 +52,7 @@ Azure CLI를 [로컬로 설치한](/cli/azure/install-azure-cli?view=azure-cli-l
     az login
     ```
 
-1. 다음으로 [az account get-access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) 명령을 사용 하 여 Azure Digital twins 서비스에 대 한 액세스 권한이 있는 전달자 토큰을 가져옵니다.
+1. 다음으로 [az account get-access-token](/cli/azure/account#az_account_get_access_token) 명령을 사용 하 여 Azure Digital twins 서비스에 대 한 액세스 권한이 있는 전달자 토큰을 가져옵니다.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
