@@ -6,12 +6,12 @@ author: cynthn
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 54f59a052132826897cfbc8dda59bc73fb6ad8d9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 65bf2dea6f3bc2e33ec10dc75b1678466401c10b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200569"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184477"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 
@@ -80,7 +80,7 @@ ms.locfileid: "98200569"
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {    
     if ($nic.Primary -eq "True")
     {

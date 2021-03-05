@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67565738"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184392"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Azure SignalR Service의 액세스 키를 회전하는 방법
 
@@ -27,15 +27,15 @@ ms.locfileid: "67565738"
 
 1. 다시 생성하려는 키가 있는 Azure SignalR Service 인스턴스의 **키** 섹션을 찾습니다.
 
-1. 탐색 메뉴에서 **키**를 선택합니다.
+1. 탐색 메뉴에서 **키** 를 선택합니다.
 
-1. **기본 키 다시 생성** 또는 **보조 키 다시 생성**을 선택합니다.
+1. **기본 키 다시 생성** 또는 **보조 키 다시 생성** 을 선택합니다.
 
    새 키와 해당 연결 문자열이 생성되어 표시됩니다.
 
    ![키 다시 생성](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-[Azure CLI](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew)를 사용하여 키를 다시 생성할 수도 있습니다.
+[Azure CLI](/cli/azure/signalr/key#az-signalr-key-renew)를 사용하여 키를 다시 생성할 수도 있습니다.
 
 ## <a name="update-configurations-with-new-connection-strings"></a>새 연결 문자열을 사용하여 구성 업데이트
 

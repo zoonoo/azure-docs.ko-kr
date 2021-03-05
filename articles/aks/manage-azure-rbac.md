@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 9d967884193ee228b67ab094059ce4e050f4c7ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ce8bc71139b52d690893734435e6bfee090062d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741245"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184375"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -27,7 +27,7 @@ Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>사전 요구 사항 
+### <a name="prerequisites"></a>전제 조건 
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - `aks-preview` [CLI 확장][az-extension-add] v 0.4.55 이상을 설치 했는지 확인 합니다.
@@ -113,7 +113,7 @@ Azure AD 통합 및 Azure RBAC for Kubernetes 권한 부여를 사용 하 여 �
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다.
 
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 판독기  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. `Secrets`비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount로 API 액세스를 허용 합니다 (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
@@ -284,5 +284,5 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-provider-register]: /cli/azure/provider#az-provider-register

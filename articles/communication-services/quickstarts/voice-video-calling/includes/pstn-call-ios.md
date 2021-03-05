@@ -4,15 +4,15 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 63fd0af819fde7d78df289a1b8f5cefa2e415101
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 80146b4da376f3a1d43bcecc89a4a335263ac5ad
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779628"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102194043"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -42,7 +42,7 @@ func startCall() {
         if granted {
             let startCallOptions = ACSStartCallOptions()
             startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
             self.callDelegate = CallDelegate(self)
             self.call!.delegate = self.callDelegate
         }
@@ -52,7 +52,7 @@ func startCall() {
 
 ## <a name="run-the-code"></a>코드 실행
 
-**제품** > **실행**을 선택하거나 (&#8984;-R) 키보드 단축키를 사용하여 iOS 시뮬레이터에서 앱을 빌드하고 실행할 수 있습니다.
+**제품** > **실행** 을 선택하거나 (&#8984;-R) 키보드 단축키를 사용하여 iOS 시뮬레이터에서 앱을 빌드하고 실행할 수 있습니다.
 
 ![빠른 시작 앱의 최종 모양과 느낌](../media/ios/quick-start-make-call.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000864"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184426"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
@@ -96,13 +96,13 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 
 모든 Load Balancer 규칙과 마찬가지로, 아웃바운드 규칙은 부하 분산 및 인바운드 NAT 규칙과 동일한 친숙한 구문을 따릅니다.
 
-***프런트 엔드 ip + 매개 변수 + 백 엔드 풀** _
+***프런트 엔드 Ip + 매개 변수 + 백 엔드 풀***
 
 아웃바운드 규칙은 백 엔드 풀에서 식별된 모든 가상 머신에 대한 아웃바운드 NAT를 프런트 엔드로 변환하도록 구성합니다. 그리고 매개 변수는 아웃바운드 NAT 알고리즘에 대해 세분화된 제어를 추가로 제공합니다.
 
 하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 SNAT 고갈 가능성이 높은 경향의 패턴을 완화할 수 있습니다. 프런트 엔드에서 제공 되는 각 추가 IP 주소는 Load Balancer에 대 한 64k 삭제 포트를 제공 하 여 SNAT 포트로 사용 합니다. 
 
-기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 _Standard * SKU 부하 분산 장치를 사용 하는 경우 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 Ip 수를 조정할 수 있습니다 **`load-balancer-managed-ip-count`** .
+기본적으로 생성 되는 관리 되는 아웃 바운드 공용 Ip를 사용 하 여 *표준* SKU 부하 분산 장치를 사용 하는 경우 매개 변수를 사용 하 여 관리 되는 아웃 바운드 공용 ip 수를 조정할 수 있습니다 **`load-balancer-managed-ip-count`** .
 
 기존 클러스터를 업데이트하려면 다음 명령을 실행합니다. 이 매개 변수는 클러스터를 만들 때 여러 개의 관리 아웃바운드 공용 IP를 갖도록 설정될 수도 있습니다.
 
@@ -233,7 +233,7 @@ az aks update \
 > [!IMPORTANT]
 > 연결 또는 크기 조정 문제를 방지 하려면 필요한 할당량을 계산 하 고 *allocatedOutboundPorts* 을 사용자 지정 하기 전에 [요구 사항을 확인][requirements] 해야 합니다.
 
-**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예들 들어 다음과 같습니다.
+**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -342,7 +342,7 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 ### <a name="steps"></a>단계
 1. 연결이 오랫동안 유휴 상태를 유지 하 고 해당 포트를 해제할 때 기본 유휴 시간 제한을 사용 하는지 확인 합니다. 그렇다면 시나리오에 대해 30 분의 기본 제한 시간을 줄여야 할 수 있습니다.
 2. 애플리케이션에서 아웃바운드 연결을 만드는 방법(예: 코드 검토 또는 패킷 캡처)을 조사합니다.
-3. 이 활동이 예상되는 동작인지, 아니면 애플리케이션이 잘못 작동하는지를 확인합니다. Azure Monitor [metrics](../load-balancer/load-balancer-standard-diagnostics.md) 에서 메트릭과 [로그](../load-balancer/load-balancer-monitor-log.md) 를 사용 하 여 결과를 substantiate. 예를 들어 SNAT 연결 메트릭에 "Failed" 범주를 사용 합니다.
+3. 이 활동이 예상되는 동작인지, 아니면 애플리케이션이 잘못 작동하는지를 확인합니다. Azure Monitor [](../load-balancer/load-balancer-standard-diagnostics.md) 에서 메트릭과 [로그](../load-balancer/load-balancer-monitor-log.md) 를 사용 하 여 결과를 substantiate. 예를 들어 SNAT 연결 메트릭에 "Failed" 범주를 사용 합니다.
 4. 적절 한 [패턴](#design-patterns) 을 준수 하는지 여부를 평가 합니다.
 5. [추가 아웃 바운드 IP 주소 + 추가 할당 된 아웃 바운드 포트](#configure-the-allocated-outbound-ports) 를 사용 하 여 SNAT 포트 소모를 완화 해야 하는지 평가 합니다.
 
@@ -403,17 +403,17 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
-[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-list
+[az-network-public-ip-show]: /cli/azure/network/public-ip#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md

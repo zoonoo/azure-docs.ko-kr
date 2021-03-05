@@ -6,12 +6,12 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: ea320938f3e4f3b2d257947f605bb3b3f6f0886a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ef32b8ff9282e92511047840576ddfe6751b24e0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786212"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184511"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -243,7 +243,7 @@ az webapp up
 
 앱 내부에서 생성되는 콘솔 로그와 앱이 실행되는 컨테이너에 액세스할 수 있습니다. 로그에는 `print` 문을 사용하여 생성된 모든 출력이 포함됩니다.
 
-로그를 스트리밍하려면 [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) 명령을 실행합니다.
+로그를 스트리밍하려면 [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) 명령을 실행합니다.
 
 ```azurecli
 az webapp log tail

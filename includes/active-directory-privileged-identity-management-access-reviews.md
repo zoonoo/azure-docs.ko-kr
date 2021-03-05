@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842297"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193620"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842297"
 
     - **선택한 사용자** - 액세스가 필요한 사용자를 알 수 없는 경우 이 옵션을 사용합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
     - **멤버(자신)** - 사용자에게 자신의 역할 할당을 검토하게 하려면 이 옵션을 사용합니다.
-    - **(미리 보기) 관리자** – 사용자의 관리자가 해당 역할 할당을 검토 하도록 하려면이 옵션을 사용 합니다. (미리 보기) 관리자를 선택 하면 대체 검토자를 지정 하는 옵션도 제공 됩니다. 사용자가 디렉터리에 관리자를 지정 하지 않은 경우 대체 검토자에 게 사용자를 검토 하 라는 메시지가 표시 됩니다.
+    - **관리자** –이 옵션을 사용 하 여 사용자의 관리자가 해당 역할 할당을 검토 하도록 합니다. 관리자를 선택 하면 대체 검토자를 지정 하는 옵션도 있습니다. 사용자가 디렉터리에 관리자를 지정 하지 않은 경우 대체 검토자에 게 사용자를 검토 하 라는 메시지가 표시 됩니다.
 
 ### <a name="upon-completion-settings"></a>완료 시 설정
 
