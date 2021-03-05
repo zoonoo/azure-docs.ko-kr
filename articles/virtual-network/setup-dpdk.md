@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 3b4d66525ec52ef2382dfbe97bc09278e35b31fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704421"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124672"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -58,7 +58,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
+가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. 관리 인터페이스에서 가속 네트워킹을 사용 하지 않는 것이 좋습니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
 
 ## <a name="install-dpdk-dependencies"></a>DPDK 종속성 설치
 

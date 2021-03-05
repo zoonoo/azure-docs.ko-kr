@@ -9,12 +9,12 @@ ms.subservice: security
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694124"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124655"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>신뢰할 수 있는 시작을 사용 하도록 설정 된 VM 배포 (미리 보기)
 
@@ -140,7 +140,7 @@ Azure Security Center를 사용 하 여 신뢰할 수 있는 시작 Vm에 대 �
 
 UEFI 보안 부팅을 위해 서명 해야 하는 경우도 있습니다.  예를 들어 Ubuntu 용 [보안 부팅에 대 한 항목을 서명 하는 방법을](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) 살펴보겠습니다. 이러한 경우, VM에 대해 MOK 유틸리티를 등록 하는 키를 입력 해야 합니다. 이렇게 하려면 Azure 직렬 콘솔을 사용 하 여 MOK 유틸리티에 액세스 해야 합니다.
 
-1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다. 자세한 내용은 [Linux 용 직렬 콘솔](serial-console-linux.md)을 참조 하세요.
+1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **가상 컴퓨터** 를 검색 하 고 목록에서 VM을 선택 합니다.
 1. 왼쪽 메뉴의 **지원 + 문제 해결** 에서 **직렬 콘솔** 를 선택 합니다. 페이지는 직렬 콘솔을 사용 하 여 오른쪽으로 열립니다.
