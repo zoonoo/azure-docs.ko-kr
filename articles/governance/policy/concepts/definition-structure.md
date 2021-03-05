@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699422"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215071"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -76,7 +76,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>Type
+## <a name="type"></a>형식
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -150,7 +150,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
   - `assignPermissions`: (선택 사항) 정책 할당 중에 Azure Portal에서 역할 할당을 만들도록 하려면 _true_ 로 설정합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당하려는 경우에 유용합니다. 정책에는 역할 정의 당 하나의 역할 할당 (또는 이니셔티브의 모든 정책에 있는 역할 별 정의)이 있습니다. 매개 변수 값은 유효한 리소스 또는 범위여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
   할당된 기존 정책 정의를 업데이트할 때 필요합니다.
-- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다.
+- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다. 허용 되는 값 비교는 대/소문자를 구분 합니다. 
 
 예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책 정의를 정의할 수 있습니다. 해당 정책 정의의 매개 변수는 **allowedLocations** 일 수 있습니다. 이 매개 변수는 정책 정의의 각 할당에서 허용되는 값을 제한하는 데 사용됩니다. **strongType** 을 사용하면 포털을 통해 할당을 완료할 때 경험이 개선됩니다.
 
@@ -908,7 +908,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 'normal' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 세트가 정의한 것과 정확히 같아야 하는(초과 또는 미만 없이) 정확한 일치 비교 시나리오를 위한 것입니다.
 
-**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 다음은 그 예입니다. 
+**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 예를 들면 다음과 같습니다.
 
 | Alias | 선택한 값 |
 |:---|:---|

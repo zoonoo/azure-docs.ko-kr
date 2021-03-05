@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f9b970f498db7530b35c57a75edeae55dec3f22d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 98ac373f0a9b46cbe51b60401fb83c5e910a96e8
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098846"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214952"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -58,7 +58,7 @@ Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산
 > 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 수천 개의 클러스터의 크기를 조정 하 고, 구독 또는 작업 영역을 나열 하도록 요청 하거나, 노드 간 통신을 사용 하지 않도록 설정할 수 있습니다. 
 
 
-## <a name="create"></a>만들기
+## <a name="create"></a>생성
 
 **예상 시간**: 약 5 분.
 
@@ -90,7 +90,7 @@ Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)를 참조하세요.
+자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)를 참조하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 

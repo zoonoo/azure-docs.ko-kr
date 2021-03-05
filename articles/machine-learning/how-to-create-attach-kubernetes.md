@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a4536f0dd40e1d0ee3a5ca75db9b111dcfa0ad6f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560461"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214901"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -93,7 +93,7 @@ AKS 클러스터를 만드는 이러한 메서드는 클러스터의 __기본__ 
 
 ### <a name="available-and-default-versions"></a>사용 가능한 버전 및 기본 버전
 
-사용 가능한 및 기본 AKS 버전을 찾으려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 명령 [az AKS](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions)를 사용 합니다. 예를 들어 다음 명령은 미국 서 부 지역에서 사용할 수 있는 버전을 반환 합니다.
+사용 가능한 및 기본 AKS 버전을 찾으려면 [Azure CLI](/cli/azure/install-azure-cli) 명령 [az AKS](/cli/azure/aks#az_aks_get_versions)를 사용 합니다. 예를 들어 다음 명령은 미국 서 부 지역에서 사용할 수 있는 버전을 반환 합니다.
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -198,7 +198,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-자세한 내용은 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -223,8 +223,8 @@ Azure 구독에 AKS 클러스터가 이미 있는 경우 작업 영역에서 사
 
 Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
-* [AKS 클러스터 만들기 (포털)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
+* [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [AKS 클러스터 만들기 (포털)](../aks/kubernetes-walkthrough-portal.md)
 * [AKS 클러스터 만들기 (Azure 빠른 시작 템플릿의 ARM 템플릿)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 다음 예제에서는 기존 AKS 클러스터를 작업 영역에 연결 하는 방법을 보여 줍니다.
@@ -275,7 +275,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-자세한 내용은 [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

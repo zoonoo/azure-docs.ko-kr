@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: da6285b7a4b12e65a82475fb53e972067e1c4fe4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097197"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214867"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -40,7 +40,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>만들기
+## <a name="create"></a>생성
 
 **예상 시간**: 약 5 분.
 
@@ -93,7 +93,7 @@ except ComputeTargetException:
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-자세한 내용은 [az ml computetarget create caeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference를 참조 하세요.
+자세한 내용은 [az ml computetarget create caeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference를 참조 하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -154,14 +154,14 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* 다시 시작
+* 재시작
 
     ```python
     # restart() is used to restart the ComputeInstance
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* 삭제
+* DELETE
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -178,7 +178,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)를 참조 하세요.
+    자세한 내용은 [az ml computetarget stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)를 참조 하세요.
 
 * 시작 
 
@@ -186,23 +186,23 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget start einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
+    자세한 내용은 [az ml computetarget start einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
 
-* 다시 시작 
+* 재시작 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
+    자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* 삭제
+* DELETE
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget delete einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조 하세요.
+    자세한 내용은 [az ml computetarget delete einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조 하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 

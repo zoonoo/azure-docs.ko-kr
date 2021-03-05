@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d8402f5e8a1a9af1f84ff6beff7324d1675e441
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705112"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214408"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에서 SMB를 통해 Azure AD 인증을 사용 하도록 설정 하려면 최신 CLI 버전 (버전 2.0.70 이상)을 설치 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
+Azure CLI에서 SMB를 통해 Azure AD 인증을 사용 하도록 설정 하려면 최신 CLI 버전 (버전 2.0.70 이상)을 설치 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
-새 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 호출 하 고 `--enable-files-aadds` 속성을 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능 사용에 대 한 매개 변수는 **file-aad** 입니다.
+새 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az-storage-account-create)를 호출 하 고 `--enable-files-aadds` 속성을 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능 사용에 대 한 매개 변수는 **file-aad** 입니다.
 
 ```azurecli-interactive
 # Create a new storage account

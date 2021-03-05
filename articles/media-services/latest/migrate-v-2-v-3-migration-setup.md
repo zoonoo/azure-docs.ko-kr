@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 779a52b44a5dc4e81dc7910da12c5cfb91c1c3ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f3be34c6488b977a0b03237025ba0f0ab1af7ec
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705384"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214459"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3 단계-V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
 
@@ -50,8 +50,8 @@ Azure Portal 사용 하 여 [환경을 설정](how-to-set-azure-subscription.md?
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>선택한 클라이언트 SDK를 다운로드 하 고 환경 설정
 
-- Sdk는 [.net](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .net Core, [Node.js](/javascript/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-node-latest), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-java-stable), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)및 [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)에 사용할 수 있습니다.
-- [Azure CLI](/cli/azure/ams?preserve-view=true&view=azure-cli-latest)   간단한 스크립팅 지원에 대 한 통합.
+- Sdk는 [.net](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .net Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)및 [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)에 사용할 수 있습니다.
+- [Azure CLI](/cli/azure/ams)   간단한 스크립팅 지원에 대 한 통합.
 
 > [!NOTE]
 > 더 이상 V3에서 커뮤니티 PHP SDK를 Azure Media Services 사용할 수 없습니다. V2에서 PHP를 사용 하는 경우 코드에서 직접 REST API로 마이그레이션해야 합니다.

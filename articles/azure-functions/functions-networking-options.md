@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729235"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215156"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -87,7 +87,7 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다.  이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다.  이 기능은 현재 Standard 및 Premium을 포함 하는 모든 Vnet 지원 sku에 대해서만 작동 합니다. 단,이 경우에는 Vnet을 Premium sku에만 사용할 수 있는 플렉스 스탬프를 제외 합니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 이 기능은 현재 Standard 및 Premium을 포함 하는 모든 가상 네트워크 지원 sku에 대해 작동 합니다. 단, Premium sku에 대해서만 가상 네트워크를 사용할 수 있는 플렉스 스탬프의 경우는 제외 됩니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
 
 1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
 1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.
@@ -96,7 +96,7 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
     * 개인 끝점 연결을 사용 하는 경우 저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
     * 서비스 끝점을 사용 하는 경우 저장소 계정에 대 한 함수 앱 전용 서브넷을 사용 하도록 설정 합니다.
-1. 필드 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
+1. 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
 1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
 1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
     - `AzureWebJobsStorage` 보안 저장소 계정에 대 한 연결 문자열입니다.

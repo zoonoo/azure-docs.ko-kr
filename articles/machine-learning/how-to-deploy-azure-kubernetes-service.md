@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 342ae2f590f4bf4ce88f64d6d545defff358ad72
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831733"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215224"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -24,7 +24,7 @@ Azure Machine Learning를 사용 하 여 AKS (Azure Kubernetes Service)에서 �
 
 - __빠른 응답 시간__
 - 배포 __된 서비스의 자동__ 크기 조정
-- __Logging__
+- __로깅__
 - __모델 데이터 수집__
 - __인증__
 - __TLS 종료__
@@ -92,7 +92,7 @@ Azureml-fe는 더 많은 코어를 사용 하도록 수직으로 확장 하 고 
 
 규모를 축소 하는 경우 CPU 사용량이 사용 됩니다. CPU 사용 임계값에 도달 하면 프런트 엔드는 먼저 축소 됩니다. CPU 사용량이 확장 임계값으로 떨어지면 확장 작업이 수행 됩니다. 규모를 확장 및 축소 하는 것은 사용 가능한 클러스터 리소스가 충분 한 경우에만 발생 합니다.
 
-## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>AKS 추론 클러스터에 대 한 연결 요구 사항 이해
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>AKS 추론 클러스터에 대한 연결 요구 사항 이해
 
 Azure Machine Learning에서 AKS 클러스터를 만들거나 연결할 때 AKS 클러스터는 다음 두 가지 네트워크 모델 중 하나를 사용 하 여 배포 됩니다.
 * Kubenet 네트워킹 - 네트워크 리소스는 일반적으로 AKS 클러스터가 배포될 때 만들어지고 구성됩니다.
@@ -184,7 +184,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -372,7 +372,7 @@ print(token)
 >
 > Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 이로 인해 작업 영역을 다시 사용할 수 있을 때까지 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터의 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
 >
-> 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
+> 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
 
 
 ### <a name="vulnerability-scanning"></a>취약성 검색

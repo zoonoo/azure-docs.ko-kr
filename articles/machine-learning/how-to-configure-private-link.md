@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 34b37fde83ca957e7c90302561589e2568beb59b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656808"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215054"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성
 
@@ -29,7 +29,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 >
 > Mozilla Firefox를 사용 하는 경우 작업 영역에 대 한 개인 끝점에 액세스 하는 동안 문제가 발생할 수 있습니다. 이 문제는 HTTPS를 통한 DNS와 관련 된 것일 수 있습니다. 해결 방법으로 Google Chrome의 Microsoft Edge를 사용 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 고객 관리 키를 사용 하 여 개인 링크를 사용 하도록 설정 된 작업 영역을 사용 하려는 경우 지원 티켓을 사용 하 여이 기능을 요청 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
@@ -66,7 +66,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) 명령을 제공 합니다. 이 명령에 대 한 다음 매개 변수를 사용 하 여 개인 네트워크가 있는 작업 영역을 만들 수 있지만 기존 가상 네트워크가 필요 합니다.
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create) 명령을 제공 합니다. 이 명령에 대 한 다음 매개 변수를 사용 하 여 개인 네트워크가 있는 작업 영역을 만들 수 있지만 기존 가상 네트워크가 필요 합니다.
 
 * `--pe-name`: 만든 개인 끝점의 이름입니다.
 * `--pe-auto-approval`: 작업 영역에 대 한 개인 끝점 연결을 자동으로 승인 해야 하는지 여부입니다.
@@ -116,7 +116,7 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) 명령을 제공 합니다.
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) 명령을 제공 합니다.
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
@@ -153,7 +153,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) 명령을 제공 합니다.
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) 명령을 제공 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -192,7 +192,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) 명령을 제공 합니다. 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 매개 변수를 추가 `--allow-public-access true` 합니다.
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update) 명령을 제공 합니다. 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 매개 변수를 추가 `--allow-public-access true` 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

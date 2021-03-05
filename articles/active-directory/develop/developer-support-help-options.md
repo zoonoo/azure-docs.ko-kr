@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ecbb7ec503011d78c2f83a76cea921e1cf438ac1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650110"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215105"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -36,7 +36,11 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ### <a name="scoped-search"></a>범위 지정 검색
 
+
+더 빠른 결과를 위해 자주 사용 하는 검색 엔진에서 다음 쿼리를 사용 하 여 [Microsoft Q&](https://docs.microsoft.com/answers/products/) 문서 및 코드 샘플을 검색 범위에 추가 합니다.
+
 더 빠른 결과를 위해 자주 사용 하는 검색 엔진에서 다음 쿼리를 사용 하 여 [Microsoft Q&](/answers/products/)문서 및 코드 샘플을 검색 범위에 추가 합니다.
+
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -57,7 +61,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 검색을 통해 질문에 대 한 답변을 찾을 수 없는 경우 [Microsoft Q&a](/answers/products/) 에 새 질문을 제출 합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | 태그 |
+|구성 요소/영역  | 태그들 |
 |---------|---------|
 | ADAL 라이브러리 | [adal](/answers/topics/azure-ad-adal-deprecation.html) |
 | MSAL 라이브러리     | [msal](/answers/topics/azure-ad-msal.html) |

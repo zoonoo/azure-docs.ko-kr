@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: f8ceacf88968d884de666b764c1037db9e63450f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986025"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214918"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "98986025"
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
+* CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
 * 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
 

@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dc23dec8a8d59a7762e93cdfaa2a39d824506e7b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2ff669d0ff3bde791de9bc7773e13d880762f898
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382126"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214425"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 Azure 파일 공유는 클라우드에 상주 하는 완전히 관리 되는 파일 공유입니다. 이 문서에서는 NFS 프로토콜을 사용 하는 파일 공유를 만드는 방법을 설명 합니다. 두 프로토콜에 대 한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조 하세요.
@@ -31,7 +31,7 @@ Azure 파일 공유는 클라우드에 상주 하는 완전히 관리 되는 파
     - [Azure Files와 함께 사용 하기 위해 사이트 간 VPN을 구성](storage-files-configure-s2s-vpn.md)합니다.
     - [Express](../../expressroute/expressroute-introduction.md)경로를 구성 합니다.
 
-- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
 
 ## <a name="register-the-nfs-41-protocol"></a>NFS 4.1 프로토콜 등록
 Azure PowerShell 모듈이 나 Azure CLI를 사용 하는 경우 다음 명령을 사용 하 여 기능을 등록 합니다.

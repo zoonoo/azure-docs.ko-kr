@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987994"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214748"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -177,7 +177,7 @@ QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-[최신 런타임 업데이트](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) 를 적용 하 여 서비스 업데이트를 자동으로 관리 합니다.
+[최신 런타임 업데이트](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) 를 적용 하 여 서비스 업데이트를 자동으로 관리 합니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
@@ -187,7 +187,7 @@ QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체�
 
 ### <a name="scaling-throughput-and-resiliency"></a>크기 조정, 처리량 및 복원 력
 
-크기 조정, 처리량 및 복원 력은 [Azure 리소스](../how-to/set-up-qnamaker-service-azure.md), 해당 가격 책정 계층 및 모든 주변 아키텍처 (예: [Traffic manager](../how-to/set-up-qnamaker-service-azure.md#business-continuity-with-traffic-manager))에 의해 결정 됩니다.
+크기 조정, 처리량 및 복원 력은 [Azure 리소스](../how-to/set-up-qnamaker-service-azure.md), 해당 가격 책정 계층 및 모든 주변 아키텍처 (예: [Traffic manager](../how-to/configure-QnA-Maker-resources.md#business-continuity-with-traffic-manager))에 의해 결정 됩니다.
 
 ### <a name="analytics-with-application-insights"></a>Application Insights 분석
 

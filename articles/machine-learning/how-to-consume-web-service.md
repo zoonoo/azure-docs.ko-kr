@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: dddecb3dba6d707e16241731a25df3b3749be103
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825417"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214986"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -77,7 +77,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-배포 된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) 명령을 사용 합니다.
+배포 된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) 명령을 사용 합니다.
 
 ```azurecli
 az ml service show -n <service-name>
@@ -91,7 +91,7 @@ Azure Machine Learning studio에서 __끝점__, __실시간 끝점__, 끝점 이
 
 다음 표에서는 이러한 Uri의 모양을 보여 줍니다.
 
-| URI 형식 | 예제 |
+| URI 형식 | 예 |
 | ----- | ----- |
 | 점수 매기기 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
@@ -677,7 +677,7 @@ Power BI에서는 Azure Machine Learning 웹 서비스를 사용 하 여 예측�
 
 Power BI에서 사용 하도록 지원 되는 웹 서비스를 생성 하려면 스키마가 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-웹 서비스가 배포되면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](/power-bi/service-machine-learning-integration).
+웹 서비스가 배포되면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용하는 방법을 알아봅니다](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>다음 단계
 
