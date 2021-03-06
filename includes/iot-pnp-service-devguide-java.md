@@ -4,22 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 70df45877a310d74e7c5c82292d18b1c0eb32da8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 33752c1ebb83c5d63e8e1cb396c52f01f07046cd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521419"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245069"
 ---
 다음 리소스도 사용할 수 있습니다.
 
-- [Java SDK 참조 설명서](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable)
+- [Java SDK 참조 설명서](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice)
 - [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)
 - [Digital Twins 샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples)
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
-이 섹션에서는 IoT Hub 서비스 클라이언트와 DeviceMethod의 **devicetwin** 및 **DeviceMethod** 클래스를 사용 하는 Java **com.microsoft.azure.sdk.iot.service.devicetwin** 예제를 보여 줍니다. 장치 쌍을 사용 하 여 장치 상태와 상호 작용 하는 데 **Devicetwin** 클래스를 사용 합니다. 또한 **Devicetwin** 클래스를 사용 하 여 IoT Hub에서 [장치 등록을 쿼리할](../articles/iot-hub/iot-hub-devguide-query-language.md) 수 있습니다. **DeviceMethod** 클래스를 사용 하 여 장치에서 명령을 호출 합니다. 장치의 [Dtdl](../articles/iot-pnp/concepts-digital-twin.md) 모델은 장치가 구현 하는 속성과 명령을 정의 합니다. 코드 조각에서 변수는 iot `deviceId` hub에 등록 된 iot 플러그 앤 플레이 장치의 장치 ID를 포함 합니다.
+이 섹션에서는 IoT Hub 서비스 클라이언트와 DeviceMethod의 **devicetwin** 및  클래스를 사용 하는 Java  예제를 보여 줍니다. 장치 쌍을 사용 하 여 장치 상태와 상호 작용 하는 데 **Devicetwin** 클래스를 사용 합니다. 또한 **Devicetwin** 클래스를 사용 하 여 IoT Hub에서 [장치 등록을 쿼리할](../articles/iot-hub/iot-hub-devguide-query-language.md) 수 있습니다. **DeviceMethod** 클래스를 사용 하 여 장치에서 명령을 호출 합니다. 장치의 [Dtdl](../articles/iot-pnp/concepts-digital-twin.md) 모델은 장치가 구현 하는 속성과 명령을 정의 합니다. 코드 조각에서 변수는 iot `deviceId` hub에 등록 된 iot 플러그 앤 플레이 장치의 장치 ID를 포함 합니다.
 
 ### <a name="get-the-device-twin-and-model-id"></a>장치 쌍 및 모델 ID 가져오기
 

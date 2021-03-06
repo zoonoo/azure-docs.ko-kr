@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: c1d1efce656bea02385cb20ac11ab90ca5664e60
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e61b6b9a09d759571029db4f01dd8f9d707ca518
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027509"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244879"
 ---
 열려 있는 [Azure Cloud Shell](https://shell.azure.com) 창에서 Azure Digital Twins 작업을 시작하려면 먼저 로그인하여 셸 컨텍스트를 이 세션에 대한 구독으로 설정합니다. Cloud Shell에서 다음 명령을 실행합니다.
 
@@ -27,7 +27,7 @@ Azure Digital Twins에서 이 구독을 처음 사용하는 경우 이 명령을
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-다음으로, [**Azure CLI용 Microsoft Azure IoT 확장**](/cli/azure/ext/azure-iot/iot?preserve-view=true&view=azure-cli-latest)을 Cloud Shell에 추가하여 Azure Digital Twins 및 기타 IoT 서비스와 상호 작용하는 명령을 사용하도록 설정합니다. 
+다음으로, [**Azure CLI용 Microsoft Azure IoT 확장**](/cli/azure/ext/azure-iot/iot)을 Cloud Shell에 추가하여 Azure Digital Twins 및 기타 IoT 서비스와 상호 작용하는 명령을 사용하도록 설정합니다. 
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
 

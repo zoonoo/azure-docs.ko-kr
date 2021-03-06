@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 551be1ace130c91d3b2a916cbf0c14c147ba08e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2bc9d5507bbdd45238b97d9684d3dc64b2ee1b9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012209"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245064"
 ---
 `myAppServicePlan` App Service 계획에서 [웹앱](../articles/app-service/overview.md#app-service-on-linux)을 만듭니다. 
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) 명령을 사용할 수 있습니다. 다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `NODE|6.9`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)를 실행합니다. 
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp) 명령을 사용할 수 있습니다. 다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `NODE|6.9`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes --linux`](/cli/azure/webapp)를 실행합니다. 
 
 ```azurecli-interactive
 # Bash

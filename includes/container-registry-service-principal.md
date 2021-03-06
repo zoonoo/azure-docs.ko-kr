@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 9e4f2e355240ba8682cbe9f86f2be94e7dd0d92d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d2b655e80f5b9694fb1948b136aac918312ca9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70032354"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244480"
 ---
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "70032354"
 
 다른 사용 권한을 부여하려는 경우 필요에 따라 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령에서 `--role` 값을 수정할 수 있습니다. 역할의 전체 목록은 [ACR 역할 및 권한](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md)을 참조하세요.
 
-스크립트를 실행한 후 서비스 주체의 **ID**와 **암호**를 기록해 둡니다. 자격 증명이 있으면 컨테이너 레지스트리를 서비스 주체로 인증하도록 애플리케이션과 서비스를 구성할 수 있습니다.
+스크립트를 실행한 후 서비스 주체의 **ID** 와 **암호** 를 기록해 둡니다. 자격 증명이 있으면 컨테이너 레지스트리를 서비스 주체로 인증하도록 애플리케이션과 서비스를 구성할 수 있습니다.
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
@@ -39,5 +39,5 @@ ms.locfileid: "70032354"
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create

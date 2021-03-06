@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: be170144fddeb1a69592f1714ec745d559665832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82982444"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244842"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Docker 사용 가상 컴퓨터 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "82982444"
 az group create --name $RESOURCE_GROUP --location $REGISTRY_LOCATION
 ```
 
-이제 [az vm create][az-vm-create]를 사용 하 여 기본 Ubuntu Azure virtual machine을 배포 합니다. 다음 예제에서는 *Mydockervm*이라는 vm을 만듭니다.
+이제 [az vm create][az-vm-create]를 사용 하 여 기본 Ubuntu Azure virtual machine을 배포 합니다. 다음 예제에서는 *Mydockervm* 이라는 vm을 만듭니다.
 
 ```azurecli
 VM_NAME=myDockerVM
@@ -38,7 +38,7 @@ VM을 만드는 데 몇 분 정도 걸립니다. 명령이 완료되면 Azure CL
 
 ### <a name="install-docker-on-the-vm"></a>VM에 Docker 설치
 
-VM이 실행된 후 VM에 SSH 연결을 만듭니다. *publicIpAddress*를 VM의 공용 IP 주소로 바꿉니다.
+VM이 실행된 후 VM에 SSH 연결을 만듭니다. *publicIpAddress* 를 VM의 공용 IP 주소로 바꿉니다.
 
 ```bash
 ssh azureuser@publicIpAddress
@@ -67,7 +67,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 예를 들면 다음과 같습니다.
+[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
