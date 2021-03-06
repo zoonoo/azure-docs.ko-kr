@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 652be939136139620f6ec024fe98463113c6fb4a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 61c034d6365909ca6255adcdc0c75e5a8ddd6cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692252"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.2 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB의 이점을 누릴 수 있습니다. 이러한 기능에는 [글로벌 배포](distribute-data-globally.md), [자동 분할](partitioning-overview.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 저장 데이터 암호화, 백업 등이 포함됩니다.
 
 > [!NOTE]
-> 이 문서는 Azure Cosmos DB의 API for MongoDB 3.2에 대한 것입니다. MongoDB 3.6 및 4.0 버전은 [MongoDB 3.6 지원 기능 및 구문](mongodb-feature-support-36.md) 및 [MongoDB 4.0 지원 기능 및 구문](mongodb-feature-support-40.md) 문서를 참조하세요.
+> Cosmos DB API for MongoDB 버전 3.2는 현재 EOL(수명 종료) 계획이 없습니다. 향후 EOL에 대한 최소 알림은 3년입니다.
 
 ## <a name="protocol-support"></a>프로토콜 지원
 

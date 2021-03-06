@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429605"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179224"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -181,9 +181,11 @@ JSON 요청 본문:
           "subnet": {
             "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
           },
-          "loadBalancerBackendAddressPools": {
-                                    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
-          }
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
+            }
+          ]
         }
       }
     ]
@@ -255,8 +257,16 @@ JSON 요청 본문:
 
 모든 백 엔드 풀 관리는 아래 예제에서 강조하듯이 백 엔드 풀 개체에서 직접 수행됩니다.
 
-  >[!IMPORTANT] 
-  >이 기능은 현재 미리 보기로 제공됩니다. 이 기능의 현재 제한 사항은 [제한 사항 섹션](#limitations)을 참조하세요.
+### <a name="limitations"></a>제한 사항
+IP 주소로 구성된 백 엔드 풀에는 다음과 같은 제한 사항이 있습니다.
+  * 표준 부하 분산 장치에만 사용할 수 있습니다.
+  * 백 엔드 풀의 IP 주소 100개 제한
+  * 백 엔드 리소스가 부하 분산 장치와 동일한 가상 네트워크에 있어야 함
+  * IP 기반 백 엔드 풀이 있는 Load Balancer는 Private Link 서비스로 작동할 수 없습니다.
+  * 이 기능은 현재 Azure Portal에서 지원되지 않음
+  * ACI 컨테이너는 현재 이 기능에서 지원되지 않습니다.
+  * 부하 분산 장치에서 제어되는 Load balancers 또는 서비스는 부하 분산 장치의 백 엔드 풀에 배치할 수 없습니다.
+  * 인바운드 NAT 규칙은 IP 주소로 지정할 수 없습니다.
 
 ### <a name="powershell"></a>PowerShell
 새 백 엔드 풀을 만듭니다.
@@ -517,17 +527,6 @@ JSON 요청 본문:
   }
 }
 ```
-
-## <a name="limitations"></a>제한 사항
-IP 주소로 구성된 백 엔드 풀에는 다음과 같은 제한 사항이 있습니다.
-  * 표준 부하 분산 장치만 해당
-  * 백 엔드 풀의 IP 주소 100개 제한
-  * 백 엔드 리소스가 부하 분산 장치와 동일한 가상 네트워크에 있어야 함
-  * IP 기반 백 엔드 풀이 있는 Load Balancer는 Private Link 서비스로 작동할 수 없습니다.
-  * 이 기능은 현재 Azure Portal에서 지원되지 않음
-  * ACI 컨테이너는 현재 이 기능에서 지원되지 않습니다.
-  * 부하 분산 장치에서 제어되는 Load balancers 또는 서비스는 부하 분산 장치의 백 엔드 풀에 배치할 수 없습니다.
-  * 인바운드 NAT 규칙은 IP 주소로 지정할 수 없습니다.
   
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Load Balancer 백 엔드 풀 관리 및 IP 주소 및 가상 네트워크를 통해 백 엔드 풀을 구성하는 방법에 대해 알아보았습니다.

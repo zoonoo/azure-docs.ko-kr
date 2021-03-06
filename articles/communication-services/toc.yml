@@ -38,6 +38,8 @@
       items:
         - name: 앱에 음성 통화 추가
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: 영상 통화를 앱에 추가(JavaScript)
+          href: quickstarts/voice-video-calling/get-started-with-video-calling.md
         - name: 통화 클라이언트 라이브러리 사용
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: 통화 앱으로 Teams 미팅 참가
