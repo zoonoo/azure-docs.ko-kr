@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: b1de1a24a506c049782443e4d32039c28fece436
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718253"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219043"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -140,7 +140,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ---
 
     > [!NOTE]
-    > **사용자 할당 관리 id** 를 사용 하려는 경우 [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true)를 만들 때 clientId를 지정 해야 합니다.
+    > **사용자 할당 관리 id** 를 사용 하려는 경우 [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential)를 만들 때 clientId를 지정 해야 합니다.
     >```
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));

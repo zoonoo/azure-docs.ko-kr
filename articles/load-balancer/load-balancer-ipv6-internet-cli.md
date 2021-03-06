@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 714fb92e8757fed6e11a09528b60cda3e945175e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696866"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218896"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -58,7 +58,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 이 예제의 PowerShell 명령 창에서 Azure CLI 도구를 실행합니다. 가독성 및 재사용을 개선하기 위해 Azure PowerShell cmdlet이 아닌 PowerShell의 스크립팅 기능을 사용합니다.
 
-1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli?view=azure-cli-latest)하고 Azure 계정에 로그인합니다.
+1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli)하고 Azure 계정에 로그인합니다.
 
 2. Azure CLI 명령과 함께 사용할 PowerShell 변수를 설정합니다.
 

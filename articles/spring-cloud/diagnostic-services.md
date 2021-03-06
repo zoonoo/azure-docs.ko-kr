@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585210"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218794"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -27,7 +27,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 모니터링할 로그 범주 및 메트릭 범주를 선택 합니다.
 
 > [!TIP]
-> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
+> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
 
 ## <a name="logs"></a>로그
 

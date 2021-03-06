@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2f57e801720c6b546a58b216422629d192e8d2e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843318"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218641"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리 HSM에 저장 된 고객 관리 키를 사용 하 여 암호화 구성 (미리 보기)
 
@@ -24,7 +24,10 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 이 문서에서는 Azure CLI를 사용 하 여 관리 되는 HSM에 저장 된 고객 관리 키를 사용 하 여 암호화를 구성 하는 방법을 보여 줍니다. 키 자격 증명 모음에 저장 된 고객 관리 키를 사용 하 여 암호화를 구성 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 저장 된 고객이 관리 하는 키로 암호화 구성](customer-managed-keys-configure-key-vault.md)을 참조 하세요.
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Azure Key Vault 관리 되는 HSM에 저장 된 고객이 관리 하는 키로 암호화는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+>
 > Azure Key Vault 및 Azure Key Vault 관리 HSM은 구성에 대해 동일한 Api 및 관리 인터페이스를 지원 합니다.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>저장소 계정에 id 할당

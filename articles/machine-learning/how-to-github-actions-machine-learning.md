@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880477"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218284"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 
@@ -55,7 +55,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: cb034c42ceee870ed7be72eb5ff7d29c42b72f36
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183593"
+ms.locfileid: "102219066"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "102183593"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -171,7 +171,7 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](../vpn-gatew
 
     * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
-    * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
+    * [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"

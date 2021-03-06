@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838673"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219202"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 대해 [다시 부팅](#reboot) 및 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법에 대해 설명합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "91838673"
 
 ![다시 부팅 메뉴 옵션을 강조 표시 하는 스크린샷](./media/cache-administration/redis-cache-administration-reboot.png)
 
-다시 부팅할 노드를 선택하고 **다시 부팅**을 클릭합니다.
+다시 부팅할 노드를 선택하고 **다시 부팅** 을 클릭합니다.
 
 ![다시 부팅할 수 있는 노드를 보여 주는 스크린샷](./media/cache-administration/redis-cache-reboot.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "91838673"
 
 ![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 원하는 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
+하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅** 을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 원하는 분할을 선택하고 **다시 부팅** 을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
 클라이언트 애플리케이션에 미치는 영향은 다시 부팅하는 노드에 따라 달라집니다.
 
@@ -57,6 +57,8 @@ ms.locfileid: "91838673"
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>다시 부팅하는 경우 캐시의 데이터가 손실되나요?
 **마스터** 및 복제 노드를 모두 다시 부팅 하는 경우 캐시의 모든 데이터 (또는 클러스터링이 설정 된 프리미엄 캐시를 사용 하는 경우 해당 분할 된 **데이터베이스** )는 손실 될 수 있지만이는 보장 되지 않습니다. [데이터 지속성](cache-how-to-premium-persistence.md)을 구성한 경우 캐시가 다시 온라인 상태가 되면 가장 최근의 백업을 복원하지만 수행된 백업이 손실된 후에 발생한 캐시가 작성됩니다.
 
@@ -69,12 +71,13 @@ ms.locfileid: "91838673"
 **업데이트 예약** 블레이드를 사용 하 여 캐시 인스턴스에 대 한 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간을 사용 하 여 캐시를 호스트 하는 VM을 업데이트할 수 있는 요일 및 시간을 제어할 수 있습니다. Redis 용 Azure Cache는 정의 하는 지정 된 기간 내에 Redis 서버 소프트웨어 업데이트를 시작 하 고 완료 하는 데 가장 적합 합니다.
 
 > [!NOTE] 
-> 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.
+> 유지 관리 기간은 Redis 서버 업데이트 및 캐시를 호스트 하는 Vm의 운영 체제에 대 한 업데이트에 적용 됩니다. 유지 관리 기간은 캐시 Vm 또는 다른 Azure 네트워킹 구성 요소를 호스트 하는 호스트에 OS 업데이트를 호스트 하는 데에는 적용 되지 않습니다. 드문 경우 지만 캐시가 이전 모델에서 호스트 되는 경우 (캐시의 DNS 이름이 "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" 또는 "cloudapi.de"의 접미사로 확인 될 때 캐시가 이전 모델에 있는지 확인할 수 있음) 유지 관리 기간이 게스트 OS 업데이트에 적용 되지 않습니다.
 >
+
 
 ![업데이트를 예약](./media/cache-administration/redis-schedule-updates.png)
 
-유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
+유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인** 을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
 업데이트를 위한 기본 및 최소 유지 관리 기간은 5시간입니다. 이 값은 Azure Portal에서는 구성할 수 없지만 PowerShell에서 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?를 참조하세요.
 

@@ -10,18 +10,18 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: f955ee3f8bc150982c19107271fe7e7bdb1368cb
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: cd8bef53bb8f7c42aa6dbd0bc1e1c67400b8f2a0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824570"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219083"
 ---
 # <a name="update-a-deployed-web-service"></a>배포 된 웹 서비스 업데이트
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 된 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Machine Learning를 사용 하 여 웹 서비스를 이미 배포 했다고 가정 합니다. 웹 서비스를 배포 하는 방법을 알아야 하는 경우 [다음 단계를 수행](how-to-deploy-and-where.md)합니다.
 
@@ -86,7 +86,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > 새 항목 스크립트나 환경을 사용 하도록 서비스를 업데이트 하려면 [유추 구성 파일](./reference-azure-machine-learning-cli.md#inference-configuration-schema) 을 만들고 매개 변수를 사용 하 여 지정 `ic` 합니다.
 
-자세한 내용은 [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) 설명서를 참조 하세요.
+자세한 내용은 [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update) 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

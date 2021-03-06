@@ -5,17 +5,17 @@ description: 사용자 고유의 암호화 키를 사용 하 여 저장소 계�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/15/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179034"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218573"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
 
@@ -25,7 +25,10 @@ Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 �
 
 Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](../../key-vault/general/overview.md)를 참조 하세요.
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Azure Key Vault 관리 되는 HSM에 저장 된 고객이 관리 하는 키로 암호화는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+>
 > Azure Key Vault 및 Azure Key Vault 관리 HSM은 구성에 대해 동일한 Api 및 관리 인터페이스를 지원 합니다.
 
 ## <a name="about-customer-managed-keys"></a>고객 관리형 키 정보

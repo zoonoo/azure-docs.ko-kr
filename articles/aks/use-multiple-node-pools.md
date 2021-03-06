@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182862"
+ms.locfileid: "102218488"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -130,9 +130,11 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 #### <a name="limitations"></a>제한 사항
 
 * Nodepools에 할당 된 모든 서브넷은 동일한 가상 네트워크에 속해야 합니다.
-* 시스템 pod는 coreDNS를 통한 DNS 확인과 같은 중요 한 기능을 제공 하기 위해 클러스터의 모든 노드에 대 한 액세스 권한이 있어야 합니다.
-* 노드 풀 당 고유한 서브넷 할당은 미리 보기 중에 Azure CNI로 제한 됩니다.
-* 미리 보기 중에는 노드 풀 당 고유한 서브넷이 있는 네트워크 정책을 사용할 수 없습니다.
+* 시스템 pod는 클러스터의 모든 노드/pod에 대 한 액세스 권한이 있어야 DNS 확인 및 터널링 kubectl logs/exec/포트 전달 프록시와 같은 중요 한 기능을 제공 합니다.
+* 클러스터를 만든 후 VNET을 확장 하는 경우 원래 cidr 외부에 서브넷을 추가 하기 전에 클러스터를 업데이트 해야 합니다 (관리 되는 clster 작업을 수행 하지만 노드 풀 작업은 계산 하지 않음). AKS는 처음에 허용 했지만 에이전트 풀에서 오류를 추가 합니다. 클러스터 파일을 조정 하는 방법을 모르는 경우 지원 티켓. 
+* Calico 네트워크 정책은 지원 되지 않습니다. 
+* Azure 네트워크 정책은 지원 되지 않습니다.
+* Kube-proxy는 단일 연속 cidr을 예상 하 고이를 세 가지 optmizations에 사용 합니다. 이 [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) 를 참조 하세요. 및-- [여기](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) 에서 자세한 내용을 확인 하세요. Azure cni에서 첫 번째 노드 풀의 서브넷이 kube에 제공 됩니다. 
 
 전용 서브넷을 사용 하 여 노드 풀을 만들려면 노드 풀을 만들 때 서브넷 리소스 ID를 추가 매개 변수로 전달 합니다.
 

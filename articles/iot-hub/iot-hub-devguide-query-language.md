@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147661"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218369"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -82,7 +82,7 @@ IoT Hub는 [장치](iot-hub-devguide-device-twins.md)쌍, [모듈](iot-hub-devgu
 
 ### <a name="device-twin-queries"></a>디바이스 쌍 쿼리
 
-IoT Hub는 **devices**라는 문서 컬렉션으로 디바이스 쌍을 노출합니다. 예를 들어 다음 쿼리는 디바이스 쌍 전체 집합을 검색합니다.
+IoT Hub는 **devices** 라는 문서 컬렉션으로 디바이스 쌍을 노출합니다. 예를 들어 다음 쿼리는 디바이스 쌍 전체 집합을 검색합니다.
 
 ```sql
 SELECT * FROM devices
@@ -91,7 +91,7 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md)는 큰 결과에 대한 페이징을 지원합니다.
 
-IoT Hub는 임의의 조건으로 디바이스 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US**로 설정된 디바이스 쌍을 받으려면 다음 쿼리를 사용합니다.
+IoT Hub는 임의의 조건으로 디바이스 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US** 로 설정된 디바이스 쌍을 받으려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices
@@ -106,7 +106,7 @@ SELECT * FROM devices
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어 WiFi 또는 유선 연결을 보고하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
+편의를 위해 **IN** 및 **NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어 WiFi 또는 유선 연결을 보고하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices
@@ -160,7 +160,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>모듈 쌍 쿼리
 
-모듈 쌍에 대 한 쿼리는 장치 쌍을 쿼리 하는 것과 유사 하지만 다른 컬렉션/네임 스페이스를 사용 합니다. **장치에서 대신**장치에서 쿼리 **합니다. 모듈**:
+모듈 쌍에 대 한 쿼리는 장치 쌍을 쿼리 하는 것과 유사 하지만 다른 컬렉션/네임 스페이스를 사용 합니다. **장치에서 대신** 장치에서 쿼리 **합니다. 모듈**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -234,13 +234,13 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 ### <a name="limitations"></a>제한 사항
 
 > [!IMPORTANT]
-> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 장치 쌍을 쿼리 하는 경우 [get 쌍 REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable)를 사용 합니다. 이 API는 항상 최신 값을 반환 하며 제한 한도가 높습니다. REST API를 직접 발급 하거나 [Azure IoT Hub 서비스 sdk](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나에서 해당 기능을 사용할 수 있습니다.
+> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 장치 쌍을 쿼리 하는 경우 [get 쌍 REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin)를 사용 합니다. 이 API는 항상 최신 값을 반환 하며 제한 한도가 높습니다. REST API를 직접 발급 하거나 [Azure IoT Hub 서비스 sdk](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나에서 해당 기능을 사용할 수 있습니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
 
-[작업](iot-hub-devguide-jobs.md)은 디바이스 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 디바이스 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
+[작업](iot-hub-devguide-jobs.md)은 디바이스 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 디바이스 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs** 라는 컬렉션에 속합니다.
 
 ```json
 {
@@ -271,7 +271,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 }
 ```
 
-현재 이 컬렉션은 IoT Hub 쿼리 언어를 사용하여 **devices.jobs**로 쿼리할 수 있습니다.
+현재 이 컬렉션은 IoT Hub 쿼리 언어를 사용하여 **devices.jobs** 로 쿼리할 수 있습니다.
 
 > [!IMPORTANT]
 > 현재 jobs 속성은 디바이스 쌍을 쿼리하는 경우에는 반환되지 않습니다. ‘FROM devices’를 포함하는 쿼리가 여기에 해당합니다. 작업 속성은 `FROM devices.jobs`를 사용하여 쿼리를 통해서만 직접 액세스할 수 있습니다.
@@ -308,7 +308,7 @@ SELECT * FROM devices.jobs
 
 ### <a name="limitations"></a>제한 사항
 
-현재 **devices.jobs**에 대한 쿼리는 다음을 지원하지 않습니다.
+현재 **devices.jobs** 에 대한 쿼리는 다음을 지원하지 않습니다.
 
 * 프로젝션(따라서 `SELECT *`만 가능)
 * 작업 속성 외에 디바이스 쌍을 참조하는 조건(앞 섹션 참조)
@@ -316,7 +316,7 @@ SELECT * FROM devices.jobs
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 
-모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복 되는 문서 컬렉션 (**장치**, **장치, 모듈**또는 **devices.jobs**)을 나타냅니다. 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
+모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복 되는 문서 컬렉션 (**장치**, **장치, 모듈** 또는 **devices.jobs**)을 나타냅니다. 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
@@ -362,7 +362,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 일부 예제는 디바이스 쌍 쿼리 시작 섹션에서 확인할 수 있습니다.
+**Attribute_name** 은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 일부 예제는 디바이스 쌍 쿼리 시작 섹션에서 확인할 수 있습니다.
 
 현재 **SELECT***와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
@@ -388,7 +388,7 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다.
+**Attribute_name** 은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다.
 
 현재 GROUP BY 절은 디바이스 쌍을 쿼리하는 경우에만 지원됩니다.
 
@@ -398,12 +398,12 @@ GROUP BY <group_by_element>
 
 ## <a name="expressions-and-conditions"></a>식 및 조건
 
-높은 수준에서 *식*은:
+높은 수준에서 *식* 은:
 
 * JSON 형식(예: 부울, 숫자, 문자열, 배열 또는 개체)의 인스턴스로 평가됩니다.
 * 기본 제공되는 연산자와 함수를 사용하여 상수 및 디바이스 JSON 문서에서 오는 조작 데이터에 의해 정의됩니다.
 
-*조건*은 부울 값으로 평가되는 식입니다. 부울 **true**와는 다른 상수는 **false**로 간주됩니다. 이 규칙에는 **null**, **정의되지 않음**, 개체 또는 배열 인스턴스, 문자열 및 부울 **false**가 포함됩니다.
+*조건* 은 부울 값으로 평가되는 식입니다. 부울 **true** 와는 다른 상수는 **false** 로 간주됩니다. 이 규칙에는 **null**, **정의되지 않음**, 개체 또는 배열 인스턴스, 문자열 및 부울 **false** 가 포함됩니다.
 
 식에 대한 구문:
 
@@ -458,13 +458,13 @@ GROUP BY <group_by_element>
 
 쌍과 작업을 쿼리할 때 지원되는 유일한 함수는 다음과 같습니다.
 
-| 함수 | Description |
+| 함수 | 설명 |
 | -------- | ----------- |
 | IS_DEFINED(속성) | 속성에 값(`null` 포함)이 할당되었는지 여부를 나타내는 부울 값을 반환합니다. |
 
 경로 조건에서 지원되는 수학 함수는 다음과 같습니다.
 
-| 함수 | Description |
+| 함수 | 설명 |
 | -------- | ----------- |
 | ABS(x) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
 | EXP(x) | 지정한 숫자 식(e^x)의 지수 값을 반환합니다. |
@@ -477,7 +477,7 @@ GROUP BY <group_by_element>
 
 경로 조건에서 지원되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 함수 | Description |
+| 함수 | 설명 |
 | -------- | ----------- |
 | AS_NUMBER | 입력 문자열을 숫자로 변환합니다. 입력이 숫자이면 `noop`이고, 문자열이 숫자를 나타내지 않으면 `Undefined`입니다.|
 | IS_ARRAY | 지정한 식의 형식이 배열인지 여부를 나타내는 부울 값을 반환합니다. |
@@ -491,7 +491,7 @@ GROUP BY <group_by_element>
 
 경로 조건에서 지원되는 문자열 함수는 다음과 같습니다.
 
-| 함수 | Description |
+| 함수 | 설명 |
 | -------- | ----------- |
 | CONCAT(x, y, …) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
 | LENGTH(x) | 지정한 문자열 식의 문자 수를 반환합니다.|

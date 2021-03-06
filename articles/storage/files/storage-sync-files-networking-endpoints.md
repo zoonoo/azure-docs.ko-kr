@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201603"
+ms.locfileid: "102218607"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -34,7 +34,7 @@ Azure Files와 Azure 파일 동기화에서 모두 Azure 관리 개체, 스토�
 
 또한 다음 작업도 수행해야 합니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
-- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
 
 ## <a name="create-the-private-endpoints"></a>프라이빗 엔드포인트 만들기
 Azure 리소스의 프라이빗 엔드포인트를 만들 때 배포되는 리소스는 다음과 같습니다.

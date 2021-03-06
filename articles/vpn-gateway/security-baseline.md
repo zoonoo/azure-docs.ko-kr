@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb3aeb732166537dd4aa98acad0c4dfa5788a8ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0f1dcb82c3a8d3819e8d316ef8efe2e3256e3db4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732397"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218998"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN Gateway에 대 한 Azure 보안 기준
 
@@ -412,7 +412,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [VPN gateway에 대 한 Azure CLI](/cli/azure/network/vnet-gateway?view=azure-cli-latest)
+- [VPN gateway에 대 한 Azure CLI](/cli/azure/network/vnet-gateway)
 
 - [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 

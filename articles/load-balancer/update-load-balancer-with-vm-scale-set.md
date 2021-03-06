@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721313"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218726"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>가상 머신 확장 집합에서 사용 하는 부하 분산 장치 업데이트 또는 삭제
 
@@ -30,7 +30,7 @@ Virtual machine scale sets 및 Azure Load Balancer 인스턴스로 작업 하는
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 확장 하기 위한 부하 분산 장치 설정
 
-Azure Load Balancer 인스턴스에 [인바운드 NAT 풀](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) 을 설정 하 고 가상 머신 확장 집합이 부하 분산 장치의 백 엔드 풀에 배치 되어 있는지 확인 합니다. 새 가상 머신 인스턴스가 가상 머신 확장 집합에 추가 되 면 Load Balancer에서 인바운드 NAT 풀에 새 인바운드 NAT 규칙을 자동으로 만듭니다.
+Azure Load Balancer 인스턴스에 [인바운드 NAT 풀](/cli/azure/network/lb/inbound-nat-pool) 을 설정 하 고 가상 머신 확장 집합이 부하 분산 장치의 백 엔드 풀에 배치 되어 있는지 확인 합니다. 새 가상 머신 인스턴스가 가상 머신 확장 집합에 추가 되 면 Load Balancer에서 인바운드 NAT 풀에 새 인바운드 NAT 규칙을 자동으로 만듭니다.
 
 인바운드 NAT 풀이 올바르게 설정 되었는지 확인 하려면:
 
@@ -44,7 +44,7 @@ Azure Load Balancer 인스턴스에 [인바운드 NAT 풀](/cli/azure/network/lb
 
 가상 머신 확장 집합에 대 한 인바운드 NAT 규칙의 전체 집합을 추가 하려면 먼저 부하 분산 장치에 인바운드 NAT 풀을 만듭니다. 그런 다음 가상 머신 확장 집합의 네트워크 프로필에서 인바운드 NAT 풀을 참조 합니다. CLI를 사용 하는 전체 예제가 나와 있습니다.
 
-새 인바운드 NAT 풀에는 기존 인바운드 NAT 풀과 겹치는 프런트 엔드 포트 범위가 없어야 합니다. 설정 된 기존 인바운드 NAT 풀을 보려면 다음 [CLI 명령을](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)사용 합니다.
+새 인바운드 NAT 풀에는 기존 인바운드 NAT 풀과 겹치는 프런트 엔드 포트 범위가 없어야 합니다. 설정 된 기존 인바운드 NAT 풀을 보려면 다음 [CLI 명령을](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list)사용 합니다.
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
