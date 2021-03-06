@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
-ms.openlocfilehash: 8679e3d2fc2459e5775c525a0d5dadd4ba42ebb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+author: fvneerden
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742896"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124417"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -327,7 +327,8 @@ gRPC 확장 프로세서 노드는 Intel OpenVINO™ DL Streamer – Edge AI Ext
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] 템플릿을 복사하고 가능한 파이프라인마다 새 이름으로 저장합니다. 이렇게 하면 이러한 템플릿 중 하나를 기반으로 새 배포를 만들어서 모델 간에 전환할 수 있습니다.
+> [!TIP]
+> 템플릿을 복사하고 가능한 파이프라인마다 새 이름으로 저장합니다. 이렇게 하면 이러한 템플릿 중 하나를 기반으로 새 배포를 만들어서 모델 간에 전환할 수 있습니다.
 
 변수를 변경한 후에는 템플릿을 다시 디바이스에 배포할 수 있습니다. 이제 위의 단계를 반복하여 샘플 프로그램을 새 토폴로지로 다시 실행할 수 있습니다. 유추 결과의 스키마는 비슷하지만 선택한 파이프라인 모델에 따라 표시되는 정보가 더 많거나 더 적을 수 있습니다.
 
