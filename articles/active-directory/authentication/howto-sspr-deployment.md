@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173939"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424124"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -78,6 +78,7 @@ Azure Active Directory는 사용자별로 사용이 허가 됩니다. 즉, 각 �
 | 동영상| [더 나은 IT 확장성으로 사용자 역량 강화](https://youtu.be/g9RpRnylxS8) 
 | |[셀프 서비스 암호 재설정이란?](https://youtu.be/hc97Yx5PJiM)|
 | |[셀프 서비스 암호 재설정 배포](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Azure AD에서 SSPR을 사용 하도록 설정 하 고 구성 하는 방법](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Azure AD에서 사용자에 대해 셀프 서비스 암호 재설정을 구성하는 방법](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Azure Active Directory에 대한 보안 정보를 등록하는[등록하도록 사용자가 준비하는] 방법](https://youtu.be/gXuh0XS18wA) |
 | 온라인 과정|[Microsoft Azure Active Directory에서 ID 관리](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) SSPR을 사용하여 사용자에게 안전한 최신 환경을 제공할 수 있습니다. 특히 "[Azure Active Directory 사용자 및 그룹 관리](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" 모듈을 참조하세요. |
@@ -119,7 +120,7 @@ Microsoft는 조직이 SSPR 및 다단계 인증을 위한 결합된 등록 환�
 
 ## <a name="plan-the-deployment-project"></a>배포 프로젝트 계획
 
-사용하는 환경에서 이 배포에 대한 전략을 결정하는 동안 조직의 요구 사항을 고려하세요.
+사용자 환경에서 이 배포에 대한 전략을 결정하는 동안 조직의 요구 사항을 고려합니다.
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 98260b909514febf80ea6a1a33b0f9e3d2d1446b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526469"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431893"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "99526469"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -412,111 +412,6 @@ Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원 되지 않습니다. 이 모델은 최상의 모델로 반환 되 고 주문형 설명 실행을 지원 하지 않는 경우 설명 대시보드를 반환 하지 않습니다.
 
-## <a name="troubleshooting"></a>문제 해결
-
-* 최신 **`AutoML` 버전에 대 한 종속성의 최근 업그레이드는 호환성이 중단** 됩니다. SDK 버전 1.13.0 이전 패키지에 고정 된 이전 버전의 비 호환성으로 인해 이전 sdk에서 모델이 로드 되지 않고, 지금 고정 된 최신 버전입니다. 다음과 같은 오류가 표시 됩니다.
-  * 모듈을 찾을 수 없음: 예. `No module named 'sklearn.decomposition._truncated_svd` ,
-  * 가져오기 오류: 예: `ImportError: cannot import name 'RollingOriginValidator'` ,
-  * 특성 오류: 예. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
-  
-  이 문제를 해결 하려면 SDK 교육 버전에 따라 다음 두 단계 중 하나를 수행 합니다 `AutoML` .
-    * `AutoML`SDK 교육 버전이 1.13.0 보다 큰 경우 및가 필요 `pandas == 0.25.1` `scikit-learn==0.22.1` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 업그레이드 합니다.
-      
-      ```bash
-         pip install --upgrade pandas==0.25.1
-         pip install --upgrade scikit-learn==0.22.1
-      ```
-      
-    * `AutoML`SDK 교육 버전이 1.12.0 보다 작거나 같은 경우 및가 필요 `pandas == 0.23.4` `sckit-learn==0.20.3` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 다운 그레이드 합니다.
-  
-      ```bash
-        pip install --upgrade pandas==0.23.4
-        pip install --upgrade scikit-learn==0.20.3
-      ```
-
-* **실패 한 배포**: SDK의 버전 <= 1.18.0 인 경우 배포를 위해 생성 된 기본 이미지가 실패 하 고 "ImportError: 이름을 가져올 수 없습니다. `cached_property` " 라는 오류 메시지가 나타납니다 `werkzeug` . 
-
-  다음 단계를 통해이 문제를 해결할 수 있습니다.
-  1. 모델 패키지 다운로드
-  2. 패키지 압축 풀기
-  3. 압축을 푼 자산을 사용 하 여 배포
-
-* **예측 R2 점수는 항상 0입니다**. 제공 된 학습 데이터에 마지막 `n_cv_splits`  +  데이터 요소에 대해 동일한 값을 포함 하는 시계열이 있는 경우이 문제가 발생 `forecasting_horizon` 합니다. 시계열에서이 패턴이 예상 되는 경우 기본 메트릭을 정규화 된 근본 제곱 오차로 전환할 수 있습니다.
- 
-* **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 
- 
-   ```python
-   from azureml.core.runconfig import RunConfiguration
-   from azureml.core.conda_dependencies import CondaDependencies
-   run_config = RunConfiguration()
-   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
-  ```
-
-* **실험 차트**: 자동화 된 ML 실험 반복에 표시 되는 이진 분류 차트 (정밀도-리콜, ROC, 게인 곡선 등)는 4/12 이후 사용자 인터페이스에서 올바르게 렌더링 되지 않습니다. 차트 플롯에는 현재 더 낮은 결과가 포함 된 모델을 더 잘 수행 하는 역 결과가 표시 됩니다. 확인 중입니다.
-
-* Databricks에서 자동화 된 machine learning **실행 취소**: Azure Databricks에서 자동화 된 machine learning 기능을 사용 하는 경우 실행을 취소 하 고 새 실험 실행을 시작 하려면 Azure Databricks 클러스터를 다시 시작 합니다.
-
-* **자동화 된 machine learning에 대 한 Databricks >10 회 반복**: 자동화 된 기계 학습 설정에서 10 개 이상의 반복이 있는 경우 `show_output` 실행을 제출할 때를로 설정 `False` 합니다.
-
-* **AZURE MACHINE LEARNING sdk 및 자동화 된 기계 학습을 위한 Databricks 위젯**: Azure Machine Learning SDK 위젯은 Databricks 노트북에서 HTML 위젯을 구문 분석할 수 없기 때문에 지원 되지 않습니다. Azure Databricks 노트북 셀에서이 Python 코드를 사용 하 여 포털에서 위젯을 볼 수 있습니다.
-
-    ```
-    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
-    ```
-* **automl_setup 실패**: 
-    * Windows에서는 Anaconda 프롬프트에서 automl_setup를 실행 합니다. 이 링크를 사용 하 여 [Miniconda를 설치](https://docs.conda.io/en/latest/miniconda.html)합니다.
-    * 명령을 실행 하 여 32 비트가 아닌 conda 64 비트를 설치 했는지 확인 `conda info` 합니다. 는 `platform` `win-64` Windows 또는 Mac 용 이어야 합니다 `osx-64` .
-    * Conda 4.4.10 이상이 설치 되어 있는지 확인 합니다. 명령을 사용 하 여 버전을 확인할 수 있습니다 `conda -V` . 이전 버전이 설치 되어 있는 경우 명령을 사용 하 여 업데이트할 수 있습니다 `conda update conda` .
-    * 용 `gcc: error trying to exec 'cc1plus'`
-      *  `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`오류가 발생 하면 명령을 사용 하 여 build essentials를 설치 `sudo apt-get install build-essential` 합니다.
-      * 새 이름을 automl_setup에 대 한 첫 번째 매개 변수로 전달 하 여 새 conda 환경을 만듭니다. 를 사용 하 여 기존 conda 환경을 보고 `conda env list` 제거 `conda env remove -n <environmentname>` 합니다.
-      
-* **automl_setup_linux sh 실패**: automl_setup_linus. sh가 오류가 발생 한 Ubuntu Linux에서 실패 합니다. `unable to execute 'gcc': No such file or directory`-
-  1. 아웃 바운드 포트 53 및 80을 사용 하도록 설정 했는지 확인 합니다. Azure VM에서 VM을 선택 하 고 네트워킹을 클릭 하 여 Azure Portal에서이 작업을 수행할 수 있습니다.
-  2. `sudo apt-get update` 명령을 실행합니다.
-  3. `sudo apt-get install build-essential --fix-missing` 명령을 실행합니다.
-  4. `automl_setup_linux.sh`다시 실행
-
-* **구성. ipynb 실패**:
-  * 로컬 conda의 경우 먼저 automl_setup 성공적으로 실행 되었는지 확인 합니다.
-  * Subscription_id 올바른지 확인 하십시오. 모든 서비스를 선택한 다음 구독을 선택 하 여 Azure Portal에서 subscription_id를 찾습니다. 문자 "<" 및 ">"는 subscription_id 값에 포함 되지 않아야 합니다. 예를 들어에는 `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 유효한 형식이 있습니다.
-  * 구독에 대 한 참가자 또는 소유자의 액세스 권한이 있는지 확인 합니다.
-  * 지역이 지원 되는 지역,,,,,,, 중 하나 인지 확인 `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` 합니다.
-  * Azure Portal를 사용 하 여 지역에 대 한 액세스를 확인 합니다.
-  
-* **`import AutoMLConfig` 실패**: 자동화 된 machine learning 버전 1.0.76에서 패키지 변경 내용이 있습니다 .이는 새 버전으로 업데이트 하기 전에 이전 버전을 제거 해야 합니다. `ImportError: cannot import name AutoMLConfig`V 1.0.76에서 v 1.0.76 이상으로 업그레이드 한 후에이 발생 하면을 실행 하 여 오류를 해결 한 다음를 실행 `pip uninstall azureml-train automl` `pip install azureml-train-auotml` 합니다. Automl_setup 스크립트는이를 자동으로 수행 합니다. 
-
-* **workspace.from_config 실패**: ws = Workspace.from_config () ' 호출이 실패 하면
-  1. 구성. ipynb 노트북이 성공적으로 실행 되었는지 확인 합니다.
-  2. 가 실행 된 폴더에 없는 폴더에서 노트북을 실행 하는 경우 `configuration.ipynb` 폴더 aml_config 폴더를 복사 하 고 해당 폴더에 포함 된 config.js파일을 새 폴더에 복사 합니다. Workspace.from_config 노트북 폴더 또는 해당 부모 폴더에 대 한 config.js를 읽습니다.
-  3. 새 구독, 리소스 그룹, 작업 영역 또는 지역이 사용 중인 경우에는 다시 노트북을 실행 해야 `configuration.ipynb` 합니다. 지정 된 구독에서 지정 된 리소스 그룹에 작업 영역이 이미 있는 경우에만 config.js의 변경 내용이 적용 됩니다.
-  4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 합니다. `Workspace.create` 는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
-  
-* **샘플 노트북 실패**: 예제 노트북에서 속성, 메서드 또는 라이브러리가 없다는 오류가 발생 하 여 실패 하는 경우:
-  * Jupyter Notebook에서 올바른 커널을 선택 했는지 확인 합니다. 커널은 노트북 페이지의 오른쪽 위에 표시 됩니다. 기본값은 azure_automl입니다. 커널은 노트북의 일부로 저장 됩니다. 따라서 새 conda 환경으로 전환 하는 경우 노트북에서 새 커널을 선택 해야 합니다.
-      * Azure Notebooks의 경우 Python 3.6 이어야 합니다. 
-      * 로컬 conda 환경의 경우에는 automl_setup에서 지정한 conda 환경 이름 이어야 합니다.
-  * 사용 중인 SDK 버전에 대 한 노트북이 있는지 확인 합니다. Jupyter Notebook 셀에서를 실행 하 여 SDK 버전을 확인할 수 있습니다 `azureml.core.VERSION` . 단추를 클릭 하 `Branch` `Tags` 고 탭을 선택한 다음 버전을 선택 하 여 GitHub에서 이전 버전의 샘플 노트북을 다운로드할 수 있습니다.
-
-* **`import numpy` windows에서 실패**: 일부 windows 환경에서는 최신 Python 버전 3.6.8를 사용 하 여 numpy를 로드 하는 동안 오류가 발생 합니다. 이 문제가 표시 되는 경우 Python 버전 3.6.7으로 시도 하세요.
-
-* **`import numpy` 실패**: 자동화 된 ml Conda 환경에서 TensorFlow 버전을 확인 합니다. 지원 되는 버전은 < 1.13입니다. 버전이 >= 1.13 인 경우 환경에서 TensorFlow를 제거 합니다. TensorFlow의 버전을 확인 하 고 다음과 같이 제거할 수 있습니다.
-  1. 명령 셸을 시작 하 고 자동 ml 패키지가 설치 된 conda 환경을 활성화 합니다.
-  2. 을 입력 `pip freeze` 하 고 검색 `tensorflow` 하는 경우 나열 된 버전 < 1.13 이어야 합니다.
-  3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall tensorflow` 명령 셸에서 y를 입력 하 여 확인 합니다.
-  
- * **실행 실패 `jwt.exceptions.DecodeError`**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
-
-    SDK의 버전 <= 1.17.0의 경우 설치 프로그램에서 지원 되지 않는 버전의 PyJWT를 발생 시킬 수 있습니다. 자동화 된 ml conda 환경에서 PyJWT 버전을 확인 합니다. 지원 되는 버전은 < 2.0.0입니다. PyJWT의 버전은 다음과 같이 확인할 수 있습니다.
-    1. 명령 셸을 시작 하 고 자동 ml 패키지가 설치 된 conda 환경을 활성화 합니다.
-    2. 을 입력 `pip freeze` 하 고 검색 `PyJWT` 하는 경우 나열 된 버전 < 2.0.0 여야 합니다.
-
-    표시 된 버전이 지원 되는 버전이 아닌 경우:
-    1. 최신 버전의 AutoML SDK로 업그레이드 하는 것이 `pip install -U azureml-sdk[automl]` 좋습니다.
-    2. 이를 실행할 수 없는 경우 환경에서 PyJWT를 제거 하 고 다음과 같이 올바른 버전을 설치 합니다.
-        - `pip uninstall PyJWT` 명령 셸에서를 입력 하 고 `y` 확인을 입력 합니다.
-        - 을 사용 하 여 설치 `pip install 'PyJWT<2.0.0'` 합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 + [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
@@ -524,3 +419,5 @@ Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있
 + [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다.
 
 + 여러 [모델 솔루션 가속기](https://aka.ms/many-models)에서 automl을 사용 하 여 여러 모델을 학습 하는 방법에 대해 알아봅니다.
+
++ [자동화 된 ML 실험 문제를 해결](how-to-troubleshoot-auto-ml.md)합니다. 

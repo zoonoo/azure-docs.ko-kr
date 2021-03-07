@@ -4,18 +4,30 @@ description: Azure Functions의 지속성 함수 확장을 사용하여 상태 �
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 8ef32ecfb6f69b71d29578d3b8314f568fd9386a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028423"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431077"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
 모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+## <a name="prerequisites"></a>사전 요구 사항
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+* [빠른 시작 문서 완료](durable-functions-create-first-csharp.md)
+* [GitHub에서 샘플 프로젝트 복제 또는 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+* [빠른 시작 문서 완료](quickstart-js-vscode.md)
+* [GitHub에서 샘플 프로젝트 복제 또는 다운로드](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+
+---
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
@@ -28,7 +40,7 @@ ms.locfileid: "98028423"
 * 모니터는 확장성이 있습니다. 각 모니터는 오케스트레이션 인스턴스이기 때문에 새 함수를 만들거나 코드를 더 정의하지 않고도 다수의 모니터를 만들 수 있습니다.
 * 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](durable-functions-sub-orchestrations.md)의 한 섹션이 될 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
@@ -72,9 +84,6 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정** 을 추가합니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
-
 ---
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
@@ -105,9 +114,6 @@ Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
-
 ---
 
 ### <a name="e3_sendgoodweatheralert-activity-function"></a>E3_SendGoodWeatherAlert activity 함수
@@ -130,9 +136,6 @@ Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여�
 SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
-
-# <a name="python"></a>[Python](#tab/python)
-Python의 모니터링 패턴에 대 한 다른 자습서가 있습니다. [여기](durable-functions-monitor-python.md)에서 확인 하세요.
 
 ---
 

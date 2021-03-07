@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364582"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427133"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
-조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. Azure Active Directory 모든 정책을 평가 하 고 사용자에 게 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다.
+조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. Azure Active Directory 모든 정책을 평가 하 고 사용자에 게 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다. 이 문서 외에 아래에 설명 된 프로세스를 안내 하는 [조건부 액세스 정책의 사용자를 포함 하거나 제외](https://www.youtube.com/watch?v=5DsW1hB3Jqs) 하는 방법에 대 한 비디오가 있습니다. 
 
 ![조건부 액세스의 결정에 대 한 신호로 사용 되는 사용자](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "100364582"
       - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
    - 디렉터리 역할
       - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
-   - 사용자 및 그룹
+   - 개요
       - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다. 정책이 중첩 된 사용자 및 그룹에 적용 됩니다.
 
 > [!IMPORTANT]
@@ -64,7 +64,7 @@ ms.locfileid: "100364582"
    - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
 - 디렉터리 역할
    - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
-- 사용자 및 그룹
+- 개요
    - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
 
 ### <a name="preventing-administrator-lockout"></a>관리자 잠금 방지

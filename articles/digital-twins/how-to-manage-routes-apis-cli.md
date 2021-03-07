@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198543"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433304"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -20,11 +20,11 @@ ms.locfileid: "102198543"
 
 Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 다운스트림 서비스 또는 연결 된 계산 리소스로 라우팅할 수 있습니다. 먼저 이벤트를 수신할 수 있는 ‘엔드포인트’를 설정하여 이 작업을 수행합니다. 그런 다음 Azure Digital Twins에 의해 생성 되는 이벤트를 지정 하는  [**이벤트 경로**](concepts-route-events.md) 를 끝점으로 전달할 수 있습니다.
 
-이 문서에서는 [REST api](/rest/api/azure-digitaltwins/), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)및 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
+이 문서에서는 [REST api](/rest/api/azure-digitaltwins/), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client)및 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
 
 또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 - Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -208,7 +208,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Api 및 c # SDK를 사용 하 여 경로 만들기
 
-이벤트 경로를 정의 하는 한 가지 방법은 [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하는 것입니다. 이 단원의 샘플에서는 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용 합니다.
+이벤트 경로를 정의 하는 한 가지 방법은 [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하는 것입니다. 이 단원의 샘플에서는 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client)를 사용 합니다.
 
 `CreateOrReplaceEventRouteAsync` 는 이벤트 경로를 추가 하는 데 사용 되는 SDK 호출입니다. 사용법의 예는 다음과 같습니다.
 

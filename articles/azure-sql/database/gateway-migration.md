@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690535"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430193"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,18 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+
+## <a name="april-2021"></a>4 월 2021
+새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
+- 노르웨이 동부: 51.120.96.33
+- 남부 동아시아: 13.67.16.193
+- 남아프리카 공화국 북부: 102.133.152.32
+- 대한민국 남부: 52.231.151.96
+- 북부 중부: 미국 52.162.105.9
+- 오스트레일리아 남부 동부: 13.77.49.32 
+
+이러한 SQL 게이트웨이는 2021 4 월 5 일에 고객 트래픽 수락을 시작 합니다.
+
 ## <a name="march-2021"></a>2021년 3월
 여러 지역의 다음 SQL 게이트웨이가 비활성화 되 고 있습니다.
 

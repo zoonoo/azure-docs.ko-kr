@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539097"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433797"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 인덱스 만들기
 
@@ -61,7 +61,7 @@ Cognitive Search은 *검색 인덱스* 에서 전체 텍스트 및 필터링 된
 
 ## <a name="choose-a-client"></a>클라이언트 선택
 
-검색 인덱스를 만드는 방법에는 여러 가지가 있습니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
+여러 가지 방법으로 검색 인덱스를 만들 수 있습니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 Sdk를 권장 합니다.
 
 개발 하는 동안 자주 다시 작성 하는 계획을 세워야 합니다. 물리적 구조는 서비스에서 만들어지므로 기존 필드 정의를 대부분 수정 하려면 [인덱스를 삭제 하 고 다시 만드는](search-howto-reindex.md) 것이 필요 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다.
 
@@ -99,7 +99,7 @@ Postman과 Visual Studio Code (Azure Cognitive Search 용 확장 포함) 모두 
 
 Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능을 구현 합니다. 따라서 Sdk를 사용 하 여 검색 인덱스를 만들 수 있습니다. 이러한 모든 항목은 인덱스를 만들고 업데이트 하는 메서드가 포함 된 **Searchindexclient** 를 제공 합니다.
 
-| Azure SDK | 클라이언트 | 예 |
+| Azure SDK | 클라이언트 | 예제 |
 |-----------|--------|----------|
 | .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [azure-검색-dotnet-샘플/빠른 시작/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
 | Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample. java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
@@ -110,7 +110,7 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 
 검색 문서는 컬렉션에 의해 정의 됩니다 `fields` . 쿼리 및 키에 대 한 필드가 필요 합니다. 또한 필터, 패싯 및 정렬을 지원 하기 위한 필드도 필요 합니다. 사용자에 게 표시 되지 않는 데이터에 대 한 필드도 필요할 수도 있습니다. 예를 들어, 검색 순위를 수정 하는 데 사용할 수 있는 수익 여백 또는 마케팅 판촉에 대 한 필드를 원할 수 있습니다.
 
-Edm. String 형식의 필드 하나는 문서 키로 지정 해야 합니다. 각 검색 문서를 고유 하 게 식별 하는 데 사용 됩니다. 키를 기준으로 문서를 검색 하 여 세부 정보 페이지를 채울 수 있습니다.  
+Edm. String 형식의 필드 하나는 문서 키로 지정 해야 합니다. 각 검색 문서를 고유 하 게 식별 하는 데 사용 되며 대/소문자를 구분 합니다. 키를 기준으로 문서를 검색 하 여 세부 정보 페이지를 채울 수 있습니다.
 
 들어오는 데이터가 계층적 이면 중첩 된 구조를 나타내는 [복합 유형](search-howto-complex-data-types.md) 데이터 형식을 할당 합니다. 기본 제공 샘플 데이터 집합 호텔은 각 호텔에 대해 일 대 일 관계를 갖는 주소 (여러 개의 하위 필드 포함)를 사용 하는 복합 형식을 보여 주며, 대화방 복합 컬렉션은 여러 개의 대화방에 연결 되어 있습니다. 
 

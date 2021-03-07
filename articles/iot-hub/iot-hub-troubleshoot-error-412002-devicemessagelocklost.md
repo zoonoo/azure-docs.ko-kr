@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7d48474d88a60c73f6094d3b9e65017c23404d8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53364009f9b9c041c39728e438c3e24eacfd1665
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144262"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435480"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
@@ -21,11 +21,11 @@ ms.locfileid: "92144262"
 
 ## <a name="symptoms"></a>증상
 
-클라우드-장치 메시지를 보내려고 할 때 요청이 실패 하 고 **412002 DeviceMessageLockLost**오류가 발생 합니다.
+클라우드-장치 메시지를 보내려고 할 때 요청이 실패 하 고 **412002 DeviceMessageLockLost** 오류가 발생 합니다.
 
 ## <a name="cause"></a>원인
 
-장치가 큐에서 클라우드-장치 메시지를 수신 하는 경우 (예: 사용 [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) ), 잠금 제한 시간 (1 분) 동안 IoT Hub에 의해 메시지가 잠깁니다. 잠금 시간 제한이 만료 된 후 장치에서 메시지를 완료 하려고 하면 IoT Hub이 예외를 throw 합니다.
+장치가 큐에서 클라우드-장치 메시지를 수신 하는 경우 (예: 사용 [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) ), 잠금 제한 시간 (1 분) 동안 IoT Hub에 의해 메시지가 잠깁니다. 잠금 시간 제한이 만료 된 후 장치에서 메시지를 완료 하려고 하면 IoT Hub이 예외를 throw 합니다.
 
 ## <a name="solution"></a>솔루션
 

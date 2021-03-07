@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ea412b695c12f3ff7fdfa6250e2a474b618b8032
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050518"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430924"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -73,7 +73,7 @@ Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다�
  
 이벤트 경로를 만들려면 Azure Digital Twins [REST api, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-event-route)또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다.
 
-다음은 `CreateOrReplaceEventRouteAsync` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
+다음은 `CreateOrReplaceEventRouteAsync` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 

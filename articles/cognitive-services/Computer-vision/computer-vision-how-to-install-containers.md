@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
-ms.openlocfilehash: 93d59e78241dcc94785ca139818d72908c7184a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043918"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432556"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>읽기 OCR Docker 컨테이너 (미리 보기) 설치 
 
@@ -46,7 +46,7 @@ ms.locfileid: "102043918"
 
 지금 읽기 2.0 컨테이너를 사용 하는 경우 새 버전의 변경 내용에 대해 알아보려면 [마이그레이션 가이드](read-container-migration-guide.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -418,7 +418,7 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 
 JSON 응답 개체에는 비동기 버전과 동일한 개체 그래프가 있습니다. JavaScript 사용자 이며 형식 안전성을 원하는 경우에는 TypeScript를 사용 하 여 JSON 응답을 캐스팅 하는 것이 좋습니다.
 
-예제 사용 사례는 <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">여기 <span class="docon docon-navigate-external x-hidden-focus"></span> 에서 TypeScript 샌드박스</a> 를 참조 하 고 **실행** 을 선택 하 여 사용 편의성을 시각화 합니다.
+예제 사용 사례는 <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">여기에서 TypeScript 샌드박스</a> 를 참조 하 고 **실행** 을 선택 하 여 사용 편의성을 시각화 합니다.
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 

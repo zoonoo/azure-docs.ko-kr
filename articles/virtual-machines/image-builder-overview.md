@@ -3,23 +3,24 @@ title: Azure 이미지 작성기 (미리 보기)에 대해 알아보기
 description: Azure의 가상 컴퓨터에 대 한 Azure 이미지 빌더에 대해 자세히 알아보세요.
 author: danielsollondon
 ms.author: danis
-ms.date: 05/02/2019
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
+ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c70edfc3bad2be70d26c71736ca06fcc4a8dcdb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672501"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425630"
 ---
 # <a name="preview-azure-image-builder-overview"></a>미리 보기: Azure 이미지 작성기 개요
 
-조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
+조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정 하려면 시간, 인프라 및 설정이 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 구성을 제공 하 고, 서비스에 제출 하 고, 이미지를 빌드하고 배포 합니다.
  
-Azure VM Image Builder(Azure Image Builder)를 사용하여 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지 또는 RHEL(Red Hat Enterprise Linux) ISO로 시작하고 사용자 지정 항목을 추가할 수 있습니다. 이 Image Builder는 [HashiCorp Packer](https://packer.io/)를 토대로 구축되었으므로 기존 Packer 셸 프로비저닝 프로그램 스크립트를 가져올 수도 있습니다. [Azure Shared Image Gallery](shared-image-galleries.md)에서 이미지를 호스트하는 위치를 관리형 이미지 또는 VHD로 지정할 수도 있습니다.
+Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하 여 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지를 시작 하 고 사용자 고유의 사용자 지정 이미지를 추가할 수 있습니다. 이미지 작성기는 [HashiCorp](https://packer.io/) 패키지를 기반으로 하기 때문에 일부 유사성을 볼 수 있지만 관리 서비스의 이점을 누릴 수 있습니다. [Azure Shared Image Gallery](shared-image-galleries.md)에서 이미지를 호스트하는 위치를 관리형 이미지 또는 VHD로 지정할 수도 있습니다.
 
 > [!IMPORTANT]
 > Azure Image Builder는 현재 퍼블릭 미리 보기로 제공됩니다.
@@ -29,7 +30,8 @@ Azure VM Image Builder(Azure Image Builder)를 사용하여 Windows 또는 Linux
 
 미리 보기에서는 다음 기능이 지원됩니다.
 
-- 골드 기준 이미지를 만들기: 최소 보안 및 회사 구성을 포함하는 이러한 이미지를 만들 수 있으므로 부서에서 요구에 맞게 추가로 사용자 지정할 수 있습니다.
+- 최소 보안 및 회사 구성을 포함 하는 기준선 이미지를 만들고 부서에서이를 추가로 사용자 지정할 수 있습니다.
+- VM이 생성 된 후 작업을 수행 하거나 Windows 가상 데스크톱 이미지를 지 원하는 구성을 추가 하 여 핵심 응용 프로그램의 통합
 - 기존 이미지 패치: Image Builder에서 기존 사용자 지정 이미지를 지속적으로 패치할 수 있습니다.
 - Image Builder를 기존 가상 네트워크에 연결: 기존 구성 서버(DSC, Chef, Puppet 등), 파일 공유 또는 라우팅할 수 있는 다른 서버/서비스에 연결할 수 있습니다.
 - Azure Shared Image Gallery와 통합: 이미지를 전역적으로 배포하고, 버전을 관리하고, 크기를 조정할 수 있으며 이미지 관리 시스템을 사용할 수 있습니다.
@@ -60,36 +62,29 @@ AIB는 다음과 같은 Azure Marketplace 기본 OS 이미지를 지원합니다
 - Windows 2016
 - Windows 2019
 
-RHEL ISO 지원은 더 이상 지원되지 않습니다.
-
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Image Builder는 Azure 리소스 공급자가 액세스할 수 있는 완전 관리형 Azure 서비스입니다. Azure Image Builder 프로세스는 원본, 사용자 지정 및 배포의 세 가지 주요 부분으로 구성되며 템플릿에 표시됩니다. 아래 다이어그램에는 구성 요소와 해당 속성 일부가 표시됩니다. 
- 
+Azure VM 이미지 빌더는 Azure 리소스 공급자가 액세스할 수 있는 완전히 관리 되는 Azure 서비스입니다. 원본 이미지, 수행할 사용자 지정 및 새 이미지를 배포할 위치를 지정 하는 서비스에 대 한 구성을 제공 합니다. 아래 다이어그램은 개략적인 워크플로를 보여 줍니다.
 
-**Image Builder 프로세스** 
+![Azure 공유 이미지 갤러리를 사용 하 여 원본 (Windows/Linux), 사용자 지정 (셸, PowerShell, Windows 다시 시작 & 업데이트, 파일 추가) 및 글로벌 배포를 표시 하는 Azure 이미지 작성기 프로세스의 개념 그리기](./media/image-builder-overview/image-builder-flow.png)
 
-![Azure Image Builder 프로세스의 개념도](./media/image-builder-overview/image-builder-process.png)
+PowerShell, Az CLI, ARM 템플릿을 사용 하 여 템플릿 구성을 전달 하 고, Azure VM 이미지 빌더 DevOps 작업을 사용 하 여 서비스에 제출할 때 이미지 템플릿 리소스를 만들 수 있습니다. 이미지 템플릿 리소스가 만들어지면 구독에서 생성 된 준비 리소스 그룹이 IT_ GUID) 형식으로 표시 됩니다 \<DestinationResourceGroup> _\<TemplateName>_ \( . 준비 리소스 그룹에는 ScriptURI 속성의 File, Shell, PowerShell 사용자 지정에서 참조 되는 파일 및 스크립트가 포함 됩니다.
 
-1. 이미지 템플릿을 .json 파일로 만듭니다. 이 .json 파일에는 이미지 원본, 사용자 지정 및 배포에 대한 정보가 포함되어 있습니다. [Azure Image Builder GitHub 리포지토리](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)에 여러 예제가 나와 있습니다.
-1. 서비스에 제출하면 지정한 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 백그라운드에서 Image Builder는 필요에 따라 원본 이미지나 ISO 및 스크립트를 다운로드합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_ _ 형식으로 되어 있습니다. \<DestinationResourceGroup> \<TemplateName> 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경에서 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (기본 크기: Standard_D1_v2), 네트워크, 공용 IP, NSG 및 IT_ \<DestinationResourceGroup> _ 리소스 그룹의 저장소를 만듭니다 \<TemplateName> .
-1. 이미지를 만들 때 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 \<DestinationResourceGroup> \<TemplateName> 프로세스에 대해 만들어진 IT_ _ 리소스 그룹의 추가 리소스를 삭제 합니다.
+이미지 템플릿 리소스에서 호출 하는 빌드를 실행 하기 위해 `Run` 서비스는 VM, 네트워크, 디스크, 네트워크 어댑터 등 빌드에 대 한 추가 리소스를 배포 합니다. 기존 VNET을 사용 하지 않고 이미지를 작성 하는 경우에도 공용 IP 및 NSG가 배포 됩니다. 서비스는 SSH 또는 WinRM을 사용 하 여 빌드 VM에 연결 합니다. 기존 VNET을 선택 하는 경우 서비스는 Azure 개인 링크를 사용 하 여 배포 되며, 공용 IP 주소는 필요 하지 않습니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [세부 정보](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking)를 검토 하세요.
 
+빌드를 완료 하면 준비 리소스 그룹 및 저장소 계정을 제외 하 고 모든 리소스가 삭제 되 고, 제거 하려면 이미지 템플릿 리소스를 삭제 하거나, 다시 빌드를 실행 하기 위해 해당 리소스를 그대로 둘 수 있습니다.
+
+이 설명서에는 [Azure 이미지 작성기 GitHub 리포지토리의](https://github.com/azure/azvmimagebuilder)구성 템플릿과 솔루션을 참조 하는 여러 예제 및 단계별 가이드가 있습니다.
+
+### <a name="move-support"></a>이동 지원
+이미지 템플릿 리소스는 변경할 수 없으며 리소스 및 준비 리소스 그룹에 대 한 링크를 포함 하므로 리소스 종류가 이동 하는 것을 지원 하지 않습니다. 이미지 템플릿 리소스를 이동 하려면 구성 템플릿의 복사본이 있는지 확인 합니다 (없는 경우 리소스에서 기존 구성 추출). 새 리소스 그룹에 새 이름으로 새 이미지 템플릿 리소스를 만들고 이전 이미지 템플릿 리소스를 삭제 합니다. 
 
 ## <a name="permissions"></a>사용 권한
 (AIB)에 등록하면 AIB 서비스에 스테이징 리소스 그룹(IT_*)을 만들고, 관리하고, 삭제할 수 있는 권한이 부여되며, 이미지 빌드에 필요한 리소스를 추가할 수 있는 권한이 부여됩니다. 성공적으로 등록하는 동안 구독에서 사용할 수 있는 AIB SPN(서비스 주체 이름)이 이 작업을 수행합니다.
 
-Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러리에 이미지를 배포하도록 허용하려면 이미지를 읽고 쓸 수 있는 권한이 있는 Azure 사용자 할당 ID를 만들어야 합니다. Azure Storage에 액세스하는 경우 프라이빗 컨테이너를 읽을 수 있는 권한이 필요합니다.
+Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러리에 이미지를 배포하도록 허용하려면 이미지를 읽고 쓸 수 있는 권한이 있는 Azure 사용자 할당 ID를 만들어야 합니다. Azure storage에 액세스 하는 경우 개인 및 공용 컨테이너를 읽을 수 있는 권한이 필요 합니다.
 
-처음에는 ID를 만드는 방법에 대한 [Azure 사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) 설명서를 따라야 합니다.
-
-권한을 부여해야 하는 ID가 일단 있으면 Azure 사용자 지정 역할 정의를 사용한 후 사용자 할당 관리 ID를 할당하여 사용자 지정 역할 정의를 사용할 수 있습니다.
-
-사용 권한은 [여기](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)에 좀 더 자세히 설명되며 구현 방법을 보여 주는 예제가 나와 있습니다.
-
-> [!Note]
-> 이전에 AIB SPN을 사용하고 이미지 리소스 그룹에 SPN 권한을 부여한 적이 있을 것입니다. 향후 기능을 허용하기 위해 이 모델에서 전환할 것입니다. 2020년 5월 26일부터 Image Builder는 사용자 할당 ID가 없는 템플릿을 수락하지 않으며 기존 템플릿은 [사용자 ID](./linux/image-builder-json.md)를 사용하여 서비스에 다시 제출해야 합니다. 여기에 나오는 예제는 사용자 할당 ID를 만들고 템플릿에 추가하는 방법을 보여 줍니다. 자세한 내용은 이 [설명서](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information)에서 이러한 변경 및 릴리스 업데이트를 검토하세요.
+사용 권한은 [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)및 [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli)에 대해 자세히 설명 합니다.
 
 ## <a name="costs"></a>비용
 Azure Image Builder를 사용하여 이미지를 만들고, 빌드하고, 저장하는 경우 컴퓨팅, 네트워킹 및 스토리지 비용이 일부 발생합니다. 이러한 비용은 사용자 지정 이미지를 수동으로 만들 때 발생하는 비용과 비슷합니다. 리소스의 경우 Azure 요금에 청구됩니다. 
@@ -101,7 +96,7 @@ Image Builder는 VM에 필요한 D1v2 VM 크기, 스토리지 및 네트워킹�
 Azure Image Builder에서는 선택한 지역에 이미지를 배포하므로 네트워크 송신 요금이 발생할 수 있습니다.
 
 ## <a name="hyper-v-generation"></a>Hyper-V 세대
-이미지 작성기는 현재 Azure 공유 이미지 갤러리 (SIG) 또는 관리 되는 이미지에 대 한 Gen1 (Hyper-v 생성) 1 이미지 만들기만 기본적으로 지원 합니다. Gen2 이미지를 만들려는 경우 원본 Gen2 이미지를 사용 하 고 VHD에 배포 해야 합니다. 그런 다음 VHD에서 관리 되는 이미지를 만들고이를 Gen2 이미지로 SIG에 삽입 해야 합니다.
+이미지 작성기는 현재 Azure 공유 이미지 갤러리 (SIG) 또는 관리 되는 이미지에 대 한 Gen1 (Hyper-v 생성) 1 이미지 만들기만 기본적으로 지원 합니다. 
  
 ## <a name="next-steps"></a>다음 단계 
  

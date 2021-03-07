@@ -4,12 +4,12 @@ description: Azure Functions의 Durable Functions 확장에 트리거 및 바인
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fe64945aeb71011e769ba4016ae36cb557f41f33
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013731"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424260"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -19,7 +19,7 @@ ms.locfileid: "96013731"
 
 오케스트레이션 트리거를 사용 하 여 [영 속](durable-functions-types-features-overview.md#orchestrator-functions)오 케 스트레이 터 함수를 제작할 수 있습니다. 이 트리거는 새 오케스트레이터 함수 인스턴스를 시작하고 작업을 "대기 중인" 기존의 오케스트레이터 함수 인스턴스를 다시 시작할 수 있도록 지원합니다.
 
-Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .NET 특성을 사용하여 구성됩니다.
+Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .NET 특성을 사용하여 구성됩니다.
 
 스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
@@ -60,7 +60,7 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음 예제 코드에서는 가장 간단한 "Hello World" orchestrator 함수를 보여 줍니다.
+다음 예제 코드에서는 가장 간단한 "헬로 월드" orchestrator 함수를 보여 줍니다.
 
 #### <a name="c"></a>C#
 
@@ -165,7 +165,7 @@ Visual Studio를 사용 하는 경우 작업 트리거는 .Net 특성을 사용 
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음 예제 코드에서는 간단한 "Hello World" 작업 함수를 보여 줍니다.
+다음 예제 코드에서는 간단한 "헬로 월드" 작업 함수를 보여 줍니다.
 
 #### <a name="c"></a>C#
 

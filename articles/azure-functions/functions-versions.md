@@ -4,16 +4,16 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653353"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431853"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
-현재 Azure Functions는 세 가지 버전의 런타임 호스트 (1.x, 2.x 및 3.x)를 지원 합니다. 세 버전 모두 프로덕션 시나리오에서 지원 됩니다.  
+현재 Azure Functions는 세 가지 버전의 런타임 호스트 (2.x, 2.x 및 1.x)를 지원 합니다. 세 버전 모두 프로덕션 시나리오에서 지원 됩니다.  
 
 > [!IMPORTANT]
 > 버전 1.x는 유지 관리 모드 이며 Azure Portal, Azure Stack 허브 포털 또는 Windows 컴퓨터의 로컬 에서만 개발을 지원 합니다. 향상 된 기능은 이후 버전 에서만 제공 됩니다. 
@@ -30,7 +30,69 @@ ms.locfileid: "97653353"
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>특정 버전에서 실행
 
-기본적으로 Azure Portal 및 Azure CLI에서 만든 함수 앱은 버전 3.x로 설정 됩니다. 이 버전은 필요에 따라 수정할 수 있습니다. 함수 앱을 만든 후 함수를 추가 하기 전에는 런타임 버전을 1.x로만 변경할 수 있습니다.  기능이 있는 응용 프로그램 에서도 2.x와 2.x 간 이동이 허용 되지만 먼저 새 앱에서 테스트 하는 것이 좋습니다.
+기본적으로 Azure Portal 및 Azure CLI에서 만든 함수 앱은 버전 3.x로 설정 됩니다. 이 버전은 필요에 따라 수정할 수 있습니다. 함수 앱을 만든 후 함수를 추가 하기 전에는 런타임 버전을 1.x로만 다운 그레이드할 수 있습니다.  기존 함수를 사용 하는 응용 프로그램 에서도 2.x와 2.x 사이를 이동할 수 있습니다. 기존 함수를 사용 하 여 2.x에서 2.x로 앱을 이동 하기 전에 2.x [와 2.x 간의 주요 변경 내용을](#breaking-changes-between-2x-and-3x)알고 있어야 합니다. 
+
+런타임의 주 버전을 변경 하기 전에 먼저 최신 주 버전에서 실행 되는 다른 함수 앱에를 배포 하 여 기존 코드를 테스트 해야 합니다. 이 테스트는 업그레이드 후 올바르게 실행 되는지 확인 하는 데 도움이 됩니다. 
+
+다운 그레이드에서 v2. x로의는 지원 되지 않습니다. 가능 하면 항상 지원 되는 최신 버전의 함수 런타임에서 앱을 실행 해야 합니다. 
+
+### <a name="changing-version-of-apps-in-azure"></a>Azure에서 앱 버전 변경
+
+Azure에서 게시 된 앱이 사용 하는 함수 런타임의 버전은 응용 프로그램 설정에 따라 결정 됩니다 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) . 지원 되는 주요 런타임 버전 값은 다음과 같습니다.
+
+| 값 | 런타임 대상 |
+| ------ | -------- |
+| `~3` | 3.x |
+| `~2` | 2.x |
+| `~1` | 1.x |
+
+>[!IMPORTANT]
+> 다른 앱 설정을 변경 하 고 함수 코드를 변경 해야 할 수 있으므로이 설정을 임의로 변경 하지 마십시오.
+
+자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.  
+
+### <a name="pinning-to-a-specific-minor-version"></a>특정 부 버전에 고정
+
+최신 주 버전에서 실행 되는 함수 앱의 문제를 해결 하려면 앱을 특정 부 버전에 고정 해야 합니다. 이렇게 하면 최신 주 버전에서 앱을 제대로 실행 하는 데 시간이 소요 됩니다. 부 버전에 고정 하는 방법은 Windows와 Linux 간에 다릅니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+
+이전 부 버전은 함수에서 정기적으로 제거 됩니다. 특정 이전 부 버전의 제거를 포함 하 여 Azure Functions 릴리스에 대 한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 모니터링 하세요. 
+
+### <a name="pinning-to-version-20"></a>버전에 고정-2.0
+
+버전 2.x ()에서 실행 되는 .NET 함수 앱은 .net core `~2` 3의 장기 지원 버전인 .Net core 3.1에서 실행 되도록 자동으로 업그레이드 됩니다. .NET Core 3.1에서 .NET 함수를 실행 하면 최신 보안 업데이트 및 제품 개선 사항을 활용할 수 있습니다. 
+
+에 고정 된 모든 함수 앱 `~2.0` 은 더 이상 보안 및 기타 업데이트를 수신 하지 않는 .Net Core 2.2에서 계속 실행 됩니다. 자세히 알아보려면 [v2. x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조 하세요.   
+
+## <a name="migrating-from-2x-to-3x"></a>2.x에서 2.x로 마이그레이션
+
+Azure Functions 버전 3(sp3)은 이전 버전과 호환 됩니다. x. x.  많은 앱은 코드를 변경 하지 않고 2.x로 안전 하 게 업그레이드할 수 있어야 합니다.  3. x로 이동 하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 해야 합니다.
+
+### <a name="breaking-changes-between-2x-and-3x"></a>2.x와 3(sp3)의 주요 변경 내용
+
+2.x 앱을 3. x로 업그레이드 하기 전에 알아두어야 할 변경 사항은 다음과 같습니다.
+
+#### <a name="javascript"></a>JavaScript
+
+* 또는 반환 값을 통해 할당 된 출력 바인딩은 `context.done` 이제의 설정과 동일 하 게 동작 합니다 `context.bindings` .
+
+* 타이머 트리거 개체는 camelCase입니다.
+
+* 이벤트 허브가 이진으로 트리거된 함수 `dataType` 는 대신의 배열을 받습니다 `binary` `string` .
+
+* HTTP 요청 페이로드에는를 통해 더 이상 액세스할 수 없습니다 `context.bindingData.req` .  여전히에서 입력 매개 변수, 및로 액세스할 수 있습니다 `context.req` `context.bindings` .
+
+* Node.js 8은 더 이상 지원 되지 않으며, 3. x 함수에서 실행 되지 않습니다.
+
+#### <a name="net-core"></a>.NET Core
+
+.NET 클래스 라이브러리 함수를 실행할 때 버전 간의 주요 차이점은 .NET Core 런타임입니다. 버전 2.x의 함수 버전은 .NET core 2.2 및 버전 3(sp3)에서 실행 되도록 설계 되었습니다. x는 .NET Core 3.1에서 실행 되도록 설계 되었습니다.  
+
+* [동기 서버 작업은 기본적으로 사용 하지 않도록 설정 됩니다](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+
+* 함수에 국한 되지 않지만 앱에 영향을 줄 수 있는 [버전 3.1](/dotnet/core/compatibility/3.1) 및 [버전 3.0](/dotnet/core/compatibility/3.0)의 .net Core에서 도입 된 주요 변경 내용입니다.
+
+>[!NOTE]
+>.NET Core 2.2에 대 한 지원 문제로 인해 버전 2 ()에 고정 된 함수 앱 `~2` 은 기본적으로 .Net core 3.1에서 실행 됩니다. 자세히 알아보려면 [v2. x 호환성 모드](functions-dotnet-class-library.md#functions-v2x-considerations)를 참조 하세요.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>1.x에서 이후 버전으로 마이그레이션
 
@@ -68,43 +130,6 @@ ms.locfileid: "97653353"
 
 * Event Grid 트리거 웹후크의 URL 형식은 `https://{app}/runtime/webhooks/{triggerName}`으로 변경되었습니다.
 
-## <a name="migrating-from-2x-to-3x"></a>2.x에서 2.x로 마이그레이션
-
-Azure Functions 버전 3(sp3)은 이전 버전과 호환 됩니다. x. x.  많은 앱은 코드를 변경 하지 않고 2.x로 안전 하 게 업그레이드할 수 있어야 합니다.  3. x로 이동 하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 해야 합니다.
-
-### <a name="breaking-changes-between-2x-and-3x"></a>2.x와 3(sp3)의 주요 변경 내용
-
-2.x 앱을 3. x로 업그레이드 하기 전에 알아두어야 할 변경 사항은 다음과 같습니다.
-
-#### <a name="javascript"></a>JavaScript
-
-* 또는 반환 값을 통해 할당 된 출력 바인딩은 `context.done` 이제의 설정과 동일 하 게 동작 합니다 `context.bindings` .
-
-* 타이머 트리거 개체는 camelCase입니다.
-
-* 이벤트 허브가 이진으로 트리거된 함수 `dataType` 는 대신의 배열을 받습니다 `binary` `string` .
-
-* HTTP 요청 페이로드에는를 통해 더 이상 액세스할 수 없습니다 `context.bindingData.req` .  여전히에서 입력 매개 변수, 및로 액세스할 수 있습니다 `context.req` `context.bindings` .
-
-* Node.js 8은 더 이상 지원 되지 않으며, 3. x 함수에서 실행 되지 않습니다.
-
-#### <a name="net"></a>.NET
-
-* [동기 서버 작업은 기본적으로 사용 하지 않도록 설정 됩니다](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
-
-### <a name="changing-version-of-apps-in-azure"></a>Azure에서 앱 버전 변경
-
-Azure에서 게시 된 앱이 사용 하는 함수 런타임의 버전은 응용 프로그램 설정에 따라 결정 됩니다 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) . 지원 되는 주요 런타임 버전 값은 다음과 같습니다.
-
-| 값 | 런타임 대상 |
-| ------ | -------- |
-| `~3` | 3.x |
-| `~2` | 2.x |
-| `~1` | 1.x |
-
->[!IMPORTANT]
-> 다른 앱 설정을 변경 하 고 함수 코드를 변경 해야 할 수 있으므로이 설정을 임의로 변경 하지 마십시오.
-
 ### <a name="locally-developed-application-versions"></a>로컬에서 개발한 응용 프로그램 버전
 
 대상 버전을 로컬에서 변경 하도록 함수 앱을 다음과 같이 업데이트할 수 있습니다.
@@ -112,20 +137,6 @@ Azure에서 게시 된 앱이 사용 하는 함수 런타임의 버전은 응용
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 런타임 버전
 
 Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다. Visual Studio 용 Azure Functions 도구는 세 가지 주요 런타임 버전을 지원 합니다. 디버깅 및 게시를 수행할 때 프로젝트 설정에 따라 올바른 버전이 사용됩니다. 버전 설정은 `.csproj` 파일의 다음 속성에 정의됩니다.
-
-##### <a name="version-1x"></a>버전 1.x
-
-```xml
-<TargetFramework>net472</TargetFramework>
-<AzureFunctionsVersion>v1</AzureFunctionsVersion>
-```
-
-##### <a name="version-2x"></a>버전 2.x
-
-```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
-<AzureFunctionsVersion>v2</AzureFunctionsVersion>
-```
 
 ##### <a name="version-3x"></a>버전 3.x
 
@@ -137,16 +148,30 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 > [!NOTE]
 > Azure Functions 3.x 및 .NET을 사용 하려면 `Microsoft.NET.Sdk.Functions` 확장이 이상 이어야 합니다 `3.0.0` .
 
+##### <a name="version-2x"></a>버전 2.x
+
+```xml
+<TargetFramework>netcoreapp2.1</TargetFramework>
+<AzureFunctionsVersion>v2</AzureFunctionsVersion>
+```
+
+##### <a name="version-1x"></a>버전 1.x
+
+```xml
+<TargetFramework>net472</TargetFramework>
+<AzureFunctionsVersion>v1</AzureFunctionsVersion>
+```
+
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Visual Studio에서 2.x 앱을 3. x로 업데이트
 
-2.x를 대상으로 하는 기존 함수를 열고, 파일을 편집 `.csproj` 하 고 위의 값을 업데이트 하 여 2.x로 이동할 수 있습니다.  Visual Studio는 프로젝트 메타 데이터를 기반으로 런타임 버전을 자동으로 관리 합니다.  그러나이 경우에는 Visual Studio가 컴퓨터에 3gb 용 템플릿과 런타임을 아직 보유 하지 않은 경우에만 3. x 앱을 만들 수 있습니다.  "프로젝트에 지정 된 버전과 일치 하는 사용할 수 있는 함수 런타임이 없습니다."와 같은 오류가 표시 될 수 있습니다.  최신 템플릿 및 런타임을 인출 하려면 새 함수 프로젝트를 만드는 환경을 살펴보겠습니다.  버전 및 템플릿 선택 화면에서 Visual Studio가 최신 템플릿 가져오기를 완료할 때까지 기다립니다.  최신 .NET Core 3 템플릿을 사용할 수 있고 표시 되 면 버전 3.x에 대해 구성 된 모든 프로젝트를 실행 하 고 디버그할 수 있어야 합니다.
+2.x를 대상으로 하는 기존 함수를 열고, 파일을 편집 `.csproj` 하 고 위의 값을 업데이트 하 여 2.x로 이동할 수 있습니다.  Visual Studio는 프로젝트 메타 데이터를 기반으로 런타임 버전을 자동으로 관리 합니다.  그러나이 경우에는 Visual Studio가 컴퓨터에 3gb 용 템플릿과 런타임을 아직 보유 하지 않은 경우에만 3. x 앱을 만들 수 있습니다.  "프로젝트에 지정 된 버전과 일치 하는 사용할 수 있는 함수 런타임이 없습니다."와 같은 오류가 표시 될 수 있습니다.  최신 템플릿 및 런타임을 인출 하려면 새 함수 프로젝트를 만드는 환경을 살펴보겠습니다.  버전 및 템플릿 선택 화면에서 Visual Studio가 최신 템플릿 가져오기를 완료할 때까지 기다립니다. 최신 .NET Core 3 템플릿을 사용할 수 있고 표시 된 후에는 버전 3.x 용으로 구성 된 모든 프로젝트를 실행 하 고 디버그할 수 있습니다.
 
 > [!IMPORTANT]
 > 버전 3.x 함수는 visual studio 버전 16.4 이상을 사용 하는 경우에만 Visual Studio에서 개발할 수 있습니다.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code 및 Azure Functions 핵심 도구
 
-[Azure Functions Core Tools](functions-run-local.md)는 명령줄 개발에 사용되며 Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)에서도 사용됩니다. 버전 3.x에 대해 개발 하려면 핵심 도구의 버전 3(sp3)을 설치 합니다. 버전 2.x를 개발 하려면 2. x 버전의 핵심 도구가 필요 합니다. 자세한 내용은 [Azure Functions Core Tools 설치](functions-run-local.md#install-the-azure-functions-core-tools)를 참조하세요.
+[Azure Functions Core Tools](functions-run-local.md) 는 명령줄 개발과 Visual Studio Code 용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) 에도 사용 됩니다. 버전 3.x에 대해 개발 하려면 핵심 도구의 버전 3(sp3)을 설치 합니다. 버전 2.x를 개발 하려면 2. x 버전의 핵심 도구가 필요 합니다. 자세한 내용은 [Azure Functions Core Tools 설치](functions-run-local.md#install-the-azure-functions-core-tools)를 참조하세요.
 
 Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도록 `azureFunctions.projectRuntime`에 대한 사용자 설정을 업데이트해야 할 수도 있습니다.  이 설정은 함수 앱을 만드는 동안 사용되는 템플릿 및 언어도 업데이트합니다.  에서 앱을 만들려면 `~3` `azureFunctions.projectRuntime` 사용자 설정을로 업데이트 `~3` 합니다.
 

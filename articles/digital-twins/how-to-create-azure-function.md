@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8ed4e550ea441d5d99a3debb6bf37eb7db2a4a20
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4889744347b72603a0f6318f981bc2db4906b835
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180176"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433542"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -54,7 +54,7 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Event Grid 트리거를 사용 하 여 함수 작성
 
-함수 앱에 SDK를 추가 하 여 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
+함수 앱에 SDK를 추가 하 여 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](/dotnet/api/overview/azure/digitaltwins/client)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
 
 SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual Studio의 NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나, 명령줄 도구에서를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` .
 

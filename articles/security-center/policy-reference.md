@@ -1,18 +1,18 @@
 ---
 title: Azure Security Center에 대한 기본 제공 정책 정의
 description: Azure Security Center에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2af70348edc7d74bac89111a8409049cae7a3ae0
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099831"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428080"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 

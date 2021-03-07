@@ -1,18 +1,18 @@
 ---
 title: Azure 증명에 대 한 기본 제공 정책 정의
 description: Azure 증명에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
-ms.openlocfilehash: df03b953ba143d827159d8868150131071e2ce56
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 2741ee837bdb030bb0dd7120257befa3715f86f1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642477"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435321"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Azure 증명에 대 한 기본 제공 정의 Azure Policy
 

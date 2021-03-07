@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831249"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429938"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -63,7 +63,7 @@ IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실�
 
 ## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
-| 상태 코드 | Description | 
+| 상태 코드 | 설명 | 
 |----------|-------------|
 | 400 | 잘못 된 요청 (오류 메시지에 따라 다름)| 
 | 401 | [권한 없음](troubleshoot-unauthorized.md) | 
@@ -91,7 +91,7 @@ IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실�
 * [AZURE VM에 공용 IP](../load-balancer/troubleshoot-outbound-connection.md#assignilpip)를 할당 합니다.
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>높은 네트워크 대기 시간
-높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) 또는 V3 sdk의 [진단](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
+높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 또는 V3 sdk의 [진단](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
 
 [시간 초과가](troubleshoot-dot-net-sdk-request-timeout.md) 없고 진단에 단일 요청이 표시 되는 경우 `ResponseTime` `RequestStartTime` (예:이 예에서는 >300 밀리초)와 같이 대기 시간이 긴 단일 요청을 표시 합니다.
 

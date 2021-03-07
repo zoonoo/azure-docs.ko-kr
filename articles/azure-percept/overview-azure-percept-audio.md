@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8f84fb6bf37a3d3b61f4cad2c89745447aa88a36
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179394"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426351"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Azure Percept 오디오 소개
 
@@ -36,26 +36,13 @@ Azure Percept Audio는 하이브리드 edge 클라우드 방식으로 Azure Perc
 
 처리는 다음과 같이 수행 됩니다. 
 
-- Azure Percept Audio: 빔 형성 및 반향 취소를 수행 하 고 들어오는 오디오를 처리 하 여 음성으로 최적화 하 고 진한 오디오를 보냅니다.  
+- Azure Percept Audio: 오디오를 캡처 및 변환 하 고 진한 및 audio 잭에 보냅니다.
 
-- Azure Percept 진한: 음성 스택은 발견 키워드를 수행 합니다.  
+- Azure Percept 진한: 음성 스택은 빔 형성 및 반향 취소를 수행 하 고 들어오는 오디오를 처리 하 여 음성을 최적화 합니다. 그런 다음 발견 키워드를 수행 합니다.
 
 - 클라우드: 자연어 명령 및 문구, 키워드 확인 및 재 학습을 처리 합니다. 
 
 - 오프 라인: 장치가 오프 라인 상태인 경우 키워드를 검색 하 고 인터넷 연결 상태 원격 분석을 캡처합니다. 클라우드의 키워드 확인을 수행할 수 없기 때문에 발견 키워드에 대해 향상 된 거짓 수락 율을 관찰할 수 있습니다. 
-
-<!---
-
-## How it works
-
-Azure Percept Audio passes the audio input to the Azure Percept DK carrier board in a hybrid edge-cloud manner. Specifically,
-
-- The Azure Percept Audio device: processes the incoming speech input to the clearest format by executing beam forming and echo cancellation befor sending the input to the Azure Percept DK. 
-- The Azure Percept DK uses edge processing to perform keyword spotting and then sends the relevant inputs to Azure speech services.
-- Cloud: Processing of natural language commands and phrases, in addition to keyword verification and retraining.
-- Offline: If the device is offline it will detect the keyword and capture telemetry that there is no internet connection at the time of the command. It will not be able to weed out false accepts since it cannot perform keyword verification.
-
--->
 
 ## <a name="getting-started"></a>시작
 

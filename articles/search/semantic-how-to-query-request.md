@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693648"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432947"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Cognitive Search에서 의미 체계 쿼리 만들기
 
@@ -22,7 +22,9 @@ ms.locfileid: "101693648"
 
 이 문서에서는 의미 체계 순위를 사용 하는 검색 요청을 작성 하 고 의미 체계 캡션과 답변을 생성 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+의미 체계 쿼리는 Pdf 또는 텍스트가 많은 문서와 같이 텍스트를 많이 사용 하지 않는 콘텐츠를 기반으로 하는 검색 인덱스에서 가장 잘 작동 합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 표준 계층 (S1, S2, S3)의 search 서비스는 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부 2, 유럽 서 부, 유럽 서부입니다. 이러한 지역 중 하나에 기존 S1 이상 서비스를 사용 하는 경우 새 서비스를 만들지 않고도 액세스를 요청할 수 있습니다.
 
@@ -38,7 +40,7 @@ ms.locfileid: "101693648"
 
 ## <a name="whats-a-semantic-query"></a>의미 체계 쿼리는 무엇 인가요?
 
-Cognitive Search 쿼리는 쿼리 처리 및 응답의 셰이프를 결정 하는 매개 변수가 있는 요청입니다. *의미 체계 쿼리* 는 일치 결과의 컨텍스트 및 의미를 평가할 수 있는 의미 체계를 호출 하는 매개 변수를 추가 하 고 가장 관련성이 높은 일치 항목을 위쪽으로 승격 합니다.
+Cognitive Search 쿼리는 쿼리 처리 및 응답의 셰이프를 결정 하는 매개 변수가 있는 요청입니다. *의미 체계 쿼리* 는 일치 결과에 대 한 컨텍스트 및 의미를 평가 하 고, 위쪽으로 관련성이 높은 일치 항목을 승격 하 고, 의미 체계 대답 및 캡션을 반환할 수 있는 의미 체계를 호출 하는 매개 변수를 추가 합니다.
 
 다음 요청은 기본 의미 체계 쿼리 (대답 없음)를 대표 합니다.
 
@@ -48,7 +50,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
     "search": " Where was Alan Turing born?",    
     "queryType": "semantic",  
     "searchFields": "title,url,body",  
-    "queryLanguage": "en-us",  
+    "queryLanguage": "en-us"  
 }
 ```
 
@@ -60,7 +62,7 @@ Cognitive Search의 모든 쿼리와 마찬가지로 요청은 단일 인덱스�
 
 REST API 전체 사양은 [문서 검색 (REST 미리 보기)](/rest/api/searchservice/preview-api/search-documents)에서 찾을 수 있습니다.
 
-의미 체계 쿼리는 "기능에 대 한 가장 적합 한 플랜트" 또는 "how to fry an the how to"와 같은 개방형 종료 질문을 위한 것입니다. 응답에 응답을 포함 하려면 **`answer`** 요청에 선택적 매개 변수를 추가 합니다.
+의미 체계 쿼리는 캡션과 강조 표시를 자동으로 제공 합니다. 응답에 응답을 포함 하려면 **`answer`** 요청에 선택적 매개 변수를 추가 합니다. 이 매개 변수는 쿼리 문자열 자체의 생성을 포함 하 여 응답에서 대답을 생성 합니다.
 
 다음 예에서는 호텔-샘플 인덱스를 사용 하 여 의미 체계 대답 및 캡션을 포함 하는 의미 체계 쿼리 요청을 만듭니다.
 
@@ -82,37 +84,66 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>요청 공식화
 
-1. **`"queryType"`**"의미 체계"로 설정 하 고 "en-us"로 설정 **`"queryLanguage"`** 합니다. 두 매개 변수가 모두 필요 합니다.
+이 섹션에서는 의미 체계 검색에 필요한 쿼리 매개 변수를 단계별로 설명 합니다.
 
-   QueryLanguage는 인덱스 스키마의 필드 정의에 할당 된 모든 [언어 분석기](index-add-language-analyzers.md) 와 일치 해야 합니다. QueryLanguage이 "en-us" 인 경우 모든 언어 분석기는 영어 변형 ("en-us" 또는 "en lucene") 이어야 합니다. 키워드 또는 단순과 같은 언어에 관계 없는 분석기는 queryLanguage 값과 충돌 하지 않습니다.
+#### <a name="step-1-set-querytype-and-querylanguage"></a>1 단계: queryType 및 queryLanguage 설정
 
-   쿼리 요청에서 [맞춤법 수정](speller-how-to-add.md)도 사용 하는 경우 설정 하는 queryLanguage 맞춤법 검사기, 답변 및 캡션에 동일 하 게 적용 됩니다. 개별 파트에 대 한 재정의가 없습니다. 
+다음 매개 변수를 나머지에 추가 합니다. 두 매개 변수가 모두 필요 합니다.
 
-   검색 인덱스의 콘텐츠는 여러 언어로 구성 될 수 있지만 쿼리 입력은 대부분의 언어로 구성 될 가능성이 높습니다. 검색 엔진은 queryLanguage, 언어 분석기 및 콘텐츠가 구성 된 언어의 호환성을 확인 하지 않으므로 잘못 된 결과가 발생 하지 않도록 쿼리 범위를 적절 하 게 결정 해야 합니다.
+```json
+"queryType": "semantic",
+"queryLanguage": "en-us",
+```
+
+QueryLanguage는 인덱스 스키마의 필드 정의에 할당 된 모든 [언어 분석기](index-add-language-analyzers.md) 와 일치 해야 합니다. QueryLanguage이 "en-us" 인 경우 모든 언어 분석기는 영어 변형 ("en-us" 또는 "en lucene") 이어야 합니다. 키워드 또는 단순과 같은 언어에 관계 없는 분석기는 queryLanguage 값과 충돌 하지 않습니다.
+
+쿼리 요청에서 [맞춤법 수정](speller-how-to-add.md)도 사용 하는 경우 설정 하는 queryLanguage 맞춤법 검사기, 답변 및 캡션에 동일 하 게 적용 됩니다. 개별 파트에 대 한 재정의가 없습니다. 
+
+검색 인덱스의 콘텐츠는 여러 언어로 구성 될 수 있지만 쿼리 입력은 대부분의 언어로 구성 될 가능성이 높습니다. 검색 엔진은 queryLanguage, 언어 분석기 및 콘텐츠가 구성 된 언어의 호환성을 확인 하지 않으므로 잘못 된 결과가 발생 하지 않도록 쿼리 범위를 적절 하 게 결정 해야 합니다.
 
 <a name="searchfields"></a>
 
-1. Set **`"searchFields"`** (선택 사항 이지만 권장 됨).
+#### <a name="step-2-set-searchfields"></a>2 단계: searchFields 설정
 
-   의미 체계 쿼리에서 "searchFields"의 필드 순서에 따라 의미 체계 등급의 필드에 대 한 우선 순위 또는 상대적 중요도가 반영 됩니다. 최상위 문자열 필드 (독립 실행형 또는 컬렉션)만 사용 됩니다. SearchFields는 단순 및 전체 Lucene 쿼리에서 다른 동작을 포함 하므로 (암시 된 우선 순위 순서가 없는 경우) 문자열이 아닌 필드와 하위 필드는 오류를 발생 시 지 않지만 의미 체계 순위에도 사용 되지 않습니다.
+이 매개 변수는 선택 사항 이지만,이 매개 변수를 생략 해도 오류가 발생 하지는 않지만 정렬 된 필드 목록을 제공 하는 것이 캡션과 답변 모두에 대해 적극 권장 됩니다.
 
-   SearchFields를 지정 하는 경우 다음 지침을 따르세요.
+SearchFields 매개 변수는 쿼리에 대해 "의미 유사성 유사성"을 평가할 통로를 식별 하는 데 사용 됩니다. 미리 보기의 경우 모델에서 처리 해야 하는 필드에 대 한 힌트가 필요 하므로 searchFields를 비워 두지 않는 것이 좋습니다.
 
-   + Ho서 이름 또는 제목과 같은 간결한 필드는 설명 처럼 자세한 정보 필드 앞에와 야 합니다.
+SearchFields의 순서는 중요 합니다. 기존 단순 또는 전체 Lucene 쿼리에서 searchFields를 이미 사용 하는 경우 의미 체계 쿼리 유형으로 전환할 때이 매개 변수를 다시 방문 해야 합니다.
 
-   + 인덱스에 텍스트 (예: 사용자가 읽을 수 있는와 같이 사용자가 읽을 수 있음) 인 URL 필드가 있는 경우 `www.domain.com/name-of-the-document-and-other-details` `www.domain.com/?id=23463&param=eis` 목록에서 두 번째를 입력 합니다 (간결한 제목 필드가 없는 경우 먼저 배치).
+두 개 이상의 searchFields가 지정 된 경우 최적의 결과를 보장 하려면 다음 지침을 따르세요.
 
-   + 필드를 하나만 지정 하는 경우 문서 의미 체계 등급에 대 한 설명 필드로 간주 됩니다.  
++ 컬렉션에는 문자열 필드와 최상위 문자열 필드만 포함 합니다. 컬렉션에 문자열이 아닌 필드 또는 하위 수준 필드를 포함 하는 경우에는 오류가 발생 하지 않지만 이러한 필드는 의미 체계 순위에 사용 되지 않습니다.
 
-   + 지정 된 필드가 없는 경우에는 검색 가능한 모든 필드가 문서 의미 체계 등급에 대 한 것으로 간주 됩니다. 그러나 검색 인덱스에서 가장 적합 한 결과를 생성 하지 않을 수 있으므로이 방법은 권장 되지 않습니다.
++ 첫 번째 필드는 제목이 나 이름과 같이 항상 간결 하 고 25 개 단어 아래에 있는 것이 좋습니다.
 
-1. **`"orderBy"`** 기존 요청에 절이 있는 경우 제거 합니다. 의미 점수는 결과를 정렬 하는 데 사용 되며, 명시적 정렬 논리를 포함 하는 경우 HTTP 400 오류가 반환 됩니다.
++ 인덱스에 텍스트 (예: 사용자가 읽을 수 있는와 같이 사용자가 읽을 수 있음) 인 URL 필드가 있는 경우 `www.domain.com/name-of-the-document-and-other-details` `www.domain.com/?id=23463&param=eis` 이를 목록에 추가 합니다 (또는 간결한 제목 필드가 없는 경우 먼저).
 
-1. 필요에 따라를 **`"answers"`** "extractive"로 설정 하 고, 1 보다 많은 것을 원하는 경우 대답 수를 지정 합니다.
++ 이러한 필드는 문서의 주요 내용과 같이 의미 체계 쿼리에 대 한 대답이 검색 될 수 있는 설명 필드에 따라 수행 합니다.
 
-1. 필요에 따라 캡션에 적용 되는 강조 표시 스타일을 사용자 지정 합니다. 캡션은 응답을 요약 하는 문서의 주요 통로에 대해 강조 표시 서식을 적용 합니다. 기본값은 `<em>`입니다. 서식 유형 (예: 노란색 배경)을 지정 하려면 highlightPreTag 및 highlightPostTag를 설정 하면 됩니다.
+필드를 하나만 지정 하는 경우에는 문서의 주요 내용과 같이 의미 체계 쿼리에 대 한 대답이 검색 될 수 있는 설명 필드를 사용 합니다. 충분 한 내용이 제공 되는 필드를 선택 합니다.
 
-1. 요청에서 원하는 다른 매개 변수를 지정 합니다. [맞춤법 검사기](speller-how-to-add.md), [선택](search-query-odata-select.md)및 개수와 같은 매개 변수는 요청 및 응답 가독성의 품질을 향상 시킵니다.
+#### <a name="step-3-remove-orderby-clauses"></a>3 단계: orderBy 절 제거
+
+기존 요청에 존재 하는 경우 orderBy 절을 제거 합니다. 의미 점수는 결과를 정렬 하는 데 사용 되며, 명시적 정렬 논리를 포함 하는 경우 HTTP 400 오류가 반환 됩니다.
+
+#### <a name="step-4-add-answers"></a>4 단계: 답변 추가
+
+필요에 따라 답변을 제공 하는 추가 처리를 포함 하려면 "답변"을 추가 합니다. 답변 (및 캡션)은 searchFields에 나열 된 필드에서 찾은 통로에서 작성 됩니다. 응답에서 최상의 응답과 캡션을 얻으려면 searchFields에 콘텐츠 서식 있는 필드를 포함 해야 합니다.
+
+답변을 생성 하는 명시적 및 암시적 조건이 있습니다. 
+
++ 명시적 조건에는 "대답 = extractive" 추가가 포함 됩니다. 또한 전체 응답에서 반환 되는 대답 수를 지정 하려면 "count"를 추가 하 고 그 뒤에 숫자를 추가 `"answers=extractive|count=3"` 합니다.  기본값은 1입니다. 최대값은 5입니다.
+
++ 암시적 조건에는 대답에 적합 한 쿼리 문자열 생성이 포함 됩니다. ' 호텔의 수를 포함 하는 호텔 '에 구성 된 쿼리는 ' 호텔 내부 ' 호텔 등의 문으로 구성 된 쿼리 보다 "답변" 될 가능성이 높습니다. 짐작할 수 있듯이 쿼리는 지정 되지 않았거나 null 일 수 없습니다.
+
+중요 한 점은 쿼리가 질문 처럼 보이지 않는 경우 "answer" 매개 변수가 설정 된 경우에도 응답 처리를 건너뛰는 것입니다.
+
+#### <a name="step-5-add-other-parameters"></a>5 단계: 다른 매개 변수 추가
+
+요청에서 원하는 다른 매개 변수를 설정 합니다. [맞춤법 검사기](speller-how-to-add.md), [선택](search-query-odata-select.md)및 개수와 같은 매개 변수는 요청 및 응답 가독성의 품질을 향상 시킵니다.
+
+필요에 따라 캡션에 적용 되는 강조 표시 스타일을 사용자 지정할 수 있습니다. 캡션은 응답을 요약 하는 문서의 주요 통로에 대해 강조 표시 서식을 적용 합니다. 기본값은 `<em>`입니다. 서식 유형 (예: 노란색 배경)을 지정 하려면 highlightPreTag 및 highlightPostTag를 설정 하면 됩니다.
 
 ### <a name="review-the-response"></a>응답 검토
 

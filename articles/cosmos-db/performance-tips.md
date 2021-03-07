@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359050"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428952"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -137,19 +137,19 @@ SQL .NET SDK 1.9.0 이상에서는 병렬 쿼리를 지원 하므로 분할 된 
 - `MaxDegreeOfParallelism` 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다. 
 - `MaxBufferedItemCount` 미리 인출 된 결과의 수를 제어 합니다.
 
-**_병렬 처리 수준 튜닝_* _
+***병렬 처리 수준 튜닝***
 
 병렬 쿼리는 여러 파티션을 병렬로 쿼리 하는 방식으로 작동 합니다. 하지만 개별 파티션의 데이터는 쿼리와 관련 하 여 순차적으로 인출 됩니다. `MaxDegreeOfParallelism` [SDK](sql-api-sdk-dotnet.md) v 2에서 파티션 수로 설정 하면 다른 모든 시스템 조건을 동일 하 게 유지 하는 가장 뛰어난 쿼리를 달성할 수 있습니다. 파티션 수를 모르는 경우 병렬 처리 수준을 높은 값으로 설정할 수 있습니다. 시스템은 병렬 처리 수준으로 최소 (파티션 수, 사용자가 제공한 입력)를 선택 합니다.
 
 병렬 쿼리는 데이터를 쿼리와 관련 하 여 모든 파티션에 균등 하 게 분산 하는 경우 가장 많은 이점을 생성 합니다. 쿼리에서 반환 하는 모든 데이터 또는 대부분의 데이터가 일부 파티션에서 집중 되도록 분할 된 컬렉션이 분할 된 경우 (하나의 파티션이 최악의 경우) 이러한 파티션이 쿼리 성능에 병목 상태가 됩니다.
 
-_*_튜닝 MaxBufferedItemCount_*_
+***튜닝 MaxBufferedItemCount***
     
 병렬 쿼리는 클라이언트에서 현재 결과 일괄 처리를 처리하는 동안 결과를 프리페치하도록 설계되었습니다. 이 미리 페치를 통해 쿼리의 전체 대기 시간을 향상 시킬 수 있습니다. `MaxBufferedItemCount`매개 변수는 미리 인출 된 결과의 수를 제한 합니다. `MaxBufferedItemCount`반환 되는 결과의 예상 개수 (또는 더 높은 수)로 설정 하 여 쿼리가 사전 페치를 최대한 활용할 수 있도록 합니다.
 
 사전 인출은 병렬 처리 수준에 관계 없이 동일한 방식으로 작동 하며 모든 파티션의 데이터에 대 한 단일 버퍼가 있습니다.  
 
-_ *RetryAfter 간격으로 백오프 구현**
+**RetryAfter 간격으로 백오프 구현**
 
 성능 테스트 중에는 적은 수의 요청이 제한 될 때까지 부하를 늘려야 합니다. 요청이 제한 되는 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격에 대 한 제한에 따라 백오프 해야 합니다. 백오프를 사용 하면 다시 시도 사이에 대기 시간을 최소화 하는 데 도움이 됩니다. 
 
@@ -180,7 +180,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount`속성은 페이지 매김을 위해 사용 하면 안 됩니다. 가장 기본적인 용도는 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 것입니다.  
 
-사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예를 들어:
+사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. 의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) 속성을 `FeedOptions` 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`가-1로 설정 된 경우 SDK는 문서 크기에 따라 최적의 값을 자동으로 찾습니다. 예를 들면 다음과 같습니다.
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -215,7 +215,7 @@ Azure Cosmos DB는 다양 한 데이터베이스 작업 집합을 제공 합니�
 
 처리량은 각 컨테이너에 설정 된 [요청 단위](request-units.md) 수를 기준으로 프로 비전 됩니다. 요청 단위 소비는 초당 비율로 평가 됩니다. 해당 컨테이너에 대해 프로 비전 된 요청 단위를 초과 하는 응용 프로그램은 해당 비율이 컨테이너에 대해 프로 비전 된 수준 아래로 떨어질 때까지 제한 됩니다. 응용 프로그램에 더 높은 수준의 처리량이 필요한 경우 추가 요청 단위를 프로 비전 하 여 처리량을 늘릴 수 있습니다.
 
-쿼리의 복잡성은 작업에 사용 되는 요청 단위 수에 영향을 줍니다. 조건자의 수, 조건자의 특성, Udf 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
+쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, Udf 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
 모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
 

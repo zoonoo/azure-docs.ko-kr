@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f2a514af99baa2d828df1aee35a0e6339d39e617
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4b95c25400317b2baac694f4ba2b1b1dc1eae098
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788556"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435157"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 트리거
 
@@ -346,8 +346,8 @@ Python에서는 특성을 지원하지 않습니다.
 * `string` - 메시지가 텍스트인 경우
 * `byte[]` - 이진 데이터에 유용합니다.
 * 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 역직렬화하려고 합니다.
-* `BrokeredMessage` - [BrokeredMessage \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) -메시지 컨테이너에서 메시지를 수신 하 고 승인 하는 데 사용 [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) 됩니다 (가로 설정 된 경우 필수 `false` ).
+* `BrokeredMessage` - [BrokeredMessage \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) -메시지 컨테이너에서 메시지를 수신 하 고 승인 하는 데 사용 [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) 됩니다 (가로 설정 된 경우 필수 `false` ).
 
 이러한 매개 변수 형식은 Azure Functions 버전 1.x에 대 한 것입니다. 2.x 이상에서는 대신을 사용 [`Message`](/dotnet/api/microsoft.azure.servicebus.message) `BrokeredMessage` 합니다.
 
@@ -358,7 +358,7 @@ Python에서는 특성을 지원하지 않습니다.
 * `string` - 메시지가 텍스트인 경우
 * `byte[]` - 이진 데이터에 유용합니다.
 * 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 역직렬화하려고 합니다.
-* `BrokeredMessage` - [BrokeredMessage \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
+* `BrokeredMessage` - [BrokeredMessage \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
 
 이러한 매개 변수는 Azure Functions 버전 1.x에 대 한 것입니다. 2.x 이상에서는 대신을 사용 [`Message`](/dotnet/api/microsoft.azure.servicebus.message) `BrokeredMessage` 합니다.
 
@@ -390,13 +390,13 @@ Service Bus 인스턴스는 *function.js* 파일의 이름 속성에서 구성 �
 
 Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 수신합니다. 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 함수가 실행되면 잠금이 자동으로 갱신됩니다.
 
-`maxAutoRenewDuration`은 [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet&preserve-view=true)에 매핑되는 *host.json* 에서 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
+`maxAutoRenewDuration`은 [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration)에 매핑되는 *host.json* 에서 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
 
 ## <a name="message-metadata"></a>메시지 메타 데이터
 
-Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet&preserve-view=true) 클래스의 멤버입니다.
+Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [Message](/dotnet/api/microsoft.azure.servicebus.message) 클래스의 멤버입니다.
 
-|속성|Type|Description|
+|속성|Type|설명|
 |--------|----|-----------|
 |`ContentType`|`string`|응용 프로그램 관련 논리에 대해 보낸 사람 및 수신자가 사용한 콘텐츠 형식 식별자입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|

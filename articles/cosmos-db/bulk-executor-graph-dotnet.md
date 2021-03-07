@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360516"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425327"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,12 +25,12 @@ Gremlin을 데이터베이스로 보낼 때 명령을 평가한 후 한 번에 �
 
 ## <a name="bulk-operations-with-graph-data"></a>그래프 데이터를 사용한 대량 작업
 
-[Bulk Executor 라이브러리](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet)는 그래프 개체를 만들고 가져오는 기능을 제공하는 `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` 네임 스페이스를 포함하고 있습니다. 
+[Bulk Executor 라이브러리](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph)는 그래프 개체를 만들고 가져오는 기능을 제공하는 `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` 네임 스페이스를 포함하고 있습니다. 
 
 다음 프로세스는 Gremlin API 컨테이너에 데이터 마이그레이션을 사용하는 방법을 설명합니다.
 1. 데이터 원본에서 레코드를 검색합니다.
 2. 가져온 레코드에서 `GremlinVertex` 및 `GremlinEdge` 개체를 생성하여 `IEnumerable` 데이터 구조에 추가합니다. 데이터 원본이 그래프 데이터베이스가 아닌 경우 애플리케이션의 이 부분에서 관계를 검색하여 추가하는 논리를 구현해야 합니다.
-3. [Graph BulkImportAsync 메서드](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet)를 사용하여 그래프 개체를 컬렉션에 삽입합니다.
+3. [Graph BulkImportAsync 메서드](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync)를 사용하여 그래프 개체를 컬렉션에 삽입합니다.
 
 이 메커니즘은 Gremlin 클라이언트를 사용하는 방법과 비교하여 데이터 마이그레이션 효율성이 향상됩니다. 효율성이 향상되는 이유는, Gremlin을 사용하여 데이터를 삽입할 경우 애플리케이션이 데이터를 만들기 위해 유효성을 검사하고 평가하고 실행해야 할 쿼리를 한 번에 보내야 하기 때문입니다. Bulk Executor 라이브러리는 애플리케이션에서 유효성 검사를 처리하고 네트워크 요청마다 여러 그래프 개체를 한 번에 보냅니다.
 
@@ -79,7 +79,7 @@ Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Az
 
 페이로드를 `GremlinVertex` 및 `GremlinEdge` 개체로 인스턴스화해야 합니다. 이러한 개체를 만드는 방법은 다음과 같습니다.
 
-**꼭짓점** :
+**꼭짓점**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -93,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**에지** :
+**에지**:
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -160,4 +160,4 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 * 대량 실행자 .NET 라이브러리의 NuGet 패키지 정보 및 릴리스 정보에 대해 자세히 알아보려면 [대량 실행자 SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조 하세요. 
 * Bulk Executor 사용을 더 최적화하는 방법은 [성능 팁](./bulk-executor-dot-net.md#performance-tips)을 확인하세요.
-* [BulkExecutor.Graph 참조 문서](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet)를 검토하여 이 네임 스페이스에 정의된 클래스 및 메서드에 대해 자세히 알아보세요.
+* [BulkExecutor.Graph 참조 문서](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph)를 검토하여 이 네임 스페이스에 정의된 클래스 및 메서드에 대해 자세히 알아보세요.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808261"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427167"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -28,7 +28,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 
 ##  <a name="prerequisites"></a>필수 구성 요소
 
-1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 </a> .
 1. 양식 인식기 리소스의 구독 키, 끝점 URL 및 구독 ID입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
 
 
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>일반 오류
 
-|오류|해결 방법|
+|Error|해결 방법|
 |:--|:--|
 | 400/잘못 된 요청 `"code:" "1002"` | 유효성 검사 오류 또는 잘못 된 형식의 복사 요청을 나타냅니다. 일반적인 문제는 다음과 같습니다. a) 잘못 되었거나 수정 된 `copyAuthorization` 페이로드입니다. b) 토큰에 대 한 만료 `expirationDateTimeTicks` 된 값 ( `copyAuhtorization` 페이로드는 24 시간 동안 유효). c)가 잘못 되었거나 지원 되지 않습니다 `targetResourceRegion` . d) 잘못 되었거나 형식이 잘못 된 `targetResourceId` 문자열입니다.
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>일반 오류
 
-|오류|해결 방법|
+|Error|해결 방법|
 |:--|:--|
 |"errors": [{"code": "AuthorizationError",<br>"message": "다음으로 인 한 인증 실패 <br>권한 부여 클레임이 없거나 잘못 되었습니다. "}]   | `copyAuthorization`API에서 반환 된 내용 으로부터 페이로드 또는 콘텐츠를 수정할 때 발생 합니다 `copyAuthorization` . 페이로드가 이전 호출에서 반환 된 것과 동일한 정확한 콘텐츠 인지 확인 `copyAuthorization` 합니다.|
 |"errors": [{"code": "AuthorizationError",<br>"메시지": "권한 부여를 검색할 수 없습니다. <br>메타. 이 문제가 지속 되 면 다른를 사용 하십시오. <br>복사할 대상 모델입니다. "}] | `copyAuthorization`페이로드가 복사 요청에 다시 사용 됨을 나타냅니다. 성공 하는 복사 요청은 동일한 페이로드를 사용 하는 추가 요청을 허용 하지 않습니다 `copyAuthorization` . 아래에 나와 있는 것 처럼 별도의 오류를 발생 시키고 이후에 동일한 권한 부여 페이로드를 사용 하 여 복사본을 다시 시도 하면이 오류가 발생 합니다. 해결 방법은 새 페이로드를 생성 한 다음 복사 요청을 다시 실행 하는 것입니다 `copyAuthorization` .|

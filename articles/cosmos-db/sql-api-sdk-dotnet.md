@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a98cf39fed312f29fbfacdff27508ae568b4f157
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 96818bb4be196ec552f1a9fd1b7a207a83092748
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "93098584"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423835"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 for SQL API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,8 +26,8 @@ ms.locfileid: "93098584"
 > * [.NET 변경 피드 SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [비동기 Java SDK v2](sql-api-sdk-async-java.md)
-> * [동기 Java SDK v2](sql-api-sdk-java.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
@@ -41,7 +41,7 @@ ms.locfileid: "93098584"
 | |  |
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**API 설명서**|[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
+|**API 설명서**|[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb)|
 |**샘플**|[.NET 코드 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**시작**|[Azure Cosmos DB .NET SDK 시작](sql-api-get-started.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|

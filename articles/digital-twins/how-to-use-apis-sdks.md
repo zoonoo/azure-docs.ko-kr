@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3724586ae9773e135905cddd2a9a33a3a6803ce5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d2d3d04bdb8066db263c608bb1d42acca303a656
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211789"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433831"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -31,7 +31,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 제어 평면 Api를 사용 하려면 다음을 수행 합니다.
 * [컨트롤 평면 swagger 리포지토리의](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable)최신 Swagger 폴더를 참조 하 여 api를 직접 호출할 수 있습니다. 이 폴더에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
 * 현재에서 컨트롤 Api에 대 한 Sdk에 액세스할 수 있습니다.
-  - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management)) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
   - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins)) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([원본](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -55,7 +55,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - [API 참조 설명서](/rest/api/azure-digitaltwins/)보기
 * **.Net (c #) SDK** 를 사용할 수 있습니다. .NET SDK를 사용 하려면 ...
    - NuGet: [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core)에서 패키지를 보고 추가할 수 있습니다. 
-   - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 볼 수 있습니다.
+   - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins/client)를 볼 수 있습니다.
    - GitHub: [Azure IoT Digital Twins client library for .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)의 샘플 폴더를 포함 하 여 SDK 원본을 찾을 수 있습니다. 
    - 이 문서의 [*.net (c #) SDK (데이터 평면)*](#net-c-sdk-data-plane) 섹션을 계속 진행 하 여 자세한 정보 및 사용 예를 볼 수 있습니다.
 * **JAVA SDK** 를 사용할 수 있습니다. Java SDK를 사용 하려면 ...
@@ -82,7 +82,7 @@ Azure Digital Twins .NET (c #) SDK는 Azure SDK for .NET의 일부입니다. 오
 > SDK 디자인에 대 한 자세한 내용은 [Azure sdk에 대 한 일반적인 디자인 원칙과](https://azure.github.io/azure-sdk/general_introduction.html) 특정 [.net 디자인 지침](https://azure.github.io/azure-sdk/dotnet_introduction.html)을 참조 하세요.
 
 SDK를 사용 하려면 NuGet 패키지 **DigitalTwins** 를 프로젝트에 포함 합니다. 최신 버전의 **Azure. id** 패키지도 필요 합니다. Visual Studio에서 nuget 패키지 관리자를 사용 하 여 이러한 패키지를 추가할 수 있습니다 ( *도구 > Nuget 패키지 관리자를 통해 액세스 > 솔루션에 대 한 Nuget 패키지 관리*). 또는 아래 NuGet 패키지 링크에 있는 명령과 함께 .NET 명령줄 도구를 사용 하 여 프로젝트에 추가할 수 있습니다.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지입니다. 
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지입니다. 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). 이 라이브러리는 Azure에 대한 인증에 유용한 도구를 제공합니다.
 
 실제로 Api를 사용 하는 방법에 대 한 자세한 연습은 [*자습서: 클라이언트 앱 코드*](tutorial-code.md)를 참조 하세요. 
@@ -175,15 +175,15 @@ Serialization 도우미는 기본 정보에 대 한 액세스를 위해 쌍 데�
 다음 목록에서는 Api 및 Sdk 사용에 대 한 추가 세부 정보 및 일반적인 지침을 제공 합니다.
 
 * Postman과 같은 HTTP REST 테스트 도구를 사용 하 여 Azure Digital Twins Api에 대 한 직접 호출을 수행할 수 있습니다. 이 프로세스에 대 한 자세한 내용은 [*방법: Postman을 사용 하 여 요청 만들기*](how-to-use-postman.md)를 참조 하세요.
-* SDK를 사용 하려면 클래스를 인스턴스화합니다 `DigitalTwinsClient` . 생성자에는 패키지의 다양 한 인증 방법을 사용 하 여 얻을 수 있는 자격 증명이 필요 합니다 `Azure.Identity` . 에 대 한 자세한 `Azure.Identity` 내용은 [네임 스페이스 설명서](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)를 참조 하세요. 
-* `InteractiveBrowserCredential`시작 하는 동안 유용 하지만, Azure Digital Twins에 대해 [MSI로 설정 된 azure 함수](../app-service/overview-managed-identity.md?tabs=dotnet) 를 인증 하는 데 사용할 수 있는 [관리 되는 id](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)에 대 한 자격 증명을 비롯 한 몇 가지 다른 옵션이 있습니다. 에 대 한 자세한 내용은 `InteractiveBrowserCredential` 해당 [클래스 설명서](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)를 참조 하세요.
+* SDK를 사용 하려면 클래스를 인스턴스화합니다 `DigitalTwinsClient` . 생성자에는 패키지의 다양 한 인증 방법을 사용 하 여 얻을 수 있는 자격 증명이 필요 합니다 `Azure.Identity` . 에 대 한 자세한 `Azure.Identity` 내용은 [네임 스페이스 설명서](/dotnet/api/azure.identity)를 참조 하세요. 
+* `InteractiveBrowserCredential`시작 하는 동안 유용 하지만, Azure Digital Twins에 대해 [MSI로 설정 된 azure 함수](../app-service/overview-managed-identity.md?tabs=dotnet) 를 인증 하는 데 사용할 수 있는 [관리 되는 id](/dotnet/api/azure.identity.interactivebrowsercredential)에 대 한 자격 증명을 비롯 한 몇 가지 다른 옵션이 있습니다. 에 대 한 자세한 내용은 `InteractiveBrowserCredential` 해당 [클래스 설명서](/dotnet/api/azure.identity.interactivebrowsercredential)를 참조 하세요.
 * 모든 서비스 API 호출은 클래스에서 멤버 함수로 노출 됩니다 `DigitalTwinsClient` .
 * 모든 서비스 함수는 동기 및 비동기 버전에 존재 합니다.
-* 모든 서비스 함수는 400 이상의 반환 상태에 대 한 예외를 throw 합니다. 호출 `try` 을 섹션으로 래핑하고 최소한의 catch를 수행 해야 `RequestFailedExceptions` 합니다. 이러한 형식의 예외에 대 한 자세한 내용은 [여기](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet)를 참조 하세요.
-* 대부분의 서비스 메서드는 `Response<T>` 또는 ( `Task<Response<T>>` 비동기 호출의 경우)를 반환 `T` 합니다. 여기서은 서비스 호출에 대 한 반환 개체의 클래스입니다. [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet)클래스는 서비스 반환을 캡슐화 하 고 해당 필드에 반환 값을 제공 합니다 `Value` .  
-* 페이징 결과를 포함 하는 서비스 메서드 `Pageable<T>` `AsyncPageable<T>` 는 또는 결과로 반환 됩니다. 클래스에 대 한 자세한 내용은 `Pageable<T>` [여기](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet)를 참조 하십시오 .에 대 한 자세한 내용은 `AsyncPageable<T>` [여기](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet)를 참조 하세요.
+* 모든 서비스 함수는 400 이상의 반환 상태에 대 한 예외를 throw 합니다. 호출 `try` 을 섹션으로 래핑하고 최소한의 catch를 수행 해야 `RequestFailedExceptions` 합니다. 이러한 형식의 예외에 대 한 자세한 내용은 [여기](/dotnet/api/azure.requestfailedexception)를 참조 하세요.
+* 대부분의 서비스 메서드는 `Response<T>` 또는 ( `Task<Response<T>>` 비동기 호출의 경우)를 반환 `T` 합니다. 여기서은 서비스 호출에 대 한 반환 개체의 클래스입니다. [`Response`](/dotnet/api/azure.response-1)클래스는 서비스 반환을 캡슐화 하 고 해당 필드에 반환 값을 제공 합니다 `Value` .  
+* 페이징 결과를 포함 하는 서비스 메서드 `Pageable<T>` `AsyncPageable<T>` 는 또는 결과로 반환 됩니다. 클래스에 대 한 자세한 내용은 `Pageable<T>` [여기](/dotnet/api/azure.pageable-1)를 참조 하십시오 .에 대 한 자세한 내용은 `AsyncPageable<T>` [여기](/dotnet/api/azure.asyncpageable-1)를 참조 하세요.
 * 루프를 사용 하 여 페이징 결과를 반복할 수 있습니다 `await foreach` . 이 프로세스에 대 한 자세한 내용은 [여기](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)를 참조 하세요.
-* 기본 SDK는 `Azure.Core` 입니다. SDK 인프라 및 유형에 대 한 참조는 [Azure 네임 스페이스 설명서](/dotnet/api/azure?preserve-view=true&view=azure-dotnet) 를 참조 하세요.
+* 기본 SDK는 `Azure.Core` 입니다. SDK 인프라 및 유형에 대 한 참조는 [Azure 네임 스페이스 설명서](/dotnet/api/azure) 를 참조 하세요.
 
 서비스 메서드는 가능한 경우 항상 강력한 형식의 개체를 반환 합니다. 그러나 Azure Digital Twins는 런타임에 사용자가 구성한 모델을 기반으로 하기 때문에 (서비스에 업로드 된 DTDL 모델을 통해) 많은 서비스 Api가 쌍 데이터를 JSON 형식으로 사용 하 고 반환 합니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e046f8cbf6fa0418244f20e9a0c6f75f6da34136
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786879"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434630"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
 
@@ -35,10 +35,10 @@ ms.locfileid: "98786879"
 * 동남아시아
 * 인도 중부
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.</a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.
 > * 샘플 [스마트 공간 Lite](https://aka.ms/speech/cc-quickstart) json 파일을 다운로드 합니다.
 > * 최신 버전의 [Windows Voice Assistant 클라이언트](https://aka.ms/speech/va-samples-wvac)를 다운로드 합니다.
 
