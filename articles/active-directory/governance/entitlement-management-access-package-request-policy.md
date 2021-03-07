@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4a1aa737b1f671c08d51d780fa98db50f2869a1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211654"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426963"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 변경 요청 설정
 
@@ -197,6 +197,8 @@ ms.locfileid: "102211654"
     ![액세스 패키지-정책-정책 설정 사용](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. **다음** 을 클릭합니다.
+
+1. 액세스 패키지에 대 한 액세스를 요청할 때 요청자에 게 추가 정보를 제공 하도록 요구 하려면 [AZURE AD 자격 관리에서 액세스 패키지에 대 한 승인 및 요청자 정보 (미리 보기) 설정 변경](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) 의 단계를 사용 하 여 요청자 정보를 구성 합니다 (미리 보기).
 
 1. 수명 주기 설정을 구성 합니다.
 

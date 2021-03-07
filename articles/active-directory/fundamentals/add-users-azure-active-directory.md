@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996698"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426827"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -42,7 +42,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
    - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
+   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 *\<yourdomainname> onmicrosoft.com* 을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 
@@ -74,6 +74,9 @@ Azure Active Directory(클라우드)와 Windows Server Active Directory(온-프�
 
 Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 있습니다.
 
+>[!Note]
+>조직에서 사용자를 삭제 하려면 전역 관리자 또는 사용자 관리자 역할을 할당 해야 합니다. 전역 관리자는 다른 관리자를 비롯 한 모든 사용자를 삭제할 수 있습니다. 사용자 관리자는 관리자가 아닌 사용자, 기술 지원팀 관리자 및 기타 사용자 관리자를 삭제할 수 있습니다. 자세한 내용은 [AZURE AD의 관리자 역할 권한](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)을 참조 하세요.
+
 사용자를 삭제 하려면 다음 단계를 수행 합니다.
 
 1. 조직의 사용자 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
@@ -91,7 +94,7 @@ Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 
 사용자를 삭제 하면 해당 사용자가 사용 하는 모든 라이선스를 다른 사용자가 사용할 수 있게 됩니다.
 
 >[!Note]
->Windows server Active Directory를 사용 하 여 인증 원본이 Windows Server Active Directory 인 사용자에 대 한 id, 연락처 정보 또는 작업 정보를 업데이트 해야 합니다. 업데이트를 완료하면 변경 내용이 표시되기 전에 다음 동기화 주기가 완료될 때까지 기다려야 합니다.
+>인증 원본이 Windows Server Active Directory 인 사용자에 대 한 id, 연락처 정보 또는 작업 정보를 업데이트 하려면 Windows Server Active Directory를 사용 해야 합니다. 업데이트를 완료 한 후에는 변경 내용이 표시 되기 전에 다음 동기화 주기가 완료 될 때까지 기다려야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

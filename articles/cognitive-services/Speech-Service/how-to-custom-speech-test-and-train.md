@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710501"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424498"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -55,7 +55,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
 > [!TIP]
-> 빠르게 시작 하려면 샘플 데이터를 사용 하는 것이 좋습니다. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">샘플 Custom Speech 데이터 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 는이 GitHub 리포지토리를 참조 하세요.
+> 빠르게 시작 하려면 샘플 데이터를 사용 하는 것이 좋습니다. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">샘플 Custom Speech 데이터</a> 는이 GitHub 리포지토리를 참조 하세요.
 
 > [!NOTE]
 > 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요. 기본 모델이 오디오 데이터로 학습을 지 원하는 경우에도 서비스는 오디오의 일부만 사용할 수 있습니다. 그래도 모든 성적 증명서를 사용 합니다.
@@ -69,7 +69,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 ## <a name="upload-data"></a>데이터 업로드
 
-데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>로 이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
+데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>로 이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
 
 ![음성 포털에서 오디오 업로드 옵션을 강조 표시 하는 스크린샷](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!TIP]
 > 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. 학습에 더 많은 데이터를 요구 하는 경우 여러 개의 .zip 파일로 나누고 별도로 업로드 합니다. 나중에 *여러* 데이터 집합에서 학습 하도록 선택할 수 있습니다. 그러나 *단일* 데이터 집합 에서만 테스트할 수 있습니다.
 
-<a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 를 사용 하 여 오디오 속성을 확인 하거나 기존 오디오를 적절 한 형식으로 변환 합니다. 다음은 이러한 각 활동을 SoX 명령줄을 통해 수행할 수 있는 방법에 대 한 몇 가지 예입니다.
+<a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 를 사용 하 여 오디오 속성을 확인 하거나 기존 오디오를 적절 한 형식으로 변환 합니다. 다음은 이러한 각 활동을 SoX 명령줄을 통해 수행할 수 있는 방법에 대 한 몇 가지 예입니다.
 
 | 작업 | Description | SoX 명령 |
 |----------|-------------|-------------|
@@ -131,7 +131,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 1 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 그러나 30 분 정도는 인식 결과를 개선 하는 데 도움이 될 수 있습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 <!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
 
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 전사는 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 Speech Studio로 업로드 하기 전에 수행 해야 하는 몇 가지 중요 한 normalizations 있습니다. 사용자를 준비할 때 사용할 적절 한 언어는 [사람이 레이블 지정 된 기록을 만드는 방법](how-to-custom-speech-human-labeled-transcriptions.md) 을 참조 하세요.
 
-오디오 파일 및 해당 하는 해당 하는 항목을 수집한 후에는 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드 하기 전에 단일 .zip 파일로 패키지 합니다. 다음은 3 개의 오디오 파일과 사람이 레이블이 지정 된 기록 파일이 있는 예제 데이터 집합입니다.
+오디오 파일 및 해당 하는 해당 하는 항목을 수집한 후에는 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 </a>에 업로드 하기 전에 단일 .zip 파일로 패키지 합니다. 다음은 3 개의 오디오 파일과 사람이 레이블이 지정 된 기록 파일이 있는 예제 데이터 집합입니다.
 
 > [!div class="mx-imgBorder"]
 > ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ speech03.wav    the lazy dog was not amused
 | 문장 (길이 발언) | 문장의 컨텍스트 내에서 제품 이름 또는 산업별 어휘를 인식할 때 정확성을 향상 시킵니다. |
 | 발음 | 특수 하지 않은 용어, 머리글자어 또는 기타 단어 (정의 되지 않은 발음)의 발음을 개선 합니다. |
 
-문장은 단일 텍스트 파일 또는 여러 텍스트 파일로 제공 될 수 있습니다. 정확도를 높이기 위해 예상 되는 음성 길이 발언 더 가까운 텍스트 데이터를 사용 합니다. 발음는 단일 텍스트 파일로 제공 되어야 합니다. 모든 항목은 단일 zip 파일로 패키지 하 여 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드할 수 있습니다.
+문장은 단일 텍스트 파일 또는 여러 텍스트 파일로 제공 될 수 있습니다. 정확도를 높이기 위해 예상 되는 음성 길이 발언 더 가까운 텍스트 데이터를 사용 합니다. 발음는 단일 텍스트 파일로 제공 되어야 합니다. 모든 항목은 단일 zip 파일로 패키지 하 여 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 </a>에 업로드할 수 있습니다.
 
 관련 텍스트로의 교육은 일반적으로 몇 분 이내에 완료 됩니다.
 

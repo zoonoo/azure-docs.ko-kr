@@ -1,26 +1,20 @@
 ---
 title: Azure Security Center의 적응 네트워크 강화 | Microsoft Docs
 description: 실제 트래픽 패턴을 사용 하 여 NSG (네트워크 보안 그룹) 규칙을 강화 하 고 보안 상태를 강화 하는 방법을 알아봅니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 23cbabf1c4fb1433fa1201f77528db9d9f393ed5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 14523e814c85469aa02a860e87b86defd7823c16
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712150"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439598"
 ---
-# <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>적응 네트워크 강화를 통해 네트워크 보안 상태 개선
+# <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>적응형 네트워크 강화를 통해 네트워크 보안 상태 개선
 Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
 
 ## <a name="availability"></a>가용성

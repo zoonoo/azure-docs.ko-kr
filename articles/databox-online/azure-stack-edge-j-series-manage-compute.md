@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99068a68c5d35bc6a501c5860d0bbc9ea3e3f368
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733417"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436982"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 계산 관리
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro GPU 장치에서 IoT Edge 서비스를 통해 계산을 관리 하는 방법을 설명 합니다. 로컬 웹 UI 또는 Azure Portal을 통해 컴퓨팅을 관리할 수 있습니다. Azure Portal를 사용 하 여 모듈, 트리거 및 IoT Edge 구성을 관리 하 고, 로컬 웹 UI를 사용 하 여 계산 네트워크 설정을 관리할 수 있습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "101733417"
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **IoT Edge** 으로 이동 합니다. **트리거** 로 이동 하 여 명령 모음에서 **+ 트리거 추가** 를 선택 합니다.
 
-    ![트리거 추가 선택](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
+    ![트리거 추가 선택](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
 
 2. **트리거 추가** 블레이드에서 트리거의 고유한 이름을 지정합니다.
     

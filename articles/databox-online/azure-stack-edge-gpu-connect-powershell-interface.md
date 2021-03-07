@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896192"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437760"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 장치에 대 한 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
 
@@ -121,7 +123,7 @@ Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 �
     - `FullLogCollection`:이 매개 변수를 사용 하면 로그 패키지에 모든 계산 로그가 포함 됩니다. 기본적으로 로그 패키지에는 로그 하위 집합만 포함 되어 있습니다.
 
 
-## <a name="change-kubernetes-pod-and-service-subnets"></a>Kubernetes pod 및 서비스 서브넷 변경
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Kubernetes Pod 및 서비스 서브넷 변경
 
 기본적으로 Azure Stack Edge 장치의 Kubernetes는 172.27.0.0/16 및 172.28.0.0/16의 서브넷을 각각 pod와 service에 사용 합니다. 이러한 서브넷을 네트워크에서 이미 사용 중인 경우에는 cmdlet을 실행 하 여 `Set-HcsKubeClusterNetworkInfo` 이러한 서브넷을 변경할 수 있습니다.
 

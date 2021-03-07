@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/20/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 90e5342e096230b7dbdc139b24255030ac593015
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 67dd2b35229c15ae4df5ec8acb357aa35621d67c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549671"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436637"
 ---
 # <a name="troubleshooting-certificate-errors"></a>인증서 오류 문제 해결
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro 장치에 인증서를 설치할 때 일반적인 인증서 오류 문제를 해결 하는 방법을 설명 합니다.
 

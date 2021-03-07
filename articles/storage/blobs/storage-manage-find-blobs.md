@@ -3,18 +3,18 @@ title: Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 �
 description: Blob 인덱스 태그를 사용 하 여 blob 개체를 분류, 관리 및 쿼리 하는 방법에 대해 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523283"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431757"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -29,6 +29,9 @@ Blob 인덱스 태그를 통해 다음을 할 수 있습니다.
 
 저장소 계정에 수백만 개의 blob이 있고 다양 한 응용 프로그램에서 액세스 하는 시나리오를 고려해 보세요. 단일 프로젝트에서 관련 된 모든 데이터를 찾으려고 합니다. 서로 다른 명명 규칙을 사용 하 여 여러 컨테이너에 데이터를 분산할 수 있으므로 범위가 무엇 인지 확실 하지 않습니다. 그러나 응용 프로그램은 프로젝트를 기반으로 하는 태그가 있는 모든 데이터를 업로드 합니다. 수백만 개의 blob을 검색 하 고 이름과 속성을 비교 하는 대신를 `Project = Contoso` 검색 조건으로 사용할 수 있습니다. Blob 인덱스는에서 50 blob 집합만 빠르게 찾고 반환 하도록 전체 저장소 계정에서 모든 컨테이너를 필터링 합니다 `Project = Contoso` .
 
+> [!IMPORTANT]
+> Blob 인덱스 태그는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+
 Blob 인덱스를 사용 하는 방법에 대 한 예제를 시작 하려면 [blob 인덱스 태그를 사용 하 여 데이터 관리 및 검색](storage-blob-index-how-to.md)을 참조 하세요.
 
 ## <a name="blob-index-tags-and-data-management"></a>Blob 인덱스 태그 및 데이터 관리
@@ -42,7 +45,6 @@ Blob 인덱스를 사용 하는 방법에 대 한 예제를 시작 하려면 [bl
 - *사진/bannerphoto.png*
 - *보관/완료/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 이러한 blob은 *컨테이너/가상 폴더/b* s n 이름의 접두사를 사용 하 여 분리 됩니다. 이러한 다섯 개의 blob에 대 한의 인덱스 태그 특성을 설정 `Project = Contoso` 하 여 현재 접두사 조직을 유지 하면서 함께 범주화 할 수 있습니다. 인덱스 태그를 추가 하면 인덱스를 사용 하 여 데이터를 필터링 하 고 찾는 기능을 노출 하 여 데이터를 이동할 필요가 없습니다.
 

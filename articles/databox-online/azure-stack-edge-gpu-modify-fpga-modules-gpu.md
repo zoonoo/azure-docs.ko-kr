@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6e9e1319b90ab859c63c022e478bc26c4b8aedeb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 660fbf7cc4dd28c800d8f49fd5d990c99f97c4c8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550221"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442998"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치의 Azure Stack Edge Pro FPGA Azure Stack 장치에서 기존 IoT Edge 모듈 실행
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro FPGA에서 실행 되는 docker 기반 IoT Edge 모듈에 필요한 변경 사항에 대해 자세히 설명 합니다 .이 모듈을 Azure Stack Edge Pro GPU 장치의 Kubernetes 기반 IoT Edge 플랫폼에서 실행할 수 있습니다. 
 
@@ -25,7 +27,7 @@ IoT Edge 구현은 edge pro FPGA 장치와 Edge Pro GPU 장치의 Azure Stack에
 
 FPGA 장치에서 GPU 장치로 워크 로드를 마이그레이션하는 경우 Kubernetes 플랫폼에서 성공적으로 실행 되도록 기존 IoT Edge 모듈을 변경 해야 합니다. 저장소, 네트워킹, 리소스 사용량 및 웹 프록시 요구 사항을 다르게 지정 해야 할 수 있습니다. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 IoT Edge 모듈의 저장소를 지정할 때 다음 정보를 고려 하십시오.
 

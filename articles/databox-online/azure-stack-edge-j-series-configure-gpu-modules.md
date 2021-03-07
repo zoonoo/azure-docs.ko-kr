@@ -6,23 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935563"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439054"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 GPU에 모듈 구성 및 실행
 
-Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가 포함 되어 있습니다. Gpu는 병렬 처리 기능을 제공 하 고 Cpu (중앙 처리 장치) 보다 이미지를 렌더링 하는 속도가 더 빠른 AI 계산에 널리 사용 되는 선택 사항입니다. Azure Stack Edge Pro 장치에 포함 된 GPU에 대 한 자세한 내용은 [Edge pro 장치 기술 사양 Azure Stack](azure-stack-edge-gpu-technical-specifications-compliance.md)을 참조 하세요.
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
+Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가 포함 되어 있습니다. GPU는 병렬 처리 기능을 제공하고 CPU(중앙 처리 장치)보다 이미지 렌더링 속도가 빠르기 때문에 AI 컴퓨팅에 널리 사용됩니다. Azure Stack Edge Pro 장치에 포함 된 GPU에 대 한 자세한 내용은 [Edge pro 장치 기술 사양 Azure Stack](azure-stack-edge-gpu-technical-specifications-compliance.md)을 참조 하세요.
 
 이 문서에서는 Azure Stack Edge Pro 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다. 이 문서에서는 Nvidia T4 Gpu 용으로 작성 된 공개적으로 사용 가능한 컨테이너 모듈 **번호** 를 사용 합니다. 이 절차는 이러한 Gpu에 대해 Nvidia에서 게시 한 다른 모듈을 구성 하는 데 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -38,28 +40,28 @@ Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가
 
     ![GPU 1을 사용 하도록 모듈 구성](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
 
-3. **IoT Edge 서비스 사용** 에서 **추가** 를 선택 합니다.
+3. **IoT Edge 서비스 사용** 에서 **추가** 를 선택합니다.
 
    ![GPU 2를 사용 하도록 모듈 구성](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
 
-4. **IoT Edge 서비스 만들기** 에서 IoT Hub 리소스에 대 한 설정을 입력 합니다.
+4. **IoT Edge 서비스 만들기** 에서 IoT Hub 리소스에 대한 설정을 입력합니다.
 
    |필드   |값    |
    |--------|---------|
-   |Subscription      | Azure Stack Edge 리소스에서 사용 하는 구독입니다. |
-   |Resource group    | Azure Stack Edge 리소스에서 사용 하는 리소스 그룹입니다. |
-   |IoT Hub           | **새로 만들기** 또는 **기존 기존 사용** 에서 선택 합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
-   |Name              | 새 IoT Hub 리소스에 대해 제공 된 기본 이름을 사용 하지 않으려면 다른 이름을 입력 합니다. |
+   |Subscription      | Azure Stack Edge 리소스에서 사용하는 구독입니다. |
+   |Resource group    | Azure Stack Edge 리소스에서 사용하는 리소스 그룹입니다. |
+   |IoT Hub           | **새로 만들기** 또는 **기존 항목 사용** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
+   |Name              | 새 IoT Hub 리소스에 제공된 기본 이름을 사용하지 않으려면 다른 이름을 입력합니다. |
 
-   설정을 마치면 **검토 + 만들기** 를 선택 합니다. IoT Hub 리소스에 대 한 설정을 검토 하 고 **만들기** 를 선택 합니다.
+   설정을 마치면 **검토 + 만들기** 를 선택합니다. IoT Hub 리소스에 대한 설정을 검토하고 **만들기** 를 선택합니다.
 
    ![컴퓨팅 시작 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-   IoT Hub 리소스에 대 한 리소스 생성은 몇 분 정도 걸립니다. 리소스를 만든 후 **개요** 는 IoT Edge 서비스가 현재 실행 되 고 있음을 나타냅니다.
+   IoT Hub 리소스에 대한 리소스 생성은 몇 분 정도 걸립니다. 리소스가 생성된 후 **개요** 는 IoT Edge 서비스가 현재 실행 중임을 나타냅니다.
 
    ![컴퓨팅 시작 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Edge 계산 역할이 구성 되어 있는지 확인 하려면 **속성** 을 선택 합니다.
+5. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **속성** 을 선택합니다.
 
    ![컴퓨팅 시작 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
