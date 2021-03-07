@@ -6,23 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787454"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437607"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 보여 줍니다. 
 
 이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge Pro 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -86,7 +88,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
 
 1. 서비스 주체를 만들려면를 통해 다음 명령을 사용 `az cli` 합니다.
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     에 로그인 하는 방법에 대 한 자세한 내용은 `az cli` [에서 Cloud Shell를 시작 Azure Portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
@@ -228,4 +230,4 @@ Azure Arc 관리를 제거 하려면 다음 단계를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Arc 배포를 실행 하는 방법을 이해 하려면 [Azure Stack Edge Pro 장치에서 GitOps를 통해 Redis을 사용 하 여 상태 비저장 PHP 방명록 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md) 를 참조 하세요.
+Azure Arc 배포를 실행 하는 방법을 이해 하려면 [ `Guestbook` Azure Stack Edge Pro 장치에서 GitOps를 통해 Redis을 사용 하 여 상태 비저장 PHP 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md) 를 참조 하세요.

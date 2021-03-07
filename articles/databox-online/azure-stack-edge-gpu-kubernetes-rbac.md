@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1b38a9807e05385a378fa6103710fb6b393c7b1f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635843"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443151"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 역할 기반 액세스 제어를 Kubernetes
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 장치의 클러스터 리소스에 대 한 액세스를 제한할 수 있습니다.
 
@@ -39,10 +40,10 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네임 스페이스가 있습
 - **시스템 네임 스페이스** -이 네임 스페이스는 DNS 및 프록시와 같은 네트워크 기능 또는 Kubernetes 대시보드의 핵심 리소스가 존재 하는 곳입니다. 일반적으로 사용자 고유의 애플리케이션은 이 네임스페이스에 배포하지 않습니다. 이 네임 스페이스를 사용 하 여 Kubernetes 클러스터 문제를 디버그 합니다. 
 
     장치에는 여러 시스템 네임 스페이스가 있으며 이러한 시스템 네임 스페이스에 해당 하는 이름은 예약 되어 있습니다. 다음은 예약 된 시스템 네임 스페이스 목록입니다. 
-    - kube-시스템
+    - kube-system
     - metallb-시스템
     - d 네임 스페이스
-    - 기본값
+    - default
     - kubernetes-대시보드
     - kube-임대
     - kube-public
@@ -61,15 +62,15 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네임 스페이스가 있습
 
 실제 세계에서는 클러스터를 여러 네임 스페이스로 분할 하는 것이 중요 합니다. 
 
-- **여러 사용자** : 여러 사용자가 있는 경우 여러 네임 스페이스에서 각 사용자가 서로 격리 된 특정 네임 스페이스에 응용 프로그램 및 서비스를 배포할 수 있도록 허용 합니다. 
-- **단일 사용자** : 단일 사용자가 있는 경우에도 여러 네임 스페이스를 사용 하면 해당 사용자가 동일한 Kubernetes 클러스터에서 여러 버전의 응용 프로그램을 실행할 수 있습니다.
+- **여러 사용자**: 여러 사용자가 있는 경우 여러 네임 스페이스에서 각 사용자가 서로 격리 된 특정 네임 스페이스에 응용 프로그램 및 서비스를 배포할 수 있도록 허용 합니다. 
+- **단일 사용자**: 단일 사용자가 있는 경우에도 여러 네임 스페이스를 사용 하면 해당 사용자가 동일한 Kubernetes 클러스터에서 여러 버전의 응용 프로그램을 실행할 수 있습니다.
 
 ### <a name="roles-and-rolebindings"></a>역할 및 RoleBindings
 
 Kubernetes에는 네임 스페이스 수준 및 클러스터 수준에서 사용자 또는 리소스에 대 한 권한을 부여할 수 있는 역할 및 역할 바인딩 개념이 있습니다. 
 
-- **역할** : 사용자에 대 한 권한을 **역할로** 정의한 다음 **역할** 을 사용 하 여 네임 스페이스 내에서 사용 권한을 부여할 수 있습니다. 
-- **Rolebindings** : 역할을 정의한 후에는 **rolebindings** 를 사용 하 여 지정 된 네임 스페이스에 대 한 역할을 할당할 수 있습니다. 
+- **역할**: 사용자에 대 한 권한을 **역할로** 정의한 다음 **역할** 을 사용 하 여 네임 스페이스 내에서 사용 권한을 부여할 수 있습니다. 
+- **Rolebindings**: 역할을 정의한 후에는 **rolebindings** 를 사용 하 여 지정 된 네임 스페이스에 대 한 역할을 할당할 수 있습니다. 
 
 이 접근 방식을 사용 하면 사용자가 할당 된 네임 스페이스의 응용 프로그램 리소스에만 액세스할 수 있는 단일 Kubernetes 클러스터를 논리적으로 구분할 수 있습니다. 
 

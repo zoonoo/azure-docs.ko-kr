@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467026"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437539"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Edge 컨테이너 레지스트리를 사용 하도록 설정
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Edge 컨테이너 레지스트리를 사용 하도록 설정 하 고 Azure Stack Edge Pro 장치의 Kubernetes 클러스터 내에서 사용 하는 방법을 설명 합니다. 이 문서에 사용 된 예제에서는 원본 레지스트리에서 이미지를 푸시하는 방법 (이 경우 Microsoft Container registry)을 Edge 컨테이너 레지스트리 인 Azure Stack Edge 장치의 레지스트리에 푸시하는 방법에 대해 자세히 설명 합니다.
 
@@ -28,7 +30,7 @@ Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 장치에서에 지에
 다중 노드 환경에서는 컨테이너 이미지를 다운로드 하 여 Edge 컨테이너 레지스트리에 한 번 푸시할 수 있습니다. 모든에 지 응용 프로그램은 후속 배포에 Edge 컨테이너 레지스트리를 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -114,7 +116,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
 
 1. 인증서가 설치 된 후 시스템에서 Docker 클라이언트를 다시 시작 합니다.
 
-1. Edge 컨테이너 레지스트리에 로그인 합니다. 형식:
+1. Edge 컨테이너 레지스트리에 로그인 합니다. 유형:
 
     `docker login <Edge container registry endpoint> -u <username> -p <password>`
 
@@ -122,7 +124,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
 
 1. Docker push 또는 pull 명령을 사용 하 여 컨테이너 레지스트리에서 컨테이너 이미지를 끌어오거나 풀 합니다.
  
-    1. Microsoft Container Registry 이미지에서 이미지를 끌어옵니다. 형식:
+    1. Microsoft Container Registry 이미지에서 이미지를 끌어옵니다. 유형:
         
         `docker pull <Full path to the container image in the Microsoft Container Registry>`
        

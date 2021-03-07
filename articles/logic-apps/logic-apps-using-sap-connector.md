@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 03/05/2021
 tags: connectors
-ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712456"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426453"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 이 문서에서는 [sap 커넥터](/connectors/sap/)를 사용 하 여 LOGIC APPS에서 sap 리소스에 액세스 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -473,6 +473,23 @@ SAP ABAP에서 Logic Apps 하는 데 RFC (원격 함수 호출)를 사용 하 �
 > [!NOTE]
 > SAP 트리거는 폴링 트리거가 아니라 webhook 기반 트리거입니다. 데이터 게이트웨이를 사용 하는 경우 메시지가 존재 하는 경우에만 데이터 게이트웨이에서 트리거가 호출 되므로 폴링이 필요 하지 않습니다.
 
+**' Sapgw00 ' 서비스** 와 유사한 메시지와 함께 **500 잘못 된 게이트웨이** 오류를 수신 하는 경우 API 연결에서 게이트웨이 서비스 이름을 바꾸고 구성의 포트 번호를 트리거합니다. 다음 예제 오류에서는 `sapgw00` 실제 포트 번호 (예:)로 바꾸어야 `3300` 합니다. 
+
+```json
+"body": {
+   "error": {
+      "code": 500,
+      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+      "clientRequestId": "00000000-0000-0000-0000-000000000000",
+      "message": "BadGateway",
+      "innerError": {
+         "error": {
+            "code": "UnhandledException",
+            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+         }
+      }
+```
+
 #### <a name="parameters"></a>매개 변수
 
 SAP 커넥터는 간단한 문자열 및 숫자 입력과 함께 다음 테이블 매개 변수 (입력)를 허용 합니다 `Type=ITAB` .
@@ -729,7 +746,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-message-from-sap)합니다.
 
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -1158,7 +1175,7 @@ TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`S
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 들면 `sapsnc.dll` 또는 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll` 입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661021"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443576"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -78,20 +78,23 @@ RunDetails(run).show()
 
 <a id="queryrunmetrics"></a>
 
-### <a name="logging-run-metrics"></a>로깅 실행 메트릭 
+## <a name="view-run-metrics"></a>실행 메트릭 보기
 
-로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다. 이러한 기록 된 메트릭에 대 한 [서비스 제한](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) 사항에 유의 하세요. 
+## <a name="via-the-sdk"></a>SDK를 통해
+```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 아래 예제를 참조하세요. 
 
-|기록된 값|예제 코드| 포털의 형식|
-|----|----|----|
-|숫자 값의 배열 기록| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|단일 변수 꺾은선형 차트|
-|반복적으로 사용되는 동일한 메트릭 이름(for 루프 내에서와 같이)을 사용하여 단일 숫자 값 기록| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 단일 변수 꺾은선형 차트|
-|2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
-|두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
 
-## <a name="query-run-metrics"></a>실행 메트릭 쿼리
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
 
-```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 예를 들어 위의 예제와 함께이를 사용 하 여 가장 낮은 mse (제곱 오류) 값을 가진 모델을 찾아 최상의 모델을 결정할 수 있습니다.
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 

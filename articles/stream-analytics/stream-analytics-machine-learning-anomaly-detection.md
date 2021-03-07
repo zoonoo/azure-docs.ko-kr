@@ -2,16 +2,16 @@
 title: Azure Stream Analytics의 변칙 검색
 description: 이 아티클에서는 Azure Stream Analytics 및 Azure Machine Learning을 함께 사용하여 변칙을 검색하는 방법을 설명합니다.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: jseb225
+ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec37ea6cbb1c1c6693aab1f6855948d32b85e95b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178503"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441196"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
@@ -29,7 +29,7 @@ Machine learning 작업은 현재 계절성 추세 또는 여러 번의 상관 �
 
 ## <a name="model-behavior"></a>모델 동작
 
-일반적으로 모델 정확도는 슬라이딩 윈도우의 데이터가 많을수록 향상됩니다. 지정된 슬라이딩 윈도우의 데이터는 해당 시간 프레임 동안 정상 범위의 일부로 처리됩니다. 모델은 슬라이딩 윈도우의 이벤트 기록만 고려하여 현재 이벤트가 비정상인지 확인합니다. 슬라이딩 윈도우가 이동하면 이전 값이 모델 학습에서 제거됩니다.
+일반적으로 모델 정확도는 슬라이딩 윈도우의 데이터가 많을수록 향상됩니다. 지정된 슬라이딩 윈도우의 데이터는 해당 시간 프레임 동안 정상 범위의 일부로 처리됩니다. 모델은 슬라이딩 윈도우의 이벤트 기록만 고려하여 현재 이벤트가 비정상인지 확인합니다. 슬라이딩 창이 이동 하면 모델의 학습에서 이전 값이 제거 됩니다.
 
 함수는 지금까지 확인한 내용을 기반으로 해서 특정 표준을 설정하여 작동합니다. 신뢰 수준 내에서 설정된 표준과 비교하여 이상값을 식별합니다. 변칙이 발생할 경우 인식할 수 있도록 정상 동작에 대한 모델 학습에 필요한 최소 이벤트 수를 기준으로 윈도우 크기를 설정해야 합니다.
 
@@ -128,7 +128,7 @@ DeviceId로 함수를 분할 하는 경우 변칙 검색 함수 호출에 "PARTI
 ### <a name="observations"></a>결과
 다음 표에는 분할 되지 않은 경우에 단일 노드 (6 SU)의 처리량 관찰이 포함 되어 있습니다.
 
-| 기록 크기 (이벤트) | 기간 (밀리초) | 초당 총 입력 이벤트 수 |
+| 기록 크기 (이벤트)    | 기간 (밀리초) | 초당 총 입력 이벤트 수 |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1650 |

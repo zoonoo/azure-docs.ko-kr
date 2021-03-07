@@ -1,5 +1,5 @@
 ---
-title: AdventureWorks 샘플 데이터베이스를 Azure Arc 사용 PostgreSQL Hyperscale으로 복원
+title: AdventureWorks 샘플 데이터베이스를 Azure Arc 사용 PostgreSQL Hyperscale으로 가져오기
 description: AdventureWorks 샘플 데이터베이스를 Azure Arc 사용 PostgreSQL Hyperscale으로 복원
 services: azure-arc
 ms.service: azure-arc
@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b1ee779be118fcafd0efa2bd2718ece1c34c50d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: a9efa17fb782d5a913493907b66973272e4e0356
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954331"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441791"
 ---
-# <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>AdventureWorks 샘플 데이터베이스를 Azure Arc 사용 PostgreSQL Hyperscale으로 복원
+# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>AdventureWorks 샘플 데이터베이스를 Azure Arc 사용 PostgreSQL Hyperscale으로 가져오기
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) 는 자습서에서 사용 되는 OLTP 데이터베이스를 포함 하는 예제 데이터베이스와 예제입니다. [SQL Server 샘플 GitHub 리포지토리의](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases)일부로 Microsoft에서 제공 하 고 유지 관리 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "97954331"
 - [원본 프로젝트](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [PostgreSQL와 호환 되도록 CSV 파일을 미리 변환 하는 프로젝트를 따르세요.](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-이 문서에서는 PostgreSQL Hyperscale 서버 그룹으로 복원 되는 AdventureWorks 샘플 데이터베이스를 가져오는 간단한 프로세스에 대해 설명 합니다.
+이 문서에서는 PostgreSQL Hyperscale 서버 그룹으로 가져온 AdventureWorks 샘플 데이터베이스를 가져오는 간단한 프로세스에 대해 설명 합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -38,7 +38,7 @@ PostgreSQL Hyperscale 서버 그룹 컨테이너에 AdventureWorks .sql 파일�
 >  GitHub에서 파일을 다운로드 하려면 컨테이너에서 443 이상의 인터넷 연결이 필요 합니다.
 
 > [!NOTE]
->  Postgres Hyperscale 서버 그룹의 코디네이터 노드에 대 한 pod 이름을 사용 합니다. 이름은 <server group name> -0입니다.  Pod 이름을 잘 모르는 경우 다음 명령을 실행 합니다. `kubectl get pod`
+>  Postgres Hyperscale 서버 그룹의 코디네이터 노드에 대 한 pod 이름을 사용 합니다. 이름은 <server group name> c-0 (예: postgres01c-0입니다. 여기서 c는 코디네이터 노드를 나타냄)입니다.  Pod 이름을 잘 모르는 경우 다음 명령을 실행 합니다. `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
@@ -47,7 +47,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash
 #kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## <a name="step-2-restore-the-adventureworks-database"></a>2 단계: AdventureWorks 데이터베이스 복원
+## <a name="step-2-import-the-adventureworks-database"></a>2 단계: AdventureWorks 데이터베이스 가져오기
 
 마찬가지로 kubectl exec 명령을 실행 하 여 PostgreSQL Hyperscale 서버 그룹 컨테이너에 포함 된 psql CLI 도구를 사용 하 여 데이터베이스를 만들고 로드할 수 있습니다.
 
@@ -60,7 +60,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 #kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-그런 다음이 명령을 실행 하 여 실행 하기 전에 pod 이름 및 네임 스페이스 이름의 값을 대체 하는 데이터베이스를 복원 합니다.
+그런 다음이 명령을 실행 하 여 실행 하기 전에 pod 이름 및 네임 스페이스 이름의 값을 대체 하는 데이터베이스를 가져옵니다.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql

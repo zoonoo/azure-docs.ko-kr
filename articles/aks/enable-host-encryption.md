@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039736"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430159"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "102039736"
 > [!NOTE]
 > 호스트 기반 암호화는 azure [지역][supported-regions] 에서 사용할 수 있으며, azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기만][supported-sizes]지원 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - `aks-preview`CLI 확장 v 0.4.73 이상 버전이 설치 되어 있는지 확인 합니다.
 - `EnableEncryptionAtHostPreview`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
@@ -48,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>제한 사항
 
-- 새 노드 풀 또는 새 클러스터 에서만 사용 하도록 설정할 수 있습니다.
+- 새 노드 풀 에서만 사용할 수 있습니다.
 - Azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기][supported-sizes]를 지 원하는 [azure 지역][supported-regions] 에서만 사용 하도록 설정할 수 있습니다.
 - *VM 집합 유형* 으로 Virtual Machine Scale Sets (vmss)를 기반으로 하는 AKS 클러스터 및 노드 풀이 필요 합니다.
 

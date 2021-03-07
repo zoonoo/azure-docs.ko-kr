@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875739"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439462"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -58,14 +58,22 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>관리자에 게 필요한 관리 계층 권한을 얻을 수 없는 경우 어떻게 하나요?
 
-Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명을 사용 하 여 해당 리소스에 연결할 수 있습니다.
+Blob 컨테이너, ADLS Gen2 컨테이너 또는 디렉터리 또는 큐에 액세스 하려는 경우 Azure 자격 증명을 사용 하 여 해당 리소스에 연결할 수 있습니다.
 
 1. 연결 대화 상자를 엽니다.
-2. "Azure Active Directory를 통해 리소스 추가 (Azure AD)"를 선택 합니다. 다음을 선택합니다.
-3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 선택합니다.
-4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음, 연결을 차례로 선택 합니다.
+1. 연결 하려는 리소스 종류를 선택 합니다.
+1. **Azure Active Directory (AZURE AD)를 사용 하 여 로그인** 을 선택 합니다. **다음** 을 선택합니다.
+1. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. **다음** 을 선택합니다.
+1. 리소스에 대 한 URL을 입력 하 고 연결의 고유한 표시 이름을 입력 합니다. **다음** , **연결** 을 차례로 선택 합니다.
 
-다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
+다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 다음 단계를 수행 하 여 SAS URL을 요청 하 고 리소스에 연결할 수 있습니다.
+
+1. 연결 대화 상자를 엽니다.
+1. 연결 하려는 리소스 종류를 선택 합니다.
+1. **SAS (공유 액세스 서명)** 를 선택 합니다. **다음** 을 선택합니다.
+1. 받은 SAS URL을 입력 하 고 연결의 고유한 표시 이름을 입력 합니다. **다음** , **연결** 을 차례로 선택 합니다.
+ 
+리소스에 연결 하는 방법에 대 한 자세한 내용은 [개별 리소스에 연결](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource)을 참조 하세요.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
@@ -103,7 +111,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe** 를 두 번 클릭 합니다.
     * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`를 실행합니다.
+3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
 6. Storage 탐색기를 열고   >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.

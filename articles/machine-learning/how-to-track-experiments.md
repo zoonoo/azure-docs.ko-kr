@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9e5f64d9ef61a272da488ad70e690db4c07ddccc
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 0130af66152d4f70db47191ae2f271630a59e179
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625080"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441077"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>ML 학습 실행에서 로깅 사용
 
@@ -38,6 +38,37 @@ Azure Machine Learning Python SDK를 사용하면 기본 Python 로깅 패키지
 ## <a name="data-types"></a>데이터 형식
 
 스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 포함한 여러 데이터 형식을 기록할 수 있습니다. 다양한 데이터 형식에 대한 자세한 내용과 Python 코드 예제는 [Run 클래스 참조 페이지](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)를 참조하세요.
+
+### <a name="logging-run-metrics"></a>로깅 실행 메트릭 
+
+로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다. 이러한 기록 된 메트릭에 대 한 [서비스 제한](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) 사항에 유의 하세요. 
+
+|기록된 값|예제 코드| 포털의 형식|
+|----|----|----|
+|숫자 값의 배열 기록| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|단일 변수 꺾은선형 차트|
+|반복적으로 사용되는 동일한 메트릭 이름(for 루프 내에서와 같이)을 사용하여 단일 숫자 값 기록| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 단일 변수 꺾은선형 차트|
+|2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
+|두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
+|로그 이미지|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|이 메서드를 사용 하 여 실행에 이미지 파일 또는 matplotlib 플롯을 기록 합니다. 이러한 이미지는 실행 레코드에서 표시 되 고 비교할 수 있습니다.|
+
+### <a name="logging-with-mlflow"></a>MLflow를 사용 하 여 로깅
+MLFlowLogger를 사용 하 여 메트릭을 로깅합니다.
+
+```python
+from azureml.core import Run
+# connect to the workspace from within your running code
+run = Run.get_context()
+ws = run.experiment.workspace
+
+# workspace has associated ml-flow-tracking-uri
+mlflow_url = ws.get_mlflow_tracking_uri()
+
+#Example: PyTorch Lightning
+from pytorch_lightning.loggers import MLFlowLogger
+
+mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
+mlf_logger._run_id = run.id
+```
 
 ## <a name="interactive-logging-session"></a>대화형 로깅 세션
 

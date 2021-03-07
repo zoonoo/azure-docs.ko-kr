@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202385"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441944"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -242,6 +242,16 @@ sysprep은 Azure 파일 동기화 에이전트가 설치된 서버에서 사용�
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 스토리지 관리) 솔루션
 다른 HSM 솔루션은 Azure 파일 동기화와 함께 사용하면 안 됩니다.
+
+## <a name="performance-and-scalability"></a>성능 및 확장성
+
+Azure 파일 동기화 에이전트가 Azure 파일 공유에 연결된 Windows Server 컴퓨터에서 실행되므로 유효한 동기화 성능은 인프라에 포함된 많은 요소(Windows Server 및 기본 디스크 구성,서버와 Azure Storage 간의 네트워크 대역폭, 파일 크기, 데이터 세트의 총 크기 및 데이터 세트의 작업 등)에 따라 달라집니다. Azure 파일 동기화가 파일 수준에서 작동하므로 Azure 파일 동기화 기반 솔루션의 성능 특성은 초당 처리된 개체(예: 파일 및 디렉터리)의 수에서 정확하게 측정됩니다.
+
+Azure Portal 또는 SMB를 사용하여 Azure 파일 공유에서 변경한 사항은 즉시 검색되지 않고 서버 엔드포인트의 변경 사항처럼 복제됩니다. Azure Files에는 아직 변경 알림/저널링이 없어서 파일이 변경될 때 동기화 세션을 자동으로 시작할 방법이 없습니다. Windows Server에서 Azure 파일 동기화 [WINDOWS USN 저널링](https://docs.microsoft.com/windows/win32/fileio/change-journals) 을 사용 하 여 파일이 변경 될 때 동기화 세션을 자동으로 시작 합니다.
+
+Azure 파일 공유의 변경 사항을 검색하기 위해 Azure 파일 동기화에는 변경 검색 작업이라는 예약된 작업이 있습니다. 변경 검색 작업은 파일 공유의 모든 파일을 열거한 다음 해당 파일의 동기화 버전과 비교합니다. 변경 검색 작업에서 파일이 변경된 것으로 판단되면 Azure 파일 동기화는 동기화 세션을 시작합니다. 변경 검색 작업은 24시간마다 시작됩니다. 변경 검색 작업은 Azure 파일 공유의 모든 파일을 열거하여 작동하므로 변경 검색은 큰 네임스페이스가 작은 네임스페이스보다 오래 걸립니다. 큰 네임스페이스의 경우 변경된 파일을 확인하는 것이 24시간마다 한 번 이상이 걸릴 수 있습니다.
+
+자세한 내용은 [Azure 파일 동기화 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics) 및 [Azure 파일 동기화 크기 목표](storage-files-scale-targets.md#azure-file-sync-scale-targets) 를 참조 하세요.
 
 ## <a name="identity"></a>ID
 Azure 파일 동기화는 동기화 설정 이외의 특별한 설정 없이 표준 AD 기반 ID를 사용하여 작동합니다. Azure 파일 동기화를 사용하는 경우 일반적으로 대부분의 액세스에서 Azure 파일 공유가 아니라 Azure 파일 동기화 캐싱 서버를 통과합니다. 서버 엔드포인트는 Windows Server에 있고 Windows Server는 오랫동안 AD 및 Windows 스타일 ACL을 지원했으므로 스토리지 동기화 서비스에 등록된 Windows 파일 서버가 도메인에 조인되어 있는지 확인하는 것 외에는 아무 작업도 필요하지 않습니다. Azure 파일 동기화는 ACL을 Azure 파일 공유의 파일에 저장하고 이를 모든 서버 엔드포인트에 복제합니다.

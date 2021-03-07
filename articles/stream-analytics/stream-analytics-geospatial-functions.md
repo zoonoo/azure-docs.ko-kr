@@ -2,16 +2,16 @@
 title: Azure Stream Analytics 지리 공간적 함수 소개
 description: 이 문서에서는 Azure Stream Analytics 작업에 사용되는 지리 공간적 함수를 설명합니다.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 2835918cf381cb0fbd917ce9bf4650730878d711
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a5e65ddacfd4c168d4b97816e448951bacc2b534
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178504"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438543"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 

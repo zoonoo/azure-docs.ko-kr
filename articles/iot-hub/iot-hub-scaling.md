@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: e786a323cfb1ebacdf7e6693e3ca4299f10aadb3
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216040"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434715"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -85,7 +85,7 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 | [서비스 통계 가져오기](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getservicestatistics-msrest-requestoptionsbase-) | 예 | 예 |
 | [디바이스 만들기 또는 업데이트](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatedevice-string--device--servicecallback-device--) | 예 | 예 |
 | [모듈 만들기 또는 업데이트](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | 예 | 예 |
-| [IoT Hub 쿼리](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | 예 | 예 |
+| [IoT Hub 쿼리](/dotnet/api/microsoft.azure.devices.registrymanager) | 예 | 예 |
 | [파일 업로드 SAS URI 만들기](/rest/api/iothub/device/createfileuploadsasuri) | 예 | 예 |
 | [바인딩된 디바이스 알림 수신](/rest/api/iothub/device/receivedeviceboundnotification) | 예 | 예 |
 | [디바이스 이벤트 보내기](/rest/api/iothub/device/senddeviceevent) | 예 | 예 |

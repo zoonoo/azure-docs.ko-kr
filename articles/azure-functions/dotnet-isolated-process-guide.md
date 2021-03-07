@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: b13c19aea3c3d36bd1cb4237278e5f0edbb8ed54
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d6db6c366ae51dbdc5bf062e79358f752e4a05f5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181723"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425909"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -174,7 +174,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
 | 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
-| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
+| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
 | 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
 | HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 

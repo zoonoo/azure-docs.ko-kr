@@ -4,12 +4,12 @@ description: 'C #을 사용 하 여 Azure Functions 런타임으로 in-process�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041198"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428411"
 ---
 # <a name="develop-c-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 함수 개발
 
@@ -23,24 +23,40 @@ ms.locfileid: "102041198"
 C # 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
 
 | 시작 | 개념| 단계별 학습/샘플 |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md)</li><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li><li>[Visual Studio 개발](functions-develop-vs.md)</li><li>[종속성 주입](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[C# 샘플](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Azure Portal에서 C#을 사용하는 방법](functions-create-function-app-portal.md)에 대한 지침은 [C# 스크립트(.csx) 개발자 참조](functions-reference-csharp.md)를 참조하세요.
 
 ## <a name="supported-versions"></a>지원되는 버전
 
-함수 런타임의 버전은 특정 버전의 .NET에서 작동 합니다. 다음 표에서는 프로젝트에서 특정 버전의 함수에 사용할 수 있는 .NET Core 및 .NET Framework 및 .NET Core의 가장 높은 수준을 보여 줍니다. 
+함수 런타임의 버전은 특정 버전의 .NET에서 작동 합니다. 함수 버전에 대해 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
+
+다음 표에서는 특정 버전의 함수에서 사용할 수 있는 .NET Core 또는 .NET Framework의 가장 높은 수준을 보여 줍니다. 
 
 | 함수 런타임 버전 | 최대 .NET 버전 |
 | ---- | ---- |
-| 함수 3(sp3) | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
-| Functions 2.x | .NET Core 2.2 |
+| 함수 3(sp3) | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
+| Functions 2.x | .NET Core 2.2<sup>2</sup> |
 | Functions 1.x | .NET Framework 4.7 |
 
-<sup>*</sup>[Out-of-process](dotnet-isolated-process-guide.md)를 실행 해야 합니다.
+<sup>1</sup> 은 [Out-of-process](dotnet-isolated-process-guide.md)를 실행 해야 합니다.  
+<sup>2</sup> 자세한 내용은 [함수 v2. x 고려 사항](#functions-v2x-considerations)을 참조 하세요.   
 
-자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
+특정 이전 부 버전의 제거를 포함 하 여 Azure Functions 릴리스에 대 한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 모니터링 하세요.
+
+### <a name="functions-v2x-considerations"></a>함수 v2. x 고려 사항
+
+최신 2.x 버전 ()을 대상으로 하는 함수 앱 `~2` 은 .Net Core 3.1에서 실행 되도록 자동으로 업그레이드 됩니다. .Net Core 버전 간의 주요 변경 사항으로 인해 .net Core 2.2에 대해 개발 되 고 컴파일된 모든 앱은 .NET Core 3.1로 안전 하 게 업그레이드할 수 있습니다. 함수 앱을에 고정 하 여이 업그레이드를 옵트아웃 (opt out) 할 수 있습니다 `~2.0` . 또한 함수는 호환 되지 않는 Api를 검색 하 고 `~2.0` .Net Core 3.1에서 잘못 된 실행을 방지 하기 위해 앱을에 고정할 수 있습니다. 
+
+>[!NOTE]
+>함수 앱이에 고정 되어 `~2.0` 있는 경우이 버전 대상을로 변경 하면 `~2` 함수 앱이 중단 될 수 있습니다. ARM 템플릿을 사용 하 여 배포 하는 경우 템플릿에서 버전을 확인 합니다. 이 경우 버전을 다시 대상으로 변경 `~2.0` 하 고 호환성 문제를 해결 합니다. 
+
+을 대상으로 하는 함수 앱은 `~2.0` .Net Core 2.2에서 계속 실행 됩니다. 이 버전의 .NET Core는 더 이상 보안 및 기타 유지 관리 업데이트를 받지 않습니다. 자세히 알아보려면 [이 알림 페이지](https://github.com/Azure/app-service-announcements/issues/266)를 참조 하세요. 
+
+가능 하면 신속 하 게 .NET Core 3.1과 호환 되도록 함수를 사용 해야 합니다. 이러한 문제를 해결 한 후 버전을 다시로 변경 `~2` 하거나로 업그레이드 `~3` 합니다. 함수 런타임의 대상 버전에 대해 자세히 알아보려면 [Azure Functions runtime 버전을 대상으로 지정 하는 방법](set-runtime-version.md)을 참조 하세요.
+
+프리미엄 또는 전용 (App Service) 계획으로 Linux에서 실행 하는 경우 사이트 구성 설정을로 설정 하 여 특정 이미지를 대상으로 지정 하는 방법에 대 한 `linuxFxVersion` `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` 자세한 `linuxFxVersion` 내용은 [linux의 수동 버전 업데이트](set-runtime-version.md#manual-version-updates-on-linux)를 참조 하세요.
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
@@ -90,14 +106,14 @@ public static class SimpleExample
 
 ## <a name="method-signature-parameters"></a>메서드 서명 매개 변수
 
-트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 다음은 포함할 수 있는 추가 매개 변수 중 일부입니다.
+트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 포함할 수 있는 다른 매개 변수는 다음과 같습니다.
 
 * 특성으로 데코레이팅하여 표시된 [입력 및 출력 바인딩](functions-triggers-bindings.md).  
 * [로깅](#logging)에 대한 `ILogger` 또는 `TraceWriter`([버전 1.x 전용](functions-versions.md#creating-1x-apps)) 매개 변수.
 * [정상 종료](#cancellation-tokens)를 위한 `CancellationToken` 매개 변수.
 * 트리거 메타데이터를 가져오는 [바인딩 식](./functions-bindings-expressions-patterns.md) 매개 변수.
 
-함수 시그니처에서 매개 변수의 순서는 중요하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
+함수 시그니처의 매개 변수 순서는 중요 하지 않습니다. 예를 들어, 다른 바인딩 전후에 트리거 매개 변수를 추가하고, 트리거 또는 바인딩 매개 변수 전후에 로거 매개 변수를 추가할 수 있습니다.
 
 ### <a name="output-bindings"></a>출력 바인딩
 
@@ -147,7 +163,7 @@ public static class BindingExpressionsExample
 
 빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
-이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](event-driven-scaling.md)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
+이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](event-driven-scaling.md)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 파일에는 입력/출력 바인딩이 아닌 트리거 정보만 있습니다.
 
 생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
@@ -172,7 +188,7 @@ public static class BindingExpressionsExample
 
 *function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
 
-버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 다른 대상 프레임워크와 동일한 `Sdk` 패키지를 보여 줍니다.
+버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 동일한 패키지를 사용 하 여 서로 다른 대상 프레임 워크를 표시 하는 *.csproj* 파일의 관련 부분입니다 `Sdk` .
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
@@ -625,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](/dotnet/api/system.io.textwriter)는 지원되는 출력 바인딩 형식입니다.
 
-### <a name="multiple-attribute-example"></a>다중 특성 예제
+### <a name="multiple-attributes-example"></a>여러 특성 예제
 
 앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들면 다음과 같습니다.
 

@@ -3,12 +3,12 @@ title: 컨테이너 insights 개요 | Microsoft Docs
 description: 이 문서에서는 AKS 클러스터의 상태를 모니터링 하 고 Azure에서 Container Instances 하 여 제공 하는 값과 AKS Container Insights 솔루션을 모니터링 하는 컨테이너 통찰력을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723387"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441519"
 ---
 # <a name="container-insights-overview"></a>컨테이너 insights 개요
 
@@ -58,7 +58,7 @@ Linux 클러스터와 비교 하 여 Windows Server 클러스터 모니터링의
 
 컨테이너 insights를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 분석을 제공 하는 다음 비디오를 확인 하세요.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>이 기능에 액세스하려면 어떻게 하나요?
 

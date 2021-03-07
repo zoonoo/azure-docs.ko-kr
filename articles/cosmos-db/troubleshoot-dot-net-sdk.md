@@ -3,18 +3,18 @@ title: Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 .NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429938"
+ms.locfileid: "102442199"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,12 +93,47 @@ IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실�
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>높은 네트워크 대기 시간
 높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 또는 V3 sdk의 [진단](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
 
-[시간 초과가](troubleshoot-dot-net-sdk-request-timeout.md) 없고 진단에 단일 요청이 표시 되는 경우 `ResponseTime` `RequestStartTime` (예:이 예에서는 >300 밀리초)와 같이 대기 시간이 긴 단일 요청을 표시 합니다.
+[시간 초과가](troubleshoot-dot-net-sdk-request-timeout.md) 없고 진단에 긴 대기 시간이 분명 한 단일 요청이 표시 되는 경우
+
+# <a name="v3-sdk"></a>[V3 SDK](#tab/diagnostics-v3)
+
+진단은 `ResponseMessage` ,, `ItemResponse` `FeedResponse` 또는 `CosmosException` 속성으로 가져올 수 있습니다 `Diagnostics` .
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+진단의 네트워크 상호 작용은 다음과 같습니다.
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+여기서는 `duration in milliseconds` 대기 시간을 표시 합니다.
+
+# <a name="v2-sdk"></a>[V2 SDK](#tab/diagnostics-v2)
+
+클라이언트를 [직접 모드](sql-sdk-connection-modes.md)에서 구성 하는 경우 다음 속성을 통해 진단을 사용할 수 있습니다 `RequestDiagnosticsString` .
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+그리고 대기 시간은 및 간의 차이에 `ResponseTime` `RequestStartTime` 있습니다.
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 이 대기 시간에는 여러 원인이 있을 수 있습니다.
 

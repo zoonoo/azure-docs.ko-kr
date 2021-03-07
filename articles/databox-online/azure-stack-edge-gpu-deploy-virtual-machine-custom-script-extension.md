@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804870"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438015"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 실행 되는 Vm에 사용자 지정 스크립트 확장 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 사용자 지정 스크립트 확장은 Azure Stack Edge Pro 장치에서 실행 되는 가상 컴퓨터에서 스크립트나 명령을 다운로드 하 고 실행 합니다. 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 사용자 지정 스크립트 확장을 설치 하 고 실행 하는 방법에 대해 자세히 설명 합니다. 
 
@@ -60,7 +62,7 @@ If your script is on a local server, then you may still need additional firewall
 > [!NOTE]
 > Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. -->
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 다운로드를 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
 

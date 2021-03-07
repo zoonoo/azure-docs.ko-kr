@@ -8,14 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 064af116112f0b530ac0cc9b5755dcec2cf0bd07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdd44bf81e34b60ee648b71c6dc3bde5a96d3deb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722072"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443015"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치의 자동 관리 로그 수집
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 자동 관리 로그 수집은 장치 문제를 효율적으로 해결 하는 데 도움이 되도록 Azure Stack Edge 장치에서 시스템 상태 표시기를 수집 합니다. 자동 관리 로그 수집은 기본적으로 사용 하도록 설정 되어 있습니다. 이 문서에서는 로깅되는 내용, Microsoft에서 데이터를 처리 하는 방법 및 자동 관리 로그 수집을 사용 하거나 사용 하지 않도록 설정 하는 방법을 설명 합니다. 
 
@@ -58,7 +60,7 @@ Microsoft 고객 지원 및 엔지니어링 팀은 Azure Stack Edge 장치의 �
 자동 관리 로그 수집을 사용 하도록 설정 하면 장치에서 다음 이벤트 중 하나가 검색 될 때 로그가 자동으로 업로드 됩니다.  
 
 
-|경고/오류/조건  |Description  |
+|경고/오류/조건  |설명  |
 |---------|---------|
 |AcsUnhealthyCondition     |Azure 일관적인 서비스가 비정상 상태입니다.         |
 |IOTEdgeAgentNotRunningCondition      |IoT Edge 에이전트가 실행 되 고 있지 않습니다.         |

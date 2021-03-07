@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b112506acead01e8dc2bbe72b0d52f47ada326a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035141"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440414"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -194,7 +194,7 @@ AS COPY OF source_server_name.source_database_name
 > [!IMPORTANT]
 > 원본 보다 훨씬 더 작은 서비스 목표가 포함 된 복사본을 만들어야 하는 경우 대상 데이터베이스에는 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며이로 인해 copy operaion가 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 내용은 [데이터베이스 백업을 사용 하 여 Azure SQL Database 복구](recovery-using-backups.md#geo-restore) 를 참조 하세요.
 
-## <a name="azure-roles-to-manage-database-copy"></a>데이터베이스 복사본을 관리 하기 위한 Azure 역할
+## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Azure RBAC 역할 및 데이터베이스 복사본 관리 권한
 
 데이터베이스 복사본을 만들려면 다음 역할을 수행 해야 합니다.
 

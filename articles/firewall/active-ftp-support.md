@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 03/05/2021
 ms.author: victorh
-ms.openlocfilehash: 47bced3c3c4f01212af6919d51adc5dfc2e6e1b5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: aa543b32efcd1897eb0ee7d8b477742705095ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200071"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430737"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Azure 방화벽 활성 FTP 지원
 
@@ -20,8 +20,6 @@ FTP 서버는 활성 FTP를 사용 하 여 지정 된 FTP 클라이언트 데이
 
 기본적으로 ftp 명령을 사용 하 여 FTP 바운스 공격 으로부터 보호 하기 위해 Azure 방화벽에서 활성 FTP 지원은 사용 하지 않도록 설정 됩니다 `PORT` . 그러나 Azure PowerShell, Azure CLI 또는 Azure ARM 템플릿을 사용 하 여 배포할 때 활성 FTP를 사용 하도록 설정할 수 있습니다.
 
-> [!NOTE]
-> 현재, 활성 FTP는 가상 네트워크에 배포 된 방화벽에 대해서만 지원 됩니다. 가상 WAN 지원은 나중에 추가 될 예정입니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

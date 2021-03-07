@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679621"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441893"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 아키텍처 
 
@@ -35,7 +35,7 @@ Synapse SQL은 노드 기반 아키텍처를 사용합니다. 애플리케이션
 
 Azure Synapse SQL 제어 노드는 분산 쿼리 엔진을 활용 하 여 병렬 처리를 위한 쿼리를 최적화 한 다음 계산 노드에 작업을 전달 하 여 작업을 병렬로 수행 합니다. 
 
-서버를 사용 하지 않는 SQL 풀 제어 노드는 사용자 쿼리를 계산 노드에서 실행 되는 더 작은 쿼리로 분할 하 여 분산 된 실행을 최적화 하 고 오케스트레이션 하는 데 사용할 수 있는 (분산 쿼리 처리) 엔진을 활용 합니다. 작은 쿼리를 각각 태스크라고 하며 분산 실행 단위를 나타냅니다. 태스크는 스토리지에서 파일을 읽고, 다른 태스크의 결과를 조인하고, 다른 태스크에서 검색된 데이터를 그룹화 또는 정렬합니다. 
+서버를 사용 하지 않는 SQL 풀 제어 노드는 사용자 쿼리를 계산 노드에서 실행 되는 더 작은 쿼리로 분할 하 여 분산 된 실행을 최적화 하 고 오케스트레이션 하는 데 사용할 수 있는 (분산 쿼리 처리) 엔진을 활용 합니다. 작은 쿼리를 각각 태스크라고 하며 분산 실행 단위를 나타냅니다. 저장소에서 파일을 읽고 다른 작업, 그룹 또는 다른 작업에서 검색 된 주문 데이터의 결과를 조인 합니다. 
 
 컴퓨팅 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 
@@ -49,7 +49,7 @@ Azure Synapse SQL 제어 노드는 분산 쿼리 엔진을 활용 하 여 병렬
 
 Synapse SQL은 Azure Storage를 활용하여 사용자 데이터를 안전하게 유지합니다. 데이터가 Azure Storage에 의해 저장되고 관리되므로 스토리지 사용에 대한 별도 요금이 부과됩니다. 
 
-서버를 사용 하지 않는 SQL 풀을 사용 하면 data lake의 파일을 읽기 전용으로 쿼리할 수 있지만, SQL 풀을 사용 하면 데이터를 수집할 수도 있습니다. 데이터가 전용 SQL 풀로 수집 경우 데이터는 시스템의 성능을 최적화 하기 위해 **배포** 로 분할 된 됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
+서버를 사용 하지 않는 SQL 풀을 사용 하면 data lake 파일을 쿼리할 수 있지만 전용 SQL 풀을 사용 하면 data lake 파일에서 데이터를 쿼리하고 수집할 수 있습니다. 데이터가 전용 SQL 풀로 수집 경우 데이터는 시스템의 성능을 최적화 하기 위해 **배포** 로 분할 된 됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
 
 * Hash
 * 라운드 로빈
@@ -65,7 +65,7 @@ Synapse SQL에서 분산 쿼리 엔진은 제어 노드에서 실행 되어 병�
 
 ## <a name="compute-nodes"></a>컴퓨팅 노드
 
-컴퓨팅 노드는 컴퓨팅 능력을 제공합니다. 
+컴퓨팅 노드는 컴퓨팅 성능을 제공합니다. 
 
 전용 SQL 풀에서 배포판은 처리를 위해 계산 노드에 매핑됩니다. 비용을 지불하는 컴퓨팅 리소스가 많을수록 풀은 사용 가능한 컴퓨팅 노드에 분산을 다시 매핑합니다. 계산 노드 수는 1에서 60 사이 이며 전용 SQL 풀의 서비스 수준에 따라 결정 됩니다. 각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
 
@@ -84,7 +84,7 @@ DMS (데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조
 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 계산 리소스가 최대 인 전용 SQL 풀에는 Compute 노드당 하나의 분포가 있습니다. 최소 계산 리소스가 있는 전용 SQL 풀에는 하나의 계산 노드에 있는 모든 배포가 있습니다. 
 
 ## <a name="hash-distributed-tables"></a>해시 분산 테이블
-해시 분산 테이블은 대형 테이블의 조인 및 집계에 대해 가장 높은 쿼리 성능을 제공할 수 있습니다. 
+해시 분산 테이블을 이용하면 대형 테이블의 조인 및 집계 시 쿼리 성능 극대화할 수 있습니다. 
 
 해시 분산 테이블로 데이터를 분할 하기 위해 전용 SQL 풀은 해시 함수를 사용 하 여 각 행을 하나의 배포에 명확 하 게 할당 합니다. 테이블 정의에서 열 중 하나는 분산 열로 지정됩니다. 해시 함수는 분산 열의 값을 사용하여 각 행을 분산에 할당합니다.
 
@@ -107,7 +107,7 @@ DMS (데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조
 ## <a name="replicated-tables"></a>복제된 테이블
 복제된 테이블은 작은 테이블에 가장 빠른 쿼리 성능을 제공합니다.
 
-복제된 테이블은 각 컴퓨팅 노드에 테이블의 전체 복사본을 캐시합니다. 결과적으로 테이블을 복제하면 조인 또는 집계 전에 컴퓨팅 노드 간에 데이터를 전송하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 스토리지가 필요하며, 데이터를 쓸 때 발생하는 추가 오버 헤드로 인해 대용량 테이블에는 비실용적입니다. 
+복제된 테이블은 각 컴퓨팅 노드에 테이블의 전체 복사본을 캐시합니다. 따라서 테이블을 복제 하면 조인 또는 집계 전에 계산 노드 간에 데이터를 전송 하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 스토리지가 필요하며, 데이터를 쓸 때 발생하는 추가 오버 헤드로 인해 대용량 테이블에는 비실용적입니다. 
 
 아래 다이어그램은 각 컴퓨팅 노드의 첫 번째 분산에 캐시된 복제 테이블을 보여 줍니다. 
 
@@ -115,4 +115,4 @@ DMS (데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse SQL에 대 한 자세한 내용은 이제 [전용 sql 풀](../quickstart-create-sql-pool-portal.md) 을 신속 하 게 만들고 [샘플 데이터](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md)를 로드 하는 방법을 알아보세요. 또는 서버 리스 [SQL 풀 사용](../quickstart-sql-on-demand.md)을 시작 합니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md) 을 유용하게 사용할 수 있습니다. 
+Synapse SQL에 대 한 자세한 내용은 이제 [전용 sql 풀](../quickstart-create-sql-pool-portal.md) 을 신속 하 게 만들고 [샘플 데이터](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md)를 로드 하는 방법을 알아보세요. 또는 [서버 리스 SQL 풀 사용](../quickstart-sql-on-demand.md)을 시작 합니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md) 을 유용하게 사용할 수 있습니다. 
