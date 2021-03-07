@@ -4,17 +4,17 @@ description: .NET SDK 요청 시간 제한 예외를 진단 하 고 해결 하�
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340501"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440006"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>.NET SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,6 +41,22 @@ SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수�
 
 ### <a name="high-cpu-utilization"></a>높은 CPU 사용률
 높은 CPU 사용률은 가장 일반적인 경우입니다. 최적 대기 시간을 위해 CPU 사용량은 약 40%가 되어야 합니다. 최대 (평균) CPU 사용률을 모니터링 하려면 10 초 간격으로 사용 합니다. CPU 급증은 단일 쿼리에 대해 여러 연결을 수행할 수 있는 파티션 간 쿼리를 사용 하는 것이 더 일반적입니다.
+
+이 오류에 정보가 포함 되어 있으면 `TransportException` 다음도 포함 될 수 있습니다 `CPU History` .
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* CPU 측정이 70%를 초과 하는 경우 CPU 고갈로 인해 시간 초과가 발생할 수 있습니다. 이 경우 해결 방법은 높은 CPU 사용률의 출처를 조사하여 줄이거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
+* CPU 측정이 10초마다 발생하지 않는 경우(예: 간격 또는 측정 시간이 측정 사이에 더 큰 시간을 나타냄) 원인은 스레드 부족입니다. 이 경우 해결 방법은 스레드 부족(잠재적으로 잠긴 스레드)의 출처를 조사하거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
 
 #### <a name="solution"></a>해결 방법:
 SDK를 사용 하는 클라이언트 응용 프로그램을 확장 하거나 축소 해야 합니다.

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211756"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431281"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -51,8 +51,8 @@ Microsoft Azure IoT 디바이스 SDK에는 Azure IoT Hub 서비스에 연결되�
 
 * [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)에서 다운로드 합니다.  네임스페이스는 IoT Hub 디바이스 클라이언트(DeviceClient, ModuleClient)를 포함하는 Microsoft.Azure.Devices.Clients입니다.
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API 참조](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [모듈 참조](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [API 참조](/dotnet/api/microsoft.azure.devices)
+* [모듈 참조](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 임베디드 C에 대 한 Azure IoT Hub 장치 SDK (ANSI C-C99):
@@ -153,7 +153,7 @@ C#용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * NuGet에서 [디바이스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) 및 [서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/)를 다운로드하세요.
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [API 참조](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet&preserve-view=true)
+* [API 참조](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 C용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 

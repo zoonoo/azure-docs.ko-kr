@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c73cb99d62295312980fe5f1b248d23efa2eb0c5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945751"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432386"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -105,7 +105,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 
-[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)참조 하세요.
+[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight)참조 하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 
@@ -135,7 +135,7 @@ Spark2에서 구성을 전환 하는 샘플 리소스 관리자 템플릿 코드
 }
 ```
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [HDInsight의 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
 * [HDInsight 용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2dc211b7564b08e9aa36b1e394a66a4c175922e2
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: a04243093b89b6a2498efc48f80cbd7a47d57337
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549672"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437726"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서 만들기 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure Stack Hub 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서를 만드는 방법을 설명 합니다. 
 
@@ -37,7 +37,7 @@ Azure Stack 허브 준비 검사기 도구 (AzsReadinessChecker)를 사용 하 �
 - VPN 인증서
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Stack Edge Pro 장치 배포에 대 한 Csr을 만들려면 다음을 확인 합니다. 
 

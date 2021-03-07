@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/05/2021
+ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710586"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443389"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버의 PostgreSQL 확장
 
@@ -53,6 +53,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | 사용 가능한 공간 맵 (FSM) 검사|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | 사전 웜 관계 데이터|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | 실행 된 모든 SQL 문의 실행 통계 추적|
@@ -60,6 +61,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | 암호화 함수|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | PostgreSQL 논리적 복제|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -102,6 +104,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
+> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | 사용 가능한 공간 맵 (FSM) 검사|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | 사전 웜 관계 데이터|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | 실행 된 모든 SQL 문의 실행 통계 추적|
@@ -109,6 +112,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 암호화 함수|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | PostgreSQL 논리적 복제|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -126,7 +130,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 
 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 보내는 서버는 수신 서버에 대 한 아웃 바운드 연결을 허용 해야 합니다. 수신 서버는 보내는 서버에서의 연결을 허용 해야 합니다.
+[](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 보내는 서버는 수신 서버에 대 한 아웃 바운드 연결을 허용 해야 합니다. 수신 서버는 보내는 서버에서의 연결을 허용 해야 합니다.
 
 이러한 두 확장을 사용할 계획인 경우 [VNet 통합](concepts-networking.md) 을 사용 하 여 서버를 배포 하는 것이 좋습니다. 기본적으로 VNet 통합은 VNET의 서버 간 연결을 허용 합니다. [VNet 네트워크 보안 그룹](../../virtual-network/manage-network-security-group.md) 을 사용 하 여 액세스를 사용자 지정 하도록 선택할 수도 있습니다.
 

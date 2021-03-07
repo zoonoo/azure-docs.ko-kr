@@ -8,14 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 72ba07090e6ce67501761d97876aa136f146d61c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699575"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437930"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Kubernetes는 컨테이너 화 된 응용 프로그램을 오케스트레이션 하는 인기 있는 오픈 소스 플랫폼입니다. 이 문서에서는 Kubernetes에 대 한 개요를 제공 하 고, Azure Stack Edge Pro 장치에서 Kubernetes가 작동 하는 방식에 대해 설명 합니다. 
 

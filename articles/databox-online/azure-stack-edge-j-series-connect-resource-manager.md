@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37d1b1613f4d346fa22d10e338f442c17b8425a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722095"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439003"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Resource Manager에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. Azure Stack Edge Pro 장치는 로컬 구독에서 Vm을 만들고, 업데이트 하 고, 삭제 하는 동일한 Azure Resource Manager Api를 지원 합니다. 이 지원을 통해 클라우드와 일관 된 방식으로 장치를 관리할 수 있습니다. 
 
@@ -36,7 +36,7 @@ Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm �
 
 | # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -57,7 +57,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
 
@@ -101,8 +101,8 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
     |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 인증서에 대 한 자세한 내용은 [인증서를 관리](azure-stack-edge-gpu-manage-certificates.md)하는 방법을 참조 하세요.

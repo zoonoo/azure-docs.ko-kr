@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b437ce7b6894ebefe38b32f27d370d9f8c4bfe80
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369024"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442981"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Azure Stack Edge Pro GPU 장치 오류에 대 한 준비
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 문서는 Azure Stack Edge Pro GPU 장치에서 장치 구성 및 데이터를 저장 하 고 백업 하는 방법을 자세히 설명 하 여 장치 오류를 준비 하는 데 도움이 됩니다. 
 
@@ -42,7 +44,7 @@ Azure Stack Edge Pro GPU 장치에는 두 가지 유형의 하드웨어 오류�
 
 ## <a name="protect-device-data"></a>디바이스 데이터 보호
 
-장치 데이터는 다음 유형 중 하나일 수 있습니다.
+디바이스 데이터는 다음 형식 중 하나입니다.
 
 - Edge 클라우드 공유의 데이터
 - 로컬 공유의 데이터
@@ -63,12 +65,12 @@ Kubernetes 또는 IoT Edge을 배포 하는 경우 응용 프로그램 데이터
 
 다음 타사 데이터 보호 솔루션은 로컬 SMB 또는 NFS 공유에 있는 데이터에 대 한 백업 솔루션을 제공할 수 있습니다. 
 
-| 타사 소프트웨어           | 솔루션에 대 한 참조                               |
+| 타사 소프트웨어           | 솔루션 참조                               |
 |--------------------------------|---------------------------------------------------------|
-| Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> 자세한 내용은 Cohesity에 문의 하세요.          |
-| Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> 자세한 내용은 Commvault에 문의 하세요.          |
-| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> 자세한 내용은 Veritas에 문의 하세요.   |
-| Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> 자세한 내용은 Veeam에 문의 하세요. |
+| Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> 자세한 내용은 Cohesity에 문의하세요.          |
+| Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> 자세한 내용은 Commvault에 문의하세요.          |
+| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> 자세한 내용은 Veritas에 문의하세요.   |
+| Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> 자세한 내용은 Veeam에 문의하세요. |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Vm에서 파일 및 폴더 보호
@@ -79,10 +81,10 @@ Azure Stack Edge는 Azure Backup 및 기타 타사 데이터 보호 솔루션과
 | 백업 솔루션        | 지원되는 OS   | 참조                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Azure Backup에 대 한 MARS (Microsoft Azure Recovery Services) 에이전트 | Windows        | [MARS 에이전트 정보](../backup/backup-azure-about-mars.md)    |
-| Cohesity                | Windows, Linux | [Microsoft Azure 통합, 백업 & 복구 솔루션 brief](https://www.cohesity.com/solution/cloud/azure) <br>자세한 내용은 Cohesity에 문의 하세요.                          |
-| Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>자세한 내용은 Commvault에 문의 하세요.                          |
-| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> 자세한 내용은 Veritas에 문의 하세요.                    |
-| Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> 자세한 내용은 Veeam에 문의 하세요. |
+| Cohesity                | Windows, Linux | [Microsoft Azure 통합, 백업 & 복구 솔루션 brief](https://www.cohesity.com/solution/cloud/azure) <br>자세한 내용은 Cohesity에 문의하세요.                          |
+| Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>자세한 내용은 Commvault에 문의하세요.                          |
+| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> 자세한 내용은 Veritas에 문의하세요.                    |
+| Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> 자세한 내용은 Veeam에 문의하세요. |
 
 
 ## <a name="next-steps"></a>다음 단계
