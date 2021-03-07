@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff805b758dce05a66764ab1ff08e53378c946362
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730714"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438185"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 대 한 GPU Vm
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro 장치에서 GPU Vm (가상 머신)에 대 한 개요를 제공 합니다. 이 문서에서는 GPU VM을 만든 다음 적절 한 Nvidia 드라이버를 설치 하는 GPU 드라이버 확장을 설치 하는 방법을 설명 합니다. Azure Resource Manager 템플릿을 사용 하 여 GPU VM을 만들고 GPU 드라이버 확장을 설치 합니다. 
 

@@ -6,23 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2f66895fccd14dcffd8c5570f1d5f46933090aa
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595967"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439190"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Azure Monitor 사용
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 여러 계산 응용 프로그램을 실행 하는 경우에는 Azure Stack Edge Pro GPU 장치에서 컨테이너를 모니터링 하는 것이 중요 합니다. Azure Monitor를 사용 하 여 장치에서 실행 되는 Kubernetes 클러스터의 컨테이너 로그와 메모리 및 프로세서 메트릭을 수집할 수 있습니다.
 
 이 문서에서는 장치에서 Azure Monitor를 사용 하도록 설정 하 고 Log Analytics 작업 영역에서 컨테이너 로그를 수집 하는 데 필요한 단계를 설명 합니다. Azure Monitor 메트릭 저장소는 현재 Azure Stack Edge Pro GPU 장치에서 지원 되지 않습니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 필요 합니다.
 
@@ -116,7 +118,7 @@ ms.locfileid: "100595967"
     }
     ```
 
-1. 리소스 ID 및 위치를 가져옵니다. [https://editor.swagger.io](`Your Log Analytics workspace > General > Properties`) 로 이동합니다. 다음 정보를 복사 합니다.
+1. 리소스 ID 및 위치를 가져옵니다. `Your Log Analytics workspace > General > Properties`로 이동합니다. 다음 정보를 복사 합니다.
 
     - Azure Log Analytics 작업 영역의 정규화 된 Azure 리소스 ID 인 **리소스 id** 입니다. 
     - **location** 은 Azure 지역입니다.

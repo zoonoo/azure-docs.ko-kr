@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfc19700d24ca51d6e28aa511197c1c9e79e521
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645357"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428190"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -67,7 +67,7 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 
 Docker 컨테이너에서 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-1. 아직 설치되지 않은 경우 플랫폼에 <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop을 설치<span class="docon docon-navigate-external x-hidden-focus"></span></a>합니다.
+1. 아직 설치되지 않은 경우 플랫폼에 <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop을 설치</a>합니다.
 2. 새 명령 프롬프트 또는 터미널에서 다음 명령을 입력합니다. 
    ```console   
    docker pull msftspeech/spx

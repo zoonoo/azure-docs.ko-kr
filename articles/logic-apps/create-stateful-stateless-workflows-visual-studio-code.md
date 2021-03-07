@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/05/2021
+ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050242"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440992"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -47,7 +47,7 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 > [!NOTE]
 > 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -280,6 +280,7 @@ MacOS 또는 Linux를 사용할 때 Visual Studio Code에서 논리 앱 프로�
    1. `AzureWebJobsStorage`속성 값을 앞에서 저장 한 저장소 계정의 연결 문자열로 바꿉니다. 예를 들면 다음과 같습니다.
 
       이전:
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +292,7 @@ MacOS 또는 Linux를 사용할 때 Visual Studio Code에서 논리 앱 프로�
       ```
 
       이후:
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +304,22 @@ MacOS 또는 Linux를 사용할 때 Visual Studio Code에서 논리 앱 프로�
       ```
 
    1. 완료 되 면 변경 내용을 저장 해야 합니다.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>기본 제공 커넥터 제작 사용
+
+[미리 보기 릴리스의 확장성 프레임 워크](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)를 사용 하 여 필요한 모든 서비스에 대 한 기본 제공 커넥터를 만들 수 있습니다. Azure Service Bus 및 SQL Server와 같은 기본 제공 커넥터와 마찬가지로, 이러한 커넥터는 높은 처리량, 짧은 대기 시간, 로컬 연결을 제공 하 고 미리 보기 런타임과 동일한 프로세스에서 기본적으로 실행 됩니다.
+
+제작 기능은 현재 Visual Studio Code 에서만 사용할 수 있지만 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 커넥터를 만들려면 먼저 확장 번들 기반 (Node.js)에서 NuGet 패키지 기반 (.NET)으로 프로젝트를 변환 해야 합니다.
+
+1. 탐색기 창의 프로젝트 루트에서 다른 모든 파일 및 폴더 아래에 있는 빈 영역 위로 마우스 포인터를 이동 하 고 바로 가기 메뉴를 연 다음 **Nuget 기반 논리 앱 프로젝트로 변환** 을 선택 합니다.
+
+   ![프로젝트 창의 빈 영역에서 프로젝트의 바로 가기 메뉴를 연 상태에서 탐색기 창이 표시 된 것을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. 프롬프트가 표시 되 면 프로젝트 변환을 확인 합니다.
+
+1. 계속 하려면 [원격-기본 제공 커넥터 확장성을 실행](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)하는 Azure Logic Apps 문서의 단계를 검토 하 고 수행 합니다.
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -862,7 +880,7 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
 
          | 심각도 수준 | 추적 유형 |
          |----------------|------------|
-         | 위험 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
+         | 중요 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
          | 디버그 | 인바운드 및 아웃 바운드 HTTP 호출과 같은 개발 중에 조사에 사용할 수 있는 로그입니다. |
          | Error | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
          | 정보 | 논리 앱 또는 워크플로의 일반 활동을 추적 하는 로그입니다. 예를 들면 다음과 같습니다. <p><p>-트리거, 동작 또는 실행이 시작 되 고 끝나는 경우 <br>-논리 앱이 시작 되거나 종료 되는 경우 |
@@ -1348,6 +1366,7 @@ Azure Logic Apps 미리 보기는 Azure 함수 작업, 액체 작업 및 xml 작
 1. 다음 작업에서 줄을 삭제 합니다 `"dependsOn: "generateDebugSymbols"` . 예를 들어 앞 줄을 종료 하는 쉼표와 함께를 삭제 합니다.
 
    이전:
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1378,7 @@ Azure Logic Apps 미리 보기는 Azure 함수 작업, 액체 작업 및 xml 작
    ```
 
    이후:
+
    ```json
     {
       "type": "func",

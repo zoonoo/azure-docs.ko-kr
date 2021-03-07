@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be8f4ba8552521d25992d7c3a405dc2628fbbb85
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560823"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433253"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
-[**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
+[**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 

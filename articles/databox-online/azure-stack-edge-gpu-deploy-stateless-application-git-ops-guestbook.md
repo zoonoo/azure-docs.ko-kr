@@ -1,21 +1,23 @@
 ---
-title: '`PHP Guestbook`Edge PRO GPU 장치 Azure Stack에 앱 배포 Arc 사용 Kubernetes on Microsoft Docs'
+title: '`Guestbook`Edge PRO GPU 장치 Azure Stack에 대 한 Arc 사용 Kubernetes on에서 PHP 앱 배포 | Microsoft Docs'
 description: '`Guestbook`Azure Stack Edge Pro 장치의 Arc Enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 Redis를 사용 하 여 PHP 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.'
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f47f795335204ecd0c74463b76583d7dd79f8532
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804874"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436433"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>`Guestbook`Azure Stack Edge PRO GPU에서 Redis On Arc Enabled Kubernetes cluster를 사용 하 여 PHP 상태 비저장 응용 프로그램 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Kubernetes 및 Azure Arc를 사용 하 여 간단한 다중 계층 웹 응용 프로그램을 빌드하고 배포 하는 방법을 보여 줍니다. 이 예제는 다음과 같은 구성 요소로 구성 됩니다.
 
@@ -30,7 +32,7 @@ ms.locfileid: "98804874"
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 

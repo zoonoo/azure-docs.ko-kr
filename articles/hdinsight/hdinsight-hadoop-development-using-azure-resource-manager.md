@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a8f808cd43f96f26db0de28e8059d02d9488320a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945760"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434664"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
@@ -53,7 +53,7 @@ Azure Resource Manager로 사용할 수 있는 새 명령은 다음과 같습니
 
 Apache Hadoop MapReduce, Apache Hive 및 Apache Pig를 대화형으로 실행하는 다른 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md), [HDInsight에서 Hadoop과 Apache Hive 사용](hadoop/hdinsight-use-hive.md) 및 [HDInsight에서 Apache Hadoop과 Apache Pig 사용](./index.yml)을 참조하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 **클러스터 만들기**
 
 * 이전 명령(ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
@@ -143,7 +143,7 @@ Resource Manager 모드에서만 사용할 수 있는 새 cmdlet은 다음과 �
 
 * **AzHDInsightClusterIdentity**: HDInsight 클러스터가 Azure Data Lake Storage에 액세스할 수 있도록 클러스터 id를 클러스터 구성 개체에 추가 합니다. [Azure PowerShell을 사용하여 Data Lake Storage로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 **클러스터 만들기**
 
 이전 명령(ASM): 
@@ -238,7 +238,7 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](/previous-versions/azure
 
 | 방법... Resource Manager 기반 HDInsight SDK 사용 | 링크 |
 | --- | --- |
-| .NET용 Azure HDInsight SDK|[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) 참조 하세요. |
+| .NET용 Azure HDInsight SDK|[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight) 참조 하세요. |
 | .NET SDK와 Azure Active Directory를 사용하여 대화형으로 애플리케이션 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
 | .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 애플리케이션 인증 |[HDInsight에 대한 비대화형 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK를 사용하여 Apache Hive 작업 제출 |[Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) 참조 |
@@ -250,7 +250,7 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](/previous-versions/azure
 | .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 스토리지 계정 찾기 |[HDInsight 클러스터에 대한 기본 스토리지 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | .NET SDK를 사용하여 HDInsight 클러스터 삭제 |[HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 다음은 ASM 기반 SDK 및 Resource Manager 기반 SDK에 해당하는 코드 조각을 사용하여 작업을 수행하는 방법에 대한 일부 예제입니다.
 
 **클러스터 CRUD 클라이언트 만들기**

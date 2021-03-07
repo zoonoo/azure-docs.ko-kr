@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/10/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c18f875dde43ab6df512375152d76a31c30a9e77
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449515"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439870"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Stack Edge와 Azure Key Vault 통합 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Key Vault는 비밀 관리를 위해 Azure Stack에 지 리소스와 통합 됩니다. 이 문서에서는 장치를 정품 인증 하는 동안 Azure Stack에 지 리소스에 대해 Azure Key Vault를 만드는 방법에 대 한 세부 정보를 제공 하며, 암호 관리에 사용 됩니다. 
 

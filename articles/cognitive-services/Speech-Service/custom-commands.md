@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024945"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426472"
 ---
 # <a name="what-is-custom-commands"></a>사용자 지정 명령이란?
 
@@ -36,7 +36,7 @@ ms.locfileid: "95024945"
 
 ## <a name="getting-started-with-custom-commands"></a>사용자 지정 명령 시작
 
-사용자 지정 명령의 목표는 다양 한 기술을 배우고 음성 명령 앱을 개발 하는 데 집중 하는 인지 부하를 줄이는 것입니다. 사용자 지정 명령을 사용 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span> 를 만드는 </a>첫 번째 단계입니다. Speech Studio에서 사용자 지정 명령 앱을 작성 하 여 게시할 수 있습니다. 그 후에는 장치 응용 프로그램이 음성 SDK를 사용 하 여 통신할 수 있습니다.
+사용자 지정 명령의 목표는 다양 한 기술을 배우고 음성 명령 앱을 개발 하는 데 집중 하는 인지 부하를 줄이는 것입니다. 사용자 지정 명령을 사용 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스를 만드는 </a>첫 번째 단계입니다. Speech Studio에서 사용자 지정 명령 앱을 작성 하 여 게시할 수 있습니다. 그 후에는 장치 응용 프로그램이 음성 SDK를 사용 하 여 통신할 수 있습니다.
 
 #### <a name="authoring-flow-for-custom-commands"></a>사용자 지정 명령의 제작 흐름
    ![사용자 지정 명령의 제작 흐름](media/voice-assistants/custom-commands-flow.png "사용자 지정 명령 작성 흐름")

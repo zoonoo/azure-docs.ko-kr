@@ -3,14 +3,14 @@ title: Event Grid 원본으로서의 Azure App Service
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure App Service를 사용하는 방법을 설명합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/06/2021
 ms.author: jafreebe
-ms.openlocfilehash: 224cb44ef7293f47855b5b418830a7fc4bf5ecd1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366656"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443780"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure App Service
 
@@ -60,7 +60,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 엔드포인트로 보냅니다.
 이 섹션에는 각 이벤트에 대한 데이터가 어떻게 표시되는지 예가 포함되어 있습니다. 각 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-|     속성          |     형식     |     Description                                                                                                                                |
+|     속성          |     Type     |     Description                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `source`              |    문자열    |    이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다.                                      |
 |    `subject`            |    문자열    |    게시자가 정의한 이벤트 주체에 대한 경로입니다.                                                                                              |
@@ -89,7 +89,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -113,7 +113,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -128,7 +128,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    형식      |    설명                                                                                                       |
+|    속성                |    Type      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
@@ -154,7 +154,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -179,7 +179,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -194,7 +194,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    형식      |    설명                                                                                                       |
+|    속성                |    Type      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
@@ -218,7 +218,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
     "eventTime": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -243,7 +243,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
     "time": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -260,7 +260,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    형식      |    설명                                                                                                       |
+|    속성                |    Type      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                 |    문자열    |    작업의 동작 유형입니다.                                                                                   |
@@ -285,7 +285,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
     "eventTime": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -310,7 +310,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
     "time": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -327,7 +327,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    형식      |    설명                                                                                                       |
+|    속성                |    Type      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                 |    문자열    |    작업의 동작 유형입니다.                                                                                   |
@@ -353,7 +353,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Stopped"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
         "correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
         "requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
@@ -378,7 +378,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
         "appEventTypeDetail": {
             "action": "Stopped"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
         "correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
         "requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
@@ -393,7 +393,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-|    속성                |    형식      |    설명                                                                                                       |
+|    속성                |    Type      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
@@ -477,7 +477,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-|    속성                         |    형식      |    설명                                                                                                       |
+|    속성                         |    Type      |    설명                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appServicePlanEventTypeDetail`    |    object    |    App Service 계획에 대한 작업의 세부 정보입니다.                                                                          |
 |    `stampKind`                        |    문자열    |    App Service 계획이 존재하는 환경의 종류입니다.                                                                     |

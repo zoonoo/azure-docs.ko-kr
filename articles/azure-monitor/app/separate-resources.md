@@ -3,12 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589527"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424668"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -32,6 +32,9 @@ ms.locfileid: "100589527"
 -   구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
 -   API 키가 모든 구성 요소의 데이터에 동일한 액세스 권한을 갖도록 할 수 있는 경우 그리고 10개의 API 키를 통해 모든 요구 사항을 충족할 수 있는 경우
 -   모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정을 사용해야 하는 경우
+
+> [!NOTE]
+> 여러 Application Insights 리소스를 통합 하려는 경우 기존 응용 프로그램 구성 요소를 통합 된 새 Application Insights 리소스로 지정할 수 있습니다. 이전 리소스에 저장 된 원격 분석은 새 리소스로 전송 되지 않으므로 비즈니스 연속성을 위해 새 리소스에 충분 한 원격 분석을 보유 하 고 있는 경우에만 이전 리소스를 삭제 합니다.
 
 ### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Grid 토픽 또는 도메인에 대
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916991"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425348"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 공용 인터넷을 통하지 않고 [개인 링크](../private-link/private-link-overview.md) 를 통해 안전 하 게 항목 및 도메인에 대 한 가상 네트워크에서 직접 이벤트를 수신 하도록 허용할 수 있습니다. 개인 끝점은 토픽 또는 도메인에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. 개념에 대 한 자세한 내용은 [네트워크 보안](network-security.md)을 참조 하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "94916991"
 2. 항목 페이지의 **네트워킹** 탭으로 전환 합니다. 도구 모음에서 **+ 개인 끝점** 을 선택 합니다.
 
     ![개인 끝점 추가](./media/configure-private-endpoints/add-button.png)
-2. **기본 사항** 페이지에서 다음 단계를 수행 합니다. 
+2. **기본** 페이지에서 다음 단계를 수행합니다. 
     1. 개인 끝점을 만들 **Azure 구독** 을 선택 합니다. 
     2. 개인 끝점에 대 한 **Azure 리소스 그룹** 을 선택 합니다. 
     3. 끝점의 **이름을** 입력 합니다. 
@@ -151,7 +151,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 다음 명령을 실행 하 여 CLI의 Azure Event Grid 확장을 업데이트 합니다. 
 
 ```azurecli-interactive
@@ -196,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>샘플 스크립트
 다음은 Azure 리소스를 만드는 샘플 스크립트입니다.
 
-- 리소스 그룹
+- Resource group
 - 가상 네트워크
 - 가상 네트워크의 서브넷
 - Azure Event Grid 항목
@@ -310,7 +310,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>PowerShell 사용
 이 섹션에서는 PowerShell을 사용 하 여 토픽 또는 도메인에 대 한 개인 끝점을 만드는 방법을 보여 줍니다. 
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기를 사용](../active-directory/develop/howto-create-service-principal-portal.md) 하 여 Azure Active Directory 응용 프로그램을 만들고 **디렉터리 (테 넌 트) id**, **응용 프로그램 (클라이언트) id** 및 **응용 프로그램 (클라이언트) 암호** 에 대 한 값을 적어 둡니다. 
 
 ### <a name="prepare-token-and-headers-for-rest-api-calls"></a>REST API 호출에 대 한 토큰 및 헤더 준비 

@@ -1,7 +1,6 @@
 ---
 title: Azure Security Center에서 사용자 지정 보안 정책 만들기 | Microsoft Docs
 description: Azure Security Center에서 모니터링되는 Azure 사용자 지정 정책 정의를 다룹니다.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100868"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441060"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>사용자 지정 보안 이니셔티브 및 정책 만들기
 
@@ -23,6 +22,9 @@ ms.locfileid: "102100868"
 이 기능을 사용하여 사용자 고유의 *사용자 지정* 이니셔티브를 추가할 수 있습니다. 그러면 환경이 사용자가 만든 정책을 따르지 않을 경우 권장 사항이 제공됩니다. [규정 준수 개선](security-center-compliance-dashboard.md) 자습서에 설명된 대로 사용자가 만든 사용자 지정 이니셔티브는 규정 준수 대시보드에 기본 제공 이니셔티브와 함께 나타납니다.
 
 [Azure Policy 설명서](../governance/policy/concepts/definition-structure.md#definition-location)에 설명된 대로 관리 그룹 또는 구독을 사용자 지정 이니셔티브의 위치로 지정해야 합니다. 
+
+> [!TIP]
+> 이 페이지의 주요 개념에 대 한 개요는 [보안 정책, 이니셔티브 및 권장 사항 이란?](security-policy-concept.md)을 참조 하세요.
 
 ::: zone pivot="azure-portal"
 

@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461467"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442964"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>시나리오: 공유 서비스로 라우팅 Vnet
 
@@ -30,9 +30,9 @@ ms.locfileid: "92461467"
 
 | From             | 아래와 같이 변경합니다.   |*격리 된 Vnet*|*공유 VNet*|*분기*|
 |---|---|---|---|---|
-|**격리 된 Vnet**|&#8594;|        | 직접 | 직접 |
-|**공유 Vnet**  |&#8594;| 직접 | 직접 | 직접 |
-|**분기**      |&#8594;| 직접 | 직접 | 직접 |
+|**격리 된 Vnet**| ->|        | 직접 | 직접 |
+|**공유 Vnet**  |->| 직접 | 직접 | 직접 |
+|**분기**      |->| 직접 | 직접 | 직접 |
 
 위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상과 통신 하는지 여부를 설명 합니다 (흐름의 "To" 쪽에서 열 머리글은 기울임꼴로). 이 시나리오에서는 방화벽이 나 네트워크 가상 어플라이언스를 사용할 수 없으므로 가상 WAN (따라서 테이블의 "Direct")에서 직접 통신 흐름이 전달 됩니다.
 
@@ -62,20 +62,20 @@ Vnet은 **RT_SHARED** 경로 테이블에 연결 됩니다. 분기 및 공유 �
 시나리오를 구성 하려면 다음 단계를 고려 하십시오.
 
 1. **공유 서비스** VNet을 식별 합니다.
-2. 사용자 지정 경로 테이블을 만듭니다. 이 예에서는 경로 테이블을 **RT_SHARED**으로 참조 합니다. 경로 테이블을 만드는 단계 [는 가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요. 다음 값을 지침으로 사용 합니다.
+2. 사용자 지정 경로 테이블을 만듭니다. 이 예에서는 경로 테이블을 **RT_SHARED** 으로 참조 합니다. 경로 테이블을 만드는 단계 [는 가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요. 다음 값을 지침으로 사용 합니다.
 
    * **연결**
-     * **공유 서비스 VNet을 *제외한* vnet**의 경우 격리할 vnet를 선택 합니다. 이는 모든 Vnet (공유 서비스 VNet 제외)가 경로 테이블 RT_SHARED 경로를 기반으로 대상에 도달할 수 있음을 의미 합니다.
+     * **공유 서비스 VNet을 *제외한* vnet** 의 경우 격리할 vnet를 선택 합니다. 이는 모든 Vnet (공유 서비스 VNet 제외)가 경로 테이블 RT_SHARED 경로를 기반으로 대상에 도달할 수 있음을 의미 합니다.
 
    * **전파**
-      * **분기**의 경우 이미 선택 했을 수 있는 다른 경로 테이블 외에도 경로를이 경로 테이블에 전파 합니다. 이 단계 때문에 RT_SHARED 경로 테이블은 모든 분기 연결 (VPN/ER/User VPN)에서 경로를 학습 합니다.
-      * **Vnet**에 대해 **공유 서비스 VNet**을 선택 합니다. 이 단계 때문에 RT_SHARED 경로 테이블은 공유 서비스 VNet 연결에서 경로를 학습 합니다.
+      * **분기** 의 경우 이미 선택 했을 수 있는 다른 경로 테이블 외에도 경로를이 경로 테이블에 전파 합니다. 이 단계 때문에 RT_SHARED 경로 테이블은 모든 분기 연결 (VPN/ER/User VPN)에서 경로를 학습 합니다.
+      * **Vnet** 에 대해 **공유 서비스 VNet** 을 선택 합니다. 이 단계 때문에 RT_SHARED 경로 테이블은 공유 서비스 VNet 연결에서 경로를 학습 합니다.
 
 그러면 다음 그림에 표시 된 라우팅 구성이 생성 됩니다.
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="공유 서비스 VNet" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="공유 서비스 VNet에 대 한 다이어그램입니다." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>다음 단계
 
-* Virtual WAN에 대한 자세한 내용은 [FAQ](virtual-wan-faq.md)를 참조하세요.
+* ARM 템플릿을 사용 하 여 구성 하려면 [빠른 시작: arm 템플릿을 사용 하 여 vnet to shared services로 라우팅](quickstart-route-shared-services-vnet-template.md)을 참조 하세요.
 * 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
