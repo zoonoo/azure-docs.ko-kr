@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, 감정 분석, 자연어 처리
-ms.openlocfilehash: fb924f955e46058420e645cdf1e76e6c06e91646
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050140"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432063"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -32,9 +32,9 @@ ms.locfileid: "102050140"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 > [!IMPORTANT]
-> 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만 <span class="docon docon-navigate-external x-hidden-focus"></span></a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](../overview.md#data-limits)을 참조 하세요.
+> 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만</a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](../overview.md#data-limits)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 

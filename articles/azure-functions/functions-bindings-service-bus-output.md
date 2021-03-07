@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788573"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425586"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
@@ -425,11 +425,11 @@ Service Bus에 대 한 출력은 `Push-OutputBinding` 파일 *의function.js* �
 
 `isSessionsEnabled`을로 설정한 경우 `true` 이 적용 됩니다 `sessionHandlerOptions` .  `isSessionsEnabled`을로 설정한 경우 `false` 이 적용 됩니다 `messageHandlerOptions` .
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정 합니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
-|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
+|autoComplete|true|트리거가 처리 후 자동으로 완료를 호출 해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출 하는지 여부입니다.<br><br>을로 설정 하 `false` 는 것은 c # 에서만 지원 됩니다.<br><br>로 설정 `true` 된 경우 함수 실행이 성공적으로 완료 되 면 트리거가 자동으로 메시지를 완료 하 고, 그렇지 않으면 메시지를 무시 합니다.<br><br>로 설정 하면 `false` [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) 메서드를 호출 하 여 메시지를 완료 하거나 중단 하거나 배달 못한 편지를 배달 해야 합니다. 예외를 throw 하 고 메서드를 호출 하지 않은 경우에 `MessageReceiver` 는 잠금이 유지 됩니다. 잠금이 만료 되 면 메시지는 증가 된로 다시 큐에 대기 되며 `DeliveryCount` 잠금이 자동으로 갱신 됩니다.<br><br>비 C # 함수에서 함수의 예외는 백그라운드에서 런타임 호출을 발생 합니다 `abandonAsync` . 예외가 발생 하지 않으면 `completeAsync` 가 백그라운드에서 호출 됩니다. |
 |maxConcurrentCalls|16|메시지 펌프가 확장 인스턴스당 시작 해야 하는 콜백에 대 한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
 |maxConcurrentSessions|2000|크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 

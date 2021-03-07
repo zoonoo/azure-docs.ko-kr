@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center의 권장 사항 수정 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center의 권장 사항에 응답 하 여 리소스를 보호 하 고 보안 정책을 충족 하는 방법을 설명 합니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 6222491d35317e549a3d21f29395b9c25813ea9f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100358"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438270"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 

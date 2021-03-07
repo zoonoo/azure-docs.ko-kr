@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb11d7d3b2da9ab793cb18814e4021ea7afeb806
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703187"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443593"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치 반환
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 데이터를 초기화 한 다음 Azure Stack Edge Pro 장치를 반환 하는 방법을 설명 합니다. 장치를 반환한 후에는 장치와 연결 된 리소스를 삭제할 수도 있습니다.
 
@@ -38,8 +40,7 @@ ms.locfileid: "101703187"
 
 로컬 웹 UI 또는 PowerShell에서 장치를 다시 설정할 수 있습니다. PowerShell 지침은 [장치 다시 설정](./azure-stack-edge-connect-powershell-interface.md#reset-your-device)을 참조 하세요.
 
-
-[! 포함] [장치에서 데이터 다시 설정](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 > [!NOTE]
 > - 디바이스를 교환하거나 새 디바이스로 업그레이드하는 경우 새 디바이스를 받은 후에만 디바이스를 초기화하는 것이 좋습니다.

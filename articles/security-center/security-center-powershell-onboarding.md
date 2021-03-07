@@ -1,24 +1,18 @@
 ---
 title: PowerShell을 통해 Azure Security Center에 온보딩
 description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 사용 프로세스를 단계별로 안내합니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 4979ff0010c1f959e8f8fc16f56da61971faf1e9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757071"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439496"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 

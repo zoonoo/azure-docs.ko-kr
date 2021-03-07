@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bc959bc0960a2de3d84f8d75f285138eacdbe34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91644958"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434317"
 ---
 ## <a name="reference-docs"></a>참조 문서
 
@@ -24,12 +24,12 @@ ms.locfileid: "91644958"
 
 다음 목록을 사용 하 여 적절 한 음성 SDK 참조 문서를 찾을 수 있습니다.
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C # SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C + + SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">목표-C SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C # SDK </a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C + + SDK </a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK </a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK</a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK</a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">목표-C SDK </a>
 
 > [!TIP]
 > 음성 서비스 SDK는 적극적으로 유지 관리 되 고 업데이트 됩니다. 변경 내용, 업데이트 및 기능 추가를 추적 하려면 [SPEECH SDK 릴리스 정보](../releasenotes.md)를 참조 하세요.
@@ -45,4 +45,4 @@ ms.locfileid: "91644958"
 - [REST API: 음성 텍스트 변환](../rest-speech-to-text.md)
 - [REST API: 발음 평가](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: 텍스트 음성 변환](../rest-text-to-speech.md)
-- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: 일괄 처리 기록 및 사용자 지정 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: 일괄 처리 기록 및 사용자 지정 </a>

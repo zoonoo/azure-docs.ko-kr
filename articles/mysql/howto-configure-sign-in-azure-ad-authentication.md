@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5890ddb2a4b1599dbcfd1e624c9fbe71a564de7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799841"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442760"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -35,8 +35,6 @@ Azure AD 관리 사용자만 Azure AD 기반 인증에 대한 사용자를 만�
 > 관리자를 설정하면 Azure Database for MySQL 서버에 모든 관리자 권한이 있는 새 사용자가 추가됩니다.
 
 MySQL 서버당 하나의 Azure AD 관리자만 만들 수 있으며 다른 사용자를 선택하면 서버에 구성된 기존 Azure AD 관리자를 덮어씁니다.
-
-이후 릴리스에서는 개별 사용자 대신 Azure AD 그룹을 지정하여 여러 관리자를 갖도록 지원할 계획이지만 현재는 아직 지원되지 않습니다.
 
 관리자를 구성하면 이제 로그인할 수 있습니다.
 

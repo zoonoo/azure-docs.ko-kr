@@ -6,17 +6,17 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030735"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442947"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
-IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다.
+IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다. 아직 수행 하지 않은 경우 기본 [가져오기 개념](import-concepts.md)을 숙지 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
@@ -59,9 +59,9 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
     | --------- | ----------- |
     | deviceManufacturer | 업데이트와 호환 되는 장치의 제조업체 (예: Contoso)
     | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델
-    | updateProvider | 업데이트 id의 공급자 부분 (예: Fabrikam)
-    | updateName | 업데이트 id의 이름 부분 (예: ImageUpdate)
-    | updateVersion | 업데이트 버전 (예: 2.0)
+    | updateProvider | 업데이트를 만들거나 직접 담당 하는 엔터티입니다. 회사 이름이 될 수도 있습니다.
+    | updateName | 업데이트 클래스의 식별자입니다. 클래스는 사용자가 선택 하는 것이 될 수 있습니다. 일반적으로 장치 또는 모델 이름이 됩니다.
+    | updateVersion | 이 업데이트를 동일한 공급자와 이름을 가진 다른 사용자와 구별 하는 버전 번호입니다. 장치의 개별 소프트웨어 구성 요소 버전과 일치할 수도 있고 그렇지 않을 수도 있습니다.
     | updateType | <ul><li>`microsoft/swupdate:1`이미지 업데이트에 대 한 지정</li><li>`microsoft/apt:1`패키지 업데이트 지정</li></ul>
     | installedCriteria | <ul><li>업데이트 유형에 대 한 SWVersion 값을 지정 합니다. `microsoft/swupdate:1`</li><li>업데이트 형식에 권장 값을 지정 `microsoft/apt:1` 합니다.
     | updateFilePath | 컴퓨터의 업데이트 파일 경로
@@ -118,7 +118,7 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
    :::image type="content" source="media/import-update/import-updates-3.png" alt-text="업데이트 가져오기" lightbox="media/import-update/import-updates-3.png":::
 
-3. 화면 위쪽에 여러 탭이 표시 됩니다. 업데이트 탭을 선택 합니다.
+3. 화면 위쪽에 여러 탭이 표시 됩니다. 업데이트 탭을 선택합니다.
 
    :::image type="content" source="media/import-update/updates-tab.png" alt-text="업데이트" lightbox="media/import-update/updates-tab.png":::
 
@@ -126,19 +126,19 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="새 업데이트 가져오기" lightbox="media/import-update/import-new-update-2.png":::
 
-5. "매니페스트 파일 가져오기"에서 폴더 아이콘 또는 텍스트 상자를 선택 합니다. 파일 선택 대화 상자가 표시 됩니다. PowerShell cmdlet을 사용 하 여 이전에 만든 가져오기 매니페스트를 선택 합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택 합니다. 파일 선택 대화 상자가 표시 됩니다. 업데이트 파일을 선택 합니다.
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. PowerShell cmdlet을 사용 하 여 이전에 만든 가져오기 매니페스트를 선택 합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 업데이트 파일을 선택 합니다.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="업데이트 파일 선택" lightbox="media/import-update/select-update-files.png":::
 
-6. "저장소 컨테이너 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택 합니다. 그런 다음 적절 한 저장소 계정을 선택 합니다. 저장소 컨테이너는 업데이트 파일을 임시로 준비 하는 데 사용 됩니다.
+6. "스토리지 컨테이너 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 그런 다음 적절한 스토리지 계정을 선택합니다. 저장소 컨테이너는 업데이트 파일을 임시로 준비 하는 데 사용 됩니다.
 
    :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage 계정" lightbox="media/import-update/storage-account.png":::
 
-7. 컨테이너를 이미 만든 경우 다시 사용할 수 있습니다. 그렇지 않으면 "+ 컨테이너"를 선택 하 여 업데이트에 대 한 새 저장소 컨테이너를 만듭니다.  사용할 컨테이너를 선택 하 고 "선택"을 클릭 합니다.
+7. 이미 컨테이너를 만든 경우 다시 사용할 수 있습니다. (그렇지 않으면 "+ 컨테이너"를 선택하여 업데이트를 위한 새 스토리지 컨테이너를 만듭니다.)  사용할 컨테이너를 선택하고 "선택"을 클릭합니다.
 
    :::image type="content" source="media/import-update/container.png" alt-text="컨테이너 선택" lightbox="media/import-update/container.png":::
 
-8. "제출"을 선택 하 여 가져오기 프로세스를 시작 합니다.
+8. "제출"을 선택하여 가져오기 프로세스를 시작합니다.
 
    :::image type="content" source="media/import-update/publish-update.png" alt-text="업데이트 게시" lightbox="media/import-update/publish-update.png":::
 
@@ -146,7 +146,7 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="가져오기 시퀀싱 업데이트" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-10. 상태 열에 가져오기가 성공 했음을 나타내는 경우 "배포 준비" 헤더를 선택 합니다. 이제 목록에 가져온 업데이트가 표시 됩니다.
+10. 상태 열에 가져오기가 성공했음을 나타내는 경우 "배포할 준비가 됨" 헤더를 선택합니다. 이제 목록에 가져온 업데이트가 표시됩니다.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="작업 상태" lightbox="media/import-update/update-ready.png":::
 

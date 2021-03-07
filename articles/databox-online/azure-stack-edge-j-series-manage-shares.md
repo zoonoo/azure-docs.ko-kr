@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b1ff10290e0059295f14b55e90ed05e9690c9f5c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: cf4e83b8ae2fa4aceb7d4c4875fdbc4f77d7b4fd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896840"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436739"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 공유 관리
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro에서 공유를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
 

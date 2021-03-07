@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 7ce193c2c2f5e10a27550da68a4c2d2fdcd1db7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a9ca21cc14bb87797c962a89cf87ac184e73735
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399896"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434566"
 ---
 :::row:::
     :::column span="3":::
@@ -24,7 +24,7 @@ ms.locfileid: "81399896"
 :::row-end:::
 
 > [!TIP]
-> Swift와 함께 목표-C Speech SDK를 사용 하는 방법에 대 한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift <span class="docon docon-navigate-external x-hidden-focus"></span> 로 목표-c 가져오기 </a>를 참조 하세요.
+> Swift와 함께 목표-C Speech SDK를 사용 하는 방법에 대 한 자세한 내용은 <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Swift로 목표-c 가져오기 </a>를 참조 하세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 
@@ -35,7 +35,7 @@ ms.locfileid: "81399896"
 
 :::row:::
     :::column span="3":::
-        IOS CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (이상) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> IDE (통합 개발 환경)에서 다운로드 하 여 사용할 수 있습니다. 먼저 <a href="https://aka.ms/csspeech/iosbinary" target="_blank">이진 CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span> 를 다운로드 </a>합니다. 사용 하기 위해 동일한 디렉터리에서 pod를 추출 하 고, *Podfile* 을 만들고,를 `pod` 로 나열 합니다 `target` .
+        IOS CocoaPod 패키지는 <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (이상) </a> IDE (통합 개발 환경)에서 다운로드 하 여 사용할 수 있습니다. 먼저 <a href="https://aka.ms/csspeech/iosbinary" target="_blank">이진 CocoaPod를 다운로드 </a>합니다. 사용 하기 위해 동일한 디렉터리에서 pod를 추출 하 고, *Podfile* 을 만들고,를 `pod` 로 나열 합니다 `target` .
     :::column-end:::
     :::column:::
         <br>
@@ -58,7 +58,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS는 .NET 개발자를 위한 전체 iOS SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 iOS 앱을 빌드합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">xamarin.ios <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 참조 하세요.
+        Xamarin.iOS는 .NET 개발자를 위한 전체 iOS SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 iOS 앱을 빌드합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">xamarin.ios </a>를 참조 하세요.
     :::column-end:::
     :::column:::
         <br>
@@ -75,5 +75,5 @@ end
 
 #### <a name="additional-resources"></a>추가 리소스
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">iOS Speech SDK 퀵 스타트 목표-C 소스 코드 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">iOS Speech SDK 퀵 스타트 Swift 원본 코드 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">iOS Speech SDK 퀵 스타트 목표-C 소스 코드 </a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">iOS Speech SDK 퀵 스타트 Swift 원본 코드 </a>

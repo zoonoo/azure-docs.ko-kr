@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4142542c9f17ae464a996df310c50d73d8711d8e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899722"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438202"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 GPU 사용 IoT 모듈 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro GPU 장치에서 GPU 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
 
@@ -35,7 +37,7 @@ ms.locfileid: "90899722"
 
 시작하기 전에 다음을 확인합니다.
 
-- Edge Pro 장치 Azure Stack GPU 사용 1 노드에 액세스할 수 있습니다. 이 장치는 Azure의 리소스를 사용 하 여 활성화 됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
+- Edge Pro 장치 Azure Stack GPU 사용 1 노드에 액세스할 수 있습니다. 이 디바이스는 Azure의 리소스를 사용하여 활성화됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
 - 이 장치에서 계산을 구성 했습니다. [자습서: Edge Pro 장치 Azure Stack에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 단계를 따르세요.
 - ACR (Azure Container Registry)입니다. **액세스 키** 블레이드로 이동 하 여 ACR 로그인 서버, 사용자 이름 및 암호를 기록해 둡니다. 자세한 내용은 [빠른 시작: Azure Portal을 사용 하 여 개인 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md#create-a-container-registry)를 참조 하세요.
 - Windows 클라이언트에서 다음과 같은 개발 리소스가 있습니다.
@@ -115,7 +117,7 @@ ms.locfileid: "90899722"
 
     ![성공한 로그인](media/azure-stack-edge-gpu-deploy-sample-module/successful-sign-in-1.png)
 
-6. 이미지를 Azure container registry로 푸시합니다. VS Code 탐색기에서 파일 ** 의deployment.template.js** 를 선택 하 고 마우스 오른쪽 단추로 클릭 한 다음 **빌드 및 푸시 IoT Edge 솔루션**을 선택 합니다. 
+6. 이미지를 Azure container registry로 푸시합니다. VS Code 탐색기에서 파일 **의deployment.template.js** 를 선택 하 고 마우스 오른쪽 단추로 클릭 한 다음 **빌드 및 푸시 IoT Edge 솔루션** 을 선택 합니다. 
 
     ![IoT Edge 솔루션 빌드 및 푸시](media/azure-stack-edge-gpu-deploy-sample-module/build-push-iot-edge-solution-1.png)   
 
@@ -126,13 +128,13 @@ ms.locfileid: "90899722"
     ![컨테이너 레지스트리의 모듈](media/azure-stack-edge-gpu-deploy-sample-module/module-container-registry-1.png)    
 
 
-7. 배포 매니페스트를 만들려면 **deployment.template.js** 를 마우스 오른쪽 단추로 클릭 한 다음 **IoT Edge 배포 매니페스트 생성**을 선택 합니다. 
+7. 배포 매니페스트를 만들려면 **deployment.template.js** 를 마우스 오른쪽 단추로 클릭 한 다음 **IoT Edge 배포 매니페스트 생성** 을 선택 합니다. 
 
     ![IoT Edge 배포 매니페스트 생성](media/azure-stack-edge-gpu-deploy-sample-module/generate-iot-edge-deployment-manifest-1.png)  
 
     알림은 배포 매니페스트가 생성 된 경로를 알려 줍니다. 매니페스트는 `deployment.amd64.json` **config** 폴더에 생성 되는 파일입니다. 
 
-8. **구성** 폴더의 파일 **에서deployment.amd64.js** 를 선택한 다음 **단일 장치에 대 한 배포 만들기**를 선택 합니다. 파일 ** 에deployment.template.js** 을 사용 하지 마십시오. 
+8. **구성** 폴더의 파일 **에서deployment.amd64.js** 를 선택한 다음 **단일 장치에 대 한 배포 만들기** 를 선택 합니다. 파일 **에deployment.template.js** 을 사용 하지 마십시오. 
 
     ![단일 디바이스용 배포 만들기](media/azure-stack-edge-gpu-deploy-sample-module/create-deployment-single-device-1.png)  
 
@@ -142,13 +144,13 @@ ms.locfileid: "90899722"
 
 ## <a name="monitor-the-module"></a>모듈 모니터링  
 
-1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다.
+1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 을 실행합니다.
 
 2. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 이 경우 Azure Stack Edge Pro 장치를 배포 하는 데 사용 되는 구독을 선택 하 고 Azure Stack Edge Pro 장치에 대해 생성 된 IoT Edge 장치를 선택 합니다. 이는 이전 단계의 Azure Portal를 통해 compute를 구성 하는 경우에 발생 합니다.
 
-3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치**에 Azure Stack Edge Pro 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
+3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치** 에 Azure Stack Edge Pro 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
 
-    1. 해당 장치를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **기본 제공 모니터링 시작 이벤트 끝점**을 선택 합니다.
+    1. 해당 장치를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **기본 제공 모니터링 시작 이벤트 끝점** 을 선택 합니다.
   
         ![모니터링 시작](media/azure-stack-edge-gpu-deploy-sample-module/monitor-builtin-event-endpoint-1.png)  
 

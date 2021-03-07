@@ -1,19 +1,19 @@
 ---
 title: Azure Virtual Machines에 대한 기본 제공 정책 정의
 description: Azure Virtual Machines에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: add4a59aba821eaee23a7096f7f8dc183a3906c3
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 35008d117dd4d12b95416af9540c3dedc09c6921
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090923"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435355"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 Azure Policy 기본 제공 정의
 

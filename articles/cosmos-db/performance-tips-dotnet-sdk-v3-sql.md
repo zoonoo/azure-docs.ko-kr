@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 06fb087744ff4ecd96bee7a26e4a796e87866322
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032017"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433678"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -172,7 +172,7 @@ SQL .NET SDK는 병렬 쿼리를 지원 하므로 분할 된 컨테이너를 병
 
 성능 테스트 중에는 적은 수의 요청이 제한 될 때까지 부하를 늘려야 합니다. 요청이 제한 되는 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격에 대 한 제한을 다시 해제 해야 합니다. 백오프를 사용 하면 다시 시도 사이에 대기 시간을 최소화 하는 데 도움이 됩니다. 
 
-자세한 내용은 [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)를 참조 하세요.
+자세한 내용은 [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)를 참조 하세요.
     
 다음 샘플과 같이 추가 진단 정보를 기록 하 고 대기 시간 문제를 해결 하는 메커니즘이 있습니다. 읽기 대기 시간이 더 긴 요청에 대 한 진단 문자열을 기록할 수 있습니다. 캡처된 진단 문자열은 지정 된 요청에 대해 *429* 오류를 받은 횟수를 이해 하는 데 도움이 됩니다.
 
@@ -213,7 +213,7 @@ Azure Cosmos DB는 다양 한 데이터베이스 작업 집합을 제공 합니�
 
 처리량은 각 컨테이너에 설정 된 [요청 단위](request-units.md) 수를 기준으로 프로 비전 됩니다. 요청 단위 소비는 초당 단위로 평가 됩니다. 해당 컨테이너에 대해 프로 비전 된 요청 단위를 초과 하는 응용 프로그램은 해당 비율이 컨테이너에 대해 프로 비전 된 수준 아래로 떨어질 때까지 제한 됩니다. 응용 프로그램에 더 높은 수준의 처리량이 필요한 경우 추가 요청 단위를 프로 비전 하 여 처리량을 늘릴 수 있습니다.
 
-쿼리의 복잡성은 작업에 사용 되는 요청 단위 수에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 파일 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
+쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 파일 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
 모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
 

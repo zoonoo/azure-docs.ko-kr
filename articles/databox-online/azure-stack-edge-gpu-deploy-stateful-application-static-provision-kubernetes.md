@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 895632e4a65f942b61389ffd6ebc8a49d79b5244
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804894"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440023"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 PersistentVolume (PV) 및 배포를 사용 하 여 Kubernetes에서 단일 인스턴스 상태 저장 응용 프로그램을 배포 하는 방법을 보여 줍니다. 배포는 `kubectl` 기존 Kubernetes 클러스터에서 명령을 사용 하 고 MySQL 응용 프로그램을 배포 합니다. 
 
@@ -24,7 +26,7 @@ ms.locfileid: "98804894"
 Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 
@@ -343,7 +345,7 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```
 
-PVC가 삭제 된 후에는 더 이상 해당 PV를 PVC에 바인딩하지 않습니다. 공유가 생성 될 때 PV가 프로 비전 되 면 공유를 삭제 해야 합니다. 다음 단계를 수행하세요.
+PVC가 삭제 된 후에는 더 이상 해당 PV를 PVC에 바인딩하지 않습니다. 공유가 생성 될 때 PV가 프로 비전 되 면 공유를 삭제 해야 합니다. 다음 단계를 수행합니다.
 
 1. 공유를 탑재 해제 합니다. Azure Portal에서 **Azure Stack Edge 리소스 > 공유** 로 이동 하 여 분리 하려는 공유를 선택 하 고 클릭 합니다. **분리** 를 선택 하 고 작업을 확인 합니다. 공유가 분리 될 때까지 기다립니다. 탑재 해제는 Kubernetes 클러스터에서 공유 (따라서 연결 된 PersistentVolume)를 해제 합니다. 
 

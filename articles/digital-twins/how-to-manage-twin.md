@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbab73a2fb3aecaacdfc92950c0d0b86edf775af
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653349"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433270"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
-사용자 환경의 엔터티는 [디지털](concepts-twins-graph.md)쌍으로 표현 됩니다. 디지털 쌍을 관리 하려면 만들기, 수정 및 제거를 포함할 수 있습니다. 이러한 작업을 수행 하기 위해 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용할 수 있습니다.
+사용자 환경의 엔터티는 [디지털](concepts-twins-graph.md)쌍으로 표현 됩니다. 디지털 쌍을 관리 하려면 만들기, 수정 및 제거를 포함할 수 있습니다. 이러한 작업을 수행 하기 위해 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용할 수 있습니다.
 
 이 문서에서는 디지털 쌍을 관리 하는 방법을 중점적으로 설명 합니다. 관계 및 쌍 [그래프](concepts-twins-graph.md) 전체를 사용 하려면 [*방법: 관계를 사용*](how-to-manage-graph.md)하 여 쌍 그래프 관리를 참조 하세요.
 
@@ -72,7 +72,7 @@ ms.locfileid: "100653349"
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 다음은 그 예입니다. 
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예를 들면 다음과 같습니다.
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -160,7 +160,7 @@ Patch 호출은 모든 속성을 원하는 대로 단일 쌍으로 업데이트�
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용 하 여 패치를 만들 수 있습니다. 다음은 예제입니다.
+Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument)를 사용 하 여 패치를 만들 수 있습니다. 다음은 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -182,7 +182,7 @@ Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=a
 
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
-다음 예제를 살펴보겠습니다.
+다음 예제를 참조하세요.
 1. *Foo_old* 모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량* 을 정의 합니다.
 2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도* 를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 
@@ -227,7 +227,7 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리 되도록 
 샘플을 실행 하기 전에 다음을 수행 합니다.
 1. 모델 파일을 다운로드 하 고 프로젝트에 배치한 다음 `<path-to>` 아래 코드의 자리 표시자를 바꿔서 프로그램에서 찾을 위치를 알려 줍니다.
 2. 자리 표시자를 `<your-instance-hostname>` Azure 디지털 Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
+3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

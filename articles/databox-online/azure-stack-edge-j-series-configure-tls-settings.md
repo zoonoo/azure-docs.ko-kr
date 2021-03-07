@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4a159f7fa384a6899fb3cbb4db3bba9e0ed02d52
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447542"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438867"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Windows 클라이언트를 사용 하 여 Azure Stack Edge Pro 장치에 액세스 하는 경우 클라이언트에서 TLS 1.2을 구성 해야 합니다. 이 문서에서는 Windows 클라이언트에서 TLS 1.2를 구성 하기 위한 리소스 및 지침을 제공 합니다. 
 
@@ -41,7 +41,7 @@ Windows 클라이언트를 사용 하 여 Azure Stack Edge Pro 장치에 액세�
 - [일반-TLS 1.2을 사용 하도록 설정 하는 방법](/windows-server/security/tls/tls-registry-settings#tls-12)
 - [클라이언트에서의 TLS 1.2 사용 설정 방법](/configmgr/core/plan-design/security/enable-tls-1-2-client)
 - [사이트 서버 및 원격 사이트 시스템에서의 TLS 1.2 사용 방법](/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [TLS/SSL의 프로토콜 (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [TLS/SSL(Schannel SSP)의 프로토콜](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
 - [암호 그룹](/windows-server/security/tls/tls-registry-settings#tls-12): 특히 [TLS 암호 그룹 순서를 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) 하면 현재 암호 그룹을 나열 하 고 다음 목록에 누락 된 항목이 추가 되었는지 확인 합니다.
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

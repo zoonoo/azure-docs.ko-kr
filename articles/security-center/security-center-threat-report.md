@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center 위협 인텔리전스 보고서 | Microsoft Docs
 description: 이 페이지를 사용 하 여 보안 경고에 대 한 자세한 정보를 확인 하는 동안 Azure Security Center 위협 인텔리전스 보고서를 사용 하는 데 도움이 됩니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3fd0000a1b5dbba00995c37f96a89319de0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6d227059c3f4fd1285f224e13169a2479bc65f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440482"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438236"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center 위협 인텔리전스 보고서
 
@@ -55,7 +49,7 @@ Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격�
 ## <a name="how-to-access-the-threat-intelligence-report"></a>어떻게 위협 인텔리전스 보고서에 액세스하는가?
 
 1. Security Center의 사이드바에서 **보안 경고** 페이지를 엽니다.
-1. 경고를 선택 합니다. 
+1. 경고를 선택합니다. 
     경고에 대 한 자세한 내용이 포함 된 경고 정보 페이지가 열립니다. 아래에는 **랜 섬 웨어 표시기 검색** 된 경고 세부 정보 페이지가 있습니다.
 
     [![랜 섬 웨어 표시기 검색 된 경고 정보 페이지](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)

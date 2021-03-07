@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: e6a58a1f404228564e4e1ac6d77051a747debaa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062506"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438162"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 문서에서는 Azure Stack Edge Pro 장치의 Azure Marketplace에서 GPU (그래픽 처리 장치) 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
 
@@ -28,7 +30,7 @@ ms.locfileid: "99062506"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 
@@ -49,7 +51,7 @@ ms.locfileid: "99062506"
 
     ![GPU 샘플 모듈 검색](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/search-gpu-sample-module-1.png)
 
-3. **지금 가져오기** 를 선택합니다.
+3. **지금 받기** 를 선택합니다.
 
     ![샘플 모듈 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 

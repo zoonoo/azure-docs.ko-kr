@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 218579176b807bbdae85646f27eaa7f301d4b9a6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350367"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428272"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>반응으로 Android 용 등록 앱 빌드
 
@@ -37,9 +37,9 @@ ms.locfileid: "96350367"
 ## <a name="set-up-the-development-environment"></a>개발 환경 설정
 
 1. [샘플 등록 앱](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample)에 대 한 git 리포지토리를 복제 합니다.
-1. 개발 환경을 설정 하려면 네이티브 설명서에 반응 하 여 <a href="https://reactnative.dev/docs/environment-setup"  title=" "  target="_blank"> 네이티브 설명서를 참조 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 하세요. 개발 OS로 **기본 CLI 빠른** 시작을 선택 하 고 대상 OS로 **Android** 를 선택 합니다. 종속성 및 **Android 개발 환경** **설치** 섹션을 완료 합니다.
+1. 개발 환경을 설정 하려면 네이티브 설명서에 반응 하 여 <a href="https://reactnative.dev/docs/environment-setup"  title=" "  target="_blank"> 네이티브 설명서를 참조 </a> 하세요. 개발 OS로 **기본 CLI 빠른** 시작을 선택 하 고 대상 OS로 **Android** 를 선택 합니다. 종속성 및 **Android 개발 환경** **설치** 섹션을 완료 합니다.
 1. [Visual Studio Code](https://code.visualstudio.com/)와 같은 원하는 텍스트 편집기에서 env.js파일을 열고 끝점과 키를 추가 합니다. 리소스의 **개요** 탭에 있는 Azure Portal에서 끝점 및 키를 가져올 수 있습니다. 이 단계는 로컬 테스트 목적 으로만 사용 되며 &mdash; Face API 키를 원격 리포지토리에 체크 인 하지 않습니다.
-1. Android Studio 또는 사용자 고유의 Android 장치에서 Android 가상 장치 에뮬레이터를 사용 하 여 앱을 실행 합니다. 물리적 장치에서 앱을 테스트 하기 위해 네이티브 설명서에 반응 하는 관련 작업을 수행 합니다 <a href="https://reactnative.dev/docs/running-on-device"  title=" "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .  
+1. Android Studio 또는 사용자 고유의 Android 장치에서 Android 가상 장치 에뮬레이터를 사용 하 여 앱을 실행 합니다. 물리적 장치에서 앱을 테스트 하기 위해 네이티브 설명서에 반응 하는 관련 작업을 수행 합니다 <a href="https://reactnative.dev/docs/running-on-device"  title=" "  target="_blank"> </a> .  
 
 
 ## <a name="create-an-enrollment-experience"></a>등록 환경 만들기  
@@ -78,9 +78,9 @@ ms.locfileid: "96350367"
 
 프로덕션을 위해 앱을 릴리스할 준비가 되 면 Android 앱에 대 한 패키지 파일 형식인 릴리스가 준비 된 APK 파일을 생성 합니다. 이 APK 파일은 개인 키로 서명 해야 합니다. 이 릴리스 빌드를 사용 하 여 장치에 직접 앱을 배포할 수 있습니다. 
 
-릴리스 준비에 대 한 릴리스 준비 설명서를 따라 <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title=" "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 개인 키를 생성 하 고, 응용 프로그램에 서명 하 고, 릴리스 apk를 생성 하는 방법을 알아봅니다.  
+릴리스 준비에 대 한 릴리스 준비 설명서를 따라 <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title=" "  target="_blank"> 개인 키를 생성 하 고 </a> , 응용 프로그램에 서명 하 고, 릴리스 apk를 생성 하는 방법을 알아봅니다.  
 
-서명 된 APK를 만들었으면 앱 게시 <a href="https://developer.android.com/studio/publish"  title=" "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 설명서를 참조 하 여 앱을 릴리스 하는 방법에 대해 자세히 알아보세요.
+서명 된 APK를 만들었으면 앱 게시 <a href="https://developer.android.com/studio/publish"  title=" "  target="_blank"> </a> 설명서를 참조 하 여 앱을 릴리스 하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계  
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109241"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431740"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>.NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업
 
@@ -28,7 +28,7 @@ ms.locfileid: "92109241"
 
 .NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 계정 관리 작업을 수행 하는 방법에 대 한 지침은 [.NET sdk를 사용 하 여 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Visual Studio 2013 이상** 이 문서의 지침에서는 Visual Studio 2019을 사용 합니다.
 
@@ -40,21 +40,21 @@ ms.locfileid: "92109241"
 
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
 
-1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트**를 차례로 선택 합니다.
-1. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
-1. **프로젝트 이름**에 `CreateADLApplication`를 입력하고 **만들기**를 선택합니다.
+1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트** 를 차례로 선택 합니다.
+1. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+1. **프로젝트 이름** 에 `CreateADLApplication`를 입력하고 **만들기** 를 선택합니다.
 1. NuGet 패키지를 프로젝트에 추가합니다.
 
-   1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-   1. **NuGet 패키지 관리자** 탭에서 **패키지 원본** 이 **nuget.org**로 설정 되어 있는지 확인 합니다. 또한 **시험판 포함** 확인란이 선택 되어 있는지 확인 합니다.
+   1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 클릭합니다.
+   1. **NuGet 패키지 관리자** 탭에서 **패키지 원본** 이 **nuget.org** 로 설정 되어 있는지 확인 합니다. 또한 **시험판 포함** 확인란이 선택 되어 있는지 확인 합니다.
    1. 다음 NuGet 패키지를 검색하고 설치합니다.
 
       * `Microsoft.Azure.DataLake.Store` -이 문서에서는 v 1.0.0을 사용 합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -이 문서에서는 v 2.3.1을 사용 합니다.
 
-      **NuGet 패키지 관리자**를 닫습니다.
+      **NuGet 패키지 관리자** 를 닫습니다.
 
-1. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
+1. **Program.cs** 를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
     ```
     using System;
@@ -199,10 +199,10 @@ client.DeleteRecursive("/Test");
 * [GitHub의 기본 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK 참조](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK 참조](/dotnet/api/overview/azure/data-lake-store)
 
 ## <a name="next-steps"></a>다음 단계
 

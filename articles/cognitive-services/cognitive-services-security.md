@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368783"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425297"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -29,13 +29,13 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 * HTTP 호출을 수행 하는 데 사용 되는 언어 (및 플랫폼)는 요청의 일부로 TLS 1.2을 지정 해야 합니다.
   * 언어 및 플랫폼에 따라 TLS를 암시적으로 지정 하거나 명시적으로 지정 합니다.
 
-.NET 사용자의 경우 <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">전송 계층 보안 모범 사례 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 고려 합니다.
+.NET 사용자의 경우 <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">전송 계층 보안 모범 사례 </a>를 고려 합니다.
 
 ## <a name="authentication"></a>인증
 
-인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 azure 역할 기반 access control (Azure RBAC)이 포함 되어 있습니다. Azure RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 azure [리소스에 대 한 azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
+인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 azure 역할 기반 access control (Azure RBAC)이 포함 되어 있습니다. Azure RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 azure [리소스에 대 한 azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
 
-구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services <span class="docon docon-navigate-external x-hidden-focus"></span> 에 대 한 요청 인증</a>을 참조 하세요.
+구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services에 대 한 요청 인증</a>을 참조 하세요.
 
 ## <a name="environment-variables-and-application-configuration"></a>환경 변수 및 응용 프로그램 구성
 
@@ -113,7 +113,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>하십시오.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>하십시오.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` </a>하십시오.
 
 ```java
 import java.lang.*;
@@ -162,9 +162,9 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/node-js)
+# <a name="nodejs"></a>[Node.JS](#tab/node-js)
 
-자세한 내용은 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` </a>하십시오.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` </a>하십시오.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-자세한 내용은 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
+자세한 내용은을 참조 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` </a>하십시오.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -205,7 +205,7 @@ NSString* value =
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
-* Language Understanding
+* 언어 이해
 * Face
 * Content Moderator
 * Personalizer

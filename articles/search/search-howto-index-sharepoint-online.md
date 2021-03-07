@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679713"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441094"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cognitive Search에서 SharePoint Online 인덱싱을 구성 하는 방법 (미리 보기)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101679713"
 > 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 > 
 > [REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 현재 포털 또는 SDK를 지원 하지 않습니다.
+
+> [!NOTE]
+> SharePoint Online은 문서 수준에서 사용자별 액세스를 결정 하는 세분화 된 권한 부여 모델을 지원 합니다. SharePoint Online 인덱서는 이러한 권한을 검색 인덱스에 가져오지 않으며 Cognitive Search는 문서 수준 권한 부여를 지원 하지 않습니다. 문서가 SharePoint Online에서 검색 서비스로 인덱싱되는 경우 인덱스에 대 한 읽기 액세스 권한이 있는 사용자는 해당 콘텐츠를 사용할 수 있습니다. 문서 수준 사용 권한이 필요한 경우에는 보안 필터를 조사 하 여 권한 없는 콘텐츠의 결과를 트리밍합니다. 자세한 내용은 [보안 트리밍 Active Directory id 사용](search-security-trimming-for-azure-search-with-aad.md)을 참조 하세요.
 
 이 문서에서는 Azure Cognitive Search를 사용 하 여 SharePoint Online 문서 라이브러리에 저장 된 문서 (예: Pdf, Microsoft Office 문서 및 다른 몇 가지 일반적인 형식)를 Azure Cognitive Search 인덱스에 인덱싱하는 방법을 설명 합니다. 먼저 인덱서 설정 및 구성에 대 한 기본 사항을 설명 합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
 
@@ -272,7 +275,7 @@ SharePoint Online 인덱서는 각 문서 유형과 관련 된 메타 데이터�
 ## <a name="controlling-which-documents-are-indexed"></a>인덱싱되는 문서 제어
 단일 SharePoint Online 인덱서는 하나 이상의 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있습니다. 인덱싱할 문서 라이브러리를 나타내기 위해 데이터 소스를 만들 때 *container* 매개 변수를 사용 합니다. 데이터 원본 *컨테이너* 에는 *이름* 및 *쿼리* 라는 두 개의 속성이 있습니다. 
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 *Name* 속성은 필수 이며 세 가지 값 중 하나 여야 합니다.
 + *defaultSiteLibrary*
     + 사이트 기본 문서 라이브러리의 모든 콘텐츠를 인덱싱합니다.
@@ -353,7 +356,7 @@ Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어:
+문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```http
 {

@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737973"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433219"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -220,11 +220,11 @@ Azure Digital Twins 쿼리 언어를 사용 하면 절 내의 관계에 별칭�
 
 API를 직접 호출 하거나 Azure Digital Twins에 사용할 수 있는 [sdk](how-to-use-apis-sdks.md#overview-data-plane-apis) 중 하나를 사용할 수 있습니다.
 
-다음 코드 조각에서는 클라이언트 앱에서 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 호출을 보여 줍니다.
+다음 코드 조각에서는 클라이언트 앱에서 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client) 호출을 보여 줍니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-이 호출에 사용 되는 쿼리는 위의 예제가 [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) 개체를 사용 하 여 나타내는 digital twins 목록을 반환 합니다. 각 쿼리에 대 한 데이터의 반환 형식은 문에 지정 하는 용어에 따라 달라 집니다 `SELECT` .
+이 호출에 사용 되는 쿼리는 위의 예제가 [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) 개체를 사용 하 여 나타내는 digital twins 목록을 반환 합니다. 각 쿼리에 대 한 데이터의 반환 형식은 문에 지정 하는 용어에 따라 달라 집니다 `SELECT` .
 * 로 시작 하는 쿼리 `SELECT * FROM ...` 는 디지털 쌍 ( `BasicDigitalTwin` 개체 또는 사용자가 만들었을 수 있는 기타 사용자 지정 디지털 쌍 형식)의 목록을 반환 합니다.
 * 형식으로 시작 하는 쿼리 `SELECT <A>, <B>, <C> FROM ...` 는, 및 키를 사용 하 여 사전을 반환 `<A>` `<B>` `<C>` 합니다.
 * 다른 형식의 `SELECT` 문은 사용자 지정 데이터를 반환 하도록 만들 수 있습니다. 사용자 지정 된 결과 집합을 처리 하는 클래스를 직접 만드는 것이 좋습니다. 

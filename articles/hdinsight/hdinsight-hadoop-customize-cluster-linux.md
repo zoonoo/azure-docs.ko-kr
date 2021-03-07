@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: d85aa1b66170acb25bd88435b83b1d28cda954f0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed1277df0ebfa42d6ee95d58fa568241b291656b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093594"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434681"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
 
@@ -198,7 +198,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>클러스터를 만드는 동안 HDInsight .NET SDK에서 스크립트 동작 사용
 
-HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사용할 있게 하는 클라이언트 라이브러리를 제공합니다. 코드 샘플은 [스크립트 작업](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions)을 참조 하세요.
+HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사용할 있게 하는 클라이언트 라이브러리를 제공합니다. 코드 샘플은 [스크립트 작업](/dotnet/api/overview/azure/hdinsight#script-actions)을 참조 하세요.
 
 ## <a name="script-action-to-a-running-cluster"></a>실행 중인 클러스터에 대 한 작업 스크립팅
 
@@ -265,7 +265,7 @@ NodeTypes       : {HeadNode, WorkerNode}
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예: `--roles headnode workernode`.
+    유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예들 들어 `--roles headnode workernode`입니다.
 
     스크립트를 유지하려면 `--persist-on-success`를 추가합니다. 나중에 `az hdinsight script-action promote`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 

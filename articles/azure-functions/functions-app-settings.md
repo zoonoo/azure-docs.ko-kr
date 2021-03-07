@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040348"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425705"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -159,11 +159,11 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-이 함수 앱에 사용할 Functions 런타임의 버전입니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~2")을 사용한다는 의미입니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전으로 고정하려면 전체 버전 번호(예: "2.0.12345")를 사용합니다. 기본값은 "~2"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다.
+함수 앱을 호스트 하는 함수 런타임의 버전입니다. 주 버전을 포함 하는 물결표 ( `~` )는 해당 주 버전의 최신 버전 (예: "~ 3")을 사용 함을 의미 합니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전에 고정 하려면 전체 버전 번호 (예: "3.0.12345")를 사용 합니다. 기본값은 "~ 3"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다. 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~2|
+|FUNCTIONS\_EXTENSION\_VERSION|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>함수 \_ V2 \_ 호환성 \_ 모드
 

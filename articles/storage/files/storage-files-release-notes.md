@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/3/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 38754e0f43ceaf40411cd89b97d1c0bf5fe7eb99
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5549fc3b63b76c6158ae7399e6d94a43d2d4f28f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049256"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435191"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -150,6 +150,8 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
 - robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
+    > [!Warning]  
+    > Robocopy/B 스위치는 Azure 파일 동기화 지원 되지 않습니다. Azure 파일 동기화 서버 끝점과 함께 Robocopy/B 스위치를 소스로 사용 하면 파일 손상이 발생할 수 있습니다.
 
 ## <a name="agent-version-10100"></a>에이전트 버전 10.1.0.0
 다음 릴리스 정보는 2020 년 6 월 5 일에 릴리스된 Azure 파일 동기화 에이전트의 버전 10.1.0.0에 대 한 것입니다. 이러한 메모는 버전 10.0.0.0 및 10.0.2.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
