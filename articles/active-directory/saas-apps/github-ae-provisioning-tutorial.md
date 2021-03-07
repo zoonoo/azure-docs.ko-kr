@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651583"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427014"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 GitHub AE 구성
 
@@ -32,6 +32,7 @@ ms.locfileid: "101651583"
 > * GitHub AE에서 사용자 만들기
 > * 더 이상 액세스 하지 않아도 되는 GitHub AE의 사용자를 제거 합니다.
 > * Azure AD와 GitHub AE 간에 사용자 특성을 동기화 상태로 유지
+> * GitHub AE에서 그룹 및 그룹 멤버 자격 프로 비전
 > * [GITHUB AE](./github-ae-tutorial.md) 에 대 한 Single sign-on (권장)
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -59,7 +60,7 @@ Azure AD 응용 프로그램 갤러리에서 GitHub AE를 추가 하 여 GitHub 
 
 Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 한 할당 또는 사용자 및/또는 그룹의 특성을 기반으로 프로 비전 되는 사용자의 범위를 지정할 수 있습니다. 할당에 따라 앱에 프로 비전 할 사용자의 범위를 선택 하는 경우 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md) 를 사용 하 여 응용 프로그램에 사용자 및/또는 그룹을 할당할 수 있습니다. 사용자 및/또는 그룹의 특성만을 기준으로 프로 비전 할 사용자의 범위를 선택 하는 경우 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 설명 된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* GitHub AE에 사용자를 할당할 때 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
+* GitHub AE에 사용자 및 그룹을 할당 하는 경우 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에 게 배포 하기 전에 소수의 사용자 및/또는 그룹 집합으로 테스트 합니다. 프로 비전 범위가 할당 된 사용자 및/또는 그룹으로 설정 된 경우 앱에 하나 또는 두 개의 사용자 및/또는 그룹을 할당 하 여이를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 

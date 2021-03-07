@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644806"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426793"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -102,6 +102,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
 
 ### <a name="connectivity"></a>연결
 * Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
+* Azure AD Connect 구성 된 모든 도메인에 대 한 네트워크 연결이 필요 합니다.
 * 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](reference-connect-ports.md) 를 참조 하세요.
 * 프록시 또는 방화벽에 액세스할 수 있는 Url을 제한 하는 경우 [Office 365 url 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에 설명 된 url을 열어야 합니다. [방화벽 또는 프록시 서버에서 Azure Portal Url Safelist](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)도 참조 하세요.
   * 독일 또는 Microsoft Azure Government 클라우드에서 Microsoft 클라우드를 사용 하는 경우 Url에 대 한 [동기화 서비스 인스턴스 고려 사항 Azure AD Connect](reference-connect-instances.md) 을 참조 하세요.

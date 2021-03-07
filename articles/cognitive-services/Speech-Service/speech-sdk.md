@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601812"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434523"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -58,13 +58,14 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-개발자 [는 음성 SDK를 사용 하](voice-assistants.md) 여 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다. 음성 도우미 서비스는 장치와 비서 간에 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 Bot Framework의 Direct Line Speech channel 또는 통합 된 사용자 지정 명령 서비스를 사용 하 여 작업을 완료 합니다. 또한 음성 도우미는 [사용자 지정 음성 포털](https://aka.ms/customvoice) 에서 만든 사용자 지정 음성을 사용 하 여 고유한 음성 출력 환경을 추가할 수 있습니다.
+음성 SDK를 사용 하는 [음성 도우미](voice-assistants.md) 를 사용 하면 응용 프로그램 및 환경에 대 한 자연스럽 고 사람의 대화형 인터페이스를 만들 수 있습니다. Speech SDK는 단일 연결에서 음성 텍스트, 텍스트 음성 변환 및 대화형 데이터를 포함 하는 빠르고 안정적인 상호 작용을 제공 합니다. 구현에서는 작업을 완료 하는 데 Bot Framework의 Direct Line Speech channel 또는 integrated Custom Commands 서비스를 사용할 수 있습니다. 또한 음성 도우미는 [사용자 지정 음성 포털](https://aka.ms/customvoice) 에서 만든 사용자 지정 음성을 사용 하 여 고유한 음성 출력 환경을 추가할 수 있습니다.
 
-**음성 도우미** 는 다음 플랫폼에서 사용할 수 있습니다.
+**음성 도우미** 지원은 다음 플랫폼에서 사용할 수 있습니다.
 
   - C + +/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (음성 장치 SDK)
+  - Go
 
 #### <a name="keyword-spotting"></a>키워드 발견
 
@@ -113,7 +114,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 ### <a name="codec-compressed-audio-input"></a>코덱 압축 오디오 입력
 
-몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 <span class="docon docon-navigate-external x-hidden-focus"></span> 사용 </a>을 참조 하세요.
+몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 사용 </a>을 참조 하세요.
 
 **코덱 압축 오디오 입력** 은 다음 플랫폼에서 사용할 수 있습니다.
 
@@ -125,7 +126,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나리오에서는 REST API를 사용 하는 것이 좋습니다.
 
-### <a name="batch-transcription"></a>일괄 처리 기록
+### <a name="batch-transcription"></a>전사 일괄 처리
 
 [일괄 처리 기록을](batch-transcription.md) 사용 하면 대용량 데이터의 비동기 음성-텍스트 기록을 사용할 수 있습니다. 일괄 처리는 REST API 에서만 가능 합니다. 음성 오디오를 텍스트로 변환 하는 것 외에도 batch 음성-텍스트는 diarization 및 감정를 허용 합니다.
 

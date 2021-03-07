@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: bd3ba88650161bd11a24697b4ff8575d307120e9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576264"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424464"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
-Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 인스턴스와 상호 작용하기 위한 클라이언트 애플리케이션을 작성하는 것이 일반적입니다. 이 개발자 중심 자습서에서는 [.NET(C#)용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용하여 Azure Digital Twins 서비스에 대한 프로그래밍을 소개합니다. C# 콘솔 클라이언트 앱을 작성하는 과정을 처음부터 단계별로 안내합니다.
+Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 인스턴스와 상호 작용하기 위한 클라이언트 애플리케이션을 작성하는 것이 일반적입니다. 이 개발자 중심 자습서에서는 [.NET(C#)용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)를 사용하여 Azure Digital Twins 서비스에 대한 프로그래밍을 소개합니다. C# 콘솔 클라이언트 앱을 작성하는 과정을 처음부터 단계별로 안내합니다.
 
 > [!div class="checklist"]
 > * 프로젝트 설정
@@ -57,7 +57,7 @@ dotnet new console
 
 자습서 전체에서 명령 창을 계속 사용하므로 명령 창을 열어 두세요.
 
-다음으로, Azure Digital Twins와 함께 작동하는 데 필요한 **두 개의 종속성을 프로젝트** 에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
+다음으로, Azure Digital Twins와 함께 작동하는 데 필요한 **두 개의 종속성을 프로젝트** 에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core

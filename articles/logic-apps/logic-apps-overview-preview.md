@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715210"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442743"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
@@ -54,7 +54,7 @@ Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions
 
 다음 표에서는 워크플로가 실행 되는 환경에 따라 리소스를 공유 하는 방식의 차이를 간략히 요약 하 여 보여 줍니다. 제한에 대 한 차이점은 [Azure Logic Apps 미리 보기의 제한](#limits)을 참조 하세요.
 
-| Environment | 리소스 공유 및 소비 |
+| 환경 | 리소스 공유 및 소비 |
 |-------------|----------------------------------|
 | Azure Logic Apps (다중 테 넌 트) | *여러 테 넌 트에 있는 고객의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
 | Azure Logic Apps (미리 보기) | *동일한 논리 앱의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
@@ -118,9 +118,13 @@ Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions
 
 Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 추가 기능이 포함 되어 있습니다.
 
-* SaaS (Software as a Service) 및 PaaS (Platform as a Service) 앱 및 서비스와 온-프레미스 시스템을 위한 커넥터를 위한 [390 + 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors) 에서 논리 앱 및 해당 워크플로를 만듭니다.
+* SaaS (Software as a Service) 및 PaaS (Platform as a Service) 앱 및 서비스에 대해 [400 개 이상의 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors) 에서 논리 앱 및 해당 워크플로를 만들고 온-프레미스 시스템을 위한 커넥터를 만듭니다.
 
-  * Azure Service Bus, Azure Event Hubs 및 SQL Server와 같은 일부 관리 되는 커넥터는 기본 제공 트리거 및 Azure Logic Apps Preview 런타임에 기본적으로 제공 되는 작업 (예: 요청 트리거 및 HTTP 작업)과 유사 하 게 실행 됩니다. 자세한 내용은 Anywhere를 실행 하는 [Azure Logic Apps 기본 제공 커넥터 확장성](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)을 참조 하세요.
+  * Azure Service Bus, Azure Event Hubs, SQL Server, MQ 등의 일부 관리 되는 커넥터는 기본 제공 트리거 및 Azure Logic Apps Preview 런타임에 기본적으로 제공 되는 작업 (예: 요청 트리거 및 HTTP 작업)과 유사 하 게 실행 됩니다.
+
+  * [Preview 릴리스의 확장성 프레임 워크](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)를 사용 하 여 필요한 모든 서비스에 대 한 기본 제공 커넥터를 만듭니다. Azure Service Bus 및 SQL Server와 같이 기본 제공 되는 커넥터와 마찬가지로, 현재 미리 보기에 대해 지원 되지 않는 [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 와 마찬가지로, 이러한 커넥터는 더 높은 처리량, 짧은 대기 시간, 로컬 연결을 제공 하 고 미리 보기 런타임과 동일한 프로세스에서 기본적으로 실행 됩니다.
+
+    제작 기능은 현재 Visual Studio Code 에서만 사용할 수 있지만 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 커넥터를 만들려면 [확장 번들 기반 (Node.js)에서 NuGet 패키지 기반 (.net)으로 프로젝트를 전환](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring)합니다. 자세한 내용은 Anywhere를 실행 하는 [Azure Logic Apps 기본 제공 커넥터 확장성](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)을 참조 하세요.
 
   * 통합 계정 없이 액체 작업 및 XML 작업에 B2B 작업을 사용할 수 있습니다. 이러한 작업을 사용 하려면 Azure Portal의 각 작업을 통해 업로드 하거나 각 **맵** 및 **스키마** 폴더를 사용 하 여 Visual Studio Code 프로젝트의 **아티팩트** 폴더에 추가할 수 있는 액체 맵, xml 맵 또는 xml 스키마가 있어야 합니다.
 
@@ -148,7 +152,7 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 * **논리 앱 (미리 보기)** 리소스의 개별 워크플로에서 사용 하는 관리 되는 연결에 대 한 액세스 키를 다시 생성 합니다. 이 작업의 경우에는 논리 앱 리소스 수준이 아닌 [개별 워크플로 수준에서 **Logic Apps** 리소스에 대해 동일한 단계를 수행](logic-apps-securing-a-logic-app.md#regenerate-access-keys)합니다.
 
 * 미리 보기가 아닌 디자이너와 동일한 단계를 수행 하 여 새 디자이너에서 병렬 분기를 추가 합니다.
- 
+
 자세한 내용은 GitHub의 [변경 됨, 제한 됨, 사용할 수 없음 및 지원 되지 않는 기능](#limited-unavailable-unsupported) 및 [Logic Apps 공개 미리 보기 알려진 문제 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
 <a name="pricing-model"></a>
@@ -193,8 +197,6 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
 
     * [온-프레미스 데이터 게이트웨이 *트리거*](../connectors/apis-list.md#on-premises-connectors) *를 사용할 수 없지만 게이트웨이 작업을* 사용할 수 있습니다.
 
-    * [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 를 사용할 수 없습니다.
-
     * 기본적으로 제공 되는 작업 [Azure Functions](logic-apps-azure-functions.md) azure Function을 선택 하는 Azure function **작업-Azure 함수를 호출** 합니다. 이 작업은 현재 **HTTP 트리거** 템플릿에서 만든 함수에 대해서만 작동 합니다.
 
       Azure Portal에서 사용자 환경을 통해 연결을 만들어 액세스 권한이 있는 HTTP 트리거 함수를 선택할 수 있습니다. 코드 뷰나 파일 **의workflow.js** 에서 함수 작업의 JSON 정의를 검사 하는 경우 작업은 참조를 사용 하 여 함수를 참조 합니다 `connectionName` . 이 버전은 연결을 만든 후에 사용할 수 있는 프로젝트의 **connections.js** 파일에서 찾을 수 있는 연결로 함수 정보를 추상화 합니다.
@@ -217,6 +219,8 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
     * [통합 계정에 대 한 일부 기본 제공 B2B 트리거 및 작업](../connectors/apis-list.md#integration-account-connectors) 은 사용할 수 없습니다 (예: **플랫 파일** 인코딩 및 디코딩 작업).
 
     * 기본 제공 작업 인 [Azure Logic Apps-논리 앱 워크플로 선택](logic-apps-http-endpoint.md) 은 이제 워크플로 **작업-이 워크플로 앱에서 워크플로를 호출** 합니다.
+
+* [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 는 현재 미리 보기를 지원 하지 않습니다.
 
 * **호스팅 계획 가용성**: Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스 유형을 만들거나 Visual Studio Code에서 배포 하는 경우에는 Azure에서 Premium 또는 App Service 호스팅 계획만 사용할 수 있습니다. 소비 호스팅 계획을 사용할 수 없으며이 리소스 유형의 배포에 대해 지원 되지 않습니다. Visual Studio Code에서 Docker 컨테이너로 배포할 수 있지만 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에는 배포할 수 없습니다.
 

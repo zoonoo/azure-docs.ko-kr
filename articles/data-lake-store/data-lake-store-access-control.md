@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094865"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424141"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -69,12 +69,12 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 연산 | 개체              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
-| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 만들기    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 목록      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 목록      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | 목록      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -286,7 +286,11 @@ Azure Portal에서 **Azure Active Directory > 엔터프라이즈 응용 프로�
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1이 ACL의 상속을 지원하나요?
 
-아니요, 기본 ACL은 자식 파일과 부모 폴더에서 새로 만든 자식 파일 및 폴더에 대해 ACL을 설정하는 데 사용할 수 있습니다.  
+아니요, 기본 ACL은 자식 파일과 부모 폴더에서 새로 만든 자식 파일 및 폴더에 대해 ACL을 설정하는 데 사용할 수 있습니다.
+
+### <a name="what-are-the-limits-for-acl-entries-on-files-and-folders"></a>파일 및 폴더에 대 한 ACL 항목의 제한은 무엇 인가요?
+
+32 Acl은 파일 및 디렉터리 별로 설정할 수 있습니다. 액세스 및 기본 Acl에는 각각 고유한 32 ACL 항목 한도가 있습니다. 가능 하면 ACL 할당에 보안 그룹을 사용 합니다. 그룹을 사용 하면 파일 또는 디렉터리 당 ACL 항목의 최대 수를 초과할 가능성이 줄어듭니다.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 

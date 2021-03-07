@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878581"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428646"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>NFS (네트워크 파일 시스템) 3.0 프로토콜 (미리 보기)을 사용 하 여 Blob storage 탑재
 
-NFS 3.0 프로토콜을 사용 하 여 온-프레미스에서 실행 되는 Windows 또는 Linux 기반 Azure VM (가상 머신) 또는 Windows 또는 Linux 시스템에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 이 문서에서는 단계별 지침을 제공 합니다. Blob storage에서 NFS 3.0 프로토콜 지원에 대 한 자세한 내용은 [Azure blob storage에서 nfs (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)](network-file-system-protocol-support.md)을 참조 하세요.
+NFS 3.0 프로토콜을 사용 하 여 온-프레미스에서 실행 되는 linux 기반 Azure VM (가상 머신) 또는 Linux 시스템에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 이 문서에서는 단계별 지침을 제공 합니다. Blob storage에서 NFS 3.0 프로토콜 지원에 대 한 자세한 내용은 [Azure blob storage에서 nfs (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)](network-file-system-protocol-support.md)을 참조 하세요.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>1 단계: 구독과 함께 NFS 3.0 프로토콜 기능 등록
 
@@ -83,7 +83,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 |설정 | 프리미엄 성능 | 표준 성능  
 |----|---|---|
 |위치|사용 가능한 모든 지역 |오스트레일리아 동부, 대한민국 중부 및 미국 중부 지역 중 하나   
-|성능|Premium| 표준
+|성능|Premium| Standard
 |계정 종류|BlockBlobStorage| 범용 V2
 |복제|LRS(로컬 중복 스토리지)| LRS(로컬 중복 스토리지)
 |연결 방법|공용 끝점 (선택한 네트워크) 또는 개인 끝점 |공용 끝점 (선택한 네트워크) 또는 개인 끝점
@@ -107,9 +107,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 
 ## <a name="step-7-mount-the-container"></a>7 단계: 컨테이너 탑재
 
-Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너를 저장소 계정에 탑재 합니다.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Linux 시스템에서 디렉터리를 만든 다음 컨테이너를 저장소 계정에 탑재 합니다.
 
 1. Linux 시스템에서 디렉터리를 만듭니다.
 
@@ -127,32 +125,6 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
 
    - `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. **Windows 기능** 대화 상자를 연 다음 **NFS 용 클라이언트** 기능을 설정 합니다. 
-
-   ![네트워크 파일 시스템용 클라이언트 기능](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. **명령 프롬프트** 창을 엽니다 (cmd.exe). 그런 다음 [mount](/windows-server/administration/windows-commands/mount) 명령을 사용 하 여 컨테이너를 탑재 합니다.
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - `<storage-account-name>`이 명령에 표시 되는 자리 표시자를 사용자의 저장소 계정 이름으로 바꿉니다.  
-
-   - `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
-
-3. 쓰기 권한이 필요한 경우 Windows에서 공유에 연결 하는 데 사용 하는 기본 UID 및 GID를 변경 해야 할 수 있습니다. 이렇게 하려면 관리자 권한으로 다음 PowerShell 명령을 실행 합니다.
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - NFS 클라이언트 서비스를 다시 시작 하거나이 변경 작업을 수행한 후 서버를 다시 부팅 하십시오.
-
 ---
 
 ## <a name="resolve-common-issues"></a>일반적인 문제 해결
@@ -162,6 +134,6 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
 |`Access denied by server while mounting`|지원되는 서브넷 내에서 클라이언트가 실행되고 있는지 확인합니다. [지원 되는 네트워크 위치](network-file-system-protocol-support.md#supported-network-connections)를 참조 하세요.|
 |`No such file or directory`| 기능이 등록되었는지 확인한 후 탑재할 컨테이너가 생성되었는지 확인합니다. [2 단계: 기능이 등록 되었는지 확인](#step-2-verify-that-the-feature-is-registered)을 참조 하세요. 또한 탑재 명령과 매개 변수를 터미널에 직접 입력 해야 합니다. 이 명령의 일부를 복사하여 다른 애플리케이션의 터미널에 붙여넣는 경우 붙여넣은 정보에 숨겨진 문자가 있으면 이 오류가 발생할 수 있습니다.|
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)](network-file-system-protocol-support.md)

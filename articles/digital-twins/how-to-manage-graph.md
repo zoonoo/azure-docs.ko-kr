@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050939"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433321"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
 Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](concepts-twins-graph.md) 입니다. 쌍 그래프는 **관계** 를 통해 연결 되는 개별 디지털 쌍으로 구성 됩니다. 
 
-[Azure digital 쌍 인스턴스가](how-to-set-up-instance-portal.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
+[Azure digital 쌍 인스턴스가](how-to-set-up-instance-portal.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
 
 이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -97,7 +97,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를 찾을 수 있는 API도 있습니다. 이는 역방향 탐색 이나 쌍을 삭제할 때 유용 합니다.
 
 >[!NOTE]
-> `IncomingRelationship` 호출은 관계의 전체 본문을 반환 하지 않습니다. 클래스에 대 한 자세한 내용은 `IncomingRelationship` 해당 [참조 설명서](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true)를 참조 하세요.
+> `IncomingRelationship` 호출은 관계의 전체 본문을 반환 하지 않습니다. 클래스에 대 한 자세한 내용은 `IncomingRelationship` 해당 [참조 설명서](/dotnet/api/azure.digitaltwins.core.incomingrelationship)를 참조 하세요.
 
 이전 섹션의 코드 샘플에서는 쌍에서 나가는 관계를 찾는 방법을 중점적으로 설명 합니다. 다음 예제는 유사 하 게 구성 되지만 대신 쌍으로 *들어오는* 관계를 찾습니다. 또한이 예제에서는 더 큰 프로그램의 컨텍스트에 나타날 수 있는 사용자 지정 메서드 내에서 SDK 호출 (강조 표시 됨)을 사용 합니다.
 
@@ -157,7 +157,7 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 샘플을 실행 하기 전에 다음을 수행 합니다.
 1. 모델 파일을 다운로드 하 고 프로젝트에 추가한 다음 `<path-to>` 아래 코드의 자리 표시자를 바꿔서 프로그램에서 찾을 위치를 알려 줍니다.
 2. 자리 표시자를 `<your-instance-hostname>` Azure 디지털 Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
+3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -188,8 +188,8 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 |  모델 ID    | 쌍 ID (고유 해야 함) | 관계 이름  | 대상 쌍 ID  | 쌍 초기화 데이터 |
 | --- | --- | --- | --- | --- |
-| dtmi: 예: 밑면; 1    | Floor1 | 포함 | Room1 | |
-| dtmi: 예: 밑면; 1    | Floor0 | 포함 | Room0 | |
+| dtmi: 예: 밑면; 1    | Floor1 | contains | Room1 | |
+| dtmi: 예: 밑면; 1    | Floor0 | contains | Room0 | |
 | dtmi: 예: Room; 1    | Room1 | | | {"온도": 80} |
 | dtmi: 예: Room; 1    | Room0 | | | {"온도": 70} |
 

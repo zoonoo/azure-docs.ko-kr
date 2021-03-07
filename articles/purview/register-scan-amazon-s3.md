@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d3fd0b1ffb87a84772000702b958c52ed1cc47c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679897"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438731"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Amazon S3 용 Azure 부서의 범위 커넥터
 
@@ -61,8 +61,8 @@ ms.locfileid: "101679897"
 | 아시아 태평양(시드니)           | 유럽 (프랑크푸르트)                    |
 | 아시아 태평양(도쿄)            | 유럽 (프랑크푸르트)                    |
 | 캐나다 (중부)                | 미국 동부 (Ohio)                        |
-| 중국 (베이징)                 | 유럽 (프랑크푸르트)                    |
-| 중국 (Ningxia)                 | 유럽 (프랑크푸르트)                    |
+| 중국 (베이징)                 | 지원되지 않음                    |
+| 중국 (Ningxia)                 | 지원되지 않음                   |
 | 유럽 (프랑크푸르트)              | 유럽 (프랑크푸르트)                    |
 | 유럽 (아일랜드)                | 유럽 (프랑크푸르트)                    |
 | 유럽 (런던)                 | 유럽 (프랑크푸르트)                    |
@@ -72,7 +72,7 @@ ms.locfileid: "101679897"
 | 중동 (바레인)           | 유럽 (프랑크푸르트)                    |
 | 남부 아메리카 (상투메 파울로)       | 미국 동부 (Ohio)                        |
 | | |
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Amazon S3 버킷을 부서의 범위 데이터 원본으로 추가 하 고 S3 데이터를 검색 하기 전에 다음 필수 구성 요소를 수행 했는지 확인 합니다.
 
@@ -130,7 +130,7 @@ Amazon S3 버킷을 부서의 범위 데이터 원본으로 추가 하 고 S3 �
     > 부서의 범위 자격 증명을 만든 부서의 범위 **관리 센터** 자격 증명 영역에서 **Microsoft 계정 ID** 및 **외부 ID** 에 대 한 값을 찾을 수 있습니다  >   . [](#create-a-purview-credential-for-your-aws-bucket-scan)
     >
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ![AWS 계정에 Microsoft 계정 ID를 추가 합니다.](./media/register-scan-amazon-s3/aws-create-role-amazon-s3.png)
 
@@ -152,7 +152,7 @@ Amazon S3 버킷을 부서의 범위 데이터 원본으로 추가 하 고 S3 �
 
     그런 다음 **역할 만들기** 를 선택 하 여 프로세스를 완료 합니다.
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ![역할을 만들기 전에 세부 정보를 검토 하십시오.](./media/register-scan-amazon-s3/review-role.png)
 
@@ -177,7 +177,7 @@ AWS 버킷은 여러 암호화 유형을 지원 합니다. **AWS-KMS** 암호화
 
     - 선택한 버킷이 **AWS** 암호화를 사용 하도록 구성 된 경우 아래에 설명 된 대로 계속 해 서 사용자 지정 **AWS** 암호화를 사용 하 여 버킷 검색을 허용 하는 새 정책을 추가 합니다.
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ![AWS로 구성 된 Amazon S3 버킷 보기-KMS 암호화](./media/register-scan-amazon-s3/default-encryption-buckets.png)
 
@@ -242,7 +242,7 @@ AWS 버킷은 여러 암호화 유형을 지원 합니다. **AWS-KMS** 암호화
 
 1. 버킷을 검색 하 고 선택 하 여 버킷 세부 정보 페이지를 표시 한 다음 버킷 이름을 클립보드에 복사 합니다.
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ![S3 버킷 URL을 검색 하 여 복사 합니다.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
@@ -260,7 +260,7 @@ AWS 계정을 부서의 범위 데이터 원본으로 모든 버킷에 등록 �
 
 AWS 계정 ID는 AWS 콘솔에 로그인 하는 데 사용 하는 ID입니다. 또한 IAM 대시보드에 로그인 한 후에 탐색 옵션 왼쪽의 왼쪽에서 로그인 URL의 숫자 부분으로이를 찾을 수 있습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ![AWS 계정 ID를 검색 합니다.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
@@ -380,13 +380,13 @@ Amazon S3 버킷에 대 한 부서의 범위 검사가 완료 되 면 부서의 
 데이터 원본을 선택 하 여 세부 정보를 확인 한 다음 **검색** 탭을 선택 하 여 현재 실행 중이거나 완료 된 검색을 확인 합니다.
 여러 버킷을 포함 하는 AWS 계정을 추가한 경우 각 버킷에 대 한 검색 기록이 계정 아래에 표시 됩니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ![AWS 계정 원본에 AWS S3 버킷 검색을 표시 합니다.](./media/register-scan-amazon-s3/account-scan-history.png)
 
 부서의 범위의 다른 영역을 사용 하 여 Amazon S3 버킷을 비롯 한 데이터 공간에 대 한 세부 정보를 확인할 수 있습니다.
 
-- **부서의 범위 data catalog를 검색** 하 고 특정 버킷을 필터링 합니다. 다음은 그 예입니다. 
+- **부서의 범위 data catalog를 검색** 하 고 특정 버킷을 필터링 합니다. 예를 들면 다음과 같습니다.
 
     ![AWS S3 자산에 대 한 카탈로그를 검색 합니다.](./media/register-scan-amazon-s3/search-catalog-screen-aws.png)
 

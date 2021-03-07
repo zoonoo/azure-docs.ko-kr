@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc75ada87db6fdbb3861c2e4e495f93147513421
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940102"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440567"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>인코딩 시나리오 기반 마이그레이션 지침
 
@@ -41,9 +41,9 @@ ms.locfileid: "98940102"
 
 더 큰 버전을 보려면 아래 이미지를 클릭 하세요.
 
-[![V2 ](./media/migration-guide/V2-pretty.svg) 용 Encoding 워크플로](./media/migration-guide/V2-pretty.svg#lightbox)
+[![V2 ](./media/migration-guide/V2-pretty.svg) 용 Encoding 워크플로 ](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. 설정
+1. 설치 프로그램
     1. 자산을 만들거나 및 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다.
     2. 다음 항목의 값을 가져옵니다.
         - 미디어 프로세서 ID 또는 개체
@@ -58,10 +58,12 @@ ms.locfileid: "98940102"
 
 ### <a name="v3-encoding-workflow"></a>V3 인코딩 워크플로
 
-[![V3 ](./media/migration-guide/V3-pretty.svg) 용 Encoding 워크플로](./media/migration-guide/V3-pretty.svg#lightbox)
+<Token>
+<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
+</Token>
 
 1. 설정
-    1. 자산을 만들거나 및 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다. *해당 자산에 더 이상 콘텐츠를 업로드 해서는 안 됩니다.*
+    1. 자산을 만들거나 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다. *해당 자산에 더 이상 콘텐츠를 업로드 해서는 안 됩니다.*
     1. 출력 자산을 만듭니다.  출력 자산은 인코딩된 파일 및 입력 및 출력 메타 데이터를 저장 하는 위치입니다.
     1. 변환 값을 가져옵니다.
         - 표준 인코더 사전 설정
@@ -84,17 +86,6 @@ ms.locfileid: "98940102"
 V2 코드가 사용자 지정 사전 설정으로 표준 인코더를 호출한 경우 먼저 작업을 제출 하기 전에 사용자 지정 표준 인코더 사전 설정을 사용 하 여 새 변환을 만들어야 합니다.
 
 사용자 지정 사전 설정은 이제 JSON 이며 더 이상 XML을 기반으로 하지 않습니다. [Swagger (Transform OPEN API)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json) 설명서에 정의 된 대로 사용자 지정 미리 설정 된 스키마에 따라 JSON에 미리 설정을 다시 만듭니다.
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## <a name="input-and-output-metadata-files-from-an-encoding-job"></a>인코딩 작업에서 입력 및 출력 메타 데이터 파일
 

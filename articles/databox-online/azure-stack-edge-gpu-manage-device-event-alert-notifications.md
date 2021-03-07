@@ -6,16 +6,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c621584fa1dbed06873ac0867e20201e94c4a757
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 585343137a4a8fd8a1fb591c640e1183d71c0fd3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699685"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443100"
 ---
 # <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Azure Stack Edge Pro 리소스에서 장치 이벤트 경고 알림 관리
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 리소스 그룹, Azure 구독 또는 개별 Azure Stack에 지 리소스 내에서 발생 하는 장치 이벤트에 대 한 경고 알림을 트리거하거나 표시 하지 않도록 Azure Portal에서 작업 규칙을 만드는 방법을 설명 합니다. 이 문서는 Azure Stack Edge의 모든 모델에 적용 됩니다.  
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1ee0ba89ef56d819fdc7553959a8a37fdbd6f7fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 28988af0c1b3b5e4e5ce359abb617a66af816d69
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730663"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439819"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge 장치에서 VM (가상 머신)을 만들고 관리 하는 방법을 설명 합니다. 이 정보는 GPU (그래픽 처리 장치)를 사용 하는 Azure Stack Edge Pro, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
 
@@ -25,7 +27,7 @@ ms.locfileid: "101730663"
 
 ![VM 배포 워크플로의 다이어그램입니다.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 

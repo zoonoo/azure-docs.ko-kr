@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682141"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427184"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -72,6 +72,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 * [조건부 액세스란?](https://youtu.be/ffMAw2IVO7A)
 * [조건부 액세스를 배포하는 방법](https://youtu.be/c_izIRNJNuk)
 * [최종 사용자에 게 조건부 액세스 정책을 배포 하는 방법](https://youtu.be/0_Fze7Zpyvc)
+* [조건부 액세스 정책의 사용자를 포함 하거나 제외 하는 방법](https://youtu.be/5DsW1hB3Jqs)
 * [디바이스 컨트롤을 사용하는 조건부 액세스](https://youtu.be/NcONUf-jeS4)
 * [Azure AD MFA를 사용 하 여 조건부 액세스](https://youtu.be/Tbc-SU97G-w)
 * [Enterprise Mobility + Security의 조건부 액세스](https://youtu.be/A7IrxAH87wc)

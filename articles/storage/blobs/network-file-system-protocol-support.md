@@ -1,6 +1,6 @@
 ---
 title: Azure Blob storage (미리 보기)의 네트워크 파일 시스템 3.0 지원 | Microsoft Docs
-description: 이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Windows 및 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스를 실행 하는 컴퓨터에서 Blob storage에 컨테이너를 탑재할 수 있습니다.
+description: 이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스를 실행 하는 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718501"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428442"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
-이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원은 개체 저장소 크기 조정 및 가격으로 Linux 파일 시스템 호환성을 제공 하며, Windows 또는 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 
+이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 개체 저장소 크기 조정 및 가격으로 Linux 파일 시스템 호환성을 제공 하 고 Linux 클라이언트가 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 
 
 > [!NOTE]
 > NFS 3.0 Azure Blob storage의 프로토콜 지원은 공개 미리 보기 상태입니다. 오스트레일리아 동부, 대한민국 중부 및 미국 서 부 지역에서 표준 계층 성능을 갖춘 GPV2 storage 계정을 지원 합니다. 미리 보기는 모든 공용 지역에서 프리미엄 성능 계층을 포함 하는 블록 blob도 지원 합니다.
@@ -46,7 +46,7 @@ NFS 3.0 프로토콜 지원을 사용 하도록 설정 하면 저장소 계정�
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>일반 워크플로: 저장소 계정 컨테이너 탑재
 
-Windows 또는 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 저장소 계정 컨테이너를 탑재 하려면 다음 작업을 수행 해야 합니다.
+Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 저장소 계정 컨테이너를 탑재 하려면 다음 작업을 수행 해야 합니다.
 
 1. 구독과 함께 NFS 3.0 프로토콜 기능을 등록 합니다.
 

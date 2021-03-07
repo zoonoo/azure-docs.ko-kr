@@ -6,17 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944954"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436535"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Azure Portal를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Portal, 템플릿, Azure PowerShell cmdlet을 사용 하 고 Azure CLI/Python 스크립트를 통해 Azure Stack Edge 장치에서 Vm (가상 컴퓨터)을 만들고 관리할 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 
 
@@ -85,7 +87,7 @@ Azure Stack Edge 장치에서 가상 머신을 만들려면 다음 단계를 따
 1. **이미지 추가** 블레이드에서 다음 매개 변수를 입력 합니다. **추가** 를 선택합니다.
 
 
-    |매개 변수  |Description  |
+    |매개 변수  |설명  |
     |---------|---------|
     |저장소 blob에서 다운로드    |VHD를 업로드 한 저장소 계정에서 저장소 blob의 위치로 이동 합니다.         |
     |다운로드 대상    | 가상 컴퓨터를 배포 하는 현재 장치에 자동으로 설정 됩니다.        |
@@ -122,11 +124,11 @@ VM 이미지를 만든 후에 VM을 만들려면 다음 단계를 수행 합니�
 1. **기본 사항** 탭에서 다음 매개 변수를 입력 합니다.
 
 
-    |매개 변수 |Description  |
+    |매개 변수 |설명  |
     |---------|---------|
     |가상 머신 이름     |         |
     |이미지     | 장치에서 사용할 수 있는 VM 이미지를 선택 합니다.        |
-    |Size     | [지원 되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md)에서 선택 합니다.        |
+    |크기     | [지원 되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md)에서 선택 합니다.        |
     |사용자 이름     | 기본 사용자 이름 *azureuser* 를 사용 합니다.        |
     |인증 유형    | SSH 공개 키 또는 사용자 정의 암호를 선택 합니다.       |
     |암호     | 가상 컴퓨터에 로그인 하려면 암호를 입력 하십시오. 암호는 12 자 이상 이어야 하며 정의 된 [복잡성 요구 사항을](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)충족 해야 합니다.        |
@@ -156,7 +158,7 @@ VM 이미지를 만든 후에 VM을 만들려면 다음 단계를 수행 합니�
 1. **네트워킹** 탭에서 VM에 대 한 네트워크 연결을 구성 합니다.
 
     
-    |매개 변수  |Description |
+    |매개 변수  |설명 |
     |---------|---------|
     |가상 네트워크    | 네트워크 인터페이스에서 계산을 사용 하도록 설정한 경우 드롭다운 목록에서 Azure Stack Edge 장치에 만들어진 가상 스위치를 선택 합니다.    |
     |서브넷     | 이 필드는 compute를 사용 하도록 설정한 네트워크 인터페이스와 연결 된 서브넷으로 자동으로 채워집니다.         |

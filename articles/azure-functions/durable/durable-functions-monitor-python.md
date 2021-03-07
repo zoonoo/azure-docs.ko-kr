@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029189"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434766"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Durable Functions에서 시나리오 모니터링-GitHub 문제 모니터링 샘플
 
 모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 지속성 함수를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
 
-[! 지 속성 함수 포함-필수 구성 요소]
+## <a name="prerequisites"></a>필수 구성 요소
+
+* [빠른 시작 문서 완료](quickstart-python-vscode.md)
+* [GitHub에서 샘플 프로젝트 복제 또는 다운로드](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
@@ -29,7 +33,7 @@ ms.locfileid: "98029189"
 * 모니터는 확장성이 있습니다. 각 모니터는 오케스트레이션 인스턴스이기 때문에 새 함수를 만들거나 코드를 더 정의하지 않고도 다수의 모니터를 만들 수 있습니다.
 * 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](durable-functions-sub-orchestrations.md)의 한 섹션이 될 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
@@ -45,7 +49,6 @@ ms.locfileid: "98029189"
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor orchestrator 함수
 
-# <a name="python"></a>[Python](#tab/python)
 
 **E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json* 을 사용합니다.
 
@@ -55,7 +58,6 @@ ms.locfileid: "98029189"
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
@@ -73,7 +75,6 @@ ms.locfileid: "98029189"
 
 다른 샘플과 마찬가지로 도우미 작업 함수는 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수입니다. **E3_TooManyOpenIssues** 함수는 리포지토리에 대 한 현재 미해결 문제 목록을 가져오고, 샘플에 따라 3 개 이상으로 "너무 많은"이 있는지 확인 합니다.
 
-# <a name="python"></a>[Python](#tab/python)
 
 *function.json* 은 다음과 같이 정의됩니다.
 
@@ -83,13 +84,11 @@ ms.locfileid: "98029189"
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>E3_SendAlert activity 함수
 
 **E3_SendAlert** 함수는 Twilio binding을 사용 하 여 최종 사용자에 게 해결을 대기 하는 세 개 이상의 미해결 문제가 있음을 알리는 SMS 메시지를 보냅니다.
 
-# <a name="python"></a>[Python](#tab/python)
 
 *function.json* 은 간단합니다.
 
@@ -99,7 +98,6 @@ SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>샘플 실행
 
