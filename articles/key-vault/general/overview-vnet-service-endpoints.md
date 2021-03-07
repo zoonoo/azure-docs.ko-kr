@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 4f615ed44594379c79f179a467888652c597e286
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217179"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431060"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -27,7 +27,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 기본적으로 모든 네트워크(인터넷 트래픽 포함)의 트래픽에 대한 액세스를 거부하도록 [Key Vault 방화벽 및 가상 네트워크](network-security.md)를 구성할 수 있습니다. 특정 Azure 가상 네트워크 및 공용 인터넷 IP 주소 범위의 트래픽에 대한 액세스 권한을 부여하여 애플리케이션에 대한 보안 네트워크 경계를 빌드하도록 할 수 있습니다.
 
 > [!NOTE]
-> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업(예: 작업 만들기, 삭제 및 수정 그리고 액세스 정책 설정, 방화벽 및 가상 네트워크 규칙 설정)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
+> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업 (예: 만들기, 삭제 및 수정, 액세스 정책 설정, 방화벽 설정, 방화벽 설정, 가상 네트워크 규칙 및 ARM 템플릿을 통해 암호 또는 키 배포)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
 
 서비스 엔드포인트를 사용할 수 있는 방법의 몇 가지 예는 다음과 같습니다.
 
