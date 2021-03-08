@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 02abdd752528ce28642b6228648062ed961d5ae3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020590"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452393"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Event Hubs
 
@@ -37,7 +37,7 @@ ms.locfileid: "98020590"
 
 ## <a name="partitioning"></a>분할
 
-분할은 파티션 정렬에 따라 달라 집니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지면 기록기 수는 이벤트 허브 출력의 파티션 수와 같습니다. 각 기록기는 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true)를 사용하여 이벤트를 특정 파티션에 보냅니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지지 않으면 기록기의 수는 이전 단계의 파티션 수와 같습니다. 각 기록기는 **EventHubClient** 의 [SendBatchAsync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true)를 사용하여 이벤트를 모든 출력 파티션에 보냅니다. 
+분할은 파티션 정렬에 따라 달라 집니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지면 기록기 수는 이벤트 허브 출력의 파티션 수와 같습니다. 각 기록기는 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender)를 사용하여 이벤트를 특정 파티션에 보냅니다. 이벤트 허브 출력의 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 맞춰지지 않으면 기록기의 수는 이전 단계의 파티션 수와 같습니다. 각 기록기는 **EventHubClient** 의 [SendBatchAsync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync)를 사용하여 이벤트를 모든 출력 파티션에 보냅니다. 
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 

@@ -14,12 +14,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0771864229c8a3918da076de48fb6e033d2cf5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018181"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452342"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>대량으로 Azure Notification Hubs 등록 내보내기 및 가져오기
 
@@ -127,7 +127,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-호출이 완료 되 면 알림 허브에서 작업을 계속 하 고 [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet)에 대 한 호출을 사용 하 여 해당 상태를 확인할 수 있습니다.
+호출이 완료 되 면 알림 허브에서 작업을 계속 하 고 [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync)에 대 한 호출을 사용 하 여 해당 상태를 확인할 수 있습니다.
 
 작업이 완료되면 출력 디렉터리에서 다음 파일을 확인하여 결과를 조사할 수 있습니다.
 

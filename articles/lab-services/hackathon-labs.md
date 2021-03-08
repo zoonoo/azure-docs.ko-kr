@@ -3,12 +3,12 @@ title: 해커 톤에 대 한 Azure Lab Services 사용
 description: 이 문서에서는 해커 톤 행사를 실행 하는 데 사용할 수 있는 랩을 만들기 위해 Azure Lab Services를 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d4648def48557d70547ef7d41d6c3e516671849e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602583"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452733"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>다음 해커 톤 Azure Lab Services 사용
 Azure Lab Services는 해커 톤에 대 한 Vm (가상 머신)의 새 랩을 신속 하 게 실행 하기 위해 간단 하 고 쉽게 사용할 수 있도록 설계 되었습니다.  다음 검사 목록을 사용 하 여 해커 톤가 최대한 원활 하 게 작동 하는지 확인 합니다. 이 검사 목록은 해커 톤 랩을 만들고 관리 하는 IT 부서 또는 교직원에 의해 완료 되어야 합니다. 
@@ -83,7 +83,7 @@ Azure Lab Services는 해커 톤에 대 한 Vm (가상 머신)의 새 랩을 신
     - 컴퓨터에 연결 하는 데 사용 해야 하는 자격 증명입니다. 이 단계는 랩에서 Windows 기반 이미지를 사용 하 고 모든 Vm에서 동일한 암호를 사용 하도록 구성한 경우에만 적용 됩니다.
     - 참가자가 컴퓨터에 RDP를 및/또는 하는 방법에 대 한 지침입니다.
 
-        자세한 내용은 [사용자에 게 초대를 보내고](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) [Linux vm에 연결](how-to-use-remote-desktop-linux-student.md?branch=master)하는 방법 가이드를 참조 하세요. 
+        자세한 내용은 [사용자에 게 초대를 보내고](how-to-configure-student-usage.md#send-invitations-to-users) [Linux vm에 연결](how-to-use-remote-desktop-linux-student.md)하는 방법 가이드를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [자습서: Azure Lab Services을 사용 하 여 랩 계정 설정](tutorial-setup-lab-account.md)문서의 지침에 따라 랩 계정 만들기를 시작 합니다.

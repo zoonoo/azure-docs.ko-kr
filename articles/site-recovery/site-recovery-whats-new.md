@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 51d54ca4d46af3b9e0746f36114fadc47edd5b1f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 423fbc563878d0cc2a63a5366d2226281a204e87
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805044"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454602"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,6 +22,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **업데이트** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [롤업 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [롤업 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [롤업 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
@@ -30,6 +31,21 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
+## <a name="updates-february-2021"></a>업데이트 (2 월 2021)
+
+### <a name="update-rollup-54"></a>업데이트 롤업 54
+
+[업데이트 롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) 은 다음과 같은 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다. 
+**Azure VM 재해 복구** | Azure Site Recovery를 사용 하는 영역 및 지역 간 재해 복구는 이제 북미 유럽, 미국 동부, 미국 중부, 미국 서 부 2 개 이상의 지역에서 GA 됩니다.<br/>
+**Azure에 대 한 VMware v m/물리적 재해 복구** | 업데이트에는 복제를 사용 하도록 설정한 후 VMware/물리적 컴퓨터에 대 한 근접 배치 그룹 선택을 위한 포털 지원이 포함 됩니다.<br/><br/> 데이터 디스크 크기가 최대 32 TB iss 인 VMware 컴퓨터 보호는 이제 지원 됩니다.
+**Azure에 대 한 hyper-v 재해 복구** | 업데이트에는 복제를 사용 하도록 설정한 후 Hyper-v 컴퓨터의 근접 배치 그룹을 선택 하기 위한 포털 지원이 포함 됩니다.
+
 
 ## <a name="updates-january-2021"></a>업데이트 (1 월 2021)
 

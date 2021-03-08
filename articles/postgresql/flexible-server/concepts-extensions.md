@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443389"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454591"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버의 PostgreSQL 확장
 
@@ -53,7 +53,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | 사용 가능한 공간 맵 (FSM) 검사|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | 사전 웜 관계 데이터|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | 실행 된 모든 SQL 문의 실행 통계 추적|
@@ -61,7 +61,6 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | 암호화 함수|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | PostgreSQL 논리적 복제|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -104,7 +103,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사 합니다.|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | PostgreSQL에 대 한 작업 scheduler|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | 사용 가능한 공간 맵 (FSM) 검사|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | 사전 웜 관계 데이터|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | 실행 된 모든 SQL 문의 실행 통계 추적|
@@ -112,7 +111,6 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다.|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 암호화 함수|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | PostgreSQL 논리적 복제|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -134,6 +132,27 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 
 이러한 두 확장을 사용할 계획인 경우 [VNet 통합](concepts-networking.md) 을 사용 하 여 서버를 배포 하는 것이 좋습니다. 기본적으로 VNet 통합은 VNET의 서버 간 연결을 허용 합니다. [VNet 네트워크 보안 그룹](../../virtual-network/manage-network-security-group.md) 을 사용 하 여 액세스를 사용자 지정 하도록 선택할 수도 있습니다.
 
+## <a name="pg_cron"></a>pg_cron
+
+[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) 는 데이터베이스 내에서 확장으로 실행 되는 PostgreSQL에 대 한 간단한 cron 기반 작업 스케줄러입니다. Pg_cron 확장은 PostgreSQL 데이터베이스 내에서 예약 된 유지 관리 작업을 실행 하는 데 사용할 수 있습니다. 예를 들어 테이블의 정기적으로 또는 오래 된 데이터 작업을 제거할 수 있습니다.
+
+`pg_cron` 는 여러 작업을 동시에 실행할 수 있지만 한 번에 하나의 작업 인스턴스만 실행 합니다. 첫 번째 실행이 완료 되기 전에 두 번째 실행을 시작 해야 하는 경우 두 번째 실행은 큐에 대기 되 고 첫 번째 실행이 완료 되는 즉시 시작 됩니다. 이렇게 하면 작업이 예약 된 횟수 만큼 정확 하 게 실행 되며 동시에 실행 되지 않습니다.
+
+몇 가지 예는 다음과 같습니다.
+
+토요일 오전 3 시에 이전 데이터를 삭제 하려면 (GMT)
+```
+SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
+```
+매일 오전 10 시에 실행 하려면 (GMT)
+```
+SELECT cron.schedule('0 10 * * *', 'VACUUM');
+```
+
+Pg_cron의 모든 작업 예약을 제거 하려면
+```
+SELECT cron.unschedule(jobid) FROM cron.job;
+```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

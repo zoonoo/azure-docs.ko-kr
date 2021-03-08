@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7a74eca129ce273bd96ea8962ed9ddf2907ea100
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216176"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454790"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -96,7 +96,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
 * 수집 및 미리 보기에서 IP 제한입니다. 이 라이브 이벤트에 비디오를 수집 하도록 허용 된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.
 <br/><br/>
-지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.<br/>IP 주소는 다음 형식 중 하나 여야 합니다. 4 개의 숫자 또는 CIDR 주소 범위의 IpV4 주소입니다.
+지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.<br/>IP 주소는 4개의 숫자를 사용하는 IpV4 주소 또는 CIDR 주소 범위 형식 중 하나여야 합니다.
 <br/><br/>
 자신의 방화벽에서 특정 Ip를 사용 하도록 설정 하거나 라이브 이벤트의 입력을 Azure IP 주소로 제한 하려는 경우 [Azure 데이터 센터 IP 주소 범위](https://www.microsoft.com/download/details.aspx?id=41653)에서 JSON 파일을 다운로드 합니다. 이 파일에 대 한 자세한 내용을 보려면 페이지에서 **세부 정보** 섹션을 선택 하십시오.
 
@@ -149,7 +149,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
     |---|---|---|
     |REST (영문)|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--베 니 티](/cli/azure/ams/live-event#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 

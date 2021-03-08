@@ -1,7 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
 제목: Media Services 변환 및 작업: Azure Media Services 설명: Azure Media Services에서 비디오를 처리 하는 규칙을 설명 하는 변환을 만드는 방법을 알아봅니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
 ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 08/19/2019. 작성자: inhenkel
 ---
@@ -25,7 +25,7 @@ ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 
 3. 변환 목록을 표시 합니다.
 4. 변환을 나중에 사용 하지 않으려는 경우 삭제 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 모든 비디오의 첫 번째 프레임을 미리 보기 이미지로 추출 한다고 가정해 보겠습니다. 수행 하는 단계는 다음과 같습니다.
 
@@ -39,13 +39,13 @@ ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 
 > [!NOTE]
 > Datetime 형식의 **변환** 및 **작업** 속성은 항상 UTC 형식입니다.
 
-## <a name="transforms"></a>변형
+## <a name="transforms"></a>변환
 
 **Transforms** 는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 
 ### <a name="viewing-schema"></a>스키마 보기
 
-Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
+Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset)또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
 
 ### <a name="creating-transforms"></a>변환 만들기
 

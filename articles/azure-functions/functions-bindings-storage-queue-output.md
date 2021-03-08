@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381514"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455808"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -366,7 +366,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -424,12 +424,12 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
 
-이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+이러한 형식을 사용하는 예제는 [확장에 대한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -451,12 +451,12 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+[5.0.0 이상 버전의 스토리지 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
 
-이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+이러한 형식을 사용하는 예제는 [확장에 대한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -480,7 +480,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 - **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용 하면 함수의 반환 값이 큐 저장소 메시지로 유지 됩니다.
 
-- **명령형**: [출력](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) 메서드에 값을 전달합니다. 에 전달 된 값은 `set` 큐 저장소 메시지로 유지 됩니다.
+- **명령형**: [출력](/python/api/azure-functions/azure.functions.out) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) 메서드에 값을 전달합니다. 에 전달 된 값은 `set` 큐 저장소 메시지로 유지 됩니다.
 
 ---
 

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334415"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455598"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,9 +34,9 @@ Azure Cosmos DB용 Advanced Threat Protection은 Azure Cosmos DB 계정에 액�
 
 Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 감지합니다. 현재 다음과 같은 경고를 트리거할 수 있습니다.
 
-- **비정상적인 위치에서 액세스** : 비정상적인 지리적 위치에서 누군가가 Azure Cosmos DB 엔드포인트에 연결한 Azure Cosmos 계정에 대한 액세스 패턴이 변경되면 이 경고가 트리거됩니다. 경우에 따라 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리 작업을 의미)을 감지합니다. 다른 경우에는 경고가 악의적인 작업(퇴사 직원, 외부 공격자 등)을 감지합니다.
+- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 Azure Cosmos DB 엔드포인트에 연결한 Azure Cosmos 계정에 대한 액세스 패턴이 변경되면 이 경고가 트리거됩니다. 경우에 따라 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리 작업을 의미)을 감지합니다. 다른 경우에는 경고가 악의적인 작업(퇴사 직원, 외부 공격자 등)을 감지합니다.
 
-- **비정상적인 데이터 추출** : 이 경고는 클라이언트가 Azure Cosmos DB 계정에서 비정상적인 양의 데이터를 추출할 때 트리거됩니다. 이는 계정에 저장된 모든 데이터를 외부 데이터 저장소로 전송하기 위해 수행해야 하는 일부 데이터 유출의 증상일 수 있습니다.
+- **비정상적인 데이터 추출**: 이 경고는 클라이언트가 Azure Cosmos DB 계정에서 비정상적인 양의 데이터를 추출할 때 트리거됩니다. 이는 계정에 저장된 모든 데이터를 외부 데이터 저장소로 전송하기 위해 수행해야 하는 일부 데이터 유출의 증상일 수 있습니다.
 
 
 
@@ -68,9 +68,9 @@ Rest API 명령을 사용하여 특정 Azure Cosmos DB 계정에 대한 Advanced
 
 다음 PowerShell cmdlet을 사용합니다.
 
-* [Advanced Threat Protection 사용](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Advanced Threat Protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Advanced Threat Protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Advanced Threat Protection 사용](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Advanced Threat Protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Advanced Threat Protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[ARM 템플릿](#tab/arm-template)
 

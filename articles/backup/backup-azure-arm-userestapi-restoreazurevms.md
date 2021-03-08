@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure 가상 머신 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174032"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452155"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -317,17 +317,7 @@ Azure VM 백업에서 디스크 교체를 트리거하기 위해 요청 본문�
 
 ```json
 {
-  "parameters": {
-        "subscriptionId": "00000000-0000-0000-0000-000000000000",
-        "resourceGroupName": "testVaultRG",
-        "vaultName": "testVault",
-        "fabricName": "Azure",
-        "containerName": "IaasVMContainer;iaasvmcontainerv2;testRG;testVM",
-        "protectedItemName": "VM;iaasvmcontainerv2;testRG;testVM",
-        "recoveryPointId": "348916168024334",
-        "api-version": "2019-05-13",
-      "parameters": {
-        "properties": {
+  "properties": {
           "objectType":  "IaasVMRestoreRequest",
           "recoveryPointId": "348916168024334",
           "recoveryType": "AlternateLocation",
@@ -342,11 +332,8 @@ Azure VM 백업에서 디스크 교체를 트리거하기 위해 요청 본문�
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
-          }
-        }
-      }
-    }
-}
+     }
+ }
 ```
 
 이 응답은 [디스크를 복원하기 위해 위에 설명된](#responses) 것과 동일한 방식으로 처리해야 합니다.

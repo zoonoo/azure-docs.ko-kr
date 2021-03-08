@@ -1,7 +1,7 @@
 ---
 title: B2C (b2b) Azure Active Directory의 새로운 기능
 description: Azure Active Directory b2b (B2C)에 대 한 새롭고 업데이트 된 설명서입니다.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,28 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: c4561780a20bb2dfdef39269a49ebf8cb2a29fff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593013"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454620"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: 새로운 기능
 
 Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. B2C 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../active-directory/fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="new-articles"></a>새 문서
+
+- [전화 기반 MFA (multi-factor authentication) 보안](phone-based-mfa.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory B2C 코드 샘플](code-samples.md)
+- [Application Insights를 사용 하 여 Azure AD B2C에서 사용자 동작 추적](analytics-with-application-insights.md)
+- [Azure Active Directory B2C에서 세션 동작 구성](session-behavior.md)
 
 ## <a name="january-2021"></a>2021년 1월
 

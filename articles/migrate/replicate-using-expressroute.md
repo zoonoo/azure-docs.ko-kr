@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098845"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448831"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Azure Migrate로 Express 경로를 통해 데이터 복제: 서버 마이그레이션
 
@@ -72,6 +72,7 @@ Azure Migrate는 Azure Migrate 프로젝트에서 가상 머신에 대 한 복�
 ![리소스 그룹 보기](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > 리소스 그룹에 **"lsa"** 접두사가 포함 된 둘 이상의 저장소 계정이 있는 경우 프로젝트의 복제 vm에 대 한 복제 설정 및 대상 구성 메뉴로 이동 하 여 저장소 계정을 확인할 수 있습니다. <br/> 
 > ![복제 설정 개요](./media/replicate-using-expressroute/storage-account.png)
 
@@ -125,8 +126,9 @@ Azure Migrate는 Azure Migrate 프로젝트에서 가상 머신에 대 한 복�
 
     ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.  **사설 DNS 영역** 페이지에서 **+ 추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.  
-    b.  **개인 DNS 영역 만들기** 페이지에서 필요한 세부 정보를 입력 합니다. 개인 DNS 영역의 이름을 _privatelink_. blob.core.windows.net로 입력 합니다. 다. **검토 + 만들기** 탭으로 이동 하 여 DNS 영역을 검토 하 고 만듭니다.
+    a. **사설 DNS 영역** 페이지에서 **+ 추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.  
+    b. **개인 DNS 영역 만들기** 페이지에서 필요한 세부 정보를 입력 합니다. 개인 DNS 영역의 이름을 _privatelink_. blob.core.windows.net로 입력 합니다.  
+    다. **검토 + 만들기** 탭으로 이동 하 여 DNS 영역을 검토 하 고 만듭니다.   
 
 2. 가상 네트워크에 개인 DNS 영역을 연결 합니다.  
 

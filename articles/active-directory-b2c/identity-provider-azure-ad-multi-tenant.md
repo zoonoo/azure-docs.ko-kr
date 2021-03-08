@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8c2b97d1848450ecda2e83d5ba12469d7c61d8f9
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f6e932cb6a6086e4cea6f474f296ca086e48c75e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952741"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448459"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -155,7 +155,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
 
 **ValidTokenIssuerPrefixes** 의 값으로 `https://login.microsoftonline.com/`를 사용하면 모든 Azure AD 사용자가 애플리케이션에 로그인할 수 있습니다. 유효한 토큰 발급자 목록을 업데이트 하 고 로그인 할 수 있는 Azure AD 테 넌 트 사용자의 특정 목록에 대 한 액세스를 제한 합니다.
 
-값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 다음은 그 예입니다. 
+값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 다음은 그 예입니다.
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
@@ -186,9 +186,16 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **COMMON AAD** 를 선택 하 여 Azure AD 계정으로 로그인 합니다.
 
 다중 테 넌 트 로그인 기능을 테스트 하려면 다른 Azure AD 테 넌 트에 존재 하는 사용자의 자격 증명을 사용 하 여 마지막 두 단계를 수행 합니다. **지금 실행 끝점** 을 복사 하 여 개인 브라우저 창에서 엽니다 (예: Google Chrome의 Incognito 모드 또는 Microsoft Edge의 InPrivate 창). 개인 브라우저 창에서 열면 현재 캐시 된 Azure AD 자격 증명을 사용 하지 않고 전체 사용자 경험을 테스트할 수 있습니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

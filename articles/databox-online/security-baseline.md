@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787267"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452376"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Azure Stack Edge에 대 한 Azure 보안 기준
 
@@ -258,7 +258,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: 전송 중인 중요한 정보 암호화
 
-**지침**: Edge에서 데이터를 비행 하는 데 보안 채널을 사용 하 Azure Stack 합니다. 해당 경고는 다음과 같습니다.
+**지침**: Edge에서 데이터를 비행 하는 데 보안 채널을 사용 하 Azure Stack 합니다. 이러한 항목은 다음과 같습니다.
 
 - 표준 TLS 1.2은 장치와 Azure 클라우드 간에 이동 하는 데이터에 사용 됩니다. TLS 1.1 이전 버전에는 대체가 없습니다. TLS 1.2이 지원 되지 않는 경우 에이전트 통신이 차단 됩니다. TLS 1.2는 Azure Portal 및 SDK (소프트웨어 개발 키트) 관리에도 필요 합니다.
 
@@ -308,7 +308,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 **지침**: 로컬로 만든 가상 머신에서 실행할 수 있도록 응용 프로그램을 가져올 수 있습니다. PowerShell 스크립트를 사용 하 여 스택 Edge 장치에서 로컬 계산 가상 컴퓨터를 만듭니다. 로컬 가상 머신에서 실행할 수 있는 신뢰할 수 있는 응용 프로그램만 가져오는 것이 좋습니다. 
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -545,7 +545,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **책임**: 공유됨
 
-## <a name="endpoint-security"></a>끝점 보안
+## <a name="endpoint-security"></a>엔드포인트 보안
 
 *자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](../security/benchmarks/security-controls-v2-endpoint-security.md)을 참조 하세요.*
 

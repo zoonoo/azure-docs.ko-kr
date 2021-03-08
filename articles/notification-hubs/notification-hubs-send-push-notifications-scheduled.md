@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56eedda7f79fedce1e34ad837c92006e5cd8f191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d27ad1f15e9f46f0bc67e62b79606828efb85e6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998274"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453158"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
 
@@ -31,7 +31,7 @@ ms.locfileid: "88998274"
 
 
 ## <a name="schedule-your-notifications"></a>알림 예약
-알림을 보낼 때 다음 예제와 같이 Notification Hubs SDK의 [ `ScheduledNotification` 클래스](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification?view=azure-dotnet#microsoft_azure_notificationhubs_schedulednotification) 를 사용 하면 됩니다.
+알림을 보낼 때 다음 예제와 같이 Notification Hubs SDK의 [ `ScheduledNotification` 클래스](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification#microsoft_azure_notificationhubs_schedulednotification) 를 사용 하면 됩니다.
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

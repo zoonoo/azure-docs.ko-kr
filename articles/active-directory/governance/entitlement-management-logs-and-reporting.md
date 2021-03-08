@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577869"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453039"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-`Connect-AzAccount –Subscription $subs[0].id` 같은 명령을 사용하여 해당 구독에 대한 PowerShell 세션을 다시 인증하고 연결할 수 있습니다. 비대화형 기능을 포함하여 PowerShell에서 Azure를 인증하는 방법에 대해 자세히 알아보려면 [Azure PowerShell을 사용하여 로그인](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-)을 참조하세요.
+`Connect-AzAccount –Subscription $subs[0].id` 같은 명령을 사용하여 해당 구독에 대한 PowerShell 세션을 다시 인증하고 연결할 수 있습니다. 비대화형 기능을 포함하여 PowerShell에서 Azure를 인증하는 방법에 대해 자세히 알아보려면 [Azure PowerShell을 사용하여 로그인](/powershell/azure/authenticate-azureps)을 참조하세요.
 
 해당 구독에 Log Analytics 작업 영역이 여러 개 있는 경우 cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace)에서 작업 영역의 목록을 반환합니다. 그러면 Azure AD 로그가 포함된 작업 영역을 찾을 수 있습니다. 이 cmdlet이 반환하는 `CustomerId` 필드는 Log Analytics 작업 영역 개요의 Azure Portal에 표시되는 "작업 영역 ID"의 값과 동일합니다.
  

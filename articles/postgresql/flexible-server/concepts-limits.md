@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516518"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451900"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -68,7 +68,7 @@ ms.locfileid: "100516518"
 
 ### <a name="storage"></a>스토리지
 
-- 구성 된 후에는 저장소 크기를 줄일 수 없습니다.
+- 구성 된 후에는 저장소 크기를 줄일 수 없습니다. 원하는 저장소 크기를 사용 하 여 새 서버를 만들고 수동 덤프 및 복원 프로세스를 수행 하 여 데이터베이스를 마이그레이션해야 합니다.
 - 현재 저장소 자동 확장 기능을 사용할 수 없습니다. 사용량을 모니터링 하 고 저장소 크기를 늘려 보세요. 
 - 저장소 사용량이 95%에 도달 하거나 사용 가능한 용량이 5 GiB 미만이 면 서버가 디스크 전체 상황과 관련 된 오류를 방지 하기 위해 자동으로 **읽기 전용 모드로** 전환 됩니다. 
 - `storage used`저장소 크기를 늘려야 하는 등의 `storage percent` 작업을 사전에 수행할 수 있도록 또는가 특정 임계값을 초과 하는 경우 경고 규칙을 설정 하는 것이 좋습니다. 예를 들어 저장소 백분율이 80% 사용량을 초과 하는 경우 경고를 설정할 수 있습니다.

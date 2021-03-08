@@ -4,42 +4,56 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 6b16dea3c4f9241133b91b092c90c9056da57de0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514952"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455692"
 ---
 ### <a name="standard-and-neural-voices"></a>표준 및 신경망
 
-이 표를 사용 하 여 지역/끝점에서 표준 및 신경망의 가용성을 확인할 수 있습니다.
+이 표를 사용 하 여 지역/끝점으로 **표준 음성의 가용성** 을 확인할 수 있습니다.
 
-| 지역 | 엔드포인트 | 신경망 | 표준 음성 |
-|--------|----------|-----------------|---------------|
-| 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동남 아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 지역 | 엔드포인트 |
+|--------|----------|
+| 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [미리 보기의 음성](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) 은 미국 동부, 유럽 서부 및 동남 아시아의 3 개 지역 에서만 사용할 수 있습니다.
+
+이 표를 사용 하 여 지역/엔드포인트로 **신경망의 가용성** 을 확인할 수 있습니다.
+
+| 지역 | 엔드포인트 |
+|--------|----------|
+| 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
+| 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### <a name="custom-voices"></a>사용자 지정 음성
 

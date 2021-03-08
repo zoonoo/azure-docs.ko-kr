@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 678b6f02245e463870fc5b2c4bfc8b5ffa50de60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cd69e89954fab2256ffc7c23e22d3b8d44ab2a11
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381695"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455876"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob 저장소 입력 바인딩
 
@@ -262,7 +262,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 속성은 사용 되는 `dataType` 바인딩을 결정 합니다. 다음 값은 다양 한 바인딩 전략을 지 원하는 데 사용할 수 있습니다.
 
-| 바인딩 값 | 기본값 | 설명 | 예 |
+| 바인딩 값 | 기본값 | Description | 예제 |
 | --- | --- | --- | --- |
 | `undefined` | Y | 풍부한 바인딩을 사용 합니다. | `def main(input: func.InputStream)` |
 | `string` | N | 제네릭 바인딩을 사용 하 고 입력 형식을로 캐스팅 합니다. `string` | `def main(input: str)` |
@@ -379,7 +379,7 @@ Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 �
 
 # <a name="python"></a>[Python](#tab/python)
 
-[InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+[InputStream](/python/api/azure-functions/azure.functions.inputstream)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
 
 ---
 

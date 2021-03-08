@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426453"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454229"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 이 문서에서는 [sap 커넥터](/connectors/sap/)를 사용 하 여 LOGIC APPS에서 sap 리소스에 액세스 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "102426453"
 
     * 다중 테 넌 트 Azure에서 논리 앱을 실행 하는 경우 [다중 테 넌 트 필수 구성 요소](#multi-tenant-azure-prerequisites)를 참조 하세요.
 
-    * 프리미엄 수준[ ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 논리 앱을 실행 하는 경우 [ise 필수 구성 요소](#ise-prerequisites)를 참조 하세요.
+    * 프리미엄 수준 [ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 논리 앱을 실행 하는 경우 [ise 필수 구성 요소](#ise-prerequisites)를 참조 하세요.
 
 * Logic Apps에서 액세스 하려는 [sap 응용 프로그램 서버](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) 또는 [sap 메시지 서버](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) 입니다. 커넥터에서 사용할 수 있는 SAP 서버 및 SAP 작업에 대 한 자세한 내용은 [sap compatibility](#sap-compatibility)를 참조 하세요.
 
@@ -633,6 +633,14 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
     * **RFC 대상** 에 대해 이름을 입력 합니다.
     
     * **기술 설정** 탭의 **정품 인증 유형에** 대해 **등록 된 서버 프로그램** 을 선택 합니다. **프로그램 ID** 에 값을 입력 합니다. SAP에서이 식별자를 사용 하 여 논리 앱의 트리거를 등록 합니다.
+
+    > [!IMPORTANT]
+    > SAP **프로그램 ID** 는 대/소문자를 구분 합니다. 논리 앱과 SAP 서버를 구성할 때 **프로그램 ID** 에 대해 동일한 대/소문자 형식을 일관 되 게 사용 해야 합니다. 그렇지 않으면 IDoc를 SAP로 보내려고 할 때 tRFC 모니터 (T-코드 SM58)에서 다음과 같은 오류가 발생할 수 있습니다.
+    >
+    > * **함수 IDOC_INBOUND_ASYNCHRONOUS 찾을 수 없음**
+    > * **비 ABAP RFC 클라이언트 (파트너 유형)는 지원 되지 않습니다.**
+    >
+    > SAP에서 자세한 내용은 다음 참고 사항 (로그인 필요) 및를 참조 <https://launchpad.support.sap.com/#/notes/2399329> 하세요 <https://launchpad.support.sap.com/#/notes/353597> .
     
     * **유니코드** 탭에서 **대상 시스템과 통신 형식** 에 대해 **유니코드** 를 선택 합니다.
 
@@ -746,7 +754,15 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-message-from-sap)합니다.
 
-   예를 들면 다음과 같습니다.
+    > [!IMPORTANT]
+    > SAP **프로그램 ID** 는 대/소문자를 구분 합니다. 논리 앱과 SAP 서버를 구성할 때 **프로그램 ID** 에 대해 동일한 대/소문자 형식을 일관 되 게 사용 해야 합니다. 그렇지 않으면 IDoc를 SAP로 보내려고 할 때 tRFC 모니터 (T-코드 SM58)에서 다음과 같은 오류가 발생할 수 있습니다.
+    >
+    > * **함수 IDOC_INBOUND_ASYNCHRONOUS 찾을 수 없음**
+    > * **비 ABAP RFC 클라이언트 (파트너 유형)는 지원 되지 않습니다.**
+    >
+    > SAP에서 자세한 내용은 다음 참고 사항 (로그인 필요) 및를 참조 <https://launchpad.support.sap.com/#/notes/2399329> 하세요 <https://launchpad.support.sap.com/#/notes/353597> .
+
+   다음은 그 예입니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -1175,7 +1191,7 @@ TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`S
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 들면 `sapsnc.dll` 또는 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll` 입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -1313,11 +1329,18 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
-다음은 관리 되는 (ISE) SAP 커넥터에 대 한 현재 알려진 문제 및 제한 사항입니다.
+다음은 관리 되는 (ISE) SAP 커넥터에 대 한 현재 알려진 문제 및 제한 사항입니다. 
 
-* SAP 트리거가 데이터 게이트웨이 클러스터를 지원하지 않습니다. 일부 장애 조치 (failover)의 경우 SAP 시스템과 통신 하는 데이터 게이트웨이 노드가 활성 노드와 다를 수 있으며이로 인해 예기치 않은 동작이 발생할 수 있습니다. 보내기 시나리오의 경우 데이터 게이트웨이 클러스터가 지원 됩니다.
+* 일반적으로 SAP 트리거는 데이터 게이트웨이 클러스터를 지원 하지 않습니다. 일부 장애 조치 (failover)의 경우 SAP 시스템과 통신 하는 데이터 게이트웨이 노드가 활성 노드와 다를 수 있으며이로 인해 예기치 않은 동작이 발생할 수 있습니다.
+
+  * 보내기 시나리오의 경우 장애 조치 (failover) 모드의 데이터 게이트웨이 클러스터가 지원 됩니다. 
+
+  * 상태 저장 SAP 작업에서는 부하 분산 모드의 데이터 게이트웨이 클러스터가 지원 되지 않습니다. 이러한 작업에는 **상태 저장 세션 만들기**, **커밋 bapi 트랜잭션**, **롤백 bapi 트랜잭션**, **상태 저장 세션 닫기** 및 **세션 ID** 값을 지정 하는 모든 작업이 포함 됩니다. 상태 저장 통신은 동일한 데이터 게이트웨이 클러스터 노드에 유지 되어야 합니다. 
+
+  * 상태 저장 SAP 동작의 경우 클러스터 되지 않은 모드 또는 장애 조치 (failover) 용으로 설정 된 클러스터에서 데이터 게이트웨이를 사용 합니다.
 
 * 현재 SAP 커넥터는 SAP 라우터 문자열을 지원하지 않습니다. 온-프레미스 데이터 게이트웨이가 연결하려는 SAP 시스템과 동일한 LAN에 있어야 합니다.
+
 
 ## <a name="connector-reference"></a>커넥터 참조
 

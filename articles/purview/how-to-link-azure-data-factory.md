@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049375"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449614"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -107,7 +107,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-copy-activity-support"></a>Data Factory 복사 작업 지원
 
-| 데이터 저장소 | 지원됨 | 
+| 데이터 저장소 | 지원 여부 | 
 | ------------------- | ------------------- | 
 | Azure Blob Storage | 예 |
 | Azure Cognitive Search | 예 | 
@@ -123,12 +123,12 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 | Azure SQL Database \* | 예 | 
 | Azure SQL Managed Instance \* | 예 | 
 | Azure Synapse 분석 \* | 예 | 
-| Azure Table Storage \* | 예 |
-| SQL Server \* | 예 | 
+| Azure Table Storage | 예 |
 | Amazon S3 | 예 | 
 | 하이브의 \* | 예 | 
 | SAP ECC \* | 예 |
-| SAP 테이블 \* | 예 |
+| SAP 테이블 | 예 |
+| SQL Server \* | 예 | 
 | Teradata \* | 예 |
 
 *\* Azure 부서의 범위는 현재 계보 또는 스캔에 대 한 쿼리 또는 저장 프로시저를 지원 하지 않습니다. 계보는 테이블 및 뷰 원본 으로만 제한 됩니다.*
@@ -144,12 +144,13 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 - PolyBase 또는 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 합니다.
 - 이진 파일, 구분 기호로 분리 된 텍스트, Excel, JSON 및 XML 파일에 대 한 압축 설정입니다.
 - Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server 및 SAP 테이블의 원본 파티션 옵션입니다.
+- 파일 기반 저장소에 대 한 원본 파티션 검색 옵션입니다.
 - 파일당 최대 행 수 설정을 사용 하 여 파일 기반 싱크로 데이터를 복사 합니다.
 - 복사 중에 다른 열을 추가 합니다.
 
 ### <a name="data-factory-data-flow-support"></a>Data Factory 데이터 흐름 지원
 
-| 데이터 저장소 | 지원됨 |
+| 데이터 저장소 | 지원 여부 |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | 예 |
 | Azure Data Lake Storage Gen1 | 예 |
@@ -161,7 +162,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-execute-ssis-package-support"></a>SSIS 패키지 지원 Data Factory 실행
 
-| 데이터 저장소 | 지원됨 |
+| 데이터 저장소 | 지원 여부 |
 | ------------------- | ------------------- |
 | Azure Blob Storage | 예 |
 | Azure Data Lake Storage Gen1 | 예 |

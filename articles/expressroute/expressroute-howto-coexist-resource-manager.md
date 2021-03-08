@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: df88bd9a1d4901b348fbec47ea9e2946542a08e3
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 15ec8417ba5e2858b45176f0a214f6126209f942
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440091"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449750"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -262,11 +262,11 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
    $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
    ```
+지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 
 ## <a name="to-enable-transit-routing-between-expressroute-and-azure-vpn"></a>Express 경로와 Azure VPN 간의 전송 라우팅을 사용 하도록 설정 하려면
 Express 경로에 연결 된 로컬 네트워크와 사이트 간 VPN 연결에 연결 된 다른 로컬 네트워크 간에 연결을 사용 하도록 설정 하려면 [Azure 경로 서버](../route-server/expressroute-vpn-support.md)를 설정 해야 합니다.
 
-지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.

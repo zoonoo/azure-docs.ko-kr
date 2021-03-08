@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576011"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452563"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple 가상 배열 업데이트 1.3 릴리스 정보
 
@@ -65,4 +65,4 @@ KB4575898를 다운로드 하 고 [로컬 웹 UI를 통해 업데이트를 적�
 - [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](./storsimple-virtual-array-update-04-release-notes.md)
 - [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](./storsimple-ova-update-03-release-notes.md)
 - [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](./storsimple-ova-update-01-release-notes.md)
-- [StorSimple 가상 배열 일반 공급 릴리스 정보](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-pp-release-notes)
+- [StorSimple 가상 배열 일반 공급 릴리스 정보](/azure/storsimple/storsimple-ova-pp-release-notes)

@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: d6db6c366ae51dbdc5bf062e79358f752e4a05f5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ab89c012c985afa8d7375ff94d0f55b0ea6941cc
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425909"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449461"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -63,18 +63,18 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 .NET 격리 된 프로세스에서 실행 되는 함수는 서로 다른 바인딩 형식을 사용 하므로 고유한 바인딩 확장 패키지 집합이 필요 합니다. 
 
 이러한 확장 패키지는 [Microsoft](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions)에서 찾을 수 있습니다.
- 
+
 ## <a name="start-up-and-configuration"></a>시작 및 구성 
 
 .NET isolated 함수를 사용 하는 경우 함수 앱의 시작 (일반적으로 Program.cs)에 액세스할 수 있습니다. 사용자는 자신의 호스트 인스턴스를 만들고 시작 해야 합니다. 따라서 앱에 대 한 구성 파이프라인에 직접 액세스할 수도 있습니다. Out-of-process를 실행할 때 종속성을 훨씬 더 쉽게 주입 하 고 미들웨어를 실행할 수 있습니다. 
 
 다음 코드에서는 파이프라인의 예를 보여 줍니다 `HostBuilder` .
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="20-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
 는 `HostBuilder` `IHost` 함수 앱을 시작 하기 위해 비동기적으로 실행 하는 완전히 초기화 된 인스턴스를 빌드하고 반환 하는 데 사용 됩니다. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### <a name="configuration"></a>구성
 
@@ -82,9 +82,9 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 다음 예제에서는 명령줄 인수로 읽는 구성을 추가 하는 방법을 보여 줍니다 `args` . 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="21-24" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
 
-`ConfigureAppConfiguration`메서드는 빌드 프로세스 및 응용 프로그램의 나머지 부분을 구성 하는 데 사용 됩니다. 또한이 예제에서는 여러 구성 항목을 더 쉽게 추가할 수 있도록 하는 [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true)을 사용 합니다. 는 `ConfigureAppConfiguration` 의 동일한 인스턴스를 반환 하기 때문에 여러 [`IConfiguration `](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) 구성 항목을 추가 하려면이를 여러 번 호출 하면 됩니다. 및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+`ConfigureAppConfiguration`메서드는 빌드 프로세스 및 응용 프로그램의 나머지 부분을 구성 하는 데 사용 됩니다. 또한이 예제에서는 여러 구성 항목을 더 쉽게 추가할 수 있도록 하는 [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true)을 사용 합니다. 는 `ConfigureAppConfiguration` 의 동일한 인스턴스를 반환 하기 때문에 여러 [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) 구성 항목을 추가 하려면이를 여러 번 호출 하면 됩니다. 및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
 
 구성에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요. 
 
@@ -94,7 +94,7 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 다음 예에서는 singleton 서비스 종속성을 삽입 합니다.  
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="29-32" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
 
 자세히 알아보려면 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요.
 
@@ -104,7 +104,7 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 Api의 전체 미들웨어 등록 집합은 아직 노출 되지 않지만 미들웨어 등록이 지원 되며 미들웨어 폴더 아래에 예제 응용 프로그램에 대 한 예제를 추가 했습니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="25-28" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
@@ -114,7 +114,7 @@ Api의 전체 미들웨어 등록 집합은 아직 노출 되지 않지만 미�
 
 바인딩은 메서드, 매개 변수 및 반환 형식에 대해 특성을 사용 하 여 정의 됩니다. 함수 메서드는 `Function` 다음 예제와 같이 입력 매개 변수에 적용 되는 및 트리거 특성이 있는 메서드입니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-14" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 이전 예제 함수는 큐 메시지에 의해 트리거되고 큐 메시지는 매개 변수의 메서드에 전달 됩니다 `myQueueItem` .
 
@@ -132,13 +132,13 @@ HTTP 트리거의 경우 및를 사용 `HttpRequestData` 하 여 `HttpResponseDa
 
 출력 바인딩에 쓰려면 바인딩된 서비스에 쓰는 방법을 정의 하는 함수 메서드에 출력 바인딩 특성을 적용 해야 합니다. 메서드에서 반환 되는 값은 출력 바인딩에 기록 됩니다. 예를 들어 다음 예제에서는 `functiontesting2` 출력 바인딩을 사용 하 여 라는 메시지 큐에 문자열 값을 씁니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-21" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>여러 출력 바인딩
 
 출력 바인딩에 기록 된 데이터는 항상 함수의 반환 값입니다. 둘 이상의 출력 바인딩에 써야 하는 경우 사용자 지정 반환 형식을 만들어야 합니다. 이 반환 형식에는 클래스의 하나 이상의 속성에 적용 되는 출력 바인딩 특성이 있어야 합니다. 다음 예제에서는 HTTP 응답과 큐 출력 바인딩에 모두 씁니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" range="14-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" id="docsnippet_multiple_outputs":::
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
@@ -148,7 +148,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 코드는 HTTP 트리거입니다. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="13-27" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>로깅
 
@@ -156,7 +156,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 예제에서는를 가져오고 함수 내에서 로그를 작성 하는 방법을 보여 줍니다 `ILogger` .
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="17-18" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 의 다양 한 방법을 사용 `ILogger` 하 여 또는와 같은 다양 한 로그 수준을 작성 `LogWarning` `LogError` 합니다. 로그 수준에 대 한 자세한 내용은 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요.
 
@@ -174,8 +174,8 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
 | 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
-| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
-| 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
+| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
+| 여러 출력 바인딩 | 지원 여부 | [지원됨](#multiple-output-bindings) |
 | HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
 | 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |

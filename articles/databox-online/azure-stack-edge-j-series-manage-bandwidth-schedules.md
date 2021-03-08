@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b3ae2986b49cf6854e0d9a6b99aabdfc2dd6b713
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 29ac6976b6248f066f18f0ffcc8e03061ee74f77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436654"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454418"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 대역폭 일정을 관리 합니다. 
 
@@ -44,7 +44,7 @@ Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
    1. 일정의 **시작 날짜**, **종료 날짜**, **시작 시간** 및 **종료 시간** 을 제공 합니다.
    2. 이 일정을 모두 실행 해야 하는 경우 **하루 종일** 옵션을 선택 합니다.
-   3. **대역폭 비율은** 클라우드와 관련 된 작업 (업로드 및 다운로드 모두)에서 장치에 사용 되는 대역폭 (초당 메가 비트) (mbps)입니다. 이 필드에 20에서 2147483647 사이의 숫자를 입력 합니다.
+   3. **대역폭 비율은** 클라우드와 관련 된 작업 (업로드 및 다운로드 모두)에서 장치에 사용 되는 대역폭 (초당 메가 비트) (mbps)입니다. 이 필드에 64과 2147483647 사이의 숫자를 입력 합니다.
    4. 날짜 업로드 및 다운로드를 제한 하지 않으려면 **대역폭 무제한** 을 선택 합니다.
    5. **추가** 를 선택합니다.
 

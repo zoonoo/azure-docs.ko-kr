@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667834"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455825"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -131,7 +131,7 @@ ms.locfileid: "101667834"
 IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 프로그래밍 방식으로 검색할 수 있습니다.
 
 - [REST (영문)](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
@@ -153,7 +153,7 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 
 ### <a name="tips"></a>팁 
 - JSON 파일에서 증가된 *changeNumber* 값을 기록하여 한 게시에서 다음 게시까지의 업데이트를 검색할 수 있습니다. 각 하위 섹션(예: **Storage.WestUS**)에는 변경이 발생할 때마다 증가하는 고유한 *changeNumber* 가 있습니다. 하위 섹션이 변경될 때 파일의 *changeNumber* 최상위 수준이 증가합니다.
-- 서비스 태그 정보를 구문 분석하는 방법에 대한 예제(예: WestUS의 스토리지에 대한 모든 주소 범위 가져오기)를 보려면 [서비스 태그 검색 API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) 설명서를 참조하세요.
+- 서비스 태그 정보를 구문 분석하는 방법에 대한 예제(예: WestUS의 스토리지에 대한 모든 주소 범위 가져오기)를 보려면 [서비스 태그 검색 API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag) 설명서를 참조하세요.
 - 서비스 태그에 새 IP 주소를 추가 하는 경우 Azure에서 1 주일 이상 사용 되지 않습니다. 이렇게 하면 서비스 태그와 연결 된 IP 주소를 추적 해야 하는 시스템을 업데이트 하는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.custom: how-to, synapse-azureml
+ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203694"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455062"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Machine learning 파이프라인 (미리 보기)에서 Apache Spark (Azure Synapse Analytics에서 구동)를 사용 하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "102203694"
 
 ## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Azure Machine Learning 작업 영역 및 Azure Synapse Analytics 작업 영역 연결 
 
-Azure Synapse Analytics 작업 영역에서 Apache Spark 풀을 만들고 관리 합니다. Apache Spark 풀을 Azure Machine Learning 작업 영역과 통합 하려면 Azure Synapse Analytics 작업 영역에 연결 해야 합니다. 
+Azure Synapse Analytics 작업 영역에서 Apache Spark 풀을 만들고 관리 합니다. Apache Spark 풀을 Azure Machine Learning 작업 영역과 통합 하려면 [Azure Synapse Analytics 작업 영역에 연결](how-to-link-synapse-ml-workspaces.md)해야 합니다. 
 
 **연결 된 서비스** 페이지를 사용 하 여 AZURE MACHINE LEARNING studio UI를 통해 Apache Spark 풀을 연결할 수 있습니다. Compute **연결** 옵션을 사용 하 여 **계산** 페이지를 통해 수행할 수도 있습니다.
 

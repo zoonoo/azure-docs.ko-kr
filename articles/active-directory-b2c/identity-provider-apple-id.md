@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc6801de858c72a703317805d00f8e50cae69bbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 072bb7841db10351bd1a98f4bc7a1d57e67f6c24
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054717"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448543"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C (미리 보기)를 사용 하 여 Apple ID로 등록 및 로그인 설정
 
@@ -104,7 +104,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 Apple ID를 사용 하는 사용
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
 1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 선택합니다.
+1. **사용자 흐름 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지 **에서 apple을 선택 하** 여 apple ID로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end
 
@@ -244,6 +247,13 @@ Azure function은 응답에서 적절 하 게 형식이 지정 되 고 서명 �
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지 **에서 apple을 선택 하** 여 apple ID로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end

@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4534584144f54618d7f3dd39cf5e40bc0464fb21
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87030303"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454988"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 
@@ -76,7 +76,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>`NamespaceManager` 클래스 만들기
 
-Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 클래스의 인스턴스를 만듭니다.
+Notification Hubs를 프로비전하려면 SDK에서 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 클래스의 인스턴스를 만듭니다.
 
 Azure PowerShell을 포함하는 [Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. `NamespaceManager` 인스턴스에 대한 참조는 `$NamespaceManager` 변수에 저장됩니다. `$NamespaceManager`를 사용하여 알림 허브를 프로비전합니다.
 
@@ -160,7 +160,7 @@ else
 [구성원 제안]: https://azure.microsoft.com/pricing/member-offers/
 [평가판]: https://azure.microsoft.com/pricing/free-trial/
 [Azure PowerShell 설치 및 구성]: /powershell/azure/
-[Notification Hubs용 .NET API]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Notification Hubs용 .NET API]: /dotnet/api/overview/azure/notification-hubs
 [Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
 [New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
 [Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

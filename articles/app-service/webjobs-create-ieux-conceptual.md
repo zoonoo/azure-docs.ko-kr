@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cb5e99558d6bf1a5baa21d05d45415855c61cb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7714b090399b0b184e2e216ff6da7b10f2bf4386
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745677"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452274"
 ---
 # <a name="webjobs-run-background-tasks-in-azure-app-service"></a>Azure App Service에서 백그라운드 작업 실행 WebJobs
 
@@ -60,4 +60,4 @@ Azure Functions는 프로그램 및 스크립트를 실행하는 다른 방법�
 ## <a name="next-steps"></a>다음 단계
 
 * [WebJob을 만드는](./webjobs-create-ieux.md) 방법 알아보기
-* WebJobs의 로그 기록 보기 (/webjobs-create-ieux-view-log.md)
+* [WebJobs](./webjobs-create-ieux-view-log.md) 의 로그 기록 보기

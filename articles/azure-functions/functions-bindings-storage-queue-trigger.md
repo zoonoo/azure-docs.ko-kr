@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210770"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453209"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -21,7 +21,7 @@ ms.locfileid: "102210770"
 
 함수에 *base64* 로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64* 로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 새 항목이 큐에 수신될 때 큐 트리거를 사용하여 함수를 시작합니다. 큐 메시지는 함수에 입력으로 제공됩니다.
 
@@ -327,7 +327,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| 속성    | 설명 |
+| 속성    | Description |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -419,7 +419,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-[QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
+[QueueMessage](/python/api/azure-functions/azure.functions.queuemessage)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
 
 ---
 
@@ -427,7 +427,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|형식|설명|
+|속성|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . |
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
