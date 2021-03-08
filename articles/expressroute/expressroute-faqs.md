@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789350"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449869"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -40,9 +40,9 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 예, Express 경로 회로 대역폭은 이중입니다. 예를 들어 200 mbps Express 경로 회로를 구매 하는 경우 수신 트래픽 및 송신 트래픽에 대 한 200 mbps에 대해 확보 200 mbps를 사용할 수 있습니다.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 네트워크 서비스 공급자에서 구입한 개인 연결의 속도는 동일 해야 하나요?
 
-아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
+아니요. 서비스 공급자 로부터 모든 속도로 개인 연결을 구매할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 내 확보 대역폭을 초과 하는 기능을 사용할 수 있나요?
 
@@ -258,9 +258,13 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 예. 동일한 ExpressRoute 회로에 연결된 가상 네트워크에 배포된 가상 머신은 서로 통신할 수 있습니다. 이러한 통신을 용이 하 게 하려면 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md) 을 설정 하는 것이 좋습니다.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>ExpressRoute와 함께 가상 네트워크에 대한 사이트 간 연결을 사용할 수 있나요?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>Express 경로와 함께 가상 네트워크에 대 한 사이트 간 VPN 연결을 설정할 수 있나요?
 
 예. ExpressRoute는 사이트 간 VPN과 공존할 수 있습니다. [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)을 참조하세요.
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>내 사이트 간 VPN 연결과 내 Express 경로 간의 라우팅을 사용 하도록 설정 하는 어떻게 할까요??
+
+Expressoute에 연결 된 분기와 사이트 간 VPN 연결에 연결 된 분기 간에 라우팅을 사용 하도록 설정 하려는 경우 [Azure Route Server](../route-server/expressroute-vpn-support.md)를 설정 해야 합니다.
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>가상 네트워크에서 ExpressRoute 게이트웨이와 연결된 공용 IP 주소가 있는 이유는 무엇인가요?
 
@@ -424,7 +428,7 @@ Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
 
-## <a name="privacy"></a>개인 정보 보호
+## <a name="privacy"></a>개인 정보 취급 방침
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Express 경로 서비스에서 고객 데이터를 저장 하나요?
 

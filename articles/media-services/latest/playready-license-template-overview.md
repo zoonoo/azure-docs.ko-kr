@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0dc015ee1798bb4b9ce632d11f952178156155d6
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 23b0f92a4beca6e1c986993a42cc8ac66e619177
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955190"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455436"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>PlayReady 라이선스 템플릿을 사용 하 여 v3 Media Services
 
@@ -65,7 +65,7 @@ XML은 [PlayReady 라이선스 템플릿 XML 스키마](#schema) 섹션에 정�
 
 Media Services는 PlayReady 라이선스 템플릿을 구성할 수 있는 형식을 제공합니다. 
 
-다음에 나오는 코드 조각은 Media Services .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성합니다. 클래스는 [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) 네임스페이스에 정의됩니다. 코드 조각은 PlayReady 라이선스의 PlayRight를 구성합니다. PlayRight는 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
+다음에 나오는 코드 조각은 Media Services .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성합니다. 클래스는 [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models) 네임스페이스에 정의됩니다. 코드 조각은 PlayReady 라이선스의 PlayRight를 구성합니다. PlayRight는 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
 
 > [!IMPORTANT]
 > PlayReady 라이선스에는 강력한 제한 사항이 있습니다. 출력 보호가 너무 제한적이면 몇몇 클라이언트에서는 콘텐츠를 재생하지 못할 수 있습니다. 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/)을 참조하세요.

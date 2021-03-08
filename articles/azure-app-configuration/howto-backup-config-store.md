@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095509"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454246"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
 
@@ -39,7 +39,7 @@ ms.locfileid: "101095509"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - Azure 개발 워크 로드가 포함 된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) .
 
@@ -137,7 +137,7 @@ az eventgrid event-subscription create \
 
 이전에 제공 된 샘플 코드가 사용자의 요구 사항을 충족 하지 않는 경우 사용자 고유의 함수를 만들 수도 있습니다. 함수는 백업을 완료 하기 위해 다음 작업을 수행할 수 있어야 합니다.
 - 큐의 내용을 주기적으로 읽어 Event Grid의 알림이 포함 되어 있는지 확인 합니다. 구현에 대 한 자세한 내용은 [저장소 큐 SDK](../storage/queues/storage-quickstart-queues-dotnet.md) 를 참조 하세요.
-- 큐에 [Event Grid의 이벤트 알림이](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema)포함 되어 있으면 `<key, label>` 이벤트 메시지에서 모든 고유 정보를 추출 합니다. 키와 레이블 조합은 기본 저장소의 키-값 변경 내용에 대 한 고유 식별자입니다.
+- 큐에 [Event Grid의 이벤트 알림이](./concept-app-configuration-event.md#event-schema)포함 되어 있으면 `<key, label>` 이벤트 메시지에서 모든 고유 정보를 추출 합니다. 키와 레이블 조합은 기본 저장소의 키-값 변경 내용에 대 한 고유 식별자입니다.
 - 기본 저장소에서 모든 설정을 읽습니다. 보조 저장소에서 해당 이벤트가 있는 해당 이벤트를 포함 하는 설정만 업데이트 합니다. 주 저장소에는 없지만 큐에 있는 보조 저장소에서 모든 설정을 삭제 합니다. [앱 구성 SDK](https://github.com/Azure/AppConfiguration#sdks) 를 사용 하 여 프로그래밍 방식으로 구성 저장소에 액세스할 수 있습니다.
 - 처리 하는 동안 예외가 발생 하지 않은 경우 큐에서 메시지를 삭제 합니다.
 - 필요에 따라 오류 처리를 구현 합니다. 처리할 수 있는 몇 가지 일반적인 예외를 보려면 앞의 코드 샘플을 참조 하세요.

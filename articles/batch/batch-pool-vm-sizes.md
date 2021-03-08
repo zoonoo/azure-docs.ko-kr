@@ -2,14 +2,14 @@
 title: 풀에 대 한 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 계산 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택 하는 방법
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576704"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455198"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대 한 VM 크기 및 이미지 선택
 
@@ -35,13 +35,11 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | DC | 지원되지 않음 |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4 | 모든 크기 |
-| Dasv4 | 모든 크기 |
+| Dav4, Dasv4 | 모든 크기 |
 | Ddv4, Ddsv4 |  모든 크기 |
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
-| Eav4 | 모든 크기 |
-| Easv4 | 모든 크기 |
+| Eav4, Easv4 | 모든 크기 |
 | Edv4, Edsv4 |  모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
@@ -58,7 +56,7 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | NC | 모든 크기 |
 | NCv2 | 모든 크기 |
 | NCv3 | 모든 크기 |
-| NCasT4_v3 | 없음 - 아직 사용할 수 없습니다. |
+| NCasT4_v3 | 모든 크기 |
 | ND | 모든 크기 |
 | NDv2 | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |

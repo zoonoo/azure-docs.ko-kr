@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ad5bb90a0df68cc6c1c230c234c1f695312da3d8
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014215"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451782"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Service Bus 큐 출력
 
@@ -69,9 +69,9 @@ ms.locfileid: "98014215"
 
 ## <a name="system-properties"></a>시스템 속성
 
-쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다.
+쿼리 열을 [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties)으로 나가는 Service Bus 큐 또는 토픽 메시지에 첨부할 수 있습니다.
 
-이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)이 쿼리 열 값으로 채워집니다.
+이러한 열은 페이로드로 이동하지 않습니다. 대신 해당 BrokeredMessage [시스템 속성](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties)이 쿼리 열 값으로 채워집니다.
 지원되는 시스템 속성은 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`입니다.
 
 이러한 열의 문자열 값은 해당 시스템 속성 값 형식으로 구문 분석되고, 구문 분석 실패는 데이터 오류로 처리됩니다.

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844321"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455385"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API에 연결 - .NET
 
@@ -249,5 +249,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>참고 항목
 
-* [.NET 참조](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
+* [.NET 참조](/dotnet/api/overview/azure/mediaservices/management)
 * 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조하세요.

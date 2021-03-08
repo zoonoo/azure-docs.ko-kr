@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f4e6d5fb41769544b7be0f689447364988d0380d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c6b038297945ca900508a822460e1358a2524d23
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95998844"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455920"
 ---
-Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 형식과 동일한 의미 체계를 가집니다.
+Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 값은 [CloudBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblob) 형식과 동일한 의미 체계를 가집니다.
 
-|속성  |형식  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Blob을 트리거하는 경로입니다.|
 |`Uri`|`System.Uri`|기본 위치에 대한 Blob의 URI입니다.|

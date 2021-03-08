@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 534f9e76cfca4037634cfca089f1131984456636
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820707"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453277"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -74,8 +74,8 @@ PowerShell 5.1에 Az 또는 AzureRM 모듈을 설치하려면 다음 단계를 �
 
 1. 관리자 권한 명령 프롬프트에서 **powershell** 을 입력하고 Enter 키를 누릅니다.
 2. 설명서에 따라 최신 Az 또는 AzureRM 모듈을 설치합니다.
-    - [Az 모듈(.NET 4.7.2 필요)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [AzureRM 모듈]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Az 모듈(.NET 4.7.2 필요)](/powershell/azure/install-az-ps)
+    - [AzureRM 모듈](https://go.microsoft.com/fwlink/?linkid=856959)
 3. ServerRegistration.exe를 실행하고 마법사를 완료하여 서버를 Storage 동기화 서비스에 등록합니다.
 
 <a id="server-already-registered"></a>**서버 등록에 “서버가 이미 등록되었습니다.”라는 메시지가 표시됩니다.** 

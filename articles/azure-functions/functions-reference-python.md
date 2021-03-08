@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0829ef9a6b63866c2527e521ed7edf48a3249392
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044258"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455419"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -51,7 +51,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-[azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) 패키지에 포함된 Python 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다.
+[azure.functions.*](/python/api/azure-functions/azure.functions) 패키지에 포함된 Python 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다.
 
 ## <a name="alternate-entry-point"></a>대체 진입점
 
@@ -199,7 +199,7 @@ def main(req: func.HttpRequest,
 
 함수의 반환 값을 출력 바인딩의 값으로 사용하려면 바인딩의 `name` 속성을 `function.json`의 `$return`으로 설정해야 합니다.
 
-다중 출력을 생성하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 인터페이스에서 제공하는 `set()` 메서드를 사용하여 바인딩에 값을 할당합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
+다중 출력을 생성하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) 인터페이스에서 제공하는 `set()` 메서드를 사용하여 바인딩에 값을 할당합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
 
 ```json
 {
@@ -306,7 +306,7 @@ Python 함수 앱에 대 한 크기 조정 및 성능 모범 사례는 [python �
 
 ## <a name="context"></a>Context
 
-실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) 인수를 포함해야 합니다.
+실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 [`context`](/python/api/azure-functions/azure.functions.context) 인수를 포함해야 합니다.
 
 다음은 그 예입니다.
 
@@ -319,7 +319,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) 클래스에는 다음과 같은 문자열 특성이 있습니다.
+[**Context**](/python/api/azure-functions/azure.functions.context) 클래스에는 다음과 같은 문자열 특성이 있습니다.
 
 `function_directory` 함수가 실행되는 디렉터리입니다.
 
@@ -640,7 +640,7 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
+* [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Blob Storage 바인딩](functions-bindings-storage-blob.md)
@@ -651,5 +651,5 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 [문제가 있나요? 알려주세요.](https://aka.ms/python-functions-ref-survey)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse

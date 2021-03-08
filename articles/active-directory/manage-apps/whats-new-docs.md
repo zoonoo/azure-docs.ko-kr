@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 응용 프로그램 관리의 새로운 기능
 description: Azure Active Directory 응용 프로그램 관리를 위한 새롭고 업데이트 된 설명서입니다.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,32 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647275"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452053"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
 Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="new-articles"></a>새 문서
+
+- [SharePoint와 통합(SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Azure Active Directory에 애플리케이션 인증 마이그레이션](migrate-application-authentication-to-azure-active-directory.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [SharePoint와 통합(SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
+- [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
+- [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
+- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
+- [테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>2021년 1월
 

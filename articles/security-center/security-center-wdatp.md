@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176470"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453770"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -38,7 +38,7 @@ Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 �
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
 | 가격 책정:                        | [서버용 Azure Defender](defender-for-servers-introduction.md) 필요                                                                                                                                                                                                                                             |
 | 지원되는 플랫폼:            |  • Windows를 실행 하는 Azure 컴퓨터<br> • Windows를 실행 하는 Azure Arc 컴퓨터|
-| 지원 되는 Windows 버전:  |  • **GA (일반 공급)-** Windows Server 2016, 2012 R2 및 2008 R2 s p 1에서 검색<br> • **미리 보기-** windows Server 2019, [Wvd (windows 가상 데스크톱](../virtual-desktop/overview.md)) 및 [windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (이전에는 evd (가상 데스크톱) 용 enterprise)<br>이러한 통합을 사용한 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.|
+| 지원 되는 Windows 버전:  |  • **GA (일반 공급)-** Windows Server 2016, 2012 R2 및 2008 R2 s p 1에서 검색<br> • **미리 보기-** windows Server 2019, [Wvd (windows 가상 데스크톱](../virtual-desktop/overview.md)) 및 [windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (이전에는 evd (가상 데스크톱) 용 enterprise)|
 | 지원 되지 않는 운영 체제:  |  • Windows 10 (EVD 또는 WVD 이외의)<br> • Linux|
 | 필요한 역할 및 권한: | 통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 참가자** 입니다.|
 | 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부                                                        |

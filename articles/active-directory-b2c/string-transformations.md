@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175093"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452240"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -326,6 +326,77 @@ ms.locfileid: "102175093"
     - **outputClaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+제공 된 지역화 된 형식 문자열에 따라 여러 클레임의 형식을 지정 합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
+
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |문자열 | 문자열 형식, 매개 변수 역할을 하는 입력 클레임 컬렉션입니다 {0} {1} {2} . |
+| InputParameter | stringFormatId | 문자열 |  `StringId` [지역화 된 문자열](localization.md)의입니다.   |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+
+> [!NOTE]
+> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
+
+FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합니다.
+
+1. [지역화 문자열](localization.md)을 정의 하 고 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 연결 합니다.
+1. `LocalizedString` 요소의 `ElementType`은 `FormatLocalizedStringTransformationClaimType`으로 설정되어야 합니다.
+1. 는 `StringId` 사용자가 정의 하는 고유 식별자 이며 나중에 클레임 변환에서 사용 합니다 `stringFormatId` .
+1. 클레임 변환에서 지역화된 문자열을 사용하여 설정할 클레임 목록을 지정합니다. 그런 다음를 `stringFormatId` 지역화 된 `StringId` 문자열 요소의로 설정 합니다. 
+1. [자체 어설션 기술 프로필](self-asserted-technical-profile.md) 또는 [표시 제어](display-controls.md) 입력 또는 출력 클레임 변환에서 클레임 변환에 대한 참조를 만듭니다.
+
+
+다음 예에서는 계정이 디렉터리에 이미 있는 경우 오류 메시지를 생성 합니다. 이 예제에서는 영어 (기본값) 및 스페인어의 지역화 된 문자열을 정의 합니다.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+클레임 변환은 지역화 된 문자열을 기반으로 응답 메시지를 만듭니다. 이 메시지에는 지역화 된 문자열 *ResponseMessge_EmailExists* 에 포함 된 사용자의 전자 메일 주소가 포함 되어 있습니다.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예제
+
+- 입력 클레임:
+    - **Inputclaim**: sarah@contoso.com
+- 입력 매개 변수:
+    - **stringFormat**: ResponseMessge_EmailExists
+- 출력 클레임:
+  - **Outputclaim**: 전자 메일 ' sarah@contoso.com '은 (는) 이미이 조직의 계정입니다. 다음을 클릭 하 여 해당 계정으로 로그인 합니다.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 입력한 형식 문자열에 따라 클레임 서식을 지정합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
@@ -335,6 +406,9 @@ ms.locfileid: "102175093"
 | InputClaim | inputClaim |문자열 |문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
 | InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.  |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+
+> [!NOTE]
+> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
 
 매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName** 을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName** 을 호출하여 **userPrincipalName** 을 생성합니다.
 
@@ -371,6 +445,9 @@ ms.locfileid: "102175093"
 | InputClaim | inputClaim | 문자열 | 문자열 형식 {1} 매개 변수로 사용되는 ClaimType입니다. |
 | InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.   |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+
+> [!NOTE]
+> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
 
 두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName** 을 만듭니다.
 
@@ -1000,7 +1077,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
 Azure AD B2C 사용자 지정 정책의 클레임 변환 식은 테넌트 ID 및 기술 프로필 ID에 대한 컨텍스트 정보를 제공합니다.
 
-  | 식 | 설명 | 예제 |
+  | 식 | Description | 예제 |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | 기술 프로필 ID 이름입니다. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |

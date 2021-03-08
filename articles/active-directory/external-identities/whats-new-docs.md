@@ -1,7 +1,7 @@
 ---
 title: 외부 id Azure Active Directory의 새로운 기능
 description: Azure Active Directory 외부 id에 대 한 새로운 및 업데이트 된 설명서입니다.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: e0daa5b1c8d3fcc749f10e48e453ca8f92607643
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: dda3f7c8f4a9a21e16ebab7d243a004c01a40eed
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591704"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453669"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory 외부 id: 새로운 기능
 
 Azure Active Directory 외부 id 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 외부 id 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="new-articles"></a>새 문서
+
+- [게스트 사용자의 상환 상태 다시 설정](reset-redemption-status.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory B2B 모범 사례](b2b-fundamentals.md)
+- [B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리](delegate-invitations.md)
+- [Azure Active Directory B2B 협업 FAQ](faq.md)
+- [일회용 암호 인증 전자 메일](one-time-passcode.md)
+- [Azure Active Directory B2B 협업 초대 상환](redemption-experience.md)
+- [B2B 공동 작업 Azure Active Directory 문제 해결](troubleshoot.md)
+- [Azure Active Directory B2B 협업 사용자 속성](user-properties.md)
+- [Azure Active Directory B2B의 게스트 사용자 액세스란?](what-is-b2b.md)
+- [Azure Active Directory 외부 id: 새로운 기능](whats-new-docs.md)
+- [특정 조직의 B2B 사용자 초대 허용 또는 차단](allow-deny-list.md)
+- [Azure Active Directory B2B 협업 API 및 사용자 지정](customize-invitation-api.md)
+- [내부 사용자를 B2B 공동 작업에 초대](invite-internal-users.md)
+- [Microsoft 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업](o365-external-user.md)
+- [게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)](direct-federation.md)
 
 ## <a name="january-2021"></a>2021년 1월
 

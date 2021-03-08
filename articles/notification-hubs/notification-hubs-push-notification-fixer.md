@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010786"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455028"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs에서 삭제 된 알림 진단
 
@@ -32,9 +32,9 @@ Azure Notification Hubs에 대 한 일반적인 질문은 응용 프로그램의
 
 ![Notification Hubs 아키텍처][0]
 
-일반적인 알림 보내기 흐름에서는 메시지가 *애플리케이션 백 엔드*에서 Notification Hubs로 전송됩니다. Notification Hubs 모든 등록을 처리 합니다. 구성 된 태그 및 태그 식을 고려 하 여 대상을 확인 합니다. 대상은 푸시 알림을 수신 해야 하는 등록입니다. 이러한 등록은 지원 되는 플랫폼 (Android, Baidu (중국의 Android 장치), 화재 OS (Amazon) iOS, Windows 및 Windows Phone 중 하나로 확장 될 수 있습니다.
+일반적인 알림 보내기 흐름에서는 메시지가 *애플리케이션 백 엔드* 에서 Notification Hubs로 전송됩니다. Notification Hubs 모든 등록을 처리 합니다. 구성 된 태그 및 태그 식을 고려 하 여 대상을 확인 합니다. 대상은 푸시 알림을 수신 해야 하는 등록입니다. 이러한 등록은 지원 되는 플랫폼 (Android, Baidu (중국의 Android 장치), 화재 OS (Amazon) iOS, Windows 및 Windows Phone 중 하나로 확장 될 수 있습니다.
 
-대상이 설정되면 Notification Hubs는 디바이스 플랫폼에 대한 *푸시 알림 서비스*에 알림을 푸시합니다. IOS 및 macOS 용 APNs (Apple Push Notification service)와 Android 장치용 FCM (Firebase Cloud Messaging)를 예로 들 것입니다. Notification Hubs는 여러 등록 일괄 처리에 걸쳐 분할된 알림을 푸시합니다. Azure Portal에서 설정한 자격 증명을 기반으로 하는 각 푸시 알림 서비스를 사용 하 여 **알림 허브 구성**에서 인증 합니다. 그러면 푸시 알림 서비스가 각 *클라이언트 디바이스*에 알림을 전달합니다.
+대상이 설정되면 Notification Hubs는 디바이스 플랫폼에 대한 *푸시 알림 서비스* 에 알림을 푸시합니다. IOS 및 macOS 용 APNs (Apple Push Notification service)와 Android 장치용 FCM (Firebase Cloud Messaging)를 예로 들 것입니다. Notification Hubs는 여러 등록 일괄 처리에 걸쳐 분할된 알림을 푸시합니다. Azure Portal에서 설정한 자격 증명을 기반으로 하는 각 푸시 알림 서비스를 사용 하 여 **알림 허브 구성** 에서 인증 합니다. 그러면 푸시 알림 서비스가 각 *클라이언트 디바이스* 에 알림을 전달합니다.
 
 알림 배달의 최종 레그는 플랫폼의 푸시 알림 서비스와 장치 사이에 있습니다. 알림 배달은 푸시 알림 프로세스 (클라이언트, 응용 프로그램 백 엔드, Notification Hubs 및 플랫폼의 푸시 알림 서비스)의 네 단계 중 하나에서 실패할 수 있습니다. Notification Hubs 아키텍처에 대한 자세한 내용은 [Notification Hubs 개요]를 참조하세요.
 
@@ -74,7 +74,7 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
 
    ![Firebase 서버 키][3]
 
-2. 클라이언트에서 **프로젝트 ID**를 구성했는지 확인합니다. **프로젝트 ID** 값은 Firebase 대시보드에서 얻을 수 있습니다.
+2. 클라이언트에서 **프로젝트 ID** 를 구성했는지 확인합니다. **프로젝트 ID** 값은 Firebase 대시보드에서 얻을 수 있습니다.
 
    ![Firebase 프로젝트 ID][1]
 
@@ -147,7 +147,7 @@ Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification
 
 허브의 모든 등록을 보고 관리할 수 있습니다. 등록은 플랫폼, 네이티브 또는 템플릿 등록, 태그, 푸시 알림 서비스 식별자, 등록 ID 및 만료 날짜를 기준으로 분류 될 수 있습니다. 또한 이 페이지에서 등록을 편집할 수 있습니다. 태그를 편집 하는 데 특히 유용 합니다.
 
-**서버 탐색기**에서 알림 허브를 마우스 오른쪽 단추로 클릭 하 고 **진단**을 선택 합니다. 
+**서버 탐색기** 에서 알림 허브를 마우스 오른쪽 단추로 클릭 하 고 **진단** 을 선택 합니다. 
 
 ![Visual Studio 서버 탐색기: 진단 메뉴](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
@@ -174,7 +174,7 @@ Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification
 
 #### <a name="azure-portal"></a>Azure portal
 
-서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다.
+서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결** 에서 **테스트 보내기** 를 선택합니다.
 
 ![Azure의 테스트 보내기 기능][7]
 
@@ -200,7 +200,7 @@ Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대�
 
 푸시 알림 서비스 오류에 대한 정보를 얻으려면 [EnableTestSend] 속성을 사용합니다. 이 속성은 포털 또는 Visual Studio 클라이언트에서 테스트 메시지를 보낼 때 자동으로 활성화됩니다. 이 속성을 사용 하 여 자세한 디버깅 정보 및 Api를 통해 볼 수도 있습니다. 현재 이 속성은 .NET SDK에서 사용할 수 있습니다. 결국 모든 클라이언트 Sdk에 추가 됩니다.
 
-REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예를 들면 다음과 같습니다.
+REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test* 라는 쿼리 문자열 매개 변수를 추가합니다. 다음은 그 예입니다.
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -261,9 +261,9 @@ The Token obtained from the Token Provider is wrong
 
    ![Azure Portal 활동 로그][6]
 
-3. 먼저 **들어오는 메시지**, **등록 작업** 및 **성공한 알림**을 검토합니다. 그런 다음 플랫폼별 탭으로 이동하여 푸시 알림 서비스와 관련된 오류를 검토합니다.
+3. 먼저 **들어오는 메시지**, **등록 작업** 및 **성공한 알림** 을 검토합니다. 그런 다음 플랫폼별 탭으로 이동하여 푸시 알림 서비스와 관련된 오류를 검토합니다.
 
-4. 알림 허브에 대한 인증 설정이 올바르지 않으면 **PNS 인증 오류**가 나타납니다. 푸시 알림 서비스 자격 증명을 확인 하는 것이 좋습니다.
+4. 알림 허브에 대한 인증 설정이 올바르지 않으면 **PNS 인증 오류** 가 나타납니다. 푸시 알림 서비스 자격 증명을 확인 하는 것이 좋습니다.
 
 #### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
@@ -297,5 +297,5 @@ The Token obtained from the Token Provider is wrong
 [View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [심층 분석: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
 [Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

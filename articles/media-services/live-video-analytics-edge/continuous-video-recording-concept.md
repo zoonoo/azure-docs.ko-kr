@@ -3,12 +3,12 @@ title: 연속 비디오 녹화-Azure
 description: CVR (연속 비디오 녹화)는 비디오 원본에서 비디오를 지속적으로 기록 하는 프로세스를 의미 합니다. 이 항목에서는 CVR의 용도에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566700"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453753"
 ---
 # <a name="continuous-video-recording"></a>연속 비디오 녹화  
 
@@ -19,7 +19,7 @@ ms.locfileid: "89566700"
 
 ## <a name="overview"></a>개요
 
-CVR (연속 비디오 녹화)는 비디오 원본에서 비디오를 지속적으로 기록 하는 프로세스를 의미 합니다. IoT Edge의 Live Video Analytics는 RTSP 원본 노드와 자산 싱크 노드로 구성 된 [미디어 그래프](media-graph-concept.md) 를 통해 cctv 카메라에서 지속적으로 비디오 기록을 지원 합니다. 아래 다이어그램에서는 이러한 미디어 그래프를 그래픽으로 표시 합니다. 이러한 미디어 그래프의 [그래프 토폴로지의](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) JSON 표현은 [여기](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset)에서 찾을 수 있습니다.
+CVR (연속 비디오 녹화)는 비디오 원본에서 비디오를 지속적으로 기록 하는 프로세스를 의미 합니다. IoT Edge의 Live Video Analytics는 RTSP 원본 노드와 자산 싱크 노드로 구성 된 [미디어 그래프](media-graph-concept.md) 를 통해 cctv 카메라에서 지속적으로 비디오 기록을 지원 합니다. 아래 다이어그램에서는 이러한 미디어 그래프를 그래픽으로 표시 합니다. 이러한 미디어 그래프의 [그래프 토폴로지의](media-graph-concept.md#media-graph-topologies-and-instances) JSON 표현은 [여기](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset)에서 찾을 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="연속 비디오 녹화":::

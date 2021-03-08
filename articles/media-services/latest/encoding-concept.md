@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897903"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455283"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용 하 여 비디오 및 오디오 인코딩
 
@@ -56,7 +56,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 
 비디오를 처리 하는 작업을 제출 하는 경우 입력 비디오를 찾을 수 있는 위치 Media Services 알려 주어 야 합니다. 옵션 중 하나는 HTTPS URL을 작업 입력으로 지정 하는 것입니다. 현재 Media Services v3은 HTTPS Url을 통한 청크 분할 전송 인코딩을 지원 하지 않습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 * [.NET을 사용 하 여 HTTPS URL에서 인코딩](stream-files-dotnet-quickstart.md)
 * [REST를 사용 하 여 HTTPS URL에서 인코딩](stream-files-tutorial-with-rest.md)
@@ -67,7 +67,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 
 입력 비디오는 Media Service 자산으로 저장할 수 있으며 이 경우 파일(로컬 또는 Azure Blob Storage에 저장됨)을 기반으로 입력 자산을 만듭니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 [기본 제공 기본 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
 
@@ -80,7 +80,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 > [!TIP]
 > 비디오를 다시 인코딩하지 않고 비디오의 하위 립를 스트리밍하려면 동적 패키지를 사용 하는 [미리 필터링 매니페스트](filters-dynamic-manifest-overview.md)를 사용 하는 것이 좋습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 예제 참조:
 
@@ -129,7 +129,7 @@ Media Services는 다음과 같은 기본 제공 인코딩 미리 설정을 지�
 
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코더 사전 설정을 사용자 지정 하는 방법을 보여 주는 예제는 아래 목록을 참조 하세요.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 - [.NET을 사용 하 여 사전 설정 사용자 지정](customize-encoder-presets-how-to.md)
 - [CLI를 사용 하 여 사전 설정 사용자 지정](custom-preset-cli-howto.md)
@@ -137,7 +137,7 @@ Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위�
 
 ## <a name="preset-schema"></a>미리 설정 된 스키마
 
-Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net sdk](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) 또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
+Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net sdk](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) 또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
 
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 

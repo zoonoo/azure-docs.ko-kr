@@ -2,13 +2,13 @@
 title: 템플릿 개요
 description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046383"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455738"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -111,6 +111,15 @@ REQUEST BODY
 ```
 
 리소스에 대해 템플릿에서 설정한 **apiVersion** 는 REST 작업에 대 한 API 버전으로 사용 됩니다. 템플릿을 반복적으로 배포 하 고 안심 하 고 계속 작동할 수 있습니다. 동일한 API 버전을 사용 하 여 이후 버전에서 도입 된 주요 변경 내용에 대해서는 걱정할 필요가 없습니다.
+
+템플릿을 배포 하려면 다음 옵션 중 하나를 사용 합니다.
+
+* [Azure Portal](deploy-portal.md)
+* [Azure CLI](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [GitHub 리포지토리의 단추](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="template-design"></a>템플릿 디자인
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 81feb5b95578cedea7bf368aa1e0d6c2e9117077
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955854"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456014"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Media Services 및 VOD (주문형 비디오)를 통한 고가용성
 
@@ -48,7 +48,7 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 |![App Service 아이콘입니다.](media/media-services-high-availability-encoding/application-service.svg)| App Service (및 계획)  | **설명:**<br>Azure App Service는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python을 지원 합니다. 응용 프로그램은 Windows 및 Linux 기반 환경에서 실행 되 고 확장 됩니다.<br><br>**VOD 사용:**<br>각 모듈은 App Service에서 호스팅됩니다. [App Service에 대해 자세히 알아보세요](../../app-service/overview.md). |
 |![Azure 전면 도어 아이콘입니다.](media/media-services-high-availability-encoding/azure-front-door.svg)| Azure Front Door | **설명:**<br>Azure Front 도어는 고가용성을 위한 최상의 성능 및 빠른 글로벌 장애 조치 (failover)를 최적화 하 여 웹 트래픽의 글로벌 라우팅을 정의, 관리 및 모니터링 하는 데 사용 됩니다.<br><br>**VOD 사용:**<br>Azure 전면 도어를 사용 하 여 트래픽을 스트리밍 끝점으로 라우팅할 수 있습니다. [Azure Front 도어에 대해 자세히 알아보세요](../../frontdoor/front-door-overview.md).  |
 |![Azure Event Grid 아이콘입니다.](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Azure Event Grid | **설명:**<br>이벤트 기반 아키텍처에 대해 생성 된 Event Grid에는 저장소 blob 및 리소스 그룹과 같은 Azure 서비스에서 들어오는 이벤트에 대 한 지원이 기본적으로 제공 됩니다. 또한 사용자 지정 토픽 이벤트를 지원 합니다. 필터를 사용 하 여 특정 이벤트를 여러 끝점으로 라우팅하고, 여러 끝점으로 멀티 캐스트 하 고, 이벤트가 안정적으로 전달 되도록 할 수 있습니다. 모든 지역 및 가용성 영역 간에 여러 장애 도메인에 분산 하 여 가용성을 극대화 합니다.<br><br>**VOD 사용:**<br>Event Grid를 사용 하 여 모든 응용 프로그램 이벤트를 추적 하 고 저장 하 여 작업 상태를 유지할 수 있습니다. [Azure Event Grid에 대해 자세히 알아보세요](../../event-grid/overview.md). |
-|![Application Insights 아이콘입니다.](media/media-services-high-availability-encoding/application-insights.svg)| 애플리케이션 정보 | **설명:** <br>Azure Monitor의 기능인 Application Insights는 개발자와 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 응용 프로그램을 모니터링 하는 데 사용 됩니다. 성능 변칙을 검색 하 고, 문제를 진단 하 고 사용자가 앱으로 수행 하는 작업을 이해 하는 분석 도구를 포함 합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.<br><br>**VOD 사용:**<br>모든 로그를 Application Insights 보낼 수 있습니다. 성공적으로 생성 된 작업 메시지를 검색 하 여 각 작업을 처리 한 인스턴스를 확인할 수 있습니다. 여기에는 고유 식별자 및 인스턴스 이름 정보를 포함 하 여 제출 된 모든 작업 메타 데이터가 포함 될 수 있습니다. [Application Insights에 대해 자세히 알아보세요](../../azure-monitor/app/app-insights-overview.md). |
+|![Application Insights 아이콘입니다.](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **설명:** <br>Azure Monitor의 기능인 Application Insights는 개발자와 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 응용 프로그램을 모니터링 하는 데 사용 됩니다. 성능 변칙을 검색 하 고, 문제를 진단 하 고 사용자가 앱으로 수행 하는 작업을 이해 하는 분석 도구를 포함 합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.<br><br>**VOD 사용:**<br>모든 로그를 Application Insights 보낼 수 있습니다. 성공적으로 생성 된 작업 메시지를 검색 하 여 각 작업을 처리 한 인스턴스를 확인할 수 있습니다. 여기에는 고유 식별자 및 인스턴스 이름 정보를 포함 하 여 제출 된 모든 작업 메타 데이터가 포함 될 수 있습니다. [Application Insights에 대해 자세히 알아보세요](../../azure-monitor/app/app-insights-overview.md). |
 ## <a name="architecture"></a>Architecture
 
 이 개략적인 다이어그램은 고가용성 및 미디어 서비스를 시작 하기 위해 제공 되는 샘플의 아키텍처를 보여 줍니다.
@@ -59,23 +59,23 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 
 ### <a name="regions"></a>영역
 
-* Azure Media Services 계정을 두 개 이상 [만듭니다](https://review.docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to) . 두 계정이 서로 다른 지역에 있어야 합니다. 자세한 내용은 [Azure Media Services 서비스를 배포](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)하는 지역을 참조 하세요.
-* 작업을 제출할 계획인 동일한 지역에 미디어를 업로드 합니다. 인코딩을 시작 하는 방법에 대 한 자세한 내용은 [HTTPS URL에서 작업 입력 만들기](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-http-how-to) 또는 [로컬 파일에서 작업 입력 만들기](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-local-file-how-to)를 참조 하세요.
-* 그런 다음 [작업](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) 을 다른 지역으로 다시 전송 해야 하는 경우를 사용 `JobInputHttp` 하거나를 사용 `Copy-Blob` 하 여 원본 자산 컨테이너의 데이터를 대체 지역의 자산 컨테이너로 복사할 수 있습니다.
+* Azure Media Services 계정을 두 개 이상 [만듭니다](/azure/media-services/latest/create-account-cli-how-to) . 두 계정이 서로 다른 지역에 있어야 합니다. 자세한 내용은 [Azure Media Services 서비스를 배포](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)하는 지역을 참조 하세요.
+* 작업을 제출할 계획인 동일한 지역에 미디어를 업로드 합니다. 인코딩을 시작 하는 방법에 대 한 자세한 내용은 [HTTPS URL에서 작업 입력 만들기](/azure/media-services/latest/job-input-from-http-how-to) 또는 [로컬 파일에서 작업 입력 만들기](/azure/media-services/latest/job-input-from-local-file-how-to)를 참조 하세요.
+* 그런 다음 [작업](/azure/media-services/latest/transforms-jobs-concept) 을 다른 지역으로 다시 전송 해야 하는 경우를 사용 `JobInputHttp` 하거나를 사용 `Copy-Blob` 하 여 원본 자산 컨테이너의 데이터를 대체 지역의 자산 컨테이너로 복사할 수 있습니다.
 
 ### <a name="monitoring"></a>모니터링
 
 * Azure Event Grid를 `JobStateChange` 통해 각 계정에서 메시지를 구독 합니다.
-    * Azure Portal 또는 CLI를 통해 [이벤트를 등록](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) 합니다 (EVENT GRID Management SDK를 사용 하 여 수행할 수도 있음).
+    * Azure Portal 또는 CLI를 통해 [이벤트를 등록](/azure/media-services/latest/reacting-to-media-services-events) 합니다 (EVENT GRID Management SDK를 사용 하 여 수행할 수도 있음).
     * Media Services 이벤트를 기본적으로 지 원하는 [Microsoft Azure EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) 를 사용 합니다.
     * Azure Functions를 통해 Event Grid 이벤트를 사용할 수도 있습니다.
 
     자세한 내용은 다음을 참조하세요.
 
-    * 어떤 이유로 Azure Event Grid 메시지가 지연 되는 경우 대체 (fallback) 추가를 포함 하 Azure Event Grid 작업을 모니터링 하는 방법을 보여 주는 [오디오 분석 샘플](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) 을 참조 하세요.
-    * [Media Services 이벤트에 대 한 Azure Event Grid 스키마](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas)를 살펴보세요.
+    * 어떤 이유로 Azure Event Grid 메시지가 지연 되는 경우 대체 (fallback) 추가를 포함 하 Azure Event Grid 작업을 모니터링 하는 방법을 보여 주는 [오디오 분석 샘플](/azure/media-services/latest/transforms-jobs-concept) 을 참조 하세요.
+    * [Media Services 이벤트에 대 한 Azure Event Grid 스키마](/azure/media-services/latest/media-services-event-schemas)를 살펴보세요.
 
-* [작업](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept)을 만들 때:
+* [작업](/azure/media-services/latest/transforms-jobs-concept)을 만들 때:
     * 현재 사용 중인 계정 목록에서 무작위로 계정을 선택 합니다 .이 목록에는 일반적으로 두 계정이 모두 포함 되지만 문제가 검색 되 면 계정이 하나만 포함 될 수 있습니다. 목록이 비어 있으면 운영자가 조사할 수 있도록 경고를 발생 시킵니다.
     * 각 처리 중인 작업 및 사용 된 지역/계정을 추적 하는 레코드를 만듭니다.
 * `JobStateChange`작업이 예약 된 상태에 도달 했음을 처리기가 알림을 가져오는 경우 예약 된 상태와 사용 된 지역/계정에 입력 한 시간을 기록 합니다.

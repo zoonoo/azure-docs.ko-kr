@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cdf5915396fc40c12644552bb24a044279ea32d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6bcf6b439f8e49d194e1c0ea5dc1e996135589cf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019344"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454314"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
 
@@ -68,18 +68,18 @@ Media Services는 XML에 대해 직렬화 및 역직렬화하는 데 사용할 �
 ## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 Media Services .NET 클래스
 Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는 기본 .NET 클래스는 다음과 같습니다. 이들 클래스는 [PlayReady 라이선스 템플릿 XML 스키마](media-services-playready-license-template-overview.md#schema)에 정의된 유형에 매핑됩니다.
 
-[MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) 클래스는 Media Services 라이선스 템플릿 XML에 대해 직렬화 및 역직렬화하는 데 사용됩니다.
+[MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) 클래스는 Media Services 라이선스 템플릿 XML에 대해 직렬화 및 역직렬화하는 데 사용됩니다.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate) - 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 애플리케이션 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
+[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate) - 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 애플리케이션 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
 
 템플릿 계층 구조에서 "최상위" 클래스인 이 응답 템플릿은 라이선스 템플릿 목록을 포함합니다. 라이선스 템플릿에는 직렬화할 템플릿 데이터를 구성하는 다른 모든 클래스가 포함됩니다(직접 또는 간접적으로).
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate) - 이 클래스는 사용자에게 반환될 PlayReady 라이선스를 만드는 데 사용되는 라이선스 템플릿을 나타냅니다. 라이선스의 콘텐츠 키에 대한 데이터도 포함합니다. 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용해야 하는 모든 권한 또는 제한도 이 클래스에 포함되어 있습니다.
+[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate) - 이 클래스는 사용자에게 반환될 PlayReady 라이선스를 만드는 데 사용되는 라이선스 템플릿을 나타냅니다. 라이선스의 콘텐츠 키에 대한 데이터도 포함합니다. 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용해야 하는 모든 권한 또는 제한도 이 클래스에 포함되어 있습니다.
 
 ### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
+[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
 
 > [!IMPORTANT]
 > 이들 제한 사항 유형은 강력할 수 있지만 소비자 환경에도 영향을 줄 수 있습니다. 출력 보호가 너무 제한적이면 몇몇 클라이언트에서는 콘텐츠를 재생하지 못할 수 있습니다. 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/)을 참조하세요.

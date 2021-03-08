@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: afa782df8666413356fa334bf4e9dcb989b87c2f
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: c38a6236fe3ad9164d11d94e5563a7dddf5b4b32
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441356"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452784"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>PowerShell 갤러리에서 Runbook 및 모듈 사용
 
@@ -51,11 +51,11 @@ PowerShell 모듈에는 runbook에서 사용할 수 있는 cmdlet이 포함 되�
 1. **원본: PowerShell 갤러리** 를 선택합니다. 그러면 찾아볼 수 있는 사용 가능한 runbook의 목록이 표시 됩니다.
 1. 목록 위의 검색 상자를 사용 하 여 목록의 범위를 좁힐 수 있습니다. 또는 필터를 사용 하 여 게시자, 유형 및 정렬 별로 표시 범위를 좁힐 수 있습니다. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Runbook 갤러리 찾아보기" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Runbook 갤러리 탐색" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 1. 항목을 가져오려면 세부 정보 블레이드에서 **가져오기** 를 클릭 합니다.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Runbook 갤러리 항목 세부 정보 표시" lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Runbook 갤러리 항목 세부 정보를 표시 합니다." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 1. 선택적으로 Runbook의 이름을 변경한 다음 **확인** 을 클릭하여 해당 Runbook을 가져옵니다.
 1. 이 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
@@ -67,11 +67,11 @@ PowerShell 모듈에는 runbook에서 사용할 수 있는 cmdlet이 포함 되�
 1. **원본: GitHub** 를 선택 합니다.
 1. 목록 위의 필터를 사용 하 여 게시자, 유형 및 정렬 별로 표시 범위를 좁힐 수 있습니다. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="GitHub 갤러리 찾아보기" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="GitHub 갤러리 탐색" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
 
 1. 항목을 가져오려면 세부 정보 블레이드에서 **가져오기** 를 클릭 합니다.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="GitHub 갤러리의 runbook에 대 한 자세한 보기" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="GitHub 갤러리의 runbook에 대 한 자세한 뷰입니다." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. 선택적으로 Runbook의 이름을 변경한 다음 **확인** 을 클릭하여 해당 Runbook을 가져옵니다.
 1. 이 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
@@ -86,7 +86,7 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 1. **공유 리소스** 아래에서 **모듈** 을 선택하여 모듈 목록을 엽니다.
 1. 페이지 위쪽에서 **갤러리 찾아보기** 를 클릭합니다.
 
-      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="모듈 갤러리 보기" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="모듈 갤러리의 뷰입니다." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. 갤러리 찾아보기 페이지에서 검색 상자를 사용 하 여 다음 필드 중 하나에서 일치 항목을 찾을 수 있습니다.
 
@@ -99,7 +99,7 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 
    특정 모듈로 드릴하면 자세한 정보를 확인할 수 있습니다. 이 정보에는 PowerShell 갤러리로 돌아가는 링크, 필요한 종속성 및 모듈에 속하는 모든 cmdlet 또는 DSC 리소스가 포함됩니다.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="갤러리의 모듈에 대 한 자세한 보기" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="갤러리의 모듈에 대 한 자세한 뷰입니다." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
 
 1. Azure Automation에 직접 모듈을 설치하려면 **가져오기** 를 클릭합니다.
 1. 가져오기 창에서 가져올 모듈의 이름을 확인할 수 있습니다. 모든 종속성이 설치되면 **확인** 단추가 활성화됩니다. 종속성이 없는 경우 해당 종속성을 가져와야만 이 모듈을 가져올 수 있습니다.

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8bc2cddf4d0380e5dc22e8250b6ee26f4d005b8a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2fa8c2ea990644fa82ae79114322fa087259378b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952430"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448195"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 
 ### <a name="register-a-qq-application"></a>QQ 애플리케이션 등록
 
-1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)로 이동하세요.
+1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)으로 이동합니다.
 1. **应用管理**(앱 관리)를 선택합니다.
 1. **创建应用**(앱 만들기)를 선택한 후 필수 정보를 입력합니다.
 1. **授权回调域**(콜백 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
@@ -74,7 +74,11 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
 1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
+1. **사용자 흐름 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **qq** 를 선택 하 여 qq 계정으로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
+
 
 ::: zone-end
 
@@ -170,6 +174,13 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 사용 하는 사�
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **qq** 를 선택 하 여 qq 계정으로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209682"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453005"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Table storage 출력 바인딩
 
@@ -438,7 +438,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 - **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용 하면 함수의 반환 값이 테이블 저장소 행으로 유지 됩니다.
 
-- **명령형**: [출력](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Event Hub 메시지로 유지됩니다.
+- **명령형**: [출력](/python/api/azure-functions/azure.functions.out) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Event Hub 메시지로 유지됩니다.
 
 ---
 

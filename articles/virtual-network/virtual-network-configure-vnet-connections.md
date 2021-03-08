@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9a0d06a8f8fa8f68f063404f2b483b817eb0563f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943657"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452104"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>가상 네트워크 또는 VPN 연결 구성 및 유효성 검사
 
@@ -248,7 +248,7 @@ Bgp 게이트웨이가 하나의 BGP 피어에서 파악 한 경로를 다른 �
 
 BGP를 사용 하는 VPN 연결을 구성 하려면 [PowerShell을 사용 하 여 AZURE vpn gateway에서 bgp를 구성 하는 방법](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md)을 참조 하세요.
 
-가상 네트워크 게이트웨이에서 BGP를 사용 하도록 설정 합니다. 기본 게이트웨이는 BGP를 지원 하지 않습니다. 게이트웨이의 SKU를 확인 하려면 Azure Portal에서 **VPN Gateway** 블레이드의 **개요** 섹션으로 이동 합니다. SKU가 **Basic** 인 경우 sku ( [게이트웨이 크기 조정](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)참조)를 **VpnGw1** 로 변경 해야 합니다. 
+가상 네트워크 게이트웨이에서 BGP를 사용 하도록 설정 합니다. 기본 게이트웨이는 BGP를 지원 하지 않습니다. 게이트웨이의 SKU를 확인 하려면 Azure Portal에서 **VPN Gateway** 블레이드의 **개요** 섹션으로 이동 합니다. SKU가 **Basic** 인 경우 sku ( [게이트웨이 크기 조정](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway)참조)를 **VpnGw1** 로 변경 해야 합니다. 
 
 SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합니다. 게이트웨이가 올바른 SKU를 사용 하는 즉시 [Get-azurermvirtualnetworkgateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) PowerShell 기능을 사용 하 여 as 번호를 추가할 수 있습니다. AS 번호를 구성한 후 게이트웨이에 대 한 BGP 피어 IP가 자동으로 제공 됩니다.
 
@@ -258,7 +258,7 @@ SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합�
 
 ### <a name="validate-the-bgp-configuration"></a>BGP 구성 유효성 검사
 
-BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예를 들면 다음과 같습니다.
+BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 다음은 그 예입니다.
 
 ```
 {

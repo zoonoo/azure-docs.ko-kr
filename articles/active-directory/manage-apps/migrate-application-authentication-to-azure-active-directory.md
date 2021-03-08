@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1a0be0b7834632ba79af7dfe6c3a4fa25c0316
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645514"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453258"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -234,10 +234,10 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 - **Api** -클라우드 인프라에 연결 된 앱의 경우 해당 시스템의 api 및 도구를 사용 하 여 호스트 된 앱의 인벤토리를 시작할 수 있습니다. Azure 환경에서:
 
-  - Azure websites에 대 한 정보를 가져오려면 [AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true)cmdlet을 사용 합니다.
+  - Azure websites에 대 한 정보를 가져오려면 [AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) cmdlet을 사용 합니다.
 
-  - [New-azurermwebapp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true)cmdlet을 사용 하 여 Azure Web Apps에 대 한 정보를 가져옵니다.
-
+  - [New-azurermwebapp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet을 사용 하 여 Azure Web Apps에 대 한 정보를 가져옵니다.
+D
   - [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools)를 사용 하 여 Windows 명령줄에서 Microsoft IIS에서 실행 되는 모든 앱을 찾을 수 있습니다.
 
   - [응용 프로그램](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) 및 [서비스 주체](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) 를 사용 하 여 Azure AD의 디렉터리에 있는 앱 및 앱 인스턴스에 대 한 정보를 얻습니다.

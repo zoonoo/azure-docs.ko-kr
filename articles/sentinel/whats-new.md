@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048185"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453804"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -32,9 +32,26 @@ ms.locfileid: "102048185"
 
 ## <a name="february-2021"></a>2021년 2월
 
+- [CMMC (사이버 보안 성숙도 모델 인증) 통합 문서](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [타사 데이터 커넥터](#third-party-data-connectors)
 - [엔터티 페이지의 UEBA 정보](#ueba-insights-in-the-entity-page)
 - [향상 된 인시던트 검색](#improved-incident-search)
+
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>CMMC (사이버 보안 성숙도 모델 인증) 통합 문서
+
+Azure 센티널 CMMC 통합 문서는 microsoft 보안 제품, Office 365, 팀, Intune, Windows 가상 데스크톱 등을 포함 하 여 Microsoft 포트폴리오에서 CMMC 컨트롤에 맞춘 로그 쿼리를 볼 수 있는 메커니즘을 제공 합니다.
+
+CMMC 통합 문서는 보안 설계자, 엔지니어, 보안 운영 분석가, 관리자 및 IT 전문가가 클라우드 워크 로드의 보안 상태에 대 한 상황 인식 가시성을 얻을 수 있도록 합니다. 각 CMMC 요구 사항 및 관행에 맞춰 Microsoft 제품을 선택, 디자인, 배포 및 구성 하기 위한 권장 사항도 있습니다.
+
+CMMC를 준수 하지 않아도 되는 CMMC 통합 문서는 보안 운영 센터를 구축 하 고, 경고를 개발 하 고, 위협을 시각화 하 고, 워크 로드에 대 한 상황 인식 기능을 제공 하는 데 유용 합니다.
+
+Azure 센티널 **통합** 문서 영역에서 cmmc 통합 문서에 액세스 합니다. **템플릿** 을 선택 하 고 **cmmc** 를 검색 합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure 센티널 CMMC (사이버 보안 성숙도 모델 인증) 통합 문서](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [자습서: 데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)
+
 
 ### <a name="third-party-data-connectors"></a>타사 데이터 커넥터
 
@@ -44,7 +61,7 @@ Microsoft의 타사 통합 컬렉션은 지난 2 개월 동안 30 개의 커넥�
 - [Akamai Security Events](connect-akamai-security-events.md)
 - [Active Directory용 Alsid](connect-alsid-active-directory.md)
 - [Apache HTTP 서버](connect-apache-http-server.md)
-- [아루바 ClearPass](connect-aruba-clearpass.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
 - [Blackberry CylancePROTECT](connect-data-sources.md)
 - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
@@ -169,7 +186,7 @@ Azure SQL은 사용자 개입 없이 업그레이드, 패치, 백업 및 모니�
 
 - **논리 앱에서 관리 되는 id 지원을 켜면** 논리 앱이 Azure AD에 등록 되 고 개체 ID가 제공 됩니다. Azure 센티널의 개체 ID를 사용 하 여 azure 센티널 작업 영역에서 azure RBAC 역할을 사용 하 여 논리 앱을 할당 합니다. 
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [Azure Logic Apps에서 관리 Id를 사용 하 여 인증](../logic-apps/create-managed-service-identity.md)
 - [Azure 센티널 Logic Apps 커넥터 설명서](/connectors/azuresentinel) 
@@ -243,7 +260,7 @@ Azure 센티널 플레이 북은 작업, 비즈니스 프로세스 및 워크플
 
 :::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="샘플 Playbooks 상태 모니터링 통합 문서":::
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [Logic Apps 설명서](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
 

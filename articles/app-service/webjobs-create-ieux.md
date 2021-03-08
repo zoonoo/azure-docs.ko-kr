@@ -10,16 +10,16 @@ ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4737f0f19acf199190df02386ecb2ece65fa571e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745668"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452801"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
 
-Azure의 runn [백그라운드 작업](./webjobs-create-ieux-conceptual.md) 개념은 Azure 앱 서비스 웹 작업과 함께 제공 됩니다. 배포 방법 알아보기 <abbr title="웹 앱, API 앱 또는 모바일 앱과 동일한 인스턴스에 있는 프로그램 또는 스크립트입니다.">WebJobs</abbr> [Azure Portal](https://portal.azure.com) 를 사용 하 여 실행 파일 또는 스크립트를 업로드 합니다. 
+Azure에서 [백그라운드 작업](./webjobs-create-ieux-conceptual.md) 을 실행 하는 개념은 Azure 앱 서비스 웹 작업과 함께 제공 됩니다. 배포 방법 알아보기 <abbr title="웹 앱, API 앱 또는 모바일 앱과 동일한 인스턴스에 있는 프로그램 또는 스크립트입니다.">WebJobs</abbr> [Azure Portal](https://portal.azure.com) 를 사용 하 여 실행 파일 또는 스크립트를 업로드 합니다. 
 
 지원 되는 세 가지 WebJobs는 다음과 같습니다.
 

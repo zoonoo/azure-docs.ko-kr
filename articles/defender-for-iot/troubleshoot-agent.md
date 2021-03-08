@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522956"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449223"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>보안 에이전트 문제 해결 가이드(Linux)
 
@@ -28,10 +28,9 @@ IoT 용 Azure Defender 에이전트 자체는 설치 후 바로 시작 됩니다
 
 이 문제 해결 가이드에서는 다음 방법에 대해 알아봅니다.
 
-> [!div class="checklist"]
-> * 보안 에이전트가 실행 중인지 확인 합니다.
-> * 보안 에이전트 오류 가져오기
-> * 보안 에이전트 오류 이해 및 수정
+- 보안 에이전트가 실행 중인지 확인 합니다.
+- 보안 에이전트 오류 가져오기
+- 보안 에이전트 오류 이해 및 수정
 
 ## <a name="validate-if-the-security-agent-is-running"></a>보안 에이전트가 실행 중인지 확인 합니다.
 
@@ -108,4 +107,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT 서비스용 Defender에 대 한 자세한 정보-iot [아키텍처용](architecture.md) defender에 대 한 [자세한 정보 iot](overview.md) [서비스용](quickstart-onboard-iot-hub.md) defender를 사용 하도록 설정 iot service에 대 한 defender를 참조 하세요. [자세한 내용은](resources-frequently-asked-questions.md) [원시 보안 데이터](how-to-security-data-access.md) 에 액세스 하는 방법 이해 [권장 사항](concept-recommendations.md) 이해 보안 [경고](concept-security-alerts.md)
+- IoT 서비스에 대 한 Defender [개요](overview.md) 를 참조 하십시오.
+- IoT [아키텍처용](architecture.md) Defender에 대 한 자세한 정보
+- IoT [서비스용](quickstart-onboard-iot-hub.md) Defender 사용
+- IoT 서비스용 Defender에 대 한 [FAQ](resources-frequently-asked-questions.md) 읽기
+- [원시 보안 데이터](how-to-security-data-access.md)에 액세스하는 방법을 알아봅니다.
+- [권장 사항](concept-recommendations.md) 이해
+- 보안 [경고](concept-security-alerts.md) 이해

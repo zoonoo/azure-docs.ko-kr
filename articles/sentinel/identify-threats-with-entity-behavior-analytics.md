@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807566"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455504"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -68,41 +68,9 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 작동 방식에 대 한 예제는 [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) 에서 동작 분석을 사용 하는 방법을 참조 하세요.
 
-## <a name="entities-in-azure-sentinel"></a>Azure Sentinel의 엔터티
+## <a name="entity-pages"></a>엔터티 페이지
 
-### <a name="entity-identifiers"></a>엔터티 식별자
-
-경고가 Azure 센티널로 전송 되 면 Azure 센티널에서 엔터티 (예: 사용자 계정, 호스트, IP 주소 등)로 식별 하 고 분류 하는 데이터 요소를 포함 합니다. 경우에 따라 경고에 엔터티에 대 한 충분 한 정보가 포함 되어 있지 않은 경우이 식별이 쉽지 않을 수 있습니다.
-
-예를 들어 사용자 계정은 Azure AD 계정의 숫자 식별자 (GUID) 또는 UPN (사용자 계정 이름) 값을 사용 하거나 사용자 이름 및 해당 NT 도메인 이름을 조합해 서 사용 하 여 두 가지 이상의 방법으로 식별할 수 있습니다. 서로 다른 데이터 원본으로 동일한 사용자를 식별할 수 있습니다. 따라서 가능 하면 Azure 센티널은 적절 하 게 식별 될 수 있도록 해당 식별자를 단일 엔터티로 병합 합니다.
-
-그러나 리소스 공급자 중 하나에서 엔터티가 충분히 식별 되지 않은 경고 (예: 도메인 이름 컨텍스트를 사용 하지 않는 사용자 이름)를 생성 하는 경우에 발생할 수 있습니다. 이러한 경우, 사용자 엔터티는 동일한 사용자 계정의 다른 인스턴스와 병합 될 수 없습니다 .이는 별도의 엔터티로 식별 되며 이러한 두 엔터티는 통합이 아닌 별도의 상태로 유지 됩니다.
-
-이러한 상황이 발생 하는 위험을 최소화 하기 위해 모든 경고 공급자가 생성 하는 경고에서 엔터티를 제대로 식별 하는지 확인 해야 합니다. 또한 사용자 계정 엔터티를 Azure Active Directory와 동기화 하면 통합 디렉터리가 생성 되어 사용자 계정 엔터티를 병합할 수 있습니다.
-
-다음 유형의 엔터티는 현재 Azure 센티널에서 식별 됩니다.
-
-- 사용자 계정 (계정)
-- 호스트
-- Ip 주소 (ip)
-- 맬웨어
-- 파일
-- 프로세스
-- 클라우드 응용 프로그램 (CloudApplication)
-- 도메인 이름 (DNS)
-- Azure 리소스
-- 파일 (FileHash)
-- 레지스트리 키
-- 레지스트리 값
-- 보안 그룹
-- URL
-- IoT 디바이스
-- 사서함
-- 메일 클러스터
-- 메일 메시지
-- 전송 메일
-
-### <a name="entity-pages"></a>엔터티 페이지
+[Azure 센티널의 엔터티에](entities-in-azure-sentinel.md) 대해 자세히 알아보고 [지원 되는 엔터티 및 식별자](entities-reference.md)의 전체 목록을 확인 하세요.
 
 검색, 경고 또는 조사에서 엔터티 (현재 사용자 및 호스트로 제한 됨)가 발생 하면 엔터티를 선택 하 고 엔터티 **페이지로** 이동 하 여 해당 엔터티에 대 한 유용한 정보를 모두 볼 수 있습니다. 이 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대 한 기본 팩트,이 엔터티와 관련 된 주목할 만한 이벤트의 타임 라인 및 엔터티 동작에 대 한 정보가 포함 됩니다.
  
@@ -131,26 +99,29 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
  
 ### <a name="entity-insights"></a>엔터티 정보
  
-Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하는 데 도움이 되도록 Microsoft 보안 연구원에 의해 정의 된 쿼리입니다. 정보는 엔터티 페이지의 일부로 제공 되며 호스트와 사용자에 대 한 중요 한 보안 정보를 표 형식 데이터 및 차트 형식으로 제공 합니다. 여기에 정보를 입력 하면 Log Analytics 우회 필요가 없습니다. 이 정보에는 로그인, 그룹 추가, 비정상 이벤트 등에 대 한 데이터가 포함 되며 비정상적인 동작을 검색 하는 고급 ML 알고리즘이 포함 되어 있습니다. 정보는 다음과 같은 데이터 형식을 기반으로 합니다.
-- syslog
-- SecurityEvent
-- 감사 로그
-- 로그인 로그
-- Office 활동
-- BehaviorAnalytics (UEBA) 
- 
+Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하는 데 도움이 되도록 Microsoft 보안 연구원에 의해 정의 된 쿼리입니다. 정보는 엔터티 페이지의 일부로 제공 되며 호스트와 사용자에 대 한 중요 한 보안 정보를 표 형식 데이터 및 차트 형식으로 제공 합니다. 여기에 정보를 입력 하면 Log Analytics 우회 필요가 없습니다. 이 정보에는 로그인, 그룹 추가, 비정상 이벤트 등에 대 한 데이터가 포함 되며 비정상적인 동작을 검색 하는 고급 ML 알고리즘이 포함 되어 있습니다. 
+
+정보는 다음과 같은 데이터 원본을 기반으로 합니다.
+- Syslog(Linux)
+- SecurityEvent (Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- 사무실 활동 (Office 365)
+- BehaviorAnalytics (Azure 센티널 UEBA)
+- 하트 비트 (Azure Monitor 에이전트)
+- CommonSecurityLog (Azure 센티널)
+
 ### <a name="how-to-use-entity-pages"></a>엔터티 페이지를 사용 하는 방법
 
 엔터티 페이지는 여러 사용 시나리오의 일부로 설계 되었으며 인시던트 관리, 조사 그래프, 책갈피에서 액세스 하거나 Azure 센티널 주 메뉴의 **엔터티 동작 분석** 에 있는 엔터티 검색 페이지에서 직접 액세스할 수 있습니다.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="엔터티 페이지 사용 사례":::
 
-
 ## <a name="data-schema"></a>데이터 스키마
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | 설명                                                         |
+| 필드                     | Description                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |
