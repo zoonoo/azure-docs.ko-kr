@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 0885870497ef3488d78fe899c96ee2a82a5b84fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175079"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Teradata 원본 등록 및 검사(미리 보기)
 
@@ -94,13 +94,13 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
 6.  **스키마**: 가져올 스키마의 하위 집합을 나열하며, 세미콜론으로 구분된 목록으로 표현됩니다. 예: schema1; schema2. 목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+    SQL LIKE 식 구문을 사용하는 허용되는 스키마 이름 패턴에는 %가 포함됩니다. 예를 들어 A%, %B, %C%, D입니다.
+    - A로 시작합니다. 또는    
+    - B로 끝납니다. 또는    
+    - C를 포함합니다. 또는    
+    - D와 같습니다.
 
-        Usage of NOT and special characters are not acceptable
+    NOT 및 특수 문자는 허용되지 않습니다.
 
 7.  **드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
 

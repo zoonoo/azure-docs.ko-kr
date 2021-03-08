@@ -1,17 +1,16 @@
 ---
 title: 컨테이너 인사이트를 위한 Resource Manager 템플릿 샘플
 description: 컨테이너 인사이트를 배포하고 구성하기 위한 샘플 Azure Resource Manager 템플릿입니다.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68bad5b4bfcef4f0f633bce7e3e352486aed3fdf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723336"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039192"
 ---
 # <a name="resource-manager-template-samples-for-container-insights"></a>컨테이너 인사이트를 위한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 가상 머신에 대한 Log Analytics 에이전트를 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.

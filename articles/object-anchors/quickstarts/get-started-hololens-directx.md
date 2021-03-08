@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747956"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049664"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -23,7 +23,6 @@ ms.locfileid: "101747956"
 > [!div class="checklist"]
 > * HoloLens 애플리케이션 만들기 및 테스트용으로 로드
 > * 개체 검색 및 해당 모델 시각화
-> * 캡처 런타임 진단
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,7 +31,7 @@ ms.locfileid: "101747956"
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 * 사용자 환경 및 해당 3D 모델(CAD 또는 스캔)의 물리적 개체
-* 다음 조건을 충족하는 Windows 머신:
+* 다음이 설치된 Windows 머신:
   * <a href="https://git-scm.com" target="_blank">Windows용 GIT</a>
   * **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함된 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>
 * 최신 상태이고 [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode)가 사용하도록 설정된 HoloLens 2 디바이스.
@@ -64,7 +63,7 @@ HoloLens 디바이스의 전원을 켜고, 로그인하고, USB 케이블을 사
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>개체 모델 수집 및 해당 인스턴스 검색
 
-샘플 앱을 실행하려면 개체 모델을 만들어야 합니다. 사용자의 공간에서 개체의 CAD 또는 스캔된 3D 메시 모델을 이미 가지고 있다고 가정합니다. 모델을 만드는 방법은 [빠른 시작: 3D 모델 수집](./get-started-model-ingestion.md)을 참조하세요.
+샘플 앱을 실행하려면 개체 모델을 만들어야 합니다. 사용자의 공간에서 개체의 CAD 또는 스캔된 3D 메시 모델을 이미 가지고 있다고 가정합니다. 모델을 만드는 방법은 [빠른 시작: 3D 모델 수집](./get-started-model-conversion.md)을 참조하세요.
 
 해당 모델(이 경우 **chair.ou**)을 컴퓨터에 다운로드합니다. 그런 다음 HoloLens 디바이스 포털에서 **시스템> 파일 탐색기 > LocalAppData> AoaSampleApp > LocalState** 를 선택하고 **찾아보기...** 를 선택합니다. 그런 다음 모델 파일(예: **chair.ou**)을 선택하고 **업로드** 를 선택합니다. 그러면 로컬 캐시에서 모델 파일을 볼 수 있습니다.
 
@@ -86,7 +85,7 @@ HoloLens에서 **AoaSampleApp** 앱을 시작합니다. 이미 열려있는 경�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 3D 모델 수집](./get-started-model-ingestion.md)
+> [빠른 시작: 3D 모델 수집](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [개념: SDK 개요](../concepts/sdk-overview.md)
