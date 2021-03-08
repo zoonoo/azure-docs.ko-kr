@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341557"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723676"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
-엔터티 함수는 *지속성 엔터티*라고 하는 작은 상태 부분을 읽고 업데이트하는 작업을 정의합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. 오케스트레이터 함수와 달리 엔터티 함수는 제어 흐름을 통해 엔터티의 상태를 암시적으로 표시하는 것이 아니라 명시적으로 관리합니다.
+엔터티 함수는 *지속성 엔터티* 라고 하는 작은 상태 부분을 읽고 업데이트하는 작업을 정의합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거* 를 사용하는 함수입니다. 오케스트레이터 함수와 달리 엔터티 함수는 제어 흐름을 통해 엔터티의 상태를 암시적으로 표시하는 것이 아니라 명시적으로 관리합니다.
 엔터티는 각각 적당한 크기의 상태인 여러 엔터티 간에 작업을 분산하여 애플리케이션을 확장할 수 있는 방법을 제공합니다.
 
 > [!NOTE]
@@ -24,10 +24,13 @@ ms.locfileid: "85341557"
 
 엔터티는 메시지를 통해 통신하는 작은 서비스처럼 작동합니다. 각 엔터티에는 고유한 ID와 내부 상태가 있습니다(있는 경우). 서비스 또는 개체와 마찬가지로 엔터티도 작업을 수행하라는 메시지가 표시되면 해당 작업을 수행합니다. 작업이 실행되면 작업에서 엔터티의 내부 상태를 업데이트할 수 있습니다. 또한 외부 서비스를 호출하고 응답을 기다릴 수도 있습니다. 엔터티는 신뢰할 수 있는 큐를 통해 암시적으로 보내는 메시지를 사용하여 다른 엔터티, 오케스트레이션 및 클라이언트와 통신합니다. 
 
-충돌을 방지하기 위해 단일 엔터티에 대한 모든 작업이 연속적으로, 즉 순차적으로 실행되도록 합니다. 
+충돌을 방지하기 위해 단일 엔터티에 대한 모든 작업이 연속적으로, 즉 순차적으로 실행되도록 합니다.
+
+> [!NOTE]
+> 엔터티를 호출하는 경우 해당 페이로드를 완료될 때까지 처리한 다음, 후속 입력이 도착할 때 활성화되도록 새 실행을 예약합니다. 따라서 엔터티 실행 로그에는 각 엔터티 호출 후에 추가 실행이 표시될 수 있습니다. 이것은 예상된 동작입니다.
 
 ### <a name="entity-id"></a>엔터티 ID
-엔터티는 고유 식별자인 *엔터티 ID*를 통해 액세스됩니다. 엔터티 ID는 단순히 엔터티 인스턴스를 고유하게 식별하는 문자열 쌍입니다. 이 ID는 다음으로 구성됩니다.
+엔터티는 고유 식별자인 *엔터티 ID* 를 통해 액세스됩니다. 엔터티 ID는 단순히 엔터티 인스턴스를 고유하게 식별하는 문자열 쌍입니다. 이 ID는 다음으로 구성됩니다.
 
 * **엔터티 이름**: 엔터티 형식을 식별하는 이름입니다. 예를 들면 "Counter"와 같습니다. 이 이름은 엔터티를 구현하는 엔터티 함수의 이름과 일치해야 합니다. 대/소문자를 구분하지 않습니다.
 * **엔터티 키**: 동일한 이름의 다른 모든 엔터티 중에서 해당 엔터티를 고유하게 식별하는 문자열입니다. 예를 들면 GUID와 같습니다.
@@ -41,7 +44,7 @@ ms.locfileid: "85341557"
 * 대상 엔터티의 **엔터티 ID**
 * **작업 이름**: 수행할 작업을 지정하는 문자열입니다. 예를 들어 `Counter` 엔터티는 `add`, `get` 또는 `reset` 작업을 지원할 수 있습니다.
 * **작업 입력**: 작업에 대한 선택적 입력 매개 변수입니다. 예를 들어, add 작업은 정수 값을 입력으로 사용할 수 있습니다.
-* 작업의 제공 시간을 지정하기 위한 선택적 매개 변수인 **예약 시간**입니다. 예를 들어 향후 며칠 동안 작업이 안정적으로 실행되도록 예약할 수 있습니다.
+* 작업의 제공 시간을 지정하기 위한 선택적 매개 변수인 **예약 시간** 입니다. 예를 들어 향후 며칠 동안 작업이 안정적으로 실행되도록 예약할 수 있습니다.
 
 작업은 결과 값 또는 오류 결과(예: JavaScript 오류 또는 .NET 예외)를 반환할 수 있습니다. 이 결과 또는 오류는 작업을 호출한 오케스트레이션에서 관찰할 수 있습니다.
 
@@ -113,7 +116,7 @@ public class Counter
 
 ### <a name="example-javascript-entity"></a>예제: JavaScript 엔터티
 
-지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다. 다음 코드는 JavaScript로 작성된 지속성 함수로 구현된 `Counter` 엔터티입니다.
+지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0** 부터 JavaScript에서 사용할 수 있습니다. 다음 코드는 JavaScript로 작성된 지속성 함수로 구현된 `Counter` 엔터티입니다.
 
 **Counter/function.json**
 ```json
@@ -149,15 +152,56 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>예: Python 엔터티
+
+다음 코드는 Python으로 작성된 지속성 함수로 구현된 `Counter` 엔터티입니다.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>액세스 엔터티
 
 엔터티는 단방향 또는 양방향 통신을 사용하여 액세스할 수 있습니다. 다음은 두 가지 형태의 통신을 구분하는 용어입니다. 
 
-* 엔터티 **호출**에서는 양방향(라운드트립) 통신을 사용합니다. 작업 메시지를 엔터티로 보낸 다음, 계속하기 전에 응답 메시지를 기다립니다. 응답 메시지는 결과 값 또는 오류 결과(예: JavaScript 오류 또는 .NET 예외)를 제공할 수 있습니다. 이 결과 또는 오류는 호출자에서 관찰합니다.
-* 엔터티에 **신호 보내기**에서는 단방향(자체 유도) 통신을 사용합니다. 작업 메시지를 전송하지만 응답을 기다리지는 않습니다. 메시지가 최종적으로 배달되도록 보장하는 동안 발신자는 배달되는 시기를 인식하지 못하며 결과 값 또는 오류를 관찰할 수 없습니다.
+* 엔터티 **호출** 에서는 양방향(라운드트립) 통신을 사용합니다. 작업 메시지를 엔터티로 보낸 다음, 계속하기 전에 응답 메시지를 기다립니다. 응답 메시지는 결과 값 또는 오류 결과(예: JavaScript 오류 또는 .NET 예외)를 제공할 수 있습니다. 이 결과 또는 오류는 호출자에서 관찰합니다.
+* 엔터티에 **신호 보내기** 에서는 단방향(자체 유도) 통신을 사용합니다. 작업 메시지를 전송하지만 응답을 기다리지는 않습니다. 메시지가 최종적으로 배달되도록 보장하는 동안 발신자는 배달되는 시기를 인식하지 못하며 결과 값 또는 오류를 관찰할 수 없습니다.
 
 엔터티는 클라이언트 함수, 오케스트레이터 함수 또는 엔터티 함수 내에서 액세스할 수 있습니다. 다음과 같이 일부 통신 형식만 모든 컨텍스트에서 지원합니다.
 
@@ -201,9 +245,22 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
-*신호*라는 용어는 엔터티 API 호출이 단방향이며 비동기적임을 의미합니다. 클라이언트 함수는 엔터티에서 작업을 처리한 시기를 인식할 수 없습니다. 또한 클라이언트 함수는 결과 값 또는 예외를 관찰할 수 없습니다. 
+*신호* 라는 용어는 엔터티 API 호출이 단방향이며 비동기적임을 의미합니다. 클라이언트 함수는 엔터티에서 작업을 처리한 시기를 인식할 수 없습니다. 또한 클라이언트 함수는 결과 값 또는 예외를 관찰할 수 없습니다. 
 
 ### <a name="example-client-reads-an-entity-state"></a>예제: 클라이언트에서 엔터티 상태 읽기
 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python은 현재, 클라이언트에서의 엔터티 상태 읽기를 지원하지 않습니다. 대신, orchestrator의 `callEntity`를 사용합니다.
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript는 현재 오케스트레이터에서 엔터티 신호를 지원하지 않습니다. 대신 `callEntity`를 사용하세요.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 오케스트레이션만 엔터티를 호출하고, 반환 값 또는 예외일 수 있는 응답을 받을 수 있습니다. [클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하는 클라이언트 함수는 엔터티에 대한 신호만 보낼 수 있습니다.
@@ -319,6 +396,11 @@ module.exports = df.orchestrator(function*(context){
         break;
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python에서는 엔터티 간 신호를 아직 지원하지 않습니다. 대신, 엔터티 신호 전달에 orchestrator를 사용하세요.
+
 ---
 
 ## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>엔터티 조정(현재 .NET 전용)
@@ -327,7 +409,7 @@ module.exports = df.orchestrator(function*(context){
 
 ### <a name="example-transfer-funds-c"></a>예제: 자금 이체(C#)
 
-다음 예제 코드에서는 오케스트레이터 함수를 사용하여 두 계정 엔터티 간에 자금을 이체합니다. 엔터티 업데이트를 조정하려면 `LockAsync` 메서드를 사용하여 _임계 영역_을 오케스트레이션에 만들어야 합니다.
+다음 예제 코드에서는 오케스트레이터 함수를 사용하여 두 계정 엔터티 간에 자금을 이체합니다. 엔터티 업데이트를 조정하려면 `LockAsync` 메서드를 사용하여 _임계 영역_ 을 오케스트레이션에 만들어야 합니다.
 
 > [!NOTE]
 > 간단히 하기 위해 이 예제에서는 앞에서 정의한 `Counter` 엔터티를 다시 사용합니다. 실제 애플리케이션에서는 더 자세한 `BankAccount` 엔터티를 정의하는 것이 좋습니다.
@@ -394,7 +476,7 @@ public static async Task<bool> TransferFundsAsync(
 
 ### <a name="critical-section-rules"></a>임계 영역 규칙
 
-대부분의 프로그래밍 언어에서 낮은 수준의 잠금 기본 형식과 달리, 임계 영역은 *교착 상태가 되지 않도록 보장*합니다. 교착 상태를 방지하기 위해 다음과 같은 제한 사항이 적용됩니다. 
+대부분의 프로그래밍 언어에서 낮은 수준의 잠금 기본 형식과 달리, 임계 영역은 *교착 상태가 되지 않도록 보장* 합니다. 교착 상태를 방지하기 위해 다음과 같은 제한 사항이 적용됩니다. 
 
 * 임계 영역은 중첩할 수 없습니다.
 * 임계 영역은 하위 오케스트레이션을 만들 수 없습니다.
@@ -421,7 +503,6 @@ public static async Task<bool> TransferFundsAsync(
 * 엔터티의 요청-응답 패턴은 오케스트레이션으로 제한됩니다. 원래 행위자 모델과 마찬가지로 엔터티 내에서 단방향 메시징(신호 보내기라고도 함)만 허용되며, Orleans의 그레인과는 다릅니다. 
 * 지속성 엔터티는 교착 상태가 아닙니다. Orleans에서는 교착 상태가 발생할 수 있으며, 메시지가 시간 초과될 때까지 해결되지 않습니다.
 * 지속성 엔터티는 지속성 오케스트레이션과 함께 사용할 수 있으며 분산 잠금 메커니즘을 지원합니다. 
-
 
 ## <a name="next-steps"></a>다음 단계
 

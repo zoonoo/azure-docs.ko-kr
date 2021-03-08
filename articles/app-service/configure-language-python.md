@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709090"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -372,6 +372,7 @@ SSH 세션에 성공적으로 연결되면 창 아래쪽에 "SSH 연결 설정�
 - [앱이 표시되지 않음 - 기본 앱 표시](#app-doesnt-appear)
 - [앱이 표시되지 않음 - "서비스를 사용할 수 없음" 메시지](#service-unavailable)
 - [setup.py 또는 requirements.txt 파일을 찾을 수 없음](#could-not-find-setuppy-or-requirementstxt)
+- [시작 시 ModuleNotFoundError](#modulenotfounderror-when-app-starts)
 - [암호를 입력할 때 SSH 세션에 표시되지 않음](#other-issues)
 - [SSH 세션의 명령이 잘려서 표시됨](#other-issues)
 - [정적 자산이 Django 앱에 표시되지 않음](#other-issues)
@@ -404,6 +405,10 @@ SSH 세션에 성공적으로 연결되면 창 아래쪽에 "SSH 연결 설정�
 - **로그 스트림에 "setup.py 또는 requirements.txt 파일을 찾을 수 없습니다. pip 설치를 실행하고 있지 않습니다"라는 메시지가 표시되는 경우**: Oryx 빌드 프로세스에서 *requirements.txt* 파일을 찾지 못했습니다.
 
     - [SSH](#open-ssh-session-in-browser)를 통해 웹앱의 컨테이너에 연결하고 *requirements.txt* 파일의 이름이 올바르게 지정되었으며 *site/wwwroot* 에 있는지 확인합니다. 파일이 없으면 리포지토리에 파일을 만들고 배포에 포함시킵니다. 파일이 별도의 폴더에 있으면 루트로 이동합니다.
+
+#### <a name="modulenotfounderror-when-app-starts"></a>앱 시작 시 ModuleNotFoundError
+
+`ModuleNotFoundError: No module named 'example'`과 같은 오류가 표시되는 경우 애플리케이션이 시작될 때 Python에서 하나 이상의 모듈을 찾지 못했음을 의미합니다. 이 오류는 코드를 사용하여 가상 환경을 배포하는 경우에 주로 발생합니다. 가상 환경은 이식할 수 없으므로 애플리케이션 코드를 사용하여 가상 환경을 배포할 수 없습니다. 대신, 앱 설정 `SCM_DO_BUILD_DURING_DEPLOYMENT`를 만들고 `1`로 설정하여 Oryx에서 가상 환경을 만들고 웹앱에 패키지를 설치하도록 합니다. 이렇게 하면 App Service에 배포할 때마다 Oryx에서 패키지를 강제로 설치합니다. 자세한 내용은 [가상 환경 이식성에 대한 이 문서](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html)를 참조하세요.
 
 #### <a name="other-issues"></a>기타 문제
 

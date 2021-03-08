@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b051a4ffe4d24e1ef0e69ab7c18a8ed3388b57e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 21fc7e6de38a98e4f0853cf513f9f3441c7e2106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735355"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -27,6 +27,8 @@ Azure PowerShell 모듈을 사용하여 Azure 리소스를 만들고 관리합�
 
 Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+Azure Storage 컨테이너 및 Blob을 읽고, 쓰고, 삭제하기 위한 Storage Blob 데이터 기여자 역할도 필요합니다.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-InstalledModule -Name Az -AllVersions | select Name,Version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
@@ -37,7 +39,7 @@ Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure �
 
 Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파일을 구성하는 방식과 같이 Blob 그룹을 구성할 수 있습니다.
 
-컨테이너 이름을 설정한 다음, [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 컨테이너를 만듭니다. 파일의 공용 액세스를 허용하도록 권한을 `blob`으로 설정합니다. 이 예제의 컨테이너 이름은 *quickstartblobs*입니다.
+컨테이너 이름을 설정한 다음, [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 컨테이너를 만듭니다. 파일의 공용 액세스를 허용하도록 권한을 `blob`으로 설정합니다. 이 예제의 컨테이너 이름은 *quickstartblobs* 입니다.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -50,7 +52,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 해당 컨테이너의 블록 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
 
-다음 예제에서는 *Image001.jpg* 및 *Image002.png*를 로컬 디스크의 *D:\\_TestImages* 폴더에서 방금 만든 컨테이너로 업로드합니다.
+다음 예제에서는 *Image001.jpg* 및 *Image002.png* 를 로컬 디스크의 *D:\\_TestImages* 폴더에서 방금 만든 컨테이너로 업로드합니다.
 
 ```powershell
 # upload a file to the default account (inferred) access tier
@@ -95,7 +97,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 로컬 디스크로 Blob을 다운로드합니다. 다운로드하려는 각 Blob의 경우 이름을 설정하고 [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent)를 호출하여 Blob을 다운로드합니다.
 
-이 예제에서는 로컬 디스크의 *D:\\_TestImages\Downloads*에 Blob을 다운로드합니다. 
+이 예제에서는 로컬 디스크의 *D:\\_TestImages\Downloads* 에 Blob을 다운로드합니다. 
 
 ```powershell
 # download first blob
@@ -113,7 +115,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy를 사용한 데이터 전송
 
-AzCopy 명령줄 유틸리티는 Azure Storage에 대한 스크립트 가능한 고성능 데이터 전송을 제공합니다. AzCopy를 사용하여 Blob 스토리지와 Azure Files 간에 데이터를 전송할 수 있습니다. 최신 버전의 AzCopy인 AzCopy v10에 대한 자세한 내용은 [AzCopy 시작](../common/storage-use-azcopy-v10.md)을 참조하세요. Blob 스토리지에서 AzCopy v10을 사용하는 방법에 대한 자세한 내용은 [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](../common/storage-use-azcopy-blobs.md)을 참조하세요.
+AzCopy 명령줄 유틸리티는 Azure Storage에 대한 스크립트 가능한 고성능 데이터 전송을 제공합니다. AzCopy를 사용하여 Blob 스토리지와 Azure Files 간에 데이터를 전송할 수 있습니다. 최신 버전의 AzCopy인 AzCopy v10에 대한 자세한 내용은 [AzCopy 시작](../common/storage-use-azcopy-v10.md)을 참조하세요. Blob 스토리지에서 AzCopy v10을 사용하는 방법에 대한 자세한 내용은 [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)을 참조하세요.
 
 다음 예제에서는 AzCopy를 사용하여 로컬 파일을 Blob에 업로드합니다. 샘플 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -135,7 +137,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지 간에 파일을 전송했습니다. PowerShell을 통해 Blob 스토리지를 사용하는 방법에 대해 자세히 알아보려면 Blob 스토리지용 Azure PowerShell 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지용 Azure PowerShell 샘플](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure Blob Storage에 대한 Azure PowerShell 샘플](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Microsoft Azure PowerShell Storage cmdlet 참조
 

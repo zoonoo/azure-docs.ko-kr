@@ -1,58 +1,38 @@
 ---
-title: '자습서: 새 Azure Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정합니다.'
-description: 이 자습서에서는 Azure CLI를 사용하여 새 Application Gateway 인스턴스로 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정하는 방법을 알아봅니다.
+title: '자습서: 새 Azure Application Gateway를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정'
+description: 이 자습서에서는 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 775dc2133473354a1e534275fb0d813f299217d1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
-ms.translationtype: MT
+ms.openlocfilehash: c37168c5165f5402dd4f57c8557bc2b7b3603533
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720191"
 ---
-# <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>자습서: 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능(미리 보기)을 사용하도록 설정합니다.
+# <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>자습서: 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능을 사용하도록 설정
 
-Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터에 대한 [AGIC(Application Gateway 수신 컨트롤러)](ingress-controller-overview.md) 추가 기능을 사용하도록 설정할 수 있습니다. 추가 기능은 현재 미리 보기에 있습니다.
+Azure CLI를 사용하여 새 [AKS(Azure Kubernetes Services)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터에 대한 [AGIC(Application Gateway 수신 컨트롤러)](ingress-controller-overview.md) 추가 기능을 사용하도록 설정할 수 있습니다.
 
 이 자습서에서는 AGIC 추가 기능을 사용하도록 설정하여 AKS 클러스터를 만듭니다. 클러스터를 만들면 사용할 Azure Application Gateway 인스턴스가 자동으로 만들어집니다. 그런 다음, 추가 기능을 사용하여 Application Gateway를 통해 애플리케이션을 노출하는 샘플 애플리케이션을 배포합니다. 
 
-이 추가 기능은 [이전에 Helm을 통한](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) 것보다 AKS 클러스터에 대해 AGIC를 배포하는 훨씬 빠른 방법을 제공합니다. 또한 완전 관리형 환경을 제공합니다.    
+이 추가 기능은 [이전에 Helm을 통한](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) 것보다 AKS 클러스터에 대해 AGIC를 배포하는 훨씬 빠른 방법을 제공합니다. 또한 완전 관리형 환경을 제공합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹을 만듭니다. 
-> * AGIC 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 만듭니다. 
+> * AGIC 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 만듭니다.
 > * AKS 클러스터에서 수신에 AGIC를 사용하여 샘플 애플리케이션을 배포합니다.
 > * Application Gateway를 통해 애플리케이션에 연결할 수 있는지 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. Azure CLI를 사용하는 경우 다음 명령을 사용하여 CLI에 미리 보기 확장을 설치해야 합니다(아직 없는 경우).
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
-
- - 다음 예제와 같이 [az feature register](/cli/azure/feature#az-feature-register) 명령을 사용하여 *AKS-IngressApplicationGatewayAddon* 기능 플래그를 등록합니다. 추가 기능이 미리 보기 상태인 동안에는 구독당 한 번만 이 작업을 수행해야 합니다.
-    ```azurecli-interactive
-    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-    ```
-
-   상태가 `Registered`를 표시할 때까지 몇 분 정도 걸립니다. [az feature list](/cli/azure/feature#az-feature-register) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-    ```azurecli-interactive
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-    ```
-
- - 준비가 되면 [az provider register](/cli/azure/provider#az-provider-register) 명령을 사용하여 Microsoft.ContainerService 리소스 공급자 등록을 새로 고칩니다.
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -74,10 +54,10 @@ az group create --name myResourceGroup --location canadacentral
 
 다음 예제에서는 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 및 [관리 ID](../aks/use-managed-identity.md)를 사용하여 *myCluster* 라는 새 AKS 클러스터를 배포합니다. AGIC 추가 기능은 사용자가 만든 *myResourceGroup* 이라는 리소스 그룹에서 사용하도록 설정할 수 있습니다. 
 
-기존 Application Gateway 인스턴스를 지정하지 않고 AGIC 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 배포하면 Standard_v2 SKU Application Gateway 인스턴스가 자동으로 생성됩니다. 따라서 Application Gateway 인스턴스의 이름 및 서브넷 주소 공간도 지정합니다. Application Gateway 인스턴스의 이름은 *myApplicationGateway* 가 되며 사용 중인 서브넷 주소 공간은 10.2.0.0/16입니다. 이 자습서의 시작 부분에서 aks-preview 확장을 추가하거나 업데이트했는지 확인합니다. 
+기존 Application Gateway 인스턴스를 지정하지 않고 AGIC 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 배포하면 Standard_v2 SKU Application Gateway 인스턴스가 자동으로 생성됩니다. 따라서 Application Gateway 인스턴스의 이름 및 서브넷 주소 공간도 지정합니다. Application Gateway 인스턴스의 이름은 *myApplicationGateway* 가 되며 사용 중인 서브넷 주소 공간은 10.2.0.0/16입니다.
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
 ```
 
 `az aks create` 명령에 대한 추가 매개 변수를 구성하려면 [이러한 참조](/cli/azure/aks#az-aks-create)를 참조하세요. 

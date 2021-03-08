@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: afb0e04d6f8a34d844df382081d53a32899e9a5c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 70416daced2cbdebb70fb8e1defbcbcb599710f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705486"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리(버전 4)
 
@@ -27,7 +27,7 @@ Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault 개요](../general/overview.md)
 - [비밀 개요](about-secrets.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
@@ -56,13 +56,13 @@ Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 
 1. 명령 셸에서 `key-vault-node-app`이라는 폴더를 만듭니다.
 
-```azurecli
+```terminal
 mkdir key-vault-node-app
 ```
 
 1. 새로 만든 *key-vault-node-app* 디렉터리로 변경하고, 'init' 명령을 실행하여 노드 프로젝트를 초기화합니다.
 
-```azurecli
+```terminal
 cd key-vault-node-app
 npm init -y
 ```
@@ -71,13 +71,13 @@ npm init -y
 
 콘솔 창에서 Node.js용 Azure Key Vault [비밀 라이브러리](https://www.npmjs.com/package/@azure/keyvault-secrets)를 설치합니다.
 
-```azurecli
+```terminal
 npm install @azure/keyvault-secrets
 ```
 
 [azure.identity](https://www.npmjs.com/package/@azure/identity) 패키지를 설치하여 Key Vault에 인증합니다.
 
-```azurecli
+```terminal
 npm install @azure/identity
 ```
 
@@ -168,7 +168,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>비밀 저장
 
-이제 애플리케이션이 인증되었으므로 [setSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업에는 비밀 이름이 필요합니다. 이 샘플에서는 "mySecret"을 사용합니다.  
+이제 애플리케이션이 인증되었으므로 [setSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업에는 비밀 이름이 필요합니다. 이 샘플에서는 "mySecret"을 사용합니다.  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -176,7 +176,7 @@ await client.setSecret(secretName, secretValue);
 
 ### <a name="retrieve-a-secret"></a>비밀 검색
 
-이제 [getSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
+이제 [getSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -258,9 +258,9 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 1. 다음 명령을 실행하여 앱을 실행합니다.
 
-    ```azurecli
+    ```terminal
     npm install
-    npm index.js
+    node index.js
     ```
 
 1. 메시지가 표시되면 비밀 값을 입력합니다. 예를 들어 mySecretPassword입니다.

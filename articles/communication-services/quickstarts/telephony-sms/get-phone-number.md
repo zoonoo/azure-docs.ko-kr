@@ -9,15 +9,16 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a4a569a11561671febf31b037c499b6f32b44d48
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4fda626581265b4b1f6541a3b453b164ccd27963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657573"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690450"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전화 번호 받기
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Services를 시작합니다.
@@ -39,15 +40,15 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Communication Services 리소스의 전화 페이지를 보여주는 스크린샷":::
 
-**가져오기** 단추를 눌러 마법사를 시작합니다. **전화 번호** 블레이드의 마법사는 시나리오에 가장 적합한 전화 번호를 선택하는 데 도움이 되는 일련의 질문을 안내합니다.
+**가져오기** 단추를 눌러 마법사를 시작합니다. **전화 번호** 블레이드의 마법사는 시나리오에 가장 적합한 전화 번호를 선택하는 데 도움이 되는 일련의 질문을 안내합니다. 
 
-먼저 전화 번호를 프로비저닝하려는 **국가/지역** 을 선택해야 합니다. 국가/지역이 선택되면 요구 사항에 가장 적합한 **사용 사례** 를 선택해야 합니다.
+먼저 전화 번호를 프로비저닝하려는 **국가/지역** 을 선택해야 합니다. 국가/지역이 선택되면 요구 사항에 가장 적합한 **사용 사례** 를 선택해야 합니다. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="[전화 번호 받기] 보기를 보여주는 스크린샷":::
 
 ### <a name="select-your-phone-number-features"></a>전화 번호 기능 선택
 
-전화 번호 구성은 다음 두 단계로 구분됩니다.
+전화 번호 구성은 다음 두 단계로 구분됩니다. 
 
 1. [전화 번호 유형](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services) 선택
 2. [전화 번호 기능](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services) 선택
@@ -116,7 +117,9 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 일반적인 질문 및 문제:
 
-- 현재는 미국만 전화 번호 구매가 지원됩니다. 이는 리소스가 연결된 구독의 청구 주소를 기반으로 합니다. 지금은 리소스를 다른 구독으로 이동할 수 없습니다.
+- 전화 구매는 미국에서만 지원됩니다. 전화 번호를 구매하려면 다음 사항을 확인하세요.
+  - 연결된 Azure 구독 청구 주소가 미국에 있습니다. 지금은 리소스를 다른 구독으로 이동할 수 없습니다.
+  - Communication Services 리소스가 미국 데이터 위치로 프로비저닝됩니다. 지금은 리소스를 다른 데이터 위치로 이동할 수 없습니다.
 
 - 전화 번호가 릴리스되면 청구 주기가 끝날 때까지 해당 전화 번호를 릴리스하거나 재구매할 수 없습니다.
 

@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750912"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -53,9 +53,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 
 종속성을 설치합니다. 그러면 Xcode 작업 영역 `pod install`도 생성됩니다.
 
+**Pod 설치 실행 이후 새로 생성된 `.xcworkspace`를 선택하여 Xcode에서 프로젝트를 다시 엽니다.**
+
 ### <a name="setup-the-placeholders"></a>자리 표시자 설정
 
-Xcode에서 작업 영역 파일 `ChatQuickstart.xcworkspace`를 연 후 `ViewController.swift`를 엽니다.
+Xcode에서 작업 영역 `ChatQuickstart.xcworkspace`를 열고 `ViewController.swift`를 엽니다.
 
 이 빠른 시작에서는 `viewController`에 코드를 추가하고 Xcode 콘솔에서 출력을 확인합니다. 이 빠른 시작은 iOS의 UI 빌드를 다루지 않습니다. 
 
@@ -120,6 +122,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 `<ACS_RESOURCE_ENDPOINT>`를 ACS 리소스의 엔드포인트로 바꿉니다.
 `<ACCESS_TOKEN>`을 올바른 ACS 액세스 토큰으로 바꿉니다.
+
+이 빠른 시작에서는 권장되는 사항이기는 하지만 채팅 애플리케이션에 대한 토큰을 관리하는 서비스 계층을 만드는 방법을 다루지 않습니다. [채팅 아키텍처](../../../concepts/chat/concepts.md)에 대한 자세한 내용은 다음 설명서를 참조하세요.
+
+[사용자 액세스 토큰](../../access-tokens.md)에 대해 자세히 알아보세요.
 
 ## <a name="object-model"></a>개체 모델 
 다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 클라이언트 라이브러리의 주요 기능 중 일부를 처리합니다.

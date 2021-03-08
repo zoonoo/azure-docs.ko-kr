@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d45b2ec8814ec2b7f02da99500aa1e72ec525d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225616"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695705"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -97,6 +97,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## <a name="arguments"></a>인수
@@ -237,6 +238,10 @@ CSV 파일에 헤더 행이 포함되는지 여부를 지정합니다. 기본값
 DATAFILETYPE = { 'char' | 'widechar' }
 
 인코딩을 지정합니다. char는 UTF8에 사용되고, widechar는 UTF16 파일에 사용됩니다.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+데이터 파일에서 데이터의 코드 페이지를 지정합니다. 기본값은 65001(UTF-8 인코딩)입니다. 이 옵션에 대한 자세한 내용을 [여기](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage)를 클릭하세요.
 
 ## <a name="fast-delimited-text-parsing"></a>분리된 텍스트에 대한 빠른 구문 분석
 

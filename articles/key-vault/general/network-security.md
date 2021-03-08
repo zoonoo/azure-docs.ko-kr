@@ -2,20 +2,20 @@
 title: Azure Key Vault 방화벽 및 가상 네트워크 구성 - Azure Key Vault
 description: Key Vault 방화벽 및 가상 네트워크 구성을 위한 단계별 지침
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: sudbalas
+ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936348"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742639"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -39,7 +39,7 @@ Key Vault 방화벽을 사용하도록 설정하면 '신뢰할 수 있는 Micros
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault 방화벽 사용(IPv4 주소 및 범위 - 고정 IP)
 
-Key Vault 방화벽을 통해 키 자격 증명 모음에 액세스하도록 특정 서비스에 권한을 부여하려면 해당 IP 주소를 키 자격 증명 모음 방화벽 허용 목록에 추가하면 됩니다. 이 구성은 고정 IP 주소 또는 잘 알려진 범위를 사용하는 서비스에 가장 적합합니다.
+Key Vault 방화벽을 통해 키 자격 증명 모음에 액세스하도록 특정 서비스에 권한을 부여하려면 해당 IP 주소를 키 자격 증명 모음 방화벽 허용 목록에 추가하면 됩니다. 이 구성은 고정 IP 주소 또는 잘 알려진 범위를 사용하는 서비스에 가장 적합합니다. 이 경우에는 1,000개의 CIDR 범위 제한이 있습니다.
 
 웹앱 또는 논리 앱과 같은 Azure 리소스의 IP 주소 또는 범위를 허용하려면 다음 단계를 수행합니다.
 

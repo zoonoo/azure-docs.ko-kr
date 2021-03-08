@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 9a0fb8ed8ac54fa866b6db7d8f808c011c0c6758
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247406"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695824"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics 질문과 대답
 
@@ -45,7 +45,7 @@ Synapse 작업 영역을 보호하려면 다음 RBAC 범위에 RBAC 역할을 �
 
 또한 전용 SQL 풀을 사용하면 사용자가 알고 있고 좋아하는 동일한 보안 기능을 모두 사용할 수 있습니다.
 
-### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>Q: 전용 SQL 풀, 서버리스 SQL 풀 및 서버리스 Spark 풀을 제어하려면 어떻게 해야 하나요?
+### <a name="q-how-do-i-control-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>Q: 전용 SQL 풀, 서버리스 SQL 풀 및 서버리스 Spark 풀을 제어하려면 어떻게 해야 하나요?
 
 A: Azure Synapse는 처음 시작할 때 Azure 구독 수준에서 사용할 수 있는 기본 제공 비용 분석 및 비용 경고와 함께 작동합니다.
 

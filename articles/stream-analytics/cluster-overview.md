@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics 클러스터의 개요(미리 보기)
+title: Azure Stream Analytics 클러스터의 개요
 description: Stream Analytics 클러스터의 단일 테넌트 전용 제품에 대해 알아봅니다.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709294"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Azure Stream Analytics 클러스터의 개요(미리 보기)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터의 개요
 
 Azure Stream Analytics 클러스터는 복잡하고 까다로운 스트리밍 사용 사례에 사용할 수 있는 단일 테넌트 배포입니다. 전체 규모에서 Stream Analytics 클러스터는 실시간으로 200MB/초 이상을 처리할 수 있습니다. 전용 클러스터에서 실행되는 Stream Analytics 작업은 표준 제품의 모든 기능을 활용할 수 있으며 입력 및 출력에 대한 프라이빗 링크 연결 지원을 포함합니다.
 

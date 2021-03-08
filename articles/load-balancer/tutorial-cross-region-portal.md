@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611205"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712517"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -41,28 +41,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 
-Azure 미리 보기 포털에 [로그인](https://portal.azure.com)합니다.
+Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합니다.
 
 ## <a name="create-cross-region-load-balancer"></a>지역 간 부하 분산 장치 만들기
 
 이 섹션에서는 지역 간 부하 분산 장치 및 공용 IP 주소를 만듭니다.
 
-1. 화면의 왼쪽 상단에서 **리소스 만들기 > 네트워킹 > Load Balancer** 를 차례로 선택하거나 검색 상자에서 **Load Balancer** 를 검색합니다.
-
-2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+1. **리소스 만들기** 를 선택합니다. 
+2. 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
+3. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
+4. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기** 를 선택하고 텍스트 상자에 **CreateCRLBTutorial-rg** 를 입력합니다.|
     | Name                   | **myLoadBalancer-CR** 을 입력합니다.                                   |
-    | 지역         | **미국 서부** 를 선택합니다.                                        |
+    | 지역         | **(미국) 미국 서부** 를 선택합니다.                                        |
     | Type          | **공용** 을 선택합니다.                                        |
-    | SKU           | **표준** 선택 |
+    | SKU           | 기본값인 **표준** 을 그대로 둡니다. |
     | 계층           | **글로벌** 을 선택합니다. |
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
     | 공용 IP 주소 이름 | 텍스트 상자에 **myPublicIP-CR** 을 입력합니다.|
-    | 라우팅 기본 설정| **Microsoft 네트워크** 를 선택합니다. |
+    | 라우팅 기본 설정| **Microsoft 네트워크** 를 선택합니다. </br> 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정(미리 보기)이란?](../virtual-network/routing-preference-overview.md)을 참조하세요. |
 
     > [!NOTE]
     > 지역 간 부하 분산 장치는 다음 홈 지역에서만 배포할 수 있습니다. **미국 동부 2, 미국 서부, 서유럽, 동남아시아, 미국 중부, 북유럽, 동아시아** 자세한 내용은 **https://aka.ms/homeregionforglb** 을(를) 참조하세요.
@@ -122,7 +123,7 @@ Azure 미리 보기 포털에 [로그인](https://portal.azure.com)합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다. |
     | 간격 | **5** 를 입력합니다. |
@@ -153,7 +154,7 @@ Azure 미리 보기 포털에 [로그인](https://portal.azure.com)합니다.
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |

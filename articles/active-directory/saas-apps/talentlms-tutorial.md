@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b65191e97402f2fb352c56664dad085c448242c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650629"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>자습서: TalentLMS와 Azure Active Directory 통합
 
@@ -170,11 +170,11 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 
     ![사용자 추가](./media/talentlms-tutorial/IC777299.png "사용자 추가")  
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: `Britta`)을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: `Simon`)을 입력합니다.
  
-    다. **전자 메일 주소** 텍스트 상자에 `brittasimon\@contoso.com`과 같은 사용자의 메일 주소를 입력합니다.
+    다. **전자 메일 주소** 텍스트 상자에 `brittasimon@contoso.com`과 같은 사용자의 메일 주소를 입력합니다.
 
     d. **사용자 추가** 를 클릭합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - CLI(미리 보기)를 사용하여 Azure API Management 인스턴스 만들기
+title: 빠른 시작 - CLI를 사용하여 Azure API Management 인스턴스 만들기
 description: Azure CLI를 사용하여 새 Azure API Management 서비스 인스턴스를 만듭니다.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688079"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>빠른 시작: Azure CLI(미리 보기)를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
 Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다. API Management는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다. APIM을 사용하면 어디서든 호스팅되는 기존 백 엔드 서비스를 위한 최신 API 게이트웨이를 만들고 관리할 수 있습니다. 자세한 내용은 [개요](api-management-key-concepts.md)를 참조하세요.
 
-이 빠른 시작에서는 Azure CLI에서 [az apim](/cli/azure/apim) 명령을 사용하여 새 API Management 인스턴스를 만드는 단계를 설명합니다. `az apim` 명령 그룹의 명령은 현재 미리 보기로 제공되며 향후 릴리스에서 변경되거나 제거될 수 있습니다.
+이 빠른 시작에서는 Azure CLI에서 [az apim](/cli/azure/apim) 명령을 사용하여 새 API Management 인스턴스를 만드는 단계를 설명합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

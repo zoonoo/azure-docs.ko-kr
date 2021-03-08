@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/21/2021
+ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8b412fffdda1ce6a2023a8b9ae459a52986cd93d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 899249c98c3ce0fdf061b1e689182f71c120aa13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729400"
 ---
 # <a name="whats-new-in-azure-automation"></a>Azure Automation의 새로운 기능
 
@@ -24,7 +24,55 @@ Azure Automation은 지속적으로 향상되고 있습니다. 최신 개발 정
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
 
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-japan-west"></a>일본 서부의 Automation 및 State Configuration 선언 GA 지원
+
+**유형:** 새로운 기능
+
+일본 서부 지역의 Automation 계정 및 State Configuration 가용성 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-in-japan-west-region/)를 참조하세요.
+
+### <a name="introduced-custom-azure-policy-compliance-to-enforce-runbook-execution-on-hybrid-worker"></a>Hybrid Worker에서 Runbook 실행을 적용하는 사용자 지정 Azure Policy 준수가 도입됨
+
+**유형:** 새로운 기능
+
+새 Azure Policy 준수 규칙을 사용하여 작업, Webhook 및 작업 일정 만들기가 Hybrid Worker 그룹에서만 실행되도록 할 수 있습니다.
+
+### <a name="update-management-availability-in-east-us-france-central-and-north-europe-regions"></a>미국 동부, 프랑스 중부 및 북유럽 지역의 업데이트 관리 가용성
+
+**유형:** 새로운 기능
+
+Automation 업데이트 관리 기능은 미국 동부, 프랑스 중부 및 북유럽 지역에서 사용할 수 있습니다. 이 변경을 반영하는 설명서 업데이트 내용은 [지원되는 지역 매핑](how-to/region-mappings.md)을 참조하세요.
+
 ## <a name="january-2021"></a>2021년 1월
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-switzerland-west"></a>스위스 서부의 Automation 및 State Configuration 선언 GA 지원
+
+**유형:** 새로운 기능
+
+스위스 서부 지역의 Automation 계정 및 State Configuration 가용성. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/)를 참조하세요.
+
+### <a name="added-python-3-script-to-import-module-with-multiple-dependencies"></a>여러 종속성이 있는 모듈을 가져오는 Python 3 스크립트를 추가함
+
+**유형:** 새로운 기능
+
+이 스크립트는 [GitHub 리포지토리](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py)에서 다운로드할 수 있습니다. 
+ 
+### <a name="hybrid-runbook-worker-role-support-for-centos-8xrhel-8xsles-15"></a>Centos 8.x/RHEL 8.x/SLES 15에 대한 Hybrid Runbook Worker 역할 지원
+
+**유형.** 새로운 기능
+
+Hybrid Runbook Worker 기능은 Hybrid Runbook Worker의 프로세스 자동화에 대해서만 CentOS 8.x, REHL 8.x 및 SLES 15 배포판을 지원합니다.  이러한 변경 내용을 반영하기 위한 설명서 업데이트는 [지원되는 운영 체제](automation-linux-hrw-install.md#supported-linux-operating-systems)를 참조하세요.
+
+### <a name="update-management--change-tracking-availability-in-australia-east-east-asia-west-us--central-us-regions"></a>오스트레일리아 동부, 동아시아, 미국 서부 및 미국 중부 지역의 업데이트 관리 및 변경 내용 추적 가용성
+
+**유형:** 새로운 기능
+
+Automation 계정, 변경 내용 추적 및 인벤토리, 업데이트 관리는 오스트레일리아 동부, 동아시아, 미국 서부 및 미국 중부 지역에서 사용할 수 있습니다. 
+
+### <a name="introduced-public-preview-of-python-3-runbooks-in-us-government-cloud"></a>미국 정부 클라우드의 Python 3 Runbook에 대한 퍼블릭 미리 보기를 도입함
+
+**유형:** 새 기능인 Azure Automation의 경우 미국 정부 클라우드 지역에서 Python 3 클라우드 및 하이브리드 Runbook 실행의 퍼블릭 미리 보기 지원이 도입되었습니다.  자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/)를 참조하세요.
 
 ### <a name="azure-automation-runbooks-moved-from-technet-script-center-to-github"></a>TechNet Script Center에서 GitHub로 이동한 Azure Automation Runbook
 

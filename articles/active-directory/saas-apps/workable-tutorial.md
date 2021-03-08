@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e6cf8b0ea7064b99cf6f630a83b2800900f29c47
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f705ca1e001d3b7852c5bec5b494f23eb7943626
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636088"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>자습서: Workable과 Azure Active Directory 통합
 
@@ -143,7 +143,7 @@ Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -157,7 +157,7 @@ Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사�
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
-    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. BrittaSimon@contoso.com)을 입력합니다.
+    b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다(예: `brittasimon@contoso.com`).
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -167,7 +167,7 @@ Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사�
 
 이 섹션에서는 Workable에 대한 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있게 합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Workable** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Workable** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

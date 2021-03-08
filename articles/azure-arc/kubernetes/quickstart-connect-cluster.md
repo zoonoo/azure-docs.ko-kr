@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 02/24/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 8eb177f0c80d7ed2df70c75ca476a1dfe33c8425
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c50266ce0afd6dd3f5860e3259d2b22af817834c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664272"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689252"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 
@@ -25,7 +25,7 @@ ms.locfileid: "101664272"
 
 * 다음을 확인합니다.
     * 실행 중인 Kubernetes 클러스터.
-    * `kubeconfig` 파일.
+    * Azure Arc에 연결하고자 하는 클러스터를 가리키는 `kubeconfig` 파일.
     * Azure Arc 지원 Kubernetes 리소스 유형(`Microsoft.Kubernetes/connectedClusters`)을 만들어 연결하는 사용자 또는 서비스 주체에 대한 '읽기' 및 '쓰기' 권한입니다.
 * [Helm 3의 최신 릴리스](https://helm.sh/docs/intro/install)를 설치합니다.
 * 다음 Azure Arc 지원 Kubernetes CLI 확장 버전 1.0.0 이상을 설치합니다.
@@ -68,16 +68,6 @@ ms.locfileid: "101664272"
 | `https://login.microsoftonline.com`                                                                            | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다.                                                                  |
-
-
-## <a name="install-the-azure-arc-enabled-kubernetes-cli-extensions"></a>Azure Arc 지원 Kubernetes CLI 확장을 설치합니다.
-
-다음 명령을 입력합니다.  
-
-    ```azurecli
-    az extension add --name connectedk8s
-    az extension add --name k8s-configuration
-    ```
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 두 공급자 등록
 
@@ -147,6 +137,9 @@ eastus      AzureArcTest
       "type": "Microsoft.Kubernetes/connectedClusters"
     }
     ```
+
+> [!TIP]
+> 위치 매개 변수가 지정되지 않은 상태에서 위 명령을 사용하면 동일한 위치에서 Azure Arc 지원 Kubernetes 리소스가 리소스 그룹으로 만들어집니다. 다른 위치에서 Azure Arc 지원 Kubernetes 리소스를 만들려면 `az connectedk8s connect` 명령을 실행할 때 `--location <region>` 또는 `-l <region>`을 지정합니다.
 
 ## <a name="verify-cluster-connection"></a>클러스터 연결 확인
 

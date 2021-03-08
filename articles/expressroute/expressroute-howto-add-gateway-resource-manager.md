@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739061"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -46,12 +46,17 @@ ms.locfileid: "91854310"
 | Subnet1 이름 | *FrontEnd* |
 | 게이트웨이 서브넷 이름 | *GatewaySubnet* |    
 | 게이트웨이 서브넷 주소 공간 | *192.168.200.0/26* |
-| Azure 지역 | *미국 동부* |
+| 지역 | *미국 동부* |
 | 게이트웨이 이름 | *GW* |   
 | 게이트웨이 IP 이름 | *GWIP* |
 | 게이트웨이 IP 구성 이름 | *gwipconf* |
-| 유형 | *ExpressRoute* |
+| Type | *ExpressRoute* |
 | 게이트웨이 공용 IP 이름  | *gwpip* |
+
+> [!IMPORTANT]
+> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 개인 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [여기](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)에 설명된 지침을 따르세요.
+> 
+> 
 
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
 
@@ -77,6 +82,11 @@ ms.locfileid: "91854310"
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
    ```
+    이중 스택 가상 네트워크를 사용하고 ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 대신 이중 스택 게이트웨이 서브넷을 만듭니다.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
+   ```
 1. 구성을 설정합니다.
 
    ```azurepowershell-interactive
@@ -97,11 +107,15 @@ ms.locfileid: "91854310"
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
    ```
-1. 게이트웨이를 만듭니다. 이 단계에서는 **-GatewayType** 이 특히 중요합니다. 값 **ExpressRoute**를 사용해야 합니다. 이러한 cmdlet을 실행한 후 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
+1. 게이트웨이를 만듭니다. 이 단계에서는 **-GatewayType** 이 특히 중요합니다. 값 **ExpressRoute** 를 사용해야 합니다. 이러한 cmdlet을 실행한 후 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **-GatewaySku** 에 대해 AZ SKU(ErGw1AZ, ErGw2AZ, ErGw3AZ)를 선택해야 합니다.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>게이트웨이가 만들어졌는지 확인합니다.
 다음 명령을 사용하여 게이트웨이가 만들어졌는지 확인합니다.

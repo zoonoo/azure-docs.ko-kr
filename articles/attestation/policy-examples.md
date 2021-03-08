@@ -7,18 +7,39 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720157"
 ---
 # <a name="examples-of-an-attestation-policy"></a>증명 정책의 예
 
-증명 정책은 증명 증거를 처리하고 Azure Attestation이 증명 토큰을 발급할지 여부를 확인하는 데 사용됩니다. 사용자 지정 정책을 사용하여 증명 토큰 생성을 제어할 수 있습니다. 다음은 증명 정책의 몇 가지 예입니다.
+증명 정책은 증명 증거를 처리하고 Azure Attestation이 증명 토큰을 발급할지 여부를 확인하는 데 사용됩니다. 사용자 지정 정책을 사용하여 증명 토큰 생성을 제어할 수 있습니다. 다음은 증명 정책의 몇 가지 예입니다. 
 
-## <a name="default-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 기본 정책 
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 샘플 사용자 지정 정책 
+
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+issuancerules {
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
+};
+
+```
+Azure Attestation에서 생성된 들어오는 클레임에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요. 정책 작성자는 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 수신 클레임을 사용할 수 있습니다. 
+
+발급 규칙 섹션은 필수가 아닙니다. 이 섹션에서는 사용자 지정 이름을 사용하여 증명 토큰에 추가 나가는 클레임을 만들 수 있습니다. 증명 토큰에서 서비스에 의해 생성된 나가는 클레임에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요.
+
+## <a name="default-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 기본 정책
 
 ```
 version= 1.0;
@@ -38,17 +59,18 @@ issuancerules
 };
 ```
 
-## <a name="sample-custom-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 샘플 사용자 지정 정책 
+기본 정책에서 사용되는 클레임은 더 이상 사용되지 않는 것으로 간주되지만 완벽하게 지원되며 나중에도 계속 포함됩니다. 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다. 권장 클레임 이름에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요. 
+
+## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>여러 SGX Enclave를 지원하는 샘플 사용자 지정 정책
 
 ```
 version= 1.0;
-authorizationrules
+authorizationrules 
 {
-       [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
-    => permit();
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
 };
 ```
 

@@ -1,26 +1,25 @@
 ---
-title: VM용 Azure Monitor에 대한 Resource Manager 템플릿 샘플
-description: VM용 Azure Monitor를 배포 및 구성하기 위한 Azure Resource Manager 템플릿 샘플입니다.
-ms.subservice: logs
+title: VM 인사이트에 대한 Resource Manager 템플릿 샘플
+description: VM 인사이트를 배포 및 구성하기 위한 Azure Resource Manager 템플릿 샘플입니다.
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 91c8396795a85cd63fa502c4b091b7ca9a42865b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597493"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046842"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대한 Resource Manager 템플릿 샘플
-이 문서에는 가상 머신에서 VM용 Azure Monitor를 사용하도록 설정하기 위한 샘플 [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+# <a name="resource-manager-template-samples-for-vm-insights"></a>VM 인사이트에 대한 Resource Manager 템플릿 샘플
+이 문서에는 가상 머신에서 VM 인사이트를 사용하도록 설정하기 위한 샘플 [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="configure-workspace"></a>작업 영역 구성
-다음 샘플에서는 Log Analytics 작업 영역에 대해 VM용 Azure Monitor를 사용하도록 설정합니다.
+다음 샘플에서는 Log Analytics 작업 영역에 대해 VM 인사이트를 사용하도록 설정합니다.
 
 
 ### <a name="template-file"></a>템플릿 파일
@@ -98,7 +97,7 @@ ms.locfileid: "100597493"
 
 
 ## <a name="onboard-an-azure-virtual-machine"></a>Azure 가상 머신 온보드
-다음 샘플에서는 VM용 Azure Monitor에 Azure 가상 머신을 추가합니다.
+다음 샘플에서는 VM 인사이트에 Azure 가상 머신을 추가합니다.
 
 
 ### <a name="template-file"></a>템플릿 파일
@@ -219,7 +218,7 @@ ms.locfileid: "100597493"
 
 
 ## <a name="onboard-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합 온보드
-다음 샘플에서는 VM용 Azure Monitor에 Azure 가상 머신 확장 집합을 추가합니다.
+다음 샘플에서는 VM 사이트에 Azure 가상 머신 확장 집합을 추가합니다.
 
 
 ### <a name="template-file"></a>템플릿 파일
@@ -340,5 +339,5 @@ ms.locfileid: "100597493"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../samples/resource-manager-samples.md).
-* [VM용 Azure Monitor에 대해 자세히 알아봅니다](../vm/vminsights-overview.md).
+* [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
+* [VM 인사이트에 대해 자세히 알아봅니다](vminsights-overview.md).

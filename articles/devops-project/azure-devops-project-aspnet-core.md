@@ -12,15 +12,15 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 59f8d721c23cbb033f295f2ef3045fc96f08ba96
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589161"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733189"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 .NET용 CI/CD 파이프라인 만들기
 
@@ -43,7 +43,9 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 1. **.NET** 샘플 애플리케이션을 선택합니다. .NET 샘플에는 오픈 소스 ASP.NET 프레임워크 또는 플랫폼 간 .NET Core 프레임워크 중 하나의 선택이 포함됩니다.
 
    ![.NET Framework](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > DevOps Starter를 설정하는 기본 옵션은 **GitHub** 를 사용하는 것이지만 마법사에서 이 설정을 변경할 수 있습니다.
 2. 이 샘플은 ASP.NET Core MVC 애플리케이션입니다. **.NET Core** 애플리케이션 프레임워크를 선택한 다음, **다음** 을 선택합니다.    
     
 3. 배포 대상으로 **Windows 웹앱** 을 선택한 다음, **다음** 을 선택합니다. 필요에 따라 배포에 대해 다른 Azure 서비스를 선택할 수 있습니다. 이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다.

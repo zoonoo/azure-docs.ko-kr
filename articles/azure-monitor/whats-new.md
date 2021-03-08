@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2021
-ms.openlocfilehash: 45cbd0fc2a3a6a059274f33e25b577fde1f4a4ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b21e5ea8e25844e3e025915b0b9f15162c642f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713442"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -22,15 +22,15 @@ ms.locfileid: "100585540"
 ### <a name="general"></a>일반 
 - [Azure Monitor FAQ](faq.md) - Application Insights 디바이스 정보에 항목이 추가되었습니다.
 ### <a name="agents"></a>에이전트  
-- [분석 Azure Monitor 로그에 대한 ETW(Windows용 이벤트 추적) 이벤트 수집](platform/data-sources-event-tracing-windows.md) - 새 문서
-- [Azure Monitor의 데이터 수집 규칙(미리 보기)](platform/data-collection-rule-overview.md) -PowerShell 및 CLI 샘플에 대한 링크가 추가되었습니다.
+- [분석 Azure Monitor 로그에 대한 ETW(Windows용 이벤트 추적) 이벤트 수집](./agents/data-sources-event-tracing-windows.md) - 새 문서
+- [Azure Monitor의 데이터 수집 규칙(미리 보기)](./agents/data-collection-rule-overview.md) -PowerShell 및 CLI 샘플에 대한 링크가 추가되었습니다.
 
 ### <a name="alerts"></a>경고  
-- [보안 내보내기를 사용하여 ITSM 도구를 연결하도록 Azure 구성](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) - 새 문서
-- [ITSMC 대시보드의 커넥터 상태 오류](platform/itsmc-dashboard-errors.md) - 새 문서
-- [ITSMC 대시보드를 사용하여 오류 조사](platform/itsmc-dashboard.md) - 새 문서
-- [Azure 메트릭 경고 문제 해결](platform/alerts-troubleshoot-metric.md) - 동적 임계값에 대한 섹션이 추가되었습니다.
-- [IT 서비스 관리 커넥터의 문제 해결](platform/itsmc-troubleshoot-overview.md) - 새 문서
+- [보안 내보내기를 사용하여 ITSM 도구를 연결하도록 Azure 구성](./alerts/itsm-connector-secure-webhook-connections-azure-configuration.md) - 새 문서
+- [ITSMC 대시보드의 커넥터 상태 오류](./alerts/itsmc-dashboard-errors.md) - 새 문서
+- [ITSMC 대시보드를 사용하여 오류 조사](./alerts/itsmc-dashboard.md) - 새 문서
+- [Azure 메트릭 경고 문제 해결](./alerts/alerts-troubleshoot-metric.md) - 동적 임계값에 대한 섹션이 추가되었습니다.
+- [IT 서비스 관리 커넥터의 문제 해결](./alerts/itsmc-troubleshoot-overview.md) - 새 문서
 
 ### <a name="application-insights"></a>Application Insights
 - [Azure Application Insights 원격 분석 상관 관계](app/correlation.md) -OpenCensus Python에서 한 모듈이 다른 모듈을 호출하는 경우의 추적 상관 관계가 추가되었습니다.
@@ -47,25 +47,25 @@ ms.locfileid: "100585540"
 - [Azure Data Explorer용 Azure Monitor(미리 보기)](insights/data-explorer.md) - 새 문서
 
 ### <a name="logs"></a>로그    
-- [Azure Monitor 고객 관리형 키](platform/customer-managed-keys.md) - 사용자가 할당한 관리 ID를 소개합니다.
-- [Azure Monitor 로그 전용 클러스터](log-query/logs-dedicated-clusters.md) - 응답 코드가 업데이트되었습니다.
-- [교차 서비스 쿼리 - Azure Monitor와 Azure Data Explorer(미리 보기)](platform/azure-monitor-troubleshooting-logs.md) - 새 문서
+- [Azure Monitor 고객 관리형 키](./logs/customer-managed-keys.md) - 사용자가 할당한 관리 ID를 소개합니다.
+- [Azure Monitor 로그 전용 클러스터](./logs/logs-dedicated-clusters.md) - 응답 코드가 업데이트되었습니다.
+- [교차 서비스 쿼리 - Azure Monitor와 Azure Data Explorer(미리 보기)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - 새 문서
 
 ### <a name="metrics"></a>메트릭
-- [Azure Monitor Metrics 메트릭 집계 및 표시 설명](platform/metrics-aggregation-explained.md) - 새 문서
+- [Azure Monitor Metrics 메트릭 집계 및 표시 설명](./essentials/metrics-aggregation-explained.md) - 새 문서
 
 ### <a name="platform-logs"></a>플랫폼 로그
-- [Azure Monitor 리소스 로그 지원 서비스 및 범주](platform/resource-logs-categories.md) - 새 문서
+- [Azure Monitor 리소스 로그 지원 서비스 및 범주](./essentials/resource-logs-categories.md) - 새 문서
 
 ### <a name="visualizations"></a>시각화
-- [Azure Monitor 통합 문서 데이터 원본](platform/workbooks-data-sources.md) - 병합 및 변경 분석 기능이 추가되었습니다.
+- [Azure Monitor 통합 문서 데이터 원본](./visualize/workbooks-data-sources.md) - 병합 및 변경 분석 기능이 추가되었습니다.
 
 
 ## <a name="december-2020"></a>2020년 12월
 
 ### <a name="general"></a>일반
 - [Azure Monitor 고객 관리형 키](logs/customer-managed-keys.md) - 오류 메시지가 추가되었습니다.
-- [Azure Monitor와 통합하는 파트너](/partners.md) - 이벤트 허브 통합에 관한 섹션이 추가되었습니다.
+- [Azure Monitor와 통합하는 파트너](partners.md) - 이벤트 허브 통합에 관한 섹션이 추가되었습니다.
 
 ### <a name="agents"></a>에이전트
 - [Azure Monitor를 사용하여 Azure Data Explorer 교차 리소스 쿼리](logs/azure-monitor-data-explorer-proxy.md) - 새 문서입니다.
@@ -96,7 +96,7 @@ ms.locfileid: "100585540"
 - [Java용 Azure Monitor Application Insights 문제 해결](app/java-standalone-troubleshoot.md) - 새 문서입니다.
 
 ### <a name="containers"></a>컨테이너
-- [Azure Monitor의 컨테이너 보고서](insights/container-insights-reports.md) - 새 문서입니다.
+- [컨테이너 인사이트의 보고서](insights/container-insights-reports.md) - 새 문서입니다.
 
 ### <a name="logs"></a>로그
 - [Azure Monitor 로그 전용 클러스터](logs/logs-dedicated-clusters.md) - 자동화된 명령, 연결 해제 및 제거 방법, 문제 해결이 추가되었습니다.
@@ -168,16 +168,16 @@ ms.locfileid: "100585540"
 
 ### <a name="virtual-machines"></a>가상 머신
 
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md) - 지원되는 지역을 추가했습니다.
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md) - 지원되는 지역을 추가했습니다.
 
-VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
+VM 인사이트 게스트 상태에 대한 새 문서(미리 보기)
 
-- [VM용 Azure Monitor 게스트 상태(미리 보기)](vm/vminsights-health-overview.md)
-- [VM용 Azure Monitor 게스트 상태 경고(미리 보기)](vm/vminsights-health-alerts.md)
-- [VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)](vm/vminsights-health-configure.md)
-- [데이터 컬렉션 규칙을 사용하여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)](vm/vminsights-health-configure-dcr.md)
-- [VM용 Azure Monitor 게스트 상태 사용(미리 보기)](vm/vminsights-health-enable.md)
-- [VM용 Azure Monitor 게스트 상태 문제 해결(미리 보기)](vm/vminsights-health-troubleshoot.md)
+- [VM 인사이트 게스트 상태(미리 보기)](vm/vminsights-health-overview.md)
+- [VM 인사이트 게스트 상태 경고(미리 보기)](vm/vminsights-health-alerts.md)
+- [VM 인사이트 게스트 상태에서 모니터링 구성(미리 보기)](vm/vminsights-health-configure.md)
+- [데이터 컬렉션 규칙을 사용하여 VM 인사이트 게스트 상태에서 모니터링 구성(미리 보기)](vm/vminsights-health-configure-dcr.md)
+- [VM 인사이트 게스트 상태 사용(미리 보기)](vm/vminsights-health-enable.md)
+- [VM 인사이트 게스트 상태 문제 해결(미리 보기)](vm/vminsights-health-troubleshoot.md)
 
 
 
@@ -210,9 +210,9 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 - [Azure에서 자동 크기 조정 시작](autoscale/autoscale-get-started.md) - 자동 크기 조정을 다른 지역으로 이동하는 섹션을 추가했습니다.
 
 ### <a name="containers"></a>컨테이너
-- [컨테이너용 Azure Monitor를 사용하여 PV 모니터링 구성](containers/container-insights-persistent-volumes.md) - 새 문서.
-- [컨테이너 에이전트용 Azure Monitor를 관리하는 방법](containers/container-insights-manage-agent.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
-- [컨테이너에 대한 Azure Monitor의 메트릭 경고](containers/container-insights-metric-alerts.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
+- [컨테이너 인사이트로 PV 모니터링 구성](containers/container-insights-persistent-volumes.md) - 새 문서
+- [컨테이너 인사이트 에이전트를 관리하는 방법](containers/container-insights-manage-agent.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
+- [컨테이너 인사이트의 메트릭 경고](containers/container-insights-metric-alerts.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 - [Azure Monitor의 IT 서비스 관리 커넥터 - 보안 내보내기](alerts/it-service-management-connector-secure-webhook-connections.md) - ServiceNow에 대한 섹션을 추가했습니다.
@@ -234,7 +234,7 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 ### <a name="virtual-machines"></a>가상 머신
 - [VM용 Azure Monitor의 변경 분석](vm/vminsights-change-analysis.md) - 새 문서.
 - [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md) - 지원되는 지역을 추가했습니다.
-- [메트릭용 컨테이너 에이전트의 Azure Monitor를 업데이트하는 방법](containers/container-insights-update-metrics.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
+- [메트릭용 컨테이너 인사이트를 업데이트하는 방법](containers/container-insights-update-metrics.md) - Azure Arc 지원 Kubernetes 클러스터에 대한 지원이 추가되었습니다.
 
 
 
@@ -265,8 +265,8 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 
 
 ### <a name="containers"></a>컨테이너
-- [컨테이너용 Azure Monitor를 사용하여 Azure Arc 사용 Kubernetes 클러스터 구성](containers/container-insights-enable-arc-enabled-clusters.md) - 서비스 주체를 사용하여 모니터링을 사용하도록 설정하기 위한 지침이 추가되었습니다.
-- [컨테이너용 Azure Monitor를 사용한 배포 및 HPA 메트릭](containers/container-insights-deployment-hpa-metrics.md) - 새 문서.
+- [컨테이너 인사이트를 사용하여 Azure Arc 사용 Kubernetes 클러스터 구성](containers/container-insights-enable-arc-enabled-clusters.md) - 서비스 주체를 사용하여 모니터링을 사용하도록 설정하기 위한 지침이 추가되었습니다.
+- [컨테이너 인사이트로 배포 및 HPA 메트릭](containers/container-insights-deployment-hpa-metrics.md) - 새 문서
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 - [Azure Cache for Redis용 Azure Monitor](insights/redis-cache-insights-overview.md) - 미리 보기 지정이 제거되었습니다.
@@ -319,7 +319,7 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 
 
 #### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>에이전트 콘텐츠의 재구성에서 새로운 문서 및 업데이트된 문서
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md)
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md)
 - [Linux 머신에 Log Analytics 에이전트 설치](agents/agent-linux.md)
 - [Windows 머신에 Log Analytics 에이전트 설치](agents/agent-windows.md)
 - [Log Analytics 에이전트 개요](agents/log-analytics-agent.md)
@@ -344,7 +344,7 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 
 
 ### <a name="containers"></a>컨테이너
-- [컨테이너용 Azure Monitor를 사용한 배포 및 HPA 메트릭](containers/container-insights-deployment-hpa-metrics.md) - 새 문서.
+- [컨테이너 인사이트로 배포 및 HPA 메트릭](containers/container-insights-deployment-hpa-metrics.md) - 새 문서
 
 ### <a name="insights"></a>자세한 정보
 - [Azure Monitor의 모니터링 솔루션](insights/solutions.md) - 새 UI에 대해 업데이트되었습니다.
@@ -372,7 +372,7 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="general"></a>일반
-- [Azure Monitor 배포](deploy-scale.md) - VM용 Azure Monitor 온보딩 콘텐츠의 재구성
+- [Azure Monitor 배포](deploy-scale.md) - VM 인사이트 온보딩 콘텐츠의 재구성
 - [Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결](logs/private-link-security.md) - 제한에 대한 섹션이 추가됨
 
 ### <a name="alerts"></a>경고
@@ -389,8 +389,8 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 - [Azure Application Insights Profiler 문제 해결](app/profiler-troubleshooting.md) - Azure App Service에서 ASP.NET Core 앱에 대해 프로파일러를 실행하는 버그에 대한 참고 사항이 추가됨 
 
 ### <a name="containers"></a>컨테이너
-- [컨테이너의 Azure Monitor의 로그 경고](containers/container-insights-log-alerts.md) - 새 문서
-- [컨테이너의 Azure Monitor의 메트릭 경고](containers/container-insights-metric-alerts.md) - 새 문서
+- [컨테이너 인사이트의 로그 경고](containers/container-insights-log-alerts.md) -새 문서
+- [컨테이너 인사이트의 메트릭 경고](containers/container-insights-metric-alerts.md) - 새 문서
 
 ### <a name="logs"></a>로그
 - [Azure Monitor 고객 관리형 키](logs/customer-managed-keys.md) - 오류 메시지와 쿼리를 위한 CMK 구성 섹션이 추가됨
@@ -408,18 +408,18 @@ VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
 
 ### <a name="virtual-machines"></a>가상 머신
 
-VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이트된 문서
+VM 인사이트 콘텐츠의 재구성에서 새롭게 업데이트된 문서
 
-- [VM용 Azure Monitor란?](vm/vminsights-overview.md)
-- [VM용 Azure Monitor에 대해 Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md)
+- [VM 인사이트란?](vm/vminsights-overview.md)
+- [VM 인사이트에 대한 Log Analytics 작업 영역 구성](vm/vminsights-configure-workspace.md)
 - [Azure Monitor에 Linux 컴퓨터 연결](agents/agent-linux.md)
 - [하이브리드 환경에 대한 Azure Monitor 사용](vm/vminsights-enable-hybrid.md)
 - [Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대한 Azure Monitor 사용](vm/vminsights-enable-portal.md)
-- [Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정](./vm/vminsights-enable-policy.md)
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md)
-- [PowerShell을 사용하여 VM용 Azure Monitor 사용](vm/vminsights-enable-powershell.md)
-- [Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용](vm/vminsights-enable-resource-manager.md)
-- [PowerShell 또는 템플릿을 사용하여 VM용 Azure Monitor 사용](./vm/vminsights-enable-powershell.md)
+- [Azure Policy를 사용하여 VM 인사이트 사용](./vm/vminsights-enable-policy.md)
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md)
+- [PowerShell을 사용하여 VM 인사이트 사용](vm/vminsights-enable-powershell.md)
+- [Resource Manager 템플릿을 사용하여 VM 인사이트 사용](vm/vminsights-enable-resource-manager.md)
+- [PowerShell 또는 템플릿을 사용하여 VM 인사이트 사용](./vm/vminsights-enable-powershell.md)
 
 
 ### <a name="visualizations"></a>시각화
@@ -453,9 +453,9 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 
 ### <a name="containers"></a>컨테이너
 - [하이브리드 Kubernetes 클러스터 모니터링을 중지하는 방법](containers/container-insights-optout-hybrid.md) - Arc 지원 Kubernetes에 대한 섹션을 추가했습니다.
-- [컨테이너에 대한 Azure Monitor를 사용하여 Azure Arc 지원 Kubernetes 클러스터 구성](containers/container-insights-enable-arc-enabled-clusters.md) - 새 문서.
-- [컨테이너에 대한 Azure Monitor를 사용하여 Azure Red Hat OpenShift v4.x 구성](containers/container-insights-azure-redhat4-setup.md) - 필수 구성 요소가 업데이트되었습니다.
-- [컨테이너 Live Data에 대한 Azure Monitor 설정(미리 보기)](containers/container-insights-livedata-setup.md) - Azure 미국 정부에서 사용할 수 없는 기능에 대한 정보가 제거되었습니다.
+- [컨테이너 인사이트로 Azure Arc 지원 Kubernetes 클러스터 구성](containers/container-insights-enable-arc-enabled-clusters.md) - 새 문서입니다.
+- [컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성](containers/container-insights-azure-redhat4-setup.md) - 필수 구성 요소가 업데이트되었습니다.
+- [컨테이너 인사이트 라이브 데이터 설정(미리 보기)](containers/container-insights-livedata-setup.md) - Azure 미국 정부에서 사용할 수 없는 기능에 대한 정보가 제거되었습니다.
 
 ### <a name="insights"></a>자세한 정보
 - [FAQ - Azure의 네트워크 성능 모니터 솔루션](insights/network-performance-monitor-faq.md) - ExpressRoute 모니터에 대한 FAQ가 추가되었습니다.
@@ -495,9 +495,9 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 - [Azure Monitor에서 Azure 활동 로그 이벤트 보기](./essentials/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>가상 머신
-- [Azure Portal에서 VM용 Azure Monitor 사용](./vm/vminsights-enable-portal.md) - Azure Arc를 포함하도록 업데이트되었습니다.
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
-- [VM용 Azure Monitor란?](vm/vminsights-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+- [Azure Portal에서 VM 인사이트 사용](./vm/vminsights-enable-portal.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
+- [VM 인사이트란?](vm/vminsights-overview.md) - Azure Arc를 포함하도록 업데이트되었습니다.
 
 
 ### <a name="visualizations"></a>시각화
@@ -523,8 +523,8 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 - [Azure Monitor에 대한 Resource Manager 템플릿 샘플](/resource-manager-samples.md)
 - [작업 그룹에 대한 Resource Manager 템플릿 샘플](alerts/resource-manager-action-groups.md)
 - [에이전트에 대한 Resource Manager 템플릿 샘플](agents/resource-manager-agent.md)
-- [컨테이너용 Azure Monitor에 대한 Resource Manager 템플릿 샘플](containers/resource-manager-container-insights.md)
-- [VM용 Azure Monitor에 대한 Resource Manager 템플릿 샘플](vm/resource-manager-vminsights.md)
+- [컨테이너 인사이트를 위한 Resource Manager 템플릿 샘플](containers/resource-manager-container-insights.md)
+- [VM 인사이트에 대한 Resource Manager 템플릿 샘플](vm/resource-manager-vminsights.md)
 - [진단 설정에 대한 Resource Manager 템플릿 샘플](essentials/resource-manager-diagnostic-settings.md)
 - [Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플](logs/resource-manager-workspace.md)
 - [로그 쿼리에 대한 Resource Manager 템플릿 샘플](logs/resource-manager-log-queries.md)
@@ -559,10 +559,10 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 
 
 ### <a name="containers"></a>컨테이너
-- [컨테이너에 대한 Azure Monitor 사용 방법](containers/container-insights-onboard.md) - 업데이트된 방화벽 구성 테이블
-- [메트릭용 컨테이너에 대한 Azure Monitor 업데이트 방법](containers/container-insights-update-metrics.md) - 관리되는 ID를 사용하여 메트릭을 수집하도록 업데이트
-- [컨테이너의 Azure Monitor에 대한 모니터링 비용](containers/container-insights-cost.md) - 새 문서
-- [컨테이너 라이브 데이터 (미리 보기)에 대한 Azure Monitor 설정](containers/container-insights-livedata-setup.md) - 새 클러스터 역할 바인딩에 대한 지원
+- [컨테이너 인사이트 사용 방법](containers/container-insights-onboard.md) - 방화벽 구성 테이블이 업데이트되었습니다.
+- [메트릭용 컨테이너 인사이트를 업데이트하는 방법](containers/container-insights-update-metrics.md) - 관리 ID를 사용하여 메트릭을 수집하기 위한 업데이트
+- [컨테이너 인사이트에 대한 모니터링 비용](containers/container-insights-cost.md) - 새 문서입니다.
+- [컨테이너 인사이트 라이브 데이터 설정(미리 보기)](containers/container-insights-livedata-setup.md) - 새 클러스터 역할 바인딩에 대한 지원
 
 ### <a name="insights"></a>자세한 정보
 - [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) - 새 문서
@@ -588,12 +588,12 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 
 
 ### <a name="virtual-machines"></a>가상 머신
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md) - Ubuntu 서버의 지버전원 을 추가함. Log Analytics 작업 영역에 대해 지원되는 지역 추가
-- [VM용 Azure Monitor로 성능을 차트로 만드는 방법](vm/vminsights-performance.md) - 사용할 수 없는 메트릭에 대한 제한 사항 섹션을 추가함.
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md) - Ubuntu 서버의 지원 버전을 추가함. Log Analytics 작업 영역에 대해 지원되는 지역 추가
+- [VM 인사이트로 성능을 차트로 만드는 방법](vm/vminsights-performance.md) - 사용할 수 없는 메트릭에 대한 제한 사항 섹션을 추가함.
 
 ### <a name="visualizations"></a>시각화
 - [Azure Monitor 통합 문서 및 Azure Resource Manager 템플릿](visualize/workbooks-automate.md) - 통합 문서 템플릿을 배포하기 위한 Resource Manager 템플릿을 추가함.
-- [Azure Monitor 통합 문서 그룹](platform/workbooks-groups.md) - 새 문서
+- [Azure Monitor 통합 문서 그룹](./visualize/workbooks-groups.md) - 새 문서
 - [Azure Monitor 통합 문서-JSONPath를 사용하여 JSON 데이터 변환](visualize/workbooks-jsonpath.md) - 새 문서
 
 
@@ -623,7 +623,7 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 
 ### <a name="containers"></a>컨테이너
 
-- [컨테이너에 대한 Azure Monitor를 사용하여 Azure Red Hat OpenShift v4.x 구성](containers/container-insights-azure-redhat4-setup.md) - 새 문서
+- [컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성](containers/container-insights-azure-redhat4-setup.md) - 새 문서입니다.
 - [ServiceNow 동기화 문제를 수동으로 해결하는 방법](alerts/itsmc-resync-servicenow.md) - 새 문서
 - [Azure 및 Red Hat OpenShift v4 클러스터 모니터링을 중지하는 방법](containers/container-insights-optout-openshift-v4.md) - 새 문서
 - [Azure Red Hat OpenShift v3 클러스터 모니터링을 중지하는 방법](containers/container-insights-optout-openshift-v3.md) - 새 문서
@@ -671,8 +671,8 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 
 ### <a name="containers"></a>컨테이너
 
-- [Azure Monitor FAQ](faq.md) - 컨테이너용 Azure Monitor에 대한 업데이트입니다.
-- [컨테이너용 Azure Monitor를 사용하여 GPU 모니터링 구성](containers/container-insights-gpu-monitoring.md) - 새 문서
+- [Azure Monitor FAQ](faq.md) - 컨테이너 인사이트에 대한 업데이트
+- [컨테이너 인사이트를 사용하여 GPU 모니터링 구성](containers/container-insights-gpu-monitoring.md) - 새 문서입니다.
 
 ### <a name="insights"></a>자세한 정보
 
@@ -696,18 +696,18 @@ VM용 Azure Monitor 콘텐츠의 재구성에서 새로운 문서 및 업데이�
 ### <a name="virtual-machines"></a>가상 머신
 
 - [Azure Monitor를 사용하여 Azure 가상 머신 모니터링](vm/monitor-vm-azure.md) - 새 문서입니다.
-- [빠른 시작: Azure Monitor를 사용하여 Azure 가상 머신 모니터링](vm/quick-monitor-azure-vm.md) - VM용 Azure Monitor를 추가하기 위해 업데이트되었습니다.
-- [VM용 Azure Monitor의 경고](vm/vminsights-alerts.md) - 새 문서
-- [VM용 Azure Monitor 사용 개요](vm/vminsights-enable-overview.md) - 업데이트된 에이전트 다운로드 링크입니다.
+- [빠른 시작: Azure Monitor를 사용하여 Azure 가상 머신 모니터링](vm/quick-monitor-azure-vm.md) - VM 인사이트를 추가하도록 업데이트되었습니다.
+- [VM 인사이트의 경고](vm/vminsights-alerts.md) - 새 문서입니다.
+- [VM 인사이트 사용 개요](vm/vminsights-enable-overview.md) - 에이전트 다운로드 링크를 업데이트했습니다.
 
-VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
+VM 인사이트의 일반 공급에 대한 일반 업데이트
 
-- [VM용 Azure Monitor란?](vm/vminsights-overview.md)
-- [VM용 Azure Monitor(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) 
-- [Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정](./vm/vminsights-enable-policy.md) 
-- [VM용 Azure Monitor를 사용하여 성능을 차트로 표시하는 방법](vm/vminsights-performance.md)
-- [VM용 Azure Monitor에서 로그를 쿼리하는 방법](vm/vminsights-log-search.md)
-- [VM용 Azure Monitor를 사용하여 앱 종속성 보기](vm/vminsights-maps.md) 
+- [VM 인사이트란?](vm/vminsights-overview.md)
+- [VM 인사이트(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) 
+- [Azure Policy를 사용하여 VM 인사이트 사용](./vm/vminsights-enable-policy.md) 
+- [VM 인사이트를 성능을 차트로 나타내는 방법](vm/vminsights-performance.md)
+- [VM 인사이트에서 로그를 쿼리하는 방법](vm/vminsights-log-search.md)
+- [VM 인사이트를 사용하여 앱 종속성 보기](vm/vminsights-maps.md) 
 
 ### <a name="visualizations"></a>시각화
 
@@ -735,13 +735,13 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 
-#### <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
+#### <a name="container-insights"></a>컨테이너 인사이트
 
-- [Azure Kubernetes Service와 Azure Active Directory 통합](../aks/azure-ad-integration-cli.md) - Kubernetes RBAC 지원 클러스터를 지원하여 컨테이너에 대한 Azure Monitor를 지원하도록 클라이언트 애플리케이션을 만들기 위한 메모를 추가했습니다.
+- [Azure Kubernetes Service와 Azure Active Directory 통합](../aks/azure-ad-integration-cli.md) - Kubernetes RBAC 지원 클러스터를 지원하여 컨테이너 인사이트를 지원하도록 클라이언트 애플리케이션을 만들기 위한 메모를 추가했습니다.
 
-#### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
+#### <a name="vm-insights"></a>VM 인사이트
 
-- [VM용 Azure Monitor(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) - 성능 데이터를 저장하는 방법에 대한 변경 내용
+- [VM 인사이트(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) - 성능 데이터를 저장하는 방법에 대한 변경 내용
 
 #### <a name="office-365"></a>Office 365
 
@@ -796,20 +796,20 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 
-#### <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
+#### <a name="container-insights"></a>컨테이너 인사이트
 
-- [컨테이너용 Azure Monitor 에이전트 데이터 수집 구성](containers/container-insights-agent-config.md) - Azure Red Hat OpenShift에서 에이전트를 업그레이드하는 방법에 대한 세부 정보 및 에이전트를 업그레이드 방법을 구분하기 위한 추가 정보가 추가되었습니다.
-- [컨테이너용 Azure Monitor 성능 경고 만들기](./containers/container-insights-log-alerts.md) - 작업 영역 컨텍스트 경고를 사용하여 작업 영역에 저장된 성능 데이터에 대한 경고를 만드는 방법에 대한 정보가 수정되고 단계가 업데이트되었습니다.
-- [컨테이너용 Azure Monitor를 사용하여 Kubernetes 모니터링](containers/container-insights-analyze.md) - Windows Kubernetes 클러스터 지원에 대한 개요 문서와 분석 문서가 모두 업데이트되었습니다.
-- [컨테이너용 Azure Monitor를 사용하여 Azure Red Hat OpenShift 클러스터 구성](containers/container-insights-azure-redhat-setup.md) - Azure Red Hat OpenShift에서 에이전트를 업그레이드하는 방법에 대한 세부 정보 및 에이전트를 업그레이드 방법을 구분하기 위한 추가 정보가 추가되었습니다.
-- [컨테이너용 Azure Monitor를 사용하여 하이브리드 Kubernetes 클러스터 구성](containers/container-insights-hybrid-setup.md) - Kubelet의 cAdvisor를 사용하여 secure port:10250에 대한 추가 지원을 반영하도록 업데이트되었습니다.
-- [컨테이너용 Azure Monitor 에이전트를 관리하는 방법](containers/container-insights-manage-agent.md) - 다른 유형의 Kubernetes 클러스터에 비해 Azure Red Hat OpenShift를 사용한 메트릭 스크랩의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
-- [컨테이너용 Azure Monitor Prometheus 통합 구성](containers/container-insights-prometheus-integration.md) - 다른 유형의 Kubernetes 클러스터와 비교하여 Azure Red Hat OpenShift를 사용한 메트릭 스크래핑의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
-- [메트릭에 맞게 컨테이너용 Azure Monitor를 업데이트하는 방법](containers/container-insights-update-metrics.md) - 다른 유형의 Kubernetes 클러스터에 비해 Azure Red Hat OpenShift를 사용한 메트릭 스크랩의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
+- [컨테이너 인사이트 에이전트 데이터 수집 구성](containers/container-insights-agent-config.md) - Azure Red Hat OpenShift에서 에이전트를 업그레이드하는 방법에 대한 세부 정보 및 에이전트를 업그레이드 방법을 구분하기 위한 추가 정보가 추가되었습니다.
+- [컨테이너 인사이트 성능 경고 만들기](./containers/container-insights-log-alerts.md) - 작업 영역 컨텍스트 경고를 사용하여 작업 영역에 저장된 성능 데이터에 대한 경고를 만드는 방법에 대한 정보가 수정되고 단계가 업데이트되었습니다.
+- [컨테이너 인사이트를 사용한 Kubernetes 모니터링](containers/container-insights-analyze.md) - Windows Kubernetes 클러스터 지원에 대한 개요 문서와 분석 문서가 모두 업데이트되었습니다.
+- [컨테이너 인사이트를 사용하여 Azure Red Hat OpenShift 클러스터 구성](containers/container-insights-azure-redhat-setup.md) - Azure Red Hat OpenShift에서 에이전트를 업그레이드하는 방법에 대한 세부 정보 및 에이전트를 업그레이드 방법을 구분하기 위한 추가 정보가 추가되었습니다.
+- [컨테이너 인사이트를 사용하여 하이브리드 Kubernetes 클러스터 구성](containers/container-insights-hybrid-setup.md) - Kubelet의 cAdvisor를 사용하여 secure port:10250에 대한 추가 지원을 반영하도록 업데이트되었습니다.
+- [컨테이너 인사이트 에이전트를 관리하는 방법](containers/container-insights-manage-agent.md) - 다른 유형의 Kubernetes 클러스터에 비해 Azure Red Hat OpenShift를 사용한 메트릭 스크랩의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
+- [컨테이너 인사이트 Prometheus 통합 구성](containers/container-insights-prometheus-integration.md) - 다른 유형의 Kubernetes 클러스터와 비교하여 Azure Red Hat OpenShift를 사용한 메트릭 스크래핑의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
+- [메트릭에 대한 컨테이너 인사이트를 업데이트하는 방법](containers/container-insights-update-metrics.md) - 다른 유형의 Kubernetes 클러스터에 비해 Azure Red Hat OpenShift를 사용한 메트릭 스크랩의 동작 및 구성과 관련된 세부 정보가 업데이트되었습니다.
 
-#### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
+#### <a name="vm-insights"></a>VM 인사이트
 
-- [VM용 Azure Monitor(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) - 작업 영역과 에이전트를 새 버전으로 업그레이드하는 방법에 대한 정보가 추가되었습니다.
+- [VM 인사이트(GA) 질문과 대답](vm/vminsights-ga-release-faq.md) - 작업 영역과 에이전트를 새 버전으로 업그레이드하는 방법에 대한 정보가 추가되었습니다.
 
 #### <a name="office-365"></a>Office 365
 
@@ -860,10 +860,10 @@ VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션
 
-- [컨테이너용 Azure Monitor 질문과 대답](./faq.md) - 이미지 및 이름 필드에 질문이 추가되었습니다.
+- [컨테이너 인사이트 질문과 대답](./faq.md) - 이미지 및 이름 필드에 질문이 추가되었습니다.
 - [Azure Monitor의 Azure SQL 분석 솔루션](insights/azure-sql.md) - Managed Instance 지원을 기다리는 데이터베이스가 업데이트되었습니다.
-- [컨테이너용 Azure Monitor 에이전트 데이터 수집 구성](containers/container-insights-agent-config.md) - enrich_container_logs에 대한 설정이 추가되었습니다.
-- [컨테이너용 Azure Monitor를 사용하여 하이브리드 Kubernetes 클러스터 구성](containers/container-insights-hybrid-setup.md) - 문제 해결 섹션이 추가되었습니다.
+- [컨테이너 인사이트 에이전트 데이터 수집 구성](containers/container-insights-agent-config.md) - enrich_container_logs에 대한 설정이 추가되었습니다.
+- [컨테이너 인사이트를 사용하여 하이브리드 Kubernetes 클러스터 구성](containers/container-insights-hybrid-setup.md) - 문제 해결 섹션이 추가되었습니다.
 - [Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링](insights/ad-replication-status.md) - .NET Framework 필수 구성 요소가 업데이트되었습니다.
 - [Azure의 네트워크 성능 모니터 솔루션](insights/network-performance-monitor.md) - 지원되는 지역이 추가되었습니다.
 - [Azure Monitor를 사용하여 Active Directory 환경 최적화](insights/ad-assessment.md) - .NET Framework 필수 구성 요소가 업데이트되었습니다.

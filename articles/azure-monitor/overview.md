@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 43ceaa716bf9b39dd1686be0c5a853e350cbe118
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582925"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717352"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -20,7 +20,7 @@ Azure Monitor는 애플리케이션 및 서비스의 가용성과 성능을 극�
 Azure Monitor에서 수행할 수 있는 작업에 대한 몇 가지 예는 다음과 같습니다.
 
 - [Application Insights](app/app-insights-overview.md)를 사용하여 애플리케이션 및 종속성 간의 문제를 감지하고 진단합니다.
-- 인프라 문제를 [VM용 Azure Monitor](vm/vminsights-overview.md) 및 [컨테이너용 Azure Monitor](containers/container-insights-overview.md)와 상호 연결합니다.
+- 인프라 문제를 [VM 인사이트](vm/vminsights-overview.md) 및 [컨테이너 인사이트](containers/container-insights-overview.md)와 상호 연결합니다.
 - 문제 해결 및 심층 진단을 위해 [Log Analytics](logs/log-query-overview.md)를 사용하여 모니터링 데이터를 드릴다운합니다.
 - [스마트 경고](alerts/alerts-smartgroups-overview.md) 및 [자동 작업](alerts/alerts-action-rules.md)을 사용하여 규모에 맞게 작업을 지원합니다.
 - Azure [대시보드](visualize/tutorial-logs-dashboards.md) 및 [통합 문서](visualize/workbooks-overview.md)를 사용하여 시각화합니다.
@@ -33,13 +33,13 @@ Azure Monitor에서 수행할 수 있는 작업에 대한 몇 가지 예는 다�
 
 ## <a name="overview"></a>개요
 
-다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor에서 사용하는 두 가지 데이터 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](/data-platform.md)를 채우는 [모니터링 데이터의 원본](agents/data-sources.md)이 있습니다. 오른쪽에는 이 수집된 데이터를 사용하여 Azure Monitor가 수행하는 여러 함수가 있습니다. 여기에는 분석, 경고, 외부 시스템으로 스트리밍 등의 작업이 포함됩니다.
+다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor에서 사용하는 두 가지 데이터 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](data-platform.md)를 채우는 [모니터링 데이터의 원본](agents/data-sources.md)이 있습니다. 오른쪽에는 이 수집된 데이터를 사용하여 Azure Monitor가 수행하는 여러 함수가 있습니다. 여기에는 분석, 경고, 외부 시스템으로 스트리밍 등의 작업이 포함됩니다.
 
 ![Azure Monitor 개요](media/overview/overview.png)
 
 ## <a name="monitoring-data-platform"></a>데이터 플랫폼 모니터링
 
-Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](/data-platform.md) 중 한 쪽에 적합합니다. [메트릭](essentials/data-platform-metrics.md)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](logs/data-platform-logs.md)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에도 로그로 저장됩니다.
+Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](data-platform.md) 중 한 쪽에 적합합니다. [메트릭](essentials/data-platform-metrics.md)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](logs/data-platform-logs.md)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에도 로그로 저장됩니다.
 
 많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프나 클릭하면 Azure Portal의 [메트릭 탐색기](essentials/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](logs/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](./logs/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트할 수 있습니다. 그런 다음, 다른 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](alerts/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
-Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Kusto 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](logs/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
+Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Kusto 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](logs/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) 및 [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
 ![분석을 위해 Log Analytics로 흐르는 로그 데이터를 보여주는 다이어그램입니다.](media/overview/logs.png)
 
@@ -61,7 +61,7 @@ Azure Monitor는 [다양한 원본](monitor-reference.md)에서 데이터를 수
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
-Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](essentials/platform-logs-overview.md)가 기록됩니다. [메트릭](/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
+Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](essentials/platform-logs-overview.md)가 기록됩니다. [메트릭](data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
 [진단을 사용](essentials/platform-logs-overview.md)하여 수집 중인 데이터를 리소스의 내부 작업으로 확장합니다.  [에이전트를 추가](agents/agents-overview.md)하여 게스트 운영 체제에서 원격 분석을 수집하는 리소스를 계산합니다. 
 
@@ -79,13 +79,13 @@ Azure Monitor는 [데이터 수집기 API](logs/data-collector-api.md)를 사용
 
 ![App Insights](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
-[컨테이너용 Azure Monitor](containers/container-insights-overview.md)는 AKS(Azure Kubernetes Service)에서 호스팅되는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메트릭을 수집하여 성능을 시각적으로 표시합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용하도록 설정하면, 이러한 메트릭 및 로그가 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 통해 자동으로 수집됩니다.
+### <a name="container-insights"></a>컨테이너 인사이트
+[컨테이너 인사이트](containers/container-insights-overview.md)는 AKS(Azure Kubernetes Service)에서 호스팅되는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메트릭을 수집하여 성능을 시각적으로 표시합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용하도록 설정하면, 이러한 메트릭 및 로그가 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 통해 자동으로 수집됩니다.
 
 ![컨테이너 상태](media/overview/container-insights.png)
 
-### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-[VM용 Azure Monitor](vm/vminsights-overview.md)는 Azure VM(Virtual Machines)을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 다른 프로세스와 외부 프로세스에 대한 상호 연결된 종속성을 식별합니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다.  
+### <a name="vm-insights"></a>VM 인사이트
+[VM 인사이트](vm/vminsights-overview.md)는 Azure VM(Virtual Machines)을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 다른 프로세스와 외부 프로세스에 대한 상호 연결된 종속성을 식별합니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다.  
 
 
 ![VM 인사이트](media/overview/vm-insights.png)
@@ -145,7 +145,7 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](/data-platform.md).
+* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](data-platform.md).
 * 애플리케이션의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](agents/data-sources.md).
 * 수집한 데이터를 분석하기 위한 [로그 쿼리](logs/log-query-overview.md).
 * 클라우드 애플리케이션 및 서비스 모니터링에 대한 [모범 사례](/azure/architecture/best-practices/monitoring).

@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618113"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687501"
 ---
-# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>자습서: 복제본 세트를 만들어서 Azure Active Directory Domain Services(미리 보기)의 복원력 또는 지리적 위치에 사용
+# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>자습서: 복제본 세트를 만들어서 Azure Active Directory Domain Services의 복원력 또는 지리적 위치에 사용
 
 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인의 복원력을 높이기 위해 또는 애플리케이션과 가까운 지리적 위치에 추가로 배포하려면 *복제본 세트* 를 사용하면 됩니다. 모든 Azure AD DS 관리되는 도메인 네임스페이스(예: *aaddscontoso.com*)에는 초기 복제본 세트가 하나 포함되어 있습니다. 다른 Azure 지역에 추가 복제본 세트를 만드는 기능은 관리되는 도메인에 지리적 복원력을 제공합니다.
 
 Azure AD DS을 지원하는 Azure 지역의 모든 피어링된 가상 네트워크에 복제본 세트를 추가할 수 있습니다.
-
-복제본 세트는 Azure AD Domain Services의 공개 미리 보기 기능입니다. 미리 보기로 제공되는 기능의 지원 차이점을 알고 있어야 합니다. 미리 보기에 대한 자세한 내용은 [Azure Active Directory 미리 보기 SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -34,7 +32,7 @@ Azure AD DS을 지원하는 Azure 지역의 모든 피어링된 가상 네트워
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -78,7 +76,7 @@ Azure AD DS에서 복제본 세트를 사용하려면 다음 Azure 가상 네트
 
 1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
-1. 왼쪽에서 **복제본 세트(미리 보기)** 를 선택합니다. 각 관리되는 도메인에는 다음 예제 스크린샷처럼 선택한 지역에 하나의 초기 복제본 세트가 포함됩니다.
+1. 왼쪽에서 **복제본 세트** 를 선택합니다. 각 관리되는 도메인에는 다음 예제 스크린샷처럼 선택한 지역에 하나의 초기 복제본 세트가 포함됩니다.
 
     ![Azure Portal에서 복제본 세트를 보고 추가하는 예제 스크린샷](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -113,7 +111,7 @@ Azure AD DS에서 복제본 세트를 사용하려면 다음 Azure 가상 네트
 
 1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
-1. 왼쪽에서 **복제본 세트(미리 보기)** 를 선택합니다. 복제본 세트 목록에서 삭제하려는 복제본 세트 옆에 있는 **...** 바로 가기 메뉴를 선택합니다.
+1. 왼쪽에서 **복제본 세트** 를 선택합니다. 복제본 세트 목록에서 삭제하려는 복제본 세트 옆에 있는 **...** 바로 가기 메뉴를 선택합니다.
 1. 바로 가기 메뉴에서 **삭제** 를 선택한 다음, 복제본 세트 삭제를 확인합니다.
 
 > [!NOTE]

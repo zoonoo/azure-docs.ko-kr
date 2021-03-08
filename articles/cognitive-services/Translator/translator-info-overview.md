@@ -12,16 +12,16 @@ ms.date: 02/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 번역기, 텍스트 번역, 기계 번역, 번역 서비스
-ms.openlocfilehash: 12f6d22f263747a8c43b2d98e6ade1de78aea1ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 72df700d38cad3ee31ef438d7df1c890acde9e6b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727977"
 ---
 # <a name="what-is-the-translator-service"></a>Translator 서비스란?
 
-Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. 이를 통해 [70개 이상의 언어](./language-support.md)로 다국어 사용자 경험을 추가할 수 있습니다. 또한 텍스트 번역을 위해 모든 운영 체제가 있는 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
+Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. 이를 통해 [90개 언어 및 방언](./language-support.md)으로 다국어 사용자 경험을 추가할 수 있습니다. 또한 텍스트 번역을 위해 모든 운영 체제가 있는 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 

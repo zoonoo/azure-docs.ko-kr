@@ -7,34 +7,34 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: defeeb42340cbc3203141561aa33a2b4b7b00bb1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa0360d6730293f3817d63e31b24464a0e4950ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725478"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링을 참조하세요.
-[Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM용 Azure Monitor](../vm/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
+[Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM 인사이트](../vm/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
 
 또한 기존 Azure Virtual Machine이 있다고 가정합니다. 그렇지 않은 경우 VM 빠른 시작 가이드에 따라 [Windows VM을 만들거나](../../virtual-machines/windows/quick-create-portal.md)[Linux VM을 만들 수 있습니다](../../virtual-machines/linux/quick-create-cli.md).
 
-Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 가상 머신 모니터링](../insights/monitor-vm-azure.md)을 참조하세요.
+Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 가상 머신 모니터링](./monitor-vm-azure.md)을 참조하세요.
 
 
 ## <a name="complete-the-monitor-an-azure-resource-quickstart"></a>Azure 리소스 모니터링 빠른 시작을 완료합니다.
-[Azure Monitor를 사용하여 Azure 리소스 모니터링](../learn/quick-monitor-azure-resource.md)을 완료하여 구독의 VM에 대한 개요 페이지, 활동 로그 및 메트릭을 살펴봅니다. Azure VM은 다른 Azure 리소스와 동일한 모니터링 데이터를 수집하지만, 이는 호스트 VM에만 해당됩니다. 이 빠른 시작의 나머지 부분에서는 게스트 운영 체제 및 해당 워크로드의 모니터링에 초점을 둡니다.
+[Azure Monitor를 사용하여 Azure 리소스 모니터링](../essentials/quick-monitor-azure-resource.md)을 완료하여 구독의 VM에 대한 개요 페이지, 활동 로그 및 메트릭을 살펴봅니다. Azure VM은 다른 Azure 리소스와 동일한 모니터링 데이터를 수집하지만, 이는 호스트 VM에만 해당됩니다. 이 빠른 시작의 나머지 부분에서는 게스트 운영 체제 및 해당 워크로드의 모니터링에 초점을 둡니다.
 
 
-## <a name="enable-azure-monitor-for-vms"></a>VM용 Azure Monitor 사용
-호스트 VM에 대한 메트릭 및 활동 로그가 수집되는 동안 게스트 운영 체제 및 해당 워크로드의 모니터링 데이터를 수집하고 분석하도록 에이전트를 구성해야 합니다. VM용 Azure Monitor는 이러한 에이전트를 설치하고, 가상 머신을 모니터링하기 위한 강력한 추가 기능을 제공합니다.
+## <a name="enable-vm-insights"></a>VM 인사이트 사용
+호스트 VM에 대한 메트릭 및 활동 로그가 수집되는 동안 게스트 운영 체제 및 해당 워크로드의 모니터링 데이터를 수집하고 분석하도록 에이전트를 구성해야 합니다. VM 인사이트는 이러한 에이전트를 설치하고, 가상 머신을 모니터링하기 위한 강력한 추가 기능을 제공합니다.
 
 1. 가상 머신의 메뉴로 이동합니다.
 2. **개요** 페이지에서 **인사이트로 이동** 을 클릭하거나, **모니터링** 메뉴에서 **인사이트** 를 클릭합니다.
 
     ![개요 페이지](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. 아직 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하지 않은 경우 **사용** 을 클릭합니다. 
+3. 아직 가상 머신에 VM 인사이트를 사용하도록 설정하지 않은 경우 **사용** 을 클릭합니다. 
 
     ![인사이트 사용](media/quick-monitor-azure-vm/enable-insights.png)
 
@@ -42,7 +42,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
     ![작업 영역 선택](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. 확장이 사용하도록 설정되고 가상 머신에 에이전트가 설치되기 때문에 온보딩에 몇 분 정도 걸립니다. 완료되면 인사이트가 성공적으로 배포되었다는 메시지를 받게 됩니다. **Azure Monitor** 를 클릭하여 VM용 Azure Monitor를 엽니다.
+5. 확장이 사용하도록 설정되고 가상 머신에 에이전트가 설치되기 때문에 온보딩에 몇 분 정도 걸립니다. 완료되면 인사이트가 성공적으로 배포되었다는 메시지를 받게 됩니다. **Azure Monitor** 를 클릭하여 VM 인사이트를 엽니다.
 
     ![Azure Monitor 열기](media/quick-monitor-azure-vm/azure-monitor.png)
 
@@ -65,7 +65,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
 2. **데이터** 를 선택한 후 **Windows 이벤트 로그** 를 선택합니다.
 
-3. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **System** 을 입력한 다음, 더하기 기호(**+**)를 선택합니다.
+3. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **System** 을 입력한 다음, 더하기 기호( **+** )를 선택합니다.
 
 4. 표에서 심각도 **오류** 및 **경고** 를 선택합니다.
 
@@ -75,7 +75,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
 1. **데이터** 를 선택한 다음, **Syslog** 를 선택합니다.
 
-2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog** 을 입력한 다음, 더하기 기호(**+**)를 선택합니다.  
+2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog** 을 입력한 다음, 더하기 기호( **+** )를 선택합니다.  
 
 3. 표에서 심각도 **정보**, **알림** 및 **디버그** 를 선택 취소합니다. 
 
@@ -104,7 +104,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
     ![Log Analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하고, 게스트 운영 체제에 대한 이벤트를 수집 하도록 Log Analytics 작업 영역을 구성했습니다. 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
+이 빠른 시작에서는 가상 머신에 VM 인사이트를 사용하도록 설정하고, 게스트 운영 체제에 대한 이벤트를 수집 하도록 Log Analytics 작업 영역을 구성했습니다. 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](../log-query/log-analytics-tutorial.md)
+> [Log Analytics에서 데이터 보기 또는 분석](../logs/log-analytics-tutorial.md)

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a8ab7195958a6c2d5a730c38232eb348d505deda
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729398"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Attestation 설정
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Azure Portal 메뉴 또는 홈페이지로 이동하여 **모든 리소스** 를 선택합니다.
 1. 필터 상자에서 증명 공급자 이름을 입력합니다.
 1. 증명 공급자를 선택하고, 개요 페이지로 이동합니다.
-1. 창 왼쪽의 리소스 메뉴 또는 아래쪽 창에서 **정책 서명자 인증서** 를 선택합니다.
+1. 창 왼쪽의 리소스 메뉴 또는 아래쪽 창에서 **정책 서명자 인증서** 를 선택합니다. 인증을 위해 인증서를 선택하라는 메시지가 표시됩니다. 계속하려면 적절한 옵션을 선택하세요.
 1. **정책 서명자 인증서 다운로드** 를 선택합니다. 정책 서명 요구 사항을 사용하지 않고 만든 증명 공급자의 경우 이 단추를 사용할 수 없습니다.
 1. 다운로드한 텍스트 파일에는 모든 인증서가 JWS 형식으로 포함됩니다.
 1. 인증서 수와 다운로드한 인증서를 확인합니다.
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1.  Azure Portal 메뉴 또는 홈페이지로 이동하여 **모든 리소스** 를 선택합니다.
 1.  필터 상자에서 증명 공급자 이름을 입력합니다.
 1.  증명 공급자를 선택하고, 개요 페이지로 이동합니다.
-1.  창 왼쪽의 리소스 메뉴 또는 아래쪽 창에서 **정책** 을 선택합니다.
+1.  창 왼쪽의 리소스 메뉴 또는 아래쪽 창에서 **정책** 을 선택합니다. 인증을 위해 인증서를 선택하라는 메시지가 표시됩니다. 계속하려면 적절한 옵션을 선택하세요.
 1.  기본 설정 **증명 유형** 을 선택하고, **현재 정책** 을 확인합니다.
 
 ### <a name="configure-an-attestation-policy"></a>증명 정책 구성
@@ -144,6 +144,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    파일 업로드 옵션의 경우 정책 미리 보기는 텍스트 형식으로 표시되며 편집할 수 없습니다.
 
 1. 위쪽 메뉴에서 **새로 고침** 을 선택하여 구성된 정책을 확인합니다.
+
 
 정책 서명 요구 사항을 사용하여 증명 공급자를 만든 경우 다음 단계에 따라 정책을 JWT 형식으로 업로드합니다.
 

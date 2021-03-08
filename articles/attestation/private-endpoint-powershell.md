@@ -7,18 +7,21 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5c2b88ad7bef5fb8f7ba576e5f7b416f7458378c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731604"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732312"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
 프라이빗 엔드포인트를 통해 Azure Attestation에 안전하게 연결하여 Azure Private Link를 시작합니다.
 
 이 빠른 시작에서는 Azure Attestation에 대한 프라이빗 엔드포인트를 만들고, 가상 머신을 배포하여 프라이빗 연결을 테스트합니다.  
+
+> [!NOTE]
+> 현재 구현에는 자동 승인 옵션만 포함됩니다. 프라이빗 엔드포인트 만들기를 계속하려면 구독이 허용 목록에 포함되어야 합니다. 아래 단계를 진행하기 전에 서비스 팀에 연락하거나 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 Azure 지원 요청을 제출하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

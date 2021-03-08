@@ -3,12 +3,12 @@ title: Azure 리소스 정보 보기 및 필터링
 description: 정보를 필터링하고 다양한 보기를 사용하여 Azure 리소스를 더 잘 이해할 수 있습니다.
 ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: d1bd00a9e7f8c9c18484378f7c21d3bacdac2d3f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738636"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Azure 리소스 정보 보기 및 필터링
 
@@ -49,6 +49,18 @@ Azure Portal을 사용하면 Azure 구독 전체에서 리소스에 대한 자�
 1. **보기 관리** 와 **모든 보기 찾아보기** 를 차례로 선택합니다.
 
 1. **"모든 리소스"에 대해 저장된 보기** 창에서 보기를 선택한 다음, **삭제** 아이콘![보기 삭제 아이콘](media/manage-filter-resource-views/icon-delete.png)을 선택합니다.
+
+## <a name="export-information-from-a-view"></a>보기에서 정보 내보내기
+
+보기에서 리소스 정보를 내보낼 수 있습니다. CSV 형식으로 정보를 내보내려면
+
+1. **CSV로 내보내기** 를 선택합니다.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="CSV 형식으로 내보내기 스크린샷":::
+
+1. 파일을 로컬로 저장한 다음, Excel 또는 CSV 형식을 지원하는 다른 애플리케이션에서 엽니다. 
+
+포털에서 이동할 때 개별 리소스 그룹과 같이 정보를 내보낼 수 있는 다른 영역이 표시됩니다.
 
 ## <a name="summarize-resources-with-visuals"></a>시각적 개체를 사용하여 리소스 요약
 

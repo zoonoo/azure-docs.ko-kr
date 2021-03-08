@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: 6e0e582ed37230ba3f379f193a229cfec06f066c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d00a9c6012da7ad8d1566ef82bce628c7d47e7a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687003"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 
@@ -43,11 +43,11 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 3. **시작** 을 선택합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="단일 VM을 시작합니다.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="단일 VM을 시작합니다.":::
 
 4. Automanage 설정(환경, 기본 설정, Automanage 계정)을 선택하고 **사용** 을 누릅니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="단일 VM에서 사용합니다.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="단일 VM에서 사용합니다.":::
 
 ## <a name="enable-automanage-for-multiple-vms"></a>여러 VM에 대해 Automanage 사용
 
@@ -64,42 +64,39 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="사용 가능한 VM 목록에서 기존 VM 선택":::
 
-4. **구성 프로필** 에서 **프로필 및 기본 설정을 찾아 변경** 을 클릭합니다.
+4. **환경** 에서 **개발/테스트** 또는 **프로덕션** 환경 유형을 선택합니다. 
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="프로필 및 기본 설정을 찾아 변경":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="환경을 선택합니다.":::
 
-5. **구성 프로필 + 기본 설정 선택** 블레이드에서 다음을 수행합니다.
-    1. 왼쪽에서 프로필을 선택합니다. 테스트의 경우 *개발/테스트* 를, 프로덕션의 경우 *프로덕션* 을 선택합니다.
-    1. **선택** 단추를 클릭합니다.
+   **환경 세부 정보 비교** 를 클릭하여 환경 간의 차이점을 확인합니다.
+    1. 테스트의 경우 *개발/테스트*, 프로덕션의 경우 *프로덕션* 드롭다운에서 환경을 선택합니다.
+    1. **확인** 단추를 클릭합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="프로덕션 구성 프로필 찾아보기":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="프로덕션 환경을 찾아봅니다.":::
+
+5. 기본적으로 구성 기본 설정에 대해 **Azure 모범 사례** 기본 설정이 선택됩니다. 이를 변경하려면 새 기본 설정을 만들거나 기존 기본 설정을 선택합니다. 
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="기본 설정을 만듭니다.":::
 
 6. **사용** 단추를 클릭합니다.
 
 
 ## <a name="enable-automanage-for-a-new-vm"></a>새 VM에 대한 Automanage 사용
 
-[여기](https://aka.ms/AutomanagePortal-Ignite21)에서 Azure Portal에 로그인하여 새 VM을 만들고 Automanage를 사용하도록 설정합니다.
+[여기](https://aka.ms/AzureAutomanagePreview)에서 Azure Portal에 로그인하여 새 VM을 만들고 Automanage를 사용하도록 설정합니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
-
-2. Azure Marketplace 리소스 목록 위의 검색 상자에서 사용할 이미지를 검색하고 선택한 다음, **만들기** 를 선택합니다.
+1. **기본** 탭에서 VM 세부 정보를 작성합니다.
 
 > [!NOTE]
-> Automanage 지원 [Linux 배포판](automanage-linux.md#supported-linux-distributions-and-versions) 및 [Windows Server 버전](automanage-windows-server.md#supported-windows-server-versions)을 확인하세요.
+> Automanage [지원되는 지역](automanage-virtual-machines#supported-regions), Automanage 지원되는 [Linux 배포판](automanage-linux.md#supported-linux-distributions-and-versions) 및 [Windows Server 버전](automanage-windows-server.md#supported-windows-server-versions)을 선택합니다.
 
-3. **기본** 탭에서 VM 세부 정보를 작성합니다.
+2. **관리** 탭으로 이동하여 **Automanage 환경** 을 선택합니다.
 
-> [!NOTE]
-> Automanage [지원 지역](automanage-virtual-machines#supported-regions)을 확인합니다.
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmcreate-managementtab.png" alt-text="관리 탭에서 Automanage를 사용하도록 설정합니다.":::
 
-4. **관리** 탭으로 이동하여 **Automanage 환경** 을 선택합니다.
+3. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="관리 탭에서 Automanage를 사용하도록 설정합니다.":::
-
-5. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
-
-6. 유효성 검사가 통과되었다는 메시지가 표시되면 **만들기** 를 선택합니다.
+4. 유효성 검사가 통과되었다는 메시지가 표시되면 **만들기** 를 선택합니다.
 
 ## <a name="disable-automanage-for-vms"></a>VM용 Automanage 사용 안 함
 
@@ -131,4 +128,4 @@ Azure Automanage는 리소스를 저장할 기본 리소스 그룹을 만듭니�
 가상 머신에 Automanage를 사용하도록 설정할 때 사용자 지정된 기본 설정을 만들고 적용하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [VM용 Azure Automanage - 사용자 지정 구성 프로필](virtual-machines-custom-preferences.md)
+> [VM용 Azure Automanage - 사용자 지정 구성 기본 설정](virtual-machines-custom-preferences.md)

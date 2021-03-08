@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: edbf29b103a84240299f4a9f389a8c7a90012821
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0a80e289a6fbb8dfe9b725eaa1ef9e114d2896fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572065"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691385"
 ---
 # <a name="metrics-overview"></a>메트릭 개요
 
@@ -87,6 +87,8 @@ SMS API 요청 메트릭에는 다음과 같은 작업을 사용할 수 있습�
 | DeleteIdentity       | ID를 삭제합니다. |
 | CreateToken          | 액세스 토큰을 만듭니다. |
 | RevokeToken          | 지정된 시간 전에 ID에 대해 만들어진 모든 액세스 토큰을 취소합니다. |
+
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="인증 요청 메트릭.":::
 
 ## <a name="next-steps"></a>다음 단계
 

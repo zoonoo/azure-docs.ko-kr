@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728011"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -41,7 +41,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 | 서비스 | 기능 | Description |
 |---------|---------|-------------|
 | 변환기 | [언어 가져오기](./reference/v3-0-languages.md) | 텍스트 번역에 지원되는 전체 언어 목록을 검색합니다. |
-| 변환기 | [번역](./reference/v3-0-translate.md) | 텍스트를 70개가 넘는 언어로 번역합니다. |
+| 변환기 | [번역](./reference/v3-0-translate.md) | 텍스트를 90개 언어 및 방언으로 번역합니다. |
 | 변환기 | [검색](./reference/v3-0-detect.md) | 입력 텍스트의 언어를 감지합니다. 감지에 대한 신뢰도 점수를 포함합니다. |
 | Bing 맞춤법 검사 | [맞춤법 검사](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | 맞춤법 오류를 수정하여 번역 정확도를 향상시킵니다. |
 
@@ -264,7 +264,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 ## <a name="get-supported-languages"></a>지원되는 언어 가져오기
 
-Translator는 현재 70개가 넘는 언어를 지원합니다. 시간이 지남에 따라 새로운 언어 지원이 추가되므로 앱의 언어 목록을 하드 코드하는 대신 Translator에서 공개되는 언어 리소스를 호출하는 것이 좋습니다.
+Translator는 현재 90개의 언어와 방언을 지원합니다. 시간이 지남에 따라 새로운 언어 지원이 추가되므로 앱의 언어 목록을 하드 코드하는 대신 Translator에서 공개되는 언어 리소스를 호출하는 것이 좋습니다.
 
 이 섹션에서는 언어 리소스에 대한 `GET` 요청을 만들어 번역에 사용할 수 있는 언어 목록을 지정합니다.
 

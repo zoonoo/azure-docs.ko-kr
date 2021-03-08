@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750582"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -84,6 +84,8 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 ## <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
 채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. 사용자 액세스 토큰을 사용하면 Azure Communication Service에 직접 인증되는 클라이언트 애플리케이션을 빌드할 수 있습니다. 서버에서 이러한 토큰을 생성한 후 클라이언트 디바이스에 다시 전달합니다. 공통 클라이언트 라이브러리의 CommunicationTokenCredential 클래스를 사용하여 토큰을 채팅 클라이언트에 전달해야 합니다. 
 
+[채팅 아키텍처](../../../concepts/chat/concepts.md)에 대한 자세한 정보
+
 Import 문을 추가할 때 com.azure.communication.chat 및 com.azure.communication.chat.models namespaces의 import 문만 추가하고 com.azure.communication.chat.implementation 네임스페이스의 import 문은 추가하지 마세요. Maven을 통해 생성된 App.java 파일에서 다음 코드를 사용하여 다음 작업을 시작할 수 있습니다.
 
 ```Java
@@ -139,11 +141,11 @@ public class App
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -205,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages`는 `chatMessage.getType()`으로 식별할 수 있는 다양한 유형의 메시지를 반환합니다. 그 유형은 다음과 같습니다.
 
-- `Text`: 스레드 참가자가 보낸 일반 채팅 메시지입니다.
+- `text`: 스레드 참가자가 보낸 일반 채팅 메시지입니다.
 
-- `ThreadActivity/TopicUpdate`: 주제가 업데이트되었음을 나타내는 시스템 메시지
+- `html`: 스레드 참가자가 보낸 HTML 채팅 메시지입니다.
 
-- `ThreadActivity/AddMember`: 채팅 스레드에 한 명 이상의 멤버가 추가되었음을 나타내는 시스템 메시지
+- `topicUpdated`: 주제가 업데이트되었음을 나타내는 시스템 메시지입니다.
 
-- `ThreadActivity/DeleteMember`: 채팅 스레드에서 멤버가 제거되었음을 나타내는 시스템 메시지
+- `participantAdded`: 한 명 이상의 참가자가 채팅 스레드에 추가되었음을 나타내는 시스템 메시지입니다.
+
+- `participantRemoved`: 참가자가 채팅 스레드에서 제거되었음을 나타내는 시스템 메시지입니다.
 
 자세한 내용은 [메시지 유형](../../../concepts/chat/concepts.md#message-types)을 참조하세요.
 
@@ -222,7 +226,7 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 `addParticipants` 메서드를 사용하여 threadId로 식별되는 스레드에 참가자를 추가합니다.
 
 - `listParticipants`를 사용하여 채팅 스레드에 추가할 참가자를 나열합니다.
-- 필수인 `user`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 CommunicationIdentityClient를 통해 만든 CommunicationUserIdentifier입니다.
+- 필수 사항인 `communicationIdentifier`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 CommunicationIdentityClient를 통해 만든 CommunicationIdentifier입니다.
 - 선택 사항인 `display_name`은 스레드 참가자의 표시 이름입니다.
 - 선택 사항인 `share_history_time`은 채팅 기록이 참가자와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 참가자가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 필요한 날짜로 설정합니다.
 
@@ -230,11 +234,11 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -245,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>채팅 스레드에서 사용자 제거
+## <a name="remove-participant-from-a-chat-thread"></a>채팅 스레드에서 참가자 제거
 
-스레드에 사용자를 추가하는 것과 마찬가지로 채팅 스레드에서 사용자를 제거할 수 있습니다. 사용자를 제거하려면 추가한 참가자의 사용자 ID를 추적해야 합니다.
+스레드에 참가자를 추가하는 방법과 유사하게 채팅 스레드에서 참가자를 제거할 수 있습니다. 사용자를 제거하려면 추가한 참가자의 ID를 추적해야 합니다.
 
-`removeParticipant`를 사용합니다. 여기서 `user`는 이전에 만든 CommunicationUserIdentifier입니다.
+`removeParticipant`를 사용합니다. 여기서 `identifier`는 이전에 만든 CommunicationIdentifier입니다.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>코드 실행

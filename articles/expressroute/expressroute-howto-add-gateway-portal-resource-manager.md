@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740905"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ ms.locfileid: "91761835"
 
 구성을 시작하기 전에 이러한 단계의 [비디오](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
 
+> [!IMPORTANT]
+> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 프라이빗 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [Azure VNet용 IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)에 대한 지침을 따르세요.
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
 
 1. [포털](https://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크로 이동합니다.
@@ -58,9 +63,13 @@ ms.locfileid: "91761835"
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="게이트웨이 서브넷 추가":::
 
-1. 서브넷의 **이름** 에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다. /27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다(/26, /25 등). 그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
+1. 서브넷의 **이름** 에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다. /27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다(/26, /25 등).
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="서브넷 추가":::
+    이중 스택 가상 네트워크를 사용하고 ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **IP6 주소 공간 추가** 를 클릭하고 **IPv6 주소 범위** 값을 입력합니다.
+
+그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
@@ -78,6 +87,11 @@ ms.locfileid: "91761835"
     | 가상 네트워크 | *TestVNet* 을 선택합니다. |
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름을 입력합니다. |
+
+    > [!IMPORTANT]
+    > ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **SKU** 에 대해 AZ SKU(ErGw1AZ, ErGw2AZ, ErGw3AZ)를 선택해야 합니다.
+    > 
+    > 
 
 1. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 게이트웨이를 만들기 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
 

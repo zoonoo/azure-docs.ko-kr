@@ -5,18 +5,18 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
-ms.translationtype: MT
+ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593818"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720225"
 ---
-# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>자습서: Azure CLI를 통해 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
+# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>자습서: 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
 
-Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터에 [AGIC(Application Gateway 수신 컨트롤러)](ingress-controller-overview.md) 추가 기능(현재 미리 보기)을 사용하도록 설정할 수 있습니다. 이 자습서에서는 AGIC 추가 기능을 사용하여 별도의 가상 네트워크에 배포된 기존 Application Gateway를 통해 Kubernetes 애플리케이션을 기존 AKS 클러스터에 공개하는 방법을 알아봅니다. 먼저 한 가상 네트워크에 AKS 클러스터를 만든 다음, 별도의 가상 네트워크에 Application Gateway를 만들어 기존 리소스를 시뮬레이션합니다. 그런 다음, AGIC 추가 기능을 사용하도록 설정하고, 두 가상 네트워크를 피어링하고, AGIC 추가 기능을 사용하여 Application Gateway를 통해 공개할 샘플 애플리케이션을 배포합니다. 동일한 가상 네트워크의 기존 Application Gateway 및 기존 AKS 클러스터에 AGIC 추가 기능을 사용하도록 설정하는 경우 아래의 피어링 단계를 건너뛸 수 있습니다. 이 추가 기능은 [이전의 Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)보다 훨씬 빠르게 AKS 클러스터에 대한 AGIC를 배포하는 방법을 제공하며, 완전 관리형 환경도 제공합니다.  
+Azure CLI 또는 포털을 사용하여 기존 [AKS(Azure Kubernetes Services)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터에 대한 [AGIC(Application Gateway 수신 컨트롤러)](ingress-controller-overview.md) 추가 기능을 사용하도록 설정할 수 있습니다. 이 자습서에서는 AGIC 추가 기능을 사용하여 별도의 가상 네트워크에 배포된 기존 Application Gateway를 통해 Kubernetes 애플리케이션을 기존 AKS 클러스터에 공개하는 방법을 알아봅니다. 먼저 한 가상 네트워크에 AKS 클러스터를 만든 다음, 별도의 가상 네트워크에 Application Gateway를 만들어 기존 리소스를 시뮬레이션합니다. 그런 다음, AGIC 추가 기능을 사용하도록 설정하고, 두 가상 네트워크를 피어링하고, AGIC 추가 기능을 사용하여 Application Gateway를 통해 공개할 샘플 애플리케이션을 배포합니다. 동일한 가상 네트워크의 기존 Application Gateway 및 기존 AKS 클러스터에 AGIC 추가 기능을 사용하도록 설정하는 경우 아래의 피어링 단계를 건너뛸 수 있습니다. 이 추가 기능은 [이전의 Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)보다 훨씬 빠르게 AKS 클러스터에 대한 AGIC를 배포하는 방법을 제공하며, 완전 관리형 환경도 제공합니다.  
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -24,7 +24,8 @@ Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microso
 > * 리소스 그룹 만들기 
 > * 새 AKS 클러스터 만들기 
 > * 새 Application Gateway 만들기 
-> * 기존 Application Gateway를 사용하여 기존 AKS 클러스터에서 AGIC 추가 기능을 사용하도록 설정 
+> * Azure CLI를 통해 기존 AKS 클러스터에서 AGIC 추가 기능 사용 
+> * 포털을 통해 기존 AKS 클러스터에서 AGIC 추가 기능 사용 
 > * Application Gateway 가상 네트워크를 AKS 클러스터 가상 네트워크와 피어링
 > * 수신용 AGIC를 사용하여 AKS 클러스터에 샘플 애플리케이션 배포
 > * Application Gateway를 통해 애플리케이션에 연결할 수 있는지 확인
@@ -32,22 +33,6 @@ Azure CLI를 사용하여 [AKS(Azure Kubernetes Services)](https://azure.microso
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
-
- - 다음 예제와 같이 [az feature register](/cli/azure/feature#az-feature-register) 명령을 사용하여 *AKS-IngressApplicationGatewayAddon* 기능 플래그를 등록합니다. 추가 기능이 미리 보기로 제공되는 동안에는 이 작업을 구독당 한 번만 수행하면 됩니다.
-     ```azurecli-interactive
-     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-     ```
-    상태가 [등록됨]으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature#az-feature-register) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-     ```azurecli-interactive
-     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-     ```
-
- - 준비가 되면 [az provider register](/cli/azure/provider#az-provider-register) 명령을 사용하여 Microsoft.ContainerService 리소스 공급자 등록을 새로 고칩니다.
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -61,7 +46,7 @@ az group create --name myResourceGroup --location canadacentral
 
 이제 새 AKS 클러스터를 배포하고, AGIC 추가 기능을 사용하도록 설정하려는 기존 AKS 클러스터를 시뮬레이션합니다.  
 
-다음 예제에서는 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 및 [관리 ID](../aks/use-managed-identity.md)를 사용하여 앞에서 만든 리소스 그룹 *myResourceGroup* 에 새 AKS 클러스터 *myCluster* 를 배포합니다.    
+다음 예제에서는 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 및 [관리 ID](../aks/use-managed-identity.md)를 사용하여 앞에서 만든 리소스 그룹 *myResourceGroup* 에 새 AKS 클러스터 *myCluster* 를 배포합니다.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
@@ -84,18 +69,24 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 > [!NOTE]
 > AGIC(Application Gateway 수신 컨트롤러) 추가 기능은 Application Gateway v2 SKU(표준 및 WAF)**만** 지원하고 Application Gateway v1 SKU를 지원하지 **않습니다**. 
 
-## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>기존 Application Gateway를 사용하여 기존 AKS 클러스터에서 AGIC 추가 기능을 사용하도록 설정 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-azure-cli"></a>Azure CLI를 통해 기존 AKS 클러스터에서 AGIC 추가 기능 사용 
 
-이제 앞에서 만든 AKS 클러스터 *myCluster* 에서 AGIC 추가 기능을 사용하도록 설정하고, 앞에서 만든 기존 Application Gateway *myApplicationGateway* 를 사용하도록 AGIC 추가 기능을 지정합니다. 이 자습서를 시작할 때 aks-preview 확장을 추가/업데이트했는지 확인합니다. 
+Azure CLI를 계속 사용하려면 만든 AKS 클러스터 *myCluster* 에서 AGIC 추가 기능을 계속 사용하도록 설정하고, 앞에서 만든 기존 Application Gateway *myApplicationGateway* 를 사용하도록 AGIC 추가 기능을 지정합니다.
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-portal"></a>포털을 통해 기존 AKS 클러스터에서 AGIC 추가 기능 사용 
+
+Azure Portal을 사용하여 AGIC 추가 기능을 사용하도록 설정하려면 [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic)으로 이동하고 포털 링크를 통해 AKS 클러스터로 이동합니다. 여기에서 AKS 클러스터 내의 네트워킹 탭으로 이동합니다. 포털 UI를 사용하여 수신 컨트롤러 추가 기능을 사용하거나 사용하지 않도록 설정할 수 있는 Application Gateway 수신 컨트롤러 섹션이 표시됩니다. "수신 컨트롤러 사용" 옆의 상자를 선택하고 드롭다운 메뉴에서 만든 Application Gateway *myApplicationGateway* 를 선택합니다. 
+
+![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+
 ## <a name="peer-the-two-virtual-networks-together"></a>두 가상 네트워크를 피어링
 
-한 가상 네트워크에 AKS 클러스터를 배포하고 다른 가상 네트워크에 Application Gateway를 배포했으므로, 이제 트래픽이 Application Gateway에서 클러스터의 Pod로 흐르도록 두 가상 네트워크를 피어링해야 합니다. 두 가상 네트워크를 피어링하려면 Azure CLI 명령을 두 번 실행하여 양방향으로 연결해야 합니다. 첫 번째 명령은 Application Gateway 가상 네트워크에서 AKS 가상 네트워크로 피어링 연결을 만들고, 두 번째 명령은 반대 방향으로 피어링 연결을 만듭니다. 
+한 가상 네트워크에 AKS 클러스터를 배포하고 다른 가상 네트워크에 Application Gateway를 배포했으므로, 이제 트래픽이 Application Gateway에서 클러스터의 Pod로 흐르도록 두 가상 네트워크를 피어링해야 합니다. 두 가상 네트워크를 피어링하려면 Azure CLI 명령을 두 번 실행하여 양방향으로 연결해야 합니다. 첫 번째 명령은 Application Gateway 가상 네트워크에서 AKS 가상 네트워크로 피어링 연결을 만들고, 두 번째 명령은 반대 방향으로 피어링 연결을 만듭니다.
 
 ```azurecli-interactive
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
@@ -107,6 +98,7 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
 ## <a name="deploy-a-sample-application-using-agic"></a>AGIC를 사용하여 샘플 애플리케이션 배포 
 
 이제 수신용 AGIC 추가 기능을 사용할 샘플 애플리케이션을 앞에서 만든 AKS 클러스터에 배포하고, Application Gateway를 AKS 클러스터에 연결합니다. 먼저 `az aks get-credentials` 명령을 실행하여 앞에서 배포한 AKS 클러스터에 대한 자격 증명을 가져옵니다. 

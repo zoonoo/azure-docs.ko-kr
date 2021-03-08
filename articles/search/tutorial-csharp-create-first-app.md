@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "99821341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695127"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 첫 번째 검색 앱 만들기
 
@@ -49,9 +49,11 @@ model.resultList = searchResult.Value.GetResults().ToList();
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 여러분이 요청에 대한 쿼리 문자열을 수집하고 결과를 반환하는 검색 페이지를 만드는 데 집중할 수 있도록 기존의 호스트된 샘플 인덱스를 사용합니다. 인덱스에는 가상의 호텔 데이터가 포함되어 있습니다. 기본 페이지를 만든 후에는 후속 단원에서 페이징, 패싯 및 자동 완성 환경을 포함하도록 기본 페이지를 개선할 수 있습니다.
+이 자습서에서는 hotels-sample-index를 사용합니다. [데이터 가져오기 빠른 시작](search-get-started-portal.md)의 단계를 따라 자체 검색 서비스를 빠르게 만들 수 있습니다. 인덱스에는 가상의 호텔 데이터가 포함되어 있으며, 모든 검색 서비스에서 기본 제공 데이터 원본으로 제공됩니다.
 
-이 자습서의 완성된 최종 코드 버전은 다음 프로젝트에서 찾을 수 있습니다.
+이 자습서의 첫 번째 단원에서는 기본 쿼리 구조와 검색 페이지를 만듭니다. 그리고 이후 단원에서는 페이징, 패싯, 자동 완성 등을 포함시킵니다.
+
+완성된 최종 코드 버전은 다음 프로젝트에서 찾을 수 있습니다.
 
 * [1-basic-search-page(GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
@@ -59,7 +61,9 @@ model.resultList = searchResult.Value.GetResults().ToList();
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이기 때문에 이 자습서에서는 검색 서비스 또는 Azure 계정이 필요 없습니다.
+* [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+
+* [빠른 시작: 검색 인덱스 만들기](search-get-started-portal.md)의 지침을 활용하여 hotels-sample-index를 만듭니다.
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
@@ -103,12 +107,12 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
 
 이 샘플에서는 공개적으로 제공되는 호텔 데이터를 사용하겠습니다. 이 데이터는 오직 데모 데이터를 제공할 목적으로 만든 임의의 50개 가상 호텔 이름과 설명 컬렉션입니다. 이 데이터에 액세스하려면 이름 및 API 키를 지정합니다.
 
-1. **appsettings.json** 파일을 열고 기본 줄을 다음 이름과 키로 바꿉니다. 여기에 표시된 API 키는 키 예제가 아니라, *정확하게* 호텔 데이터에 액세스할 때 필요한 키입니다. 이제 파일이 다음과 비슷할 것입니다.
+1. **appsettings.json** 을 열고 기본 줄을 검색 서비스 URL(`https://<service-name>.search.windows.net` 형식)과 검색 서비스의 [관리자 또는 쿼리 API 키](search-security-api-keys.md)로 바꿉니다. 인덱스를 만들거나 업데이트할 필요가 없으므로 이 자습서에서는 쿼리 키를 사용할 수 있습니다.
 
     ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 

@@ -6,13 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ac2ed571359958feddd4d7952ea3b5f549688c77
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597914"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046978"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Azure Monitor에 대한 Resource Manager 템플릿 샘플
 
@@ -54,7 +53,7 @@ az deployment group create \
 - [로그 쿼리](logs/resource-manager-log-queries.md) - Log Analytics 작업 영역에서 저장된 로그 쿼리를 만듭니다.
 - [Log Analytics 작업 영역](logs/resource-manager-workspace.md) - Log Analytics 작업 영역을 만들고 Log Analytics 에이전트에서 다른 데이터 원본의 컬렉션을 구성합니다.
 - [통합 문서](visualize/resource-manager-workbooks.md) - 통합 문서를 만듭니다.
-- [컨테이너용 Azure Monitor](containers/resource-manager-container-insights.md) - 컨테이너용 Azure Monitor에 대한 온보드 클러스터입니다.
+- [컨테이너 인사이트](containers/resource-manager-container-insights.md) - 컨테이너 인사이트에 클러스터를 온보딩합니다.
 - [VM용 Azure Monitor](vm/resource-manager-vminsights.md) - VM용 Azure Monitor에 대한 온보드 가상 머신입니다.
 
 

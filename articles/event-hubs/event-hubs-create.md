@@ -3,12 +3,12 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 이벤트 허브 만�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 이벤트 허브를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742044"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -87,7 +87,7 @@ Event Hubs 네임스페이스는 하나 이상의 이벤트 허브를 만드는 
 
     **파티션 수** 설정을 사용하면 여러 소비자 간에 소비량을 병렬화할 수 있습니다. 자세한 내용은 [파티션](event-hubs-scalability.md#partitions)을 참조하세요.
 
-    **메시지 보존** 설정은 Event Hubs 서비스가 데이터를 유지하는 기간을 지정합니다. 이 설정에 대한 최대 제한은 [할당량 및 제한](event-hubs-quotas.md)을 참조하세요.
+    **메시지 보존** 설정은 Event Hubs 서비스가 데이터를 유지하는 기간을 지정합니다. 자세한 내용은 [이벤트 보존](event-hubs-features.md#event-retention)을 참조하세요.
 1. 경고에서 이벤트 허브 만들기의 상태를 확인할 수 있습니다. 이벤트 허브가 만들어지면 이벤트 허브 목록에 표시됩니다.
 
     ![생성된 이벤트 허브](./media/event-hubs-quickstart-portal/event-hub-created.png)
