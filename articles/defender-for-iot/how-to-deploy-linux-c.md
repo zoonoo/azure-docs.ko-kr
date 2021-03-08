@@ -13,26 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8c03f6b882c8b1a64c9f256493c5d586b5fa0f89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d3f96ed60ca784402b6d24eea7234f37c4fb959
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940049"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449784"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT C 기반 보안 에이전트로 Defender 배포
 
 이 가이드에서는 Linux에서 IoT C 기반 보안 에이전트로 Defender를 설치 하 고 배포 하는 방법을 설명 합니다.
 
-이 가이드에서는 다음 작업 방법을 배웁니다.
+- 설치
+- 배포 확인
+- 에이전트 제거
+- 문제 해결
 
-> [!div class="checklist"]
-> * 설치
-> * 배포 확인
-> * 에이전트 제거
-> * 문제 해결
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -68,7 +65,7 @@ ms.locfileid: "90940049"
 
 1. 서비스 사용자를 추가 합니다 (대화형 로그인 사용 안 함).
 
-1. 에이전트를 **디먼**으로 설치합니다. 여기서는 서비스 관리를 위해 디바이스에서 **systemd**를 사용한다고 가정합니다.
+1. 에이전트를 **디먼** 으로 설치합니다. 여기서는 서비스 관리를 위해 디바이스에서 **systemd** 를 사용한다고 가정합니다.
 
 1. 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 

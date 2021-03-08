@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: c72fa87201fb0d7fdd526f0e6f4eeb2c35192fc2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521648"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449172"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법
 
@@ -26,9 +26,8 @@ ms.locfileid: "100521648"
 
 IoT Hub에서 IoT 용 각 장치 등록에 대해 보안 모듈이 필요 합니다. 장치를 인증 하려면 IoT 용 Defender에서 두 가지 방법 중 하나를 사용할 수 있습니다. 기존 IoT 솔루션에 가장 적합 한 방법을 선택 합니다.
 
-> [!div class="checklist"]
-> * SecurityModule 옵션
-> * 장치 옵션
+- SecurityModule 옵션
+- 장치 옵션
 
 ## <a name="authentication-methods"></a>인증 방법
 
@@ -101,7 +100,8 @@ Defender에서 IoT AzureIoTSecurity agent에 대 한 두 가지 방법으로 인
     "HostName" : ""
 }
 ```
-## <a name="next-steps"></a>다음 단계
+
+## <a name="see-also"></a>참고 항목
 
 - [보안 에이전트 개요](security-agent-architecture.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)

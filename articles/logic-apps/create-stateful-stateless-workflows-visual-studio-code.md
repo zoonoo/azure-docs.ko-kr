@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440992"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449733"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -47,7 +47,7 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 > [!NOTE]
 > 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -312,6 +312,9 @@ MacOS 또는 Linux를 사용할 때 Visual Studio Code에서 논리 앱 프로�
 [미리 보기 릴리스의 확장성 프레임 워크](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)를 사용 하 여 필요한 모든 서비스에 대 한 기본 제공 커넥터를 만들 수 있습니다. Azure Service Bus 및 SQL Server와 같은 기본 제공 커넥터와 마찬가지로, 이러한 커넥터는 높은 처리량, 짧은 대기 시간, 로컬 연결을 제공 하 고 미리 보기 런타임과 동일한 프로세스에서 기본적으로 실행 됩니다.
 
 제작 기능은 현재 Visual Studio Code 에서만 사용할 수 있지만 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 커넥터를 만들려면 먼저 확장 번들 기반 (Node.js)에서 NuGet 패키지 기반 (.NET)으로 프로젝트를 변환 해야 합니다.
+
+> [!IMPORTANT]
+> 이 작업은 실행 취소할 수 없는 단방향 작업입니다.
 
 1. 탐색기 창의 프로젝트 루트에서 다른 모든 파일 및 폴더 아래에 있는 빈 영역 위로 마우스 포인터를 이동 하 고 바로 가기 메뉴를 연 다음 **Nuget 기반 논리 앱 프로젝트로 변환** 을 선택 합니다.
 
@@ -647,7 +650,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -671,7 +674,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
 
-   | 작업 상태 | 아이콘 | 설명 |
+   | 작업 상태 | 아이콘 | Description |
    |---------------|------|-------------|
    | **중단됨** | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |

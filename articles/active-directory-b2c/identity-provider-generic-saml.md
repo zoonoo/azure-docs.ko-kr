@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71d51c4303dbc4c0c2668dbfcf388b0d6c6bcffe
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107550"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448407"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자로 등록 및 로그인 설정
 
@@ -45,7 +45,7 @@ Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자와의 페더�
 
 ![SAML id 공급자 흐름을 사용 하 여 로그인](./media/identity-provider-generic-saml/sign-in-with-saml-identity-provider-flow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -222,6 +222,7 @@ https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your
 1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
 1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지 **에서 contoso를 선택 하** 여 contoso 계정으로 로그인 합니다.
 
 로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 

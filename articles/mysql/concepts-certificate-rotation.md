@@ -6,18 +6,20 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 9ad2566188256dd23b0f479c2576636750e33b02
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715108"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449886"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
 단일 서버 Azure Database for MySQL 표준 유지 관리 및 보안 모범 사례에서 **2021 (02/15/2021)** 의 루트 인증서 변경을 완료 했습니다. 이 문서에서는 변경 내용, 영향을 받는 리소스 및 응용 프로그램이 데이터베이스 서버에 대 한 연결을 유지 관리 하는 데 필요한 단계에 대 한 자세한 정보를 제공 합니다.
 
 > [!NOTE]
+> 이 문서는 [Azure Database for MySQL 단일 서버](single-server-overview.md) 에만 적용 됩니다. [Azure Database for MySQL 유연한 서버의](flexible-server/overview.md)경우 SSL을 통해 통신 하는 데 필요한 인증서는 [DIGICERT Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 입니다.
+> 
 > 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 

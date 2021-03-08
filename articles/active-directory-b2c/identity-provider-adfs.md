@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3082c249b04b5efc71187dd03515bc8c875b7c2f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095734"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448594"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS 추가
 
@@ -36,7 +36,7 @@ ms.locfileid: "102095734"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 AD FS 사용자 계정에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML id 공급자](identity-provider-generic-saml.md) 를 추가 하 여 로그인을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -71,10 +71,10 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -199,8 +199,10 @@ https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-poli
 1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
 1. **응용 프로그램** 의 경우 [이전에 등록](tutorial-register-applications.md)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 contoso **AD FS** 를 선택 하 여 contoso AD FS id 공급자에 로그인 합니다.
 
 로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
+
 ## <a name="troubleshooting-ad-fs-service"></a>AD FS 서비스 문제 해결  
 
 AD FS Windows 응용 프로그램 로그를 사용 하도록 구성 됩니다. Azure AD B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS를 설정 하는 데 문제가 있는 경우 AD FS 이벤트 로그를 확인 하는 것이 좋습니다.

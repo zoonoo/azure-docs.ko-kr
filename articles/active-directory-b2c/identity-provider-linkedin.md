@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1ce9c00cb58253e2cca9a7d60c4cce9b77709688
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953855"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448271"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -69,7 +69,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 LinkedIn 계정이 있는 사용
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
 1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
+1. **사용자 흐름 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 linkedin 계정으로 로그인 하려면 **linkedin** 을 선택 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end
 
@@ -96,8 +99,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 LinkedIn 계정이 있는 사용
 
 정책 확장 파일의 **ClaimsProviders** 요소에 LinkedIn 계정을 추가 하 여 해당 계정을 클레임 공급자로 정의 합니다.
 
-1. 편집기에서 * SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
-1. _ *ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
+1. 편집기에서 *Socialandlocalaccounts/* * TrustFrameworkExtensions.xml** * 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
+1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
 1. 다음과 같이 새 **ClaimsProvider** 를 추가합니다.
 
     ```xml
@@ -213,7 +216,14 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 linkedin 계정으로 로그인 하려면 **linkedin** 을 선택 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ## <a name="migration-from-v10-to-v20"></a>V 1.0에서 v2.0로 마이그레이션
 

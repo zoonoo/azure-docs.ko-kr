@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56f6c9d3ff3093c3acd28b670e37f823ad5e9f9a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522515"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449835"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
 
@@ -142,7 +142,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 센서의 시스템 설정을 검토 하 여 센서가 최적으로 검색 하 고 경고 하도록 구성 되었는지 확인 합니다.
 
-센서의 시스템 설정을 정의 합니다. 예를 들면 다음과 같습니다.
+센서의 시스템 설정을 정의 합니다. 다음은 그 예입니다.
 
 - ICS (또는 IoT) 및 분리 서브넷을 정의 합니다.
 
@@ -214,9 +214,9 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 |----|---|---|
 | 지원 | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
-[센서 온보딩](getting-started.md#4-onboard-a-sensor)
+[센서 온보딩](getting-started.md#onboard-a-sensor)
 
 [센서 활성화 파일 관리](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

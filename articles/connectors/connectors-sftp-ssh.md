@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016765"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449631"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -103,10 +103,10 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   >
   > * **지문**: MD5
   >
-  > 논리 앱에 원하는 SFTP-SSH 트리거 또는 작업을 추가한 후에는 SFTP 서버에 대 한 연결 정보를 제공 해야 합니다. 이 연결에 대 한 SSH 개인 키를 제공 하는 경우 **_키를 수동으로 입력 하거나 편집 하지 마세요_*.이로 인해 연결이 실패할 수 있습니다. 대신 SSH 개인 키 파일에서 _*_키를 복사_*_ 하 고 해당 키를 연결 정보에 _*_붙여넣어야_*_ 합니다. 
+  > 논리 앱에 원하는 SFTP-SSH 트리거 또는 작업을 추가한 후에는 SFTP 서버에 대 한 연결 정보를 제공 해야 합니다. 이 연결에 대 한 SSH 개인 키를 제공 하는 경우 ***키를 수동으로 입력 하거나 편집 하지 마십시오***.이로 인해 연결이 실패할 수 있습니다. 대신 SSH 개인 키 파일에서 ***키를 복사*** 하 고 해당 키를 연결 정보에 ***붙여넣어야*** 합니다. 
   > 자세한 내용은이 문서 뒷부분의 [SSH를 사용 하 여 SFTP에 연결](#connect) 섹션을 참조 하세요.
 
-_ [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * SFTP 계정에 액세스하려는 논리 앱입니다. SFTP-SSH 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). SFTP-SSH 작업을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
@@ -148,7 +148,7 @@ SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -170,7 +170,15 @@ SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 
 
 ## <a name="considerations"></a>고려 사항
 
-이 섹션에서는이 커넥터의 트리거 및 작업에 대 한 검토 고려 사항을 설명 합니다.
+이 섹션에서는이 커넥터의 트리거 및 작업을 사용할 때 고려해 야 할 사항을 설명 합니다.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>파일 업로드 및 처리에 다른 SFTP 폴더 사용
+
+SFTP 서버에서 업로드 된 파일을 저장 하는 위치와 트리거가 처리를 위해 해당 파일을 모니터링 하는 위치에 별도의 폴더를 사용 하는지 확인 합니다. 즉, 이러한 폴더 간에 파일을 이동 하는 방법이 필요 합니다. 그렇지 않으면 트리거가 발생 하지 않고 예기치 않게 동작 합니다. 예를 들어 트리거에서 처리 하는 임의 개수의 파일을 건너뛸 수 있습니다.
+
+이 문제가 발생 하는 경우 트리거가 모니터링 하는 폴더에서 파일을 제거 하 고 다른 폴더를 사용 하 여 업로드 된 파일을 저장 합니다.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
    1. 복사 **편집**  >  을 선택 합니다.
 
-   1. 추가한 SFTP-SSH 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  *키를 *_붙여넣어야_* 합니다. _*_키를 수동으로 입력 하거나 편집 하지 마십시오_*_.
+   1. 추가한 SFTP-SSH 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  **키를 _붙여 넣습니다_*. _*_키를 수동으로 입력 하거나 편집 하지 마십시오_.**
 
-1. 연결 세부 정보 입력을 마친 후 _ * 만들기 * *를 선택 합니다.
+1. 연결 세부 정보 입력을 완료 한 후 **만들기** 를 선택 합니다.
 
 1. 이제 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
@@ -230,7 +238,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 1. 완료 되 면 **완료** 를 선택 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 <a name="file-added-modified"></a>
 

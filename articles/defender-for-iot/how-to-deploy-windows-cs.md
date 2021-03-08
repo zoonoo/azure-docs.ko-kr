@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d99cdbb2f50d04eff790cdfe675d0f8031c48a9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517181"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448067"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
@@ -27,11 +27,10 @@ ms.locfileid: "100517181"
 
 이 가이드에서는 다음 작업 방법을 배웁니다.
 
-> [!div class="checklist"]
-> * 설치
-> * 배포 확인
-> * 에이전트 제거
-> * 문제 해결
+- 설치
+- 배포 확인
+- 에이전트 제거
+- 문제 해결
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -62,7 +61,7 @@ ms.locfileid: "100517181"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다.
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store

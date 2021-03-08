@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: da12955606062e6cfc0e6bf17eeedcaed0aac1ff
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: dc824c7e4caa2a634a60f7d8a69870ddd961998c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171687"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448475"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "102171687"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -111,7 +111,10 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
 1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
+1. **사용자 흐름 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **Contoso AZURE ad** 를 선택 하 여 Azure ad contoso 계정으로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end
 
@@ -195,7 +198,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 1. Azure AD는 OpenID Connect 프로토콜을 사용하므로 **Protocol** 값이 `OpenIdConnect`인지 확인합니다.
 1. **METADATA** 값을 `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`으로 설정합니다. 여기서 `tenant-name`는 Azure AD 테넌트 이름입니다. 예를 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. **client_id** 를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
-1. **CryptographicKeys** 에서 **StorageReferenceId** 의 값을 앞에서 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_ContosoAppSecret`
+1. **CryptographicKeys** 에서 **StorageReferenceId** 의 값을 앞에서 만든 정책 키의 이름으로 업데이트 합니다. 예들 들어 `B2C_1A_ContosoAppSecret`입니다.
 
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
@@ -220,7 +223,14 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **Contoso Employee** 를 선택 하 여 Azure AD contoso 계정으로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

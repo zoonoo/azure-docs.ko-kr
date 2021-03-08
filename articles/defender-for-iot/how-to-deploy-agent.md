@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339968"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447268"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -28,11 +28,9 @@ IoT 용 Defender는 IoT 장치에서 데이터를 모니터링 하 고 수집 �
 에이전트는 오픈 소스 프로젝트로 개발 되며 다음과 같은 두 가지 방법으로 사용할 수 있습니다. <br> [C](https://aka.ms/iot-security-github-c)및 [c #](https://aka.ms/iot-security-github-cs)
 
 이 문서에서는 다음 방법을 설명합니다.
-
-> [!div class="checklist"]
-> * 보안 에이전트 특색 비교
-> * 지원 되는 에이전트 플랫폼 검색
-> * 솔루션의 올바른 에이전트 버전 선택
+- 보안 에이전트 특색 비교
+- 지원 되는 에이전트 플랫폼 검색
+- 솔루션의 올바른 에이전트 버전 선택
 
 ## <a name="understand-security-agent-options"></a>보안 에이전트 옵션 이해
 
@@ -81,7 +79,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 두 에이전트 모두 동일한 기능 집합을 제공 하 고 유사한 구성 옵션을 지원 합니다.
 자세히 알아보려면 [보안 에이전트 비교](how-to-deploy-agent.md#understand-security-agent-options) 를 참조 하세요.
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 다음 목록에는 현재 지원 되는 모든 플랫폼이 포함 되어 있습니다.
 

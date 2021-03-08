@@ -8,16 +8,16 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: de8638cbb4e39ccf6013e5a8d596417401700c8d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
-ms.translationtype: MT
+ms.openlocfilehash: 4590396b0e867a3e545577767581dd1a951bfc50
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521597"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447387"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>IoT 용 Azure Defender 시작
 
@@ -81,6 +81,6 @@ IoT 장치의 보안 상태를 사전에 모니터링 합니다. IoT 용 Azure D
 
 IoT 마이크로 에이전트에 대 한 Azure Defender에는 소스 코드가 포함 되어 있으므로 마이크로 에이전트를 펌웨어에 통합 하거나 필요한 항목만 포함 하도록 사용자 지정할 수 있습니다. 또한 이진 패키지로 사용 하거나 다른 Azure IoT 솔루션에 직접 통합할 수 있습니다. 
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [IoT 용 Azure Defender 아키텍처](architecture.md)

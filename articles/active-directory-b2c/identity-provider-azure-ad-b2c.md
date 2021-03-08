@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ea4def3cfaa19e27dc05e955bf97b41976ec2190
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: c9a20305f05b285b29d4a5eaf75116c862f3a6d4
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953923"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448492"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정
 
@@ -115,8 +115,10 @@ ms.locfileid: "98953923"
 1. **저장** 을 선택합니다.
 1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
 1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
-1. 등록 또는 로그인 페이지에서 *Fabrikam* 을 선택 하 여 다른 Azure AD B2C 테 넌 트로 로그인 합니다.
+1. **사용자 흐름 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **Fabrikam** 을 선택 하 여 다른 Azure AD B2C 테 넌 트로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end
 
@@ -196,7 +198,7 @@ ms.locfileid: "98953923"
     |TechnicalProfile\DisplayName|이 값은 로그인 화면의 로그인 단추에 표시됩니다. 예: *Fabrikam*. |
     |메타 데이터 \ client_id|ID 공급자의 애플리케이션 식별자입니다. 다른 Azure AD B2C 테 넌 트에서 이전에 만든 응용 프로그램 ID를 사용 하 여 클라이언트 ID를 업데이트 합니다.|
     |Metadata\METADATA|Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. `{tenant}`다른 Fabrikam (Azure AD B2C 테 넌 트)의 도메인 이름으로 대체 하는 다음 URL을 입력 합니다. 을 `{tenant}` 다른 테 넌 트에서 구성한 정책 이름으로 바꾸고을 `{policy]` 정책 이름으로 바꿉니다 `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . 예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`입니다.|
-    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_FabrikamAppSecret`| 
+    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예들 들어 `B2C_1A_FabrikamAppSecret`입니다.| 
     
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
@@ -221,7 +223,15 @@ ms.locfileid: "98953923"
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+
+## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
+
+1. 신뢰 당사자 정책을 선택 합니다 (예:) `B2C_1A_signup_signin` .
+1. **응용 프로그램** 의 경우 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택 합니다.
+1. 등록 또는 로그인 페이지에서 **Fabrikam** 을 선택 하 여 다른 Azure AD B2C 테 넌 트로 로그인 합니다.
+
+로그인 프로세스가 성공 하면 브라우저가로 리디렉션되 며 `https://jwt.ms` ,이는 Azure AD B2C에서 반환 된 토큰의 내용을 표시 합니다.
 
 ::: zone-end
 

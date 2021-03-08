@@ -1,6 +1,6 @@
 ---
-title: 시작
-description: IoT 배포용 기본 워크플로 이해를 시작 하세요.
+title: '빠른 시작: 시작 하기'
+description: 이 빠른 시작에서는 IoT 배포용 기본 워크플로를 이해 하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,25 +8,29 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
-ms.translationtype: MT
+ms.openlocfilehash: 487f9be432c908bf8ee1da858a9e45a18adffb8c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712762"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447710"
 ---
-# <a name="get-started-with-defender-for-iot"></a>IoT 용 Defender 시작
+# <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: IoT 용 Defender 시작
 
 이 문서에서는 IoT 용 Azure Defender를 설정 하기 위해 수행 하는 단계에 대 한 개요를 제공 합니다. 이렇게 하려면 다음을 수행 해야 합니다.
 
 - IoT 포털 용 Azure Defender에서 구독 및 센서를 등록 합니다.
 - 센서 및 온-프레미스 관리 콘솔 소프트웨어를 설치 합니다.
 - 센서 및 관리 콘솔의 초기 활성화를 수행 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+None
 
 ## <a name="permission-requirements"></a>사용 권한 요구 사항
 
@@ -43,7 +47,7 @@ ms.locfileid: "101712762"
 | 가격 업데이트  |  |  ✓ | ✓ | ✓ |
 | 암호 복구  | ✓  |  ✓ | ✓ | ✓ |
 
-## <a name="1-identify-the-solution-infrastructure"></a>1. 솔루션 인프라를 식별 합니다.
+## <a name="identify-the-solution-infrastructure"></a>솔루션 인프라 식별
 
 **네트워크 설정 요구 사항 명시**
 
@@ -55,7 +59,7 @@ IoT 용 Azure Defender는 물리적 및 가상 배포를 모두 지원 합니다
 
 모니터링 되는 장치의 대략적인 수를 계산 하는 것이 좋습니다. 나중에 Azure 구독을 포털에 등록 하면이 숫자를 입력 하 라는 메시지가 표시 됩니다. 1000 초 간격으로 숫자를 더할 수 있습니다. 모니터링 되는 장치 수를 *커밋된 장치* 라고 합니다.
 
-## <a name="2-register-with-azure-defender-for-iot"></a>2. IoT 용 Azure Defender에 등록
+## <a name="register-with-azure-defender-for-iot"></a>IoT 용 Azure Defender에 등록
 
 등록에는 다음이 포함 됩니다.
 
@@ -72,7 +76,7 @@ IoT 용 Azure Defender는 물리적 및 가상 배포를 모두 지원 합니다
 
 구독을 오프 하는 방법에 대 한 자세한 내용은 [등록 취소 a subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription)을 참조 하세요.
 
-## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. 온-프레미스 관리 콘솔 설치 및 설정
+## <a name="install-and-set-up-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 설치 및 설정
 
 온-프레미스 관리 콘솔 어플라이언스를 얻은 후에는 다음을 수행 합니다.
 
@@ -88,7 +92,7 @@ IoT 용 Azure Defender는 물리적 및 가상 배포를 모두 지원 합니다
 1. 온-프레미스 관리 콘솔 소프트웨어를 설치 합니다. 자세한 내용은 [IoT 설치용 Defender](how-to-install-software.md)를 참조 하세요.
 1. 관리 콘솔을 활성화 하 고 설정 합니다. 자세한 내용은 [온-프레미스 관리 콘솔 활성화 및 설정](how-to-activate-and-set-up-your-on-premises-management-console.md)을 참조 하세요.
 
-## <a name="4-onboard-a-sensor"></a>4. 센서 등록
+## <a name="onboard-a-sensor"></a>센서 온보딩
 
 IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드 하 여 센서를 등록 합니다.
 
@@ -103,7 +107,7 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 자세한 내용은 [IoT 포털의 Defender에서 센서 등록 및 관리](how-to-manage-sensors-on-the-cloud.md)를 참조 하세요.
 
-## <a name="5-install-and-set-up-the-sensor"></a>5. 센서 설치 및 설정
+## <a name="install-and-set-up-the-sensor"></a>센서 설치 및 설정
 
 Azure Defender for IoT 포털에서 ISO 패키지를 다운로드 하 고, 소프트웨어를 설치 하 고, 센서를 설정 합니다.
 
@@ -113,7 +117,7 @@ Azure Defender for IoT 포털에서 ISO 패키지를 다운로드 하 고, 소�
 1. 센서 소프트웨어를 설치 합니다. 자세한 내용은 [IoT 설치용 Defender](how-to-install-software.md)를 참조 하세요.
 1. 센서를 활성화 하 고 설정 합니다. 자세한 내용은 [센서 로그인 및 정품 인증](how-to-activate-and-set-up-your-sensor.md)을 참조 하세요.
 
-## <a name="6-connect-sensors-to-an-on-premises-management-console"></a>6. 센서를 온-프레미스 관리 콘솔에 연결
+## <a name="connect-sensors-to-an-on-premises-management-console"></a>온-프레미스 관리 콘솔에 센서 연결
 
 관리 콘솔에 센서를 연결 하 여 다음을 확인 합니다.
 
@@ -125,12 +129,12 @@ Azure Defender for IoT 포털에서 ISO 패키지를 다운로드 하 고, 소�
 
 자세한 내용은 [센서를 온-프레미스 관리 콘솔에 연결](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console)을 참조 하세요.
 
-## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. 경고 정보를 사용 하 여 Azure 센티널 채우기 (선택 사항)
+## <a name="populate-azure-sentinel-with-alert-information-optional"></a>경고 정보를 사용 하 여 Azure 센티널 채우기 (선택 사항)
 
 Azure 센티널을 구성 하 여 경고 정보를 Azure 센티널로 보냅니다. [IoT 용 Defender의 데이터를 Azure 센티널에 연결을](how-to-configure-with-sentinel.md)참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
-- [IoT 용 Azure Defender 시작](overview.md)
-
-- [IoT 용 Azure Defender 아키텍처](architecture.md)
+> [!div class="nextstepaction"]
+> IoT 용 Azure [Defender 시작](overview.md) 
+>  [IoT 용 Azure Defender 아키텍처](architecture.md)

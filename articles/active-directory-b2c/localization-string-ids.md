@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108674"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448647"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -357,7 +357,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 | ID | 기본값 |
 | -- | ------------- |
 |intro_msg| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
-|success_send_code_msg | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
+|success_send_code_msg | 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
 |failure_send_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요.|
 |success_verify_code_msg | 이메일 주소를 확인했습니다. 이제 계속할 수 있습니다.|
 |failure_verify_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 다시 시도하세요.|

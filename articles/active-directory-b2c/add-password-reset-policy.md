@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171657"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447931"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "102171657"
 
 사용자를 임의의 암호로 Azure AD B2C로 마이그레이션한 후의 일반적인 방법은 사용자가 전자 메일 주소를 확인 하 고 처음 로그인 할 때 암호를 다시 설정 하도록 하는 것입니다. 관리자가 암호를 변경한 후에도 사용자가 암호를 다시 설정 하도록 하는 것이 일반적입니다. 이 기능을 사용 하려면 [암호 재설정 강제](force-password-reset.md) 사용을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -203,6 +203,24 @@ ms.locfileid: "102171657"
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. 현재 단계와 다음 단계 사이에 다음 오케스트레이션 단계를 추가 합니다. 추가 하는 새 오케스트레이션 단계는 `isForgotPassword` 클레임이 존재 하는지 확인 합니다. 클레임이 있는 경우 [암호 재설정 하위](#add-the-password-reset-sub-journey)과정을 호출 합니다. 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. 새 오케스트레이션 단계를 추가한 후에는 1에서 N 사이의 정수를 건너뛰지 않고 순차적으로 단계 번호를 다시 매깁니다.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>실행할 사용자 경험 설정
 
@@ -262,7 +280,7 @@ ms.locfileid: "102171657"
 1. 사용자가 암호를 **잊으셨나요?** 링크를 선택 합니다. Azure AD B2C는 AADB2C90118 오류 코드를 응용 프로그램에 반환 합니다.
 1. 응용 프로그램은 오류 코드를 처리 하 고 새 권한 부여 요청을 시작 합니다. 권한 부여 요청은 **B2C_1_pwd_reset** 와 같은 암호 재설정 정책 이름을 지정 합니다.
 
-![암호 다시 설정 흐름](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![레거시 암호 재설정 사용자 흐름](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 예제를 보려면 사용자 흐름 링크를 보여 주는 [간단한 ASP.NET 샘플](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)을 살펴보세요.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 48737831440a1402b6974955b4da61a4216b011f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939483"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449767"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
@@ -27,13 +27,12 @@ ms.locfileid: "90939483"
 
 이 가이드에서는 다음 작업 방법을 배웁니다.
 
-> [!div class="checklist"]
-> * 설치
-> * 배포 확인
-> * 에이전트 제거
-> * 문제 해결
+- 설치
+- 배포 확인
+- 에이전트 제거
+- 문제 해결
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -49,9 +48,9 @@ ms.locfileid: "90939483"
 
 1. 패키지의 콘텐츠를 추출 하 고 _/install_ 폴더로 이동 합니다.
 
-1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다.
+1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트** 에 실행 권한을 추가합니다.
 
-1. 다음으로 **루트 권한**으로 다음 명령을 실행 합니다.
+1. 다음으로 **루트 권한** 으로 다음 명령을 실행 합니다.
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -107,7 +106,7 @@ ms.locfileid: "90939483"
        **logFilePath** 값은 구성할 수 있습니다.
 
        > [!NOTE]
-       > 문제가 해결되면 로깅을 **해제**하는 것이 좋습니다. 로깅을 **설정**으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
+       > 문제가 해결되면 로깅을 **해제** 하는 것이 좋습니다. 로깅을 **설정** 으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
 
    1. 다음을 실행하여 에이전트를 다시 시작합니다.
 
@@ -117,7 +116,7 @@ ms.locfileid: "90939483"
 
        로그 파일 위치는 `/var/ASCIoTAgent/IotAgentLog.log`입니다.
 
-       2단계에서 **logFilePath**에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다.
+       2단계에서 **logFilePath** 에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,18 @@
 ---
 title: Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 description: Log Analytics 데이터 내보내기를 사용 하면 데이터를 수집 하는 동안 Log Analytics 작업 영역에서 Azure storage 계정 또는 Azure Event Hubs로 선택한 테이블의 데이터를 지속적으로 내보낼 수 있습니다.
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048814"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449495"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -52,7 +53,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
@@ -75,7 +76,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 정의 된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
-> [네임 스페이스 당 지원 되는 event hubs 수는 10 개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10 개 이상의 테이블을 내보내는 경우 사용자 고유의 이벤트 허브 이름을 제공 하 여 모든 테이블을 해당 이벤트 허브로 내보냅니다. 
+> [네임 스페이스 당 지원 되는 event hubs 수는 10 개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10 개 이상의 테이블을 내보내는 경우 사용자 고유의 이벤트 허브 이름을 제공 하 여 모든 테이블을 해당 이벤트 허브로 내보냅니다.
 
 고려 사항:
 1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
@@ -113,10 +114,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 
 [![Storage 계정 방화벽 및 가상 네트워크](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
-데이터 내보내기 규칙은 테이블 집합에 대해 내보낼 데이터를 단일 대상으로 정의 합니다. 각 대상에 대해 하나의 규칙을 만들 수 있습니다.
+데이터 내보내기 규칙은 데이터를 내보낼 테이블과 대상을 정의 합니다. 현재 각 대상에 대해 하나의 규칙을 만들 수 있습니다.
 
+작업 영역에서 내보내기 규칙 구성에 대 한 테이블 목록이 필요한 경우 작업 영역에서이 쿼리를 실행 합니다.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -127,12 +132,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 해당 없음
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-다음 CLI 명령을 사용 하 여 작업 영역의 테이블을 볼 수 있습니다. 이를 통해 원하는 테이블을 복사 하 고 데이터 내보내기 규칙에 포함할 수 있습니다.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 CLI를 사용 하 여 저장소 계정에 대 한 데이터 내보내기 규칙을 만들려면 다음 명령을 사용 합니다.
 
@@ -647,7 +646,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | 부분 지원 – O365에서 LA로 웹 후크를 통해 수집 데이터의 일부입니다. 현재 내보내기에이 부분이 없습니다. |
-| 작업 | 부분 지원 – 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| 작업(Operation) | 부분 지원 – 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
 | Perf | 부분 지원 – 현재 windows perf 데이터만 지원 됩니다. 현재 내보내기에서 Linux 성능 데이터가 누락 되었습니다. |
 | PowerBIDatasetsTenant |  |
 | PowerBIDatasetsWorkspace |  |

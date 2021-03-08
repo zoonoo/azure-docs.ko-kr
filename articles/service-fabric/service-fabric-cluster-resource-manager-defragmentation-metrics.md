@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dee9a845df305b06153d99c2bafe6d74524a139
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75563363"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449206"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
 클러스터의 부하 메트릭을 관리하기 위한 Service Fabric Cluster Resource Manager의 기본 전략은 부하를 분산하는 것입니다. 노드가 균등하게 사용되도록 하면 핫스폿 및 콜드스폿이 방지되어 경합 및 리소스 낭비를 야기하지 않습니다. 클러스터에서 워크로드를 분산하는 것은 오류가 지정된 워크로드의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 가장 안전한 방법입니다. 

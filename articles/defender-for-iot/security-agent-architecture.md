@@ -1,6 +1,6 @@
 ---
-title: 보안 에이전트 개요
-description: IoT 서비스용 Azure Defender에서 사용 되는 에이전트에 대 한 보안 에이전트 아키텍처를 이해 합니다.
+title: '빠른 시작: 보안 에이전트 개요'
+description: 이 빠른 시작에서는 IoT 서비스용 Azure Defender에서 사용 되는 에이전트에 대 한 보안 에이전트 아키텍처를 이해 하는 방법을 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,19 +8,19 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: ff837fe88f878c522366b2b6bc19a1ef3954b667
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
-ms.translationtype: MT
+ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820656"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449240"
 ---
-# <a name="security-agent-reference-architecture"></a>보안 에이전트 참조 아키텍처
+# <a name="quickstart-security-agent-reference-architecture"></a>빠른 시작: 보안 에이전트 참조 아키텍처
 
 IoT 용 Azure Defender는 IoT Hub를 통해 보안 데이터를 기록, 처리, 집계 및 전송 하는 보안 에이전트에 대 한 참조 아키텍처를 제공 합니다.
 
@@ -41,6 +41,10 @@ IoT 용 Defender 보안 에이전트는 오픈 소스 프로젝트로 개발 되
 - [IoT C 기반 에이전트의 Defender](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [IoT 용 Defender c # 기반 에이전트](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+None
+
 ## <a name="agent-supported-platforms"></a>에이전트 지원 플랫폼
 
 IoT 용 Defender는 32 비트 및 64 비트 Windows에 대해 서로 다른 설치 관리자 에이전트를 제공 하 고 32 비트 및 64 비트 Linux에도 동일 하 게 제공 됩니다. 다음 표에 따라 각 장치에 대 한 올바른 에이전트 설치 관리자가 있는지 확인 합니다.
@@ -57,8 +61,5 @@ IoT 용 Defender는 32 비트 및 64 비트 Windows에 대해 서로 다른 설�
 
 IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니다.
 
-- [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md) 이해
-- [보안 에이전트](how-to-deploy-agent.md) 선택 및 배포
-- IoT [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 를 검토 합니다.
-- [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
-- [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보
+> [!div class="nextstepaction"]
+> [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md)
