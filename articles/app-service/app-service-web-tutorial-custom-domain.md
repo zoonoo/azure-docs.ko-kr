@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720321"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182590"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -308,10 +308,7 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 ## <a name="resolve-404-not-found"></a>404 "찾을 수 없음" 오류 해결
 
-사용자 지정 도메인의 URL를 찾아볼 때 HTTP 404(찾을 수 없음) 오류가 나타나는 경우, <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>을 사용하여 앱의 IP 주소로 도메인이 지정되어 있는지 확인합니다. 그렇지 않은 경우 다음 이유 중 하나로 인해 발생할 수 있습니다.
-
-- 구성된 사용자 지정 도메인에 A 레코드 또는 CNAME 레코드가 없습니다.
-- 브라우저 클라이언트가 도메인의 이전 IP 주소를 캐시했습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 `ipconfig /flushdns`로 지웁니다.
+사용자 지정 도메인의 URL를 찾아볼 때 HTTP 404(찾을 수 없음) 오류가 나타나는 경우, <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>를사용하여 앱의 IP 주소로 도메인이 지정되어 있는지 확인합니다. 그렇지 않은 경우 A 및 CNAME 레코드가 동일한 사이트를 사용하여 올바르게 구성되어 있는지 확인합니다. IP를 정확하게 확인했지만 여전히 404 오류가 발생하는 경우 브라우저가 도메인의 이전 IP 주소를 캐시했을 수 있습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 `ipconfig /flushdns`로 지웁니다.
 
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 

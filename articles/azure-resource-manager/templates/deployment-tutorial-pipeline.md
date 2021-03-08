@@ -1,15 +1,15 @@
 ---
 title: Azure Pipelines를 사용한 연속 통합
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 지속적으로 빌드, 테스트 및 배포하는 방법을 알아봅니다.
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722819"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>자습서: ARM 템플릿과 Azure Pipelines의 연속 통합
 
@@ -33,7 +33,7 @@ Azure DevOps는 팀이 작업을 계획하고, 협업을 통해 코드를 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -83,8 +83,8 @@ _CreateWebApp_ 폴더는 템플릿이 저장되는 폴더입니다. `pwd` 명령
 
 템플릿을 만드는 대신 템플릿을 다운로드하여 _CreateWebApp_ 폴더에 저장할 수 있습니다.
 
-* 기본 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* 연결된 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* 기본 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* 연결된 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 폴더 이름과 파일 이름은 모두 파이프라인에 있는 그대로 사용됩니다. 이러한 이름을 변경할 경우 파이프라인에서 사용되는 이름을 업데이트해야 합니다.
 
@@ -95,7 +95,7 @@ _azuredeploy.json_ 이 로컬 리포지토리에 추가되었습니다. 다음�
 1. *Git Shell* 또는 *Git Bash* 가 열려 있지 않으면 지금 엽니다.
 1. 디렉터리를 로컬 리포지토리의 _CreateWebApp_ 폴더로 변경합니다.
 1. _azuredeploy.json_ 파일이 이 폴더에 있는지 확인합니다.
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
 
     ```bash
     git add .
@@ -106,7 +106,7 @@ _azuredeploy.json_ 이 로컬 리포지토리에 추가되었습니다. 다음�
     LF에 대한 경고가 발생할 수 있습니다. 경고를 무시해도 됩니다. **main** 은 기본 분기입니다.  일반적으로 각 업데이트에 대한 분기를 만듭니다. 자습서를 간소화하려면 기본 분기를 직접 사용합니다.
 
 1. 브라우저에서 GitHub 리포지토리를 찾습니다. URL은 `https://github.com/[YourAccountName]/[YourGitHubRepository]`입니다. _CreateWebApp_ 폴더와 이 폴더 내의 두 개의 파일이 표시됩니다.
-1. _linkedStorageAccount.json_ 을 선택하여 템플릿을 엽니다.
+1. _azuredeploy.json_ 을 선택하여 템플릿을 엽니다.
 1. **원시** 단추를 선택합니다. URL은 `https://raw.githubusercontent.com`으로 시작합니다.
 1. URL 복사본을 만듭니다. 이 값은 나중에 자습서에서 파이프라인을 구성할 때 제공해야 합니다.
 
@@ -174,10 +174,10 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **작업**: **리소스 그룹 만들기 또는 업데이트** 작업을 선택합니다. 이 경우 두 가지 작업을 수행합니다. 1. 새 리소스 그룹 이름이 제공되면 리소스 그룹을 만듭니다. 2. 지정된 템플릿을 배포합니다.
     * **리소스 그룹**: 새 리소스 그룹 이름을 입력합니다. 예: **AzureRmPipeline-rg**.
     * **위치**: 리소스 그룹의 위치를 선택합니다(예: **미국 중부**).
-    * **템플릿 위치**: **연결된 아티팩트** 를 선택합니다. 그러면 연결된 리포지토리에서 템플릿 파일을 직접 찾습니다.
-    * **템플릿**: _CreateWebApp/azuredeploy.json_ 을 입력합니다. 폴더 이름과 파일 이름을 변경한 경우 이 값을 변경해야 합니다.
-    * **템플릿 매개 변수**: 이 필드는 공백으로 둡니다. 매개 변수 값을 **템플릿 매개 변수 재정의** 에 지정합니다.
-    * **템플릿 매개 변수 재정의**: `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` 을 입력합니다. 프로젝트 이름과 연결된 템플릿 URL을 바꿉니다. 연결된 템플릿 URL은 [GitHub 리포지토리 만들기](#create-a-github-repository)의 끝부분에서 작성한 것입니다. `https://raw.githubusercontent.com` 로 시작합니다.
+    * **템플릿 위치**: **파일의 URL** 을 선택합니다. 이는 작업이 URL을 사용하여 템플릿 파일을 찾는다는 것을 의미합니다. _relativePath_ 는 기본 템플릿에서 사용되고 _relativePath_ 는 URI 기반 배포에서만 지원되므로 여기에서 URL을 사용해야 합니다.
+    * **템플릿 링크**: [GitHub 저장소 준비](#prepare-a-github-repository) 섹션의 끝에서 받은 URL을 입력합니다. `https://raw.githubusercontent.com` 로 시작합니다.
+    * **템플릿 매개 변수 링크**: 이 필드는 비워 둡니다. 매개 변수 값을 **템플릿 매개 변수 재정의** 에 지정합니다.
+    * **템플릿 매개 변수 재정의**: `-projectName [EnterAProjectName]` 을 입력합니다.
     * **배포 모드**: **증분** 을 선택합니다.
     * **배포 이름**: **DeployPipelineTemplate** 을 입력합니다. **배포 이름** 을 표시하려면 **고급** 을 선택합니다.
 

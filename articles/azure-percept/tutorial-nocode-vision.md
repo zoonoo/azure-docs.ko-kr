@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 54d4f1fe983cf20b734351754bb8eba191894dbc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678125"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097910"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
 
@@ -23,6 +23,7 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 - [Custom Vision](https://www.customvision.ai/)에서 학습 이미지에 레이블 지정
 - 사용자 지정 개체 감지 또는 분류 모델 학습
 - Devkit에 모델 배포
+- 재학습을 설정하여 모델 개선
 
 이 자습서는 AI 경험이 거의 또는 전혀 없는 개발자 및 Azure Percept를 막 시작한 개발자에게 적합합니다.
 
@@ -30,15 +31,13 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
-- OOBE(첫 실행 경험): Devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, Devkit를 IoT Hub에 연결했습니다.
+- Azure Percept DK 설정 환경: devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, devkit를 IoT Hub에 연결
 
 ## <a name="create-a-vision-prototype"></a>비전 프로토타입 만들기
 
 1. 브라우저를 시작하고 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)로 이동합니다.
 
-1. 개요 페이지에서 **데모 및 자습서** 탭을 클릭합니다.
-
-    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Azure Percept Studio 개요 화면" lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+1. 개요 페이지에서 **데모 및 자습서** 탭을 클릭합니다. :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Azure Percept Studio 개요 화면." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
 
 1. **비전 자습서 및 데모** 에서 **비전 프로토타입 만들기** 를 클릭합니다.
 
@@ -142,11 +141,23 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="비전 프로젝트 페이지" lightbox="./media/tutorial-nocode-vision/vision-project.png":::
 
+## <a name="improve-your-model-by-setting-up-retraining"></a>재학습을 설정하여 모델 개선
+
+모델을 학습하여 디바이스에 배포한 후에는 더 많은 학습 데이터를 캡처하도록 재학습 매개 변수를 설정하여 모델 성능을 개선할 수 있습니다. 이 기능은 확률 범위에 따라 이미지를 캡처하는 기능을 제공하여 학습된 모델의 성능을 개선하는 데 사용됩니다. 예를 들어 확률이 낮을 때만 학습 이미지를 캡처하도록 디바이스를 설정할 수 있습니다. 더 많은 이미지를 추가하고 학습 데이터를 분산하는 방법에 대한 몇 가지 [추가 지침](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)은 다음과 같습니다.
+
+1. 재학습을 설정하려면 **프로젝트** 로 돌아간 다음 **프로젝트 요약** 으로 이동합니다.
+1. **이미지 캡처** 탭에서 **자동 이미지 캡처**, **재학습 설정** 을 차례로 선택합니다.
+1. **자동 이미지 캡처** 상자를 선택하여 한 번에 많은 이미지를 수집하도록 하는 자동화된 이미지 캡처를 설정합니다.
+1. **캡처 속도** 에서 원하는 이미징 속도를 선택하고 **대상** 에서 수집할 총 이미지 수를 선택합니다.
+1. **재학습 설정** 섹션에서 더 많은 학습 데이터를 캡처할 반복을 선택한 다음 확률 범위를 선택합니다. 확률을 만족하는 이미지만 프로젝트에 업로드됩니다.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="이미지 캡처.":::
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서용으로 새 Azure 리소스를 만들었지만 비전 솔루션을 더 이상 개발하거나 사용하지 않으려면 다음 단계를 수행하여 리소스를 삭제하세요.
 
-1. [Azure 포털](https://ms.portal.azure.com/#home)로 이동합니다.
+1. [Azure 포털](https://ms.portal.azure.com/)로 이동합니다.
 1. **모든 리소스** 를 클릭합니다.
 1. 이 자습서에서 만든 리소스 옆에 있는 확인란을 클릭합니다. 리소스 종류는 **Cognitive Services** 로 나열됩니다.
 1. 화면 위쪽의 **삭제** 아이콘을 클릭합니다.

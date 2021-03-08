@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740905"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038920"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -67,9 +67,9 @@ ms.locfileid: "101740905"
 
     이중 스택 가상 네트워크를 사용하고 ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **IP6 주소 공간 추가** 를 클릭하고 **IPv6 주소 범위** 값을 입력합니다.
 
-그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
+    그런 다음, **확인** 을 선택하여 값을 저장하고 게이트웨이 서브넷을 만듭니다.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="서브넷 추가":::
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 

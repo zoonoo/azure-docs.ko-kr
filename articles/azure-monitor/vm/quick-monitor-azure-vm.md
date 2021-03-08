@@ -2,17 +2,16 @@
 title: Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 description: Azure Monitor에서 Azure 가상 머신에 대한 데이터를 수집하고 분석하는 방법을 알아봅니다.
 ms.service: azure-monitor
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: fa0360d6730293f3817d63e31b24464a0e4950ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7efd8baf54aeacbd2f55640240a15f2517dcd904
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725478"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046927"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링을 참조하세요.
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM 인사이트](../vm/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.

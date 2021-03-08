@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49bf89d38edef6a9186cbdb5bb89a763339385b4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041691"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175824"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Azure Percept DK를 설정하고 첫 번째 AI 모델 배포
 
@@ -25,7 +25,7 @@ Azure Percept DK 설정 환경을 사용하여 디바이스를 Azure에 연결�
 - Azure Percept DK.
 - wi-fi 기능과 웹 브라우저를 지원하는 Windows, Linux 또는 OS X 기반 호스트 컴퓨터
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Azure 계정에는 구독의 "소유자" 또는 "기여자" 역할이 있어야 합니다. Azure 역할 정의에 대해 자세히 알아보세요.
+- Azure 계정에는 구독의 "소유자" 또는 "기여자" 역할이 있어야 합니다. [Azure 역할 정의](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles)에 대해 자세히 알아봅니다.
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -182,7 +182,7 @@ Azure 계정이 구독의 "소유자" 또는 "기여자"인지 확인하려면 �
 
 ## <a name="view-your-device-in-the-azure-percept-studio-and-deploy-common-prebuilt-sample-apps"></a>Azure Percept Studio에서 디바이스를 살펴보고 미리 빌드된 샘플 앱을 배포합니다.
 
-1. Azure Percept 개요 페이지에서 디바이스 목록을 봅니다. Azure Percept 개요 페이지는 고급 AI Edge 모델 및 솔루션 개발을 이제 막 시작하는 분들과 고급 개발자가 모두 사용 가능한 여러 워크플로에 액세스할 수 있는 시작 지점입니다.
+1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 개요 페이지에서 디바이스 목록을 봅니다. Azure Percept 개요 페이지는 고급 AI Edge 모델 및 솔루션 개발을 이제 막 시작하는 분들과 고급 개발자가 모두 사용 가능한 여러 워크플로에 액세스할 수 있는 시작 지점입니다.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="디바이스 목록 보기":::
     

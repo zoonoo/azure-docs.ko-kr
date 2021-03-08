@@ -5,13 +5,14 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 10/30/2020
-ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 3a7c73e4a5ba00155ab905f28edbcb0eb42c0539
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578130"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724866"
 ---
 # <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
@@ -47,7 +48,7 @@ Azure Data Share는 현재 스냅샷 기반 공유와 내부 공유를 제공합
 
 데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 데이터 저장소로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 마찬가지로 데이터 공급자가 Azure Synapse Analytics에서 데이터를 공유하는 경우 데이터 소비자는 데이터를 Azure Data Lake Store, Azure SQL Database 또는 Azure Synapse Analytics 중 어느 것으로 받을지 선택할 수 있습니다. SQL 기반 소스에서 공유하는 경우 데이터 소비자는 parquet과 csv 중 어느 형식으로 데이터를 받을지도 선택할 수 있습니다. 
 
-내부 공유를 사용하는 경우 데이터 공급자는 데이터를 복사하지 않고 상주하는 데이터를 공유할 수 있습니다. 공유 관계가 초대 흐름을 통해 설정된 후에는 데이터 공급자의 원본 데이터 저장소와 데이터 소비자의 대상 데이터 저장소 간에 기호화된 링크가 만들어집니다. 데이터 소비자는 자체 데이터 저장소를 사용하여 실시간으로 데이터를 읽고 쿼리할 수 있습니다. 원본 데이터 저장소에 대한 변경 내용은 데이터 소비자에게 즉시 제공됩니다. 내부 공유는 현재 Azure Data Explorer의 미리 보기로 제공됩니다.
+내부 공유를 사용하는 경우 데이터 공급자는 데이터를 복사하지 않고 상주하는 데이터를 공유할 수 있습니다. 공유 관계가 초대 흐름을 통해 설정된 후에는 데이터 공급자의 원본 데이터 저장소와 데이터 소비자의 대상 데이터 저장소 간에 기호화된 링크가 만들어집니다. 데이터 소비자는 자체 데이터 저장소를 사용하여 실시간으로 데이터를 읽고 쿼리할 수 있습니다. 원본 데이터 저장소에 대한 변경 내용은 데이터 소비자에게 즉시 제공됩니다. 현재 위치 공유는 현재 Azure Data Explorer에서 사용할 수 있습니다.
 
 ## <a name="key-capabilities"></a>주요 기능
 
@@ -81,7 +82,7 @@ Azure Data Share를 사용하는 경우 데이터 소비자가 수행할 수 있
 
 Azure Data Share를 사용할 수 있는 Azure 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) 페이지를 참조하고 Azure Data Share를 검색하세요. 
 
-Azure Data Share는 데이터 자체를 저장하지 않습니다. 데이터는 공유되는 기본 데이터 저장소에 저장됩니다. 예를 들어 데이터 생산자가 데이터를 미국 서부에 있는 Azure Data Lake Store 계정에 저장하면 데이터가 여기에 저장됩니다. 스냅샷을 통해 데이터를 서유럽에 있는 Azure Storage 계정과 공유하는 경우 데이터는 서유럽에 있는 Azure Storage 계정으로 직접 전송됩니다.
+Azure Data Share에서 저장한 메타데이터의 경우 동남아시아(싱가포르)는 지역 내에 저장되고 지원되는 다른 모든 지역은 지역(geo)에 저장됩니다. Azure Data Share는 공유된 데이터 자체를 저장하지 않습니다. 데이터는 공유되는 기본 데이터 저장소에 저장됩니다. 예를 들어 데이터 공급자가 데이터를 미국 서부에 있는 Azure Data Lake Storage 계정에 저장하면 데이터가 여기에 저장됩니다. 스냅샷을 통해 데이터를 서유럽에 있는 Azure Storage 계정과 공유하는 경우 데이터는 서유럽에 있는 Azure Storage 계정으로 직접 전송됩니다. 
 
 Azure Data Share 서비스를 활용하기 위해 해당 지역에서 이 서비스를 사용할 필요가 없습니다. 예를 들어 Azure Data Share를 아직 사용할 수 없는 지역에 위치한 Azure Storage 계정에 데이터가 저장된 경우에도 이 서비스를 활용하여 데이터를 공유할 수 있습니다. 
 

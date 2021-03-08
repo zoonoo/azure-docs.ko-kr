@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.md
+    - name: 백업 및 복원
+      items:
+        - name: 백업 및 복원 소개
+          href: online-backup-and-restore.md
+        - name: 지속적인 백업
+          items:
+            - name: 지속적인 백업 - 소개
+              href: continuous-backup-restore-introduction.md
+            - name: 지속적인 백업 - FAQ
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: 지속적인 백업 - 리소스 모델
+              href: continuous-backup-restore-resource-model.md
     - name: Azure Cosmos DB 비용 최적화
       items:
         - name: 비용 계획 및 관리
@@ -112,34 +124,6 @@
       href: concepts-limits.md
     - name: 엔터프라이즈 준비
       items:
-        - name: 백업 및 복원 소개
-          href: online-backup-and-restore.md
-        - name: 지속적인 백업
-          items:
-            - name: 지속적인 백업 - 소개
-              href: continuous-backup-restore-introduction.md
-            - name: 지속적인 백업 - FAQ
-              href: continuous-backup-restore-frequently-asked-questions.md
-            - name: 지속적인 백업 - 리소스 모델
-              items:
-                - name: 리소스 모델 개요
-                  href: continuous-backup-restore-resource-model.md
-                - name: 복원 가능한 계정 - 목록
-                  href: restorable-database-accounts-list.md
-                - name: 복원 가능한 계정 - 위치별 나열
-                  href: restorable-database-accounts-list-by-location.md
-                - name: 복원 가능한 SQL 리소스 - 목록
-                  href: restorable-sql-resources-list.md
-                - name: 복원 가능한 SQL 데이터베이스 - 목록
-                  href: restorable-sql-databases-list.md
-                - name: 복원 가능한 SQL 컨테이너 - 목록
-                  href: restorable-sql-containers-list.md
-                - name: 복원 가능한 MongoDB 리소스 - 목록
-                  href: restorable-mongodb-resources-list.md
-                - name: 복원 가능한 MongoDB 컬렉션 - 목록
-                  href: restorable-mongodb-collections-list.md
-                - name: 복원 가능한 MongoDB 데이터베이스 - 목록
-                  href: restorable-mongodb-databases-list.md
         - name: 규정 준수
           href: compliance.md
     - name: 자동 권장 사항
@@ -1391,6 +1375,22 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link를 지원하는 Power BI 사용
           href: synapse-link-power-bi.md
+    - name: 백업 및 복원
+      items:
+        - name: 지속적인 백업 관리
+          items:
+            - name: 지속적인 백업 - 권한 및 역할
+              href: continuous-backup-restore-permissions.md
+            - name: 지속적인 백업 - Portal
+              href: continuous-backup-restore-portal.md
+            - name: 지속적인 백업 - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: 지속적인 백업 - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: 지속적인 백업 - Resource Manager
+              href: continuous-backup-restore-template.md
+        - name: 정기적 백업 관리
+          href: configure-periodic-backup-restore.md
     - name: 보안
       items:
         - name: IP 방화벽 구성
@@ -1410,20 +1410,6 @@
           href: how-to-setup-cmk.md
     - name: 엔터프라이즈 준비
       items:
-        - name: 지속적인 백업 관리
-          items:
-            - name: 지속적인 백업 - 권한 및 역할
-              href: continuous-backup-restore-permissions.md
-            - name: 지속적인 백업 - Portal
-              href: continuous-backup-restore-portal.md
-            - name: 지속적인 백업 - PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: 지속적인 백업 - CLI
-              href: continuous-backup-restore-command-line.md
-            - name: 지속적인 백업 - ARM
-              href: continuous-backup-restore-template.md
-        - name: 정기적 백업 관리
-          href: configure-periodic-backup-restore.md
         - name: 할당량 증가 요청
           href: create-support-request-quota-increase.md
     - name: 모니터

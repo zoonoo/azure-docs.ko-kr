@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689235"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121476"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
 
@@ -358,6 +358,6 @@ az k8s-configuration delete --name cluster-config --cluster-name AzureArcTest1 -
 
 ## <a name="next-steps"></a>다음 단계
 
-구성과 함께 Helm을 사용하는 방법을 알아보려면 다음 문서로 이동하세요.
+GitOps를 통해 CI/CD를 구현하는 방법을 알아보려면 다음 자습서로 이동합니다.
 > [!div class="nextstepaction"]
-> [구성과 함께 Helm 사용](./use-gitops-with-helm.md)
+> [GitOps를 통한 CI/CD 구현](./tutorial-gitops-ci-cd.md)

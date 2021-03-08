@@ -2,20 +2,20 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Arc 지원 Kubernetes 정보
+    - name: Azure Arc를 지원하는 Kubernetes에 대한 정보
       href: overview.md
     - name: Azure Arc 유효성 검사 프로그램
       href: validation-program.md
+- name: 빠른 시작
+  items:
+    - name: 클러스터를 Azure Arc에 연결
+      href: quickstart-connect-cluster.md
 - name: 자습서
   items:
     - name: GitOps를 사용하여 구성 배포
       href: tutorial-use-gitops-connected-cluster.md
     - name: GitOps를 통한 CI/CD 구현
       href: tutorial-gitops-ci-cd.md
-- name: 빠른 시작
-  items:
-    - name: 클러스터를 Azure Arc에 연결
-      href: quickstart-connect-cluster.md
 - name: 개념
   items:
     - name: 에이전트 아키텍처

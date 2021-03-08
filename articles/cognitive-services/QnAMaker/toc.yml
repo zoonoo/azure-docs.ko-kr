@@ -8,10 +8,12 @@
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: QnA Maker 포털에서 기술 자료 만들기 및 쿼리
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: 클라이언트 라이브러리 또는 REST API를 사용하여 기술 자료 만들기 및 쿼리
-      href: Quickstarts/quickstart-sdk.md
+    - name: 기술 자료 만들기 및 쿼리
+      items:
+        - name: QnA Maker 포털
+          href: Quickstarts/create-publish-knowledge-base.md
+        - name: 클라이언트 라이브러리 또는 REST API
+          href: Quickstarts/quickstart-sdk.md
     - name: REST API를 사용하여 기술 자료 쿼리
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: 자습서
@@ -48,6 +50,8 @@
     - name: Azure 리소스 관리
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Azure 리소스에 대한 네트워크 격리
+      href: How-To/network-isolation.md
     - name: QnA Maker 리소스 액세스 관리
       href: How-To/manage-qna-maker-app.md
     - name: 기술 자료 관리
@@ -108,7 +112,7 @@
     - name: 일괄 처리 테스트 형식
       href: reference-tsv-format-batch-testing.md
     - name: 암호화
-      href: qna-maker-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: REST API 참조
       items:
         - name: QnA Maker 4.0

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 641d7eeef96af84f0f058aebd19d795083e3567f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cfd378ae621192cd98b482b66c85c3dcd3ca454
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721942"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -78,7 +78,7 @@ ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-arm.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Microsoft 피어링을 사용하도록 할 수 있습니다. 다음 섹션에 나열된 지침을 따를 필요는 없습니다. 그러나 연결 공급자가 라우팅을 관리하지 않는 경우 회로를 만든 후에 다음 단계를 사용하여 구성을 계속합니다. 
 
-3. ExpressRoute 회로가 프로비저닝되고 사용하도록 설정되었는지도 확인합니다. 다음 예제를 사용합니다.
+3. 또한 ExpressRoute 회로가 프로비저닝되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -163,6 +163,11 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
+> [!IMPORTANT]
+> 개인 피어링에 대한 IPv6 지원은 현재 **공개 미리 보기** 로 제공됩니다. 
+> 
+> 
+
 ### <a name="to-create-azure-private-peering"></a>Azure 프라이빗 피어링을 만들려면
 
 1. ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.
@@ -200,7 +205,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-arm.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 프라이빗 피어링을 사용하도록 할 수 있습니다. 다음 섹션에 나열된 지침을 따를 필요는 없습니다. 그러나 연결 공급자가 라우팅을 관리하지 않는 경우 회로를 만든 후에 다음 단계를 사용하여 구성을 계속합니다.
 
-3. ExpressRoute 회로가 프로비저닝되고 사용하도록 설정되었는지도 확인합니다. 다음 예제를 사용합니다.
+3. 또한 ExpressRoute 회로가 프로비저닝되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -233,8 +238,10 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 4. 회로에 Azure 프라이빗 피어링을 구성합니다. 다음 단계를 계속하기 전에 다음 항목이 있는지 확인합니다.
 
-   * 기본 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
-   * 보조 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
+   * 가상 네트워크에 예약된 주소 공간의 일부가 아닌 서브넷 쌍입니다. 한 서브넷은 기본 링크에 사용되고 다른 서브넷은 보조 링크에 사용됩니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이러한 각 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다. 이 서브넷 쌍에 대한 세 가지 옵션이 있습니다.
+       * IPv4: 2개의 /30 서브넷
+       * IPv6: 2개의 /126 서브넷
+       * 둘 다: 두 개의 /30 서브넷과 두 개의 /126 서브넷
    * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 프라이빗 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
    * 선택 사항:
@@ -245,6 +252,8 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
+
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
@@ -252,6 +261,8 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6 -SharedKey "A1B2C3D4"
    ```
 
    > [!IMPORTANT]
@@ -271,10 +282,10 @@ Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 
 ### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Azure 프라이빗 피어링 구성을 업데이트하려면
 
-다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트됩니다.
+다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 200개에서 500개로 업데이트됩니다.
 
 ```azurepowershell-interactive
-Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 500
 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

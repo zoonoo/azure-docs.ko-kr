@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: 사용자 지정 보안 이니셔티브 및 정책 만들기
           href: custom-security-policies.md
-    - name: 서버용 Azure Defender로 머신 보호
+    - name: 서버용 Defender로 머신 보호
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: 서버용 Azure Defender 개요
@@ -146,7 +146,7 @@
         - name: 머신에 대한 안전 애플리케이션 목록 정의
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
-        - name: 파일 무결성 모니터링을 사용하여 파일 및 레지스트리에 대한 변경 내용 추적
+        - name: 파일 및 레지스트리 변경 내용 추적
           items:
             - name: 파일 무결성 모니터링 개요
               displayName: 'fim, change'
@@ -154,8 +154,8 @@
             - name: 파일 무결성 모니터링을 사용하는 기준 비교
               displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
-        - name: 적응형 네트워크 강화를 통해 네트워크 보안 상태 개선
-          displayName: anh
+        - name: 네트워크 보안 상태 개선
+          displayName: 'anh, adaptive network hardening'
           href: security-center-adaptive-network-hardening.md
         - name: Docker 호스트 강화
           displayName: containers
@@ -209,7 +209,7 @@
         - name: Key Vault용 Azure Defender 개요
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
-        - name: Key Vault용 Azure Defender 경고에 응답
+        - name: Key Vault용 Defender 경고 처리
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
     - name: 리소스 관리 작업 모니터링
@@ -217,7 +217,7 @@
         - name: Azure Defender for Resource Manager 개요
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
-        - name: Azure Defender for Resource Manager 경고에 대한 대응
+        - name: Defender for Resource Manager 경고 처리
           displayName: arm
           href: defender-for-resource-manager-usage.md
     - name: Azure 리소스에서 DNS 쿼리 모니터링

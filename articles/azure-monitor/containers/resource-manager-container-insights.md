@@ -1,26 +1,26 @@
 ---
-title: 컨테이너용 Azure Monitor에 대한 Resource Manager 템플릿 샘플
-description: 컨테이너용 Azure Monitor를 배포 및 구성하기 위한 Azure Resource Manager 템플릿 샘플입니다.
+title: 컨테이너 인사이트를 위한 Resource Manager 템플릿 샘플
+description: 컨테이너 인사이트를 배포하고 구성하기 위한 샘플 Azure Resource Manager 템플릿입니다.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723336"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor에 대한 Resource Manager 템플릿 샘플
+# <a name="resource-manager-template-samples-for-container-insights"></a>컨테이너 인사이트를 위한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 가상 머신에 대한 Log Analytics 에이전트를 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>AKS 클러스터에 대해 활성화
-다음 샘플에서는 AKS 클러스터의 컨테이너에 대해 Azure Monitor를 활성화합니다.
+다음 샘플은 AKS 클러스터에서 컨테이너 인사이트를 사용하도록 설정합니다.
 
 
 ### <a name="template-file"></a>템플릿 파일
@@ -357,4 +357,4 @@ ms.locfileid: "100597481"
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
-* [컨테이너용 Azure Monitor에 대해 자세히 알아봅니다](../containers/container-insights-overview.md).
+* [컨테이너 통계에 대해 자세히 알아봅니다](../containers/container-insights-overview.md).

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 979f40e13aab71f02a316e4ddf60306170166845
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 543fb7474c0a9efc41667945c89489054a44d657
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753929"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724492"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -35,7 +35,7 @@ ms.locfileid: "96753929"
 
 **시나리오** | **프로젝트** | **검색/평가** | **마이그레이션**
 --- | --- | --- | ---
-**VMware VM** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 VM을 검색하고 평가할 수 있습니다. | VMware용 [Azure Migrate 어플라이언스](common-questions-appliance.md) 하나로 VMware VM을 10,000개까지 검색할 수 있습니다. | **에이전트 없는 마이그레이션**: 최대 300개 VM을 동시에 복제할 수 있습니다. 최상의 성능을 내려면 VM 수가 50개를 초과하는 경우 VM 일괄 처리를 여러 개 만드는 것이 좋습니다.<br/><br/> **에이전트 기반 마이그레이션**: [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](./agent-based-migration-architecture.md#performance-and-scaling)하여 VM을 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
+**VMware VM** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 VM을 검색하고 평가할 수 있습니다. | VMware용 [Azure Migrate 어플라이언스](common-questions-appliance.md) 하나로 VMware VM을 10,000개까지 검색할 수 있습니다. | **에이전트 없는 마이그레이션**: 각 vCenter Server에서 최대 500개의 VM을 동시에 복제할 수 있습니다. **에이전트 기반 마이그레이션**: [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](./agent-based-migration-architecture.md#performance-and-scaling)하여 VM을 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
 **Hyper-V VM** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 VM을 검색하고 평가할 수 있습니다. | Azure Migrate 어플라이언스 하나로 Hyper-V VM을 5,000개까지 검색할 수 있습니다. | 어플라이언스는 Hyper-V 마이그레이션에 사용되지 않습니다. 대신 Hyper-V 복제 공급자는 각 Hyper-V 호스트에서 실행됩니다.<br/><br/> 복제 용량은 VM 변동, 복제 데이터의 업로드 대역폭 등의 성능 요인에 의해 영향을 받습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
 **물리적 컴퓨터** | 단일 Azure Migrate 프로젝트에서 최대 35,000개의 머신을 검색하고 평가할 수 있습니다. | 물리적 서버용 Azure Migrate 어플라이언스 하나로 최대 250대의 물리적 서버를 검색할 수 있습니다. | [복제 어플라이언스](migrate-replication-appliance.md)를 [스케일 아웃](./agent-based-migration-architecture.md#performance-and-scaling)하여 서버를 대량으로 복제할 수 있습니다.<br/><br/> 포털에서 복제할 머신을 한 번에 10대까지 선택할 수 있습니다. 더 많은 머신을 복제하려면 10대 일괄 처리를 추가합니다.
 
@@ -116,7 +116,7 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 - SUSE Linux Enterprise Server 12 SP1 이상
 - SUSE Linux Enterprise Server 15 SP1
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Debian 8, 7
+- Debian 9, 8, 7
 - Oracle Linux 7.7, 7.7-CI
 
 그 외의 버전은 표에 요약된 대로 머신을 준비합니다.  
@@ -139,11 +139,11 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Hyper\-V Linux Integration Services 설치 | yes                           | 예                        | 필요하지 않음 |
 | Azure 직렬 콘솔 로깅 사용         | yes                           | 예                        | 예         |
-| 디바이스 맵 파일 업데이트                      | 예                           | 아니요                         | 아니요         |
+| 디바이스 맵 파일 업데이트                      | 예                           | 예                         | 아니요         |
 | fstab 항목 업데이트                        | yes                           | 예                        | 예         |
 | udev 규칙 제거                            | yes                           | 예                        | 예         |
-| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 아니요         |
-| ssh 사용                                  | 아니요                            | 아니요                         | 아니요         |
+| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 예         |
+| ssh 사용                                  | 아니요                            | 예                         | 아니요         |
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 

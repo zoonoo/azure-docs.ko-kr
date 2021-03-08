@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 0581e659eca0a59719db0dd0e48cf3628b64dd2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664303"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098199"
 ---
 # <a name="introduction-to-azure-percept"></a>Azure Percept 소개
 
@@ -22,21 +22,21 @@ Azure Percept는 Edge에서 IoT 및 AI를 사용하여 비즈니스 전환을 �
 
 - 솔루션을 작동시키기 위한 올바른 하드웨어 식별 및 선택
 - 하드웨어, 소프트웨어, 모델 및 데이터의 전체 보안 보장
-- 원활하게 작동하는 솔루션을 빌드 및 관리하는 기능
+- 대규모에서 원활하게 작동하는 솔루션을 빌드 및 관리하는 기능
 
 ## <a name="components-of-azure-percept"></a>Azure Percept의 구성 요소
 
 Azure Percept의 주요 구성 요소는 다음과 같습니다.
 
-- AI 하드웨어 참조 디자인 및 인증 프로그램.
+1. AI 하드웨어 참조 디자인 및 인증 프로그램.
 
     - Azure AI 및 IoT 서비스와 쉽게 통합할 수 있는 Edge AI 하드웨어 개발을 위한 패턴 및 모범 사례를 하드웨어 개발자 에코시스템에 제공합니다.
 
-- Azure Percept DK(Devkit).
+2. Azure Percept DK(Devkit).
 
-    - 다양한 프로토타입 시나리오를 지원하기에 충분한 유연성을 제공하는 개발 키트입니다.
+    - 디바이스 빌더, 솔루션 빌더 및 고객을 위해 다양한 프로토타입 시나리오를 지원하기에 충분한 유연성을 제공하는 개발 키트입니다.
 
-- Edge AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
+3. Edge AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
 
     - Azure Percept Studio에서 액세스할 수 있는 개발 워크플로 및 미리 빌드된 모델입니다.
     - 모델 개발 서비스.

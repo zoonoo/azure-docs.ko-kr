@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576213"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693903"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -84,7 +84,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨\*      | 지원되지 않음   | 지원됨\*     |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원 여부        | 지원 여부     |
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원됨        | 지원 여부     |
 | [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부\*      | 지원 여부\*        | 지원 여부\*     |
 
 \* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.
@@ -122,7 +122,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
     Connect-AzAccount
     ```
 4. PowerShell에서 변수 정의: 
-    - 리소스 그룹 이름 - Synapse 작업 영역 개요의 Azure Portal에서 찾을 수 있습니다.
+    - 리소스 그룹 이름 - Azure Portal의 스토리지 계정 개요에서 찾을 수 있습니다.
     - 계정 이름 - 방화벽 규칙에 의해 보호되는 스토리지 계정의 이름입니다.
     - 테넌트 ID - 테넌트 정보에 있는 Azure Active Directory의 Azure Portal에서 찾을 수 있습니다.
     - 작업 영역 이름 - Synapse 작업 영역의 이름입니다.
@@ -192,16 +192,14 @@ GRANT ALTER ANY CREDENTIAL TO [user_name];
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-원활한 Azure AD 통과 환경을 보장하기 위해 기본적으로 모든 사용자에게 `UserIdentity` 자격 증명을 사용할 수 있는 권한이 있습니다.
-
 ## <a name="server-scoped-credential"></a>서버 범위 자격 증명
 
-서버 범위 자격 증명은 SQL 로그인이 `DATA_SOURCE` 없이 `OPENROWSET` 함수를 호출하여 일부 스토리지 계정의 파일을 읽을 때 사용됩니다. 서버 범위 자격 증명의 이름은 Azure 스토리지의 URL과 **반드시** 일치해야 합니다. 자격 증명은 [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 실행하여 추가됩니다. CREDENTIAL NAME 인수를 제공해야 합니다. Storage의 데이터에 대한 경로의 일부 또는 전체 경로와 일치해야 합니다(아래 참조).
+서버 범위 자격 증명은 SQL 로그인이 `DATA_SOURCE` 없이 `OPENROWSET` 함수를 호출하여 일부 스토리지 계정의 파일을 읽을 때 사용됩니다. 서버 범위 자격 증명의 이름은 **반드시** Azure Storage의 기본 URL과 일치해야 합니다(선택적으로 뒤에 컨테이너 이름이 옴). 자격 증명은 [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 실행하여 추가됩니다. CREDENTIAL NAME 인수를 제공해야 합니다.
 
 > [!NOTE]
 > `FOR CRYPTOGRAPHIC PROVIDER` 인수는 지원되지 않습니다.
 
-서버 수준의 자격 증명 이름은 스토리지 계정의 전체 경로(및 선택적으로 컨테이너)와 일치해야 하며, 다음과 같은 형식이어야 합니다. `<prefix>://<storage_account_path>/<storage_path>`. 스토리지 계정 경로는 다음 표에 설명되어 있습니다.
+서버 수준의 자격 증명 이름은 스토리지 계정의 전체 경로(및 선택적으로 컨테이너)와 일치해야 하며, 다음과 같은 형식이어야 합니다. `<prefix>://<storage_account_path>[/<container_name>]`. 스토리지 계정 경로는 다음 표에 설명되어 있습니다.
 
 | 외부 데이터 원본       | 접두사 | 스토리지 계정 경로                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ SQL 사용자는 Azure AD 인증을 사용하여 스토리지에 액세스할 �
 <*mystorageaccountname*>을 실제 스토리지 계정 이름으로 교환하고, <*mystorageaccountcontainername*>을 실제 컨테이너 이름으로 교환합니다.
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+필요에 따라 컨테이너 이름 없이 스토리지 계정의 기본 URL만 사용할 수 있습니다.
 
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ GO
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+필요에 따라 컨테이너 이름 없이 스토리지 계정의 기본 URL만 사용할 수 있습니다.
 
 ### <a name="public-access"></a>[공용 액세스](#tab/public-access)
 

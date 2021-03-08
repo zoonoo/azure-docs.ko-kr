@@ -588,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Python 패키지 설치 오류 문제 해결
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Conda 프라이빗 채널 만들기
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Notebooks 및 IDE 도구 사용
           items:
             - name: Notebooks 관리
@@ -861,7 +863,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST
+            - name: REST (영문)
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

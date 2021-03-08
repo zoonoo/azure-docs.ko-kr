@@ -2,18 +2,18 @@
 title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 11/12/2020
+ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584795"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686226"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
-Azure Arc 지원 서버를 사용하면 회사 네트워크 또는 다른 클라우드 공급자의 Azure 외부에 호스팅되는 Windows 및 Linux 머신을 네이티브 Azure 가상 머신을 관리하는 방법과 일치하도록 관리할 수 있습니다. 하이브리드 머신은 Azure에 연결되면 연결된 머신이 되어 Azure에서 리소스로 취급됩니다. 연결된 각 머신에는 리소스 ID가 있고 리소스 그룹에 포함되며, Azure Policy 및 태그 적용과 같은 표준 Azure 구성의 이점을 활용할 수 있습니다. 고객의 온-프레미스 인프라를 관리하는 서비스 공급자는 현재 네이티브 Azure 리소스를 관리하는 방법과 마찬가지로 Azure Arc와 함께 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md)를 사용하여 여러 고객 환경의 하이브리드 머신을 관리할 수 있습니다.
+Azure Arc 지원 서버를 사용하면 Azure 외부에서 회사 네트워크 또는 다른 클라우드 공급자에 호스트되는 Windows 및 Linux 물리 서버 및 가상 머신을 관리할 수 있습니다. 이 관리 환경은 원시 Azure 가상 머신을 관리하는 방법과 일치하도록 설계되었습니다. 하이브리드 머신은 Azure에 연결되면 연결된 머신이 되어 Azure에서 리소스로 취급됩니다. 연결된 각 머신에는 리소스 ID가 있고 리소스 그룹에 포함되며, Azure Policy 및 태그 적용과 같은 표준 Azure 구성의 이점을 활용할 수 있습니다. 고객의 온-프레미스 인프라를 관리하는 서비스 공급자는 현재 네이티브 Azure 리소스를 관리하는 방법과 마찬가지로 Azure Arc와 함께 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md)를 사용하여 여러 고객 환경의 하이브리드 머신을 관리할 수 있습니다.
 
 Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공하려면 Azure에 연결하려는 각 머신에 Azure Connected Machine 에이전트를 설치해야 합니다. 이 에이전트는 다른 기능을 제공하지 않으며, Azure [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 대체하지 않습니다. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
 
@@ -44,7 +44,7 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 Azure Arc 지원 서버를 사용하여 지원되는 지역의 명확한 목록은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) 페이지를 참조하세요.
 
-대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역이 포함된 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단 시 지리적으로 중복된 서비스를 지원하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
+대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역이 포함된 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단이 발생하고 지리적으로 중복된 서비스를 지원하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
 
 연결된 머신에 대한 다음 메타데이터 정보는 Azure Arc 머신 리소스가 구성된 지역에서 수집 및 저장됩니다.
 
@@ -54,6 +54,13 @@ Azure Arc 지원 서버를 사용하여 지원되는 지역의 명확한 목록�
 - Connected Machine 에이전트 버전
 
 예를 들어 머신이 미국 동부 지역에 있는 Azure Arc에 등록된 경우 이 데이터는 미국 지역에 저장됩니다.
+
+### <a name="supported-environments"></a>지원되는 환경
+
+Arc 지원 서버는 Azure 외부에서 호스트되는 물리 서버 및 가상 머신의 관리를 지원합니다. VM을 호스트하는 하이브리드 클라우드 환경에 대한 구체적인 세부 정보는 [Connected Machine 에이전트 사전 요구 사항](agent-overview.md#supported-environments)을 참조하세요.
+
+> [!NOTE]
+> Arc 지원 서버는 Azure에서 실행되는 가상 머신을 관리할 수 있도록 설계 또는 지원되지 않습니다.
 
 ### <a name="agent-status"></a>에이전트 상태
 

@@ -212,6 +212,10 @@
           href: diagnostic-logs.md
         - name: 메트릭
           href: metrics.md
+    - name: 사용 사례
+      items:
+        - name: 도메인 사용 사례
+          href: event-domains-use-cases.md
 - name: 방법 가이드
   items:
     - name: '시스템 항목 만들기, 보기 및 관리'

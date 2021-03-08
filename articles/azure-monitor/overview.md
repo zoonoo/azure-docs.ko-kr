@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor 개요 | Microsoft Docs
 description: Azure 서비스 및 애플리케이션에 대한 전체 모니터링 전략에 작용하는 Microsoft 서비스 및 기능을 대략적으로 설명합니다.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717352"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047165"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -145,7 +144,7 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](data-platform.md).
+* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics).
 * 애플리케이션의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](agents/data-sources.md).
 * 수집한 데이터를 분석하기 위한 [로그 쿼리](logs/log-query-overview.md).
 * 클라우드 애플리케이션 및 서비스 모니터링에 대한 [모범 사례](/azure/architecture/best-practices/monitoring).

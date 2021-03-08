@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720225"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040427"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>자습서: 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
 
@@ -82,7 +82,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Azure Portal을 사용하여 AGIC 추가 기능을 사용하도록 설정하려면 [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic)으로 이동하고 포털 링크를 통해 AKS 클러스터로 이동합니다. 여기에서 AKS 클러스터 내의 네트워킹 탭으로 이동합니다. 포털 UI를 사용하여 수신 컨트롤러 추가 기능을 사용하거나 사용하지 않도록 설정할 수 있는 Application Gateway 수신 컨트롤러 섹션이 표시됩니다. "수신 컨트롤러 사용" 옆의 상자를 선택하고 드롭다운 메뉴에서 만든 Application Gateway *myApplicationGateway* 를 선택합니다. 
 
-![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="peer-the-two-virtual-networks-together"></a>두 가상 네트워크를 피어링
 
