@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 388bc634ccc798a91985aec7367c51c61ed12507
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 679104a1941e677dd78190fb80964a5d39813e61
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551953"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445326"
 ---
 음성 서비스의 핵심 기능 중 하나는 휴먼 음성을 인식 하 고 다른 언어로 번역 하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 음성 SDK를 사용 하 여 고품질 음성 번역을 수행 하는 방법에 대해 알아봅니다. 이 빠른 시작은 다음을 비롯 한 항목을 다룹니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "100551953"
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _SPEECH Sdk 정보_ 문서의 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> 음성 sdk 가져오기</a> 섹션에 나오는 지침을 따릅니다.
+작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _SPEECH Sdk 정보_ 문서의 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">음성 sdk 가져오기</a> 섹션에 나오는 지침을 따릅니다.
 
 ## <a name="import-dependencies"></a>종속성 가져오기
 

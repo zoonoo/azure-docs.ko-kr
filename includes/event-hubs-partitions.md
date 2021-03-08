@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955650"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445365"
 ---
 이벤트 허브는 이벤트 시퀀스를 하나 이상의 파티션으로 구성합니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 파티션을 "커밋 로그"로 생각할 수 있습니다.
 
@@ -57,4 +57,3 @@ Event Hubs에서 데이터 보존 시간을 제한하는 이유는 타임스탬�
 
 파티션을 직접 전송할 수는 있지만 권장하지 않습니다. 대신 [이벤트 게시자](../articles/event-hubs/event-hubs-features.md#event-publishers) 섹션에서 소개하는 더 높은 수준의 구문을 사용할 수 있습니다. 
 
-파티션 및 가용성과 안정성 간의 균형에 대한 자세한 내용은 [Event Hubs 프로그래밍 가이드](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) 및 [Event Hubs의 가용성 및 일관성](../articles/event-hubs/event-hubs-availability-and-consistency.md) 문서를 참조하세요.
