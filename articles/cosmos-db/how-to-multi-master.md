@@ -5,20 +5,20 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
-ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 08d50b18605fd833e6b0efca987338d0ca1eef8d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336729"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488514"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 응용 프로그램에서 다중 지역 쓰기 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-여러 쓰기 지역을 사용 하도록 설정 된 계정을 만든 후에는 Azure Cosmos DB에서 다중 지역 쓰기 및 다중 호 밍 기능을 사용할 수 있도록 DocumentClient에 대 한 ConnectionPolicy에 대해 응용 프로그램에서 두 가지 변경을 수행 해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정하고 애플리케이션이 배포되는 지역 이름을 SetCurrentLocation으로 전달합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
+여러 쓰기 지역을 사용 하도록 설정 된 계정을 만든 후에는 Azure Cosmos DB에서 다중 지역 쓰기를 사용 하도록 설정 하기 위해 응용 프로그램에서 ConnectionPolicy에 대해 Cosmos 클라이언트에 대해 두 가지 변경을 수행 해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정 하 고 응용 프로그램이 ApplicationRegion에 배포 된 지역의 이름을 전달 합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
 
 > [!Note]
 > 단일 쓰기 지역으로 처음 구성 된 Cosmos 계정은 중단 시간이 0 인 여러 쓰기 지역으로 구성 될 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.

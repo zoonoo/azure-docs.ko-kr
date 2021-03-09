@@ -5,19 +5,19 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 994fdf3f929f1f64ab4a064d7f2bd24c19322629
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679704"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485422"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server (미리 보기) FAQ
 
 > [!IMPORTANT]
-> Azure 경로 서버 (미리 보기)는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -70,7 +70,7 @@ Azure 경로 서버에는 다음과 같은 제한 사항이 있습니다 (배포
 | 각 BGP 피어에서 Azure 경로 서버에 알릴 수 있는 경로 수 | 200 |
 | Azure Route Server가 Express 경로 또는 VPN gateway에 보급할 수 있는 경로 수 | 200 |
 
-자세한 내용은 [Azure 가상 컴퓨터 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조 하세요.
+NVA가 제한 보다 많은 경로를 보급 하는 경우 BGP 세션이 삭제 됩니다. 게이트웨이 및 Azure 경로 서버에 발생 하는 경우 온-프레미스 네트워크에서 Azure로의 연결을 잃게 됩니다. 자세한 내용은 [Azure 가상 컴퓨터 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

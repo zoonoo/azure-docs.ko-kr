@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59f7d40d64e10266937aab8dacb39bd6c647ce07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750999"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102194009"
 ---
 <a name="HOLTop"></a>
 
@@ -90,7 +90,13 @@ mkdir -p src/main/java
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-애플리케이션의 **ComputerVisionQuickstarts** 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
+**ComputerVisionQuickstarts** 클래스를 정의합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_1)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_2)]
+
+**ComputerVisionQuickstarts** 클래스 내에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
@@ -154,7 +160,7 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>분석
-이 메서드는 각 이미지 분석 범위에 대한 자세한 결과를 콘솔에 출력합니다. 이 메서드 호출은 Try/Catch 블록으로 묶는 것이 좋습니다. **analyzeImageInStream** 메서드는 추출된 모든 정보가 포함된 **ImageAnalysis** 개체를 반환합니다.
+이 블록은 각 이미지 분석 범위에 대한 자세한 결과를 콘솔에 출력합니다. **analyzeImageInStream** 메서드는 추출된 모든 정보가 포함된 **ImageAnalysis** 개체를 반환합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
@@ -183,6 +189,21 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 다음 코드는 사각형 좌표를 사용하여 이미지에서 검색된 얼굴을 반환하고 얼굴 특성을 선택합니다. 자세한 내용은 [얼굴 감지](../../concept-detecting-faces.md)를 참조하세요.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="detect-objects"></a>개체 감지
+
+다음 코드는 이미지에서 검색된 개체를 해당 좌표와 함께 반환합니다. 자세한 내용은 [개체 감지](../../concept-object-detection.md)를 참조하세요.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
+
+
+### <a name="detect-brands"></a>브랜드 감지
+
+다음 코드는 이미지에서 검색된 브랜드 로고를 해당 좌표와 함께 반환합니다. 자세한 내용은 [브랜드 검색](../../concept-brand-detection.md)을 참조하세요.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
+
+
 
 ### <a name="detect-adult-racy-or-gory-content"></a>성인, 외설 또는 폭력 콘텐츠 검색
 
@@ -216,6 +237,13 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 > [!div class="nextstepaction"]
 > [이미지를 분석했습니다.](?success=analyze-image#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
+
+### <a name="close-out-the-method"></a>메서드 닫기
+
+try/catch 블록을 완료하고 메서드를 닫습니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
+
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 

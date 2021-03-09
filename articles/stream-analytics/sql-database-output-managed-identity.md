@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 4246ad48624eb0ca53fbe6bb747f02daa32119bf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e491c421f4af256b2e74fa61eb442d269bdb9e34
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432454"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487919"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 Azure SQL Database 또는 Azure Synapse Analytics에 액세스 (미리 보기)
 
@@ -52,6 +52,8 @@ Azure Stream Analytics Azure SQL Database 및 Azure Synapse Analytics 출력 싱
 - Azure Synapse Analytics SQL 풀.
 
 - [Stream Analytics 작업으로 구성](azure-synapse-analytics-output.md)된 Azure Storage 계정
+
+- 참고 Stream Analytics: Synapse SQL MSI와 통합 된 계정 저장소 MSI를 현재 사용할 수 없습니다.
 
 ---
 
@@ -171,7 +173,7 @@ GRANT CONNECT, SELECT, INSERT, CONTROL, ADMINISTER DATABASE BULK OPERATIONS OBJE
 *ASA_JOB_NAME* 사용자에 게 추가한 사용 권한을 모두 확인 하려면 SSMS에서 다음 명령을 사용 하 여 관련 DB를 실행 합니다. 
 
 ```sql
-SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+SELECT dbprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
 FROM sys.database_principals dbprin 
 LEFT JOIN sys.database_permissions dbperm 
 ON dbperm.grantee_principal_id = dbprin.principal_id 

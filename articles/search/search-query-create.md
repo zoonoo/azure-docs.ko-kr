@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536835"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489364"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -21,18 +21,21 @@ ms.locfileid: "99536835"
 
 ## <a name="whats-a-query-request"></a>쿼리 요청은 무엇 인가요?
 
-쿼리는 단일 검색 인덱스의 docs 컬렉션에 대 한 읽기 전용 요청입니다. ' QueryType ' 및 ' search ' 매개 변수를 통해 쿼리 식을 지정 합니다. 쿼리 식에는 검색어, 인용 부호 및 연산자가 있을 수 있습니다.
+쿼리는 단일 검색 인덱스의 docs 컬렉션에 대 한 읽기 전용 요청입니다. ' Search ' 매개 변수에 용어, 인용 부호로 묶인 구 및 연산자로 구성 된 쿼리 식을 포함 하도록 지정 합니다.
 
-또한 쿼리는 인덱스에 있는 일치 항목 수를 반환 하는 ' count ', 검색 결과에서 반환 되는 필드를 선택 하는 ' select ' 및 결과를 정렬 하는 ' orderby '를 포함할 수 있습니다. 다음 예에서는 사용 가능한 매개 변수의 하위 집합을 표시 하 여 쿼리 요청에 대 한 일반적인 개념을 제공 합니다. 쿼리 컴포지션에 대 한 자세한 내용은 [쿼리 유형 및 컴포지션](search-query-overview.md) 및 [문서 검색 (REST)](/rest/api/searchservice/search-documents)을 참조 하세요.
+추가 매개 변수는 쿼리 및 응답에 대 한 추가 정의를 제공 합니다. 예를 들어 ' searchFields '는 쿼리 실행 범위를 특정 필드로 지정 하 고, ' select '는 결과에서 반환 되는 필드를 지정 하며, ' count '는 인덱스에서 찾은 일치 항목 수를 반환 합니다.
+
+다음 예에서는 사용 가능한 매개 변수의 하위 집합을 표시 하 여 쿼리 요청에 대 한 일반적인 개념을 제공 합니다. 쿼리 컴포지션에 대 한 자세한 내용은 [쿼리 유형 및 컴포지션](search-query-overview.md) 및 [문서 검색 (REST)](/rest/api/searchservice/search-documents)을 참조 하세요.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

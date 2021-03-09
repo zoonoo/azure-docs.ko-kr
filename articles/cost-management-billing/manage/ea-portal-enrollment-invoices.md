@@ -3,18 +3,18 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598079"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430815"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -98,29 +98,41 @@ Azure Enterprise Portal은 보기에서 비활성 등록을 필터링합니다. 
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>예정된 초과분 청구서의 PO 번호 변경
 
-엔터프라이즈 관리자가 청구서 날짜 앞에 PO(구매 주문) 번호를 설정하지 않으면 Azure Enterprise Portal에서 기본 PO 번호를 자동으로 생성합니다. 엔터프라이즈 관리자는 자동화된 청구서 알림 이메일을 받은 후 최대 7일 이내에 PO 번호를 업데이트할 수 있습니다.
+엔터프라이즈 관리자가 청구서 날짜 앞에 PO(구매 주문) 번호를 설정하지 않으면 Azure Enterprise Portal에서 기본 PO 번호를 자동으로 생성합니다. 엔터프라이즈 관리자는 자동화된 청구서 알림 이메일을 받은 후 최대 7일 이내에 PO 번호를 업데이트할 수 있습니다. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Azure 서비스 구매 주문 번호를 업데이트하는 방법은 다음과 같습니다.
+매월 PO 번호가 자동 생성되지 않도록 PO 번호를 잠글 수 있습니다. [PO 번호 잠금](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles)을 참조하세요.
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Azure 서비스 구매 주문 번호 업데이트
 
 1. Azure Enterprise Portal에서 **보고서** > **사용 요약** 을 차례로 선택합니다.
 1. 오른쪽 위 모서리에서 **PO 번호 편집** 을 선택합니다.
 1. **Azure 서비스** 라디오 단추를 선택합니다.
 1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간** 을 선택합니다.
-
    PO 번호는 청구서 알림을 받은 후 청구서를 결제하기 전에 7일 동안 편집할 수 있습니다.
 1. **PO 번호** 필드에서 새 PO 번호를 입력합니다.
 1. **저장** 을 선택하여 변경 내용을 제출합니다.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Azure Marketplace 구매 주문 번호를 업데이트하려는 경우,
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Azure Marketplace 구매 주문 번호 업데이트
 
 1. Azure Enterprise Portal에서 **보고서** > **사용 요약** 을 차례로 선택합니다.
 1. 오른쪽 위 모서리에서 **PO 번호 편집** 을 선택합니다.
 1. **Marketplace** 라디오 단추를 선택합니다.
-1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간** 을 선택합니다.
-
-   PO 번호는 청구서 알림을 받은 후 청구서를 결제하기 전에 7일 동안 편집할 수 있습니다.
+1. 날짜 범위 드롭다운 메뉴에서 **청구서 기간** 을 선택합니다.  
+    PO 번호는 청구서 알림을 받은 후 청구서를 결제하기 전에 7일 동안 편집할 수 있습니다.
 1. **PO 번호** 필드에서 새 PO 번호를 입력합니다.
 1. **저장** 을 선택하여 변경 내용을 제출합니다.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>예정된 청구 기간에 자동 업데이트되지 않도록 PO 번호 잠금
+
+PO 번호를 잠그면 새 청구서가 모두 잠긴 상태로 유지되며 PO 번호를 업데이트할 필요가 없습니다.
+
+1.  Azure Enterprise Portal에서 **보고서** > **사용 요약** 을 선택합니다.
+2.  오른쪽 위 모서리에서 **PO 번호 편집** 을 선택합니다.
+3.  **PO 번호** 필드에 새 PO 번호를 입력합니다.
+4.  **PO 번호 잠금** 상자를 선택합니다.
+5.  **저장** 을 선택하여 변경 내용을 제출합니다.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="PO 번호 보기/편집 상자를 보여 주는 스크린샷." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Azure 엔터프라이즈 대금 청구 주기
 

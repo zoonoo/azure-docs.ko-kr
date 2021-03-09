@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453804"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485387"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -29,6 +29,32 @@ ms.locfileid: "102453804"
 >
 > 참가할 수도 있습니다! [Azure 센티널 위협 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에서 참여 하세요.
 > 
+
+## <a name="march-2021"></a>2021년 3월
+
+- [Microsoft 365 Defender 인시던트 통합](#microsoft-365-defender-incident-integration) (공개 미리 보기)
+- [Azure Policy를 사용 하는 새 Microsoft 서비스 커넥터](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="microsoft-365-defender-incident-integration"></a>Microsoft 365 Defender 인시던트 통합
+
+Azure 센티널의 [M365D (Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 인시던트 통합을 사용 하면 모든 M365D 인시던트를 Azure 센티널로 스트리밍하 고 두 포털 간에 동기화 된 상태를 유지할 수 있습니다. M365D의 인시던트 (이전에는 Microsoft Threat Protection 또는 MTP)에는 연결 된 모든 경고, 엔터티 및 관련 정보가 포함 되어 있으므로 Azure 센티널에서 심사 및 예비 조사를 수행 하는 데 충분 한 컨텍스트를 제공 합니다. 센티널에서 인시던트는 M365D와 양방향 동기화 된 상태로 유지 되므로 인시던트 조사에서 두 포털의 이점을 활용할 수 있습니다.
+
+Azure 센티널과 Microsoft 365 Defender를 함께 사용 하면 두 세계 모두를 가장 잘 활용할 수 있습니다. SIEM은 조직의 전체 정보 리소스 범위를 통해 사용자에 게 제공 되는 다양 한 정보를 제공 하 고, Microsoft 365 리소스를 보호 하기 위해 XDR에서 제공 하는 사용자 지정 및 맞춤형 조사 파워의 깊이를 제공 합니다.
+
+자세한 내용은 [Azure 센티널과 Microsoft 365 Defender 통합](microsoft-365-defender-sentinel-integration.md)을 참조 하세요.
+
+### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Azure Policy를 사용 하는 새 Microsoft 서비스 커넥터
+
+[Azure Policy](../governance/policy/overview.md) 는 정책을 사용 하 여 리소스의 속성을 적용 하 고 제어할 수 있는 Azure 서비스입니다. 정책을 사용 하면 리소스가 IT 거 버 넌 스 표준을 준수 하는지 확인할 수 있습니다.
+
+정책에 의해 제어 될 수 있는 리소스의 속성 중에는 진단 및 감사 로그를 만들고 처리 하는 것이 있습니다. 이제 azure 센티널은 Azure Policy를 사용 하 여 Azure 센티널에 수집할 로그를 포함 하는 특정 유형의 모든 (현재 및 미래) 리소스에 공통 된 진단 로그 설정 집합을 적용할 수 있도록 합니다. Azure Policy 덕분에 리소스 별로 진단 로그 설정 리소스를 더 이상 설정할 필요가 없습니다.
+
+이제 다음 Azure 서비스에 Azure Policy 기반 커넥터를 사용할 수 있습니다.
+- [Azure Key Vault](connect-azure-key-vault.md) (공개 미리 보기)
+- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (공개 미리 보기)
+- Azure SQL 데이터베이스/서버 (GA)
+
+고객은 여전히 특정 인스턴스에 대 한 로그를 수동으로 보낼 수 있으며 정책 엔진을 사용할 필요가 없습니다.
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -86,7 +112,7 @@ Microsoft의 타사 통합 컬렉션은 지난 2 개월 동안 30 개의 커넥�
 - [Symantec Endpoint Protection](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [추세 마이크로 XDR](connect-data-sources.md)
-- [VMWare ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>엔터티 페이지의 UEBA 정보
 

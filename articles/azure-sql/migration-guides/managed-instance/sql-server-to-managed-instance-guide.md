@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358897"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488956"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>마이그레이션 가이드: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "97358897"
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음 필수 구성 요소를 확인 하세요. 
 
@@ -57,6 +57,8 @@ SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음 �
 검색 단계에 사용할 수 있는 도구에 대 한 자세한 내용은 [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조 하세요. 
 
 ### <a name="assess"></a>평가 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 데이터 원본을 검색 한 후에는 Azure SQL Managed Instance로 마이그레이션할 수 있는 온-프레미스 SQL Server 인스턴스를 평가 하 여 마이그레이션 차단 또는 호환성 문제를 식별 합니다. 
 
@@ -144,14 +146,14 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 
 1. Azure blob storage에 데이터베이스를 백업 합니다. 예를 들어 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)의 [url에 백업을](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 사용 합니다. [Microsoft Azure 도구](https://go.microsoft.com/fwlink/?LinkID=324399) 를 사용 하 여 SQL SERVER 2012 SP1 CU2 이전의 데이터베이스를 지원할 수 있습니다. 
 1. SQL Server Management Studio를 사용 하 여 Azure SQL Managed Instance에 연결 합니다. 
-1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예를 들어:
+1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예를 들면 다음과 같습니다.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예를 들어: 
+1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예를 들면 다음과 같습니다. 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =

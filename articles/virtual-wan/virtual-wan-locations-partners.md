@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: references_regions
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1f05e76768ffc8ce930d97573c7729b8e4afafe
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4a02a02eeb40c1a61df88c49bf967b2ca57befc3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452750"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489330"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -62,9 +62,9 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN 배포 가이드](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[Cisco CSR (클라우드 서비스 라우터) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco Cloud Services (CSR) WAN의 공개 미리 보기 중에는 VWAN 허브에 대 한 전자 메일을 보내고 Vwan 배포 가이드를 요청 하 여 최종 고객이 Cisco EFT (초기 현장 평가판) 고객으로 등록 해야 합니다 vwan_public_preview@external.cisco.com . 
-|[VMware SD-가상 WAN 허브의 WAN](https://kb.vmware.com/s/article/82746) | Vmware SD에서 VWAN 허브로의 공개 미리 보기 중에 VMware는에 전자 메일을 보내 고객이 등록 해야 vhubsupport@vmware.com 합니다. [VMware SD-가상 WAN 허브 배포 가이드의 WAN](https://kb.vmware.com/s/article/82746)|
+|[VMware SD-가상 WAN 허브의 WAN](https://sdwan.vmware.com/partners/microsoft) | Vmware SD에서 VWAN 허브로의 공개 미리 보기 중에 VMware는에 전자 메일을 보내 고객이 등록 해야 vhubsupport@vmware.com 합니다. [VMware SD-가상 WAN 허브 배포 가이드의 WAN](https://kb.vmware.com/s/article/82746)|
 
-다음 파트너는 가까운 장래에 Aviatrix, Citrix, VeloCloud 및 그 반대로 네트워크에서 가상 허브 제품에 NVA를 제공할 예정입니다.
+다음 파트너는 나중에 Aviatrix, Citrix 및 그 반대로 네트워크에서 가상 허브 제품에 NVA를 제공할 예정입니다.
 
 ## <a name="locations"></a><a name="locations"></a>위치
 

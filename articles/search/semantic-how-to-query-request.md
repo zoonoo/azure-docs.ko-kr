@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432947"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487150"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Cognitive Search에서 의미 체계 쿼리 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102432947"
 
 의미 체계 쿼리는 Pdf 또는 텍스트가 많은 문서와 같이 텍스트를 많이 사용 하지 않는 콘텐츠를 기반으로 하는 검색 인덱스에서 가장 잘 작동 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 + 표준 계층 (S1, S2, S3)의 search 서비스는 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부 2, 유럽 서 부, 유럽 서부입니다. 이러한 지역 중 하나에 기존 S1 이상 서비스를 사용 하는 경우 새 서비스를 만들지 않고도 액세스를 요청할 수 있습니다.
 
@@ -174,10 +174,10 @@ SearchFields의 순서는 중요 합니다. 기존 단순 또는 전체 Lucene �
 
 | 매개 변수 | Type | 설명 |
 |-----------|-------|-------------|
-| queryType | String | 유효한 값은 simple, full 및 의미 체계입니다. 의미 체계 쿼리에는 "의미 체계"의 값이 필요 합니다. |
-| queryLanguage | String | 의미 체계 쿼리에 필요 합니다. 현재 "en-us"만 구현 됩니다. |
-| searchFields | String | 검색 가능한 필드를 쉼표로 구분한 목록입니다. 선택 사항 이지만 권장 됩니다. 의미 체계 순위가 발생 하는 필드를 지정 합니다. </br></br>단순 및 전체 쿼리 유형과 달리 필드가 나열 되는 순서에 따라 우선 순위가 결정 됩니다.|
-| 답변 |String | 결과에 의미 체계 대답이 포함 되는지 여부를 지정 하는 선택적 필드입니다. 현재 "extractive"만 구현 됩니다. 대답은 최대 5 개를 반환 하도록 구성할 수 있습니다. 이 예제 "extractive|count3 "'는 세 가지 답변의 수를 표시 합니다. 기본값은 1입니다.|
+| queryType | 문자열 | 유효한 값은 simple, full 및 의미 체계입니다. 의미 체계 쿼리에는 "의미 체계"의 값이 필요 합니다. |
+| queryLanguage | 문자열 | 의미 체계 쿼리에 필요 합니다. 현재 "en-us"만 구현 됩니다. |
+| searchFields | 문자열 | 검색 가능한 필드를 쉼표로 구분한 목록입니다. 선택 사항 이지만 권장 됩니다. 의미 체계 순위가 발생 하는 필드를 지정 합니다. </br></br>단순 및 전체 쿼리 유형과 달리 필드가 나열 되는 순서에 따라 우선 순위가 결정 됩니다.|
+| 답변 |문자열 | 결과에 의미 체계 대답이 포함 되는지 여부를 지정 하는 선택적 필드입니다. 현재 "extractive"만 구현 됩니다. 대답은 최대 5 개를 반환 하도록 구성할 수 있습니다. 기본값은 1입니다. 이 예제에서는 "extractive count3" '의 세 가지 답변을 보여 줍니다. \| |
 
 ## <a name="query-with-search-explorer"></a>Search 탐색기를 사용하여 쿼리
 
@@ -186,7 +186,7 @@ SearchFields의 순서는 중요 합니다. 기존 단순 또는 전체 Lucene �
 ### <a name="with-querytypesemantic"></a>With queryType = 의미 체계
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 첫 번째 결과는 다음과 같습니다.

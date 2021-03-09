@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624875"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431546"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -93,7 +93,7 @@ P2S 클라이언트용 DNS 서버를 추가하는 두 가지 옵션이 있습니
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>사용자 VPN(지점 및 사이트 간)의 경우 지원되는 클라이언트 수는 어떻게 되나요?
 
-각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1000개, 7-12 배율 단위는 5000개, 13-18 배율 단위는 최대 10,000개의 연결을 지원합니다.
+각 사용자 VPN P2S 게이트웨이에는 두 가지 인스턴스가 있습니다. 각 인스턴스는 배율 단위가 변경됨에 따라 특정 개수의 연결을 지원합니다. 1~3 배율 단위는 연결 500개, 4~6 배율 단위는 연결 1,000개, 7~12 배율 단위는 연결 5,000개, 13~18 배율 단위는 연결 최대 10,000개를 지원합니다.
 
 예를 들어 사용자가 1 배율 단위를 선택한다고 가정해 보겠습니다. 각 배율 단위는 배포된 활성-활성 게이트웨이를 의미하며, 각 인스턴스(이 경우 2)에서 최대 500개의 연결을 지원합니다. 게이트웨이당 500 * 2개 연결이 가능하므로, 이 배율 단위에 대해 500개 대신 1000개를 계획하는 것이 아닙니다. 권장 연결 수를 초과할 경우 추가 500개 연결이 중단될 수 있는 기간 동안 인스턴스를 처리해야 할 수도 있습니다. 또한 배율 단위를 확장 또는 축소하거나 VPN 게이트웨이에서 지점 및 사이트 간 구성을 변경하려는 경우에는 가동 중지 시간을 계획해야 합니다.
 
@@ -125,7 +125,7 @@ Virtual WAN은 VPN과 ExpressRoute 모두에 최대 20Gbps의 집계 처리량�
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Virtual WAN 파트너는 Azure Virtual WAN과 연결을 어떻게 자동화하나요?
 
-일반적으로 소프트웨어 정의 연결 솔루션은 컨트롤러 또는 디바이스 프로비저닝 센터를 사용하여 해당 분기 디바이스를 관리합니다. 컨트롤러는 Azure API를 사용하여 Azure Virtual WAN에 대한 연결을 자동화할 수 있습니다. 자동화에는 분기 정보 업로드, Azure 구성 다운로드, Azure 가상 허브로의 IPSec 터널 설정, 분기 디바이스에서 Azure Virtual WAN으로의 자동 연결 설정이 포함됩니다. 수백 개의 분기가 있을 경우 온보딩 환경에서 대규모 IPsec 연결을 설정, 구성, 관리할 필요가 없기 때문에 Virtual WAN CPE 파트너를 사용하여 연결하는 것이 쉽습니다. 자세한 내용은 [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)를 참조하세요.
+일반적으로 소프트웨어 정의 연결 솔루션은 컨트롤러 또는 디바이스 프로비저닝 센터를 사용하여 해당 분기 디바이스를 관리합니다. 컨트롤러는 Azure API를 사용하여 Azure Virtual WAN에 대한 연결을 자동화할 수 있습니다. 자동화에는 분기 정보 업로드, Azure 구성 다운로드, Azure 가상 허브로의 IPsec 터널 설정, 분기 디바이스에서 Azure Virtual WAN으로의 연결 자동 설정이 포함됩니다. 수백 개의 분기가 있을 경우 온보딩 환경에서 대규모 IPsec 연결을 설정, 구성, 관리할 필요가 없기 때문에 Virtual WAN CPE 파트너를 사용하여 연결하는 것이 쉽습니다. 자세한 내용은 [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)를 참조하세요.
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>사용 중인 디바이스가 Virtual WAN 파트너 목록에 없는 경우 어떻게 되나요? 계속 Azure Virtual WAN VPN에 연결할 수 있나요?
 
@@ -133,7 +133,7 @@ Virtual WAN은 VPN과 ExpressRoute 모두에 최대 20Gbps의 집계 처리량�
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>출시 파트너 목록에 없는 새 파트너는 어떻게 온보딩하나요?
 
-모든 Virtual WAN API는 개방형 API입니다. [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) 설명서를 참조하여 기술적 실행 가능성을 평가할 수 있습니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다. 회사에서 위에 제공된 자동화 지침에 따라 CPE 디바이스에 대한 자동화 작업을 완료하면 [파트너를 통해 연결]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners)에 나열될 azurevirtualwan@microsoft.com에 연결할 수 있습니다. 특정 회사 솔루션을 Virtual WAN 파트너로 나열하려는 고객의 경우 azurevirtualwan@microsoft.com으로 이메일을 보내 문의하라고 회사에 알려주시기 바랍니다.
+모든 Virtual WAN API는 개방형 API입니다. [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) 설명서를 참조하여 기술적 실행 가능성을 평가할 수 있습니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다. 회사에서 위에 제공된 자동화 지침에 따라 CPE 디바이스에 대한 자동화 작업을 완료하면 [파트너를 통해 연결]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners)에 나열될 azurevirtualwan@microsoft.com에 연결할 수 있습니다. 특정 회사 솔루션을 Virtual WAN 파트너로 나열하려는 고객의 경우 회사에서 azurevirtualwan@microsoft.com으로 이메일을 보내 Virtual WAN에 문의하도록 하세요.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Virtual WAN이 SD-WAN 디바이스를 지원하는 방법
 
@@ -149,7 +149,7 @@ Virtual WAN 파트너는 Azure VPN 엔드포인트로의 IPsec 연결을 자동�
 
 ### <a name="what-happens-if-the-on-premises-vpn-device-only-has-1-tunnel-to-an-azure-virtual-wan-vpn-gateway"></a>온-프레미스 VPN 디바이스에 Azure Virtual WAN VPN 게이트웨이에 대한 터널이 1개만 있는 경우 어떻게 되나요?
 
-Azure Virtual WAN 연결은 2개의 터널로 구성됩니다. Virtual WAN VPN 게이트웨이는 활성-활성 모드로 가상 허브에 배포됩니다. 즉, 별도의 인스턴스에서 종료되는 온-프레미스 디바이스의 별도 터널이 있음을 의미합니다. 이는 모든 사용자에게 권장되는 사항입니다. 그러나 사용자가 Virtual WAN VPN 게이트웨이 인스턴스 중 하나에 대한 터널을 1개만 갖도록 선택하는 경우(유지 관리, 패치 등) 게이트웨이 인스턴스를 오프라인 상태로 전환하면 터널이 보조 활성 인스턴스로 이동되고 사용자가 다시 연결될 수 있습니다. BGP 세션은 인스턴스 간에 이동하지 않습니다.
+Azure Virtual WAN 연결은 2개의 터널로 구성됩니다. Virtual WAN VPN 게이트웨이는 활성-활성 모드로 가상 허브에 배포됩니다. 즉, 별도의 인스턴스에서 종료되는 온-프레미스 디바이스의 별도 터널이 있음을 의미합니다. 이는 모든 사용자에게 권장되는 사항입니다. 그러나 사용자가 Virtual WAN VPN 게이트웨이 인스턴스 중 하나에 대한 터널을 1개만 보유하도록 선택하는 경우 어떤 이유(유지 관리, 패치 등)로든 게이트웨이 인스턴스를 오프라인 상태로 전환하면 터널이 보조 활성 인스턴스로 이동되고 사용자가 다시 연결될 수 있습니다. BGP 세션은 인스턴스 간에 이동하지 않습니다.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>온-프레미스 VPN 디바이스가 여러 허브에 연결할 수 있나요?
 
@@ -213,7 +213,7 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>내 VPN 연결에서 NAT-T를 사용할 수 있나요?
 
-예, NAT-T(NAT traversal)가 지원됩니다. Virtual WAN VPN 게이트웨이는 IPsec 터널과 주고받는 내부 패킷에서 NAT 같은 기능을 수행하지 않습니다. 이 구성에서 온-프레미스 디바이스가 IPSec 터널을 시작하는지 확인하세요.
+예, NAT-T(NAT traversal)가 지원됩니다. Virtual WAN VPN 게이트웨이는 IPsec 터널과 주고받는 내부 패킷에서 NAT 같은 기능을 수행하지 않습니다. 이 구성에서 온-프레미스 디바이스가 IPSec 터널을 시작하는지 확인합니다.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>포털에는 가상 허브에 대한 20Gbps 설정이 표시되지 않습니다. 이를 구성하려면 어떻게 하나요?
 
@@ -302,3 +302,7 @@ Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간 사�
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>서비스로서의 사용자용 Virtual WAN을 관리할 수 있는 관리되는 서비스 공급자가 있나요?
 
 예. Azure Marketplace를 통해 사용하도록 설정된 MSP(관리되는 서비스 공급자) 솔루션 목록은 [Azure Networking MSP 파트너에서 제공하는 Azure Marketplace](../articles/networking/networking-partners-msp.md#msp)를 참조하세요.
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Virtual WAN 허브 라우팅은 VNet의 Azure Route Server와 어떻게 다른가요?
+
+Azure Route Server는 NVA(네트워크 가상 어플라이언스)가 DIY 허브 VNet의 경로 서버에서 경로를 학습하는 데 사용할 수 있는 BGP(Border Gateway Protocol) 피어링 서비스를 제공합니다. Virtual WAN 라우팅은 VNet 간 전송 라우팅, 사용자 지정 라우팅, 사용자 지정 경로 연결 및 전파를 포함한 여러 가지 기능을 제공하며, ExpressRoute, 사이트 VPN, 원격 사용자/대규모 P2S VPN 및 보안 허브(Azure Firewall) 기능을 제공하는 연결 서비스와 함께 완전 메시형 무인 허브 서비스를 제공합니다. NVA와 Azure Route Server 간에 BGP 피어링을 설정할 때 NVA의 IP 주소를 가상 네트워크에 보급할 수 있습니다. 전송 라우팅, 사용자 지정 라우팅 등의 모든 고급 라우팅 기능에서 Virtual WAN 라우팅을 사용할 수 있습니다.

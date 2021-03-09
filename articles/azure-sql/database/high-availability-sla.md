@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e292aeb116bd33ce935c951b39015c54dd1a8bc
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690586"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486695"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,9 @@ Basic, Standard 및 범용 서비스 계층에서는 서버 리스 및 프로 �
 
 > [!NOTE]
 > 크기가 80 vcore 인 범용 데이터베이스는 영역 중복 구성으로 인해 성능이 저하 될 수 있습니다. 또한 백업, 복원, 데이터베이스 복사 및 지리적 DR 관계 설정과 같은 작업을 수행 하면 1TB 보다 큰 단일 데이터베이스의 성능이 저하 될 수 있습니다. 
+> 
+> [!NOTE]
+> 미리 보기는 예약 인스턴스 아래에서 다루지 않습니다.
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>프리미엄 및 중요 비즈니스용 서비스 계층 로컬 중복 가용성
 
