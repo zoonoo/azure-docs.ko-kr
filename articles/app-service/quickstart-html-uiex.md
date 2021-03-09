@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e7beae6c1398525faa267e2cec6d9fb7134b6297
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747496"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178578"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -67,7 +67,7 @@ az webapp up --location westeurope --name <app_name> --html
 <ul>
 <li>기본 리소스 그룹 만들기</li>
 <li>기본 App Service 계획을 만듭니다.</li>
-<li>지정된 이름으로 <a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">App Service 앱을 만듭니다</a>.</li>
+<li>지정된 이름으로 <a href="/cli/azure/webapp#az-webapp-create">App Service 앱을 만듭니다</a>.</li>
 <li>현재 작업 디렉터리에서 앱까지의 <a href="/azure/app-service/deploy-zip">배포 파일을 압축합니다</a>.</li>
 <li>실행되는 동안 리소스 생성, 로깅 및 ZIP 배포에 대한 메시지가 제공됩니다.</li>
 </ul>

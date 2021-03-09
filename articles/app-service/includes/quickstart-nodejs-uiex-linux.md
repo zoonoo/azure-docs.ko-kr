@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6c580f7d6bc03f298621b1a33fcb9f3f461e802
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747561"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109256"
 ---
 <!-- default for linux -->
 
@@ -67,10 +67,14 @@ ms.locfileid: "101747561"
 
 1. 배포가 완료되면 프롬프트에서 **웹 사이트 찾아보기** 를 선택하여 새로 배포된 웹앱을 확인합니다.
 
-<br>
+<br/>
 <details>
-<summary>문제 해결</summary>
+<summary><strong>문제 해결</strong></summary>
+
+이러한 단계를 완료할 수 없는 경우 다음을 확인합니다.
+
 * 애플리케이션이 PORT 환경 변수(`process.env.PORT`)에서 제공하는 포트를 수신 대기하고 있는지 확인하세요.
+
 * **"이 디렉터리 또는 페이지를 볼 수 있는 권한을 가지고 있지 않습니다."** 오류가 표시되면 애플리케이션이 제대로 시작되지 못했을 수 있습니다. 로그 출력을 검토하고 오류를 찾아서 해결합니다. 
 
 </details>
@@ -80,7 +84,7 @@ ms.locfileid: "101747561"
 [문제 보고](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

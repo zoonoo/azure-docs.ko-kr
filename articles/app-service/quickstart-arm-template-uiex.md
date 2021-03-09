@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e0368abcca5f0c38a7b143386d666e7908f30b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747973"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179088"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>기본 항목 만들기 <abbr title="한 단위로 관리할 수 있는 관련 Azure 리소스에 대한 논리적 컨테이너입니다.">리소스 그룹</abbr>.</li>
 <li>기본 항목 만들기 <abbr title="앱을 호스팅하는 웹 서버 팜의 위치, 크기 및 기능을 지정하는 계획.">App Service 계획</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">만들기 <abbr title="앱 코드, DNS 호스트 이름, 인증서 및 관련 리소스를 포함하는 웹앱의 표현.">App Service 앱</abbr>지정한 이름의 </a>.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">만들기 <abbr title="앱 코드, DNS 호스트 이름, 인증서 및 관련 리소스를 포함하는 웹앱의 표현.">App Service 앱</abbr>지정한 이름의 </a>.</li>
 </ul>
 </details>
 
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
 다른 언어 스택을 배포하려면 - 업데이트: <abbr title="이 템플릿은 .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다.">언어 매개 변수</abbr> 적절한 값으로. Java의 경우 <a href="/azure/app-service/quickstart-java-uiex">Java 앱 만들기</a>를 참조하세요.
 
-| 매개 변수 | Type    | 기본값                | Description |
+| 매개 변수 | Type    | 기본값                | 설명 |
 |------------|---------|------------------------------|-------------|
 | 언어   | 문자열  | ".net"                       | 프로그래밍 언어 스택(.net, php, node, html) |
 
