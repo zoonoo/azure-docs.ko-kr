@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98225461"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473736"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -38,6 +38,8 @@ ms.locfileid: "98225461"
 
 > [!NOTE]
 > 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 통합 서브넷에 적용 되는 NSGs 및 UDRs가 적용 됩니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 다른 곳에서 트래픽을 전송 하기 위한 경로를 제공 하지 않으면 아웃 바운드 주소는 여전히 앱 속성에 나열 된 아웃 바운드 주소입니다.
+> 
+> 지역 VNet 통합은 포트 25를 사용할 수 없습니다.
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
 
