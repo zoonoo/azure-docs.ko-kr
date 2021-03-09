@@ -5,35 +5,31 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630033"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509441"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 Azure AD(Azure Active Directory)를 인증 공급자로 사용하도록 Azure App Services 또는 Azure Functions를 구성하는 방법을 보여줍니다.
+이 문서에서는 앱이 인증 공급자로 Azure Active Directory (Azure AD)를 사용 하 여 사용자에 게 로그인 하도록 Azure App Service 또는 Azure Functions에 대 한 인증을 구성 하는 방법을 보여 줍니다.
 
-> [!NOTE]
-> 기본 설정 흐름에서는 AAD V1 애플리케이션 등록을 설정합니다. [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md)([MSAL](../active-directory/develop/msal-overview.md) 포함)을 사용하려면 [고급 구성 지침](#advanced)을 따르세요.
-
-앱과 인증을 설정할 때 다음 모범 사례를 따릅니다.
-
-- 각 App Service 앱에 고유한 권한 및 동의를 제공합니다.
-- 각 App Service 앱을 각각 고유한 등록으로 구성합니다.
-- 환경 간에 권한을 공유하는 일이 없도록 배포 슬롯마다 별도의 앱 등록을 사용합니다. 이렇게 하면 새 코드를 테스트할 때 문제가 프로덕션 앱에 영향을 주는 것을 방지할 수 있습니다.
-
-> [!NOTE]
-> 이 기능은 현재 Azure Functions용 Linux 사용 계획에서 사용할 수 없습니다.
+이 기능은 현재 Azure Functions에 대 한 Linux 소비 계획에서 사용할 수 없습니다.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>기본 설정을 사용하여 구성
 
+**Express** 옵션은 인증을 간단 하 게 설정 하 고 몇 번의 클릭 만으로 설계 되었습니다.
+
+Express 설정에서는 Azure Active Directory V1 끝점을 사용 하는 응용 프로그램 등록을 자동으로 만듭니다. [Azure Active Directory](../active-directory/develop/v2-overview.md) V2.0 ( [msal](../active-directory/develop/msal-overview.md)포함)을 사용 하려면 [고급 구성 지침](#advanced)을 따릅니다.
+
 > [!NOTE]
 > **기본** 옵션은 정부 클라우드에 사용할 수 없습니다.
+
+**Express** 옵션을 사용 하 여 인증을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다.
 2. 왼쪽 탐색 영역에서 **인증/권한 부여** > **켜기** 를 선택합니다.
@@ -58,24 +54,21 @@ Azure Storage 및 Microsoft Graph에 액세스 하는 웹 앱에 대 한 Azure A
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>고급 설정을 사용하여 구성
 
-다른 Azure AD 테넌트에서 앱 등록을 사용하려면 앱 설정을 수동으로 구성하면 됩니다. 이 사용자 지정 구성을 완료하려면 다음을 수행합니다.
-
-1. Azure AD에서 등록 리소스를 만듭니다.
-2. App Service에 대한 등록 세부 정보를 입력합니다.
+Azure AD가 앱에 대 한 인증 공급자 역할을 하려면 앱을 등록 해야 합니다. Express 옵션은이를 자동으로 수행 합니다. 고급 옵션을 사용 하면 수동으로 앱을 등록 하 고 등록을 사용자 지정 하 고 등록 세부 정보를 수동으로 App Service에 다시 입력할 수 있습니다. 이는 예를 들어 App Service 다른 Azure AD 테 넌 트에서 앱 등록을 사용 하려는 경우에 유용 합니다.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Azure AD에서 App Service 앱의 앱 등록 만들기
 
-App Service 앱을 구성할 때 다음 정보가 필요합니다.
+먼저 앱 등록을 만듭니다. 이렇게 하려면 다음 정보를 수집 합니다 .이 정보는 나중에 App Service 앱에서 인증을 구성할 때 필요 합니다.
 
 - 클라이언트 ID
 - 테넌트 ID
 - 클라이언트 암호(선택 사항)
 - 애플리케이션 ID URI
 
-다음 단계를 수행합니다.
+앱을 등록 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal]에 로그인하고 **App Services** 를 검색하여 선택한 다음, 자신의 앱을 선택합니다. 앱 **URL** 을 적어 둡니다. Azure Active Directory 앱 등록을 구성할 때 이 정보를 사용합니다.
-1. **Azure Active Directory** > **앱 등록** > **새 등록** 을 선택합니다.
+1. 포털 메뉴에서 **Azure Active Directory** 를 선택한 다음 **앱 등록** 탭으로 이동 하 여 **새 등록** 을 선택 합니다.
 1. **애플리케이션 등록** 페이지에서 앱 등록의 **이름** 을 입력합니다.
 1. **리디렉션 URI** 에서 **웹** 을 선택하고 `<app-url>/.auth/login/aad/callback`를 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
 1. **등록** 을 선택합니다.
@@ -113,9 +106,13 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 
 이제 App Service 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.
 
-## <a name="configure-a-native-client-application"></a>네이티브 클라이언트 애플리케이션 구성
+## <a name="configure-client-apps-to-access-your-app-service"></a>App Service에 액세스 하도록 클라이언트 앱 구성
 
-**Active Directory 인증 라이브러리** 같은 클라이언트 라이브러리를 사용하여 앱에 호스트되는 Web API에 대한 인증을 허용하도록 네이티브 클라이언트를 등록할 수 있습니다.
+이전 섹션에서는 사용자를 인증 하기 위해 App Service 또는 Azure 함수를 등록 했습니다. 이 섹션에서는 사용자를 대신 하 여 App Service에서 노출 하는 Api에 대 한 액세스를 요청할 수 있도록 네이티브 클라이언트 또는 디먼 앱을 등록 하는 방법을 설명 합니다. 사용자를 인증 하려는 경우에만이 섹션의 단계를 완료 해야 합니다.
+
+### <a name="native-client-application"></a>Native client 응용 프로그램
+
+로그인 한 사용자를 대신 하 여 App Service 앱의 Api에 대 한 액세스를 요청 하도록 네이티브 클라이언트를 등록할 수 있습니다.
 
 1. [Azure portal]에서 **Active Directory** > **앱 등록** > **새 등록** 을 선택합니다.
 1. **애플리케이션 등록** 페이지에서 앱 등록의 **이름** 을 입력합니다.
@@ -129,9 +126,9 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 1. 앞에서 App Service 앱에 대해 만든 앱 등록을 선택합니다. 앱 등록이 표시되지 않으면 [Azure AD에서 App Service 앱의 앱 등록 만들기](#register)에서 **user_impersonation** 범위를 추가했는지 확인합니다.
 1. **위임된 권한** 에서 **user_impersonation** 을 선택한 다음, **사용 권한 추가** 를 선택합니다.
 
-사용자 대신 App Service 앱에 액세스할 수 있는 네이티브 클라이언트 애플리케이션 구성이 완료되었습니다.
+이제 사용자를 대신 하 여 App Service 앱에 대 한 액세스를 요청할 수 있는 네이티브 클라이언트 응용 프로그램을 구성 했습니다.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>서비스 간 호출에 대한 디먼 클라이언트 애플리케이션 구성
+### <a name="daemon-client-application-service-to-service-calls"></a>디먼 클라이언트 응용 프로그램 (서비스 간 호출)
 
 애플리케이션은 App Service 또는 애플리케이션 대신(사용자 대신이 아님) 함수 앱에서 호스트되는 웹 API를 호출하는 토큰을 획득할 수 있습니다. 이 시나리오는 로그인한 사용자가 없는 상태에서 작업을 수행하는 비대화형 디먼 애플리케이션에 유용합니다. 이 파일은 표준 OAuth 2.0 [클라이언트 자격 증명](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) 권한 부여를 사용합니다.
 
@@ -155,6 +152,14 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
 1. 이제 대상 App Service 또는 함수 앱 코드 내에서 예상한 역할이 토큰에 있는지 확인할 수 있습니다(App Service 인증/권한 부여에 의해 수행되지 않음). 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
 
 자체 ID를 사용하는 App Service 앱에 액세스할 수 있는 디먼 클라이언트 애플리케이션 구성이 완료되었습니다.
+
+## <a name="best-practices"></a>모범 사례
+
+인증을 설정 하는 데 사용 하는 구성과 관계 없이 다음 모범 사례를 통해 테 넌 트 및 응용 프로그램의 보안을 유지할 수 있습니다.
+
+- 각 App Service 앱에 고유한 권한 및 동의를 제공합니다.
+- 각 App Service 앱을 각각 고유한 등록으로 구성합니다.
+- 환경 간에 권한을 공유하는 일이 없도록 배포 슬롯마다 별도의 앱 등록을 사용합니다. 이렇게 하면 새 코드를 테스트할 때 문제가 프로덕션 앱에 영향을 주는 것을 방지할 수 있습니다.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>다음 단계
 

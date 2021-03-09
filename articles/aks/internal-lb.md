@@ -5,12 +5,12 @@ description: 내부 부하 분산 장치를 만들고 사용하여 AKS(Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285886"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505633"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -23,11 +23,11 @@ AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 �
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 자세한 내용은 [AKS (Azure Kubernetes service)에서 고유한 IP 주소 범위를 사용 하 여 kubenet 네트워킹 사용][use-kubenet] 또는 [AKS (azure Kubernetes Service)에서 azure Cni 네트워킹 구성][advanced-networking]을 참조 하세요. [다른 서브넷의 IP 주소][different-subnet]를 사용 하도록 부하 분산 장치를 구성 하는 경우 AKS 클러스터 서비스 주체에도 해당 서브넷에 대 한 읽기 권한이 있어야 합니다.
+기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 클러스터 id에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 자세한 내용은 [AKS (Azure Kubernetes service)에서 고유한 IP 주소 범위를 사용 하 여 kubenet 네트워킹 사용][use-kubenet] 또는 [AKS (azure Kubernetes Service)에서 azure Cni 네트워킹 구성][advanced-networking]을 참조 하세요. [다른 서브넷의 IP 주소][different-subnet]를 사용 하도록 부하 분산 장치를 구성 하는 경우 AKS 클러스터 id에도 해당 서브넷에 대 한 읽기 권한이 있는지 확인 합니다.
 
-서비스 주체를 대신하여 사용 권한에 대한 시스템이 할당한 관리 ID를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 권한 위임][aks-sp]을 참조하세요.
+사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 권한 위임][aks-sp]을 참조하세요.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> AKS 클러스터의 서비스 주체에 Azure 가상 네트워크 리소스가 배포되어 있는 리소스 그룹에 대한 *네트워크 기여자* 역할을 부여해야 할 수도 있습니다. [az aks show][az-aks-show]를 사용하여 서비스 주체를 확인합니다. 예: `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. 역할 할당을 만들려면 [az role assignment create][az-role-assignment-create] 명령을 사용합니다.
+> Azure 가상 네트워크 리소스가 배포 되는 리소스 그룹에 *네트워크 참가자* 역할을 AKS 클러스터에 대 한 클러스터 id에 부여 해야 할 수 있습니다. 와 같이 [az aks show][az-aks-show]를 사용 하 여 클러스터 id를 확인 `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"` 합니다. 역할 할당을 만들려면 [az role assignment create][az-role-assignment-create] 명령을 사용합니다.
 
 ## <a name="specify-a-different-subnet"></a>다른 서브넷 지정
 

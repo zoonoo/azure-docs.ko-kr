@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485387"
+ms.locfileid: "102503126"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -72,6 +72,9 @@ CMMC 통합 문서는 보안 설계자, 엔지니어, 보안 운영 분석가, �
 CMMC를 준수 하지 않아도 되는 CMMC 통합 문서는 보안 운영 센터를 구축 하 고, 경고를 개발 하 고, 위협을 시각화 하 고, 워크 로드에 대 한 상황 인식 기능을 제공 하는 데 유용 합니다.
 
 Azure 센티널 **통합** 문서 영역에서 cmmc 통합 문서에 액세스 합니다. **템플릿** 을 선택 하 고 **cmmc** 를 검색 합니다.
+
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="CMMC 통합 문서 가이드 설정/해제" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+
 
 자세한 내용은 다음을 참조하세요.
 

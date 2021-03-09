@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup와 함께 사용 하는 데 도움이 되는 용어를 정의 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723917"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502028"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -192,7 +192,7 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 (워크 로드 관련 용어)
 
-Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세한 정보](backup-azure-microsoft-azure-backup.md)
+Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>관리 디스크
 
@@ -246,7 +246,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 *Microsoft RecoveryServices/* vault 형식의 Azure Resource Manager 리소스입니다. 현재 Recovery Services 자격 증명 모음을 사용 하 여 azure vm, azure vm의 SQL, Azure Vm의 SAP HANA 및 Azure 파일 공유와 같은 작업을 백업 합니다. MARS, Azure Backup Server (MABS) 및 System Center DPM을 사용 하 여 온-프레미스 워크 로드를 백업 하는 데도 사용 됩니다. [Recovery Services 자격 증명 모음에 대해 자세히 알아보세요](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>리소스 그룹
 
 [Azure Resource Manager 설명서](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)를 참조 하세요.
 
@@ -299,6 +299,18 @@ Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 
 ## <a name="tenant"></a>테넌트
 
 테넌트는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다.
+
+## <a name="tier"></a>계층
+
+현재 Azure Backup는 다음과 같은 백업 저장소 계층을 지원 합니다.
+
+### <a name="snapshot-tier"></a>스냅숏 계층
+
+(작업 관련 용어) VM 백업의 첫 번째 단계에서 만든 스냅숏은 디스크와 함께 저장 됩니다. 이러한 형태의 저장소를 스냅숏 계층 이라고 합니다. 스냅숏 계층 복원은 복원 작업을 트리거하기 전에 자격 증명 모음에서 스냅숏을 복사 하는 대기 시간을 없애기 때문에, 자격 증명 모음에서 복원 하는 것 보다 더 빠릅니다.
+
+### <a name="vault-standard-tier"></a>Vault-Standard 계층
+
+Azure Backup에서 지 원하는 모든 워크 로드에 대 한 백업 데이터는 Azure Backup에서 관리 하는 저장소 계정의 자동 크기 조정 집합인 백업 저장소를 보관 하는 자격 증명 모음에 저장 됩니다. Vault-Standard 계층은 백업 데이터의 격리 된 복사본을 Microsoft 관리 되는 테 넌 트에 저장 하 여 추가 보호 계층을 만들 수 있도록 하는 온라인 저장소 계층입니다. 스냅숏 계층이 지원 되는 워크 로드의 경우 스냅숏 계층과 자격 증명 모음 표준 계층 모두에 백업 데이터의 복사본이 있습니다. 자격 증명 모음-표준 계층은 백업 되는 데이터 원본이 삭제 되거나 손상 된 경우에도 백업 데이터를 사용할 수 있도록 합니다.
 
 ## <a name="unmanaged-disk"></a>관리되지 않는 디스크
 

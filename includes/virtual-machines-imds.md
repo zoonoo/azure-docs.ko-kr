@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175716"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510861"
 ---
 IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 합니다. 가상 컴퓨터를 관리 하 고 구성 하는 데 사용할 수 있습니다.
 이 정보에는 SKU, 저장소, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [끝점 범주 요약](#endpoint-categories)을 참조 하세요.
@@ -96,7 +96,7 @@ IMDS는 프록시 뒤에서 사용 하기 위한 것이 **아니며** 지원 되
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 예를 들면 다음과 같습니다. 
+IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 예를 들어: 
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -271,7 +271,7 @@ IMDS API에는 서로 다른 데이터 소스를 나타내는 여러 끝점 범�
 | `/metadata/instance` | [인스턴스 메타 데이터](#instance-metadata) 를 참조 하세요. | 2017-04-02
 | `/metadata/loadbalancer` | [IMDS를 통해 Load Balancer 메타 데이터 검색](#load-balancer-metadata) 을 참조 하세요. | 2020-10-01
 | `/metadata/scheduledevents` | [IMDS를 통해 Scheduled Events](#scheduled-events) 를 참조 하세요. | 2017-08-01
-| `/metadata/versions` | [버전](#versions) 참조 | N/A
+| `/metadata/versions` | [버전](#versions) 참조 | 해당 없음
 
 ## <a name="versions"></a>버전
 
@@ -345,8 +345,8 @@ GET /metadata/instance
 | `osType` | Linux 또는or Windows | 2017-04-02
 | `placementGroupId` | 가상 머신 확장 집합의 [배치 그룹](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 | `plan` | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-| `platformUpdateDomain` |  VM을 실행 중인 [업데이트 도메인](../articles/virtual-machines/manage-availability.md) | 2017-04-02
-| `platformFaultDomain` | VM을 실행 중인 [장애 도메인](../articles/virtual-machines/manage-availability.md) | 2017-04-02
+| `platformUpdateDomain` |  VM을 실행 중인 [업데이트 도메인](../articles/virtual-machines/availability.md) | 2017-04-02
+| `platformFaultDomain` | VM을 실행 중인 [장애 도메인](../articles/virtual-machines/availability.md) | 2017-04-02
 | `priority` | VM의 우선 순위입니다. 자세한 내용은 [지점 vm](../articles/virtual-machines/spot-vms.md) 을 참조 하세요. | 2020-12-01
 | `provider` | VM의 공급자 | 2018-10-01
 | `publicKeys` | VM 및 경로에 할당된 [공개 키 컬렉션](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
@@ -911,7 +911,7 @@ GET /metadata/attested/document
 | 속성 | 필수/선택 | 설명 |
 |------|-------------------|-------------|
 | `api-version` | 필수 | 요청을 처리 하는 데 사용 되는 버전입니다.
-| `nonce` | Optional | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
+| `nonce` | 옵션 | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
 
 #### <a name="response"></a>응답
 
@@ -1174,7 +1174,7 @@ IMDS에서 `Metadata: true` 요청에 헤더를 전달 해야 합니다. REST �
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
-1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들면 다음과 같습니다.
+1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들어:
     ```console
     > route print
     IPv4 Route Table

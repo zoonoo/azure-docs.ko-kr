@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8473d3a19a86027b5b01af59d24833dc40cd1fe9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e89716d0560cbf7960cb7bde67156c8df0045a31
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242358"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499223"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Key Vault는 모든 Azure AD 테넌트에서 미리 등록되는 Microsoft 애�
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
-[az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure CLI 세션을 인증합니다.
+[az login](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure CLI 세션을 인증합니다.
 
 ```azurecli-interactive
 az login

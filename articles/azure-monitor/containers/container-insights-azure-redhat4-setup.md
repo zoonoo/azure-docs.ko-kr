@@ -2,13 +2,13 @@
 title: 컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v4. x 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: a9e04818f1a915a853d32b5db408a521cdae9f4c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 02cb794463b965ebafef0b6861477dbf69227511
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713935"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506415"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -61,21 +61,8 @@ ms.locfileid: "101713935"
 
     `curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script`
 
-1. 클러스터의 *kubeContext* 를 식별 하려면 다음 명령을 실행 합니다.
+1. [자습서: Azure Red Hat OpenShift 4 클러스터에 연결](../../openshift/tutorial-connect-cluster.md)의 지침을 사용 하 여 ARO v4 클러스터에 연결 합니다.
 
-    ```
-    adminUserName=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv)
-    adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
-    apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
-    oc login $apiServer -u $adminUserName -p $adminPassword
-    # openshift project name for Container insights
-    openshiftProjectName="azure-monitor-for-containers"
-    oc new-project $openshiftProjectName
-    # get the kube config context
-    kubeContext=$(oc config current-context)
-    ```
-
-1. 나중에 사용할 값을 복사 합니다.
 
 ### <a name="integrate-with-an-existing-workspace"></a>기존 작업 영역과 통합
 
@@ -113,17 +100,16 @@ ms.locfileid: "101713935"
 
 1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
-1. 모니터링을 사용 하도록 설정 하려면 다음 명령을 실행 합니다. `azureAroV4ClusterResourceId`, `logAnalyticsWorkspaceResourceId` 및 매개 변수의 값을 바꿉니다 `kubeContext` .
+1. 모니터링을 사용 하도록 설정 하려면 다음 명령을 실행 합니다. `azureAroV4ClusterResourceId`및 매개 변수의 값을 바꿉니다 `logAnalyticsWorkspaceResourceId` .
 
     ```bash
-    export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
-    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
-    export kubeContext="<kubeContext name of your ARO v4 cluster>"  
+    export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+    export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>" 
     ```
 
     다음은 내보내기 명령을 사용 하 여 3 개의 변수를 채운 후 실행 해야 하는 명령입니다.
 
-    `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
+    `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --workspace-id $logAnalyticsWorkspaceResourceId`
 
 모니터링을 사용 하도록 설정한 후에는 클러스터에 대 한 상태 메트릭을 볼 수 있을 때까지 약 15 분 정도 걸릴 수 있습니다.
 
@@ -135,16 +121,15 @@ ms.locfileid: "101713935"
 
 생성 되는 기본 작업 영역은 *defaultworkspace- \<GUID> - \<Region>* 형식입니다.  
 
-`azureAroV4ClusterResourceId`및 매개 변수의 값을 바꿉니다 `kubeContext` .
+매개 변수의 값을 바꿉니다 `azureAroV4ClusterResourceId` .
 
 ```bash
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
-export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-다음은 그 예입니다. 
+예를 들어:
 
-`bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
+' bash enable-monitoring.sh--리소스 id $azureAroV 4ClusterResourceId 
 
 모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다.
 

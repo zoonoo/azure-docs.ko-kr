@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c425afc314435c38d15d53ab0c38dcd48e35a40b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072244"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508931"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure 방화벽 SNAT 개인 IP 주소 범위
 
@@ -58,7 +58,7 @@ New-AzFirewall @azFw
 > [!NOTE]
 > IANAPrivateRanges는 Azure 방화벽의 현재 기본값으로 확장 되 고 다른 범위는 추가 됩니다. Private 범위 사양에 IANAPrivateRanges 기본값을 유지 하려면 `PrivateRange` 다음 예에 표시 된 것 처럼 사양에 유지 되어야 합니다.
 
-자세한 내용은 [AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0)를 참조 하세요.
+자세한 내용은 [AzFirewall](/powershell/module/az.network/new-azfirewall)를 참조 하세요.
 
 ### <a name="existing-firewall"></a>기존 방화벽
 

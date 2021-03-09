@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628948"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510764"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -34,7 +34,7 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 - OS 디스크가 아닌 데이터 디스크에 대해서만 사용할 수 있습니다.
 - 에서 premium Ssd에는 **읽기 전용** 호스트 캐싱을 사용할 수 없습니다 `maxShares>1` .
 - 에서 premium Ssd에 대해 디스크 버스트를 사용할 수 없습니다 `maxShares>1` .
-- Azure 공유 디스크를 사용 하 여 가용성 집합 및 가상 머신 확장 집합을 사용 하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인의 [저장소 장애 도메인 맞춤이](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 적용 되지 않습니다.
+- Azure 공유 디스크를 사용 하 여 가용성 집합 및 가상 머신 확장 집합을 사용 하는 경우 공유 데이터 디스크에 대해 가상 머신 장애 도메인의 [저장소 장애 도메인 맞춤이](../articles/virtual-machines/availability.md) 적용 되지 않습니다.
 - [PPG (근접 배치 그룹)](../articles/virtual-machines/windows/proximity-placement-groups.md)를 사용 하는 경우 디스크를 공유 하는 모든 가상 머신은 동일한 ppg의 일부 여야 합니다.
 - 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
 - Azure Site Recovery 지원은 아직 사용할 수 없습니다.

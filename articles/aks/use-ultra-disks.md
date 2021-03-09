@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 Ultra Disks를 �
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178850"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502572"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure ultra disks 사용 (미리 보기)
 
@@ -84,7 +84,7 @@ Ultra disk 지원 없이 클러스터를 만들려는 경우 사용자 지정 �
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>기존 클러스터에서 Ultra disks 사용
 
-Ultra disks를 지 원하는 클러스터에 새 노드 풀을 추가 하 여 기존 클러스터에서 ultra disks를 사용 하도록 설정할 수 있습니다. 플래그를 사용 하 여 호스트 기반 암호화를 사용 하도록 새 노드 풀을 구성 `--aks-custom-headers` 합니다.
+Ultra disks를 지 원하는 클러스터에 새 노드 풀을 추가 하 여 기존 클러스터에서 ultra disks를 사용 하도록 설정할 수 있습니다. 플래그를 사용 하 여 새 노드 풀에서 ultra disks를 사용 하도록 구성 `--aks-custom-headers` 합니다.
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true

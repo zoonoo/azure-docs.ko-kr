@@ -3,20 +3,20 @@ title: Backup 센터를 사용한 백업 모니터링 및 운영
 description: 이 문서에서는 Backup Center를 사용 하 여 대규모로 백업을 모니터링 하 고 작동 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719545"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506128"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Backup 센터를 사용한 백업 모니터링 및 운영
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Backup center를 사용 하 여 백업 모니터링 및 작동
 
 백업 관리자는 백업 센터를 단일 창으로 사용 하 여 작업 및 백업 인벤토리를 매일 모니터링할 수 있습니다. 또한 백업 센터를 사용 하 여 주문형 백업 요청에 대 한 응답, 백업 복원, 백업 정책 만들기 등의 일반 작업을 수행할 수 있습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* Backup Center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업, Azure Files 백업, Azure Blob 백업, Azure Managed Disks backup 및 Azure Database for PostgreSQL 서버 백업에 대 한 SAP HANA 지원 됩니다.
+* Backup center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업, Azure Files 백업, Azure Blob 백업, Azure Managed Disks backup 및 Azure Database for PostgreSQL 서버 백업에 대 한 SAP HANA 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
 ## <a name="backup-instances"></a>백업 인스턴스

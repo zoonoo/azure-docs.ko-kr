@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 93fd682f252ac3f85c642633484a9c4eb6c2fb4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180856"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502691"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -166,14 +166,14 @@ Azure Front 도어에서 응용 프로그램으로 들어오는 트래픽은 Azu
 
 다음 중 하나를 수행 하 여 프로그래밍 방식으로 액세스 제한을 추가할 수 있습니다. 
 
-* [Azure CLI를](/cli/azure/webapp/config/access-restriction)사용 합니다. 예를 들면 다음과 같습니다.
+* [Azure CLI를](/cli/azure/webapp/config/access-restriction)사용 합니다. 예를 들어:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0&preserve-view=true)를 사용 합니다. 예를 들면 다음과 같습니다.
+* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule)를 사용 합니다. 예를 들어:
 
 
   ```azurepowershell-interactive

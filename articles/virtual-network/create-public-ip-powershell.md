@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: f61d45b6c46830064c3b58608e2eca0787d559c2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f81e76e32bc0a50b945c54cdfcac0575540484bc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675119"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502436"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용 하 여 공용 IP 주소 만들기
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
+>다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/)를 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 
@@ -89,7 +89,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 # <a name="standard-sku---no-zones"></a>[**표준 SKU-영역 없음**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/?view=powershell-7.1)를 참조 하세요.
+>다음 명령은 Az. Network module version 4.5.0 이상에 대해 작동 합니다.  현재 사용 중인 Powershell 모듈에 대 한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/)를 참조 하세요.
 
 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 IP 주소를 만듭니다.
 

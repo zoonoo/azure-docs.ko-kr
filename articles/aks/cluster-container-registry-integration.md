@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: fd599c69b3072831461acc94827d97c4520292e9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 19ece696dabc81e643e8a904d506d22e40eaa099
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182454"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499155"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
 AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 작업은 ACR에 필요한 권한을 부여 하 여 CLI 및 포털 환경의 일부로 구현 됩니다. 이 문서에서는 이러한 두 Azure 서비스 간의 인증을 구성 하는 예제를 제공 합니다. 
 
-Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다. 이 통합은 AKS 클러스터에 연결 된 서비스 주체에 AcrPull 역할을 할당 합니다.
+Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다. 이 통합은 AKS 클러스터에 연결 된 관리 id에 AcrPull 역할을 할당 합니다.
 
 > [!NOTE]
 > 이 문서에서는 AKS와 ACR 간의 자동 인증을 설명 합니다. 개인 외부 레지스트리에서 이미지를 풀 해야 하는 경우 [이미지 끌어오기 암호][Image Pull Secret]를 사용 합니다.
@@ -28,11 +28,11 @@ Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS�
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
 * Azure CLI 버전 합니다 이상
 
-**소유자** 또는 **Azure 계정 관리자** 역할이 필요 하지 않도록 하려면 서비스 주체를 수동으로 구성 하거나 기존 서비스 주체를 사용 하 여 AKS에서 ACR을 인증할 수 있습니다. 자세한 내용은 [서비스 주체를 사용하여 ACR 인증](../container-registry/container-registry-auth-service-principal.md) 또는 [끌어오기 비밀을 사용하여 Kubernetes에서 인증](../container-registry/container-registry-auth-kubernetes.md)을 참조하세요.
+**소유자** 또는 **Azure 계정 관리자** 역할이 필요 하지 않도록 관리 되는 id를 수동으로 구성 하거나 기존 관리 id를 사용 하 여 AKS에서 ACR을 인증할 수 있습니다. 자세한 내용은 azure [관리 id를 사용 하 여 azure container registry에 인증](../container-registry/container-registry-authentication-managed-identity.md)을 참조 하세요.
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용 하 여 새 AKS 클러스터 만들기
 
-AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다.
+AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 하려면 관리 되는 Azure Active Directory **id** 를 사용 합니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 관리 되는 id에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique

@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 73a9356de555e33996b92f05c3bbbabb651f1c9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c89ad69207a51a92b56d268c685aa2be4118cf1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507588"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>PowerShell을 사용 하 여 Azure 내부 Load Balancer을 다른 지역으로 이동
 
@@ -43,18 +43,18 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-azure-powershell"></a>가상 네트워크 템플릿 내보내기 및 Azure PowerShell에서 배포
 
-1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2.  대상 지역으로 이동 하려는 가상 네트워크의 리소스 ID를 가져와 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)를 사용 하 여 변수에 넣습니다.
+2.  대상 지역으로 이동 하려는 가상 네트워크의 리소스 ID를 가져와 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용 하 여 변수에 넣습니다.
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 명령을 실행하는 디렉터리의 .json 파일로 원본 가상 네트워크를 내보냅니다.
+3. [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup) 명령을 실행하는 디렉터리의 .json 파일로 원본 가상 네트워크를 내보냅니다.
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,7 +98,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
     ```
   
-7. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)을 사용할 수 있습니다.
+7. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용할 수 있습니다.
 
     ```azurepowershell-interactive
 
@@ -196,20 +196,20 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 9.  **\<resource-group-name>.json** 파일을 저장합니다.
 
-10. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0) 를 사용 하 여 배포할 대상 VNET의 대상 지역에 리소스 그룹을 만듭니다.
+10. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 를 사용 하 여 배포할 대상 VNET의 대상 지역에 리소스 그룹을 만듭니다.
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
+11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
     ```
-12. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 및 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)를 사용 합니다.
+12. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용 합니다.
     
     ```azurepowershell-interactive
 
@@ -224,19 +224,19 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     ```
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>내부 부하 분산 장치 템플릿을 내보내고 Azure PowerShell에서 배포
 
-1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. 대상 지역으로 이동 하려는 내부 부하 분산 장치의 리소스 ID를 가져와 [AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)를 사용 하 여 변수에 넣습니다.
+2. 대상 지역으로 이동 하려는 내부 부하 분산 장치의 리소스 ID를 가져와 [AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer)를 사용 하 여 변수에 넣습니다.
 
     ```azurepowershell-interactive
     $sourceIntLBID = (Get-AzLoadBalancer -Name <source-internal-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. 원본 내부 부하 분산 장치 구성을 [AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)명령을 실행 하는 디렉터리로 내보냅니다.
+3. 원본 내부 부하 분산 장치 구성을 [AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup)명령을 실행 하는 디렉터리로 내보냅니다.
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
@@ -263,7 +263,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
              }
     ```
  
-6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음이를 복사 하 여 **\<resource-group-name> json** 파일에 붙여넣어야 합니다.  ID를 가져오려면 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)을 사용 합니다.
+6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음이를 복사 하 여 **\<resource-group-name> json** 파일에 붙여넣어야 합니다.  ID를 가져오려면 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)을 사용 합니다.
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -306,7 +306,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 },
     ```
 
-11. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)을 사용할 수 있습니다.
+11. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용할 수 있습니다.
 
     ```azurepowershell-interactive
 
@@ -315,7 +315,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     ```
 12. 또한 선택하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
     
-    * **Sku** - **sku**  >  **\<resource-group-name> json** 파일의 sku **이름** 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 표준에서 기본으로 또는 기본에서 표준으로 변경할 수 있습니다.
+    * **Sku** -   >  **\<resource-group-name> json** 파일의 sku **이름** 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 표준에서 기본으로 또는 기본에서 표준으로 변경할 수 있습니다.
 
         ```json
         "resources": [
@@ -433,12 +433,12 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     
 13. **\<resource-group-name>.json** 파일을 저장합니다.
     
-10. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)를 사용 하 여 배포할 대상 내부 부하 분산 장치의 대상 지역에 또는 리소스 그룹을 만듭니다. 위의 기존 리소스 그룹을이 프로세스의 일부로 재사용할 수도 있습니다.
+10. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 배포할 대상 내부 부하 분산 장치의 대상 지역에 또는 리소스 그룹을 만듭니다. 위의 기존 리소스 그룹을이 프로세스의 일부로 재사용할 수도 있습니다.
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
+11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
 
     ```azurepowershell-interactive
 
@@ -446,7 +446,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     
     ```
 
-12. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 및 [AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)를 사용 합니다.
+12. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer)를 사용 합니다.
     
     ```azurepowershell-interactive
 
@@ -462,7 +462,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 ## <a name="discard"></a>취소 
 
-배포 후에는 대상에서 가상 네트워크 및 부하 분산 장치를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하 고 이동한 가상 네트워크 및 부하 분산 장치를 삭제 합니다.  리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)을 사용합니다.
+배포 후에는 대상에서 가상 네트워크 및 부하 분산 장치를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하 고 이동한 가상 네트워크 및 부하 분산 장치를 삭제 합니다.  리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용합니다.
 
 ```azurepowershell-interactive
 
@@ -472,7 +472,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>정리
 
-변경 내용을 커밋하고 NSG의 이동을 완료 하려면 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) 또는 [AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0) 및 [AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0) 를 사용 하 여 nsg 또는 리소스 그룹을 삭제 합니다.
+변경 내용을 커밋하고 NSG의 이동을 완료 하려면 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 또는 [AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork) 및 [AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer) 를 사용 하 여 nsg 또는 리소스 그룹을 삭제 합니다.
 
 ```azurepowershell-interactive
 

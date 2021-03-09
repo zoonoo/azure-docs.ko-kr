@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 21550cc34b21756186ea607c3efd2ebd10cbf979
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b2f551257fb6869d5dec47014be3a8522b61b9fa
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214255"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506636"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Azure Front 도어 용 WAF (웹 응용 프로그램 방화벽) 튜닝
  
@@ -144,7 +144,7 @@ AzureDiagnostics
  
 제외는 전역 설정 이라고 하는 것이 중요 합니다. 즉, 구성 된 제외는 특정 웹 앱 또는 URI 뿐 아니라 WAF를 통해 전달 되는 모든 트래픽에 적용 됩니다. 예를 들어 *1 = 1* 이 특정 웹 앱에 대 한 본문의 유효한 요청 이지만 동일한 waf 정책에 있는 다른 사용자에 대해서는 그렇지 않은 경우 문제가 될 수 있습니다. 응용 프로그램 마다 서로 다른 제외 목록을 사용 하는 것이 적합 한 경우 각 응용 프로그램에 대해 서로 다른 WAF 정책을 사용 하 여 각 응용 프로그램의 프런트 엔드에 적용 하는 것이 좋습니다.
  
-관리 되는 규칙에 대 한 제외 목록을 구성할 때 규칙 집합 내의 모든 규칙, 규칙 그룹 내의 모든 규칙 또는 개별 규칙을 제외 하도록 선택할 수 있습니다. 제외 목록은 [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다.
+관리 되는 규칙에 대 한 제외 목록을 구성할 때 규칙 집합 내의 모든 규칙, 규칙 그룹 내의 모든 규칙 또는 개별 규칙을 제외 하도록 선택할 수 있습니다. 제외 목록은 [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다.
 
 * 규칙 수준에서 제외
   * 규칙 수준에서 제외를 적용 하면 지정 된 제외가 해당 개별 규칙에 대해서만 분석 되는 것이 아니라 규칙 집합의 다른 모든 규칙에 따라 분석 됩니다. 이는 제외에 대 한 가장 세분화 된 수준 이며 이벤트 문제를 해결할 때 WAF 로그에서 찾은 정보를 기반으로 관리 되는 규칙 집합을 미세 조정 하는 데 사용할 수 있습니다.
@@ -201,7 +201,7 @@ WAF 규칙 일치의 원인을 파악 한 후 사용자 지정 규칙을 사용 
  
 그러나 규칙을 사용 하지 않도록 설정 하는 것은 WAF 정책에 연결 된 모든 프런트 엔드 호스트에 적용 되는 전역 설정입니다. 규칙을 사용 하지 않도록 선택 하면 WAF 정책에 연결 된 다른 모든 프런트 엔드 호스트에 대해 보호 또는 검색 없이 취약성이 노출 될 수 있습니다.
  
-Azure PowerShell를 사용 하 여 관리 되는 규칙을 사용 하지 않으려면 개체 설명서를 참조 하세요 [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) . Azure CLI를 사용 하려면 설명서를 참조 [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override) 하세요.
+Azure PowerShell를 사용 하 여 관리 되는 규칙을 사용 하지 않으려면 개체 설명서를 참조 하세요 [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) . Azure CLI를 사용 하려면 설명서를 참조 [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override) 하세요.
 
 ![WAF 규칙](../media/waf-front-door-tuning/waf-rules.png)
 

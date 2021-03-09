@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2010551252331f6d3721c7f8293ad247764a8f3b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6b03458ce5ea4286e59de8d0e4b35b860088ca91
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432114"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500770"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -35,7 +35,7 @@ ms.locfileid: "102432114"
 - 이제 음성 음성 기능을 보다 폭넓게 사용할 수 있습니다.
 - 중요 한 고객의 문제를 해결 하기 위한 여러 버그 수정이 GitHub에 플래그를 지정 했습니다. 감사합니다! 의견을 보내 주시기 바랍니다.
 
-**향상 된 기능**
+**개선과**
 - 이제 Speech SDK는 더 효율적이 고 간단 합니다. 음성 SDK의 메모리 사용량 및 디스크 공간을 줄이기 위해 여러 릴리스 작업을 시작 했습니다. 첫 번째 단계로 대부분의 플랫폼에서 공유 라이브러리의 중요 한 파일 크기를 단축 했습니다. 1.14 릴리스와 비교:
   - 64 비트 UWP 호환 Windows 라이브러리는 약 30% 더 작습니다.
   - 32 비트 Windows 라이브러리는 아직 크기를 개선 하지 않습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "102432114"
 
 **새로운 기능**
 - **모두**: TTS 음성 합성 API를 통해 사용자 지정 신경망의 비공개 미리 보기에 사용할 수 있는 새 48khz 출력 형식: Audio48Khz192KBitRateMonoMp3, audio-48khz-192kbitrate 전송률-mono-Mp3, Audio48Khz96KBitRateMonoMp3, audio-48khz-96kbitrate 전송률-mono-Mp3, Raw48Khz16BitMonoPcm, raw-48khz-16 비트-Mono, Riff48Khz16BitMonoPcm, riff-48khz-16 비트-mono-pcm.
-- **모든**: 사용자 지정 음성도 더 쉽게 사용할 수 있습니다. 사용자 지정 음성 via `EndpointId` ([c + +](/cpp/cognitive-services/speech/speechconfig#setendpointid), [c #](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [목표-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id))를 설정 하기 위한 지원이 추가 되었습니다. 이 변경 전에 사용자 지정 음성 사용자는 메서드를 통해 끝점 URL을 설정 해야 합니다 `FromEndpoint` . 이제 고객이 `FromSubscription` 공용 음성 처럼 메서드를 사용 하 고를 설정 하 여 배포 id를 제공할 수 있습니다 `EndpointId` . 이렇게 하면 사용자 지정 음성 설정이 간단해 집니다. 
+- **모든**: 사용자 지정 음성도 더 쉽게 사용할 수 있습니다. 사용자 지정 음성 via `EndpointId` ([c + +](/cpp/cognitive-services/speech/speechconfig#setendpointid), [c #](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [목표-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#endpoint-id))를 설정 하기 위한 지원이 추가 되었습니다. 이 변경 전에 사용자 지정 음성 사용자는 메서드를 통해 끝점 URL을 설정 해야 합니다 `FromEndpoint` . 이제 고객이 `FromSubscription` 공용 음성 처럼 메서드를 사용 하 고를 설정 하 여 배포 id를 제공할 수 있습니다 `EndpointId` . 이렇게 하면 사용자 지정 음성 설정이 간단해 집니다. 
 - **C + +/c #/Java/Objective-C/Python**:에서 가장 많이 발생 하는 의도 이상의 의도를 가져옵니다 `IntentRecognizer` . 이제 `LanguageUnderstandingModel FromEndpoint` uri 매개 변수를 사용 하 여 메서드를 통한 상위 점수 매기기 의도가 아니라 모든 의도를 포함 하는 JSON 결과 구성을 지원 `verbose=true` 합니다. 이 [#880 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880)를 해결 합니다. [여기](./quickstarts/intent-recognition.md#add-a-languageunderstandingmodel-and-intents)에서 업데이트 된 설명서를 참조 하세요.
 - **C + +/c #/Java**: 음성 길잡이나 봇이 immediatedly 수신을 중지 하도록 합니다. `DialogServiceConnector` ([C + +](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector))에는 이제 `StopListeningAsync()` 함께 제공할 메서드가 있습니다 `ListenOnceAsync()` . 그러면 오디오 캡처가 즉시 중지 되 고 결과가 정상적으로 대기 하 여 "지금 중지" 단추 누르기 시나리오와 함께 사용 하기에 적합 합니다.
 - **C + +/c #/Java/JavaScript**: 기본 시스템 오류에 대해 음성 도우미 또는 봇이 더 잘 반응 하도록 합니다. `DialogServiceConnector` ([C + +](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector))에는 이제 새 `TurnStatusReceived` 이벤트 처리기가 있습니다. 이러한 선택적 이벤트는 [`ITurnContext`](/dotnet/api/microsoft.bot.builder.iturncontext?view=botbuilder-dotnet-stable) Bot의 모든 해상도에 해당 하며, 발생 하는 경우 실행 실패를 보고 합니다. 예를 들어 처리 되지 않은 예외, 시간 제한 또는 직접 줄 음성 및 봇 간의 네트워크 drop의 결과로 발생 합니다. `TurnStatusReceived` 를 사용 하면 오류 조건에 더 쉽게 대응할 수 있습니다. 예를 들어, 봇이 백 엔드 데이터베이스 쿼리 (예: 제품 조회)에 너무 오래 걸리는 경우 `TurnStatusReceived` 클라이언트는 "죄송 합니다. 다시 시도할 수 있습니다." 라는 메시지가 표시 될 수 있습니다.
@@ -785,7 +785,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - Android
   - APK 생성 중에 ProGuard 지원이 설정되었습니다.
 
-**향상 된 기능**
+**개선과**
 
 - 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
 - 오류 보고/정보가 개선되었습니다. 일부 경우에는 오류 메시지가 모든 방식으로 전파 되지 않습니다.
@@ -817,7 +817,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 프록시 지원: 개체에서 `SpeechConfig` 이제 함수를 호출 하 여 프록시 정보 (호스트 이름, 포트, 사용자 이름 및 암호)를 설정할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
 - 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
 
-**향상 된 기능**
+**개선과**
 
 - 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
 - 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.

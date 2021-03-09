@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d21852ad684782fa1cb917442fee236d3c882b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450262"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502147"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -92,7 +92,7 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 
 1. 주 지역에 웹앱의 스테이징 환경을 배포합니다(6).
 2. 주 Azure 지역에서 보조 데이터베이스를 만들고(7) 여기에 연결하도록 웹앱의 스테이징 환경을 구성합니다. 
-3. 주 지역의 보조 데이터베이스를 복제하여 백업 지역에 다른 지역 중복 보조 데이터베이스를 만듭니다. 이 메서드를 *연결된 지역 복제*라고 합니다(8).
+3. 주 지역의 보조 데이터베이스를 복제하여 백업 지역에 다른 지역 중복 보조 데이터베이스를 만듭니다. 이 메서드를 *연결된 지역 복제* 라고 합니다(8).
 4. 백업 지역에서 웹앱 인스턴스의 스테이징 환경을 배포하고(9), (8)에서 만든 지역 중복 보조 데이터베이스에 연결하도록 구성합니다.
 
 > [!NOTE]
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 보조 (11)의 연결을 해제 하 여 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-sql을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) 도 사용할 수 있습니다. 
+2. 보조 (11)의 연결을 해제 하 여 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-sql을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) 도 사용할 수 있습니다. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

@@ -3,16 +3,16 @@ title: Backup 센터를 사용하여 백업 자산 관리
 description: 모든 리소스가 백업 센터를 사용 하 여 백업 관점에서 준수 하는지 확인 하기 위해 Azure 환경을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893849"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506212"
 ---
-# <a name="govern-your-backup-estate-using-backup-center-preview"></a>백업 센터 (미리 보기)를 사용 하 여 백업 공간 관리
+# <a name="govern-your-backup-estate-using-backup-center"></a>Backup 센터를 사용하여 백업 자산 관리
 
-Backup Center를 사용 하면 Azure 환경을 관리 하 여 모든 리소스가 백업 관점에서 호환 되도록 할 수 있습니다. 다음은 백업 센터의 거 버 넌 스 기능 중 일부입니다.
+Backup center를 사용 하면 Azure 환경을 관리 하 여 모든 리소스가 백업 관점에서 호환 되도록 할 수 있습니다. 다음은 백업 센터의 거 버 넌 스 기능 중 일부입니다.
 
 * 백업에 대 한 Azure 정책 보기 및 할당
 

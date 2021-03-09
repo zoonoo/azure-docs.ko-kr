@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩에 아티팩트 리포지토리 추가 Micro
 description: 공용 아티팩트 리포지토리에서 사용할 수 없는 도구를 저장할 Azure DevTest Labs에서 랩에 대 한 고유한 아티팩트 리포지토리를 지정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512014"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502198"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
 DevTest Labs를 사용 하면 vm을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치 하려는 도구 또는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다.
@@ -19,7 +19,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops** 에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 New-AzResourceGroupDeployment 성공적으로 실행 되 면 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
-이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/?view=azps-1.2.0) 을 참조 하세요.
+이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/) 을 참조 하세요.
 
 ### <a name="full-script"></a>전체 스크립트
 다음은 몇 가지 자세한 메시지와 주석을 포함 하는 전체 스크립트입니다.

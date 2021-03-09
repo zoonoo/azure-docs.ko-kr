@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419823086fd7ba05ba5023216be302576350e30a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687291"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500811"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -54,7 +54,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
-- 윈도우 10
+- Windows 10
 - Windows Server 2016
   - **참고**: Azure 국가별 클라우드 고객은 버전 1803을 요구 합니다.
 - Windows Server 2019
@@ -171,7 +171,7 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용할 수 있는 Windows 잠금에 대 한 Azure AD SSPR은 지원 되지 않습니다. 온-프레미스 UPN은     `onPremisesUserPrincipalName` AZURE AD의 특성과 동기화 되어야 합니다. |
 | 라우팅 불가능 | 관리 | 지원되지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 564ebfd0a0a8aa8500b38edbc37c9a42b02b06ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 639bed3dcd8f3f443b73f51efb60e7c8aeaa00a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735168"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504221"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "101735168"
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
 * AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위, pod 주소 범위 또는 클러스터 가상 네트워크 주소 범위에 대해,, 또는를 사용할 수 없습니다.
-* AKS 클러스터에서 사용 하는 서비스 주체는 가상 네트워크 내의 서브넷에 최소한 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 역할이 있어야 합니다. 또한 서비스 주체를 만들고 사용 권한을 할당 하려면 구독 소유자와 같은 적절 한 사용 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+* AKS 클러스터에서 사용 하는 클러스터 id는 가상 네트워크 내의 서브넷에 대 한 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 역할을 하나 이상 포함 해야 합니다. 또한 클러스터 id를 만들고 사용 권한을 할당 하려면 구독 소유자와 같은 적절 한 사용 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
