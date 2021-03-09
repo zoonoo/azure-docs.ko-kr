@@ -3,12 +3,12 @@ title: '오류 문제 해결: Azure Functions 런타임에 연결할 수 없음'
 description: 잘못된 스토리지 계정 문제를 해결하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a62001cedd695badc72eb76c93ea9c3cb4507403
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217297"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499631"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>오류 해결: "Azure Functions 런타임에 연결할 수 없습니다."
 
@@ -36,7 +36,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 * 필수:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* 소비 및 프리미엄 계획 함수에 필요 합니다.
+* 프리미엄 계획 함수에 필요 합니다.
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 

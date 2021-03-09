@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 77d51b2c839a64567838fa4d6308d203a6bb8b82
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139322"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501144"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT Hub (Python)를 사용 하 여 장치에서 클라우드로 파일 업로드
 
@@ -30,7 +30,7 @@ ms.locfileid: "92139322"
 
 이 자습서의 끝 부분에서 Python 콘솔 앱을 실행 합니다.
 
-* **FileUpload.py**는 Python 디바이스 SDK를 사용하여 파일을 스토리지로 업로드합니다.
+* **FileUpload.py** 는 Python 디바이스 SDK를 사용하여 파일을 스토리지로 업로드합니다.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -109,7 +109,7 @@ ms.locfileid: "92139322"
             return (False, ex)
     ```
 
-    이 함수는이 함수에 전달 된 *blob_info* 구조체를 구문 분석 하 여 [azure. Blob. blobclient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)를 초기화 하는 데 사용 하는 URL을 만듭니다. 그런 다음이 클라이언트를 사용 하 여 Azure blob storage에 파일을 업로드 합니다.
+    이 함수는이 함수에 전달 된 *blob_info* 구조체를 구문 분석 하 여 [azure. Blob. blobclient](/python/api/azure-storage-blob/azure.storage.blob.blobclient)를 초기화 하는 데 사용 하는 URL을 만듭니다. 그런 다음이 클라이언트를 사용 하 여 Azure blob storage에 파일을 업로드 합니다.
 
 1. 클라이언트를 연결 하 고 파일을 업로드 하는 다음 코드를 추가 합니다.
 
@@ -211,4 +211,4 @@ ms.locfileid: "92139322"
 
 * [Azure Blob Storage 설명서](../storage/blobs/index.yml)
 
-* [Python API 설명서에 대 한 Azure Blob Storage](/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Python API 설명서에 대 한 Azure Blob Storage](/python/api/overview/azure/storage-blob-readme)

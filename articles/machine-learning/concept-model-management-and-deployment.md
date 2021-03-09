@@ -10,12 +10,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8813b2cad5800bd4ede6e64119117df57c230fdc
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071224"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508013"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -160,7 +160,7 @@ Azure ML은 메타 데이터를 사용 하 여 모든 ML 자산의 종단간 감
 > [!TIP]
 > 모델 및 데이터 집합에 대 한 일부 정보는 자동으로 캡처되고 __태그__ 를 사용 하 여 추가 정보를 추가할 수 있습니다. 작업 영역에서 등록 된 모델 및 데이터 집합을 찾을 때 태그를 필터로 사용할 수 있습니다.
 >
-> 등록 된 모델을 사용 하 여 데이터 집합을 연결 하는 것은 선택적 단계입니다. 모델을 등록할 때 데이터 집합을 참조 하는 방법에 대 한 자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) 클래스 참조를 참조 하세요.
+> 등록 된 모델을 사용 하 여 데이터 집합을 연결 하는 것은 선택적 단계입니다. 모델을 등록할 때 데이터 집합을 참조 하는 방법에 대 한 자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model%28class%29) 클래스 참조를 참조 하세요.
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>ML 수명 주기의 이벤트를 알리고, 자동화 하 고, 경고 합니다.

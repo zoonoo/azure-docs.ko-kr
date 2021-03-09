@@ -11,19 +11,21 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 242fd57cbdbc9ef01ba28bea25d1aad4c6a17377
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453379"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503830"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>데이터 랭 글 링 (미리 보기)에 대 한 Apache Spark 풀 (Azure Synapse Analytics에서 구동)을 연결 합니다.
 
 이 문서에서는 랭 글 링 데이터에 대해 [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) 에서 제공 하는 Apache Spark 풀을 연결 하 고 시작 하는 방법에 대해 알아봅니다. 
 
+이 문서에는 Jupyter 노트북의 전용 Synapse 세션 내에서 대화형으로 데이터 랭 글 링 작업을 수행 하기 위한 지침이 포함 되어 있습니다. Azure Machine Learning 파이프라인을 사용 하려면 [Machine Learning 파이프라인 (미리 보기)에서 Apache Spark (Azure Synapse Analytics에서 구동)를 사용 하는 방법](how-to-use-synapsesparkstep.md)을 참조 하세요.
+
 >[!IMPORTANT]
-> Azure Machine Learning 및 Azure Synapse Analytics 통합은 미리 보기 상태입니다. 이 문서에 제공 된 기능에서는 언제 `azureml-synapse` 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능을 포함 하는 패키지를 사용 합니다.
+> Azure Machine Learning 및 Azure Synapse Analytics 통합은 미리 보기 상태입니다. 이 문서에 제공 된 기능에서는 언제 `azureml-synapse` 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능을 포함 하는 패키지를 사용 합니다.
 
 ## <a name="azure-machine-learning-and-azure-synapse-analytics-integration-preview"></a>Azure Machine Learning 및 Azure Synapse Analytics 통합 (미리 보기)
 
@@ -37,11 +39,13 @@ Azure Synapse Analytics와 Azure Machine Learning (미리 보기)를 통합 하�
 
 * [Azure Portal, 웹 도구 또는 Synapse Studio를 사용 하 여 Apache Spark 풀 만들기](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* 패키지 (미리 보기)를 포함 하는 [Azure Machine Learning PYTHON SDK를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다 `azureml-synapse` . 
-    * 직접 설치할 수도 있지만 SDK 버전 1.20 이상 에서만 호환 됩니다. 
-        ```python
-        pip install azureml-synapse
-        ```
+* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md#create) 를 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다. 
+
+* `azureml-synapse`다음 코드를 사용 하 여 패키지 (미리 보기)를 설치 합니다.
+
+  ```python
+  pip install azureml-synapse
+  ```
 
 * [Azure Machine Learning 작업 영역 및 Azure Synapse Analytics 작업 영역을 연결](how-to-link-synapse-ml-workspaces.md)합니다.
 
@@ -56,7 +60,7 @@ Machine learning 작업 영역과 연결 된 모든 연결 된 서비스를 확�
 LinkedService.list(ws)
 ```
 
-이 예제에서는 `synapselink1` 메서드를 사용 하 여 작업 영역에서 연결 된 기존 서비스를 검색 합니다 `ws` [`get()`](/python/api/azureml-core/azureml.core.linkedservice?preserve-view=true&view=azure-ml-py#get-workspace--name-) .
+이 예제에서는 `synapselink1` 메서드를 사용 하 여 작업 영역에서 연결 된 기존 서비스를 검색 합니다 `ws` [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-) .
 ```python
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
@@ -108,7 +112,7 @@ attach_config = SynapseCompute.attach_configuration(linked_service, #Linked syna
                                                     pool_name="<Synapse Spark pool name>") #Name of Synapse spark pool 
 
 synapse_compute = ComputeTarget.attach(workspace= ws,                
-                                       name='<Synapse Spark pool alias in Azure ML>', 
+                                       name="<Synapse Spark pool alias in Azure ML>", 
                                        attach_configuration=attach_config
                                       )
 
@@ -180,7 +184,7 @@ Apache Spark 세션이 시작 되 면 준비 하려는 데이터를 읽습니다
 
 # setup access key or SAS token
 sc._jsc.hadoopConfiguration().set("fs.azure.account.key.<storage account name>.blob.core.windows.net", "<access key>")
-sc._jsc.hadoopConfiguration().set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", "sas token")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", "<sas token>")
 
 # read from blob 
 df = spark.read.option("header", "true").csv("wasbs://demo@dprepdata.blob.core.windows.net/Titanic.csv")
@@ -295,4 +299,3 @@ input1 = train_ds.as_mount()
 
 * [모델을 학습](how-to-set-up-training-targets.md)합니다.
 * [Azure Machine Learning 데이터 집합으로 학습](how-to-train-with-datasets.md)
-* [Azure machine learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md).

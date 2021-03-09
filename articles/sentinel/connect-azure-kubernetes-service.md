@@ -8,14 +8,14 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: yelevin
-ms.openlocfilehash: b85c280f99dc1bb4837169c2167b8b2ffb902b7d
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c3a4593aa92acededf9784974b2a1e2dd3cfb319
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491291"
+ms.locfileid: "102507180"
 ---
-# <a name="connect-azure-kubernetes-service-diagnostics-and-auditing-logs"></a>Azure Kubernetes Service 진단 및 감사 로그 연결
+# <a name="connect-azure-kubernetes-service-diagnostics-logs"></a>Azure Kubernetes Service 진단 로그 연결
 
 AKS (Azure Kubernetes Service)는 클러스터 환경에서 Docker 컨테이너 및 컨테이너 기반 응용 프로그램을 배포, 확장 및 관리할 수 있는 완전히 관리 되는 오픈 소스 컨테이너 오케스트레이션 서비스입니다.
 
@@ -23,7 +23,7 @@ AKS (Azure Kubernetes Service)는 클러스터 환경에서 Docker 컨테이너 
 
 [Azure Kubernetes Service 모니터링](../azure-monitor/containers/container-insights-overview.md) 및 [AKS 진단 원격 분석](../aks/view-control-plane-logs.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 AKS 로그를 Azure 센티널에 수집 하려면:
 

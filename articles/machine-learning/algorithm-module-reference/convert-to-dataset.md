@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420872"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508489"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
 
@@ -35,18 +35,18 @@ ms.locfileid: "93420872"
 
 2. 데이터 집합을 출력 하는 모듈에 연결 합니다.   
 
-    데이터가 [테이블](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)형식이 면 데이터 집합으로 변환할 수 있습니다. 여기에는 데이터 [가져오기를](import-data.md)통해 로드 된 데이터, [수동으로 입력 데이터](enter-data-manually.md)를 통해 생성 된 데이터 또는 [적용 변환을](apply-transformation.md)통해 변환 된 데이터 집합이 포함 됩니다.
+    데이터가 [테이블](/python/api/azureml-core/azureml.data.tabulardataset)형식이 면 데이터 집합으로 변환할 수 있습니다. 여기에는 데이터 [가져오기를](import-data.md)통해 로드 된 데이터, [수동으로 입력 데이터](enter-data-manually.md)를 통해 생성 된 데이터 또는 [적용 변환을](apply-transformation.md)통해 변환 된 데이터 집합이 포함 됩니다.
 
 3.  **작업** 드롭다운 목록에서 데이터 집합을 저장 하기 전에 데이터를 정리할 것인지 여부를 지정 합니다.  
   
-    - **None** : 데이터를 있는 그대로 사용 합니다.  
+    - **None**: 데이터를 있는 그대로 사용 합니다.  
   
-    - **SetMissingValue** : 데이터 집합에서 특정 값을 누락 된 값으로 설정 합니다. 기본 자리 표시자는 물음표 문자 (?) 이지만  **사용자 지정 누락 값** 옵션을 사용 하 여 다른 값을 입력할 수 있습니다. 예를 들어 **사용자 지정 누락 값** 에 **Taxi** 를 입력 하면 데이터 집합에 있는 **Taxi** 의 모든 인스턴스가 누락 된 값으로 변경 됩니다.
+    - **SetMissingValue**: 데이터 집합에서 특정 값을 누락 된 값으로 설정 합니다. 기본 자리 표시자는 물음표 문자 (?) 이지만  **사용자 지정 누락 값** 옵션을 사용 하 여 다른 값을 입력할 수 있습니다. 예를 들어 **사용자 지정 누락 값** 에 **Taxi** 를 입력 하면 데이터 집합에 있는 **Taxi** 의 모든 인스턴스가 누락 된 값으로 변경 됩니다.
   
-    - **ReplaceValues** :이 옵션을 사용 하 여 정확 하 게 일치 하는 값으로 바꿀 단일 값을 지정 합니다. **Replace** 메서드를 설정 하 여 누락 값 또는 사용자 지정 값을 바꿀 수 있습니다.
+    - **ReplaceValues**:이 옵션을 사용 하 여 정확 하 게 일치 하는 값으로 바꿀 단일 값을 지정 합니다. **Replace** 메서드를 설정 하 여 누락 값 또는 사용자 지정 값을 바꿀 수 있습니다.
 
-      - **Missing** : 입력 데이터 집합에서 누락 값을 바꾸려면이 옵션을 선택 합니다. **새 값** 에 대해 값을 입력 하 여 누락 된 값을로 바꿉니다.
-      - **사용자 지정** : 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값** 에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 `obs` 누락 된 값에 대 한 자리 표시자로 사용 되는 문자열이 포함 된 경우을 입력 `obs` 합니다. **새 값** 에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
+      - **Missing**: 입력 데이터 집합에서 누락 값을 바꾸려면이 옵션을 선택 합니다. **새 값** 에 대해 값을 입력 하 여 누락 된 값을로 바꿉니다.
+      - **사용자 지정**: 입력 데이터 집합에서 사용자 지정 값을 바꾸려면이 옵션을 선택 합니다. **사용자 지정 값** 에 찾으려는 값을 입력 합니다. 예를 들어 데이터에 `obs` 누락 된 값에 대 한 자리 표시자로 사용 되는 문자열이 포함 된 경우을 입력 `obs` 합니다. **새 값** 에 새 값을 입력 하 여 원래 문자열을로 바꿉니다.
   
     **ReplaceValues** 작업은 정확히 일치 하는 항목에만 적용 됩니다. 예를 들어, 이러한 문자열에는 영향을 주지 않습니다. `obs.` `obsolete`  
  

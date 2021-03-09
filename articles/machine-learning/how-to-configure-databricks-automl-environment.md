@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 43e503105eb9d59de5de2fe26e024cc473c61af6
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9bf167f5be9aeb65f0d7c1d69e6687589ebea8a4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430499"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498883"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Databricks 및 AutoML을 사용 하 여 개발 환경 설정 Azure Machine Learning 
 
@@ -172,4 +172,4 @@ AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수�
 ## <a name="next-steps"></a>다음 단계
 
 - MNIST 데이터 집합을 사용 하 여 Azure Machine Learning에 대 한 [모델을 학습](tutorial-train-models-with-aml.md) 합니다.
-- [AZURE MACHINE LEARNING SDK For Python 참조](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 참조 하세요.
+- [AZURE MACHINE LEARNING SDK For Python 참조](/python/api/overview/azure/ml/intro)를 참조 하세요.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d2d3d04bdb8066db263c608bb1d42acca303a656
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433831"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507231"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -68,7 +68,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - GitHub에서 SDK 원본을 찾을 수 있습니다. [JavaScript 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * **PYTHON SDK** 를 사용할 수 있습니다. Python SDK를 사용 하려면 ...
    - PyPi: [Python 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://pypi.org/project/azure-digitaltwins-core/)에서 패키지를 보고 설치할 수 있습니다.
-   - [SDK 참조 설명서](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)를 볼 수 있습니다.
+   - [SDK 참조 설명서](/python/api/azure-digitaltwins-core/azure.digitaltwins.core)를 볼 수 있습니다.
    - GitHub에서 SDK 원본을 찾을 수 있습니다. [Python 용 Azure Azure Digital Twins 핵심 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 지침을 따릅니다.
 

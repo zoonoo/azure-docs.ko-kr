@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102473782"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510801"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리 된 크기는 라이브 및 특정 하드웨어 생성에 대해 작동 하며 하드웨어 생성이 사용 중지 되 면 사용 되지 않습니다.
 
@@ -42,12 +42,12 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 | 크기 | 격리 사용 중지 날짜 | 
 | --- | --- |
-| Standard_DS15_v2 | 2020년 5월 15일 |
-| Standard_D15_v2  | 2020년 5월 15일 |
-| Standard_G5  | 2021 년 2 월 15 일 |
-| Standard_GS5  | 2021 년 2 월 15 일 |
-| Standard_E64i_v3  | 2021 년 2 월 15 일 |
-| Standard_E64is_v3  | 2021 년 2 월 15 일 |
+| Standard_DS15_v2 | 5 월 15 일, 2021 |
+| Standard_D15_v2  | 5 월 15 일, 2021 |
+| Standard_G5  | 2022 년 2 월 15 일 |
+| Standard_GS5  | 2022 년 2 월 15 일 |
+| Standard_E64i_v3  | 2022 년 2 월 15 일 |
+| Standard_E64is_v3  | 2022 년 2 월 15 일 |
 
 
 ## <a name="faq"></a>FAQ
@@ -71,8 +71,8 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
  
 | Date | 작업 |
 |---|---| 
-| 5 월 15 일, 2019<sup>1</sup> | D/DS15_v2 격리 사용 중지 알림| 
-| 2020년 5월 15일 | D/DS15_v2 격리 보장 제거| 
+| 5 월 15 일, 2020<sup>1</sup> | D/DS15_v2 격리 사용 중지 알림| 
+| 5 월 15 일, 2021 | D/DS15_v2 격리 보장 제거| 
 
 <sup>1</sup> 이 크기를 사용 하는 기존 고객은 다음 단계에 대 한 자세한 지침이 포함 된 알림 전자 메일을 받게 됩니다.  
 
@@ -81,8 +81,8 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
  
 | Date | 작업 |
 |---|---|
-| 2 월 15 일, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 격리 사용 중지 알림 |
-| 2 월 15 일 2021 | G5/GS5/E64i_v3/E64is_v3 격리 보장 제거 됨 |
+| 2 월 15 일, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 격리 사용 중지 알림 |
+| 2 월 15 일 2022 | G5/GS5/E64i_v3/E64is_v3 격리 보장 제거 됨 |
 
 <sup>1</sup> 이 크기를 사용 하는 기존 고객은 다음 단계에 대 한 자세한 지침이 포함 된 알림 전자 메일을 받게 됩니다.  
 

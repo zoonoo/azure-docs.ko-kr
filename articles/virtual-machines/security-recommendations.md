@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571339"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499359"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Azure의 가상 컴퓨터에 대 한 보안 권장 사항
 
@@ -33,7 +33,7 @@ Azure Security Center에 대 한 일반 정보 [는 Azure Security Center 무엇
 | 사용자 지정 VM 이미지를 빌드할 때 최신 업데이트를 적용 합니다. | 이미지를 만들기 전에 이미지에 포함 될 모든 응용 프로그램 및 운영 체제에 대 한 최신 업데이트를 설치 합니다.  | - |
 | 최신 상태로 VM 유지 | Azure Automation에서 [업데이트 관리](../automation/update-management/overview.md) 솔루션을 사용 하 여 Azure에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. | [예](../security-center/asset-inventory.md) |
 | Vm을 백업 합니다. | [Azure Backup](../backup/backup-overview.md) 는 응용 프로그램 데이터를 보호 하 고 운영 비용을 최소화 합니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup는 Windows 및 Linux를 실행 하는 Vm을 보호 합니다. | - |
-| 복원 력 및 가용성 향상을 위해 여러 Vm을 사용 합니다. | VM에서 항상 사용 가능 해야 하는 응용 프로그램을 실행 하는 경우 여러 Vm 또는 [가용성 집합](./manage-availability.md)을 사용 합니다. | - |
+| 복원 력 및 가용성 향상을 위해 여러 Vm을 사용 합니다. | VM에서 항상 사용 가능 해야 하는 응용 프로그램을 실행 하는 경우 여러 Vm 또는 [가용성 집합](./availability.md)을 사용 합니다. | - |
 | BCDR (비즈니스 연속성 및 재해 복구) 전략을 채택 합니다. | Azure Site Recovery를 사용 하면 비즈니스 연속성을 지원 하도록 설계 된 다양 한 옵션을 선택할 수 있습니다. 다른 복제 및 장애 조치 (failover) 시나리오를 지원 합니다. 자세한 내용은  [Site Recovery 정보](../site-recovery/site-recovery-overview.md)를 참조 하세요. | - |
 
 ## <a name="data-security"></a>데이터 보안

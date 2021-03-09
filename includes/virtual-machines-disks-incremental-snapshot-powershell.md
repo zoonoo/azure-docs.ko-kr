@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 895a81df858e51a266cd87c96a161695a4bf2cc1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b4af7c8a02a1059e56bb2f709e3a4d1a9924662e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95992863"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511011"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -34,7 +34,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 이 설치 되 면를 사용 하 여 PowerShell 세션에 로그인 `Connect-AzAccount` 합니다.
 
-Azure PowerShell를 사용 하 여 증분 스냅숏을 만들려면 구성을 [AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) 로 설정 하 고 매개 변수를 사용 하 여 `-Incremental` [AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) 를 변수로이를 변수로 전달 `-Snapshot` 합니다.
+Azure PowerShell를 사용 하 여 증분 스냅숏을 만들려면 구성을 [AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) 로 설정 하 고 매개 변수를 사용 하 여 `-Incremental` [AzSnapshot](/powershell/module/az.compute/new-azsnapshot) 를 변수로이를 변수로 전달 `-Snapshot` 합니다.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"

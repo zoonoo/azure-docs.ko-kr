@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 26a9e931c42822218e7935f50c1f222ac33c34f2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6f8cfc314c75221a88b58095cc71ea685280ac49
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210101"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501019"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -161,7 +161,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 ###  <a name="azure-powershell"></a>Azure PowerShell 
 
-Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey?view=azps-2.5.0) cmdlet을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
+Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
 
  ```powershell-interactive
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
@@ -169,7 +169,7 @@ Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destin
 
 대신 Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
 
-두 경우 모두 Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId 및 -KeyEncryptionKeyUrl 매개 변수에 KEK 키 자격 증명 모음의 ID와 KEK의 URL을 제공합니다. 이 예제에서는 디스크 암호화 키와 KEK 모두에 동일한 키 자격 증명 모음을 사용하고 있다고 가정합니다.
+두 경우 모두 Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) -KeyEncryptionKeyVaultId 및 -KeyEncryptionKeyUrl 매개 변수에 KEK 키 자격 증명 모음의 ID와 KEK의 URL을 제공합니다. 이 예제에서는 디스크 암호화 키와 KEK 모두에 동일한 키 자격 증명 모음을 사용하고 있다고 가정합니다.
 
  ```powershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup"

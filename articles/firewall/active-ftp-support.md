@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: victorh
-ms.openlocfilehash: aa543b32efcd1897eb0ee7d8b477742705095ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: adbc2a9eb6cd3b054df84911604143ddb711ad20
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430737"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499138"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Azure 방화벽 활성 FTP 지원
 
@@ -23,7 +23,7 @@ FTP 서버는 활성 FTP를 사용 하 여 지정 된 FTP 클라이언트 데이
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell를 사용 하 여 배포 하려면 `AllowActiveFTP` 매개 변수를 사용 합니다. 자세한 내용은 [액티브 FTP를 사용 하 여 방화벽 만들기](/powershell/module/az.network/new-azfirewall?view=azps-5.4.0#16---create-a-firewall-with-allow-active-ftp-)를 참조 하세요.
+Azure PowerShell를 사용 하 여 배포 하려면 `AllowActiveFTP` 매개 변수를 사용 합니다. 자세한 내용은 [액티브 FTP를 사용 하 여 방화벽 만들기](/powershell/module/az.network/new-azfirewall#16---create-a-firewall-with-allow-active-ftp-)를 참조 하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
 

@@ -3,12 +3,12 @@ title: 백업 센터에 대 한 지원 매트릭스
 description: 이 문서에서는 백업 센터에서 각 워크 로드 유형에 대해 지 원하는 시나리오를 요약 합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: aedf2d071c4f38d2d873383409c11abdf3c0c72d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700238"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504510"
 ---
 # <a name="support-matrix-for-backup-center"></a>백업 센터에 대 한 지원 매트릭스
 
@@ -18,7 +18,7 @@ ms.locfileid: "101700238"
 
 | **범주** | **시나리오**  | **지원되는 워크로드**  | **제한** |
 | -------------| ------------- | ----------------------- |------------|
-| 모니터링   | 모든 작업 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | <li> 7 일 분량의 작업은 즉시 사용할 수 있습니다. <br> <li> 각 필터/드롭다운에서 최대 1000 항목을 지원 합니다. 따라서 Backup Center를 사용 하 여 테 넌 트 간에 최대 1000 구독 및 1000 자격 증명 모음을 모니터링할 수 있습니다. |
+| 모니터링   | 모든 작업 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | <li> 7 일 분량의 작업은 즉시 사용할 수 있습니다. <br> <li> 각 필터/드롭다운에서 최대 1000 항목을 지원 합니다. 따라서 Backup center를 사용 하 여 테 넌 트 간에 최대 1000 구독 및 1000 자격 증명 모음을 모니터링할 수 있습니다. |
 | 모니터링 | 모든 백업 인스턴스 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |
 | 모니터링 | 모든 백업 정책 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |
 | 모니터링 | 모든 자격 증명 모음 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | 위와 동일 |

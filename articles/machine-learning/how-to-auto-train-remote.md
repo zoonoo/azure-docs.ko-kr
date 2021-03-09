@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: d6d21acc685ba840b585ada43e59230fdd73787f
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 402af581e0ca6de9936b78106840a4fe273069d8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796383"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503456"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -43,7 +43,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>리소스 만들기
 
-[`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
+[`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
 
 **예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
@@ -90,7 +90,7 @@ else:
 
 ## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-Training_data로 정의 되 [`TabularDataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) . `TabularDataset`기본적으로 메서드는를 `from_delimited_files` true로 설정 하 여 `infer_column_types` 열 형식을 자동으로 유추 합니다. 
+Training_data로 정의 되 [`TabularDataset`](/python/api/azureml-core/azureml.data.tabulardataset) 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) . `TabularDataset`기본적으로 메서드는를 `from_delimited_files` true로 설정 하 여 `infer_column_types` 열 형식을 자동으로 유추 합니다. 
 
 수동으로 열 유형을 설정 하려면 인수를 설정 `set_column_types` 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
@@ -200,7 +200,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-results"></a>결과 탐색
 
-[학습 자습서](tutorial-auto-train-models.md#explore-the-results) 에 표시 된 것과 동일한 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) 사용 하 여 그래프와 결과 테이블을 볼 수 있습니다.
+[학습 자습서](tutorial-auto-train-models.md#explore-the-results) 에 표시 된 것과 동일한 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets) 사용 하 여 그래프와 결과 테이블을 볼 수 있습니다.
 
 ```python
 from azureml.widgets import RunDetails

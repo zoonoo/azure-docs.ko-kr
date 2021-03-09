@@ -1,23 +1,18 @@
 ---
 title: Azure Security Center에 대한 릴리스 정보
 description: Azure Security Center의 새로운 기능과 변경된 기능에 대한 설명
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634263"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439632"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -31,15 +26,106 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
 
 
+
+## <a name="march-2021"></a>2021년 3월
+
+3월의 업데이트는 다음과 같습니다.
+
+- [Security Center에 Azure 방화벽 관리 통합](#azure-firewall-management-integrated-into-security-center)
+- [이제 SQL 취약성 평가에 "규칙 사용 안 함" 환경(미리 보기) 포함](#sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview)
+- [Security Center에 Azure Monitor 통합 문서를 통합하고 세 가지 템플릿 제공](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
+- [이제 규정 준수 대시보드에 Azure 감사 보고서(미리 보기) 포함](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
+- [워크플로 자동화 배포에 대한 정책 업데이트](#updates-to-the-policies-for-deploying-workflow-automation)
+
+
+### <a name="azure-firewall-management-integrated-into-security-center"></a>Security Center에 Azure 방화벽 관리 통합
+
+Azure Security Center를 열 때 처음으로 표시되는 페이지는 개요 페이지입니다. 
+
+이 대화형 대시보드는 하이브리드 클라우드 워크로드의 보안 상태에 대한 통합된 보기를 제공합니다. 또한 보안 경고, 적용 범위 정보 등을 보여 줍니다.
+
+중앙 환경에서 보안 상태를 확인하는 데 도움이 될 수 있도록 Azure Firewall Manager를 이 대시보드에 통합했습니다. 이제 모든 네트워크에서 방화벽 검사 상태를 확인하고 Security Center에서 Azure 방화벽 정책을 중앙 집중식으로 관리할 수 있습니다.
+
+[Azure Security Center의 개요 페이지](overview-page.md)에서 이 대시보드에 대해 자세히 알아보세요.
+
+:::image type="content" source="media/release-notes/overview-dashboard-firewall-manager.png" alt-text="Azure 방화벽에 대한 타일이 포함된 Security Center의 개요 대시보드":::
+
+
+### <a name="sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview"></a>이제 SQL 취약성 평가에 "규칙 사용 안 함" 환경(미리 보기) 포함
+
+Security Center에는 잠재적 데이터베이스 취약성을 검색, 추적 및 수정하는 데 도움이 되는 기본 제공 취약점 스캐너가 포함되어 있습니다. 평가 검사의 결과는 SQL 머신의 보안 상태에 대한 개요와 보안 결과에 대한 세부 정보를 제공합니다.
+
+조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.
+
+[특정 결과 사용 안 함](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview)에서 자세히 알아보세요.
+
+
+
+### <a name="azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided"></a>Security Center에 Azure Monitor 통합 문서를 통합하고 세 가지 템플릿 제공
+
+Ignite Spring 2021에서 Security Center에 통합된 Azure Monitor 통합 문서 환경이 발표된 바 있습니다.
+
+새로운 통합 환경을 활용하여 Security Center 갤러리에서 기본 제공 템플릿 사용을 시작할 수 있습니다. 통합 문서 템플릿을 사용하여 동적 및 시각적 보고서에 액세스하고 이를 작성하여 조직의 보안 상태를 추적할 수 있습니다. 또한 Security Center 데이터 또는 지원되는 기타 데이터 형식을 기반으로 새 통합 문서를 만들고 Security Center의 GitHub 커뮤니티에서 커뮤니티 통합 문서를 빠르게 배포할 수 있습니다.
+
+다음과 같은 세 가지 템플릿 보고서가 제공됩니다.
+
+- **시간 경과에 따른 보안 점수** - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
+- **시스템 업데이트** - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
+- **취약성 평가 결과** - Azure 리소스의 취약성 검사 결과 보기
+
+이러한 보고서를 사용하는 방법 또는 [Security Center 데이터에 대한 풍부한 자체 대화형 보고서](custom-dashboards-azure-workbooks.md)를 작성하는 방법에 대해 알아보세요.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 보고서":::
+
+
+### <a name="regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview"></a>이제 규정 준수 대시보드에 Azure 감사 보고서(미리 보기) 포함
+
+이제 규정 준수 대시보드의 도구 모음에서 Azure 및 Dynamics 인증 보고서를 다운로드할 수 있습니다. 
+
+:::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="규정 준수 대시보드의 도구 모음":::
+
+관련 보고서 유형(PCI, SOC, ISO 및 기타)에 대한 탭을 선택하고 필터를 사용하여 필요한 특정 보고서를 찾을 수 있습니다.
+
+[규정 준수 대시보드에서 표준을 관리](update-regulatory-compliance-packages.md)하는 방법에 대해 자세히 알아보세요.
+
+:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="사용 가능한 Azure 감사 보고서 목록 필터링":::
+
+
+
+### <a name="updates-to-the-policies-for-deploying-workflow-automation"></a>워크플로 자동화 배포에 대한 정책 업데이트
+
+조직의 모니터링 및 인시던트 대응 프로세스를 자동화하면 보안 인시던트를 조사하고 완화하는 데 걸리는 시간을 크게 향상시킬 수 있습니다.
+
+자동화를 조직 전체에 배포할 수 있도록 워크플로 자동화 프로시저를 만들고 구성하는 다음과 같은 세 가지 Azure Policy 'DeployIfNotExist' 정책을 제공합니다.
+
+|목표  |정책  |정책 ID  |
+|---------|---------|---------|
+|보안 경고에 대한 워크플로 자동화|[Azure Security Center 경고에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|보안 추천 사항에 대한 워크플로 자동화|[Azure Security Center 권장 사항에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+|규정 준수 변경에 대한 워크플로 자동화|[Azure Security Center 규정 준수에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
+||||
+
+이러한 정책의 기능에 대한 두 가지 업데이트가 있습니다.
+
+- 할당 후 적용하면 활성 상태로 유지됩니다.
+- 이제 이미 배포된 후에도 이러한 정책을 사용자 지정하고 매개 변수를 업데이트할 수 있습니다. 예를 들어 사용자가 다른 평가 키를 추가하거나 기존 평가 키를 편집하려는 경우 그렇게 할 수 있습니다.
+
+[워크플로 자동화 템플릿](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)을 시작합니다.
+
+[Security Center 트리거에 대한 응답 자동화](workflow-automation.md) 방법에 대해 자세히 알아보세요.
+
+
+
 ## <a name="february-2021"></a>2021년 2월
 
 2월의 업데이트는 다음과 같습니다.
 
 - [GA(일반 공급)를 위해 릴리스된 Azure Portal의 새 보안 경고 페이지](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Kubernetes 워크로드 보호 권장 사항이 GA(일반 공급)로 릴리스됨](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [이제 Azure Defender와 Microsoft Defender for Endpoint의 통합을 통해 Windows Server 2019 및 Windows 10 Virtual Desktop(WVD) 지원(미리 보기)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
 - [권장 사항 세부 정보 페이지에서 정책으로 직접 연결](#direct-link-to-policy-from-recommendation-details-page)
 - [SQL 데이터 분류 권장 사항이 더 이상 보안 점수에 영향을 주지 않음](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [규정 준수 평가 변경 사항으로 워크플로 자동화가 트리거될 수 있음(미리 보기)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [규정 준수 평가 변경 사항으로 워크플로 자동화가 트리거될 수 있음(미리 보기)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
 - [자산 인벤토리 페이지 향상](#asset-inventory-page-enhancements)
 
 
@@ -75,6 +161,17 @@ Kubernetes에 대한 Azure Policy 추가 항목을 AKS(Azure Kubernetes Service)
 > 권장 사항은 미리 보기에 있었지만 AKS 클러스터 리소스를 비정상으로 렌더링하지 않았으며 보안 점수 계산에 포함되지 않았습니다. 이제 이러한 권장 사항은 이 GA 알림과 함께 점수 계산에 포함됩니다. 아직 수정하지 않은 경우 보안 점수에 약간의 영향을 줄 수 있습니다. 가능한 경우 [Azure Security Center의 권장 사항 수정](security-center-remediate-recommendations.md)에서 설명한 대로 이러한 권장 사항을 수정합니다.
 
 
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>이제 Azure Defender와 Microsoft Defender for Endpoint의 통합을 통해 Windows Server 2019 및 Windows 10 Virtual Desktop(WVD) 지원(미리 보기)
+
+Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 엔드포인트 보안 솔루션입니다. 위험 기반 취약성 관리 및 평가뿐 아니라 엔드포인트 검색 및 응답(EDR)도 제공합니다. Azure Security Center와 Defender for Endpoint를 함께 사용하는 경우의 이점에 대한 전체 목록은 [Security Center의 통합 EDR 솔루션 Microsoft Defender for Endpoint로 엔드포인트 보호](security-center-wdatp.md)를 참조하세요.
+
+Windows 서버에서 서버용 Azure Defender를 사용하도록 설정하면 Defender for Endpoint용 라이선스가 플랜에 포함됩니다. 서버에 Azure Defender를 사용하도록 이미 설정했고 구독에 Windows 2019 서버가 있는 경우 Defender for Endpoint가 이 업데이트와 함께 자동으로 수신됩니다. 수동 조치가 필요하지 않습니다. 
+
+이제 Windows Server 2019 및 [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md)를 포함하도록 지원 범위가 확장되었습니다.
+
+> [!NOTE]
+> Windows Server 2019 머신에서 Defender for Endpoint를 사용하도록 설정하는 경우 [Defender for Endpoint 통합 사용](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration)에 설명된 필수 조건을 충족하는지 확인합니다.
+
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>권장 사항 세부 정보 페이지에서 정책으로 직접 연결
 
 권장 사항에 대한 세부 정보를 검토할 때 기본 정책을 볼 수 있으면 도움이 되는 경우가 많습니다. 정책으로 지원되는 모든 권장 사항에는 권장 사항 세부 정보 페이지의 새 링크가 있습니다.
@@ -91,9 +188,12 @@ Kubernetes에 대한 Azure Policy 추가 항목을 AKS(Azure Kubernetes Service)
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>SQL 데이터 분류 권장 사항이 더 이상 보안 점수에 영향을 주지 않음
 **SQL 데이터베이스에서 중요한 데이터를 분류해야 합니다.** 권장 사항은 더 이상 보안 점수에 영향을 주지 않습니다. 이는 **데이터 분류 적용** 보안 제어의 유일한 권장 사항이므로 이제 해당 제어의 보안 점수 값은 0입니다.
 
+Security Center의 모든 보안 컨트롤에 대한 전체 목록과 각 보안 컨트롤의 점수 및 권장 사항 목록은 [보안 컨트롤 및 권장 사항](secure-score-security-controls.md#security-controls-and-their-recommendations)을 참조하세요.
 
-### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>규정 준수 평가 변경 사항으로 워크플로 자동화가 트리거될 수 있음(미리 보기)
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>규정 준수 평가 변경 사항으로 워크플로 자동화가 트리거될 수 있음(미리 보기)
 워크플로 자동화를 위한 트리거 옵션에 세 번째 데이터 유형인 규정 준수 평가 변경 사항을 추가했습니다.
+
+[Security Center 트리거에 대한 응답 자동화](workflow-automation.md)에서 워크플로 자동화 도구를 사용하는 방법에 대해 알아봅니다.
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="규정 준수 평가 변경 사항을 사용하여 워크플로 자동화 트리거" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -262,7 +362,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="사용자에게 테넌트 전체의 사용 권한을 요청할 수 있음을 알리는 배너입니다.":::
 
-[사용자 권한이 부족할 때 테넌트 전체 권한 요청](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient)에서 자세히 알아보세요.
+[사용자 권한이 부족할 때 테넌트 전체 권한 요청](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient)에서 자세히 알아보세요.
 
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨
@@ -378,7 +478,7 @@ Azure Synapse Analytics SQL 풀에 대한 Azure Defender for SQL의 지원은 Az
 
 **전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
 
-자신에게 테넌트 수준 사용 권한을 할당하려면 [자신에게 테넌트 전체 사용 권한 부여](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)의 지침을 따르세요.
+자신에게 테넌트 수준 사용 권한을 할당하려면 [자신에게 테넌트 전체 사용 권한 부여](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)의 지침을 따르세요.
 
 
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)
@@ -762,221 +862,3 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 다음 링크에서 자세한 내용을 알아보세요.
 - [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 - [Kusto Query Language(KQL)](/azure/data-explorer/kusto/query/)
-
-
-## <a name="september-2020"></a>2020년 9월
-
-9월의 업데이트는 다음과 같습니다.
-- [Security Center가 새로운 모습으로 바뀌었습니다!](#security-center-gets-a-new-look)
-- [Azure Defender가 릴리스됨](#azure-defender-released)
-- [Key Vault용 Azure Defender가 일반 공급됨](#azure-defender-for-key-vault-is-generally-available)
-- [Files 및 ADLS Gen2에 대한 Storage용 Azure Defender 보호가 일반 공급됨](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
-- [이제 자산 인벤토리 도구가 일반 공급됨](#asset-inventory-tools-are-now-generally-available)
-- [컨테이너 레지스트리 및 가상 머신 검사에 대한 특정 취약성 결과 사용 안 함](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
-- [권장 사항에서 리소스 제외](#exempt-a-resource-from-a-recommendation)
-- [Security Center의 AWS 및 GCP 커넥터에서 다중 클라우드 환경을 제공함](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
-- [Kubernetes 워크로드 보호 추천 사항 번들](#kubernetes-workload-protection-recommendation-bundle)
-- [이제 취약성 평가 결과를 연속 내보내기에서 사용할 수 있음](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
-- [새 리소스를 만들 때 추천 사항을 적용하여 보안 구성 오류 방지](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
-- [네트워크 보안 그룹 추천 사항이 향상됨](#network-security-group-recommendations-improved)
-- ["Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다."라는 미리 보기 AKS 추천 사항이 더 이상 사용되지 않음](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
-- [Azure Security Center의 이메일 알림이 향상됨](#email-notifications-from-azure-security-center-improved)
-- [보안 점수에 미리 보기 추천 사항이 포함되지 않음](#secure-score-doesnt-include-preview-recommendations)
-- [이제 추천 사항에 심각도 표시기 및 새로 고침 간격이 포함됨](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
-
-
-### <a name="security-center-gets-a-new-look"></a>Security Center가 새로운 모습으로 바뀌었습니다!
-
-Security Center의 포털 페이지에 대해 새로 고친 UI를 릴리스했습니다. 새 페이지에는 보안 점수, 자산 인벤토리 및 Azure Defender에 대한 새 개요 페이지와 대시보드가 포함됩니다.
-
-다시 설계된 개요 페이지에는 이제 보안 점수, 자산 인벤토리 및 Azure Defender 대시보드에 액세스하기 위한 타일이 있습니다. 또한 규정 준수 대시보드에 연결되는 타일도 있습니다.
-
-[개요 페이지](overview-page.md)에 대해 자세히 알아보세요.
-
-
-### <a name="azure-defender-released"></a>Azure Defender가 릴리스됨
-
-**Azure Defender** 는 Security Center 내부에 통합되어 Azure 및 하이브리드 워크로드에 대한 고급 인텔리전트 보호를 제공하는 CWPP(클라우드 워크로드 보호 플랫폼)입니다. Security Center의 표준 가격 책정 계층 옵션을 대체합니다. 
-
-Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defender를 사용하도록 설정하면 다음 Defender 계획이 동시에 사용하도록 설정되어 환경의 컴퓨팅, 데이터 및 서비스 계층에 대한 포괄적인 방어 기능을 제공합니다.
-
-- [서버용 Azure Defender](defender-for-servers-introduction.md)
-- [App Service용 Azure Defender](defender-for-app-service-introduction.md)
-- [스토리지용 Azure Defender](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
-- [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)
-- [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)
-
-이러한 계획 각각은 Security Center 설명서에서 별도로 설명하고 있습니다.
-
-Azure Defender는 전용 대시보드를 사용하여 가상 머신, SQL 데이터베이스, 컨테이너, 웹 애플리케이션, 네트워크 등에 대한 보안 경고 및 지능형 위협 방지 기능을 제공합니다.
-
-[Azure Defender](azure-defender.md)에 대해 자세히 알아보세요.
-
-### <a name="azure-defender-for-key-vault-is-generally-available"></a>Key Vault용 Azure Defender가 일반 공급됨
-
-Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 
-
-**Key Vault용 Azure Defender** 는 Azure Key Vault용 Azure 네이티브 Advanced Threat Protection 기능을 통해 추가 보안 인텔리전스 계층을 제공합니다. Key Vault용 Azure Defender는 확장을 통해 결과적으로 Key Vault 계정에 종속된 많은 리소스를 보호합니다.
-
-선택적 계획은 이제 GA입니다. 이 기능은 미리 보기에서 "Azure Key Vault용 Advanced Threat Protection"으로 제공되었습니다.
-
-또한 Azure Portal의 Key Vault 페이지에는 이제 **Security Center** 추천 사항 및 경고에 대한 전용 **보안** 페이지가 포함됩니다.
-
-[Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)에서 자세히 알아보세요.
-
-
-### <a name="azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available"></a>Files 및 ADLS Gen2에 대한 Storage용 Azure Defender 보호가 일반 공급됨 
-
-**Storage용 Azure Defender** 는 Azure Storage 계정에서 잠재적으로 유해한 활동을 탐지합니다. Blob 컨테이너, 파일 공유 또는 데이터 레이크로 저장되는지에 관계없이 데이터를 보호할 수 있습니다.
-
-이제 [Azure Files](../storage/files/storage-files-introduction.md) 및 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)에 대한 지원이 일반 공급됩니다.
-
-2020년 10월 1일부터 이러한 서비스에서 리소스를 보호하는 데 드는 요금이 청구됩니다.
-
-[Storage용 Azure Defender](defender-for-storage-introduction.md)에서 자세히 알아보세요.
-
-
-### <a name="asset-inventory-tools-are-now-generally-available"></a>이제 자산 인벤토리 도구가 일반 공급됨
-
-Azure Security Center의 자산 인벤토리 페이지는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 단일 페이지를 제공합니다.
-
-Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
-
-리소스에 수정되지 않은 추천 사항이 있으면 인벤토리에 표시됩니다.
-
-[자산 인벤토리로 리소스 탐색 및 관리](asset-inventory.md)에서 자세히 알아보세요.
-
-
-
-### <a name="disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines"></a>컨테이너 레지스트리 및 가상 머신 검사에 대한 특정 취약성 결과 사용 안 함
-
-Azure Defender에는 Azure Container Registry 및 가상 머신의 이미지를 검사하는 취약성 스캐너가 포함되어 있습니다.
-
-조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.
-
-결과가 사용 안 함 규칙에 정의한 조건과 일치하면 검색 결과 목록에 표시되지 않습니다.
-
-이 옵션은 다음에 대한 추천 사항 세부 정보 페이지에서 사용할 수 있습니다.
-
-- **Azure Container Registry 이미지의 취약성을 수정해야 함**
-- **가상 머신의 취약성을 수정해야 함**
-
-[컨테이너 이미지에 대한 특정 결과 사용 안 함](defender-for-container-registries-usage.md#disable-specific-findings-preview) 및 [가상 머신에 대한 특정 결과 사용 안 함](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview)에서 자세히 알아보세요.
-
-
-### <a name="exempt-a-resource-from-a-recommendation"></a>권장 사항에서 리소스 제외
-
-경우에 따라 리소스가 특정 추천 사항과 관련하여 비정상 상태가 아니라고 생각하더라도 비정상 상태로 표시됩니다. 이로 인해 보안 점수가 낮아집니다. Security Center에서 추적하지 않는 프로세스를 통해 수정되었을 수 있습니다. 또는 조직에서 특정 리소스에 대한 위험을 감수하기로 결정했을 수도 있습니다. 
-
-이러한 경우 예외 규칙을 만들고 나중에 해당 리소스가 비정상 리소스에 나열되지 않도록 할 수 있습니다. 이러한 규칙에는 아래에서 설명한 대로 문서화된 근거가 포함될 수 있습니다.
-
-[추천 사항 및 보안 점수에서 리소스 제외](exempt-resource.md)에서 자세히 알아보세요.
-
-
-### <a name="aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience"></a>Security Center의 AWS 및 GCP 커넥터에서 다중 클라우드 환경을 제공함
-
-클라우드 워크로드가 일반적으로 여러 클라우드 플랫폼에 걸쳐 있는 경우 클라우드 보안 서비스도 동일한 작업을 수행해야 합니다.
-
-Azure Security Center는 이제 Azure, AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)에서 워크로드를 보호합니다.
-
-AWS 및 GCP 계정을 Security Center에 온보딩하면 AWS Security Hub, GCP Security Command 및 Azure Security Center를 통합합니다. 
-
-[Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md) 및 [Azure Security Center에 GCP 계정 연결](quickstart-onboard-gcp.md)에서 자세히 알아보세요.
-
-
-### <a name="kubernetes-workload-protection-recommendation-bundle"></a>Kubernetes 워크로드 보호 추천 사항 번들
-
-Kubernetes 워크로드에서 기본적으로 보안을 유지할 수 있도록 하기 위해 Security Center에서 Kubernetes 허용 제어를 사용하는 적용 옵션을 포함하여 Kubernetes 수준 보안 강화 추천 사항을 추가합니다.
-
-Kubernetes용 Azure Policy 추가 기능을 AKS 클러스터에 설치한 경우 Kubernetes API 서버에 대한 모든 요청은 클러스터에 유지되기 전에 미리 정의된 모범 사례 세트에 대해 모니터링됩니다. 그런 다음, 모범 사례를 적용하고 향후 워크로드에 대해 위임하도록 구성할 수 있습니다.
-
-예를 들어 권한 있는 컨테이너를 만들지 않도록 위임할 수 있습니다. 그러면, 이러한 작업에 대한 이후의 모든 요청이 차단됩니다.
-
-[Kubernetes 허용 제어를 사용하여 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 자세히 알아보세요.
-
-
-### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>이제 취약성 평가 결과를 연속 내보내기에서 사용할 수 있음
-
-연속 내보내기를 사용하여 경고 및 추천 사항을 Azure Event Hubs, Log Analytics 작업 영역 또는 Azure Monitor에 실시간으로 스트리밍합니다. 여기서는 이 데이터를 SIEM(예: Azure Sentinel, Power BI, Azure Data Explorer 등)과 통합할 수 있습니다.
-
-Security Center의 통합 취약성 평가 도구는 "가상 머신의 취약성을 수정해야 함"과 같은 '부모' 추천 사항 내에서 리소스에 대한 결과를 실행 가능한 추천 사항으로 반환합니다. 
-
-이제 추천 사항을 선택하고 **보안 결과 포함** 옵션을 사용하도록 설정하면 연속 내보내기를 통해 보안 결과를 내보낼 수 있습니다.
-
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="연속 내보내기 구성의 보안 결과 포함 설정/해제" :::
-
-관련 페이지:
-
-- [Azure 가상 머신에 대한 Security Center의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
-- [Azure Container Registry 이미지에 대한 Security Center의 통합 취약성 평가 솔루션](defender-for-container-registries-usage.md)
-- [연속 내보내기](continuous-export.md)
-
-### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>새 리소스를 만들 때 추천 사항을 적용하여 보안 구성 오류 방지
-
-보안 구성 오류는 보안 인시던트의 주요 원인입니다. 이제 Security Center에는 특정 추천 사항과 관련하여 새 리소스의 구성 오류를 *방지* 하는 데 도움이 되는 기능이 있습니다. 
-
-이 기능을 통해 워크로드를 안전하게 유지하고 보안 점수를 안정화할 수 있습니다.
-
-특정 추천 사항에 따라 보안 구성을 적용하는 방법은 다음 두 가지 모드로 제공됩니다.
-
-- Azure Policy의 **거부** 효과를 사용하여 비정상 리소스가 만들어지는 것을 중지할 수 있습니다.
-
-- **적용** 옵션을 사용하여 Azure Policy의 **DeployIfNotExist** 효과를 활용하고, 비준수 리소스를 만들 때 자동으로 수정할 수 있습니다.
- 
-이는 선택한 보안 추천 사항에 사용할 수 있으며 리소스 세부 정보 페이지의 위쪽에서 찾을 수 있습니다.
-
-[적용/거부 추천 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)에서 자세히 알아보세요.
-
-###  <a name="network-security-group-recommendations-improved"></a>네트워크 보안 그룹 추천 사항이 향상됨
-
-일부 가양성 인스턴스를 줄이기 위해 네트워크 보안 그룹과 관련된 다음과 같은 보안 추천 사항이 향상되었습니다.
-
-- VM에 연결된 NSG에서 모든 네트워크 포트를 제한해야 함
-- 가상 머신에서 관리 포트를 닫아야 합니다.
-- 인터넷 연결 가상 머신은 네트워크 보안 그룹과 함께 보호되어야 합니다.
-- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.
-
-
-### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>"Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다."라는 미리 보기 AKS 추천 사항이 더 이상 사용되지 않음
-
-[Azure Kubernetes Service](../aks/use-pod-security-policies.md) 설명서에서 설명한 대로 "Kubernetes Services에서 Pod 보안 정책을 정의해야 합니다."라는 미리 보기 추천 사항이 더 이상 사용되지 않습니다.
-
-Pod 보안 정책(미리 보기) 기능은 더 이상 사용하지 않도록 설정되며, AKS에 대한 Azure Policy에 따라 2020년 10월 15일 이후에는 더 이상 사용할 수 없습니다.
-
-Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
-
-
-### <a name="email-notifications-from-azure-security-center-improved"></a>Azure Security Center의 이메일 알림이 향상됨
-
-보안 경고와 관련하여 향상된 이메일 영역은 다음과 같습니다. 
-
-- 모든 심각도 수준에 대한 경고와 관련된 이메일 알림을 보내는 기능이 추가되었습니다.
-- 구독에서 다른 Azure 역할의 사용자에게 알리는 기능이 추가되었습니다.
-- 심각도가 높은 경고(진짜 위반일 가능성이 높음)는 기본적으로 구독 소유자에게 사전에 알려줍니다.
-- 이메일 알림 구성 페이지에서 전화 번호 필드가 제거되었습니다.
-
-[보안 경고에 대한 이메일 알림 설정](security-center-provide-security-contact-details.md)에서 자세히 알아보세요.
-
-
-### <a name="secure-score-doesnt-include-preview-recommendations"></a>보안 점수에 미리 보기 추천 사항이 포함되지 않음 
-
-Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으로 평가합니다. 그런 다음, 현재 보안 상황을 한눈에 파악할 수 있도록 모든 결과를 단일 점수에 집계합니다. 즉, 점수가 높을수록 식별된 위험 수준은 낮습니다.
-
-새 위협이 발견되면 Security Center에서 새 추천 사항을 통해 새로운 보안 제안이 제공됩니다. 보안 점수가 예기치 않게 변경되지 않도록 방지하고 새 추천 사항이 점수에 영향을 주기 전에 이러한 새 추천 사항을 검색할 수 있는 유예 기간을 제공하기 위해 **미리 보기** 플래그로 지정된 추천 사항은 더 이상 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 종료되면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정해야 합니다.
-
-또한 **미리 보기** 추천 사항은 리소스를 "비정상"으로 렌더링하지 않습니다.
-
-미리 보기 추천 사항의 예는 다음과 같습니다.
-
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
-
-[보안 점수](secure-score-security-controls.md)에 대해 자세히 알아보세요.
-
-
-### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>이제 추천 사항에 심각도 표시기 및 새로 고침 간격이 포함됨
-
-추천 사항에 대한 세부 정보 페이지에는 이제 새로 고침 간격 표시기(관련될 때마다) 및 추천 사항의 심각도에 대한 명확한 표시가 포함됩니다.
-
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="새고 고침 및 심각도를 보여 주는 추천 사항 페이지":::

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 125563255bac48de5b4b293ab00004e151fec950
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 30f2e0e96f11203633b756a320d3da503686ed9f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673667"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504493"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -242,7 +242,7 @@ _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
 ![그림 8: "sapglobalhost2"를 선택하고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
 
-_**그림 8:** "Sapglobalhost2"를 선택 하 고 Volume2에 경로를 지정 합니다._
+_**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
 
 <br>
 
@@ -468,4 +468,4 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../availability.md

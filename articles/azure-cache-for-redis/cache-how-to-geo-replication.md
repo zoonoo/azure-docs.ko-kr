@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 130cb1d63da27010012c22dc2cdb40c3d8f03273
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178561"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501042"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대 한 지역에서 복제 구성
 
@@ -170,7 +170,7 @@ ms.locfileid: "102178561"
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있나요?
 
-예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) 또는 [Azure CLI 문서](/cli/azure/redis/server-link)를 참조 하세요.
+예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](/powershell/module/az.rediscache/#redis_cache) 또는 [Azure CLI 문서](/cli/azure/redis/server-link)를 참조 하세요.
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?
 

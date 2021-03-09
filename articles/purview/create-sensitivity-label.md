@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049549"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502449"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 자동으로 레이블
 
@@ -38,7 +38,7 @@ ms.locfileid: "102049549"
 
 Azure 부서의 범위의 민감도 레이블을 사용 하 여 파일 및 데이터베이스 열에 레이블을 자동으로 적용할 수 있습니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - Microsoft 365 설명서의 [민감도 레이블에 대 한 자세한 정보](/microsoft-365/compliance/sensitivity-labels)
 - [자동 레이블 지정 규칙 이란?](#what-are-auto-labeling-rules)
@@ -76,7 +76,7 @@ SSMS에서 부서의 범위 및 레이블 지정은 현재 서로 상호 작용 
 
 민감도 레이블이 아직 없는 경우 Azure 부서의 범위에 사용할 수 있도록 만들어야 합니다. Azure 부서의 범위에 사용할 수 있도록 기존 민감도 레이블을 수정할 수도 있습니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [라이선싱 요구 사항](#licensing-requirements)
 - [Azure 부서의 범위에 대 한 민감도 레이블 확장](#extending-sensitivity-labels-to-azure-purview)
@@ -107,12 +107,20 @@ Azure 부서의 범위의 Azure 자산에 밉 민감도 레이블을 적용 하�
 1. Microsoft 365에서 **Information Protection** 페이지로 이동 합니다. 
 1. **Azure에서 자산에 대 한 레이블 확장 부서의 범위** 에서 **켜기** 단추를 선택한 다음 표시 되는 확인 대화 상자에서 **예** 를 선택 합니다.
 
-다음은 그 예입니다. 
+예를 들어:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="민감도 레이블을 부서의 범위로 확장 하려면 * * 켜기 * *를 선택 합니다." lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
 Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 후 부서의 범위에서 사용할 수 있도록 설정할 레이블을 선택할 수 있습니다. 자세한 내용은 [새 민감도 레이블 만들기 또는 기존 레이블 수정](#creating-new-sensitivity-labels-or-modifying-existing-labels)을 참조 하세요.
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>새 민감도 레이블 만들기 또는 기존 레이블 수정
+
+Windows, macOS, iOS 및 Android에서 Office 앱에 대 한 민감도 레이블을 사용 하는 경우 사용자는 4 시간 이내에 새 레이블을 볼 수 있으며, 웹에서 Office의 경우 1 시간 이내입니다. 그러나 모든 앱 및 서비스에 변경 내용을 복제 하는 데 최대 24 시간까지 허용 합니다.
+
+> [!IMPORTANT]
+> 사용자에 대 한 영향을 이해 하지 않으면 레이블을 삭제 하지 마세요. 자세한 내용은 Microsoft 365 설명서에서 [레이블 제거 및 삭제](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) 를 참조 하세요.
+>
+
+**새 민감도 레이블을 만들거나 기존 레이블을 수정 하려면**:
 
 1. [Microsoft 365 보안 및 규정 준수 센터](https://protection.office.com/homepage)를 엽니다. 
 
@@ -152,10 +160,6 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
     자세한 내용은 Microsoft 365 설명서에서 [레이블 우선 순위 (순서 문제)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) 를 참조 하세요.
 
-> [!IMPORTANT]
-> 사용자에 대 한 영향을 이해 하지 않으면 레이블을 삭제 하지 마세요. 
->
-> 자세한 내용은 Microsoft 365 설명서에서 [레이블 제거 및 삭제](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) 를 참조 하세요.
 
 데이터를 [검색 하 여 레이블을 자동으로 적용](#scan-your-data-to-apply-labels-automatically)한 후 다음을 수행 합니다.
 
@@ -168,7 +172,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 **Office 앱에 대 한 자동** 레이블 지정 페이지에서 **office 앱에 대 한 자동 레이블** 지정을 사용 하도록 설정 하 고 데이터에 레이블을 자동으로 적용 하려는 조건을 정의 합니다.
 
-다음은 그 예입니다. 
+예를 들어:
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터의 파일에 대 한 자동 레이블 지정 규칙을 정의 합니다." lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -184,7 +188,7 @@ Azure 부서의 범위에서 자산에 대 한 레이블 지정을 확장 한 �
 
 1. **중요 한 정보 유형 확인** 을 선택 하 여 레이블에 적용할 중요 한 정보 유형을 선택 합니다.
 
-다음은 그 예입니다. 
+예를 들어:
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Microsoft 365 보안 및 규정 준수 센터에서 SQL 열에 대 한 자동 레이블 지정 규칙을 정의 합니다." lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -207,11 +211,11 @@ Microsoft 365에서 레이블에 대 한 자동 레이블 지정 규칙을 정�
 
 **Azure 부서의 범위 카탈로그에서 자산에 적용 되는 레이블을 보려면 다음을 수행 합니다.**
 
-Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 다음은 그 예입니다.  
+Azure 부서의 범위 카탈로그에서 **레이블** 필터링 옵션을 사용 하 여 특정 레이블만 있는 파일만 표시 합니다. 예를 들어: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="레이블 별 자산 검색" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-다음은 그 예입니다. 
+예를 들어:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Azure Blob Storage 파일의 민감도 레이블 보기" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

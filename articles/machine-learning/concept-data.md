@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659718"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503592"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -67,7 +67,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 + Azure Database for MySQL
 
 >[!TIP]
-> 일반적으로 데이터 저장소를 만드는 데 사용할 수 있는 기능에는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 저장소 서비스에 액세스 하기 위한 자격 증명 기반 인증이 필요 합니다. 이러한 자격 증명은 작업 영역에 대 한 *읽기* 권한이 있는 사용자가 액세스할 수 있습니다. <br><br>이 문제가 있는 경우  [저장소 서비스 (미리 보기)에 대 한 id 기반 데이터 액세스를 사용 하는 데이터 저장소를 만듭니다](how-to-identity-based-data-access.md). 이 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
+> 일반적으로 데이터 저장소를 만드는 데 사용할 수 있는 기능에는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 저장소 서비스에 액세스 하기 위한 자격 증명 기반 인증이 필요 합니다. 이러한 자격 증명은 작업 영역에 대 한 *읽기* 권한이 있는 사용자가 액세스할 수 있습니다. <br><br>이 문제가 있는 경우  [저장소 서비스 (미리 보기)에 대 한 id 기반 데이터 액세스를 사용 하는 데이터 저장소를 만듭니다](how-to-identity-based-data-access.md). 이 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>데이터 집합을 사용 하 여 저장소의 데이터 참조
@@ -86,9 +86,9 @@ Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니�
 
 데이터 집합에는 두 가지 유형이 있습니다. 
 
-+ [Filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
++ [Filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
 
-+ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조 하세요.
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조 하세요.
 
 다음 설명서에서 추가 데이터 집합 기능을 찾을 수 있습니다.
 

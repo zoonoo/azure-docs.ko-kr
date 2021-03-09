@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 6d8402f5e8a1a9af1f84ff6beff7324d1675e441
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3abca397186572cabb4f7ae99edae8688ea4d9a6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214408"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499512"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
@@ -99,7 +99,7 @@ Azure AD DS를 Azure AD 테 넌 트에 성공적으로 배포한 후에만 SMB�
 
 Azure PowerShell에서 SMB를 통해 Azure AD DS 인증을 사용 하도록 설정 하려면 최신 Az module (2.4 이상) 또는 Az. Storage 모듈 (1.5 이상)을 설치 합니다. PowerShell을 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Windows에 Azure PowerShell 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
-새 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)를 호출 하 고 **EnableAzureActiveDirectoryDomainServicesForFile** 매개 변수를 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능을 사용 하도록 설정 하는 매개 변수는 **EnableAzureFilesAadIntegrationForSMB** 입니다.
+새 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 호출 하 고 **EnableAzureActiveDirectoryDomainServicesForFile** 매개 변수를 **true** 로 설정 합니다. 다음 예제에서는 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 이전 미리 보기 모듈을 사용 하는 경우 기능을 사용 하도록 설정 하는 매개 변수는 **EnableAzureFilesAadIntegrationForSMB** 입니다.
 
 ```powershell
 # Create a new storage account

@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: add84c2cb53a362fc78fc50a6df13b4976e3868d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 31d3dc2c2d8194541ba1fe7d0865e6c939d75f73
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661038"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501585"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
@@ -24,14 +24,14 @@ ms.locfileid: "101661038"
 
 Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 보조 c 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. [유효성 검사 유형을 기반으로 메트릭이 계산 되는 방법에 대해 자세히 알아보세요](#metric-calculation-for-cross-validation-in-machine-learning). 
 
-자동 ML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
+자동 ML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
 
 코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)를 참조 하세요. 
 
 > [!NOTE]
 > 스튜디오는 현재 학습 및 유효성 검사 데이터 분할 뿐만 아니라 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대해 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다.
 
@@ -47,7 +47,7 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>기계 학습의 기본 데이터 분할 및 교차 유효성 검사
 
-[AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
+[AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"

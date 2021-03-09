@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4c5ab92fcc1d70d12e37ae351e768514b4e7522f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453039"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501705"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -130,7 +130,7 @@ Azure AD를 인증할 사용자 또는 서비스 주체가 Log Analytics 작업 
 
 ### <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
-적절한 역할 할당을 보유하고 있으면 PowerShell을 시작하고 다음을 입력하여 [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps?view=azps-3.3.0)(아직 없는 경우)합니다.
+적절한 역할 할당을 보유하고 있으면 PowerShell을 시작하고 다음을 입력하여 [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps)(아직 없는 경우)합니다.
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -168,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역에 쿼리 보내기
-마지막으로, 작업 영역을 확인한 후 [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-)를 사용하여 해당 작업 영역에 Kusto 쿼리를 보낼 수 있습니다. 이러한 쿼리는 [Kusto 쿼리 언어](/azure/kusto/query/)로 작성됩니다.
+마지막으로, 작업 영역을 확인한 후 [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery)를 사용하여 해당 작업 영역에 Kusto 쿼리를 보낼 수 있습니다. 이러한 쿼리는 [Kusto 쿼리 언어](/azure/kusto/query/)로 작성됩니다.
  
 예를 들면, 다음과 같은 쿼리를 보내는 데 PowerShell cmdlet을 사용하여 Log Analytics 작업 영역에서 감사 이벤트 레코드의 날짜 범위를 검색할 수 있습니다.
  

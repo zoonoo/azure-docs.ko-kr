@@ -4,12 +4,12 @@ description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728138"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499206"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -93,7 +93,7 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 V 1.17.2의 데이터 디스크에 대해 키가 제공 되지 않은 경우 OS 디스크 암호화 키가 데이터 디스크를 암호화 하는 데 사용 되 고 다른 키로 AKS 데이터 디스크를 암호화할 수도 있습니다.
 
 > [!IMPORTANT]
-> 적절 한 AKS 자격 증명이 있는지 확인 합니다. 서비스 주체에 게 diskencryptionset가 배포 되는 리소스 그룹에 대 한 참가자 액세스 권한이 있어야 합니다. 그렇지 않으면 서비스 주체에 권한이 없다는 것을 제안 하는 오류 메시지가 표시 됩니다.
+> 적절 한 AKS 자격 증명이 있는지 확인 합니다. 관리 id에는 diskencryptionset가 배포 되는 리소스 그룹에 대 한 참가자 액세스 권한이 있어야 합니다. 그렇지 않으면 관리 id에 권한이 없다는 것을 제안 하는 오류 메시지가 표시 됩니다.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below

@@ -6,12 +6,12 @@ ms.author: crtreasu
 ms.date: 02/17/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5b84bfae4a338a15b75e4f61114869aab1e94f87
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746028"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503048"
 ---
 # <a name="best-practices"></a>모범 사례
 
@@ -28,6 +28,8 @@ ms.locfileid: "101746028"
 - 모델 변환 서비스는 크고 높은 LOD (세부 수준) 모델을 처리 하는 데 시간이 오래 걸릴 수 있습니다. 효율성의 경우 3D 모델을 전처리 하 여 내부 면을 제거할 수 있습니다.
 
 ## <a name="detection"></a>감지
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - 제공 된 런타임 SDK에는 실제 개체를 검색 하 고 검색 하는 데 사용할 사용자 제공 검색 지역이 필요 합니다. 검색 지역은 경계 상자, 구, 대/소문자 구분 또는 조합이 될 수 있습니다. 거짓 검색을 방지 하려면 개체를 포함할 수 있을 만큼 충분히 많은 검색 영역을 설정 하는 것이 좋습니다. 제공 된 샘플 앱을 사용 하는 경우 가장 가까운 화면에서 약 2 미터 떨어진 개체의 한 쪽을 사용 하 여 앱을 시작할 수 있습니다.
 - HoloLens 2 장치에서 개체 앵커 앱을 시작 하기 전에 ***설정->시스템->holograms*** 를 통해 장치 기본 설정을 통해 작업 공간 근처에서 holograms을 제거 합니다.

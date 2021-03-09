@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 1a73b56c5ed8b15b9bbcf344e91fdd5fdf4b78cc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 609649c533b184b2ccc3d3a5fee79d75d1b66f5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592198"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506687"
 ---
 # <a name="azure-queue-storage-reference"></a>Azure Queue Storage 참조
 
@@ -25,7 +25,7 @@ Azure Queue Storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure. Queue 네임 스페이스](/dotnet/api/azure.storage.queues) | [패키지(NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [빠른 시작: .NET 용 Azure Queue Storage client library v12](./storage-quickstart-queues-dotnet.md) |
+| 12.x | [Azure. Queue 네임 스페이스](/dotnet/api/azure.storage.queues) | [패키지(NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [빠른 시작: .NET용 Azure Queue Storage 클라이언트 라이브러리 v12](./storage-quickstart-queues-dotnet.md) |
 | 11.x | [Microsoft Azure. Queue 네임 스페이스](/dotnet/api/microsoft.azure.storage.queue) | [패키지(NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.queue/) | [빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
@@ -50,7 +50,7 @@ Azure Queue Storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Java 용 Azure Queue Storage 클라이언트 라이브러리 v12](/java/api/overview/azure/storage-queue-readme) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [빠른 시작: Java 용 Azure Queue Storage client library v12](./storage-quickstart-queues-java.md) |
+| 12.x | [Java 용 Azure Queue Storage 클라이언트 라이브러리 v12](/java/api/overview/azure/storage-queue-readme) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [빠른 시작: Java용 Azure Queue Storage 클라이언트 라이브러리 v12](./storage-quickstart-queues-java.md) |
 | 8.x | [`com.microsoft.azure.storage.queue` 공간](/java/api/com.microsoft.azure.storage.queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [빠른 시작: Java v8 SDK로 Blob 관리](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
@@ -67,7 +67,7 @@ Azure Queue Storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Python 용 Azure Storage 클라이언트 라이브러리 v12](/azure/developer/python/sdk/storage/overview) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-queue/) | [빠른 시작: Python 용 Azure Queue Storage client library v12](./storage-quickstart-queues-python.md) |
+| 12.x | [Python 용 Azure Storage 클라이언트 라이브러리 v12](/azure/developer/python/sdk/storage/overview) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-queue/) | [빠른 시작: Python용 Azure Queue Storage 클라이언트 라이브러리 v12](./storage-quickstart-queues-python.md) |
 | 2.x | [Python 용 Azure Storage 클라이언트 라이브러리 v2](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [패키지 (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Python에서 Azure Queue Storage v 2.1을 사용 하는 방법](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>JavaScript 클라이언트 라이브러리
@@ -76,7 +76,7 @@ Azure Queue Storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [JavaScript 용 Azure Queue Storage client library v12](/javascript/api/overview/azure/storage-queue-readme) | [패키지(npm)](https://www.npmjs.com/package/@azure/storage-queue) | [빠른 시작: JavaScript 용 Azure Queue Storage client library v12](./storage-quickstart-queues-nodejs.md) |
+| 12.x | [JavaScript 용 Azure Queue Storage client library v12](/javascript/api/overview/azure/storage-queue-readme) | [패키지(npm)](https://www.npmjs.com/package/@azure/storage-queue) | [빠른 시작: JavaScript용 Azure Queue Storage 클라이언트 라이브러리 v12](./storage-quickstart-queues-nodejs.md) |
 | 10.x | [`@azure/storage-queue`](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [패키지(npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Azure Queue Storage를 사용 하 여 Node.js에서 큐를 만들고 삭제 합니다. ](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>REST API
@@ -107,7 +107,7 @@ Azure Queue Storage API 참조, 라이브러리 패키지, 추가 정보 파일 
 
 | 버전 | 플랫폼 |
 | ------- | -------- |
-|  4.x | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

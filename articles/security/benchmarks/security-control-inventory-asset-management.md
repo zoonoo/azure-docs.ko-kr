@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a15517c7c34d39dfb1de237d19e84c40bf834ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498883"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500107"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>보안 제어: 인벤토리 및 자산 관리
 
@@ -30,7 +30,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 계산, 저장소, 
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 - [Azure RBAC 이해](../../role-based-access-control/overview.md)
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ef9e3689f5846ddfc66c47a15967a18fc6550d35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182420"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504255"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -20,14 +20,13 @@ ms.locfileid: "102182420"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위, pod 주소 범위 또는 클러스터 가상 네트워크 주소 범위에 대해,, 또는를 사용할 수 없습니다.
-* AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+* AKS 클러스터에서 사용 하는 클러스터 id에는 가상 네트워크 내의 서브넷에 대 한 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* 서비스 주체 대신 시스템 할당 관리 id를 사용 하 여 권한을 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 * AKS node 풀에 할당 된 서브넷은 [위임 된 서브넷](../virtual-network/subnet-delegation-overview.md)일 수 없습니다.
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>클러스터에 대한 IP 주소 지정 계획
@@ -64,7 +63,7 @@ AKS 클러스터에서 노드당 최대 pod 수는 250입니다. 노드당 *기�
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | 예 (최대 250) |
 | Resource Manager 템플릿 | 110 | 30 | 예 (최대 250) |
-| 포털 | 110 | 110 (노드 풀 탭에서 구성 됨) | 예 |
+| 포털 | 110 | 110 (노드 풀 탭에서 구성 됨) | 아니요 |
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 
