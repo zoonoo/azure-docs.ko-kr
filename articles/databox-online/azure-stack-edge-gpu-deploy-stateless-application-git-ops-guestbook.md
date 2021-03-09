@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: f47f795335204ecd0c74463b76583d7dd79f8532
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 920f7912a1289fe92618d893b94943784e4a9a3a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436433"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520730"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>`Guestbook`Azure Stack Edge PRO GPU에서 Redis On Arc Enabled Kubernetes cluster를 사용 하 여 PHP 상태 비저장 응용 프로그램 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "102436433"
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "102436433"
 
 1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
@@ -90,7 +90,7 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 
 1. **구성 추가** 에서 필드에 적절 한 값을 입력 한 다음 **적용** 을 선택 합니다.
 
-    |매개 변수  |설명 |
+    |매개 변수  |Description |
     |---------|---------|
     |구성 이름     | 구성 리소스의 이름입니다.        |
     |Operator 인스턴스 이름     |특정 구성을 식별 하는 운영자의 인스턴스 이름입니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |

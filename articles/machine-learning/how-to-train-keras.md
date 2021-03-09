@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d9bad49b7c3d71304a33691cf5004c853228f8e8
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b4af9dec2bf397ad2766c68d547eeac85a9a9a3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797233"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518367"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 통해 대규모로 Keras 모델 학습
 
@@ -31,7 +31,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 > [!NOTE]
 > [TensorFlow 모델을 학습](how-to-train-tensorflow.md)하는 대신 TensorFlow에 기본 제공 되는 KERAS API **tf** 를 사용 하는 경우를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -42,7 +42,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0)를 설치 합니다.
+    - [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install) (>= 1.15.0)를 설치 합니다.
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - [샘플 스크립트 파일 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` 하거나 `utils.py`
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) .
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) .
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -196,7 +196,7 @@ ScriptRunConfig를 사용 하 여 작업을 구성 하는 방법에 대 한 자�
 
 ### <a name="submit-your-run"></a>실행 제출
 
-[실행 개체](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
+[실행 개체](/python/api/azureml-core/azureml.core.run%28class%29) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)

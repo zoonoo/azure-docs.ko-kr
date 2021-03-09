@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584216"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517670"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
@@ -241,7 +241,7 @@ MPN ID가 요청 본문에 제공되지 않았거나 요청 콘텐츠 형식이 
 
 ## <a name="next-steps"></a>다음 단계
 
-이전 정보를 모두 검토했지만 여전히 Microsoft Graph에서 오류를 수신하는 경우 실패한 요청과 관련하여 다음 정보를 최대한 많이 수집하고 [Microsoft 지원에 문의](developer-support-help-options.md#open-a-support-request)하세요.
+이전 정보를 모두 검토했지만 여전히 Microsoft Graph에서 오류를 수신하는 경우 실패한 요청과 관련하여 다음 정보를 최대한 많이 수집하고 [Microsoft 지원에 문의](developer-support-help-options.md#create-an-azure-support-request)하세요.
 
 - 타임스탬프 
 - CorrelationId 

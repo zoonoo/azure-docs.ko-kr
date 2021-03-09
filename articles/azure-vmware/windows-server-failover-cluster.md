@@ -2,17 +2,17 @@
 title: 네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSAN의 Windows Server 장애 조치 (Failover) 클러스터
 description: Azure VMware 솔루션에서 WSFC (Windows Server 장애 조치 (Failover) 클러스터)를 설정 하 고 WSFC 기능을 필요로 하는 솔루션을 활용 합니다.
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 84bb846cd3fb6dd1b138308670db7ccf122b2187
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/09/2021
+ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491299"
+ms.locfileid: "102518996"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSAN의 Windows Server 장애 조치 (Failover) 클러스터
 
-이 문서에서는 Azure VMware 솔루션에서 Windows Server 장애 조치 (Failover) 클러스터를 설정 하는 과정을 안내 합니다. 이 문서의 구현은 개념 증명 및 파일럿 목적을 위한 것입니다.
+이 문서에서는 Azure VMware 솔루션에서 Windows Server 장애 조치 (Failover) 클러스터를 설정 하는 과정을 안내 합니다. 이 문서의 구현은 개념 증명 및 파일럿 목적을 위한 것입니다. 배치 정책을 사용할 수 있을 때까지 CIB (클러스터 내) 구성을 사용 하는 것이 좋습니다.
 
 이전에 MSCS (Microsoft Service Cluster Service)로 알려진 WSFC (windows Server 장애 조치 (Failover) 클러스터)는 Windows Server 운영 체제 (OS)의 기능입니다. WSFC는 업무상 중요 한 기능이 며 많은 응용 프로그램에 필요 합니다. 예를 들어 WSFC는 다음 구성에 필요 합니다.
 
@@ -32,7 +32,7 @@ WSFC 클러스터는 다양 한 Azure VMware 솔루션 인스턴스 (클러스�
 
 먼저 [WSFC를 만들어야](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)합니다. WSFC에 대 한 자세한 내용은 [Windows Server의 장애 조치 (Failover) 클러스터링](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)을 참조 하세요. 이 문서에서 제공 하는 정보를 사용 하 여 Azure VMware 솔루션의 WSFC 배포에 대 한 세부 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure VMware 솔루션 환경
 - Microsoft Windows Server OS 설치 미디어
@@ -77,7 +77,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 | --- | --- |
 | SCSI 컨트롤러 유형 | LSI 논리 SAS |
 | 디스크 모드 | 가상 |
-| SCSI 버스 공유 | None |
+| SCSI 버스 공유 | 없음 |
 | 부팅 장치를 호스트 하는 가상 SCSI 컨트롤러에 대 한 고급 설정을 수정 합니다. | 각 WSFC 노드에 다음 고급 설정을 추가 합니다.<br /> scsiX. returnNoConnectDuringAPD = "TRUE"<br />scsiX. returnBusyOnNoConnectStatus = "FALSE"<br />여기서 X는 부팅 장치 SCSI 버스 컨트롤러 ID 번호입니다. 기본적으로 X는 0으로 설정 됩니다. |
 
 ### <a name="wsfc-node---shared-disks-configuration-parameters"></a>WSFC 노드-공유 디스크 구성 매개 변수
@@ -143,7 +143,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
         
       - **네트워크 통신의 유효성을 검사** 합니다. 클러스터 유효성 검사 테스트에서는 클러스터 노드당 하나의 네트워크 인터페이스만 사용할 수 있다는 경고를 throw 합니다. 이 경고는 무시 해도 됩니다. 노드가 NSX 세그먼트 중 하나에 연결 되어 있기 때문에 Azure VMware 솔루션은 필요한 가용성과 성능을 제공 합니다. 그러나이 항목을 클러스터 유효성 검사 테스트의 일부로 유지 하면 네트워크 통신의 다른 측면에 대 한 유효성을 검사할 수 있습니다.
 
-16. WSFC Vm을 Azure VMware 솔루션 노드 간 분리 하는 DRS 규칙을 만듭니다. 다음 규칙을 사용 합니다. 하나는 호스트-VM 선호도이 고 하나는 vm 간 선호도 선호도 규칙입니다. 이러한 방식으로 클러스터 노드는 동일한 Azure VMware 솔루션 호스트에서 실행 되지 않습니다.
+16. WSFC Vm을 동일한 Azure VMware 솔루션 노드에 넣는 DRS 규칙을 만듭니다. 이렇게 하려면 호스트-VM 선호도 규칙이 필요 합니다. 이러한 방식으로 클러스터 노드는 동일한 Azure VMware 솔루션 호스트에서 실행 됩니다. 이는 배치 정책을 사용할 수 있을 때까지 파일럿 용도로 사용 됩니다.
 
     >[!NOTE]
     > 이를 위해서는 지원 요청 티켓을 만들어야 합니다. Azure 지원 조직에서이를 도울 수 있습니다.

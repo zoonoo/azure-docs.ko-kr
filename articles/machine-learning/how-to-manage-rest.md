@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fba7fd9faed9a587aebc198c7038b13e26d2ceac
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218267"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520322"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
 
 
-Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](/cli/azure)또는 [Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
+Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](/cli/azure)또는 [Python SDK](/python/api/overview/azure/ml/intro)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,7 +33,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 > * DELETE 요청을 사용 하 여 리소스 정리 
 > * 키 기반 권한 부여를 사용 하 여 배포 된 모델 점수 매기기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](./how-to-manage-workspace.md)
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 모델을 나열 하는 동안 경로가로 시작 하는 실험을 나열 `history/v1.0` 합니다. 경로는로 시작 `modelmanagement/v1.0` 합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분 됩니다. 
 
-|영역|경로|
+|영역형|경로|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |데이터 저장소|/azure/machine-learning/how-to-access-data|
@@ -212,7 +212,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 의 일반적인 패턴을 사용 하 여 REST API를 탐색할 수 있습니다.
 
-|URL 구성 요소|예|
+|URL 구성 요소|예제|
 |-|-|
 | https://| |
 | 지역-api-서버/ | centralus.api.azureml.ms/ |

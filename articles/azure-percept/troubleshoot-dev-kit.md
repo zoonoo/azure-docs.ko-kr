@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c8027b62c0c463e134817f589ba3e1957cea5b39
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a6d099e8d267c9fe03e0bb676276e7a4ab8157ab
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679573"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521529"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept 진한 (dev kit) 문제 해결
 
@@ -92,10 +92,10 @@ journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u syste
 
 캐리어 보드 하우징 위에는 세 개의 작은 Led가 있습니다. LED 1 옆에 클라우드 아이콘이 인쇄 되 고 LED 2 옆에 Wi-Fi 아이콘이 인쇄 되며 LED 3 옆에 느낌표 아이콘이 인쇄 됩니다. 각 LED 상태에 대 한 자세한 내용은 아래 표를 참조 하십시오.
 
-|LED             |시스템 상태      |설명                      |
+|LED             |시스템 상태      |Description                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (IoT Hub) |켜기 (solid) |장치가 IoT Hub에 연결 되어 있습니다. |
-|LED 2 (Wi-fi)   |저속 깜박임 |장치 인증을 진행 중입니다. |
+|LED 2 (Wi-fi)   |저속 깜박임 |장치는 Wi-Fi 쉬운 연결로 구성할 준비가 되었으며 구성 기에 대 한 존재를 발표 하 고 있습니다. |
 |LED 2 (Wi-fi)   |고속 깜박임 |인증에 성공 하 고 장치를 연결 하는 중입니다. |
 |LED 2 (Wi-fi)   |켜기 (solid) |인증 및 연결에 성공 했습니다. 장치가 Wi-Fi 네트워크에 연결 되어 있습니다. |
 |LED 3           |해당 없음         |LED를 사용 하지 않습니다. |

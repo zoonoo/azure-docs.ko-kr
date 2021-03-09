@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131817"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522090"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Machine learning 파이프라인 문제 해결
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning designer](./concept-designer.md)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 실행 하는 동안 오류가 발생 하는 경우 문제를 해결 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro) 및 [Azure Machine Learning designer](./concept-designer.md)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 실행 하는 동안 오류가 발생 하는 경우 문제를 해결 하는 방법에 대해 알아봅니다. 
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -192,7 +192,7 @@ parallelrun_step = ParallelRunStep(
 
 | 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md)<br>[azureml 클래스](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md)<br>[azureml 클래스](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights 추적                | [Application Insights에서 파이프라인 디버깅](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -244,7 +244,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 1. 모듈의 오른쪽 창에서  **출력 + 로그** 탭으로 이동 합니다.
 1. 오른쪽 창을 확장 하 고 **70_driver_log.txt** 를 선택 하 여 브라우저에서 파일을 봅니다. 로그를 로컬로 다운로드할 수도 있습니다.
 
-    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)? view = azure-ml-py&preserve-view = true)? view = azure-ml-py&preserve-view = true)
+    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>파이프라인 실행에서 로그 가져오기
 
@@ -261,7 +261,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 > [!IMPORTANT]
 > 파이프라인 실행 정보 페이지에서 파이프라인을 업데이트 하려면 파이프라인 실행을 새 파이프라인 초안으로 **복제** 해야 합니다. 파이프라인 실행은 파이프라인의 스냅숏입니다. 로그 파일과 비슷하며 변경할 수 없습니다. 
 
-## <a name="application-insights"></a>애플리케이션 정보
+## <a name="application-insights"></a>Application Insights
 이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](./how-to-log-pipelines-application-insights.md) 을 참조 하세요.
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
@@ -274,6 +274,6 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 * ML 파이프라인에서 자동화 된 기계 학습을 보여 주는 전체 예제는 [Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용](how-to-use-automlstep-in-pipelines.md)을 참조 하세요.
 
-* [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) 패키지 및 [azureml 파이프라인 단계](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
+* [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/) 패키지 및 [azureml 파이프라인 단계](/python/api/azureml-pipeline-steps/) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
 
 * [디자이너 예외 및 오류 코드](algorithm-module-reference/designer-error-codes.md)의 목록을 참조 하세요.

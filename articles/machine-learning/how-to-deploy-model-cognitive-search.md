@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9336dbd4d5615a93bbc029ba51b561b18f5a1c15
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305913"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521988"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Cognitive Search에 사용할 모델 배포
 
@@ -46,7 +46,7 @@ Azure Cognitive Search와 함께 사용할 모델을 배포 하는 경우 배포
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 참조 하세요.  
+* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)를 참조 하세요.  
 
 * 등록 된 모델입니다. 모델이 없는 경우의 예제 노트북을 사용 [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) 합니다.
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-**예상 시간** : 약 20 분.
+**예상 시간**: 약 20 분.
 
 Kubernetes 클러스터는 컨테이너 화 된 응용 프로그램을 실행 하는 데 사용 되는 가상 컴퓨터 인스턴스 (노드) 집합입니다.
 
@@ -241,7 +241,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                        max_request_wait_time=5000)
 ```
 
-자세한 내용은 [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="define-the-inference-configuration"></a>유추 구성 정의
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model.model)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="issue-a-sample-query-to-your-service"></a>서비스에 대 한 샘플 쿼리 실행
 

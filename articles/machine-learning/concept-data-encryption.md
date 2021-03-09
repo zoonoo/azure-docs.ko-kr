@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992049"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521070"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 데이터 암호화
 
@@ -29,7 +29,7 @@ Azure Machine Learning은 모델을 학습 하 고 유추를 수행할 때 다�
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
-> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
+> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
 
 `hbi_workspace`플래그는 [microsoft에서 진단 목적으로 수집](#microsoft-collected-data) 하 고 [microsoft에서 관리 하는 환경에서 추가 암호화](../security/fundamentals/encryption-atrest.md)를 사용 하도록 설정 하는 데이터의 양을 제어 합니다. 또한 다음 작업을 수행할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타 데이터를 �
     * `cmk_keyvault`: 이 매개 변수는 구독에 있는 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용할 동일한 지역 및 구독에 있어야 합니다. 
     
         > [!NOTE]
-        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
+        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -105,7 +105,7 @@ Azure Container Instance에 모델을 배포할 때 키를 사용하려면 `AciW
 
 배포 구성을 만들고 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
+* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
 * [배포 위치 및 방법](how-to-deploy-and-where.md)
 * [Azure Container Instances에 모델 배포](how-to-deploy-azure-container-instance.md)
 
@@ -148,7 +148,7 @@ Azure Machine Learning은 TLS를 사용하여 다양한 Azure Machine Learning �
 
 Microsoft는 진단을 목적으로 리소스 이름(예: 데이터 세트 이름 또는 기계 학습 실험 이름)이나 작업 환경 변수와 같은 비 사용자 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 Microsoft 소유 구독에서 호스트되는 스토리지에 Microsoft 관리형 키를 사용하여 저장되며 [Microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준](https://privacy.microsoft.com/privacystatement)을 따릅니다.
 
-또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
+또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](/python/api/azureml-core/azureml.core.run%28class%29) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
 
 작업 영역을 프로비저닝하는 동안 `hbi_workspace` 매개 변수를 `TRUE`로 설정하면 진단 데이터가 수집되지 않도록 옵트아웃할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST API 또는 Azure Resource Manager 템플릿을 사용할 때 지원됩니다.
 

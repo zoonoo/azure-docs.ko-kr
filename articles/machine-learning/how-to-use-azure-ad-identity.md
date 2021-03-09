@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b6e6288f125da2a29a8eff56b64f327914f90cb4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952542"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520475"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Machine Learning 웹 서비스와 함께 Azure AD ID 사용
 
 이 방법에서는 Azure Kubernetes Service에서 배포 된 machine learning 모델에 Azure Active Directory (Azure AD) id를 할당 하는 방법에 대해 알아봅니다. [AZURE Ad Pod id](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용 하면 응용 프로그램에서 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 및 Kubernetes 기본 형식을 사용 하 여 azure ad와 안전 하 게 클라우드 리소스에 액세스할 수 있습니다. 이렇게 하면 웹 서비스가 스크립트 내에서 직접 자격 증명을 포함 하거나 토큰을 관리할 필요 없이 Azure 리소스에 안전 하 게 액세스할 수 있습니다 `score.py` . 이 문서에서는 azure Kubernetes Service 클러스터에서 Azure Id를 만들고 설치 하 고 배포 된 웹 서비스에 id를 할당 하는 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
+- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
 
 - 명령을 사용 하 여 AKS 클러스터에 액세스 `kubectl` 합니다. 자세한 내용은 [클러스터에 연결](../aks/kubernetes-walkthrough.md#connect-to-the-cluster) 을 참조 하세요.
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693869"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519710"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -391,7 +391,7 @@ OS 지원: Windows 및 Linux
 - **validExitCodes** – 선택 사항. 스크립트/인라인 명령에서 반환될 수 있는 유효한 코드입니다. 이를 지정하면 스크립트/인라인 명령의 오류를 보고하지 않습니다.
 - **runElevated** – 선택 사항, 부울. 상승된 권한으로 명령 및 스크립트를 실행하기 위한 지원입니다.
 - **sha256Checksum** - 파일의 sha256 체크섬 값. 이 값을 로컬로 생성하면 Image Builder가 체크섬 및 유효성 검사를 수행합니다.
-    * sha256Checksum을 생성하려면 Windows에서 PowerShell을 사용하여 [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)를 실행합니다.
+    * sha256Checksum을 생성하려면 Windows에서 PowerShell을 사용하여 [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)를 실행합니다.
 
 
 ### <a name="file-customizer"></a>파일 사용자 지정자
@@ -456,7 +456,7 @@ OS support: Windows
 - **updateLimit** – 선택 사항. 설치할 수 있는 업데이트 수를 정의합니다. 기본값은 1000입니다.
  
 > [!NOTE]
-> 처리 중인 Windows를 다시 시작 하거나 응용 프로그램 설치를 계속 실행 하는 경우 Windows 업데이트 사용자 지정 자가 실패할 수 있습니다. 일반적으로 사용자 지정. 로그에서이 오류가 표시 될 수 `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` 있습니다. Windows를 다시 시작할 때 추가 하는 것이 좋습니다 https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) . 또는 Windows 업데이트 실행 하기 전에 인라인 명령이 나 스크립트를 사용 하 여 응용 프로그램에서 설치를 완료 하는 데 충분 한 시간을 허용 하는 것이 좋습니다.
+> 처리 중인 Windows를 다시 시작 하거나 응용 프로그램 설치를 계속 실행 하는 경우 Windows 업데이트 사용자 지정 자가 실패할 수 있습니다. 일반적으로 사용자 지정. 로그에서이 오류가 표시 될 수 `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` 있습니다. Windows를 다시 시작할 때 추가 하거나, Windows 업데이트를 실행 하기 전에 인라인 명령이 나 스크립트에서 [절전](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) 또는 대기 명령을 사용 하 여 설치를 완료할 수 있는 충분 한 시간을 응용 프로그램에 제공 하는 것이 좋습니다.
 
 ### <a name="generalize"></a>일반화 
 기본적으로 Azure Image Builder는 각 이미지 사용자 지정 단계가 끝날 때 '프로비전 해제' 코드를 실행하여 이미지를 '일반화'합니다. 일반화는 여러 VM을 만드는 데 다시 사용할 수 있도록 이미지를 설정하는 프로세스입니다. Windows VM의 경우 Azure Image Builder는 Sysprep을 사용합니다. Linux의 경우 Azure Image Builder는 'waagent -deprovision'을 실행합니다. 

@@ -12,85 +12,96 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecbb7ec503011d78c2f83a76cea921e1cf438ac1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215105"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517946"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
-Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통합을 방금 시작한 경우 또는 애플리케이션에 새 기능을 구현 중인 경우 커뮤니티에서 도움을 얻거나 개발자로서 사용할 수 있는 지원 옵션을 파악해야 할 때가 있습니다. 이 문서는
+Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통합을 방금 시작한 경우 또는 애플리케이션에 새 기능을 구현 중인 경우 커뮤니티에서 도움을 얻거나 개발자로서 사용할 수 있는 지원 옵션을 파악해야 할 때가 있습니다. Microsoft id 플랫폼 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대 한 제안 사항은 다음과 같습니다.
 
-> [!div class="checklist"]
-> * 커뮤니티에서 질문에 응답하지 않았는지 여부 또는 구현하려는 기능에 대한 기존 문서가 이미 있는지 여부를 검색하는 방법을 포함하여 이러한 옵션을 파악하는 데 도움이 됩니다.
-> * 특정 문제를 디버그하기 위해 지원 도구를 사용하려는 경우도 있습니다.
-> * 필요한 답을 찾을 수 없는 경우 *Microsoft Q&* 에 대 한 질문을 할 수 있습니다.
-> * 인증 라이브러리 중 하나에서 문제가 발생하면 *GitHub* 문제를 제기합니다.
-> * 마지막으로 누군가와 대화할 필요가 있으면 지원 요청을 열 수 있습니다.
+## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
-## <a name="search"></a>검색
+<div class='icon is-large'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+</div>
 
-개발 관련 질문이 있는 경우 설명서, [GitHub 샘플](https://github.com/azure-samples)또는 [Microsoft Q&](/answers/products/) 질문에 대 한 답변을 찾을 수 있습니다.
+지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-### <a name="scoped-search"></a>범위 지정 검색
+- Azure 지원 계획이 이미 있는 경우 [여기에서 지원 요청을 여세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+- Azure 고객이 아닌 경우 [상용 지원](https://support.serviceshub.microsoft.com/supportforbusiness)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
 
-더 빠른 결과를 위해 자주 사용 하는 검색 엔진에서 다음 쿼리를 사용 하 여 [Microsoft Q&](https://docs.microsoft.com/answers/products/) 문서 및 코드 샘플을 검색 범위에 추가 합니다.
+## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&A에 질문 게시
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
+</div>             
 
-더 빠른 결과를 위해 자주 사용 하는 검색 엔진에서 다음 쿼리를 사용 하 여 [Microsoft Q&](/answers/products/)문서 및 코드 샘플을 검색 범위에 추가 합니다.
+Microsoft 엔지니어, Azure Mvp (가장 귀중 한 전문가) 및 전문가 커뮤니티의 구성원 으로부터 직접 id 앱 개발 질문에 대 한 답변을 받을 수 있습니다.
 
+[Microsoft Q&A](/answers/products/) 는 Azure에서 권장 하는 커뮤니티 지원 원본입니다.
 
-```
-{Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
-```
+Microsoft Q&A를 검색 하 여 문제에 대 한 답변을 찾을 수 없는 경우 새 질문을 제출 합니다. 고품질의 [질문](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)을 할 때 다음 태그 중 하나를 사용 합니다.
 
-여기서 *{Your Search Terms}* 는 검색 키워드입니다.
-
-## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
-
-| 도구  | 설명  |
-|---------|---------|
-| [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
-
-## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&에 질문을 게시 합니다.
-
-[Microsoft Q&A](/answers/products/) 는 개발 관련 질문에 대 한 기본 채널입니다. 여기서는 개발자 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
-
-검색을 통해 질문에 대 한 답변을 찾을 수 없는 경우 [Microsoft Q&a](/answers/products/) 에 새 질문을 제출 합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
-
-|구성 요소/영역  | 태그들 |
-|---------|---------|
-| ADAL 라이브러리 | [adal](/answers/topics/azure-ad-adal-deprecation.html) |
-| MSAL 라이브러리     | [msal](/answers/topics/azure-ad-msal.html) |
-| OWIN 미들웨어  | [[azure-active directory]](/answers/topics/azure-active-directory.html) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-그래프]](/answers/topics/azure-ad-graph.html) |
-| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](/answers/topics/azure-active-directory.html) |
-
-[Microsoft Q&](/answers/products/) 의 다음 게시물에는 질문을 하 고 소스 코드를 추가 하는 방법에 대 한 팁이 포함 되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
-
-* [좋은 질문을 어떻게 할까요?](/answers/articles/24951/how-to-write-a-quality-question.html)
-* [최소한의 완전하고 검증 가능한 예제를 만드는 방법](/answers/articles/24907/how-to-write-a-quality-answer.html)
+| 구성 요소/영역| 태그  |
+|------------|---------------------------|
+| ADAL(Active Directory 인증 라이브러리)                              | [adal](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
+| MSAL(Microsoft 인증 라이브러리)                                     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
+| OWIN (Open Web Interface for .NET) 미들웨어                               | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B/외부 Id](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-그래프]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
+| 다른 모든 인증 및 권한 부여 영역                            | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
-라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/common/github.svg'>
+</div>
 
-라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조 하세요.
+MSAL (Microsoft 인증 라이브러리) 중 하나를 사용 하 여 도움을 받아야 하는 경우 GitHub의 리포지토리에서 문제를 여세요.
 
-* [ADAL (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL (Microsoft 인증 라이브러리)](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
+| MSAL 라이브러리 | GitHub 문제 URL|
+| --- | --- |
+| Android용 MSAL | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL 각도 | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| iOS 및 macOS용 MSAL| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL 노드 | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL 반응 | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 
-## <a name="open-a-support-request"></a>지원 요청 열기
+## <a name="submit-feedback-on-azure-feedback"></a>Azure 피드백에 대한 사용자 의견 제출
 
-누군가와 대화할 필요가 있으면 지원 요청을 열 수 있습니다. Azure 고객인 경우 몇 가지 지원 옵션을 사용할 수 있습니다. 계획을 비교하려면 [이 페이지](https://azure.microsoft.com/support/plans/)를 참조하세요. 개발자 지원은 Azure 고객에게도 제공됩니다. 개발자 지원 계획을 구매하는 방법에 대한 자세한 내용은 [이 페이지](https://azure.microsoft.com/support/plans/developer/)를 참조하세요.
+<div class='icon is-large'>
+    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
+</div>
 
-* Azure 지원 계획이 이미 있는 경우 [여기서 지원 요청을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+새 기능을 요청하려면 Azure 피드백에 게시하세요. Microsoft id 플랫폼을 개발 하는 응용 프로그램에 더 적합 하도록 아이디어를 공유 하세요.
 
-* Azure 고객이 아닌 경우 [상용 지원](https://support.serviceshub.microsoft.com/supportforbusiness)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
+| 서비스                       | Azure 피드백 URL |
+|-------------------------------|---------------|
+| Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
+| Azure Active Directory 개발자 환경             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
+| Azure Active Directory-인증             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
-[가상 에이전트](https://support.microsoft.com/contactus/?ws=support)를 사용하여 지원을 받거나 질문할 수도 있습니다.
+## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
+</div>
+
+- [Azure 업데이트](https://azure.microsoft.com/updates/?category=identity): 중요 한 제품 업데이트, 로드맵 및 공지에 대해 알아봅니다.
+
+- [문서의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Microsoft id 플랫폼 설명서의 새로운 기능에 대해 알아봅니다.
+
+- [Azure Active Directory Id 블로그](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Azure AD에 대 한 뉴스 및 정보를 가져옵니다.
+
+- [기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): 경험을 공유 하 고 전문가에 게 참여 하 고 학습 합니다.
+
+

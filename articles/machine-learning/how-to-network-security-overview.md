@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175008"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518683"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "102175008"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
@@ -69,9 +69,14 @@ ms.locfileid: "102175008"
 작업 영역 및 관련 리소스를 보호 하려면 다음 단계를 사용 합니다. 이러한 단계를 통해 서비스가 가상 네트워크에서 통신할 수 있습니다.
 
 1. VNet과 작업 영역 간에 통신을 사용 하도록 설정 하려면 [개인 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) 을 만듭니다.
-1. [서비스 끝점이](../key-vault/general/overview-vnet-service-endpoints.md) 나 [개인 끝점](../key-vault/general/private-link-service.md)을 사용 하 여 가상 네트워크에 Azure Key Vault를 추가 합니다. Key Vault를 ["신뢰할 수 있는 Microsoft 서비스가이 방화벽을 우회 하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault)합니다."로 설정 합니다.
-1. [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 Azure storage 계정을 가상 네트워크에 추가 합니다.
-1. [개인 끝점을 사용 하도록 Azure Container Registry를 구성](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)합니다.
+1. __서비스 끝점이__ 나 __개인 끝점__ _을 사용 하 여 가상_ 네트워크에 다음 서비스를 추가 합니다. 또한 신뢰할 수 있는 Microsoft 서비스에서 다음 서비스에 액세스할 수 있도록 허용 해야 합니다.
+    
+    | 서비스 | 엔드포인트 정보 | 신뢰할 수 있는 정보 허용 |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [서비스 끝점](../key-vault/general/overview-vnet-service-endpoints.md)</br>[개인 끝점](../key-vault/general/private-link-service.md) | [신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 우회 하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Azure Storage 계정__ | [서비스 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한 부여](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [서비스 끝점](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[개인 끝점](../container-registry/container-registry-private-link.md) | [신뢰할 수 있는 서비스 허용](../container-registry/allow-access-trusted-services.md) |
+
 
 ![작업 영역 및 연결 된 리소스가 VNet 내부의 서비스 끝점 또는 개인 끝점을 통해 서로 통신 하는 방법을 보여 주는 아키텍처 다이어그램](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

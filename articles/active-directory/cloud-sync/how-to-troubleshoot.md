@@ -8,21 +8,21 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805532"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517874"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 문제 해결
 
-클라우드 동기화는 다양 한 작업을 수행 하 고 다양 한 종속성을 포함 합니다. 이러한 광범위 한 범위를 통해 다양 한 문제를 해결할 수 있습니다. 이 문서는 이러한 문제를 해결 하는 데 도움이 됩니다. 여기서는 중점적으로 살펴볼 수 있는 일반적인 영역, 추가 정보를 수집 하는 방법 및 문제를 추적 하는 데 사용할 수 있는 다양 한 기술을 소개 합니다.
+클라우드 동기화는 여러 가지에 영향을 미치며 다양한 종속성을 포함합니다. 따라서 광범위한 범위에서 다양한 문제가 발생할 수 있습니다. 이 문서는 이러한 문제를 해결 하는 데 도움이 됩니다. 여기서는 중점적으로 살펴볼 일반적인 영역, 추가 정보를 수집하는 방법 및 문제를 추적하는 데 사용할 수 있는 다양한 기술을 소개합니다.
 
 
 ## <a name="common-troubleshooting-areas"></a>일반적인 문제 해결 영역
 
-|Name|설명|
+|Name|Description|
 |-----|-----|
 |[에이전트 문제](#agent-problems)|에이전트가 올바르게 설치 되었으며 Azure Active Directory (Azure AD)와 통신 하는지 확인 합니다.|
 |[개체 동기화 문제](#object-synchronization-problems)|프로 비전 로그를 사용 하 여 개체 동기화 문제를 해결 합니다.|
@@ -120,7 +120,7 @@ Azure가 포트 443에서 수신 대기 하 고 에이전트와 통신할 수 �
 
 이 문제는 일반적으로 에이전트가 로컬 PowerShell 실행 정책으로 인해 PowerShell 등록 스크립트를 실행할 수 없기 때문에 발생 합니다.
 
-이 문제를 해결 하려면 서버에서 PowerShell 실행 정책을 변경 합니다. 컴퓨터 및 사용자 정책이 *정의 되지 않음* 또는 *RemoteSigned* 로 설정 되어 있어야 합니다. *무제한* 으로 설정 된 경우이 오류가 표시 됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)을 참조 하세요. 
+이 문제를 해결 하려면 서버에서 PowerShell 실행 정책을 변경 합니다. 컴퓨터 및 사용자 정책이 *정의 되지 않음* 또는 *RemoteSigned* 로 설정 되어 있어야 합니다. *무제한* 으로 설정 된 경우이 오류가 표시 됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies)을 참조 하세요. 
 
 ### <a name="log-files"></a>로그 파일
 
@@ -176,7 +176,7 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
 
 
 ### <a name="resolve-a-quarantine"></a>격리 해결
-두 가지 방법으로 격리를 해결할 수 있습니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
+두 가지 방법으로 격리를 해결할 수 있습니다.  다음 창이 여기에 포함됩니다.
 
   - 격리 지우기-워터 마크를 지우고 델타 동기화를 실행 합니다.
   - 프로 비전 작업 다시 시작-워터 마크를 지우고 초기 동기화를 실행 합니다.

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53f09dd042543ebc433e9d9cbbd65db332e8fb6d
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009758"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518214"
 ---
 # <a name="example-powershell-scripts"></a>예제 PowerShell 스크립트
 
@@ -36,7 +36,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
     1. 관리자 권한으로 PowerShell 창을 엽니다.
     1. `Install-Module -Name Az -AllowClobber`를 실행합니다.
 
-1. 스크립트 실행에 대한 오류가 발생하면 [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)이 적절하게 설정되어 있는지 확인합니다.
+1. 스크립트 실행에 대한 오류가 발생하면 [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies)이 적절하게 설정되어 있는지 확인합니다.
     1. 관리자 권한으로 PowerShell 창을 엽니다.
     1. `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`를 실행합니다.
 

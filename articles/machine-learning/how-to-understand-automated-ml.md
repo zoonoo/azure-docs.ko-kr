@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092910"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520781"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "101092910"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -45,7 +45,7 @@ ms.locfileid: "101092910"
 
 자동화 된 ML 실험을 완료 한 후에는 다음을 통해 실행 기록을 찾을 수 있습니다.
   - [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) 를 사용 하는 브라우저
-  - [Rundetails jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true) 사용 하는 jupyter 노트북
+  - [Rundetails jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets.rundetails) 사용 하는 jupyter 노트북
 
 다음 단계와 비디오에서는 스튜디오에서 실행 기록과 모델 평가 메트릭과 차트를 보는 방법을 보여 줍니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "101092910"
 
 다음 표에서는 실험을 위해 생성 된 각 분류 모델에 대해 자동화 된 ML에서 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 자세한 내용은 각 메트릭의 **계산** 필드에 연결 된 scikit-학습 설명서를 참조 하세요. 
 
-|메트릭|설명|계산|
+|메트릭|Description|계산|
 |--|--|---|
 |AUC | CC는 [받는 사람 운영 특성 곡선](#roc-curve)의 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원 되는 메트릭 이름에는 다음이 포함 됩니다. <li>`AUC_macro`-각 클래스에 대 한 각 클래스의 산술 평균입니다.<li> `AUC_micro`각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 계산 됩니다. <li> `AUC_weighted`, 각 클래스의 점수에 대 한 산술 평균은 각 클래스의 실제 인스턴스 수에 의해 가중치가 적용 됩니다.   |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| 정확도는 진정한 클래스 레이블과 정확히 일치 하는 예측의 비율입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -186,7 +186,7 @@ weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 �
 
 다음 표에서는 회귀 및 예측 실험에 대해 생성 된 모델 성능 메트릭을 요약 합니다. 이러한 메트릭은 분류 메트릭과 마찬가지로 scikit 배우기 구현을 기반으로 합니다. 적절 한 scikit 학습 설명서는 **계산** 필드에서 적절 하 게 연결 됩니다.
 
-|메트릭|설명|계산|
+|메트릭|Description|계산|
 --|--|--|
 explained_variance|설명 된 분산은 모델에서 대상 변수의 변형에 대해 설명 하는 범위를 측정 합니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오류의 평균은 0 인 경우 결정 계수와 같습니다 (아래 r2_score 참조). <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** (-inf, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|절대 평균 오차는 대상과 예측의 절대값의 예상 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) <br><br> 종류 <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`mean_absolute_error 데이터의 범위로 구분 됩니다. | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|

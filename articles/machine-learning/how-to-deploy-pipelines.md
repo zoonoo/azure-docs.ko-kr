@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879396"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520179"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
 
@@ -26,7 +26,7 @@ ms.locfileid: "98879396"
 
 Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수 있는 워크플로입니다. 파이프라인의 장점 중 하나는 공동 작업입니다. 또한 새 버전에서 작업 하는 동안 고객이 현재 모델을 사용할 수 있도록 파이프라인의 버전을 지정할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 모든 파이프라인 리소스를 저장할 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md) 을 만듭니다.
 
@@ -38,7 +38,7 @@ Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수
 
 파이프라인을 실행 한 후에는 다른 입력으로 실행 되도록 파이프라인을 게시할 수 있습니다. 매개 변수를 허용 하기 위해 이미 게시 된 파이프라인의 REST 끝점의 경우에는 `PipelineParameter` 다른 인수에 대해 개체를 사용 하도록 파이프라인을 구성 해야 합니다.
 
-1. 파이프라인 매개 변수를 만들려면 기본값으로 [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) 개체를 사용합니다.
+1. 파이프라인 매개 변수를 만들려면 기본값으로 [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) 개체를 사용합니다.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Machine learning 파이프라인은 기계 학습 작업에 다시 사용할 수
 > [!IMPORTANT]
 > Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#common-scenarios).
 
-이전 파이프라인의 실행을 호출 하려면 Azure Active Directory 인증 헤더 토큰이 필요 합니다. 이러한 토큰을 가져오는 방법은 [Azurecliauthentication 클래스](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) 참조 및 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 설명 되어 있습니다.
+이전 파이프라인의 실행을 호출 하려면 Azure Active Directory 인증 헤더 토큰이 필요 합니다. 이러한 토큰을 가져오는 방법은 [Azurecliauthentication 클래스](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) 참조 및 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 설명 되어 있습니다.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-에서 다시 사용 하도록 설정할 수 있습니다 `p.enable()` . 자세한 내용은 [PublishedPipeline 클래스](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py) 참조를 참조 하세요.
+에서 다시 사용 하도록 설정할 수 있습니다 `p.enable()` . 자세한 내용은 [PublishedPipeline 클래스](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline) 참조를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [GitHub의 Jupyter 노트북](https://aka.ms/aml-pipeline-readme)을 사용하여 기계 학습 파이프라인을 추가로 살펴봅니다.
-- [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) 패키지 및 azureml- [파이프라인 단계](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 SDK 참조 도움말을 참조 하세요.
+- [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/) 패키지 및 azureml- [파이프라인 단계](/python/api/azureml-pipeline-steps/) 패키지에 대 한 SDK 참조 도움말을 참조 하세요.
 - 파이프라인 디버깅 및 문제 해결에 대 한 팁은 [방법을](how-to-debug-pipelines.md) 참조 하세요.

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951624"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518060"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -83,7 +83,53 @@ ms.locfileid: "94951624"
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup** 의 값을 **Adult** 로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor** 를 적절하게 설정합니다.
 
-DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 게이팅 사용](basic-age-gating.md)을 참조하세요.
+## <a name="minor-calculation-rules"></a>사소한 계산 규칙
+
+나이 제한에는 두 개의 나이 값이 포함됩니다. 즉, 누군가가 더 이상 미성년자로 간주되지 않는 나이와 보호자의 동의를 받아야 하는 미성년자의 나이입니다. 다음 표에는 미성년자 및 보호자의 동의가 필요한 미성년자를 정의하는 데 사용되는 나이 규칙이 나와 있습니다.
+
+| 국가/지역 | 국가/지역 이름 | 보호자의 동의가 필요한 미성년자의 나이 | 미성년자의 나이 |
+| -------------- | ------------------- | ----------------- | --------- |
+| 기본값 | None | 없음 | 18 |
+| AE | 아랍에미리트 | 없음 | 21 |
+| AT | 오스트리아 | 14 | 18 |
+| BE | 벨기에 | 14 | 18 |
+| BG | 불가리아 | 16 | 18 |
+| BH | 바레인 | 없음 | 21 |
+| CM | 카메룬 | 없음 | 21 |
+| CY | 키프로스 | 16 | 18 |
+| CZ | 체코 | 16 | 18 |
+| DE | 독일 | 16 | 18 |
+| DK | 덴마크 | 16 | 18 |
+| EE | 에스토니아 | 16 | 18 |
+| EG | 이집트 | 없음 | 21 |
+| ES | 스페인 | 13 | 18 |
+| FR | 프랑스 | 16 | 18 |
+| GB | United Kingdom | 13 | 18 |
+| GR | 그리스 | 16 | 18 |
+| HR | 크로아티아 | 16 | 18 |
+| HU | 헝가리 | 16 | 18 |
+| IE | 아일랜드 | 13 | 18 |
+| IT | 이탈리아 | 16 | 18 |
+| KR | 한국 | 14 | 18 |
+| LT | 리투아니아 | 16 | 18 |
+| LU | 룩셈부르크 | 16 | 18 |
+| LV | 라트비아 | 16 | 18 |
+| MT | 몰타 | 16 | 18 |
+| 해당 없음 | 나미비아 | 없음 | 21 |
+| NL | 네덜란드 | 16 | 18 |
+| PL | 폴란드 | 13 | 18 |
+| PT | 포르투갈 | 16 | 18 |
+| RO | 루마니아 | 16 | 18 |
+| SE | 스웨덴 | 13 | 18 |
+| SG | 싱가포르 | 없음 | 21 |
+| SI | 슬로베니아 | 16 | 18 |
+| SK | 슬로바키아 | 16 | 18 |
+| TD | 차드 | 없음 | 21 |
+| TH | 태국 | 없음 | 20 |
+| TW | 대만 | 없음 | 20 |
+| US | 미국 | 13 | 18 |
+
+
 
 ## <a name="capture-terms-of-use-agreement"></a>사용 약관 규약 포착
 
@@ -175,5 +221,6 @@ DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 �
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Azure AD B2C에서 나이 제어를 사용 하도록 설정](age-gating.md)합니다.
 - 사용자 데이터를 삭제하고 내보내는 방법을 알아보려면 [사용자 데이터 관리](manage-user-data.md)를 참조하세요.
 - 사용 약관 프롬프트를 구현하는 예제 사용자 지정 정책은 [B2C IEF 사용자 지정 정책 - ‘사용 약관’ 프롬프트를 사용하여 가입 및 로그인](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)을 참조하세요.

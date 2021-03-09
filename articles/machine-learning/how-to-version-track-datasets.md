@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: d72d2d094e220bd4e460cfca6b422f0609c083af
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fde25e4ba75bfb86c9837582d7168f85335836b6
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880070"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520543"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>버전 및 추적 Azure Machine Learning 데이터 집합
 
@@ -27,11 +27,11 @@ ms.locfileid: "98880070"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 다음이 필요합니다.
 
-- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)있습니다. 이 SDK는 [azureml 데이터 집합](/python/api/azureml-core/azureml.core.dataset?preserve-view=true&view=azure-ml-py) 패키지를 포함 합니다.
+- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](/python/api/overview/azure/ml/install)있습니다. 이 SDK는 [azureml 데이터 집합](/python/api/azureml-core/azureml.core.dataset) 패키지를 포함 합니다.
     
 - [Azure Machine Learning 작업 영역](concept-workspace.md)입니다. 다음 코드를 실행 하 여 기존 항목을 검색 하거나 [새 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
@@ -62,7 +62,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
-기본적으로 클래스의 [get_by_name ()](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
+기본적으로 클래스의 [get_by_name ()](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
 
 다음 코드는 데이터 집합의 버전 1을 가져옵니다 `titanic_ds` .
 
@@ -182,7 +182,7 @@ Azure Machine Learning는 전체 실험에서 데이터를 입력 및 출력 데
 
 각 Machine Learning 실험에 대해 실험 개체에서 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
-다음 코드에서는 메서드를 사용 하 여 [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+다음 코드에서는 메서드를 사용 하 여 [`get_details()`](/python/api/azureml-core/azureml.core.run.run#get-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
 ```Python
 # get input datasets

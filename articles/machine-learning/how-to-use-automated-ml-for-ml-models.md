@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692422"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520639"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -136,7 +136,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#primary-metric).
     최상의 모델에 대한 설명 | 권장 되는 최상의 모델에 대 한 설명을 표시 하려면 선택 합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에 사용할 수 없습니다. 
-    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py)을 참조 하세요.
+    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels)을 참조 하세요.
     종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
     유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k 접기 교차 유효성 검사만 지원 합니다.
     동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다. 자동화 된 ML이 [클러스터에서 여러 자식 실행을](how-to-configure-auto-train.md#multiple-child-runs-on-clusters)수행 하는 방법에 대해 자세히 알아보세요.

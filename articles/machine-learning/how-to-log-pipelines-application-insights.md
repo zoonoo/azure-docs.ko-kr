@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7ed27eba66b3d18bed8017934fce85928b961392
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592517"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520050"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "100592517"
 
 로그를 한 번에 배치 하면 예외 및 오류 메시지에 대 한 기록이 제공 됩니다. Application Insights는 Azure 경고와 통합 되기 때문에 Application Insights 쿼리를 기반으로 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-machine-learning-pipelines.md) .
 * [개발 환경을 구성](./how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "100592517"
 
 이 섹션은 Azure Machine Learning 파이프라인에서 OpenCensus를 사용 하는 것과 관련 된 소개입니다. 자세한 자습서는 [OpenCensus Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) 를 참조 하세요.
 
-Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) 을 구성 합니다. `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수를 구성 합니다.
+Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfiguration) 을 구성 합니다. `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수를 구성 합니다.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies

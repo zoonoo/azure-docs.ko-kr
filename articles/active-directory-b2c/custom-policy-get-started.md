@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526241"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518047"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -30,6 +30,10 @@ ms.locfileid: "100526241"
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 - 생성된 테넌트에 [애플리케이션을 등록](tutorial-register-applications.md)하여 Azure AD B2C와 통신할 수 있도록 합니다.
 - [Facebook 계정을 사용한 가입 및 로그인 설정](identity-provider-facebook.md)의 단계를 완료하여 Facebook 애플리케이션을 구성합니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+
+> [!TIP]
+> 이 문서에서는 테 넌 트를 수동으로 설정 하는 방법을 설명 합니다. 이 문서에서 전체 프로세스를 자동화할 수 있습니다. 자동화 하면 등록 및 로그인, 암호 재설정 및 프로필 편집 경험을 제공 하는 Azure AD B2C [SocialAndLocalAccountsWithMFA 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 배포 합니다. 아래 연습을 자동화 하려면 [Ief 설치 앱](https://aka.ms/iefsetup) 을 방문 하 여 지침을 따르세요.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
 

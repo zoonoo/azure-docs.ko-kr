@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: f2060d023e0c05fb368b6362bd137c7fd1afe848
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b66c768011c05e1105f1351ebe4ed7c3c9700b70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435664"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519166"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 문제 해결
 
-이 가이드에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 자동화 된 기계 학습 실험에서 알려진 문제를 식별 하 고 해결 하는 방법을 알아봅니다.
+이 가이드에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)를 사용 하 여 자동화 된 기계 학습 실험에서 알려진 문제를 식별 하 고 해결 하는 방법을 알아봅니다.
 
 ## <a name="version-dependencies"></a>버전 종속성
 

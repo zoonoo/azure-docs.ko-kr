@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423988"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518724"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter 노트북 실행
 
@@ -24,7 +24,7 @@ Azure Machine Learning studio의 작업 영역에서 직접 Jupyter 노트북을
 
 전자 필기장을 포함 하 여 파일을 만들고 관리 하는 방법에 대 한 자세한 내용은 [작업 영역에서 파일 만들기 및 관리](how-to-manage-files.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -115,7 +115,7 @@ Azure Machine Learning는 *ipynb* 파일을 만들 때 검사점 파일을 만�
 
 ### <a name="view-logs-and-output"></a>로그 및 출력 보기
 
-[노트북 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) 사용 하 여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
+[노트북 위젯을](/python/api/azureml-widgets/azureml.widgets) 사용 하 여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="스크린샷: Jupyter 노트 위젯 ":::
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 6a722746c8e06a691e702b095d3081f1530645de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b922c25561843d140f1e2b8221f62fad89ea00c8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318933"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520900"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
 
@@ -29,14 +29,14 @@ ms.locfileid: "93318933"
 
 [환경](/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 개인 패키지를 사용 합니다. 환경 내에서 개인용 패키지를 포함 하 여 사용할 Python 패키지를 선언 합니다. 일반적인 Azure Machine Learning 환경에 대해 알아보려면 [환경을 사용 하는 방법](how-to-use-environments.md)을 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
- * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+ * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)
  * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>개발 및 테스트에 적은 수의 패키지 사용
 
-단일 작업 영역에 대 한 소수의 개인 패키지의 경우 정적 메서드를 사용 [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 이 접근 방식을 사용 하면 작업 영역에 개인 패키지를 신속 하 게 추가할 수 있으며 개발 및 테스트 목적으로 적합 합니다.
+단일 작업 영역에 대 한 소수의 개인 패키지의 경우 정적 메서드를 사용 [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 이 접근 방식을 사용 하면 작업 영역에 개인 패키지를 신속 하 게 추가할 수 있으며 개발 및 테스트 목적으로 적합 합니다.
 
 로컬 휠 파일의 파일 경로 인수를 가리키고 ```add_private_pip_wheel``` 명령을 실행 합니다. 이 명령은 작업 영역 내에서 패키지의 위치를 추적 하는 데 사용 되는 URL을 반환 합니다. 저장소 URL을 캡처하고 메서드를 전달 `add_pip_package()` 합니다.
 
@@ -58,7 +58,7 @@ myenv.python.conda_dependencies=conda_dep
 
  1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__ 로 설정 합니다. 
 
- 2. [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
+ 2. [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
 
      ```python
     from azureml.core import Workspace

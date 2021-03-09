@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory에서 매개 변수와 식을 사용 하는 방법
 description: 이 방법 문서에서는 데이터 팩터리 엔터티를 만드는 데 사용할 수 있는 식 및 함수에 대 한 정보를 제공 합니다.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 9cf37d554081ddd300a3ea4c16e2f167c5b98895
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/08/2020
+ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510497"
+ms.locfileid: "102520305"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory에서 매개 변수, 식 및 함수를 사용 하는 방법
 
@@ -21,7 +21,11 @@ ms.locfileid: "102510497"
 > * [현재 버전](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 내에서 매개 변수가 있는 데이터 파이프라인을 만드는 기능을 탐색 하는 방법에 대 한 예제 및 자습서를 통해 학습 개념에 중점을 둡니다. 매개 변수화 및 동적 식은 상당한 시간을 절약 하 고 훨씬 더 유연한 ETL (추출, 변환, 로드) 또는 ELT (추출, 로드, 변환) 솔루션을 허용 하 여 솔루션 유지 관리 비용을 대폭 줄이고 기존 파이프라인으로 새 기능을 구현 하는 속도를 높일 수 있기 때문에 ADF에 더욱 주목할 만한 추가 기능입니다. 이는 매개 변수화가 하드 코딩의 양을 최소화 하 고 솔루션에서 재사용 가능한 개체 및 프로세스의 수를 늘리는 것 이기 때문입니다.
+이 문서에서는 Azure Data Factory 내에서 매개 변수가 있는 데이터 파이프라인을 만드는 기능을 탐색 하는 다양 한 예제로 기본적인 개념을 학습 하는 데 중점을 둡니다. 매개 변수화 및 동적 식은 상당한 시간을 절약 하 고 훨씬 더 유연한 ETL (추출, 변환, 로드) 또는 ELT (추출, 로드, 변환) 솔루션을 허용 하 여 솔루션 유지 관리 비용을 대폭 줄이고 기존 파이프라인으로 새 기능을 구현 하는 속도를 높일 수 있기 때문에 ADF에 더욱 주목할 만한 추가 기능입니다. 이는 매개 변수화가 하드 코딩의 양을 최소화 하 고 솔루션에서 재사용 가능한 개체 및 프로세스의 수를 늘리는 것 이기 때문입니다.
+
+## <a name="azure-data-factory-ui-and-parameters"></a>Azure data factory UI 및 매개 변수
+
+ADF 사용자 인터페이스에서 Azure data factory 매개 변수를 처음 사용 하는 경우, 시각적 설명 [매개 변수를 사용 하 여 메타 데이터 기반 파이프라인에 대](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) 한 매개 변수 및 데이터 팩터리 ui를 [사용 하 여 연결 된 서비스의 data factory ui](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui) 를 검토 하세요
 
 ## <a name="parameter-and-expression-concepts"></a>매개 변수 및 식 개념 
 
@@ -39,7 +43,7 @@ ms.locfileid: "102510497"
 "name": "@pipeline().parameters.password"
 ```
 
-식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. \@으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 \@\@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
+식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. 여기서 *password* 는 식의 파이프라인 매개 변수입니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. \@으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 \@\@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
@@ -301,13 +305,20 @@ ms.locfileid: "102510497"
 | [ticks](control-flow-expression-language-functions.md#ticks) | 지정한 타임스탬프에 대한 `ticks` 속성 값을 반환합니다. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | 현재 타임스탬프를 문자열로 반환합니다. |
 
-## <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>매개 변수가 있는 자세한 Azure 데이터 팩터리 복사 파이프라인 
+## <a name="detailed-examples-for-practice"></a>모범 사례에 대 한 자세한 예제
+
+### <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>매개 변수가 있는 자세한 Azure 데이터 팩터리 복사 파이프라인 
 
 이 [Azure Data factory 복사 파이프라인 매개 변수 전달 자습서](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) 에서는 파이프라인과 활동 간에 그리고 활동 간에 매개 변수를 전달 하는 방법을 안내 합니다.
 
-## <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>매개 변수를 사용 하는 상세 매핑 데이터 흐름 파이프라인 
+### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>매개 변수를 사용 하는 상세 매핑 데이터 흐름 파이프라인 
 
 데이터 흐름에서 매개 변수를 사용 하는 방법에 대 한 포괄적인 예는 [매개 변수를 사용 하 여 데이터 흐름 매핑](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) 을 수행 하세요.
+
+### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>매개 변수가 있는 자세한 메타 데이터 기반 파이프라인
+
+매개 변수를 사용 하 여 메타 데이터 기반 파이프라인을 디자인 하는 방법에 대 한 자세한 내용은 [메타 데이터 기반 파이프라인](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) 을 참조 하세요. 매개 변수를 사용 하는 일반적인 사용 사례입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 식에 사용할 수 있는 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md)를 참조하세요.

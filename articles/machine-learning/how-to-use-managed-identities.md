@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388076"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521019"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
@@ -38,7 +38,7 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)
-- [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py)입니다.
+- [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)입니다.
 - 역할을 할당 하려면 Azure 구독에 대 한 로그인에 [관리 Id 운영자](../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 또는 필요한 작업 (예: __소유자__)을 부여 하는 다른 역할이 있어야 합니다.
 - [관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 만들고 사용 하는 방법에 대해 잘 알고 있어야 합니다.
 
@@ -107,7 +107,7 @@ az ml workspace create -w <workspace name> \
 
 # <a name="python"></a>[Python](#tab/python)
 
-[AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)를 사용 하 여 계산 클러스터를 만들 때 `identity_type` 매개 변수를 사용 하 여 관리 되는 id 유형을 설정 합니다.
+[AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration)를 사용 하 여 계산 클러스터를 만들 때 `identity_type` 매개 변수를 사용 하 여 관리 되는 id 유형을 설정 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -191,7 +191,7 @@ env.python.user_managed_dependencies = True
 
         UAI 리소스 ID는 형식으로 사용자 할당 id의 Azure 리소스 ID입니다 `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>` .
 
-1. [Workspace.set_connection 메서드](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-)를 사용 하 여 작업 영역 연결에서 __사용자 할당 관리 ID__ 의 외부 ACR 및 클라이언트 ID를 지정 합니다.
+1. [Workspace.set_connection 메서드](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-)를 사용 하 여 작업 영역 연결에서 __사용자 할당 관리 ID__ 의 외부 ACR 및 클라이언트 ID를 지정 합니다.
 
     ```python
     workspace.set_connection(
@@ -211,7 +211,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-필요에 따라 [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py)를 사용 하 여 환경 정의 자체에서 관리 되는 ID 리소스 URL 및 클라이언트 ID를 지정할 수 있습니다. 명시적으로 레지스트리 id를 사용 하는 경우 이전에 지정 된 작업 영역 연결을 재정의 합니다.
+필요에 따라 [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity)를 사용 하 여 환경 정의 자체에서 관리 되는 ID 리소스 URL 및 클라이언트 ID를 지정할 수 있습니다. 명시적으로 레지스트리 id를 사용 하는 경우 이전에 지정 된 작업 영역 연결을 재정의 합니다.
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

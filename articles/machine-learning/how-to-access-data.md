@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 0bc247e473ea96f2f9301eeaebb543b3317c84c7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 78b7bab204a08b474ea3c5cf5c2f7735c019a9c3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659667"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519931"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 저장소 서비스에 연결
 
-이 문서에서는 Azure Machine Learning 데이터 저장소 및 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 Azure에서 데이터 저장소 서비스에 연결 하는 방법을 알아봅니다.
+이 문서에서는 Azure Machine Learning 데이터 저장소 및 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)를 사용 하 여 Azure에서 데이터 저장소 서비스에 연결 하는 방법을 알아봅니다.
 
 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure의 저장소 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [이러한 Azure storage 솔루션](#matrix)에 연결 하는 데이터 저장소를 만들 수 있습니다.
 
@@ -29,15 +29,15 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 낮은 코드 환경의 경우 Azure Machine Learning studio를 사용 하 여 데이터 [저장소를 만들고 등록](how-to-connect-data-ui.md#create-datastores)하는 방법을 참조 하세요.
 
 >[!TIP]
-> 이 문서에서는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용 하 여 저장소 서비스에 연결 하려는 경우를 가정 합니다. 자격 증명이 datastores에 등록 된 경우 작업 영역 *판독기* 역할의 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *판독기* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 문제가 있는 경우 [id 기반 액세스를 사용 하 여 저장소 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다. <br><br>이 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
+> 이 문서에서는 서비스 주체 또는 SAS (공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용 하 여 저장소 서비스에 연결 하려는 경우를 가정 합니다. 자격 증명이 datastores에 등록 된 경우 작업 영역 *판독기* 역할의 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *판독기* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 문제가 있는 경우 [id 기반 액세스를 사용 하 여 저장소 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다. <br><br>이 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - [지원 되는 저장소 형식을](#matrix)사용 하는 Azure 저장소 계정.
 
-- [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)입니다.
+- [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)입니다.
 
 - Azure Machine Learning 작업 영역
   
@@ -66,7 +66,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 > [!TIP]
 > **지원 되지 않는 저장소 솔루션의** 경우, ML 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 [데이터를 이동](#move) 합니다. 
 
-| 스토리지&nbsp;유형 | 인증&nbsp;유형 | [Azure&nbsp;Machine&nbsp;Learning 스튜디오](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS 코드
+| 스토리지&nbsp;유형 | 인증&nbsp;유형 | [Azure&nbsp;Machine&nbsp;Learning 스튜디오](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS 코드
 ---|---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](../storage/blobs/storage-blobs-overview.md)| 계정 키 <br> SAS 토큰 | ✓ | ✓ | ✓ |✓ |✓
 [Azure&nbsp;파일&nbsp;공유](../storage/files/storage-files-introduction.md)| 계정 키 <br> SAS 토큰 | ✓ | ✓ | ✓ |✓|✓
@@ -77,8 +77,8 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](../mysql/overview.md) | SQL 인증|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;파일&nbsp;시스템](/azure/databricks/data/databricks-file-system)| 인증 없음 | | ✓** | ✓ ** |✓** |
 
-\*MySQL은 파이프라인 [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) 지원 됩니다.<br />
-\*\*Databricks은 파이프라인 [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) 지원 됩니다.
+\*MySQL은 파이프라인 [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep) 지원 됩니다.<br />
+\*\*Databricks은 파이프라인 [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep) 지원 됩니다.
 
 
 ### <a name="storage-guidance"></a>스토리지 지침
@@ -143,7 +143,7 @@ Azure 스토리지 솔루션을 데이터 저장소로 등록하면 해당 데�
 * [Azure 파일 공유](#azure-file-share)
 * [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
 
- 지원 되는 다른 저장소 서비스에 대 한 데이터 저장소를 만들려면 [해당 `register_azure_*` 메서드에 대 한 참조 설명서](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods)를 참조 하세요.
+ 지원 되는 다른 저장소 서비스에 대 한 데이터 저장소를 만들려면 [해당 `register_azure_*` 메서드에 대 한 참조 설명서](/python/api/azureml-core/azureml.core.datastore.datastore#methods)를 참조 하세요.
 
 낮은 코드 환경을 선호 하는 경우 [Azure Machine Learning studio를 사용 하 여 데이터에 연결](how-to-connect-data-ui.md)을 참조 하세요.
 >[!IMPORTANT]
@@ -154,7 +154,7 @@ Azure 스토리지 솔루션을 데이터 저장소로 등록하면 해당 데�
 
 ### <a name="azure-blob-container"></a>Azure Blob 컨테이너
 
-Azure BLOB 컨테이너를 데이터 저장소로 등록하려면 [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)를 사용합니다.
+Azure BLOB 컨테이너를 데이터 저장소로 등록하려면 [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)를 사용합니다.
 
 다음 코드는 `blob_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록합니다. 이 데이터 저장소는 제공된 계정 액세스 키를 사용하여 `my-account-name` 스토리지 계정의 `my-container-name` BLOB 컨테이너에 액세스합니다. 가상 네트워크 시나리오에 대 한 지침과 필요한 인증 자격 증명을 찾을 수 있는 위치에 대 한 [저장소 액세스 & 권한](#storage-access-and-permissions) 섹션을 검토 합니다. 
 
@@ -173,7 +173,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-file-share"></a>Azure 파일 공유
 
-Azure 파일 공유를 데이터 저장소로 등록하려면 [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)를 사용합니다. 
+Azure 파일 공유를 데이터 저장소로 등록하려면 [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)를 사용합니다. 
 
 다음 코드는 `file_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록합니다. 이 데이터 저장소는 제공된 계정 액세스 키를 사용하여 `my-account-name` 스토리지 계정의 `my-fileshare-name` 파일 공유에 액세스합니다. 가상 네트워크 시나리오에 대 한 지침과 필요한 인증 자격 증명을 찾을 수 있는 위치에 대 한 [저장소 액세스 & 권한](#storage-access-and-permissions) 섹션을 검토 합니다. 
 
@@ -192,7 +192,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-Azure Data Lake Storage Generation 2(ADLS Gen 2) 데이터 저장소의 경우 [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-)를 사용하여 Azure DataLake Gen 2 스토리지에 연결된 자격 증명 데이터 저장소를 [서비스 주체 권한](../active-directory/develop/howto-create-service-principal-portal.md)에 등록합니다.  
+Azure Data Lake Storage Generation 2(ADLS Gen 2) 데이터 저장소의 경우 [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-)를 사용하여 Azure DataLake Gen 2 스토리지에 연결된 자격 증명 데이터 저장소를 [서비스 주체 권한](../active-directory/develop/howto-create-service-principal-portal.md)에 등록합니다.  
 
 서비스 주체를 활용 하려면 [응용 프로그램을 등록](../active-directory/develop/app-objects-and-service-principals.md) 하 고 azure RBAC (역할 기반 액세스 제어) 또는 ACL (액세스 제어 목록)을 통해 서비스 사용자 데이터 액세스 권한을 부여 해야 합니다. [ADLS Gen 2의 액세스 제어 설정](../storage/blobs/data-lake-storage-access-control-model.md)에 대해 자세히 알아보세요. 
 
@@ -224,7 +224,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Python SDK 및 studio를 사용 하 여 데이터 저장소를 만드는 것 외에도 Azure Resource Manager 템플릿 또는 Azure Machine Learning VS Code 확장을 사용할 수 있습니다. 
 
 <a name="arm"></a>
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 에는 데이터 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) 저장소를 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
 
@@ -244,13 +244,13 @@ Azure Machine Learning VS Code 확장을 사용 하 여 데이터 저장소를 �
 
 ## <a name="get-datastores-from-your-workspace"></a>작업 영역에서 데이터 저장소 가져오기
 
-현재 작업 영역에 등록된 특정 데이터 저장소를 가져오려면 `Datastore` 클래스에서 [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-workspace--datastore-name-) 정적 메서드를 사용합니다.
+현재 작업 영역에 등록된 특정 데이터 저장소를 가져오려면 `Datastore` 클래스에서 [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29#get-workspace--datastore-name-) 정적 메서드를 사용합니다.
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-특정 작업 영역에 등록된 데이터 저장소 목록을 가져오려면 다음과 같이 작업 영역 개체에 대한 [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedatastores) 속성을 사용합니다.
+특정 작업 영역에 등록된 데이터 저장소 목록을 가져오려면 다음과 같이 작업 영역 개체에 대한 [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29#datastores) 속성을 사용합니다.
 
 ```Python
 # List all datastores registered in the current workspace

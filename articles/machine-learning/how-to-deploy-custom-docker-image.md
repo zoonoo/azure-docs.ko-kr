@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 4a9e374923f6317f7a325979dca1810fad91aeb6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 749ef16139bbab2742c43a81e985fb0a49e9393b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209475"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519336"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -42,7 +42,7 @@ Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
-* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) 
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install) 
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](../container-registry/index.yml) 또는 기타 Docker 레지스트리
@@ -234,7 +234,7 @@ ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지�
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 이미지 사용
 
-**작업 영역에 대 한 Azure Container Registry** 에 저장 된 이미지 또는 **공개적으로 액세스할 수 있는 컨테이너 레지스트리** 를 사용 하려면 다음과 같은 [환경](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 특성을 설정 합니다.
+**작업 영역에 대 한 Azure Container Registry** 에 저장 된 이미지 또는 **공개적으로 액세스할 수 있는 컨테이너 레지스트리** 를 사용 하려면 다음과 같은 [환경](/python/api/azureml-core/azureml.core.environment.environment) 특성을 설정 합니다.
 
 + `docker.enabled=True`
 + `docker.base_image`: 레지스트리 및 이미지 경로로 설정 합니다.
@@ -268,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 또한 환경의 inferencing_stack_version 속성을 "최신"으로 설정 해야 합니다. 이렇게 하면 웹 서비스에 필요한 특정 apt 패키지가 설치 됩니다. 
 
-환경을 정의한 후 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) 개체와 함께 사용 하 여 모델 및 웹 서비스가 실행 될 유추 환경을 정의 합니다.
+환경을 정의한 후 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) 개체와 함께 사용 하 여 모델 및 웹 서비스가 실행 될 유추 환경을 정의 합니다.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -297,7 +297,7 @@ Python 환경을 사용자 지정하는 방법에 대한 자세한 내용은 [�
 > [!IMPORTANT]
 > 현재 Machine Learning CLI는 작업 영역 또는 공개적으로 액세스할 수 있는 리포지토리에 대해 Azure Container Registry 이미지를 사용할 수 있습니다. 독립 실행형 개인 레지스트리에서는 이미지를 사용할 수 없습니다.
 
-Machine Learning CLI를 사용 하 여 모델을 배포 하기 전에 사용자 지정 이미지를 사용 하는 [환경을](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 만듭니다. 그런 다음 환경을 참조 하는 유추 구성 파일을 만듭니다. 유추 구성 파일에서 직접 환경을 정의할 수도 있습니다. 다음 JSON 문서는 공용 컨테이너 레지스트리에서 이미지를 참조 하는 방법을 보여 줍니다. 이 예제에서 환경은 인라인으로 정의 됩니다.
+Machine Learning CLI를 사용 하 여 모델을 배포 하기 전에 사용자 지정 이미지를 사용 하는 [환경을](/python/api/azureml-core/azureml.core.environment.environment) 만듭니다. 그런 다음 환경을 참조 하는 유추 구성 파일을 만듭니다. 유추 구성 파일에서 직접 환경을 정의할 수도 있습니다. 다음 JSON 문서는 공용 컨테이너 레지스트리에서 이미지를 참조 하는 방법을 보여 줍니다. 이 예제에서 환경은 인라인으로 정의 됩니다.
 
 ```json
 {

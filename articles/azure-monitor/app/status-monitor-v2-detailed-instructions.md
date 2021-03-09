@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29922f088a51e4876e5e2ec8fe87c3bbce4482f3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587367"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521682"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -29,7 +29,7 @@ ms.locfileid: "100587367"
 PowerShell에서 컴퓨터를 변경 하려면 관리자 수준의 권한이 필요 합니다.
 ### <a name="execution-policy"></a>실행 정책
 - 설명: 기본적으로 PowerShell 스크립트를 실행 하는 것은 사용 되지 않습니다. 현재 범위에만 RemoteSigned 스크립트를 허용 하는 것이 좋습니다.
-- 참조: [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) 및 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)정보를 참조 하세요.
+- 참조: [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies) 및 [set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)정보를 참조 하세요.
 - 명령: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - 선택적 매개 변수:
     - `-Force`. 확인 메시지를 무시 합니다.
@@ -71,14 +71,14 @@ SerializationVersion           1.1.0.1
 이러한 단계는 PowerShell 갤러리에서 모듈을 다운로드 하도록 서버를 준비 합니다.
 
 > [!NOTE] 
-> PowerShell 갤러리은 Windows 10, Windows Server 2016 및 PowerShell 6에서 지원 됩니다.
+> PowerShell 갤러리은 Windows 10, Windows Server 2016 및 PowerShell 6 이상에서 지원 됩니다.
 > 이전 버전에 대 한 자세한 내용은 [PowerShellGet 설치](/powershell/scripting/gallery/installing-psget)를 참조 하세요.
 
 
 1. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
 2. NuGet 패키지 공급자를 설치 합니다.
     - 설명: PowerShell 갤러리와 같은 NuGet 기반 리포지토리와 상호 작용 하려면이 공급자가 필요 합니다.
-    - 참조: [install-packageprovider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - 참조: [install-packageprovider](/powershell/module/packagemanagement/install-packageprovider).
     - 명령: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -98,7 +98,7 @@ SerializationVersion           1.1.0.1
 
 3. PowerShell 갤러리를 신뢰할 수 있는 리포지토리로 구성 합니다.
     - 설명: 기본적으로 PowerShell 갤러리는 신뢰할 수 없는 리포지토리입니다.
-    - 참조: [set-psrepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - 참조: [set-psrepository](/powershell/module/powershellget/set-psrepository).
     - 명령: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -144,7 +144,7 @@ SerializationVersion           1.1.0.1
 1. PowerShell 갤러리에 대 한 모든 필수 조건이 충족 되는지 확인 합니다.
 2. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
 3. Az. ApplicationMonitor 모듈을 설치 합니다.
-    - 참조: [Install-Module](/powershell/module/powershellget/install-module?view=powershell-6).
+    - 참조: [Install-Module](/powershell/module/powershellget/install-module).
     - 명령: `Install-Module -Name Az.ApplicationMonitor` .
     - 선택적 매개 변수:
         - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
@@ -158,7 +158,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>최신 nupkg 파일 수동으로 다운로드
 
-1. [https://editor.swagger.io](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) 로 이동합니다.
+1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor로 이동합니다.
 2. **버전 기록** 테이블에서 파일의 최신 버전을 선택 합니다.
 3. **설치 옵션** 아래에서 **수동 다운로드** 를 선택 합니다.
 
@@ -170,7 +170,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Expand-Archive (v 1.0.1.0)를 사용 하 여 zip 파일로 nupkg 압축 풀기
 
 - 설명: 기본 버전의 1.0.1.0 (v)에서 nupkg 파일의 압축을 풀 수 없습니다. .Zip 확장명을 사용 하 여 파일의 이름을 바꿉니다.
-- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)합니다.
+- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive)합니다.
 - 명령:
 
     ```console
@@ -184,7 +184,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Expand-Archive (v 1.1.0.0)를 사용 하 여 nupkg 압축 풀기
 
 - 설명: 확장을 변경 하지 않고 Expand-Archive의 현재 버전을 사용 하 여 nupkg 파일의 압축을 풉니다.
-- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- 참조: [확장-보관](/powershell/module/microsoft.powershell.archive/expand-archive) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - 명령:
 
     ```console
@@ -197,7 +197,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 PowerShell 모듈을 PowerShell 디렉터리에 설치 합니다.
 자세한 내용은 [PowerShell 모듈 설치](/powershell/scripting/developer/module/installing-a-powershell-module)를 참조 하세요.
 
-다른 디렉터리에 모듈을 설치 하는 [경우 import-module을 사용 하](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)여 수동으로 모듈을 가져옵니다.
+다른 디렉터리에 모듈을 설치 하는 [경우 import-module을 사용 하](/powershell/module/microsoft.powershell.core/import-module)여 수동으로 모듈을 가져옵니다.
 
 > [!IMPORTANT] 
 > Dll은 상대 경로를 통해 설치 됩니다.

@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377108"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519608"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -23,8 +23,8 @@ ms.locfileid: "93377108"
 
 ### <a name="step-1-check-azure-vm-health"></a>1 단계: Azure VM 상태 확인
 
-- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인** : [VM 프로 비전 상태가](../virtual-machines/states-lifecycle.md#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
-- **보류 중인 os 업데이트 또는 다시 부팅 검토** : VM에서 보류 중인 os 업데이트 또는 다시 부팅이 보류 중인지 확인 합니다.
+- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](../virtual-machines/states-billing.md) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
+- **보류 중인 os 업데이트 또는 다시 부팅 검토**: VM에서 보류 중인 os 업데이트 또는 다시 부팅이 보류 중인지 확인 합니다.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>2 단계: Azure VM 게스트 에이전트 서비스 상태 확인
 
@@ -40,7 +40,7 @@ ms.locfileid: "93377108"
 
 ### <a name="step-3-check-azure-vm-extension-health"></a>3 단계: Azure VM 확장 상태 확인
 
-- **모든 AZURE VM 확장이 ' 프로 비전 성공 ' 상태 인지 확인** : 확장이 실패 상태 이면 백업을 방해할 수 있습니다.
+- **모든 AZURE VM 확장이 ' 프로 비전 성공 ' 상태 인지 확인**: 확장이 실패 상태 이면 백업을 방해할 수 있습니다.
 - *Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고* 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 합니다.
 - 모든 [확장 문제가](../virtual-machines/extensions/overview.md#troubleshoot-extensions) 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
 - **COM + 시스템 응용 프로그램이** 실행 중인지 확인 합니다. 또한 **DTC(Distributed Transaction Coordinator) 서비스** 는 **네트워크 서비스 계정** 으로 실행 되어야 합니다. 이 문서의 단계를 수행 하 여 [COM + 및 MSDTC 문제를 해결](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)합니다.
@@ -49,28 +49,28 @@ ms.locfileid: "93377108"
 
 Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응용 프로그램 일치 백업을 수행 합니다. Azure Backup는 백업을 사용 하도록 설정한 후 트리거된 첫 번째 예약 된 백업의 일부로 확장을 설치 합니다.
 
-- **VMSnapshot 확장이 실패 상태에 있지 않은지 확인** :이 [섹션](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 나열 된 단계에 따라 Azure Backup 확장이 정상 상태 인지 확인 합니다.
+- **VMSnapshot 확장이 실패 상태에 있지 않은지 확인**:이 [섹션](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 나열 된 단계에 따라 Azure Backup 확장이 정상 상태 인지 확인 합니다.
 
 - **바이러스 백신이 확장을 차단 하** 고 있는지 확인 합니다. 특정 바이러스 백신 소프트웨어로 인해 확장이 실행 되지 않을 수 있습니다.
   
-  백업 실패 시 * *_이벤트 뷰어 응용 프로그램 로그_* _에 _*_오류 응용 프로그램 이름: IaaSBcdrExtension.exe_*_ 의 로그 항목이 있는지 확인 합니다. 항목이 표시 되는 경우 VM에 구성 된 바이러스 백신이 백업 확장의 실행을 제한 하는 것일 수 있습니다. 바이러스 백신 구성에서 다음 디렉터리를 제외 하 고 테스트 한 후 백업 작업을 다시 시도 합니다.
+  백업 오류가 발생 한 경우 ***이벤트 뷰어 응용 프로그램 로그** _에 _ *_오류 응용 프로그램 이름: IaaSBcdrExtension.exe_* *에 로그 항목이 있는지 확인 합니다. 항목이 표시 되는 경우 VM에 구성 된 바이러스 백신이 백업 확장의 실행을 제한 하는 것일 수 있습니다. 바이러스 백신 구성에서 다음 디렉터리를 제외 하 고 테스트 한 후 백업 작업을 다시 시도 합니다.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- _ * 네트워크 액세스가 필요한 지 확인 * *: 확장 패키지가 Azure Storage 확장 리포지토리에서 다운로드 되 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아봅니다](../virtual-machines/extensions/features-windows.md#network-access).
+- **네트워크 액세스가 필요한 지 확인** 합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아보기](../virtual-machines/extensions/features-windows.md#network-access).
   - 지원 되지 않는 버전의 에이전트를 사용 하는 경우 VM에서 해당 지역에 있는 Azure storage에 대 한 아웃 바운드 액세스를 허용 해야 합니다.
   - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](../virtual-machines/extensions/features-windows.md#network-access).
 
-- **Dhcp를 게스트 vm 내에서 사용 하도록 설정** : IaaS vm 백업이 작동 하려면 dhcp에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내에서 DHCP 옵션을 사용 하도록 설정 하 여 [자세한 정보](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)를 확인 해야 합니다.
+- **Dhcp를 게스트 vm 내에서 사용 하도록 설정**: IaaS vm 백업이 작동 하려면 dhcp에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내에서 DHCP 옵션을 사용 하도록 설정 하 여 [자세한 정보](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)를 확인 해야 합니다.
 
-- **Vss 기록기 서비스가 실행 중인지 확인** : [Vss 기록기 문제를 해결](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)하려면 다음 단계를 수행 합니다.
-- **백업 모범 사례 지침 따르기** : [모범 사례를 검토 하 여 Azure VM backup을 사용 하도록 설정](backup-azure-vms-introduction.md#best-practices)합니다.
-- **암호화 된 디스크에 대 한 지침 검토** : 암호화 된 디스크가 있는 vm에 대 한 백업을 사용 하도록 설정 하는 경우 필요한 모든 권한을 제공 했는지 확인 합니다. 자세히 알아보려면 [암호화 된 AZURE VM 백업 및 복원](backup-azure-vms-encryption.md)을 참조 하세요.
+- **Vss 기록기 서비스가 실행 중인지 확인**: [Vss 기록기 문제를 해결](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)하려면 다음 단계를 수행 합니다.
+- **백업 모범 사례 지침 따르기**: [모범 사례를 검토 하 여 Azure VM backup을 사용 하도록 설정](backup-azure-vms-introduction.md#best-practices)합니다.
+- **암호화 된 디스크에 대 한 지침 검토**: 암호화 된 디스크가 있는 vm에 대 한 백업을 사용 하도록 설정 하는 경우 필요한 모든 권한을 제공 했는지 확인 합니다. 자세히 알아보려면 [암호화 된 AZURE VM 백업 및 복원](backup-azure-vms-encryption.md)을 참조 하세요.
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 에이전트가 Azure Backup과 통신할 수 없습니다.
 
-**오류 코드** : UserErrorGuestAgentStatusUnavailable <br>
-**오류 메시지** : VM 에이전트가 Azure Backup와 통신할 수 없습니다.<br>
+**오류 코드**: UserErrorGuestAgentStatusUnavailable <br>
+**오류 메시지**: VM 에이전트가 Azure Backup와 통신할 수 없습니다.<br>
 
 Azure VM 에이전트가 중지 되었거나, 오래 되었거나, 일관 되지 않은 상태에 있거나, 설치 되어 있지 않을 수 있습니다. 이러한 상태를 통해 Azure Backup 서비스에서 스냅숏을 트리거할 수 없습니다.
 
@@ -81,8 +81,8 @@ Azure VM 에이전트가 중지 되었거나, 오래 되었거나, 일관 되지
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.
 
-**오류 코드** : GuestAgentSnapshotTaskStatusError<br>
-**오류 메시지** : 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다. <br>
+**오류 코드**: GuestAgentSnapshotTaskStatusError<br>
+**오류 메시지**: 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다. <br>
 
 Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 
@@ -98,18 +98,18 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVMProvisioningStateFailed - VM이 실패한 프로비저닝 상태입니다.
 
-**오류 코드** : UserErrorVmProvisioningStateFailed<br>
-**오류 메시지** : VM이 프로 비전 실패 상태에 있습니다.<br>
+**오류 코드**: UserErrorVmProvisioningStateFailed<br>
+**오류 메시지**: VM이 프로 비전 실패 상태에 있습니다.<br>
 
-이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](../virtual-machines/states-lifecycle.md#provisioning-states)를 참조 하세요.
+이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](../virtual-machines/states-billing.md)를 참조 하세요.
 
 - 확장이 실패 상태 이면 백업을 방해할 수 있습니다. 이러한 확장 문제가 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
 - VM 프로 비전 상태가 업데이트 중 상태 이면 백업을 방해할 수 있습니다. 정상 상태 인지 확인 하 고 백업 작업을 다시 시도 하세요.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
 
-**오류 코드** : UserErrorRpCollectionLimitReached <br>
-**오류 메시지** : 복원 지점 컬렉션이 최대 한도에 도달했습니다. <br>
+**오류 코드**: UserErrorRpCollectionLimitReached <br>
+**오류 메시지**: 복원 지점 컬렉션이 최대 한도에 도달했습니다. <br>
 
 - 복구 지점 리소스 그룹에 복구 지점의 자동 정리를 방지 하는 잠금이 있는 경우이 문제가 발생할 수 있습니다.
 - 하루에 여러 개의 백업이 트리거되는 경우에도 이 문제가 발생할 수 있습니다. 현재는 하루에 한 번만 백업 하는 것이 좋습니다. 즉시 복원 지점은 구성 된 스냅숏 보존 당 1-5 일 동안 유지 되 고 지정 된 시간에 18 개의 인스턴트 RPs만 VM에 연결 될 수 있기 때문입니다. <br>
@@ -125,15 +125,15 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Backup에는 암호화된 VM을 백업할 수 있는 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다.
 
-**오류 코드** : UserErrorKeyvaultPermissionsNotConfigured <br>
-**오류 메시지** : Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
+**오류 코드**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**오류 메시지**: Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
 
 암호화 된 Vm에서 백업 작업이 성공 하려면 키 자격 증명 모음에 액세스할 수 있는 권한이 있어야 합니다. 사용 권한은 [Azure Portal](./backup-azure-vms-encryption.md) 또는 [PowerShell](./backup-azure-vms-automation.md#enable-protection)을 통해 설정할 수 있습니다.
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.
 
-**오류 코드** : ExtensionSnapshotFailedNoNetwork<br>
-**오류 메시지** : 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.<br>
+**오류 코드**: ExtensionSnapshotFailedNoNetwork<br>
+**오류 메시지**: 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.<br>
 
 Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 완료 한 후 작업을 다시 시도 하세요.
 
@@ -141,8 +141,8 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 ## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot 확장 작업이 실패했습니다.
 
-**오류 코드** : ExtensionOperationFailedForManagedDisks <br>
-**오류 메시지** : VMSnapshot 확장 작업이 실패했습니다.<br>
+**오류 코드**: ExtensionOperationFailedForManagedDisks <br>
+**오류 메시지**: VMSnapshot 확장 작업이 실패했습니다.<br>
 
 Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -151,8 +151,8 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 내부 오류가 발생하여 백업하지 못했습니다.
 
-**오류 코드** : BackUpOperationFailed/BackUpOperationFailedV2 <br>
-**오류 메시지** : 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
+**오류 코드**: BackUpOperationFailed/BackUpOperationFailedV2 <br>
+**오류 메시지**: 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅샷을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -162,15 +162,15 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다.
 
-**오류 코드** : UserErrorUnsupportedDiskSize <br>
-**오류 메시지** : 구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다. <br>
+**오류 코드**: UserErrorUnsupportedDiskSize <br>
+**오류 메시지**: 구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다. <br>
 
 32 TB 보다 큰 디스크 크기를 사용 하 여 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 또한 크기가 4mb 보다 큰 암호화 된 디스크의 백업은 현재 지원 되지 않습니다. 디스크를 분할 하 여 디스크 크기가 지원 되는 한도 보다 작거나 같은지 확인 하십시오.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 
-**오류 코드** : UserErrorBackupOperationInProgress <br>
-**오류 메시지** : 다른 백업 작업이 현재 진행 중 이므로 백업을 시작할 수 없습니다.<br>
+**오류 코드**: UserErrorBackupOperationInProgress <br>
+**오류 메시지**: 다른 백업 작업이 현재 진행 중 이므로 백업을 시작할 수 없습니다.<br>
 
 기존 백업 작업이 진행 중 이므로 최근 백업 작업에 실패 했습니다. 현재 작업이 완료될 때까지 새 백업 작업을 시작할 수 없습니다. 현재 진행 중인 백업 작업이 완료된 후 다른 백업 작업을 트리거 또는 예약해야 합니다. 백업 작업 상태를 확인 하려면 다음 단계를 수행 합니다.
 
@@ -187,15 +187,15 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError - 오류로 인해 백업하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조하세요.
 
-**오류 코드** : usererrorcrpreportedusererror <br>
-**오류 메시지** : 오류로 인해 백업 하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조 하세요.
+**오류 코드**: usererrorcrpreportedusererror <br>
+**오류 메시지**: 오류로 인해 백업 하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조 하세요.
 
 이 오류는 IaaS VM에서 보고 됩니다. 문제의 근본 원인을 확인 하려면 Recovery Services 자격 증명 모음 설정으로 이동 합니다. **모니터링** 섹션에서 **백업 작업** 을 선택 하 여 필터링 하 고 상태를 확인 합니다. **실패** 를 선택 하 여 기본 오류 메시지 정보를 검토 합니다. 오류 정보 페이지의 권장 사항에 따라 추가 작업을 수행 합니다.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent-백업 실패:이 가상 머신은 Azure Backup로 보호 되 고 있지 않습니다.
 
-**오류 코드** : UserErrorBcmDatasourceNotPresent <br>
-**오류 메시지** : 백업 실패:이 가상 머신은 Azure Backup로 보호 되 고 있지 않습니다.
+**오류 코드**: UserErrorBcmDatasourceNotPresent <br>
+**오류 메시지**: 백업 실패:이 가상 머신은 Azure Backup로 보호 되 고 있지 않습니다.
 
 지정 된 가상 컴퓨터가 Azure Backup에 의해 보호 되 고 있는지 확인 합니다 (일시 중지 상태 아님). 이 문제를 해결 하려면 가상 컴퓨터가 활성 상태 인지 확인 한 후 작업을 다시 시도 하세요.
 

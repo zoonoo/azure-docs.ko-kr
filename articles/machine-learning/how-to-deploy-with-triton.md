@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218845"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519200"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -32,11 +32,11 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 > [!TIP]
 > 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://aka.ms/triton-aml-sample)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Azure Machine Learning를 사용 하 여 [모델을 배포 하는 방법과 위치](how-to-deploy-and-where.md) 에 대해 잘 알고 있어야 합니다.
-* [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/?view=azure-ml-py) **또는** [Azure CLI](/cli/azure/) 및 [Machine Learning 확장](reference-azure-machine-learning-cli.md)
+* [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/) **또는** [Azure CLI](/cli/azure/) 및 [Machine Learning 확장](reference-azure-machine-learning-cli.md)
 * 로컬 테스트를 위한 Docker의 작동 설치 Docker를 설치 하 고 유효성을 검사 하는 방법에 대 한 자세한 내용은 docker 설명서의 [방향 및 설정](https://docs.docker.com/get-started/) 을 참조 하세요.
 
 ## <a name="architectural-overview"></a>아키텍처 개요
@@ -134,7 +134,7 @@ model = Model.register(
 )
 
 ```
-자세한 내용은 [모델 클래스](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [모델 클래스](/python/api/azureml-core/azureml.core.model.model)에 대 한 설명서를 참조 하세요.
 
 ---
 
@@ -276,7 +276,7 @@ res = triton_client.infer(model_name,
 > [!IMPORTANT]
 > `AzureML-Triton` [큐 레이트 환경을](./resource-curated-environments.md)지정 해야 합니다.
 >
-> Python 코드 예제는 `AzureML-Triton` 라는 다른 환경으로 복제 합니다 `My-Triton` . Azure CLI 코드는이 환경도 사용 합니다. 환경 복제에 대 한 자세한 내용은 [environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) 참조를 참조 하세요.
+> Python 코드 예제는 `AzureML-Triton` 라는 다른 환경으로 복제 합니다 `My-Triton` . Azure CLI 코드는이 환경도 사용 합니다. 환경 복제에 대 한 자세한 내용은 [environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) 참조를 참조 하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -337,7 +337,7 @@ print(local_service.scoring_uri)
 
 ### <a name="setting-the-number-of-workers"></a>작업자 수 설정
 
-배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
+배포의 작업자 수를 설정 하려면 환경 변수를 설정 `WORKER_COUNT` 합니다. 라는 [환경](/python/api/azureml-core/azureml.core.environment.environment) 개체가 있는 경우 다음을 `env` 수행할 수 있습니다.
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

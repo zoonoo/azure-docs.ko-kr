@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f38fe7d847754247f8c1510527b3ffe026c20be5
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251117"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518503"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -26,15 +26,15 @@ ms.locfileid: "98251117"
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
-* [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
+* [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)`ws`
 * 계산 대상인 `my_compute_target` 입니다.  [컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>스크립트 실행 구성 이란?
-[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 은 실험의 일부로 학습 실행을 제출 하는 데 필요한 정보를 구성 하는 데 사용 됩니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 은 실험의 일부로 학습 실행을 제출 하는 데 필요한 정보를 구성 하는 데 사용 됩니다.
 
 ScriptRunConfig 개체를 사용 하 여 학습 실험을 제출 합니다.  이 개체는 다음을 포함합니다.
 
@@ -42,7 +42,7 @@ ScriptRunConfig 개체를 사용 하 여 학습 실험을 제출 합니다.  이
 * **스크립트**: 실행할 학습 스크립트
 * **compute_target**: 실행할 계산 대상
 * **환경**: 스크립트를 실행할 때 사용할 환경
-* 구성 가능한 몇 가지 옵션이 있습니다. 자세한 내용은 [참조 설명서](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
+* 구성 가능한 몇 가지 옵션이 있습니다. 자세한 내용은 [참조 설명서](/python/api/azureml-core/azureml.core.scriptrunconfig) 를 참조 하세요.
 
 ## <a name="train-your-model"></a><a id="submit"></a>모델 학습
 
@@ -133,7 +133,7 @@ script_run_config.run_config.target = my_compute_target
 실행에 허용 되는 기본 최대 시간을 재정의 하려는 경우 매개 변수를 통해이 작업을 수행할 수 있습니다 **`max_run_duration_seconds`** . 이 값 보다 오래 걸리면 시스템에서 자동으로 실행을 취소 하려고 합니다.
 
 ### <a name="specify-a-distributed-job-configuration"></a>분산 작업 구성 지정
-분산 된 학습 작업을 실행 하려는 경우 매개 변수에 분산 된 작업별 구성을 제공 합니다 **`distributed_job_config`** . 지원 되는 구성 형식에는 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py)및 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py)가 있습니다. 
+분산 된 학습 작업을 실행 하려는 경우 매개 변수에 분산 된 작업별 구성을 제공 합니다 **`distributed_job_config`** . 지원 되는 구성 형식에는 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration)및 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration)가 있습니다. 
 
 Distributed Horovod, TensorFlow 및 PyTorch 작업을 실행 하는 방법에 대 한 자세한 내용과 예는 다음을 참조 하세요.
 
@@ -197,10 +197,10 @@ run.wait_for_completion(show_output=True)
     
     Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
     프레임 워크 관련 종속성은 해당 프레임 워크 설명서에 나와 있습니다.
-    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [Tensorflow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer#remarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch#remarks)
+    * [Tensorflow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow#remarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn#remarks)
     
     > [!Note]
     > 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
@@ -208,7 +208,7 @@ run.wait_for_completion(show_output=True)
 * **Nameerror (이름이 정의 되지 않음), attributeerror (개체에 특성이 없음)**:이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서를 사용 `run.get_details()` 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 실행을 다시 전송 하기 전에 학습 스크립트를 확인 하 고 오류를 수정 하세요. 
 
 
-* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
 
     개별 실험 또는 실행의 영구 삭제는 현재 지원되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
 
@@ -229,5 +229,5 @@ run.wait_for_completion(show_output=True)
 * [Scikit](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md)및 [PyTorch](how-to-train-pytorch.md)와 같은 특정 ML 프레임 워크를 사용 하 여 모델을 학습 하는 방법을 참조 하세요.
 * [하이퍼 매개 변수를 효율적으로 튜닝](how-to-tune-hyperparameters.md)하여 보다 나은 모델을 빌드하는 방법을 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
-* [ScriptRunConfig 클래스](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) SDK 참조를 봅니다.
+* [ScriptRunConfig 클래스](/python/api/azureml-core/azureml.core.scriptrunconfig) SDK 참조를 봅니다.
 * [Azure Virtual Networks에서 Azure Machine Learning 사용](./how-to-network-security-overview.md)

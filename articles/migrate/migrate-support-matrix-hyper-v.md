@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590640"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521359"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -39,7 +39,7 @@ Hyper-v VM 평가를 설정 하려면 Azure Migrate 프로젝트를 만들고 �
 | :-------------------       | :------------------- |
 | **Hyper-V 호스트**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다.<br/><br/> Hyper-v 호스트는 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 r 2를 실행할 수 있습니다. 이러한 운영 체제의 Server core 설치도 지원 됩니다. <br/>Windows Server 2012를 실행하는 Hyper-V 호스트에 있는 VM은 평가할 수 없습니다.
 | **권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. <br/> 관리자 권한을 할당 하지 않으려면 로컬 또는 도메인 사용자 계정을 만들고 사용자 계정을 해당 그룹 (원격 관리 사용자, Hyper-v 관리자 및 성능 모니터 사용자)에 추가 합니다. |
-| **PowerShell 원격 기능**   | 각 Hyper-v 호스트에서 [PowerShell 원격](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) 을 사용 하도록 설정 해야 합니다. |
+| **PowerShell 원격 기능**   | 각 Hyper-v 호스트에서 [PowerShell 원격](/powershell/module/microsoft.powershell.core/enable-psremoting) 을 사용 하도록 설정 해야 합니다. |
 | **Hyper-V 복제본**       | Hyper-v 복제본을 사용 하는 경우 (또는 VM 식별자가 같은 vm이 여러 개 있는 경우) Azure Migrate를 사용 하 여 원래 vm과 복제 된 Vm을 모두 검색 하는 경우 Azure Migrate에서 생성 된 평가가 정확 하지 않을 수 있습니다. |
 
 

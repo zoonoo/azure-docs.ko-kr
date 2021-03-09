@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 778d82cd36e1f7389a443630f0982dd8774fe3ee
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509203"
+ms.locfileid: "102521240"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 Azure 파일 공유는 클라우드에 상주 하는 완전히 관리 되는 파일 공유입니다. 이 문서에서는 NFS 프로토콜을 사용 하는 파일 공유를 만드는 방법을 설명 합니다. 두 프로토콜에 대 한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조 하세요.
@@ -192,7 +192,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell) 를 참조 하세요.
+   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) 를 참조 하세요.
     
 1. PowershellGet 모듈의 최신 버전을 설치 합니다.
 

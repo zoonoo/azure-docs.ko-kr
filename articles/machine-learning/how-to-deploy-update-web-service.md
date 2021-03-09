@@ -10,28 +10,28 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: cd8bef53bb8f7c42aa6dbd0bc1e1c67400b8f2a0
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: da018f212844e1587ad0e434902e49765f72e521
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102219083"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520100"
 ---
 # <a name="update-a-deployed-web-service"></a>배포 된 웹 서비스 업데이트
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 된 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 Azure Machine Learning를 사용 하 여 웹 서비스를 이미 배포 했다고 가정 합니다. 웹 서비스를 배포 하는 방법을 알아야 하는 경우 [다음 단계를 수행](how-to-deploy-and-where.md)합니다.
 
 ## <a name="update-web-service"></a>웹 서비스 업데이트
 
-웹 서비스를 업데이트 하려면 메서드를 사용 `update` 합니다. 새 모델, 새 항목 스크립트 또는 유추 구성에서 지정할 수 있는 새 종속성을 사용 하도록 웹 서비스를 업데이트할 수 있습니다. 자세한 내용은 [웹 서비스](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-)에 대 한 설명서를 참조 하십시오.
+웹 서비스를 업데이트 하려면 메서드를 사용 `update` 합니다. 새 모델, 새 항목 스크립트 또는 유추 구성에서 지정할 수 있는 새 종속성을 사용 하도록 웹 서비스를 업데이트할 수 있습니다. 자세한 내용은 [웹 서비스](/python/api/azureml-core/azureml.core.webservice.webservice.webservice#update--args-)에 대 한 설명서를 참조 하십시오.
 
-[AKS Service Update 메서드를](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate-image-none--autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--tags-none--properties-none--description-none--models-none--inference-config-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) 참조 하세요.
+[AKS Service Update 메서드를](/python/api/azureml-core/azureml.core.webservice.akswebservice#update-image-none--autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--tags-none--properties-none--description-none--models-none--inference-config-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) 참조 하세요.
 
-[ACI 서비스 업데이트 메서드를](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate-image-none--tags-none--properties-none--description-none--auth-enabled-none--ssl-enabled-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--enable-app-insights-none--models-none--inference-config-none-) 참조 하세요.
+[ACI 서비스 업데이트 메서드를](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#update-image-none--tags-none--properties-none--description-none--auth-enabled-none--ssl-enabled-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--enable-app-insights-none--models-none--inference-config-none-) 참조 하세요.
 
 > [!IMPORTANT]
 > 모델의 새 버전을 만들 때 사용 하려는 각 서비스를 수동으로 업데이트 해야 합니다.

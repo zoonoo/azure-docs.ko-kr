@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: 예약 된 유지 관리 및 업데이트에 대 한 CloudSimple 서비스 프로세스를 설명 합니다.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1cbd708f6c1f5159655099d5d72900ab0c608147
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120711"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522311"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
 
@@ -102,7 +102,7 @@ CloudSimple은 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, 
 
 CloudSimple은 VMware에서 사용할 수 있게 되는 즉시 중요 한 보안 패치를 테스트 합니다. 
 
-CloudSimple은 VMware 소프트웨어 구성 요소에 분기별 유지 관리 업데이트를 제공 합니다. 새 주 버전의 VMware 소프트웨어를 사용할 수 있는 경우 CloudSimple은 고객과 연동 하 여 업그레이드를 위한 적절 한 유지 관리 기간을 조정 합니다.
+문서화 된 VMware 해결 방법은 다음에 예약 된 업데이트가 배포 될 때까지 해당 패치를 설치 하는 대신 구현 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

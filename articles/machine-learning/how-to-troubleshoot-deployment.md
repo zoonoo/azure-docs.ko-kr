@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 1a7116f0edbed8270a3345bc924bf50872615b04
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8bec083e62bec6a0311487c1e64e780ad14f451b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217162"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518266"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>원격 모델 배포 문제 해결 
 
@@ -29,10 +29,10 @@ Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azu
 >
 > 비정상 또는 오버 로드 된 클러스터에 모델을 배포 하려는 경우 문제가 발생할 수 있습니다. AKS 클러스터 문제를 해결 하는 데 도움이 필요한 경우 AKS 지원에 문의 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
-* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
 
@@ -99,7 +99,7 @@ ACI 또는 AKS에 모델을 배포할 때 문제가 발생 하는 경우 로컬 
 
 ## <a name="function-fails-get_model_path"></a>함수 실패: get_model_path()
 
-채점 스크립트의 `init()` 함수에서 컨테이너의 모델 파일 또는 모델 파일의 폴더를 찾기 위해 [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 함수가 호출되는 경우가 많습니다. 모델 파일 또는 폴더를 찾을 수 없으면 함수가 실패합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
+채점 스크립트의 `init()` 함수에서 컨테이너의 모델 파일 또는 모델 파일의 폴더를 찾기 위해 [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) 함수가 호출되는 경우가 많습니다. 모델 파일 또는 폴더를 찾을 수 없으면 함수가 실패합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
 
 ```python
 from azureml.core.model import Model
@@ -177,7 +177,7 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
     > [!NOTE]
     > 새 최소 복제본에서 처리할 수 있는 것보다 더 큰 요청 급증을 받으면 503을 다시 받을 수 있습니다. 예를 들어 서비스 트래픽이 증가하면 최소 복제본을 늘려야 할 수 있습니다.
 
-`autoscale_target_utilization`, `autoscale_max_replicas` 및 `autoscale_min_replicas` 설정에 대한 자세한 내용은 [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) 모듈 참조를 참조하세요.
+`autoscale_target_utilization`, `autoscale_max_replicas` 및 `autoscale_min_replicas` 설정에 대한 자세한 내용은 [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) 모듈 참조를 참조하세요.
 
 ## <a name="http-status-code-504"></a>504 HTTP 상태 코드
 
@@ -189,7 +189,7 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

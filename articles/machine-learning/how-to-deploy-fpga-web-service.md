@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 39c7d980bf9a90e5f72dfc9366d0ec44204b1ed2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212793"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519319"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 ML 모델을 필드 프로그래밍 가능 게이트 배열 (FPGAs)에 배포 
 
-이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에서 [하드웨어 가속 모델 Python 패키지](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) 를 사용 하 여 Azure FPGA에 ML 모델을 배포 하는 방법 및 문서에 대해 알아봅니다.
+이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에서 [하드웨어 가속 모델 Python 패키지](/python/api/azureml-accel-models/azureml.accel) 를 사용 하 여 Azure FPGA에 ML 모델을 배포 하는 방법 및 문서에 대해 알아봅니다.
 
 ## <a name="what-are-fpgas"></a>FPGAs 무엇 인가요?
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다. 
@@ -31,7 +31,7 @@ FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧�
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서| 약어 |설명|
+|프로세서| 약어 |Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU (텐서 Processor Unit)와 같은 사용자 지정 회로는 최고 수준의 효율성을 제공 합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
@@ -56,11 +56,11 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전
 
 ## <a name="deploy-models-on-fpgas"></a>FPGA에 모델 배포
 
-[Azure Machine Learning 하드웨어 가속 모델](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 
+[Azure Machine Learning 하드웨어 가속 모델](/python/api/azureml-accel-models/azureml.accel)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 
 
 이 예제에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만듭니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
 
@@ -80,7 +80,7 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Azure는 FPGAs 사전
 
 ### <a name="define-the-tensorflow-model"></a>TensorFlow 모델 정의
 
-먼저 [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 를 사용 하 여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 정의와 그래프를 ZIP 파일로 압축 하 고 ZIP을 Azure Blob storage에 업로드 합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
+먼저 [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 정의와 그래프를 ZIP 파일로 압축 하 고 ZIP을 Azure Blob storage에 업로드 합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
 1. Azure Machine Learning 작업 영역 로드
 

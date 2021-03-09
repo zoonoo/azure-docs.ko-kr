@@ -5,23 +5,23 @@ description: 사용자 고유의 암호화 키를 사용 하 여 저장소 계�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218573"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517534"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화를 위한 고객 관리 키
 
 사용자 고유의 암호화 키를 사용 하 여 저장소 계정에서 데이터를 보호할 수 있습니다. 고객 관리형 키를 지정하는 경우 해당 키는 데이터를 암호화하는 키에 대한 액세스를 보호하고 제어하는 데 사용됩니다. 고객 관리형 키를 사용하면 훨씬 더 유연하게 액세스 제어를 관리할 수 있습니다.
 
-Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)을 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음 또는 관리 되는 HSM에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. 저장소 계정 및 주요 자격 증명 모음 또는 관리 되는 HSM은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다.
+Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모듈) (미리 보기)을 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음 또는 관리 되는 HSM에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. 저장소 계정 및 주요 자격 증명 모음 또는 관리 되는 HSM은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다.
 
 Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](../../key-vault/general/overview.md)를 참조 하세요.
 

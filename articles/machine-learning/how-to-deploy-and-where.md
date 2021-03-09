@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: f8865c9e6726a19e5e215886f92507734ebf0662
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fa68db4bd166ebe1acd1ae85fca2d7e51236a4c4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657318"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522056"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 machine learning 모델 배포
 
@@ -46,7 +46,7 @@ Machine learning 배포 워크플로와 관련 된 개념에 대 한 자세한 �
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
-- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](/python/api/overview/azure/ml/intro).
 
 ---
 
@@ -71,7 +71,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config(path=".file-path/ws_config.json")
 ```
 
-SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#workspace) 설명서를 참조 하세요.
+SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](/python/api/overview/azure/ml/intro#workspace) 설명서를 참조 하세요.
 
 
 ---
@@ -82,7 +82,7 @@ SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한
 등록된 모델은 모델을 구성하는 하나 이상의 파일에 대한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 작업 영역에서 단일 모델로 등록할 수 있습니다. 파일을 등록 한 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 한 모든 파일을 받을 수 있습니다.
 
 > [!TIP] 
-> 버전 추적용 모델을 등록 하는 것이 좋지만 필수는 아닙니다. 모델을 등록 하지 않고 계속 진행 하는 경우 [inferenceconfig.js](./reference-azure-machine-learning-cli.md#inference-configuration-schema) [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) 에서 원본 디렉터리를 지정 하 고 해당 원본 디렉터리 내에 모델이 있는지 확인 해야 합니다.
+> 버전 추적용 모델을 등록 하는 것이 좋지만 필수는 아닙니다. 모델을 등록 하지 않고 계속 진행 하는 경우 [inferenceconfig.js](./reference-azure-machine-learning-cli.md#inference-configuration-schema) [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) 에서 원본 디렉터리를 지정 하 고 해당 원본 디렉터리 내에 모델이 있는지 확인 해야 합니다.
 
 > [!TIP]
 > 모델을 등록할 때 학습 실행의 클라우드 위치 또는 로컬 디렉터리의 경로를 제공 합니다. 이 경로는 등록 프로세스의 일부로 업로드할 파일을 찾는 것입니다. 항목 스크립트에 사용 된 경로와 일치 하지 않아도 됩니다. 자세한 내용은 [항목 스크립트에서 모델 파일 찾기](./how-to-deploy-advanced-entry-script.md#load-registered-models)를 참조 하세요.
@@ -118,7 +118,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Azure ML 학습 실행에서 모델 등록
 
-  SDK를 사용 하 여 모델을 학습 하는 경우 모델 학습 방법에 따라 [Run](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py) 개체나 [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
+  SDK를 사용 하 여 모델을 학습 하는 경우 모델 학습 방법에 따라 [Run](/python/api/azureml-core/azureml.core.run.run) 개체나 [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
 
   + 개체에서 모델을 등록 합니다 `azureml.core.Run` .
  
@@ -129,7 +129,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    `model_path`매개 변수는 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일의 경로를 사용 합니다. 모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다. 자세한 내용은 [Run.register_model](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 설명서를 참조 하세요.
+    `model_path`매개 변수는 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일의 경로를 사용 합니다. 모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다. 자세한 내용은 [Run.register_model](/python/api/azureml-core/azureml.core.run.run#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 설명서를 참조 하세요.
 
   + 개체에서 모델을 등록 합니다 `azureml.train.automl.run.AutoMLRun` .
 
@@ -171,7 +171,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
   모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다.
 
-자세한 내용은 [모델 클래스](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [모델 클래스](/python/api/azureml-core/azureml.core.model.model)에 대 한 설명서를 참조 하세요.
 
 Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](how-to-deploy-existing-model.md)을 참조 하세요.
 
@@ -227,7 +227,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
-유추 구성에 대 한 자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) 클래스 설명서를 참조 하세요.
+유추 구성에 대 한 자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) 클래스 설명서를 참조 하세요.
 
 ---
 
@@ -305,7 +305,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-자세한 내용은 [Localwebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py), [Model. deploy ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice?preserve-view=true&view=azure-ml-py)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [Localwebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice), [Model. deploy ()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)및 [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice)에 대 한 설명서를 참조 하세요.
 
 ---
 
@@ -315,13 +315,13 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | No |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | No |
 | 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | No |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
-| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
+| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | Yes |
+| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | Yes |
 
 > [!TIP]
 > 을 배포 하는 경우 계산 대상의 Docker 이미지가 Azure Container Registry (ACR)에서 빌드되고 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 계산 대상에 배포 하는 데 걸리는 시간이 줄어들 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요.
@@ -357,7 +357,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
-자세한 내용은 [WebService. delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) 및 [Model. delete ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--)설명서를 참조 하십시오.
+자세한 내용은 [WebService. delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--) 및 [Model. delete ()](/python/api/azureml-core/azureml.core.model.model#delete--)설명서를 참조 하십시오.
 
 ---
 

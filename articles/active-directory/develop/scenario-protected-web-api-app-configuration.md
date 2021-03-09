@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c2a1f6de4e006cbb1b8566504fd16280c129f23
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5206c2295ee7c01b4a2908e59da1cfdd8782bccd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210804"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517721"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -195,7 +195,7 @@ services.AddControllers();
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | 설명 |
+| 유효성 검사기 | Description |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |
@@ -224,7 +224,7 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
       // Your code to add extra configuration that will be executed after the current event implementation.
       options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
       options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  }
+  };
 });
 ```
 

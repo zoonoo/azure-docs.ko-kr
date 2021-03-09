@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 41231e19960edfe1a4f0521b8738fa62a463c927
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796468"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518333"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 모델 학습
 
@@ -25,7 +25,7 @@ ms.locfileid: "97796468"
 
 TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-existing-model.md) 을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 오픈 소스 학습 작업을 확장 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -36,7 +36,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
  
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0)를 설치 합니다.
+    - [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install) (>= 1.15.0)를 설치 합니다.
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - [샘플 스크립트 파일 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` 하거나 `utils.py`
      
@@ -66,7 +66,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) .
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) .
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -192,7 +192,7 @@ tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudn
 
 ### <a name="create-a-scriptrunconfig"></a>ScriptRunConfig 만들기
 
-[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 매개 변수에 지정 된 경우 학습 스크립트에 대 한 모든 인수는 명령줄을 통해 전달 됩니다 `arguments` .
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 매개 변수에 지정 된 경우 학습 스크립트에 대 한 모든 인수는 명령줄을 통해 전달 됩니다 `arguments` .
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -220,7 +220,7 @@ ScriptRunConfig를 사용 하 여 작업을 구성 하는 방법에 대 한 자�
 
 ### <a name="submit-a-run"></a>실행 제출
 
-[실행 개체](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
+[실행 개체](/python/api/azureml-core/azureml.core.run%28class%29) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
@@ -289,7 +289,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Azure ML에서 MPI/Horovod를 사용 하 여 분산 작업을 실행 하려면 [](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 MpiConfiguration를 지정 해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행 하는 2 노드 분산 작업을 구성 합니다. 노드당 여러 프로세스를 실행 하려는 경우 (즉, 클러스터 SKU에 여러 Gpu가 있는 경우) `process_count_per_node` MpiConfiguration에서 매개 변수를 추가로 지정 합니다 (기본값은 `1` ).
+Azure ML에서 MPI/Horovod를 사용 하 여 분산 작업을 실행 하려면 [](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 MpiConfiguration를 지정 해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행 하는 2 노드 분산 작업을 구성 합니다. 노드당 여러 프로세스를 실행 하려는 경우 (즉, 클러스터 SKU에 여러 Gpu가 있는 경우) `process_count_per_node` MpiConfiguration에서 매개 변수를 추가로 지정 합니다 (기본값은 `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -309,7 +309,7 @@ Azure ML에서 Horovod로 distributed TensorFlow를 실행 하는 방법에 대 
 
 교육 코드에서 [네이티브 Distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) (예: TensorFlow 2.X의 API)를 사용 하는 경우 `tf.distribute.Strategy` Azure ML을 통해 분산 작업을 시작할 수도 있습니다. 
 
-이렇게 하려면 [](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 TensorflowConfiguration를 지정 합니다. 를 사용 하는 경우 `tf.distribute.experimental.MultiWorkerMirroredStrategy` `worker_count` 학습 작업에 대 한 노드 수에 해당 하는 TensorflowConfiguration에서을 지정 합니다.
+이렇게 하려면 [](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 TensorflowConfiguration를 지정 합니다. 를 사용 하는 경우 `tf.distribute.experimental.MultiWorkerMirroredStrategy` `worker_count` 학습 작업에 대 한 노드 수에 해당 하는 TensorflowConfiguration에서을 지정 합니다.
 
 ```python
 import os

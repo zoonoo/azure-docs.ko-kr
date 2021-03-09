@@ -11,19 +11,19 @@ manager: cgronlun
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: da973cf377ceace4a92d1cdd1e956321a5592e6a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692218"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520509"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 
 
 Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모든 방법을 reimplementing 하지 않고도 고성능 모델을 검색할 수 있습니다. Azure Machine Learning 파이프라인과 결합 하 여 데이터에 가장 적합 한 알고리즘을 신속 하 게 검색할 수 있는 배포 가능한 워크플로를 만들 수 있습니다. 이 문서에서는 자동화 된 ML 단계에 데이터 준비 단계를 효율적으로 조인 하는 방법을 보여 줍니다. 자동화 된 ML은 사용자의 데이터에 가장 적합 한 알고리즘을 신속 하 게 검색할 수 있으며, 파이프라인으로 운영 화 된 MLOps 및 모델 수명 주기로 이동 하 게 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -37,7 +37,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 에는 여러 개의 하위 클래스가 있습니다 `PipelineStep` . 외에도 `AutoMLStep` 이 문서에서는 `PythonScriptStep` 데이터 준비 및 모델 등록을 위한을 보여 줍니다.
 
-처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체를 사용 하는 것입니다 `Dataset` . 단계 _간에_ 데이터를 이동 하 고 실행에서 데이터 출력을 저장할 수 있도록 하려면 및 개체를 사용 하는 것이 좋습니다 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py) . 에서 사용 하려면 `AutoMLStep` `PipelineData` 개체를 개체로 변환 해야 합니다 `PipelineOutputTabularDataset` . 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
+처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체를 사용 하는 것입니다 `Dataset` . 단계 _간에_ 데이터를 이동 하 고 실행에서 데이터 출력을 저장할 수 있도록 하려면 및 개체를 사용 하는 것이 좋습니다 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) . 에서 사용 하려면 `AutoMLStep` `PipelineData` 개체를 개체로 변환 해야 합니다 `PipelineOutputTabularDataset` . 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
 
 는 `AutoMLStep` 개체를 통해 구성 됩니다 `AutoMLConfig` . `AutoMLConfig` 는 [Python에서 자동화 된 ML 실험 구성](./how-to-configure-auto-train.md#configure-your-experiment-settings)에 설명 된 대로 유연한 클래스입니다. 
 

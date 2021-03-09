@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 06e70bd31e2045925c1fe7b4088e1a0b1d560b2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a7244aebef6adcfbf96884d377592b575e2c3acb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011070"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519880"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
 
@@ -76,7 +76,7 @@ Microsoft. Network/networkWatchers/flowLogs 리소스를 만들려면 위의 JSO
 
 Azure Resource Manager 템플릿을 처음 사용하는 경우 아래 링크를 사용하여 자세히 알아볼 수 있습니다.
 
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -144,7 +144,7 @@ Azure Resource Manager 템플릿을 처음 사용하는 경우 아래 링크를 
         },
         "format": {
           "type": "JSON",
-          "version": 2          
+          "version": 2
         }
       }
     }

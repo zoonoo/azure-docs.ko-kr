@@ -2,19 +2,19 @@
 title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 리소스 관리자 템플릿 또는 Bicep 파일에 정의 됩니다.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741126"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521699"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
 이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Bicep 파일에 Azure CLI를 사용 하 여 Azure에 리소스를 배포 하는 방법을 설명 합니다. Azure 솔루션 배포 및 관리 개념을 잘 모르는 경우 [템플릿 배포 개요](overview.md) 또는 [Bicep 개요](bicep-overview.md)를 참조 하세요.
 
-Azure CLI 버전 2.2.0에서 배포 명령이 변경 되었습니다. 이 문서의 예제에는 Azure CLI 버전 2.2.0 이상이 필요 합니다.
+Azure CLI 버전 2.2.0에서 배포 명령이 변경 되었습니다. 이 문서의 예제에는 Azure CLI 버전 2.2.0 이상이 필요 합니다. Bicep 파일을 배포 하려면 [Azure CLI 버전 2.20.0 이상이](/cli/azure/install-azure-cli)필요 합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -85,7 +85,7 @@ az deployment group create \
 ## <a name="deploy-remote-template"></a>원격 템플릿 배포
 
 > [!NOTE]
-> 현재 Azure CLI는 Bicep 파일 제거 배포를 지원 하지 않습니다.
+> 현재 Azure CLI은 원격 Bicep 파일 배포를 지원 하지 않습니다. 원격 Bicep 파일을 배포 하려면 먼저 CLI Bicep를 사용 하 여 Bicep 파일을 JSON 템플릿으로 컴파일합니다.
 
 ARM 템플릿을 로컬 컴퓨터에 저장 하는 대신 외부 위치에 저장 하는 것이 좋습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
 
@@ -148,7 +148,7 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 ## <a name="deploy-template-spec"></a>템플릿 사양 배포
 
 > [!NOTE]
-> 현재 Azure CLI Bicep 파일을 제공 하 여 템플릿 사양을 만드는 것을 지원 하지 않습니다. 그러나 템플릿 사양을 배포 하기 위해 Bicep [/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용 하 여 ARM 템플릿 또는 파일을 만들 수 있습니다. [예를 들면](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)다음과 같습니다.
+> 현재 Azure CLI Bicep 파일을 제공 하 여 템플릿 사양을 만드는 것을 지원 하지 않습니다. 그러나 Bicep [/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용 하 여 템플릿 사양을 배포 하는 파일을 만들 수 있습니다. [예를 들면](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)다음과 같습니다.
 
 로컬 또는 원격 템플릿을 배포 하는 대신 [템플릿 사양을](template-specs.md)만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함 하는 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 

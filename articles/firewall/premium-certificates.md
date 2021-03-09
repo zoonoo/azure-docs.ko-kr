@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 31948d5e98ea3024c838bf0fa4b05609a5662ec5
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485523"
+ms.locfileid: "102520288"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Azure Firewall 프리미엄 미리 보기 인증서 
 
@@ -96,7 +96,7 @@ Azure 방화벽에서 사용자를 대신 하 여 Key Vault에서 인증서를 �
 TLS 검사를 테스트 하 고 확인 하는 데 도움이 되도록 다음 스크립트를 사용 하 여 자체 서명 된 루트 CA 및 중간 CA를 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 프로덕션의 경우에는 회사 PKI를 사용 하 여 중간 CA 인증서를 만들어야 합니다. 회사 PKI는 기존 인프라를 활용 하 고 모든 끝점 컴퓨터에 대 한 루트 CA 배포를 처리 합니다.
+> 프로덕션의 경우에는 회사 PKI를 사용 하 여 중간 CA 인증서를 만들어야 합니다. 회사 PKI는 기존 인프라를 활용 하 고 모든 끝점 컴퓨터에 대 한 루트 CA 배포를 처리 합니다. 자세한 내용은 [Azure 방화벽 미리 보기에 대 한 엔터프라이즈 CA 인증서 배포 및 구성](premium-deploy-certificates-enterprise-ca.md)을 참조 하세요.
 
 이 스크립트에는 다음과 같은 두 가지 버전이 있습니다.
 - bash 스크립트 `cert.sh` 

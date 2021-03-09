@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 072bb7841db10351bd1a98f4bc7a1d57e67f6c24
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448543"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518112"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C (미리 보기)를 사용 하 여 Apple ID로 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448543"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -79,7 +79,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Apple ID를 사용 하는 사용
 
 1. [Azure Portal](https://portal.azure.com/) 에 Azure AD B2C 테 넌 트의 전역 관리자로 로그인 합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다. 또는 검색 상자를 사용 하 여 **Azure AD B2C** 를 찾고 선택 합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. **Id 공급자** 를 선택한 다음 **Apple (미리 보기)** 을 선택 합니다.
 1. **이름** 을 입력합니다. 예: *Apple*.
 1. **Apple 개발자 id (팀 id)** 를 입력 합니다.
@@ -152,7 +152,7 @@ Azure function은 응답에서 적절 하 게 형식이 지정 되 고 서명 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다. 또는 검색 상자를 사용 하 여 **Azure AD B2C** 를 찾고 선택 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. **개요** 페이지에서 **Id 경험 프레임 워크** 를 선택 합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 에 대해 **수동** 을 선택 합니다.
@@ -195,7 +195,7 @@ Azure function은 응답에서 적절 하 게 형식이 지정 되 고 서명 �
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>
@@ -206,8 +206,8 @@ Azure function은 응답에서 적절 하 게 형식이 지정 되 고 서명 �
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

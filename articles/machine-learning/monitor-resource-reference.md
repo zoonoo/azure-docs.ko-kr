@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575084"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521342"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -78,7 +78,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차원이 있습니다.
 
-| 차원 | 설명 |
+| 차원 | Description |
 | ---- | ---- |
 | 클러스터 이름 | 계산 클러스터 리소스의 이름입니다. 모든 할당량 메트릭에 사용할 수 있습니다. |
 | Vm 제품군 이름 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. 할당량 사용률에 사용할 수 있습니다. |
@@ -88,13 +88,13 @@ Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차
 | NodeId | 작업이 실행 되는 위치에 생성 된 노드의 ID입니다. CpuUtilization 및 GpuUtilization에만 사용할 수 있습니다. |
 | RunId | 실행/작업의 ID입니다. CpuUtilization 및 GpuUtilization에만 사용할 수 있습니다. |
 | ComputeType | 실행에 사용 되는 계산 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
-| PipelineStepType | 실행에 사용 되는 [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) 의 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
+| PipelineStepType | 실행에 사용 되는 [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) 의 형식입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 | PublishedPipelineId | 실행에 사용 되는 게시 된 파이프라인의 ID입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 | RunType | 실행 유형입니다. 완료 된 실행, 실패 한 실행 및 시작 된 실행에 대해서만 사용할 수 있습니다. |
 
 RunType 차원의 유효한 값은 다음과 같습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ----- | ----- |
 | 실험 | 비 파이프라인 실행 |
 | PipelineRun | 단계별 실행의 부모인 파이프라인 실행입니다. |
@@ -179,7 +179,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | MinimumNodeCount | 클러스터의 최소 노드 수 |
 | MaximumNodeCount | 클러스터의 최대 노드 수 |
 | NodeDeallocationOption | 노드의 할당을 취소 하는 방법 |
-| 게시자 | 클러스터 유형 게시자 |
+| Publisher | 클러스터 유형 게시자 |
 | 제안 | 클러스터가 생성 되는 제품 |
 | SKU | 클러스터 내에서 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
@@ -215,7 +215,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | VmSize | 노드의 Vm 크기 |
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
-| 게시자 | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
+| Publisher | Vm 이미지의 게시자입니다. 예: microsoft-dsvm |
 | 제안 | VM 만들기와 관련 된 제안 |
 | SKU | 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
@@ -229,7 +229,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | TotalE2ETimeInSeconds | 노드가 활성 상태 였던 총 시간 |
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

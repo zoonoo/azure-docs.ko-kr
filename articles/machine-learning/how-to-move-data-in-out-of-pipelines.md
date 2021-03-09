@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 8f1cea6e9bc833c6d441c39c401f60d872cd9099
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174940"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518707"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -36,7 +36,7 @@ ms.locfileid: "102174940"
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-- [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
+- [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
 
 - Azure Machine Learning 작업 영역
   
@@ -55,7 +55,7 @@ ms.locfileid: "102174940"
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>`Dataset`기존 데이터에 대 한 개체 사용 
 
-파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) 개체를 사용 하는 것입니다. `Dataset` 개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
+파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29) 개체를 사용 하는 것입니다. `Dataset` 개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
 
 개체를 만들고 등록 하는 방법에는 여러 가지가 있습니다 `Dataset` . 테이블 형식 데이터 집합은 하나 이상의 파일에서 사용할 수 있는 구분 된 데이터에 대 한 것입니다. 파일 데이터 집합은 이진 데이터 (예: 이미지) 또는 구문 분석 하는 데이터에 대 한 것입니다. 개체를 만드는 가장 간단한 프로그래밍 방법은 `Dataset` 작업 영역 저장소 또는 공용 url에서 기존 blob을 사용 하는 것입니다.
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>`OutputFileDatasetConfig`중간 데이터에 사용
 
-`Dataset`개체는 영구적 데이터만 나타내므로 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) 파이프라인 단계 **및** 영구 출력 데이터의 임시 데이터 출력에는 개체를 사용할 수 있습니다. `OutputFileDatasetConfig` blob storage, 파일 공유, adlsgen1 또는 adlsgen2에 데이터 쓰기를 지원 합니다. 탑재 모드와 업로드 모드를 모두 지원 합니다. 탑재 모드에서 탑재 된 디렉터리에 기록 된 파일은 파일을 닫을 때 영구적으로 저장 됩니다. 업로드 모드에서 출력 디렉터리에 기록 된 파일은 작업 끝에 업로드 됩니다. 작업이 실패 하거나 취소 되 면 출력 디렉터리는 업로드 되지 않습니다.
+`Dataset`개체는 영구적 데이터만 나타내므로 [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) 파이프라인 단계 **및** 영구 출력 데이터의 임시 데이터 출력에는 개체를 사용할 수 있습니다. `OutputFileDatasetConfig` blob storage, 파일 공유, adlsgen1 또는 adlsgen2에 데이터 쓰기를 지원 합니다. 탑재 모드와 업로드 모드를 모두 지원 합니다. 탑재 모드에서 탑재 된 디렉터리에 기록 된 파일은 파일을 닫을 때 영구적으로 저장 됩니다. 업로드 모드에서 출력 디렉터리에 기록 된 파일은 작업 끝에 업로드 됩니다. 작업이 실패 하거나 취소 되 면 출력 디렉터리는 업로드 되지 않습니다.
 
  `OutputFileDatasetConfig` 개체의 기본 동작은 작업 영역의 기본 데이터 저장소에 쓰는 것입니다. `OutputFileDatasetConfig`매개 변수를 사용 하 여 개체를에 전달 `PythonScriptStep` `arguments` 합니다.
 

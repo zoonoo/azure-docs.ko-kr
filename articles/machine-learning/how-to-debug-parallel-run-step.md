@@ -11,16 +11,16 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: ee41ae2a705ceaa0e9742c91552d6bdae26820ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b5511c8ecc33238e0409b5ee4c1c7a11adddeac5
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690280"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522158"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>ParallelRunStep 문제 해결
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)에서 [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) 클래스를 사용 하 여 오류가 발생 하는 경우 문제를 해결 하는 방법에 대해 알아봅니다.
+이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)에서 [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) 클래스를 사용 하 여 오류가 발생 하는 경우 문제를 해결 하는 방법에 대해 알아봅니다.
 
 파이프라인 문제 해결에 대 한 일반적인 팁은 [machine learning 파이프라인 문제 해결](how-to-debug-pipelines.md)을 참조 하세요.
 
@@ -212,7 +212,7 @@ def run(mini_batch):
 
 사용자는 ParalleRunStep의 side_inputs 매개 변수를 사용 하 여 스크립트에 참조 데이터를 전달할 수 있습니다. Side_inputs로 제공 되는 모든 데이터 집합은 각 작업자 노드에 탑재 됩니다. 사용자는 인수를 전달 하 여 탑재 위치를 가져올 수 있습니다.
 
-참조 데이터를 포함 하는 데이터 [집합](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) 을 생성 하 고 작업 영역에 등록 합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
+참조 데이터를 포함 하는 데이터 [집합](/python/api/azureml-core/azureml.core.dataset.dataset) 을 생성 하 고 작업 영역에 등록 합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -262,6 +262,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * [Azure Machine Learning 파이프라인을 보여 주는 이러한 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) 참조
 
-* [Azureml-파이프라인 단계](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) 를 봅니다.
+* [Azureml-파이프라인 단계](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) 를 봅니다.
 
 * ParallelRunStep와 함께 파이프라인 사용에 대 한 [고급 자습서](tutorial-pipeline-batch-scoring-classification.md) 를 따르세요. 이 자습서에서는 다른 파일을 측면 입력으로 전달 하는 방법을 보여 줍니다.

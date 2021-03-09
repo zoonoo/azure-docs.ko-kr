@@ -1,20 +1,22 @@
 ---
 title: PowerShell 및 템플릿을 사용 하 여 리소스 배포
-description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
+description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 리소스 관리자 템플릿 또는 Bicep 파일에 정의 됩니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: efefb6706794bc2488aa4d4fef6c4ecc082b41a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/04/2021
+ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881268"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521631"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)과 함께 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 하는 방법을 설명 합니다. Azure 솔루션 배포 및 관리 개념을 잘 모르는 경우 [템플릿 배포 개요](overview.md)를 참조 하세요.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Bicep 파일에 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 하는 방법을 설명 합니다. Azure 솔루션 배포 및 관리 개념을 잘 모르는 경우 [템플릿 배포 개요](overview.md) 또는 [Bicep 개요](bicep-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+Bicep 파일을 배포 하려면 [Azure PowerShell 버전 5.6.0 이상이](/powershell/azure/install-az-ps)필요 합니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용 된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.js_ 됩니다.
 
@@ -32,13 +34,13 @@ PowerShell이 설치 되지 않은 경우 Azure Cloud Shell를 사용할 수 있
 - **리소스 그룹** 에 배포 하려면 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 합니다.
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
   ```
 
 - **구독** 에 배포 하려면 cmdlet의 별칭인 [AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) 를 사용 합니다 `New-AzDeployment` .
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   구독 수준 배포에 대한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
@@ -46,7 +48,7 @@ PowerShell이 설치 되지 않은 경우 Azure Cloud Shell를 사용할 수 있
 - **관리 그룹** 에 배포 하려면 [AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment)를 사용 합니다.
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
@@ -54,7 +56,7 @@ PowerShell이 설치 되지 않은 경우 Azure Cloud Shell를 사용할 수 있
 - **테 넌 트** 에 배포 하려면 [AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment)를 사용 합니다.
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   테넌트 수준 배포에 대한 자세한 내용은 [테넌트 수준에서 리소스 만들기](deploy-to-tenant.md)를 참조하세요.
@@ -89,7 +91,7 @@ $deploymentName="ExampleDeployment"+"$today"
 
 동시 배포와의 충돌을 방지 하 고 배포 기록에서 고유한 항목을 확인 하려면 각 배포에 고유한 이름을 지정 합니다.
 
-## <a name="deploy-local-template"></a>로컬 템플릿 배포
+## <a name="deploy-local-template-or-bicep-file"></a>로컬 템플릿 또는 Bicep 파일 배포
 
 로컬 컴퓨터 또는 외부에 저장 된 템플릿을 배포할 수 있습니다. 이 섹션에서는 로컬 템플릿 배포에 대해 설명 합니다.
 
@@ -99,18 +101,21 @@ $deploymentName="ExampleDeployment"+"$today"
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-로컬 템플릿을 배포 하려면 `-TemplateFile` 배포 명령의 매개 변수를 사용 합니다. 또한 다음 예제에서는 템플릿에서 제공 되는 매개 변수 값을 설정 하는 방법을 보여 줍니다.
+로컬 템플릿 또는 Bicep 파일을 배포 하려면 `-TemplateFile` 배포 명령에 매개 변수를 사용 합니다. 또한 다음 예제에서는 템플릿에서 제공 되는 매개 변수 값을 설정 하는 방법을 보여 줍니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template-or-bicep>
 ```
 
 배포를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="deploy-remote-template"></a>원격 템플릿 배포
+
+> [!NOTE]
+> 현재 Azure PowerShell은 원격 Bicep 파일 배포를 지원 하지 않습니다. 원격 Bicep 파일을 배포 하려면 먼저 CLI Bicep를 사용 하 여 Bicep 파일을 JSON 템플릿으로 컴파일합니다.
 
 ARM 템플릿을 로컬 컴퓨터에 저장 하는 대신 외부 위치에 저장 하는 것이 좋습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
 
@@ -145,6 +150,8 @@ New-AzResourceGroupDeployment `
 
 ## <a name="deploy-template-spec"></a>템플릿 사양 배포
 
+> [!NOTE]
+> 현재 Azure PowerShell Bicep 파일을 제공 하 여 템플릿 사양을 만드는 것을 지원 하지 않습니다. 그러나 Bicep [/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용 하 여 템플릿 사양을 배포 하는 파일을 만들 수 있습니다. [예를 들면](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)다음과 같습니다.
 로컬 또는 원격 템플릿을 배포 하는 대신 [템플릿 사양을](template-specs.md)만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함 하는 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
 다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다.
@@ -187,7 +194,7 @@ New-AzResourceGroupDeployment `
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -197,7 +204,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -211,13 +218,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleArray $subnetArray
 ```
 
 ### <a name="parameter-files"></a>매개 변수 파일
 
-매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이거나 액세스 가능한 URI가 있는 외부 파일일 수 있습니다.
+매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이거나 액세스 가능한 URI가 있는 외부 파일일 수 있습니다. ARM 템플릿과 Bicep 파일은 모두 JSON 매개 변수 파일을 사용 합니다.
 
 매개 변수 파일에 대한 자세한 내용은 [Resource Manager 매개 변수 파일 만들기](parameter-files.md)를 참조하세요.
 
@@ -225,7 +232,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 

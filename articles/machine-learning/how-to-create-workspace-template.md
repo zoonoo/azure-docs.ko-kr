@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503184"
+ms.locfileid: "102522209"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -32,12 +32,7 @@ ms.locfileid: "102503184"
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/) 또는 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
-* 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
-
-    * __고객 관리형 키가 있는 Private Link 사용 작업 영역__
-    * __가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry__
-
-    자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
+* 일부 시나리오에서는 지원 티켓을 열어야 합니다. 예를 들어 개인 링크를 사용 하도록 설정 된 작업 영역을 고객이 관리 하는 키로 사용 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
