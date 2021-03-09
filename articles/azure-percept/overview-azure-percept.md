@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3b09253d779679e5a0c4ccd11b4cbd98ee386adc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098199"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179292"
 ---
 # <a name="introduction-to-azure-percept"></a>Azure Percept 소개
 
@@ -38,7 +38,7 @@ Azure Percept의 주요 구성 요소는 다음과 같습니다.
 
 3. Edge AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
 
-    - Azure Percept Studio에서 액세스할 수 있는 개발 워크플로 및 미리 빌드된 모델입니다.
+    - [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 액세스할 수 있는 개발 워크플로 및 미리 빌드된 모델입니다.
     - 모델 개발 서비스.
     - 규모에 맞는 디바이스 관리 서비스입니다.
     - 엔드투엔드 보안.

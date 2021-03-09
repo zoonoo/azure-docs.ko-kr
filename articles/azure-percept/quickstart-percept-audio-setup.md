@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 588ebde85b6012ddbfb88ca8305fc735b7a0ba41
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 660f03ce248a27a00fdd443964fbdba2fe3adeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179275"
 ---
 # <a name="azure-percept-audio-setup"></a>Azure Percept Audio 설정
 
@@ -42,4 +42,4 @@ Azure Percept Audio는 Azure Percept DK에서 기본 제공됩니다. 특별한 
 
 ## <a name="next-steps"></a>다음 단계
 
-[코드 없는 음성 솔루션](./tutorial-no-code-speech.md)을 만듭니다.
+[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 [코드 없는 음성 솔루션](./tutorial-no-code-speech.md) 만들기
