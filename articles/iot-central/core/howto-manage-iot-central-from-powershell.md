@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: 832147fd06dbc7439500b911efbbde6d9b1d81fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123065"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501370"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -22,16 +22,18 @@ ms.locfileid: "92123065"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure PowerShell](/powershell/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 로컬 머신에서 Azure PowerShell을 실행하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 로컬에서 Azure PowerShell을 실행하는 경우 이 문서의 cmdlet을 사용하기 전에 **Connect-AzAccount** cmdlet을 사용하여 Azure에 로그인합니다.
 
 > [!TIP]
-> 다른 Azure 구독에서 PowerShell 명령을 실행 해야 하는 경우 [활성 구독 변경](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription)을 참조 하세요.
+> 다른 Azure 구독에서 PowerShell 명령을 실행 해야 하는 경우 [활성 구독 변경](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription)을 참조 하세요.
 
 ## <a name="install-the-iot-central-module"></a>IoT Central 모듈 설치
 
@@ -41,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Get-InstalledModule -name Az.I*
 ```
 
-설치된 모듈 목록에 **Az.IotCentral**이 포함되지 않은 경우 다음 명령을 실행합니다.
+설치된 모듈 목록에 **Az.IotCentral** 이 포함되지 않은 경우 다음 명령을 실행합니다.
 
 ```powershell
 Install-Module Az.IotCentral
@@ -70,10 +72,10 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |매개 변수         |Description |
 |------------------|------------|
 |ResourceGroupName |애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국**및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들**수 있습니다. |
+|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국** 및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들** 수 있습니다. |
 |Name              |Azure Portal의 애플리케이션 이름입니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 `https://mysubdomain.azureiotcentral.com`입니다. |
-|SKU               |현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
+|SKU               |현재 **ST1** 또는 **ST2** 중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 |템플릿          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 |DisplayName       |UI에 표시되는 애플리케이션 이름입니다. |
 

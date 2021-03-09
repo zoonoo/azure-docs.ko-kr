@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 6fe43c39b17e574e1913cd9e7b4292a71f1e418d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031762"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501620"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Python 개발 환경 설정
 
@@ -37,7 +37,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역입니다. 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리, *.azureml* 이라는 하위 디렉터리 또는 부모 디렉터리에 있을 수 있습니다.
 
-코드에서이 파일을 사용 하려면 메서드를 사용 [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
+코드에서이 파일을 사용 하려면 메서드를 사용 [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace#from-config-path-none--auth-none---logger-none---file-name-none-) 합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
 
 다음 방법 중 하나를 수행 하 여 작업 영역 구성 파일을 만듭니다.
 
@@ -67,7 +67,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Azure Machine Learning Python SDK
 
-    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 파일을 생성 하 고를 *azureml/config.js에* 저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
+    Azure Machine Learning 작업 영역에 연결 하는 스크립트를 만들고 메서드를 사용 하 여 [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) 파일을 생성 하 고를 *azureml/config.js에* 저장 합니다. , 및를 사용자 `subscription_id` 고유의으로 바꾸어야 `resource_group` `workspace_name` 합니다.
 
     ```python
     from azureml.core import Workspace
@@ -99,7 +99,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
     > Linux 또는 Mac OS에서 bash가 아닌 셸을 사용하는 경우(예: zsh) 일부 명령을 실행할 때 오류가 발생할 수 있습니다. 이 문제를 해결하려면 `bash` 명령을 사용하여 새 bash 셸을 시작하고 거기서 명령을 실행하세요.
 
 1. 새로 만든 Python 가상 환경을 활성화 합니다.
-1. [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치 합니다.
+1. [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/install)를 설치 합니다.
 1. Azure Machine Learning 작업 영역을 사용 하도록 로컬 환경을 구성 하려면 [작업 영역 구성 파일을 만들거나 기존 작업](#workspace) 영역을 사용 합니다.
 
 로컬 환경이 설정 되었으므로 이제 Azure Machine Learning 작업을 시작할 준비가 되었습니다. 시작 하려면 [Python 시작 가이드 Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md) 를 참조 하세요.
@@ -153,7 +153,7 @@ Jupyter Notebook 서버 및 JupyterLab 외에도 [Azure Machine Learning studio 
 
 Azure Machine Learning Visual Studio Code 확장을 사용 하 여 [Azure Machine Learning 계산 인스턴스를 원격 Jupyter Notebook 서버로 구성할](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server)수도 있습니다.
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 Virtual Machine
 
 Data Science VM은 개발 환경으로 사용할 수 있는 사용자 지정 VM (가상 머신) 이미지입니다. 이는 다음과 같은 미리 구성 된 도구 및 소프트웨어용 데이터 과학 작업을 위해 설계 되었습니다.
 
@@ -217,4 +217,4 @@ Data Science VM를 개발 환경으로 사용 하려면 다음을 수행 합니�
 ## <a name="next-steps"></a>다음 단계
 
 - MNIST 데이터 집합을 사용 하 여 Azure Machine Learning에 대 한 [모델을 학습](tutorial-train-models-with-aml.md) 합니다.
-- [AZURE MACHINE LEARNING SDK For Python 참조](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 참조 하세요. 
+- [AZURE MACHINE LEARNING SDK For Python 참조](/python/api/overview/azure/ml/intro)를 참조 하세요. 

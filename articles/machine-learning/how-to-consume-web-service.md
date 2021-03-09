@@ -11,19 +11,19 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e9fb801fce3e47fc83febeddd6f331ce2af207e6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214986"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506976"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드포인트가 생성됩니다. 이 엔드포인트로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-로컬 환경, Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 모델을 배포할 때 웹 서비스를 만듭니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하 여 웹 서비스에 액세스 하는 데 사용 되는 URI를 검색 합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
+로컬 환경, Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 모델을 배포할 때 웹 서비스를 만듭니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)를 사용 하 여 웹 서비스에 액세스 하는 데 사용 되는 URI를 검색 합니다. 인증을 사용 하는 경우 SDK를 사용 하 여 인증 키 또는 토큰을 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
@@ -39,7 +39,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
 > [!NOTE]
 > Azure Machine Learning SDK를 사용하여 웹 서비스 정보를 가져옵니다. 이는 Python SDK입니다. 모든 언어를 사용하여 서비스용 클라이언트를 만들 수 있습니다.
 
-[azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
+[azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
 * `auth_enabled` 키 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
 * `token_auth_enabled` 토큰 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
@@ -59,7 +59,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API 엔드�
     print(service.swagger_uri)
     ```
 
-* `Webservice.list`를 사용하여 작업 영역의 모델에 대해 배포된 웹 서비스 목록을 검색할 수 있습니다. 필터를 추가하여 반환되는 정보의 목록을 좁힐 수 있습니다. 필터링할 수 있는 항목에 대한 자세한 내용은 [Webservice.list](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py) 참조 설명서를 참조하세요.
+* `Webservice.list`를 사용하여 작업 영역의 모델에 대해 배포된 웹 서비스 목록을 검색할 수 있습니다. 필터를 추가하여 반환되는 정보의 목록을 좁힐 수 있습니다. 필터링할 수 있는 항목에 대한 자세한 내용은 [Webservice.list](/python/api/azureml-core/azureml.core.webservice.webservice.webservice) 참조 설명서를 참조하세요.
 
     ```python
     services = Webservice.list(ws)
@@ -91,7 +91,7 @@ Azure Machine Learning studio에서 __끝점__, __실시간 끝점__, 끝점 이
 
 다음 표에서는 이러한 Uri의 모양을 보여 줍니다.
 
-| URI 형식 | 예 |
+| URI 형식 | 예제 |
 | ----- | ----- |
 | 점수 매기기 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
@@ -139,7 +139,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) 합니다.
+> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29) 합니다.
 
 #### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
 
@@ -527,7 +527,7 @@ print(resp.text)
 
 ## <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
 
-배포에서 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)` ) GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
+배포에서 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)` ) GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
 
 다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
 
@@ -669,7 +669,7 @@ print(resp.text)
 
 
 > [!TIP]
-> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri) (예:)을 사용 `service.swagger_uri` 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri) (예:)을 사용 `service.swagger_uri` 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
 
 ## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
 

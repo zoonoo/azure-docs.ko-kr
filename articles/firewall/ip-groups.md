@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 6910fda855402d2f99994da1e835560be84ca2dd
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 907ed0774db0e07a61a3ad568e6c451ea5d37b44
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703380"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501739"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Azure 방화벽의 IP 그룹
 
@@ -79,13 +79,13 @@ IP 그룹의 모든 IP 주소와 연결 된 규칙 또는 리소스를 볼 수 �
 
 다음 Azure PowerShell cmdlet을 사용 하 여 IP 그룹을 만들고 관리할 수 있습니다.
 
-- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
-- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
-- [AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
+- [AzIPGroup](/powershell/module/az.network/remove-azipgroup)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup)
+- [AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)
+- [AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule)
 
 ## <a name="next-steps"></a>다음 단계
 

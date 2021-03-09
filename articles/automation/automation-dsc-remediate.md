@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98164c20af2a5d6ae7ccac43331a2876c23ccfb7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186370"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500175"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>비규격 Azure Automation 상태 구성 서버 재구성
 
@@ -43,5 +43,5 @@ Azure 노드의 경우 Azure Portal에서 또는 Az 모듈 cmdlet을 사용하�
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/#automation)을 참조하세요.
 - 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.

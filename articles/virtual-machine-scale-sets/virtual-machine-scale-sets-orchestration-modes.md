@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043714"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502419"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대 한 오케스트레이션 모드 
 
@@ -73,7 +73,7 @@ VM을 만들어 유연한 확장 집합에 추가 하는 경우 Azure 명명 규
 | order by resourceGroup desc, name desc 
 ```
 
-[Azure 리소스 그래프](../governance/resource-graph/overview.md) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음을 수행할 수 있습니다.
+[Azure 리소스 그래프](../governance/resource-graph/overview.md) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음과 같습니다.
 - 리소스 그룹 또는 구독에서 Vm을 나열 합니다.
 - 확장 옵션을 사용 하 여 구독에 있는 모든 Vm에 대 한 인스턴스 보기 (장애 도메인 할당, 전원 및 프로 비전 상태)를 검색 합니다.
 - Get VM API 및 명령을 사용 하 여 단일 인스턴스에 대 한 모델 및 인스턴스 뷰를 가져옵니다.
@@ -103,33 +103,33 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         지원되는 SKU  |            D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD  |            모든 Sku  |            모든 Sku  |
 |         가용성 영역  |            필요에 따라 단일 가용성 영역에 모든 인스턴스를 지정 합니다. |            1, 2 또는 3 개의 가용성 영역에서 인스턴스를 지정 합니다.  |            지원되지 않음  |
 |         VM, Nic, 디스크에 대 한 모든 권한  |            예  |            가상 머신 확장 집합 VM API를 사용 하 여 제한 된 제어  |            예  |
-|         자동 크기 조정  |            예  |            예  |            예  |
-|         특정 장애 도메인에 VM 할당  |            예  |             예   |            예  |
-|         VM 인스턴스를 삭제할 때 Nic 및 디스크 제거  |            예  |            예  |            예  |
-|         업그레이드 정책 (VM 크기 집합) |            No  |            자동, 롤링, 수동  |            해당 없음  |
-|         자동 OS 업데이트 (VM 크기 집합) |            예  |            예  |            해당 없음  |
-|         게스트 보안 패치  |            예  |            예  |            예  |
-|         알림 종료 (VM 크기 집합) |            예  |            예  |            해당 없음  |
-|         인스턴스 복구 (VM 크기 집합) |            예  |            예   |            해당 없음  |
+|         자동 크기 조정  |            아니요  |            예  |            아니요  |
+|         특정 장애 도메인에 VM 할당  |            예  |             아니요   |            아니요  |
+|         VM 인스턴스를 삭제할 때 Nic 및 디스크 제거  |            아니요  |            예  |            아니요  |
+|         업그레이드 정책 (VM 크기 집합) |            아니요  |            자동, 롤링, 수동  |            해당 없음  |
+|         자동 OS 업데이트 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
+|         게스트 보안 패치  |            예  |            아니요  |            예  |
+|         알림 종료 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
+|         인스턴스 복구 (VM 크기 집합) |            아니요  |            예   |            해당 없음  |
 |         가속된 네트워킹  |            예  |            예  |            예  |
 |         스폿 인스턴스 및 가격   |            예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다.  |            예, 인스턴스는 모두 스폿 이거나 모두 정상 이어야 합니다.  |            아니요, 일반 우선 순위 인스턴스만  |
 |         운영 체제 혼합  |            예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |            아니요, 인스턴스는 동일한 운영 체제입니다.  |               예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |
 |         응용 프로그램 상태 모니터링  |            응용 프로그램 상태 확장  |            응용 프로그램 상태 확장 또는 Azure 부하 분산 장치 프로브  |            응용 프로그램 상태 확장  |
-|         디스크 UltraSSD   |            예  |            예, 영역 배포에만 해당  |            No  |
-|         Infiniband   |            No  |            예, 단일 배치 그룹만  |            예  |
-|         쓰기 가속기   |            예  |            예  |            예  |
+|         디스크 UltraSSD   |            예  |            예, 영역 배포에만 해당  |            아니요  |
+|         Infiniband   |            아니요  |            예, 단일 배치 그룹만  |            예  |
+|         쓰기 가속기   |            아니요  |            예  |            예  |
 |         근접 배치 그룹   |            예  |            예  |            예  |
-|         Azure 전용 호스트   |            예  |            예  |            예  |
-|         기본 SLB   |            예  |            예  |            예  |
+|         Azure 전용 호스트   |            아니요  |            예  |            예  |
+|         기본 SLB   |            아니요  |            예  |            예  |
 |         Azure Load Balancer Standard SKU |            예  |            예  |            예  |
-|         Application Gateway  |            예  |            예  |            예  |
-|         유지 관리 제어   |            예  |            예  |            예  |
+|         Application Gateway  |            아니요  |            예  |            예  |
+|         유지 관리 제어   |            아니요  |            예  |            예  |
 |         집합의 Vm 나열  |            예  |            예  |            예, AvSet의 Vm을 나열 합니다.  |
-|         Azure Alerts  |            예  |            예  |            예  |
-|         VM 인사이트  |            예  |            예  |            예  |
+|         Azure Alerts  |            아니요  |            예  |            예  |
+|         VM 인사이트  |            아니요  |            예  |            예  |
 |         Azure Backup  |            예  |            예  |            예  |
 |         Azure Site Recovery  |            예, PowerShell만  |            예  |            예  |
-|         그룹에 기존 VM 추가/제거  |            예  |            예  |            예  | 
+|         그룹에 기존 VM 추가/제거  |            아니요  |            아니요  |            아니요  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>유연한 오케스트레이션 모드 등록
@@ -180,7 +180,7 @@ az provider register --namespace Microsoft.Compute
 
 Azure Portal, Azure CLI, Terraform 또는 REST API를 통해 확장 집합에 대 한 유연한 오케스트레이션 모드로 시작 하세요.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 통해 유연한 오케스트레이션 모드로 가상 머신 확장 집합을 만듭니다.
 
@@ -299,7 +299,7 @@ zones = ["1"]
 
 |   | 유연한 오케스트레이션  | 단일 오케스트레이션  | 가용성 집합  |
 |-|-|-|-|
-| 가용성 영역 간 배포  | 예  | 예  | 예  |
+| 가용성 영역 간 배포  | 아니요  | 예  | 아니요  |
 | 지역 내에서 장애 도메인 가용성 보장  | 예, 최대 1000 개 인스턴스는 지역에서 최대 3 개의 장애 도메인에 걸쳐 분산 될 수 있습니다. 최대 장애 도메인 수는 지역에 따라 다릅니다.  | 예, 최대 100 인스턴스  | 예, 최대 200 인스턴스  |
 | 배치 그룹  | 유연 모드는 항상 여러 배치 그룹을 사용 합니다 (Singleementgroup = false).  | 단일 배치 그룹 또는 여러 배치 그룹을 선택할 수 있습니다. | 해당 없음  |
 | 업데이트 도메인  | 없음, 유지 관리 또는 호스트 업데이트가 장애 도메인에 의해 수행 되지 않음  | 최대 5 개의 업데이트 도메인  | 최대 20 개의 업데이트 도메인  |
@@ -322,7 +322,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **원인:** `platformFaultDomainCount` 선택한 영역 또는 영역에 대 한 매개 변수가 잘못 되었습니다. 
 
-**해결 방법:** 올바른 값을 선택 해야 `platformFaultDomainCount` 합니다. 영역 배포의 경우 최대값은 `platformFaultDomainCount` 1입니다. 영역을 지정 하지 않는 지역 배포의 경우 최대값은 `platformFaultDomainCount` 지역에 따라 다릅니다. 지역별 최대 장애 도메인 수를 확인 하는 [스크립트에 대 한 vm의 가용성 관리](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 를 참조 하세요. 
+**해결 방법:** 올바른 값을 선택 해야 `platformFaultDomainCount` 합니다. 영역 배포의 경우 최대값은 `platformFaultDomainCount` 1입니다. 영역을 지정 하지 않는 지역 배포의 경우 최대값은 `platformFaultDomainCount` 지역에 따라 다릅니다. 지역별 최대 장애 도메인 수를 확인 하는 [스크립트에 대 한 vm의 가용성 관리](../virtual-machines/availability.md) 를 참조 하세요. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.

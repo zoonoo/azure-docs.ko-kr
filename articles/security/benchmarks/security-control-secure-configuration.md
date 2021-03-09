@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 44604f910b3ee6e6ce1b21c736c6ad1f0443e996
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880172"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500039"
 ---
 # <a name="security-control-secure-configuration"></a>보안 제어: 보안 구성
 
@@ -30,7 +30,7 @@ Azure Policy 별칭을 사용 하 여 Azure 리소스의 구성을 감사 하거
 
 Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구성 기준으로 사용할 수도 있습니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 - [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -74,7 +74,7 @@ Azure 리소스 전체에서 보안 설정을 적용 하려면 [거부] 및 [없
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 7.4 | 5.2 | 공유됨 |
+| 7.4 | 5.2 | Shared |
 
 Azure 계산 리소스에 대 한 취약성 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.  또한 Azure Resource Manager 템플릿, 사용자 지정 운영 체제 이미지 또는 Azure Automation 상태 구성을 사용 하 여 조직에 필요한 운영 체제의 보안 구성을 유지 관리할 수 있습니다.   Azure Automation 필요한 상태 구성과 결합 된 Microsoft 가상 머신 템플릿은 보안 요구 사항을 충족 하 고 유지 관리 하는 데 도움이 될 수 있습니다. 
 

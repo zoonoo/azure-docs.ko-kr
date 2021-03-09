@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701657"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504834"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -105,6 +105,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 2. **저장소 계정** 드롭다운 목록에서 로그를 보관 하려는 저장소 계정을 선택 하 고 **확인** 단추를 클릭 한 다음 **저장** 단추를 클릭 합니다.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > 저장소 계정을 내보내기 대상으로 선택 하기 전에 저장소 계정에 대 한 필수 구성 요소를 이해 하기 위해 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 을 참조 하세요.
 
@@ -149,12 +151,14 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `StorageAccountId` 합니다.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
 `<storage-service-resource--id>`이 코드 조각의 자리 표시자를 Azure 파일 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
 
 `StorageRead` `StorageWrite` `StorageDelete` **Category** 매개 변수의 값으로, 및를 사용할 수 있습니다.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 예를 들면 다음과 같습니다.
 
@@ -211,16 +215,18 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 로그를 사용 하도록 설정 합니다.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 `<storage-service-resource--id>`이 코드 조각에서 자리 표시자를 리소스 ID Blob 저장소 서비스로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
 
 `StorageRead` `StorageWrite` `StorageDelete` **Category** 매개 변수의 값으로, 및를 사용할 수 있습니다.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 예를 들면 다음과 같습니다.
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 각 매개 변수에 대 한 설명은 [Azure CLI를 통해 보관 리소스 로그](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)를 참조 하세요.
 

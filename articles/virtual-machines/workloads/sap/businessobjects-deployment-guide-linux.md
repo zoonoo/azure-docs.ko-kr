@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671929"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505939"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -603,7 +603,7 @@ BI 및 웹 응용 프로그램 서버의 경우 별도로 설치 하거나 함�
 - 가용성 집합의 Vm에 Managed Disks를 사용 합니다.
 - 각 응용 프로그램 계층을 별도의 가용성 집합으로 구성 합니다.
 
-자세한 내용은 [Linux 가상 머신의 가용성 관리](../../manage-availability.md) 를 참조 하세요.
+자세한 내용은 [Linux 가상 머신의 가용성 관리](../../availability.md) 를 참조 하세요.
 
 #### <a name="high-availability-for-cms-database"></a>CMS 데이터베이스의 고가용성
 

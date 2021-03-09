@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739997"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508642"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -26,7 +26,7 @@ Visual Studio Code (VS Code) 및 [debugpy](https://github.com/microsoft/debugpy/
 
 Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 전에 Machine Learning 실험의 유효성을 검사, 실행 및 디버그할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 * VS Code 확장 (미리 보기)을 Azure Machine Learning 합니다. 자세한 내용은 [VS Code 확장 Azure Machine Learning 설정](tutorial-setup-vscode-extension.md)을 참조 하세요.
 * [Docker](https://www.docker.com/get-started)
@@ -84,7 +84,7 @@ Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 �
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. VS Code 및 debugpy를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 * __Azure Virtual Network__ 를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -339,7 +339,7 @@ ip_address: 10.3.0.5
 경우에 따라 모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. VS Code 및 debugpy를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> `Model.deploy()` 및 `LocalWebservice.deploy_configuration`을 사용하여 모델을 로컬로 배포하는 경우 이 디버깅 방법이 작동하지 않습니다. 대신 [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) 메서드를 사용하여 이미지를 만들어야 합니다.
+> `Model.deploy()` 및 `LocalWebservice.deploy_configuration`을 사용하여 모델을 로컬로 배포하는 경우 이 디버깅 방법이 작동하지 않습니다. 대신 [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) 메서드를 사용하여 이미지를 만들어야 합니다.
 
 로컬 웹 서비스를 배포하려면 로컬 시스템에서 작동하는 Docker를 설치해야 합니다. Docker를 사용하는 방법에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요. 계산 인스턴스를 사용할 때는 Docker가 이미 설치 되어 있습니다.
 

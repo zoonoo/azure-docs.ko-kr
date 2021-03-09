@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204017"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503916"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>키 자격 증명 모음 로깅을 사용하는 방법
 
 하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 기능에 대 한 자세한 내용은 [Key Vault 로깅](logging.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -42,7 +42,7 @@ az account list
 az account set --subscription "<subscriptionID>"
 ```
 
-Azure PowerShell를 사용 하 여 먼저 [AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-4.7.0) cmdlet을 사용 하 여 구독을 나열 한 다음 [AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-4.7.0) cmdlet을 사용 하 여 구독에 연결할 수 있습니다. 
+Azure PowerShell를 사용 하 여 먼저 [AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet을 사용 하 여 구독을 나열 한 다음 [AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용 하 여 구독에 연결할 수 있습니다. 
 
 ```powershell-interactive
 Get-AzSubscription
@@ -64,13 +64,13 @@ Azure CLI를 사용 하 여 [az storage account create](/cli/azure/storage/accou
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
 ```
 
-Azure PowerShell를 사용 하 여 [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount?view=azps-4.7.0) cmdlet을 사용 합니다. 리소스 그룹에 해당 하는 위치를 제공 해야 합니다.
+Azure PowerShell를 사용 하 여 [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용 합니다. 리소스 그룹에 해당 하는 위치를 제공 해야 합니다.
 
 ```powershell
  New-AzStorageAccount -ResourceGroupName myResourceGroup -Name "<your-unique-storage-account-name>" -Type "Standard_LRS" -Location "eastus"
 ```
 
-두 경우 모두 저장소 계정의 "id"를 확인 합니다. Azure CLI 작업은 출력에서 "id"를 반환 합니다. Azure PowerShell에서 "id"를 얻으려면 [AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-4.7.0) 를 사용 하 고 $sa 변수에 출력을 할당 합니다. 그런 다음 $sa. id를 사용 하 여 저장소 계정을 볼 수 있습니다. ("$Sa. Context "속성도이 문서의 뒷부분에서 사용 됩니다.
+두 경우 모두 저장소 계정의 "id"를 확인 합니다. Azure CLI 작업은 출력에서 "id"를 반환 합니다. Azure PowerShell에서 "id"를 얻으려면 [AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) 를 사용 하 고 $sa 변수에 출력을 할당 합니다. 그런 다음 $sa. id를 사용 하 여 저장소 계정을 볼 수 있습니다. ("$Sa. Context "속성도이 문서의 뒷부분에서 사용 됩니다.
 
 ```powershell-interactive
 $sa = Get-AzStorageAccount -Name "<your-unique-storage-account-name>" -ResourceGroup "myResourceGroup"
@@ -84,7 +84,7 @@ $sa.id
 
 ## <a name="obtain-your-key-vault-resource-id"></a>주요 자격 증명 모음 리소스 ID 가져오기
 
-[CLI 빠른](quick-create-cli.md) 시작 및 [PowerShell 빠른](quick-create-powershell.md)시작에서 고유 이름으로 키를 만들었습니다.  아래 단계에서 해당 이름을 다시 사용 합니다.  키 자격 증명 모음의 이름을 기억할 수 없는 경우 Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) 명령 또는 Azure PowerShell [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) cmdlet을 사용 하 여 나열할 수 있습니다.
+[CLI 빠른](quick-create-cli.md) 시작 및 [PowerShell 빠른](quick-create-powershell.md)시작에서 고유 이름으로 키를 만들었습니다.  아래 단계에서 해당 이름을 다시 사용 합니다.  키 자격 증명 모음의 이름을 기억할 수 없는 경우 Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) 명령 또는 Azure PowerShell [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet을 사용 하 여 나열할 수 있습니다.
 
 키 자격 증명 모음 이름을 사용 하 여 리소스 ID를 찾습니다.  Azure CLI를 사용 하 여 [az keyvault show](/cli/azure/keyvault#az_keyvault_show) 명령을 사용 합니다.
 
@@ -92,7 +92,7 @@ $sa.id
 az keyvault show --name "<your-unique-keyvault-name>"
 ```
 
-Azure PowerShell를 사용 하 여 [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) cmdlet을 사용 합니다.
+Azure PowerShell를 사용 하 여 [AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet을 사용 합니다.
 
 ```powershell-interactive
 Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
@@ -102,13 +102,13 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 ## <a name="enable-logging-using-azure-powershell"></a>Azure PowerShell을 통해 로깅 사용
 
-Key Vault에 대 한 로깅을 사용 하도록 설정 하려면 저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings) 명령 또는 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) cmdlet을 사용 합니다.
+Key Vault에 대 한 로깅을 사용 하도록 설정 하려면 저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings) 명령 또는 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Azure PowerShell에서는 **-Enabled** 플래그가 **$true** 로 설정 되 고 범주가로 설정 된 [](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) `AuditEvent` (Key Vault 로깅의 유일한 범주) AzDiagnosticSetting cmdlet을 사용 합니다.
+Azure PowerShell에서는 **-Enabled** 플래그가 **$true** 로 설정 되 고 범주가로 설정 된 [](/powershell/module/az.monitor/set-azdiagnosticsetting) `AuditEvent` (Key Vault 로깅의 유일한 범주) AzDiagnosticSetting cmdlet을 사용 합니다.
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
@@ -123,7 +123,7 @@ az monitor diagnostic-settings update
 ```
 -->
 
-Azure PowerShell를 사용 하 여 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) cmdlet을 사용 합니다. 
+Azure PowerShell를 사용 하 여 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. 
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
@@ -149,7 +149,7 @@ Key Vault 로그는 제공 된 저장소 계정의 "insights-로그-auditevent" 
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
 ```
 
-Azure PowerShell를 사용 하 여이 컨테이너의 모든 blob을 [AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) 나열 하 고 다음을 입력 합니다.
+Azure PowerShell를 사용 하 여이 컨테이너의 모든 blob을 [AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) 나열 하 고 다음을 입력 합니다.
 
 ```powershell
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
@@ -165,7 +165,7 @@ Azure CLI를 사용 하 여 [az storage blob download](/cli/azure/storage/blob#a
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"
 ```
 
-Azure PowerShell를 사용 하 여 [AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) cmdlet을 사용 하 여 blob 목록을 가져온 다음 [AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) cmdlet으로 파이프 하 여 선택한 경로에 로그를 다운로드 합니다.
+Azure PowerShell를 사용 하 여 [AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob) cmdlet을 사용 하 여 blob 목록을 가져온 다음 [AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet으로 파이프 하 여 선택한 경로에 로그를 다운로드 합니다.
 
 ```powershell-interactive
 $blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"

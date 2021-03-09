@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2bd332dbf9412f5c42e77b14ada3aab67ec8b66a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366571"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508591"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -43,11 +43,11 @@ CNI(컨테이너 네트워킹 인터페이스)는 컨테이너 런타임이 네�
 
 프로덕션에 대 한 Azure CNI 네트워킹의 주목할 만한 장점으로는 네트워크 모델을 통해 리소스 제어 및 관리를 구분할 수 있습니다. 보안 관점에서, 해당 리소스를 관리하는 팀과 보호하는 팀을 구분하려는 경우가 종종 있습니다. Azure CNI 네트워킹을 사용하면 각 pod에 할당된 IP 주소를 통해 직접 기존 Azure 리소스, 온-프레미스 리소스 또는 기타 서비스에 연결할 수 있습니다.
 
-Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클러스터와는 구분된 리소스 그룹에 있습니다. AKS 서비스 주체가 이러한 리소스를 액세스 및 관리할 수 있도록 권한을 위임합니다. AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클러스터와는 구분된 리소스 그룹에 있습니다. 이러한 리소스에 액세스 하 고 관리 하는 AKS 클러스터 id에 대 한 권한 위임 AKS 클러스터에서 사용 하는 클러스터 id에는 가상 네트워크 내의 서브넷에 대 한 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체를 대신하여 사용 권한에 대한 시스템이 할당한 관리 ID를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
+기본적으로 AKS는 클러스터 id에 관리 id를 사용 하지만 대신 서비스 주체를 사용 하는 옵션이 있습니다. AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 관리 id에 대 한 자세한 내용은 [관리 되는 Id 사용](use-managed-identity.md)을 참조 하세요.
 
 각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 규모 확장 이벤트 또는 클러스터 업그레이드를 처리 하려면 할당 된 서브넷에 사용할 수 있는 추가 IP 주소도 필요 합니다. 이러한 추가 주소 공간은 Windows Server 컨테이너를 사용 하는 경우 특히 중요 합니다. 이러한 노드 풀에는 최신 보안 패치를 적용 하기 위해 업그레이드가 필요 하기 때문입니다. Windows Server 노드에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 

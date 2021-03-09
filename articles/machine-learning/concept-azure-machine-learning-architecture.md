@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091672"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503694"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -102,7 +102,7 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 [작업 영역](#workspace)  >  [실험](#experiments)  >  [실행](#runs)  >  **실행 구성**
 
-실행 구성은 지정 된 계산 대상에서 스크립트를 실행 하는 방법을 정의 합니다. 구성을 사용 하 여 실행할 스크립트, 계산 대상 및 Azure ML 환경, 모든 분산 작업 관련 구성 및 일부 추가 속성을 지정 합니다. 실행에 대 한 구성 가능한 전체 옵션 집합에 대 한 자세한 내용은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)를 참조 하세요.
+실행 구성은 지정 된 계산 대상에서 스크립트를 실행 하는 방법을 정의 합니다. 구성을 사용 하 여 실행할 스크립트, 계산 대상 및 Azure ML 환경, 모든 분산 작업 관련 구성 및 일부 추가 속성을 지정 합니다. 실행에 대 한 구성 가능한 전체 옵션 집합에 대 한 자세한 내용은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig)를 참조 하세요.
 
 실행 구성은 학습 스크립트를 포함 하는 디렉터리 내의 파일에 보관 될 수 있습니다.   또는 메모리 내 개체로 생성 되 고 실행을 전송 하는 데 사용 될 수 있습니다.
 
@@ -255,7 +255,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제공 합니다.
 
-* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
    * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
    * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
    * [MLflow로 실험 추적](how-to-use-mlflow.md)
@@ -282,7 +282,7 @@ Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제
 > 아래 표시 된 (미리 보기) 도구는 현재 공개 미리 보기로 제공 됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-+  [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
++  [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
 + R (미리 보기) [에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) 를 사용 하 여 모든 r 환경에서 서비스와 상호 작용 합니다.
 + [Azure Machine Learning 디자이너](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다. 
 + 자동화에 [AZURE MACHINE LEARNING CLI](./reference-azure-machine-learning-cli.md) 를 사용 합니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure 디스크 저장소 개요
-description: VM을 사용할 때 스토리지 계정을 처리해주는 Azure 관리 디스크에 대한 개요
+description: Vm을 사용할 때 저장소 계정을 처리 하는 Azure managed disks에 대 한 개요입니다.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627818"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504733"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -35,7 +35,7 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 ### <a name="integration-with-availability-sets"></a>가용성 집합과 통합
 
-관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
+관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](./availability-set-overview.md) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
 ### <a name="integration-with-availability-zones"></a>가용성 영역과 통합
 
@@ -100,7 +100,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
+대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./understand-vm-reboots.md) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 

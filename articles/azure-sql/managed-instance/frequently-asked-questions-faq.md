@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9e8ef5bf9d5d8000bfdd581cd7e9ae1a1a775fc9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178136"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503201"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **내 Managed Instance을 삭제 하려면 어떻게 해야 하나요?**
 
-Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0) [AZURE CLI](/cli/azure/sql/mi#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
+Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance) [AZURE CLI](/cli/azure/sql/mi#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간은 어느 정도 인가요?**
 

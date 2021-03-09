@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1b94a3d8675461779fa9d543bf0153b165ab4fb4
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: a92679bb3114c4a60870424f3ec68a8de7b303da
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217587"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499920"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>프런트 도어 서비스 제외 목록이 포함 된 WAF (웹 응용 프로그램 방화벽) 
 
-경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
+경우에 따라 WAF (웹 응용 프로그램 방화벽)에서 응용 프로그램에 허용 하려는 요청을 차단할 수 있습니다. 예를 들어 Active Directory는 인증에 사용 되는 토큰을 삽입 합니다. 이러한 토큰은 WAF 규칙에서 거짓 긍정을 트리거할 수 있는 특수 문자를 포함할 수 있습니다. WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다.  제외 목록은  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [AZURE CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)또는 Azure Portal를 사용 하 여 구성할 수 있습니다. 다음 예에서는 Azure Portal 구성을 보여 줍니다. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Azure Portal를 사용 하 여 제외 목록 구성
 **관리 되는 규칙** 의 waf 포털에서 **제외 관리** 에 액세스할 수 있습니다.
 

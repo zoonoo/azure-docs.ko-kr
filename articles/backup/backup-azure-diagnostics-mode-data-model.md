@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586785"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500991"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -18,7 +18,8 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 > [!NOTE]
 >
-> 이 데이터 모델은 LA(Log Analytics)로 진단 이벤트를 보내는 Azure Diagnostics 모드를 참조합니다. 새 리소스 특정 모드의 데이터 모델에 대해 알아보려면 다음 문서를 참조할 수 있습니다. [Azure Backup 진단 이벤트에 대한 데이터 모델](./backup-azure-reports-data-model.md)
+> * 이 데이터 모델은 LA(Log Analytics)로 진단 이벤트를 보내는 Azure Diagnostics 모드를 참조합니다. 새 리소스 특정 모드의 데이터 모델에 대해 알아보려면 다음 문서를 참조할 수 있습니다. [Azure Backup 진단 이벤트에 대한 데이터 모델](./backup-azure-reports-data-model.md)
+> * 사용자 지정 보고 보기를 만들려면 아래에 나열 된 원시 테이블로 작업 하는 대신 [Azure Monitor 로그에서 시스템 함수](backup-reports-system-functions.md) 를 사용 하는 것이 좋습니다.
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup 데이터 모델 사용
 

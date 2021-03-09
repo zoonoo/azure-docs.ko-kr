@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051584"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501231"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
@@ -61,7 +61,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 매개 변수 집합은 특정 cmdlet에 대한 값을 허용하는 필수 및 선택적 매개 변수를 정의합니다. 모든 cmdlet에는 적어도 하나의 매개 변수 집합이 있으며, 여러 개의 집합이 있는 cmdlet도 있습니다. cmdlet에 여러 매개 변수 집합이 있는 경우 매개 변수를 구성하려면 먼저 사용할 집합을 선택해야 합니다. **매개 변수 집합** 을 선택하고 다른 집합을 선택하여 활동에서 사용하는 매개 변수 집합을 변경할 수 있습니다. 이 경우 이미 구성한 모든 매개 변수 값이 손실됩니다.
 
-다음 예제에서 [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet** 라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
+다음 예제에서 [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet** 라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
 
 ![매개 변수 집합](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -254,7 +254,7 @@ Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력** 을 �
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 속성 | 필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 합니다. 문자로 시작해야 하며, 문자, 숫자, 밑줄만 사용할 수 있습니다. 이름은 공백을 포함할 수 없습니다. |
 | Description |(선택 사항) 입력 매개 변수의 용도에 대한 설명입니다. |
@@ -435,4 +435,4 @@ Azure Automation의 각 그래픽 Runbook에는 초안 버전과 게시된 버�
 * 그래픽 Runbook을 시작하려면 [자습서: 그래픽 Runbook 만들기](learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.
 * Automation 실행 계정을 사용하여 인증하는 방법을 알아보려면 [실행 계정](automation-security-overview.md#run-as-account)을 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/#automation)을 참조하세요.

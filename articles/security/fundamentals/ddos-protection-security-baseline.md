@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09654ddafba6c60db0290a8c7ce08d4b1b168f6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575062"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504885"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대 한 Azure 보안 기준
 
@@ -294,7 +294,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -386,7 +386,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 **지침**: Azure Policy를 사용 하 여 Azure DDoS Protection에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176657"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500430"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -78,7 +78,7 @@ Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 
 ## <a name="checking-ingestion-time"></a>수집 시간 확인
 수집 시간은 리소스와 상황에 따라 달라질 수 있습니다. 로그 쿼리를 사용하여 현재 환경의 특정 동작을 파악할 수 있습니다. 다음 표에서는 레코드를 만들고 Azure Monitor 전송 되는 레코드에 대해 다른 시간을 결정 하는 방법을 지정 합니다.
 
-| 단계 | 속성 또는 함수 | 의견 |
+| 단계 | 속성 또는 함수 | 주석 |
 |:---|:---|:---|
 | 데이터 원본에 생성 되는 레코드 | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>데이터 원본에서이 값을 설정 하지 않으면 _TimeReceived와 같은 시간으로 설정 됩니다. |
 | Azure Monitor 수집 끝점에서 받은 레코드 | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
@@ -145,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Monitor에 대한 [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/)를 읽어 보세요.
+* Azure Monitor에 대한 [SLA(서비스 수준 계약)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/)를 읽어 보세요.

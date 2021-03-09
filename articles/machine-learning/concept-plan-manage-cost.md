@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: be8b11b6ddf715e5d6226372e8d03b42dec5fc7d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6f4a8e4b8cbc35dca9f48bbec84e9023e82f6a84
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215989"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501638"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -33,7 +33,7 @@ Machine learning 모델을 학습 하는 경우 관리 되는 Azure Machine Lear
 * 낮은 우선 순위의 가상 머신 (VM) 사용
 * Azure Reserved VM Instance 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. 
 
@@ -121,7 +121,7 @@ AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정
 + 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
-Amlcompute [SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) [AMLCOMPUTE CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
+Amlcompute [SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) [AMLCOMPUTE CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

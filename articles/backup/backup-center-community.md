@@ -1,18 +1,18 @@
 ---
-title: Backup Center를 사용 하 여 커뮤니티 리소스 액세스
-description: Backup Center를 사용 하 여 샘플 템플릿, 스크립트 및 기능 요청에 액세스
+title: Backup center를 사용 하 여 커뮤니티 리소스 액세스
+description: Backup center를 사용 하 여 샘플 템플릿, 스크립트 및 기능 요청에 액세스
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 23892c11df26bd3799ca247ef31a7d4c1b6e8bf5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b5173f916341497620d521af1bc7e973e0b6e507
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100035"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506272"
 ---
-# <a name="access-community-resources-using-backup-center"></a>Backup Center를 사용 하 여 커뮤니티 리소스 액세스
+# <a name="access-community-resources-using-backup-center"></a>Backup center를 사용 하 여 커뮤니티 리소스 액세스
 
-Backup Center를 사용 하 여 백업 관리자 또는 운영자에 게 유용한 다양 한 커뮤니티 리소스에 액세스할 수 있습니다.
+Backup center를 사용 하 여 백업 관리자 또는 운영자에 게 유용한 다양 한 커뮤니티 리소스에 액세스할 수 있습니다.
 
 ## <a name="using-community-hub"></a>커뮤니티 허브 사용
 

@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180941"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508183"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -86,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>서비스 주체 만들기 또는 관리 id 사용
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다. 또는 서비스 주체 대신 사용 권한에 대해 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 클러스터 id가 사용 됩니다. 이 클러스터 id는 Azure CLI 또는 포털에서 자동으로 만들 수도 있고,이를 미리 만들고 추가 사용 권한을 할당할 수 있습니다. 기본적으로이 클러스터 id는 관리 되는 id입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 id로 사용할 수 있습니다. 다음 단계에서는 서비스 주체를 수동으로 만들고 클러스터에 할당 하는 방법을 보여 줍니다.
 
 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
 

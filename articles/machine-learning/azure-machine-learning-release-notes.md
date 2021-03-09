@@ -9,16 +9,16 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 69313b48b505bd0b53df6f15f636e2903f41ebfd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: ebd4aed284869eb74760de8612a76139d26d47f5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502351"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
+이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 참조 하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
@@ -49,7 +49,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + [실험적 기능] Synapse spark 풀을 AML에 계산으로 연결 하는 지원 추가
     + [실험적 기능] Id 기반 데이터 액세스에 대 한 지원을 추가 합니다. 사용자는 자격 증명을 제공 하지 않고 데이터 저장소 또는 데이터 집합을 등록할 수 있습니다. 이러한 경우 사용자의 AAD 토큰 또는 관리 id의 계산 대상이 인증에 사용 됩니다. [여기](https://aka.ms/data-access)를 참조하세요.
   + **azureml-pipeline-steps**
-    + [실험적 기능] [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py) 에 대 한 지원 추가
+    + [실험적 기능] [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep) 에 대 한 지원 추가
   + **azureml-synapse**
     + [실험적 기능] Synapse spark 풀에서 대화형 세션을 실행 하는 spark magic 지원을 추가 합니다.
 + **버그 수정 및 향상 된 기능**
@@ -80,10 +80,10 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + 귀속 대상 값을 가진 행이 없는 경우 기존 예측 모델 (예: AutoArima)이 학습 데이터를 받을 수 있는 버그를 수정 했습니다. 이러한 모델의 데이터 계약이 위반 되었습니다. * 시계열 지연 연산자에서 발생 한 지연 동작으로 다양 한 버그를 수정 했습니다. 이전에는 발생 별 지연 작업에서 모든 귀속 행을 올바르게 표시 하지 않았으므로 항상 올바른 발생 지연 값을 생성 하지는 않습니다. 또한 지연 연산자와 발생 지연 동작을 포함 하는 롤링 창 연산자 간의 일부 호환성 문제가 해결 되었습니다. 이로 인해 이전에는 이동 창 연산자가 학습 데이터에서 다른 방법으로 사용 해야 하는 행을 삭제 했습니다.
   + **azureml-core**
     + 사용자가 토큰 인증에 대 한 지원을 추가 합니다.
-    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 에를 추가 합니다.
+    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) 에를 추가 합니다.
   + **azureml-pipeline-steps**
-    + 이제 [Commandstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) 이 GA 이며 더 이상 실험적이 아닙니다.
-    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): allowed_failed_count 인수를 추가 하 고 allowed_failed_percent 하 여 미니 일괄 처리 수준에서 오류 임계값을 확인 합니다. 오류 임계값에는 이제 다음과 같은 3 가지 종류가 있습니다.
+    + 이제 [Commandstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep) 이 GA 이며 더 이상 실험적이 아닙니다.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig): allowed_failed_count 인수를 추가 하 고 allowed_failed_percent 하 여 미니 일괄 처리 수준에서 오류 임계값을 확인 합니다. 오류 임계값에는 이제 다음과 같은 3 가지 종류가 있습니다.
        + error_threshold-허용 된 실패 한 미니 일괄 처리 항목 수 
        + allowed_failed_count-허용 된 최소 미니 일괄 처리 수 
        + allowed_failed_percent-허용 된 미니 일괄 처리 중 실패 한 비율입니다. 
@@ -93,7 +93,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + ScriptRunConfig는 이제 Hyper드라이브 Estep에서 지원 됩니다.
   + **azureml-train-core**
     + 이제 스크립트가 호출 되는 하이퍼 드라이브 실행이 자식 실행으로 간주 됩니다.
-    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 에를 추가 합니다.
+    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) 에를 추가 합니다.
   + **azureml-widgets**
     + 위젯 ParallelRunStepDetails를 추가 하 여 ParallelRunStep의 상태를 시각화 합니다.
     + 하이퍼 드라이브 사용자가 병렬 좌표 차트에서 각 자식 실행에 대 한 각 하이퍼 매개 변수 집합에 해당 하는 메트릭 값을 표시 하는 추가 축을 볼 수 있습니다.
@@ -454,7 +454,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK for Python v 1.13.0
 + **미리 보기 기능**
-  + **azureml-코어** 새 출력 데이터 집합 기능을 사용 하면 Blob, ADLS Gen 1, ADLS Gen 2 및 파일 공유를 포함 하 여 클라우드 저장소에 다시 쓸 수 있습니다. 데이터를 출력 하는 위치, 데이터를 출력 하는 방법 (탑재 또는 업로드를 통해), 나중에 다시 사용 하기 위해 출력 데이터를 등록 하 고 파이프라인 단계 간에 중간 데이터를 전달할 것인지 여부를 구성할 수 있습니다. 이렇게 하면 재현 가능성을 공유 하 고, 데이터 중복을 방지 하며, 비용 효율성과 생산성을 높일 수 있습니다. [사용 방법 알아보기](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py)
+  + **azureml-코어** 새 출력 데이터 집합 기능을 사용 하면 Blob, ADLS Gen 1, ADLS Gen 2 및 파일 공유를 포함 하 여 클라우드 저장소에 다시 쓸 수 있습니다. 데이터를 출력 하는 위치, 데이터를 출력 하는 방법 (탑재 또는 업로드를 통해), 나중에 다시 사용 하기 위해 출력 데이터를 등록 하 고 파이프라인 단계 간에 중간 데이터를 전달할 것인지 여부를 구성할 수 있습니다. 이렇게 하면 재현 가능성을 공유 하 고, 데이터 중복을 방지 하며, 비용 효율성과 생산성을 높일 수 있습니다. [사용 방법 알아보기](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig)
     
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
@@ -528,7 +528,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + **azureml-core**
     + 이제 새 메서드에 `run.get_detailed_status()` 현재 실행 상태에 대 한 자세한 설명이 표시 됩니다. 현재 상태에 대 한 설명만 표시 됩니다 `Queued` .
     + 모델에 image_name 및 image_label 매개 변수를 추가 하 여 기본 패키지 이미지의 이름을 바꿀 수 있습니다.
-    + `set_pip_requirements()`전체 pip 섹션을 한 번에 설정 하는 새 메서드입니다 [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?preserve-view=true&view=azure-ml-py) .
+    + `set_pip_requirements()`전체 pip 섹션을 한 번에 설정 하는 새 메서드입니다 [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies) .
     + 자격 증명을 등록 하지 ADLS Gen2 데이터 저장소를 사용 합니다.
     + 잘못 된 데이터 집합 형식을 다운로드 하거나 탑재 하려고 할 때 오류 메시지가 개선 되었습니다.
     + 시계열 데이터 집합 업데이트 샘플 노트북 필터 최적화를 제공 하는 partition_timestamp에 대 한 추가 예제가 있습니다.
@@ -553,7 +553,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + 사용자 제공 스크립트 없이 AutoML 실행을 제출할 때 발생 하는 스냅숏 문제를 수정 했습니다.
     + 데이터가 nan을 포함 하 고 기능화가 해제 되어 있는 경우 자식 실행 오류가 해결 되었습니다.
   + **azureml-train-core**
-    + To 매개 변수에 전달 된 pip 요구 사항 파일에 pip 옵션 (예:--extra-url)을 지정 하기 위한 지원이 추가 되었습니다 [`Estimator`](/python/api/azureml-train-core/azureml.train.estimator.estimator?preserve-view=true&view=azure-ml-py) `pip_requirements_file` .
+    + To 매개 변수에 전달 된 pip 요구 사항 파일에 pip 옵션 (예:--extra-url)을 지정 하기 위한 지원이 추가 되었습니다 [`Estimator`](/python/api/azureml-train-core/azureml.train.estimator.estimator) `pip_requirements_file` .
 
 
 ## <a name="2020-08-03"></a>2020-08-03
@@ -1001,7 +1001,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 ## <a name="2020-05-04"></a>2020-05-04
 **새 노트북 환경**
 
-이제 Azure Machine Learning의 스튜디오 웹 환경 내에서 직접 machine learning 노트와 파일을 만들고, 편집 하 고, 공유할 수 있습니다. 이러한 노트북 내에서 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 에서 사용할 수 있는 모든 클래스와 메서드를 사용할 수 있습니다. [여기서](./how-to-run-jupyter-notebooks.md) 시작 하세요.
+이제 Azure Machine Learning의 스튜디오 웹 환경 내에서 직접 machine learning 노트와 파일을 만들고, 편집 하 고, 공유할 수 있습니다. 이러한 노트북 내에서 [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro) 에서 사용할 수 있는 모든 클래스와 메서드를 사용할 수 있습니다. [여기서](./how-to-run-jupyter-notebooks.md) 시작 하세요.
 
 **도입 된 새로운 기능:**
 
@@ -1372,7 +1372,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + 모든 이미지 클래스 코드 경로에 대 한 사용 중단 메시지 추가
     + Azure 중국 21Vianet 지역에 대 한 모델 관리 URL 생성을 수정 했습니다.
     + Source_dir를 사용 하는 모델을 Azure Functions 패키지할 수 없는 문제를 해결 했습니다.    
-    + [Environment.build_local ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 에 이미지를 AzureML 작업 영역 컨테이너 레지스트리에 푸시하는 옵션이 추가 되었습니다.
+    + [Environment.build_local ()](/python/api/azureml-core/azureml.core.environment.environment) 에 이미지를 AzureML 작업 영역 컨테이너 레지스트리에 푸시하는 옵션이 추가 되었습니다.
     + 이전 버전과 호환 되는 방식으로 Azure synapse에서 새로운 토큰 라이브러리를 사용 하도록 SDK를 업데이트 했습니다.
   + **azureml-interpret**
     + 다운로드할 수 있는 설명이 없는 경우 아무것도 반환 되지 않는 버그를 수정 했습니다. 는 현재 다른 곳에서 일치 하는 동작을 발생 시킵니다.
@@ -1720,13 +1720,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
+    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
 
         ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
+        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
 
         ```python
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1735,7 +1735,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
+        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
 
         ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
@@ -1751,7 +1751,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
       + ' Daily_latest_only ' 매개 변수는 사용 되지 않습니다.
     + 데이터 집합 기반 데이터 드리프트 출력 검색을 지원 합니다.
   + **azureml-explain-model**
-    + MimicWrapper를 사용 하 여 직접 만들 [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) 에 대 한 지원 추가
+    + MimicWrapper를 사용 하 여 직접 만들 [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer) 에 대 한 지원 추가
   + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
     + 대량 파이프라인 생성을 위한 향상 된 성능.
   + **[azureml-train-core](/python/api/azureml-train-core)**
@@ -2334,7 +2334,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 
 Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
-는 [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?preserve-view=true&view=azure-ml-py) 동일한 끝점을 유지 하면서 게시 된 파이프라인의 새 버전을 추가 하기 위해 도입 되었습니다.
+는 [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint) 동일한 끝점을 유지 하면서 게시 된 파이프라인의 새 버전을 추가 하기 위해 도입 되었습니다.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
@@ -2351,7 +2351,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 + **새로운 기능**
   + Azure Machine Learning SDK는 이제 Python 3.7를 지원 합니다.
   + Azure Machine Learning DNN 추정는 이제 기본 제공 다중 버전 지원 기능을 제공 합니다. 예를 들어 `TensorFlow` 이제 평가기는 `framework_version` 매개 변수를 허용 하 고 사용자는 ' 1.10 ' 또는 ' 1.12 ' 버전을 지정할 수 있습니다. 현재 SDK 릴리스에서 지원 되는 버전 목록을 보려면 `get_supported_versions()` 원하는 프레임 워크 클래스 (예:)에서를 호출 `TensorFlow.get_supported_versions()` 합니다.
-  최신 SDK 릴리스에서 지원 되는 버전 목록은 [DNN 평가기 설명서](/python/api/azureml-train-core/azureml.train.dnn?preserve-view=true&view=azure-ml-py)를 참조 하세요.
+  최신 SDK 릴리스에서 지원 되는 버전 목록은 [DNN 평가기 설명서](/python/api/azureml-train-core/azureml.train.dnn)를 참조 하세요.
 
 ## <a name="2019-03-25"></a>2019-03-25
 
@@ -2388,13 +2388,13 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 ### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK for Python v 1.0.17
 
 + **새로운 기능**
-  + 이제 Azure Machine Learning는 인기 있는 DNN framework 체 이너를 위한 첫 번째 클래스 지원을 제공 합니다. [`Chainer`](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py)클래스 사용자를 사용 하면 체 이너 모델을 쉽게 학습 하 고 배포할 수 있습니다.
+  + 이제 Azure Machine Learning는 인기 있는 DNN framework 체 이너를 위한 첫 번째 클래스 지원을 제공 합니다. [`Chainer`](/python/api/azureml-train-core/azureml.train.dnn.chainer)클래스 사용자를 사용 하면 체 이너 모델을 쉽게 학습 하 고 배포할 수 있습니다.
     + [ChainerMN를 사용 하 여 분산 교육을 실행](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb) 하는 방법 알아보기
     + [하이퍼 매개 변수를 사용 하 여 체 매개 변수 튜닝을 사용](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) 하 여 체를 실행 하는 방법 알아보기
   + Azure Machine Learning 파이프라인은 데이터 저장소 수정에 따라 파이프라인 실행을 트리거하는 기능을 추가 했습니다. 이 기능을 보여 주기 위해 파이프라인 [일정 노트북이](https://aka.ms/pl-schedule) 업데이트 됩니다.
 
 + **버그 수정 및 향상 된 기능**
-  + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
+  + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 

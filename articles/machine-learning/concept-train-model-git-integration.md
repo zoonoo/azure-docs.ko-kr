@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 53459ad766ffcf156d2906a38666a14c4883b5e8
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 461c50bca53286cedcbb9ac21fc44467885e3d18
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215938"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500447"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -178,7 +178,7 @@ Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, 
 
 ### <a name="python-sdk"></a>Python SDK
 
-학습 실행을 제출한 후 [실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 개체가 반환 됩니다. `properties`이 개체의 특성에는 로깅된 git 정보가 포함 됩니다. 예를 들어 다음 코드는 커밋 해시를 검색 합니다.
+학습 실행을 제출한 후 [실행](/python/api/azureml-core/azureml.core.run%28class%29) 개체가 반환 됩니다. `properties`이 개체의 특성에는 로깅된 git 정보가 포함 됩니다. 예를 들어 다음 코드는 커밋 해시를 검색 합니다.
 
 ```python
 run.properties['azureml.git.commit']

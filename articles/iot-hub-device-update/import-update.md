@@ -6,17 +6,17 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442947"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507282"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다. 아직 수행 하지 않은 경우 기본 [가져오기 개념](import-concepts.md)을 숙지 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
@@ -57,8 +57,8 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
     | 매개 변수 | 설명 |
     | --------- | ----------- |
-    | deviceManufacturer | 업데이트와 호환 되는 장치의 제조업체 (예: Contoso)
-    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델
+    | deviceManufacturer | 업데이트가 호환 되는 (예: Contoso) 장치의 제조업체입니다. _제조업체_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) 일치 해야 합니다.
+    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델입니다. _모델_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) 일치 해야 합니다.
     | updateProvider | 업데이트를 만들거나 직접 담당 하는 엔터티입니다. 회사 이름이 될 수도 있습니다.
     | updateName | 업데이트 클래스의 식별자입니다. 클래스는 사용자가 선택 하는 것이 될 수 있습니다. 일반적으로 장치 또는 모델 이름이 됩니다.
     | updateVersion | 이 업데이트를 동일한 공급자와 이름을 가진 다른 사용자와 구별 하는 버전 번호입니다. 장치의 개별 소프트웨어 구성 요소 버전과 일치할 수도 있고 그렇지 않을 수도 있습니다.

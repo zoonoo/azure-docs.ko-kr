@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bc9601dbea5c73c6909bd658f322c345143a526c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
-ms.translationtype: MT
+ms.openlocfilehash: 99313cf1248ef5e90d7cd60d528a58c7925298d0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790277"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499529"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -197,4 +197,4 @@ Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault `AuditE
 - [Azure Monitor](../../azure-monitor/index.yml)
 - .NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
 - 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](developers-guide.md)를 참조하세요.
-- Azure Key Vault용 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)을 참조하세요.
+- Azure Key Vault용 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/#key_vault)을 참조하세요.

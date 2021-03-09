@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685757"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505061"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -28,13 +28,13 @@ AKS 아웃 바운드 종속성은 그 뒤에 정적 주소가 없는 Fqdn으로 
 기본적으로 AKS 클러스터에는 무제한 아웃바운드(송신) 인터넷 액세스가 있습니다. 이러한 수준의 네트워크 액세스가 있으면 사용자가 실행하는 노드와 서비스는 필요할 때마다 외부 리소스에 액세스할 수 있습니다. 송신 트래픽을 제한하려면 정상적인 클러스터 유지 관리 작업을 유지할 수 있도록 제한된 수의 포트 및 주소에 액세스할 수 있어야 합니다. 아웃 바운드 주소를 보호 하는 가장 간단한 방법은 도메인 이름을 기반으로 하는 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. 예를 들어 Azure 방화벽은 대상의 FQDN에 따라 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다. 이러한 필수 포트와 주소를 허용 하도록 기본 방화벽 및 보안 규칙을 구성할 수도 있습니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [ * *_네트워크 정책_* _][network-policy]을 사용 합니다.
+> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [**_네트워크 정책을_**][network-policy]사용 합니다.
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>AKS 클러스터에 대 한 필수 아웃 바운드 네트워크 규칙 및 Fqdn
 
 AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로그램 규칙이 필요 합니다. Azure 방화벽 이외의 솔루션을 구성 하려는 경우에는이 규칙을 사용할 수 있습니다.
 
-_ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종속성
+* IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
 * FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 * 와일드 카드 HTTP/HTTPS 끝점은 여러 한정자에 따라 AKS 클러스터에 따라 달라질 수 있는 종속성입니다.
 * AKS는 허용 컨트롤러를 사용 하 여 kube의 모든 배포에 대 한 환경 변수로 FQDN을 삽입 합니다 .이 시스템에서 노드 및 API 서버 간의 모든 시스템 통신은 api 서버 IP가 아닌 API 서버 FQDN을 사용 합니다. 
@@ -407,7 +407,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>기존 가상 네트워크 내에서 프로비저닝할 수 있는 액세스 권한이 있는 서비스 주체 만들기
 
-AKS에서 서비스 주체를 사용하여 클러스터 리소스를 만듭니다. 만든 시간에 전달 되는 서비스 주체는 AKS에서 사용 하는 저장소 리소스, Ip 및 부하 분산 장치와 같은 기본 AKS 리소스를 만드는 데 사용 됩니다 ( [관리 id](use-managed-identity.md) 를 대신 사용할 수도 있음). 아래에서 적절 한 사용 권한이 부여 되지 않은 경우 AKS 클러스터를 프로 비전 할 수 없습니다.
+클러스터 id (관리 id 또는 서비스 주체)는 AKS에서 클러스터 리소스를 만드는 데 사용 됩니다. 만든 시간에 전달 되는 서비스 주체는 AKS에서 사용 하는 저장소 리소스, Ip 및 부하 분산 장치와 같은 기본 AKS 리소스를 만드는 데 사용 됩니다 ( [관리 id](use-managed-identity.md) 를 대신 사용할 수도 있음). 아래에서 적절 한 사용 권한이 부여 되지 않은 경우 AKS 클러스터를 프로 비전 할 수 없습니다.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network

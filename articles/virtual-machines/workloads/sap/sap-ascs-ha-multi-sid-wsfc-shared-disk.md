@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 206ac53088897a95983215b10e8e9affac7c6a56
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 92d881a85f5719e15db6fe24b80deed3b3d3fe35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669811"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504442"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -47,7 +47,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 다이어그램처럼 **파일 공유** 를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -437,4 +437,4 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../availability.md

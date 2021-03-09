@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392326"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503507"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
 
-이 문서에서는 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
 
 이렇게 하려면 다음을 수행합니다. 
 
@@ -120,7 +120,7 @@ AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방
 
 ## <a name="configure-experiment"></a>실험 구성
 
-[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
 
 ### <a name="supported-models"></a>지원되는 모델
 자동화 된 machine learning은 모델 생성 및 조정 프로세스의 일부로 다른 모델 및 알고리즘을 자동으로 시도 합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 예측 실험의 경우 기본 시계열 및 심층 학습 모델은 모두 권장 사항 시스템의 일부입니다. 다음 표에서는 이러한 모델의 하위 집합을 요약 합니다. 
@@ -138,7 +138,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 
 회귀 문제와 마찬가지로 태스크 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 
 
-다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대해서는 [ForecastingParameter 클래스 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
+다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대해서는 [ForecastingParameter 클래스 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) 를 참조 하세요.
 
 | 매개 변수&nbsp;이름 | Description | 필수 |
 |-------|-------|-------|
@@ -154,7 +154,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 
 
 다음 코드 
-* 클래스를 활용 [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
+* 클래스를 활용 [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
 * 을 `time_column_name` `day_datetime` 데이터 집합의 필드로 설정 합니다. 
 * `time_series_id_column_names`에 대 한 매개 변수를 정의 `"store"` 합니다. 이렇게 하면 데이터에 대해 **두 개의 개별 시계열 그룹이** 만들어집니다. 저장소 A와 B에 대 한 하나입니다.
 * `forecast_horizon`전체 테스트 집합을 예측 하기 위해를 50로 설정 합니다. 
@@ -298,7 +298,7 @@ DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 ### <a name="short-series-handling"></a>간단한 시리즈 처리
 
-자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)를 참조 하세요.
+자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration)를 참조 하세요.
 
 자동화 된 ML은 개체의 매개 변수를 사용 하 여 기본적으로 짧은 계열 처리를 제공 `short_series_handling_configuration` `ForecastingParameters` 합니다. 
 

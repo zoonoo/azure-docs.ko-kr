@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7dd7f43044a9643eb7e9d5296dfb209e425d5fb6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183781"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504783"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Azure Powershell을 사용 하 여 서브넷 재정의 Traffic Manager
 
@@ -43,7 +43,7 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
 
 1. **Traffic Manager 끝점을 검색 합니다.**
 
-    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
+    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint)를 사용 하 여 변수에 저장 합니다.
 
     Name, ProfileName 및 ResourceGroupName를 변경 하는 끝점의 값으로 바꿉니다.
 
@@ -54,7 +54,7 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
     ```
 2. **IP 주소 범위를 끝점에 추가 합니다.**
     
-    IP 주소 범위를 끝점에 추가 하려면 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) 를 사용 하 여 범위를 추가 합니다.
+    IP 주소 범위를 끝점에 추가 하려면 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange) 를 사용 하 여 범위를 추가 합니다.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Traffic Manager 서브넷 재정의를 만들려면 Azure PowerShell를 사용 �
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    범위가 추가 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
+    범위가 추가 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) 를 사용 하 여 끝점을 업데이트 합니다.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0)을 사용 하 여 완료할 수 있습니다.
+IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange)을 사용 하 여 완료할 수 있습니다.
 
 1.  **Traffic Manager 끝점을 검색 합니다.**
 
-    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0)를 사용 하 여 변수에 저장 합니다.
+    서브넷 재정의를 사용 하도록 설정 하려면 재정의를 추가할 끝점을 검색 하 고 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint)를 사용 하 여 변수에 저장 합니다.
 
     Name, ProfileName 및 ResourceGroupName를 변경 하는 끝점의 값으로 바꿉니다.
 
@@ -102,7 +102,7 @@ IP 주소 범위 제거는 [AzTrafficManagerIpAddressRange](/powershell/module/a
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     범위가 제거 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 를 사용 하 여 끝점을 업데이트 합니다.
+     범위가 제거 되 면 [AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) 를 사용 하 여 끝점을 업데이트 합니다.
 
     ```powershell
 

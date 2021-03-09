@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 470b6b0c871d91a2a8a584a6efd04605e0afcf88
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666839"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504017"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -265,7 +265,7 @@ Microsoft Azure Storage는 최소 3개의 별도 스토리지 노드에 기본 V
 
 
 ## <a name="vm-node-resiliency"></a>VM 노드 복원력
-Azure는 VM에 대해 여러 가지 SLA를 제공합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)의 최신 릴리스를 참조하세요. DBMS 계층은 SAP 시스템의 가용성에 중요 하므로 가용성 집합, 가용성 영역 및 유지 관리 이벤트를 이해 해야 합니다. 이러한 모든 개념에 대한 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리](../../manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../manage-availability.md)를 참조하세요.
+Azure는 VM에 대해 여러 가지 SLA를 제공합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)의 최신 릴리스를 참조하세요. DBMS 계층은 SAP 시스템의 가용성에 중요 하므로 가용성 집합, 가용성 영역 및 유지 관리 이벤트를 이해 해야 합니다. 이러한 모든 개념에 대한 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리](../../availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../availability.md)를 참조하세요.
 
 SAP 워크로드를 사용하는 프로덕션 DBMS 시나리오에 대한 최소 권장 사항은 다음과 같습니다.
 

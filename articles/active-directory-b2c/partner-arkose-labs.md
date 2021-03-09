@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 04492abc0f235c2dc6139adbe543bcce82f7f7b3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 46f117b13909c2d9624b88e9f5d9a62c4c646e51
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646900"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500295"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Arkose Labs 구성
 
-이 자습서에서는 AD (Azure Active Directory) B2C 인증과 [Arkose Labs](https://www.arkoselabs.com/)를 통합 하는 방법에 대해 알아봅니다. Arkose Labs는 봇 공격, 계정 인수 공격 및 사기성 계정 입구에 대해 조직을 지원 합니다.  
+이 샘플 자습서에서는 AD (Azure Active Directory) B2C 인증과 [Arkose Labs](https://www.arkoselabs.com/)를 통합 하는 방법에 대해 알아봅니다. Arkose Labs는 봇 공격, 계정 인수 공격 및 사기성 계정 입구에 대해 조직을 지원 합니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -196,7 +196,7 @@ Azure Functions에 대 한 Visual Studio Code 개발에 대해 자세히 알아�
 
 [API 커넥터를 만들고](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) 사용자 흐름에 사용 하도록 설정 합니다. API 커넥터 구성은 다음과 같아야 합니다.
 
-![앱 id로 검색을 보여 주는 이미지](media/partner-arkose-labs/configure-api-connector.png)
+![Api 커넥터를 구성 하는 방법을 보여 주는 이미지](media/partner-arkose-labs/configure-api-connector.png)
 
 - **끝점 url** -Azure function을 배포 하는 동안 이전에 복사한 함수 url입니다.
 
@@ -228,7 +228,7 @@ API 커넥터를 사용 하도록 설정 하려면 사용자 흐름에 대 한 *
 
 7. **계속** 을 선택한 후 Arkose Labs 퍼즐이 표시 됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - Azure AD B2C 등록 사용자 흐름에 대 한 [샘플 코드](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40d22a410054f17676c4d9db639fd5e32da18531
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665989"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504306"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -138,7 +138,7 @@ ms.locfileid: "101665989"
         - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.ipv4.tcp_timestamps** **0** 으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](../../co-location.md) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
-        - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../manage-availability.md)에 배포 되었는지 확인 합니다.
+        - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](../../availability-set-overview.md)에 배포 되었는지 확인 합니다.
         - SAP Central Services 및 DBMS에 대 한 고가용성이 필요 하지 않은 경우 SAP 응용 프로그램 계층과 동일한 가용성 집합에 이러한 Vm을 배포할 수 있습니다.
         - 수동 복제를 사용 하 여 고가용성을 위해 SAP Central Services와 DBMS 계층을 보호 하는 경우 SAP Central Services에 대 한 두 노드를 별도의 하나의 가용성 집합과 다른 가용성 집합의 두 DBMS 노드에 저장 합니다.
         - Azure 가용성 영역에 배포 하는 경우 가용성 집합을 사용할 수 없습니다. 하지만 활성 및 수동 중앙 서비스 노드를 서로 다른 두 가용성 영역에 배포 해야 합니다. 대기 시간이 가장 짧은 가용성 영역를 사용 합니다.

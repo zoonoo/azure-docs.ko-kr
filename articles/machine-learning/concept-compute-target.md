@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: bd83ccc4f834d6b52e1c2db15000eb695be85f30
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177201"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503619"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -129,7 +129,7 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 > [!NOTE]
 > Azure Machine Learning는 Azure Compute에서 지 원하는 모든 VM 크기를 지원 하지 않습니다. 사용 가능한 VM 크기를 나열 하려면 다음 방법 중 하나를 사용 합니다.
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>계산 격리

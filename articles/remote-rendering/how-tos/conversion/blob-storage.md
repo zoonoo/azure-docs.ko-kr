@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215547"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507520"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>모델 변환에 Azure Blob Storage 사용
 
@@ -65,7 +65,7 @@ SAS URI는 다음 중 하나를 사용 하 여 생성할 수 있습니다.
 
 - [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) -Azure blob Storage에서 파일을 업로드/다운로드/관리 하는 편리한 UI
 - [Azure 명령줄](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Azure PowerShell 모듈](/powershell/azure/install-az-ps)
   - [예제 PowerShell 스크립트](../../samples/powershell-example-scripts.md) 를 참조 하세요.
 - [저장소 SDK 사용 (Python, c # ...)](../../../storage/index.yml)
 - [Azure Storage REST Api 사용](/rest/api/storageservices/blob-service-rest-api)

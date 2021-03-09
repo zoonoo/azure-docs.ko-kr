@@ -1,19 +1,19 @@
 ---
-title: Azure CLI를 사용 하 여 배열로 영역 설정 Linux VM 만들기
-description: Azure CLI를 사용하여 가용성 영역에서 Linux VM 만들기
+title: Azure CLI를 사용 하 여 배열로 영역 설정 VM 만들기
+description: Azure CLI를 사용 하 여 가용성 영역에서 가상 머신 만들기
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fbed3e7ac3e809658da532ccc27e78230cc0b581
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016406"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509135"
 ---
-# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-cli"></a>Azure CLI를 사용 하 여 가용성 영역에서 가상 머신 만들기
 
 이 문서는 Azure CLI를 사용하여 Azure 가용성 영역에서 Linux VM을 만드는 단계를 안내합니다. [가용성 영역은](../../availability-zones/az-overview.md) Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 

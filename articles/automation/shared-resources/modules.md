@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f8e23fdeb0a05d2c19f131cf79a079426a9b494
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726498"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503422"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -142,7 +142,7 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 
 * Runbook이 모듈에서 cmdlet을 호출하는 경우
 * Runbook이 [Import-module](/powershell/module/microsoft.powershell.core/import-module) cmdlet을 사용하여 모듈을 명시적으로 가져오는 경우
-* Runbook에서 [using module 문을 사용](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using?view=powershell-7.1#module-syntax) 하 여 모듈을 명시적으로 가져오는 경우 Using 문은 Windows PowerShell 5.0부터 지원 되며 클래스 및 열거형 형식 가져오기를 지원 합니다.
+* Runbook에서 [using module 문을 사용](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) 하 여 모듈을 명시적으로 가져오는 경우 Using 문은 Windows PowerShell 5.0부터 지원 되며 클래스 및 열거형 형식 가져오기를 지원 합니다.
 * Runbook이 다른 종속 모듈을 가져오는 경우
 
 Azure Portal에서 Az 모듈을 가져올 수 있습니다. 전체 Az.Automation 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.

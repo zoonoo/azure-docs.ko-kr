@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518694"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504936"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 계산 대상 설정
 
@@ -43,7 +43,7 @@ Azure Machine Learning에서 관리 하는 계산 대상을 사용 하려면 다
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -60,7 +60,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 로컬 컴퓨터를 **학습** 에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
 
-**유추** 를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용 하는 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
+**유추** 를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용 하는 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>원격 가상 머신
 
@@ -325,7 +325,7 @@ except ComputeTargetException:
 > 작업 영역에서 동일한 ADLA에 대해 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
 > [!TIP]
-> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) 하 여 학습 전에 데이터를 복사할 수 있습니다.
+> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep) 하 여 학습 전에 데이터를 복사할 수 있습니다.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Azure 컨테이너 인스턴스
 

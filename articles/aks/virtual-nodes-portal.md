@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180907"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501807"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -64,7 +64,7 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 
 ![AKS 클러스터를 만들고 가상 노드를 사용하도록 설정](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-기본적으로 Azure Active Directory 서비스 사용자가 생성됩니다. 이 서비스 사용자는 클러스터 통신 및 다른 Azure 서비스와의 통합에 사용됩니다. 또는 서비스 주체 대신 사용 권한에 대해 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
+기본적으로 클러스터 id가 만들어집니다. 이 클러스터 id는 클러스터 통신 및 다른 Azure 서비스와의 통합에 사용 됩니다. 기본적으로이 클러스터 id는 관리 되는 id입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 id로 사용할 수 있습니다.
 
 고급 네트워킹에 대한 클러스터도 구성됩니다. 가상 노드는 자체 Azure 가상 네트워크 서브넷을 사용하도록 구성됩니다. 이 서브넷은 AKS 클러스터 간에 Azure 리소스를 연결할 수 있는 위임된 권한을 갖습니다. 위임된 서브넷이 아직 없는 경우 Azure Portal에서는 가상 노드에 사용할 Azure 가상 네트워크 및 서브넷을 만들고 구성합니다.
 

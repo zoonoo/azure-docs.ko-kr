@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671907"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505905"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
 
@@ -222,7 +222,7 @@ SAP BI 플랫폼에는 다양 한 구성 요소가 포함 되어 있으며 아�
 
 또한 Azure 배율 단위 내에서 Azure 가용성 집합에 사용할 수 있는 업데이트 및 장애 도메인의 수는 유한 합니다. 따라서 단일 가용성 집합에 Vm을 계속 추가 하는 경우 두 개 이상의 Vm이 결과적으로 동일한 장애 또는 업데이트 도메인에서 종료 됩니다. 자세한 내용은 SAP 용 Azure virtual machines 계획 및 구현 문서에서 [Azure 가용성 집합](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) 섹션을 참조 하세요.
 
-Azure 가용성 집합의 개념 및 가용성 집합이 장애 및 업그레이드 도메인과 관련 되는 방식을 이해 하려면 [가용성 관리](../../manage-availability.md) 문서를 참조 하세요.
+Azure 가용성 집합의 개념 및 가용성 집합이 장애 및 업그레이드 도메인과 관련 되는 방식을 이해 하려면 [가용성 관리](../../availability.md) 문서를 참조 하세요.
 
 > [!Important]
 > Azure 가용성 영역과 Azure 가용성 집합의 개념은 함께 사용할 수 없습니다. 즉, 한 쌍 또는 여러 VM을 특정 가용성 영역 또는 Azure 가용성 집합에 배포할 수 있지만 두 개에 모두 배포할 수는 없다는 의미입니다.

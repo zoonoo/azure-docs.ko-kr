@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 배열로 영역 설정 Windows VM 만들기
-description: Azure PowerShell을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
+title: Azure PowerShell를 사용 하 여 배열로 영역 설정 VM 만들기
+description: Azure PowerShell를 사용 하 여 가용성 영역에서 가상 머신 만들기
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02897add4f3ca51fa7e172bc200af2c7b9065ed4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825245"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502640"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가용성 영역에서 가상 머신 만들기
 
 이 문서는 Azure PowerShell을 사용하여 Azure 가용성 영역에서 Windows Server 2016을 실행 중인 Azure 가상 머신 만들기를 자세히 설명합니다. [가용성 영역은](../../availability-zones/az-overview.md) Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
@@ -61,7 +61,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS2
@@ -70,7 +70,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS2
 ## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>가상 네트워크, 서브넷 및 공용 IP 주소 만들기 
-이러한 리소스는 가상 머신에 네트워크 연결을 제공하고 인터넷에 연결하는 데 사용됩니다. 가용성 영역에서 IP 주소를 만듭니다. 이 예에서는 *2*입니다. 뒷부분에 나오는 단계에서는 IP 주소를 만드는 데 사용된 영역과 동일한 영역에 VM을 만듭니다.
+이러한 리소스는 가상 머신에 네트워크 연결을 제공하고 인터넷에 연결하는 데 사용됩니다. 가용성 영역에서 IP 주소를 만듭니다. 이 예에서는 *2* 입니다. 뒷부분에 나오는 단계에서는 IP 주소를 만드는 데 사용된 영역과 동일한 영역에 VM을 만듭니다.
 
 ```powershell
 # Create a subnet configuration

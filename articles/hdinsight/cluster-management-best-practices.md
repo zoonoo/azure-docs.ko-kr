@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 7ab113a9c7ab03a477f387c5599b55d67c99c6fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 40222b6a108976de9c82ffccee119b1c1c55f334
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505752"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
 
@@ -28,7 +28,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 | Azure CLI | [Azure CLI를 사용하여 HDInsight 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| Sdk (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight), [Go](./hdinsight-go-sdk-overview.md) |
+| Sdk (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight), [Python](/python/api/overview/azure/hdinsight), [Java](/java/api/overview/azure/hdinsight), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > 클러스터를 만들고 이전에 만든 클러스터에서 클러스터 이름을 다시 사용 하는 경우 클러스터를 만들기 전에 이전 클러스터 삭제가 완료 될 때까지 기다립니다.

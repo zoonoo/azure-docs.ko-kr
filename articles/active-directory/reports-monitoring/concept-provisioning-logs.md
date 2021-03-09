@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651940"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500549"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Azure Portal의 프로 비전 로그 개요 (미리 보기)
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * Active Directory에서 만든 Workday의 사용자는 무엇 인가요? 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 사용자는 프로 비전 로그의 데이터에 액세스할 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - **ID**
 - **날짜**
 - **상태**
-- **작업**
+- **동작**
 
 
 ![필터 값을 보여 주는 스크린샷](./media/concept-provisioning-logs/default-filter.png "Assert")
@@ -207,7 +207,7 @@ JSON 파일은 다운로드 크기를 줄이기 위해 파일 형식으로 다�
 
 PowerShell을 사용 하 여 JSON 파일을 사용할 수 있는 몇 가지 샘플 명령은 다음과 같습니다. 편안 하 게 사용할 수 있는 모든 프로그래밍 언어를 사용할 수 있습니다.  
 
-먼저 다음 명령을 실행 하 여 [JSON 파일을 읽습니다](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) .
+먼저 다음 명령을 실행 하 여 [JSON 파일을 읽습니다](/powershell/module/microsoft.powershell.utility/convertfrom-json) .
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

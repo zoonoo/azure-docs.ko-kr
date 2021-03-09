@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 74deebb66bc0db316e2aa36588034c6afb3bbe40
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8b1f820cfca0e352b49d815e2b99d407ccc8ce43
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674027"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505701"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 최적화 
 
@@ -422,4 +422,4 @@ Azure Synapse Analytics를 사용 하면 요구에 따라 전용 SQL 풀을 [일
 
 ## <a name="next-steps"></a>다음 단계
 
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [전용 SQL 풀의 트랜잭션](develop-transactions.md) 을 참조 하세요.  기타 모범 사례의 개요는 [SQL 풀 모범 사례](best-practices-sql-pool.md)를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [전용 SQL 풀의 트랜잭션](develop-transactions.md) 을 참조 하세요.  다른 모범 사례에 대 한 개요는 [전용 SQL 풀 모범 사례](best-practices-sql-pool.md)를 참조 하세요.
