@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: dbfb4ea729b8360c7065d75cb3efbaf42b82c0da
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663142"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520016"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Id 기반 데이터 액세스를 사용 하 여 저장소에 연결 (미리 보기)
 
 >[!IMPORTANT]
-> 이 문서에 제공 된 기능은 미리 보기 상태 이며 언제 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로 간주 되어야 합니다.
+> 이 문서에 제공 된 기능은 미리 보기 상태 이며 언제 든 지 변경 될 수 있는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로 간주 되어야 합니다.
 
-이 문서에서는 id 기반 데이터 액세스를 사용 하 여 Azure에서 저장소 서비스에 연결 하 고 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 통해 데이터 저장소를 Azure Machine Learning 하는 방법을 알아봅니다.  
+이 문서에서는 id 기반 데이터 액세스를 사용 하 여 Azure에서 저장소 서비스에 연결 하 고 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/intro)를 통해 데이터 저장소를 Azure Machine Learning 하는 방법을 알아봅니다.  
 
 일반적으로 데이터 저장소는 자격 증명 기반 데이터 액세스를 사용 하 여 저장소 서비스에 액세스할 수 있는 권한이 있는지 확인 합니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 유지 합니다. Id 기반 데이터 액세스를 사용 하는 데이터 저장소를 만들 때 Azure 로그인 ([Azure Active Directory 토큰](../active-directory/fundamentals/active-directory-whatis.md))은 저장소 서비스에 액세스할 수 있는 권한이 있는지 확인 하는 데 사용 됩니다. 이 시나리오에서는 인증 자격 증명이 저장 되지 않으며 저장소 계정 정보만 데이터 저장소에 저장 됩니다. 
 
@@ -57,7 +57,7 @@ Id 기반 데이터 액세스를 사용 하는 경우 데이터 저장소에 자
 특정 기계 학습 시나리오는 개인 데이터를 포함 하는 학습 모델을 포함 합니다. 이러한 경우 데이터 과학자는 기밀 입력 데이터를 노출 하지 않고 학습 워크플로를 실행 해야 합니다. 이 시나리오에서는 데이터 액세스 인증에 학습 계산의 관리 id가 사용 됩니다. 이러한 방식으로 저장소 관리자는 교육 계산에서 개별 데이터 과학자 아니라 교육 작업을 실행 하는 데 사용 하는 관리 id에 **저장소 Blob 데이터 판독기** 액세스 권한을 부여할 수 있습니다. [계산에서 관리 id를 설정](how-to-create-attach-compute-cluster.md#managed-identity)하는 방법에 대해 알아봅니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -67,7 +67,7 @@ Id 기반 데이터 액세스를 사용 하는 경우 데이터 저장소에 자
     - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
     - [Azure SQL 데이터베이스](../azure-sql/database/sql-database-paas-overview.md)
 
-- [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)입니다.
+- [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)입니다.
 
 - Azure Machine Learning 작업 영역
   
@@ -105,7 +105,7 @@ Id 기반 데이터 액세스는 다음 저장소 서비스에 대 한 연결만
 
 ### <a name="azure-blob-container"></a>Azure Blob 컨테이너
 
-Azure BLOB 컨테이너를 데이터 저장소로 등록하려면 [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)를 사용합니다.
+Azure BLOB 컨테이너를 데이터 저장소로 등록하려면 [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)를 사용합니다.
 
 다음 코드에서는 데이터 저장소를 만들어 `credentialless_blob` 작업 영역에 등록 하 `ws` 고 변수에 할당 `blob_datastore` 합니다. 이 데이터 저장소는 `my_container_name` 저장소 계정의 blob 컨테이너에 액세스 `my-account-name` 합니다.
 
@@ -119,7 +119,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-1"></a>Azure Data Lake Storage 1 세대
 
-Azure Data Lake Storage 1 세대 (ADLS Gen 1) 데이터 저장소의 경우 [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) 를 사용 하 여 Azure DataLake Generation 1 저장소에 연결 하는 데이터 저장소를 등록 합니다.
+Azure Data Lake Storage 1 세대 (ADLS Gen 1) 데이터 저장소의 경우 [register_azure_data_lake ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) 를 사용 하 여 Azure DataLake Generation 1 저장소에 연결 하는 데이터 저장소를 등록 합니다.
 
 다음 코드에서는 데이터 저장소를 만들어 `credentialless_adls1` 작업 영역에 등록 하 `workspace` 고 변수에 할당 `adls_dstore` 합니다. 이 데이터 저장소는 `adls_storage` Azure Data Lake Store 저장소 계정에 액세스 합니다.
 
@@ -133,7 +133,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-2 세대 (ADLS Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 Azure DataLake Gen 2 저장소에 연결 되는 데이터 저장소를 등록 합니다.
+2 세대 (ADLS Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 Azure DataLake Gen 2 저장소에 연결 되는 데이터 저장소를 등록 합니다.
 
 다음 코드에서는 데이터 저장소를 만들어 `credentialless_adls2` 작업 영역에 등록 하 `ws` 고 변수에 할당 `adls2_dstore` 합니다. 이 데이터 저장소는 저장소 계정의 파일 시스템에 액세스 `tabular` `myadls2` 합니다.  
 

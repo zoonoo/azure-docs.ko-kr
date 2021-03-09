@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f42a2f9e606eaa0475f2e35c479e99545ecf8193
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680960"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521903"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
@@ -55,7 +55,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!NOTE]
 > 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 됩니다 `identifier` . 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -65,11 +65,11 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 - AKS 클러스터가 필요 합니다. 하나를 만들어 배포 하는 방법에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치 합니다.
+- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](/python/api/overview/azure/ml/install)를 설치 합니다.
 
 ## <a name="enable-data-collection"></a>데이터 수집 사용
 
-Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 [데이터 수집](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) 을 사용 하도록 설정할 수 있습니다.
+Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 [데이터 수집](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) 을 사용 하도록 설정할 수 있습니다.
 
 데이터 수집을 사용 하도록 설정 하려면 다음을 수행 해야 합니다.
 
@@ -203,7 +203,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Databricks 테이블 만들기](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터의 위치를 업데이트 합니다. 다음은 예제입니다.
+1. 데이터의 위치를 업데이트 합니다. 예를 들면 다음과 같습니다.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

@@ -10,21 +10,21 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: da3e5bd9efcdd7d82dd3d3937918c4a64f69edbd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215649"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519132"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>환경 이미지 빌드 문제 해결
 
 Docker 환경 이미지 빌드 및 패키지 설치와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
-* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
 * 로컬로 디버그하려면 로컬 시스템에서 작동하는 Docker가 설치되어 있어야 합니다.
@@ -158,7 +158,7 @@ Pip 하위 프로세스 오류:
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>작업 영역 컨테이너 레지스트리에서 401 오류가 발생 합니다.
 
-[Ws.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--)를 사용 하 여 저장소 키를 다시 동기화 합니다.
+[Ws.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--)를 사용 하 여 저장소 키를 다시 동기화 합니다.
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>환경에서 "다른 conda 작업이 완료 될 때까지 기다리는 중 ..."가 계속 throw 됩니다. 메시지가
 

@@ -10,18 +10,18 @@ author: lobrien
 ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 3ecf4458b052f4fdc0eb2e6e697b0468c71ce9c2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584868"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519659"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>Machine learning 파이프라인 트리거
 
 이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다. 마지막으로, 다른 Azure 서비스, Azure 논리 앱 및 Azure Data Factory를 사용 하 여 파이프라인을 실행 하는 방법을 알아봅니다. Azure 논리 앱을 사용 하면 더 복잡 한 트리거 논리 나 동작을 수행할 수 있습니다. Azure Data Factory 파이프라인을 사용 하 여 더 큰 데이터 오케스트레이션 파이프라인의 일부로 machine learning 파이프라인을 호출할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -66,7 +66,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>시간 기반 일정 만들기
 
-생성자에는 `ScheduleRecurrence` `frequency` "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 인수가 있습니다. 또한 `interval` 일정 시작 사이에 경과 해야 하는 단위 수를 지정 하는 정수 인수도 필요 `frequency` 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?preserve-view=true&view=azure-ml-py)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
+생성자에는 `ScheduleRecurrence` `frequency` "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 인수가 있습니다. 또한 `interval` 일정 시작 사이에 경과 해야 하는 단위 수를 지정 하는 정수 인수도 필요 `frequency` 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
 
 `Schedule`15 분 마다 실행을 시작 하는를 만듭니다.
 
@@ -83,11 +83,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 파일이 변경 되기 전에 작업을 수행 하려는 경우 또는 새 파일이 데이터 디렉터리에 추가 된 경우 해당 파일을 전처리 할 수 있습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
 
-파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
+파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
 
 `polling_interval`인수를 사용 하면 데이터 저장소의 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
 
-파이프라인이 [데이터 경로](/python/api/azureml-core/azureml.data.datapath.datapath?preserve-view=true&view=azure-ml-py) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py)를 사용 하 여 생성 된 경우 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다 `data_path_parameter_name` .
+파이프라인이 [데이터 경로](/python/api/azureml-core/azureml.data.datapath.datapath) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter)를 사용 하 여 생성 된 경우 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다 `data_path_parameter_name` .
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443576"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518741"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -39,7 +39,7 @@ Azure Machine Learning 실행을 모니터링 하 고 로그를 보는 방법을
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 실행 모니터링
 
-**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](/python/api/azureml-widgets/azureml.widgets)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
 
 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
     
@@ -127,7 +127,7 @@ metrics.get('metric-name')
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` 폴더
 
-|파일  |설명  |
+|파일  |Description  |
 |---------|---------|
 |20_image_build_log.txt     | 훈련 환경에 대 한 Docker 이미지 빌드 로그 (선택 사항, 실행 당 하나) 환경을 업데이트할 때만 적용 됩니다. 그렇지 않으면 AML에서 캐시 된 이미지를 다시 사용 합니다. 성공 하는 경우 해당 이미지에 대 한 이미지 레지스트리 세부 정보를 포함 합니다.         |
 |55_azureml 실행-<node_id # C1.txt     | 호스트 도구의 stdout/stderr 로그가 노드당 하나입니다. 이미지를 계산 대상으로 끌어옵니다. 이 로그는 계산 리소스를 보호 한 경우에만 표시 됩니다.         |
@@ -140,7 +140,7 @@ metrics.get('metric-name')
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` 폴더
 
-|파일  |설명  |
+|파일  |Description  |
 |---------|---------|
 |110_azureml .log      |         |
 |job_prep_azureml .log     |   작업 준비에 대 한 시스템 로그        |
@@ -150,7 +150,7 @@ metrics.get('metric-name')
 
 사이드카를 사용 하도록 설정 하면 사이드카 컨테이너 내에서 작업 준비 및 작업 해제 스크립트가 실행 됩니다.  각 노드에 대해 하나의 폴더가 있습니다. 
 
-|파일  |설명  |
+|파일  |Description  |
 |---------|---------|
 |start_cms.txt     |  사이드카 컨테이너가 시작 될 때 시작 되는 프로세스의 로그       |
 |prep_cmd.txt      |   가 실행 될 때 입력 한 ContextManagers 로그 `job_prep.py` (이 중 일부는로 스트리밍 됨 `azureml-logs/65-job_prep` )       |

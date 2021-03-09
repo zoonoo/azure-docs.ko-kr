@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd917bcf54022564640d22a5968738c27f75ff38
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383824"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519047"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure 애플리케이션 Gateway의 웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
 
@@ -20,13 +20,13 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 
 사용자 지정 규칙을 사용 하면 WAF를 통과 하는 각 요청에 대해 평가 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 규칙 이름, 규칙 우선 순위 및 일치 조건의 배열이 포함 되어 있습니다. 이러한 조건이 충족 되 면 허용 또는 차단에 대 한 작업이 수행 됩니다.
 
-예를 들어 192.168.5.4/24 범위의 IP 주소에서 모든 요청을 차단할 수 있습니다. 이 규칙에서 연산자는 *Ipmatch*이 고 MATCHVALUES는 IP 주소 범위 (192.168.5.4/24) 이며 작업은 트래픽을 차단 하는 것입니다. 또한 규칙의 이름 및 우선 순위를 설정 합니다.
+예를 들어 192.168.5.4/24 범위의 IP 주소에서 모든 요청을 차단할 수 있습니다. 이 규칙에서 연산자는 *Ipmatch* 이 고 MATCHVALUES는 IP 주소 범위 (192.168.5.4/24) 이며 작업은 트래픽을 차단 하는 것입니다. 또한 규칙의 이름 및 우선 순위를 설정 합니다.
 
 사용자 지정 규칙은 그래야만 논리를 사용 하 여 보안 요구 사항을 해결 하는 고급 규칙을 지원 합니다. 예를 들면 (Condition 1 **and** condition 2) **또는** condition 3)입니다. 즉, 조건 1 **과** 조건 2를 충족 **하거나** 조건 3이 충족 되 면 waf는 사용자 지정 규칙에 지정 된 작업을 수행 해야 합니다.
 
-동일한 규칙 내의 서로 다른 일치 조건은 항상 **및**을 사용 하 여 복합 됩니다. 예를 들어 특정 IP 주소에서 트래픽을 차단 하 고 특정 브라우저를 사용 하는 경우에만 트래픽을 차단 합니다.
+동일한 규칙 내의 서로 다른 일치 조건은 항상 **및** 을 사용 하 여 복합 됩니다. 예를 들어 특정 IP 주소에서 트래픽을 차단 하 고 특정 브라우저를 사용 하는 경우에만 트래픽을 차단 합니다.
 
-**또는** 두 개의 다른 조건을 원할 경우 두 조건이 서로 다른 규칙에 있어야 합니다. 예를 들어 특정 브라우저를 사용 하는 경우 특정 IP 주소에서 트래픽을 차단 하거나 트래픽을 차단 합니다.
+서로 다른 두 조건에서 **또는** 를 사용 하려는 경우 두 조건이 다른 규칙에 있어야 합니다. 예를 들어 특정 브라우저를 사용 하는 경우 특정 IP 주소에서 트래픽을 차단 하거나 트래픽을 차단 합니다.
 
 > [!NOTE]
 > WAF 사용자 지정 규칙의 최대 수는 100입니다. Application Gateway 제한에 대 한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
@@ -37,7 +37,7 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 
 사용자 지정 규칙을 사용 하 여 트래픽을 허용 하 고 차단 하는 것은 간단 합니다. 예를 들어 IP 주소 범위에서 들어오는 모든 트래픽을 차단할 수 있습니다. 특정 브라우저에서 요청을 가져오는 경우 트래픽을 허용 하는 다른 규칙을 만들 수 있습니다.
 
-항목을 허용 하려면 `-Action` 매개 변수가 **허용**으로 설정 되어 있는지 확인 합니다. 항목을 차단 하려면 `-Action` 매개 변수가 **block**으로 설정 되어 있는지 확인 합니다.
+항목을 허용 하려면 `-Action` 매개 변수가 **허용** 으로 설정 되어 있는지 확인 합니다. 항목을 차단 하려면 `-Action` 매개 변수가 **block** 으로 설정 되어 있는지 확인 합니다.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -101,7 +101,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
 
 ### <a name="rule-type-required"></a>규칙 유형 [필수]
 
-현재는 **Matchrule**이어야 합니다.
+현재는 **Matchrule** 이어야 합니다.
 
 ### <a name="match-variable-required"></a>일치 변수 [필수]
 

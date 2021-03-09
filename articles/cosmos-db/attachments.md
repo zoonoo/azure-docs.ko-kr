@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501994"
+ms.locfileid: "102521223"
 ---
 # <a name="azure-cosmos-db-attachments"></a>첨부 파일 Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
@@ -42,9 +42,9 @@ Azure Cosmos DB의 관리 되는 첨부 파일은 표준 항목에 대해 지원
 - 관리 되는 첨부 파일은 Azure Cosmos DB의 전역 배포와 호환 되지 않으며 지역 간에 복제 되지 않습니다.
 
 > [!NOTE]
-> MongoDB 버전 3.2에 대 한 Azure Cosmos DB API는 GridFS에 대 한 관리 되는 첨부 파일을 활용 하므로 Azure Cosmos DB의 관리 되는 첨부 파일과 동일한 제한이 적용 됩니다.
+> MongoDB 버전 3.2에 대 한 Azure Cosmos DB API는 GridFS에 대 한 관리 되는 첨부 파일을 활용 하며 동일한 제한 사항이 적용 됩니다.
 >
-> MongoDB GridFS 기능 집합을 사용 하 여 MongoDB 버전 3.6 이상의 API Azure Cosmos DB로 업그레이드 하는 것이 좋습니다 .이는 첨부 파일에서 분리 되며 더 강력 하 고 강력한 환경을 제공 합니다. 또는 MongoDB GridFS 기능 집합을 사용 하는 개발자는 Blob 콘텐츠를 저장 하기 위해 작성 된 용도로만 사용 되는 용도로 사용 되는 Azure Blob Storage를 사용 하는 것이 좋습니다.
+> MongoDB GridFS 기능 집합을 사용 하 여 MongoDB 버전 3.6 이상의 API Azure Cosmos DB로 업그레이드 하는 것이 좋습니다 .이는 첨부 파일에서 분리 되며 더 나은 환경을 제공 합니다. 또는 MongoDB GridFS 기능 집합을 사용 하는 개발자는 Blob 콘텐츠를 저장 하기 위해 작성 된 용도로만 사용 되는 용도로 사용 되는 Azure Blob Storage를 사용 하는 것이 좋습니다.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>첨부 파일을 Azure Blob Storage로 마이그레이션
 

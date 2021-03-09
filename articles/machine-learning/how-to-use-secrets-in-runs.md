@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ce47041d888b8a7786f0f87f54e725919638e7f7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b93da1e252357830578783c8f3ab5ca02f5a3e5b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349021"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520747"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Azure Machine Learning 교육 실행에서 인증 자격 증명 비밀 사용
 
@@ -33,7 +33,7 @@ ms.locfileid: "93349021"
 
 ## <a name="set-secrets"></a>비밀 설정
 
-Azure Machine Learning에서 [Keyvault](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py) 클래스에는 비밀을 설정 하는 메서드가 포함 되어 있습니다. 로컬 Python 세션에서 먼저 Key Vault 작업 영역에 대 한 참조를 가져온 다음 메서드를 사용 하 여 이름과 값을 사용 하 [`set_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-secret-name--value-) 여 암호를 설정 합니다. __Set_secret__ 메서드는 이름이 이미 있는 경우 비밀 값을 업데이트 합니다.
+Azure Machine Learning에서 [Keyvault](/python/api/azureml-core/azureml.core.keyvault.keyvault) 클래스에는 비밀을 설정 하는 메서드가 포함 되어 있습니다. 로컬 Python 세션에서 먼저 Key Vault 작업 영역에 대 한 참조를 가져온 다음 메서드를 사용 하 여 이름과 값을 사용 하 [`set_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secret-name--value-) 여 암호를 설정 합니다. __Set_secret__ 메서드는 이름이 이미 있는 경우 비밀 값을 업데이트 합니다.
 
 ```python
 from azureml.core import Workspace
@@ -49,13 +49,13 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 비밀 값을 파일에 일반 텍스트로 저장 하는 것은 안전 하지 않으므로 Python 코드에 저장 하지 마세요. 대신 환경 변수에서 비밀 값 (예: Azure DevOps build secret 또는 대화형 사용자 입력)을 가져옵니다.
 
-메서드를 사용 하 여 비밀 이름을 나열할 수 있으며 [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=truelist-secrets--) , 한 번에 여러 암호를 설정할 수 있는 일괄 처리 버전[set_secrets ()](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-secrets-secrets-batch-) 도 있습니다.
+메서드를 사용 하 여 비밀 이름을 나열할 수 있으며 [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--) , 한 번에 여러 암호를 설정할 수 있는 일괄 처리 버전[set_secrets ()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-) 도 있습니다.
 
 ## <a name="get-secrets"></a>암호 가져오기
 
-로컬 코드에서 메서드를 사용 하 여 [`get_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secret-name-) 이름으로 비밀 값을 가져올 수 있습니다.
+로컬 코드에서 메서드를 사용 하 여 [`get_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#get-secret-name-) 이름으로 비밀 값을 가져올 수 있습니다.
 
-가 제출 된 실행의 경우 [`Experiment.submit`](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-) [`get_secret()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secret-name-) 클래스와 함께 메서드를 사용 [`Run`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 합니다. 제출 된 실행은 작업 영역을 인식 하므로이 메서드는 작업 영역 인스턴스화를 바로 실행 하 고 비밀 값을 직접 반환 합니다.
+가 제출 된 실행의 경우 [`Experiment.submit`](/python/api/azureml-core/azureml.core.experiment.experiment#submit-config--tags-none----kwargs-) [`get_secret()`](/python/api/azureml-core/azureml.core.run.run#get-secret-name-) 클래스와 함께 메서드를 사용 [`Run`](/python/api/azureml-core/azureml.core.run%28class%29) 합니다. 제출 된 실행은 작업 영역을 인식 하므로이 메서드는 작업 영역 인스턴스화를 바로 실행 하 고 비밀 값을 직접 반환 합니다.
 
 ```python
 # Code in submitted run
@@ -67,7 +67,7 @@ secret_value = run.get_secret(name="mysecret")
 
 비밀 값을 쓰거나 인쇄 하 여 노출 하지 않도록 주의 해야 합니다.
 
-한 번에 여러 암호에 액세스 하는 데 사용할 수 있는 일괄 처리 버전인 [get_secrets ()](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secrets-secrets-) 도 있습니다.
+한 번에 여러 암호에 액세스 하는 데 사용할 수 있는 일괄 처리 버전인 [get_secrets ()](/python/api/azureml-core/azureml.core.run.run#get-secrets-secrets-) 도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aaa7dbf2ae7c8acb3b3beeb3e9098c5058af26a7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c45b819f9fc02fae40c2bf7fc5c2247c8c0a6147
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918193"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517483"
 ---
 # <a name="deploy-mlflow-models-as-azure-web-services-preview"></a>MLflow 모델을 Azure 웹 서비스로 배포 (미리 보기)
 
@@ -44,14 +44,14 @@ MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 �
 * 기계 학습 모델입니다. 학습 된 모델이 없는 경우 [이 리포지토리의](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) 계산 시나리오에 가장 잘 맞는 노트북 예제를 찾고 해당 지침을 따르세요. 
 * [Azure Machine Learning 연결 하도록 MLflow 추적 URI를 설정](how-to-use-mlflow.md#track-local-runs)합니다.
 * `azureml-mlflow` 패키지를 설치합니다. 
-    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
+    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install)를 자동으로 가져옵니다.
 * [작업 영역을 사용 하 여 MLflow 작업을 수행 하는 데 필요한 액세스 권한을](how-to-assign-roles.md#mlflow-operations)확인 하세요. 
 
 ## <a name="deploy-to-azure-container-instance-aci"></a>ACI (Azure Container Instance)에 배포
 
 Azure Machine Learning 웹 서비스에 MLflow 모델을 배포 하려면 [Azure Machine Learning에 연결 하기 위해 Mlflow 추적 URI](how-to-use-mlflow.md)를 사용 하 여 모델을 설정 해야 합니다. 
 
-[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -84,7 +84,7 @@ webservice.wait_for_deployment(show_output=True)
 
 Azure Machine Learning 웹 서비스에 MLflow 모델을 배포 하려면 [Azure Machine Learning에 연결 하기 위해 Mlflow 추적 URI](how-to-use-mlflow.md)를 사용 하 여 모델을 설정 해야 합니다. 
 
-AKS에 배포 하려면 먼저 AKS 클러스터를 만듭니다. [ComputeTarget ()](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
+AKS에 배포 하려면 먼저 AKS 클러스터를 만듭니다. [ComputeTarget ()](/python/api/azureml-core/azureml.core.computetarget#create-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -104,7 +104,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+[Deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용 하 여 배포 구성을 설정 합니다. 웹 서비스를 추적 하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -139,7 +139,7 @@ webservice.wait_for_deployment()
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-배포 된 웹 서비스를 사용 하지 않으려는 경우를 사용 하 여 `service.delete()` 노트북에서 삭제 합니다.  자세한 내용은 [WebService. delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--)에 대 한 설명서를 참조 하십시오.
+배포 된 웹 서비스를 사용 하지 않으려는 경우를 사용 하 여 `service.delete()` 노트북에서 삭제 합니다.  자세한 내용은 [WebService. delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--)에 대 한 설명서를 참조 하십시오.
 
 ## <a name="example-notebooks"></a>노트북 예제
 

@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 0316850788a4f762680be91c8ecd86b3aa8bf6bc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433610"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519030"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Computer Vision 리소스를 만들고, "  target="_blank"> </a> Azure Portal에서 표준 S1 계층에 대 한 Computer Vision 리소스를 만들어 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
@@ -137,7 +137,7 @@ Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이�
 3. 장치 IP 주소에 변수를 할당 합니다. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. 장치의 IP 주소를 클라이언트의 신뢰할 수 있는 호스트 목록에 추가 하려면 다음 명령을 사용 합니다. 
@@ -255,13 +255,22 @@ Azure CLI를 사용 하 여 Azure IoT Hub의 인스턴스를 만듭니다. 해�
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+사용 가능한 지역에 대 한 [지역 지원](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 을 참조 하세요.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
@@ -280,6 +289,8 @@ Microsoft GPG 공개 키를 설치합니다.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -406,13 +417,22 @@ Azure CLI를 사용 하 여 Azure IoT Hub의 인스턴스를 만듭니다. 해�
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+사용 가능한 지역에 대 한 [지역 지원](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 을 참조 하세요.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
@@ -431,6 +451,8 @@ Microsoft GPG 공개 키를 설치합니다.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -472,7 +494,7 @@ sudo systemctl restart iotedge
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | 값 | 설명|
+| 설정 이름 | 값 | Description|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|
@@ -497,10 +519,10 @@ sudo systemctl restart iotedge
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 | `--hub-name` | Azure IoT Hub 이름입니다. |
 | `--content` | 배포 파일의 이름입니다. |

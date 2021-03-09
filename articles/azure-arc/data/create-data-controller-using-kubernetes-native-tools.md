@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 45ba08193d4907126bd51412805f04b7aec4fce0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 500587dc6564aa55eb430365eb67bb958bbd2482
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686396"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519982"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -142,10 +142,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 사용자 이름 및 암호를 인코딩한 후 [템플릿 파일](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) 을 기반으로 파일을 만들고 사용자 이름 및 암호 값을 고유한 값으로 바꿀 수 있습니다.

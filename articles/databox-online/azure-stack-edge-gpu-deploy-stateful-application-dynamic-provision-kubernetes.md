@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ea316205e7dfb4069c41987e785881512735a4d6
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 160ba6014bbb2d5cb3ed4e8e4b28a61fe5e8d4cc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438033"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520696"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro GPU 장치에서 StorageClass로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "102438033"
 이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "102438033"
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
 - Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     

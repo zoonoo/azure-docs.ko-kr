@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ad86ebdbef8bf8c8ec00e54e15b751fd2285ad68
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 03400173dd35660d6e7a98500b831a7c6aa4ebd7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601342"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521173"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
 
@@ -23,7 +23,7 @@ ms.locfileid: "98601342"
 
 Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [Azure Machine Learning 기본](https://github.com/Azure/AzureML-Containers) 이미지 중 하나 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)와 같은 다른 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서 코드를 실행 합니다.
 
@@ -32,7 +32,7 @@ Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure
   * Azure Machine Learning [예제 리포지토리](https://github.com/Azure/azureml-examples)에서 **노트북**  >  **fastai**  >  **resnet34-. ipynb** 디렉터리로 이동 하 여 완료 된 노트북을 찾습니다. 
 * 사용자 고유의 Jupyter Notebook 서버:
   * [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
-  * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치합니다. 
+  * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)를 설치합니다. 
   * 인터넷에서 사용할 수 있는 [Azure container registry](../container-registry/index.yml) 또는 기타 Docker 레지스트리를 만듭니다.
 
 ## <a name="set-up-a-training-experiment"></a>학습 실험 설정
@@ -41,7 +41,7 @@ Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만든 모든 아티팩트를 사용 하 여 작업할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) .
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만든 모든 아티팩트를 사용 하 여 작업할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) .
 
 `Workspace` [필수 구성](#prerequisites)요소로 만든 파일의 config.js에서 개체를 만듭니다.
 
@@ -169,7 +169,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)를 사용 하 여 데이터에 액세스 합니다.
+> Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](/python/api/azureml-core/azureml.data)를 사용 하 여 데이터에 액세스 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 사용자 지정 Docker 이미지를 사용 하 여 모델을 학습 했습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.

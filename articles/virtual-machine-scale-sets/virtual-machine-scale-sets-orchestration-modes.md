@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502419"
+ms.locfileid: "102521750"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대 한 오케스트레이션 모드 
 
@@ -102,11 +102,11 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         가상 머신 유형  | 표준 Azure IaaS VM (/virtualmachines)  | 확장 집합 특정 Vm (/virtualmachinescalesets/virtualmachines)  | 표준 Azure IaaS VM (/virtualmachines)  |
 |         지원되는 SKU  |            D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD  |            모든 Sku  |            모든 Sku  |
 |         가용성 영역  |            필요에 따라 단일 가용성 영역에 모든 인스턴스를 지정 합니다. |            1, 2 또는 3 개의 가용성 영역에서 인스턴스를 지정 합니다.  |            지원되지 않음  |
-|         VM, Nic, 디스크에 대 한 모든 권한  |            예  |            가상 머신 확장 집합 VM API를 사용 하 여 제한 된 제어  |            예  |
+|         VM, Nic, 디스크에 대 한 모든 권한  |            Yes  |            가상 머신 확장 집합 VM API를 사용 하 여 제한 된 제어  |            Yes  |
 |         자동 크기 조정  |            아니요  |            예  |            아니요  |
 |         특정 장애 도메인에 VM 할당  |            예  |             아니요   |            아니요  |
 |         VM 인스턴스를 삭제할 때 Nic 및 디스크 제거  |            아니요  |            예  |            아니요  |
-|         업그레이드 정책 (VM 크기 집합) |            아니요  |            자동, 롤링, 수동  |            해당 없음  |
+|         업그레이드 정책 (VM 크기 집합) |            No  |            자동, 롤링, 수동  |            해당 없음  |
 |         자동 OS 업데이트 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
 |         게스트 보안 패치  |            예  |            아니요  |            예  |
 |         알림 종료 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
@@ -115,8 +115,8 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         스폿 인스턴스 및 가격   |            예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다.  |            예, 인스턴스는 모두 스폿 이거나 모두 정상 이어야 합니다.  |            아니요, 일반 우선 순위 인스턴스만  |
 |         운영 체제 혼합  |            예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |            아니요, 인스턴스는 동일한 운영 체제입니다.  |               예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |
 |         응용 프로그램 상태 모니터링  |            응용 프로그램 상태 확장  |            응용 프로그램 상태 확장 또는 Azure 부하 분산 장치 프로브  |            응용 프로그램 상태 확장  |
-|         디스크 UltraSSD   |            예  |            예, 영역 배포에만 해당  |            아니요  |
-|         Infiniband   |            아니요  |            예, 단일 배치 그룹만  |            예  |
+|         디스크 UltraSSD   |            Yes  |            예, 영역 배포에만 해당  |            No  |
+|         Infiniband   |            No  |            예, 단일 배치 그룹만  |            Yes  |
 |         쓰기 가속기   |            아니요  |            예  |            예  |
 |         근접 배치 그룹   |            예  |            예  |            예  |
 |         Azure 전용 호스트   |            아니요  |            예  |            예  |
@@ -128,7 +128,7 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         Azure Alerts  |            아니요  |            예  |            예  |
 |         VM 인사이트  |            아니요  |            예  |            예  |
 |         Azure Backup  |            예  |            예  |            예  |
-|         Azure Site Recovery  |            예, PowerShell만  |            예  |            예  |
+|         Azure Site Recovery  |            아니요  |            아니요  |            예  |
 |         그룹에 기존 VM 추가/제거  |            아니요  |            아니요  |            아니요  | 
 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498832"
+ms.locfileid: "102517993"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -145,13 +145,13 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
+1. Azure AD B2C 테 넌 트에서 모든 **Id 공급자** 를 삭제 합니다.
 1. **앱 등록** 를 선택 하 고 **모든 응용 프로그램** 탭을 선택 합니다.
 1. 등록 한 모든 응용 프로그램을 삭제 합니다.
 1. **B2c 앱** 을 삭제 합니다.
 1. **관리** 에서 **사용자** 를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
-1. **관리** 에서 **사용자 설정** 을 선택 합니다.
 1. **관리** 아래에서 **속성** 을 선택 합니다.
 1. **Azure 리소스에 대한 액세스 관리** 에서 **예** 를 클릭한 후 **저장** 을 클릭합니다.
 1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.

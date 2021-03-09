@@ -11,24 +11,24 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: ebd984ad6fd91aa29af9766042a03bc56efe17eb
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215751"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519625"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>로컬 모델 배포 문제 해결
 
 Azure Container Instances (ACI) 또는 Azure Kubernetes 서비스 (AKS)에 대 한 배포 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.  로컬 웹 서비스를 사용 하면 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 쉽게 파악 하 고 해결할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * 옵션 A (**권장**)-Azure Machine Learning 계산 인스턴스에서 로컬로 디버그
    * [계산 인스턴스가](how-to-deploy-local-container-notebook-vm.md) 실행 되는 Azure Machine Learning 작업 영역
 * 옵션 B-계산에서 로컬로 디버그
-   * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+   * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
    * [Azure CLI](/cli/azure/install-azure-cli)
    * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
    * 로컬 시스템에 작동 하는 Docker가 설치 되어 있어야 합니다. 
@@ -98,7 +98,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > 스크립트는 서비스에서 사용하는 `InferenceConfig` 개체로 지정된 위치에서 다시 로드됩니다.
 
-모델, Conda 종속성 또는 배포 구성을 변경하려면 [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-)를 사용합니다. 다음 예제에서는 서비스에서 사용하는 모델을 업데이트합니다.
+모델, Conda 종속성 또는 배포 구성을 변경하려면 [update()](/python/api/azureml-core/azureml.core.webservice%28class%29#update--args-)를 사용합니다. 다음 예제에서는 서비스에서 사용하는 모델을 업데이트합니다.
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -106,7 +106,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>서비스 삭제
 
-서비스를 삭제하려면 [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--)를 사용합니다.
+서비스를 삭제하려면 [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--)를 사용합니다.
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Docker 로그 검사
 

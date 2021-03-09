@@ -9,18 +9,49 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ebd4aed284869eb74760de8612a76139d26d47f5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502351"
+ms.locfileid: "102521206"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 참조 하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-03-08"></a>2021-03-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK for Python v 1.24.0
++ **새로운 기능**
+  + **azureml-automl-core**
+    + 에서 이전 버전과 호환 되는 가져오기를 제거 했습니다 `azureml.automl.core.shared` . 에서 가져오는 방법으로 네임 스페이스의 모듈을 찾을 수 없습니다. 오류를 `azureml.automl.core.shared` 확인할 수 있습니다 `azureml.automl.runtime.shared` .
+  + **azureml-자동 dnn-비전**
+    + 노출 된 개체 검색 yolo 모델입니다.
+  + **azureml-contrib-dataset**
+    + 메타 데이터에 따라 열 값 및 파일 데이터 집합에 따라 테이블 형식 데이터 집합을 필터링 하는 기능이 추가 되었습니다.
+  + **azureml-contrib-fairness**
+    + 휠에 JSON 스키마 포함 `azureml-contrib-fairness`
+  + **azureml-k8s**
+    + 이제 리소스 그룹 및 클러스터 이름 대신 연결할 resource_id를 제공 해야 합니다.
+  + **azureml-mir**
+    + 모델을 배포할 때 설정 show_output True로 설정 하면 서버에 요청을 보내기 전에 유추 구성 및 배포 구성이 재생 됩니다.
+  + **azureml-core**
+    + 메타 데이터에 따라 열 값 및 파일 데이터 집합에 따라 테이블 형식 데이터 집합을 필터링 하는 기능이 추가 되었습니다.
+    + 이전에는 사용자가 필드에 대 한 암호 강도 요구 사항을 충족 하지 않는 ComputeTarget에 대 한 프로 비전 구성을 만들 수 있었습니다 `admin_user_password` (즉, 다음 집합의 소문자 1 자, 대문자 1 자, 숫자 1 자 및 특수 문자 1 개 이상 ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?`` ). 사용자가 약한 암호로 구성을 만들고 해당 구성을 사용 하 여 작업을 실행 한 경우 런타임에 작업이 실패 합니다. 이제에 대 한 호출은 `AmlCompute.provisioning_configuration` `ComputeTargetException` 암호 강도 요구 사항을 설명 하는 함께 제공 되는 오류 메시지와 함께을 throw 합니다. 
+    + 또한 일부 경우에는 최대 노드 수가 음수 인 구성을 지정할 수 있었습니다. 더 이상이 작업을 수행할 수 없습니다. 이제 `AmlCompute.provisioning_configuration` `ComputeTargetException` 인수가 음의 정수인 경우은을 throw 합니다 `max_nodes` .
+    + 모델을 배포할 때 설정 show_output True로 설정 하면 유추 구성 및 배포 구성이 표시 됩니다.
+    + 모델 배포가 완료 될 때까지 기다릴 때 설정 show_output True로 설정 되 면 배포 작업의 진행률이 표시 됩니다.
+    + 환경 변수를 통해 고객이 지정 된 AzureML 인증 구성 디렉터리 허용: AZUREML_AUTH_CONFIG_DIR
+    + 이전에는 최소 노드 수가 최대 노드 수보다 작은 프로 비전 구성을 만들 수 있었습니다. 작업이 실행 되지만 런타임에 실패 합니다. 이 버그는 이제 수정 되었습니다. 이제 SDK를 사용 하 여 프로 비전 구성을 만들려고 하면 `min_nodes < max_nodes` 이 발생 `ComputeTargetException` 합니다.
+  + **azureml-interpret**
+    + 스파스 엔지니어링 설명의 집계 기능 importances 표시 되지 않는 설명 대시보드 수정
+    + azureml에서 ExplanationClient의 최적화 된 메모리 사용-패키지 해석
+  + **azureml-train-automl-client**
+    +  Spark를 사용 하 여 실행 하는 경우 사용자에 게 제어를 반환 하려면 show_output = False를 수정 합니다.
 
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Azure Machine Learning Studio 노트북 환경 (2 월 업데이트)
@@ -39,6 +70,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + 향상 된 속도 및 커널 안정성
   + 진행 중인 모든 [계산 인스턴스 작업](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)에 대 한 진행률을 표시 하는 회전 휠이 추가 되었습니다.
   + 파일 탐색기에서 마우스 오른쪽 단추를 클릭 합니다. 이제 파일을 마우스 오른쪽 단추로 클릭 하면 파일 작업이 열립니다. 
+
 
 ## <a name="2021-02-16"></a>2021-02-16
 
@@ -273,7 +305,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
+      [자세한 정보](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
@@ -1020,7 +1052,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  |
+| 웹 기반 도구  |     Description  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1532,7 +1564,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 
+| 웹 기반 도구 | Description | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 

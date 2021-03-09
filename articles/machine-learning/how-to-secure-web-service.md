@@ -10,12 +10,12 @@ author: aashishb
 ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 68163f7ca8cc1b37bda4e1224330f966265554c2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e0e25a804ac66ca33715906ce4d397b80887037d
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980476"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518554"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -82,9 +82,9 @@ ACI 배포의 경우 배포 구성 개체를 사용 하 여 모델 배포 시 TL
 ### <a name="deploy-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
   > [!NOTE]
-  > 이 단원의 정보는 디자이너에 대 한 보안 웹 서비스를 배포할 때에도 적용 됩니다. Python SDK를 사용 하는 방법을 잘 모르는 경우 [python 용 AZURE MACHINE LEARNING SDK 란 무엇 인가요?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 참조 하세요.
+  > 이 단원의 정보는 디자이너에 대 한 보안 웹 서비스를 배포할 때에도 적용 됩니다. Python SDK를 사용 하는 방법을 잘 모르는 경우 [python 용 AZURE MACHINE LEARNING SDK 란 무엇 인가요?](/python/api/overview/azure/ml/intro)를 참조 하세요.
 
-AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
+AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
 
 Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다. 
 
@@ -134,7 +134,7 @@ Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사�
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-*Enable_ssl* 에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
+*Enable_ssl* 에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
 
 ### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에서 배포
 
@@ -199,8 +199,8 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
-* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration)
 
 ### <a name="update-custom-certificate"></a>사용자 지정 인증서 업데이트
 
@@ -239,8 +239,8 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
-* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration)
 
 ## <a name="disable-tls"></a>TLS 사용 안 함
 

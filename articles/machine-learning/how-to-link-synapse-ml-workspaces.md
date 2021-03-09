@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 8941a7f7a27f6ffe58cda3f0bf2c6833ec226783
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456284"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519999"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 (미리 보기)
 
@@ -29,9 +29,9 @@ Azure Synapse 작업 영역에 연결 된 Azure Machine Learning 작업 영역�
 작업 영역을 연결 하 고 단일 [Azure Resource Manager (ARM) 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)사용 하 여 Synapse Spark 풀을 연결할 수도 있습니다.
 
 >[!IMPORTANT]
-> Azure Machine Learning 및 Azure Synapse 통합은 공개 미리 보기로 제공 됩니다. 패키지에서 제공 되는 `azureml-synapse` 기능은 [실험적](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
+> Azure Machine Learning 및 Azure Synapse 통합은 공개 미리 보기로 제공 됩니다. 패키지에서 제공 되는 `azureml-synapse` 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 
@@ -39,7 +39,7 @@ Azure Synapse 작업 영역에 연결 된 Azure Machine Learning 작업 영역�
 
 * [Azure Portal, 웹 도구 또는 Synapse Studio를 사용 하 여 Apache Spark 풀 만들기](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 를 설치 합니다.
+* [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro) 를 설치 합니다.
 
 * [Azure Machine Learning studio](https://ml.azure.com/)에 액세스 합니다.
 
@@ -51,7 +51,7 @@ Azure Synapse 작업 영역에 연결 된 Azure Machine Learning 작업 영역�
 >
 > **소유자** 가 아니고 Synapse 작업 영역에 대 한 **기여자** 인 경우에는 기존 연결 된 서비스만 사용할 수 있습니다. [기존 연결 된 서비스](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service)를 검색 하 고 사용 하는 방법을 참조 하세요.
 
-다음 코드는 [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice?preserve-view=true&view=azure-ml-py) 및 클래스를에 채택 합니다. [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration?preserve-view=true&view=azure-ml-py)
+다음 코드는 [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) 및 클래스를에 채택 합니다. [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration)
 
 * Azure Synapse 작업 영역을 사용 하 여 machine learning 작업 영역을 연결 `ws` 합니다.
 * Azure Machine Learning에 연결 된 서비스로 Synapse 작업 영역을 등록 합니다.
@@ -105,7 +105,7 @@ linked_service.unregister()
 1. **링크 작업 영역** 폼에서 필드를 채웁니다. 
     필드| Description    
     ---|---
-    이름| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
+    Name| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
     구독 이름 | Machine learning 작업 영역에 연결 된 구독의 이름을 선택 합니다. 
     Synapse 작업 영역 | 연결 하려는 Synapse 작업 영역을 선택 합니다.
 1. **다음** 을 선택 하 여 **Spark 풀 선택 (선택 사항)** 양식을 엽니다. 이 양식에서 작업 영역에 연결할 Synapse Spark 풀을 선택 합니다.

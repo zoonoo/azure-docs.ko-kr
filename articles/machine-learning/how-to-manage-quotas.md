@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878955"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520390"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -189,7 +189,6 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
  다음 시나리오에서는 Microsoft 소유의 구독에서 할당량 한도를 요청 해야 할 수 있습니다.
 
 * CMK (고객이 관리 하는 키)가 있는 Azure 개인 링크 사용 작업 영역
-* 가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry
 * Private Link를 사용하는 Azure Kubernetes Service 클러스터를 작업 영역에 연결
 
 이러한 시나리오에 대 한 허용을 요청 하려면 다음 단계를 사용 합니다.

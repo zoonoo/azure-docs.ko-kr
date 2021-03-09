@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f8b7162787e870337918794f353ab8dc94c1965
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694957"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518248"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>가상 네트워크 피어링 만들기 - Resource Manager, 서로 다른 구독 및 Azure Active Directory 테넌트
 
@@ -276,7 +276,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
    }
    ```
 
-3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) 또는 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
+3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file) 또는 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
 4. 2단계의 예제 json 파일을 컴퓨터에 복사하고 다음으로 시작하는 줄을 변경합니다.
    - **name**: *myVnetA/myVnetAToMyVnetB* 를 *myVnetB/myVnetBToMyVnetA* 로 변경합니다.
    - **ID**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB* 를 *myVnetA* 로 변경합니다.

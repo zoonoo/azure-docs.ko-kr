@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739589"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518928"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
-이 문서에서는 Azure Portal 또는 [Python 용 SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 를 사용 하 여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.
+이 문서에서는 Azure Portal 또는 [Python 용 SDK](/python/api/overview/azure/ml/) 를 사용 하 여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.
 
 변경 사항이 나 automation 증가에 대 한 요구 사항에 따라 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md)작업 영역을 만들고 삭제할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
-* Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다.
+* Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install)합니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -111,7 +111,7 @@ ms.locfileid: "97739589"
                              exist_ok=False)
    ```
 
-자세한 내용은 [작업 영역 SDK 참조](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)를 참조 하세요.
+자세한 내용은 [작업 영역 SDK 참조](/python/api/azureml-core/azureml.core.workspace.workspace)를 참조 하세요.
 
 구독에 액세스 하는 데 문제가 있는 경우 [Azure Machine Learning 노트북의 인증](https://aka.ms/aml-notebook-auth) 뿐만 아니라 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요.
 
@@ -167,7 +167,7 @@ ms.locfileid: "97739589"
 
 # <a name="python"></a>[Python](#tab/python)
 
-Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) 클래스를 제공 합니다 [. create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 를 사용 하 여 개인 끝점으로 작업 영역을 만들 수 있습니다. 이 클래스에는 기존 가상 네트워크가 필요 합니다.
+Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) 클래스를 제공 합니다 [. create ()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) 를 사용 하 여 개인 끝점으로 작업 영역을 만들 수 있습니다. 이 클래스에는 기존 가상 네트워크가 필요 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -374,7 +374,7 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 ## <a name="troubleshooting"></a>문제 해결
 
 * **Azure Machine Learning studio에서 지원 되는 브라우저**: 운영 체제와 호환 되는 최신 브라우저를 사용 하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
-  * Microsoft Edge (새로운 Microsoft Edge, 최신 버전) Microsoft Edge 레거시 아님)
+  * Microsoft Edge(새로운 Microsoft Edge, 최신 버전. Microsoft Edge 레거시 아님)
   * Safari(최신 버전, Mac만 해당)
   * Chrome(최신 버전)
   * Firefox(최신 버전)
@@ -398,7 +398,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 작업 영역을 만드는 예는 다음과 같습니다.
 * Azure Portal를 사용 하 여 [작업 영역 및 계산 인스턴스 만들기](tutorial-1st-experiment-sdk-setup.md)

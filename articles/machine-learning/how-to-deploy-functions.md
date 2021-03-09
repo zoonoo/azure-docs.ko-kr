@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 88408c4d1c1936d364029f73d9e7b2be0bcf9d84
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: abb38ebbdacdf4f153148fbe121e54ede88f066a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102213116"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519268"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -63,7 +63,7 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
 이러한 엔터티는 __유추 구성__ 에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure Functions에 사용할 유추 구성을 만드는 경우 [환경](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
+> Azure Functions에 사용할 유추 구성을 만드는 경우 [환경](/python/api/azureml-core/azureml.core.environment%28class%29) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-Azure Functions에 배포 되는 Docker 이미지를 만들려면 사용 하려는 트리거에 대해 [azureml](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 또는 특정 패키지 함수를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 blob 트리거를 사용 하 여 새 패키지를 만드는 방법을 보여 줍니다.
+Azure Functions에 배포 되는 Docker 이미지를 만들려면 사용 하려는 트리거에 대해 [azureml](/python/api/azureml-contrib-functions/azureml.contrib.functions) 또는 특정 패키지 함수를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 blob 트리거를 사용 하 여 새 패키지를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 코드 조각에서는에 `model` 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
@@ -301,4 +301,4 @@ Blob 트리거를 사용 하는 방법에 대 한 자세한 내용은 [Azure blo
 * Blob 저장소에 대 한 자세한 내용은 [Azure blob storage 바인딩](../azure-functions/functions-bindings-storage-blob.md)을 트리거합니다.
 * [Azure App Service에 모델을 배포](how-to-deploy-app-service.md)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
-* [API 참조](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)
+* [API 참조](/python/api/azureml-contrib-functions/azureml.contrib.functions)

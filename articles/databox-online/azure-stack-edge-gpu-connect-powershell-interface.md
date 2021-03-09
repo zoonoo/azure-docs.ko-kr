@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 1319f806dd2f32233dcfe7383f5283b67827f16f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437760"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102517572"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
 
@@ -26,30 +26,12 @@ Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통�
 
 ## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결합니다.
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## <a name="create-a-support-package"></a>지원 패키지 만들기
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-<!--## Upload certificate
-
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
-
-You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
-
-- Root CA certificate or the owner CA
-- Device CA certificate
-- Device key certificate
-
-The following example shows the usage of this cmdlet to install IoT Edge certificates:
-
-```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
-```
-When you run this cmdlet, you will be prompted to provide the password for the network share.
-
-For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>장치 정보 보기
  
@@ -88,17 +70,8 @@ For more information on certificates, go to [Azure IoT Edge certificates](../iot
 
 Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 공유할 수 있는 메커니즘을 제공 합니다. 여기에서 각 작업에는 GPU 리소스의 일부 백분율이 할당 됩니다. MP는 Azure Stack Edge Pro GPU 장치의 미리 보기 기능입니다. 장치에서 MP를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. 시작 하기 전에 다음을 확인 합니다. 
+[!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
-    1. Azure에서 Azure Stack Edge Pro/Data Box Gateway 리소스를 사용 하 여 [Azure Stack Edge pro 장치를](azure-stack-edge-gpu-deploy-activate.md) 구성 하 고 활성화 했습니다.
-    1. [Azure Portal에서이 장치에 대 한 계산을 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute)했습니다.
-    
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-1. 다음 명령을 사용 하 여 장치에서 MP를 사용 하도록 설정 합니다.
-
-    ```powershell
-    Start-HcsGpuMPS
-    ```
 
 ## <a name="reset-your-device"></a>디바이스 재설정
 
@@ -150,45 +123,13 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>IoT Edge와 관련 된 Kubernetes 문제를 디버그 합니다.
 
-<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
+시작 하기 전에 다음이 있어야 합니다.
 
-<!--### Create config file for system namespace
-
-To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
-
-Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
-
-Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
-
-```PowerShell
-[10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EVXhNekl4TkRRME5sb1hEVE13TURVeE1USXhORFEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0M1CjlJbzRSU2hudG90QUdxdjNTYmRjOVd4UmJDYlRzWXU5S0RQeU9xanVoZE1UUE9PcmROOGNoa0x4NEFyZkZaU1AKZithUmhpdWZqSE56bWhucnkvZlprRGdqQzQzRmV5UHZzcTZXeVVDV0FEK2JBdi9wSkJDbkg2MldoWGNLZ1BVMApqU1k0ZkpXenNFbzBaREhoeUszSGN3MkxkbmdmaEpEanBQRFJBNkRWb2pIaktPb29OT1J1dURvUHpiOTg2dGhUCkZaQXJMZjRvZXRzTEk1ZzFYRTNzZzM1YVhyU0g3N2JPYVVsTGpYTzFYSnpFZlZWZ3BMWE5xR1ZqTXhBMVU2b1MKMXVJL0d1K1ArY
-===========CUT=========================================CUT===================
-    server: https://compute.myasegpu1.wdshcsso.com:6443
-    name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: aseuser
-    name: aseuser@kubernetes
-current-context: aseuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: aseuser
-    user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJY1hOTXRPU2VwbG93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURBMU1UTXlNVFEwTkRaYUZ3MHlNVEExTVRNeU1UVXhNVEphTUJJeApFREFPQmdOVkJBTVRCMkZ6WlhWelpYSXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCCkFRRHVjQ1pKdm9qNFIrc0U3a1EyYmVjNEJkTXdpUEhmU2R2WnNDVVY0aTRRZGY1Yzd0dkE3OVRSZkRLQTY1d08Kd0h0QWdlK3lLK0hIQ1Qyd09RbWtNek1RNjZwVFEzUlE0eVdtRDZHR1cWZWMExBR1hFUUxWWHRuTUdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-
-[10.100.10.10]: PS>
-```
--->
-
+- 계산 네트워크를 구성 했습니다. [자습서: GPU를 사용 하 여 Azure Stack Edge Pro에 대 한 네트워크 구성을](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)참조 하세요.
+- 장치에 구성 된 계산 역할이 있습니다.
+    
 계산 역할이 구성 된 Azure Stack Edge Pro 장치에서는 두 개의 다른 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
 
 - `iotedge`명령을 사용 합니다. 이러한 명령은 장치에 대 한 기본 작업에 사용할 수 있습니다.
@@ -214,7 +155,7 @@ Commands:
 
 다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
 
-|명령을 사용합니다.  |설명 |
+|명령을 사용합니다.  |Description |
 |---------|---------|
 |`list`     | 모듈 목록 표시         |
 |`logs`     | 모듈의 로그 가져오기        |
@@ -403,7 +344,7 @@ Events:          <none>
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-`all-containers`플래그는 모든 컨테이너에 대 한 모든 로그를 덤프 하므로 최근 오류를 확인 하는 좋은 방법은 옵션을 사용 하는 것입니다 `--tail 10` .
+`all-containers`플래그가 모든 컨테이너에 대 한 모든 로그를 덤프 하므로 최근 오류를 확인 하는 좋은 방법은 옵션을 사용 하는 것입니다 `--tail 10` .
 
 다음은 샘플 출력입니다. 
 
@@ -534,8 +475,8 @@ Kubernetes worker 노드에 대 한 메모리 또는 프로세서 제한을 변�
 
 - 기본 메모리는 장치 사양의 25%입니다.
 - 기본 프로세서 수는 장치 사양의 30%입니다.
-- 메모리 및 프로세서 수에 대 한 값을 변경 하는 경우에는 장치 메모리와 프로세서 수의 15%에서 65% 사이의 값을 변경 하는 것이 좋습니다. 
-- 시스템 구성 요소에 충분 한 리소스가 있도록 65%의 상한을 권장 합니다. 
+- 메모리 및 프로세서 수에 대 한 값을 변경 하는 경우에는 장치 메모리와 프로세서 수의 15%에서 60% 사이의 값을 변경 하는 것이 좋습니다. 
+- 시스템 구성 요소에 충분 한 리소스가 있도록 60%의 상한을 권장 합니다. 
 
 ## <a name="connect-to-bmc"></a>BMC에 연결
 

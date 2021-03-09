@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605601"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521546"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id 사용
 
@@ -263,6 +263,19 @@ API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key V
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>API Management id를 사용 하 여 백 엔드에 인증
 
 시스템이 할당 한 id를 사용 하 여 [인증 관리 id](api-management-authentication-policies.md#ManagedIdentity) 정책을 통해 백 엔드에 인증할 수 있습니다.
+
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>시스템 할당 관리 Id를 사용 하 여 IP 방화벽 뒤에 있는 Azure 리소스에 연결
+
+
+API Management는 다음 리소스에 대 한 신뢰할 수 있는 microsoft 서비스입니다. 이를 통해 서비스는 방화벽 뒤에 있는 다음 리소스에 연결할 수 있습니다. 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 에 적절 한 Azure 역할을 명시적으로 할당 한 후 인스턴스의 액세스 범위는 관리 id에 할당 된 azure 역할에 해당 합니다.
+
+
+|Azure 서비스 | 링크|
+|---|---|
+|Azure Storage | [신뢰할 수 있는 액세스-azure-저장소](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Azure Service Bus | [신뢰할 수 있는 액세스-azure-버스](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hub | [Trused-액세스-azure-이벤트 허브](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
 

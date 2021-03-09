@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 4193e58c28b481297df38bca8f18d2ea766ce886
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443134"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519013"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 인증서 사용
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Azure Stack Edge Pro 장치에 설치할 수 있는 인증서의 유형을 설명 합니다. 또한이 문서에는 만료 날짜를 설치 하 고 식별 하는 절차와 함께 각 인증서 종류에 대 한 세부 정보도 포함 되어 있습니다. 
+이 문서에서는 Azure Stack Edge Pro 장치에 설치할 수 있는 인증서의 유형을 설명 합니다. 또한이 문서에는 만료 날짜를 설치 하 고 식별 하는 절차와 함께 각 인증서 종류에 대 한 세부 정보도 포함 되어 있습니다.  
 
 ## <a name="about-certificates"></a>인증서 정보
 
@@ -52,7 +52,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 
 인증서 또는 서명 인증 기관에 서명 하는 인증 기관에 대 한 인증서입니다. 
 
-### <a name="types"></a>유형
+### <a name="types"></a>형식
 
 이러한 인증서는 루트 인증서 또는 중간 인증서 일 수 있습니다. 루트 인증서는 항상 자체 서명 되거나 자체 서명 됩니다. 중간 인증서는 자체 서명 되지 않고 서명 기관에서 서명 됩니다.
 
@@ -77,7 +77,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - DNS 도메인이 변경 되어도 장치 이름이 변경 되지 않으면 노드 인증서를 변경 해야 합니다. 사용자 고유의 노드 인증서를 가져오는 경우 장치 일련 번호를 변경할 수 없으며, 도메인 이름만 변경할 수 있습니다.
 - 다음 표를 사용 하 여 노드 인증서를 만들 때 안내 합니다.
    
-    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,7 +98,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 끝점 인증서의 속성은 일반적인 SSL 인증서의 속성과 유사 합니다. 
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -114,7 +114,7 @@ Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서�
 - 로컬 UI 인증서는 `.pfx` 내보낼 수 있는 개인 키를 사용 하 여 형식으로도 업로드 됩니다.
 - 로컬 UI 인증서를 업로드 한 후 브라우저를 다시 시작 하 고 캐시를 지워야 합니다. 브라우저에 대 한 구체적인 지침을 참조 하세요.
 
-    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
@@ -400,7 +400,7 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 ## <a name="supported-certificate-algorithms"></a>지원 되는 인증서 알고리즘
 
- Azure Stack Edge Pro 장치에서는 RSA (Rivest – Rivest-shamir-adleman – Rivest-shamir-adleman) 인증서만 지원 됩니다. ECDSA (타원 Curve Digital Signature Algorithm) 인증서를 사용 하는 경우 장치 동작은 결정 되지 않습니다.
+ Azure Stack Edge Pro 장치에서는 RSA (Rivest – Rivest-shamir-adleman – Rivest-shamir-adleman) 인증서만 지원 됩니다. ECDSA (타원 Curve Digital Signature Algorithm) 인증서는 지원 되지 않습니다.
 
  RSA 공개 키를 포함 하는 인증서를 RSA 인증서 라고 합니다. ECC (타원 Curve 암호화) 공개 키가 포함 된 인증서를 ECDSA (타원 Curve Digital Signature Algorithm) 인증서 라고 합니다. 
 

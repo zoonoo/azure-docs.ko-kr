@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: cac2f57ccb5fd5d0aa251533bd4a5dd1179ec058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59b015232fcfe2fd98e1b9f28c2eb4fa86606049
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069768"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519574"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 가상 머신 확장 집합에서 OS 및 연결 된 데이터 디스크 암호화
 
@@ -51,7 +51,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM 인스턴스에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM 인스턴스에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -87,7 +87,7 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType "All"
 ```
 
-메시지가 나타나면 *y*를 입력하여 확장 집합 VM 인스턴스에서 디스크 암호화 프로세스를 계속합니다.
+메시지가 나타나면 *y* 를 입력하여 확장 집합 VM 인스턴스에서 디스크 암호화 프로세스를 계속합니다.
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>KEK를 사용하여 암호화를 사용하여 키 래핑
 
@@ -118,7 +118,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-VM 인스턴스가 암호화될 때 *EncryptionSummary* 코드는 다음 예제 출력에 표시된 대로 *ProvisioningState/succeeded*를 보고합니다.
+VM 인스턴스가 암호화될 때 *EncryptionSummary* 코드는 다음 예제 출력에 표시된 대로 *ProvisioningState/succeeded* 를 보고합니다.
 
 ```powershell
 ResourceGroupName            : myResourceGroup

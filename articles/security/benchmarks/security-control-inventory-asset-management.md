@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a15517c7c34d39dfb1de237d19e84c40bf834ea
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: f3079ea475c20e3ae0e78319d6c6b24ee579fd0c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500107"
+ms.locfileid: "102521308"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>보안 제어: 인벤토리 및 자산 관리
 
@@ -156,7 +156,7 @@ Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 
 
 스크립트 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다.  Azure Security Center 적응 응용 프로그램 제어를 활용 하 여 권한 있는 소프트웨어만 실행 되 고 권한이 없는 모든 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수도 있습니다.
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 - [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../../security-center/security-center-adaptive-application.md)
 

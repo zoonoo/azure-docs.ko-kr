@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 7144d576694b6694f426533451717cef58c2da87
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c03016d003978b3c56361595bec7c559205574b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562449"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520883"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -49,8 +49,8 @@ ms.locfileid: "97562449"
  
  - 사용자 고유의 Jupyter Notebook 서버
 
-    - [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 설치합니다.
-    - [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
+    - [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)를 설치합니다.
+    - [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/)를 설치합니다(`pip install --upgrade azureml-contrib-reinforcementlearning`).
     - [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.
     - Virtual network를 실행 하 여 distributed 보충 learning에 사용 되는 네트워크 포트를 엽니다.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>보충 학습 실험 만들기
 
-보충 학습 실행을 추적하는 [실험](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)을 만듭니다. Azure Machine Learning에서 실험은 실행 로그, 기록, 출력 등을 구성하는 데 관련된 시험의 논리적 컬렉션입니다.
+보충 학습 실행을 추적하는 [실험](/python/api/azureml-core/azureml.core.experiment.experiment)을 만듭니다. Azure Machine Learning에서 실험은 실행 로그, 기록, 출력 등을 구성하는 데 관련된 시험의 논리적 컬렉션입니다.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -214,7 +214,7 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>보충 학습 예측 도구 만들기
-[ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) 를 사용 하 여 Azure Machine Learning에 학습 작업을 제출 합니다.
+[ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) 를 사용 하 여 Azure Machine Learning에 학습 작업을 제출 합니다.
 
 Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성 하는 방법을 지정할 수 있습니다. 
 
@@ -402,7 +402,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>실행 제출
 
-[실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)은 진행 중이거나 완료된 작업의 실행 기록을 처리합니다. 
+[실행](/python/api/azureml-core/azureml.core.run%28class%29)은 진행 중이거나 완료된 작업의 실행 기록을 처리합니다. 
 
 ```python
 run = exp.submit(config=rl_estimator)

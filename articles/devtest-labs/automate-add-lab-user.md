@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩 사용자 추가 자동화 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 CLI를 사용 하 여 Azure DevTest Labs에서 랩에서 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6dddf06289da79e16cbd7e64869fa77f0a40dd22
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: dc5522cfe694f193b9bbeeb3145808a367a62c12
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508829"
+ms.locfileid: "102519404"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 사용자를 랩에 추가 자동화
 Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비스 개발-테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화 하면 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 사용 하면 실습, 랩 vm, 사용자 지정 이미지, 수식을 만들고 자동화 된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가 하는 방법을 집중적으로 설명 합니다.
@@ -161,7 +161,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 
 그룹 배포 이름 및 역할 할당 GUID는 고유 해야 합니다. 고유 하지 않은 GUID를 사용 하 여 리소스 할당을 배포 하려고 하면 `RoleAssignmentUpdateNotPermitted` 오류가 발생 합니다.
 
-템플릿을 여러 번 사용 하 여 랩에 대 한 DevTest Labs 사용자 역할에 여러 Active Directory 개체를 추가 하려는 경우 PowerShell 명령에서 동적 개체를 사용 하는 것이 좋습니다. 다음 예제에서는 [새 guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) cmdlet을 사용 하 여 리소스 그룹 배포 이름 및 역할 할당 Guid를 동적으로 지정 합니다.
+템플릿을 여러 번 사용 하 여 랩에 대 한 DevTest Labs 사용자 역할에 여러 Active Directory 개체를 추가 하려는 경우 PowerShell 명령에서 동적 개체를 사용 하는 것이 좋습니다. 다음 예제에서는 [새 guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet을 사용 하 여 리소스 그룹 배포 이름 및 역할 할당 Guid를 동적으로 지정 합니다.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"

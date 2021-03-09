@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 895632e4a65f942b61389ffd6ebc8a49d79b5244
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440023"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520713"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "102440023"
 Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 
@@ -39,7 +39,7 @@ Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, 
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
 - Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     

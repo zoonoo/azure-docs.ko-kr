@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ed9d41a84e455241ed3cfc41b905a671f2a2d499
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 02684ba91c207357e15684870a6fa0ceab3e17ff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912957"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520968"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 ML 모델 학습 및 추적 (미리 보기)
 
@@ -46,7 +46,7 @@ ms.locfileid: "97912957"
 
  다음 표에서 Azure Machine Learning 및 해당 기능 기능을 사용할 수 있는 여러 클라이언트를 요약 합니다.
 
- MLflow 추적은 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
+ MLflow 추적은 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
 
 | 기능 | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
 |---|---|---|---|---|
@@ -63,7 +63,7 @@ ms.locfileid: "97912957"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * `azureml-mlflow` 패키지를 설치합니다. 
-    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
+    * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install)를 자동으로 가져옵니다.
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).
     * [작업 영역을 사용 하 여 MLflow 작업을 수행 하는 데 필요한 액세스 권한을](how-to-assign-roles.md#mlflow-operations)확인 하세요.
 
@@ -71,7 +71,7 @@ ms.locfileid: "97912957"
 
 MLflow 추적을 Azure Machine Learning과 함께 사용하면 로컬 실행의 로깅된 메트릭 및 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
 
-`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
+`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
 
 다음 코드에서 `get_mlflow_tracking_uri()` 메서드는 작업 영역 `ws`에 고유한 추적 URI 주소를 할당하고, `set_tracking_uri()`는 이 주소로 MLflow 추적 URI를 가리킵니다.
 
@@ -118,7 +118,7 @@ dependencies:
     - numpy
 ```
 
-스크립트에서 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 [`Environment`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) 합니다. 그런 다음  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) 계산 대상으로 원격 계산을 사용 하 여를 생성 합니다.
+스크립트에서 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 [`Environment`](/python/api/azureml-core/azureml.core.environment.environment) 합니다. 그런 다음  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) 계산 대상으로 원격 계산을 사용 하 여를 생성 합니다.
 
 ```Python
 import mlflow
@@ -145,7 +145,7 @@ run = exp.submit(src)
 pip install azureml-mlflow
 ```
 
-`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
+`mlflow` 및 [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29) 클래스를 가져와 MLflow의 추적 URI에 액세스하고 작업 영역을 구성합니다.
 
 ```Python
 import mlflow
