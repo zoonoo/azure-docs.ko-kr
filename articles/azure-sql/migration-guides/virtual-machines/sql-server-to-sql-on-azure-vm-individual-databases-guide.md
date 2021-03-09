@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797885"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488236"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: SQL Server에서 Azure VM의 SQL Server로 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "98797885"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -58,6 +58,8 @@ Azure Migrate은 온-프레미스 컴퓨터의 마이그레이션 적합성을 �
 
 
 ### <a name="assess"></a>평가
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 모든 데이터 원본을 검색 한 후 [Data Migration Assistant (DMA)](/sql/dma/dma-overview) 를 사용 하 여 온-프레미스 SQL Server 인스턴스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 것을 평가 하 여 원본 및 대상 인스턴스 간의 간격을 파악 합니다. 
 
@@ -123,7 +125,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 마이그레이션을 위한 데이터베이스를 사용 하는 응용 프로그램을 일시 중지/중지 합니다. 
 1. [단일 사용자 모드](/sql/relational-databases/databases/set-a-database-to-single-user-mode)를 사용 하 여 사용자 데이터베이스가 비활성화 되어 있는지 확인 합니다. 
 1. 온-프레미스 위치에 전체 데이터베이스 백업을 수행합니다.
-1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
+1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2-TB 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 
 ### <a name="log-shipping--minimize-downtime"></a>로그 전달 (가동 중지 시간 최소화)

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 59c000a816d55d248febb841b695d366cb9979cc
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455232"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488208"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,18 +86,19 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
-|[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | 이는 SQL Server 로그 전달 기술을 기반으로 Managed Instance에 사용 하도록 설정 된 클라우드 서비스로, Azure storage에 전체 차등 및 로그 데이터베이스 백업을 제공할 수 있는 고객을 위한 마이그레이션 옵션을 만듭니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다.| 
+|[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | 이는 SQL Server 로그 전달 기술을 기반으로 Managed Instance에 사용 하도록 설정 된 클라우드 서비스로, Azure storage에 대 한 전체, 차등 및 로그 데이터베이스 백업을 제공할 수 있는 고객을 위한 마이그레이션 옵션을 만듭니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다.| 
 | | |
 
 ### <a name="alternative-tools"></a>대체 도구
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 

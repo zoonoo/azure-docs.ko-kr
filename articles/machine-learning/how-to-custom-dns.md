@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871098"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487987"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "98871098"
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "98871098"
     > [!NOTE]
     > 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
     
-### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>이러한 Fqdn은 다른 모든 지역에서 사용 됩니다.
+### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>이러한 Fqdn은 다른 모든 공용 지역에서 사용 됩니다.
 다음 목록에는 작업 영역에서 사용 되는 FQDN (정규화 된 도메인 이름)이 포함 되어 있습니다.
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -63,6 +63,17 @@ ms.locfileid: "98871098"
     > [!NOTE]
     > 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
 
+### <a name="azure-china-21vianet-regions"></a>Azure 중국 21Vianet 지역
+
+Azure 중국 21Vianet 지역에 대 한 Fqdn은 다음과 같습니다.
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > 이 FQDN의 작업 영역 이름이 잘릴 수 있습니다. 잘림는 FQDN을 63 자 이하로 유지 하기 위해 수행 됩니다.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>IP 주소 찾기
 
 VNet에서 Fqdn의 내부 IP 주소를 찾으려면 다음 방법 중 하나를 사용 합니다.
@@ -94,7 +105,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-모든 메서드에서 반환 된 정보는 동일 합니다. 리소스의 FQDN 및 개인 IP 주소 목록입니다.
+모든 메서드에서 반환 된 정보는 동일 합니다. 리소스의 FQDN 및 개인 IP 주소 목록입니다. 다음 예제는 글로벌 Azure 지역에서 가져온 것입니다.
 
 | FQDN | IP 주소 |
 | ----- | ----- |
@@ -112,6 +123,12 @@ $workspaceDns.CustomDnsConfigs | format-table
 >
 > 이러한 모든 IP 주소에 대해 `*.api.azureml.ms` 이전 단계에서 반환 된 항목과 동일한 주소를 사용 합니다.
 
+다음 표에는 Azure 중국 21Vianet 지역의 예제 Ip가 나와 있습니다.
+
+| FQDN | IP 주소 |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 ## <a name="next-steps"></a>다음 단계
 
 가상 네트워크에서 Azure Machine Learning를 사용 하는 방법에 대 한 자세한 내용은 [virtual network 개요](how-to-network-security-overview.md)를 참조 하세요.

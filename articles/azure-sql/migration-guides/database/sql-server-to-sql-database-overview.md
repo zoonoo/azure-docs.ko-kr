@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368050"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488276"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>마이그레이션 개요: SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하
 
 |기술 | 설명|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[DMA(Data Migration Assistant)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant는 Azure SQL Database (스키마와 데이터 모두)로의 SQL Server 및 마이그레이션에 대 한 원활한 평가를 제공 하는 데스크톱 도구입니다. 이 도구는 원본 데이터베이스에 연결 된 서버 온-프레미스 또는 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 데이터베이스와 대상 데이터베이스의 개체 간 논리적 데이터 이동입니다. </br> -단일 데이터베이스 마이그레이션 (스키마 및 데이터 모두)|
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Azure Portal 또는 PowerShell을 사용 하 여 Azure SQL Database으로 SQL Server 데이터베이스를 마이그레이션할 수 있는 자사 Azure 서비스입니다. Azure DMS를 사용 하려면 프로 비전 중에 기본 설정 된 VNet (Azure Virtual Network)을 선택 하 여 원본 SQL Server 데이터베이스에 연결 되어 있는지 확인 해야 합니다. </br> -단일 데이터베이스 또는 대규모로 마이그레이션 |
 | | |

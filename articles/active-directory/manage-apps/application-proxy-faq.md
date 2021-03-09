@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370821"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487749"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -37,6 +37,21 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 적어도 Azure AD Premium P1 또는 P2 라이선스와 Azure AD 응용 프로그램 프록시 커넥터가 설치 되어 있는지 확인 하세요. 첫 번째 커넥터를 성공적으로 설치 하면 Azure AD 응용 프로그램 프록시 서비스가 자동으로 사용 하도록 설정 됩니다.
 
 ## <a name="connector-configuration"></a>커넥터 구성
+
+### <a name="why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version"></a>커넥터가 여전히 이전 버전을 사용 하 고 최신 버전으로 자동 업그레이드 되지 않는 이유는 무엇 인가요?
+
+이는 업데이트 프로그램 서비스가 올바르게 작동 하지 않거나 서비스에서 설치할 수 있는 새 업데이트를 사용할 수 없는 경우에 발생할 수 있습니다.
+
+업데이트 프로그램 서비스가 실행 중이 고 이벤트 로그에 기록 된 오류가 없는 경우 (응용 프로그램 및 서비스 로그-> Microsoft > AadApplicationProxy-> 업데이트 프로그램-> 관리자) 업데이트 프로그램 서비스가 정상입니다. 
+
+> [!IMPORTANT]
+> 자동 업그레이드를 위해 주 버전만 릴리스됩니다. 커넥터를 정기적으로 수동으로 업데이트 하는 것이 좋습니다. 새 릴리스에 대 한 자세한 내용은 릴리스 유형 (다운로드, 자동 업그레이드), 버그 수정 및 새 기능에 대 한 자세한 내용은 [Azure AD 응용 프로그램 프록시: 버전 릴리스 기록](application-proxy-release-version-history.md)을 참조 하세요.
+
+커넥터를 수동으로 업그레이드 하려면 다음을 수행 합니다.
+
+-  최신 버전의 커넥터를 다운로드 합니다. (Azure Portal의 응용 프로그램 프록시 아래에서 찾을 수 있습니다. [Azure AD 응용 프로그램 프록시: 버전 릴리스 기록](application-proxy-release-version-history.md)에서 링크를 찾을 수도 있습니다.
+-   설치 관리자가 Azure AD 응용 프로그램 프록시 Connector 서비스를 다시 시작 합니다. 일부 경우에는 설치 관리자가 모든 파일을 바꿀 수 없는 경우 서버를 다시 부팅 해야 할 수 있습니다. 따라서 업그레이드를 시작 하기 전에 모든 응용 프로그램을 닫는 것이 좋습니다 (예: 이벤트 뷰어).
+-   설치 관리자를 실행합니다. 업그레이드 프로세스가 신속 하 고 자격 증명을 제공할 필요가 없으며 커넥터가 다시 등록 되지 않습니다.
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>응용 프로그램 프록시 커넥터 서비스가 기본값과 다른 사용자 컨텍스트에서 실행 될 수 있나요?
 
@@ -126,7 +141,7 @@ SSL 인증서를 업로드 한 후에는 포털에서 "잘못 된 인증서, 잘
 ### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>HSTS 헤더를 추가 하도록 응용 프로그램 프록시를 구성할 수 있나요?
 응용 프로그램 프록시는 HTTPS 응답에 HTTP Strict-Transport-보안 헤더를 자동으로 추가 하지 않지만 게시 된 응용 프로그램에서 보낸 원래 응답에 있으면 헤더를 유지 관리 합니다. 이 기능을 사용 하도록 설정 하는 설정을 증명 하는 것은 로드맵에 있습니다. 이를 응답에 추가할 수 있는 미리 보기에 관심이 있는 경우에는에 aadapfeedback@microsoft.com 대 한 자세한 내용을 확인 하세요.
 
-## <a name="integrated-windows-authentication"></a>통합 Windows 인증
+## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>KCD (Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용 해야 하는 경우는 언제 인가요?
 

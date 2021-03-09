@@ -5,41 +5,41 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738160"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486661"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
  이 문서에서는 HTTP REST API 메서드를 사용 하 여 문서 번역을 사용 하는 방법을 배웁니다. 문서 변환은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  문서 변환 API를 사용 하면 소스 문서 구조와 텍스트 서식을 유지 하면서 전체 문서를 변환할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
+
+> [!NOTE]
+> 일반적으로 Azure Portal에서 인지 서비스 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만드는 옵션이 있습니다. 그러나 문서 변환은 현재 Translator (단일 서비스) 리소스 에서만 지원 되며 Cognitive Services (다중 서비스) 리소스에는 포함 **되지** 않습니다.
 
 시작 하려면 다음이 필요 합니다.
 
 * 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**무료 계정을 만들**](https://azure.microsoft.com/free/)수 있습니다.
 
-* Cognitive Services 리소스가 **아니라** [**변환기**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스입니다. 
+* Cognitive Services 리소스가 **아니라** [**변환기**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스입니다.
 
-* [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Azure Storage에 대한 모든 액세스는 스토리지 계정을 통해 수행됩니다.
+* [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 저장소 계정 내에서 blob 데이터를 저장 하 고 구성 하는 컨테이너를 만듭니다.
 
 * Azure 구독이 새 문서 번역 기능을 사용할 수 있도록 하는 완성 된 [**문서 번역 (미리 보기) 양식**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) 입니다.
-
-> [!NOTE]
-> 문서 변환은 현재 Cognitive Services (다중 서비스) 리소스가 **아니라** 변환기 (단일 서비스) 리소스 에서만 지원 됩니다.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>사용자 지정 도메인 이름 및 구독 키 가져오기
 
 > [!IMPORTANT]
 >
-> * 문서 변환에 대 한 HTTP 요청을 수행 하려면 Azure Portal 리소스 _키와 끝점_ 페이지 또는 전역 변환기 끝점 ()에 있는 끝점을 사용할 수 없습니다 `api.cognitive.microsofttranslator.com` .
+> * 문서 변환에 대 한 HTTP 요청을 수행 하려면 Azure Portal 리소스 _키와 끝점_ 페이지 또는 전역 변환기 끝점 ()에 있는 끝점을 사용 하지 않습니다 `api.cognitive.microsofttranslator.com` .
 > * **문서 변환 서비스에 대 한 모든 API 요청에는 사용자 지정 도메인 끝점이 필요** 합니다.
 
-### <a name="what-is-the-custom-domain-endpoint"></a>사용자 지정 도메인 끝점은 무엇 인가요? 
+### <a name="what-is-the-custom-domain-endpoint"></a>사용자 지정 도메인 끝점은 무엇 인가요?
 
 사용자 지정 도메인 끝점은 리소스 이름, 호스트 이름 및 번역기 하위 디렉터리로 형식이 지정 된 URL입니다.
 
@@ -72,9 +72,9 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 * **대상 컨테이너** 입니다. 이 컨테이너는 번역 된 파일이 저장 되는 위치입니다 (필수).  
 * **용어집 컨테이너**. 이 컨테이너는 용어집 파일 (옵션)을 업로드 합니다.  
 
-**문서 변환에 대 한 SAS 액세스 토큰 만들기를** *참조 하세요* .
+### <a name="create-sas-access-tokens-for-document-translation"></a>**문서 변환에 대 한 SAS 액세스 토큰 만들기**
 
-`sourceUrl`, `targetUrl` 및 옵션은 `glossaryUrl` 쿼리 문자열로 추가 된 SAS (공유 액세스 서명) 토큰을 포함 해야 합니다. 토큰을 컨테이너 또는 특정 blob에 할당할 수 있습니다.
+`sourceUrl`, `targetUrl` 및 옵션은 `glossaryUrl` 쿼리 문자열로 추가 된 SAS (공유 액세스 서명) 토큰을 포함 해야 합니다. 토큰을 컨테이너 또는 특정 blob에 할당할 수 있습니다.  [**문서 변환 프로세스에 대 한 SAS 토큰 만들기를**](create-sas-tokens.md)참조 하세요.
 
 * **원본** 컨테이너 또는 blob에 **읽기** 및 **목록** 액세스를 지정 해야 합니다.
 * **대상** 컨테이너 또는 blob에는 지정 된 **쓰기** 및 **목록** 액세스 권한이 있어야 합니다.
@@ -113,7 +113,7 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 
 ### <a name="java"></a>[Java](#tab/java)
 
-* 프로젝트에 대한 작업 디렉터리를 만듭니다. 다음은 그 예입니다. 
+* 프로젝트에 대한 작업 디렉터리를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 mkdir sample-project
@@ -186,7 +186,7 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 각 문서 변환기 API 요청에는 다음과 같은 헤더가 포함 됩니다.
 
-|HTTP 헤더|Description|
+|HTTP 헤더|설명|
 |---|--|
 |Ocp-Apim-Subscription-Key|**필수**: 값은 Translator 또는 Cognitive Services 리소스에 대 한 Azure 구독 키입니다.|
 |콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정 합니다. 허용 되는 값은 application/json 또는 charset = u t f-8입니다.|
@@ -271,7 +271,9 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 > [!IMPORTANT]
 >
-> 아래 코드 예제에서는 작업에 따라 다음 필드를 업데이트 해야 할 수 있습니다.
+> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) 을 참조 하세요.
+>
+> 작업에 따라 다음 필드를 업데이트 해야 할 수 있습니다.
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -280,13 +282,18 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 >> * `glossaryURL`
 >> * `id`  (작업 ID)
 >>
-> 값을 찾을 수 있는 위치 `id` :
-> * `id`POST 메서드의 응답 헤더 URL 값에서 작업을 찾을 수 있습니다 `Operation-Location` . URL의 마지막 매개 변수는 작업의 작업 **`id`** 입니다.  
-> * 작업 가져오기 요청을 사용 하 여 `id`  문서 변환 작업에 대 한 작업을 검색할 수도 있습니다.
+
+#### <a name="locating--the-id-value"></a>값 찾기 `id`
+
+* `id`POST 메서드 응답 헤더 URL 값에서 작업을 찾을 수 있습니다 `Operation-Location` . URL의 마지막 매개 변수는 작업의 작업입니다 **`id`** .
+
+|**응답 헤더**|**결과 URL**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>리소스> 이름입니다. cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+
+* **작업 가져오기** 요청을 사용 하 여 문서 번역 작업을 검색할 수도 있습니다 `id` .
+
 >
-> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  
->
-> 자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) 을 참조 하세요.
 
 ## <a name="_post-document-translation_-request"></a>_문서 변환 후_ 요청
 

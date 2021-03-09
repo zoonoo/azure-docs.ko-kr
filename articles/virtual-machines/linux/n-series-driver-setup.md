@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: 766f6cb0515f45fa11ee26ba23e79ae51fff5ce3
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 333d4327e233d8101ece9f4272357a43cec47e56
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436093"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489823"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -45,7 +45,12 @@ lspci는 InfiniBand NIC 및 Gpu (있는 경우)를 포함 하 여 VM의 PCIe 장
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. NVIDIA 웹 사이트에서 CUDA 드라이버를 다운로드하여 설치합니다. 예를 들면 Ubuntu 16.04 LTS의 경우 다음과 같습니다.
+1. NVIDIA 웹 사이트에서 CUDA 드라이버를 다운로드하여 설치합니다. 
+    > [!NOTE]
+   >  아래 예제에서는 Ubuntu 16.04에 대 한 HODA 패키지 경로를 보여 줍니다. 사용 하려는 버전에 해당 하는 경로를 바꿉니다. 
+   >  
+   >  https://developer.download.nvidia.com/compute/cuda/repos/)각 버전에 해당 하는 전체 경로에 대 한 [Nvidia 다운로드 센터]를 방문 합니다. 
+   > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
@@ -59,6 +64,7 @@ lspci는 InfiniBand NIC 및 Gpu (있는 경우)를 포함 하 여 VM의 PCIe 장
    ```
 
    설치에는 몇 분 정도 걸릴 수 있습니다.
+ 
 
 2. 필요에 따라 전체 CUDA 도구 키트를 설치하려면 다음을 입력합니다.
 

@@ -3,14 +3,14 @@ title: Azure에서 업데이트 관리 배포의 사전 스크립트 및 사후 
 description: 이 문서에서는 업데이트 배포를 위한 사전 및 사후 스크립트를 구성하고 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701504"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485540"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -19,6 +19,8 @@ ms.locfileid: "101701504"
 ## <a name="pre-script-and-post-script-requirements"></a>사전 스크립트 및 사후 스크립트 요구 사항
 
 Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해당 Runbook을 Automation 계정으로 가져온 다음 [Runbook을 게시](../manage-runbooks.md#publish-a-runbook)해야 합니다.
+
+현재 PowerShell 및 Python 2 runbook은 사전/사후 스크립트로만 지원 됩니다. Python 3, 그래픽, PowerShell 워크플로, 그래픽 PowerShell 워크플로 등의 다른 runbook 유형은 현재 사전/사후 스크립트로 지원 되지 않습니다.
 
 ## <a name="pre-script-and-post-script-parameters"></a>사전 스크립트 및 사후 스크립트 매개 변수
 
@@ -91,9 +93,6 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 > [!NOTE]
 > `SoftwareUpdateConfigurationRunContext` 개체에는 머신에 대한 중복 항목이 포함될 수 있습니다. 이로 인해 사전 스크립트와 사후 스크립트가 동일한 머신에서 여러 번 실행될 수 있습니다. 이 동작을 해결하려면 `Sort-Object -Unique`를 사용하여 고유한 VM 이름만 선택합니다.
 
-> [!NOTE]
-> 현재 PowerShell runbook만 사전/사후 스크립트로 지원 됩니다. Python, 그래픽, PowerShell 워크플로, 그래픽 PowerShell 워크플로 등의 다른 runbook 유형은 현재 사전/사후 스크립트로 지원 되지 않습니다.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>배포에 사전 스크립트 또는 사후 스크립트 사용
 
 업데이트 배포에 사전 스크립트 또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. **사전 스크립트 + 사후 스크립트** 를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.
@@ -120,7 +119,7 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ## <a name="stop-a-deployment"></a>배포 중지
 
-사전 스크립트를 기반으로 배포를 중지하려면 예외를 [throw](../automation-runbook-execution.md#throw)해야 합니다. 그렇지 않으면 배포 및 사후 스크립트가 계속 실행됩니다. 다음 코드 조각에서는 예외를 throw하는 방법을 보여 줍니다.
+사전 스크립트를 기반으로 배포를 중지하려면 예외를 [throw](../automation-runbook-execution.md#throw)해야 합니다. 그렇지 않으면 배포 및 사후 스크립트가 계속 실행됩니다. 다음 코드 조각에서는 PowerShell을 사용 하 여 예외를 throw 하는 방법을 보여 줍니다.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_handling.php) 블록에서 관리 됩니다.
 
 ## <a name="interact-with-machines"></a>머신과 상호 작용
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+Python 2에서 특정 조건이 발생 하는 경우 오류를 throw 하려면 [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) 문을 사용 합니다.
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>샘플

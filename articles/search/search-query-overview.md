@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043017"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487120"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
@@ -24,10 +24,11 @@ Cognitive Search 쿼리는 **`search`** 쿼리 실행을 알리고 응답의 모
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 + **`queryType`**[기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 합니다.
 
++ **`searchMode`** 일치 항목이 식의 "모든" 조건 또는 "any" 조건을 기반으로 하는지 여부를 지정 합니다. 기본값은 any입니다.
+
 + **`search`** 연산자를 사용 하거나 사용 하지 않고 일치 조건, 일반적으로 전체 용어 또는 문구를 제공 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다.
 
-+ **`searchFields`** 쿼리 실행을 검색 가능한 특정 필드로 제한 합니다.
++ **`searchFields`** 쿼리 실행을 검색 가능한 특정 필드로 제한 합니다. 개발 하는 동안 선택 및 검색에 동일한 필드 목록을 사용 하는 것이 좋습니다. 그렇지 않으면 결과에 표시 되지 않는 필드 값을 기반으로 하 여 문서가 반환 된 이유에 대해 불확실성을 만들 수 있습니다.
 
 응답을 셰이핑 하는 데 사용 되는 매개 변수:
 
@@ -114,4 +117,4 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 + [단순 쿼리 예제](search-query-simple-examples.md)
 + [고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제](search-query-lucene-examples.md)
-+ [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
++ [Azure Cognitive Search git에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)

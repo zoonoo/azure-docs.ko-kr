@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e0247560afa8229f4fa5c25ec7dfbbca4f7defb2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362797"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486101"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -62,7 +62,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -133,17 +133,17 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 ```
 
 ## <a name="natural-reading-order-output-latin-only"></a>자연 읽기 순서 출력 (라틴어 전용)
-[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `readingOrder` . `natural`다음 예제와 같이 사용자에 게 친숙 한 읽기 순서 출력에 사용 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
+[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `readingOrder` . `natural`다음 예제와 같이 사용자에 게 친숙 한 읽기 순서 출력에 사용 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR 읽기 순서 예":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>텍스트 줄에 대 한 필기 분류 (라틴어 전용)
-[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) 응답은 각 텍스트 줄이 필기 스타일 인지 여부를 분류 하는 것과 신뢰도 점수를 포함 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다. 다음 예에서는 이미지의 텍스트에 대 한 필기 분류를 보여 줍니다.
+[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) 응답은 각 텍스트 줄이 필기 스타일 인지 여부를 분류 하는 것과 신뢰도 점수를 포함 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다. 다음 예에서는 이미지의 텍스트에 대 한 필기 분류를 보여 줍니다.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR 필기 분류 예":::
 
 ## <a name="select-pages-or-page-ranges-for-text-extraction"></a>텍스트 추출을 위한 페이지 또는 페이지 범위 선택
-[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 규모가 긴 다중 페이지 문서의 경우 `pages` 쿼리 매개 변수를 사용 하 여 페이지 번호 또는 페이지 범위를 지정 하 여 해당 페이지 에서만 텍스트를 추출 합니다. 다음 예제에서는 모든 페이지 (1-10) 및 선택 된 페이지 (3-6)에 대 한 텍스트를 포함 하는 10 개의 페이지가 있는 문서를 보여 줍니다.
+[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)를 사용 하 여 규모가 긴 다중 페이지 문서의 경우 `pages` 쿼리 매개 변수를 사용 하 여 페이지 번호 또는 페이지 범위를 지정 하 여 해당 페이지 에서만 텍스트를 추출 합니다. 다음 예제에서는 모든 페이지 (1-10) 및 선택 된 페이지 (3-6)에 대 한 텍스트를 포함 하는 10 개의 페이지가 있는 문서를 보여 줍니다.
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="선택한 페이지 출력":::
 
@@ -166,4 +166,4 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 - [Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)빠른 시작을 시작 하세요.
 - [읽기 3.1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
-- 총 73 언어에 대 한 지원이 포함 된 [읽기 3.2 공개 미리 보기 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.
+- 총 73 언어에 대 한 지원이 포함 된 [읽기 3.2 공개 미리 보기 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.

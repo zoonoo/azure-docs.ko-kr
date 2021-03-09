@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726770"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487881"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -30,7 +30,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 | ---------------------- | ---------------------------------------- |
 | 백로그된 입력 이벤트       | 백로그된 입력 이벤트의 수입니다. 이 메트릭의 값이 0이 아니면 작업이 수신 이벤트 수를 적시에 처리할 수 없음을 의미합니다. 이 값이 천천히 증가하거나 일관되게 0이 아닌 경우 작업을 확장해야 합니다. [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)에서 자세히 알아볼 수 있습니다. |
 | 데이터 변환 오류 | 예상 출력 스키마로 변환할 수 없는 출력 이벤트의 수입니다. 이 시나리오에서 발생하는 이벤트를 삭제하기 위해 오류 정책을 ‘삭제’로 변경할 수 있습니다. |
-| CPU 사용률 (미리 보기)       | 작업에서 사용한 CPU의 백분율입니다. 이 메트릭이 지속적으로 80% 보다 높은 경우 작업은 CPU 사용량에 병목 상태가 발생 하 고 입력 이벤트가 백로그를 가져오도록 할 가능성이 있습니다. 이러한 문제를 완화 하기 위해 작업에 할당 된 SUs의 수를 늘릴 수 있습니다. |
+| CPU 사용률 (미리 보기)       | 작업에서 사용한 CPU의 백분율입니다. 이 값이 매우 높은 경우 (90% 이상)에도이 메트릭에 따라 su 수를 늘려야 합니다. 백로그 된 입력 이벤트 또는 워터 마크 지연 수가 늘어나면이 CPU% 사용률 메트릭을 사용 하 여 CPU가 병목 상태 인지 여부를 확인할 수 있습니다. 이 메트릭은 간헐적으로 급증 할 수 있습니다. CPU 병목 현상으로 인해 입력이 백로그 또는 워터 마크 지연 된 후 작업의 상한을 확인 하도록 테스트 크기를 조정 하는 것이 좋습니다. |
 | 초기 입력 이벤트       | 애플리케이션 타임스탬프가 도착 시간보다 5분 넘게 이전인 이벤트입니다. |
 | 실패한 기능 요청 | 실패한 Azure Machine Learning 함수 호출(있는 경우) 수입니다. |
 | 함수 이벤트        | Azure Machine Learning 함수(있는 경우)에 전송된 이벤트 수입니다. |

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185481"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487426"
 ---
 # <a name="camera-placement-guide"></a>카메라 배치 가이드
 
@@ -72,12 +72,12 @@ _카메라-초점면 거리_ 는 접지 지점 (또는 카메라 이미지의 �
 
 | 카메라 높이 | 카메라-초점 거리 (최소/최대) |  
 | ------------- | ---------------------------------------- |  
-| 20cm(8            | 10 '-13 '                                  |  
-| 5-10           | 7 '-13 '                                   |  
-| 10           | 10 '-17 '                                  |  
-| 14           | 11 '-18 '                                  |  
-| x           | 12 '-22 '                                  |  
-| 720           | 15 '-30 '                                  |  
+| 20cm(8            | 4.6 '-8 '                                  |  
+| 5-10           | 5.8 '-10 '                                 |  
+| 10           | 7 '-12 '                                   |  
+| 14           | 8 '-14 ' '                                  |  
+| x           | 9.2 '-16 '                                 |  
+| 720           | 11.5 '-20 '                                |  
 
 다음 그림은 가장 가깝거나 가장 가까운 카메라에서 가장 가까운 거리 까지의 카메라 보기를 시뮬레이션 합니다.
 
@@ -91,15 +91,9 @@ _카메라-초점면 거리_ 는 접지 지점 (또는 카메라 이미지의 �
 
 ### <a name="line-configuration"></a>줄 구성
 
-다음 표에서는 **cognitiveservices account spatialanalysis-personcrossingline** 작업에 대해 구성 된 카메라에 대 한 권장 사항을 보여 줍니다. 얼굴 마스크 검색의 경우 +/-30도는 카메라 높이를 위한 최적의 카메라 탑재 각도 (8 ' ~ 12 ')입니다.
+**Cognitiveservices account spatialanalysis-personcrossingline** 작업의 경우 정확도를 최대화 하기 위한 최적의 카메라 탑재 각도는 +/-5 °입니다.
 
-| 카메라 높이 | 카메라-중심 지점 거리 | 최적의 카메라 탑재 각도 (최소/최대) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 20cm(8            | 되었는지                             | +/-40 °                                     |  
-| 5-10           | 5-10                            | +/-30 °                                     |  
-| 10           | /10                            | +/-20 °                                     |  
-| x           | 개가                            | +/-10 °                                     |  
-| 720           | 가로                            | +/-10 °                                     |  
+얼굴 마스크 검색의 경우 +/-30도는 카메라 높이를 위한 최적의 카메라 탑재 각도 (8 ' ~ 12 ')입니다.
 
 다음 그림에서는 cognitiveservices account를 사용 하 여 **spatialanalysis-personcrossingline** 를 사용 하는 데 가장 왼쪽 (-) 및 가장 오른쪽 (+) 탑재 각도 권장 사항을 사용 하 여 카메라 보기를 시뮬레이션 합니다.
 

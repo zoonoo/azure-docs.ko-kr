@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487256"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -104,7 +104,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 ## <a name="regional-support"></a>국가별 지원
 
-모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독을 허용 목록에 추가해야 합니다. 구독이 허용 목록에 추가되도록 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
+모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독을 허용 목록에 추가해야 합니다. 구독이 허용 목록에 추가되도록 요청하려면 https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support 로 이동합니다.
 
 ## <a name="limits"></a>제한 
 
@@ -325,4 +325,3 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 ## <a name="next-steps"></a>다음 단계
 
 [Azure CLI](shared-images-cli.md) 또는 [PowerShell](shared-images-powershell.md)을 사용 하 여 공유 이미지를 배포 하는 방법을 알아봅니다.
-

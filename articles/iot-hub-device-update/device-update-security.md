@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: cf05d5f93180db91658d0e94a23359edd5b0f7ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663635"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489432"
 ---
 # <a name="device-update-security-model"></a>장치 업데이트 보안 모델
 
@@ -54,7 +54,7 @@ IoT Hub에 대 한 장치 업데이트는 장치 펌웨어, 이미지 및 응용
 
 ### <a name="json-web-signature-jws"></a>JWS(JSON 웹 서명)
 
-는에 `updateManifestSignature` 포함 된 정보가 변조 되지 않았는지 확인 하는 데 사용 됩니다 `updateManifest` . 는 `updateManifestSignature` Json 웹 키가 포함 된 Json 웹 서명을 사용 하 여 생성 되므로 소스를 확인할 수 있습니다. 시그니처는 "."로 구분 되는 세 개의 섹션이 있는 Base64Url 인코딩된 문자열입니다.  JSON 키와 토큰을 구문 분석 하 고 확인 하는 jws_util .h 도우미 메서드를 참조 하세요.
+는에 `updateManifestSignature` 포함 된 정보가 변조 되지 않았는지 확인 하는 데 사용 됩니다 `updateManifest` . 는 `updateManifestSignature` Json 웹 키가 포함 된 Json 웹 서명을 사용 하 여 생성 되므로 소스를 확인할 수 있습니다. 시그니처는 "."로 구분 되는 세 개의 섹션이 있는 Base64Url 인코딩된 문자열입니다.  JSON 키와 토큰을 구문 분석 하 고 확인 하는 [jws_util .h 도우미 메서드](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) 를 참조 하세요.
 
 JSON 웹 서명은 JSON 기반 데이터 구조를 사용 하 여 콘텐츠에 서명 하는 데 널리 사용 되는 [IETF 표준](https://tools.ietf.org/html/rfc7515) 입니다. 데이터의 서명을 확인 하 여 데이터의 무결성을 보장 하는 방법입니다. 자세한 내용은 JWS (JSON 웹 서명) [RFC 7515](https://www.rfc-editor.org/info/rfc7515)에서 찾을 수 있습니다.
 

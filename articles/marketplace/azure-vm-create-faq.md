@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124954"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489789"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace VM에 대 한 일반적인 질문
 
@@ -49,6 +49,19 @@ Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 �
 내 VHD에서 이미지를 만들려고 할 때마다 Azure PowerShell에서 "리소스인 이미지 리포지토리로 VHD를 이미 등록했습니다." 오류가 표시됩니다. 이전에 이미지를 만들지도 않았고, Azure에서 이 이름을 가진 이미지를 찾지도 못했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
 이 문제는 일반적으로 사용자가 잠겨 있는 VHD에서 VM을 만든 경우에 발생합니다. 이 VHD에서 할당된 VM이 없는지 확인한 다음, 작업을 다시 시도하세요. 문제가 계속 발생하면 지원 티켓을 여세요. [파트너 센터 지원](support.md)을 참조하세요.
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>숨겨진 미리 보기 이미지를 테스트 어떻게 할까요? 있나요?
+
+빠른 시작 템플릿을 사용 하 여 숨겨진 미리 보기 이미지를 배포할 수 있습니다.
+Linux 미리 보기 이미지를 배포 하려면 
+1. 이 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)으로 이동 하 여 "Azure에 배포"를 선택 합니다. 그러면 Azure Portal으로 이동 됩니다.
+2. Azure Portal에서 "템플릿 편집"을 선택 합니다.
+3. JSON 템플릿에서 imageReference를 검색 하 고 이미지의 publisherid, offerid, skuid 및 버전을 업데이트 합니다. 미리 보기 이미지를 테스트 하려면 offerid에 "-PREVIEW"를 추가 합니다.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. 저장을 클릭합니다.
+5. 나머지 세부 정보를 입력 합니다. 검토 및 만들기
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

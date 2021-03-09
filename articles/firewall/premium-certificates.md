@@ -1,5 +1,5 @@
 ---
-title: Azure 방화벽 프리미엄 미리 보기 인증서
+title: Azure Firewall 프리미엄 미리 보기 인증서
 description: Azure 방화벽 프리미엄 미리 보기에서 TLS 검사를 적절히 구성 하려면 중간 CA 인증서를 구성 하 고 설치 해야 합니다.
 author: vhorne
 ms.service: firewall
@@ -7,14 +7,14 @@ services: firewall
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 3914a82903c293cf1a8306b5ecc1f542fef83e72
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 31948d5e98ea3024c838bf0fa4b05609a5662ec5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549913"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485523"
 ---
-# <a name="azure-firewall-premium-preview-certificates"></a>Azure 방화벽 프리미엄 미리 보기 인증서 
+# <a name="azure-firewall-premium-preview-certificates"></a>Azure Firewall 프리미엄 미리 보기 인증서 
 
 > [!IMPORTANT]
 > Azure 방화벽 프리미엄은 현재 공개 미리 보기로 제공 됩니다.
@@ -90,6 +90,117 @@ Azure 방화벽에서 사용자를 대신 하 여 Key Vault에서 인증서를 �
 > Azure Portal에서 인증서를 보고 구성 하려면 Azure 사용자 계정을 Key Vault 액세스 정책에 추가 해야 합니다. **비밀 사용 권한** 아래에서 사용자 계정 **가져오기** 및 **목록을** 지정 합니다.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault 액세스 정책":::
 
+
+## <a name="create-your-own-self-signed-ca-certificate"></a>자체 서명 된 CA 인증서 만들기
+
+TLS 검사를 테스트 하 고 확인 하는 데 도움이 되도록 다음 스크립트를 사용 하 여 자체 서명 된 루트 CA 및 중간 CA를 만들 수 있습니다.
+
+> [!IMPORTANT]
+> 프로덕션의 경우에는 회사 PKI를 사용 하 여 중간 CA 인증서를 만들어야 합니다. 회사 PKI는 기존 인프라를 활용 하 고 모든 끝점 컴퓨터에 대 한 루트 CA 배포를 처리 합니다.
+
+이 스크립트에는 다음과 같은 두 가지 버전이 있습니다.
+- bash 스크립트 `cert.sh` 
+- PowerShell 스크립트 `cert.ps1` 
+
+ 또한 두 스크립트 모두 `openssl.cnf` 구성 파일을 사용 합니다. 스크립트를 사용 하려면 `openssl.cnf` , 또는의 내용을 `cert.sh` `cert.ps1` 로컬 컴퓨터에 복사 합니다.
+
+스크립트는 다음 파일을 생성 합니다.
+- Rootca.cer/Rootca.cer-루트 CA 공용 인증서 및 개인 키입니다.
+- interCA .crt/interCA. 키-중간 CA 공용 인증서 및 개인 키
+- interCA .pfx-방화벽에서 사용 되는 중간 CA pkcs12 패키지
+
+> [!IMPORTANT]
+> Rootca.cer는 안전한 오프 라인 위치에 저장 해야 합니다. 스크립트는 1024 일의 유효 기간 동안 인증서를 생성 합니다.
+
+인증서를 만든 후에 다음 위치에 배포 합니다.
+- Rootca.cer-끝점 컴퓨터에서 배포 합니다 (공용 인증서에만 해당).
+- interCA .pfx-Key Vault에서 인증서로 가져오고 방화벽 정책에 할당 합니다.
+
+### <a name="opensslcnf"></a>**openssl. my.cnf**
+```
+[ req ]
+default_bits        = 4096
+distinguished_name  = req_distinguished_name
+string_mask         = utf8only
+default_md          = sha512
+
+[ req_distinguished_name ]
+countryName                     = Country Name (2 letter code)
+stateOrProvinceName             = State or Province Name
+localityName                    = Locality Name
+0.organizationName              = Organization Name
+organizationalUnitName          = Organizational Unit Name
+commonName                      = Common Name
+emailAddress                    = Email Address
+
+[ rootCA_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+[ interCA_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true, pathlen:1
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+[ server_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:false
+keyUsage = critical, digitalSignature
+extendedKeyUsage = serverAuth
+```
+
+###  <a name="bash-script---certsh"></a>Bash 스크립트-cert.sh 
+```bash
+#!/bin/bash
+
+# Create root CA
+openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 1024 -out rootCA.crt -subj "/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA" -config openssl.cnf -extensions rootCA_ext
+
+# Create intermediate CA request
+openssl req -new -nodes -newkey rsa:4096 -keyout interCA.key -sha256 -out interCA.csr -subj "/C=US/ST=US/O=Self Signed/CN=Self Signed Intermediate CA"
+
+# Sign on the intermediate CA
+openssl x509 -req -in interCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out interCA.crt -days 1024 -sha256 -extfile openssl.cnf -extensions interCA_ext
+
+# Export the intermediate CA into PFX
+openssl pkcs12 -export -out interCA.pfx -inkey interCA.key -in interCA.crt -password "pass:"
+
+echo ""
+echo "================"
+echo "Successfully generated root and intermediate CA certificates"
+echo "   - rootCA.crt/rootCA.key - Root CA public certificate and private key"
+echo "   - interCA.crt/interCA.key - Intermediate CA public certificate and private key"
+echo "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded to Key Vault"
+echo "================"
+```
+
+### <a name="powershell---certps1"></a>PowerShell-cert.ps1
+```powershell
+# Create root CA
+openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 3650 -out rootCA.crt -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA' -config openssl.cnf -extensions rootCA_ext
+
+# Create intermediate CA request
+openssl req -new -nodes -newkey rsa:4096 -keyout interCA.key -sha256 -out interCA.csr -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Intermediate CA'
+
+# Sign on the intermediate CA
+openssl x509 -req -in interCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out interCA.crt -days 3650 -sha256 -extfile openssl.cnf -extensions interCA_ext
+
+# Export the intermediate CA into PFX
+openssl pkcs12 -export -out interCA.pfx -inkey interCA.key -in interCA.crt -password 'pass:'
+
+Write-Host ""
+Write-Host "================"
+Write-Host "Successfully generated root and intermediate CA certificates"
+Write-Host "   - rootCA.crt/rootCA.key - Root CA public certificate and private key"
+Write-Host "   - interCA.crt/interCA.key - Intermediate CA public certificate and private key"
+Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded to Key Vault"
+Write-Host "================"
+
+```
 
 ## <a name="troubleshooting"></a>문제 해결
 

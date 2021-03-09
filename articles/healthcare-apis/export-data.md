@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712704"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487222"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -38,6 +38,13 @@ FHIR 용 Azure API는 다음 수준에서 $export을 지원 합니다.
 
 또한 큐 중에 위치 헤더에서 반환 된 URL을 통해 내보내기 상태를 확인 하는 작업은 실제 내보내기 작업을 취소 하는 것과 함께 지원 됩니다.
 
+### <a name="exporting-fhir-data-to-adls-gen2"></a>ADLS Gen2로 FHIR 데이터 내보내기
+
+현재 ADLS Gen2 사용 가능한 저장소 계정에 대 한 $export 지원 되며 다음과 같은 제한 사항이 있습니다.
+
+- 사용자는 아직 [계층 구조 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) 를 사용할 수 없습니다. 컨테이너 내의 특정 하위 디렉터리로 내보내기를 대상으로 할 수 있는 방법은 없습니다. 특정 컨테이너를 대상으로 지정 하는 기능만 제공 합니다 (각 내보내기에 대 한 새 폴더를 만드는 경우).
+
+- 내보내기가 완료 된 후에는 동일한 컨테이너에 대 한 후속 내보내기가 새로 만든 폴더 내에 있기 때문에 해당 폴더에 아무것도 내보내지 않습니다.
 
 
 ## <a name="settings-and-parameters"></a>설정 및 매개 변수
@@ -50,13 +57,13 @@ $Export 작업에 대해 설정 해야 하는 두 개의 필수 헤더 매개 �
 ### <a name="query-parameters"></a>쿼리 매개 변수
 FHIR 용 Azure API는 다음과 같은 쿼리 매개 변수를 지원 합니다. 이러한 매개 변수는 모두 선택 사항입니다.
 
-|쿼리 매개 변수        | FHIR 사양에 정의 되어 있나요?    |  Description|
+|쿼리 매개 변수        | FHIR 사양에 정의 되어 있나요?    |  설명|
 |------------------------|---|------------|
 | \_outputFormat | 예 | 는 현재 응용 프로그램/fhir + ndjson, application/ndjson 또는 단지 ndjson에 맞추기 위한 세 가지 값을 지원 합니다. 모든 내보내기 작업은 `ndjson` 를 반환 하며 전달 된 값은 코드 동작에 영향을 주지 않습니다. |
 | \_since | 예 | 제공 된 시간 이후 수정 된 리소스만 내보낼 수 있습니다. |
 | \_입력할 | 예 | 포함할 리소스의 형식을 지정할 수 있습니다. 예를 들어, \_ type = 환자는 환자 리소스만 반환 합니다.|
 | \_typefilter | 예 | 보다 세분화 된 필터링을 요청 하기 위해 \_ 형식 매개 변수와 함께 typefilter를 사용할 수 있습니다 \_ . _TypeFilter 매개 변수의 값은 결과를 추가로 제한 하는 쉼표로 구분 된 FHIR 쿼리 목록입니다. |
-| \_컨테이너 | No |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
+| \_컨테이너 | 아니요 |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
 
 ## <a name="secure-export-to-azure-storage"></a>Azure Storage로 내보내기 보안
 

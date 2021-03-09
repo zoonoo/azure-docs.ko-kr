@@ -9,18 +9,18 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454229"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489840"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 이 문서에서는 [sap 커넥터](/connectors/sap/)를 사용 하 여 LOGIC APPS에서 sap 리소스에 액세스 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -752,7 +752,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 [ `xpath()` 함수](./workflow-definition-language-functions-reference.md#xpath)를 사용 하 여 패킷에서 개별 idocs를 추출 하는 방법을 보여 주는 예제는 다음과 같습니다.
 
-1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-message-from-sap)합니다.
+1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 논리 앱에 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-message-from-sap)합니다.
 
     > [!IMPORTANT]
     > SAP **프로그램 ID** 는 대/소문자를 구분 합니다. 논리 앱과 SAP 서버를 구성할 때 **프로그램 ID** 에 대해 동일한 대/소문자 형식을 일관 되 게 사용 해야 합니다. 그렇지 않으면 IDoc를 SAP로 보내려고 할 때 tRFC 모니터 (T-코드 SM58)에서 다음과 같은 오류가 발생할 수 있습니다.
@@ -762,9 +762,17 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
     >
     > SAP에서 자세한 내용은 다음 참고 사항 (로그인 필요) 및를 참조 <https://launchpad.support.sap.com/#/notes/2399329> 하세요 <https://launchpad.support.sap.com/#/notes/353597> .
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [논리 앱에 응답 작업을 추가](/azure/connectors/connectors-native-reqres#add-a-response-action) 하 여 SAP 요청 상태와 즉시 회신할 수 있습니다. SAP 서버와 통신 채널을 해제 하려면 트리거 바로 뒤에이 작업을 추가 하는 것이 가장 좋습니다. 응답 동작에 사용할 다음 상태 코드 () 중 하나를 선택 합니다 `statusCode` .
+
+    * **202 수락** 됨 .이는 요청이 처리를 위해 수락 되었지만 처리가 아직 완료 되지 않았음을 의미 합니다.
+
+    * **204 콘텐츠가 없습니다**. 즉, 서버에서 요청을 성공적으로 처리 했으며 응답 페이로드 본문에 보낼 추가 콘텐츠가 없습니다. 
+
+    * **200 확인**. 서버에서 길이가 0 인 페이로드 본문을 생성 하는 경우에도이 상태 코드는 항상 페이로드를 포함 합니다. 
 
 1. 논리 앱이 SAP에서 받는 XML IDoc에서 루트 네임 스페이스를 가져옵니다. XML 문서에서이 네임 스페이스를 추출 하려면 로컬 문자열 변수를 만드는 단계를 추가 하 고 식을 사용 하 여 해당 네임 스페이스를 저장 합니다 `xpath()` .
 
@@ -1191,7 +1199,7 @@ TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`S
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 들면 `sapsnc.dll` 또는 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll` 입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -1297,7 +1305,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. Action **Initialize 변수에** 대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **이름** 에 변수의 이름을 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **이름** 에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`.
 
     1. **유형** 에 대해 **문자열** 을 변수 유형으로 선택 합니다.
 
@@ -1315,7 +1323,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
     1. **TID 확인** 에 대해 **아니요** 를 선택 합니다.
 
-    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`.
 
 1. Action **SEND IDOC** 의 제목 표시줄에서 **...**  >  를 선택 합니다. **설정**. **재시도 정책** 에 대해 **기본** 완료를 선택 하는 것이 좋습니다 &gt; . 그러나 특정 요구에 맞게 사용자 지정 정책을 구성할 수 있습니다. 사용자 지정 정책의 경우 일시적인 네트워크 중단을 극복 하기 위해 하나 이상의 재시도를 구성 하는 것이 좋습니다.
 
@@ -1323,7 +1331,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. **트랜잭션 ID 확인** 작업의 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`.
 
 1. 필요에 따라 테스트 환경에서 중복 제거의 유효성을 검사 합니다. 이전 단계에서 사용한 것과 동일한 **트랜잭션 ID** GUID를 사용 하 여 **Send idoc** 작업을 반복 합니다. 동일한 IDoc를 두 번 보내면 SAP에서 tRFC 호출의 중복을 식별할 수 있는지 확인 하 고 단일 인바운드 IDoc 메시지에 대 한 두 호출을 확인할 수 있습니다.
 

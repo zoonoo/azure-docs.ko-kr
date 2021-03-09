@@ -5,15 +5,15 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097229"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488089"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,7 +143,6 @@ Azure Cosmos DB 쿼리 성능에 영향을 주는 가장 일반적인 요소는 
 | 프로비전된 처리량 | 쿼리당 RU를 측정하고 사용자 쿼리에 필요한 프로비전된 처리량이 있는지 확인합니다. | 
 | 분할 및 파티션 키 | 짧은 대기 시간을 위해 필터 절에 파티션 키가 있는 쿼리를 선호합니다. |
 | SDK 및 쿼리 옵션 | 직접 연결 같은 SDK 모범 사례를 따르고 클라이언트 쪽 쿼리 실행 옵션을 조정합니다. |
-| 네트워크 대기 시간 | 측정에서 네트워크 오버 헤드를 고려하고 가장 가까운 지역에서 읽기 위해 멀티 호밍 API를 사용합니다. |
 | 인덱싱 정책 | 쿼리에 필요한 인덱싱 경로/정책이 있는지 확인합니다. |
 | 쿼리 실행 메트릭 | 쿼리 실행 메트릭을 분석하여 쿼리 및 데이터 셰이프의 재작성 가능성을 파악합니다.  |
 
@@ -251,9 +250,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 밀리초 | 문서를 로드하는 데 소요된 시간  | 
 | `systemFunctionExecuteTimeInMs` | 밀리초 | 시스템(기본 제공) 함수를 실행하는 데 소요된 총 시간(밀리초)  | 
 | `userFunctionExecuteTimeInMs` | 밀리초 | 사용자 정의 함수를 실행하는 데 소요된 총 시간(밀리초) | 
-| `retrievedDocumentCount` | 개수 | 검색된 총 문서 수  | 
+| `retrievedDocumentCount` | count | 검색된 총 문서 수  | 
 | `retrievedDocumentSize` | 바이트 | 검색된 총 문서 크기(바이트)  | 
-| `outputDocumentCount` | 개수 | 출력 문서 수 | 
+| `outputDocumentCount` | count | 출력 문서 수 | 
 | `writeOutputTimeInMs` | 밀리초 | 쿼리 실행 시간(밀리초) | 
 | `indexUtilizationRatio` | 비율(<=1) | 로드된 문서 수에 대한 필터에 의해 일치하는 문서 수의 비율  | 
 
