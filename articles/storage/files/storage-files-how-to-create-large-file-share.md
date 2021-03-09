@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 118c08c8ede369eecd86fe8e6db24473b67ff306
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214442"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501297"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "102214442"
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
-- Azure PowerShell 모듈을 사용 하려는 경우 [최신 버전을 설치](/powershell/azure/install-az-ps?view=azps-4.6.0)합니다.
+- Azure PowerShell 모듈을 사용 하려는 경우 [최신 버전을 설치](/powershell/azure/install-az-ps)합니다.
 
 ## <a name="restrictions"></a>제한
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-먼저, [최신 버전의 PowerShell을 설치](/powershell/azure/install-az-ps?view=azps-3.0.0) 하 여 대량 파일 공유를 사용 하도록 설정 합니다.
+먼저, [최신 버전의 PowerShell을 설치](/powershell/azure/install-az-ps) 하 여 대량 파일 공유를 사용 하도록 설정 합니다.
 
 대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`, `<yourResourceGroup>` 및을 사용자의 `<yourDesiredRegion>` 정보로 바꿉니다.
 

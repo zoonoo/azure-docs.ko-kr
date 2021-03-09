@@ -3,12 +3,12 @@ title: Azure PowerShell를 사용 하 여 DevTest Labs에서 가상 머신 만�
 description: Azure DevTest Labs를 사용 하 여 Azure PowerShell에서 가상 머신을 만들고 관리 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bcc1b8cfe1da7e5eafbee0af008a1defbe6f49d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79b6ff92d633cf63477cddaabec918df352bec8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85484114"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499257"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 줍니다. PowerShell 스크립트를 사용 하 여 Azure DevTest Labs에서 랩에서 가상 컴퓨터 만들기를 자동화할 수 있습니다. 
@@ -17,10 +17,10 @@ ms.locfileid: "85484114"
 시작하기 전에
 
 - 이 문서의 스크립트나 명령을 테스트 하기 위해 기존 랩을 사용 하지 않으려는 경우 [랩을 만듭니다](devtest-lab-create-lab.md) . 
-- [Azure PowerShell를 설치](/powershell/azure/install-az-ps?view=azps-1.7.0) 하거나 Azure Portal에 통합 된 Azure Cloud Shell를 사용 합니다. 
+- [Azure PowerShell를 설치](/powershell/azure/install-az-ps) 하거나 Azure Portal에 통합 된 Azure Cloud Shell를 사용 합니다. 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
-이 단원의 샘플 스크립트에서는 [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet을 사용 합니다.  이 cmdlet은 랩의 리소스 ID, 수행할 작업의 이름 ( `createEnvironment` ) 및 해당 작업을 수행 하는 데 필요한 매개 변수를 사용 합니다. 매개 변수는 모든 가상 컴퓨터 설명 속성을 포함 하는 해시 테이블에 있습니다. 
+이 단원의 샘플 스크립트에서는 [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet을 사용 합니다.  이 cmdlet은 랩의 리소스 ID, 수행할 작업의 이름 ( `createEnvironment` ) 및 해당 작업을 수행 하는 데 필요한 매개 변수를 사용 합니다. 매개 변수는 모든 가상 컴퓨터 설명 속성을 포함 하는 해시 테이블에 있습니다. 
 
 ```powershell
 [CmdletBinding()]
@@ -173,10 +173,10 @@ Azure Portal에서 VM을 만들 때 Azure Resource Manager 템플릿을 생성�
 다음 절차에서는 REST API를 사용 하 여 이미지의 속성을 가져오는 단계를 제공 합니다 .이 단계는 랩에서 기존 VM에 대해서만 작동 합니다. 
 
 1. [Virtual Machines 목록](/rest/api/dtl/virtualmachines/list) 페이지로 이동 하 여 **사용해 보기** 단추를 선택 합니다. 
-2. Azure **구독**을 선택합니다.
-3. **랩에 대 한 리소스 그룹**을 입력 합니다.
-4. **랩의 이름을**입력 합니다. 
-5. **실행**을 선택합니다.
+2. Azure **구독** 을 선택합니다.
+3. **랩에 대 한 리소스 그룹** 을 입력 합니다.
+4. **랩의 이름을** 입력 합니다. 
+5. **실행** 을 선택합니다.
 6. VM이 만들어진 기준 **이미지에 대 한 속성** 을 볼 수 있습니다. 
 
 ## <a name="set-expiration-date"></a>만료 날짜 설정

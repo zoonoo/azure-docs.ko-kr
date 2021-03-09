@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120218"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500532"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -39,7 +39,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 - 사용자 흐름에서 특성을 사용할 수 있는지 여부
 - 사용자 지정 정책 [Azure AD 기술 프로필](active-directory-technical-profile.md)에서 특성을 사용할 수 있는지 여부와 사용할 수 있는 섹션(&lt;InputClaims&gt;, &lt;OutputClaims&gt; 또는 &lt;PersistedClaims&gt;)
 
-|속성     |유형     |설명|Azure portal|사용자 흐름|사용자 지정 정책|
+|속성     |Type     |설명|Azure portal|사용자 흐름|사용자 지정 정책|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |부울|사용자 계정이 사용하도록 설정되었는지 여부: **true** - 계정이 사용하도록 설정됨, **false** - 계정이 사용하도록 설정되지 않음.|예|예|지속형, 출력|
 |ageGroup        |String|사용자의 나이 그룹입니다. 가능한 값: Null, Undefined, Minor, Adult, NotAdult.|예|예|지속형, 출력|
@@ -56,7 +56,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 |facsimileTelephoneNumber<sup>1</sup>|String|사용자의 회사 팩스 전화 번호입니다.|예|예|지속형, 출력|
 |givenName       |String|사용자의 이름(성 제외)입니다. 최대 길이는 64입니다.|예|예|지속형, 출력|
 |jobTitle        |String|사용자의 직위입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
-|immutableId     |String|온-프레미스 Active Directory에서 마이그레이션되는 사용자에 게 일반적으로 사용 되는 식별자입니다.|예|예|지속형, 출력|
+|immutableId     |String|온-프레미스 Active Directory에서 마이그레이션되는 사용자에 게 일반적으로 사용 되는 식별자입니다.|아니요|예|지속형, 출력|
 |legalAgeGroupClassification|String|법적 연령 그룹 분류입니다. ageGroup 및 consentProvidedForMinor 속성을 기준으로 계산되는 읽기 전용 값입니다. 허용 되는 값: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult 및 성인.|예|예|지속형, 출력|
 |legalCountry<sup>1</sup>  |String|법적 목적을 위한 국가/지역입니다.|예|예|지속형, 출력|
 |mail            |String|사용자의 SMTP 주소입니다(예: “bob@contoso.com”). 읽기 전용입니다.|예|예|지속형, 출력|
@@ -66,12 +66,12 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 |objectId        |String|사용자의 고유 식별자인 GUID(Globally Unique Identifier)입니다. 예제: 12345678-9abc-def0-1234-56789abcde. 읽기 전용, 변경 불가.|읽기 전용|예|입력, 지속형, 출력|
 |otherMails      |문자열 컬렉션|사용자의 다른 전자 메일 주소 목록입니다. 예: [“bob@contoso.com”, “Robert@fabrikam.com”].|예(대체 메일)|예|지속형, 출력|
 |password        |String|사용자자 생성 중 만든 로컬 계정의 암호입니다.|예|예|지속됨|
-|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 예를 들면 "DisablePasswordExpiration, DisableStrongPassword"입니다.|예|예|지속형, 출력|
+|passwordPolicies     |String|암호의 정책입니다. 쉼표로 구분된 여러 정책 이름으로 구성된 문자열입니다. 예를 들면 "DisablePasswordExpiration, DisableStrongPassword"입니다.|아니요|예|지속형, 출력|
 |physicalDeliveryOfficeName(officeLocation)|String|사용자 사업장의 사무실 위치입니다. 최대 길이는 128입니다.|예|예|지속형, 출력|
 |postalCode      |String|사용자의 우편 주소에 대한 우편 번호입니다. 우편 번호는 사용자의 해당 국가/지역에 따라 다릅니다. 미국의 경우 이 특성은 우편 번호를 포함합니다. 최대 길이는 40입니다.|예|예|지속형, 출력|
-|preferredLanguage    |String|사용자의 기본 설정 언어입니다. ISO 639-1 코드를 따라야 합니다. 예: “en-US”.|예|예|지속형, 출력|
-|refreshTokensValidFromDateTime|DateTime|이 시간 이전에 발급된 모든 새로 고침 토큰은 유효하지 않으며, 유효하지 않은 새로 고침 토큰을 사용하여 새 액세스 토큰을 가져오면 애플리케이션에서 오류가 발생합니다. 이 경우 애플리케이션이 권한 부여 엔드포인트에 요청을 제출하여 새 새로 고침 토큰을 가져와야 합니다. 읽기 전용입니다.|예|예|출력|
-|signInNames([Identities](#identities-attribute)) |String|디렉터리에 있는 임의 유형의 로컬 계정 사용자의 고유한 로그인 이름입니다. 이 특성을 사용 하 여 로컬 계정 유형을 지정 하지 않고 로그인 값이 있는 사용자를 가져옵니다.|예|예|입력|
+|preferredLanguage    |String|사용자의 기본 설정 언어입니다. 기본 언어 형식은 RFC 4646을 기반으로 합니다. 이 이름은 해당 언어와 연결 된 ISO 639 2 문자 소문자 문화권 코드와 해당 국가 또는 지역과 연결 된 ISO 3166 2 문자 대문자 하위 문화권 코드의 조합입니다. 예: "en-us" 또는 "es ES".|아니요|예|지속형, 출력|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|이 시간 이전에 발급된 모든 새로 고침 토큰은 유효하지 않으며, 유효하지 않은 새로 고침 토큰을 사용하여 새 액세스 토큰을 가져오면 애플리케이션에서 오류가 발생합니다. 이 경우 애플리케이션이 권한 부여 엔드포인트에 요청을 제출하여 새 새로 고침 토큰을 가져와야 합니다. 읽기 전용입니다.|예|예|출력|
+|signInNames([Identities](#identities-attribute)) |String|디렉터리에 있는 임의 유형의 로컬 계정 사용자의 고유한 로그인 이름입니다. 이 특성을 사용 하 여 로컬 계정 유형을 지정 하지 않고 로그인 값이 있는 사용자를 가져옵니다.|아니요|예|입력|
 |signInNames.userName([Identities](#identities-attribute)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 사용자 이름입니다. 이 특성을 사용 하 여 특정 로그인 사용자 이름을 가진 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 이 특성을 PersistedClaims에 단독으로 지정하면 다른 유형의 signInNames가 제거됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
 |signInNames.phoneNumber([Identities](#identities-attribute)) |String|디렉터리에 있는 로컬 계정 사용자의 고유한 전화 번호입니다. 이 특성을 사용 하 여 특정 로그인 전화 번호로 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 PersistedClaims 단독으로이 특성을 지정 하면 다른 유형의 signInNames 제거 됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
 |signInNames.emailAddress([Identities](#identities-attribute))|String|디렉터리에 있는 로컬 계정 사용자의 고유한 메일 주소입니다. 이 특성을 사용하여 특정 로그인 메일 주소를 갖는 사용자를 만들거나 가져올 수 있습니다. 패치 작업 중에 PersistedClaims 단독으로이 특성을 지정 하면 다른 유형의 signInNames 제거 됩니다. 새로운 유형의 signInNames를 추가하려면 기존 signInNames를 지속 처리해야 합니다.|예|예|입력, 지속형, 출력|
@@ -105,7 +105,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 
 Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity](/graph/api/resources/objectidentity)형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다. Id 특성에는 최대 10 개의 [objectIdentity](/graph/api/resources/objectidentity) 개체가 포함 될 수 있습니다. 각 개체에는 다음 속성이 포함 되어 있습니다.
 
-| Name   | 유형 |설명|
+| Name   | Type |설명|
 |:---------------|:--------|:----------|
 |signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,,  `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3`  `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다  `federated` .|
 |발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우  `federated` 값은 발급자의 이름입니다 (예:). `facebook.com`|
@@ -175,7 +175,7 @@ MFA (multi-factor authentication)에 전화를 사용 하는 경우 휴대폰을
 > - b2c-extensions-app 애플리케이션을 삭제할 경우, 확장 특성은 포함된 데이터와 함께 모든 사용자에게서 제거됩니다.
 > - 확장 특성이 애플리케이션에 의해 삭제될 경우, 모든 사용자 계정에서 제거되고 값이 삭제됩니다.
 
-Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_AttributeName` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` (   >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_AttributeName` . 여기서는 응용 프로그램의 응용 프로그램 `ApplicationClientID` **(클라이언트) ID** 입니다 `b2c-extensions-app` (   >  Azure Portal의 **모든 응용** 프로그램 앱 등록에 있음). 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들어:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -183,7 +183,7 @@ Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니�
 
 스키마 확장에서 특성을 정의할 때 지원 되는 데이터 형식은 다음과 같습니다.
 
-|형식 |설명  |
+|Type |설명  |
 |--------------|---------|
 |부울    | 가능한 값: **true** 또는 **false**. |
 |DateTime   | ISO 8601 형식으로 지정해야 합니다. UTC로 저장됩니다.   |

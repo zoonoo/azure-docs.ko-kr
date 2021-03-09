@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: a4536f0dd40e1d0ee3a5ca75db9b111dcfa0ad6f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 197dfa6a33e3a91a4d5717746629a667c5518b05
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214901"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506925"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -26,7 +26,7 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 - Azure Virtual Network을 사용 하 여 Azure ML 작업 영역 및 AKS 클러스터 간의 통신을 보호 하려는 경우 [학습 & 유추 문서에서 네트워크 격리](./how-to-network-security-overview.md) 를 읽어 보세요.
 
@@ -187,10 +187,10 @@ aks_target.wait_for_completion(show_output = True)
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
-* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ Azure 구독에 AKS 클러스터가 이미 있는 경우 작업 영역에서 사
 > [!WARNING]
 > 작업 영역에서 동일한 AKS 클러스터에 대 한 동시 첨부 파일을 여러 개 만들지 마십시오. 예를 들어 두 개의 다른 이름을 사용 하 여 하나의 AKS 클러스터를 작업 영역에 연결 합니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 >
-> AKS 클러스터를 다시 연결 하려는 경우 (예: TLS 또는 다른 클러스터 구성 설정을 변경 하려면 [) AksCompute ()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--)를 사용 하 여 기존 첨부 파일을 제거 해야 합니다.
+> AKS 클러스터를 다시 연결 하려는 경우 (예: TLS 또는 다른 클러스터 구성 설정을 변경 하려면 [) AksCompute ()](/python/api/azureml-core/azureml.core.compute.akscompute#detach--)를 사용 하 여 기존 첨부 파일을 제거 해야 합니다.
 
 Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -251,9 +251,9 @@ aks_target.wait_for_completion(show_output = True)
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
-* [AksCompute](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.computetarget#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -284,7 +284,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 ---
 
 ## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>TLS 종료를 사용 하 여 AKS 클러스터 만들기 또는 연결
-[AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md)때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
+[AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md)때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
 
 다음 예제에서는 내부적으로 Microsoft 인증서를 사용 하 여 자동 TLS 인증서 생성 및 구성을 통해 TLS 종료를 사용 하도록 설정 하는 방법을 보여 줍니다.
 ```python

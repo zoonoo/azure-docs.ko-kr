@@ -6,19 +6,19 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 0cb7ee5b9fa02e726d03bf1ae9935c07ded6e4a6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088015"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508268"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis (미리 보기)에 대 한 영역 중복성 사용
 이 문서에서는 Azure Portal를 사용 하 여 영역 중복 Azure 캐시 인스턴스를 구성 하는 방법을 알아봅니다.
 
-Redis Standard, Premium 및 Enterprise 계층 용 Azure Cache는 두 개의 전용 Vm (가상 머신)에서 각 캐시를 호스팅하여 중복성을 제공 합니다. 이러한 Vm은 별도의 [Azure 장애 및 업데이트 도메인](../virtual-machines/manage-availability.md) 에 있고 항상 사용 가능 하더라도 데이터 센터 수준 오류에 취약 합니다. 또한 Azure Cache for Redis는 프리미엄 및 엔터프라이즈 계층에서 영역 중복성을 지원 합니다. 영역 중복 캐시는 여러 [가용성 영역](../virtual-machines/manage-availability.md#use-availability-zones-to-protect-from-datacenter-level-failures)에 걸쳐 분산 된 vm에서 실행 됩니다. 더 높은 복원 력 및 가용성을 제공 합니다.
+Redis Standard, Premium 및 Enterprise 계층 용 Azure Cache는 두 개의 전용 Vm (가상 머신)에서 각 캐시를 호스팅하여 중복성을 제공 합니다. 이러한 Vm은 별도의 [Azure 장애 및 업데이트 도메인](../virtual-machines/availability.md) 에 있고 항상 사용 가능 하더라도 데이터 센터 수준 오류에 취약 합니다. 또한 Azure Cache for Redis는 프리미엄 및 엔터프라이즈 계층에서 영역 중복성을 지원 합니다. 영역 중복 캐시는 여러 [가용성 영역](../availability-zones/az-overview.md)에 걸쳐 분산 된 vm에서 실행 됩니다. 더 높은 복원 력 및 가용성을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]
@@ -46,11 +46,11 @@ Redis Standard, Premium 및 Enterprise 계층 용 Azure Cache는 두 개의 전�
    
 1. **고급** 페이지에서 프리미엄 계층 캐시에 대해 **복제본 수** 를 선택 합니다.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Azure Cache for Redis를 선택합니다.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="복제본 수":::
 
 1. **가용성 영역** 을 선택 합니다. 
    
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Azure Cache for Redis를 선택합니다.":::
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="가용성 영역":::
 
 1. 다른 옵션은 기본 설정으로 그대로 둡니다. 
 

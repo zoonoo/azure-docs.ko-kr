@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: da6285b7a4b12e65a82475fb53e972067e1c4fe4
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5aaaf2000fb8310a5208447f8eaf8546feda90fb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214867"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509322"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -38,7 +38,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 ## <a name="create"></a>생성
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [로 서 Einstance 클래스](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
-* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [로 서 Einstance 클래스](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -154,7 +154,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* 재시작
+* 다시 시작
 
     ```python
     # restart() is used to restart the ComputeInstance
@@ -188,7 +188,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget start einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
 
-* 재시작 
+* 다시 시작 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v

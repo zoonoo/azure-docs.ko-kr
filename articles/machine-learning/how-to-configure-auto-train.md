@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 98260b909514febf80ea6a1a33b0f9e3d2d1446b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431893"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498866"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
 
-이 가이드에서는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용하여 자동화된 Machine Learning 실험의 다양한 구성 설정을 정의하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
+이 가이드에서는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 사용하여 자동화된 Machine Learning 실험의 다양한 구성 설정을 정의하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
 
 자동화 된 기계 학습 실험의 예를 보려면 [자습서: 자동화 된 machine learning을 사용 하 여 분류 모델 학습](tutorial-auto-train-models.md) 또는 [클라우드에서 자동화 된 machine learning을 사용 하 여 모델 학습](how-to-auto-train-remote.md)을 참조 하세요.
 
@@ -37,7 +37,7 @@ ms.locfileid: "102431893"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -46,7 +46,7 @@ ms.locfileid: "102431893"
     SDK를 설치 하려면 다음 중 하나를 수행할 수 있습니다. 
     * SDK를 자동으로 설치 하 고 ML 워크플로에 대해 미리 구성 된 계산 인스턴스를 만듭니다. 자세한 내용은 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md) 를 참조 하세요. 
 
-    * [패키지를 `automl` 직접 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치가](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) 포함 됩니다.
+    * [패키지를 `automl` 직접 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치가](/python/api/overview/azure/ml/install#default-install) 포함 됩니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
@@ -69,7 +69,7 @@ Machine learning에서 데이터 학습을 위한 요구 사항:
 - 데이터는 테이블 형식이어야 합니다.
 - 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
-**원격 실험의** 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. AutoML은 원격 계산에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)를 허용합니다. 
+**원격 실험의** 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. AutoML은 원격 계산에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset)를 허용합니다. 
 
 Azure Machine Learning 데이터 세트는 다음과 같은 기능을 보여줍니다.
 

@@ -3,14 +3,18 @@ title: Azure Backup 진단 이벤트에 대 한 데이터 모델
 description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 보내는 리소스 특정 모드를 참조 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173970"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499597"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델
+
+> [!NOTE]
+>
+> 사용자 지정 보고 보기를 만들려면 아래에 나열 된 원시 테이블로 작업 하는 대신 [Azure Monitor 로그에서 시스템 함수](backup-reports-system-functions.md) 를 사용 하는 것이 좋습니다.
 
 ## <a name="coreazurebackup"></a>CoreAzureBackup
 
@@ -84,7 +88,7 @@ ms.locfileid: "92173970"
 | BackupItemUniqueId             | 텍스트          | 경고와 연결 된 백업 항목의 고유 식별자 |
 | BackupManagementServerUniqueId | 텍스트          | 해당 하는 경우 백업 항목을 보호 하는 백업 관리 서버를 고유 하 게 식별 하는 필드입니다. |
 | BackupManagementType           | 텍스트          | 백업 작업을 수행 하는 서버에 대 한 공급자 유형 (예: 예 iaasvm, FileFolder) |
-| CountOfAlertsConsolidated      | Number        | 통합 된 경고 인 경우 통합 된 경고 수  |
+| CountOfAlertsConsolidated      | 숫자        | 통합 된 경고 인 경우 통합 된 경고 수  |
 | ProtectedContainerUniqueId     | 텍스트          | 경고와 연결 된 보호 된 서버의 고유 식별자입니다. |
 | RecommendedAction              | 텍스트          | 경고를 해결하기 위한 권장 작업                      |
 | schemaVersion                  | 텍스트          | 스키마의 현재 버전(예: **V2**)            |
@@ -208,8 +212,8 @@ ms.locfileid: "92173970"
 | ProtectedContainerUniqueId     | 텍스트          | 백업 항목과 연결 된 보호 된 컨테이너의 고유 식별자 |
 | schemaVersion                  | 텍스트          | 스키마의 버전입니다. 예: **V2**                   |
 | 시스템 상태                          | 텍스트          | 백업 항목 개체의 상태입니다. 예: 활성, 삭제 됨 |
-| StorageAllocatedInMBs          | Number        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
-| StorageConsumedInMBs           | Number        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
+| StorageAllocatedInMBs          | 숫자        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
+| StorageConsumedInMBs           | 숫자        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
 | StorageName                    | 텍스트          | 저장소 엔터티의 이름입니다. 예: E:\                      |
 | StorageTotalSizeInGBs          | 텍스트          | 스토리지 엔터티에서 사용한 총 스토리지 크기(GB)     |
 | StorageType                    | 텍스트          | 스토리지 유형(예: 클라우드, 볼륨, 디스크)             |
@@ -220,7 +224,7 @@ ms.locfileid: "92173970"
 
 ## <a name="valid-operation-names-for-each-table"></a>각 테이블의 올바른 작업 이름
 
-위의 표에 있는 각 레코드에는 연결 된 **작업 이름이**있습니다. 작업 이름은 레코드 유형을 설명 하 고 테이블에서 해당 레코드에 대해 채워지는 필드도 나타냅니다. 각 테이블 (범주)은 하나 이상의 고유한 작업 이름을 지원 합니다. 다음은 위의 각 테이블에 대해 지원 되는 작업 이름을 요약 한 것입니다.
+위의 표에 있는 각 레코드에는 연결 된 **작업 이름이** 있습니다. 작업 이름은 레코드 유형을 설명 하 고 테이블에서 해당 레코드에 대해 채워지는 필드도 나타냅니다. 각 테이블 (범주)은 하나 이상의 고유한 작업 이름을 지원 합니다. 다음은 위의 각 테이블에 대해 지원 되는 작업 이름을 요약 한 것입니다.
 
 | **테이블 이름/범주**                   | **지원 되는 작업 이름** | **설명**              |
 | ------------------------------------------- | ------------------------------|----------------------------- |

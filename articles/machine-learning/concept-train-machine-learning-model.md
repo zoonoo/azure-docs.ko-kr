@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880947"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500413"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -41,13 +41,13 @@ Azure Machine Learning은 SDK를 사용 하는 코드 우선 솔루션에서 자
 
 Python용 Azure Machine Learning SDK를 사용하여 Azure Machine Learning에서 기계 학습 워크플로를 빌드하고 실행할 수 있습니다. 대화형 Python 세션, Jupyter Notebook, Visual Studio Code 또는 다른 IDE에서 서비스와 상호 작용할 수 있습니다.
 
-* [Python용 Azure Machine Learning SDK란?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [SDK 설치/업데이트](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Python용 Azure Machine Learning SDK란?](/python/api/overview/azure/ml/intro)
+* [SDK 설치/업데이트](/python/api/overview/azure/ml/install)
 * [Azure Machine Learning용 개발 환경 구성](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>실행 구성
 
-[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)를 사용 하 여 Azure Machine Learning를 사용 하는 일반적인 학습 작업을 정의할 수 있습니다. 그런 다음 계산 대상에서 모델을 학습 하는 학습 스크립트와 함께 스크립트 실행 구성이 사용 됩니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig)를 사용 하 여 Azure Machine Learning를 사용 하는 일반적인 학습 작업을 정의할 수 있습니다. 그런 다음 계산 대상에서 모델을 학습 하는 학습 스크립트와 함께 스크립트 실행 구성이 사용 됩니다.
 
 로컬 컴퓨터에 대해 실행 구성을 시작한 다음, 필요에 따라 클라우드 기반 컴퓨팅 대상의 실행 구성으로 전환할 수 있습니다. 컴퓨팅 대상을 변경할 때 사용하는 실행 구성만 변경하면 됩니다. 실행은 입력, 출력 및 로그처럼 학습 작업에 대한 정보를 기록합니다.
 

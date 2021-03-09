@@ -3,12 +3,12 @@ title: Azure Functions를 사용 하 여 Azure DevTest Labs 확장 Microsoft Doc
 description: Azure Functions를 사용 하 여 Azure DevTest Labs를 확장 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7a51f0935540df18cfb8805902bbe2c4ec365291
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 620cda83094ee65f421a5529a9d5b51e505ec48e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203677"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501161"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Azure Functions를 사용하여 DevTest Labs 연장
 Azure Functions를 사용 하 여 DevTest Labs에서 이미 지 원하는 것 이상의 추가 시나리오를 지원할 수 있습니다. Azure Functions를 사용 하 여 비즈니스 관련 요구에 맞게 서비스의 기본 제공 기능을 확장할 수 있습니다. 다음 목록에서는 가능한 몇 가지 시나리오를 제공 합니다. 이 문서에서는 이러한 샘플 시나리오 중 하나를 구현 하는 방법을 보여 줍니다.
@@ -44,7 +44,7 @@ Windows 업데이트 아티팩트가 최근에 적용 되지 않은 모든 Vm에
 이 섹션에서는 **내부 지원** 페이지를 업데이트 하는 데 필요한 Azure 리소스를 설정 하는 방법에 대 한 단계별 지침을 제공 합니다. 이 연습에서는 DevTest Labs를 확장 하는 한 가지 예를 제공 합니다. 다른 시나리오에이 패턴을 사용할 수 있습니다.
 
 ### <a name="step-1-create-a-service-principal"></a>1 단계: 서비스 주체 만들기 
-첫 번째 단계는 랩을 포함 하는 구독에 대 한 사용 권한이 있는 서비스 주체를 가져오는 것입니다. 서비스 주체는 암호 기반 인증을 사용 해야 합니다. [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)또는 [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)를 사용 하 여이 작업을 수행할 수 있습니다. 사용할 서비스 주체가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
+첫 번째 단계는 랩을 포함 하는 구독에 대 한 사용 권한이 있는 서비스 주체를 가져오는 것입니다. 서비스 주체는 암호 기반 인증을 사용 해야 합니다. [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)또는 [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)를 사용 하 여이 작업을 수행할 수 있습니다. 사용할 서비스 주체가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
 
 서비스 사용자의 **응용 프로그램 id**, **키** 및 **테 넌 트 id** 를 적어둡니다. 이 연습의 뒷부분에서 필요 합니다. 
 

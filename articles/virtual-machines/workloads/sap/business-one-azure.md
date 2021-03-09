@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: c9c2b0c3f55cf5fb6dfd32774baac2a49ec3609f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677151"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506891"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -102,7 +102,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 
 특정 및 일반 데이터베이스 문서에서 이미 강조되었지만, 다음을 숙지해야 합니다.
 
-- [Azure에서 Windows 가상 머신의 가용성 관리](../../manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../manage-availability.md)
+- [Azure에서 Windows 가상 머신의 가용성 관리](../../availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../availability.md)
 - [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 이러한 문서는 스토리지 유형 및 고가용성 구성을 선택하는 데 도움이 됩니다.

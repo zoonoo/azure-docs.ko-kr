@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: df94bb5e6066b83afd566181debbc0872dc1a5b4
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120265"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499852"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -73,6 +73,9 @@ ms.locfileid: "102120265"
 - 초기 릴리스
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>암호 재설정 링크를 사용 하는 통합 로그인 등록 페이지 (unifiedssp)
+
+> [!TIP]
+> 여러 로캘 또는 사용자 흐름의 언어를 지원 하도록 페이지를 지역화 하는 경우 [지역화 id](localization-string-ids.md) 문서에서는 선택한 페이지 버전에 대해 사용할 수 있는 지역화 id의 목록을 제공 합니다.
 
 **2.1.2**
 - 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.

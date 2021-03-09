@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3b40ad6c8ef7cc9446f0b60e4cda2efd70b8ed32
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451577"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503167"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3 단계-V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
 
@@ -50,7 +50,7 @@ Azure Portal 사용 하 여 [환경을 설정](how-to-set-azure-subscription.md?
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>선택한 클라이언트 SDK를 다운로드 하 고 환경 설정
 
-- Sdk는 [.net](/dotnet/api/overview/azure/mediaservices/management), .net Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)및 [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)에 사용할 수 있습니다.
+- Sdk는 [.net](/dotnet/api/overview/azure/mediaservices/management), .net Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)및 [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)에 사용할 수 있습니다.
 - [Azure CLI](/cli/azure/ams)   간단한 스크립팅 지원에 대 한 통합.
 
 > [!NOTE]
@@ -130,7 +130,7 @@ class Program
 
 문서를 읽고 [Azure Media Services V3 API에 연결-Python](configure-connect-python-howto.md) 을 설정 하 여 환경을 설정 합니다.
 
-## <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+## <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 [Azure Media Services V3 API에 연결](configure-connect-nodejs-howto.md) 문서를 읽고 환경을 설정 Node.js.
 

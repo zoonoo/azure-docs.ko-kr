@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007576"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508557"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "88007576"
 
 Windows 가상 데스크톱에 Windows 7 VM (가상 컴퓨터)을 배포 하는 프로세스는 이후 버전의 Windows를 실행 하는 Vm과 약간 다릅니다. 이 가이드에서는 Windows 7을 배포 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md) 의 지침에 따라 호스트 풀을 만듭니다. 포털을 사용 하는 경우 [Azure Portal를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)의 1 ~ 9 단계에 설명 된 지침을 따르세요. **그런 다음 검토 + 만들기** 를 선택 하 여 빈 호스트 풀을 만듭니다.
 
@@ -37,7 +37,7 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
 5. VM의 Windows 업데이트로 이동 합니다.
 6. 중요 범주에 모든 Windows 업데이트를 설치 합니다.
 7. 선택적 범주 (언어 팩 제외)에 모든 Windows 업데이트를 설치 합니다. 이 프로세스는 이러한 지침을 완료 하는 데 필요한 원격 데스크톱 프로토콜 8.0 업데이트 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387))를 설치 합니다.
-8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **원격 세션 환경**으로 이동 합니다.
+8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **원격 세션 환경** 으로 이동 합니다.
 9. 원격 데스크톱 프로토콜 8.0 정책을 사용 하도록 설정 합니다.
 10. 이 VM을 Active Directory 도메인에 가입 시킵니다.
 11. 다음 명령을 실행 하 여 가상 컴퓨터를 다시 시작 합니다.
@@ -46,7 +46,7 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
      shutdown /r /t 0
      ```
 
-12. [여기](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) 의 지침에 따라 등록 토큰을 가져옵니다.
+12. [여기](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo) 의 지침에 따라 등록 토큰을 가져옵니다.
 
       - Azure Portal를 사용 하는 경우 VM을 추가 하려는 호스트 풀의 개요 페이지로 이동 하 여 해당 위치에서 토큰을 만들 수도 있습니다.
 

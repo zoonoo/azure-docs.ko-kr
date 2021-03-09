@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: fcb4113a4dab1e3de17eb022b1ad386cbc6a9583
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109355"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510860"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
@@ -25,13 +25,13 @@ ms.locfileid: "102109355"
 
 첫 번째 단계는 사용자 지정 하위 도메인을 만드는 것입니다. 사용자 지정 하위 도메인 이름이 없는 기존 Cognitive Services 리소스를 사용 하려는 경우 [사용자 지정 하위 도메인 Cognitive Services](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) 의 지침에 따라 리소스에 대 한 사용자 지정 하위 도메인을 사용 하도록 설정 합니다.
 
-1. Azure Cloud Shell를 열어 시작 합니다. 그런 다음 [구독을 선택 합니다](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0).
+1. Azure Cloud Shell를 열어 시작 합니다. 그런 다음 [구독을 선택 합니다](/powershell/module/az.accounts/set-azcontext).
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [Cognitive Services 리소스를 만듭니다](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) . 하위 도메인 이름은 전역적으로 고유 해야 하며 특수 문자 (예: ".", "!", ",")를 포함할 수 없습니다.
+2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [Cognitive Services 리소스를 만듭니다](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) . 하위 도메인 이름은 전역적으로 고유 해야 하며 특수 문자 (예: ".", "!", ",")를 포함할 수 없습니다.
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ ms.locfileid: "102109355"
 > [!NOTE]
 > Azure 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요.
 
-1. 먼저 [AAD 응용 프로그램](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0)을 등록 하겠습니다.
+1. 먼저 [AAD 응용 프로그램](/powershell/module/Az.Resources/New-AzADApplication)을 등록 하겠습니다.
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ ms.locfileid: "102109355"
 
    다음 단계에서 **ApplicationId** 가 필요 합니다.
 
-2. 다음으로, AAD 응용 프로그램에 대 한 [서비스 주체를 만들어야](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) 합니다.
+2. 다음으로, AAD 응용 프로그램에 대 한 [서비스 주체를 만들어야](/powershell/module/az.resources/new-azadserviceprincipal) 합니다.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ ms.locfileid: "102109355"
    >[!NOTE]
    > Azure Portal에 응용 프로그램을 등록 하는 경우이 단계가 완료 됩니다.
 
-3. 마지막 단계는 ["Cognitive Services 사용자" 역할](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) 을 서비스 사용자 (리소스로 범위 지정)에 할당 하는 것입니다. 역할을 할당 하 여 서비스 사용자에 게이 리소스에 대 한 액세스 권한을 부여 합니다. 구독에서 여러 리소스에 대 한 동일한 서비스 사용자 액세스 권한을 부여할 수 있습니다.
+3. 마지막 단계는 ["Cognitive Services 사용자" 역할](/powershell/module/az.Resources/New-azRoleAssignment) 을 서비스 사용자 (리소스로 범위 지정)에 할당 하는 것입니다. 역할을 할당 하 여 서비스 사용자에 게이 리소스에 대 한 액세스 권한을 부여 합니다. 구독에서 여러 리소스에 대 한 동일한 서비스 사용자 액세스 권한을 부여할 수 있습니다.
    >[!NOTE]
    > 서비스 주체의 ObjectId가 사용 되며 응용 프로그램의 ObjectId는 사용 되지 않습니다.
    > ACCOUNT_ID은 사용자가 만든 Cognitive Services 계정의 Azure 리소스 Id입니다. Azure Portal에서 리소스의 "속성"에서 Azure 리소스 Id를 찾을 수 있습니다.

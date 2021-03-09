@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730574"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499817"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 빅 IP 액세스 정책 관리자 및 Azure Active Directory 통합
 
@@ -38,7 +38,7 @@ Azure AD에서 대규모 IP 게시 된 서비스에 대 한 사전 인증 액세
 
 - [누출 자격 증명 검색](../identity-protection/concept-identity-protection-risks.md)
 
-- [SSPR (셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md)
+- [SSPR(셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md)
 
 - [파트너 공동 작업](../governance/entitlement-management-external-users.md) -관리 되는 게스트 액세스를 위한 자격 관리
 

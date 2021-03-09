@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 2c8b77e480f3a4f9ba342c6793a708ca6723ec34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036574"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509033"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -152,7 +152,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|매개 변수| 메모|
+|매개 변수| 참고|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
@@ -205,7 +205,7 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기** 섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 시작에 설명 된 단계를 수행 합니다.   
 
 > [!NOTE]
-> **기본 SKU** 를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
+> **기본 SKU** 를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
 > 
 
 부하 분산 장치를 만든 후에는 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 백 엔드 풀을 만들어야 합니다. 빠른 시작 문서 섹션 [부하 분산 장치에 대 한 리소스 만들기](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)에 설명 된 단계를 따릅니다.  

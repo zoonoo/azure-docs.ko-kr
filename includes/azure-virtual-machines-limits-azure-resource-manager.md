@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 61af1f1a97e0ffad0332a34034f5dd1d007d1a5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 397dd3d16fa994df29a08ff9095b4c7c6c4af815
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901074"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511112"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "98901074"
 | [구독](https://azure.microsoft.com/pricing/)당 VM 총 코어 수 |지역당 20<sup>1</sup> 한도를 늘리려면 고객 지원팀에 문의하세요. |
 | [구독](https://azure.microsoft.com/pricing/)당 Azure Spot VM 총 코어 수 |지역당 20<sup>1</sup> 한도를 늘리려면 고객 지원팀에 문의하세요. |
 | 시리즈당 VM(Dv2 및 F 등), [구독](https://azure.microsoft.com/pricing/)당 코어 |지역당 20<sup>1</sup> 한도를 늘리려면 고객 지원팀에 문의하세요. |
-| 구독당 [가용성 집합](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |지역당 2,500 |
+| 구독당 [가용성 집합](../articles/virtual-machines/availability-set-overview.md) |지역당 2,500 |
 | 가용성 집합당 가상 머신 | 200 |
 | [리소스 그룹](../articles/azure-resource-manager/management/overview.md#resource-groups)별 [근접 배치 그룹](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) | 800 | 
 | 가용성 집합당 인증서 | 199<sup>2</sup> |

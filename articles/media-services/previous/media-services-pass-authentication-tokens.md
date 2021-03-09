@@ -4,7 +4,7 @@ description: 클라이언트에서 Azure Media Services 키 배달 서비스로 
 services: media-services
 keywords: 콘텐츠 보호, DRM, 토큰 인증
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/08/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9007672f9a3e505578459f63a185c8751051ce0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261043"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507962"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>클라이언트가 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법 알아보기
 
@@ -55,8 +55,6 @@ ms.locfileid: "89261043"
     </CustomData>
     ```
     인증 토큰을 토큰 요소에 넣습니다.
-
-- 대체 HLS(HTTP 라이브 스트리밍) 재생 목록을 통해. iOS/Safari에서 AES + HLS 재생에 대한 토큰 인증을 구성해야 할 경우 토큰에서 직접 보낼 수 있는 방법은 없습니다. 이 시나리오를 사용하도록 재생 목록을 대체하는 방법에 대한 자세한 내용은 이 [블로그 게시물](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

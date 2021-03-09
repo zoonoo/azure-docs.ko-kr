@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 3e55ae476becca23e6ea23fdc9c5fc7ec72b68ef
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204187"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509152"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure 가상 머신의 솔루션
 
@@ -76,7 +76,7 @@ DCSv2-Series VM 제품군에 **Standard_DC8_v2** 가상 컴퓨터 크기를 배�
 
 Azure에서 가상 머신을 사용하는 경우 모든 가동 중지 시간을 방지하기 위해 높은 가용성과 재해 복구 솔루션을 구현해야 합니다. 
 
-Azure 기밀 컴퓨팅은 현재 가용성 영역을 통해 영역 중복성을 지원하지 않습니다. 기밀 컴퓨팅에 대한 최고 가용성 및 중복성을 위해 [가용성 집합](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 사용합니다. 하드웨어 제한으로 인해 기밀 컴퓨팅 인스턴스의 가용성 집합에는 최대 10개의 업데이트 도메인만 사용할 수 있습니다. 
+Azure 기밀 컴퓨팅은 현재 가용성 영역을 통해 영역 중복성을 지원하지 않습니다. 기밀 컴퓨팅에 대한 최고 가용성 및 중복성을 위해 [가용성 집합](../virtual-machines/availability-set-overview.md)을 사용합니다. 하드웨어 제한으로 인해 기밀 컴퓨팅 인스턴스의 가용성 집합에는 최대 10개의 업데이트 도메인만 사용할 수 있습니다. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Azure Resource Manager (ARM) 템플릿을 사용 하 여 배포
 

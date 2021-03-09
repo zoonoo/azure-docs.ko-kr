@@ -4,12 +4,12 @@ description: Azure HDInsight의 지역에 장애 도메인이 충분 하지 않�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
-ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939041"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501348"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>시나리오: `not sufficient fault domains in region` Azure HDInsight에서로 인해 클러스터를 만들지 못했습니다.
 
@@ -23,7 +23,7 @@ Apache Kafka 클러스터를 만들려고 할 때와 유사한 오류 메시지�
 
 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 여기에 포함 된 장애 도메인의 수에 대 한 자세한 내용은 [가용성 집합](../../virtual-machines/manage-availability.md)에 대 한 설명서를 참조 하세요.
+Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 여기에 포함 된 장애 도메인의 수에 대 한 자세한 내용은 [가용성 집합](../../virtual-machines/availability.md)에 대 한 설명서를 참조 하세요.
 
 HDInsight에서 Kafka 클러스터는 세 개 이상의 장애 도메인을 포함 하는 지역에서 프로 비전 해야 합니다.
 

@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 346b790c6970abc8670661e1ec180662957af47d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458515"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503377"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -21,7 +21,7 @@ Azure Advisor를 사용 하면 유휴 리소스와 미달 사용 리소스를 �
 권장 되는 작업은 평가 중인 리소스와 관련 하 여 종료 하거나 크기를 조정 하는 것입니다.
 
 Advisor의 고급 평가 모델은 다음 문이 모두 true 인 경우 가상 머신을 종료 하는 것으로 간주 합니다. 
-- 최대 CPU 사용률 값의 P95th 3% 미만입니다. 
+- P95th CPU 사용률의 최대값은 3% 미만입니다. 
 - 7 일 동안 네트워크 사용률이 2% 미만입니다.
 - 메모리가 중 값이 임계값 보다 낮습니다.
 

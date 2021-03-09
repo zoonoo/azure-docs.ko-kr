@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660287"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498832"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -82,7 +82,10 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 1. **이름** 필드를 변경합니다.
 1. 페이지 위쪽에서 **저장** 을 클릭합니다.
 
-현재 전자 메일의 "받는 사람:" 필드를 변경할 방법은 없습니다.
+현재 전자 메일의 "보낸 사람:" 필드는 변경할 수 없습니다.
+
+> [!TIP]
+> Azure AD B2C [사용자 지정 정책을](custom-policy-overview.md)사용 하 여 전자 메일의 "보낸 사람:" 필드를 포함 하 여 전자 메일 Azure AD B2C 사용자에 게 보내는 전자 메일을 사용자 지정할 수 있습니다. 사용자 지정 전자 메일을 확인 하려면 [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자를 사용 해야 합니다.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>데이터베이스에서 Azure AD B2C로 기존 사용자 이름, 암호 및 프로필을 어떻게 마이그레이션할 수 있나요?
 
@@ -145,7 +148,7 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. **앱 등록** 를 선택 하 고 **모든 응용 프로그램** 탭을 선택 합니다.
 1. 등록 한 모든 응용 프로그램을 삭제 합니다.
 1. **B2c 앱** 을 삭제 합니다.
-1. **관리** 아래에서 **사용자** 를 선택합니다.
+1. **관리** 에서 **사용자** 를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **관리** 에서 **사용자 설정** 을 선택 합니다.
@@ -163,9 +166,9 @@ Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
 1. Azure AD B2C 테 넌 트에 등록 한 모든 **응용 프로그램 (레거시)** 을 삭제 합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
-1. **관리** 아래에서 **사용자** 를 선택합니다.
+1. **관리** 에서 **사용자** 를 선택합니다.
 1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
-1. **관리** 에서 **앱 등록** 을 선택합니다.
+1. **관리** 아래에서 **앱 등록** 을 선택합니다.
 1. **모든 응용 프로그램 보기** 선택
 1. **B2c** 이라는 응용 프로그램을 선택 하 고, **삭제** 를 선택한 다음, 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. **관리** 에서 **사용자 설정** 을 선택 합니다.

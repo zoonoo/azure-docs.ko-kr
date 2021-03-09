@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 98cc41b735a5a25f84bed4b443b735fadb0925e5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8bc289e90470ae9bc8b1996ac08c3144ea78de35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668022"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504715"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -273,7 +273,7 @@ ms.locfileid: "101668022"
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
+[virtual-machines-manage-availability]:../../linux/availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes-linux]:../../linux/sizes.md
 [virtual-machines-sizes-windows]:../../windows/sizes.md
@@ -1805,7 +1805,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
 * 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
-자세한 내용은 [azure에서 Windows 가상 머신의 가용성](../../manage-availability.md) 및 [azure에서 Linux 가상 머신의 가용성](../../manage-availability.md)을 참조 하세요.
+자세한 내용은 [azure에서 Windows 가상 머신의 가용성](../../availability.md) 및 [azure에서 Linux 가상 머신의 가용성](../../availability.md)을 참조 하세요.
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 

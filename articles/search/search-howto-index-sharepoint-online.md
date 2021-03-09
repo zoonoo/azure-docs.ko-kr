@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441094"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498900"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cognitive Search에서 SharePoint Online 인덱싱을 구성 하는 방법 (미리 보기)
 
@@ -166,7 +166,16 @@ api-key: [admin key]
         {
           "name" : "sharepoint-indexer",
           "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index"
+          "targetIndexName" : "sharepoint-index",
+          "fieldMappings" : [
+            { 
+              "sourceFieldName" : "metadata_spo_site_library_item_id", 
+              "targetFieldName" : "id", 
+              "mappingFunction" : { 
+                "name" : "base64Encode" 
+              } 
+            }
+          ]
         }
     
     ```
@@ -275,7 +284,7 @@ SharePoint Online 인덱서는 각 문서 유형과 관련 된 메타 데이터�
 ## <a name="controlling-which-documents-are-indexed"></a>인덱싱되는 문서 제어
 단일 SharePoint Online 인덱서는 하나 이상의 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있습니다. 인덱싱할 문서 라이브러리를 나타내기 위해 데이터 소스를 만들 때 *container* 매개 변수를 사용 합니다. 데이터 원본 *컨테이너* 에는 *이름* 및 *쿼리* 라는 두 개의 속성이 있습니다. 
 
-### <a name="name"></a>이름
+### <a name="name"></a>Name
 *Name* 속성은 필수 이며 세 가지 값 중 하나 여야 합니다.
 + *defaultSiteLibrary*
     + 사이트 기본 문서 라이브러리의 모든 콘텐츠를 인덱싱합니다.
@@ -356,7 +365,7 @@ Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
+문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어:
 
 ```http
 {
@@ -365,6 +374,6 @@ Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [Azure Cognitive Search에 사용 되는 콘텐츠 메타 데이터 속성](search-blob-metadata-properties.md)

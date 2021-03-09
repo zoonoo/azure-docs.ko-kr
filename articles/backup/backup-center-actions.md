@@ -1,16 +1,16 @@
 ---
 title: 백업 센터를 사용 하 여 작업 수행
-description: 이 문서에서는 Backup Center를 사용 하 여 작업을 수행 하는 방법을 설명 합니다.
+description: 이 문서에서는 Backup center를 사용 하 여 작업을 수행 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894578"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506452"
 ---
-# <a name="perform-actions-using-backup-center-preview"></a>백업 센터 (미리 보기)를 사용 하 여 작업 수행
+# <a name="perform-actions-using-backup-center"></a>백업 센터를 사용 하 여 작업 수행
 
 백업 센터를 사용 하면 개별 자격 증명 모음으로 이동할 필요 없이 중앙 인터페이스에서 키 백업 관련 작업을 수행할 수 있습니다. 백업 센터에서 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "98894578"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* Backup Center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업 SAP HANA Azure Files 백업 및 Azure Database for PostgreSQL Server 백업에 대해 지원 됩니다.
+* Backup center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업 SAP HANA Azure Files 백업 및 Azure Database for PostgreSQL Server 백업에 대해 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
 ## <a name="configure-backup"></a>백업 구성
@@ -80,7 +80,7 @@ Azure vm을 백업 하는 경우 azure vm의 SQL, azure vm 또는 Azure Files SA
 
 ## <a name="create-a-new-vault"></a>새 자격 증명 모음 만들기
 
-Backup Center로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 자격 증명 모음** 을 선택 하 여 새 자격 증명 모음을 만들 수 있습니다.
+Backup center로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 자격 증명 모음** 을 선택 하 여 새 자격 증명 모음을 만들 수 있습니다.
 
 ![자격 증명 모음 만들기](./media/backup-center-actions/backup-center-create-vault.png)
 
@@ -116,7 +116,7 @@ Backup Center로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 자격 �
 
 백업 센터에서는 백업 공간에서 백업 인스턴스를 검색 하 고 요청 시 백업 작업을 실행할 수 있습니다.
 
-주문형 백업을 트리거하려면 Backup Center로 이동 하 여 **Backup Instances** 메뉴 항목을 선택 합니다. 이를 선택 하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업 하려는 백업 인스턴스를 검색할 수 있습니다. 표의 항목을 마우스 오른쪽 단추로 클릭 하면 사용 가능한 작업 목록이 열립니다. **지금 백업** 옵션을 선택 하 여 요청 시 백업을 실행 합니다.
+주문형 백업을 트리거하려면 Backup center로 이동 하 여 **Backup Instances** 메뉴 항목을 선택 합니다. 이를 선택 하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업 하려는 백업 인스턴스를 검색할 수 있습니다. 표의 항목을 마우스 오른쪽 단추로 클릭 하면 사용 가능한 작업 목록이 열립니다. **지금 백업** 옵션을 선택 하 여 요청 시 백업을 실행 합니다.
 
 ![주문형 백업](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
@@ -128,7 +128,7 @@ Backup Center로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 자격 �
 
 백업 중인 기본 리소스가 더 이상 존재 하지 않는 경우와 같이 백업 인스턴스에 대 한 백업을 중지 하려는 경우가 있습니다.
 
-주문형 백업을 트리거하려면 Backup Center로 이동 하 여 **Backup Instances** 메뉴 항목을 선택 합니다. 이를 선택 하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업 하려는 백업 인스턴스를 검색할 수 있습니다. 표의 항목을 마우스 오른쪽 단추로 클릭 하면 사용 가능한 작업 목록이 열립니다. 백업 **중지** 옵션을 선택 하 여 백업 인스턴스에 대 한 백업을 중지 합니다.
+주문형 백업을 트리거하려면 Backup center로 이동 하 여 **Backup Instances** 메뉴 항목을 선택 합니다. 이를 선택 하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업 하려는 백업 인스턴스를 검색할 수 있습니다. 표의 항목을 마우스 오른쪽 단추로 클릭 하면 사용 가능한 작업 목록이 열립니다. 백업 **중지** 옵션을 선택 하 여 백업 인스턴스에 대 한 백업을 중지 합니다.
 
 ![보호 중지](./media/backup-center-actions/backup-center-stop-protection.png)
 

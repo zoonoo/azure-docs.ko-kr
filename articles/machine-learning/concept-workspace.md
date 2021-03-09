@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5211555102c0a8d29eb05abd7a680935d828f9dc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: bf2419799ad6c229c6ffb891bc588479e134d427
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683443"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500396"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -52,7 +52,7 @@ ms.locfileid: "98683443"
 + 웹에서:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning 디자이너](concept-designer.md) 
-+ [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하는 모든 python 환경에서
++ [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro)를 사용 하는 모든 python 환경에서
 + [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
 + Azure Machine Learning [CLI 확장](./reference-azure-machine-learning-cli.md) 을 사용 하 여 명령줄에서
 + [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)

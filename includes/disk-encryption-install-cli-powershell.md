@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: be6de283ed230a6e6a6b4986abb0a36386e36925
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 4c168738c0396b83412f9ed8c27fe3b2db9918d7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211994"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511109"
 ---
 Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬에 설치하고 Azure 구독에 연결해야 합니다.
 
@@ -47,13 +47,13 @@ az account set --subscription "<subscription name or ID>"
 
 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
-[Azure PowerShell을 사용하여 Azure 계정에 로그인](/powershell/azure/authenticate-azureps?view=azps-2.5.0)하려면 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet을 사용합니다.
+[Azure PowerShell을 사용하여 Azure 계정에 로그인](/powershell/azure/authenticate-azureps)하려면 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용합니다.
 
 ```powershell
 Connect-AzAccount
 ```
 
-여러 구독이 있으며 그 중에서 하나의 구독을 지정하려면 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet을 사용하여 해당 구독을 나열한 다음, [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet을 사용합니다.
+여러 구독이 있으며 그 중에서 하나의 구독을 지정하려면 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet을 사용하여 해당 구독을 나열한 다음, [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용합니다.
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>

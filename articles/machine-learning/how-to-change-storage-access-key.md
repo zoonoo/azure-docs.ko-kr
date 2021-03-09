@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 787f7727e18b7055055ed2b764ddce5be20f5afc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450794"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503439"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
@@ -33,7 +33,7 @@ Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
-* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
 
 * [AZURE MACHINE LEARNING CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
@@ -142,4 +142,4 @@ for name, ds in datastores.items():
 
 ## <a name="next-steps"></a>다음 단계
 
-Datastores를 등록 하는 방법에 대 한 자세한 내용은 [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) 클래스 참조를 참조 하세요.
+Datastores를 등록 하는 방법에 대 한 자세한 내용은 [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29) 클래스 참조를 참조 하세요.

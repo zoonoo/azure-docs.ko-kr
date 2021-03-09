@@ -1,22 +1,22 @@
 ---
-title: 'PowerShell: 근접 배치 그룹 사용'
+title: Azure PowerShell를 사용 하 여 근접 배치 그룹 만들기
 description: Azure PowerShell를 사용 하 여 근접 배치 그룹을 만들고 사용 하는 방법에 대해 알아봅니다.
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 742ce6e9937fbe0f67e61b7b96b1289030e7e148
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 26921b3d102032cb36f47c3be7a79c2b596a1d0c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677216"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503677"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>PowerShell을 사용 하 여 근접 배치 그룹에 Vm 배포
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 근접 배치 그룹에 Vm 배포
 
 
 가능한 한 가까운 시간 내에 Vm을 가져오기 위해 가장 낮은 대기 시간을 달성 하려면 [근접 배치 그룹](../co-location.md#proximity-placement-groups)내에 배포 해야 합니다.

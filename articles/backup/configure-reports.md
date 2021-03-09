@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710620"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509372"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -22,8 +22,8 @@ ms.locfileid: "101710620"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-- Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업의 경우 2020 년 6 월 1 일 이후에 생성 된 모든 레코드에 대해 데이터가 표시 됩니다.
-- Azure 파일 공유 백업에서 보호 된 인스턴스의 데이터는 현재 보고서에 표시 되지 않습니다. 모든 백업 항목에 대해 기본값은 0입니다.
+- Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업의 경우 2020 년 6 월 1 일 이후에 생성 된 레코드에 대 한 데이터가 표시 됩니다.
+- Azure 파일 공유 백업의 경우 보호 된 인스턴스의 데이터는 2 월 1 2021 일 이후에 생성 된 레코드에 대해 표시 됩니다. 기본값은 0이 고 이전 레코드의 경우 기본값은 0입니다.
 - DPM 워크로드의 경우 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 Backup 보고서가 지원됩니다.
 - MABS 워크로드의 경우 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 Backup 보고서가 지원됩니다.
 - 사용자가 액세스할 수 있는 Log Analytics 작업 영역으로 데이터가 전송되는 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 Backup 보고서를 볼 수 있습니다. 자격 증명 모음 집합에 대한 보고서를 보려면 자격 증명 모음이 데이터를 보내는 Log Analytics 작업 영역에 대한 읽기 권한만 있으면 됩니다. 개별 자격 증명 모음에 대한 액세스 권한은 필요 없습니다.
@@ -142,17 +142,31 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 
 ###### <a name="policy-adherence"></a>정책 준수
 
-이 탭을 사용 하 여 모든 백업 인스턴스에 매일 하나 이상의 성공한 백업이 있는지 여부를 식별할 수 있습니다. 기간 또는 백업 인스턴스를 기준으로 정책을 준수 하는 것을 볼 수 있습니다.
+이 탭을 사용 하 여 모든 백업 인스턴스에 매일 하나 이상의 성공한 백업이 있는지 여부를 식별할 수 있습니다. 주간 백업 정책이 있는 항목의 경우이 탭을 사용 하 여 모든 백업 인스턴스에 1 주일 이상의 성공한 백업이 있는지 여부를 확인할 수 있습니다.
+
+사용할 수 있는 정책 준수 보기에는 다음 두 가지 유형이 있습니다.
+
+* **기간별 정책 준수**:이 보기를 사용 하 여 지정 된 날짜에 하나 이상의 성공한 백업이 있었던 항목 수와 해당 날짜에 백업이 성공적으로 수행 되지 않은 횟수를 식별할 수 있습니다. 행을 클릭 하면 선택한 날짜에 트리거된 모든 백업 작업에 대 한 세부 정보를 볼 수 있습니다. 시간 범위를 지난 60 일과 같은 더 큰 값으로 늘리면 표가 주간 보기에서 렌더링 되 고 지정 된 주의 매일 하나 이상의 성공한 백업이 있는 모든 항목의 수가 표시 됩니다. 마찬가지로 더 큰 시간 범위에 대 한 월별 보기가 있습니다.
+
+매주 백업 된 항목의 경우이 표를 사용 하 여 지정 된 주에 하나 이상의 성공한 백업이 있는 모든 항목을 식별할 수 있습니다. 지난 120 일과 같은 더 큰 시간 범위에 대해 표는 월별 보기에서 렌더링 되 고 지정 된 달에 매주 하나 이상의 성공한 백업이 있는 모든 항목의 수를 표시 합니다. 매일, 매주 및 매월 보기에 대 한 자세한 내용은 [백업 보고서에 사용 되는 규칙](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) 을 참조 하세요.
+
+![기간별 정책 준수](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **백업 인스턴스에의 한 정책 준수**:이 뷰를 사용 하면 백업 인스턴스 수준에서 정책 준수 세부 정보를 확인할 수 있습니다. 녹색 인 셀은 백업 인스턴스에 지정 된 날짜에 하나 이상의 성공한 백업이 있음을 나타냅니다. 빨간색으로 표시 된 셀은 백업 인스턴스에 지정 된 날짜에 백업이 하나 이상 포함 되지 않았음을 나타냅니다. 매일, 매주 및 매월 집계는 기간별 정책과 동일한 동작을 수행 합니다. 행을 클릭 하면 선택한 시간 범위에서 지정 된 백업 인스턴스의 모든 백업 작업을 볼 수 있습니다.
+
+![백업 인스턴스에의 한 정책 준수](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>전자 메일 Azure Backup 보고서
 
 백업 보고서에서 사용할 수 있는 **전자 메일 보고서** 기능을 사용 하면 자동화 된 작업을 만들어 전자 메일을 통해 정기적으로 보고서를 받을 수 있습니다. 이 기능은 사용자가 제공 하는 입력에 따라 LA (선택한 Log Analytics) 작업 영역에서 데이터를 쿼리 하는 논리 앱을 Azure 환경에 배포 하는 방식으로 작동 합니다.
 
-논리 앱을 만든 후 Azure Monitor 로그 및 Office 365에 대 한 연결 권한을 부여 해야 합니다. 이렇게 하려면 Azure Portal에서 **Logic Apps** 로 이동 하 여 만든 작업의 이름을 검색 합니다. **Api 연결** 메뉴 항목을 선택 하면 인증 해야 하는 api 연결 목록이 열립니다.
+논리 앱을 만든 후 Azure Monitor 로그 및 Office 365에 대 한 연결 권한을 부여 해야 합니다. 이렇게 하려면 Azure Portal에서 **Logic Apps** 로 이동 하 여 만든 작업의 이름을 검색 합니다. **Api 연결** 메뉴 항목을 선택 하면 인증 해야 하는 api 연결 목록이 열립니다. [전자 메일을 구성 하 고 문제를 해결 하는 방법에 대해 자세히 알아보세요](backup-reports-email.md).
 
 ###### <a name="customize-azure-backup-reports"></a>Azure Backup 보고서 사용자 지정
 
-백업 보고서는 Azure Monitor 로그에서 함수를 사용 합니다. 이러한 함수는 LA의 원시 Azure Backup 테이블에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다.
+백업 보고서는 [Azure Monitor 로그에 시스템 함수를](backup-reports-system-functions.md)사용 합니다. 이러한 함수는 LA의 원시 Azure Backup 테이블에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다. 
+
+백업 보고서를 기반으로 사용 하 여 사용자 고유의 보고 통합 문서를 만들려면 Backup 보고서로 이동 하 고, 보고서 맨 위에 있는 **편집** 을 클릭 하 고, 보고서에 사용 되는 쿼리를 보거나 편집할 수 있습니다. 사용자 지정 보고서를 만드는 방법에 대 한 자세한 내용은 [Azure 통합](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) 문서를 참조 하세요. 
 
 ## <a name="export-to-excel"></a>Excel로 내보내기
 
@@ -175,6 +189,8 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 - 보고서에는 선택한 시간 범위에서 *트리거된* 작업(로그 작업과 별개)의 세부 정보가 표시됩니다.
 - **클라우드 스토리지** 및 **보호된 인스턴스** 에 대해 표시되는 값은 선택한 시간 범위의 *끝* 에 있습니다.
 - 보고서에 표시되는 Backup 항목은 선택한 시간 범위의 *끝* 에 있는 항목입니다. 선택한 시간 범위 도중에 삭제된 Backup 항목은 표시되지 않습니다. Backup 정책에도 동일한 규칙이 적용됩니다.
+- 선택한 시간 범위가 30 일 이하의 기간에 걸쳐 있는 경우 차트는 매일 마다 하나의 데이터 요소가 있는 매일 보기에서 렌더링 됩니다. 시간 범위가 30 일 보다 크고 90 일 보다 작거나 같은 기간에 걸쳐 있는 경우 차트는 주별 보기에서 렌더링 됩니다. 시간 범위가 길면 차트가 월별 보기에서 렌더링 됩니다. 매주 또는 매월 데이터를 집계 하면 쿼리 성능이 향상 되 고 차트의 데이터를 보다 쉽게 읽을 수 있습니다.
+- 정책 준수 표는 위에서 설명한 것과 비슷한 집계 논리를 따릅니다. 그러나 몇 가지 사소한 차이점이 있습니다. 첫 번째 차이점은 주간 백업 정책이 있는 항목의 경우 매일 보기가 없습니다 (주별 및 월별 보기만 사용할 수 있음). 또한 주별 백업 정책이 있는 항목에 대 한 그리드에서 ' 월 '은 30 일이 아닌 4 주 기간 (28 일)으로 간주 되어 부분을 고려 하지 않습니다.
 
 ## <a name="query-load-times"></a>쿼리 로드 시간
 

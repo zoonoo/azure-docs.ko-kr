@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737650"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506704"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -132,7 +132,7 @@ Azure Storage 리소스 공급자는 장애 조치 (failover) 되지 않으므�
 
 ### <a name="azure-virtual-machines"></a>Azure 가상 머신
 
-Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 또한 계정 장애 조치 (failover)와 관련 된 잠재적인 데이터 손실이 있습니다. Azure의 가상 머신과 관련 하 여 다음과 같은 고가용성 및 [재해 복구](../../virtual-machines/backup-recovery.md) 지침을 [사용](../../virtual-machines/manage-availability.md) 하는 것이 좋습니다.
+Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 또한 계정 장애 조치 (failover)와 관련 된 잠재적인 데이터 손실이 있습니다. Azure의 가상 머신과 관련 하 여 다음과 같은 고가용성 및 [재해 복구](../../virtual-machines/backup-recovery.md) 지침을 [사용](../../virtual-machines/availability.md) 하는 것이 좋습니다.
 
 ### <a name="azure-unmanaged-disks"></a>Azure 관리되지 않는 디스크
 
@@ -171,7 +171,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 된 경우 응용 프로그램은 보조 지역에서 읽을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [지리적 중복성을 사용하여 고가용성 애플리케이션 설계](geo-redundant-design.md)
 - [계정 장애 조치(failover) 시작](storage-initiate-account-failover.md)

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 080666c9857c1a3dc509ca980bc85b1dc11b5975
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ff67ac4be32142848a12185199d63db5a14e6c34
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214289"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501858"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
 
@@ -278,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-매개 변수 *instanceview* 와 함께 [AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다.
+매개 변수 *instanceview* 와 함께 [AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 사용 하 여 자동 인스턴스 복구를 위한 *servicestate* 를 확인 합니다.
 
 ```azurepowershell-interactive
 Get-AzVmss `
