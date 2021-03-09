@@ -1,30 +1,25 @@
 ---
-title: Azure Security Center 가격 책정
-description: Azure Security Center는 Azure Defender를 사용하거나 사용하지 않는 두 가지 모드로 제공됩니다.
-services: security-center
-documentationcenter: na
+title: Azure Security Center 무료 및 Azure Defender 사용 비교
+description: Azure Security Center에서 클라우드 워크로드 보호를 위해 Azure Defender를 사용하는 경우의 이점에 대해 알아보기
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 02/14/2021
+ms.openlocfilehash: e72e312e932e71d4dac8532983c2c96ba105ba3b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522872"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439479"
 ---
-# <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
-Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
+Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
 
+[빠른 시작: Azure Defender 사용](enable-azure-defender.md)에 설명된 대로 **가격 책정 및 설정** 페이지에서 업그레이드할 수 있습니다. 선택한 통화와 지역에 따른 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
-## <a name="free-option-vs-azure-defender-enabled"></a>무료 옵션과 Azure Defender 사용 모드 비교
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Azure Defender 사용 시 이점은?
 
 Security Center는 두 모드로 제공됩니다.
 
@@ -41,43 +36,22 @@ Security Center는 두 모드로 제공됩니다.
     - **Azure 환경에 연결된 리소스에 대한 광범위한 위협 보호** - Azure Defender에는 다음과 같은 모든 리소스에 대한 공통적인 Azure 서비스를 위해 광범위한 Azure 기본 범위 위협 보호가 포함되어 있습니다. Azure Resource Manager, Azure DNS, Azure 네트워크 계층 및 Azure Key Vault. Azure Defender는 Azure 관리 계층과 Azure DNS 계층에 대한 고유한 가시성을 제공하므로 이들 계층에 연결된 클라우드 리소스를 보호할 수 있습니다.
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>30일 동안 무료로 Azure Defender 사용해 보기
-Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
-
-## <a name="enable-azure-defender"></a>Azure Defender 사용
-Azure Defender를 사용하여 전체 Azure 구독을 보호할 수 있으며, 보호는 구독 내의 모든 리소스에 상속됩니다.
-
-Azure Defender를 사용하도록 설정하려면 다음을 수행합니다.
-
-1. Security Center의 주 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
-1. 업그레이드할 구독을 선택합니다.
-1. **Azure Defender 켜기** 를 선택하여 업그레이드합니다.
-1. **저장** 을 선택합니다.
-
-다음은 구독 예제에 대한 가격 책정 페이지입니다. Azure Defender의 각 요금제는 별도로 가격이 책정되며 개별적으로 설정 또는 해제할 수 있습니다.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="포털의 Security Center 가격 책정 페이지":::
-
-> [!NOTE]
-> 위협 방지 기능을 포함한 모든 Security Center 기능을 사용하도록 설정하려면 해당 워크로드가 포함된 구독에서 Azure Defender를 사용하도록 설정해야 합니다. 작업 영역 수준에서 사용하도록 설정해도 Just-In-Time VM 액세스, 적응형 애플리케이션 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다. 또한 작업 영역 수준에서 사용할 수 있는 유일한 Azure Defender 플랜은 서버용 Azure Defender와 머신의 SQL Server용 Azure Defender입니다.
->
-> **Azure Defender for Storage 계정** 은 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
-> **Azure Defender for SQL** 은 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
-> **Azure Database for MariaDB/ MySQL/ PostgreSQL** 에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
-
-
 ## <a name="faq---pricing-and-billing"></a>FAQ - 가격 책정 및 요금 청구 
 
-- [Azure Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-- [Security Center에서 제공하는 요금제는 무엇인가요?](#what-are-the-plans-offered-by-security-center)
-- [내 구독에 Azure Defender를 사용하도록 설정하려면 어떻게 해야 하나요?](#how-do-i-enable-azure-defender-for-my-subscription)
-- [내 구독의 서버 하위 집합에서 서버에 대해 Azure Defender를 사용하도록 설정할 수 있나요?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-- [Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-- [Azure Defender를 내 구독의 서버에 사용하도록 설정했습니다. 실행되지 않는 서버에 대해 비용을 지불하나요?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-- [Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-- [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-- [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-- [500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Azure Security Center 무료 및 Azure Defender 사용 비교](#azure-security-center-free-vs-azure-defender-enabled)
+  - [Azure Defender 사용 시 이점은?](#what-are-the-benefits-of-enabling-azure-defender)
+  - [FAQ - 가격 책정 및 요금 청구](#faq---pricing-and-billing)
+    - [Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+    - [Security Center에서 제공하는 요금제는 무엇인가요?](#what-are-the-plans-offered-by-security-center)
+    - [내 구독에 Azure Defender를 사용하도록 설정하려면 어떻게 해야 하나요?](#how-do-i-enable-azure-defender-for-my-subscription)
+    - [내 구독의 서버 하위 집합에서 서버에 대해 Azure Defender를 사용하도록 설정할 수 있나요?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+    - [Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+    - [Azure Defender를 내 구독의 서버에 사용하도록 설정했습니다. 실행되지 않는 서버에 대해 비용을 지불하나요?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+    - [Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+    - [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+    - [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+    - [500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+  - [다음 단계](#next-steps)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?
 Azure 구독에는 가격 책정 설정을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 변경한 사용자를 확인하려면 Azure 활동 로그를 사용합니다.
@@ -98,14 +72,14 @@ Security Center에는 다음 두 가지 제품이 있습니다.
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>내 구독에 Azure Defender를 사용하도록 설정하려면 어떻게 해야 하나요? 
 다음 방법 중 하나를 사용하여 Azure Defender를 구독에 사용하도록 설정할 수 있습니다. 
 
-|메서드  |지침  |
-|---------|---------|
-|Azure Portal의 Azure Security Center 페이지|[Azure Defender 사용](#enable-azure-defender)|
-|REST API|[가격 책정 API](/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[가격 책정 번들](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| 메서드                                          | 지침                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Portal의 Azure Security Center 페이지 | [Azure Defender 사용](enable-azure-defender.md)                                                                                                  |
+| REST API                                        | [가격 책정 API](/rest/api/securitycenter/pricings)                                                                                                  |
+| Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [가격 책정 번들](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>내 구독의 서버 하위 집합에서 서버에 대해 Azure Defender를 사용하도록 설정할 수 있나요?
 아니요. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 구독의 모든 서버가 Azure Defender에서 보호됩니다. 

@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center에서 지원하는 플랫폼 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 지원하는 플랫폼 목록을 제공합니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 4cc8130d34b5f51728fb2e7fb47c1fb0717d2138
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595120"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438287"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -37,7 +31,7 @@ Azure 구독에서 활성화된 Azure 환경의 경우 Azure Security Center는 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Security Center는 [Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#log-analytics-agent)에 따라 다릅니다. 다음 페이지에 설명된 대로, 이 에이전트에 지원되는 운영 체제 중 하나를 머신이 실행하고 있는지 확인하세요.
+Security Center는 [Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#log-analytics-agent)에 종속됩니다. 다음 페이지에 설명된 대로, 이 에이전트에 지원되는 운영 체제 중 하나를 머신이 실행하고 있는지 확인하세요.
 
 * [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 * [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
