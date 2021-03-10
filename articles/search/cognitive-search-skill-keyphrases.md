@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652316"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547835"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -41,6 +41,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 |---------------------|-------------|
 | `defaultLanguageCode` | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md)을 참조합니다. |
 | `maxKeyPhraseCount`   | (선택 사항) 생성할 핵심 구문의 최대 수입니다. |
+| `modelVersion`   | 필드 Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정 되지 않은 경우 기본적으로 사용 가능한 최신 버전으로 지정 됩니다. 반드시 필요한 경우가 아니면이 값을 지정 하지 않는 것이 좋습니다. 자세한 내용은 [텍스트 분석 API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md) 를 참조 하세요. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -109,8 +110,8 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 "Document/myKeyPhrases"를 다른 기술에 대 한 입력으로 사용 하거나 [출력 필드 매핑의](cognitive-search-output-field-mapping.md)원본으로 사용할 수 있습니다.
 
-## <a name="errors-and-warnings"></a>오류 및 경고
-지원되지 않는 언어 코드를 제공하는 경우 오류가 생성되고 핵심 문구는 추출되지 않습니다.
+## <a name="warnings"></a>경고
+지원 되지 않는 언어 코드를 제공 하면 경고가 생성 되 고 키 구가 추출 되지 않습니다.
 텍스트가 비어 있는 경우 경고가 생성됩니다.
 텍스트가 50,000자보다 큰 경우 처음 50,000자만 분석하고 경고를 발생합니다.
 

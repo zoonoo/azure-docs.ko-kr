@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202351"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554873"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -81,13 +81,12 @@ Azure [AD 인증](storage-files-identity-auth-active-directory-enable.md) 및 az
 | 원본 | 대상: </br>하이브리드 배포 | 대상: </br>클라우드 전용 배포 |
 |:---|:--|:--|
 | | 도구 조합:| 도구 조합: |
-| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](storage-sync-files-deployment-guide.md)</li><li>[Azure 파일 동기화 및 Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[클라우드에서 Azure 파일 동기화 및 미리 시드 된 파일](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Azure 파일 동기화 및 저장소 마이그레이션 서비스</li></ul> | <ul><li>Azure 파일 동기화</li><li>Azure 파일 동기화 및 Data Box</li><li>Azure 파일 동기화 및 저장소 마이그레이션 서비스</li><li>RoboCopy</li></ul> |
-| Windows Server 2012 및 이전 버전 | <ul><li>Azure 파일 동기화 및 Data Box</li><li>Azure 파일 동기화 및 저장소 마이그레이션 서비스</li></ul> | <ul><li>Azure 파일 동기화 및 저장소 마이그레이션 서비스</li><li>RoboCopy</li></ul> |
-| NAS (네트워크 연결 저장소) | <ul><li>[Azure 파일 동기화 및 RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux 또는 Samba | <ul><li>[Azure 파일 동기화 및 RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Microsoft Azure StorSimple 클라우드 어플라이언스 8100 또는 StorSimple Cloud Appliance 8600 | <ul><li>[Azure 파일 동기화 및 StorSimple Cloud Appliance 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| StorSimple Cloud Appliance 1200 | <ul><li>[Azure 파일 동기화](storage-files-migration-storsimple-1200.md)</li></ul> | |
-| | | |
+| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](storage-sync-files-deployment-guide.md)</li><li>[Azure 파일 동기화 및 Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>RoboCopy를 통해 탑재 된 Azure 파일 공유로</li><li>Via Azure 파일 동기화</li></ul> |
+| Windows Server 2012 및 이전 버전 | <ul><li>DataBox 및 최근 서버 OS에 Azure 파일 동기화를 통해</li><li>Azure 파일 동기화를 사용 하는 최근 서버에 Storage Migration Service를 통해 업로드</li></ul> | <ul><li>Azure 파일 동기화를 사용 하 여 Storage Migration Service를 최신 서버로</li><li>RoboCopy를 통해 탑재 된 Azure 파일 공유로</li></ul> |
+| NAS (네트워크 연결 저장소) | <ul><li>[Via Azure 파일 동기화 업로드](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure 파일 동기화](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>RoboCopy를 통해 탑재 된 Azure 파일 공유로</li></ul> |
+| Linux/Samba | <ul><li>[Azure 파일 동기화 및 RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy를 통해 탑재 된 Azure 파일 공유로</li></ul> |
+| Microsoft Azure StorSimple 클라우드 어플라이언스 8100 또는 StorSimple Cloud Appliance 8600 | <ul><li>[전용 데이터 마이그레이션 클라우드 서비스를 통해](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| StorSimple Cloud Appliance 1200 | <ul><li>[Via Azure 파일 동기화](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## <a name="migration-toolbox"></a>마이그레이션 도구 상자
 
@@ -120,9 +119,9 @@ Microsoft 및 기타에서 사용할 수 있는 몇 가지 파일 복사 도구�
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 지원됨. Azure 파일 공유는 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure 파일 동기화 | 기본적으로 Azure 파일 공유에 통합 됩니다. | 완전 한 충실도 * |
 |![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| 스토리지 마이그레이션 서비스 | 간접적으로 지원 됩니다. Azure 파일 공유를 SMS 대상 서버에 네트워크 드라이브로 탑재할 수 있습니다. | 완전 한 충실도 * |
-|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, 버전 10.4 이상| 지원됨. | 완전 한 충실도 * |
-|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 지원됨. | 이제 DataBox는 메타 데이터를 완벽 하 게 지원 합니다. [Data Box은 Azure 파일 동기화와 함께 사용할 수도 있습니다](storage-sync-offline-data-transfer.md). |
-|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage 탐색기 버전 1.14 | 지원됨. | Acl을 복사 하지 않습니다. 타임 스탬프를 지원 합니다.  |
+|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>버전 10.6 | 지원됨. | 원본 루트 ACL의 복사본을 지원 하지 않습니다. 그렇지 않으면 전체 충실도입니다. * </br>[Azure 파일 공유와 함께 AzCopy를 사용 하는 방법 알아보기](../common/storage-use-azcopy-files.md) |
+|![예, 권장](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 지원됨. | DataBox는 메타 데이터를 완벽 하 게 지원 합니다. |
+|![완전히 권장 되지 않음](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>버전 1.14 | 지원됨. | Acl을 복사 하지 않습니다. 타임 스탬프를 지원 합니다.  |
 |![권장하지 않음](media/storage-files-migration-overview/circle-red-x.png)| Azure 데이터 팩터리 | 지원됨. | 메타 데이터를 복사 하지 않습니다. |
 |||||
 
@@ -149,7 +148,7 @@ Azure 파일 동기화는 주로 항목 (파일 및 폴더) 수를 사용 하 �
 1. 원하는 Azure 파일 공유 (클라우드 전용 또는 하이브리드) 배포에 대 한 계획을 만듭니다.
 1. 사용 가능한 마이그레이션 가이드 목록을 검토 하 여 Azure 파일 공유의 원본 및 배포와 일치 하는 상세 가이드를 확인 하세요.
 
-이 문서에서 설명 하는 Azure Files 기술에 대 한 자세한 내용은 다음과 같습니다.
+이 문서에서 설명 하는 Azure Files 기술에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [Azure 파일 공유 개요](storage-files-introduction.md)
 * [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

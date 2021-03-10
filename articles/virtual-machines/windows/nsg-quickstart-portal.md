@@ -3,16 +3,17 @@ title: Azure Portal을 사용하여 VM에 포트 열기
 description: Azure Portal를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777761"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550453"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -47,7 +48,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **인바운드 보안 규칙 추가** 페이지 상단에서 **기본** 을 **고급** 으로 전환합니다. 
 
-1. 드롭다운 메뉴에서 공통 **서비스** 를 선택합니다(예: **HTTP** ). 사용할 특정 포트를 제공하려는 경우 **사용자 지정** 을 선택할 수도 있습니다. 
+1. 드롭다운 메뉴에서 공통 **서비스** 를 선택합니다(예: **HTTP**). 사용할 특정 포트를 제공하려는 경우 **사용자 지정** 을 선택할 수도 있습니다. 
 
 1. 선택적으로 **우선 순위** 또는 **이름** 을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
 

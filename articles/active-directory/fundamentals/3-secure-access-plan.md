@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725214"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554023"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. 외부 액세스를 위한 보안 계획 만들기 
 
@@ -132,9 +132,9 @@ ms.locfileid: "98725214"
 
    * [연결 된 조직을](../governance/entitlement-management-organization.md) 사용 하 여 단일 파트너의 모든 사용자를 그룹화 하는 경우 비즈니스 소유자 및 파트너 담당자와 정기적으로 검토를 예약 합니다.
 
-* **그룹을 Microsoft 365** 합니다. 외부 사용자가 초대 되는 Microsoft 365 그룹에 대 한 [그룹 만료 정책을](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) 설정 합니다. 
+* **그룹을 Microsoft 365** 합니다. 외부 사용자가 초대 되는 Microsoft 365 그룹에 대 한 [그룹 만료 정책을](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) 설정 합니다. 
 
-* **기타 옵션** 입니다. 외부 사용자가 권한 부여 관리 액세스 패키지 또는 Microsoft 365 그룹 외부에서 액세스할 수 있는 경우, 계정을 비활성화 하거나 삭제 해야 하는 경우를 검토 하도록 비즈니스 프로세스를 설정 합니다. 예:
+* **기타 옵션** 입니다. 외부 사용자가 권한 부여 관리 액세스 패키지 또는 Microsoft 365 그룹 외부에서 액세스할 수 있는 경우, 계정을 비활성화 하거나 삭제 해야 하는 경우를 검토 하도록 비즈니스 프로세스를 설정 합니다. 예를 들면 다음과 같습니다.
 
    * 90 일 동안에 로그인 하지 않은 모든 계정에 대 한 로그인 기능을 제거 합니다.
 

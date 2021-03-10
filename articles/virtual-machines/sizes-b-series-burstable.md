@@ -2,18 +2,18 @@
 title: B-시리즈 간 급수 안정화-Azure Virtual Machines
 description: 버스터블 Azure VM 크기의 B-시리즈에 대해 설명합니다.
 services: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c19c47ac64f1e41fa998a29d3ea0480bf0d92a63
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594390"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554465"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 

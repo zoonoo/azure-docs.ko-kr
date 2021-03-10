@@ -3,19 +3,20 @@ title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화 - 스토리지
 description: Linux 예제를 사용 하 여 Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화 하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 author: laurenhughes
-ms.service: virtual-machines-linux
-ms-subservice: sizes
+ms.service: virtual-machines
+ms-subservice: vm-sizes-storage
+ms.collection: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307104"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552765"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Lsv2 시리즈 Linux 가상 머신에서 성능 최적화
 

@@ -3,13 +3,13 @@ title: Azure 역할 기반 액세스 제어를 사용 하 여 백업 관리
 description: Azure 역할 기반 액세스 제어를 사용 하 여 Recovery Services 자격 증명 모음의 백업 관리 작업에 대 한 액세스를 관리 합니다.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090882"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553411"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Azure Backup 복구 지점의 관리
 
@@ -28,26 +28,28 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Backup 기본 제공 역할을 관리 작업에 매핑
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Azure VM 백업에 대 한 최소 역할 요구 사항
+
 다음 표에서는 백업 관리 작업 및 해당 작업을 수행 하는 데 필요한 최소 Azure 역할을 캡처합니다.
 
-| 관리 작업 | 필요한 최소 Azure 역할 | 필요한 범위 |
-| --- | --- | --- |
-| Recovery Services 자격 증명 모음 만들기 | Backup 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |
-| Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |
-| | 가상 머신 참가자 | VM 리소스 |
-| VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | 참가자 | VM이 배포될 리소스 그룹 |
-| | 가상 머신 참가자 | 백업 된 원본 VM |
+| 관리 작업 | 필요한 최소 Azure 역할 | 필요한 범위 | 대체 |
+| --- | --- | --- | --- |
+| Recovery Services 자격 증명 모음 만들기 | Backup 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |   |
+| Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |   |
+| | 가상 머신 참가자 | VM 리소스 |  또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
+| VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
+| | 참가자 | VM이 배포될 리소스 그룹 |   또는 기본 제공 역할 대신에 다음 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. .Resources/subscription/resourceGroups/write Microsoft. DomainRegistration/domains/write, microsoft virtualMachines/virtualNetworks/write microsoft. Network/virtualNetworks/서브넷/조인/작업 | 
+| | 가상 머신 참가자 | 백업 된 원본 VM |   또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
 | 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | 가상 머신 참가자 | 백업 된 원본 VM |
-| | Storage 계정 참가자 | 디스크가 복원되는 Storage 계정 리소스 |
+| | 가상 머신 참가자 | 백업 된 원본 VM | 또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| | Storage 계정 참가자 | 디스크가 복원되는 Storage 계정 리소스 |   또는 기본 제공 역할 대신, Microsoft 저장소/storageAccounts/write 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. |
 | VM 백업에서 관리 디스크 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | 가상 머신 참가자 | 백업 된 원본 VM |
-| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정 |
-| | 참가자 | 관리 디스크가 복원될 리소스 그룹 |
+| | 가상 머신 참가자 | 백업 된 원본 VM |    또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정 |   또는 기본 제공 역할 대신, Microsoft 저장소/storageAccounts/write 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. |
+| | 참가자 | 관리 디스크가 복원될 리소스 그룹 | 또는 기본 제공 역할 대신, Microsoft .Resources/subscription/resourceGroups/write 권한이 있는 사용자 지정 역할을 고려할 수 있습니다.|
 | VM 백업에서 개별 파일 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | 가상 머신 참가자 | 백업 된 원본 VM |
+| | 가상 머신 참가자 | 백업 된 원본 VM | 또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
 | Azure VM 백업에 대한 백업 정책 만들기 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | Azure VM 백업의 백업 정책 수정 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | Azure VM 백업의 백업 정책 삭제 | Backup 참가자 | Recovery Services 자격 증명 모음 |
@@ -58,7 +60,25 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 > [!IMPORTANT]
 > Vm 리소스 범위에서 VM 참가자를 지정 하 고 VM 설정의 일부분으로 **백업** 을 선택 하는 경우 vm이 이미 백업 된 경우에도 **백업 사용** 화면이 열립니다. 백업 상태를 확인 하는 호출은 구독 수준 에서만 작동 하기 때문입니다. 이를 방지 하려면 자격 증명 모음으로 이동 하 여 VM의 백업 항목 보기를 열거나 구독 수준에서 VM 참가자 역할을 지정 합니다.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 최소 역할 요구 사항
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Azure 워크 로드 백업에 대 한 최소 역할 요구 사항 (SQL 및 HANA DB 백업)
+
+다음 표에서는 백업 관리 작업 및 해당 작업을 수행 하는 데 필요한 최소 Azure 역할을 캡처합니다.
+
+| 관리 작업 | 필요한 최소 Azure 역할 | 필요한 범위 | 대체 |
+| --- | --- | --- | --- |
+| Recovery Services 자격 증명 모음 만들기 | Backup 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |   |
+| SQL 및/또는 HANA 데이터베이스의 백업 사용 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |   |
+| | 가상 머신 참가자 | DB가 설치 된 VM 리소스 |  또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| DB의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
+| 데이터베이스 복원 또는 파일로 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
+| | 가상 머신 참가자 | 백업 된 원본 VM |   또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| | 가상 머신 참가자 | DB가 복원 되거나 파일이 생성 되는 대상 VM |   또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| Azure VM 백업에 대한 백업 정책 만들기 | Backup 참가자 | Recovery Services 자격 증명 모음 |
+| Azure VM 백업의 백업 정책 수정 | Backup 참가자 | Recovery Services 자격 증명 모음 |
+| Azure VM 백업의 백업 정책 삭제 | Backup 참가자 | Recovery Services 자격 증명 모음 |
+| VM 백업에서 백업 중지(데이터 보존 또는 데이터 삭제를 통해) | Backup 참가자 | Recovery Services 자격 증명 모음 |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 최소 역할 요구 사항
 
 다음 표에서는 Azure 파일 공유 작업을 수행 하는 데 필요한 백업 관리 작업 및 해당 역할을 캡처합니다.
 

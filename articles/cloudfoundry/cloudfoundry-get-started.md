@@ -2,17 +2,17 @@
 title: Microsoft Azure에서 Cloud Foundry 시작
 description: Microsoft Azure에서 OSS 또는 Pivotal Cloud Foundry 실행
 author: seanmck
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 8645afac5734cdbffb8df6f341529e688ca526d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754453"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562897"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 

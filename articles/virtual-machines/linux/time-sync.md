@@ -1,23 +1,24 @@
 ---
 title: Azure에서 Linux VM의 시간 동기화
 description: Linux 가상 머신의 시간 동기화입니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 399022c1ef740865e4b2f7b82e2175e748a2a925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306959"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552646"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
@@ -61,7 +62,7 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바�
 
 기본적으로 Linux의 대부분 Azure Marketplace 이미지는 두 가지 원본에서 동기화하도록 구성됩니다. 
 
-- NTP 서버에서 시간을 가져오는 1차로서 NTP. 예를 들어 Ubuntu 16.04 LTS Marketplace 이미지는 **ntp.ubuntu.com**을 사용합니다.
+- NTP 서버에서 시간을 가져오는 1차로서 NTP. 예를 들어 Ubuntu 16.04 LTS Marketplace 이미지는 **ntp.ubuntu.com** 을 사용합니다.
 - VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 2차로서 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 디바이스를 사용합니다.
 
 최신 Linux 배포판에서 VMICTimeSync 서비스는 PTP (Precision Time Protocol) 하드웨어 클록 원본을 제공 하지만 이전 배포는이 클록 원본을 제공 하지 않을 수 있으며 호스트에서 시간을 가져오기 위해 NTP로 대체 합니다.
@@ -114,7 +115,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 ### <a name="check-for-ptp-clock-source"></a>PTP 클록 소스 확인
 
-최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 장치는/dev/ptp*x*형식이 됩니다. 
+최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 장치는/dev/ptp *x* 형식이 됩니다. 
 
 사용 가능한 PTP 시계 원본을 확인합니다.
 
@@ -122,7 +123,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ls /sys/class/ptp
 ```
 
-이 예제에서 반환된 값은 *ptp0*이므로 이를 사용하여 시계 이름을 확인합니다. 디바이스를 확인하려면 시계 이름을 확인합니다.
+이 예제에서 반환된 값은 *ptp0* 이므로 이를 사용하여 시계 이름을 확인합니다. 디바이스를 확인하려면 시계 이름을 확인합니다.
 
 ```bash
 cat /sys/class/ptp/ptp0/clock_name
@@ -144,7 +145,7 @@ Red Hat 및 NTP에 대 한 자세한 내용은 [Ntp 구성](https://access.redha
 
 Chrony에 대 한 자세한 내용은 [Chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조 하세요.
 
-Chrony 및 VMICTimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호**하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
+Chrony 및 VMICTimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호** 하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
 
 기본적으로 chronyd는 시스템 클록을 가속화 하거나 느리게 하 여 시간 드리프트를 수정 합니다. 드리프트가 너무 커지면 chrony는 드리프트를 수정 하지 못합니다. 이를 해결 하기 위해 `makestep` **/etc/chrony.conf** 의 매개 변수를 변경 하 여 드리프트가 지정 된 임계값을 초과 하는 경우 시간 동기화를 강제로 수행할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 84cbc681d0974e91561daf8918dff389226fa7aa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334721"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553972"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "93334721"
    Set-AzContext $context 
    ```
 
-1. [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 모듈 설치 및 가져오기
+1. [AzureAD](/powershell/module/azuread/) 모듈 설치 및 가져오기
 
    ```powershell
    Install-Module AzureAD

@@ -9,23 +9,23 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32bb51751430dcd0208849f798d21f2b25e6b82b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430873"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563271"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그 (미리 보기)를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기
 
 Blob 인덱스 태그는 키-값 태그 특성을 사용 하 여 저장소 계정의 데이터를 분류 합니다. 이러한 태그는 데이터를 쉽게 찾을 수 있도록 자동으로 인덱싱하고 검색 가능한 다차원 인덱스로 노출 됩니다. 이 문서에서는 Blob 인덱스 태그를 사용하여 데이터를 설정하고 가져오고 검색하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> Blob 인덱스 태그는 현재 **미리 보기** 상태 이며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+> Blob 인덱스 태그는 현재 **미리 보기** 상태 이며 모든 공용 지역에서 사용할 수 있습니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 알려진 문제 및 제한과 함께이 기능에 대해 자세히 알아보려면 [Blob 인덱스 태그를 사용 하 여 Azure blob 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

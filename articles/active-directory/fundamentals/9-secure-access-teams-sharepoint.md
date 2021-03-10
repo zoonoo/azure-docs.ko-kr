@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f373c849cd542769fec7a10f20dad04e742c9591
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725081"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565141"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Microsoft 팀, SharePoint 및 비즈니스용 OneDrive에 대 한 외부 액세스 보호 
 
@@ -90,7 +90,7 @@ Microsoft 365 공유는 외부 Id의 영향을 받습니다. [ ](https://aad.por
 
 * [Microsoft 팀에서 외부 액세스 관리](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 id 모델 및 Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 id 모델 및 Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Microsoft 팀에 대 한 id 모델 및 인증](/MicrosoftTeams/identify-models-authentication)
 

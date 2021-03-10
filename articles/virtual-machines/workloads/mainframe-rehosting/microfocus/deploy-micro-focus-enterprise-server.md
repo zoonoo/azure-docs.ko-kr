@@ -1,7 +1,7 @@
 ---
 title: AKS에 마이크로 포커스 엔터프라이즈 서버 5.0 배포 Microsoft Docs
 description: Azure Vm (가상 머신)에서 마이크로 포커스 개발 및 테스트 환경을 사용 하 여 IBM z/OS 메인프레임 워크 로드를 Rehost.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5b3857c2252a939080206fb1f92cc422f326fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042546"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564359"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>AKS에 마이크로 포커스 엔터프라이즈 서버 5.0 배포
 
@@ -39,11 +39,11 @@ Azure Kubernetes Service는 Kubernetes를 기반으로 하는 관리 되는 오�
 
 ## <a name="create-the-azure-container-registry"></a>Azure Container Registry 만들기
 
-Azure Portal에서 왼쪽 위 모서리에 있는 **리소스 만들기** 를 선택 합니다. Marketplace 대시보드에서 **컨테이너를** 선택 하 고 **Container Registry**합니다. 그러면 **레지스트리 이름**, **Azure 구독**, **리소스 그룹**및 **위치**를 입력 해야 하는 **컨테이너 레지스트리 만들기** 창으로 이동 합니다. **레지스트리 이름을** 확인 해야 하므로 고유 해야 합니다. 이전 블로그 게시물 및 동일한 해당 **위치**에서 사용한 **리소스 그룹** 을 선택 합니다. **관리 사용자** 에 대해 **사용** 을 선택 하 고 **SKU**에 대해 **기본** 을 선택 합니다. 모든 항목을 채운 후 **만들기**를 선택 합니다.
+Azure Portal에서 왼쪽 위 모서리에 있는 **리소스 만들기** 를 선택 합니다. Marketplace 대시보드에서 **컨테이너를** 선택 하 고 **Container Registry** 합니다. 그러면 **레지스트리 이름**, **Azure 구독**, **리소스 그룹** 및 **위치** 를 입력 해야 하는 **컨테이너 레지스트리 만들기** 창으로 이동 합니다. **레지스트리 이름을** 확인 해야 하므로 고유 해야 합니다. 이전 블로그 게시물 및 동일한 해당 **위치** 에서 사용한 **리소스 그룹** 을 선택 합니다. **관리 사용자** 에 대해 **사용** 을 선택 하 고 **SKU** 에 대해 **기본** 을 선택 합니다. 모든 항목을 채운 후 **만들기** 를 선택 합니다.
 
 ![컨테이너 레지스트리 인터페이스 만들기](media/deploy-image-1.png)
 
-레지스트리를 배포한 후 **리소스로 이동**을 선택 합니다. 그러면 Azure Container Registry에 대 한 기본 블레이드로 이동 합니다. 여기에서 유용한 기능은 **빠른 시작** 메뉴 옵션입니다. 이 항목을 선택 하면 레지스트리에서/로 이미지를 끌어오거나 가져오기 위해 수행 해야 하는 작업에 대 한 지침이 표시 됩니다. 다음과 같이 하겠습니다.
+레지스트리를 배포한 후 **리소스로 이동** 을 선택 합니다. 그러면 Azure Container Registry에 대 한 기본 블레이드로 이동 합니다. 여기에서 유용한 기능은 **빠른 시작** 메뉴 옵션입니다. 이 항목을 선택 하면 레지스트리에서/로 이미지를 끌어오거나 가져오기 위해 수행 해야 하는 작업에 대 한 지침이 표시 됩니다. 다음과 같이 하겠습니다.
 
 1.  **Docker 설치** – 이미 수행 되었기 때문에 걱정 하지 않아도 됩니다.
 
@@ -63,7 +63,7 @@ Azure Portal에서 왼쪽 위 모서리에 있는 **리소스 만들기** 를 �
 
 ## <a name="rdp-to-the-virtual-machine-you-used-to-create-the-docker-image"></a>Docker 이미지를 만드는 데 사용한 가상 컴퓨터에 대 한 RDP
 
-Windows 2016 서버에서 Docker 이미지를 이미 만들었기 때문에 해당 VM에 로그인 해야 합니다. 이 VM에서 방금 만든 Azure Container Registry에 이미지를 푸시할 수 있습니다. Azure Portal에서 VM으로 이동한 다음 **개요** 를 선택 하 고 **연결**을 선택 합니다. 그러면 RDP (원격 데스크톱 프로토콜)를 통해 VM에 연결 됩니다. VM을 만들 때의 자격 증명을 사용 해야 합니다.
+Windows 2016 서버에서 Docker 이미지를 이미 만들었기 때문에 해당 VM에 로그인 해야 합니다. 이 VM에서 방금 만든 Azure Container Registry에 이미지를 푸시할 수 있습니다. Azure Portal에서 VM으로 이동한 다음 **개요** 를 선택 하 고 **연결** 을 선택 합니다. 그러면 RDP (원격 데스크톱 프로토콜)를 통해 VM에 연결 됩니다. VM을 만들 때의 자격 증명을 사용 해야 합니다.
 
 ## <a name="log-in-and-push-the-image-to-the-registry"></a>로그인 하 여 레지스트리에 이미지 푸시
 
@@ -71,13 +71,13 @@ Windows 2016 서버에서 Docker 이미지를 이미 만들었기 때문에 해�
 
 -   **docker 이미지** – VM에 현재 설치 되어 있는 모든 이미지 목록을 표시 합니다. 이 작업을 수행 하 고 있는 것 이므로 **마이크로 포커스/es-acctdemo** 를 기록해 둡니다.
 
--   **docker login acrmf50.azurecr.io** – 올바른 형식은 *docker 로그인 \<registry name\> *입니다. 레지스트리를 만들 때 사용한 이름을 대체 합니다.
+-   **docker login acrmf50.azurecr.io** – 올바른 형식은 *docker 로그인 \<registry name\>* 입니다. 레지스트리를 만들 때 사용한 이름을 대체 합니다.
 
     -   Azure Portal에서 복사한 **사용자 이름** 및 **암호** 가 필요 합니다. 다음 이미지와 같은 정보가 표시됩니다.
 
     ![관리자 명령 프롬프트의 스크린샷](media/deploy-image-2.png)
 
--   **docker 태그 마이크로 포커스/es-acctdemo acrmf50.azurecr.io/es-acctdemo** – 적절 한 이미지를 리포지토리의 이름으로 태그를 합니다. **참고**: 이름이 \<microfocus/es-acctdemo\> 작동 하지 않는 경우 전체 이미지 ID를 사용해 보세요. 명령을 실행 한 후 **docker images – trunc**를 입력 합니다. 다음 이미지와 유사한 내용이 표시 되어야 합니다. 이미지에 태그가 올바르게 지정 되어 있는지 확인 합니다.
+-   **docker 태그 마이크로 포커스/es-acctdemo acrmf50.azurecr.io/es-acctdemo** – 적절 한 이미지를 리포지토리의 이름으로 태그를 합니다. **참고**: 이름이 \<microfocus/es-acctdemo\> 작동 하지 않는 경우 전체 이미지 ID를 사용해 보세요. 명령을 실행 한 후 **docker images – trunc** 를 입력 합니다. 다음 이미지와 유사한 내용이 표시 되어야 합니다. 이미지에 태그가 올바르게 지정 되어 있는지 확인 합니다.
 
     ![관리자 명령 프롬프트 화면을 선택 합니다.](media/deploy-image-3.png)
 
@@ -85,11 +85,11 @@ Windows 2016 서버에서 Docker 이미지를 이미 만들었기 때문에 해�
 
     ![관리자 명령 프롬프트 화면](media/deploy-image-4.png)
 
-이제 **리포지토리로**Azure Portal로 돌아갑니다. **리포지토리의**메뉴에서 **리포지토리**를 선택 하면 **es-acctdemo** 가 표시 되어야 합니다. 이제 AKS 클러스터를 만듭니다.
+이제 **리포지토리로** Azure Portal로 돌아갑니다. **리포지토리의** 메뉴에서 **리포지토리** 를 선택 하면 **es-acctdemo** 가 표시 되어야 합니다. 이제 AKS 클러스터를 만듭니다.
 
 ## <a name="create-the-azure-kubernetes-aks-cluster"></a>Azure Kubernetes (AKS) 클러스터 만들기
 
-Azure Portal에서 **리소스 만들기** 를 선택 하 고 **Marketplace** 메뉴에서 **컨테이너/Kubernetes 서비스** 를 선택 합니다. 그런 다음 **Create Kubernetes cluster** 블레이드를 입력 해야 합니다. 사용 중인 것과 동일한 지역 및 리소스 그룹에 클러스터를 유지 해야 합니다. **노드 수** 를 제외한 나머지 기본값을 그대로 사용할 수 있습니다. 단, 1만 필요 합니다. 완료되면 **검토 + 만들기**를 선택합니다.
+Azure Portal에서 **리소스 만들기** 를 선택 하 고 **Marketplace** 메뉴에서 **컨테이너/Kubernetes 서비스** 를 선택 합니다. 그런 다음 **Create Kubernetes cluster** 블레이드를 입력 해야 합니다. 사용 중인 것과 동일한 지역 및 리소스 그룹에 클러스터를 유지 해야 합니다. **노드 수** 를 제외한 나머지 기본값을 그대로 사용할 수 있습니다. 단, 1만 필요 합니다. 완료되면 **검토 + 만들기** 를 선택합니다.
 
 ![Kubernetes 클러스터 만들기 화면](media/deploy-image-5.png)
 
@@ -119,4 +119,4 @@ Kubernetes는 배포를 만든 메시지를 사용 하 여 응답 해야 합니�
 
 ![스크린샷 es-실행 pod로 acctdemo](media/deploy-image-9.png)
 
-축하합니다. 이제 Azure Kubernetes Service에서 엔터프라이즈 서버를 실행 하 고 있습니다. 다음 문서에서는 엔터프라이즈 서버 관리 콘솔에 액세스 하는 방법 및 Kubernetes를 활용 하 여 배포를 확장 하는 방법을 보여 줍니다.
+축하합니다! 이제 Azure Kubernetes Service에서 엔터프라이즈 서버를 실행 하 고 있습니다. 다음 문서에서는 엔터프라이즈 서버 관리 콘솔에 액세스 하는 방법 및 Kubernetes를 활용 하 여 배포를 확장 하는 방법을 보여 줍니다.

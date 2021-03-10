@@ -2,17 +2,18 @@
 title: Windows AWS EC2 인스턴스를 Azure로 이동
 description: AWS(Amazon Web Services) EC2 Windows 인스턴스를 Azure 가상 머신으로 이동합니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 9f66653996cb36e58054756ac877f859559609be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d3e67b121bf7d66651e1e823e5f137e918a171
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87267101"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550793"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
 
@@ -57,7 +58,7 @@ VHD를 내보냈으면 [S3 버킷에서 개체를 다운로드하려면 어떻�
 
 이제 VHD를 Azure에 업로드하고 새 VM을 만들 수 있습니다. 
 
-- 내보내기 전에 **일반화**하도록 원본에서 Sysprep을 실행한 경우 [일반화된 VHD 업로드 및 이 디스크를 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
-- 내보내기 전에 Sysprep을 실행하지 않은 경우 VHD는 **특수한 디스크**로 간주됩니다. [Azure에 특수한 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)를 참조하세요.
+- 내보내기 전에 **일반화** 하도록 원본에서 Sysprep을 실행한 경우 [일반화된 VHD 업로드 및 이 디스크를 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
+- 내보내기 전에 Sysprep을 실행하지 않은 경우 VHD는 **특수한 디스크** 로 간주됩니다. [Azure에 특수한 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)를 참조하세요.
 
  

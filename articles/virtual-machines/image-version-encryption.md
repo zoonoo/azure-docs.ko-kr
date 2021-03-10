@@ -3,17 +3,17 @@ title: 미리 보기 - 사용자 고유 키로 암호화된 이미지 버전 만
 description: 고객이 관리 하는 암호화 키를 사용 하 여 공유 이미지 갤러리에서 이미지 버전을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 258d8ab6ab23a95d73b8ed0c2549f373cf097674
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123941"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554091"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "102123941"
 
 고객이 관리 하는 키를 통한 서버 쪽 암호화는 Azure Key Vault을 사용 합니다. [Rsa 키](../key-vault/keys/hsm-protected-keys.md) 를 주요 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 설정 되어 있어야 합니다.
 

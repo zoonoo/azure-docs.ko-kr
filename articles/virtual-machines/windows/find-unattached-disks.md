@@ -2,17 +2,17 @@
 title: 연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 description: Azure PowerShell을 사용하여 연결되지 않은 Azure 관리/비관리(VHD/페이지 Blob) 디스크를 찾아서 삭제하는 방법입니다.
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4f217a53c23df4f161207aaceb528680ddcddbe7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66a54ea74fcc6d8d354f5adbffe214c34b4c20d5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972801"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554381"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 
@@ -49,7 +49,7 @@ foreach ($md in $managedDisks) {
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>비관리 디스크: 연결되지 않은 디스크 찾기 및 삭제
 
-비관리 디스크는 [Azure Storage 계정](../../storage/common/storage-account-overview.md)에 [페이지 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs)으로 저장된 VHD 파일입니다. 다음 스크립트는 **LeaseStatus** 속성 값을 검사하여 연결되지 않은 비관리 디스크(페이지 Blob)를 찾습니다. 비관리 디스크가 VM에 연결되어 있으면 **LeaseStatus** 속성이 **Locked**로 설정됩니다. 비관리 디스크가 연결되어 있지 않으면 **LeaseStatus** 속성이 **Unlocked**로 설정됩니다. 스크립트는 Azure 구독의 모든 Azure Storage 계정에 있는 모든 비관리 디스크를 검사합니다. 스크립트에서 **LeaseStatus** 속성이 **Unlocked**로 설정된 비관리 디스크를 찾을 경우 디스크가 연결되어 있지 않다고 결정합니다.
+비관리 디스크는 [Azure Storage 계정](../../storage/common/storage-account-overview.md)에 [페이지 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs)으로 저장된 VHD 파일입니다. 다음 스크립트는 **LeaseStatus** 속성 값을 검사하여 연결되지 않은 비관리 디스크(페이지 Blob)를 찾습니다. 비관리 디스크가 VM에 연결되어 있으면 **LeaseStatus** 속성이 **Locked** 로 설정됩니다. 비관리 디스크가 연결되어 있지 않으면 **LeaseStatus** 속성이 **Unlocked** 로 설정됩니다. 스크립트는 Azure 구독의 모든 Azure Storage 계정에 있는 모든 비관리 디스크를 검사합니다. 스크립트에서 **LeaseStatus** 속성이 **Unlocked** 로 설정된 비관리 디스크를 찾을 경우 디스크가 연결되어 있지 않다고 결정합니다.
 
 >[!IMPORTANT]
 >먼저 **deleteUnattachedVHDs** 변수를로 설정 하 여 스크립트를 실행 합니다 `$false` . 이 작업을 통해 연결되지 않은 모든 비관리 VHD를 찾아서 볼 수 있습니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a5c6545c634d14b5bd1d6dbb47f878f6f4f5f0b6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502827"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549008"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azure 공용 IP에 대 한 azure 보안 기준
 
@@ -114,9 +114,9 @@ Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP �
 
 인벤토리 또는 쿼리 미리 정의 된 Azure 기본 제공 역할은 Azure CLI, Azure PowerShell, Azure Portal 등의 도구를 통해 특정 리소스에 존재 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center 모니터링**: 예
 

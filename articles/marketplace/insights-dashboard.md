@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458285"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553938"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
 이 문서에서는 파트너 센터의 Marketplace 인사이트 대시보드에 대한 정보를 제공합니다. 이 대시보드에는 상업적 marketplace 온라인 상점: Microsoft AppSource 및 Azure Marketplace에 나열 된 각 제품 정보 페이지에 대 한 고객 참여를 평가할 수 있도록 하는 상용 마켓플레이스 웹 분석 요약이 표시 됩니다.
 
-파트너 센터의 **marketplace insights** 대시보드에 액세스 하려면 상업적 marketplace에서 **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **marketplace 정보** 분석을 선택 합니다.
+파트너 센터의 **marketplace insights** 대시보드에 액세스 하려면 상업적 marketplace에서 **[](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **marketplace 정보** 분석을 선택 합니다.
 
 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
@@ -28,7 +28,7 @@ Marketplace Insights 대시보드는 Azure Marketplace의 개요를 제공 하 �
 
 - 페이지 방문 추세
 - 작업 추세에 대 한 호출
-- 페이지 방문 및 제안, 조회 도메인 및 캠페인 id에 대 한 작업 호출
+- 페이지 방문 및 제안, 조회 도메인 및 캠페인 Id에 대 한 작업 호출
 - 지리 별 Marketplace 정보
 - Marketplace 인사이트 세부 정보 테이블
 
@@ -103,6 +103,19 @@ Marketplace Insights **방문자** 차트에는 선택한 계산 기간에 대 �
 
 > [!TIP]
 > 위젯의 오른쪽 위 모퉁이에 있는 다운로드 아이콘을 사용 하 여 데이터를 다운로드할 수 있습니다. "엄지 손가락 위로" 또는 "엄지 손가락 아래로 이동" 아이콘을 클릭 하 여 각 위젯에 대 한 피드백을 제공할 수 있습니다.
+
+| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식으로 열 이름<br>액세스 보고서 |
+| ------------ | ------------- | ------------- | ------------- |
+| Date | 방문한 날짜 | Azure Marketplace 및/또는 AppSource의 제품 페이지에서 페이지 방문 및/또는 CTA 클릭 이벤트 생성의 날짜입니다. | Date |
+| 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. | OfferName |
+| 조회 도메인 | 조회 도메인 | 페이지가 방문 된 조회 도메인의 이름입니다. 페이지 방문에 대해 캡처된 조회 도메인이 없는 경우 해당 항목은 "조회 도메인 없음"입니다. |  ReferralDomain |
+| 국가 이름 | 국가 이름 | 페이지 방문이 발생 한 국가 이름입니다. | CountryName |
+| 페이지 방문 | 페이지 방문 | 특정 날짜에 대 한 제품 이름과 연결 된 페이지 방문 횟수입니다. | PageVisits |
+| 지금 받기 | 지금 받기 | 특정 날짜에 대 한 제품 페이지에서 "지금 가져오기" CTA의 클릭 수입니다. | GetItNow |
+| 연락처 | 연락처 | 특정 날짜에 대 한 제품 페이지에서 "연락처" CTA의 클릭 수입니다. | 연락처 |
+| 시험 사용 | 시험 사용 | 특정 날짜에 대 한 제품 페이지의 "시험 드라이브" CTA의 클릭 수입니다. | TestDrive |
+| 무료 평가판 | 무료 평가판 | 특정 날짜에 대 한 제품 페이지의 "무료 평가판" CTA의 클릭 수입니다. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>다음 단계
 

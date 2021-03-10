@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 6aa39709a82b01367463f0128af4223446710a1c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 3191987ea2d110487321beb0b11428f446f2b7a6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183645"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503881"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 
@@ -37,7 +37,7 @@ ms.locfileid: "98183645"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 버전 1.13.0에서 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) 버전 1.13.0에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -309,7 +309,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 ### <a name="configure-the-training-job"></a>학습 작업 구성
 
-[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 다음을 지정하여 ScriptRunConfig를 구성합니다.
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다. 다음을 지정하여 ScriptRunConfig를 구성합니다.
 
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
@@ -382,7 +382,7 @@ run
 
 ### <a name="jupyter-widget"></a>Jupyter 위젯
 
-[Jupyter 위젯](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
+[Jupyter 위젯](/python/api/azureml-widgets/azureml.widgets)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
 
 ```python
 from azureml.widgets import RunDetails

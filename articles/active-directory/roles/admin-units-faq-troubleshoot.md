@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: c1f41dca3b52ce75ba2342506f621cca0618a3bf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740383"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565889"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD 관리 단위: 문제 해결 및 FAQ
 
-Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)을 참조 하세요.
+Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q: 관리 단위를 만들 수 없는 이유는 무엇입니까?**
 
@@ -69,9 +69,9 @@ Windows Server Active Directory의 조직 구성 단위와 같은 관리 단위�
 
 **Q: PowerShell 및 Graph API에서 지원 되는 관리 단위는 무엇입니까?**
 
-**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)에서 관리 단위에 대 한 지원을 찾을 수 있습니다.
+**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units)에서 관리 단위에 대 한 지원을 찾을 수 있습니다.
 
-Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) 에 대 한 지원을 찾습니다.
+Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit) 에 대 한 지원을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

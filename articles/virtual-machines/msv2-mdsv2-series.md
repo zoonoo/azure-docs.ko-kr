@@ -3,16 +3,16 @@ title: Msv2 시리즈 (미리 보기)-Azure Virtual Machines
 description: Msv2 시리즈 Vm에 대 한 사양입니다.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 986b02ee1127bc929ce34518226424ba06d24b89
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101548"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562574"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Msv2 및 Mdsv2-시리즈 중간 메모리 (미리 보기)
 

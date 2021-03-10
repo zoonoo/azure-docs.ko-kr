@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc75ada87db6fdbb3861c2e4e495f93147513421
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440567"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563662"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>인코딩 시나리오 기반 마이그레이션 지침
 
@@ -26,7 +26,7 @@ ms.locfileid: "102440567"
 
 이 문서에서는 Azure Media Services v 2에서 v3로 마이그레이션하는 데 도움이 되는 인코딩 시나리오 기반 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 인코딩 워크플로를 변경 하려면 먼저 저장소를 관리 하는 방식에 대 한 차이점을 이해 하는 것이 좋습니다.  AMS V3에서 Azure Storage API는 Media Services 계정과 연결 된 저장소 계정을 관리 하는 데 사용 됩니다.
 
@@ -58,9 +58,7 @@ ms.locfileid: "102440567"
 
 ### <a name="v3-encoding-workflow"></a>V3 인코딩 워크플로
 
-<Token>
-<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
-</Token>
+[![V3 ](./media/migration-guide/V3-pretty.svg) 용 Encoding 워크플로 ](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. 설정
     1. 자산을 만들거나 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다. *해당 자산에 더 이상 콘텐츠를 업로드 해서는 안 됩니다.*

@@ -3,17 +3,17 @@ title: Azure 관리 되는 응용 프로그램의 Fortanix 기밀 컴퓨팅 관�
 description: Azure Portal에서 관리 되는 응용 프로그램에 CCM (Fortanix 기밀 컴퓨팅 관리자)을 배포 하는 방법에 대해 알아봅니다.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 6132b864e94c5c2af691183e198ca882c361d5ec
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551343"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563424"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Azure 관리 되는 응용 프로그램의 Fortanix 기밀 컴퓨팅 관리자
 
@@ -24,14 +24,14 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 > [!NOTE]
 >이 문서에서 참조 하는 제품은 Microsoft에서 제어 하 고 있지 않습니다. Microsoft는 편의를 위해서만이 정보를 제공 하 고, 이러한 타사 제품에 대 한 참조는 Microsoft의 보증을 암시 하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 변환 된 응용 프로그램 이미지를 푸시하는 개인 Docker 레지스트리
 - Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 
 ## <a name="deploy-a-confidential-computing-manager-through-an-azure-managed-application"></a>Azure 관리 되는 응용 프로그램을 통해 기밀 컴퓨팅 관리자 배포
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
     :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Azure Portal.":::
 

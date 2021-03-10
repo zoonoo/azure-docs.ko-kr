@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713408"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552034"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -148,6 +148,16 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
     예제:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Azure NetApp Files는 NFSv 4.1 파일 잠금을 어떻게 지원 하나요? 
+
+NFSv 4.1 클라이언트의 경우 Azure NetApp Files는 임대 기반 모델에서 모든 파일 잠금의 상태를 유지 관리 하는 NFSv 4.1 파일 잠금 메커니즘을 지원 합니다. 
+
+RFC 3530에 따라 Azure NetApp Files는 NFS 클라이언트에서 보유 한 모든 상태에 대 한 단일 임대 기간을 정의 합니다. 클라이언트에서 정의 된 기간 내에 임대를 갱신 하지 않으면 서버에서 클라이언트의 임대와 연결 된 모든 상태를 해제 합니다.  
+
+예를 들어 볼륨을 탑재 하는 클라이언트가 응답 하지 않거나 시간 초과를 초과 하면 잠금이 해제 됩니다. 클라이언트는 파일 읽기와 같은 작업을 수행 하 여 명시적 또는 암시적으로 임대를 갱신할 수 있습니다.   
+
+유예 기간은 클라이언트에서 서버 복구 중에 잠금 상태를 회수할 수 있는 특별 한 처리 기간을 정의 합니다. 임대에 대 한 기본 제한 시간은 30 초 이며 유예 기간은 45 초입니다. 이 시간 후에는 클라이언트의 임대가 해제 됩니다.   
+
 ## <a name="smb-faqs"></a>SMB FAQ
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지 원하는 SMB 버전은 무엇 인가요?
@@ -204,7 +214,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

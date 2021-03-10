@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 142f01a04066b919a81e1ad1ea95efa31f51f6ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017783"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548736"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -25,10 +25,10 @@ ms.locfileid: "96017783"
 
 이 문서에서는 Azure DevOps를 기준으로 설명하지만 Jenkins, TeamCity 등의 CI/CD 시스템에도 동일한 개념이 적용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
-* [프로젝트가 있는 Azure DevOps 조직](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [프로젝트가 있는 Azure DevOps 조직](/azure/devops/user-guide/sign-up-invite-teammates)
 * [ACR(Azure Container Registry)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Azure Container Registry [관리자 계정](../../container-registry/container-registry-authentication.md#admin-account) 세부 정보
 * [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)
@@ -70,7 +70,7 @@ _dev_ 공간은 항상 리포지토리의 최신 상태인 기준선을 포함�
 > [!Note]
 > Azure DevOps _새 YAML 파이프라인 생성 환경_ 미리 보기 기능은 현재, 미리 정의된 빌드 파이프라인 만들기와 충돌합니다. 현재는 미리 정의된 빌드 파이프라인을 배포하려면 이 옵션을 사용하지 않도록 설정해야 합니다.
 
-_azds_updates_ 분기에 *mywebapi* 및 *webfrontend* 에 필요한 빌드 단계를 정의하는 간단한 [Azure 파이프라인 YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema)을 포함했습니다.
+_azds_updates_ 분기에 *mywebapi* 및 *webfrontend* 에 필요한 빌드 단계를 정의하는 간단한 [Azure 파이프라인 YAML](/azure/devops/pipelines/yaml-schema?tabs=schema)을 포함했습니다.
 
 선택한 언어에 따라, 파이프라인 YAML은 `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`과 유사한 경로에서 체크 아웃되었습니다.
 
@@ -79,7 +79,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend* 에 필요한 빌드 단�
 1. **새** 빌드 파이프라인을 만드는 옵션을 선택 합니다.
 1. 원본으로 **github** 를 선택 하 고, 필요한 경우 github 계정에 대 한 권한을 부여 하 고, 분기 버전의 _개발-공간_ 예제 응용 프로그램 리포지토리의 _azds_updates_ 분기를 선택 합니다.
 1. 템플릿으로 **구성을 코드** 또는 **yaml** 로 선택 합니다.
-1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예들 들어 `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`입니다.
 1. [ **변수** ] 탭으로 이동 합니다.
 1. 수동으로 _dockerId_ 를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 사용자 이름입니다. (필수 구성 요소 문서에 설명됨)
 1. 수동으로 _dockerPassword_ 를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 암호입니다. 보안상의 이유로 _dockerPassword_ 는 비밀로 지정해야 합니다(잠금 아이콘 선택).
