@@ -4,16 +4,16 @@ description: 도구 및 라이브러리를 사용 하 여 기밀 컴퓨팅을 �
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 6bb3b8dbc7887419f7901a52b56c25f60c869abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997851"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551388"
 ---
 # <a name="application-development-on-intel-sgx"></a>Intel SGX에서 응용 프로그램 개발 
 
@@ -36,9 +36,9 @@ enclave를 사용하여 빌드된 애플리케이션은 다음 두 가지 방법
 ![앱 개발](media/application-development/oe-sdk.png)
 
 
-**호스트**는 신뢰할 수 없는 환경에서 실행되는 enclave 애플리케이션입니다. 호스트에 배포된 enclave 코드는 호스트에서 액세스할 수 없습니다. 
+**호스트** 는 신뢰할 수 없는 환경에서 실행되는 enclave 애플리케이션입니다. 호스트에 배포된 enclave 코드는 호스트에서 액세스할 수 없습니다. 
 
-**enclave**는 애플리케이션 코드와 캐시된 데이터/메모리가 실행되는 위치입니다. 비밀 및 중요한 데이터가 보호된 상태로 유지되도록 보안 계산이 enclave에서 수행되어야 합니다. 
+**enclave** 는 애플리케이션 코드와 캐시된 데이터/메모리가 실행되는 위치입니다. 비밀 및 중요한 데이터가 보호된 상태로 유지되도록 보안 계산이 enclave에서 수행되어야 합니다. 
 
 
 애플리케이션을 디자인하는 동안 enclaves에서 실행해야 하는 애플리케이션 부분을 식별하고 결정하는 것이 중요합니다. 신뢰할 수 있는 구성 요소에 배치하도록 선택한 코드는 애플리케이션의 나머지 부분과 격리됩니다. enclave가 초기화되고 코드가 메모리에 로드되면 신뢰할 수 없는 구성 요소에서 해당 코드를 읽거나 변경할 수 없습니다. 

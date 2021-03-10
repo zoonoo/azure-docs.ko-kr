@@ -4,17 +4,17 @@ description: 기밀 컴퓨팅 워크 로드를 사용 하도록 설정 하는 In
 services: virtual-machines
 author: JenCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 554260b2a2760380d3bb2d91ee25b4a03bf2f1ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564381"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551371"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Azure 기밀 컴퓨팅 Vm (가상 머신) 개요
 

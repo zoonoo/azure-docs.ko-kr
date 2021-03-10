@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 01/20/2021
 ms.author: mjbrown
-ms.openlocfilehash: 1ac3d6ac163723cea8980b3d23683d61bf102dea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2f852b1ec359033c8bc700c8a382705b4479d6de
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "99821396"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503354"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB에 대한 Azure PowerShell 샘플
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-다음 표에는 Azure Cosmos DB에 일반적으로 사용되는 Azure PowerShell 스크립트의 링크가 포함되어 있습니다. 오른쪽의 링크를 사용하여 API 관련 샘플로 이동합니다. 일반적인 샘플은 모든 API에서 동일합니다. 모든 Azure Cosmos DB PowerShell cmdlet에 대한 참조 페이지는 [Azure PowerShell 참조](/powershell/module/az.cosmosdb)에 제공됩니다. `Az.CosmosDB` 모듈은 이제 `Az` 모듈의 일부입니다. 최신 버전의 Az 모듈을 [다운로드하고 설치](/powershell/azure/install-az-ps?preserve-view=true&view=azps-5.4.0)하여 Azure Cosmos DB cmdlet을 가져옵니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az/5.4.0)에서 최신 버전을 가져올 수도 있습니다. [GitHub의 Cosmos DB PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb)에서 GitHub 리포지토리의 Cosmos DB에 대한 PowerShell 샘플을 포크할 수도 있습니다.
+다음 표에는 Azure Cosmos DB에 일반적으로 사용되는 Azure PowerShell 스크립트의 링크가 포함되어 있습니다. 오른쪽의 링크를 사용하여 API 관련 샘플로 이동합니다. 일반적인 샘플은 모든 API에서 동일합니다. 모든 Azure Cosmos DB PowerShell cmdlet에 대한 참조 페이지는 [Azure PowerShell 참조](/powershell/module/az.cosmosdb)에 제공됩니다. `Az.CosmosDB` 모듈은 이제 `Az` 모듈의 일부입니다. 최신 버전의 Az 모듈을 [다운로드하고 설치](/powershell/azure/install-az-ps)하여 Azure Cosmos DB cmdlet을 가져옵니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az/5.4.0)에서 최신 버전을 가져올 수도 있습니다. [GitHub의 Cosmos DB PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb)에서 GitHub 리포지토리의 Cosmos DB에 대한 PowerShell 샘플을 포크할 수도 있습니다.
 
 ## <a name="common-samples"></a>일반적인 샘플
 

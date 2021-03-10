@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6c067fb5f39e82bb1601ce7b4d9dc5e2ce4ac624
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99821768"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440142"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU에서 IoT Edge 모듈을 사용하여 컴퓨팅 워크로드 실행
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 이 자습서에서는 Azure Stack Edge Pro GPU 디바이스에서 IoT Edge 모듈을 사용하여 컴퓨팅 워크로드를 실행하는 방법을 알아봅니다. 컴퓨팅이 구성되면 디바이스에서 데이터를 변환한 후에 Azure로 보내게 됩니다.
 
@@ -75,7 +75,7 @@ Azure Stack Edge Pro GPU 디바이스에서 컴퓨팅 역할을 설정하기 전
 
     `rsync <source file path> < destination file path>`
 
-    `rsync` 명령에 대한 자세한 내용은 [Rsync 설명서](https://www.computerhope.com/unix/rsync.htm)를 참조하세요.
+    `rsync` 명령에 대한 자세한 내용은 [`Rsync` 설명서](https://www.computerhope.com/unix/rsync.htm)를 참조하세요.
  
 3. **클라우드 스토리지 게이트웨이 > 공유** 로 이동하여 업데이트된 공유 목록을 확인합니다.
 
@@ -97,7 +97,7 @@ Azure Stack Edge Pro GPU 디바이스에서 컴퓨팅 역할을 설정하기 전
     
     |필드  |값  |
     |---------|---------|
-    |속성     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+    |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
     |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
     |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     |입력 공유     | 입력 공유를 선택합니다. 이 예에서는 Edge 로컬 공유가 입력 공유입니다. 여기에 사용된 모듈은 Edge 로컬 공유의 파일을 클라우드에 업로드되는 Edge 공유로 이동합니다.        |

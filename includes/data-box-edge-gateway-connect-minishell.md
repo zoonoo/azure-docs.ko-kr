@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 10c1680afd6cd6673efe3fe9d2397a0dc6a04859
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5343653dc87325fa0702c0864f0df1456a36e304
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738809"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532635"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
@@ -60,11 +60,11 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 
 연결에 사용할 Linux 클라이언트에서 다음을 수행 합니다.
 
-- GitHub에서 [Linux 용 최신 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) 하 여 SSH 원격 기능을 가져옵니다. 
+- GitHub에서 [Linux 용 최신 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell-core-on-linux) 하 여 SSH 원격 기능을 가져옵니다. 
 - [ `gss-ntlmssp` NTLM 모듈의 패키지만 설치](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md)합니다. Ubuntu 클라이언트의 경우 다음 명령을 사용 합니다.
     - `sudo apt-get install gss-ntlmssp`
 
-자세한 내용은 [SSH를 통한 PowerShell 원격](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6)을 참조 하세요.
+자세한 내용은 [SSH를 통한 PowerShell 원격](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core)을 참조 하세요.
 
 NFS 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 합니다.
 

@@ -9,16 +9,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992296"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211807"
 ---
 # <a name="managed-hsm-logging"></a>관리형 HSM 로깅 
 
-하나 이상의 관리형 HSM을 만든 후에는 HSM에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. Azure 스토리지 계정에 제공하는 정보를 저장하는 로깅을 사용하여 이를 수행할 수 있습니다. 지정한 스토리지 계정에 대해 **insights-logs-auditevent**라는 새 컨테이너가 자동으로 만들어집니다. 여러 관리형 HSM에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
+하나 이상의 관리형 HSM을 만든 후에는 HSM에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. Azure 스토리지 계정에 제공하는 정보를 저장하는 로깅을 사용하여 이를 수행할 수 있습니다. 지정한 스토리지 계정에 대해 **insights-logs-auditevent** 라는 새 컨테이너가 자동으로 만들어집니다. 여러 관리형 HSM에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
 
 관리형 HSM 작업 후 최대 10분 동안 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.  스토리지 계정의 로그 관리에 따라 다릅니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "90992296"
 az login
 ```
 
-CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 살펴보세요.
+CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 살펴보세요.
 
 관리형 HSM을 만드는 데 사용한 구독을 지정해야 할 수도 있습니다. 다음 명령을 입력하여 계정에 대한 구독을 확인합니다.
 
@@ -61,11 +61,11 @@ storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o t
 
 ## <a name="enable-logging"></a>로깅 사용
 
-관리형 HSM에 대한 로깅을 사용하도록 설정하려면 새 스토리지 계정 및 관리형 HSM에 대해 만든 변수와 함께 **az monitor diagnostic-settings create** 명령을 사용합니다. 또한 **-Enabled** 플래그를 **$true**로 설정하고, 범주를 **AuditEvent**(관리형 HSM 로깅에 대한 유일한 범주)로 설정합니다.
+관리형 HSM에 대한 로깅을 사용하도록 설정하려면 새 스토리지 계정 및 관리형 HSM에 대해 만든 변수와 함께 **az monitor diagnostic-settings create** 명령을 사용합니다. 또한 **-Enabled** 플래그를 **$true** 로 설정하고, 범주를 **AuditEvent**(관리형 HSM 로깅에 대한 유일한 범주)로 설정합니다.
 
 이 출력에서는 이제 관리형 HSM에 대한 로깅을 사용하도록 설정되었음을 확인하고, 정보를 스토리지 계정에 저장합니다.
 
-필요에 따라 오래된 로그가 자동으로 삭제되도록 로그 보존 정책을 설정할 수 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 **$true**로 설정하여 보존 정책을 설정하고, 90일보다 오래된 로그가 자동으로 삭제되도록 **-RetentionInDays** 매개 변수를 **90**으로 설정합니다.
+필요에 따라 오래된 로그가 자동으로 삭제되도록 로그 보존 정책을 설정할 수 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 **$true** 로 설정하여 보존 정책을 설정하고, 90일보다 오래된 로그가 자동으로 삭제되도록 **-RetentionInDays** 매개 변수를 **90** 으로 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
@@ -130,7 +130,7 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 | **resourceId** |Azure Resource Manager 리소스 ID입니다. 관리형 HSM 로그의 경우 이는 항상 관리형 HSM 리소스 ID입니다. |
 | **operationName** |다음 표에 설명된 대로 작업의 이름입니다. |
 | **operationVersion** |클라이언트에서 요청한 REST API 버전입니다. |
-| **category** |결과 유형입니다. 관리형 HSM 로그의 경우 **AuditEvent**는 사용 가능한 단일 값입니다. |
+| **category** |결과 유형입니다. 관리형 HSM 로그의 경우 **AuditEvent** 는 사용 가능한 단일 값입니다. |
 | **resultType** |REST API 요청의 결과입니다. |
 | **properties** |작업(**operationName**)에 따라 달라지는 정보입니다.|
 | **resultSignature** |HTTP 상태입니다. |

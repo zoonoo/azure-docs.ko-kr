@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5d78299c4583251180b3fb9a902561406b849b4a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a56c08e5bf6054d24af3ade571ec625969286a77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201178"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455647"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>자습서: .NET에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -145,7 +145,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-다음 줄을 추가하여, 키 자격 증명 모음의 `vaultUri`를 반영하도록 URI를 업데이트합니다. 아래 코드에서는 키 자격 증명 모음에 대한 인증을 위해 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)을 사용하며, 이는 애플리케이션 관리 ID의 토큰을 사용하여 인증합니다. 또한 키 자격 증명 모음이 제한되는 경우 지수 백오프를 다시 시도에 사용합니다.
+다음 줄을 추가하여, 키 자격 증명 모음의 `vaultUri`를 반영하도록 URI를 업데이트합니다. 아래 코드에서는 키 자격 증명 모음에 대한 인증을 위해 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential)을 사용하며, 이는 애플리케이션 관리 ID의 토큰을 사용하여 인증합니다. 또한 키 자격 증명 모음이 제한되는 경우 지수 백오프를 다시 시도에 사용합니다.
 
 ```csharp
   class Program

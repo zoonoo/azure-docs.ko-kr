@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99821318"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215496"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 다양한 이동 모드에 대한 경로 찾기 및 표시
 
@@ -117,7 +117,7 @@ ms.locfileid: "99821318"
     });
     ```
 
-    지도 컨트롤의 `ready` 이벤트 처리기에서 지도의 교통 흐름 설정은 자유 흐름을 기준으로 하는 도로의 속도인 `relative`로 설정됩니다. 자세한 교통 옵션은 [TrafficOptions 인터페이스](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest)를 참조하세요.
+    지도 컨트롤의 `ready` 이벤트 처리기에서 지도의 교통 흐름 설정은 자유 흐름을 기준으로 하는 도로의 속도인 `relative`로 설정됩니다. 자세한 교통 옵션은 [TrafficOptions 인터페이스](/javascript/api/azure-maps-control/atlas.trafficoptions)를 참조하세요.
 
 2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 로스앤젤레스와 같은 도시를 확대하면 현재 교통 데이터와 함께 거리가 표시됩니다.
 
@@ -193,7 +193,7 @@ ms.locfileid: "99821318"
 
     이 코드는 데이터 원본에 추가되는 출발점과 도착점을 나타낼 두 개의 [GeoJSON 지점 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다.
 
-    마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false)를 참조하세요.
+    마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)를 참조하세요.
 
 3. **TruckRoute.html** 을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
 
