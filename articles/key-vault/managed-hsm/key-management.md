@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521036"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212045"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Azure CLI를 사용하여 관리형 HSM 관리
 
@@ -24,13 +24,13 @@ ms.locfileid: "92521036"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
+* 구독의 관리형 HSM. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,10 +42,10 @@ CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조하세요.
+CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
 > [!NOTE]
-> 아래의 모든 명령은 두 가지 사용 방법을 보여 줍니다. 하나는 **--hsm-name** 및 **--name** (키 이름) 매개 변수를 사용하고, 다른 하나는 해당하는 경우 키 이름을 포함하여 전체 URL을 지정할 수 있는 **--id** 매개 변수를 사용합니다. 후자의 방법은 호출자(사용자 또는 애플리케이션)에게 컨트롤 플레인에 대한 읽기 액세스 권한이 없고 데이터 평면에 대한 제한된 액세스 권한만 있는 경우에 유용합니다.
+> 아래의 모든 명령은 두 가지 사용 방법을 보여 줍니다. 하나는 **--hsm-name** 및 **--name**(키 이름) 매개 변수를 사용하고, 다른 하나는 해당하는 경우 키 이름을 포함하여 전체 URL을 지정할 수 있는 **--id** 매개 변수를 사용합니다. 후자의 방법은 호출자(사용자 또는 애플리케이션)에게 컨트롤 플레인에 대한 읽기 액세스 권한이 없고 데이터 평면에 대한 제한된 액세스 권한만 있는 경우에 유용합니다.
 
 ## <a name="create-an-hsm-key"></a>HSM 키 만들기
 
@@ -69,7 +69,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsak
 
 ### <a name="create-an-ec-key"></a>EC 키 만들기
 
-아래 예제에서는 P-256 곡선을 사용하여 **서명 및 확인** 작업(-ops)에만 사용되고 두 개의 태그( **usage** 및 **appname** )가 있는 **EC** 키를 만드는 방법을 보여 줍니다. 태그는 추적 및 관리를 위해 추가 메타데이터를 키에 추가하는 데 도움이 됩니다.
+아래 예제에서는 P-256 곡선을 사용하여 **서명 및 확인** 작업(-ops)에만 사용되고 두 개의 태그(**usage** 및 **appname**)가 있는 **EC** 키를 만드는 방법을 보여 줍니다. 태그는 추적 및 관리를 위해 추가 메타데이터를 키에 추가하는 데 도움이 됩니다.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256

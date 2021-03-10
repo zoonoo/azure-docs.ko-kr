@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 7e0fe85007aae69bf79557e0f094e275f538d280
-  ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+  ms.openlocfilehash: ccf8dd232bdfa703400a949c8dd948fe9ba21f54
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97683425"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102454926"
 landingContent:
 - title: Anomaly Detector API 정보
   linkLists:
@@ -58,8 +58,6 @@ landingContent:
     links:
     - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
       url: tutorials/batch-anomaly-detection-powerbi.md
-    - text: Azure Databricks를 사용하여 스트리밍 데이터에서 변칙 검색
-      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색

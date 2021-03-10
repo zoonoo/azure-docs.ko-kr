@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 607cb824a50da3778ebe34f184abc0dc97c15961
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d125471d4a6c68aff12921a8524a91ef75b6c51a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026196"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532542"
 ---
 cmdlet을 실행하기 위해 무료 대화형 셸인 Azure Cloud Shell을 사용할 수 있습니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. **복사** 를 선택 하 여 코드를 복사 하 고 Cloud Shell에 붙여넣습니다. **Enter 키** 를 선택 하 여 실행 합니다. Cloud Shell를 시작 하는 몇 가지 방법이 있습니다.
 
@@ -29,4 +29,4 @@ Azure Cloud Shell을 사용하지 않으려면, 대신 PowerShell을 로컬에 �
 
 로컬로 실행 중인 PowerShell 버전을 찾으려면 **' ListAvailable Az '** cmdlet을 사용 합니다. 업데이트하려면 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/azurerm/overview)을 참조 하세요.
 
-MacOS에서 PowerShell을 사용 하는 경우 [macOS에 Powershell 설치](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6) 의 단계를 따릅니다.
+MacOS에서 PowerShell을 사용 하는 경우 [macOS에 Powershell 설치](/powershell/scripting/install/installing-powershell-core-on-macos) 의 단계를 따릅니다.
