@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441944"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564223"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -206,7 +206,7 @@ Azure 파일 동기화는 Windows Server 2012 R2에서 동일한 볼륨의 데�
 - 클라우드 계층화를 사용하도록 설정한 후 볼륨에서 데이터 중복 제거를 사용하도록 설정하면, 초기 중복 제거 최적화 작업을 통해 아직 계층화되지 않은 볼륨에서 파일을 최적화하며 클라우드 계층화에 다음과 같은 영향을 미칩니다.
     - 사용 가능한 공간 정책은 열 지도를 사용하여 볼륨의 사용 가능한 공간에 따라 파일을 계속 계층화합니다.
     - 날짜 정책은 파일에 액세스하는 중복 제거 최적화 작업으로 인해 다른 방법으로 계층화될 수 있는 파일의 계층화를 건너뜁니다.
-- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
+- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화되지 않았으면 [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) 데이터 중복 제거 설정에 따라 날짜 정책을 사용하는 클라우드 계층화가 지연됩니다. 
     - 예제: MinimumFileAgeDays 설정이 7일이고 클라우드 계층화 날짜 정책이 30일인 경우 날짜 정책은 37일 후에 파일을 계층화합니다.
     - 참고: 파일이 Azure 파일 동기화를 통해 계층화되면 중복 제거 최적화 작업에서 해당 파일을 건너뜁니다.
 - Azure 파일 동기화 에이전트가 설치된 Windows Server 2012 R2를 실행하는 서버가 Windows Server 2016 또는 Windows Server 2019로 업그레이드되면, 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원하기 위해 다음 단계를 수행해야 합니다.  

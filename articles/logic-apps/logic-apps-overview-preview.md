@@ -1,28 +1,28 @@
 ---
 title: Azure Logic Apps 미리 보기 개요
-description: Azure Logic Apps 미리 보기는 엔터프라이즈 수준 시나리오에 대 한 최소한의 코드와 앱, 데이터, 서비스 및 시스템을 통합 하는 자동화 된 상태 저장 및 상태 비저장 워크플로를 빌드하기 위한 클라우드 솔루션입니다.
+description: Azure Logic Apps 미리 보기는 엔터프라이즈 수준 시나리오에 대 한 최소한의 코드와 앱, 데이터, 서비스 및 시스템을 통합 하는 자동화 된 단일 테 넌 트, 상태 저장 및 상태 비저장 워크플로를 빌드하기 위한 클라우드 솔루션입니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442743"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561860"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
 > [!IMPORTANT]
 > 이 기능은 공개 미리 보기 상태이고 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Logic Apps 미리 보기를 사용 하면 새 **논리 앱 (미리 보기)** 리소스 유형을 사용 하 여 [ *상태 저장* 및 *상태 비저장* 워크플로](#stateful-stateless) 를 포함 하는 논리 앱을 만들고 실행 하 여 앱, 데이터, 클라우드 서비스 및 시스템 간에 자동화 및 통합 솔루션을 빌드할 수 있습니다. 이 새 논리 앱 유형을 사용 하 여 Azure 뿐만 아니라 Docker 컨테이너를 비롯 하 여 다양 한 호스팅 환경에서 이식성, 향상 된 성능 및 유연성을 제공 하는 다시 디자인 된 Azure Logic Apps 미리 보기 런타임으로 구동 되는 여러 워크플로를 빌드할 수 있습니다.
+Azure Logic Apps 미리 보기를 사용 하면 새 **논리 앱 (미리 보기)** 리소스 종류를 사용 하 여 단일 테 넌 트 논리 앱을 만들고 실행 하 여 앱, 데이터, 클라우드 서비스 및 시스템에서 자동화 및 통합 솔루션을 빌드할 수 있습니다. 이 단일 테 넌 트 논리 앱 유형을 사용 하면 다시 디자인 된 Azure Logic Apps 미리 보기 런타임으로 구동 되는 여러 [ *상태 저장* 및 *상태 비저장* 워크플로](#stateful-stateless) 를 작성할 수 있습니다 .이를 통해 Azure 뿐만 아니라 Docker 컨테이너를 비롯 한 다양 한 호스팅 환경에서 이식성, 향상 된 성능 및 유연성을 제공 합니다.
 
-가능한 방법은 무엇 인가요? 다시 디자인 된 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md) 을 사용 하 고 Azure Functions 런타임에서 확장으로 호스팅됩니다. 이 아키텍처는 Azure Functions 실행 되는 모든 위치에서 새 논리 앱 유형을 실행할 수 있음을 의미 합니다. 거의 모든 네트워크 토폴로지에서 다시 디자인 된 런타임을 호스트 하 고 사용 가능한 계산 크기를 선택 하 여 워크플로에 필요한 작업을 처리할 수 있습니다. 자세한 내용은 [Azure Functions 소개](../azure-functions/functions-overview.md) 및 [Azure Functions 트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md)을 참조 하세요.
+가능한 방법은 무엇 인가요? 다시 디자인 된 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md) 을 사용 하 고 Azure Functions 런타임에서 확장으로 호스팅됩니다. 이 아키텍처는 Azure Functions 실행 되는 모든 위치에서 단일 테 넌 트 논리 앱 유형을 실행할 수 있음을 의미 합니다. 거의 모든 네트워크 토폴로지에서 다시 디자인 된 런타임을 호스트 하 고 사용 가능한 계산 크기를 선택 하 여 워크플로에 필요한 작업을 처리할 수 있습니다. 자세한 내용은 [Azure Functions 소개](../azure-functions/functions-overview.md) 및 [Azure Functions 트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md)을 참조 하세요.
 
-[Azure Portal에서 시작](create-stateful-stateless-workflows-azure-portal.md) 하거나 [Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 프로젝트를 만들어](create-stateful-stateless-workflows-visual-studio-code.md) **논리 앱 (미리 보기)** 리소스를 만들 수 있습니다. 또한 Visual Studio Code에서는 개발 환경에서 워크플로를 빌드하고 *로컬로 실행할* 수 있습니다. 포털을 사용 하 든 Visual Studio Code 든, 동일한 종류의 호스팅 환경에서 새 논리 앱 유형을 배포 하 고 실행할 수 있습니다.
+[Azure Portal에서 시작](create-stateful-stateless-workflows-azure-portal.md) 하거나 [Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 프로젝트를 만들어](create-stateful-stateless-workflows-visual-studio-code.md) **논리 앱 (미리 보기)** 리소스를 만들 수 있습니다. 또한 Visual Studio Code에서는 개발 환경에서 워크플로를 빌드하고 *로컬로 실행할* 수 있습니다. 포털을 사용 하 든 Visual Studio Code 든, 동일한 종류의 호스팅 환경에서 단일 테 넌 트 논리 앱 유형을 배포 하 고 실행할 수 있습니다.
 
 이 개요는 다음 영역을 다룹니다.
 
@@ -48,7 +48,7 @@ Azure Logic Apps 미리 보기를 사용 하면 새 **논리 앱 (미리 보기)
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>Azure Logic Apps 미리 보기는 어떻게 다릅니까?
 
-Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions/functions-overview.md) 확장성을 사용 하며 Azure Functions 런타임에서 확장으로 호스팅됩니다. 이 아키텍처는 Azure Functions 실행 되는 모든 위치에서 새 논리 앱 유형을 실행할 수 있음을 의미 합니다. 원하는 거의 모든 네트워크 토폴로지에서 Azure Logic Apps Preview 런타임을 호스트 하 고 사용 가능한 계산 크기를 선택 하 여 워크플로에 필요한 작업을 처리할 수 있습니다. Azure Functions 확장성에 대 한 자세한 내용은 [WEBJOBS SDK: 사용자 지정 입력 및 출력 바인딩 만들기](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)를 참조 하세요.
+Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions/functions-overview.md) 확장성을 사용 하며 Azure Functions 런타임에서 확장으로 호스팅됩니다. 이 아키텍처는 Azure Functions 실행 되는 모든 위치에서 단일 테 넌 트 논리 앱 유형을 실행할 수 있음을 의미 합니다. 원하는 거의 모든 네트워크 토폴로지에서 Azure Logic Apps Preview 런타임을 호스트 하 고 사용 가능한 계산 크기를 선택 하 여 워크플로에 필요한 작업을 처리할 수 있습니다. Azure Functions 확장성에 대 한 자세한 내용은 [WEBJOBS SDK: 사용자 지정 입력 및 출력 바인딩 만들기](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)를 참조 하세요.
 
 이 새로운 방법을 사용 하는 경우 Azure Logic Apps 미리 보기 런타임과 워크플로는 모두 함께 패키지할 수 있는 앱의 일부입니다. 이 기능을 사용 하면 간단히 아티팩트를 호스팅 환경에 복사 하 고 앱을 시작 하 여 워크플로를 배포 및 실행할 수 있습니다. 또한이 방법은 프로덕션 환경에 변경 내용을 배포 하기 전에 필요한 테스트 및 유효성 검사를 실행 하기 위해 워크플로 프로젝트에 대 한 배포 파이프라인을 구축 하는 보다 표준화 된 환경을 제공 합니다. 자세한 내용은 [어디서 나 실행 Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)을 참조 하세요.
 
@@ -56,16 +56,18 @@ Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions
 
 | 환경 | 리소스 공유 및 소비 |
 |-------------|----------------------------------|
-| Azure Logic Apps (다중 테 넌 트) | *여러 테 넌 트에 있는 고객의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
-| Azure Logic Apps (미리 보기) | *동일한 논리 앱의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
+| Azure Logic Apps (다중 테 넌 트) | *여러 테 넌 트에 걸친 고객의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
+| Azure Logic Apps (미리 보기, 단일 테 넌 트) | *동일한 논리 앱 및 단일 테 넌 트의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
 | 통합 서비스 환경 (미리 보기에서 사용할 수 없음) | *동일한 환경의* 워크플로는 동일한 처리 (계산), 저장소, 네트워크 등을 공유 합니다. |
 ||||
 
-한편 원래 Azure Logic Apps 확장을 사용 하 여 Azure Portal 및 Visual Studio Code에서 원래 논리 앱 유형을 만들 수 있습니다. 개발 환경은 원래 논리 앱과 새 논리 앱 유형에 따라 다르지만 Azure 구독에는 두 가지 유형이 모두 포함 될 수 있습니다. Azure 구독에서 배포 된 모든 논리 앱을 보고 액세스할 수 있지만 앱은 자신의 범주 및 섹션으로 구성 됩니다.
+한편으로는 Azure Portal 및 Visual Studio Code 다중 테 넌 트 Azure Logic Apps 확장을 사용 하 여 다중 테 넌 트 논리 앱 유형을 만들 수 있습니다. 다중 테 넌 트 및 단일 테 넌 트 논리 앱 유형 간에 개발 환경이 다르므로 Azure 구독은 두 유형을 모두 포함할 수 있습니다. Azure 구독에서 배포 된 모든 논리 앱을 보고 액세스할 수 있지만 앱은 자신의 범주 및 섹션으로 구성 됩니다.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>상태 저장 및 상태 비저장 워크플로
+
+단일 테 넌 트 논리 앱 유형을 사용 하 여 동일한 논리 앱 내에서 이러한 워크플로 유형을 만들 수 있습니다.
 
 * *상태 저장*
 
@@ -149,9 +151,9 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 
   * [Azure Logic Apps 미리 보기를 사용 하 여 어디서 나 Azure Logic Apps 실행-네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* **논리 앱 (미리 보기)** 리소스의 개별 워크플로에서 사용 하는 관리 되는 연결에 대 한 액세스 키를 다시 생성 합니다. 이 작업의 경우에는 논리 앱 리소스 수준이 아닌 [개별 워크플로 수준에서 **Logic Apps** 리소스에 대해 동일한 단계를 수행](logic-apps-securing-a-logic-app.md#regenerate-access-keys)합니다.
+* 단일 테 넌 트 **논리 앱 (미리 보기)** 리소스의 개별 워크플로에서 사용 하는 관리 되는 연결에 대 한 액세스 키를 다시 생성 합니다. 이 작업의 경우 [다중 테 넌 트 **Logic Apps** 리소스에 대해 동일한 단계를 수행 하지만 논리 앱 리소스 수준이 아닌 개별 워크플로 수준에서 수행](logic-apps-securing-a-logic-app.md#regenerate-access-keys)합니다.
 
-* 미리 보기가 아닌 디자이너와 동일한 단계를 수행 하 여 새 디자이너에서 병렬 분기를 추가 합니다.
+* 다중 테 넌 트 디자이너와 동일한 단계를 수행 하 여 단일 테 넌 트 디자이너에서 병렬 분기를 추가 합니다.
 
 자세한 내용은 GitHub의 [변경 됨, 제한 됨, 사용할 수 없음 및 지원 되지 않는 기능](#limited-unavailable-unsupported) 및 [Logic Apps 공개 미리 보기 알려진 문제 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
@@ -159,14 +161,14 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-Azure Portal에서 새 논리 앱 유형을 만들거나 Visual Studio Code에서 배포 하는 경우 논리 앱에서 사용할 호스팅 계획 ( [App Service 또는 프리미엄](../azure-functions/functions-scale.md))을 선택 해야 합니다. 이 계획은 논리 앱 실행에 적용 되는 가격 책정 모델을 결정 합니다. App Service 계획을 선택 하는 경우 [가격 책정 계층](../app-service/overview-hosting-plans.md)도 선택 해야 합니다.
+Azure Portal에서 단일 테 넌 트 논리 앱 유형을 만들거나 Visual Studio Code에서 배포 하는 경우 논리 앱에서 사용할 호스팅 계획 ( [App Service 또는 프리미엄](../azure-functions/functions-scale.md))을 선택 해야 합니다. 이 계획은 논리 앱 실행에 적용 되는 가격 책정 모델을 결정 합니다. App Service 계획을 선택 하는 경우 [가격 책정 계층](../app-service/overview-hosting-plans.md)도 선택 해야 합니다.
 
 *상태 저장* 워크플로는 [외부 저장소](../azure-functions/storage-considerations.md#storage-account-requirements)를 사용 하므로 Azure Logic Apps 미리 보기 런타임에서 수행 하는 저장소 트랜잭션에 [Azure Storage 가격이](https://azure.microsoft.com/pricing/details/storage/) 적용 됩니다. 예를 들어 큐는 일정에 사용 되는 반면 테이블 및 blob은 워크플로 상태를 저장 하는 데 사용 됩니다.
 
 > [!NOTE]
 > 공개 미리 보기 중에 App Service에서 논리 앱을 실행 하면 선택한 계획 위에 *추가* 요금이 발생 하지 않습니다.
 
-이 새 리소스 유형에 적용 되는 가격 책정 모델에 대 한 자세한 내용은 다음 항목을 검토 하세요.
+단일 테 넌 트 리소스 유형에 적용 되는 가격 책정 모델에 대 한 자세한 내용은 다음 항목을 검토 하세요.
 
 * [Azure Functions 비율 크기 조정 및 호스팅](../azure-functions/functions-scale.md)
 * [Azure App Service에서 앱 강화](../app-service/manage-scale-up.md)
@@ -202,9 +204,9 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
       Azure Portal에서 사용자 환경을 통해 연결을 만들어 액세스 권한이 있는 HTTP 트리거 함수를 선택할 수 있습니다. 코드 뷰나 파일 **의workflow.js** 에서 함수 작업의 JSON 정의를 검사 하는 경우 작업은 참조를 사용 하 여 함수를 참조 합니다 `connectionName` . 이 버전은 연결을 만든 후에 사용할 수 있는 프로젝트의 **connections.js** 파일에서 찾을 수 있는 연결로 함수 정보를 추상화 합니다.
 
       > [!NOTE]
-      > 미리 보기 버전에서 함수 동작은 쿼리 문자열 인증만 지원 합니다. Azure Logic Apps 미리 보기는 연결을 만들 때 함수에서 기본 키를 가져오고, 해당 키를 앱의 설정에 저장 하 고, 함수를 호출할 때 인증에 키를 사용 합니다.
+      > 단일 테 넌 트 버전에서 함수 동작은 쿼리 문자열 인증만 지원 합니다. Azure Logic Apps 미리 보기는 연결을 만들 때 함수에서 기본 키를 가져오고, 해당 키를 앱의 설정에 저장 하 고, 함수를 호출할 때 인증에 키를 사용 합니다.
       >
-      > 원래 버전과 마찬가지로이 키를 갱신 하는 경우 (예: 포털의 Azure Functions 경험을 통해) 잘못 된 키로 인해 함수 작업이 더 이상 작동 하지 않습니다. 이 문제를 해결 하려면 호출 하려는 함수에 대 한 연결을 다시 만들거나 새 키로 앱의 설정을 업데이트 해야 합니다.
+      > 다중 테 넌 트 버전과 마찬가지로,이 키를 갱신 하는 경우 (예: 포털의 Azure Functions 경험을 통해) 잘못 된 키로 인해 함수 작업이 더 이상 작동 하지 않습니다. 이 문제를 해결 하려면 호출 하려는 함수에 대 한 연결을 다시 만들거나 새 키로 앱의 설정을 업데이트 해야 합니다.
 
     * 기본 제공 작업 인 [인라인 코드 실행 Javascript 코드](logic-apps-add-run-inline-code.md) 는 이제 **인라인 코드 작업-인라인 javascript를 실행** 합니다.
 
@@ -222,7 +224,7 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
 
 * [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 는 현재 미리 보기를 지원 하지 않습니다.
 
-* **호스팅 계획 가용성**: Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스 유형을 만들거나 Visual Studio Code에서 배포 하는 경우에는 Azure에서 Premium 또는 App Service 호스팅 계획만 사용할 수 있습니다. 소비 호스팅 계획을 사용할 수 없으며이 리소스 유형의 배포에 대해 지원 되지 않습니다. Visual Studio Code에서 Docker 컨테이너로 배포할 수 있지만 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에는 배포할 수 없습니다.
+* **호스팅 계획 가용성**: Azure Portal에서 단일 테 넌 트 **논리 앱 (미리 보기)** 리소스 유형을 만들거나 Visual Studio Code에서 배포 하는 경우에는 Azure에서 프리미엄 또는 App Service 호스팅 계획만 사용할 수 있습니다. 소비 호스팅 계획을 사용할 수 없으며이 리소스 유형의 배포에 대해 지원 되지 않습니다. Visual Studio Code에서 Docker 컨테이너로 배포할 수 있지만 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에는 배포할 수 없습니다.
 
 * **Visual Studio Code의 중단점 디버깅**: 워크플로에 대 한 파일 **의workflow.js** 내에서 중단점을 추가 하 고 사용할 수 있지만, 중단점은 트리거가 아니라 현재 작업에 대해서만 지원 됩니다. 자세한 내용은 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)를 참조 하세요.
 
@@ -233,6 +235,17 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
    * 실행 기록을 보려면 논리 앱에서 워크플로를 엽니다. 워크플로 메뉴의 **개발자** 에서 **모니터** 를 선택 합니다.
 
    * 트리거 기록을 검토 하려면 논리 앱에서 워크플로를 엽니다. 워크플로 메뉴의 **개발자** 에서 **트리거 기록** 을 선택 합니다.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>엄격한 네트워크 및 방화벽 시나리오에서 트래픽 허용
+
+환경에 엄격한 네트워크 요구 사항이 나 트래픽을 제한 하는 방화벽이 있는 경우 논리 앱 워크플로에서 트리거 또는 작업 연결에 대 한 액세스를 허용 해야 합니다.
+
+이러한 연결에 대 한 Fqdn (정규화 된 도메인 이름)을 찾으려면 다음 항목에서 해당 섹션을 검토 하십시오.
+
+* [단일 테 넌 트 논리 앱에 대 한 방화벽 권한-Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [단일 테 넌 트 논리 앱에 대 한 방화벽 권한-Azure Portal](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 

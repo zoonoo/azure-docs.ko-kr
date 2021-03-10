@@ -2,18 +2,18 @@
 title: 클라우드 이해-초기화
 description: 클라우드 초기화를 사용 하 여 Azure VM을 프로 비전 하는 방법을 자세히 알아봅니다.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042080"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559446"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>클라우드 초기화에 대해 자세히 알아보기
 [클라우드 초기화](https://cloudinit.readthedocs.io/en/latest/index.html) 에 대 한 자세한 내용 또는 문제 해결에 대 한 자세한 내용은 작동 방식을 이해 해야 합니다. 이 문서에서는 중요 한 부분을 중점적으로 설명 하 고 Azure 세부 사항을 설명 합니다.

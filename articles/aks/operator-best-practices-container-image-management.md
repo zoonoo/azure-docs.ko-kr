@@ -4,16 +4,16 @@ description: AKS(Azure Kubernetes Services)에서 컨테이너 이미지를 관�
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4d90ac5b8ab44925b73be2f22cd7a79458da9f5a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1d2f5465356a94b9ad7014e75aa6fe1515411a81
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073554"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564920"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
 
-AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 컨테이너 및 컨테이너 이미지의 보안 유지가 핵심 고려 사항입니다. 오래된 기본 이미지 또는 패치되지 않은 애플리케이션 런타임이 포함된 컨테이너는 보안 위험 및 가능한 공격 벡터를 초래합니다. 이러한 위험을 최소화하려면 빌드 타임 뿐만 아니라 런타임에 문제를 검색하고 해결하는 도구를 컨테이너에 통합해야 합니다. 프로세스에서 취약점 또는 오래된 기본 이미지를 더 일찍 찾아낼수록 클러스터가 더 안전해집니다. 이 문서에서 *컨테이너*는 컨테이너 레지스트리에 저장된 컨테이너와 실행 중인 컨테이너를 둘 다 의미합니다.
+AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 컨테이너 및 컨테이너 이미지의 보안 유지가 핵심 고려 사항입니다. 오래된 기본 이미지 또는 패치되지 않은 애플리케이션 런타임이 포함된 컨테이너는 보안 위험 및 가능한 공격 벡터를 초래합니다. 이러한 위험을 최소화하려면 빌드 타임 뿐만 아니라 런타임에 문제를 검색하고 해결하는 도구를 컨테이너에 통합해야 합니다. 프로세스에서 취약점 또는 오래된 기본 이미지를 더 일찍 찾아낼수록 클러스터가 더 안전해집니다. 이 문서에서 *컨테이너* 는 컨테이너 레지스트리에 저장된 컨테이너와 실행 중인 컨테이너를 둘 다 의미합니다.
 
 이 문서에서는 AKS의 컨테이너 보안 유지 방법을 중점적으로 설명합니다. 다음 방법을 알아봅니다.
 
@@ -52,7 +52,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 * [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화][acr-base-image-update]
 
 <!-- EXTERNAL LINKS -->
-[azure-pipelines]: /azure/devops/pipelines/?view=vsts
+[azure-pipelines]: /azure/devops/pipelines/
 [twistlock]: https://www.twistlock.com/
 [aqua]: https://www.aquasec.com/
 

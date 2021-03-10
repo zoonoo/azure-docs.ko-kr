@@ -2,17 +2,18 @@
 title: Linux VM을 비관리 디스크에서 managed disks로 변환
 description: Azure CLI를 사용 하 여 관리 되지 않는 디스크에서 관리 디스크로 Linux VM을 변환 하는 방법입니다.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 89035d26e05ca4b93dc271f02fef1afea24b0f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f3b62f8c05edffa1b55bf3d8cd24494b1c918bd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815337"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558494"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
@@ -96,9 +97,9 @@ Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 VM 목록에서 VM을 선택합니다.
-3. VM 블레이드의 메뉴에서 **디스크**를 선택합니다.
-4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션**을 선택합니다.
-5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고에는 클릭하여 가용성 집합을 변환할 수 있는 링크가 있습니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우에는 **마이그레이션**을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다.
+3. VM 블레이드의 메뉴에서 **디스크** 를 선택합니다.
+4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션** 을 선택합니다.
+5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고에는 클릭하여 가용성 집합을 변환할 수 있는 링크가 있습니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우에는 **마이그레이션** 을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다.
 
 VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 

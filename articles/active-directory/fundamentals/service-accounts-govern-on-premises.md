@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649209"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557372"
 ---
 # <a name="governing-on-premises-service-accounts"></a>온-프레미스 서비스 계정 관리
 
@@ -64,7 +64,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 *  **Logonworkstations**: 서비스 계정에서 로그인 할 수 있는 권한을 제한 합니다. 컴퓨터에서 로컬로 실행 되 고 해당 컴퓨터의 리소스에만 액세스 하는 경우에는 다른 위치에 로그온 할 수 없도록 제한 합니다.
 
-* [**암호를 변경할 수 없음**](/powershell/module/addsadministration/set-aduser?view=win10-ps): 매개 변수를 false로 설정 하 여 서비스 계정이 자신의 암호를 변경 하지 못하도록 합니다.
+* [**암호를 변경할 수 없음**](/powershell/module/addsadministration/set-aduser): 매개 변수를 false로 설정 하 여 서비스 계정이 자신의 암호를 변경 하지 못하도록 합니다.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>수명 주기 관리 프로세스 빌드
@@ -151,9 +151,9 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 * [계정 만료](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * 서비스 계정으로 사용 되는 모든 사용자 계정에 대해 사용 하기 위한 현실적인 종료 날짜를 정의 합니다. "계정 만료" 플래그를 사용 하 여이를 설정 합니다. 자세한 내용은[ 설정-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps)를 참조 하세요. 
+   * 서비스 계정으로 사용 되는 모든 사용자 계정에 대해 사용 하기 위한 현실적인 종료 날짜를 정의 합니다. "계정 만료" 플래그를 사용 하 여이를 설정 합니다. 자세한 내용은[ 설정-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration)를 참조 하세요. 
 
-* 로그온 ([Logonworkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* 로그온 ([Logonworkstation](/powershell/module/addsadministration/set-aduser))
 
 * [암호 정책](../../active-directory-domain-services/password-policy.md) 요구 사항
 

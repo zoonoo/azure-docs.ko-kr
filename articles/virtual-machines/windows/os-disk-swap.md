@@ -2,17 +2,18 @@
 title: PowerShell을 사용 하 여 Azure VM에 대 한 OS 디스크 교체
 description: PowerShell을 사용하여 Azure Virtual Machine에서 사용하는 운영 체제 디스크를 변경합니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 2d4abd68e60201a17e56ee105777614c42691bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e928944a7508cc2a0ed35e89189fa2dd8c50665
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020341"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550385"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 사용하는 OS 디스크를 변경합니다.
 
@@ -31,7 +32,7 @@ VM 크기 및 스토리지 유형이 연결할 디스크와 호환되어야 합�
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name
 ```
  
-사용할 디스크의 이름이 있는 경우 해당 이름을 VM에 대한 OS 디스크로 설정합니다. 이 예제에서는 *myVM*이라는 VM을 중지/할당 취소하고 *newDisk*라는 이름의 디스크를 새 OS제 디스크로 할당합니다. 
+사용할 디스크의 이름이 있는 경우 해당 이름을 VM에 대한 OS 디스크로 설정합니다. 이 예제에서는 *myVM* 이라는 VM을 중지/할당 취소하고 *newDisk* 라는 이름의 디스크를 새 OS제 디스크로 할당합니다. 
  
 ```azurepowershell-interactive 
 # Get the VM 

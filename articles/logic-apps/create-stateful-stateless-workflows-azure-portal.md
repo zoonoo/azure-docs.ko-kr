@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736374"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563964"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Azure Logic Apps 미리 보기를 사용 하 여 Azure Portal에서 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -74,12 +74,12 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. **논리 앱 만들기 (미리 보기)** 페이지의 **기본 사항** 탭에서 논리 앱에 대 한이 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 지역에서 고유 해야 하며 문자, 숫자, 하이픈 ( **-** ), 밑줄 (**_**), 괄호 (**()**) 및 마침표 (**.**)만 포함할 수 있습니다. <p><p>이 예제에서는 이라는 리소스 그룹을 만듭니다 `Fabrikam-Workflows-RG` . |
    | **논리 앱 이름**. | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 지역에서 고유 해야 하며 문자, 숫자, 하이픈 ( **-** ), 밑줄 (**_**), 괄호 (**()**) 및 마침표 (**.**)만 포함할 수 있습니다. <p><p>이 예제에서는 라는 논리 앱을 만듭니다 `Fabrikam-Workflows` . <p><p>**참고**: `.azurewebsites.net` **논리 앱 (미리 보기)** 리소스는 동일한 앱 명명 규칙을 사용 하는 Azure Functions에 의해 구동 되기 때문에 논리 앱의 이름은 접미사를 자동으로 가져옵니다. |
-   | **게시** | 예 | <*배포-환경*> | 논리 앱에 대 한 배포 대상입니다. **워크플로** 또는 **Docker 컨테이너** 를 선택 하 여 Azure에 배포할 수 있습니다. <p><p>이 예제에서는 **논리 앱 (미리 보기)** 리소스를 Azure Portal에 배포 하는 **워크플로** 를 사용 합니다. <p><p>**참고**: **docker 컨테이너** 를 선택 하기 전에 docker 컨테이너 이미지 만들기를 확인 합니다. 예를 들어 [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)또는 [Azure Container Instance](../container-instances/container-instances-overview.md)를 통해이 이미지를 만들 수 있습니다. 이렇게 하면 **Docker 컨테이너** 를 선택한 후 [논리 앱의 설정에서 사용 하려는 컨테이너를 지정할](#set-docker-container)수 있습니다. |
+   | **게시** | Yes | <*배포-환경*> | 논리 앱에 대 한 배포 대상입니다. **워크플로** 또는 **Docker 컨테이너** 를 선택 하 여 Azure에 배포할 수 있습니다. <p><p>이 예제에서는 **논리 앱 (미리 보기)** 리소스를 Azure Portal에 배포 하는 **워크플로** 를 사용 합니다. <p><p>**참고**: **docker 컨테이너** 를 선택 하기 전에 docker 컨테이너 이미지 만들기를 확인 합니다. 예를 들어 [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)또는 [Azure Container Instance](../container-instances/container-instances-overview.md)를 통해이 이미지를 만들 수 있습니다. 이렇게 하면 **Docker 컨테이너** 를 선택한 후 [논리 앱의 설정에서 사용 하려는 컨테이너를 지정할](#set-docker-container)수 있습니다. |
    | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 Azure 지역입니다. <p><p>이 예제에서는 **미국 서부** 를 사용합니다. |
    |||||
 
@@ -89,12 +89,12 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. 그런 다음 **호스팅** 탭에서 논리 앱에 사용할 저장소 솔루션 및 호스팅 계획에 대 한 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **스토리지 계정** | 예 | <*Azure-storage-account-name*> | 저장소 트랜잭션에 사용할 [Azure Storage 계정](../storage/common/storage-account-overview.md) 입니다. 이 리소스 이름은 지역에서 고유 해야 하며 숫자와 소문자만 포함 된 3-24 자 여야 합니다. 기존 계정을 선택 하거나 새 계정을 만드십시오. <p><p>이 예제에서는 라는 저장소 계정을 만듭니다 `fabrikamstorageacct` . |
-   | **플랜 유형** | 예 | <*Azure 호스팅 계획*> | [**함수 프리미엄**](../azure-functions/functions-premium-plan.md) 또는 [ **app service 계획** (전용)](../azure-functions/dedicated-plan.md)인 논리 앱을 배포 하는 데 사용할 [호스팅 계획](../app-service/overview-hosting-plans.md) 입니다. 이 옵션은 나중에 사용할 수 있는 기능 및 가격 책정 계층에 영향을 줍니다. <p><p>이 예제에서는 **App service 계획** 을 사용 합니다. <p><p>**참고**: Azure Functions와 마찬가지로 **논리 앱 (미리 보기)** 리소스 종류에는 호스팅 계획 및 가격 책정 계층이 필요 합니다. 소비 계획은이 리소스 종류에 대해 지원 되지 않으며 사용할 수 없습니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 크기 조정 및 호스팅](../azure-functions/functions-scale.md) <br>- [App Service 가격 정보](https://azure.microsoft.com/pricing/details/app-service/) <p><p>예를 들어 프리미엄 계획 함수는 논리 앱을 만들고 배포 하는 경우와 유사 Azure Functions 하 게 Azure 가상 네트워크와의 연결 및 통합과 같은 네트워킹 기능에 대 한 액세스를 제공 합니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps 미리 보기를 사용 하 여 어디서 나 Azure Logic Apps 실행-네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
-   | **Windows 플랜** | 예 | <*계획-이름*> | 사용할 계획 이름입니다. 기존 계획을 선택 하거나 새 계획의 이름을 입력 합니다. <p><p>이 예제에서는 `Fabrikam-Service-Plan`이름을 사용합니다. |
-   | **SKU 및 크기** | 예 | <*가격 책정 계층*> | 논리 앱을 호스트 하는 데 사용할 [가격 책정 계층](../app-service/overview-hosting-plans.md) 입니다. 선택한 사항은 이전에 선택한 계획 유형에 따라 달라 집니다. 기본 계층을 변경 하려면 **크기 변경** 을 선택 합니다. 그런 다음 필요한 워크 로드에 따라 다른 가격 책정 계층을 선택할 수 있습니다. <p><p>이 예제에서는 **개발/테스트** 워크 로드에 대 한 무료 **F1 가격 책정 계층** 을 사용 합니다. 자세한 내용은 [가격 책정 세부 정보를 App Service](https://azure.microsoft.com/pricing/details/app-service/)검토 하세요. |
+   | **플랜 유형** | Yes | <*Azure 호스팅 계획*> | [**함수 프리미엄**](../azure-functions/functions-premium-plan.md) 또는 [ **app service 계획** (전용)](../azure-functions/dedicated-plan.md)인 논리 앱을 배포 하는 데 사용할 [호스팅 계획](../app-service/overview-hosting-plans.md) 입니다. 이 옵션은 나중에 사용할 수 있는 기능 및 가격 책정 계층에 영향을 줍니다. <p><p>이 예제에서는 **App service 계획** 을 사용 합니다. <p><p>**참고**: Azure Functions와 마찬가지로 **논리 앱 (미리 보기)** 리소스 종류에는 호스팅 계획 및 가격 책정 계층이 필요 합니다. 소비 계획은이 리소스 종류에 대해 지원 되지 않으며 사용할 수 없습니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 크기 조정 및 호스팅](../azure-functions/functions-scale.md) <br>- [App Service 가격 정보](https://azure.microsoft.com/pricing/details/app-service/) <p><p>예를 들어 프리미엄 계획 함수는 논리 앱을 만들고 배포 하는 경우와 유사 Azure Functions 하 게 Azure 가상 네트워크와의 연결 및 통합과 같은 네트워킹 기능에 대 한 액세스를 제공 합니다. 자세한 내용은 다음 항목을 검토 하십시오. <p><p>- [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps 미리 보기를 사용 하 여 어디서 나 Azure Logic Apps 실행-네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
+   | **Windows 플랜** | Yes | <*계획-이름*> | 사용할 계획 이름입니다. 기존 계획을 선택 하거나 새 계획의 이름을 입력 합니다. <p><p>이 예제에서는 `Fabrikam-Service-Plan`이름을 사용합니다. |
+   | **SKU 및 크기** | Yes | <*가격 책정 계층*> | 논리 앱을 호스트 하는 데 사용할 [가격 책정 계층](../app-service/overview-hosting-plans.md) 입니다. 선택한 사항은 이전에 선택한 계획 유형에 따라 달라 집니다. 기본 계층을 변경 하려면 **크기 변경** 을 선택 합니다. 그런 다음 필요한 워크 로드에 따라 다른 가격 책정 계층을 선택할 수 있습니다. <p><p>이 예제에서는 **개발/테스트** 워크 로드에 대 한 무료 **F1 가격 책정 계층** 을 사용 합니다. 자세한 내용은 [가격 책정 세부 정보를 App Service](https://azure.microsoft.com/pricing/details/app-service/)검토 하세요. |
    |||||
 
 1. 그런 다음 생성 및 배포 설정에서 [Application Insights](../azure-monitor/app/app-insights-overview.md)사용을 지 원하는 경우 필요에 따라 논리 앱에 대 한 진단 로깅 및 추적을 사용 하도록 설정할 수 있습니다.
@@ -105,7 +105,7 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. Azure가 논리 앱의 설정에 대 한 유효성을 검사 한 후 **검토 + 만들기** 탭에서 **만들기** 를 선택 합니다.
 
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
    ![Azure Portal 및 새 논리 앱 리소스 설정을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
@@ -236,7 +236,33 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
 1. 작업을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
-그런 다음 워크플로를 테스트 하려면 실행을 수동으로 트리거합니다.
+1. 환경에 엄격한 네트워크 요구 사항이 나 트래픽을 제한 하는 방화벽이 있는 경우 워크플로에 있는 트리거 또는 작업 연결에 대 한 사용 권한을 설정 해야 합니다. 정규화 된를 찾으려면 
+
+   그렇지 않고 워크플로를 테스트 하려면 [실행을 수동으로 트리거합니다](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>방화벽 액세스를 위한 도메인 이름 찾기
+
+논리 앱을 배포 하 고 Azure Portal에서 워크플로를 실행 하기 전에 환경에 엄격한 네트워크 요구 사항이 나 트래픽을 제한 하는 방화벽이 있는 경우 논리 앱에 존재 하는 워크플로의 트리거 또는 작업 연결에 대 한 네트워크 또는 방화벽 권한을 설정 해야 합니다.
+
+이러한 연결에 대 한 Fqdn (정규화 된 도메인 이름)을 찾으려면 다음 단계를 수행 합니다.
+
+1. 논리 앱 메뉴의 **워크플로** 아래에서 **연결** 을 선택 합니다. **API 연결** 탭에서 연결의 리소스 이름을 선택 합니다. 예를 들면 다음과 같습니다.
+
+   !["Connections" 및 "offic365" 연결 리소스 이름을 선택 하 여 Azure Portal 및 논리 앱 메뉴를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. 브라우저의 오른쪽 위 모서리에 **Json 보기가** 표시 되 면 **json 보기** 를 선택 하 여 브라우저의 너비를 충분히 확장 합니다.
+
+   !["JSON 뷰"를 선택 하 여 Azure Portal 및 API 연결 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. `connectionRuntimeUrl`이 정보를 사용 하 여 방화벽을 설정할 수 있도록 안전한 위치에 속성 값을 찾아서 복사 하 고 저장 합니다.
+
+   !["ConnectionRuntimeUrl" 속성 값이 선택 된 것을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. 각 연결에 대해 관련 단계를 반복 합니다.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>워크플로 트리거
 
@@ -304,7 +330,7 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
    > [!TIP]
    > 가장 최근 실행 상태가 표시 되지 않으면 **모니터** 창 도구 모음에서 **새로 고침** 을 선택 합니다. 충족 되지 않은 조건으로 인해 건너뛴 트리거와 데이터를 찾을 수 없는 경우에는 실행 되지 않습니다.
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -323,7 +349,7 @@ Azure Portal에서 새 **논리 앱 (미리 보기)** 리소스를 만들어 시
 
    워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
 
-   | 작업 상태 | 아이콘 | Description |
+   | 작업 상태 | 아이콘 | 설명 |
    |---------------|------|-------------|
    | **중단됨** | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |
@@ -405,7 +431,7 @@ Application Insights 열리면 논리 앱에 대 한 다양 한 메트릭을 검
 
 1. **값** 상자에 다음 값을 입력 합니다.`WithStatelessRunHistory`
 
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
    !["구성" > "새 응용 프로그램 설정" < "새 응용 프로그램 설정", "응용 프로그램 설정 추가/편집" 창이 열리고 "워크플로를 사용 하 여 Azure Portal 및 논리 앱 (미리 보기) 리소스를 보여 주는 스크린샷 {{Workflowname}. OperationOptions "옵션을" WithStatelessRunHistory "로 설정 합니다.](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 

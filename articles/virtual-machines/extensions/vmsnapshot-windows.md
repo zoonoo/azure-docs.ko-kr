@@ -1,21 +1,22 @@
 ---
 title: Azure Backup용 VM 스냅샷 Windows 확장
 description: VM 스냅샷 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
-services: backup, virtual-machines-windows
+services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 1d1342cffc6bc8743c34cb4c028c0790de91dc50
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 834c886c15e50870ec008dbb5ceab38132cc4649
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965870"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561071"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Windows 확장
 
@@ -23,7 +24,7 @@ Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하
 
 VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나타납니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
@@ -60,7 +61,7 @@ VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |

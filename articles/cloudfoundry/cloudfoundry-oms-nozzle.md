@@ -1,7 +1,7 @@
 ---
 title: Cloud Foundry 모니터링을 위해 Azure Log Analytics 노즐 배포
 description: Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배포에 대한 단계별 지침. Nozzle을 사용하여 Cloud Foundry 시스템 상태 및 성능 메트릭을 모니터링합니다.
-services: virtual-machines-linux
+services: virtual-machines
 author: ningk
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 54001c47d03b686a8e7c1f59f1e53d405e3bc506
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571065"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557389"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -28,7 +28,7 @@ Log Analytics 노즐 (노즐)은 [Cloud Foundry loggregator](https://docs.cloudf
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 단계는 Nozzle 배포를 위한 필수 구성 요소입니다.
 
@@ -100,7 +100,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -124,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
 cf push
 ```

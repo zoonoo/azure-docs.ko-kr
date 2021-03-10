@@ -5,15 +5,15 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358221"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560364"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure Portal를 사용 하 여 관리 디스크에 대 한 미사용 암호화를 사용 하도록 설정 합니다.
 
@@ -61,7 +61,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
     ![주요 자격 증명 모음에 대 한 성공적인 사용 권한 및 역할 할당의 스크린샷](media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png)
 
 1. 디스크로 이동 합니다.
-1. **암호화** 를 선택 합니다.
+1. **암호화** 를 선택합니다.
 1. **암호화 유형** 에서 **플랫폼 관리 및 고객 관리 키를 사용 하 여 이중 암호화** 를 선택 합니다.
 1. 디스크 암호화 집합을 선택 합니다.
 1. **저장** 을 선택합니다.

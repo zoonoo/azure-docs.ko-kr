@@ -3,16 +3,16 @@ title: Av2 시리즈
 description: Av2 시리즈 Vm에 대 한 사양입니다.
 author: migerdes
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: d0972c9ed48f56a495804052c1ffc2b28e1db083
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 680ffe7964104f157debc64e44ac2f004ddac86d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095327"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565515"
 ---
 # <a name="av2-series"></a>Av2 시리즈
 
@@ -28,7 +28,7 @@ ms.locfileid: "99095327"
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
 <br>
 
-| Size | vCore | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
+| 크기 | vCore | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |

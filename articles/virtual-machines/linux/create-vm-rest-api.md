@@ -2,16 +2,17 @@
 title: REST API를 사용 하 여 Linux VM 만들기
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737048"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554567"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -54,7 +55,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| 이름                       | 필수 | Type                                                                                | 설명  |
+| Name                       | 필수 | Type                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | 위치                   | True     | 문자열                                                                              | 리소스 위치. |
 | name                       |          | 문자열                                                                              | 가상 머신의 이름. |
@@ -128,7 +129,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| 이름        | 유형                                                                              | 설명 |
+| Name        | 유형                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |

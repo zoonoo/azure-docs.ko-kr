@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900708"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551541"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -106,7 +106,7 @@ Exchange Online을 사용 하는 경우 조직의 일부 사용자가 동일한 
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)에 대한 정보도 포함됩니다.
+> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](/powershell/exchange/connect-to-exchange-online-powershell)에 대한 정보도 포함됩니다.
 
 영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.
 

@@ -2,13 +2,13 @@
 title: Azure Pipelines 및 템플릿이 있는 CI/CD
 description: Azure Resource Manager 템플릿을 사용 하 여 Azure Pipelines에서 연속 통합을 구성 하는 방법을 설명 합니다. PowerShell 스크립트를 사용 하거나 파일을 스테이징 위치에 복사 하 여 배포 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 02/05/2021
-ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.date: 03/09/2021
+ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594200"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561945"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>ARM 템플릿을 Azure Pipelines와 통합
 
@@ -234,4 +234,5 @@ steps:
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub 작업에서 ARM 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [Github 작업을 사용 하 여 Azure Resource Manager 템플릿 배포](deploy-github-actions.md)를 참조 하세요.
+* 파이프라인에서 가상 작업을 사용 하려면 [파이프라인에서 What-If를 사용 하 여 ARM 템플릿 테스트](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/)를 참조 하세요.
+* GitHub 작업에서 ARM 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [Github 작업을 사용 하 여 Azure Resource Manager 템플릿 배포](deploy-github-actions.md)를 참조 하세요.

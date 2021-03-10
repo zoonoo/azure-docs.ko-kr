@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859983"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561537"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -111,7 +111,7 @@ Azure Portal에서 **ForceDelete** 를 호출하려면 도메인 이름에 대�
 Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 Microsoft Graph API를 사용하여 완료할 수도 있습니다.
 
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](/powershell/module/azuread/#domains&preserve-view=true)
-* [도메인 리소스 유형](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [도메인 리소스 유형](/graph/api/resources/domain)
 
 ## <a name="next-steps"></a>다음 단계
 

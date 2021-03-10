@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009486"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558766"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
 
@@ -111,7 +111,7 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-다음으로, 오케스트레이션이 실행 되 고 있지 않을 때까지 대기 하도록 준비 게이트를 구성 합니다. 자세한 내용은 [게이트를 사용 하 여 배포 제어 릴리스](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) 를 참조 하세요.
+다음으로, 오케스트레이션이 실행 되 고 있지 않을 때까지 대기 하도록 준비 게이트를 구성 합니다. 자세한 내용은 [게이트를 사용 하 여 배포 제어 릴리스](/azure/devops/pipelines/release/approvals/gates) 를 참조 하세요.
 
 ![배포 게이트](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 

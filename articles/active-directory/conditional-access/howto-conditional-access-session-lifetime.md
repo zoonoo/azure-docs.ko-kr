@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491943"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558188"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "99491943"
 
 사용자 로그인 빈도에 대 한 Azure Active Directory (Azure AD) 기본 구성은 90 일의 롤링 기간입니다. 사용자에 게 자격 증명을 요청 하는 것이 중요 한 것 처럼 보일 수 있지만,이 경우에는 사용자가 생각 하지 않고 자격 증명을 입력 하도록 학습 한 사용자가 실수로 악성 자격 증명 프롬프트에 해당 자격 증명을 제공할 수 있습니다.
 
-사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
+사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
 
 로그인 빈도 설정은 표준에 따라 OAUTH2 또는 OIDC 프로토콜을 구현한 앱과 함께 작동 합니다. 다음 웹 응용 프로그램을 포함 하 여 Windows, Mac 및 모바일 용 Microsoft 네이티브 앱 대부분은 설정을 준수 합니다.
 

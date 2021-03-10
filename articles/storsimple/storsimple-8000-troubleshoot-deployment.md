@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808037"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566348"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -189,7 +189,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
    * 인터페이스의 상태가 정상이지만 사용되지 않는 경우 **ifIndex** 상태가 **NotPresent** 로 표시됩니다.
    * 인터페이스가 없는 경우 이 목록에 나타나지 않습니다. StorSimple 디바이스 관리자 서비스 UI에서는 이 인터페이스가 계속 실패한 상태로 표시됩니다.
 
-이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [get-netadapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) 를 참조 하세요.
+이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [get-netadapter](/powershell/module/netadapter/get-netadapter) 를 참조 하세요.
 
 다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 

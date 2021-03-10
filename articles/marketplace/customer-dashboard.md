@@ -1,5 +1,5 @@
 ---
-title: 파트너 센터, Azure Marketplace 및 Microsoft AppSource에 대 한 Microsoft 상용 marketplace 분석의 고객 대시보드
+title: 파트너 센터, Azure Marketplace 및 Microsoft AppSource에 대 한 Microsoft 상업적 marketplace 분석의 고객 대시보드
 description: 상용 marketplace 분석에서 고객 대시보드를 사용 하 여 성장 추세를 비롯 한 고객에 대 한 정보에 액세스 하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954280"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555638"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 고객 대시보드
 
@@ -142,28 +142,28 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 _**표 1: 데이터 용어 사전**_
 
-| 열 이름 | 특성 이름 | 정의 |
-| ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
-| 가져온 날짜 | 취득일 | 사용자가 게시 한 제품을 처음 구입한 날짜입니다. |
-| DateLost | 취소일 | 고객이 이전에 구매한 모든 제품의 마지막 날짜를 취소 한 마지막 날짜입니다. |
-| Provider Name | Provider Name | Microsoft와 고객 간의 관계와 관련 된 공급자의 이름입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |
-| 공급자 이메일 | 공급자 이메일 | Microsoft와 고객 간의 관계와 관련 된 공급자의 전자 메일 주소입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |
-| FirstName | 고객 이름 | 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
-| LastName | 고객 성 | 고객이 제공한 성입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. |
-| Email | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. |
-| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
-| CustomerCity | 고객 구/군/시 | 고객이 입력한 구/군/시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
-| 고객 우편 번호 | 고객 우편 번호 | 고객이 입력한 우편 번호입니다. 코드는 고객의 Azure 구독에서 제공 되는 우편 번호와 다를 수 있습니다. |
-| CustomerCommunicationCulture | 고객 통신 언어 | 고객이 통신용으로 선택한 기본 설정 언어입니다. |
-| CustomerCountryRegion | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. |
-| AzureLicenseType | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. _채널_ 라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> |
-| PromotionalCustomers | 홍보 연락 옵트인 | 이 값은 고객이 게시자의 홍보를 위한 연락을 받도록 사전에 옵트인했는지 여부를 알려 줍니다. 현재는 고객에게 해당 옵션이 제공되지 않으므로 보드 전체에 “아니요”가 표시됩니다. 이 기능을 배포한 후에는 그에 따라 업데이트를 시작 합니다. |
-| CustomerState | 고객 시/도 | 고객이 제공한 거주지의 상태입니다. 상태는 고객의 Azure 구독에 제공 된 상태와 다를 수 있습니다. |
-| CommerceRootCustomer | 상거래 루트 고객 | 하나의 청구 계정 ID를 여러 고객 Id와 연결할 수 있습니다.<br>청구 계정 ID와 고객 ID의 한 가지 조합은 여러 상업적 marketplace 구독과 연결 될 수 있습니다.<br>Commerce Root 고객은 구독의 고객 이름을 나타냅니다. |
-| Customer Id | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. |
-| 청구 계정 Id | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다. |
-||||
+| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식으로 열 이름<br>액세스 보고서 |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. | MarketplaceSubscriptionId |
+| 가져온 날짜 | 취득일 | 사용자가 게시 한 제품을 처음 구입한 날짜입니다. | 가져온 날짜 |
+| DateLost | 취소일 | 고객이 이전에 구매한 모든 제품의 마지막 날짜를 취소 한 마지막 날짜입니다. | DateLost |
+| Provider Name | Provider Name | Microsoft와 고객 간의 관계와 관련 된 공급자의 이름입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. | ProviderName |
+| 공급자 이메일 | 공급자 이메일 | Microsoft와 고객 간의 관계와 관련 된 공급자의 전자 메일 주소입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. | ProviderEmail |
+| FirstName | 고객 이름 | 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. | FirstName |
+| LastName | 고객 성 | 고객이 제공한 성입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다. | LastName |
+| 메일 | 고객 이메일 | 최종 고객이 입력한 이메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다. | 메일 |
+| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. | CustomerCompany 이름 |
+| CustomerCity | 고객 구/군/시 | 고객이 입력한 구/군/시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. | CustomerCity |
+| 고객 우편 번호 | 고객 우편 번호 | 고객이 입력한 우편 번호입니다. 코드는 고객의 Azure 구독에서 제공 되는 우편 번호와 다를 수 있습니다. | CustomerPostal 번호 |
+| CustomerCommunicationCulture | 고객 통신 언어 | 고객이 통신용으로 선택한 기본 설정 언어입니다. | CustomerCommunicationCulture |
+| CustomerCountryRegion | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountryRegion |
+| AzureLicenseType | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. _채널_ 라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> | AzureLicenseType |
+| PromotionalCustomers | 홍보 연락 옵트인 | 이 값은 고객이 게시자의 홍보를 위한 연락을 받도록 사전에 옵트인했는지 여부를 알려 줍니다. 현재는 고객에게 해당 옵션이 제공되지 않으므로 보드 전체에 “아니요”가 표시됩니다. 이 기능을 배포한 후에는 그에 따라 업데이트를 시작 합니다. | PromotionalCustomers |
+| CustomerState | 고객 시/도 | 고객이 제공한 거주지의 상태입니다. 상태는 고객의 Azure 구독에 제공 된 상태와 다를 수 있습니다. | CustomerState |
+| CommerceRootCustomer | 상거래 루트 고객 | 하나의 청구 계정 ID를 여러 고객 Id와 연결할 수 있습니다.<br>청구 계정 ID와 고객 ID의 한 가지 조합은 여러 상업적 marketplace 구독과 연결 될 수 있습니다.<br>Commerce Root 고객은 구독의 고객 이름을 나타냅니다. | CommerceRootCustomer |
+| 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. | CustomerId |
+| 청구 계정 ID | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다. | BillingAccountId |
+|||||
 
 ### <a name="customers-page-filters"></a>고객 페이지 필터
 

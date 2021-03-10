@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917803"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565825"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,6 +59,26 @@ ms.locfileid: "94917803"
 - TDE (투명 데이터베이스 암호화) 또는 자동 장애 조치 (failover) 그룹과 같은 사용 중인 새로운 기능은 CPU 및 IO 사용에 영향을 줄 수 있습니다.
 
 SQL Managed Instance는 중요 한 시나리오 에서도 99.99%의 가용성을 보장 하므로 이러한 기능으로 인해 발생 하는 오버 헤드는 사용 하지 않도록 설정할 수 없습니다. 자세한 내용은 [SQL Server 및 AZURE SQL Managed Instance에서 다른 성능을 발생 시킬 수 있는 근본 원인](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)을 참조 하세요.
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP In-Memory (메모리 액세스에 최적화 된 테이블)
+
+SQL Server는 메모리 최적화 테이블, 메모리 최적화 테이블 형식 및 고유 하 게 컴파일된 SQL 모듈을 사용 하 여 처리량이 높고 대기 시간이 짧은 트랜잭션 처리 요구 사항이 있는 작업을 실행할 수 있도록 하는 In-Memory OLTP 기능을 제공 합니다. 
+
+> [!IMPORTANT]
+> In-Memory OLTP는 Azure SQL Managed Instance의 중요 비즈니스용 계층 에서만 지원 되며 일반 용도 계층에서는 지원 되지 않습니다.
+
+온-프레미스 SQL Server에 메모리 최적화 테이블 또는 메모리 최적화 테이블 형식이 있고 Azure SQL Managed Instance로 마이그레이션하려는 경우 다음 중 하나를 수행 해야 합니다.
+
+- In-Memory OLTP를 지 원하는 대상 Azure SQL Managed Instance에 대 한 중요 비즈니스용 계층을 선택 하거나
+- Azure SQL Managed Instance의 범용 계층으로 마이그레이션하려면 메모리 최적화 테이블, 메모리 최적화 테이블 형식 및 데이터베이스를 마이그레이션하기 전에 메모리 최적화 개체와 상호 작용 하는 고유 하 게 컴파일된 SQL 모듈을 제거 합니다. 다음 T-sql 쿼리를 사용 하 여 일반 용도의 계층으로 마이그레이션하기 전에 제거 해야 하는 모든 개체를 식별할 수 있습니다.
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+메모리 내 기술에 대해 자세히 알아보려면 [Azure SQL Database 및 AZURE SQL에서 메모리 내 기술을 사용 하 여 성능 최적화](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview) 를 참조 하세요 Managed Instance
 
 ### <a name="create-a-performance-baseline"></a>성능 기준선 만들기
 
