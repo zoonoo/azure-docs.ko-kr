@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341416"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561231"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
@@ -29,9 +29,9 @@ Azure Security Center은 [지원 되](security-center-services.md#endpoint-suppo
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 를 실행 하 고 결과를 **amserviceenabled: False로 설정** 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center
+* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) 를 실행 하 고 결과를 **amserviceenabled: False로 설정** 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center
 
-* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 를 실행 하 고 다음 중 하나를 수행 하는 경우 " **컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
+* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) 를 실행 하 고 다음 중 하나를 수행 하는 경우 " **컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
   * 다음 속성은 모두 false입니다.
 
@@ -49,7 +49,7 @@ Azure Security Center은 [지원 되](security-center-services.md#endpoint-suppo
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
-* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 을 가져오고 **MProtComputerStatus** 결과를 **amserviceenabled = false**로 실행 하는 경우 **"가상 머신에 endpoint protection 솔루션 설치"** 를 권장 합니다. Security Center
+* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 을 가져오고 **MProtComputerStatus** 결과를 **amserviceenabled = false** 로 실행 하는 경우 **"가상 머신에 endpoint protection 솔루션 설치"** 를 권장 합니다. Security Center
 
 * **MprotComputerStatus** 실행 되 고 다음 중 하나가 발생할 때 **"컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -67,7 +67,7 @@ Azure Security Center은 [지원 되](security-center-services.md#endpoint-suppo
     * **AntispywareSignatureAge**
     * **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>추세 마이크로
+## <a name="trend-micro"></a>Trend Micro
 
 * 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
     - **HKLM: \ SOFTWARE\TrendMicro\Deep 보안 에이전트가 있습니다.**

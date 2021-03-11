@@ -4,16 +4,16 @@ description: NVv3 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f04847930f078ef506d66784deab4767db0a282d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 276afba62a26a53fe32f7aa9d47f42ada251d6b5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123975"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613054"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
 
@@ -27,7 +27,7 @@ NVv3 인스턴스의 각 GPU는 그리드 라이선스로 제공 됩니다. 이 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 가상 워크스테이션 | 가상 애플리케이션 |

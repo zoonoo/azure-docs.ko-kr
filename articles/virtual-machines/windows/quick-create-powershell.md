@@ -2,18 +2,19 @@
 title: 빠른 시작 - Azure PowerShell을 사용하여 Windows VM 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 만드는 방법을 배웁니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d23bc83d9cfd60585a63df0acbfb2b4076cd83f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78b912dd649ff942e0187f9b3602d9213383b8c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077327"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560738"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기
 
@@ -25,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
@@ -70,9 +71,9 @@ Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 mstsc /v:publicIpAddress
 ```
 
-**Windows 보안** 창에서 **기타 선택 사항**을 선택한 다음, **다른 계정 사용**을 선택합니다. 사용자 이름으로 **localhost**\\*username*을 입력하고, 가상 머신에 대해 만든 암호를 입력한 다음, **확인**을 클릭합니다.
+**Windows 보안** 창에서 **기타 선택 사항** 을 선택한 다음, **다른 계정 사용** 을 선택합니다. 사용자 이름으로 **localhost**\\*username* 을 입력하고, 가상 머신에 대해 만든 암호를 입력한 다음, **확인** 을 클릭합니다.
 
-로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 만듭니다.
+로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속** 을 클릭하여 연결을 만듭니다.
 
 ## <a name="install-web-server"></a>웹 서버 설치
 

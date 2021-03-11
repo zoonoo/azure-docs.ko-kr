@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357367"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555009"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -24,6 +24,15 @@ ms.locfileid: "97357367"
 
 > [!IMPORTANT]
 > 범용 v1 또는 Blob storage 계정을 범용 v2로 업그레이드 하는 것은 영구적 이며 실행 취소할 수 없습니다.
+
+> [!NOTE]
+> Microsoft는 대부분의 시나리오에 범용 v2 계정을 권장 하지만 Microsoft는 신규 및 기존 고객에 대 한 범용 v1 계정을 계속 지원 합니다. 이러한 지역에서 Azure Storage를 사용할 수 있을 때마다 새 지역에서 범용 v1 storage 계정을 만들 수 있습니다. Microsoft는 현재 범용 v1 계정에 대 한 지원을 사용 중단 계획을가지고 있지 않으며, 사용 중단 모든 Azure Storage 기능을 제공 하기 전에 적어도 1 년의 사전 통지를 제공 합니다. Microsoft는 범용 v1 계정에 대 한 보안 업데이트를 계속 제공 하지만이 계정 유형에는 새로운 기능 개발이 필요 하지 않습니다.
+>
+> 2020 년 10 월 1 일부 터, 새 Azure Storage 지역의 범용 v1 계정 가격은 해당 지역의 범용 v2 계정에 대 한 가격 책정과 동일 합니다. 기존 Azure Storage 지역의 가격은 변경 되지 않았습니다. 특정 지역의 범용 v1 계정에 대 한 가격 정보는 Azure Storage 가격 책정 페이지를 참조 하세요. 지역을 선택 하 고 **가격 책정 제안** 옆에서 **기타** 를 선택 합니다.
+
+## <a name="upgrade-an-account"></a>계정 업그레이드
+
+범용 v1 또는 Blob storage 계정을 범용 v2 계정으로 업그레이드 하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -47,6 +56,7 @@ PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 �
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.

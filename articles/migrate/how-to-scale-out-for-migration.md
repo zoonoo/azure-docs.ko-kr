@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048015"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612068"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 VMware 가상 컴퓨터의 에이전트 없는 마이그레이션 확장
 
@@ -147,10 +147,10 @@ ms.locfileid: "102048015"
 1. 이전 단계에서 열린 팝업 창에서 복사 된 구성 zip 파일의 위치를 선택 하 고 **저장** 을 클릭 합니다.
 
 파일을 성공적으로 가져오면 스케일 아웃 어플라이언스의 등록이 완료 되 고 마지막으로 성공한 가져오기의 타임 스탬프가 표시 됩니다. **자세히 보기** 를 클릭 하 여 등록 세부 정보를 볼 수도 있습니다.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="가져오기 성공":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="스크린샷 Azure Migrate 프로젝트를 사용 하는 스케일 아웃 어플라이언스 등록을 보여 줍니다.":::
 
 이 시점에서 확장 기기가 vCenter 서버에 연결할 수 있는지 유효성을 다시 검사 해야 합니다. **유효성** 재검사를 클릭 하 여 스케일 아웃 어플라이언스에서 vCenter Server 연결의 유효성을 검사 합니다.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="가져오기 성공":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="유효성을 검사할 보기 자격 증명과 검색 원본을 보여 주는 스크린샷":::
 
 > [!IMPORTANT]
 > 기본 어플라이언스에서 vCenter Server 자격 증명을 편집 하는 경우 구성 파일을 스케일 아웃 어플라이언스로 다시 가져와서 최신 구성을 가져오고 지속적인 복제를 계속 합니다.<br/> 규모 확장 기기가 더 이상 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 해야 합니다. 필요 하지 않은 경우 스케일 아웃 어플라이언스를 사용 하지 않도록 설정 하는 방법에 [**대해 자세히 알아보세요**](./common-questions-appliance.md) .

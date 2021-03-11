@@ -10,18 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9324ca3b347550c2514a506c5a143b6e963e116f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691776"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487324"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
- 
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 [Azure Portal](https://portal.azure.com) 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리 및 Azure Portal을 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
+
+
+첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 [Azure Portal](https://portal.azure.com) 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리 및 Azure Portal을 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다.
 
 > [!WARNING]
 > Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 공개 미리 보기 동안에는 통신 리소스를 다른 구독으로 이전할 수 없습니다.
@@ -40,7 +43,7 @@ ms.locfileid: "101691776"
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>연결 문자열 및 서비스 엔드포인트 액세스
 
-연결 문자열을 통해 Communication Services 클라이언트 라이브러리를 Azure에 연결하고 인증할 수 있습니다. Azure Portal에서 또는 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 Communication Services 연결 문자열 및 서비스 엔드포인트에 액세스할 수 있습니다. 
+연결 문자열을 통해 Communication Services 클라이언트 라이브러리를 Azure에 연결하고 인증할 수 있습니다. Azure Portal에서 또는 Azure Resource Manager API를 사용하여 프로그래밍 방식으로 Communication Services 연결 문자열 및 서비스 엔드포인트에 액세스할 수 있습니다.
 
 Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** 를 선택하고 Communication Services 클라이언트 라이브러리의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
 
@@ -49,7 +52,7 @@ Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** �
 Azure CLI를 사용하여 주요 정보에 액세스할 수도 있습니다.
 
 ```azurecli
-az communication list --resource-group "<resourceGroup>"    
+az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
@@ -103,7 +106,7 @@ export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 
 Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
 
-리소스를 삭제하는 동안 리소스에 할당된 전화 번호가 있으면 리소스에서 전화 번호는 동시에 자동으로 해제됩니다. 
+리소스를 삭제하는 동안 리소스에 할당된 전화 번호가 있으면 리소스에서 전화 번호는 동시에 자동으로 해제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

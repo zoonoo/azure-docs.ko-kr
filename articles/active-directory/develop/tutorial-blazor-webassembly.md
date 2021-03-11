@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979881"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552119"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
@@ -49,7 +49,7 @@ ms.locfileid: "99979881"
 앱을 만들려면 최신 Blazor 템플릿이 필요합니다. 다음 명령을 사용하여 .NET Core CLI용 템플릿을 설치할 수 있습니다.
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 그 후 다음 명령을 실행하여 애플리케이션을 만듭니다. 명령의 자리 표시자를 앱의 개요 페이지에 있는 적절한 정보로 바꾸고 명령 셸에서 명령을 실행합니다. `-o|--output` 옵션으로 지정된 출력 위치는 프로젝트 폴더가 없는 경우 폴더를 하나 만들고 앱 이름의 일부가 됩니다.

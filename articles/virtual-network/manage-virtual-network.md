@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596640"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612527"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -53,7 +53,7 @@ ms.locfileid: "100596640"
      > 가상 네트워크에 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치는 주소 범위가 있는 경우 두 네트워크를 연결할 수 없습니다. 주소 범위를 정의하기 전에 나중에 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결할지 고려해야 합니다. 조직에서 소유 하는 개인 주소 공간 또는 공용 주소 공간을 사용 하 여 가상 네트워크 주소 범위를 구성 하는 것이 좋습니다.
      >
 
-     - **서브넷 이름**: 서브넷 이름은 가상 네트워크 내에서 고유해야 합니다. 서브넷을 만든 후 서브넷 이름을 변경할 수 없습니다. 가상 네트워크에 서브넷이 필요하지는 않지만 포털에서는 가상 네트워크를 만들 때 하나의 서브넷을 정의해야 합니다. 포털에서 가상 네트워크를 만들 때 서브넷을 하나만 정의할 수 있습니다. 가상 네트워크를 만든 후 나중에 서브넷을 추가할 수 있습니다. 가상 네트워크에 서브넷을 추가하려면 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요. Azure CLI 또는 PowerShell을 사용하여 여러 서브넷이 있는 가상 네트워크를 만들 수 있습니다.
+     - **서브넷 이름**: 서브넷 이름은 가상 네트워크 내에서 고유해야 합니다. 서브넷을 만든 후 서브넷 이름을 변경할 수 없습니다. 가상 네트워크에 서브넷이 필요하지는 않지만 포털에서는 가상 네트워크를 만들 때 하나의 서브넷을 정의해야 합니다. 포털에서 가상 네트워크를 만들 때 하나 이상의 서브넷을 정의할 수 있습니다. 가상 네트워크를 만든 후 나중에 서브넷을 추가할 수 있습니다. 가상 네트워크에 서브넷을 추가하려면 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요. Azure CLI 또는 PowerShell을 사용하여 여러 서브넷이 있는 가상 네트워크를 만들 수 있습니다.
 
        >[!TIP]
        >경우에 따라 관리자는 여러 서브넷을 만들어 서브넷 간의 트래픽 라우팅을 필터링하거나 제어합니다. 서브넷을 정의하기 전에 서브넷 간에 트래픽을 필터링하고 라우팅하는 방법을 고려하는 것이 좋습니다. 서브넷 간의 트래픽을 필터링하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹](./network-security-groups-overview.md)을 참조하세요. Azure에서는 서브넷 간에 트래픽을 자동으로 라우팅하지만 Azure 기본 경로를 재정의할 수 있습니다. Azures 기본 서브넷 트래픽 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
@@ -170,7 +170,7 @@ ms.locfileid: "100596640"
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                  |   속성                                |
+| 작업                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

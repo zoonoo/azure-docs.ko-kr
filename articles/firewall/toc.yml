@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Firewall 프리미엄 배포 및 구성
       href: premium-deploy.md
+    - name: 프리미엄용 Enterprise CA 인증서 배포
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Azure Firewall 프리미엄으로 마이그레이션
       href: premium-migrate.md
 - name: 참조
@@ -115,9 +117,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/firewall
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

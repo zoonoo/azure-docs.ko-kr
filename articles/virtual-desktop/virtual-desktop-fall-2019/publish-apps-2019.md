@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 80cd1a4c92441fb17ce0a66814ff0a39a92fb287
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b179ac555ea86aff381c1217e834b8d0aa85e8c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005570"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561707"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱에서 기본 제공 앱 게시 (클래식)
 
@@ -25,7 +25,7 @@ ms.locfileid: "88005570"
 기본 제공 앱을 게시 하려면:
 
 1. 호스트 풀의 가상 컴퓨터 중 하나에 연결 합니다.
-2. [이 문서의](/powershell/module/appx/get-appxpackage?view=win10-ps/)지침에 따라 게시 하려는 앱의 **PackageFamilyName** 를 가져옵니다.
+2. [이 문서의](/powershell/module/appx/get-appxpackage)지침에 따라 게시 하려는 앱의 **PackageFamilyName** 를 가져옵니다.
 3. 마지막으로, `<PackageFamilyName>` 이전 단계에서 찾은 **PackageFamilyName** 로 교체 하 여 다음 cmdlet을 실행 합니다.
 
    ```powershell

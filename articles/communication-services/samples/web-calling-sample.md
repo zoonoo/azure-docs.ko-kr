@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658100"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486406"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
@@ -23,6 +23,9 @@ ms.locfileid: "101658100"
 이 샘플은 개발자를 위해 작성되었으며 Communication Services를 매우 쉽게 시작할 수 있습니다. 사용자 인터페이스는 여러 섹션으로 구분되며, 각 섹션에는 코드를 브라우저에서 사용자 고유의 Communication Services 애플리케이션으로 직접 복사할 수 있는 "코드 표시" 단추가 있습니다.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 > [!IMPORTANT]
 > [이 샘플은 Github에서 사용할 수 있습니다](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).

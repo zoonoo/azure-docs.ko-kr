@@ -1,7 +1,7 @@
 ---
 title: Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치 | Microsoft Docs
 description: 이 문서에서는 Microsoft Azure에 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0를 설치 하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0d0a7d9060d751dbf05d39545b332c13010cbfae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483065"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553581"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
 
@@ -61,7 +61,7 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 5.  나머지 설정에 대 한 기본값을 적용 합니다. 이러한 Vm의 관리자에 대해 만든 사용자 이름 및 암호를 잊지 마세요.
 
-6.  가상 컴퓨터를 만든 경우 엔터프라이즈 서버 컴퓨터에서 인바운드 포트 **9003, 86** 및 원격 데스크톱 프로토콜 **3389** **80** (RDP)를 열고, 엔터프라이즈 서버 컴퓨터에서 3389을 열고, 개발자 컴퓨터에서 **3389** 를 엽니다.
+6.  가상 컴퓨터를 만든 경우 엔터프라이즈 서버 컴퓨터에서 인바운드 포트 **9003, 86** 및 원격 데스크톱 프로토콜 **3389** **80** (RDP)를 열고, 엔터프라이즈 서버 컴퓨터에서 3389을 열고, 개발자 컴퓨터에서  를 엽니다.
 
 7.  엔터프라이즈 서버 가상 머신에 로그인 하려면 Azure Portal에서 ES2 v3 VM을 선택 합니다. **개요** 섹션으로 이동 하 고 **연결** 을 선택 하 여 RDP 세션을 시작 합니다. VM에 대해 만든 자격 증명을 사용 하 여 로그인 합니다.
 
@@ -87,7 +87,7 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 1.  마이크로 포커스 라이선스 관리를 시작 합니다.
 
-2.  **Start** \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리** 시작을 선택 하 고 **설치** 탭을 클릭 합니다. 업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일** 에서 `mflic` 이전에 VM에 업로드 된 * 파일로 이동한 후 **라이선스 설치** 를 선택 합니다.
+2.   \> **마이크로 포커스 라이선스 관리자** \> **라이선스 관리** 시작을 선택 하 고 **설치** 탭을 클릭 합니다. 업로드할 라이선스 형식 유형 (라이선스 파일 또는 16 자 라이선스 코드)을 선택 합니다. 예를 들어 파일의 경우 **라이선스 파일** 에서 `mflic` 이전에 VM에 업로드 된 * 파일로 이동한 후 **라이선스 설치** 를 선택 합니다.
 
     ![설치 라이선스를 선택할 수 있는 마이크로 포커스 라이선스 관리 대화 상자가 표시 됩니다.](media/install-image-3.png)
 

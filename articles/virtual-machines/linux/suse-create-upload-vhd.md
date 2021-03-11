@@ -2,18 +2,19 @@
 title: Azure에서 SUSE Linux VHD 만들기 및 업로드
 description: SUSE Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 3d6a981db93cd84f0dbe5ab229ba1e90ee0bd1e7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200739"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552714"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
 

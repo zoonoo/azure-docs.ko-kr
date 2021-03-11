@@ -10,16 +10,16 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 2213da7b9c6e4776a0e463e6a43d0cc645a1e911
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 89b89eec0375cec7d27189a10f46e7317573b98b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750228"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511093"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
 - 활성 Communication Services 리소스 및 연결 문자열 [Communication Services 리소스를 만듭니다](../create-communication-resource.md).
 
@@ -45,7 +45,7 @@ dotnet build
 애플리케이션 디렉터리에 있는 동안 `dotnet add package` 명령을 사용하여 .NET 패키지용 Azure Communication Services ID 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Azure.Communication.Identity
+dotnet add package Azure.Communication.Identity --version 1.0.0
 ```
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
@@ -89,6 +89,21 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
+또는 엔드포인트 및 액세스 키를 구분할 수 있습니다.
+```csharp
+// This code demonstrates how to fetch your endpoint and access key
+// from an environment variable.
+string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
+string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
+var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
+```
+
+관리 ID가 설정된 경우([관리 ID 사용](../managed-identity.md) 참조) 관리 ID로 인증할 수도 있습니다.
+```csharp
+TokenCredential tokenCredential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+```
+
 ## <a name="create-an-identity"></a>ID 만들기
 
 Azure Communication Services는 경량 ID 디렉터리를 유지 관리합니다. `createUser` 메서드를 사용하여 고유한 `Id`로 디렉터리에 새 항목을 만듭니다. 애플리케이션의 사용자에게 매핑하여 수신된 ID를 저장합니다. 예를 들어 애플리케이션 서버의 데이터베이스에 저장합니다. ID는 나중에 액세스 토큰을 발급하는 데 필요합니다.
@@ -101,18 +116,18 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## <a name="issue-identity-access-tokens"></a>ID 액세스 토큰 발급
 
-`issueToken` 메서드를 사용하여 이미 존재하는 Communication Services ID에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요. 매개 변수 `communicationUser`의 새 인스턴스는 Azure Communication Service ID의 문자열 표현에 따라 구성될 수 있습니다.
+`GetToken` 메서드를 사용하여 이미 존재하는 Communication Services ID에 대한 액세스 토큰을 발급합니다. 매개 변수 `scopes`는 이 액세스 토큰에 권한을 부여하는 기본 형식 세트를 정의합니다. [지원되는 작업 목록](../../concepts/authentication.md)을 참조하세요. 매개 변수 `communicationUser`의 새 인스턴스는 Azure Communication Service ID의 문자열 표현에 따라 구성될 수 있습니다.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
-var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-액세스 토큰은 다시 발급해야 하는 단기 자격 증명입니다. 이렇게 하지 않으면 애플리케이션의 사용자 환경이 중단될 수 있습니다. `expiresOn` 응답 속성은 액세스 토큰의 수명을 나타냅니다. 
+액세스 토큰은 다시 발급해야 하는 단기 자격 증명입니다. 이렇게 하지 않으면 애플리케이션의 사용자 환경이 중단될 수 있습니다. `expiresOn` 응답 속성은 액세스 토큰의 수명을 나타냅니다.
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>ID를 만들고 동일한 요청 내에서 액세스 토큰을 발급합니다.
 
@@ -128,19 +143,19 @@ var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
 
 ## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
 
-액세스 토큰을 새로 고치려면 `CommunicationUser` 개체의 인스턴스를 `IssueTokenAsync`에 전달합니다. 이 `Id`를 저장했고 새 `CommunicationUser`를 만들어야 하는 경우 다음과 같이 저장된 `Id`를 `CommunicationUser` 생성자에 전달하면 됩니다.
+액세스 토큰을 새로 고치려면 `CommunicationUserIdentifier` 개체의 인스턴스를 `GetTokenAsync`에 전달합니다. 이 `Id`를 저장했고 새 `CommunicationUserIdentifier`를 만들어야 하는 경우 다음과 같이 저장된 `Id`를 `CommunicationUserIdentifier` 생성자에 전달하면 됩니다.
 
-```csharp  
+```csharp
 // In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-identityToRefresh = new CommunicationUser(userId);
-tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
+var identityToRefresh = new CommunicationUserIdentifier(userId);
+var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
 ## <a name="revoke-access-tokens"></a>액세스 토큰 취소
 
 경우에 따라 액세스 토큰을 명시적으로 취소할 수 있습니다. 예를 들어 애플리케이션의 사용자가 서비스에 인증하는 데 사용하는 암호를 변경하는 경우입니다. 메서드 `RevokeTokensAsync`는 ID에 발급된 모든 활성 액세스 토큰을 무효화합니다.
 
-```csharp  
+```csharp
 await client.RevokeTokensAsync(identity);
 Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
 ```

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cc3498c6d8f385bcf63aa7860edd12f9bf343fb8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397164"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552568"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* , *myvmss2* 및 *myvmss3* 입니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+이 예제에서는 사용자가 만든 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3* 입니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -358,7 +358,7 @@ for ($i=1; $i -le 3; $i++)
   $vmssConfig = New-AzVmssConfig `
     -Location eastus `
     -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
+    -SkuName Standard_DS2_v2 `
     -UpgradePolicyMode Automatic
 
   Set-AzVmssStorageProfile $vmssConfig `

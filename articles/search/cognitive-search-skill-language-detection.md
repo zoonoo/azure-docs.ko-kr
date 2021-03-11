@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078a9312a7ee1b3b0eafd000928ed74348a540c3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935996"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548056"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
@@ -21,7 +21,7 @@ ms.locfileid: "88935996"
 
 이 기능은 텍스트 언어를 다른 기술에 대한 입력으로 제공해야 할 경우 특히 유용합니다(예를 들어 [감정 분석 기술](cognitive-search-skill-sentiment.md) 또는 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)).
 
-언어 검색은 Text Analytics에 대해 나열 된 [지원 되는 언어 및 지역](../cognitive-services/text-analytics/language-support.md) 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용 합니다. 언어에 대 한 정확한 목록은 게시 되지 않지만 널리 쓰이는 모든 언어, 변형, 언어 및 일부 지역 및 문화 언어를 포함 합니다. 자주 사용 하지 않는 언어로 표현 된 콘텐츠가 있는 경우 [언어 감지 API를 사용해](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 서 코드를 반환 하는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `unknown`입니다.
+언어 검색은 Text Analytics에 대해 나열 된 [지원 되는 언어 및 지역](../cognitive-services/text-analytics/language-support.md) 수를 초과 하는 Bing의 자연어 처리 라이브러리를 활용 합니다. 언어에 대 한 정확한 목록은 게시 되지 않지만 널리 쓰이는 모든 언어, 변형, 언어 및 일부 지역 및 문화 언어를 포함 합니다. 자주 사용 하지 않는 언어로 표현 된 콘텐츠가 있는 경우 [언어 감지 API를 사용해](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 서 코드를 반환 하는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `(Unknown)`입니다.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -35,6 +35,15 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 ## <a name="data-limits"></a>데이터 제한
 레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 언어 검색 기술에 전송 하기 전에 데이터를 분할 해야 하는 경우 [텍스트 분할 기술을](cognitive-search-skill-textsplit.md)사용할 수 있습니다.
 
+## <a name="skill-parameters"></a>기술 매개 변수
+
+매개 변수는 대/소문자를 구분합니다.
+
+| 입력 | Description |
+|---------------------|-------------|
+| `defaultCountryHint` | 필드 언어를 구분할 수 없는 경우 언어 검색 모델에 대 한 힌트로 사용할 ISO 3166-1 알파-2 2 letter 국가 코드를 제공할 수 있습니다. 자세한 내용은이 항목에 대 한 [Text Analytics 설명서를](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) 참조 하세요. 특히 `defaultCountryHint` 매개 변수는 입력을 명시적으로 지정 하지 않는 문서와 함께 사용 됩니다 `countryHint` .  |
+| `modelVersion`   | 필드 Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정 되지 않은 경우 기본적으로 사용 가능한 최신 버전으로 지정 됩니다. 반드시 필요한 경우가 아니면이 값을 지정 하지 않는 것이 좋습니다. 자세한 내용은 [텍스트 분석 API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md) 를 참조 하세요. |
+
 ## <a name="skill-inputs"></a>기술 입력
 
 매개 변수는 대/소문자를 구분합니다.
@@ -42,6 +51,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 | 입력     | Description |
 |--------------------|-------------|
 | `text` | 분석할 텍스트입니다.|
+| `countryHint` | 언어를 구분할 수 없는 경우 언어 검색 모델에 대 한 힌트로 사용할 ISO 3166-1 알파-2 2 letter 국가 코드입니다. 자세한 내용은이 항목에 대 한 [Text Analytics 설명서를](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) 참조 하세요. |
 
 ## <a name="skill-outputs"></a>기술 출력
 
@@ -60,6 +70,10 @@ Microsoft.Skills.Text.LanguageDetectionSkill
       {
         "name": "text",
         "source": "/document/text"
+      },
+      {
+        "name": "countryHint",
+        "source": "/document/countryHint"
       }
     ],
     "outputs": [
@@ -98,6 +112,14 @@ Microsoft.Skills.Text.LanguageDetectionSkill
            {
              "text": "Estamos muy felices de estar con ustedes."
            }
+      },
+      {
+        "recordId": "3",
+        "data":
+           {
+             "text": "impossible",
+             "countryHint": "fr"
+           }
       }
     ]
 ```
@@ -125,14 +147,19 @@ Microsoft.Skills.Text.LanguageDetectionSkill
               "languageName": "Spanish",
               "score": 1,
             }
+      },
+      {
+        "recordId": "3",
+        "data":
+            {
+              "languageCode": "fr",
+              "languageName": "French",
+              "score": 1,
+            }
       }
     ]
 }
 ```
-
-
-## <a name="error-cases"></a>오류 사례
-텍스트가 지원되지 않는 언어에서 표현되는 경우 오류가 발생하고 언어 식별자가 반환되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576619"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548447"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "99576619"
 
 ### <a name="perform-code-reviews"></a>코드 검토 수행
 
-코드를 체크 인하기 전에, [코드 검토](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs)를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
+코드를 체크 인하기 전에, [코드 검토](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs)를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
 
 ### <a name="perform-static-code-analysis"></a>정적 코드 분석 수행
 

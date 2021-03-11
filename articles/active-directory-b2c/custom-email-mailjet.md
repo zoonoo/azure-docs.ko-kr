@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6643d44e1b90bb18f5893ba07a4291601b588664
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949584"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631220"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
 
@@ -174,20 +174,26 @@ Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 
 이러한 클레임 유형은 OTP (일회용 암호) 코드를 사용 하 여 전자 메일 주소를 생성 및 확인 하는 데 필요 합니다.
 
 ```XML
-<ClaimType Id="Otp">
-  <DisplayName>Secondary One-time password</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="emailRequestBody">
-  <DisplayName>Mailjet request body</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="VerificationCode">
-  <DisplayName>Secondary Verification Code</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Enter your email verification code</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
+<!--
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="Otp">
+      <DisplayName>Secondary One-time password</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="emailRequestBody">
+      <DisplayName>Mailjet request body</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="VerificationCode">
+      <DisplayName>Secondary Verification Code</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Enter your email verification code</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks> -->
 ```
 
 ## <a name="add-the-claims-transformation"></a>클레임 변환 추가
@@ -203,27 +209,33 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 * `Messages.0.Subject`제목 줄 입력 매개 변수의 값을 조직에 적절 한 제목 줄로 업데이트 합니다.
 
 ```XML
-<ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
-  </InputClaims>
-  <InputParameters>
-    <!-- Update the template_id value with the ID of your Mailjet template. -->
-    <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
-    <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
+<!-- 
+<BuildingBlocks>
+  <ClaimsTransformations> -->
+    <ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
+        <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
+      </InputClaims>
+      <InputParameters>
+        <!-- Update the template_id value with the ID of your Mailjet template. -->
+        <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
+        <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
 
-    <!-- Update with an email appropriate for your organization. -->
-    <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
+        <!-- Update with an email appropriate for your organization. -->
+        <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
 
-    <!-- Update with a subject line appropriate for your organization. -->
-    <InputParameter Id="Messages.0.Subject" DataType="string" Value="Contoso account email verification code"/>
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
-  </OutputClaims>
-</ClaimsTransformation>
+        <!-- Update with a subject line appropriate for your organization. -->
+        <InputParameter Id="Messages.0.Subject" DataType="string" Value="Contoso account email verification code"/>
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
+      </OutputClaims>
+    </ClaimsTransformation>
+  <!--
+  </ClaimsTransformations>
+</BuildingBlocks> -->
 ```
 
 ## <a name="add-datauri-content-definition"></a>DataUri 콘텐츠 정의 추가
@@ -231,14 +243,18 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 내의 클레임 변환 아래 `<BuildingBlocks>` 에서 다음 [contentdefinition](contentdefinitions.md) 을 추가 하 여 버전 2.1.0 데이터 URI를 참조 합니다.
 
 ```XML
-<ContentDefinitions>
- <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
+<!--
+<BuildingBlocks> -->
+  <ContentDefinitions>
+   <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+    </ContentDefinition>
+  </ContentDefinitions>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## <a name="create-a-displaycontrol"></a>DisplayControl 만들기
@@ -257,30 +273,34 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 콘텐츠 정의에서 여전히 내에 `<BuildingBlocks>` [VerificationControl](display-control-verification.md) 형식의 다음 [DisplayControl](display-controls.md) 를 정책에 추가 합니다.
 
 ```XML
-<DisplayControls>
-  <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
-    <DisplayClaims>
-      <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
-      <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
-    </DisplayClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="email" />
-    </OutputClaims>
-    <Actions>
-      <Action Id="SendCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-      <Action Id="VerifyCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-    </Actions>
-  </DisplayControl>
-</DisplayControls>
+<!--
+<BuildingBlocks> -->
+  <DisplayControls>
+    <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+      <DisplayClaims>
+        <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+      </DisplayClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="email" />
+      </OutputClaims>
+      <Actions>
+        <Action Id="SendCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+        <Action Id="VerifyCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+      </Actions>
+    </DisplayControl>
+  </DisplayControls>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## <a name="add-otp-technical-profiles"></a>OTP 기술 프로필 추가
@@ -290,41 +310,45 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 요소에 다음 기술 프로필을 추가 합니다 `<ClaimsProviders>` .
 
 ```XML
-<ClaimsProvider>
-  <DisplayName>One time password technical profiles</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="GenerateOtp">
-      <DisplayName>Generate one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">1200</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="ReuseSameCode">true</Item>
-        <Item Key="MaxNumAttempts">5</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
-      </OutputClaims>
-    </TechnicalProfile>
+<!--
+<ClaimsProviders> -->
+  <ClaimsProvider>
+    <DisplayName>One time password technical profiles</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="GenerateOtp">
+        <DisplayName>Generate one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">GenerateCode</Item>
+          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeLength">6</Item>
+          <Item Key="CharacterSet">0-9</Item>
+          <Item Key="ReuseSameCode">true</Item>
+          <Item Key="NumRetryAttempts">5</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
+        </OutputClaims>
+      </TechnicalProfile>
 
-    <TechnicalProfile Id="VerifyOtp">
-      <DisplayName>Verify one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
-      </InputClaims>
-    </TechnicalProfile>
-   </TechnicalProfiles>
-</ClaimsProvider>
+      <TechnicalProfile Id="VerifyOtp">
+        <DisplayName>Verify one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">VerifyCode</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+          <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
+        </InputClaims>
+      </TechnicalProfile>
+     </TechnicalProfiles>
+  </ClaimsProvider>
+<!--
+</ClaimsProviders> -->
 ```
 
 ## <a name="add-a-rest-api-technical-profile"></a>REST API 기술 프로필 추가
@@ -449,50 +473,58 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
 1. 다음 [지역화](localization.md) 요소를 추가 합니다.
 
     ```xml
-    <Localization Enabled="true">
-      <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
-        <SupportedLanguage>en</SupportedLanguage>
-        <SupportedLanguage>es</SupportedLanguage>
-      </SupportedLanguages>
-      <LocalizedResources Id="api.custom-email.en">
-        <LocalizedStrings>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
-        </LocalizedStrings>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <LocalizedResources Id="api.custom-email.es">
-        <LocalizedStrings>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-    </Localization>
+    <!--
+    <BuildingBlocks> -->
+      <Localization Enabled="true">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+          <SupportedLanguage>en</SupportedLanguage>
+          <SupportedLanguage>es</SupportedLanguage>
+        </SupportedLanguages>
+        <LocalizedResources Id="api.custom-email.en">
+          <LocalizedStrings>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+          </LocalizedStrings>
+          </LocalizedStrings>
+        </LocalizedResources>
+        <LocalizedResources Id="api.custom-email.es">
+          <LocalizedStrings>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+      </Localization>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. [Contentdefinitions](contentdefinitions.md) 요소를 업데이트 하 여 LocalizedResources 요소에 대 한 참조를 추가 합니다.
 
     ```xml
-    <ContentDefinitions>
-      <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-      <ContentDefinition Id="api.localaccountpasswordreset">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!--
+    <BuildingBlocks> -->
+      <ContentDefinitions>
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+        <ContentDefinition Id="api.localaccountpasswordreset">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+      </ContentDefinitions>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. 마지막으로 및 기술 프로필에 다음 입력 클레임 변환을 추가 `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` 합니다.

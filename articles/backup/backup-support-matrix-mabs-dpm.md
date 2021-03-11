@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: e888b43ea5641f1943a096f045747d547c52fcfa
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986059"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609756"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -60,9 +60,9 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 
 **배포** | **지원** | **세부 정보**
 --- | --- | ---
-**온-프레미스에 배포** | 실제 서버<br/><br/>Hyper-V VM<br/><br/> VMware VM | 자세한 내용은 [보호 매트릭스](backup-mabs-protection-matrix.md) 를 참조 하세요. 
+**온-프레미스에 배포** | 실제 서버는 아니지만 실제 클러스터에는 그렇지 않습니다.<br/><br/>Hyper-v VM. 독립형 하이퍼바이저 또는 클러스터에서 MABS를 게스트 컴퓨터로 배포할 수 있습니다. 클러스터 또는 독립 실행형 하이퍼바이저의 노드에 배포할 수 없습니다. Azure Backup Server는 단일 용도의 전용 서버에서 실행 되도록 설계 되었습니다.<br/><br/> VMware 환경의 Windows 가상 머신으로 | 온-프레미스 MABS 서버는 Azure 기반 작업을 보호할 수 없습니다. <br><br> 자세한 내용은 [보호 매트릭스](backup-mabs-protection-matrix.md)를 참조 하세요.
 **Azure Stack VM으로 배포** | MABS만 | DPM은 Azure Stack VM을 백업하는 데 사용할 수 없습니다.
-**Azure VM으로 배포** | 해당 Vm에서 실행 되는 Azure Vm 및 워크 로드를 보호 합니다. | Azure에서 실행 되는 DPM/MABS는 온-프레미스 컴퓨터를 백업할 수 없습니다.
+**Azure VM으로 배포** | 해당 Vm에서 실행 되는 Azure Vm 및 워크 로드를 보호 합니다. | Azure에서 실행 되는 DPM/MABS는 온-프레미스 컴퓨터를 백업할 수 없습니다. Azure IaaS Vm에서 실행 되는 작업을 보호할 수 있습니다.
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>지원되는 MABS 및 DPM 운영 체제
 
@@ -87,6 +87,9 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> 복원 해야 하므로 MABS 데이터베이스를 백업 해야 합니다.
+
+>[!NOTE]
+>DPM/MABS 서버의 이름은 바꿀 때 지원 되지 않습니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원
 
@@ -168,11 +171,19 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 |요구 사항 |세부 정보 |
 |---------|---------|
 |도메인    | DPM/MABS 서버는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 도메인에 있어야 합니다.        |
-|도메인 신뢰   |  DPM/MABS는 개별 포리스트 간에 포리스트 수준의 양방향 신뢰를 설정 하는 동안 포리스트 간 데이터 보호를 지원 합니다.   <BR><BR>   DPM/MABS는 DPM/MABS 서버 도메인과 양방향 트러스트 관계가 있는 포리스트 내에서 도메인 간에 서버 및 워크스테이션을 보호할 수 있습니다. 작업 그룹 또는 신뢰할 수 없는 도메인의 컴퓨터를 보호 하려면 작업 [그룹 및 신뢰할 수 없는 도메인에서 작업 백업 및 복원](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) 을 참조 하세요.  |
+|도메인 신뢰   |  DPM/MABS는 개별 포리스트 간에 포리스트 수준의 양방향 신뢰를 설정 하는 동안 포리스트 간 데이터 보호를 지원 합니다.   <BR><BR>   DPM/MABS는 DPM/MABS 서버 도메인과 양방향 트러스트 관계가 있는 포리스트 내에서 도메인 간에 서버 및 워크스테이션을 보호할 수 있습니다. 작업 그룹 또는 신뢰할 수 없는 도메인의 컴퓨터를 보호 하려면 작업 [그룹 및 신뢰할 수 없는 도메인에서 작업 백업 및 복원](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) 을 참조 하세요. <br><br> Hyper-v 서버 클러스터를 백업 하려면 MABS 서버와 동일한 도메인 또는 신뢰할 수 있는 도메인 또는 하위 도메인에 있어야 합니다. 신뢰할 수 없는 도메인에 있는 서버 및 클러스터 또는 작업은 단일 서버의 경우 NTLM 또는 인증서 인증, 클러스터의 경우 인증서 인증을 사용하여 백업할 수 있습니다.  |
 
 ## <a name="dpmmabs-storage-support"></a>DPM/MABS 스토리지 지원
 
 DPM/MABS에 백업 된 데이터는 로컬 디스크 저장소에 저장 됩니다.
+
+USB 또는 이동식 드라이브는 지원 되지 않습니다.
+
+DPM/MABS 볼륨에서는 NTFS 압축이 지원 되지 않습니다.
+
+디스크를 저장소 풀에 추가한 후에만 BitLocker를 사용 하도록 설정할 수 있습니다. BitLocker를 추가 하기 전에 BitLocker를 사용 하도록 설정 하지 마세요.
+
+NAS (네트워크 연결 저장소)는 DPM 저장소 풀에서 사용할 지원 되지 않습니다.
 
 **스토리지** | **세부 정보**
 --- | ---
@@ -199,6 +210,38 @@ Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버
 
 - DPM/MABS에 의해 백업 된 클러스터형 작업은 DPM/MABS와 동일한 도메인 또는 자식/트러스트 된 도메인에 있어야 합니다.
 - 신뢰할 수 없는 도메인 또는 작업 그룹의 데이터를 백업하려면 NTLM/인증서 인증을 사용할 수 있습니다.
+
+## <a name="deduplicated-volumes-support"></a>중복 제거된 볼륨 지원
+
+>[!NOTE]
+> MABS에 대 한 중복 제거 지원은 운영 체제 지원에 따라 달라 집니다.
+
+### <a name="for-ntfs-volumes"></a>NTFS 볼륨의 경우
+
+| 보호 된 서버의 운영 체제  | MABS 서버의 운영 체제  | MABS 버전  | 중복 제거 지원 |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| Windows Server 2019                       | Windows Server 2019                  | MABS v3            | Y                    |
+| Windows Server 2016                       | Windows Server 2019                  | MABS v3            | Y*                   |
+| Windows Server 2012 R2                    | Windows Server 2019                  | MABS v3            | N                    |
+| Windows Server 2012                       | Windows Server 2019                  | MABS v3            | N                    |
+| Windows Server 2019                       | Windows Server 2016                  | MABS v3            | Y * *                  |
+| Windows Server 2016                       | Windows Server 2016                  | MABS v3            | Y                    |
+| Windows Server 2012 R2                    | Windows Server 2016                  | MABS v3            | Y                    |
+| Windows Server 2012                       | Windows Server 2016                  | MABS v3            | Y                    |
+
+- \* WS 2019에서 실행 되는 MABS v3로 WS 2016 NTFS 중복 제거 된 볼륨을 보호 하는 경우 복구에 영향을 줄 수 있습니다. 중복 제거 된 방식으로 복구를 수행 하는 방법을 수정 했습니다. MABS v3 UR1에서이 수정이 필요한 경우 MABS 지원에 문의 하세요.
+- \** WS 2016에서 MABS v3을 사용 하 여 WS 2019 NTFS 중복 제거 된 볼륨을 보호 하는 경우 백업 및 복원은 중복 제거 된 되지 않습니다. 즉, 백업에서 원본 NTFS 중복 제거 된 볼륨 보다 MABS 서버에서 더 많은 공간을 사용 합니다.
+
+**문제**: 보호 된 서버 운영 체제를 windows server 2016에서 windows server 2019로 업그레이드 하는 경우 중복 제거 논리가 변경 되어 NTFS 중복 제거 된 볼륨의 백업이 영향을 받게 됩니다.
+
+**해결 방법**: mabs v3 UR1에 대 한이 수정이 필요한 경우 mabs 지원에 문의 하세요.
+
+### <a name="for-refs-volumes"></a>ReFS 볼륨의 경우
+
+>[!NOTE]
+> 중복 제거 된 ReFS 볼륨의 백업과 관련 된 몇 가지 문제를 확인 했습니다. 이와 같은 문제를 해결하기 위해 노력하고 있으며 해결책이 마련되는 대로 이 섹션을 업데이트할 예정입니다. 그때까지 MABS v3에서 중복 제거 된 ReFS 볼륨의 백업에 대 한 지원을 제거 합니다.
+>
+> MABS v3 UR1 이상에서는 일반 ReFS 볼륨의 보호 및 복구를 계속 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

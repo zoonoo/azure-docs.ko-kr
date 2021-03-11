@@ -2,22 +2,23 @@
 title: OpenBSD 이미지 만들기 및 업로드
 description: OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하여 Azure CLI를 통해 Azure 가상 컴퓨터를 만드는 방법을 알아봅니다.
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3437fcd2d1d521aad237ecf6d3f7937b4835d376
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685092"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554601"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
 이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조 하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
@@ -87,7 +88,7 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
 
 
 ## <a name="prepare-the-vhd"></a>VHD 준비
-VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다. Hyper-V 관리자 또는 Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd?view=win10-ps) cmdlet을 사용하여 디스크를 고정 VHD 형식으로 변환할 수 있습니다. 예제는 다음과 같습니다.
+VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다. Hyper-V 관리자 또는 Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용하여 디스크를 고정 VHD 형식으로 변환할 수 있습니다. 예제는 다음과 같습니다.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

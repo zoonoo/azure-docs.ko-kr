@@ -14,6 +14,8 @@
       href: tutorial-move-region-virtual-machines.md
     - name: 암호화된 Azure VM을 다른 지역으로 이동
       href: tutorial-move-region-encrypted-virtual-machines.md
+    - name: PowerShell을 사용하여 지역 간 리소스 이동
+      href: tutorial-move-region-powershell.md
     - name: 다른 지역으로 SQL 리소스 이동
       href: tutorial-move-region-sql.md
 - name: 개념
@@ -28,8 +30,6 @@
   items:
     - name: 지역 간 이동
       items:
-        - name: PowerShell을 사용하여 영역 간 이동
-          href: move-region-powershell.md
         - name: 가용성 영역으로 Azure VM 이동
           href: move-region-availability-zone.md
         - name: 영역 간 이동(리소스 그룹에서)

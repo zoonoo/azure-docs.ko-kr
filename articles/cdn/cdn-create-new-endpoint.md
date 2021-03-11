@@ -1,26 +1,19 @@
 ---
 title: 빠른 시작 - Azure CDN 프로필 및 엔드포인트 만들기
 description: 이 빠른 시작에서는 새로운 CDN 프로필 및 엔드포인트를 만들어서 Azure CDN을 활성화하는 방법을 설명합니다.
-services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 45edf57ed41f8cf7be839edade5038a0787424a4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367295"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555706"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -82,6 +75,3 @@ CDN 프로필을 만든 후에 엔드포인트를 만드는 데 사용할 수 �
 
 > [!div class="nextstepaction"]
 > [자습서: CDN을 사용하여 웹앱에서 정적 콘텐츠 적용](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)

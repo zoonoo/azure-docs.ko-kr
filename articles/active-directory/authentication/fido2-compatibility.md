@@ -11,12 +11,12 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5eb77a27a7c74ad9738a0e1784066a6a859e43
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f90edd5729ff5229be09bc3798082c33bdeead2
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175371"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632104"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>FIDO2 암호 없는 인증에 대 한 브라우저 지원
 
@@ -26,7 +26,7 @@ Azure Active Directory를 사용 하 여 [FIDO2 보안 키](./concept-authentica
 
 이 표에서는 Azure Active Directory (Azure AD) 및 Microsoft 계정 (MSA)을 인증 하는 기능을 보여 줍니다. Microsoft 계정은 고객이 Xbox, Skype 또는 Outlook.com와 같은 서비스를 위해 만듭니다. 지원 되는 장치 유형에는 **USB**,**NFC**(근거리 통신) 및 bluetooth 저 **에너지 (가장** 작은 에너지)가 포함 됩니다.
 
-| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
+| OS | Chrome | Chrome  | Chrome | Microsoft Edge | Microsoft Edge | Microsoft Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | 스크램블 | USB | NFC | 스크램블 | USB | NFC | 스크램블 |
 | **Windows**  | ![Chrome은 AAD 계정에 대해 Windows에서 USB를 지원 합니다.][y] | ![Chrome은 AAD 계정에 대해 Windows에서 NFC를 지원 합니다.][y] | ![Chrome은 AAD 계정에 대해 Windows에서이를 지원 합니다.][y] | ![Edge는 AAD 계정에 대해 Windows에서 USB를 지원 합니다.][y] | ![Edge는 AAD 계정에 대해 Windows에서 NFC를 지원 합니다.][y] | ![Edge는 AAD 계정에 대해 Windows에서의 것을 지원 합니다.][y] | ![Firefox는 AAD 계정에 대해 Windows에서 USB를 지원 합니다.][y] | ![Firefox는 AAD 계정에 대해 Windows에서 NFC를 지원 합니다.][y] | ![Firefox는 AAD 계정에 대해 Windows에서의 것을 지원 합니다.][y] |
@@ -53,9 +53,8 @@ Azure Active Directory를 사용 하 여 [FIDO2 보안 키](./concept-authentica
 | 브라우저 | 최소 버전 |
 | ---- | ---- |
 | Chrome | 76 |
-| Edge | Windows 10 버전 1903<sup>1</sup> |
-| Firefox | Chrome |
-| ChromeOS | 66 |
+| Microsoft Edge | Windows 10 버전 1903<sup>1</sup> |
+| Firefox | 66 |
 
 <sup>1</sup> 새 Chromium 기반 Microsoft Edge의 모든 버전은 Fido2을 지원 합니다. Microsoft Edge legacy에서의 지원은 1903에 추가 되었습니다.
 

@@ -1,24 +1,25 @@
 ---
 title: InfiniBand 드라이버 확장-Azure Linux Vm
 description: Linux를 실행 하는 H-및 N 시리즈 계산 Vm에 InfiniBand 드라이버를 설치 하기 위한 확장을 Microsoft Azure 합니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 editor: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1219f5befb4de81850681a53c10f03dc81249d53
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966040"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559735"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Linux 용 InfiniBand 드라이버 확장
 
@@ -28,7 +29,7 @@ OFED 드라이버의 수동 설치에 대 한 지침은 [여기](../workloads/hp
 
 확장은 [Windows vm](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치 하는 데도 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 

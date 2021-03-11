@@ -11,18 +11,18 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: 6043ea4e1366890033571c2ba78ecdb2e59f64e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9de971639e22f9656ea75dc64993ac5881efbffb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325207"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609416"
 ---
 # <a name="continuously-deploy-models"></a>지속적으로 모델 배포
 
 이 문서에서는 Azure DevOps에서 연속 배포를 사용 하 여 등록 된 모델의 새 버전을 자동으로 확인 하 고 이러한 새 모델을 프로덕션 환경으로 푸시하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Azure Machine Learning 작업 영역에 모델을 이미 등록 했다고 가정 합니다. Scikit 모델을 학습 하 고 등록 하는 방법에 대 한 예제는 [이 자습서](how-to-train-scikit-learn.md) 를 참조 하세요.
 
@@ -30,9 +30,9 @@ ms.locfileid: "93325207"
 
 [Azure DevOps](https://azure.microsoft.com/services/devops/)에 대 한 Machine Learning 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다. 새 Machine Learning 모델이 Azure Machine Learning 작업 영역에 등록 된 경우 Azure DevOps 용 Machine Learning 확장을 사용 하 여 배포 파이프라인을 트리거할 수 있습니다.
 
-1. 응용 프로그램을 사용 가능한 플랫폼 또는 클라우드에 지속적으로 통합 하 고 제공 하는 [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)에 등록 하세요. Azure Pipelines은 [Machine Learning 파이프라인과](concept-ml-pipelines.md#compare)동일 하지 않습니다.
+1. 응용 프로그램을 사용 가능한 플랫폼 또는 클라우드에 지속적으로 통합 하 고 제공 하는 [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)에 등록 하세요. Azure Pipelines은 [Machine Learning 파이프라인과](concept-ml-pipelines.md#compare)동일 하지 않습니다.
 
-1. [Azure DevOps 프로젝트를 만듭니다.](/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Azure DevOps 프로젝트를 만듭니다.](/azure/devops/organizations/projects/create-project)
 
 1. [Azure Pipelines에 대 한 Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList)을 설치 합니다.
 

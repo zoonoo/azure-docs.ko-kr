@@ -13,12 +13,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 374e8bb61886a78289fcf44ce9582df325a4e64c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428152"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549042"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -240,13 +240,13 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 
 ## <a name="cmdlet-reference"></a>Cmdlet 참조
 
-[Azure Active Directory PowerShell For Graph Preview 모듈](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true)의 cmdlet입니다.
+[Azure Active Directory PowerShell For Graph Preview 모듈](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals)의 cmdlet입니다.
 
 ### <a name="manage-policies"></a>정책 관리
 
 다음 cmdlet을 사용하여 정책을 관리할 수 있습니다.
 
-| Cmdlet | Description | 
+| Cmdlet | 설명 | 
 | --- | --- |
 | [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 새 정책을 만듭니다. |
 | [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | 모든 Azure AD 정책 또는 지정된 정책을 가져옵니다. |
@@ -257,7 +257,7 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 ### <a name="application-policies"></a>애플리케이션 정책
 애플리케이션 정책에 다음 cmdlet을 사용할 수 있습니다.</br></br>
 
-| Cmdlet | Description | 
+| Cmdlet | 설명 | 
 | --- | --- |
 | [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 애플리케이션에 연결합니다. |
 | [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | 애플리케이션에 할당된 정책을 가져옵니다. |
@@ -266,7 +266,7 @@ PowerShell을 사용 하 여 사용 중지의 영향을 받는 정책을 찾을 
 ### <a name="service-principal-policies"></a>서비스 사용자 정책
 서비스 주체 정책에 다음 cmdlet을 사용할 수 있습니다.
 
-| Cmdlet | Description | 
+| Cmdlet | 설명 | 
 | --- | --- |
 | [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 정책을 서비스 주체에 연결합니다. |
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | 지정된 서비스 주체에 연결된 모든 정책을 가져옵니다.|

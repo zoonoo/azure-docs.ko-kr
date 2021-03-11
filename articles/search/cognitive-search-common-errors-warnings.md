@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895942"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553241"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -236,6 +236,8 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>경고: 기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
 다운스트림 기술에 대 한 선택적 입력으로 전달 된 값 중 하나 이상이 `languageCode` 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
+
+LanguageDetectionSkill에 잘못 된 입력이 전달 되는 경우에도 이와 유사한 경고를 얻을 수 있습니다 `countryHint` . 이 경우 데이터 원본에서 해당 입력에 대해 사용 하는 필드에 유효한 ISO 3166-1 alpha-2 2 문자 국가 코드가 포함 되어 있는지 확인 하세요. 유효 하 고 일부는 유효 하지 않은 경우 다음 지침을 계속 진행 하지만 `languageCode` `countryHint` `defaultLanguageCode` 사용 사례와 일치 하도록 및를로 바꿉니다 `defaultCountryHint` .
 
 데이터 집합이 모두 한 언어로 표시 되는 경우 [](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
 

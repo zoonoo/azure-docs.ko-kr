@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691130"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485404"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(4.0 서버 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,6 +24,9 @@ Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모
 ## <a name="protocol-support"></a>프로토콜 지원
 
 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다. Azure Cosmos DB의 API for MongoDB 계정을 사용하는 경우 3.6 버전 이상의 계정에는 `*.mongo.cosmos.azure.com` 형식의 엔드포인트가 있지만 3.2 버전의 계정에는 `*.documents.azure.com` 형식의 엔드포인트가 있습니다.
+
+> [!NOTE]
+> 이 문서에서는 지원되는 서버 명령만 나열하고 클라이언트 쪽 래퍼 함수는 제외합니다. `deleteMany()` 및 `updateMany()`와 같은 클라이언트 쪽 래퍼 함수는 내부적으로 `delete()` 및 `update()` 서버 명령을 활용합니다. 지원되는 서버 명령을 활용하는 함수는 Azure Cosmos DB의 API for MongoDB와 호환됩니다.
 
 ## <a name="query-language-support"></a>쿼리 언어 지원
 

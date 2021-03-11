@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용�
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246964"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609076"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -67,7 +67,8 @@ echo Storage account key: $STORAGE_KEY
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## <a name="mount-the-file-share-as-a-volume"></a>파일 공유를 볼륨으로 마운트
+## <a name="mount-file-share-as-an-inline-volume"></a>파일 공유를 인라인 볼륨으로 탑재
+> 참고: 1.18.15, 1.19.7, 1.20.2, 1.21.0 및 인라인 볼륨의 암호 네임 스페이스 `azureFile` 는 네임 스페이스로만 설정할 수 있으며, `default` 다른 암호 네임 스페이스를 지정 하려면 아래 영구 볼륨 예제를 대신 사용 하세요.
 
 Azure Files 공유를 pod에 탑재 하려면 컨테이너 사양에서 볼륨을 구성 합니다. 다음 내용이 포함 된 라는 새 파일을 만듭니다 `azure-files-pod.yaml` . 파일 공유 이름 또는 비밀 이름을 변경한 경우 *shareName* 및 *secretName* 을 업데이트하세요. 원하는 경우, 파일 공유가 Pod에 마운트되는 경로인 `mountPath`를 업데이트하세요. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
 
@@ -131,9 +132,10 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>탑재 옵션
+## <a name="mount-file-share-as-an-persistent-volume"></a>영구적 볼륨으로 파일 공유 탑재
+ - 탑재 옵션
 
-*FileMode* 및 이상 *모드* 의 기본값은 Kubernetes version 1.9.1 이상에서 *0755* 입니다. Kubernetes 버전이 1.8.5 이상인 클러스터를 사용 하 고 영구적 볼륨 개체를 정적으로 만드는 경우 *PersistentVolume* 개체에 탑재 옵션을 지정 해야 합니다. 다음 예제에서는 *0777* 을 설정합니다.
+*FileMode* 및 *dimode* 의 기본값은 Kubernetes 버전 1.15 이상에서 *0777* 입니다. 다음 예제에서는 *PersistentVolume* 개체에 *0755* 을 설정 합니다.
 
 ```yaml
 apiVersion: v1
@@ -147,18 +149,17 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
+    secretNamespace: default
     shareName: aksshare
     readOnly: false
   mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
+  - dir_mode=0755
+  - file_mode=0755
   - uid=1000
   - gid=1000
   - mfsymlinks
   - nobrl
 ```
-
-버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0* 으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
 
 탑재 옵션을 업데이트 하려면 *PersistentVolume* 를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 예를 들면 다음과 같습니다.
 

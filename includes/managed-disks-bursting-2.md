@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178367"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623592"
 ---
 ## <a name="disk-level-bursting"></a>디스크 수준 버스트
 
@@ -147,7 +147,7 @@ VM이 시작 되 면 OS 디스크에서 해당 버스트 제한인 1280 m b/s를
 
 시작한 후에는 중요 하지 않은 작업을 포함 하는 응용 프로그램을 시작 합니다. 이 응용 프로그램은 모든 디스크에서 균등 하 게 분산 되는 15 m b/초를 요구 합니다.
 
-![응용 프로그램에서 VM에 대 한 처리량을 15 m b/초 동안 요청 하 고, VM에서 요청을 수행 하 여 각 디스크를 5 m b/s에 대해 요청 하 고, 각 디스크가 5 m b/s를 반환 합니다.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![응용 프로그램은 VM에 대 한 처리량을 15 m b/초에 요청 하 고, VM은 요청을 받아서 5 m b/s에 대 한 요청을 전송 합니다. 각 디스크는 5mb의 응답을 반환 하 고, VM은 응용 프로그램에 15mb/s를 반환 합니다.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 그런 다음 응용 프로그램에서 360 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 이 수요와 요청을 충족 하는 Standard_L8s_v2 버스트 됩니다. OS 디스크에는 20mb/s만 필요 합니다. 나머지 340 m b/s는 버스트 P4 데이터 디스크에 의해 처리 됩니다.
 

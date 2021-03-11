@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: 78b93c05621754ae499e4ae8ca6b66c5bbfaad1b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027552"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623421"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
 
@@ -71,7 +71,7 @@ QnA Maker 기술 자료를 구축 하 고 있지만 주체 도메인이 변경 �
 
 서비스에서 제공 하는 것 보다 많은 정보가 채팅 봇에 필요한 경우 의사 결정 트리를 계속 사용 하려면 두 서비스를 모두 사용 하 고 클라이언트 응용 프로그램에서 두 응답을 모두 처리 합니다.
 
-Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) .
+Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) .
 
 **NLP와 함께** 봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
 
@@ -82,12 +82,12 @@ Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools
 * [LUIS](../luis/luis-concept-best-practices.md) 모범 사례
 * [QnA Maker](../qnamaker/concepts/best-practices.md) 모범 사례
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [언어 이해(LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework 샘플](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Azure bot service](/azure/bot-service/bot-service-overview-introduction)
 * [Azure 봇 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework 웹 채팅](https://github.com/microsoft/BotFramework-WebChat)

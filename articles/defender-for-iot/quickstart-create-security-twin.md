@@ -1,5 +1,5 @@
 ---
-title: 보안 모듈 쌍 만들기
+title: '빠른 시작: 보안 모듈 쌍 만들기'
 description: 이 빠른 시작에서는 Azure Defender for IoT에서 사용할 Defender for IoT 모듈 쌍을 만드는 방법을 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 68d137caeed91e9dea2dbf3883929d85c25382aa
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523263"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449699"
 ---
-# <a name="create-an-azureiotsecurity-module-twin"></a>azureiotsecurity 모듈 쌍 만들기
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
 이 빠른 시작에서는 새 디바이스에 대한 개별 _azureiotsecurity_ 모듈 쌍을 만들거나 IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄 처리하는 방법에 대해 설명합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+없음
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>azureiotsecurity 모듈 쌍 이해
 

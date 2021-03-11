@@ -2,16 +2,17 @@
 title: Linux VHD 만들기 및 업로드
 description: Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: 9888cde8bca9fb0646dbdc8bb601b0887908ad1d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5a62bae8881f20eb7778f179cbecce77f102f6e8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203238"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554635"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
