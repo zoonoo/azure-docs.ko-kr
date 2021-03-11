@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 15e1dff37e1782baf5740a3fb35119bbbbffc297
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931724"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558800"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -23,7 +23,7 @@ Durable Functions는 현재 다음 언어를 지원합니다.
 
 * **C#**: [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
-* **Python**: Durable Functions 확장 버전 2.3.1 이상이 필요합니다. Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다.
+* **Python**: Durable Functions 확장 버전 2.3.1 이상이 필요합니다.
 * **F#**: 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
 * **PowerShell**: Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다. Azure Functions 런타임 및 PowerShell 7 버전 3.x에서만 지원됩니다. Durable Functions 확장 버전 2.2.2 또는 이후 버전이 필요합니다. 현재 지원되는 패턴은 다음과 같습니다. [함수 체이닝](#chaining), [팬아웃/팬인](#fan-in-out), [비동기 HTTP API](#async-http).
 

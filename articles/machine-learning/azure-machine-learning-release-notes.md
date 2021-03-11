@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521206"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608685"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -59,7 +59,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + [기본 터미널 (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다.
   + [노트북 코드 조각 (미리 보기)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). 이제는 일반적인 Azure ML 코드 발췌를 편리 하 게 이용할 수 있습니다. 도구 모음을 통해 액세스할 수 있는 코드 조각 패널로 이동 하거나 Ctrl + 스페이스바를 사용 하 여 코드 내 조각 메뉴를 활성화 합니다.  
   + [바로 가기 키](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys) Jupyter에서 사용할 수 있는 바로 가기 키가 포함 된 전체 패리티입니다. 
-  + 셀 매개 변수를 지정 합니다. 노트북의 셀이 있는 사용자가 매개 변수 셀 이며 계산 인스턴스에서 [용지 제분소](https://github.com/nteract/papermill) 를 통해 매개 변수가 있는 노트북을 실행할 수 있습니다.
+  + 셀 매개 변수를 지정 합니다. 전자 필기장의 셀이 매개 변수 셀 이며 계산 인스턴스의 [용지 제분소](https://github.com/nteract/papermill) 를 통해 매개 변수화 된 노트북을 실행할 수 있는 사용자를 보여 줍니다.
   + 터미널 및 커널 세션 관리자: 사용자가 계산에서 실행 되는 모든 커널 및 터미널 세션을 관리할 수 있습니다.
   + 공유 단추. 사용자는 이제 파일을 마우스 오른쪽 단추로 클릭 하 고 공유 단추를 사용 하 여 전자 필기장 파일 탐색기에서 모든 파일을 공유할 수 있습니다.
 
@@ -1052,7 +1052,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     Description  |
+| 웹 기반 도구  |     설명  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1564,7 +1564,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | Description | 
+| 웹 기반 도구 | 설명 | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 

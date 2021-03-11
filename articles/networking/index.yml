@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 40effbde3ad1c0676eae4c79f72b84d04dbd62e7
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: c701f1f54955257fd60fe8d58fb703a1d26d1169
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101698657"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102503400"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -333,10 +333,10 @@ additionalContent:
   - items:
     - title: Azure 네트워킹에 대한 Azure PowerShell 명령
       summary: Azure 네트워크 Cmdlet에 대해 알아봅니다.
-      url: /powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/#networking
     - title: Azure 네트워킹에 대한 Azure CLI 명령
       summary: CLI 참조에서 Azure 네트워크 명령을 찾아보세요.
-      url: /cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network
     - title: Azure 네트워킹 블로그
       summary: Azure 네트워킹의 최신 블로그를 봅니다.
       url: https://azure.microsoft.com/blog/topics/networking/

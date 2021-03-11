@@ -3,16 +3,17 @@ title: 클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 
 description: Azure CLI를 사용 하 여 만드는 동안 Linux VM에서 클라우드 초기화를 사용 하 여 스왑 파티션을 구성 하는 방법
 author: rickstercdn
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371943"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559378"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성
 이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 다양 한 Linux 배포판에서 스왑 파티션을 구성 하는 방법을 보여 줍니다. 스왑 파티션은 기존에 필요한 배포를 기반으로 Linux 에이전트 (WALA)에 의해 구성 됩니다.  이 문서에서는 클라우드 초기화를 사용 하 여 프로 비전 하는 동안 요청 시 스왑 파티션을 작성 하는 프로세스에 대해 간략하게 설명 합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -41,7 +42,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -59,7 +60,7 @@ az vm create \
 ```
 
 ## <a name="verify-swap-partition-was-created"></a>스왑 파티션이 생성 되었는지 확인
-이전 명령에서 출력에 표시된 VM의 공용 IP 주소에 대한 SSH. 사용자 고유의 **publicIpAddress**를 다음과 같이 입력합니다.
+이전 명령에서 출력에 표시된 VM의 공용 IP 주소에 대한 SSH. 사용자 고유의 **publicIpAddress** 를 다음과 같이 입력합니다.
 
 ```bash
 ssh <publicIpAddress>

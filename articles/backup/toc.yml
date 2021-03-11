@@ -366,7 +366,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Azure Portal 사용
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Azure Monitor 사용
+        - name: Azure Monitor 로그 사용
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: 보고서
       items:
@@ -374,10 +374,14 @@
           items:
             - name: Azure Backup 보고서 구성
               href: configure-reports.md
+            - name: Azure Backup 보고서 이메일 보내기
+              href: backup-reports-email.md
         - name: Recovery Services 자격 증명 모음에 대한 진단 이벤트 구성
           items:
             - name: Recovery Services 자격 증명 모음용 진단 설정 사용
               href: backup-azure-diagnostic-events.md
+            - name: 시스템 함수 사용
+              href: backup-reports-system-functions.md
             - name: 리소스 관련 진단 이벤트에 대한 Log Analytics 데이터 모델
               href: backup-azure-reports-data-model.md
             - name: Azure Backup용 Log Analytics 데이터 모델(Azure Diagnostics 모드)

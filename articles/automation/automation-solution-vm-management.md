@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732278"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559361"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
-작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/alerts/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다. 
+작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/alerts/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다.
 
 이 기능은 [new-azvm](/powershell/module/az.compute/start-azvm) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azvm](/powershell/module/az.compute/stop-azvm) 를 사용 합니다.
 
@@ -34,6 +34,9 @@ ms.locfileid: "101732278"
 
 - 모든 지역의 VM을 관리하지만 Azure Automation 계정과 동일한 구독에서만 사용할 수 있습니다.
 - Log Analytics 작업 영역, Azure Automation 계정 및 경고를 지원하는 Azure 및 Azure Government의 모든 지역에서 사용할 수 있습니다. Azure Government 지역에서는 현재 메일 기능을 지원하지 않습니다.
+
+> [!NOTE]
+> 이 버전을 설치 하기 전에 지금 미리 보기에 있는 [다음 버전](https://github.com/microsoft/startstopv2-deployments)에 대해 알고 싶습니다.  이 새로운 버전 (V2)은이 기능과 동일한 기능을 제공 하지만 Azure의 최신 기술을 활용 하도록 설계 되었습니다. 단일 Start/Stop 인스턴스의 다중 구독 지원과 같이 일반적으로 요청 되는 일부 기능을 고객에 게 추가 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

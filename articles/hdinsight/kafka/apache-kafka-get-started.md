@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 9bb981b5a1d6ecb9e0c20748983a36ef3acfa001
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 102bb1a7bf1bd3cb799d52ce13045e01a2a34297
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932913"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505259"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -42,7 +42,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. **기본** 탭에서 다음 정보를 제공합니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |Subscription    |  드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -58,13 +58,13 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
     각 Azure 지역(위치)은 _장애 도메인_ 을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-    데이터의 고가용성을 위해 __세 개의 장애 도메인__ 을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
+    데이터의 고가용성을 위해 __세 개의 장애 도메인__ 을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/availability.md) 문서를 참조하세요.
 
     페이지 맨 아래에서 **다음: Storage >>** 탭을 선택하여 스토리지 설정으로 이동합니다.
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage** 를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택** 을 사용합니다.|
@@ -215,7 +215,7 @@ Kafka는 *토픽* 에 데이터 스트림을 저장합니다. 토픽을 관리�
         
         * 세 개의 장애 도메인 지역에서는 3의 복제 인수를 사용하면 복제본을 오류 도메인에 분산할 수 있습니다. 두 개의 장애 도메인 지역에서는 4의 복제 인수로 복제본을 도메인에 동일하게 분산할 수 있습니다.
         
-        * 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
+        * 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/availability.md) 문서를 참조하세요.
 
         * Apache Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123278"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608634"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -74,8 +74,6 @@ IoT Edge 게이트웨이 패턴에 대해 자세히 알아보려면 [IoT Edge �
 다운스트림 장치는 여러 사용자 지정 모듈을 통해 IoT Edge 게이트웨이 장치에 연결할 수 있습니다. 다음 다이어그램에서는 Modbus 사용자 지정 모듈, 사용자 지정 모듈 및 *IoT Edge 허브*  모듈을 통해 연결 하는 다운스트림 장치를 보여 줍니다.
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="여러 사용자 지정 모듈을 사용 하 여 연결 다이어그램" border="false":::
-
-<!-- To do: add link to how to configure gateway article? -->
 
 ## <a name="iot-edge-devices-and-iot-central"></a>IoT Edge 장치 및 IoT Central
 
@@ -286,7 +284,7 @@ IoT Edge 런타임을 실행할 수 있는 위치에 대 한 자세한 내용은
 
 게이트웨이 장치로 IoT Edge 장치를 선택한 경우 게이트웨이 장치에 연결할 장치에 대 한 장치 모델에 다운스트림 관계를 추가할 수 있습니다.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+자세히 알아보려면 [IoT Edge 투명 게이트웨이를 통해 장치를 연결 하는 방법](how-to-connect-iot-edge-transparent-gateway.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

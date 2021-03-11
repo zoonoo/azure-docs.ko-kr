@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831755"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213269"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Key Vault 관리형 HSM 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "94831755"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
@@ -43,7 +43,7 @@ CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)을 참조하세요.
+CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
 ## <a name="create-a-manage-hsm"></a>관리 HSM 만들기
 
@@ -55,13 +55,13 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 Azure Key Vault 템플릿 샘플을 더 보려면 [여기](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault)에서 확인할 수 있습니다.
 
-템플릿에는 계정과 연결된 개체 ID가 필요합니다. 이를 찾으려면 Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) 명령을 사용하여 이메일 주소를 `--id` 매개 변수에 전달합니다. `--query` 매개 변수를 사용하는 경우에만 출력을 개체 ID로 제한할 수 있습니다.
+템플릿에는 계정과 연결된 개체 ID가 필요합니다. 이를 찾으려면 Azure CLI [az ad user show](/cli/azure/ad/user#az_ad_user_show) 명령을 사용하여 이메일 주소를 `--id` 매개 변수에 전달합니다. `--query` 매개 변수를 사용하는 경우에만 출력을 개체 ID로 제한할 수 있습니다.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-테넌트 ID가 필요할 수도 있습니다. 이를 찾으려면 Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) 명령을 사용합니다. `--query` 매개 변수를 사용하는 경우에만 출력을 테넌트 ID로 제한할 수 있습니다.
+테넌트 ID가 필요할 수도 있습니다. 이를 찾으려면 Azure CLI [az ad user show](/cli/azure/account#az_account_show) 명령을 사용합니다. `--query` 매개 변수를 사용하는 경우에만 출력을 테넌트 ID로 제한할 수 있습니다.
 
  ```azurecli-interactive
  az account show --query "tenantId"

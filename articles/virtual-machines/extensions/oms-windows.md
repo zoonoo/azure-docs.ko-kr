@@ -1,26 +1,19 @@
 ---
 title: Windows용 Log Analytics 가상 머신 확장
 description: 가상 머신 확장을 사용하여 Windows 가상 머신에 Log Analytics 에이전트를 배포합니다.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 06/26/2020
-ms.author: akjosh
-ms.openlocfilehash: 1b394a6daf7ba680d193a13dd4cb25dbebc576e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7757bd765bcb02782b6199f71c4a6e460b7b8143
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580078"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559021"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
@@ -89,7 +82,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 ```
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

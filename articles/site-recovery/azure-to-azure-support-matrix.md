@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 33b0a5a648acee83b55ed97a1359a9f3d60c0052
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1fcb998c6f9dd53a754d348020d4d90e097e9502
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216856"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607784"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -142,7 +142,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 16.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-4.4.0-190-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-118-제네릭<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1096-azure </br> 4.4.0, 4.15.0-generic, 4.15.0-122-generic, 4.15.0-1098-azure-9.38 핫 픽스 패치 * *|
 16.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generic to 4.4.0-189-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic to 4.15.0-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1093-azure </br> 4.4.0, 4.15.0-117-generic, 4.15.0-4.15.0-1095-4.15.0-azure-9.37 핫 픽스 패치 * *|
 |||
-18.04 LTS | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.15.0-20-4.15.0-135-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-65-제네릭 </br> 5.3.0-19-generic to 5.3.0-70-generic </br> 5.4.0-37-5.4.0-59-제네릭</br> 5.4.0-60-5.4.0-65-제네릭 </br> 4.15.0-1009-4.15.0-1106-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-5.4.0-1039-azure </br> 4.15.0, 5.4.0-4.15.0, 4.15.0-136-generic ~ 9.41 핫 픽스 패치 * *|
+18.04 LTS | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.15.0-20-4.15.0-135-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-65-제네릭 </br> 5.3.0-19-generic to 5.3.0-70-generic </br> 5.4.0-37-5.4.0-59-제네릭</br> 5.4.0-60-5.4.0-65-제네릭 </br> 4.15.0-1009-4.15.0-1106-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-5.4.0-1039-azure </br> 4.15.0, 5.4.0-4.15.0, 1108-5.4.0-1040-azure-9.41 핫 픽스 패치 * *|
 18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-4.15.0-129-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-63-generic </br> 5.3.0-19-5.3.0-generic </br> 5.4.0-37-5.4.0-59-제네릭</br> 4.15.0-1009-4.15.0-1103-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure-5.4.0 </br> 4.15.0-1104-azure, 4.15.0, 4.15.0-generic, 5.4.0-1036-5.4.0-5.4.0-4.15.0-1106-4.15.0-134-4.15.0-5.4.0-1039-5.4.0-5.4.0--------azure,-64-generic, 9.40|
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-4.15.0-123-제네릭 </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-63-generic </br> 5.3.0-19-5.3.0-generic </br> 5.4.0-37-generic to 5.4.0-53-generic</br> 4.15.0-1009-4.15.0-1099-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure에서 5.4.0로 </br> 4.15.0-generic, 5.4.0, 5.4.0,, 5.4.0-azure,-56-generic, 4.15.0-4.15.0-4.15.0-5.4.0-4.15.0-1102-5.4.0--------------azure-9.39 핫 픽스 패치 * *|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-4.15.0-118-제네릭 </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-61-generic </br> 5.3.0-19-5.3.0--generic </br> 5.4.0-37-5.4.0-48-제네릭</br> 4.15.0-1009-4.15.0-1096-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure-5.4.0 </br> 4.15.0-generic, 4.15.0-generic, 5.0.0-62-generic, 5.3.0-5.4.0-5.4.0-51-generic, 4.15.0-52-generic, 1099-5.4.0-azure,--azure-9.38 핫 픽스 패치 * *|

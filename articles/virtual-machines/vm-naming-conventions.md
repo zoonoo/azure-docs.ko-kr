@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650964"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551017"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Azure 가상 머신 크기 명명 규칙
 
@@ -21,13 +21,14 @@ ms.locfileid: "88650964"
 
 ## <a name="naming-convention-explanation"></a>명명 규칙 설명
 
-**[제품군]**  +  **[하위 제품군 *]**  +  **[vCPUs 개수]**  +  **[추가 기능]**  +  **[액셀러레이터 키 유형 *]**  +  **[버전]**
+**[제품군]**  +  **[하위 제품군 *]**  +  **[vCPUs 개수]**  +  **[제한 된 vCPUs *]**  +  **[추가 기능]**  +  **[액셀러레이터 키 유형 *]**  +  **[버전]**
 
 |값 | 설명|
 |---|---|
-| 제품군 | VM 제품군 시리즈를 나타냅니다.| 
+| 패밀리 | VM 제품군 시리즈를 나타냅니다.| 
 | * 하위 제품군 | 특수 VM differentiations 사용 됩니다.|
 | vCPUs 개수| VM의 vCPUs 수를 나타냅니다. |
+| * 제한 된 vCPUs| 특정 VM 크기에만 사용 됩니다. [제한 된 vcpus 가능 크기](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) 에 대 한 vcpus 수를 나타냅니다. |
 | 추가 기능 | 하나 이상의 소문자가 다음과 같은 추가 기능을 나타냅니다. <br> a = AMD 기반 프로세서 <br> d = 디스크 (로컬 임시 디스크 있음); 최신 Azure Vm의 경우 [Ddv4 및 Ddsv4 시리즈](./ddv4-ddsv4-series.md) 를 참조 하세요. <br> h = 최대 절전 모드 가능 <br> i = 격리 크기 <br> l = 메모리가 부족 합니다. 메모리를 많이 사용 하는 크기 보다 적은 양의 메모리 <br> m = 메모리 집약적 특정 크기의 가장 많은 메모리 <br> t = 작은 메모리 특정 크기의 최소 메모리 양 <br> r = RDMA 지원 <br> s = Premium Storage 가능한 [울트라 SSD](./disks-types.md#ultra-disk) 를 포함 하 여 사용할 수 있습니다. 참고:의 특성이 없는 몇 가지 최신 크기는 여전히 Premium Storage (예: M128, M64 등)를 지원할 수 있습니다.<br> |
 | * 액셀러레이터 키 유형 | 특수/GPU Sku의 하드웨어 가속기 유형을 나타냅니다. Q3 2020에서 시작 된 새 특수/GPU Sku에만 이름에 하드웨어 가속기가 포함 됩니다. |
 | 버전 | VM 제품군 시리즈의 버전을 나타냅니다. |
@@ -40,7 +41,7 @@ ms.locfileid: "88650964"
 
 |값 | 설명|
 |---|---|
-| 제품군 | M | 
+| 패밀리 | M | 
 | vCPUs 개수 | 416 |
 | 추가 기능 | m = 메모리 집약적 <br> s = Premium Storage 가능 |
 | 버전 | v2 |
@@ -49,7 +50,7 @@ ms.locfileid: "88650964"
 
 |값 | 설명|
 |---|---|
-| 제품군 | N | 
+| 패밀리 | N | 
 | 하위 제품군 | V |
 | vCPUs 개수 | 16 |
 | 추가 기능 | a = AMD 기반 프로세서 <br> s = Premium Storage 가능 |
@@ -59,12 +60,22 @@ ms.locfileid: "88650964"
 
 |값 | 설명|
 |---|---|
-| 제품군 | N | 
+| 패밀리 | N | 
 | 하위 제품군 | C |
 | vCPUs 개수 | 4 |
 | 추가 기능 | a = AMD 기반 프로세서 <br> s = Premium Storage 가능 |
 | 액셀러레이터 키 유형 | T4 |
 | 버전 | v3 |
+
+### <a name="example-4-m8-2ms_v2-constrained-vcpu"></a>예제 4:2ms_v2 M8-2ms (제약이 있는 vCPU)
+
+|값 | 설명|
+|---|---|
+| 패밀리 | M | 
+| vCPUs 개수 | 8 |
+| 제한 (실제) vCPUs 개수 | 2 |
+| 추가 기능 | m = 메모리 집약적 <br> s = Premium Storage 가능 |
+| 버전 | v2 |
 
 ## <a name="next-steps"></a>다음 단계
 

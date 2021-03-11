@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e76fe1c26f428403a79a3605b7a41f761fe2a4bb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171623"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607954"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 특성 추가 및 사용자 입력 사용자 지정
 
@@ -32,7 +32,7 @@ ms.locfileid: "102171623"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 등록 과정 중에 새 특성을 수집 합니다. 사용자의 도시를 가져오고, 드롭다운으로 구성 하 고, 제공 해야 하는지 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -156,16 +156,22 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
 1. **ClaimsSchema** 요소에 도시 클레임을 추가 합니다.  
 
 ```xml
-<ClaimType Id="city">
-  <DisplayName>City where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>DropdownSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="city">
+      <DisplayName>City where you work</DisplayName>
+      <DataType>string</DataType>
+      <UserInputType>DropdownSingleSelect</UserInputType>
+      <Restriction>
+        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+      </Restriction>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks>-->
 ```
 
 ## <a name="add-a-claim-to-the-user-interface"></a>사용자 인터페이스에 클레임 추가
@@ -261,14 +267,20 @@ City 특성에 대 한 값의 집합 목록을 제공 하려면:
         <PersistedClaim ClaimTypeReferenceId="city"/>
       </PersistedClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a local account. -->
+    <!-- Read data after user resets the password. -->
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a federated account. -->
+    <!-- Read data after user authenticates with a local account. -->
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>

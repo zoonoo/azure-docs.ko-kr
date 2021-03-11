@@ -3,16 +3,16 @@ title: 리소스, 구독, 관리 그룹 및 보안 점수에서 Azure Security C
 description: 구독 또는 관리 그룹에서 보안 권장 사항을 제외 하 고 보안 점수에 영향을 주지 않도록 규칙을 만드는 방법에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 01/22/2021
+ms.date: 03/10/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7a010b1014181ed325500fa501212579ef67d26
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709379"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617576"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>보안 점수에서 리소스 및 권장 사항 제외 
 
@@ -30,13 +30,14 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
 ## <a name="availability"></a>가용성
 
-|양상|세부 정보|
-|----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|가격 책정:|Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.|
-|필요한 역할 및 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
-|||
+| 양상                          | 세부 정보                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 릴리스 상태:                  | 미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| 가격 책정:                        | Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.                                                                                                                                                                 |
+| 필요한 역할 및 권한: | 예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.                                            |
+| 제한 사항:                    | 예외는 Security Center의 기본 이니셔티브 Azure 보안 벤치 마크에 포함 된 권장 사항에 대해서만 만들 수 있습니다. 사용자 지정 이니셔티브에서 생성 된 권장 사항은 제외 될 수 없습니다. [정책, 이니셔티브 및 권장 사항](security-policy-concept.md)간의 관계에 대해 자세히 알아보세요. |
+| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>예외 정의
 
@@ -44,6 +45,9 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
 - 특정 **권장 사항을** 표시 하거나 "완화" 또는 "위험 수락"으로 표시 합니다. 구독, 여러 구독 또는 전체 관리 그룹에 대 한 권장 사항 예외를 만들 수 있습니다.
 - 특정 권장 사항에 대해 **하나 이상의 리소스** 를 "완화" 또는 "위험 수락"으로 표시 합니다.
+
+> [!NOTE]
+> 예외는 Security Center의 기본 이니셔티브 Azure 보안 벤치 마크에 포함 된 권장 사항에 대해서만 만들 수 있습니다. 구독에 할당 된 사용자 지정 이니셔티브에서 생성 된 권장 사항은 제외 될 수 없습니다. [정책, 이니셔티브 및 권장 사항](security-policy-concept.md)간의 관계에 대해 자세히 알아보세요.
 
 > [!TIP]
 > API를 사용 하 여 예외를 만들 수도 있습니다. 예제 JSON의 경우 관련 구조에 대 한 설명은 [Azure Policy 예외 구조체](../governance/policy/concepts/exemption-structure.md)를 참조 하세요.
@@ -161,7 +165,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
 
 
-## <a name="exemption-rule-faq"></a>예외 규칙 FAQ
+## <a name="faq---exemption-rules"></a>FAQ-예외 규칙
 
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>하나의 권장 사항이 여러 정책 이니셔티브에 있는 경우 어떻게 되나요?
 

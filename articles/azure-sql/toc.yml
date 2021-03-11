@@ -1230,6 +1230,8 @@
               href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
             - name: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+            - name: DH2i DxEnterprise를 사용하여 Always On 가용성 그룹 설정
+              href: virtual-machines/linux/dh2i-high-availability-tutorial.md
         - name: 리소스
           items:
             - name: FAQ
@@ -1264,7 +1266,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM

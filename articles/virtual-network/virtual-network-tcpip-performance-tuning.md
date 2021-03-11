@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: 1f6abbf68d4f648aeee6c025800f24140c9459e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10fae563f80a4d77e3f4bb1d5ca809a4130b050a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219320"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558851"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
 
@@ -60,7 +60,7 @@ No Fragment (DF) 비트는 IP 프로토콜 헤더의 플래그입니다. DF 비�
 
 일반적으로 MTU를 늘려서 보다 효율적인 네트워크를 만들 수 있습니다. 전송 된 모든 패킷에는 원래 패킷에 추가 된 헤더 정보가 있습니다. 조각화가 더 많은 패킷을 생성 하는 경우 헤더 오버 헤드가 증가 하 여 네트워크 효율성이 낮아집니다.
 
-예를 들면 다음과 같습니다. 이더넷 헤더 크기는 14 바이트와 4 바이트 프레임 검사 시퀀스를 통해 프레임 일관성을 유지 합니다. 1 2000 바이트 패킷이 전송 되 면 18 바이트의 이더넷 오버 헤드가 네트워크에 추가 됩니다. 패킷이 1500 바이트 패킷과 500 바이트 패킷으로 조각화 되는 경우 각 패킷은 18 바이트의 이더넷 헤더 (총 36 바이트)를 포함 합니다.
+예제는 다음과 같습니다. 이더넷 헤더 크기는 14 바이트와 4 바이트 프레임 검사 시퀀스를 통해 프레임 일관성을 유지 합니다. 1 2000 바이트 패킷이 전송 되 면 18 바이트의 이더넷 오버 헤드가 네트워크에 추가 됩니다. 패킷이 1500 바이트 패킷과 500 바이트 패킷으로 조각화 되는 경우 각 패킷은 18 바이트의 이더넷 헤더 (총 36 바이트)를 포함 합니다.
 
 MTU를 늘릴 경우 더 효율적인 네트워크를 만들 필요는 없습니다. 응용 프로그램이 500 바이트 패킷만 보내는 경우에는 MTU가 1500 바이트 또는 9000 바이트 인지에 관계 없이 동일한 헤더 오버 헤드가 발생 합니다. 네트워크는 MTU의 영향을 받는 더 큰 패킷 크기를 사용 하는 경우에만 더 효율적입니다.
 
@@ -210,7 +210,7 @@ Get-NetTCPConnection
 Get-NetTCPSetting
 ```
 
-PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은  [NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)를 참조 하세요.
+PowerShell 명령을 사용 하 여 Windows에서 초기 TCP 창 크기와 TCP 크기 조정 인수를 설정할 수 있습니다 `Set-NetTCPSetting` . 자세한 내용은  [NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting)를 참조 하세요.
 
 ```powershell
 Set-NetTCPSetting

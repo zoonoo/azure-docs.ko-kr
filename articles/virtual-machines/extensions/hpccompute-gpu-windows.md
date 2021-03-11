@@ -1,25 +1,26 @@
 ---
 title: NVIDIA GPU 드라이버 확장-Azure Windows Vm
 description: Windows를 실행하는 N 시리즈 컴퓨팅 VM에 NVIDIA GPU 드라이버를 설치하는 Microsoft Azure 확장입니다.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 manager: gwallace
 editor: ''
 ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 82ed1d57d72a4479005d8bfd2234c124a97096ee
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7cd2c5e54ccb81294a93c0ecebaa174df8d14011
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965989"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559667"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -30,7 +31,7 @@ ms.locfileid: "94965989"
 드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-driver-setup.md)에서 확인할 수 있습니다.
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -38,9 +39,9 @@ ms.locfileid: "94965989"
 
 | 배포 | 버전 |
 |---|---|
-| Windows 10 | 코어 |
-| Windows Server 2016 | 코어 |
-| Windows Server 2012 R2 | 코어 |
+| Windows 10 | 핵심 |
+| Windows Server 2016 | 핵심 |
+| Windows Server 2012 R2 | 핵심 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

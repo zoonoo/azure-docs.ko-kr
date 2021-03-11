@@ -3,16 +3,16 @@ title: NP 시리즈-Azure Virtual Machines
 description: NP 시리즈 Vm에 대 한 사양입니다.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 4fe6df5a9eabc6e5088618039fdea450ee8314ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 09adb19623ea866091e1b949e78263661eddbb52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693852"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551150"
 ---
 # <a name="np-series-preview"></a>NP 시리즈 (미리 보기) 
 NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스 코딩 및 데이터베이스 검색 & 분석을 비롯 한 워크 로드를 가속화 하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) fpgas 구동 됩니다. NP 시리즈 Vm은 모든 코어 터보 클록 속도 3.2 g h z를 사용 하 여 Intel Xeon 8171M (Skylake) Cpu로도 제공 됩니다.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: bf892a45ee6df2ab29a1b326a663dc41057c7ea6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509739"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431383"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 임의 구성 만들기
 
@@ -125,13 +125,7 @@ ms.locfileid: "99509739"
 
 만든 리소스가 더 이상 필요하지 않은 경우 해당 리소스를 삭제합니다. 일부 Virtual WAN 리소스는 종속성으로 인해 특정 순서로 삭제해야 합니다. 삭제를 완료하는 데 약 30분이 걸릴 수 있습니다.
 
-1. 만든 가상 WAN을 엽니다.
-1. 가상 WAN에 연결된 가상 허브를 선택하여 허브 페이지를 엽니다.
-1. **삭제** 를 클릭합니다. 허브에서 모든 엔터티(연결, 게이트웨이 등)를 삭제합니다. 이 작업을 완료하는 데 약 30분이 걸릴 수 있습니다.
-1. 이 시점에서 허브를 삭제하거나, 나중에 리소스 그룹을 삭제할 때 허브를 삭제할 수 있습니다.
-1. 가상 WAN에 연결된 모든 허브에 대해 반복합니다.
-1. Azure Portal에서 리소스 그룹으로 이동합니다.
-1. **리소스 그룹 삭제** 를 선택합니다. 그러면 허브 및 가상 WAN을 포함하여 리소스 그룹의 모든 항목이 삭제됩니다.
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

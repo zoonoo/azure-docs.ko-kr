@@ -2,16 +2,17 @@
 title: Cloud init를 사용 하 여 Azure의 Linux VM에서 bash 스크립트 실행
 description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM에서 bash 스크립트를 실행하는 방법
 author: rickstercdn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0370ddeafd1f695292ba122bfebd6197a360f560
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dabd7db85d4222ca2e9f8387b716af291ee6a69
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372810"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559429"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 bash 스크립트 실행
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 Linux VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에서 기존 bash 스크립트를 실행하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -28,7 +29,7 @@ Linux 사용자 지정 스크립트 Azure 확장을 사용하여 스크립트를
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -45,13 +46,13 @@ az vm create \
   --generate-ssh-keys 
 ```
 ## <a name="verify-bash-script-has-run"></a>bash 스크립트가 실행되었는지 확인
-이전 명령에서 출력에 표시된 VM의 공용 IP 주소에 대한 SSH. 사용자 고유의 **publicIpAddress**를 다음과 같이 입력합니다.
+이전 명령에서 출력에 표시된 VM의 공용 IP 주소에 대한 SSH. 사용자 고유의 **publicIpAddress** 를 다음과 같이 입력합니다.
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-**/tmp** 디렉터리를 변경하고 myScript.txt 파일이 있고 내부에 적절한 텍스트가 있는지 확인합니다.  그렇지 않은 경우 자세한 내용은 **/var/log/cloud-init.log**를 확인할 수 있습니다.  다음 항목을 검색합니다.
+**/tmp** 디렉터리를 변경하고 myScript.txt 파일이 있고 내부에 적절한 텍스트가 있는지 확인합니다.  그렇지 않은 경우 자세한 내용은 **/var/log/cloud-init.log** 를 확인할 수 있습니다.  다음 항목을 검색합니다.
 
 ```bash
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']

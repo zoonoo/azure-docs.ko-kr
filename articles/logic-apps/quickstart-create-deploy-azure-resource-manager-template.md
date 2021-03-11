@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739335"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214000"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 
@@ -49,7 +49,7 @@ Azure Logic Apps용 빠른 시작 템플릿을 추가로 찾으려면 갤러리�
 | 옵션 | Description |
 |--------|-------------|
 | [Azure Portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | Azure 환경에서 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 다음 단계를 통해 Azure에 직접 로그인하여 Azure Portal에서 빠른 시작 템플릿을 열 수 있습니다. 자세한 내용은 [ARM 템플릿 및 Azure Portal을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요. |
-| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Azure CLI(Azure 명령줄 인터페이스)는 Azure 리소스를 만들고 관리하는 명령 세트입니다. 이러한 명령을 실행하려면 Azure CLI 버전 2.6 이상이 필요합니다. CLI 버전을 확인하려면 `az --version`을 입력합니다. 자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure CLI란?](/cli/azure/what-is-azure-cli?view=azure-cli-latest) <br>- [Azure CLI 시작](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) |
+| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Azure CLI(Azure 명령줄 인터페이스)는 Azure 리소스를 만들고 관리하는 명령 세트입니다. 이러한 명령을 실행하려면 Azure CLI 버전 2.6 이상이 필요합니다. CLI 버전을 확인하려면 `az --version`을 입력합니다. 자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure CLI란?](/cli/azure/what-is-azure-cli) <br>- [Azure CLI 시작](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell은 Azure Resource Manager 모델을 사용하여 Azure 리소스를 관리하는 cmdlet 세트를 제공합니다. 자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure PowerShell 개요](/powershell/azure/azurerm/overview) <br>- [Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az) <br>- [Azure PowerShell 시작](/powershell/azure/get-started-azureps) |
 | [Azure 리소스 관리 REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure는 서비스 리소스에 대한 액세스를 만들거나, 검색하거나, 업데이트하거나 삭제하는 데 사용하는 HTTP 작업(메서드)을 지원하는 서비스 엔드포인트인 REST(Representational State Transfer) API를 제공합니다. 자세한 내용은 [Azure REST API 시작](/rest/api/azure/)을 참조하세요. |
 |||
@@ -64,7 +64,7 @@ Azure Logic Apps용 빠른 시작 템플릿을 추가로 찾으려면 갤러리�
 
 1. 포털의 **템플릿을 사용하여 논리 앱 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | 신규 또는 기존 Azure 리소스 그룹의 이름입니다. 이 예에서는 `Check-Azure-Status-RG`를 사용합니다. |
@@ -189,7 +189,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
    | 속성 | 값 | Description |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | 배포에 사용할 Azure 지역입니다. 이 예에서는 `West US`를 사용합니다. |
-   | `templateLink` : `uri` | <*quickstart-template-URL*> | 배포에 사용할 빠른 시작 템플릿에 대한 URL 위치입니다. <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`입니다. |
+   | `templateLink` : `uri` | <*quickstart-template-URL*> | 배포에 사용할 빠른 시작 템플릿에 대한 URL 위치입니다. <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
    | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | 배포에 사용할 빠른 시작 템플릿의 매개 변수 파일에 대한 URL 위치입니다. <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Resource Manager 매개 변수 파일에 대한 자세한 내용은 다음 항목을 참조하세요. <p><p>- [Resource Manager 매개 변수 파일 만들기](../azure-resource-manager/templates/parameter-files.md) <br>- [자습서: 매개 변수 파일을 사용하여 ARM 템플릿 배포](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | `mode` | <*deployment-mode*> | 증분 업데이트 또는 전체 업데이트를 실행합니다. 이 예에서는 `Incremental`(기본값)을 사용합니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../azure-resource-manager/templates/deployment-modes.md)를 참조하세요. |
    |||
@@ -245,7 +245,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-자세한 내용은 [Azure CLI: az logic workflow show](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show)를 참조하세요.
+자세한 내용은 [Azure CLI: az logic workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show)를 참조하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-자세한 내용은 [Azure CLI: az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete)를 참조하세요.
+자세한 내용은 [Azure CLI: az group delete](/cli/azure/group#az-group-delete)를 참조하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

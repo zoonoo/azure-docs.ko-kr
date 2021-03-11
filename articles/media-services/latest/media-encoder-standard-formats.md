@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0cf89a755090010bb80507c52f90baa2a4e804a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289446"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617627"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-이 문서에는 [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset)에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다. **StandardEncoderPreset**을 사용하여 사용자 지정 미리 설정을 만드는 방법에 대한 자세한 내용은 [사용자 지정 미리 설정을 사용하여 변환 만들기](customize-encoder-presets-how-to.md)를 참조하세요.
+이 문서에는 [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset)에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다. **StandardEncoderPreset** 을 사용하여 사용자 지정 미리 설정을 만드는 방법에 대한 자세한 내용은 [사용자 지정 미리 설정을 사용하여 변환 만들기](customize-encoder-presets-how-to.md)를 참조하세요.
 
 ## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 
@@ -98,7 +98,7 @@ ms.locfileid: "89289446"
 
 | 파일 형식 | 비디오 코덱 | 오디오 코덱 |
 | --- | --- | --- |
-| MP4 <br/><br/>(다중 비트 전송률 MP4 컨테이너 포함) |H.264(High, Main 및 Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(다중 비트 전송률 MP4 컨테이너 포함) |H.264 (높음, 기본 및 기준 프로필), HEVC (265) 8 비트 |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264(High, Main 및 Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>다음 단계

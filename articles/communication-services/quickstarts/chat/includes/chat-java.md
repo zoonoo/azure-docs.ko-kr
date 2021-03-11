@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 192970540f21905b624ce3f6e3558baa935a4d7a
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750582"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489740"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [JDK(Java Development Kit)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), 버전 8 이상.
+- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - 배포된 Communication Services 리소스 및 연결 문자열 [Communication Services 리소스 만들기](../../create-communication-resource.md)
 - [사용자 액세스 토큰](../../access-tokens.md). 범위를 "채팅"으로 설정하고 토큰 문자열과 userId 문자열을 기록해 둡니다.
@@ -66,7 +66,7 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0</version> 
 </dependency>
 ```
 
