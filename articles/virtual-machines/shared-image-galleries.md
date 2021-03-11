@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551065"
+ms.locfileid: "102609144"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -104,7 +104,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 ## <a name="regional-support"></a>국가별 지원
 
-모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독을 허용 목록에 추가해야 합니다. 구독이 허용 목록에 추가되도록 요청하려면 https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support 로 이동합니다.
+모든 공용 지역은 대상 지역이 될 수 있지만 특정 지역에서는 고객이 액세스 권한을 얻기 위해 요청 프로세스를 통과 해야 합니다. 오스트레일리아 중부 또는 오스트레일리아 중부 2와 같은 지역에 대 한 허용 목록에 구독을 추가 하도록 요청 하려면 [액세스 요청](/troubleshoot/azure/general/region-access-request-process) 을 제출 합니다.
 
 ## <a name="limits"></a>제한 
 

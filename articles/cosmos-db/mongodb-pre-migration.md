@@ -1,21 +1,31 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 description: 이 문서에서는 MongoDB에서 Cosmos DB로 데이터 마이그레이션을 위한 필수 구성 요소에 대한 개요를 제공합니다.
-author: christopheranderson
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.author: chrande
-ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: anfeldma
+ms.openlocfilehash: cdc5dc9cee3520d9a3f22ff710dfa193e6ef4fed
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656961"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553292"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> 이 MongoDB 프리 마이그레이션 가이드는 규모에 따라 MongoDB를 Azure Cosmos DB Mongo API로 마이그레이션하는 시리즈의 첫 번째 시리즈입니다. 고객은 자체 관리 되는 인프라에서 MongoDB을 라이선스 및 배포할 때 종 량 제 가격 책정과 탄력적 확장성을 포함 하는 Azure Cosmos DB와 같은 관리 되는 클라우드 서비스로 마이그레이션하여 데이터 공간 비용을 줄이고 관리할 수 있습니다. 이 시리즈의 목표는 고객에 게 마이그레이션 프로세스를 안내 하는 것입니다.
+>
+> 1. [사전 마이그레이션](mongodb-pre-migration.md) -기존 MongoDB 데이터 공간에 대 한 인벤토리를 작성 하 고, 마이그레이션을 계획 하 고, 적절 한 마이그레이션 도구를 선택 합니다.
+> 2. 실행-제공 된 [자습서]()를 사용 하 여 MongoDB에서 Azure Cosmos DB로 마이그레이션합니다.
+> 3. [마이그레이션 후](mongodb-post-migration.md) -새 Azure Cosmos DB 데이터 공간에 대해 실행할 기존 응용 프로그램을 업데이트 하 고 최적화 합니다.
+>
+
+견고한 마이그레이션 전 계획은 팀 마이그레이션의 적시성 및 성공에 매우 큰 영향을 줄 수 있습니다. 사전 마이그레이션에 대 한 좋은 비유는 새 프로젝트를 시작 하는 것입니다. 요구 사항을 정의 하 고, 관련 작업을 간략하게 설명 하 고, 가장 큰 작업을 먼저 세울 우선 순위를 지정할 수 있습니다. 이렇게 하면 프로젝트 일정을 예측 가능 하 게 만들 수 있지만 물론 예기치 않은 요구 사항이 발생 하 고 프로젝트 일정이 복잡 해질 수 있습니다. 마이그레이션-마이그레이션 전 단계에서 포괄적인 실행 계획을 작성 하는 것은 마이그레이션 전 단계에서 예기치 않은 마이그레이션 작업을 검색 하는 기회를 최소화 하 여 마이그레이션 중에 시간을 절약 하 고 목표가 충족 되는지 확인 하는 기회를 최소화 합니다.
 
 MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for MongoDB로 데이터를 마이그레이션하기 전에 다음을 수행해야 합니다.
 

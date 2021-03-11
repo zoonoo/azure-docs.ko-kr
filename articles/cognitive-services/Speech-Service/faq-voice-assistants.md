@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 511eb12df511fd037fc0b5bec701c0cc5c29bad2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599424"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617780"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미 faq (질문과 대답)
 
@@ -36,7 +36,7 @@ ms.locfileid: "98599424"
 **A:** 사용자 지정 명령 (미리 보기) 응용 프로그램 또는 기본 봇 프레임 워크 봇을 만들기 시작 하는 가장 좋은 방법입니다.
 
 - [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](./quickstart-custom-commands-application.md)
-- [기본 봇 프레임 워크 봇 만들기](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [기본 봇 프레임 워크 봇 만들기](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 - [직접 선 음성 채널에 봇 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>디버깅

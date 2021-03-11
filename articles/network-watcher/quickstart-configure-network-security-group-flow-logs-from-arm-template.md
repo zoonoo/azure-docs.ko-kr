@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019723"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521869"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -82,7 +82,7 @@ NSG 흐름 로그 개체 속성에 대한 전체 개요는 [Microsoft.Network ne
 
 ARM 템플릿을 처음으로 사용하는 경우 다음 문서에서 ARM 템플릿에 대해 자세히 알아보세요.
 
-- [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - 첫 번째 ARM 템플릿 만들기 및 배포[
 
 다음 예제는 전체 템플릿입니다. 템플릿의 가장 간단한 버전이기도 합니다. 이 예제에는 NSG 흐름 로그를 설정하기 위해 전달되는 최소 매개 변수가 포함되어 있습니다. 더 많은 예제를 보려면 [Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성](network-watcher-nsg-flow-logging-azure-resource-manager.md) 개요 문서를 참조하세요.
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 배포가 성공했는지 확인하는 두 가지 방법이 있습니다.
 
 - PowerShell 콘솔에서 `ProvisioningState`가 `Succeeded`로 표시되는지 확인합니다.
-- [NSG 흐름 로그 포털 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)로 이동하여 변경 내용을 확인합니다. 
+- [NSG 흐름 로그 포털 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)로 이동하여 변경 내용을 확인합니다.
 
 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/templates/common-deployment-errors.md)을 참조하세요.
 

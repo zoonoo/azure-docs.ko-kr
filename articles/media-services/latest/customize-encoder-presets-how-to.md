@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 18127da3064a7eac3e6bfdc0692972d4194119cc
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: eb72c34489755dad17700a16a5109824ad892e83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508302"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553275"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>사용자 지정 변환-.NET을 사용 하 여 인코딩하는 방법
 
@@ -44,7 +44,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-사용자 지정 사전 설정 샘플은 .NET 폴더를 [사용 하는 사용자 지정 사전 설정을 사용](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset) 하는 인코딩에 있습니다.
+사용자 지정 사전 설정 샘플은 .NET 폴더를 [사용 하는 사용자 지정 사전 설정을 사용](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264) 하는 인코딩에 있습니다.
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>사용자 지정 미리 설정을 사용하여 변환 만들기
 

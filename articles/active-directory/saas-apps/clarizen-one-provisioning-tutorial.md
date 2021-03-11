@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: f3a19d3c3bf3e4340bb36fd683453541fa15eb6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673667"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650835"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Clarizen One 구성
 
@@ -137,8 +137,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |externalId|String|
    |nickName|String|
    |locale|String|
-   |roles[primary eq"True".type]|String|
-   |roles[primary eq"True".value]|String|
+   |roles[primary eq "True".type]|String|
+   |roles[primary eq "True".value]|String|
    |timezone|String|
    |userType|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|

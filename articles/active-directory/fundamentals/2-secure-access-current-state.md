@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e4becd337c8e7b0b425a52ed46d562db5bae4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 30858e9978f7e8857c5f8a2dcdfd7455f6e97b60
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725330"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553428"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>조직에서 외부 공동 작업의 현재 상태를 검색 합니다. 
 
@@ -34,11 +34,11 @@ ms.locfileid: "98725330"
 
 외부 공동 작업을 시작 하는 사용자는 외부 공동 작업과 관련 하 여 가장 적합 한 응용 프로그램을 이해 하 고 액세스를 종료 해야 합니다. 이러한 사용자를 이해 하면 외부 사용자를 초대 하 고, 액세스 패키지를 만들고, 액세스 검토를 완료할 수 있는 권한을 위임 받아야 하는 사람을 결정 하는 데 도움이 됩니다.
 
-현재 공동 작업 중인 사용자를 찾으려면 [공유 및 액세스 요청 작업에 대 한 Microsoft 365 감사 로그](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities)를 검토 하세요. Azure AD 감사 로그를 검토 하 여 B2B 사용자를 디렉터리에 [초대한 사용자에 대 한 세부 정보를](../external-identities/auditing-and-reporting.md) 확인할 수도 있습니다.
+현재 공동 작업 중인 사용자를 찾으려면 [공유 및 액세스 요청 작업에 대 한 Microsoft 365 감사 로그](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#sharing-and-access-request-activities)를 검토 하세요. Azure AD 감사 로그를 검토 하 여 B2B 사용자를 디렉터리에 [초대한 사용자에 대 한 세부 정보를](../external-identities/auditing-and-reporting.md) 확인할 수도 있습니다.
 
 ## <a name="find-current-collaboration-partners"></a>현재 공동 작업 파트너 찾기
 
-외부 사용자는 파트너 관리 자격 증명을 사용 하는 [AZURE AD B2B 사용자](../external-identities/what-is-b2b.md) (권장) 또는 로컬로 프로 비전 된 자격 증명을 사용 하는 외부 사용자 일 수 있습니다. 이러한 사용자는 일반적으로 (항상 그렇지는 않음) 게스트의 UserType 표시 됩니다. [MICROSOFT GRAPH API](/graph/api/user-list?tabs=http&view=graph-rest-1.0), [PowerShell](/graph/api/user-list?tabs=http&view=graph-rest-1.0)또는 [Azure Portal](../enterprise-users/users-bulk-download.md)를 통해 게스트 사용자를 열거할 수 있습니다.
+외부 사용자는 파트너 관리 자격 증명을 사용 하는 [AZURE AD B2B 사용자](../external-identities/what-is-b2b.md) (권장) 또는 로컬로 프로 비전 된 자격 증명을 사용 하는 외부 사용자 일 수 있습니다. 이러한 사용자는 일반적으로 (항상 그렇지는 않음) 게스트의 UserType 표시 됩니다. [MICROSOFT GRAPH API](/graph/api/user-list?tabs=http), [PowerShell](/graph/api/user-list?tabs=http)또는 [Azure Portal](../enterprise-users/users-bulk-download.md)를 통해 게스트 사용자를 열거할 수 있습니다.
 
 ### <a name="use-email-domains-and-companyname-property"></a>메일 도메인 및 companyName 속성 사용
 
@@ -55,7 +55,7 @@ ms.locfileid: "98725330"
 
 ## <a name="find-access-being-granted-to-external-users"></a>외부 사용자에 게 부여 되는 액세스 권한 찾기
 
-외부 사용자 및 조직에 대 한 인벤토리가 있으면 Microsoft Graph API를 사용 하 여 이러한 사용자에 게 부여 된 액세스를 확인 하 고 azure ad에서 Azure AD [그룹 멤버 자격](/graph/api/resources/groups-overview?view=graph-rest-1.0) 또는 [직접 응용 프로그램 할당](/graph/api/resources/approleassignment?view=graph-rest-1.0) 을 확인할 수 있습니다.
+외부 사용자 및 조직에 대 한 인벤토리가 있으면 Microsoft Graph API를 사용 하 여 이러한 사용자에 게 부여 된 액세스를 확인 하 고 azure ad에서 Azure AD [그룹 멤버 자격](/graph/api/resources/groups-overview) 또는 [직접 응용 프로그램 할당](/graph/api/resources/approleassignment) 을 확인할 수 있습니다.
 
 
 ### <a name="enumerate-application-specific-permissions"></a>응용 프로그램별 권한 열거
@@ -65,7 +65,7 @@ ms.locfileid: "98725330"
 특히 모든 비즈니스에 중요 한 비즈니스에 중요 한 앱에 대 한 액세스를 조사 하므로 모든 외부 액세스를 완벽 하 게 파악할 수 있습니다.
 
 ### <a name="detect-ad-hoc-sharing"></a>임시 공유 검색
-전자 메일 및 네트워크 요금제를 사용 하는 경우 전자 메일을 통해 또는 권한이 없는 SaaS (software as a service) 앱을 통해 콘텐츠를 조사할 수 있습니다. [Microsoft 365 데이터 손실 보호](/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) 를 사용 하면 Microsoft 365 인프라에서 중요 한 정보를 실수로 공유 하는 것을 식별, 방지 및 모니터링할 수 있습니다. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) 사용 하 여 사용자 환경에서 권한이 없는 SaaS 앱 사용을 식별할 수 있습니다.
+전자 메일 및 네트워크 요금제를 사용 하는 경우 전자 메일을 통해 또는 권한이 없는 SaaS (software as a service) 앱을 통해 콘텐츠를 조사할 수 있습니다. [Microsoft 365 데이터 손실 보호](/microsoft-365/compliance/data-loss-prevention-policies) 를 사용 하면 Microsoft 365 인프라에서 중요 한 정보를 실수로 공유 하는 것을 식별, 방지 및 모니터링할 수 있습니다. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) 사용 하 여 사용자 환경에서 권한이 없는 SaaS 앱 사용을 식별할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

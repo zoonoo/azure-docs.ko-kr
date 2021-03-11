@@ -220,10 +220,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: 진단 로그 스키마
           href: media-services-diagnostic-logs-schema.md
-    - name: Azure Media Player
+    - name: 호환 가능한 플레이어
       items:
-        - name: Azure Media Player 개요
-          href: ../azure-media-player/azure-media-player-overview.md
+        - name: Media Services용 미디어 플레이어
+          href: media-players-overview.md
     - name: v3 API를 사용하여 개발
       items:
         - name: 개요

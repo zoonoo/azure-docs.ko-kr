@@ -258,6 +258,8 @@
         - name: Resource Manager 템플릿 사용
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Azure Synapse Analytics 작업 영역에 연결
+          href: how-to-link-synapse-ml-workspaces.md
     - name: 컴퓨팅 리소스 만들기 및 관리
       items:
         - name: 컴퓨팅 인스턴스
@@ -454,6 +456,8 @@
           href: how-to-understand-automated-ml.md
         - name: .NET 애플리케이션에서 ONNX 모델 사용
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: 자동화된 ML 문제 해결
+          href: how-to-troubleshoot-auto-ml.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법
@@ -590,7 +594,7 @@
   items:
     - name: Python SDK
       displayName: 'api, core, package, python, class'
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: R SDK
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'

@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: efc785c96c76cca5deeadbd30fa962becb18d25b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2b8302e64f7dcc657fd20ed5d918ed6816d750d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997314"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608917"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Hubs 트리거
 
@@ -20,6 +20,10 @@ ms.locfileid: "95997314"
 설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-event-hubs.md)를 참조하세요.
 
 [!INCLUDE [functions-bindings-event-hubs-trigger](../../includes/functions-bindings-event-hubs-trigger.md)]
+
+## <a name="hostjson-settings"></a>host.json 설정
+
+파일 [ 의host.js](functions-host-json.md#eventhub) 에는 이벤트 허브 트리거 동작을 제어 하는 설정이 포함 되어 있습니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-event-hubs.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

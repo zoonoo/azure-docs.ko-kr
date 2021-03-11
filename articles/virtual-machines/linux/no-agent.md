@@ -2,19 +2,20 @@
 title: 프로비저닝 에이전트 없이 Linux 이미지 만들기
 description: Azure에서 프로 비전 에이전트 없이 일반화 된 Linux 이미지를 만듭니다.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c9ac872587804adbd9e62a3dc3ef3daed9e0c25
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: c7ca147f0a5b907ee0c5c66d53a219fe75ab2179
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223054"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551711"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
 

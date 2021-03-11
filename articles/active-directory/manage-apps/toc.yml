@@ -38,8 +38,14 @@
       items:
         - name: 앱 관리 샘플 개요
           href: app-management-powershell-samples.md
-        - name: '모든 앱 등록, 비밀 및 인증서 내보내기'
+        - name: 비밀 및 인증서 내보내기(앱 등록)
           href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+        - name: 비밀 및 인증서 내보내기(엔터프라이즈 앱)
+          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+        - name: 만료되는 비밀 및 인증서 내보내기
+          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+        - name: 필수 날짜 이후에 만료되는 비밀 및 인증서 내보내기
+          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: 앱 프록시 PowerShell 샘플
       href: application-proxy-powershell-samples.md
 - name: 개념

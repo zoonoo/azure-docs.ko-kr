@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f2b01b7a04958c4bd1f97332b54a1ff4fc32356
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369030"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522328"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>자습서: "Hello world!" Python 스크립트 실행(2/4부)
 
@@ -92,7 +92,7 @@ print(aml_url)
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [작업 영역](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)은 Azure Machine Learning 작업 영역에 연결되므로 Azure Machine Learning 리소스와 통신할 수 있습니다.
+      [작업 영역](/python/api/azureml-core/azureml.core.workspace.workspace)은 Azure Machine Learning 작업 영역에 연결되므로 Azure Machine Learning 리소스와 통신할 수 있습니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -100,7 +100,7 @@ print(aml_url)
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [실험](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)은 여러 실행을 단일 이름으로 구성하는 간단한 방법을 제공합니다. 나중에 실험을 통해 수십 개의 실행 간에 메트릭을 쉽게 비교할 수 있는 방법을 확인할 수 있습니다.
+      [실험](/python/api/azureml-core/azureml.core.experiment.experiment)은 여러 실행을 단일 이름으로 구성하는 간단한 방법을 제공합니다. 나중에 실험을 통해 수십 개의 실행 간에 메트릭을 쉽게 비교할 수 있는 방법을 확인할 수 있습니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -108,7 +108,7 @@ print(aml_url)
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터입니다.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -116,7 +116,7 @@ print(aml_url)
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       스크립트를 제출합니다. 이 제출을 [실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)이라고 합니다. 실행은 코드의 단일 실행을 캡슐화합니다. 실행을 사용하여 스크립트 진행률을 모니터링하고, 출력을 캡처하고, 결과를 분석하고, 메트릭을 시각화하는 등의 작업을 수행합니다.
+       스크립트를 제출합니다. 이 제출을 [실행](/python/api/azureml-core/azureml.core.run%28class%29)이라고 합니다. 실행은 코드의 단일 실행을 캡슐화합니다. 실행을 사용하여 스크립트 진행률을 모니터링하고, 출력을 캡처하고, 결과를 분석하고, 메트릭을 시각화하는 등의 작업을 수행합니다.
    :::column-end:::
 :::row-end:::
 :::row:::

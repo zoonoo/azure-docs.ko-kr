@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e41d4f6f8b8aeb2be376ae1385189fe02e9b897
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179054"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504660"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기
 
 Visual Studio Code용 Azure Resource Manager 도구는 언어 지원, 리소스 코드 조각 및 리소스 자동 완성 기능을 제공합니다. 이러한 도구는 ARM 템플릿(Azure Resource Manager 템플릿)을 만들고 유효성을 검사하는 데 도움이 됩니다. 이 빠른 시작에서는 확장을 사용하여 ARM 템플릿을 처음부터 만듭니다. 이 작업을 수행하는 동안 ARM 템플릿 코드 조각, 유효성 검사, 완성 및 매개 변수 파일 지원과 같은 확장 기능이 제공됩니다.
 
-이 빠른 시작을 완료하려면 [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)이 설치된 [Visual Studio Code](https://code.visualstudio.com/)가 필요합니다. 또한 [Azure CLI](/cli/azure/) 또는 [Azure PowerShell 모듈](/powershell/azure/new-azureps-module-az?view=azps-3.7.0)이 설치 및 인증되어 있어야 합니다.
+이 빠른 시작을 완료하려면 [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)이 설치된 [Visual Studio Code](https://code.visualstudio.com/)가 필요합니다. 또한 [Azure CLI](/cli/azure/) 또는 [Azure PowerShell 모듈](/powershell/azure/new-azureps-module-az)이 설치 및 인증되어 있어야 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

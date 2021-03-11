@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 409498201ac94882f1a28917693ffd3a65631fc7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583915"
+ms.locfileid: "102617406"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>AnchorLocateCriteria 클래스 이해
 이 문서에서는 앵커를 쿼리할 때 사용할 수 있는 다양 한 옵션에 대해 알아봅니다. AnchorLocateCriteria 클래스, 해당 옵션 및 유효한 옵션 조합을 살펴보겠습니다.
 
 ## <a name="anchor-locate-criteria"></a>앵커 찾기 조건
-[AnchorLocateCriteria 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria?view=spatialanchors-dotnet) 를 사용 하면 이전에 만든 앵커에 대해 서비스를 쿼리할 수 있습니다. 언제 든 지 감시자 당 하나의 AnchorLocateCriteria 개체를 사용할 수 있습니다. 각 AnchorLocateCriteria 개체에는 [identifier](#identifiers), [NearAnchor](#nearanchor)또는 [NearDevice](#neardevice)속성 중 **하나만** 있어야 합니다. 필요한 경우 [전략](#strategy), [BypassCache](#bypasscache), [RequestedCategories](#requestedcategories) 등의 추가 속성을 설정할 수 있습니다. 
+[AnchorLocateCriteria 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) 를 사용 하면 이전에 만든 앵커에 대해 서비스를 쿼리할 수 있습니다. 언제 든 지 감시자 당 하나의 AnchorLocateCriteria 개체를 사용할 수 있습니다. 각 AnchorLocateCriteria 개체에는 [identifier](#identifiers), [NearAnchor](#nearanchor)또는 [NearDevice](#neardevice)속성 중 **하나만** 있어야 합니다. 필요한 경우 [전략](#strategy), [BypassCache](#bypasscache), [RequestedCategories](#requestedcategories) 등의 추가 속성을 설정할 수 있습니다. 
 
 ### <a name="properties"></a>속성
 감시자에서 다음 속성 중 **하나를 정확 하 게** 정의 합니다.

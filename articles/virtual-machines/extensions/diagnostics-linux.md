@@ -1,21 +1,19 @@
 ---
 title: Azure Compute-Linux 진단 확장 4.0
 description: Azure에서 실행 되는 Linux Vm에서 메트릭 및 로그 이벤트를 수집 하도록 Azure Linux 진단 확장 (꼬마) 4.0을 구성 하는 방법입니다.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/05/2021
-ms.author: akjosh
-ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c4851ab28e5da74e7f1fa36f087ecfdabb1c638
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667315"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560126"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Linux 진단 확장 4.0를 사용 하 여 메트릭 및 로그 모니터링
 

@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/22/2020
 ms.author: raynew
-ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459275"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559127"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>컬렉션 및 리소스 그룹 이동 관리
 
@@ -39,70 +39,111 @@ ms.locfileid: "96459275"
 
 ## <a name="remove-a-resource-powershell"></a>리소스 제거 (PowerShell)
 
-다음과 같이 PowerShell을 사용 하 여 컬렉션에서 리소스 (이 예제에서는 PSDemoVM 컴퓨터)를 제거 합니다.
+PowerShell cmdlet을 사용 하 여 MoveCollection에서 단일 리소스를 제거 하거나 여러 리소스를 제거할 수 있습니다.
+
+### <a name="remove-a-single-resource"></a>단일 리소스 제거
+
+다음과 같이 리소스 (이 예제에서는 가상 네트워크 *psdemorm*)를 제거 합니다.
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
+Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -Name "psdemorm-vnet"
 ```
-**예상 출력**
+**Cmdlet을 실행 한 후 출력**
 
-![이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/remove-resource.png)
+![이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/powershell-remove-single-resource.png)
 
-## <a name="remove-a-collection-powershell"></a>컬렉션 제거 (PowerShell)
+### <a name="remove-multiple-resources"></a>여러 리소스 제거
 
-다음과 같이 PowerShell을 사용 하 여 전체 이동 컬렉션을 제거 합니다.
+다음과 같이 여러 리소스를 제거 합니다.
 
-1. 위의 지침에 따라 PowerShell을 사용 하 여 컬렉션에서 리소스를 제거 합니다.
-2. 다음을 실행합니다.
+1. 종속성 유효성 검사:
+
+    ````azurepowershell-interactive
+    $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-validate-dependencies.png)
+
+2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
+
+    ````azurepowershell-interactive
+    $resp.AdditionalInfo[0].InfoMoveResource
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+
+
+3. Remove all resources, along with the virtual network:
+
+    
+    ````azurepowershell-interactive
+    Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing all resources from a move collection](./media/remove-move-resources/remove-multiple-all.png)
+
+
+## Remove a collection (PowerShell)
+
+Remove an entire move collection from the subscription, as follows:
+
+1. Follow the instructions above to remove resources in the collection using PowerShell.
+2. Run:
 
     ```azurepowershell-interactive
-    # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
+    Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
     ```
-    **예상 출력**
+
+    **Output after running cmdlet**
     
-    ![이동 컬렉션을 제거한 후 출력 텍스트](./media/remove-move-resources/remove-collection.png)
+    ![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
 
-## <a name="vm-resource-state-after-removing"></a>제거 후 VM 리소스 상태
+## VM resource state after removing
 
-이동 컬렉션에서 VM 리소스를 제거할 때 발생 하는 작업은 테이블에 요약 된 대로 리소스 상태에 따라 달라 집니다.
+What happens when you remove a VM resource from a move collection depends on the resource state, as summarized in the table.
 
-###  <a name="remove-vm-state"></a>VM 상태 제거
-**리소스 상태** | **VM** | **네트워킹**
+###  Remove VM state
+**Resource state** | **VM** | **Networking**
 --- | --- | --- 
-**컬렉션 이동에 추가 됨** | 컬렉션 이동에서 삭제 합니다. | 컬렉션 이동에서 삭제 합니다. 
-**종속성 해결 됨/준비 보류 중** | 컬렉션 이동에서 삭제  | 컬렉션 이동에서 삭제 합니다. 
-**준비 중**<br/> (또는 진행 중인 다른 모든 상태) | 오류가 발생 하 여 삭제 작업이 실패 합니다.  | 오류가 발생 하 여 삭제 작업이 실패 합니다.
-**준비 실패** | 이동 컬렉션에서 삭제 합니다.<br/>복제본 디스크를 포함 하 여 대상 지역에서 만든 모든 항목을 삭제 합니다. <br/><br/> 이동 중에 만들어진 인프라 리소스는 수동으로 삭제 해야 합니다. | 이동 컬렉션에서 삭제 합니다.  
-**이동 시작 보류 중** | 컬렉션 이동에서 삭제 합니다.<br/><br/> VM, 복제본 디스크 등을 포함 하 여 대상 지역에서 만든 모든 항목을 삭제 합니다.  <br/><br/> 이동 중에 만들어진 인프라 리소스는 수동으로 삭제 해야 합니다. | 컬렉션 이동에서 삭제 합니다.
-**이동 시작 실패** | 컬렉션 이동에서 삭제 합니다.<br/><br/> VM, 복제본 디스크 등을 포함 하 여 대상 지역에서 만든 모든 항목을 삭제 합니다.  <br/><br/> 이동 중에 만들어진 인프라 리소스는 수동으로 삭제 해야 합니다. | 컬렉션 이동에서 삭제 합니다.
-**커밋 보류 중** | 대상 리소스가 먼저 삭제 되도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다. | 대상 리소스가 먼저 삭제 되도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다. 
-**커밋 실패** | 대상 리소스를 먼저 삭제 하려면를 삭제 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다. | 대상 리소스가 먼저 삭제 되도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다.
-**삭제 완료** | 리소스가 **이동 보류 중** 상태로 돌아갑니다.<br/><br/> 대상 VM, 복제본 디스크, 자격 증명 모음 등에 생성 된 항목을 비롯 하 여 이동 컬렉션에서 삭제 됩니다.  <br/><br/> 이동 중에 만들어진 인프라 리소스는 수동으로 삭제 해야 합니다. <br/><br/> 이동 중에 만들어진 인프라 리소스는 수동으로 삭제 해야 합니다. |  리소스가 **이동 보류 중** 상태로 돌아갑니다.<br/><br/> 이동 컬렉션에서 삭제 됩니다.
-**삭제 실패** | 대상 리소스를 먼저 삭제 하도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 그러면 리소스가 **이동 보류 중** 상태로 전환 되 고 해당 위치에서 계속할 수 있습니다. | 대상 리소스를 먼저 삭제 하도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 그러면 리소스가 **이동 보류 중** 상태로 전환 되 고 해당 위치에서 계속할 수 있습니다.
-**원본 삭제 보류 중** | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다.  | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다.
-**원본 삭제 실패** | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다. | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다.
+**Added to move collection** | Delete from move collection. | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection  | Delete from move collection. 
+**Prepare in progress**<br/> (or any other state in progress) | Delete operation fails with error.  | Delete operation fails with error.
+**Prepare failed** | Delete from the move collection.<br/>Delete anything created in the target region, including replica disks. <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from the move collection.  
+**Initiate move pending** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Initiate move failed** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Commit failed** | We recommend that you discard the  so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Discard completed** | The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target - VM, replica disks, vault etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. <br/><br/> Infrastructure resources created during the move need to be deleted manually. |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection.
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 
-## <a name="sql-resource-state-after-removing"></a>제거한 후 SQL 리소스 상태
+## SQL resource state after removing
 
-이동 컬렉션에서 Azure SQL 리소스를 제거 하면 수행 되는 작업은 테이블에 요약 된 대로 리소스 상태에 따라 달라 집니다.
+What happens when you remove an Azure SQL resource from a move collection depends on the resource state, as summarized in the table.
 
-**리소스 상태** | **SQL** 
+**Resource state** | **SQL** 
 --- | --- 
-**컬렉션 이동에 추가 됨** | 컬렉션 이동에서 삭제 합니다. 
-**종속성 해결 됨/준비 보류 중** | 컬렉션 이동에서 삭제 
-**준비 중**<br/> (또는 진행 중인 다른 모든 상태)  | 오류가 발생 하 여 삭제 작업이 실패 합니다. 
-**준비 실패** | 컬렉션 이동에서 삭제<br/><br/>대상 지역에서 만든 모든 항목을 삭제 합니다. 
-**이동 시작 보류 중** |  컬렉션 이동에서 삭제<br/><br/>대상 지역에서 만든 모든 항목을 삭제 합니다. 이 시점에 SQL 데이터베이스가 있으며 삭제 됩니다. 
-**이동 시작 실패** | 컬렉션 이동에서 삭제<br/><br/>대상 지역에서 만든 모든 항목을 삭제 합니다. SQL 데이터베이스는이 시점에 존재 하며 삭제 해야 합니다. 
-**커밋 보류 중** | 대상 리소스가 먼저 삭제 되도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다.
-**커밋 실패** | 대상 리소스가 먼저 삭제 되도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 리소스가 **이동 보류 중** 상태로 다시 이동 하 여 해당 위치에서 계속할 수 있습니다. 
-**삭제 완료** |  리소스가 **이동 보류 중** 상태로 돌아갑니다.<br/><br/> SQL 데이터베이스를 포함 하 여 대상에서 생성 된 것과 함께 이동 컬렉션에서 삭제 됩니다. 
-**삭제 실패** | 대상 리소스를 먼저 삭제 하도록 이동을 취소 하는 것이 좋습니다.<br/><br/> 그러면 리소스가 **이동 보류 중** 상태로 전환 되 고 해당 위치에서 계속할 수 있습니다. 
-**원본 삭제 보류 중** | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다. 
-**원본 삭제 실패** | 이동 컬렉션에서 삭제 되었습니다.<br/><br/> 대상 지역에 생성 된 항목은 삭제 되지 않습니다. 
+**Added to move collection** | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection 
+**Prepare in progress**<br/> (or any other state in progress)  | Delete operation fails with error. 
+**Prepare failed** | Delete from move collection<br/><br/>Delete anything created in the target region. 
+**Initiate move pending** |  Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and will be deleted. 
+**Initiate move failed** | Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and must be deleted. 
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Commit failed** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Discard completed** |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target, including SQL databases. 
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 
-리소스 이동 기를 사용 하 여 [VM을](tutorial-move-region-virtual-machines.md) 다른 지역으로 이동 해 보세요.
+Try [moving a VM](tutorial-move-region-virtual-machines.md) to another region with Resource Mover.

@@ -4,17 +4,17 @@ description: Azure virtual machines에 대 한 신뢰할 수 있는 시작에 �
 author: khyewei
 ms.author: khwei
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: bc1afa72a0eebd2bb467616237641222b790923c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679808"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609093"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Azure virtual machines에 대 한 신뢰할 수 있는 시작 (미리 보기)
 
@@ -40,7 +40,6 @@ Azure는 [2 세대](generation-2.md) vm의 보안을 향상 시키기 위한 원
 
 **크기 지원**: 다음을 제외한 모든 [2 세대](generation-2.md) VM 크기
 
-- HBv3 
 - Lsv2 시리즈 
 - M 시리즈 
 - Mv2 시리즈 
@@ -123,7 +122,7 @@ Vm이 신뢰할 수 있는 시작으로 올바르게 설정 된 경우 Azure Def
 
 ### <a name="why-should-i-use-trusted-launch-what-does-trusted-launch-guard-against"></a>트러스트 된 실행을 사용 해야 하는 이유는 무엇 인가요? 트러스트 된 출시는 무엇을 보호 하나요?
 
-신뢰할 수 있는 시작은 부팅 키트, 루트킷 및 커널 수준 맬웨어에 대해 보호 합니다. 이러한 고급 유형의 맬웨어는 커널 모드에서 실행 되 고 사용자에 게는 숨겨진 상태를 유지 합니다. 다음은 그 예입니다. 
+신뢰할 수 있는 시작은 부팅 키트, 루트킷 및 커널 수준 맬웨어에 대해 보호 합니다. 이러한 고급 유형의 맬웨어는 커널 모드에서 실행 되 고 사용자에 게는 숨겨진 상태를 유지 합니다. 예를 들면 다음과 같습니다.
 - 펌웨어 루트킷: 이러한 키트는 가상 머신의 BIOS의 펌웨어를 덮어쓰므로 OS 이전에 루트킷를 시작할 수 있습니다. 
 - 부팅 키트: 이러한 키트는 os의 부팅 로더를 대체 하 여 가상 머신이 OS 이전에 부팅 키트를 로드 하도록 합니다.
 - 커널 루트: 이러한 키트는 os가 로드 될 때 루트킷가 자동으로 시작 될 수 있도록 OS 커널의 일부를 대체 합니다.

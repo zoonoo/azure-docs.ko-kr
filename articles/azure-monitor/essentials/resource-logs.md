@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033015"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558698"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](../essentials/platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](../logs/data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
@@ -28,11 +28,11 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 
 리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](../essentials/diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](../logs/data-platform-logs.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
 
-- Azure 진단-기록 된 모든 데이터는 _Azurediagnostics_ 테이블에 저장 됩니다.
+- Azure 진단-기록 된 모든 데이터는 [Azurediagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) 테이블에 저장 됩니다.
 - 리소스 관련 데이터는 리소스의 각 범주에 대 한 개별 테이블에 기록 됩니다.
 
 ### <a name="azure-diagnostics-mode"></a>Azure 진단 모드 
-이 모드에서는 모든 진단 설정의 모든 데이터가 _Azurediagnostics_ 테이블에 수집 됩니다. 이는 오늘날 대부분의 Azure 서비스에서 사용 하는 레거시 방법입니다. 여러 리소스 형식이 동일한 테이블에 데이터를 보내기 때문에 해당 스키마는 수집 되는 다른 모든 데이터 형식의 스키마 상위 집합입니다.
+이 모드에서는 모든 진단 설정의 모든 데이터가 [Azurediagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) 테이블에 수집 됩니다. 이는 오늘날 대부분의 Azure 서비스에서 사용 하는 레거시 방법입니다. 여러 리소스 형식이 동일한 테이블에 데이터를 보내기 때문에 해당 스키마는 수집 되는 다른 모든 데이터 형식의 스키마 상위 집합입니다. 이 테이블의 구조와 잠재적으로 많은 수의 열에서 작동 하는 방법에 대 한 자세한 내용은 [Azurediagnostics 참조](/azure/azure-monitor/reference/tables/azurediagnostics) 를 참조 하세요.
 
 진단 설정이 다음 데이터 형식에 대해 동일한 작업 영역에서 수집 되는 다음 예를 살펴보세요.
 
@@ -95,16 +95,6 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 기존 진단 설정을 리소스 특정 모드로 수정할 수 있습니다. 이 경우 이미 수집 된 데이터는 작업 영역의 보존 설정에 따라 제거 될 때까지 _Azurediagnostics_ 테이블에 남아 있습니다. 새 데이터는 전용 테이블에 수집 됩니다. [Union](/azure/kusto/query/unionoperator) 연산자를 사용 하 여 두 테이블에서 데이터를 쿼리 합니다.
 
 Resource-Specific 모드를 지 원하는 Azure 서비스에 대 한 공지 사항은 [Azure 업데이트](https://azure.microsoft.com/updates/) 블로그를 계속 시청 하세요.
-
-### <a name="column-limit-in-azurediagnostics"></a>AzureDiagnostics의 열 제한
-Azure Monitor 로그의 모든 테이블에 대 한 500 속성 제한이 있습니다. 이 한도에 도달 하면 첫 번째 500 외부의 속성을 포함 하는 데이터를 포함 하는 모든 행이 수집 시 삭제 됩니다. *Azurediagnostics* 테이블은 모든 Azure 서비스에 대 한 속성을 포함 하므로 특히이 제한에 취약 합니다.
-
-여러 서비스에서 리소스 로그를 수집 하는 경우 _Azurediagnostics_ 는이 제한을 초과할 수 있으며 데이터가 누락 됩니다. 모든 Azure 서비스에서 리소스 특정 모드를 지원할 때까지 여러 작업 영역에 쓰도록 리소스를 구성 하 여 500 열 제한에 도달할 가능성을 줄여야 합니다.
-
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
-Azure Data Factory는 자세한 로그 집합으로 인해 많은 열을 작성 하는 것으로 알려진 서비스 이며,이로 인해 _Azurediagnostics_ 가 제한을 초과 하 게 됩니다. 리소스 특정 모드를 사용 하기 전에 구성 된 모든 진단 설정의 경우 모든 작업에 대해 고유 하 게 명명 된 모든 사용자 매개 변수에 대해 만들어진 새 열이 있습니다. 활동 입력 및 출력의 자세한 특성으로 인해 더 많은 열이 생성 됩니다.
- 
-가능한 한 빨리 리소스 특정 모드를 사용 하려면 로그를 마이그레이션해야 합니다. 즉시 수행할 수 없는 경우에는 작업 영역에서 수집 되는 다른 로그 유형에 영향을 주는 로그를 최소화 하기 위해 Azure Data Factory 로그를 자체 작업 영역으로 분리 하는 것이 좋습니다.
 
 
 ## <a name="send-to-azure-event-hubs"></a>Azure Event Hubs에 보내기

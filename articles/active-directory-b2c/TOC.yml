@@ -237,7 +237,7 @@
         - name: 조건부 액세스 구성
           href: conditional-access-user-flow.md
     - name: 나이 제한 구성
-      href: basic-age-gating.md
+      href: age-gating.md
     - name: API 커넥터(미리 보기)
       items:
         - name: 개요

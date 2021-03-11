@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: 캐싱 규칙 설정
       href: cdn-caching-rules-tutorial.md
-    - name: 표준 규칙 엔진을 사용하여 HTTPS 적용
-      href: cdn-standard-rules-engine.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: 엔드포인트 다중 원본
           href: endpoint-multiorigin.md
+        - name: 표준 규칙 엔진을 사용하여 HTTPS 적용
+          href: cdn-standard-rules-engine.md
         - name: 캐싱 동작 제어
           items:
             - name: 캐싱 규칙을 사용하여 캐싱 동작 제어
@@ -94,7 +94,7 @@
           items:
             - name: Azure 웹 콘텐츠
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Azure Blob 스토리지
+            - name: Azure Blob Storage
               href: cdn-manage-expiration-of-blob-content.md
         - name: 토큰 인증
           href: cdn-token-auth.md
@@ -178,7 +178,7 @@
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/cdn/
 - name: 리소스
   items:

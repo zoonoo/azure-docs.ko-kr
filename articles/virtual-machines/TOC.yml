@@ -280,28 +280,26 @@
           href: ./linux/spot-template.md
         - name: 오류 코드
           href: error-codes-spot.md
-    - name: 구매 옵션
+    - name: Azure 하이브리드 혜택
       items:
-        - name: Azure 하이브리드 혜택
+        - name: Linux
+          href: ./linux/azure-hybrid-benefit-linux.md
+        - name: Windows
           items:
-            - name: Linux
-              href: ./linux/azure-hybrid-benefit-linux.md
-            - name: Windows
-              items:
-                - name: Azure 하이브리드 혜택 사용 라이선스
-                  href: ./windows/hybrid-use-benefit-licensing.md
-                - name: Windows 10에 대해 다중 테넌트 호스팅 권한 사용
-                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-        - name: 예약 인스턴스
-          items:
-            - name: VM 선불
-              href: ./prepay-reserved-vm-instances.md
-            - name: Dedicated Host 선불
-              href: prepay-dedicated-hosts-reserved-instances.md
-            - name: Azure 예약이란?
-              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-            - name: VM 인스턴스 크기 유연성
-              href: reserved-vm-instance-size-flexibility.md
+            - name: Azure 하이브리드 혜택 사용 라이선스
+              href: ./windows/hybrid-use-benefit-licensing.md
+            - name: Windows 10에 대해 다중 테넌트 호스팅 권한 사용
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: 예약 인스턴스
+      items:
+        - name: VM 선불
+          href: ./prepay-reserved-vm-instances.md
+        - name: Dedicated Host 선불
+          href: prepay-dedicated-hosts-reserved-instances.md
+        - name: Azure 예약이란?
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+        - name: VM 인스턴스 크기 유연성
+          href: reserved-vm-instance-size-flexibility.md
     - name: Linux VM 만들기
       items:
         - name: 보증 배포
@@ -783,41 +781,52 @@
           href: ./windows/build-image-with-packer.md
 - name: 가용성 및 규모
   items:
-    - name: 확장 집합
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-    - name: 가용성
+    - name: 개요
       href: availability.md
-    - name: 공동 배치
-      href: co-location.md
-    - name: 네트워크 성능
-      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-    - name: 상태 및 수명 주기
-      href: states-lifecycle.md
-    - name: 자동 크기 조정
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: 고가용성
-      href: manage-availability.md
     - name: 가용성 집합
       items:
-        - name: Linux
+        - name: 개요
+          href: availability-set-overview.md
+        - name: CLI
           href: ./linux/tutorial-availability-sets.md
-        - name: Windows
-          items:
-            - name: 가용성 집합 만들기
-              href: ./windows/tutorial-availability-sets.md
-            - name: 가용성 집합 변경
-              href: ./windows/change-availability-set.md
-    - name: 근접 배치 그룹 만들기
-      displayName: PPG aligned colocation co-location
+        - name: PowerShell
+          href: ./windows/tutorial-availability-sets.md
+        - name: 가용성 집합 변경
+          href: ./windows/change-availability-set.md
+    - name: 가용성 영역
       items:
+        - name: 개요
+          href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ./linux/create-cli-availability-zone.md
+        - name: PowerShell
+          href: ./windows/create-powershell-availability-zone.md
+        - name: 포털
+          href: ./windows/create-portal-availability-zone.md
+    - name: 근접 배치 그룹
+      items:
+        - name: 개요
+          href: co-location.md
         - name: CLI
           href: ./linux/proximity-placement-groups.md
-        - name: 포털
-          href: ./windows/proximity-placement-groups-portal.md
         - name: PowerShell
           href: ./windows/proximity-placement-groups.md
-    - name: 가용성 영역에서 VM 만들기
-      href: ./linux/create-cli-availability-zone.md
+        - name: 포털
+          href: ./windows/proximity-placement-groups-portal.md
+    - name: Virtual Machine Scale Sets
+      items:
+        - name: 개요
+          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: 자동 크기 조정
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+        - name: 오케스트레이션 모드
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: VM 재부팅 이해
+      href: understand-vm-reboots.md
+    - name: 상태 및 청구
+      href: states-billing.md
+    - name: Azure 지역
+      href: regions.md
 - name: 디스크
   items:
     - name: 관리 디스크 소개
@@ -1346,7 +1355,7 @@
             - name: 상용 서비스 관련 FAQ
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: FAQ
-              href: ../azure-monitor/faq.md
+              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요
