@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: e28bd5b5caca259201758f0c633b2120a411f422
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007451"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618409"
 ---
 # <a name="long-audio-api"></a>긴 오디오 API
 
@@ -47,6 +47,13 @@ ms.locfileid: "100007451"
 * 일반 텍스트의 경우 400 자 보다 크거나, SSML 텍스트에 대 한 400 [청구 가능 문자](./text-to-speech.md#pricing-note) 를 포함 하며, 1만 단락 보다 작음
   * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
   * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
+
+## <a name="sample-code"></a>예제 코드
+이 페이지의 나머지 부분에서는 Python에 집중 하지만 긴 오디오 API에 대 한 샘플 코드는 GitHub에서 다음과 같은 프로그래밍 언어에 사용할 수 있습니다.
+
+* [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [샘플 코드: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [샘플 코드: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## <a name="python-example"></a>Python 예제
 
@@ -431,7 +438,7 @@ response.status_code: 204
 
 긴 오디오 API는 고유한 끝점을 사용 하 여 여러 지역에서 사용할 수 있습니다.
 
-| 지역 | 엔드포인트 |
+| Region | 엔드포인트 |
 |--------|----------|
 | 미국 동부 | `https://eastus.customvoice.api.speech.microsoft.com` |
 | 인도 중부 | `https://centralindia.customvoice.api.speech.microsoft.com` |
@@ -456,10 +463,3 @@ response.status_code: 204
 * 오디오-24khz-48kbitrate 전송률-mono-mp3
 * 오디오-24khz-96kbitrate 전송률-mono-mp3
 * 오디오-24khz-160kbitrate 전송률-mono-mp3
-
-## <a name="sample-code"></a>예제 코드
-긴 오디오 API에 대 한 샘플 코드는 GitHub에서 사용할 수 있습니다.
-
-* [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [샘플 코드: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
-* [샘플 코드: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)

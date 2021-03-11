@@ -5,20 +5,18 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509441"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563339"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 문서에서는 앱이 인증 공급자로 Azure Active Directory (Azure AD)를 사용 하 여 사용자에 게 로그인 하도록 Azure App Service 또는 Azure Functions에 대 한 인증을 구성 하는 방법을 보여 줍니다.
-
-이 기능은 현재 Azure Functions에 대 한 Linux 소비 계획에서 사용할 수 없습니다.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>기본 설정을 사용하여 구성
 

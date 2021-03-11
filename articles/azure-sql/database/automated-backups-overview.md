@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690624"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609926"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -70,7 +70,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 
 다음 예제를 사용 하 여 백업 구성 및 복원 작업을 시도할 수 있습니다.
 
-| 작업 | Azure Portal | Azure PowerShell |
+| 작업(Operation) | Azure portal | Azure PowerShell |
 |---|---|---|
 | **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance-해당 없음  | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
@@ -140,9 +140,12 @@ SQL Database 및 SQL Managed Instance 모두 Azure Blob storage에서 최대 10 
 
 LTR에 대한 자세한 내용은 [장기 백업 보존](long-term-retention-overview.md)을 참조하세요.
 
-## <a name="storage-costs"></a>스토리지 비용
+## <a name="backup-storage-costs"></a>백업 저장소 비용
 
 백업 저장소의 가격은 구매 모델 (DTU 또는 vCore), 선택 된 백업 저장소 중복성 옵션 및 해당 지역에 따라 달라 집니다. 백업 저장소는 g b/월 단위로 청구 됩니다. 가격은 가격 책정 페이지 및 [AZURE SQL Managed Instance 가격](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) 책정 페이지를 [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) 참조 하세요.
+
+> [!NOTE]
+> Azure invoice는 전체 백업 저장소 사용량이 아니라 소비 된 과도 한 백업 저장소만 표시 합니다. 예를 들어 가상의 시나리오에서 데이터 저장소의 4TB를 프로 비전 한 경우 사용 가능한 백업 저장소 공간이 4TB 됩니다. 총 5.8 TB의 백업 저장소 공간을 사용한 경우에는 사용한 과도 한 백업 저장소만 청구 되므로 Azure invoice는 1.8 TB만 표시 합니다.
 
 ### <a name="dtu-model"></a>DTU 모델
 
@@ -446,7 +449,7 @@ SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전�
 조직 수준에서 데이터 상주 요구 사항을 적용 하기 위해 구독에 이러한 정책을 할당할 수 있습니다. 구독 수준에서 할당 된 후에는 지정 된 구독의 사용자가 Azure Portal 또는 Azure PowerShell를 통해 지역 중복 백업 저장소를 사용 하 여 데이터베이스 또는 관리 되는 인스턴스를 만들 수 없습니다. 
 
 > [!IMPORTANT]
-> T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. T-sql을 사용 하 여 데이터베이스를 만들 때 데이터 상주을 적용 하려면 [CREATE database 문에 ' LOCAL ' 또는 ' ZONE '을 입력으로 사용](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)하 여 매개 변수를 BACKUP_STORAGE_REDUNDANCY 합니다.
+> T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. T-sql을 사용 하 여 데이터베이스를 만들 때 데이터 상주을 적용 하려면 [CREATE database 문에 ' LOCAL ' 또는 ' ZONE '을 입력으로 사용](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups)하 여 매개 변수를 BACKUP_STORAGE_REDUNDANCY 합니다.
 
 [Azure Portal](../../governance/policy/assign-policy-portal.md) 또는 [Azure PowerShell](../../governance/policy/assign-policy-powershell.md) 를 사용 하 여 정책을 할당 하는 방법을 알아봅니다.
 
@@ -458,4 +461,5 @@ SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전�
 - [PowerShell을 사용하여 지정 시간으로 데이터베이스를 복원](scripts/restore-database-powershell.md)하는 방법에 대해 자세히 알아봅니다.
 - Azure Portal을 사용하여 Azure Blob Storage에서 자동화된 백업의 장기 보존에 따라 구성, 관리 및 복원하는 방법에 대한 내용은 [Azure Portal을 사용하여 장기 백업 보존 관리](long-term-backup-retention-configure.md)를 참조하세요.
 - PowerShell을 사용하여 Azure Blob Storage에서 자동화된 백업의 장기 보존에 따라 구성, 관리 및 복원하는 방법에 대한 내용은 [PowerShell을 사용하여 장기 백업 보존 관리](long-term-backup-retention-configure.md)를 참조하세요.
+- Azure SQL Managed Instance의 백업 저장소 사용에 대 한 자세한 내용은 [Managed Instance 설명 된 백업 저장소](https://aka.ms/mi-backup-explained)사용을 참조 하세요.
 - Azure SQL Managed Instance에 대 한 백업 저장소 보존 및 비용을 미세 조정 하는 방법을 알아보려면 [Managed Instance에서 백업 저장소 비용 미세 조정](https://aka.ms/mi-backup-tuning)을 참조 하세요.

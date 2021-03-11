@@ -2,17 +2,18 @@
 title: Azure의 관리형 이미지에서 VM 만들기
 description: Azure PowerShell 또는 포털을 사용하여 일반화된 관리형 이미지로 Windows 가상 머신을 만듭니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: edcaf3fb92b78f2d1fab54cf4db21aaaff0e3d59
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bc87b0ec9cf41b2ddc5746a9734463f544b0cc2a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881858"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550691"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -20,7 +21,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 
 새 VM을 만들기 전에 원본 이미지로 사용하고 이미지에 대한 액세스 권한을 부여해야 하는 모든 사용자에게 이미지에 대한 읽기 액세스 권한을 부여하려면 [관리형 VM 이미지를 만들어야](capture-image-resource.md) 합니다. 
 
-하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개 이상의 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간 초과가 발생할 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
+하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
 
 ## <a name="use-the-portal"></a>포털 사용
 

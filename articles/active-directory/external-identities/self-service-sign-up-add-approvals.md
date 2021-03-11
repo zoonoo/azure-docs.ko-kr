@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644870"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609993"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ Content-type: application/json
 
 수동 승인을 얻은 후 사용자 지정 승인 시스템은 [Microsoft Graph](/graph/use-the-api)를 사용 하 여 [사용자](/graph/azuread-users-concept-overview) 계정을 만듭니다. 승인 시스템이 사용자 계정을 프로 비전 하는 방법은 사용자가 사용 하는 id 공급자에 따라 다릅니다.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>페더레이션된 Google 또는 Facebook 사용자의 경우
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>페더레이션된 Google 또는 Facebook 사용자의 경우 일회용 암호를 전자 메일로 보내기
 
 > [!IMPORTANT]
-> 승인 시스템은이를 명시적으로 확인 하 고 `identities` `identities[0]` `identities[0].issuer` `identities[0].issuer` 이 메서드를 사용 하려면 ' facebook ' 또는 ' google '과 동일한 지 확인 해야 합니다.
+> 승인 시스템은 `identities` `identities[0]` `identities[0].issuer` `identities[0].issuer` 이 메서드를 사용 하기 위해 및가 있고 ' facebook ', ' google ' 또는 ' 메일 '과 동일한 지를 명시적으로 확인 해야 합니다.
 
-사용자가 Google 또는 Facebook 계정으로 로그인 한 경우 [사용자 만들기 API](/graph/api/user-post-users?tabs=http)를 사용할 수 있습니다.
+사용자가 Google 또는 Facebook 계정으로 로그인 하거나 일회성 암호를 전자 메일로 보내는 경우 [사용자 생성 API](/graph/api/user-post-users?tabs=http)를 사용할 수 있습니다.
 
 1. 승인 시스템은를 사용 하 여 사용자 흐름에서 HTTP 요청을 받습니다.
 
@@ -328,12 +324,12 @@ Content-type: application/json
 | mail                                                | 예      | `email`API로 전송 된 클레임에 해당 합니다.                                                                                                               |
 | userType                                            | 예      | `Guest`이어야 합니다. 이 사용자를 게스트 사용자로 지정 합니다.                                                                                                                 |
 | ID                                          | 예      | 페더레이션된 id 정보입니다.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | No       | `displayName`, 및 기타와 같은 기타 기본 제공 특성 `city` 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | 사용자에 대 한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
+| \<otherBuiltInAttribute>                            | 아니요       | `displayName`, 및 기타와 같은 기타 기본 제공 특성 `city` 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | 아니요       | 사용자에 대 한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>페더레이션된 Azure Active Directory 사용자의 경우
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>페더레이션된 Azure Active Directory 사용자 또는 Microsoft 계정 사용자
 
-사용자가 페더레이션된 Azure Active Directory 계정으로 로그인 하는 경우 [초대 api](/graph/api/invitation-post) 를 사용 하 여 사용자를 만든 다음 필요에 따라 사용자에 게 더 많은 특성을 할당 하는 [사용자 업데이트 api](/graph/api/user-update) 를 사용 해야 합니다.
+사용자가 페더레이션된 Azure Active Directory 계정 또는 Microsoft 계정를 사용 하 여 로그인 하는 경우 [초대 api](/graph/api/invitation-post) 를 사용 하 여 사용자를 만든 다음 필요에 따라 사용자에 게 더 많은 특성을 할당 하는 [사용자 업데이트 api](/graph/api/user-update) 를 사용 해야 합니다.
 
 1. 승인 시스템은 사용자 흐름에서 HTTP 요청을 수신 합니다.
 

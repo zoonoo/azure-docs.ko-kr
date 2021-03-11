@@ -55,7 +55,7 @@
         - name: 라이선스
           href: concept-mfa-licensing.md
         - name: Office 365용 MFA
-          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
+          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: FAQ
           href: multi-factor-authentication-faq.md
     - name: 암호 보호

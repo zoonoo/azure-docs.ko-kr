@@ -209,6 +209,8 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: 다른 IoT 클라우드 연결
           href: core/howto-build-iotc-device-bridge.md
+        - name: 디바이스 관리
+          href: core/how-to-move-device-to-iot.md
     - name: 통합 솔루션 빌드
       items:
         - name: 대시보드에 타일 추가

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599044"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561248"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대 한 비용 계획 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "98599044"
 
 Azure Synapse 리소스 사용을 시작한 후에는 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure Synapse에 대 한 비용은 Azure 청구서의 월별 비용 중 일부일 뿐입니다. 이 문서에서는 Azure Synapse에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Cost Management의 비용 분석은 대부분의 Azure 계정 유형을 지원 하지만 일부는 지원 하지 않습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요. 비용 데이터를 보려면 최소한 Azure 계정에 대 한 읽기 권한이 있어야 합니다. Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
@@ -113,7 +113,12 @@ Azure Synapse에 대 한 비용을 보여 주는 예제는 다음과 같습니�
 
 사용 하지 않는 리소스를 일시 중지 하 여 전용 SQL 풀의 비용을 제어할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 자세한 내용은 [Azure Portal를 통해 전용 SQL 풀에서 계산 일시 중지 및 다시 시작](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
 
-<!-- ### Serverless Apache Spark pool -->
+### <a name="serverless-apache-spark-pool"></a>서버리스 Apache Spark 풀
+
+서버 리스 Apache Spark 풀의 비용을 제어 하려면 서버 리스 Apache Spark 자동 일시 중지 기능을 사용 하도록 설정 하 고 제한 시간 값을 적절 하 게 설정 합니다.  개발에 Synapse Studio를 사용 하는 경우 스튜디오에서 연결 유지 메시지를 보내 구성 가능 하도록 세션을 활성 상태로 유지 하므로 자동 일시 중지에 대 한 짧은 시간 제한 값을 설정 합니다.  완료 되 면 세션을 종료 하면 제한 시간 값에 도달 하면 Apache Spark 풀이 자동으로 일시 중지 됩니다.
+ 
+개발 하는 동안 다양 한 크기의 Apache Spark 풀 정의를 여러 개 만듭니다.  Apache Spark 풀 정의를 만드는 것은 무료 이며 사용량에 대해서만 요금이 청구 됩니다.  Azure Synapse의 Apache Spark 사용량은 vCore 시간당 청구 되 고 분 단위로 비례 배분 됩니다.  예를 들어 코드 개발 및 유효성 검사에는 작은 풀 크기를 사용 하 고 성능 테스트에는 더 큰 풀 크기를 사용 합니다.
+
 
 ### <a name="data-integration---pipelines-and-data-flows"></a>데이터 통합-파이프라인 및 데이터 흐름 
 

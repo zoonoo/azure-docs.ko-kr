@@ -3,18 +3,18 @@ title: 일반화된 VHD에서 VM 만들기
 description: 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b198c094ffd5f2113603fc9d8d2fb1c4e5cd6fe1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dbe1e31a9b56f2f60edbebd8286bf0bfdeaa327e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881960"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560970"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>일반화 된 이미지를 사용 하 여 VM 만들기 
 

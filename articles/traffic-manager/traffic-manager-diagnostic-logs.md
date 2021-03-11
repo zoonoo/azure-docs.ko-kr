@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cf3709574e2055f40759fd2d7026c93ac9db098
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577888"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608022"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 리소스 로깅 사용
 
@@ -39,14 +39,14 @@ Azure Traffic Manager 리소스 로그는 Traffic Manager 프로필 리소스의
 
 2. **Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 합니다.**
 
-    [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest)를 사용 하 여 이전 단계에서 가져온 ID를 사용 하 여 Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
+    [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting)를 사용 하 여 이전 단계에서 가져온 ID를 사용 하 여 Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **진단 설정 확인:**
 
-      [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest)을 사용하여 Traffic Manager 프로필에 대한 진단 설정을 확인합니다. 다음 명령은 리소스에 대해 기록되는 범주를 표시합니다.
+      [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting)을 사용하여 Traffic Manager 프로필에 대한 진단 설정을 확인합니다. 다음 명령은 리소스에 대해 기록되는 범주를 표시합니다.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348358"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559293"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -59,7 +59,7 @@ Microsoft Graph API를 쿼리하려면 [웹 api에 액세스 하도록 새 응�
 
 Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구현 하는 몇 가지 샘플 앱을 제공 했습니다. 응용 프로그램이 Azure AD에 등록 된 후 **빠른** 시작 블레이드는 일반적인 응용 프로그램 유형 및 개발 스택 목록을 제공 합니다 (그림 1). 사용자 환경과 일치 하는 항목을 선택 하 고 다운로드 및 설정 지침을 따릅니다.
 
-**_그림 1: Azure Portal _의 빠른 시작 블레이드_*
+***그림 1: Azure Portal의 빠른 시작 블레이드***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Azure Portal의 빠른 시작 블레이드를 보여 줍니다.":::
 
@@ -69,7 +69,7 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 [Openid connect Connect](../active-directory/develop/v2-protocols-oidc.md) 흐름의 일부로 Azure AD는 사용자가 방문 페이지로 전송 될 때 요청에 [ID 토큰](../active-directory/develop/id-tokens.md) 을 추가 합니다. 이 토큰에는이 표에 표시 된 정보를 비롯 하 여 활성화 프로세스에 유용할 수 있는 여러 가지 기본 정보가 포함 되어 있습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ------------ | ------------- |
 | aud | 이 토큰의 대상입니다. 이 경우 응용 프로그램 ID와 일치 하 고 유효성을 검사 해야 합니다. |
 | preferred_username | 방문 사용자의 기본 사용자 이름입니다. 전자 메일 주소, 전화 번호 또는 기타 식별자 일 수 있습니다. |
@@ -82,9 +82,9 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 ## <a name="use-the-microsoft-graph-api"></a>Microsoft Graph API 사용
 
-ID 토큰에는 사용자를 식별 하기 위한 기본 정보가 포함 되어 있지만 활성화 프로세스에는 온 보 딩 프로세스를 완료 하는 데 필요한 추가 정보 (예: 사용자 회사)가 필요할 수 있습니다. [MICROSOFT GRAPH API](/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 _ *사용자. 읽기* * 권한은 기본적으로 다음 정보를 포함 합니다.
+ID 토큰에는 사용자를 식별 하기 위한 기본 정보가 포함 되어 있지만 활성화 프로세스에는 온 보 딩 프로세스를 완료 하는 데 필요한 추가 정보 (예: 사용자 회사)가 필요할 수 있습니다. [MICROSOFT GRAPH API](/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 **사용자. 읽기** 권한에는 기본적으로 다음 정보가 포함 됩니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ------------ | ------------- |
 | displayName | 사용자의 주소록에 표시 되는 이름입니다. |
 | givenName | 사용자의 이름입니다. |
@@ -95,7 +95,7 @@ ID 토큰에는 사용자를 식별 하기 위한 기본 정보가 포함 되어
 | surname | 사용자의 성입니다. |
 |||
 
-사용자의 회사 이름 또는 사용자의 위치 (국가)와 같은 추가 속성을 선택 하 여 요청에 포함할 수 있습니다. 자세한 내용은 [사용자 리소스 종류에 대 한 속성](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties)을 참조 하세요.
+사용자의 회사 이름 또는 사용자의 위치 (국가)와 같은 추가 속성을 선택 하 여 요청에 포함할 수 있습니다. 자세한 내용은 [사용자 리소스 종류에 대 한 속성](/graph/api/resources/user#properties)을 참조 하세요.
 
 Azure AD에 등록 된 대부분의 앱은 회사의 Azure AD 테 넌 트에서 사용자 정보를 읽을 수 있도록 위임 된 권한을 부여 합니다. 해당 정보를 Microsoft Graph 하는 모든 요청에는 인증으로 액세스 토큰이 수반 되어야 합니다. 액세스 토큰을 생성 하는 특정 단계는 사용 중인 기술 스택에 따라 다르지만 샘플 코드에는 예제가 포함 됩니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](/graph/auth-v2-user)를 참조 하세요.
 

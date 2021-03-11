@@ -2,18 +2,19 @@
 title: FAQ - Windows VM용 Azure Disk Encryption
 description: 이 문서에서는 Windows IaaS VM용 Microsoft Azure Disk Encryption에 대한 질문과 대답을 제공합니다.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6371a6bd0c4b8151c97a892ec70789429b4bda75
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488377"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562200"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Windows 가상 머신용 Azure Disk Encryption FAQ
 
@@ -21,7 +22,7 @@ ms.locfileid: "96488377"
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Windows VM용 Azure Disk Encryption이란?
 
-Windows VM용 Azure Disk Encryption은 Windows의 BitLocker 기능을 사용하여 OS 디스크 및 데이터 디스크에 대한 전체 디스크 암호화를 제공합니다. 또한 [VolumeType 매개 변수가 All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk)일 때 임시 디스크의 암호화를 제공합니다.  콘텐츠는 암호화되어 VM에서 Storage 백 엔드로 흐르므로 고객 관리형 키를 사용한 엔드투엔드 암호화를 제공합니다.
+Windows VM용 Azure Disk Encryption은 Windows의 BitLocker 기능을 사용하여 OS 디스크 및 데이터 디스크에 대한 전체 디스크 암호화를 제공합니다. 또한 [VolumeType 매개 변수가 All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk)일 때 임시 디스크의 암호화를 제공합니다.  콘텐츠는 암호화되어 VM에서 Storage 백 엔드로 흐릅니다. 고객 관리형 키를 사용한 엔드투엔드 암호화를 제공합니다.
  
 [지원되는 VM 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)를 참조하세요.
  
@@ -31,7 +32,7 @@ Azure Disk Encryption은 모든 Azure 공용 지역의 일반 공급에서 사�
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Azure Disk Encryption에서 사용할 수 있는 사용자 환경은 무엇인가요?
 
-Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerShell 및 Azure CLI를 지원합니다. 다양한 사용자 환경이 유연성을 제공합니다. VM에 대한 디스크 암호화를 사용하도록 설정하는 세 가지 서로 다른 옵션이 있습니다. Azure Disk Encryption에서 사용할 수 있는 사용자 환경 및 단계별 지침에 대한 자세한 내용은 [Windows용 Azure Disk Encryption](disk-encryption-windows.md)을 참조하세요.
+Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerShell 및 Azure CLI를 지원합니다. 다양한 사용자 환경이 유연성을 제공합니다. VM에 대한 디스크 암호화를 사용하기 위한 세 가지 옵션이 있습니다. Azure Disk Encryption에서 사용할 수 있는 사용자 환경 및 단계별 지침에 대한 자세한 내용은 [Windows용 Azure Disk Encryption](disk-encryption-windows.md)을 참조하세요.
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure Disk Encryption 비용은 얼마인가요?
 

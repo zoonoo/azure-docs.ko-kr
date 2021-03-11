@@ -388,7 +388,7 @@
     - name: 가격 책정 모델 및 사용량 계량
       href: logic-apps-pricing.md
     - name: Azure CLI
-      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
+      href: /cli/azure/ext/logic/logic
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: REST API

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523943"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618256"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 
@@ -226,7 +226,7 @@ CLI 명령을 사용 하는 경우:
 
 다음 명령을 사용 하 여 인증서를 관리 합니다.
 
-| Description | CLI 명령 |
+| 설명 | CLI 명령 |
 |--|--|
 | 새 개인 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -236,7 +236,7 @@ CLI 명령을 사용 하는 경우:
 
 인증서, CSR 또는 개인 키 내의 정보를 확인 해야 하는 경우 다음 명령을 사용 합니다.
 
-| Description | CLI 명령 |
+| 설명 | CLI 명령 |
 |--|--|
 | CSR (인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
 | 개인 키 확인 | `openssl rsa -in privateKey.key -check` |
@@ -244,13 +244,13 @@ CLI 명령을 사용 하는 경우:
 
 개인 키가 인증서와 일치 하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시 되 면 다음 명령을 사용 하 여 오류를 해결 합니다.
 
-| Description | CLI 명령 |
+| 설명 | CLI 명령 |
 |--|--|
 | 공개 키의 MD5 해시를 확인 하 여 CSR 또는 개인 키에 있는 항목과 일치 하는지 확인 합니다. | 1(sp1). `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 인증서와 키를 다른 형식으로 변환 하 여 특정 유형의 서버 또는 소프트웨어와 호환 되도록 하려면 다음 명령을 사용 합니다.
 
-| Description | CLI 명령 |
+| 설명 | CLI 명령 |
 |--|--|
 | DER 파일 (.crt. .cer)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -399,7 +399,7 @@ VLAN 이름은 센서와 관리 콘솔 간에 동기화 되지 않습니다. 구
 
 다음 절차에서는 온-프레미스 관리 콘솔 소프트웨어 버전을 업데이트 하는 방법을 설명 합니다. 업데이트 프로세스는 30 분 정도 걸립니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 1. IoT 용 Defender로 이동 합니다.
 
@@ -415,7 +415,21 @@ VLAN 이름은 센서와 관리 콘솔 간에 동기화 되지 않습니다. 구
 
 1. IoT 용 Defender **업데이트** 페이지에서 다운로드 한 파일을 선택 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="mail-server-settings"></a>메일 서버 설정
+
+온-프레미스 관리 콘솔에 대 한 SMTP 메일 서버 설정을 정의 합니다.
+
+다음을 정의 합니다.
+
+1. 관리 자격 증명을 사용 하 여 온-프레미스 관리를 위해 CLI에 로그인 합니다.
+1. ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Enter 키를 선택합니다. 다음 프롬프트가 표시 됩니다.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. SMTP 서버 이름 및 발신자를 입력 하 고 enter 키를 선택 합니다.
+
+## <a name="see-also"></a>참고 항목
 
 [관리 콘솔에서 센서 관리](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

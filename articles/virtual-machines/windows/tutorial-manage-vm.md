@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3e52a808b187e3823acfee2c260986518f2f6f49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b9b7fee32ec8d844452cfcb5eba29859467105e4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978006"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520764"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -30,13 +30,13 @@ Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 지역에 *myResourceGroupVM* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -48,9 +48,9 @@ New-AzResourceGroup `
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들 때 운영 체제 이미지, 네트워크 구성 및 관리 자격 증명과 같은 몇 가지 옵션을 사용할 수 있습니다. 이 예에서는 Windows Server 2016 Datacenter의 기본 버전을 실행하는 *myVM*이라는 VM을 만듭니다.
+VM을 만들 때 운영 체제 이미지, 네트워크 구성 및 관리 자격 증명과 같은 몇 가지 옵션을 사용할 수 있습니다. 이 예에서는 Windows Server 2016 Datacenter의 기본 버전을 실행하는 *myVM* 이라는 VM을 만듭니다.
 
-[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6)을 사용하여 VM의 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -81,13 +81,13 @@ Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
-다음 명령을 사용하여 로컬 머신에서 VM과의 원격 데스크톱 세션을 만듭니다. IP 주소를 VM의 *publicIPAddress*로 바꿉니다. VM을 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
+다음 명령을 사용하여 로컬 머신에서 VM과의 원격 데스크톱 세션을 만듭니다. IP 주소를 VM의 *publicIPAddress* 로 바꿉니다. VM을 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 
-**Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. VM에 대해 만든 사용자 이름 및 암호를 입력한 다음, **확인**을 클릭합니다.
+**Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용** 을 차례로 선택합니다. VM에 대해 만든 사용자 이름 및 암호를 입력한 다음, **확인** 을 클릭합니다.
 
 ## <a name="understand-marketplace-images"></a>마켓플레이스 이미지 이해
 
@@ -173,7 +173,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    Description       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [컴퓨팅 최적화](../sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -262,7 +262,7 @@ Status
 PowerState/running
 ```
 
-구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
+구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly** 가 *true* 로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
 
 ## <a name="management-tasks"></a>관리 작업
 

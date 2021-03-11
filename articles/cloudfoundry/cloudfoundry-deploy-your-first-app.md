@@ -2,17 +2,17 @@
 title: Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 description: Azure의 Cloud Foundry에 애플리케이션 배포
 author: seanmck
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 037ac972dca49484f7b8c0ad8eed6942c901b997
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519679"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562931"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 

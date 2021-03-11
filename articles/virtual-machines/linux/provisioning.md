@@ -2,22 +2,23 @@
 title: Linux 프로비저닝 개요
 description: Linux VM 이미지를 가져오거나 Azure에서 사용할 새 이미지를 만드는 방법에 대한 개요입니다.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563221"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Azure Linux VM 프로비저닝
-일반화된 이미지(Shared Image Gallery 또는 관리형 이미지)로 VM을 만들 때 컨트롤 플레인을 사용하여 VM을 만들고 매개 변수와 설정을 VM에 전달할 수 있습니다. 이것을 VM *프로비저닝*이라고 합니다. 프로비저닝하는 동안 플랫폼은 VM이 부팅될 때 사용할 수 있는 필수 VM 생성 매개 변수 값(호스트 이름, 사용자 이름, 암호, SSH 키, customData)을 만듭니다. 
+일반화된 이미지(Shared Image Gallery 또는 관리형 이미지)로 VM을 만들 때 컨트롤 플레인을 사용하여 VM을 만들고 매개 변수와 설정을 VM에 전달할 수 있습니다. 이것을 VM *프로비저닝* 이라고 합니다. 프로비저닝하는 동안 플랫폼은 VM이 부팅될 때 사용할 수 있는 필수 VM 생성 매개 변수 값(호스트 이름, 사용자 이름, 암호, SSH 키, customData)을 만듭니다. 
 
 이미지 속에 구워진 프로비저닝 에이전트는 플랫폼과 상호 작용하고, 여러 독립 프로비저닝 인터페이스에 연결하고, 속성을 설정하고, 플랫폼에 완료되었다는 신호를 보냅니다. 
 

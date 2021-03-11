@@ -3,17 +3,18 @@ title: Azure PowerShell을 사용하여 VM으로 포트 열기
 description: Azure PowerShell를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8390b5c779e6aa053e1af2754c436dd51e410b06
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891757"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550419"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>PowerShell을 사용 하 여 VM에 대 한 포트 및 끝점을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -27,7 +28,7 @@ Azure 계정에 로그인합니다.
 Connect-AzAccount
 ```
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup* , *myNetworkSecurityGroup* 및 *myVnet* 이 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet* 이 포함됩니다.
 
 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 규칙을 만듭니다. 다음 예제에서는 포트 *80* 의 *tcp* 트래픽을 허용하도록 *myNetworkSecurityGroupRule* 이라는 규칙을 만듭니다.
 

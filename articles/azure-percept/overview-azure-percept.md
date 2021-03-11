@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 3b09253d779679e5a0c4ccd11b4cbd98ee386adc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fd332ffbbca4987b52ce380c6fd893571e65fb1c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179292"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435463"
 ---
 # <a name="introduction-to-azure-percept"></a>Azure Percept 소개
 
@@ -45,4 +45,4 @@ Azure Percept의 주요 구성 요소는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Percept DK](./overview-azure-percept-dk.md)를 시작합니다.
+[Azure Percept DK](./overview-azure-percept-dk.md)를 시작합니다. 

@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202691"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564257"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
+
+이 마이그레이션 문서는 NFS 및 Azure 파일 동기화 키워드와 관련 된 몇 가지 중 하나입니다. 이 문서가 시나리오에 적용 되는지 확인 합니다.
+
+> [!div class="checklist"]
+> * 데이터 원본: NAS (네트워크 연결 저장소)
+> * 마이그레이션 경로: SAMBA Windows Server 2012R2 이상을 사용 하는 Linux 서버 &rArr; 및 &rArr; Azure 파일 공유와의 동기화
+> * 온-프레미스에서 파일 캐시: 예, 최종 목표는 Azure 파일 동기화 배포입니다.
+
+시나리오가 다른 경우 [마이그레이션 가이드의 표](storage-files-migration-overview.md#migration-guides)를 참조 하세요.
 
 Azure 파일 동기화 DAS (직접 연결 된 저장소)를 사용 하는 Windows Server 인스턴스에서 작동 합니다. Linux 클라이언트, SMB (원격 서버 메시지 블록) 공유 또는 NFS (네트워크 파일 시스템) 공유와의 동기화는 지원 하지 않습니다.
 
@@ -22,13 +31,13 @@ Azure 파일 동기화 DAS (직접 연결 된 저장소)를 사용 하는 Window
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
-목표는 Linux Samba 서버에 있는 공유를 Windows Server 인스턴스로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 Azure 파일 동기화를 사용 합니다. 마이그레이션을 수행 하는 동안 가용성 뿐만 아니라 프로덕션 데이터의 무결성을 보장 하는 방법으로이 마이그레이션을 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
+목표는 Linux Samba 서버에 있는 공유를 Windows Server 인스턴스로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 Azure 파일 동기화를 사용 합니다. 이 마이그레이션은 마이그레이션하는 동안 프로덕션 데이터 및 가용성의 무결성을 보장 하는 방식으로 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
 
 ## <a name="migration-overview"></a>마이그레이션 개요
 
 Azure Files [마이그레이션 개요 문서](storage-files-migration-overview.md)에 설명 된 것 처럼 올바른 복사 도구와 방법을 사용 하는 것이 중요 합니다. Linux Samba 서버는 로컬 네트워크에서 직접 SMB 공유를 노출 합니다. Windows Server에 기본 제공 되는 Robocopy는이 마이그레이션 시나리오에서 파일을 이동 하는 가장 좋은 방법입니다.
 
-Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브리드 배포로 폴더를 마이그레이션하려는 경우에는 Robocopy 대신 Linux 복사 도구를 사용할 수 있습니다. 이 경우 파일 복사 도구의 충실도 기능을 알고 있어야 합니다. 마이그레이션 개요 문서의 [마이그레이션 기본 사항 섹션](storage-files-migration-overview.md#migration-basics) 을 검토 하 여 복사 도구에서 찾을 내용에 대해 알아보세요.
+Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브리드 배포로 폴더를 마이그레이션하려는 경우에는 Robocopy 대신 Linux 복사 도구를 사용할 수 있습니다. 복사 도구의 충실도 기능에 대해 알고 있어야 합니다. 마이그레이션 개요 문서의 [마이그레이션 기본 사항 섹션](storage-files-migration-overview.md#migration-basics) 을 검토 하 여 복사 도구에서 찾을 내용에 대해 알아보세요.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>1 단계: 필요한 Azure 파일 공유 수 확인
 
@@ -39,11 +48,13 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 * Windows Server 2019 인스턴스를 가상 컴퓨터 또는 물리적 서버로 만듭니다. Windows Server 2012 R2는 최소 요구 사항입니다. Windows Server 장애 조치 (failover) 클러스터도 지원 됩니다.
 * DAS (직접 연결 된 저장소)를 프로 비전 하거나 추가 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
-  Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
+  Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 
+
+프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 이 구성을 선택 하려면 Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 해야 합니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
 
   1. 디스크에 맞는 파일 집합을 이동 합니다.
   2. 파일 동기화 및 클라우드 계층화 참여를 허용 합니다.
-  3. 볼륨에 사용 가능한 공간이 더 많이 만들어진 경우 다음 파일 일괄 처리를 진행 합니다. 
+  3. 볼륨에 사용 가능한 공간이 더 많이 만들어진 경우 다음 파일 일괄 처리를 진행 합니다. 또는 새 스위치 사용에 대 한 향후 [robocopy 섹션](#phase-7-robocopy) 에서 robocopy 명령을 검토 `/LFSM` 합니다. 를 사용 하면 `/LFSM` robocopy 작업을 크게 간소화할 수 있지만 다른 robocopy 스위치와 호환 되지 않을 수 있습니다.
     
   파일이 Linux Samba 서버에서 사용 하는 Windows Server 인스턴스에 동일한 공간을 프로 비전 하 여 이러한 일괄 처리 방법을 방지할 수 있습니다. Windows에서 중복 제거를 사용 하도록 설정 하는 것이 좋습니다. 이 많은 양의 저장소를 Windows Server 인스턴스로 영구적으로 커밋하지 않으려는 경우 마이그레이션 후와 클라우드 계층화 정책을 조정 하기 전에 볼륨 크기를 줄일 수 있습니다. 그러면 Azure 파일 공유의 더 작은 온-프레미스 캐시가 생성 됩니다.
 
@@ -102,76 +113,7 @@ Linux Samba 서버에서 파일이 차지 하는 것 보다 더 작은 저장소
 
 사용자가 클라우드 및 계층에 로컬로 동기화 하 여 로컬 디스크 공간이 부족 하 게 되는 것 보다 Robocopy는 파일을 더 빠르게 이동할 수 있습니다. 그러면 Robocopy가 실패 합니다. 문제를 방지 하는 순서 대로 공유를 수행 하는 것이 좋습니다. 예를 들어 모든 공유에 대해 한 번에 Robocopy 작업을 시작 하지 않는 것이 좋습니다. 또는 Windows Server 인스턴스에서 사용 가능한 공간의 현재 크기에 맞는 공유를 이동 하는 것이 좋습니다. Robocopy 작업이 실패 하는 경우 다음 미러/제거 옵션을 사용 하는 한 명령을 언제 든 지 다시 실행할 수 있습니다.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-배경:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      는 Robocopy가 다중 스레드를 실행할 수 있도록 합니다. 기본값은 8이 고 최대값은 128입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      로그 파일에 대 한 상태를 유니코드로 출력 합니다 (기존 로그 덮어쓰기).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /T
-   :::column-end:::
-   :::column span="1":::
-      콘솔 창에 출력 합니다. 로그 파일에 대 한 출력과 함께 사용 됩니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      백업 응용 프로그램에서 사용 하는 것과 동일한 모드에서 Robocopy를 실행 합니다. 이를 통해 Robocopy는 현재 사용자에 게 권한이 없는 파일을 이동할 수 있습니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      이 Robocopy 명령을 동일한 대상/대상에서 순차적으로 여러 번 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막 실행 이후에 발생 한 변경, 추가 및 삭제만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. **/MIR** 플래그는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      파일 복사의 충실도입니다 (기본값은/COPY: DAT). 복사 플래그는 D = data, A = attributes, T = 타임 스탬프, S = security = NTFS Acl, O = 소유자 정보, U = 감사 정보입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / COPYALL
-   :::column-end:::
-   :::column span="1":::
-      모든 파일 정보를 복사 합니다 (/COPY: DATSOU와 동일).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      디렉터리의 복사본에 대 한 충실도 (기본값은/DCOPY: DA)입니다. 복사 플래그는 D = data, A = attributes, T = 타임 스탬프입니다.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>8 단계: 사용자 잘림
 

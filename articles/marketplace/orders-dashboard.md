@@ -1,5 +1,5 @@
 ---
-title: 상업적 Marketplace 분석, Microsoft AppSource 및 Azure Marketplace의 파트너 센터 주문 대시보드
+title: 상업적 Marketplace 분석의 파트너 센터 주문 대시보드 | Microsoft AppSource 및 Azure Marketplace
 description: 상용 marketplace 제품 주문에 대 한 분석 보고서에 액세스 하 여 그래픽 및 다운로드 가능한 형식으로 액세스 하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955028"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561384"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -111,32 +111,32 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 - **주문 정보** 테이블에 필터를 적용 하 여 관심 있는 데이터만 표시 합니다. 국가/지역, Azure 라이선스 유형, 상업적 마켓플레이스 라이선스 유형, 제안 유형, 주문 상태, 무료 내역, 상업적 marketplace 구독 ID, 고객 ID 및 회사 이름으로 필터링 합니다.
 - 보호 된 고객이 주문을 구매 하면 **자세한 데이터 주문** 정보가 마스킹 됩니다 (* * * * * * * * * * * *).
 
-**_표 1: 데이터 용어 _ 사전_*
+***표 1: 데이터 용어 사전***
 
-| 열 이름 | 특성 이름 | 정의 |
-| ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
-| MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. |
-| 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. |
-| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> |
-| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업적 marketplace 제안의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>자신의 라이선스 가져오기</li><li>무료</li><li>Microsoft as 재판매인</li></ul> |
-| SKU | SKU | 제품에 연결 된 계획입니다. |
-| 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. |
-| 미리 보기 SKU | 미리 보기 SKU | 이 값은 SKU를 "미리 보기"로 태그 지정한 경우를 알려 줍니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. |
-| 주문 Id | 주문 ID | 상업적 marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다. Virtual Machine 사용량 기준 제품은 주문에 연결되지 않습니다. |
-| Order Quantity | Order Quantity | 활성 주문의 주문 ID와 연결 된 자산 수 |
-| 클라우드 인스턴스 이름 | 클라우드 인스턴스 이름 | VM이 배포된 Microsoft Cloud입니다. |
-| 새 고객 | 새 고객 | 이 값은 새 고객이 하나 이상의 제품을 처음 획득 했는지 여부를 식별 합니다. "취득일"에 대해 동일한 월 내인 경우 값이 "예"로 나타납니다. 고객이 보고한 월 이전에 제품을 구매한 경우 값은 "아니요"입니다. |
-| 주문 상태 | 주문 상태 | 데이터를 마지막으로 새로 고친 시점의 상용 marketplace 주문 상태입니다. |
-| 주문 취소 날짜 | 주문 취소 날짜 | 상용 marketplace 주문이 취소 된 날짜입니다. |
-| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
-| 주문 구매 날짜 | 주문 구매 날짜 | 상용 marketplace 주문이 만들어진 날짜입니다. |
-| 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. |
-| 평가판 종료 날짜 | 평가판 종료 날짜 | 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다. |
-| Customer Id | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. |
-| 청구 계정 Id | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. _ *청구 계정 ID**를 **CustomerID** 에 매핑하여 지급 트랜잭션 보고서를 고객, 주문 및 사용 현황 보고서에 연결 합니다. |
-| AssetCount | 자산 수 | 주문 ID와 연결 된 자산 수입니다. |
-||||
+| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식으로 열 이름<br>액세스 보고서 |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. | Marketplace 구독 ID |
+| MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. Yyyy-mm-dd 형식입니다. | MonthStartDate |
+| 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. | OfferType |
+| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> | AzureLicenseType |
+| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업적 marketplace 제안의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>자신의 라이선스 가져오기</li><li>무료</li><li>Microsoft as 재판매인</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | 제품에 연결 된 계획입니다. | SKU |
+| 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
+| 미리 보기 SKU | 미리 보기 SKU | 이 값은 SKU를 "미리 보기"로 태그 지정한 경우를 알려 줍니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. | IsPreviewSKU |
+| 주문 ID | 주문 ID | 상업적 marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다. Virtual Machine 사용량 기준 제품은 주문에 연결되지 않습니다. | OrderID |
+| Order Quantity | Order Quantity | 활성 주문의 주문 ID와 연결 된 자산 수 | OrderQuantity |
+| 클라우드 인스턴스 이름 | 클라우드 인스턴스 이름 | VM이 배포된 Microsoft Cloud입니다. | CloudInstanceName |
+| 새 고객 | 새 고객 | 이 값은 새 고객이 하나 이상의 제품을 처음 획득 했는지 여부를 식별 합니다. "취득일"에 대해 동일한 월 내인 경우 값이 "예"로 나타납니다. 고객이 보고한 월 이전에 제품을 구매한 경우 값은 "아니요"입니다. | IsNewCustomer |
+| 주문 상태 | 주문 상태 | 데이터를 마지막으로 새로 고친 시점의 상용 marketplace 주문 상태입니다. | OrderStatus |
+| 주문 취소 날짜 | 주문 취소 날짜 | 상용 marketplace 주문이 취소 된 날짜입니다. | OrderCancelDate |
+| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. | CustomerCompanyName |
+| 주문 구매 날짜 | 주문 구매 날짜 | 상용 marketplace 주문이 만들어진 날짜입니다. Yyyy-mm-dd 형식입니다. | OrderPurchaseDate |
+| 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. | OfferName |
+| 평가판 종료 날짜 | 평가판 종료 날짜 | 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다. | TrialEndDate |
+| 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. | CustomerId |
+| 청구 계정 ID | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다. | BillingAccountId |
+| AssetCount | 자산 수 | 주문 ID와 연결 된 자산 수입니다. | 사용되지 않음 |
+|||||
 
 ### <a name="orders-page-filters"></a>주문 페이지 필터
 

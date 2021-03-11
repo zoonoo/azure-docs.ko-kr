@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341569"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562880"
 ---
 # <a name="access-built-in-metrics"></a>기본 제공 메트릭 액세스
 
@@ -44,7 +44,9 @@ IoT Edge 런타임 구성 요소 IoT Edge 허브 및 IoT Edge 에이전트는 �
 EdgeHub 및 edgeAgent의 메트릭 끝점을 모두 매핑하는 경우에는 서로 다른 고유한 호스트 포트 번호를 선택 합니다.
 
 > [!NOTE]
-> 메트릭을 사용 하지 않도록 설정 하려면 `MetricsEnabled` edgeAgent에 대해 환경 변수를로 설정 `false` 합니다. **edgeAgent**
+> `httpSettings__enabled` `false` 컬렉션에 사용할 수 있는 기본 제공 메트릭에 대해 환경 변수를로 설정 하면 안 됩니다.
+>
+> 메트릭을 사용 하지 않도록 설정 하는 데 사용할 수 있는 환경 변수는 [azure/iotedge 리포지토리 문서](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md)에 나열 됩니다.
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 

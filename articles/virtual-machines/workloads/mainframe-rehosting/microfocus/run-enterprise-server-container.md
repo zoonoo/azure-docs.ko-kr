@@ -1,7 +1,7 @@
 ---
 title: Azure의 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0 실행 Microsoft Docs
 description: 이 문서에서는 Microsoft Azure의 Docker 컨테이너에서 마이크로 포커스 Enterprise Server 5.0를 실행 하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5c436eae53b16c980e9725cfef0573367d144842
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127198"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548379"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Azure의 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0 실행
 
@@ -27,7 +27,7 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
 이 자습서에서는 Azure Marketplace의 **컨테이너 VM을 사용 하 여 Windows 2016 Datacenter** 를 설치 합니다. 이 VM은 **Docker 18.09.0** 를 포함 합니다. 다음 단계는 컨테이너를 배포 하 고 실행 한 다음 3270 에뮬레이터를 사용 하 여 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 
@@ -137,7 +137,7 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
     ```
 
-    다음은 그 예입니다.
+    예를 들면 다음과 같습니다.
 
     ```
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
@@ -167,7 +167,7 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
     ![엔터프라이즈 서버 관리 콘솔](media/run-image-9.png)
 
-이것으로 끝입니다. 이제 Docker 컨테이너에서 CICS 응용 프로그램을 실행 하 고 관리 하 고 있습니다.
+정말 간단하죠. 이제 Docker 컨테이너에서 CICS 응용 프로그램을 실행 하 고 관리 하 고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: b346cf37a8275b1783e94e0f51859b8c87eb9b67
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 970c8a9a906ec542bfc37805abbe3cb67ac10202
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546825"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442233"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 이 자습서에서는 Azure Stack Edge Pro 디바이스에서 스토리지 계정을 추가하고 연결하는 방법에 대해 설명합니다. 스토리지 계정이 추가되면 Azure Stack Edge Pro에서 데이터를 Azure로 전송할 수 있습니다.
 

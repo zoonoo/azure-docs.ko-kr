@@ -11,30 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 02/11/2021
+ms.date: 03/09/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4276b48584ecbad91794de58abafd7e3367f6877
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370549"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564036"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
 
-직원에 대 한 권한 있는 Azure 리소스 역할에 대 한 액세스는 시간이 지남에 따라 변경 됩니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 권한 있는 Azure 리소스 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
+직원의 권한 있는 Azure 리소스 역할에 대 한 액세스는 시간이 지남에 따라 변경 됩니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 역할에 대 한 권한 있는 액세스에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다. 이 문서에서는 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
 
-이 문서에서는 권한 있는 Azure 리소스 역할에 대 한 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisite-role"></a>필수 역할
 
  액세스 검토를 만들려면 해당 리소스에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 또는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure 역할에 할당 되어야 합니다.
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 
-1. 권한 있는 역할 관리자 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 필수 역할 중 하나에 할당 된 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
 1. **Azure AD Privileged Identity Management** 를 엽니다.
 
