@@ -11,6 +11,10 @@
   items:
     - name: Front Door 표준/프리미엄 프로필 만들기 - 포털
       href: create-front-door-portal.md
+- name: 샘플
+  items:
+    - name: 리소스 관리자 템플릿
+      href: resource-manager-template-samples.md
 - name: 개념
   items:
     - name: Front Door FAQ

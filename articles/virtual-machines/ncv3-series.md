@@ -3,16 +3,16 @@ title: NCv3 시리즈-Azure Virtual Machines
 description: NCv3 시리즈 Vm에 대 한 사양입니다.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 313ca9ddb893ad2d84fdb3f808bdee38dfc9e846
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c28ed042156865c52607ce031507c696f28b4e7c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102119759"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617304"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
@@ -24,7 +24,7 @@ NCv3 시리즈 VM은 NVIDIA Tesla V100 GPU로 구동됩니다. 이러한 GPU는 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 되지 않음<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 Nvidia NVLink Interconnect: 지원 되지 않음<br>
 
 > [!IMPORTANT]

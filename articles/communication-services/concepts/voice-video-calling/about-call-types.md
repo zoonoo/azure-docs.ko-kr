@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 66a5ed65b0582aafd641473163e1b273d4a4263d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657148"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489653"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Azure Communication Services를 사용하여 일대일 또는 그룹 음성 및 영상 통화를 걸고 받을 수 있습니다. 인터넷에 연결된 다른 디바이스 및 일반 전화기에 대한 호출을 수행할 수 있습니다. Communication Services JavaScript, Android 또는 iOS 클라이언트 라이브러리를 사용하여 사용자가 개인 대화 또는 그룹 토론에서 서로 말할 수 있는 애플리케이션을 빌드할 수 있습니다. Azure Communication Services는 서비스나 봇에서의 호출을 지원합니다.
 

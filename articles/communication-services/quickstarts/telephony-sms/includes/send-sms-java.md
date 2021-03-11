@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c4f3c47e3ac6e1e701b673574bb664237c1a9af
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915250"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244673"
 ---
 Communication Services Java SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -28,7 +28,7 @@ Communication Services Java SMS 클라이언트 라이브러리를 사용하여 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [JDK(Java Development Kit)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), 버전 8 이상.
+- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](../get-phone-number.md).
@@ -136,7 +136,7 @@ SmsClient client = new SmsClientBuilder()
     .buildClient();
 ```
 
-`com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다. 위의 코드는 `azure-core`에서 제공하는 [Azure Core Netty HTTP 클라이언트](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable)의 사용 방법을 보여줍니다.
+`com.azure.core.http.HttpClient` 인터페이스를 구현하는 사용자 지정 HTTP 클라이언트를 사용하여 클라이언트를 초기화할 수 있습니다. 위의 코드는 `azure-core`에서 제공하는 [Azure Core Netty HTTP 클라이언트](/java/api/overview/azure/core-http-netty-readme)의 사용 방법을 보여줍니다.
 
 엔드포인트 및 액세스 키를 제공하는 대신 connectionString() 함수를 사용하여 전체 연결 문자열을 제공할 수도 있습니다. 
 ```java

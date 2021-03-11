@@ -3,17 +3,17 @@ title: Azure DevTest Labs |에서 보존 정책 설정 Microsoft Docs
 description: 보존 정책을 구성 하 고, 팩터리를 정리 하 고, DevTest Labs에서 이전 이미지를 사용 중지 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476056"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550028"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
 이 문서에서는 보존 정책을 설정 하 고, 팩터리를 정리 하 고, 조직의 다른 모든 DevTest 랩에서 이전 이미지를 사용 중지 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 계속 진행 하기 전에 다음 문서를 따랐는지 확인 합니다.
 
 - [이미지 팩터리 만들기](image-factory-create.md)
@@ -29,7 +29,7 @@ ms.locfileid: "85476056"
 - Azure Powershell 작업을 오케스트레이션 하는 빌드 정의
  
 ## <a name="setting-the-retention-policy"></a>보존 정책 설정
-정리 단계를 구성 하기 전에 DevTest Labs에 보존할 기록 이미지 수를 정의 합니다. [Azure DevOps에서 이미지 팩터리 실행](image-factory-set-up-devops-lab.md) 문서를 실행 한 후에는 다양 한 빌드 변수를 구성 했습니다. 그 중 하나가 **ImageRetention**되었습니다. 이 변수를로 설정 합니다 `1` . 즉, DevTest Labs에서 사용자 지정 이미지의 기록을 유지 하지 않습니다. 최신 분산 이미지만 사용할 수 있습니다. 이 변수를로 변경 하는 경우 `2` 최신 분산 이미지와 이전 이미지를 합한 값이 유지 됩니다. 이 값을 설정 하 여 DevTest Labs에서 유지 하려는 기록 이미지의 수를 정의할 수 있습니다.
+정리 단계를 구성 하기 전에 DevTest Labs에 보존할 기록 이미지 수를 정의 합니다. [Azure DevOps에서 이미지 팩터리 실행](image-factory-set-up-devops-lab.md) 문서를 실행 한 후에는 다양 한 빌드 변수를 구성 했습니다. 그 중 하나가 **ImageRetention** 되었습니다. 이 변수를로 설정 합니다 `1` . 즉, DevTest Labs에서 사용자 지정 이미지의 기록을 유지 하지 않습니다. 최신 분산 이미지만 사용할 수 있습니다. 이 변수를로 변경 하는 경우 `2` 최신 분산 이미지와 이전 이미지를 합한 값이 유지 됩니다. 이 값을 설정 하 여 DevTest Labs에서 유지 하려는 기록 이미지의 수를 정의할 수 있습니다.
 
 ## <a name="cleaning-up-the-factory"></a>팩터리를 정리 하는 중
 팩터리를 정리 하는 첫 번째 단계는 이미지 팩터리에서 골든 이미지 Vm을 제거 하는 것입니다. 이전 스크립트와 마찬가지로이 작업을 수행 하는 스크립트가 있습니다. 첫 번째 단계는 다음 이미지와 같이 빌드 정의에 다른 **Azure Powershell** 작업을 추가 하는 것입니다.
@@ -64,7 +64,7 @@ ms.locfileid: "85476056"
 
 
 ## <a name="next-steps"></a>다음 단계
-1. [빌드/릴리스를 예약](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) 하 여 이미지 팩터리를 정기적으로 실행 합니다. 공장에서 생성 된 이미지를 정기적으로 새로 고칩니다.
+1. [빌드/릴리스를 예약](/azure/devops/pipelines/build/triggers?tabs=designer) 하 여 이미지 팩터리를 정기적으로 실행 합니다. 공장에서 생성 된 이미지를 정기적으로 새로 고칩니다.
 2. 팩터리에 대 한 골든 이미지를 만드세요. 또한 VM 설치 작업의 추가 부분을 스크립팅 하는 [아티팩트를 만들고](devtest-lab-artifact-author.md) 팩터리 이미지에 아티팩트를 포함 하는 것을 고려할 수 있습니다.
 4. [별도의 빌드/릴리스](/azure/devops/pipelines/overview?view=azure-devops-2019) 를 만들어 **DistributeImages** 스크립트를 별도로 실행 합니다. Labs.js를 변경 하 고 모든 이미지를 다시 다시 만들지 않고도 대상 랩에 복사 된 이미지를 가져오는 경우이 스크립트를 실행할 수 있습니다.
 

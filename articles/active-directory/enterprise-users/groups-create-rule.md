@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a25caa3b59d242b8dcc8a52e1a5d684815cf7bf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8525e9a76fa2439692cdb26b36c0bb761d63177c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547783"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550232"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 만들기 또는 업데이트
 
@@ -80,7 +80,7 @@ Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 �
 
 ## <a name="turn-on-or-off-welcome-email"></a>환영 이메일 켜기 또는 끄기
 
-새 Microsoft 365 그룹이 만들어지면 해당 그룹에 추가 된 사용자에 게 환영 전자 메일 알림이 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. 이 동작은 [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps&preserve-view=true)에서 해제할 수 있습니다.
+새 Microsoft 365 그룹이 만들어지면 해당 그룹에 추가 된 사용자에 게 환영 전자 메일 알림이 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. 이 동작은 [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup)에서 해제할 수 있습니다.
 
 ## <a name="check-processing-status-for-a-rule"></a>규칙에 대 한 처리 상태 확인
 

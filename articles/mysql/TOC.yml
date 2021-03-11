@@ -430,6 +430,8 @@
               href: flexible-server/quickstart-create-arm-template.md
         - name: 연결 및 쿼리
           items:
+            - name: Azure CLI
+              href: flexible-server/connect-azure-cli.md
             - name: PHP
               href: flexible-server/connect-php.md
             - name: MySQL Workbench

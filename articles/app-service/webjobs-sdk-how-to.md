@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737272"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617134"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -425,7 +425,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) 문서를 참조하세요.
+자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs.md#host-json) 문서를 참조하세요.
 
 ### <a name="queue-storage-trigger-configuration"></a>Queue storage 트리거 구성
 

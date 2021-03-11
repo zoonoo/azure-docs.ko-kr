@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5c8c4808e735a872b31deb6855646dae90c407c9
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657760"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487681"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Azure Communication Services의 가격은 일반적으로 종량제 모델을 기반으로 합니다. 다음 예의 가격은 설명 목적으로 제공되며 최신 Azure 가격 책정을 반영하지 않을 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: a08876cde9fac64c3a361b469049b4e33678a86f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 6a3049709c6c094f722a8132ee4c4b2051e24d95
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098148"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616692"
 ---
 # <a name="azure-percept-security-overview"></a>Azure Percept 보안 개요
 
@@ -33,13 +33,13 @@ Azure Percept 진한 비전 사용 가능 모듈 (SOM) 및 Azure Percept Audio �
 
 Azure Percept 장치는 하드웨어 루트 트러스트를 사용 하 여 펌웨어를 보호 합니다. 부팅 ROM은 ROM과 OS (운영 체제) 로더 간의 펌웨어 무결성을 보장 하며,이는 다른 소프트웨어 구성 요소의 무결성을 보장 하 여 신뢰 체인을 만듭니다.
 
-## <a name="services"></a>Services
+## <a name="services"></a>서비스
 
 ### <a name="iot-edge"></a>IoT Edge
 
-Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 추가 보안 및 기타 Azure 서비스를 사용 하 여 Azure Percept Studio에 연결 합니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06)를 참조 하세요.
+Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 추가 보안 및 기타 Azure 서비스를 사용 하 여 Azure Percept Studio에 연결 합니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager)를 참조 하세요.
 
-### <a name="device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트
+### <a name="device-update-for-iot-hub"></a>IoT Hub용 디바이스 업데이트 문서
 
 IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 가능한 보안을 제공 하는 더 안전 하 고 확장 가능 하며 안정적인 공중파 업데이트를 사용할 수 있습니다. 풍부한 관리 제어 기능을 제공 하 고 정보를 통해 규정 준수를 업데이트 합니다. Azure Percept 진한에는 펌웨어에서 OS 계층으로의 복원 력 업데이트 (A/B)를 제공 하는 사전 통합 된 장치 업데이트 솔루션이 포함 되어 있습니다.
 
@@ -57,7 +57,7 @@ IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 
 |*. auth.azureperceptdk.azure.net|   443|    Azure 진한 SOM 인증 및 권한 부여|
 |*. auth.projectsantacruz.azure.net| 443|    Azure 진한 SOM 인증 및 권한 부여|
 
-또한 [Azure IoT Edge에서 사용 하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
+또한 [Azure IoT Edge에서 사용 하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
 
 <!---
 ## Additional Recommendations for Deployment to Production

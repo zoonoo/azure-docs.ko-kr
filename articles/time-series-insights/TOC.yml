@@ -176,7 +176,7 @@
     - name: 데이터 참조 모니터링
       href: how-to-monitor-tsi-reference.md
     - name: Azure CLI
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션

@@ -9,16 +9,15 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 4fda626581265b4b1f6541a3b453b164ccd27963
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4acc1cb93fb04ba190173fea05805a1a4b833ffc
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690450"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488769"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전화 번호 받기
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Services를 시작합니다.
@@ -40,15 +39,15 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Communication Services 리소스의 전화 페이지를 보여주는 스크린샷":::
 
-**가져오기** 단추를 눌러 마법사를 시작합니다. **전화 번호** 블레이드의 마법사는 시나리오에 가장 적합한 전화 번호를 선택하는 데 도움이 되는 일련의 질문을 안내합니다. 
+**가져오기** 단추를 눌러 마법사를 시작합니다. **전화 번호** 블레이드의 마법사는 시나리오에 가장 적합한 전화 번호를 선택하는 데 도움이 되는 일련의 질문을 안내합니다.
 
-먼저 전화 번호를 프로비저닝하려는 **국가/지역** 을 선택해야 합니다. 국가/지역이 선택되면 요구 사항에 가장 적합한 **사용 사례** 를 선택해야 합니다. 
+먼저 전화 번호를 프로비저닝하려는 **국가/지역** 을 선택해야 합니다. 국가/지역이 선택되면 요구 사항에 가장 적합한 **사용 사례** 를 선택해야 합니다.
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="[전화 번호 받기] 보기를 보여주는 스크린샷":::
 
 ### <a name="select-your-phone-number-features"></a>전화 번호 기능 선택
 
-전화 번호 구성은 다음 두 단계로 구분됩니다. 
+전화 번호 구성은 다음 두 단계로 구분됩니다.
 
 1. [전화 번호 유형](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services) 선택
 2. [전화 번호 기능](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services) 선택

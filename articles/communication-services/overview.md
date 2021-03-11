@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 27b1a2654a52c136c0b827b536f5cf99928e5947
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 30b075cfbd7d38ff81cdf79a05a3a95b87b0bc13
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691589"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488548"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -21,6 +21,7 @@ ms.locfileid: "101691589"
 
 > [!IMPORTANT]
 > Azure Communication Services를 사용하여 빌드하는 애플리케이션은 Microsoft Teams와 통신할 수 있습니다. 자세히 알아보려면 [Teams Interop](./quickstarts/voice-video-calling/get-started-teams-interop.md) 설명서를 참조하세요.
+
 
 Azure Communication Services를 사용하면 실시간 멀티미디어 음성, 비디오 및 IP 전화(Telephony-over-IP) 통신 기능을 애플리케이션에 쉽게 추가할 수 있습니다. 또한 Communication Services 클라이언트 라이브러리를 사용하면 채팅 및 SMS 기능을 통신 솔루션에 추가할 수 있습니다.
 

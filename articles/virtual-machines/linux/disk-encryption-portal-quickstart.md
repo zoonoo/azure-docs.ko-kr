@@ -3,16 +3,16 @@ title: Azure Portal을 사용하여 Linux VM 만들기 및 암호화
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Linux 가상 머신을 만들고 암호화하는 방법을 배웁니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 188ba72f4da4e5a24554f895473f1c74e48d50fa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896025"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558358"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 만들기 및 암호화
 

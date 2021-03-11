@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 9dc787c57ef3ab84d9a2b90cfe059594b0a31d08
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0e8565615cdbac63b0526b5cd87dd9d92d5aa4f1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102515"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216686"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -178,7 +178,7 @@ TodoListClient 프로젝트를 실행하려면 다음을 수행합니다.
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>옵션 2: 사용자 지정 메서드를 사용하여 발급자 유효성 검사
 
-`IssuerValidator` 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수에 대한 자세한 내용은 [TokenValidationParameters 클래스](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true)를 참조하세요.
+`IssuerValidator` 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수에 대한 자세한 내용은 [TokenValidationParameters 클래스](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters)를 참조하세요.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

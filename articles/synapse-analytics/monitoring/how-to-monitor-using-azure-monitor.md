@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672746"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549858"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics 작업 영역에서 Azure Monitor 사용
 
@@ -171,7 +171,7 @@ Azure Monitor 진단 설정을 사용 하 여 분석을 위해 진단 로그를 
 1. 설정에 이름을 지정 하 고 **Log Analytics 보내기** 를 선택한 다음 **Log Analytics 작업 영역** 에서 작업 영역을 선택 합니다.
 
     > [!NOTE]
-    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
+    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Azurediagnostics 로그 참조](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column)를 참조 하세요.
 
 1. **저장** 을 선택합니다.
 

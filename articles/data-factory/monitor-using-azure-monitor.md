@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586859"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550300"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
 
@@ -76,7 +76,7 @@ Data Factory은 파이프라인 실행 데이터를 45 일간만 저장 합니�
    ![설정의 이름을로 설정 하 고 log analytics 작업 영역을 선택 합니다.](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
+    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Azurediagnostics 로그 참조](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column)를 참조 하세요.
 
 1. **저장** 을 선택합니다.
 

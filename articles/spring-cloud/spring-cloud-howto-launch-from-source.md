@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d6c9bea3d0ff95a3cb9d8fcce41eaa6f8bbfed21
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a6710a15bd0637eead0051ebb70a7cdd8bb8aa58
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093942"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210328"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 Spring Cloud 애플리케이션을 시작하는 방법
 
@@ -37,7 +37,7 @@ Java 소스 코드 또는 미리 빌드된 JAR에서 직접 애플리케이션�
 1. [Git 설치](https://git-scm.com/)
 2. [JDK 8 설치](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
-4. [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Azure CLI 설치](/cli/azure/install-azure-cli)
 5. [Azure 구독에 가입](https://azure.microsoft.com/free/)
 
 > [!TIP]
@@ -146,7 +146,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 1. **애플리케이션 대시보드** 페이지를 엽니다.
 2. `gateway` 애플리케이션을 선택하여 **애플리케이션 세부 정보** 페이지를 표시합니다.
-3. **엔드포인트 할당**을 선택하여 게이트웨이에 퍼블릭 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다. 
+3. **엔드포인트 할당** 을 선택하여 게이트웨이에 퍼블릭 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다. 
 4. 브라우저에 할당된 공용 IP를 입력하여 실행 중인 애플리케이션을 봅니다.
 
 > [!div class="nextstepaction"]

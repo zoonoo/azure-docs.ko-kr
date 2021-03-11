@@ -2,17 +2,18 @@
 title: Azure CLI를 사용 하 여 Linux VM 복사
 description: Azure CLI 및 Managed Disks를 사용하여 Azure Linux VM의 복사본을 만드는 방법을 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 7f9ac0ab9eacb90bde70c85ea06bc19a18aa0c05
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 05b45745565dface6b29f5a05cb1b557f4a49f6e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201147"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558402"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
 
@@ -20,7 +21,7 @@ ms.locfileid: "98201147"
 
 [VHD에서 VM을 업로드하고 만들](upload-vhd.md)수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 -   [Azure CLI](/cli/azure/install-az-cli2)를 설치합니다.
 

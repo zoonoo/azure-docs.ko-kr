@@ -2,18 +2,19 @@
 title: Linux IaaS VM용 Azure AD 앱을 사용한 Azure Disk Encryption(이전 릴리스)
 description: 이 문서에서는 Linux IaaS VM용 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: c8228086eb67478d80aa041004e0da3eed71f896
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d1607ef4ff277f9c9cdb55db3e58da1052a00756
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741795"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558403"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux Vm에서 Azure AD를 사용 하 여 Azure Disk Encryption 사용 (이전 릴리스)
 
@@ -78,7 +79,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
      ```
 
-### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"> </a> PowerShell을 사용 하 여 기존 또는 실행 중인 Linux VM에서 암호화 사용
+### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"></a> PowerShell을 사용 하 여 기존 또는 실행 중인 Linux VM에서 암호화 사용
 [AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 사용 하 여 Azure에서 실행 중인 IaaS 가상 컴퓨터에서 암호화를 사용 하도록 설정 합니다. 디스크를 암호화 하기 전에 [스냅숏을](snapshot-copy-managed-disk.md) 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 를 사용 하 여 VM의 백업을 수행 합니다. 실행 중인 Linux VM을 암호화하기 위해 PowerShell 스크립트에 -skipVmBackup 매개 변수가 이미 지정되어 있습니다.
 
 - **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 다음 스크립트는 변수를 초기화 하 고 Set-AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다. 암호화를 진행 중인 디스크를 지정하도록 -VolumeType 매개 변수를 수정합니다.
@@ -142,7 +143,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
@@ -164,7 +165,7 @@ EncryptFormatAll 매개 변수는 Linux 데이터 디스크가 암호화되는 �
 > VM의 데이터 볼륨에 필요한 데이터가 있는 경우 EncryptFormatAll를 사용할 수 없습니다. 디스크를 탑재 해제 하 여 암호화에서 디스크를 제외할 수 있습니다. 먼저 테스트 VM에서 EncryptFormatAll 매개 변수를 사용해 보고 프로덕션 VM에서 사용해 보기 전에 기능 매개 변수 및 그에 해당 하는 의미를 이해 합니다. EncryptFormatAll 옵션은 데이터 디스크의 형식을 지정 하므로 데이터 디스크의 모든 데이터가 손실 됩니다. 계속 하기 전에 제외 하려는 디스크가 제대로 분리 되었는지 확인 합니다. </br></br>
  >암호화 설정을 업데이트 하는 동안이 매개 변수를 설정 하면 실제 암호화 전에 다시 부팅이 발생할 수 있습니다. 이 경우 fstab 파일에서 포맷 하지 않으려는 디스크를 제거 하는 것도 좋습니다. 마찬가지로 암호화 작업을 시작 하기 전에 암호화할 파티션을 fstab 파일에 추가 해야 합니다. 
 
-### <a name="encryptformatall-criteria"></a><a name="bkmk_EFACriteria"> </a> EncryptFormatAll 조건
+### <a name="encryptformatall-criteria"></a><a name="bkmk_EFACriteria"></a> EncryptFormatAll 조건
 매개 변수는 모든 파티션을 통과 하 고 다음 조건을 *모두* 충족 하는 동안 암호화 합니다. 
 - 루트/OS/부팅 파티션이 아닙니다.
 - 아직 암호화되지 않았습니다.
@@ -180,11 +181,11 @@ EncryptFormatAll 옵션을 사용 하려면 Linux VM을 암호화 하 고 AzureD
 
 1. 예를 들어 [Resource Manager 템플릿을 사용하여 실행 중인 Linux IaaS VM을 암호화](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm)합니다. 
 2. Azure 빠른 시작 템플릿에서 **azure에 배포를** 선택 합니다.
-3. \Operation **EncryptionOperation** 필드를 **Enableencryption** 에서 **enable\formatal** 으로 변경 합니다.
+3. \Operation  필드를 **Enableencryption** 에서 **enable\formatal** 으로 변경 합니다.
 4. 구독, 리소스 그룹, 리소스 그룹 위치, 기타 매개 변수, 약관 및 규약을 선택합니다. **만들기** 를 선택 하 여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용 하도록 설정 합니다.
 
 
-### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"> </a> PowerShell Cmdlet에 EncryptFormatAll 매개 변수 사용
+### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"></a> PowerShell Cmdlet에 EncryptFormatAll 매개 변수 사용
 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 EncryptFormatAll 매개 변수와 함께 사용합니다.
 
 **클라이언트 암호 및 EncryptFormatAll를 사용 하 여 실행 중인 VM을 암호화 합니다.** 예를 들어 다음 스크립트는 변수를 초기화 하 고 EncryptFormatAll 매개 변수를 사용 하 여 Set-AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, Azure AD 앱 및 클라이언트 암호는 필수 조건으로 이미 만들어져 있어야 합니다. MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다.
@@ -203,7 +204,7 @@ EncryptFormatAll 옵션을 사용 하려면 Linux VM을 암호화 하 고 AzureD
    ```
 
 
-### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a><a name="bkmk_EFALVM"> </a> Lvm (논리 볼륨 관리자)에서 EncryptFormatAll 매개 변수 사용 
+### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a><a name="bkmk_EFALVM"></a> Lvm (논리 볼륨 관리자)에서 EncryptFormatAll 매개 변수 사용 
 LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음 모든 예제에서 장치 경로 및 탑재 지점이를 사용 사례에 적합 한 것으로 바꿉니다. 이 설정은 다음과 같이 수행할 수 있습니다.
 
 - VM을 구성할 데이터 디스크를 추가합니다.

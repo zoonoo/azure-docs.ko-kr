@@ -2,18 +2,19 @@
 title: 빠른 시작 - Azure PowerShell을 사용하여 Linux VM 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Linux 가상 머신을 만드는 방법을 배웁니다.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5711e3f406af04d0dc3a233031379c9ef18244ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87513454"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549654"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
@@ -25,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -179,13 +180,13 @@ VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹�
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-SSH 키 쌍을 만드는 데 사용한 것과 동일한 셸을 사용하여 다음 명령을 셸에 붙여넣어 SSH 세션을 만듭니다. *10.111.12.123*을 VM의 IP 주소로 바꿉니다.
+SSH 키 쌍을 만드는 데 사용한 것과 동일한 셸을 사용하여 다음 명령을 셸에 붙여넣어 SSH 세션을 만듭니다. *10.111.12.123* 을 VM의 IP 주소로 바꿉니다.
 
 ```bash
 ssh azureuser@10.111.12.123
 ```
 
-로그인 사용자 이름을 묻는 메시지가 표시되면 *azureuser*를 입력합니다. SSH 키로 암호가 사용되는 경우 메시지가 표시되면 입력해야 합니다.
+로그인 사용자 이름을 묻는 메시지가 표시되면 *azureuser* 를 입력합니다. SSH 키로 암호가 사용되는 경우 메시지가 표시되면 입력해야 합니다.
 
 
 ## <a name="install-nginx"></a>NGINX 설치

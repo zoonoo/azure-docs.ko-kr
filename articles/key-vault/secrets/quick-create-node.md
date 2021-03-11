@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 70416daced2cbdebb70fb8e1defbcbcb599710f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 769a63819925caa50ff364869b8d9a14c3258a2e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705486"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214544"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리(버전 4)
 
@@ -168,7 +168,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>비밀 저장
 
-이제 애플리케이션이 인증되었으므로 [setSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업에는 비밀 이름이 필요합니다. 이 샘플에서는 "mySecret"을 사용합니다.  
+이제 애플리케이션이 인증되었으므로 [setSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient#setSecret_string__string__SetSecretOptions_)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업에는 비밀 이름이 필요합니다. 이 샘플에서는 "mySecret"을 사용합니다.  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -176,7 +176,7 @@ await client.setSecret(secretName, secretValue);
 
 ### <a name="retrieve-a-secret"></a>비밀 검색
 
-이제 [getSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
+이제 [getSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient#getSecret_string__GetSecretOptions_)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349908"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218522"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
@@ -97,7 +97,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 * [스위치](../app-provisioning/functions-for-customizing-application-data.md#switch) 및 [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) 함수를 사용하는 특성 매핑에 식을 사용하여 Docusign에서 사용자에 대한 역할 또는 권한 프로필 프로비저닝을 수행할 수 있습니다. 예를 들어 아래 식은 사용자에게 Azure AD에서 "DS Admin" 역할이 할당된 경우 ID "8032066"을 프로비저닝합니다. 사용자에게 Azure AD 쪽에서 역할이 할당되지 않은 경우에는 권한 프로필을 프로비저닝하지 않습니다. ID는 DocuSign [포털](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)에서 검색할 수 있습니다.
 
-Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "DS Admin", "8032066")
 
 
 ## <a name="additional-resources"></a>추가 리소스

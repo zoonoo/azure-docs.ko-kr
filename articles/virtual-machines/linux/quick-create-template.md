@@ -2,18 +2,19 @@
 title: '빠른 시작: Resource Manager 템플릿을 사용하여 Ubuntu Linux VM 만들기'
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97a9d3632cb0e78b899844b1aaa84a030c6da23e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649774"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549620"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Linux 가상 머신 만들기
 
@@ -55,13 +56,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 다음 값을 선택하거나 입력합니다. 사용 가능한 경우 기본값을 사용합니다.
 
     - **구독**: Azure 구독을 선택합니다.
-    - **리소스 그룹**: 드롭 다운에서 기존의 리소스 그룹을 선택하거나 **새로 만들기**를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
+    - **리소스 그룹**: 드롭 다운에서 기존의 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
     - **위치**: 위치를 선택합니다.  예: **미국 중부**
-    - **관리 사용자 이름**: *azureuser*와 같은 사용자 이름을 제공합니다.
+    - **관리 사용자 이름**: *azureuser* 와 같은 사용자 이름을 제공합니다.
     - **인증 형식**: SSH 키 또는 암호를 사용하여 선택할 수 있습니다.
     - 인증 유형에 대해 선택하는 항목에 따라 **관리자 암호 또는 키**:
-        - **암호**를 선택하는 경우 최소 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
-        - **sshPublicKey**를 선택하는 경우 공개 키의 콘텐츠를 붙여넣습니다.
+        - **암호** 를 선택하는 경우 최소 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+        - **sshPublicKey** 를 선택하는 경우 공개 키의 콘텐츠를 붙여넣습니다.
     - **DNS 레이블 접두사**: DNS 레이블의 일부로 사용할 고유 식별자를 입력합니다.
     - **Ubuntu OS 버전**: VM에서 실행하려는 Ubuntu 버전을 선택합니다.
     - **위치**: 기본값은 리소스 그룹과 같은 위치입니다(이미 있는 경우).
@@ -69,23 +70,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - **Virtual Network 이름**: vNet에 사용할 이름입니다.
     - **서브넷 이름**: VM에서 사용해야 하는 서브넷의 이름입니다.
     - **네트워크 보안 그룹 이름**: NSG의 이름입니다.
-1. **검토 + 만들기**를 선택합니다. 유효성 검사가 완료된 후 **만들기**를 선택하여 VM을 만들고 배포합니다.
+1. **검토 + 만들기** 를 선택합니다. 유효성 검사가 완료된 후 **만들기** 를 선택하여 VM을 만들고 배포합니다.
 
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure CLI, Azure PowerShell 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-Azure Portal을 사용하여 만든 VM 및 기타 리소스를 확인할 수 있습니다. 배포가 완료되면 **리소스 그룹으로 이동**을 선택하여 VM 및 기타 리소스를 확인합니다.
+Azure Portal을 사용하여 만든 VM 및 기타 리소스를 확인할 수 있습니다. 배포가 완료되면 **리소스 그룹으로 이동** 을 선택하여 VM 및 기타 리소스를 확인합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요 없으면 리소스 그룹을 삭제합니다. 그러면 리소스 그룹의 VM과 모든 리소스가 삭제됩니다. 
 
-1. **리소스 그룹**을 선택합니다.
-1. 리소스 그룹 페이지에서 **삭제**를 선택합니다.
-1. 메시지가 표시되면 리소스 그룹의 이름을 입력한 다음 **삭제**를 선택합니다.
+1. **리소스 그룹** 을 선택합니다.
+1. 리소스 그룹 페이지에서 **삭제** 를 선택합니다.
+1. 메시지가 표시되면 리소스 그룹의 이름을 입력한 다음 **삭제** 를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
