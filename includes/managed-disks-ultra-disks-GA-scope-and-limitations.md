@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016638"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603364"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "96016638"
 |오스트레일리아 중부    |단일 Vm만 (가용성 집합 및 가상 머신 확장 집합은 지원 되지 않음)|
 |오스트레일리아 동부     |3 개의 가용성 영역         |
 |동남 아시아    |3 개의 가용성 영역        |
-|캐나다 중부 *     |3 개의 가용성 영역          |
+|캐나다 중부     |3 개의 가용성 영역          |
 |미국 중부     |3 개의 가용성 영역          |
 |미국 동부     |3 개의 가용성 영역          |
 |미국 동부 2     |3 개의 가용성 영역         |
@@ -49,8 +49,6 @@ ms.locfileid: "96016638"
 |영국 남부    |3 개의 가용성 영역        |
 |서유럽    | 3 개의 가용성 영역|
 |미국 서부 2    |3 개의 가용성 영역|
-
-\* 이 지역의 가용성 영역에 대 한 액세스 권한을 얻으려면 Azure 지원에 문의 하세요.
 
 - 는 다음 VM 시리즈 에서만 지원 됩니다.
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)

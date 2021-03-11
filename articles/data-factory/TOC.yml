@@ -586,6 +586,8 @@
           href: control-flow-system-variables.md
         - name: 매핑 데이터 흐름 매개 변수화
           href: parameters-data-flow.md
+        - name: 매개 변수화 방법
+          href: how-to-expression-language-functions.md
     - name: 보안
       items:
         - name: 데이터 이동 보안 고려 사항

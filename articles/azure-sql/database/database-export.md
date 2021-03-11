@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 1e08f3bd40dbd51a31eb6a78f102c12ab26e2790
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519727"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614278"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일 Azure SQL Database 및 Azure SQL Managed Instance로 내보내기
 
@@ -106,7 +106,7 @@ $exportStatus
 ```
 ## <a name="cancel-the-export-request"></a>내보내기 요청 취소
 
-Powershell 명령 예제를 보려면 [데이터베이스 작업-취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 powershell [AzSqlDatabaseActivity 명령을](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0)사용 합니다.
+Powershell 명령 예제를 보려면 [데이터베이스 작업-취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 powershell [AzSqlDatabaseActivity 명령을](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)사용 합니다.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

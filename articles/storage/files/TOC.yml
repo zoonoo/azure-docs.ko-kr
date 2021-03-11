@@ -231,6 +231,8 @@
               href: storage-files-migration-linux-hybrid.md
             - name: Azure 파일 동기화를 사용하여 온-프레미스 NAS에서 하이브리드 파일 서버로 마이그레이션
               href: storage-files-migration-nas-hybrid.md
+            - name: DataBox를 사용하여 온-프레미스 NAS에서 하이브리드 파일 서버로 마이그레이션
+              href: storage-files-migration-nas-hybrid-databox.md
         - name: StorSimple에서
           items:
             - name: StorSimple 8100 및 8600 마이그레이션 가이드

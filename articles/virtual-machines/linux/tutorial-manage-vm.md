@@ -1,25 +1,26 @@
 ---
 title: 자습서 - Azure CLI를 사용하여 Linux VM 만들기 및 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 Linux VM을 만들고 관리하는 방법을 알아봅니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: aeb44a52dc7a83321752bb00e09270fe7bfd0bbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 77213fe83a56a33f4d10658f85465349949be792
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972189"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555604"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
@@ -32,7 +33,7 @@ Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -40,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM* 이라는 리소스 그룹을 만듭니다. 
 
 ```azurecli-interactive
 az group create --name myResourceGroupVM --location eastus
@@ -52,7 +53,7 @@ az group create --name myResourceGroupVM --location eastus
 
 [az vm create](/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
-가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치( *~/.ssh*)에 없는 경우 새로 만듭니다.
+가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM* 이라는 VM을 만듭니다. VM에서 *azureuser* 라는 사용자 계정을 만들고, SSH 키가 기본 키 위치( *~/.ssh*)에 없는 경우 새로 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -120,7 +121,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-전체 목록은 `--all` 인수를 추가하여 확인할 수 있습니다. 이미지 목록은 `--publisher` 또는 `–-offer`로 필터링할 수도 있습니다. 이 예제에서는 *CentOS*와 일치하는 제품이 있는 모든 이미지에 대해 목록을 필터링합니다. 
+전체 목록은 `--all` 인수를 추가하여 확인할 수 있습니다. 이미지 목록은 `--publisher` 또는 `–-offer`로 필터링할 수도 있습니다. 이 예제에서는 *CentOS* 와 일치하는 제품이 있는 모든 이미지에 대해 목록을 필터링합니다. 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -280,7 +281,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
+구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly** 가 *true* 로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
 
 ## <a name="management-tasks"></a>관리 작업
 

@@ -3,16 +3,17 @@ title: SSH 키를 사용 하 여 Linux Vm에 연결
 description: Windows 컴퓨터에서 SSH 키를 생성 하 고 사용 하 여 Azure에서 Linux 가상 머신에 연결 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147150"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552782"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -23,7 +24,7 @@ Linux 또는 macOS 클라이언트에서 SSH 키를 사용 하려면 [빠른 단
 
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 
-[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인을 허용 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체는 암호화 된 연결을 제공 하지만 SSH를 사용 하 여 암호를 사용 하면 VM이 무차별 암호 대입 공격에 취약 한 상태로 남아 있습니다. *Ssh 키* 라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
+[SSH](https://www.ssh.com/ssh/) 는 보안 되지 않은 연결에 대 한 보안 로그인을 허용 하는 암호화 된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체에서 암호화된 연결을 제공하지만 SSH와 함께 암호를 사용하면 VM은 여전히 무차별 암호 대입 공격에 취약합니다. *Ssh 키* 라고도 하는 공개-개인 키 쌍을 사용 하 여 ssh를 통해 VM에 연결 하는 것이 좋습니다. 
 
 공개-개인 키 쌍은 앞으로 도어를 잠그는 것과 같습니다. 잠금은 **공개** 에 노출 되며, 올바른 키가 있는 사용자는 도어를 열 수 있습니다. 키는 **비공개** 이며, 도어 잠금을 해제 하는 데 사용할 수 있기 때문에 신뢰할 수 있는 사용자 에게만 제공 됩니다. 
 

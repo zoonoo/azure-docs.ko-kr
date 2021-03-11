@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710671"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609790"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -72,6 +72,7 @@ Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습�
 Linux Azure VM 에이전트를 사용하여 Linux Azure VM 백업 | 파일 일치 백업입니다.<br/><br/> [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 복원하는 동안 새 VM을 만들거나, 디스크를 복원한 후 VM을 만드는 데 사용하거나, 디스크를 복원한 후 기존 VM의 디스크 대신 사용할 수 있습니다. 또한 개별 파일 및 폴더를 복원할 수도 있습니다.
 MARS 에이전트를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.<br/><br/> MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
 DPM/MABS를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.
+Docker 탑재 지점이 있는 Linux Azure Vm 백업 | 현재 Azure Backup는 docker 탑재 지점의 제외를 지원 하지 않습니다 .이는 매번 서로 다른 경로에 탑재 되어 있기 때문입니다.
 
 ## <a name="operating-system-support-linux"></a>운영 체제 지원(Linux)
 
@@ -150,7 +151,7 @@ Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백�
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
-[Azure 전용 호스트](../virtual-machines/dedicated-hosts.md) | 지원됨
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | 지원됨
 독립 실행형 Azure Vm의 Windows 저장소 공간 구성 | 지원됨
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -170,6 +171,7 @@ Write Accelerator가 설정된 디스크 | 2020 년 11 월 23 일부 터는 제�
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
 울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
 [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업 되지 않습니다.
+NVMe/임시 디스크 | 지원되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

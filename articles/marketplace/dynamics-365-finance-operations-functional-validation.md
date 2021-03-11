@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131244"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613632"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 재무 및 운영 기능 유효성 검사
 
@@ -29,7 +29,7 @@ ms.locfileid: "93131244"
 기능 유효성 검사에는 두 가지 옵션이 있습니다.
 
 - Microsoft의 태평양 표준시 (PST) 업무 시간 동안 30 분 회의 통화를 개최 하 여 [LCS](https://lcs.dynamics.com/) 환경 및 솔루션을 시연 하 고 기록 합니다.
-- 파트너 센터에서 [상업용 마켓플레이스](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)개요로 이동 하 여  >  **Overview** 제품의 추가 콘텐츠 탭에서 데모 비디오 URL 및 LCS 스크린샷을 업로드 합니다.
+- 파트너 센터에서 [상업용 마켓플레이스](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)개요로 이동 하 여  >   제품의 추가 콘텐츠 탭에서 데모 비디오 URL 및 LCS 스크린샷을 업로드 합니다.
 
 Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 대 한 솔루션 또는 전자 메일을 승인 합니다.
 
@@ -56,7 +56,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
 
       2. **LCS**  >  **솔루션 관리**  >  **테스트 솔루션 패키지** 로 이동 합니다. 다음 예제에 표시 된 패키지 개요 및 콘텐츠를 포함 하는 스크린샷을 찍습니다.
 
-    | 필드 | 이미지 <img src="" width="400px">|
+    | 필드 | 이미지 |
     | --- | --- |
     | 패키지 개요 | [!["패키지 개요" 창을 보여 주는 스크린샷](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>솔루션 승인자</li></ul> | [![패키지 개요 화면](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

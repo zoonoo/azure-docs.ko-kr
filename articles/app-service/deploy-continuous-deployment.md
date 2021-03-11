@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8dc290ed59a7738a1e2263b4203ab0d5be338ec8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122275"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564965"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -160,7 +160,7 @@ Windows 앱의 경우 포털이 직접 지원 하지 않는 클라우드 Git 또
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [Azure Pipelines에서 Azure 앱 서비스로 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
+* [Azure Pipelines에서 Azure 앱 서비스로 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)
 * [연속 배포에 대 한 일반적인 문제 조사](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Azure PowerShell 사용](/powershell/azure/)
 * [프로젝트 Kudu](https://github.com/projectkudu/kudu/wiki)

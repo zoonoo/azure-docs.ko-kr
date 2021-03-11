@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 749ef16139bbab2742c43a81e985fb0a49e9393b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 440723167ded15933ba46a3a58f9a873496bd6a7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519336"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609365"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -354,4 +354,4 @@ ML CLI를 사용 하 여 모델을 배포 하는 방법에 대 한 자세한 내
 ## <a name="next-steps"></a>다음 단계
 
 * [배포 위치 및 방법](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
-* [Azure Pipelines를 사용 하 여 기계 학습 모델을 학습 하 고 배포](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true)하는 방법을 알아봅니다.
+* [Azure Pipelines를 사용 하 여 기계 학습 모델을 학습 하 고 배포](/azure/devops/pipelines/targets/azure-machine-learning)하는 방법을 알아봅니다.

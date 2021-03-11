@@ -4,13 +4,13 @@ description: '스크립트 작업을 사용 하 여 HDInsight 클러스터에 �
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
-ms.date: 09/02/2020
-ms.openlocfilehash: ed1277df0ebfa42d6ee95d58fa568241b291656b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/09/2021
+ms.openlocfilehash: 00ed8c26bbafeb94b1481e6157a242dad7ed84c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434681"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610266"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
 
@@ -25,7 +25,7 @@ Azure HDInsight는 사용자 지정 스크립트를 호출 하 여 클러스터�
 - HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 스토리지 위치는 다음과 같습니다.
 
     - 일반 (비 ESP) 클러스터의 경우:
-      - Data Lake Storage Gen1/Gen2: HDInsight가 Data Lake Storage에 액세스 하는 데 사용 하는 서비스 사용자에 게는 스크립트에 대 한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다. Data Lake Storage Gen2 스크립트에 대 한 URI 형식은입니다. `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+      - Data Lake Storage Gen1/Gen2: HDInsight가 Data Lake Storage에 액세스 하는 데 사용 하는 서비스 사용자에 게는 스크립트에 대 한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다. 
       - HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 스토리지 계정 모두에 대해 액세스 권한을 부여받습니다.
 
         > [!IMPORTANT]  
@@ -125,7 +125,7 @@ Status            : Succeeded
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| 이름 | 스크립트 |
+| Name | 스크립트 |
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
@@ -150,7 +150,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
     | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__ 을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-    | 이름 |스크립트 작업의 이름을 지정합니다. |
+    | Name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | 헤드/작업자/사육 사 |스크립트가 실행 되는 노드 ( **헤드**, **작업자** 또는 **사육 사**)를 지정 합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -223,7 +223,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
     | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 고유의 스크립트를 사용 하려면 __사용자 지정__ 을 선택 합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-    | 이름 |스크립트 작업의 이름을 지정합니다. |
+    | Name |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행 되는 노드 ( **헤드**, **작업자** 또는 **사육 사**)를 지정 합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |

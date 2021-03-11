@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: 4782e6c0ed866c467051fc1811a60df0010a3db1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745246"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608260"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>IoT Edge 모듈의 사전 인증 검사 목록
 
@@ -74,6 +74,7 @@ Edge 모듈은 Azure에서 만든 Edge 장치에 배포 됩니다.
 - 리드 관리 연결 문자열이 있습니다.
 - 개인 정보 보호 정책 있음
 - 사용 약관 표시
+- [Azure IoT 장치 카탈로그](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible) 에서 지원 되는 IoT Edge 장치 링크 추가 
 
 ## <a name="next-steps"></a>다음 단계
 

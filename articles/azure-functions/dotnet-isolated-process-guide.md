@@ -5,18 +5,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ab89c012c985afa8d7375ff94d0f55b0ea6941cc
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449461"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613955"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
-_.NET 5.0 지원은 현재 미리 보기 상태입니다._
-
 이 문서에서는 c #을 사용 하 여 Azure Functions에서 out-of-process로 실행 되는 .NET 격리 된 프로세스 함수를 개발 하는 방법을 소개 합니다. Out-of-process를 실행 하면 Azure Functions 런타임에서 함수 코드를 분리할 수 있습니다. 또한 현재 .NET 5.0 릴리스를 대상으로 하는 함수를 만들고 실행 하는 방법을 제공 합니다. 
+
+| 시작 | 개념| 샘플 |
+|--|--|--| 
+| <ul><li>[Visual Studio Code 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[명령줄 도구 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Visual Studio 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 .NET 5.0을 지원 하지 않거나 함수를 out-of-process로 실행 하지 않아도 되는 경우 [c # 클래스 라이브러리 함수를 개발](functions-dotnet-class-library.md)하는 것이 좋습니다.
 
@@ -80,11 +82,12 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 호스트 빌더 파이프라인에 대 한 액세스 권한이 있는 경우 초기화 하는 동안 앱 별 구성을 설정할 수 있습니다. 이러한 구성은 별도의 프로세스로 실행 되는 함수 앱에 적용 됩니다. 함수 호스트나 트리거 및 바인딩 구성을 변경 하려면 [ 파일에host.js](functions-host-json.md)를 사용 해야 합니다.      
 
-다음 예제에서는 명령줄 인수로 읽는 구성을 추가 하는 방법을 보여 줍니다 `args` . 
+<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
 
-`ConfigureAppConfiguration`메서드는 빌드 프로세스 및 응용 프로그램의 나머지 부분을 구성 하는 데 사용 됩니다. 또한이 예제에서는 여러 구성 항목을 더 쉽게 추가할 수 있도록 하는 [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true)을 사용 합니다. 는 `ConfigureAppConfiguration` 의 동일한 인스턴스를 반환 하기 때문에 여러 [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) 구성 항목을 추가 하려면이를 여러 번 호출 하면 됩니다. 및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
+및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
 
 구성에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요. 
 
@@ -98,13 +101,13 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 자세히 알아보려면 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요.
 
-### <a name="middleware"></a>미들웨어
+<!--### Middleware
 
-.NET 격리는 또한 ASP.NET에 있는 것과 유사한 모델을 사용 하 여 미들웨어 등록을 다시 지원 합니다. 이 모델을 사용 하면 호출 파이프라인에 논리를 삽입 하 고 함수 실행 전후에 논리를 삽입할 수 있습니다.
+.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
-Api의 전체 미들웨어 등록 집합은 아직 노출 되지 않지만 미들웨어 등록이 지원 되며 미들웨어 폴더 아래에 예제 응용 프로그램에 대 한 예제를 추가 했습니다.
+While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
@@ -175,17 +178,20 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
 | 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
-| 여러 출력 바인딩 | 지원 여부 | [지원됨](#multiple-output-bindings) |
+| 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
 | HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
 | 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |
 | 아티팩트의 function.js | 생성된 계획 | 생성 되지 않음 |
-| 구성 | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 [사용자 지정 초기화](#configuration) |
+| 구성 | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 사용자 지정 초기화 |
 | 종속성 주입 | [지원됨](functions-dotnet-dependency-injection.md)  | [지원됨](#dependency-injection) |
-| 미들웨어 | 지원되지 않음 | [지원됨](#middleware) |
+| 미들웨어 | 지원되지 않음 | 지원됨 |
 | 콜드 시작 시간 | 일반 | 적시에 시작 되기 때문에 더 깁니다. 잠재적 지연을 줄이기 위해 Windows 대신 Linux에서를 실행 합니다. |
 | ReadyToRun | [지원됨](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
+## <a name="known-issues"></a>알려진 문제
+
+.NET isolated 프로세스 함수를 실행 하는 문제를 파악 하기 위한 해결 방법에 대 한 자세한 내용은 [이 알려진 문제 페이지](https://aka.ms/AAbh18e)를 참조 하세요. 문제를 보고 하려면 [이 GitHub 리포지토리에서 문제를 만듭니다](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
 
 ## <a name="next-steps"></a>다음 단계
 

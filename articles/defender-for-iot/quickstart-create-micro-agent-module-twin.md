@@ -1,5 +1,5 @@
 ---
-title: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+title: Defender IoT 마이크로 에이전트 모듈 쌍 만들기
 titleSuffix: Azure Defender for IoT
 description: 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: f14f253960b628f2bf8052e92dbec3c897a205db
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820843"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123006"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Defender IoT 마이크로 에이전트 모듈 쌍 만들기 
 
 새 디바이스의 개별  **DefenderIotMicroAgent** 모듈 쌍을 만들 수 있습니다. IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄적으로 만들 수도 있습니다. 
 

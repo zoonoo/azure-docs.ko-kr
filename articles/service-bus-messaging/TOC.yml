@@ -224,7 +224,7 @@
       items:
         - name: ActiveMQ에서 Azure Service Bus로 마이그레이션
           href: migrate-jms-activemq-to-servicebus.md
-    - name: 모니터
+    - name: Monitor
       items:
         - name: 엔드투엔드 추적 및 진단
           href: service-bus-end-to-end-tracing.md
@@ -310,7 +310,7 @@
         - name: azure/service-bus 버전 7
           href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
         - name: azure/service-bus 버전 1
-          href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
+          href: /javascript/api/overview/azure/service-bus
     - name: PHP
       href: 'https://github.com/Azure/azure-sdk-for-php'
     - name: Ruby

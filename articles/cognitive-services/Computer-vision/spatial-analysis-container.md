@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519030"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612901"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -306,7 +306,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
+그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
 
 IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -468,7 +468,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06)을 사용 하 여 IoT Hub 인스턴스의 IOT EDGE 장치로 VM을 등록 합니다.
+그런 다음 [연결 문자열](../../iot-edge/how-to-register-device.md)을 사용 하 여 IoT Hub 인스턴스의 IOT EDGE 장치로 VM을 등록 합니다.
 
 IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -494,7 +494,7 @@ sudo systemctl restart iotedge
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | 값 | Description|
+| 설정 이름 | 값 | 설명|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|
@@ -522,7 +522,7 @@ sudo az extension add --name azure-iot
 sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
-|매개 변수  |Description  |
+|매개 변수  |설명  |
 |---------|---------|
 | `--hub-name` | Azure IoT Hub 이름입니다. |
 | `--content` | 배포 파일의 이름입니다. |

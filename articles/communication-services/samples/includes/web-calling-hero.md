@@ -10,13 +10,15 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d3586e03a3c6214390f4a8b72b1db5871d2d1900
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682403"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510789"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 머신에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.

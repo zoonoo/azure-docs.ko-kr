@@ -215,7 +215,7 @@
     - name: 가상 머신 크기 조정 지침
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure CLI(명령줄 인터페이스)
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Azure 예제 시나리오
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: 이메일 검색
@@ -223,7 +223,7 @@
 - name: 리소스
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: REST API 참조
       href: /rest/api/desktopvirtualization/
     - name: 환경 측정기

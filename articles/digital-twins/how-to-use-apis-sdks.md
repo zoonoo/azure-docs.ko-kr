@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cab32a6c2835dc283a169f58c79ff54e7925467b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507231"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554244"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -122,18 +122,21 @@ Twins 만들기:
 Serialization 도우미는 기본 정보에 대 한 액세스를 위해 쌍 데이터를 신속 하 게 만들거나 deserialize 하기 위해 SDK 내에서 사용할 수 있는 도우미 함수입니다. 핵심 SDK 메서드는 기본적으로 쌍으로 된 데이터를 JSON으로 반환 하므로 이러한 도우미 클래스를 사용 하 여 쌍 데이터를 더 아래로 분할 하는 것이 유용할 수 있습니다.
 
 사용 가능한 도우미 클래스는 다음과 같습니다.
-* `BasicDigitalTwin`: 디지털 쌍의 핵심 데이터를 나타냅니다.
-* `BasicRelationship`: 관계의 핵심 데이터를 나타냅니다.
-* `UpdateOperationUtility`: 업데이트 호출에 사용 되는 JSON 패치 정보를 나타냅니다.
-* `WriteableProperty`: 속성 메타 데이터를 나타냅니다.
+* `BasicDigitalTwin`: 일반적으로 디지털 쌍의 핵심 데이터를 나타냅니다.
+* `BasicDigitalTwinComponent`: 일반적으로의 속성에서 구성 요소를 나타냅니다. `Contents``BasicDigitalTwin`
+* `BasicRelationship`: 일반적으로 관계의 핵심 데이터를 나타냅니다.
+* `DigitalTwinsJsonPropertyName`: JSON serialization에 사용 되는 문자열 상수와 사용자 지정 디지털 쌍 형식의 deserialization을 포함 합니다.
 
 ##### <a name="deserialize-a-digital-twin"></a>디지털 쌍 Deserialize
 
-또는와 같이 선택한 JSON 라이브러리를 사용 하 여 항상 쌍 데이터를 deserialize 할 수 있습니다 `System.Test.Json` `Newtonsoft.Json` . 쌍에 대 한 기본 액세스의 경우 도우미 클래스를 사용 하면 좀 더 편리 하 게 만들 수 있습니다.
+또는와 같이 선택한 JSON 라이브러리를 사용 하 여 항상 쌍 데이터를 deserialize 할 수 있습니다 `System.Text.Json` `Newtonsoft.Json` . 쌍에 대 한 기본 액세스의 경우 도우미 클래스를 사용 하면 편리 하 게 만들 수 있습니다.
 
 `BasicDigitalTwin`도우미 클래스는를 통해 쌍에 정의 된 속성에 대 한 액세스도 제공 `Dictionary<string, object>` 합니다. 쌍의 속성을 나열 하려면 다음을 사용할 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin``System.Text.Json`특성을 사용 합니다. `BasicDigitalTwin` [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true)와 함께 사용 하려면 기본 생성자를 사용 하 여 클라이언트를 초기화 하거나 serializer 옵션을 사용자 지정 하려면 [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true)를 사용 합니다.
 
 ##### <a name="create-a-digital-twin"></a>디지털 쌍 만들기
 

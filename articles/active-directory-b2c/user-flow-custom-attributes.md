@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174838"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607920"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
@@ -31,9 +31,11 @@ Azure AD B2C 디렉터리에는 [기본 제공 특성 집합](user-profile-attri
 * Id 공급자에는 유지 되어야 하는 고유한 사용자 id **uniqueUserGUID** 이 있습니다.
 * 사용자 지정 사용자 경험에는 다른 논리가 작동 하기 위해 **migrationStatus** 사용자의 상태가 유지 되어야 합니다.
 
+‘확장 속성’, ‘사용자 지정 특성’ 및 ‘사용자 지정 클레임’은 이 문서의 컨텍스트에서 동일한 항목을 참조합니다. 이름은 컨텍스트(예: 애플리케이션, 개체 또는 정책)에 따라 달라집니다.
+
 Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합을 확장할 수 있습니다. 또한 [Microsoft Graph API](microsoft-graph-operations.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -66,11 +68,7 @@ Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합�
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C 확장 앱
 
-확장 특성은 사용자에 대 한 데이터를 포함할 수 있는 경우에도 응용 프로그램 개체에만 등록할 수 있습니다. 확장 특성은 b2c-extensions-app이라는 애플리케이션에 연결됩니다. 이 애플리케이션은 사용자 데이터 저장을 위해 Azure AD B2C에서 사용하므로 수정하지 않습니다. Azure AD B2C 앱 등록에서이 응용 프로그램을 찾을 수 있습니다.
-
-‘확장 속성’, ‘사용자 지정 특성’ 및 ‘사용자 지정 클레임’은 이 문서의 컨텍스트에서 동일한 항목을 참조합니다. 이름은 컨텍스트(예: 애플리케이션, 개체 또는 정책)에 따라 달라집니다.
-
-## <a name="get-the-application-properties"></a>응용 프로그램 속성 가져오기
+확장 특성은 사용자에 대 한 데이터를 포함할 수 있는 경우에도 응용 프로그램 개체에만 등록할 수 있습니다. 확장 특성은 라는 응용 프로그램에 연결 됩니다 `b2c-extensions-app` . 이 애플리케이션은 사용자 데이터 저장을 위해 Azure AD B2C에서 사용하므로 수정하지 않습니다. Azure AD B2C 앱 등록에서이 응용 프로그램을 찾을 수 있습니다. 응용 프로그램 속성을 가져옵니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
@@ -80,14 +78,6 @@ Azure AD B2C를 사용 하면 각 사용자 계정에 저장 된 특성 집합�
 1. 다음 식별자를 클립보드에 복사하고 저장합니다.
     * **애플리케이션 ID**. 예: `11111111-1111-1111-1111-111111111111`.
     * **개체 ID** 입니다. 예: `22222222-2222-2222-2222-222222222222`.
-
-## <a name="using-custom-attribute-with-ms-graph-api"></a>MS Graph API와 함께 사용자 지정 특성 사용
-
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 `ApplicationClientID` 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다 `b2c-extensions-app` . 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -172,6 +162,14 @@ Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이�
 ```
 
 ::: zone-end
+
+## <a name="using-custom-attribute-with-ms-graph-api"></a>MS Graph API와 함께 사용자 지정 특성 사용
+
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 규칙을 사용 하 여 이름이 지정 됩니다 `extension_ApplicationClientID_attributename` . 여기서는 `ApplicationClientID` 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다 `b2c-extensions-app` . 확장 특성 이름에 표시 되는 **응용 프로그램 (클라이언트) ID** 에는 하이픈이 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 
