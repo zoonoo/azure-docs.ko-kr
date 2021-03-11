@@ -1,8 +1,8 @@
 ---
 title: Azure에서 IBM 워크 로드 | Microsoft Docs
 description: Microsoft 파트너의 메인프레임 에뮬레이터 및 기타 서비스를 사용 하 여 Microsoft Azure 사용 하 여 IBM z/OS 워크 로드를 rehost.
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
 ms.subservice: workloads
 documentationcenter: ''
 author: njray
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1bc8dcbf05847c4d1ce6dd6a39af7bd3674a0669
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219997"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561605"
 ---
 # <a name="ibm-workloads-on-azure"></a>Azure에서 IBM 워크 로드
 

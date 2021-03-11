@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202674"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547557"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용 하 여 NAS (네트워크 연결 저장소)에서 하이브리드 클라우드 배포로 마이그레이션
+
+이 마이그레이션 문서는 NAS 및 Azure 파일 동기화 키워드와 관련 된 몇 가지 중 하나입니다. 이 문서가 시나리오에 적용 되는지 확인 합니다.
+
+> [!div class="checklist"]
+> * 데이터 원본: NAS (네트워크 연결 저장소)
+> * 마이그레이션 경로: NAS &rArr; Windows Server &rArr; 업로드 및 Azure 파일 공유와 동기화
+> * 온-프레미스에서 파일 캐시: 예, 최종 목표는 Azure 파일 동기화 배포입니다.
+
+시나리오가 다른 경우 [마이그레이션 가이드의 표](storage-files-migration-overview.md#migration-guides)를 참조 하세요.
 
 Azure 파일 동기화은 DAS (직접 연결 된 저장소) 위치에서 작동 하며 NAS (네트워크 연결 저장소) 위치에 대 한 동기화를 지원 하지 않습니다.
 이를 통해 필요한 파일의 마이그레이션을 수행 하 고이 문서에서 이러한 마이그레이션의 계획 및 실행을 안내 합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
-여기서의 목표는 NAS 어플라이언스에 있는 공유를 Windows Server로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 대 한 Azure 파일 동기화 활용 합니다. 마이그레이션을 수행 하는 동안 가용성 뿐만 아니라 프로덕션 데이터의 무결성을 보장 하는 방법으로이 마이그레이션을 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
+여기서의 목표는 NAS 어플라이언스에 있는 공유를 Windows Server로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 대 한 Azure 파일 동기화 활용 합니다. 일반적으로는 마이그레이션 중에 프로덕션 데이터의 무결성과 가용성을 guaranty 하는 방식으로 마이그레이션을 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
 
 ## <a name="migration-overview"></a>마이그레이션 개요
 
@@ -45,14 +54,14 @@ Azure Files [마이그레이션 개요 문서](storage-files-migration-overview.
 * 최소 2012R2-가상 머신 또는 물리적 서버로 Windows Server 2019을 만듭니다. Windows Server 장애 조치 (failover) 클러스터도 지원 됩니다.
 * 직접 연결 된 저장소 (지원 되지 않는 NAS와 비교 하 여 DAS)를 프로 비전 하거나 추가 합니다.
 
-    Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 NAS 어플라이언스에서 현재 사용 중인 것 보다 작을 수 있습니다.
+    프로 비전 하는 저장소 크기는 NAS 어플라이언스에서 현재 사용 중인 것 보다 작을 수 있습니다. 이 구성을 선택 하려면 Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용 해야 합니다.
     그러나 이후 단계에서 더 큰 NAS 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
 
     1. 디스크에 맞는 파일 집합을 이동 합니다.
     2. 파일 동기화 및 클라우드 계층화 참여 허용
-    3. 볼륨에 사용 가능한 공간이 더 많이 만들어진 경우 다음 파일 일괄 처리를 진행 합니다. 
+    3. 볼륨에 사용 가능한 공간이 더 많이 만들어진 경우 다음 파일 일괄 처리를 진행 합니다. 또는 새 스위치 사용에 대 한 향후 [robocopy 섹션](#phase-7-robocopy) 에서 robocopy 명령을 검토 `/LFSM` 합니다. 를 사용 하면 `/LFSM` robocopy 작업을 크게 간소화할 수 있지만 다른 robocopy 스위치와 호환 되지 않을 수 있습니다.
     
-    파일이 NAS 어플라이언스에서 사용 되는 Windows Server에 동일한 공간을 프로 비전 하 여 이러한 일괄 처리 방법을 방지할 수 있습니다. NAS/Windows에서 중복 제거를 고려 합니다. 이 많은 양의 저장소를 Windows Server에 영구적으로 커밋하지 않으려는 경우 마이그레이션 후와 클라우드 계층화 정책을 조정 하기 전에 볼륨 크기를 줄일 수 있습니다. 그러면 Azure 파일 공유의 더 작은 온-프레미스 캐시가 생성 됩니다.
+    파일이 NAS 어플라이언스에서 사용 되는 Windows Server에 동일한 공간을 프로 비전 하 여 이러한 일괄 처리 방법을 방지할 수 있습니다. NAS/Windows에서 중복 제거를 고려 합니다. 이 많은 저장소를 Windows Server에 영구적으로 커밋하지 않으려는 경우 마이그레이션 후와 클라우드 계층화 정책을 조정 하기 전에 볼륨 크기를 줄일 수 있습니다. 그러면 Azure 파일 공유의 더 작은 온-프레미스 캐시가 생성 됩니다.
 
 배포 하는 Windows Server의 리소스 구성 (계산 및 RAM)은 대부분 동기화 할 항목 (파일 및 폴더)의 수에 따라 달라 집니다. 문제가 있는 경우 더 높은 성능 구성으로 이동 하는 것이 좋습니다.
 
@@ -108,76 +117,7 @@ Windows Server 대상 폴더에 대 한 첫 번째 로컬 복사본을 실행 �
 NAS 어플라이언스에서 파일을 차지 하는 것 보다 더 작은 저장소를 Windows 서버에서 프로 비전 한 경우 클라우드 계층화를 구성 했습니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 는 이미 동기화 된 및 계층 파일에서 시작 됩니다. 클라우드 계층화는 NAS 어플라이언스에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 99%의 사용 가능한 볼륨 공간에 도달 합니다.
 따라서 RoboCopy는 클라우드 및 계층에 로컬로 동기화 하 여 로컬 디스크 공간이 부족 하 게 되는 것 보다 더 빠르게 파일을 이동할 수 있습니다. RoboCopy가 실패 합니다. 이를 방지 하는 순서 대로 공유를 수행 하는 것이 좋습니다. 예를 들어 모든 공유에 대해 RoboCopy 작업을 동시에 시작 하거나 Windows Server에서 현재 사용 가능한 공간의 크기에 맞는 공유만 이동 하는 것은 몇 가지입니다.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-배경:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      는 RoboCopy가 다중 스레드를 실행할 수 있도록 합니다. 기본값은 8이 고 최대값은 128입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      로그 파일에 대 한 상태를 유니코드로 출력 합니다 (기존 로그 덮어쓰기).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /T
-   :::column-end:::
-   :::column span="1":::
-      콘솔 창에 출력 합니다. 로그 파일에 대 한 출력과 함께 사용 됩니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      백업 응용 프로그램에서 사용 하는 것과 동일한 모드에서 RoboCopy를 실행 합니다. 이를 통해 RoboCopy는 현재 사용자에 게 권한이 없는 파일을 이동할 수 있습니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 "*삭제*"만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. */MIR* 플래그는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      파일 복사의 충실도 (기본값은/COPY: DAT), 복사 플래그: D = 데이터, A = 특성, T = 타임 스탬프, S = 보안 = NTFS Acl, O = 소유자 정보, U = 감사 정보
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / COPYALL
-   :::column-end:::
-   :::column span="1":::
-      모든 파일 정보 복사 (/COPY: DATSOU와 동일)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      디렉터리 복사본에 대 한 충실도 (기본값:/DCOPY: DA), 복사 플래그: D = 데이터, A = 특성, T = 타임 스탬프
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>8 단계: 사용자 잘림
 
@@ -196,7 +136,7 @@ RoboCopy 명령을 처음 실행 하는 경우 사용자와 응용 프로그램�
 
 특정 위치에 대 한 RoboCopy를 완료 하는 데 소요 되는 시간이 가동 중지 시간에 대해 허용 가능한 기간 내에 충족 될 때까지이 프로세스를 반복 합니다.
 
-가동 중지 시간을 허용 하 고 NAS 위치를 오프 라인으로 전환할 준비가 된 경우: 사용자 액세스를 오프 라인 상태로 전환 하려면 사용자가 더 이상 위치에 액세스할 수 없거나 NAS의이 폴더에서 콘텐츠를 변경 하지 못하도록 하는 다른 적절 한 단계를 수행할 수 있도록 공유 루트의 Acl을 변경 하는 옵션을 사용할 수 있습니다.
+가동 중지 시간을 고려 하는 경우 NAS 기반 공유에 대 한 사용자 액세스 권한을 제거 해야 합니다. 사용자가 파일 및 폴더 구조와 콘텐츠를 변경 하지 못하도록 하는 단계를 수행 하 여이 작업을 수행할 수 있습니다. 예를 들어 DFS-Namespace가 존재 하지 않는 위치를 가리키도록 하거나 공유에서 루트 Acl을 변경 합니다.
 
 마지막 RoboCopy 라운드 하나를 실행 합니다. 누락 되었을 수 있는 모든 변경 내용을 선택 합니다.
 이 마지막 단계가 걸리는 시간은 RoboCopy 검색 속도에 따라 달라 집니다. 이전 실행이 걸린 시간을 측정 하 여 시간 (가동 중지 시간)을 예상할 수 있습니다.

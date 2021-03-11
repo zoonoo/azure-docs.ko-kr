@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: b922c25561843d140f1e2b8221f62fad89ea00c8
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 5cc1025528959f8c81aa80703e3fc26d59c5266f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520900"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618103"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "102520900"
 
 [환경](/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 개인 패키지를 사용 합니다. 환경 내에서 개인용 패키지를 포함 하 여 사용할 Python 패키지를 선언 합니다. 일반적인 Azure Machine Learning 환경에 대해 알아보려면 [환경을 사용 하는 방법](how-to-use-environments.md)을 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
  * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)
  * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -52,11 +52,11 @@ myenv.python.conda_dependencies=conda_dep
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Azure DevOps 피드의 패키지 리포지토리 사용
 
-기계 학습 응용 프로그램에 대 한 Python 패키지를 적극적으로 개발 하는 경우 Azure DevOps 리포지토리에서 아티팩트로 호스팅하고 피드로 게시할 수 있습니다. 이 접근 방식을 사용 하면 Azure Machine Learning 작업 영역를 사용 하 여 패키지를 빌드하기 위한 DevOps 워크플로를 통합할 수 있습니다. Azure DevOps를 사용 하 여 Python 피드를 설정 하는 방법을 알아보려면 [Azure Artifacts에서 Python 패키지 시작](/azure/devops/artifacts/quickstarts/python-packages?preserve-view=true&view=azure-devops) 을 참조 하세요.
+기계 학습 응용 프로그램에 대 한 Python 패키지를 적극적으로 개발 하는 경우 Azure DevOps 리포지토리에서 아티팩트로 호스팅하고 피드로 게시할 수 있습니다. 이 접근 방식을 사용 하면 Azure Machine Learning 작업 영역를 사용 하 여 패키지를 빌드하기 위한 DevOps 워크플로를 통합할 수 있습니다. Azure DevOps를 사용 하 여 Python 피드를 설정 하는 방법을 알아보려면 [Azure Artifacts에서 Python 패키지 시작](/azure/devops/artifacts/quickstarts/python-packages) 을 참조 하세요.
 
 이 방법은 개인용 액세스 토큰을 사용 하 여 리포지토리에 대해 인증 합니다. 동일한 접근 방식은 개인 GitHub 리포지토리와 같이 토큰 기반 인증을 사용 하는 다른 리포지토리에 적용할 수 있습니다. 
 
- 1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__ 로 설정 합니다. 
+ 1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?tabs=preview-page#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__ 로 설정 합니다. 
 
  2. [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
 

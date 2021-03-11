@@ -3,19 +3,19 @@ title: Azure CLI를 사용 하 여 특수 한 이미지 버전에서 VM 만들�
 description: Azure CLI를 사용 하 여 공유 이미지 갤러리에서 특수 이미지 버전을 사용 하 여 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dedefcd18a2860bbcae9a0ac6b5b07550d9cbf3f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fe081b0e74acf771e10406c15a3dea4e09956c37
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881943"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560969"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI와 함께 특수 한 이미지 버전을 사용 하 여 VM 만들기
 

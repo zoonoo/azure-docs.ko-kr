@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650977"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609909"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격 으로부터 Microsoft 365 보호
 
@@ -69,7 +69,7 @@ Microsoft 365 클라우드 환경은 광범위 한 모니터링 및 보안 인�
 
     이러한 관리자 계정은 제한 된 사용 계정입니다. *온-프레미스 계정에는 Microsoft 365에 대 한 관리 권한이 있어야 합니다.* 
 
-    자세한 내용은 [Microsoft 365 관리자 역할 개요](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조 하세요. 또한 [AZURE AD의 Microsoft 365에 대 한 역할을](../roles/m365-workload-docs.md)참조 하세요.
+    자세한 내용은 [Microsoft 365 관리자 역할 개요](/microsoft-365/admin/add-users/about-admin-roles)를 참조 하세요. 또한 [AZURE AD의 Microsoft 365에 대 한 역할을](../roles/m365-workload-docs.md)참조 하세요.
 
 1. **Microsoft 365에서 장치를 관리 합니다.** Azure AD 조인 및 클라우드 기반 MDM (모바일 장치 관리)을 사용 하 여 온-프레미스 장치 관리 인프라에 대 한 종속성을 제거 합니다. 이러한 종속성은 장치 및 보안 제어를 손상 시킬 수 있습니다.
 
@@ -151,7 +151,7 @@ Azure AD에서 관리자와 같은 권한 있는 역할을 가진 사용자는 �
 
 클라우드 그룹을 사용 하 여 온-프레미스 인프라에서 공동 작업과 액세스를 분리할 수 있습니다.
 
-* **공동** 작업: 최신 공동 작업을 위해 Microsoft 365 그룹과 Microsoft 팀을 사용 합니다. Outlook에서 온-프레미스 메일 그룹의 서비스를 해제 하 고 [배포 목록을 Microsoft 365 그룹으로 업그레이드](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide)합니다.
+* **공동** 작업: 최신 공동 작업을 위해 Microsoft 365 그룹과 Microsoft 팀을 사용 합니다. Outlook에서 온-프레미스 메일 그룹의 서비스를 해제 하 고 [배포 목록을 Microsoft 365 그룹으로 업그레이드](/office365/admin/manage/upgrade-distribution-lists)합니다.
 
 * **액세스**: azure ad 보안 그룹 또는 Microsoft 365 그룹을 사용 하 여 azure ad에서 응용 프로그램에 대 한 액세스 권한을 부여 합니다.
 * **Office 365 라이선스**: 그룹 기반 라이선스를 사용 하 여 클라우드 전용 그룹을 사용 하 여 Office 365에 프로 비전 합니다. 이 메서드는 온-프레미스 인프라에서 그룹 멤버 자격을 제어 하는 분리 합니다.
@@ -203,9 +203,9 @@ Azure AD 조건부 액세스를 사용 하 여 신호를 해석 하 고이를 �
 
 * 가능 하면 조건부 액세스를 사용 하 여 [레거시 인증 프로토콜을 차단](../conditional-access/howto-conditional-access-policy-block-legacy.md) 합니다. 또한 응용 프로그램 관련 구성을 사용 하 여 응용 프로그램 수준에서 레거시 인증 프로토콜을 사용 하지 않도록 설정 합니다.
 
-   자세한 내용은 [레거시 인증 프로토콜](../fundamentals/auth-sync-overview.md)을 참조 하세요. 또는 [Exchange online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) 및 [SharePoint online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)에 대 한 특정 세부 정보를 확인 하세요.
+   자세한 내용은 [레거시 인증 프로토콜](../fundamentals/auth-sync-overview.md)을 참조 하세요. 또는 [Exchange online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) 및 [SharePoint online](/powershell/module/sharepoint-online/set-spotenant)에 대 한 특정 세부 정보를 확인 하세요.
 
-* 권장 되는 [id 및 장치 액세스 구성을](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)구현 합니다.
+* 권장 되는 [id 및 장치 액세스 구성을](/microsoft-365/security/office-365-security/identity-access-policies)구현 합니다.
 
 * 조건부 액세스를 포함 하지 않는 Azure AD의 버전을 사용 하는 경우 [AZURE ad 보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용 하 고 있는지 확인 합니다.
 

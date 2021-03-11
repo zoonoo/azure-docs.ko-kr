@@ -1,7 +1,7 @@
 ---
 title: Azure Image Builder에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Image Builder에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ef264519cb6fc8012d13eb70ea471d9993a0b313
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0805f8317873e1c584fae844cf1a8f6c732746cb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673928"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439745"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Azure Image Builder에 대한 Azure Policy 규정 준수 컨트롤
 

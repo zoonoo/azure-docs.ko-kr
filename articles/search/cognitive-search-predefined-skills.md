@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde82a0ad50c2172e70337ad202b91af0a62c530
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535528"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547818"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>인덱싱 중 텍스트 및 이미지 처리를 위한 기본 제공 인식 기술 (Azure Cognitive Search)
 
-이 문서에서는 기술에 포함 하 여 콘텐츠 및 구조를 추출할 수 있는 Azure Cognitive Search에서 제공 하는 인식 기술에 대해 알아봅니다. *인식 기술은* 특정 한 방식으로 콘텐츠를 변환 하는 모듈 또는 작업입니다. 대체로, 데이터를 추출하거나 구조를 추론하여 입력 데이터에 대한 이해를 보강하는 구성 요소입니다. 출력은 거의 항상 텍스트 기반입니다. 기능** 은 보강 파이프라인을 정의하는 기술 컬렉션입니다. 
+이 문서에서는 기술에 포함 하 여 콘텐츠 및 구조를 추출할 수 있는 Azure Cognitive Search에서 제공 하는 인식 기술에 대해 알아봅니다. *인식 기술은* 특정 한 방식으로 콘텐츠를 변환 하는 모듈 또는 작업입니다. 대체로, 데이터를 추출하거나 구조를 추론하여 입력 데이터에 대한 이해를 보강하는 구성 요소입니다. 출력은 거의 항상 텍스트 기반입니다. 기능은 보강 파이프라인을 정의하는 기술 컬렉션입니다. 
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "91535528"
 | 기술 | 설명 |
 |-------|-------------|
 |[Microsoft. 텍스트. CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| 사용자가 정의한 사용자 정의 단어 및 구 목록에서 텍스트를 찾습니다.|
-| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | 이 기술은 미리 학습된 모델을 통해 용어 배치, 언어 규칙, 다른 용어에 대한 근접성 및 원본 데이터 내에서 용어가 비정상적인 정도에 따라 중요한 문구를 검색합니다. |
+| [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | 이 기술은 미리 학습된 모델을 통해 용어 배치, 언어 규칙, 다른 용어에 대한 근접성 및 원본 데이터 내에서 용어가 비정상적인 정도에 따라 중요한 문구를 검색합니다. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | 이 기술은 미리 학습된 모델을 통해 사용된 언어를 검색합니다(문서당 하나의 언어 ID). 동일한 텍스트 세그먼트 내에서 여러 언어가 사용되는 경우 주로 사용된 언어의 LCID가 출력됩니다.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | 이 기술은 미리 학습된 모델을 통해 고정된 범주 세트(사람, 위치, 조직, 이메일, URL, 날짜/시간 필드)에 대한 엔터티를 설정합니다. |
@@ -53,7 +53,7 @@ ms.locfileid: "91535528"
 
 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)만들기에 대 한 지침은 [사용자 지정 인터페이스를 정의 하는 방법](cognitive-search-custom-skill-interface.md) 및 [예제: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)

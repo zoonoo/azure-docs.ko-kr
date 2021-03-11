@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725247"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560619"
 ---
 # <a name="securing-external-access-with-groups"></a>그룹을 사용 하 여 외부 액세스 보안 
 
@@ -54,7 +54,7 @@ ms.locfileid: "98725247"
 
    * *기본적으로 모든 사용자는 M365 그룹을 만들 수 있으며, 테 넌 트의 모든 (내부 및 외부) 사용자에 대해 그룹이 열립니다*. 
 
-      * [Microsoft 365 그룹 만들기](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) 를 특정 보안 그룹의 구성원으로 제한할 수 있습니다. Windows PowerShell을 사용 하 여이 설정을 구성 합니다. 
+      * [Microsoft 365 그룹 만들기](/microsoft-365/solutions/manage-creation-of-groups) 를 특정 보안 그룹의 구성원으로 제한할 수 있습니다. Windows PowerShell을 사용 하 여이 설정을 구성 합니다. 
 
 * **사용자를 그룹에 초대할 수 있는 사용자는 누구 인가요?** 모든 그룹 멤버가 다른 멤버를 추가 하거나 그룹 소유자만 멤버를 추가할 수 있습니까?
 
@@ -86,7 +86,7 @@ ms.locfileid: "98725247"
 
 보안 또는 리소스 액세스를 위해 그룹을 사용 하는 경우 단일 함수를 사용 하는 것이 중요 합니다. 그룹을 사용 하 여 리소스에 대 한 액세스 권한을 부여 하는 경우 다른 용도로 사용 하면 안 됩니다. 그룹이 위치나 팀 멤버 자격을 정의 하는 등의 일반적인 용도로 사용 되는 경우 액세스를 보호 하는 데에도 사용 되지 않아야 합니다. 
 
-용도를 명확 하 게 하는 보안 그룹에 대 한 명명 규칙을 사용 하는 것이 좋습니다. 예:
+용도를 명확 하 게 하는 보안 그룹에 대 한 명명 규칙을 사용 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 * *Secure_access_finance_apps*
 
@@ -150,13 +150,13 @@ Azure AD 보안 그룹을 사용 하 여 다음을 수행할 수도 있습니다
 
 ## <a name="microsoft-365-groups"></a>Microsoft 365 그룹
 
-[Microsoft 365 그룹](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) 은 M365에서 모든 액세스를 구동 하는 기본 멤버 자격 서비스입니다. [Azure Portal](https://portal.azure.com/)또는 [M365 포털](https://admin.microsoft.com/)에서 만들 수 있습니다. M365 그룹이 만들어지면 공동 작업에 사용 되는 리소스 그룹에 대 한 액세스 권한을 부여 합니다. 이러한 리소스의 전체 목록은 [관리자를 위한 Microsoft 365 그룹 개요](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) 를 참조 하세요.
+[Microsoft 365 그룹](/microsoft-365/admin/create-groups/office-365-groups) 은 M365에서 모든 액세스를 구동 하는 기본 멤버 자격 서비스입니다. [Azure Portal](https://portal.azure.com/)또는 [M365 포털](https://admin.microsoft.com/)에서 만들 수 있습니다. M365 그룹이 만들어지면 공동 작업에 사용 되는 리소스 그룹에 대 한 액세스 권한을 부여 합니다. 이러한 리소스의 전체 목록은 [관리자를 위한 Microsoft 365 그룹 개요](/microsoft-365/admin/create-groups/office-365-groups) 를 참조 하세요.
 
 M365 그룹에는 역할에 대 한 다음 미묘한 차이가 있습니다.
 
 * **소유자** -그룹 소유자는 구성원을 추가 하거나 제거할 수 있으며 공유 받은 편지함에서 대화를 삭제 하거나 그룹 설정을 변경할 수 있습니다. 그룹 소유자는 그룹 이름을 바꾸고 설명 또는 그림 등을 업데이트할 수 있습니다.
 
-* **멤버** -멤버는 그룹의 모든 항목에 액세스할 수 있지만 그룹 설정은 변경할 수 없습니다. 기본적으로 그룹 구성원은 게스트를 초대 하 여 그룹에 가입할 수 있지만 [해당 설정을 제어할](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide)수 있습니다.
+* **멤버** -멤버는 그룹의 모든 항목에 액세스할 수 있지만 그룹 설정은 변경할 수 없습니다. 기본적으로 그룹 구성원은 게스트를 초대 하 여 그룹에 가입할 수 있지만 [해당 설정을 제어할](/microsoft-365/admin/create-groups/manage-guest-access-in-groups)수 있습니다.
 
 * **게스트** 그룹 게스트는 조직 외부의 멤버입니다. 기본적으로 게스트는 팀의 기능에 몇 가지 제한이 있습니다.
 

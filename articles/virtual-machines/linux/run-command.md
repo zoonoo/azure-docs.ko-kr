@@ -3,17 +3,18 @@ title: Azure의 Linux VM에서 셸 스크립트 실행
 description: 이 항목에서는 명령 실행 기능을 사용하여 Azure Linux 가상 머신 내에서 스크립트를 실행하는 방법 설명
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737866"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552935"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
 
@@ -21,7 +22,7 @@ ms.locfileid: "98737866"
 
 ## <a name="benefits"></a>이점
 
-여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 실행 명령은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke)를 통해 사용합니다.
+여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke)를 통해 사용합니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 모든 시나리오에서 유용합니다. 네트워크 또는 관리 사용자 구성이 잘못되어 RDP 또는 SSH 포트가 열려 있지 않은 가상 머신의 문제를 해결 및 수정하는 유일한 방법 중 하나입니다.
 

@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107688"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617491"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>테 넌 트 전체 표시 권한 부여 및 요청
 
 **전역 관리자** 의 AD (Azure Active Directory) 역할이 있는 사용자는 테 넌 트 전반에 걸친 책임이 있지만 Azure Security Center에서 조직 차원의 정보를 볼 수 있는 Azure 권한은 없습니다. Azure AD 역할 할당은 Azure 리소스에 대 한 액세스 권한을 부여 하지 않으므로 권한 상승이 필요 합니다. 
-
-> [!TIP]
-> [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)의 전역 관리자 역할에 대 한 권한 상승에 대해 자세히 알아보세요.
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>자신에 게 테 넌 트 전체 사용 권한 부여
 
@@ -45,6 +42,14 @@ ms.locfileid: "102107688"
 1. Azure Portal 로그 아웃 한 다음 다시 로그인 합니다.
 
 1. 액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
+
+위의 간단한 프로세스는 자동으로 많은 작업을 수행 합니다.
+
+1. 사용자의 사용 권한이 일시적으로 상승 되었습니다.
+1. 새 사용 권한을 사용 하 여 사용자는 루트 관리 그룹의 원하는 Azure RBAC 역할에 할당 됩니다.
+1. 승격 된 권한이 제거 됩니다.
+
+Azure AD 권한 상승 프로세스에 대 한 자세한 내용은 [모든 azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)을 참조 하세요.
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>권한이 충분 하지 않은 경우 테 넌 트 전체 사용 권한 요청

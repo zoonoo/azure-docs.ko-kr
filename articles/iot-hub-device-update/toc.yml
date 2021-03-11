@@ -32,7 +32,7 @@
       href: device-update-agent-overview.md
     - name: 디바이스 업데이트 구성 파일
       href: device-update-configuration-file.md
-    - name: 디바이스 업데이트 매니페스트
+    - name: 매니페스트 업데이트
       href: update-manifest.md
     - name: 디바이스 업데이트를 보호하는 방법
       href: device-update-security.md
@@ -40,7 +40,9 @@
       href: connected-cache-disconnected-device-update.md
     - name: IoT Hub용 디바이스 업데이트의 Microsoft 연결된 캐시 구성
       href: connected-cache-configure.md
-    - name: 가져오기 관련 스키마 및 기타 정보
+    - name: 디바이스 업데이트 가져오기
+      href: import-concepts.md
+    - name: 가져오기 관련 스키마
       href: import-schema.md
 - name: 방법 가이드
   items:

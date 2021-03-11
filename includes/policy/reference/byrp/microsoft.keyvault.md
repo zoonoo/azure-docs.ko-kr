@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2a5c3c107f9a574842c469c5535992c66f37414b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 4951e86b7fd14809811ebc2cb8e50442a8d28248
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428118"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609462"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[관리 되는 HSM Azure Key Vault 제거 보호를 사용 하도록 설정 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |Azure Key Vault 관리 HSM을 악의적으로 삭제 하면 데이터가 영구적으로 손실 될 수 있습니다. 조직의 악의적인 참가자가 관리 되는 HSM Azure Key Vault를 삭제 하 고 제거할 수 있습니다. 보호 제거는 관리 되는 HSM Azure Key Vault 일시 삭제에 대 한 필수 보존 기간을 적용 하 여 참가자 공격 으로부터 보호 합니다. 조직 내에서 또는 Microsoft는 일시 삭제 보존 기간 동안 Azure Key Vault 관리 되는 HSM을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
 |[인증서는 지정된 통합 인증 기관에서 발급해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) |Digicert 또는 GlobalSign과 같은 키 자격 증명 모음에 인증서를 발급할 수 있는 Azure 통합 인증 기관을 지정하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_SupportedCAs.json) |
@@ -23,7 +23,8 @@ ms.locfileid: "102428118"
 |[인증서는 허용된 키 유형을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) |인증서에 대해 허용되는 키 유형을 제한하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_AllowedKeyTypes.json) |
 |[타원 곡선 암호화를 사용하는 인증서에는 허용되는 곡선 이름이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) |키 자격 증명 모음에 저장된 ECC 인증서에 대해 허용되는 타원 곡선 이름을 관리합니다. 자세한 내용은 [https://aka.ms/akvpolicy](https://aka.ms/akvpolicy)에서 확인할 수 있습니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_EC_AllowedCurveNames.json) |
 |[RSA 암호화를 사용하는 인증서에는 지정된 최소 키 크기가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |키 자격 증명 모음에 저장된 RSA 인증서에 대한 최소 키 크기를 지정하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |
-|[배포-Azure Key Vault 관리 HSM에서 사용 하도록 설정할 Log Analytics 작업 영역에 진단 설정을 구성 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb3884c81-31aa-473d-a9bb-9466fe0ec2a0) |Azure Key Vault 관리 되는 hsm에 대 한 진단 설정을 배포 하 여이 진단 설정이 누락 된 Azure Key Vault 관리 HSM이 생성 되거나 업데이트 되는 경우 지역 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ManagedHsm_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
+|[배포-Azure Key Vault에 대 한 진단 설정을 Log Analytics 작업 영역으로 구성 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) |Azure Key Vault에 대 한 진단 설정을 배포 하 여이 진단 설정이 누락 된 Key Vault가 만들어지거나 업데이트 될 때 Log Analytics 작업 영역으로 리소스 로그를 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/DataConnectorsAzureKeyVault_PolicyAssignment.json) |
+|[배포 - Azure Key Vault 관리형 HSM에서 사용하도록 Log Analytics 작업 영역에 대한 진단 설정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb3884c81-31aa-473d-a9bb-9466fe0ec2a0) |Azure Key Vault 관리형 HSM의 진단 설정을 배포하여 이 진단 설정이 없는 Azure Key Vault 관리형 HSM이 만들어지거나 업데이트될 때 지역별 Log Analytics 작업 영역으로 스트림합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ManagedHsm_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[배포-이벤트 허브에 대 한 진단 설정을 구성 하 Azure Key Vault 관리 되는 HSM에서 사용 하도록 설정 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) |Azure Key Vault 관리 되는 hsm에 대 한 진단 설정을 배포 하 여이 진단 설정이 누락 된 Azure Key Vault 관리 HSM이 생성 되거나 업데이트 되는 경우 지역 이벤트 허브에 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_DiagnosticLog_Deploy.json) |
 |[Key Vault의 진단 설정을 Event Hub에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |이 진단 설정이 누락된 Key Vault를 만들거나 업데이트할 때 Key Vault의 진단 설정을 배포하여 지역별 Event Hub로 스트림합니다. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |
 |[Key Vault의 진단 설정을 Log Analytics 작업 영역에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbef3f64c-5290-43b7-85b0-9b254eef4c47) |이 진단 설정이 누락된 Key Vault를 만들거나 업데이트할 때 Key Vault의 진단 설정을 배포하여 지역별 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/KeyVault_DeployDiagnosticLog_Deploy_LogAnalytics.json) |

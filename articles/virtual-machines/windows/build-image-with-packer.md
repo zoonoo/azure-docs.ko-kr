@@ -4,16 +4,17 @@ description: Azure에서 패키지를 사용 하 여 가상 머신의 이미지�
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 16d0a4ea2353778b16803bd9b92a7f8af6e4ba88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cd6152f9c8e75223fcf1aab77fee7700223979
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325915"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561010"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Azure에서 패키지를 사용 하 여 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
@@ -63,7 +64,7 @@ Get-AzSubscription
 ## <a name="define-packer-template"></a>Packer 템플릿 정의
 이미지를 작성하려면 JSON 파일로 템플릿을 만듭니다. 템플릿에서 실제 빌드 프로세스를 통해 수행하는 작성기와 프로비저너를 정의합니다. Packer에는 이전 단계에서 만든 서비스 사용자 자격 증명과 같은 Azure 리소스를 정의하도록 허용하는 [Azure용 작성기](https://www.packer.io/docs/builders/azure.html)가 있습니다.
 
-*windows.json*이라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다. 다음에 대해 사용자 고유의 값을 입력합니다.
+*windows.json* 이라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다. 다음에 대해 사용자 고유의 값을 입력합니다.
 
 | 매개 변수                           | 얻을 수 있는 위치 |
 |-------------------------------------|----------------------------------------------------|
@@ -211,7 +212,7 @@ Packer가 VM을 빌드하고 프로비저너를 실행하고 배포를 정리하
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Packer 이미지에서 VM 만들기
-이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage*에서 *myVM*이라는 VM을 만듭니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage* 에서 *myVM* 이라는 VM을 만듭니다.
 
 ```powershell
 New-AzVm `
@@ -232,7 +233,7 @@ Packer 이미지에서 VM을 만드는 데 몇 분이 걸립니다.
 
 
 ## <a name="test-vm-and-webserver"></a>VM 및 웹 서버 테스트
-[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP* 의 IP 주소를 가져옵니다.
 
 ```powershell
 Get-AzPublicIPAddress `

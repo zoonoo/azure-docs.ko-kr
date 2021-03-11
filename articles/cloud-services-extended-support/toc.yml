@@ -82,7 +82,7 @@
     - name: Az.CloudService 모듈
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: PowerShell cmdlet
-      href: /powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+      href: /powershell/module/az.cloudservice/#cloudservice
     - name: ARM 템플릿 참조
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST (영문)

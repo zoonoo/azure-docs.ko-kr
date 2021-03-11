@@ -3,12 +3,12 @@ title: Azure Functions 1.x에 대한 host.json 참조
 description: v1 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832826"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608957"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -149,7 +149,7 @@ ms.locfileid: "94832826"
 
 ## <a name="eventhub"></a>eventHub
 
-[Event Hub 트리거 및 바인딩](functions-bindings-event-hubs-trigger.md#functions-1x)에 대한 구성 설정입니다.
+[Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md#functions-1x)에 대한 구성 설정입니다.
 
 ## <a name="functions"></a>functions
 
@@ -251,7 +251,7 @@ ms.locfileid: "94832826"
 |속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
-|defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
+|defaultLevel|정보 산업|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
 |categoryLevels|해당 없음|각 범주에 대해 Application Insight에 보낼 최소 로그 수준을 지정하는 범주 배열입니다. 여기에 지정된 범주는 동일한 값으로 시작하는 모든 범주를 제어하며 긴 값이 우선합니다. 앞의 샘플 *host.json* 파일에서 "Host.Aggregator"로 시작하는 모든 범주는 `Information` 수준으로 기록됩니다. "Host.Executor"와 같이 "Host"로 시작하는 다른 모든 범주는 `Error` 수준으로 기록됩니다.| 
 
 ## <a name="queues"></a>queues

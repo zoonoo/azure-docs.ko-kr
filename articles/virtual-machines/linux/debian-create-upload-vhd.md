@@ -2,19 +2,20 @@
 title: Debian Linux VHD 준비
 description: Azure에서 VM 배포용 Debian VHD 이미지를 만드는 방법에 대해 알아봅니다.
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: d822aa30926c473d08bc5d785211c82d038ef652
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7dcb6dbc62513535c562a430f5958a62dae9d005
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203187"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554516"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 섹션에서는 [Debian 웹 사이트](https://www.debian.org/distrib/) 에서 다운로드한 .iso 파일에서 Debian Linux 운영 체제를 가상 하드 디스크에 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있으며 Hyper-V가 한 가지 예입니다. Hyper-V 사용에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 ## <a name="installation-notes"></a>설치 참고 사항

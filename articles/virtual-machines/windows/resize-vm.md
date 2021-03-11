@@ -2,18 +2,18 @@
 title: Azure에서 Windows VM 크기 조정
 description: Azure 가상 컴퓨터에 사용 되는 VM 크기를 변경 합니다.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832249"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560653"
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 
@@ -21,14 +21,14 @@ ms.locfileid: "87832249"
 
 VM(가상 머신)을 만든 후 VM 크기를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. 이는 현재 VM을 호스트하는 하드웨어 클러스터에서 새 크기를 사용할 수 없는 경우에 발생할 수 있습니다.
 
-VM에서 Premium Storage를 사용하는 경우 크기의 **s** 버전을 선택하여 Premium Storage 지원을 받는지 확인합니다. 예를 들어 Standard_E4_v3 대신 Standard_E4**s**_v3을 선택합니다.
+VM에서 Premium Storage를 사용하는 경우 크기의 **s** 버전을 선택하여 Premium Storage 지원을 받는지 확인합니다. 예를 들어 Standard_E4_v3 대신 Standard_E4 **s** _v3을 선택합니다.
 
 ## <a name="use-the-portal"></a>포털 사용
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 가상 컴퓨터에 대 한 페이지를 엽니다.
-1. 왼쪽 메뉴에서 **크기**를 선택 합니다.
-1. 사용 가능한 크기 목록에서 새 크기를 선택 하 고 **크기 조정**을 선택 합니다.
+1. 왼쪽 메뉴에서 **크기** 를 선택 합니다.
+1. 사용 가능한 크기 목록에서 새 크기를 선택 하 고 **크기 조정** 을 선택 합니다.
 
 
 가상 컴퓨터가 현재 실행 되 고 있으면 크기를 변경 하면 가상 컴퓨터가 다시 시작 됩니다. 가상 컴퓨터를 중지 하면 추가 크기가 표시 될 수 있습니다.

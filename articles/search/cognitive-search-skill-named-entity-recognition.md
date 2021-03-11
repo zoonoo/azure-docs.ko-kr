@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e598f16c6b441cf986c7ac82d67c037f75be8982
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935945"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547444"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
@@ -48,7 +48,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 | 입력 이름      | 설명                   |
 |---------------|-------------------------------|
-| languageCode  | (선택 사항) 기본값은 `"en"`입니다.  |
+| languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
@@ -150,8 +150,8 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 ```
 
 
-## <a name="error-cases"></a>오류 사례
-문서에 대한 언어 코드가 지원되지 않는 경우 오류가 반환되고 엔터티가 추출되지 않습니다.
+## <a name="warning-cases"></a>경고 사례
+문서에 대 한 언어 코드가 지원 되지 않는 경우 경고가 반환 되 고 엔터티가 추출 되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

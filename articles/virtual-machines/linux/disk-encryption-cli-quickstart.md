@@ -3,17 +3,18 @@ title: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Linux 가상 머신을 만들고 암호화하는 방법을 배웁니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737018"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561044"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 

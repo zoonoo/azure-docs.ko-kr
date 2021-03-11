@@ -1,22 +1,22 @@
 ---
 title: Azure Backup용 VM 스냅샷 Linux 확장
 description: VM snapshot Linux 확장을 사용 하 여 Azure Backup에서 가상 머신에 대 한 응용 프로그램 일치 백업을 수행 합니다.
-services: backup, virtual-machines-linux
+services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 2bf653bb42351c9ab4811fde695c8f821fd42d7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ea984fdc4abeb08f4b080e913a0c34b99c59d93c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966771"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561112"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
 
@@ -26,7 +26,7 @@ Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하
 
 VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나타납니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
@@ -63,7 +63,7 @@ VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |

@@ -1,8 +1,8 @@
 ---
 title: Azure에서 IBM zD&T 개발/테스트 환경 설치 | Microsoft Docs
 description: Azure 가상 머신 (VM) infrastructure as a service (IaaS)에서 IBM Z 개발 및 테스트 환경 (zD&T)을 배포 합니다.
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
 ms.subservice: workloads
 documentationcenter: ''
 author: njray
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 9958fa07d6e814cdf886c3f559d57ae1e397264a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: abcaff5979aed38ce47df08cc953829f3003f7b0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625084"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561554"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
 

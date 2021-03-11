@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 07d118073a73f539df8ea9c5428562a8cdd26db3
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ad0c0023965b68c24d17e1e540b7758115650ecd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96912348"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510845"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -26,8 +26,8 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java 런타임 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java 런타임 </a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android </a>
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
@@ -57,7 +57,7 @@ public class Program {
 
 ## <a name="recognize-from-microphone"></a>마이크에서 인식
 
-디바이스 마이크를 사용하여 음성을 인식하려면 `fromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer)을 초기화하고 `audioConfig` 및 `config`를 전달합니다.
+디바이스 마이크를 사용하여 음성을 인식하려면 `fromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer)를 초기화하고 `audioConfig` 및 `config`를 전달합니다.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -83,7 +83,7 @@ public class Program {
 }
 ```
 
-*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스에 대한 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아보세요.
+*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
 
 ## <a name="recognize-from-file"></a>파일에서 인식
 
@@ -147,7 +147,7 @@ switch (result.getReason()) {
 
 이전 예제에서는 단일 발화를 인식하는 단일 샷 인식을 사용합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 
-이와 반대로 인식을 중지하는 시점을 **제어** 하려는 경우 연속 인식이 사용됩니다. `recognizing`, `recognized` 및 `canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
+이와 대조적으로, 인식을 중지할 때 **제어** 하려는 경우에는 연속 인식이 사용됩니다. `recognizing`, `recognized` 및 `canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
 
 먼저 입력을 정의하고 [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer)를 초기화하겠습니다.
 
