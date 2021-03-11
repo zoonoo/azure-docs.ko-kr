@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 03/05/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3359152455df2701d897689a1f177bf63051b94b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122792"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440720"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Azure로 데이터를 가져오는 Azure Data Box 시작
 
@@ -39,7 +39,7 @@ ms.locfileid: "92122792"
 시작하기 전에
 
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
-    - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
+    - 새 구독에 대한 Microsoft MCA(고객 계약) 또는 기존 구독에 대한 Microsoft EA(기업계약). [새 구독에 대한 MCA](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) 및 [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
     - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요. 
 
@@ -63,7 +63,7 @@ ms.locfileid: "92122792"
 시작하기 전에 다음을 수행했는지 확인합니다.
 
 1. [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨** 입니다. 
 3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
 4. 100TB 스토리지 디바이스에 사용할 접지된 전원 코드를 하나 받았습니다.
 5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
@@ -84,8 +84,8 @@ ms.locfileid: "92122792"
 이 단계에는 약 5분 정도가 걸립니다.
 
 1. Azure Portal에서 새 Azure Data Box 리소스를 만듭니다.
-2. 이 서비스에 대해 활성화된 기존 구독을 선택하고 전송 형식을 **가져오기**로 선택합니다. 데이터가 있는 **원본 국가** 및 데이터 전송에 대한 **Azure 대상 지역**을 제공합니다.
-3. **Data Box**를 선택합니다. 사용 가능한 최대 용량은 80TB이며, 데이터가 더 크면 주문을 여러 개 작성할 수 있습니다.
+2. 이 서비스에 대해 활성화된 기존 구독을 선택하고 전송 형식을 **가져오기** 로 선택합니다. 데이터가 있는 **원본 국가** 및 데이터 전송에 대한 **Azure 대상 지역** 을 제공합니다.
+3. **Data Box** 를 선택합니다. 사용 가능한 최대 용량은 80TB이며, 데이터가 더 크면 주문을 여러 개 작성할 수 있습니다.
 4. 주문 세부 정보 및 배송 정보를 입력합니다. 해당 지역에서 서비스를 사용할 수 있는 경우 알림 이메일 주소를 제공하고, 요약을 검토한 다음, 주문을 만듭니다.
 
 주문을 작성하고 나면 디바이스가 배송 가능하도록 준비됩니다.
@@ -122,7 +122,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
 
-1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다.
+1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보** 로 이동합니다.
 2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
@@ -158,9 +158,9 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 단계를 완료하려면 2-3분이 걸립니다.
 
-- 주문이 처리되기 전에 Azure Portal에서 Data Box 주문을 취소할 수 있습니다. 주문이 처리되면 주문을 취소할 수 없습니다. 완료된 단계에 도달할 때까지 주문이 진행됩니다. 주문을 취소하려면 **개요**로 이동하고 명령 모음에서 **취소**를 클릭합니다.
+- 주문이 처리되기 전에 Azure Portal에서 Data Box 주문을 취소할 수 있습니다. 주문이 처리되면 주문을 취소할 수 없습니다. 완료된 단계에 도달할 때까지 주문이 진행됩니다. 주문을 취소하려면 **개요** 로 이동하고 명령 모음에서 **취소** 를 클릭합니다.
 
-- 상태가 Azure Portal에서 **완료됨** 또는 **취소됨**으로 표시되면 주문을 삭제할 수 있습니다. 주문을 삭제하려면 **개요**로 이동하고 명령 모음에서 **삭제**를 클릭합니다.
+- 상태가 Azure Portal에서 **완료됨** 또는 **취소됨** 으로 표시되면 주문을 삭제할 수 있습니다. 주문을 삭제하려면 **개요** 로 이동하고 명령 모음에서 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

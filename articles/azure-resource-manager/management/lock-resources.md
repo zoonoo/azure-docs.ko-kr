@@ -2,14 +2,14 @@
 title: 변경을 방지하기 위해 리소스 잠그기
 description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적용 하 여 Azure 리소스를 업데이트 하거나 삭제 하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369478"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619174"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -33,6 +33,10 @@ Resource Manager 잠금은 `https://management.azure.com`에 전송된 작업으
 리소스를 수정하지 않는 일부 작업에 실제로 잠금에 의해 차단되는 작업이 필요하므로 잠금을 적용하면 예기치 않은 결과가 발생할 수 있습니다. 잠금은 Azure Resource Manager API에 대 한 POST 요청이 필요한 모든 작업을 방지 합니다. 잠금에 의해 차단되는 작업의 몇 가지 일반적인 예제는 다음과 같습니다.
 
 * **저장소 계정** 에 대 한 읽기 전용 잠금을 통해 사용자가 계정 키를 나열할 수 없습니다. [키 목록](/rest/api/storagerp/storageaccounts/listkeys) Azure Storage 작업은 POST 요청을 통해 처리 되어 저장소 계정의 데이터에 대 한 완전 한 액세스를 제공 하는 계정 키에 대 한 액세스를 보호 합니다. 저장소 계정에 대 한 읽기 전용 잠금을 구성 하면 계정 키를 소유 하 고 있지 않은 사용자는 Azure AD 자격 증명을 사용 하 여 blob 또는 큐 데이터에 액세스 해야 합니다. 또한 읽기 전용 잠금은 저장소 계정 또는 데이터 컨테이너 (blob 컨테이너 또는 큐)로 범위가 지정 된 Azure RBAC 역할을 할당 하지 못하도록 합니다.
+
+* **저장소 계정** 에 대 한 삭제 잠금을 삭제 해도 해당 계정의 데이터가 삭제 되거나 수정 되는 것은 방지 되지 않습니다. 이 유형의 잠금은 저장소 계정 자체를 삭제 하지 않도록 보호 하 고 해당 저장소 계정 내에서 blob, 큐, 테이블 또는 파일 데이터를 보호 하지 않습니다. 
+
+* **저장소 계정** 에 대 한 읽기 전용 잠금을 설정 해도 해당 계정의 데이터는 삭제 되거나 수정 되지 않습니다. 이 유형의 잠금은 저장소 계정 자체를 삭제 또는 수정 하지 않도록 보호 하 고 해당 저장소 계정 내에서 blob, 큐, 테이블 또는 파일 데이터를 보호 하지 않습니다. 
 
 * **App Service** 리소스에 읽기 전용 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 

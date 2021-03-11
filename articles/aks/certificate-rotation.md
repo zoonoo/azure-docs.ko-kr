@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 인증서를 회�
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181774"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619038"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 인증서 회전
 
@@ -28,8 +28,6 @@ AKS은 다음 인증서, 인증 기관 및 서비스 계정을 생성 하 고 �
 * AKS API 서버는 클러스터 CA 라고 하는 CA (인증 기관)를 만듭니다.
 * API 서버에는 API 서버에서 kubelets로 단방향 통신용 인증서를 서명 하는 클러스터 CA가 있습니다.
 * 또한 각 kubelet는 kubelet에서 API 서버로 통신 하기 위해 클러스터 CA에 의해 서명 된 CSR (인증서 서명 요청)를 만듭니다.
-* Etcd 키 값 저장소에는 etcd에서 API server로 통신 하기 위해 클러스터 CA에서 서명한 인증서가 있습니다.
-* Etcd 키 값 저장소는 인증서를 서명 하는 CA를 만들어 AKS 클러스터의 etcd 복제본 간에 데이터 복제를 인증 하 고 권한을 부여 합니다.
 * API 집계는 클러스터 CA를 사용 하 여 다른 Api와 통신 하기 위한 인증서를 발급 합니다. API 집계에는 해당 인증서를 발급 하기 위한 자체 CA가 있을 수 있지만 현재는 클러스터 CA를 사용 합니다.
 * 각 노드는 클러스터 CA에서 서명 하는 SA (서비스 계정) 토큰을 사용 합니다.
 * `kubectl`클라이언트에 AKS 클러스터와 통신 하기 위한 인증서가 있습니다.

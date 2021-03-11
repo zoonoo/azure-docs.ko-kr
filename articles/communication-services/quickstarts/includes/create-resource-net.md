@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 778255dc7259bd66a7c7059ede855464c1e39569
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886117"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445189"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
-- [.NET ID 클라이언트 라이브러리](/dotnet/api/azure.identity?view=azure-dotnet)의 최신 버전을 가져옵니다.
+- [.NET ID 클라이언트 라이브러리](/dotnet/api/azure.identity)의 최신 버전을 가져옵니다.
 - [.NET 관리 클라이언트 라이브러리](../../concepts/sdk-options.md)의 최신 버전을 가져옵니다.
 
 ## <a name="installing-the-client-library"></a>클라이언트 라이브러리 설치

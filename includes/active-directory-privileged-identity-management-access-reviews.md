@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193620"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623382"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
@@ -38,6 +38,7 @@ ms.locfileid: "102193620"
     > [!NOTE]
     > - 여기에서 선택한 역할에는 [영구적 역할 및 적격 역할](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)이 모두 포함됩니다.
     > - 둘 이상의 역할을 선택하면 여러 액세스 검토가 생성됩니다. 예를 들어 5개의 역할을 선택하면 별도의 액세스 검토가 5개 생성됩니다.
+    > - 그룹이 할당 된 역할의 경우 검토 중인 역할과 연결 된 각 그룹의 액세스는 액세스 검토의 일부로 검토 됩니다.
 
     **Azure AD 역할** 의 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102193620"
     ![선택한 사용자 또는 멤버(자신)의 검토자 목록](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **선택한 사용자** - 액세스가 필요한 사용자를 알 수 없는 경우 이 옵션을 사용합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
-    - **멤버(자신)** - 사용자에게 자신의 역할 할당을 검토하게 하려면 이 옵션을 사용합니다.
-    - **관리자** –이 옵션을 사용 하 여 사용자의 관리자가 해당 역할 할당을 검토 하도록 합니다. 관리자를 선택 하면 대체 검토자를 지정 하는 옵션도 있습니다. 사용자가 디렉터리에 관리자를 지정 하지 않은 경우 대체 검토자에 게 사용자를 검토 하 라는 메시지가 표시 됩니다.
+    - **멤버(자신)** - 사용자에게 자신의 역할 할당을 검토하게 하려면 이 옵션을 사용합니다. 이 옵션을 선택 하면 역할에 할당 된 그룹은 검토의 일부가 되지 않습니다.
+    - **관리자** –이 옵션을 사용 하 여 사용자의 관리자가 해당 역할 할당을 검토 하도록 합니다. 관리자를 선택 하면 대체 검토자를 지정 하는 옵션도 있습니다. 사용자가 디렉터리에 관리자를 지정 하지 않은 경우 대체 검토자에 게 사용자를 검토 하 라는 메시지가 표시 됩니다. 역할에 할당 된 그룹은 선택 된 경우 대체 검토자에 의해 검토 됩니다. 
 
 ### <a name="upon-completion-settings"></a>완료 시 설정
 

@@ -1,17 +1,17 @@
 ---
-title: 'Azure Functions를 사용 하 여 c # 함수 개발'
-description: 'C #을 사용 하 여 Azure Functions 런타임으로 in-process를 실행 하는 코드를 개발 하 고 게시 하는 방법을 이해 합니다.'
+title: 'Azure Functions를 사용 하 여 c # 클래스 라이브러리 함수 개발'
+description: 'C #을 사용 하 여 Azure Functions 런타임과 함께 in-process를 실행 하는 클래스 라이브러리로 코드를 개발 하 고 게시 하는 방법을 이해 합니다.'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428411"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563883"
 ---
-# <a name="develop-c-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 함수 개발
+# <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 클래스 라이브러리 함수 개발
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 

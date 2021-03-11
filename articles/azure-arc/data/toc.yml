@@ -152,7 +152,7 @@
           items:
             - name: PostgreSQL 데이터를 Postgres 하이퍼스케일 서버 그룹으로 마이그레이션
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-            - name: 샘플 데이터베이스 AdventureWorks 복원
+            - name: 샘플 데이터베이스 AdventureWorks 가져오기
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: 문제 해결
           href: troubleshoot-postgresql-hyperscale-server-group.md

@@ -3,16 +3,17 @@ title: CLI를 사용 하 여 Azure 가상 머신에 대 한 유지 관리 제어
 description: 유지 관리 제어 및 CLI를 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026168"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562965"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
@@ -63,7 +64,7 @@ az maintenance configuration create \
 > [!IMPORTANT]
 > 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
 
-유지 관리 되풀이는 매일, 매주 또는 매월로 표시 될 수 있습니다. 예는 다음과 같습니다.
+유지 관리 되풀이는 매일, 매주 또는 매월로 표시 될 수 있습니다. 몇 가지 예는 다음과 같습니다.
 - **매일**-유지 관리-되풀이-되풀이-모든: "Day" **또는** "3days"
 - **주간**-유지 관리-되풀이-되풀이: "3weeks" **또는** "Week 토요일, 일요일"
 - **매월**-유지 관리-되풀이-되풀이: "month day23, day24" **또는** "month Last 일요일" **또는** "month 4 월요일"

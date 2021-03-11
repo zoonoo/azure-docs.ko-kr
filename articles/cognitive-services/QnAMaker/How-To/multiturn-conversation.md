@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 313d1a390c30e7e5612b8d9bab7783b6698c35fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605147"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618494"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -363,7 +363,7 @@ QnA Maker은 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [대화 상자의](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
+이 [대화 상자의](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](/azure/bot-service/bot-builder-conversations)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [기술 자료 마이그레이션](../Tutorials/migrate-knowledge-base.md)

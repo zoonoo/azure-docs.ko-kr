@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e2b3079407774c3d36fe5515b39e964018f9087e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650960"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548855"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>독립 실행형 관리 서비스 계정 보안
 
@@ -44,7 +44,7 @@ sMSAs는 서비스 계정으로 사용 되는 사용자 계정 보다 더 높은
 
    * 호스트 컴퓨터의 DNS 이름이 변경 됩니다.
 
-   * [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) 을 사용 하 여 추가 sam-accountname 또는 dns 호스트 이름 매개 변수를 추가 하거나 제거 하는 경우
+   * [PowerShell](/powershell/module/addsadministration/set-adserviceaccount) 을 사용 하 여 추가 sam-accountname 또는 dns 호스트 이름 매개 변수를 추가 하거나 제거 하는 경우
 
 ## <a name="when-to-use-smsas"></a>SMSAs를 사용 하는 경우
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574185"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561571"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>프로 비전이 Azure Monitor 로그와 통합 되는 방식 이해
 
@@ -121,4 +121,4 @@ Azure Monitor를 사용 하면 프로 비전 관련 주요 이벤트에 대 한 
 - [Azure Monitor 로그에서 쿼리 시작](../../azure-monitor/logs/get-started-queries.md)
 - [Azure Portal에서 경고 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md)
 - [Azure Active Directory용 로그 분석 보기 설치 및 사용](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [프로 비전 로그 API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)
+- [프로 비전 로그 API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

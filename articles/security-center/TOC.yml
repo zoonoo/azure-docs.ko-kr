@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: 사용자 지정 보안 이니셔티브 및 정책 만들기
           href: custom-security-policies.md
-    - name: 서버용 Defender로 머신 보호
+    - name: 머신 보호
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: 서버용 Azure Defender 개요

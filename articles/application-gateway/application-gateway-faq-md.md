@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576127"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619157"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -470,9 +470,9 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 
 현재 플랫폼 제한으로 인해 Application Gateway v2 (Standard_v2, WAF_v2) 서브넷에 NSG가 있고이 서브넷에 NSG 흐름 로그를 사용 하도록 설정한 경우 비결 정적 동작이 표시 되며이 시나리오는 현재 지원 되지 않습니다.
 
-### <a name="does-application-gateway-store-customer-data"></a>고객 데이터를 저장 Application Gateway 합니까?
+### <a name="where-does-application-gateway-store-customer-data"></a>어디에서 고객 데이터를 저장 Application Gateway?
 
-아니요, Application Gateway는 고객 데이터를 저장 하지 않습니다.
+Application Gateway은 배포 된 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

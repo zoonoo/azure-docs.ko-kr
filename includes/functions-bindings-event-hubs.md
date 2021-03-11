@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: b0f8055dcd8bdfb2ecb3ea99448838514eeb34f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 05d136093bd509e8c23ce8622423216326b0f1f2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027657"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623460"
 ---
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
@@ -29,6 +29,26 @@ ms.locfileid: "96027657"
 [확장 업데이트]: ../articles/azure-functions/functions-bindings-register.md
 [Azure 도구 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
+### <a name="event-hubs-extension-5x-and-higher"></a>Event Hubs 확장 5.x 이상
+
+새 버전의 Event Hubs 바인딩 확장은 [Preview NuGet 패키지로](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.1)사용할 수 있습니다. 이 미리 보기에서는 [비밀 대신 id를 사용 하 여 연결](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. .NET 응용 프로그램의 경우 바인딩할 수 있는 형식도 변경 하 여 `Microsoft.Azure.EventHubs` [EventHubs](/dotnet/api/azure.messaging.eventhubs)의 새 형식으로 형식을 바꿉니다.
+
+> [!NOTE]
+> 미리 보기 패키지는 확장 번들에 포함 되지 않으며 수동으로 설치 해야 합니다. .NET 앱의 경우 패키지에 대 한 참조를 추가 합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조 하세요.
+
+[core tools]: ./functions-run-local.md
+[확장 번들]: ./functions-bindings-register.md#extension-bundles
+[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/
+[확장 업데이트]: ./functions-bindings-register.md
+[Azure 도구 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
 ### <a name="functions-1x"></a>Functions 1.x
 
 함수 1.x 앱은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x를 자동으로 참조 합니다.
+
+## <a name="hostjson-settings"></a>host.json 설정
+<a name="host-json"></a>
+
+[host.json](../articles/azure-functions/functions-host-json.md#eventhub) 파일에는 Event Hubs 트리거 동작을 제어하는 설정이 포함됩니다. 구성은 Azure Functions 버전에 따라 달라집니다.
+
+[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

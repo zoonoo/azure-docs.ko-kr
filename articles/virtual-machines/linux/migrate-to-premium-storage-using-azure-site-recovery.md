@@ -2,17 +2,18 @@
 title: Azure Site Recovery를 사용하여 Linux VM을 Azure Premium Storage로 마이그레이션
 description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 author: luywang
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 5f8f72ec296be3127a2f8c1ddc87d883d7e2deed
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8a03637352762646b0f209263769dbdb1ff14b21
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504578"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562625"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Site Recovery를 사용 하 여 Premium Storage으로 마이그레이션
 
