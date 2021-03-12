@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: stevestein
 ms.author: sashan
-ms.reviewer: ''
-ms.date: 10/30/2020
-ms.openlocfilehash: b112506acead01e8dc2bbe72b0d52f47ada326a7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.reviewer: wiassaf
+ms.date: 03/10/2021
+ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440414"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014607"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -98,7 +98,7 @@ CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작
 이 명령은 Database1을 동일한 서버에서 이름이 Database2인 새 데이터베이스에 복사합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
@@ -111,10 +111,10 @@ CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작
 Database1는 단일 또는 풀링된 데이터베이스 일 수 있습니다. 다른 계층 풀 간 복사는 지원 되지만 일부 교차 계층 복사본은 성공 하지 않습니다. 예를 들어 단일 또는 탄력적 표준 db를 일반적인 용도의 풀로 복사할 수 있지만 표준 탄력적인 db를 프리미엄 풀로 복사할 수는 없습니다. 
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE "Database2"
    AS COPY OF "Database1"
-   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) );
    ```
 
 ### <a name="copy-to-a-different-server"></a>다른 서버에 복사
@@ -136,43 +136,45 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 T-sql을 사용 하 여 다른 구독에 있는 서버에 데이터베이스를 복사 하려면 [다른 서버에 SQL Database 복사](#copy-to-a-different-server) 섹션의 단계를 사용할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 이름 및 암호가 같은 로그인을 사용 해야 합니다. 또한 로그인은 `dbmanager` 원본 및 대상 서버 둘 다에서 역할 또는 서버 관리자의 구성원 이어야 합니다.
 
 ```sql
-Step# 1
-Create login and user in the master database of the source server.
+--Step# 1
+--Create login and user in the master database of the source server.
 
 CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
 GO
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
 GO
 
-Step# 2
-Create the user in the source database and grant dbowner permission to the database.
+--Step# 2
+--Create the user in the source database and grant dbowner permission to the database.
 
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
 GO
-exec sp_addrolemember 'db_owner','loginname'
-GO
-
-Step# 3
-Capture the SID of the user “loginname” from master database
-
-SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
-
-Step# 4
-Connect to Destination server.
-Create login and user in the master database, same as of the source server.
-
-CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
-GO
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
-GO
-exec sp_addrolemember 'dbmanager','loginname'
+ALTER ROLE db_owner ADD MEMBER loginname;
 GO
 
-Step# 5
-Execute the copy of database script from the destination server using the credentials created
+--Step# 3
+--Capture the SID of the user "loginname" from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname';
+
+--Step# 4
+--Connect to Destination server.
+--Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server];
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
+GO
+
+--Step# 5
+--Execute the copy of database script from the destination server using the credentials created
 
 CREATE DATABASE new_database_name
-AS COPY OF source_server_name.source_database_name
+AS COPY OF source_server_name.source_database_name;
 ```
 
 > [!NOTE]
@@ -192,7 +194,7 @@ AS COPY OF source_server_name.source_database_name
 > 진행 중인 복사를 취소하려면 새 데이터베이스에서 [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) 문을 실행합니다.
 
 > [!IMPORTANT]
-> 원본 보다 훨씬 더 작은 서비스 목표가 포함 된 복사본을 만들어야 하는 경우 대상 데이터베이스에는 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며이로 인해 copy operaion가 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 내용은 [데이터베이스 백업을 사용 하 여 Azure SQL Database 복구](recovery-using-backups.md#geo-restore) 를 참조 하세요.
+> 원본 보다 훨씬 더 작은 서비스 목표가 포함 된 복사본을 만들어야 하는 경우 대상 데이터베이스에 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며 복사 작업이 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 내용은 [데이터베이스 백업을 사용 하 여 Azure SQL Database 복구](recovery-using-backups.md#geo-restore) 를 참조 하세요.
 
 ## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Azure RBAC 역할 및 데이터베이스 복사본 관리 권한
 

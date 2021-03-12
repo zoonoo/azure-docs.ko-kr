@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201756"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201267"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -61,7 +61,7 @@ ms.locfileid: "102201756"
 }
 ```
 
-환경 변수를 사용 하 여 연결 문자열을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+환경 변수를 사용 하 여 연결 문자열을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_CONNECTION_STRING` .이 경우 연결 문자열이 json 구성에도 지정 된 경우에는 우선 순위가 높습니다.
 
 연결 문자열을 설정 하지 않으면 Java 에이전트가 사용 되지 않습니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "102201756"
 
 클라우드 역할 이름이 설정 되지 않은 경우 Application Insights 리소스의 이름을 사용 하 여 응용 프로그램 맵의 구성 요소에 레이블을 지정할 수 있습니다.
 
-환경 변수를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_ROLE_NAME` .
+환경 변수를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_ROLE_NAME` .이 경우에는 클라우드 역할 이름이 json 구성에도 지정 되어 있는 경우 우선 순위가 적용 됩니다.
 
 ## <a name="cloud-role-instance"></a>클라우드 역할 인스턴스
 
@@ -98,7 +98,7 @@ ms.locfileid: "102201756"
 }
 ```
 
-환경 변수를 사용 하 여 클라우드 역할 인스턴스를 설정할 수도 있습니다 `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
+환경 변수를 사용 하 여 클라우드 역할 인스턴스를 설정할 수도 있습니다 .이 경우에는 `APPLICATIONINSIGHTS_ROLE_INSTANCE` 클라우드 역할 인스턴스가 json 구성에도 지정 된 경우 우선 순위가 높습니다.
 
 ## <a name="sampling"></a>샘플링
 
@@ -117,7 +117,7 @@ ms.locfileid: "102201756"
 }
 ```
 
-환경 변수를 사용 하 여 샘플링 비율을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+환경 변수를 사용 하 여 샘플링 비율을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .이 경우 샘플링 백분율이 json 구성에도 지정 된 경우에는 우선 순위가 높습니다.
 
 > [!NOTE]
 > 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
@@ -150,9 +150,6 @@ ms.locfileid: "102201756"
 `attribute` 수집 하려는 JMX MBean 내의 특성 이름입니다.
 
 숫자 및 부울 JMX 메트릭 값이 지원 됩니다. 부울 JMX 메트릭은 `0` false에 대해, true의 경우로 매핑됩니다 `1` .
-
-[//]: # "참고: 여기 APPLICATIONINSIGHTS_JMX_METRICS 문서화 하지 않음"
-[//]: # "env var에 포함 된 json은 복잡 하며 코드 없는 attach 시나리오용 으로만 설명 해야 합니다."
 
 ## <a name="custom-dimensions"></a>사용자 지정 차원
 
@@ -201,7 +198,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 }
 ```
 
-환경 변수를 사용 하 여 임계값을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
+환경 변수를 사용 하 여 수준을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .이 경우 해당 수준이 json 구성에도 지정 된 경우에는 우선 순위가 높습니다.
 
 이러한 `level` 값은 파일에 지정할 수 있는 유효한 값 `applicationinsights.json` 이며, 여러 로깅 프레임 워크의 로깅 수준에 해당 하는 방법입니다.
 
@@ -284,7 +281,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 ```
 
 > [!NOTE]
-> 하트 비트 데이터는 Application Insights 사용량을 추적 하는 데에도 사용 되므로 하트 비트의 빈도는 낮출 수 없습니다.
+> 하트 비트 데이터가 Application Insights 사용을 추적 하는 데에도 사용 되므로 간격을 15 분 보다 길게 늘릴 수 없습니다.
 
 ## <a name="http-proxy"></a>HTTP 프록시
 
@@ -300,6 +297,30 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 ```
 
 Application Insights Java 3.0 `-Dhttps.proxyHost` 는 전역 및 `-Dhttps.proxyPort` 설정 된 경우에도 해당 합니다.
+
+## <a name="metric-interval"></a>메트릭 간격
+
+이 기능은 미리 보기 상태입니다.
+
+기본적으로 메트릭은 60 초 마다 캡처됩니다.
+
+버전 3.0.3에서 시작 하 여이 간격을 변경할 수 있습니다.
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+설정은 다음과 같은 모든 메트릭에 적용 됩니다.
+
+* 기본 성능 카운터 (예: CPU 및 메모리)
+* 기본 사용자 지정 메트릭 (예: 가비지 수집 타이밍)
+* 구성 된 JMX 메트릭 ([위 참조](#jmx-metrics))
+* 마이크로 측정기 메트릭 ([위 참조](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "참고 OpenTelemetry 지원은 OpenTelemetry API가 1.0에 도달할 때까지 비공개 미리 보기 상태입니다."
 
@@ -349,7 +370,7 @@ Application Insights Java 3.0 `-Dhttps.proxyHost` 는 전역 및 `-Dhttps.proxyP
 
 `maxHistory` 현재 로그 파일 외에도 유지 되는 로그 파일에 대해 롤업되는 수입니다.
 
-버전 3.0.2에서 시작 하 여 `level` 환경 변수를 사용 하 여 자체 진단을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
+버전 3.0.2에서 시작 하 여 환경 변수를 사용 하 여 자체 진단을 설정할 수도 있습니다 .이는 `level` `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` `level` json 구성에 자체 진단이 지정 된 경우에도 우선 순위가 높습니다.
 
 ## <a name="an-example"></a>예제
 

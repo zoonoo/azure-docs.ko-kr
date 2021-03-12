@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059061"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611881"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -59,7 +59,7 @@ ms.locfileid: "98059061"
 
 **DisplayClaims** 의 클레임 순서는 Azure AD B2C 화면에서 클레임을 렌더링 하는 순서를 지정 합니다. 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** 요소의 **필수** 특성을로 설정 `true` 합니다.
 
-**DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`로 이름을 지정할 수 있습니다.
+**DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`입니다.
 
 ### <a name="add-a-reference-to-a-displaycontrol"></a>DisplayControl에 참조 추가
 
@@ -212,11 +212,13 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 | enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
 | inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 아니요| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+|forgotPasswordLinkOverride <sup>4</sup>| 아니요 | 실행할 암호 재설정 클레임 교환입니다. 자세한 내용은 [셀프 서비스 암호 재설정](add-password-reset-policy.md)을 참조 하세요. |
 
 참고:
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` . [페이지 레이아웃 버전](page-layout.md) 1.1.0 이상
 1. [페이지 레이아웃 버전](page-layout.md) 1.2.0 이상에서 사용할 수 있습니다.
+1. 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` . [페이지 레이아웃 버전](page-layout.md) 2.1.2 이상
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

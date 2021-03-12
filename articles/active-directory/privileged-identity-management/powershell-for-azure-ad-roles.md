@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365513"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548753"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -49,12 +49,12 @@ ms.locfileid: "92365513"
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. **Azure Active Directory**  >  **속성**  >  **디렉터리 id**로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
+1. **Azure Active Directory**  >  **속성**  >  **디렉터리 id** 로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
 
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 

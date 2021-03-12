@@ -3,16 +3,17 @@ title: PowerShell을 사용 하 여 Azure 가상 머신에 대 한 유지 관리
 description: 유지 관리 제어 및 PowerShell을 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2868d559f0d848095fa7fec174e09e1b9376c4ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552459"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -85,7 +86,7 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
 
-유지 관리 **되풀이** 는 매일, 매주 또는 매월로 표시 될 수 있습니다. 예는 다음과 같습니다.
+유지 관리 **되풀이** 는 매일, 매주 또는 매월로 표시 될 수 있습니다. 몇 가지 예는 다음과 같습니다.
  - **매일**-RecurEvery "Day" **또는** "3days" 
  - **주간**-RecurEvery "3weeks" **또는** "Week 토요일, 일요일" 
  - **매월**-RecurEvery "month day23, day24" **또는** "month Last 일요일" **또는** "month 4 월요일"  

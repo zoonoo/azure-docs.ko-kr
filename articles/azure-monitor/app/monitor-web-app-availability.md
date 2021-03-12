@@ -2,14 +2,14 @@
 title: 웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs
 description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 03/10/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729031"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012567"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -103,7 +103,7 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 | 북유럽                           | emea-gb-db3-ms-azr-0017p   |
 | 미국 중북부                       | 미국-il-ch1-ms-azr-0017p     |
 | 미국 중남부                       | us-tx-sn1-ms-azr-0017p     |
-| 동남아시아                         | apac-sg-ms-azr-0017p   |
+| 동남 아시아                         | apac-sg-ms-azr-0017p   |
 | 영국 서부                                | emea-최첨단  |
 | 서유럽                            | emea-nl-ms-azr-0017p   |
 | 미국 서부                                | 미국-ca-sjc-ms-azr-0017p     |

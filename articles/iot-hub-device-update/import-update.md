@@ -6,17 +6,17 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b9d40848abdd85beeca592001b697e3c50b7cd59
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507282"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008565"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다. 아직 수행 하지 않은 경우 기본 [가져오기 개념](import-concepts.md)을 숙지 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
@@ -33,9 +33,9 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
 1. 업데이트 이미지 파일 또는 APT 매니페스트 파일이 PowerShell에서 액세스할 수 있는 디렉터리에 있는지 확인 합니다.
 
-2. [IoT Hub 리포지토리의 장치 업데이트](https://github.com/azure/iot-hub-device-update)를 복제 하거나, powershell에서 액세스할 수 있는 위치에 .zip 파일로 다운로드 합니다. zip 파일이 다운로드 되 면 탭을 마우스 오른쪽 단추로 클릭 `Properties`  >  `General` `Unblock` `Security` 하 여 powershell 보안 경고 프롬프트를 표시 하지 않도록 섹션을 선택 >.
+2. 업데이트 이미지 파일 또는 APT 매니페스트 파일이 있는 디렉터리에 **Aduupdate** 라는 텍스트 파일을 만듭니다. 그런 다음, [.Psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet을 열고 내용을 텍스트 파일에 복사한 다음 텍스트 파일을 저장 합니다.
 
-3. PowerShell에서 디렉터리로 이동 하 여 `tools/AduCmdlets` 다음을 실행 합니다.
+3. PowerShell에서 2 단계에서 PowerShell cmdlet을 만든 디렉터리로 이동 합니다. 다음을 실행합니다.
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -57,11 +57,11 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
     | 매개 변수 | 설명 |
     | --------- | ----------- |
-    | deviceManufacturer | 업데이트가 호환 되는 (예: Contoso) 장치의 제조업체입니다. _제조업체_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) 일치 해야 합니다.
-    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델입니다. _모델_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) 일치 해야 합니다.
+    | deviceManufacturer | 업데이트가 호환 되는 (예: Contoso) 장치의 제조업체입니다. _제조업체_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)일치 해야 합니다.
+    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델입니다. _모델_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)일치 해야 합니다.
     | updateProvider | 업데이트를 만들거나 직접 담당 하는 엔터티입니다. 회사 이름이 될 수도 있습니다.
     | updateName | 업데이트 클래스의 식별자입니다. 클래스는 사용자가 선택 하는 것이 될 수 있습니다. 일반적으로 장치 또는 모델 이름이 됩니다.
-    | updateVersion | 이 업데이트를 동일한 공급자와 이름을 가진 다른 사용자와 구별 하는 버전 번호입니다. 장치의 개별 소프트웨어 구성 요소 버전과 일치할 수도 있고 그렇지 않을 수도 있습니다.
+    | updateVersion | 이 업데이트를 동일한 공급자와 이름을 가진 다른 사용자와 구별 하는 버전 번호입니다. 는 장치에 있는 개별 소프트웨어 구성 요소의 버전과 일치 하지 않습니다 (선택 하는 경우에는 가능 함).
     | updateType | <ul><li>`microsoft/swupdate:1`이미지 업데이트에 대 한 지정</li><li>`microsoft/apt:1`패키지 업데이트 지정</li></ul>
     | installedCriteria | <ul><li>업데이트 유형에 대 한 SWVersion 값을 지정 합니다. `microsoft/swupdate:1`</li><li>업데이트 형식에 권장 값을 지정 `microsoft/apt:1` 합니다.
     | updateFilePath | 컴퓨터의 업데이트 파일 경로
@@ -111,6 +111,9 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 ```
 
 ## <a name="import-update"></a>업데이트 가져오기
+
+[!NOTE]
+아래 지침에서는 Azure Portal UI를 통해 업데이트를 가져오는 방법을 보여 줍니다. [IoT Hub api에 대 한 장치 업데이트](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) 를 사용 하 여 업데이트를 가져올 수도 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 장치 업데이트를 사용 하 여 IoT Hub으로 이동 합니다.
 

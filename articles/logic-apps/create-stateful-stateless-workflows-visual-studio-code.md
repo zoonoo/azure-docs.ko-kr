@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449733"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557015"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -34,6 +34,8 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 
 * 실행 기록을 로컬로 실행, 테스트, 디버그 및 검토 합니다.
 
+* 방화벽 액세스를 위한 도메인 이름 세부 정보를 찾습니다.
+
 * 필요에 따라 Application Insights를 사용 하도록 설정 하는 Azure에 배포 합니다.
 
 * Visual Studio Code 및 Azure Portal에서 배포 된 논리 앱을 관리 합니다.
@@ -47,7 +49,7 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 > [!NOTE]
 > 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -576,7 +578,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
 1. 중단점이 적중 될 때 사용 가능한 정보를 검토 하려면 실행 뷰에서 **변수** 창을 검사 합니다.
 
-1. 워크플로 실행을 계속 하려면 디버그 도구 모음에서 **계속** (재생 단추)을 선택 합니다. 
+1. 워크플로 실행을 계속 하려면 디버그 도구 모음에서 **계속** (재생 단추)을 선택 합니다.
 
 워크플로를 실행 하는 동안 언제 든 지 중단점을 추가 하 고 제거할 수 있습니다. 그러나 실행이 시작 된 후 파일 **의workflow.js** 를 업데이트 하는 경우 중단점은 자동으로 업데이트 되지 않습니다. 중단점을 업데이트 하려면 논리 앱을 다시 시작 합니다.
 
@@ -650,7 +652,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -674,7 +676,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
 
-   | 작업 상태 | 아이콘 | Description |
+   | 작업 상태 | 아이콘 | 설명 |
    |---------------|------|-------------|
    | **중단됨** | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |
@@ -758,6 +760,55 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
    ![업데이트 된 워크플로의 각 단계에 대 한 상태와 확장 된 "응답" 작업의 입력 및 출력을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. 디버깅 세션을 중지 하려면 **실행** 메뉴에서 **디버깅 중지** (Shift + F5)를 선택 합니다.
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>방화벽 액세스를 위한 도메인 이름 찾기
+
+Azure Portal에서 논리 앱 워크플로를 배포 및 실행 하기 전에 환경에 엄격한 네트워크 요구 사항이 나 트래픽을 제한 하는 방화벽이 있는 경우 워크플로에 있는 트리거 또는 작업 연결에 대 한 사용 권한을 설정 해야 합니다.
+
+이러한 연결에 대 한 Fqdn (정규화 된 도메인 이름)을 찾으려면 다음 단계를 수행 합니다.
+
+1. 논리 앱 프로젝트에서 워크플로에 첫 번째 연결 기반 트리거 또는 작업을 추가한 후에 생성 되는 **connections.js** 파일을 열고 개체를 찾습니다 `managedApiConnections` .
+
+1. 만든 각 연결에 대해 `connectionRuntimeUrl` 이 정보를 사용 하 여 방화벽을 설정할 수 있도록 안전한 위치에 속성 값을 찾아서 복사 하 고 저장 합니다.
+
+   이 파일 **connections.js** 예제에는 두 개의 연결, 즉 AS2 연결과 Office 365 연결이 포함 되어 있습니다 `connectionRuntimeUrl` .
+
+   * AS2 `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
@@ -883,10 +934,10 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
 
          | 심각도 수준 | 추적 유형 |
          |----------------|------------|
-         | 중요 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
+         | 위험 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
          | 디버그 | 인바운드 및 아웃 바운드 HTTP 호출과 같은 개발 중에 조사에 사용할 수 있는 로그입니다. |
-         | Error | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
-         | 정보 | 논리 앱 또는 워크플로의 일반 활동을 추적 하는 로그입니다. 예를 들면 다음과 같습니다. <p><p>-트리거, 동작 또는 실행이 시작 되 고 끝나는 경우 <br>-논리 앱이 시작 되거나 종료 되는 경우 |
+         | 오류 | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
+         | 정보 산업 | 논리 앱 또는 워크플로의 일반 활동을 추적 하는 로그입니다. 예를 들면 다음과 같습니다. <p><p>-트리거, 동작 또는 실행이 시작 되 고 끝나는 경우 <br>-논리 앱이 시작 되거나 종료 되는 경우 |
          | 추적 | 저장소 요청 또는 디스패처 활동과 같은 가장 자세한 메시지와 워크플로 실행 작업과 관련 된 모든 메시지를 포함 하는 로그입니다. |
          | 경고 | 논리 앱에서 비정상 상태를 강조 표시 하지만 실행을 방해 하지 않는 로그입니다. |
          |||

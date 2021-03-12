@@ -3,16 +3,17 @@ title: PowerShell을 사용 하 여 Azure Vm에 대 한 유지 관리 알림 받
 description: Azure에서 실행 되는 가상 머신에 대 한 유지 관리 알림을 확인 하 고 PowerShell을 사용 하 여 셀프 서비스 유지 관리를 시작 합니다.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 9942ad359bf1e1e7a02f30979ba4a9325d90d484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4278aa563d76b783e02e67ee964764864931fd68
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336057"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552374"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용 하 여 계획 된 유지 관리 처리
 
@@ -88,7 +89,7 @@ function MaintenanceIterator
 
 ### <a name="start-maintenance-on-your-vm-using-powershell"></a>PowerShell을 사용하여 VM에서 유지 관리 시작
 
-이전 섹션의 함수 정보를 사용하여 **IsCustomerInitiatedMaintenanceAllowed**가 true로 설정되어 있는 경우 VM에서 유지 관리를 시작합니다.
+이전 섹션의 함수 정보를 사용하여 **IsCustomerInitiatedMaintenanceAllowed** 가 true로 설정되어 있는 경우 VM에서 유지 관리를 시작합니다.
 
 ```powershell
 Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 

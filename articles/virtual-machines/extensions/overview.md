@@ -1,20 +1,18 @@
 ---
 title: Azure 가상 머신 확장 및 기능
 description: Azure VM 확장에 대 한 자세한 정보
-services: virtual-machines
-author: amjads1
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/03/2020
+author: amjads1
 ms.author: amjads
-ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.date: 08/03/2020
+ms.openlocfilehash: e1b96293db0389201fdab3340d8f0e74fefc4c52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936950"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559718"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 확장은 Azure Vm에서 배포 후 구성 및 자동화를 제공 하는 작은 응용 프로그램입니다. Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 응용 프로그램을 다루는 많은 확장을 호스팅합니다. 게시자는 응용 프로그램을 사용 하 여 확장으로 래핑하고 설치를 간소화 합니다. 필수 매개 변수만 제공 하기만 하면 됩니다. 

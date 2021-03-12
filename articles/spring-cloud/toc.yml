@@ -123,6 +123,8 @@
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
         - name: 역할 및 권한 만들기
           href: spring-cloud-howto-permissions.md
+        - name: Azure AD RBAC로 데이터 평면 액세스
+          href: spring-cloud-howto-access-data-plane-azure-ad-rbac.md
     - name: 통합
       items:
         - name: Azure CosmosDB에 앱 바인딩
@@ -159,7 +161,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: spring-cloud-reference-architecture.md

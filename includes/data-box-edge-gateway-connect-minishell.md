@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 5343653dc87325fa0702c0864f0df1456a36e304
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 881d22592e57ef14885eedf2330c71ffa154a136
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102532635"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603215"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
@@ -70,7 +70,7 @@ NFS 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 
 
 1. PowerShell 세션을 열려면 다음을 입력 합니다.
 
-    `sudo pwsh`
+    `pwsh`
  
 2. 원격 클라이언트를 사용 하 여 연결 하려면 다음을 입력 합니다.
 

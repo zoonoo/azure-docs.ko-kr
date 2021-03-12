@@ -1,26 +1,19 @@
 ---
 title: Windows VM 확장 오류 문제 해결
 description: Azure Windows VM 확장 오류 문제 해결에 대해 자세히 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
-author: kundanap
-manager: gwallace
-editor: ''
-tags: top-support-issue,azure-resource-manager
-ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/29/2016
-ms.author: kundanap
-ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 8cc8a0b5ae0a83a152168b14a2c5577f8f7b48ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676762"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564801"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 확장 오류 문제 해결
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

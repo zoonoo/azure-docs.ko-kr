@@ -3,7 +3,7 @@ title: 단일 비트 전송률 라이브 스트림을 보낼 Telestream Wirecast
 description: '이 항목에서는 Wirecast 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. '
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: ecab0ee67dd1d5cee3fd9927c00c9f9d827b2f47
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a736270919f36cb7d4bbd4e686a98ddc57f402fa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910052"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016834"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "92910052"
 > [!NOTE]
 > RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다. TLS 1.2 요구 사항으로 인해 Wirecast 버전 13.0.2 이상을 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
@@ -53,7 +53,7 @@ ms.locfileid: "92910052"
 
     ![메뉴에서 선택한 채널 만들기가 스크린샷으로 표시 됩니다.](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. [채널 설정]에서 [Live Encoding] 옵션에 대해 **표준** 을 선택하고, [입력 프로토콜]을 **RTMP** .로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
+2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. [채널 설정]에서 [Live Encoding] 옵션에 대해 **표준** 을 선택하고, [입력 프로토콜]을 **RTMP**.로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
 
     **새 채널 지금 시작** 이 선택되었는지 확인합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "92910052"
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Telestream Wirecast 인코더 구성
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
-**비디오** :
+**비디오**:
 
 * 코덱: H.264
 * 프로필: 높음(수준 4.0)
@@ -84,7 +84,7 @@ ms.locfileid: "92910052"
 * 키 프레임: 2초(60초)
 * 프레임 속도: 30
 
-**오디오** :
+**오디오**:
 
 * 코덱: AAC(LC)
 * 비트 전송률: 192kbps

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a6a993fdf4fd266afb9459fedd13412d8796e0a5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275287"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611507"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름
 
@@ -39,7 +39,7 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>단일 페이지 앱에 필요한 리디렉션 URI 설정
 
-단일 페이지 애플리케이션에 대한 인증 코드 흐름에는 몇 가지 추가 설정이 필요합니다.  [단일 페이지 응용 프로그램을 만들기](tutorial-register-spa.md) 위한 지침에 따라 리디렉션 URI를 CORS에 대해 사용 하도록 설정 된 것으로 올바르게 표시 합니다. CORS를 사용 하도록 기존 리디렉션 URI를 업데이트 하려면 **앱 등록**의 **인증** 탭에 있는 "웹" 섹션에서 마이그레이션 프롬프트를 클릭 하면 됩니다. 또는 **앱 등록 매니페스트 편집기** 를 열고 `type` 섹션에서 리디렉션 URI에 대 한 필드를로 설정할 수 있습니다 `spa` `replyUrlsWithType` .
+단일 페이지 애플리케이션에 대한 인증 코드 흐름에는 몇 가지 추가 설정이 필요합니다.  [단일 페이지 응용 프로그램을 만들기](tutorial-register-spa.md) 위한 지침에 따라 리디렉션 URI를 CORS에 대해 사용 하도록 설정 된 것으로 올바르게 표시 합니다. CORS를 사용 하도록 기존 리디렉션 URI를 업데이트 하려면 **앱 등록** 의 **인증** 탭에 있는 "웹" 섹션에서 마이그레이션 프롬프트를 클릭 하면 됩니다. 또는 **앱 등록 매니페스트 편집기** 를 열고 `type` 섹션에서 리디렉션 URI에 대 한 필드를로 설정할 수 있습니다 `spa` `replyUrlsWithType` .
 
 `spa`리디렉션 형식이 암시적 흐름과 이전 버전과 호환 됩니다. 현재 암시적 흐름을 사용 하 여 토큰을 가져오는 앱은 `spa` 문제 없이 리디렉션 URI 형식으로 이동 하 고 암시적 흐름을 계속 사용할 수 있습니다.
 
@@ -69,9 +69,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |필수 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청되는 사용 권한을 Azure AD(Azure Active Directory)에 둘 다 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 대한 장기 액세스를 위해 앱에 새로 고침 토큰이 필요함을 나타냅니다. `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
 | response_mode |권장 |결과로 생성된 인증 코드를 앱에 다시 보내는 데 사용하는 방법입니다. `query`, `form_post` 또는 `fragment`일 수 있습니다. |
 | state |권장 |사용하려는 콘텐츠의 문자열일 수 있는 요청에 포함된 값입니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 state(상태)는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보를 인코딩하는 데에도 사용됩니다. 예를 들어 사용자가 보고 있던 페이지 또는 실행 중이었던 사용자 흐름입니다. |
-| prompt |옵션 |필요한 사용자 상호 작용 유형입니다. 현재 유효한 값은 `login`뿐이며, 강제로 사용자가 해당 요청에 자격 증명을 입력하도록 합니다. Single Sign-On은 적용되지 않습니다. |
+| prompt |선택 사항 |필요한 사용자 상호 작용 유형입니다. 현재 유효한 값은 `login`뿐이며, 강제로 사용자가 해당 요청에 자격 증명을 입력하도록 합니다. Single Sign-On은 적용되지 않습니다. |
 | code_challenge  | 권장/필수 | PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. 이제 모든 애플리케이션 유형(네이티브 앱, SPA 및 웹앱과 같은 기밀 클라이언트)에서 권장됩니다. | 
 | `code_challenge_method` | 권장/필수 | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 이 *는* 여야 `S256` 하지만 `plain` 어떤 이유로 클라이언트가 SHA256을 지원할 수 없는 경우에는를 사용할 수 있습니다. <br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft ID 플랫폼은 `plain` 및 `S256`을 모두 지원합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. [인증 코드 흐름을 사용하는 단일 페이지 앱](tutorial-register-spa.md)에 필요합니다.|
+| login_hint | 아니요| 로그인 페이지의 로그인 이름 필드를 미리 채우는 데 사용할 수 있습니다. 자세한 내용은 [로그인 이름 미리 채우기](direct-signin.md#prepopulate-the-sign-in-name)를 참조 하세요.  |
+| domain_hint | 아니요| 로그인에 사용 해야 하는 소셜 id 공급자에 대 한 Azure AD B2C 힌트를 제공 합니다. 유효한 값이 포함 된 경우 사용자는 id 공급자 로그인 페이지로 직접 이동 합니다.  자세한 내용은 [소셜 공급자에 로그인 리디렉션](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조 하세요. |
+| 사용자 지정 매개 변수 | 아니요| [사용자 지정 정책](custom-policy-overview.md)에 사용할 수 있는 사용자 지정 매개 변수입니다. 예를 들어 [동적 사용자 지정 페이지 콘텐츠 URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)또는 [키-값 클레임 해결 프로그램](claim-resolver-overview.md#oauth2-key-value-parameters)입니다. |
 
 이 시점에서 사용자 흐름의 워크플로를 완료하도록 사용자에게 요청합니다. 이 경우 사용자 이름과 암호를 입력하거나, 소셜 ID로 로그인하거나, 디렉터리를 등록하거나, 다른 단계를 수행할 수도 있습니다. 사용자 작업은 사용자 흐름을 정의한 방식에 따라 다릅니다.
 
@@ -193,7 +196,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type |필수 |권한 부여 유형입니다. 이 인증 코드 흐름 레그에서 권한 부여 유형은 `refresh_token`여야 합니다. |
 | scope |권장 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 장기간 액세스하기 위한 새로 고침 토큰이 앱에 필요함을 나타냅니다.  `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
-| redirect_uri |옵션 |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
+| redirect_uri |선택 사항 |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
 | refresh_token |필수 |흐름의 두 번째 단계에서 얻은 원래의 새로 고침 토큰입니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.

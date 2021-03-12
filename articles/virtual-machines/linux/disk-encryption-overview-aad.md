@@ -2,18 +2,19 @@
 title: Azure AD 앱 필수 구성 요소를 사용 하 여 Azure Disk Encryption (이전 릴리스)
 description: 이 문서에서는 Azure AD를 사용 하 여 Azure Disk Encryption 하기 위한 추가 요구 사항 및 필수 구성 요소를 사용 하 여 Linux Vm에 대 한 Azure Disk Encryption를
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b258d499c78aa5fb734cbee01fb753c292bf2678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e27eb64139c20ac2b8c776edc2d0840b80fddb62
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970889"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558341"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Active Directory (AD)로 Azure Disk Encryption (이전 릴리스)
 
@@ -47,7 +48,7 @@ Azure Disk Encryption의 새 릴리스는 VM 디스크 암호화를 사용 하�
   ```
 
 ### <a name="group-policy"></a>그룹 정책
- - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인에 가입 된 Vm의 경우 TPM 보호기를 적용 하는 그룹 정책을 푸시 하지 마십시오. **호환 되는 TPM 없이 Bitlocker 허용**옵션의 그룹 정책에 대 한 자세한 내용은 [bitlocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조 하세요.
+ - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인에 가입 된 Vm의 경우 TPM 보호기를 적용 하는 그룹 정책을 푸시 하지 마십시오. **호환 되는 TPM 없이 Bitlocker 허용** 옵션의 그룹 정책에 대 한 자세한 내용은 [bitlocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조 하세요.
 
 - 사용자 지정 그룹 정책 있는 도메인에 가입 된 가상 컴퓨터에 대 한 BitLocker 정책은 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정을 포함 해야 합니다. BitLocker에 대 한 사용자 지정 그룹 정책 설정이 호환 되지 않는 경우 Azure Disk Encryption 실패 합니다. 올바른 정책 설정이 없는 컴퓨터에서 새 정책을 적용 하 고 새 정책을 강제로 업데이트 (gpupdate.exe/force) 한 다음 필요한 경우 다시 시작 합니다. 
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488208"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562013"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -64,6 +64,8 @@ Sql Server를 SQL Managed Instance로 마이그레이션하는 주요 이점 중
 
 > [!IMPORTANT]
 > [관리 되는 인스턴스 가상 네트워크 요구 사항의](../../managed-instance/connectivity-architecture-overview.md#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](../../managed-instance/virtual-network-subnet-create-arm-template.md)   및 기존 네트워크 [구성](../../managed-instance/vnet-existing-add-subnet.md)에 대해 자세히 알아보세요   . 
+
+Azure SQL Managed Instance (범용 Vs 중요 비즈니스용)에서 대상 서비스 계층을 선택 하는 경우의 또 다른 주요 고려 사항은 중요 비즈니스용 계층 에서만 제공 되는 In-Memory OLTP와 같은 특정 기능을 사용 하는 것입니다. 
 
 ### <a name="sql-server-vm-alternative"></a>SQL Server VM 대체
 
@@ -191,6 +193,26 @@ Windows 사용자/그룹 로그인 마이그레이션이 가능하도록 Azure D
 #### <a name="system-databases"></a>시스템 데이터베이스
 
 시스템 데이터베이스의 복원은 지원되지 않습니다. Master 또는 msdb 데이터베이스에 저장 된 인스턴스 수준 개체를 마이그레이션하려면 Transact-sql (T-sql)을 사용 하 여 스크립트를 작성 한 다음 대상 관리 되는 인스턴스에서 다시 만듭니다. 
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP In-Memory (메모리 액세스에 최적화 된 테이블)
+
+SQL Server는 메모리 최적화 테이블, 메모리 최적화 테이블 형식 및 고유 하 게 컴파일된 SQL 모듈을 사용 하 여 처리량이 높고 대기 시간이 짧은 트랜잭션 처리 요구 사항이 있는 작업을 실행할 수 있도록 하는 In-Memory OLTP 기능을 제공 합니다. 
+
+> [!IMPORTANT]
+> In-Memory OLTP는 Azure SQL Managed Instance의 중요 비즈니스용 계층 에서만 지원 되며 일반 용도 계층에서는 지원 되지 않습니다.
+
+온-프레미스 SQL Server에 메모리 최적화 테이블 또는 메모리 최적화 테이블 형식이 있고 Azure SQL Managed Instance로 마이그레이션하려는 경우 다음 중 하나를 수행 해야 합니다.
+
+- In-Memory OLTP를 지 원하는 대상 Azure SQL Managed Instance에 대 한 중요 비즈니스용 계층을 선택 하거나
+- Azure SQL Managed Instance의 범용 계층으로 마이그레이션하려면 메모리 최적화 테이블, 메모리 최적화 테이블 형식 및 데이터베이스를 마이그레이션하기 전에 메모리 최적화 개체와 상호 작용 하는 고유 하 게 컴파일된 SQL 모듈을 제거 합니다. 다음 T-sql 쿼리를 사용 하 여 일반 용도의 계층으로 마이그레이션하기 전에 제거 해야 하는 모든 개체를 식별할 수 있습니다.
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+메모리 내 기술에 대해 자세히 알아보려면 [Azure SQL Database 및 AZURE SQL에서 메모리 내 기술을 사용 하 여 성능 최적화](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview) 를 참조 하세요 Managed Instance
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 
 
