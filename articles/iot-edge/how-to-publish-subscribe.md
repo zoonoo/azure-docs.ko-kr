@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633974"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200681"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독할 수 있습니다. 이 문서에서는이 브로커에 연결 하 고, 사용자 정의 항목을 통해 메시지를 게시 및 구독 하며, IoT Hub 메시징 기본 형식을 사용 하는 방법을 보여 줍니다. IoT Edge MQTT broker는 IoT Edge 허브에 기본 제공 됩니다. 자세한 내용은 [IoT Edge 허브의 중개 기능](iot-edge-runtime.md)을 참조 하세요.
 
@@ -31,7 +33,7 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |

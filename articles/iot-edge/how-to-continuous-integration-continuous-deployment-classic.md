@@ -8,14 +8,16 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e38b3c617ded9c0001b01e481d4d3c1120be62ef
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 218c0f345e4ea453a2300b3de85ac8856a09c6ee
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634756"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199283"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Azure IoT Edge 장치에 연속 통합 및 연속 배포 (클래식 편집기)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 애플리케이션을 사용하여 DevOps를 손쉽게 채택할 수 있습니다. 이 문서에서는 클래식 편집기를 사용 하 여 Azure Pipelines의 지속적인 통합 및 지속적인 배포 기능을 사용 하 여 응용 프로그램을 빠르고 Azure IoT Edge 효율적으로 빌드, 테스트 및 배포 하는 방법을 보여 줍니다. 또는 [YAML를 사용할](how-to-continuous-integration-continuous-deployment.md)수 있습니다.
 
@@ -30,7 +32,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
  | 배포 매니페스트 생성 | 파일 및 변수에 대 한 deployment.template.js를 가져온 다음 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다. |
  | IoT Edge 디바이스에 배포 | 하나 이상의 IoT Edge 장치에 대 한 IoT Edge 배포를 만듭니다. |
 
-별도로 지정 하지 않는 한이 문서의 절차에서는 작업 매개 변수를 통해 사용할 수 있는 모든 기능을 탐색 하지 않습니다. 자세한 내용은
+별도로 지정 하지 않는 한이 문서의 절차에서는 작업 매개 변수를 통해 사용할 수 있는 모든 기능을 탐색 하지 않습니다. 자세한 내용은 다음을 참조하세요.
 
 * [작업 버전](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **고급** -해당 하는 경우 빌드되지 않으려는 모듈을 지정 합니다.
@@ -38,7 +40,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * [환경 변수](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
 * [출력 변수](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](/azure/devops/repos/git/create-new-repo) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo** 라는 리포지토리를 만들었습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](./how-to-visual-studio-develop-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule** 이라는 모듈에 대 한 코드를 포함 하는 **IoTEdgeSolution** 라는 리포지토리에 솔루션을 만들었습니다.

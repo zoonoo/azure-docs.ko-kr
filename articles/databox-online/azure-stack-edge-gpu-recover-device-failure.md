@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442165"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636643"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>실패 한 Azure Stack Edge Pro GPU 장치에서 복구 
 
@@ -52,10 +52,10 @@ ms.locfileid: "102442165"
 
 다음 단계를 수행 하 여 장치의 Edge 클라우드 공유에서 데이터를 복원 합니다.
 
-1. 실패 한 장치에서 이전에 만든 것과 동일한 공유 이름을 사용 하 여 [공유를 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share) 합니다. 공유를 만드는 동안 **Blob 컨테이너 선택** 옵션이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
-1. 이전 디바이스에 대한 액세스 권한이 있는 [사용자를 추가](azure-stack-edge-j-series-manage-users.md#add-a-user)합니다.
-1. 이전에 장치에서 공유와 연결 된 [저장소 계정을 추가](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) 합니다. Edge 저장소 계정을 만드는 동안 기존 컨테이너에서를 선택 하 고 이전 장치에서 매핑된 Azure Storage 계정에 매핑된 컨테이너를 가리킵니다. 이전 장치의 Edge 저장소 계정에 기록 된 장치의 모든 데이터가 매핑된 Azure Storage 계정의 선택한 저장소 컨테이너에 업로드 되었습니다.
-1. Azure에서 공유 [데이터를 새로 고칩니다](azure-stack-edge-j-series-manage-shares.md#refresh-shares). 그러면 기존 컨테이너의 모든 클라우드 데이터를 공유로 가져오게 됩니다.
+1. 실패 한 장치에서 이전에 만든 것과 동일한 공유 이름을 사용 하 여 [공유를 추가](azure-stack-edge-gpu-manage-shares.md#add-a-share) 합니다. 공유를 만드는 동안 **Blob 컨테이너 선택** 옵션이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
+1. 이전 디바이스에 대한 액세스 권한이 있는 [사용자를 추가](azure-stack-edge-gpu-manage-users.md#add-a-user)합니다.
+1. 이전에 장치에서 공유와 연결 된 [저장소 계정을 추가](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) 합니다. Edge 저장소 계정을 만드는 동안 기존 컨테이너에서를 선택 하 고 이전 장치에서 매핑된 Azure Storage 계정에 매핑된 컨테이너를 가리킵니다. 이전 장치의 Edge 저장소 계정에 기록 된 장치의 모든 데이터가 매핑된 Azure Storage 계정의 선택한 저장소 컨테이너에 업로드 되었습니다.
+1. Azure에서 공유 [데이터를 새로 고칩니다](azure-stack-edge-gpu-manage-shares.md#refresh-shares). 그러면 기존 컨테이너의 모든 클라우드 데이터를 공유로 가져오게 됩니다.
 
 ## <a name="restore-edge-local-shares"></a>Edge 로컬 공유 복원
 
@@ -73,7 +73,7 @@ ms.locfileid: "102442165"
 다음 단계에 따라 로컬 공유의 데이터를 복구합니다.
 
 1. [디바이스에서 컴퓨팅을 구성](azure-stack-edge-gpu-deploy-configure-compute.md)합니다.
-1. [로컬 공유를 다시 추가](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) 합니다.
+1. [로컬 공유를 다시 추가](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) 합니다.
 1. 선택한 데이터 보호 솔루션에서 제공 하는 복구 절차를 실행 합니다. 위의 표에서 참조를 참조 하세요.
 
 ## <a name="restore-vm-files-and-folders"></a>VM 파일 및 폴더 복원

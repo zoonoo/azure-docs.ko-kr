@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365823"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199707"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -108,7 +108,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-why-do-i-see-duplicate-device-entries-in-the-azure-portal"></a>Q: Azure Portal에 중복 장치 항목이 표시 되는 이유는 무엇 인가요?
 
-**은**
+**A:**
 
 - Windows 10 및 Windows Server 2016의 경우 동일한 디바이스에 조인 취소 및 다시 조인을 반복적으로 시도하면 중복된 항목이 발생할 수 있습니다. 
 - **회사 또는 학교 계정 추가** 를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만듭니다.
@@ -147,7 +147,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>Q: Windows 10 장치의 동일한 사용자 세션에서 3 개 이상의 Azure AD 사용자 계정을 추가할 수 없습니다. 이유는 무엇입니까?
 
-**A**: Azure Ad는 Windows 10 1803 릴리스에서 여러 azure ad 계정에 대 한 지원을 추가 했습니다. 그러나 Windows 10은 장치의 Azure AD 계정 수를 3으로 제한 하 여 토큰 요청의 크기를 제한 하 고 신뢰할 수 있는 SSO (single sign on)를 사용 하도록 설정 합니다. 3 개의 계정이 추가 되 면 사용자에 게 후속 계정에 대 한 오류가 표시 됩니다. 오류 화면에 표시 되는 추가 문제 정보는 다음과 같은 메시지를 제공 합니다. "계정 추가 작업 차단에 도달 했습니다." 라는 이유를 나타냅니다. 
+**A**: Azure Ad는 Windows 10 1803 릴리스에서 여러 azure ad 계정에 대 한 지원을 추가 했습니다. 그러나 Windows 10은 장치의 Azure AD 계정 수를 3으로 제한 하 여 토큰 요청의 크기를 제한 하 고 신뢰할 수 있는 SSO (single sign on)를 사용 하도록 설정 합니다. 3 개의 계정이 추가 되 면 사용자에 게 후속 계정에 대 한 오류가 표시 됩니다. 오류 화면에 표시 되는 추가 문제 정보는 다음과 같은 메시지를 제공 합니다. "계정 제한에 도달 하 여 계정 추가 작업이 차단 되었습니다." 라는 이유를 나타냅니다. 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Azure AD 조인 FAQ
@@ -295,7 +295,7 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>Q: 로컬에서 장치에 대 한 Azure AD 등록 상태를 제거할 어떻게 할까요? 있나요?
 
-**은** 
+**A:** 
 - Windows 10 Azure AD 등록 장치에 대해 **설정**  >  **계정**  >  **회사 또는 학교 액세스** 로 이동 합니다. 계정을 선택하고 **연결 끊기** 를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
 - IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정**  >  **장치 등록** 을 사용 하 고 **장치 등록 취소** 를 선택할 수 있습니다.
 - MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 

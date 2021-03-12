@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 3ff07c773a2976a296d13510a3ddd7b41217aaa2
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 57633df8c6482a9b0645813519991282bdbf22c1
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437624"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633515"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에 Azure Data Services 배포
 
@@ -26,7 +26,7 @@ Azure Arc Data Controller는 고객이 관리 하는 환경에서 Azure Data Ser
 데이터 컨트롤러를 만든 다음 SQL Managed Instance를 배포 하는 절차는 `kubectl` 장치에서 Kubernetes 클러스터에 대 한 명령줄 액세스를 제공 하는 PowerShell 및-네이티브 도구를 사용 하는 절차를 포함 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -87,7 +87,7 @@ Azure Arc Data Controller는 고객이 관리 하는 환경에서 Azure Data Ser
 
 1. 구성 파일은 `.kube` 로컬 컴퓨터에 있는 사용자 프로필의 폴더에 있어야 합니다. 사용자 프로필의 해당 폴더에 파일을 복사 합니다.
 
-    ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 1. 사용자가 만든 네임 스페이스에 대 한 액세스 권한을 부여 합니다. 유형: 
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`

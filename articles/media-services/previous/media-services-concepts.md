@@ -3,7 +3,7 @@ title: Azure Media Services 개념 | Microsoft 문서
 description: 이 문서에서는 Microsoft Azure Media Services 개념과 다른 문서에 대 한 링크에 대 한 간략 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-ms.openlocfilehash: 180965942285e99300c8aa054e638f2f0a2c0580
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: fbe387b3f86dfd10cbc4e80a02ee2528e43c4b67
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695961"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016885"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 
@@ -51,7 +51,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 업로드, 저장 및 배달하려는 콘텐츠의 유형에 따라 Media Services는 선택할 수 있는 다양한 암호화 옵션을 제공합니다.
 
 >[!NOTE]
->암호화가 사용되지 않습니다. 이것은 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
+>암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
 
 점진적 다운로드를 사용하여 MP4를 배달하려는 경우 이 옵션을 사용하여 콘텐츠를 업로드합니다.
 
@@ -191,7 +191,7 @@ Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리�
 >[!NOTE]
 >암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
 
-사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예:
+사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예를 들면 다음과 같습니다.
 
 `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 

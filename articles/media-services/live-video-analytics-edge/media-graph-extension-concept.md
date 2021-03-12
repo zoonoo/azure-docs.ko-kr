@@ -3,12 +3,12 @@ title: 미디어 그래프 확장이란? - Azure
 description: IoT Edge의 Live Video Analytics를 사용하면 그래프 확장 노드를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6735148bf453cfe0afb58d51451dea65f06705d6
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 66656690e4e53508253091134a67adeb899b3dbf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401120"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455842"
 ---
 # <a name="media-graph-extension"></a>미디어 그래프 확장
 
@@ -19,11 +19,11 @@ Live Video Analytics는 다음 두 가지 종류의 미디어 그래프 확장 �
 * [HTTP 확장 프로세서](media-graph-concept.md#http-extension-processor)
 * [gRPC 확장 프로세서](media-graph-concept.md#grpc-extension-processor)
 
-그래프 확장 노드에서는 분석 확장 플러그 인이 JSON 형식으로 결과를 반환해야 합니다. 이상적으로 결과는 [유추 메타데이터 스키마 개체 모델](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update)을 따라야 합니다.
+그래프 확장 노드에서는 분석 확장 플러그 인이 JSON 형식으로 결과를 반환해야 합니다. 이상적으로 결과는 [유추 메타데이터 스키마 개체 모델](/azure/media-services/live-video-analytics-edge/inference-metadata-schema)을 따라야 합니다.
 
 ## <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
-HTTP 확장 프로세서는 [HTTP 프로토콜](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update)을 사용하는 확장성 시나리오를 가능하게 합니다. 여기서 성능 및/또는 최적 리소스 사용률은 주요 문제가 아닙니다. HTTP REST 엔드포인트를 통해 자신의 AI를 미디어 그래프에 공개할 수 있습니다. 
+HTTP 확장 프로세서는 [HTTP 프로토콜](/azure/media-services/live-video-analytics-edge/http-extension-protocol)을 사용하는 확장성 시나리오를 가능하게 합니다. 여기서 성능 및/또는 최적 리소스 사용률은 주요 문제가 아닙니다. HTTP REST 엔드포인트를 통해 자신의 AI를 미디어 그래프에 공개할 수 있습니다. 
 
 HTTP 확장 프로세서 노드를 사용하는 경우는 다음과 같습니다.
 
@@ -33,7 +33,7 @@ HTTP 확장 프로세서 노드를 사용하는 경우는 다음과 같습니다
 
 ## <a name="grpc-extension-processor"></a>gRPC 확장 프로세서
 
-gRPC 확장 프로세서는 gRPC 기반의 고성능 [구조적 프로토콜](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update)을 사용하는 확장성 시나리오를 가능하게 합니다. 성능 및/또는 최적 리소스 사용률이 중요하게 고려되는 시나리오에 적합합니다. gRPC 확장 프로세서를 사용하면 정형 데이터 정의의 모든 이점을 활용할 수 있습니다. gRPC는 다음을 사용하여 높은 콘텐츠 전송 성능을 제공합니다.
+gRPC 확장 프로세서는 gRPC 기반의 고성능 [구조적 프로토콜](/azure/media-services/live-video-analytics-edge/grpc-extension-protocol)을 사용하는 확장성 시나리오를 가능하게 합니다. 성능 및/또는 최적 리소스 사용률이 중요하게 고려되는 시나리오에 적합합니다. gRPC 확장 프로세서를 사용하면 정형 데이터 정의의 모든 이점을 활용할 수 있습니다. gRPC는 다음을 사용하여 높은 콘텐츠 전송 성능을 제공합니다.
 
 * [기본 공유 메모리](https://en.wikipedia.org/wiki/Shared_memory) 또는 
 * 콘텐츠를 gRPC 메시지의 본문에 직접 포함 
@@ -57,7 +57,7 @@ gRPC 확장 프로세서는 유추 메시지 교환과 함께 미디어 속성�
 
 ## <a name="samples"></a>샘플
 
-[HTTP 확장 프로세서](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)를 사용하는 낮은 프레임 속도 또는 [gRPC 확장 프로세서](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)를 사용하는 높은 프레임 속도에서 미리 빌드된 확장 서비스를 통해 라이브 비디오 분석을 설명하는 빠른 시작 중 하나로 시작할 수 있습니다.
+[HTTP 확장 프로세서](/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?pivots=programming-language-csharp)를 사용하는 낮은 프레임 속도 또는 [gRPC 확장 프로세서](/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp)를 사용하는 높은 프레임 속도에서 미리 빌드된 확장 서비스를 통해 라이브 비디오 분석을 설명하는 빠른 시작 중 하나로 시작할 수 있습니다.
 
 고급 사용자의 경우 Live Video Analytics용 [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) 샘플 중 일부를 체크 아웃할 수 있습니다. 이러한 Notebooks에서는 **미디어 그래프 확장** 에 대한 단계별 지침을 제공합니다.
 

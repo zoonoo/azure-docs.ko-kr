@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497064"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199860"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
 이 자습서에서는 Azure Data Factory 사용자 인터페이스 (UX)를 사용 하 여 데이터 흐름 매핑을 사용 하 여 Azure Data Lake Storage (ADLS) Gen2 원본에서 ADLS Gen2 싱크로 데이터를 복사 하 고 변환 하는 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 데이터 흐름 매핑을 사용 하 여 데이터를 변환할 때 확장 될 수 있습니다.
 
+ >[!NOTE]
+   >이 자습서는 데이터 흐름을 일반적으로 매핑하기 위한 것입니다. 데이터 흐름은 Azure Data Factory 및 Synapse 파이프라인 모두에서 사용할 수 있습니다. Azure Synapse 파이프라인에서 데이터 흐름을 처음 접하는 경우 [Azure Synapse 파이프라인을 사용 하 여 데이터 흐름](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 에 따라 이동 하세요. 
+   
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
@@ -131,7 +134,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     디버그 클러스터가 활성 상태 이면 **새로 고침** 을 클릭 하 여 논리를 확인할 수 있습니다. 사용 된 입력에 대 한 식 출력을 볼 수 있습니다. 데이터 흐름 식 언어를 사용 하 여이 논리를 수행 하는 방법에는 두 개 이상의 올바른 대답이 있습니다.
 
-    ![필터](media/tutorial-data-flow/filter2.png)
+    ![Assert](media/tutorial-data-flow/filter2.png)
 
     **저장을** 클릭 하 고 식을 사용 하 여 작업을 완료 합니다.
 

@@ -3,7 +3,7 @@ title: Azure Media Services 릴리스 정보 | Microsoft Docs
 description: 이 문서에서는 Microsoft Azure Media Services v2 릴리스 정보에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694899"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017361"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -48,6 +48,26 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API 및 Sdk 사용 중단 알림
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Azure Media Services REST API 및 Sdk를 2024 년 2 월 29 일까 지 업데이트
+
+버전 3 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2 보다 많은 기능을 제공 하기 때문에 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2를 사용 중지 하 고 있습니다. Azure Media Services REST API 버전 3 및 .NET 및 Java 용 클라이언트 Sdk의 다양 한 이점을 얻기 위해 더 빨리 스위치를 설정 하는 것이 좋습니다.
+버전 3은 다음을 제공 합니다.
+ 
+- 연중 무휴 라이브 이벤트 지원
+- ARM REST Api, .NET core 용 클라이언트 Sdk, Node.js, Python, Java, Go 및 Ruby.
+- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>작업 필요:
+
+워크 로드의 중단을 최소화 하려면 [마이그레이션 가이드](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) 를 검토 하 여 버전 2 Api 및 sdk에서 버전 3 API 및 sdk로 코드를 전환 합니다. 2024 년 2 월 29 일 이전입니다.
+**2024 년 2 월 29** 일부 터 Azure Media Services는 더 이상 버전 2 REST API, ARM 계정 관리 API 버전 2015-10-01 또는 버전 2 .Net 클라이언트 sdk에서 트래픽을 수락 하지 않습니다. 여기에는 버전 2 API를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함 됩니다.  
+
+공식 [Azure 업데이트 공지](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/)를 참조 하세요.
 
 ## <a name="september-2020"></a>2020년 9월
 

@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e644b7937f6ccb23b4833405b8f4ed3119879a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3aff7b99dad910a9691eef2004df856ca883789
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362287"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224387"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>에이전트 설치 Azure AD Connect Health
 
@@ -38,7 +38,7 @@ ms.locfileid: "100362287"
 | Azure AD의 전역 관리자입니다. |기본적으로 전역 관리자만 상태 에이전트를 설치 및 구성 하 고, 포털에 액세스 하 고, Azure AD Connect Health 내에서 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-whatis.md)를 참조하세요. <br /><br /> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 조직의 다른 사용자가 Azure AD Connect Health에 액세스할 수 있도록 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health에 대 한 AZURE RBAC](how-to-connect-health-operations.md#manage-access-with-azure-rbac)를 참조 하세요. <br /><br />**중요**: 회사 또는 학교 계정을 사용 하 여 에이전트를 설치 합니다. Microsoft 계정를 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조 하세요. |
 | Azure AD Connect Health 에이전트는 각 대상 서버에 설치 됩니다. | 상태 에이전트는 데이터를 수신 하 고 모니터링 및 분석 기능을 제공할 수 있도록 대상 서버에 설치 되 고 구성 되어야 합니다. <br /><br />예를 들어 Active Directory Federation Services (AD FS) 인프라에서 데이터를 가져오려면 AD FS 서버와 웹 응용 프로그램 프록시 서버에 에이전트를 설치 해야 합니다. 마찬가지로 온-프레미스 Azure AD Domain Services (Azure AD DS) 인프라에서 데이터를 가져오려면 도메인 컨트롤러에 에이전트를 설치 해야 합니다.  |
 | Azure 서비스 끝점에는 아웃 바운드 연결이 있습니다. | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽이 아웃 바운드 연결을 차단 하는 경우에는 [아웃 바운드 연결 끝점](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) 을 허용 목록에 추가 합니다. |
-|아웃 바운드 연결은 IP 주소를 기반으로 합니다. | IP 주소를 기반으로 하는 방화벽 필터링에 대 한 자세한 내용은 [AZURE ip 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조 하세요.|
+|아웃 바운드 연결은 IP 주소를 기반으로 합니다. | IP 주소를 기반으로 하는 방화벽 필터링에 대 한 자세한 내용은 [AZURE ip 범위](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요.|
 | 아웃 바운드 트래픽에 대 한 TLS 검사가 필터링 되거나 사용 되지 않습니다. | 네트워크 계층에서 아웃 바운드 트래픽에 대 한 TLS 검사 또는 종료가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. 자세한 내용은 [TLS 검사 설정](/previous-versions/tn-archive/ee796230(v=technet.10))을 참조 하세요. |
 | 서버의 방화벽 포트에서 에이전트가 실행 되 고 있습니다. |에이전트는 Azure AD Connect Health 서비스 끝점과 통신할 수 있도록 다음 방화벽 포트가 열려 있어야 합니다. <br /><li>TCP 포트 443</li><li>TCP 포트 5671</li> <br />최신 버전의 에이전트에는 포트 5671이 필요 하지 않습니다. 포트 443만 필요 하도록 최신 버전으로 업그레이드 합니다. 자세한 내용은 [포트 및 프로토콜이 필요한 하이브리드 id](./reference-connect-ports.md)를 참조 하세요. |
 | Internet Explorer 보안 강화를 사용 하는 경우 지정 된 웹 사이트를 허용 합니다.  |Internet Explorer 보안 강화를 사용 하는 경우 에이전트를 설치 하는 서버에서 다음 웹 사이트를 허용 합니다.<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.net</li><li>Azure AD에서 신뢰할 수 있는 조직의 페더레이션 서버 (예: https: \/ /sts.contoso.com)</li> <br />자세한 내용은 [Internet Explorer를 구성 하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)을 참조 하세요. 네트워크에 프록시가 있는 경우이 표 끝에 표시 되는 정보를 참조 하세요.|
@@ -64,7 +64,7 @@ ms.locfileid: "100362287"
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
 | 일반 공용 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42; servicebus.windows.net: 5671 (이 끝점은 최신 버전의 에이전트에서 필요 하지 않습니다.)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
-| Azure 독일 | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
+| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 
 
@@ -130,7 +130,7 @@ PowerShell 창이 열리고 에이전트 등록 프로세스가 시작 됩니다
 
 1. 시작 화면에서 **서버 관리자** 를 연 후 **로컬 보안 정책** 을 엽니다. 또는 작업 표시줄에서 **서버 관리자** 를 연 후 **도구/로컬 보안 정책** 을 선택 합니다.
 2. *보안 정책 \ 로컬 정책 \ 보안 정책 \ 보안 정책* 그런 다음 **보안 감사 생성** 을 두 번 클릭 합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열 되지 않으면 **사용자 또는 그룹 추가** 를 선택 하 고 목록에 추가 합니다. 그런 다음, **확인** 을 선택합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열 되지 않으면 **사용자 또는 그룹 추가** 를 선택 하 고 목록에 추가 합니다. 그런 다음 **확인** 을 선택합니다.
 4. 감사를 사용 하려면 상승 된 권한으로 명령 프롬프트 창을 엽니다. 그런 후 다음 명령을 실행합니다. 
     
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -149,7 +149,7 @@ PowerShell 창이 열리고 에이전트 등록 프로세스가 시작 됩니다
 
 1. 시작 화면에서 **서버 관리자** 를 연 후 **로컬 보안 정책** 을 엽니다. 또는 작업 표시줄에서 **서버 관리자** 를 연 후 **도구/로컬 보안 정책** 을 선택 합니다.
 2. *보안 정책 \ 로컬 정책 \ 보안 정책 \ 보안 정책 \* 보안 감사 폴더로 이동한 다음 **보안 감사 생성** 을 두 번 클릭 합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열 되지 않으면 **사용자 또는 그룹 추가** 를 선택 하 고 목록에 AD FS 서비스 계정을 추가 합니다. 그런 다음, **확인** 을 선택합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 목록에 있는지 확인합니다. 나열 되지 않으면 **사용자 또는 그룹 추가** 를 선택 하 고 목록에 AD FS 서비스 계정을 추가 합니다. 그런 다음 **확인** 을 선택합니다.
 4. 감사를 사용 하려면 상승 된 권한으로 명령 프롬프트 창을 엽니다. 그런 후 다음 명령을 실행합니다. 
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -325,7 +325,7 @@ HTTP 프록시를 사용 하도록 Azure AD Connect Health 에이전트를 구�
 * 기존 프록시 구성의 선택을 취소 합니다.
 
 > [!NOTE]
-> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령 실행:
+> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령을 실행합니다.
 >
 > `Restart-Service AzureADConnectHealth*`
 
@@ -355,7 +355,7 @@ Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
-이 예제에서는 다음이 적용됩니다.
+이 예제에서:
 * `address`설정은 DNS가 확인할 수 있는 서버 이름 또는 IPv4 주소일 수 있습니다.
 * 를 생략할 수 있습니다 `port` . 이렇게 하면 443가 기본 포트입니다.
 
@@ -405,7 +405,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
-* [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
+* [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [Azure AD DS에서 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)

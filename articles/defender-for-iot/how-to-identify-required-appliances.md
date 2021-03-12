@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937135"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149304"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -38,13 +38,13 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 이 섹션에서는 사용할 수 있는 실제 센서 모델의 개요를 제공 합니다. 미리 구성 되지 않은 소프트웨어 또는 구입 센서를 사용 하 여 센서를 구입할 수 있습니다.
 
-| 배포 유형 | 회사 | Enterprise | SMB |
-|--|--|--|--|
-| 이미지 | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="회사 수준 모델입니다."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="엔터프라이즈 수준 모델입니다."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="SMB 수준 모델입니다."::: |
-| 모델 | HPE 프로라이언트 DL360 | HPE 프로라이언트 DL20 | HPE 프로라이언트 DL20 |
-| 포트 모니터링 | 최대 15 개의 RJ45 또는 8 옵트인 | 최대 8 개 RJ45 또는 6 옵트인 | 4 RJ45 |
-| 최대 대역폭 [1](#anchortext) | 초당 3gb | 초당 1gb | 초당 200 Mb |
-| 최대 보호 장치 | 30,000 | 15,000 | 1,000 |
+| 배포 유형 | 회사 | 엔터프라이즈 | SMB 랙 탑재| SMB 견고한|
+|--|--|--|--|--|
+| 이미지 | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="회사 수준 모델입니다."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="엔터프라이즈 수준 모델입니다."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="SMB 수준 모델입니다."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="SMB 견고한 수준 모델입니다."::: |
+| 모델 | HPE 프로라이언트 DL360 | HPE 프로라이언트 DL20 | HPE 프로라이언트 DL20 | HPE EL300 |
+| 포트 모니터링 | 최대 15 개의 RJ45 또는 8 옵트인 | 최대 8 개 RJ45 또는 6 옵트인 | 4 RJ45 | 최대 5 |
+| 최대 대역폭 [1](#anchortext) | 3 g b/초 | 1 g b/초 | 200 m b/초 | 100 m b/초 |
+| 최대 보호 장치 | 30,000 | 15,000 | 1,000 | 800 |
 
 공급 업체 세부 정보는 [어플라이언스 사양](#appliance-specifications) 을 참조 하세요.
 
@@ -60,7 +60,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 이 섹션에서는 사용할 수 있는 가상 센서의 개요를 제공 합니다.
 
-| 배포 유형 | 회사 | Enterprise | SMB |
+| 배포 유형 | 회사 | 엔터프라이즈 | SMB |
 |--|--|--|--|
 | 최대 대역폭 | 2.5 g b/초 | 800 m b/초 | 160 m b/초 |
 | 최대 보호 장치 | 30,000 | 10000 | 2,500 |
@@ -69,7 +69,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 관리 콘솔은 가상 배포로 사용할 수 있습니다.
 
-| 배포 유형 | Enterprise |
+| 배포 유형 | 엔터프라이즈 |
 |--|--|
 | 어플라이언스 유형 | HPE DL20, VM |
 | 관리 센서 수 | 최대 300 |
@@ -100,7 +100,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon 실버 4215 R 3.2 GHz, 11M 캐시, 8c/16T, 130 W |
 | 칩셋은 | Intel C621 |
 | 메모리 | 32 GB = 2 x 16gb 2666MT/s DDR4 ECC UDIMM |
-| Storage | Hot-Plug 하드 드라이브-RAID 5의 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) |
+| 스토리지 | Hot-Plug 하드 드라이브-RAID 5의 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720<br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 두 개의 후면 USB 3.0<br>전면 USB 2.0 하나<br>단일 내부 USB 3.0 |
@@ -109,7 +109,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
 
-| PN | Description | 수량 |
+| PN | 설명 | 수량 |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | 유럽-다국어 지역화 | 1 |
@@ -136,7 +136,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W |
 | 칩셋은 | Intel C242 |
 | 메모리 | 2 x 16gb 듀얼 랭크 x8 DDR4-2666 |
-| Storage | 3 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 5 (스마트 배열 P408i)-SR 컨트롤러 |
+| 스토리지 | 3 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 5 (스마트 배열 P408i)-SR 컨트롤러 |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
@@ -171,7 +171,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 프로세서 | Intel Xeon E-2224, 3.4 GHz, 4C, 71 W |
 | 칩셋은 | Intel C242 |
 | 메모리 | 1 x 8gb 듀얼 랭크 x8 DDR4-2666 |
-| Storage | 2 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 1 (스마트 배열 P208i 포함) |
+| 스토리지 | 2 x 1TB SATA 6G 중간 7.2 K SFF (2.5 in) – RAID 1 (스마트 배열 P208i 포함) |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
@@ -180,7 +180,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
 
-| PN | Description | 수량 |
+| PN | 설명 | 수량 |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -195,24 +195,63 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 512485-B21 | HPE iLO 고급 1-서버 라이선스 1 년 지원 | 1 |
 | 775612-B21 | HPE 1U 짧은 마찰 레일 키트 | 1 |
 
+## <a name="smb-rugged-hpe-edgeline-el300"></a>SMB 견고한: HPE Edgeline EL300
+
+| 구성 요소 | 기술 사양 |
+|--|--|
+| 건설 | 알루미늄, Fanless & 먼지 (저해상도 디자인) |
+| 차원 (높이 x 너비 x 깊이) | 200.5 mm (7.9 ") 높이, 232mm (9.14") 너비 x 100mm (3.9 ") 심층 |
+| 무게 | 4.91 KG (10.83.) |
+| CPU | Intel Core i7-8650U (1.9 g b/4-코어/15W) |
+| 칩셋은 | Intel® Q170 Platform Controller Hub |
+| 메모리 | 8GB DDR4 2133MHz Wide 온도 SODIMM |
+| 스토리지 | 128GB 3ME3 와이드 온도 mSATA SSD |
+| 네트워크 컨트롤러 | Intel® I219의 6x 기가 비트 이더넷 포트 |
+| 장치 액세스  | 4 USBs: 2 면 2 rears; 1 내부 |
+| 전원 어댑터 | 250V/10A |
+| 장착 | 탑재 키트, Din 레일 |
+| 운영 온도 | 0C + 70C  |
+| 습도 | 10% ~ 90%, 비응축 없음 |
+| Vibration | 0.3 grms 10Hz에서 300Hz, 축 당 15 분-Din 레일   |
+| 충격 | 각 축에 대 한 10G 10ms, 반자, 3 (긍정 & 부정 펄스) – Din 레일 |
+
+### <a name="appliance-bom"></a>어플라이언스 BOM
+| 제품 | 설명 |
+|--|--|
+| P25828-B21 | HPE Edgeline EL300 v2 수렴 형 시스템 |
+| P25828-B21 B19 | HPE EL300 v2 수렴 형 시스템 |
+| P25833-B21 | Intel Core i7-8650U (1.9 g b/4-코어/15W) FIO HPE Edgeline EL300 용 FIO 기본 프로세서 키트 |
+| P09176-B21 | HPE Edgeline 8GB (1x8GB) 듀얼 랭크 x8 DDR4-2666 SODIMM WT CAS-19-19-19 등록 된 메모리 FIO 키트 |
+| P09188-B21 | HPE Edgeline 256GB SATA 6G 읽기 집약적 M. 2 2242 3yr Wty Wide Temp SSD |
+| P04054-B21 | HPE Edgeline EL300 SFF to M. 2 활성화 키트 |
+| P08120-B21 | HPE Edgeline EL300 12VDC FIO 전송 보드 |
+| P08641-B21 | HPE Edgeline EL300 80W 12VDC 전원 공급 장치 |
+| AF564A | HPE C13-SI-32 IL 250V 10Amp 1.83 m 전원 코드 |
+| P25835-B21 | HPE EL300 v2 FIO 캐리어 보드 |
+| R1P49AAE | HPE EL300 iSM 고급 3yr 연중 무휴 Sup_Upd E-LTU |
+| P08018-B21 선택 사항 | HPE Edgeline EL300 Low Profile 대괄호 키트  |
+| P08019-B21 선택 사항 | HPE Edgeline EL300 DIN 레일 탑재 키트 |
+| P08020-B21 선택 사항 | HPE Edgeline EL300 Wall 탑재 키트 |
+| P03456-B21 선택 사항 | HPE Edgeline 1GbE 4-포트 TSN FIO 부속 카드 |
+
 ## <a name="virtual-appliance-specifications"></a>가상 어플라이언스 사양
 
 ### <a name="sensors"></a>센서
 
-| 형식 | 회사 | Enterprise | SMB |
+| 유형 | 회사 | 엔터프라이즈 | SMB |
 |--|--|--|--|
 | vCPU | 32 | 8 | 4 |
 | 메모리 | 32GB | 32GB | 8GB |
-| Storage | 5.6 TB | 1.8 TB | 500GB |
+| 스토리지 | 5.6 TB | 1.8 TB | 500GB |
 
 ### <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 
-| 형식 | Enterprise |
+| 유형 | 엔터프라이즈 |
 |--|--|
-| Description | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
+| 설명 | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
 | vCPU | 8 |
 | 메모리 | 32GB |
-| Storage | 1.8 TB |
+| 스토리지 | 1.8 TB |
 
 지원 되는 하이퍼바이저: VMware ESXi 버전 5.0 이상, Hyper-v
 
@@ -220,7 +259,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 이 섹션에서는 Microsoft에서 인증 했지만 미리 구성 된 어플라이언스로 제공 되지 않는 추가 어플라이언스에 대해 자세히 설명 합니다.
 
-| 배포 유형 | Enterprise |
+| 배포 유형 | 엔터프라이즈 |
 |--|--|
 | 이미지 | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="엔터프라이즈 배포 유형입니다."::: |
 | 모델 | Dell PowerEdge R340 XL |
@@ -238,13 +277,13 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 | 구성 요소 | 기술 사양 |
 |--|--|
-| 섀시 | 1U 랙 서버 |
+| 섀시 | 1U 랙 서버
 | 차원 | 42.8 x 434.0 x 596 (mm)/1.67 "x 17.09" x 23.5 "(에서) |
 | 무게 | 최대 29.98 lb/13.6 kg |
 | 프로세서 | Intel Xeon E-2144G 3.6 g h z, 8M cache, 4C/8T, 터보 (71 W) |
 | 칩셋은 | Intel C246 |
 | 메모리 | 32 GB = 2 x 16gb 2666MT/s DDR4 ECC UDIMM |
-| Storage | 3 x 2tb 7.2 K RPM SATA 6-Gbps 512n 3.5-Hot-Plug 하드 드라이브-RAID 5 |
+| 스토리지 | 3 x 2tb 7.2 K RPM SATA 6-Gbps 512n 3.5-Hot-Plug 하드 드라이브-RAID 5 |
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720 <br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | iDRAC 9 Enterprise |
 | 장치 액세스 | 두 개의 후면 USB 3.0 <br> 전면 USB 3.0 하나 |
@@ -260,3 +299,4 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 [IoT 설치용 Azure Defender 정보](how-to-install-software.md)
 
 [Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)
+

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 2c86086a636ea667cff4fc8a853c4ef20fa6ae04
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041844"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199155"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -41,7 +41,7 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
 * 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.
 * VM 이미지만 지원 합니다. 컨테이너는 공식 배포판 게시자 이미지에서 파생 된 컨테이너를 포함 하 여 지원 되지 않습니다.
 * 새 AMI 버전은 지원되지 않습니다.  
-* 기본적으로 SSL 1.x를 실행하는 버전만 지원됩니다.
+* 기본적으로 OpenSSL 1.x를 실행 하는 버전만 지원 됩니다.
 
 >[!NOTE]
 >현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
@@ -189,7 +189,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 다음은 그 예입니다.  
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들면 다음과 같습니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

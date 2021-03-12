@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915711"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632087"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자에 대해 MFA 필요
 
@@ -56,7 +56,7 @@ ms.locfileid: "97915711"
 1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
-   1. **포함** 아래에서 **디렉터리 역할 (미리 보기)** 을 선택 하 고 최소한 다음 역할을 선택 합니다.
+   1. **포함** 아래에서 **디렉터리 역할** 을 선택 하 고 다음과 같은 기본 제공 역할을 선택 합니다.
       * 인증 관리자
       * 대금 청구 관리자
       * 조건부 액세스 관리자
@@ -69,12 +69,11 @@ ms.locfileid: "97915711"
       * 사용자 관리자
    
       > [!WARNING]
-      > 조건부 액세스 정책은 사용자 [지정 역할](../roles/custom-create.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../roles/admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
+      > 조건부 액세스 정책은 기본 제공 역할을 지원 합니다. 조건부 액세스 정책은 [관리 단위 범위](../roles/admin-units-assign-roles.md) 또는 [사용자 지정 역할](../roles/custom-create.md)을 비롯 한 다른 역할 유형에는 적용 되지 않습니다.
 
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함** 에서 **모든 클라우드 앱** 을 선택하고 **완료** 를 선택합니다.
-1. **조건**  >  **클라이언트 앱** 에서 **구성** 을 **예** 로 전환 하 고 **클라이언트 앱 선택** 에서 모든 기본값을 선택 된 채로 두고 **완료** 를 선택 합니다.
 1. **액세스 제어** > **권한 부여** 에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택** 을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
 1. **만들기** 를 선택하여 정책을 만들어 사용하도록 설정합니다.

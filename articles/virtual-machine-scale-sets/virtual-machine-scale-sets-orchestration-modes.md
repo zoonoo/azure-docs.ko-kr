@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521750"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225033"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대 한 오케스트레이션 모드 
 
@@ -97,7 +97,7 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 ## <a name="a-comparison-of-flexible-uniform-and-availability-sets"></a>유연 하 고 일관 되며 가용성 집합의 비교 
 다음 표에서는 유연성 있는 오케스트레이션 모드, 균일 오케스트레이션 모드 및 해당 기능에 대 한 가용성 집합을 비교 합니다.
 
-| 기능 | 유연한 오케스트레이션에 서 지원 됨 (미리 보기) | 단일 오케스트레이션에 서 지원 됩니다 (일반 공급). | AvSets에서 지원 됩니다 (일반 공급). |
+| 특징 | 유연한 오케스트레이션에 서 지원 됨 (미리 보기) | 단일 오케스트레이션에 서 지원 됩니다 (일반 공급). | AvSets에서 지원 됩니다 (일반 공급). |
 |-|-|-|-|
 |         가상 머신 유형  | 표준 Azure IaaS VM (/virtualmachines)  | 확장 집합 특정 Vm (/virtualmachinescalesets/virtualmachines)  | 표준 Azure IaaS VM (/virtualmachines)  |
 |         지원되는 SKU  |            D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD  |            모든 Sku  |            모든 Sku  |
@@ -106,7 +106,7 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         자동 크기 조정  |            아니요  |            예  |            아니요  |
 |         특정 장애 도메인에 VM 할당  |            예  |             아니요   |            아니요  |
 |         VM 인스턴스를 삭제할 때 Nic 및 디스크 제거  |            아니요  |            예  |            아니요  |
-|         업그레이드 정책 (VM 크기 집합) |            No  |            자동, 롤링, 수동  |            해당 없음  |
+|         업그레이드 정책 (VM 크기 집합) |            아니요  |            자동, 롤링, 수동  |            해당 없음  |
 |         자동 OS 업데이트 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
 |         게스트 보안 패치  |            예  |            아니요  |            예  |
 |         알림 종료 (VM 크기 집합) |            아니요  |            예  |            해당 없음  |
@@ -115,8 +115,8 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         스폿 인스턴스 및 가격   |            예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다.  |            예, 인스턴스는 모두 스폿 이거나 모두 정상 이어야 합니다.  |            아니요, 일반 우선 순위 인스턴스만  |
 |         운영 체제 혼합  |            예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |            아니요, 인스턴스는 동일한 운영 체제입니다.  |               예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |
 |         응용 프로그램 상태 모니터링  |            응용 프로그램 상태 확장  |            응용 프로그램 상태 확장 또는 Azure 부하 분산 장치 프로브  |            응용 프로그램 상태 확장  |
-|         디스크 UltraSSD   |            Yes  |            예, 영역 배포에만 해당  |            No  |
-|         Infiniband   |            No  |            예, 단일 배치 그룹만  |            Yes  |
+|         디스크 UltraSSD   |            Yes  |            예, 영역 배포에만 해당  |            아니요  |
+|         Infiniband   |            아니요  |            예, 단일 배치 그룹만  |            Yes  |
 |         쓰기 가속기   |            아니요  |            예  |            예  |
 |         근접 배치 그룹   |            예  |            예  |            예  |
 |         Azure 전용 호스트   |            아니요  |            예  |            예  |
@@ -128,12 +128,22 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         Azure Alerts  |            아니요  |            예  |            예  |
 |         VM 인사이트  |            아니요  |            예  |            예  |
 |         Azure Backup  |            예  |            예  |            예  |
-|         Azure Site Recovery  |            아니요  |            아니요  |            예  |
+|         Azure Site Recovery  |     아니요  |            아니요  |            예  |
 |         그룹에 기존 VM 추가/제거  |            아니요  |            아니요  |            아니요  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>유연한 오케스트레이션 모드 등록
 유연한 오케스트레이션 모드로 가상 머신 확장 집합을 배포 하려면 먼저 미리 보기 기능에 대 한 구독을 등록 해야 합니다. 등록을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 다음 Azure PowerShell 또는 Azure CLI 명령을 사용 하 여 등록할 수 있습니다.
+
+### <a name="azure-portal"></a>Azure Portal
+유연한 오케스트레이션 모드로 크기 집합을 만들려는 구독에 대 한 세부 정보 페이지로 이동 하 고 메뉴에서 미리 보기 기능을 선택 합니다. 사용 하도록 설정할 두 orchestrator 기능 ( _VMOrchestratorSingleFD_ 및 _VMOrchestratorMultiFD_)을 선택 하 고 등록 단추를 누릅니다. 기능 등록에는 최대 15 분이 걸릴 수 있습니다.
+
+![기능 등록.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다. 구독에 대 한 리소스 공급자 탭으로 이동 하 고, Microsoft compute를 선택 하 고, 다시 등록을 클릭 합니다.
+
+![다시 등록](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 [AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet을 사용 하 여 구독에 대 한 미리 보기를 사용 하도록 설정 합니다. 

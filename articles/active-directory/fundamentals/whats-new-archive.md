@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a555d2813030daeca1f2abcdc4b7787444bd0614
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 74bfd0fe8cf1d26ccf96a8a27985e456b4e0e67c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453022"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633481"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -2106,7 +2106,7 @@ Azure AD 포털에서 향상된 그룹 관련 환경을 공개 미리 보기로 
 새 프로비저닝 로그를 통해 사용자 및 그룹 프로비저닝 배포를 모니터링하고 문제를 해결할 수 있습니다. 이러한 새 로그 파일에는 다음 정보가 포함됩니다.
 
 - [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)에서 성공적으로 생성된 그룹
-- [AWS(Amazon Web Services)](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-amazon-web-services-aws)에서 가져온 역할
+- [AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-aws-single-account-access) 에서 가져온 역할
 - [Workday](../saas-apps/workday-inbound-tutorial.md)에서 가져오지 않은 직원
 
 자세한 내용은 [Azure Active Directory 포털의 프로비저닝 보고서(미리 보기)](../reports-monitoring/concept-provisioning-logs.md)를 참조하세요.

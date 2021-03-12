@@ -4,17 +4,17 @@ description: Blob 데이터에 액세스할 수 있도록 보관 저장소에서
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165674"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225084"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층의 Blob 데이터 리하이드레이션
 
@@ -29,6 +29,10 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>수명 주기 관리
+
+리하이드레이션 blob는 시간을 변경 하지 않습니다 `Last-Modified` . [수명 주기 관리](storage-lifecycle-management-concepts.md) 기능을 사용 하 여 blob이 이동 되는 시나리오를 만들 수 있습니다 `Last-Modified` . 시간이 정책에 대해 설정 된 임계값을 초과 하기 때문에 수명 주기 관리 정책에서 blob을 보관으로 다시 이동 합니다. 이 시나리오를 방지 하려면 *[온라인 계층 메서드에 보관 된 Blob 복사](#copy-an-archived-blob-to-an-online-tier)* 를 사용 합니다. Copy 메서드는 업데이트 된 시간을 사용 하 여 blob의 새 인스턴스를 만들고 `Last-Modified` 수명 주기 관리 정책을 트리거하지 않습니다.
+
 ## <a name="monitor-rehydration-progress"></a>리하이드레이션 진행률 모니터링
 
 리하이드레이션 하는 동안 blob 속성 가져오기 작업을 사용 하 여 **보관 상태** 특성을 확인 하 고 계층 변경이 완료 되 면 확인 합니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다.
@@ -42,7 +46,7 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주
 > [!IMPORTANT]
 > 대상에서 복사가 성공적으로 완료될 때까지 원본 Blob을 삭제하지 마세요. 원본 Blob이 삭제된 경우 대상 Blob은 복사를 완료하지 못할 수 있으며 비어 있게 됩니다. *x-ms-copy-status* 를 확인하여 복사 작업의 상태를 확인할 수 있습니다.
 
-보관 Blob은 동일한 스토리지 계정 내에서 온라인 대상 계층으로만 복사할 수 있습니다. 보관 Blob을 다른 보관 Blob에 복사하는 것은 지원되지 않습니다. 다음 표는 CopyBlob의 기능을 나타냅니다.
+보관 Blob은 동일한 스토리지 계정 내에서 온라인 대상 계층으로만 복사할 수 있습니다. 보관 Blob을 다른 보관 Blob에 복사하는 것은 지원되지 않습니다. 다음 표에서는 **Blob 복사** 작업의 기능을 보여 줍니다.
 
 |                                           | **핫 계층 원본**   | **쿨 계층 원본** | **보관 계층 원본**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

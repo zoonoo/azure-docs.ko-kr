@@ -11,26 +11,22 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 300df35918ea4868664fcb7c5882709eee4090ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582893"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008005"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
 웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법을 알아봅니다.
 
-## <a name="msal-libraries-that-support-daemon-apps"></a>디먼 앱을 지 원하는 MSAL 라이브러리
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>디먼 앱을 지 원하는 Microsoft 라이브러리
 
-이러한 Microsoft 라이브러리는 디먼 앱을 지원 합니다.
+다음 Microsoft 라이브러리는 디먼 앱을 지원 합니다.
 
-  MSAL 라이브러리 | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼은 디먼 응용 프로그램을 빌드할 때 지원 됩니다. (UWP, Xamarin.ios 및 Xamarin.ios는 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되기 때문에 지원 되지 않습니다.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Python에서 디먼 응용 프로그램 지원.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Java에서 데몬 응용 프로그램 지원.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## <a name="configure-the-authority"></a>인증 기관 구성
 
@@ -261,7 +257,7 @@ ConfidentialClientApplication cca =
                 .build();
 ```
 
-or
+또는
 
 ```Java
 PrivateKey key = getPrivateKey(); /* RSA private key to sign the assertion */
