@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 372efa217e400ffd4bcecd286f3c3dc7b81f64d6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756563"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007970"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱: 코드 구성
 
 이제 응용 프로그램을 만들었으므로 응용 프로그램 좌표를 사용 하 여 코드를 구성 하는 방법을 배웁니다.
 
-## <a name="microsoft-authentication-libraries"></a>Microsoft 인증 라이브러리
+## <a name="microsoft-libraries-supporting-desktop-apps"></a>데스크톱 앱을 지 원하는 Microsoft 라이브러리
 
-다음 MSALs (Microsoft 인증 라이브러리)는 데스크톱 응용 프로그램을 지원 합니다.
+다음 Microsoft 라이브러리는 데스크톱 앱을 지원 합니다.
 
-  Microsoft 인증 라이브러리 | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Linux, Windows 및 macOS와 같은 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있도록 지원 합니다.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | MacOS 에서만 실행 되는 데스크톱 응용 프로그램을 지원 합니다.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## <a name="public-client-application"></a>퍼블릭 클라이언트 애플리케이션
 

@@ -3,15 +3,15 @@ title: 세션 호스트 Azure Automation 크기 조정 - Azure
 description: Azure Automation을 사용하여 Windows Virtual Desktop 세션 호스트 크기를 자동으로 조정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078557"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613122"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
 
@@ -34,14 +34,14 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 사용량이 많은 시간에는 이 작업이 각 호스트 풀에 대해 현재 세션 수와 현재 실행 중인 세션 호스트의 VM 용량을 확인합니다. 이 정보를 사용 하 여 실행 중인 세션 호스트 Vm이 **CreateOrUpdateAzLogicApp.ps1** 파일에 대해 정의 된 *SessionThresholdPerCPU* 매개 변수를 기반으로 기존 세션을 지원할 수 있는지 여부를 계산 합니다. 세션 호스트 VM이 기존 세션을 지원할 수 없는 경우 작업은 호스트 풀에서 추가 세션 호스트 VM을 시작합니다.
 
 >[!NOTE]
->*SessionThresholdPerCPU*는 VM의 세션 수를 제한하지 않습니다. 이 매개 변수는 연결의 부하를 분산하기 위해 새 VM을 시작해야 하는 시점만 결정합니다. 세션 수를 제한 하려면 [AzWvdHostPool](configure-host-pool-load-balancing.md#configure-breadth-first-load-balancing) 지침에 따라 *MaxSessionLimit* 매개 변수를 구성 해야 합니다.
+>*SessionThresholdPerCPU* 는 VM의 세션 수를 제한하지 않습니다. 이 매개 변수는 연결의 부하를 분산하기 위해 새 VM을 시작해야 하는 시점만 결정합니다. 세션 수를 제한 하려면 [AzWvdHostPool](configure-host-pool-load-balancing.md#configure-breadth-first-load-balancing) 지침에 따라 *MaxSessionLimit* 매개 변수를 구성 해야 합니다.
 
 사용량이 많지 않은 사용 시간 중에는 작업에 사용 되는 세션 호스트 *vm의 수* 를 결정 합니다. *LimitSecondsToForceLogOffUser* 매개 변수를 0이 아닌 양수 값으로 설정 하는 경우 작업은 세션 호스트 vm을 드레이닝 모드로 설정 하 여 새 세션이 호스트에 연결 되지 않도록 합니다. 작업은 현재 로그인 한 사용자에 게 작업을 저장 하도록 알리고 구성 된 시간을 기다린 후 사용자에 게 강제로 로그 아웃 합니다. 세션 호스트 VM의 모든 사용자 세션이 로그 아웃 되 면 작업에서 VM이 종료 됩니다. VM이 종료 되 면 작업은 세션 호스트 드레이닝 모드를 다시 설정 합니다.
 
 >[!NOTE]
 >세션 호스트 VM을 드레이닝 모드로 수동으로 설정 하면 작업에서 세션 호스트 VM을 관리 하지 않습니다. 세션 호스트 VM이 실행 중이 고 드레이닝 모드로 설정 된 경우 사용할 수 없는 것으로 처리 됩니다. 그러면 작업에서 부하를 처리 하기 위해 추가 Vm을 시작 하 게 됩니다. 수동으로 드레이닝 모드로 설정 하기 전에 Azure Vm에 태그를 설정 하는 것이 좋습니다. 나중에 Azure 논리 앱 스케줄러를 만들 때 *MaintenanceTagName* 매개 변수를 사용 하 여 태그의 이름을 지정할 수 있습니다. 태그는 이러한 Vm을 크기 조정 도구에서 관리 하는 것과 구별 하는 데 도움이 됩니다. 유지 관리 태그를 설정 하면 확장 도구가 태그를 제거할 때까지 VM을 변경 하지 못하게 됩니다.
 
-*LimitSecondsToForceLogOffUser* 매개 변수를 0으로 설정 하면 작업에서 지정 된 그룹 정책의 세션 구성 설정을 사용 하 여 사용자 세션 로그 오프를 처리할 수 있습니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **세션 시간 제한**으로 이동 합니다. 세션 호스트 VM에 활성 세션이 있으면 작업이 세션 호스트 VM을 실행 상태로 유지합니다. 활성 세션이 없으면 작업에서 세션 호스트 VM이 종료 됩니다.
+*LimitSecondsToForceLogOffUser* 매개 변수를 0으로 설정 하면 작업에서 지정 된 그룹 정책의 세션 구성 설정을 사용 하 여 사용자 세션 로그 오프를 처리할 수 있습니다. 이러한 그룹 정책을 보려면 **컴퓨터 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **세션 시간 제한** 으로 이동 합니다. 세션 호스트 VM에 활성 세션이 있으면 작업이 세션 호스트 VM을 실행 상태로 유지합니다. 활성 세션이 없으면 작업에서 세션 호스트 VM이 종료 됩니다.
 
 언제 든 지 작업은 호스트 풀의 *MaxSessionLimit* 을 고려 하 여 현재 세션 수가 최대 용량 중 90%를 초과 하는지 확인 합니다. 인 경우 작업에서 추가 세션 호스트 Vm이 시작 됩니다.
 
@@ -52,6 +52,9 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 - 이 솔루션은 풀링된 다중 세션 세션 호스트 Vm에만 적용 됩니다.
 - 이 솔루션은 모든 지역에서 Vm을 관리 하지만 Azure Automation 계정 및 Azure 논리 앱과 동일한 구독 에서만 사용할 수 있습니다.
 - Runbook의 최대 작업 런타임은 3 시간입니다. 호스트 풀에서 Vm을 시작 하거나 중지 하는 데 시간이 더 오래 걸리면 작업이 실패 합니다. 자세한 내용은 [공유 리소스](../automation/automation-runbook-execution.md#fair-share)를 참조 하세요.
+- 크기 조정 알고리즘이 제대로 작동 하려면 하나 이상의 VM 또는 세션 호스트를 설정 해야 합니다.
+- 크기 조정 도구는 CPU 또는 메모리에 따라 크기 조정을 지원 하지 않습니다.
+- 크기 조정은 호스트 풀의 기존 호스트와만 작동 합니다. 크기 조정 도구는 새 세션 호스트의 크기 조정을 지원 하지 않습니다.
 
 >[!NOTE]
 >크기 조정 도구는 현재 크기를 조정 하는 호스트 풀의 부하 분산 모드를 제어 합니다. 이 도구는 최고 및 사용률이 낮은 시간 모두에 대해 너비 우선 부하 분산 모드를 사용 합니다.
@@ -124,7 +127,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
     >[!div class="mx-imgBorder"]
     >![새로 만든 Azure Automation 계정과 runbook을 보여 주는 Azure 개요 페이지의 이미지입니다.](media/automation-account.png)
 
-    웹후크가 제자리에 있는지 확인하려면 Runbook의 이름을 선택합니다. 그런 다음 Runbook의 리소스 섹션으로 이동하여 **웹후크**를 선택합니다.
+    웹후크가 제자리에 있는지 확인하려면 Runbook의 이름을 선택합니다. 그런 다음 Runbook의 리소스 섹션으로 이동하여 **웹후크** 를 선택합니다.
 
 ## <a name="create-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 만들기
 
@@ -136,17 +139,17 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Automation 계정**을 입력 하 고 선택 합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **Automation 계정** 을 입력 하 고 선택 합니다.
 
 2. **Automation 계정** 페이지에서 Azure Automation 계정의 이름을 선택 합니다.
 
 3. 창의 왼쪽 창에서 **계정 설정** 섹션 아래에 있는 **실행 계정** 을 선택 합니다.
 
-4. **Azure 실행 계정**을 선택 합니다. **Azure 실행 계정 추가** 창이 나타나면 개요 정보를 검토 한 다음 **만들기** 를 선택 하 여 계정 만들기 프로세스를 시작 합니다.
+4. **Azure 실행 계정** 을 선택 합니다. **Azure 실행 계정 추가** 창이 나타나면 개요 정보를 검토 한 다음 **만들기** 를 선택 하 여 계정 만들기 프로세스를 시작 합니다.
 
 5. Azure가 실행 계정을 만드는 동안 몇 분 정도 기다립니다. 알림 아래에 있는 메뉴에서 만들기 진행률을 추적할 수 있습니다.
 
-6. 프로세스가 완료 되 면 지정 된 Azure Automation 계정에 **AzureRunAsConnection** 라는 자산이 생성 됩니다. **Azure 실행 계정**을 선택 합니다. 이 연결 자산은 애플리케이션 ID, 테넌트 ID, 구독 ID 및 인증서 지문을 보유합니다. **연결** 페이지에서 동일한 정보를 찾을 수도 있습니다. 이 페이지로 이동 하려면 창의 왼쪽 창에서 **공유 리소스** 섹션 아래에 있는 **연결** 을 선택 하 고 **AzureRunAsConnection**라는 연결 자산을 클릭 합니다.
+6. 프로세스가 완료 되 면 지정 된 Azure Automation 계정에 **AzureRunAsConnection** 라는 자산이 생성 됩니다. **Azure 실행 계정** 을 선택 합니다. 이 연결 자산은 애플리케이션 ID, 테넌트 ID, 구독 ID 및 인증서 지문을 보유합니다. **연결** 페이지에서 동일한 정보를 찾을 수도 있습니다. 이 페이지로 이동 하려면 창의 왼쪽 창에서 **공유 리소스** 섹션 아래에 있는 **연결** 을 선택 하 고 **AzureRunAsConnection** 라는 연결 자산을 클릭 합니다.
 
 ## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Azure Logic App 및 실행 일정 만들기
 
@@ -257,14 +260,14 @@ Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니
 
 Runbook을 열고 작업을 선택 하 여 스케일 아웃 및 규모 확장 작업의 로그를 볼 수 있습니다.
 
-Azure Automation 계정을 호스트 하는 리소스 그룹에서 runbook으로 이동 하 고 **개요**를 선택 합니다. 다음 그림에 표시 된 것 처럼 개요 페이지에서 **최근 작업** 아래의 작업을 선택 하 여 크기 조정 도구 출력을 볼 수 있습니다.
+Azure Automation 계정을 호스트 하는 리소스 그룹에서 runbook으로 이동 하 고 **개요** 를 선택 합니다. 다음 그림에 표시 된 것 처럼 개요 페이지에서 **최근 작업** 아래의 작업을 선택 하 여 크기 조정 도구 출력을 볼 수 있습니다.
 
 >[!div class="mx-imgBorder"]
 >![크기 조정 도구의 출력 창 이미지.](media/tool-output.png)
 
 ### <a name="check-the-runbook-script-version-number"></a>Runbook 스크립트 버전 번호를 확인 합니다.
 
-Azure Automation 계정에서 runbook 파일을 열고 **보기**를 선택 하 여 사용 중인 runbook 스크립트 버전을 확인할 수 있습니다. Runbook에 대 한 스크립트가 화면 오른쪽에 표시 됩니다. 스크립트의 섹션 아래 형식에서 버전 번호가 표시 됩니다 `v#.#.#` `SYNOPSIS` . [여기](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/ARM_based/basicScale.ps1#L1)에서 최신 버전 번호를 찾을 수 있습니다. Runbook 스크립트에 버전 번호가 표시 되지 않는 경우이는 이전 버전의 스크립트를 실행 하는 것 이며,이를 즉시 업데이트 해야 합니다. Runbook 스크립트를 업데이트 해야 하는 경우 [Azure Automation 계정 만들기 또는 업데이트](#create-or-update-an-azure-automation-account)의 지침을 따르세요.
+Azure Automation 계정에서 runbook 파일을 열고 **보기** 를 선택 하 여 사용 중인 runbook 스크립트 버전을 확인할 수 있습니다. Runbook에 대 한 스크립트가 화면 오른쪽에 표시 됩니다. 스크립트의 섹션 아래 형식에서 버전 번호가 표시 됩니다 `v#.#.#` `SYNOPSIS` . [여기](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/ARM_based/basicScale.ps1#L1)에서 최신 버전 번호를 찾을 수 있습니다. Runbook 스크립트에 버전 번호가 표시 되지 않는 경우이는 이전 버전의 스크립트를 실행 하는 것 이며,이를 즉시 업데이트 해야 합니다. Runbook 스크립트를 업데이트 해야 하는 경우 [Azure Automation 계정 만들기 또는 업데이트](#create-or-update-an-azure-automation-account)의 지침을 따르세요.
 
 ### <a name="reporting-issues"></a>문제 보고
 
@@ -282,7 +285,7 @@ Azure Automation 계정에서 runbook 파일을 열고 **보기**를 선택 하 
     - OMSIngestionAPI
     - Az.DesktopVirtualization
 
-- [실행 계정](#create-an-azure-automation-run-as-account)에 대 한 만료 날짜입니다. 이를 찾으려면 Azure Automation 계정을 연 다음 창의 왼쪽 창에서 **계정 설정** 아래에 있는 **실행 계정** 을 선택 합니다. 만료 날짜는 **Azure 실행 계정**에 있어야 합니다.
+- [실행 계정](#create-an-azure-automation-run-as-account)에 대 한 만료 날짜입니다. 이를 찾으려면 Azure Automation 계정을 연 다음 창의 왼쪽 창에서 **계정 설정** 아래에 있는 **실행 계정** 을 선택 합니다. 만료 날짜는 **Azure 실행 계정** 에 있어야 합니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 

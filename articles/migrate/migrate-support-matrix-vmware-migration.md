@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705214"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614924"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -73,7 +73,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 **Ipv6)** | 지원되지 않습니다.
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 표준 SSD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **동시 복제** | vCenter Server 당 Vm 500 더 많은 경우 500의 일괄 처리로 마이그레이션합니다.
-**Azure VM 에이전트 자동 설치 (Windows 에이전트)** | Windows Server 2008 R2 이후부터 지원 됩니다.
+**Azure VM 에이전트 (Windows 및 Linux 에이전트)의 자동 설치** | Windows Server 2008 R2 이후부터 지원 됩니다. <br/> RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 지원 됩니다. 이러한 Linux 운영 체제에 대 한 [필수 패키지](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)의 목록을 검토 합니다.
 
 ### <a name="appliance-requirements-agentless"></a>어플라이언스 요구 사항 (에이전트 없는)
 
@@ -159,7 +159,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
 
 Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전트 또는 에이전트 기반 마이그레이션 사용)은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. 
 
-**구성 요소** | **요구 사항** 
+**구성 요소** | **Requirements** 
 --- | --- | ---
 게스트 운영 체제 | 마이그레이션에 대해 지원 되는 VMware VM 운영 체제를 확인 합니다.<br/> 지원 되는 운영 체제에서 실행 되는 모든 워크 로드를 마이그레이션할 수 있습니다. 
 게스트 운영 체제 아키텍처 | 64비트. 

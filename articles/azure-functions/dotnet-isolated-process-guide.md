@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613955"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199945"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -84,7 +84,12 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 <!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
+:::code language="csharp" 
+                .ConfigureAppConfiguration(c =>
+                {
+                    c.AddCommandLine(args);
+                })
+                :::
 
 The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
 및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
@@ -172,7 +177,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 기능/동작 |  In-process (.NET Core 3.1) | Out-of-process (.NET 5.0) |
 | ---- | ---- | ---- |
 | .NET 버전 | LTS (.NET Core 3.1) | 현재 (.NET 5.0) |
-| 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | 바인딩 확장 패키지 | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | 에서 [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
 | 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |

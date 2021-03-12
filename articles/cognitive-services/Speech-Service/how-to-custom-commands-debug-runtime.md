@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021799"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196922"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 실행 하는 경우 디버그 오류
 
@@ -28,7 +28,7 @@ ms.locfileid: "95021799"
 | 오류 코드 | 세부 정보 |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: 인증 오류가 발생 하 여 WebSocket을 업그레이드 하지 못했습니다. |
-| [1002](#error-1002)] | 상태 코드 ' 101 '이 필요한 경우 서버에서 상태 코드 ' 404 '을 반환 했습니다. |
+| [1002](#error-1002) | 상태 코드 ' 101 '이 필요한 경우 서버에서 상태 코드 ' 404 '을 반환 했습니다. |
 
 ### <a name="error-401"></a>오류 401
 - 클라이언트 응용 프로그램에 지정 된 지역이 사용자 지정 명령 응용 프로그램의 지역과 일치 하지 않습니다.
@@ -132,7 +132,7 @@ LUIS 인식기에서 입력을 인식 하는 동안 오류가 반환 되었습�
 ### <a name="error-while-rendering-the-template"></a>템플릿을 렌더링 하는 동안 오류가 발생 했습니다.
 정의 되지 않은 매개 변수는 음성 응답에 사용 됩니다. 
 
-### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>개체 참조가 개체의 인스턴스로 설정 되지 않았습니다.
+### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>개체 참조가 개체의 인스턴스로 설정되지 않음
 **클라이언트에 작업 보내기** 작업에 정의 된 JSON 페이로드에 빈 매개 변수가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

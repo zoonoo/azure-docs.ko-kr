@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581401"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014896"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -117,7 +117,6 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 >[!NOTE]
 >미리 보기 중에는 Windows 10 끝점에서 전체 데스크톱 연결만이 기능을 지원 합니다.
 
-
 ### <a name="enable-endpoint-protection"></a>Endpoint protection 사용
 
 알려진 악성 소프트웨어에서 배포를 보호 하려면 모든 세션 호스트에서 endpoint protection을 사용 하도록 설정 하는 것이 좋습니다. Windows Defender 바이러스 백신 또는 타사 프로그램을 사용할 수 있습니다. 자세히 알아보려면 [VDI 환경에서 Windows Defender 바이러스 백신 배포 가이드](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus)를 참조 하세요.
@@ -169,6 +168,52 @@ FSLogix 또는 VHD 파일을 탑재 하는 기타 솔루션과 같은 프로필 
 - 로컬 및 원격 파일 시스템에 액세스할 때 사용자에 게 제한 된 권한을 부여 합니다. 로컬 및 원격 파일 시스템에서 최소 권한으로 액세스 제어 목록을 사용 하도록 하 여 권한을 제한할 수 있습니다. 이러한 방식으로 사용자는 필요한 항목에만 액세스할 수 있으며 중요 한 리소스를 변경 하거나 삭제할 수 없습니다.
 
 - 세션 호스트에서 원치 않는 소프트웨어가 실행 되지 않도록 합니다. 세션 호스트에서 추가 보안을 위해 앱 보관을 사용 하도록 설정 하 여 허용 되는 앱만 호스트에서 실행 되도록 할 수 있습니다.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>신뢰할 수 있는 시작에 대 한 Windows 가상 데스크톱 지원
+
+신뢰할 수 있는 시작은 Azure Vm에서 Gen2, 부팅 키트, 커널 수준 맬웨어 등의 공격 벡터를 통해 "스택의 하단" 위협을 방지 하기 위한 향상 된 보안 기능을 제공 합니다. 다음은 Windows 가상 데스크톱에서 지원 되는 신뢰할 수 있는 시작의 향상 된 보안 기능입니다. 신뢰할 수 있는 시작에 대 한 자세한 내용은 [Azure virtual machines에 대 한 신뢰할 수 있는 시작 (미리 보기)](../virtual-machines/trusted-launch.md)을 참조 하세요.
+
+### <a name="secure-boot"></a>보안 부팅
+
+보안 부팅은 플랫폼 펌웨어에서 맬웨어 기반 루트킷 및 부팅 키트 로부터 펌웨어를 보호 하기 위해 지 원하는 모드입니다. 이 모드에서는 서명 된 Os 및 드라이버만 컴퓨터를 시작할 수 있습니다. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>원격 증명을 사용 하 여 부팅 무결성 모니터링
+
+원격 증명은 Vm의 상태를 확인 하는 좋은 방법입니다. 원격 증명은 측정 된 부팅 레코드가 존재 하 고 정품이 며 가상 신뢰할 수 있는 플랫폼 모듈 (vTPM)에서 시작 되는지 확인 합니다. 상태 검사는 플랫폼이 올바르게 시작 될 수 있는 암호화 확신을 제공 합니다. 
+
+### <a name="vtpm"></a>vTPM
+
+VTPM은 VM 당 TPM의 가상 인스턴스를 사용 하는, TPM (하드웨어 신뢰할 수 있는 플랫폼 모듈)의 가상화 된 버전입니다. vTPM은 VM의 전체 부팅 체인 (UEFI, OS, 시스템 및 드라이버)의 무결성 측정을 수행 하 여 원격 증명을 사용 하도록 설정 합니다. 
+
+Vm에서 원격 증명을 사용 하도록 vTPM을 설정 하는 것이 좋습니다. VTPM을 사용 하는 경우 미사용 데이터를 보호 하기 위해 전체 볼륨 암호화를 제공 하는 BitLocker 기능을 사용 하도록 설정할 수도 있습니다. VTPM을 사용 하는 모든 기능을 사용 하면 비밀이 특정 VM에 바인딩됩니다. 사용자가 풀링된 시나리오에서 Windows 가상 데스크톱 서비스에 연결 하면 호스트 풀의 모든 VM으로 사용자를 리디렉션할 수 있습니다. 기능을 디자인 하는 방법에 따라 영향을 줄 수 있습니다.
+
+>[!NOTE]
+>FSLogix 프로필 데이터를 저장 하는 특정 디스크를 암호화 하는 데 BitLocker를 사용 하면 안 됩니다.
+
+### <a name="virtualization-based-security"></a>가상화 기반 보안
+
+VBS (가상화 기반 보안)는 하이퍼바이저를 사용 하 여 OS에 액세스할 수 없는 안전한 메모리 영역을 만들고 격리 합니다. HVCI (Hypervisor-Protected 코드 무결성) 및 Windows Defender Credential Guard 모두 VBS를 사용 하 여 취약성 으로부터 향상 된 보호 기능을 제공 합니다. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Hypervisor-Protected 코드 무결성
+
+HVCI는 악성 또는 확인 되지 않은 코드의 삽입 및 실행에 대해 Windows 커널 모드 프로세스를 보호 하기 위해 VBS를 사용 하는 강력한 시스템 완화입니다.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+Windows Defender Credential Guard는 VBS를 사용 하 여 권한 있는 시스템 소프트웨어만 액세스할 수 있도록 암호를 격리 하 고 보호 합니다. 이렇게 하면 해시 전달 공격과 같은 자격 증명 및 자격 증명 도난 공격에 대 한 무단 액세스를 방지 합니다.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Windows 가상 데스크톱 환경에서 신뢰할 수 있는 시작 배포
+
+Windows 가상 데스크톱은 현재 호스트 풀 설정 프로세스 중에 신뢰할 수 있는 시작을 자동으로 구성 하는 것을 지원 하지 않습니다. Windows 가상 데스크톱 환경에서 신뢰할 수 있는 시작을 사용 하려면 신뢰할 수 있는 시작을 정상적으로 배포 하 고 원하는 호스트 풀에 가상 컴퓨터를 수동으로 추가 해야 합니다.
+
+## <a name="nested-virtualization"></a>중첩된 가상화
+
+다음 운영 체제는 Windows 가상 데스크톱에서 중첩 된 가상화 실행을 지원 합니다.
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise 다중 세션.
 
 ## <a name="next-steps"></a>다음 단계
 

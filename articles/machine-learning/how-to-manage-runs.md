@@ -12,29 +12,33 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d142c523862d61bf56723726be50cd6f095c5ee9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520339"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634787"
 ---
-# <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
+# <a name="start-monitor-and-track-runs"></a>실행 시작, 모니터링 및 추적 
 
 Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
 
 이 문서에서는 다음 작업의 예를 보여 줍니다.
 
 * 실행 성능을 모니터링 합니다.
+* 전자 메일 알림을 통해 실행 상태를 모니터링 합니다.
+* 태그를 만들고 실행을 찾습니다.
+* 실행 설명을 추가 합니다. 
+* 검색을 실행 합니다. 
 * 취소 또는 실패 실행.
 * 자식 실행을 만듭니다.
-* 태그를 만들고 실행을 찾습니다.
+ 
 
 > [!TIP]
 > Azure Machine Learning 서비스 및 연결 된 Azure 서비스를 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
 > 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈을 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 
@@ -50,7 +54,8 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     print(azureml.core.VERSION)
     ```
 
-* [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](/cli/azure/) 및 CLI 확장입니다.
+* [Azure Machine Learning에 대 한](reference-azure-machine-learning-cli.md) [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) 및 CLI 확장입니다.
+
 
 ## <a name="monitor-run-performance"></a>실행 성능 모니터링
 
@@ -96,7 +101,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
         이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
     
-        자세한 내용은 [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
+        자세한 내용은 [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
     
     2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
     
@@ -111,7 +116,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
         >
         > .Runconfig 파일 예제에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
-        자세한 내용은 [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
+        자세한 내용은 [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
 
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -162,7 +167,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
         이 명령은이 실험의 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
     
-        자세한 내용은 [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
+        자세한 내용은 [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
     
     * 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. 을 `runid` 실행 ID로 바꿉니다.
     
@@ -172,7 +177,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
         이 명령은 실행에 대 한 정보를 나열 하는 JSON 문서를 반환 합니다.
     
-        자세한 내용은 [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
+        자세한 내용은 [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show)를 참조 하세요.
     
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
@@ -192,6 +197,29 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     1. 실행 로그를 보려면 특정 실행을 선택 하 고 **출력 + 로그** 탭에서 실행에 대 한 진단 및 오류 로그를 확인할 수 있습니다.
     
     ---
+
+## <a name="monitor-the-run-status-by-email-notification"></a>전자 메일 알림으로 실행 상태 모니터링
+
+1. [Azure Portal](https://ms.portal.azure.com/)의 왼쪽 탐색 모음에서 **모니터** 탭을 선택 합니다. 
+
+1. **진단 설정** 을 선택 하 고 **+ 진단 설정 추가** 를 선택 합니다.
+
+    ![전자 메일 알림에 대 한 진단 설정 스크린샷](./media/how-to-manage-runs/diagnostic-setting.png)
+
+1. 진단 설정에서 
+    1. **범주 세부 정보** 에서 **Amlrunstatuschangedevent** 를 선택 합니다. 
+    1. **대상 세부 정보** 에서 **Log Analytics 작업 영역으로 보내기** 를 선택 하 고 **구독** 및 **Log Analytics 작업 영역** 을 지정 합니다. 
+
+    > [!NOTE]
+    > **Azure Log Analytics 작업 영역은** **Azure Machine Learning 서비스 작업 영역과** 는 다른 유형의 azure 리소스입니다. 해당 목록에 옵션이 없는 경우 [Log Analytics 작업 영역을 만들](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)수 있습니다. 
+    
+    ![전자 메일 알림을 저장할 위치](./media/how-to-manage-runs/log-location.png)
+
+1. **로그** 탭에서 **새 경고 규칙** 을 추가 합니다. 
+
+    ![새 경고 규칙](./media/how-to-manage-runs/new-alert-rule.png)
+
+1. [Azure Monitor를 사용 하 여 로그 경고를 만들고 관리 하는 방법을](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log)참조 하세요.
 
 ## <a name="run-description"></a>실행 설명 
 
@@ -253,7 +281,7 @@ Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정�
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    자세한 내용은 [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
+    자세한 내용은 [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update)를 참조 하십시오.
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
@@ -287,17 +315,17 @@ Azure Machine Learning에서 속성과 태그를 사용 하 여 중요 한 정�
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](/cli/azure/query-azure-cli)을 참조 하세요.
+    Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 Azure CLI 명령 출력](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조 하세요.
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
-    1. **모든 실행** 목록으로 이동 합니다.
+    특정 실행을 검색 하려면  **모든 실행** 목록으로 이동 합니다. 여기에는 두 가지 옵션이 있습니다.
     
-    1. 검색 표시줄을 사용 하 여 태그, 설명, 실험 이름 및 제출자 이름과 같은 실행 메타 데이터를 필터링 할 수 있습니다. 태그 필터를 사용 하 여 태그를 필터링 할 수도 있습니다. 
+    1. **필터 추가** 단추를 사용 하 고 태그에 필터를 선택 하 여 실행에 할당 된 태그를 기준으로 실행을 필터링 합니다. <br><br>
+    또는
     
-    ---
-
-
+    1. 실행 상태, 설명, 실험 이름 및 제출자 이름과 같은 실행 메타 데이터를 검색 하 여 신속 하 게 실행을 찾으려면 검색 표시줄을 사용 합니다. 
+    
 ## <a name="cancel-or-fail-runs"></a>취소 또는 실패 실행
 
 오류가 발생 하거나 실행을 완료 하는 데 시간이 너무 오래 걸리는 경우 실행을 취소할 수 있습니다.
@@ -331,7 +359,7 @@ CLI를 사용 하 여 실행을 취소 하려면 다음 명령을 사용 합니�
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-자세한 내용은 [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
+자세한 내용은 [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel)을 참조 하십시오.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 

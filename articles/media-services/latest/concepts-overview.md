@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b425cd9268b336a8926e4fad9cb1f288f4fe3e87
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2a1c0c0685ab5a908a89f4a43073f9f773cd58c3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897920"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632002"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services 용어 및 개념
 
@@ -26,10 +26,6 @@ ms.locfileid: "98897920"
 이 항목에서는 Azure Media Services 용어 및 개념에 대 한 간략 한 개요를 제공 합니다. 또한이 문서에서는 Media Services v3 개념 및 기능에 대해 자세히 설명 하는 문서에 대 한 링크도 제공 합니다.
 
 이 항목에서 설명 하는 기본 개념은 개발을 시작 하기 전에 검토 해야 합니다.
-
-> [!NOTE]
-> 현재 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 Media Services V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, 관리 하지 않고, [api에 액세스 하는 방법에 대 한 정보를 가져올](./access-api-howto.md)수 있습니다.
-> 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 04cc4f24f882f7e6d100e6e16a39905fa43e61c7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f52fbe9d1c97e5f9e333e71725ea1a5e6580b561
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655856"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487596"
 ---
 # <a name="reference-documentation-overview"></a>참조 설명서 개요
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 다음 표에서는 해당 참조 설명서와 함께 사용 가능한 Communication Services 패키지에 대해 자세히 설명합니다.
 

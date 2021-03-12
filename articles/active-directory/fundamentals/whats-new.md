@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177025"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633430"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -69,7 +69,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** MFA  
 **제품 기능:** Id 보안 & 보호
 
-임시 액세스 전달은 강력한 자격 증명으로 사용 되며 사용자가 강력한 인증 요소 (예: FIDO2 보안 키 또는 Microsoft Authenticator) 앱을 분실 하거나 잊은 경우 암호 없는 자격 증명과 복구를 등록 하 고 새 강력한 인증 방법을 등록 하려면 로그인 해야 하는 시간 제한 암호입니다. [자세히 알아봅니다](../authentication/howto-authentication-temporary-access-pass.md).
+임시 액세스 전달은 강력한 자격 증명으로 사용 되며 사용자가 강력한 인증 요소 (예: FIDO2 보안 키 또는 Microsoft Authenticator) 앱을 분실 하거나 잊은 경우 암호 없는 자격 증명과 복구를 등록 하 고 새 강력한 인증 방법을 등록 하려면 로그인 해야 하는 시간 제한 암호입니다. [자세히 알아보기](../authentication/howto-authentication-temporary-access-pass.md).
 
 ---
 
@@ -89,7 +89,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
-외부 사용자는 이제 Microsoft 계정을 사용 하 여 Azure AD 자사 및 LOB 앱에 로그인 할 수 있습니다. [자세히 알아봅니다](../external-identities/self-service-sign-up-overview.md).
+외부 사용자는 이제 Microsoft 계정을 사용 하 여 Azure AD 자사 및 LOB 앱에 로그인 할 수 있습니다. [자세히 알아보기](../external-identities/self-service-sign-up-overview.md).
 
 ---
 
@@ -99,7 +99,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
-고객은 이제 기존 외부 게스트 사용자를 reinvite 하 여 상환 상태를 다시 설정할 수 있습니다. 그러면 게스트 사용자 계정이 액세스를 잃지 않고 남아 있을 수 있습니다. [자세히 알아봅니다](../external-identities/reset-redemption-status.md).
+고객은 이제 기존 외부 게스트 사용자를 reinvite 하 여 상환 상태를 다시 설정할 수 있습니다. 그러면 게스트 사용자 계정이 액세스를 잃지 않고 남아 있을 수 있습니다. [자세히 알아보기](../external-identities/reset-redemption-status.md).
  
 ---
 
@@ -109,7 +109,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** Id 수명 주기 관리
  
-이제 고객은 ownedby를 응용 프로그램 권한으로 사용 하 여 동기화 Api를 호출할 수 있습니다. 참고이 기능은 Azure AD에서 타사 응용 프로그램 (예: AWS, 데이터 Brick 등)으로 프로 비전 하는 경우에만 지원 됩니다. 현재 HR-프로 비전 (Workday/Successfactors) 또는 클라우드 동기화 (AD에서 Azure AD로)에 대해 지원 되지 않습니다. [자세히 알아봅니다](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+이제 고객은 ownedby를 응용 프로그램 권한으로 사용 하 여 동기화 Api를 호출할 수 있습니다. 참고이 기능은 Azure AD에서 타사 응용 프로그램 (예: AWS, 데이터 Brick 등)으로 프로 비전 하는 경우에만 지원 됩니다. 현재 HR-프로 비전 (Workday/Successfactors) 또는 클라우드 동기화 (AD에서 Azure AD로)에 대해 지원 되지 않습니다. [자세히 알아보기](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
 ---
 
@@ -119,7 +119,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
-이 역할을 가진 사용자는 인증 방법 정책, 테 넌 트 전체 MFA 설정 및 암호 보호 정책을 구성할 수 있습니다. 이 역할은 암호 보호 설정을 관리할 수 있는 권한을 부여 합니다. 스마트 잠금 구성 및 사용자 지정 금지 된 암호 목록을 업데이트 합니다. [자세히 알아봅니다](../roles/permissions-reference.md#authentication-policy-administrator).
+이 역할을 가진 사용자는 인증 방법 정책, 테 넌 트 전체 MFA 설정 및 암호 보호 정책을 구성할 수 있습니다. 이 역할은 암호 보호 설정을 관리할 수 있는 권한을 부여 합니다. 스마트 잠금 구성 및 사용자 지정 금지 된 암호 목록을 업데이트 합니다. [자세히 알아보기](../roles/permissions-reference.md#authentication-policy-administrator).
 
 ---
 
@@ -129,7 +129,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** 내 앱  
 **제품 기능:** 최종 사용자 환경
  
-이제 사용자는 내 앱 앱 시작 관리자에서 자신의 앱 그룹을 만들 수 있습니다. 또한 관리자가 공유 하는 컬렉션을 다시 정렬 하 고 숨길 수 있습니다. [자세히 알아봅니다](../user-help/my-apps-portal-user-collections.md).
+이제 사용자는 내 앱 앱 시작 관리자에서 자신의 앱 그룹을 만들 수 있습니다. 또한 관리자가 공유 하는 컬렉션을 다시 정렬 하 고 숨길 수 있습니다. [자세히 알아보기](../user-help/my-apps-portal-user-collections.md).
 
 ---
 
@@ -141,7 +141,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
  
 Microsoft Authenticator는 MFA (multi-factor authentication) 및 계정 관리 기능을 제공 하며, 사용자가 모바일 (iOS 및 Android)에서 방문 하는 사이트 및 앱에 대 한 암호를 자동으로 자동 채우기도 합니다. 
 
-인증자에서 자동 채우기를 사용 하려면 사용자가 인증자에 개인 Microsoft 계정를 추가 하 고이를 사용 하 여 암호를 동기화 해야 합니다. 지금은 회사 또는 학교 계정을 사용 하 여 암호를 동기화 할 수 없습니다. [자세히 알아봅니다](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
+인증자에서 자동 채우기를 사용 하려면 사용자가 인증자에 개인 Microsoft 계정를 추가 하 고이를 사용 하 여 암호를 동기화 해야 합니다. 지금은 회사 또는 학교 계정을 사용 하 여 암호를 동기화 할 수 없습니다. [자세히 알아보기](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
 
 ---
 
@@ -151,7 +151,7 @@ Microsoft Authenticator는 MFA (multi-factor authentication) 및 계정 관리 �
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
-고객은 이제 기존 내부 계정에 초대를 보내는 대신 B2B 공동 작업을 사용 하도록 내부 게스트를 초대할 수 있습니다. 이를 통해 고객은 해당 사용자의 개체 ID, UPN, 그룹 멤버 자격 및 앱 할당을 유지할 수 있습니다. [자세히 알아봅니다](../external-identities/invite-internal-users.md).
+고객은 이제 기존 내부 계정에 초대를 보내는 대신 B2B 공동 작업을 사용 하도록 내부 게스트를 초대할 수 있습니다. 이를 통해 고객은 해당 사용자의 개체 ID, UPN, 그룹 멤버 자격 및 앱 할당을 유지할 수 있습니다. [자세히 알아보기](../external-identities/invite-internal-users.md).
 
 ---
 
@@ -163,7 +163,7 @@ Microsoft Authenticator는 MFA (multi-factor authentication) 및 계정 관리 �
  
 이 역할을 가진 사용자는 도메인 이름을 관리 (읽기, 추가, 확인, 업데이트 및 삭제) 할 수 있습니다. 사용자, 그룹 및 응용 프로그램에 대 한 디렉터리 정보를 읽을 수도 있습니다. 이러한 개체에는 도메인 종속성이 있습니다. 
 
-온-프레미스 환경의 경우이 역할을 가진 사용자는 연결 된 사용자가 항상 온-프레미스로 인증 되도록 페더레이션에 대 한 도메인 이름을 구성할 수 있습니다. 이러한 사용자는 Single Sign-On를 통해 온-프레미스 암호를 사용 하 여 Azure AD 기반 서비스에 로그인 할 수 있습니다. 페더레이션 설정은 Azure AD Connect를 통해 동기화 해야 하므로 사용자에 게 Azure AD Connect를 관리할 수 있는 권한도 있습니다. [자세히 알아봅니다](../roles/permissions-reference.md#domain-name-administrator).
+온-프레미스 환경의 경우이 역할을 가진 사용자는 연결 된 사용자가 항상 온-프레미스로 인증 되도록 페더레이션에 대 한 도메인 이름을 구성할 수 있습니다. 이러한 사용자는 Single Sign-On를 통해 온-프레미스 암호를 사용 하 여 Azure AD 기반 서비스에 로그인 할 수 있습니다. 페더레이션 설정은 Azure AD Connect를 통해 동기화 해야 하므로 사용자에 게 Azure AD Connect를 관리할 수 있는 권한도 있습니다. [자세히 알아보기](../roles/permissions-reference.md#domain-name-administrator).
  
 ---
 
@@ -211,7 +211,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
  
 10 azure AD 기본 제공 역할의 이름이 변경 되어 [Microsoft 365 관리 센터](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [azure ad 포털](https://portal.azure.com/)및 [Microsoft Graph](https://developer.microsoft.com/graph/)에 정렬 됩니다. 새 역할에 대 한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md#all-roles)을 참조 하세요.
 
-![새 역할 이름 표](media/whats-new/roles-table-rbac.png)
+![M Graph API의 역할 이름과 Azure Portal 및 API, Azure Portal 및 Mac에서 제안 된 최종 이름을 보여 주는 표입니다.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -221,7 +221,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 사용자 환경 및 관리  
 **제품 기능:** 최종 사용자 환경
  
-이전에는 회사 로고가 Azure Active Directory 로그인 페이지에서 사용 되지 않았습니다. 이제 회사 브랜딩은 MFA/SSPR 결합 등록의 왼쪽 위에 있습니다. 회사 브랜딩도 내 Sign-Ins 및 보안 정보 페이지에 포함 되어 있습니다. [자세히 알아봅니다](../fundamentals/customize-branding.md).
+이전에는 회사 로고가 Azure Active Directory 로그인 페이지에서 사용 되지 않았습니다. 이제 회사 브랜딩은 MFA/SSPR 결합 등록의 왼쪽 위에 있습니다. 회사 브랜딩도 내 Sign-Ins 및 보안 정보 페이지에 포함 되어 있습니다. [자세히 알아보기](../fundamentals/customize-branding.md).
 
 ---
 
@@ -231,7 +231,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 사용자 액세스 관리  
 **제품 기능:** 자격 관리
  
-이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세히 알아봅니다](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
+이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세히 알아보기](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
  
 ---
 
@@ -242,7 +242,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **제품 기능:** 모니터링 및 보고
  
 
-새로 고쳐진 인증 방법 작업 대시보드는 관리자에 게 테 넌 트의 인증 방법 등록 및 사용 작업에 대 한 개요를 제공 합니다. 이 보고서는 각 방법에 대해 등록 된 사용자 수를 요약 하 고 로그인 및 암호 재설정 중에 사용 되는 방법도 요약 합니다. [자세히 알아봅니다](../authentication/howto-authentication-methods-activity.md).
+새로 고쳐진 인증 방법 작업 대시보드는 관리자에 게 테 넌 트의 인증 방법 등록 및 사용 작업에 대 한 개요를 제공 합니다. 이 보고서는 각 방법에 대해 등록 된 사용자 수를 요약 하 고 로그인 및 암호 재설정 중에 사용 되는 방법도 요약 합니다. [자세히 알아보기](../authentication/howto-authentication-methods-activity.md).
  
 ---
 
@@ -252,7 +252,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 기타  
 **제품 기능:** 사용자 인증
  
-CTL에서 새로 고침 및 세션 수명 수명 구성이 사용 중지 됩니다. Azure Active Directory는 더 이상 기존 정책에서 새로 고침 및 세션 토큰 구성을 적용 하지 않습니다. [자세히 알아봅니다](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
+CTL에서 새로 고침 및 세션 수명 수명 구성이 사용 중지 됩니다. Azure Active Directory는 더 이상 기존 정책에서 새로 고침 및 세션 토큰 구성을 적용 하지 않습니다. [자세히 알아보기](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
  
 ---
  
@@ -266,7 +266,7 @@ CTL에서 새로 고침 및 세션 수명 수명 구성이 사용 중지 됩니�
 
 이전에는 사용자 지정/BYOA 응용 프로그램에서 프로 비전을 설정할 때 비밀 토큰 필드를 비워 둘 수 있습니다. 이 함수는 테스트용 으로만 사용 하기 위한 것입니다. 필요한 필드가 되도록 UI를 업데이트 합니다. 
 
-고객은 브라우저 URL에 기능 플래그를 사용 하 여 테스트 목적으로이 요구 사항을 해결할 수 있습니다. [자세히 알아봅니다](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
+고객은 브라우저 URL에 기능 플래그를 사용 하 여 테스트 목적으로이 요구 사항을 해결할 수 있습니다. [자세히 알아보기](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
  
 ---
 
@@ -315,7 +315,7 @@ Azure AD 및 Microsoft 끝점 관리자 팀은 Firstline Worker 장치를 사용
  
 Azure AD Connect 클라우드 동기화는 이제 모든 고객에 게 일반 공급 됩니다.
 
-Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동 하 여 온-프레미스 공간을 줄입니다. 또한 더 높은 동기화 가용성을 위해 여러 개의 경량 에이전트 배포를 사용할 수 있습니다. [자세히 알아봅니다](https://aka.ms/cloudsyncGA).
+Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동 하 여 온-프레미스 공간을 줄입니다. 또한 더 높은 동기화 가용성을 위해 여러 개의 경량 에이전트 배포를 사용할 수 있습니다. [자세히 알아보기](https://aka.ms/cloudsyncGA).
  
 ---
 ### <a name="general-availability---attack-simulation-administrator-and-attack-payload-author-built-in-roles"></a>일반 가용성-공격 시뮬레이션 관리자 및 공격 페이로드 작성자 기본 제공 역할
@@ -343,7 +343,7 @@ Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레
  
 사용 요약 보고서 구독자 역할을 가진 사용자는 사용 및 생산성 점수에 대해 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 데이터 및 관련 정보에 액세스할 수 있습니다. 그러나 사용자 수준 정보 또는 정보에는 액세스할 수 없습니다. 
 
-두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 개별 사용자 식별 가능 데이터에 추가 보호 계층을 추가 합니다. [자세히 알아봅니다](../roles/permissions-reference.md#usage-summary-reports-reader).
+두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 개별 사용자 식별 가능 데이터에 추가 보호 계층을 추가 합니다. [자세히 알아보기](../roles/permissions-reference.md#usage-summary-reports-reader).
 
 ---
 
@@ -369,7 +369,7 @@ Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
-전자 메일 OTP를 사용 하면 전 세계의 조직이 전자 메일을 통해 링크나 초대를 전송 하 여 누구와도 공동 작업할 수 있습니다. 초대 된 사용자는 파트너의 리소스에 액세스 하기 위해 전자 메일에 전송 된 일회용 암호를 사용 하 여 id를 확인할 수 있습니다. [자세히 알아봅니다](../external-identities/one-time-passcode.md). 
+전자 메일 OTP를 사용 하면 전 세계의 조직이 전자 메일을 통해 링크나 초대를 전송 하 여 누구와도 공동 작업할 수 있습니다. 초대 된 사용자는 파트너의 리소스에 액세스 하기 위해 전자 메일에 전송 된 일회용 암호를 사용 하 여 id를 확인할 수 있습니다. [자세히 알아보기](../external-identities/one-time-passcode.md). 
  
 ---
 
@@ -413,7 +413,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 사용자 액세스 관리  
 **제품 기능:** 자격 관리
  
-이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세히 알아보기](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세한 정보](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
  
 ---
 
@@ -425,7 +425,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
  
 이제 내 액세스 포털에서 팀을 직접 시작할 수 있습니다. 
 
-이렇게 하려면 내 액세스에 로그인 하 고 https://myaccess.microsoft.com/) , "액세스 패키지"로 이동한 다음 "활성" 탭으로 이동 하 여 이미 액세스 하 고 있는 모든 액세스 패키지를 확인 합니다. 선택한 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 "열기" 단추를 클릭 하 여 시작할 수 있습니다. [자세히 알아봅니다](../governance/entitlement-management-request-access.md).
+이렇게 하려면 내 액세스에 로그인 하 고 https://myaccess.microsoft.com/) , "액세스 패키지"로 이동한 다음 "활성" 탭으로 이동 하 여 이미 액세스 하 고 있는 모든 액세스 패키지를 확인 합니다. 선택한 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 "열기" 단추를 클릭 하 여 시작할 수 있습니다. [자세히 알아보기](../governance/entitlement-management-request-access.md).
  
 ---
 
@@ -757,7 +757,7 @@ SCIM [프로 비전 서비스](../app-provisioning/user-provisioning.md) 에의 
 날짜가 완료 되 면 업데이트를 제공 합니다. 이 사용 중단은 2020 년에 계획 되지 않습니다. 
 
 > [!NOTE]
-> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세히 알아봅니다](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
+> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
  
 
 ---
@@ -899,7 +899,7 @@ Azure AD 액세스 검토에서 검토를 만드는 관리자는 이제 검토�
 
  이제 연결 된 모든 조직에는 "State" 라는 추가 속성이 있습니다. 상태는 "모든 구성 된 연결 된 조직"을 참조 하는 정책에서 연결 된 조직을 사용 하는 방법을 제어 합니다. 이 값은 "구성" (조직이 "all" 절을 사용 하는 정책 범위에 있음) 또는 "제안 됨" (조직이 범위에 있지 않음을 의미 함)입니다.  
 
-수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세히 알아봅니다](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
+수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세히 알아보기](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
  
 
 ---
@@ -956,7 +956,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
-이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세히 알아봅니다](../reports-monitoring/concept-provisioning-logs.md).
+이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md).
  
 ---
 
@@ -968,7 +968,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
  
 일부 AD (Azure Active Directory) 기본 제공 역할에는 Microsoft 365 관리 센터, Azure AD 포털 및 Microsoft Graph에 표시 되는 이름과 다른 이름이 있습니다. 이러한 불일치는 자동화 된 프로세스에서 문제를 일으킬 수 있습니다. 이 업데이트를 사용 하면 10 개의 역할 이름 이름을 바꿔서 일관 되도록 합니다. 다음 표에는 새 역할 이름이 있습니다.
 
-![새 역할 이름 표](media/whats-new/azure-role.png)
+![M365 Admin Center, Azure Portal 및 API에서 제안 된 새 역할 이름 (MS Graph API 및 Azure Portal의 역할 이름을 보여 주는 표](media/whats-new/azure-role.png)
 
 ---
 
@@ -1024,7 +1024,7 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
 
 - Azure Portal를 통한 특성 매핑 환경
 
-    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세히 알아보기](../cloud-sync/how-to-attribute-mapping.md)
+    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세한 정보](../cloud-sync/how-to-attribute-mapping.md)
 
 - 주문형 프로 비전 또는 테스트 사용자 환경
 

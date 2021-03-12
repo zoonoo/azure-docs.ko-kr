@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9be00fd89234be0a8b5740af9e12811f36a47619
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092341"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633056"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -27,9 +27,6 @@ ms.locfileid: "101092341"
 Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 형식을 인코딩할 수 있습니다. 모든 주요 디바이스(예: iOS 및 Android 디바이스)에 연결되는 콘텐츠 보호를 사용하거나 사용하지 않는 다양한 스트리밍 프로토콜을 통해 이러한 기능을 제공합니다. 이러한 클라이언트는 여러 다양한 프로토콜을 이해합니다. 예를 들어, iOS는 HLS(HTTP 라이브 스트리밍) 형식으로 스트림이 배달되어야 하 고 Android 디바이스는 HLS와 MPEG DASH를 모두 지원합니다.
 
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)(원본)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. *동적 패키징* 은 모든 스트리밍 엔드포인트에 표준으로 제공되는 기능입니다.
-
-> [!NOTE]
-> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>전송할 원본 파일 준비
 

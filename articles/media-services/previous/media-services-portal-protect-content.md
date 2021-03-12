@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 콘텐츠 보호 정책 구성 | Microsoft D
 description: 이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 정책을 구성하는 방법에 대해 설명합니다. 또한 자산에서 동적 암호화를 사용하도록 설정하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 5ddd31f96ca88a02fa667f8809a00e2a4e3ecc50
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: c6620158965271ba99f80c2fbd36504fdbea7ecf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695427"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010782"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
 
@@ -111,7 +111,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성** 을 �
 
     b. **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 이 옵션은 FairPlay의 HLS 스트림도 암호화합니다.
 
-    다. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
+    c. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
 
     d. **MPEG-DASH만 사용하는 Widevine** - Widevine DRM의 MPEG-DASH를 동적으로 암호화합니다.
     

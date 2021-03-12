@@ -8,14 +8,16 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53d1504b03e3dbe99cbdeac23df2623a5390b3d9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635424"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200484"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터를 저장 하는 것 외에도, 특히 오프 라인에서 작동 하는 경우 안정성 향상을 위해 호스트 IoT Edge 장치 자체에 저장소를 지정할 수 있습니다.
 
@@ -26,11 +28,11 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 예를 들어 IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하 고 나중에 검색할 수 있도록 하려면 **런타임 설정** 섹션의 Azure Portal에서 환경 변수와 만들기 옵션을 구성할 수 있습니다.
 
 1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 다음은 그 예입니다. 
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들면 다음과 같습니다.
 
    ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 다음은 그 예입니다. 
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "systemModules": {

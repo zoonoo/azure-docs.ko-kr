@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d30d8cdfe6ee93f54dfd560987ac8b6a78517fd8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ccfbb585ccf50366721925b0b31b17088fd36371
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718695"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612425"
 ---
 # <a name="security-control-logging-and-monitoring"></a>보안 제어: 로깅 및 모니터링
 
@@ -124,9 +124,9 @@ Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics �
 
 Azure Virtual Machines 및 Cloud Services에 대해 맬웨어 방지 이벤트 수집을 사용 하도록 설정 합니다.
 
-- [Virtual Machines에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Virtual Machines에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [Cloud Services에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Cloud Services에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension)
 
 - [Microsoft 맬웨어 방지 프로그램 이해](../fundamentals/antimalware.md)
 

@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386903"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614822"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -40,7 +40,7 @@ function.json 파일은 함수의 트리거, 바인딩 및 기타 구성 설정�
 
 `bindings` 속성은 트리거와 바인딩을 모두 구성하는 곳에 위치합니다. 각 바인딩은 몇 가지 공통적인 설정과 특정한 바인딩 형식에 해당하는 일부 설정을 공유합니다. 모든 바인딩에는 다음 설정이 필요합니다.
 
-| 속성    | 값 | 유형 | 의견|
+| 속성    | 값 | 유형 | 주석|
 |---|---|---|---|
 | 형식  | 바인딩 이름입니다.<br><br>예들 들어 `queueTrigger`입니다. | 문자열 | |
 | direction | `in`, `out`  | 문자열 | 함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
@@ -116,10 +116,11 @@ Azure Functions의 일부 연결은 비밀 대신 id를 사용 하도록 구성 
 
 Id 기반 연결은 다음 트리거 및 바인딩 확장에서 지원 됩니다.
 
-| 확장 이름 | 확장 버전                                                                                     | 소비 계획에서 id 기반 연결을 지원 합니다. |
+| 확장 이름 | 확장 버전                                                                                     | 소비 계획에서 지원 됨 |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 예                                    |
-| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 예                                    |
+| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 아니요                                    |
+| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 아니요                                    |
+| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | 아니요                                    |
 
 > [!NOTE]
 > 핵심 동작에 대 한 함수 런타임에 사용 되는 저장소 연결에는 id 기반 연결에 대 한 지원을 아직 사용할 수 없습니다. 이는 `AzureWebJobsStorage` 설정이 연결 문자열 이어야 함을 의미 합니다.
@@ -128,9 +129,10 @@ Id 기반 연결은 다음 트리거 및 바인딩 확장에서 지원 됩니다
 
 Azure 서비스에 대 한 id 기반 연결에는 다음 속성이 적용 됩니다.
 
-| 속성    | 환경 변수 | 필수 여부 | 설명 |
+| 속성    | 확장에 필요 합니다. | 환경 변수 | Description |
 |---|---|---|---|
-| 서비스 URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | 연결 중인 서비스의 데이터 평면 URI입니다. |
+| 서비스 URI | Azure Blob, Azure 큐 | `<CONNECTION_NAME_PREFIX>__serviceUri` |  연결 중인 서비스의 데이터 평면 URI입니다. |
+| 정규화 된 네임 스페이스 | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | 정규화 된 이벤트 허브 네임 스페이스입니다. |
 
 지정 된 연결 유형에 대해 추가 옵션이 지원 될 수 있습니다. 연결을 설정 하는 구성 요소에 대 한 설명서를 참조 하세요.
 
@@ -152,14 +154,26 @@ Azure Functions 서비스에서 호스트 되는 경우 id 기반 연결에 [는
 > [!NOTE]
 > 다음 구성 옵션은 Azure Functions 서비스에서 호스팅될 때 지원 되지 않습니다.
 
-클라이언트 ID와 암호를 사용 하 여 Azure Active Directory 서비스 주체를 사용 하 여 연결 하려면 다음 속성을 사용 하 여 연결을 정의 합니다.
+클라이언트 ID와 암호를 사용 하 여 Azure Active Directory 서비스 주체를 사용 하 여 연결 하려면 위의 [연결 속성](#connection-properties) 외에 다음과 같은 필수 속성을 사용 하 여 연결을 정의 합니다.
 
-| 속성    | 환경 변수 | 필수 여부 | 설명 |
-|---|---|---|---|
-| 서비스 URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | 연결 중인 서비스의 데이터 평면 URI입니다. |
-| 테넌트 ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | Azure Active Directory 테 넌 트 (디렉터리) ID입니다. |
-| 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  테 넌 트에서 앱 등록의 클라이언트 (응용 프로그램) ID입니다. |
-| 클라이언트 암호 | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | 앱 등록을 위해 생성 된 클라이언트 암호입니다. |
+| 속성    | 환경 변수 | Description |
+|---|---|---|
+| 테넌트 ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Azure Active Directory 테 넌 트 (디렉터리) ID입니다. |
+| 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` |  테 넌 트에서 앱 등록의 클라이언트 (응용 프로그램) ID입니다. |
+| 클라이언트 암호 | `<CONNECTION_NAME_PREFIX>__clientSecret` | 앱 등록을 위해 생성 된 클라이언트 암호입니다. |
+
+`local.settings.json`Azure Blob에서 id 기반 연결에 필요한 속성의 예: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Id에 권한 부여
 

@@ -8,14 +8,16 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 444ab8ccfe5a8441a4fd7d280e33d8e929d9387d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d9db9997af20fee226214eb12ad32729cab55caa
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435895"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199245"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Azure IoT Edge 장치에 연속 통합 및 연속 배포
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 애플리케이션을 사용하여 DevOps를 손쉽게 채택할 수 있습니다. 이 문서에서는 YAML을 사용 하 여 응용 프로그램을 빠르고 Azure IoT Edge 효율적으로 빌드, 테스트 및 배포 하는 Azure Pipelines의 지속적인 통합 및 지속적인 배포 기능을 사용 하는 방법을 보여 줍니다. 또는 [클래식 편집기를 사용할](how-to-continuous-integration-continuous-deployment-classic.md)수 있습니다.
 
@@ -23,14 +25,14 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
 이 문서에서는 Azure Pipelines에 대해 기본 제공 [Azure IoT Edge 작업](/azure/devops/pipelines/tasks/build/azure-iot-edge) 을 사용 하 여 IoT Edge 솔루션에 대 한 빌드 및 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인에 추가 된 각 Azure IoT Edge 작업은 다음 네 가지 작업 중 하나를 구현 합니다.
 
- | 작업 | Description |
+ | 작업 | 설명 |
  | --- | --- |
  | 빌드 모듈 이미지 | IoT Edge 솔루션 코드를 사용 하 고 컨테이너 이미지를 빌드합니다.|
  | 모듈 이미지 푸시 | 지정한 컨테이너 레지스트리에 모듈 이미지를 푸시합니다. |
  | 배포 매니페스트 생성 | 파일 및 변수에 대 한 deployment.template.js를 가져온 다음 최종 IoT Edge 배포 매니페스트 파일을 생성 합니다. |
  | IoT Edge 디바이스에 배포 | 하나 이상의 IoT Edge 장치에 대 한 IoT Edge 배포를 만듭니다. |
 
-별도로 지정 하지 않는 한이 문서의 절차에서는 작업 매개 변수를 통해 사용할 수 있는 모든 기능을 탐색 하지 않습니다. 자세한 내용은
+별도로 지정 하지 않는 한이 문서의 절차에서는 작업 매개 변수를 통해 사용할 수 있는 모든 기능을 탐색 하지 않습니다. 자세한 내용은 다음을 참조하세요.
 
 * [작업 버전](/azure/devops/pipelines/process/tasks?tabs=yaml#task-versions)
 * **고급** -해당 하는 경우 빌드되지 않으려는 모듈을 지정 합니다.
@@ -38,7 +40,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * [환경 변수](/azure/devops/pipelines/process/variables?tabs=yaml#environment-variables)
 * [출력 변수](/azure/devops/pipelines/process/variables?tabs=yaml#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](/azure/devops/repos/git/create-new-repo) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo** 라는 리포지토리를 만들었습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](./how-to-visual-studio-develop-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule** 이라는 모듈에 대 한 코드를 포함 하는 **IoTEdgeSolution** 라는 리포지토리에 솔루션을 만들었습니다.
@@ -108,7 +110,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
    * 작업: **파일 복사**
 
-       | 매개 변수 | Description |
+       | 매개 변수 | 설명 |
        | --- | --- |
        | 원본 폴더 | 복사할 원본 폴더입니다. Empty는 리포지토리의 루트입니다. 파일이 리포지토리에 없으면 변수를 사용 합니다. 예: `$(agent.builddirectory)`.
        | 콘텐츠 | 및의 두 줄 `deployment.template.json` 을 추가 `**/module.json` 합니다. |
@@ -116,7 +118,7 @@ Azure Repos를 사용 하는 방법에 대 한 자세한 내용은 [Visual Studi
 
    * 작업: **빌드 아티팩트 게시**
 
-       | 매개 변수 | Description |
+       | 매개 변수 | 설명 |
        | --- | --- |
        | 게시할 경로 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](/azure/devops/pipelines/build/variables?tabs=yaml#build-variables) 를 참조 하세요. |
        | 아티팩트 이름 | 기본 이름을 지정 합니다. `drop` |

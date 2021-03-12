@@ -3,7 +3,7 @@ title: Azure Media Services를 사용하는 DRM 하위 시스템의 하이브리
 description: 이 항목에서는 Azure Media Services를 사용하는 DRM 하위 시스템의 하이브리드 디자인에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266904"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016273"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인
 
@@ -83,7 +83,7 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 * 동적 DRM 암호화에 사용되는 콘텐츠 키
 * 라이선스 배달 서비스에서 배달하는 DRM 라이선스 콘텐츠: 권한, 콘텐츠 키 및 제한.
 * **콘텐츠 키 인증 정책 제한** 유형: 공개, IP 또는 토큰 제한
-* **토큰** 형식의 **콘텐츠 키 인증 정책 제한이 사용**된 경우 라이선스를 발급하기 전에 **콘텐츠 키 인증 정책 제한**이 충족되어야 합니다.
+* **토큰** 형식의 **콘텐츠 키 인증 정책 제한이 사용** 된 경우 라이선스를 발급하기 전에 **콘텐츠 키 인증 정책 제한** 이 충족되어야 합니다.
 
 ### <a name="asset-delivery-policy"></a>자산 배달 정책
 

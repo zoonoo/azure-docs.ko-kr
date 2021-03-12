@@ -3,13 +3,13 @@ title: Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사�
 description: Azure Kubernetes 서비스 (AKS)에서 AAD pod 관리 되는 관리 되는 id를 사용 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176317"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233499"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사용 (미리 보기)
 
@@ -24,13 +24,13 @@ Azure Active Directory pod 관리 id는 Kubernetes 기본 형식을 사용 하 �
 
 다음 리소스를 설치 해야 합니다.
 
-* Azure CLI 버전 2.8.0 이상
-* `azure-preview`확장 버전 0.4.68 이상
+* Azure CLI 버전 2.20.0 이상
+* `azure-preview`확장 버전 0.5.5 이상
 
 ### <a name="limitations"></a>제한 사항
 
-* 클러스터에는 최대 50 pod id가 허용 됩니다.
-* 클러스터에는 최대 50 pod id 예외가 허용 됩니다.
+* 클러스터에는 최대 200 pod id가 허용 됩니다.
+* 클러스터에는 최대 200 pod id 예외가 허용 됩니다.
 * Pod 관리 id는 Linux 노드 풀 에서만 사용할 수 있습니다.
 
 ### <a name="register-the-enablepodidentitypreview"></a>`EnablePodIdentityPreview`를 등록합니다.
@@ -66,6 +66,21 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --ena
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Kubenet 네트워크 플러그 인을 사용 하 여 AKS 클러스터 만들기
+
+Kubenet 네트워크 플러그 인 및 pod 관리 id를 사용 하 여 AKS 클러스터를 만듭니다.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Kubenet 네트워크 플러그 인을 사용 하 여 기존 AKS 클러스터 업데이트
+
+Pod 관리 id를 포함 하도록 Kubnet 네트워크 플러그인을 사용 하 여 기존 AKS 클러스터를 업데이트 합니다.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>ID 만들기

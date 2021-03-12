@@ -8,14 +8,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4cade6a740bffc33695c40663609df38ba6e7a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e5c85d2c3049ea8718d0a9e0e574c13d0d99394c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044904"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200266"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 모든 IoT Edge 디바이스는 인증서를 사용하여 런타임과 디바이스에서 실행되는 모듈 간에 보안 연결을 만듭니다. 게이트웨이로 작동 하는 IoT Edge 장치는 이러한 동일한 인증서를 사용 하 여 다운스트림 장치에도 연결 합니다.
 
@@ -81,7 +83,7 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 다음은 그 예입니다. 
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들면 다음과 같습니다.
 
    * Windows:
 

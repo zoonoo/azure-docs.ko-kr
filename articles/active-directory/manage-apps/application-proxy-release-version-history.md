@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD 응용 프로그램 프록시: 버전 릴리스 기록'
-description: 이 문서에서는 Azure AD 응용 프로그램 프록시의 모든 릴리스를 나열 하 고 새로운 기능 및 해결 된 문제에 대해 설명 합니다.
+title: 'Azure Active Directory 응용 프로그램 프록시: 버전 릴리스 기록'
+description: 이 문서에서는 Azure Active Directory 응용 프로그램 프록시의 모든 릴리스를 나열 하 고 새로운 기능 및 수정 된 문제에 대해 설명 합니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.reviewer: japere
+ms.openlocfilehash: 0244e0ca66f452649d3136eb122d1c2666182ae2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686719"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200977"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 응용 프로그램 프록시를 정기적으로 업데이트 합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
@@ -25,11 +26,11 @@ ms.locfileid: "101686719"
 
 다음은 관련 된 리소스 목록입니다.
 
-리소스 |  세부 정보
---------- | --------- |
-응용 프로그램 프록시를 사용 하도록 설정 하는 방법 | 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 설치 및 등록 하기 위한 필수 구성 요소는이 [자습서](application-proxy-add-on-premises-application.md)에 설명 되어 있습니다.
-Azure AD 애플리케이션 프록시 커넥터 이해 | [커넥터 관리](application-proxy-connectors.md) 및 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)방법에 대해 자세히 알아보세요.
-Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥터를 다운로드](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)합니다.
+| 리소스                                         | 세부 정보                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| 응용 프로그램 프록시를 사용 하도록 설정 하는 방법                  | 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 설치 및 등록 하기 위한 필수 구성 요소는이 [자습서](application-proxy-add-on-premises-application.md)에 설명 되어 있습니다. |
+| Azure AD 애플리케이션 프록시 커넥터 이해 | [커넥터 관리](application-proxy-connectors.md) 및 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)방법에 대해 자세히 알아보세요. |
+| Azure AD 응용 프로그램 프록시 커넥터 다운로드    | [최신 커넥터를 다운로드](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)합니다. |
 
 ## <a name="1519750"></a>1.5.1975.0
 
@@ -41,6 +42,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 -   Azure Government 클라우드 환경에 대 한 지원이 향상 되었습니다. Azure Government 클라우드에 대해 커넥터를 적절히 설치 하는 방법에 대 한 단계는 [필수](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) 구성 요소 및 [설치 단계](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)를 검토 합니다.
 - 응용 프로그램 프록시를 사용 하는 원격 데스크톱 서비스 웹 클라이언트 사용을 지원 합니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md) 를 참조 하세요.
 - Websocket 확장 협상이 향상 되었습니다. 
+- 영역을 기반으로 하는 커넥터 그룹과 응용 프로그램 프록시 클라우드 서비스 간의 최적화 된 라우팅을 지원 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 프록시를 사용 하 여 트래픽 흐름 최적화](application-proxy-network-topology.md) 를 참조 하세요. 
 
 ### <a name="fixed-issues"></a>해결된 문제
 - 소문자 문자열을 강제 적용 하는 websocket 문제를 수정 했습니다.

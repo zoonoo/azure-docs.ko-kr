@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 3/12/2021
+ms.openlocfilehash: 47f8f4ec3b5c5dd2d4545fc67561487d4f5a465c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199880"
+ms.locfileid: "103225315"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Microsoft 영업 팀 및 파트너와 공동 판매 개요
 
@@ -33,7 +33,7 @@ Microsoft와 공동 판매는 Microsoft와 파트너 에코 시스템 간의 공
 - **Microsoft 영업 팀과 공동 판매** – 하나 이상의 microsoft 영업 팀과 협력 하 여 고객의 요구 사항을 적극적으로 충족 합니다. 여기에는 제품 판매, Microsoft 제품 또는 둘 다가 포함 될 수 있습니다. 사용자와 Microsoft 영업 팀은 솔루션이 적합 한 고객의 기회를 식별 하 고 공유할 수 있습니다.
 - **P2P (partner To partner)** – 다른 Microsoft 파트너와 협력 하 여 고객 문제를 적극적으로 해결할 수 있습니다.
 - **비공개 거래** – microsoft reporting system에 반영 되어 분석 및 예측을 위해 독립적으로 microsoft와 작업 하는 것을 공유 합니다.
-- **솔루션 평가 (SA)** -솔루션 평가 비즈니스 팀에서 점검 되었다는 하는 파트너와 협력 하 여 Microsoft 기술 사용 또는 사용을 계획 하는 고객의 기술 요구 사항에 액세스할 수 있습니다.
+- **솔루션 평가 (SA)** -솔루션 평가 비즈니스 팀에서 점검 되었다는 하는 파트너와 협력 하 여 Microsoft 기술 사용 또는 사용을 계획 하는 고객의 기술 요구 사항을 평가 합니다.
 
 ## <a name="co-sell-statuses"></a>공동 판매 상태
 

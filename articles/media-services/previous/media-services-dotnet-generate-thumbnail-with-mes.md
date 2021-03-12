@@ -3,7 +3,7 @@ title: .NET과 함께 미디어 인코더 표준을 사용하여 미리 보기�
 description: 이 항목에서는 .NET과 함께 Media Encoder Standard를 사용하여 동시에 자산을 인코드하고 미리 보기를 생성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4b17fb5547c1522ec81369f2e362868a3f216a1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0159a706bd5f5229a12ab52bc92d240f01a2ed11
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652996"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014046"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
 

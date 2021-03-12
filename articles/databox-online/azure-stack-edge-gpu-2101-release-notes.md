@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443797"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630370"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 릴리스 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "102443797"
 
 Azure Stack Edge 2101 릴리스에서는 다음과 같은 새로운 기능을 사용할 수 있습니다. 
 
-- Edge **Pro r 및 Azure Stack Edge 미니 r 장치 Azure Stack의 일반** 공급-이 릴리스부터 Edge pro r 및 Azure Stack Edge 미니 r 장치 Azure Stack를 사용할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro r](azure-stack-edge-j-series-overview.md) 및 [Azure Stack edge 미니 r](azure-stack-edge-k-series-overview.md)을 참조 하세요.  
+- Edge **Pro r 및 Azure Stack Edge 미니 r 장치 Azure Stack의 일반** 공급-이 릴리스부터 Edge pro r 및 Azure Stack Edge 미니 r 장치 Azure Stack를 사용할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro r](azure-stack-edge-pro-r-overview.md) 및 [Azure Stack edge 미니 r](azure-stack-edge-mini-r-overview.md)을 참조 하세요.  
 - **Virtual Machines의 클라우드 관리** -이 릴리스를 시작 하면 Azure Portal를 통해 장치에서 가상 컴퓨터를 만들고 관리할 수 있습니다. 자세한 내용은 [Azure Portal를 통해 Vm 배포](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)를 참조 하세요.
 - **Azure Monitor와 통합** -이제 Azure Monitor를 사용 하 여 장치에서 실행 되는 계산 응용 프로그램에서 컨테이너를 모니터링할 수 있습니다. Azure Monitor 메트릭 저장소는이 릴리스에서 지원 되지 않습니다. 자세한 내용은 [장치에서 Azure Monitor를 사용 하도록 설정](azure-stack-edge-gpu-enable-azure-monitor.md)하는 방법을 참조 하세요.
 - **Edge 컨테이너 레지스트리** -이 릴리스에서는 장치에 지에 있는 리포지토리를 제공 하는 edge 컨테이너 레지스트리를 사용할 수 있습니다. 이 레지스트리를 사용 하 여 컨테이너 이미지를 저장 하 고 관리할 수 있습니다. 자세한 내용은 [Edge 컨테이너 레지스트리 사용](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)을 참조 하세요. 

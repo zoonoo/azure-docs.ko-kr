@@ -3,7 +3,7 @@ title: .NET을 사용하여 Media Services 개발을 위한 컴퓨터를 설정�
 description: Media Services .NET SDK를 사용하는 Media Services에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dda7849b6a5e22eea4891eacb2678b4c500dc1e1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a2a9ecbcafa89b4981fe403d116ac0288e60b6b6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693666"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013893"
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
 
@@ -97,7 +97,7 @@ ms.locfileid: "98693666"
 
     이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다.    
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음은 AMS API에 연결하고 사용 가능한 모든 미디어 프로세서를 나열하는 간단한 예제입니다.
 

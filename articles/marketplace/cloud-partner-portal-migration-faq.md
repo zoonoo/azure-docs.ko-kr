@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880341"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613615"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -22,7 +22,7 @@ Cloud 파트너 포털 파트너 센터로 전환 되었습니다. 파트너 센
 
 파트너 센터에서 비즈니스를 계속 진행할 수 있습니다.
 
-| 영역<img src="" width=200px> | 변경 |
+| 영역 | 변경 |
 | --- | --- |
 | 계정 | 새 파트너 센터 계정을 만들 필요가 없습니다. 기존 Cloud 파트너 포털 자격 증명을 사용 하 여 파트너 센터에 로그인 할 수 있습니다. 그러면 이제 계정, 사용자, 사용 권한 및 청구를 관리할 수 있습니다. 게시 계약과 회사 프로필 정보는 지급 프로필 정보, 사용자 계정 및 사용 권한, 활성 제품 등의 새 파트너 센터 계정으로 마이그레이션됩니다. [파트너 센터의 상업 마켓플레이스 계정 관리](partner-center-portal/manage-account.md)에서 자세히 알아보세요. |
 | 제공 게시 및 제공 관리 환경 | 제품 데이터를 Cloud 파트너 포털에서 파트너 센터로 이동 했습니다. 이제 향상 된 사용자 환경 및 직관적인 인터페이스를 제공 하는 파트너 센터에서 귀하의 제품에 액세스 합니다. [상업적 marketplace에서 기존 제품을 업데이트](partner-center-portal/update-existing-offer.md)하는 방법을 알아봅니다. |
@@ -41,7 +41,7 @@ Cloud 파트너 포털 파트너 센터로 전환 되었습니다. 파트너 센
 
 Cloud 파트너 포털에서 일반적으로 사용 되는 페이지에 대 한 파트너 센터 링크는 다음과 같습니다. Cloud 파트너 포털 링크를 책갈피로 저장 한 경우에는 해당 링크를 업데이트 해야 합니다.
 
-| 클라우드 파트너 포털 페이지 <img src="" width=100px>| Cloud 파트너 포털 페이지 링크 | 파트너 센터 페이지 링크 |
+| 클라우드 파트너 포털 페이지 | Cloud 파트너 포털 페이지 링크 | 파트너 센터 페이지 링크 |
 | --- | --- | --- |
 | 모든 제품 페이지 | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | 모든 게시자 페이지 | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -75,21 +75,21 @@ Cloud 파트너 포털에서 이전에 지원 되는 모든 제품 유형은 Dyn
 
 파트너 센터에서 지원 되는 제품 형식의 경우 상태에 관계 없이 모든 제품을 이동 했습니다. 초안, 나열 되지 않음 및 미리 보기 전용 제공 기능도 이동 했습니다.
 
-| 제품 유형 <img src="" width=150px>| 파트너 센터로 이동 했습니까? <img src="" width=100px>| 다음 단계 |
+| 제품 유형 | 파트너 센터로 이동 했습니까? | 다음 단계 |
 | --- | --- | --- |
-| SaaS | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업 marketplace에 대 한 SaaS 제안 계획을](plan-saas-offer.md)확인 하세요. |
-| Virtual Machine | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Virtual machine 제안 계획](marketplace-virtual-machines.md)에서 자세히 알아보세요. |
-| Azure 응용 프로그램 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
+| SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업 marketplace에 대 한 SaaS 제안 계획을](plan-saas-offer.md)확인 하세요. |
+| 가상 컴퓨터 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Virtual machine 제안 계획](marketplace-virtual-machines.md)에서 자세히 알아보세요. |
+| Azure 응용 프로그램 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
 | Dynamics 365 Business Central | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
-| 고객 Engagement & PowerApps의 Dynamics 365 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |
-| Dynamics 365 for Operations | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [운영 제안의 Dynamics 365 만들기](partner-center-portal/create-new-operations-offer.md)를 확인 하세요. |
-| Power BI App | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [AppSource에 대 한 Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)를 확인 하세요. |
-| IoT Edge 모듈 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시](partner-center-portal/azure-iot-edge-module-creation.md)에 대해 자세히 알아보세요. |
-| 컨테이너 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure container 제품 만들기](./create-azure-container-offer.md)에서 자세히 알아보세요. |
-| 컨설팅 서비스 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)에서 자세히 알아보세요. |
-| 관리 서비스 | Yes | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [관리 서비스 제안 만들기](./plan-managed-service-offer.md)에서 자세히 알아보세요. |
-| Dynamics Nav 관리 서비스 | No | Microsoft는 dynamics NAV 관리 서비스를 [dynamics 365 비즈니스 중부](/dynamics365/business-central/)로 발전 시켜 서 appsource에서 Dynamics Nav 관리 서비스 라이브 제품을 나열 하지 않았습니다. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 제품을 AppSource에서 사용할 수 있도록 하려면 Dynamics 365 비즈니스 센터 제품에 맞게 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에서 제출 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
-| Cortana Intelligence | No | Microsoft는 Cortana Intelligence에 대 한 제품 로드맵을 발전 시켜 AppSource에서 라이브 제품을 나열 Cortana Intelligence. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 상업적 marketplace에서 제품을 사용할 수 있도록 하려면 SaaS (Software as a Service) 제품에 대 한 제품을 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에 제출 합니다. [파트너 센터에서 SaaS 제품 생성 검사 목록](./plan-saas-offer.md)에 대해 자세히 알아보세요. |
+| 고객 Engagement & PowerApps의 Dynamics 365 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |
+| Dynamics 365 for Operations | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [운영 제안의 Dynamics 365 만들기](partner-center-portal/create-new-operations-offer.md)를 확인 하세요. |
+| Power BI App | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [AppSource에 대 한 Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)를 확인 하세요. |
+| IoT Edge 모듈 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시](partner-center-portal/azure-iot-edge-module-creation.md)에 대해 자세히 알아보세요. |
+| 컨테이너 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure container 제품 만들기](./create-azure-container-offer.md)에서 자세히 알아보세요. |
+| 컨설팅 서비스 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)에서 자세히 알아보세요. |
+| 관리 서비스 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [관리 서비스 제안 만들기](./plan-managed-service-offer.md)에서 자세히 알아보세요. |
+| Dynamics Nav 관리 서비스 | 아니요 | Microsoft는 dynamics NAV 관리 서비스를 [dynamics 365 비즈니스 중부](/dynamics365/business-central/)로 발전 시켜 서 appsource에서 Dynamics Nav 관리 서비스 라이브 제품을 나열 하지 않았습니다. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 제품을 AppSource에서 사용할 수 있도록 하려면 Dynamics 365 비즈니스 센터 제품에 맞게 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에서 제출 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
+| Cortana Intelligence | 아니요 | Microsoft는 Cortana Intelligence에 대 한 제품 로드맵을 발전 시켜 AppSource에서 라이브 제품을 나열 Cortana Intelligence. 이러한 제품은 더 이상 고객이 검색할 수 없으며 파트너 센터로 이동 하지 않았습니다. 상업적 marketplace에서 제품을 사용할 수 있도록 하려면 SaaS (Software as a Service) 제품에 대 한 제품을 조정 하 고 [파트너 센터](https://partner.microsoft.com/)에 제출 합니다. [파트너 센터에서 SaaS 제품 생성 검사 목록](./plan-saas-offer.md)에 대해 자세히 알아보세요. |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>파트너 센터에서 Cloud 파트너 포털 제안을 찾을 수 없음
 
@@ -181,7 +181,7 @@ Cloud 파트너 포털와 파트너 센터 간의 차이점은 다음과 같습�
 
 Cloud 파트너 포털 Api는 파트너 센터와 통합 되며 계속 해 서 작동 합니다. 파트너 센터로 전환 하면 작은 변화가 도입 됩니다. 아래 표를 검토 하 여 코드가 파트너 센터에서 계속 작동 하는지 확인 합니다.
 
-| API <img src="" width=100px>| 변경 내용 설명 | 영향 |
+| API | 변경 내용 설명 | 영향 |
 | --- | --- | --- |
 | POST 게시, GoLive, 취소 | 마이그레이션된 제품의 경우 응답 헤더의 형식은 서로 다르지만 작업 상태를 검색하기 위한 상대 경로를 나타내는 것과 동일한 방식으로 계속 작동합니다. | 제안에 대 한 해당 POST 요청을 전송 하는 경우 위치 헤더는 제품의 마이그레이션 상태에 따라 다음 두 가지 형식 중 하나를 갖게 됩니다. <ul><li>마이그레이션되지 않은 제품: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>마이그레이션된 제안: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | GET 작업 | 이전에 응답에서 ' 알림-전자 메일 ' 필드를 지 원하는 제품의 경우이 필드는 더 이상 사용 되지 않으며 마이그레이션된 제안에 대해 더 이상 반환 되지 않습니다. | 마이그레이션된 제품의 경우 요청에 지정된 이메일 목록에 더 이상 알림을 보내지 않습니다. 대신, API 서비스는 이메일을 보내기 위해 파트너 센터의 알림 이메일 프로세스와 정렬됩니다. 특히, 작업 진행률에 대 한 알림은 파트너 센터에서 계정 설정의 판매자 연락처 정보 섹션에 설정 된 전자 메일 주소에 전송 됩니다.<br><br>파트너 센터의 [계정 설정](https://partner.microsoft.com/dashboard/account/management) 에 있는 판매자 연락처 정보 섹션에 설정 된 전자 메일 주소가 알림을 수신 하도록 올바른지 확인 합니다. |

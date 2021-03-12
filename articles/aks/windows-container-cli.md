@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 �
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 4d429b7136158723fa6110975326217c5540bc2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180994"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200899"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -70,31 +70,34 @@ az group create --name myResourceGroup --location eastus
 Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster* 라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
 
 * 클러스터는 두 개의 노드로 구성 됩니다.
-* *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다.
-* 노드 풀은 다음을 사용 합니다. `VirtualMachineScaleSets`
+* `--windows-admin-password`및 `--windows-admin-username` 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다. *Windows-admin-password* 매개 변수를 지정 하지 않으면 값을 제공 하 라는 메시지가 표시 됩니다.
+* 노드 풀은를 사용 `VirtualMachineScaleSets` 합니다.
 
 > [!NOTE]
 > 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
-사용자 고유의 보안 *PASSWORD_WIN* 제공 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
+클러스터에서 Windows Server 컨테이너에 대 한 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 메시지를 표시 하 고 나중에 사용할 수 있도록 WINDOWS_USERNAME 설정 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
 
+매개 변수를 지정할 수 있도록 클러스터를 만듭니다 `--windows-admin-username` . 다음 예제 명령은 이전 명령에서 설정한 *WINDOWS_USERNAME* 의 값을 사용 하 여 클러스터를 만듭니다. 또는 *WINDOWS_USERNAME* 를 사용 하는 대신 매개 변수에서 직접 다른 사용자 이름을 제공할 수 있습니다. 다음 명령을 통해 클러스터에서 Windows Server 컨테이너의 관리자 자격 증명에 대 한 암호를 만들라는 메시지가 표시 됩니다. 또는 *windows-admin-password* 매개 변수를 사용 하 여 해당 값을 직접 지정할 수 있습니다.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
 > [!NOTE]
-> 암호 유효성 검사 오류가 발생 하는 경우 windows *-관리자 암호* 매개 변수가 [windows Server 암호 요구 사항을][windows-server-password]충족 하는지 확인 합니다. 암호가 요구 사항을 충족 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요. 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
+> 암호 유효성 검사 오류가 발생 하는 경우 설정 된 암호가 [Windows Server 암호 요구 사항을][windows-server-password]충족 하는지 확인 합니다. 암호가 요구 사항을 충족 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요. 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
 
 몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다. 경우에 따라 클러스터를 프로비저닝하는 데 몇 분 이상 걸릴 수 있습니다. 이 경우 최대 10분이 허용됩니다.
 
