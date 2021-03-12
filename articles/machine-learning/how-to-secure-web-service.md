@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: aashishb
 author: aashishb
-ms.date: 01/04/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e0e25a804ac66ca33715906ce4d397b80887037d
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 71cb2e9e112c49d77a2a0b47c24c49cabfa86589
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518554"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149021"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -97,7 +97,7 @@ Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사�
     provisioning_config = AksCompute.provisioning_configuration()
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     provisioning_config.enable_ssl(leaf_domain_label = "contoso")
 
@@ -107,7 +107,7 @@ Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사�
                                           cluster_name = cluster_name)
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
@@ -173,7 +173,7 @@ TLS/SSL 인증서가 만료 되 고 갱신 되어야 합니다. 일반적으로�
 
 > [!IMPORTANT]
 > * 기존 인증서가 여전히 유효한 경우 `renew=True` (SDK) 또는 `--ssl-renew` (CLI)를 사용 하 여 구성을 강제로 갱신 합니다. 예를 들어 기존 인증서가 여전히 10 일간 유효 하 고를 사용 하지 않는 경우 `renew=True` 인증서를 갱신 하지 못할 수 있습니다.
-> * 서비스를 처음 배포할 때는 패턴을 `leaf_domain_label` 사용 하 여 DNS 이름을 만드는 데 사용 됩니다 `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . 원래 생성 된 6 자리를 포함 하 여 기존 이름을 유지 하려면 원래 값을 사용 `leaf_domain_label` 합니다. 생성 된 6 자리는 포함 하지 마세요.
+> * 서비스를 처음 배포할 때는 패턴을 `leaf_domain_label` 사용 하 여 DNS 이름을 만드는 데 사용 됩니다 `<leaf-domain-label>######.<azure-region>.cloudapp.azure.com` . 원래 생성 된 6 자리를 포함 하 여 기존 이름을 유지 하려면 원래 값을 사용 `leaf_domain_label` 합니다. 생성 된 6 자리는 포함 하지 마세요.
 
 **SDK 사용**
 

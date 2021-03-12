@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440312"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149463"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md) 는 클라우드에서 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 제공 합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -136,9 +136,9 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 동기화 데이터를 Azure 파일 공유에 업로드 하는 동안 로컬 파일 서버에 가동 중지 시간이 발생 하지 않으며 관리자가 [네트워크 제한을 설정](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) 하 여 백그라운드 데이터 업로드에 사용 되는 대역폭의 양을 제한할 수 있습니다.
 
-초기 동기화는 일반적으로 동기화 그룹당 초당 20 개 파일의 초기 업로드 속도로 제한 됩니다. 고객은 다음] 열의 공식을을 사용 하 여 모든 데이터를 azure에 업로드 하는 시간을 예측할 수 있습니다.  
+초기 동기화는 일반적으로 동기화 그룹당 초당 20 개 파일의 초기 업로드 속도로 제한 됩니다. 고객은 다음] 열의 공식을을 사용 하 여 모든 데이터를 Azure에 업로드 하는 시간을 예측할 수 있습니다.  
 
-   **동기화 그룹에 파일을 업로드 하는 시간 (일) = (클라우드 끝점의 개체 수)/(20 * 60 * 60 * 24)**
+   **동기화 그룹에 파일을 업로드 하는 시간 (일) = (서버 끝점의 개체 수)/(20 * 60 * 60 * 24)**
 
 여러 개의 서버 끝점 및 동기화 그룹으로 데이터를 분할 하면 매번 초당 20 개 항목의 속도로 여러 동기화 그룹에 대해 동시에 업로드를 수행할 수 있기 때문에이 초기 데이터 업로드 속도를 높일 수 있습니다. 따라서 두 개의 동기화 그룹이 초당 40 항목의 결합 된 속도로 실행 됩니다. 완료 하는 데 소요 되는 총 시간은 동기화 그룹에서 동기화 할 파일의 대부분을 예상 하는 시간입니다.
 

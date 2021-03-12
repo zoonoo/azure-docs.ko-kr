@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5c01b1965c38811e78909f27ca4ab65614bc7f0e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629719"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629979"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "94629719"
 
 **별칭** 을 입력합니다. 제품 별칭은 파트너 센터에서 제품에 사용되는 이름입니다.
 
-- 이 이름은 Azure Marketplace에서 사용되지 않습니다. 고객에게 표시되는 제품 이름 및 다른 값과는 다릅니다.
+- 이 이름은 Azure Marketplace에서 사용 되지 않습니다. 고객에게 표시되는 제품 이름 및 다른 값과는 다릅니다.
 
 **만들기** 를 선택하여 제품을 생성하고 계속 진행합니다. 파트너 센터에서 **제품 설치** 페이지를 엽니다.
 

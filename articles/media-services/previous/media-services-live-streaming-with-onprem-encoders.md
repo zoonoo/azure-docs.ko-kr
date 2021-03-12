@@ -3,7 +3,7 @@ title: 다중 비트 전송률 스트림을 만드는 온-프레미스 인코더
 description: 이 항목에서는 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 설정하는 방법에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269627"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014845"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -29,9 +29,9 @@ ms.locfileid: "89269627"
 > 2018년 5월 12일부터 라이브 채널은 RTP/MPEG-2 전송 스트림 수집 프로토콜을 더 이상 지원하지 않습니다. RTP/MPEG-2에서 RTMP 또는 조각난 MP4(부드러운 스트리밍) 수집 프로토콜로 마이그레이션하세요.
 
 ## <a name="overview"></a>개요
-Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
+Azure Media Services에서 *채널* 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 채널로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 채널을 통과합니다. 이 방법을 *통과*라고 합니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 채널로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 채널을 통과합니다. 이 방법을 *통과* 라고 합니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
@@ -39,7 +39,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
-채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음과 같은 두 가지 옵션이 있습니다.
+채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * **경로 통과**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 문서에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
 * **Live Encoding**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
@@ -121,7 +121,7 @@ TLS 연결을 통해 조각화 된 MP4 (부드러운 스트리밍) 라이브 스
 
 다음 테이블에서는 세그먼트 기간이 계산되는 방법을 보여 줍니다.
 
-| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예제 |
+| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예 |
 | --- | --- | --- |
 | 3초보다 작거나 같음 |3:1 |KeyFrameInterval(또는 GOP)이 2초인 경우 기본 HLS 세그먼트 패키징 비율은 3 대 1입니다. 그러면 6초 HLS 세그먼트를 만듭니다. |
 | 3~5초 |2:1 |KeyFrameInterval(또는 GOP)이 4초인 경우 기본 HLS 세그먼트 패키징 비율은 2 대 1입니다. 그러면 8초 HLS 세그먼트를 만듭니다. |

@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 정기적인 백업 및 복원
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 애플리케이션 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927994"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198720"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기 백업 및 복원
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 일시적으로 백업 일시 중단
 - 백업의 보존 관리(예정)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * 패브릭 버전 6.4 이상을 사용 하는 클러스터를 Service Fabric 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 응용 프로그램의 경우 응용 프로그램을 Service Fabric SDK 버전 3.1 이상으로 빌드해야 합니다.
@@ -215,6 +215,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
+Service Fabric Explorer에 대 한 [고급 모드가](service-fabric-visualizing-your-cluster.md#backup-and-restore) 사용 하도록 설정 되어 있는지 확인 합니다. 
 
 1. 응용 프로그램을 선택 하 고 작업으로 이동 합니다. 응용 프로그램 백업 사용/업데이트를 클릭 합니다.
 

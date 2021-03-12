@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 33ad17e3024011368c909a89e9164ca06d044bad
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369427"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612085"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure 전면 도어의 도메인에 대 한 지역 필터링
 
@@ -214,4 +214,4 @@ WAF 정책은 사용자 지정 규칙 집합을 포함 합니다. 규칙은 일�
 ## <a name="next-steps"></a>다음 단계
 
 - [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- 핫에서 [지역 필터링 WAF 정책을 설정 하는](front-door-tutorial-geo-filtering.md)방법을 알아봅니다.
+- [지역 필터링 WAF 정책을 설정](front-door-tutorial-geo-filtering.md)하는 방법에 대해 알아봅니다.

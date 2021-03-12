@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202997"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565719"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -190,7 +190,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 값은 `Get-AzEnrollmentAccount`에서 가져오는 GUID입니다. |
 | `OwnerObjectId`      | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 개체 ID입니다.  |
 | `OwnerSignInName`    | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 이메일 주소입니다. `OwnerObjectId` 대신 매개 변수를 사용할 수 있습니다.|
-| `OwnerApplicationId` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `OwnerObjectId` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true)이 서비스 주체에 있어야 합니다.|
+| `OwnerApplicationId` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `OwnerObjectId` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 서비스 주체에 있어야 합니다.|
 
 모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription)을 참조하세요.
 
@@ -211,7 +211,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 값은 `az billing enrollment-account list`에서 가져오는 GUID입니다. |
 | `owner-object-id`      | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 개체 ID입니다.  |
 | `owner-upn`    | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 이메일 주소입니다. `owner-object-id` 대신 매개 변수를 사용할 수 있습니다.|
-| `owner-spn` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `owner-object-id` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true)이 서비스 주체에 있어야 합니다.|
+| `owner-spn` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `owner-object-id` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 서비스 주체에 있어야 합니다.|
 
 모든 매개 변수의 전체 목록을 보려면 [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create)를 참조하세요.
 

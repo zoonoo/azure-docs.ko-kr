@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d76fd3b30d823efbf85e84a74a21c694f5a0e6fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025013"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565566"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -81,7 +81,7 @@ FSLogix 프로필 컨테이너를 구성 하는 방법에 대 한 자세한 내�
 
 - [Windows 가상 데스크톱에서 기본 제공 앱 게시](publish-apps.md)
 - [DISM 앱 패키지 서비스 명령줄 옵션](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>사용자가 Microsoft Store에서 앱을 다운로드 하 여 설치 하지 않도록 어떻게 할까요?
 

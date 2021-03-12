@@ -4,12 +4,12 @@ description: Azure 역할 기반 액세스 제어를 사용 하 여 Recovery Ser
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553411"
+ms.locfileid: "102613445"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Azure Backup 복구 지점의 관리
 
@@ -39,7 +39,7 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | | 가상 머신 참가자 | VM 리소스 |  또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
 | VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
 | VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |   |
-| | 참가자 | VM이 배포될 리소스 그룹 |   또는 기본 제공 역할 대신에 다음 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. .Resources/subscription/resourceGroups/write Microsoft. DomainRegistration/domains/write, microsoft virtualMachines/virtualNetworks/write microsoft. Network/virtualNetworks/서브넷/조인/작업 | 
+| | 참가자 | VM이 배포될 리소스 그룹 |   또는 기본 제공 역할 대신에 다음 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. .Resources/subscription/resourceGroups/write Microsoft. DomainRegistration/domains/write, microsoft virtualMachines/virtualNetworks/write microsoft. Network/virtualNetworks/서브넷/조인/작업 |
 | | 가상 머신 참가자 | 백업 된 원본 VM |   또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
 | 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | 가상 머신 참가자 | 백업 된 원본 VM | 또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
@@ -50,6 +50,7 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | | 참가자 | 관리 디스크가 복원될 리소스 그룹 | 또는 기본 제공 역할 대신, Microsoft .Resources/subscription/resourceGroups/write 권한이 있는 사용자 지정 역할을 고려할 수 있습니다.|
 | VM 백업에서 개별 파일 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | 가상 머신 참가자 | 백업 된 원본 VM | 또는 기본 제공 역할 대신, 다음과 같은 사용 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. Compute/virtualMachines/write |
+| 지역 간 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 구독 | 이는 위에서 언급 한 복원 권한이 추가 된 것입니다. 특히 CRR의 경우 기본 제공 역할이 아니라 다음과 같은 권한이 있는 사용자 지정 역할을 고려할 수 있습니다. "backupAadProperties/read" "Microsoft. RecoveryServices/위치/r e a m/작업/작업" "" "microsoft recoveryservices/위치/a s e a r 작업/작업" "" microsoft recoveryservices/위치/a s e r 작업/동작 "" microsoft recoveryservices/위치/backupCrrOperationResults/읽기 "" backupCrrOperationsStatus/read " |
 | Azure VM 백업에 대한 백업 정책 만들기 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | Azure VM 백업의 백업 정책 수정 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | Azure VM 백업의 백업 정책 삭제 | Backup 참가자 | Recovery Services 자격 증명 모음 |

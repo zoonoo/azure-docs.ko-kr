@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 812bfcc8d82c08600bd7391cdf70661585ceaf2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123193"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015185"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
 
@@ -30,7 +30,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >
 >Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -43,18 +43,11 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
   * 최소 RAM: 4gb (권장 8gb)
   * 최소 저장소: 10gb
 
-* Windows 관리 센터에 대 한 Azure IoT Edge 확장을 설치 하 여 Windows 관리 센터 insider build에 액세스 합니다.  <!-- The link below needs the language localization to work; otherwise broken -->
-   1. [Windows Insider preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)를 방문 합니다.
+* Windows 관리 센터에 대 한 Azure IoT Edge 확장을 설치 하 여 Windows 관리 센터에 액세스:
 
-   1. 미리 보기 드롭다운에서 **Windows 관리 센터 미리 보기-빌드 2012** 를 선택 하 고 **확인** 을 선택 합니다.
+   1. [Windows 관리 센터 설치 관리자](https://aka.ms/wacdownload)를 다운로드 합니다.
 
-      ![사용 가능한 미리 보기의 드롭다운 메뉴에서 Windows 관리 센터 미리 보기-빌드 2012를 선택 합니다.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
-
-   1. **언어 선택** 드롭다운에서 **영어** 를 선택 하 고 **확인** 을 선택 합니다.
-
-   1. **지금 다운로드** 를 선택 하 여 *WindowsAdminCenterPreview2012.msi* 을 다운로드 합니다.
-
-   1. *WindowsAdminCenterPreview2012.msi* 를 실행 하 고 설치 마법사 프롬프트에 따라 Windows 관리 센터를 설치 합니다. 설치 되 면 Windows 관리 센터를 엽니다.
+   1. 다운로드 한 설치 관리자를 실행 하 고 설치 마법사 프롬프트에 따라 Windows 관리 센터를 설치 합니다. 설치 되 면 Windows 관리 센터를 엽니다.
 
    1. Windows 관리 센터를 처음 사용할 때 사용할 인증서를 선택 하 라는 메시지가 표시 됩니다. 인증서로 **Windows 관리 센터 클라이언트** 를 선택 합니다.
 
@@ -143,7 +136,7 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
    ```azurepowershell-interactive
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. 장치의 Windows에 Linux 용 IoT Edge를 설치 합니다.

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 83d3a21de22be4c491207d3ee3605dd31b1c3da8
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b5c75f62f730c1bbc09a66e81f70f0e71a246fde
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487579"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613360"
 ---
 # <a name="client-libraries-and-rest-apis"></a>클라이언트 라이브러리 및 REST API
 
@@ -27,7 +27,7 @@ Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성
 
 | 어셈블리               | 프로토콜             |소스 및 닫힌 소스 열기| 네임스페이스                          | 기능                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure 리소스 관리자 | REST (영문) | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
+| Azure Resource Manager | REST (영문) | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
 | 일반                 | REST (영문) | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
 | ID         | REST (영문) | 열기               | Azure. 통신 Id  | 사용자 관리, 토큰 액세스 |
 | 채팅                   | 소유 신호를 포함 하는 REST | 닫힌 소스 신호 패키지를 사용 하 여 열기    | Azure. 통신 채팅            | 응용 프로그램에 실시간 텍스트 기반 채팅 추가  |
@@ -48,7 +48,7 @@ Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 
 | 채팅           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | sms            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
 | 호출        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| 참조 설명서     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling?view=communication-services-java-android)            | -                              |
+| 참조 설명서     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
 ## <a name="rest-apis"></a>REST API
 

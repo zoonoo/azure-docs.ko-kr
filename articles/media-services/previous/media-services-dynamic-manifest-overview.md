@@ -3,7 +3,7 @@ title: 필터 및 동적 매니페스트 | Microsoft 문서
 description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 보관하기 위해 Media Services는 동적 매니페스트를 생성합니다.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727331"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013689"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -77,14 +77,14 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ```
 
 ### <a name="dynamic-manifests"></a>동적 매니페스트
-클라이언트가 기본 자산의 매니페스트 파일에 설명된 것 보다 높은 유연성을 필요로 하는 경우의 [시나리오](media-services-dynamic-manifest-overview.md#scenarios) 가 있습니다. 다음은 그 예입니다. 
+클라이언트가 기본 자산의 매니페스트 파일에 설명된 것 보다 높은 유연성을 필요로 하는 경우의 [시나리오](media-services-dynamic-manifest-overview.md#scenarios) 가 있습니다. 예를 들면 다음과 같습니다.
 
 * 디바이스별: 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다("변환 필터링"). 
 * 라이브 이벤트의 하위 클립을 표시하는 매니페스트를 줄입니다("하위 클립 필터링").
 * 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 * 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다("프레젠테이션 창 조정").
 
-이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터** 를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 HLS, MPEG-DASH 및 부드러운 스트리밍 등의 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. 다음은 그 예입니다. 
+이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터** 를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 HLS, MPEG-DASH 및 부드러운 스트리밍 등의 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 필터가 있는 MPEG DASH URL
 

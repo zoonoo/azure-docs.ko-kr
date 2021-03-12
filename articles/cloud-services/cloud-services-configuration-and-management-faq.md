@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 31659f4e8e4f9e25a997be54223b8856edfa8abe
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578219"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612986"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 구성 및 관리 문제: Faq (질문과 대답)
 
@@ -124,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true)를 사용하여 각 위치 값을 설정할 수 있습니다.
+Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment)를 사용하여 각 위치 값을 설정할 수 있습니다.
 
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
@@ -293,7 +293,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
  
 - [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension)
 
 맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
 

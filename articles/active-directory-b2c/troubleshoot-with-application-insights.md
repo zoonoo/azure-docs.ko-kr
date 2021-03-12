@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/16/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572908"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611830"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
-이 문서에서는 사용자 지정 정책을 사용 하 여 문제를 진단할 수 있도록 Active Directory B2C (Azure AD B2C)에서 로그를 수집 하는 단계를 제공 합니다. Application Insights는 예외를 진단하고 애플리케이션 성능 문제를 시각화하는 방법을 제공합니다. Azure AD B2C에는 Application Insights 데이터를 전송 하기 위한 기능이 포함 되어 있습니다.
+이 문서에서는 사용자 지정 정책을 사용 하 여 문제를 진단할 수 있도록 Active Directory B2C (Azure AD B2C)에서 로그를 수집 하는 단계를 제공 합니다. Application Insights는 예외를 진단하고 애플리케이션 성능 문제를 시각화하는 방법을 제공합니다. Azure AD B2C에는 Application Insights로 데이터를 보내는 기능을 있습니다.
 
 여기서 설명 하는 자세한 활동 로그는 사용자 지정 정책을 개발 하는 동안에 **만** 사용 하도록 설정 해야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "100572908"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. `<UserJourneyBehaviors>`자식 노드가 아직 없으면 `<RelyingParty>` 노드에 추가 합니다. 바로 뒤에 위치 해야 합니다 `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. `<UserJourneyBehaviors>`자식 노드가 아직 없으면 `<RelyingParty>` 노드에 추가 합니다. 뒤에 위치 해야 합니다 `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
 1. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. 을 `{Your Application Insights Key}` 이전에 기록한 Application Insights **계측 키** 로 바꿔야 합니다.
 
     ```xml
@@ -62,7 +62,7 @@ ms.locfileid: "100572908"
     * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이** 며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ```xml
     <TrustFrameworkPolicy

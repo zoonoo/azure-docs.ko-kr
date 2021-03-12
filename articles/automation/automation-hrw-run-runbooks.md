@@ -3,14 +3,14 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용 하 여 로컬 데이터 센터 또는 다른 클라우드 공급자의 컴퓨터에서 runbook을 실행 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633311"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149378"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -56,10 +56,10 @@ Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 
 다음 단계에 따라 Hybrid Runbook Worker에서 Azure 리소스에 대한 관리 ID를 사용하세요.
 
 1. Azure VM을 만듭니다.
-2. VM에서 Azure 리소스에 대한 관리 ID를 구성합니다. [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)을 참조하세요.
-3. VM에 Resource Manager에 있는 리소스 그룹에 대한 액세스 권한을 부여합니다. [Windows VM 시스템 할당 관리 ID를 사용하여 Resource Manager에 액세스](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)를 참조하세요.
-4. VM에 Hybrid Runbook Worker를 설치합니다. [Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 또는 [Linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조하세요.
-5. Runbook이 `Identity` 매개 변수로 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 리소스로 인증되도록 업데이트합니다. 이 구성은 실행 계정을 사용하고 관련 계정 관리를 수행해야 하는 필요를 줄여 줍니다.
+1. VM에서 Azure 리소스에 대한 관리 ID를 구성합니다. [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)을 참조하세요.
+1. VM에 Resource Manager에 있는 리소스 그룹에 대한 액세스 권한을 부여합니다. [Windows VM 시스템 할당 관리 ID를 사용하여 Resource Manager에 액세스](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)를 참조하세요.
+1. VM에 Hybrid Runbook Worker를 설치합니다. [Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 또는 [Linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조하세요.
+1. Runbook이 `Identity` 매개 변수로 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 리소스로 인증되도록 업데이트합니다. 이 구성은 실행 계정을 사용하고 관련 계정 관리를 수행해야 하는 필요를 줄여 줍니다.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -76,20 +76,24 @@ Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 
 
 Runbook이 로컬 리소스에 자체 인증을 제공하도록 하는 대신 Hybrid Runbook Worker 그룹에 실행 계정을 지정할 수 있습니다. 실행 계정을 지정 하려면 로컬 리소스에 대 한 액세스 권한이 있는 [자격 증명 자산](./shared-resources/credentials.md) 을 정의 해야 합니다. 이러한 리소스에는 그룹의 Hybrid Runbook Worker에서 이 자격 증명으로 실행된 모든 Runbook과 인증서 저장소가 포함됩니다.
 
-자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
+- 자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
 
-* domain\username
-* username@domain
-* 사용자 이름(온-프레미스 컴퓨터에 로컬인 계정용)
+   * domain\username
+   * username@domain
+   * 사용자 이름(온-프레미스 컴퓨터에 로컬인 계정용)
+
+- PowerShell runbook **export-runascertificatetohybridworker** 를 사용 하려면 로컬 컴퓨터에서 Azure Automation에 대 한 Az 모듈을 설치 해야 합니다.
+
+#### <a name="use-a-credential-asset-to-specify-a-run-as-account"></a>자격 증명 자산을 사용 하 여 실행 계정 지정
 
 Hybrid Runbook Worker 그룹에 실행 계정을 지정하려면 다음 절차를 사용합니다.
 
 1. 로컬 리소스에 대한 액세스로 [자격 증명 자산](./shared-resources/credentials.md)을 만듭니다.
-2. Azure Portal에서 Automation 계정을 엽니다.
-3. **Hybrid Worker 그룹** 을 선택하고 특정 그룹을 선택합니다.
-4. **모든 설정** 을 선택하고 **Hybrid Worker 그룹 설정** 을 선택합니다.
-5. **실행 계정** 의 값을 **기본값** 에서 **사용자 지정** 으로 변경합니다.
-6. 자격 증명을 선택하고 **저장** 을 클릭합니다.
+1. Azure Portal에서 Automation 계정을 엽니다.
+1. **Hybrid Worker 그룹** 을 선택하고 특정 그룹을 선택합니다.
+1. **모든 설정** 을 선택하고 **Hybrid Worker 그룹 설정** 을 선택합니다.
+1. **실행 계정** 의 값을 **기본값** 에서 **사용자 지정** 으로 변경합니다.
+1. 자격 증명을 선택하고 **저장** 을 클릭합니다.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>실행 계정 인증서 설치
 
@@ -178,11 +182,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 실행 계정 준비를 완료하려면:
 
 1. **Export-RunAsCertificateToHybridWorker** Runbook을 **.ps1** 확장명으로 컴퓨터에 저장합니다.
-2. 저장한 Runbook을 Automation 계정으로 가져옵니다.
-3. Runbook을 편집하여 `Password` 변수의 값을 자신의 암호로 변경합니다.
-4. Runbook을 게시합니다.
-5. 실행 계정을 사용하여 Runbook을 실행 및 인증하는 Hybrid Runbook Worker 그룹을 대상으로 Runbook을 실행합니다. 
-6. 작업 스트림이 인증서를 로컬 머신 저장소로 가져오려는 시도를 보고하고 있으며 그 뒤에 여러 줄이 있는지 검토합니다. 이 동작은 구독에 몇 개의 Automation 계정을 정의했는지와 인증의 성공 정도에 따라 달라집니다.
+1. 저장한 Runbook을 Automation 계정으로 가져옵니다.
+1. Runbook을 편집하여 `Password` 변수의 값을 자신의 암호로 변경합니다.
+1. Runbook을 게시합니다.
+1. 실행 계정을 사용하여 Runbook을 실행 및 인증하는 Hybrid Runbook Worker 그룹을 대상으로 Runbook을 실행합니다. 
+1. 작업 스트림이 인증서를 로컬 머신 저장소로 가져오려는 시도를 보고하고 있으며 그 뒤에 여러 줄이 있는지 검토합니다. 이 동작은 구독에 몇 개의 Automation 계정을 정의했는지와 인증의 성공 정도에 따라 달라집니다.
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker에서 서명된 Runbook으로 작업
 
@@ -267,13 +271,13 @@ GPG 인증 키와 키 쌍을 만들려면 Hybrid Runbook Worker [nxautomation �
     sudo su – nxautomation
     ```
 
-2. **nxautomation** 을 사용하는 상태에서 GPG 키 쌍을 생성합니다. GPG에서 이 단계를 안내합니다. 이름, 메일 주소, 만료 시간, 암호를 지정해야 합니다. 그런 다음 키가 생성될 수 있을 만큼 머신에서 충분한 엔트로피가 발생할 때까지 기다려야 합니다.
+1. **nxautomation** 을 사용하는 상태에서 GPG 키 쌍을 생성합니다. GPG에서 이 단계를 안내합니다. 이름, 메일 주소, 만료 시간, 암호를 지정해야 합니다. 그런 다음 키가 생성될 수 있을 만큼 머신에서 충분한 엔트로피가 발생할 때까지 기다려야 합니다.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. GPG 디렉터리는 sudo를 사용하여 생성되었으므로 다음 명령을 사용하여 소유자를 **nxautomation** 으로 변경해야 합니다.
+1. GPG 디렉터리는 sudo를 사용하여 생성되었으므로 다음 명령을 사용하여 소유자를 **nxautomation** 으로 변경해야 합니다.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg

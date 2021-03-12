@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 1/5/2021
-ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 02/19/2021
+ms.openlocfilehash: 870482ca7894c5e260a78270fb036d6a6b22ee41
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914164"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630064"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대 한 SAS URI를 생성 하는 방법
 
-게시 프로세스가 진행 되는 동안 요금제와 연결 된 각 VHD (이전에는 Sku 라고 함)에 대 한 SAS (공유 액세스 서명) URI를 제공 해야 합니다. Microsoft는 인증 프로세스 중에 이러한 VHD에 액세스해야 합니다. 파트너 센터의 **계획** 탭에서이 URI를 입력 합니다.
+> [!NOTE]
+> VM을 게시 하는 데 SAS URI가 필요 하지 않습니다. 단지 Parter 센터에서 이미지를 공유할 수 있습니다. [승인 된 기본을 사용 하 여 가상 머신 만들기](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) 또는 [고유한 이미지 지침을 사용 하 여 가상 머신](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) 만들기를 참조 하세요.
 
 Vhd에 대 한 SAS Uri 생성에는 다음과 같은 요구 사항이 있습니다.
 
@@ -24,6 +25,71 @@ Vhd에 대 한 SAS Uri 생성에는 다음과 같은 요구 사항이 있습니�
 - 목록 및 읽기 권한만 필요 합니다. 쓰기 또는 삭제 권한을 제공 하지 마세요.
 - 액세스 기간(만료 날짜)은 SAS URI가 생성된 시점에서 3주 이상이어야 합니다.
 - UTC 시간 변경을 방지하려면 시작 날짜를 현재 날짜 전으로 설정합니다. 예를 들어 현재 날짜가 2020 년 6 월 16 일 경우 6/15/2020를 선택 합니다.
+
+## <a name="extract-vhd-from-a-vm"></a>VM에서 vhd 추출
+
+> [!NOTE]
+> 저장소 계정에 업로드 된 vhd가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
+
+VM에서 vhd를 추출 하려면 VM 디스크의 스냅숏을 만들고 스냅숏에서 vhd를 추출 해야 합니다.
+
+먼저 VM 디스크의 스냅숏을 작성 합니다.
+
+1. Azure Portal에 로그인합니다.
+2. 왼쪽 위에서 시작 하 여 리소스 만들기를 선택한 다음,를 검색 하 고 스냅숏을 선택 합니다.
+3. 스냅숏 블레이드에서 만들기를 선택 합니다.
+4. 스냅샷의 이름을 입력합니다.
+5. 기존 리소스 그룹을 선택 하거나 새 리소스 그룹의 이름을 입력 합니다.
+6. 원본 디스크에서 스냅샷을 만들 관리 디스크를 선택합니다.
+7. 스냅샷 저장에 사용할 계정 유형을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 표준 HDD를 사용합니다.
+8. 만들기를 선택합니다.
+
+### <a name="extract-the-vhd"></a>VHD 추출
+
+다음 스크립트를 사용 하 여 스냅숏을 저장소 계정의 VHD로 내보냅니다.
+
+```azurecli
+#Provide the subscription Id where the snapshot is created
+$subscriptionId=yourSubscriptionId
+
+#Provide the name of your resource group where the snapshot is created
+$resourceGroupName=myResourceGroupName
+
+#Provide the snapshot name
+$snapshotName=mySnapshot
+
+#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
+#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
+$sasExpiryDuration=3600
+
+#Provide storage account name where you want to copy the underlying VHD file. 
+$storageAccountName=mystorageaccountname
+
+#Name of the storage container where the downloaded VHD will be stored.
+$storageContainerName=mystoragecontainername
+
+#Provide the key of the storage account where you want to copy the VHD 
+$storageAccountKey=mystorageaccountkey
+
+#Give a name to the destination VHD file to which the VHD will be copied.
+$destinationVHDFileName=myvhdfilename.vhd
+
+az account set --subscription $subscriptionId
+
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+
+az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
+```
+
+### <a name="script-explanation"></a>스크립트 설명
+이 스크립트는 다음 명령을 사용 하 여 스냅숏에 대 한 SAS URI를 생성 하 고 SAS URI를 사용 하 여 기본 VHD를 저장소 계정에 복사 합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+
+
+|명령  |메모  |
+|---------|---------|
+| az disk grant-access    |     기본 VHD 파일을 스토리지 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.    |
+|  az storage blob copy start   |    한 저장소 계정에서 다른 저장소 계정으로 blob을 비동기적으로 복사 합니다. Az storage blob show를 사용 하 여 새 blob의 상태를 확인 합니다.     |
+|
 
 ## <a name="generate-the-sas-address"></a>SAS 주소 생성
 

@@ -1,7 +1,7 @@
 ---
 title: REST를 사용하여 Media Services 엔터티 관리 | Microsoft Docs
 description: 이 문서에서는 REST API를 사용 하 여 Media Services 엔터티를 관리 하는 방법을 보여 줍니다.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 95124f101b1f14a70dabedd7d44077c5c1b6e99c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 2821c4c2b13edaf5dfb34664c4b9f78ab56d98a7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264269"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015559"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리
 
@@ -135,9 +135,9 @@ Host: media.windows.net
 > 
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>대용량 엔터티 컬렉션 열거
-엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. **skip** 및 **top**을 사용하여 대용량 엔터티 컬렉션을 열거합니다. 
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. **skip** 및 **top** 을 사용하여 대용량 엔터티 컬렉션을 열거합니다. 
 
-다음 예제에서는 **skip** 및 **top**을 사용하여 처음 2000개의 작업을 건너뛰고 다음 1000개의 작업을 가져오는 방법을 보여 줍니다.  
+다음 예제에서는 **skip** 및 **top** 을 사용하여 처음 2000개의 작업을 건너뛰고 다음 1000개의 작업을 가져오는 방법을 보여 줍니다.  
 
 ```console
 GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1

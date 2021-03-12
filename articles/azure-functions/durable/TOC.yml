@@ -31,8 +31,10 @@
       href: durable-functions-sequence.md
     - name: 팬 인/팬 아웃
       href: durable-functions-cloud-backup.md
-    - name: 모니터
+    - name: '모니터(C#, JavaScript)'
       href: durable-functions-monitor.md
+    - name: 모니터(Python)
+      href: durable-functions-monitor-python.md
     - name: 사용자 개입
       href: durable-functions-phone-verification.md
     - name: Event Grid에 게시
@@ -90,11 +92,11 @@
     - name: HTTP API
       href: durable-functions-http-api.md
     - name: .NET API
-      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
     - name: Node.js API
-      href: /javascript/api/durable-functions/?view=azure-node-latest
+      href: /javascript/api/durable-functions/
     - name: Python API
-      href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
+      href: /python/api/azure-functions-durable/azure.durable_functions
 - name: 방법 가이드
   items:
     - name: 개발

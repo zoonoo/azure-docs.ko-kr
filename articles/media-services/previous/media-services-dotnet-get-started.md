@@ -3,7 +3,7 @@ title: .NET을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
 description: 이 자습서에서는 .NET을 사용한 Azure Media Services로 주문형 콘텐츠 배달 애플리케이션을 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbbf924ea950c5ba281be430190370ae77734b7a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f0e7f9fa33af43fb846255815d862d4cd3a07e99
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184402"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013978"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 
@@ -30,7 +30,7 @@ ms.locfileid: "96184402"
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
@@ -161,7 +161,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 **Createfromfile** 메서드는 다음과 같은 자산 생성 옵션 중 하나를 지정할 수 있는 **assetcreationoptions.storageencrypted** 를 사용 합니다.
 
-* **없음** - 암호화가 사용되지 않습니다. 이것은 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
+* **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
   MP4를 배달하려는 경우 이 옵션을 사용하세요.
 * **StorageEncrypted** - AES(Advanced Encryption Standard) 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음에 암호화되어 저장된 Azure Storage에 업로드하려면 이 옵션을 사용합니다. 스토리지 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 스토리지 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
 * **CommonEncryptionProtected** - 이미 암호화되어 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.

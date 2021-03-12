@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 811827c1053349d4fa80a25e5cf362331e5d87bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383180"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008215"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -143,12 +143,12 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  Yes    |
+| **사용자 지정 이벤트**   |            |                     |  예    |
 | **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  Yes    |
+| **종속성**    |            |                     |  예    |
 | **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  Yes    |
-| **요청**        |            |                     |  Yes    |
+| **페이지 보기**      |            |                     |  예    |
+| **요청**        |            |                     |  예    |
 | **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
@@ -323,4 +323,29 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
+```
+
+### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 id 및 작업 id를 가져옵니다.
+
+> [!NOTE]
+> 이 기능은 3.0.3-BETA 이상에만 해당 됩니다.
+
+`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+그리고 코드에서 요청 원격 분석 id 및 작업 id를 가져옵니다.
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
 ```
