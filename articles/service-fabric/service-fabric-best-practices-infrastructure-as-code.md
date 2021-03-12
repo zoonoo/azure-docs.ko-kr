@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a0f0324d1f7308eb1392c4f7a98a6a5d226026be
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b765d92778df40caec0864dc6f547324216fdb07
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705509"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611983"
 ---
 # <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
 
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 가상 컴퓨터 운영 체제 자동 업그레이드 구성 
-가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 poa를 통해 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유를 사용 하 여 azure에서 호스트 되는 경우에 사용할 수 있는 대체 솔루션입니다. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
+가상 컴퓨터를 업그레이드 하는 작업은 사용자가 시작한 작업 이므로 [가상 컴퓨터 확장 집합](service-fabric-patch-orchestration-application.md) 을 사용 하 여 Azure Service Fabric 클러스터의 자동 운영 체제 업그레이드 호스트 패치 관리를 사용 하는 것이 좋습니다. 패치 오케스트레이션 응용 프로그램은 azure에서 호스트 되는 경우 azure에서 poa를 호스트 하는 오버 헤드로 poa를 통해 가상 컴퓨터 운영 체제 자동 업그레이드를 선호 하는 일반적인 이유를 사용 하 여 azure에서 호스트 되는 경우에 사용할 수 있는 대체 솔루션입니다. 자동 OS 업그레이드를 사용 하도록 설정 하는 계산 가상 머신 확장 집합 리소스 관리자 템플릿 속성은 다음과 같습니다.
 
 ```json
 "upgradePolicy": {

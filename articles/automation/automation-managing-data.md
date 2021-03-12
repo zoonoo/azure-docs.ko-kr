@@ -3,14 +3,14 @@ title: 데이터 보안 Azure Automation
 description: 이 문서는 Azure Automation 개인 정보를 보호 하 고 데이터를 보호 하는 방법을 알아봅니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050820"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616119"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -26,7 +26,7 @@ Azure Automation 전송 중인 데이터의 보안을 보장 하려면 TLS (전�
 
 * DSC 노드
 
-이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 자동으로 검색하고 활용할 수 있도록 플랫폼 수준 보안 기능을 중단할 수 있으므로 반드시 필요하지 않다면 에이전트가 TLS 1.2만을 사용하도록 명시적으로 설정하지 않는 것이 좋습니다.
+이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동으로 검색 하 고 활용할 수 있도록 하는 플랫폼 수준 보안 기능을 중단할 수 있으므로 필요한 경우를 제외 하 고 TLS 1.2만 사용 하도록 명시적으로 설정 하지 않는 것이 좋습니다.
 
 Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log Analytics 에이전트에 대 한 TLS 1.2 지원에 대 한 자세한 내용은 [Log Analytics 에이전트 개요-TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol)를 참조 하세요.
 
@@ -41,7 +41,7 @@ Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log 
 
 ## <a name="data-retention"></a>데이터 보존
 
-Azure Automation에서 리소스를 삭제할 경우 영구적으로 제거하기 전에 감사를 위해 며칠 동안 보존됩니다. 이 기간 동안에는 리소스를 보거나 사용할 수 없습니다. 이 정책은 삭제되는 Automation 계정에 속한 리소스에도 적용됩니다. 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다. 하지만 데이터를 더 오랜 기간 동안 유지해야 하는 경우 [Azure Automation 작업 데이터를 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)할 수 있습니다.
+Azure Automation에서 리소스를 삭제 하는 경우 영구적으로 제거 되기 전에 감사를 위해 며칠 동안 보존 됩니다. 이 기간 동안에는 리소스를 보거나 사용할 수 없습니다. 이 정책은 삭제되는 Automation 계정에 속한 리소스에도 적용됩니다. 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다. 하지만 데이터를 더 오랜 기간 동안 유지해야 하는 경우 [Azure Automation 작업 데이터를 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)할 수 있습니다.
 
 다음 표에는 여러 리소스에 대한 보존 정책이 요약되어 있습니다.
 
@@ -68,7 +68,7 @@ Azure Portal 또는 Windows PowerShell의 [Get-AzureAutomationRunbookDefinition]
 
 ### <a name="integration-modules"></a>통합 모듈
 
-Azure Automation에서는 통합 모듈을 내보낼 수 없습니다. Automation 계정 외부에서 사용할 수 있도록 설정해야 합니다.
+통합 모듈은 Azure Automation에서 내보낼 수 없으며 자동화 계정 외부에서 사용할 수 있어야 합니다.
 
 ### <a name="assets"></a>자산
 
@@ -84,7 +84,10 @@ Azure Portal 또는 Windows PowerShell의 [Export-AzAutomationDscConfiguration](
 
 지역 복제는 Azure Automation 계정에서 표준입니다. 계정을 설정할 때 주 지역을 선택합니다. 내부 Automation 지역 복제 서비스는 자동으로 계정에 보조 지역을 할당합니다. 그런 다음 서비스는 주 지역에서 보조 지역으로 계정 데이터를 지속적으로 백업합니다. 주 지역 및 보조 지역의 전체 목록은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
-Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자산, 구성 등의 전체 복사본입니다. 주 지역이 중단되고 데이터가 손실되는 경우 이 백업을 사용할 수 있습니다. 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다. 회사에서 주 데이터를 복구할 수 없는 경우 자동 장애 조치를 사용하고 Azure 구독을 통해 상황을 알립니다.
+Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자산, 구성 등의 전체 복사본입니다. 주 지역이 중단되고 데이터가 손실되는 경우 이 백업을 사용할 수 있습니다. 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다.
+
+> [!NOTE]
+> Azure Automation는 고객이 선택한 지역에 고객 데이터를 저장 합니다. BCDR의 목적을 위해 브라질 남부 및 동남 아시아를 제외한 모든 지역에 대해 Azure Automation 데이터는 다른 지역 (Azure 쌍을 이루는 지역)에 저장 됩니다. 아시아 태평양 지리의 브라질 지리 및 동남 아시아 지역 (싱가포르)의 브라질 남부 (상 파울로 State) 지역에만 해당 지역에 대 한 데이터 상주 요구 사항을 수용 하기 위해 동일한 지역에 Azure Automation 데이터를 저장 합니다.
 
 지역 실패가 발생하는 경우 Automation 지역 복제 서비스는 외부 고객에게 직접 액세스할 수 없습니다. 지역 실패가 발생하는 경우 Automation 구성 및 Runbook을 유지하고자 하는 경우 다음을 수행합니다.
 

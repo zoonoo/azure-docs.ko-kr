@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4889744347b72603a0f6318f981bc2db4906b835
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433542"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630269"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -63,7 +63,7 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure. 핵심](https://www.nuget.org/packages/Azure.Core/)
 
-그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 이러한 패키지에 대 한 다음 문을 함수에 추가 합니다. 
+그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 이러한 패키지에 대 한 다음 문을 함수에 추가 합니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -96,6 +96,20 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 ## <a name="publish-the-function-app-to-azure"></a>Azure에 함수 앱 게시
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+### <a name="verify-function-publish"></a>함수 게시 확인
+
+1. [Azure Portal](https://portal.azure.com/)에서 자격 증명으로 로그인 합니다.
+2. 창 맨 위에 있는 검색 표시줄에서 **함수 앱 이름을** 검색 합니다.
+
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Azure Portal에서 함수 앱의 이름을 검색 합니다." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+
+3. 열리는 *함수 앱* 페이지의 왼쪽에 있는 메뉴 옵션에서 *함수* 를 선택 합니다. 함수가 성공적으로 게시 되 면 목록에 함수 이름이 표시 됩니다.
+게시 된 함수 목록에 나열 된 함수를 확인 하려면 몇 분 정도 기다리거나 페이지를 몇 번 새로 고쳐야 할 수도 있습니다.
+
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Azure Portal에서 게시 된 함수를 봅니다." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+
+함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure 디지털 쌍 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 id가 있어야 합니다. 이는 다음에 설정하게 됩니다.
 
 ## <a name="set-up-security-access-for-the-function-app"></a>함수 앱에 대 한 보안 액세스 설정
 

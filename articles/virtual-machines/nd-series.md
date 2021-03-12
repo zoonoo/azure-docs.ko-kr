@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 750d99655098628ef0d72ae3208289f57e625f3d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 5516e17a74fffd28f432df305dfa7f592644d4a7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562268"
+ms.locfileid: "102611575"
 ---
 # <a name="nd-series"></a>ND 시리즈
 
@@ -24,7 +24,7 @@ ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 G
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 되지 않음<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 Nvidia NVLink Interconnect: 지원 되지 않음<br>
 
 > [!IMPORTANT]

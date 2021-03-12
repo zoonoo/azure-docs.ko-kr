@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 6b345f159ca30d93e43aae8fe34e7d469c57795b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556658"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630625"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
@@ -40,7 +40,7 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>1단계: VM 프로비전 해제
-Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `-deprovision+user` 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요.
+Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `-deprovision+user` 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요. 이 프로세스는 되돌릴 수 없습니다.
 
 1. SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
 2. SSH 창에서 다음 명령을 입력합니다.

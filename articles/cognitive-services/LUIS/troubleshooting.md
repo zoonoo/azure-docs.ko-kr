@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787539"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612799"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -286,7 +286,7 @@ Azure Bot Service를 사용 중이며, **웹 채팅에서 테스트** 가 `Sorry
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Bot Framework를 사용하여 로컬 머신에서 디버그하는 동안 문제를 해결합니다.
 
-봇의 로컬 디버깅에 대한 자세한 내용은 [봇 디버그](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)를 참조하세요.
+봇의 로컬 디버깅에 대한 자세한 내용은 [봇 디버그](/azure/bot-service/bot-service-debug-bot)를 참조하세요.
 
 ## <a name="integrating-luis"></a>LUIS 통합
 

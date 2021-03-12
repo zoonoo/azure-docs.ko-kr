@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2342ed978204284bee4d2be0f1c983aa10ade36
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 35e8efa269ab72477b06e86824d368d0a3dced03
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585040"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197319"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 직접 로그인 설정
 
@@ -79,7 +79,7 @@ Facebook, LinkedIn 또는 Google 등과 같은 소셜 계정을 포함하도록 
 
 ::: zone pivot="b2c-custom-policy"
 
-도메인 hing 매개 변수를 지원 하기 위해 `<Domain>domain name</Domain>` 모든의 XML 요소를 사용 하 여 도메인 이름을 구성할 수 있습니다 `<ClaimsProvider>` .
+도메인 힌트 매개 변수를 지원 하기 위해 `<Domain>domain name</Domain>` 모든의 XML 요소를 사용 하 여 도메인 이름을 구성할 수 있습니다 `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>

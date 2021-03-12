@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 01/06/2021
-ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.date: 02/18/2021
+ms.openlocfilehash: 7ed3f707ad69c60111bcc97e139c0825fd503d8e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976863"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630114"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>승인 된 기본을 사용 하 여 가상 컴퓨터를 만드는 방법
 
-이 문서에서는 Azure를 사용 하 여 미리 구성 된 보증 운영 체제를 포함 하는 VM (가상 머신)을 만드는 방법을 설명 합니다. 솔루션과 호환 되지 않는 경우 승인 된 운영 체제를 사용 하 여 [온-프레미스 VM을 만들고 구성한](azure-vm-create-using-own-image.md) 다음, [Azure에 업로드할 WINDOWS VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md)에 설명 된 대로 업로드를 구성 하 고 준비할 수 있습니다.
+이 문서에서는 Azure를 사용 하 여 미리 구성 된 보증 운영 체제를 포함 하는 VM (가상 머신)을 만드는 방법을 설명 합니다. 솔루션과 호환 되지 않는 경우 승인 된 운영 체제를 사용 하 여 [온-프레미스 VM을 만들고 구성할](azure-vm-create-using-own-image.md) 수 있습니다.
 
 > [!NOTE]
 > 이 절차를 시작 하기 전에 VHD (가상 하드 디스크) 요구 사항을 포함 하 여 Azure VM 제품에 대 한 [기술 요구 사항을](marketplace-virtual-machines.md#technical-requirements) 검토 하세요.
@@ -78,5 +78,5 @@ Azure에서 지정한 가상 머신의 프로비저닝을 시작합니다. 왼�
 ## <a name="next-steps"></a>다음 단계
 
 - 권장 되는 다음 단계: [VM 이미지를 테스트](azure-vm-image-test.md) 하 Azure Marketplace 게시 요구 사항을 충족 하는지 확인 합니다. 선택 사항입니다.
-- VM 이미지를 테스트 하지 않는 경우 계속 해 서 [SAS URI를 생성](azure-vm-get-sas-uri.md)합니다.
+- VM 이미지를 테스트 하지 않으려면 [파트너 센터](https://partner.microsoft.com/) 에 로그인 하 여 이미지를 게시 합니다.
 - 새 Azure 기반 VHD를 만드는 데 어려움이 발생 [한 경우 Azure Marketplace에 대 한 VM FAQ](azure-vm-create-faq.md)를 참조 하세요.

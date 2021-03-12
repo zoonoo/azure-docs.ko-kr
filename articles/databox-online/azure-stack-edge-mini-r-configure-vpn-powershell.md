@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467893"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630965"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 미니 R 장치에서 VPN 구성
 
@@ -238,7 +238,7 @@ P2S VPN gateway 연결을 사용 하면 개별 클라이언트 컴퓨터 또는 
 
     ![P2S 구성 3 사용](media/azure-stack-edge-mini-r-configure-vpn-powershell/extract-exe.png)
 
-3. 임시 경로를 만듭니다. 다음은 그 예입니다. 
+3. 임시 경로를 만듭니다. 예를 들면 다음과 같습니다.
 
     `C:\NewTemp\vnet\tmp`
 
@@ -284,7 +284,7 @@ Azure Stack Edge 장치의 로컬 UI에서 다음 단계를 수행 합니다.
 
     ![VPN 1 구성](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-1.png)
 
-2. **VPN 구성** 블레이드에서 다음을 수행 합니다.
+2. **VPN 구성** 블레이드에서:
     
     1. 전화 번호부 파일 업로드에서 이전 단계에서 만든 .pbk 파일을 가리킵니다.
     2. 공용 IP 목록 구성 파일 업로드에서 Azure 데이터 센터 IP 범위 JSON 파일을 입력으로 제공 합니다. 이전 단계에서이 파일을 다운로드 [https://www.microsoft.com/download/details.aspx?id=56519](https://www.microsoft.com/download/details.aspx?id=56519) 했습니다.
@@ -303,7 +303,7 @@ Azure Stack Edge 장치의 로컬 UI에서 다음 단계를 수행 합니다.
 
 ## <a name="validate-data-transfer-through-vpn"></a>VPN을 통한 데이터 전송 유효성 검사
 
-VPN이 작동 하는지 확인 하려면 데이터를 SMB 공유로 복사 합니다. Azure Stack Edge 장치에 [공유 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share) 의 단계를 따릅니다. 
+VPN이 작동 하는지 확인 하려면 데이터를 SMB 공유로 복사 합니다. Azure Stack Edge 장치에 [공유 추가](azure-stack-edge-gpu-manage-shares.md#add-a-share) 의 단계를 따릅니다. 
 
 1. 예를 들어 클라이언트 시스템에 탑재 한 SMB 공유에 \data\pictures\waterfall.jpg 파일을 복사 합니다. 
 2. 데이터가 복사 되는 동안 VPN을 통해 데이터를 이동 하는지 확인 하려면 다음을 수행 합니다.

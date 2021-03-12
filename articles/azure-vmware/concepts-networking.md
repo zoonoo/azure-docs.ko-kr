@@ -2,13 +2,13 @@
 title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/11/2021
+ms.openlocfilehash: 9531e08ea4e50ae30058b0630cd12c2383d90fde
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364905"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197185"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
@@ -56,6 +56,9 @@ Azure VMware 솔루션 사설 클라우드의 사용 사례는 다음과 같습�
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="가상 네트워크 및 온-프레미스 전체 사설 클라우드 연결" border="false":::
 
 사설 클라우드에 대 한 전체 상호 연결과 경우 Express 경로 Global Reach를 사용 하도록 설정 하 고 Azure Portal의 Global Reach에 대 한 인증 키 및 개인 피어 링 ID를 요청 합니다. 권한 부여 키 및 피어 링 ID는 구독의 Express 경로 회로와 새 사설 클라우드의 Express 경로 회로 간에 Global Reach를 설정 하는 데 사용 됩니다. 연결 되 면 두 개의 Express 경로 회로에서 온-프레미스 환경 간의 네트워크 트래픽을 사설 클라우드로 라우팅합니다.  권한 부여 키 및 피어 링 ID를 요청 하 고 사용 하는 절차에 대 한 자세한 내용은 [사설 클라우드로의 express 경로 Global Reach 피어 링을 만드는 방법에 대 한 자습서](tutorial-expressroute-global-reach-private-cloud.md)를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+[!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 ## <a name="next-steps"></a>다음 단계 
 

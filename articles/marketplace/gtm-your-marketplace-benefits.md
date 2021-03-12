@@ -4,15 +4,15 @@ description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489474"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631055"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -50,17 +50,15 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
     1. 마케팅 담당자를 업데이트했으면 사용하려는 혜택에 대해 **활성화** 를 선택합니다. 혜택을 활성화하면 1주일 내에 Rewards 팀의 구성원이 마케팅 담당자께 연락을 드립니다.
 
 > [!NOTE]
-> 제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다.
-
-소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출할 수 있습니다.
+> 제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다.<br><br>소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 올립니다.
 
 상업적 marketplace에서 제품을 확장할 때 사용할 수 있는 활동의 범위는 확장 됩니다. 모든 목록은 리소스 및 모범 사례에 대한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항과 프로모션 정보를 받게 됩니다.
 
 ## <a name="list-trial-and-consulting-benefits"></a>목록, 평가판 및 컨설팅 혜택
 
-Microsoft AppSource 또는 Azure Marketplace에 게시할 때마다 새로운 이점 집합에 액세스할 수 있습니다. 제품이 라이브 상태가 되 면 [파트너 센터](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) 로 이동 하 여 적격 마케팅, 영업 및 기술 혜택을 활성화 합니다.
+Microsoft AppSource 또는 Azure Marketplace에 게시할 때마다 새로운 이점 집합에 액세스할 수 있습니다. 제품이 라이브 상태가 되 면 [파트너 센터](https://partner.microsoft.com/dashboard) 로 이동 하 여 적격 마케팅, 영업 및 기술 혜택을 활성화 합니다.
 
-> [!NOTE]
+> [!IMPORTANT]
 > 모든 평가판 및 컨설팅 혜택은 3 개월 후에 만료 됩니다.
 
 아래 표에는 목록, 평가판 및 컨설팅 제품에 대 한 자격 요구 사항이 요약 되어 있습니다.
@@ -71,7 +69,7 @@ Microsoft AppSource 또는 Azure Marketplace에 게시할 때마다 새로운 �
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>거래 파트너를 위한 Marketplace Rewards
 
-Microsoft AppSource 또는 Azure Marketplace에서 불가능 제품을 사용 하는 경우 상업적 Marketplace를 통해 판매 되는 청구 된 판매 트랜잭션 또는 사용자 수를 늘릴 때 추가 혜택에 액세스할 수 있습니다.
+Microsoft AppSource 또는 Azure Marketplace에서 불가능 제품을 사용 하는 경우 상업적 Marketplace를 통해 판매 되는 청구 된 판매 트랜잭션 또는 좌석의 증가에 따라 추가 혜택에 액세스할 수 있습니다.
 
 >[!NOTE]
 >판매 된 사용자 수 임계값은 Microsoft 365 앱 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램)에만 적용 되 고 혜택은 2021 년 6 월 30 일에 완료 되어야 합니다.
@@ -80,13 +78,19 @@ Microsoft AppSource 또는 Azure Marketplace에서 불가능 제품을 사용 �
 
 Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 하 여 상업적 marketplace 제품 포트폴리오에 대 한 최고 가치 활동을 선택 합니다. 이 참여 활동은 제품별로 상시 제공되므로 회사의 광범위한 마케팅/영업 전략 시기에 맞춰 해당하는 활동과 활동의 시기를 선택할 수 있습니다.
 
+### <a name="marketing-benefits-for-transact-offers"></a>거래 혜택에 대 한 마케팅 혜택
+
 ![마케팅 혜택](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Transact-sql 혜택에 대 한 판매 혜택
 
 ![영업 혜택](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Transact-sql 혜택에 대 한 기술 혜택
+
 ![기술 혜택](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* 판매 된 사용자 수 임계값은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2021 년 6 월 30 일에 적용 됩니다.
+판매 된 사용자 수 임계값은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2021 년 6 월 30 일에 적용 됩니다.
 
 이러한 모든 혜택에 대한 자세한 설명은 [Marketplace Rewards 프로그램 데크](https://aka.ms/marketplacerewards)에서 확인할 수 있습니다.
 

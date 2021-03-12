@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006878"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611898"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
 
@@ -33,12 +33,14 @@ ms.locfileid: "96006878"
 
 |필수|설정|목적|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
-|No|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
-|No|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
-|No|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
-|No|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
-|No|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
+|아니요|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
+|아니요|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
+|아니요|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
+|아니요|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
+|아니요|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
+|아니요|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
+|아니요|저장소: TimeToLiveInDays| v3. x 컨테이너에만 해당 합니다. 결과 만료 기간 (일)입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 기본값은 2 일 (48 시간)입니다. 즉, 해당 기간이 지속 되는 모든 결과는 성공적으로 검색 되지 않을 수 있습니다. |
+|아니요|작업: MaxRunningTimeSpanInMinutes| v3. x 컨테이너에만 해당 합니다. 단일 요청에 대 한 최대 실행 시간입니다. 기본값은 60분입니다. |
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -62,7 +64,7 @@ ms.locfileid: "96006878"
 
 `vision/v1.0`다음 표와 같이 끝점 URI에 라우팅을 추가 해야 합니다. 
 
-|필수| Name | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

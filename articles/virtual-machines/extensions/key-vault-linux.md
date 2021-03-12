@@ -1,20 +1,21 @@
 ---
 title: Linux용 Azure Key Vault VM 확장
 description: 가상 머신 확장을 사용하여 가상 머신에 Key Vault 인증서의 자동 새로 고침을 수행하는 에이전트를 배포합니다.
-services: virtual-machines-linux
+services: virtual-machines
 author: msmbaldwin
 tags: keyvault
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 73bd2ac3159b674dd01c853bb540989fa10c8c28
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051364"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557066"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -101,7 +102,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805515"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611620"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
@@ -27,19 +27,43 @@ ms.locfileid: "99805515"
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
 4. **Api 커넥터 (미리 보기)** 를 선택한 다음 **새 api 커넥터** 를 선택 합니다.
 
    ![새 API 커넥터 추가](./media/add-api-connector/api-connector-new.png)
 
 5. 호출에 대 한 표시 이름을 제공 합니다. 예를 들어 **사용자 정보를 확인** 합니다.
 6. API 호출에 대 한 **끝점 URL** 을 제공 합니다.
-7. API에 대 한 인증 정보를 제공 합니다.
+7. **인증 유형을** 선택 하 고 API 호출에 대 한 인증 정보를 구성 합니다. API 보안 설정에 대 한 옵션은 아래 섹션을 참조 하세요.
 
-   - 현재 기본 인증만 지원 됩니다. 개발 목적으로 기본 인증 없이 API를 사용 하려면 API에서 무시할 수 있는 ' 더미 ' **사용자 이름** 및 **암호** 를 입력 하면 됩니다. API 키를 사용 하 여 Azure 함수와 함께 사용 하기 위해 코드를 **끝점 URL** 에 쿼리 매개 변수로 포함할 수 있습니다 (예: `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
+    ![API 커넥터 구성](./media/add-api-connector/api-connector-config.png)
 
-   ![새 API 커넥터 구성](./media/add-api-connector/api-connector-config.png)
 8. **저장** 을 선택합니다.
+
+## <a name="securing-the-api-endpoint"></a>API 끝점 보안
+HTTP 기본 인증 또는 HTTPS 클라이언트 인증서 인증 (미리 보기)을 사용 하 여 API 끝점을 보호할 수 있습니다. 두 경우 모두 API 끝점을 호출할 때 Azure AD B2C에서 사용할 자격 증명을 제공 합니다. 그런 다음 API 끝점은 자격 증명을 확인 하 고 권한 부여 결정을 수행 합니다.
+
+### <a name="http-basic-authentication"></a>HTTP 기본 인증
+HTTP 기본 인증은 [RFC 2617](https://tools.ietf.org/html/rfc2617)에 정의되어 있습니다. Azure AD B2C는 헤더에 클라이언트 자격 증명 (및)을 사용 하 여 HTTP 요청을 보냅니다 `username` `password` `Authorization` . 자격 증명은 b a s e 64로 인코딩된 문자열로 형식이 지정 됩니다 `username:password` . 그런 다음 API는 이러한 값을 확인 하 여 API 호출을 거부할지 여부를 결정 합니다.
+
+### <a name="https-client-certificate-authentication-preview"></a>HTTPS 클라이언트 인증서 인증 (미리 보기)
+
+> [!IMPORTANT]
+> 이 기능은 미리 보기 상태 이며 서비스 수준 계약 없이 제공 됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+클라이언트 인증서 인증은 클라이언트에서 id를 증명 하기 위해 서버에 클라이언트 인증서를 제공 하는 상호 인증서 기반 인증입니다. 이 경우 Azure AD B2C은 API 커넥터 구성의 일부로 업로드 하는 인증서를 사용 합니다. 이는 SSL 핸드셰이크의 일부로 발생합니다. 적절 한 인증서가 있는 서비스만 REST API 서비스에 액세스할 수 있습니다. 클라이언트 인증서는 X.509 디지털 인증서입니다. 프로덕션 환경에서는 인증 기관에 의해 서명 되어야 합니다. 
+
+
+인증서를 만들려면 자체 서명 된 인증서에 대 한 옵션과 서명 된 인증서의 인증서 발급자 공급자와의 통합이 포함 된 [Azure Key Vault](../key-vault/certificates/create-certificate.md)를 사용할 수 있습니다. 그런 다음 [인증서를 내보내고](../key-vault/certificates/how-to-export-certificate.md) API 커넥터 구성에서 사용 하기 위해 업로드할 수 있습니다. 암호는 암호로 보호 되는 인증서 파일에만 필요 합니다. PowerShell의 [new-selfsignedcertificate cmdlet](./secure-rest-api.md#prepare-a-self-signed-certificate-optional) 을 사용 하 여 자체 서명 된 인증서를 생성할 수도 있습니다.
+
+Azure App Service 및 Azure Functions의 경우 API 끝점에서 인증서를 사용 하도록 설정 하 고 유효성을 검사 하는 방법을 알아보려면 [TLS 상호 인증 구성](../app-service/app-service-web-configure-tls-mutual-auth.md) 을 참조 하세요.
+
+인증서가 만료 되는 경우에 대 한 미리 알림 경고를 설정 하는 것이 좋습니다. 기존 API 커넥터에 새 인증서를 업로드 하려면 **api 커넥터 (미리 보기)** 에서 api 커넥터를 선택 하 고 **새 인증서 업로드** 를 클릭 합니다. 만료 되지 않고 시작 날짜를 지난 가장 최근에 업로드 된 인증서는 Azure AD B2C에 의해 자동으로 사용 됩니다.
+
+### <a name="api-key"></a>API 키
+일부 서비스는 "API 키" 메커니즘을 사용 하 여 개발 중에 HTTP 끝점에 액세스 하기 어렵게 만듭니다. [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)의 경우를 `code` **끝점 URL** 에 쿼리 매개 변수로 포함 하 여이를 수행할 수 있습니다. 예: `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+
+프로덕션 환경에서 단독으로 사용 해야 하는 메커니즘이 아닙니다. 따라서 기본 또는 인증서 인증에 대 한 구성이 항상 필요 합니다. 개발 목적으로 인증 방법을 구현 (권장 하지 않음) 하려는 경우 기본 인증을 선택 하 고에 임시 값을 사용 하 고 api `username` `password` 에서 권한 부여를 구현 하는 동안 api를 무시할 수 있습니다.
 
 ## <a name="the-request-sent-to-your-api"></a>API로 전송 된 요청
 API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
@@ -75,7 +99,7 @@ Content-type: application/json
 
 **Azure AD B2C**  >  **사용자 특성** 환경에 나열 된 사용자 속성 및 사용자 지정 특성만 요청에서 보낼 수 있습니다.
 
-사용자 지정 특성은 디렉터리의 **extension_ \<extensions-app-id> _CustomAttribute**  형식으로 존재 합니다. API는 동일한 직렬화 된 형식으로 클레임을 수신 해야 합니다. 사용자 지정 특성에 대 한 자세한 내용은 [Azure Active Directory B2C에서 사용자 지정 특성 정의](user-flow-custom-attributes.md)를 참조 하세요.
+사용자 지정 특성은 디렉터리의 **extension_ \<extensions-app-id> _CustomAttribute**  형식으로 존재 합니다. API는 동일한 직렬화 된 형식으로 클레임을 수신 해야 합니다. 사용자 지정 특성에 대 한 자세한 내용은 [Azure AD B2C에서 사용자 지정 특성 정의](user-flow-custom-attributes.md)를 참조 하세요.
 
 또한 **UI 로캘 (' ui_locales ')** 클레임은 모든 요청에 기본적으로 전송 됩니다. API에서 다국어 응답을 반환 하는 데 사용할 수 있는 사용자의 로캘을 장치에 구성 된 대로 제공 합니다.
 
@@ -90,7 +114,7 @@ Content-type: application/json
 등록 사용자 흐름에 API 커넥터를 추가 하려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
 4. **사용자 흐름** 을 선택 하 고 API 커넥터를 추가 하려는 사용자 흐름을 선택 합니다.
 5. **Api 커넥터** 를 선택 하 고 사용자 흐름에서 다음 단계에 호출 하려는 api 끝점을 선택 합니다.
 
@@ -154,13 +178,6 @@ API로 전송 되는 정확한 클레임은 id 공급자가 제공 하는 정보
 ## <a name="before-creating-the-user"></a>사용자를 만들기 전에
 
 등록 프로세스의이 단계에서 API 커넥터는 포함 된 경우 특성 컬렉션 페이지 다음에 호출 됩니다. 이 단계는 항상 사용자 계정을 만들기 전에 호출 됩니다.
-
-<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
-<!-- 
-- Validate user input data and ask a user to resubmit data.
-- Block a user sign-up based on data entered by the user.
-- Perform identity verification.
-- Query external systems for existing data about the user and overwrite the user-provided value. -->
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>이 단계에서 API로 보낸 예제 요청
 
@@ -237,9 +254,8 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | Type              | 필수 | 설명                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
@@ -270,8 +286,6 @@ Content-type: application/json
 
 ### <a name="example-of-a-validation-error-response"></a>유효성 검사 오류 응답의 예
 
-
-
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -286,7 +300,7 @@ Content-type: application/json
 
 | 매개 변수   | Type    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| 버전     | String  | 예      | API 버전입니다.                                                    |
+| 버전     | String  | 예      | API의 버전입니다.                                                    |
 | 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
 | 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
@@ -311,7 +325,7 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 * API는 수신 된 클레임의 null 값을 명시적으로 확인 합니다.
 * API는 유연 하 게 사용자 환경을 보장 하기 위해 최대한 신속 하 게 응답 합니다.
     * 서버를 사용 하지 않는 함수 또는 확장 가능한 웹 서비스를 사용 하는 경우 API를 "활성" 또는 "웜" 상태로 유지 하는 호스팅 계획을 사용 합니다. 프로덕션 환경. Azure Functions의 경우 [프리미엄 요금제](../azure-functions/functions-scale.md) 를 사용 하는 것이 좋습니다.
-
+ 
 
 ### <a name="use-logging"></a>로깅 사용
 일반적으로 [application insights](../azure-functions/functions-monitoring.md)와 같은 웹 api 서비스에서 사용 하도록 설정 된 로깅 도구를 사용 하 여 예기치 않은 오류 코드, 예외 및 성능 저하에 대 한 API를 모니터링 하는 것이 유용 합니다.
@@ -321,5 +335,4 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 * 긴 응답 시간에 대 한 API를 모니터링 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-<!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
 - [샘플](code-samples.md#api-connectors)을 시작 해 보세요.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d76fd3b30d823efbf85e84a74a21c694f5a0e6fb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565566"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631883"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -63,7 +63,7 @@ Windows 10 Enterprise 다중 세션 버전 1809 이상이 지원 되며 Azure �
 
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션에 사용 해야 하는 프로필 관리 솔루션은 무엇 인가요?
 
-Windows 10 Enterprise를 비영구 환경 또는 중앙에 저장 된 프로필이 필요한 다른 시나리오로 구성할 때 FSLogix 프로필 컨테이너를 사용 하는 것이 좋습니다. FSLogix를 사용 하면 모든 사용자 세션에 대해 사용자 프로필을 사용할 수 있고 최신 상태로 유지할 수 있습니다. 또한 FSLogix 프로필 컨테이너를 사용 하 여 적절 한 권한이 있는 SMB 공유에 사용자 프로필을 저장 하는 것이 좋지만, 필요한 경우 Azure 페이지 blob 저장소에 사용자 프로필을 저장할 수 있습니다. Windows 가상 데스크톱 사용자는 추가 비용 없이 FSLogix를 사용할 수 있습니다.
+Windows 10 Enterprise를 비영구 환경 또는 중앙에 저장 된 프로필이 필요한 다른 시나리오로 구성할 때 FSLogix 프로필 컨테이너를 사용 하는 것이 좋습니다. FSLogix를 사용 하면 모든 사용자 세션에 대해 사용자 프로필을 사용할 수 있고 최신 상태로 유지할 수 있습니다. 또한 FSLogix 프로필 컨테이너를 사용 하 여 적절 한 권한이 있는 SMB 공유에 사용자 프로필을 저장 하는 것이 좋지만, 필요한 경우 Azure 페이지 blob 저장소에 사용자 프로필을 저장할 수 있습니다. Windows 가상 데스크톱 사용자는 추가 비용 없이 FSLogix를 사용할 수 있습니다.  FSLogix는 모든 Windows 10 Enterprise 다중 세션 이미지에 미리 설치 되어 있지만, IT 관리자는 여전히 FSLogix 프로필 컨테이너를 구성 해야 합니다.
 
 FSLogix 프로필 컨테이너를 구성 하는 방법에 대 한 자세한 내용은 [FSLogix 프로필 컨테이너 구성](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)을 참조 하세요.
 

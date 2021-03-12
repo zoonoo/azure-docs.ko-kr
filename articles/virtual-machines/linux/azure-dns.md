@@ -2,16 +2,18 @@
 title: Linux Vm에 대 한 DNS 이름 확인 옵션
 description: Azure IaaS의 Linux 가상 머신에 대한 이름 확인 시나리오(제공된 DNS 서비스, 하이브리드 외부 DNS 및 사용자 고유의 DNS 서버 포함)입니다.
 author: RicksterCDN
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.collection: linux
+ms.openlocfilehash: e689e934f11e3cc2a621f25525e507a72a7044b8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372827"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556794"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
@@ -23,7 +25,7 @@ Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대
 
 다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.
 
-| **시나리오** | **솔루션** | **접미사** |
+| **시나리오** | **해결 방법** | **접미사** |
 | --- | --- | --- |
 | 동일한 가상 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure에서 제공하는 이름 확인 |호스트 이름 또는 FQDN(정규화된 도메인 이름) |
 | 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)을 참조 하세요. |FQDN만 |
