@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177286"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556386"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -933,7 +933,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [원시](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [관리 ID](#managed-identity-authentication) | **기본 제공 트리거 및 작업** <p><p>Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP Webhook <p><p>**관리 되는 커넥터** <p><p>Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Monitor 로그, Azure Resource Manager, Azure 센티널, Azure AD와의 HTTP <p><p>**참고**: 관리 되는 커넥터에 대 한 지원은 현재 미리 보기 상태입니다. |
+| [관리 ID](#managed-identity-authentication) | **기본 제공 트리거 및 작업** <p><p>Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP Webhook <p><p>**관리 되는 커넥터** <p><p>Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, azure 센티널, Azure AD와의 HTTP <p><p>**참고**: 관리 되는 커넥터에 대 한 지원은 현재 미리 보기 상태입니다. |
 |||
 
 <a name="basic-authentication"></a>
@@ -1132,8 +1132,8 @@ Authorization: OAuth realm="Photos",
 
    | 속성(디자이너) | 필수 | 값 | 설명 |
    |---------------------|----------|-------|-------------|
-   | **연결 이름** | 예 | <*연결-이름*> ||
-   | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |
+   | **연결 이름** | Yes | <*연결-이름*> ||
+   | **관리 ID** | Yes | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |
    |||||
 
 

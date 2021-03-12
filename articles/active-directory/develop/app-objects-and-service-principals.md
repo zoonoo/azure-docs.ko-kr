@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646404"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199603"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -63,13 +63,12 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 
 애플리케이션 개체는 해당 서비스 주체 개체 만들기에 사용하기 위해 공통의 기본 속성이 *파생* 되는 템플릿으로 제공됩니다. 따라서 애플리케이션 개체는 소프트웨어 애플리케이션과 1:1 관계가 있으며 해당 서비스 주체 개체와 1:다 관계가 있습니다.
 
-애플리케이션이 사용될 각 테넌트에 서비스 주체를 만들어서 테넌트가 보호하는 리소스에 대한 로그인 및/또는 액세스를 위한 ID를 설정할 수 있어야 합니다. 단일 테넌트 애플리케이션에는 해당 홈 테넌트에 하나의 서비스 주체만 있으며 애플리케이션 등록 중에 생성하고 동의합니다. 다중 테넌트 웹 애플리케이션/API에도 해당 테넌트의 사용자가 사용을 동의한 각 테넌트에 생성된 하나의 서비스 주체가 있습니다.
+애플리케이션이 사용될 각 테넌트에 서비스 주체를 만들어서 테넌트가 보호하는 리소스에 대한 로그인 및/또는 액세스를 위한 ID를 설정할 수 있어야 합니다. 단일 테넌트 애플리케이션에는 해당 홈 테넌트에 하나의 서비스 주체만 있으며 애플리케이션 등록 중에 생성하고 동의합니다. 다중 테 넌 트 응용 프로그램에는 각 테 넌 트의 사용자가 사용에 동의한 하는 서비스 사용자도 있습니다.
 
-삭제를 비롯 하 여 응용 프로그램 개체에 대 한 모든 변경 내용은 응용 프로그램의 홈 테 넌 트에 있는 서비스 주체 개체에만 반영 됩니다 (등록 된 테 넌 트). 다중 테넌트 애플리케이션의 경우 [애플리케이션 액세스 패널](https://myapps.microsoft.com)을 통해 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 애플리케이션 개체의 변경 내용은 모든 소비자 테넌트의 서비스 주체 개체에 반영되지 않습니다.
+### <a name="consequences-of-modifying-and-deleting-applications"></a>응용 프로그램 수정 및 삭제 결과
+응용 프로그램 개체에 대 한 모든 변경 내용은 응용 프로그램의 홈 테 넌 트 (등록 된 테 넌 트)에 있는 서비스 주체 개체에도 반영 됩니다. 즉, 응용 프로그램 개체를 삭제 하면 해당 홈 테 넌 트 서비스 사용자 개체도 삭제 됩니다.  그러나 해당 응용 프로그램 개체를 복원 해도 해당 서비스 주체는 복원 되지 않습니다. 다중 테넌트 애플리케이션의 경우 [애플리케이션 액세스 패널](https://myapps.microsoft.com)을 통해 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 애플리케이션 개체의 변경 내용은 모든 소비자 테넌트의 서비스 주체 개체에 반영되지 않습니다.
 
-네이티브 응용 프로그램은 기본적으로 다중 테 넌 트로 등록 됩니다.
-
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 다이어그램은 **HR 앱** 이라는 샘플 다중 테넌트 애플리케이션의 컨텍스트에서 애플리케이션의 애플리케이션 개체와 해당 서비스 주체 개체를 보여 줍니다. 이 예제 시나리오에는 다음 세 가지 Azure AD 테넌트가 있습니다.
 

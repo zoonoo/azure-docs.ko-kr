@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 83758f63b7e60d08a31f1da9da4a6eec6ba7d4a4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095239"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632070"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
-Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
+Azure App Service는 기본 제공 인증 및 권한 부여 지원 ("쉬운 인증"이 라고도 함)을 제공 하므로 사용자를 로그인 하 고 웹 앱, RESTful API 및 모바일 백 엔드에서 코드를 최소한으로 작성 하 여 데이터에 액세스 하 고 [Azure Functions](../azure-functions/functions-overview.md)수도 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
 
 안전한 인증 및 권한 부여에는 페더레이션, 암호화, [JSON 웹 토큰(JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 관리, [부여 유형](https://oauth.net/2/grant-types/) 등 보안에 대한 깊은 이해가 필요합니다. App Service가 이러한 유틸리티를 제공하기 때문에, 고객에게 비즈니스 가치를 제공하는 데 더 많은 시간과 에너지를 투자할 수 있습니다.
 
@@ -24,9 +24,6 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 >
 > App Service에서 호스팅하는 ASP.NET Core 2.1 이상 버전은이 주요 변경 내용에 대해 이미 패치 되었으며 Chrome 80 및 이전 브라우저를 적절 하 게 처리 합니다. 또한 ASP.NET Framework 4.7.2에 대 한 동일한 패치가 1 월 2020 전체에 App Service 인스턴스에 배포 되었습니다. 자세한 내용은 [Azure App Service SameSite 쿠키 업데이트](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)를 참조 하세요.
 >
-
-> [!NOTE]
-> 인증/권한 부여 기능을 "Easy Auth" 라고도 합니다.
 
 > [!NOTE]
 > 이 기능을 사용 하도록 설정 하면 [https를 적용](configure-ssl-bindings.md#enforce-https)하는 App Service 구성 설정에 관계 없이 응용 프로그램에 대 한 **모든** 비보안 HTTP 요청이 https로 자동으로 리디렉션됩니다. 필요한 경우 `requireHttps` [인증 설정 구성 파일](app-service-authentication-how-to.md#configuration-file-reference)의 설정을 통해이를 사용 하지 않도록 설정할 수 있지만 보안 토큰이 비보안 HTTP 연결을 통해 전송 되지 않도록 주의 해야 합니다.
@@ -150,7 +147,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 > [!NOTE]
 > 기본적으로 Azure AD 테 넌 트의 모든 사용자는 Azure AD에서 응용 프로그램에 대 한 토큰을 요청할 수 있습니다. 앱에 대 한 액세스를 정의 된 사용자 집합으로 제한 하려는 경우 [AZURE AD에서 응용 프로그램을 구성할](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) 수 있습니다.
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 * [자습서: Azure Storage 및 Microsoft Graph에 액세스 하는 웹 앱에서 사용자 인증 및 권한 부여](scenario-secure-app-authentication-app-service.md)
 * [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](tutorial-auth-aad.md)  

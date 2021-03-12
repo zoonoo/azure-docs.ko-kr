@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge에 대 한 Windows 스크립트 | Microsoft Docs
+title: Windows 컨테이너를 사용 하는 Azure IoT Edge에 대 한 스크립트 | Microsoft Docs
 description: Windows 장치에서 설치, 제거 또는 업데이트 하는 IoT Edge PowerShell 스크립트에 대 한 참조 정보
 author: kgremban
 manager: philmea
@@ -8,27 +8,27 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b7614f7ccd24d0237a043a9b5bf0ad988146d89c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630619"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615910"
 ---
-# <a name="powershell-scripts-for-iot-edge-on-windows"></a>Windows의 IoT Edge에 대 한 PowerShell 스크립트
+# <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용 하는 IoT Edge에 대 한 PowerShell 스크립트
 
 Windows 장치에서 IoT Edge를 설치, 업데이트 또는 제거 하는 PowerShell 스크립트를 이해 합니다.
 
 이 문서에서 설명 하는 명령은 `IoTEdgeSecurityDaemon.ps1` 모든 [IoT Edge 릴리스와](https://github.com/Azure/azure-iotedge/releases)함께 출시 되는 파일에서 가져온 것입니다. 최신 버전의 스크립트는 aka.ms/iotedge-win에서 항상 사용할 수 있습니다.
 
-Cmdlet을 사용 하 여 명령 중 하나를 실행 하 여 `Invoke-WebRequest` 최신 스크립트 버전에 액세스할 수 있습니다. 다음은 그 예입니다. 
+Cmdlet을 사용 하 여 명령 중 하나를 실행 하 여 `Invoke-WebRequest` 최신 스크립트 버전에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge
 ```
 
-이 스크립트 또는 특정 릴리스의 스크립트 버전을 다운로드 하 여 명령을 실행할 수도 있습니다. 다음은 그 예입니다. 
+이 스크립트 또는 특정 릴리스의 스크립트 버전을 다운로드 하 여 명령을 실행할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 . <path>\IoTEdgeSecurityDaemon.ps1
@@ -47,7 +47,7 @@ Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
 
 Deploy-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Deploy-IoTEdge -full` 합니다.  
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 지정 되지 않은 경우 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함 된 Moby 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -59,7 +59,7 @@ Deploy-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운�
 
 Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Initialize-IoTEdge -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | **ManualConnectionString** | 없음 | **스위치 매개 변수** 입니다. **기본값** 입니다. 프로 비전 유형이 지정 되지 않은 경우 연결 문자열을 사용한 수동 프로비저닝이 기본값입니다.<br><br>장치를 수동으로 프로 비전 하는 장치 연결 문자열을 제공 하도록 선언 합니다. |
 | **ManualX509** | 없음 | **스위치 매개 변수** 입니다. 프로 비전 유형이 지정 되지 않은 경우 연결 문자열을 사용한 수동 프로비저닝이 기본값입니다.<br><br>사용자가 장치를 수동으로 프로 비전 하기 위해 id 인증서 및 개인 키를 제공 하도록 선언 합니다.
@@ -84,7 +84,7 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 
 ## <a name="update-iotedge"></a>Update-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 OS가 지정 되지 않은 경우 기본값은 Windows입니다. Windows 컨테이너의 경우 컨테이너 엔진이 설치에 포함됩니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -94,9 +94,9 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 
 ## <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
-| **설정** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
+| **Force** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
 | **RestartIfNeeded** | 없음 | 필요한 경우이 플래그를 사용 하 여 컴퓨터를 다시 시작 하 라는 메시지를 표시 하지 않고 제거할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

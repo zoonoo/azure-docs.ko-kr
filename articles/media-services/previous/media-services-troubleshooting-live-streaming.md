@@ -3,7 +3,7 @@ title: 라이브 스트리밍 문제 해결 가이드 | Microsoft Docs
 description: 이 문서에서는 Azure Media Services 라이브 스트리밍 문제를 해결 하는 방법에 대 한 제안을 제공 합니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 97ad3048fccc4f8ed6baf0f1d5304f1c8d81c3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 1b7a7ec746f5400fe65e3e1db88ae61e97ae710a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269236"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009048"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드
 
@@ -33,7 +33,7 @@ ms.locfileid: "89269236"
 * **잠재적인 문제**: 문제를 디버그할 때 도움이 될 만한 인코더 로그를 찾을 수 없습니다.
   
   * **Telestream Wirecast**: 보통 C:\Users\{username}\AppData\Roaming\Wirecast\에서 로그를 찾을 수 있습니다. 
-  * **Elemental Live**: 관리 포털에서 로그에 대한 링크를 찾을 수 있습니다. **통계**, **로그**를 차례로 클릭합니다. **로그 파일** 페이지에 모든 LiveEvent 항목에 대한 로그의 목록이 표시됩니다. 현재 세션과 일치하는 로그를 선택합니다. 
+  * **Elemental Live**: 관리 포털에서 로그에 대한 링크를 찾을 수 있습니다. **통계**, **로그** 를 차례로 클릭합니다. **로그 파일** 페이지에 모든 LiveEvent 항목에 대한 로그의 목록이 표시됩니다. 현재 세션과 일치하는 로그를 선택합니다. 
   * **Flash Media Live Encoder**: **Encoding 로그** 탭으로 이동하여 **로그 디렉터리...** 를 찾을 수 있습니다.
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>문제: 점진적 스트림을 출력하기 위한 옵션이 없습니다.

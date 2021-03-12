@@ -3,7 +3,7 @@ title: Azure Portal을 통해 스트리밍 엔드포인트 관리 | Microsoft �
 description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: bda244267e81d959abbc4ae0a8532ddce68d5726
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041968"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017395"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 관리
 
@@ -99,7 +99,7 @@ Azure 포털을 사용하여 스트리밍 엔드포인트를 추가/삭제하려
 
 CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이터 센터에서 사용됩니다.
 
-CDN 통합을 사용하는 경우 **액세스 제어** , 사용자 지정 호스트 이름 및 **Akamai 서명 인증** 구성은 비활성화됩니다.
+CDN 통합을 사용하는 경우 **액세스 제어**, 사용자 지정 호스트 이름 및 **Akamai 서명 인증** 구성은 비활성화됩니다.
  
 > [!IMPORTANT]
 > Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN** 에서 표준 스트리밍 엔드포인트에 구현됩니다. 프리미엄 스트리밍 엔드포인트는 모든 **Azure CDN 가격 책정 및 공급자** 를 사용하여 구성할 수 있습니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../../cdn/cdn-overview.md)를 참조하세요.

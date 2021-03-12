@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a51121b9dd9c7dcb894399fd9ad5f49cc5e07f3a
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0d45e04bbafc7b2480abdcb2ab21bdb219a09b9e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486612"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103020968"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>관리 되는 id를 통신 서비스 솔루션 (JS)에 추가
 
@@ -24,7 +24,7 @@ npm install @azure/identity
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { CommunicationIdentityClient } from "@azure/communication-identity";
-import { SmsClient } from "@azure/communication-sms";
+import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
 아래 예제에서는 [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
@@ -51,7 +51,7 @@ export async function createIdentityAndIssueToken(resourceEndpoint: string): Pro
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
      let credential = new DefaultAzureCredential();
      const smsClient = new SmsClient(resourceEndpoint, credential);
-     const sendRequest: SendRequest = { 
+     const sendRequest: SmsSendRequest = { 
           from: fromNumber, 
           to: [toNumber], 
           message: message 

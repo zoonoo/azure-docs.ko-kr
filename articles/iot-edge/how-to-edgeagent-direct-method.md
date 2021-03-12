@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 52cd7817594c5c2a1d4e3a4ca9c56891df594cd6
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972546"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201102"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>기본 제공 직접 메서드를 사용 하 여 edgeAgent와 통신
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 IoT Edge 배포를 모니터링 하 고 관리 합니다. 직접 메서드는 장치에서 구현 된 다음 클라우드에서 호출할 수 있습니다. IoT Edge 에이전트에는 IoT Edge 장치를 원격으로 모니터링 하 고 관리 하는 데 도움이 되는 직접 방법이 포함 되어 있습니다.
 
@@ -26,7 +28,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 IoT Edge 
 
 ## <a name="ping"></a>Ping
 
-**Ping** 방법은 IoT Edge 장치에서 실행 되 고 있는지 여부 또는 장치에 IoT Hub에 대 한 열린 연결이 있는지 여부를 확인 하는 데 유용 합니다. 이 직접 메서드를 사용 하 여 IoT Edge 에이전트를 ping 하 고 해당 상태를 가져옵니다. 성공적인 ping은 빈 페이로드 및 **"status": 200**을 반환 합니다.
+**Ping** 방법은 IoT Edge 장치에서 실행 되 고 있는지 여부 또는 장치에 IoT Hub에 대 한 열린 연결이 있는지 여부를 확인 하는 데 유용 합니다. 이 직접 메서드를 사용 하 여 IoT Edge 에이전트를 ping 하 고 해당 상태를 가져옵니다. 성공적인 ping은 빈 페이로드 및 **"status": 200** 을 반환 합니다.
 
 예를 들면 다음과 같습니다.
 
@@ -40,7 +42,7 @@ Azure Portal에서 메서드 이름과 빈 JSON 페이로드를 사용 하 여 �
 
 ## <a name="restart-module"></a>모듈 다시 시작
 
-**RestartModule** 메서드는 IoT Edge 장치에서 실행 되는 모듈의 원격 관리를 허용 합니다. 모듈이 실패 상태 또는 기타 비정상 동작을 보고 하는 경우 IoT Edge 에이전트를 트리거하여 다시 시작할 수 있습니다. 성공적으로 다시 시작 하는 명령은 빈 페이로드 및 **"status": 200**을 반환 합니다.
+**RestartModule** 메서드는 IoT Edge 장치에서 실행 되는 모듈의 원격 관리를 허용 합니다. 모듈이 실패 상태 또는 기타 비정상 동작을 보고 하는 경우 IoT Edge 에이전트를 트리거하여 다시 시작할 수 있습니다. 성공적으로 다시 시작 하는 명령은 빈 페이로드 및 **"status": 200** 을 반환 합니다.
 
 RestartModule 메서드는 IoT Edge 버전 1.0.9 이상에서 사용할 수 있습니다. 
 

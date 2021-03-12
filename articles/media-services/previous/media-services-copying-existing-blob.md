@@ -3,7 +3,7 @@ title: 스토리지 계정에서 Azure Media Services 자산으로 Blob 복사 |
 description: 이 토픽에서는 기존 Blob을 Media Services 자산에 복사하는 방법을 보여 줍니다. 이 예제에서는 Azure Media Services .NET SDK Extensions를 사용합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eee17e5ed819365f30cf1b1e0eb2e9ab1557e9d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 6ee6af8726dbd0a7b564b442242572afec670f4d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695910"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016749"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
 
@@ -45,7 +45,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>두 AMS 계정 간에 Blob 복사  
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 두 개의 Media Services 계정이 필요합니다. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 
@@ -163,7 +163,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>스토리지 계정의 Blob을 AMS 계정으로 복사 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Blob를 복사할 Storage 계정 한 개가 필요합니다.
 - Blob를 복사해 넣을 AMS 계정 한 개가 필요합니다.

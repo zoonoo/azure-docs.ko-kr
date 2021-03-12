@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c73f6884a0bf9dc1e12e97439166c8aeabe6e35a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9bdba36e2ff4721bd024369788c7dc04f066e9a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504561"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565583"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
 
@@ -27,7 +27,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -39,7 +39,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 또한 시작 하기 전에 다음 두 PowerShell 모듈을 설치 해야 합니다.
 
 - [Azure PowerShell 모듈](/powershell/azure/install-az-ps)
-- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0&preserve-view=true)
+- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2)
 
 로그인 할 때 구독 ID가 준비 되어 있는지 확인 합니다.
 

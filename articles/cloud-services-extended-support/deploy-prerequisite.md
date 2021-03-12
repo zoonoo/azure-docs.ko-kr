@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728113"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232531"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
 
@@ -87,9 +87,9 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 | 이전 크기 이름 | 업데이트 된 크기 이름 | 
 |---|---|
 | 매우 작음 | Standard_A0 | 
-| 소형 | Standard_A1 |
+| Small | Standard_A1 |
 | 중간 | Standard_A2 | 
-| 대형 | Standard_A3 | 
+| 큼 | Standard_A3 | 
 | 매우 큼 | Standard_A4 | 
 | A5 | Standard_A5 | 
 | A6 | Standard_A6 | 
@@ -120,7 +120,7 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 
 ## <a name="key-vault-creation"></a>Key Vault 만들기 
 
-Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. Key Vault는 [Azure Portal](../key-vault/general/quick-create-portal.md)및  [PowerShell](../key-vault/general/quick-create-powershell.md)을 통해 만들 수 있습니다. Key Vault 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. [Azure Portal](../key-vault/general/quick-create-portal.md) 에서 또는 [PowerShell](../key-vault/general/quick-create-powershell.md)을 사용 하 여 주요 자격 증명 모음을 만들 수 있습니다. 주요 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.

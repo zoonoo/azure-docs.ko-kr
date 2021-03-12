@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: victorh
-ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741432"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612850"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -148,4 +148,4 @@ Azure Firewall은 PCI(결제 카드 산업), SOC(서비스 조직 컨트롤), IS
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Firewall 규칙 처리 논리](rule-processing.md)
+- [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)

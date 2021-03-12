@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/05/2021
-ms.openlocfilehash: b658fa9f2df6e8a88df89f9e8ccc1cf6b68cec39
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/11/2021
+ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426062"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149752"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,6 +83,7 @@ Azure는 SQL Database 및 SQL 관리 되는 인스턴스 리소스의 [계획 �
 - 미국 중부
 - 미국 동부
 - 미국 동부2
+- 동아시아
 - 일본 동부
 - 미국 NorthCentral
 - 북유럽

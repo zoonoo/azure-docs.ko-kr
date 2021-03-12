@@ -3,7 +3,7 @@ title: Azure Media Services 커뮤니티 개요 | Microsoft 문서
 description: '이 Azure Media Services(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다. '
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: f3cc775cd65293a39de28dfbdc8b1d06aeada3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 8c566484d5a594e81a0900d5a5ab5a3e34bfffa8
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987311"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016919"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 5d5a580e2b7be4699933b43687dcf164bf8f4a4a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 512ae470d3c9068b9d284095a18013fc84dbf36e
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700085"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232548"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -18,7 +18,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>QnA Maker 리소스에 대 한 액세스가 제공 됩니다.
 
-모든 권한은 QnA Maker 리소스에 배치 된 사용 권한에 의해 제어 됩니다. 이러한 권한은 읽기, 쓰기, 게시 및 모든 권한으로 정렬 됩니다.
+모든 권한은 QnA Maker 리소스에 배치 된 사용 권한에 의해 제어 됩니다. 이러한 권한은 읽기, 쓰기, 게시 및 모든 권한으로 정렬 됩니다. QnA Maker 리소스에 대 한 [RBAC 액세스를 업데이트](../how-to/manage-qna-maker-app.md) 하 여 여러 사용자 간에 공동 작업을 허용할 수 있습니다.
 
 이 Azure RBAC 기능에는 다음이 포함 됩니다.
 * AAD (Azure Active Directory)는 소유자 및 참가자에 대 한 키 기반 인증과 호환 되는 100%입니다. 고객은 요청에서 키 기반 인증 또는 Azure RBAC 기반 인증을 사용할 수 있습니다.

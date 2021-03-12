@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954515"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630863"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-비디오에 내레이션 트랙을 추가하여 시각적으로 장애가 있는 클라이언트가 내레이션을 들어 비디오 녹화를 따르도록 할 수 있습니다. Media Services v3에서 매니페스트 파일의 오디오 트랙에 주석을 달고 설명 오디오 트랙에 신호를 보낼 수 있습니다.
+비디오에 내레이션 트랙을 추가 하 여 시각적으로 장애가 있는 클라이언트가 내레이션을 수신 하 여 비디오 녹화를 따르도록 할 수 있습니다. Media Services v3에서 매니페스트 파일의 오디오 트랙에 주석을 달고 설명 오디오 트랙에 신호를 보낼 수 있습니다.
 
 이 문서에서는 비디오를 인코딩하고, 설명 오디오를 포함 하는 오디오 전용 MP4 파일 (AAC 코덱)을 출력 자산에 업로드 하 고, 설명 오디오를 포함 하도록 ism 파일을 편집 하는 방법을 보여 줍니다.
 

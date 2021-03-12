@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e72ad50b495dec7e3a647bb7bcbdeafd53f5de7b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832456"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636626"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
 
@@ -38,11 +38,11 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 ## <a name="supported-edge-storage-accounts"></a>지원 되는 Edge 저장소 계정
 
-다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)을 참조 하세요.
+다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)을 참조 하세요.
 
 |Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
-|Standard     |GPv1: 블록 Blob         |         |
+|표준     |GPv1: 블록 Blob         |         |
 
 * 페이지 blob 및 Azure Files 현재 지원 되지 않습니다.
 
@@ -52,7 +52,7 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 |Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
-|Standard     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
+|표준     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
 |Premium     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Premium_LRS입니다.        |
 
 

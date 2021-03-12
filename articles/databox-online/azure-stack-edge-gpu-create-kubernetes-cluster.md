@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5289f9b558a200bf3dbefdf584eab59d1792439b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437743"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631962"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
 
@@ -24,7 +24,7 @@ Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클�
 이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl* 를 사용 하 여 관리 하는 방법을 설명 합니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -105,7 +105,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
 4. 구성 파일은 `.kube` 로컬 컴퓨터에 있는 사용자 프로필의 폴더에 있어야 합니다. 사용자 프로필의 해당 폴더에 파일을 복사 합니다.
 
-    ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. 만든 사용자와 네임 스페이스를 연결 합니다. 유형:
 
@@ -169,9 +169,9 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
 Kubernetes 클러스터를 제거 하려면 IoT Edge 구성을 제거 해야 합니다.
 
-자세한 지침은 [IoT Edge 구성 제거](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service)로 이동 합니다.
+자세한 지침은 [IoT Edge 구성 관리](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration)로 이동 합니다.
    
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.
+- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.

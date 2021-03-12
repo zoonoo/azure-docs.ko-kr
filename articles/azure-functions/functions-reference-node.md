@@ -3,14 +3,14 @@ title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591044"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614907"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -507,20 +507,20 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 | Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
 |---|---| --- |
+| 3(sp3) (권장) | `~14` 바람직하지<br/>`~12`<br/>`~10` | `node|14` 바람직하지<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
-| 2.x  | `~8`<br/>`~10` 바람직하지<br/>`~12` | `node|8`<br/>`node|10` 바람직하지  |
-| 3.x | `~10`<br/>`~12` 바람직하지<br/>`~14`(미리 보기)  | `node|10`<br/>`node|12` 바람직하지<br/>`node|14`(미리 보기) |
 
 함수에서 로깅하는 런타임에 사용 하 고 있는 현재 버전을 확인할 수 있습니다 `process.version` .
 
 ### <a name="setting-the-node-version"></a>노드 버전 설정
 
-Windows 함수 앱의 경우 `WEBSITE_NODE_DEFAULT_VERSION` [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같이 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~12` 합니다.
+Windows 함수 앱의 경우 `WEBSITE_NODE_DEFAULT_VERSION` [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같이 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~14` 합니다.
 
 Linux 함수 앱의 경우 다음 Azure CLI 명령을 실행 하 여 노드 버전을 업데이트 합니다.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>종속성 관리
@@ -551,7 +551,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. [https://editor.swagger.io](`https://<function_app_name>.scm.azurewebsites.net`) 로 이동합니다.
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 
 2. **디버그 콘솔**  >  **CMD** 를 클릭 합니다.
 
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>ECMAScript 모듈 (미리 보기)
+
+> [!NOTE]
+> ECMAScript 모듈은 현재 Node.js 14에서 *실험적* 으로 레이블이 지정 되었으므로 Node.js 14 Azure Functions에서 미리 보기 기능으로 사용할 수 있습니다. ECMAScript 모듈에 대 한 Node.js 14 지원이 *안정적* 이 될 때 까지는 해당 API 나 동작을 변경할 수 있습니다.
+
+[ECMAScript 모듈](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES 모듈)은 Node.js에 대 한 새로운 공식 표준 모듈 시스템입니다. 지금까지이 문서의 코드 샘플에서는 CommonJS 구문을 사용 합니다. Node.js 14에서 Azure Functions를 실행 하는 경우 ES 모듈 구문을 사용 하 여 함수를 작성 하도록 선택할 수 있습니다.
+
+함수에서 ES 모듈을 사용 하려면 확장명을 사용 하도록 파일 이름을 변경 `.mjs` 합니다. 다음 *index mjs* 파일 예제는 ES 모듈 구문을 사용 하 여 라이브러리를 가져오고 값을 반환 하는 HTTP 트리거 함수입니다 `uuid` .
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 
@@ -755,7 +772,7 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 
 Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 마세요. 대신 전역 범위에서 단일 정적 클라이언트를 만듭니다. 자세한 내용은 [Azure Functions에서 연결 관리](manage-connections.md)를 참조 하세요.
 
-### <a name="use-async-and-await"></a>`async`및 사용`await`
+### <a name="use-async-and-await"></a>`async` 및 `await` 사용
 
 JavaScript에서 Azure Functions를 작성 하는 경우 및 키워드를 사용 하 여 코드를 작성 해야 합니다 `async` `await` . 콜백이 나를 사용 하는 대신 및를 사용 하 여 코드를 작성 `async` `await` `.then` `.catch` 하면 두 가지 일반적인 문제를 방지할 수 있습니다.
  - [Node.js 프로세스를 중단](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)하는 catch 되지 않은 예외를 throw 하 여 다른 함수 실행에 영향을 줄 수 있습니다.
