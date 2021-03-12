@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618776"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198954"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 계정 잠금 문제 해결
 
@@ -83,6 +83,23 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
+
+**참고**
+
+"원본 워크스테이션:"이 비어 있는 4776 및 4740 이벤트 세부 정보를 확인할 수 있습니다. 이는 다른 장치를 통해 네트워크 로그온을 통해 잘못 된 암호가 발생 했기 때문입니다.
+예: RADIUS 서버를 사용할 경우 AAD DS에 인증을 전달할 수 있습니다. DC로 RDP를 사용 하 여 백 엔드를 구성할 수 있는지 확인 하려면 netlogon 로그를 구성 합니다.
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: contoso\Nagappan.Veerappan from (LOB11-RADIUS)의 전이적 네트워크 로그온 
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: contoso\Nagappan.Veerappan from (LOB11-RADIUS)의 전이적 네트워크 로그온은 0xC000006A을 반환 합니다.
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: contoso\Nagappan.Veerappan from (LOB11-RADIUS)의 전이적 네트워크 로그온 
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: contoso\Nagappan.Veerappan from (LOB11-RADIUS)의 전이적 네트워크 로그온은 0xC000006A을 반환 합니다.
+
+진단 캡처를 구성 하기 위해 NSG에서 Dc에 대 한 RDP를 백 엔드에 설정 (즉, netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules 기본 NSG를 이미 수정 했으면 PSlet을 사용 하 여 사용 하도록 설정 하세요. https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+
+모든 서버에서 Netlogon 로그를 사용 하도록 설정 하려면 https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
 
 ## <a name="next-steps"></a>다음 단계
 

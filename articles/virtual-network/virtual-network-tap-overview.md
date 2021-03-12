@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804873"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617185"
 ---
 # <a name="virtual-network-tap"></a>가상 네트워크 TAP
 > [!IMPORTANT]
-> 가상 네트워크 탭 미리 보기는 현재 모든 Azure 지역에서 보류 중입니다. 구독 ID를 사용 하 여에 전자 메일을 보낼 수 <azurevnettap@microsoft.com> 있으며,이 미리 보기에 대 한 향후 업데이트를 알려 드리겠습니다. 그 동안에는 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners)에서 제공 하는 [패킷 브로커 파트너 솔루션](#virtual-network-tap-partner-solutions) 을 통해 탭/네트워크 표시 기능을 제공 하는 에이전트 기반 또는 nva 솔루션을 사용할 수 있습니다.
+> 가상 네트워크 탭 미리 보기는 현재 모든 Azure 지역에서 보류 중입니다. 구독 ID를 사용 하 여에 전자 메일을 보낼 수 <azurevnettap@microsoft.com> 있으며,이 미리 보기에 대 한 향후 업데이트를 알려 드리겠습니다. 그 동안에는 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners)에서 제공 하는 [패킷 브로커 파트너 솔루션](#virtual-network-tap-partner-solutions) 을 통해 탭/네트워크 표시 기능을 제공 하는 에이전트 기반 또는 nva 솔루션을 사용할 수 있습니다.
 
 Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트워크 패킷 수집기 또는 분석 도구로 가상 머신 네트워크 트래픽을 지속적으로 스트리밍할 수 있습니다. 수집기 또는 분석 도구는 [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 파트너에 의해 제공 됩니다. 가상 네트워크 TAP 사용의 유효성이 검사된 파트너 솔루션 목록은 [파트너 솔루션](#virtual-network-tap-partner-solutions)을 참조하세요.
 다음 그림은 가상 네트워크 TAP이 작동하는 방법을 보여 줍니다. 가상 네트워크에 배포된 가상 머신에 연결된 [네트워크 인터페이스](virtual-network-network-interface.md)에 TAP 구성을 추가할 수 있습니다. 대상은 모니터링된 네트워크 인터페이스 또는 [피어링된 가상](virtual-network-peering-overview.md) 네트워크와 동일한 가상 네트워크의 가상 네트워크 IP 주소입니다. 가상 네트워크 TAP에 대한 수집기 솔루션은 고가용성을 위해 Azure 내부 부하 분산 장치 배후에 배포될 수 있습니다.
@@ -64,6 +64,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Noname 보안](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)

@@ -1,7 +1,7 @@
 ---
 title: H264 단일 비트 전송률 16x9 SD Media Encoder Standard 사전 설정 - Azure | Microsoft Docs
 description: 이 항목은 **H264 단일 비트 전송률 16X9 SD** 태스크 미리 설정에 대 한 개요를 제공 합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: e52caca9e5da91947d7a97f42cd689a655020a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 03ba7fe9785119050759da501d55c2decd693428
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261974"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015610"
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>H264 단일 비트 전송률 16x9 SD
 

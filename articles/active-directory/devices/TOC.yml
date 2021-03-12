@@ -80,7 +80,7 @@
     - name: Graph API
       items:
         - name: 디바이스 ID API
-          href: /graph/api/resources/device?view=graph-rest-1.0
+          href: /graph/api/resources/device
 - name: 리소스
   items:
     - name: Azure 피드백 포럼

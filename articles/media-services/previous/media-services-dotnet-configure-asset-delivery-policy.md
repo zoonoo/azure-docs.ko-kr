@@ -3,7 +3,7 @@ title: .NET SDK를 사용하여 자산 배달 정책 구성 | Microsoft 문서
 description: 이 항목에서는 Azure Media Services.NET SDK를 사용하여 여러 자산 배달 정책을 구성하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Mingfeiy
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24fd4dcb9b24b6d025ff0327d98fee15a05fb7de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e152f257e867dfdbf97c92b041ce57c5a1bdbc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267720"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014267"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK를 사용하여 자산 배포 정책 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "89267720"
 
 동일한 자산에 다른 정책을 적용할 수 있습니다. 예를 들어, 부드러운 스트리밍에 PlayReady 암호화, MPEG DASH 및 HLS에 AES 봉투(envelope) 암호화를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 자산 배달 정책이 전혀 정의되어 있지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
-스토리지에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 스토리지 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 표준 AES 봉투 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 **DynamicEnvelopeEncryption**으로 설정해야 합니다. 스토리지 암호화를 제거하고 암호화되지 않은 자산을 스트리밍하려면 정책 유형을 **NoDynamicEncryption**으로 설정하세요. 이러한 정책 유형을 구성 하는 방법을 보여주는 예제입니다.
+스토리지에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 스토리지 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 표준 AES 봉투 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 **DynamicEnvelopeEncryption** 으로 설정해야 합니다. 스토리지 암호화를 제거하고 암호화되지 않은 자산을 스트리밍하려면 정책 유형을 **NoDynamicEncryption** 으로 설정하세요. 이러한 정책 유형을 구성 하는 방법을 보여주는 예제입니다.
 
 사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS 및 MPEG DASH).
 
@@ -83,7 +83,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
 
-다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(스트리밍에서 다른 프로토콜은 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**CommonEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey) 참조)를 사용합니다.
+다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy** 를 만듭니다(스트리밍에서 다른 프로토콜은 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**CommonEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey) 참조)를 사용합니다.
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
@@ -160,7 +160,7 @@ Azure Media Services를 사용하면 Widevine 암호화를 추가할 수 있습�
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 자산 배달 정책
-다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍, HLS 및 DASH 프로토콜에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(일부 프로토콜은 지정되지 않으면 스트리밍에서 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**EnvelopeEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#envelope_contentkey) 참조)를 사용합니다.
+다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍, HLS 및 DASH 프로토콜에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy** 를 만듭니다(일부 프로토콜은 지정되지 않으면 스트리밍에서 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**EnvelopeEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#envelope_contentkey) 참조)를 사용합니다.
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.   
 

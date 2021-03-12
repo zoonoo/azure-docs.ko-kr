@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8b8ea25e57d4e8b2d9361499659176cc9b9f3434
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 730a26ac4b068e533382b354574592c40213a3e7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428758"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617859"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Virtual Machines에 Azure Backup을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F013e242c-8828-4970-87b3-ab247555486d) |Azure Backup을 사용하도록 설정하여 Azure Virtual Machines를 보호하세요. Azure Backup은 Azure를 위한 안전하고 경제적인 데이터 보호 솔루션입니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachines_EnableAzureBackup_Audit.json) |
+|[Azure Recovery Services 자격 증명 모음은 개인 링크를 사용 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdeeddb44-9f94-4903-9fa0-081d524406e3) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. 개인 링크 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리 합니다. 개인 끝점을 Azure Recovery Services 자격 증명 모음에 매핑하면 데이터 누출 위험이 줄어듭니다. 개인 링크에 대 한 자세한 내용은을 (를) 확인 [https://aka.ms/AB-PrivateEndpoints](https://aka.ms/AB-PrivateEndpoints) 하세요. |감사, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/RecoveryServices_PrivateEndpoint_Audit.json) |
 |[기본 정책을 사용하여 새 복구 서비스 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83644c87-93dd-49fe-bf9f-6aff8fd0834e) |가상 머신과 동일한 위치 및 리소스 그룹에 복구 서비스 자격 증명 모음을 배포하여 모든 가상 머신에 대한 백업을 적용합니다. 이 작업은 조직의 여러 애플리케이션 팀에 별도의 리소스 그룹이 할당되고 자체 백업 및 복원을 관리해야 하는 경우에 유용합니다. 할당 범위를 제어하기 위해 지정된 태그가 포함된 가상 머신을 선택적으로 포함할 수 있습니다. [https://aka.ms/AzureVMAppCentricBackupIncludeTag](https://aka.ms/AzureVMAppCentricBackupIncludeTag) 참조 |deployIfNotExists |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachineApplicationCentricBackup_Backup_Deploy_WithTag.json) |
 |[동일한 위치에 있는 기존 복구 서비스 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F345fa903-145c-4fe1-8bcd-93ec2adccde8) |가상 머신과 동일한 위치 및 구독에 있는 기존 중앙 복구 서비스 자격 증명 모음에 백업하여 모든 가상 머신에 대한 백업을 적용합니다. 이 작업은 구독의 모든 리소스에 대한 백업을 관리하는 조직 내의 중앙 팀이 있는 경우에 유용합니다. 할당 범위를 제어하기 위해 지정된 태그가 포함된 가상 머신을 선택적으로 포함할 수 있습니다. [https://aka.ms/AzureVMCentralBackupIncludeTag](https://aka.ms/AzureVMCentralBackupIncludeTag) 참조 |deployIfNotExists, auditIfNotExists, disabled |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachineWithTag_Backup_Deploy.json) |
 |[기본 정책을 사용하여 새 복구 서비스 자격 증명 모음에 대해 제공된 태그가 없는 VM의 백업 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86) |가상 머신과 동일한 위치 및 리소스 그룹에 복구 서비스 자격 증명 모음을 배포하여 모든 가상 머신에 대한 백업을 적용합니다. 이 작업은 조직의 여러 애플리케이션 팀에 별도의 리소스 그룹이 할당되고 자체 백업 및 복원을 관리해야 하는 경우에 유용합니다. 할당 범위를 제어하기 위해 지정된 태그가 포함된 가상 머신을 선택적으로 제외할 수 있습니다. [https://aka.ms/AzureVMAppCentricBackupExcludeTag](https://aka.ms/AzureVMAppCentricBackupExcludeTag) 참조 |deployIfNotExists |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachineApplicationCentricBackup_Backup_Deploy_WithOutTag.json) |

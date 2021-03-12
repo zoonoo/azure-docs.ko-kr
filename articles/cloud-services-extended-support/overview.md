@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8ed21d8689bf5340c1bde0a7f782bb8614f7cf11
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700204"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618477"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Azure Cloud Services 정보 (확장 지원)
 
@@ -57,7 +57,7 @@ Cloud Services (확장 지원)은 [Azure Cloud Services](https://azure.microso
 
 ## <a name="migration-to-azure-resource-manager"></a>Azure Resource Manager로 마이그레이션
 
-Cloud Services (확장 지원)에서는 [Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) 에서 [Azure Resource Manager](../azure-resource-manager/management/overview.md)로 마이그레이션할 수 있는 두 가지 경로를 제공 합니다. 
+Cloud Services (확장 지원)에서는 [Azure Service Manager](/powershell/azure/servicemanagement/overview) 에서 [Azure Resource Manager](../azure-resource-manager/management/overview.md)로 마이그레이션할 수 있는 두 가지 경로를 제공 합니다. 
 1) 고객은 Azure Resource Manager에서 직접 클라우드 서비스를 배포한 후 Azure Service Manager에서 기존 클라우드 서비스를 삭제 합니다. 
 2) 내부 마이그레이션은 Cloud Services (연장 된 지원)의 가동 중지 시간을 최소화 하면서 Cloud Services (클래식)를 마이그레이션할 수 있는 기능을 지원 합니다. 
 

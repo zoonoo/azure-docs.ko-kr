@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520713"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610487"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -21,12 +21,12 @@ ms.locfileid: "102520713"
 
 이 문서에서는 PersistentVolume (PV) 및 배포를 사용 하 여 Kubernetes에서 단일 인스턴스 상태 저장 응용 프로그램을 배포 하는 방법을 보여 줍니다. 배포는 `kubectl` 기존 Kubernetes 클러스터에서 명령을 사용 하 고 MySQL 응용 프로그램을 배포 합니다. 
 
-이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다. 
 
 Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 
@@ -62,7 +62,8 @@ Azure Stack Edge Pro 장치에 상태 저장 응용 프로그램을 배포할 �
 PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합니다. 다음 단계를 수행 하 여 SMB 공유에 대해 PV를 프로 비전 합니다. 
 
 > [!NOTE]
-> 이 방법 문서에 사용 된 특정 예제는 NFS 공유에서 작동 하지 않습니다. 일반적으로 NFS 공유는 데이터베이스가 아닌 응용 프로그램을 사용 하 여 Azure Stack Edge 장치에 프로 비전 할 수 있습니다.
+> - 이 방법 문서에 사용 된 특정 예제는 NFS 공유에서 작동 하지 않습니다. 일반적으로 NFS 공유는 데이터베이스가 아닌 응용 프로그램을 사용 하 여 Azure Stack Edge 장치에 프로 비전 할 수 있습니다.
+> - 저장소 볼륨을 사용 하 여 영구 저장소를 제공 하는 상태 저장 응용 프로그램을 배포 하려면를 사용 하는 것이 좋습니다 `StatefulSet` . 이 예제에서는 `Deployment` 하나의 복제본만 사용 하 고 개발 및 테스트에 적합 합니다. 
 
 1. 에 지 공유 또는에 지 로컬 공유를 만들지 여부를 선택 합니다. 공유 [추가](azure-stack-edge-manage-shares.md#add-a-share) 의 지침에 따라 공유를 만듭니다. **Edge 계산에 공유 사용** 에 대 한 확인란을 선택 해야 합니다.
 

@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: kgremban
-ms.openlocfilehash: 3a2d048bfd3b47cd5a3cb93763aa27fac1b89649
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044921"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201611"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux 용 Azure IoT Edge 설치 또는 제거
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 자세히 알아보려면 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조 하세요.
 
@@ -68,7 +70,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
   ```
 
-Azure IoT Edge 소프트웨어 패키지에는 각 패키지 ( `usr/share/doc/{package-name}` 또는 디렉터리)에 있는 사용 조건이 적용 됩니다 `LICENSE` . 패키지를 사용 하기 전에 사용 조건을 읽어 보십시오. 패키지를 설치 하 고 사용 하면 이러한 조건에 동의 하는 것입니다. 사용 조건에 동의 하지 않는 경우 해당 패키지를 사용 하지 마십시오.
+Azure IoT Edge 소프트웨어 패키지에는 각 패키지 ( `usr/share/doc/{package-name}` 또는 디렉터리)에 있는 사용 조건이 적용 됩니다 `LICENSE` . 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치하고 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
 ## <a name="install-a-container-engine"></a>컨테이너 엔진 설치
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 5881d03603002cc8d5bef1680083f6b4145bc77f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 19de94db517afb2a8eeb855e76f2381096f8d7c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526690"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609110"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -114,7 +114,7 @@ az aks create \
 데이터 손실 또는 예기치 않은 가동 중지 시간을 방지 하기 위해 상태 저장 응용 프로그램의 마이그레이션을 신중 하 게 계획 합니다.
 
 Azure Files를 사용 하는 경우 파일 공유를 볼륨으로 새 클러스터에 탑재할 수 있습니다.
-* [정적 Azure Files를 볼륨으로 탑재](./azure-files-volume.md#mount-the-file-share-as-a-volume)
+* [정적 Azure Files를 볼륨으로 탑재](./azure-files-volume.md#mount-file-share-as-an-persistent-volume)
 
 Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에만 디스크를 탑재할 수 있습니다.
 * [정적 Azure 디스크를 볼륨으로 탑재](./azure-disk-volume.md#mount-disk-as-volume)

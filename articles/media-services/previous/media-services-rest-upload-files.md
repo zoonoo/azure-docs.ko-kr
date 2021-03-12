@@ -3,7 +3,7 @@ title: REST를 사용하여 Azure Media Services 계정에 파일 업로드 | Mi
 description: REST를 사용 하 여 자산을 만들고 업로드 하 여 미디어 콘텐츠를 Media Services으로 가져오는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042978"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012941"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
@@ -43,13 +43,13 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 > * 업로드 URL을 사용하여 Blob Storage에 파일 업로드
 > * 자산에 업로드한 미디어 파일에 대한 메타데이터 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - 또한 자세한 내용은 [AZURE AD 인증을 사용 하 여 REST를 사용 하 여 MEDIA SERVICES API에 액세스](./media-services-rest-connect-with-aad.md) 문서를 참조 하세요.
-- **Postman** 을 구성합니다( [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 참조).
+- **Postman** 을 구성합니다([Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 참조).
 
 ## <a name="considerations"></a>고려 사항
 
@@ -126,15 +126,15 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 [자산은](/rest/api/media/operations/asset) 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일을 포함 하 여 Media Services의 여러 형식 또는 개체 집합에 대 한 컨테이너입니다. REST API에서 자산을 만들려면 Media Services에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
 
-자산을 만들 때 추가할 수 있는 속성 중 하나는 **옵션** 입니다. **없음** (기본적으로 암호화가 사용되지 않음), **StorageEncrypted** (클라이언트 쪽 스토리지 암호화를 사용하여 미리 암호화된 콘텐츠의 경우), **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션 중 하나를 지정할 수 있습니다. 암호화된 자산이 있는 경우 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조 하세요.
+자산을 만들 때 추가할 수 있는 속성 중 하나는 **옵션** 입니다. **없음**(기본적으로 암호화가 사용되지 않음), **StorageEncrypted**(클라이언트 쪽 스토리지 암호화를 사용하여 미리 암호화된 콘텐츠의 경우), **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션 중 하나를 지정할 수 있습니다. 암호화된 자산이 있는 경우 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조 하세요.
 
-자산이 암호화된 경우 **ContentKey** 를 만들고 자산에 연결해야 합니다( [ContentKey를 만드는 방법](media-services-rest-create-contentkey.md) 문서의 설명 참조). 자산에 파일을 업로드한 후에는 **자산** 을 암호화하는 동안 얻은 값으로 **AssetFile** 엔터티의 암호화 속성을 업데이트해야 합니다. **MERGE** HTTP 요청을 사용하여 이를 수행합니다. 
+자산이 암호화된 경우 **ContentKey** 를 만들고 자산에 연결해야 합니다([ContentKey를 만드는 방법](media-services-rest-create-contentkey.md) 문서의 설명 참조). 자산에 파일을 업로드한 후에는 **자산** 을 암호화하는 동안 얻은 값으로 **AssetFile** 엔터티의 암호화 속성을 업데이트해야 합니다. **MERGE** HTTP 요청을 사용하여 이를 수행합니다. 
 
 이 예제에서는 암호화되지 않은 자산을 만듭니다. 
 
 ### <a name="create-an-asset"></a>자산 만들기
 
-1. 자산 **Assets**  ->  **자산 만들기** 를 선택 합니다.
+1. 자산   ->  **자산 만들기** 를 선택 합니다.
 2. **보내기** 를 누릅니다.
 
     !["컬렉션" 메뉴에서 선택 된 "자산-자산 만들기" 및 "보내기" 단추를 선택 하는 스크린샷](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -191,7 +191,7 @@ SAS URL의 형식은 다음과 같습니다.
 새 요청을 만들고 설정합니다.
 1. **+** 를 눌러 새 요청 탭을 만듭니다.
 2. **PUT** 작업을 선택하고 URL에 **{{UploadURL}}** 을 붙여넣습니다.
-2. **권한 부여** 탭을 그대로 유지합니다( **전달자 토큰** 으로 설정 안 함).
+2. **권한 부여** 탭을 그대로 유지합니다(**전달자 토큰** 으로 설정 안 함).
 3. **헤더** 탭에서 **키** 를 “x-ms-blob-type”으로, **값** 을 “BlockBlob”으로 지정합니다.
 2. **본문** 탭에서 **이진** 을 클릭합니다.
 4. **MediaFileName** 환경 변수에 지정한 이름을 가진 파일을 선택합니다.
@@ -212,7 +212,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 ## <a name="validate"></a>유효성 검사
 
-파일이 성공적으로 업로드되었는지 확인하려면 [AssetFile](/rest/api/media/operations/assetfile)을 쿼리하고 **ContentFileSize** (또는 기타 세부 정보)를 새 자산에 표시될 예상 값과 비교하는 것이 좋습니다. 
+파일이 성공적으로 업로드되었는지 확인하려면 [AssetFile](/rest/api/media/operations/assetfile)을 쿼리하고 **ContentFileSize**(또는 기타 세부 정보)를 새 자산에 표시될 예상 값과 비교하는 것이 좋습니다. 
 
 예를 들어 다음 **GET** 작업은 자산 파일(예제에서는 BigBuckBunny.mp4 파일)에 대한 파일 데이터를 가져옵니다. 쿼리는 앞에서 설정한 [환경 변수](postman-environment.md)를 사용하고 있습니다.
 

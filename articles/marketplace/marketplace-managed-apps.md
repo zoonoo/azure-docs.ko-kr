@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433544"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232259"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Azure 관리 되는 응용 프로그램 게시 가이드
 
@@ -33,8 +33,8 @@ Azure 관리 되는 *응용* 프로그램 제품은 Azure Marketplace에 azure �
 |요구 사항 |세부 정보  |
 |---------|---------|
 |Azure 구독 | 관리 되는 응용 프로그램은 고객의 구독에 배포 되어야 하지만 타사에서 관리할 수 있습니다. |
-|청구 및 계량    |  리소스는 고객의 Azure 구독에서 제공 됩니다. 종 량 제 지불 모델을 사용 하는 Vm은 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다. <br><br> 사용자 라이선스 Vm의 경우 Microsoft는 고객 구독에서 발생 하는 모든 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다.        |
-|Azure 호환 VHD (가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<br><br>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)을 참조하세요.<br><br>Windows VHD를 만드는 방법에 대 한 자세한 내용은 [Azure 응용 프로그램 제품 만들기](./create-new-azure-apps-offer.md)를 참조 하세요. |
+|청구 및 계량    |  리소스는 고객의 Azure 구독에서 제공 됩니다. 종 량 제 지불 모델을 사용 하는 Azure 리소스는 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다. <br><br> 사용자 라이선스 Azure 리소스 가져오기의 경우 Microsoft는 고객 구독에서 발생 하는 모든 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다.        |
+|Azure 관리 되는 응용 프로그램 패키지    |   구성 된 Azure Resource Manager 템플릿으로, 고객의 구독에 응용 프로그램을 배포 하는 데 사용 되는 UI 정의를 만듭니다.<br><br>관리 되는 응용 프로그램을 만드는 방법에 대 한 자세한 내용은 [관리 되는 응용 프로그램 개요](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)를 참조 하세요.|
 
 ---
 

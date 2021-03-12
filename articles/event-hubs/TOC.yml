@@ -268,23 +268,23 @@
             - name: azure-eventhubs에서 azure-messaging-eventhubs로 마이그레이션
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
             - name: azure-messaging-eventhubs(최신)
-              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
+              href: /java/api/overview/azure/messaging-eventhubs-readme
             - name: azure-eventhubs(레거시)
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: 관리 라이브러리
-          href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.eventhub
     - name: Python
       items:
         - name: 클라이언트 라이브러리
-          href: /python/api/overview/azure/eventhub-readme?view=azure-python
+          href: /python/api/overview/azure/eventhub-readme
         - name: 관리 라이브러리
-          href: /python/api/overview/azure/event-hub?view=azure-python
+          href: /python/api/overview/azure/event-hub
     - name: JavaScript
       items:
         - name: 클라이언트 라이브러리
-          href: /javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/event-hubs-readme
         - name: 관리 라이브러리
-          href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+          href: /javascript/api/@azure/arm-eventhub/
     - name: Go
       items:
         - name: 클라이언트 라이브러리

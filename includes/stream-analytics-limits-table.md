@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e90a374917239ae1a20d25795757811a12cee80c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e387653d73105911f10bb184f9179e33e22671d4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84200340"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103020902"
 ---
 ---
 | 제한 식별자 | 제한 | 주석 |
@@ -15,6 +15,6 @@ ms.locfileid: "84200340"
 | 작업당 함수의 최대 수 |60 |Stream Analytics 작업당 함수 60개의 출력 하드 제한이 있습니다. |
 | 작업당 스트리밍 단위의 최대 수 |192 |Stream Analytics 작업당 192개의 스트리밍 단위의 하드 제한이 있습니다. |
 | 지역당 최대 작업 수 |1,500 |각 구독에는 지역당 최대 1500개의 작업이 있을 수 있습니다. |
-| 참조 데이터 Blob MB | 300 | 참조 데이터 Blob은 300MB보다 커서는 안 됩니다. |
+| 참조 데이터 Blob MB | 5GB | 6개 이상의 SU를 사용하는 경우 최대 5GB까지 사용할 수 있습니다. |
 | 쿼리의 최대 문자 수 | 512000 | Azure Stream Analytics 작업 쿼리에는 512k 문자의 하드 제한이 있습니다.|
 

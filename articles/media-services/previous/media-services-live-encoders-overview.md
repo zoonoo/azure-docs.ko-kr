@@ -3,7 +3,7 @@ title: Azure Media Services를 사용하여 다중 비트 전송률 스트림을
 description: 이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 토픽은 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 77f2d433b32d180c7b3a819af96a50b721c2087f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: d83c81e1a8a7d8d689e18cc8ba46fbb137959481
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263436"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014862"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 

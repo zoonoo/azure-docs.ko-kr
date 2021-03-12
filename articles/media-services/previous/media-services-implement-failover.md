@@ -3,7 +3,7 @@ title: Azure Media Services를 사용하여 장애 조치 스트리밍 구현 | 
 description: 이 문서에서는 Azure Media Services를 사용 하 여 장애 조치 스트리밍 시나리오를 구현 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657263"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011938"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Media Services v2를 사용 하 여 장애 조치 스트리밍 구현
 
@@ -53,7 +53,7 @@ ms.locfileid: "97657263"
 * 자산을 암호화한 스토리지(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.

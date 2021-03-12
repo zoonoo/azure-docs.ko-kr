@@ -1,5 +1,5 @@
 ---
-title: '방법: 범위 리소스 집합 구성 만들기'
+title: 범위가 지정 된 리소스 집합 구성을 만드는 방법
 description: 범위가 리소스 집합으로 그룹화 되는 방법을 덮어쓰도록 범위가 지정 된 리소스 집합 구성 규칙을 만드는 방법에 대해 알아봅니다.
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668438"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608005"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>범위가 지정 된 리소스 집합 구성 규칙 만들기
 
@@ -24,20 +24,29 @@ ms.locfileid: "101668438"
 
 다음 단계를 수행 하 여 새 범위 지정 리소스 집합 구성을 만듭니다.
 
-1. 관리 센터로 이동 합니다. 메뉴에서 **범위 지정 리소스 집합** 을 선택 합니다. **+ 새로** 만들기를 클릭 하 여 새 구성 규칙 집합을 만듭니다.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="새 범위 지정 리소스 집합 규칙 만들기" border="true":::
+1. 관리 센터로 이동 합니다. 메뉴에서 **범위 지정 리소스 집합** 을 선택 합니다. **+ 새로** 만들기를 선택 하 여 새 구성 규칙 집합을 만듭니다.
 
-1. 범위가 지정 된 리소스 집합 구성의 범위를 입력 합니다. 저장소 계정 유형 및 규칙 집합을 만들려는 저장소 계정의 이름을 선택 합니다. 각 규칙 집합은 **폴더 경로** 필드에 지정 된 폴더 경로 범위를 기준으로 적용 됩니다. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="새 범위 지정 리소스 집합 규칙 만들기" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="새 범위 지정 리소스 집합 규칙 만들기" border="true":::
+
+1. 범위가 지정 된 리소스 집합 구성의 범위를 입력 합니다. 저장소 계정 유형 및 규칙 집합을 만들려는 저장소 계정의 이름을 선택 합니다. 각 규칙 집합은 **폴더 경로** 필드에 지정 된 폴더 경로 범위를 기준으로 적용 됩니다.
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="범위가 지정 된 리소스 집합 구성 만들기" border="true":::
 
 1. 구성 범위에 대 한 규칙을 입력 하려면 **+ 새 규칙** 을 선택 합니다.
+
 1. 다음 필드에를 입력 하 여 규칙을 만듭니다.
-    1. **규칙 이름:** 구성 규칙의 이름입니다. 이 필드는 규칙이 적용 되는 자산에는 영향을 주지 않습니다.
-    1. **정규화 된 이름:** 텍스트, 동적 replacers 및 정적 replacers 조합을 사용 하 여 자산을 구성 규칙에 일치 시키는 정규화 된 경로입니다. 이 경로는 구성 규칙의 범위를 기준으로 합니다. 정규화 된 이름을 지정 하는 방법에 대 한 자세한 지침은 아래 [구문](#syntax) 섹션을 참조 하세요. 
-    1. **표시 이름:** 자산의 표시 이름입니다. 이 필드는 선택 사항입니다. 일반 텍스트 및 정적 replacers를 사용 하 여 카탈로그에 자산이 표시 되는 방식을 사용자 지정할 수 있습니다. 자세한 내용은 아래의 [구문](#syntax) 섹션을 참조 하십시오.
-    1. **리소스 집합으로 그룹화 안 함:** 사용 하도록 설정 하면 일치 하는 리소스가 리소스 집합으로 그룹화 되지 않습니다. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="새 범위 지정 리소스 집합 규칙 만들기" border="true"::: 
-1. **추가** 를 클릭 하 여 규칙을 저장 합니다. 
+
+   1. **규칙 이름:** 구성 규칙의 이름입니다. 이 필드는 규칙이 적용 되는 자산에는 영향을 주지 않습니다.
+
+   1. **정규화 된 이름:** 텍스트, 동적 replacers 및 정적 replacers 조합을 사용 하 여 자산을 구성 규칙에 일치 시키는 정규화 된 경로입니다. 이 경로는 구성 규칙의 범위를 기준으로 합니다. 정규화 된 이름을 지정 하는 방법에 대 한 자세한 지침은 아래 [구문](#syntax) 섹션을 참조 하세요.
+
+   1. **표시 이름:** 자산의 표시 이름입니다. 이 필드는 선택 사항입니다. 일반 텍스트 및 정적 replacers를 사용 하 여 카탈로그에 자산이 표시 되는 방식을 사용자 지정할 수 있습니다. 자세한 내용은 아래의 [구문](#syntax) 섹션을 참조 하십시오.
+
+   1. **리소스 집합으로 그룹화 안 함:** 사용 하도록 설정 하면 일치 하는 리소스가 리소스 집합으로 그룹화 되지 않습니다.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="새 구성 규칙을 만듭니다." border="true":::
+
+1. **추가** 를 클릭 하 여 규칙을 저장 합니다.
 
 ## <a name="scoped-resource-set-syntax"></a><a name="syntax"></a> 범위가 지정 된 리소스 집합 구문
 
@@ -69,21 +78,23 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 | ---- | --------- |
 | 문자열 | 공백과 같은 구분 기호를 포함 하는 일련의 1 개 이상의 유니코드 문자입니다. |
 | int | 1 개 이상의 0-9 ASCII 문자, 0 (예: 0001)이 될 수 있습니다. |
-| guid | Defineddefa에 있는 UUID의 일련의 32 또는 8-4-4-4-12 문자열 표현입니다. https://tools.ietf.org/html/rfc4122 |
-| date | 다음에 지정 된 선택적 구분 기호를 사용 하는 일련 6 또는 8 0-9 ASCII 문자 (yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd) https://tools.ietf.org/html/rfc3339 |
-| time | 다음에 지정 된 선택적 구분 기호를 사용 하는 일련의 4 또는 6 0-9 ASCII 문자 (HHmm, HH: mm, HHmmss, HH: mm: ss) https://tools.ietf.org/html/rfc3339 |
-| timestamp | 선택적 구분 기호를 사용 하는 일련 12 또는 14 0-9 ASCII 문자 (yyyy-mm-Yyyy-mm-ddthh: mm, yyyymmddhhmm, yyyy-Yyyy-mm-ddthh: mm: ss, yyyymmddHHmmss에 지정 되어 있습니다. https://tools.ietf.org/html/rfc3339 |
+| guid | [RFC 4122](https://tools.ietf.org/html/rfc4122)의 defineddefa로 서 UUID의 일련의 32 또는 8-4-4-4-12 문자열 표현입니다. |
+| date | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정 된 선택적 구분 기호: yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd를 사용 하는 일련의 6 또는 8 0-9 ASCII 문자입니다. |
+| time | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정 된 선택적 구분 기호 (HHMM, hh: Mm, HHMMSS, hh: mm: ss)를 사용 하는 일련의 4 또는 6 0-9 ASCII 문자입니다. |
+| timestamp | 선택적 구분 기호를 사용 하는 일련 12 또는 14 0-9 ASCII 문자 (yyyy-mm-Yyyy-mm-ddthh: mm, yyyymmddhhmm, yyyy-mm-dd-Yyyy-mm-ddthh: mm: ss, yyyymmddHHmmss는 [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정 되어 있습니다. |
 | boolean | 대/소문자를 구분 하지 않고 ' true ' 또는 ' f a l l '을 포함할 수 있습니다. |
-| number | 0 개 이상의 일련의 0-9 ASCII 문자, 0 (예: 0001) 뒤에 선택적으로 점 '. '가 올 수 있습니다. 하나 이상의 0-9 ASCII 문자 시리즈는 0 되도록 후 위 (예: 100) 일 수 있습니다. | 
+| number | 0부터 시작 하는 일련의 0-9 ASCII 문자, 0부터 시작 하는 (예: 0001), 선택적으로 점 '. ', 일련 1 이상의 0-9 ASCII 문자 (예: 100)를 사용할 수 있습니다. |
 | hex | 집합 0-1 및 A-f의 일련의 1 개 이상의 ASCII 문자 값은 0 접두사가 될 수 있습니다. |
-| locale | 에 지정 된 구문과 일치 하는 문자열입니다. https://tools.ietf.org/html/rfc5646 |
+| locale | [RFC 5646](https://tools.ietf.org/html/rfc5646)에 지정 된 구문과 일치 하는 문자열입니다. |
 
-## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>범위가 지정 된 리소스 집합 규칙이 적용 되는 순서입니다.
+## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>적용 되는 범위 지정 리소스 집합 규칙의 순서
 
 범위 리소스 집합 규칙을 적용 하는 작업의 순서는 다음과 같습니다.
 
-1. 자산이 두 규칙에 일치 하는 경우 더 구체적인 범위가 우선적으로 적용 됩니다. 예를 들어 범위의 규칙 `container/folder` 은 범위 내 규칙 보다 먼저 적용 됩니다 `container` . 
+1. 자산이 두 규칙에 일치 하는 경우 더 구체적인 범위가 우선적으로 적용 됩니다. 예를 들어 범위의 규칙 `container/folder` 은 범위 내 규칙 보다 먼저 적용 됩니다 `container` .
+
 1. 특정 범위 내에 있는 규칙의 순서입니다. 이는 UX에서 편집할 수 있습니다.
+
 1. 자산이 지정 된 규칙과 일치 하지 않으면 기본 리소스 집합 추론을 적용 합니다.
 
 ## <a name="examples"></a>예제
@@ -95,16 +106,16 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 #### <a name="inputs"></a>입력
 
 Files:
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙
 
-**범위:**https://myazureblob.blob.core.windows.net/bar/
+**범위:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **표시 이름:** ' 외부 고객 '
 
@@ -112,7 +123,7 @@ Files:
 
 **리소스 집합:** true
 
-#### <a name="output"></a>출력 
+#### <a name="output"></a>출력
 
 하나의 리소스 집합 자산
 
@@ -124,17 +135,18 @@ Files:
 
 Avro 형식의 IoT 데이터
 
-#### <a name="inputs"></a>입력 
+#### <a name="inputs"></a>입력
 
 Files:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rules"></a>범위가 지정 된 리소스 집합 규칙 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**범위:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rules"></a>범위가 지정 된 리소스 집합 규칙
+
+**범위:**`https://myazureblob.blob.core.windows.net/bar/`
 
 규칙 1
 
@@ -150,11 +162,11 @@ Files:
 
 **정규화 된 이름:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*리소스 집합: true* 
+#### <a name="resource-set-true"></a>*리소스 집합: true*
 
-#### <a name="outputs"></a>출력 
+#### <a name="outputs"></a>출력
 
-리소스 집합 2 개 
+리소스 집합 2 개
 
 리소스 집합 1
 
@@ -172,17 +184,18 @@ Files:
 
 Avro 형식의 IoT 데이터
 
-#### <a name="inputs"></a>입력 
+#### <a name="inputs"></a>입력
 
 Files:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**범위:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙
+
+**범위:**`https://myazureblob.blob.core.windows.net/bar/`
 
 **표시 이름:** ' Machine-{{machineid}} '
 
@@ -190,7 +203,7 @@ Files:
 
 **리소스 집합:** true
 
-#### <a name="outputs"></a>출력 
+#### <a name="outputs"></a>출력
 
 리소스 집합 1
 
@@ -208,25 +221,26 @@ Files:
 
 리소스 집합으로 그룹화 안 함
 
-#### <a name="inputs"></a>입력 
+#### <a name="inputs"></a>입력
 
 Files:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**범위:**https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>범위가 지정 된 리소스 집합 규칙
 
-**표시 이름:** ' Machine-{{machineid}} '
+**범위:**`https://myazureblob.blob.core.windows.net/bar/`
+
+**표시 이름:**`Machine-{{machineid}}`
 
 **정규화 된 이름:**`raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **리소스 집합:** false
 
-#### <a name="outputs"></a>출력 
+#### <a name="outputs"></a>출력
 
 개별 자산 4 개
 

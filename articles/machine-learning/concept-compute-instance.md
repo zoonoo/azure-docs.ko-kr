@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: e4f6db9e462f937d44bc0e1dbc2d3c4d3e915ba3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: ac90827fec65187088787971623483a96da77d7c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503643"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016239"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -152,7 +152,7 @@ VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생�
 ### <a name="create-on-behalf-of-preview"></a>(미리 보기)를 대신 하 여 만들기
 
 관리자는 데이터 과학자를 대신 하 여 계산 인스턴스를 만들고 다음을 사용 하 여 인스턴스를 할당할 수 있습니다.
-* [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
+* [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/fhir/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
 * REST API
 
 계산 인스턴스를 만드는 데이터 과학자에는 다음과 같은 Azure RBAC 권한이 필요 합니다. 
