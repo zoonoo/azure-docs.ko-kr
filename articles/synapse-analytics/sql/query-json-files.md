@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56d9c621579e19cf2c32562560e40fe42ff3989b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5fcf688bbe8a5be2fc10b70950990b7b6ca71df8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677510"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225594"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 JSON 파일 쿼리
 
@@ -126,12 +126,13 @@ from openrowset(
 
 ### <a name="query-json-files-using-json_value"></a>JSON_VALUE를 사용하여 JSON 파일 쿼리
 
-다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) 을 사용 하 여 JSON 문서에서 스칼라 값 (제목, 게시자)을 검색 하는 방법을 보여 줍니다.
+다음 쿼리는 [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) 을 사용 하 여 `date_rep` `countries_and_territories` JSON 문서에서 스칼라 값 (,,)을 검색 하는 방법을 보여 줍니다 `cases` .
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -143,6 +144,8 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
+
+JSON 문서에서 JSON 속성을 추출한 후에는 열 별칭을 정의 하 고 필요에 따라 텍스트 값을 일부 형식으로 캐스팅할 수 있습니다.
 
 ### <a name="query-json-files-using-openjson"></a>OPENJSON을 사용하여 JSON 파일 쿼리
 
@@ -166,6 +169,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+결과는 함수를 사용 하 여 반환 된 결과와 기능적으로 동일 합니다 `JSON_VALUE` . 경우에 따라 `OPENJSON` `JSON_VALUE` 다음과 같은 이점이 있습니다.
+- 절에서 `WITH` 모든 속성에 대해 열 별칭과 형식을 명시적으로 설정할 수 있습니다. `CAST`목록의 모든 열에는 함수를 넣을 필요가 없습니다 `SELECT` .
+- `OPENJSON` 많은 수의 속성을 반환 하는 경우 더 빠를 수 있습니다. 1-2 속성만 반환 하는 경우 `OPENJSON` 함수에서 오버 헤드가 발생할 수 있습니다.
+- `OPENJSON`각 문서에서 배열을 구문 분석 하 고 부모 행과 조인 해야 하는 경우 함수를 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

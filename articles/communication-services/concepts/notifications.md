@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 88a5ad66cb401715790bcff8c773e6d7881b103d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660160"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487698"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Azure Communication Services 채팅 및 통화 클라이언트 라이브러리는 신호 메시지를 효율적이고 안정적인 방식으로 연결된 클라이언트에 푸시할 수 있는 실시간 메시징 채널을 만듭니다. 이를 통해 복잡한 HTTP 폴링 로직을 구현하지 않고도 다양한 실시간 통신 기능을 애플리케이션에 구축할 수 있습니다. 하지만 모바일 애플리케이션에서 이 신호 채널은 애플리케이션이 포그라운드에서 활성 상태인 경우에만 연결된 상태를 유지합니다. 애플리케이션이 백그라운드에 있는 동안 걸려오는 전화나 채팅 메시지를 사용자가 받도록 하려면 푸시 알림을 사용해야 합니다.
 

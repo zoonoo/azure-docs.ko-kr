@@ -11,19 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041215"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009269"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
-비즈니스 요구 사항에 따라 솔루션은 Azure Time Series Insights 환경의 [api](/rest/api/time-series-insights/reference-data-access-overview)와 상호 작용 하는 데 사용 하는 클라이언트 응용 프로그램을 하나 이상 포함할 수 있습니다. Azure Time Series Insights는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용 하 여 인증을 수행 합니다. 클라이언트를 인증 하려면 올바른 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 이 문서에서는 전달자 토큰을 가져오고 인증 하는 데 사용할 수 있는 몇 가지 자격 증명 가져오기 방법을 설명 합니다.
-
-
-  새 Azure Active Directory 블레이드를 사용 하 여 Azure Active Directory에 앱을 등록 하는 방법입니다. Azure Active Directory에 등록 된 앱은 사용자가에 인증 하 고 Azure Time Series Insights 환경에 연결 된 Azure Time Series insights API를 사용할 수 있도록 권한을 부여 받습니다.
+비즈니스 요구 사항에 따라 솔루션은 Azure Time Series Insights 환경의 [api](/rest/api/time-series-insights/reference-data-access-overview)와 상호 작용 하는 데 사용 하는 클라이언트 응용 프로그램을 하나 이상 포함할 수 있습니다. Azure Time Series Insights는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용 하 여 인증을 수행 합니다. 클라이언트를 인증 하려면 올바른 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달 해야 합니다. 이 문서에서는 관리 되는 id 및 Azure Active Directory 앱 등록을 사용 하는 것을 포함 하 여 전달자 토큰을 가져오고 인증 하는 데 사용할 수 있는 자격 증명을 가져오는 몇 가지 방법을 설명 합니다.
 
 ## <a name="managed-identities"></a>관리 ID
 
@@ -39,7 +36,7 @@ ms.locfileid: "102041215"
 
 - Azure VM
 - Azure App Services
-- Azure 기능
+- Azure Functions
 - Azure Container instances
 - 기타 ...
 
@@ -108,10 +105,7 @@ Azure Time Series Insights 환경에서 요청을 받으면 먼저 호출자의 
 
 Azure App Service 또는 함수에서 액세스 하는 경우 [Azure 리소스에 대 한 토큰 가져오기](../app-service/overview-managed-identity.md)의 지침을 따릅니다.
 
-> [!TIP]
-> .NET 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 .NET 용 [Azure id 클라이언트 라이브러리](/dotnet/api/overview/azure/identity-readme) 를 사용 하는 것입니다. 
-
-.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 이 패키지는 단순함 및 보안상의 이점 때문에 널리 사용 되 고 있습니다. 개발자는 코드를 한 번 작성 하 여 클라이언트 라이브러리가 응용 프로그램 환경을 기반으로 인증 하는 방법을 결정 하도록 할 수 있습니다. 개발자 계정을 사용 하거나 관리 서비스 id를 사용 하 여 Azure에 배포 하는 방법 선행 AppAuthentication 라이브러리의 마이그레이션 지침은 [Azure로 Appauthentication을 읽습니다. Id 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)을 참조 하세요.
+.NET 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 .NET 용 [Azure id 클라이언트 라이브러리](/dotnet/api/overview/azure/identity-readme) 를 사용 하는 것입니다. 이 클라이언트 라이브러리는 단순함 및 보안상의 이점 때문에 널리 사용 되 고 있습니다. 개발자는 코드를 한 번 작성 하 여 클라이언트 라이브러리가 응용 프로그램 환경을 기반으로 인증 하는 방법을 결정 하도록 할 수 있습니다. 개발자 계정을 사용 하거나 관리 서비스 id를 사용 하 여 Azure에 배포 하는 방법 선행 AppAuthentication 라이브러리의 마이그레이션 지침은 [Azure로 Appauthentication을 읽습니다. Id 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)을 참조 하세요.
 
 C # 및 .NET 용 Azure Id 클라이언트 라이브러리를 사용 하 여 Azure Time Series Insights에 대 한 토큰을 요청 합니다.
 

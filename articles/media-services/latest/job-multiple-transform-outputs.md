@@ -12,19 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a40ce1fd7b3d9d946641c91f5876d8c73755b005
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092269"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635844"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>여러 변환 출력을 사용 하 여 작업 만들기
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 항목에서는 두 개의 변환 출력을 사용 하 여 변환을 만드는 방법을 보여 줍니다. 첫 번째는 기본 제공 [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) 사전 설정을 사용 하 여 적응 비트 전송률 스트리밍을 위해 인코딩할 입력에 대해를 호출 합니다. 두 번째는 [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets)를 사용 하 여 처리 하기 위해 입력 비디오에서 오디오 신호를 호출 합니다. 변환을 만든 후 비디오를 처리 하는 작업을 적절 하 게 제출할 수 있습니다. 이 예제에서는 두 개의 변환 출력을 지정 하므로 두 개의 작업 출력을 지정 해야 합니다. 두 작업 출력을 동일한 자산 (아래에 표시 된 것 처럼)으로 보내도록 선택 하거나 별도의 자산에 결과를 쓸 수 있습니다.
- 
 
 > [!TIP]
 > 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md) (api에 액세스 하는 방법, 명명 규칙 등)을 검토 합니다.

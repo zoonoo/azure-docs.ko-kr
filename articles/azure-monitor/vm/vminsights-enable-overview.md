@@ -1,19 +1,19 @@
 ---
-title: VM insights 사용 개요
+title: VM 인사이트 사용 개요
 description: VM insights를 배포 및 구성 하는 방법에 대해 알아봅니다. 시스템 요구 사항을 확인 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046672"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634161"
 ---
-# <a name="enable-vm-insights-overview"></a>VM insights 사용 개요
+# <a name="enable-vm-insights-overview"></a>VM 인사이트 사용 개요
 
 이 문서에서는 VM 정보를 사용 하 여 다음의 상태와 성능을 모니터링할 수 있는 옵션에 대 한 개요를 제공 합니다.
 
@@ -45,7 +45,7 @@ Azure Arc 사용 가능 서버는 Arc 확장 서비스를 사용할 수 있는 �
 |:--|:--|:--|
 | Windows 에이전트 | 예 | [Windows에 대 한 Log Analytics 에이전트](../agents/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](../agents/agents-overview.md#supported-operating-systems)를 참조 하세요. |
 | Linux 에이전트 | 예 | Linux [에 대 한 Log Analytics 에이전트](../agents/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| System Center Operations Manager 관리 그룹 | No | |
+| System Center Operations Manager 관리 그룹 | 아니요 | |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -54,6 +54,7 @@ VM insights는 Log Analytics 에이전트 및 종속성 에이전트를 지 원�
 > [!IMPORTANT]
 > VM insights 게스트 상태 기능은 공개 미리 보기로 제공 되는 동안 보다 제한 된 운영 체제를 지원 합니다. 자세한 목록은 [VM insights 게스트 상태 설정 (미리 보기)](../vm/vminsights-health-enable.md) 을 참조 하세요.
 
+### <a name="linux-considerations"></a>Linux 고려 사항
 VM 정보를 지 원하는 종속성 에이전트의 Linux 지원에 대 한 다음 고려 사항 목록을 참조 하세요.
 
 - 기본 및 SMP Linux 커널 릴리스만 지원됩니다.
@@ -61,7 +62,22 @@ VM 정보를 지 원하는 종속성 에이전트의 Linux 지원에 대 한 다
 - 표준 커널 다시 컴파일이 포함 된 사용자 지정 커널은 지원 되지 않습니다.
 - 9.4 버전 이외의 Debian 배포판에서는 맵 기능이 지원 되지 않으며 성능 기능은 Azure Monitor 메뉴 에서만 사용할 수 있습니다. Azure VM의 왼쪽 창에서 직접 사용할 수 없습니다.
 - CentOSPlus 커널이 지원 됩니다.
-- 스펙터 취약성에 대해 Linux 커널의 패치를 적용 해야 합니다. 자세한 내용은 Linux 배포 공급 업체에 문의 하세요.
+
+스펙터 및 멜트다운 취약성에 대해 Linux 커널의 패치를 적용 해야 합니다. 자세한 내용은 Linux 배포 공급 업체에 문의 하세요. 스펙터/멜트다운가 완화 된 경우 다음 명령을 실행 하 여 사용 가능 여부를 확인 합니다.
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+이 명령에 대 한 출력은 다음과 유사 하 게 표시 되며 컴퓨터에 문제가 있는지 여부를 지정 합니다. 이러한 파일이 없는 경우 컴퓨터에 패치가 적용 되지 않습니다.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
 VM 정보를 Log Analytics 작업 영역이 필요 합니다. 이 작업 영역의 세부 정보 및 요구 사항은 [VM insights에 대 한 Log Analytics 작업 영역 구성](vminsights-configure-workspace.md) 을 참조 하세요.
 ## <a name="agents"></a>에이전트
@@ -75,7 +91,7 @@ VM 정보를 사용 하려면 모니터링할 가상 머신 또는 가상 머신
 
 다음은 이러한 에이전트를 배포 하는 여러 가지 방법입니다. 
 
-| 방법 | Description |
+| 메서드 | Description |
 |:---|:---|
 | [Azure Portal](../vm/vminsights-enable-portal.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
 | [리소스 관리자 템플릿](../vm/vminsights-enable-resource-manager.md) | 지원 되는 방법 중 하나를 사용 하 여 CLI 및 PowerShell을 비롯 한 리소스 관리자 템플릿을 배포 하는 두 에이전트를 모두 설치 합니다. |

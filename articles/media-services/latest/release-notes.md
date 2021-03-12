@@ -11,18 +11,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 98310f65767efc6081451d9931c4ea9772df5f3b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609399"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011208"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
->이 URL(`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us`)을 RSS 피드 판독기에 복사하고 붙여넣어 업데이트를 위해 이 페이지를 다시 방문해야 하는 시기에 대한 알림을 받습니다.
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -32,12 +30,6 @@ ms.locfileid: "102609399"
 * 사용되지 않는 기능
 
 ## <a name="known-issues"></a>알려진 문제
-
-> [!NOTE]
-> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
->
-> 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
-
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -54,20 +46,22 @@ HEVC 샘플을 사용 하는 새 .NET 사용자 지정 인코딩은 [media servi
 - H265SingleBitrate1080p
 - H265SingleBitrate4K
 
-
 이전에 v2 API의 프리미엄 인코더에서 HEVC를 사용 하는 고객은 표준 인코더에서 새로운 HEVC encoding 지원을 사용 하도록 마이그레이션해야 합니다.
 
 ### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API 및 Sdk 사용 중단 알림
 
 #### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Azure Media Services REST API 및 Sdk를 2024 년 2 월 29 일까 지 업데이트
 
-버전 3 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2 보다 많은 기능을 제공 하기 때문에 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2를 사용 중지 하 고 있습니다. Azure Media Services REST API 버전 3 및 .NET 및 Java 용 클라이언트 Sdk의 다양 한 이점을 얻기 위해 더 빨리 스위치를 설정 하는 것이 좋습니다. 버전 3은 다음을 제공 합니다. 
+버전 3 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2 보다 많은 기능을 제공 하기 때문에 Azure Media Services REST API 및 .NET 및 Java 용 클라이언트 Sdk 버전 2를 사용 중지 하 고 있습니다.
+
+Azure Media Services REST API 버전 3 및 .NET 및 Java 용 클라이언트 Sdk의 다양 한 이점을 얻기 위해 더 빨리 스위치를 설정 하는 것이 좋습니다.
+버전 3은 다음을 제공 합니다.
  
 - 연중 무휴 라이브 이벤트 지원
 - ARM REST Api, .NET core 용 클라이언트 Sdk, Node.js, Python, Java, Go 및 Ruby.
-- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
-#### <a name="action-required"></a>작업 필요:
+#### <a name="action-required"></a>필요한 작업
 
 워크 로드의 중단을 최소화 하려면 [마이그레이션 가이드](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) 를 검토 하 여 버전 2 Api 및 sdk에서 버전 3 API 및 sdk로 코드를 전환 합니다. 2024 년 2 월 29 일 이전입니다.
 **2024 년 2 월 29** 일부 터 Azure Media Services는 더 이상 버전 2 REST API, ARM 계정 관리 API 버전 2015-10-01 또는 버전 2 .Net 클라이언트 sdk에서 트래픽을 수락 하지 않습니다. 여기에는 버전 2 API를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함 됩니다.  
@@ -76,9 +70,9 @@ HEVC 샘플을 사용 하는 새 .NET 사용자 지정 인코딩은 [media servi
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>V2 API 기능에 대 한 표준 인코더 지원
 
-HEVC (265) 인코딩에 추가 된 새로운 지원 외에도 이제 2020-05-01 버전의 encoding API에서 다음 기능을 사용할 수 있습니다. 
+HEVC (265) 인코딩에 추가 된 새로운 지원 외에도 이제 2020-05-01 버전의 encoding API에서 다음 기능을 사용할 수 있습니다.
 
-- 이제 새 **Jobinputclip** 지원을 사용 하 여 여러 입력 파일 중철 지원 됩니다. 
+- 이제 새 **Jobinputclip** 지원을 사용 하 여 여러 입력 파일 중철 지원 됩니다.
     - [두 자산을 함께](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets)연결 하는 방법을 보여 주는 .net의 예제를 사용할 수 있습니다.
 - 오디오 트랙 선택을 사용 하면 고객이 들어오는 오디오 트랙을 선택 하 여 매핑하고 인코딩에 대 한 출력으로 라우팅할 수 있습니다.
     - **오디오** 및 트랙 선택 항목에 대 한 [자세한 내용은 REST API openapi](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) 를 참조 하세요.
@@ -96,6 +90,15 @@ HEVC (265) 인코딩에 추가 된 새로운 지원 외에도 이제 2020-05-01 
 - [Node.js Typescript 버전 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Python azure-관리-미디어 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0-beta. 2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
+
+### <a name="new-security-features-available-in-the-2020-05-01-version-of-the-azure-media-services-api"></a>Azure Media Services API의 2020-05-01 버전에서 제공 되는 새로운 보안 기능
+
+- **[고객 관리 키](concept-use-customer-managed-keys-byok.md)**: "2020-05-01" 버전 API를 사용 하 여 만든 계정에 저장 된 콘텐츠 키 및 기타 데이터는 계정 키로 암호화 됩니다. 고객은 계정 키를 암호화 하는 키를 제공할 수 있습니다.
+
+- **[신뢰할 수 있는 저장소](concept-trusted-storage.md)**: Media Services 계정과 연결 된 관리 id를 사용 하 여 Azure Storage에 액세스 하도록 Media Services를 구성할 수 있습니다. 관리 Id를 사용 하 여 저장소 계정에 액세스 하는 경우 고객은 Media Services 시나리오를 차단 하지 않고 저장소 계정에서 더 제한적인 네트워크 Acl을 구성할 수 있습니다.
+
+- **[관리 id](concept-managed-identities.md)**: 고객은 키 자격 증명 모음 (고객 관리 키의 경우) 및 저장소 계정 (신뢰할 수 있는 저장소의 경우)에 대 한 액세스를 제공 하기 위해 Media Services 계정에 대해 시스템 할당 관리 id를 설정할 수 있습니다.
+
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Isomorphic SDK for Javascript를 사용 하 여 Typescript Node.js 샘플 업데이트
 
@@ -143,7 +146,8 @@ Node.js 샘플은 최신 isomorphic SDK를 사용 하도록 업데이트 되었�
 ## <a name="august-2020"></a>2020년 8월
 
 ### <a name="dynamic-encryption"></a>동적 암호화
-레거시 PlayReady 보호 된 파일 형식 (PIFF 1.1) 암호화에 대 한 지원은 이제 동적 패키지 작성 도구에서 사용할 수 있습니다. Microsoft에서 게시 한 CENC (Common Encryption standard)의 초기 초안을 구현한 Samsung 및 LG에서 레거시 스마트 TV 집합을 지원 합니다.  PIFF 1.1 형식은 이전에 Silverlight 클라이언트 라이브러리에서 지 원하는 암호화 형식으로도 알려져 있습니다. 현재이 암호화 형식의 유일한 사용 사례 시나리오는 PIFF 1.1 암호화를 사용 하는 부드러운 스트리밍만을 지 원하는 일부 지역에서 특수 한 수의 스마트 Tv가 남아 있는 레거시 스마트 TV 시장을 대상으로 하는 것입니다. 
+
+레거시 PlayReady 보호 된 파일 형식 (PIFF 1.1) 암호화에 대 한 지원은 이제 동적 패키지 작성 도구에서 사용할 수 있습니다. Microsoft에서 게시 한 CENC (Common Encryption standard)의 초기 초안을 구현한 Samsung 및 LG에서 레거시 스마트 TV 집합을 지원 합니다.  PIFF 1.1 형식은 이전에 Silverlight 클라이언트 라이브러리에서 지 원하는 암호화 형식으로도 알려져 있습니다. 현재이 암호화 형식의 유일한 사용 사례 시나리오는 PIFF 1.1 암호화를 사용 하는 부드러운 스트리밍만을 지 원하는 일부 지역에서 특수 한 수의 스마트 Tv가 남아 있는 레거시 스마트 TV 시장을 대상으로 하는 것입니다.
 
 새 PIFF 1.1 암호화 지원을 사용 하려면 스트리밍 로케이터의 URL 경로에서 암호화 값을 ' piff '로 변경 합니다. 자세한 내용은 [Content Protection 개요](content-protection-overview.md) 를 참조 하세요.
 예를 들어: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|

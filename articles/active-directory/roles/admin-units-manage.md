@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44faaa6f05a325c2c64040938a1c9d0eb3e864e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0706fad1e5340625c32eab691ac3e4d58eeafc9f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574159"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012121"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
 Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. [그래프 탐색기](https://aka.ms/ge)를 통해 다음 지침에서 쿼리를 실행 하려면 다음을 수행 합니다.
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
     
     b. 응용 프로그램 목록에서 **그래프 탐색기** 를 선택 합니다.
     
-    다. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
+    c. **사용 권한** 창에서 **그래프 탐색기에 대해 관리자 동의 부여** 를 선택 합니다.
 
     !["Graph explorer에 대 한 관리자 동의 부여" 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -69,10 +69,15 @@ New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "W
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
 
+요청
+
 ```http
-Http Request
 POST /administrativeUnits
-Request body
+```
+
+본문
+
+```http
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
@@ -94,18 +99,23 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요 하지 않은
 ### <a name="use-powershell"></a>PowerShell 사용
 
 ```powershell
-$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
 ```
 
 특정 환경에 필요한 대로 따옴표로 묶인 값을 수정할 수 있습니다.
 
 ### <a name="use-the-graph-api"></a>Graph API 사용
 
+요청
+
 ```http
-HTTP request
-DELETE /administrativeUnits/{Admin id}
-Request body
+DELETE /administrativeUnits/{admin-unit-id}
+```
+
+본문
+
+```http
 {}
 ```
 

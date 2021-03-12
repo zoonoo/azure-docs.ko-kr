@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448647"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631186"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -356,7 +356,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 | ID | 기본값 |
 | -- | ------------- |
-|intro_msg| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
+|intro_msg <sup>*</sup>| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
 |success_send_code_msg | 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
 |failure_send_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요.|
 |success_verify_code_msg | 이메일 주소를 확인했습니다. 이제 계속할 수 있습니다.|
@@ -365,6 +365,12 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |but_verify_code | 코드 확인|
 |but_send_new_code | 새 코드 전송|
 |but_change_claims | 이메일 변경|
+
+참고: `intro_msg` 요소는 숨겨지고 자체 어설션된 페이지에 표시 되지 않습니다. 표시 하려면 CSS 스타일시트와 함께 [HTML customiztion](customize-ui-with-html.md) 을 사용 합니다. 예를 들면 다음과 같습니다.
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>확인 표시 컨트롤 예제
 

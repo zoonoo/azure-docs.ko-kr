@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903533"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011088"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -67,7 +67,7 @@ ms.locfileid: "96903533"
    
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>기본
+## <a name="basics"></a>기본 사항
 
 **기본 사항** 탭에서 액세스 패키지에 이름을 지정 하 고 액세스 패키지를 만들 카탈로그를 지정 합니다.
 
@@ -149,3 +149,4 @@ Microsoft Graph를 사용 하 여 액세스 패키지를 만들 수도 있습니
 - [액세스 패키지를 요청 하는 공유 링크](entitlement-management-access-package-settings.md)
 - [액세스 패키지에 대 한 리소스 역할 변경](entitlement-management-access-package-resources.md)
 - [사용자를 액세스 패키지에 직접 할당](entitlement-management-access-package-assignments.md)
+- [액세스 패키지에 대 한 액세스 검토 만들기](entitlement-management-access-reviews-create.md)

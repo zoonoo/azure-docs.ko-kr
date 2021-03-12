@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 3278c9956dd5017572f063059250c97727656923
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 44a838bdce4721d24bd0bdbb45ac7b36ceb34e71
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252375"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488372"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정
 
@@ -39,7 +39,7 @@ Azure AD 테넌트에 추가한 애플리케이션에 대한 SSO를 설정하려
 
 ## <a name="enable-single-sign-on-for-an-app"></a>앱에 Single Sign-On 설정
 
-Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지가 나타납니다. 이미 추가된 애플리케이션을 구성하는 경우 첫 번째 빠른 시작을 살펴보세요. 테넌트에 추가된 애플리케이션을 보는 과정을 안내합니다. 
+Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지가 나타납니다. 이미 추가된 애플리케이션을 구성하는 경우 첫 번째 빠른 시작을 살펴보세요. 테넌트에 추가된 애플리케이션을 보는 과정을 안내합니다.
 
 애플리케이션에 대한 Single Sign-On을 설정하는 방법은 다음과 같습니다.
 

@@ -1,31 +1,26 @@
 ---
-title: Azure AD 응용 프로그램 프록시에 대 한 네트워크 토폴로지 고려 사항
-description: Azure AD 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 다룹니다.
+title: Azure Active Directory 응용 프로그램 프록시에 대 한 네트워크 토폴로지 고려 사항
+description: Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 설명 합니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: harshja
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67505e7112c41b21b2ae5e8acc834ff047a470d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.reviewer: japere
+ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254808"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199702"
 ---
-# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
+# <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용 하 여 트래픽 흐름 최적화
 
-이 문서에서는 애플리케이션을 원격으로 게시 및 액세스하기 위해 Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 설명합니다.
+이 문서에서는 응용 프로그램을 원격으로 게시 및 액세스 하기 위해 Azure AD (Azure Active Directory) 응용 프로그램 프록시를 사용할 때 트래픽 흐름 및 네트워크 토폴로지 고려 사항을 최적화 하는 방법을 설명 합니다.
 
 ## <a name="traffic-flow"></a>트래픽 흐름
 
@@ -35,13 +30,32 @@ Azure AD 애플리케이션 프록시를 통해 애플리케이션을 게시할 
 1. 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터에 연결
 1. 애플리케이션 프록시 커넥터에서 대상 애플리케이션에 연결
 
-![대상 애플리케이션에 사용자의 트래픽 흐름을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-three-hops.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="사용자에서 대상 응용 프로그램으로의 트래픽 흐름을 보여 주는 다이어그램입니다." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::
 
-## <a name="tenant-location-and-application-proxy-service"></a>테넌트 위치 및 애플리케이션 프록시 서비스
+## <a name="optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview"></a>가장 가까운 응용 프로그램 프록시 클라우드 서비스 (미리 보기)를 사용 하도록 커넥터 그룹 최적화
 
-Azure AD 테 넌 트에 등록할 때 테 넌 트의 지역은 지정 하는 국가/지역에 따라 결정 됩니다. 애플리케이션 프록시를 사용하도록 설정하면 테넌트에 대한 애플리케이션 프록시 서비스 인스턴스가 Azure AD 테넌트와 동일한 지역이나 가장 가까운 지역에서 선택되거나 만들어집니다.
+Azure AD 테 넌 트에 등록할 때 테 넌 트의 지역은 지정 하는 국가/지역에 따라 결정 됩니다. 응용 프로그램 프록시를 사용 하도록 설정 하면 테 넌 트의 **기본** 응용 프로그램 프록시 클라우드 서비스 인스턴스가 Azure AD 테 넌 트와 동일한 지역 또는 가장 가까운 지역에서 선택 됩니다.
 
-예를 들어, Azure AD 테 넌 트의 국가 또는 지역이 영국 인 경우 모든 응용 프로그램 프록시 커넥터는 유럽 데이터 센터의 서비스 인스턴스를 사용 합니다. 사용자가 게시된 애플리케이션에 액세스할 때 해당 트래픽은 이러한 위치의 애플리케이션 프록시 서비스 인스턴스를 통과합니다.
+예를 들어, Azure AD 테 넌 트의 국가 또는 지역이 영국 인 경우 **기본적** 으로 모든 응용 프로그램 프록시 커넥터는 유럽 데이터 센터의 서비스 인스턴스를 사용 하도록 할당 됩니다. 사용자가 게시 된 응용 프로그램에 액세스 하는 경우 해당 트래픽은이 위치의 응용 프로그램 프록시 클라우드 서비스 인스턴스를 통해 이동 합니다.
+
+기본 지역과 다른 지역에 커넥터를 설치한 경우 이러한 응용 프로그램에 액세스 하는 성능을 향상 시키기 위해 커넥터 그룹이 최적화 된 영역을 변경 하는 것이 유용할 수 있습니다. 커넥터 그룹에 대 한 지역이 지정 되 면 지정 된 지역의 응용 프로그램 프록시 클라우드 서비스에 연결 됩니다.
+
+커넥터 그룹에 대 한 트래픽 흐름을 최적화 하 고 대기 시간을 줄이기 위해 커넥터 그룹을 가장 가까운 지역에 할당 합니다. 영역을 할당 하려면:
+
+1. 애플리케이션 프록시를 사용하는 디렉터리의 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 관리자 별칭이어야 합니다.
+1. 오른쪽 위 모서리에서 사용자 이름을 선택합니다. 애플리케이션 프록시를 사용하는 디렉터리에 로그인했는지 확인합니다. 디렉터리를 변경해야 할 경우 **디렉터리 전환** 을 선택하고 애플리케이션 프록시를 사용하는 디렉터리를 선택합니다.
+1. 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
+1. **관리** 아래에서 **애플리케이션 프록시** 를 선택합니다.
+1. **새 커넥터 그룹** 을 선택 하 고 커넥터 그룹의 **이름을** 입력 합니다.
+1. 그런 다음 **고급 설정** 에서 특정 지역에 대해 최적화 아래에 있는 드롭다운을 선택 하 고 커넥터와 가장 가까운 지역을 선택 합니다.
+1. **만들기** 를 선택합니다.
+    
+    :::image type="content" source="./media/application-proxy-network-topology/geo-routing.png" alt-text="새 커넥터 그룹을 구성 합니다." lightbox="./media/application-proxy-network-topology/geo-routing.png":::
+
+1. 새 커넥터 그룹을 만든 후이 커넥터 그룹에 할당할 커넥터를 선택할 수 있습니다. 
+   - 커넥터 그룹에 있는 경우 기본 지역을 사용 하는 커넥터 그룹에만 커넥터를 이동할 수 있습니다. 가장 좋은 방법은 항상 "기본 그룹"에 배치 된 커넥터에서 시작 하 여 적절 한 커넥터 그룹으로 이동 하는 것입니다.
+   - 커넥터 그룹에 할당 된 커넥터가 **없는** 경우에만 커넥터 그룹의 영역을 변경할 수 있습니다.
+1. 그런 다음 커넥터 그룹을 응용 프로그램에 할당 합니다. 앱에 액세스할 때 이제 트래픽이 커넥터 그룹이 최적화 된 지역에서 응용 프로그램 프록시 클라우드 서비스로 이동 해야 합니다.
 
 ## <a name="considerations-for-reducing-latency"></a>대기 시간 단축을 위한 고려 사항
 
@@ -96,7 +110,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 트래픽은 전용 연결을 통해 전송되므로 대기 시간에 나쁜 영향을 주지 않습니다. 또한 커넥터가 Azure AD 테넌트 위치와 가까운 Azure 데이터 센터에 설치되어 있으므로 애플리케이션 프록시 서비스와 커넥터 간 대기 시간이 단축됩니다.
 
-![Azure 데이터 센터 내에 설치된 커넥터를 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-expressroute-private.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-expressroute-private.png" alt-text="Azure 데이터 센터 내에 설치된 커넥터를 보여 주는 다이어그램" lightbox="./media/application-proxy-network-topology/application-proxy-expressroute-private.png":::
 
 ### <a name="other-approaches"></a>다른 방법
 
@@ -124,7 +138,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 이것은 단순한 패턴입니다. 커넥터를 앱 가까이에 배치하여 홉 3을 최적화합니다. 일반적으로 커넥터는 KCD 작업을 수행하기 위해 앱과 데이터 센터에 대한 시야를 사용하여 설치되므로 자연스러운 선택이기도 합니다.
 
-![사용자, 프록시, 커넥터 및 앱이 모두 미국에 있음을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-pattern1.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern1.png" alt-text="사용자, 프록시, 커넥터 및 앱이 모두 우리에 게 표시 되는 다이어그램입니다." lightbox="./media/application-proxy-network-topology/application-proxy-pattern1.png":::
 
 ### <a name="use-case-2"></a>사용 사례 2
 
@@ -134,7 +148,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 일반적인 패턴은 홉 3을 최적화하는 것이며, 이 경우 커넥터를 앱 근처에 배치합니다. 홉 3이 모두 동일한 지역에 있는 경우 일반적으로 비용이 많이 들지 않습니다. 하지만 전 세계의 사용자가 미국에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1은 사용자 위치에 따라 비용이 더 높을 수 있습니다. 모든 프록시 솔루션은 전 세계에 분산된 사용자에 따라 유사한 특성을 포함한다는 것에 주목해야 합니다.
 
-![사용자는 전 세계에 분산 되어 있지만 다른 모든 항목은 미국에 있습니다.](./media/application-proxy-network-topology/application-proxy-pattern2.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern2.png" alt-text="사용자는 전 세계에 분산 되어 있지만 다른 모든 항목은 미국에 있습니다." lightbox="./media/application-proxy-network-topology/application-proxy-pattern2.png":::
 
 ### <a name="use-case-3"></a>사용 사례 3
 
@@ -146,7 +160,7 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 ExpressRoute 링크가 Microsoft 피어링을 사용하는 경우 프록시와 커넥터 간의 트래픽은 해당 링크를 통해 흐르게 됩니다. 홉 2는 대기 시간을 최적화하게 됩니다.
 
-![프록시와 커넥터 간 ExpressRoute를 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-pattern3.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern3.png" alt-text="프록시와 커넥터 간 ExpressRoute를 보여 주는 다이어그램" lightbox="./media/application-proxy-network-topology/application-proxy-pattern3.png":::
 
 ### <a name="use-case-4"></a>사용 사례 4
 
@@ -158,19 +172,25 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 커넥터를 Azure 데이터 센터에 배치할 수 있습니다. 커넥터가 프라이빗 네트워크를 통해 애플리케이션 및 데이터 센터에 대한 가시권을 계속 확보하므로 홉 3은 최적화된 상태로 유지됩니다. 또한 홉 2는 더욱 최적화됩니다.
 
-![Azure 데이터 센터의 커넥터, 커넥터와 앱 간 Express 경로](./media/application-proxy-network-topology/application-proxy-pattern4.png)
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern4.png" alt-text="Azure 데이터 센터의 커넥터, 커넥터와 앱 간 Express 경로" lightbox="./media/application-proxy-network-topology/application-proxy-pattern4.png":::
 
 ### <a name="use-case-5"></a>사용 사례 5
 
-**시나리오:** 앱은 유럽의 조직 네트워크에 있으며 응용 프로그램 프록시 인스턴스와 대부분의 사용자가 있습니다.
+**시나리오:** 앱은 유럽의 조직 네트워크에 있으며, 기본 테 넌 트 지역은 미국에서 대부분의 사용자와 함께 사용 됩니다.
 
-**권장 사항:** 커넥터를 앱 가까이 배치합니다. 미국 사용자는 동일한 지역에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1의 비용은 그다지 비싸지 않습니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
+**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service)를 참조 하세요.
 
-![다이어그램은 미국, 커넥터 및 유럽의 앱에서 사용자 및 프록시를 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+유럽 사용자는 동일한 지역에 있는 응용 프로그램 프록시 인스턴스에 액세스 하므로 홉 1은 비용이 많이 듭니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
 
-이 상황에서 다른 한 가지 변수를 사용하도록 고려할 수 있습니다. 조직에 있는 대부분 사용자가 미국에 있는 경우 네트워크가 미국으로도 확장될 가능성이 있습니다. 커넥터를 미국에 놓고 전용 내부 회사 네트워크 회선을 유럽의 응용 프로그램에 사용 합니다. 이 방식으로 홉 2와 3이 최적화됩니다.
+### <a name="use-case-6"></a>사용 사례 6
 
-![MICROSOFT의 사용자, 프록시 및 커넥터, 유럽의 앱을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+**시나리오:** 앱은 유럽의 조직 네트워크에 있으며, 기본 테 넌 트 지역은 미국 내 대부분의 사용자와 함께 사용 됩니다.
+
+**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service)를 참조 하세요. 모든 미국 사용자는 유럽의 응용 프로그램 프록시 인스턴스에 액세스 해야 하므로 홉 1은 비용이 더 많이 들 수 있습니다.
+
+이 상황에서 다른 한 가지 변수를 사용하도록 고려할 수 있습니다. 조직에 있는 대부분 사용자가 미국에 있는 경우 네트워크가 미국으로도 확장될 가능성이 있습니다. 커넥터를 미국에 놓고, 커넥터 그룹의 기본 US 지역을 계속 사용 하 고, 유럽의 응용 프로그램에 대 한 전용 내부 회사 네트워크 회선을 사용 합니다. 이 방식으로 홉 2와 3이 최적화됩니다.
+
+:::image type="content" source="./media/application-proxy-network-topology/application-proxy-pattern5c.png" alt-text="다이어그램은 미국, 유럽의 응용 프로그램에서 사용자, 프록시 및 커넥터를 표시 합니다." lightbox="./media/application-proxy-network-topology/application-proxy-pattern5c.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d09f27eebba5db2edb56185b658c8ae2b06e42d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552272"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199998"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 
@@ -41,10 +41,10 @@ ms.locfileid: "102552272"
 | [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise Kn (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise Kn SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
-제품 ID를 모르는 경우 다음 두 방법 중 하나로 Azure Portal을 통해 얻을 수 있습니다.  
+제품 ID를 모르는 경우 Azure Portal를 통해 가져올 수 있습니다.  
 - *구독* 창: Azure Portal의 ![ 제품 ID 세부 정보](./media/client-images/offer-id-azure-portal.png) 
-- 또는 **청구** 를 클릭하고 구독 ID를 클릭합니다. 제품 ID가 *청구* 창에 표시됩니다.
-Azure 계정 포털의 [' 구독 ' 탭](https://account.windowsazure.com/Subscriptions) 에서 제품 id를 볼 수도 있습니다. ![ azure 계정 포털의 제품 id 세부 정보](./media/client-images/offer-id-azure-account-portal.png) 
+- 또는 **청구** 를 클릭하고 구독 ID를 클릭합니다. 제품 ID가 *청구* 창에 표시됩니다. 
+- Azure 계정 포털의 [' 구독 ' 탭](https://account.windowsazure.com/Subscriptions) 에서 제품 id를 볼 수도 있습니다. ![ azure 계정 포털의 제품 id 세부 정보](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>다음 단계
 이제 [PowerShell](quick-create-powershell.md), [Resource Manager 템플릿](ps-template.md) 또는 [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 사용하여 VM을 배포할 수 있습니다.

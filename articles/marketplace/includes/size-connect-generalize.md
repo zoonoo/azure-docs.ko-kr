@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: addc18a0ebf9e49d3474d3f40cb1e2a6e0f0b272
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826681"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630127"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -38,60 +38,31 @@ Windows OS 디스크는 [sysprep](/windows-hardware/manufacture/desktop/sysprep-
     1. Azure Portal에서 RG(리소스 그룹)를 선택하고, VM을 할당 취소합니다.
     2. 이제 VM이 일반화 되어이 VM 디스크를 사용 하 여 새 VM을 만들 수 있습니다.
 
-### <a name="take-a-snapshot-of-the-vm-disk"></a>VM 디스크의 스냅숏 만들기
+### <a name="capture-image"></a>이미지 캡처
 
-1. [Azure Portal](https://ms.portal.azure.com/)에 로그인합니다.
-2. 왼쪽 위에서 시작 하 여 **리소스 만들기** 를 선택한 다음,를 검색 하 고 **스냅숏** 을 선택 합니다.
-3. 스냅숏 블레이드에서  **만들기** 를 선택 합니다.
-4. 스냅샷의 **이름** 을 입력합니다.
-5. 기존 리소스 그룹을 선택 하거나 새 리소스 그룹의 이름을 입력 합니다.
-6. **원본 디스크** 에서 스냅샷을 만들 관리 디스크를 선택합니다.
-7. 스냅샷 저장에 사용할 **계정 유형** 을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD** 를 사용합니다.
-8. **만들기** 를 선택합니다.
+VM이 준비 되 면 Azure 공유 이미지 갤러리에서 캡처할 수 있습니다. 캡처하려면 다음 단계를 따르세요.
 
-#### <a name="extract-the-vhd"></a>VHD 추출
+1. [Azure Portal](https://ms.portal.azure.com/)에서 가상 컴퓨터의 페이지로 이동 합니다.
+2. **캡처** 를 선택 합니다.
+3. **공유 이미지에 이미지 공유 갤러리** 에서 **예, 이미지 버전으로 갤러리에 공유** 를 선택 합니다.
+4. **운영 체제 상태** 에서 일반화를 선택 합니다.
+5. 대상 이미지 갤러리를 선택 하거나 **새로 만듭니다**.
+6. 대상 이미지 정의를 선택 하거나 **새로 만듭니다**.
+7. 이미지에 대 한 **버전 번호** 를 제공 합니다.
+8. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다.
+9. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
 
-다음 스크립트를 사용 하 여 스냅숏을 저장소 계정의 VHD로 내보냅니다.
+게시 하려면 게시자 계정에 SIG에 대 한 소유자 권한이 있어야 합니다. 액세스 권한을 부여 하려면:
 
-```azurecli-interactive
-#Provide the subscription Id where the snapshot is created
-$subscriptionId=yourSubscriptionId
+1. 공유 이미지 갤러리로 이동 합니다.
+2. 왼쪽 패널에서 **Access control** (IAM)을 선택 합니다.
+3. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택 합니다.
+4. **역할** 또는 **소유자** 를 선택 합니다.
+5. **액세스 할당** 에서 **사용자, 그룹 또는 서비스 주체** 를 선택 합니다.
+6. 이미지를 게시할 사용자의 Azure 전자 메일을 선택 합니다.
+7. **저장** 을 선택합니다.
 
-#Provide the name of your resource group where the snapshot is created
-$resourceGroupName=myResourceGroupName
+:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="역할 할당 추가 창을 표시 합니다.":::
 
-#Provide the snapshot name
-$snapshotName=mySnapshot
-
-#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-$sasExpiryDuration=3600
-
-#Provide storage account name where you want to copy the underlying VHD file. 
-$storageAccountName=mystorageaccountname
-
-#Name of the storage container where the downloaded VHD will be stored.
-$storageContainerName=mystoragecontainername
-
-#Provide the key of the storage account where you want to copy the VHD 
-$storageAccountKey=mystorageaccountkey
-
-#Give a name to the destination VHD file to which the VHD will be copied.
-$destinationVHDFileName=myvhdfilename.vhd
-
-az account set --subscription $subscriptionId
-
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
-
-az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
-```
-
-#### <a name="script-explanation"></a>스크립트 설명
-
-이 스크립트는 다음 명령을 사용 하 여 스냅숏에 대 한 SAS URI를 생성 하 고 SAS URI를 사용 하 여 기본 VHD를 저장소 계정에 복사 합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
-
-| 명령 | 메모 |
-| --- | --- |
-| az disk grant-access | 기본 VHD 파일을 스토리지 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.
-| az storage blob copy start | 한 저장소 계정에서 다른 저장소 계정으로 blob을 비동기적으로 복사 합니다. `az storage blob show`새 blob의 상태를 확인 하는 데 사용 합니다. |
-|
+> [!NOTE]
+> 이제 파트너 센터에서 SIG 이미지를 게시할 수 있으므로 SAS Uri를 생성할 필요가 없습니다. 그러나 SAS URI 생성 단계를 계속 참조 해야 하는 경우에는 [VM 이미지에 대 한 SAS uri를 생성 하는 방법](../azure-vm-get-sas-uri.md)을 참조 하세요.

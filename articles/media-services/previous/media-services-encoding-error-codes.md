@@ -3,7 +3,7 @@ title: Azure Media Services 인코딩 오류 코드 | Microsoft Docs
 description: 이 항목에는 인코딩 작업을 실행하는 동안 오류가 발생하는 경우 반환될 수 있는 오류 코드가 나열되어 있습니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 7e6848fb49dd63fa67a639d09754a28dd5953a32
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269032"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013485"
 ---
 # <a name="encoding-error-codes"></a>Encoding 오류 코드
 
@@ -29,7 +29,7 @@ ms.locfileid: "89269032"
 
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
-| Unknown |작업을 실행하는 동안 알 수 없는 오류입니다. |
+| 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
 | ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0 인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 스토리지 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
 | ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 \<see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
@@ -48,7 +48,7 @@ ms.locfileid: "89269032"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 * [미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행](media-services-custom-mes-presets-with-dotnet.md)
 * [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 

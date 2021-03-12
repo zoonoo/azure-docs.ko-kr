@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 014bbe4421bf00f35b2d80505cea288e75f8ca94
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036251"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224676"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -244,6 +244,10 @@ ms.locfileid: "102036251"
 1. **SQL Server VM에서 MSDTC와의 분산 트랜잭션이 지원되나요?**
    
     예. 로컬 DTC가 SQL Server 2016 SP2 이상에서 지원됩니다. 그러나 장애 조치(failover) 중에 진행 중인 트랜잭션이 실패하여 다시 시도해야 하므로 Always On 가용성 그룹을 활용할 때는 애플리케이션을 테스트해야 합니다. 클러스터형 DTC는 Windows Server 2019부터 사용할 수 있습니다. 
+    
+1. **Azure SQL 가상 머신이 지역 외부로 고객 데이터를 이동 하거나 저장 하나요?**
+
+   아니요. 실제로 Azure SQL 가상 머신과 SQL IaaS 에이전트 확장은 고객 데이터를 저장 하지 않습니다.
 
 ## <a name="sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장
 
