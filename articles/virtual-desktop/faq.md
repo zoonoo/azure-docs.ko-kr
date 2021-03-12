@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 FAQ-Azure
 description: Windows 가상 데스크톱에 대 한 질문과 대답 및 모범 사례입니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720276"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613972"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -23,7 +23,7 @@ ms.locfileid: "101720276"
 
 앱 그룹에 사용자 액세스 관리자 역할을 할당 하 여 사용자 또는 사용자 그룹에 앱 그룹을 게시 해야 합니다.
 
-사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 다음은 그 예입니다. 
+사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 "actions": [
@@ -56,7 +56,7 @@ Active Directory를 동일한 VNET (가상 네트워크)에서 사용자의 Azur
 
 PowerShell cmdlet을 실행 하면 리소스 이름과 위치만 표시 됩니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -68,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 리소스의 모든 속성을 보려면 `format-list` `fl` cmdlet의 끝에 또는를 추가 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -76,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 특정 속성을 보려면 또는 뒤에 특정 속성 이름을 추가 `format-list` 합니다 `fl` .
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -140,3 +140,22 @@ Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>등록 문제를 방지 하기 위해 Vm을 켜는 빈도
 
 Windows 가상 데스크톱 서비스 내의 호스트 풀에 VM을 등록 하면 vm이 활성화 될 때마다 에이전트가 VM의 토큰을 정기적으로 새로 고칩니다. 등록 토큰에 대 한 인증서는 90 일 동안 유효 합니다. 90 일 제한 때문에 90 일 마다 Vm을 시작 하는 것이 좋습니다. 이 시간 제한 내에서 VM을 켜면 등록 토큰이 만료 되거나 유효 하지 않게 됩니다. 90 일 후에 VM을 시작 하 고 등록 문제가 발생 한 경우 [Windows 가상 데스크톱 에이전트 문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) 의 지침에 따라 호스트 풀에서 vm을 제거 하 고, 에이전트를 다시 설치 하 고, 풀에 등록 합니다.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>호스트 풀을 만들 때 가용성 옵션을 설정할 수 있나요?
+
+예. Windows 가상 데스크톱 호스트 풀에는 VM을 만들 때 가용성 집합 또는 가용성 영역을 선택할 수 있는 옵션이 있습니다. 이러한 가용성 옵션은 Azure Compute에서 사용 하는 것과 동일 합니다. 호스트 풀에서 만든 VM의 영역을 선택 하면 해당 영역에서 만드는 모든 Vm에 설정이 자동으로 적용 됩니다. 호스트 풀 Vm을 여러 영역에 분산 하는 것을 선호 하는 경우 새 VM에 대 한 새 영역을 수동으로 선택 하려면 [Azure Portal를 사용 하 여 가상 머신 추가](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) 의 지침을 따라야 합니다.
+
+## <a name="which-availability-option-is-best-for-me"></a>내게 적합 한 가용성 옵션은 무엇 인가요?
+
+Vm에 사용 해야 하는 가용성 옵션은 이미지의 위치 및 관리 디스크 필드에 따라 달라 집니다. 다음 표에서는 배포에 가장 적합 한 옵션을 파악 하는 데 도움이 되도록 각 설정에 포함 된 관계에 대해 설명 합니다. 
+
+| Availability 옵션 | 이미지 위치 | 관리 디스크 사용 옵션 단추 (라디오 단추) |
+|---|---|---|
+| 없음 | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
+| 없음 | Blob Storage | 기본값으로 "아니요" 사용 |
+| 가용성 영역 | 갤러리 (blob 저장소 옵션 사용 안 함) | 기본값으로 "예"를 사용 하지 않도록 설정 |
+| 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
+| 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | Blob Storage | 기본값으로 "아니요" 사용 |
+| 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | Blob 저장소 (갤러리 옵션 사용 안 함) | 기본값으로 "아니요"를 사용 하 여 사용 안 함 |
+| 가용성 집합 (사용자가 새로 만듦) | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
+| 가용성 집합 (사용자가 새로 만듦) | Blob Storage | 기본값으로 "아니요" 사용 |

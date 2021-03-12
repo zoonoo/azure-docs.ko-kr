@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: QnA Maker 설명서
   description: QnA Maker는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다. QnA Maker 서비스는 지식의 QnA에서 최상의 답변과 매칭하는 방식으로 사용자의 자연어 질문에 답합니다.
-  ms.openlocfilehash: 00e2f029d467e4bf4acfbc9ee55727328c23ba72
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: d993dfcc4d486190e2501940465598b53808b965
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102502215"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102613887"
 landingContent:
 - title: QnA Maker 정보
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
     - text: 'Power Apps: QnA Maker 기반 봇 만들기'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: '봇 프레임워크: LUIS 앱과 QnA Maker 앱 간의 디스패치'
-      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
     - text: 기타 봇 샘플
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: 참조

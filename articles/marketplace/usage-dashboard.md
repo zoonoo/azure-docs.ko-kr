@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215734"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555128"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -62,7 +62,7 @@ ms.locfileid: "102215734"
 
 이 섹션에서는 Azure Marketplace의 사용량 기반 제품에 대 한 총 사용 시간 및 추세를 제공 합니다. 제안 별 정규화 된 사용량 차트는 아래에 설명 되어 있습니다.
 
-- **제공 되는 표준화** 된 세로 막대형 차트에는 선택 된 계산 기간에 따라 상위 5 개 제품에 대 한 정규화 된 사용 시간이 분석 되어 표시 됩니다. 상위 5 개 제안은 그래프에 표시 되 고 나머지는 **나머지 모든** 범주로 그룹화 됩니다.
+- **제공 되는 표준화** 된 세로 막대형 차트에는 선택 된 계산 기간에 따라 상위 5 개 제품에 대 한 정규화 된 사용 시간에 대 한 분석 결과가 표시 됩니다. 상위 5 개 제안은 그래프에 표시 되 고 나머지는 **나머지 모든** 범주로 그룹화 됩니다.
 - 누적 세로 막대형 차트는 선택한 날짜 범위에 대 한 월 단위 급수 추세를 보여 줍니다. 월 열은 해당 월의 사용 시간이 가장 많은 제품의 사용 시간을 나타냅니다. 꺾은선형 차트는 보조 Y축에 그려진 증가율 추세를 표시합니다.
 - 범례에서 특정 제품을 선택하여 그래프에 해당 제품만 표시할 수 있습니다.
 
@@ -117,46 +117,45 @@ ms.locfileid: "102215734"
 
 _**표 1: 데이터 용어 사전**_
 
-| 열 이름 | 특성 이름 | 정의 |
-| ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. |
-| MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. |
-| 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. |
-| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널 라고도 합니다. 가능한 값은 다음과 같습니다.<ui><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> |
-| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업적 marketplace 제안의 청구 방법입니다. 가능한 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>자신의 라이선스 가져오기</li><li>무료</li><li>Microsoft as 재판매인</li></ul> |
-| SKU | SKU | 제품에 연결 된 계획입니다. |
-| 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. |
-| 미리 보기 SKU | 미리 보기 SKU | SKU를 "preview"로 태그가 지정 된 경우 값이 표시 됩니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. |
-| SKU 청구 유형 | SKU 청구 유형 | 제품의 각 SKU와 연결 된 청구 유형입니다. 가능한 값은 다음과 같습니다.<ul><li>무료</li><li>유료</li></ul> |
-| IsInternal | 사용되지 않음 | 사용되지 않음 |
-| VM 크기 | Virtual Machine 크기 | VM 기반 제품 형식의 경우이 엔터티는 제품의 SKU와 연결 된 VM의 크기를 나타냅니다. |
-| 클라우드 인스턴스 이름 | 클라우드 인스턴스 이름 | VM이 배포된 Microsoft Cloud입니다. |
-| Service설계도 이름 | 사용되지 않음 | 사용 되지 않음 (SKU와 동일한 정의) |
-| 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. |
-| DeploymentMethod | 사용되지 않음 | 사용 되지 않음 (제품 형식과 같은 정의)
- |
-| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에 있는 이름과 다를 수 있습니다. |
-| 사용 날짜 | 사용 날짜 | 사용량 기반 자산에 대 한 사용 이벤트 생성 날짜입니다. |
-| IsMultisolution | Multisolution | 제품이 Multisolution 제품 유형 인지 여부를 나타냅니다. |
-| 새 고객 | 사용되지 않음 | 사용되지 않음 |
-| 핵심 크기 | 핵심 크기 | VM 기반 제품에 연결 된 코어 수입니다. |
-| 사용 유형 | 사용 유형 | 제품에 연결 된 사용 이벤트가 다음 중 하나 인지 여부를 나타냅니다.<ul><li>정규화 된 사용</li><li>원시 사용</li><li>요금제 사용</li></ul> |
-| 평가판 종료 날짜 | 평가판 종료 날짜 | 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다. |
-| 고객 통화(CC) | 고객 통화 | 상업적 marketplace 거래에 대해 고객이 사용 하는 통화입니다. |
-| 가격(CC) | 가격 | 고객 통화로 표시 되는 SKU의 단가입니다. |
-| PC(지급 통화) | 지급 Currency | 게시자는 게시자에 의해 구성 된 통화에서 자산과 연결 된 사용 이벤트에 대해 지불 됩니다. |
-| 예상 가격(PC) | 예상 가격 | 게시자에 의해 구성 된 통화의 SKU 단가입니다. |
-| 사용량 기준 | 사용량 기준 | 지급 트랜잭션 보고서와 함께 사용 보고서 (상용 marketplace 분석)를 연결 하는 데 사용 되는 연결 된 GUID입니다. 사용 참조는 지급 트랜잭션 보고서에서 OrderId 및 LineItemId와 연결 됩니다. |
-| 사용 단위 | 사용 단위 | SKU와 연결 된 소비 단위입니다. |
-| Customer Id | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. |
-| 청구 계정 Id | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다. |
-| 사용 수량 | 사용 수량 | 고객이 배포한 자산에서 사용 하는 총 사용량 단위입니다.<br>사용 유형 항목을 기준으로 합니다. 예를 들어 사용 유형이 정규화 된 사용 인 경우 사용 수량은 정규화 된 사용에 대 한 것입니다. |
-| NormalizedUsage | 정규화된 사용량 | 고객이 배포한 자산에서 사용 되는 총 표준화 된 사용 단위입니다.<br>정규화된 사용 시간은 VM 코어 수를 고려하도록 정규화된 사용 시간으로 정의됩니다([VM 코어 수] x [가공되지 않은 사용량 시간])으로 계산됩니다. "SHAREDCORE"로 지정된 VM은 [VM 코어 수] 승수로 1/6(0.1666)을 사용합니다. |
-| MeteredUsage | 요금제 사용량 | 고객이 배포한 제품을 사용 하 여 구성 된 미터에서 사용 하는 총 사용량 단위입니다. |
-| RawUsage | 원시 사용량 | 고객이 배포한 자산에서 사용 하는 총 원시 사용 단위입니다.<br>원시 사용 시간은 Vm이 사용 단위를 기준으로 실행 되는 시간의 양에 따라 정의 됩니다. |
-| 예상 요금 소계(CC) | 고객 통화의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 열은 가격 (참조) 및 원시 사용의 곱입니다. |
-| 예상 요금 소계(PC) | 지급 Currency의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 이 열은 예상 가격 (PC) 및 원시 사용의 곱입니다. |
-|
+| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식으로 열 이름<br>액세스 보고서 |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. | MarketplaceSubscriptionId |
+| MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. | MonthStartDate |
+| 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. | OfferType |
+| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널 라고도 합니다. 가능한 값은 다음과 같습니다.<ui><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> | AzureLicenseType |
+| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업적 marketplace 제안의 청구 방법입니다. 가능한 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>자신의 라이선스 가져오기</li><li>무료</li><li>Microsoft as 재판매인</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | 제품에 연결 된 계획입니다. | SKU |
+| 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
+| 미리 보기 SKU | 미리 보기 SKU | SKU를 "preview"로 태그가 지정 된 경우 값이 표시 됩니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. | IsPreviewSKU |
+| SKU 청구 유형 | SKU 청구 유형 | 제품의 각 SKU와 연결 된 청구 유형입니다. 가능한 값은 다음과 같습니다.<ul><li>무료</li><li>유료</li></ul> | SKUBillingType |
+| IsInternal | 사용되지 않음 | 사용되지 않음 | 사용되지 않음 |
+| VM 크기 | Virtual Machine 크기 | VM 기반 제품 형식의 경우이 엔터티는 제품의 SKU와 연결 된 VM의 크기를 나타냅니다. | VMSize |
+| 클라우드 인스턴스 이름 | 클라우드 인스턴스 이름 | VM이 배포된 Microsoft Cloud입니다. | CloudInstanceName |
+| Service설계도 이름 | 사용되지 않음 | 사용 되지 않음 (SKU와 동일한 정의) | Service설계도 이름 |
+| 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. | OfferName |
+| DeploymentMethod | 사용되지 않음 | 사용 되지 않음 (제품 형식과 같은 정의) | DeploymentMethod |
+| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에 있는 이름과 다를 수 있습니다. | CustomerCompanyName |
+| 사용 날짜 | 사용 날짜 | 사용량 기반 자산에 대 한 사용 이벤트 생성 날짜입니다. | UsageDate |
+| IsMultisolution | Multisolution | 제품이 Multisolution 제품 유형 인지 여부를 나타냅니다. | IsMultisolution |
+| 새 고객 | 사용되지 않음 | 사용되지 않음 | IsNewCustomer |
+| 핵심 크기 | 핵심 크기 | VM 기반 제품에 연결 된 코어 수입니다. | CoreSize |
+| 사용 유형 | 사용 유형 | 제품에 연결 된 사용 이벤트가 다음 중 하나 인지 여부를 나타냅니다.<ul><li>정규화 된 사용</li><li>원시 사용</li><li>요금제 사용</li></ul> | UsageType |
+| 평가판 종료 날짜 | 평가판 종료 날짜 | 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다. | TrialEndDate |
+| 고객 통화(CC) | 고객 통화 | 상업적 marketplace 거래에 대해 고객이 사용 하는 통화입니다. | CustomerCurrencyCC |
+| 가격(CC) | 가격 | 고객 통화로 표시 되는 SKU의 단가입니다. | PriceCC |
+| PC(지급 통화) | 지급 Currency | 게시자는 게시자에 의해 구성 된 통화에서 자산과 연결 된 사용 이벤트에 대해 지불 됩니다. | PayoutCurrencyPC |
+| 예상 가격(PC) | 예상 가격 | 게시자에 의해 구성 된 통화의 SKU 단가입니다. | EstimatedPricePC |
+| 사용량 기준 | 사용량 기준 | 지급 트랜잭션 보고서와 함께 사용 보고서 (상용 marketplace 분석)를 연결 하는 데 사용 되는 연결 된 GUID입니다. 사용 참조는 지급 트랜잭션 보고서에서 OrderId 및 LineItemId와 연결 됩니다. | UsageReference |
+| 사용 단위 | 사용 단위 | SKU와 연결 된 소비 단위입니다. | UsageUnit |
+| 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0 개 이상 있을 수 있습니다. | CustomerId |
+| 청구 계정 ID | 청구 계정 ID | 청구를 생성 하는 계정의 식별자입니다. **청구 계정 ID** 를 **CustomerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결 합니다. | BillingAccountId |
+| 사용 수량 | 사용 수량 | 고객이 배포한 자산에서 사용 하는 총 사용량 단위입니다.<br>사용 유형 항목을 기준으로 합니다. 예를 들어 사용 유형이 정규화 된 사용 인 경우 사용 수량은 정규화 된 사용에 대 한 것입니다. | Usag |
+| NormalizedUsage | 정규화된 사용량 | 고객이 배포한 자산에서 사용 하는 총 표준화 된 사용 단위입니다.<br>정규화된 사용 시간은 VM 코어 수를 고려하도록 정규화된 사용 시간으로 정의됩니다([VM 코어 수] x [가공되지 않은 사용량 시간])으로 계산됩니다. "SHAREDCORE"로 지정된 VM은 [VM 코어 수] 승수로 1/6(0.1666)을 사용합니다. | NormalizedUsage |
+| MeteredUsage | 요금제 사용량 | 고객이 배포한 제품을 사용 하 여 구성 된 미터에서 사용 하는 총 사용량 단위입니다. | MeteredUsage |
+| RawUsage | 원시 사용량 | 고객이 배포한 자산에서 사용 하는 총 원시 사용 단위입니다.<br>원시 사용 시간은 Vm이 사용 단위를 기준으로 실행 되는 시간의 양에 따라 정의 됩니다. | RawUsage |
+| 예상 요금 소계(CC) | 고객 통화의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 열은 가격 (CC)과 사용 수량입니다. | EstimatedExtendedChargeCC |
+| 예상 요금 소계(PC) | 지급 Currency의 예상 연장 요금 | 사용량과 관련 된 요금을 나타냅니다. 이 열은 예상 가격 (PC) 및 사용 수량을 곱한 것입니다. | EstimatedExtended ChargePC |
+|||||
 
 ### <a name="usage-page-filters"></a>사용 페이지 필터
 

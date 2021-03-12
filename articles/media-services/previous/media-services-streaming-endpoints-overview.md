@@ -3,7 +3,7 @@ title: Azure Media Services 스트리밍 엔드포인트 개요 | Microsoft Docs
 description: 이 문서에서는 스트리밍 끝점 Azure Media Services의 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694574"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009098"
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 엔드포인트 개요  
 
@@ -107,7 +107,7 @@ SLA에 대 한 자세한 내용은 [가격 책정 및 SLA](https://azure.microso
 From | 대상 | 작업
 ---|---|---
 클래식|Standard|옵트인할 필요
-Classic|Premium| 크기 조정(추가 스트리밍 단위)
+Classic|프리미엄| 크기 조정(추가 스트리밍 단위)
 표준/프리미엄|Classic|사용할 수 없음(스트리밍 엔드포인트 버전이 1.0인 경우 scaleunits을 "0"으로 설정하도록 클래식을 변경할 수 있음)
 표준(CDN 포함/없이)|동일한 구성을 포함한 프리미엄|**시작됨** 상태에서 허용됩니다. (Azure Portal을 통해)
 프리미엄(CDN 포함/없이)|동일한 구성을 포함한 표준|**시작됨** 상태에서 허용됩니다(Azure Portal을 통해).

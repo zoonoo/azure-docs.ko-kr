@@ -3,18 +3,18 @@ title: Azure Compute 단위 개요
 description: Azure compute 단위의 개념에 대 한 개요입니다. ACU에서는 Azure SKU에서 CPU 성능을 비교하는 방법을 제공합니다.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: azure-compute-unit
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: ba8c3f730897c01c52aaf4499269425426d0b7b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae37771cd9e48f450ae538174b9bed9cfa866f9d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667183"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565532"
 ---
 # <a name="azure-compute-unit-acu"></a>ACU(Azure 컴퓨팅 단위)
 
@@ -75,8 +75,8 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 �
 다양한 크기에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 - [범용](sizes-general.md)
-- [메모리에 최적화](sizes-memory.md)
+- [메모리 최적화](sizes-memory.md)
 - [컴퓨팅 최적화](sizes-compute.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
-- [Storage에 최적화](sizes-storage.md)
+- [스토리지 최적화](sizes-storage.md)

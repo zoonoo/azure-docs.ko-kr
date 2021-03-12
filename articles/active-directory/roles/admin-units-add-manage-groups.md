@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 03/10/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: f88a0818d93c33b6265cc8c695479d2a42678ada
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740553"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011037"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위의 그룹 추가 및 관리
 
@@ -66,30 +66,34 @@ Azure Portal, PowerShell 또는 Microsoft Graph를 사용 하 여 관리 단위�
 
 
 ```powershell
-$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
 
 다음 명령을 실행합니다.
 
-```http
-Http request
-POST /administrativeUnits/{Admin Unit id}/members/$ref
+요청
 
-Request body
+```http
+POST /administrativeUnits/{admin-unit-id}/members/$ref
+```
+
+본문
+
+```http
 {
-"@odata.id":"https://graph.microsoft.com/v1.0/groups/{id}"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/{group-id}"
 }
 ```
 
-예:
+예
 
 ```http
 {
-"@odata.id":"https://graph.microsoft.com/v1.0/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/871d21ab-6b4e-4d56-b257-ba27827628f3"
 }
 ```
 
@@ -110,14 +114,14 @@ Request body
 관리 단위의 모든 구성원 목록을 표시 하려면 다음 명령을 실행 합니다. 
 
 ```powershell
-$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId
 ```
 
 관리 단위의 구성원 인 모든 그룹을 표시 하려면 다음 코드 조각을 사용 합니다.
 
-```http
-foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
+```powershell
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -130,10 +134,15 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 
 다음 명령을 실행합니다.
 
+요청
+
 ```http
-HTTP request
-GET /directory/administrativeUnits/{Admin id}/members/$/microsoft.graph.group
-Request body
+GET /directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
+```
+
+본문
+
+```http
 {}
 ```
 
@@ -164,7 +173,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 다음 명령을 실행합니다.
 
 ```http
-https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-group-from-an-administrative-unit"></a>관리 단위에서 그룹 제거
@@ -196,7 +205,7 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 다음 명령을 실행합니다.
 
 ```powershell
-Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
 ```
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
@@ -204,7 +213,7 @@ Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupO
 다음 명령을 실행합니다.
 
 ```http
-https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref
+https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref
 ```
 
 ## <a name="next-steps"></a>다음 단계

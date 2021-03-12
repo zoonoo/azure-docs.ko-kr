@@ -107,6 +107,8 @@
       href: concepts/logging-diagnostics.md
     - name: 광역 위치 재결정
       href: concepts/coarse-reloc.md
+    - name: 앵커 찾기 전략
+      href: concepts/anchor-locate-strategy.md
 - name: 참조
   items:
     - name: Unity용 SDK

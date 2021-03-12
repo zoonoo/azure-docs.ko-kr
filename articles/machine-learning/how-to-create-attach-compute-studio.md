@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031031"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149361"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -147,7 +147,7 @@ Azure Machine Learning 작업 영역 외부에서 만든 컴퓨팅 대상을 사
 
 1. 컴퓨팅 대상의 이름을 입력합니다. 
 1. 연결할 계산 유형을 선택 하세요. Azure Machine Learning 스튜디오에서 모든 컴퓨팅 유형을 연결할 수 있는 것은 아닙니다. 현재 학습용으로 연결할 수 있는 컴퓨팅 유형은 다음과 같습니다.
-    * 원격 VM
+    * Azure 가상 컴퓨터 (Data Science Virtual Machine 연결)
     * Azure Databricks(기계 학습 파이프라인에 사용)
     * Azure Data Lake Analytics(기계 학습 파이프라인에 사용)
     * Azure HDInsight

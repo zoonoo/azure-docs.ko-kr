@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601117"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611796"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
@@ -60,11 +60,11 @@ Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트
 ## <a name="reference-docs"></a>참조 문서
 
 * [Speech SDK](./speech-sdk.md)
-* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot Service](/azure/bot-service/)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)
-* [기본 봇 만들기 및 배포](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [기본 봇 만들기 및 배포](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 * [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)

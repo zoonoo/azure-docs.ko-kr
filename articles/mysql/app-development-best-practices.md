@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547251"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611966"
 ---
-# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Azure Database for MySQL를 사용 하 여 응용 프로그램을 빌드하기 위한 모범 사례 
+# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Azure Database for MySQL을 사용하여 애플리케이션을 빌드하기 위한 모범 사례 
 
 Azure Database for MySQL를 사용 하 여 클라우드 지원 응용 프로그램을 빌드하는 데 도움이 되는 몇 가지 모범 사례는 다음과 같습니다. 이러한 모범 사례는 앱에 대 한 개발 시간을 줄일 수 있습니다. 
 
@@ -76,7 +76,7 @@ Azure Portal를 사용 하 여 MySQL server에 대 한 [암호를 다시 설정�
 ## <a name="database-deployment"></a>데이터베이스 배포 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>CI/CD 배포 파이프라인에서 MySQL 용 Azure database 작업 구성
-경우에 따라 데이터베이스에 변경 내용을 배포 해야 합니다. 이러한 경우 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) 를 통해 CI (지속적인 통합) 및 CD (지속적인 업데이트)를 사용 하 고 [MySQL server](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) 에 대 한 작업을 사용 하 여 사용자 지정 스크립트를 실행 하 여 데이터베이스를 업데이트할 수 있습니다.
+경우에 따라 데이터베이스에 변경 내용을 배포 해야 합니다. 이러한 경우 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) 를 통해 CI (지속적인 통합) 및 CD (지속적인 업데이트)를 사용 하 고 [MySQL server](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) 에 대 한 작업을 사용 하 여 사용자 지정 스크립트를 실행 하 여 데이터베이스를 업데이트할 수 있습니다.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>수동 데이터베이스 배포에 효과적인 프로세스 사용 
 수동 데이터베이스 배포 중에 다음 단계를 수행 하 여 가동 중지 시간을 최소화 하거나 배포 실패의 위험을 줄입니다. 

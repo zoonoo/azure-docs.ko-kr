@@ -9,14 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0efe9cc3bad599d4ab621fef7308a807cc5e9967
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664134"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485989"
 ---
 # <a name="call-flow-basics"></a>호출 흐름 기본 사항
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 아래 섹션에서는 Azure Communication Services의 전화 흐름에 대한 개요를 제공합니다. 신호와 미디어 흐름은 사용자가 수행하는 전화 종류에 따라 달라집니다. 전화 종류의 예로는 일대일 VoIP, 일대일 PSTN, VoIP 및 PSTN 연결 참가자 조합으로 구성되는 그룹 전화가 있습니다. [전화 종류](./voice-video-calling/about-call-types.md)를 검토하세요.
 

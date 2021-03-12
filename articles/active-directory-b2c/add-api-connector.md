@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611620"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008436"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
@@ -61,9 +61,9 @@ Azure App Service 및 Azure Functions의 경우 API 끝점에서 인증서를 �
 인증서가 만료 되는 경우에 대 한 미리 알림 경고를 설정 하는 것이 좋습니다. 기존 API 커넥터에 새 인증서를 업로드 하려면 **api 커넥터 (미리 보기)** 에서 api 커넥터를 선택 하 고 **새 인증서 업로드** 를 클릭 합니다. 만료 되지 않고 시작 날짜를 지난 가장 최근에 업로드 된 인증서는 Azure AD B2C에 의해 자동으로 사용 됩니다.
 
 ### <a name="api-key"></a>API 키
-일부 서비스는 "API 키" 메커니즘을 사용 하 여 개발 중에 HTTP 끝점에 액세스 하기 어렵게 만듭니다. [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)의 경우를 `code` **끝점 URL** 에 쿼리 매개 변수로 포함 하 여이를 수행할 수 있습니다. 예: `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+일부 서비스는 "API 키" 메커니즘을 사용 하 여 개발 중에 HTTP 끝점에 대 한 액세스를 난독 처리 합니다. [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)의 경우를 `code` **끝점 URL** 에 쿼리 매개 변수로 포함 하 여이를 수행할 수 있습니다. 예: `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-프로덕션 환경에서 단독으로 사용 해야 하는 메커니즘이 아닙니다. 따라서 기본 또는 인증서 인증에 대 한 구성이 항상 필요 합니다. 개발 목적으로 인증 방법을 구현 (권장 하지 않음) 하려는 경우 기본 인증을 선택 하 고에 임시 값을 사용 하 고 api `username` `password` 에서 권한 부여를 구현 하는 동안 api를 무시할 수 있습니다.
+프로덕션 환경에서 단독으로 사용 해야 하는 메커니즘이 아닙니다. 따라서 기본 또는 인증서 인증에 대 한 구성이 항상 필요 합니다. 개발 목적으로 인증 방법을 구현 하지 않으려는 경우 (권장 되지 않음) 기본 인증을 선택 하 고에 임시 값을 사용 하 고 api `username` `password` 에서 권한 부여를 구현 하는 동안 api를 무시할 수 있습니다.
 
 ## <a name="the-request-sent-to-your-api"></a>API로 전송 된 요청
 API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
@@ -254,7 +254,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | 설명                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | 설명                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
@@ -274,7 +274,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | 작업      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -298,7 +298,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API의 버전입니다.                                                    |
 | 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |

@@ -3,7 +3,7 @@ title: Azure Portal에서 Media Encoder Standard를 사용하여 자산 인코�
 description: 이 자습서에서는 Azure Portal에서 Media Encoder Standard를 사용하여 자산을 인코딩하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 606a4d753675475cf0138b688523e9029e6d3b0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 5f4bb3c9b23ffd68939f1088b1252c6e31c1dad7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260784"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010510"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure Portal에서 Media Encoder Standard를 사용하여 자산 인코딩
 
@@ -43,14 +43,14 @@ Media Services는 동적 패키징을 제공합니다. 동적 패키징을 사�
 Media Encoder Standard를 사용하여 콘텐츠를 인코딩하려면:
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
-2. 계정 배포 진행 상태를 보려면 **설정** > **자산**을 참조하세요. 인코딩하려는 자산을 선택합니다.
+2. 계정 배포 진행 상태를 보려면 **설정** > **자산** 을 참조하세요. 인코딩하려는 자산을 선택합니다.
 3. **인코딩** 단추를 선택합니다.
 4. **자산 인코딩** 창에서 **Media Encoder Standard** 프로세서 및 사전 설정을 선택합니다. 사전 설정에 대한 자세한 내용은 [비트 전송률 사다리 자동 생성](media-services-autogen-bitrate-ladder-with-mes.md) 및 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요. 입력 비디오에 가장 적합한 사전 설정을 선택하는 것이 중요합니다. 예를 들어 입력 비디오가 1920x1080픽셀 해상도를 포함하는 것을 알고 있는 경우 **H264 다중 비트 전송률 1080p** 사전 설정을 선택할 수 있습니다. 저해상도(640x360) 비디오가 있는 경우 **H264 다중 비트 전송률 1080p** 사전 설정을 사용할 수 없습니다.
    
    리소스를 관리할 수 있도록 출력 자산의 이름과 작업 이름을 편집할 수 있습니다.
    
    ![자산 인코딩](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. **만들기**를 선택합니다.
+5. **만들기** 를 선택합니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
