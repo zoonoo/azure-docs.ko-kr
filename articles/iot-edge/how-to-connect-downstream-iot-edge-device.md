@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 709b986cc06aada45a0f541142b89fc3537f8ba8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046094"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199131"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 이 문서에서는 IoT Edge 게이트웨이와 다운스트림 IoT Edge 장치 간에 트러스트 된 연결을 설정 하는 방법에 대 한 지침을 제공 합니다.
 
@@ -207,7 +209,7 @@ Azure CLI에 대 한 [azure iot](/cli/azure/ext/azure-iot) 확장은 iot 리소�
 
 1. EdgeHub 모듈에 대해 다음과 같은 환경 변수를 구성 합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -329,7 +331,7 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **추가** 를 선택 하 여 모듈을 배포에 추가 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 다음은 그 예입니다. 
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면 모든 메시지를 IoT Hub에 전달 하는 경로를 포함 합니다. 예를 들면 다음과 같습니다.
     1. **이름**: `Route`
     1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.
@@ -359,7 +361,7 @@ IoT Edge 에이전트는 IoT Edge 장치에서 시작 하는 첫 번째 런타�
 
 IoT Edge 장치의 구성 파일로 이동 하 여 해당 인증 정보, 인증서 및 부모 호스트 이름을 제공 하는 경우 edgeAgent 컨테이너 이미지도 업데이트 합니다.
 
-최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 다음은 그 예입니다. 
+최상위 게이트웨이 장치가 컨테이너 이미지 요청을 처리 하도록 구성 된 경우를 `mcr.microsoft.com` 부모 호스트 이름 및 API 프록시 수신 대기 포트로 바꿉니다. 배포 매니페스트에서는를 바로 가기로 사용할 수 `$upstream` 있지만이 경우 라우팅을 처리 하려면 edgeHub 모듈이 필요 하며,이 시점에서 모듈이 시작 되지 않았습니다. 예를 들면 다음과 같습니다.
 
 ```toml
 [agent]
@@ -435,7 +437,7 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
 
 1. **저장** 을 선택 하 여 변경 내용을 런타임 설정에 저장 합니다.
 1. 다음 **: 경로** 를 선택 하 여 다음 단계로 이동 합니다.
-1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 다음은 그 예입니다. 
+1. 다운스트림 장치에서 IoT Hub에 연결 하기 위해 장치-클라우드 메시지를 사용 하도록 설정 하려면에 모든 메시지를 전달 하는 경로를 포함 `$upstream` 합니다. 낮은 계층 장치의 경우 업스트림 매개 변수는 부모 장치를 가리킵니다. 예를 들면 다음과 같습니다.
     1. **이름**: `Route`
     1. **값**: `FROM /messages/* INTO $upstream`
 1. **검토 + 만들기** 를 선택 하 여 최종 단계로 이동 합니다.

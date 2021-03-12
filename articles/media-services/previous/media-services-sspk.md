@@ -3,7 +3,7 @@ title: Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 �
 description: Microsoft 부드러운 스트리밍 클라이언트 포팅 키트에 라이선스를 부여 하는 방법에 대해 알아봅니다 &reg; .
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: f6c43f943bb12e8230772f2d195589ecc4543030
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f7e371f892fb0796a310be46a402781e8eb57e1a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705316"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009422"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
 
@@ -32,7 +32,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서 **SS
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 

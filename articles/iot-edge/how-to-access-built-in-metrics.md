@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 1a78db821c0fab01ad5d6752216a8f7682fb2c46
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562880"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200491"
 ---
 # <a name="access-built-in-metrics"></a>기본 제공 메트릭 액세스
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge 런타임 구성 요소 IoT Edge 허브 및 IoT Edge 에이전트는 기본 제공 메트릭을 [프로메테우스 표시 형식](https://prometheus.io/docs/instrumenting/exposition_formats/)으로 생성 합니다. 이러한 메트릭에 원격으로 액세스 하 여 IoT Edge 장치의 상태를 모니터링 하 고 파악 합니다.
 

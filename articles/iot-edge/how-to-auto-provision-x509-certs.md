@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f4b33b0156f1a5e27f71509cad637684a0332413
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 44ea6546eb2099165071fd493ec8f890820c0688
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046162"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199826"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 [Azure IoT Hub 장치 프로 비전 서비스 (DPS)](../iot-dps/index.yml)를 사용 하면 x.509 인증서를 사용 하 여 IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
@@ -108,7 +110,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다. 
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -193,7 +195,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다. 
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -261,7 +263,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
 
 1. , 및의 값 `scope_id` 을 `identity_cert` `identity_pk` DPS 및 장치 정보로 업데이트 합니다.
 
-   X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다. 
+   X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들면 다음과 같습니다.
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
@@ -296,7 +298,7 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
    sudo nano /etc/aziot/config.toml
    ```
 
-1. 파일의 **프로 비전** 섹션을 찾습니다. X.509 인증서를 사용 하 여 DPS 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+1. 파일의 **프로비전** 섹션을 찾습니다. X.509 인증서를 사용 하 여 DPS 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
 
    ```toml
    # DPS provisioning with X.509 certificate

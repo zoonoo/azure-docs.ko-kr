@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cab5ac5e6a8fd900a41ff3690763746033b6200e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fdff3f6144f7099f3f61cfe57186357e17136e9f
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034815"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225492"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,7 +69,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대 한 다양 �
 다음 표에서는 이러한 이점에 대해 자세히 설명 합니다. 
 
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)의 잠금을 해제 하 여 모든 SQL Server vm을 한 곳에서 볼 수 있으므로 포털에서 직접 SQL 특정 기능을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. <br/> 관리 모드: 경량 & full|  
 | **자동화 된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
@@ -130,7 +130,7 @@ SQL Server의 명명 된 인스턴스를 사용 하려면 Azure 가상 컴퓨터
 
 Azure Portal 또는 Azure PowerShell를 사용 하 여 확장의 상태를 확인 합니다. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 확장이 Azure Portal에 설치 되어 있는지 확인 합니다. 
 
@@ -164,6 +164,8 @@ SQL IaaS 에이전트 확장은 다음을 지원 합니다.
 - 공용 또는 Azure Government 클라우드에 배포된 SQL Server VM. 다른 프라이빗 또는 정부 클라우드로의 배포는 지원되지 않습니다. 
 
 
+## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+Azure SQL 가상 머신과 SQL IaaS 에이전트 확장은 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
-ms.date: 02/03/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0b3dfe6d974f2cc2449faf54c4549589e0baa7cf
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550864"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199842"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -25,8 +25,8 @@ ms.locfileid: "99550864"
 
 - **풀 할당 모드** Batch 계정을 만들 때 **Batch 서비스** 및 **사용자 구독** 의 두 가지 풀 할당 모드 중에서 선택할 수 있습니다. 대부분의 경우 풀이 Batch 관리형 구독에서 내부적으로 할당되는 기본 Batch 서비스를 사용해야 합니다. 대체 사용자 구독 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 계정은 주로 시나리오의 중요하지만 작은 하위 세트를 사용하도록 설정하는 데 사용됩니다. 사용자 구독 모드에 대한 자세한 내용은 [사용자 구독 모드에 대한 추가 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)에서 확인할 수 있습니다.
 
-- **' cloudServiceConfiguration ' 또는 ' virtualMachineConfiguration '입니다.**
-    ' virtualMachineConfiguration '을 사용 해야 합니다. 모든 Batch 기능은 ' virtualMachineConfiguration ' 풀에서 지원 됩니다. 모든 기능이 ' cloudServiceConfiguration ' 풀에 대해 지원 되는 것은 아니므로 새 기능을 계획 하 고 있지 않습니다.
+- **' virtualMachineConfiguration ' 또는 ' virtualMachineConfiguration '입니다.**
+    구성 중 하나를 사용 하 여 풀을 만들 수는 있지만 ' virtualMachineConfiguration '가 아닌 ' virtualMachineConfiguration '을 사용 하 여 새 풀을 구성 해야 합니다. 모든 현재 및 새 Batch 기능은 가상 컴퓨터 구성 풀에서 지원 됩니다. Cloud Services 구성 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다. [2024 년 2 월 29 일 이후에는](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)새 ' CloudServiceConfiguration ' 풀을 만들거나 기존 풀에 새 노드를 추가할 수 없습니다. 자세한 내용은 [Cloud Services에서 가상 머신으로 Batch 풀 구성 마이그레이션](batch-pool-cloud-service-to-virtual-machine-configuration.md)을 참조 하세요.
 
 - **작업-풀 매핑을 결정할 때 작업 및 태스크 실행 시간을 고려합니다.**
     주로 단기 실행 태스크로 구성된 작업이 있고 예상 총 태스크 수가 작으므로 전체 예상 작업 실행 시간이 길지 않은 경우 새 풀을 각 작업에 할당하지 않습니다. 노드의 할당 시간은 작업 실행 시간을 줄입니다.

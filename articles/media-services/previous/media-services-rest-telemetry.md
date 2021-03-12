@@ -3,7 +3,7 @@ title: REST를 사용하여 Azure Media Services 원격 분석 구성 | Microsof
 description: 이 문서는 REST API를 사용하여 Azure Media Services 원격 분석을 사용하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 7fec4a958e730c485c998d1f0591b8e4d61df050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 37276240835fe1a06928ee54383f81fa95690ece
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264201"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015492"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
 

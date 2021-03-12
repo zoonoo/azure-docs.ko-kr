@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: e5b1950935e6279995b44c2e07931519e82359d2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040637"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200247"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
@@ -90,7 +90,7 @@ IoT Edge Hub 서버 인증서는 IoT Edge에 필요한 TLS 연결을 설정하�
 
 ## <a name="devtest-implications"></a>개발/테스트 영향
 
-개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) 집합을 제공합니다. 스크립트의 작동 방식에 대한 예제는 [IoT Edge 디바이스 기능을 테스트하기 위하 데모 인증서 만들기](how-to-create-test-certificates.md)를 참조하세요.
+개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) 집합을 제공합니다. 스크립트의 작동 방식에 대한 예제는 [IoT Edge 디바이스 기능을 테스트하기 위하 데모 인증서 만들기](how-to-create-test-certificates.md)를 참조하세요.
 
 >[!Tip]
 > 디바이스 IoT “리프” 디바이스 및 IoT Edge를 통해 IoT 디바이스 SDK를 사용하는 애플리케이션에 연결하려면 디바이스의 연결 문자열의 끝에 선택적 GatewayHostName 매개 변수를 추가해야 합니다. Edge 허브 서버 인증서가 생성 되 면 구성 파일에서 대/소문자가 지정 된 버전의 호스트 이름을 기반으로 하므로 이름이 일치 하 고 TLS 인증서 확인이 성공 하려면 하위 호스트 이름 매개 변수를 소문자로 입력 해야 합니다.

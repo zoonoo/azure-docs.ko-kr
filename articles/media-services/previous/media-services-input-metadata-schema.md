@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services 입력 메타데이터 스키마 | Microsoft 문서
 description: 이 문서에서는 입력 메타 데이터 스키마 Azure Media Services에 대 한 개요를 제공 합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: eebe1c77c9af6791be94c16f0f792a9e7deb9a6e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267839"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017412"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
 
@@ -100,7 +100,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **메타데이터**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |다양한 정보를 저장하는 데 사용할 수 있는 일반 key/value 문자열입니다. 예제: key=”language” 및 value=”eng” |
 
 ## <a name="audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> 오디오 형식 유형 (에서 상속)
- **AudioTrackType**는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
+ **AudioTrackType** 는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
 
  형식은 자산 파일의 특정 오디오 트랙을 나타냅니다.  
 
@@ -117,7 +117,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **BitsPerSample** |**xs:int** |wFormatTag 형식 샘플당 비트입니다. |
 
 ## <a name="videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> 비디오 형식 유형 (에서 상속)
-**VideoTrackType**는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
+**VideoTrackType** 는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
 
 형식은 자산 파일의 특정 비디오 트랙을 나타냅니다.  
 
@@ -127,7 +127,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | Name | 유형 | 설명 |
 | --- | --- | --- |
 | **FourCC**<br /><br /> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
-| **Profile** |**xs: string** |비디오 트랙의 프로필입니다. |
+| **프로필** |**xs: string** |비디오 트랙의 프로필입니다. |
 | **수준** |**xs: string** |비디오 트랙의 수준입니다. |
 | **PixelFormat** |**xs: string** |비디오 트랙의 픽셀 형식입니다. |
 | **Width**<br /><br /> 필수 |**xs:int** |인코딩된 비디오 너비(픽셀)입니다. |
@@ -143,18 +143,18 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **HasBFrames** |**xs:int** |B 프레임의 비디오 트랙 번호입니다. |
 
 ## <a name="metadatatype"></a><a name="MetadataType"></a> MetadataType
-**MetadataType**은 자산 파일의 메타데이터를 key/value 문자열로 설명하는 전역 복합 형식입니다. 예제: key=”language” 및 value=”eng”  
+**MetadataType** 은 자산 파일의 메타데이터를 key/value 문자열로 설명하는 전역 복합 형식입니다. 예제: key=”language” 및 value=”eng”  
 
 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | Name | 유형 | Description |
 | --- | --- | --- |
-| **key**<br /><br /> 필수 |**xs:string** |key/value 쌍의 키입니다. |
-| **value**<br /><br /> 필수 |**xs:string** |key/value 쌍의 값입니다. |
+| **key**<br /><br /> 필수 |**xs:string** |키/값 쌍의 키입니다. |
+| **value**<br /><br /> 필수 |**xs:string** |키/값 쌍의 값입니다. |
 
 ## <a name="programtype"></a><a name="ProgramType"></a> 프로그래밍 형식
-**ProgramType**은 프로그램을 설명하는 전역 복합 형식입니다.  
+**ProgramType** 은 프로그램을 설명하는 전역 복합 형식입니다.  
 
 ### <a name="attributes"></a>특성
 | Name | 유형 | 설명 |
@@ -167,7 +167,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **EndPTS** |**xs: long** |프레젠테이션 끝 타임스탬프입니다. |
 
 ## <a name="streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
-**StreamDispositionType**은 스트림을 설명하는 전역 복합 형식입니다.  
+**StreamDispositionType** 은 스트림을 설명하는 전역 복합 형식입니다.  
 
 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
@@ -192,7 +192,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ### <a name="child-elements"></a>자식 요소
 | Name | 유형 | 설명 |
 | --- | --- | --- |
-| **프로그램**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS 형식의 자산 파일에는 자산 파일의 프로그램에 대한 정보가 포함됩니다. |
+| **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS 형식의 자산 파일에는 자산 파일의 프로그램에 대한 정보가 포함됩니다. |
 
 ## <a name="videotracks-element"></a><a name="VideoTracks"></a> VideoTracks 요소
  여러 **VideoTrack** 요소를 보유하는 래퍼 요소입니다.  

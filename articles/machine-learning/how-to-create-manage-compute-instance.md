@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5aaaf2000fb8310a5208447f8eaf8546feda90fb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509322"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009966"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -40,7 +40,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>생성
+## <a name="create"></a>만들기
 
 **예상 시간**: 약 5 분.
 
@@ -108,7 +108,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 ### <a name="create-on-behalf-of-preview"></a>(미리 보기)를 대신 하 여 만들기
 
 관리자는 데이터 과학자를 대신 하 여 계산 인스턴스를 만들고 다음을 사용 하 여 인스턴스를 할당할 수 있습니다.
-* [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
+* [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/fhir/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
 * REST API
 
 계산 인스턴스를 만드는 데이터 과학자에는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 권한이 필요 합니다. 
@@ -154,14 +154,14 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* 다시 시작
+* 재시작
 
     ```python
     # restart() is used to restart the ComputeInstance
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* DELETE
+* 삭제
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -188,7 +188,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget start einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
 
-* 다시 시작 
+* 재시작 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
@@ -196,7 +196,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* DELETE
+* 삭제
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

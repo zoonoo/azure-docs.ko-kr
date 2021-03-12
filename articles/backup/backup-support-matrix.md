@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d8ffaf2c5aa32e8e0f851510adb58a78167abccb
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149038"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225550"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -40,6 +40,7 @@ Azure Backup는 Recovery Services vault를 사용 하 여 azure Vm, azure vm의 
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
 **ZRS(영역 중복 스토리지)** | UKS (영국 남부) 및 남부 동아시아 (바다) 지역에서 사용할 수 있습니다.
+**프라이빗 엔드포인트** | Recovery services 자격 증명 모음에 대 한 개인 끝점을 만들기 위한 요구 사항은 [이 섹션](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) 을 참조 하세요.  
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
 

@@ -1,9 +1,9 @@
 ---
 title: Media Services Operations REST API 개요 | Microsoft Docs
-description: "\"Media Services Operations REST\" API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용 됩니다. 이 문서에서는 Azure Media Services v2 REST API 개요를 제공 합니다."
+description: Media Services Operations REST API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용됩니다. 이 문서에서는 Azure Media Services v2 REST API 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696230"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010051"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 
@@ -62,7 +62,7 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services에서 지원하는 표준 HTTP 요청 헤더
 Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해야 하는 필수 헤더 집합이 있으며 포함할 수도 있는 선택적 헤더 집합도 있습니다. 아래 표에서는 필수 헤더를 나열합니다.
 
-| 헤더 | 유형 | 값 |
+| header | 유형 | 값 |
 | --- | --- | --- |
 | 권한 부여 |전달자 |전달자는 승인된 유일한 권한 부여 메커니즘입니다. 이 값은 Azure Active Directory에서 제공한 액세스 토큰도 포함해야 합니다. |
 | x-ms-version |Decimal |2.17(또는 최신 버전)|
@@ -76,7 +76,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 
 다음은 선택적 헤더의 집합입니다.
 
-| 헤더 | 유형 | 값 |
+| header | 유형 | 값 |
 | --- | --- | --- |
 | 날짜 |RFC 1123 날짜 |요청 타임스탬프 |
 | 동의함 |내용 유형 |다음과 같은 응답에 대해 요청된 콘텐츠 형식:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Blob 인출과 같이 다른 콘텐츠 유형이 응답에 있을 수 있습니다. 여기서 성공적인 응답은 Blob 스트림을 페이로드로 포함합니다. |
@@ -90,11 +90,11 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
-| 헤더 | 유형 | Value |
+| header | 유형 | 값 |
 | --- | --- | --- |
 | request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
 | client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
-| Date |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
+| 날짜 |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |상황에 따라 다름 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |상황에 따라 다름 |Gzip 또는 deflate를 적절하게 합니다. |
 

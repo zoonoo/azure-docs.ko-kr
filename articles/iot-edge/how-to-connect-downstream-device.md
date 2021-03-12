@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046128"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199627"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 이 문서에서는 다운스트림 장치와 IoT Edge 투명 게이트웨이 간에 트러스트 된 연결을 설정 하는 방법에 대 한 지침을 제공 합니다. 투명 게이트웨이 시나리오에서 하나 이상의 장치는 IoT Hub에 대 한 연결을 유지 하는 단일 게이트웨이 장치를 통해 메시지를 전달할 수 있습니다.
 
@@ -44,7 +46,19 @@ ms.locfileid: "102046128"
 
 ## <a name="prepare-a-downstream-device"></a>다운스트림 디바이스 준비
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 다운스트림 디바이스는 Azure IoT Hub 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 다른 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+다운스트림 디바이스는 Azure IoT Hub 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다.
+
+이 문서에서는 IoT 장치를 다운스트림 장치로 연결 하는 단계를 제공 합니다. IoT Edge 장치가 다운스트림 장치인 경우 [Azure IoT Edge 게이트웨이에 다운스트림 IoT Edge 장치 연결](how-to-connect-downstream-iot-edge-device.md)을 참조 하세요.
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >IoT Hub에 등록 된 IoT 장치는 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍을 사용 하 여 단일 장치에서 여러 프로세스, 하드웨어 또는 기능을 격리할 수 있습니다. IoT Edge 게이트웨이는 대칭 키 인증을 사용 하지만 x.509 인증서 인증을 사용 하지 않는 다운스트림 모듈 연결을 지원 합니다.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: dce4c41d0d6f15ac9dc33e687c9a5ac7b7b96e06
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951318"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200777"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Cognitive Search 인덱서에 SQL Server에 대 한 연결 구성
 
@@ -45,7 +45,7 @@ Azure Cognitive Search에는 공용 인터넷 연결을 통해 모든 인덱서 
 
 3. 서비스 계정에 권한을 부여합니다. 
    
-    SQL Server 서비스 계정에 TLS/SSL 인증서의 개인 키에 대 한 적절 한 권한이 부여 되어 있는지 확인 합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils**를 사용할 수 있습니다.
+    SQL Server 서비스 계정에 TLS/SSL 인증서의 개인 키에 대 한 적절 한 권한이 부여 되어 있는지 확인 합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils** 를 사용할 수 있습니다.
     
 4. SQL Server 서비스를 다시 시작합니다.
 
@@ -75,18 +75,9 @@ IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용�
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 액세스 제한
 `AzureCognitiveSearch`SQL Azure vm을 모든 연결 요청에 대해 열지 않고 검색 서비스의 ip 주소와 ACL에서 [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) 의 ip 주소 범위에 대 한 액세스를 제한 하는 것이 좋습니다.
 
-검색 서비스의 FQDN (예:)을 ping 하 여 IP 주소를 확인할 수 있습니다 `<your-search-service-name>.search.windows.net` .
+검색 서비스의 FQDN (예:)을 ping 하 여 IP 주소를 확인할 수 있습니다 `<your-search-service-name>.search.windows.net` . 검색 서비스 IP 주소는 변경 될 수 있지만 변경 될 가능성은 거의 없습니다. IP 주소는 서비스의 수명 동안 정적입니다.
 
 `AzureCognitiveSearch` [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 사용 하거나 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 통해 [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) 의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트 됩니다.
-
-#### <a name="managing-ip-address-fluctuations"></a>IP 주소 변동 관리
-검색 서비스에 검색 단위가 하나만 있으면(즉, 하나의 복제본과 하나의 파티션) 라우팅 서비스를 다시 시작하는 동안 IP 주소가 변경되어 검색 서비스 IP 주소를 사용하는 기존 ACL이 무효화됩니다.
-
-후속 연결 오류를 방지 하는 한 가지 방법은 Azure Cognitive Search에서 복제본을 두 개 이상 사용 하는 것입니다. 이렇게 하면 비용이 늘어나지만 IP 주소 문제도 해결합니다. Azure Cognitive Search에서는 검색 단위가 둘 이상인 경우 IP 주소가 변경 되지 않습니다.
-
-두 번째 방법은 연결 실패를 허용한 후 NSG에서 ACL을 다시 구성하는 것입니다. 평균적으로 몇 주 간격으로 IP 주소가 변경되는 것을 예상할 수 있습니다. 드물게 제어 인덱싱을 수행하는 고객의 경우 이 방법을 실행할 수 있습니다.
-
-세 번째 실행 가능한(특별히 안전하지 않음) 방법은 검색 서비스가 프로비전되는 Azure 지역의 IP 주소 범위를 지정하는 것입니다. 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다. 
 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Azure Cognitive Search 포털 IP 주소를 포함 합니다.
 Azure Portal를 사용 하 여 인덱서를 만드는 경우 Azure Cognitive Search 포털 논리는 만든 시간 동안 SQL Azure VM에 대 한 액세스 권한도 필요 합니다. Ping을 통해 Azure Cognitive Search 포털 IP 주소를 찾을 수 있습니다 `stamp2.search.ext.azure.com` .

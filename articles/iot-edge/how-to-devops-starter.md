@@ -7,14 +7,16 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a23041a714089c447ab35ee05aae0de0c9c33d2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721517"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201166"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 DevOps 프로젝트를 사용하여 IoT Edge 애플리케이션에 대한 지속적인 통합(CI) 및 지속적인 업데이트(CD)를 구성합니다. DevOps Starter는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화합니다.
 

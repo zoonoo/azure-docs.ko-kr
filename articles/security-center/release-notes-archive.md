@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182579"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634705"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -759,13 +759,13 @@ ID 및 액세스 권장 사항의 예는 다음과 같습니다.
 
 [ID 및 액세스 권장 사항](recommendations-reference.md#recs-identityandaccess)에 대해 자세히 알아보세요.
 
-[ID 및 액세스 모니터링](security-center-identity-access.md)에 대해 자세히 알아보세요.
+[구독에 대 한 MFA (multi-factor authentication) 적용을 관리 하](security-center-identity-access.md)는 방법에 대해 자세히 알아보세요.
 
 
 
 ## <a name="march-2020"></a>2020년 3월
 
-3 월의 업데이트는 다음과 같습니다.
+3월의 업데이트는 다음과 같습니다.
 
 - [이제 일반 공급되는 워크플로 자동화](#workflow-automation-is-now-generally-available)
 - [Windows Admin Center와 Azure Security Center 통합](#integration-of-azure-security-center-with-windows-admin-center)

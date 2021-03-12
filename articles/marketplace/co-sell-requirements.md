@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120133"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225067"
 ---
 # <a name="co-sell-requirements"></a>공동 판매 요구 사항
 
@@ -24,7 +24,7 @@ ms.locfileid: "102120133"
 | ------------ | ------------- |
 | 공동 판매 준비 안 함 | [공동 판매 준비 상태에 대 한 최소 요구 사항이](#requirements-for-co-sell-ready-status) 충족 되지 않았습니다. |
 | 공동 판매 준비 | [공동 판매 준비 상태에 대 한 모든 요구 사항이](#requirements-for-co-sell-ready-status) 충족 되었습니다. |
-| Azure IP 공동 판매 incentivized | [이러한 추가 요구 사항](#requirements-for-ip-co-sell-incentivized-status)외에도 공동 판매 준비 요구 사항이 충족 되었습니다. |
+| Azure IP 공동 판매 incentivized | [이러한 추가 요구 사항](#requirements-for-azure-ip-co-sell-incentivized-status)외에도 공동 판매 준비 요구 사항이 충족 되었습니다. |
 | Biz 앱 ISV 연결 프리미엄 동기  | 이 상태는 Dynamics 365 및 Power Apps 제품에 적용 되며, [이 상태에 대 한 모든 요구 사항이](#requirements-for-biz-apps-isv-connect-premium-incentive-status) 충족 되었음을 나타냅니다. |
 |||
 
@@ -35,7 +35,7 @@ ms.locfileid: "102120133"
 **모든 파트너**:
 
 - 파트너 센터에 MPN ID 및 활성 [상용 marketplace 계정이](./partner-center-portal/create-account.md)있어야 합니다.
-- 파트너 센터에 전체 [비즈니스 프로필이](/partner-center/create-a-marketing-profile.md) 있는지 확인 합니다. 비즈니스 프로필은 자격을 갖춘 Microsoft 파트너로 서 비즈니스 요구 사항을 해결 하기 위해 고유한 솔루션과 전문 지식을 [찾고 있는 고객](/partner-center/referrals.md)에 게 비즈니스를 소개 하는 데 도움이 됩니다.
+- 파트너 센터에 전체 [비즈니스 프로필이](/partner-center/create-a-marketing-profile) 있는지 확인 합니다. 비즈니스 프로필은 자격을 갖춘 Microsoft 파트너로 서 비즈니스 요구 사항을 해결 하기 위해 고유한 솔루션과 전문 지식을 [찾고 있는 고객](/partner-center/referrals)에 게 비즈니스를 소개 하는 데 도움이 됩니다.
 - **Microsoft와 공동 판매** 탭을 완료 하 고 제품을 상용 marketplace에 게시 합니다.
 - 각 공동 판매 적격 지리 및 필수 자료 청구서에 대 한 영업 담당자를 제공 합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "102120133"
 
 공동 판매 준비 상태를 충족 하려면 제품 또는 솔루션을 상용 marketplace 온라인 상점 중 하나 이상에 게시 해야 합니다. Azure Marketplace 또는 Microsoft AppSource. 상용 marketplace에 제품을 게시 하는 방법에 대 한 자세한 내용은 [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)를 참조 하세요. 이전에 상업적 marketplace에 제품을 게시 하지 않은 경우에는 [상업적 marketplace 계정이](./partner-center-portal/create-account.md)있는지 확인 하세요.
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>IP 공동 판매 incentivized 상태에 대 한 요구 사항
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Azure IP 공동 판매 incentivized 상태에 대 한 요구 사항
 
 Azure IP 공동 판매 incentivized 상태는 다음 제안 유형에 적용 됩니다.
 

@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5695b21a09199a46ab38d887f2127a61507426d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562795"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014386"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -77,10 +77,6 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 ### <a name="restrictions"></a>제한
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
-
-#### <a name="supported-regions"></a>지원되는 지역
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 #### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 

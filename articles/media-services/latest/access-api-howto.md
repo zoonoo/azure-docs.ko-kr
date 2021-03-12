@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f55d1dcc3364f119faab0c728f6e3b7f5ecbb06
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265884"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614941"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Media Services API에 액세스할 수 있는 자격 증명 가져오기
 
@@ -37,7 +37,7 @@ Azure AD 인증을 사용하여 Azure Media Services API에 액세스할 때 두
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요. 
+- Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요.
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](create-account-howto.md)를 참조하세요.
 
 ## <a name="portal"></a>[포털](#tab/portal/)
@@ -47,8 +47,8 @@ Azure AD 인증을 사용하여 Azure Media Services API에 액세스할 때 두
 **API 액세스** 페이지에서 API에 연결하는 데 사용할 인증 방법을 선택할 수 있습니다. 또한 이 페이지는 API에 연결하는 데 필요한 값을 제공합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
-2. 왼쪽 탐색 모음에서 **API 액세스 (새)** 블레이드를 선택 합니다.
-3. **Media Services API에 연결**에서 연결하려는 Media Services API 버전(V3이 서비스의 최신 버전)을 선택합니다.
+2. 왼쪽 탐색 모음에서 **API 액세스** 블레이드를 선택 합니다.
+3. **Media Services API에 연결** 에서 연결하려는 Media Services API 버전(V3이 서비스의 최신 버전)을 선택합니다.
 
 ### <a name="service-principal-authentication--recommended"></a>서비스 주체 인증(권장)
 
@@ -62,7 +62,7 @@ Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 A
 
 #### <a name="connect-to-media-services-api"></a>Media Services API에 연결
 
-**Media Services API에 연결**은 서비스 주체 애플리케이션에 연결하는 데 사용하는 값을 제공합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
+**Media Services API에 연결** 은 서비스 주체 애플리케이션에 연결하는 데 사용하는 값을 제공합니다. 텍스트 값을 가져오거나 JSON 또는 XML 블록을 복사할 수 있습니다.
 
 ### <a name="user-authentication"></a>사용자 인증
 

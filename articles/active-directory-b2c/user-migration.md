@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661156"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010170"
 ---
-# <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
+# <a name="migrate-users-to-azure-ad-b2c"></a>Azure AD B2C로 사용자 마이그레이션
 
 다른 id 공급자에서 Azure Active Directory B2C (Azure AD B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 마이그레이션 방법에 대 한 두 가지 마이그레이션 방법, 마이그레이션 *전* 및 *원활한 마이그레이션*. 어느 방법을 사용 하 든 [MICROSOFT GRAPH API](microsoft-graph-operations.md) 를 사용 하 여 Azure AD B2C에서 사용자 계정을 만드는 응용 프로그램이 나 스크립트를 작성 해야 합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "98661156"
 ### <a name="phase-1-pre-migration"></a>1 단계: 마이그레이션 전
 
 1. 마이그레이션 응용 프로그램은 이전 id 공급자에서 사용자 계정을 읽습니다.
-1. 마이그레이션 응용 프로그램은 Azure AD B2C 디렉터리에 해당 사용자 계정을 만들지만 암호를 *설정 하지* 는 않습니다.
+1. 마이그레이션 응용 프로그램은 Azure AD B2C 디렉터리에 해당 사용자 계정을 만들지만 생성 하는 *임의의 암호를 설정* 합니다.
 
 ### <a name="phase-2-set-credentials"></a>2 단계: 자격 증명 설정
 

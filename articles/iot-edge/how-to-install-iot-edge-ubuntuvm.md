@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629965"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201084"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
 
@@ -26,7 +28,10 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 이 문서에는 미리 제공 된 장치 연결 문자열을 사용 하 여 설치 하 고 구성 된 Azure IoT Edge 런타임을 사용 하 여 Ubuntu 18.04 LTS 가상 머신을 배포 하는 단계가 나와 있습니다. 배포는 [iotedge-vm 배포](https://github.com/Azure/iotedge-vm-deploy) 프로젝트 리포지토리에서 관리 되는 [클라우드 init](../virtual-machines/linux/using-cloud-init.md
 ) 기반 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/overview.md) 사용 하 여 수행 됩니다.
 
-첫 번째 부팅에서 Ubuntu 18.04 LTS 가상 머신은 [클라우드 init를 통해 Azure IoT Edge 런타임의 최신 버전을 설치](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt)합니다. 또한 런타임이 시작 되기 전에 제공 된 연결 문자열을 설정 하 여 SSH 또는 원격 데스크톱 세션을 시작할 필요 없이 IoT Edge 장치를 쉽게 구성 하 고 연결할 수 있습니다. 
+첫 번째 부팅에서 Ubuntu 18.04 LTS 가상 머신은 [클라우드 init를 통해 Azure IoT Edge 런타임의 최신 버전을 설치](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt)합니다. 또한 런타임이 시작 되기 전에 제공 된 연결 문자열을 설정 하 여 SSH 또는 원격 데스크톱 세션을 시작할 필요 없이 IoT Edge 장치를 쉽게 구성 하 고 연결할 수 있습니다.
+
+>[!NOTE]
+>이 문서에 사용 된 템플릿은 IoT Edge 버전 1.1을 설치 합니다.
 
 ## <a name="deploy-using-deploy-to-azure-button"></a>Azure에 배포 단추를 사용 하 여 배포
 

@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042507"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634841"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,13 +50,10 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 | 기능 | 세부 정보 |
 | ---| --- |
-| 단일 데이터베이스와 탄력적 풀을 통한 데이터베이스 복구 가속화 | 자세한 내용은 [데이터베이스 복구 가속화](../accelerated-database-recovery.md)를 참조하세요.|
-| 데이터 검색 및 분류  |자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 데이터 검색 & 분류](data-discovery-and-classification-overview.md)를 참조 하세요.|
 | 탄력적 데이터베이스 작업 (미리 보기) | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
 | 탄력적 쿼리 | 자세한 내용은 [탄력적 쿼리 개요](elastic-query-overview.md)를 참조하세요. |
 | 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](elastic-transactions-overview.md). |
 | Azure Portal의 쿼리 편집기 |자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](connect-query-portal.md)를 참조하세요.|
-| 단일 데이터베이스 및 탄력적 풀을 통한 R 서비스/기계 학습 |자세한 내용은 [Azure SQL Database의 Machine Learning Services](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)를 참조하세요.|
 |SQL 분석|자세한 내용은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md)을 참조하세요.|
 | &nbsp; |
 
@@ -66,7 +63,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">분산 트랜잭션</a> | 관리 되는 인스턴스 간의 분산 트랜잭션. |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">인스턴스 수준 Azure AD 서버 보안 주체(로그인)</a> | <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
+| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">인스턴스 수준 Azure AD 서버 보안 주체(로그인)</a> | <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제 합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [AZURE SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조 하세요. |
 | 위협 탐지 |자세한 내용은 [AZURE SQL Managed Instance에서 위협 감지 구성](../managed-instance/threat-detection-configure.md)을 참조 하세요.|
 | 장기 백업 보존 | 자세한 내용은 현재 제한 된 공개 미리 보기로 제공 되는 [AZURE SQL Managed Instance에서 장기 백업 보존 구성](../managed-instance/long-term-backup-retention-configure.md)을 참조 하세요. | 
@@ -101,7 +98,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |[매개 변수가 사용 되 면 프로시저 sp_send_dbmail transiently 실패할 수 있음 @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|1 월 2021|해결 방법 있음||
 |[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|10 월 2020|해결 방법 있음||
 |[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|10 월 2020|해결 방법 있음||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / Azure SQL의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / Azure SQL의 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
@@ -174,7 +171,7 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**해결 방법**: [공유 액세스 서명을 사용 하 여 저장소에 인증](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
+**해결 방법**: [공유 액세스 서명을 사용 하 여 저장소에 인증](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
 
