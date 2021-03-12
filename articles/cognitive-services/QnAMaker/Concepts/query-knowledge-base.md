@@ -3,12 +3,12 @@ title: 기술 자료 쿼리-QnA Maker
 description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 generateAnswer API를 사용 하 여 런타임 예측 끝점에서 기술 자료가 쿼리 됩니다.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820384"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008674"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변을 쿼리 합니다.
 
@@ -84,10 +84,9 @@ Ranker은 모든 대체 질문과 대답에서 작동 하 여 사용자 쿼리�
     "userId": "sd53lsY="
 }
 ```
+[ScoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), [strictFilters](../how-to/query-knowledge-base-with-metadata.md)등의 속성을 설정 하 여 응답을 제어 합니다.
 
-[ScoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags)등의 속성을 설정 하 여 응답을 제어 합니다.
-
-대화 [컨텍스트](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) 를 [멀티 턴 기능과](../how-to/multiturn-conversation.md) 함께 사용 하 여 질문 및 답변을 구체화 하는 대화를 유지 하 고 정확한 답변 및 최종 답변을 찾을 수 있습니다.
+대화 [컨텍스트](../how-to/query-knowledge-base-with-metadata.md) 를 [멀티 턴 기능과](../how-to/multiturn-conversation.md) 함께 사용 하 여 질문 및 답변을 구체화 하는 대화를 유지 하 고 정확한 답변 및 최종 답변을 찾을 수 있습니다.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>에 대 한 호출에서 응답을 생성 합니다.
 

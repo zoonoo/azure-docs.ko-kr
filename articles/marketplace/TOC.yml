@@ -308,6 +308,48 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: 평점 및 리뷰 대시보드
       href: partner-center-portal/ratings-reviews.md
+    - name: 분석에 프로그래밍 방식 액세스
+      items:
+        - name: 시작
+          href: analytics-get-started.md
+        - name: 프로그래밍 방식 액세스 필수 조건
+          href: analytics-prerequisites.md
+        - name: 프로그래밍 방식 액세스 페러다임
+          href: analytics-programmatic-access.md
+        - name: 첫 번째 API 호출 만들기
+          href: analytics-make-your-first-api-call.md
+        - name: 시스템 쿼리 목록
+          href: analytics-system-queries.md
+        - name: 샘플 쿼리
+          href: analytics-sample-queries.md
+        - name: 애플리케이션 예제
+          href: analytics-sample-application.md
+        - name: 사용자 지정 쿼리 사양
+          href: analytics-custom-query-specification.md
+        - name: 프로그래밍 방식 분석 FAQ
+          href: analytics-programmatic-faq.md
+        - name: Analytics API 참조
+          items:
+            - name: API 목록
+              href: analytics-available-apis.md
+            - name: 모든 데이터 세트 가져오기
+              href: analytics-api-get-all-datasets.md
+            - name: 보고서 쿼리 API 가져오기
+              href: analytics-api-get-report-queries.md
+            - name: 보고서 쿼리 API 삭제
+              href: analytics-api-delete-report-queries.md
+            - name: 보고서 쿼리 API 사용해 보기
+              href: analytics-api-try-report-queries.md
+            - name: 보고서 API 가져오기
+              href: analytics-api-get-report.md
+            - name: 보고서 API 업데이트
+              href: analytics-api-update-report.md
+            - name: 보고서 API 삭제
+              href: analytics-api-delete-report.md
+            - name: 보고서 실행 API 일시 중지
+              href: analytics-api-pause-report-executions.md
+            - name: 보고서 실행 API 다시 시작
+              href: analytics-api-resume-report-executions.md
     - name: 요금 청구 오류 관리
       href: anomaly-detection.md
     - name: 분석 일반적인 질문

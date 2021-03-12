@@ -7,12 +7,12 @@ services: firewall
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520288"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615502"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Azure Firewall 프리미엄 미리 보기 인증서 
 
@@ -111,7 +111,8 @@ TLS 검사를 테스트 하 고 확인 하는 데 도움이 되도록 다음 스
 
 > [!IMPORTANT]
 > Rootca.cer는 안전한 오프 라인 위치에 저장 해야 합니다. 스크립트는 1024 일의 유효 기간 동안 인증서를 생성 합니다.
-
+> 스크립트에는 로컬 컴퓨터에 openssl 바이너리가 설치 되어 있어야 합니다. 자세한 내용은 https://www.openssl.org/을 참조하십시오.
+> 
 인증서를 만든 후에 다음 위치에 배포 합니다.
 - Rootca.cer-끝점 컴퓨터에서 배포 합니다 (공용 인증서에만 해당).
 - interCA .pfx-Key Vault에서 인증서로 가져오고 방화벽 정책에 할당 합니다.

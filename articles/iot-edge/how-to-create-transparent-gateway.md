@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f7f05fb84ff6cbe320e8f479912bdcdefdc41021
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046026"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201648"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 이 문서에서는 다른 장치에서 IoT Hub와 통신할 수 있도록 투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성 하는 방법에 대 한 자세한 지침을 제공 합니다. 이 문서에서는 *IoT Edge 게이트웨이* 라는 용어를 사용 하 여 투명 게이트웨이로 구성 된 IoT Edge 장치를 참조 합니다. 자세한 내용은 [IoT Edge 장치를 게이트웨이로 사용 하는 방법](./iot-edge-as-gateway.md)을 참조 하세요.
 
@@ -142,10 +144,10 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
 1. 파일을 저장하고 닫습니다.
 
-1. IoT Edge를 다시 시작 합니다.
+1. 변경 내용을 적용합니다.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end
@@ -175,7 +177,7 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 5. **다음: 경로** 를 선택 합니다.
 
-6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 다음은 그 예입니다. 
+6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 
    * 모듈이 나 다운스트림 장치에서 IoT Hub 하 여 모든 메시지를 보내는 경로입니다.
        * **이름**: `allMessagesToHub`

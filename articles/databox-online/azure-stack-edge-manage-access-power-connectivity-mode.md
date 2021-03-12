@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453080"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200200"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -103,7 +103,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 - **모두 연결** 됨-장치가 작동 하는 일반적인 기본 모드입니다. 이 모드에서는 데이터의 클라우드 업로드 및 다운로드를 모두 사용할 수 있습니다. Azure Portal 또는 로컬 웹 UI를 사용 하 여 장치를 관리할 수 있습니다.
 
-- **부분적으로 분리** 됨 –이 모드에서 장치는 공유 데이터를 업로드 하거나 다운로드할 수 없지만 Azure Portal를 통해 관리할 수 있습니다.
+- **부분적으로 연결 됨** –이 모드에서 장치는 공유 데이터를 업로드 하거나 다운로드할 수 없지만 Azure Portal를 통해 관리할 수 있습니다.
 
     이 모드는 일반적으로 요금제 위성 네트워크에서 사용되며 목표는 네트워크 대역폭 소비를 최소화하는 것입니다. 디바이스 모니터링 작업을 위해 최소한의 네트워크 사용량이 여전히 발생할 수 있습니다.
 

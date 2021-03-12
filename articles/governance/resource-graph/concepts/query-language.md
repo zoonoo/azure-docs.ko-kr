@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624761"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633804"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -28,18 +28,21 @@ Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원�
 
 |리소스 그래프 테이블 |다른 테이블을 사용할 수 `join` 있나요? |Description |
 |---|---|---|
-|리소스 |Yes |쿼리에 정의된 내용이 없는 경우 기본 테이블입니다. 대부분의 Resource Manager 리소스 종류 및 속성이 포함되어 있습니다. |
-|ResourceContainers |Yes |subscription(미리 보기에서는 --`Microsoft.Resources/subscriptions`) 및 resource group(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
+|리소스 |예 |쿼리에 정의된 내용이 없는 경우 기본 테이블입니다. 대부분의 Resource Manager 리소스 종류 및 속성이 포함되어 있습니다. |
+|ResourceContainers |예 |subscription(미리 보기에서는 --`Microsoft.Resources/subscriptions`) 및 resource group(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
 |AdvisorResources |예(미리 보기) |`Microsoft.Advisor` _관련_ 리소스를 포함합니다. |
 |AlertsManagementResources |예(미리 보기) |`Microsoft.AlertsManagement` _관련_ 리소스를 포함합니다. |
-|GuestConfigurationResources |No |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
+|ExtendedLocationResources |아니요 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
+|GuestConfigurationResources |아니요 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
+|KubernetesConfigurationResources |아니요 |`Microsoft.KubernetesConfiguration` _관련_ 리소스를 포함합니다. |
 |MaintenanceResources |부분, _에_ 만 조인 합니다. (미리 보기) |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
-|PatchAssessmentResources|No |Azure Virtual Machines 패치 평가 _와 관련 된_ 리소스를 포함 합니다. |
-|PatchInstallationResources|No |Azure Virtual Machines 패치 설치 _와 관련 된_ 리소스가 포함 되어 있습니다. |
-|PolicyResources |No |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**)|
+|PatchAssessmentResources|아니요 |Azure Virtual Machines 패치 평가 _와 관련 된_ 리소스를 포함 합니다. |
+|PatchInstallationResources|아니요 |Azure Virtual Machines 패치 설치 _와 관련 된_ 리소스가 포함 되어 있습니다. |
+|PolicyResources |아니요 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**)|
 |Recovery서비스로 리소스 |부분, _에_ 만 조인 합니다. (미리 보기) |및와 _관련 된_ 리소스를 포함 `Microsoft.DataProtection` `Microsoft.RecoveryServices` 합니다. |
 |SecurityResources |부분, _에_ 만 조인 합니다. (미리 보기) |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
-|ServiceHealthResources |No |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
+|ServiceHealthResources |아니요 |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
+|WorkloadMonitorResources |아니요 |`Microsoft.WorkloadMonitor` _관련_ 리소스를 포함합니다. |
 
 리소스 종류를 비롯 한 전체 목록은 [참조: 지원 되는 테이블 및 리소스 종류](../reference/supported-tables-resources.md)를 참조 하세요.
 

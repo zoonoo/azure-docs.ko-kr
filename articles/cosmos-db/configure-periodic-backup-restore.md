@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527529"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565838"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>정기적 백업으로 Azure Cosmos DB 계정 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>백업 간격 및 보존 기간 수정
 
-Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 수행 하 고, 언제 든 지 최신 두 개의 백업이 저장 됩니다. 이 구성은 기본 옵션이 며 추가 비용 없이 제공 됩니다. Azure Cosmos 계정을 만드는 동안 또는 계정을 만든 후에 기본 백업 간격과 보존 기간을 변경할 수 있습니다. 백업 구성은 Azure Cosmos 계정 수준에서 설정되며, 각 계정에 대해 구성해야 합니다. 계정에 대 한 백업 옵션을 구성한 후에는 해당 계정 내의 모든 컨테이너에 적용 됩니다. 현재는 Azure Portal에서만 백업 옵션을 변경할 수 있습니다.
+Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 수행 하 고, 언제 든 지 최신 두 개의 백업이 저장 됩니다. 이 구성은 기본 옵션이 며 추가 비용 없이 제공 됩니다. Azure Cosmos 계정을 만드는 중이거나 계정을 만든 후에 이러한 기본 백업 간격과 보존 기간을 변경할 수 있습니다. 백업 구성은 Azure Cosmos 계정 수준에서 설정되며, 각 계정에 대해 구성해야 합니다. 계정에 대 한 백업 옵션을 구성한 후에는 해당 계정 내의 모든 컨테이너에 적용 됩니다. 현재는 Azure Portal에서만 백업 옵션을 변경할 수 있습니다.
 
 실수로 데이터를 삭제 하거나 손상 한 경우 **데이터 복원에 대 한 지원 요청을 만들기 전에 계정에 대 한 백업 보존 기간을 7 일 이상으로 늘려야 합니다. 이 이벤트의 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.** 이렇게 하면 Azure Cosmos DB 팀이 계정을 복원할 충분한 시간을 갖게 됩니다.
 
@@ -115,7 +115,7 @@ Azure Cosmos 데이터베이스를 실수로 삭제 하는 경우 해당 데이�
 [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), 소유자 또는 참가자 역할의 일부인 보안 주체는 복원을 요청 하거나 보존 기간을 변경할 수 있습니다.
 
 ## <a name="understanding-costs-of-extra-backups"></a>추가 백업의 비용 이해
-두 개의 백업은 무료로 제공 되며 [백업 저장소 가격 책정](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)에 설명 된 백업 저장소에 대 한 지역 기반 가격 책정에 따라 추가 백업이 청구 됩니다. 예를 들어 백업 보존이 240 시간, 10 일, 백업 간격을 24 시간으로 구성 된 경우입니다. 이는 백업 데이터의 복사본 10 개를 의미 합니다. 미국 서 부 2에 1TB의 데이터가 있다고 가정 하면는 지정 된 달에 백업 저장소에 대해 1000 * 0.12 ~ $120이 됩니다. 
+두 개의 백업은 무료로 제공 되며 [백업 저장소 가격 책정](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)에 설명 된 백업 저장소에 대 한 지역 기반 가격 책정에 따라 추가 백업이 청구 됩니다. 예를 들어 백업 보존이 240 시간, 10 일, 백업 간격을 24 시간으로 구성 된 경우입니다. 이는 백업 데이터의 복사본 10 개를 의미 합니다. 미국 서 부에 1TB의 데이터가 있다고 가정 하면, 해당 월의 백업 저장소에 대 한 비용은 0.12 * 1000 * 8이 됩니다. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>사용자 고유의 백업을 관리하기 위한 옵션

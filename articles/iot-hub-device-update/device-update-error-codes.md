@@ -1,17 +1,17 @@
 ---
 title: Azure IoT Hub에 대 한 장치 업데이트에 대 한 클라이언트 오류 코드 | Microsoft Docs
 description: 이 문서에서는 다양 한 장치 업데이트 구성 요소에 대 한 클라이언트 오류 코드 표를 제공 합니다.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5251d0cb09e40305d1efd89c31d3af0fa36ad385
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663647"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200349"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>IoT Hub 오류 코드에 대 한 장치 업데이트
 
@@ -44,7 +44,7 @@ Http 상태 코드에 [대해 자세히 알아보세요](https://www.w3.org/Prot
 | E                 | 오류 코드는 errno입니다. |
 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 `ExtendedResultCode`가 `-536870781`인 경우
 
@@ -59,26 +59,19 @@ Http 상태 코드에 [대해 자세히 알아보세요](https://www.w3.org/Prot
 ## <a name="delivery-optimization-agent"></a>배달 최적화 에이전트
 다음 표에는 장치 업데이트 클라이언트의 배달 최적화 (DO) 구성 요소와 관련 된 오류 코드가 나열 되어 있습니다. DO 구성 요소는 IoT 장치에 업데이트 콘텐츠를 다운로드 하는 작업을 담당 합니다.
 
-API 호출에 대 한 응답으로 throw 된 예외를 검사 하 여 DO error 코드를 가져올 수 있습니다.
+API 호출에 대 한 응답으로 throw 된 예외를 검사 하 여 DO error 코드를 가져올 수 있습니다. 모든 오류 코드는 0x80D0 접두사로 식별할 수 있습니다.
 
-| 오류 코드  | 문자열 오류                       | Type                 | 설명 |
+| 오류 코드  | 문자열 오류                       | 유형                 | 설명 |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | 해당 없음                  | 배달 최적화에서 서비스를 제공할 수 없습니다. |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | 다운로드 작업         | 정의 된 기간 내에 진행 되지 않는 파일 다운로드 |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | 다운로드 작업         | 작업을 찾을 수 없습니다. |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | 다운로드 작업         | 현재 다운로드가 없습니다. |
-| 0X800200cl | DO_E_JOB_TOO_OLD                   | 다운로드 작업         | 최대 사용 기간 임계값에 도달 하기 전에 작업이 완료 되지 않았거나 취소 되었습니다. |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | 다운로드 작업         | 알 수 없는 속성 ID를 사용 하 여 SetProperty () 또는 GetProperty () 호출 |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | 다운로드 작업         | 읽기 전용 속성에서 SetProperty ()를 호출할 수 없습니다. |
 | 0x80D02013L | DO_E_INVALID_STATE                 | 다운로드 작업         | 현재 작업 상태에서는 요청 된 작업이 허용 되지 않습니다. 작업이 취소 되었거나 전송이 완료 되었을 수 있습니다. 이제 읽기 전용 상태입니다. |
 | 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | 다운로드 작업         | 다운로드 싱크 (로컬 파일 또는 스트림 인터페이스)를 지정 하지 않았으므로 다운로드를 시작할 수 없습니다. |
 | 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload 인터페이스| URI를 제공 하지 않고 다운로드를 시작 했습니다. |
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | 일시적인 장애 | 네트워크 연결 손실로 인해 다운로드 일시 중지 됨 |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | HTTP 서버에서 요청 된 것과 일치 하지 않는 데이터 크기의 응답을 반환 했습니다. |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | HTTP 서버 인증서 유효성 검사에 실패 했습니다. |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | 지정 된 바이트 범위가 잘못 되었습니다. |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | 서버에서 필요한 HTTP 프로토콜을 지원 하지 않습니다. 배달 최적화 (DO)에서는 서버가 범위 프로토콜 헤더를 지원 해야 합니다. |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | 바이트 범위 목록에 겹치는 범위가 일부 포함 되어 있습니다 .이는 지원 되지 않습니다. |
+
 ## <a name="device-update-content-service"></a>장치 업데이트 콘텐츠 서비스
 다음 표에는 장치 업데이트 서비스의 콘텐츠 서비스 구성 요소와 관련 된 오류 코드가 나열 되어 있습니다. 콘텐츠 서비스 구성 요소는 업데이트 콘텐츠 가져오기 처리를 담당 합니다.
 

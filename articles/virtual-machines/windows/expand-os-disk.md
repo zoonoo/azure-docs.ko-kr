@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: af57bc396349286c3edcaefc8385ddbaec066226
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549603"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199444"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -49,21 +49,21 @@ ms.locfileid: "102549603"
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="디스크 이름이 선택 된 디스크 창을 보여 주는 스크린샷":::
 
-4. 왼쪽 메뉴의 **설정** 아래에서 **구성** 을 선택 합니다.
+4. 왼쪽 메뉴의 **설정** 아래에서 **크기 + 성능** 을 선택 합니다.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 구성 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 크기 및 성능 옵션을 보여 주는 스크린샷":::
 
-5. **크기 (GiB)** 에서 원하는 디스크 크기를 선택 합니다.
+5. **크기 + 성능** 에서 원하는 디스크 크기를 선택 합니다.
    
    > [!WARNING]
    > 새 크기가 기존 디스크 크기보다 커야 합니다. 허용 되는 최대값은 OS 디스크에 2048 GB입니다. (이 크기를 초과 하는 VHD blob을 확장할 수 있지만 OS는 처음 2048 GB의 공간만 사용할 수 있습니다.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="선택한 디스크 크기를 사용 하 여 구성 창을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="디스크 크기가 선택 된 크기 및 성능 창을 보여 주는 스크린샷":::
 
-6. **저장** 을 선택합니다.
+6. 페이지 맨 아래에서 **크기 조정** 을 선택 합니다.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="저장 단추가 선택 된 상태에서 구성 창을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="크기 조정 단추가 선택 된 상태 및 성능 창을 보여 주는 스크린샷":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>PowerShell을 사용 하 여 관리 디스크 크기 조정

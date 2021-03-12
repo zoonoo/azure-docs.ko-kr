@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: ceb30cee194994e5b31db312f191194932c937b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554108"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200740"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Azure 부서의 범위 Data Catalog 클라이언트의 데이터 계보
 
-이 문서에서는 Azure 부서의 범위 Data Catalog의 데이터 계보에 대 한 개요를 제공 합니다. 또한 데이터 시스템을 카탈로그와 통합 하 여 데이터 계보를 캡처하는 방법을 자세히 설명 합니다. 부서의 범위는 조직의 데이터 공간 및 다양 한 준비 수준에서 데이터에 대 한 계보를 캡처할 수 있습니다.
+이 문서에서는 Azure 부서의 범위 Data Catalog의 데이터 계보에 대 한 개요를 제공 합니다. 또한 데이터 시스템을 카탈로그와 통합 하 여 데이터 계보를 캡처하는 방법을 자세히 설명 합니다. 부서의 범위는 조직의 데이터 공간 및 다음을 비롯 한 다양 한 준비 수준에서 데이터에 대 한 계보를 캡처할 수 있습니다.
 
 - 다양 한 플랫폼에서 준비 된 완전히 원시 데이터
 - 변환 되 고 준비 된 데이터
@@ -53,7 +53,7 @@ ms.locfileid: "96554108"
 
 ### <a name="column-or-attribute-level-lineage"></a>열 또는 특성 수준 계보
 
-대상 엔터티에서 특성을 만들거나 파생 시키는 데 사용 되는 소스 엔터티의 특성을 식별 합니다. 원본 특성의 이름을 대상에서 유지 하거나 이름을 바꿀 수 있습니다. ADF와 같은 시스템은 온-프레미스 환경에서 클라우드로 일 대 일 복사를 수행할 수 있습니다. 예를 들어 `Table1/ColumnA -> Table2/ColumnA`을 참조하십시오.
+대상 엔터티에서 특성을 만들거나 파생 시키는 데 사용 되는 소스 엔터티의 특성을 식별 합니다. 원본 특성의 이름을 대상에서 유지 하거나 이름을 바꿀 수 있습니다. ADF와 같은 시스템은 온-프레미스 환경에서 클라우드로 일 대 일 복사를 수행할 수 있습니다. 예: `Table1/ColumnA -> Table2/ColumnA`.
 
 ### <a name="process-execution-status"></a>프로세스 실행 상태
 
@@ -65,6 +65,6 @@ ms.locfileid: "96554108"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Azure Portal에서 Azure 부서의 범위 계정 만들기](create-catalog-portal.md)
-* [빠른 시작: Azure PowerShell/Azure CLI를 사용 하 여 Azure 부서의 범위 계정 만들기](create-catalog-powershell.md)
+* [빠른 시작: Azure Portal에서 Azure Purview 계정 만들기](create-catalog-portal.md)
+* [빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기](create-catalog-powershell.md)
 * [빠른 시작: 부서의 범위 Studio 사용](use-purview-studio.md)

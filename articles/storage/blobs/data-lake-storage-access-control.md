@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701810"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015219"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -34,7 +34,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 
 파일 및 디렉터리 수준 권한을 설정 하려면 다음 문서 중 하나를 참조 하세요.
 
-| Environment | 아티클 |
+| 환경 | 아티클 |
 |--------|-----------|
 |Azure Storage Explorer |[Azure Storage 탐색기를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-explorer-acl.md)|
 |.NET |[.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-dotnet.md)|
@@ -285,7 +285,7 @@ Azure 역할 할당은 상속 됩니다. 할당은 구독, 리소스 그룹 및 
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 
-기본 Acl을 사용 하 여 새 자식 하위 디렉터리와 부모 디렉터리 아래에 생성 된 파일에 대 한 Acl을 설정할 수 있습니다. 기존 하위 항목에 대 한 Acl을 업데이트 하려면 원하는 디렉터리 계층 구조에 대 한 Acl을 재귀적으로 추가, 업데이트 또는 제거 해야 합니다. 자세한 내용은 [Azure Data Lake Storage Gen2에 대해 재귀적으로 acl (액세스 제어 목록) 설정](#set-access-control-lists)을 참조 하세요. 
+기본 Acl을 사용 하 여 새 자식 하위 디렉터리와 부모 디렉터리 아래에 생성 된 파일에 대 한 Acl을 설정할 수 있습니다. 기존 하위 항목에 대 한 Acl을 업데이트 하려면 원하는 디렉터리 계층 구조에 대 한 Acl을 재귀적으로 추가, 업데이트 또는 제거 해야 합니다. 지침은이 문서의 Acl을 [설정 하는 방법](#set-access-control-lists) 섹션을 참조 하세요. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>디렉터리 및 해당 내용을 재귀적으로 삭제하는 데 필요한 권한은 무엇인가요?
 

@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 55fa3ab4e5bd4472f7dae9692ae3ac9bcfa8e2b6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a31c9c4747ccc72f0552ebe2f8daf85ef5fba8a3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743171"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015304"
 ---
 # <a name="sizes-for-cloud-services-classic"></a>Cloud Services 크기 (클래식)
 
@@ -63,7 +63,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | [A8-A11](#a-series) |225* |
 | [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
-| [D v2](#dv2-series) |160 - 190* |
+| [D v2](#dv2-series) |210 - 250* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
 | [G](#g-series) |180 - 240* |
@@ -83,9 +83,9 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
-| 소형           | 1         | 1.75         | 225                  | 1/보통 |
+| Small           | 1         | 1.75         | 225                  | 1/보통 |
 | 중간          | 2         | 3.5          | 490                  | 1/보통 |
-| 대형           | 4         | 7            | 1000                 | 2/높음 |
+| 큼           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
 | A6              | 4         | 28           | 1000                 | 2/높음 |

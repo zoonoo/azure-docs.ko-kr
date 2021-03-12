@@ -2,7 +2,7 @@
 제목: Azure Media Services v3 개요 : Azure Media Services 설명: 빠른 시작, 자습서 및 코드 샘플에 대한 링크가 포함된 Azure Media Services v3에 대한 개략적인 개요입니다.
 services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
 
-ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 2020/08/31 ms.author: inhenkel ms.custom: mvc
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 3/10/2021 ms.author: inhenkel ms.custom: mvc
 #<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>고객 의도: 개발자 또는 콘텐츠 공급자는 고객이 다양한 브라우저 및 디바이스에서 콘텐츠를 보고, 녹화된 콘텐츠에서 귀중한 인사이트를 얻을수 있도록 미디어 콘텐츠를 인코딩, 스트리밍(주문형 또는 라이브)하고 분석하고자 합니다.
 ---
 
@@ -13,9 +13,6 @@ ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 앱 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 디바이스 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 앱을 만들 수 있도록 도와줍니다.
 
 Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka.ms/ams-v3-rest-sdk)을 기반으로 합니다.
-
-> [!NOTE]
-> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](./access-api-howto.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -3,7 +3,7 @@ title: .NET을 사용하여 Azure Media Services 원격 분석 구성 | Microsof
 description: 이 문서는 .NET SDK를 사용하여 Azure Media Services 원격 분석을 사용하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 263bf1cd2a7e2a37a1c4fae172ce4f66b1e59b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd7b472d8f42bd7872aeacf8b78aac8b249f4bd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265986"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013738"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "89265986"
 
 다음 방법 중 하나를 사용하여 원격 분석 데이터를 사용할 수 있습니다.
 
-- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](/previous-versions/azure/mt742089(v=azure.100)) 항목의 **원격 분석 정보 사용**을 참조하세요.
+- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](/previous-versions/azure/mt742089(v=azure.100)) 항목의 **원격 분석 정보 사용** 을 참조하세요.
 
 또는
 
@@ -44,7 +44,7 @@ ms.locfileid: "89265986"
 원격 분석을 사용하도록 설정하려면 다음 단계가 필요합니다.
 
 - Media Services 계정에 연결된 스토리지 계정의 자격 증명을 가져옵니다. 
-- **EndPointType**이 **AzureTable**로 설정되고 endPointAddress가 스토리지 테이블을 가리키는 알림 엔드포인트를 만듭니다.
+- **EndPointType** 이 **AzureTable** 로 설정되고 endPointAddress가 스토리지 테이블을 가리키는 알림 엔드포인트를 만듭니다.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 
@@ -72,13 +72,13 @@ ms.locfileid: "89265986"
 
 1. 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
+2. 다음 요소를 app.config 파일에 정의된 **appSettings** 에 추가합니다.
 
     ```xml
         <add key="StorageAccountName" value="storage_name" />
     ```
  
-## <a name="example"></a>예제  
+## <a name="example"></a>예  
     
 다음 예제에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
 

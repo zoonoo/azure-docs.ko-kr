@@ -4,14 +4,14 @@ description: '.NET 5.0을 사용 하 여 c # 함수를 만들고 디버그 한 �
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 70eacc5ec7f6adb65ba6e01c55acc6c6e3075ca9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584140"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201356"
 ---
-# <a name="develop-and-publish-net-5-function-using-azure-functions"></a>Azure Functions를 사용 하 여 .NET 5 함수 개발 및 게시 
+# <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 .NET 5 함수 개발 및 게시 
 
 이 문서에서는 Azure Functions 런타임에서 out-of-process로 실행 되는 .NET 5.0을 사용 하 여 c # 함수를 사용 하는 방법을 보여 줍니다. 이러한 .NET 격리 프로세스 함수를 Azure에 만들고, 로컬로 디버그 하 고, 게시 하는 방법에 대해 알아봅니다. Azure에서 이러한 함수는 .NET 5.0을 지 원하는 격리 된 프로세스에서 실행 됩니다. 자세한 내용은 [Azure에서 .net 5.0에서 함수를 실행 하는 방법에 대 한 가이드](dotnet-isolated-process-guide.md)를 참조 하세요.
 
@@ -152,7 +152,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
  
 1. Azure Functions 런타임 출력에서 디버거를 연결할 호스트 프로세스의 프로세스 ID를 적어 둡니다. 또한 로컬 함수의 URL을 기록해 둡니다.
 
-1. Visual Studio의 **디버그** 메뉴에서 **프로세스에 연결 ...** 을 선택 하 고 프로세스 ID와 일치 하는 dotnet.exe 프로세스를 찾은 다음 **연결** 을 선택 합니다. 
+1. Visual Studio의 **디버그** 메뉴에서 **프로세스에 연결 ...** 을 선택 하 고 프로세스 ID와 일치 하는 프로세스를 찾은 다음 **연결** 을 선택 합니다. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="함수 호스트 프로세스에 디버거 연결":::    
 

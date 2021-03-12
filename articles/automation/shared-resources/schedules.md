@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004615"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149480"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation의 일정 관리
 
@@ -41,29 +41,29 @@ Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하�
 Azure Portal에서 또는 PowerShell을 사용하여 Runbook에 대한 새 일정을 만들 수 있습니다. 자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 먼저 테스트 전용 Automation 계정으로 일정을 연결한 모든 Runbook을 테스트해야 합니다. 테스트는 예약된 Runbook이 계속 올바르게 작동하는지 검증합니다. 문제가 표시되면 업데이트된 Runbook 버전을 프로덕션으로 마이그레이션하기 전에 문제를 해결하고 필요한 변경 내용을 적용할 수 있습니다.
 
 > [!NOTE]
-> **모듈**에서 [Azure 모듈 업데이트](../automation-update-azure-modules.md) 옵션을 선택하여 수동으로 업데이트하지 않는 한 Automation 계정에서 새 버전의 모듈을 자동으로 가져오지 않습니다. Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다. 
+> **모듈** 에서 [Azure 모듈 업데이트](../automation-update-azure-modules.md) 옵션을 선택하여 수동으로 업데이트하지 않는 한 Automation 계정에서 새 버전의 모듈을 자동으로 가져오지 않습니다. Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다. 
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Azure Portal에서 새 일정 만들기
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
-2. **일정 페이지에서** **일정 추가**를 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **일정** 을 선택 합니다.
+2. **일정 페이지에서** **일정 추가** 를 선택 합니다.
 3. **새 일정** 페이지에서 이름을 입력 하 고 선택적으로 새 일정에 대 한 설명을 입력 합니다.
 
     >[!NOTE]
     >Automation 일정은 현재 일정 이름에 특수 문자를 사용 하는 것을 지원 하지 않습니다.
     >
 
-4. 일정 **을 한 번** 실행할지 아니면 **되풀이**일정으로 실행할지를 선택 합니다. **한 번**을 선택하는 경우 시작 시간을 지정한 다음, **만들기**를 선택합니다. **되풀이**를 선택할 경우에는 시작 시간을 지정합니다. **되풀이 간격**에서 Runbook을 반복할 빈도를 선택합니다. 시간, 일, 주 또는 월별로 선택합니다.
+4. 일정 **을 한 번** 실행할지 아니면 **되풀이** 일정으로 실행할지를 선택 합니다. **한 번** 을 선택하는 경우 시작 시간을 지정한 다음, **만들기** 를 선택합니다. **되풀이** 를 선택할 경우에는 시작 시간을 지정합니다. **되풀이 간격** 에서 Runbook을 반복할 빈도를 선택합니다. 시간, 일, 주 또는 월별로 선택합니다.
 
-    * **주**를 선택하는 경우 선택 가능한 요일이 제공됩니다. 요일을 원하는 수만큼 선택합니다. 첫 번째 일정은 시작 시간 이후에 선택한 첫 번째 요일에 실행됩니다. 예를 들어 주말 일정을 선택하려면 토요일과 일요일을 선택합니다.
+    * **주** 를 선택하는 경우 선택 가능한 요일이 제공됩니다. 요일을 원하는 수만큼 선택합니다. 첫 번째 일정은 시작 시간 이후에 선택한 첫 번째 요일에 실행됩니다. 예를 들어 주말 일정을 선택하려면 토요일과 일요일을 선택합니다.
 
     ![주말 되풀이 일정 설정](../media/schedules/week-end-weekly-recurrence.png)
 
-    * **월**을 선택하는 경우에는 다른 옵션이 제공됩니다. **월별 발생 빈도** 옵션에서는 **일(월 중)** 또는 **평일** 중 하나를 선택합니다. **일(월 중)** 을 선택하는 경우 원하는 일수를 선택할 수 있도록 달력이 표시됩니다. 현재 달은 30일까지인데 31일을 선택하는 등의 경우에는 일정이 실행되지 않습니다. 일정이 해당 월의 말일에 실행되도록 하려면 **매월 말일 실행** 아래에서 **예**를 선택합니다. **평일**을 선택하는 경우에는 **되풀이 간격** 옵션이 표시됩니다. **첫 번째**, **두 번째**, **세 번째**, **네 번째** 또는 **마지막** 중 하나를 선택하고, 마지막으로 반복할 요일을 선택합니다.
+    * **월** 을 선택하는 경우에는 다른 옵션이 제공됩니다. **월별 발생 빈도** 옵션에서는 **일(월 중)** 또는 **평일** 중 하나를 선택합니다. **일(월 중)** 을 선택하는 경우 원하는 일수를 선택할 수 있도록 달력이 표시됩니다. 현재 달은 30일까지인데 31일을 선택하는 등의 경우에는 일정이 실행되지 않습니다. 일정이 해당 월의 말일에 실행되도록 하려면 **매월 말일 실행** 아래에서 **예** 를 선택합니다. **평일** 을 선택하는 경우에는 **되풀이 간격** 옵션이 표시됩니다. **첫 번째**, **두 번째**, **세 번째**, **네 번째** 또는 **마지막** 중 하나를 선택하고, 마지막으로 반복할 요일을 선택합니다.
 
     ![매월 첫날, 15일 및 말일에 대한 월별 일정](../media/schedules/monthly-first-fifteenth-last.png)
 
-5. 작업이 완료되면 **만들기**를 선택합니다.
+5. 작업이 완료되면 **만들기** 를 선택합니다.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>PowerShell을 사용하여 새 일정 만들기
 
@@ -121,13 +121,54 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
 ```
 
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 일정 만들기
+
+이 예에서는 새 작업 일정을 만드는 ARM (Automation 리소스 관리자) 템플릿을 사용 합니다. Automation 작업 일정을 관리 하는이 템플릿에 대 한 일반 정보는 [Microsoft Automation automationAccounts/jobSchedules 템플릿 참조](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates)를 참조 하세요.
+
+이 템플릿 파일을 텍스트 편집기에 복사 합니다.
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+다음 매개 변수 값을 편집 하 고 템플릿을 JSON 파일로 저장 합니다.
+
+* 작업 일정 개체 이름: GUID (Globally Unique Identifier)가 작업 일정 개체의 이름으로 사용 됩니다.
+
+   >[!IMPORTANT]
+   > ARM 템플릿을 사용 하 여 배포 된 각 작업 일정에 대해 GUID는 고유 해야 합니다. 기존 일정을 다시 예약 하는 경우에도 GUID를 변경 해야 합니다. 이는 이전에 동일한 템플릿을 사용 하 여 만든 기존 작업 일정을 삭제 한 경우에도 적용 됩니다. 동일한 GUID를 재사용 하면 배포에 실패 합니다.</br></br>
+   > 이 [무료 온라인 Guid 생성기](https://guidgenerator.com/)와 같이 새 guid를 생성 하는 온라인 서비스가 있습니다.
+
+* 일정 이름: 지정 된 runbook에 연결 되는 Automation 작업 일정의 이름을 나타냅니다.
+* Runbook 이름: 작업 일정을 연결할 Automation runbook의 이름을 나타냅니다.
+
+파일이 저장 되 면 다음 PowerShell 명령을 사용 하 여 runbook 작업 일정을 만들 수 있습니다. 이 명령은 매개 변수를 사용 하 여 `TemplateFile` 템플릿의 경로와 파일 이름을 지정 합니다.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
+```
+
 ## <a name="link-a-schedule-to-a-runbook"></a>Runbook에 일정 연결
 
 Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 Runbook을 연결할 수 있습니다. Runbook에 매개 변수가 있는 경우 값을 제공할 수 있습니다. 필수 매개 변수의 값은 반드시 제공해야 하며, 필요에 따라 선택적 매개 변수의 값을 제공할 수도 있습니다. 이러한 값은 Runbook이 이 일정에 따라 시작할 때마다 사용됩니다. 동일한 Runbook을 다른 일정에 연결하고 다른 매개 변수 값을 지정할 수 있습니다.
 
 ### <a name="link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook에 일정 연결
 
-1. Azure Portal의 Automation 계정에서 **프로세스 자동화** 아래에 있는 **Runbook**을 선택합니다.
+1. Azure Portal의 Automation 계정에서 **프로세스 자동화** 아래에 있는 **Runbook** 을 선택합니다.
 1. 예약할 Runbook의 이름을 선택합니다.
 1. 현재 Runbook이 일정에 연결되지 않은 경우 새 일정을 만들거나 기존 일정에 연결하는 옵션이 제공됩니다.
 1. Runbook에 매개 변수가 있는 경우 **실행 설정 수정(기본값: Azure)** 옵션을 선택할 수 있고, **매개 변수** 창이 표시됩니다. 여기에 매개 변수 정보를 입력할 수 있습니다.
@@ -161,9 +202,9 @@ Azure Automation에서 일정에 구성할 수 있는 가장 빈번한 간격은
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Azure Portal에서 일정 해제
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **일정** 을 선택 합니다.
 1. 일정 이름을 선택하여 해당 세부 정보 창을 엽니다.
-1. **사용**을 **아니오**로 변경합니다.
+1. **사용** 을 **아니오** 로 변경합니다.
 
 > [!NOTE]
 > 시작 시간이 과거인 일정을 사용하지 않도록 설정하려면 시작 날짜를 미래로 변경한 후 저장해야 합니다.
@@ -187,9 +228,9 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Azure Portal을 사용하여 일정 제거
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **일정** 을 선택 합니다.
 2. 일정 이름을 선택하여 해당 세부 정보 창을 엽니다.
-3. **삭제**를 클릭합니다.
+3. **삭제** 를 클릭합니다.
 
 ### <a name="remove-a-schedule-with-powershell"></a>PowerShell을 사용하여 일정 제거
 

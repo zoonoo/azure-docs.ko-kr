@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
 description: 이 문서에서는 Azure Media Services 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261328"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008294"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 
@@ -101,7 +101,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이 **id** 는 MP4 파일에 사용 되는 것과 같은 것은 아닙니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
-| **Profile** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
+| **프로필** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
 | **수준** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
 | **Width**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |인코딩된 비디오 너비(픽셀)입니다. |
 | **높이**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |인코딩된 비디오 높이(픽셀)입니다. |

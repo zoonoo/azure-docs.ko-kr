@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9fa6a1758bc2e2a76291efc3bb239c5249a6e21e
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504936"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149344"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 계산 대상 설정
 
@@ -64,11 +64,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>원격 가상 머신
 
-Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작업 영역에 연결하는 기능을 지원합니다. Azure Machine Learning에서 액세스할 수 있는 한, 이 리소스 유형은 임의의 원격 VM입니다. 리소스는 조직 또는 온-프레미스에 있는 Azure VM 또는 원격 서버일 수 있습니다. 특히 IP 주소 및 자격 증명(사용자 이름 및 암호 또는 SSH 키)이 지정되면 원격 실행에 액세스 가능한 VM을 사용할 수 있습니다.
-
-시스템에서 작성 한 [conda 환경](how-to-use-environments.md), 기존 [Python 환경](how-to-configure-environment.md#local)또는 [Docker 컨테이너](https://docs.docker.com/engine/install/ubuntu/)를 사용할 수 있습니다. Docker 컨테이너에서 실행하려면 Docker 엔진이 VM에서 실행 되어야 합니다. 이 기능은 로컬 머신보다 더 유연한 클라우드 기반 개발/실험 환경을 원하는 경우에 특히 유용합니다.
-
-이 시나리오에서 azure VM (azure Data Science Virtual Machine (DSVM)을 선택 하는 것이 좋습니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](./how-to-configure-environment.md#dsvm)을 참조하세요.
+Azure Machine Learning는 Azure 가상 머신 연결도 지원 합니다. VM은 Azure Data Science Virtual Machine (DSVM) 여야 합니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](./how-to-configure-environment.md#dsvm)을 참조하세요.
 
 1. **만들기**: 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](./data-science-virtual-machine/dsvm-ubuntu-intro.md)을 참조하세요.
 

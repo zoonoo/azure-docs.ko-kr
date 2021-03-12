@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684206"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200259"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge는 IoT Edge 디바이스에 배포된 모듈에 대한 실시간 정보를 모니터링할 수 있는 보고 기능을 제공합니다. IoT Hub 서비스는 디바이스에서 상태를 검색하여 운영자에게 제공합니다. 자동 배포 및 계층화된 배포를 포함하는 [규모에 맞게 수행된 배포](module-deployment-monitoring.md)에도 모니터링이 중요합니다.
 
@@ -43,7 +45,7 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 1. **IoT Edge 배포** 탭을 선택합니다.
 1. 배포 목록을 검사합니다.  각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
 
-    | 열 | Description |
+    | 열 | 설명 |
     | --- | --- |
     | ID | 배포의 이름입니다. |
     | Type | 배포 유형(**배포** 또는 **계층화된 배포**)입니다. |

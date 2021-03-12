@@ -1,20 +1,20 @@
 ---
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593130"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199053"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
 서비스 공급자는 사용자 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)을 통해 테 넌 트에 위임 되거나 이전에 위임 된 리소스가 제거 되는 경우를 인식 하고자 할 수 있습니다.
 
-테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
+테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 고객 테 넌 트의 추가 또는 제거 된 위임이 포함 됩니다.
 
 이 항목에서는 모든 고객에 대해 위임 작업을 테 넌 트에 모니터링 하는 데 필요한 권한을 설명 합니다. 또한이 데이터를 쿼리하고 보고 하는 한 가지 방법을 보여 주는 예제 스크립트도 제공 합니다.
 

@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728215"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224710"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -24,7 +24,7 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 - 백업용 개인 끝점 연결에는 저장소에 대 한 Azure Backup에서 사용 하는 것을 포함 하 여 서브넷에 총 11 개의 개인 Ip가 사용 됩니다. 이 숫자는 특정 Azure 지역에 대해 더 높을 수 있습니다 (최대 25 개). 따라서 백업용 개인 끝점을 만들려고 할 때 사용할 수 있는 개인 Ip가 충분 하다는 것이 좋습니다.
 - Recovery Services 자격 증명 모음은 (둘 다) Azure Backup 및 Azure Site Recovery에서 사용 되지만이 문서에서는 Azure Backup 전용 전용 끝점을 사용 하는 방법을 설명 합니다.
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
-- 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
+- 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 [네트워크 정책을 사용 하지 않도록 설정](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) 해야 합니다.
 - 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록** 을 선택 합니다.
 - 자격 증명 모음에서 전용 끝점을 사용 하는 경우 SQL 및 SAP HANA 데이터베이스 백업에 대 한 [지역 간 복원이](backup-create-rs-vault.md#set-cross-region-restore) 지원 되지 않습니다.
 - 이미 개인 끝점을 사용 하는 Recovery Services 자격 증명 모음을 새 테 넌 트로 이동 하는 경우 자격 증명 모음 관리 id를 다시 구성 하 고 필요에 따라 새 개인 끝점을 만들려면 (새 테 넌 트에 있어야 함) Recovery Services 자격 증명 모음을 업데이트 해야 합니다. 이 작업을 수행 하지 않으면 백업 및 복원 작업에 실패 하 게 됩니다. 또한 구독 내에서 설정 된 모든 RBAC (역할 기반 액세스 제어) 권한을 다시 구성 해야 합니다.
@@ -297,6 +297,10 @@ MARS 에이전트를 사용 하 여 온-프레미스 리소스를 백업 하는 
 
 하지만 MARS 에이전트가 등록 된 후 자격 증명 모음에 대 한 개인 끝점을 제거 하는 경우 컨테이너를 자격 증명 모음에 다시 등록 해야 합니다. 보호를 중지할 필요가 없습니다.
 
+## <a name="deleting-private-endpoints"></a>전용 끝점 삭제
+
+개인 끝점을 삭제 하는 방법에 대해 알아보려면 [이 섹션](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) 을 참조 하세요.
+
 ## <a name="additional-topics"></a>추가 항목
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Azure Resource Manager 클라이언트를 사용 하 여 Recovery Services 자격 증명 모음 만들기
@@ -554,4 +558,4 @@ A. 이 문서에 자세히 설명 된 프로세스를 수행한 후에는 백업
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Backup의 모든 보안 기능](security-overview.md) 에 대해 읽기
+- [Azure Backup의 모든 보안 기능](security-overview.md)에 대해 읽어 보십시오.

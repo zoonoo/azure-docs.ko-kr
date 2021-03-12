@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f8a780afba1f5703fbe457e113ed1b455f1e9b64
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745416"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614329"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>NFS (네트워크 파일 시스템) 3.0 Azure Blob storage의 성능 고려 사항 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure Blob Storage 최대 저장소 계정 송신 및 수신 제한에 도달할
 다음 차트는 프리미엄 성능 계층을 사용 하는 계정에 적용 될 때 이와 동일한 효과를 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
-> ![표준 성능](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![프리미엄 성능](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## <a name="use-premium-performance-tier-for-small-scale-applications"></a>작은 규모의 응용 프로그램에 프리미엄 성능 계층 사용
 

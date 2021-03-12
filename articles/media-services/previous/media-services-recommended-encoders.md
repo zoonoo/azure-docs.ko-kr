@@ -3,18 +3,18 @@ title: Azure Media Services에서 권장되는 인코더 알아보기 | Microsof
 description: 이 문서에서는 Azure Media Services에 의해 권장 되는 온-프레미스 인코더를 나열 합니다.
 services: media-services
 keywords: 인코딩, 인코더, 미디어
-author: dbgeorge
+author: IngridAtMicrosoft
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/20/2019
+ms.date: 03/10/2021
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 11456a8dc55a98778bf44225bf659e506e2d3a3f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 98d78a105bf06a2e49dee0b8c2be710b220a0023
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510059"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009439"
 ---
 # <a name="recommended-on-premises-encoders"></a>권장 온-프레미스 인코더
 

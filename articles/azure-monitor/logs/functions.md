@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 9b2466bbe061dc147d020104b13da197840fe40a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 07a959d4e8ba41652ba4e31ad59cf852659a5926
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030786"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199761"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "102030786"
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
 | Category       | **쿼리 탐색기** 에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
 
-
+[REST API](/rest/api/loganalytics/savedsearches/createorupdate) 또는 [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightssavedsearch)을 사용 하 여 함수를 만들 수도 있습니다.
 
 
 ## <a name="use-a-function"></a>함수 사용

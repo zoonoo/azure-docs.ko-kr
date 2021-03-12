@@ -2,18 +2,19 @@
 title: Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 description: 이 문서에서는 Linux Vm에 대해 Microsoft Azure 디스크 암호화를 사용 하기 위한 필수 구성 요소를 제공 합니다.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3862a07eea2dcec3e67c0145fcdcff8140d19ec3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20cb94dd8bfca6adeba151d2169b1896cc7ff5a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746778"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557882"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Linux Vm 용 Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성
 
@@ -61,7 +62,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. 나중에 디스크를 암호화할 때 사용하기 위해 반환되는 **자격 증명 모음 이름** , **리소스 그룹 이름** , **리소스 ID** , **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
+4. 나중에 디스크를 암호화할 때 사용하기 위해 반환되는 **자격 증명 모음 이름**, **리소스 그룹 이름**, **리소스 ID**, **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Azure CLI를 사용하여 키 자격 증명 모음 만들기
@@ -80,7 +81,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. 나중에 사용하기 위해 반환되는 **자격 증명 모음 이름** (name), **리소스 그룹 이름** , **리소스 ID** (ID), **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
+4. 나중에 사용하기 위해 반환되는 **자격 증명 모음 이름**(name), **리소스 그룹 이름**, **리소스 ID**(ID), **자격 증명 모음 URI** 및 **개체 ID** 를 적어 둡니다. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Resource Manager 템플릿을 사용하여 키 자격 증명 모음 만들기
 
@@ -217,7 +218,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Azure Portal을 통해 키 자격 증명 모음에 대한 고급 액세스 정책 설정
 
-1. 키 자격 증명 모음을 선택하고, **액세스 정책** , **클릭하여 고급 액세스 정책 표시** 로 차례로 이동합니다.
+1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시** 로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용** 이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 을 선택합니다. 
 4. **저장** 을 클릭합니다.

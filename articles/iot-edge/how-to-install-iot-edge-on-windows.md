@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 812bfcc8d82c08600bd7391cdf70661585ceaf2f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: ffd3d5c09fe19482a69af2309d8e8d574689e712
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103015185"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199652"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 PC 클래스에서 산업용 서버로 장치에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 자세히 알아보려면 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조 하세요.
 
@@ -30,7 +32,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >
 >Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

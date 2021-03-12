@@ -3,7 +3,7 @@ title: 클라이언트 쪽에 광고 삽입 | Microsoft 문서
 description: 이 문서에서는 클라이언트 쪽의 미디어에 광고를 삽입 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d942099d0abbdfc4ddfa0276184500166250728
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263572"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014964"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 
@@ -172,7 +172,7 @@ Application/x-javascript – 리소스가 HTML <**script**> 태그에 표시됩�
 
 Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
-**IFrameResource**는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource**는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents**는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서는 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
+**IFrameResource** 는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource** 는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents** 는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서는 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
 
 캠페인(Companion) 광고는 `<CompanionAds>` 요소 내에서 정의됩니다. `<CompanionAds>` 요소에는 하나 이상의 `<Companion>` 요소가 포함될 수 있습니다. 각 `<Companion>` 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 `<StaticResource>`, `<IFrameResource>` 또는 `<HTMLResource>`를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 애플리케이션은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
@@ -338,7 +338,7 @@ MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 
 3. **value** – 속성을 평가할 기준 값
 4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
 
-**endConditions**도 `<condition>` 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. `<trigger>` 요소에는 `<source>` 요소를 하나 이상 포함하는 `<sources>` 요소도 포함됩니다. `<source>` 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
+**endConditions** 도 `<condition>` 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. `<trigger>` 요소에는 `<source>` 요소를 하나 이상 포함하는 `<sources>` 요소도 포함됩니다. `<source>` 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
 
 ```xml
     <trigger id="postroll" description="postroll"  >

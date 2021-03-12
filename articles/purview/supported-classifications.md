@@ -1,18 +1,18 @@
 ---
 title: 지원 되는 분류 목록
 description: 이 페이지에는 Azure 부서의 범위에서 지원 되는 시스템 분류가 나열 됩니다.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 2/5/2021
-ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/05/2021
+ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988304"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200793"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 분류
 
@@ -36,7 +36,7 @@ Azure 부서의 범위는 [RegEx](https://wikipedia.org/wiki/Regular_expression)
 
 도시, 국가 및 장소 필터는 데이터를 준비 하는 데 사용할 수 있는 최상의 데이터 집합을 사용 하 여 준비 되었습니다.
 
-## <a name="person"></a>Person
+## <a name="person"></a>사람
 
 Person 블 룸 필터는 아래 두 데이터 집합을 사용 하 여 준비 되었습니다.
 
@@ -59,7 +59,9 @@ Person 블 룸 필터는 아래 두 데이터 집합을 사용 하 여 준비 �
 - 하이픈
 - 4 자리
 - 하이픈
-- 서식이 지정 되지 않은 숫자: 0, 1, 2, 3, 6, 7 또는 8로 시작 하는 연속 된 숫자 9 개
+- 숫자
+
+형식이 지정 되지 않음: 0, 1, 2, 3, 6, 7 또는 8로 시작 하는 연속 소수점 9 개
 
 ### <a name="keywords"></a>키워드
 
@@ -2970,7 +2972,7 @@ ad, ae, al, at, az, ba, be, bg, bh, ch, cr, cy, cz, de, dk, do, ee, es, fi, fo, 
 
 ### <a name="keywords"></a>키워드
 
-없음
+None
 
 ## <a name="ireland-personal-public-service-pps-number"></a>아일랜드 PPS (personal public service) 번호
 
@@ -3959,7 +3961,7 @@ RRN
 
 ### <a name="keywords"></a>키워드
 
-없음
+None
 
 ## <a name="sweden-national-id"></a>스웨덴 국가 ID
 

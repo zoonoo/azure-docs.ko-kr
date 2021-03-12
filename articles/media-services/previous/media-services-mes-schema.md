@@ -1,7 +1,7 @@
 ---
 title: Media Encoder Standard 스키마 | Microsoft 문서
 description: 이 문서에서는 Media Encoder Standard 기본 설정의 기반이 되는 XML 스키마의 일부 요소와 형식에 대해 설명하며,
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261515"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015661"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
 
@@ -35,7 +35,7 @@ ms.locfileid: "89261515"
 | --- | --- | --- |
 | **인코딩** |[인코딩](media-services-mes-schema.md#Encoding) |루트 요소로서 입력 원본을 인코딩할 것임을 나타냅니다. |
 | **출력** |[출력](media-services-mes-schema.md#Output) |원하는 출력 파일의 컬렉션입니다. |
-| **StretchMode**<br/>minOccurs="0"<br/>default=“AutoSize|xs:string|출력 비디오 프레임 크기, 안쪽 여백, 픽셀 또는 표시 가로 세로 비율을 제어합니다. **StretchMode**는 **None**, **AutoSize**(기본값) 또는 **AutoFit** 값 중 하나일 수 있습니다.<br/><br/>**None**: 입력 비디오의 픽셀 가로 세로 비율 또는 표시 가로 세로 비율을 고려하지 않고 출력 해상도(예: 미리 설정의 **Width** 및 **Height**)를 엄격하게 따릅니다. 출력 비디오의 가로 세로 비율이 입력과 다른 시나리오(예: [자르기](media-services-crop-video.md))에서 권장됩니다. <br/><br/>**AutoSize**: 출력 해상도가 미리 설정에서 지정된 창(Width * Height) 안에 맞춰집니다. 그러나 인코더는 사각형(1:1) 픽셀 가로 세로 비율이 있는 출력 비디오를 생성합니다. 따라서 안쪽 여백 없이 입력의 표시 가로 세로 비율과 일치하도록 출력 Width 또는 출력 Height를 재정의할 수 있습니다. 예를 들어, 입력이 1920 X 1080이고 인코딩 미리 설정에서 1280 X 1280을 요청하는 경우 미리 설정의 Height 값이 재정의되고 출력이 1280 X 720이 되어 16:9의 입력 가로 세로 비율이 유지됩니다. <br/><br/>**AutoFit**: 필요한 경우 출력 비디오의 안쪽 여백을 채워(레터박스 또는 필러박스 사용) 원하는 출력 해상도를 적용하는 동시에 출력의 활성 비디오 영역과 입력의 가로 세로 비율을 동일하게 유지합니다. 예를 들어, 입력이1920x1080이고 인코딩 미리 설정에서 1280x1280을 요청한다고 가정합니다. 이 경우 출력 비디오는 1280x1280이지만, 가로 세로 비율이 16:9인 ‘활성 비디오’의 내부 1280x720 사각형과 맨 위와 맨 아래에 280픽셀 높이의 레터박스 영역을 포함합니다. 다른 예로, 입력이1440x1080이고 인코딩 미리 설정에서 1280x720을 요청하는 경우 출력은 1280x720이 되지만, 가로 세로 비율이 4:3인 내부 960x720 사각형과 왼쪽 및 오른쪽에 160픽셀 너비의 필러박스를 포함합니다. 
+| **StretchMode**<br/>minOccurs="0"<br/>default=“AutoSize|xs:string|출력 비디오 프레임 크기, 안쪽 여백, 픽셀 또는 표시 가로 세로 비율을 제어합니다. **StretchMode** 는 **None**, **AutoSize**(기본값) 또는 **AutoFit** 값 중 하나일 수 있습니다.<br/><br/>**None**: 입력 비디오의 픽셀 가로 세로 비율 또는 표시 가로 세로 비율을 고려하지 않고 출력 해상도(예: 미리 설정의 **Width** 및 **Height**)를 엄격하게 따릅니다. 출력 비디오의 가로 세로 비율이 입력과 다른 시나리오(예: [자르기](media-services-crop-video.md))에서 권장됩니다. <br/><br/>**AutoSize**: 출력 해상도가 미리 설정에서 지정된 창(Width * Height) 안에 맞춰집니다. 그러나 인코더는 사각형(1:1) 픽셀 가로 세로 비율이 있는 출력 비디오를 생성합니다. 따라서 안쪽 여백 없이 입력의 표시 가로 세로 비율과 일치하도록 출력 Width 또는 출력 Height를 재정의할 수 있습니다. 예를 들어, 입력이 1920 X 1080이고 인코딩 미리 설정에서 1280 X 1280을 요청하는 경우 미리 설정의 Height 값이 재정의되고 출력이 1280 X 720이 되어 16:9의 입력 가로 세로 비율이 유지됩니다. <br/><br/>**AutoFit**: 필요한 경우 출력 비디오의 안쪽 여백을 채워(레터박스 또는 필러박스 사용) 원하는 출력 해상도를 적용하는 동시에 출력의 활성 비디오 영역과 입력의 가로 세로 비율을 동일하게 유지합니다. 예를 들어, 입력이1920x1080이고 인코딩 미리 설정에서 1280x1280을 요청한다고 가정합니다. 이 경우 출력 비디오는 1280x1280이지만, 가로 세로 비율이 16:9인 ‘활성 비디오’의 내부 1280x720 사각형과 맨 위와 맨 아래에 280픽셀 높이의 레터박스 영역을 포함합니다. 다른 예로, 입력이1440x1080이고 인코딩 미리 설정에서 1280x720을 요청하는 경우 출력은 1280x720이 되지만, 가로 세로 비율이 4:3인 내부 960x720 사각형과 왼쪽 및 오른쪽에 160픽셀 너비의 필러박스를 포함합니다. 
 
 ### <a name="attributes"></a>특성
 
@@ -62,7 +62,7 @@ ms.locfileid: "89261515"
 | 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs: boolean** |현재는 1 패스 인코딩만 지원됩니다. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |IDR 프레임 사이의 고정 간격을 초 단위로 결정합니다. 이를 GOP 기간이라고도 합니다. 인코더가 이 값에서 벗어날 수 있는지 여부를 제어하려면 **SceneChangeDetection**을 참조하세요. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |IDR 프레임 사이의 고정 간격을 초 단위로 결정합니다. 이를 GOP 기간이라고도 합니다. 인코더가 이 값에서 벗어날 수 있는지 여부를 제어하려면 **SceneChangeDetection** 을 참조하세요. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs: boolean** |true로 설정된 경우 인코더에서 비디오 장면 변경을 감지하고 IDR 프레임을 삽입합니다. |
 | **복잡성**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |인코딩 속도와 비디오 품질 간의 균형을 제어합니다. **Speed**, **Balanced** 또는 **Quality** 값 중 하나일 수 있습니다.<br/><br/> 기본값: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |향후 릴리스에서 공개될 기능입니다. |
@@ -104,7 +104,7 @@ ms.locfileid: "89261515"
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |참조 프레임 사이의 B 프레임 수입니다. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |GOP의 참조 프레임 수입니다. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs: string** |**Cabac** 및 **Cavlc** 값 중 하나일 수 있습니다. |
-| **속도**<br/><br/> minOccurs="0" |유리수입니다. |출력 비디오의 프레임 속도를 결정합니다. 인코더에서 입력 비디오와 동일한 프레임 속도를 사용하도록 하려면 "0/1"(기본값)을 사용합니다. 허용되는 값은 일반적인 비디오 프레임 속도일 것으로 예상되지만, 유효한 유리수는 모두 허용됩니다. 예를 들어 1/1은 1fps이고 사용할 수 있습니다.<br/><br/> - 12/1(12fps)<br/><br/> - 15/1(15fps)<br/><br/> - 24/1(24fps)<br/><br/> - 24000/1001(23.976fps)<br/><br/> - 25/1(25fps)<br/><br/>  - 30/1(30fps)<br/><br/> - 30000/1001(29.97fps) <br/> <br/>**참고** 다중 비트 전송률 인코딩에 대한 사용자 지정 사전 설정을 만들면 사전 설정의 모든 계층에서는 FrameRate와 동일한 값을 사용**해야** 합니다.|
+| **속도**<br/><br/> minOccurs="0" |유리수입니다. |출력 비디오의 프레임 속도를 결정합니다. 인코더에서 입력 비디오와 동일한 프레임 속도를 사용하도록 하려면 "0/1"(기본값)을 사용합니다. 허용되는 값은 일반적인 비디오 프레임 속도일 것으로 예상되지만, 유효한 유리수는 모두 허용됩니다. 예를 들어 1/1은 1fps이고 사용할 수 있습니다.<br/><br/> - 12/1(12fps)<br/><br/> - 15/1(15fps)<br/><br/> - 24/1(24fps)<br/><br/> - 24000/1001(23.976fps)<br/><br/> - 25/1(25fps)<br/><br/>  - 30/1(30fps)<br/><br/> - 30000/1001(29.97fps) <br/> <br/>**참고** 다중 비트 전송률 인코딩에 대한 사용자 지정 사전 설정을 만들면 사전 설정의 모든 계층에서는 FrameRate와 동일한 값을 사용 **해야** 합니다.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Azure Media Encoder에서 복사합니다. |
 | **조각**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |프레임이 분할되는 조각 수를 결정합니다. 기본값을 사용하는 것이 좋습니다. |
 
@@ -297,7 +297,7 @@ ms.locfileid: "89261515"
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 이 스키마에 기반하여 작성된 XML 기본 설정 예제를 보려면 [MES(Media Encoder Standard)의 작업 기본 설정](media-services-mes-presets-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

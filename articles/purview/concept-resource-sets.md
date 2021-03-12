@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387855"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200825"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
 
@@ -21,7 +21,7 @@ ms.locfileid: "100387855"
 
 규모에 맞게 데이터 처리 시스템은 일반적으로 디스크에 단일 테이블을 여러 파일로 저장 합니다. 이 개념은 리소스 집합을 사용 하 여 Azure 부서의 범위에 표시 됩니다. 리소스 집합은 저장소의 자산을 많이 나타내는 카탈로그의 단일 개체입니다.
 
-예를 들어 Spark 클러스터가 Azure DataL Lake Storage (ADLS) Gen2 데이터 원본에 데이터 프레임를 유지 했다고 가정 합니다. Spark에서 테이블은 단일 논리 리소스 처럼 보이지만, 디스크에는 총 데이터 프레임의 내용에 대 한 파티션을 나타내는 수천 개의 Parquet 파일이 있습니다. IoT 데이터와 웹 로그 데이터는 동일한 챌린지를 가집니다. 로그 파일을 여러 번 출력 하는 센서가 있다고 가정해 봅니다. 해당 단일 센서에서 수백 개의 로그 파일을 포함할 때까지 시간이 오래 걸리지 않습니다.
+예를 들어 Spark 클러스터가 데이터 프레임 (ADLS) Gen2 데이터 원본 Azure Data Lake Storage에를 유지 했다고 가정 합니다. Spark에서 테이블은 단일 논리 리소스 처럼 보이지만, 디스크에는 총 데이터 프레임의 내용에 대 한 파티션을 나타내는 수천 개의 Parquet 파일이 있습니다. IoT 데이터와 웹 로그 데이터는 동일한 챌린지를 가집니다. 로그 파일을 여러 번 출력 하는 센서가 있다고 가정해 봅니다. 해당 단일 센서에서 수백 개의 로그 파일을 포함할 때까지 시간이 오래 걸리지 않습니다.
 
 Azure 부서의 범위는 리소스 집합을 사용 하 여 다 수의 데이터 자산을 단일 논리적 리소스로 매핑하는 과제를 해결 합니다.
 
@@ -66,7 +66,7 @@ Azure 부서의 범위는 다음과 같은 리소스 집합 패턴을 지원 합
 
 | 패턴 이름 | 표시 이름 | 설명 |
 |--------------|--------------|-------------|
-| GUID         | EID       | [RFC 4122](https://tools.ietf.org/html/rfc4122) 에 정의 된 guid (globally unique identifier) |
+| Guid         | EID       | [RFC 4122](https://tools.ietf.org/html/rfc4122) 에 정의 된 guid (globally unique identifier) |
 | 숫자       | 개의          | 하나 이상의 숫자 |
 | 날짜/시간 형식 | 연도가 월 동안 개의     | 다양 한 날짜/시간 형식을 지원 하지만 모두는 {Year} [delimiter] {Month} [delimiter] {Day} 또는 일련의 {N} s로 표시 됩니다. |
 | 4ByteHex     | 16 진수        | 4 자리 16 진수 숫자입니다. |

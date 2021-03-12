@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: edca5a278414288ceb3c3d13f5d49e723e0ee5c2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045992"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615927"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -23,7 +23,7 @@ ms.locfileid: "102045992"
 
 Azure IoT Edge 서비스를 사용하는 동안 문제가 발생하는 경우 지원을 검색하는 몇 가지 방법이 있습니다. 지원을 받으려면 다음 채널 중 하나를 시도합니다.
 
-**버그 보고** -Azure IoT Edge 제품으로 이동 하는 대부분의 개발은 IoT Edge 오픈 소스 프로젝트에서 발생 합니다. 버그는 프로젝트의 [문제 페이지](https://github.com/azure/iotedge/issues)에서 보고됩니다. 프로젝트에서 제품 업데이트로 신속하게 문제를 해결합니다.
+**버그 보고** – Azure IoT Edge 제품에 대한 대다수의 개발은 IoT Edge 오픈 소스 제품에서 이루어집니다. 버그는 프로젝트의 [문제 페이지](https://github.com/azure/iotedge/issues)에서 보고됩니다. Windows에서 Linux에 대 한 Azure IoT Edge 관련 된 버그는 [iotedge-eflow 문제 페이지](https://github.com/azure/iotedge-eflow/issues)에서 보고할 수 있습니다. 는의 프로젝트에서 제품 업데이트를 신속 하 게 해결 합니다.
 
 **Microsoft 고객 지원팀** – [지원 계획](https://azure.microsoft.com/support/plans/)이 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)에서 직접 지원 티켓을 만들어서 Microsoft 고객 지원팀과 협력할 수 있습니다.
 

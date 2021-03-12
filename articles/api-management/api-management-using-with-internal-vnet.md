@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 10154f496d76ce6b9eb19d610fdff8d7a4023c2d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145517"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565957"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -43,7 +43,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
-+ **활성 Azure 구독** .
++ **활성 Azure 구독**.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,7 +74,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 또한 PowerShell cmdlet을 사용하여 가상 네트워크 연결을 사용할 수 있습니다.
 
@@ -83,7 +83,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 * 가상 네트워크 내의 API Management 서비스에 대 한 기존 배포 업데이트: cmdlet [AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) 을 사용 하 여 가상 네트워크 내의 기존 API Management 서비스를 이동 하 고 내부 가상 네트워크 유형을 사용 하도록 구성 합니다.
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>DNS 구성
-API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 DNS를 관리해야 합니다.
+API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 DNS를 관리해야 합니다. Azure DNS 개인 영역을 구성 하 고 가상 네트워크 API Management 서비스에 연결 하는 것이 권장 옵션입니다.  Azure DNS에서 개인 영역을 설정 하는 방법을 알아보려면 [여기](../dns/private-dns-getstarted-portal.md) 를 클릭 하세요.
 
 > [!NOTE]
 > API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 엔드포인트에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 엔드포인트에는 게이트웨이, Azure Portal, 개발자 포털, 직접 관리 엔드포인트 및 Git가 포함됩니다.

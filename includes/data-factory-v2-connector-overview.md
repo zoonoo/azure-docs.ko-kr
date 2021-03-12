@@ -2,14 +2,14 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/08/2020
+ms.date: 03/10/2021
 ms.author: jingwang
-ms.openlocfilehash: d54a8e3fbffee57c7a8e0a36139cf9f51fd4fdb0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5c1d72dd0b1be2d439260c2d32280911733de1b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96992974"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015927"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../articles/data-factory/copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../articles/data-factory/control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../articles/data-factory/control-flow-get-metadata-activity.md)/[유효성 검사 작업](../articles/data-factory/control-flow-validation-activity.md) | [활동 삭제](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -21,7 +21,7 @@ ms.locfileid: "96992974"
 | &nbsp;                | [Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Databricks Delta Lake](../articles/data-factory/connector-azure-databricks-delta-lake.md) | ✓/✓                                                          | ✓/✓ <small> [델타 형식](../articles/data-factory/format-delta.md) 사용</small> | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
