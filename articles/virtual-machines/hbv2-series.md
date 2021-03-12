@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 92de7f93939f6673e2133f6eaf8086a1dcdd1964
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1abc05cf1486651b87094f40777f3679d234a34b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616250"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009340"
 ---
 # <a name="hbv2-series"></a>HBv2 시리즈
 
@@ -34,7 +34,10 @@ HBv2 시리즈 Vm 기능 200 g b/초 Mellanox HDR InfiniBand. 이러한 Vm은 �
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | 모두 | 480 + 960 | 8 | 8 |
 
-기본 [아키텍처, vm 토폴로지](./workloads/hpc/hbv2-series-overview.md)및 HBV2 시리즈 vm의 예상 [성능](./workloads/hpc/hbv2-performance.md) 에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아보세요.
+- 기본 [아키텍처 및 VM 토폴로지](./workloads/hpc/hbv2-series-overview.md)
+- 지원 되는 OS를 포함 하 여 [지원 되는 소프트웨어 스택](./workloads/hpc/hbv2-series-overview.md#software-specifications)
+- HBv2 시리즈 VM의 예상 [성능](./workloads/hpc/hbv2-performance.md) 입니다.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

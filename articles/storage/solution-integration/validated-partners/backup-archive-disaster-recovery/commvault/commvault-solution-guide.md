@@ -9,12 +9,12 @@ ms.date: 11/11/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f340a06f3b6b7c8fc0d78051fb0496dcab11fb5d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bc5bcca394fa66cea9cbf6bc20ac7d164c671cf7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122751"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632954"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>Commvault를 사용 하 여 Azure에 백업
 
@@ -161,11 +161,11 @@ Azure를 백업 대상으로 사용 하는 경우 고객은를 활용 [Azure Blo
 
 9. 다음으로, Commvault 명령 센터에서 "저장소"--> "클라우드"로 이동 합니다. "추가"를 선택 합니다. 저장소 계정의 이름을 입력 하 고 "유형" 목록에서 "Microsoft Azure Storage"를 선택 합니다. Azure Storage에 백업을 전송 하는 데 사용할 미디어 에이전트 서버를 선택 합니다. 만든 컨테이너를 추가 하 고 Azure Storage 계정에서 활용할 저장소 계층을 선택한 다음 #8 단계에서 만든 자격 증명을 선택 합니다. 마지막으로 중복 제거 된 백업을 전송할지 여부 및 중복 제거 데이터베이스의 위치를 전송할지 여부를 선택 합니다.
     
-     ![Commvault 저장소 추가](../media/commvault-add-storage.png)
+     ![클라우드 사용자 인터페이스 추가의 스크린샷 보관 드롭다운 메뉴에서 * * Archive * *를 선택 합니다.](../media/commvault-add-storage.png)
 
 10. 마지막으로 "관리"--"요금제"를 "백업 대상"으로 > 하 여 Commvault 명령 센터의 기존 또는 새 계획에 새 Azure Storage 리소스를 추가 합니다.
 
-    ![Commvault 저장소 추가](../media/commvault-plan.png)
+    ![COMMVAULT Command Center 사용자 인터페이스의 스크린샷 왼쪽 탐색의 * * 관리 * *에서 * * 요금제 * *를 선택 합니다.](../media/commvault-plan.png)
 
 11. ***(선택 사항)*** Azure를 복구 사이트 또는 Commvault로 활용 하 여 서버 및 응용 프로그램을 Azure로 마이그레이션할 계획인 경우 Azure에 VSA 프록시를 배포 하는 것이 가장 좋습니다. 자세한 지침은 [여기](https://documentation.commvault.com/commvault/v11/article?p=106208.htm)에서 찾을 수 있습니다.  
 

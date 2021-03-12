@@ -240,7 +240,7 @@
               displayName: 'scale server, reset password'
         - name: 서버 다시 시작
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -248,7 +248,7 @@
               href: howto-restart-server-powershell.md
         - name: 방화벽 규칙
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Azure CLI
@@ -303,7 +303,7 @@
           displayName: 'application development, TLS'
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -314,7 +314,7 @@
               displayName: 'application development, server parameters'
         - name: 자동 증가 스토리지
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -424,6 +424,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: 연결 및 쿼리
           items:
+            - name: Azure CLI
+              href: flexible-server/connect-azure-cli.md
             - name: Python
               href: flexible-server/connect-python.md
             - name: Java
@@ -514,7 +516,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI

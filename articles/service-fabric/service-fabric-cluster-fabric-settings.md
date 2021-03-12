@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183406"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232055"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -349,6 +349,7 @@ ms.locfileid: "102183406"
 |DisableContainers|bool, 기본값: FALSE|정적|컨테이너를 사용하지 않도록 설정하기 위한 구성 - 더 이상 사용되지 않는 DisableContainerServiceStartOnContainerActivatorOpen 구성 대신 사용됩니다. |
 |DisableDockerRequestRetry|bool, 기본값: FALSE |동적| 기본적으로 SF는 전송되는 각 http 요청에 대해 시간 제한 'DockerRequestTimeout' 동안 DD(docker 디먼)와 통신합니다. 이 기간 내에 DD가 응답하지 않으면 SF는 최상위 작업 시간이 아직 남아 있는 경우 요청을 다시 전송합니다.  hyperv 컨테이너 사용 시에는 DD가 컨테이너를 불러오거나 비활성화하는 데 시간이 훨씬 더 많이 걸릴 수도 있습니다. 이러한 경우 SF 측면에서 DD 요청의 시간이 초과되며, SF는 작업을 다시 시도합니다. 이로 인해 DD의 부담이 가중될 수도 있습니다. 이 구성을 사용하면 작업을 다시 시도하지 않도록 설정하고 DD가 응답할 때까지 기다릴 수 있습니다. |
 |DnsServerListTwoIps | Bool, 기본값: FALSE | 정적 | 이 플래그는 간헐적인 문제 해결에 유용하도록 로컬 dns 서버를 두 번 추가합니다. |
+| DockerTerminateOnLastHandleClosed | bool, 기본값: FALSE | 정적 | 기본적으로 FabricHost에서 ' dockerd.exe '를 관리 하는 경우 (즉, SkipDockerProcessManagement = = false 기준)이 설정은 FabricHost 또는 dockerd.exe 충돌 시 수행 되는 작업을 구성 합니다. `true`프로세스가 충돌 하는 경우 실행 중인 모든 컨테이너는 HCS에 의해 강제로 종료 됩니다. 컨테이너에 설정 `false` 된 경우 계속 해 서 계속 실행 됩니다. 참고: 이전 8.0에서이 동작은 의도 하지 않은 경우에 해당 `false` 합니다. `true`이러한 프로세스를 다시 시작 하는 데 적용 되도록 정리 논리에 대해 기본적으로 앞으로 이동 하는 것이 기본 설정입니다. |
 | DoNotInjectLocalDnsServer | bool, 기본값: FALSE | 정적 | 런타임에서 로컬 IP를 컨테이너의 DNS 서버로 삽입하지 못하게 합니다 |
 |EnableActivateNoWindow| bool, 기본값: FALSE|동적| 활성화된 프로세스가 콘솔 없이 백그라운드에서 만들어집니다. |
 |EnableContainerServiceDebugMode|bool, 기본값: TRUE|정적|Docker 컨테이너에 대한 로깅을 사용/사용하지 않도록 설정합니다.  Windows만 해당됩니다.|

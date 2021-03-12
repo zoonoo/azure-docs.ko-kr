@@ -359,7 +359,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: variables
+        - name: 변수
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -556,7 +556,7 @@
     - name: Java
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
-      href: /python/api/overview/azure/resources?view=azure-python
+      href: /python/api/overview/azure/resources
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

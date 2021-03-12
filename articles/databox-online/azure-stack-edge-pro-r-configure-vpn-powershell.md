@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 2139080367cdce9a5f018afab0970a7bd0e7504c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467310"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634178"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge Pro R 장치에서 VPN을 구성 합니다.
 
@@ -165,7 +165,7 @@ VPN 옵션은 Azure Stack Edge Pro R 장치에서 Azure로의 *TLS* 를 통한 �
 
 ## <a name="validate-data-transfer-through-vpn"></a>VPN을 통한 데이터 전송 유효성 검사
 
-VPN이 작동 하는지 확인 하려면 데이터를 SMB 공유로 복사 합니다. Azure Stack Edge Pro R 장치에서 [공유 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share) 의 단계를 따릅니다. 
+VPN이 작동 하는지 확인 하려면 데이터를 SMB 공유로 복사 합니다. Azure Stack Edge Pro R 장치에서 [공유 추가](azure-stack-edge-gpu-manage-shares.md#add-a-share) 의 단계를 따릅니다. 
 
 1. 예를 들어 클라이언트 시스템에 탑재 한 SMB 공유에 \data\pictures\waterfall.jpg 파일을 복사 합니다. 
 2. 이 파일이 클라우드의 저장소 계정에 표시 되는지 확인 합니다.

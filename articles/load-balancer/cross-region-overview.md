@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199359"
+ms.locfileid: "103225628"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -94,7 +94,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 항상 사용 가능한 지역 간 배포를 위해 지역 간 부하 분산 장치에 기존 부하 분산 장치 배포를 추가 합니다.
 
-**홈 지역은** 지역 간 부하 분산 장치를 배포 하는 위치입니다. 이 지역은 트래픽이 라우팅되는 방법에 영향을 주지 않습니다. 홈 지역이 중단 되는 경우 트래픽 흐름은 영향을 받지 않습니다.
+**홈 지역은** 글로벌 계층의 지역 간 부하 분산 장치 또는 공용 IP 주소가 배포 되는 위치입니다. 이 지역은 트래픽이 라우팅되는 방법에 영향을 주지 않습니다. 홈 지역이 중단 되는 경우 트래픽 흐름은 영향을 받지 않습니다.
 
 ### <a name="home-regions"></a>홈 지역
 * 미국 동부 2
@@ -106,7 +106,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 동아시아
 
 > [!NOTE]
-> 위의 7 개 지역 중 하나에만 지역 간 부하 분산 장치를 배포할 수 있습니다.
+> 위의 7 개 지역 중 하나에서 글로벌 계층에 지역 간 부하 분산 장치 또는 공용 IP만 배포할 수 있습니다.
 
 참여 하는 **지역** 에서는 부하 분산 장치의 전역 공용 IP를 사용할 수 있습니다. 
 

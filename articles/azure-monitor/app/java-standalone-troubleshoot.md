@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199614"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225577"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -41,7 +41,9 @@ Java 3.0 Preview 에이전트에서 업그레이드 하는 경우 모든 [구성
 
 ## <a name="some-logging-is-not-auto-collected"></a>일부 로깅은 자동으로 수집 되지 않습니다.
 
-로깅은 먼저 로깅 프레임 워크의 구성 된 임계값을 충족 하 고 두 번째는 구성 된 Application Insights 임계값을 충족 하는 경우에만 캡처됩니다.
+로깅은 먼저 로깅 프레임 워크에 대해 구성 된 수준을 충족 하는 경우에만 캡처되고, 두 번째는 Application Insights에 대해 구성 된 수준에도 부합 합니다.
+
+예를 들어 로깅 프레임 워크가 `WARN` 패키지에서 (이상) 로그에 구성 되 `com.example` 고 Application Insights가 (이상) 캡처하도록 구성 된 경우 `INFO` Application Insights는 `WARN` 패키지에서 (이상)만 캡처합니다 `com.example` .
 
 특정 로깅 문이 로깅 프레임 워크의 구성 된 임계값을 충족 하는지 확인 하는 가장 좋은 방법은 일반 응용 프로그램 로그 (예: 파일 또는 콘솔)에 표시 되는지 확인 하는 것입니다.
 

@@ -3,18 +3,18 @@ title: 포털 또는 PowerShell을 사용 하 여 가상 하드 드라이브의 
 description: 포털 또는 PowerShell을 사용 하 여 백업으로 사용 하거나 문제를 해결 하기 위해 Azure VM의 복사본을 만드는 방법에 대해 알아봅니다.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
-ms.subservice: disks
-ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9070b69ac4c6b85791ff3dd4662273e75a3cd22c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879666"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556063"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용 하 여 스냅숏 만들기
 

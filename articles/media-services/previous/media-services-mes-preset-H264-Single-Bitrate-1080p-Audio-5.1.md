@@ -1,7 +1,7 @@
 ---
 title: H264 단일 비트 전송률 1080p Audio 5.1 | Microsoft Docs
 description: 이 항목은 **H264 단일 비트 전송률 1080p Audio 5.1** 태스크 미리 설정에 대한 개요를 제공합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: c641e76c5a45f1010c4d0bf142642d51d530dfd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: cc15d0cdf397ac8d61f26d3e076662caa1dc2766
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265779"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014950"
 ---
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 단일 비트 전송률 1080p Audio 5.1
 

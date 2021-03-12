@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/15/2020
-ms.openlocfilehash: 09644747c36b5406960097e52bbeeef1fa157e89
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/10/2021
+ms.openlocfilehash: a74170af61c05d07a189b5ceb61dc0c9b7e14298
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629996"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200435"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace VM에 대 한 일반적인 질문
 

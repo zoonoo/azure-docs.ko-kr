@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348299"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197486"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>확인 방법으로 Microsoft Authenticator 앱 설정
 
@@ -46,8 +46,8 @@ ms.locfileid: "96348299"
 
 조직 설정에 따라 인증 앱을 보안 정보 메서드 중 하나로 사용할 수 있습니다. Microsoft Authenticator 앱을 사용할 필요는 없으며 설정 과정에서 다른 앱을 선택할 수 있습니다. 단, 이 문서에서는 Microsoft Authenticator 앱을 사용합니다.
 
->[!Important]
-> 5 개의 장치 또는 5 개의 하드웨어 토큰에 앱 Microsoft Authenticator 설치 하는 경우 여섯 번째를 설정할 수 없으며 다음과 같은 오류 메시지가 표시 될 수 있습니다.
+> [!IMPORTANT]
+> 5 개의 서로 다른 장치에서 Microsoft Authenticator 앱을 설정 했거나 하드웨어 토큰 5 개를 사용한 경우 여섯 번째 토큰을 설정할 수 없으며 다음과 같은 오류 메시지가 표시 될 수 있습니다.
 > 
 > **인증 앱이 5 개 또는 하드웨어 토큰이 이미 있기 때문에 Microsoft Authenticator를 설정할 수 없습니다. 인증자 앱 또는 하드웨어 토큰 중 하나를 삭제 하려면 관리자에 게 문의 하세요.**
 
@@ -57,7 +57,7 @@ ms.locfileid: "96348299"
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
+2. 왼쪽 메뉴에서 **보안 정보** 를 선택 하거나 **보안 정보** 창의 링크를 사용 하 여 선택 합니다. 이미 등록 한 경우 2 단계 인증을 요구 하는 메시지가 표시 됩니다. 그런 다음 **보안 정보** 창에서 **메서드 추가** 를 선택 합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

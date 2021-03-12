@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 36ecef007e10f9a090dbabc8b5a91fd473930141
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097509"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633855"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 비용 최적화
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -105,7 +105,7 @@ Azure Cosmos DB는 프로 비전 된 처리량 모델을 사용 하 여 처리�
 - 항목 크기입니다.
 - [인덱싱 정책](index-policy.md) 에서 적용 되며 인덱싱되는 데 필요한 속성의 수입니다.
 
-5 개 미만의 속성을 포함 하는 1kb 항목을 삽입 하 여 5 개의 RUs를 기준으로 비용을 인덱싱합니다. 항목을 삽입 하는 데 필요한 두 번의 요금으로 항목을 바꿉니다.
+5.5 RUs를 기준으로 인덱싱 비용 없이 1kb 항목을 삽입 합니다. 항목을 삽입 하는 데 필요한 두 번의 요금으로 항목을 바꿉니다.
 
 ### <a name="optimizing-writes"></a>쓰기 최적화
 

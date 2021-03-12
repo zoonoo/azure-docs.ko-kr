@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050667"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199895"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
 Azure Log Analytics 에이전트는 모든 클라우드 및 온-프레미스 컴퓨터의 Windows 및 Linux 가상 컴퓨터 및 [System Center Operations Manager](/system-center/scom/) 에서 모니터링 하는 원격 분석을 수집 하 고 Azure Monitor의 Log Analytics 작업 영역에 수집 된 데이터를 보냅니다. Log Analytics 에이전트는 또한 [VM insights](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md)등의 Azure Monitor에서 정보 및 기타 서비스를 지원 합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항 및 배포 방법에 대 한 자세한 개요를 제공 합니다.
 
 > [!NOTE]
-> Log Analytics 에이전트를 Microsoft Monitoring Agent(MMA) 또는 OMS Linux 에이전트라고도 합니다.
+> Log Analytics 에이전트가 Microsoft Monitoring Agent (MMA)로 참조 될 수도 있습니다.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Azure 진단 확장과 비교
 Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 사용하여 Azure 가상 머신의 게스트 운영 체제에서도 모니터링 데이터를 수집할 수 있습니다. 요구 사항에 따라 둘 중 하나 또는 모두를 사용하도록 선택할 수 있습니다. Azure Monitor 에이전트의 상세 비교는 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조하세요. 

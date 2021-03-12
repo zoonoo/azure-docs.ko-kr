@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1939be42126606fdae261e60c890c71374c894
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 7dac23897f8a17c9adb4ae78736a6a8afa85a18b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741828"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012006"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Azure Active Directory의 그룹에 할당 된 역할 보기
 
@@ -37,7 +37,7 @@ ms.locfileid: "98741828"
 ### <a name="get-object-id-of-the-group"></a>그룹의 개체 ID를 가져옵니다.
 
 ```powershell
-Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
+Get-AzureADMSGroup -SearchString "Contoso_Helpdesk_Administrators"
 ```
 
 ### <a name="view-role-assignment-to-a-group"></a>그룹에 대 한 역할 할당 보기
@@ -50,13 +50,13 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>"
 
 ### <a name="get-object-id-of-the-group"></a>그룹의 개체 ID를 가져옵니다.
 
-```powershell
-GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
+```http
+GET https://graph.microsoft.com/beta/groups?$filter=displayName+eq+'Contoso_Helpdesk_Administrator'
 ```
 
 ### <a name="get-role-assignments-to-a-group"></a>그룹에 역할 할당 가져오기
 
-```powershell
+```http
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 ```
 

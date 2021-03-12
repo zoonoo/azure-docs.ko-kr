@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430567"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199781"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
@@ -202,6 +202,9 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
   * **실패**: 인스턴스가 오류로 인해 실패했습니다.
   * **종료됨**: 인스턴스가 갑자기 중지되었습니다.
 * **기록**: 오케스트레이션의 실행 기록입니다. 이 필드는 `showHistory`를 `true`로 설정한 경우에 채워집니다.
+
+> [!NOTE]
+> Orchestrator는 `Completed` 모든 예약 된 작업이 완료 되 _고_ orchestrator가 반환 될 때까지로 표시 되지 않습니다. 즉, 오 케 스트레이 터가로 표시 되기 위해 해당 문에 도달 하는 것 만으로는 충분 하지 않습니다 `return` `Completed` . 이는를 사용 하는 경우와 특히 관련 된 것입니다. `WhenAny` `return` 모든 예약 된 작업이 실행 되기 전에 orchestrator 경우가 많습니다.
 
 이 메서드 `null` `undefined` 는 인스턴스가 존재 하지 않는 경우 (.net), (JavaScript) 또는 `None` (Python)를 반환 합니다.
 

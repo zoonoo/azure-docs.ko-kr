@@ -1,7 +1,7 @@
 ---
 title: MES(Media Encoder Standard)에 대한 작업 미리 설정 | Microsoft Docs
 description: 이 항목에서는 MES(Media Encoder Standard)에 대한 서비스 정의 샘플 미리 설정에 대해 간단히 설명합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
 services: media-services
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 74e557aa02f5ab83828262209653bf8a78fdd2d0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261478"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011649"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>MES(Media Encoder Standard)에 대한 샘플 미리 설정
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-**Media Encoder Standard**는 인코딩 작업을 만들 때 사용할 수 있는 미리 설정된 시스템 인코딩 집합을 정의합니다. Media Services로 스트리밍을 위해 비디오를 인코딩하려면 "적응 스트리밍" 사전 설정을 사용하는 것이 좋습니다. 사전 설정을 지정할 경우 Media Encoder Standard는 [비트 전송률 단계를 자동으로 생성](media-services-autogen-bitrate-ladder-with-mes.md)합니다. 
+**Media Encoder Standard** 는 인코딩 작업을 만들 때 사용할 수 있는 미리 설정된 시스템 인코딩 집합을 정의합니다. Media Services로 스트리밍을 위해 비디오를 인코딩하려면 "적응 스트리밍" 사전 설정을 사용하는 것이 좋습니다. 사전 설정을 지정할 경우 Media Encoder Standard는 [비트 전송률 단계를 자동으로 생성](media-services-autogen-bitrate-ladder-with-mes.md)합니다. 
 
 ### <a name="creating-custom-presets-from-samples"></a>샘플에서 사용자 지정 미리 설정 만들기
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코딩 미리 설정을 사용자 지정해야 하는 경우 이 섹션에 제공된 시스템 미리 설정 중 하나를 사용자 지정 구성에 대한 템플릿으로 사용해야 합니다. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  

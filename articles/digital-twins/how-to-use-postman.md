@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 18ae21c4b1348a1690818f8c07a5b3fae45102cd
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199665"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232276"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "102199665"
 1. Postman collection을 설정 하 고 전달자 토큰을 사용 하 여 인증을 위해 Postman REST 클라이언트를 구성 합니다.
 1. 구성 된 Postman을 사용 하 여 Azure Digital Twins Api에 요청을 만들고 보냅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Postman을 사용 하 여 Azure Digital Twins Api에 액세스 하는 작업을 계속 하려면 Azure Digital Twins 인스턴스를 설정 하 고 Postman을 다운로드 해야 합니다. 이 섹션의 나머지 부분에서는 이러한 단계를 안내합니다.
 
@@ -52,7 +52,7 @@ Azure CLI를 [로컬로 설치한](/cli/azure/install-azure-cli)경우 컴퓨터
     az login
     ```
 
-1. 다음으로 [az account get-access-token](/cli/azure/account#az_account_get_access_token) 명령을 사용 하 여 Azure Digital twins 서비스에 대 한 액세스 권한이 있는 전달자 토큰을 가져옵니다.
+1. 다음으로 [az account get-access-token](/cli/azure/account#az_account_get_access_token) 명령을 사용 하 여 Azure Digital twins 서비스에 대 한 액세스 권한이 있는 전달자 토큰을 가져옵니다. 이 명령에서는 `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` azure digital twins 리소스에 액세스할 수 있는 액세스 토큰을 가져오기 위해 Azure Digital twins 서비스 끝점 (정적 값)에 대 한 리소스 ID를 전달 합니다.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518167"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200522"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "100518167"
 >
 > * 기본 ILB(내부 부하 분산 장치) SKU를 초과하는 VM(가상 머신)
 > * Redis Cache(기본 ILB SKU 사용)
-> * 애플리케이션 게이트웨이(기본 ILB SKU 사용)
+> * Application gateway v1 (기본 ILB SKU 사용)
 > * 가상 머신 확장 집합(기본 ILB SKU 사용)
 > * Azure Service Fabric 클러스터(기본 ILB SKU 사용)
 > * SQL Server Always On(기본 ILB SKU 사용)

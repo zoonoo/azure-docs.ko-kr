@@ -9,12 +9,12 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428442"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224597"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
@@ -112,7 +112,7 @@ Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨
   
 ## <a name="nfs-30-features-not-yet-supported"></a>NFS 3.0 기능이 아직 지원 되지 않음
 
-다음 NFS 3.0 기능은 Azure Data Lake Storage Gen2에서 아직 지원 되지 않습니다.
+다음 NFS 3.0 기능은 아직 지원 되지 않습니다.
 
 - UDP를 통한 NFS 3.0. TCP를 통한 NFS 3.0만 지원 됩니다.
 
@@ -127,6 +127,12 @@ Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨
 - 하드 링크
 
 - 컨테이너를 읽기 전용으로 내보내기
+
+## <a name="nfs-30-clients-not-yet-supported"></a>NFS 3.0 클라이언트는 아직 지원 되지 않음
+
+다음 NFS 3.0 클라이언트는 아직 지원 되지 않습니다.
+
+- NFS 용 Windows 클라이언트
 
 ## <a name="pricing"></a>가격 책정
 

@@ -5,33 +5,31 @@
   items:
     - name: Content Moderator란?
       href: overview.md
+    - name: 언어 지원
+      href: language-support.md
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
       expanded: true
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: 웹에서 Content Moderator 사용해 보기
-      href: quick-start.md
     - name: 클라이언트 라이브러리 또는 REST API 사용
       href: client-libraries.md
-- name: 자습서
+    - name: 웹 기반 UI 사용
+      href: quick-start.md
+- name: 샘플
   items:
-    - name: 전자 상거래 이미지 관리
-      href: ecommerce-retail-catalog-moderation.md
-    - name: Facebook 콘텐츠 조정
-      href: facebook-post-moderation.md
-- name: 개념
-  items:
-    - name: 이미지 조정
-      href: image-moderation-api.md
-    - name: 텍스트 조정
-      href: text-moderation-api.md
-    - name: 비디오 조정
-      href: video-moderation-human-review.md
-    - name: 검토 도구
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: '검토, 워크플로 및 작업'
-      href: review-api.md
+    - name: 샘플 브라우저
+      href: 'https://docs.microsoft.com/samples/browse/?terms=content%20moderator'
+    - name: .NET SDK 샘플
+      href: samples-dotnet.md
+    - name: Python SDK 샘플
+      href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples'
+    - name: Node.js SDK 샘플
+      href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples'
+    - name: C#의 REST API 샘플
+      href: samples-rest.md
 - name: 방법 가이드
   items:
     - name: 보통 콘텐츠
@@ -80,47 +78,53 @@
       href: Review-Tool-User-Guide/Configure.md
     - name: 계정 데이터 내보내기 또는 삭제
       href: ./export-delete-data.md
+    - name: Content Moderator 사용자 지정
+      items:
+        - name: '검토, 워크플로 및 작업'
+          href: review-api.md
+- name: 개념
+  items:
+    - name: 이미지 조정
+      href: image-moderation-api.md
+    - name: 텍스트 조정
+      href: text-moderation-api.md
+    - name: 비디오 조정
+      href: video-moderation-human-review.md
+    - name: 검토 도구
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+- name: 자습서
+  items:
+    - name: 전자 상거래 이미지 관리
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Facebook 콘텐츠 조정
+      href: facebook-post-moderation.md
 - name: 참조
   items:
-    - name: Content Moderator API
+    - name: Content Moderator REST API
       href: api-reference.md
-    - name: SDK
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
-        - name: Node.js
-          href: /javascript/api/@azure/cognitiveservices-contentmoderator/
-        - name: Python
-          href: /python/api/overview/azure/cognitiveservices/contentmoderator
-        - name: Go
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-contentmoderator/
+    - name: Python
+      href: /python/api/overview/azure/cognitiveservices/contentmoderator
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: 리소스
   items:
-    - name: 지원 및 도움말 옵션
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-    - name: 샘플
-      items:
-        - name: .NET SDK 샘플
-          href: samples-dotnet.md
-        - name: Python SDK 샘플
-          href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples'
-        - name: Node.js SDK 샘플
-          href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples'
-        - name: C#의 REST API 샘플
-          href: samples-rest.md
-        - name: 기타 Azure 샘플
-          href: /samples/browse/?products=azure&term=content-moderator
     - name: Azure 웹 세미나 시리즈
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: 가격 책정 및 제한
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
-    - name: 언어 지원
-      href: language-support.md
-    - name: 국가별 가용성
+    - name: 지역 지원
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Azure 로드맵
+    - name: Microsoft Learn 모듈
+      href: 'https://docs.microsoft.com/learn/browse/?terms=content%20moderator'
+    - name: 지원 및 도움말 옵션
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+    - name: Azure Government 및 글로벌 Azure
+      href: 'https://docs.microsoft.com/en-us/azure/azure-government/compare-azure-government-global-azure'
+    - name: Azure 업데이트
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

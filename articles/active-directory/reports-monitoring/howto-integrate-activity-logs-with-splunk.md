@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 351669453a5ce6930d3eb912e95e530d14febf61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335853"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634229"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>방법: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그 통합
 
@@ -34,15 +34,15 @@ ms.locfileid: "91335853"
 
 - Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](./tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
 
--  [Splunk에 대 한 추가 Microsoft Azure](https://splunkbase.splunk.com/app/3757/)입니다. 
+-  [Microsoft 클라우드 서비스에 대 한 Splunk 추가 기능](https://splunkbase.splunk.com/app/3110/#/details)입니다. 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Azure Active Directory 로그 통합 
 
-1. Splunk 인스턴스를 열고 **데이터 요약**을 선택합니다.
+1. Splunk 인스턴스를 열고 **데이터 요약** 을 선택합니다.
 
     !["데이터 요약" 단추](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. **Sourcetypes** 탭을 선택한 다음, **amal: aadal:audit**을 선택
+2. **Sourcetypes** 탭을 선택한 다음, **amal: aadal:audit** 을 선택
 
     ![데이터 요약 Sourcetypes 탭](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
 

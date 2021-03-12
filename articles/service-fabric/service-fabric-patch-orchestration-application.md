@@ -14,20 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390643"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614414"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
-> [!IMPORTANT]
-> 2019 년 4 월 30 일부 터 패치 오케스트레이션 응용 프로그램 버전 1.2. *는 더 이상 지원 되지 않습니다. 최신 버전으로 업그레이드 해야 합니다. "Windows 업데이트"에서 OS 디스크를 바꾸지 않고 운영 체제 패치를 적용 하는 VM 업그레이드는 지원 되지 않습니다. 
+## <a name="automatic-os-image-upgrades"></a>자동 OS 이미지 업그레이드
 
-> [!NOTE]
-> [가상 머신 확장 집합에서 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 를 얻는 것이 Azure에서 운영 체제 패치를 유지 하는 가장 좋은 방법입니다. 가상 머신 확장 집합을 기반으로 하는 자동 OS 이미지 업그레이드는 확장 집합에서 은색 이상 내구성이 필요 합니다. 내구성 계층 브론즈를 사용 하는 노드 형식에서는 지원 되지 않습니다 .이 경우 패치 오케스트레이션 응용 프로그램을 사용 하세요.
+[Virtual Machine Scale Sets에서 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 를 얻는 것은 Azure에서 운영 체제 패치를 유지 하는 가장 좋은 방법입니다. 가상 머신 확장 집합을 기반으로 하는 자동 OS 이미지 업그레이드는 확장 집합에서 은색 이상 내구성이 필요 합니다.
+
+Virtual Machine Scale Sets에서 자동 OS 이미지 업그레이드에 대 한 요구 사항
+-   Service Fabric [내구성 수준은](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) 브론즈가 아니라 실버 또는 골드입니다.
+-   확장 집합 모델 정의의 Service Fabric 확장에는 TypeHandlerVersion 1.1 이상이 있어야 합니다.
+-   Service Fabric 클러스터와 확장 집합 모델 정의에 대 한 Service Fabric 확장에서 내구성 수준이 동일 해야 합니다.
+- Virtual Machine Scale Sets에 대 한 추가 상태 프로브 또는 응용 프로그램 상태 확장 사용은 필요 하지 않습니다.
+
+Service Fabric 클러스터와 Service Fabric 확장에서 내구성 설정이 일치 하지 않는지 확인 합니다 .이로 인해 업그레이드 오류가 발생 합니다. [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명 된 지침에 따라 내구성 수준을 수정할 수 있습니다.
+
+청동 내구성이 있으면 자동 OS 이미지 업그레이드를 사용할 수 없습니다. [패치 오케스트레이션 응용 프로그램](#patch-orchestration-application ) (비 Azure 호스트 클러스터에만 해당)은 실버 이상의 내구성 수준에 *권장 되지* 않지만 Service Fabric 업그레이드 도메인에 대해 Windows 업데이트를 자동화 하는 유일한 옵션입니다.
+
+> [!IMPORTANT]
+> "Windows 업데이트"에서 OS 디스크를 바꾸지 않고 운영 체제 패치를 적용 하는 VM 내 업그레이드는 Azure Service Fabric에서 지원 되지 않습니다.
+
+작업 시스템에서 사용 안 함 Windows 업데이트 기능을 올바르게 사용 하도록 설정 하는 데 필요한 두 가지 단계가 있습니다.
+
+1. 자동 OS 이미지 업그레이드 사용, Windows 업데이트 ARM 사용 안 함 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. 크기 집합 모델 업데이트이 구성을 변경 하면 모든 컴퓨터의 이미지로 다시 설치를 수행 하 여 변경 내용이 적용 되도록 확장 집합 모델을 업데이트 해야 합니다.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+추가 지침은 [Virtual Machine Scale Sets 하 여 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 를 참조 하세요.
+
+## <a name="patch-orchestration-application"></a>패치 오케스트레이션 응용 프로그램
+
+> [!IMPORTANT]
+> 2019 년 4 월 30 일부 터 패치 오케스트레이션 응용 프로그램 버전 1.2. *는 더 이상 지원 되지 않습니다. 최신 버전으로 업그레이드 해야 합니다.
 
 POA (패치 오케스트레이션 응용 프로그램)는 azure에서 호스트 되지 않는 클러스터에 대해 구성 기반 OS 패치 일정을 예약할 수 있도록 하는 Azure Service Fabric Repair Manager 서비스에 대 한 래퍼입니다. Azure가 아닌 호스트 된 클러스터에는 POA가 필요 하지 않지만, 업데이트 도메인에의 한 패치 설치 일정은 가동 중지 시간 없이 클러스터 호스트 Service Fabric 패치를 수행 하는 데 필요 합니다.
 

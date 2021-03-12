@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735939"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009201"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
 
@@ -75,5 +75,3 @@ Azure IoT Hub는 다음을 제공합니다.
 * [참조 - 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)에는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱을 개발을 위한 Azure IoT SDK가 나열되어 있습니다. 이 문서에는 온라인 API 설명서에 대한 링크가 제공됩니다.
 
 * [참조 - IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - IoT Hub가 MQTT 프로토콜을 어떻게 지원하는지에 대한 자세한 정보가 제공됩니다. 이 문서에서는 Azure IoT SDK에 기본 제공되는 MQTT 프로토콜에 대한 지원을 설명하며 MQTT 프로토콜을 직접 사용하는 방법을 제공합니다.
-
-* [용어집](iot-hub-devguide-glossary.md) - 일반적인 IoT Hub 관련 용어 목록입니다.
