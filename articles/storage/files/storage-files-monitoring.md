@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504834"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418167"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -52,7 +52,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 리소스 로그를 수집 하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 **파일** 을 로그를 사용 하도록 설정 하려는 저장소 유형으로 선택 합니다. 그런 다음 로그를 수집 하려는 작업의 다음 범주 중 하나를 지정 합니다. 
 
-| 범주 | Description |
+| Category | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
@@ -611,8 +611,9 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 
     표준 파일 공유의 경우 다음 응답 유형을 선택 합니다.
 
+    - SuccessWithShareIopsThrottling
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - ClientShareIopsThrottlingError
 
     프리미엄 파일 공유의 경우 다음 응답 유형을 선택 합니다.
 

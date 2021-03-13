@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/12/2021
+ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702490"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420037"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1136,14 +1136,14 @@ bool(<value>)
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| `true` 또는 `false` | 부울 | 지정 된 값의 부울 버전입니다. |
+| `true` 또는 `false` | Boolean | 지정 된 값의 부울 버전입니다. |
 ||||
 
 *출력*
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | Type | 반환 값 |
+| 입력 값 | 유형 | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -3962,7 +3962,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | No | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]
@@ -4708,16 +4708,22 @@ workflow().<property>
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p>워크플로 개체는 다음 속성을 갖습니다. **name**, **type**, **id**, **location** 및 **run**. **run** 속성 값은 다음 속성을 갖는 개체이기도 합니다. **name**, **type** 및 **id**. |
+| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p><p>기본적으로 워크플로 개체에는,,,, `name` `type` `id` `location` `run` 및 `tags` 속성이 있습니다. <p><p>- `run` 속성 값은, 및 속성을 포함 하는 JSON 개체 `name` 입니다 `type` `id` . <p><p>- `tags` 속성은 [Azure Logic Apps에서 논리 앱과 연결 된 태그](../azure-resource-manager/management/tag-resources.md) 를 포함 하는 JSON 개체 또는 전원 자동화의 흐름 및 해당 태그에 대 한 값입니다. Azure 리소스의 태그에 대 한 자세한 내용은 [azure의 논리적 조직에 대 한 태그 리소스, 리소스 그룹 및 구독](../azure-resource-manager/management/tag-resources.md)을 검토 하세요. <p><p>**참고**: 기본적으로 논리 앱에는 태그가 없지만 전원 자동화 흐름에는 `flowDisplayName` 및 `environmentName` 태그가 있습니다. |
 |||||
 
-*예제*
+*예제 1*
 
 이 예제는 워크플로의 현재 실행에 대한 이름을 반환합니다.
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*예제 2*
+
+전원 자동화를 사용 하 `@workflow()` 는 경우 출력 속성을 사용 하 여 `tags` 흐름의 또는 속성에서 값을 가져오는 식을 만들 수 `flowDisplayName` 있습니다 `environmentName` .
+
+예를 들어 흐름에 다시 연결 되는 흐름 자체에서 사용자 지정 전자 메일 알림을 보낼 수 있습니다. 이러한 알림에는 전자 메일 제목의 흐름 표시 이름을 포함 하는 HTML 링크를 포함할 수 있으며 다음 구문을 따릅니다.
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

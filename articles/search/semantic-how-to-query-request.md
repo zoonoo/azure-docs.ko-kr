@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232745"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418881"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Cognitive Search에서 의미 체계 쿼리 만들기
 
@@ -141,7 +141,7 @@ SearchFields의 순서는 중요 합니다. 기존 단순 또는 전체 Lucene �
 
 + 이러한 필드는 문서의 주요 내용과 같이 의미 체계 쿼리에 대 한 대답이 검색 될 수 있는 설명 필드에 따라 수행 합니다.
 
-필드를 하나만 지정 하는 경우에는 문서의 주요 내용과 같이 의미 체계 쿼리에 대 한 대답이 검색 될 수 있는 설명 필드를 사용 합니다. 충분 한 내용이 제공 되는 필드를 선택 합니다. 시기 적절 하 게 처리할 수 있도록 searchFields의 집합적 내용에 대 한 첫 2만 토큰만 의미 체계 평가와 순위를 갖습니다.
+필드를 하나만 지정 하는 경우에는 문서의 주요 내용과 같이 의미 체계 쿼리에 대 한 대답이 검색 될 수 있는 설명 필드를 사용 합니다. 충분 한 내용이 제공 되는 필드를 선택 합니다. 시기 적절 하 게 처리 하기 위해 searchFields의 집합적 내용에 대 한 약 8000 토큰은 의미 체계 평가 및 순위를 거칩니다.
 
 #### <a name="step-3-remove-orderby-clauses"></a>3 단계: orderBy 절 제거
 

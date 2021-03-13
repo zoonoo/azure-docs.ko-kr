@@ -3,12 +3,12 @@ title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197778"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419850"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -57,11 +57,11 @@ ms.locfileid: "102197778"
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울, 문자열 또는 배열일 수 있습니다.
 * values-키와 비교할 값입니다.
 
-## <a name="key"></a>키
+## <a name="key"></a>Key
 키는 필터링에 사용 중인 이벤트 데이터의 필드입니다. 다음 유형 중 하나일 수 있습니다.
 
 - 숫자
-- 부울
+- Boolean
 - String
 - Array입니다. `enableAdvancedFilteringOnArrays`이 기능을 사용 하려면 속성을 true로 설정 해야 합니다. 현재 Azure Portal이 기능 사용을 지원 하지 않습니다. 
 
@@ -355,6 +355,7 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
+이 연산자의 현재 제한 사항에 대 한 [제한](#limitations) 섹션을 참조 하세요.
 
 ## <a name="stringbeginswith"></a>StringBeginsWith
 **StringBeginsWith** 연산자는 **키** 값이 지정 된 **필터** 값 **으로 시작** 하는 경우 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 또는로 시작 하는지 여부를 확인 합니다 `event` `grid` . 예를 들어는 `event hubs` 로 시작 `event` 합니다.  
@@ -634,6 +635,7 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 * 5 이벤트 그리드 구독 당 모든 필터의 고급 필터 및 25 필터 값
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
+* `StringNotContains`현재이 연산자는 포털에서 사용할 수 없습니다.
 * 문자에 **`.` (점)** 이 있는 키입니다. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재는 키에 이스케이프 문자를 사용할 수 없습니다. 
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.

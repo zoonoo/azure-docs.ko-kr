@@ -3,12 +3,12 @@ title: Azure Resource Manager 템플릿에 대 한 Bicep 언어
 description: Azure Resource Manager 템플릿을 통해 Azure에 인프라를 배포 하기 위한 Bicep 언어에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232973"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419833"
 ---
 # <a name="what-is-bicep-preview"></a>Bicep (미리 보기) 란?
 
@@ -24,7 +24,7 @@ Bicep를 시작 하려면 [도구를 설치](https://github.com/Azure/bicep/blob
 
 동등한 JSON 및 Bicep 파일을 나란히 보려면 [Bicep](https://aka.ms/bicepdemo)를 참조 하세요.
 
-Bicep로 변환 하려는 기존 ARM 템플릿이 있는 경우 [Bicep에 JSON 디컴파일](compare-template-syntax.md#decompile-json-to-bicep)를 참조 하세요.
+Bicep로 변환 하려는 기존 ARM 템플릿이 있는 경우 [JSON과 Bicep 간에 ARM 템플릿 변환](bicep-decompile.md)을 참조 하세요.
 
 ## <a name="bicep-improvements"></a>Bicep 향상
 
@@ -89,7 +89,7 @@ Bicep는 Azure에 전체 솔루션을 배포 하는 데 초점을 맞춘 DSL입�
 
 계속 해 서 항상 그대로 작동 합니다. 변경할 필요가 없습니다. 기본 ARM 템플릿 JSON 언어를 계속 지원 합니다. Bicep 파일은 JSON으로 컴파일되고 JSON은 배포를 위해 Azure에 전송 됩니다.
 
-준비가 되 면 [JSON 파일을 Bicep로 변환할](compare-template-syntax.md#decompile-json-to-bicep)수 있습니다.
+준비가 되 면 [JSON 파일을 Bicep로 변환할](bicep-decompile.md)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,26 +2,24 @@
 title: 'Azure Synapse Analytics에 SQL Server: 마이그레이션 가이드'
 description: 이 가이드에 따라 SQL 데이터베이스를 Azure Synapse Analytics SQL 풀로 마이그레이션합니다.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 09914b409c7d8412f6ba30d4412e28e264bd50f6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 9a7888d3ccf7e033f15f184227c65c746780aa12
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225790"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418031"
 ---
 # <a name="migration-guide-sql-server-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>마이그레이션 가이드: Azure Synapse Analytics에서 전용 SQL 풀로 SQL Server 
 다음 섹션에서는 기존 SQL Server 데이터 웨어하우스 솔루션을 Azure Synapse Analytics SQL 풀로 마이그레이션하는 것과 관련 된 작업에 대 한 개요를 제공 합니다.
 
 ## <a name="overview"></a>개요
-마이그레이션하기 전에 Azure Synapse Analytics가 작업에 가장 적합 한 솔루션 인지 확인 해야 합니다. Azure Synapse Analytics는 대량 데이터에 대 한 분석을 수행 하도록 설계 된 분산 시스템입니다. Azure Synapse Analytics로 마이그레이션하려면 이해 하기 어려운 몇 가지 디자인 변경이 필요 하지만이를 구현 하는 데 다소 시간이 걸릴 수 있습니다. 비즈니스에 엔터프라이즈 수준의 데이터 웨어하우스가 필요한 경우 충분한 혜택을 얻을 수 있습니다. 그러나 Azure Synapse Analytics의 기능이 필요 하지 않은 경우 [SQL Server](https://docs.microsoft.com/sql/sql-server/) 또는 [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/)를 사용 하는 것이 더 비용 효율적입니다.
+마이그레이션하기 전에 Azure Synapse Analytics가 작업에 가장 적합 한 솔루션 인지 확인 해야 합니다. Azure Synapse Analytics는 대량 데이터에 대 한 분석을 수행 하도록 설계 된 분산 시스템입니다. Azure Synapse Analytics로 마이그레이션하려면 이해 하기 어려운 몇 가지 디자인 변경이 필요 하지만이를 구현 하는 데 다소 시간이 걸릴 수 있습니다. 비즈니스에 엔터프라이즈 수준의 데이터 웨어하우스가 필요한 경우 충분한 혜택을 얻을 수 있습니다. 그러나 Azure Synapse Analytics의 기능이 필요 하지 않은 경우 [SQL Server](/sql/sql-server/) 또는 [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)를 사용 하는 것이 더 비용 효율적입니다.
 
 다음을 수행 하는 경우 Azure Synapse Analytics를 사용 하십시오.
 - 하나 이상의 Tb의 데이터를 포함 합니다.
@@ -36,7 +34,7 @@ Azure Synapse Analytics 대신 다음과 같은 작업 (OLTP) 워크 로드에 �
 - 행 단위 처리에 필요 합니다.
 - 호환 되지 않는 형식 (JSON, XML)입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 SQL Server를 Azure Synapse Analytics로 마이그레이션하려면 다음과 같은 필수 구성 요소가 있는지 확인 합니다. 
 
 - 데이터 웨어하우스 또는 분석 워크 로드 
@@ -47,7 +45,7 @@ SQL Server를 Azure Synapse Analytics로 마이그레이션하려면 다음과 �
 기존 솔루션을 Azure Synapse Analytics로 마이그레이션하도록 결정 한 후에는 시작 하기 전에 마이그레이션을 계획 하는 것이 중요 합니다. 계획의 주요 목표는 데이터, 테이블 스키마 및 코드가 Azure Synapse Analytics와 호환 되는지 확인 하는 것입니다. 현재 시스템과 SQL Data Warehouse 사이에는 몇 가지 호환성 차이가 있으므로 해결 해야 합니다. 또한 많은 양의 데이터를 Azure로 마이그레이션하는 데 시간이 걸립니다. 신중한 계획은 데이터를 Azure로 가져오는 프로세스를 가속화 합니다. 계획의 또 다른 주요 목표는 솔루션이 Azure Synapse Analytics가 제공 하도록 설계 된 높은 쿼리 성능을 최대한 활용할 수 있도록 설계를 조정 하는 것입니다. 크기에 대 한 데이터 웨어하우스 디자인은 고유한 디자인 패턴을 도입 하므로 기존 방법이 항상 가장 적합 한 것은 아닙니다. 마이그레이션 후에는 일부 디자인을 조정할 수 있지만 이전에 프로세스를 변경 하면 나중에 시간을 절약할 수 있습니다.
 
 ## <a name="azure-synapse-pathway"></a>Azure Synapse 경로
-중요 한 차단 고객 중 하나는 한 시스템에서 다른 시스템으로 마이그레이션할 때 SQL 코드를 변환 하는 것입니다. [Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview)는 기존 데이터 웨어하우스의 코드 변환을 자동화하여 최신 데이터 웨어하우스 플랫폼으로 업그레이드하는 데 도움이 됩니다. 무료로 제공되며 직관적이고 사용이 간단한 도구로, 코드 변환을 자동화하여 Azure Synapse Analytics로 신속하게 마이그레이션할 수 있도록 합니다.
+중요 한 차단 고객 중 하나는 한 시스템에서 다른 시스템으로 마이그레이션할 때 SQL 코드를 변환 하는 것입니다. [Azure Synapse Pathway](/sql/tools/synapse-pathway/azure-synapse-pathway-overview)는 기존 데이터 웨어하우스의 코드 변환을 자동화하여 최신 데이터 웨어하우스 플랫폼으로 업그레이드하는 데 도움이 됩니다. 무료로 제공되며 직관적이고 사용이 간단한 도구로, 코드 변환을 자동화하여 Azure Synapse Analytics로 신속하게 마이그레이션할 수 있도록 합니다.
 
 ## <a name="migrate"></a>마이그레이션
 마이그레이션을 성공적으로 수행 하려면 테이블 스키마, 코드 및 데이터를 마이그레이션해야 합니다. 이러한 항목에 대 한 자세한 지침은 다음을 참조 하세요.

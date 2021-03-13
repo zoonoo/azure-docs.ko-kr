@@ -1,19 +1,19 @@
 ---
 title: Linux에 대 한 참조 Azure Policy 게스트 구성 기준
 description: Azure Policy 게스트 구성을 통해 구현 되는 Azure의 Linux 기준에 대 한 세부 정보입니다.
-ms.date: 02/26/2021
+ms.date: 03/12/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 20f589b02f2a43bb3feb954dc4eac2dd6a9c3925
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235030"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419867"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linux에 대 한 Azure Policy 게스트 구성 기준
 
-다음 문서에서는 **\[ Preview \] Linux 컴퓨터가 Azure 보안 기준 게스트 구성 정책 이니셔티브 감사에 대 한 요구 사항을 충족 해야** 하는 항목을 자세히 설명 합니다. 자세한 내용은 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 및 [Azure 보안 벤치 마크 (V2) 개요](../../../security/benchmarks/overview.md)를 참조 하세요.
+다음 문서에서는 **\[ Preview \] Linux 컴퓨터가 Azure 보안 기준 게스트 구성 정책 정의 감사에 대 한 요구 사항을 충족 해야** 하는 내용을 자세히 설명 합니다. 자세한 내용은 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 및 [Azure 보안 벤치 마크 (V2) 개요](../../../security/benchmarks/overview.md)를 참조 하세요.
 
 ## <a name="general-security-controls"></a>일반 보안 컨트롤
 

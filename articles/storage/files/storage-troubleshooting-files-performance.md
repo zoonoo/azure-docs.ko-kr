@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737633"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417674"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -39,7 +39,8 @@ ms.locfileid: "101737633"
     표준 파일 공유의 경우 요청이 제한 되는 경우 다음 응답 유형이 기록 됩니다.
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     프리미엄 파일 공유의 경우 요청이 제한 되는 경우 다음 응답 유형이 기록 됩니다.
 
@@ -244,7 +245,8 @@ I/o를 많이 사용 하는 워크 로드의 Azure 파일 공유에 액세스 �
     표준 파일 공유의 경우 다음 응답 유형을 선택 합니다.
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     프리미엄 파일 공유의 경우 다음 응답 유형을 선택 합니다.
 

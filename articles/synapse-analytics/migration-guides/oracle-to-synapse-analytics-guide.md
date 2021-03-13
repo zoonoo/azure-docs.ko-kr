@@ -2,19 +2,17 @@
 title: 'Oracle에서 Azure Synapse 분석: 마이그레이션 가이드'
 description: 다음 섹션에서는 기존 Oracle 데이터베이스 솔루션을 Azure Synapse Analytics로 마이그레이션하는 것과 관련 된 작업에 대 한 개요를 제공 합니다.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 6b5412b24ce6da3476e0c80f31fb07e3647fe5a2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: bcabb11d67e621ebd2449f2148a0a86ba32d27d9
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225793"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419204"
 ---
 # <a name="migration-guide-migrate-oracle-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>마이그레이션 가이드: Azure Synapse Analytics에서 Oracle 데이터 웨어하우스를 전용 SQL 풀로 마이그레이션
 다음 섹션에서는 기존 Oracle 데이터 웨어하우스 솔루션을 Azure Synapse Analytics로 마이그레이션하는 것과 관련 된 작업에 대 한 개요를 제공 합니다.
@@ -35,7 +33,7 @@ Azure Synapse Analytics 대신 다음과 같은 작업 (OLTP) 워크 로드에 �
 - 행 단위 처리에 필요 합니다.
 - 호환 되지 않는 형식 (JSON, XML)입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이션하려면 다음과 같은 필수 구성 요소가 있는지 확인 합니다. 
 
 - 데이터 웨어하우스 또는 분석 워크 로드 

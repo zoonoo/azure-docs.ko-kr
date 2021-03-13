@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/13/2019
+ms.date: 03/12/2021
 ms.author: kenwith
-ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0f8369c80a7a219b159f31aacb7d10a0dd009d00
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256088"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418677"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화
 
@@ -23,9 +23,9 @@ ms.locfileid: "99256088"
 
 Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용자 프로필을 만드는 데 필요한 모든 데이터를 azure AD에 포함 해야 합니다. 데이터를 사용할 수 있도록 하기 위해 온-프레미스 AD에서 Azure AD로 특성을 동기화 해야 하는 경우도 있습니다. Azure AD Connect는 특정 특성을 Azure AD에 자동으로 동기화 하지만 모든 특성은 자동으로 동기화 하지 않습니다. 또한 기본적으로 동기화 되는 일부 특성 (예: SAMAccountName)은 Microsoft Graph API를 사용 하 여 노출 되지 않을 수 있습니다. 이러한 경우 Azure AD Connect directory 확장 기능을 사용 하 여 특성을 Azure AD와 동기화 할 수 있습니다. 이렇게 하면 특성이 Microsoft Graph API 및 Azure AD 프로 비전 서비스에 표시 됩니다.
 
-프로 비전에 필요한 데이터가 Active Directory 있지만 위에 설명 된 이유 때문에 프로 비전에 사용할 수 없는 경우 다음 단계를 수행 합니다.
+프로 비전에 필요한 데이터가 Active Directory 이지만 위에서 설명한 이유 때문에 프로 비전에 사용할 수 없는 경우 Azure AD Connect 또는 PowerShell을 사용 하 여 확장 특성을 만들 수 있습니다. 
  
-## <a name="sync-an-attribute"></a>특성 동기화 
+## <a name="create-an-extension-attribute-using-azure-ad-connect"></a>Azure AD Connect를 사용 하 여 확장 특성 만들기
 
 1. Azure AD Connect 마법사를 열고 작업을 선택한 다음 **동기화 옵션 사용자 지정** 을 선택 합니다.
 
@@ -51,6 +51,33 @@ Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용�
 
 > [!NOTE]
 > **Managedby** 또는 **DN/DistinguishedName** 등의 온-프레미스 AD에서 참조 특성을 프로 비전 하는 기능은 현재 지원 되지 않습니다. [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory)에서이 기능을 요청할 수 있습니다. 
+
+## <a name="create-an-extension-attribute-using-powershell"></a>PowerShell을 사용 하 여 확장 특성 만들기
+PowerShell을 사용 하 여 사용자 지정 확장을 만들고 사용자에 게 값을 할당 합니다. 
+
+```
+#Connect to your Azure AD tenant   
+Connect-AzureAD
+
+#Create an application (you can instead use an existing application if you would like)
+$App = New-AzureADApplication -DisplayName “test app name” -IdentifierUris https://testapp
+
+#Create a service principal
+New-AzureADServicePrincipal -AppId $App.AppId
+
+#Create an extension property
+New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAttributeName” -DataType “String” -TargetObjects “User”
+
+#List users in your tenant to determine the objectid for your user
+Get-AzureADUser
+
+#Set a value for the extension property on the user. Replace the objectid with the id of the user and the extension name with the value from the previous step
+Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
+
+#Verify that the attribute was added correctly.
+Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandProperty ExtensionProperty
+
+```
 
 ## <a name="next-steps"></a>다음 단계
 

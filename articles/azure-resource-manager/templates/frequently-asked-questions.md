@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036143"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419408"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -100,7 +100,7 @@ ms.locfileid: "102036143"
 
 * **JSON 템플릿을 새 템플릿 언어로 변환 하는 도구를 제공 하나요?**
 
-  예. [Bicep로 JSON 디컴파일를](compare-template-syntax.md#decompile-json-to-bicep)참조 하세요.
+  예. [JSON과 Bicep 간에 ARM 템플릿 변환](bicep-decompile.md)을 참조 하세요.
 
 ## <a name="template-specs"></a>템플릿 사양
 

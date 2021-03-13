@@ -1,14 +1,14 @@
 ---
 title: 클라우드 솔루션 공급자 프로그램 고려 사항
 description: CSP 파트너의 경우 Azure 위임 리소스 관리를 통해 세분화된 권한을 사용하여 보안 및 제어 기능을 향상시킵니다.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8736cf913739f2bd16fb519aed98fd336f6876a5
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967159"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419391"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 및 클라우드 솔루션 공급자 프로그램
 

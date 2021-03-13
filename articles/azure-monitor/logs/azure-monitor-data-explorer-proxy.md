@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031126"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419425"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 리소스 간 쿼리 Azure 데이터 탐색기
 Azure Monitor는 Azure 데이터 탐색기, [Application Insights](../app/app-insights-overview.md)및 [Log Analytics](../logs/data-platform-logs.md)간의 서비스 간 쿼리를 지원 합니다. 그런 다음 Log Analytics/Application Insights 도구를 사용 하 여 Azure 데이터 탐색기 클러스터를 쿼리하고 서비스 간 쿼리에서이를 참조할 수 있습니다. 이 문서에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.
@@ -37,6 +37,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* 데이터베이스 이름은 대/소문자를 구분 합니다.
 >* 경고로 서의 리소스 간 쿼리는 지원 되지 않습니다.
+>* 클러스터에서 타임 스탬프 열을 식별 하는 것은 지원 되지 않습니다 Log Analytics 쿼리 API가 시간 필터를 따라 통과 하지 않습니다.
 
 ## <a name="combine-azure-data-explorer-cluster-tables-with-a-log-analytics-workspace"></a>Azure 데이터 탐색기 클러스터 테이블과 Log Analytics 작업 영역 결합
 

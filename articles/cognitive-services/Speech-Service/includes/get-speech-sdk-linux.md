@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2466b9b9b812ae9fb590a6678d840661c74f47bd
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135622"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103439067"
 ---
 :::row:::
     :::column span="3":::
-        Speech SDK는 Linux에서 사용할 때 다음 대상 아키텍처에서 **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** 및 **CentOS 7/8** 만 지원 합니다.
+        Speech SDK는 Linux에서 사용할 때 다음 대상 아키텍처에서 **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8** 및 **CentOS 7/8** 만 지원 합니다.
     :::column-end:::
     :::column:::
         <br>
@@ -30,6 +30,9 @@ ms.locfileid: "93135622"
 
 > [!IMPORTANT]
 > Linux ARM64 c #의 경우 .NET Core 3.x (dotnet-3.x 패키지)가 필요 합니다.
+
+> [!NOTE]
+> 알파인 Linux에서 Speech SDK를 사용 하려면의 알파인 Linux Wiki에 설명 된 대로 Debian chroot 환경을 만든 [https://wiki.alpinelinux.org/wiki/Running_glibc_programs](running glibc programs) 후 여기의 Debian 지침을 따르세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 

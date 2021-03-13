@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: e013765579fd560952172166b24f898b354c1d17
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 195e8fefbf0dbf3ff55e1bd4d043de772000248b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103021668"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103439299"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -26,7 +26,6 @@ ms.locfileid: "103021668"
 > 이 문서에서는 통화 클라이언트 라이브러리 1.0.0-beta.6 버전을 사용합니다.
 
 `npm install` 명령을 사용하여 JavaScript용 Azure Communication Services Calling and Common 클라이언트 라이브러리를 설치합니다.
-이 문서는 통화 라이브러리 1.0.0-beta. 5 버전의 형식을 참조합니다.
 
 ```console
 npm install @azure/communication-common --save

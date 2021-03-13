@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: b7418825b4f22bfe4fe1941cb1f70ffb9f0a939b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609212"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417810"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
@@ -46,6 +46,8 @@ Nvidia NVLink Interconnect: 지원 됨<br>
 Windows 또는 Linux를 실행 하는 Azure NCasT4_v3 시리즈 Vm의 GPU 기능을 활용 하려면 Nvidia GPU 드라이버를 설치 해야 합니다.
 
 Nvidia GPU 드라이버를 수동으로 설치 하려면 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 [Windows 용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 를 참조 하세요.
+
+Azure Nvidia GPU 드라이버 확장은 NCasT4_v3 시리즈 Vm에 verda 드라이버를 배포 합니다. 그래픽 및 시각화 워크 로드의 경우 Azure에서 지원 되는 그리드 드라이버를 수동으로 설치 합니다.
 
 ## <a name="other-sizes"></a>기타 크기
 

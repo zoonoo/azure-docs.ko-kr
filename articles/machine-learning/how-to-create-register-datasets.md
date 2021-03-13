@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522192"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417640"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -35,7 +35,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -174,17 +174,63 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
 
+## <a name="wrangle-data"></a>Wrangle 데이터
+데이터 집합을 만들고 [등록](#register-datasets) 한 후 모델 학습 전에 데이터 랭 글 링 및 [탐색](#explore-data) 을 위해 노트북에 로드할 수 있습니다. 
+
+데이터 랭 글 링 또는 탐색을 수행할 필요가 없는 경우 데이터 [집합을 사용 하 여 학습](how-to-train-with-datasets.md)에서 ML 실험을 제출 하기 위해 학습 스크립트에서 데이터 집합을 사용 하는 방법을 참조 하세요.
+
+### <a name="filter-datasets-preview"></a>데이터 집합 필터링 (미리 보기)
+필터링 기능은 보유 하 고 있는 데이터 집합의 형식에 따라 달라 집니다. 
+> [!IMPORTANT]
+> 공개 미리 보기 방법으로 데이터 집합을 필터링 하는 [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) 것은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
+> 
+**TabularDatasets의** 경우 [keep_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) 및 [drop_columns ()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) 메서드를 사용 하 여 열을 유지 하거나 제거할 수 있습니다.
+
+TabularDataset의 특정 열 값을 기준으로 행을 필터링 하려면 [filter ()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) 메서드 (미리 보기)를 사용 합니다. 
+
+다음 예에서는 지정 된 식에 따라 등록 되지 않은 데이터 집합을 반환 합니다.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**FileDatasets에서** 각 행은 파일 경로에 해당 하므로 열 값을 기준으로 필터링 하는 것은 유용 하지 않습니다. 하지만, CreationTime, 크기 등의 메타 데이터를 기준으로 행을 [필터링 ()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) 할 수 있습니다.
+
+다음 예에서는 지정 된 식에 따라 등록 되지 않은 데이터 집합을 반환 합니다.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+[데이터 레이블 지정 프로젝트](how-to-create-labeling-projects.md) 에서 만든 **레이블이 지정** 된 데이터 집합은 특별 한 경우입니다. 이러한 데이터 집합은 이미지 파일로 구성 된 TabularDataset 형식입니다. 이러한 유형의 데이터 집합에서는 및와 같은 열 값을 통해 메타 데이터를 기준으로 이미지를 [필터링](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) 할 수 있습니다 `label` `image_details` .
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>데이터 탐색
 
-데이터 집합을 만들고 [등록](#register-datasets) 한 후 모델 학습 전에 데이터 탐색을 위해 전자 필기장에 로드할 수 있습니다. 데이터 탐색을 수행할 필요가 없는 경우 데이터 [집합을 사용 하 여 학습](how-to-train-with-datasets.md)에서 ML 실험을 제출 하기 위해 학습 스크립트에서 데이터 집합을 사용 하는 방법을 참조 하세요.
+데이터 랭 글 링을 완료 한 후 데이터 집합을 [등록](#register-datasets) 한 다음 모델 학습 전에 데이터 탐색을 위해 노트북에 로드할 수 있습니다.
 
 FileDatasets의 경우 데이터 집합을 **탑재** 하거나 **다운로드** 하 고 데이터 탐색에 일반적으로 사용 하는 python 라이브러리를 적용할 수 있습니다. [Mount vs 다운로드에 대해 자세히 알아보세요](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -208,11 +254,11 @@ TabularDatasets의 경우 메서드를 사용 [`to_pandas_dataframe()`](/python/
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 데이터 집합 만들기
 
-에는 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) 데이터 집합을 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
+에는 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) 데이터 집합을 만드는 데 사용할 수 있는 많은 템플릿이 있습니다.
 
 이러한 템플릿 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: a008551ac6f149617feedd01e256b637f83e975d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235064"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418847"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 순위
 
@@ -30,9 +30,9 @@ ms.locfileid: "103235064"
 
 1. 각 문서에 대해 의미 체계 ranker는 searchFields 매개 변수의 필드를 순서 대로 평가 하 여 콘텐츠를 하나의 커다란 문자열로 통합 합니다.
 
-1. 그런 다음 전체 길이가 2만 토큰을 초과 하지 않도록 문자열을 잘라냅니다. 콘텐츠 필드 또는 merged_content 필드의 내용이 많은 문서를 포함 하는 매우 큰 문서를 사용 하는 경우 처음 2만 토큰만 사용 됩니다.
+1. 그런 다음 전체 길이가 8000 토큰을 초과 하지 않도록 문자열을 잘라냅니다. 내용 필드 또는 콘텐츠 페이지가 많은 merged_content 필드를 포함 하는 문서가 매우 큰 경우 토큰 제한 이후의 모든 항목은 무시 됩니다.
 
-1. 이제 각 50 문서는 최대 2만 토큰의 단일 긴 문자열로 표시 됩니다. 이 문자열은 요약 모델에 전송 됩니다. 요약 모델은 기계 판독값 이해력을 사용 하 여 콘텐츠를 요약 하거나 질문에 대답 하는 통로를 식별 하는 캡션 (및 답변)을 생성 합니다. 요약 모델의 출력은 최대 128 토큰에 해당 하는 더 적은 수의 문자열입니다.
+1. 이제 각 50 문서는 단일 긴 문자열로 표시 됩니다. 이 문자열은 요약 모델에 전송 됩니다. 요약 모델은 기계 판독값 이해력을 사용 하 여 콘텐츠를 요약 하거나 질문에 대답 하는 통로를 식별 하는 캡션 (및 답변)을 생성 합니다. 요약 모델의 출력은 최대 128 토큰에 해당 하는 더 적은 수의 문자열입니다.
 
 1. 작은 문자열은 문서의 캡션이 되며 큰 문자열에서 찾은 가장 관련성이 높은 통로를 나타냅니다. 그런 다음 50 개 이하의 캡션 집합을 순서 관련성으로 순위가 매겨집니다. 
 

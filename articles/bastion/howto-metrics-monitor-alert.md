@@ -6,14 +6,14 @@ services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: dc16b9007c381f1bb0dce9332243842d8d4af9cd
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202553"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417946"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure 방호의 모니터링 및 메트릭을 구성 하는 방법
 
@@ -72,7 +72,7 @@ Azure 방호의 CPU 사용률을 확인 하 고 각 요새 인스턴스에 걸�
 
 #### <a name="session-count"></a>세션 수
 
-각 세션 유형 (RDP 및 SSH)에서 집계 된 방호 인스턴스당 활성 세션 수를 볼 수 있습니다. 각 Azure 방호는 다양 한 활성 RDP 및 SSH 세션을 지원할 수 있습니다. 이 메트릭을 모니터링 하면 요새 서비스를 실행 하는 인스턴스 수를 조정 해야 하는지 여부를 이해 하는 데 도움이 됩니다. Azure 방호에서 지원할 수 있는 세션 수에 대 한 자세한 내용은 [Azure 방호 FAQ](bastion-faq.md)를 참조 하세요. 인스턴스 크기 조정을 지 원하는 요새 Sku에 대 한 자세한 내용은 [요새 Sku 정보](bastion-connect-vm-scale-set.md)를 참조 하세요.
+각 세션 유형 (RDP 및 SSH)에서 집계 된 방호 인스턴스당 활성 세션 수를 볼 수 있습니다. 각 Azure 방호는 다양 한 활성 RDP 및 SSH 세션을 지원할 수 있습니다. 이 메트릭을 모니터링 하면 요새 서비스를 실행 하는 인스턴스 수를 조정 해야 하는지 여부를 이해 하는 데 도움이 됩니다. Azure 방호에서 지원할 수 있는 세션 수에 대 한 자세한 내용은 [Azure 방호 FAQ](bastion-faq.md)를 참조 하세요.
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="세션 수를 보여 주는 스크린샷":::
 

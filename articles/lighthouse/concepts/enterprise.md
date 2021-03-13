@@ -1,32 +1,34 @@
 ---
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573018"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419357"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
-[Azure Lighthouse](../overview.md) 에 대 한 일반적인 시나리오는 고객의 azure AD (Azure Active Directory) 테 넌 트에서 리소스를 관리 하는 서비스 공급자입니다. 그러나 Azure Lighthouse의 기능을 사용 하 여 여러 Azure AD 테 넌 트를 사용 하는 엔터프라이즈 내에서 교차 테 넌 트 관리를 단순화할 수도 있습니다.
+[Azure Lighthouse](../overview.md) 에 대 한 일반적인 시나리오는 서비스 공급자가 고객에 게 속한 Azure Active Directory (Azure AD) 테 넌 트의 리소스를 관리 하는 경우입니다. Azure Lighthouse의 기능을 사용 하 여 여러 Azure AD 테 넌 트를 사용 하는 엔터프라이즈 내에서 교차 테 넌 트 관리를 단순화할 수도 있습니다.
 
 ## <a name="single-vs-multiple-tenants"></a>단일 및 다중 테넌트 비교
 
-대부분의 조직에서는 단일 Azure AD 테넌트를 사용하여 더 쉽게 관리할 수 있습니다. 모든 리소스가 한 테넌트 내에 있으면 해당 테넌트 내의 지정된 사용자, 사용자 그룹 또는 서비스 주체가 관리 작업을 중앙 집중식으로 수행할 수 있습니다. 가능한 경우에는 언제든지 하나의 테넌트만 조직에 사용하는 것이 좋습니다. 그러나 일부 조직에는 여러 Azure AD 테 넌 트가 있을 수 있습니다. 경우에 따라 가져오기가 수행 되 고 장기 테 넌 트 통합 전략이 아직 정의 되지 않은 경우 처럼 일시적인 상황이 발생할 수 있습니다. 다른 경우에는 조직에서 완전히 독립적인 자회사, 지리적 또는 법적 요구 사항 또는 기타 고려 사항으로 인해 지속적으로 여러 테 넌 트를 유지 해야 할 수도 있습니다.
+대부분의 조직에서는 단일 Azure AD 테넌트를 사용하여 더 쉽게 관리할 수 있습니다. 모든 리소스가 한 테넌트 내에 있으면 해당 테넌트 내의 지정된 사용자, 사용자 그룹 또는 서비스 주체가 관리 작업을 중앙 집중식으로 수행할 수 있습니다. 가능한 경우에는 언제든지 하나의 테넌트만 조직에 사용하는 것이 좋습니다.
+
+일부 조직에서는 여러 Azure AD 테 넌 트를 사용 해야 할 수 있습니다. 이는 가져오기가 수행 되 고 장기 테 넌 트 통합 전략이 아직 정의 되지 않은 경우 처럼 일시적인 상황 일 수 있습니다. 다른 경우에는 조직에서 완전히 독립적인 자회사, 지리적 또는 법적 요구 사항 또는 기타 고려 사항으로 인해 지속적으로 여러 테 넌 트를 유지 해야 할 수도 있습니다.
 
 다중 테 넌 트 아키텍처가 필요한 경우에는 Azure Lighthouse를 통해 관리 작업을 중앙 집중화 하 고 간소화할 수 있습니다. [Azure 위임 된 리소스 관리](azure-delegated-resource-management.md)를 사용 하 여 하나의 테 넌 트에 있는 사용자는 중앙 집중화 되 고 확장 가능한 방식으로 [교차 테 넌 트 관리 기능](cross-tenant-management-experience.md) 을 수행할 수 있습니다.
 
 ## <a name="tenant-management-architecture"></a>테넌트 관리 아키텍처
 
-엔터프라이즈에서 Azure Lighthouse를 사용 하려면 다른 테 넌 트에서 관리 작업을 수행 하는 사용자를 포함 하는 테 넌 트를 결정 해야 합니다. 즉, 다른 테 넌 트를 관리 하는 테 넌 트를 결정 해야 합니다.
+엔터프라이즈에서 Azure Lighthouse를 사용 하려면 다른 테 넌 트에서 관리 작업을 수행 하는 사용자를 포함 하는 테 넌 트를 결정 해야 합니다. 즉, 한 테 넌 트를 다른 테 넌 트에 대해 관리 하는 테 넌 트로 지정 해야 합니다.
 
-예를 들어 조직에 *테 넌 트 a* 를 호출 하는 단일 테 넌 트가 있다고 가정 합니다. 그러면 조직에서 *테 넌 트 B* 와 *테 넌 트 C* 를 획득 하 고 별도의 테 넌 트로 유지 관리 해야 하는 비즈니스 이유가 있습니다.
+예를 들어 조직에 *테 넌 트 a* 를 호출 하는 단일 테 넌 트가 있다고 가정 합니다. 그러면 조직에서 *테 넌 트 B* 와 *테 넌 트 C* 를 획득 하 고 별도의 테 넌 트로 유지 관리 해야 하는 비즈니스 이유가 있습니다. 그러나 동일한 사용자 집합에서 수행 하는 관리 작업을 사용 하 여 모든 작업에 대해 동일한 정책 정의, 백업 사례 및 보안 프로세스를 사용 하는 것이 좋습니다.
 
-조직에서는 모든 테넌트에서 동일한 정책 정의, 백업 사례 및 보안 프로세스를 사용하려고 합니다. 테 넌 트 A에는 이러한 작업을 담당 하는 사용자가 이미 포함 되어 있으므로 테 넌 트 B에서 구독을 등록 하 여 테 넌 트 A의 동일한 사용자가 해당 작업을 수행할 수 있습니다.
+테 넌 트 a에 해당 작업을 수행 하는 조직의 사용자가 이미 포함 되어 있기 때문에 테 넌 트 B 및 테 넌 트 C 내에서 구독을 등록할 수 있습니다. 그러면 테 넌 트 A의 동일한 사용자가 모든 테 넌 트에 대해 해당 작업을 수행할 수 있습니다.
 
 ![테 넌 트 A의 사용자를 보여 주는 다이어그램-테 넌 트 B 및 테 넌 트 C에서 리소스 관리](../media/enterprise-azure-lighthouse.jpg)
 
@@ -54,7 +56,7 @@ Azure Resource Manager 템플릿을 배포 하거나 Azure Marketplace에 게시
 
 예를 들어 위에서 설명한 예에서 테넌트 A는 서비스 공급자 테넌트(관리 테넌트)로 간주하고, 테넌트 B와 테넌트 C는 고객 테넌트로 간주할 수 있습니다.
 
-이 예에서 적절한 권한이 있는 테넌트 A 사용자는 Azure Portal의 **내 고객** 페이지에서 [위임된 리소스를 보고 관리](../how-to/view-manage-customers.md)할 수 있습니다. 마찬가지로 적절한 권한이 있는 테넌트 B 및 테넌트 C 사용자는 Azure Portal의 **서비스 공급자** 페이지에서 테넌트 A에 [위임된 리소스를 보고 관리](../how-to/view-manage-service-providers.md)할 수 있습니다.
+이 예의 경우 적절 한 권한이 있는 사용자는 테 넌 트가 Azure Portal의 **내 고객** 페이지에서 [위임 된 리소스를 보고 관리할](../how-to/view-manage-customers.md) 수 있습니다. 마찬가지로 적절한 권한이 있는 테넌트 B 및 테넌트 C 사용자는 Azure Portal의 **서비스 공급자** 페이지에서 테넌트 A에 [위임된 리소스를 보고 관리](../how-to/view-manage-service-providers.md)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

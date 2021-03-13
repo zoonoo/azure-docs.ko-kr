@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 8fd64023b9c07e8dd426b2b51916db4515a5405a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 866fe01e11ee53188cea6ea490304462acc1f6a2
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451509"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420003"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -48,7 +48,7 @@ order by run_id desc
 이 기능을 사용 하면 스냅숏을 수동으로 트리거하여 많은 수정 작업 전후에 데이터 웨어하우스의 복원 지점이 생성 될 수 있습니다. 이 기능을 사용 하면 복원 지점이 논리적으로 일치 하므로, 작업 중단 또는 빠른 복구 시간에 대 한 사용자 오류 발생 시 추가 데이터 보호를 제공 합니다. 사용자 정의 복원 지점은 7일 동안 사용할 수 있으며 자동으로 삭제됩니다. 사용자 정의 복원 지점의 보존 기간은 변경할 수 없습니다. 어떤 시점에서든 **42개의 사용자 정의 복원 지점** 만 지원되므로 다른 복원 지점을 만들기 전에 [삭제](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint)해야 합니다. 사용자 정의 복원 지점은 [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) 또는 Azure Portal을 통해 스냅샷을 트리거하여 만들 수 있습니다.
 
 > [!NOTE]
-> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원 된 후 전용 SQL 풀이 온라인 상태 이며 계산 비용을 절약 하기 위해 무기한 일시 중지할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원 된 후 전용 SQL 풀이 온라인 상태 이며 계산 비용을 절약 하기 위해 무기한 일시 중지할 수 있습니다. 일시 중지 된 데이터베이스는 Azure Synapse 저장소 요금에서 저장소 요금을 발생 시킵니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
 
 ### <a name="restore-point-retention"></a>복원 지점 보존
 

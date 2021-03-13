@@ -1,14 +1,14 @@
 ---
 title: 권장 보안 방법
 description: Azure Lighthouse를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843726"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419306"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "94843726"
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |유형  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
@@ -47,5 +47,6 @@ ms.locfileid: "94843726"
 
 ## <a name="next-steps"></a>다음 단계
 
+- [보안 기준 정보](../security-baseline.md) 를 검토 하 여 Azure 보안 벤치 마크의 지침이 azure Lighthouse에 적용 되는 방식을 이해 합니다.
 - [AZURE AD Multi-Factor Authentication를 배포](../../active-directory/authentication/howto-mfa-getstarted.md)합니다.
 - [테넌트 간 관리 환경](cross-tenant-management-experience.md)에 대해 알아봅니다.

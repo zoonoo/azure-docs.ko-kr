@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806966"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418065"
 ---
 # <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
@@ -46,7 +46,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 >[!IMPORTANT]
 > 부하 분산 장치 및 공용 IP 리소스에 대해 일치 하는 Sku가 필요 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
-### <a name="standard"></a>Standard
+### <a name="standard"></a>표준
 
 표준 SKU 공용 IP 주소:
 
@@ -54,7 +54,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 - 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
 - 기본적으로 안전 하 게 보호 하 고 인바운드 트래픽에 대해 닫힘. [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups)을 사용 하 여 인바운드 트래픽 나열을 허용 합니다.
 - 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 부하 분산 장치에 대 한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
-- 영역 중복 (모든 3 개 영역에서 advertized), 영역 (특정 미리 선택 된 가용성 영역에서 보장) 또는 영역 없음 (미리 선택 된 특정 가용성 영역에 연결 되지 않음)이 될 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](../availability-zones/az-region.md) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
+- 영역 중복 (모든 3 개 영역에서 알림), 영역 (특정 사전 선택 된 가용성 영역에서 보장) 또는 영역 없음 (미리 선택 된 특정 가용성 영역에 연결 되지 않음)이 될 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](../availability-zones/az-region.md) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
 - [영역 간 부하 분산 장치](../load-balancer/cross-region-overview.md) (미리 보기 기능)의 애니캐스트 프런트 엔드 ip로 사용할 수 있습니다.
  
 > [!NOTE]
@@ -66,7 +66,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 > [!NOTE]
 > 표준 SKU 공용 IP 주소를 사용 하는 경우 리소스 블레이드에서 진단 설정이 표시 되지 않습니다. 표준 공용 IP 주소 리소스에 대 한 로깅을 사용 하도록 설정 하려면 Azure Monitor 블레이드에서 진단 설정으로 이동 하 고 IP 주소 리소스를 선택 합니다.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>기본
 
 SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주소입니다. 
 
@@ -162,14 +162,17 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 * Azure 가상 네트워크
 * 온-프레미스 네트워크 
 
-공용 IP 주소는 원격 네트워크와의 통신을 사용 하기 위해 VPN Gateway에 할당 됩니다. VPN Gateway에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
+공용 IP 주소는 원격 네트워크와의 통신을 사용 하기 위해 VPN Gateway에 할당 됩니다. 
+
+* VPNGw 1-5 SKU 프런트 엔드 구성에 **동적** 기본 공용 IP를 할당 합니다.
+* VPNGwAZ 1-5 SKU 프런트 엔드 구성에 **정적** 표준 공용 IP 주소를 할당 합니다.
 
 ## <a name="application-gateways"></a>애플리케이션 게이트웨이
 
 공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway** 와 연결할 수 있습니다. 
 
 * 응용 프로그램 게이트웨이 V1 프런트 엔드 구성에 **동적** 기본 공용 IP를 할당 합니다. 
-* V2 프런트 엔드 구성에 **정적** 표준 SKU 주소를 할당 합니다.
+* V2 프런트 엔드 구성에 **정적** 표준 공용 IP 주소를 할당 합니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 

@@ -2,13 +2,13 @@
 title: 템플릿 개요
 description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455738"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419986"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -19,6 +19,10 @@ ms.locfileid: "102455738"
 Azure 솔루션에 대 한 코드로 서의 인프라를 구현 하려면 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 
 ARM 템플릿을 개발 하기 위한 새로운 언어가 도입 되었습니다. 언어 이름은 Bicep 이며 현재 미리 보기 상태입니다. Bicep 및 JSON 템플릿은 동일한 기능을 제공 합니다. 두 언어 간에 템플릿을 변환할 수 있습니다. Bicep는 템플릿을 만드는 데 사용 하기 쉬운 구문을 제공 합니다. 자세한 내용은 [Bicep (미리 보기) 란?](bicep-overview.md)을 참조 하세요.
+
+ARM 템플릿을 사용 하 여 시작 하는 방법에 대 한 자세한 내용은 다음 비디오를 참조 하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>ARM 템플릿을 선택 해야 하는 이유
 

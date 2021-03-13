@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826538"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419289"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 인증 및 권한 부여 미리 보기
 
@@ -62,9 +62,9 @@ Azure Static Web Apps는 다음과 같은 공급자를 사용하여 인증을 �
 | Twitter                | 사용자 이름          |
 
 1. [Azure Portal](https://portal.azure.com)에서 Static Web Apps 리소스로 이동합니다.
-1. _설정_ 아래에서 **역할 관리**를 클릭합니다.
+1. _설정_ 아래에서 **역할 관리** 를 클릭합니다.
 1. **초대** 단추를 클릭합니다.
-1. 옵션 목록에서 _권한 부여 공급자_를 선택합니다.
+1. 옵션 목록에서 _권한 부여 공급자_ 를 선택합니다.
 1. _초대 대상자 정보_ 상자에 받는 사람의 사용자 이름 또는 이메일 주소를 추가합니다.
     - GitHub 및 Twitter의 경우 사용자 이름을 입력합니다. 다른 모든 경우에는 받는 사람의 이메일 주소를 입력합니다.
 1. _도메인_ 드롭다운에서 정적 사이트의 도메인을 선택합니다.
@@ -84,7 +84,7 @@ Azure Static Web Apps는 다음과 같은 공급자를 사용하여 인증을 �
 ### <a name="update-role-assignments"></a>역할 할당 업데이트
 
 1. [Azure Portal](https://portal.azure.com)에서 Static Web Apps 리소스로 이동합니다.
-1. _설정_ 아래에서 **역할 관리**를 클릭합니다.
+1. _설정_ 아래에서 **역할 관리** 를 클릭합니다.
 1. 목록에서 사용자를 클릭합니다.
 1. _역할_ 상자에서 역할 목록을 편집합니다.
 1. **업데이트** 단추를 클릭합니다.
@@ -92,7 +92,7 @@ Azure Static Web Apps는 다음과 같은 공급자를 사용하여 인증을 �
 ### <a name="remove-user"></a>사용자 제거
 
 1. [Azure Portal](https://portal.azure.com)에서 Static Web Apps 리소스로 이동합니다.
-1. _설정_ 아래에서 **역할 관리**를 클릭합니다.
+1. _설정_ 아래에서 **역할 관리** 를 클릭합니다.
 1. 목록에서 사용자를 찾습니다.
 1. 사용자의 행에 대한 확인란을 선택합니다.
 1. **삭제** 단추를 클릭합니다.
@@ -145,19 +145,18 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
 
 둘 이상의 공급자를 지원하도록 선택한 경우에는 웹 사이트의 각 공급자별 링크를 노출해야 합니다.
 
-[경로 규칙](routes.md)을 사용하여 기본 공급자를 _/login_과 같은 친숙한 경로에 매핑할 수 있습니다.
+[경로 규칙](./configuration.md#routes)을 사용하여 기본 공급자를 _/login_ 과 같은 친숙한 경로에 매핑할 수 있습니다.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>사후 로그인 리디렉션
 
 사용자가 로그인한 후 특정 페이지로 돌아가도록 하려면 `post_login_redirect_uri` 쿼리 문자열 매개 변수에 URL을 제공합니다.
-
 
 ## <a name="logout"></a>Logout
 
@@ -167,12 +166,12 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
 <a href="/.auth/logout">Log out</a>
 ```
 
-[경로 규칙](routes.md)을 사용하여 _/logout_과 같은 친숙한 경로를 매핑할 수 있습니다.
+[경로 규칙](./configuration.md#routes)을 사용하여 _/logout_ 과 같은 친숙한 경로를 매핑할 수 있습니다.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

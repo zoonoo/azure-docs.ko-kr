@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620949"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439036"
 ---
 미리 보기로 제공 되는 동안 NFS에는 다음과 같은 제한 사항이 있습니다.
 
@@ -25,6 +25,7 @@ ms.locfileid: "96620949"
 - 프리미엄 계층에 대해서만 사용할 수 있습니다.
 - NFS 공유는 숫자 UID/GID만 허용 합니다. 클라이언트에서 영숫자 UID/GID를 전송 하지 않도록 하려면 ID 매핑을 사용 하지 않도록 설정 해야 합니다.
 - 개인 링크를 사용 하는 경우 개별 VM의 한 저장소 계정 에서만 공유를 탑재할 수 있습니다. 다른 저장소 계정에서 공유를 탑재 하려고 하면 실패 합니다.
+- 주 그룹에 할당 된 사용 권한을 사용 하는 것이 가장 좋습니다. 경우에 따라 사용자의 주 그룹이 아닌 그룹에 할당 된 사용 권한으로 인해 알려진 버그로 인해 액세스가 거부 될 수 있습니다.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>아직 지원 되지 않는 Azure Storage 기능
 
@@ -35,4 +36,4 @@ ms.locfileid: "96620949"
 - 스냅샷
 - 일시 삭제
 - 전체 암호화 전송 지원 (자세한 내용은 [NFS 보안](../articles/storage/files/storage-files-compare-protocols.md#security)참조)
-- Azure File Sync (NFS 4.1에서 지원 하지 않는 Windows 클라이언트에만 사용 가능)
+- Azure 파일 동기화 (NFS 4.1에서 지원 하지 않는 Windows 클라이언트에만 사용 가능)

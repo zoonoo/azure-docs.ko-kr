@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 67341fcc7be21e4fa62c6e52a921fe397c8ffeb6
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487987"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417623"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -37,23 +37,9 @@ ms.locfileid: "102487987"
 
 - 필요에 따라 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)합니다.
 
-## <a name="fqdns-in-use"></a>사용 중인 Fqdn
-### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>이러한 Fqdn은 eastus, southcentralus 및 westus2 지역에서 사용 중입니다.
-다음 목록에는 작업 영역에서 사용 되는 FQDN (정규화 된 도메인 이름)이 포함 되어 있습니다.
+## <a name="public-regions"></a>공용 지역
 
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* 계산 인스턴스를 만들 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP를 사용 하 여에 대 한 항목을 추가 해야 합니다.
-
-    > [!NOTE]
-    > 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
-    
-### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>이러한 Fqdn은 다른 모든 공용 지역에서 사용 됩니다.
-다음 목록에는 작업 영역에서 사용 되는 FQDN (정규화 된 도메인 이름)이 포함 되어 있습니다.
+다음 목록에는 공용 지역에 있는 경우 작업 영역에서 사용 되는 FQDN (정규화 된 도메인 이름)이 포함 되어 있습니다.
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -63,7 +49,7 @@ ms.locfileid: "102487987"
     > [!NOTE]
     > 계산 인스턴스는 가상 네트워크 내 에서만 액세스할 수 있습니다.
 
-### <a name="azure-china-21vianet-regions"></a>Azure 중국 21Vianet 지역
+## <a name="azure-china-21vianet-regions"></a>Azure 중국 21Vianet 지역
 
 Azure 중국 21Vianet 지역에 대 한 Fqdn은 다음과 같습니다.
 

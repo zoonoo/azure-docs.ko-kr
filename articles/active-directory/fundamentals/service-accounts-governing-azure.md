@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034545"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418184"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Azure AD 서비스 계정 관리
 
@@ -41,7 +41,7 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 | 위험 평가| 계정이 손상 된 경우의 위험 및 비즈니스 영향.| 이 정보를 사용 하 여 사용 권한 범위를 좁히고 계정 정보에 대 한 액세스 권한이 있는 사용자를 결정 합니다. |
 | 검토 기간| 소유자가 서비스 계정을 검토할 일정입니다.| 이를 사용 하 여 검토 통신 및 검토를 예약 합니다. 예약 된 검토 기간 이후에 특정 시간에 검토를 수행 하지 않은 경우 수행 해야 하는 작업을 문서화 합니다. |
 | 수명| 예상 최대 계정 수명.| 이를 사용 하 여 소유자에 대 한 통신을 예약 하 고 궁극적으로 계정을 사용 하지 않도록 설정한 다음 삭제 합니다. 가능 하면 자격 증명을 자동으로 롤백할 수 없는 자격 증명에 대 한 만료 날짜를 설정 합니다. |
-| 속성| 계정의 표준화 된 이름| 서비스 계정을 쉽게 검색, 정렬 및 필터링 할 수 있도록 모든 서비스 계정에 대 한 명명 스키마를 만듭니다. |
+| 이름| 계정의 표준화 된 이름| 서비스 계정을 쉽게 검색, 정렬 및 필터링 할 수 있도록 모든 서비스 계정에 대 한 명명 스키마를 만듭니다. |
 
 
 ## <a name="use-the-principle-of-least-privileges"></a>최소 권한의 원칙 사용
@@ -172,7 +172,7 @@ Microsoft의 free PowerShell 샘플은 서비스 주체의 OAuth2 권한 부여 
 
 **프로 비전 해제에 대 한 프로세스에는 다음 태스크가 포함 됩니다.**
 
-1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) 합니다.
+1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) 합니다.
 
    * 계정이 아직 활성 상태인 경우 후속 단계를 수행 하기 전에 해당 계정이 사용 되는 방법을 확인 합니다.
  
@@ -187,7 +187,7 @@ Azure 서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 �
 
 [Azure 서비스 계정 소개](service-accounts-introduction-azure.md)
 
-[관리 되는 id 보안](service-accounts-managed-identities.md)
+[관리 ID 보안](service-accounts-managed-identities.md)
 
 [서비스 원칙 보안](service-accounts-principal.md)
 

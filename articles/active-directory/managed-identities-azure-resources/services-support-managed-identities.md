@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7b9ae52a0d62da6a8637f63f15d8680b54aeefd1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688572"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418779"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -66,7 +66,7 @@ Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager 템플릿](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc를 지원하는 Kubernetes
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -74,6 +74,18 @@ Azure 앱 구성 (사용 가능한 경우 지역)에 대해 관리 되는 id를 
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes)합니다. 관리 서비스 id 인증서는 Azure와의 통신을 위해 모든 Azure Arc 사용 Kubernetes 에이전트에 사용 됩니다.
+
+### <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+모든 Azure Arc 사용 서버에는 시스템 할당 id가 있습니다. Azure Arc 사용 서버에서 시스템 할당 id를 사용 하지 않도록 설정 하거나 변경할 수 없습니다. Azure Arc 사용 서버에서 관리 되는 id를 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
+
+- [Arc 사용 서버를 사용 하 여 Azure 리소스에 대해 인증](../../azure-arc/servers/managed-identity-authentication.md)
+- [Arc 사용 서버에서 관리 되는 id 사용](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 

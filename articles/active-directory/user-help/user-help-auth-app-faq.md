@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547862"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418082"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -234,7 +234,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 1. Authenticator 앱을 엽니다.
 1. 앱 내의 **암호** 탭에서 **Microsoft에 로그인** 를 선택 하 고 [Microsoft 계정](https://account.microsoft.com/account)를 사용 하 여 로그인 합니다.
-1. 다음 작업 중 하나를 수행합니다.
+1. 다음 중 하나를 수행합니다.
 
    - IOS의 **설정** 에서 자동 채우기 설정 섹션에서 **자동 채우기 설정 방법** 을 선택 하 여 기본 자동 채우기 공급자로 인증자를 설정 하는 방법을 알아봅니다.
    - Android의 **설정** 에서 자동 채우기 설정 섹션에서 자동 **채우기 공급자로 설정** 을 선택 합니다.
@@ -260,7 +260,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 **Q**: 내 직원 또는 학생이 Authenticator 앱에서 암호 자동 채우기를 사용 하나요?
 
-**A**: 예, 자동 채우기는 회사 또는 학교 계정이 인증자 앱에 추가 된 경우에도 대부분의 엔터프라이즈 사용자에 대해 작동 합니다. 양식을 작성 하 여 조직에 대 한 자동 채우기를 구성 (허용 또는 거부) 하 고 [인증자 팀에 보낼](https://aka.ms/ConfigureAutofillInAuthenticator)수 있습니다.
+**A**: 예, [개인 Microsoft 계정](https://go.microsoft.com/fwlink/?linkid=2144423) 에 대 한 자동 채우기는 이제 회사 또는 학교 계정이 인증자 앱에 추가 된 경우에도 대부분의 엔터프라이즈 사용자에 대해 작동 합니다. 양식을 작성 하 여 조직에서 자동 채우기를 허용 하거나 거부 하 고 [인증자 팀에 보낼](https://aka.ms/ConfigureAutofillInAuthenticator)수 있습니다. 현재 회사 또는 학교 계정에 대해 자동 채우기를 사용할 수 없습니다.
 
 **Q**: 내 사용자의 회사 또는 학교 계정 암호를 자동으로 동기화 하나요?
 

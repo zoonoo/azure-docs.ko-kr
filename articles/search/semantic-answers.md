@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 1bccfa4d36ad39aec79a50c8a6b6c50260370223
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235076"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418898"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 의미 대답 반환
 
@@ -63,7 +63,7 @@ Cognitive Search은 컴퓨터 읽기 이해력 모델을 사용 하 여 답변�
 
 + 쿼리 문자열은 null이 아니어야 하며 질문으로 작성 해야 합니다. 이 미리 보기에서 "queryType" 및 "queryLanguage"는 예제와 같이 정확 하 게 설정 해야 합니다.
 
-+ "SearchFields" 매개 변수는 추출 모델에 토큰을 제공 하는 필드를 결정 합니다. 토큰 흡입구 중에는 최대 2만 토큰이 사용 되므로 간결한 필드를 사용 하 여 필드 목록을 시작한 다음 텍스트 서식 있는 필드로 진행 합니다. 이 필드를 설정 하는 방법에 대 한 정확한 지침은 [searchFields 설정](semantic-how-to-query-request.md#searchfields)을 참조 하세요.
++ "SearchFields" 매개 변수는 추출 모델에 토큰을 제공 하는 필드를 결정 합니다. 이 매개 변수를 설정 해야 합니다. 문자열 필드가 하나 이상 있어야 하지만 답변을 제공 하는 데 유용 하다 고 생각 되는 문자열 필드를 포함 해야 합니다. 문서당 8000 토큰은 모델에 전달 됩니다. 간결한 필드를 사용 하 여 필드 목록을 시작한 다음 텍스트 서식 있는 필드로 진행 합니다. 이 필드를 설정 하는 방법에 대 한 정확한 지침은 [searchFields 설정](semantic-how-to-query-request.md#searchfields)을 참조 하세요.
 
 + "답변"의 경우 기본 매개 변수 생성은 `"answers": "extractive"` 반환 되는 기본 답변 수가 1입니다. 개수를 최대 5 개까지 더하여 답변 수를 늘릴 수 있습니다.  둘 이상의 대답이 필요한 지 여부는 앱의 사용자 환경 및 결과를 렌더링 하는 방법에 따라 달라 집니다.
 

@@ -1,32 +1,32 @@
 ---
-title: Azure CLI를 사용 하 여 Apache Cassandra 리소스에 대 한 Azure Managed Instance 관리
+title: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 description: Azure CLI를 사용 하 여 Apache Cassandra에 대 한 Azure Managed Instance의 관리를 자동화 하는 일반적인 명령에 대해 알아봅니다.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 3cd5fdbf6cdc504a1290c8fbd80cf89cf85ce714
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68b1ca625b5c8bd7ec195b89de63485c542e6691
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745709"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419075"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Azure CLI를 사용 하 여 Apache Cassandra 리소스에 대 한 Azure Managed Instance 관리 (미리 보기)
 
 이 문서에서는 Azure CLI를 사용 하 여 Apache Cassandra 클러스터에 대 한 Azure Managed Instance의 관리를 자동화 하는 일반적인 명령을 설명 합니다.
 
 > [!IMPORTANT]
-> Apache Cassandra에 대 한 Azure Managed Instance는 현재 공개 미리 보기로 제공 됩니다.
+> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* 이 문서에서는 Azure CLI 버전 2.12.1 이상이 필요 합니다. Azure Cloud Shell를 사용 하는 경우 최신 버전이 이미 설치 되어 있습니다.
-
 > [!IMPORTANT]
+> 이 문서를 진행하려면 Azure CLI 버전 2.12.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+>
 > Apache Cassandra 리소스에 대 한 Azure Managed Instance 관리는 Azure Resource Manager 리소스 Uri와 함께 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
 
 ## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Apache Cassandra 클러스터에 대 한 Azure Managed Instance
@@ -40,7 +40,7 @@ ms.locfileid: "101745709"
 * [리소스 그룹별 클러스터 나열](#list-clusters-resource-group)
 * [구독 ID 별 클러스터 나열](#list-clusters-subscription)
 
-### <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>관리 되는 인스턴스 클러스터 만들기
+### <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>관리형 인스턴스 클러스터 만들기
 
 Apache Cassandra 클러스터에 대 한 Azure Managed Instance를 만듭니다.
 
@@ -218,5 +218,5 @@ az managed-cassandra datacenter list \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal에서 관리 되는 인스턴스 클러스터 만들기](create-cluster-portal.md)
-* [Azure Databricks를 사용 하 여 관리 되는 Apache Spark 클러스터 배포](deploy-cluster-databricks.md)
+* [Azure Portal에서 관리형 인스턴스 만들기](create-cluster-portal.md)
+* [Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포](deploy-cluster-databricks.md)

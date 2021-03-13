@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/12/2021
+ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175875"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418099"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -178,19 +178,21 @@ Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의
 
 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
 
-### <a name="cannot-connect-to-git-enterprise"></a>GIT Enterprise에 연결할 수 없음 
+### <a name="cannot-connect-to-git-enterprise-cloud"></a>GIT Enterprise Cloud에 연결할 수 없음 
 
 ##### <a name="issue"></a>문제
 
-권한 문제로 인해 GIT Enterprise에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
+권한 문제로 인해 GIT Enterprise Cloud에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
 
 #### <a name="cause"></a>원인
 
-ADF에 대해 Oauth를 구성 하지 않았습니다. URL이 잘못 구성 되었습니다.
+* 프레미스 서버에서 Git Enterprise를 사용 하 고 있습니다. 
+* ADF에 대해 Oauth를 구성 하지 않았습니다. 
+* URL이 잘못 구성 되었습니다.
 
 ##### <a name="resolution"></a>해결 방법
 
-먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. 구성을 고객 조직으로 설정 해야 합니다. 예를 들어 ADF는 먼저 시도 하 고 실패 *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> 합니다.* 그런 *https://hostname/api/v3/orgs/ <org> / <repo> 다음 시도 하* 고 성공 합니다. 
+먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. 구성을 고객 조직으로 설정 해야 합니다. 예를 들어 ADF는 처음 *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> 에 시도 하* 고 실패 합니다. 그런 *https://hostname/api/v3/orgs/ <org> / <repo> 다음 시도 하* 고 성공 합니다. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구
 
