@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751940"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224339"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
@@ -60,12 +60,34 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
     > [!TIP] 
     > 열 선택기를 사용 하는 데 문제가 있는 경우 팁에 대 한 [데이터 집합에서 열 선택](./select-columns-in-dataset.md) 문서를 참조 하세요. 여기에는 규칙 및 **이름** 옵션과 **함께** 를 사용 하기 위한 몇 가지 일반적인 시나리오와 팁이 설명 되어 있습니다.
   
-1.  파이프라인을 제출합니다. 데이터가 많은 경우 다소 시간이 걸릴 수 있습니다.
+1.  파이프라인을 제출합니다. 데이터가 많은 경우 시간이 오래 걸릴 수 있습니다.
 
     > [!IMPORTANT] 
     > 각 행의 ID 또는 너무 많은 고유 값이 포함 된 텍스트 열에 ID 열이 있는 경우 **학습 모델** 에는 "열에 있는 고유 값의 수" {column_name} "이 (가) 허용 되는 것 보다 큰 오류가 발생할 수 있습니다.
     >
     > 열이 고유 값의 임계값에 도달 하 여 메모리가 부족 해질 수 있기 때문입니다. [메타 데이터 편집](edit-metadata.md) 을 사용 하 여 해당 열을 **명확한 기능** 으로 표시 하 고 학습에 사용 되지 않으며 텍스트 모듈에서 텍스트 열을 전처리 하기 위해 [N-문법 기능을 추출할](extract-n-gram-features-from-text.md) 수 있습니다. 자세한 오류 정보는 [디자이너 오류 코드](././designer-error-codes.md) 를 참조 하세요.
+
+## <a name="model-interpretability"></a>모델 Interpretability
+
+모델 interpretability는 ML 모델을 이해 하 고, 사람이 이해할 수 있는 방식으로 의사 결정을 위한 기본 기반을 제공할 수 있는 가능성을 제공 합니다.
+
+현재 **학습 모델** 모듈에서는 [interpretability 패키지를 사용 하 여 ML 모델을 설명](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs)합니다. 다음 기본 제공 알고리즘이 지원 됩니다.
+
+- 선형 회귀
+- 신경망 회귀
+- 2클래스 로지스틱 회귀
+- 2클래스 Support Vector Machine
+- 다중 클래스 의사 결정 포리스트
+
+모델 학습 모듈의 모델 **설명** 드롭다운 목록에서 모델 설명을 생성 하려면 **True** 를 선택할 수 있습니다. **모델 학습** 모듈에서는 기본적으로 False로 설정 됩니다. 설명 생성에는 추가 계산 비용이 필요 합니다.
+
+![모델 설명 확인란을 보여 주는 스크린샷](./media/module/train-model-explanation-checkbox.png)
+
+파이프라인 실행이 완료 된 후 **모델 학습** 모듈의 오른쪽 창에 있는 **설명 탭을** 방문 하 여 모델 성능, 데이터 집합 및 기능 중요도를 살펴볼 수 있습니다.
+
+![모델 설명 차트를 보여 주는 스크린샷](./media/module/train-model-explanations-tab.gif)
+
+Azure Machine Learning에서 모델 설명을 사용 하는 방법에 대 한 자세한 내용은 [ML 모델 해석](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs)에 대 한 방법 문서를 참조 하세요.
 
 ## <a name="results"></a>결과
 

@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201267"
+ms.locfileid: "103224659"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -184,9 +184,11 @@ ms.locfileid: "103201267"
 
 Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 자동으로 수집 됩니다.
 
-로깅은 먼저 로깅 프레임 워크의 구성 된 임계값을 충족 하 고 두 번째는 구성 된 Application Insights 임계값을 충족 하는 경우에만 캡처됩니다.
+로깅은 먼저 로깅 프레임 워크에 대해 구성 된 수준을 충족 하는 경우에만 캡처되고, 두 번째는 Application Insights에 대해 구성 된 수준에도 부합 합니다.
 
-기본 Application Insights 임계값은 `INFO` 입니다. 이 수준을 변경 하려면 다음을 수행 합니다.
+예를 들어 로깅 프레임 워크가 `WARN` 패키지에서 (이상) 로그에 구성 되 `com.example` 고 Application Insights가 (이상) 캡처하도록 구성 된 경우 `INFO` Application Insights는 `WARN` 패키지에서 (이상)만 캡처합니다 `com.example` .
+
+Application Insights에 대해 구성 된 기본 수준은 `INFO` 입니다. 이 수준을 변경 하려면 다음을 수행 합니다.
 
 ```json
 {

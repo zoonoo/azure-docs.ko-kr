@@ -1,18 +1,23 @@
 ---
 title: 복사 작업 성능 및 확장성 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory에서 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387668"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616080"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 
@@ -48,8 +53,8 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 �
 
 이 아키텍처를 통해 사용자 환경에 대 한 데이터 이동 처리량을 최대화 하는 파이프라인을 개발할 수 있습니다. 이러한 파이프라인은 다음 리소스를 완벽 하 게 활용 합니다.
 
-* 네트워크 대역폭
-* 초당 저장소 입/출력 작업 (IOPS) 및 대역폭
+* 원본 및 대상 데이터 저장소 간의 네트워크 대역폭
+* 원본 또는 대상 데이터 저장소 IOPS (초당 입력/출력 작업 수) 및 대역폭
 
 이 전체 사용률을 통해 다음 리소스와 함께 사용할 수 있는 최소 처리량을 측정 하 여 전체 처리량을 예측할 수 있습니다.
 
@@ -57,14 +62,14 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 �
 * 대상 데이터 저장소
 * 원본 및 대상 데이터 저장소 간의 네트워크 대역폭
 
-아래 표에서는 복사 기간을 계산 합니다. 기간은 사용자 환경의 데이터 크기와 대역폭 제한을 기반으로 합니다.
+아래 표에서는 복사 기간을 계산 합니다. 기간은 데이터 크기 및 사용자 환경에 대 한 네트워크/데이터 저장소 대역폭 제한을 기반으로 합니다.
 
 &nbsp;
 
 | 데이터 크기/ <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
-| **1 GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
-| **10GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
+| **1GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
+| **10gb**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
 | **100GB**                  | 4.6 시간    | 2.3 시간   | 0.5 시간   | 0.2 시간  | 0.05 시간 | 0.02 시간 | 0.0 시간   |
 | **1TB**                    | 46.6 시간   | 23.3 시간  | 4.7 시간   | 2.3 시간  | 0.5 시간  | 0.2 시간  | 0.05 시간  |
 | **10TB**                   | 19.4 일  | 9.7 일  | 1.9 일  | 0.9 일 | 0.2 일 | 0.1 일 | 0.02 일 |

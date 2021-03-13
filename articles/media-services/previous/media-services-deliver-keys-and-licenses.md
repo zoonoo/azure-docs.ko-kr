@@ -3,7 +3,7 @@ title: Azure Media Services를 사용하여 DRM 라이선스 또는 AES 키 제�
 description: 이 문서에서는 Azure Media Services를 사용하여 PlayReady 및/또는 Widevine 라이선스 및 AES 키를 제공하지만 나머지 작업(인코드, 암호화, 스트림)에는 온-프레미스 서버를 사용하여 수행할 수 있는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: f6d014ced6e25f4c27e1d8ae7225069863e154b3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693643"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015882"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공
 

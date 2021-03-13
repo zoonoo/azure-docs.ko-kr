@@ -3,17 +3,18 @@ title: Azure PowerShell을 사용하여 Windows VM 만들기 및 암호화
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 만들고 암호화하는 방법을 배웁니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a50b62a7c6064672dfbf7d609b6053d7be6fdb77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4aed2ce182e535ebb60eae0007353c9c7bddef78
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89079492"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555264"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기 및 암호화
 
@@ -47,7 +48,7 @@ VM 배포에는 몇 분 정도 걸립니다.
 Azure Disk Encryption은 Azure Key Vault에 암호화 키를 저장합니다. [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Key Vault를 만듭니다. Key Vault를 사용하여 암호화 키를 저장하려면 -EnabledForDiskEncryption 매개 변수를 사용합니다.
 
 > [!Important]
-> 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 이름이 *myKV*인 Key Vault를 만들지만 원하는 이름을 지정해야 합니다.
+> 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 이름이 *myKV* 인 Key Vault를 만들지만 원하는 이름을 지정해야 합니다.
 
 ```powershell
 New-AzKeyvault -name MyKV -ResourceGroupName myResourceGroup -Location EastUS -EnabledForDiskEncryption

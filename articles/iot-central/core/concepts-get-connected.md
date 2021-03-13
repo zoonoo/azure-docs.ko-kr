@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032639"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015458"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -178,7 +178,7 @@ IoT Central 응용 프로그램으로 많은 수의 장치를 등록 하려면 C
 
 ## <a name="associate-a-device-with-a-device-template"></a>장치 템플릿과 장치 연결
 
-장치를 연결할 때 장치가 장치 템플릿에 자동으로 연결 IoT Central. 장치는 연결 될 때 [모델 ID](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) 를 보냅니다. IoT Central는 모델 ID를 사용 하 여 특정 장치 모델에 대 한 장치 템플릿을 식별 합니다. 검색 프로세스는 다음과 같이 작동 합니다.
+장치를 연결할 때 장치가 장치 템플릿에 자동으로 연결 IoT Central. 장치는 연결 될 때 [모델 ID](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) 를 보냅니다. IoT Central는 모델 ID를 사용 하 여 특정 장치 모델에 대 한 장치 템플릿을 식별 합니다. 검색 프로세스는 다음과 같이 작동 합니다.
 
 1. 장치 템플릿이 IoT Central 응용 프로그램에 이미 게시 된 경우 장치는 장치 템플릿과 연결 됩니다.
 1. 장치 템플릿이 IoT Central 응용 프로그램에 아직 게시 되지 않은 경우 IoT Central는 [공용 모델 리포지토리에서](https://github.com/Azure/iot-plugandplay-models)장치 모델을 찾습니다. IoT Central 모델을 찾은 경우이 모델을 사용 하 여 기본 장치 템플릿을 생성 합니다.

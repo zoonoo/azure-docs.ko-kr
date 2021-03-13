@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7e8d1b13dfd802df820bea4015e411dbb85540ba
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011428"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232208"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 답변 받기
 
@@ -174,9 +174,13 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다.
 
-## <a name="return-precise-answers"></a>정확한 답변 반환
+## <a name="get-precise-answers-with-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 정확한 답변 받기
 
-### <a name="generate-answer-api"></a>응답 API 생성 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
+QnA Maker 관리 버전 에서만 정확한 답변 기능을 제공 합니다.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 사용자는 관리 되는 QnA Maker 리소스를 사용할 때 [정확한 답변](../reference-precise-answering.md) 을 사용할 수 있습니다. AnswerSpanRequest 매개 변수는 동일한에 대해 업데이트 되어야 합니다.
 
@@ -211,6 +215,8 @@ Bot service에 대 한 정확한 응답 설정을 구성 하려면 bot App servi
 |정확한 답변만|true|true|
 |긴 대답|false|false|
 |길고 정확한 답변 모두|true|false|
+
+---
 
 ## <a name="common-http-errors"></a>일반 HTTP 오류
 

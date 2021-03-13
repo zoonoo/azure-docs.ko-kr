@@ -8,14 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fc7b6b480056b56a2776cebd0fa87a5b96f9f0
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79471288"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201663"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Kubernetes에 IoT Edge를 설치 하는 방법 (미리 보기)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge를 사용 하 여 복원 력이 높은 고가용성 인프라 계층으로 사용 하는 Kubernetes와 통합할 수 있습니다. 다음은이 지원이 높은 수준의 IoT Edge 솔루션에 적합 한 위치입니다.
 

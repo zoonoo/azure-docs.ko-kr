@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720803"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200026"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
@@ -60,7 +60,9 @@ ms.locfileid: "101720803"
 | 프랑스 중부 | 40.79.137.0, 40.79.129.1  | | |
 | 프랑스 남부 | 40.79.177.0     | | |
 | 독일 중부 | 51.4.144.100     | | |
+| 독일 북부 | 51.116.56.0 | |
 | 독일 북동부 | 51.5.144.179  | | |
+| 독일 중서부 | 51.116.152.0 | |
 | 인도 중부 | 104.211.96.159     | | |
 | 인도 남부 | 104.211.224.146  | | |
 | 인도 서부 | 104.211.160.80    | | |
@@ -74,6 +76,8 @@ ms.locfileid: "101720803"
 | 남아프리카 공화국 서부 | 102.133.24.0   | | |
 | 미국 중남부 |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | 동남아시아 | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| 스위스 북부 | 51.107.56.0 ||
+| 스위스 서부 | 51.107.152.0| ||
 | 아랍에미리트 중부 | 20.37.72.64  | | |
 | 아랍에미리트 북부 | 65.52.248.0    | | |
 | 영국 남부 | 51.140.184.11   | | |
@@ -83,6 +87,37 @@ ms.locfileid: "101720803"
 | 미국 서부 |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | 미국 서부 2 | 13.66.226.202  | | |
 ||||
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>이 계획 된 유지 관리에 대해 알아야 할 사항은 무엇 인가요?
+이는 클라이언트에 투명 하 게 만드는 DNS 변경 내용입니다. DNS 서버에서 FQDN의 IP 주소가 변경 되는 동안 로컬 DNS 캐시는 5 분 이내에 새로 고쳐지고 운영 체제에서 자동으로 수행 됩니다. 로컬 DNS 새로 고침이 완료 되 면 모든 새 연결이 새 IP 주소에 연결 되 고 기존 IP 주소를 완전히 해제할 때까지 모든 기존 연결은 이전 IP 주소에 연결 된 상태로 유지 됩니다. 이전 IP 주소는 서비스를 해제 하기 전에 약 3 ~ 4 주가 소요 됩니다. 따라서 클라이언트 응용 프로그램에는 영향을 주지 않아야 합니다.
+
+### <a name="what-are-we-decommissioning"></a>서비스를 해제 하는 것은 무엇 인가요?
+게이트웨이 노드만 서비스 해제 됩니다. 사용자가 서버에 연결 하는 경우 연결을 서버에 전달 하기 전에 먼저 게이트웨이 노드로 연결을 중지 합니다. 서버를 실행 하는 테 넌 트 링이 아닌 이전 게이트웨이 링의 서비스를 해제 하는 중입니다. 자세한 설명은 [연결 아키텍처](#connectivity-architecture) 를 참조 하세요.
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>연결이 이전 게이트웨이 노드나 새 게이트웨이 노드로 이동 하는지 어떻게 확인할 수 있나요?
+서버의 FQDN을 Ping 합니다 (예:)  ``ping xxx.postgres.database.azure.com`` . 반환 된 IP 주소가 위의 문서에서 게이트웨이 IP 주소 (서비스 해제) 아래에 나열 된 ip 중 하나 이면 연결이 이전 게이트웨이를 통과 하는 것을 의미 합니다. 반면 반환 된 Ip 주소가 게이트웨이 IP 주소 아래에 나열 된 ip 중 하나 이면 연결이 새 게이트웨이를 통과 하는 것을 의미 합니다.
+
+또한 포트 3306을 사용 하 여 클라이언트 응용 프로그램에서 데이터베이스 서버를 [Psping](https://docs.microsoft.com/sysinternals/downloads/psping) 또는 tcpping으로 테스트 하 고, 반환 ip 주소가 서비스 해제 ip 주소 중 하나가 아닌지 확인 합니다.
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>유지 관리가 초과 되는 경우를 확인 하 고 오래 된 IP 주소를 해제할 때 다른 알림을 받게 되나요? 어떻게 할까요?
+유지 관리 작업을 시작 하는 경우 사용자에 게 알리는 전자 메일을 받게 됩니다. 유지 관리는 al 지역에서 마이그레이션해야 하는 서버 수에 따라 최대 1 개월이 걸릴 수 있습니다. FQDN을 사용 하거나 위의 표에서 새 IP 주소를 사용 하 여 데이터베이스 서버에 연결 하도록 클라이언트를 준비 하세요. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>클라이언트 응용 프로그램이 여전히 이전 게이트웨이 서버에 연결 하는 경우 어떻게 해야 하나요?
+이는 응용 프로그램이 FQDN 대신 고정 IP 주소를 사용 하 여 서버에 연결 됨을 나타냅니다. 소스 코드에서 연결 문자열 및 연결 풀링 설정, AKS 설정 또는도 검토 합니다.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>내 응용 프로그램 연결에 대 한 영향이 있나요?
+이 유지 관리는 DNS 변경 내용 이므로 클라이언트에 투명 하 게 유지 됩니다. 클라이언트에서 DNS 캐시를 새로 고치면 (운영 체제에서 자동으로 수행 됨) 모든 새 연결은 새 IP 주소에 연결 되 고 기존 IP 주소는 완전히 서비스 해제 될 때까지 계속 작동 합니다 .이는 일반적으로 몇 주 후에 수행 됩니다. 이 경우 다시 시도 논리는 필요 하지 않지만 응용 프로그램에서 재시도 논리를 구성 하는 것을 확인 하는 것이 좋습니다. FQDN을 사용 하 여 데이터베이스 서버에 연결 하거나 응용 프로그램 연결 문자열에 새 ' 게이트웨이 IP 주소를 나열 하십시오. '를 사용 하도록 설정 하세요.
+이 유지 관리 작업은 기존 연결을 삭제 하지 않습니다. 새 연결 요청만 새 게이트웨이 링으로 이동 합니다.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>유지 관리를 위해 특정 기간에 대해 요청할 수 있나요? 
+마이그레이션은 투명 하 고 고객의 연결에 영향을 주지 않으므로 대부분의 사용자에 게 아무런 문제가 없을 것입니다. 응용 프로그램을 미리 검토 하 고 응용 프로그램 연결 문자열에서 FQDN을 사용 하 여 데이터베이스 서버에 연결 하거나 새 ' 게이트웨이 IP 주소를 나열 합니다. '를 사용 하도록 설정 해야 합니다.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>개인 링크를 사용 하 고 있는데, 연결이 영향을 받습니까?
+아니요,이는 게이트웨이 하드웨어 서비스 해제 되 고 개인 링크 또는 개인 IP 주소와 관계 없이 서비스 해제 IP 주소에서 언급 된 공용 IP 주소에만 영향을 줍니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

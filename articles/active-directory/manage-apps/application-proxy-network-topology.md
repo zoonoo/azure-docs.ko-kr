@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199702"
+ms.locfileid: "103232922"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용 하 여 트래픽 흐름 최적화
 
@@ -41,6 +41,9 @@ Azure AD 테 넌 트에 등록할 때 테 넌 트의 지역은 지정 하는 국
 기본 지역과 다른 지역에 커넥터를 설치한 경우 이러한 응용 프로그램에 액세스 하는 성능을 향상 시키기 위해 커넥터 그룹이 최적화 된 영역을 변경 하는 것이 유용할 수 있습니다. 커넥터 그룹에 대 한 지역이 지정 되 면 지정 된 지역의 응용 프로그램 프록시 클라우드 서비스에 연결 됩니다.
 
 커넥터 그룹에 대 한 트래픽 흐름을 최적화 하 고 대기 시간을 줄이기 위해 커넥터 그룹을 가장 가까운 지역에 할당 합니다. 영역을 할당 하려면:
+
+> [!IMPORTANT]
+> 이 기능을 사용 하려면 커넥터에서 버전 1.5.1975.0 이상을 사용 해야 합니다.
 
 1. 애플리케이션 프록시를 사용하는 디렉터리의 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 관리자 별칭이어야 합니다.
 1. 오른쪽 위 모서리에서 사용자 이름을 선택합니다. 애플리케이션 프록시를 사용하는 디렉터리에 로그인했는지 확인합니다. 디렉터리를 변경해야 할 경우 **디렉터리 전환** 을 선택하고 애플리케이션 프록시를 사용하는 디렉터리를 선택합니다.

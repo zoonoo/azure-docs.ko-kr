@@ -2,13 +2,13 @@
 title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/11/2021
+ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183661"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200218"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -65,7 +65,7 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 컴퓨팅 노�
 Batch에서 사용할 수 있는 풀 구성에는 두 가지 유형이 있습니다.
 
 > [!IMPORTANT]
-> ' Cloud Services 구성 '이 아니라 ' 가상 컴퓨터 구성 '을 사용 하 여 풀을 구성 해야 합니다. 모든 Batch 기능은 ' 가상 머신 구성 ' 풀에서 지원 되며 새로운 기능이 추가 됩니다. ' Cloud Services 구성 ' 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다.
+> 구성 중 하나를 사용 하 여 풀을 만들 수는 있지만 새 풀은 가상 머신 구성을 사용 하 여 구성 하 고 Cloud Services 구성은 구성 하지 않아야 합니다. 모든 현재 및 새 Batch 기능은 가상 컴퓨터 구성 풀에서 지원 됩니다. Cloud Services 구성 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다. [2024 년 2 월 29 일 이후에는](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)새 ' CloudServiceConfiguration ' 풀을 만들거나 기존 풀에 새 노드를 추가할 수 없습니다.
 
 ### <a name="virtual-machine-configuration"></a>가상 머신 구성
 
@@ -76,13 +76,13 @@ Batch에서 사용할 수 있는 풀 구성에는 두 가지 유형이 있습니
 ### <a name="cloud-services-configuration"></a>Cloud Services 구성
 
 > [!WARNING]
-> 클라우드 서비스 구성 풀은 사용 되지 않습니다. 대신 가상 컴퓨터 구성 풀을 사용 하세요.
+> Cloud Services 구성 풀은 [사용 되지](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)않습니다. 대신 가상 컴퓨터 구성 풀을 사용 하세요. 자세한 내용은 [Cloud Services에서 가상 머신으로 Batch 풀 구성 마이그레이션](batch-pool-cloud-service-to-virtual-machine-configuration.md)을 참조 하세요.
 
 **Cloud Services 구성** 은 풀이 Azure Cloud Services 노드로 구성됨을 나타냅니다. Cloud Services는 Windows 계산 노드만 제공 합니다.
 
 Cloud Services 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열 되며, 사용 가능한 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열 됩니다. Cloud Services 노드를 포함 하는 풀을 만들 때 노드 크기와 해당 *Os 제품군* (os와 함께 설치 되는 .net 버전을 결정)을 지정 합니다. Cloud Services는 Windows를 실행하는 가상 머신보다 더 빠르게 Azure에 배포됩니다. Windows 컴퓨팅 노드 풀을 원하는 경우 배포 시간 측면에서 Cloud Services가 성능 상의 이점을 제공할 수 있습니다.
 
-Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전* 을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 [Cloud Services 개요](../cloud-services/cloud-services-choose-me.md) 참조). OS 버전에 `Latest (*)`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 애플리케이션 호환성을 유지하는 것입니다. 유효성 검사 후 풀의 OS 버전을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크가 모두 중단되고 다시 큐에 저장됩니다.
+Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전* 을 지정할 수 있습니다. OS 버전에 `Latest (*)`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 애플리케이션 호환성을 유지하는 것입니다. 유효성 검사 후 풀의 OS 버전을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크가 모두 중단되고 다시 큐에 저장됩니다.
 
 ### <a name="node-agent-skus"></a>노드 에이전트 SKU
 

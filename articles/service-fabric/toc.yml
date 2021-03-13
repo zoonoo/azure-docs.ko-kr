@@ -138,7 +138,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: Architecture
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -894,7 +894,7 @@
     - name: Java API
       href: /java/api/overview/azure/servicefabric
     - name: .NET
-      href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+      href: /dotnet/api/overview/azure/service-fabric
     - name: REST (영문)
       href: /rest/api/servicefabric
     - name: Resource Manager 템플릿

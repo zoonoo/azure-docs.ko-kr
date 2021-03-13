@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f5c85f371dbe0fe3488c1ca6ff806f114153d3a7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102638655"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201572"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>계획 된 유지 관리를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 (미리 보기)에 대 한 유지 관리 기간 예약
 
@@ -28,8 +28,8 @@ AKS 클러스터는 자동으로 정기적으로 유지 관리를 수행 합니�
 
 계획 된 유지 관리를 사용 하는 경우 다음 제한 사항이 적용 됩니다.
 
-- AKS은 이러한 창을 중요 한 수정 및 패치에 대해 중단할 수 있는 권한을 보유 합니다.
-- 유지 관리 작업을 수행 하는 작업은 *가장 적합* 한 것으로 간주 되며 지정 된 창 내에서 수행 되는 것이 보장 되지 않습니다.
+- AKS은 긴급 또는 중요 한 계획 되지 않은/사후 유지 관리 작업에 대해 이러한 창을 중단할 수 있는 권한을 보유 합니다.
+- 현재 유지 관리 작업을 수행 하는 작업은 *가장 적합* 한 것으로 간주 되며 지정 된 기간 내에 발생 하는 것이 보장 되지 않습니다.
 - 7 일 넘게 업데이트를 차단할 수 없습니다.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치

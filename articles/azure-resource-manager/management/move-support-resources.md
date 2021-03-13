@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ae59bcc65f296a10c68b88f5f6a1ecbc923f8856
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072108"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232599"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -213,7 +213,7 @@ ms.locfileid: "98072108"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | diagnosticsettings | 예 | 예 |
-> | diagnosticsettingscategories | 예 | 예 |
+> | diagnosticsettingscategories | 예 | 아니요 |
 > | privatelinkforazuread | 예 | 예 |
 > | tenants | 예 | 예 |
 
@@ -330,8 +330,8 @@ ms.locfileid: "98072108"
 > | 권한 | 예 | 예 |
 > | policyassignments | 예 | 예 |
 > | policydefinitions | 예 | 예 |
-> | policysetdefinitions | 예 | 예 |
-> | privatelinkassociations | 예 | 예 |
+> | policysetdefinitions | 예 | 아니요 |
+> | privatelinkassociations | 아니요 | 아니요 |
 > | resourcemanagementprivatelinks | 아니요 | 예 |
 > | roleassignments | 예 | 예 |
 > | roleassignmentsusagemetrics | 예 | 예 |
@@ -471,7 +471,7 @@ ms.locfileid: "98072108"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | 예 | 예 |
-> | redisenterprise | 예 | 예 |
+> | redisenterprise | 예 | 아니요 |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -534,7 +534,7 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | 예 | 예 |
+> | classicinfrastructureresources | 예 | 아니요 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -551,7 +551,7 @@ ms.locfileid: "98072108"
 > | networksecuritygroups | 예 | 예 |
 > | quotas | 예 | 예 |
 > | reservedips | 예 | 예 |
-> | virtualnetworks | 예 | 예 |
+> | virtualnetworks | 예 | 아니요 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -568,7 +568,7 @@ ms.locfileid: "98072108"
 > | publicimages | 예 | 예 |
 > | quotas | 예 | 예 |
 > | storageaccounts | 예 | 예 |
-> | vmimages | 예 | 예 |
+> | vmimages | 예 | 아니요 |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
@@ -753,7 +753,7 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | availableskus | 예 | 예 |
+> | availableskus | 아니요 | 아니요 |
 > | databoxedgedevices | 예 | 예 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
@@ -858,7 +858,7 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | 예 | 예 |
+> | flexibleServers | 아니요 | 예 |
 > | servergroups | 예 | 예 |
 > | servers | 예 | 예 |
 > | serversv2 | 예 | 예 |
@@ -1026,7 +1026,7 @@ ms.locfileid: "98072108"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | 예 | 예 |
-> | sapmonitors | 아니요 | 예 |
+> | sapmonitors | 아니요 | 아니요 |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
@@ -1163,7 +1163,7 @@ ms.locfileid: "98072108"
 > | ------------- | ----------- | ---------- |
 > | deletedvaults | 예 | 예 |
 > | hsmpools | 예 | 아니요 |
-> | managedhsms | 예 | 예 |
+> | managedhsms | 아니요 | 예 |
 > | vaults | 예 | 예 |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
@@ -1193,8 +1193,8 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | labaccounts | 아니요 | 아니요 |
-> | users | 아니요 | 아니요 |
+> | labaccounts | 예 | 예 |
+> | users | 예 | 예 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
@@ -1366,8 +1366,8 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | assessmentprojects | 예 | 예 |
-> | migrateprojects | 예 | 예 |
+> | assessmentprojects | 아니요 | 예 |
+> | migrateprojects | 아니요 | 아니요 |
 > | movecollections | 예 | 예 |
 > | projects | 예 | 예 |
 
@@ -1417,13 +1417,13 @@ ms.locfileid: "98072108"
 > | ipgroups | 예 | 예 |
 > | loadbalancers | 예 - 기본 SKU<br> 예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
 > | localnetworkgateways | 예 | 예 |
-> | natgateways | 예 | 예 |
+> | natgateways | 아니요 | 아니요 |
 > | networkexperimentprofiles | 예 | 예 |
 > | networkintentpolicies | 예 | 예 |
 > | networkinterfaces | 예 | 예 |
 > | networkprofiles | 예 | 예 |
 > | networksecuritygroups | 예 | 예 |
-> | networkwatchers | 예 | 예 |
+> | networkwatchers | 아니요 | 예 |
 > | networkwatchers / connectionmonitors | 예 | 예 |
 > | networkwatchers / flowlogs | 예 | 예 |
 > | networkwatchers / pingmeshes | 예 | 예 |
@@ -1474,10 +1474,10 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | 예 | 아니요 |
+> | hypervsites | 아니요 | 아니요 |
 > | importsites | 아니요 | 예 |
 > | serversites | 아니요 | 아니요 |
-> | vmwaresites | 예 | 예 |
+> | vmwaresites | 아니요 | 아니요 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1513,7 +1513,7 @@ ms.locfileid: "98072108"
 > | legacypeerings | 예 | 예 |
 > | peerasns | 예 | 예 |
 > | peeringlocations | 예 | 예 |
-> | peerings | 예 | 예 |
+> | peerings | 아니요 | 아니요 |
 > | peeringservicecountries | 예 | 예 |
 > | peeringservicelocations | 예 | 예 |
 > | peeringserviceproviders | 예 | 예 |
@@ -1711,8 +1711,8 @@ ms.locfileid: "98072108"
 > | ------------- | ----------- | ---------- |
 > | aggregations | 예 | 예 |
 > | alertrules | 예 | 예 |
-> | alertruletemplates | 예 | 예 |
-> | automationrules | 예 | 예 |
+> | alertruletemplates | 예 | 아니요 |
+> | automationrules | 아니요 | 예 |
 > | bookmarks | 예 | 예 |
 > | cases | 예 | 예 |
 > | dataconnectors | 예 | 예 |
@@ -1913,8 +1913,8 @@ ms.locfileid: "98072108"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | 예 | 아니요 |
-> | workspaces / bigdatapools | 예 | 예 |
-> | workspaces / sqlpools | 예 | 예 |
+> | workspaces / bigdatapools | 아니요 | 예 |
+> | workspaces / sqlpools | 아니요 | 예 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2032,14 +2032,14 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | deviceservices | 예 | 예 |
+> | deviceservices | 예 | 아니요 |
 
 ## <a name="microsoftworkloadbuilder"></a>WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | 작업 | 예 | 예 |
+> | 작업 | 아니요 | 예 |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

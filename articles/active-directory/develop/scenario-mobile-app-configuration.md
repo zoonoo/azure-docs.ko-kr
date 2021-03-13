@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6f13d789cd63bb568bb8940ce614ebdb2dbcdb83
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584434"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199739"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
 응용 프로그램을 만든 후에 앱 등록 매개 변수를 사용 하 여 코드를 구성 하는 방법을 알아봅니다. 모바일 응용 프로그램은 생성 프레임 워크에 맞추기와 관련 된 복잡성을 제공 합니다.
 
-## <a name="find-msal-support-for-mobile-apps"></a>모바일 앱에 대 한 MSAL 지원 찾기
+## <a name="microsoft-libraries-supporting-mobile-apps"></a>모바일 앱을 지 원하는 Microsoft 라이브러리
 
-다음 MSAL (Microsoft 인증 라이브러리) 유형은 모바일 앱을 지원 합니다.
+모바일 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
 
-MSAL | Description
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 이식 가능한 응용 프로그램을 개발 하는 데 사용 됩니다. MSAL.NET는 모바일 응용 프로그램을 빌드하기 위한 다음과 같은 플랫폼을 지원 합니다. 유니버설 Windows 플랫폼 (UWP), Xamarin.ios 및 Xamarin.ios.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | 목적-C 또는 Swift를 사용 하 여 네이티브 iOS 응용 프로그램을 개발 하는 데 사용 됩니다.
-![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Android 용 Java에서 네이티브 Android 응용 프로그램을 개발 하는 데 사용 됩니다.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## <a name="instantiate-the-application"></a>응용 프로그램 인스턴스화
 
@@ -130,7 +126,7 @@ IOS 및 macOS 용 MSAL을 사용 하는 경우 다음 작업이 필요 합니다
 Xamarin.ios를 사용 하는 경우 다음 작업을 수행 합니다.
 
 - [인증 흐름의 대화형 부분이 종료 된 후 제어를 MSAL으로 되돌립니다.](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
-- [Android 매니페스트 업데이트](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Android 매니페스트 업데이트](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
 - [포함 된 웹 보기 사용 (선택 사항)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [필요에 따라 문제 해결](msal-net-xamarin-android-considerations.md#troubleshooting)
 
