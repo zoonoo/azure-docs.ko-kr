@@ -6,12 +6,12 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 0ab959d531ff1080e5e6a640410b4955e4cfeff7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6c3b433a8e433f39b723a7155bb6de116857efca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652201"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508166"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 
@@ -73,7 +73,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-PowerShell에서 캐시 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 참조](/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0)를 참조하세요. 
+PowerShell에서 캐시 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 참조](/powershell/module/az.rediscache/new-azrediscache)를 참조하세요. 
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
@@ -132,7 +132,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-PowerShell에서 가져오기에 대한 자세한 내용은 [Azure PowerShell 참조](/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0)를 참조하세요. 
+PowerShell에서 가져오기에 대한 자세한 내용은 [Azure PowerShell 참조](/powershell/module/az.rediscache/import-azrediscache)를 참조하세요. 
 
 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 웹앱을 확인하여 방금 전송한 이벤트를 봅니다.
 

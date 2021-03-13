@@ -3,14 +3,14 @@ title: PowerShell을 사용 하 여 AKS 클러스터에서 Windows Server 컨테
 description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만들고 AKS(Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625117"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233517"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -83,8 +83,9 @@ Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 �
 > 클러스터를 안정적으로 작동하도록 하려면 기본 노드 풀에서 2개 이상의 노드를 실행해야 합니다.
 
 ```azurepowershell-interactive
-$Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+$Username = Read-Host -Prompt 'Please create a username for the administrator credentials on your Windows Server containers: '
+$Password = Read-Host -Prompt 'Please create a password for the administrator credentials on your Windows Server containers: ' -AsSecureString
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $Username -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -97,7 +98,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성됩니다. `New-AzAksNodePool` cmdlet을 사용하여 Linux 노드 풀과 함께 Windows Server 컨테이너를 실행할 수 있는 노드 풀을 추가합니다.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
 ```
 
 위의 명령은 **npwin** 이라는 새 노드 풀을 만들어 **myAKSCluster** 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize** 의 기본값은 **Standard_D2s_v3** 입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3** 입니다. 또한 이전 명령은 `New-AzAks`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.

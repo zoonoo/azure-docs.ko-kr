@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511071"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623499"
 ---
 Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
 
@@ -250,7 +250,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**name** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. |
 |**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
 |**eventHubName** |**EventHubName** | Functions 2.x 이상. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임스페이스* 에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.|
+|**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다. <br><br>연결 문자열 대신 [버전 5.x 이상의 확장](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](../articles/azure-functions/functions-reference.md#connections)을 참조하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -258,11 +258,39 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+### <a name="default"></a>기본값
+
+Event Hub의 출력 바인딩에 다음 매개 변수 유형을 사용할 수 있습니다.
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+
 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+
+### <a name="additional-types"></a>추가 형식 
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
+### <a name="default"></a>기본값
+
+Event Hub의 출력 바인딩에 다음 매개 변수 유형을 사용할 수 있습니다.
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+
 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+
+### <a name="additional-types"></a>추가 형식 
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

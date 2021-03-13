@@ -3,14 +3,14 @@ title: Azure Automation에서 소스 제어 통합 사용
 description: 이 문서에서는 Azure Automation 소스 제어를 다른 리포지토리와 동기화하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/12/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050773"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631747"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -30,7 +30,7 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 
 * 소스 제어 리포지토리(GitHub 또는 Azure Repos)
 * [실행 계정](automation-security-overview.md#run-as-accounts)
-* `Az.Accounts` 모듈(Az 모듈은 `AzureRM.Profile`에 해당)을 포함한 Automation 계정의 [최신 Azure 모듈](automation-update-azure-modules.md)
+* 이 [ `AzureRM.Profile` 모듈](/powershell/module/azurerm.profile/) 은 Automation 계정으로 가져와야 합니다. 해당 Az module ( `Az.Accounts` )은 Automation 소스 제어에서 작동 하지 않습니다.
 
 > [!NOTE]
 > 소스 제어 동기화 작업은 사용자 Automation 계정에서 실행되며 다른 Automation 작업과 동일한 요금으로 청구됩니다.

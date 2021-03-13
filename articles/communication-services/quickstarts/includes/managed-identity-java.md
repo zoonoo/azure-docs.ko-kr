@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: bb3925c5c642f2a6d00f8f5b7fe6471676c23c30
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f2e4bf603fa4cfb93c7ca51f64029ccaedcff727
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486620"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021030"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>통신 서비스 솔루션에 관리 id 추가 (Java)
 
@@ -15,12 +15,12 @@ pom.xml 파일에서 종속성 그룹에 다음 종속성 요소를 추가 합�
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.4</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -34,10 +34,17 @@ pom.xml 파일에서 종속성 그룹에 다음 종속성 요소를 추가 합�
 `import`Azure id 및 Azure 통신 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
 
 ```java
-import com.azure.identity.*;
-import com.azure.communication.sms.*;
-import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.communication.sms.*;
+import com.azure.core.credential.*;
+import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+import com.azure.identity.*;
+
+import java.io.IOException;
+import java.util.*;
 ```
 
 아래 예제에서는 [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
@@ -88,12 +95,12 @@ import com.azure.communication.common.*;
                .buildClient();
 
           // Send the message and check the response for a message id
-          SendSmsResponse response = smsClient.sendMessage(
-               new PhoneNumberIdentifier("<leased-phone-number>"),
-               to,
-               "your message",
-               options /* Optional */
+          SmsSendResult response = smsClient.send(
+               "<from-phone-number>",
+               "<to-phone-number>",
+               "your message"
           );
+
           return response;
     }
 ```

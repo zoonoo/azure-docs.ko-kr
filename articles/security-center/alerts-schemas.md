@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590567"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558001"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -68,7 +68,7 @@ Azure 센티널에 대 한 자세한 내용은 [설명서](../sentinel/index.yml
 
 
 
-### <a name="azure-activity-log"></a>[Azure 동작 로그](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Azure 활동 로그](#tab/schema-activitylog)
 
 Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이벤트로 감사 합니다.
 
@@ -173,7 +173,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Microsoft 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
 
-MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0)에서 사용할 수 있습니다.
+MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](/graph/api/resources/alert)에서 사용할 수 있습니다.
 
 ---
 

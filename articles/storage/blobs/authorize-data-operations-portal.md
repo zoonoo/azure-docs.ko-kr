@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391544"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613252"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -66,9 +66,9 @@ Blob 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Azure Portal blob로 이동 합니다.
 
-포털에서 blob 데이터를 보려면 저장소 계정에 대 한 **개요** 로 이동 하 고 **blob** 에 대 한 링크를 클릭 합니다. 또는 메뉴의 **Blob service** 섹션으로 이동할 수 있습니다.
+포털에서 blob 데이터를 보려면 저장소 계정에 대 한 **개요** 로 이동 하 고 **blob** 에 대 한 링크를 클릭 합니다. 또는 메뉴의 **컨테이너** 섹션으로 이동할 수 있습니다.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Azure Portal에서 blob 데이터를 탐색 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="determine-the-current-authentication-method"></a>현재 인증 방법 결정
 

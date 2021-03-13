@@ -3,12 +3,12 @@ title: Azure Monitor 경고에 대 한 작업 규칙
 description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045618"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016001"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -53,7 +53,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -61,19 +61,25 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ### <a name="filter-criteria"></a>필터 조건
 
-또한 필터를 정의 하 여 경고의 특정 하위 집합으로 범위를 좁힐 수 있습니다.
+필요에 따라 필터를 정의 하 여 특정 경고 하위 집합 또는 각 경고의 특정 이벤트 (예: "발생" 또는 "해결 됨"만)에 적용할 수 있습니다.
 
 사용 가능한 필터는 다음과 같습니다.
 
-* **심각도**: 경고 심각도를 하나 이상 선택 하는 옵션입니다. **심각도 = Sev1** 은 작업 규칙이 Sev1로 설정 된 모든 경고에 적용 될 수 있음을 의미 합니다.
-* **모니터 서비스**: 원본 모니터링 서비스를 기반으로 하는 필터입니다. 이 필터는 다중 선택 이기도 합니다. 예를 들어 **Monitor Service = "Application Insights"** 는 모든 Application Insights 기반 경고에 대 한 작업 규칙이 적용 됨을 의미 합니다.
-* **리소스 종류**: 특정 리소스 종류를 기반으로 하는 필터입니다. 이 필터는 다중 선택 이기도 합니다. 예를 들어 **리소스 유형 = "Virtual Machines"** 은 작업 규칙을 모든 가상 머신에 적용할 수 있음을 의미 합니다.
-* **경고 규칙 id**: 경고 규칙의 리소스 관리자 ID를 사용 하 여 특정 경고 규칙을 필터링 하는 옵션입니다.
-* **모니터 조건**: 모니터 조건으로 **발생** 또는 **해결** 된 경고 인스턴스에 대 한 필터입니다.
-* **Description**: 경고 규칙의 일부로 정의 된 설명과 일치 하는 문자열을 정의 하는 regex (정규식) 일치 항목입니다. 예를 **들어 설명에 ' r o s t '가 포함** 된 모든 경고는 설명에 "prod" 문자열이 포함 된 모든 경고와 일치 합니다.
-* **경고 컨텍스트 (페이로드)**: 경고 페이로드의 경고 컨텍스트 필드에 대 한 문자열 일치를 정의 하는 regex 일치 항목입니다. 예를 **들어, 경고 컨텍스트 (페이로드)는 '** 컴퓨터-01 '이 포함 된 페이로드가 포함 된 모든 경고와 일치 합니다.
+* **심각도**:이 규칙은 선택한 심각도의 경고에만 적용 됩니다.  
+예를 들어 **심각도 = Sev1** 는 규칙이 Sev1 심각도의 경고에만 적용 됨을 의미 합니다.
+* **서비스 모니터링**:이 규칙은 선택한 모니터링 서비스에서 들어오는 경고에만 적용 됩니다.  
+예를 들어 **Monitor Service = "Azure Backup"** 는 Azure Backup에서 제공 되는 백업 경고에만 규칙이 적용 됨을 의미 합니다.
+* **리소스 종류**:이 규칙은 선택한 리소스 종류에 대 한 경고에만 적용 됩니다.  
+예를 들어 **리소스 유형 = "Virtual Machines"** 는 가상 머신의 경고에만 규칙이 적용 됨을 의미 합니다.
+* **경고 규칙 ID**:이 규칙은 특정 경고 규칙에서 들어오는 경고에만 적용 됩니다. 값은 경고 규칙의 리소스 관리자 ID 여야 합니다.  
+예를 들어 **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/MyAPI-highLatency"** 는이 규칙이 "myapi-highlatency" 메트릭 경고 규칙에서 들어오는 경고에만 적용 됨을 의미 합니다.
+* **모니터 조건**:이 규칙은 지정 된 모니터 조건 ( **발생** 또는 **해결 됨**)을 가진 경고 이벤트에만 적용 됩니다.
+* **설명**:이 규칙은 경고 설명 필드에 특정 문자열이 포함 된 경고에만 적용 됩니다. 해당 필드에는 경고 규칙 설명이 포함 되어 있습니다.  
+예를 **들어 설명에 ' r e s t '가 포함** 된 경우 해당 규칙은 설명에 "prod" 문자열이 포함 된 경고만 일치 함을 의미 합니다.
+* **경고 컨텍스트 (페이로드)**:이 규칙은 경고 컨텍스트 필드에 하나 이상의 특정 값이 포함 된 경고에만 적용 됩니다.  
+예를 **들어, 경고 컨텍스트 (페이로드)에는 ' 컴퓨터-01 '이 포함** 됩니다. 규칙은 페이로드가 "컴퓨터-01" 문자열을 포함 하는 경고에만 적용 됨을 의미 합니다.
 
-이러한 필터는 서로 함께 적용 됩니다. 예를 들어 **리소스 유형 ' = Virtual Machines** 및 **심각도 ' = Sev0** 를 설정 하는 경우 vm의 모든 **Sev0** 경고에 대해 필터링 했습니다.
+규칙에 여러 필터를 설정 하는 경우 모든 필터가 적용 됩니다. 예를 들어 **리소스 유형 ' = Virtual Machines** 및 **심각도 ' = Sev0** 를 설정 하면 가상 머신에 대 한 Sev0 경고에 대해서만 규칙이 적용 됩니다.
 
 ![작업 규칙 필터](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -102,7 +108,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
-* 속성
+* Name
 * 저장 된 리소스 그룹
 * 설명
 

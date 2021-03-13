@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429095"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501127"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정
 
-다음 단계에 따라 Azure PowerShell을 사용하여 증명 공급자를 만들고 구성합니다. Azure PowerShell을 설치하고 실행하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0)를 참조하세요.
+다음 단계에 따라 Azure PowerShell을 사용하여 증명 공급자를 만들고 구성합니다. Azure PowerShell을 설치하고 실행하는 방법에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
 
 PowerShell 갤러리에는 더 이상 사용되지 않는 TLS(전송 계층 보안) 버전 1.0 및 1.1이 있습니다. TLS 버전 1.2 이상을 사용하는 것이 좋습니다. 따라서 다음과 같은 오류가 발생할 수 있습니다.
 
@@ -226,7 +226,7 @@ Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $
 
 정책 서명자 인증서 샘플은 [정책 서명자 인증서 예제](policy-signer-examples.md)를 참조하세요.
 
-cmdlet 및 해당 매개 변수에 대한 자세한 내용은 [Azure Attestation PowerShell cmdlet](/powershell/module/az.attestation/?view=azps-4.3.0#attestation)을 참조하세요. 
+cmdlet 및 해당 매개 변수에 대한 자세한 내용은 [Azure Attestation PowerShell cmdlet](/powershell/module/az.attestation/#attestation)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,14 +7,16 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f766a77ee55351e498a379146826ba1d5507bc93
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014689"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201178"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으며 이러한 모든 작업을 IoT Edge 모듈에서 Azure Blob Storage 사용할 수 있습니다. 가장 간단한 두 가지 방법은 Azure Portal 또는 Visual Studio Code 템플릿을 사용하는 것입니다.
 
@@ -48,7 +50,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 2. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.
 
-   예:
+   예제:
   
    - **IoT Edge 모듈 이름**: `azureblobstorageoniotedge`
    - **이미지 URI**: `mcr.microsoft.com/azure-blob-storage:latest`
@@ -91,10 +93,10 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
    - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. Blob 모듈이 데이터를 저장 하는 IoT Edge 장치의 기존 디렉터리에 대 한 절대 경로 또는 [볼륨](https://docs.docker.com/storage/volumes/) 의 이름을 제공 합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.
 
-     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예들 들어 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예들 들어 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
@@ -203,10 +205,10 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 탑재는 사용자가 제공 하는 장치의 위치를 모듈의 설정 된 위치에 매핑합니다.  
 
-     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예들 들어 다음과 같습니다.
+     - Linux 컨테이너의 경우 형식은 **\<your storage path or volume> /blobroot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/)사용:`my-volume:/blobroot`
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `/srv/containerdata:/blobroot` 사용: [컨테이너 사용자에 대 한 디렉터리 액세스 권한을 부여](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 하는 단계를 수행 해야 합니다.
-     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예들 들어 다음과 같습니다.
+     - Windows 컨테이너의 경우 형식은 **\<your storage path or volume> C:/BlobRoot** 입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
          - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 SMB 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)을 참조 하세요.
@@ -284,7 +286,7 @@ IoT Edge 모듈에 Azure Blob Storage의 여러 인스턴스를 배포 하려는
 
 1. **업데이트 IoT Edge 모듈** 페이지에서 **환경 변수** 탭을 선택 합니다.
 
-1. 값에 대 한 `HTTPS_PROXY` **이름** 및 프록시 URL을 추가 **Value** 합니다.
+1. 값에 대 한 `HTTPS_PROXY` **이름** 및 프록시 URL을 추가 합니다.
 
       ![지정 된 값을 입력할 수 있는 업데이트 I o T Edge 모듈 창이 스크린샷에 표시 됩니다.](./media/how-to-deploy-blob/https-proxy-config.png)
 

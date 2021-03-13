@@ -3,20 +3,20 @@ title: Azure Media Services를 사용하여 썸네일 스프라이트 생성 | M
 description: 이 항목에서는 Azure Media Services를 사용하여 썸네일 스프라이트를 생성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
-ms.author: juliako
-ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: ce66b6f605b10f65ec8a98d14c682928c7b21321
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268573"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012244"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>썸네일 스프라이트 생성
 
@@ -35,7 +35,7 @@ Media Encoder Standard를 사용하여 썸네일 스프라이트를 생성하려
 
     1. SpriteColumn이 M >= 1로 설정된 경우 출력 이미지는 M 열이 있는 사각형입니다. #2를 통해 생성된 썸네일 이미지의 수가 M의 정확한 배수가 아닌 경우 마지막 행이 완전하지 않고 검은색 픽셀로 남습니다.  
 
-다음은 예제입니다.
+예를 들면 다음과 같습니다.
 
 ```json
 {

@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: AI Builder와 함께 Form Recognizer 사용
       href: tutorial-ai-builder.md
+    - name: Azure Functions에서 Form Recognizer 사용
+      href: tutorial-azure-function.md
     - name: 대량으로 양식 데이터 추출
       href: tutorial-bulk-processing.md
 - name: 개념

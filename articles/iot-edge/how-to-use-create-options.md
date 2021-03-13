@@ -9,14 +9,16 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732992"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200614"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>IoT Edge 모듈의 컨테이너 만들기 옵션을 구성 하는 방법
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 배포 매니페스트의 **Createoptions** 매개 변수를 사용 하면 런타임 시 모듈 컨테이너를 구성할 수 있습니다. 이 매개 변수는 모듈에 대 한 컨트롤을 확장 하 고, 모듈에서 호스트 장치 리소스에 대 한 액세스를 허용 하거나 제한 하거나 네트워킹을 구성 하는 등의 작업을 허용 합니다.
 
@@ -52,13 +54,13 @@ IoT Edge 배포 매니페스트는 JSON으로 형식이 지정 된 만들기 옵
 
 이 edgeHub 예제에서는 **Hostconfig. PortBindings** 매개 변수를 사용 하 여 컨테이너의 노출 된 포트를 호스트 장치의 포트에 매핑합니다.
 
-Visual Studio 또는 Visual Studio Code 용 Azure IoT Tools 확장을 사용 하는 경우 파일 **의deployment.template.js** 에서 JSON 형식으로 만들기 옵션을 작성할 수 있습니다. 그런 다음 확장을 사용 하 여 IoT Edge 솔루션을 빌드하거나 배포 매니페스트를 생성 하는 경우 IoT Edge 런타임에서 기대 하는 형식으로 JSON을 json.stringify 합니다. 다음은 그 예입니다. 
+Visual Studio 또는 Visual Studio Code 용 Azure IoT Tools 확장을 사용 하는 경우 파일 **의deployment.template.js** 에서 JSON 형식으로 만들기 옵션을 작성할 수 있습니다. 그런 다음 확장을 사용 하 여 IoT Edge 솔루션을 빌드하거나 배포 매니페스트를 생성 하는 경우 IoT Edge 런타임에서 기대 하는 형식으로 JSON을 json.stringify 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-만들기 옵션을 작성 하는 한 가지 팁은 명령을 사용 하는 것입니다 `docker inspect` . 개발 프로세스의 일부로를 사용 하 여 모듈을 로컬로 실행 `docker run <container name>` 합니다. 원하는 방식으로 작동 하는 모듈이 있으면를 실행 `docker inspect <container name>` 합니다. 이 명령은 JSON 형식으로 모듈 세부 정보를 출력 합니다. 구성 된 매개 변수를 찾고 JSON을 복사 합니다. 다음은 그 예입니다. 
+만들기 옵션을 작성 하는 한 가지 팁은 명령을 사용 하는 것입니다 `docker inspect` . 개발 프로세스의 일부로를 사용 하 여 모듈을 로컬로 실행 `docker run <container name>` 합니다. 원하는 방식으로 작동 하는 모듈이 있으면를 실행 `docker inspect <container name>` 합니다. 이 명령은 JSON 형식으로 모듈 세부 정보를 출력 합니다. 구성 된 매개 변수를 찾고 JSON을 복사 합니다. 예를 들면 다음과 같습니다.
 
 [![Docker 검사 edgeHub의 결과](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424498"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232497"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -39,6 +39,8 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > 모델에서 발생 하는 언어 및 acoustics 일치 하는 작은 샘플 데이터 집합으로 시작 합니다.
 > 예를 들어 동일한 하드웨어와 동일한 하드웨어에 있는 오디오의 대표적인 샘플을 기록 하 고 프로덕션 시나리오에서 모델이 찾을 수 있는 것과 동일한 음향 환경에 기록 합니다.
 > 대표 데이터의 작은 데이터 집합은 교육을 위해 훨씬 더 큰 데이터 집합을 수집 하는 데 투자 하기 전에 문제를 노출할 수 있습니다.
+>
+> 빠르게 시작 하려면 샘플 데이터를 사용 하는 것이 좋습니다. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">샘플 Custom Speech 데이터</a> 는이 GitHub 리포지토리를 참조 하세요.
 
 ## <a name="data-types"></a>데이터 형식
 
@@ -46,21 +48,18 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 예 | 해당 없음 |
-| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1-20 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | No | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
-
-새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다. 텍스트를 사용한 교육은 오디오 학습 보다 훨씬 빠릅니다 (몇 분 및 며칠).
+| [오디오](#audio-data-for-testing) | Yes<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
+| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | Yes | 1-20 시간 (오디오) |
+| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | Yes | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
 > [!TIP]
-> 빠르게 시작 하려면 샘플 데이터를 사용 하는 것이 좋습니다. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">샘플 Custom Speech 데이터</a> 는이 GitHub 리포지토리를 참조 하세요.
+> 새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다. 텍스트를 사용한 교육은 오디오 학습 보다 훨씬 빠릅니다 (몇 분 및 며칠).
 
 > [!NOTE]
 > 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요. 기본 모델이 오디오 데이터로 학습을 지 원하는 경우에도 서비스는 오디오의 일부만 사용할 수 있습니다. 그래도 모든 성적 증명서를 사용 합니다.
-
-> [!NOTE]
+>
 > 학습에 사용 되는 기본 모델을 변경 하 고 학습 데이터 집합에 오디오가 있는 경우 선택한 새 기본 모델에서 [오디오 데이터로 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인 합니다. 이전에 사용 된 기본 모델에서 오디오 데이터에 대 한 학습을 지원 하지 않고 학습 데이터 집합에 오디오가 포함 된 경우 새 기본 모델의 학습 시간이 **크게** 증가 하 고 몇 시간에서 며칠 이상으로 쉽게 이동할 수 있습니다. 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 특히 그렇습니다.
 >
 > 위의 단락에 설명 된 문제를 직면 하는 경우 데이터 집합의 오디오 양을 줄이거나 텍스트를 완전히 제거 하 여 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 매우 권장 됩니다.
@@ -131,7 +130,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 1 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 그러나 30 분 정도는 인식 결과를 개선 하는 데 도움이 될 수 있습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 <!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
 
@@ -207,7 +206,7 @@ speech03.wav    the lazy dog was not amused
 
 사용자 지정 된 발음은 영어 ( `en-US` ) 및 독일어 ()로 제공 됩니다 `de-DE` . 다음 표에서는 언어에 따라 지원 되는 문자를 보여 줍니다.
 
-| 언어 | Locale | 문자 |
+| 언어 | 로캘 | 문자 |
 |----------|--------|------------|
 | 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548644"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632036"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R에 대 한 보안 및 데이터 보호
 
@@ -133,7 +133,7 @@ Azure Stack Edge 견고한 장치를 사용 하면 고유한 인증서를 가져
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- 저장소 계정 키를 회전 한 다음 정기적으로 [동기화](azure-stack-edge-j-series-manage-storage-accounts.md) 하 여 권한 없는 사용자 로부터 저장소 계정을 보호 합니다.
+- 저장소 계정 키를 회전 한 다음 정기적으로 [동기화](azure-stack-edge-gpu-manage-storage-accounts.md) 하 여 권한 없는 사용자 로부터 저장소 계정을 보호 합니다.
 
 ## <a name="manage-personal-information"></a>개인 정보 관리
 
@@ -141,7 +141,7 @@ Azure Stack Edge 서비스는 다음과 같은 시나리오에서 개인 정보�
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-공유에 액세스 하거나 삭제할 수 있는 사용자 목록을 보려면 [Azure Stack Edge에서 공유 관리](azure-stack-edge-j-series-manage-shares.md)의 단계를 따르세요.
+공유에 액세스 하거나 삭제할 수 있는 사용자 목록을 보려면 [Azure Stack Edge에서 공유 관리](azure-stack-edge-gpu-manage-shares.md)의 단계를 따르세요.
 
 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 참조 하세요.
 

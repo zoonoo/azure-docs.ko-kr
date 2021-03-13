@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 6b03458ce5ea4286e59de8d0e4b35b860088ca91
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cd52f6b9c0ab97132d328f3d9ca65564a4982540
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500770"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619089"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -47,7 +47,7 @@ ms.locfileid: "102500770"
 - **모든**: 사용자 지정 음성도 더 쉽게 사용할 수 있습니다. 사용자 지정 음성 via `EndpointId` ([c + +](/cpp/cognitive-services/speech/speechconfig#setendpointid), [c #](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [목표-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#endpoint-id))를 설정 하기 위한 지원이 추가 되었습니다. 이 변경 전에 사용자 지정 음성 사용자는 메서드를 통해 끝점 URL을 설정 해야 합니다 `FromEndpoint` . 이제 고객이 `FromSubscription` 공용 음성 처럼 메서드를 사용 하 고를 설정 하 여 배포 id를 제공할 수 있습니다 `EndpointId` . 이렇게 하면 사용자 지정 음성 설정이 간단해 집니다. 
 - **C + +/c #/Java/Objective-C/Python**:에서 가장 많이 발생 하는 의도 이상의 의도를 가져옵니다 `IntentRecognizer` . 이제 `LanguageUnderstandingModel FromEndpoint` uri 매개 변수를 사용 하 여 메서드를 통한 상위 점수 매기기 의도가 아니라 모든 의도를 포함 하는 JSON 결과 구성을 지원 `verbose=true` 합니다. 이 [#880 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880)를 해결 합니다. [여기](./quickstarts/intent-recognition.md#add-a-languageunderstandingmodel-and-intents)에서 업데이트 된 설명서를 참조 하세요.
 - **C + +/c #/Java**: 음성 길잡이나 봇이 immediatedly 수신을 중지 하도록 합니다. `DialogServiceConnector` ([C + +](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector))에는 이제 `StopListeningAsync()` 함께 제공할 메서드가 있습니다 `ListenOnceAsync()` . 그러면 오디오 캡처가 즉시 중지 되 고 결과가 정상적으로 대기 하 여 "지금 중지" 단추 누르기 시나리오와 함께 사용 하기에 적합 합니다.
-- **C + +/c #/Java/JavaScript**: 기본 시스템 오류에 대해 음성 도우미 또는 봇이 더 잘 반응 하도록 합니다. `DialogServiceConnector` ([C + +](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector))에는 이제 새 `TurnStatusReceived` 이벤트 처리기가 있습니다. 이러한 선택적 이벤트는 [`ITurnContext`](/dotnet/api/microsoft.bot.builder.iturncontext?view=botbuilder-dotnet-stable) Bot의 모든 해상도에 해당 하며, 발생 하는 경우 실행 실패를 보고 합니다. 예를 들어 처리 되지 않은 예외, 시간 제한 또는 직접 줄 음성 및 봇 간의 네트워크 drop의 결과로 발생 합니다. `TurnStatusReceived` 를 사용 하면 오류 조건에 더 쉽게 대응할 수 있습니다. 예를 들어, 봇이 백 엔드 데이터베이스 쿼리 (예: 제품 조회)에 너무 오래 걸리는 경우 `TurnStatusReceived` 클라이언트는 "죄송 합니다. 다시 시도할 수 있습니다." 라는 메시지가 표시 될 수 있습니다.
+- **C + +/c #/Java/JavaScript**: 기본 시스템 오류에 대해 음성 도우미 또는 봇이 더 잘 반응 하도록 합니다. `DialogServiceConnector` ([C + +](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector))에는 이제 새 `TurnStatusReceived` 이벤트 처리기가 있습니다. 이러한 선택적 이벤트는 [`ITurnContext`](/dotnet/api/microsoft.bot.builder.iturncontext) Bot의 모든 해상도에 해당 하며, 발생 하는 경우 실행 실패를 보고 합니다. 예를 들어 처리 되지 않은 예외, 시간 제한 또는 직접 줄 음성 및 봇 간의 네트워크 drop의 결과로 발생 합니다. `TurnStatusReceived` 를 사용 하면 오류 조건에 더 쉽게 대응할 수 있습니다. 예를 들어, 봇이 백 엔드 데이터베이스 쿼리 (예: 제품 조회)에 너무 오래 걸리는 경우 `TurnStatusReceived` 클라이언트는 "죄송 합니다. 다시 시도할 수 있습니다." 라는 메시지가 표시 될 수 있습니다.
 - **C + +/c #**: 더 많은 플랫폼에서 음성 SDK를 사용 합니다. 이제 [SPEECH sdk nuget 패키지](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) 는 Windows ARM/ARM64 desktop 네이티브 이진 파일 (UWP가 이미 지원 됨)을 지원 하기 때문에 더 많은 컴퓨터 형식에서 음성 sdk를 더 유용 하 게 사용할 수 있습니다.
 - **Java**: [`DialogServiceConnector`](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector) 이제 이전에 `setSpeechActivityTemplate()` 언어에서 실수로 제외 된 메서드가 있습니다. 이는 속성을 설정 하는 것과 동일 `Conversation_Speech_Activity_Template` 하며, 직접 라인 음성 서비스에서 발생 한 모든 향후 봇 프레임 워크 활동은 제공 된 콘텐츠를 해당 JSON 페이로드에 병합 하도록 요청 합니다.
 - **Java**: 낮은 수준의 디버깅이 향상 되었습니다. [`Connection`](/java/api/com.microsoft.cognitiveservices.speech.connection)이제 클래스에는 `MessageReceived` 다른 프로그래밍 언어와 유사한 이벤트가 있습니다 (c + +, c #). 이 이벤트는 서비스에서 들어오는 데이터에 대 한 하위 수준 액세스를 제공 하며 진단 및 디버깅에 유용할 수 있습니다.
@@ -238,7 +238,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 * Vocoders는 다음과 같은 음성에 대해 향상 된 기능 및 전반적인 성능 속도를 40%로 업데이트 했습니다.
 
-    | Locale | 음성 |
+    | 로캘 | 음성 |
     |---|---|    
     | `en-GB` | Mia |
     | `es-MX` | Dalia |
@@ -257,7 +257,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>새 음성 텍스트 로캘: 2020-8 월 릴리스
 8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 되었습니다. 2 유럽 언어 `cs-CZ` 와 `hu-HU` , 영어 (미국) 로캘, 영어 (미국)를 포함 하는 스페인어 로캘이 모두 포함 됩니다. 다음은 새 로캘의 목록입니다. [여기](./language-support.md)에서 전체 언어 목록을 참조 하세요.
 
-| Locale  | 언어                          |
+| 로캘  | 언어                          |
 |---------|-----------------------------------|
 | `cs-CZ` | 체코어(체코)            | 
 | `en-HK` | 영어 (홍콩)               | 

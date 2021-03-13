@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: e429b87397b91de28f7fea14729b0d18187fa8ff
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99a8e331e265e686d1de06f8143d2345e51143f1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031381"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613003"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -99,6 +99,10 @@ Azure Monitor 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
 Operations Manager 관리 그룹을 구성하도록 다음과 같은 일련의 단계를 수행하여 Log Analytics 작업 영역 중 하나에 연결합니다.
+
+> [!NOTE]
+> 특정 에이전트 또는 관리 서버에서 Log Analytics 데이터를 중지 하는 경우 Winsock 카탈로그를 다시 설정 (사용 `netsh winsock reset` ) 한 다음 서버를 다시 부팅할 수 있습니다. Winsock 카탈로그를 다시 설정 하면 손상 된 네트워크 연결을 다시 설정할 수 있습니다.
+
 
 Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 등록하는 동안 관리 그룹에 대한 프록시 구성을 지정하는 옵션을 운영 콘솔에서 사용할 수 없습니다.  이 옵션을 사용하려면 관리 그룹이 서비스에 등록되어 있어야 합니다.  이 문제를 해결하려면 운영 콘솔을 실행하는 시스템에서 Netsh를 사용하여 관리 그룹의 통합 및 모든 관리 서버를 구성하여 시스템 프록시 구성을 업데이트해야 합니다.  
 
