@@ -3,12 +3,12 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 776efd56aaa523d1c2621c51cba0446a42bb7411
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386036"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461915"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
@@ -96,9 +96,148 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 주석 마커를 선택 하 여 요청자, 소스 제어 분기, 릴리스 파이프라인 및 환경을 비롯 한 릴리스에 대 한 세부 정보를 엽니다.
 
 ## <a name="create-custom-annotations-from-powershell"></a>PowerShell에서 사용자 지정 주석 만들기
-GitHub의 [CreateReleaseAnnotation](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell 스크립트를 사용 하 여 Azure devops를 사용 하지 않고 원하는 모든 프로세스에서 주석을 만들 수 있습니다. 
+GitHub의 CreateReleaseAnnotation PowerShell 스크립트를 사용 하 여 Azure DevOps를 사용 하지 않고 원하는 모든 프로세스에서 주석을 만들 수 있습니다.
 
-1. [CreateReleaseAnnotation.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)의 로컬 복사본을 만듭니다.
+1. CreateReleaseAnnotation.ps1의 로컬 복사본을 만듭니다.
+
+    ```powershell
+    
+    # Copyright (c) Microsoft Corporation. All rights reserved. 
+    # Licensed under the MIT License. See License.txt in the project root for license information. 
+    
+    # Sample usage .\CreateReleaseAnnotation.ps1 -applicationId "<appId>" -apiKey "<apiKey>" -releaseFilePath "<path to .exe with file version>" -releaseProperties @{"ReleaseDescription"="Release with annotation";"TriggerBy"="John Doe"}
+    param(
+        [parameter(Mandatory = $true)][string]$applicationId,
+        [parameter(Mandatory = $true)][string]$apiKey,
+        [parameter(Mandatory = $true)][string]$releaseFilePath,
+        [parameter(Mandatory = $false)]$releaseProperties
+    )
+    
+    $releaseName = (Get-Item $releaseFilePath).VersionInfo.FileVersion
+    Write-Host "Creating release annotation $releaseName in ApplicationInsights" -ForegroundColor Cyan
+    
+    # background info on how fwlink works: After you submit a web request, many sites redirect through a series of intermediate pages before you finally land on the destination page.
+    # So when calling Invoke-WebRequest, the result it returns comes from the final page in any redirect sequence. Hence, I set MaximumRedirection to 0, as this prevents the call to 
+    # be redirected. By doing this, we get a response with status code 302, which indicates that there is a redirection link from the response body. We grab this redirection link and 
+    # construct the url to make a release annotation.
+    # Here's how this logic is going to works
+    # 1. Client send http request, such as:  http://go.microsoft.com/fwlink/?LinkId=625115
+    # 2. FWLink get the request and find out the destination URL for it, such as:  http://www.bing.com
+    # 3. FWLink generate a new http response with status code “302” and with destination URL “http://www.bing.com”. Send it back to Client.
+    # 4. Client, such as a powershell script, knows that status code “302” means redirection to new a location, and the target location is “http://www.bing.com”
+    function GetRequestUrlFromFwLink($fwLink)
+    {
+        $request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore
+        if ($request.StatusCode -eq "302") {
+            return $request.Headers.Location
+        }
+        
+        return $null
+    }
+    
+    function CreateAnnotation($grpEnv)
+    {
+        $retries = 1
+        $success = $false
+        while (!$success -and $retries -lt 6) {
+            $location = "$grpEnv/applications/$applicationId/Annotations?api-version=2015-11"
+                
+            Write-Host "Invoke a web request for $location to create a new release annotation. Attempting $retries"
+            set-variable -Name createResultStatus -Force -Scope Local -Value $null
+            set-variable -Name createResultStatusDescription -Force -Scope Local -Value $null
+            set-variable -Name result -Force -Scope Local
+    
+            try {
+                $result = Invoke-WebRequest -Uri $location -Method Put -Body $bodyJson -Headers $headers -ContentType "application/json; charset=utf-8" -UseBasicParsing
+            } catch {
+                if ($_.Exception){
+                    if($_.Exception.Response) {
+                        $createResultStatus = $_.Exception.Response.StatusCode.value__
+                        $createResultStatusDescription = $_.Exception.Response.StatusDescription
+                    }
+                    else {
+                        $createResultStatus = "Exception"
+                        $createResultStatusDescription = $_.Exception.Message
+                    }
+                }
+            }
+    
+            if ($result -eq $null) {
+                if ($createResultStatus -eq $null) {
+                    $createResultStatus = "Unknown"
+                }
+                if ($createResultStatusDescription -eq $null) {
+                    $createResultStatusDescription = "Unknown"
+                }
+            }
+            else {
+                    $success = $true                     
+            }
+    
+            if ($createResultStatus -eq 409 -or $createResultStatus -eq 404 -or $createResultStatus -eq 401) # no retry when conflict or unauthorized or not found
+            {
+                break
+            }
+    
+            $retries = $retries + 1
+            sleep 1
+        }
+    
+        $createResultStatus
+        $createResultStatusDescription
+        return
+    }
+    
+    # Need powershell version 3 or greater for script to run
+    $minimumPowershellMajorVersion = 3
+    if ($PSVersionTable.PSVersion.Major -lt $minimumPowershellMajorVersion) {
+       Write-Host "Need powershell version $minimumPowershellMajorVersion or greater to create release annotation"
+       return
+    }
+    
+    $currentTime = (Get-Date).ToUniversalTime()
+    $annotationDate = $currentTime.ToString("MMddyyyy_HHmmss")
+    set-variable -Name requestBody -Force -Scope Script
+    $requestBody = @{}
+    $requestBody.Id = [GUID]::NewGuid()
+    $requestBody.AnnotationName = $releaseName
+    $requestBody.EventTime = $currentTime.GetDateTimeFormats("s")[0] # GetDateTimeFormats returns an array
+    $requestBody.Category = "Deployment"
+    
+    if ($releaseProperties -eq $null) {
+        $properties = @{}
+    } else {
+        $properties = $releaseProperties    
+    }
+    $properties.Add("ReleaseName", $releaseName)
+    
+    $requestBody.Properties = ConvertTo-Json($properties) -Compress
+    
+    $bodyJson = [System.Text.Encoding]::UTF8.GetBytes(($requestBody | ConvertTo-Json))
+    $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+    $headers.Add("X-AIAPIKEY", $apiKey)
+    
+    set-variable -Name createAnnotationResult1 -Force -Scope Local -Value $null
+    set-variable -Name createAnnotationResultDescription -Force -Scope Local -Value ""
+    
+    # get redirect link from fwlink
+    $requestUrl = GetRequestUrlFromFwLink("http://go.microsoft.com/fwlink/?prd=11901&pver=1.0&sbp=Application%20Insights&plcid=0x409&clcid=0x409&ar=Annotations&sar=Create%20Annotation")
+    if ($requestUrl -eq $null) {
+        $output = "Failed to find the redirect link to create a release annotation"
+        throw $output
+    }
+    
+    $createAnnotationResult1, $createAnnotationResultDescription = CreateAnnotation($requestUrl)
+    if ($createAnnotationResult1) 
+    {
+         $output = "Failed to create an annotation with Id: {0}. Error {1}, Description: {2}." -f $requestBody.Id, $createAnnotationResult1, $createAnnotationResultDescription
+         throw $output
+    }
+    
+    $str = "Release annotation created. Id: {0}." -f $requestBody.Id
+    Write-Host $str -ForegroundColor Green
+    
+    ```
    
 1. 이전 절차의 단계를 사용 하 여 Application Insights ID를 가져오고 Application Insights **Api 액세스** 탭에서 api 키를 만듭니다.
    

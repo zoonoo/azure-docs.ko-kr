@@ -1,5 +1,5 @@
 ---
-title: 버전 관리 정책-Azure Database for MySQL-단일 서버 및 유연한 서버 (미리 보기)
+title: 버전 지원 정책-Azure Database for MySQL-단일 서버 및 유연한 서버 (미리 보기)
 description: Azure Database for MySQL의 MySQL 주 버전 및 부 버전에 대 한 정책을 설명 합니다.
 author: sr-msft
 ms.author: srranga
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732873"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462561"
 ---
-# <a name="azure-database-for-mysql-versioning-policy"></a>Azure Database for MySQL 버전 관리 정책
+# <a name="azure-database-for-mysql-version-support-policy"></a>Azure Database for MySQL 버전 지원 정책
 
 이 페이지에서는 Azure Database for MySQL 버전 관리 정책에 대해 설명 하 고 Azure Database for MySQL 단일 서버 및 Azure Database for MySQL 유연한 서버 (미리 보기) 배포 모드에 적용 됩니다.
 

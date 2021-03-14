@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433219"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462680"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -36,8 +36,10 @@ ms.locfileid: "102433219"
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> 디지털 트윈의 ID는 메타데이터 필드 `$dtId`를 사용하여 쿼리합니다.
+위의 쿼리와 같이 디지털 쌍의 ID는 메타 데이터 필드를 사용 하 여 쿼리 됩니다 `$dtId` .
+
+>[!TIP]
+> 로 시작 하는 메타 데이터 필드를 사용 하 여 쿼리를 실행 하기 위해 Cloud Shell를 사용 하는 경우 `$` 에는 `$` 이 변수가 변수가 아니라 쿼리 텍스트에서 리터럴로 사용 되어야 한다는 것을 Cloud Shell 수 있도록를 이스케이프 해야 합니다.
 
 **특정 속성이 정의 되어 있는지 여부** 에 따라 쌍을 가져올 수도 있습니다. 다음은 정의 된 *Location* 속성을 가진 쌍를 가져오는 쿼리입니다.
 

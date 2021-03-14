@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215156"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463037"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -87,7 +87,7 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 이 기능은 현재 Standard 및 Premium을 포함 하는 모든 가상 네트워크 지원 sku에 대해 작동 합니다. 단, Premium sku에 대해서만 가상 네트워크를 사용할 수 있는 플렉스 스탬프의 경우는 제외 됩니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 이 기능은 현재 Standard 및 Premium을 포함 하는 모든 Windows 가상 네트워크 지원 sku에 대해 작동 합니다. 단, Premium sku에 대해서만 가상 네트워크를 사용할 수 있는 플렉스 스탬프의 경우는 제외 됩니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
 
 1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
 1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.

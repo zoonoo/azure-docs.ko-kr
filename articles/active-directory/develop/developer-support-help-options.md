@@ -1,27 +1,26 @@
 ---
-title: Azure AD 앱 개발자를 위한 지원 및 도움말 옵션
-description: Microsoft ID(Azure Active Directory 및 Microsoft 계정)와 통합되는 애플리케이션을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
+title: Microsoft id 플랫폼 개발자를 위한 지원 및 도움말 옵션 | Microsoft
+description: Azure Active Directory (Azure AD) 및 Microsoft id 플랫폼의 기타 구성 요소와 통합 되는 IAM (id 및 액세스 관리) 솔루션을 빌드할 때 도움을 받고 질문에 대 한 답변을 찾을 수 있는 위치에 대해 알아봅니다.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517946"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462765"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
-Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통합을 방금 시작한 경우 또는 애플리케이션에 새 기능을 구현 중인 경우 커뮤니티에서 도움을 얻거나 개발자로서 사용할 수 있는 지원 옵션을 파악해야 할 때가 있습니다. Microsoft id 플랫폼 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대 한 제안 사항은 다음과 같습니다.
+설명서에 포함 되지 않은 문제를 해결 하는 데 도움이 필요 하거나 설명서에 포함 되지 않은 문제를 해결 하는 데 도움이 필요 하면 전문가에 게 문의 하 여 도움을 받을 수 있습니다. Microsoft id 플랫폼과 통합 되는 응용 프로그램을 개발할 때 질문에 대 한 답을 얻을 수 있는 몇 가지 제안 사항은 다음과 같습니다.
 
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -33,9 +32,10 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 - Azure 지원 계획이 이미 있는 경우 [여기에서 지원 요청을 여세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- Azure 고객이 아닌 경우 [상용 지원](https://support.serviceshub.microsoft.com/supportforbusiness)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
+- Azure 고객이 아닌 경우에는 Microsoft 지원를 사용 하 여 [비즈니스에 대 한](https://support.serviceshub.microsoft.com/supportforbusiness)지원 요청을 열 수 있습니다.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&A에 질문 게시
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             

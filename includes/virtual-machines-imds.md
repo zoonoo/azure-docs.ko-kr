@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510861"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464970"
 ---
 IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 합니다. 가상 컴퓨터를 관리 하 고 구성 하는 데 사용할 수 있습니다.
 이 정보에는 SKU, 저장소, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [끝점 범주 요약](#endpoint-categories)을 참조 하세요.
@@ -23,7 +23,7 @@ IMDS는 Vm (가상 머신) 및 가상 머신 확장 집합 인스턴스의 인�
 IMDS는 잘 알려진 라우팅할 수 없는 IP 주소 ()에서 사용할 수 있는 REST API입니다 `169.254.169.254` . VM 내 에서만 액세스할 수 있습니다. VM과 IMDS 간의 통신은 호스트를 유지 하지 않습니다.
 IMDS를 쿼리할 때 HTTP 클라이언트가 VM 내에서 웹 프록시를 우회 하도록 하 고와 동일 하 게 처리 `169.254.169.254` [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md) 합니다.
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 ### <a name="access-azure-instance-metadata-service"></a>Azure Instance Metadata Service 액세스
 
@@ -104,7 +104,7 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 
 매개 변수를 지정 합니다.
 
-| Name | 값 |
+| 이름 | 값 |
 |------|-------|
 | `api-version` | `2019-06-04`
 | `format` | `json`
@@ -911,7 +911,7 @@ GET /metadata/attested/document
 | 속성 | 필수/선택 | 설명 |
 |------|-------------------|-------------|
 | `api-version` | 필수 | 요청을 처리 하는 데 사용 되는 버전입니다.
-| `nonce` | 옵션 | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
+| `nonce` | Optional | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
 
 #### <a name="response"></a>응답
 
@@ -1140,174 +1140,168 @@ IMDS를 사용 하 여 예약 된 이벤트의 상태를 가져올 수 있습니
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**오류가 발생 `400 Bad Request, Required metadata header not specified` 합니다. 이것은 무엇을 의미 하나요?**
+- `400 Bad Request, Required metadata header not specified` 오류가 발생했습니다. 무슨 의미인가요?
+  - IMDS에서 `Metadata: true` 요청에 헤더를 전달 해야 합니다. REST 호출에서이 헤더를 전달 하면 IMDS에 액세스할 수 있습니다.
 
-IMDS에서 `Metadata: true` 요청에 헤더를 전달 해야 합니다. REST 호출에서이 헤더를 전달 하면 IMDS에 액세스할 수 있습니다.
+- VM에 대한 컴퓨팅 정보를 구할 수 없는 이유가 무엇인가요?
+  - 현재 IMDS는 Azure Resource Manager을 사용 하 여 만든 인스턴스만 지원 합니다.
 
-**VM에 대한 컴퓨팅 정보를 구할 수 없는 이유가 무엇인가요?**
+- 잠시 전에 Azure Resource Manager을 통해 VM을 만들었습니다. 컴퓨팅 메타데이터 정보가 왜 표시되지 않나요?
+  - 9 월 2016 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md) 를 추가 하 여 계산 메타 데이터 보기를 시작 합니다. 9 월 2016 일 이전에 VM을 만든 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가 하거나 제거 하 여 메타 데이터를 새로 고칩니다.
 
-현재 IMDS는 Azure Resource Manager을 사용 하 여 만든 인스턴스만 지원 합니다.
+- 새 버전에 대해 채워진 모든 데이터가 표시 되지 않는 이유는 무엇 인가요?
+  - 9 월 2016 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md) 를 추가 하 여 계산 메타 데이터 보기를 시작 합니다. 9 월 2016 일 이전에 VM을 만든 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가 하거나 제거 하 여 메타 데이터를 새로 고칩니다.
 
-**잠시 전에 Azure Resource Manager을 통해 VM을 만들었습니다. 계산 메타 데이터 정보가 표시 되지 않는 이유는 무엇 인가요?**
+- 오류가 발생 하는 이유는 무엇 인가요 `500 Internal Server Error` `410 Resource Gone` ?
+  - 요청을 다시 시도 하세요. 자세한 내용은 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)를 참조 하세요. 문제가 지속 되 면 VM에 대 한 Azure Portal에서 지원 문제를 만듭니다.
 
-9 월 2016 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md) 를 추가 하 여 계산 메타 데이터 보기를 시작 합니다. 9 월 2016 일 이전에 VM을 만든 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가 하거나 제거 하 여 메타 데이터를 새로 고칩니다.
+- 가상 머신 확장 집합 인스턴스에 대해이 작업을 수행 하나요?
+  - 예, IMDS는 가상 머신 확장 집합 인스턴스에 사용할 수 있습니다.
 
-**새 버전에 대해 채워진 모든 데이터가 표시 되지 않는 이유는 무엇 인가요?**
+- 가상 머신 확장 집합에서 내 태그를 업데이트 했지만 단일 인스턴스 Vm과 달리 인스턴스에는 표시 되지 않습니다. 문제가 발생 하나요?
+  - 현재 가상 머신 크기 집합에 대 한 태그는 다시 부팅, 이미지로 다시 설치 또는 인스턴스에 대 한 디스크 변경과 같이 VM에만 표시 됩니다.
 
-9 월 2016 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md) 를 추가 하 여 계산 메타 데이터 보기를 시작 합니다. 9 월 2016 일 이전에 VM을 만든 경우 VM 인스턴스에 확장 또는 데이터 디스크를 추가 하거나 제거 하 여 메타 데이터를 새로 고칩니다.
+- 내 VM에 대 한 SKU 정보를 자세히 보지 않는 이유는 무엇 `instance/compute` 인가요?
+  - Azure Marketplace에서 만든 사용자 지정 이미지의 경우 Azure platform은 사용자 지정 이미지에 대 한 SKU 정보 및 사용자 지정 이미지에서 만든 Vm에 대 한 세부 정보를 유지 하지 않습니다. 이것은 의도적인 것 이므로 VM 세부 정보에 표시 되지 않습니다 `instance/compute` .
 
-**오류가 발생 하는 이유는 무엇 인가요 `500 Internal Server Error` `410 Resource Gone` ?**
+- 내 요청이 서비스 호출에 대해 제한 시간을 초과 하는 이유는 무엇 인가요?
+  - 메타 데이터 호출은 VM의 기본 네트워크 카드에 할당 된 기본 IP 주소에서 이루어져야 합니다. 또한 경로를 변경한 경우 VM의 로컬 라우팅 테이블에 169.254.169.254/32 주소에 대 한 경로가 있어야 합니다.
 
-요청을 다시 시도 하세요. 자세한 내용은 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)를 참조 하세요. 문제가 지속 되 면 VM에 대 한 Azure Portal에서 지원 문제를 만듭니다.
+    ### <a name="windows"></a>[Windows](#tab/windows/)
 
-**가상 머신 확장 집합 인스턴스에 대해이 작업을 수행 하나요?**
+    1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들어:
+        ```console
+        > route print
+        IPv4 Route Table
+        ===========================================================================
+        Active Routes:
+        Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+            168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+        ... (continues) ...
+        ```
+    1. 에 대 한 경로가 있는지 확인 하 `169.254.169.254` 고 해당 네트워크 인터페이스 (예:)를 확인 `172.16.69.7` 합니다.
+    1. 인터페이스 구성을 덤프 하 고, MAC (물리적) 주소를 확인 하 여 라우팅 테이블에서 참조 된 항목에 해당 하는 인터페이스를 찾습니다.
+        ```console
+        > ipconfig /all
+        ... (continues) ...
+        Ethernet adapter Ethernet:
 
-예, IMDS는 가상 머신 확장 집합 인스턴스에 사용할 수 있습니다.
+        Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+        Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+        Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+        DHCP Enabled. . . . . . . . . . . : Yes
+        Autoconfiguration Enabled . . . . : Yes
+        Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+        IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        ... (continues) ...
+        ```
+    1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성을 확인 하거나 Azure CLI를 조회 하 여 기본 NIC 및 IP를 찾을 수 있습니다. 개인 Ip (및 CLI를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제는 다음과 같습니다.
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: wintest767 True 00-0D-3A-E5-1C-C0
+        ```
+    1. 일치 하지 않는 경우 기본 NIC와 IP가 대상으로 지정 되도록 라우팅 테이블을 업데이트 합니다.
 
-**가상 머신 확장 집합에서 내 태그를 업데이트 했지만 단일 인스턴스 Vm과 달리 인스턴스에는 표시 되지 않습니다. 문제가 발생 하나요?**
+    ### <a name="linux"></a>[Linux](#tab/linux/)
 
-현재 가상 머신 크기 집합에 대 한 태그는 다시 부팅, 이미지로 다시 설치 또는 인스턴스에 대 한 디스크 변경과 같이 VM에만 표시 됩니다.
+    1. 와 같은 명령을 사용 하 여 로컬 라우팅 테이블을 덤프 `netstat -r` 하 고 IMDS 항목을 찾습니다 (예:).
+        ```console
+        ~$ netstat -r
+        Kernel IP routing table
+        Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+        default         _gateway        0.0.0.0         UG        0 0          0 eth0
+        168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+        169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+        172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+        ```
+    1. 에 대 한 경로가 있는지 확인 하 `169.254.169.254` 고 해당 네트워크 인터페이스 (예:)를 확인 합니다. `eth0`
+    1. 라우팅 테이블의 해당 인터페이스에 대 한 인터페이스 구성을 덤프 합니다 (구성 파일의 정확한 이름은 다를 수 있음).
+        ```console
+        ~$ cat /etc/netplan/50-cloud-init.yaml
+        network:
+        ethernets:
+            eth0:
+                dhcp4: true
+                dhcp4-overrides:
+                    route-metric: 100
+                dhcp6: false
+                match:
+                    macaddress: 00:0d:3a:e4:c7:2e
+                set-name: eth0
+        version: 2
+        ```
+    1. 동적 IP를 사용 하는 경우 MAC 주소를 확인 합니다. 고정 IP를 사용 하는 경우 나열 된 IP 및/또는 MAC 주소를 확인할 수 있습니다.
+    1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성을 확인 하거나 Azure CLI를 조회 하 여 기본 NIC 및 IP를 찾을 수 있습니다. 개인 Ip (및 CLI를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제는 다음과 같습니다.
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+        ```
+    1. 일치 하지 않는 경우 기본 NIC/i p의 대상이 되도록 라우팅 테이블을 업데이트 합니다.
 
-**내 요청이 서비스 호출에 대해 제한 시간을 초과 하는 이유는 무엇 인가요?**
+    ---
 
-메타 데이터 호출은 VM의 기본 네트워크 카드에 할당 된 기본 IP 주소에서 이루어져야 합니다. 또한 경로를 변경한 경우 VM의 로컬 라우팅 테이블에 169.254.169.254/32 주소에 대 한 경로가 있어야 합니다.
+- Windows Server의 장애 조치 (Failover) 클러스터링
+  - 장애 조치 (failover) 클러스터링을 사용 하 여 IMDS를 쿼리 하는 경우 라우팅 테이블에 경로를 추가 해야 하는 경우가 있습니다. 방법은 다음과 같습니다.
 
-#### <a name="windows"></a>[Windows](#tab/windows/)
+    1. 관리자 권한으로 명령 프롬프트를 엽니다.
 
-1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들어:
-    ```console
-    > route print
+    1. 다음 명령을 실행 하 고 `0.0.0.0` IPv4 경로 테이블에서 네트워크 대상 ()의 인터페이스 주소를 확인 합니다.
+
+    ```bat
+    route print
+    ```
+
+    > [!NOTE]
+    > 다음 예제 출력은 장애 조치 (failover) 클러스터가 사용 하도록 설정 된 Windows Server VM에서 발생 합니다. 간단히 하기 위해 출력에는 IPv4 경로 테이블만 포함 됩니다.
+
+    ```
     IPv4 Route Table
     ===========================================================================
     Active Routes:
     Network Destination        Netmask          Gateway       Interface  Metric
-              0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+            0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+            10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+            10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
             127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
             127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-        168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-      169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-    ... (continues) ...
+    127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+        169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+    169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+            224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+            224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+    255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
     ```
-1. 에 대 한 경로가 있는지 확인 하 `169.254.169.254` 고 해당 네트워크 인터페이스 (예:)를 확인 `172.16.69.7` 합니다.
-1. 인터페이스 구성을 덤프 하 고, MAC (물리적) 주소를 확인 하 여 라우팅 테이블에서 참조 된 항목에 해당 하는 인터페이스를 찾습니다.
-    ```console
-    > ipconfig /all
-    ... (continues) ...
-    Ethernet adapter Ethernet:
 
-       Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-       Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-       DHCP Enabled. . . . . . . . . . . : Yes
-       Autoconfiguration Enabled . . . . : Yes
-       Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-       IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-       Subnet Mask . . . . . . . . . . . : 255.255.255.0
-    ... (continues) ...
+    다음 명령을 실행 하 고 네트워크 대상 ()의 인터페이스 주소를 사용 `0.0.0.0` `10.0.1.10` 합니다 .이 예제에서는 ()입니다.
+
+    ```bat
+    route add 169.254.169.254/32 10.0.1.10 metric 1 -p
     ```
-1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성을 확인 하거나 Azure CLI를 조회 하 여 기본 NIC 및 IP를 찾을 수 있습니다. 개인 Ip (및 CLI를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제는 다음과 같습니다.
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: wintest767 True 00-0D-3A-E5-1C-C0
-    ```
-1. 일치 하지 않는 경우 기본 NIC와 IP가 대상으로 지정 되도록 라우팅 테이블을 업데이트 합니다.
-
-#### <a name="linux"></a>[Linux](#tab/linux/)
-
- 1. 와 같은 명령을 사용 하 여 로컬 라우팅 테이블을 덤프 `netstat -r` 하 고 IMDS 항목을 찾습니다 (예:).
-    ```console
-    ~$ netstat -r
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-    default         _gateway        0.0.0.0         UG        0 0          0 eth0
-    168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
-    169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
-    172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
-    ```
-1. 에 대 한 경로가 있는지 확인 하 `169.254.169.254` 고 해당 네트워크 인터페이스 (예:)를 확인 합니다. `eth0`
-1. 라우팅 테이블의 해당 인터페이스에 대 한 인터페이스 구성을 덤프 합니다 (구성 파일의 정확한 이름은 다를 수 있음).
-    ```console
-    ~$ cat /etc/netplan/50-cloud-init.yaml
-    network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp4-overrides:
-                route-metric: 100
-            dhcp6: false
-            match:
-                macaddress: 00:0d:3a:e4:c7:2e
-            set-name: eth0
-    version: 2
-    ```
-1. 동적 IP를 사용 하는 경우 MAC 주소를 확인 합니다. 고정 IP를 사용 하는 경우 나열 된 IP 및/또는 MAC 주소를 확인할 수 있습니다.
-1. 인터페이스가 VM의 기본 NIC 및 기본 IP에 해당 하는지 확인 합니다. Azure Portal의 네트워크 구성을 확인 하거나 Azure CLI를 조회 하 여 기본 NIC 및 IP를 찾을 수 있습니다. 개인 Ip (및 CLI를 사용 하는 경우 MAC 주소)를 확인 합니다. PowerShell CLI 예제는 다음과 같습니다.
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: ipexample606 True 00-0D-3A-E4-C7-2E
-    ```
-1. 일치 하지 않는 경우 기본 NIC/i p의 대상이 되도록 라우팅 테이블을 업데이트 합니다.
-
----
-
-**Windows Server의 장애 조치 (Failover) 클러스터링**
-
-장애 조치 (failover) 클러스터링을 사용 하 여 IMDS를 쿼리 하는 경우 라우팅 테이블에 경로를 추가 해야 하는 경우가 있습니다. 방법은 다음과 같습니다.
-
-1. 관리자 권한으로 명령 프롬프트를 엽니다.
-
-1. 다음 명령을 실행 하 고 `0.0.0.0` IPv4 경로 테이블에서 네트워크 대상 ()의 인터페이스 주소를 확인 합니다.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> 다음 예제 출력은 장애 조치 (failover) 클러스터가 사용 하도록 설정 된 Windows Server VM에서 발생 합니다. 간단히 하기 위해 출력에는 IPv4 경로 테이블만 포함 됩니다.
-
-```
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-다음 명령을 실행 하 고 네트워크 대상 ()의 인터페이스 주소를 사용 `0.0.0.0` `10.0.1.10` 합니다 .이 예제에서는 ()입니다.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
 
 ## <a name="support"></a>지원
 
@@ -1315,12 +1309,12 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 
 ## <a name="product-feedback"></a>제품 사용자 의견
 
-Virtual Machines Instance Metadata Service >에서 사용자 피드백 채널에 제품 피드백 및 아이디어를 제공할 수 있습니다. https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627
+Virtual Machines [Instance Metadata Service >](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627) 에서 사용자 피드백 채널에 제품 피드백 및 아이디어를 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[VM에 대 한 액세스 토큰 획득](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [VM에 대 한 액세스 토큰 획득](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-[Linux에 대 한 예약 된 이벤트](../articles/virtual-machines/linux/scheduled-events.md)
+- [Linux에 대 한 예약 된 이벤트](../articles/virtual-machines/linux/scheduled-events.md)
 
-[Windows에 대 한 예약 된 이벤트](../articles/virtual-machines/windows/scheduled-events.md)
+- [Windows에 대 한 예약 된 이벤트](../articles/virtual-machines/windows/scheduled-events.md)

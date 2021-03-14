@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696332"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461137"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "98696332"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [Azure Time Series Insights 환경 만들기](./tutorials-set-up-tsi-environment.md)에 설명 된 대로 Azure Time Series Insights 환경을 만듭니다.
+- [Azure Time Series Insights 환경 만들기](./tutorial-set-up-environment.md)에 설명 된 대로 Azure Time Series Insights 환경을 만듭니다.
 - 이벤트 허브를 만듭니다. 읽기 [Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조 하세요.
 - 이벤트 허브에는 전송된 활성 메시지 이벤트가 있어야 합니다. [.NET Framework를 사용 하 여 Azure Event Hubs에 이벤트를 전송](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)하는 방법을 알아봅니다.
 - Azure Time Series Insights 환경에서 사용할 수 있는 이벤트 허브의 전용 소비자 그룹을 만듭니다. 각 Azure Time Series Insights 이벤트 원본에는 다른 소비자와 공유 되지 않는 고유한 전용 소비자 그룹이 있어야 합니다. 여러 판독기가 동일한 소비자 그룹의 이벤트를 사용 하는 경우 모든 판독기에 오류가 발생할 수 있습니다. 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조 하세요.
@@ -91,7 +91,7 @@ ms.locfileid: "98696332"
        | 속성 | 설명 |
        | --- | --- |
        | 구독 ID | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
-       | Resource group | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 리소스 그룹입니다. |
+       | 리소스 그룹 | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 리소스 그룹입니다. |
        | 이벤트 허브 네임스페이스 | 원하는 이벤트 허브 인스턴스가 속한 이벤트 허브 네임 스페이스입니다. |
        | 이벤트 허브 이름 | 원하는 이벤트 허브 인스턴스의 이름입니다. |
        | 이벤트 허브 정책 값 | 원하는 공유 액세스 정책을 선택 합니다. 이벤트 허브 **구성** 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **읽기** 사용 권한이 *반드시* 있어야 합니다. |

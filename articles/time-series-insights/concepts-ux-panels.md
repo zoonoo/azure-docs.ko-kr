@@ -10,22 +10,22 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736855"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464091"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
-* Azure Time Series Insights Gen2 환경을 프로 비전 합니다. [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) 자습서를 읽어 인스턴스를 프로 비전 하는 방법에 대해 자세히 알아보세요.
+* Azure Time Series Insights Gen2 환경을 프로 비전 합니다. [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md) 자습서를 읽어 인스턴스를 프로 비전 하는 방법에 대해 자세히 알아보세요.
 * 계정에 대해 만든 Azure Time Series Insights Gen2 환경에 대 한 [데이터 액세스를 제공](./concepts-access-policies.md) 합니다. 자신과 다른 사용자에 대한 액세스 권한을 모두 부여할 수 있습니다.
 * Azure Time Series Insights Gen2 환경에 이벤트 소스를 추가 하 여 환경에 데이터를 푸시합니다.
   * [이벤트 허브에 연결 하는 방법](./how-to-ingest-data-event-hub.md) 알아보기
@@ -92,7 +92,7 @@ Azure Time Series Insights Gen2는 시계열 모델에 대 한 모든 CRUD (만�
 
 요소의 왼쪽에 있는 빨간색 **삭제** (휴지통) 컨트롤을 선택 하 여 현재 데이터에서 특정 데이터 요소를 제거할 수 있습니다. 를 사용 하면 각 요소가 차트에 표시 되는 방식을 제어할 수도 있습니다. Min/max 그림자를 추가 하 고, 데이터 요소를 시간으로 이동 하 고, 인스턴스를 단계별 방식으로 시각화 하도록 선택할 수 있습니다.
 
-또한 탐색 컨트롤을 사용 하 여 시간 이동 및 분산형 차트를 쉽게 만들 수 있습니다.  
+또한 탐색 컨트롤을 사용 하 여 시간 이동 및 분산형 차트를 쉽게 만들 수 있습니다.
 
   [![잘 레이아웃 옵션](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
@@ -219,7 +219,7 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
-| `HAS` | String | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
+| `HAS` | 문자열 | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
 지원 되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아보려면 [TSX (Time Series Expression)](/rest/api/time-series-insights/reference-time-series-expression-syntax)를 참조 하세요.
 

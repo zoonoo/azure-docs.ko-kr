@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 719dcecf3091e03fbcbe6a82d4c618f54243c4e1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215343"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463513"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -45,7 +45,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 오프라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | X |  |
@@ -67,13 +67,13 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 온라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | X | GA |
-|   | RDS SQL | X | GA |
+| **Azure SQL DB** | SQL Server | X |  |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X | GA |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
@@ -88,7 +88,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 |   | RDS PostgreSQL | ✔ | GA |
 
 > [!IMPORTANT]
-> "Oracle to Azure Database for PostgreSQL" 마이그레이션 시나리오 (현재 미리 보기 상태)는 2021 년 5 월 1 일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공 하 고 Oracle에서 PostgreSQL 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle to Azure Database for PostgreSQL migration guide] (를 참조 하세요 https://aka.ms/OracletoPGguide) .
+> "Oracle을 Azure Database for PostgreSQL로" 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle to Azure Database for PostgreSQL 마이그레이션 가이드](https://aka.ms/OracletoPGguide)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

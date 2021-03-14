@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7b7e29b6e2ebb3b229045df439848264540b59b1
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881808"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461626"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -27,7 +27,7 @@ ms.locfileid: "98881808"
 
 ## <a name="create-or-edit-event-sources"></a>이벤트 원본 만들기 또는 편집
 
-이벤트 원본 리소스는 Azure Time Series Insights Gen2 환경 또는 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
+이벤트 원본 리소스는 Azure Time Series Insights Gen2 환경 또는 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
 
 이벤트 원본을 연결 하면 Azure Time Series Insights Gen2 환경에서 가장 오래 된 이벤트부터 시작 하 여 현재 Iot 또는 Event Hub에 저장 된 모든 이벤트를 읽습니다.
 

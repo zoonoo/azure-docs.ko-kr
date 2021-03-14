@@ -11,26 +11,26 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8ee2cc5473d83eafc2443f3aea7cab6a2e77727c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023261"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463564"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>이벤트 허브를 사용 하 여 Azure Time Series Insights Gen1 환경으로 이벤트 보내기
 
 > [!CAUTION]
 > 이는 Gen1 문서입니다.
 
-이 문서에서는 Azure Event Hubs에서 이벤트 허브를 만들고 구성 하는 방법을 설명 합니다. 또한 Event Hubs에서 Azure Time Series Insights 하는 이벤트를 푸시하는 샘플 응용 프로그램을 실행 하는 방법을 설명 합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우이 자습서를 건너뛰고 [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md)에서 환경을 확인 합니다.
+이 문서에서는 Azure Event Hubs에서 이벤트 허브를 만들고 구성 하는 방법을 설명 합니다. 또한 Event Hubs에서 Azure Time Series Insights 하는 이벤트를 푸시하는 샘플 응용 프로그램을 실행 하는 방법을 설명 합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우이 자습서를 건너뛰고 [Azure Time Series Insights](./tutorial-set-up-environment.md)에서 환경을 확인 합니다.
 
 ## <a name="configure-an-event-hub"></a>이벤트 허브 구성
 
 1. 이벤트 허브를 만드는 방법에 대 한 자세한 내용은 [Event Hubs 설명서](../event-hubs/index.yml)를 참조 하세요.
 1. 검색 상자에서 **Event Hubs** 를 검색합니다. 반환된 목록에서 **Event Hubs** 를 선택합니다.
 1. 이벤트 허브를 선택합니다.
-1. 이벤트 허브를 만들 때 event hubs 네임 스페이스를 만듭니다. 네임 스페이스 내에서 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티** 아래에서 이벤트 허브를 만듭니다.  
+1. 이벤트 허브를 만들 때 event hubs 네임 스페이스를 만듭니다. 네임 스페이스 내에서 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티** 아래에서 이벤트 허브를 만듭니다.
 
     [![이벤트 허브의 목록](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
@@ -76,9 +76,9 @@ Azure Time Series Insights Gen2에서 TSM (시계열 모델)을 사용 하 여 �
 
     [![기본 키 연결 문자열의 값 복사](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. [https://editor.swagger.io](<https://tsiclientsample.azurewebsites.net/windFarmGen.html>) 로 이동합니다. URL은 시뮬레이트된 풍차 장치를 만들고 실행 합니다.
+1. <https://tsiclientsample.azurewebsites.net/windFarmGen.html>로 이동합니다. URL은 시뮬레이트된 풍차 장치를 만들고 실행 합니다.
 1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에, [풍차 입력 필드](#push-events-to-windmills-sample)에 복사한 연결 문자열을 붙여넣습니다.
-  
+
     [![이벤트 허브 연결 문자열 상자에 기본 키 연결 문자열 붙여넣기](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. **시작하려면 클릭** 을 선택합니다.

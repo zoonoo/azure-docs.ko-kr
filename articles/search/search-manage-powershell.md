@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 111424ab3a3bd6020e70a08ddf2c494996f6f0ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efb5d498c627a6731d2a90623c81eefabd0042a0
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676681"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462782"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>서비스 만들기 또는 삭제
 
-[**AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) 는 [새 검색 서비스를 만드는](search-create-service-portal.md)데 사용 됩니다.
+[**AzSearchService**](/powershell/module/az.search/new-azsearchservice) 는 [새 검색 서비스를 만드는](search-create-service-portal.md)데 사용 됩니다.
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default

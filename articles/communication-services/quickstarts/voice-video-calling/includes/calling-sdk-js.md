@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 195e8fefbf0dbf3ff55e1bd4d043de772000248b
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7d694ba15379dcb16f881d23712c64ead2ff6e7d
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439299"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464953"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -559,6 +559,8 @@ console.log(result.video);
 
 
 ## <a name="call-recording-management"></a>통화 레코딩 관리
+
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
 
 통화 레코딩은 핵심 `Call` API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
 

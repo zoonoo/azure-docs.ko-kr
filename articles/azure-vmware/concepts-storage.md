@@ -2,13 +2,13 @@
 title: 개념-저장소
 description: Azure VMware 솔루션 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: a4c34f8767b20de3ca0647e09c5dc9edad3d45fb
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 03/13/2021
+ms.openlocfilehash: 2551b11ada8b6118fb7524d9fe36f8b4b568aca1
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200552"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462476"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 솔루션 저장소 개념
 
@@ -19,6 +19,7 @@ Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클�
 각 클러스터 호스트의 로컬 저장소는 vSAN 데이터 저장소의 일부로 사용 됩니다. 모든 diskgroups는 1.6 TB의 NVMe 캐시 계층을 사용 하며, 호스트 당 raw, SSD 기반 용량 15.4 TB를 사용 합니다. 클러스터의 원시 용량 계층 크기는 호스트 수 당 호스트 수의 수를 곱한 값입니다. 예를 들어 4 개의 호스트 클러스터가 vSAN 용량 계층에서 61.6-TB 원시 용량을 제공 합니다.
 
 클러스터 호스트의 로컬 저장소는 클러스터 차원의 vSAN 데이터 저장소에 사용 됩니다. 모든 데이터 저장소는 사설 클라우드 배포의 일부로 생성 되며 즉시 사용할 수 있습니다. Cloudadmin 그룹의 cloudadmin 사용자 및 모든 사용자는 다음과 같은 vsan 권한으로 데이터 저장소를 관리할 수 있습니다.
+
 - Datastore.AllocateSpace
 - Datastore.Browse
 - Datastore.Config
@@ -28,11 +29,11 @@ Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클�
 
 ## <a name="data-at-rest-encryption"></a>휴지 상태의 데이터 암호화
 
-vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키는 암호화 되어 Azure Key Vault 마스터 키로 래핑됩니다. 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
+vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키는 암호화 되어 Azure Key Vault 마스터 키로 래핑됩니다. 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
 
 ## <a name="scaling"></a>크기 조정
 
-클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. AVS36 호스트를 사용 하는 클러스터의 경우 추가 된 각 호스트와 함께 원시 클러스터 전체 용량이 15.4 TB 씩 증가 합니다. 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud]를 참조 하세요.
+클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. AVS36 호스트를 사용 하는 클러스터의 경우 추가 된 각 호스트와 함께 원시 클러스터 전체 용량이 15.4 TB 씩 증가 합니다. 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다.  클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud]를 참조 하세요.
 
 ## <a name="azure-storage-integration"></a>Azure storage 통합
 
@@ -45,6 +46,7 @@ vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사
 - [사설 클라우드 id 개념](concepts-identity.md).
 - [Azure VMware 솔루션에 대 한 Vsphere 역할 기반 액세스 제어](concepts-role-based-access-control.md).
 - [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
+- [Azure VMware 솔루션으로 Azure NetApp Files](netapp-files-with-azure-vmware-solution.md)
 
 <!-- LINKS - external-->
 
