@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 8e97fe287335837ad79e6446bb7abf196cda6f75
-  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+  ms.openlocfilehash: be3cbee5bee706bc10036349950c3b128d007a34
+  ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/03/2021
-  ms.locfileid: "99508119"
+  ms.lasthandoff: 03/13/2021
+  ms.locfileid: "103419629"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -44,7 +44,7 @@ conceptualContent:
       text: 음성 텍스트 변환 시작
       url: get-started-speech-to-text.md
     - itemType: overview
-      text: Custom Speech 정보
+      text: Custom Speech를 사용하여 정확도 향상
       url: custom-speech-overview.md
     footerLink:
       text: 추가
@@ -60,6 +60,12 @@ conceptualContent:
     - itemType: how-to-guide
       text: SSML을 사용하여 합성 향상
       url: speech-synthesis-markup.md
+    - itemType: overview
+      text: 사용자 지정 음성 만들기
+      url: custom-neural-voice.md
+    - itemType: how-to-guide
+      text: 텍스트 음성 변환 소리 자연스럽게 만들기
+      url: how-to-audio-content-creation.md
     footerLink:
       text: 추가
       url: index-text-to-speech.yml
@@ -74,20 +80,6 @@ conceptualContent:
     footerLink:
       text: 추가
       url: index-speech-translation.yml
-  - title: 의도 인식
-    links:
-    - itemType: quickstart
-      text: 음성, 의도 및 엔터티 인식
-      url: quickstarts/intent-recognition.md
-    - itemType: how-to-guide
-      text: LUIS 및 C#을 통해 음성 의도 인식
-      url: how-to-recognize-intents-from-speech-csharp.md
-    - itemType: reference
-      text: LUIS(Language Understanding) 포털
-      url: https://www.luis.ai
-    footerLink:
-      text: 추가
-      url: index-intent-recognition.yml
   - title: Speaker Recognition
     links:
     - itemType: overview
@@ -107,6 +99,20 @@ conceptualContent:
     - itemType: quickstart
       text: 사용자 지정 키워드 시작
       url: custom-keyword-basics.md
+  - title: 의도 인식
+    links:
+    - itemType: quickstart
+      text: 음성, 의도 및 엔터티 인식
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: LUIS 및 C#을 통해 음성 의도 인식
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: LUIS(Language Understanding) 포털
+      url: https://www.luis.ai
+    footerLink:
+      text: 추가
+      url: index-intent-recognition.yml
   - title: 시나리오 심층 분석
     links:
     - itemType: overview
