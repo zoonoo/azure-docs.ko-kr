@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037237"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490302"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure 메트릭 탐색기 시작
 
@@ -63,6 +63,20 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 - **분할** 은 차원의 각 값에 대한 별도의 줄을 차트에 표시할 것인지 아니면 값을 한 줄로 집계할 것인지 여부를 제어합니다. 예를 들어 모든 서버 인스턴스에서 평균 응답 시간에 대해 한 줄을 표시 하거나 각 서버에 대 한 별도의 줄을 볼 수 있습니다. 별도의 줄을 보려면 *서버 인스턴스* 차원에 분할을 적용 해야 합니다.
 
 필터링 및 분할이 적용된 차트는 [차트 예제](../essentials/metric-chart-samples.md)를 참조하세요. 이 문서에서는 차트를 구성 하는 데 사용 된 단계를 보여 줍니다.
+
+## <a name="share-your-metric-chart"></a>메트릭 차트 공유
+현재 메트릭 차트를 공유 하는 방법에는 두 가지가 있습니다. 다음은 Excel 및 링크를 통해 메트릭 차트의 정보를 공유 하는 방법에 대 한 지침입니다.
+ 
+### <a name="download-to-excel"></a>Excel로 다운로드
+"공유"를 클릭 하 고 "Excel로 다운로드"를 선택 합니다. 다운로드를 즉시 시작 해야 합니다.
+
+![excel을 통해 메트릭 차트를 공유 하는 방법에 대 한 스크린샷](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>링크 공유
+"공유"를 클릭 하 고 "링크 복사"를 선택 합니다. 링크가 성공적으로 복사 되었다는 알림이 표시 됩니다.
+
+![링크를 통해 메트릭 차트를 공유 하는 방법에 대 한 스크린샷](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>고급 차트 설정
 

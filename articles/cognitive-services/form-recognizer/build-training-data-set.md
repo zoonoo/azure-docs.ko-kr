@@ -2,23 +2,23 @@
 title: 사용자 지정 모델-양식 인식기에 대 한 학습 데이터 집합을 작성 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 학습 데이터 집합이 양식 인식기 모델 학습을 위해 최적화 되어 있는지 확인 하는 방법에 대해 알아봅니다.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: pafarley
-ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585112"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467496"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
-폼 인식기 사용자 지정 모델을 사용 하는 경우 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) 학습 작업에 고유한 학습 데이터를 제공 하 여 모델에서 산업별 양식으로 학습할 수 있습니다. 이 가이드에 따라 데이터를 수집 하 고 준비 하 여 모델을 효과적으로 학습 하는 방법을 알아보세요.
+폼 인식기 사용자 지정 모델을 사용 하는 경우 [사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) 학습 작업에 고유한 학습 데이터를 제공 하 여 모델에서 산업별 양식으로 학습할 수 있습니다. 이 가이드에 따라 데이터를 수집 하 고 준비 하 여 모델을 효과적으로 학습 하는 방법을 알아보세요.
 
 동일한 형식의 채워진 폼이 5 개 이상 있어야 합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "99585112"
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>하위 폴더의 데이터 구성 (선택 사항)
 
-기본적으로 [학습 사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) API는 저장소 컨테이너의 루트에 있는 양식 문서만 사용 합니다. 그러나 API 호출에서 지정 하는 경우 하위 폴더의 데이터로 학습을 수행할 수 있습니다. 일반적으로 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) 호출의 본문에는 다음과 같은 형식이 있습니다. 여기서 `<SAS URL>` 은 컨테이너의 공유 액세스 서명 URL입니다.
+기본적으로 [학습 사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) API는 저장소 컨테이너의 루트에 있는 양식 문서만 사용 합니다. 그러나 API 호출에서 지정 하는 경우 하위 폴더의 데이터로 학습을 수행할 수 있습니다. 일반적으로 [사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) 호출의 본문에는 다음과 같은 형식이 있습니다. 여기서 `<SAS URL>` 은 컨테이너의 공유 액세스 서명 URL입니다.
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082769"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471707"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 저장소 대상 문제 해결
 
@@ -64,7 +64,7 @@ NAS 자체와 저장소 시스템과 캐시 서브넷 간의 모든 방화벽에
 내보내기 규칙을 사용 하는 경우 캐시는 캐시 서브넷의 여러 IP 주소를 사용할 수 있습니다. 모든 가능한 서브넷 IP 주소 범위에서 액세스를 허용 합니다.
 
 > [!NOTE]
-> 기본적으로 Azure HPC 캐시는 squashes 루트 액세스를 사용 합니다. 자세한 내용은 [추가 캐시 설정 구성](configuration.md#configure-root-squash) 을 참조 하세요.
+> 캐시에 백 엔드 저장소 시스템에 대 한 루트 액세스 권한이 필요 하지만 캐시를 통해 연결 하는 클라이언트에 대 한 액세스를 제한할 수 있습니다. 자세한 내용은 [Control 클라이언트 액세스](access-policies.md#root-squash) 를 참조 하세요.
 
 NAS 저장소 공급 업체와 협력 하 여 캐시에 대 한 적절 한 수준의 액세스를 사용 하도록 설정 합니다.
 

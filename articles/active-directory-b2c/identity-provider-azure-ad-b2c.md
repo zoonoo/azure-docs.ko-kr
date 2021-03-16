@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9a20305f05b285b29d4a5eaf75116c862f3a6d4
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448492"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489073"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "102448492"
 ![다른 Azure AD B2C 테 넌 트와 Azure AD B2C 페더레이션](./media/identity-provider-azure-ad-b2c/azure-ad-b2c-federation.png)
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -63,6 +63,8 @@ ms.locfileid: "102448492"
     ```
 
     예들 들어 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`입니다.
+
+    [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. 을 `your-domain-name` 사용자 지정 도메인으로,를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다.
 
 1. 사용 권한 아래에서 **openid connect 및 offline_access 권한에 관리자 동의 부여** 확인란을 선택 합니다.
 1. **등록** 을 선택합니다.

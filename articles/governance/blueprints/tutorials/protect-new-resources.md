@@ -1,29 +1,29 @@
 ---
 title: '자습서: 잠금을 사용하여 새 리소스 보호'
 description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호합니다.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99822427"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485744"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
-Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용하면 새로 배포한 리소스를 _소유자_ 역할 계정으로도 변조할 수 없게 보호할 수 있습니다. 이 보호를 ARM 템플릿(Azure Resource Manager 템플릿) 아티팩트로 만든 리소스의 청사진 정의에 추가할 수 있습니다.
+Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용하면 새로 배포한 리소스를 _소유자_ 역할 계정으로도 변조할 수 없게 보호할 수 있습니다. 이 보호를 ARM 템플릿(Azure Resource Manager 템플릿) 아티팩트로 만든 리소스의 청사진 정의에 추가할 수 있습니다. 청사진 리소스 잠금은 청사진 할당 중에 설정됩니다.
 
 이 자습서에서는 다음 단계를 완료합니다.
 
 > [!div class="checklist"]
 > - 청사진 정의 만들기
 > - 청사진 정의를 **게시됨** 으로 표시
-> - 기존 구독에 청사진 정의 할당
+> - 기존 구독에 청사진 정의 할당(**리소스 잠금 설정**)
 > - 새 리소스 그룹 조사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -56,6 +56,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    1. **RGtoLock** 항목 아래의 **아티팩트 추가** 행을 선택합니다.
    1. **아티팩트 형식** 아래의 **Azure Resource Manager 템플릿** 을 선택하고, **아티팩트 표시 이름** 을 **StorageAccount** 로 설정하고, **설명** 은 비워 둡니다.
    1. **템플릿** 탭의 편집기 상자에 다음 ARM 템플릿을 붙여넣습니다. 템플릿을 붙여넣은 후 **추가** 를 선택하여 아티팩트를 청사진에 추가합니다.
+
+      > [!NOTE]
+      > 이 단계에서는 청사진 리소스 잠금에 의해 잠기는 리소스를 정의하지만 청사진 리소스 잠금은 포함하지 않습니다. 청사진 리소스 잠금은 청사진 할당의 매개 변수로 설정됩니다.
 
    ```json
    {
@@ -142,6 +145,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **할당 잠금**
 
      **읽기 전용** 청사진 잠금 모드를 선택합니다. 자세한 내용은 [청사진 리소스 잠금](../concepts/resource-locking.md)을 참조하세요.
+
+     > [!NOTE]
+     > 이 단계에서는 새로 배포된 리소스에 대한 청사진 리소스 잠금을 구성합니다.
 
    - **관리 ID**
 

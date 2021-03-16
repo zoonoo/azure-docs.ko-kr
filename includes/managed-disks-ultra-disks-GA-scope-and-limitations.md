@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603364"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103555955"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -65,11 +65,11 @@ ms.locfileid: "102603364"
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - 모든 VM 크기를 모든 지원 되는 지역에서 ultra disks에 사용할 수 있는 것은 아닙니다.
 - 데이터 디스크로만 사용할 수 있습니다. 
-- 기본적으로 4k 물리적 섹터 크기를 지원 합니다. 512E 섹터 크기는 일반적으로 사용할 수 있는 제품 (등록 필요 없음)로 사용할 수 있지만 현재 CLI 또는 powershell을 사용 하 여 사용할 수 있습니다. 대부분의 응용 프로그램은 4k 섹터 크기와 호환 되지만 일부는 512 바이트 섹터 크기를 요구 합니다. 한 가지 예는 4k 기본 디스크를 지원 하기 위해 릴리스 12.2 이상이 필요한 Oracle Database입니다. 이전 버전의 Oracle DB의 경우 512 바이트 섹터 크기가 필요 합니다.
+- 기본적으로 4k 물리적 섹터 크기를 지원 합니다. 512E 섹터 크기는 일반적으로 사용할 수 있는 제품 (등록 필요 없음)로 제공 됩니다. 대부분의 응용 프로그램은 4k 섹터 크기와 호환 되지만 일부는 512 바이트 섹터 크기를 요구 합니다. 한 가지 예는 4k 기본 디스크를 지원 하기 위해 릴리스 12.2 이상이 필요한 Oracle Database입니다. 이전 버전의 Oracle DB의 경우 512 바이트 섹터 크기가 필요 합니다.
 - 빈 디스크로만 만들 수 있습니다.
 - 는 현재 디스크 스냅숏, VM 이미지, 가용성 집합, Azure 전용 호스트 또는 Azure disk encryption을 지원 하지 않습니다.
 - 는 현재 Azure Backup 또는 Azure Site Recovery와의 통합을 지원 하지 않습니다.
 - 캐시 되지 않은 읽기와 캐시 되지 않은 쓰기만 지원 합니다.
 - GA Vm에서 현재 IOPS의 최대 제한은 8만입니다.
 
-Azure ultra disks는 기본적으로 구독 당 최대 16 개의 TiB을 제공 하지만 ultra disks는 요청에 따라 더 많은 용량을 지원 합니다. 용량 증가를 요청 하려면 Azure 지원에 문의 하세요.
+Azure ultra disks는 기본적으로 구독 당 최대 32 TiB을 제공 하지만, ultra disks는 요청에 따라 더 많은 용량을 지원 합니다. 용량 증가를 요청 하려면 할당량 증가를 요청 하거나 Azure 지원에 문의 하세요.

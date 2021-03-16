@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7f2d6ecd01959e239a1ab048018452b2ae5fc20
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449257"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495218"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -29,7 +29,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**Server** | **Requirements** | **세부 정보**
+**Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
@@ -41,7 +41,7 @@ vSphere 호스트 | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 �
 - VMware Vm의 경우에는 파일을 다운로드 하 여 VMware VM을 만드는 구성 서버를 설정 합니다.
 - 물리적 서버의 경우 구성 서버 컴퓨터를 수동으로 설정 합니다.
 
-**구성 요소** | **Requirements**
+**구성 요소** | **요구 사항**
 --- |---
 CPU 코어 | 8
 RAM | 16GB
@@ -224,40 +224,41 @@ Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 예
+Docker 디스크 구성 | No
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
 호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 예
-게스트/서버 암호화된 디스크 | 예
-게스트/서버 NFS | 예
+게스트/서버 공유 클러스터 디스크 | No
+게스트/서버 암호화된 디스크 | No
+게스트/서버 NFS | No
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 예
+게스트/서버 SMB 3.0 | No
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 예
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | No
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | No
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
 논리 볼륨 관리(LVM)| 굵고 프로 비전-예 <br></br> 씬 프로비저닝-아니요
-게스트/서버 - 스토리지 공간 | 예
-게스트/서버-NVMe 인터페이스 | 예
-게스트/서버 디스크 핫 추가/제거 | 예
+게스트/서버 - 스토리지 공간 | No
+게스트/서버-NVMe 인터페이스 | No
+게스트/서버 디스크 핫 추가/제거 | No
 게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 예
+게스트/서버 다중 경로(MPIO) | No
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전 4 개가 지원 되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
 게스트/서버 EFI/UEFI 부팅 | -Site Recovery 모바일 에이전트 버전 9.30부터 시작 하는 모든 [AZURE MARKETPLACE UEFI 운영 체제](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) 에 대해 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+RAID 디스크| No
 
 ## <a name="replication-channels"></a>복제 채널
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       예  |
-|오프 라인 시드        |   예      |
-| Azure Data Box | 예
+|ODX (오프 로드 된 데이터 전송)    |       No  |
+|오프 라인 시드        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -266,15 +267,15 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 로컬 중복 스토리지 | 예
 지역 중복 스토리지 | 예
 읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 예
-핫 스토리지| 예
-블록 Blob | 예
+쿨 스토리지 | No
+핫 스토리지| No
+블록 Blob | No
 미사용 암호화 (SSE)| 예
 미사용 암호화 (CMK)| 예 (PowerShell Az 3.3.0 모듈을 통해)
 휴지 상태의 이중 암호화 | 예 (PowerShell Az 3.3.0 모듈을 통해). [Windows](../virtual-machines/disk-encryption.md) 및 [Linux](../virtual-machines/disk-encryption.md)에 대해 지원 되는 지역에 대해 자세히 알아보세요.
 Premium Storage | 예
 보안 전송 옵션 | 예
-Import/Export 서비스 | 예
+Import/Export 서비스 | No
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -283,7 +284,7 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 **기능** | **지원됨**
 --- | ---
 가용성 집합 | 예
-가용성 영역 | 예
+가용성 영역 | No
 HUB | 예
 관리 디스크 | 예
 
@@ -291,7 +292,7 @@ HUB | 예
 
 Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
 
-**구성 요소** | **Requirements** | **세부 정보**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
@@ -348,12 +349,12 @@ V2 저장소 계정    |    1500 디스크    |    750 디스크
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**동작** | **지원됨**
+**작업** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 예
-구독 내 및 구독 간에 자격 증명 모음 이동 | 예
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 예
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 예
+리소스 그룹 간 자격 증명 모음 이동 | No
+구독 내 및 구독 간에 자격 증명 모음 이동 | No
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | No
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | No
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기

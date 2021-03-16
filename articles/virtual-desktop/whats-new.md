@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575316"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499886"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -39,6 +39,26 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="february-2021"></a>2021년 2월
+
+2021년 2월에 변경된 내용은 다음과 같습니다.
+
+### <a name="portal-experience"></a>포털 환경
+
+다음과 같은 방법으로 Azure Portal 환경을 개선했습니다.
+
+- 세션 호스트 그리드 탭에 있는 호스트의 대량 드레이닝 모드. 
+- 이제 MSIX 앱 연결을 공개 미리 보기에서 사용할 수 있습니다.
+- 다크 모드의 호스트 풀 개요 정보를 수정했습니다.
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>현재 공개 미리 보기로 제공되는 EU 메타데이터 스토리지
+
+이제 Windows Virtual Desktop의 서비스 메타데이터에 대한 스토리지 옵션으로 유럽(EU) 지리의 공개 미리 보기를 호스팅하고 있습니다. 고객은 해당 서비스 개체를 만들 때 서유럽 또는 북유럽 중에서 선택할 수 있습니다. 호스트 풀에 대한 서비스 개체 및 메타데이터는 각 지역과 연결된 Azure 지리에 저장됩니다. 자세히 알아보려면 [공개 미리 보기를 발표하는 블로그 게시물](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939)을 참조하세요.
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Windows Virtual Desktop 플러그 인 업데이트의 Teams
+
+화면이 갑자기 어두워지거나 비디오와 사운드가 동기화되지 않는 경우와 같이 가장 일반적으로 보고되는 문제를 해결하여 Windows Virtual Desktop 플러그 인의 화상 통화 품질을 개선했습니다. 이러한 향상된 기능을 통해 활성 스피커가 전환된 단일 비디오 보기의 성능이 향상됩니다. Teams에서 특수 문자가 포함된 하드웨어 디바이스를 사용할 수 없는 문제도 해결했습니다.
 
 ## <a name="january-2021"></a>2021년 1월
 
@@ -228,7 +248,7 @@ Windows Virtual Desktop Azure Portal에 대한 몇 가지 업데이트를 수행
 
 - Azure Advisor는 이제 Windows Virtual Desktop의 일부입니다. Azure Portal을 통해 Windows Virtual Desktop에 액세스하면 Windows Virtual Desktop 환경을 최적화하기 위한 권장 사항을 확인할 수 있습니다. [Azure Advisor](azure-advisor.md)에서 자세히 알아보세요.
 
-- 이제 Azure CLI는 Windows Virtual Desktop 배포를 자동화하는 데 도움이 되는 Windows Virtual Desktop(`az desktopvirtualization`)을 지원합니다. 확장 명령 목록은 [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true)을 체크 아웃하세요.
+- 이제 Azure CLI는 Windows Virtual Desktop 배포를 자동화하는 데 도움이 되는 Windows Virtual Desktop(`az desktopvirtualization`)을 지원합니다. 확장 명령 목록은 [desktopvirtualization](/cli/azure/ext/desktopvirtualization/)을 체크 아웃하세요.
 
 - Windows Virtual Desktop Azure Resource Manager 인터페이스와 완벽하게 호환되도록 배포 템플릿을 업데이트했습니다. [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)에서 템플릿을 찾을 수 있습니다.
 
@@ -299,7 +319,7 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니�
 
 모듈을 설치하려면 [Windows Virtual Desktop용 PowerShell 모듈 설치](powershell-module.md)에 나온 지침을 따르세요.
 
-[AzWvd PowerShell 참조](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true)에서 사용 가능한 명령 목록을 확인할 수도 있습니다.
+[AzWvd PowerShell 참조](/powershell/module/az.desktopvirtualization/#desktopvirtualization)에서 사용 가능한 명령 목록을 확인할 수도 있습니다.
 
 새 기능에 대한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245)을 확인하세요.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 03/02/2021
 ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 89da9ed378118875f0c09d3c23799349a4d093b0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247468"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467700"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>IoT 용 Azure Defender 질문과 대답
 
@@ -45,7 +45,7 @@ IoT 센서 용 Azure Defender는 [하드웨어 사양 가이드](./how-to-identi
 
 ## <a name="regulation-does-not-allow-us-to-connect-our-system-to-the-internet-can-we-still-utilize-defender-for-iot"></a>규정은 시스템을 인터넷에 연결 하는 것을 허용 하지 않습니다. IoT 용 Defender를 계속 사용할 수 있나요?
 
-네 당신은 할 수 있어요! IoT 용 Azure Defender 플랫폼 온-프레미스 솔루션은 네트워크 트래픽 (범위, RSPAN 또는 탭을 통해)을 소극적으로 수집 하 여, OT 및 IoT 네트워크를 분석, 검색 및 지속적으로 모니터링 하는 물리적 또는 가상 센서 어플라이언스로 배포 됩니다. 대기업의 경우 여러 센서가 데이터를 온-프레미스 관리 콘솔로 집계할 수 있습니다.
+예, 하실 수 있습니다. IoT 용 Azure Defender 플랫폼 온-프레미스 솔루션은 네트워크 트래픽 (범위, RSPAN 또는 탭을 통해)을 소극적으로 수집 하 여, OT 및 IoT 네트워크를 분석, 검색 및 지속적으로 모니터링 하는 물리적 또는 가상 센서 어플라이언스로 배포 됩니다. 대기업의 경우 여러 센서가 데이터를 온-프레미스 관리 콘솔로 집계할 수 있습니다.
 
 ## <a name="where-in-the-network-should-i-connect-monitoring-ports"></a>네트워크에서 모니터링 포트를 연결 해야 하는 위치는 어디 인가요?
 
@@ -57,23 +57,17 @@ IoT 용 Azure Defender 센서는 범위 포트 또는 네트워크 탭에 연결
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>IoT 용 Defender는 어떻게 경쟁사와 비교 하나요?
 
-다른 솔루션은 고객이 자신의 솔루션을 만들 수 있도록 하는 일련의 기능을 제공 하지만 IoT 용 Defender는 관련 된 모든 Azure 리소스의 보안을 전체적으로 보여 주는 고유한 종단 간 IoT 보안 솔루션을 제공 합니다. Azure는 기존 디바이스 관리 도구와 쉽게 통합할 수 있도록 빠른 배포와 IoT Hub 모듈 쌍과의 완전한 통합을 지원합니다.
+IoT 용 Azure Defender는 모든 IoT/OT 장치에서 포괄적인 보안을 제공 합니다. **최종 사용자 조직의** 경우 azure Defender for IoT는 에이전트 없는, 신속 하 게 배포 되는 네트워크 계층 보안을 제공 하 고 다양 한 소유 장비 및 레거시 Windows 시스템에서 작동 하며, Azure 센티널 및 기타 SOC 도구와 상호 운용 합니다. 온-프레미스 또는 Azure 연결 환경에 배포할 수 있습니다. **Iot 장치 빌더가** iot 용 Azure Defender는 새 IOT/OT 이니셔티브에 장치 계층 보안을 포함 하는 간단한 에이전트를 제공 합니다.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>Azure 고객이 되어야 하나요?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Azure IoT 고객이 되어야 하나요?
+아니요, 에이전트 없는 IoT 용 Azure Defender 버전의 경우 Azure 고객이 될 필요는 없습니다. 그러나 Azure 센티널에 경고를 전송 하려는 경우 네트워크 센서를 프로 비전 하 고 클라우드에서 상태를 모니터링 합니다. 그리고 자동 소프트웨어 및 위협 인텔리전스 업데이트를 활용 하는 경우 Azure IoT Hub를 통해 센서를 Azure에 연결 해야 합니다.
 
-예. 클라우드 연결 배포의 경우 Azure Defender IoT는 Azure IoT 연결 및 인프라를 사용 합니다.
+Azure Defender for IoT의 에이전트 기반 버전의 경우 Azure 고객 이어야 합니다.
+
 ## <a name="can-i-create-my-own-alerts"></a>경고를 직접 만들 수 있나요?
 
-예. IP 주소, 열린 포트 등의 미리 결정된 동작 세트에 대해 사용자 지정 경고를 설정할 수 있습니다. 사용자 지정 경고에 대한 자세한 내용과 사용자 지정 경고를 만드는 방법에 대한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조하세요.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>로그는 어디에서 볼 수 있나요? 로그를 사용자 지정할 수 있나요?
-
-- 연결된 Log Analytics 작업 영역을 사용하여 경고 및 권장 사항을 확인합니다. 작업 영역에서 스토리지 크기와 기간을 구성합니다.
-
-- 보안 에이전트의 원시 데이터를 Log Analytics 계정에 저장할 수도 있습니다. 이 옵션의 구성을 변경하기 전에 크기, 기간, 스토리지 요구 사항 및 관련 비용을 고려하세요.
-
-
+예, IP/MAC 주소, 프로토콜 유형, 클래스, 서비스, 함수, 명령 등을 비롯 한 여러 매개 변수를 기반으로 하는 사용자 지정 경고를 만들 수 있으며 페이로드에 포함 된 사용자 지정 태그 값도 만들 수 있습니다.  사용자 지정 경고 만들기 및 사용자 지정 경고를 만드는 방법에 대해 자세히 알아보려면 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md) 를 참조 하세요.
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>인터넷 연결 작동이 중지되면 어떻게 되나요?
 

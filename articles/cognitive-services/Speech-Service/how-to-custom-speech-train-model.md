@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373371"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491115"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -61,7 +61,7 @@ ms.locfileid: "100373371"
 Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-to-custom-speech-evaluate-data.md) 참조 하세요. 정확도를 테스트 하도록 선택 하는 경우 모델에서 사용 하는 것과 다른 음향 데이터 집합을 선택 하 여 모델의 성능을 사실적으로 파악 하는 것이 중요 합니다.
 
 > [!NOTE]
-> 기본 모델과 사용자 지정 모델은 모두 특정 날짜 까지만 사용할 수 있습니다 ( [모델 수명 주기](custom-speech-overview.md#model-lifecycle)참조). Speech Studio는 각 모델 및 끝점에 대 한 **만료** 열에이 날짜를 표시 합니다. 끝점 또는 일괄 처리에 대 한 해당 날짜 요청이 실패 하거나 기본 모델로 대체 될 수 있습니다.
+> 기본 모델과 사용자 지정 모델은 모두 특정 날짜 까지만 사용할 수 있습니다 ( [모델 및 끝점 수명 주기](./how-to-custom-speech-model-and-endpoint-lifecycle.md)참조). Speech Studio는 각 모델 및 끝점에 대 한 **만료** 열에이 날짜를 표시 합니다. 끝점 또는 일괄 처리에 대 한 해당 날짜 요청이 실패 하거나 기본 모델로 대체 될 수 있습니다.
 >
 > 가장 최근의 기본 모델을 사용 하 여 모델을 다시 학습 하 여 정확성 향상을 활용 하 고 모델이 만료 되는 것을 방지 합니다.
 
@@ -92,7 +92,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 * [사용자 지정 모델을 사용 하는 방법 알아보기](how-to-specify-source-language.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)

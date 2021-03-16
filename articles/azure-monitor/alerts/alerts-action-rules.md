@@ -3,12 +3,12 @@ title: Azure Monitor 경고에 대 한 작업 규칙
 description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466731"
+ms.locfileid: "103471686"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -76,8 +76,8 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 예를 들어 **리소스 유형 = "Virtual Machines"** 는 가상 머신의 경고에만 규칙이 적용 됨을 의미 합니다.
 * **경고 규칙 ID**  
 이 규칙은 특정 경고 규칙에서 들어오는 경고에만 적용 됩니다. 값은 경고 규칙의 리소스 관리자 ID 여야 합니다.  
-예를 들어 **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** 는이 규칙이 "API 대기 시간" 메트릭 경고 규칙에서 들어오는 경고에만 적용 됨을 의미 합니다.
-CLI에서 경고 규칙을 나열 하거나 포털에서 특정 경고 규칙을 열고 "속성"을 클릭 한 다음 "리소스 ID" 값을 복사 하 여 적절 한 경고 규칙 ID를 가져올 수 있습니다.
+예를 들어 **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** 는이 규칙이 "API 대기 시간" 메트릭 경고 규칙에서 들어오는 경고에만 적용 됨을 의미 합니다.  
+_참고-CLI에서 경고 규칙을 나열 하거나 포털에서 특정 경고 규칙을 열고 "속성"을 클릭 한 다음 "리소스 ID" 값을 복사 하 여 적절 한 경고 규칙 ID를 가져올 수 있습니다._
 * **모니터 조건**  
 이 규칙은 지정 된 모니터 조건 ( **발생** 또는 **해결 됨**)을 가진 경고 이벤트에만 적용 됩니다.
 * **설명**  

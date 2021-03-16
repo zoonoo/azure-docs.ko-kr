@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 03/03/2021
+ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532665"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439564"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
 
@@ -56,7 +56,7 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 영역 중복 고가용성이 구성된 경우 서비스는 동일한 Azure 지역 내에서 가용성 영역에 걸쳐 상시 대기 서버를 프로비저닝하고 유지 관리합니다. 데이터 손실을 방지하기 위해 원본 서버의 데이터 변경 내용이 대기 서버에 동기적으로 복제됩니다. 영역 중복 고가용성을 사용하면 계획되거나 계획되지 않은 장애 조치(failover) 이벤트가 트리거되면 대기 서버가 즉시 온라인 상태가 되고 들어오는 트랜잭션을 처리할 수 있습니다. 이를 통해 아래 그림에 표시된 것처럼 여러 가용성 영역을 지원하는 Azure 지역 내에서 가용성 영역 오류로 인한 서비스 복원력이 가능합니다.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="유연한 서버 - VM 및 스토리지 오류":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="영역 중복 고가용성":::
 
  자세한 내용은 [고가용성 문서](./concepts-high-availability.md)를 참조하세요.
 
@@ -86,12 +86,40 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다.
 
+## <a name="azure-regions"></a>Azure 지역
+
+Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. 유연한 서버는 현재 다음 Azure 지역에서 사용할 수 있습니다.
+
+| 지역 | 가용성 | 영역 중복 HA | 
+| --- | --- | --- |
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
+| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
+
+유연한 서버를 위한 영역을 계속 추가하고 있습니다.
+
 ## <a name="migration"></a>마이그레이션
 
 서비스는 커뮤니티 버전의 PostgreSQL을 실행합니다. 이를 통해 전체 애플리케이션 호환이 가능하며, PostgreSQL 엔진에서 개발된 기존 애플리케이션을 유연한 서버로 마이그레이션하기 위한 최소 리팩터링 비용이 필요합니다. 
 
 - **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우, pg_dump 및 pg_restore 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠른 마이그레이션 방법이 될 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션](../howto-migrate-using-dump-and-restore.md)을 참조하세요.
 - **Azure Database Migration Service** – 가동 중지 시간을 최소화한 유연한 서버로의 원활하고 간소화된 마이그레이션을 위해 Azure Database Migration Service를 활용할 수 있습니다. [포털을 통한 DMS](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) 및 [CLI를 통한 DMS](../../dms/tutorial-postgresql-azure-postgresql-online.md)를 참조하세요. Azure Database for PostgreSQL - 단일 서버에서 유연한 서버로 마이그레이션할 수 있습니다. 자세한 내용은 [DMS 문서](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)를 참조하세요.
+
+## <a name="contacts"></a>연락처
+Azure Database for PostgreSQL 유연한 서버에 대한 질문이나 제안이 있으면 Azure Database for PostgreSQL 팀([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
+
+또한 문의의 다음 사항을 적절히 고려해 주세요.
+
+- Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+- 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
+  
 
 ## <a name="next-steps"></a>다음 단계
 

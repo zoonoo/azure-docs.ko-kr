@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201578"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494498"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -110,7 +110,8 @@ Id에 대 한 권한을 부여 하거나 SAS 토큰을 얻은 후에는 데이�
 |--------|-----------|
 |Azure Blob Storage |[Azure Blob Storage에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob Storage에서 blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>[Azure storage 계정 간에 blob 복사](storage-use-azcopy-blobs-copy.md)<br><br>[Azure Blob Storage와 동기화](storage-use-azcopy-blobs-synchronize.md)|
 |Azure 파일 |[AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)|
-|Amazon S3|[AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)|
+|Amazon S3|[Azure Storage Amazon s 3에서 데이터를 복사 합니다.](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Google Cloud Storage에서 Azure Storage으로 데이터 복사 (미리 보기)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack 저장소|[AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터 전송](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>스크립트에서 사용

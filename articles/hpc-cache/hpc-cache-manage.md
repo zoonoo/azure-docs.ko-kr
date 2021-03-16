@@ -4,14 +4,14 @@ description: Azure Portal 또는 Azure CLI를 사용 하 여 Azure HPC 캐시를
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590789"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471888"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -254,6 +254,20 @@ $
 ![샘플 캐시에 대해 위에서 언급 한 통계를 보여 주는 세 개의 선 그래프 스크린샷](media/hpc-cache-overview-stats.png)
 
 이러한 차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함 됩니다. 추가 도구 및 경고는 포털 사이드바의 **모니터링** 제목 아래에 있는 페이지에서 사용할 수 있습니다. [Azure 모니터링 설명서](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)의 포털 섹션에서 자세히 알아보세요.
+
+## <a name="view-warnings"></a>경고 보기
+
+캐시가 비정상 상태가 되 면 **경고** 페이지를 확인 합니다. 이 페이지에는 해당 상태를 이해 하는 데 도움이 될 수 있는 캐시 소프트웨어의 알림이 표시 됩니다.
+
+이러한 알림은 Azure Portal에 의해 제어 되지 않으므로 활동 로그에 표시 되지 않습니다. 일반적으로 사용자가 만든 사용자 지정 설정에 연결 되어 있습니다.
+
+여기에 표시 될 수 있는 경고의 종류는 다음과 같습니다.
+
+* 캐시에서 NTP 서버에 연결할 수 없습니다.
+* 캐시에서 확장 그룹 사용자 이름 정보를 다운로드 하지 못했습니다.
+* 저장소 대상에서 사용자 지정 DNS 설정이 변경 되었습니다.
+
+![확장 된 그룹 사용자 이름을 다운로드할 수 없다는 메시지를 표시 하는 모니터링 > 경고 페이지의 스크린샷](media/warnings-page.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806641"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467632"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -65,6 +65,13 @@ Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프�
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>CRR (지역 중복 저장소) 기능을 사용 하거나 사용 하지 않고 GRS (지역 중복 저장소) 자격 증명 모음 간의 차이점은 무엇 인가요?
 
 [Crr](azure-backup-glossary.md#cross-region-restore-crr) 기능이 사용 하도록 설정 되지 않은 [GRS](azure-backup-glossary.md#grs) 자격 증명 모음의 경우 Azure가 주 지역에서 재해를 선언할 때까지 보조 지역의 데이터에 액세스할 수 없습니다. 이러한 시나리오에서 복원은 보조 지역에서 발생 합니다. CRR을 사용 하는 경우 주 지역이 실행 되 고 있는 경우에도 보조 지역에서 복원을 트리거할 수 있습니다.
+
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>자격 증명 모음을 포함 하는 구독을 다른 Azure Active Directory 이동할 수 있나요?
+
+예. 자격 증명 모음을 포함 하는 구독을 다른 AD (Azure Active Directory)로 이동 하려면 [다른 디렉터리로 구독 전송](../role-based-access-control/transfer-subscription.md)을 참조 하세요.
+
+>[!IMPORTANT]
+>구독을 이동한 후에는 다음 작업을 수행 해야 합니다.<ul><li>역할 기반 액세스 제어 권한 및 사용자 지정 역할은 전송할 수 되지 않습니다. 새 Azure AD에서 사용 권한 및 역할을 다시 만들어야 합니다.</li><li>자격 증명 모음의 MI (관리 Id)를 다시 설정 하 고 사용 하지 않도록 설정 하 여 다시 만들어야 합니다. 또한 MI 권한을 평가 하 고 다시 만들어야 합니다.</li><li>자격 증명 모음에서 [전용 끝점](private-endpoints.md#before-you-start) 및 [고객 관리 키](encryption-at-rest-with-cmk.md#before-you-start)와 같이 MI를 활용 하는 기능을 사용 하는 경우 기능을 다시 구성 해야 합니다.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 

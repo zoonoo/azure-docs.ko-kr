@@ -8,14 +8,16 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d46ad8238faa42ca657b18b3997407d91a224537
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045924"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489460"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 사용자 환경에서 Azure IoT Edge를 실행 하는 데 문제가 발생 하는 경우이 문서를 문제 해결 및 진단에 대 한 가이드로 사용 합니다.
 
@@ -276,7 +278,7 @@ IoT Edge 허브를 통과 하는 메시지를 보려면 `RuntimeLogLevel` `debug
 EdgeHub 및 edgeAgent 모듈에는 모두이 런타임 로그 환경 변수가 있으며 기본값은로 설정 `info` 됩니다. 이 환경 변수는 다음 값을 사용할 수 있습니다.
 
 * 심각한
-* error
+* 오류
 * warning
 * 정보
 * debug

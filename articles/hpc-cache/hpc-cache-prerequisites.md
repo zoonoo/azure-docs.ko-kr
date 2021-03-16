@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412513"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471804"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -91,14 +91,18 @@ Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](../virtual-ne
   [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
 
 ## <a name="storage-infrastructure"></a>저장소 인프라
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-캐시는 Azure Blob 컨테이너 또는 NFS 하드웨어 저장소 내보내기를 지원 합니다. 캐시를 만든 후 저장소 대상을 추가 합니다.
+캐시는 Azure Blob 컨테이너, NFS 하드웨어 저장소 내보내기 및 NFS로 탑재 된 ADLS Blob 컨테이너 (현재 미리 보기 상태)를 지원 합니다. 캐시를 만든 후 저장소 대상을 추가 합니다.
 
 각 저장소 유형에는 특정 필수 구성 요소가 있습니다.
 
 ### <a name="blob-storage-requirements"></a>Blob 저장소 요구 사항
 
 캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 설명한 대로 호환 되는 저장소 계정 및 빈 Blob 컨테이너 또는 Azure HPC 캐시 형식의 데이터로 채워진 컨테이너가 필요 합니다.
+
+> [!NOTE]
+> NFS 탑재 blob 저장소에는 다른 요구 사항이 적용 됩니다. 자세한 내용은 [ADLS-NFS 저장소 요구 사항](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) 을 참조 하세요.
 
 저장소 대상 추가를 시도 하기 전에 계정을 만드세요. 대상을 추가할 때 새 컨테이너를 만들 수 있습니다.
 
@@ -169,6 +173,37 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
   * 저장소에 다른 내보내기의 하위 디렉터리인 내보내기가 있는 경우 경로의 최하위 세그먼트에 대 한 루트 액세스 권한이 캐시에 있는지 확인 합니다. 자세한 내용은 NFS 저장소 대상 문제 해결 문서의 [디렉터리 경로에 대 한 루트 액세스](troubleshoot-nas.md#allow-root-access-on-directory-paths) 를 참조 하세요.
 
 * NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼 이어야 합니다. 자세한 내용은 Azure HPC 캐시 팀에 문의 하세요.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>NFS 탑재 blob (ADLS-NFS) 저장소 요구 사항 (미리 보기)
+
+또한 Azure HPC 캐시는 NFS 프로토콜과 함께 탑재 된 blob 컨테이너를 저장소 대상으로 사용할 수 있습니다.
+
+> [!NOTE]
+> NFS 3.0 Azure Blob 저장소에 대 한 프로토콜 지원은 공개 미리 보기 상태입니다. 가용성은 제한 되며, 현재이 기능을 사용할 수 있게 되 면 기능이 변경 될 수 있습니다. 프로덕션 시스템에서는 미리 보기 기술을 사용 하지 마세요.
+>
+> [Azure Blob storage에서 NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md)의이 미리 보기 기능에 대해 자세히 알아보세요.
+
+저장소 계정 요구 사항은 ADLS-NFS blob 저장소 대상 및 표준 blob 저장소 대상에 따라 다릅니다. Nfs 사용 저장소 계정을 만들고 구성 하는 데 신중 하 게 [nfs (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md) 의 지침을 따릅니다.
+
+다음은 단계에 대 한 일반적인 개요입니다.
+
+1. 필요한 기능을 작업할 지역에서 사용할 수 있는지 확인 합니다.
+
+1. 구독에 NFS 프로토콜 기능을 사용 하도록 설정 합니다. 저장소 계정을 만들기 *전에* 이 작업을 수행 합니다.
+
+1. 저장소 계정에 대 한 보안 VNet (가상 네트워크)을 만듭니다. NFS 사용 저장소 계정 및 Azure HPC 캐시에 대해 동일한 가상 네트워크를 사용 해야 합니다.
+
+1. 스토리지 계정을 만듭니다.
+
+   * 표준 blob storage 계정에 대 한 저장소 계정 설정을 사용 하는 대신 [방법 문서](../storage/blobs/network-file-system-protocol-support-how-to.md)의 지침을 따릅니다. 지원 되는 저장소 계정 유형은 Azure 지역에 따라 다를 수 있습니다.
+
+   * **네트워킹** 섹션에서 사용자가 만든 보안 가상 네트워크에서 개인 끝점을 선택 합니다 (권장). 또는 보안 VNet에서 제한 된 액세스 권한이 있는 공용 끝점을 선택 합니다.
+
+   * NFS 액세스를 사용 하도록 설정 하는 **고급** 섹션을 완료 해야 합니다.
+
+   * 위의 [권한](#permissions)에서 설명한 대로 캐시 응용 프로그램에 Azure 저장소 계정에 대 한 액세스를 제공 합니다. 저장소 대상을 처음 만들 때이 작업을 수행할 수 있습니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 절차에 따라 캐시에 필요한 액세스 역할을 제공 합니다.
+
+     저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Azure CLI 액세스 설정 (선택 사항)
 

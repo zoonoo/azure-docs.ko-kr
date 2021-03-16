@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034679"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490979"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins의 쿼리 언어 정보
 
@@ -59,7 +59,7 @@ Azure 디지털 쌍에 대 한 쿼리를 작성 하는 경우 다음 사항을 �
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 기능 | 설명 |
 | -------- | ----------- |
 | `IS_DEFINED` | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . `DateTime`, 개체 형식 및 배열은 지원 되지 않습니다. |
 | `IS_OF_MODEL` | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -72,7 +72,7 @@ Azure 디지털 쌍에 대 한 쿼리를 작성 하는 경우 다음 사항을 �
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 기능 | 설명 |
 | -------- | ----------- |
 | `STARTSWITH(x, y)` | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | `ENDSWITH(x, y)` | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |
@@ -85,7 +85,7 @@ Azure 디지털 쌍에 대 한 쿼리를 작성 하는 경우 다음 사항을 �
 * 문 내에서 하위 쿼리를 지원 하지 않습니다 `FROM` .
 * `OUTER JOIN` 의미 체계가 지원 되지 않습니다. 즉, 관계의 순위가 0 이면 전체 "row"가 출력 결과 집합에서 제거 됩니다.
 * 그래프 순회 깊이는 쿼리당 5 개 수준으로 제한 됩니다 `JOIN` .
-* 작업의 소스가 `JOIN` 제한 되어 있습니다. 쿼리는 쿼리가 시작 되는 위치를 선언 해야 합니다.
+* Azure Digital Twins의 관계는 독립 엔터티로 쿼리할 수 없습니다. 또한 관계가 제공 되는 원본 쌍에 대 한 정보를 제공 해야 합니다. 즉, 쿼리에서 쿼리를 시작 하는 쌍을 선언 하는 데 사용 되는 작업에 몇 가지 제한 사항이 있습니다 `JOIN` . 이에 대 한 예제는 *방법:* 쌍으로 쿼리 쿼리 문서에서 [*relationship 쿼리*](how-to-query-graph.md#query-by-relationship) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

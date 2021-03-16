@@ -8,14 +8,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0388520903e208b3225375d5cee81e8321740a1b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043904"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487737"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 디바이스 게이트웨이를 통해 Modbus TCP 디바이스 연결
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub에 연결 하려는 경우 IoT Edge 장치를 게이트웨이로 사용할 수 있습니다. 게이트웨이 디바이스는 Modbus 디바이스에서 데이터를 읽은 다음 지원되는 프로토콜을 사용하여 해당 데이터를 클라우드에 전달합니다.
 
@@ -25,9 +27,9 @@ Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub�
 
 이 문서에서는 Modbus TCP 프로토콜을 사용한다고 가정합니다. Modbus RTU를 지원 하도록 모듈을 구성 하는 방법에 대 한 자세한 내용은 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 Linux [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 [Linux](quickstart-linux.md)하세요.
+* Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 Linux [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 [](quickstart-linux.md)하세요.
 * IoT Edge 디바이스에 대한 기본 키 연결 문자열입니다.
 * Modbus TCP를 지원하는 물리적 또는 시뮬레이션된 Modbus 디바이스 IPv4 주소를 알고 있어야 합니다.
 
@@ -43,26 +45,26 @@ Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 
 
 1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동합니다.
 
-2. **IoT Edge**로 이동하여 IoT Edge 디바이스를 클릭합니다.
+2. **IoT Edge** 로 이동하여 IoT Edge 디바이스를 클릭합니다.
 
-3. **모듈 설정**을 선택합니다.
+3. **모듈 설정** 을 선택합니다.
 
 4. **모듈 IoT Edge** 섹션에서 modbus 모듈을 추가 합니다.
 
-   1. **추가** 드롭다운을 클릭 하 고 **Marketplace 모듈**을 선택 합니다.
+   1. **추가** 드롭다운을 클릭 하 고 **Marketplace 모듈** 을 선택 합니다.
    2. `Modbus`Microsoft에서 **MODBUS TCP 모듈** 을 검색 하 고 선택 합니다.
-   3. 모듈은 IoT Hub에 대해 자동으로 구성 되며 IoT Edge 모듈 목록에 표시 됩니다. 또한 경로는 자동으로 구성 됩니다. **검토 + 만들기**를 선택합니다.
-   4. 배포 매니페스트를 검토 하 고 **만들기**를 선택 합니다.
+   3. 모듈은 IoT Hub에 대해 자동으로 구성 되며 IoT Edge 모듈 목록에 표시 됩니다. 또한 경로는 자동으로 구성 됩니다. **검토 + 만들기** 를 선택합니다.
+   4. 배포 매니페스트를 검토 하 고 **만들기** 를 선택 합니다.
 
 5. 목록에서 Modbus 모듈을 선택 `ModbusTCPModule` 하 고 **모듈 쌍 설정** 탭을 선택 합니다. 모듈 쌍 desired 속성에 필요한 JSON이 자동으로 채워집니다.
 
 6. JSON에서 **SlaveConnection** 속성을 찾고 해당 값을 modbus 장치의 IPv4 주소로 설정 합니다.
 
-7. **업데이트**를 선택합니다.
+7. **업데이트** 를 선택합니다.
 
-8. **검토 + 만들기**를 선택 하 고 배포를 검토 한 다음 **만들기**를 선택 합니다.
+8. **검토 + 만들기** 를 선택 하 고 배포를 검토 한 다음 **만들기** 를 선택 합니다.
 
-9. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다. `ModbusTCPModule`IoT Edge 런타임과 함께 실행 되는 새 모듈이 표시 됩니다.
+9. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침** 을 선택합니다. `ModbusTCPModule`IoT Edge 런타임과 함께 실행 되는 새 모듈이 표시 됩니다.
 
 ## <a name="view-data"></a>데이터 보기
 

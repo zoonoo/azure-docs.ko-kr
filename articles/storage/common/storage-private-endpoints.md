@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613564"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493801"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
@@ -91,7 +91,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name                                                  | Type  | 값                                                 |
+| 이름                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -101,7 +101,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                                  | Type  | 값                                                 |
+| 이름                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
@@ -146,6 +146,12 @@ Azure Storage에 대 한 개인 끝점에 대 한 다음과 같은 알려진 문
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>프라이빗 엔드포인트가 있는 서브넷의 네트워크 보안 그룹 규칙
 
 현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 되지 않습니다. 다른 끝점 (예: 네트워크 인터페이스 컨트롤러)에만 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+
+### <a name="copying-blobs-between-storage-accounts"></a>저장소 계정 간에 blob 복사
+
+Azure REST API 또는 REST API를 사용 하는 도구를 사용 하는 경우에만 개인 끝점을 사용 하 여 저장소 계정 간에 blob을 복사할 수 있습니다. 이러한 도구에는 AzCopy, Storage 탐색기, Azure PowerShell, Azure CLI 및 Azure Blob Storage Sdk가 포함 됩니다. 
+
+Blob 저장소 리소스를 대상으로 하는 전용 끝점만 지원 됩니다. Data Lake Storage Gen2 또는 파일 리소스를 대상으로 하는 개인 끝점은 아직 지원 되지 않습니다. 또한 NFS (네트워크 파일 시스템) 프로토콜을 사용 하 여 저장소 계정 간의 복사는 아직 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

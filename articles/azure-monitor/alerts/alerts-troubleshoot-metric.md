@@ -4,13 +4,13 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037866"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466500"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -138,11 +138,9 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure Portal를 통해 메트릭 경고 규칙의 Azure Resource Manager 템플릿을 내보냅니다.
 
 메트릭 경고 규칙의 리소스 관리자 템플릿을 내보내면 해당 JSON 구문과 속성을 이해 하 고 향후 배포를 자동화 하는 데 사용할 수 있습니다.
-1. 포털에서 **리소스 그룹** 섹션으로 이동 하 고 규칙을 포함 하는 리소스 그룹을 선택 합니다.
-2. 개요 섹션에서 **숨겨진 형식 표시** 확인란을 선택 합니다.
-3. **유형** 필터에서 *microsoft metricalerts/* 를 선택 합니다.
-4. 관련 경고 규칙을 선택 하 여 세부 정보를 확인 합니다.
-5. **설정** 아래에서 **템플릿 내보내기** 를 선택 합니다.
+1. Azure Portal에서 경고 규칙을 열어 세부 정보를 확인 합니다.
+2. **속성** 을 클릭합니다.
+3. **Automation** 에서 **템플릿 내보내기** 를 선택 합니다.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>메트릭 경고 규칙 할당량이 너무 작음
 
@@ -252,7 +250,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초

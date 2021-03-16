@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608685"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471748"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -26,7 +26,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK for Python v 1.24.0
-+ **새로운 기능**
++ **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
     + 에서 이전 버전과 호환 되는 가져오기를 제거 했습니다 `azureml.automl.core.shared` . 에서 가져오는 방법으로 네임 스페이스의 모듈을 찾을 수 없습니다. 오류를 `azureml.automl.core.shared` 확인할 수 있습니다 `azureml.automl.runtime.shared` .
   + **azureml-자동 dnn-비전**
@@ -75,7 +75,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 ## <a name="2021-02-16"></a>2021-02-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK for Python v 1.23.0
-+ **새로운 기능**
++ **버그 수정 및 향상 된 기능**
   + **azureml-core**
     + [실험적 기능] Synapse 작업 영역을 연결 된 서비스로 AML에 연결 하는 지원을 추가 합니다.
     + [실험적 기능] Synapse spark 풀을 AML에 계산으로 연결 하는 지원 추가
@@ -305,7 +305,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세한 정보](./how-to-enable-studio-virtual-network.md)
+      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.

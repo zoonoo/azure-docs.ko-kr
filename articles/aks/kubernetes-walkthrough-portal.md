@@ -1,17 +1,17 @@
 ---
-title: 포털에서 AKS 클러스터 만들기
+title: '빠른 시작: Azure Portal을 사용하여 AKS 클러스터 배포'
 titleSuffix: Azure Kubernetes Service
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 7f59924b2a50f29e01d46e12389e5ca52769225d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.custom: mvc, seo-javascript-october2019, contperfq3
+ms.openlocfilehash: 5f758c0bc50b2d4f22b3dbf0efaa4ecbc3f334cb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578703"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507809"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -47,13 +47,11 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 
 4. **노드 풀** 페이지에서 기본 옵션을 유지합니다. 화면 아래쪽에서 **다음: 인증** 을 클릭합니다.
     > [!CAUTION]
-    > 새 AAD 서비스 주체를 만드는 작업이 전파되고 사용할 수 있게 되기까지 몇 분이 걸릴 수 있으므로, Azure Portal에서 서비스 주체를 찾을 수 없음 오류와 유효성 검사 오류가 발생할 수 있습니다. 이 문제가 발생할 경우 완화하는 방법은 [여기](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster)를 참조하세요.
+    > 새 클러스터 ID를 만드는 작업이 전파되고 사용할 수 있게 되기까지 몇 분이 걸릴 수 있으므로, Azure Portal에서 서비스 주체를 찾을 수 없음 오류와 유효성 검사 오류가 발생할 수 있습니다. 이 문제를 해결하려면 [일반적인 Azure Kubernetes 서비스 문제 해결](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster)을 참조하세요.
 
 5. **인증** 페이지에서 다음 옵션을 구성합니다.
-    - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자** 로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성* 을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
+    - **인증** 필드를 **시스템 할당 관리 ID** 로 유지하여 새 클러스터 ID를 만듭니다. 또는 **서비스 주체** 를 선택하여 서비스 주체를 사용할 수 있습니다. *(새) 기본 서비스 사용자* 를 선택하여 기본 서비스 주체를 만들거나 *서비스 주체를 구성* 하여 기존 서비스 주체를 사용합니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
     - Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
-
-    또는 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기** 를 클릭한 후 유효성 검사가 완료되면 **만들기** 를 선택합니다.
 
@@ -78,7 +76,7 @@ Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks 
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
+클러스터에 대한 연결을 확인하려면 `kubectl get` 명령을 사용하여 클러스터 노드 목록을 반환합니다.
 
 ```console
 kubectl get nodes
@@ -93,7 +91,7 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 Kubernetes 배포를 포함합니다. 두 개의 Kubernetes Services, Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
 
 Cloud Shell에서 편집기를 사용하여 `azure-vote.yaml`(예: `code azure-vote.yaml`, `nano azure-vote.yaml` 또는 `vi azure-vote.yaml`)이라는 파일을 만듭니다. 그런 다음, 다음 YAML 정의에 복사합니다.
 
@@ -185,7 +183,7 @@ spec:
     app: azure-vote-front
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
+`kubectl apply` 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
 
 ```console
 kubectl apply -f azure-vote.yaml
@@ -204,7 +202,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 `kubectl get service` 명령을 사용합니다.
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -267,7 +265,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 
 이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 애플리케이션을 배포했습니다.
 
-AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
+애플리케이션 빌드, Azure Container Registry에서 배포, 실행 중인 애플리케이션 업데이트, 클러스터 크기 조정 및 업그레이드를 비롯한 전체 예제를 통해 AKS에 대해 자세히 알아보려면 Kubernetes cluster 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [AKS 자습서][aks-tutorial]
@@ -281,13 +279,10 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
 [aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[azure-dev-spaces]: ../dev-spaces/index.yml
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services

@@ -8,14 +8,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406420fcd517ceda8ea6eedfc955f54b15541f74
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2e3f1891a786751365a0bea58097e03bd41f85bb
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366605"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489923"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 각 IoT Edge 디바이스는 적어도 $edgeAgent 및 $edgeHub라는 두 개의 모듈을 실행합니다. 두 모듈은 IoT Edge 런타임의 일부입니다. IoT Edge 디바이스는 개수에 관계 없는 프로세스에 대해 여러 추가 모듈을 실행할 수 있습니다. 배포 매니페스트를 사용하여 설치할 모듈 및 함께 작동하도록 구성하는 방법을 디바이스에 알립니다.
 

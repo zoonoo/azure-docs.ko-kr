@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 476a88e41382842d91859d319a571784bd6e9b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742958"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216533"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
-이 자습서에서는 기존 <abbr title="GoDaddy와 같은 도메인 등록 기관에서 구매한 도메인 이름 또는 구매한 도메인의 하위 도메인.">사용자 지정 DNS 도메인 이름</abbr> 을 <abbr title="웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다.">Azure App Service에 매핑하는 방법을 보여줍니다</abbr>.
+이 자습서에서는 기존 <abbr title="GoDaddy와 같은 도메인 등록 기관에서 구매한 도메인 이름 또는 구매한 도메인의 하위 도메인.">사용자 지정 DNS 도메인 이름</abbr> 을 <abbr title="웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다.">Azure App Service</abbr>.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
@@ -27,6 +27,8 @@ ms.locfileid: "101742958"
 > * CNAME 레코드를 사용하여 와일드카드 도메인 매핑
 > * 사용자 지정 디렉터리로 기본 URL 리디렉션
 
+<hr/> 
+
 ## <a name="1-prepare-your-environment"></a>1. 환경 준비
 
 * [App Service 앱을 만들거나](./index.yml) 다른 자습서에서 만든 앱을 사용합니다.
@@ -34,18 +36,20 @@ ms.locfileid: "101742958"
 
     <details>
         <summary>DNS 레코드를 편집하려면 어떻게 해야 하나요?</summary>
-        GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한을 요청합니다. 예를 들어 contoso.com 및 www.contoso.com에 대한 DNS 항목을 추가하려면 contoso.com 루트 도메인의 DNS 설정을 구성할 수 있어야 합니다.
+        GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한을 요청합니다. 예를 들어 <code>contoso.com</code> 및 <code>www.contoso.com</code>에 대한 DNS 항목을 추가하려면 <code>contoso.com</code> 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
     </details>
+
+<hr/> 
 
 ## <a name="2-prepare-the-app"></a>2. 앱 준비
 
 사용자 지정 DNS 이름을 앱으로 매핑하려면 앱의 <abbr title="앱을 호스트하는 웹 서버 팜의 위치, 크기 및 기능을 지정합니다.">App Service 요금제</abbr> 가 유료 계층이어야 합니다. <abbr title="다른 고객의 앱을 포함하여 다른 앱과 동일한 VM에서 앱이 실행되는 Azure App Service 계층입니다. 이 계층은 개발 및 테스트용입니다.">**평가판(F1)**</abbr>). 자세한 내용은 [Azure App Service 요금제 개요](overview-hosting-plans.md)를 참조하세요.
 
-### <a name="sign-in-to-azure"></a>Azure에 로그인
+#### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [Azure Portal](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 
-### <a name="select-the-app-in-the-azure-portal"></a>Azure Portal에서 앱 선택
+#### <a name="select-the-app-in-the-azure-portal"></a>Azure Portal에서 앱 선택
 
 1. **App Services** 를 검색하여 선택합니다.
 
@@ -59,7 +63,7 @@ ms.locfileid: "101742958"
 
 <a name="checkpricing" aria-hidden="true"></a>
 
-### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
+#### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
 1. 앱 페이지의 왼쪽 창에서 **설정** 섹션으로 스크롤하고 **강화(App Service 요금제)** 를 선택합니다.
 
@@ -73,7 +77,7 @@ ms.locfileid: "101742958"
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
+#### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
 1. 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기** 를 선택합니다.
 
@@ -84,6 +88,8 @@ ms.locfileid: "101742958"
    다음 알림이 표시되면 강화 작업이 완료됩니다.
 
    ![크기 조정 작업 확인을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+<hr/> 
 
 <a name="cname" aria-hidden="true"></a>
 
@@ -98,14 +104,16 @@ ms.locfileid: "101742958"
 
     <details>
         <summary>이 ID가 필요한 이유는 무엇인가요?</summary>
-        도메인 확인 ID를 사용자 지정 도메인에 추가하면 현수 DNS 항목을 방지하고 하위 도메인 인수를 피할 수 있습니다. 이 확인 ID 없이 이전에 구성한 사용자 지정 도메인의 경우 DNS 레코드에 확인 ID를 추가하여 동일한 위험으로부터 보호해야 합니다. 이 일반적인 높은 심각도 위협에 대한 자세한 내용은 [하위 도메인 인수](../security/fundamentals/subdomain-takeover.md)을 참조하세요.
+        도메인 확인 ID를 사용자 지정 도메인에 추가하면 현수 DNS 항목을 방지하고 하위 도메인 인수를 피할 수 있습니다. 이 확인 ID 없이 이전에 구성한 사용자 지정 도메인의 경우 DNS 레코드에 확인 ID를 추가하여 동일한 위험으로부터 보호해야 합니다. 이 일반적인 높은 심각도 위협에 대한 자세한 내용은 <a href="/azure/security/fundamentals/subdomain-takeover">하위 도메인 인수</a>을 참조하세요.
     </details>
     
 <a name="info"></a>
 
-3. **(A 레코드만)    ** A 레코드를 <abbr title="DNS의 주소 레코드는 호스트 이름을 IP 주소로 매핑합니다.">매핑하려면</abbr>앱의 외부 IP 주소가 필요합니다. **사용자 지정 도메인** 페이지에서 **IP 주소** 값을 복사합니다.
+3. **(A 레코드만)** 매핑하려면 <abbr title="DNS의 주소 레코드는 호스트 이름을 IP 주소로 매핑합니다.">매핑하려면</abbr>앱의 외부 IP 주소가 필요합니다. **사용자 지정 도메인** 페이지에서 **IP 주소** 값을 복사합니다.
 
    ![Azure 앱에 대한 포털 탐색을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+<hr/> 
 
 ## <a name="4-create-the-dns-records"></a>4. DNS 레코드 만들기
 
@@ -148,52 +156,71 @@ ms.locfileid: "101742958"
 
 `www.contoso.com`의 `www` 같은 하위 도메인의 경우 다음 표에 따라 두 개의 레코드를 만듭니다.
 
-    | 레코드 형식 | 호스트 | 값 | 주석 |
-    | - | - | - |
-    | CNAME | `<subdomain>`(예: `www`) | `<app-name>.azurewebsites.net` | 도메인 자체 매핑. |
-    | TXT | `asuid.<subdomain>`(예: `asuid.www`) | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. |
-    
-    ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+| 레코드 형식 | 호스트 | 값 | 주석 |
+| - | - | - |
+| CNAME | `<subdomain>`(예: `www`) | `<app-name>.azurewebsites.net` | 도메인 자체 매핑. |
+| TXT | `asuid.<subdomain>`(예: `asuid.www`) | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. |
+
+![Azure 앱에 대한 포털 탐색을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/cname-record.png)
     
 # <a name="a"></a>[A](#tab/a)
 
 `contoso.com` 같은 루트 도메인의 경우 다음 표에 따라 두 개의 레코드를 만듭니다.
 
-    | 레코드 형식 | 호스트 | 값 | 주석 |
-    | - | - | - |
-    | A | `@` | [앱의 IP 주소 복사](#3-get-a-domain-verification-id)에서 가져온 IP 주소 | 도메인 자체 매핑(`@`는 일반적으로 루트 도메인을 나타냄). |
-    | TXT | `asuid` | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. 루트 도메인의 경우 `asuid`를 사용합니다. |
-    
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
+| 레코드 형식 | 호스트 | 값 | 주석 |
+| - | - | - |
+| A | `@` | [앱의 IP 주소 복사](#3-get-a-domain-verification-id)에서 가져온 IP 주소 | 도메인 자체 매핑(`@`는 일반적으로 루트 도메인을 나타냄). |
+| TXT | `asuid` | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid.<subdomain>` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. 루트 도메인의 경우 `asuid`를 사용합니다. |
 
-    <details>
-    <summary>What if I want to map a subdomain with an A record?</summary>
-    To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+![DNS 레코드 페이지를 보여주는 스크린샷](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-    | 레코드 형식 | 호스트 | 값 |
-    | - | - | - |
-    | A | `<subdomain>`(예: `www`) | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-    | TXT | `asuid.<subdomain>`(예: `asuid.www`) | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) |
-    </details>
-    
+<details>
+<summary>하위 도메인을 A 레코드로 매핑하려면 어떻게 해야 하나요?</summary>
+권장되는 CNAME 레코드 대신 A 레코드를 사용하여 `www.contoso.com`과 같은 하위 도메인을 매핑하려면 A 레코드와 TXT 레코드가 대신 다음 표와 같이 표시되어야 합니다.
+
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">표 3</caption>
+<thead>
+<tr>
+<th>레코드 형식</th>
+<th>호스트</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>&lt;subdomain&gt;</code>(예: <code>www</code>)</td>
+<td><a href="#info" data-linktype="self-bookmark">앱의 IP 주소 복사</a>에서 가져온 IP 주소</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td><code>asuid.&lt;subdomain&gt;</code>(예: <code>asuid.www</code>)</td>
+<td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">이전에 가져온 확인 ID</a></td>
+</tr>
+</tbody>
+</table></div>
+</details>
+
 # <a name="wildcard-cname"></a>[와일드 카드(CNAME)](#tab/wildcard)
 
 `*.contoso.com`의 `*` 같은 와일드 카드 이름의 경우 다음 표에 따라 두 개의 레코드를 만듭니다.
 
-    | 레코드 형식 | 호스트 | 값 | 주석 |
-    | - | - | - |
-    | CNAME | `*` | `<app-name>.azurewebsites.net` | 도메인 자체 매핑. |
-    | TXT | `asuid` | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. |
-    
-    ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
-    
----
+| 레코드 형식 | 호스트 | 값 | 주석 |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | 도메인 자체 매핑. |
+| TXT | `asuid` | [이전에 가져온 확인 ID](#3-get-a-domain-verification-id) | App Service는 `asuid` TXT 레코드에 액세스하여 사용자 지정 도메인의 소유권을 확인합니다. |
 
-    <details>
-        <summary>My changes are erased after I leave the page.</summary>
-        For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
-    </details>
+![Azure 앱에 대한 탐색을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
     
+-----
+
+<details>
+<summary>페이지를 나가면 변경 내용이 지워집니다.</summary>
+<p>GoDaddy와 같은 특정 공급자의 경우 먼저 별도의 <strong>변경 내용 저장</strong> 링크를 클릭해야 DNS 레코드의 변경 내용이 적용됩니다.</p>
+</details>
+
+<hr/>
+
 ## <a name="5-enable-the-mapping-in-your-app"></a>5. 앱에서 매핑 사용
 
 1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인** 을 선택합니다.
@@ -273,8 +300,10 @@ ms.locfileid: "101742958"
         사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
     </details>
 
----
-    
+-----
+
+<hr/> 
+
 ## <a name="6-test-in-a-browser"></a>6. 브라우저에서 테스트
 
 앞에서 구성한 DNS 이름을 찾습니다.
@@ -290,9 +319,13 @@ ms.locfileid: "101742958"
 </ul>
 </details>
 
+<hr/> 
+
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 
 라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조하세요.
+
+<hr/> 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
@@ -313,11 +346,13 @@ ms.locfileid: "101742958"
 
 1. 작업이 완료되면 브라우저에서 앱의 루트 경로(예: `http://contoso.com` 또는 `http://<app-name>.azurewebsites.net`)로 이동하여 확인합니다.
 
+<hr/> 
+
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/)을 사용하여 스크립트를 통해 사용자 지정 도메인의 관리를 자동화할 수 있습니다.
 
-### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다.
 
@@ -330,7 +365,7 @@ az webapp config hostname add \
 
 자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/cli-configure-custom-domain.md)을 참조하세요.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -344,6 +379,8 @@ Set-AzWebApp `
 ```
 
 자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/powershell-configure-custom-domain.md)을 참조하세요.
+
+<hr/> 
 
 ## <a name="next-steps"></a>다음 단계
 

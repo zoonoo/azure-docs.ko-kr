@@ -8,14 +8,16 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8907af07fff7b315eec263d38b686c17218ed9d2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a30b4b056d56e096f80b9494ab80a585fff76e66
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445475"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489931"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Azure IoT Edge 모듈은 다른 Azure 서비스와 연결하고 더 큰 클라우드 데이터 파이프라인에 속할 수 있습니다. 이 문서에서는 IoT Edge 런타임 및 IoT Hub, 나머지 Azure 클라우드와 통신하기 위한 모듈을 개발하는 방법을 설명합니다.
 

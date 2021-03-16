@@ -5,23 +5,27 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 83f9778da91cebb651d98e2e85748cda7435230a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a0eaa18f5b120fcc9cbf0e4da470ee46772c925
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674671"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470407"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
 이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU vm을 사용 하는 경우 가장 일반적인 문제 및 해결 방법을 제공 합니다.
 
+## <a name="known-issues-on-hbv3"></a>HBv3의 알려진 문제
+- InfiniBand은 현재 120-코어 VM (Standard_HB120rs_v3) 에서만 지원 됩니다. 다른 Vm 크기에 대 한 지원이 곧 활성화 됩니다.
+- Azure 가속화 된 네트워킹은 모든 지역의 HBv3 시리즈에서 지원 되지 않습니다. 이 기능은 곧 사용할 수 있게 될 예정입니다.
+
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>HB, HC, HBv2 및 NDv2의 가속화 네트워킹
 
-이제 RDMA 및 InfiniBand 지원 및 SR-IOV 지원 VM 크기 [Hb](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) 및 [NDv2](../../ndv2-series.md)에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다. 이제이 기능을 통해 (최대 30gbps) Azure 이더넷 네트워크에서 대기 시간을 향상 시킬 수 있습니다. InfiniBand 네트워크를 통한 RDMA 기능과는 별개 이지만이 기능에 대 한 일부 플랫폼 변경은 InfiniBand를 통해 작업을 개의 에뮬레이터 때 특정 MPI 구현의 동작에 영향을 미칠 수 있습니다. 특히 일부 Vm의 InfiniBand 인터페이스에는 약간 다른 이름 (mlx5_1 이전 mlx5_0와 반대)이 포함 될 수 있으며,이로 인해 특히 (일반적으로 OpenMPI 및 HPC-X를 사용 하 여)를 사용 하는 경우 MPI 명령줄을 조정 해야 할 수 있습니다.
+이제 RDMA 및 InfiniBand 지원 및 SR-IOV 지원 VM 크기 [Hb](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)및 [NDv2](../../ndv2-series.md)에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다. 이제이 기능을 통해 (최대 30gbps) Azure 이더넷 네트워크에서 대기 시간을 향상 시킬 수 있습니다. InfiniBand 네트워크를 통한 RDMA 기능과는 별개 이지만, InfiniBand를 통해 작업을 실행할 때이 기능에 대 한 일부 플랫폼 변경이 특정 MPI 구현의 동작에 영향을 줄 수 있습니다. 특히 일부 Vm의 InfiniBand 인터페이스에는 약간 다른 이름 (mlx5_1 이전 mlx5_0와 반대)이 포함 될 수 있으며,이로 인해 특히 (일반적으로 OpenMPI 및 HPC-X를 사용 하 여)를 사용 하는 경우 MPI 명령줄을 조정 해야 할 수 있습니다.
 이에 대 한 자세한 내용은이 [블로그 문서](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) 에서 관찰 된 문제를 해결 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>N 시리즈 Vm에 InfiniBand 드라이버 설치
@@ -54,11 +58,7 @@ Ubuntu VM 이미지에서 IB 인터페이스를 표시 하려고 할 때 알려�
 
 ## <a name="dram-on-hb-series"></a>HB 시리즈의 DRAM
 
-HB-시리즈 Vm은 현재 게스트 Vm에 228 GB의 RAM만 노출할 수 있습니다. 이는 게스트 VM에 예약 된 AMD CCX의 로컬 DRAM (NUMA 도메인)에 페이지가 할당 되지 않도록 방지 하기 위해 Azure 하이퍼바이저의 알려진 제한 때문입니다.
-
-## <a name="accelerated-networking"></a>가속 네트워킹
-
-IB 지원 HPC 및 GPU Vm에 대 한 Azure 가속화 된 네트워킹은 현재 사용 하도록 설정 되어 있지 않습니다. 이 기능이 지원 되 면 고객에 게 알립니다.
+HB-시리즈 Vm은 현재 게스트 Vm에 228 GB의 RAM만 노출할 수 있습니다. 마찬가지로 HBv2의 경우 458, HBv3 Vm의 경우 448 GB입니다. 이는 게스트 VM에 예약 된 AMD CCX의 로컬 DRAM (NUMA 도메인)에 페이지가 할당 되지 않도록 방지 하기 위해 Azure 하이퍼바이저의 알려진 제한 때문입니다.
 
 ## <a name="qp0-access-restriction"></a>qp0 액세스 제한
 
@@ -114,5 +114,5 @@ Linux에서 HB 시리즈 VM을 부팅할 때 다음 커널 경고 메시지를 �
 ## <a name="next-steps"></a>다음 단계
 
 - [HB 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.

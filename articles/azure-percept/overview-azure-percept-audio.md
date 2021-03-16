@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426351"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490197"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Azure Percept 오디오 소개
 
 Azure Percept Audio는 Azure Percept에 음성 AI 기능을 추가 하는 액세서리 장치입니다. 여기에는 미리 구성 된 오디오 프로세서와 4 개의 마이크 선형 배열이 포함 되어 있으므로 Azure Cognitive Services를 사용 하 여 로컬 수신 장치에 음성 명령, 키워드 발견 및 far 필드 음성을 적용할 수 있습니다. Azure Percept Audio를 사용 하면 장치 제조업체에서 향상 된 새로운 스마트 활성화 장치로 Azure Percept를 확장할 수 있습니다. Azure Percept 진한, Azure Percept Studio 및 기타 Azure edge 관리 서비스와 함께 기본적으로 통합 됩니다. [Microsoft online 스토어](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 구매할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [지금 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept 오디오 장치.":::
 
@@ -67,4 +70,5 @@ Azure [Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 Azure Percept 오디오 장치를 주문 합니다.
+> [!div class="nextstepaction"]
+> [Microsoft online store에서 Azure Percept 오디오 장치 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

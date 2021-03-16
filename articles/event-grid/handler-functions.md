@@ -2,13 +2,13 @@
 title: Azure의 함수를 Azure Event Grid 이벤트에 대 한 이벤트 처리기로 사용
 description: 에서 만든 함수를 Event Grid 이벤트에 대 한 이벤트 처리기로 Azure Functions에서 호스팅하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632515"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496544"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Event Grid 이벤트에 대 한 이벤트 처리기로 함수 사용
 
@@ -79,6 +79,9 @@ Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatc
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 [AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) 또는 [AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet을 사용 하 여 또는와 같은 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 있습니다. `-MaxEventsPerBatch` `-PreferredBatchSizeInKiloBytes`
+
+> [!NOTE]
+> Event Grid 트리거를 사용 하는 경우 Event Grid 서비스는 대상 Azure 함수에 대 한 클라이언트 암호를 가져오고이를 사용 하 여 Azure 함수에 이벤트를 전달 합니다. Azure Active Directory 응용 프로그램을 사용 하 여 azure 함수를 보호 하는 경우 일반 웹 후크 방식을 사용 하 여 HTTP 트리거를 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요.

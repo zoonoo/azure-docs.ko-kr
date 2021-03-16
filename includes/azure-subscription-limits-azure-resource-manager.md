@@ -5,19 +5,19 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 03/15/2021
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ad0c532c2ac80fd8a3bb3e68431ff7fc274d73e0
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 97d80e999ac61a2c2f8f561dc19213419014beb8
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792385"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471003"
 ---
 | 리소스 | 제한 |
 | --- | --- |
-| Azure Active Directory 테넌트당 구독 | 제한 없음 |
+| [Azure Active Directory 테넌트와 연결](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) 구독 | 제한 없음 |
 | 구독당 [공동 관리자](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) |제한 없음 |
 | 구독당 [리소스 그룹](../articles/azure-resource-manager/management/overview.md) |980 |
 | Azure Resource Manager API 요청 크기 |4,194,304바이트 |

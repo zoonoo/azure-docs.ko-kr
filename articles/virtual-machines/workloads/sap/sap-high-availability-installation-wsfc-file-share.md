@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5fa4cba67e279f66c090c8cb30eadf099f3c998
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a3759bbe92a2de8515c7d812637acd88070f8d46
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673548"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490911"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -199,7 +199,7 @@ ms.locfileid: "101673548"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
@@ -214,9 +214,11 @@ SAP에서 다음 실행 파일 및 DLL 파일이 필요합니다.
 * SAP Kernel 7.49 이상
 
 > [!IMPORTANT]
-> 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.
+> 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.  
+>   
+> [!IMPORTANT]
+> 설치 프로그램은 다음 요구 사항을 충족 해야 합니다. SAP ASCS/SCS 인스턴스와 SOFS 공유를 별도의 클러스터에 배포 해야 합니다.    
 >
-
 
 설정은 사용하는 DBMS(데이터베이스 관리 시스템)에 따라 다르므로 DBMS 설정에 대해서는 설명하지 않습니다. 그러나 다양한 DBMS 공급업체가 Azure에 대해 지원하는 기능을 통해 DBMS의 고가용성 문제가 해결된다고 가정합니다. 그러한 기능에는 SQL Server용 데이터베이스 미러링 또는 AlwaysOn, Oracle 데이터베이스용 Oracle Data Guard가 있습니다. 이 문서에서 사용하는 시나리오에서는 DBMS에 대해 추가 보호를 적용하지 않았습니다.
 

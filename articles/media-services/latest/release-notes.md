@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 5a36b5c8b0c8f24d093d887ad788c4ce9857d355
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011208"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492679"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -100,7 +100,7 @@ HEVC (265) 인코딩에 추가 된 새로운 지원 외에도 이제 2020-05-01 
 - **[관리 id](concept-managed-identities.md)**: 고객은 키 자격 증명 모음 (고객 관리 키의 경우) 및 저장소 계정 (신뢰할 수 있는 저장소의 경우)에 대 한 액세스를 제공 하기 위해 Media Services 계정에 대해 시스템 할당 관리 id를 설정할 수 있습니다.
 
 
-### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Isomorphic SDK for Javascript를 사용 하 여 Typescript Node.js 샘플 업데이트
+### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Isomorphic SDK for JavaScript를 사용 하 여 Typescript Node.js 샘플 업데이트
 
 Node.js 샘플은 최신 isomorphic SDK를 사용 하도록 업데이트 되었습니다. 이제 샘플에서는 Typescript를 사용 하는 방법을 보여 줍니다. 또한 Node.js/Typescript.에 대 한 새로운 라이브 스트리밍 샘플이 추가 되었습니다.
 
@@ -312,7 +312,7 @@ WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프
 * Azure Monitor 진단 로그를 사용하여 Media Services 키 배달 엔드포인트에서 보낸 요청을 모니터링하세요. 
 * Media Services [스트리밍 엔드포인트](streaming-endpoint-concept.md)에서 내보낸 메트릭을 모니터링하세요.   
 
-자세한 내용은 [Media Services 메트릭 및 진단 로그 모니터링](media-services-metrics-diagnostic-logs.md)을 참조하세요.
+자세한 내용은 [Media Services 메트릭 및 진단 로그 모니터링](monitoring/monitor-media-services-data-reference.md)을 참조하세요.
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>동적 패키징에서 다중 오디오 트랙 지원 
 

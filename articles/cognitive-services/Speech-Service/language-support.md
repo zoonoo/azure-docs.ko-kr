@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: ebdb6a44a1f20ce0835fc5d7358d99c8224d3d77
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044938"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470237"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -194,8 +194,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
-| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>새로 만들기</sup> | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>새로 만들기</sup> | 일반 |

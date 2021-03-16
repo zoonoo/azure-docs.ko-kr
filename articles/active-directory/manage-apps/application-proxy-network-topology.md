@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 2873bd9668bfba887ad9add061e68f36a747d5b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232922"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492322"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용 하 여 트래픽 흐름 최적화
 
@@ -181,7 +181,7 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 **시나리오:** 앱은 유럽의 조직 네트워크에 있으며, 기본 테 넌 트 지역은 미국에서 대부분의 사용자와 함께 사용 됩니다.
 
-**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service)를 참조 하세요.
+**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview)를 참조 하세요.
 
 유럽 사용자는 동일한 지역에 있는 응용 프로그램 프록시 인스턴스에 액세스 하므로 홉 1은 비용이 많이 듭니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
 
@@ -189,7 +189,7 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 **시나리오:** 앱은 유럽의 조직 네트워크에 있으며, 기본 테 넌 트 지역은 미국 내 대부분의 사용자와 함께 사용 됩니다.
 
-**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service)를 참조 하세요. 모든 미국 사용자는 유럽의 응용 프로그램 프록시 인스턴스에 액세스 해야 하므로 홉 1은 비용이 더 많이 들 수 있습니다.
+**권장 사항:** 커넥터를 앱 가까이 배치합니다. 유럽 응용 프로그램 프록시 서비스 인스턴스를 사용 하도록 최적화 되도록 커넥터 그룹을 업데이트 합니다. 단계는 [가장 가까운 응용 프로그램 프록시 클라우드 서비스를 사용 하도록 커넥터 그룹 최적화](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview)를 참조 하세요. 모든 미국 사용자는 유럽의 응용 프로그램 프록시 인스턴스에 액세스 해야 하므로 홉 1은 비용이 더 많이 들 수 있습니다.
 
 이 상황에서 다른 한 가지 변수를 사용하도록 고려할 수 있습니다. 조직에 있는 대부분 사용자가 미국에 있는 경우 네트워크가 미국으로도 확장될 가능성이 있습니다. 커넥터를 미국에 놓고, 커넥터 그룹의 기본 US 지역을 계속 사용 하 고, 유럽의 응용 프로그램에 대 한 전용 내부 회사 네트워크 회선을 사용 합니다. 이 방식으로 홉 2와 3이 최적화됩니다.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036455"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471535"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>ITSMC 대시보드의 커넥터 상태 오류
 
@@ -88,3 +88,11 @@ ITSMC (IT 서비스 관리 커넥터) 대시보드는 커넥터에서 문제를 
 
 * 새 ITSMC 인스턴스를 만들면 작업 항목 템플릿 및 작업 항목과 같은 ITSMC 시스템에서 정보를 동기화 하기 시작 합니다. [ITSMC를 동기화 하 여 새 새로 고침 토큰을 생성](./itsmc-resync-servicenow.md)합니다.
 * [Itsmc에서 연결 정보를 검토](./itsmc-connections-servicenow.md#create-a-connection) 하 고 itsmc가 성공적으로 [동기화](./itsmc-resync-servicenow.md)할 수 있는지 확인 합니다.
+
+
+## <a name="ip-restrictions"></a>IP 제한
+**오류**: "잘못 된 요청으로 인해" XXX "라는 Itsm 연결을 추가 하지 못했습니다. 오류: 잘못 된 요청입니다. 연결에 제공 된 매개 변수가 잘못 되었습니다. Http 예외: 상태 코드를 사용할 수 없습니다. "
+
+**원인**: itsm 응용 프로그램의 IP 주소는 파트너 itsm 도구의 itsm 연결을 허용 하지 않습니다.
+
+**해결** 방법: 파트너 itsm 도구에서 itsm 연결을 허용 하기 위해 itsm ip 주소를 나열 하기 위해, loganalytics 작업 영역이 속한 Azure 지역의 전체 공용 IP 범위를 나열 하는 것이 좋습니다. [세부 정보](https://www.microsoft.com/download/details.aspx?id=56519) 지역 EUS/WEU/EUS2/WUS2/미국 남부 중부의 경우 고객은 ActionGroup network 태그만 나열할 수 있습니다.

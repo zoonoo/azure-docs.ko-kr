@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 81a5f28f0bf2f7f7ea005a4d9fe8d42337f6d0b9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 02dc2b4e86c9d0bad0c8274967aa4da77440ec01
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103399"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498764"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -54,12 +54,12 @@ ms.locfileid: "100103399"
 > 1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 > 1. **관리** 에서 **인증** 을 선택합니다.
 > 1. **플랫폼 추가** > **모바일 및 데스크톱 애플리케이션** 을 차례로 선택합니다.
-> 1. **리디렉션 URI** 섹션에서 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 선택합니다.
+> 1. **리디렉션 URI** 섹션에서 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 선택하고 **사용자 지정 리디렉션 URI** 에서 `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`를 추가합니다. 여기서 `{client_id}`는 애플리케이션(`msal{client_id}://auth` 확인란에 표시되는 것과 동일한 GUID)의 애플리케이션(클라이언트) ID입니다.
 > 1. **구성** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 **리디렉션 URI** 를 추가합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 `https://login.microsoftonline.com/common/oauth2/nativeclient` 및 `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`의 **리디렉션 URI** 를 추가합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >

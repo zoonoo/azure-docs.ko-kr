@@ -14,39 +14,24 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032248"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467683"
 ---
 # <a name="azure-ad-built-in-roles"></a>Azure AD 기본 제공 역할
 
-Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한이 적은 역할로 ID 작업을 관리하도록 지정할 수 있습니다. 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리, 도메인 이름 관리 등의 목적으로 관리자를 할당할 수 있습니다. [기본 사용자 권한](../fundamentals/users-default-permissions.md)은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
+Azure ad (Azure Active Directory)에서 다른 관리자나 관리자가 아닌 사용자가 Azure AD 리소스를 관리 해야 하는 경우 필요한 권한을 제공 하는 Azure AD 역할을 할당 합니다. 예를 들어 사용자 추가 또는 변경, 사용자 암호 다시 설정, 사용자 라이선스 관리 또는 도메인 이름 관리를 허용 하도록 역할을 할당할 수 있습니다.
+
+이 문서에는 Azure AD 리소스의 관리를 허용 하기 위해 할당할 수 있는 Azure AD 기본 제공 역할이 나열 되어 있습니다. 역할을 할당 하는 방법에 대 한 자세한 내용은 [사용자에 게 AZURE AD 역할 할당](manage-roles-portal.md)을 참조 하세요.
 
 ## <a name="limit-use-of-global-administrator"></a>전역 관리자의 사용 제한
 
 전역 관리자 역할에 할당 된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 사용자가 Microsoft 클라우드 서비스에 등록할 때 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 기존 테 넌 트에 구독을 추가 하면 전역 관리자 역할에 할당 되지 않습니다. 전역 관리자 및 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 조직 내 극소수의 사람에게만 이 역할을 할당하는 것이 좋습니다.
 
 모범 사례에 따라 조직 내에서 5명 미만의 사람에게만 이 역할을 할당하는 것이 좋습니다. 조직에서 전역 관리자 역할에 할당된 관리자가 5명을 초과하는 경우 다음과 같은 방법으로 수를 줄일 수 있습니다.
-
-### <a name="find-the-role-you-need"></a>필요한 역할 찾기
-
-수많은 역할 목록에서 필요한 역할을 찾기가 어려우면 Azure AD에서 역할 범주에 따라 역할의 하위 집합을 표시할 수 있습니다. 선택한 유형의 역할만 표시하는 [Azure AD 역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)에 대한 새 **유형** 필터를 살펴보세요.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>전역 관리자 역할을 할당할 때 존재 하지 않는 역할이 있습니다.
-
-일부 사용자를 전역 관리자로 승격 시킬 때 옵션이 아닌 보다 세분화 된 사용 권한을 제공 하는 Azure AD에 역할 또는 역할을 추가할 수 있습니다. 시간이 지남에 따라 전역 관리자 역할만이 수행할 수 있는 작업을 수행 하는 추가 역할을 배포 합니다. 다음과 같은 [모든 역할](#all-roles)에 이러한 내용이 반영 된 것을 볼 수 있습니다.
-
-## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
-
-Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법을 알아보려면 [Azure Active Directory에서 관리자 역할 보기 및 할당](manage-roles-portal.md)을 참조하세요.
-
-> [!Note]
-> Azure AD premium P2 라이선스가 있고 이미 PIM (Privileged Identity Management) 인 경우 모든 역할 관리 작업은 Azure AD가 아닌 권한 Id 관리에서 수행 됩니다.
->
-> ![이미 PIM을 사용 하 고 프리미엄 P2 라이선스가 있는 사용자를 위해 PIM에서 관리 되는 Azure AD 역할](./media/permissions-reference/pim-manages-roles-for-p2.png)
 
 ## <a name="all-roles"></a>모든 역할
 
@@ -81,7 +66,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > | [외부 ID 사용자 흐름 관리자](#external-id-user-flow-administrator) | 사용자 흐름의 모든 측면을 만들고 관리할 수 있습니다. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
 > | [외부 ID 사용자 흐름 특성 관리자](#external-id-user-flow-attribute-administrator) | 모든 사용자 흐름에서 사용할 수 있는 특성 스키마를 만들고 관리할 수 있습니다. | 0f971eea-41eb-4569-a71e-57bb8a3eff1e |
 > | [외부 ID 공급자 관리자](#external-identity-provider-administrator) | 직접 페더레이션에서 사용할 id 공급자를 구성할 수 있습니다. | be2f45a1-457d-42af-a067-6ec1fa63bc45 |
-> | [전역 관리자](#global-administrator) | Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을 관리할 수 있습니다. | 62e90394-69f5-4237-9190-012177145e10 |
+> | 전역 관리자 | Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을 관리할 수 있습니다. | 62e90394-69f5-4237-9190-012177145e10 |
 > | [글로벌 읽기 권한자](#global-reader) | 전역 관리자가 수행할 수 있는 모든 항목을 읽을 수 있지만 업데이트할 수는 없습니다. | f2ef992c-3afb-46b9-b7cf-a126ee74c451 |
 > | [그룹 관리자](#groups-administrator) | 이 역할의 구성원은 그룹을 만들거나 관리 하 고, 이름 및 만료 정책과 같은 그룹 설정을 만들고 관리 하 고, 그룹 작업 및 감사 보고서를 볼 수 있습니다. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [게스트 초대자](#guest-inviter) | '멤버가 게스트를 초대할 수 있음' 설정에 관계없이 게스트 사용자를 초대할 수 있습니다. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
@@ -241,9 +226,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 | 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 |
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 |
-| 인증 정책 관리자 | 예 |예 | 예 | 예 | 예 |
+| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 아니요 | 아니요 | 아니요 |
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 아니요 | 아니요 | 아니요 |
+| 인증 정책 관리자 | 아니요 |아니요 | 예 | 예 | 예 |
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
@@ -276,9 +261,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 | 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 |
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 |
-| 인증 정책 관리자 | 예 | 예 | 예 | 예 | 예 |
+| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 아니요 | 아니요 | 아니요 |
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 아니요 | 아니요 | 아니요 |
+| 인증 정책 관리자 | 아니요 | 아니요 | 예 | 예 | 예 |
 
 > [!IMPORTANT]
 > 이 역할은 현재 레거시 MFA 관리 포털에서 MFA 설정을 관리할 수 없습니다.
@@ -1388,9 +1373,9 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 | 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 |
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 |
-| 인증 정책 관리자 | 예 | 예 | 예 | 예 | 예 |
+| 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 아니요 | 아니요 | 아니요 |
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 아니요 | 아니요 | 아니요 |
+| 인증 정책 관리자 | 아니요 | 아니요 | 예 | 예 | 예 |
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
@@ -1763,7 +1748,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (표 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
 
-| 사용자 관리자 권한 | 메모 |
+| 사용자 관리자 권한 | 참고 |
 | --- | --- |
 | 사용자 및 그룹 만들기<br/>사용자 보기 만들기 및 관리<br/>Office 지원 티켓 관리<br/>암호 만료 정책 업데이트 |  |
 | 라이선스 관리<br/>사용자 계정 이름을 제외한 모든 사용자 속성 관리 | 모든 관리자를 포함 하 여 모든 사용자에 게 적용 됩니다. |
@@ -1879,6 +1864,6 @@ API 이름 | Azure Portal 이름 | 메모
 
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자를 Azure 구독의 관리자로 할당 하는 방법에 대 한 자세한 내용은 [azure 구독의 관리자로 사용자 할당](../../role-based-access-control/role-assignments-portal-subscription-admin.md) 을 참조 하세요.
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대한 자세한 내용은 [여러 역할의 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
-* 구독과 Azure AD 테 넌 트 간의 관계 또는 구독을 연결 하거나 추가 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 테 넌 트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md) 를 참조 하세요.
+- [그룹에 Azure AD 역할 할당](groups-assign-role.md)
+- [여러 역할의 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Azure 구독의 관리자로 사용자 할당](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 73dc54ca04ad6ddb275947663959164cc2e3c019
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695246"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547886"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Route Server 만들기 및 구성 
 
@@ -56,8 +56,8 @@ az account set --subscription "<subscription ID>"
 Azure Route Server를 만들려면 배포를 호스트하기 위한 가상 네트워크가 필요합니다. 다음 명령을 사용하여 리소스 그룹 및 가상 네트워크를 만듭니다. 가상 네트워크가 이미 있는 경우 다음 섹션으로 건너뛸 수 있습니다.
 
 ```azurecli-interactive
-az group create -n “RouteServerRG” -l “westus” 
-az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --address-prefix “10.0.0.0/16” 
+az group create -n "RouteServerRG" -l "westus" 
+az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix "10.0.0.0/16" 
 ``` 
 
 ### <a name="add-a-subnet"></a>서브넷 추가 
@@ -65,13 +65,13 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 1. Azure Route Server를 배포할 *RouteServerSubnet* 이라는 서브넷을 추가합니다. 이 서브넷은 Azure Route Server에 대한 전용 서브넷입니다. RouteServerSubnet은 /27 또는 더 짧은 접두사(예: /26, /25)여야 합니다. 그렇지 않으면 Azure Route Server를 추가할 때 오류 메시지가 표시됩니다.
 
     ```azurecli-interactive 
-    az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
+    az network vnet subnet create -g "RouteServerRG" --vnet-name "myVirtualNetwork" --name "RouteServerSubnet" --address-prefix "10.0.0.0/24"  
     ``` 
 
 1. RouteServerSubnet ID를 확인합니다. 가상 네트워크의 모든 서브넷에 대한 리소스 ID를 보려면 다음 명령을 사용합니다. 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
+    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 RouteServerSubnet ID는 다음과 같습니다. 
@@ -83,7 +83,7 @@ RouteServerSubnet ID는 다음과 같습니다.
 다음 명령을 사용하여 Route Server를 만듭니다. 
 
 ```azurecli-interactive
-az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
+az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-subnet $subnet_id  
 ``` 
 
 위치는 가상 네트워크의 위치와 일치해야 합니다. HostedSubnet은 이전 섹션에서 얻은 RouteServerSubnet ID입니다. 
@@ -94,17 +94,17 @@ az network routeserver create -n “myRouteServer” -g “RouteServerRG” --ho
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA1_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
-"nva_ip"는 NVA에 할당된 가상 네트워크 IP입니다. "nva_asn"은 NVA에 구성된 ASN(자치 시스템 번호)입니다. ASN은 65515-65520 범위 이외의 16비트 숫자가 될 수 있습니다. 이 ASN 범위는 Microsoft에서 예약되어 있습니다. 
+"nva_ip"는 NVA에 할당된 가상 네트워크 IP입니다. "nva_asn"은 NVA에 구성된 ASN(자율 시스템 번호)입니다. ASN은 65515-65520 범위 이외의 16비트 숫자가 될 수 있습니다. 이 ASN 범위는 Microsoft에서 예약되어 있습니다. 
 
 중복성을 위해 다른 NVA 또는 동일한 NVA의 다른 인스턴스와의 피어링을 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA2_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>NVA에 대한 구성 완료 
@@ -112,7 +112,7 @@ az network routeserver peering create --routeserver-name “myRouteServer” -g 
 NVA에 대한 구성을 완료하고 BGP 세션을 사용하도록 설정하려면 Azure Route Server의 IP 및 ASN이 필요합니다. 다음 명령을 사용하여 이 정보를 가져올 수 있습니다. 
 
 ```azurecli-interactive 
-az network routeserver show -g “RouteServerRG” -n “myRouteServer” 
+az network routeserver show -g "RouteServerRG" -n "myRouteServer" 
 ``` 
 
 출력에는 다음 정보가 포함됩니다. 
@@ -143,14 +143,14 @@ ExpressRoute 게이트웨이와 Azure VPN Gateway가 동일한 VNet에 있으며
 1. Azure Route Server와 게이트웨이 간의 경로 교환을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive 
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic true 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic true 
 
 ``` 
 
 2. Azure Route Server와 게이트웨이 간의 경로 교환을 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic false 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic false 
 ``` 
 
 ## <a name="troubleshooting"></a>문제 해결 
@@ -162,20 +162,20 @@ az network routeserver peering list-advertised-routes -g RouteServerRG --vrouter
 az network routeserver peering list-learned-routes -g RouteServerRG --vrouter-name myRouteServer -n NVA1_name 
 ``` 
 
-## <a name="clean-up"></a>정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
 Azure Route Server가 더 이상 필요하지 않은 경우 다음 명령을 사용하여 BGP 피어링을 제거한 후 Route Server를 제거합니다. 
 
 1. 다음 명령을 사용하여 Azure Route Server와 NVA 간의 BGP 피어링을 제거합니다.
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
+az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. 다음 명령을 사용하여 Azure Route Server를 제거합니다. 
 
 ```azurecli-interactive 
-az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
+az network routeserver delete -n "myRouteServer" -g "RouteServerRG" 
 ``` 
 
 ## <a name="next-steps"></a>다음 단계

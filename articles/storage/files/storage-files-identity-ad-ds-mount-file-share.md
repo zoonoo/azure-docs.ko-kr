@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535062"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472274"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>4 부: 도메인에 가입 된 VM에서 파일 공유 탑재
 
@@ -28,10 +28,10 @@ ms.locfileid: "87535062"
 
 파일 공유를 탑재 하려면 먼저 다음 필수 구성 요소를 확인 해야 합니다.
 
-- 이전에 저장소 계정 키를 사용 하 여 파일 공유를 탑재 한 클라이언트에서 파일 공유를 탑재 하는 경우 공유의 연결을 끊고, 저장소 계정 키의 영구 자격 증명을 제거 하 고, 현재 인증에 AD DS 자격 증명을 사용 하 고 있는지 확인 합니다.
+- 이전에 저장소 계정 키를 사용 하 여 파일 공유를 탑재 한 클라이언트에서 파일 공유를 탑재 하는 경우 공유의 연결을 끊고, 저장소 계정 키의 영구 자격 증명을 제거 하 고, 현재 인증에 AD DS 자격 증명을 사용 하 고 있는지 확인 합니다. 저장소 계정 키를 사용 하 여 탑재 된 공유를 지우는 지침은 [FAQ 페이지](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication)를 참조 하세요.
 - 클라이언트는 AD DS에 대 한 시야를가지고 있어야 합니다. 사용자의 컴퓨터 또는 VM이 AD DS에서 관리 하는 네트워크를 벗어난 경우 인증을 위해 VPN AD DS에 도달 하려면 VPN을 사용 하도록 설정 해야 합니다.
 
-자리 표시자 값을 고유한 값으로 바꾼 후 다음 명령을 사용 하 여 Azure 파일 공유를 탑재 합니다.
+자리 표시자 값을 고유한 값으로 바꾼 후 다음 명령을 사용 하 여 Azure 파일 공유를 탑재 합니다. 항상 아래 표시 된 경로를 사용 하 여 탑재 해야 합니다. 파일 탑재에 CNAME을 사용 하는 것은 id 기반 인증 (AD DS 또는 Azure AD DS)에서 지원 되지 않습니다.
 
 ```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.

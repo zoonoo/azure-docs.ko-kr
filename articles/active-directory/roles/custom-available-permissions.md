@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1af2c1b912afbcf44cefbfb021c592836dbde5b8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740196"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466289"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대 한 응용 프로그램 등록 권한
 
@@ -170,4 +170,4 @@ ms.locfileid: "98740196"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal, AZURE AD PowerShell 및 Graph API](custom-create.md) 를 사용 하 여 사용자 지정 역할을 만듭니다.
-- [사용자 지정 역할의 할당 보기](custom-view-assignments.md)
+- [역할 할당 나열](view-assignments.md)

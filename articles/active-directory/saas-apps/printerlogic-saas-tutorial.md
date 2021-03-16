@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: b471e113a7e5ae2277e275d53ff8ac8ca9187d1d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 23b534f1ccbd51b028beeee173e5c3e0accd47a3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99822057"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486185"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>자습서: PrinterLogic SaaS와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,7 +40,7 @@ ms.locfileid: "99822057"
 * PrinterLogic SaaS에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * PrinterLogic SaaS에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-printerlogic-saas-from-the-gallery"></a>갤러리에서 PrinterLogic SaaS 추가
+## <a name="add-printerlogic-saas-from-the-gallery"></a>갤러리에서 PrinterLogic SaaS 추가
 
 PrinterLogic SaaS가 Azure AD에 통합되도록 구성하려면 갤러리의 PrinterLogic SaaS를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -146,17 +146,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="sp-initiated"></a>SP 시작:
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 AskYourTeam 로그온 URL로 리디렉션됩니다.  
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 PrinterLogic SaaS 로그온 URL로 리디렉션됩니다.  
 
-* AskYourTeam 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* PrinterLogic SaaS 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 AskYourTeam에 자동으로 로그인됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 PrinterLogic SaaS에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 AskYourTeam 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 AskYourTeam에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 PrinterLogic SaaS 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위한 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 PrinterLogic SaaS에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-PrinterLogic SaaS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+PrinterLogic SaaS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

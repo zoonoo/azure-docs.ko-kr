@@ -6,19 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
-ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/08/2021
+ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879767"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493036"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
 
 ## <a name="supported-geographic-locations"></a>지원 되는 지리적 위치
 
 상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 다음 표에서는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화를 나열 합니다.
+
+CSP는 최종 고객의 통화로 파트너 센터에서 제품을 구매 하 여 동일한 통화로 청구 될 수 있습니다. 이에 대 한 자세한 내용은 [다음 faq](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf)를 참조 하세요.
 
 |   국가/지역 이름               |   ISO-2   |   통화</br>(모든 제안 형식)  |    통화</br>(컨설팅 서비스 제품에만 해당)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|

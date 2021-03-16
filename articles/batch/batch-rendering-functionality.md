@@ -3,14 +3,14 @@ title: 렌더링 기능
 description: 표준 Azure Batch 기능은 렌더링 워크로드 및 앱을 실행하는 데 사용됩니다. Batch에는 렌더링 워크로드를 지원하는 특정 기능이 포함됩니다.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429805"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496340"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -27,6 +27,9 @@ ms.locfileid: "99429805"
 대부분의 렌더링 응용 프로그램에는 라이선스 서버에서 가져온 라이선스가 필요 합니다. 기존 온-프레미스 라이선스 서버가 있으면 풀과 라이선스 서버가 모두 동일한 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 있어야 합니다. 또한 Batch 풀과 라이선스 서버 VM이 동일한 가상 네트워크에 있는 Azure VM에서 라이선스 서버를 실행할 수 있습니다.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>렌더링 VM 이미지를 사용 하는 Batch 풀
+
+> [!IMPORTANT]
+> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 더 이상 사용 되지 [않으며 29 년 2 월 2024 일에 사용 중지 됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용 하려면 [사용자 지정 VM 이미지와 표준 응용 프로그램 라이선스를 사용 해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>애플리케이션 설치 렌더링
 

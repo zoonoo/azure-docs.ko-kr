@@ -3,16 +3,19 @@ title: 렌더링 기능 사용
 description: Azure Batch 렌더링 기능을 사용하는 방법. 직접 또는 클라이언트 애플리케이션 플러그 인에서 호출된 Batch Explorer 애플리케이션을 사용해 보세요.
 author: mscurrell
 ms.author: markscu
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: a5bf4d0ed2173d048d968f60dea72a1a0c25ab05
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429788"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496629"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
+
+> [!IMPORTANT]
+> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 더 이상 사용 되지 [않으며 29 년 2 월 2024 일에 사용 중지 됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용 하려면 [사용자 지정 VM 이미지와 표준 응용 프로그램 라이선스를 사용 해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 몇 가지 방법으로 Azure Batch 렌더링을 사용할 수 있습니다.
 

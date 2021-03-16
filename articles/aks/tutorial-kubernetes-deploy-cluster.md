@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250641"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509424"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -35,7 +35,7 @@ AKS 클러스터는 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)�
 
 [az aks create][] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 클러스터를 만듭니다. 이 리소스 그룹은 *eastus* 지역의 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. 다음 예제에서는 지역을 지정하지 않으므로 AKS 클러스터도 *eastus* 지역에서 생성됩니다. AKS에 대한 리소스 제한 및 지역 가용성에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성][quotas-skus-regions]을 참조하세요.
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 주체가 지정되어 있지 않기 때문에 자동으로 생성됩니다. 여기에서 이 서비스 주체는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한을 부여][container-registry-integration]했습니다. 명령을 성공적으로 실행하려면 Azure 구독에 대한 **소유자** 또는 **Azure 계정 관리자** 역할이 있어야 합니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 클러스터 ID를 지정하지 않았으므로 자동으로 생성됩니다. 여기에서 이 클러스터 ID에는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한이 부여][container-registry-integration]됩니다. 명령을 성공적으로 실행하려면 Azure 구독에 대한 **소유자** 또는 **Azure 계정 관리자** 역할이 있어야 합니다.
 
 ```azurecli
 az aks create \

@@ -3,15 +3,15 @@ title: 지속적 배포 구성
 description: GitHub, BitBucket, Azure Repos 또는 기타 리포지토리에서 Azure App Service 하는 CI/CD를 사용 하도록 설정 하는 방법에 대해 알아봅니다. 요구 사항에 맞는 빌드 파이프라인을 선택 합니다.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564965"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470271"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -116,6 +116,8 @@ GitHub 작업 빌드 공급자는 [github의 ci/cd](#configure-deployment-source
 - 게시 프로필 대신 Azure Active Directory에서 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 사용 하 여 배포 합니다.
 
 #### <a name="authenticate-with-a-service-principal"></a>서비스 주체를 사용 하 여 인증
+
+이 선택적 구성은 생성 된 워크플로 파일의 게시 프로필을 사용 하 여 기본 인증을 대체 합니다.
 
 1. [Azure CLI](/cli/azure/)에서 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용 하 여 서비스 사용자를 생성 합니다. 다음 예제에서는 *\<subscription-id>* , *\<group-name>* 및를 *\<app-name>* 사용자 고유의 값으로 바꿉니다.
 

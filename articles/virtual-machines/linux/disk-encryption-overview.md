@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 066fb32dc9da13e8a77660a9144b53675d689f63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553802"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496459"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -143,6 +143,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 자세한 내용은 [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)을 참조하세요.
 
 ## <a name="terminology"></a>용어
+
 다음 표에서는 Azure Disk Encryption 설명서에서 사용되는 일반적인 용어 중 일부를 정의합니다.
 
 | 용어 | 정의 |

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 56bacf1ae68081d5822fdb0e80762926d4eb581c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f17e42915968f52aee8bd106b5cadd26457998ff
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173735"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501324"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -32,7 +32,7 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 - 이 문서에는 Azure CLI 버전 2.0.61 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-- Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다. 또는 사용 권한에 대해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다. 이러한 리소스 중 하나가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [템플릿 검토](#review-the-template) 섹션으로 건너뜁니다.
+- Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키를 제공합니다. 이 리소스가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [템플릿 검토](#review-the-template) 섹션으로 건너뜁니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -47,28 +47,6 @@ ssh-keygen -t rsa -b 2048
 ```
 
 SSH 생성에 대한 자세한 내용은 [Azure에서 인증용 SSH 키 생성 및 관리][ssh-keys]를 참조하세요.
-
-### <a name="create-a-service-principal"></a>서비스 주체 만들기
-
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다. 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```json
-{
-  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-  "displayName": "azure-cli-2019-04-19-21-42-11",
-  "name": "http://azure-cli-2019-04-19-21-42-11",
-  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-*appId* 및 *암호* 를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -95,13 +73,10 @@ AKS 샘플을 더 보려면 [AKS 빠른 시작 템플릿][aks-quickstart-templat
     * **DNS 접두사**: 클러스터에 대한 고유 DNS 접두사(예: *myakscluster*)를 입력합니다.
     * **Linux 관리자 사용자 이름**: SSH를 사용하여 연결할 사용자 이름(예: *azureuser*)을 입력합니다.
     * **SSH RSA 공개 키**: SSH 키 쌍의 *public* 부분(기본적으로 *~/.ssh/id_rsa.pub* 의 콘텐츠)을 복사하여 붙여넣습니다.
-    * **서비스 주체 클라이언트 ID**: `az ad sp create-for-rbac` 명령에서 서비스 주체의 *앱ID* 를 복사하여 붙여넣습니다.
-    * **서비스 주체 클라이언트 비밀**: `az ad sp create-for-rbac` 명령에서 서비스 주체의 *암호* 를 복사하여 붙여넣습니다.
-    * **위에 명시된 사용 약관에 동의함**: 동의하려면 이 확인란을 선택합니다.
 
     ![포털에서 Azure Kubernetes Service 클러스터를 만드는 Resource Manager 템플릿](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. **구매** 를 선택합니다.
+3. **검토 + 만들기** 를 선택합니다.
 
 AKS 클러스터를 만드는 데 몇 분이 걸립니다. 다음 단계로 넘어가기 전에 클러스터가 성공적으로 배포될 때까지 기다립니다.
 

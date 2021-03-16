@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd2a38e3d59af18477a1e5bb11e8b58dbbe81e0b
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471671"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491620"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 SMS 기반 인증용 사용자 구성 및 사용 
 
@@ -36,6 +36,7 @@ ms.locfileid: "103471671"
 * 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이 방법을 사용하지 않더라도 라이선스가 있어야 합니다. 설정된 각 사용자에게는 다음 Azure AD, EMS Microsoft 365 라이선스 중 하나가 있어야 합니다.
     * [M365(Microsoft 365) F1 또는 F3][m365-firstline-workers-licensing]
     * [EMS(Enterprise Mobility + Security) E3 또는 E5][ems-licensing] 또는 [M365(Microsoft 365) E3 또는 E5][m365-licensing]
+    * [Office 365 F3][o365-f3]
 
 ## <a name="limitations"></a>제한 사항
 

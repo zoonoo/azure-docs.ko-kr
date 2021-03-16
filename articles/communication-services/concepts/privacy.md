@@ -8,16 +8,18 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656196"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561350"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
-Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항을 충족할 수 있도록 고객을 지원하기 위해 노력하고 있습니다. 애플리케이션을 사용하는 사용자와 직접적인 관계가 있는 Communication Services를 사용하는 개발자는 잠재적으로 해당 사용자의 데이터를 제어할 수 있습니다. Azure Communication Services는 사용자를 대신하여 이 데이터를 저장하므로 이 데이터의 프로세서가 될 가능성이 높습니다. 이 페이지에는 서비스에서 데이터를 보존하는 방법과 이 데이터를 식별하고, 내보내고, 삭제하는 방법이 요약되어 있습니다.
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항을 충족할 수 있도록 고객을 지원하기 위해 노력하고 있습니다. 애플리케이션을 사용하는 사용자와 직접적인 관계가 있는 Communication Services를 사용하는 개발자는 잠재적으로 해당 사용자의 데이터를 제어할 수 있습니다. Azure Communication Services는 사용자를 대신하여 이 미사용 데이터를 저장하고 암호화하므로 이 데이터의 프로세서가 될 가능성이 높습니다. 이 페이지에는 서비스에서 데이터를 보존하는 방법과 이 데이터를 식별하고, 내보내고, 삭제하는 방법이 요약되어 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주
 
@@ -79,6 +81,6 @@ Azure Communication Services는 서비스 운영 상태 및 사용률을 이해�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [GDPR 및 CCPA에 대한 Azure 데이터 주체 요청](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [GDPR 및 CCPA에 대한 Azure 데이터 주체 요청](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft 보안 센터](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure 대화형 지도 - 내 고객 데이터는 어디에 있나요?](https://azuredatacentermap.azurewebsites.net/)

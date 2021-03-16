@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: a05769c66c4b13de5c7197ef5612d64781574987
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d94bedad1ba7a2c6d814021b733404ccc58148ed
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747908"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424685"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
  
@@ -63,16 +63,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="네트워킹 세부 정보를 구성합니다." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. 마지막 단계에서 새 VNet을 만든 경우 9단계로 건너뜁니다. 기존 VNet을 선택한 경우 클러스터를 만들기 전에 가상 네트워크 및 서브넷에 몇 가지 특수 권한을 적용해야 합니다. 이를 위해 기존 가상 네트워크의 리소스 ID를 가져와야 합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)에서 다음 명령 실행:
+1. 마지막 단계에서 새 VNet을 만든 경우 8단계로 건너뜁니다. 기존 VNet을 선택한 경우 클러스터를 만들기 전에 가상 네트워크 및 서브넷에 몇 가지 특수 권한을 적용해야 합니다. 이렇게 하려면 `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>`, `<VNet name>` 및 `<subnet name>`을 적절한 값으로 바꿉니다.
 
    ```azurecli-interactive
-   # get the resource ID of the Virtual Network
-   az network vnet show -n <VNet_name> -g <Resource_Group_Name> --query "id" --output tsv
-
-1. Now apply the special permissions by using the `az role assignment create` command. Replace `<Resource ID>` with the output of previous command:
-
-   ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
    > [!NOTE]
@@ -122,7 +116,7 @@ cqlsh $host 9042 -u cassandra -p cassandra --ssl
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-관리형 인스턴스 클러스터를 계속 사용하지 않을 경우 다음 단계에 따라 삭제합니다.
+이 관리형 인스턴스 클러스터를 더 이상 사용하지 않으려면 다음 단계에 따라 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 목록에서 이 빠른 시작에서 만든 리소스 그룹을 선택합니다.

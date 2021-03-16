@@ -1,19 +1,19 @@
 ---
 title: Azure Synapse Analytics 작업 영역에 대 한 데이터 반출 보호
 description: 이 문서에서는 Azure Synapse Analytics의 데이터 반출 보호에 대해 설명 합니다.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e4067d5acf55f94cd46e629792312af1547c5901
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518263"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489376"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역에 대 한 데이터 반출 보호
 이 문서에서는 Azure Synapse Analytics의 데이터 반출 보호에 대해 설명 합니다.
@@ -25,7 +25,7 @@ Azure Synapse Analytics 작업 영역에서는 작업 영역에 대 한 데이�
 >작업 영역을 만든 후에는 관리 되는 가상 네트워크 및 데이터 반출 보호에 대 한 작업 영역 구성을 변경할 수 없습니다.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>승인 된 대상에 대 한 Synapse 작업 영역 데이터 송신 관리
-데이터 반출을 사용 하 여 작업 영역을 만든 후 작업 영역 리소스의 소유자는 작업 영역에 대해 승인 된 Azure AD 테 넌 트 목록을 관리할 수 있습니다. 작업 영역에 대 한 [권한이](./synapse-workspace-access-control-overview.md) 있는 사용자는 Synapse Studio를 사용 하 여 작업 영역의 승인 된 Azure AD 테 넌 트에 있는 리소스에 대 한 관리 되는 개인 끝점 연결 요청을 만들 수 있습니다. 사용자가 승인 되지 않은 테 넌 트의 리소스에 대 한 개인 끝점 연결을 만들려고 하면 관리 되는 개인 끝점 생성이 차단 됩니다.
+데이터 반출 보호를 사용 하도록 설정한 상태에서 작업 영역을 만든 후 작업 영역 리소스 소유자는 작업 영역에 대해 승인 된 Azure AD 테 넌 트 목록을 관리할 수 있습니다. 작업 영역에 대 한 [권한이](./synapse-workspace-access-control-overview.md) 있는 사용자는 Synapse Studio를 사용 하 여 작업 영역의 승인 된 Azure AD 테 넌 트에 있는 리소스에 대 한 관리 되는 개인 끝점 연결 요청을 만들 수 있습니다. 사용자가 승인 되지 않은 테 넌 트의 리소스에 대 한 개인 끝점 연결을 만들려고 하면 관리 되는 개인 끝점 생성이 차단 됩니다.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>데이터 반출 보호를 사용 하는 샘플 작업 영역
 예를 사용 하 여 Synapse 작업 영역에 대 한 데이터 반출 보호를 설명 해 주세요. Contoso에는 테 넌 트 A 및 테 넌 트 B의 Azure 리소스가 있으며 이러한 리소스를 안전 하 게 연결 하는 데 필요 합니다. 테 넌 트 B가 승인 된 Azure AD 테 넌 트로 추가 된 테 넌 트 A에서 Synapse 작업 영역을 만들었습니다. 다이어그램은 저장소 계정 소유자가 승인한 테 넌 트 A 및 테 넌 트 B의 Azure Storage 계정에 대 한 개인 끝점 연결을 보여 줍니다. 다이어그램에는 차단 된 개인 끝점 생성도 표시 됩니다. Contoso의 작업 영역에 대해 승인 된 Azure AD 테 넌 트가 아닌 Fabrikam Azure AD 테 넌 트에서 Azure Storage 계정을 대상으로 하는이 개인 끝점의 생성이 차단 되었습니다. 

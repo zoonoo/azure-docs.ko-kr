@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: cc6d7491d9c38f1ddf4aba2adecad4aaee3c344b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045975"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489565"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 이 문서를 사용 하 여 IoT Edge 솔루션을 배포할 때 발생할 수 있는 일반적인 문제를 해결 하는 단계를 찾을 수 있습니다. IoT Edge 장치에서 로그 및 오류를 찾는 방법을 알아보려면 [IoT Edge 장치 문제 해결](troubleshoot.md)을 참조 하세요.
 
@@ -75,7 +77,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 다음은 그 예입니다. 
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. `daemon.json`사용할 DNS 서버를 지정 하는 라는 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -103,7 +105,7 @@ IoT Edge 에이전트에 모듈의 이미지에 액세스할 수 있는 권한�
 
 **옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 다음은 그 예입니다. 
+IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "createOptions": {

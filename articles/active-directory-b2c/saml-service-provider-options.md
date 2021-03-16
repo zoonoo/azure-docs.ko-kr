@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198475"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470783"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램을 등록 하는 옵션
 
@@ -279,11 +279,24 @@ SAML 응답 내의 datetime 값에서 밀리초를 제거할지 여부를 지정
 
 `UseTechnicalProfileForSessionManagement`요소와 [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider)를 사용 하 여 Azure AD B2C와 SAML 신뢰 당사자 응용 프로그램 간의 세션을 관리할 수 있습니다.
 
+## <a name="force-users-to-re-authenticate"></a>사용자가 다시 인증 하도록 강제 
+
+사용자가 다시 인증 하도록 하기 위해 응용 프로그램은 `ForceAuthn` SAML 인증 요청에 특성을 포함할 수 있습니다. `ForceAuthn`특성은 부울 값입니다. True로 설정 되 면 사용자 세션은 Azure AD B2C에서 무효화 되 고 사용자는 강제로 다시 인증 됩니다. 다음 SAML 인증 요청에서는 특성을 true로 설정 하는 방법을 보여 줍니다 `ForceAuthn` . 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
+
 ## <a name="debug-the-saml-protocol"></a>SAML 프로토콜 디버깅
 
 서비스 공급자와의 통합을 구성 하 고 디버그 하는 데 도움이 되도록 SAML 프로토콜에 대 한 브라우저 확장을 사용할 수 있습니다. 예를 들어 Chrome 용 [Saml DevTools 확장](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) , FireFox 용 [saml 추적 기능](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) 또는에 [지 또는 IE 개발자 도구](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957)를 사용할 수 있습니다.
 
-이러한 도구를 사용 하 여 응용 프로그램과 Azure AD B2C 간의 통합을 확인할 수 있습니다. 다음은 그 예입니다. 
+이러한 도구를 사용 하 여 응용 프로그램과 Azure AD B2C 간의 통합을 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * SAML 요청에 서명이 포함 되어 있는지 확인 하 고 권한 부여 요청에 서명 하는 데 사용 되는 알고리즘을 결정 합니다.
 * Azure AD B2C에서 오류 메시지를 반환 하는지 확인 합니다.

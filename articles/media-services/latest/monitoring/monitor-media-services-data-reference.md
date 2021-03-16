@@ -7,12 +7,12 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.date: 03/11/2021
-ms.openlocfilehash: c5545ead3e4d40c7a0642aee6273c4df241bd394
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 461c998aa85d70d69cb267fdbeabd7eabcfb5854
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464497"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471536"
 ---
 # <a name="monitoring-media-services-data-reference"></a>모니터링 Media Services 데이터 참조
 
@@ -61,7 +61,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)을 참조하세요.
 
-차원 테이블의 **자리 표시자** 입니다.
+<!--**PLACEHOLDER** for dimensions table.-->
 
 ## <a name="resource-logs"></a>리소스 로그
 

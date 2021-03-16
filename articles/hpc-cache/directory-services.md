@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803768"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472076"
 ---
 # <a name="configure-directory-services"></a>디렉터리 서비스 구성
 
@@ -75,7 +75,7 @@ ms.locfileid: "97803768"
 
 **보안 액세스** 섹션에서 LDAP 연결에 대 한 암호화 및 인증서 유효성 검사를 사용 하도록 설정할 수 있습니다. **예** 를 클릭 하 여 암호화를 사용 하도록 설정 하면 다음과 같은 옵션을 사용할 수 있습니다.
 
-* **유효한 인증서 필요** -이 설정을 설정 하면 아래 URI 필드의 인증 기관에 대해 LDAP 서버의 인증서를 확인 합니다.
+* **인증서 유효성 검사** -이 설정을 설정 하면 아래 URI 필드의 인증 기관에 대해 LDAP 서버의 인증서를 확인 합니다.
 
 * **CA 인증서 URI** -신뢰할 수 있는 인증서의 경로를 지정 합니다. 이는 CA 유효성 검사 인증서 또는 자체 서명 된 인증서에 대 한 링크 일 수 있습니다. 이 필드는 외부에서 유효성을 검사 한 인증서 설정을 사용 하는 데 필요 합니다.
 

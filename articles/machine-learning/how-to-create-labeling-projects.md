@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99821594"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656825"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -107,12 +107,9 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 프로젝트에 이미지를 더 추가하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지의 적절한 폴더에 업로드합니다. 
 
-프로젝트에서 데이터 저장소의 새 데이터를 지속적으로 모니터링하려면 **증분 새로 고침 사용** 확인란을 선택합니다. 이 데이터를 사용하도록 설정하면 하루에 한 번 프로젝트로 가져옵니다.
+프로젝트에서 데이터 저장소의 새 데이터를 지속적으로 모니터링하려면 **증분 새로 고침 사용** 확인란을 선택합니다. 새로 고침을 사용하도록 설정하면 하루에 한 번 이 데이터가 프로젝트로 풀링되므로, 데이터 저장소에 새 데이터를 추가한 후 해당 데이터가 프로젝트에 표시될 때까지 기다려야 합니다.  프로젝트의 **세부 정보** 탭에 있는 **증분 새로 고침** 섹션에서 데이터의 마지막 새로 고침 시간에 대한 타임스탬프를 볼 수 있습니다.
 
 데이터 저장소에 표시되는 새 이미지를 프로젝트에 추가하지 않으려면 이 확인란을 선택 취소합니다.
-
-프로젝트에 대한 **세부 정보** 탭의 **증분 새로 고침** 섹션에서 최신 새로 고침에 대한 타임스탬프를 찾을 수 있습니다.
-
 
 ## <a name="specify-label-classes"></a>레이블 클래스 지정
 

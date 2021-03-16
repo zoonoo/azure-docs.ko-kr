@@ -8,14 +8,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9b06a9d1065fe27a7ac38d45c2a0aaba635b40eb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 877b488fc888b4ced8165c19bcd5c51b5f982745
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044853"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492509"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Azure IoT Edge 버전 및 릴리스 정보
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge는 GitHub에 호스트 된 오픈 소스 IoT Edge 프로젝트에서 빌드된 제품입니다. 모든 새 릴리스는 [Azure IoT Edge 프로젝트](https://github.com/Azure/azure-iotedge)에서 사용할 수 있습니다. 기여 및 버그 보고서는 [오픈 소스 IoT Edge 프로젝트](https://github.com/Azure/iotedge)에서 수행할 수 있습니다.
 
@@ -32,7 +34,7 @@ IoT Edge 릴리스에 대 한 자세한 내용은 [지원 되는 시스템 Azure
 
 이 표에서는 IoT Edge 패키지 릴리스에 대 한 최신 버전 기록을 제공 하며, 각 버전에 대해 적용 된 문서 업데이트를 강조 표시 합니다.
 
-| 릴리스 정보 및 자산 | Type | Date | 주요 항목 |
+| 릴리스 정보 및 자산 | 유형 | Date | 주요 항목 |
 | ------------------------ | ---- | ---- | ---------- |
 | [1.2-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | 미리 보기 | 2021년 3월 | 새로운 설치 및 구성 단계를 포함 하는 새로운 IoT Edge 패키지가 도입 되었습니다. 자세한 내용은 [1.0 또는 1.1에서 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조 하세요.
 | [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | LTS(장기 지원) | 2021년 2월 | [장기적인 지원 계획 및 지원 되는 시스템 업데이트](support.md) |

@@ -7,20 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5095e077ad1f2259c227c37f789dbcaf1f6d1cd7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 608017c15d039be940d1d67b8f9e1bf7618134b7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611864"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491505"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
 OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인하는 데 사용할 수 있도록 OAuth 2.0을 기반으로 하여 빌드된 인증 프로토콜입니다. OpenID Connect의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하여 웹 애플리케이션의 등록, 로그인 및 기타 ID 관리 환경을 Azure AD( Azure Active Directory)로 아웃소싱할 수 있습니다. 이 가이드에서는 언어에 관계 없이 이 작업을 수행하는 방법을 보여 줍니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
+
+> [!NOTE]
+> 대부분의 오픈 소스 인증 라이브러리는 응용 프로그램에 대 한 JWT 토큰을 가져오고 유효성을 검사 합니다. 사용자 고유의 코드를 구현 하는 대신 이러한 옵션을 탐색 하는 것이 좋습니다. 자세한 내용은 [MSAL (Microsoft 인증 라이브러리) 개요](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)및 [microsoft id 웹 인증 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web)를 참조 하세요.
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 *인증* 프로토콜로 사용하기 위해 OAuth 2.0 *권한 부여* 프로토콜을 확장합니다. 이 인증 프로토콜을 사용 하면 Single Sign-On을 수행할 수 있습니다. 클라이언트에서 사용자의 id를 확인 하 고 사용자에 대 한 기본 프로필 정보를 얻을 수 있도록 하는 *ID 토큰* 의 개념을 소개 합니다.
 
@@ -53,13 +56,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | nonce | 예 | 응용 프로그램에 의해 생성 된 요청에 포함 된 값으로, 결과 ID 토큰에 클레임으로 포함 됩니다. 그러면 응용 프로그램에서이 값을 확인 하 여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_type | 예 | Openid connect Connect에 대 한 ID 토큰을 포함 해야 합니다. 웹 응용 프로그램에 웹 API를 호출 하는 데 필요한 토큰만 있으면를 사용할 수 있습니다 `code+id_token` . |
 | scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. `offline_access`범위는 웹 응용 프로그램에 대 한 선택 사항입니다. 응용 프로그램에 리소스에 대 한 확장 액세스를 위한 *새로 고침 토큰이* 필요 함을 나타냅니다. |
-| prompt | 아니요 | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
-| redirect_uri | 아니요 | 응용 프로그램 `redirect_uri` 에서 인증 응답을 보내고 받을 수 있는 응용 프로그램의 매개 변수입니다. `redirect_uri`URL로 인코딩해야 한다는 점을 제외 하 고 Azure Portal에 등록 한 매개 변수 중 하 나와 정확 하 게 일치 해야 합니다. |
-| response_mode | 아니요 | 결과 권한 부여 코드를 응용 프로그램에 다시 보내는 데 사용 되는 메서드입니다. `query`, `form_post` 또는 `fragment` 중 하나일 수 있습니다.  최상의 보안을 위해 `form_post` 응답 모드를 사용하는 것이 좋습니다. |
-| state | 아니요 | 토큰 응답에도 반환 되는 요청에 포함 된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생 하기 전에 응용 프로그램에서 사용자의 상태에 대 한 정보를 인코딩하는 데에도 사용 됩니다 (예: 설정 된 페이지). |
-| login_hint | 아니요| 로그인 페이지의 로그인 이름 필드를 미리 채우는 데 사용할 수 있습니다. 자세한 내용은 [로그인 이름 미리 채우기](direct-signin.md#prepopulate-the-sign-in-name)를 참조 하세요.  |
-| domain_hint | 아니요| 로그인에 사용 해야 하는 소셜 id 공급자에 대 한 Azure AD B2C 힌트를 제공 합니다. 유효한 값이 포함 된 경우 사용자는 id 공급자 로그인 페이지로 직접 이동 합니다.  자세한 내용은 [소셜 공급자에 로그인 리디렉션](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조 하세요. |
-| 사용자 지정 매개 변수 | 아니요| [사용자 지정 정책](custom-policy-overview.md)에 사용할 수 있는 사용자 지정 매개 변수입니다. 예를 들어 [동적 사용자 지정 페이지 콘텐츠 URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)또는 [키-값 클레임 해결 프로그램](claim-resolver-overview.md#oauth2-key-value-parameters)입니다. |
+| prompt | No | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
+| redirect_uri | No | 응용 프로그램 `redirect_uri` 에서 인증 응답을 보내고 받을 수 있는 응용 프로그램의 매개 변수입니다. `redirect_uri`URL로 인코딩해야 한다는 점을 제외 하 고 Azure Portal에 등록 한 매개 변수 중 하 나와 정확 하 게 일치 해야 합니다. |
+| response_mode | No | 결과 권한 부여 코드를 응용 프로그램에 다시 보내는 데 사용 되는 메서드입니다. `query`, `form_post` 또는 `fragment` 중 하나일 수 있습니다.  최상의 보안을 위해 `form_post` 응답 모드를 사용하는 것이 좋습니다. |
+| state | No | 토큰 응답에도 반환 되는 요청에 포함 된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생 하기 전에 응용 프로그램에서 사용자의 상태에 대 한 정보를 인코딩하는 데에도 사용 됩니다 (예: 설정 된 페이지). |
+| login_hint | No| 로그인 페이지의 로그인 이름 필드를 미리 채우는 데 사용할 수 있습니다. 자세한 내용은 [로그인 이름 미리 채우기](direct-signin.md#prepopulate-the-sign-in-name)를 참조 하세요.  |
+| domain_hint | No| 로그인에 사용 해야 하는 소셜 id 공급자에 대 한 Azure AD B2C 힌트를 제공 합니다. 유효한 값이 포함 된 경우 사용자는 id 공급자 로그인 페이지로 직접 이동 합니다.  자세한 내용은 [소셜 공급자에 로그인 리디렉션](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조 하세요. |
+| 사용자 지정 매개 변수 | No| [사용자 지정 정책](custom-policy-overview.md)에 사용할 수 있는 사용자 지정 매개 변수입니다. 예를 들어 [동적 사용자 지정 페이지 콘텐츠 URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)또는 [키-값 클레임 해결 프로그램](claim-resolver-overview.md#oauth2-key-value-parameters)입니다. |
 
 이 시점에서 사용자에 게 워크플로를 완료 하 라는 메시지가 표시 됩니다. 사용자는 사용자 이름 및 암호를 입력 하거나, 소셜 id로 로그인 하거나, 디렉터리에 등록 해야 할 수 있습니다. 사용자 흐름이 정의 된 방법에 따라 다른 수의 단계가 있을 수 있습니다.
 
@@ -97,7 +100,10 @@ error=access_denied
 
 ## <a name="validate-the-id-token"></a>ID 토큰 유효성 검사
 
-ID 토큰을 받는 것만으로는 사용자를 인증할 수 없습니다. ID 토큰의 서명 유효성을 검사 하 고 응용 프로그램의 요구 사항에 따라 토큰의 클레임을 확인 합니다. Azure AD B2C는 [JWT(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다. 기본 설정의 언어에 따라 JWT의 유효성 검사에 사용할 수 있는 다양한 공개 소스 라이브러리가 있습니다. 고유한 유효성 검사 논리를 구현하는 것보다 이러한 옵션을 탐색하는 것이 좋습니다.
+ID 토큰을 받는 것만으로는 사용자를 인증할 수 없습니다. ID 토큰의 서명 유효성을 검사 하 고 응용 프로그램의 요구 사항에 따라 토큰의 클레임을 확인 합니다. Azure AD B2C는 [JWT(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다. 
+
+> [!NOTE]
+> 대부분의 오픈 소스 인증 라이브러리는 응용 프로그램에 대 한 JWT 토큰의 유효성을 검사 합니다. 사용자 고유의 유효성 검사 논리를 구현 하는 대신 이러한 옵션을 탐색 하는 것이 좋습니다. 자세한 내용은 [MSAL (Microsoft 인증 라이브러리) 개요](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)및 [microsoft id 웹 인증 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web)를 참조 하세요.
 
 Azure AD B2C에는 응용 프로그램이 런타임에 Azure AD B2C에 대 한 정보를 가져올 수 있도록 하는 Openid connect Connect 메타 데이터 끝점이 있습니다. 이 정보에는 엔드포인트, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 테넌트에서 각 사용자 흐름에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 사용자 흐름에 대한 메타데이터 문서는 다음 위치에 있습니다.
 
@@ -156,7 +162,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | code | 예 | 사용자 흐름의 시작 부분에서 얻은 인증 코드입니다. |
 | grant_type | 예 | 권한 유형입니다. 인증 코드 흐름의 경우 `authorization_code`이어야 합니다. |
 | redirect_uri | 예 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
-| scope | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 대 한 토큰을 가져오는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
+| scope | No | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 대 한 토큰을 가져오는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -224,8 +230,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type | 예 | `refresh_token`권한 부여 코드 흐름의이 부분에 대 한 권한 부여 형식입니다. |
 | refresh_token | 예 | 흐름의 두 번째 부분에서 획득 한 원래 새로 고침 토큰입니다. 이 `offline_access` 범위는 새로 고침 토큰을 수신 하기 위해 권한 부여 및 토큰 요청에서 모두 사용 해야 합니다. |
-| redirect_uri | 아니요 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
-| scope | 아니요 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 토큰을 보내는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
+| redirect_uri | No | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
+| scope | No | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표시 되는 응용 프로그램 자체 백 엔드 웹 API에 토큰을 보내는 데 사용할 수 있습니다. `offline_access`범위는 리소스에 대 한 확장 된 액세스를 위해 응용 프로그램에 새로 고침 토큰이 필요 함을 나타냅니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -277,10 +283,10 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | 넌 | 예 | Azure AD B2C 테 넌 트의 이름 |
 | policy | 예 | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
-| id_token_hint| 아니요 | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. 는 `id_token_hint` `post_logout_redirect_uri` Azure AD B2C 응용 프로그램 설정에서가 등록 된 회신 URL 인지 확인 합니다. 자세한 내용은 [로그 아웃 리디렉션 보안](#secure-your-logout-redirect)을 참조 하세요. |
+| id_token_hint| No | 이전에 발급 된 ID 토큰으로, 로그 아웃 끝점에 클라이언트에 대 한 최종 사용자의 현재 인증 된 세션에 대 한 힌트로 전달 됩니다. 는 `id_token_hint` `post_logout_redirect_uri` Azure AD B2C 응용 프로그램 설정에서가 등록 된 회신 URL 인지 확인 합니다. 자세한 내용은 [로그 아웃 리디렉션 보안](#secure-your-logout-redirect)을 참조 하세요. |
 | client_id | 아니요* | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다.<br><br>\**이는 `Application` 격리 SSO 구성을 사용할 때 필요 하며, 로그 아웃 요청에 _ID 토큰이 필요한_ 경우로 설정 됩니다 `No` .* |
-| post_logout_redirect_uri | 아니요 | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. 를 제공 하지 않는 한 `id_token_hint` Azure AD B2C 응용 프로그램 설정에서이 url을 회신 url로 등록 하면 안 됩니다. |
-| state | 아니요 | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
+| post_logout_redirect_uri | No | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. 를 제공 하지 않는 한 `id_token_hint` Azure AD B2C 응용 프로그램 설정에서이 url을 회신 url로 등록 하면 안 됩니다. |
+| state | No | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 응용 프로그램은 `state` 요청 및 응답의 값이 동일한 지 확인 해야 합니다. |
 
 ### <a name="secure-your-logout-redirect"></a>로그 아웃 리디렉션 보안
 
