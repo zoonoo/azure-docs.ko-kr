@@ -2,22 +2,21 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: feb6d4294cc51f7b56111759b30037187904292e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2c096953fd89b902d1567399e36fc0fbf1b89572
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574502"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466195"
 ---
-이 범주에는 **15** 개의 권장 사항이 있습니다.
+이 범주에는 **14** 개의 권장 사항이 있습니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
 |방화벽 및 가상 네트워크 구성을 사용하여 스토리지 계정 액세스를 제한해야 함 |스토리지 계정 방화벽 설정에서 네트워크 액세스 설정을 살펴보세요. 허용되는 네트워크의 애플리케이션만 스토리지 계정에 액세스할 수 있도록 네트워크 규칙을 구성하는 것이 좋습니다. 특정 인터넷 또는 온-프레미스 클라이언트의 연결을 허용하기 위해 특정 Azure 가상 네트워크에서 들어오는 트래픽 또는 공용 인터넷 IP 주소 범위에 액세스 권한을 부여할 수 있습니다.<br />(관련 정책: [스토리지 계정은 네트워크 액세스를 제한해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f34c877ad-507e-4c82-993e-3452a6e0ad3c)) |낮음 |
-|내부 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 합니다. |Azure Security Center에서 아래 나열된 가상 머신의 인터넷 트래픽 통신 패턴을 분석했고 가상 머신에 연결된 NSG에서 기존 규칙의 허용 범위가 과도하게 커서 잠재적인 공격 노출 영역이 증가했다는 것을 확인했습니다. 이는 Security Center의 위협 인텔리전스 원본에 의해 악성 플래그가 지정된 포트/프로토콜 튜플 또는 특정 IP에 트래픽이 부족하기 때문일 수 있습니다.<br />(관련 정책 없음) |중간 |
 |인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 함 |Azure Security Center에서 아래 나열된 가상 머신의 인터넷 트래픽 통신 패턴을 분석했고 가상 머신에 연결된 NSG에서 기존 규칙의 허용 범위가 과도하게 커서 잠재적인 공격 노출 영역이 증가했다는 것을 확인했습니다.<br>이 문제는 일반적으로 이 IP 주소가 이 리소스와 정기적으로 통신하지 않는 경우에 발생합니다. 또는 보안 센터의 위협 인텔리전스 소스에 의해 IP 주소가 악의적인 것으로 플래그 지정되었습니다. <a href="https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening">자세한 정보</a><br />(관련 정책: [인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f08e6af2d-db70-460a-bfe9-d5bd474ba9d6)) |높음 |
 |가상 머신과 연결된 네트워크 보안 그룹에서 모든 네트워크 포트를 제한해야 함 |Azure Security Center에서 네트워크 보안 그룹의 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인바운드 규칙에서 '모두' 또는 '인터넷' 범위에서 들어오는 액세스를 허용해서는 안 됩니다. 그러면 리소스가 공격자의 표적이 될 수 있습니다.<br />(관련 정책: [모든 네트워크는 가상 머신과 연결된 네트워크 보안 그룹에서 제한되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9daedab3-fb2d-461e-b861-71790eead4f6)) |높음 |
 |Azure DDoS Protection 표준을 사용하도록 설정해야 함 |Security Center에서 DDoS 보호 서비스로 보호되지 않는 Application Gateway 리소스를 사용하여 가상 네트워크를 검색했습니다. 이러한 리소스는 공용 IP를 포함합니다. 네트워크 볼륨 및 프로토콜 공격을 완화할 수 있습니다.<br />(관련 정책: [Azure DDoS Protection 표준을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa7aca53f-2ed4-4466-a25e-0b45ade68efd)) |중간 |
@@ -30,5 +29,5 @@ ms.locfileid: "100574502"
 |네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함 |NSG(네트워크 보안 그룹)를 통해 액세스를 제한하여 잠재적인 위협으로부터 비인터넷 연결 가상 머신을 보호합니다. NSG는 동일한 서브넷 안팎에 있는 다른 인스턴스에서 VM 인스턴스로 들어오는 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙 목록을 포함합니다.<br>머신을 최대한 안전하게 유지하려면 VM의 인터넷 액세스를 제한하고 서브넷에 NSG를 사용하도록 설정해야 합니다.<br />(관련 정책: [네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fbb91dfba-c30d-4263-9add-9c2384e659a6)) |낮음 |
 |Storage 계정에 보안 전송을 사용하도록 설정해야 합니다. |보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS를 사용하여 서버와 서비스 간 인증을 보장하고 전송 중인 데이터를 메시지 가로채기(man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격으로부터 보호합니다.<br />(관련 정책: [스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f404c3081-a854-4457-ae30-26a93ef643f9)) |높음 |
 |서브넷을 네트워크 보안 그룹과 연결해야 함 |NSG(네트워크 보안 그룹)를 통해 VM에 대한 액세스를 제한하여 잠재적인 위협으로부터 서브넷을 보호합니다. NSG는 서브넷에 대한 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG가 서브넷에 연결된 경우 ACL 규칙은 해당 서브넷의 모든 VM 인스턴스 및 통합 서비스에 적용되지만 서브넷 내부 트래픽에는 적용되지 않습니다. 동일한 서브넷에 있는 리소스를 보호하려면 리소스에 대한 NSG도 직접 사용하도록 설정합니다.<br />(관련 정책: [서브넷을 네트워크 보안 그룹과 연결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe71308d3-144b-4262-b144-efdc3cc90517)) |낮음 |
-|가상 네트워크는 Azure Firewall로 보호해야 합니다. |일부 가상 네트워크는 방화벽으로 보호되지 않습니다. Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적인 위협을 방지합니다. Azure Firewall에 대해 자세히 알아보려면 <br> <a href="https://azure.microsoft.com/pricing/details/azure-firewall">여기</a>를 클릭하세요.<br />(관련 정책: [모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |낮음 |
+|가상 네트워크는 Azure Firewall로 보호해야 합니다. |일부 가상 네트워크는 방화벽으로 보호되지 않습니다. Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적인 위협을 방지합니다. <a href=https://azure.microsoft.com/pricing/details/azure-firewall>Azure Firewall에 대해 자세히 알아보기.</a><br />(관련 정책: [모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |낮음 |
 |||

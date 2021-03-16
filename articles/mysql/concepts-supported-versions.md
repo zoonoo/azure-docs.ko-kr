@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718780"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467717"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
@@ -23,11 +23,13 @@ Azure Database for MySQL는 InnoDB 저장소 엔진을 사용 하 여 [MySQL Com
 현재 Azure Database for MySQL는 다음과 같은 주 버전 및 부 버전의 MySQL을 지원 합니다.
 
 
-| 버전 | 단일 서버 <br/> 현재 부 버전 |유연한 서버(미리 보기) <br/> 현재 부 버전  |
+| Version | 단일 서버 <br/> 현재 부 버전 |유연한 서버(미리 보기) <br/> 현재 부 버전  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | 지원되지 않음|
+|MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (사용 되지 않음) | 지원되지 않음|
 |MySQL 버전 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL 버전 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+
+버전 [지원 정책 설명서](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql) 에서 사용 중지 된 버전에 대 한 버전 지원 정책을 참조 하세요.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  

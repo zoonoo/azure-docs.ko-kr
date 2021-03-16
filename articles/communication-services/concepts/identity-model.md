@@ -6,15 +6,15 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 254d35331459e70ad56bcef43569f51ff6f50a93
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e53f9e89dd9718111da4f8016bc3e5a7f791627
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656213"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496578"
 ---
 # <a name="identity-model"></a>ID 모델
 
@@ -63,7 +63,7 @@ Azure 통신 서비스는 Azure id 관리 시스템의 기능을 복제 하지 �
 
 Id는 서버 쪽 서비스에서 새 액세스 토큰을 요청 하는 방법이 필요 합니다. *범위* 매개 변수는 사용할 수 있는 비어 있지 않은 기본 형식 집합을 정의 합니다. Azure 통신 서비스는 액세스 토큰에 대해 다음과 같은 범위를 지원 합니다.
 
-|속성|설명|
+|이름|설명|
 |---|---|
 |채팅|  채팅에 참여할 수 있는 기능 부여|
 |VoIP|  Id와 전화 번호를 호출 하는 기능을 부여 합니다.|

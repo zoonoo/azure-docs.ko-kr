@@ -4,12 +4,12 @@ description: Azure Portal를 사용하여 서버를 사용하지 않는 실행�
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732187"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492132"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -42,13 +42,11 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **Functions** 창의 왼쪽 메뉴에서 **Functions** 를 선택한 다음, 맨 위 메뉴에서 **추가** 를 선택합니다. 
  
-1. **새 함수** 창에서 **Http 트리거** 를 선택합니다.
+1. **함수 추가** 창에서 **Http 트리거** 템플릿을 선택 합니다.
 
     ![HTTP 트리거 함수 선택](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. **새 함수** 창에서 **새 함수** 의 기본 이름을 적용하거나 새 이름을 입력합니다. 
-
-1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음, **함수 만들기** 를 선택합니다.
+1. **템플릿 세부 정보** 에서 `HttpExample` **새 함수** 에 사용을 선택 하 고 **[권한 부여 수준](functions-bindings-http-webhook-trigger.md#authorization-keys)** 드롭다운 목록에서 **익명** 을 선택한 다음 **추가** 를 선택 합니다.
 
     Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 

@@ -2,20 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0e5ebba50f4af8d7fd54562b56a51ecdc5ffb311
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7adb9a0b09a87e938e756a036d0497175bf4bf93
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429617"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611225"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Machine Learning 작업 영역은 고객 관리형 키로 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8) |고객 관리형 키를 사용하여 Azure Machine Learning 작업 영역의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키를 사용하여 암호화되지만, 일반적으로 규정 준수 표준을 충족하려면 고객 관리형 키가 필요합니다. 고객 관리형 키를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키를 사용하여 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
 |[Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. 프라이빗 링크 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 전체 서비스가 아닌 Azure Machine Learning 작업 영역에 프라이빗 엔드포인트를 매핑하면 데이터 유출 위험으로부터 보호받을 수 있습니다. [https://aka.ms/azureml-workspaces-privatelink](https://aka.ms/azureml-workspaces-privatelink)에서 자세히 알아보세요. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateLinkEnabled_Audit.json) |
+|[Azure Machine Learning 작업 영역은 사용자가 할당한 관리 ID를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0c7d88-c7de-45b8-ac49-db49e72eaa78) |사용자 할당 관리 ID를 사용하여 Azure ML 작업 영역 및 관련 리소스, Azure Container Registry, KeyVault, Storage 및 App Insights에 대한 액세스를 관리합니다. 기본적으로 시스템 할당 관리 ID는 Azure ML 작업 영역에서 연결된 리소스에 액세스하는 데 사용됩니다. 사용자 할당 관리 ID를 사용하면 ID를 Azure 리소스로 만들고 해당 ID의 수명 주기를 유지할 수 있습니다. [https://docs.microsoft.com/azure/machine-learning/how-to-use-managed-identities?tabs=python](https://docs.microsoft.com/azure/machine-learning/how-to-use-managed-identities?tabs=python)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_UAIEnabled_Audit.json) |
 |[\[미리 보기\]: 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 모듈 작성자 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 모듈 작성자를 제공하고 작업 영역에서 할당할 수 있습니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
 |[\[미리 보기\]: 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 Python 패키지 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) | 이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 Python 패키지를 제공하고 작업 영역에서 할당할 수 있습니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |
 |[\[미리 보기\]: 지정된 Azure Machine Learning 컴퓨팅에서 허용되는 레지스트리 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5853517a-63de-11ea-bc55-0242ac130003) |이 정책은 지정된 Azure Machine Learning 컴퓨팅에서 허용되고 작업 영역에서 할당할 수 있는 레지스트리를 제공하는 데 도움이 됩니다. 자세한 내용은 [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc)를 방문하세요. |enforceSetting, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedACRs_EnforceSetting.json) |

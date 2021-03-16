@@ -1,19 +1,19 @@
 ---
-title: Azure Private Link에서 프라이빗 엔드포인트 만들기
+title: 빠른 시작 - ARM 템플릿을 사용하여 프라이빗 엔드포인트 만들기
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프라이빗 엔드포인트를 만듭니다.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705812"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562948"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -56,14 +56,14 @@ ms.locfileid: "88705812"
 
 Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
 
-1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포**를 선택합니다. 템플릿은 프라이빗 엔드포인트, SQL Database의 인스턴스, 네트워크 인프라 및 유효성을 검사할 가상 머신을 만듭니다.
+1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포** 를 선택합니다. 템플릿은 프라이빗 엔드포인트, SQL Database의 인스턴스, 네트워크 인프라 및 유효성을 검사할 가상 머신을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. SQL 관리자 로그인 및 암호를 입력합니다.
 4. 가상 머신 관리자 사용자 이름과 암호를 입력합니다.
-5. 사용 약관 문을 읽습니다. 동의하는 경우 **위에 명시된 사용 약관에 동의함** > **구매**를 선택합니다. 배포를 완료하는 데 20분 이상 걸릴 수 있습니다.
+5. 사용 약관 문을 읽습니다. 동의하는 경우 **위에 명시된 사용 약관에 동의함** > **구매** 를 선택합니다. 배포를 완료하는 데 20분 이상 걸릴 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
@@ -76,22 +76,22 @@ Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
 
 1. 포털의 검색 창에 _myVm{uniqueid}_ 를 입력합니다.
 
-2. **연결**을 선택합니다. **가상 머신에 연결**이 열립니다.
+2. **연결** 을 선택합니다. **가상 머신에 연결** 이 열립니다.
 
-3. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( _.rdp_) 파일을 만들고, 컴퓨터에 다운로드합니다.
+3. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( _.rdp_) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 4. 다운로드한 rdp 파일을 엽니다.
 
-   a. 메시지가 표시되면 **연결**을 선택합니다.
+   a. 메시지가 표시되면 **연결** 을 선택합니다.
 
    b. VM을 만들 때 지정한 사용자 이름 및 암호를 입력합니다.
 
       > [!NOTE]
-      > **추가 선택 사항** > **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
+      > **추가 선택 사항** > **다른 계정 사용** 을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 
-5. **확인**을 선택합니다.
+5. **확인** 을 선택합니다.
 
-6. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속**을 선택합니다.
+6. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속** 을 선택합니다.
 
 7. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.
 
@@ -113,16 +113,16 @@ Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
     ```
 
 3.  SQL Server Management Studio를 설치합니다.
-4.   **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
-    - **서버 유형**: **데이터베이스 엔진**을 선택합니다.
-    - **서버 이름**: **sqlserver{uniqueid}.database.windows.net**을 선택합니다.
+4.   **서버에 연결** 에서 다음 정보를 입력하거나 선택합니다.
+    - **서버 유형**: **데이터베이스 엔진** 을 선택합니다.
+    - **서버 이름**: **sqlserver{uniqueid}.database.windows.net** 을 선택합니다.
     - **사용자 이름**: 만드는 중에 제공된 사용자 이름을 입력합니다.
     - **암호**: 만드는 중에 제공된 암호를 입력합니다.
-    - **암호 저장**:  **예**를 선택합니다.
+    - **암호 저장**:  **예** 를 선택합니다.
 
-5.  **연결**을 선택합니다.
-6.  왼쪽 메뉴에서 **데이터베이스**로 이동합니다.
-7.  필요에 따라 _sample-db_에서 정보를 만들거나 쿼리할 수 있습니다.
+5.  **연결** 을 선택합니다.
+6.  왼쪽 메뉴에서 **데이터베이스** 로 이동합니다.
+7.  필요에 따라 _sample-db_ 에서 정보를 만들거나 쿼리할 수 있습니다.
 8.  _myVm{uniqueid}_ 에 대한 원격 데스크톱 연결을 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Private Link](private-link-overview.md)에 대해 자세히 알아봅니다.
+프라이빗 엔드포인트를 지원하는 서비스에 대한 자세한 내용은 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [Private Link 가용성](private-link-overview.md#availability)

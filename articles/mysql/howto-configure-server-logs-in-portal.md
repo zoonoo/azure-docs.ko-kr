@@ -1,17 +1,17 @@
 ---
 title: 저속 쿼리 로그 액세스-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 저속 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/13/2020
-ms.openlocfilehash: 5ad4ffa99a7af592e3e93e53673d254956807c40
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 3/15/2021
+ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541626"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496221"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 느리게 쿼리 로그 구성 및 액세스
 
@@ -34,11 +34,13 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 5. **Slow_query_log** **를 켜기로 설정** 합니다.
 
-6. **Log_output** 사용 하 여 로그를 출력할 위치를 선택 합니다. 로컬 저장소 및 Azure Monitor 진단 로그 모두에 로그를 전송 하려면 **파일** 을 선택 합니다. 
+6. **Log_output** 사용 하 여 로그를 출력할 위치를 선택 합니다. 로컬 저장소 및 Azure Monitor 진단 로그 모두에 로그를 전송 하려면 **파일** 을 선택 합니다.
 
-7. 필요한 다른 매개 변수를 변경 합니다. 
+7. 저속 쿼리 로그 파일에 수집 되는 쿼리의 쿼리 시간 임계값을 나타내는 "long_query_time"을 설정 하는 것이 좋습니다. long_query_time의 최소값과 기본값은 각각 0과 10입니다.
 
-8. **저장** 을 선택합니다. 
+8. Log_slow_admin_statements와 같은 다른 매개 변수를 조정 하 여 관리 문을 기록 합니다. 기본적으로 관리 문은 기록 되지 않으며 조회를 위해 인덱스를 사용 하지 않는 쿼리는 아닙니다. 
+
+9. **저장** 을 선택합니다. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="저속 쿼리 로그 매개 변수 및 저장의 스크린샷":::
 
@@ -70,17 +72,17 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="진단 설정 옵션의 스크린샷":::
 
-1. 진단 설정 이름을 제공 합니다.
+2. 진단 설정 이름을 제공 합니다.
 
-1. 저속 쿼리 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정 합니다.
+3. 저속 쿼리 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정 합니다.
 
-1. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
+4. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="진단 설정 구성 옵션의 스크린샷":::
 
-1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장** 을 선택 합니다.
+5. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장** 을 선택 합니다.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷":::
 
-1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
+6. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 느리게 쿼리 로그를 프로그래밍 방식으로 다운로드 하는 방법을 알아보려면 [CLI에서 느리게 쿼리 로그 액세스](howto-configure-server-logs-in-cli.md) 를 참조 하세요.

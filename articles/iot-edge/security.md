@@ -8,14 +8,16 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff154eee6c6174a8f1a3aa7bea37ef62273bb1a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76760116"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489505"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Azure IoT Edge에 대한 보안 표준
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge은 데이터와 분석을 지능형에 지로 이동할 때 내재 된 위험을 해결 합니다. IoT Edge 보안 표준은 모든 Azure 서비스에서 필요한 보호를 사용 하 여 다양 한 배포 시나리오에 대 한 유연성을 분산 합니다.
 
@@ -24,7 +26,7 @@ IoT Edge은 다양 한 하드웨어 및 모델에서 실행 되며 여러 운영
 * 솔루션 소유권
 * 배포 지리
 * 데이터 민감도
-* 개인 정보 보호
+* 개인 정보 취급 방침
 * 응용 프로그램 세로
 * 규정 요구 사항
 

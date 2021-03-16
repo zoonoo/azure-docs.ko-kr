@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하 여 백 엔드 저장소에 대 한 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760543"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470468"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계 된 네임 스페이스 설정
 
@@ -132,6 +132,30 @@ Azure CLI 사용 하는 경우 저장소 대상을 만들 때 네임 스페이�
 업데이트 명령에 사용 되는 옵션은 저장소 시스템 정보 (IP 주소 또는 호스트 이름)를 전달 하지 않고 사용 모델을 선택 하는 것을 제외 하 고는 "만들기" 명령과 유사 합니다. 옵션의 구문에 대 한 자세한 내용은 [새 NFS 저장소 대상 추가](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) 를 참조 ``--junction`` 하세요.
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>ADLS-NFS 네임 스페이스 경로 (미리 보기)
+
+일반적인 blob storage 대상과 마찬가지로 ADLS NFS 저장소 대상에는 하나의 내보내기만 있으므로 하나의 네임 스페이스 경로만 사용할 수 있습니다.
+
+Azure Portal를 사용 하 여 경로를 설정 하거나 변경 하려면 아래 지침을 따르세요.
+
+**네임 스페이스** 설정 페이지를 로드 합니다.
+
+* **새 경로를 추가 합니다.** 위쪽에서 **+ 추가** 단추를 클릭 하 고 편집 패널에 정보를 입력 합니다.
+
+  ![ADLS-NFS 저장소 대상이 선택 된 네임 스페이스 추가 편집 필드의 스크린샷 내보내기 및 하위 디렉터리 경로는/로 설정 되 고 편집할 수 없습니다.](media/namespace-add-adls.png)
+
+  * 클라이언트에서이 저장소 대상에 액세스 하는 데 사용할 경로를 입력 합니다.
+
+  * 이 경로에 사용할 액세스 정책을 선택 합니다. 클라이언트 액세스 [정책 사용](access-policies.md)에서 클라이언트 액세스를 사용자 지정 하는 방법에 대해 자세히 알아보세요.
+
+  * 드롭다운 목록에서 저장소 대상을 선택 합니다. ADLS-NFS 저장소 대상에 이미 네임 스페이스 경로가 있는 경우이를 선택할 수 없습니다.
+
+  * ADLS-NFS 저장소 대상의 경우 내보내기 및 하위 디렉터리 경로는 자동으로로 설정 됩니다 ``/`` .
+
+* **기존 경로 변경:** 네임 스페이스 경로를 클릭 합니다. 편집 패널이 열립니다. 경로와 액세스 정책을 수정할 수 있지만 다른 저장소 대상으로 변경할 수는 없습니다.
+
+* **네임 스페이스 경로를 삭제 합니다.** 경로 왼쪽에 있는 확인란을 선택 하 고 **삭제** 단추를 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

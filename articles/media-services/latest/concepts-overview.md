@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2a1c0c0685ab5a908a89f4a43073f9f773cd58c3
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 2d388cf6c776e6d30a487ce9e14ba1601dce1d23
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632002"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491608"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services 용어 및 개념
 
@@ -47,7 +47,7 @@ ms.locfileid: "102632002"
 |콘텐츠 보호|Media Services를 사용 하면 AES(Advanced Encryption Standard) (AES-128) 또는/와 세 가지 주요 DRM 시스템 (Microsoft PlayReady, Google Widevine Apple FairPlay)을 사용 하 여 동적으로 암호화 된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. <br/><br/>스트림에서 암호화 옵션을 지정 하는 경우 **콘텐츠 키 정책을** 만들고 **스트리밍 로케이터** 와 연결 합니다. **콘텐츠 키 정책을** 사용 하 여 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성할 수 있습니다.<br/><br/> 동일한 옵션이 필요할 때마다 정책을 다시 사용 하십시오.| [콘텐츠 키 정책](content-key-policy-concept.md)<br/><br/>[콘텐츠 보호](content-protection-overview.md)|
 |라이브 스트리밍|Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전송할 수 있습니다. **라이브 이벤트** 는 라이브 비디오 피드 수집 및 처리를 담당합니다. **라이브 이벤트** 를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 입력 끝점이 생성 됩니다. 스트림이 **라이브 이벤트** 로 흐르는 경우 **자산**, **라이브 출력** 및 **스트리밍 로케이터** 를 만들어 스트리밍 이벤트를 시작할 수 있습니다. **라이브 출력** 은 **자산** 에 스트림을 보관 하 고 **스트리밍 끝점** 을 통해 뷰어에 사용할 수 있도록 합니다. 라이브 이벤트는 *통과*(온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 전송) 또는 *라이브 인코딩*(온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 전송)으로 설정할 수 있습니다. |[라이브 스트리밍 개요](live-streaming-overview.md)<br/><br/>[라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)|
 |Event Grid 모니터링|작업의 진행 상황을 확인 하려면 **Event Grid** 을 사용 합니다. 또한 Media Services는 라이브 이벤트 유형도 내보냅니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. |[Event Grid 이벤트 처리](reacting-to-media-services-events.md)<br/><br/>[스키마](media-services-event-schemas.md)|
-|Azure Monitor 모니터링|Azure Monitor를 사용 하 여 앱을 수행 하는 방법을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링 합니다.|[메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md)<br/><br/>[진단 로그 스키마](media-services-diagnostic-logs-schema.md)|
+|Azure Monitor 모니터링|Azure Monitor를 사용 하 여 앱을 수행 하는 방법을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링 합니다.|[메트릭 및 진단 로그](monitoring/monitor-media-services-data-reference.md)<br/><br/>[진단 로그 스키마](monitoring/monitor-media-services-data-reference.md)|
 |플레이어 클라이언트|Azure Media Player를 사용 하 여 다양 한 브라우저 및 장치에서 Media Services 여 스트리밍된 미디어 콘텐츠를 재생할 수 있습니다. Azure Media Player는 풍부해진 적응 스트리밍 환경을 제공할 수 있는 HTML5, MSE(미디어 원본 확장) 및 EME(암호화된 미디어 확장)와 같은 업계 표준을 사용합니다. |[Azure Media Player 개요](use-azure-media-player.md)|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기

@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 03/04/2021
-ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/15/2021
+ms.openlocfilehash: 3110ce8cb97379fd4690903ec769cc1dfc7f1326
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197872"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492764"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -49,7 +49,10 @@ Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 �
 대부분의 사용 사례에서 ARM 템플릿에 전역 매개 변수를 포함 하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-deployment.md)에 설명 된 솔루션과 기본적으로 통합 됩니다. 전역 매개 변수는 환경에서 환경으로 변경 되는 경우가 많기 때문에 기본적으로 ARM 템플릿 매개 변수로 추가 됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함 하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> **ARM 템플릿** 구성에 포함은 "Git 모드" 에서만 사용할 수 있습니다. 현재 "라이브 모드" 또는 "Data Factory" 모드에서는 사용할 수 없습니다.
+> **ARM 템플릿** 구성에 포함은 "Git 모드" 에서만 사용할 수 있습니다. 현재 "라이브 모드" 또는 "Data Factory" 모드에서는 사용할 수 없습니다. 
+
+> [!WARNING]
+>매개 변수 이름에는 '-'을 사용할 수 없습니다. Errorcode "{" code ":" BadRequest "," message ":" ErrorCode = InvalidTemplate, ErrorMessage = 식이 > ' 파이프라인 (). myparam '이 (가) 잘못 됨: ...} "입니다. 그러나 매개 변수 이름에는 ' _ '을 사용할 수 있습니다.
 
 ![ARM 템플릿에 포함](media/author-global-parameters/include-arm-template.png)
 

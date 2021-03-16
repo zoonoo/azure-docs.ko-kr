@@ -1,17 +1,17 @@
 ---
 title: Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하는 Azure IoT Hub용 디바이스 업데이트 자습서 | Microsoft Docs
 description: Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하여 Azure IoT Hub용 디바이스 업데이트를 시작합니다.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8ca9d03fbeadfaaca06dac49acc7a08f0dd0566d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678244"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443814"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하는 Azure IoT Hub용 디바이스 업데이트 자습서
 
@@ -163,29 +163,30 @@ Agent running. [main]
 
 ## <a name="import-update"></a>업데이트 가져오기
 
-1. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
+1. 이러한 [지침](import-update.md)에 따라 가져오기 매니페스트를 만듭니다.
+2. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
 
-2. 업데이트 탭을 선택합니다.
+3. 업데이트 탭을 선택합니다.
 
-3. "+ 새 업데이트 가져오기"를 선택합니다.
+4. "+ 새 업데이트 가져오기"를 선택합니다.
 
-4. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 매니페스트 가져오기를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 APT 매니페스트 업데이트 파일을 선택합니다.
-   
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위에서 만든 가져오기 매니페스트를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 Ubuntu 업데이트 이미지를 선택합니다. 
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="파일 선택을 보여 주는 스크린샷" lightbox="media/import-update/select-update-files.png":::
 
-5. "스토리지 컨테이너 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 그런 다음 적절한 스토리지 계정을 선택합니다.
+6. "스토리지 컨테이너 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 그런 다음 적절한 스토리지 계정을 선택합니다.
 
-6. 이미 컨테이너를 만든 경우 다시 사용할 수 있습니다. (그렇지 않으면 "+ 컨테이너"를 선택하여 업데이트를 위한 새 스토리지 컨테이너를 만듭니다.)  사용할 컨테이너를 선택하고 "선택"을 클릭합니다.
+7. 이미 컨테이너를 만든 경우 다시 사용할 수 있습니다. (그렇지 않으면 "+ 컨테이너"를 선택하여 업데이트를 위한 새 스토리지 컨테이너를 만듭니다.)  사용할 컨테이너를 선택하고 "선택"을 클릭합니다.
   
   :::image type="content" source="media/import-update/container.png" alt-text="스크린샷에 컨테이너 선택을 보여 주는 스크린샷" lightbox="media/import-update/container.png":::
 
-7. "제출"을 선택하여 가져오기 프로세스를 시작합니다.
+8. "제출"을 선택하여 가져오기 프로세스를 시작합니다.
 
-8. 가져오기 프로세스가 시작되고 화면이 "가져오기 기록" 섹션으로 변경됩니다. 가져오기 프로세스가 완료될 때까지 진행률을 보려면 "새로 고침"을 선택합니다. 업데이트 크기에 따라 몇 분 내에 완료될 수 있지만 시간이 더 오래 걸릴 수 있습니다.
+9. 가져오기 프로세스가 시작되고 화면이 "가져오기 기록" 섹션으로 변경됩니다. 가져오기 프로세스가 완료될 때까지 진행률을 보려면 "새로 고침"을 선택합니다. 업데이트 크기에 따라 몇 분 내에 완료될 수 있지만 시간이 더 오래 걸릴 수 있습니다.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="업데이트 가져오기 시퀀스를 보여 주는 스크린샷" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. 상태 열에 가져오기가 성공했음을 나타내는 경우 "배포할 준비가 됨" 헤더를 선택합니다. 이제 목록에 가져온 업데이트가 표시됩니다.
+10. 상태 열에 가져오기가 성공했음을 나타내는 경우 "배포할 준비가 됨" 헤더를 선택합니다. 이제 목록에 가져온 업데이트가 표시됩니다.
 
 업데이트 가져오기에 대해 [자세히 알아보세요](import-update.md).
 

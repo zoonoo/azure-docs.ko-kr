@@ -2,13 +2,13 @@
 title: Azure Arc 사용 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 링크를 참조 하십시오.
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.date: 03/15/2021
+ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722524"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470509"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
 
@@ -18,13 +18,27 @@ Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향
 - 알려진 문제
 - 버그 수정
 
+## <a name="march-2021"></a>2021년 3월
+
+버전 1.4
+
+## <a name="new-feature"></a>새로운 기능
+
+- 전용 끝점에 대 한 지원이 추가 되었습니다.
+- Azcmagent에 대 한 종료 코드의 확장 된 목록입니다.
+- 이제--config 매개 변수를 사용 하 여 파일에서 에이전트 구성 매개 변수를 읽을 수 있습니다.
+
+## <a name="fixed"></a>고정
+
+이제 네트워크 끝점 검사가 더 빠릅니다.
+
 ## <a name="december-2020"></a>2020년 12월
 
 버전: 1.3
 
 ### <a name="new-feature"></a>새로운 기능
 
-Windows Server 2008 r 2에 대 한 지원 추가
+Windows Server 2008 r 2에 대 한 지원이 추가 되었습니다.
 
 ### <a name="fixed"></a>고정
 
@@ -47,7 +61,7 @@ RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 �
 - 대체 GC 데몬 단위 파일 위치를 처리 하는 프록시 스크립트를 수정 했습니다.
 - GuestConfig 에이전트 안정성 변경
 - US Gov 버지니아 지역에 대 한 GuestConfig agent 지원.
-- GuestConfig 에이전트 확장 보고서 메시지는 오류가 발생 하는 경우 보다 자세한 정보를 표시 합니다.
+- 오류가 발생 하는 경우 GuestConfig 에이전트 확장 보고서 메시지를 더 자세히 표시 합니다.
 
 ## <a name="september-2020"></a>2020년 9월
 

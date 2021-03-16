@@ -10,18 +10,31 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b7d780ce6362e34c801b4da25332bff90f0b7515
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 380792db21932ed2c6cffb4227df09b27f0cdf5e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659276"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487488"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> 전화 번호 가용성은 현재 미국에 청구 주소가 있는 유료 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다. 평가판 계정 또는 Azure 체험 크레딧을 사용하여 전화 번호를 얻을 수 없습니다. 자세한 내용은 이 문서의 [구독 자격](#azure-subscriptions-eligibility) 섹션을 참조하세요.
+
 
 Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(공중 전화망)을 통해 음성 통화를 하고 SMS 메시지를 보낼 수 있습니다. 이 문서에서는 Communication Services를 사용하여 전화 통신 및 SMS 솔루션을 계획하기 위한 전화 번호 유형, 구성 옵션 및 지역 가용성을 검토합니다.
+
+## <a name="azure-subscriptions-eligibility"></a>Azure 구독 자격
+
+전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 평가판 계정 또는 Azure 체험 크레딧으로는 전화 번호를 얻을 수 없습니다. 
+
+전화 번호 가용성은 현재 미국에 청구 주소가 있는 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다.
+
 
 ## <a name="number-types-and-features"></a>번호 형식 및 기능
 Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 전화 번호를 제공합니다.
@@ -69,11 +82,6 @@ Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 
 
 *통화 대상 및 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](../pricing.md)를 참조하세요.
 
-## <a name="azure-subscriptions-eligibility"></a>Azure 구독 자격
-
-전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 평가판 계정 또는 Azure 체험 크레딧으로는 전화 번호를 얻을 수 없습니다.
-
-현재 전화 번호 가용성은 미국에 청구 주소가 있는 Azure 구독으로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

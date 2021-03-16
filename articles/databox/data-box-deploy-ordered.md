@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522396"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -28,7 +28,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -164,7 +164,7 @@ Windows PowerShell version 6.2.4 이상이 설치되어 있어야 합니다. 설
     WSManStackVersion              3.0
 ```
 
-버전이 6.2.4보다 낮은 경우 Windows PowerShell 버전을 업그레이드해야 합니다. PowerShell 최신 버전을 설치하려면 [Azure PowerShell 설치](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true)를 참조하세요.
+버전이 6.2.4보다 낮은 경우 Windows PowerShell 버전을 업그레이드해야 합니다. PowerShell 최신 버전을 설치하려면 [Azure PowerShell 설치](/powershell/scripting/install/installing-powershell)를 참조하세요.
 
 **Azure PowerShell 및 Data Box 모듈 설치**
 
@@ -355,22 +355,34 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     ![펼쳐진 Data Box 가져오기 주문에 대한 사용자 고유 암호 가져오기 옵션](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - 사용자 고유 암호를 새 디바이스에 사용하려면 **디바이스 암호에 대한 기본 설정 지정** 에서 **사용자 고유 암호 사용** 을 선택하고 보안 요구 사항을 충족하는 암호를 입력합니다.
+     
+     암호는 영숫자여야 하며 최소한 대문자 1개, 소문자 1개, 특수 문자 1개, 숫자 1개로 구성된 12~15자여야 합니다. 
+
+     - 허용되는 특수 문자: @ # - $ % ^ ! + = ; : _ ( )
+     - 허용되지 않는 문자: I i L o O 0
    
      ![Data Box 가져오기 주문에 대한 보안 화면에서 사용자 고유 디바이스 암호를 사용하기 위한 옵션](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - 사용자 고유 암호를 공유에 사용하려면 다음을 수행합니다.
 
-   - **공유 암호에 대한 기본 설정 지정** 에서 **사용자 고유 암호 사용** 및 **공유 암호 선택** 을 선택합니다.
+   1. **공유 암호에 대한 기본 설정 지정** 에서 **사용자 고유 암호 사용** 및 **공유 암호 선택** 을 선택합니다.
      
-        ![Data Box 가져오기 주문에 대한 보안 화면에서 사용자 고유 공유 암호를 사용하기 위한 옵션](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Data Box 가져오기 주문에 대한 보안 화면에서 사용자 고유 공유 암호를 사용하기 위한 옵션](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - 각 스토리지 계정에 대한 암호를 순서대로 입력합니다. 암호가 스토리지 계정에 대한 모든 공유에서 사용됩니다.
-     
-        동일한 암호를 모든 스토리지 계정에 사용하려면 **모두에 복사** 를 선택합니다. 완료되면 **저장** 을 선택합니다.
-     
-        ![Data Box 가져오기 주문에 대한 공유 암호를 입력하는 화면](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. 각 스토리지 계정에 대한 암호를 순서대로 입력합니다. 암호가 스토리지 계정에 대한 모든 공유에서 사용됩니다.
+    
+       암호는 영숫자여야 하며 최소한 대문자 1개, 소문자 1개, 특수 문자 1개, 숫자 1개로 구성된 12~64자여야 합니다.
 
-       **보안** 화면에서 **암호 보기 또는 변경** 을 사용하여 암호를 변경할 수 있습니다.
+       - 허용되는 특수 문자: @ # - $ % ^ ! + = ; : _ ( )
+       - 허용되지 않는 문자: I i L o O 0
+     
+    1. 동일한 암호를 모든 스토리지 계정에 사용하려면 **모두에 복사** 를 선택합니다. 
+
+    1. 완료되면 **저장** 을 선택합니다.
+     
+       ![Data Box 가져오기 주문에 대한 공유 암호를 입력하는 화면](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    **보안** 화면에서 **암호 보기 또는 변경** 을 사용하여 암호를 변경할 수 있습니다.
 
 16. 소프트웨어 기반 이중 암호화를 사용하도록 설정하려면 **보안** 에서 **이중 암호화(매우 안전한 환경용)** 를 펼치고 **주문에 이중 암호화 사용** 을 선택합니다.
 

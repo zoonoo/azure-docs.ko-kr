@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497965"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472008"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용 하 여 Azure SQL Database 및 Azure SQL에 대 한 연결 문제를 해결 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Resource Health의 상태 기록 섹션에서 최대 14 일 동안의 상태 기
 
 ### <a name="downtime-reasons"></a>가동 중지 시간 이유
 
-데이터베이스에 가동 중지 시간이 발생 하는 경우 이유를 확인 하기 위해 분석이 수행 됩니다. 사용 가능한 경우 가동 중지 시간 이유가 Resource Health의 상태 기록 섹션에 보고됩니다. 가동 중지 시간 이유는 일반적으로 이벤트 발생 후 30분에 게시됩니다.
+데이터베이스에 가동 중지 시간이 발생 하는 경우 이유를 확인 하기 위해 분석이 수행 됩니다. 사용 가능한 경우 가동 중지 시간 이유가 Resource Health의 상태 기록 섹션에 보고됩니다. 가동 중지 시간은 일반적으로 이벤트 이후 45 분 이내에 게시 됩니다.
 
 #### <a name="planned-maintenance"></a>계획된 유지 보수
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f6e932cb6a6086e4cea6f474f296ca086e48c75e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 5089a289e617aa8c2ec153320763647fc8afac9e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448459"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489039"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "102448459"
 
 이 문서에서는 Azure Active Directory (Azure AD)에 대 한 다중 테 넌 트 끝점을 사용 하 여 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 여러 Azure AD 테 넌 트의 사용자가 로그인 할 수 있도록 허용 합니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant.md)해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -56,6 +56,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
     ```
 
     예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`입니다.
+
+    [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. 을 `your-domain-name` 사용자 지정 도메인으로,를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다.
 
 1. **등록** 을 선택합니다. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID** 를 기록합니다.
 1. **인증서 & 암호** 를 선택 하 고 **새 클라이언트 암호** 를 선택 합니다.
@@ -155,7 +157,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
 
 **ValidTokenIssuerPrefixes** 의 값으로 `https://login.microsoftonline.com/`를 사용하면 모든 Azure AD 사용자가 애플리케이션에 로그인할 수 있습니다. 유효한 토큰 발급자 목록을 업데이트 하 고 로그인 할 수 있는 Azure AD 테 넌 트 사용자의 특정 목록에 대 한 액세스를 제한 합니다.
 
-값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 다음은 그 예입니다.
+값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 예를 들면 다음과 같습니다.
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

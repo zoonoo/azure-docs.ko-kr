@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
-ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bef1e9bdafd91a51290fe84af074c8cece7cc371
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91335044"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486729"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 서버 수준 방화벽 규칙 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,23 +42,23 @@ ms.locfileid: "91335044"
 
 다음 단계에 따라 클라이언트의 IP 주소에 대한 서버 수준 IP 방화벽 규칙을 만들고, IP 주소에 대해서만 Azure SQL Database 방화벽을 통해 외부 연결을 사용하도록 설정합니다.
 
-1. [데이터베이스](#prerequisites) 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택한 다음, **SQL 데이터베이스** 페이지에서 **mySampleDatabase**를 선택합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20170824.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다.
+1. [데이터베이스](#prerequisites) 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스** 를 선택한 다음, **SQL 데이터베이스** 페이지에서 **mySampleDatabase** 를 선택합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20170824.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다.
 
 2. 다른 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다.
 
    ![서버 이름](./media/firewall-create-server-level-portal-quickstart/server-name.png)
 
-3. 도구 모음에서 **서버 방화벽 설정**을 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
+3. 도구 모음에서 **서버 방화벽 설정** 을 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
    ![서버 수준 IP 방화벽 규칙](./media/firewall-create-server-level-portal-quickstart/server-firewall-rule.png)
 
-4. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 서버 수준 IP 방화벽 규칙에 추가합니다. 서버 수준 IP 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+4. 도구 모음에서 **클라이언트 IP 추가** 를 선택하여 현재 IP 주소를 새 서버 수준 IP 방화벽 규칙에 추가합니다. 서버 수준 IP 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
    > [!IMPORTANT]
-   > 기본적으로 Azure SQL Database 방화벽을 통한 액세스는 모든 Azure 서비스에 대해 비활성됩니다. 모든 Azure 서비스에 대한 액세스를 사용하도록 설정하려면 이 페이지에서 **켜기**를 선택합니다.
+   > 기본적으로 Azure SQL Database 방화벽을 통한 액세스는 모든 Azure 서비스에 대해 비활성됩니다. 모든 Azure 서비스에 대한 액세스를 사용하도록 설정하려면 이 페이지에서 **켜기** 를 선택합니다.
    >
 
-5. **저장**을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 IP 방화벽 규칙이 생성됩니다.
+5. **저장** 을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 IP 방화벽 규칙이 생성됩니다.
 
 6. **방화벽 설정** 페이지를 닫습니다.
 
@@ -68,8 +68,8 @@ ms.locfileid: "91335044"
 
 [다음 단계](#next-steps)로 이동하여 다양한 방법으로 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 이러한 리소스를 저장합니다. 그러나 이 빠른 시작에서 만든 리소스를 삭제하려면 다음 단계를 사용합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, **myResourceGroup**을 선택합니다.
-2. 리소스 그룹 페이지에서 **삭제**를 선택하고, 텍스트 상자에서 **myResourceGroup**을 입력한 다음, **삭제**를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택한 다음, **myResourceGroup** 을 선택합니다.
+2. 리소스 그룹 페이지에서 **삭제** 를 선택하고, 텍스트 상자에서 **myResourceGroup** 을 입력한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

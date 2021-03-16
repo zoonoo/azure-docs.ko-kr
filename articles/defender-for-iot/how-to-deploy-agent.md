@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447268"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496527"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -51,7 +51,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 | **IoT Hub에 대 한 [인증](concept-security-agent-authentication-methods.md)** | 예 | 예 |
 | **보안 데이터 [수집](how-to-agent-configuration.md#supported-security-events)** | 예 | 예 |
 | **이벤트 집계** | 예 | 예 |
-| **[보안 모듈](concept-security-module.md) 쌍을 통한 원격 구성** | 예 | 예 |
+| **[Defender-IoT-마이크로 에이전트](concept-security-module.md) 쌍을 통한 원격 구성** | 예 | 예 |
 
 ## <a name="security-agent-installation-guidelines"></a>보안 에이전트 설치 지침
 
@@ -79,7 +79,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 두 에이전트 모두 동일한 기능 집합을 제공 하 고 유사한 구성 옵션을 지원 합니다.
 자세히 알아보려면 [보안 에이전트 비교](how-to-deploy-agent.md#understand-security-agent-options) 를 참조 하세요.
 
-## <a name="supported-platforms"></a>지원 플랫폼
+## <a name="supported-platforms"></a>지원되는 플랫폼
 
 다음 목록에는 현재 지원 되는 모든 플랫폼이 포함 되어 있습니다.
 

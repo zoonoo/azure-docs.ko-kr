@@ -2,13 +2,13 @@
 title: Azure Monitor 경고에 대 한 작업 규칙
 description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/15/2021
+ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463071"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466731"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -53,7 +53,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>범위
+### <a name="scope"></a>Scope
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -70,14 +70,15 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 예를 들어 **심각도 = Sev1** 는 규칙이 Sev1 심각도의 경고에만 적용 됨을 의미 합니다.
 * **서비스 모니터링**  
 이 규칙은 선택한 모니터링 서비스에서 들어오는 경고에만 적용 됩니다.  
-예를 들어 **Monitor Service = "Azure Backup"** 는 Azure Backup에서 제공 되는 백업 경고에만 규칙이 적용 됨을 의미 합니다.
+예를 들어 **monitor service = "Azure Backup"** 는 Azure Backup에서 제공 되는 백업 경고에만 규칙이 적용 됨을 의미 합니다.
 * **리소스 종류**  
 이 규칙은 선택한 리소스 유형에 대 한 경고에만 적용 됩니다.  
 예를 들어 **리소스 유형 = "Virtual Machines"** 는 가상 머신의 경고에만 규칙이 적용 됨을 의미 합니다.
 * **경고 규칙 ID**  
 이 규칙은 특정 경고 규칙에서 들어오는 경고에만 적용 됩니다. 값은 경고 규칙의 리소스 관리자 ID 여야 합니다.  
-예를 들어 **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/API-Latency"** 는이 규칙이 "API 대기 시간" 메트릭 경고 규칙에서 들어오는 경고에만 적용 됨을 의미 합니다.
-* **조건 모니터링**  
+예를 들어 **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** 는이 규칙이 "API 대기 시간" 메트릭 경고 규칙에서 들어오는 경고에만 적용 됨을 의미 합니다.
+CLI에서 경고 규칙을 나열 하거나 포털에서 특정 경고 규칙을 열고 "속성"을 클릭 한 다음 "리소스 ID" 값을 복사 하 여 적절 한 경고 규칙 ID를 가져올 수 있습니다.
+* **모니터 조건**  
 이 규칙은 지정 된 모니터 조건 ( **발생** 또는 **해결 됨**)을 가진 경고 이벤트에만 적용 됩니다.
 * **설명**  
 이 규칙은 경고 설명 필드에 특정 문자열이 포함 된 경고에만 적용 됩니다. 해당 필드에는 경고 규칙 설명이 포함 되어 있습니다.  

@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS 기본 제공 & 사용자 지정 가능한 경고 및 권장 사항에 대 한 보안 모듈
-description: Azure IoT 보안 모듈-RTOS를 사용 하 여 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
+title: Defender-IoT-마이크로 에이전트-Azure RTOS 기본 제공 & 사용자 지정 가능한 경고 및 권장 사항
+description: Azure IoT Defender-마이크로 에이전트-RTOS를 사용 하 여 보안 경고 및 권장 수정에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cf4924f8a9b97487e64e12ab80df92f2b2a81de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6dfeb01e174d71c926e9fcf7f5f1ee078524cf9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939514"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494277"
 ---
-# <a name="security-module-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Azure RTOS 보안 경고 및 권장 사항 (미리 보기)에 대 한 보안 모듈
+# <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Defender-마이크로-Azure RTOS 보안 경고 및 권장 사항 (미리 보기)에 대 한 에이전트
 
-Azure RTOS 용 보안 모듈은 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 하 여 잠재적인 악의적인 활동 및 의심 스러운 시스템 수정에 대해 경고 합니다. 예상 되는 장치 동작 및 기준에 대 한 지식을 바탕으로 사용자 지정 경고를 만들 수도 있습니다.
+Azure RTOS 용 Defender-마이크로 에이전트는 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 하 여 잠재적인 악의적인 활동 및 의심 스러운 시스템 수정에 대해 경고 합니다. 예상 되는 장치 동작 및 기준에 대 한 지식을 바탕으로 사용자 지정 경고를 만들 수도 있습니다.
 
-Azure RTOS 경고에 대 한 보안 모듈은 잠재적 손상에 대 한 표시기로 작동 하며 조사 하 고 수정 해야 합니다. Azure RTOS 권장 사항에 대 한 보안 모듈은 수정 및 업데이트할 약한 보안 상태를 식별 합니다. 
+Azure RTOS 용 Defender-마이크로 에이전트 경고는 잠재적 손상에 대 한 표시기 역할을 하며 조사 하 고 수정 해야 합니다. Azure RTOS 권장 사항에 대 한 Defender-IoT-마이크로 에이전트는 보안 상태를 재구성 하 고 업데이트할 약한 보안 상태를 식별 합니다. 
 
 이 문서에서는 기본 범위를 기준으로 트리거된 기본 제공 경고 및 권장 사항 목록과, 예상 또는 기준 동작에 따라 사용자 고유의 값으로 사용자 지정할 수 있습니다. 
 
-IoT 서비스의 Defender에서 경고 사용자 지정이 작동 하는 방식에 대 한 자세한 내용은 [사용자 지정 가능한 경고](concept-customizable-security-alerts.md)를 참조 하세요. Azure RTOS의 보안 모듈을 사용할 때 사용자 지정에 사용할 수 있는 특정 경고 및 권장 사항은 다음 표에 자세히 설명 되어 있습니다. 
+IoT 서비스의 Defender에서 경고 사용자 지정이 작동 하는 방식에 대 한 자세한 내용은 [사용자 지정 가능한 경고](concept-customizable-security-alerts.md)를 참조 하세요. 다음 표에서는 Azure RTOS 용 Defender-IoT-마이크로 에이전트를 사용할 때 사용자 지정에 사용할 수 있는 특정 경고 및 권장 사항을 설명 합니다. 
 
-## <a name="security-module-for-azure-rtos-supported-security-alerts"></a>Azure RTOS 지원 되는 보안 경고에 대 한 보안 모듈
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-security-alerts"></a>Azure RTOS 지원 되는 보안 경고에 대 한 Defender-IoT-마이크로 에이전트
 
 ### <a name="device-related-security-alerts"></a>장치 관련 보안 경고
 
@@ -53,7 +53,7 @@ IoT 서비스의 Defender에서 경고 사용자 지정이 작동 하는 방식�
 |인증서 삭제 됨    | IoT Hub에서 인증서 삭제가 검색 됨        |
 |새 인증서     |  IoT Hub에 새 인증서를 추가 했습니다.       |
 
-## <a name="security-module-for-azure-rtos-supported-customizable-alerts"></a>Azure RTOS에서 지원 되는 사용자 지정 가능한 경고에 대 한 보안 모듈
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-customizable-alerts"></a>Defender-IoT-마이크로-Azure의 Azure RTOS 지원 사용자 지정 가능 경고
 
 ### <a name="device-related-customizable-alerts"></a>장치 관련 사용자 지정 가능 경고
 
@@ -75,7 +75,7 @@ IoT 서비스의 Defender에서 경고 사용자 지정이 작동 하는 방식�
 |쌍 모듈 업데이트     |  허용 된 범위를 벗어난 쌍 모듈의 업데이트 수       |
 |권한 없는 작업    |  허용 되는 범위를 벗어난 권한 없는 작업 수       |
 
-## <a name="security-module-for-azure-rtos-supported-recommendations"></a>Azure RTOS 지원 권장 사항에 대 한 보안 모듈
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-recommendations"></a>Azure RTOS 지원 권장 사항에 대 한 Defender-IoT-마이크로 에이전트
 
 ### <a name="device-related-recommendations"></a>장치 관련 권장 사항
 
@@ -97,6 +97,6 @@ IoT 서비스 관련 경고 및 권장 사항에 대 한 모든 Defender의 전�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: Azure RTOS 용 보안 모듈](quickstart-azure-rtos-security-module.md)
-- [Azure RTOS의 보안 모듈 구성 및 사용자 지정](how-to-azure-rtos-security-module.md)
-- [Azure RTOS API에 대 한 보안 모듈](azure-rtos-security-module-api.md) 을 참조 하세요.
+- [빠른 시작: Defender-마이크로-Azure RTOS 용 에이전트](quickstart-azure-rtos-security-module.md)
+- [Azure RTOS 용 Defender-IoT-마이크로 에이전트 구성 및 사용자 지정](how-to-azure-rtos-security-module.md)
+- [Azure RTOS API에 대 한 Defender-IoT-마이크로 에이전트](azure-rtos-security-module-api.md) 를 참조 하세요.

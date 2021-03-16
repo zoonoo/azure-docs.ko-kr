@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629175"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470768"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>3 부: SMB를 통한 디렉터리 및 파일 수준 권한 구성 
 
@@ -91,20 +91,7 @@ Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 A
 
 저장소 계정 키를 사용 하 여 파일 공유를 탑재 한 후에는 Windows Acl (NTFS 사용 권한)을 구성 해야 합니다. Windows 파일 탐색기 또는 icacls 중 하나를 사용 하 여 Windows Acl을 구성할 수 있습니다.
 
-AD DS id에 대해 구성 된 Windows Dacl이 있는 온-프레미스 파일 서버에 디렉터리 또는 파일이 있는 경우 Robocopy 또는 [Azure AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases)와 같은 기존의 파일 복사 도구를 사용 하 여 acl을 유지 하는 Azure Files으로 복사할 수 있습니다. 디렉터리와 파일이 Azure File Sync를 통해 Azure Files 하도록 계층화 된 경우 Acl은 해당 네이티브 형식으로 전달 되 고 유지 됩니다.
-
-### <a name="configure-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 Windows Acl 구성
-
-Windows 파일 탐색기를 사용 하 여 루트 디렉터리를 포함 하 여 파일 공유 아래의 모든 디렉터리 및 파일에 대 한 모든 권한을 부여 합니다.
-
-1. Windows 파일 탐색기를 열고 파일/디렉터리를 마우스 오른쪽 단추로 클릭 한 다음 **속성** 을 선택 합니다.
-1. **보안** 탭을 선택합니다.
-1. **편집 ...을** 선택 합니다. 사용 권한을 변경 합니다.
-1. 기존 사용자의 사용 권한을 변경 하거나 **추가 ...** 를 선택 하 여 새 사용자에 게 사용 권한을 부여할 수 있습니다.
-1. 새 사용자 추가에 대 한 프롬프트 창에서 **선택할 개체 이름을 입력 하십시오** . 상자에 권한을 부여 하려는 대상 사용자 이름을 입력 하 고 **이름 확인** 을 선택 하 여 대상 사용자의 전체 UPN 이름을 찾습니다.
-1.    **확인** 을 선택합니다.
-1.    **보안** 탭에서 새 사용자에 게 부여할 사용 권한을 모두 선택 합니다.
-1.    **적용** 을 선택합니다.
+AD DS id에 대해 구성 된 Windows Dacl이 있는 온-프레미스 파일 서버에 디렉터리 또는 파일이 있는 경우 Robocopy 또는 [Azure AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases)와 같은 기존의 파일 복사 도구를 사용 하 여 acl을 유지 하는 Azure Files으로 복사할 수 있습니다. 디렉터리와 파일이 Azure 파일 동기화를 통해 Azure Files 하도록 계층화 된 경우 Acl은 해당 네이티브 형식으로 전달 되 고 유지 됩니다.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Icacls로 Windows Acl 구성
 
@@ -115,6 +102,20 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
 Icacls를 사용 하 여 Windows Acl을 설정 하는 방법 및 지원 되는 다양 한 권한 유형에 대 한 자세한 내용은 [icacls 명령줄 참조](/windows-server/administration/windows-commands/icacls)를 참조 하세요.
+
+### <a name="configure-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 Windows Acl 구성
+
+Windows 파일 탐색기를 사용 하 여 루트 디렉터리를 포함 하 여 파일 공유 아래의 모든 디렉터리 및 파일에 대 한 모든 권한을 부여 합니다. Windows 파일 탐색기에서 AD 도메인 정보를 올바르게 로드할 수 없는 경우 온-프레미스 AD 환경의 신뢰 구성 때문일 수 있습니다. 클라이언트 컴퓨터가 Azure Files 인증을 위해 등록 된 AD 도메인 컨트롤러에 연결할 수 없습니다. 이 경우에는 Windows Acl을 구성할 때 icacls를 사용 합니다.
+
+1. Windows 파일 탐색기를 열고 파일/디렉터리를 마우스 오른쪽 단추로 클릭 한 다음 **속성** 을 선택 합니다.
+1. **보안** 탭을 선택합니다.
+1. **편집 ...을** 선택 합니다. 사용 권한을 변경 합니다.
+1. 기존 사용자의 사용 권한을 변경 하거나 **추가 ...** 를 선택 하 여 새 사용자에 게 사용 권한을 부여할 수 있습니다.
+1. 새 사용자 추가에 대 한 프롬프트 창에서 **선택할 개체 이름을 입력 하십시오** . 상자에 권한을 부여 하려는 대상 사용자 이름을 입력 하 고 **이름 확인** 을 선택 하 여 대상 사용자의 전체 UPN 이름을 찾습니다.
+1.    **확인** 을 선택합니다.
+1.    **보안** 탭에서 새 사용자에 게 부여할 사용 권한을 모두 선택 합니다.
+1.    **적용** 을 선택합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

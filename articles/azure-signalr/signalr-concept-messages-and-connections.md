@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 9d0e94cf2318db777bb44c15037f73531cd969fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593330"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491948"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Azure SignalR Service의 메시지 및 연결
 
@@ -48,9 +48,16 @@ Azure SignalR Service에서 나가는 아웃바운드 메시지만 청구 대상
 
 Azure SignalR Service를 사용 하는 서버 연결 및 클라이언트 연결이 있습니다. 기본적으로 각 응용 프로그램 서버는 허브 당 5 개의 초기 연결로 시작 하 고 각 클라이언트에는 하나의 클라이언트 연결이 있습니다.
 
-Azure Portal에 표시되는 연결 수에는 서버 연결과 클라이언트 연결이 모두 포함됩니다.
-
 예를 들어 두 개의 응용 프로그램 서버가 있고 코드에 5 개의 허브를 정의 한다고 가정 합니다. 서버 연결 수는 50:2 개의 앱 서버 * 5 허브 * 허브 당 5 개의 연결입니다.
+
+Azure Portal에 표시 되는 연결 수에는 서버 연결, 클라이언트 연결, 진단 연결 및 라이브 추적 연결이 포함 됩니다. 연결 유형은 다음 목록에 정의 되어 있습니다.
+
+- **서버 연결**: Azure SignalR 서비스와 앱 서버를 연결 합니다.
+- **클라이언트 연결**: Azure SignalR 서비스 및 클라이언트 앱을 연결 합니다.
+- **진단 연결**: 더 자세한 로그를 생성할 수 있는 특별 한 종류의 클라이언트 연결로, 성능에 영향을 줄 수 있습니다. 이러한 종류의 클라이언트는 문제 해결을 위해 설계 되었습니다.
+- **라이브 추적 연결**: 라이브 추적 끝점에 연결 하 고 Azure SignalR Service의 실시간 추적을 수신 합니다. 
+ 
+라이브 추적 연결은 클라이언트 연결이 나 서버 연결로 계산 되지 않습니다. 
 
 ASP.NET SignalR은 다른 방법으로 서버 연결 수를 계산합니다. 고객이 정의하는 허브 외에도 기본 허브 하나가 포함됩니다. 기본적으로 각 응용 프로그램 서버에는 5 개의 초기 서버 연결이 필요 합니다. 기본 허브의 초기 연결 수는 다른 허브와 동일 하 게 유지 됩니다.
 
@@ -60,7 +67,7 @@ ASP.NET SignalR은 다른 방법으로 서버 연결 수를 계산합니다. 고
 
 서비스로 전송 된 메시지는 인바운드 메시지입니다. 서비스에서 전송 된 메시지는 아웃 바운드 메시지입니다. 트래픽은 바이트 단위로 계산됩니다.
 
-## <a name="related-resources"></a>관련 참고 자료
+## <a name="related-resources"></a>관련 리소스
 
 - [Azure Monitor의 집계 유형](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR 구성](/aspnet/core/signalr/configuration)

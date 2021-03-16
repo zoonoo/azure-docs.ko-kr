@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557605"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608916"
 ---
 함수 트리거를 사용하여 이벤트 허브 이벤트 스트림으로 보내진 이벤트에 응답합니다. 트리거를 설정하려면 기본 이벤트 허브에 대한 읽기 액세스 권한이 있어야 합니다. 함수가 트리거되면 함수에 전달된 메시지가 문자열로 입력됩니다.
 
@@ -360,9 +360,59 @@ Java [함수 런타임 라이브러리](/java/api/overview/azure/functions/runti
 |**eventHubName** |**EventHubName** | Functions 2.x 이상. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. `%eventHubName%` [앱 설정](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings)을 통해 참조할 수 있습니다. |
 |**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독하는 데 사용되는 [소비자 그룹](../articles/event-hubs/event-hubs-features.md#event-consumers)을 설정하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. |
 |**cardinality** | 해당 없음 | C#이 아닌 모든 언어에 사용됩니다. `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략하거나 `one`으로 설정하면 단일 메시지가 함수에 전달됩니다.<br><br>C#의 경우 형식에 대한 배열이 트리거에 있을 때마다 이 속성이 자동으로 할당됩니다.|
-|**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
+|**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임스페이스](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](../articles/azure-functions/functions-reference.md#connections)을 참조하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>사용
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>기본값
+
+Event Hub를 트리거하는 데 대한 다음 매개 변수 형식을 사용할 수 있습니다.
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+
+### <a name="additional-types"></a>추가 형식 
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>기본값
+
+Event Hub를 트리거하는 데 대한 다음 매개 변수 형식을 사용할 수 있습니다.
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+
+### <a name="additional-types"></a>추가 형식 
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+자세한 내용은 Java [트리거 예제](#example)를 참조하세요.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+자세한 내용은 Javascript [트리거 예제](#example)를 참조하세요.
+
+# <a name="python"></a>[Python](#tab/python)
+
+자세한 내용은 Python [트리거 예제](#example)를 참조하세요.
+
+
+---
+
 
 ## <a name="event-metadata"></a>이벤트 메타데이터
 
@@ -379,10 +429,3 @@ Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-fu
 |`SystemProperties`|`IDictionary<String,Object>`|이벤트 데이터를 비롯한 시스템 속성|
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#example)를 참조하세요.
-
-## <a name="hostjson-properties"></a>host.json 속성
-<a name="host-json"></a>
-
-[host.json](../articles/azure-functions/functions-host-json.md#eventhub) 파일에는 Event Hubs 트리거 동작을 제어하는 설정이 포함됩니다. 구성은 Azure Functions 버전에 따라 달라집니다.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

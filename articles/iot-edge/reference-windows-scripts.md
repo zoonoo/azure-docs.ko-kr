@@ -8,14 +8,17 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7614f7ccd24d0237a043a9b5bf0ad988146d89c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: a919238e4a62ae8954e101cb21a2fd4943191f6a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615910"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489527"
 ---
 # <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용 하는 IoT Edge에 대 한 PowerShell 스크립트
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Windows 장치에서 IoT Edge를 설치, 업데이트 또는 제거 하는 PowerShell 스크립트를 이해 합니다.
 

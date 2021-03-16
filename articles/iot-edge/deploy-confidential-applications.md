@@ -7,14 +7,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kgremban
-ms.openlocfilehash: e63397176cae87178cfc5cc343aeed6f76099be2
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f9dff1b4c6b2489edd3cd685e3546618961d9757
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956514"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487720"
 ---
 # <a name="confidential-computing-at-the-edge"></a>에 지에서 기밀 컴퓨팅
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge은 장치의 secure enclaves 내에서 실행 되는 기밀 응용 프로그램을 지원 합니다. 암호화는 전송 중이거나 미사용 상태에서 데이터에 대 한 보안을 제공 하지만 enclaves는 사용 하는 동안 데이터 및 작업에 대 한 보안을 제공 합니다. IoT Edge는 기밀 응용 프로그램 개발을 위한 표준으로 Open Enclave을 지원 합니다.
 

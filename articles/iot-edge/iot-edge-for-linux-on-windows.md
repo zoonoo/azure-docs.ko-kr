@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 63538661cceb7e1bdd4151a3592ccbd4de0033b0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 330eaf5c12372347917e9f3a4aeafb6a2088c592
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612017"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492577"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Windows에서 Linux용 Azure IoT Edge란?(미리 보기)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 windows IoT 배포에서 Windows 응용 프로그램과 함께 컨테이너 화 된 Linux 워크 로드를 실행할 수 있습니다. Windows IoT를 사용 하 여에 지 장치를 구동 하는 기업은 이제 Linux에서 빌드된 클라우드 네이티브 분석 솔루션을 활용할 수 있습니다.
 

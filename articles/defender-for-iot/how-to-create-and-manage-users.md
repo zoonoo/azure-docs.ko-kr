@@ -4,15 +4,15 @@ description: 센서의 사용자 및 온-프레미스 관리 콘솔을 만들고
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522345"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466272"
 ---
 # <a name="about-defender-for-iot-console-users"></a>IoT 콘솔 사용자를 위한 Defender 정보
 
@@ -162,7 +162,7 @@ Active Directory와 함께 작동 하도록 센서 또는 온-프레미스 관�
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>IoT 용 Active Directory 및 Defender 사용 권한
 
-여기에 정의 된 Active Directory 그룹을 특정 권한 수준에 연결할 수 있습니다. 예를 들어 특정 Active Directory 그룹을 구성 하 고 해당 그룹의 모든 사용자에 게 RO 사용 권한을 할당 합니다. 자세한 내용은 [사용자 만들기 및 관리](how-to-create-and-manage-users.md) 를 참조 하세요.
+여기에 정의 된 Active Directory 그룹을 특정 권한 수준에 연결할 수 있습니다. 예를 들어 특정 Active Directory 그룹을 구성 하 고 그룹의 모든 사용자에 게 읽기 전용 권한을 할당 합니다.
 
 Active Directory를 구성 하려면:
 
@@ -170,11 +170,11 @@ Active Directory를 구성 하려면:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Active Directory 시스템 설정을 봅니다.":::
 
-1. **시스템 설정** 창에서 **Active Directory** 을 선택 합니다.
+2. **시스템 설정** 창에서 **Active Directory** 을 선택 합니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Active Directory 구성을 편집 합니다.":::
 
-1. **Active Directory 구성 편집** 대화 상자에서 **통합 사용**  >  **저장** Active Directory을 선택 합니다. **Active Directory 구성 편집** 대화 상자가 확장 되 고 이제 Active Directory를 구성 하는 매개 변수를 입력할 수 있습니다.
+3. **Active Directory 구성 편집** 대화 상자에서 **통합 사용**  >  **저장** Active Directory을 선택 합니다. **Active Directory 구성 편집** 대화 상자가 확장 되 고 이제 Active Directory를 구성 하는 매개 변수를 입력할 수 있습니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Active Directory를 구성 하는 매개 변수를 입력 합니다.":::
 
@@ -183,9 +183,9 @@ Active Directory를 구성 하려면:
     > - 모든 Active Directory 매개 변수에 대해서는 소문자만 사용 합니다. Active Directory의 구성이 대문자를 사용 하는 경우에도 소문자를 사용 합니다.
     > - 동일한 도메인에 대해 LDAP와 LDAPS를 모두 구성할 수는 없습니다. 그러나 여러 도메인에 대해 동시에 둘 다 사용할 수 있습니다.
 
-1. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
+4. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
 
-   | 서버 매개 변수 | Description |
+   | 서버 매개 변수 | 설명 |
    |--|--|
    | 도메인 컨트롤러 FQDN | FQDN (정규화 된 도메인 이름)은 LDAP 서버에 표시 된 대로 정확 하 게 설정 합니다. 예를 들어 다음과 같이 입력합니다. `host1.subdomain.domain.com` |
    | 도메인 컨트롤러 포트 | LDAP가 구성 된 포트를 정의 합니다. |
@@ -193,11 +193,15 @@ Active Directory를 구성 하려면:
    | Active Directory 그룹 | LDAP 서버의 Active Directory 구성에 정의 된 그룹 이름을 입력 합니다. |
    | 트러스트 된 도메인 | 트러스트 된 도메인을 추가 하려면 트러스트 된 도메인의 도메인 이름 및 연결 유형을 추가 합니다. <br />사용자에 정의 된 사용자에 대해서만 트러스트 된 도메인을 구성할 수 있습니다. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔용 ActiveDirectory 그룹
+
+온-프레미스 관리 콘솔 사용자에 대 한 Active Directory 그룹을 만드는 경우 각 Active Directory 그룹에 대 한 액세스 그룹 규칙을 만들어야 합니다. Active Directory 사용자 그룹에 대 한 액세스 그룹 규칙이 없는 경우 온-프레미스 관리 콘솔 Active Directory 자격 증명이 작동 하지 않습니다. [전역 액세스 제어 정의](how-to-define-global-user-access-control.md)를 참조 하세요.
+
 1. **저장** 을 선택합니다.
 
-1. 트러스트 된 서버를 추가 하려면 **서버 추가** 를 선택 하 고 다른 서버를 구성 합니다.
+2. 트러스트 된 서버를 추가 하려면 **서버 추가** 를 선택 하 고 다른 서버를 구성 합니다.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>센서 또는 온-프레미스 관리 콘솔에 대 한 사용자 암호 재설정
+## <a name="resetting-passwords"></a>암호 다시 설정
 
 ### <a name="cyberx-or-support-user"></a>CyberX 또는 지원 사용자
 
@@ -265,7 +269,7 @@ CyberX 또는 지원 사용자에 대 한 암호를 다시 설정 하려면:
 
 1. **업데이트** 를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 센서 활성화 및 [설정](how-to-activate-and-set-up-your-sensor.md) 
  [온-프레미스 관리 콘솔](how-to-activate-and-set-up-your-on-premises-management-console.md) 
