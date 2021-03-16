@@ -1,5 +1,5 @@
 ---
-title: IoT 솔루션에 Azure 리소스 추가
+title: '빠른 시작: IoT 솔루션에 Azure 리소스 추가'
 description: 이 빠른 시작에서는 Azure Defender for IoT를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809031"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449716"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>빠른 시작: Azure Defender for IoT 솔루션 구성
 
 이 문서에서는 Defender for IoT를 사용하여 IoT 보안 솔루션의 초기 구성을 수행하는 방법에 대해 설명합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+없음
 
 ## <a name="what-is-defender-for-iot"></a>Defender for IoT란?
 
