@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319771"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574563"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory 로그인 활동 보고서-미리 보기
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+    - **위험 플래그가 지정** 된 사용자- [위험한 사용자](../identity-protection/overview-identity-protection.md) 는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다.
 
 Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사용자 로그인에 대 한 개요를 제공 합니다. 또한 이제 미리 보기로 제공 되는 세 가지 추가 로그인 보고서에 액세스할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 기능을 사용 하기 전에 다음에 대 한 답변을 알고 있어야 합니다.
 
@@ -125,7 +125,12 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 대화형 사용자 로그인은 사용자가 Azure AD에 인증 요인을 제공 하거나 Azure AD와 직접 상호 작용 하거나 Microsoft Authenticator 앱과 같은 도우미 앱과 상호 작용 하는 로그인입니다. 사용자에 게 제공 되는 요인에는 암호, MFA 문제에 대 한 응답, 생체 인식 요소 또는 사용자가 Azure AD 또는 도우미 앱에 제공 하는 QR 코드 등이 있습니다.
 
-이 보고서에는 Azure AD에 페더레이션된 id 공급자의 페더레이션된 로그인도 포함 됩니다.  
+> [!NOTE]
+> 이 보고서에는 Azure AD에 페더레이션된 id 공급자의 페더레이션된 로그인도 포함 됩니다.  
+
+
+
+참고: 대화형 사용자 로그인 보고서는 Microsoft Exchange 클라이언트에서 대화형이 아닌 일부 로그인을 포함 하는 데 사용 됩니다. 이러한 로그인은 비 대화형 이지만 추가 표시를 위해 대화형 사용자 로그인 보고서에 포함 되었습니다. 비 대화형 사용자 로그인 보고서가 11 월 2020에 공개 미리 보기로 입력 되 면 정확도를 높이기 위해 비 대화형 로그인 이벤트 로그가 비 대화형 사용자 로그인 보고서로 이동 되었습니다. 
 
 
 **보고서 크기:** 작음 <br> 
@@ -205,7 +210,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 - 애플리케이션
 
-- 사용자
+- User
 
 - IP 주소
 
@@ -214,7 +219,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 - 리소스 ID
 
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 노드를 확장 하 여 그룹의 개별 항목을 표시 합니다.  
 
@@ -271,7 +276,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 - 리소스 이름 또는 ID
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 노드를 확장 하 여 그룹의 개별 항목을 표시 합니다.  
 
@@ -360,11 +365,11 @@ Azure Portal의 로그인 활동 보고서는 미리 보기 보고서를 설정 
 
 비 대화형 및 응용 프로그램 로그인을 사용 하 여 새 로그인 보고서에 액세스 하려면 다음을 수행 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 선택합니다.
 
     ![Azure AD 선택](./media/concept-all-sign-ins/azure-services.png)
 
-2. **모니터링** 섹션에서 **로그인**을 클릭 합니다.
+2. **모니터링** 섹션에서 **로그인** 을 클릭 합니다.
 
     ![로그인 선택](./media/concept-all-sign-ins/sign-ins.png)
 

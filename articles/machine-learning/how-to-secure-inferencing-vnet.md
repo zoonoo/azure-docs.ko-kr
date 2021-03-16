@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 5d029f4328f955d64c5ce479e553769f8a107e45
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1a1a9158c06a12caaeb5702f2fdf7da3c801c143
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518571"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573441"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -278,3 +278,5 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)
 * [5 부: studio 기능 사용](how-to-enable-studio-virtual-network.md)
+
+또한 이름 확인에 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대 한 문서를 참조 하세요.

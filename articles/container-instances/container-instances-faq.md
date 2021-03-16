@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2645c3f183e2217dff28a96c9c0d376eb82a6476
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186195"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573135"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -45,7 +45,7 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 > [!NOTE]
 > Semi-Annual Channel 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 및 클라이언트 기본 이미지 (미리 보기)
+#### <a name="windows-server-2019-and-client-base-images"></a>Windows Server 2019 및 클라이언트 기본 이미지
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` 또는 최신
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` 또는 이상
@@ -55,9 +55,12 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 (  *4.7.2-windowsservercore-ltsc2016* 와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
 
+> [!NOTE]
+> ACI가 비 OCI 규격 레지스트리에서 이미지를 끌어올 수 없습니다.
+
 ### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>ACI와 호환 되는 컨테이너 레지스트리 유형은 무엇 인가요?
 
-ACI는 ACR 및 다른 타사 컨테이너 레지스트리 (예: DockerHub)에서 이미지를 끌어올 수 있도록 지원 합니다. 또한 ACI는 OCR과 호환 되 고 인터넷에 공개적으로 노출 되는 끝점을 포함 하는 경우 온-프레미스 레지스트리에서 이미지를 끌어올 수 있도록 지원 합니다.
+ACI는 ACR 및 다른 타사 컨테이너 레지스트리 (예: DockerHub)에서 이미지를 끌어올 수 있도록 지원 합니다. ACI는 ACR 및 기타 타사 OCI 호환 컨테이너 레지스트리 (예: DockerHub와 인터넷에 공개적으로 노출 되는 끝점)에서 이미지를 끌어올 수 있도록 지원 합니다.
 
 ## <a name="availability-and-quotas"></a>가용성 및 할당량
 

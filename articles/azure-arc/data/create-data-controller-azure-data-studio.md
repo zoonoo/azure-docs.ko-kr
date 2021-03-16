@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f2d44cc769e9673eeb75828126f806d2b2308a17
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644411"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573883"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Azure Data Studio에서 데이터 컨트롤러 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "101644411"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Kubernetes 클러스터에 액세스 하 고 배포 하려는 Kubernetes 클러스터를 가리키도록 kubeconfig 파일을 구성 해야 합니다.
 - **Azure Arc** 및 라는 Azure Data Studio 확장 **Azure Data Studio** 포함 하 [는 클라이언트 도구를 설치](install-client-tools.md) 해야 **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "101644411"
 1. 원하는 구독 및 리소스 그룹을 선택 합니다.
 1. Azure 위치를 선택합니다.
    
-   여기에서 선택한 Azure 위치는 Azure에서 데이터 컨트롤러 및 데이터 컨트롤러에 대 한 *메타 데이터가* 저장 되는 위치입니다. 데이터 컨트롤러와 데이터베이스 인스턴스는 Kubernetes 클러스터에서 실제로 어디에 나 있을 수 있습니다.
+   여기에서 선택한 Azure 위치는 Azure에서 데이터 컨트롤러 및 데이터 컨트롤러에 대 한 *메타 데이터가* 저장 되는 위치입니다. 데이터 컨트롤러와 데이터베이스 인스턴스는 실제로 Kubernetes 클러스터에 생성 됩니다.
 
 10. 적절 한 연결 모드를 선택 합니다. [연결 모드](./connectivity.md)에 대해 자세히 알아보세요. **다음을 클릭** 합니다.
 

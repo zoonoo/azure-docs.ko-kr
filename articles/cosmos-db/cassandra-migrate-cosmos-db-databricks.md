@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: caf9cbb0ca017ee00c5061d94e0d37703194943d
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493277"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573377"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Azure Databricks를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Apache Ca
 
 한 플랫폼에서 다른 플랫폼으로 데이터베이스 워크 로드를 마이그레이션하는 다양 한 방법이 있습니다. [Azure Databricks](https://azure.microsoft.com/services/databricks/) 는 대규모에서 오프 라인 마이그레이션을 수행 하는 방법을 제공 하는 [Apache Spark](https://spark.apache.org/) 에 대 한 서비스 제공 플랫폼입니다. 이 문서에서는 Azure Databricks를 사용 하 여 네이티브 Apache Cassandra keyspaces/tables에서 Azure Cosmos DB Cassandra API로 데이터를 마이그레이션하는 데 필요한 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Cosmos DB Cassandra API 계정 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 
@@ -42,20 +42,18 @@ Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Apache Ca
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Azure Databricks 클러스터 프로비전
 
-지침에 따라 [Azure Databricks 클러스터를 프로 비전](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)할 수 있습니다. 그러나 Apache Spark 3. x는 Apache Cassandra 커넥터에 대해 현재 지원 되지 않습니다. Apache Spark의 지원 되는 v2. x 버전을 사용 하 여 Databricks 런타임을 프로 비전 해야 합니다. 최신 버전의 Spark 2.x를 지 원하는 Databricks 런타임 버전을 선택 하는 것이 좋습니다. Scala 버전 2.11는 이후 버전입니다.
+지침에 따라 [Azure Databricks 클러스터를 프로 비전](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)할 수 있습니다. Spark 3.0을 지 원하는 Databricks runtime 버전 7.5을 선택 하는 것이 좋습니다.
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks 런타임":::
 
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-기본 및 Cosmos DB Cassandra 끝점에 연결 하려면 Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가 해야 합니다. 클러스터에서 라이브러리를 선택 하 > > maven-> search 패키지를 설치 합니다.
+기본 및 Cosmos DB Cassandra 끝점에 연결 하려면 Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가 해야 합니다. 클러스터에서 라이브러리를 선택 하 > > maven를 설치 합니다. `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`maven 좌표에 추가:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks 검색 패키지":::
 
-`Cassandra`검색 상자에를 입력 하 고 `spark-cassandra-connector` 사용 가능한 최신 maven 리포지토리를 선택한 다음 설치를 선택 합니다.
-
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages-2.png" alt-text="Databricks 패키지 선택":::
+설치를 선택 하 고 설치가 완료 되 면 클러스터를 다시 시작 하는지 확인 합니다. 
 
 > [!NOTE]
 > Cassandra 커넥터 라이브러리가 설치 된 후 Databricks 클러스터를 다시 시작 해야 합니다.
@@ -91,7 +89,6 @@ val cosmosCassandra = Map(
     "table" -> "<TABLE>",
     //throughput related settings below - tweak these depending on data volumes. 
     "spark.cassandra.output.batch.size.rows"-> "1",
-    "spark.cassandra.connection.connections_per_executor_max" -> "10",
     "spark.cassandra.output.concurrent.writes" -> "1000",
     "spark.cassandra.concurrent.reads" -> "512",
     "spark.cassandra.output.batch.grouping.buffer.size" -> "1000",
@@ -110,11 +107,12 @@ DFfromNativeCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
   .options(cosmosCassandra)
+  .mode(SaveMode.Append)
   .save
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` 및 `connections_per_executor_max` 구성은 프로 비전 된 처리량을 초과 하는 Azure Cosmos DB 요청이 발생 하는 경우, 즉[요청 단위](./request-units.md)를 초과 하는 경우 발생 하는 [속도 제한을](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)피하는 데 중요 합니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
+> 및에 대 한 값과 `spark.cassandra.output.batch.size.rows` `spark.cassandra.output.concurrent.writes` Spark 클러스터의 작업자 수는 Azure Cosmos DB 요청이 프로 비전 된 처리량을 초과 하는 경우, 즉[요청 단위](./request-units.md)를 초과 하는 경우 발생 하는 [속도 제한을](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)방지 하기 위해 조정 해야 하는 중요 한 구성입니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -123,19 +121,8 @@ DFfromNativeCassandra
 
 - **테이블에 할당 된 처리량이 6000 [요청 단위](./request-units.md)보다 낮습니다**. 최소 설정 에서도 Spark는 6000 요청 단위 이상으로 쓰기를 실행할 수 있습니다. 공유 처리량이 프로 비전 된 keyspace에 테이블을 프로 비전 한 경우 런타임에이 테이블에 6000의 RUs를 사용할 수 있습니다. 마이그레이션을 실행할 때 마이그레이션하는 테이블에 6000 RUs 이상이 제공 되는지 확인 하 고 필요한 경우 해당 테이블에 전용 요청 단위를 할당 합니다. 
 - **대용량 데이터 볼륨이 포함 된 과도 한 데이터 왜곡**. 지정 된 테이블로 마이그레이션하는 데 많은 양의 데이터가 있는 경우 (즉, 동일한 파티션 키 값에 대해 기록 되는 레코드 수가 많은 경우) 테이블에 너무 많은 양의 [요청 단위가](./request-units.md) 포함 된 경우에도 계속 해 서 요율 제한을 경험할 수 있는 것입니다. 이는 요청 단위가 실제 파티션 간에 균등 하 게 분할 되 고, 많은 데이터 오차는 단일 파티션에 대 한 요청의 병목 현상이 발생 하 여 요율 제한을 발생 시킬 수 있기 때문입니다. 이 시나리오에서는 속도 제한을 피하고 마이그레이션을 느리게 실행 하도록 Spark에서 최소 처리량 설정을 줄이는 것이 좋습니다. 이 시나리오는 참조 또는 컨트롤 테이블을 마이그레이션하는 경우 보다 일반적 일 수 있습니다 .이 경우 액세스 빈도가 낮지만 기울이기가 높을 수 있습니다. 그러나 다른 유형의 테이블에 상당한 기울이기를 있으면 데이터 모델을 검토 하 여 안정적인 상태 작업 중에 작업에 대 한 핫 파티션 문제를 방지 하는 것이 좋습니다. 
-- **대량 테이블에서 개수를 가져올 수 없습니다**. 를 실행 하 `select count(*) from table` 는 것은 현재 규모가 많은 테이블에 대해 지원 되지 않습니다. Azure Portal의 메트릭에 대 한 개수를 가져올 수 있습니다 ( [문제 해결 문서](cassandra-troubleshoot.md)참조). 하지만 spark 작업의 컨텍스트 내에서 크기가 작은 테이블의 수를 확인 해야 하는 경우 데이터를 임시 테이블에 복사한 다음 spark SQL을 사용 하 여 개수를 가져올 수 있습니다 (예: `<primary key>` 결과 임시 테이블의 일부 필드로 대체).
 
-  ```scala
-  val ReadFromCosmosCassandra = sqlContext
-    .read
-    .format("org.apache.spark.sql.cassandra")
-    .options(cosmosCassandra)
-    .load
 
-  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
-  %sql
-  select count(<primary key>) from CosmosCassandraResult
-  ```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe7ad949d7301a035eb17d2b4d8d678dfb2e0546
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 552d53ff0257105ff61397e281504c5270512319
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650203"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573866"
 ---
 # <a name="use-powershell-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "100650203"
 
 [참조](/powershell/module/Az.Storage/)  |  [Gen1 To Gen2 mapping](#gen1-gen2-map)  |  [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -157,7 +157,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $dirname2 = "my-directory-2/my-subdirectory/"
-Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2
+Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -DestFileSystem $filesystemName -DestPath $dirname2
 ```
 
 ## <a name="delete-a-directory"></a>디렉터리 삭제
@@ -289,7 +289,7 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|Update-AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적은 업데이트 하지 않습니다. 재귀적으로 업데이트 하려면 Get-AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 한 다음 Update-AzDataLakeGen2Item cmdlet으로 파이프라인을 사용 합니다.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|항목이 존재 하지 않는 경우 Get-AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [스토리지 PowerShell cmdlet](/powershell/module/az.storage)

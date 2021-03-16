@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 81a6a6aeb826ba4a61fd4f0a4abdb63fe3674bc4
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102219066"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573730"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "102219066"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -327,3 +327,5 @@ VM 또는 HDInsight 클러스터를 Azure Machine Learning 작업 영역에 연�
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)
 * [4 부: 추론 환경 보안](how-to-secure-inferencing-vnet.md)
 * [5 부: studio 기능 사용](how-to-enable-studio-virtual-network.md)
+
+또한 이름 확인에 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대 한 문서를 참조 하세요.

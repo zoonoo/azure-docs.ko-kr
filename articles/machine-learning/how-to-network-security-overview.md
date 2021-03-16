@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518683"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573475"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -31,12 +31,11 @@ ms.locfileid: "102518683"
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [NSG (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
 + [네트워크 방화벽](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>예제 시나리오
 
 이 섹션에서는 개인 IP 주소를 사용 하 여 Azure Machine Learning 통신을 보호 하기 위해 일반적인 네트워크 시나리오를 설정 하는 방법에 대해 알아봅니다.
@@ -62,8 +61,8 @@ ms.locfileid: "102518683"
 1. [**학습 환경을**](#secure-the-training-environment)보호 합니다.
 1. [**추론 환경을**](#secure-the-inferencing-environment)보호 합니다.
 1. 선택적으로: [**studio 기능을 사용 하도록 설정**](#optional-enable-studio-functionality)합니다.
-1. [ **방화벽 설정** 구성](#configure-firewall-settings)
-
+1. [**방화벽 설정을**](#configure-firewall-settings)구성 합니다.
+1. [DNS 이름 확인](#custom-dns)을 구성 합니다.
 ## <a name="secure-the-workspace-and-associated-resources"></a>작업 영역 및 연결 된 리소스를 보호 합니다.
 
 작업 영역 및 관련 리소스를 보호 하려면 다음 단계를 사용 합니다. 이러한 단계를 통해 서비스가 가상 네트워크에서 통신할 수 있습니다.
@@ -186,3 +185,5 @@ Azure Machine Learning 작업 영역 리소스 및 공용 인터넷에 대 한 �
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)
 * [4 부: 추론 환경 보안](how-to-secure-inferencing-vnet.md)
 * [5 부: studio 기능 사용](how-to-enable-studio-virtual-network.md)
+
+또한 이름 확인에 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대 한 문서를 참조 하세요.

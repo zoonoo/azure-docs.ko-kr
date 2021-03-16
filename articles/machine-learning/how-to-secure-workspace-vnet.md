@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 6d23b0204cc597898eb2202a329d93ff349f8c13
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 5031d097b5d1bdef45dd4b653ae7cef06f5daca0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518537"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573662"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -152,7 +152,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 - JSON 
 - Parquet
 - SQL
-- 파일
+- File
 
 다음 코드는 새 JSON 데이터 집합을 만들고를 설정 `validate=False` 합니다.
 
@@ -240,3 +240,5 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)
 * [4 부: 추론 환경 보안](how-to-secure-inferencing-vnet.md)
 * [5 부: studio 기능 사용](how-to-enable-studio-virtual-network.md)
+
+또한 이름 확인에 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대 한 문서를 참조 하세요.

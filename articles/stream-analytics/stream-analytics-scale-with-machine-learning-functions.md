@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013943"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574257"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정
 
@@ -24,7 +24,7 @@ ms.locfileid: "98013943"
 
 Stream Analytics의 Machine Learning Studio (클래식) 함수는 Stream Analytics 쿼리 언어의 일반 함수 호출 처럼 사용할 수 있습니다. 그러나 내부적으로 이러한 함수 호출은 실제로 Studio (클래식) 웹 서비스 요청입니다.
 
-동일한 웹 서비스 API 호출에서 여러 행을 함께 "일괄 처리" 하 여 Studio (클래식) 웹 서비스 요청의 처리량을 향상 시킬 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Azure Machine Learning Studio(클래식) 웹 서비스](../machine-learning/classic/consume-web-services.md)를 참조하세요. Stream Analytics에서 Studio (클래식)에 대 한 지원은 미리 보기 상태입니다.
+동일한 웹 서비스 API 호출에서 여러 행을 함께 "일괄 처리" 하 여 Studio (클래식) 웹 서비스 요청의 처리량을 향상 시킬 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Azure Machine Learning Studio(클래식) 웹 서비스](../machine-learning/classic/consume-web-services.md)를 참조하세요. Stream Analytics에서 Studio (클래식)를 지원 합니다.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Studio (클래식) 함수를 사용 하 여 Stream Analytics 작업 구성
 
@@ -51,7 +51,7 @@ Stream Analytics 작업의 대기 시간 ‘허용 범위’를 정합니다. �
 
 ![Studio (클래식) 함수를 사용 하 여 Stream Analytics 확장 두 작업 예제](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Studio (클래식) 함수를 사용 하 여 Stream Analytics 확장 두 작업 예제")
 
-일반적으로 배치 크기의 경우 **_b_* _, 일괄 처리 크기 B의 웹 서비스 대기 시간에 대 한 _*_L_*_ (밀리초) _*_을 사용 하_*_ 는 Stream Analytics 작업의 처리량은 다음과 같습니다.
+일반적으로 배치 크기의 경우 ***B** _, 일괄 처리 크기 B의 웹 서비스 대기 시간에 대 한 _*_L_*_ (밀리초)입니다. _ *_N_** SUs를 사용 하는 Stream Analytics 작업의 처리량은 다음과 같습니다.
 
 ![Studio (클래식) 함수 수식을 사용 하 여 Stream Analytics 확장](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Studio (클래식) 함수 수식을 사용 하 여 Stream Analytics 확장")
 
@@ -62,7 +62,7 @@ Stream Analytics 작업의 대기 시간 ‘허용 범위’를 정합니다. �
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제에는 [Stream Analytics Machine Learning Studio (클래식) 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명 된 대로 감정 analysis Studio (클래식) 함수를 사용 하는 Stream Analytics 작업이 포함 되어 있습니다.
 
-쿼리는 다음 예제와 같이 완전히 분할 된 간단한 쿼리 다음에 _ *감정** 함수를 통해 수행 됩니다.
+다음 예제에 표시된 대로 완전히 분할된 간단한 쿼리 다음에 **sentiment** 함수가 옵니다.
 
 ```SQL
     WITH subquery AS (

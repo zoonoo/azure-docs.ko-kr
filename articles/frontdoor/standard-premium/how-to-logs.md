@@ -5,19 +5,19 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 6a1cf3112cd936ec842c755eb90b2c7b094aa781
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099413"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573900"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 로깅
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure Front 도어는 프런트 도어를 추적, 모니터링 및 디버그 하는 데 도움이 되는 다양 한 로깅을 제공 합니다. 
 
@@ -113,7 +113,7 @@ Azure 전면 도어는 현재 아래와 같이 다음 스키마가 있고 JSON �
 
 각 상태 프로브 로그에는 다음 스키마가 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | HealthProbeId  | 요청을 식별 하는 고유 ID입니다. |
 | 시간 | 프로브 완료 시간 |

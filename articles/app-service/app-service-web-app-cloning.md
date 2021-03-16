@@ -5,12 +5,12 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18
-ms.openlocfilehash: 92e893fe9f74d51856faf39d3e4800dd5a8155db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ae342e7cbd8a9c2e126de7666d07f0664be407
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815388"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573645"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -123,6 +123,7 @@ $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-weba
 * 데이터베이스 내용이 복제되지 않습니다.
 * 다른 배율 단위로 복제하는 경우 아웃바운드 IP 주소가 변경됩니다.
 * Linux 앱에 사용할 수 없음
+* 관리 Id는 복제 되지 않습니다.
 
 ### <a name="references"></a>참조
 * [App Service 복제](app-service-web-app-cloning.md)

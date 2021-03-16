@@ -4,16 +4,16 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701453"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573033"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -50,12 +50,13 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | 아메리카           | 유럽               | 아프리카              | 아시아 태평양   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| 캐나다 중부     | 프랑스 중부       | 남아프리카 공화국 북부 * | 일본 동부     |
-| 미국 중부         | 독일 중서부 |                     | 동남아시아 |
-| 미국 동부            | 북유럽         |                     | 오스트레일리아 동부 |
-| 미국 동부 2          | 영국 남부             |                     |                |
-| 미국 중 남부 | 서유럽          |                     |                |
-| US Gov 버지니아    |                      |                     |                |
+| 브라질 남부       | 프랑스 중부       | 남아프리카 공화국 북부 * | 일본 동부     |
+| 캐나다 중부     | 독일 중서부 |                     | 동남 아시아 |
+| 미국 중부         | 북유럽         |                     | 오스트레일리아 동부 |
+| 미국 동부            | 영국 남부             |                     |                |
+| 미국 동부 2          | 서유럽          |                     |                |
+| 미국 중 남부 |                      |                     |                |
+| US Gov 버지니아     |                      |                     |                |
 | 미국 서 부 2        |                      |                     |                |
 
 
@@ -77,7 +78,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 **기본 서비스**
 
-|     Products                                                    | 복원력             |
+|     제품                                                    | 복원력             |
 |-----------------------------------------------------------------|:----------------------------:|
 |     저장소 계정                                           | : large_blue_diamond:  |
 |     Application Gateway (V2)                                  | : large_blue_diamond:  |
@@ -114,7 +115,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 **기본 서비스**
 
-| Products                                        | 복원력 |
+| 제품                                        | 복원력 |
 |-------------------------------------------------|:------------:|
 | App Service Environment                        |      : large_blue_diamond:  |
 | Azure Active Directory Domain Services          |      : large_blue_diamond:  |
@@ -125,6 +126,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | Azure Database for MySQL – 유연한 서버      |      : large_blue_diamond:  |
 | Azure Database for PostgreSQL – 유연한 서버 |      : large_blue_diamond:  |
 | Azure DDoS Protection                           |      : large_blue_diamond:  |
+| Azure Disk Encryption                           |      : large_blue_diamond:  |
 | Azure Firewall                                  |      : large_blue_diamond:  |
 | Azure Firewall Manager                          |      : large_blue_diamond:  |
 | AKS(Azure Kubernetes Service)                  |      : large_blue_diamond:  |
@@ -161,7 +163,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 **비 지역별**
 
-|     Products                                  |     복원력    |
+|     제품                                  |     복원력    |
 |-----------------------------------------------|:-------------------:|
 |     Azure DNS                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
@@ -169,6 +171,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     Azure Advisor                             |     : globe_with_meridians:             |
 |     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Azure Bot Service                        |     : globe_with_meridians:             |
+|     Azure Front Door                          |     : globe_with_meridians:             |
 |     IoT 용 Azure Defender                  |     : globe_with_meridians:             |
 |     Azure Front Door                           |     : globe_with_meridians:             |
 |     Azure Information Protection            |     : globe_with_meridians:             |

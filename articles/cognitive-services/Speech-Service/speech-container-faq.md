@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86c8943531171094600bc7d93b8694bdd1c6e051
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225802"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573747"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -293,7 +293,7 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 예       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 끝점  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | 인식 서비스 온-프레미스 대화 v1 websocket 끝점 |     |          |
 
@@ -345,20 +345,6 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 이는 모두 docker 로그에서 확인할 수 있습니다. 실제로는 세션 및 구/utterance 통계를 사용 하 여 줄을 덤프 하며 여기에는 RTF 숫자가 포함 됩니다.
 
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>음성 컨테이너 사용을 위해 오디오 파일을 chucks로 분할 하는 것이 일반적 인가요?</b>
-</summary>
-
-현재 요금제는 기존 오디오 파일을 가져와서 10 초 청크로 분할 하 고 컨테이너를 통해 전송 하는 것입니다. 적합 한 시나리오 입니까?  컨테이너를 사용 하 여 더 큰 오디오 파일을 처리 하는 더 나은 방법이 있나요?
-
-**답변:** 음성 SDK를 사용 하 여 파일을 제공 하면 올바른 작업을 수행 합니다. 파일의 청크를 만들어야 하는 이유는 무엇 인가요?
-
-
 <br>
 </details>
 
@@ -397,7 +383,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 **답변:** 실시간으로는 최근 8 개를 사용 하 여 `en-US` 6 개 이상의 동시 요청 보다 많은 docker 컨테이너를 사용 하는 것이 좋습니다. 16 개 코어를 초과 하는 crazier을 가져오고, NUMA (non-uniform memory access) 노드가 중요 한 것으로 인식 됩니다. 다음 표에서는 각 음성 컨테이너에 대 한 최소 및 권장 리소스 할당을 설명 합니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너      | 최소             | 권장         |
 |----------------|---------------------|---------------------|

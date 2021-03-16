@@ -4,14 +4,14 @@ description: AKS(Azure Kubernetes Service)에서 송신 트래픽을 제어하�
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505061"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573832"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -214,6 +214,24 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다.  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/응용 프로그램 규칙 
+
+Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
+
+| FQDN                                          | 포트      | 사용      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 끌어오고 클러스터 준수 상태를 정책 서비스에 보고 하는 데 사용 됩니다. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 게이트 키퍼 아티팩트를 가져오는 데 사용 됩니다. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부에 필요한 FQDN/응용 프로그램 규칙
+
+Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
+
+| FQDN                                          | 포트      | 사용      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 끌어오고 클러스터 준수 상태를 정책 서비스에 보고 하는 데 사용 됩니다. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 게이트 키퍼 아티팩트를 가져오는 데 사용 됩니다. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure 방화벽을 사용 하 여 송신 트래픽 제한
 

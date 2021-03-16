@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: da8007a651b62430055f263f082fabf2aa4bf610
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171549"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574291"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "102171549"
 > [!IMPORTANT]
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소 버린 클라우드에__ 있는 경우 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 _하지 않습니다_ . 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 를 참조 하세요.
 
@@ -166,3 +166,5 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](/sql/t-sql/
 * [2 부: 작업 영역 리소스 보안](how-to-secure-workspace-vnet.md)
 * [3 부: 학습 환경 보안](how-to-secure-training-vnet.md)
 * [4 부: 추론 환경 보안](how-to-secure-inferencing-vnet.md)
+
+또한 이름 확인에 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대 한 문서를 참조 하세요.

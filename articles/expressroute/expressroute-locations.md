@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 5fedb9d09e61540d0ee8a1fe21fbd25f31390f5d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0133d6cc54038a56847556a83242114c78e09321
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742452"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574411"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute 연결 파트너 및 피어링 위치
 
@@ -115,6 +115,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[GlobalConnect]()** | 지원됨 |지원됨 | Oslo, Stavanger | 
 | **GTT** |지원됨 |지원됨 |런던2 |
 | **[GCX(Global Cloud Xchange)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | 지원됨| 지원됨 | 첸나이, 뭄바이 |
+| **[iAdvantage](https://www.scx.sunevision.com/)** | 지원됨 | 지원됨 | 홍콩2 |
 | **Intelsat** | 지원됨 | 지원됨 | 워싱턴 DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |지원됨 |지원됨 |암스테르담, 시카고, 프랑크푸르트, 홍콩, 런던, 뉴욕, 파리, 실리콘 계곡, 싱가포르, 워싱턴 DC, 취리히 |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |지원됨 |지원됨 |시카고, 댈러스, 실리콘밸리, 워싱턴 DC |

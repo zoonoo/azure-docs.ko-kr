@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 15ec8417ba5e2858b45176f0a214f6126209f942
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449750"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574172"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -250,9 +250,9 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 
    ```azurepowershell-interactive
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. VPN Gateway에 대한 Azure에 VPN 루트 인증서를 업로드합니다. 이 예제에서는 루트 인증서가 다음 PowerShell cmdlet이 실행 되 고 PowerShell을 로컬로 실행 하는 로컬 컴퓨터에 저장 되어 있다고 가정 합니다. Azure Portal를 사용 하 여 인증서를 업로드할 수도 있습니다.
+2. Vpn gateway에 대 한 VPN [루트 인증서](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#Certificates) 를 Azure에 업로드 합니다. 이 예제에서는 루트 인증서가 다음 PowerShell cmdlet이 실행 되 고 PowerShell을 로컬로 실행 하는 로컬 컴퓨터에 저장 되어 있다고 가정 합니다. Azure Portal를 사용 하 여 인증서를 업로드할 수도 있습니다.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

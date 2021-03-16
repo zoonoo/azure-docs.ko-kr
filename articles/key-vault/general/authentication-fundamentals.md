@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535198"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103572811"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
 Azure Key Vault를 사용 하면 중앙 및 보안 클라우드 리포지토리에서 비밀, 키 및 인증서와 같은 응용 프로그램 자격 증명을 안전 하 게 저장 하 고 관리할 수 있습니다. Key Vault를 통해 응용 프로그램에 자격 증명을 저장할 필요가 없습니다. 응용 프로그램은 런타임에 Key Vault에 인증 하 여 자격 증명을 검색할 수 있습니다.
 
-관리자는 키 자격 증명 모음에 액세스할 수 있는 사용자 및 응용 프로그램을 긴밀 하 게 제어할 수 있으며, 수행 하는 작업을 제한 하 고 감사할 수 있습니다. 이 문서에서는 주요 자격 증명 모음 액세스 모델의 기본 개념을 설명 합니다. 이를 통해 소개 수준의 정보를 제공 하 고, 시작부터 끝까지 주요 자격 증명 모음에 사용자 또는 응용 프로그램을 인증할 수 있는 방법을 보여 줍니다.
+관리자는 키 자격 증명 모음에 액세스할 수 있는 사용자 및 응용 프로그램을 긴밀 하 게 제어할 수 있으며, 수행 하는 작업을 제한 하 고 감사할 수 있습니다. 이 문서에서는 주요 자격 증명 모음 액세스 모델의 기본 개념을 설명 합니다. 여기서는 소개 수준의 정보를 제공 하 고, 사용자 또는 응용 프로그램을 주요 자격 증명 모음에 인증 하 여 처음부터 끝까지 인증할 수 있는 방법을 보여 줍니다.
 
 ## <a name="required-knowledge"></a>필요한 정보
 

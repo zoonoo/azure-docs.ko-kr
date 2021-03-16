@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 960c00f516aac0c804718e439ae3ed9691759329
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010680"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573050"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자를 로그인하는 웹앱
 
@@ -55,7 +55,7 @@ Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 
 
 사용자가 로그인 할 수 있도록 웹 앱에 인증을 추가 합니다. 인증을 추가 하면 사용자에 대 한 환경을 사용자 지정 하기 위해 웹 앱에서 제한 된 프로필 정보에 액세스할 수 있습니다.
 
-웹 앱은 웹 브라우저에서 사용자를 인증 합니다. 이 시나리오에서는 웹 앱이 사용자의 브라우저에서 Azure Active Directory (Azure AD)에 로그인 하도록 지시 합니다. Azure AD는 보안 토큰의 사용자에 대 한 클레임을 포함 하는 사용자의 브라우저를 통해 로그인 응답을 반환 합니다. 사용자 로그인은 미들웨어 [라이브러리](scenario-web-app-sign-user-app-configuration.md#microsoft libraries supporting web apps)를 사용 하 여 간소화 된 [Open ID Connect](./v2-protocols-oidc.md) 표준 프로토콜을 활용 합니다.
+웹 앱은 웹 브라우저에서 사용자를 인증 합니다. 이 시나리오에서는 웹 앱이 사용자의 브라우저에서 Azure Active Directory (Azure AD)에 로그인 하도록 지시 합니다. Azure AD는 보안 토큰의 사용자에 대 한 클레임을 포함 하는 사용자의 브라우저를 통해 로그인 응답을 반환 합니다. 사용자 로그인은 미들웨어 [라이브러리](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps)를 사용 하 여 간소화 된 [Open ID Connect](./v2-protocols-oidc.md) 표준 프로토콜을 활용 합니다.
 
 ![웹앱의 사용자 로그인](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 AAD pod 관리 되는 관리
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: f3d0db5b085fcdb9a24310cb2fe310d390b1790a
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233499"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574376"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사용 (미리 보기)
 
@@ -53,13 +53,16 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>관리 id를 사용 하 여 AKS 클러스터 만들기
+## <a name="create-an-aks-cluster-with-azure-cni"></a>Azure CNI를 사용 하 여 AKS 클러스터 만들기
 
-관리 id 및 pod 관리 id를 사용 하 여 AKS 클러스터를 만듭니다. 다음 명령에서는 [az group create][az-group-create] 를 사용 하 여 *myresourcegroup* 이라는 리소스 그룹을 만들고 [az aks Create][az-aks-create] 명령을 사용 하 여 *MYRESOURCEGROUP* 리소스 그룹에 *myAKSCluster* 이라는 aks 클러스터를 만듭니다.
+> [!NOTE]
+> 기본 권장 구성입니다.
+
+Azure CNI 및 pod 관리 id를 사용 하 여 AKS 클러스터를 만듭니다. 다음 명령에서는 [az group create][az-group-create] 를 사용 하 여 *myresourcegroup* 이라는 리소스 그룹을 만들고 [az aks Create][az-aks-create] 명령을 사용 하 여 *MYRESOURCEGROUP* 리소스 그룹에 *myAKSCluster* 이라는 aks 클러스터를 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
+az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 [Az aks get-help][az-aks-get-credentials] 를 사용 하 여 aks 클러스터에 로그인 합니다. 또한이 명령은 `kubectl` 개발 컴퓨터에서 클라이언트 인증서를 다운로드 하 여 구성 합니다.
@@ -67,6 +70,44 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --ena
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Azure CNI를 사용 하 여 기존 AKS 클러스터 업데이트
+
+Pod 관리 id를 포함 하도록 Azure CNI를 사용 하 여 기존 AKS 클러스터를 업데이트 합니다.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+```
+## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Azure Active Directory pod 관리 id와 함께 Kubenet 네트워크 플러그 인 사용 
+
+> [!IMPORTANT]
+> Kubenet를 사용 하 여 클러스터에서 aad-pod-id를 실행 하는 것은 보안을 의미 하기 때문에 권장 되는 구성이 아닙니다. Kubenet를 사용 하는 클러스터에서 aad pod id를 사용 하도록 설정 하기 전에 완화 단계를 수행 하 고 정책을 구성 하세요.
+
+## <a name="mitigation"></a>완화 방법
+
+클러스터 수준에서 취약성을 완화 하기 위해, OpenPolicyAgent 허용 컨트롤러를 게이트 키퍼 유효성 검사 webhook와 함께 사용할 수 있습니다. 클러스터에 이미 게이트 키퍼가 설치 된 경우 K8sPSPCapabilities 형식의 ConstraintTemplate를 추가 합니다.
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/capabilities/template.yaml
+```
+NET_RAW 기능을 사용 하 여 Pod 생성을 제한 하는 템플릿을 추가 합니다.
+
+```
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPCapabilities
+metadata:
+  name: prevent-net-raw
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - "kube-system"
+  parameters:
+    requiredDropCapabilities: ["NET_RAW"]
+```
+
 ## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Kubenet 네트워크 플러그 인을 사용 하 여 AKS 클러스터 만들기
 
 Kubenet 네트워크 플러그 인 및 pod 관리 id를 사용 하 여 AKS 클러스터를 만듭니다.

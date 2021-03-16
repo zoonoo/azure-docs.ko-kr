@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e248c10c15ba0318c6b23fcbf88be04dd9896a2
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561518"
+ms.locfileid: "103573067"
 ---
 # <a name="embedded-sign-in-experience"></a>포함 된 로그인 환경
 
 더 간단한 로그인 환경을 위해 사용자를 별도의 로그인 페이지로 리디렉션하거나 팝업 창을 생성 하지 않도록 방지할 수 있습니다. 인라인 프레임 요소를 사용 하 여 `<iframe>` Azure AD B2C 로그인 사용자 인터페이스를 웹 응용 프로그램에 직접 포함할 수 있습니다.
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="web-application-embedded-sign-in"></a>웹 응용 프로그램 embedded 로그인
 
@@ -32,7 +34,12 @@ Iframe을 사용 하는 경우 다음 사항을 고려 합니다.
 
 - 포함 된 로그인은 로컬 계정만 지원 합니다. 대부분의 소셜 id 공급자 (예: Google 및 Facebook)는 로그인 페이지가 인라인 프레임에서 렌더링 되지 않도록 차단 합니다.
 - Iframe 내의 Azure AD B2C 세션 쿠키는 타사 쿠키로 간주 되기 때문에 특정 브라우저 (예: Safari 또는 incognito 모드의 Chrome)는 이러한 쿠키를 차단 하거나 지워 원치 않는 사용자 환경을 생성 합니다. 이 문제를 방지 하려면 응용 프로그램 도메인 이름과 Azure AD B2C 도메인의 *원본이 동일한* 지 확인 합니다. 동일한 원본을 사용 하려면 Azure AD B2C 테 넌 트에 대해 [사용자 지정 도메인을 사용 하도록 설정한](custom-domain.md) 다음 동일한 원본으로 웹 앱을 구성 합니다. 예를 들어에서 호스팅된 응용 프로그램은 https://app.contoso.com 에서 실행 되는 Azure AD B2C와 동일한 원본을 갖습니다 https://login.contoso.com .
- 
+
+## <a name="perquisites"></a>필수 구성 요소
+
+* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
+* 정책에 대해 [사용자 지정 도메인을 사용 하도록 설정](custom-domain.md) 합니다.
+
 ## <a name="configure-your-policy"></a>정책 구성
 
 Azure AD B2C 사용자 인터페이스를 iframe에 포함할 수 있도록 하려면 `Content-Security-Policy` `X-Frame-Options` Azure AD B2C HTTP 응답 헤더에 콘텐츠 보안 정책 및 프레임 옵션을 포함 해야 합니다. 이러한 헤더를 사용 하면 Azure AD B2C 사용자 인터페이스가 응용 프로그램 도메인 이름으로 실행 될 수 있습니다.
