@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518112"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489137"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C (미리 보기)를 사용 하 여 Apple ID로 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "102518112"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -57,8 +57,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Apple ID를 사용 하는 사용
 1. **식별자** 에서 만든 식별자를 선택 합니다.
 1. **Apple에서 로그인** 을 선택 하 고 **구성** 을 선택 합니다.
     1. Apple을 사용 하 여 로그인을 구성 하려는 **기본 앱 ID** 를 선택 합니다.
-    1. **도메인 및 하위 도메인** 에를 입력 `your-tenant-name.b2clogin.com` 합니다. your-tenant-name을 테넌트 이름으로 바꿉니다.
-    1. **반환 url** 에을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. your-tenant-name을 테넌트 이름으로 바꿉니다.
+    1. **도메인 및 하위 도메인** 에를 입력 `your-tenant-name.b2clogin.com` 합니다. your-tenant-name을 테넌트 이름으로 바꿉니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
+    1. **반환 url** 에을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다.
     1. **다음** 을 선택한 후 **완료** 를 선택 합니다.
     1. 팝업 창이 닫히면 **계속** 을 선택한 다음 **저장** 을 선택 합니다.
 

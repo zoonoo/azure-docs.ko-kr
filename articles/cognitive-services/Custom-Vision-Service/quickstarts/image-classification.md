@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: Custom Vision 클라이언트 라이브러리 또는 REST API를 사용한 이미지 분류'
 titleSuffix: Azure Cognitive Services
-description: '빠른 시작: Custom Vision 클라이언트 라이브러리 또는 cURL이 포함된 REST API를 사용하여 이미지 분류 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.'
+description: '빠른 시작: Custom Vision 클라이언트 라이브러리 또는 REST API를 사용하여 이미지 분류 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/25/2020
+ms.date: 02/25/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 사용자 지정 비전, 이미지 인식, 이미지 인식 앱, 이미지 분석, 이미지 인식 소프트웨어
 zone_pivot_groups: programming-languages-set-cusvis
-ms.openlocfilehash: 30ed0afe258b0952a7ff312e48c24027d1fc4b93
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e99d15a48946706585879e9a1eaaf24bb2edfdef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813737"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184310"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library-or-rest-api"></a>빠른 시작: Custom Vision 클라이언트 라이브러리를 또는 REST API를 사용하여 이미지 분류 프로젝트 만들기
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c5bdab2038f2f41c7240addaff99bd831d29f489
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d4c9d2e290f6a8f07878a019b755c8add2ab69ea
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101643816"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488447"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>자습서: Dropbox Business와 Azure Active Directory 통합
 
@@ -82,11 +82,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **기본 SAML 구성** 페이지에서 다음 필드에 대한 값을 입력합니다.
 
     a. **로그온 URL** 텍스트 상자에서 `https://www.dropbox.com/sso/<id>` 패턴을 사용하는 URL을 입력합니다.
-
-    b. **식별자(엔터티 ID)** 텍스트 상자에 값을 `Dropbox`로 입력합니다.
-
+    
+     b. **식별자(엔터티 ID)** 텍스트 상자에 값을 `Dropbox`로 입력합니다.
+    
     > [!NOTE]
-    > 위의 로그온 URL 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL로 값을 업데이트하게 됩니다.
+    > **Dropbox Sign SSO ID** 는 Dropbox 사이트의 Dropbox > 관리 콘솔 > 설정 > Single Sign-On > SSO 로그인 URL에서 찾을 수 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -137,23 +137,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **사용자 아이콘** 을 클릭하고 **설정** 탭을 선택합니다.
 
-    !["사용자 아이콘" 작업 및 선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure1.png "Single Sign-On 구성")
+    !["사용자 아이콘" 작업 및 선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure-1.png "Single Sign-On 구성")
 
 5. 왼쪽의 탐색 창에서 **관리 콘솔** 을 클릭합니다.
 
-    ![선택된 "관리 콘솔"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure2.png "Single Sign-On 구성")
+    ![선택된 "관리 콘솔"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure-2.png "Single Sign-On 구성")
 
 6. **관리 콘솔** 의 왼쪽 탐색 창에서 **설정** 을 클릭합니다.
 
-    ![선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure3.png "Single Sign-On 구성")
+    ![선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure-3.png "Single Sign-On 구성")
 
 7. **인증** 섹션에서 **Single Sign-On** 옵션을 선택합니다.
 
-    !["Single Sign-On"이 선택된 "인증" 섹션을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure4.png "Single Sign-On 구성")
+    !["Single Sign-On"이 선택된 "인증" 섹션을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure-4.png "Single Sign-On 구성")
 
 8. **Single Sign-On** 섹션에서 다음 단계를 수행합니다.  
 
-    !["Single Sign-On" 구성 설정을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure5.png "Single Sign-On 구성")
+    !["Single Sign-On" 구성 설정을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure-5.png "Single Sign-On 구성")
 
     a. **Single Sign-On** 에 대한 드롭다운에서 옵션으로 **필수** 를 선택합니다.
 
@@ -174,7 +174,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 >[!Note]
 >사용자를 수동으로 만들어야 하는 경우 [Dropbox Business 클라이언트 지원 팀](https://www.dropbox.com/business/contact)에 문의합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
@@ -186,4 +186,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 
-Dropbox Business가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Dropbox Business가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -1,6 +1,6 @@
 ---
 title: 'DB2에서 SQL Managed Instance로: 마이그레이션 가이드'
-description: 이 가이드에 따라 DB2 데이터베이스를 Azure SQL Managed Instance로 마이그레이션합니다.
+description: 이 가이드에서는 DB2 용 SQL Server Migration Assistant를 사용 하 여 DB2 데이터베이스를 Azure SQL Managed Instance로 마이그레이션하는 방법을 설명 합니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9ad838b8c5f54d3ecdd5c8ce56b197cdb6cec1ba
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359186"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563864"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>마이그레이션 가이드: DB2에서 SQL로 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "97359186"
 
 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 DB2 데이터베이스를 SQL Managed Instance 마이그레이션하려면 다음이 필요 합니다.
 
@@ -142,9 +142,6 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 1. **테스트 환경 설정**: 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
 1. **유효성 검사 테스트 실행**: 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
 1. **성능 테스트 실행**: 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
-
-   > [!NOTE]
-   > 마이그레이션 후 유효성 검사 테스트를 개발하고 실행하는 데 도움이 필요한 경우 파트너 [QuerySurge](https://www.querysurge.com/company/partners/microsoft)에서 제공하는 데이터 품질 솔루션을 사용하는 것이 좋습니다. 
 
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 

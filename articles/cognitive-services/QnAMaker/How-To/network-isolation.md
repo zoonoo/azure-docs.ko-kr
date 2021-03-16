@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225611"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467547"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
@@ -22,8 +22,7 @@ App service 허용 목록에 Ip를 추가 하 여 액세스를 제한 하거나 
 
 #### <a name="add-ips-to-app-service-allow-list"></a>App Service 허용 목록에 Ip 추가
 
-1. 
-Cognitive Services Ip 에서만 트래픽을 전송 합니다. 이러한 설정은 서비스 태그에 이미 포함 되어 `CognitiveServicesManagement` 있습니다. 이는 app service를 호출 하 고 Azure Search 서비스를 업데이트 하는 Api (만들기/업데이트 KB)를 작성 하는 데 필요 합니다. [서비스 태그에 대 한 자세한 정보를](../../../virtual-network/service-tags-overview.md) 확인 하세요.
+1. Cognitive Services Ip의 트래픽만 허용 합니다. 이러한 설정은 서비스 태그에 이미 포함 되어 `CognitiveServicesManagement` 있습니다. 이는 app service를 호출 하 고 Azure Search 서비스를 업데이트 하는 Api (만들기/업데이트 KB)를 작성 하는 데 필요 합니다. [서비스 태그에 대 한 자세한 정보를](../../../virtual-network/service-tags-overview.md) 확인 하세요.
 2. Azure Bot Service, QnA Maker 포털 등의 다른 진입점도 예측 "GenerateAnswer" API 액세스에 사용할 수 있도록 해야 합니다.
 3. IP 주소 범위를 허용 목록에 추가 하려면 다음 단계를 수행 하세요.
 

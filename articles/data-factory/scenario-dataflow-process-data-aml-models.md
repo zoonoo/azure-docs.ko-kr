@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: 494fc2c227b6fe855e96a780d43cc6702722fa94
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: e8352b687a3cdfac7ea2a819e1217906598a6837
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521017"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563269"
 ---
 # <a name="process-data-from-automated-machine-learningautoml-models-using-data-flow"></a>자동 기계 학습 (AutoML) 모델에서 데이터 흐름을 사용 하 여 데이터 처리
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 자동 기계 학습 (AutoML)은 분류, 회귀 및 시계열 예측에 대해 지정 하는 대상 메트릭을 사용 하 여 자동으로 최상의 모델을 학습 하 고 조정 하 고 얻을 수 있도록 기계 학습 프로젝트에서 채택 합니다. 
 

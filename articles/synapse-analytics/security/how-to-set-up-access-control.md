@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369002"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472265"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법 
 
@@ -124,7 +124,7 @@ Azure Portal에서 다음과 같이 Synapse 작업 영역을 만듭니다.
 
 ## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>5 단계: 작업 영역에서 Synapse 관리자에 게 Azure 참가자 역할 부여 
 
-SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자에 게 최소한 작업 영역에 대 한 Azure 참가자 액세스 권한이 있어야 합니다. 또한 참가자 역할을 통해 이러한 사용자는 일시 중지 및 크기 조정을 포함 하 여 리소스를 관리할 수 있습니다.
+SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자의 작업 영역에 Azure 참가자 역할이 하나 이상 있어야 합니다. 또한 참가자 역할을 통해 이러한 사용자는 일시 중지 및 크기 조정을 포함 하 여 리소스를 관리할 수 있습니다. Azure Portal 또는 Synapse Studio를 사용 하 여 SQL 풀, Apache Spark 풀 및 통합 런타임을 만드는 경우 리소스 그룹 수준에서 Azure 참가자 역할이 필요 합니다. 
 
 - Azure 포털 열기
 - 작업 영역을 찾습니다. `workspace1`
@@ -271,7 +271,7 @@ DROP USER [<workspacename>];
 
 작업 영역을 보호 하는 마지막 단계로 다음을 사용 하 여 네트워크 액세스를 보호 해야 합니다.
 - [작업 영역 방화벽](./synapse-workspace-ip-firewall.md)
-- [관리 되는 가상 네트워크](./synapse-workspace-managed-vnet.md) 
+- [관리형 가상 네트워크](./synapse-workspace-managed-vnet.md) 
 - [전용 끝점](./synapse-workspace-managed-private-endpoints.md)
 - [Private Link](../../azure-sql/database/private-endpoint-overview.md)
 

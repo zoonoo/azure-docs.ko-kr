@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666967"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470747"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 응용 프로그램 크기 조정
 
 Azure에서 HPC 응용 프로그램의 최적의 확장 및 확장 성능을 위해서는 특정 워크 로드에 대 한 성능 조정 및 최적화 실험이 필요 합니다. 이 섹션과 VM 시리즈 관련 페이지에서는 응용 프로그램 크기 조정에 대 한 일반적인 지침을 제공 합니다.
+
+## <a name="optimally-scaling-mpi"></a>MPI를 최적으로 확장 
+
+최적의 응용 프로그램 크기 조정 효율성, 성능 및 일관성을 위해 다음 제안이 적용 됩니다.
+
+- 작은 규모의 작업 (예: 256K 연결 <)의 경우 옵션을 사용 합니다.
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- 더 큰 규모의 작업 (예: 256K 연결 >)의 경우 옵션을 사용 합니다.
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- 위의에서 MPI 작업에 대 한 연결 수를 계산 하려면 다음을 사용 합니다.
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>프로세스 고정
+
+- 순차적 고정 접근 방법을 사용 하 여 코어에 프로세스를 고정 합니다 (autobalance 접근 방식이 아닌). 
+- Numa/Core/HwThread로의 바인딩은 기본 바인딩 보다 좋습니다.
+- 하이브리드 병렬 응용 프로그램 (OpenMP + MPI)의 경우 HB 및 HBv2 VM 크기에서 4 개의 스레드 및 CCX 당 1 개의 MPI 순위를 사용 합니다.
+- 순수 MPI 응용 프로그램의 경우 HB 및 HBv2 VM 크기에 대 한 최적의 성능을 위해 CCX 당 1-4 MPI 순위를 시험해 보세요.
+- 메모리 대역폭과 크게 구분 되는 일부 응용 프로그램의 경우 CCX 당 코어 수를 줄이는 것이 유용할 수 있습니다. 이러한 응용 프로그램의 경우 CCX 당 3 개 또는 2 개 코어를 사용 하면 메모리 대역폭 경합이 감소 하 고 실제 성능 또는 확장성이 높은 확장성을 얻을 수 있습니다. 특히 MPI Allreduce은이 방법의 이점을 누릴 수 있습니다.
+- 크기를 크게 증가 시키려면 UD 또는 하이브리드 RC + UD 전송을 사용 하는 것이 좋습니다. 대부분의 MPI 라이브러리/런타임 라이브러리는 내부적으로이 작업을 수행 합니다 (예: 작업 x 또는 MVAPICH2). 대량 실행에 대 한 전송 구성을 확인 합니다.
 
 ## <a name="compiling-applications"></a>응용 프로그램 컴파일
 
@@ -37,7 +65,7 @@ FLANG 컴파일러는 AOCC 제품군 (4 월 2018 추가)에 대 한 최근 추�
 
 ### <a name="dragonegg"></a>DragonEgg
 
-DragonEgg은 GCC의 최적화 도구 및 코드 생성기를 LLVM 프로젝트의 코드 생성기로 바꾸는 gcc 플러그 인입니다. AOCC와 함께 제공 되는 DragonEgg은 gcc-4.8와 함께 작동 하며, x86-32/x86-64 대상에 대해 테스트 되었으며 다양 한 Linux 플랫폼에서 성공적으로 사용 되었습니다.
+DragonEgg은 GCC의 최적화 도구 및 코드 생성기를 LLVM 프로젝트의 코드 생성기로 바꾸는 gcc 플러그 인입니다. AOCC와 함께 제공 되는 DragonEgg은 gcc-4.8와 함께 작동 하며, x86-32/x86-64 대상에 대해 테스트 되었으며, 다양 한 Linux 플랫폼에서 성공적으로 사용 되었습니다.
 
 GFortran은 GCC GIMPLE 중간 표현 (IR)을 생성 하는 전처리, 구문 분석 및 의미 체계 분석을 담당 하는 포트란 프로그램의 실제 프런트 엔드입니다. DragonEgg는 GFortran 컴파일 흐름에 연결 하는 GNU 플러그 인입니다. GNU 플러그 인 API를 구현 합니다. 플러그 인 아키텍처를 사용 하는 경우 DragonEgg는 컴파일러 드라이버가 되므로 컴파일의 여러 단계를 구동 합니다.  다운로드 및 설치 지침을 수행한 후 다음을 사용 하 여 드래곤을 호출할 수 있습니다. 
 
@@ -68,17 +96,6 @@ HPC의 경우 AMD는 GCC 컴파일러 7.3 이상 버전을 권장 합니다. RHE
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>애플리케이션 크기 조정 
-
-최적의 응용 프로그램 크기 조정 효율성, 성능 및 일관성을 위해 다음 제안이 적용 됩니다.
-
-* 자동 잔액 방식과 달리 순차적 고정 방법을 사용 하 여 코어 0-59에 프로세스를 고정 합니다. 
-* Numa/Core/HwThread로의 바인딩은 기본 바인딩 보다 좋습니다.
-* 하이브리드 병렬 응용 프로그램 (OpenMP + MPI)의 경우 4 개의 스레드를 사용 하 고, CCX 당 MPI 순위를 1 개 사용 합니다.
-* 순수한 MPI 응용 프로그램의 경우 최적의 성능을 위해 1-4 MPI 순위를로 시험해 보세요.
-* 메모리 대역폭과 크게 구분 되는 일부 응용 프로그램의 경우 CCX 당 코어 수를 줄이는 것이 유용할 수 있습니다. 이러한 응용 프로그램의 경우 CCX 당 3 개 또는 2 개 코어를 사용 하면 메모리 대역폭 경합이 감소 하 고 실제 성능 또는 확장성이 높은 확장성을 얻을 수 있습니다. 특히 MPI Allreduce은이를 활용 하는 것이 좋습니다.
-* 크기를 크게 증가 시키려면 UD 또는 하이브리드 RC + UD 전송을 사용 하는 것이 좋습니다. 대부분의 MPI 라이브러리/런타임 라이브러리는 내부적으로이 작업을 수행 합니다 (예: 작업 x 또는 MVAPICH2). 대량 실행에 대 한 전송 구성을 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

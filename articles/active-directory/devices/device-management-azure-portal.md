@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688912"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561654"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -170,6 +170,10 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 > [!NOTE]
 > **AZURE ad에 가입 된 장치 또는 azure ad에 등록 된 장치** 는 azure ad 조인 (몇 가지 예외 포함) 또는 azure ad에 등록 된 장치에 Multi-Factor Authentication 설정이 적용 되어야 합니다. 하이브리드 Azure AD 조인 장치, azure [의 AZURE ad 조인 된 vm](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) 및 [Windows Autopilot 자체 배포 모드](/mem/autopilot/self-deploying)를 사용 하는 azure ad 조인 장치에는이 설정이 적용 되지 않습니다.
 
+> [!IMPORTANT]
+> - 장치를 연결 하거나 등록 하기 위해 다단계 인증을 적용 하려면 조건부 액세스에서 ["장치 등록 또는 연결" 사용자 작업](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) 을 사용 하는 것이 좋습니다. 
+> - 조건부 액세스 정책을 사용 하 여 multi-factor authentication을 요구 하는 경우이 설정을 **아니요** 로 설정 해야 합니다. 
+
 - **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다.
 
 > [!NOTE]
@@ -206,7 +210,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 - 활동 리소스 종류
 - 활동
 - 날짜 범위
-- Target
+- 대상
 - 초기자(작업자)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.

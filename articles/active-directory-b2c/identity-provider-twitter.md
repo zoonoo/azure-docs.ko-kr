@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8cb31f57e5403e99e2ef9bfcc5d1042e33516d1d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448152"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488519"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
@@ -29,7 +29,7 @@ ms.locfileid: "102448152"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -45,8 +45,12 @@ Azure AD B2C에서 Twitter 계정을 사용 하는 사용자에 대 한 로그�
 1. **인증 설정** 에서 **편집** 을 선택 합니다.
     1. **3-직선 OAuth 사용** 확인란을 선택 합니다.
     1. **사용자의 메일 주소 요청** 확인란을 선택 합니다.
-    1. **콜백 url** 에 대해를 입력 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다. `your-tenant`는 실제 테넌트 이름으로, `your-user-flow-Id`는 사용자 흐름의 식별자로 바꿉니다. 예들 들어 `b2c_1a_signup_signin_twitter`입니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 합니다.
-    1. **웹 사이트 URL** 에 대해를 입력 `https://your-tenant.b2clogin.com` 합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예들 들어 `https://contosob2c.b2clogin.com`입니다.
+    1. **콜백 url** 에 대해를 입력 `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다.  [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 합니다. 다음을
+        - `your-tenant-name` 을 테 넌 트 이름의 이름으로 바꿉니다.
+        - `your-domain-name` 사용자 지정 도메인을 사용 합니다.
+        - `your-user-flow-Id` 사용자 흐름의 식별자로 바꿉니다. 예들 들어 `b2c_1a_signup_signin_twitter`입니다. 
+    
+    1. **웹 사이트 URL** 에 대해를 입력 `https://your-tenant.b2clogin.com` 합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예들 들어 `https://contosob2c.b2clogin.com`입니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
     1. **서비스 약관** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/tos` . 정책 URL은 응용 프로그램에 대 한 사용 약관을 제공 하기 위해 유지 관리 하는 페이지입니다.
     1. **개인 정보 취급 방침** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/privacy` . 정책 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
     1. **저장** 을 선택합니다.

@@ -1,36 +1,25 @@
 ---
 title: Azure Security Center용 에이전트 자동 배포 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 사용하는 Log Analytics 에이전트 및 기타 에이전트를 자동으로 프로비저닝하도록 설정하는 방법을 설명합니다.
-services: security-center
+description: 이 문서에서는 Azure Security Center에서 사용하는 Log Analytics 에이전트, 기타 에이전트 및 확장을 자동으로 프로비저닝하도록 설정하는 방법을 설명합니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/15/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596169"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561265"
 ---
-# <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장 자동 프로비저닝
+# <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
-Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 
+Azure Security Center는 해당 리소스의 관련 에이전트 또는 확장 및 활성화된 데이터 수집 유형을 사용하여 리소스에서 데이터를 수집합니다. 아래 절차를 사용하여 리소스에 Security Center에서 사용하는 필수 에이전트 및 확장이 있는지 확인합니다.
 
-누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 상태, 상태 및 위협 방지에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 데이터 수집은 컴퓨팅 리소스(VM, 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터)에만 필요합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
-
-데이터는 다음을 사용하여 수집됩니다.
-
-- **Log Analytics 에이전트** - 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 데이터를 작업 영역에 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
-- **보안 확장**(예: [Kubernetes에 대한 Azure Policy 추가 기능](../governance/policy/concepts/policy-for-kubernetes.md)) - 특수 리소스 종류와 관련된 데이터를 Security Center에 제공할 수도 있습니다.
-
-> [!TIP]
-> Security Center가 성장함에 따라 모니터링할 수 있는 리소스 종류도 증가했습니다. 확장의 수도 증가했습니다. 자동 프로비저닝은 Azure Policy 기능을 활용하여 추가 리소스 종류를 지원하도록 확장되었습니다.
-
-:::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Security Center의 자동 프로비저닝 설정 페이지":::
-
+## <a name="prerequisites"></a>사전 요구 사항
+Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)에 가입할 수 있습니다.
 
 ## <a name="availability"></a>가용성
 
@@ -42,6 +31,21 @@ Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS �
 | 클라우드:                 | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 중국 정부, 기타 정부                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
+## <a name="how-does-security-center-collect-data"></a>Security Center에서 데이터를 수집하는 방법은 무엇인가요?
+
+Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 
+
+누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 상태, 상태 및 위협 방지에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 데이터 수집은 VM, 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터와 같은 컴퓨팅 리소스에서만 필요합니다. 
+
+에이전트를 프로비저닝하지 않더라도 Azure Security Center의 이점을 제공합니다. 그러나 보안이 제한적이며 위에 나열된 기능은 지원되지 않습니다.  
+
+데이터는 다음을 사용하여 수집됩니다.
+
+- **Log Analytics 에이전트** - 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 데이터를 작업 영역에 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
+- **보안 확장**(예: [Kubernetes에 대한 Azure Policy 추가 기능](../governance/policy/concepts/policy-for-kubernetes.md)) - 특수 리소스 종류와 관련된 데이터를 Security Center에 제공할 수도 있습니다.
+
+> [!TIP]
+> Security Center가 성장함에 따라 모니터링할 수 있는 리소스 종류도 증가했습니다. 확장의 수도 증가했습니다. 자동 프로비저닝은 Azure Policy 기능을 활용하여 추가 리소스 종류를 지원하도록 확장되었습니다.
 
 ## <a name="why-use-auto-provisioning"></a>자동 프로비저닝을 사용하는 이유
 이 페이지에서 설명하는 모든 에이전트 및 확장은 수동으로 *설치할 수 있습니다*([Log Analytics 에이전트 수동 설치](#manual-agent) 참조). 그러나 **자동 프로비저닝** 은 지원되는 모든 리소스에 대한 더 빠른 보안 적용 범위를 보장하기 위해 필요한 모든 에이전트 및 확장을 기존 및 새 컴퓨터에 설치하여 관리 오버헤드를 줄입니다. 
@@ -49,19 +53,24 @@ Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS �
 자동 프로비저닝을 사용하도록 설정하는 것이 좋지만, 기본적으로 사용하지 않도록 설정되어 있습니다.
 
 ## <a name="how-does-auto-provisioning-work"></a>자동 프로비저닝의 작동 방식
-Security Center의 자동 프로비저닝 설정에는 지원되는 각 확장 유형에 대한 설정/해제가 있습니다. 확장의 자동 프로비저닝을 사용하도록 설정하는 경우 적절한 **없는 경우 배포** 정책을 할당하여 확장이 해당 유형의 모든 기존 및 향후 리소스에 프로비저닝되도록 합니다.
+Security Center의 자동 프로비저닝 설정에는 지원되는 각 확장 유형에 대한 설정/해제가 있습니다. 확장의 자동 프로비저닝을 사용하도록 설정할 때 적절한 **존재하지 않는 경우 배포** 정책을 할당합니다. 이 정책 유형을 사용하면 해당 유형의 기존 및 미래의 모든 리소스에서 확장이 프로비저닝됩니다.
 
 > [!TIP]
 > [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)에서 '없는 경우 배포'를 포함하여 Azure Policy 효과에 대해 자세히 알아보세요.
 
-## <a name="enable-auto-provisioning-of-the-log-analytics-agent"></a>Log Analytics 에이전트 자동 프로비저닝 사용 <a name="auto-provision-mma"></a>
+
+## <a name="enable-auto-provisioning-of-the-log-analytics-agent-and-extensions"></a>Log Analytics 에이전트 및 <a name="auto-provision-mma"></a> 확장의 자동 프로비저닝 사용
+
 Log Analytics 에이전트에 대한 자동 프로비저닝이 설정되어 있으면 Security Center에서 에이전트를 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 배포합니다. 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
 
 Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려면 다음을 수행합니다.
 
 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 1. 관련 구독을 선택합니다.
-1. **자동 프로비저닝** 페이지에서 에이전트 상태를 **켜기** 로 설정합니다.
+1. **자동 프로비저닝** 페이지에서 Log Analytics 에이전트 상태를 **켜기** 로 설정합니다.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
+
 1. 구성 옵션 창에서 사용할 작업 영역을 정의합니다.
 
     :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Log Analytics 에이전트를 VM으로 자동으로 프로비저닝하기 위한 구성 옵션" lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
@@ -85,7 +94,7 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
         이미 기존 Log Analytics 작업 영역이 있는 경우 동일한 작업 영역을 사용하는 것이 좋습니다(작업 영역에 대한 읽기 및 쓰기 권한 필요). 이 옵션은 조직에서 중앙 집중식 작업 영역을 사용하고 있고 보안 데이터 수집에 사용하려는 경우에 유용합니다. [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](../azure-monitor/logs/manage-access.md)에서 자세히 알아보세요.
 
-        선택한 작업 영역에서 이미 Security 또는 SecurityCenterFree 솔루션을 사용하도록 설정된 경우 가격 책정이 자동으로 설정됩니다. 그렇지 않은 경우 Security Center 솔루션을 작업 영역에 설치합니다.
+        선택한 작업 영역에서 이미 "Security" 또는 "SecurityCenterFree" 솔루션을 사용하도록 설정된 경우 가격 책정이 자동으로 설정됩니다. 그렇지 않은 경우 Security Center 솔루션을 작업 영역에 설치합니다.
 
         1. Security Center 메뉴에서 **가격 책정 및 설정** 을 엽니다.
         1. 에이전트를 연결할 작업 영역을 선택합니다.
@@ -104,6 +113,22 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
 1. 구성 창에서 **적용** 을 선택합니다.
 
+1. Log Analytics 에이전트 이외의 확장을 자동으로 프로비저닝하도록 설정하려면 다음을 수행합니다. 
+
+    1. Microsoft 종속성 에이전트에 대해 자동 프로비저닝을 사용하도록 설정하는 경우 Log Analytics 에이전트가 자동 배포로 설정되어 있는지 확인합니다.
+    1. 관련 확장에 대한 상태를 **켜기** 로 전환합니다.
+
+        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="K8s 정책 추가 기능 자동 프로비저닝을 사용하도록 설정":::
+
+    1. **저장** 을 선택합니다. Azure 정책이 할당되고 수정 작업이 만들어집니다.
+
+        |확장명  |정책  |
+        |---------|---------|
+        |Kubernetes에 대한 Policy 추가 기능|[Azure Kubernetes Service 클러스터에 Azure Policy 추가 기능 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
+        |Microsoft 종속성 에이전트(미리 보기)(Windows VM)|[Windows 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
+        |Microsoft 종속성 에이전트(미리 보기)(Linux VM)|[Linux 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |||
+
 1. **저장** 을 선택합니다. 작업 영역을 프로비저닝해야 하는 경우 에이전트 설치에는 최대 25분이 걸릴 수 있습니다.
 
 1. 이전에 기본 작업 영역에 연결되어 모니터링되는 VM을 다시 구성할지 묻는 메시지가 표시됩니다.
@@ -115,28 +140,6 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
    > [!NOTE]
    > **예** 를 선택하는 경우 모든 VM이 새 대상 작업 영역에 다시 연결될 때까지 Security Center에서 만든 작업 영역을 삭제하지 마세요. 작업 영역을 너무 빨리 삭제하면 이 작업이 실패합니다.
-
-
-## <a name="enable-auto-provisioning-of-extensions"></a>확장 자동 프로비저닝 사용
-
-Log Analytics 에이전트 이외의 확장을 자동으로 프로비저닝하도록 설정하려면 다음을 수행합니다. 
-
-1. Azure Portal의 Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
-1. 관련 구독을 선택합니다.
-1. **자동 프로비저닝** 을 선택합니다.
-1. Microsoft 종속성 에이전트에 대해 자동 프로비저닝을 사용하도록 설정하는 경우 Log Analytics 에이전트도 자동 배포로 설정되어 있는지 확인합니다. 
-1. 관련 확장에 대한 상태를 **켜기** 로 전환합니다.
-
-    :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="K8s 정책 추가 기능 자동 프로비저닝을 사용하도록 설정":::
-
-1. **저장** 을 선택합니다. Azure 정책이 할당되고 수정 작업이 만들어집니다.
-
-    |확장명  |정책  |
-    |---------|---------|
-    |Kubernetes에 대한 Policy 추가 기능|[Azure Kubernetes Service 클러스터에 Azure Policy 추가 기능 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
-    |Microsoft 종속성 에이전트(미리 보기)(Windows VM)|[Windows 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-    |Microsoft 종속성 에이전트(미리 보기)(Linux VM)|[Linux 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
-
 
 
 ## <a name="windows-security-event-options-for-the-log-analytics-agent"></a>Log Analytics 에이전트에 대한 Windows 보안 이벤트 옵션 <a name="data-collection-tier"></a> 
@@ -235,7 +238,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 - **Log Analytics 에이전트가 컴퓨터에 설치되어 있지만 확장으로 설치되지 않음(직접 에이전트)** - Log Analytics 에이전트가 VM에 직접 설치되어 있는 경우(Azure 확장이 아님) Security Center에서 Log Analytics 에이전트 확장을 설치하고 Log Analytics 에이전트를 최신 버전으로 업그레이드할 수 있습니다.
 설치된 에이전트는 이미 구성된 작업 영역에 계속 보고하고, Security Center에서 구성된 작업 영역에도 보고합니다(Windows 컴퓨터에서는 멀티 호밍이 지원됨).
-구성된 작업 영역이 사용자 작업 영역(Security Center의 기본 작업 영역 아님)인 경우 Security Center의 해당 작업 영역에 "security/"securityFree" 솔루션을 설치하여 해당 작업 영역에 보고하는 VM 및 컴퓨터의 이벤트 처리를 시작합니다.
+구성된 작업 영역이 사용자 작업 영역(Security Center의 기본 작업 영역이 아님)인 경우 해당 작업 영역에 보고하는 VM 및 컴퓨터에서 이벤트 처리를 시작하려면 해당 작업 영역에 “Security” 또는 “SecurityCenterFree” 솔루션을 설치해야 합니다.
 
     Linux 컴퓨터의 경우 에이전트 멀티 호밍은 아직 지원되지 않습니다. 따라서 기존 에이전트 설치가 탐지되면 자동 프로비저닝이 발생하지 않고 컴퓨터의 구성이 변경되지 않습니다.
 
@@ -244,8 +247,8 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 - **System Center Operations Manager 에이전트가 컴퓨터에 설치되어 있음** - Security Center에서 Log Analytics 에이전트 확장을 기존 Operations Manager에 나란히 설치합니다. 기존 Operations Manager 에이전트는 Operations Manager 서버에 정상적으로 계속 보고합니다. Operations Manager 에이전트 및 Log Analytics 에이전트는 일반적인 런타임 라이브러리를 공유하며 이는 이 프로세스 중에 최신 버전으로 업데이트됩니다. Operations Manager 에이전트 버전 2012가 설치된 경우 자동 프로비저닝을 사용하도록 설정하지 **않습니다**.
 
 - **기존 VM 확장이 있음**
-    - 모니터링 에이전트가 확장으로 설치되면 확장 구성을 통해 단일 작업 영역에만 보고할 수 있습니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "security" 또는 "securityFree" 솔루션이 설치되어 있으면 Security Center는 이미 연결된 작업 영역에 있는 VM의 보안 데이터를 저장합니다. 이 프로세스에서 Security Center가 확장 버전을 최신 버전으로 업그레이드할 수 있습니다.  
-    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택하고, VM을 선택하고, Log Analytics 에이전트 연결을 확인하는 방법도 있습니다. 
+    - 모니터링 에이전트가 확장으로 설치되면 확장 구성을 통해 단일 작업 영역에만 보고할 수 있습니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "Security" 또는 "SecurityCenterFree" 솔루션이 설치되어 있으면 Security Center는 이미 연결된 작업 영역에 있는 VM의 보안 데이터를 저장합니다. 이 프로세스에서 Security Center가 확장 버전을 최신 버전으로 업그레이드할 수 있습니다.
+    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택하고, VM을 선택하고, Log Analytics 에이전트 연결을 확인하는 방법도 있습니다.
     - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치되어 있고 기존 Log Analytics 작업 영역에 보고하는 환경을 갖고 있는 경우 [Azure Security Center에서 지원하는 운영 체제](security-center-os-coverage.md) 목록을 검토하여 현재 운영 체제가 지원되는지 확인하세요. 자세한 내용은 [기존 Log Analytics 고객](./faq-azure-monitor-logs.md)을 참조하세요.
  
 
@@ -274,25 +277,11 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 ## <a name="troubleshooting"></a>문제 해결
 
--   자동 프로비전 설치 문제를 파악하려면 [에이전트 상태 문제 모니터링](security-center-troubleshooting-guide.md#mon-agent)을 참조하세요.
-
+-   자동 프로비저닝 설치 문제를 파악하려면 [에이전트 상태 문제 모니터링](security-center-troubleshooting-guide.md#mon-agent)을 참조하세요.
 -  모니터링 에이전트 네트워크 요구 사항을 파악하려면 [모니터링 에이전트 네트워크 요구 사항 문제 해결](security-center-troubleshooting-guide.md#mon-network-req)을 참조하세요.
 -   수동 온보딩 문제를 파악하려면 [Operations Management Suite 온보딩 문제 해결 방법](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)을 참조하세요.
-
-- 모니터링되지 않은 VM 및 컴퓨터 문제를 식별하려면 다음을 수행합니다.
-
-    컴퓨터에서 Log Analytics 에이전트 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터에 OMS 직접 에이전트 또는 System Center Operations Manager 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Log Analytics 에이전트 확장이 필요합니다.
-
-    Security Center에서 자동 프로비저닝을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유에 대한 자세한 내용은 [에이전트 상태 모니터링 문제](security-center-troubleshooting-guide.md#mon-agent)를 참조하세요.
-
 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Security Center에서 데이터 수집 및 자동 프로비저닝이 작동하는 방식에 대해 알아보았습니다. Security Center에 대한 자세한 내용은 다음 페이지를 참조하세요.
-
-- [Azure Security Center FAQ](faq-general.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
-- [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-
-이 문서에서는 Log Analytics 에이전트를 설치하고 수집된 데이터를 저장할 Log Analytics 작업 영역을 설정하는 방법을 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 새 작업 영역을 사용하든 기존 작업 영역을 사용하든 관계없이 Log Analytics에 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
-
+이 페이지에서는 Log Analytics 에이전트 및 기타 Security Center 확장에 대해 자동 프로비저닝을 사용하도록 설정하는 방법을 설명했습니다. 수집된 데이터를 저장할 Log Analytics 작업 영역을 정의하는 방법에 대해서도 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 새 작업 영역을 사용하든 기존 작업 영역을 사용하든 관계없이 Log Analytics에 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 선택한 통화와 지역에 따른 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.

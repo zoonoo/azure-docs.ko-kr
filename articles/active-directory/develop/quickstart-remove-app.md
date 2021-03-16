@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645894"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199803"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법
 
@@ -47,7 +47,8 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 1. **Azure Active Directory** 검색하고 선택합니다. 
 1. **관리** 에서 **앱 등록** 을 선택하고 구성하려는 애플리케이션을 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 페이지가 나타납니다.
 1. **개요** 페이지에서 **삭제** 를 선택합니다.
-1. **예** 를 선택하여 앱 삭제를 확인합니다.
+1. 삭제 결과를 읽습니다.  창 아래에 상자가 나타나면 상자를 선택합니다.
+1. **삭제** 를 선택하여 앱 삭제를 확인합니다.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>다른 조직이 작성한 애플리케이션 제거
 

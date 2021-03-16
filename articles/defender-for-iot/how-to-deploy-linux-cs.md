@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f2251ef79f568677d6ef09d918cb61ffeba07888
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449767"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494549"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
@@ -32,13 +32,13 @@ ms.locfileid: "102449767"
 - 에이전트 제거
 - 문제 해결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
 1. 보안 에이전트를 배포하려면 설치하려는 머신에 대한 로컬 관리자 권한이 필요합니다.
 
-1. 디바이스에 대한 [보안 모듈을 만듭니다](quickstart-create-security-twin.md).
+1. 장치에 대 한 [Defender-IoT-마이크로 에이전트를 만듭니다](quickstart-create-security-twin.md) .
 
 ## <a name="installation"></a>설치
 

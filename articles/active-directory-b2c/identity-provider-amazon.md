@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448577"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489154"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448577"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448577"
 
 Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정이 있는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [Amazon Developer 서비스 및 기술](https://developer.amazon.com)에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [Amazon를 사용 하 여 로그인 등록](https://developer.amazon.com/docs/login-with-amazon/register-web.html)을 참조 하세요. Amazon 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://www.amazon.com/](https://www.amazon.com/) .
 
-> [!NOTE]  
-> 아래의 **8 단계** 에서 다음 url을 사용 하 여를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
-> - **허용 되는 원본** 에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
-> - **허용 되는 반환 url** 에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Amazon 계정 자격 증명을 사용 하 여 [Amazon Developer 콘솔](https://developer.amazon.com/dashboard) 에 로그인 합니다.
+1. 아직 수행 하지 않은 경우 **등록** 을 선택 하 고 개발자 등록 단계를 수행한 다음 정책을 적용 합니다.
+1. 대시보드에서 **Amazon로 로그인** 을 선택 합니다.
+1. **Create a New Security Profile**(새 보안 프로필 만들기)을 선택합니다.
+1. **보안 프로필 이름**, **보안 프로필 설명** 및 **동의 개인 정보 알림 url** 을 입력 합니다. 예를 들어 `https://www.contoso.com/privacy` 개인 정보 알림 url은 사용자에 게 개인 정보 보호 정보를 제공 하는 관리 페이지입니다. 그런 다음 **Save** 를 클릭합니다.
+1. **Amazon 구성으로 로그인** 섹션에서 사용자가 만든 **보안 프로필 이름을** 선택 하 고 **관리** 아이콘을 선택한 다음 **웹 설정** 을 선택 합니다.
+1. **웹 설정** 섹션에서 **클라이언트 ID** 값을 복사합니다. **비밀 표시** 를 선택 하 여 클라이언트 암호를 가져온 다음 복사 합니다. 테 넌 트에서 Amazon 계정을 id 공급자로 구성 하려면 두 값이 모두 필요 합니다. **클라이언트 보안 비밀** 은 중요한 보안 자격 증명이므로
+1. **웹 설정** 섹션에서 **편집** 을 선택 합니다. 
+    1. **허용 된 원본** 에를 입력 `https://your-tenant-name.b2clogin.com` 합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
+    1.  **반환 url이 허용** `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 됩니다 .를 입력 합니다.  [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다.  `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다.
+1. **저장** 을 선택합니다.
 
 ::: zone pivot="b2c-user-flow"
 

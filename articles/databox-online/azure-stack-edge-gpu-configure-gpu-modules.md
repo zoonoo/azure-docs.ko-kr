@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8be0a444dca4cae9b8f7a1e7c04be8a3046e56be
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 348ddff56ed61cd608d6b9f28417e7cd4c4e6b13
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102638567"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563966"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 GPU에 모듈 구성 및 실행
 
@@ -24,7 +24,7 @@ Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가
 이 문서에서는 Azure Stack Edge Pro 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다. 이 문서에서는 Nvidia T4 Gpu 용으로 작성 된 공개적으로 사용 가능한 컨테이너 모듈 **번호** 를 사용 합니다. 이 절차는 이러한 Gpu에 대해 Nvidia에서 게시 한 다른 모듈을 구성 하는 데 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -104,7 +104,7 @@ Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가
        Nvidia GPU에서 사용할 수 있는 환경 변수에 대 한 자세한 내용은 [nvidia container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec)로 이동 합니다.
 
     > [!NOTE]
-    > GPU는 하나의 모듈에만 매핑될 수 있습니다. 그러나 모듈은 Gpu를 모두 사용 하거나 사용 하지 않을 수 있습니다.
+    > 모듈은 Gpu를 모두 사용할 수 있습니다.
 
 12. 모듈의 이름을 입력합니다. 이제 컨테이너 만들기 옵션을 제공 하 고 모듈 쌍 설정을 수정 하도록 선택할 수 있습니다. 완료 되 면 **추가** 를 선택 합니다. 
 

@@ -4,18 +4,21 @@ description: 이 문서에서는 MySQL Workbench와 같은 도구를 사용하�
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: migration-guide
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: af9f0f65e01a786d478fac0adde6174b8f03b2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 391a38cd3d1e2ffb790587b6c60ed54992d14d2d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019902"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561994"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다.
+
+자세한 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)를 참조 하세요. 
 
 데이터베이스를 Azure Database for MySQL로 마이그레이션하는 방법에 대 한 자세한 내용 및 사용 사례는 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) 를 참조 하세요. 이 가이드는 Azure로의 MySQL 마이그레이션 계획 및 실행을 안내 하는 지침을 제공 합니다.
 
@@ -40,7 +43,7 @@ MySQL Workbench에 연결 정보를 추가합니다.
 > [!TIP]
 > 전체 데이터베이스를 덤프 하 고 복원 하려는 시나리오의 경우 대신 [덤프 및 복원](concepts-migrate-dump-restore.md) 방법을 사용 해야 합니다.
 
-MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데이터베이스에 데이터베이스를 가져오고 내보낼 수 있습니다.
+MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데이터베이스에 데이터베이스를 가져오고 내보낼 수 있습니다. 다른 도구의 경우 [MySQL에서 Azure 데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf)의 22 페이지를 참조 하세요. 
 
 - 기존 MySQL 데이터베이스에서 Azure MySQL 데이터베이스로 가져오도록 몇 가지 테이블을 선택적으로 선택해야 할 때 가져오기 및 내보내기 기술을 사용하는 것이 좋습니다.  이렇게 하면 시간과 리소스를 절약하도록 마이그레이션에서 불필요한 테이블을 생략할 수 있습니다. 예를 들어 [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables)로 `--include-tables` 또는 `--exclude-tables` 스위치를 사용하고 [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables) 덤프로 `--tables` 스위치를 사용합니다.
 - 테이블 이외의 다른 데이터베이스 개체를 이동할 때 해당 개체를 명시적으로 만듭니다. 마이그레이션하려는 제약 조건(기본 키, 외래 키, 인덱스), 뷰, 함수, 프로시저, 트리거 및 다른 모든 데이터베이스 개체를 포함합니다.

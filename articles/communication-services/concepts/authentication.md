@@ -9,24 +9,38 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b3cd0643a74ccadb8390ce906eb391420de15a29
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 83976ed9d6f80b6c785cb84e74a0755472f9579f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490792"
+ms.locfileid: "103561807"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 
-모든 클라이언트와 Azure 통신 서비스 간의 상호 작용을 인증 해야 합니다. 일반적인 아키텍처에서는 [클라이언트 및 서버 아키텍처](./client-and-server-architecture.md)를 참조 하 고, *액세스 키* 또는 *관리 id* 는 신뢰할 수 있는 사용자 액세스 서비스에서 사용자를 만들고 토큰을 발급 하는 데 사용 됩니다. 그리고 트러스트 된 사용자 액세스 서비스에서 발급 한 *사용자 액세스 토큰* 은 클라이언트 응용 프로그램에서 채팅 또는 호출 서비스와 같은 다른 통신 서비스에 액세스 하는 데 사용 됩니다.
+모든 클라이언트와 Azure 통신 서비스 간의 상호 작용을 인증 해야 합니다. 일반적인 아키텍처에서는 인증에 사용 되는 [클라이언트 및 서버 아키텍처](./client-and-server-architecture.md), *액세스 키* 또는 관리 되는 *id* 를 참조 하십시오.
 
-또한 Azure Communication Services SMS 서비스는 인증에 대 한 *액세스 키* 또는 *관리 id* 를 허용 합니다. 이는 일반적으로 신뢰할 수 있는 서비스 환경에서 실행 되는 서비스 응용 프로그램에서 발생 합니다.
+다른 유형의 인증은 사용자 *액세스 토큰* 을 사용 하 여 사용자 참여가 필요한 서비스에 대해 인증 합니다. 예를 들어 채팅 또는 호출 서비스는 *사용자 액세스 토큰* 을 활용 하 여 사용자가 스레드에 추가 되 고 서로 대화를 할 수 있도록 합니다.
+
+## <a name="authentication-options"></a>인증 옵션:
+
+다음 표에서는 Azure Communication Services 클라이언트 라이브러리와 해당 인증 옵션을 보여 줍니다.
+
+| 클라이언트 라이브러리    | 인증 옵션                               |
+| ----------------- | ----------------------------------------------------|
+| ID          | 액세스 키 또는 관리 Id                      |
+| sms               | 액세스 키 또는 관리 Id                      |
+| 전화 번호     | 액세스 키 또는 관리 Id                      |
+| 호출           | 사용자 액세스 토큰                                   |
+| 채팅              | 사용자 액세스 토큰                                   |
 
 각 권한 부여 옵션에 대 한 간략 한 설명은 다음과 같습니다.
 
-- SMS 및 Id 작업을 위한 **액세스 키** 인증입니다. 액세스 키 인증은 신뢰할 수 있는 서비스 환경에서 실행 되는 서비스 응용 프로그램에 적합 합니다. 액세스 키는 Azure Communication Services 포털에서 찾을 수 있습니다. 액세스 키를 사용 하 여 인증 하기 위해 서비스 응용 프로그램은 액세스 키를 자격 증명으로 사용 하 여 해당 SMS 또는 Id 클라이언트 라이브러리를 초기화 합니다. [액세스 토큰 만들기 및 관리](../quickstarts/access-tokens.md)를 참조 하세요. 액세스 키는 리소스의 연결 문자열에 포함 되어 있으므로 [통신 서비스 리소스 만들기 및 관리](../quickstarts/create-communication-resource.md)를 참조 하세요. 연결 문자열을 사용한 인증은 액세스 키가 있는 인증과 동일 합니다.
-- SMS 및 Id 작업을 위한 **관리 되는 id** 인증 관리 [id는](../quickstarts/managed-identity.md)신뢰할 수 있는 서비스 환경에서 실행 되는 서비스 응용 프로그램에 적합 합니다. 관리 id를 사용 하 여 인증 하려면 서비스 응용 프로그램은 ID 및 관리 되는 id의 암호를 사용 하 여 자격 증명을 만든 다음 해당 SMS 또는 Id 클라이언트 라이브러리를 초기화 합니다. [액세스 토큰 만들기 및 관리](../quickstarts/access-tokens.md)를 참조 하세요.
-- 채팅 및 호출에 대 한 **사용자 액세스 토큰** 인증입니다. 사용자 액세스 토큰을 통해 클라이언트 응용 프로그램은 Azure 통신 채팅 및 호출 서비스에 대해 인증할 수 있습니다. 이러한 토큰은 사용자가 만든 "신뢰할 수 있는 사용자 액세스 서비스"에서 생성 됩니다. 그런 다음 토큰을 사용 하 여 채팅을 초기화 하 고 클라이언트 라이브러리를 호출 하는 클라이언트 장치에 제공 됩니다. 자세한 내용은 [앱에 채팅 추가](../quickstarts/chat/get-started.md) (예:)를 참조 하세요.
+- **액세스 키** 인증은 신뢰할 수 있는 서비스 환경에서 실행 되는 서비스 응용 프로그램에 적합 합니다. 액세스 키는 Azure Communication Services 포털에서 찾을 수 있으며, 서비스 응용 프로그램은이를 자격 증명으로 사용 하 여 해당 클라이언트 라이브러리를 초기화 합니다. [Id 클라이언트 라이브러리](../quickstarts/access-tokens.md)에서 사용 하는 방법에 대 한 예제를 참조 하십시오. 액세스 키는 리소스의 연결 문자열에 포함 되기 때문에 연결 문자열을 사용 하는 인증은 액세스 키가 있는 인증과 동일 합니다.
+
+- **관리 되는 id** 인증은 다른 권한 부여 옵션 보다 뛰어난 보안과 사용 편의성을 제공 합니다. 예를 들어 Azure AD를 사용 하 여 액세스 키 권한 부여와 마찬가지로 계정 액세스 키를 코드와 함께 저장 하지 않아도 됩니다. 통신 서비스 응용 프로그램에서 액세스 키 권한 부여를 계속 사용할 수 있지만 가능 하면 Azure AD로 이동 하는 것이 좋습니다. 관리 id를 설정 하려면 [Azure CLI에서 등록 된 응용 프로그램을 만듭니다](../quickstarts/managed-identity-from-cli.md). 그런 다음 끝점 및 자격 증명을 사용 하 여 클라이언트 라이브러리를 인증할 수 있습니다. [관리 id](../quickstarts/managed-identity.md) 를 사용 하는 방법의 예를 참조 하세요.
+
+- **사용자 액세스 토큰** 은 id 클라이언트 라이브러리를 사용 하 여 생성 되며 id 클라이언트 라이브러리에서 만든 사용자와 연결 됩니다. [사용자를 만들고 토큰을 생성](../quickstarts/access-tokens.md)하는 방법의 예를 참조 하세요. 그런 다음 사용자 액세스 토큰은 채팅 또는 호출 SDK에서 대화에 추가 된 참가자를 인증 하는 데 사용 됩니다. 자세한 내용은 [앱에 채팅 추가](../quickstarts/chat/get-started.md)를 참조 하세요. 사용자 액세스 토큰 인증은 보안 된 Azure 리소스가 아닌 사용자를 인증 하는 데 사용 된다는 것에 대 한 액세스 키 및 관리 되는 id 인증과 다릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -35,5 +49,5 @@ ms.locfileid: "103490792"
 >  만들기 및 관리 Azure CLI에서 Azure Active Directory [관리 id 응용 프로그램 만들기](../quickstarts/managed-identity-from-cli.md) 
 >  [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)

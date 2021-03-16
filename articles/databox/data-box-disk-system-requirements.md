@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873948"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703136"
 ---
 ::: zone target="docs"
 
@@ -79,6 +79,9 @@ Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 
 | 클래식 | Standard |
 | 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
 | Blob Storage 계정 | |
+
+> [!IMPORTANT]
+> Azure Blob 스토리지의 NFS(네트워크 파일 시스템) 3.0 프로토콜 지원은 Data Box Disk에서 지원되지 않습니다.
 
 ## <a name="supported-storage-types-for-upload"></a>업로드를 위해 지원되는 스토리지 형식
 

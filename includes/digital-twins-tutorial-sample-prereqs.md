@@ -5,18 +5,22 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 5a1baf9631f2d30dd14ff16d2d34beda04605c6c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 56cda6158b7eeabaf0ce9e71decd0a9aa9f0419c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660524"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463774"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
+이 자습서의 단계를 완료하려면 먼저 다음 필수 구성 요소를 완료해야 합니다. 
+
 Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 을 만듭니다.
 
-또한 시작하기 전에 **개발 컴퓨터에 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), 버전 16.5 이상** 을 설치합니다. 이전 버전이 이미 설치되어 있는 경우 컴퓨터에서 *Visual Studio 설치 관리자* 앱을 열고 프롬프트에 따라 설치를 업데이트할 수 있습니다.
+### <a name="get-required-resources"></a>필요한 리소스 가져오기
+
+이 자습서를 완료하려면 개발 컴퓨터에 **[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), 버전 16.5 이상** 을 설치합니다. 이전 버전이 이미 설치되어 있는 경우 컴퓨터에서 *Visual Studio 설치 관리자* 앱을 열고 프롬프트에 따라 설치를 업데이트할 수 있습니다.
 
 이 자습서는 C#로 작성된 샘플 프로젝트를 기반으로 합니다. 이 샘플은 다음 위치에 있습니다. [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 샘플 링크로 이동하여 제목 아래에서 *코드 찾아보기* 단추를 선택하여 머신에서 **샘플 프로젝트를 가져옵니다**. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
@@ -27,5 +31,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 준비하기
 
 [!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
-
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

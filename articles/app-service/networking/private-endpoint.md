@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763029"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563614"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Azure 웹앱용 프라이빗 엔드포인트 사용
 
@@ -68,7 +68,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 기본적으로 개인 끝점을 사용 하지 않고 웹 앱의 공개 이름은 클러스터에 대 한 정식 이름입니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |
+|속성 |Type |값 |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 개인 끝점을 배포할 때 정식 이름 mywebapp.privatelink.azurewebsites.net을 가리키도록 DNS 항목을 업데이트 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |설명 |
+|속성 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -89,7 +89,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net** 입니다. A 레코드와 개인 끝점 IP를 사용 하 여 웹 앱에 대 한 레코드를 등록 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |설명 |
+|속성 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<-Azure 공용 DNS에서이 항목을 만들어 app service가 privatelink를 가리키도록 합니다 .이 항목은 microsoft에서 관리 합니다.|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-개인 끝점 IP 주소를 가리키도록 DNS 시스템에서이 항목을 관리 합니다.|
@@ -101,7 +101,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 
 Kudu 콘솔 또는 Kudu REST API (예: Azure DevOps 자체 호스팅 에이전트로 배포)의 경우 Azure DNS 개인 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
 
-| Name | Type | 값 |
+| 속성 | Type | 값 |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -121,6 +121,8 @@ Kudu 콘솔 또는 Kudu REST API (예: Azure DevOps 자체 호스팅 에이전�
 슬롯은 개인 끝점을 사용할 수 없습니다.
 
 웹 앱에 대해 개인 끝점을 사용 하는 경우 원격 디버깅 기능을 사용할 수 없습니다. 슬롯에 코드를 배포 하 고 원격으로 디버그 하는 것이 좋습니다.
+
+FTP 액세스는 인바운드 공용 IP 주소를 통해 제공 됩니다. 개인 끝점은 웹 앱에 대 한 FTP 액세스를 지원 하지 않습니다.
 
 Private Link 기능 및 프라이빗 엔드포인트는 정기적으로 개선되고 있습니다. 제한 사항에 대한 최신 정보는 [이 문서][pllimitations]를 확인하세요.
 

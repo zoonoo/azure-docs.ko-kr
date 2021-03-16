@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e7c7fdd5874dbde5ca304309d0840724cb3872df
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448067"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494532"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
@@ -32,13 +32,13 @@ ms.locfileid: "102448067"
 - 에이전트 제거
 - 문제 해결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
 1. 설치 하려는 컴퓨터에 대 한 로컬 관리자 권한
 
-1. 디바이스에 대한 [보안 모듈을 만듭니다](quickstart-create-security-twin.md).
+1. 장치에 대 한 [Defender-IoT-마이크로 에이전트를 만듭니다](quickstart-create-security-twin.md) .
 
 ## <a name="installation"></a>설치
 
@@ -61,7 +61,7 @@ ms.locfileid: "102448067"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    다음은 그 예입니다.
+    예를 들면 다음과 같습니다.
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
