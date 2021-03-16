@@ -3,12 +3,12 @@ title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200218"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563898"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -208,3 +208,4 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 ## <a name="next-steps"></a>다음 단계
 
 - [작업 및 태스크](jobs-and-tasks.md)에 대해 알아봅니다.
+- [풀 및 노드 백그라운드 작업에서 오류를 감지 하 고 방지 ](batch-pool-node-error-checking.md)하는 방법에 대해 알아봅니다.

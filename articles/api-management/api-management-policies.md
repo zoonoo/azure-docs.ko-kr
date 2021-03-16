@@ -10,21 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107592"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562351"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
 
  정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 비율 제한 등이 포함됩니다. 다양한 다른 정책도 바로 사용할 수 있습니다.
 
- 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](api-management-policy-expressions.md)을 참조 하세요.
+ 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](api-management-policy-expressions.md)을 참조하세요.
 
 ##  <a name="policies"></a><a name="ProxyPolicies"></a> 방침
 
@@ -81,6 +81,12 @@ ms.locfileid: "92107592"
     - [서비스에 요청 보내기](api-management-dapr-policies.md#invoke) -capr 런타임을 사용 하 여 마이크로 서비스를 찾고 안정적으로 통신 합니다.
     -  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub) -capr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다.
     -  [트리거 출력 바인딩](api-management-dapr-policies.md#bind) -gapr 런타임을 사용 하 여 출력 바인딩을 통해 외부 시스템을 호출 합니다.
+- [정책 유효성 검사](validation-policies.md)
+    - [콘텐츠 유효성 검사](validation-policies.md#validate-content) -API 스키마에 대 한 요청 또는 응답 본문의 크기 또는 JSON 스키마의 유효성을 검사 합니다.
+. 
+    - [매개 변수 유효성 검사](validation-policies.md#validate-parameters) -API 스키마에 대 한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사 합니다.
+    - [헤더 유효성 검사](validation-policies.md#validate-headers) -API 스키마에 대해 응답 헤더의 유효성을 검사 합니다.
+    - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) -API 스키마에 대 한 응답에서 HTTP 상태 코드의 유효성을 검사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

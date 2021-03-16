@@ -1,26 +1,26 @@
 ---
-title: CIS Microsoft Azure Foundations Benchmark 청사진 샘플
-description: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/27/2021
+title: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
+description: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플 개요. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
-ms.translationtype: MT
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918419"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197795"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark 청사진 샘플
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
 
-CIS Microsoft Azure Foundations 벤치마크 청사진 샘플은 특정 CIS Microsoft Azure Foundations 벤치마크 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations 벤치마크 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플은 특정 CIS Microsoft Azure Foundations Benchmark 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="recommendation-mapping"></a>추천 매핑
 
-[Azure Policy 권장 사항 매핑](../../policy/samples/cis-azure-1-1-0.md)은 이 청사진에 포함된 정책 정의에 대한 세부 정보와 이러한 정책 정의가 CIS Microsoft Azure Foundations Benchmark v1.1.0의 **규정 준수 도메인** 및 **컨트롤** 에 매핑되는 방법에 대한 세부 정보를 제공합니다. 아키텍처에 할당된 경우 리소스는 할당된 정책 정의를 준수하지 않는지 Azure Policy에서 평가됩니다. 자세한 내용은 [Azure Policy](../../policy/overview.md)를 참조하세요.
+[Azure Policy 권장 사항 매핑](../../policy/samples/cis-azure-1-1-0.md)은 이 청사진에 포함된 정책 정의에 대한 세부 정보와 이러한 정책 정의가 CIS Microsoft Azure Foundations Benchmark v1.1.0의 **권장 사항** 에 매핑되는 방법에 대한 세부 정보를 제공합니다. 아키텍처에 할당된 경우 리소스는 할당된 정책 정의를 준수하지 않는지 Azure Policy에서 평가됩니다. 자세한 내용은 [Azure Policy](../../policy/overview.md)를 참조하세요.
 
 ## <a name="deploy"></a>배포
 
-Azure Blueprints CIS Microsoft Azure Foundations Benchmark 청사진 샘플을 배포하려면 다음 단계를 수행해야 합니다.
+Azure Blueprints CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플을 배포하려면 다음 단계를 수행해야 합니다.
 
 > [!div class="checklist"]
 > - 샘플에서 새 청사진 만들기
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="publish-the-sample-copy"></a>샘플 사본 게시
 
-이제 작업 환경에 청사진 샘플 사본이 만들어졌습니다. 이 청사진 정의는 **초안** 모드로 만들어졌으며 먼저 **게시** 해야만 할당하고 배포할 수 있습니다. 청사진 샘플의 복사본을 환경 및 요구 사항에 맞게 사용자 지정할 수 있지만, 수정한 내용이 CIS Microsoft Azure Foundations Benchmark 추천 내용과 맞지 않을 수 있습니다.
+이제 작업 환경에 청사진 샘플 사본이 만들어졌습니다. 이 청사진 정의는 **초안** 모드로 만들어졌으며 먼저 **게시** 해야만 할당하고 배포할 수 있습니다. 청사진 샘플의 복사본을 환경 및 요구 사항에 맞게 사용자 지정할 수 있지만, 수정한 내용이 CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항과 맞지 않을 수 있습니다.
 
 1. 왼쪽 창에서 **모든 서비스** 를 선택합니다. **청사진** 을 검색하고 선택합니다.
 
@@ -101,8 +101,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|세미콜론으로 구분된 영역 목록입니다. 전체 영역 목록을 보려면 Get-AzLocation을 사용하세요. 예: eastus, eastus2|
-|CIS Microsoft Azure Foundations Benchmark 1.1.0 추천 내용 감사 및 지원되는 특정 VM 확장 배포|정책 할당|사용이 승인된 가상 머신 확장 목록|세미콜론으로 구분된 확장명 목록입니다. 전체 가상 머신 확장 목록을 확인하려면 Get-AzVMExtensionImage를 사용하세요. 예: AzureDiskEncryption, IaaSAntimalware|
+|CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항 감사 및 지원되는 특정 VM 확장 배포|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|세미콜론으로 구분된 영역 목록입니다. 전체 영역 목록을 보려면 Get-AzLocation을 사용하세요. 예: eastus, eastus2|
+|CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항 감사 및 지원되는 특정 VM 확장 배포|정책 할당|사용이 승인된 가상 머신 확장 목록|세미콜론으로 구분된 확장명 목록입니다. 전체 가상 머신 확장 목록을 확인하려면 Get-AzVMExtensionImage를 사용하세요. 예: AzureDiskEncryption, IaaSAntimalware|
 
 ## <a name="next-steps"></a>다음 단계
 

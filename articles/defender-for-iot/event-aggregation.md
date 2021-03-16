@@ -1,5 +1,5 @@
 ---
-title: 보안 모듈 클래식 이벤트 집계
+title: Defender-마이크로 에이전트 클래식 이벤트 집계
 description: IoT 용 Defender 이벤트 집계에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809221"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493078"
 ---
-# <a name="security-module-classic-event-aggregation"></a>보안 모듈 클래식 이벤트 집계
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Defender-마이크로 에이전트 클래식 이벤트 집계
 
 IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고이 데이터를 처리 및 분석을 위해 Azure 클라우드에 보냅니다. 보안 에이전트는 새로운 프로세스 및 새 연결 이벤트를 포함 하 여 다양 한 유형의 장치 이벤트를 수집 합니다. 새 프로세스와 새 연결 이벤트는 모두 두 번째에 있는 장치에서 자주 발생 하 고, 강력 하 고 포괄적인 보안을 위해 중요 하지만 보안 에이전트가 강제로 전송 하는 메시지 수는 IoT Hub 할당량 및 비용 제한에 빠르게 도달 하거나 초과할 수 있습니다. 그러나 이러한 이벤트에는 장치를 보호 하는 데 매우 중요 한 보안 정보가 포함 되어 있습니다.
 

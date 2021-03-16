@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f2d3b6b40a7b258da682d36260f6292d10635095
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 0a0f48a311e5adf0dd7c70c43317d99cc94fca86
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498722"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470526"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -88,11 +88,11 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 **예제**
 
 > [!NOTE]
-> 이 예제에서는 `en-US-AriaRUS` 음성을 사용 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요.
+> 이 예제에서는 `en-US-JennyNeural` 음성을 사용 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요.
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -183,11 +183,11 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-Guy24kRUS">
-        Good morning to you too Aria!
+    <voice name="en-US-GuyNeural">
+        Good morning to you too Jenny!
     </voice>
 </speak>
 ```
@@ -395,8 +395,8 @@ speechConfig!.setPropertyTo(
 
 | attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
-| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 옵션 |
-| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | 옵션 |
+| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | Optional |
+| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | Optional |
 
 | 강도가                      | 설명 |
 |-------------------------------|-------------|
@@ -467,7 +467,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -499,14 +499,14 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 | attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자</a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 옵션 |
+| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자</a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | Optional |
 | `ph` | 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열 `phoneme` 입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
 **예**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -514,7 +514,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -522,7 +522,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -576,7 +576,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 요소에는 `lexicon` 요소가 하나 이상 포함 되어 있습니다 `lexeme` . 각 `lexeme` 요소는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme` , `alias` 및 요소를 포함 `phoneme` 합니다. `grapheme`요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>를 설명 하는 텍스트를 포함 합니다. `alias`요소는 머리글자어 또는 축약 된 단어의 발음을 나타내는 데 사용 됩니다. `phoneme`요소는가 어떻게 발음 되는지 설명 하는 텍스트를 제공 `lexeme` 합니다.
 
-사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들어:
+사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들면 다음과 같습니다.
 
 ```xml
   <lexeme>
@@ -589,7 +589,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
   </lexeme>
 ```
 
-`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 예를 들어:
+`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme> 
@@ -613,7 +613,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -672,12 +672,12 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 | attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul> | 옵션 |
-| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들어: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 옵션 |
-| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | 옵션 |
-| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | 옵션 |
-| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms* 입니다. 기간은 표준 음성을 지원 합니다.| 옵션 |
-| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest* 까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-소리내어</li><li>default</li></ul></li></ul> | 옵션 |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul> | Optional |
+| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | Optional |
+| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | Optional |
+| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | Optional |
+| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms* 입니다. 기간은 표준 음성을 지원 합니다.| Optional |
+| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest* 까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-소리내어</li><li>default</li></ul></li></ul> | Optional |
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
@@ -703,7 +703,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -756,8 +756,8 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 | attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
-| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 옵션 |
-| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. 에 대해 정의 된 표준 값이 `detail` 없는 경우 | 옵션 |
+| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | Optional |
+| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. 에 대해 정의 된 표준 값이 `detail` 없는 경우 | Optional |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -785,7 +785,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
  
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -823,7 +823,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -854,16 +854,16 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 | attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
-| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용** 되는 값: `0` `100` 포함 기본값은 `1`입니다. | 옵션 |
-| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 페이드 인 `0` 되지 않는 것과 동일한입니다. **허용** 되는 값: `0` `10000` 포함  | 옵션 |
-| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 이며,이 값은 `0` 페이드 아웃 하지 않는 것과 같습니다. **허용** 되는 값: `0` `10000` 포함  | 옵션 |
+| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용** 되는 값: `0` `100` 포함 기본값은 `1`입니다. | Optional |
+| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 페이드 인 `0` 되지 않는 것과 동일한입니다. **허용** 되는 값: `0` `10000` 포함  | Optional |
+| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 이며,이 값은 `0` 페이드 아웃 하지 않는 것과 같습니다. **허용** 되는 값: `0` `10000` 포함  | Optional |
 
 **예제**
 
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

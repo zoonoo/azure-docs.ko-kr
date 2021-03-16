@@ -1,17 +1,17 @@
 ---
-title: Windows 가상 데스크톱 Linux Support-Azure
-description: Windows 가상 데스크톱에 대 한 간단한 개요 Linux 지원
+title: Windows 가상 데스크톱 씬 클라이언트 지원-Azure
+description: Windows 가상 데스크톱에 대 한 씬 클라이언트 지원에 대 한 간략 한 개요입니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 502a89c5a2c0384e34ee35346332a4dd6adc38aa
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185430"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491472"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -23,10 +23,11 @@ Linux 씬 클라이언트 파트너에서 제공 하는 [웹 클라이언트](co
 
 |파트너|파트너 설명서|파트너 지원|
 |:------|:--------------------|:--------------|
-|![Dell 로고](./media/partners/dell.png)|[Dell 클라이언트 설명서](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell 지원](https://www.dell.com/support)|
-|![IGEL 로고](./media/partners/igel.png)|[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
-|![NComputing 로고](./media/partners/ncomputing.png)|[NComputing 클라이언트 설명서](https://www.ncomputing.com/microsoft)|[NComputing 지원](https://www.ncomputing.com/support/support-options)|
-|![Stratodesk 로고](./media/partners/stratodesk.png)|[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support/)|
+|Dell |[Dell 클라이언트 설명서](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell 지원](https://www.dell.com/support)|
+|IGEL |[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
+|NComputing |[NComputing 클라이언트 설명서](https://www.ncomputing.com/microsoft)|[NComputing 지원](https://www.ncomputing.com/support/support-options)|
+|Stratodesk |[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support/)|
+|HP |[HP 클라이언트 설명서](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP 지원](https://support.hp.com/us-en/products/workstations-thin-clients)|
 
 ## <a name="next-steps"></a>다음 단계
 

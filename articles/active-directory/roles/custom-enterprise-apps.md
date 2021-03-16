@@ -1,5 +1,5 @@
 ---
-title: 엔터프라이즈 앱 액세스 할당에 대 한 사용자 지정 역할 권한-Azure Active Directory | Microsoft Docs
+title: Azure Active Directory에서 엔터프라이즈 앱을 관리 하는 사용자 지정 역할 만들기
 description: Azure Active Directory에서 엔터프라이즈 앱 액세스에 대 한 사용자 지정 Azure AD 역할 만들기 및 할당
 services: active-directory
 author: rolyon
@@ -13,14 +13,14 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb04616fb442f4a6c000e11919638231e3ddf64c
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 1a76e2d37e9dcdd285a8608fdbfd715bfb834eb8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012176"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467751"
 ---
-# <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리 하는 사용자 지정 역할 할당
+# <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리 하는 사용자 지정 역할 만들기
 
 이 문서에서는 Azure Active Directory (Azure AD)에서 사용자 및 그룹에 대 한 엔터프라이즈 앱 할당을 관리할 수 있는 권한이 있는 사용자 지정 역할을 만드는 방법을 설명 합니다. 역할 할당의 요소와 하위 형식, 권한 및 속성 집합과 같은 용어의 의미에 대해서는 [사용자 지정 역할 개요](custom-overview.md)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709412"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496476"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link FAQ(질문과 대답)
 
@@ -54,6 +54,11 @@ ms.locfileid: "101709412"
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>내 개인 끝점 NIC (네트워크 인터페이스)를 수정할 수 있나요?
 개인 끝점을 만들 때 읽기 전용 NIC가 할당 됩니다. 이는 수정할 수 없으며 개인 끝점의 수명 주기 동안 유지 됩니다.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>지역 장애가 발생 하는 경우 개인 끝점을 사용 하는 동안 가용성을 달성할 어떻게 할까요? 있나요?
+
+전용 끝점은 99.99% SLA [[Azure 개인 링크에 대 한 sla]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/)를 사용 하는 항상 사용 가능한 리소스입니다. 그러나 이러한 리소스는 지역 리소스 이므로 Azure 지역 중단이 가용성에 영향을 줄 수 있습니다. 지역별 장애가 발생 하는 경우 가용성을 얻기 위해 동일한 대상 리소스에 연결 된 여러 Pe를 서로 다른 지역에 배포할 수 있습니다. 이러한 방식으로 한 지역이 다운 되 면 다른 지역의 PE를 통해 복구 시나리오에 대 한 트래픽을 라우팅할 수 있으므로 대상 리소스에 액세스할 수 있습니다. 대상 서비스 쪽에서 지역 장애를 처리 하는 방법에 대 한 자세한 내용은 장애 조치 (failover) 및 복구에 대 한 서비스 설명서를 검토 하세요. 개인 링크 트래픽은 대상 끝점에 대 한 Azure DNS 확인을 따릅니다. 
+
 
 ## <a name="private-link-service"></a>Private Link Service
  

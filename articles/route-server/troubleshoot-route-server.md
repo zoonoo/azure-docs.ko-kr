@@ -5,19 +5,19 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 83f1e83653c5674988cadcb5b54d3c675ae0b8b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695807"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489443"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Azure 경로 서버 문제 해결
 
 > [!IMPORTANT]
-> Azure 경로 서버 (미리 보기)는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -31,7 +31,7 @@ NVA에서 기본 경로를 보급 하는 경우 Azure 경로 서버는 NVA 자�
 | 0.0.0.0/0 | 인터넷 |
 
 
-### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>내 NVA에서 Azure Route Server의 BGP 피어 IP로 ping 할 수 있는 이유는 무엇 인가요? 둘 사이에서 BGP 피어 링을 설정한 후에는 동일한 IP를 더 이상 ping 할 수 없습니까? BGP 피어 링의 작동이 중단 되는 이유는 무엇 인가요?
+### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-go-down"></a>내 NVA에서 Azure Route Server의 BGP 피어 IP로 ping 할 수 있는 이유는 무엇 인가요? 둘 사이에서 BGP 피어 링을 설정한 후에는 동일한 IP를 더 이상 ping 할 수 없습니까? BGP 피어 링이 중단 되는 이유는 무엇 인가요?
 
 일부 NVA에서는 Azure 경로 서버 서브넷에 대 한 고정 경로를 추가 해야 합니다. 예를 들어 Azure 경로 서버가 10.0.255.0/27에 있고 NVA가 10.0.1.0/24 이면 NVA의 라우팅 테이블에 다음 경로를 추가 해야 합니다.
 
