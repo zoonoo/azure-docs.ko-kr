@@ -4,12 +4,12 @@ description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단�
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532905"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563541"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](./app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
@@ -65,17 +65,6 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 >
 
 [코드 렌즈의 Application Insights에 대한 자세한 정보](./visual-studio-codelens.md)
-
-## <a name="trends"></a>추세
-추세는 시간이 지남에 따라 앱의 동작 방식을 시각화하는 도구입니다. 
-
-Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색** 을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 세트를 분석할 수 있습니다. 
-
-데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
-
-![추세](./media/visual-studio/51.png)
-
-[추세 자세히 알아보기](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>로컬 모니터링
 (Visual Studio 2015 업데이트 2에서) Application Insights 포털에 원격 분석을 보내도록 SDK를 구성하지 않은 경우(따라서 ApplicationInsights.config에 계측 키가 없음) 최신 디버깅 세션의 원격 분석이 진단 창에 표시됩니다. 

@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199945"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561824"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -122,7 +122,7 @@ While the full middleware registration set of APIs is not yet exposed, we do sup
 
 바인딩은 메서드, 매개 변수 및 반환 형식에 대해 특성을 사용 하 여 정의 됩니다. 함수 메서드는 `Function` 다음 예제와 같이 입력 매개 변수에 적용 되는 및 트리거 특성이 있는 메서드입니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 이전 예제 함수는 큐 메시지에 의해 트리거되고 큐 메시지는 매개 변수의 메서드에 전달 됩니다 `myQueueItem` .
 
@@ -140,7 +140,7 @@ HTTP 트리거의 경우 및를 사용 `HttpRequestData` 하 여 `HttpResponseDa
 
 출력 바인딩에 쓰려면 바인딩된 서비스에 쓰는 방법을 정의 하는 함수 메서드에 출력 바인딩 특성을 적용 해야 합니다. 메서드에서 반환 되는 값은 출력 바인딩에 기록 됩니다. 예를 들어 다음 예제에서는 `functiontesting2` 출력 바인딩을 사용 하 여 라는 메시지 큐에 문자열 값을 씁니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>여러 출력 바인딩
 
@@ -156,7 +156,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 코드는 HTTP 트리거입니다. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>로깅
 
@@ -164,7 +164,7 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 다음 예제에서는를 가져오고 함수 내에서 로그를 작성 하는 방법을 보여 줍니다 `ILogger` .
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 의 다양 한 방법을 사용 `ILogger` 하 여 또는와 같은 다양 한 로그 수준을 작성 `LogWarning` `LogError` 합니다. 로그 수준에 대 한 자세한 내용은 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요.
 
@@ -180,13 +180,13 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | 바인딩 확장 패키지 | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | 에서 [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
-| 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
+| 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원 안 함 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
 | 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
 | 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
 | HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
-| 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
-| 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |
+| 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원 안 함 | 
+| 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원 안 함 |
 | 아티팩트의 function.js | 생성된 계획 | 생성 되지 않음 |
 | 구성 | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 사용자 지정 초기화 |
 | 종속성 주입 | [지원됨](functions-dotnet-dependency-injection.md)  | [지원됨](#dependency-injection) |

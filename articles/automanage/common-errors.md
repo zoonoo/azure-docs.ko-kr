@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644445"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561868"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 등록 오류 문제 해결
 Automanage는 컴퓨터를 서비스에 등록 하지 못할 수 있습니다. 이 문서에서는 배포 실패 문제를 해결 하는 방법을 설명 하 고, 배포가 실패할 수 있는 몇 가지 일반적인 이유를 공유 하 고, 완화의 잠재적인 다음 단계를 설명 합니다.
@@ -21,7 +21,7 @@ Automanage는 컴퓨터를 서비스에 등록 하지 못할 수 있습니다. �
 ## <a name="troubleshooting-deployment-failures"></a>배포 오류 문제 해결
 Automanage에 컴퓨터를 온 보 딩 하면 Azure Resource Manager 배포가 생성 됩니다. 등록에 실패 하는 경우 배포에 실패 한 이유에 대 한 자세한 내용을 문의 하는 것이 유용할 수 있습니다. 아래 그림에 나와 있는 실패 세부 정보 플라이 아웃의 배포에 대 한 링크가 있습니다.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="오류 세부 정보 플라이 아웃을 자동으로 관리 합니다.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="오류 세부 정보 플라이 아웃을 자동으로 관리 합니다.":::
 
 ### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>실패 한 VM을 포함 하는 리소스 그룹의 배포를 확인 합니다.
 실패 플라이 아웃에는 등록에 실패 한 컴퓨터를 포함 하는 리소스 그룹 내 배포에 대 한 링크와 함께 배포를 필터링 하는 데 사용할 수 있는 접두사 이름이 포함 됩니다. 링크를 클릭 하면 배포 블레이드로 이동 하 여 컴퓨터에 대 한 자동 관리 배포를 확인 하는 배포를 필터링 할 수 있습니다. 여러 지역에 걸쳐 배포 하는 경우 올바른 지역에서 배포를 클릭 해야 합니다.
@@ -38,6 +38,7 @@ Error |  완화 방법
 :-----|:-------------|
 계정 권한 부족 자동 관리 오류 | 이는 최근에 새 Automanage 계정이 포함 된 구독을 새 테 넌 트로 이동한 경우에 발생할 수 있습니다. 이 문제를 해결 하는 단계는 [여기](./repair-automanage-account.md)에 있습니다.
 영역 매핑 요구 사항이 일치 하지 않는 작업 영역 영역 | Automanage에서 컴퓨터를 온보드 할 수 없지만 컴퓨터가 현재 연결 되어 있는 Log Analytics 작업 영역이 지원 되는 자동화 지역에 매핑되지 않았습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 지원 되는 [지역 매핑에](../automation/how-to/region-mappings.md)있는지 확인 합니다.
+"관리 되는 응용 프로그램에서 만든 ' 시스템 거부 할당 '의 거부 할당으로 인해 액세스가 거부 되었습니다." | 리소스에 대해 Automanage가 리소스에 액세스 하지 못하도록 하는 [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) 을 만들었습니다. 이는 [청사진](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) 또는 [관리 되는 응용 프로그램](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview)에 의해 발생 했을 수 있습니다.
 "할당에 실패 했습니다. 사용할 수 있는 추가 정보가 없습니다. " | Microsoft Azure 지원 되는 사례를 여세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -2,19 +2,19 @@
 title: Azure 통신 서비스에 인증
 titleSuffix: An Azure Communication Services concept document
 description: 응용 프로그램 또는 서비스가 통신 서비스에 인증할 수 있는 다양 한 방법에 대해 알아봅니다.
-author: GrantMeStrength
+author: mikben
 manager: jken
 services: azure-communication-services
-ms.author: jken
-ms.date: 07/24/2020
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b702afe9c4359d9f8711846d93fd79df9fc2f42e
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b3cd0643a74ccadb8390ce906eb391420de15a29
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485964"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490792"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 

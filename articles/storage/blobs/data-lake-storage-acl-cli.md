@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654242"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563167"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "100654242"
 
 - 계층적 네임 스페이스를 사용 하는 저장소 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
-- Azure CLI 버전 `2.6.0` 이상.
+- Azure CLI 버전 `2.14.0` 이상.
 
 - 다음 보안 권한 중 하나입니다.
 
@@ -137,6 +137,9 @@ az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-d
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> 특정 그룹 또는 사용자의 ACL을 설정 하려면 해당 개체 Id를 사용 합니다. 예를 들어 `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 또는 `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.
+
 다음 이미지는 파일의 ACL을 설정한 후 출력을 보여 줍니다.
 
 ![ACL 출력 가져오기 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -154,7 +157,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 ```
 
 > [!NOTE]
-> **기본** ACL 항목을 설정 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예를 들어 `default:user::rwx` 또는 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`로 이름을 지정할 수 있습니다.
+> **기본** ACL 항목을 설정 하려면 `default:` 각 항목에 접두사를 추가 합니다. 예를 들어 `default:user::rwx` 또는 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`입니다.
 
 ## <a name="update-acls"></a>Acl 업데이트
 
@@ -184,6 +187,9 @@ az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-syst
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> 특정 그룹 또는 사용자의 ACL을 업데이트 하려면 해당 개체 Id를 사용 합니다. 예를 들어 `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 또는 `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.
 
 `--owner` 또는 `group` 매개 변수를 사용자의 엔터티 ID 또는 UPN(사용자 계정 이름)으로 설정하여 디렉터리 또는 파일의 소유 사용자 및 그룹을 업데이트할 수도 있습니다.
 
@@ -248,7 +254,7 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 [!INCLUDE [updated-for-az](../../../includes/recursive-acl-best-practices.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [샘플](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [사용자 의견 제공](https://github.com/Azure/azure-cli-extensions/issues)

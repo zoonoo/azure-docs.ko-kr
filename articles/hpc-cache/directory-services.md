@@ -4,14 +4,14 @@ description: Azure HPC 캐시의 저장소 대상에 대 한 클라이언트 액
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472076"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563379"
 ---
 # <a name="configure-directory-services"></a>디렉터리 서비스 구성
 
@@ -81,7 +81,7 @@ ms.locfileid: "103472076"
 
 * **인증서 자동 다운로드** -이러한 설정을 전송 하는 즉시 인증서를 다운로드 하려는 경우 **예** 를 선택 합니다.
 
-LDAP 보안을 위해 정적 자격 증명을 사용 하려는 경우 **자격 증명** 섹션에 입력 합니다.
+LDAP 보안을 위해 정적 자격 증명을 사용 하려는 경우 **자격 증명** 섹션에 입력 합니다. 이 정보는 저장 될 때 암호화 되며 쿼리할 수 없습니다.
 
 * **바인드 DN** -LDAP 서버에 인증 하는 데 사용할 바인딩 고유 이름을 입력 합니다. (DN 형식을 사용 합니다.)
 * **바인딩 암호** -바인드 DN에 대 한 암호를 제공 합니다.

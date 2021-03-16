@@ -1,6 +1,6 @@
 ---
-title: Azure Vm에서 SQL Server SQL Server (마이그레이션 가이드)
-description: 이 가이드에 따라 개별 SQL Server 데이터베이스를 Azure Virtual Machines (Vm)에서 SQL Server로 마이그레이션합니다.
+title: 'Azure Vm에서 SQL Server SQL Server: 마이그레이션 가이드'
+description: 이 가이드에서는 개별 SQL Server 데이터베이스를 Azure Vm의 SQL Server으로 마이그레이션하는 방법을 설명 합니다.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
-ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/19/2021
+ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488236"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563218"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: SQL Server에서 Azure VM의 SQL Server로 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "102488236"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -195,7 +195,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 
 > [!TIP]
 > [데이터베이스 실험 도우미 (DEA)](/sql/dea/database-experimentation-assistant-overview) 를 사용 하 여 대상 SQL Server 성능 평가를 지원할 수 있습니다.
->
+
 
 ### <a name="optimize"></a>최적화
 

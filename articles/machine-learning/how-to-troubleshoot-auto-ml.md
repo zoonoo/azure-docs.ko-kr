@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: b66c768011c05e1105f1351ebe4ed7c3c9700b70
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519166"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563677"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 문제 해결
 
@@ -58,7 +58,7 @@ ms.locfileid: "102519166"
       pip install --upgrade scikit-learn==0.20.3
     ```
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 `AutoML` 버전 1.0.76 이후의 패키지 변경 내용은 새 버전으로 업데이트 하기 전에 이전 버전을 제거 해야 합니다.
 
@@ -166,6 +166,10 @@ PyJWT의 버전은 다음과 같이 확인할 수 있습니다.
   1. 모델 패키지 다운로드
   1. 패키지 압축 풀기
   1. 압축을 푼 자산을 사용 하 여 배포
+
+## <a name="azure-functions-application"></a>응용 프로그램 Azure Functions
+  
+  자동화 된 ML은 현재 Azure Functions 응용 프로그램을 지원 하지 않습니다. 
 
 ## <a name="sample-notebook-failures"></a>샘플 노트북 오류
 

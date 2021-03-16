@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471804"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562561"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -61,7 +61,7 @@ Azure HPC 캐시에는 다음과 같은 품질의 전용 서브넷이 필요 합
 * Azure Blob storage 끝점 및 기타 내부 리소스에 액세스 하려면 Azure 기반 DNS 서버가 필요 합니다.
 * 온-프레미스 저장소에 액세스 하려면 저장소 호스트 이름을 확인할 수 있는 사용자 지정 DNS 서버를 구성 해야 합니다. 캐시를 만들기 **전에** 이 작업을 수행 해야 합니다.
 
-Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기본 Azure 제공 DNS 서버를 사용할 수 있습니다. 그러나 다른 리소스에 액세스 해야 하는 경우에는 사용자 지정 DNS 서버를 만들고 Azure DNS 서버에 대 한 모든 Azure 관련 확인 요청을 전달 하도록 구성 해야 합니다.
+Blob storage만 사용 하는 경우 캐시에 대해 기본 Azure 제공 DNS 서버를 사용할 수 있습니다. 그러나 Azure 외부의 저장소 또는 기타 리소스에 액세스 해야 하는 경우 사용자 지정 DNS 서버를 만들고 Azure DNS 서버에 대 한 Azure 관련 확인 요청을 전달 하도록 구성 해야 합니다.
 
 사용자 지정 DNS 서버를 사용 하려면 캐시를 만들기 전에 다음 설치 단계를 수행 해야 합니다.
 
@@ -185,13 +185,13 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
 저장소 계정 요구 사항은 ADLS-NFS blob 저장소 대상 및 표준 blob 저장소 대상에 따라 다릅니다. Nfs 사용 저장소 계정을 만들고 구성 하는 데 신중 하 게 [nfs (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md) 의 지침을 따릅니다.
 
-다음은 단계에 대 한 일반적인 개요입니다.
+이는 단계의 일반적인 개요입니다. 이러한 단계는 변경 될 수 있으므로 항상 [ADLS-NFS 지침](../storage/blobs/network-file-system-protocol-support-how-to.md) 에서 현재 세부 정보를 참조 하십시오.
 
 1. 필요한 기능을 작업할 지역에서 사용할 수 있는지 확인 합니다.
 
 1. 구독에 NFS 프로토콜 기능을 사용 하도록 설정 합니다. 저장소 계정을 만들기 *전에* 이 작업을 수행 합니다.
 
-1. 저장소 계정에 대 한 보안 VNet (가상 네트워크)을 만듭니다. NFS 사용 저장소 계정 및 Azure HPC 캐시에 대해 동일한 가상 네트워크를 사용 해야 합니다.
+1. 저장소 계정에 대 한 보안 VNet (가상 네트워크)을 만듭니다. NFS 사용 저장소 계정 및 Azure HPC 캐시에 대해 동일한 가상 네트워크를 사용 해야 합니다. (캐시와 동일한 서브넷을 사용 하지 마십시오.)
 
 1. 스토리지 계정을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021
-ms.openlocfilehash: 78a17ad6599e1ac4f455f2806a5f944675198b4b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631492"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563936"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -152,14 +152,13 @@ ___
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-스트림의 모든 출력 열을 가져옵니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다.  
+스트림에 대 한 모든 출력 열의 이름을 가져옵니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
-
 ___
 ### <code>columns</code>
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-스트림의 모든 출력 열을 가져옵니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다.   
+스트림에 대 한 모든 출력 열의 값을 가져옵니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다.   
 * ``columns()``
 * ``columns('DeriveStream')``
 ___

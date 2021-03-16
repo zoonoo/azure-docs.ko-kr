@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a36b5c8b0c8f24d093d887ad788c4ce9857d355
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492679"
+ms.locfileid: "103562572"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -29,7 +29,32 @@ ms.locfileid: "103492679"
 * 버그 수정
 * 사용되지 않는 기능
 
-## <a name="known-issues"></a>알려진 문제
+## <a name="march-2021"></a>2021년 3월
+
+### <a name="new-language-support-added-to-the-audioanalyzer-preset"></a>새 언어 지원이 추가 분석기 사전 설정에 추가 되었습니다.
+
+이제 오디오 분석기 사전 설정 (기본 및 표준 모드 모두)에서 비디오 기록 및 subtitling에 대 한 추가 언어를 사용할 수 있습니다.
+
+* 영어 (오스트레일리아), ' en-us '
+* 프랑스어 (캐나다), ' fr-CA '
+* 아랍어 (바레인) 최신 표준 (' ar-BH ')
+* 아랍어 (이집트), ' ar-예 '
+* 아랍어 (이라크), ' ar-IQ '
+* 아랍어 (이스라엘), ' ar-IL '
+* 아랍어 (요르단), ' ar-JO '
+* 아랍어 (쿠웨이트), ' ar-KW '
+* 아랍어 (레바논), ' ar-LB '
+* 아랍어 (오만), ' ar '
+* 아랍어 (카타르), ' ar-QA '
+* 아랍어 (사우디아라비아), ' ar-SA '
+* 덴마크어, ' da-진한 '
+* 노르웨이어, ' nb-아니요 '
+* 스웨덴어, ' sv-SE '
+* 핀란드어, ' fi '
+* 태국어, ' th '
+* 터키어, ' tr-TR '
+
+[비디오 및 오디오 파일 개념 분석 문서](analyzing-video-audio-files-concept.md) 에서 사용 가능한 최신 언어를 참조 하세요.
 
 ## <a name="february-2021"></a>2021년 2월
 

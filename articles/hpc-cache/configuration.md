@@ -1,30 +1,33 @@
 ---
 title: Azure HPC 캐시 설정 구성
-description: MTU 및 비 루트 squash 같은 캐시에 대 한 추가 설정을 구성 하는 방법 및 Azure Blob 저장소 대상에서 express 스냅숏에 액세스 하는 방법을 설명 합니다.
+description: MTU, 사용자 지정 NTP 및 DNS 구성, Azure Blob 저장소 대상에서 express 스냅숏에 액세스 하는 방법 등 캐시에 대 한 추가 설정을 구성 하는 방법에 대해 설명 합니다.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760506"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563383"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
-Azure Portal **구성** 페이지에는 여러 설정을 사용자 지정 하는 옵션이 있습니다. 대부분의 사용자는 이러한 설정을 기본값에서 변경할 필요가 없습니다.
+Azure Portal의 **네트워킹** 페이지에는 여러 설정을 사용자 지정 하는 옵션이 있습니다. 대부분의 사용자는 이러한 설정을 기본값에서 변경할 필요가 없습니다.
 
 이 문서에서는 Azure Blob 저장소 대상에 대 한 스냅숏 기능을 사용 하는 방법에 대해서도 설명 합니다. 스냅숏 기능에 구성 가능한 설정이 없습니다.
 
-설정을 보려면 Azure Portal에서 캐시의 **구성** 페이지를 엽니다.
+설정을 보려면 Azure Portal에서 캐시의 **네트워킹** 페이지를 엽니다.
 
-![Azure Portal 구성 페이지의 스크린샷](media/configuration.png)
+![Azure Portal의 네트워킹 페이지 스크린샷](media/networking-page.png)
 
-> [!TIP]
-> [AZURE HPC 캐시 관리 비디오](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) 에서는 구성 페이지 및 해당 설정을 보여 줍니다.
+> [!NOTE]
+> 이 페이지의 이전 버전에는 캐시 수준 루트 squash 설정이 포함 되어 있지만이 설정은 [클라이언트 액세스 정책](access-policies.md)으로 이동 되었습니다.
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## <a name="adjust-mtu-value"></a>MTU 값 조정
 <!-- linked from troubleshoot-nas article -->
@@ -42,21 +45,39 @@ Azure Portal **구성** 페이지에는 여러 설정을 사용자 지정 하는
 
 Azure [vm에 대 한 tcp/ip 성능 튜닝](../virtual-network/virtual-network-tcpip-performance-tuning.md)을 읽어 azure virtual NETWORK의 MTU 설정에 대해 자세히 알아보세요.
 
-## <a name="configure-root-squash"></a>Root squash 구성
-<!-- linked from troubleshoot and from access policies -->
+## <a name="customize-ntp"></a>NTP 사용자 지정
 
-**Enable root squash** 설정은 Azure HPC 캐시가 클라이언트 컴퓨터에서 루트 사용자의 요청을 처리 하는 방법을 제어 합니다.
+캐시는 기본적으로 Azure 기반 시간 서버 time.microsoft.com를 사용 합니다. 캐시에서 다른 NTP 서버를 사용 하려면 **ntp 구성** 섹션에서 지정 합니다. 정규화 된 도메인 이름 또는 IP 주소를 사용 합니다.
 
-Root squash를 사용 하도록 설정 하면 클라이언트의 루트 사용자가 Azure HPC 캐시를 통해 요청을 보낼 때 사용자에 게 자동으로 매핑됩니다. 또한 클라이언트 요청에서 UID 권한 비트를 사용 하는 것을 방지 합니다.
+## <a name="set-a-custom-dns-configuration"></a>사용자 지정 DNS 구성 설정
 
-Root squash가 사용 하지 않도록 설정 된 경우 클라이언트 루트 사용자 (UID 0)의 요청은 백 엔드 NFS 저장소 시스템에 루트로 전달 됩니다. 이 구성은 부적절 한 파일 액세스를 허용할 수 있습니다.
+> [!CAUTION]
+> 필요 하지 않은 경우 캐시 DNS 구성을 변경 하지 마세요. 구성 실수가 디렉터리 결과가 발생할 수 있습니다. 구성에서 Azure 서비스 이름을 확인할 수 없는 경우 HPC 캐시 인스턴스는 영구적으로 액세스할 수 없게 됩니다.
 
-캐시에서 root squash를 설정 하면 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prerequisites.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
+Azure HPC 캐시는 안전 하 고 편리한 Azure DNS 시스템을 사용 하도록 자동으로 구성 됩니다. 그러나 일부 비정상적인 구성의 경우 캐시에서 Azure 시스템 대신 별도의 온-프레미스 DNS 시스템을 사용 해야 합니다. **네트워킹** 페이지의 **DNS 구성** 섹션을 사용 하 여 이러한 종류의 시스템을 지정 합니다.
 
-기본 설정은 **예** 입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No** 가 있을 수 있습니다.
+Azure 담당자에 게 문의 하거나 Microsoft 서비스 및 지원에 문의 하 여 사용자 지정 캐시 DNS 구성을 사용 해야 하는지 여부를 확인 합니다.
 
-> [!TIP]
-> [클라이언트 액세스 정책을](access-policies.md#root-squash)사용자 지정 하 여 특정 저장소 내보내기에 대 한 루트 squash 설정할 수도 있습니다.
+Azure HPC 캐시가 사용할 수 있도록 온-프레미스 DNS 시스템을 구성 하는 경우 구성에서 azure 서비스에 대 한 Azure 끝점 이름을 확인할 수 있는지 확인 해야 합니다. 필요에 따라 Azure DNS 또는 다른 서버로 특정 이름 확인 요청을 전달 하도록 사용자 지정 DNS 환경을 구성 해야 합니다.
+
+Azure HPC 캐시에 사용 하기 전에 DNS 구성이 이러한 항목을 성공적으로 확인할 수 있는지 확인 합니다.
+
+* ``*.core.windows.net``
+* CRL (인증서 해지 목록) 다운로드 및 OCSP (온라인 인증서 상태 프로토콜) 확인 서비스. 이 [AZURE TLS 문서의](../security/fundamentals/tls-certificate-changes.md)끝에 있는 [방화벽 규칙 항목](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) 에는 일부 목록이 제공 되지만 Microsoft 기술 담당자에 게 문의 하 여 모든 요구 사항을 이해 해야 합니다.
+* NTP 서버의 정규화 된 도메인 이름 (time.microsoft.com 또는 사용자 지정 서버)
+
+캐시에 대해 사용자 지정 DNS 서버를 설정 해야 하는 경우 제공 된 필드를 사용 합니다.
+
+* **DNS 검색 도메인** (선택 사항)-검색 도메인을 입력 합니다 (예:) ``contoso.com`` . 단일 값이 허용 되거나 비워 둘 수 있습니다.
+* **Dns 서버** -최대 3 개의 dns 서버를 입력 합니다. IP 주소를 기준으로 지정 합니다.
+
+<!-- 
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds. -->
+
+### <a name="refresh-storage-target-dns"></a>저장소 대상 DNS 새로 고침
+
+DNS 서버에서 IP 주소를 업데이트 하는 경우 관련 NFS 저장소 대상을 일시적으로 사용할 수 없게 됩니다. [저장소 대상 편집](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only)에서 사용자 지정 DNS 시스템 IP 주소를 업데이트 하는 방법을 참조 하세요.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Blob 저장소 대상에 대 한 스냅숏 보기
 

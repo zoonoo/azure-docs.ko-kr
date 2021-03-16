@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5833308f03d328d988ac818d83ff5ee618a4c79c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186472"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563575"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 
@@ -49,7 +49,7 @@ cmdlet은 구성 콘텐츠를 로드하고, 매개 변수 목록을 가져오고
 
 모듈을 생성한 후에는 버전을 증분하고 변경할 때마다 릴리스 정보를 추가하여 [PowerShellGet 리포지토리](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)에 게시할 수 있습니다.
 
-구성(또는 여러 구성)을 포함하는 복합 리소스 모듈을 만든 후에는 Azure의 [구성 가능한 작성 환경](./compose-configurationwithcompositeresources.md)에서 이를 사용하거나 [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations)에 추가하여 MOF 파일을 생성하고 [MOF 파일을 Azure Automation에 업로드](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation)할 수 있습니다.
+구성 (또는 여러 구성)을 포함 하는 복합 리소스 모듈을 만든 후에는 Azure의 구성 가능한 [작성 환경](./compose-configurationwithcompositeresources.md) 에서 사용 하거나, [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations) 에 추가 하 여 mof 파일을 생성 하 고 [mof 파일을 Azure Automation로 업로드할](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
 그런 다음, [온-프레미스](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) 또는 [Azure](./automation-dsc-onboarding.md#enable-azure-vms)에서 서버를 등록하여 구성을 가져옵니다.
 프로젝트에 대한 최신 업데이트는 PowerShell 갤러리에서 구성을 가져오는 프로세스를 자동화하는 Azure Automation용 [Runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples)도 게시했습니다.
 

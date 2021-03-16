@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/15/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449852"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564425"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -27,6 +27,7 @@ ms.locfileid: "102449852"
 모든 가격 책정 계층에 대해 "조정 가능" 행을 포함 하지 않고 아래의 테이블에서 행을 조정할 수 **없습니다** .
 
 #### <a name="online-transcription"></a>온라인 기록
+[음성 SDK](speech-sdk.md) 및/또는 음성-텍스트 REST API를 사용 하 여 [짧은 오디오를 사용할 수](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio)있습니다.
 
 | 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
 |--|--|--|
@@ -74,7 +75,7 @@ ms.locfileid: "102449852"
 | **Websocket 특정 할당량** |  |  |
 |턴 당 생성 된 최대 오디오 길이 | 10분 | 10분 |
 |테이블당 최대 SSML 메시지 크기 |64KB |64KB |
-| **REST API 제한** | 분당 20 개 요청 | 5 초 당 25 개의 요청 |
+| **REST API 제한** | 분당 20 개 요청 | 분당 300 요청 |
 
 
 <sup>3</sup> **무료 (F0)** 가격 책정 계층에 대해서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)에서 월간 허용량을 참조 하세요.<br/>

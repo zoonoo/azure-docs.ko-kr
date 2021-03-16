@@ -4,14 +4,14 @@ description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471956"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563246"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -194,15 +194,17 @@ NFS를 사용 하 여 저장소 시스템에 연결 하는 저장소 대상을 �
 
 이 표에는 모든 사용 모델 간의 차이점이 요약 되어 있습니다.
 
-| 사용 모델 | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
 |--|--|--|--|
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 안 함 | 없음 |
-| 쓰기 15% 초과 | 읽기/쓰기 | 8시간 | 20분 |
-| 클라이언트에서 캐시 무시 | 읽기 | 30초 | 없음 |
-| 쓰기 15% 초과, 자주 수행 하는 백 엔드 검사 (30 초) | 읽기/쓰기 | 30초 | 20분 |
-| 쓰기 15% 초과, 빈번한 백 엔드 검사 (60 초) | 읽기/쓰기 | 60초 | 20분 |
-| 쓰기 15% 이상, 자주 쓰기 복구 | 읽기/쓰기 | 30초 | 30초 |
-| 3 시간 마다 자주 읽고 백업 서버 확인 | 읽기 | 3시간 | 없음 |
+| Read heavy, infrequent writes | Read | Never | None |
+| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
+| Clients bypass the cache | Read | 30 seconds | None |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > **백 엔드 확인** 값은 캐시가 원격 저장소의 소스 파일과 파일을 자동으로 비교 하는 경우를 표시 합니다. 그러나 백 엔드 저장소 시스템에 readdirplus 작업을 포함 하는 클라이언트 요청을 전송 하 여 비교를 트리거할 수 있습니다. Readdirplus는 디렉터리 메타 데이터를 반환 하는 표준 NFS API (확장 된 읽기 라고도 함)로, 캐시에서 파일을 비교 하 고 업데이트 합니다.
@@ -314,7 +316,7 @@ ADLS-NFS 저장소 대상은 NFS (네트워크 파일 시스템) 3.0 프로토�
 >
 > 최신 정보는 [NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md) 을 참조 하세요.
 
-ADLS-NFS 저장소 대상은 Blob 저장소 대상 및 일부 NFS 저장소 대상과 약간의 유사성을 갖습니다. 예를 들면 다음과 같습니다.
+ADLS-NFS 저장소 대상은 Blob 저장소 대상 및 일부 NFS 저장소 대상과 약간의 유사성을 갖습니다. 예를 들어:
 
 * Blob storage 대상과 마찬가지로 [저장소 계정에 액세스](#add-the-access-control-roles-to-your-account)하려면 Azure HPC 캐시 권한을 제공 해야 합니다.
 * NFS 저장소 대상과 마찬가지로 캐시 [사용 모델](#choose-a-usage-model)을 설정 해야 합니다.

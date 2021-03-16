@@ -2,13 +2,13 @@
 title: 자습서 - 프라이빗 클라우드 크기 조정
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드의 크기를 조정합니다.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: d49d973cc6d97280dc0c7ea6681f2602b871e1ba
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 03/13/2021
+ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791242"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463621"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 크기 조정
 
@@ -22,7 +22,7 @@ Azure VMware Solution 프라이빗 클라우드 환경을 최대한 활용하려
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하기 위한 프라이빗 클라우드. 프라이빗 클라우드를 만들지 않은 경우 [프라이빗 클라우드 만들기 자습서](tutorial-create-private-cloud.md)를 사용하여 만드세요. Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹을 구성하여 필요한 가상 네트워크를 설정합니다.
+이 자습서를 완료하려면 기존 프라이빗 클라우드가 필요합니다. 프라이빗 클라우드를 만들지 않은 경우 [프라이빗 클라우드 만들기 자습서](tutorial-create-private-cloud.md)를 사용하여 만드세요. 
 
 ## <a name="add-a-new-cluster"></a>새 클러스터 추가
 

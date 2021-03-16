@@ -1,6 +1,6 @@
 ---
 title: 'DB2 to SQL Database: 마이그레이션 가이드'
-description: 이 가이드를 따라 DB2 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
+description: 이 가이드에서는 db2 용 SQL Server Migration Assistant (d b 2 용 SSMA)를 사용 하 여 DB2 데이터베이스를 Azure SQL Database으로 마이그레이션하는 방법을 설명 합니다.
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356347"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563949"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>마이그레이션 가이드: DB2 to SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "97356347"
 
 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 DB2 데이터베이스를 SQL Database로 마이그레이션하려면 다음이 필요 합니다.
 
@@ -142,9 +142,6 @@ SSMA(SQL Server Migration Assistant)를 사용하여 평가를 만듭니다.
 1. **테스트 환경 설정**: 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
 1. **유효성 검사 테스트 실행**: 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
 1. **성능 테스트 실행**: 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
-
-   > [!NOTE]
-   > 마이그레이션 후 유효성 검사 테스트를 개발하고 실행하는 데 도움이 필요한 경우 파트너 [QuerySurge](https://www.querysurge.com/company/partners/microsoft)에서 제공하는 데이터 품질 솔루션을 사용하는 것이 좋습니다. 
 
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 

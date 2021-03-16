@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520639"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562725"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -35,9 +35,9 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-1. https://ml.azure.com 에서 Azure Machine Learning에 로그인합니다. 
+1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다. 
 
 1. 구독 및 작업 영역을 선택합니다. 
 
@@ -198,6 +198,11 @@ Included | 학습에 포함할 열을 지정 합니다.
 ## <a name="deploy-your-model"></a>모델 배포
 
 최상의 모델이 있으면 이제 새 데이터를 예측하기 위해 이 모델을 웹 서비스로 배포합니다.
+
+>[!TIP]
+> Python SDK를 사용 하 여 패키지를 통해 생성 된 모델을 배포 하려면 `automl` 작업 영역에 [모델을 등록](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) 해야 합니다. 
+>
+> 모델을 등록 한 후에는 왼쪽 창에서 **모델** 을 선택 하 여 스튜디오에서 찾을 수 있습니다. 모델을 연 후 화면 위쪽에서 **배포** 단추를 선택 하 고 **모델 배포** 섹션의 **2 단계** 에 설명 된 지침을 따를 수 있습니다.
 
 자동화된 ML을 사용하면 코드를 작성하지 않고도 모델을 배포할 수 있습니다.
 

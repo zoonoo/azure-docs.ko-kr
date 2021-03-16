@@ -3,14 +3,14 @@ title: 풀 및 노드 오류 확인
 description: 이 문서에서는 풀 및 노드를 만들 때 발생 가능한 백그라운드 작업과 확인해야 할 오류, 이를 방지하는 방법을 설명합니다.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576315"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564408"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -62,6 +62,13 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 삭제 프로세스 중에 Batch는 [풀 상태](/rest/api/batchservice/pool/get#poolstate)를 **deleting** 으로 설정합니다. 호출 애플리케이션은 **state** 및 **stateTransitionTime** 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
 
+풀이 예상 보다 오래 걸리고 있으면 풀을 삭제할 수 있을 때까지 일괄 처리가 정기적으로 다시 시도 됩니다. 경우에 따라 Azure 서비스 중단 또는 기타 일시적인 문제로 인해 지연이 발생 합니다. 풀을 삭제 하는 데 방해가 될 수 있는 다른 요소는 문제를 해결 하기 위한 조치를 취해야 할 수 있습니다. 이러한 요소에는 다음이 포함 됩니다.
+
+- 리소스 잠금은 일괄 처리에서 만든 리소스 또는 일괄 처리에 사용 되는 네트워크 리소스에 배치 됩니다.
+- 만든 리소스는 일괄 생성 된 리소스에 대 한 종속성이 있습니다. 예를 들어 [가상 네트워크에서 풀을 만드는](batch-virtual-network.md)경우 BATCH는 nsg (네트워크 보안 그룹), 공용 IP 주소 및 부하 분산 장치를 만듭니다. 풀 외부에서 이러한 리소스를 사용 하는 경우에는 해당 종속성이 제거 될 때까지 풀을 삭제할 수 없습니다.
+- Microsoft.Batch 리소스 공급자가 풀을 포함 하는 구독에서 등록 취소 되었습니다.
+- "Microsoft Azure Batch"에는 사용자 구독 모드 배치 계정에 대 한 풀을 포함 하는 구독에 대 한 [참가자 또는 소유자 역할이](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) 더 이상 없습니다.
+
 ## <a name="node-errors"></a>노드 오류
 
 Batch가 풀의 노드를 성공적으로 할당하더라도 다양한 문제로 인해 일부 노드가 비정상 상태가 되어 태스크를 실행하지 못할 수 있습니다. 이러한 노드에도 요금이 계속 부과되므로 사용할 수 없는 노드에 대한 요금을 지불하지 않도록 문제를 검색하는 것이 중요합니다. 일반적인 노드 오류 외에도 현재 [작업 상태](/rest/api/batchservice/job/get#jobstate)를 파악하는 것이 문제를 해결하는 데 유용합니다.
@@ -105,15 +112,10 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](/rest/api/batchservic
 노드가 **unusable** 상태로 설정되는 원인의 추가 예제는 다음과 같습니다.
 
 - 사용자 지정 VM 이미지를 올바르지 않습니다. 예를 들어, 제대로 준비되지 않은 이미지입니다.
-
 - VM이 인프라 오류 또는 하위 수준 업그레이드로 인해 이동됩니다. Batch가 노드를 복구합니다.
-
 - VM 이미지가 해당 이미지를 지원하지 않는 하드웨어에 배포되었습니다. 예를 들어 [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM에서 CentOS HPC 이미지를 실행하려는 경우가 있습니다.
-
 - VM이 [Azure 가상 네트워크](batch-virtual-network.md)에 있으며 트래픽이 키 포트로 차단되었습니다.
-
 - VM이 가상 네트워크에 있지만 Azure Storage에 대한 아웃바운드 트래픽이 차단되었습니다.
-
 - VM이 고객 DNS 구성을 사용하는 가상 네트워크에 있으며 DNS 서버가 Azure Storage를 확인할 수 없습니다.
 
 ### <a name="node-agent-log-files"></a>노드 에이전트 로그 파일

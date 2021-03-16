@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: a62326d99eee8407b65c0c640b4db8a6f051c758
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101191"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564514"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 
@@ -60,7 +60,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 또한 Security Center는 즉시 수행할 수 있는 경고 및 권장 사항을 표시 하는 단일 대시보드를 제공 하 여 보안 작업에 도움이 됩니다. Security Center 콘솔에서 한 번의 클릭으로 문제를 수정할 수 있는 경우가 많습니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
@@ -201,6 +201,14 @@ Azure 네트워킹은 다양한 보안 원격 액세스 시나리오를 지원�
 - [전용 WAN 링크로 Azure Virtual Network에 온-프레미스 네트워크 연결](../../expressroute/expressroute-introduction.md)
 
 - [Azure Virtual Networks 상호 연결](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+
+### <a name="azure-private-link"></a>Azure Private Link
+
+[Azure 개인 링크](https://azure.microsoft.com/services/private-link/) 를 사용 하면 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database) 및 [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 통해 가상 네트워크에서 개인적으로 호스트 된 고객 소유/파트너 서비스에 액세스할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다.
+
+[개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 을 사용 하면 중요 한 Azure 서비스 리소스를 가상 네트워크에만 보안을 유지할 수 있습니다. Azure 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 Azure 개인 링크를 통해 제공 되는 서비스에 개인적으로 안전 하 게 연결 하 고 서비스를 VNet에 효과적으로 제공 합니다. 가상 네트워크를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 사용 하는 데 필요 하지 않습니다. 
+
+가상 네트워크에서 개인 링크 서비스를 만들 수도 있습니다. [Azure 개인 링크 서비스](https://docs.microsoft.com/azure/private-link/private-link-service-overview) 는 Azure 개인 링크에서 제공 하는 자체 서비스에 대 한 참조입니다. Azure 표준 Load Balancer에서 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 가상 네트워크에서 개인에 액세스할 수 있습니다. 고객은 가상 네트워크 내에 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 서비스를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 렌더링 하는 데 필요 하지 않습니다. 
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 

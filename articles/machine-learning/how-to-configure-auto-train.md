@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498866"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563490"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "102498866"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -342,7 +342,7 @@ automl_classifier = AutoMLConfig(
 
 실험을 종료 하기 위해 AutoMLConfig에서 정의할 수 있는 몇 가지 옵션이 있습니다.
 
-|조건| description
+|조건| 설명
 |----|----
 &nbsp;조건 없음 | 종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 합니다.
 시간이 지난 후 &nbsp; &nbsp; &nbsp; &nbsp;| `experiment_timeout_minutes`설정에서를 사용 하 여 실험을 계속 실행 해야 하는 시간 (분)을 정의 합니다. <br><br> 실험 시간 초과 오류를 방지 하기 위해 열 크기의 행이 1000만를 초과 하는 경우 최소 15 분 또는 60 분이 발생 합니다.
@@ -396,9 +396,29 @@ Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있
 > 자동화 된 ML의 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수에 약간의 변형이 발생할 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
 
 ## <a name="register-and-deploy-models"></a>모델 등록 및 배포
+모델을 등록 하 여 나중에 사용 하기 위해 다시 돌아올 수 있습니다. 
 
-웹 서비스에 배포할 모델을 다운로드 하거나 등록 하는 방법에 대 한 자세한 내용은 모델을 배포 하는 [방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+자동화 된 ML 실행에서 모델을 등록 하려면 메서드를 사용 [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) 합니다. 
 
+```Python
+
+best_run, fitted_model = run.get_output()
+print(fitted_model.steps)
+
+model_name = best_run.properties['model_name']
+description = 'AutoML forecast example'
+tags = None
+
+model = remote_run.register_model(model_name = model_name, 
+                                  description = description, 
+                                  tags = tags)
+```
+
+
+배포 구성을 만들고 웹 서비스에 등록 된 모델을 배포 하는 방법에 대 한 자세한 내용은 모델을 배포 하는 [방법 및 위치](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration)를 참조 하세요.
+
+> [!TIP]
+> 등록 된 모델의 경우 [Azure Machine Learning studio](https://ml.azure.com)를 통해 한 번 클릭으로 배포를 사용할 수 있습니다. [스튜디오에서 등록 된 모델을 배포 하는 방법을](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)참조 하세요. 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>모델 해석력

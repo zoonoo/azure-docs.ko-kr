@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496289"
+ms.locfileid: "103561841"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -238,6 +238,6 @@ startTask 작업 디렉터리에서 Windows의 서비스를 실행하는 경우 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 Azure Batch 계정을 만듭니다](batch-account-create-portal.md).
 - 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
 - [기본 Azure Batch 할당량, 제한 및 제약 조건 및 할당량을 요청 하는 방법](batch-quota-limit.md)에 대해 알아봅니다.
+- [풀 및 노드 백그라운드 작업에서 오류를 감지 하 고 방지 ](batch-pool-node-error-checking.md)하는 방법에 대해 알아봅니다.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922279"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562062"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
 
@@ -66,7 +66,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 | SQL Server에서 Azure SQL Database로의 마이그레이션. 그러나 마이그레이션이 완료 된 후에는 SQL 데이터 동기화를 사용 하 여 원본과 대상이 동기화 된 상태로 유지 되도록 할 수 있습니다.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 - **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행 하지 않습니다. FIRE_TRIGGERS 지정 하지 않으면 삽입 트리거가 실행 되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 - **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계 되었습니다. 허브는 각 멤버와 개별적으로 동기화 됩니다. 허브의 변경 내용이 구성원에 다운로드 된 다음 멤버의 변경 내용이 허브로 업로드 됩니다.
@@ -89,7 +89,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 > [!NOTE]
 > 동기화 그룹 배포 중에 또는 PowerShell을 사용 하 여 Azure Portal의 **개인 끝점 연결** 페이지에서 서비스 관리 개인 끝점을 수동으로 승인 해야 합니다.
 
-## <a name="get-started"></a>시작하기 
+## <a name="get-started"></a>시작 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure Portal에서 데이터 동기화 설정
 
@@ -100,6 +100,9 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 - [PowerShell을 사용 하 여 Azure SQL Database에서 여러 데이터베이스 간 동기화](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [PowerShell을 사용 하 여 Azure SQL Database 데이터베이스와 SQL Server 인스턴스의 데이터베이스 간 동기화](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+
+### <a name="set-up-data-sync-with-rest-api"></a>REST API를 사용 하 여 데이터 동기화 설정
+- [REST API를 사용 하 여 Azure SQL Database에서 여러 데이터베이스 간 동기화](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>데이터 동기화의 모범 사례 검토
 

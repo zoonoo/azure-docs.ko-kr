@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232531"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472313"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
 
@@ -78,6 +78,11 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+서비스 구성 (.cscfg) 파일에서 각 역할에 대 한 이전 진단 설정을 제거 합니다.
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>필요한 서비스 정의 파일 (.csdef) 업데이트
 
@@ -87,9 +92,9 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 | 이전 크기 이름 | 업데이트 된 크기 이름 | 
 |---|---|
 | 매우 작음 | Standard_A0 | 
-| Small | Standard_A1 |
+| 소형 | Standard_A1 |
 | 중간 | Standard_A2 | 
-| 큼 | Standard_A3 | 
+| 대형 | Standard_A3 | 
 | 매우 큼 | Standard_A4 | 
 | A5 | Standard_A5 | 
 | A6 | Standard_A6 | 
@@ -116,6 +121,11 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+이전 진단 플러그 인을 사용 하는 배포에는 서비스 정의 (.csdef) 파일의 각 역할에 대 한 설정이 제거 되어야 합니다.
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## <a name="key-vault-creation"></a>Key Vault 만들기 
