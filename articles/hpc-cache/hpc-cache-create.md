@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 50fdab1fa8def1b4e3b9a9d59d3b2593e5526c65
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657094"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472030"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -59,7 +59,7 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Azure Key Vault 암호화 사용 (선택 사항)
 
-캐시가 고객이 관리 하는 암호화 키를 지 원하는 영역에 있는 경우 **디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다. 지역 지원에 대 한 자세한 내용은 지역 [가용성](hpc-cache-overview.md#region-availability) 을 참조 하세요.
+**디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 캐시 저장소에 사용 되는 암호화 키를 관리 하려면 **디스크 암호화 키** 페이지에서 Azure Key Vault 정보를 제공 합니다. 키 자격 증명 모음은 캐시와 동일한 구독 및 동일한 지역에 있어야 합니다.
 

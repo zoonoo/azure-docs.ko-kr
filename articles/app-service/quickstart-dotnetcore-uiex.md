@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180278"
+ms.locfileid: "102214238"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -31,10 +31,12 @@ ms.locfileid: "102180278"
 
 <details>
 <summary>Visual Studio 2019가 이미 있습니까?</summary>
-  Visual Studio 2019를 이미 설치한 경우:
+Visual Studio 2019를 이미 설치한 경우:
 
-  - **도움말** > **업데이트 확인** 을 차례로 선택하여 Visual Studio에서 **최신 업데이트를 설치** 합니다. 최신 업데이트에는 .NET 5.0 SDK가 포함되어 있습니다.
-  - **도구** > **도구 및 기능 가져오기** 를 차례로 선택하여 **워크로드를 추가** 합니다.
+<ul>
+<li><strong>도움말</strong> &gt; <strong>업데이트 확인</strong>을 차례로 선택하여 Visual Studio에서 <strong>최신 업데이트를 설치</strong>합니다. 최신 업데이트에는 .NET 5.0 SDK가 포함되어 있습니다.</li>
+<li><strong>도구</strong> &gt; <strong>도구 및 기능 가져오기</strong>를 차례로 선택하여 <strong>워크로드를 추가</strong>합니다.</li>
+</ul>
 </details>
 
 <hr/> 
@@ -314,19 +316,19 @@ http://<app_name>.azurewebsites.net
 
 1. `az webapp up`을 **실행** 하여 재배포합니다.
 
-```azurecli
-az webapp up --os-type linux
-```
-
-<details>
-<summary>이때 <code>az webapp up</code>은 무엇을 하나요?</summary>
-명령을 처음 실행하면 프로젝트 루트의 <i>.azure/config</i> 파일에 앱 이름, 리소스 그룹 및 App Service 계획이 저장됩니다. 프로젝트 루트에서 이를 다시 실행하면 <i>.azure/config</i>에 저장된 값이 사용되고, App Service 리소스가 이미 존재하는 것이 감지되고, Zip 배포가 다시 수행됩니다.
-</details>
-
+    ```azurecli
+    az webapp up --os-type linux
+    ```
+    
+    <details>
+    <summary>이때 <code>az webapp up</code>은 무엇을 하나요?</summary>
+    명령을 처음 실행하면 프로젝트 루트의 <i>.azure/config</i> 파일에 앱 이름, 리소스 그룹 및 App Service 계획이 저장됩니다. 프로젝트 루트에서 이를 다시 실행하면 <i>.azure/config</i>에 저장된 값이 사용되고, App Service 리소스가 이미 존재하는 것이 감지되고, Zip 배포가 다시 수행됩니다.
+    </details>
+    
 1. 배포가 완료되면 이전에 열었던 브라우저 창에서 **새로 고침을 누릅니다**.
 
-![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
-
+    ![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+    
 [문제가 있나요? 알려주세요.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 <hr/> 
@@ -341,8 +343,8 @@ az webapp up --os-type linux
 
 1. 개요 페이지에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 왼쪽 메뉴에는 앱을 구성할 수 있는 여러 페이지가 표시됩니다. 
 
-![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview-up.png)
-
+    ![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview-up.png)
+    
 <hr/> 
 
 ## <a name="9-clean-up-resources"></a>9. 리소스 정리

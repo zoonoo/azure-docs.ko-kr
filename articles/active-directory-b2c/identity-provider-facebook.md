@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a43551adf8dbe1a03ac7f7b22d58d63aa8c2c503
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 49abd2cc62ff7a2eab3d95265f3db8f5c894ebb6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448424"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488944"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448424"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -55,7 +55,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Facebook 계정을 사용 하는
 1. **표시** 를 선택하고 **앱 비밀** 값을 복사합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 둘 다 사용합니다. **앱 암호** 는 중요한 보안 자격 증명입니다.
 1. 메뉴에서 **제품** 옆에 있는 **더하기** 기호를 선택 합니다. **앱에 제품 추가** 아래의 **Facebook 로그인** 아래에서 **설정** 을 선택 합니다.
 1. 메뉴에서 **Facebook 로그인** 을 선택 하 고 **설정** 을 선택 합니다.
-1. **유효한 OAuth 리디렉션 URI** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 선택합니다.
+1. **유효한 OAuth 리디렉션 URI** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다. 
+1. 페이지 아래쪽에 있는 **변경 내용 저장** 을 선택합니다.
 1. Facebook 응용 프로그램을 Azure AD B2C 사용할 수 있도록 하려면 페이지의 오른쪽 위에 있는 상태 선택기를 선택 하 고 응용 **프로그램을 공개로 설정한** 다음 **스위치 모드** 를 선택 합니다.  이때 상태가 **개발** 에서 **라이브** 로 변경됩니다.
 
 ::: zone pivot="b2c-user-flow"

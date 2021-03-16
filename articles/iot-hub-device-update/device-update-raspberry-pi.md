@@ -1,17 +1,17 @@
 ---
 title: Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서 | Microsoft Docs
 description: Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트를 시작합니다.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: bb992e4f33cc833411e7cce560f71adf1dc72076
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659022"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443457"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -33,7 +33,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* IoT Hub에 대한 액세스. S1(표준) 계층 이상을 사용하는 것이 좋습니다.
+* IoT Hub에 대한 액세스 권한. S1(표준) 계층 이상을 사용하는 것이 좋습니다.
 
 ## <a name="download-image"></a>이미지 다운로드
 
@@ -74,23 +74,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    ```
    
 Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 사용 조건이 적용됩니다.
-   * [IoT Hub에 대한 디바이스 업데이트 라이선스](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [IoT Hub용 디바이스 업데이트 라이선스](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
    
-에이전트를 사용하기 전에 사용 조건을 읽어보세요. 설치 및 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의하지 않는 경우 IoT Hub에 대한 디바이스 업데이트 에이전트를 사용하지 마세요.
+에이전트를 사용하기 전에 사용 조건을 읽어보세요. 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우 IoT Hub에 대한 디바이스 업데이트 에이전트를 사용하지 마세요.
 
 ## <a name="create-device-in-iot-hub-and-get-connection-string"></a>IoT Hub에서 디바이스를 만들고 연결 문자열을 가져옵니다.
 
 이제 디바이스를 Azure IoT Hub에 추가해야 합니다.  Azure IoT Hub 내에서 디바이스에 대한 연결 문자열이 생성됩니다.
 
 1. Azure Portal에서 디바이스 업데이트 IoT Hub를 시작합니다.
-2. 새 디바이스를 만듭니다,
+2. 새 디바이스를 만듭니다.
 3. 페이지 왼쪽에서 '탐색기' > 'IoT 디바이스'로 이동하여 "새로 만들기"를 선택합니다.
-4. '디바이스 ID' 아래에 디바이스 이름을 입력합니다. "키 자동 생성" 확인란이 선택되어 있는지 확인합니다.
+4. '디바이스 ID' 아래에 디바이스 이름을 입력합니다. - "키 자동 생성" 확인란이 선택되어 있는지 확인하세요.
 5. '저장'을 선택합니다.
 6. 이제 '디바이스' 페이지로 돌아가면 만든 디바이스가 목록에 표시됩니다. 해당 디바이스를 선택합니다.
 7. 디바이스 보기에서 '기본 연결 문자열' 옆의 '복사' 아이콘을 선택합니다.
-8. 아래 단계에서 나중에 사용하기 위해 복사한 문자를 임의 위치에 붙여넣습니다.
+8. 아래 단계에서 나중에 사용할 복사한 문자를 임의 위치에 붙여넣습니다.
    **복사된 이 문자열은 디바이스 연결 문자열입니다**.
 
 ## <a name="provision-connection-string-on-sd-card"></a>SD 카드에 연결 문자열 프로비저닝
@@ -143,31 +143,29 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
 ## <a name="import-update"></a>업데이트 가져오기
 
-1. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
-
-2. 업데이트 탭을 선택합니다.
-
-3. "+ 새 업데이트 가져오기"를 선택합니다.
-
-4. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 가져오기 매니페스트를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 APT 매니페스트 업데이트 파일을 선택합니다.
+1. 이러한 [지침](import-update.md)에 따라 가져오기 매니페스트를 만듭니다.
+2. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
+3. 업데이트 탭을 선택합니다.
+4. "+ 새 업데이트 가져오기"를 선택합니다.
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위에서 만든 가져오기 매니페스트를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. IoT 디바이스에 배포할 업데이트 파일을 선택합니다.
    
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="업데이트 파일 선택이 표시된 스냅샷" lightbox="media/import-update/select-update-files.png":::
+   :::image type="content" source="media/import-update/select-update-files.png" alt-text="파일 선택을 보여 주는 스크린샷" lightbox="media/import-update/select-update-files.png":::
 
 5. "스토리지 컨테이너 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 그런 다음 적절한 스토리지 계정을 선택합니다.
 
-6. 컨테이너를 이미 만든 경우 다시 사용할 수 있습니다. 그렇지 않으면 "+ 컨테이너"를 선택하여 업데이트에 대한 새 스토리지 컨테이너를 만듭니다.  사용할 컨테이너를 선택하고 "선택"을 클릭합니다.
+6. 이미 컨테이너를 만든 경우 다시 사용할 수 있습니다. (그렇지 않으면 "+ 컨테이너"를 선택하여 업데이트를 위한 새 스토리지 컨테이너를 만듭니다.)  사용할 컨테이너를 선택하고 "선택"을 클릭합니다.
   
-  :::image type="content" source="media/import-update/container.png" alt-text="컨테이너 선택이 표시된 스크린샷" lightbox="media/import-update/container.png":::
+  :::image type="content" source="media/import-update/container.png" alt-text="스크린샷에 컨테이너 선택을 보여 주는 스크린샷" lightbox="media/import-update/container.png":::
 
 7. "제출"을 선택하여 가져오기 프로세스를 시작합니다.
 
-8. 가져오기 프로세스가 시작되고 화면이 "가져오기 기록" 섹션으로 변경됩니다. 가져오기 프로세스가 완료될 때까지 진행률을 보려면 "새로 고침"을 선택합니다. 업데이트 크기에 따라 몇 분 내에 완료될 수 있지만 시간이 오래 걸릴 수 있습니다.
+8. 가져오기 프로세스가 시작되고 화면이 "가져오기 기록" 섹션으로 변경됩니다. 가져오기 프로세스가 완료될 때까지 진행률을 보려면 "새로 고침"을 선택합니다. 업데이트 크기에 따라 몇 분 내에 완료될 수 있지만 시간이 더 오래 걸릴 수 있습니다.
    
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="업데이트 가져오기 시퀀스가 표시된 스크린샷" lightbox="media/import-update/update-publishing-sequence-2.png":::
+   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="업데이트 가져오기 시퀀스를 보여 주는 스크린샷" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
 9. 상태 열에 가져오기가 성공했음을 나타내는 경우 "배포할 준비가 됨" 헤더를 선택합니다. 이제 목록에 가져온 업데이트가 표시됩니다.
 
-가져오기 업데이트에 대해 [자세히 알아보기](import-update.md)
+업데이트 가져오기에 대해 [자세히 알아보세요](import-update.md).
 
 ## <a name="create-update-group"></a>업데이트 그룹 만들기
 
@@ -181,14 +179,14 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
 5. 이전 단계에서 만든 IoT Hub 태그를 목록에서 선택합니다. 업데이트 그룹 만들기를 선택합니다.
 
-   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="태그 선택이 표시된 스크린샷" lightbox="media/create-update-group/select-tag.PNG":::
+   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="태그 선택을 보여 주는 스크린샷" lightbox="media/create-update-group/select-tag.PNG":::
 
 태그를 추가하고 업데이트 그룹을 만드는 방법에 대해 [자세히 알아보기](create-update-group.md)
 
 
 ## <a name="deploy-update"></a>업데이트 배포
 
-1. 그룹이 만들어지면 보류 중인 업데이트 아래에 업데이트 링크와 함께 디바이스 그룹에 사용할 수 있는 새 업데이트가 표시되어야 합니다. 한 번 새로 고쳐야 할 수 있습니다. 
+1. 그룹이 만들어지면 업데이트 보류 중 업데이트에 대한 링크를 사용하여 디바이스 그룹에 사용할 수 있는 새 업데이트가 표시됩니다. 한 번 새로 고쳐야 할 수 있습니다. 
 
 2. 사용 가능한 업데이트를 클릭합니다.
 
@@ -200,7 +198,7 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
    :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="업데이트 진행 중" lightbox="media/deploy-update/update-in-progress.png":::
 
-5. 디바이스를 성공적으로 업데이트한 후에는 규정 준수 차트와 배포 세부 정보 업데이트를 확인하여 동일하게 반영해야 합니다. 
+5. 디바이스를 성공적으로 업데이트한 후에는 규정 준수 차트와 배포 세부 정보가 업데이트되어 동일한 내용을 반영할 것입니다. 
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="업데이트 성공" lightbox="media/deploy-update/update-succeeded.png":::
 

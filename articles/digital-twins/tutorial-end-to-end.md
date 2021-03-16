@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545941"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424579"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -48,7 +48,7 @@ ms.locfileid: "100545941"
 
 다음은 빌딩 시나리오 *AdtSampleApp* 샘플 앱에서 구현하는 구성 요소입니다.
 * 디바이스 인증 
-* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 사용 예(*CommandLoop.cs* 에 있음)
+* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 사용 예(*CommandLoop.cs* 에 있음)
 * Azure Digital Twins API를 호출하는 콘솔 인터페이스
 * *SampleClientApp* - 샘플 Azure Digital Twins 솔루션
 * *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석의 결과로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
@@ -107,7 +107,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 앱을 게시하기 전에 종속성이 최신 버전인지 확인하고 포함된 모든 패키지의 최신 버전을 보유하고 있는지 확인하는 것이 좋습니다.
 
-*솔루션 탐색기* 창에서 *SampleFunctionsApp > 종속성* 을 확장합니다. *패키지* 를 마우스 오른쪽 단추로 클릭하고 *NuGet 패키지 관리...* 를 선택합니다.
+*솔루션 탐색기* 창에서 _**SampleFunctionsApp** > 종속성_ 을 확장합니다. *패키지* 를 마우스 오른쪽 단추로 클릭하고 *NuGet 패키지 관리...* 를 선택합니다.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: SampleFunctionsApp 프로젝트에 대한 NuGet 패키지 관리" border="false":::
 
@@ -131,15 +131,17 @@ Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Dig
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
-Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 *ADT_SERVICE_URL* 이라는 항목을 포함합니다.
+Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 **ADT_SERVICE_URL** 이라는 항목을 포함합니다.
 
-다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 *principalId* 필드를 기록해 둡니다.
+다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 **principalId** 필드를 찾습니다.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-다음 명령에서 출력의 *principalId* 값을 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 *Azure Digital Twins 데이터 소유자* 역할에 할당합니다.
+출력의 **principalId** 값을 다음 명령에 사용하여 함수 앱의 ID를 Azure Digital Twins 인스턴스의 *Azure Digital Twins 데이터 소유자* 역할에 할당합니다.
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -176,7 +178,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 이 명령을 실행하면 만들어진 IoT 허브에 대한 정보가 출력됩니다.
 
-IoT 허브에 지정한 이름을 저장합니다. 나중에 필요합니다.
+IoT 허브에 지정한 **이름** 을 저장합니다. 나중에 필요합니다.
 
 ### <a name="connect-the-iot-hub-to-the-azure-function"></a>Azure 함수에 IoT 허브 연결
 
@@ -269,7 +271,10 @@ Azure Digital Twins 쪽에서 데이터를 보려면 _**AdtE2ESample**_ 프로�
 ObserveProperties thermostat67 Temperature
 ```
 
-10초마다 *Azure Digital Twins 인스턴스* 에서 라이브 업데이트된 온도가 콘솔에 기록되는 것을 확인할 수 있습니다.
+2초마다 *Azure Digital Twins 인스턴스* 에서 라이브 업데이트된 온도가 콘솔에 기록되는 것을 확인할 수 있습니다.
+
+>[!NOTE]
+> 디바이스의 데이터가 쌍으로 전파되는 데 몇 초 정도 걸릴 수 있습니다. 처음 몇 개의 온도 판독값은 데이터가 도착할 때까지 0으로 표시될 수 있습니다.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="디지털 트윈 thermostat67의 온도 메시지 로그를 보여주는 콘솔 출력":::
 
@@ -327,7 +332,7 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="provisioningState가 성공인 엔드포인트를 보여주는 엔드포인트 쿼리의 결과":::
 
-Azure Digital Twins에서 이벤트 그리드 토픽 및 Event Grid 엔드포인트에 지정한 이름을 저장합니다. 나중에 사용합니다.
+Azure Digital Twins에서 **이벤트 그리드 토픽** 및 Event Grid **엔드포인트** 에 지정한 이름을 저장합니다. 나중에 사용합니다.
 
 ### <a name="set-up-route"></a>경로 설정
 
@@ -346,7 +351,7 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 
 다음으로, 원격 분석 데이터가 이벤트 그리드 토픽을 통해 *thermostat67* 트윈에서 함수로 흐를 수 있게 *ProcessDTRoutedData* Azure 함수를 앞에서 만든 이벤트 그리드 토픽에 구독합니다. 이 함수는 Azure Digital Twins로 돌아가고 그에 따라 *room21* 트윈을 업데이트합니다.
 
-이를 위해 이벤트 그리드 토픽에서 *ProcessDTRoutedData* Azure 함수로의 **Event Grid 구독** 을 엔드포인트로 만듭니다.
+이렇게 하려면 앞에서 만든 **이벤트 그리드 토픽** 에서 *ProcessDTRoutedData* Azure 함수로 데이터를 전송하는 **Event Grid 구독** 을 만듭니다.
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 이벤트 그리드 토픽으로 이동합니다. *+ 이벤트 구독* 을 선택합니다.
 
@@ -381,7 +386,7 @@ Azure Digital Twins 쪽에서 데이터를 보려면 _**AdtE2ESample**_ 프로�
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-10초마다 *Azure Digital Twins 인스턴스* 에서 라이브 업데이트된 온도가 콘솔에 기록되는 것을 확인할 수 있습니다. *thermostat67* 의 업데이트 내용에 맞게 *room21* 의 온도가 업데이트되고 있음을 확인합니다.
+2초마다 *Azure Digital Twins 인스턴스* 에서 라이브 업데이트된 온도가 콘솔에 기록되는 것을 확인할 수 있습니다. *thermostat67* 의 업데이트 내용에 맞게 *room21* 의 온도가 업데이트되고 있음을 확인합니다.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="자동 온도 조절기와 방의 온도 메시지 로그를 보여주는 콘솔 출력":::
 
@@ -403,9 +408,9 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
+* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/ext/azure-iot/dt) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
 
-    이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
+    이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
 
 로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 

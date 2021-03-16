@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360822"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472200"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 데이터 처리 최적화
 
@@ -38,7 +38,7 @@ CSV 파일은 Excel에서 쉽게 편집 하 고 읽을 수 있으므로 일반�
 
 `Pandas` 단일 스레드를 의미 합니다. 즉, 단일 CPU에서 작업이 한 번에 하나씩 수행 됩니다. 분산 백 엔드를 사용 하 여 래핑하는 [modin](https://modin.readthedocs.io/en/latest/) 같은 패키지를 사용 하 여 단일 Azure Machine Learning 계산 인스턴스에서 여러 가상 cpu로 워크 로드를 쉽게 병렬화 할 수 있습니다 `Pandas` .
 
-및를 사용 하 여 작업을 병렬 처리 하려면 `Modin` 이 코드 줄을로 변경 하면 [Dask](https://dask.org) `import pandas as pd` `import modin.pandas as pd` 됩니다.
+및를 사용 하 여 작업을 병렬 처리 하려면 `Modin` 이 코드 줄을로 변경 하면 [](https://dask.org) `import pandas as pd` `import modin.pandas as pd` 됩니다.
 
 ## <a name="dataframe-out-of-memory-error"></a>데이터 프레임: 메모리 부족 오류가 발생 했습니다. 
 
@@ -86,8 +86,6 @@ RAM 사양에 대해서는 해당 VM 시리즈 페이지 (예: [Dv2-Dsv2 series]
 선호 하는 경우 `Spark` | `PySpark`
 1gb 미만의 데이터 | `Pandas` 로컬 **또는** 원격 Azure Machine Learning 계산 인스턴스
 10gb 보다 큰 데이터의 경우| `Ray`, 또는를 사용 하 여 클러스터로 이동 `Dask``Spark`
-
-`Dask`AZURE ML 계산 클러스터에서 패키지를 사용 하 여 클러스터 [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) 를 만들 수 있습니다. 또는 `Dask` 계산 인스턴스에서 로컬로 실행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

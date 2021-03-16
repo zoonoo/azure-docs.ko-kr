@@ -4,14 +4,14 @@ description: Azure HPC 캐시 저장소 대상을 편집 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204034"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471828"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -19,13 +19,16 @@ Azure Portal 또는 Azure CLI를 사용 하 여 저장소 대상을 제거 하�
 
 저장소 유형에 따라 다음과 같은 저장소 대상 값을 수정할 수 있습니다.
 
-* Blob 저장소 대상의 경우 네임 스페이스 경로를 변경할 수 있습니다.
+* Blob 저장소 대상의 경우 네임 스페이스 경로 및 액세스 정책을 변경할 수 있습니다.
 
 * NFS 저장소 대상의 경우 다음 값을 변경할 수 있습니다.
 
   * 네임 스페이스 경로
+  * 액세스 정책
   * 네임 스페이스 경로와 연결 된 저장소 내보내기 또는 내보내기 하위 디렉터리
   * 사용 모델
+
+* ADLS-NFS 저장소 대상의 경우 네임 스페이스 경로, 액세스 정책 및 사용 모델을 변경할 수 있습니다.
 
 저장소 대상의 이름, 유형 또는 백 엔드 저장소 시스템 (Blob 컨테이너 또는 NFS 호스트 이름/i p 주소)은 편집할 수 없습니다. 이러한 속성을 변경 해야 하는 경우 저장소 대상을 삭제 하 고 새 값으로 대체를 만듭니다.
 
@@ -94,10 +97,13 @@ Azure CLI를 사용 하 여 blob 저장소 대상의 네임 스페이스를 변�
 
 NFS 저장소 대상의 경우 가상 네임 스페이스 경로를 변경 또는 추가 하 고, 네임 스페이스 경로가 가리키는 NFS 내보내기 또는 하위 디렉터리 값을 변경 하 고, 사용 모델을 변경할 수 있습니다.
 
+일부 유형의 사용자 지정 DNS 설정으로 캐시의 저장소 대상에도 해당 IP 주소를 새로 고치는 컨트롤이 있습니다. 이러한 종류의 구성은 드물게 발생 합니다.
+
 세부 정보는 다음과 같습니다.
 
-* [집계 된 네임 스페이스 값 변경](#change-aggregated-namespace-values) (가상 네임 스페이스 경로, 내보내기 및 하위 디렉터리 내보내기)
+* [집계 된 네임 스페이스 값 변경](#change-aggregated-namespace-values) (가상 네임 스페이스 경로, 액세스 정책, 내보내기 및 하위 디렉터리 내보내기)
 * [사용 모델 변경](#change-the-usage-model)
+* [DNS 새로 고침](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>집계 된 네임 스페이스 값 변경
 
@@ -112,7 +118,7 @@ Azure HPC 캐시에 **네임 스페이스** 페이지를 사용 하 여 네임 �
 ![NFS 업데이트 페이지가 오른쪽에 열려 있는 포털 네임 스페이스 페이지의 스크린샷](media/update-namespace-nfs.png)
 
 1. 변경할 경로의 이름을 클릭 합니다.
-1. 편집 창을 사용 하 여 새 가상 경로, 내보내기 또는 하위 디렉터리 값을 입력할 수 있습니다.
+1. 편집 창을 사용 하 여 새 가상 경로, 내보내기 또는 하위 디렉터리 값을 입력 하거나 다른 액세스 정책을 선택할 수 있습니다.
 1. 변경 후에는 **확인** 을 클릭 하 여 저장소 대상을 업데이트 하거나 **취소** 를 클릭 하 여 변경 내용을 취소 합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -174,6 +180,37 @@ Update 명령은 NFS 저장소 대상을 추가 하는 데 사용 하는 명령�
 캐시가 중지 되었거나 정상 상태가 아니면 캐시가 정상 상태가 된 후 업데이트가 적용 됩니다.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>IP 주소 업데이트 (사용자 지정 DNS 구성에만 해당)
+
+캐시에서 기본이 아닌 DNS 구성을 사용 하는 경우 백 엔드 DNS 변경으로 인해 NFS 저장소 대상의 IP 주소가 변경 될 수 있습니다. DNS 서버에서 백 엔드 저장소 시스템의 IP 주소를 변경 하는 경우 Azure HPC 캐시는 저장소 시스템에 대 한 액세스 권한을 손실할 수 있습니다.
+
+캐시의 사용자 지정 DNS 시스템 관리자와 협력 하 여 업데이트를 계획 하는 것이 가장 좋습니다. 이러한 변경으로 인해 저장소를 사용할 수 없게 됩니다.
+
+저장소 대상의 DNS에서 제공 하는 IP 주소를 업데이트 해야 하는 경우 저장소 대상 목록에 단추가 있습니다. **Dns 새로 고침** 을 클릭 하 여 새 IP 주소에 대 한 사용자 지정 dns 서버를 쿼리 합니다.
+
+![저장소 대상 목록의 스크린샷. 하나의 저장소 대상의 경우 "..." 오른쪽 끝 열의 메뉴가 열리고 두 개의 옵션이 표시 됩니다. 삭제 및 DNS 새로 고침](media/refresh-dns.png)
+
+성공 하면 업데이트는 2 분 이내에 수행 되어야 합니다. 한 번에 하나의 저장소 대상만 새로 고칠 수 있습니다. 다른 작업을 시도 하기 전에 이전 작업이 완료 될 때까지 기다립니다.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>ADLS-NFS 저장소 대상 업데이트 (미리 보기)
+
+NFS 대상과 마찬가지로 ADLS-NFS 저장소 대상에 대 한 네임 스페이스 경로 및 사용 모델을 변경할 수 있습니다.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>ADLS-NFS 네임 스페이스 경로 변경
+
+Azure HPC 캐시에 **네임 스페이스** 페이지를 사용 하 여 네임 스페이스 값을 업데이트 합니다. 이 페이지는 [집계 된 네임 스페이스 설정](add-namespace-paths.md)문서에 자세히 설명 되어 있습니다.
+
+![광고 NFS 업데이트 페이지가 오른쪽에 열려 있는 포털 네임 스페이스 페이지의 스크린샷](media/update-namespace-adls.png)
+
+1. 변경할 경로의 이름을 클릭 합니다.
+1. 편집 창을 사용 하 여 새 가상 경로를 입력 하거나 액세스 정책을 업데이트 합니다.
+1. 변경 후에는 **확인** 을 클릭 하 여 저장소 대상을 업데이트 하거나 **취소** 를 클릭 하 여 변경 내용을 취소 합니다.
+
+### <a name="change-adls-nfs-usage-models"></a>ADLS-NFS 사용 모델 변경
+
+ADLS-NFS 사용 모델에 대 한 구성은 NFS 사용 모델 선택과 동일 합니다. 위의 NFS 섹션에서 [사용 모델 변경](#change-the-usage-model) 의 포털 지침을 읽습니다. ADLS-NFS 저장소 대상을 업데이트 하기 위한 추가 도구는 개발 중입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

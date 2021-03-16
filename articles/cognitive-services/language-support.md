@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706285"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472053"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -28,7 +28,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
-## <a name="vision"></a>Vision
+## <a name="vision"></a>시각
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [폼 인식기 (미리 보기)](./form-recognizer/language-support.md)
@@ -43,21 +43,11 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [텍스트 분석](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
-## <a name="speech"></a>Speech
+## <a name="speech"></a>음성
 
 * [Speech Service: Speech-to-Text](./speech-service/language-support.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/language-support.md#text-to-speech)
 * [Speech Service: Speech Translation](./speech-service/language-support.md#speech-translation)
-
-## <a name="search"></a>검색
-
-* [Bing Custom Search](./bing-custom-search/language-support.md)
-* [Bing Image Search](./bing-image-search/language-support.md)
-* [Bing News Search](./bing-news-search/language-support.md)
-* [Bing Autosuggest](./bing-autosuggest/language-support.md)
-* [Bing Spell Check](./bing-spell-check/language-support.md)
-* [Bing Visual Search](./bing-visual-search/language-support.md)
-* [Bing Web Search](./bing-web-search/language-support.md)
 
 ## <a name="decision"></a>의사 결정
 

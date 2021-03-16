@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 프로필 또는 엔드포인트 만들기 - Azure Resource Manager 템플릿'
 titleSuffix: Azure Content Delivery Network
-description: Azure Content Delivery Network 프로필 및 Resource Manager 템플릿 엔드포인트를 만드는 방법 알아보기
+description: 이 빠른 시작에서는 Azure Content Delivery Network 프로필 및 Resource Manager 템플릿 엔드포인트를 만드는 방법을 알아봅니다.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695726"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560466"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기 - ARM 템플릿
 
@@ -107,7 +107,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="powershell"></a>PowerShell
 
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -126,5 +126,5 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 Azure CDN 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-* [Azure CDN 개요](cdn-overview.md) 읽기
-* [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
+> [!div class="nextstepaction"]
+> [자습서: CDN을 사용하여 웹앱에서 정적 콘텐츠 적용](cdn-add-to-web-app.md)

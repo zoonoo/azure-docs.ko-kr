@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039838"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437164"
 ---
 # <a name="what-is-azure-route-server-preview"></a>Azure Route Server(미리 보기)란? 
 
@@ -37,7 +37,7 @@ Azure Route Server는 가상 네트워크에서 NVA의 구성, 관리 및 배포
 
 * NVA가 새 경로를 알리거나 이전 경로를 취소할 때마다 더 이상 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 수동으로 업데이트하지 않아도 됩니다. 
 
-* 복원력 또는 성능 목적을 위해 NVA 앞에서 더 이상 부하 분산 장치를 구성할 필요가 없습니다. Azure Route Server와 NVA의 여러 인스턴스를 피어링하는 경우 NVA에서 BGP 특성을 구성할 수 있습니다. 이러한 BGP 특성은 활성 또는 수동이어야 하는 NVA 인스턴스를 Azure Route Server에 알려줍니다. 
+* NVA의 여러 인스턴스를 Azure Route Server와 피어링할 수 있습니다. NVA에서 BGP 특성을 구성할 수 있으며 디자인(예: 성능의 경우 활성-활성 또는 복원력의 경우 활성-수동)에 따라 Azure Route Server에서 활성 상태인 NVA 인스턴스 또는 수동 항목을 알 수 있습니다. 
 
 * NVA와 Azure Route Server 간의 인터페이스는 일반적인 표준 프로토콜을 기준으로 합니다. NVA가 BGP를 지원하기만 한다면 Azure Route Server와 피어링할 수 있습니다. 자세한 내용은 [Route Server 지원 라우팅 프로토콜](route-server-faq.md#protocol)을 참조하세요.
 

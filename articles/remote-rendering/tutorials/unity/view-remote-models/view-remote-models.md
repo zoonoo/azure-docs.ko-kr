@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: ef2d0eb409cbef2fdd3579ae5e8b409e24bdda2f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735967"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -55,43 +55,9 @@ Unity Hub에서 새 프로젝트를 만듭니다.
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Azure Remote Rendering 패키지 포함
 
-Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해야 합니다. 텍스트 편집기에서 파일을 열고, 다음 줄을 매니페스트의 위쪽에 추가합니다.
+Unity 프로젝트에 Azure Remote Rendering 패키지를 추가하는 방법에 대한 [지침을 따르세요](../../../how-tos/unity/install-remote-rendering-unity-package.md).
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-매니페스트가 수정되어 저장되면 Unity에서 자동으로 새로 고칩니다. *Project(프로젝트)* 창에서 패키지가 로드되었는지 확인합니다.
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="패키지 가져오기 확인":::
-
-패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.\
-![패키지 표시 유형 토글 단추를 가리키는 화살표가 있는 스크린샷.](./media/unity-package-visibility.png)
-
-## <a name="ensure-you-have-the-latest-version-of-the-package"></a>최신 버전의 패키지가 있는지 확인
-
-다음 단계에서는 프로젝트에서 최신 버전의 원격 렌더링 패키지를 사용하는지 확인합니다.
-
-1. Unity 편집기의 위쪽 메뉴에서 *Window(창) -> Package Manager(패키지 관리자)* 를 차례로 엽니다.
-1. **Microsoft Azure Remote Rendering** 패키지를 선택합니다.
-1. **Microsoft Azure Remote Rendering** 패키지에 대한 패키지 관리자 페이지에서 **Update(업데이트)** 단추를 사용할 수 있는지 확인합니다. 사용할 수 있는 경우 해당 패키지를 클릭하여 패키지를 사용 가능한 최신 버전으로 업데이트합니다.\
-![패키지 관리자의 ARR 패키지](./media/package-manager.png)
-1. 패키지를 업데이트하면 경우에 따라 콘솔 오류가 발생할 수 있습니다. 이 경우 프로젝트를 닫고 다시 열어 보세요.
-1. 패키지가 최신 상태이면 Package Manager에서 Update 단추 대신 **Up to date(최신)** 를 표시합니다.\
-![최신 패키지](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>카메라 구성
 
 1. **Main Camera(기본 카메라)** 노드를 선택합니다.

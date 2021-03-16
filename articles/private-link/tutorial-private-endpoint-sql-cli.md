@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure CLI
+title: '자습서: Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure CLI'
 description: 이 자습서를 통해 Azure CLI를 사용하여 프라이빗 엔드포인트가 있는 Azure SQL 서버를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544108"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554992"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>자습서 - Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure CLI
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>자습서: Azure Private Endpoint를 사용하여 Azure SQL 서버에 연결 - Azure CLI
 
 Azure Private 엔드포인트는 Azure에서 Private Link를 만드는 데 사용되는 기본 구성 요소입니다. 이를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 Private Link 리소스와 비공개로 통신할 수 있습니다.
 
@@ -327,6 +328,6 @@ az group delete \
 
 가상 머신을 사용하여 프라이빗 엔드포인트에서 SQL 서버에 대한 연결을 안전하게 테스트했습니다.
 
-Private Link 서비스를 만드는 방법을 알아봅니다.
+다음 단계로, 가상 네트워크 외부의 웹 애플리케이션을 데이터베이스의 프라이빗 엔드포인트에 연결하는 **Azure SQL 데이터베이스에 대한 프라이빗 연결이 있는 웹앱** 아키텍처 시나리오에 관심이 있을 수도 있습니다.
 > [!div class="nextstepaction"]
-> [Private Link 서비스 만들기](create-private-link-service-portal.md)
+> [Azure SQL 데이터베이스에 대한 프라이빗 연결이 있는 웹앱](/azure/architecture/example-scenario/private-web-app/private-web-app)

@@ -1,26 +1,19 @@
 ---
-title: 빠른 시작 - Azure CDN과 Azure Storage 계정 통합
-description: Azure Storage에서 Blob을 캐시하여 고대역폭 콘텐츠를 배달하기 위해 Azure CDN(Content Delivery Network)을 사용하는 방법을 알아봅니다.
+title: '빠른 시작: Azure CDN과 Azure Storage 계정 통합'
+description: 이 빠른 시작에서는 Azure Storage에서 Blob을 캐시하여 고대역폭 콘텐츠를 제공하는 Azure CDN(Content Delivery Network)을 사용하는 방법을 알아봅니다.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018616"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561928"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 
@@ -123,9 +116,6 @@ Azure CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 �
 3. 스토리지 계정을 삭제하려면 대시보드에서 선택한 다음, 상단 메뉴에서 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-> [!div class="nextstepaction"]
-> [Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [자습서: CDN을 사용하여 웹앱에서 서버 정적 콘텐츠 사용](cdn-add-to-web-app.md)

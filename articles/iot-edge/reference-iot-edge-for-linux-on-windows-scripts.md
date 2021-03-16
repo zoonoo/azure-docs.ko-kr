@@ -8,14 +8,17 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0881363a3f13f0ddf34157a1fffe6c26d0c0b692
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: fe04615e234eaf5b006a80e6f584905626c637ba
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122853"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489488"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge PowerShell 스크립트
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 하며 상태를 가져오는 PowerShell 스크립트를 이해 합니다.
 
@@ -28,7 +31,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 >[!NOTE]
 >프로 비전 형식의 경우 **x509** 는 현재 [Azure IoT Hub 장치 프로 비전 서비스](../iot-dps/about-iot-dps.md)를 사용 하 여 x509 프로 비전을 참조 합니다. 수동 X509 프로 비전 방법은 현재 지원 되지 않습니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | eflowVhdxDir | 디렉터리 경로 | 배포에서 VM에 대 한 VHDX 파일을 저장 하는 디렉터리입니다. |
 | provisioningType | **수동**, **TPM**, **X509** 또는 **대칭** |  IoT Edge 장치에 사용 하려는 프로 비전의 유형을 정의 합니다. |
@@ -58,7 +61,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **프로 비전-EflowVm** 명령은 IoT Edge 장치에 대 한 프로 비전 정보를 가상 머신의 IoT Edge 파일에 추가 합니다 `config.yaml` . 배포 단계에서 배포 **-Eflow** 명령에 매개 변수를 설정 하 여 프로 비전을 수행할 수도 있습니다. 추가 정보를 보려면 명령을 사용 `Get-Help Provision-EflowVm -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 | provisioningType | **수동**, **TPM**, **X509** 또는 **대칭** |  IoT Edge 장치에 사용 하려는 프로 비전의 유형을 정의 합니다. |
@@ -79,7 +82,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **Get EflowLogs** 명령은 Windows의 Linux 배포에 대 한 IoT Edge에서 로그를 수집 하 고 묶는 데 사용 됩니다. 이는 번들로 묶은 로그를 폴더 형식으로 출력 합니다 `.zip` . 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowLogs -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -87,7 +90,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **EflowVmTpmProvisioningInfo** 명령은 가상 머신의 vtpm 프로 비전 정보를 수집 하 고 표시 하는 데 사용 됩니다. VTPM을 사용 하지 않고 가상 컴퓨터를 만든 경우이 명령은 TPM 프로 비전 정보를 찾을 수 없음을 반환 합니다. 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowVmTpmProvisioningInfo -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -99,7 +102,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **EflowVmSystemInformation** 명령은 메모리 및 저장소 사용량과 같은 가상 컴퓨터에서 시스템 정보를 수집 하 고 표시 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowVmSystemInformation -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -107,7 +110,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **EflowVmEdgeInformation** 명령은 가상 컴퓨터에서 실행 중인 IoT Edge 버전과 같은 가상 컴퓨터의 정보를 수집 하 고 IoT Edge 표시 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowVmEdgeInformation -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -115,7 +118,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **EflowVmEdgeModuleList** 명령은 가상 머신에서 실행 되는 IoT Edge 모듈 목록을 쿼리하고 표시 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowVmEdgeModuleList -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -123,7 +126,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **EflowVmEdgeStatus** 명령은 가상 컴퓨터에서 IoT Edge 런타임의 상태를 쿼리하고 표시 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Get-EflowVmEdgeStatus -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 
@@ -139,7 +142,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 **Ssh-EflowVm** 명령은 가상 컴퓨터에 ssh를 사용 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Ssh-EflowVm -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 의견 |
+| 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 

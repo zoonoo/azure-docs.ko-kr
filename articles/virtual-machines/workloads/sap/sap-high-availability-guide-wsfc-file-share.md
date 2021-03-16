@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675339"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496204"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -147,10 +147,14 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>2개의 클러스터에서 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유 구성
 
-SAP ASCS/SCS 인스턴스를 고유한 SAP 클러스터 역할을 사용 하 여 하나의 클러스터에 배포할 수 있습니다 \<SID\> . 이 경우 다른 클러스터 역할을 갖는 다른 클러스터에 스케일 아웃 파일 공유를 구성합니다.
+SAP ASCS/SCS 인스턴스는 자체 SAP 클러스터 역할을 사용 하 여 별도의 클러스터에 배포 해야 합니다 \<SID\> . 이 경우 다른 클러스터 역할을 갖는 다른 클러스터에 스케일 아웃 파일 공유를 구성합니다.
+
 
 > [!IMPORTANT]
->이 시나리오에서 SAP ASCS/SCS 인스턴스는 UNC 경로 \\\\&lt;SAP 글로벌 호스트&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 SAP 글로벌 호스트에 액세스하도록 구성되었습니다.
+> 설치 프로그램은 다음 요구 사항을 충족 해야 합니다. SAP ASCS/SCS 인스턴스와 SOFS 공유를 별도의 클러스터에 배포 해야 합니다.    
+>
+> [!IMPORTANT] 
+> 이 시나리오에서 SAP ASCS/SCS 인스턴스는 UNC 경로 \\\\&lt;SAP 글로벌 호스트&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 SAP 글로벌 호스트에 액세스하도록 구성되었습니다.
 >
 
 ![그림 5: 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유][sap-ha-guide-figure-8007]

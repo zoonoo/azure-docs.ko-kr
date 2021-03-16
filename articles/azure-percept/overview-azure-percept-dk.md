@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ba960465ab0ca8d5124d5882e3578e61fee2cf14
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179377"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490146"
 ---
 # <a name="azure-percept-dk-overview"></a>Azure Percept DK 개요
 
 Azure Percept 진한은 비전 및 오디오 AI 개념 증명을 개발 하기 위해 설계 된 edge AI 및 IoT 개발 키트입니다. [Azure Percept Studio](./overview-azure-percept-studio.md) 및 [azure Percept Audio](./overview-azure-percept-audio.md)와 결합 하면 광범위 한 시각 또는 오디오 AI 응용 프로그램을 위한 edge AI 솔루션을 빌드하는 데 사용할 수 있는 강력 하 고 간편한 플랫폼이 됩니다. [Microsoft online 스토어](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 구매할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [지금 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept 진한 장치.":::
 
@@ -52,4 +55,5 @@ Azure Percept 진한은 비전 및 오디오 AI 개념 증명을 개발 하기 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 AZURE Percept 진한 주문을 합니다.
+> [!div class="nextstepaction"]
+> [Microsoft online store에서 Azure Percept 진한 구매](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

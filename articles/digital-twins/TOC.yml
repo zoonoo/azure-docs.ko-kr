@@ -13,8 +13,12 @@
   items:
     - name: 클라이언트 앱 코딩
       href: tutorial-code.md
-    - name: 샘플 클라이언트 앱으로 기본 사항 살펴보기
-      href: tutorial-command-line-app.md
+    - name: 그래프 만들기
+      items:
+        - name: 샘플 클라이언트 앱 사용
+          href: tutorial-command-line-app.md
+        - name: Azure CLI 명령 사용
+          href: tutorial-command-line-cli.md
     - name: 엔드투엔드 솔루션 연결
       href: tutorial-end-to-end.md
 - name: 개념

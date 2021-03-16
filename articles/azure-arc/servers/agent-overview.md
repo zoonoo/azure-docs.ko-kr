@@ -1,14 +1,14 @@
 ---
-title: Connected Machine Windows 에이전트 개요
+title: 연결 된 컴퓨터 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651096"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470492"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -35,7 +35,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
 
 ## <a name="instance-metadata"></a>인스턴스 메타데이터
 
-연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Arc 사용 서버를 등록 한 후에 수집 됩니다. 구체적으로는 다음과 같습니다.
+연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Arc 사용 서버를 등록 한 후에 수집 됩니다. 특히:
 
 * 운영 체제 이름, 유형 및 버전
 * 컴퓨터 이름
@@ -52,7 +52,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
 
 * 리소스 위치 (지역)
 * 가상 머신 ID
-* 태그
+* 태그들
 * Azure Active Directory 관리 id 인증서
 * 게스트 구성 정책 할당
 * 확장 요청-설치, 업데이트 및 삭제
@@ -90,9 +90,11 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
-* 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
+* 컴퓨터를 등록 하려면 리소스 그룹에서 **Azure 연결 된 컴퓨터 온 보 딩** 또는 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원입니다.
 
-* 컴퓨터를 읽고, 수정 하 고, 삭제 하려면 **Azure 연결 된 컴퓨터 리소스 관리자** 역할의 구성원입니다. 
+* 컴퓨터를 읽고, 수정 하 고, 삭제 하려면 리소스 그룹에서 **Azure 연결 된 컴퓨터 리소스 관리자** 역할의 구성원입니다.
+
+* **스크립트 생성** 메서드를 사용할 때 드롭다운 목록에서 리소스 그룹을 선택 하려면 최소한 해당 리소스 그룹에 대 한 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할의 멤버입니다.
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
@@ -130,7 +132,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
+|`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
@@ -184,7 +186,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 > [!IMPORTANT]
 > 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
 
-| 방법 | Description |
+| 메서드 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|

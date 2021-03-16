@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738194"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491251"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -57,7 +57,7 @@ ms.locfileid: "101738194"
 
 **Q: 기본 모델이 서로 다른 이유는 무엇 인가요?**
 
-**A**: 음성 서비스에서 둘 이상의 기본 모델 중 하나를 선택할 수 있습니다. 각 모델 이름은 추가 된 날짜를 포함 합니다. 사용자 지정 모델에 대 한 학습을 시작 하는 경우 가장 좋은 정확도를 얻기 위해 최신 모델을 사용 합니다. 새 모델을 사용할 수 있게 되 면 이전 기본 모델을 계속 사용할 수 있습니다. 사용 중지 될 때까지 작업 한 모델을 계속 사용할 수 있습니다 ( [모델 수명 주기](custom-speech-overview.md#model-lifecycle)참조). 정확성을 높이기 위해 여전히 최신 기본 모델로 전환 하는 것이 좋습니다.
+**A**: 음성 서비스에서 둘 이상의 기본 모델 중 하나를 선택할 수 있습니다. 각 모델 이름은 추가 된 날짜를 포함 합니다. 사용자 지정 모델에 대 한 학습을 시작 하는 경우 가장 좋은 정확도를 얻기 위해 최신 모델을 사용 합니다. 새 모델을 사용할 수 있게 되 면 이전 기본 모델을 계속 사용할 수 있습니다. 사용 중지 될 때까지 작업 한 모델을 계속 사용할 수 있습니다 ( [모델 및 끝점 수명 주기](./how-to-custom-speech-model-and-endpoint-lifecycle.md)참조). 정확성을 높이기 위해 여전히 최신 기본 모델로 전환 하는 것이 좋습니다.
 
 **Q: 기존 모델(모델 스택)을 업데이트할 수 있나요?**
 
@@ -71,7 +71,7 @@ ms.locfileid: "101738194"
 
 모델을 조정 하 고 배포 하는 경우 해당 배포는 그대로 유지 됩니다. 기본 모델의 최신 버전을 사용 하 여 readapt 배포 된 모델의 서비스를 해제 하 고 더 나은 정확성을 위해 다시 배포할 수 있습니다.
 
-기본 모델과 사용자 지정 모델 모두 일정 시간 후에 사용이 중지 됩니다 ( [모델 수명 주기](custom-speech-overview.md#model-lifecycle)참조).
+기본 모델과 사용자 지정 모델 모두 일정 시간 후에 사용이 중지 됩니다 ( [모델 및 끝점 수명 주기](./how-to-custom-speech-model-and-endpoint-lifecycle.md)참조).
 
 **Q: 내 모델을 다운로드하여 로컬로 실행할 수 있나요?**
 

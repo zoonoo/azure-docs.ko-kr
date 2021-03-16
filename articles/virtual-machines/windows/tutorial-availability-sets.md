@@ -1,22 +1,22 @@
 ---
-title: 자습서 - Azure에서 Windows VM을 위한 고가용성
-description: 이 자습서에서는 Azure PowerShell을 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아봅니다.
-services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
+title: Azure PowerShell을 사용하여 가용성 집합에 VM 배포
+description: Azure PowerShell을 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법 알아보기
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99821216"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555910"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Azure PowerShell을 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
 
 이 자습서에서는 가용성 집합을 사용하여 VM(Virtual Machine)의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합은 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되어 있는지 확인합니다. 
 
@@ -28,14 +28,6 @@ ms.locfileid: "99821216"
 > * 사용 가능한 VM 크기 확인
 > * Azure Advisor 확인
 
-
-## <a name="availability-set-overview"></a>가용성 집합 개요
-
-가용성 집합은 VM 리소스가 배포될 때 서로를 격리하는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 소프트웨어 장애가 발생하면, VM의 하위 집합만 영향을 받고 전체 솔루션은 작동 상태를 유지합니다. 가용성 집합은 안정적인 클라우드 솔루션을 구축하는 데 필수적입니다.
-
-4개의 프런트 엔드 웹 서버 및 2개의 백 엔드 VM이 있는 일반적인 VM 기반 솔루션을 가정하겠습니다. Azure를 사용하여 VM을 배포하기 전에 두 개의 가용성 집합(웹 계층에 하나, 백 계층에 하나)을 정의하려고 합니다. 새 VM을 만들 때 가용성 집합을 매개 변수로 지정합니다. Azure는 VM이 다수의 실제 하드웨어 리소스에서 격리되도록 합니다. 서버 중 하나가 실행 중인 실제 하드웨어에 문제가 발생해도, 서버의 다른 인스턴스는 계속 실행됩니다. 해당 인스턴스는 다른 하드웨어에 있기 때문입니다.
-
-Azure 내에서 신뢰할 수 있는 VM 기반 솔루션을 배포하려면 항상 가용성 집합을 사용합니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 

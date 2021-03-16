@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: dd87b58c604b0bb2141c29d3b2227e9a81668a75
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448271"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488825"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448271"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -43,8 +43,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 LinkedIn 계정이 있는 사용
 1. **앱 이름**, **LinkedIn 페이지**, **개인 정보 취급 방침 URL** 및 **앱 로고** 를 입력 합니다.
 1. LinkedIn **API 사용 약관** 에 동의 하 고 **앱 만들기** 를 클릭 합니다.
 1. **인증** 탭을 선택 합니다. **인증 키** 아래에서 **클라이언트 ID** 및 **클라이언트 암호** 에 대 한 값을 복사 합니다. 테 넌 트에서 LinkedIn을 id 공급자로 구성 하려면 둘 다 필요 합니다. **클라이언트 보안 비밀** 은 중요한 보안 자격 증명이므로
-1. **앱에 대 한 권한 있는 리디렉션 url** 옆의 편집 연필을 선택 하 고 **리디렉션 url 추가** 를 선택 합니다. `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`을 입력 하 고을 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다. **업데이트** 를 선택합니다.
-2. 기본적으로 LinkedIn 앱은 로그인과 관련 된 범위에 대해 승인 되지 않습니다. 검토를 요청 하려면 **제품** 탭을 선택한 다음 **LinkedIn로 로그인** 을 선택 합니다. 검토가 완료 되 면 필요한 범위가 응용 프로그램에 추가 됩니다.
+1. **앱에 대 한 권한 있는 리디렉션 url** 옆의 편집 연필을 선택 하 고 **리디렉션 url 추가** 를 선택 합니다. `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다. **업데이트** 를 선택합니다.
+1. 기본적으로 LinkedIn 앱은 로그인과 관련 된 범위에 대해 승인 되지 않습니다. 검토를 요청 하려면 **제품** 탭을 선택한 다음 **LinkedIn로 로그인** 을 선택 합니다. 검토가 완료 되 면 필요한 범위가 응용 프로그램에 추가 됩니다.
    > [!NOTE]
    > **OAuth 2.0 범위** 섹션의 **인증** 탭에서 현재 앱에 대해 허용 되는 범위를 볼 수 있습니다.
 

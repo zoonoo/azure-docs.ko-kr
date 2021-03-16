@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209630"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548464"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
 
 Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
 
-Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
+Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 테이블 이름은 소문자로 변환되며 소문자 이름을 사용하여 쿼리해야 합니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 
 또한 Spark에서 만든 관리형 및 외부 테이블은 서버리스 SQL 풀의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#expose-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
 
@@ -101,17 +101,17 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 다음 명령을 실행하여 SparkSQL을 통해 관리형 Spark 테이블을 만듭니다.
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-이 명령은 `mytestdb` 데이터베이스에 `myParquetTable` 테이블을 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
+이 명령은 `mytestdb` 데이터베이스에 `myparquettable` 테이블을 만듭니다. 테이블 이름은 소문자로 변환됩니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-결과에 `myParquetTable`이 포함되어 있는지 확인합니다.
+결과에 `myparquettable`이 포함되어 있는지 확인합니다.
 
 >[!NOTE]
 >Parquet를 해당 스토리지 형식으로 사용하지 않는 테이블은 동기화되지 않습니다.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 이제 다음과 같이 서버리스 SQL 풀에서 데이터를 읽을 수 있습니다.
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 다음 행을 결과로 가져옵니다.
@@ -160,26 +160,26 @@ id | name | birthdate
 예를 들어 SparkSQL을 사용하여 다음을 실행합니다.
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 `<fs>` 자리 표시자를 작업 영역 기본 파일 시스템인 파일 시스템 이름으로 바꾸고, `<synapse_ws>` 자리 표시자를 이 예제를 실행하는 데 사용하는 Synapse 작업 영역의 이름으로 바꿉니다.
 
-이전 예제에서는 `myExtneralParquetTable` 테이블을 `mytestdb` 데이터베이스에 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
+이전 예제에서는 `myextneralparquettable` 테이블을 `mytestdb` 데이터베이스에 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-결과에 `myExternalParquetTable`이 포함되어 있는지 확인합니다.
+결과에 `myexternalparquettable`이 포함되어 있는지 확인합니다.
 
 이제 다음과 같이 서버리스 SQL 풀에서 데이터를 읽을 수 있습니다.
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 다음 행을 결과로 가져옵니다.

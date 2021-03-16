@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure RTOS용 보안 모듈 구성 및 사용'
-description: Azure IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 온보드하고 활성화하는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 Azure IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 온보드하고 활성화하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: a11a8ec2d8eb82950cf0ab55eb6ca1913b41c84a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522940"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447302"
 ---
-# <a name="quickstart-security-module-for-azure-rtos-preview"></a>빠른 시작: Azure RTOS용 보안 모듈(미리 보기)
+# <a name="quickstart-security-module-for-azure-rtos"></a>빠른 시작: Azure RTOS용 보안 모듈 
 
 이 문서에서는 시작하기 전에 필수 구성 요소에 대해 설명하고 IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 활성화하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 

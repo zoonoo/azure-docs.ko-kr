@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051194"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466714"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -30,7 +30,7 @@ ms.locfileid: "102051194"
 - 모든 응용 프로그램에 대해 Azure AD에서 구성을 관리 하는 액세스 권한을 부여 하는 [기본 제공 관리 역할을 할당](#assign-built-in-application-admin-roles) 합니다. 응용 프로그램 구성과 관련이 없는 Azure AD의 다른 부분을 관리 하기 위한 액세스 권한을 부여 하지 않고 광범위 한 응용 프로그램 구성 권한을 관리 하기 위해 IT 전문가에 게 액세스 권한을 부여 하는 데 권장 되는 방법입니다.
 - 매우 구체적인 사용 권한을 정의 하 고 사용자에 게 단일 응용 프로그램의 범위를 제한 된 소유자로 할당 하거나 디렉터리 범위 (모든 응용 프로그램)에서 제한 된 관리자로 할당 하 [는 사용자 지정 역할을 만듭니다](#create-and-assign-a-custom-role-preview) .
 
-위의 방법 중 하나를 사용 하 여 두 가지 이유 때문에 액세스 권한을 부여 하는 것이 중요 합니다. 먼저 관리 작업을 수행 하는 기능을 위임 하면 전역 관리자 오버 헤드가 줄어듭니다. 둘째, 제한 된 권한을 사용 하 여 보안 상태를 개선 하 고 무단 액세스 가능성을 줄입니다. 위임 문제 및 일반 지침은 [Azure Active Directory의 관리 위임](concept-delegation.md)에서 설명합니다.
+위의 방법 중 하나를 사용 하 여 두 가지 이유 때문에 액세스 권한을 부여 하는 것이 중요 합니다. 먼저 관리 작업을 수행 하는 기능을 위임 하면 전역 관리자 오버 헤드가 줄어듭니다. 둘째, 제한 된 권한을 사용 하 여 보안 상태를 개선 하 고 무단 액세스 가능성을 줄입니다. 역할 보안 계획에 대 한 지침은 [AZURE AD에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](security-planning.md)을 참조 하세요.
 
 ## <a name="restrict-who-can-create-applications"></a>응용 프로그램을 만들 수 있는 사용자 제한
 

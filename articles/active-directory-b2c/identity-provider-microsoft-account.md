@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8ba3fc578580e6eee02f435272f4ea53523586
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: db6793389df0df169745ddd50551f836d06cf08c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448220"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488757"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448220"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -46,7 +46,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Microsoft 계정를 사용 하 �
 1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
 
    다른 계정 유형 선택에 대한 자세한 내용은 다음을 참조하세요. [빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록](../active-directory/develop/quickstart-register-app.md)
-1. **리디렉션 URI(선택 사항)** 에서 **웹** 을 선택하고 텍스트 상자에 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp`를 입력합니다. `<tenant-name>`을 Azure AD B2C 테넌트 이름으로 바꿉니다.
+1. **URI 리디렉션 (선택 사항)** 에서 **웹** 을 선택 하 고을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다.
 1. **등록** 을 선택합니다.
 1. 애플리케이션 개요 페이지에 표시된 **애플리케이션(클라이언트) ID** 를 기록합니다. 다음 섹션에서 id 공급자를 구성할 때 클라이언트 ID가 필요 합니다.
 1. **인증서 및 암호** 를 선택합니다.

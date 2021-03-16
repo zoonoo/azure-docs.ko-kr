@@ -2,19 +2,19 @@
 title: Azure 양식 인식기에 대 한 재해 복구 지침
 titleSuffix: Azure Cognitive Services
 description: 모델 복사 API를 사용 하 여 양식 인식기 리소스를 백업 하는 방법을 알아봅니다.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427167"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466918"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -39,9 +39,6 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 1. 먼저 대상 리소스, 즉 복사 된 모델을 받는 리소스에 대 한 복사 권한 부여 요청을 실행 &mdash; 합니다. 새로 만든 대상 모델의 URL은 복사 된 데이터를 받게 됩니다.
 1. 그런 다음 복사할 &mdash; 모델을 포함 하는 리소스를 원본 리소스로 복사 요청을 보냅니다. 작업의 진행 상황을 추적 하기 위해 쿼리할 수 있는 URL을 다시 받게 됩니다.
 1. 작업이 성공할 때까지 원본 리소스 자격 증명을 사용 하 여 진행률 URL을 쿼리 합니다. 대상 리소스의 새 모델 ID를 쿼리하여 새 모델의 상태를 가져올 수도 있습니다.
-
-> [!CAUTION]
-> 현재 복사 API는 [구성 된 사용자 지정 모델](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose)의 모델 id를 지원 하지 않습니다. 모델 작성은 v 2.1-preview. 2 preview의 미리 보기 기능입니다. 
 
 ## <a name="generate-copy-authorization-request"></a>복사 권한 부여 요청 생성
 
@@ -91,7 +88,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>일반 오류
 
-|Error|해결 방법|
+|오류|해결 방법|
 |:--|:--|
 | 400/잘못 된 요청 `"code:" "1002"` | 유효성 검사 오류 또는 잘못 된 형식의 복사 요청을 나타냅니다. 일반적인 문제는 다음과 같습니다. a) 잘못 되었거나 수정 된 `copyAuthorization` 페이로드입니다. b) 토큰에 대 한 만료 `expirationDateTimeTicks` 된 값 ( `copyAuhtorization` 페이로드는 24 시간 동안 유효). c)가 잘못 되었거나 지원 되지 않습니다 `targetResourceRegion` . d) 잘못 되었거나 형식이 잘못 된 `targetResourceId` 문자열입니다.
 |
@@ -115,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>일반 오류
 
-|Error|해결 방법|
+|오류|해결 방법|
 |:--|:--|
 |"errors": [{"code": "AuthorizationError",<br>"message": "다음으로 인 한 인증 실패 <br>권한 부여 클레임이 없거나 잘못 되었습니다. "}]   | `copyAuthorization`API에서 반환 된 내용 으로부터 페이로드 또는 콘텐츠를 수정할 때 발생 합니다 `copyAuthorization` . 페이로드가 이전 호출에서 반환 된 것과 동일한 정확한 콘텐츠 인지 확인 `copyAuthorization` 합니다.|
 |"errors": [{"code": "AuthorizationError",<br>"메시지": "권한 부여를 검색할 수 없습니다. <br>메타. 이 문제가 지속 되 면 다른를 사용 하십시오. <br>복사할 대상 모델입니다. "}] | `copyAuthorization`페이로드가 복사 요청에 다시 사용 됨을 나타냅니다. 성공 하는 복사 요청은 동일한 페이로드를 사용 하는 추가 요청을 허용 하지 않습니다 `copyAuthorization` . 아래에 나와 있는 것 처럼 별도의 오류를 발생 시키고 이후에 동일한 권한 부여 페이로드를 사용 하 여 복사본을 다시 시도 하면이 오류가 발생 합니다. 해결 방법은 새 페이로드를 생성 한 다음 복사 요청을 다시 실행 하는 것입니다 `copyAuthorization` .|
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서는 복사 API를 사용 하 여 사용자 지정 모델을 보조 폼 인식기 리소스로 백업 하는 방법을 배웠습니다. 다음으로 API 참조 문서를 탐색 하 여 양식 인식기로 수행할 수 있는 다른 작업을 확인 합니다.
-* [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

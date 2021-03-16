@@ -8,22 +8,22 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 2779a73d3a5f77e3a3b144309baf6d2788565443
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: a33e7ff230292d4ceb14610e3cf00935dc1a67a0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809876"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493172"
 ---
 # <a name="feature-support-and-retirement"></a>기능 지원 및 사용 중지
 
 이 문서에서는 IoT 용 Azure Defender 기능 및 IoT 용 Defender 내에서 다양 한 기능에 대 한 지원을 설명 합니다.
 
-## <a name="defender-for-iot-c-c-and-edge-security-module-deprecation"></a>IoT C, c # 및 Edge 보안 모듈 사용 중단에 대 한 Defender
+## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>IoT C, c # 및 Edge Defender-IoT-마이크로 에이전트 사용 중단에 대 한 Defender
 
-새 마이크로 에이전트가 현재 C, c # 및 Edge 보안 모듈을 대체 합니다.  
+새 마이크로 에이전트가 현재 C, c # 및 Edge Defender-마이크로 에이전트를 대체 합니다.  
 
-새 마이크로 에이전트는 다음 네 가지 중요 한 향상 된 기능을 통해 수집 된 보안 모듈 개발, 고객 및 파트너 의견을 기반으로 하는 기술 자료와 경험을 기반으로 합니다. 
+새 마이크로 에이전트는 다음 네 가지 중요 한 향상 된 기능을 통해 수집 된 기술 자료 및 경험을 통해 수집 된 경험을 기반으로 합니다. 
 
 - **수준 보안 값**: 새 에이전트는 호스트 수준에서 실행 되며,이를 통해 장치의 기본 작업에 대 한 더 많은 가시성을 제공 하 고 보안 검사를 더 효과적으로 수행할 수 있습니다.
 

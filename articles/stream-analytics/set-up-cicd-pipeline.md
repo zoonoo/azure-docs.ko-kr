@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014249"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466425"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Azure DevOps를 사용 하 여 Stream Analytics 작업에 대 한 CI/CD 파이프라인 만들기
 
@@ -55,6 +55,22 @@ ms.locfileid: "98014249"
    ```
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Npm 작업에 대 한 구성 입력":::
+
+호스트 된 Linux 에이전트를 사용 해야 하는 경우 다음 단계를 사용 합니다.
+1.  **에이전트 사양** 선택
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="에이전트 사양을 선택 하는 스크린샷":::
+
+2.  **작업** 페이지에서 **에이전트 작업 1** 옆에 있는 더하기 기호를 선택 합니다. 작업 검색에 *명령줄* 을 입력 하 고 **명령줄** 을 선택 합니다.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Commandline 작업 검색의 스크린샷 ":::
+
+3.  작업에 **표시 이름을** 지정 합니다. **스크립트** 에서 다음 명령을 입력 합니다. 나머지 기본 옵션은 그대로 둡니다.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Cmd 태스크에 대 한 스크립트를 입력 하는 스크린샷":::
 
 ## <a name="add-a-build-task"></a>빌드 작업 추가
 

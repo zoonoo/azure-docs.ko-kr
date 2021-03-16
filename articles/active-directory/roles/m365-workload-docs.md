@@ -14,16 +14,16 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310dd82f9a5f7f98fbca720b48212b7963e25a63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f56f8ac42f0db3d2cd27453cd023a2e869b0cde0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551507"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466085"
 ---
 # <a name="roles-for-microsoft-365-services-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 서비스에 대 한 역할
 
-Microsoft 365의 모든 제품은 Azure Active Directory (Azure AD)의 관리 역할로 관리할 수 있습니다. 제품과 관련된 추가 역할이 제공되는 제품도 있습니다. 각 제품에서 지원하는 역할에 대한 내용은 아래 표를 참조하세요. 위임 문제와 관련한 일반 설명은 [Azure Active Directory의 역할 위임 계획](concept-delegation.md)에서 확인할 수 있습니다.
+Microsoft 365의 모든 제품은 Azure Active Directory (Azure AD)의 관리 역할로 관리할 수 있습니다. 제품과 관련된 추가 역할이 제공되는 제품도 있습니다. 각 제품에서 지원하는 역할에 대한 내용은 아래 표를 참조하세요. 역할 보안 계획에 대 한 지침은 [AZURE AD에서 하이브리드 및 클라우드 배포에 대 한 권한 있는 액세스 보안](security-planning.md)을 참조 하세요.
 
 ## <a name="where-to-find-content"></a>콘텐츠를 확인할 수 있는 위치
 

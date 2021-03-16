@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: dac59fb5262cc55acfbabedd304913fc7ac57751
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747919"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430771"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>빠른 시작: Apache Cassandra용 Azure Managed Instance를 사용하여 하이브리드 클러스터 구성(미리 보기)
 
@@ -39,20 +39,14 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Virtual Network에 새 서브넷을 추가합니다." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. 이제 Azure CLI를 사용하여 Cassandra Managed Instance를 사용하는 데 필요한 몇 가지 특수 권한을 VNet 및 서브넷에 적용합니다. 먼저 기존 VNet의 `Resource ID`를 검색해야 합니다. 나중을 위해 이 명령의 값 출력을 복사합니다. 이는 `Resource ID`입니다.
+1. 이제 Azure CLI를 사용하여 Cassandra Managed Instance를 사용하는 데 필요한 몇 가지 특수 권한을 VNet 및 서브넷에 적용합니다. `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>`, `<VNet name>` 및 `<subnet name>`을 적절한 값으로 바꿉니다.
 
    ```azurecli-interactive
-    # discover the vnet id
-    az network vnet show -n <your VNet name> -g <Resource Group Name> --query "id" --output tsv
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
-1. 이제 특수 권한을 적용하여 이전 명령의 출력을 범위 매개 변수로 전달합니다.
-
-   ```azurecli-interactive
-    az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
-   ```
-    > [!NOTE]
-    > 위의 `assignee` 및 `role` 값은 각각 고정 서비스 주체 및 역할 식별자입니다. 
+   > [!NOTE]
+   > 이전 명령에서 `assignee`와 `role` 값은 각각 고정된 서비스 주체 및 역할 식별자입니다.
 
 1. 다음으로, 하이브리드 클러스터의 리소스를 구성합니다. 클러스터가 이미 있으므로 여기서는 기존 클러스터의 이름을 식별하는 논리적 리소스만 클러스터 이름이 됩니다. 다음 스크립트에서 `clusterName` 및 `clusterNameOverride` 변수를 정의할 때는 기존 클러스터의 이름을 사용해야 합니다.
 

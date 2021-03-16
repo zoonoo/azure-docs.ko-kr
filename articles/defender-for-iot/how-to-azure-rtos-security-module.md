@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS의 보안 모듈 구성 및 사용자 지정
-description: Azure RTOS의 보안 모듈을 구성 하 고 사용자 지정 하는 방법에 대해 알아봅니다.
+title: Azure RTOS 용 Defender-IoT-마이크로 에이전트 구성 및 사용자 지정
+description: Azure RTOS에 대해 Defender-마이크로 에이전트를 구성 하 고 사용자 지정 하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
-ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449818"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495099"
 ---
-# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Azure RTOS GA에 대해 Defender-마이크로 에이전트 구성 및 사용자 지정
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Azure RTOS (미리 보기)에 대 한 Defender-마이크로 에이전트 구성 및 사용자 지정
 
 이 문서에서는 네트워크, 대역폭 및 메모리 요구 사항을 충족 하기 위해 Azure RTOS 장치에 대해 Defender-IoT-마이크로 에이전트를 구성 하는 방법을 설명 합니다.
 
@@ -89,5 +89,6 @@ Log Analytics를 사용 하도록 설정 하 고 구성 하 여 장치 이벤트
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure RTOS [보안 경고 및 권장 사항](concept-rtos-security-alerts-recommendations.md) 에 대 한 보안 모듈 검토 및 사용자 지정
-- 필요에 따라 [Azure RTOS API에 대 한 보안 모듈](azure-rtos-security-module-api.md) 을 참조 하세요.
+
+- Azure RTOS [보안 경고 및 권장 사항](concept-rtos-security-alerts-recommendations.md) 에 대 한 Defender-IoT-마이크로 에이전트 검토 및 사용자 지정
+- 필요에 따라 [Azure RTOS API에 대 한 Defender-IoT-마이크로 에이전트](azure-rtos-security-module-api.md) 를 참조 하세요.

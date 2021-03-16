@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202640"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470904"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md) 는 업계 표준 [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기)을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 클라우드에서 제공 합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -308,6 +308,18 @@ ms.locfileid: "102202640"
 **Get/Set/Copy directory/file Windows Acl을 지 원하는 REST Api가 있나요?**
 
     예, [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) 이상의 REST API를 사용하는 경우 디렉터리 또는 파일의 NTFS ACL을 가져오거나 설정하거나 복사하는 REST API를 지원합니다. REST 기반 도구: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases)에서 Windows acl 유지도 지원 합니다.
+
+* <a id="ad-support-rest-apis"></a>
+**Azure AD 또는 AD 자격 증명을 사용 하 여 새 연결을 초기화 하기 전에 저장소 계정 키로 캐시 된 자격 증명을 제거 하 고 기존 SMB 연결을 삭제 하는 방법**
+
+    아래의 두 단계 프로세스에 따라 저장소 계정 키와 연결 된 저장 된 자격 증명을 제거 하 고 SMB 연결을 제거할 수 있습니다. 
+    1. Windows Cmd.exe에서 아래 cmdlet을 실행 하 여 자격 증명을 제거 합니다. 자격 증명을 찾을 수 없는 경우이는 자격 증명을 유지 하지 않고이 단계를 건너뛸 수 있음을 의미 합니다.
+    
+       cmdkey/delete: Domain: target = name.file.core.windows.net
+    
+    2. 파일 공유에 대 한 기존 연결을 삭제 합니다. 탑재 된 드라이브 문자 또는 storage-account-name.file.core.windows.net 경로 중 하나로 탑재 경로를 지정할 수 있습니다.
+    
+       net use <드라이브 문자/공유 경로>/delete
 
 ## <a name="network-file-system"></a>네트워크 파일 시스템
 

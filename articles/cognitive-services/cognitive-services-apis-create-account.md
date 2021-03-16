@@ -1,25 +1,25 @@
 ---
 title: Azure Portal에서 Cognitive Services 리소스 만들기
 titleSuffix: Azure Cognitive Services
-description: Azure Portal에서 리소스를 만들고 구독 하 여 Azure Cognitive Services를 시작 합니다.
+description: Azure Portal에서 리소스를 만들고 구독하여 Azure Cognitive Services를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: MT
+ms.openlocfilehash: 0ad2d0a10b20aa049147d61bd4e8168ea956392c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368919"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031925"
 ---
-# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
-이 빠른 시작을 사용 하 여 Azure Cognitive Services 사용을 시작 합니다. Azure Portal에서 인지 서비스 리소스를 만든 후에는 응용 프로그램을 인증 하는 데 사용할 수 있는 끝점 및 키를 가져옵니다.
+이 빠른 시작을 참조하여 Azure Cognitive Services를 시작하세요. Azure Portal에서 Cognitive Service 리소스를 만든 후에는 애플리케이션을 인증하는 데 사용할 엔드포인트와 키를 가져옵니다.
 
 Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
 
@@ -36,9 +36,9 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
     #### <a name="multi-service-resource"></a>[다중 서비스 리소스](#tab/multiservice)
 
-    다중 서비스 리소스는 포털에서 **Cognitive Services** 이름이 지정 됩니다. [Cognitive Services 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    다중 서비스 리소스의 이름은 포털에서 **Cognitive Services** 로 지정됩니다. [Cognitive Services 리소스를 만드세요](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
-    이번에는 다중 서비스 리소스를 사용 하 여 다음 Cognitive Services에 액세스할 수 있습니다.
+    현재는 다중 서비스 리소스를 사용하여 다음 Cognitive Services에 액세스할 수 있습니다.
 
     - Computer Vision
     - Content Moderator
@@ -54,31 +54,31 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
     #### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 
-    아래 링크를 사용 하 여 사용 가능한 Cognitive Services에 대 한 리소스를 만듭니다.
+    아래 링크를 사용하여 사용 가능한 Cognitive Services에 대한 리소스를 만듭니다.
 
     | 시각                      | 음성                  | 언어                          | 의사 결정             | 검색                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
-    | [컴퓨터 비전](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입 형 독자](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
-    | [사용자 지정 비전 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [화자 인식](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [컴퓨터 비전](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입형 판독기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [화자 인식](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
-    | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    **_
+    ***
 
-3. _ *만들기* * 페이지에서 다음 정보를 제공 합니다.
+3. **만들기** 페이지에서 다음 정보를 제공합니다.
 
     #### <a name="multi-service-resource"></a>[다중 서비스 리소스](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *MyCognitiveServicesResource* 입니다. |
+    | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예: *MyCognitiveServicesResource*. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
     | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
     | **리소스 그룹** | Cognitive Services 리소스를 포함할 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
-    ![다중 서비스 리소스 리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+    ![다중 서비스 리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
     **만들기** 를 클릭합니다.
 
@@ -86,29 +86,29 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
     |    |    |
     |--|--|
-    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *TextAnalyticsResource* 입니다. |
+    | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예: *TextAnalyticsResource*. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
     | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
     | **리소스 그룹** | Cognitive Services 리소스를 포함할 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
-    ![단일 서비스 리소스 생성 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![단일 서비스 리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
     **만들기** 를 클릭합니다.
 
-    **_
+    ***
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
-## <a name="get-the-keys-for-your-resource"></a>리소스의 키를 가져옵니다.
+## <a name="get-the-keys-for-your-resource"></a>리소스의 키 가져오기
 
-1. 리소스가 성공적으로 배포 된 후에는 **다음 단계** 에서 a를 클릭 *하 고 리소스로 이동* 합니다 .를 클릭 합니다.
+1. 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 을 클릭합니다.
 
     ![Cognitive Services 검색](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-2. 열리는 빠른 시작 창에서 키 및 끝점에 액세스할 수 있습니다.
+2. 열리는 빠른 시작 창에서 키와 엔드포인트에 액세스할 수 있습니다.
 
-    ![키 및 끝점 가져오기](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![키 및 엔드포인트 가져오기](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
@@ -124,6 +124,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
 * [Azure Cognitive Services란?](./what-are-cognitive-services.md)
-* [Azure 관리 클라이언트 라이브러리를 사용 하 여 새 리소스 만들기](.\cognitive-services-apis-create-account-client-library.md)
+* [Azure Management 클라이언트 라이브러리를 사용하여 새 리소스 만들기](.\cognitive-services-apis-create-account-client-library.md)
 * [자연어 지원](language-support.md)
 * [Docker 컨테이너 지원](cognitive-services-container-support.md)

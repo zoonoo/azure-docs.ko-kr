@@ -3,12 +3,12 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: cd62949c13b1f12e635d8d7bf07518a94c4e8d4b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 4c964151c49e2fea56031dd24bacf4655753a18d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462589"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491812"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
@@ -16,9 +16,9 @@ ms.locfileid: "103462589"
 
 Azure VMware 솔루션 사설 클라우드에서 상호 연결과 하는 방법에는 두 가지가 있습니다.
 
-1. [**기본 azure 전용 상호 연결과**](#azure-virtual-network-interconnectivity) 를 사용 하면 azure에서 단일 가상 네트워크로 사설 클라우드를 관리 하 고 사용할 수 있습니다. 이 구현은 온-프레미스 환경에서 액세스 하지 않아도 되는 Azure VMware 솔루션 평가 또는 구현에 가장 적합 합니다.
+- [**기본 azure 전용 상호 연결과**](#azure-virtual-network-interconnectivity) 를 사용 하면 azure에서 단일 가상 네트워크로 사설 클라우드를 관리 하 고 사용할 수 있습니다. 이 구현은 온-프레미스 환경에서 액세스 하지 않아도 되는 Azure VMware 솔루션 평가 또는 구현에 가장 적합 합니다.
 
-1. [**모든 온-프레미스에서 사설 클라우드로의 클라우드 상호 연결과**](#on-premises-interconnectivity) 기본 Azure 전용 구현을 확장 하 여 온-프레미스와 Azure VMware 솔루션 사설 클라우드 간에 상호 연결과를 포함 합니다.
+- [**모든 온-프레미스에서 사설 클라우드로의 클라우드 상호 연결과**](#on-premises-interconnectivity) 기본 Azure 전용 구현을 확장 하 여 온-프레미스와 Azure VMware 솔루션 사설 클라우드 간에 상호 연결과를 포함 합니다.
  
 이 문서에서는 요구 사항 및 제한 사항을 포함 하 여 네트워킹 및 상호 연결과를 설정 하는 주요 개념을 다룹니다. 이 문서에서는 Azure VMware 솔루션과 함께 작동 하도록 네트워킹을 구성 하는 데 필요한 정보를 제공 합니다.
 
