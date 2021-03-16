@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462561"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465660"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Azure Database for MySQL 버전 지원 정책
 
@@ -27,12 +27,13 @@ Azure Database for MySQL는 InnoDB 저장소 엔진을 사용 하 여 [MySQL Com
 
 현재 Azure Database for MySQL는 다음과 같은 주 버전 및 부 버전의 MySQL을 지원 합니다.
 
-| 버전 | 단일 서버 <br/> 현재 부 버전 |유연한 서버(미리 보기) <br/> 현재 부 버전  |
+| Version | 단일 서버 <br/> 현재 부 버전 |유연한 서버(미리 보기) <br/> 현재 부 버전  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | 지원되지 않음|
+|MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(사용 되지 않음) | 지원되지 않음|
 |MySQL 버전 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL 버전 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+버전 [지원 정책 설명서](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql) 에서 사용 중지 된 버전에 대 한 버전 지원 정책을 참조 하세요.
 
 ## <a name="major-version-support"></a>주 버전 지원
 각 주 버전의 MySQL은 버전 [관리 정책](https://www.mysql.com/support/eol-notice.html)에 제공 된 대로 mysql 커뮤니티에서 버전을 사용 중지할 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for MySQL에서 지원 됩니다.
@@ -43,7 +44,7 @@ Azure Database for MySQL는 InnoDB 저장소 엔진을 사용 하 여 [MySQL Com
 ## <a name="major-version-retirement-policy"></a>주 버전 사용 중지 정책
 다음 표에서는 MySQL 주 버전에 대 한 사용 중지 정보를 제공 합니다. 날짜는 [MySQL 버전 관리 정책](https://www.mysql.com/support/eol-notice.html)을 따릅니다.
 
-| 버전 | What's New | Azure 지원 시작 날짜 | 사용 중지 날짜|
+| Version | What's New | Azure 지원 시작 날짜 | 사용 중지 날짜|
 | ----- | ----- | ------ | ----- |
 | [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [기능](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 2018년 3월 20일 | 2021년 2월
 | [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [기능](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 2018년 3월 20일 | 10 월 2023

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 34f54bb30e959ecc2fa27fba5ab7392b9eddc68e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792000"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494515"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 
@@ -70,7 +70,7 @@ AzCopy는 [URL API에서 Put 블록](/rest/api/storageservices/put-block-from-ur
 >
 > 가상 호스트 스타일 Url도 사용할 수 있습니다 (예: `http://bucket.s3.amazonaws.com` ). 
 >
-> 버킷의 가상 호스팅에 대해 자세히 알아보려면 [버킷 가상 호스팅]] (을 참조 하세요 https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) .
+> 버킷의 가상 호스팅에 대해 자세히 알아보려면 [버킷의 가상 호스팅](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)을 참조 하세요.
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
 
@@ -103,7 +103,7 @@ AzCopy는 [URL API에서 Put 블록](/rest/api/storageservices/put-block-from-ur
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
-| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>모든 지역에서 모든 버킷 복사
 
@@ -113,7 +113,7 @@ AzCopy는 [URL API에서 Put 블록](/rest/api/storageservices/put-block-from-ur
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>특정 S3 지역의 모든 버킷 복사
 
@@ -123,7 +123,7 @@ AzCopy는 [URL API에서 Put 블록](/rest/api/storageservices/put-block-from-ur
 |--------|-----------|
 | **구문** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>개체 명명 규칙의 차이점 처리
 
@@ -139,7 +139,7 @@ AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니�
 
 AzCopy `copy` 명령의 일부로 `s2s-handle-invalid-metadata` 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 플래그 (옵션)에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
 
-| 플래그 값 | Description  |
+| 플래그 값 | 설명  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 전송 된 개체에 메타 데이터가 포함 되어 있지 않습니다. AzCopy에서 경고를 기록 합니다. |
 | **FailIfInvalid** | 개체는 복사 되지 않습니다. AzCopy는 오류를 기록 하 고 전송 요약에 표시 되는 실패 횟수에 해당 오류를 포함 합니다.  |
@@ -168,7 +168,5 @@ AzCopy는 다음 단계를 수행 합니다.
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 
 - [데이터 전송](storage-use-azcopy-v10.md#transfer-data)
-
-- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

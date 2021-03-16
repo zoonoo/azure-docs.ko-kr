@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: a41c9dc888e85baf021712e3302da7ae6106db47
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 42dc7eb1a74bf2e376f834ee3198ad6a492226e9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81421825"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445007"
 ---
 의도 인식 빠른 시작을 완료하려면 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 프로젝트를 만들어야 합니다. 이 빠른 시작에서는 LUIS 구독만 필요합니다. Speech Service 구독은 필요하지 *않습니다*.
 
@@ -18,11 +18,11 @@ ms.locfileid: "81421825"
 
 다음 지침을 따라 LUIS 앱을 만듭니다.
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">빠른 시작: 미리 빌드된 도메인 앱 빌드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">빠른 시작: 미리 빌드된 도메인 앱 만들기 </a>
 
 완료되면 다음 네 가지 항목이 필요합니다.
 
-* **음성 초기화**로 전환하여 다시 게시
+* **음성 초기화** 로 전환하여 다시 게시
 * LUIS **기본 키**
 * LUIS **위치**
 * LUIS **앱 ID**
@@ -34,12 +34,12 @@ ms.locfileid: "81421825"
 2. `en-US`를 사용하는 경우 **프로덕션** 슬롯을 선택하고 **음성 초기화** 옵션을 **켜기** 위치로 전환합니다. 그런 다음, **게시** 단추를 선택합니다.
 
     > [!IMPORTANT]
-    > **음성 초기화**는 음성 인식 정확도를 향상시킬 수 있으므로 적극 권장합니다.
+    > **음성 초기화** 는 음성 인식 정확도를 향상시킬 수 있으므로 적극 권장합니다.
 
     > [!div class="mx-imgBorder"]
     > ![엔드포인트에 LUIS 게시](../../../media/luis/publish-app-popup.png)
 
-3. LUIS 미리 보기 포털에서 **관리**를 선택한 다음, **Azure 리소스**를 선택합니다. 이 페이지에서 LUIS 키 및 위치(_지역_이라고도 함)를 찾을 수 있습니다.
+3. LUIS 미리 보기 포털에서 **관리** 를 선택한 다음, **Azure 리소스** 를 선택합니다. 이 페이지에서 LUIS 키 및 위치(_지역_ 이라고도 함)를 찾을 수 있습니다.
 
    > [!div class="mx-imgBorder"]
    > ![LUIS 키 및 위치](../../../media/luis/luis-key-region.png)

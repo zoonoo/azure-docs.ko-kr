@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 03/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5731b65892877e5c363220d84a0bddeb5f958cee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a756313a4659dfc531289c2c86890371f700367
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396875"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452291"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 1.0.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 자습서에서는 관리 Azure PowerShell 세션을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 1.0.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -76,16 +76,17 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-지문을 사용하여 pfx 파일을 만듭니다.
+지문을 사용하여 pfx 파일을 만듭니다. *\<password>* 를 선택한 암호로 바꿉니다.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "<password>" -Force -AsPlainText
 
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
   -Password $pwd
 ```
+
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -101,12 +102,12 @@ $vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>예약된 공용 IP 만들기
 
-PublicIPAddress의 할당 메서드를 **Static** (고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
+PublicIPAddress의 할당 메서드를 **Static**(고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
 
 ```azurepowershell
 #Create static public IP
 $pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
-       -location $location -AllocationMethod Static -Sku Standard
+       -location $location -AllocationMethod Static -Sku Standard -Zone 1,2,3
 ```
 
 ## <a name="retrieve-details"></a>세부 정보 검색
@@ -114,21 +115,33 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 애플리케이션 게이트웨이에 대한 IP 구성 세부 정보를 만들기 위해 로컬 개체에서 리소스 그룹, 서브넷 및 IP에 대한 세부 정보를 검색합니다.
 
 ```azurepowershell
-$resourceGroup = Get-AzResourceGroup -Name $rg
 $publicip = Get-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
 $vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
+```
+
+## <a name="create-web-apps"></a>웹앱 만들기
+
+백 엔드 풀에 대해 두 개의 웹앱을 구성합니다. *\<site1-name>* 및 *\<site-2-name>* 을 `azurewebsites.net` 도메인의 고유한 이름으로 바꿉니다.
+
+```azurepowershell
+New-AzAppServicePlan -ResourceGroupName $rg -Name "ASP-01"  -Location $location -Tier Basic `
+   -NumberofWorkers 2 -WorkerSize Small
+New-AzWebApp -ResourceGroupName $rg -Name <site1-name> -Location $location -AppServicePlan ASP-01
+New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppServicePlan ASP-01
 ```
 
 ## <a name="configure-the-infrastructure"></a>인프라 구성
 
 IP 구성, 프런트 엔드 IP 구성, 백 엔드 풀, HTTP 설정, 인증서, 포트, 수신기 및 규칙을 기존 표준 Application Gateway와 동일한 형식으로 구성합니다. 새 SKU는 표준 SKU와 동일한 개체 모델을 따릅니다.
 
+$pool 변수 정의에서 두 개의 웹앱 FQDN(예: `mywebapp.azurewebsites.net`)을 바꿉니다.
+
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
 $fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
 $pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
-       -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
+       -BackendIPAddresses <your first web app FQDN>, <your second web app FQDN>
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
@@ -141,7 +154,7 @@ $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
              -Protocol Http -FrontendIPConfiguration $fip -FrontendPort $fp02
 
 $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
-          -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+          -Port 80 -Protocol Http -CookieBasedAffinity Disabled -PickHostNameFromBackendAddress
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
@@ -150,20 +163,13 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType bas
 
 ## <a name="specify-autoscale"></a>자동 크기 조정 지정
 
-이제 애플리케이션 게이트웨이에 대한 자동 크기 조정 구성을 지정할 수 있습니다. 지원되는 두 가지 자동 크기 조정 구성 유형은 다음과 같습니다.
-
-* **고정 용량 모드**. 이 모드에서는 애플리케이션 게이트웨이가 자동으로 크기 조정되지 않고 고정된 배율 단위 용량에서 작동합니다.
-
-   ```azurepowershell
-   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
-   ```
-
-* **자동 크기 조정 모드**. 이 모드에서는 애플리케이션 게이트웨이가 애플리케이션 트래픽 패턴에 따라 자동으로 크기 조정됩니다.
+이제 애플리케이션 게이트웨이에 대한 자동 크기 조정 구성을 지정할 수 있습니다. 
 
    ```azurepowershell
    $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 2
    $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
+이 모드에서는 애플리케이션 게이트웨이가 애플리케이션 트래픽 패턴에 따라 자동으로 크기 조정됩니다.
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
@@ -182,7 +188,11 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 Get-AzPublicIPAddress를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. 공용 IP 주소 또는 DNS 이름을 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
 
-`Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
+```azurepowershell
+$pip = Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
+$pip.IpAddress
+```
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

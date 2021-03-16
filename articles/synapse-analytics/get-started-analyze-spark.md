@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182488"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423716"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -38,7 +38,7 @@ ms.locfileid: "102182488"
     display(df.limit(10))
     ```
 1. 노트북의 **연결 대상** 메뉴에서 이전에 만든 **Spark1** 서버리스 Spark 풀을 선택합니다.
-1. 셀에서 **실행** 을 선택합니다.
+1. 셀에서 **실행** 을 선택합니다. Synapse는 필요한 경우 새 Spark 세션을 시작하여 이 셀을 실행합니다. 새 Spark 세션이 필요한 경우 처음에 생성하는 데 약 2초가 걸립니다. 
 1. 데이터 프레임의 스키마만 확인하려면 다음 코드를 사용하여 셀을 실행합니다.
     ```
 

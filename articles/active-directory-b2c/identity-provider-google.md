@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a3b0be062025681af2b03dfd2e57f1af2d99d701
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 433e44e9998376d0bea57264f3daeaff7499a3cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448356"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488842"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448356"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -47,7 +47,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 Google 계정을 사용 하는 �
 애플리케이션의 **이름** 을 입력합니다. **권한 있는 도메인** 섹션에 *b2clogin.com* 를 입력 하 고 **저장** 을 선택 합니다.
 1. 왼쪽 메뉴에서 **자격 증명** 을 선택하고 **자격 증명 만들기** > **Oauth 클라이언트 ID** 를 선택합니다.
 1. **애플리케이션 형식** 에서 **웹 애플리케이션** 을 선택합니다.
-1. 애플리케이션에 대한 **이름** 을 입력하고 **권한이 부여된 JavaScript 원본** 에 `https://your-tenant-name.b2clogin.com`을 입력하고 **권한이 부여된 리디렉션 URI** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
+    1. 애플리케이션의 **이름** 을 입력합니다.
+    1. **권한 있는 JavaScript 원본** 에 대해을 입력 `https://your-tenant-name.b2clogin.com` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
+    1. **권한 있는 리디렉션 uri** 에 대해를 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. 을 `your-domain-name` 사용자 지정 도메인으로,를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
 1. **만들기** 를 클릭합니다.
 1. **클라이언트 ID** 및 **클라이언트 암호** 의 값을 복사 합니다. 테넌트에서 Google을 ID 공급자로 구성하려면 둘 모두가 필요합니다. **클라이언트 암호** 는 중요 한 보안 자격 증명입니다.
 

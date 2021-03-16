@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851236"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493223"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해 (c # 에이전트)
 
@@ -84,12 +84,12 @@ Windows의 경우:
 
 | 구성 이름 | 가능한 값 | 세부 정보 |
 |:-----------|:---------------|:--------|
-| moduleName | 문자열 | 보안 모듈 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
+| moduleName | 문자열 | Defender-마이크로 에이전트 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
 | deviceId | 문자열 | Azure IoT Hub에 등록 된 장치의 ID입니다. |
 | schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
 | 게이트웨이 호스트 이름 | 문자열 | Azure Iot Hub의 호스트 이름입니다. 일반적으로 <내 허브>. azure-devices.net |
 | filePath | 문자열-파일의 경로 | 인증 암호를 포함 하는 파일의 경로입니다.|
-| type | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 암호가 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
+| 형식 | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 암호가 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
 | identity | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile 인증서가 파일에 저장 된 경우 인증서가 인증서 저장소에 있는 경우 저장 합니다. |
 | idScope | 문자열 | DPS의 ID 범위 |

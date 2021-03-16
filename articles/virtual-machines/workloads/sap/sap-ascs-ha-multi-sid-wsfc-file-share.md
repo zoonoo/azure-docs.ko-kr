@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/24/2020
+ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f2e0e96f11203633b756a320d3da503686ed9f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504493"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493495"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -47,7 +47,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP" 섹션을 참조하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md) 사용도 고려하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 다이어그램처럼 **파일 공유** 를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -59,6 +59,7 @@ _**그림 1:** 두 클러스터에 배포 된 SAP ASCS/SCS 인스턴스 및 SOFS
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > * 서로 다른 SAP SID에 속한 서로 다른 SAP 글로벌 호스트 파일 공유는 동일한 SOFS 클러스터를 공유해야 합니다.
+> * SAP ASCS/SCS 인스턴스와 SOFS 공유가 동일한 클러스터에 결합 되지 않아야 합니다. 
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
 > * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 > * 동일한 클러스터에서 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용할 수 없습니다.  
@@ -242,7 +243,7 @@ _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
 ![그림 8: "sapglobalhost2"를 선택하고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
 
-_**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
+_**그림 8:** "Sapglobalhost2"를 선택 하 고 Volume2에 경로를 지정 합니다._
 
 <br>
 

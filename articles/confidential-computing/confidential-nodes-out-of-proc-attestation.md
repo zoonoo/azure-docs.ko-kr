@@ -1,19 +1,19 @@
 ---
-title: Azure에서 Intel SGX quote 도우미인 DaemonSet를 사용하여 out-of-proc 증명 지원
+title: Azure에서 Intel SGX quote 도우미인 Daemonset을 사용하여 out-of-proc 증명 지원(미리 보기)
 description: DaemonSet는 SGX 애플리케이션 프로세스 외부에서 quote를 생성합니다. 이 문서에서는 out-of-proc 증명 기능을 컨테이너 내에서 실행되는 기밀 워크로드에 제공하는 방법을 설명합니다.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564160"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553258"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>SGX quote 도우미 디먼 집합을 사용하는 플랫폼 소프트웨어 관리
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>SGX quote 도우미 디먼 집합을 사용하는 플랫폼 소프트웨어 관리(미리 보기)
 
 원격 증명을 수행하는 [enclave 애플리케이션](confidential-computing-enclaves.md)에는 생성된 QUOTE가 필요합니다. 이 QUOTE는 enclave가 실행되는 환경뿐만 아니라 애플리케이션의 ID와 상태에 대한 암호화 증명도 제공합니다. QUOTE를 생성하려면 Intel의 PSW(플랫폼 소프트웨어 구성 요소)에 포함된 신뢰할 수 있는 소프트웨어 구성 요소가 필요합니다.
 
@@ -27,6 +27,13 @@ Intel은 quote 생성을 실행하는 두 가지 증명 모드를 지원합니�
 Open Enclave SDK를 사용하여 빌드된 SGX 애플리케이션은 기본적으로 in-proc 증명 모드를 사용합니다. SGX 기반 애플리케이션은 out-of-proc 모드를 허용하며, AESM(Architectural Enclave Service Manager)과 같은 필수 구성 요소를 애플리케이션 외부에 추가로 호스팅하고 공개해야 합니다.
 
 Intel 플랫폼 업데이트 또는 DCAP 드라이버 업데이트 중에 enclave 앱의 가동 시간이 향상되므로 이 기능을 활용하는 것이 **매우 좋습니다**.
+
+AKS 클러스터에서 이 기능을 사용하도록 설정하려면 기밀 컴퓨팅 추가 기능을 사용하도록 설정할 때 CLI에 add --enable-sgxquotehelper 명령을 수정합니다. 자세한 CLI 지침은 [다음과 같습니다](confidential-nodes-aks-get-started.md). 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>out-of-proc 이점 및 그 이유는 무엇인가요?
 

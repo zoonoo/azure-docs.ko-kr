@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 39896d88aeab4c592c74ded2d6edddfb46d2d203
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c5df0c4112f07a465d38e789b1401132ed25931
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448288"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488808"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 ID.me 계정으로 등록 및 로그인 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "102448288"
 ::: zone pivot="b2c-custom-policy"
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -45,8 +45,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 ID.me 계정을 사용 하는 �
 1. **내 응용 프로그램 보기** 를 선택 하 고 **계속** 을 선택 합니다.
 1. **새로 만들기** 를 선택합니다.
     1. **이름** 및 **표시 이름** 을 입력 합니다.
-    1. **리디렉션 URI** 에를 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 
-1. **계속** 을 클릭합니다.
+    1. **리디렉션 URI** 에를 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다. 
+1. **Continue(계속)** 를 클릭합니다.
 1. **클라이언트 ID** 및 **클라이언트 암호** 의 값을 복사 합니다. 테넌트에 ID 공급자를 추가하려면 둘 다 필요합니다.
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기

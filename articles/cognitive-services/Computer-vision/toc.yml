@@ -52,78 +52,76 @@
     - name: Read 2.x에서 Read 3.x로 업그레이드
       href: upgrade-api-versions.md
     - name: AAD 인증을 구성하는 방법
-      href: /azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=/azure/cognitive-services/computer-vision/context/context
+      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
     - name: 고객 관리형 키를 사용하는 방법
       href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
-- name: Computer Vision 배포
-  items:
-    - name: 컨테이너
+    - name: Computer Vision 배포
       items:
-        - name: Cognitive Services 컨테이너 설명서
-          href: ../containers/index.yml
-        - name: API 컨테이너 읽기
+        - name: 컨테이너
           items:
-            - name: 컨테이너 설치 및 실행
-              href: computer-vision-how-to-install-containers.md
-              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
-            - name: 컨테이너 구성
-              href: computer-vision-resource-container-config.md
-            - name: 읽기 컨테이너의 v3으로 마이그레이션
-              href: read-container-migration-guide.md
-              displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
-            - name: Kubernetes 및 Helm 활용
-              href: deploy-computer-vision-on-premises.md
-              displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
-            - name: 컨테이너 인스턴스 사용
-              maintainContext: true
-              href: ../containers/azure-container-instance-recipe.md
-              displayName: 'container instances, container, containers, images'
-        - name: 공간 분석 컨테이너
-          items:
-            - name: 공간 분석 개요
-              href: intro-to-spatial-analysis-public-preview.md
-            - name: 호스트 머신을 설정하고 컨테이너 실행
-              href: spatial-analysis-container.md
-            - name: 작업 구성
-              href: spatial-analysis-operations.md
-            - name: 인원수를 세는 웹앱 배포
-              href: Spatial-analysis-web-app.md
-            - name: 로깅 및 문제 해결
-              href: spatial-analysis-logging.md
-            - name: 영역 및 줄 배치
-              href: spatial-analysis-zone-line-placement.md
-            - name: 카메라 배치
-              href: spatial-analysis-camera-placement.md
+            - name: Cognitive Services 컨테이너 설명서
+              href: ../containers/index.yml
+            - name: API 컨테이너 읽기
+              items:
+                - name: 컨테이너 설치 및 실행
+                  href: computer-vision-how-to-install-containers.md
+                  displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
+                - name: 컨테이너 구성
+                  href: computer-vision-resource-container-config.md
+                - name: 읽기 컨테이너의 v3으로 마이그레이션
+                  href: read-container-migration-guide.md
+                  displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+                - name: Kubernetes 및 Helm 활용
+                  href: deploy-computer-vision-on-premises.md
+                  displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+                - name: 컨테이너 인스턴스 사용
+                  maintainContext: true
+                  href: ../containers/azure-container-instance-recipe.md
+                  displayName: 'container instances, container, containers, images'
+            - name: 공간 분석 컨테이너
+              items:
+                - name: 공간 분석 개요
+                  href: intro-to-spatial-analysis-public-preview.md
+                - name: 호스트 머신을 설정하고 컨테이너 실행
+                  href: spatial-analysis-container.md
+                - name: 작업 구성
+                  href: spatial-analysis-operations.md
+                - name: 인원수를 세는 웹앱 배포
+                  href: Spatial-analysis-web-app.md
+                - name: 로깅 및 문제 해결
+                  href: spatial-analysis-logging.md
+                - name: 영역 및 줄 배치
+                  href: spatial-analysis-zone-line-placement.md
+                - name: 카메라 배치
+                  href: spatial-analysis-camera-placement.md
 - name: 개념
   items:
-    - name: 모드
-      items:
-        - name: OCR(광학 문자 인식)
-          href: concept-recognizing-text.md
-        - name: 개체 감지
-          href: concept-object-detection.md
-        - name: 브랜드 검색
-          href: concept-brand-detection.md
-        - name: 콘텐츠 태그
-          href: concept-tagging-images.md
-        - name: 이미지 분류
-          href: concept-categorizing-images.md
-        - name: 범주 분류
-          href: Category-Taxonomy.md
-        - name: 이미지 설명
-          href: concept-describing-images.md
-        - name: 얼굴 감지
-          href: concept-detecting-faces.md
-        - name: 이미지 형식 감지
-          href: concept-detecting-image-types.md
-        - name: 도메인 특정 콘텐츠
-          href: concept-detecting-domain-content.md
-        - name: 색 구성표 감지
-          href: concept-detecting-color-schemes.md
-        - name: 스마트하게 자른 썸네일
-          href: concept-generating-thumbnails.md
-        - name: 성인 콘텐츠 검색
-          href: concept-detecting-adult-content.md
+    - name: OCR(광학 문자 인식)
+      href: concept-recognizing-text.md
+    - name: 개체 감지
+      href: concept-object-detection.md
+    - name: 브랜드 검색
+      href: concept-brand-detection.md
+    - name: 콘텐츠 태그
+      href: concept-tagging-images.md
+    - name: 이미지 분류
+      href: concept-categorizing-images.md
+    - name: 범주 분류
+      href: Category-Taxonomy.md
+    - name: 이미지 설명
+      href: concept-describing-images.md
+    - name: 얼굴 감지
+      href: concept-detecting-faces.md
+    - name: 이미지 형식 감지
+      href: concept-detecting-image-types.md
+    - name: 도메인 특정 콘텐츠
+      href: concept-detecting-domain-content.md
+    - name: 색 구성표 감지
+      href: concept-detecting-color-schemes.md
+    - name: 스마트하게 자른 썸네일
+      href: concept-generating-thumbnails.md
+    - name: 성인 콘텐츠 검색
+      href: concept-detecting-adult-content.md
 - name: 자습서
   items:
     - name: 이미지에 대한 메타데이터 생성

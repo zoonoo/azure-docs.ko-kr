@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 578a248de3ee6aacc0db7c5116b66031b404c9ae
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448169"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488689"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "102448169"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -48,7 +48,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
     1. **API 이름** 
     1. **연락처 전자 메일** -Salesforce에 대 한 연락처 전자 메일
 1. **API (Oauth 설정 사용)** 에서 **OAuth 설정 사용** 을 선택 합니다.
-    1. **콜백 URL** 에을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
+    1. **Callback URL**(콜백 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테 넌 트의 이름으로,를 `your-domain-name` 사용자 지정 도메인으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
     1. **선택한 OAuth 범위** 에서 **기본 정보에 액세스 (id, 프로필, 전자 메일, 주소, 전화)** 를 선택 하 고 **고유 식별자 (openid connect)에** 대 한 액세스를 허용 합니다.
     1. **웹 서버 흐름에 대해 암호 요구를** 선택 합니다.
 1. **ID 토큰 구성** 을 선택 합니다. 

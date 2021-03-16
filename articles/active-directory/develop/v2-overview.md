@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a4ce8242bd3110fee038ac826973e6a134413344
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752577"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426844"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼이란?
 
@@ -38,6 +38,8 @@ Microsoft ID 플랫폼을 구성하는 몇 가지 구성 요소가 있습니다.
 Microsoft ID 플랫폼은 개발자를 위해 ID 및 보안 공간의 최신 혁신(예: 암호 없는 인증, 스텝업 인증 및 조건부 액세스)에 통합됩니다. 이러한 기능을 직접 구현할 필요가 없습니다. Microsoft ID 플랫폼에 통합된 애플리케이션은 이러한 기술 혁신의 이점을 기본적으로 활용합니다.
 
 Microsoft ID 플랫폼을 사용하면 코드를 한 번에 작성하여 사용자를 연결할 수 있습니다. 앱을 한 번에 작성하여 여러 플랫폼에서 작동하거나, 클라이언트는 물론 리소스 애플리케이션(API)으로 작동하는 앱을 빌드할 수 있습니다.
+
+플랫폼에 대한 비디오 개요 및 인증 환경의 데모는 [개발자를 위한 Microsoft ID 플랫폼이란?](https://youtu.be/uDU1QTSw7Ps)을 참조하세요.
 
 ## <a name="getting-started"></a>시작
 

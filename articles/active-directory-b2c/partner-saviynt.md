@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171435"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465677"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
 
@@ -30,7 +30,7 @@ ms.locfileid: "96171435"
 
 - 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 확인 하는 데이터 수준 보안 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -54,7 +54,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Saviynt 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 위임 된 관리자는 Saviynt를 통해 Azure AD B2C 사용자 관리 작업을 시작 합니다.
 | 2. | Saviynt는 위임 된 관리자가 특정 작업을 수행할 수 있는 경우 해당 권한 부여 엔진을 사용 하 여 확인 합니다.
@@ -69,7 +69,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 1. Saviynt 계정을 만들려면 [Saviynt](https://saviynt.com/contact-us/) 에 문의 하세요.
 
-2. 위임 된 관리 정책을 만들고 사용자를 다양 한 역할을 가진 [위임 된 관리자로](../active-directory/roles/concept-delegation.md) 할당 합니다.
+2. 위임 된 관리 정책을 만들고 사용자를 다양 한 역할을 가진 위임 된 관리자로 할당 합니다.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Saviynt를 사용 하 여 Azure AD B2C 구성
 
@@ -95,7 +95,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 10. **권한 추가** 를 선택 합니다. 추가 된 사용 권한을 검토 합니다.
 
-11. **기본 디렉터리 저장에 대 한 관리자 동의 부여를** 선택  >  **Save** 합니다.
+11. **기본 디렉터리 저장에 대 한 관리자 동의 부여를** 선택  >  합니다.
 
 12. **인증서 및 비밀** 으로 이동 하 고 **+ 클라이언트 암호 추가** 를 선택 합니다. 클라이언트 암호 설명을 입력 하 고 만료 옵션을 선택한 다음 **추가** 를 선택 합니다.
 

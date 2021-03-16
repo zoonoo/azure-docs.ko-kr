@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: a27fba6e426b72d72160a9a238f68cf8cef5c73b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948636"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180070"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -18,40 +18,23 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 샘플 코드로 바로 건너뛰려면 GitHub의 [JavaScript 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node)을 참조하세요.
 
+또는 브라우저 기반 환경에서 Speech SDK를 사용하는 방법을 알아보려면 [React 샘플](https://github.com/Azure-Samples/AzureSpeechReactSample)을 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript용 Speech SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
+작업을 수행하려면 먼저 Node.js용 Speech SDK를 설치해야 합니다. 설치할 패키지 이름만 알고 싶으면 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다. 단계별 설치 지침은 [시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) 문서를 참조하세요.
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">웹 브라우저 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
-또한 대상 환경에 따라 다음 중 하나를 사용합니다.
-
-# <a name="script"></a>[스크립트](#tab/script)
-
-<a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript용 Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* 파일을 다운로드하여 압축을 풀고 HTML 파일에 액세스할 수 있는 폴더에 저장합니다.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> 웹 브라우저를 대상으로 지정하고 `<script>` 태그를 사용하는 경우 클래스를 참조할 때 `sdk` 접두사가 필요하지 않습니다. `sdk` 접두사는 `require` 모듈의 이름을 지정하는 데 사용되는 별칭입니다.
-
-# <a name="require"></a>[필수](#tab/require)
+다음 `require` 문을 사용하여 SDK를 가져옵니다.
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-`require`에 대한 자세한 내용은 <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">필요한 항목<span class="docon docon-navigate-external x-hidden-focus"></span></a>을 참조하세요.
-
----
+`require` 문에 대한 자세한 내용은 [require 설명서](https://nodejs.org/en/knowledge/getting-started/what-is-require/)를 참조하세요.
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
@@ -72,52 +55,14 @@ const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription
 
 ## <a name="recognize-from-microphone-browser-only"></a>마이크에서 인식(브라우저만 해당)
 
-디바이스 마이크를 사용하여 음성을 인식하려면 `fromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer)를 초기화하고 `speechConfig` 및 `audioConfig`를 전달합니다.
+마이크의 음성 인식은 **Node.js에서 지원되지 않으며**, 브라우저 기반 JavaScript 환경에서만 지원됩니다. [마이크 구현에서 음성 텍스트 변환](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29)을 보려면 GitHub의 [React 샘플](https://github.com/Azure-Samples/AzureSpeechReactSample)을 참조하세요.
 
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-
-function fromMic() {
-    let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
-    console.log('Speak into your microphone.');
-    recognizer.recognizeOnceAsync(result => {
-        console.log(`RECOGNIZED: Text=${result.text}`);
-    });
-}
-fromMic();
-```
-
-*특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스에 대한 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아보세요.
+> [!NOTE]
+> *특정* 오디오 입력 디바이스를 사용하려면 `AudioConfig`에서 디바이스 ID를 지정해야 합니다. 오디오 입력 디바이스의 [디바이스 ID를 가져오는 방법](../../../how-to-select-audio-input-devices.md)을 알아봅니다.
 
 ## <a name="recognize-from-file"></a>파일에서 인식 
 
-# <a name="browser"></a>[브라우저](#tab/browser)
-
-브라우저 기반 JavaScript 환경에서 오디오 파일의 음성을 인식하려면 `fromWavFileInput()` 함수를 사용하여 [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig)를 만듭니다. `fromWavFileInput()` 함수는 JavaScript [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) 개체를 매개 변수로 예상합니다.
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-
-function fromFile() {
-    // wavByteContent should be a byte array of the raw wav content
-    let file = new File([wavByteContent]);
-    let audioConfig = sdk.AudioConfig.fromWavFileInput(file);
-    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
-    recognizer.recognizeOnceAsync(result => {
-        console.log(`RECOGNIZED: Text=${result.text}`);
-    });
-}
-fromFile();
-```
-
-# <a name="nodejs"></a>[Node.JS](#tab/node)
-
-Node.js의 오디오 파일에서 음성을 인식하려면 node.js 런타임에 JavaScript [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File/File) 개체를 사용할 수 없으므로 푸시 스트림을 사용하는 대체 디자인 패턴을 사용해야 합니다. 코드는 다음과 같습니다.
+Node.js의 오디오 파일에서 음성을 인식하려면 node.js 런타임에 JavaScript `File` 개체를 사용할 수 없으므로 푸시 스트림을 사용하는 대체 디자인 패턴을 사용해야 합니다. 코드는 다음과 같습니다.
 
 * `createPushStream()`을 사용하여 푸시 스트림을 만듭니다.
 * 읽기 스트림을 만들어 `.wav` 파일을 열고 푸시 스트림에 씁니다.
@@ -149,8 +94,6 @@ fromFile();
 
 푸시 스트림을 입력으로 사용하면 오디오 데이터가 원시 PCM이라고 가정합니다(예: 헤더 건너뛰기).
 헤더를 건너뛰지 않는 경우에도 API는 특정 사례에서 계속 작동하지만, 최상의 결과를 위해 `fs`가 *오디오 데이터의 시작* 에서 시작되도록 헤더를 읽는 논리를 구현하는 것이 좋습니다.
-
----
 
 ## <a name="error-handling"></a>오류 처리
 
@@ -185,12 +128,12 @@ switch (result.reason) {
 
 이전 예제에서는 단일 발화를 인식하는 단일 샷 인식을 사용합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 
-이와 반대로 인식을 중지하는 시점을 **제어** 하려는 경우 연속 인식이 사용됩니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
+이와 대조적으로, 인식을 중지할 때 **제어** 하려는 경우에는 연속 인식이 사용됩니다. `Recognizing`, `Recognized` 및 `Canceled` 이벤트를 구독하여 인식 결과를 얻어야 합니다. 인식을 중지하려면 [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#stopcontinuousrecognitionasync)를 호출해야 합니다. 다음은 오디오 입력 파일에서 연속 인식이 수행되는 방식을 보여주는 예입니다.
 
 입력을 정의하고 [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer)를 초기화하여 시작합니다.
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 그런 다음, [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer)에서 보낸 이벤트를 구독합니다.

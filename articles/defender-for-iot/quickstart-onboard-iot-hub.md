@@ -1,6 +1,6 @@
 ---
-title: IoT 에이전트 기반 솔루션을 위해 Defender에 온보드
-description: Azure IoT Hub에서 Defender for IoT 보안 서비스를 등록하고 활성화하는 방법에 대해 알아봅니다.
+title: '빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 등록'
+description: 이 빠른 시작에서는 Azure IoT Hub에서 Defender for IoT 보안 서비스를 등록하고 활성화하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809136"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449682"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>IoT 에이전트 기반 솔루션을 위해 Defender에 온보드
+# <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
 
 이 문서에서는 기존 IoT Hub에서 Defender for IoT 서비스를 사용하도록 설정하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 
@@ -35,7 +35,11 @@ Defender for IoT의 IoT Hub를 통해 IoT 보안을 관리할 수 있습니다. 
 > [!NOTE]
 > Defender for IoT는 현재 표준 계층 IoT Hub만 지원합니다.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>IoT Hub에서 Defender for IoT에 온보딩
+## <a name="prerequisites"></a>필수 조건
+
+없음
+
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>IoT Hub에 Defender for IoT 등록
 
 모든 새 IoT 허브의 경우 Defender for IoT는 기본적으로 **On** 으로 설정됩니다. IoT Hub 만들기 프로세스 중에 Defender for IoT가 **On** 으로 전환되었는지 확인할 수 있습니다.
 
@@ -55,14 +59,23 @@ Defender for IoT의 IoT Hub를 통해 IoT 보안을 관리할 수 있습니다. 
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>기존 IoT Hub에 Defender for IoT 온보딩
 
-디바이스 ID 관리, 디바이스-클라우드 및 클라우드-디바이스 통신 패턴을 모니터링하고 다음을 수행하여 서비스를 시작할 수 있습니다. 
+Defender for IoT를 기존 IoT Hub에 등록하면 디바이스 ID 관리, 디바이스에서 클라우드로, 클라우드에서 디바이스로의 통신 패턴을 모니터링할 수 있습니다.
+
+기존 IoT Hub에 Defender for IoT를 등록하려면 다음을 수행합니다.
 
 1. IoT Hub로 이동합니다. 
 
-1.  **보안 개요** 메뉴를 선택합니다. 
+1. 등록할 IoT Hub를 선택합니다.
 
-1. IoT 솔루션 보안을 클릭하고 온보딩 양식을 완료합니다. 
+1. **보안** 섹션에서 옵션을 선택합니다.
 
+1.  **IoT 솔루션 보안** 을 클릭하고 온보딩 양식을 완료합니다. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="IoT 솔루션 보안 단추를 선택하여 솔루션을 보호합니다.":::
+
+**IoT 솔루션 보안** 단추는 IoT Hub가 아직 등록되지 않았거나 등록 중에 Defender for IoT 토글을 **해제** 한 경우에만 나타납니다.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="등록 중에 토글이 해제로 설정된 경우":::
 
 ## <a name="next-steps"></a>다음 단계
 

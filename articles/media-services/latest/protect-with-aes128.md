@@ -1,8 +1,8 @@
 ---
-제목: AES-128을 사용 하 여 비디오 암호화: Azure Media Services 설명: AES 128 비트 암호화를 사용 하 여 비디오를 암호화 하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용 하는 방법에 대해 알아봅니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+제목: AES-128로 비디오 암호화 : Azure Media Services 설명: AES 128비트 암호화를 사용하여 비디오를 암호화하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용하는 방법을 알아봅니다.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: na. 토픽: 자습서 ms. 날짜: 08/31/2020 밀리초. 작성자:
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>자습서: AES-128을 사용하여 비디오를 암호화하고 키 배달 서비스 사용
@@ -10,7 +10,7 @@ inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: na
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하더라도 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
+> 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) 예제를 사용하더라도 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
 
 Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화된 HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍을 배달할 수 있습니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. Media Services에서 비디오를 동적으로 암호화하도록 하려면 암호화 키를 스트리밍 로케이터에 연결하고 콘텐츠 키 정책도 구성합니다. 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES-128을 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 콘텐츠 키 정책을 평가합니다.
 

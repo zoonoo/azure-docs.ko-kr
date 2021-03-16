@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161bc008076de2bba62cd65c6c9bb106f648aa47
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851257"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493240"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>LocalConfiguration. json 파일 이해 - C 에이전트
 
@@ -39,7 +39,7 @@ IoT 용 Defender 보안 에이전트는 로컬 구성 파일의 구성을 사용
 | TriggerdEventsInterval | ISO8601 문자열 | 트리거된 이벤트 컬렉션에 대 한 스케줄러 간격 |
 | ConnectionTimeout | ISO8601 문자열 | IoThub에 대 한 연결 시간이 초과 될 때 까지의 기간입니다. |
 | 인증 | JsonObject | 인증 구성. 이 개체는 IoTHub에 대 한 인증에 필요한 모든 정보를 포함 합니다. |
-| ID | "DPS", "SecurityModule", "Device" | 인증 id-DPS를 통해 인증을 수행 하는 경우 DPS, SecurityModule을 통해 인증 되는 경우 보안 모듈 자격 증명 또는 장치를 통해 인증 된 경우 |
+| ID | "DPS", "SecurityModule", "Device" | 인증 id-DPS를 통해 인증이 수행 되는 경우 DPS, SecurityModule을 통해 인증 되는 경우, 장치 자격 증명을 사용 하 여 인증 되 면 |
 | AuthenticationMethod | "SasToken", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호-사용 비밀이 대칭 키인 경우 SasToken을 선택 하 고, 비밀이 자체 서명 된 인증서 인 경우 자체 서명 된 인증서를 선택 합니다.  |
 | FilePath | 파일 경로 (문자열) | 인증 암호를 포함 하는 파일의 경로입니다. |
 | HostName | 문자열 | Azure IoT hub의 호스트 이름입니다. 일반적으로 <내 허브>. azure-devices.net |

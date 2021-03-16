@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy copy 명령에 대 한 참조 정보를 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879159"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493767"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ ms.locfileid: "98879159"
   - Sas (Azure Files)-SAS (> Azure Files)
   - SAS (Azure Files)-> Azure Blob (SAS 또는 OAuth 인증)
   - Amazon Web Services (AWS) S3 (액세스 키)-> Azure 블록 Blob (SAS 또는 OAuth 인증)
+  - Google 클라우드 저장소 (서비스 계정 키)-> Azure 블록 Blob (SAS 또는 OAuth 인증) [미리 보기]
 
 자세한 내용은이 문서의 예 섹션을 참조 하세요.
 
@@ -230,6 +231,36 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
     
 - Blob에서 태그를 설정 하는 동안 서비스에서 권한 부여 오류를 다시 제공할 필요 없이 SAS에 추가 권한 (태그의 경우 ' ')이 있습니다.
 
+서비스 계정 키와 SAS 토큰을 사용 하 여 Google Cloud Storage에서 Blob Storage 단일 개체를 복사 합니다. 먼저 Google Cloud Storage source에 대 한 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 합니다.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+서비스 계정 키와 SAS 토큰을 사용 하 여 Google Cloud Storage에서 Blob Storage에 전체 디렉터리를 복사 합니다. 먼저 Google Cloud Storage source에 대 한 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 합니다.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+서비스 계정 키와 SAS 토큰을 사용 하 여 Google Cloud Storage에서 Blob Storage 전체 버킷을 복사 합니다. 먼저 Google Cloud Storage source에 대 한 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 합니다.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+서비스 계정 키와 SAS 토큰을 사용 하 여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사 합니다. 먼저 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 하 고 GC 원본에 대해<프로젝트-id>를 GOOGLE_CLOUD_PROJECT 합니다.
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+서비스 계정 키와 대상에 대 한 SAS 토큰을 사용 하 여 Google Cloud Storage의 버킷 이름에 와일드 카드 기호 (*)를 사용 하 여 버킷의 하위 집합을 복사 합니다. 먼저 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 하 고 Google 클라우드 저장소 원본에 대 한<프로젝트-id>를 GOOGLE_CLOUD_PROJECT 합니다.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
 ## <a name="options"></a>옵션
 
 **--백업** 파일 시스템 사용 권한에 관계 없이 AzCopy가 모든 파일을 보고 읽고 모든 사용 권한을 복원 하도록 Windows ' SeBackupPrivilege to 업로드가 나 SeRestorePrivilege for 다운로드를 활성화 합니다. AzCopy를 실행 하는 계정에는이 권한이 이미 있어야 합니다. 예를 들어 관리자 권한이 있거나 그룹의 멤버 여야 `Backup Operators` 합니다. 이 플래그는 계정에 이미 있는 권한을 활성화 합니다.
@@ -276,7 +307,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--include-after** 문자열에는 지정 된 날짜/시간 이후에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.5에서와 같이이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
- **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예: `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
+ **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
@@ -324,6 +355,6 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--trusted-microsoft-접미사** 문자열 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

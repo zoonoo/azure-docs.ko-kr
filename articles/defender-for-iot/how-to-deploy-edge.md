@@ -1,5 +1,5 @@
 ---
-title: IoT Edge 보안 모듈 배포
+title: IoT Edge 배포-IoT-마이크로 에이전트
 description: IoT Edge에서 IoT 보안 에이전트에 대 한 Defender를 배포 하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705775"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495116"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
+# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>IoT Edge 장치에 Defender-IoT-마이크로 에이전트 배포
 
 **IoT 용 Defender** 모듈은 IoT Edge 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다.
-보안 모듈은 운영 체제 및 컨테이너 시스템에서 실행 가능한 보안 권장 사항 및 경고로 원시 보안 데이터를 수집, 집계 및 분석 합니다.
-자세히 알아보려면 [IoT Edge 보안 모듈](security-edge-architecture.md)을 참조 하세요.
+Defender-마이크로 에이전트는 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 수집, 집계 및 분석 하 여 실행 가능한 보안 권장 사항 및 경고로 변환 합니다.
+자세한 내용은 [IoT Edge에 대 한 Defender-IoT-마이크로 에이전트](security-edge-architecture.md)를 참조 하세요.
 
-이 문서에서는 IoT Edge 장치에 보안 모듈을 배포 하는 방법을 알아봅니다.
+이 문서에서는 IoT Edge 장치에서 Defender-마이크로 에이전트를 배포 하는 방법에 대해 알아봅니다.
 
-## <a name="deploy-security-module"></a>보안 모듈 배포
+## <a name="deploy-defender-iot-micro-agent"></a>Defender-IoT-마이크로 에이전트 배포
 
-다음 단계를 사용 하 여 IoT Edge에 대 한 IoT 용 Defender 보안 모듈을 배포 합니다.
+다음 단계를 사용 하 여 IoT Edge 용 Defender Defender-IoT-마이크로 에이전트를 배포 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](../iot-edge/how-to-register-device.md#register-a-new-device)되어 있는지 확인 합니다.
 
@@ -169,7 +169,7 @@ ms.locfileid: "101705775"
 
 ## <a name="diagnostic-steps"></a>진단 단계
 
-문제가 발생 하는 경우 컨테이너 로그가 IoT Edge 보안 모듈 장치의 상태에 대 한 정보를 확인 하는 가장 좋은 방법입니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다.
+문제가 발생 하는 경우 컨테이너 로그는 IoT Edge Defender-마이크로 에이전트 장치의 상태를 알아보는 가장 좋은 방법입니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>필요한 컨테이너가 설치 되어 있으며 예상 대로 작동 하는지 확인 합니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "101705775"
 
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
 
-   | 속성 | IMAGE |
+   | 이름 | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

@@ -3,19 +3,19 @@ title: 명함-양식 인식기
 titleSuffix: Azure Cognitive Services
 description: 인식기 API 사용 및 제한을 사용 하 여 비즈니스 카드 분석과 관련 된 개념을 알아봅니다.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546026"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466997"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
 
@@ -31,7 +31,7 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ### <a name="fields-extracted"></a>추출 된 필드:
 
-|Name| Type | Description | 텍스트 | 
+|이름| 유형 | 설명 | 텍스트 | 
 |:-----|:----|:----|:----|
 | ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
 | FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
@@ -52,25 +52,25 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ### <a name="input-requirements"></a>입력 요구 사항 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-business-card-operation"></a>비즈니스 카드 분석 작업
 
-[분석 회사 카드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[분석 회사 카드](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>비즈니스 카드 분석 결과 가져오기 작업
 
-두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
 |필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
-**상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드의 이해 및 선택적 텍스트 인식 결과가 포함 됩니다 (요청한 경우). 명함 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
+**상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드의 이해 및 선택적 텍스트 인식 결과가 포함 됩니다 (요청한 경우). 비즈니스 카드 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
 
 ![샘플 비즈니스 카드 출력](./media/business-card-results.png)
 
@@ -386,7 +386,7 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ## <a name="customer-scenarios"></a>고객 시나리오  
 
-비즈니스 카드 API를 사용 하 여 추출 된 데이터를 사용 하 여 다양 한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출 하면 클라이언트 쪽 역할의 시간에 대 한 시간이 자동으로 절약 됩니다. 다음은 고객이 비즈니스 카드 API를 사용 하 여 수행한 작업의 몇 가지 예입니다.
+비즈니스 카드 API를 사용 하 여 추출 된 데이터를 사용 하 여 다양 한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출 하면 클라이언트 쪽 역할의 사용자에 대 한 시간이 자동으로 절약 됩니다. 다음은 고객이 비즈니스 카드 API를 사용 하 여 수행한 작업의 몇 가지 예입니다.
 
 * 비즈니스 카드에서 연락처 정보를 추출 하 고 전화 연락처를 빠르게 만듭니다. 
 * CRM과 통합 하 여 비즈니스 카드 이미지를 사용 하 여 연락처를 자동으로 만듭니다. 
@@ -402,4 +402,4 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

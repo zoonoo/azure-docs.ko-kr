@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449172"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494124"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법
 
 이 문서에서는 AzureIoTSecurity agent와 함께 사용 하 여 IoT Hub 인증할 수 있는 다양 한 인증 방법을 설명 합니다.
 
-IoT Hub에서 IoT 용 각 장치 등록에 대해 보안 모듈이 필요 합니다. 장치를 인증 하려면 IoT 용 Defender에서 두 가지 방법 중 하나를 사용할 수 있습니다. 기존 IoT 솔루션에 가장 적합 한 방법을 선택 합니다.
+IoT Hub에서 IoT 용 각 장치를 등록 하려면 Defender-마이크로 에이전트가 필요 합니다. 장치를 인증 하려면 IoT 용 Defender에서 두 가지 방법 중 하나를 사용할 수 있습니다. 기존 IoT 솔루션에 가장 적합 한 방법을 선택 합니다.
 
 - SecurityModule 옵션
 - 장치 옵션
@@ -33,12 +33,12 @@ IoT Hub에서 IoT 용 각 장치 등록에 대해 보안 모듈이 필요 합니
 
 Defender에서 IoT AzureIoTSecurity agent에 대 한 두 가지 방법으로 인증을 수행할 수 있습니다.
 
-- **Securitymodule** 인증 모드<br>
-에이전트는 장치 id와는 독립적으로 보안 모듈 id를 사용 하 여 인증 됩니다.
-보안 에이전트가 보안 모듈 (대칭 키만)을 통해 전용 인증 방법을 사용 하도록 하려면이 인증 유형을 사용 합니다.
+- **Defender-마이크로 에이전트** 인증 모드<br>
+에이전트는 장치 id와 독립적으로 Defender-IoT-마이크로 에이전트 id를 사용 하 여 인증 됩니다.
+보안 에이전트가 Defender-마이크로 에이전트 (대칭 키만)를 통해 전용 인증 방법을 사용 하도록 하려면이 인증 유형을 사용 합니다.
 
 - **장치** 인증 모드<br>
-이 메서드에서 보안 에이전트는 먼저 장치 id를 사용 하 여 인증 합니다. 초기 인증 후에 IoT 에이전트의 Defender는 장치의 인증 데이터와 REST API를 사용 하 여 IoT Hub에 대 한 **REST** 호출을 수행 합니다. 그러면 Defender for IoT 에이전트는 IoT Hub에서 보안 모듈 인증 방법과 데이터를 요청 합니다. 마지막 단계에서 IoT 용 Defender 에이전트는 IoT 용 Defender 모듈에 대 한 인증을 수행 합니다.
+이 메서드에서 보안 에이전트는 먼저 장치 id를 사용 하 여 인증 합니다. 초기 인증 후에 IoT 에이전트의 Defender는 장치의 인증 데이터와 REST API를 사용 하 여 IoT Hub에 대 한 **REST** 호출을 수행 합니다. IoT 에이전트의 Defender는 IoT Hub에서 Defender-마이크로 에이전트 인증 방법과 데이터를 요청 합니다. 마지막 단계에서 IoT 용 Defender 에이전트는 IoT 용 Defender 모듈에 대 한 인증을 수행 합니다.
 
 보안 에이전트에서 기존 장치 인증 방법 (자체 서명 된 인증서 또는 대칭 키)을 다시 사용 하려는 경우이 인증 유형을 사용 합니다.
 

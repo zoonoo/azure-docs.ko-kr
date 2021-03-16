@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef013d97be8a5decbee46d25752ced7bd622a646
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9611a854c6dad29842f1652580da5fd1d449cb3f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657777"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485840"
 ---
 # <a name="chat-client-library-overview"></a>채팅 클라이언트 라이브러리 개요
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Azure Communication Services 채팅 클라이언트 라이브러리를 사용하여 다양한 실시간 채팅을 애플리케이션에 추가할 수 있습니다.
 

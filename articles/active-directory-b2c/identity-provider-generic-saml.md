@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448407"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488927"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자로 등록 및 로그인 설정
 
@@ -45,7 +45,7 @@ Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자와의 페더�
 
 ![SAML id 공급자 흐름을 사용 하 여 로그인](./media/identity-provider-generic-saml/sign-in-with-saml-identity-provider-flow.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -205,9 +205,16 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+[사용자 지정 도메인](custom-domain.md)을 사용 하는 경우 다음 형식을 사용 합니다.
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 다음 값을 바꿉니다.
 
-- 테 넌 트 이름 (예: your-tenant.onmicrosoft.com **)**
+- 테 **넌 트** 이름 (예: your-tenant.onmicrosoft.com)
+- 사용자 지정 도메인 이름 (예: login.contoso.com)을 사용 하는 **-도메인 이름** 입니다.
 - **your-policy** 를 정책 이름으로. 예를 들어 B2C_1A_signup_signin_adfs로 바꿉니다.
 - **-기술 프로필** 은 SAML id 공급자 기술 프로필의 이름입니다. 예를 들어 Contoso-SAML2로 바꿉니다.
 

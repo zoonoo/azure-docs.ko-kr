@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: a40b64dd3b8f898c961863c1d78a2a56642c44b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 3b98013eab1ae8d21b9da7c1a4460551dc363c80
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521614"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487771"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>IoT 용 Azure Defender 장치 마이크로 에이전트 시작
 
@@ -44,6 +44,7 @@ IoT 용 방어자 보안 에이전트는 장치 운영 체제에서 원시 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-솔루션 구성 [](quickstart-configure-your-solution.md) 
- [보안 모듈 만들기](quickstart-create-security-twin.md) [사용자 지정 경고](quickstart-create-custom-alerts.md)구성 
- [보안 에이전트 배포](how-to-deploy-agent.md)
+- [솔루션](quickstart-configure-your-solution.md) 구성
+- [Defender-IoT-마이크로 에이전트 만들기](quickstart-create-security-twin.md)
+- [사용자 지정 경고](quickstart-create-custom-alerts.md) 구성
+- [보안 에이전트 배포](how-to-deploy-agent.md)

@@ -3,21 +3,21 @@ title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357894"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488308"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
 이 문서에서는 Azure VMware Solution 프라이빗 클라우드용 온-프레미스 VMware HCX Connector를 배포하고 구성하는 방법을 보여 줍니다. VMware HCX를 사용하면 다양한 마이그레이션 유형을 통해 VMware 워크로드를 Azure VMware Solution 및 기타 연결된 사이트로 마이그레이션할 수 있습니다. Azure VMware Solution은 HCX Cloud Manager를 배포하고 구성하므로 온-프레미스 VMware 데이터 센터에서 HCX 커넥터를 다운로드, 활성화 및 구성해야 합니다.
 
-VMware HCX 고급 커넥터는 Azure VMware Solution에 미리 배포되어 있습니다. 이 커넥터는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결 4개 이상 필요한 경우 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 기능을 사용할 수 있도록 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하세요. 추가 기능은 현재 미리 보기에 있습니다. 
+VMware HCX 고급 커넥터는 Azure VMware Solution에 미리 배포되어 있습니다. 이 커넥터는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결 4개 이상 필요한 경우 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 기능을 사용할 수 있도록 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하세요.  
 
 >[!TIP]
->VMware 구성 최대 도구는 온-프레미스 커넥터와 클라우드 관리자 간의 최대 25개까지 사이트 쌍을 설명하지만, 라이선스는 이를 3개(Advanced의 경우) 및 10개(Enterprise Edition의 경우)로 제한합니다.
+>VMware 구성 최대 도구는 온-프레미스 커넥터와 클라우드 관리자 간의 최대 25개까지 사이트 쌍을 설명하지만, 라이선스는 이를 3개(HCX Advanced의 경우) 및 10개(HCX Enterprise Edition의 경우)로 제한합니다.
 
 >[!NOTE]
 >VMware HCX Enterprise는 Azure VMware Solution에서 미리 보기 서비스로 사용할 수 있습니다. 무료이며 미리 보기 서비스의 약관이 적용됩니다. VMware HCX Enterprise 서비스가 일반 공급되면 30일 이내에 요금 청구가 변경된다는 알림을 받게 됩니다. 또한 서비스를 해제하거나 옵트아웃하는 옵션이 있습니다. VMware HCX Enterprise에서 VMware HCX Advanced로 다운그레이드하는 간단한 경로가 없습니다. 다운그레이드하도록 결정하는 경우 다시 배포해야 하므로 가동 중지 시간이 발생합니다.
@@ -58,9 +58,9 @@ VMware HCX Enterprise를 사용하려면 Azure VMware Solution 지원 채널을 
 
 ### <a name="network-and-ports"></a>네트워크 및 포트
 
-* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md)는 온-프레미스 및 Azure VMware Solution SDDC ExpressRoute 회로 간에 구성됩니다.
+* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md)는 온-프레미스 및 Azure VMware Solution 프라이빗 클라우드 ExpressRoute 회로 간에 구성됩니다.
 
-* [필요한 모든 포트](https://ports.vmware.com/home/VMware-HCX)는 온-프레미스 구성 요소 및 Azure VMware Solution SDDC 간의 통신을 위해 열려 있습니다.
+* [필요한 모든 포트](https://ports.vmware.com/home/VMware-HCX)는 온-프레미스 구성 요소 및 Azure VMware Solution 프라이빗 간의 통신을 위해 열려 있습니다.
 
 ### <a name="ip-addresses"></a>IP 주소
 
@@ -76,12 +76,15 @@ VMware HCX Enterprise를 사용하려면 Azure VMware Solution 지원 채널을 
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="VMware HCX IP 주소의 스크린샷" lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. **관리** > **ID** 를 차례로 선택하고, **vCenter 관리자 암호** 를 선택하여 암호를 확인합니다.
+1. **관리** > **ID** 를 선택합니다. 
+
+   프라이빗 클라우드 vCenter 및 NSX-T Manager에 대한 URL 및 사용자 자격 증명이 표시됩니다.
 
    > [!TIP]
-   > vCenter 암호는 프라이빗 클라우드를 설정할 때 정의되었습니다. Azure VMware Solution HCX Manager에 로그인하는 데 사용하는 것과 동일한 암호입니다.
+   > vCenter 암호는 프라이빗 클라우드를 설정할 때 정의되었습니다. Azure VMware Solution HCX Manager에 로그인하는 데 사용하는 것과 동일한 암호입니다. **새 암호 생성** 을 선택하여 새 vCenter 및 NSX-T 암호를 생성할 수 있습니다.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="HCX 암호 찾기" lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+
 
 1. 브라우저 창을 열고, **cloudadmin\@vsphere.local** 사용자 자격 증명을 사용하여 `https://x.x.x.9` 443 포트에서 Azure VMware Solution HCX Manager에 로그인합니다.
 
@@ -166,7 +169,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) 비디오를 시청하세요.
 
    > [!IMPORTANT]
-   > VMware HCX Advanced 또는 VMware HCX Enterprise를 사용하는지 여부에 관계없이 VMware의 [81558 KB 문서](https://kb.vmware.com/s/article/81558)에서 패치를 설치해야 할 수 있습니다. 
+   > HCX Advanced 또는 HCX Enterprise를 사용하는지 여부에 관계없이 VMware의 [KB 문서 81558](https://kb.vmware.com/s/article/81558)에서 패치를 설치해야 할 수 있습니다. 
 
 ## <a name="configure-the-vmware-hcx-connector"></a>VMware HCX 커넥터 구성
 
@@ -279,7 +282,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
 ### <a name="create-a-service-mesh"></a>서비스 메시 만들기
 
-이제 온-프레미스와 Azure VMware Solution SDDC 간에 서비스 메시를 구성해야 합니다.
+이제 온-프레미스와 Azure VMware Solution 프라이빗 클라우드 간에 서비스 메시를 구성해야 합니다.
 
 
 
@@ -366,7 +369,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 
 ## <a name="next-steps"></a>다음 단계
 
-어플라이언스 상호 연결 터널 상태가 **가동 중** 이고 녹색인 경우 VMware HCX를 사용하여 Azure VMware Solution VM을 마이그레이션하고 보호할 수 있습니다. Azure VMware Solution은 (네트워크 확장을 포함한 또는 포함하지 않은) 워크로드 마이그레이션을 지원합니다. vSphere 환경에서 워크로드를 계속 마이그레이션할 수 있으며, 온-프레미스에 네트워크를 만들고 해당 네트워크에 VM을 배포할 수 있습니다.  
+HCX 상호 연결 터널 상태가 **가동 중** 이고 녹색인 경우 VMware HCX를 사용하여 Azure VMware Solution VM을 마이그레이션하고 보호할 수 있습니다. Azure VMware Solution은 (네트워크 확장을 포함한 또는 포함하지 않은) 워크로드 마이그레이션을 지원합니다. vSphere 환경에서 워크로드를 계속 마이그레이션할 수 있으며, 온-프레미스에 네트워크를 만들고 해당 네트워크에 VM을 배포할 수 있습니다.  
 
 HCX 사용에 대한 자세한 내용은 다음 VMware 기술 문서를 참조하세요.
 

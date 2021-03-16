@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f91ff691948f2c55dd469ad121fab10d3a920eae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a01d5f48ca3b10f4c49ee621398ae87392dc34a6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102548430"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493461"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -266,7 +266,6 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
 - [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
 - ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
-- [로컬 임시 디스크가 없는 AZURE VM 크기](../azure-vms-no-temp-disk.md) 특히 Dv4, Dsv4, Ev4 및 Esv4입니다.
 - 장애 조치 (failover) 클러스터에서 Vm을 암호화 합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738228"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487103"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="march-2021"></a>2021년 3월
+
+### <a name="computer-vision-32-public-preview-update"></a>Computer Vision 3.2 공개 미리 보기 업데이트
+
+Computer Vision API v3.2 공개 미리 보기가 업데이트되었습니다. 미리 보기 릴리스에는 업데이트된 읽기 및 분석 API와 함께 모든 Computer Vision 기능이 포함되어 있습니다.
+
+> [!div class="nextstepaction"]
+> [Computer Vision v3.2 공개 미리 보기 3 살펴보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -34,7 +43,7 @@ ms.locfileid: "101738228"
 Read API에 대한 [자세한 정보](concept-recognizing-text.md)
 
 > [!div class="nextstepaction"]
-> [Read API v3.2 공개 미리 보기 사용](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Read API v3.2 공개 미리 보기 사용](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>2021년 1월

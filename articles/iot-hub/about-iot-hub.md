@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: a460d77a032f36505c8036bc60aa37017f630e55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501144"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454773"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -30,7 +30,7 @@ IoT Hub의 기능을 사용하면 제조에 사용된 산업 장비 관리, 의�
 
 ## <a name="scale-your-solution"></a>솔루션 확장
 
-IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub의 크기를 조정하는 방법에 대한 자세한 내용은 [IoT Hub 크기 조정](iot-hub-scaling.md?branch=release-iotbasic)을 참조하세요. IoT Hub에서 제공하는 여러 서비스 계층 및 확장성 요구 사항을 가장 잘 충족하는 방법에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)를 참조하세요.
+IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub의 크기를 조정하는 방법에 대한 자세한 내용은 [IoT Hub 크기 조정](iot-hub-scaling.md)을 참조하세요. IoT Hub에서 제공하는 여러 서비스 계층 및 확장성 요구 사항을 가장 잘 충족하는 방법에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)를 참조하세요.
 
 ## <a name="secure-your-communications"></a>통신 보안
 
@@ -104,6 +104,8 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 * Websocket 통한 AMQP
 * MQTT
 * WebSocket을 통한 MQTT
+
+IoT Hub 및 디바이스 SDK는 디바이스를 연결하기 위한 [Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 규칙을 지원합니다. IoT 플러그 앤 플레이 디바이스는 디바이스 모델을 사용하여 IoT 플러그 앤 플레이 지원 애플리케이션에 해당 기능을 보급합니다. 디바이스 모델을 통해 솔루션 빌더가 수동으로 구성하지 않고 스마트 디바이스를 솔루션과 통합할 수 있습니다.
 
 솔루션에서 디바이스 라이브러리를 사용할 수 없는 경우 디바이스에서 기본적으로 MQTT v3.1.1, HTTPS 1.1 또는 AMQP 1.0 프로토콜을 사용하여 허브에 연결할 수 있습니다.
 

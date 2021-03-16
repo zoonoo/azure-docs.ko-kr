@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 749dea2d9d46cb69d0c7c8a799a3f82c04d020e8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936178"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549467"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 
@@ -58,22 +58,7 @@ ms.locfileid: "97936178"
 
 필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 폴더에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-run-local.md#local-settings-file) 구성 파일이 포함되어 있습니다.
 
-requirements.txt 파일도 루트 폴더에 생성됩니다. 함수 앱을 실행하는 데 필요한 Python 패키지를 지정합니다.
-
-## <a name="update-azure-functions-extension-bundles-version"></a>Azure Functions 확장 번들 버전 업데이트
-
-Python Azure Functions에는 [Azure Functions 확장 번들](../functions-bindings-register.md#access-extensions-in-non-net-languages)의 버전 2.x가 필요합니다. 확장 번들은 *host.json* 에 구성됩니다.
-
-1. 프로젝트에서 *host.json* 을 엽니다. 확장 번들 `version`을 `[2.*, 3.0.0)`으로 업데이트합니다. 2\.0보다 크거나 같고 3.0보다 작은 버전 범위를 지정합니다.
-
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
-    }
-    ```
-
-1. 업데이트된 확장 번들 버전이 반영되기 전에 VS Code를 다시 로드해야 합니다. 명령 팔레트에서 *개발자: 창 다시 로드* 명령을 검색하여 실행합니다.
+*requirements.txt* 파일도 루트 폴더에 생성됩니다. 함수 앱을 실행하는 데 필요한 Python 패키지를 지정합니다.
 
 ## <a name="install-azure-functions-durable-from-pypi"></a>PyPI에서 azure-functions-durable 설치
 
@@ -83,7 +68,7 @@ Python Azure Functions에는 [Azure Functions 확장 번들](../functions-bindin
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b12
+    azure-functions-durable
     ```
 
 1. 현재 폴더(<kbd>Ctrl+Shift+`</kbd>)에서 편집기의 통합 터미널을 엽니다.

@@ -3,13 +3,13 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024234"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532604"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | Premium(v1-v3) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "98024234"
 | 대역폭 |165 MB |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |
 | 애플리케이션 아키텍처 |32비트 |32비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |
 | 인스턴스당 웹 소켓 수<sup>7</sup> |5 |35 |350 |제한 없음 |제한 없음 |제한 없음 |
-| IP 연결 수 | 600 | 600 | 인스턴스 크기에 따라 다름<sup>8</sup> | 인스턴스 크기에 따라 다름<sup>8</sup> | 인스턴스 크기에 따라 다름<sup>8</sup> | 16,000 |
+| 인스턴스당 아웃바운드 IP 연결 수 | 600 | 600 | 인스턴스 크기에 따라 다름<sup>8</sup> | 인스턴스 크기에 따라 다름<sup>8</sup> | 인스턴스 크기에 따라 다름<sup>8</sup> | 16,000 |
 | 애플리케이션당 동시 [디버거 연결](../articles/app-service/troubleshoot-dotnet-visual-studio.md) |1 |1 |1 |5 |5 |5 |
 | 구독당 App Service 인증서 수<sup>9</sup>| 지원 안 함 | 지원 안 함 |10 |10 |10 |10 |
 | 앱당 사용자 지정 도메인</a> |0(azurewebsites.net 하위 도메인 전용)|500 |500 |500 |500 |500 |
