@@ -8,14 +8,16 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d5fdd762834d351119116c5e4854dd4233671c29
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932407"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463132"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>자습서: 시뮬레이션된 디바이스 데이터 생성
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 이 문서에서는 기계 학습 데이터를 사용하여 Azure IoT Hub에 원격 분석 데이터를 보내는 디바이스를 시뮬레이션합니다. 소개에서 언급했듯이, 이 자습서에서는 [터보팬 엔진 성능 저하 시뮬레이션 데이터 세트](https://c3.nasa.gov/dashlink/resources/139/)를 사용하여 훈련 및 테스트를 위해 일련의 비행기 엔진에서 데이터를 시뮬레이션합니다.
 

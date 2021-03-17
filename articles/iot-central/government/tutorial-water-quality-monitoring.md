@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a928b1223b91faae6d4aca68b81cc16c827933b3
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 3e55970b0603da9be9bf28a50d4c474e34a1cad3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99821667"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017242"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "99821667"
     * **URL**: 원하는 URL을 입력하거나 나중에 URL 값을 변경할 수 있습니다.
     * Azure 구독이 있으면 **디렉터리**, **Azure 구독** 및 **지역** 에 대한 값을 입력합니다. 구독이 없으면 **7일 평가판** 을 설정하고 필요한 연락처 정보를 작성할 수 있습니다.
 
-    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 빠른 시작을 참조하세요.
+    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기](../core/quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
 1. 페이지의 왼쪽 아래 부분에서 **만들기** 단추를 선택합니다.
 

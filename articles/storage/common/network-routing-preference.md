@@ -3,20 +3,20 @@ title: 네트워크 라우팅 기본 설정
 titleSuffix: Azure Storage
 description: 네트워크 라우팅 기본 설정을 사용 하면 네트워크 트래픽을 인터넷을 통해 클라이언트에서 계정으로 라우팅하는 방법을 지정할 수 있습니다.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.author: santoshc
-ms.reviewer: normesta
+ms.author: normesta
+ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bf2270fe6f71dfe5be31db8e82f6c44696f28074
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726940"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601494"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Azure Storage에 대 한 네트워크 라우팅 기본 설정
 
@@ -95,7 +95,7 @@ Azure Storage의 라우팅 기본 설정은 다음 지역에서 제공됩니다.
 - 서유럽 
 - 아랍에미리트 중부
 - 동아시아 
-- 동남아시아 
+- 동남 아시아 
 - 일본 동부 
 - 일본 서부 
 - 인도 서부

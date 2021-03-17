@@ -6,21 +6,18 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 3831892b6cd241643b3e5753689f768d59e27704
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 9b66fa6cd688cf0680e742ffa9fbe4d61a444ab2
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955973"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633000"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Media Services를 통해 콘텐츠를 업로드, 인코딩 및 스트림하는 방법을 보여 줍니다.
-
-> [!NOTE]
-> [Media Services v3에 대한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 검토하세요.
   
 ## <a name="overview"></a>개요
 

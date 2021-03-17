@@ -8,20 +8,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 7e5ea8dcddce31a414d983d14fba483eb388d5d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a29244745b154aa81997813fcf4e1457f599270
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334681"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622258"
 ---
 컨테이너는 [REST 기반 끝점 api](../rest-text-to-speech.md)를 제공 합니다. 플랫폼, 프레임 워크 및 언어 변형을 사용할 수 있는 [샘플 소스 코드 프로젝트](https://github.com/Azure-Samples/Cognitive-Speech-TTS) 는 여러 가지가 있습니다.
 
-표준 또는 신경망 텍스트 음성 변환 컨테이너를 사용 하 여 다운로드 한 이미지 태그의 로캘과 음성을 사용 해야 합니다. 예를 들어 태그를 다운로드 한 경우 `latest` 기본 로캘은 `en-US` 및 `AriaRUS` 음성입니다. `{VOICE_NAME}`인수는 [`en-US-AriaRUS`](../language-support.md#standard-voices) 입니다. 아래 예제 SSML를 참조 하세요.
+표준 또는 신경망 텍스트 음성 변환 컨테이너를 사용 하 여 다운로드 한 이미지 태그의 로캘과 음성을 사용 해야 합니다. 예를 들어 태그를 다운로드 한 경우 `latest` 기본 로캘은 `en-US` 및 `AriaNeural` 음성입니다. `{VOICE_NAME}`인수는 [`en-US-AriaNeural`](../language-support.md#neural-voices) 입니다. 아래 예제 SSML를 참조 하세요.
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

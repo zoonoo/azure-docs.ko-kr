@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5c096b26f31bdf92bb5ab91c8dad7876f228ff14
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932339"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462799"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 이 문서에서는 리프 IoT 디바이스로부터 메시지를 받고, 기계 학습 모델을 통해 데이터를 실행한 다음, 인사이트를 IoT Hub에 전달하는 세 개의 IoT Edge 모듈을 만듭니다.
 

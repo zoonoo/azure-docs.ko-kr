@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Service 개요
 description: Azure Blockchain Service 개요
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963881"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573628"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -19,7 +19,7 @@ Azure Blockchain Service는 사용자가 Azure에서 대규모로 블록체인 �
 * 기본 제공 컨소시엄 관리
 * 친숙한 개발 도구를 사용하여 스마트 계약 개발
 
-Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT(Istanbul Byzantine Fault Tolerance)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.goquorum.com/) 원장을 지원합니다.
+Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT(Istanbul Byzantine Fault Tolerance)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.goquorum.com/) 원장을 지원합니다.
 
 이러한 기능에는 인증이 필요하지 않고 추가 비용 없이 제공됩니다. 가상 머신과 인프라를 관리하는 데 시간과 리소스를 할당하는 대신, 앱 개발 및 비즈니스 논리에 집중할 수 있습니다. 또한 새로운 기술을 습득하지 않고도 원하는 오픈 소스 도구와 플랫폼을 사용하여 솔루션을 전달할 수 있는 애플리케이션을 계속 개발할 수 있습니다.
 

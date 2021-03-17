@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: fa10ddad8d2fbbc414f0ccaf16b9b99fae0b0786
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c9624e9a23d005185429c82199324ac570cbd63e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505038"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607733"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK 개요
 
@@ -107,7 +107,7 @@ Azure IoT 디바이스 SDK는 여러 언어로 구현되므로 선호하는 언�
 * [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-node)
 * [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 * [패키지](https://www.npmjs.com/package/azure-iot-device)
-* [참조 설명서](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [참조 설명서](/javascript/api/azure-iot-device/)
 * [Edge 모듈 참조 설명서](/javascript/api/azure-iot-device/moduleclient)
 
 #### <a name="python-device-sdk"></a>Python 디바이스 SDK
@@ -131,7 +131,7 @@ IoT Hub 서비스 SDK를 사용하면 IoT Hub와 쉽게 상호 작용하여 디�
 
 **Java IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [패키지](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.service)
 
-**JavaScript IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [패키지](https://www.npmjs.com/package/azure-iothub) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [참조 설명서](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+**JavaScript IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [패키지](https://www.npmjs.com/package/azure-iothub) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [참조 설명서](/javascript/api/azure-iothub/)
 
 **Python IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [패키지](https://pypi.python.org/pypi/azure-iot-hub/) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [참조 설명서](/python/api/azure-iot-hub)
 
