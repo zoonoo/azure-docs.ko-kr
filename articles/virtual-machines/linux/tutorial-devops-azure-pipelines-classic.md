@@ -5,19 +5,20 @@ author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dd47250989be5c31d5f0ade2b602b9d6af535d83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978308"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564002"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux 가상 머신에 대한 롤링 배포 전략 구성
 
@@ -33,7 +34,7 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
 
 ### <a name="configure-cicd-on-virtual-machines"></a>가상 머신에서 CI/CD 구성
 
-가상 머신을 [배포 그룹](/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가할 수 있습니다. 그런 다음, 다중 머신 업데이트의 대상으로 지정할 수 있습니다. 머신에 배포한 후, 배포 그룹 내에서 **배포 기록**을 확인합니다. 이 보기를 사용하면 VM에서 파이프라인을 지나 커밋까지 추적할 수 있습니다.
+가상 머신을 [배포 그룹](/azure/devops/pipelines/release/deployment-groups)에 대상으로 추가할 수 있습니다. 그런 다음, 다중 머신 업데이트의 대상으로 지정할 수 있습니다. 머신에 배포한 후, 배포 그룹 내에서 **배포 기록** 을 확인합니다. 이 보기를 사용하면 VM에서 파이프라인을 지나 커밋까지 추적할 수 있습니다.
 
 ### <a name="rolling-deployments"></a>롤링 배포
 
@@ -42,31 +43,31 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
 지속적인 업데이트 옵션을 사용하여 Azure Portal 내에서 가상 머신에 대한 롤링 업데이트를 구성할 수 있습니다. 단계별 연습은 다음과 같습니다.
 
 1. Azure Portal에 로그인하고, 가상 머신으로 이동합니다.
-1. VM 설정의 맨 왼쪽 창에서 **지속적인 업데이트**를 선택합니다. 그런 다음, **구성**을 선택합니다.
+1. VM 설정의 맨 왼쪽 창에서 **지속적인 업데이트** 를 선택합니다. 그런 다음, **구성** 을 선택합니다.
 
    ![[구성] 단추가 있는 [지속적인 업데이트] 창](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-1. 구성 패널에서 **Azure DevOps 조직**을 선택하여 기존 계정을 선택하거나 새 계정을 만듭니다. 그런 다음, 파이프라인을 구성하려는 프로젝트를 선택합니다.  
+1. 구성 패널에서 **Azure DevOps 조직** 을 선택하여 기존 계정을 선택하거나 새 계정을 만듭니다. 그런 다음, 파이프라인을 구성하려는 프로젝트를 선택합니다.  
 
    ![[지속적인 업데이트] 패널](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
 1. 배포 그룹은 물리적 환경을 나타내는 배포 대상 머신의 논리적 세트입니다. 예를 들어 Dev, Test, UAT 및 Production입니다. 새 배포 그룹을 만들거나 기존 배포 그룹을 선택할 수 있습니다.
 1. 가상 머신에 배포할 패키지를 게시하는 빌드 파이프라인을 선택합니다. 게시된 패키지에는 패키지 루트 폴더의 deployscripts 폴더에 deploy.ps1 또는 deploy.sh라는 배포 스크립트가 있어야 합니다. 파이프라인은 이 배포 스크립트를 실행합니다.
-1. **배포 전략**에서 **롤링**을 선택합니다.
+1. **배포 전략** 에서 **롤링** 을 선택합니다.
 1. 필요에 따라 각 머신에 역할을 태그로 지정할 수 있습니다. 예를 들어 "웹"이나 "db"를 태그로 지정할 수 있습니다. 이러한 태그는 특정 역할이 있는 VM만을 대상으로 지정할 수 있습니다.
-1. **확인**을 선택하여 지속적인 업데이트 파이프라인을 구성합니다.
+1. **확인** 을 선택하여 지속적인 업데이트 파이프라인을 구성합니다.
 1. 구성을 마치면 가상 머신에 배포하도록 지속적인 업데이트 파이프라인이 구성됩니다.  
 
    ![배포 기록을 보여주는 [지속적인 업데이트] 패널](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
 
-1. 가상 머신에 대한 배포 세부 정보가 표시됩니다. **Release-1** 파이프라인으로 이동하는 이 링크를 선택하여 배포를 살펴볼 수도 있고, **편집**을 선택하여 릴리스 파이프라인 정의를 수정할 수도 있습니다.
+1. 가상 머신에 대한 배포 세부 정보가 표시됩니다. **Release-1** 파이프라인으로 이동하는 이 링크를 선택하여 배포를 살펴볼 수도 있고, **편집** 을 선택하여 릴리스 파이프라인 정의를 수정할 수도 있습니다.
 
 1. 여러 VM을 구성하는 경우 다른 VM에 대해 2~4단계를 반복하여 배포 그룹에 추가합니다. 이미 파이프라인이 실행되는 배포 그룹을 선택하면 VM이 배포 그룹에 바로 추가됩니다. 새 파이프라인이 생성되지 않습니다.
-1. 구성이 완료되면 파이프라인 정의를 선택하고 Azure DevOps 조직으로 이동한 다음, 릴리스 파이프라인에 대한 **편집**을 클릭합니다.
+1. 구성이 완료되면 파이프라인 정의를 선택하고 Azure DevOps 조직으로 이동한 다음, 릴리스 파이프라인에 대한 **편집** 을 클릭합니다.
 
    ![롤링 파이프라인 편집](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
 
-1. **개발** 스테이지에서 **1작업, 1태스크**를 선택합니다. **배포** 단계를 선택합니다.
+1. **개발** 스테이지에서 **1작업, 1태스크** 를 선택합니다. **배포** 단계를 선택합니다.
 
    ![배포 태스크가 선택된 롤링 파이프라인 태스크](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
 

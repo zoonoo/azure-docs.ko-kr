@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212725"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601375"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -466,11 +466,13 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 
 ### <a name="service-broker"></a>Service Broker
 
-인스턴스 간 서비스 broker는 지원되지 않습니다.
+인스턴스 간 service broker 메시지 교환은 Azure SQL 관리 되는 인스턴스 간에만 지원 됩니다.
 
-- `sys.routes`: 필수 구성 요소로 sys.routes에서 주소를 선택해야 합니다. 주소는 모든 경로에서 LOCAL이어야 합니다. [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)를 참조하세요.
-- `CREATE ROUTE`: `LOCAL` 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다. [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql)를 참조하세요.
-- `ALTER ROUTE`: `LOCAL` 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 사용할 수 없습니다. [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql)를 참조하세요. 
+- `CREATE ROUTE`: `CREATE ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
+- `ALTER ROUTE`: `ALTER ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
+
+전송 보안이 지원 됩니다. 대화 보안은 다음과 같습니다.
+- `CREATE REMOTE SERVICE BINDING`은 지원되지 않습니다.
 
 Service broker는 기본적으로 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다. 다음 ALTER DATABSE 옵션은 지원 되지 않습니다.
 - `ENABLE_BROKER`

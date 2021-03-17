@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728198"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601545"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -63,10 +63,6 @@ ms.locfileid: "101728198"
 
    > [!TIP]
    > 가능하지만 압축된 형식에 압축을 적용하는 것은 좋지 않습니다. 예를 들면 ZIP, MP3, MP4 또는 JPG 등이 있습니다.
-   > 
-
-   > [!NOTE]
-   > MIME 형식의 기본 목록을 수정하는 것은 현재 Microsoft의 Azure CDN 표준에서 지원되지 않습니다.
    > 
 
 5. 변경 후 **저장** 을 선택합니다.
@@ -151,7 +147,7 @@ ms.locfileid: "101728198"
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. <br/>**Microsoft에서 Azure CDN** 형식 간의 트랜스 코딩을 지원 하지 않으며 대신 원본에서 데이터를 인출 하 고 압축 및 캐시 하 여 형식에 대해 개별적으로 데이터를 인출 합니다. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
@@ -167,6 +163,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

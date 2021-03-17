@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 30be0343b7c3282e3ce4da165225ab8209d07f4a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452410"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601069"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>IT 서비스 관리 솔루션을 사용 하 여 Azure를 ITSM 도구에 연결
 
@@ -90,7 +90,7 @@ ITSM 연결을 만든 후 ITSM를 사용 하 여 Azure 경고를 기반으로 IT
 
 ## <a name="define-a-template"></a>템플릿 정의
 
-특정 작업 항목 형식에서는 ITSM 도구에서 정의한 템플릿을 사용할 수 있습니다. 템플릿을 사용 하면 작업 그룹의 고정 값에 따라 자동으로 채워지는 필드를 정의할 수 있습니다. 작업 그룹 정의의 일부로 사용 하려는 템플릿을 정의할 수 있습니다.
+특정 작업 항목 형식에서는 ITSM 도구에서 정의한 템플릿을 사용할 수 있습니다. 템플릿을 사용 하면 작업 그룹의 고정 값에 따라 자동으로 채워지는 필드를 정의할 수 있습니다. 작업 그룹 정의의 일부로 사용 하려는 템플릿을 정의할 수 있습니다. 템플릿을 만드는 방법에 대 한 ServiceNow 문서 정보를 찾을 수 있습니다. (여기) [ https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
 작업 그룹을 만들려면 다음을 수행 합니다.
 

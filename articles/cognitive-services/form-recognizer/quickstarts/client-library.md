@@ -3,22 +3,22 @@ title: '빠른 시작: Form Recognizer 클라이언트 라이브러리 또는 RE
 titleSuffix: Azure Cognitive Services
 description: Form Recognizer 클라이언트 라이브러리 또는 REST API를 사용하여 사용자 지정 문서에서 키/값 쌍 및 테이블 데이터를 추출하는 양식 처리 앱을 만듭니다.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 양식 처리, 자동화된 데이터 처리
-ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 43182892aa80f6226ffb5177d0be2e24d15ead5c
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584611"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467229"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>빠른 시작: Form Recognizer 클라이언트 라이브러리 또는 REST API 사용
 

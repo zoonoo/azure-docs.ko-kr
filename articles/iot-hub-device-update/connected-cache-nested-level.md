@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658864"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615383"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Microsoft 연결된 캐시 미리 보기 배포 시나리오 샘플: 인증되지 않은 아웃바운드 프록시를 사용하는 2수준 중첩 Azure IoT Edge 게이트웨이
 
@@ -70,7 +70,7 @@ Azure IoT Edge 게이트웨이의 계층화된 배포를 구성하는 방법에 
 ## <a name="child-gateway-configuration"></a>자식 게이트웨이 구성
 
 >[!Note]
->사용자 고유의 프라이빗 레지스트리의 구성에 사용된 컨테이너를 복제한 경우 모듈 배포에서 config.toml 설정 및 런타임 설정을 수정해야 합니다. 자세한 내용은 [자습서 -IoT Edge 디바이스 계층 구조 만들기 - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true)를 참조하세요.
+>사용자 고유의 프라이빗 레지스트리의 구성에 사용된 컨테이너를 복제한 경우 모듈 배포에서 config.toml 설정 및 런타임 설정을 수정해야 합니다. 자세한 내용은 [자습서 -IoT Edge 디바이스 계층 구조 만들기 - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device)를 참조하세요.
 
 1. 아래 예제에 표시된 대로 Edge 에이전트의 이미지 경로를 수정합니다.
 

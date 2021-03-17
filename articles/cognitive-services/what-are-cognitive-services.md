@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 85bcdb319431f1079cdbc8b94f0313f1dd6b67d6
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736639"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602004"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -43,7 +43,6 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 |[Custom Vision Service](./custom-vision-service/overview.md "사용자 지정 시각 서비스")|Custom Vision Service를 사용하면 사용자 지정 이미지 분류자를 빌드할 수 있습니다.|
 |[Face](./face/index.yml "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다.|
 |[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer는 양식 문서에서 키-값 쌍 및 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계를 포함한 정형 데이터를 출력합니다.|
-|[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Ink Recognizer")(사용 중지)|Ink Recognizer를 사용하면 디지털 잉크 스트로크 데이터, 모양 및 필기 내용을 인식하여 분석하고, 모든 인식된 엔터티를 사용하여 문서 구조를 출력할 수 있습니다.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다.|
 
 ## <a name="speech-apis"></a>Speech API
