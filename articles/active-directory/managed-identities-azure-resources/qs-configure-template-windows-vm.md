@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 960e1fc19567b03024000e84217b3846f89f94f3
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4948e17d1e0e782a8fa18c3eb5a2185e816a459a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588559"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631407"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -69,7 +69,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
 3. 완료되면 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 하며 이는 다음과 유사해야 합니다.
 
    ```JSON
-   "resources": [
+    "resources": [
         {
             //other resource provider properties...
             "apiVersion": "2018-06-01",
@@ -78,27 +78,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
             "location": "[resourceGroup().location]",
             "identity": {
                 "type": "SystemAssigned",
-                },
-            },
-
-            //The following appears only if you provisioned the optional VM extension (to be deprecated)
-            {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2018-06-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
+                }                        
         }
     ]
    ```
@@ -235,7 +215,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**    
 
    ```JSON
-   "resources": [
+     "resources": [
         {
             //other resource provider properties...
             "apiVersion": "2018-06-01",
@@ -248,27 +228,8 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
                 }
             }
-        },
-        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2018-06-01-preview",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
         }
-    ]   
+    ] 
    ```
    **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
 
@@ -286,28 +247,8 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
                 ]
             }
-        },
-
-        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
-       }
-    ]
+        }
+   ]
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 관리 ID 제거

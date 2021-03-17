@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: fd332ffbbca4987b52ce380c6fd893571e65fb1c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435463"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490112"
 ---
 # <a name="introduction-to-azure-percept"></a>Azure Percept 소개
 
@@ -35,6 +35,9 @@ Azure Percept의 주요 구성 요소는 다음과 같습니다.
 2. Azure Percept DK(Devkit).
 
     - 디바이스 빌더, 솔루션 빌더 및 고객을 위해 다양한 프로토타입 시나리오를 지원하기에 충분한 유연성을 제공하는 개발 키트입니다.
+
+        > [!div class="nextstepaction"]
+        > [지금 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 3. Edge AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
 

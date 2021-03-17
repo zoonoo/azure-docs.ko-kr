@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5ac6a19fc569d60f75f9da788629331a70b0a4c9
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103858"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225050"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>빠른 시작: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -102,8 +102,8 @@ ms.locfileid: "100103858"
 >|Enter_the_Redirect_Uri_Here|**http://localhost:4200** 으로 바꿉니다.|
 >|cacheLocation  | (선택 사항) 인증 상태에 대한 브라우저 스토리지를 설정합니다. 기본값은 **sessionStorage** 입니다.   |
 >|storeAuthStateInCookie  | (선택 사항) 인증 요청 상태를 저장하는 라이브러리를 식별합니다. 이 상태는 브라우저 쿠키에서 인증 흐름의 유효성을 검사하는 데 필요합니다. 이 쿠키는 두 브라우저를 수용하기 위해 Internet Explorer와 Edge용으로 설정되어 있습니다. 자세한 내용은 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues)를 참조하세요. |
-> > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+>
+> **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
 사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요.
 

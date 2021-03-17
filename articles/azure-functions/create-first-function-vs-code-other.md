@@ -3,12 +3,12 @@ title: Visual Studio Code를 사용하여 Go 또는 Rust에서 함수 만들기 
 description: Go 함수를 Azure Functions 사용자 지정 처리기로 만든 다음, Visual Studio Code에서 Azure Functions 확장을 사용하여 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 1142ff76425e2e4bff0d3881be1378d9da07806e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b53031315cce3651a2de581d71da6ef6fe909c1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704738"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470373"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Go 또는 Rust 함수 만들기
 
@@ -141,8 +141,8 @@ ms.locfileid: "101704738"
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. *src/main.rs* 에서 다음 코드를 추가하고 파일을 저장합니다. 이는 Rust 사용자 지정 처리기입니다.

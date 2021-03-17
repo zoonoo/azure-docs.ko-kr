@@ -3,19 +3,19 @@ title: 프라이빗 엔드포인트 사용
 titleSuffix: Azure Storage
 description: 가상 네트워크에서 저장소 계정에 안전 하 게 액세스 하기 위한 개인 끝점의 개요입니다.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: santoshc
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493801"
+ms.locfileid: "103601477"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
@@ -91,7 +91,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 이름                                                  | 유형  | 값                                                 |
+| Name                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -101,7 +101,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 이름                                                  | 유형  | 값                                                 |
+| Name                                                  | 유형  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |

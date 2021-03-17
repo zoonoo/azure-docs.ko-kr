@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 02/05/2021
-ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750600"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622167"
 ---
 IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 문제를 해결할 수 있습니다. 가능한 응답 목록은 다음과 같습니다.
 
@@ -22,7 +22,7 @@ IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 �
 
 자세한 내용은 [IoT Edge 에이전트](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent)를 참조 하세요.
 
-다음 오류는 Azure Stack Edge Pro의 IoT Edge 서비스와 관련 되어 있습니다.<!--/ Data Box Gateway--> 답을 찾으세요.
+다음 오류는 Azure Stack Edge Pro 장치의 IoT Edge 서비스와 관련 되어 있습니다.
 
 ### <a name="compute-modules-have-unknown-status-and-cant-be-used"></a>계산 모듈은 알 수 없는 상태 이므로 사용할 수 없습니다.
 
@@ -33,3 +33,36 @@ IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 �
 #### <a name="suggested-solution"></a>추천 솔루션
 
 IoT Edge 서비스를 삭제 한 다음 모듈을 다시 배포 합니다. 자세한 내용은 [IoT Edge 서비스 제거](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service)를 참조 하세요.
+
+
+### <a name="modules-show-as-running-but-are-not-working"></a>모듈이 실행 중으로 표시 되지만 작동 하지 않습니다.
+
+#### <a name="error-description"></a>오류 설명
+
+모듈의 런타임 상태가 실행 중으로 표시 되지만 예상 된 결과가 표시 되지 않습니다. 
+
+이 문제는 작동 하지 않거나 `edgehub` 예상 대로 메시지를 라우팅 하지 않는 모듈 경로 구성 문제로 인해 발생할 수 있습니다. 로그를 확인할 수 있습니다 `edgehub` . IoT Hub 서비스에 대 한 연결 실패와 같은 오류가 발생 하는 경우 가장 일반적인 이유는 연결 문제입니다. 연결 문제는 IoT Hub 서비스가 통신에 사용 하는 기본 포트로 사용 되는 AMPQ 포트가 차단 되었거나 웹 프록시 서버에서 이러한 메시지를 차단 하기 때문에 발생할 수 있습니다.
+
+#### <a name="suggested-solution"></a>추천 솔루션
+
+다음 단계를 수행합니다.
+1. 이 오류를 해결 하려면 장치에 대 한 IoT Hub 리소스로 이동한 후 Edge 장치를 선택 합니다. 
+1. **모듈 설정 > 런타임 설정** 으로 이동 합니다. 
+1. `Upstream protocol`환경 변수를 추가 하 고 값을 할당 `AMQPWS` 합니다. 이 경우 구성 된 메시지는 포트 443을 통해 Websocket을 통해 전송 됩니다.
+
+### <a name="modules-show-as-running-but-do-not-have-an-ip-assigned"></a>모듈이 실행 중으로 표시 되지만 IP가 할당 되어 있지 않습니다.
+
+#### <a name="error-description"></a>오류 설명
+
+모듈의 런타임 상태가 실행 중으로 표시 되지만 컨테이너 화 된 앱에 할당 된 IP가 없습니다. 
+
+이 상태는 Kubernetes 외부 서비스 Ip에 대해 제공한 Ip 범위가 충분 하지 않기 때문입니다. 배포한 각 컨테이너 또는 VM이 포함 되도록이 범위를 확장 해야 합니다.
+
+#### <a name="suggested-solution"></a>추천 솔루션
+
+장치의 로컬 웹 UI에서 다음 단계를 수행 합니다.
+1. **Compute** 페이지로 이동 합니다. 계산 네트워크를 사용 하도록 설정한 포트를 선택 합니다. 
+1. **Kubernetes 외부 서비스 ip** 에 대 한 고정 ip 범위를 입력 합니다. 서비스에는 1 개의 IP가 필요 `edgehub` 합니다. 또한 각 IoT Edge 모듈 및 배포할 각 VM에 대해 하나의 IP가 필요 합니다. 
+1. **적용** 을 선택합니다. 변경 된 IP 범위는 즉시 적용 됩니다.
+
+자세한 내용은 [컨테이너의 외부 서비스 Ip 변경](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers)을 참조 하세요.

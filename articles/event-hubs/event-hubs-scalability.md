@@ -2,13 +2,13 @@
 title: 확장성-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 파티션 및 처리량 단위를 사용 하 여 Azure Event Hubs 크기를 조정 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/16/2021
+ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521958"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601284"
 ---
 # <a name="scaling-with-event-hubs"></a>Event Hubs로 크기 조정
 
@@ -18,7 +18,7 @@ Event Hubs를 사용 하 여 크기 조정에 영향을 주는 두 가지 요인
 
 ## <a name="throughput-units"></a>처리량 단위
 
-Event Hubs의 처리량 용량은 *처리량 단위*로 제어됩니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 단일 처리량을 사용 하면 다음을 수행할 수 있습니다.
+Event Hubs의 처리량 용량은 *처리량 단위* 로 제어됩니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 단일 처리량을 사용 하면 다음을 수행할 수 있습니다.
 
 * 수신: 초당 최대 1MB 또는 초당 1,000회 이벤트(둘 중 빠른 쪽 적용).
 * 송신: 초당 최대 2MB 또는 4096개의 이벤트.
@@ -39,11 +39,7 @@ ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 �
 ## <a name="partitions"></a>파티션
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### <a name="partition-key"></a>파티션 키
 
-[파티션 키](event-hubs-programming-guide.md#partition-key) 를 사용 하 여 들어오는 이벤트 데이터를 데이터 조직의 용도에 맞게 특정 파티션에 매핑할 수 있습니다. 파티션 키는 Event Hub로 전달된 발신자가 제공하는 값입니다. 이 키는 파티션 할당을 만드는 정적 해싱 기능을 통해 처리됩니다. 이벤트를 게시할 때 파티션 키를 지정하지 않으면 라운드 로빈 할당이 사용됩니다.
-
-이벤트 게시자는 이벤트를 게시하는 파티션이 아니라 파티션 키만 인식합니다. 이렇게 키와 파티션을 분리하면 발신자가 다운스트림 처리에 대해 너무 많이 알 필요가 없습니다. 디바이스 단위 또는 사용자 공유 ID는 좋은 파티션 키가 되지만 지리와 같은 다른 특성은 단일 파티션으로 관련 이벤트를 그룹화하는 데도 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 UI 프레임워크와 호환되는 사용자 지정 구성 요소를 빌드하는 방법을 알아봅니다.
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 88de5ca56738e13446be30fb14df6bcdac360827
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 093fcfd95d291d959ed49cc39a227a99f14a0383
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539720"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488247"
 ---
 # <a name="quickstart-create-your-own-ui-framework-component"></a>빠른 시작: 사용자 고유의 UI 프레임워크 구성 요소 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "99539720"
 - 활성 Communication Services 리소스 [Communication Services 리소스를 만듭니다](./../create-communication-resource.md).
 - 호출 클라이언트를 인스턴스화하기 위한 사용자 액세스 토큰입니다. [사용자 액세스 토큰 만들기 및 관리](./../access-tokens.md) 방법에 대해 알아봅니다.
 
-UI 프레임워크를 사용하려면 React 환경을 설정해야 합니다. 여기서는 이 작업을 수행합니다. 이미 React 앱이 있으면 이 섹션을 건너뛸 수 있습니다.
+UI 프레임워크를 사용하려면 React 환경을 설정해야 합니다. 여기서는 이 작업을 수행합니다. React 앱이 이미 있으면 이 섹션을 건너뛰어도 됩니다.
 
 ### <a name="set-up-react-app"></a>React 앱 설정
 
@@ -59,9 +59,9 @@ npm install --save ./{path for tarball}
 
 `--save` 옵션은 라이브러리를 **package.json** 파일의 종속성으로 나열합니다.
 
-### <a name="run-create-react-app"></a>React 앱 만들기 실행
+### <a name="run-create-react-app"></a>Create React App 실행
 
-다음을 실행하여 React 앱 만들기 설치를 테스트해 보겠습니다.
+다음을 실행하여 Create React App 설치를 테스트해 보겠습니다.
 
 ```console
 
