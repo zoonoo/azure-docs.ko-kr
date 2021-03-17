@@ -8,21 +8,22 @@ ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
+ms.subservice: migration-guide
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 09bcc85c0640bf0061ec0c872161cbc9afe51da6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2be824c89ac1e6b900dc9b67e046e2be2c7f8919
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742129"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562827"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS를 사용하여 Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션(미리 보기)
 
 > [!IMPORTANT]
-> "Oracle을 Azure Database for PostgreSQL로" 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle을 Azure Database for PostgreSQL로 마이그레이션 가이드](https://aka.ms/OracletoPGguide) )를 참조하세요. 
+> **Oracle을 Azure Database for PostgreSQL로** 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle을 Azure Database for PostgreSQL로 마이그레이션 가이드](https://aka.ms/OracletoPGguide)를 참조하세요. 
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 또는 가상 머신에서 호스팅되는 Oracle 데이터베이스에서 [Azure Database for PostgreSQL](../postgresql/index.yml)로 데이터베이스를 마이그레이션할 수 있습니다. 즉 애플리케이션에 대한 가동 중지 시간을 최소화하면서 마이그레이션을 완료할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **HR** 샘플 데이터베이스를 Oracle 11g의 온-프레미스 또는 가상 머신 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 

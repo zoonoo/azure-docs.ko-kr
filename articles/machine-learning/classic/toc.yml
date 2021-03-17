@@ -140,6 +140,20 @@
         - name: 갤러리 데이터
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+    - name: Azure Machine Learning으로 마이그레이션
+      items:
+        - name: 마이그레이션 개요
+          href: migrate-overview.md
+        - name: 데이터 세트 마이그레이션
+          href: migrate-register-dataset.md
+        - name: 실험 다시 빌드
+          href: migrate-rebuild-experiment.md
+        - name: 웹 서비스 다시 빌드
+          href: migrate-rebuild-web-service.md
+        - name: 클라이언트 응용 프로그램 업데이트
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: R 스크립트 실행 모듈 다시 빌드
+          href: migrate-execute-r-script.md
 - name: 참조
   items:
     - name: 알고리즘 및 모듈 참조
