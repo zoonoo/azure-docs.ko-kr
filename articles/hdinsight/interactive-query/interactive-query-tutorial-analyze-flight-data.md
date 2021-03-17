@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1aab6b4fe4ffafb3cbba60b2b3774d2577d3d53c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822371"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562470"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
@@ -35,7 +35,7 @@ ms.locfileid: "99822371"
 
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
-1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)로 이동합니다.
+1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ)로 이동합니다.
 
 2. 페이지에서 모든 필드의 선택을 취소하고 다음 값을 선택합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "99822371"
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
-   | 필드 |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`입니다. |
+   | 필드 |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. **다운로드** 를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
 

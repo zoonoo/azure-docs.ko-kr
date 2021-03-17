@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124417"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465762"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -128,7 +128,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
     *deployment.openvino.grpc.cpu.amd64.json* 매니페스트 파일은 *src/edge/config* 폴더에 생성됩니다.
 
 > [!NOTE]
-Intel OpenVINO DL Streamer - Edge AI Extension 모듈에서 GPU를 지원하게 만들어 주는 *deployment.openvino.grpc.gpu.template.json* 템플릿도 포함되어 있습니다. 이 템플릿은 Intel의 Docker 허브 이미지를 가리킵니다.
+> Intel OpenVINO DL Streamer - Edge AI Extension 모듈에서 GPU를 지원하게 만들어 주는 *deployment.openvino.grpc.gpu.template.json* 템플릿도 포함되어 있습니다. 이 템플릿은 Intel의 Docker 허브 이미지를 가리킵니다.
 
 위에서 언급한 템플릿은 Intel Docker 허브 이미지를 가리킵니다. 사용자 고유의 Azure Container Registry에 복사본을 호스트하려면 아래의 1단계와 2단계를 수행하면 됩니다.
 1. docker CLI 도구가 설치된 디바이스(즉, 에지 디바이스)에 SSH를 수행하고 다음 단계에 따라 컨테이너를 끌어옵니다/태그를 지정합니다/푸시합니다.

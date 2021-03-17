@@ -2,19 +2,19 @@
 title: 자습서 - Azure PowerShell을 사용하여 사용자 지정 VM 이미지 만들기
 description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure Shared Image Gallery에서 저장된 Windows 사용자 지정 가상 머신 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e3521603c4651133f1420809e4921ad27279860
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 145b7300272243099cfccad0c99d8f69e83e6762
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99822124"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555825"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 이미지 만들기
 

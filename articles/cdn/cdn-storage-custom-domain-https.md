@@ -1,40 +1,34 @@
 ---
-title: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
+title: '자습서: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스'
 description: Azure CDN 사용자 지정 도메인을 추가하고 사용자 지정 Blob 스토리지 엔드포인트에 대해 해당 도메인에서 HTTPS를 사용하도록 설정하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 296a51edf024551a03330f4843690e97c6abd47d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777846"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564886"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>자습서: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
 
 Azure 스토리지 계정을 Azure CDN(Content Delivery Network)과 통합한 후, 사용자 지정 도메인을 추가하고 사용자 지정 Blob Storage 엔드포인트에 대한 해당 도메인에서 HTTPS를 사용하도록 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서의 단계를 완료하려면 먼저 Azure Storage 계정을 Azure CDN과 통합해야 합니다. 자세한 내용은 [빠른 시작: Azure CDN과 Azure Storage 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
 ## <a name="add-a-custom-domain"></a>사용자 지정 도메인 추가
-프로필에서 CDN 엔드포인트를 만들 때 azureedge.net의 하위 도메인인 엔드포인트 이름은 기본적으로 CDN 콘텐츠를 전송하는 URL에 포함됩니다. 사용자 지정 도메인을 CDN 엔드포인트에 연결하는 옵션도 제공됩니다. 이 옵션을 사용하면 엔드포인트 이름 대신 URL로 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다. 엔드포인트에 사용자 지정 도메인을 추가하려면 이 자습서의 지침을 따릅니다. [Azure CDN 엔드포인트에 사용자 지정 도메인을 추가합니다](cdn-map-content-to-custom-domain.md).
+프로필에서 CDN 엔드포인트를 만들 때 azureedge.net의 하위 도메인인 엔드포인트 이름은 기본적으로 CDN 콘텐츠를 전송하는 URL에 포함됩니다. 사용자 지정 도메인을 CDN 엔드포인트에 연결하는 옵션도 제공됩니다. 이 옵션을 사용하면 엔드포인트 이름 대신 URL로 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다. 엔드포인트에 사용자 지정 도메인을 추가하려면 [Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)의 지침을 따릅니다.
 
 ## <a name="configure-https"></a>HTTPS 구성
-사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면 데이터가 TLS/SSL 암호화를 통해 인터넷에서 안전하게 전송됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 사용자 지정 도메인에서 HTTPS를 구성하려면 이 자습서의 지침을 따릅니다. [Azure CDN 사용자 지정 도메인에서 HTTPS를 구성합니다](cdn-custom-ssl.md).
+사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면 데이터가 TLS/SSL 암호화를 통해 인터넷에서 안전하게 전송됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 사용자 지정 도메인에서 HTTPS를 구성하려면 [Azure CDN 사용자 지정 도메인에서 HTTPS 구성](cdn-custom-ssl.md) 자습서의 지침을 따릅니다.
 
 ## <a name="shared-access-signatures"></a>공유 액세스 서명
 익명 읽기 액세스를 허용하지 않도록 Blob Storage 엔드포인트를 구성한 경우 [SAS(공유 액세스 서명)](cdn-sas-storage-support.md) 토큰을 사용자 지정 도메인에 사용자가 만든 각 요청에 제공해야 합니다. 기본적으로 Blob Storage 엔드포인트는 익명 읽기 액세스를 허용하지 않습니다. SAS에 대한 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/anonymous-read-access-configure.md)를 참조하세요.

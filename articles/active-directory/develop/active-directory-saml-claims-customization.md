@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102702"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600952"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -71,7 +71,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN(사용자 계정 이름)입니다. |
-| onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
+| onpremisessamaccountname | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
 | objectid | Azure AD의 사용자 Objectid입니다. |
 | employeeid | 사용자의 직원 ID입니다. |
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |

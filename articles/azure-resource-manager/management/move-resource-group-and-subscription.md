@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1218df618f7f5fa0787505cb4fcee67dd264ea76
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093629"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601392"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
@@ -34,6 +34,7 @@ ms.locfileid: "101093629"
    * [네트워킹 이동 지침](./move-limitations/networking-move-limitations.md)
    * [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
+   * Azure 구독을 새 관리 그룹으로 이동 하려면 [구독 이동](../../governance/management-groups/manage.md#move-subscriptions)을 참조 하세요.
 
 1. Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 리소스를 이동 하기 전에 역할 할당을 제거 하는 것이 가장 좋습니다.
 
@@ -204,7 +205,7 @@ Authorization: Bearer <access-token>
 
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="use-azure-powershell"></a>Azure Powershell 사용
+## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
 

@@ -3,12 +3,12 @@ title: Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션
 description: Azure VMware 솔루션에서 실행 되는 웹 앱을 안전 하 게 노출 하도록 Azure 애플리케이션 게이트웨이를 구성 합니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f92027ee46fdaae275939acaea10e144b6bde101
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733587"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601919"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "101733587"
 
 Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 [Azure DDoS Protection 표준을](../ddos-protection/ddos-protection-overview.md) 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 게이트웨이 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과 통신할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정.
 - Azure VMware 솔루션 사설 클라우드를 배포 하 고 실행 합니다.

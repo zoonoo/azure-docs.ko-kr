@@ -8,12 +8,12 @@ ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573033"
+ms.locfileid: "103601188"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -136,7 +136,6 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | Azure SQL: 가상 컴퓨터                      |      : large_blue_diamond:  |
 | Azure Search                                    |      : large_blue_diamond:  |
 | Azure 웹 애플리케이션 방화벽                  |      : large_blue_diamond:  |
-| Cognitive Services: Text Analytics              |      : large_blue_diamond:  |
 | Container Registry                              |      : large_blue_diamond:  |
 | Event Grid                                      |      : large_blue_diamond:  |
 | Network Watcher                                 |      : large_blue_diamond:  |

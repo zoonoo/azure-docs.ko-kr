@@ -2,19 +2,19 @@
 title: 자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 948a4ae8c329d69e404ef8d0f609748b955b0ecc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 202125dfa1cd2760695672fb948fb47bfc3ca0c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078852"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564648"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -33,9 +33,9 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 애플리케
 
 Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 머신에 연결됩니다.
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 조정할 수 있고 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터에 사용되지 **않아야 합니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 자습서의 뒷부분에서 자세히 설명합니다.
+**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 조정할 수 있고 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 */dev/sda* 로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터에 사용되지 **않아야 합니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 자습서의 뒷부분에서 자세히 설명합니다.
 
-**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
+**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb* 로 레이블이 지정되고 탑재 지점은 */mnt* 입니다.
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
@@ -45,9 +45,9 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 Azure는 두 가지 형식의 디스크를 제공합니다.
 
-**표준 디스크**는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
+**표준 디스크** 는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
 
-**프리미엄 디스크** - SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. [크기 이름](../vm-naming-conventions.md)에 **S**가 있는 VM 크기는 일반적으로 Premium Storage를 지원합니다. 예를 들어 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM은 Premium Storage를 지원합니다. 디스크 크기를 선택하면 값이 다음 형식으로 반올림됩니다. 예를 들어 디스크 크기가 64GB 이상 128GB 미만인 경우 디스크 유형은 P10입니다. 
+**프리미엄 디스크** - SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. [크기 이름](../vm-naming-conventions.md)에 **S** 가 있는 VM 크기는 일반적으로 Premium Storage를 지원합니다. 예를 들어 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM은 Premium Storage를 지원합니다. 디스크 크기를 선택하면 값이 다음 형식으로 반올림됩니다. 예를 들어 디스크 크기가 64GB 이상 128GB 미만인 경우 디스크 유형은 P10입니다. 
 
 <br>
 
@@ -62,7 +62,7 @@ Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, �
 
 Azure Cloud Shell은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택합니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 
@@ -76,7 +76,7 @@ VM을 만들 때 또는 기존 VM에 데이터 디스크를 만들고 연결할 
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az-vm-create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만들고, *azureuser*라는 사용자 계정을 추가하고, 아직 SSH 키가 없으면 새로 생성합니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
+[az vm create](/cli/azure/vm#az-vm-create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만들고, *azureuser* 라는 사용자 계정을 추가하고, 아직 SSH 키가 없으면 새로 생성합니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 머신에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
 
 ```azurecli-interactive
 az vm create \

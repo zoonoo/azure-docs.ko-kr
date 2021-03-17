@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: trbye
-ms.openlocfilehash: 4a6c7b36665c7a38534ce8e470bc8b327c274d95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 53138a22c58e89ade4af234630e9429a19738a6a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "99095186"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556471"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Azure Speech CLI 시작
 
@@ -86,7 +86,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 합성된 출력을 파일에 저장할 수도 있습니다. 이 예제에서는 명령이 실행되는 디렉터리에 `my-sample.wav`라는 파일을 만들겠습니다.
 
 ```console
-spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
+spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 이 예제에서는 영어로 테스트하는 것으로 가정합니다. 그러나 대부분의 언어에서 음성 합성이 지원됩니다. 이 명령을 사용하거나 [언어 지원 페이지](./language-support.md)를 방문하여 음성 전체 목록을 가져올 수 있습니다.

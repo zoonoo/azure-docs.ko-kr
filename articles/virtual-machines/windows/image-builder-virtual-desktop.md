@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: a2c4e3c1079d488b9255fb1b9660ff5c4b0aad8f
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103422162"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602021"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM 이미지 작성기 및 PowerShell을 사용 하 여 Windows 가상 데스크톱 이미지 만들기
 
@@ -39,7 +39,7 @@ Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 
 ## <a name="tips-for-building-windows-images"></a>Windows 이미지를 빌드하기 위한 팁 
 
 - VM 크기-기본 VM 크기는 `Standard_D1_v2` Windows에 적합 하지 않은입니다. 이상을 사용 `Standard_D2_v2` 합니다.
-- 이 예제에서는 [PowerShell 사용자 지정자 스크립트](../linux/image-builder-json.md)를 사용 합니다. 이러한 설정을 사용 해야 합니다. 그렇지 않으면 빌드가 중단 됩니다.
+- 이 예제에서는 [PowerShell 사용자 지정자 스크립트](../linux/image-builder-json.md)를 사용 합니다. 이러한 설정을 사용 해야 합니다. 그렇지 않으면 빌드가 응답 하지 않습니다.
 
     ```json
       "runElevated": true,
@@ -71,7 +71,7 @@ Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 
 
 - 네트워킹- `Set-NetAdapterAdvancedProperty` . 이는 최적화 스크립트에서 설정 되지만 네트워크 연결을 끊을 때 AIB 빌드에 실패 합니다 .이는 주석 처리 된 것입니다. 조사 중에 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 최신 Azure PowerShell Cmdlet이 설치 되어 있어야 합니다. 설치 세부 정보는 [여기](https://docs.microsoft.com/powershell/azure/overview) 를 참조 하세요.
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258102"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601715"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -32,7 +32,7 @@ SSO (Single sign-on)는 사용자가 Azure Active Directory (Azure AD)에서 응
 
 Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이상의 응용 프로그램이 있으므로 테 넌 트에 쉽게 통합할 수 있습니다.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 - **AZURE AD 라이선스** -미리 통합 된 SaaS 응용 프로그램에 대 한 SSO는 무료입니다. 그러나 디렉터리의 개체 수와 배포 하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대 한 전체 목록은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조 하세요.
 - **응용 프로그램 라이선스** -비즈니스 요구 사항에 맞게 SaaS 응용 프로그램에 대 한 적절 한 라이선스가 필요 합니다. 응용 프로그램 소유자와 협력 하 여 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 내에서 해당 역할에 대 한 적절 한 라이선스가 있는지 확인 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할은 응용 프로그램 내에서 소유 하는 라이선스 수와 일치 해야 합니다. 응용 프로그램에서 소유 하는 라이선스 수가 잘못 되어 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
@@ -60,7 +60,7 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 
 ### <a name="considerations-for-password-based-sso"></a>암호 기반 SSO에 대 한 고려 사항
 
-암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 옵션은 다음과 같습니다.
+암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 표시되는 옵션은 다음과 같습니다.
 
 - [Internet Explorer에 대 한 그룹 정책](my-apps-deployment-plan.md)
 - [Internet Explorer에 대 한 Configuration Manager](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
@@ -236,9 +236,9 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
 | 지원 센터 관리자 | 계층 1 지원 | 없음 |
-| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 전역 관리자 |
+| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
 | 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
-| 인프라 관리자 | 인증서 롤오버 소유자 | 전역 관리자 |
+| 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
 | 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](../privileged-identity-management/pim-configure.md) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.
@@ -291,17 +291,12 @@ SaaS 앱 보안의 다양 한 측면을 검토 하 고 필요한 수정 작업�
 
 - [Microsoft 응용 프로그램에 로그인 하는 문제](./application-sign-in-problem-first-party-microsoft.md)
 
-#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Azure 애플리케이션 갤러리에 나열 된 응용 프로그램에 대 한 SSO 문제
+#### <a name="sso-issues-for-applications"></a>응용 프로그램에 대 한 SSO 문제
 
-- [Azure 애플리케이션 갤러리에 나열 된 응용 프로그램에 대 한 암호 SSO와 관련 된 문제](./troubleshoot-password-based-sso.md) 
+- [응용 프로그램에 대 한 암호 SSO와 관련 된 문제](./troubleshoot-password-based-sso.md) 
 
-- [Azure 애플리케이션 갤러리에 나열 된 응용 프로그램의 페더레이션된 SSO에 대 한 문제](./application-sign-in-problem-federated-sso-gallery.md)   
+- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Azure 애플리케이션 갤러리에 나열 되지 않은 응용 프로그램에 대 한 SSO 문제
-
-- [Azure 애플리케이션 갤러리에 나열 되지 않은 응용 프로그램에 대 한 암호 SSO와 관련 된 문제](./troubleshoot-password-based-sso.md) 
-
-- [Azure 애플리케이션 갤러리에 나열 되지 않은 응용 프로그램의 페더레이션된 SSO에 문제가 있습니다.](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>다음 단계
 

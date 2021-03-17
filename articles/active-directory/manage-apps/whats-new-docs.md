@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452053"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601766"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
@@ -33,7 +33,6 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 - [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
 - [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
-- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
 - [테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>2021년 1월
@@ -84,7 +83,6 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 
 ### <a name="updated-articles"></a>업데이트된 문서
 - [Azure Active Directory 응용 프로그램 관리: 새로운 기능](whats-new-docs.md)
-- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>2020년 10월
@@ -99,7 +97,6 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
 - [애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생](application-proxy-connector-installation-problem.md)
 - [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
 - [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
@@ -110,7 +107,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 ### <a name="new-articles"></a>새 문서
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
 - [빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당](add-application-portal-assign-users.md)
-- [Docs의 새로운 기능](whats-new-docs.md)
+- [문서의 새로운 기능](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>업데이트된 문서

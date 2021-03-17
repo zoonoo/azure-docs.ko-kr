@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 606704621a4904dd0fb7b6f55e753dbe77e39cb5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175348"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601018"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -48,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | 설명    |
+| 매개 변수         | Description    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -78,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | 설명 |
+| 오류 | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -96,13 +96,13 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 문제를 해결할 수 있습니다. |
 | AADSTS500021 | ' {Tenant} ' 테 넌 트에 대 한 액세스가 거부 되었습니다. AADSTS500021는 테 넌 트 제한 기능이 구성 되었고 사용자가 헤더에 지정 된 허용 되는 테 넌 트 목록에 없는 테 넌 트에 액세스 하려고 함을 나타냅니다 `Restrict-Access-To-Tenant` . 자세한 내용은 [테 넌 트 제한 사용을 참조 하 여 SaaS 클라우드 응용 프로그램에 대 한 액세스 관리](../manage-apps/tenant-restrictions.md)를 참조 하세요.|
-| AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 에서 설명 하는 해결 방법을 확인 [하세요. /manage-apps/application-sign-in-problem-federated-sso-gallery.md # 인증서 또는 키가 구성 되어 있지 않습니다](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
+| AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 자세히 알아보려면 오류 [AADSTS50003](/troubleshoot/azure/active-directory/error-code-aadsts50003-cert-or-key-not-configured)에 대 한 문제 해결 문서를 참조 하세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
 | AADSTS50005 | DevicePolicyError-사용자가 현재 조건부 액세스 정책을 통해 지원 되지 않는 플랫폼에서 장치에 로그인 하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. Microsoft에서 [지원 티켓을 열어](../fundamentals/active-directory-troubleshooting-support-howto.md) 이 문제를 해결 하세요. |
 | AADSTS50008 | InvalidSamlToken - 토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요. |
 | AADSTS50010 | AudienceUriValidationFailed - 토큰 대상 그룹이 구성되지 않았으므로 앱에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. |
-| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다.  해결 방법으로이 누락 된 회신 주소를 Azure Active Directory 응용 프로그램에 추가 하거나 Active Directory에서 응용 프로그램을 관리할 수 있는 권한이 있는 사용자에 게이 작업을 수행할 수 있도록 합니다.|
+| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다.  해결 방법으로이 누락 된 회신 주소를 Azure Active Directory 응용 프로그램에 추가 하거나 Active Directory에서 응용 프로그램을 관리할 수 있는 권한이 있는 사용자에 게이 작업을 수행할 수 있도록 합니다. 자세히 알아보려면 오류 [AADSTS50011](/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch)에 대 한 문제 해결 문서를 참조 하세요.|
 | AADSTS50012 | AuthenticationFailed - 다음 이유 중 하나로 인해 인증에 실패했습니다.<ul><li>서명 인증서의 주체 이름이 인증되지 않았습니다.</li><li>인증된 주체 이름에 대해 일치하는 신뢰할 수 있는 인증 기관 정책을 찾을 수 없습니다.</li><li>인증서 체인이 유효하지 않습니다.</li><li>서명 인증서가 유효하지 않습니다.</li><li>테넌트에서 정책이 구성되지 않았습니다.</li><li>서명 인증서의 지문이 인증되지 않았습니다.</li><li>클라이언트 어설션에 잘못된 서명이 들어 있습니다.</li></ul> |
 | AADSTS50013 | InvalidAssertion - 어설션이 여러 가지 이유로 유효하지 않습니다. 즉 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다. |
 | AADSTS50014 | GuestUserInPendingState - 사용자의 사용이 보류 상태입니다. 게스트 사용자 계정이 아직 완전히 생성되지 않았습니다. |
@@ -140,7 +140,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50089 | 흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인하도록 하세요. |
 | AADSTS50097 | DeviceAuthenticationRequired - 디바이스 인증이 필요합니다. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - JWT 서명이 잘못되었습니다. |
-| AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세한 내용:[. /manage-apps/application-sign-in-problem-federated-sso-gallery.md # 사용자가 할당 되지 않음-역할](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role)입니다. |
+| AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세히 알아보려면 오류 [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS50107 | InvalidRealmUri - 요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - JWT 헤더에 문제가 있습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - 클레임 변환에 잘못된 입력 매개 변수가 있습니다. 테넌트 관리자에게 문의하여 정책을 업데이트하세요. |
@@ -191,11 +191,11 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
-| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용 하 여 SAML에 대해 나열 된 해상도를 사용해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 자세히 알아보려면 오류 [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS650052 | 앱은 `(\"{name}\")` 조직에서 `\"{organization}\"` 구독 하거나 사용 하도록 설정 하지 않은 서비스에 액세스 해야 합니다. IT 관리자에 게 문의 하 여 서비스 구독의 구성을 검토 합니다. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
-| AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. |
+| AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. 자세히 알아보려면 오류 [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS70002 | InvalidClient - 자격 증명 유효성을 검사하는 중 오류가 발생했습니다. 지정된 client_secret이 이 클라이언트에 대해 필요한 값과 일치하지 않습니다. client_secret을 수정한 후 다시 시도하세요. 자세한 내용은 [인증 코드를 사용하여 액세스 토큰 요청](v2-oauth2-auth-code-flow.md#request-an-access-token)을 참조하세요. |
 | AADSTS70003 | UnsupportedGrantType - 앱에서 지원되지 않는 권한 부여 유형을 반환했습니다. |
 | AADSTS70004 | InvalidRedirectUri - 앱에서 잘못된 리디렉션 URI를 반환했습니다. 클라이언트에서 지정한 리디렉션 주소가 구성된 주소 또는 OIDC 승인 목록의 주소와 일치하지 않습니다. |
@@ -209,10 +209,11 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도하도록 합니다. |
 | AADSTS75001 | BindingSerializationError - SAML 메시지를 바인딩하는 동안 오류가 발생했습니다. |
 | AADSTS75003 | UnsupportedBindingError - 앱에서 지원되지 않는 바인딩 관련 오류를 반환했습니다. SAML 프로토콜 응답은 HTTP POST 이외의 바인딩을 통해 보낼 수 없습니다. |
-| AADSTS75005 | Saml2MessageInvalid - Azure AD에서는 SSO의 앱에서 보낸 SAML 요청을 지원하지 않습니다. |
+| AADSTS75005 | Saml2MessageInvalid - Azure AD에서는 SSO의 앱에서 보낸 SAML 요청을 지원하지 않습니다. 자세히 알아보려면 오류 [AADSTS75005](/troubleshoot/azure/active-directory/error-code-aadsts75005-not-a-valid-saml-request)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS7500514 | 지원 되는 유형의 SAML 응답을 찾을 수 없습니다. 지원 되는 응답 형식은 ' Response ' (XML 네임 스페이스 ' urn: oasis: names: tc: SAML: 2.0: protocol ') 또는 ' Assertion ' (XML 네임 스페이스 ' urn: oasis: names: tc: SAML: 2.0: Assertion ')입니다. 응용 프로그램 오류-개발자가이 오류를 처리 합니다.|
+| AADSTS750054 | SAML 리디렉션 바인딩에 대한 HTTP 요청의 쿼리 문자열 매개 변수로 SAMLRequest 또는 SAMLResponse가 있어야 합니다. 자세히 알아보려면 오류 [AADSTS750054](/troubleshoot/azure/active-directory/error-code-aadsts750054-saml-request-not-present)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS75008 | RequestDeniedError - SAML 요청에 예기치 않은 대상이 있기 때문에 앱의 요청이 거부되었습니다. |
-| AADSTS75011 | NoMatchedAuthnContextInOutputClaims - 사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. |
+| AADSTS75011 | NoMatchedAuthnContextInOutputClaims - 사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. 자세히 알아보려면 오류 [AADSTS75011](/troubleshoot/azure/active-directory/error-code-aadsts75011-auth-method-mismatch)에 대 한 문제 해결 문서를 참조 하세요. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 인증 요청에 잘못된 NameIdPolicy가 있습니다. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - 인증 에이전트가 Active Directory에 연결할 수 없습니다. 에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다. |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout-암호 유효성 검사 요청 시간이 초과 되었습니다. Active Directory 사용 가능 하 고 에이전트의 요청에 응답 하는지 확인 합니다. |

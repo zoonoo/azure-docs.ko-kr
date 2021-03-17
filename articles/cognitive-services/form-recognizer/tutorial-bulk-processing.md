@@ -2,19 +2,19 @@
 title: '자습서: Azure Data Factory - Form Recognizer를 사용하여 대량으로 양식 데이터 추출'
 titleSuffix: Azure Cognitive Services
 description: Form Recognizer 모델의 학습 및 실행을 트리거하고 대규모 문서 백로그를 디지털화하도록 Azure Data Factory 활동을 설정합니다.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.author: lajanuar
+ms.openlocfilehash: 0c009a87a5834997cdc489efc75ebb16f9459754
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423899"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467105"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 양식 데이터 대량 추출
 
@@ -511,4 +511,4 @@ Azure Data Factory 파이프라인의 병렬 처리 수준을 설정하려면 �
 
 이 자습서에서는 Form Recognizer 모델의 학습 및 실행을 트리거하고 대규모 파일 백로그를 디지털화하도록 Azure Data Factory 파이프라인을 설정합니다. 다음으로, Form Recognizer API를 탐색하여 다른 작업을 수행할 수 있는지 확인합니다.
 
-* [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

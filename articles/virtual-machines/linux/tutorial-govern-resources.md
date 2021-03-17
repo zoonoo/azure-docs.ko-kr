@@ -1,23 +1,23 @@
 ---
 title: 자습서 - CLI를 사용하여 가상 머신 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure RBAC, 정책, 잠금 및 태그를 적용해 Azure 가상 머신을 관리하는 방법을 알아봅니다.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 695bf57e120889207151209702c16d456da79385
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c724f41172ef675f94139cea0ed77fc0232b126b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99821405"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561775"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 관리에 대해 알아보기
 

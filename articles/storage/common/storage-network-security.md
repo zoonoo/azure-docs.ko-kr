@@ -2,19 +2,19 @@
 title: Azure Storage 방화벽 및 가상 네트워크 구성 | Microsoft Docs
 description: Azure Storage 방화벽과 Azure Virtual Network를 사용 하 여 저장소 계정에 대 한 계층화 된 네트워크 보안을 구성 합니다.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9e395ce996bf7e6889a27fcb04b0e643cf63c58b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430890"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601970"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -583,7 +583,7 @@ az storage account network-rule list \
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아봅니다](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | CognitiveService/계정    | Cognitive Services에서 저장소 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |

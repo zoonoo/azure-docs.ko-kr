@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: d8f4693fd6e1e443dd44aa745f338efd00282983
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 750b7a8367d46434f48626268a0eb37c9edddfb1
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438253"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633542"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성
 
@@ -52,7 +52,7 @@ Kubernetes 클러스터에 액세스하도록 클라이언트를 구성하려면
 1. 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다.
 2. **디바이스 엔드포인트** 에서 **Kubernetes API 서비스** 엔드포인트를 복사합니다. 이 엔드포인트는 `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` 같은 형식의 문자열입니다. 
 
-    ![로컬 UI의 디바이스 페이지](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
+    ![로컬 UI의 디바이스 페이지](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
 3. 엔드포인트 문자열을 저장합니다. kubectl을 통해 Kubernetes 클러스터에 액세스하도록 클라이언트를 구성할 때 나중에 이 엔드포인트 문자열을 사용합니다.
 
