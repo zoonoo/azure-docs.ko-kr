@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741658"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466796"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 엔터프라이즈 애플리케이션 권한
 
@@ -169,4 +169,4 @@ microsoft.directory/provisioningLogs/allProperties/read | 프로비저닝 로그
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal, Azure AD PowerShell 및 Graph API를 사용하여 사용자 지정 역할 만들기](custom-create.md)
-- [사용자 지정 역할의 할당 보기](custom-view-assignments.md)
+- [역할 할당 나열](view-assignments.md)

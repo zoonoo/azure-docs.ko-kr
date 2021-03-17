@@ -4,15 +4,15 @@ description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bbb0ca345dc76f566dd55956911703e2c9bf0183
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519339"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471821"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -55,15 +55,6 @@ Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 �
 ## <a name="region-availability"></a>지역 가용성
 
 지역별 [Azure 글로벌 인프라 제품](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) 페이지를 방문하여 Azure HPC Cache를 사용할 수 있는 위치를 알아봅니다.
-
-[고객 관리형 키 기능](customer-keys.md)은 다음 Azure 지역에서만 지원됩니다.
-
-* 미국 동부
-* 미국 중남부
-* 미국 서부 2
-* 서유럽
-* US Gov 애리조나
-* US Gov 버지니아
 
 Azure HPC Cache는 단일 지역에 상주합니다. 여기에 있는 Blob 컨테이너에 연결하면 다른 지역에 저장된 데이터에 액세스할 수 있습니다. 캐시는 고객 데이터를 영구적으로 저장하지 않습니다.
 

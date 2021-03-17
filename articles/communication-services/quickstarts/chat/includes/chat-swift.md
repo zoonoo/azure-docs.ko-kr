@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/11/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dedea2a622cb0eece92bb8b57871c76daa05fb68
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750912"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495470"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -47,8 +47,8 @@ Podfile `pod init`를 만듭니다.
 
 Podfile를 열고 `ChatQuickstart` 대상에 다음 종속성을 추가합니다.
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.8'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
+pod 'AzureCommunication', '~> 1.0.0-beta.9'
+pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
 종속성을 설치합니다. 그러면 Xcode 작업 영역 `pod install`도 생성됩니다.
@@ -146,7 +146,7 @@ let request = CreateThreadRequest(
     topic: "Quickstart",
     participants: [
         Participant(
-            id: "<USER_ID>",
+            id: CommunicationUserIdentifier("<USER_ID>"),
             displayName: "Jack"
         )
     ]
@@ -166,7 +166,7 @@ chatClient.create(thread: request) { result, _ in
 semaphore.wait()
 ```
 
-`<<USER_ID>>`를 올바른 Communication Services 사용자 ID로 바꿉니다.
+`<USER_ID>`를 올바른 Communication Services 사용자 ID로 바꿉니다.
 
 계속하기 전에 여기서 세마포를 사용하여 완료 처리기를 기다립니다. 이후 단계에서 완료 처리기에 반환된 응답의 `threadId`를 사용합니다.
 
@@ -210,7 +210,7 @@ semaphore.wait()
 
 ```
 let user = Participant(
-    id: "<USER_ID>",
+    id: CommunicationUserIdentifier("<USER_ID>"),
     displayName: "Jane"
 )
 
@@ -240,7 +240,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")
@@ -258,7 +259,7 @@ semaphore.wait()
 ```
 chatThreadClient
     .remove(
-        participant: "<USER_ID>"
+        participant: CommunicationUserIdentifier("<USER_ID>")
     ) { result, _ in
         switch result {
         case .success:

@@ -1,18 +1,18 @@
 ---
 title: Azure 네트워킹 서비스에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure 네트워킹 서비스에 사용 가능한 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0e9c774eb3aa6390f71f25619271f0d1fa6fd03b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: c6fa0aea17fe29aac182ef38ca866ec36c9190b9
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441043"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635691"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-networking-services"></a>Azure 네트워킹 서비스에 대한 Azure Policy 규정 준수 컨트롤
 

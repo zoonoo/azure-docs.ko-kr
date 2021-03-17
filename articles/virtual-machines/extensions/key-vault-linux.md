@@ -10,25 +10,27 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102557066"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601052"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
-Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 Key Vault에 저장되어 있는 관찰된 인증서 목록을 모니터링합니다.  변경 사항을 감지하면 확장이 검색을 하고 해당 인증서를 설치합니다. Microsoft는 현재 Linux VM에 대한 Key Vault VM 확장을 게시하고 지원합니다. 이 문서에서는 Linux용 Key Vault VM 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다. 
+Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 Key Vault에 저장되어 있는 관찰된 인증서 목록을 모니터링합니다.  변경 사항을 감지하면 확장이 검색을 하고 해당 인증서를 설치합니다. 확장을 통해 VM에 전체 인증서 체인이 설치 됩니다. Microsoft는 현재 Linux VM에 대한 Key Vault VM 확장을 게시하고 지원합니다. 이 문서에서는 Linux용 Key Vault VM 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다. 
 
 ### <a name="operating-system"></a>운영 체제
 
 Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - Suse-15 
+
+> [!NOTE]
+> 확장 된 보안 기능을 얻으려면 Ubuntu-1604 및 Debian-9 시스템의 업그레이드를 준비 합니다. 이러한 버전은 지정 된 지원 기간이 종료 된 것입니다.
+> 
 
 ### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 형식
 
@@ -111,11 +113,11 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 | pollingIntervalInS | 3600 | 문자열 |
 | certificateStoreName | Linux에서 무시 됩니다. | 문자열 |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | 문자열 |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | 문자열 배열
-| msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | 문자열 |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>템플릿 배포

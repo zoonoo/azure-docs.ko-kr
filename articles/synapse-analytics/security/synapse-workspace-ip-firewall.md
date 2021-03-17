@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 787e600df4185346b250d9a96bdb89927e134075
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226508"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472018"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Azure Synapse Analytics IP 방화벽 규칙
 
@@ -42,10 +42,6 @@ Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니�
 네트워크와 로컬 컴퓨터의 방화벽이 Synapse Studio에 대한 TCP 포트 80, 443 및 1443에서 나가는 통신을 허용해야 합니다.
 
 또한 Synapse Studio용 UDP 포트 53에서 나가는 통신을 허용해야 합니다. SSMS 및 Power BI와 같은 도구를 사용하여 연결하려면 TCP 포트 1433에서 나가는 통신을 허용해야 합니다.
-
-SQL 연결 정책은 작업 영역에 대해 *기본값* 으로 설정됩니다. [여기](../../azure-sql/database/connectivity-architecture.md#connection-policy)에서 클라이언트가 아웃바운드 통신을 허용해야 하는 IP 주소 및 포트에 대해 자세히 알아볼 수 있습니다.
-
-
 
 
 ## <a name="next-steps"></a>다음 단계

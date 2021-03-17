@@ -2,13 +2,13 @@
 title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739078"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601307"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -53,6 +53,13 @@ Event Hubs 파티션 키 값을 공유 하는 모든 이벤트가 함께 저장 
 - Event Hubs **Standard** 의 경우 최대 보존 기간은 **7 일** 입니다. 
 - **전용** Event Hubs의 경우 최대 보존 기간은 **90 일** 입니다.
 - 보존 기간을 변경 하는 경우 이벤트 허브에 이미 있는 메시지를 포함 하 여 모든 메시지에 적용 됩니다. 
+
+Event Hubs는 모든 파티션에 적용되도록 구성된 보존 시간에 대한 이벤트를 유지합니다. 보존 기간에 도달하면 이벤트가 자동으로 제거됩니다. 보존 기간을 1일로 지정하면 해당 이벤트가 승인되고 정확히 24시간이 지나면 볼 수 없게 됩니다. 이벤트는 명시적으로 삭제할 수 없습니다. 
+
+허용되는 보존 기간을 초과하여 이벤트를 보관해야 하는 경우 [Event Hubs 캡처 기능을 설정하여 Azure Storage 또는 Azure Data Lake에 자동으로 저장](event-hubs-capture-overview.md)되도록 할 수 있으며, 이러한 심층 보관 스토리지 계층을 검색하거나 분석해야 하는 경우 [Azure Synapse 또는 다른 유사한 저장소 및 분석 플랫폼으로 쉽게 가져올 수 있습니다](store-captured-data-data-warehouse.md). 
+
+Event Hubs에서 데이터 보존 시간을 제한하는 이유는 타임스탬프로만 인덱싱되는 심층 저장소에 대량의 고객 데이터 기록이 모이지 않게 방지하고 순차적 액세스만 허용하도록 하기 위해서입니다. 여기에는 Event Hubs 또는 Kafka에서 제공하는 실시간 이벤트 인터페이스보다 풍부한 인덱싱 및 직접 액세스가 데이터 기록에 필요하다는 아키텍처 철학이 적용되었습니다. 이벤트 스트림 엔진은 이벤트 소싱을 위한 데이터 레이크 또는 장기 보관 스토리지 계층의 역할을 수행하는 데 적합하지 않습니다. 
+ 
 
 > [!NOTE]
 > Event Hubs은 실시간 이벤트 스트림 엔진 이며 데이터베이스 대신 사용 하거나 무한히 대기 이벤트 스트림에 대 한 영구 저장소로 사용 하도록 설계 되지 않았습니다. 
@@ -139,7 +146,7 @@ Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 
 
 #### <a name="connect-to-a-partition"></a>파티션에 연결
 
-파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 이러한 항목은 다음과 같습니다.
+파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 해당 경고는 다음과 같습니다.
 
 - .NET 용 [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient)
 - Java 용 [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient)

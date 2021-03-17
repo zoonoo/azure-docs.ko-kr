@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741119"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600865"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 문제 해결
 
 Azure Active Directory (Azure AD) 셀프 서비스 암호 재설정 (SSPR)을 사용 하면 사용자가 클라우드에서 자신의 암호를 재설정할 수 있습니다.
 
-SSPR에 문제가 있는 경우 다음과 같은 문제 해결 단계 및 일반적인 오류가 유용할 수 있습니다. 문제에 대 한 답변을 찾을 수 없는 경우 [지원 팀](#contact-microsoft-support) 에 문의 하 여 더 많은 도움을 받을 수 있습니다.
+SSPR에 문제가 있는 경우 다음과 같은 문제 해결 단계 및 일반적인 오류가 유용할 수 있습니다. 이 짧은 비디오에서는 [6 가지 가장 일반적인 SSPR 최종 사용자 오류 메시지를 해결 하는 방법](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1)에 대해 볼 수도 있습니다.
+
+문제에 대 한 답변을 찾을 수 없는 경우 [지원 팀](#contact-microsoft-support) 에 문의 하 여 더 많은 도움을 받을 수 있습니다.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Azure Portal SSPR 구성
 

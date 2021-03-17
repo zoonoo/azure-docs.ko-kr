@@ -2,18 +2,19 @@
 title: 자습서 - Azure Site Recovery를 사용하여 Windows VM에 대한 재해 복구 설정
 description: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역에 Windows VM의 재해 복구를 사용하도록 설정하는 방법을 알아봅니다.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53cc0b820bd2ffb9fc28b37f44bb71a7b9d3cd30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379936"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555859"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>자습서: Windows VM에 대한 재해 복구를 사용하도록 설정
 
@@ -136,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="stop-replicating-the-vm"></a>VM 복제 중지
 
-재해 복구 훈련을 완료한 후에는 계속해서 전체 장애 조치(failover)를 시도하는 것이 좋습니다. 전체 장애 조치(failover)를 수행하지 않으려면 복제를 사용하지 않도록 설정할 수 있습니다. 그러면 다음이 수행됩니다.
+재해 복구 훈련을 완료한 후에는 계속해서 전체 장애 조치(failover)를 시도하는 것이 좋습니다. 전체 장애 조치(failover)를 수행하지 않으려면 복제를 사용하지 않도록 설정할 수 있습니다. 다음을 수행합니다.
 
 - 복제된 머신의 Site Recovery 목록에서 VM이 제거됩니다.
 - VM에 대한 Site Recovery 청구가 중지됩니다.

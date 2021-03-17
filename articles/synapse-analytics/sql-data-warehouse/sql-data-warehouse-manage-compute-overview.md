@@ -1,6 +1,6 @@
 ---
 title: 전용 SQL 풀에 대 한 계산 리소스 관리 (이전의 SQL DW)
-description: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 성능 확장 기능에 대해 알아봅니다. DWUs를 조정 하거나 전용 SQL 풀을 일시 중지 하 여 비용을 절감 하 여 규모를 확장 합니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 성능 확장 기능에 대해 알아봅니다. DWUs를 조정 하 여 확장 하거나 전용 SQL 풀 (이전의 SQL DW)을 일시 중지 하 여 비용을 절감 합니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677040"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601817"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산 관리
 
@@ -120,7 +120,7 @@ Azure Synapse Analytics에서 계산 리소스 전용 SQL 풀 (이전의 SQL DW)
 
 전용 SQL 풀 (이전의 SQL DW) 상태를 확인 하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 또는 [t-sql](quickstart-scale-compute-tsql.md#check-dedicated-sql-pool-formerly-sql-dw-state) 빠른 시작을 참조 하세요. [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)를 사용 하 여 전용 sql 풀 (이전의 sql DW) 상태를 확인할 수도 있습니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 전용 SQL 풀 (이전의 SQL DW)의 크기를 조정 하려면 [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 설명 된 권한이 필요 합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 

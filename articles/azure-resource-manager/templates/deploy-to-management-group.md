@@ -2,13 +2,13 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/16/2021
+ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491620"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601596"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -219,6 +219,8 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
     }
 }
 ```
+
+기존 Azure 구독을 새 관리 그룹으로 이동 하는 템플릿을 배포 하려면 [ARM 템플릿에서 구독 이동](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template) 을 참조 하세요.
 
 ## <a name="azure-policy"></a>Azure Policy
 

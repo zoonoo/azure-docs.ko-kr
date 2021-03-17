@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: db695b55fbef16cb67dce6dc2d3c81ad177c9db6
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453258"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601800"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -45,7 +45,7 @@ ms.locfileid: "102453258"
 
 - 온-프레미스 페더레이션 솔루션 (예: ADFS (Active Directory Federation Services) 및 Ping)
 
-- Active Directory (예: Kerberos 인증 및 Windows 통합 인증)
+- Active Directory (예: Kerberos 인증 및 Windows-Integrated 인증)
 
 - 기타 클라우드 기반 id 및 액세스 관리 (IAM) 솔루션 (예: Okta 또는 Oracle)
 
@@ -61,7 +61,7 @@ ms.locfileid: "102453258"
 
 Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad)포함 되어 있습니다. 앱 인증 및 권한 부여를 Azure AD로 표준화 하면 이러한 기능에서 제공 하는 이점을 얻을 수 있습니다.
 
-에서 추가 마이그레이션 리소스를 참조 하세요. [https://aka.ms/migrateapps](./migration-resources.md)
+에서 더 많은 마이그레이션 리소스를 찾을 수 있습니다. [https://aka.ms/migrateapps](./migration-resources.md)
 
 ## <a name="benefits-of-migrating-app-authentication-to-azure-ad"></a>Azure AD로 앱 인증을 마이그레이션하는 이점
 
@@ -81,7 +81,7 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 ### <a name="manage-cost"></a>비용 관리
 
-조직에서 여러 IAM (Id 액세스 관리) 솔루션을 사용할 수 있습니다. 하나의 Azure AD 인프라로 마이그레이션하는 것은 IAM 라이선스 (온-프레미스 또는 클라우드)에 대 한 종속성 및 인프라 비용을 줄일 수 있는 기회입니다. M365 라이선스를 통해 Azure AD에 이미 지불 했을 수 있는 경우 다른 IAM 솔루션의 추가 비용을 지불할 이유가 없습니다.
+조직에서 여러 IAM (Id 액세스 관리) 솔루션을 사용할 수 있습니다. 하나의 Azure AD 인프라로 마이그레이션하는 것은 IAM 라이선스 (온-프레미스 또는 클라우드)에 대 한 종속성 및 인프라 비용을 줄일 수 있는 기회입니다. Microsoft 365 라이선스를 통해 Azure AD에 이미 지불 했을 수 있는 경우 다른 IAM 솔루션의 추가 비용을 지불할 이유가 없습니다.
 
 **Azure AD를 사용 하 여 다음과 같은 방법으로 인프라 비용을 줄일 수 있습니다.**
 
@@ -95,7 +95,7 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 - 모든 장치 및 위치에서 모든 응용 프로그램에 대 한 원활한 보안 액세스를 통해 최종 사용자 [SSO (Single Sign-On](./what-is-single-sign-on.md) ) 환경을 개선 합니다.
 
-- 셀프 서비스 [암호 재설정](../authentication/concept-sspr-howitworks.md) 및 [SelfService 그룹 관리](../enterprise-users/groups-self-service-management.md)와 같은 셀프 서비스 IAM 기능을 활용 합니다.
+- 셀프 서비스 [암호 재설정](../authentication/concept-sspr-howitworks.md) 및 [SelfService 그룹 관리](../enterprise-users/groups-self-service-management.md)와 같은 셀프 서비스 IAM 기능을 사용 합니다.
 
 - 클라우드 및 온-프레미스 환경에서 각 사용자에 대 한 단일 id를 관리 하 여 관리 오버 헤드를 줄입니다.
 
@@ -104,11 +104,11 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 - 개발자가 MSAL (Microsoft 인증 라이브러리)과 함께 [Microsoft Id 플랫폼](../develop/v2-overview.md) 을 사용 하 여 앱에 대 한 액세스를 보호 하 고 최종 사용자 환경을 개선할 수 있습니다.
 
-- [AZURE AD B2B 공동 작업](../external-identities/what-is-b2b.md)을 사용 하 여 클라우드 리소스에 대 한 액세스 권한을 파트너에 게 부여 합니다. 이렇게 하면 파트너와 지점 간 페더레이션을 구성 하는 오버 헤드가 제거 됩니다.
+- [AZURE AD B2B 공동 작업](../external-identities/what-is-b2b.md)을 사용 하 여 클라우드 리소스에 대 한 액세스 권한을 파트너에 게 부여 합니다. 클라우드 리소스 파트너와 지점 간 페더레이션을 구성 하는 오버 헤드를 제거 합니다.
 
 ### <a name="address-compliance-and-governance"></a>주소 규정 준수 및 거 버 넌 스
 
-통합 감사 도구 및 Api를 사용 하 여 회사 액세스 정책을 적용 하 고 응용 프로그램 및 관련 데이터에 대 한 사용자 액세스를 모니터링 하 여 규정 요구 사항을 준수 하는지 확인 합니다. Azure AD를 사용 하면 [SIEM (보안 인시던트 및 이벤트 모니터링) 도구](../reports-monitoring/plan-monitoring-and-reporting.md)를 활용 하는 보고서를 통해 응용 프로그램 로그인을 모니터링할 수 있습니다. 포털 또는 Api에서 보고서에 액세스 하 고, 응용 프로그램에 대 한 액세스 권한이 있는 사용자를 프로그래밍 방식으로 감사 하 고 액세스 검토를 통해 비활성 사용자에 대 한 액세스 권한을 제거할 수 있습니다.
+통합 감사 도구 및 Api를 사용 하 여 회사 액세스 정책을 적용 하 고 응용 프로그램 및 관련 데이터에 대 한 사용자 액세스를 모니터링 하 여 규정 요구 사항을 준수 하는지 확인 합니다. Azure AD를 사용 하면 [SIEM (보안 인시던트 및 이벤트 모니터링) 도구](../reports-monitoring/plan-monitoring-and-reporting.md)를 사용 하는 보고서를 통해 응용 프로그램 로그인을 모니터링할 수 있습니다. 포털 또는 Api에서 보고서에 액세스 하 고, 응용 프로그램에 대 한 액세스 권한이 있는 사용자를 프로그래밍 방식으로 감사 하 고 액세스 검토를 통해 비활성 사용자에 대 한 액세스 권한을 제거할 수 있습니다.
 
 ## <a name="plan-your-migration-phases-and-project-strategy"></a>마이그레이션 단계 및 프로젝트 전략 계획
 
@@ -196,7 +196,7 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 이렇게 하면 앱 소유자가 앱 마이그레이션 및 테스트 일정을 파악할 수 있으며, 그 결과는 이미 마이그레이션된 다른 앱의 결과를 확인할 수 있습니다. 또한 마이그레이션되는 앱에 대 한 문제를 해결 하기 위해 소유자를 위한 버그 추적 장치 데이터베이스에 대 한 링크를 제공 하는 것이 좋습니다.
 
-### <a name="best-practices"></a>모범 사례
+### <a name="best-practices"></a>최선의 구현 방법
 
 다음은 고객 및 파트너의 성공 사례와 권장 모범 사례입니다.
 
@@ -276,7 +276,7 @@ D
 
 현대화 하는 레거시 앱의 경우 Azure AD로 이동 하 여 핵심 인증 및 권한 부여는 [Microsoft Graph](https://developer.microsoft.com/graph/gallery/?filterBy=Samples,SDKs) 및 [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence?rtc=1) 가 제공 해야 하는 모든 기능과 데이터의 잠금을 해제 합니다.
 
-이러한 응용 프로그램에 대 한 인증 스택 코드를 레거시 프로토콜 (예: Windows 통합 인증, Kerberos 제한 위임, HTTP 헤더 기반 인증)에서 최신 프로토콜 (예: SAML 또는 Openid connect Connect)로 **업데이트 하는** 것이 좋습니다.
+이러한 응용 프로그램에 대 한 인증 스택 코드를 레거시 프로토콜 (예: Windows-Integrated 인증, Kerberos 제한 된 위임, HTTP 헤더 기반 인증)에서 최신 프로토콜 (예: SAML 또는 Openid connect Connect)로 **업데이트 하는** 것이 좋습니다.
 
 ### <a name="legacy-apps-that-you-choose-not-to-modernize"></a>현대화 하지 않도록 선택한 레거시 앱
 
@@ -304,7 +304,7 @@ Azure AD 응용 프로그램 프록시를 사용 하 여 Azure AD [응용 프로
 
 - 분명히 **아무런 사용법이 없습니다**.
 
-물론 비즈니스에 **중요 한 응용 프로그램의 영향을 사용 중단 하지 마십시오**. 이러한 경우 비즈니스 소유자에 게 문의 하 여 올바른 전략을 결정 해야 합니다.
+**높은 영향, 업무상 중요 한 응용 프로그램은 사용 중단 하지** 않는 것이 좋습니다. 이러한 경우 비즈니스 소유자에 게 문의 하 여 올바른 전략을 결정 해야 합니다.
 
 ### <a name="exit-criteria"></a>종료 기준
 
@@ -314,8 +314,8 @@ Azure AD 응용 프로그램 프록시를 사용 하 여 Azure AD [응용 프로
 
 - 다음을 포함 하는 앱 목록:
 
-  - 사용자가 액세스 하는 장치 및 위치에서 해당 앱이 o에 연결 하는 시스템
-
+  - 해당 앱이 연결 되는 시스템
+  - 사용자가 액세스 하는 위치 및 위치에서
   - 마이그레이션, 사용 되지 않음 또는 [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)연결 여부
 
 > [!NOTE]
@@ -379,7 +379,7 @@ Azure AD 및 Id 서비스를 사용 하는 경험이 없는 시나리오에서 *
 
 - **앱 코드를 업데이트할 계획 인지 여부** -앱이 계획 된 개발 또는 활성 개발에 있습니까?
 
-- **앱을 온-프레미스로 유지할지 여부** – 데이터 센터에 앱을 장기간 유지 하 시겠습니까?
+- **앱을 온-프레미스로 유지할지 여부** – 데이터 센터에 응용 프로그램을 유지 하 시겠습니까?
 
 - 앱이 **다른 앱 또는 api에 종속 되는지 여부** -앱이 현재 다른 앱 또는 api를 호출 하나요?
 
@@ -401,7 +401,7 @@ Azure AD 및 Id 서비스를 사용 하는 경험이 없는 시나리오에서 *
 
 파일럿을 위해 선택 하는 앱은 조직의 주요 id 및 보안 요구 사항을 나타내고 응용 프로그램 소유자에 게 서 구매를 명확 하 게 해야 합니다. 파일럿은 일반적으로 별도의 테스트 환경에서 실행 됩니다. 배포 계획 페이지에서 [파일럿에 대 한 모범 사례](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) 를 참조 하세요.
 
-**외부 파트너를 잊지 마세요.** 마이그레이션 일정 및 테스트에 참여 하는지 확인 합니다. 마지막으로, 문제가 발생할 경우 기술 지원팀에 액세스할 수 있는 방법이 있는지 확인 합니다.
+**외부 파트너를 잊지 마세요.** 마이그레이션 일정 및 테스트에 참여 하는지 확인 합니다. 마지막으로, 중단 된 문제가 있는 경우 기술 지원팀에 액세스할 수 있는 방법이 있는지 확인 합니다.
 
 ### <a name="plan-for-limitations"></a>제한 사항 계획
 
@@ -417,13 +417,13 @@ Azure AD 및 Id 서비스를 사용 하는 경험이 없는 시나리오에서 *
 
 ### <a name="plan-the-security-posture"></a>보안 상태 계획
 
-마이그레이션 프로세스를 시작 하기 전에 회사 id 시스템에 대해 개발 하려는 보안 환경을 완벽 하 게 고려 하는 것이 좋습니다. 이는 **id 및 데이터, 데이터에 액세스 하는 사람 및 장치 및 위치와** 같은 중요 한 정보 집합을 수집 하는 것을 기반으로 합니다.
+마이그레이션 프로세스를 시작 하기 전에 회사 id 시스템에 대해 개발 하려는 보안 환경을 완벽 하 게 고려 하는 것이 좋습니다. 이는 **데이터에 액세스 하는 id, 장치 및 위치와** 같은 중요 한 정보 집합을 수집 하는 것을 기반으로 합니다.
 
 ### <a name="identities-and-data"></a>Id 및 데이터
 
 대부분의 조직에는 산업 부문 및 조직 내의 직무 기능에 따라 달라 지는 id 및 데이터 보호에 대 한 특정 요구 사항이 있습니다. 지정 된 [조건부 액세스 정책](../conditional-access/overview.md) 집합 및 관련 기능을 비롯 한 권장 사항은 [id 및 장치 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations) 을 참조 하세요.
 
-이 정보를 사용 하 여 Azure AD와 통합 된 모든 서비스에 대 한 액세스를 보호할 수 있습니다. 이러한 권장 사항은 [AZURE AD의 id 점수](../fundamentals/identity-secure-score.md)뿐만 아니라 Microsoft 보안 점수에도 부합 됩니다. 점수는 다음에 도움이 됩니다.
+이 정보를 사용 하 여 Azure AD와 통합 된 모든 서비스에 대 한 액세스를 보호할 수 있습니다. 이러한 권장 사항은 [AZURE AD의](../fundamentals/identity-secure-score.md)Microsoft 보안 점수 및 id 점수와 함께 정렬 됩니다. 점수는 다음에 도움이 됩니다.
 
 - ID 보안 상태를 객관적으로 측정
 
@@ -443,7 +443,7 @@ Azure AD에서 지 원하는 앱 및 리소스의 두 가지 주요 범주는 �
 
 이러한 사용자에 대 한 그룹을 정의 하 고 이러한 그룹을 다양 한 방식으로 채울 수 있습니다. 관리자가 구성원을 수동으로 그룹에 추가 하도록 선택 하거나 selfservice 그룹 멤버 자격을 사용 하도록 설정할 수 있습니다. [동적 그룹](../enterprise-users/groups-dynamic-membership.md)을 사용 하 여 지정 된 조건에 따라 그룹에 구성원을 자동으로 추가 하는 규칙을 설정할 수 있습니다.
 
-외부 사용자는 특별 한 고려 사항이 필요한 고객을 참조할 수도 있습니다. [Azure AD B2C](../../active-directory-b2c/overview.md)별도의 제품은 고객 인증을 지원 합니다. 그러나이 내용은이 문서의 범위를 벗어납니다.
+외부 사용자는 고객을 참조할 수도 있습니다. [Azure AD B2C](../../active-directory-b2c/overview.md)별도의 제품은 고객 인증을 지원 합니다. 그러나이 내용은이 문서의 범위를 벗어납니다.
 
 ### <a name="devicelocation-used-to-access-data"></a>데이터에 액세스 하는 데 사용 되는 장치/위치
 
@@ -511,21 +511,21 @@ Azure AD에서 지 원하는 앱 및 리소스의 두 가지 주요 범주는 �
 
 ### <a name="troubleshoot"></a>문제 해결
 
-문제가 발생 하면 [앱 문제 해결 가이드](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) 를 확인 하 여 도움을 받으세요. 또한 [사용자 지정 개발 응용 프로그램에 로그인 하는 문제를](./application-sign-in-problem-federated-sso-gallery.md)참조 하세요.
+문제가 발생 하면 [앱 문제 해결 가이드](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) 를 확인 하 여 도움을 받으세요. 또한 문제 해결 문서를 확인 하 고 [SAML 기반 Single Sign-On 구성 된 앱에 로그인 하는 문제](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)를 확인할 수 있습니다.
 
 ### <a name="plan-rollback"></a>롤백 계획
 
-마이그레이션이 실패 하는 경우 가장 좋은 방법은 롤백 및 테스트 하는 것입니다. 마이그레이션 문제를 완화 하기 위해 수행할 수 있는 단계는 다음과 같습니다.
+마이그레이션이 실패 하는 경우 가장 좋은 전략은 롤백하고 테스트 하는 것입니다. 마이그레이션 문제를 완화 하기 위해 수행할 수 있는 단계는 다음과 같습니다.
 
 - 앱의 기존 구성에 대 한 **스크린샷을 찍습니다** . 앱을 다시 구성 해야 하는 경우 다시 확인할 수 있습니다.
 
-- 또한 클라우드 인증과 관련 된 문제가 있는 경우 **레거시 인증에 대 한 링크를 제공 하는** 것을 고려할 수 있습니다.
+- 또한 클라우드 인증에 문제가 있는 경우 **레거시 인증에 대 한 링크를 제공 하는** 것을 고려할 수 있습니다.
 
 - 마이그레이션을 완료 하기 전에 이전 id 공급자를 사용 하 여 **기존 구성을 변경 하지 마십시오** .
 
 - 먼저 **여러 IdPs를 지 원하는 앱** 을 마이그레이션합니다. 문제가 발생 하는 경우 항상 기본 IdP의 구성으로 변경할 수 있습니다.
 
-- 앱 환경에 문제가 있는 경우 **기술 지원팀** 에 대 한 **피드백 단추나** 포인터가 있는지 확인 합니다.
+- 앱 환경에 **피드백 단추** 또는 **기술 지원팀** 문제에 대 한 포인터가 있는지 확인 합니다.
 
 ### <a name="exit-criteria"></a>종료 기준
 
@@ -605,13 +605,13 @@ Azure AD는 마이그레이션된 앱을 관리 하는 중앙 액세스 위치�
 
 또한 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 중앙 위치에서 모든 앱을 감사할 수 있습니다.
 
-- **엔터프라이즈 응용 프로그램을** 사용 하 여 **앱을 감사** 하 고, [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) 의 동일한 정보를 감사 하거나 액세스 하 여 즐겨 사용 하는 도구에 통합 하세요.
+- * * 엔터프라이즈 응용 프로그램을 사용 하 여 **앱을 감사** 하 고, 감사 하거나, [AZURE AD Reporting API](../reports-monitoring/concept-reporting-api.md) 의 동일한 정보에 액세스 하 여 즐겨 사용 하는 도구에 통합 하세요.
 
 - **엔터프라이즈 응용 프로그램,** OAuth/openid connect Connect를 사용 하는 앱에 대 한 사용 권한을 사용 하 여 **앱에 대 한 사용 권한을 봅니다** .
 
 - **엔터프라이즈 응용 프로그램, 로그인을** 사용 하 여 **로그인 정보를 가져옵니다** . [AZURE AD REPORTING API](../reports-monitoring/concept-reporting-api.md) 에서 동일한 정보에 액세스 합니다.
 
-- [AZURE AD PowerBI 콘텐츠 팩](../reports-monitoring/howto-use-azure-monitor-workbooks.md) 에서 **앱 사용을 시각화** 합니다.
+- [AZURE AD Power BI 콘텐츠 팩](../reports-monitoring/howto-use-azure-monitor-workbooks.md) 에서 **앱 사용을 시각화** 합니다.
 
 ### <a name="exit-criteria"></a>종료 기준
 

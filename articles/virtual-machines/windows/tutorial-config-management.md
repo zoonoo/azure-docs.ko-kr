@@ -2,18 +2,19 @@
 title: 자습서 - Azure에서 Windows 가상 머신 구성 관리
 description: 이 자습서에서는 Windows 가상 머신에서 변경 내용을 식별하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a478d9c620219a768983570897715f924565a80f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db7c0f2dbc547d78e3caa9ab37450c86278929bd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594316"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555944"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -108,7 +109,7 @@ VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
 VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리** 창 맨 위에서 **업데이트 배포 예약** 을 선택합니다. **새 배포 업데이트** 창에서 다음 정보를 지정합니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | --- | --- |
 | **이름** |업데이트 배포를 식별하는 고유 이름을 제공합니다. |
 |**운영 체제**| **Linux** 또는 **Windows** 를 선택합니다.|

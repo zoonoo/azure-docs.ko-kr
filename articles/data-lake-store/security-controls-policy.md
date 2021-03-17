@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen1에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Data Lake Storage Gen1에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 56a8d85c2d062f393ecc4ea4a6d3cefdc79a92f9
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 25347dbda8f1beaaeaa4455be9135a23a39d1b2d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438894"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635820"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 Azure Policy 규정 준수 컨트롤
 

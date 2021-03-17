@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 UI 프레임워크 복합 구성 요소를 시작하는 방법을 알아봅니다.
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 17a8369463a27acffc8bdc52c48e4ae0624f41cd
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539715"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488060"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>빠른 시작: UI 프레임워크 복합 구성 요소 시작
 
@@ -29,7 +29,7 @@ ms.locfileid: "99539715"
 
 ## <a name="setting-up"></a>설치
 
-UI 프레임워크를 사용하려면 React 환경을 설정해야 합니다. 여기서는 이 작업을 수행합니다. 이미 React 앱이 있으면 이 섹션을 건너뛸 수 있습니다.
+UI 프레임워크를 사용하려면 React 환경을 설정해야 합니다. 다음 섹션에서 이 작업을 수행합니다. React 앱이 이미 있으면 이 섹션을 건너뛰어도 됩니다.
 
 ### <a name="set-up-react-app"></a>React 앱 설정
 
@@ -59,9 +59,9 @@ npm install --save ./{path for tarball}
 
 `--save` 옵션은 라이브러리를 **package.json** 파일의 종속성으로 나열합니다.
 
-### <a name="run-create-react-app"></a>React 앱 만들기 실행
+### <a name="run-create-react-app"></a>Create React App 실행
 
-다음을 실행하여 React 앱 만들기 설치를 테스트해 보겠습니다.
+다음을 실행하여 Create React App 설치를 테스트해 보겠습니다.
 
 ```console
 
@@ -81,10 +81,10 @@ Azure Communication Services UI 클라이언트 라이브러리의 주요 기능
 
 ## <a name="initialize-group-call-and-group-chat-composite-components"></a>그룹 통화 및 그룹 채팅 복합 구성 요소 초기화
 
-`my-app`의 `src` 폴더로 이동하여 `app.js` 파일을 찾습니다. 여기서는 그룹 채팅 및 통화를 위한 복합 구성 요소를 초기화하는 다음 코드를 배치합니다. 구축하는 통신 환경의 유형에 따라 사용할 항목을 선택할 수 있습니다. 필요한 경우 두 항목을 동시에 사용할 수 있습니다. 구성 요소를 초기화하려면 Azure Communication Services에서 검색한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오는 방법에 대한 자세한 내용은 [사용자 액세스 토큰 만들기 및 관리](./../access-tokens.md)를 참조하세요.
+`my-app`의 `src` 폴더로 이동하여 `app.js` 파일을 찾습니다. 여기서는 그룹 채팅 및 통화를 위한 복합 구성 요소를 초기화하는 다음 코드를 배치합니다. 구축하는 통신 환경의 유형에 따라 사용할 항목을 선택할 수 있습니다. 필요한 경우 두 가지를 동시에 사용할 수 있습니다. 구성 요소를 초기화하려면 Azure Communication Services에서 검색한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오는 방법에 대한 자세한 내용은 [사용자 액세스 토큰 만들기 및 관리](./../access-tokens.md)를 참조하세요.
 
 > [!NOTE]
-> 구성 요소는 액세스 토큰, 그룹 ID 또는 스레드 ID를 생성하지 않습니다. 이러한 요소는 이러한 ID를 생성하여 클라이언트 애플리케이션에 전달하는 적절한 단계를 수행하는 서비스에서 제공됩니다. 자세한 내용은 [클라이언트 서버 아키텍처](./../../concepts/client-and-server-architecture.md)를 참조하세요.
+> 구성 요소는 액세스 토큰, 그룹 ID 또는 스레드 ID를 생성하지 않습니다. 이러한 요소는 적절한 단계를 거쳐 이러한 ID를 생성하고 클라이언트 애플리케이션에 전달하는 서비스에서 제공됩니다. 자세한 내용은 [클라이언트 서버 아키텍처](./../../concepts/client-and-server-architecture.md)를 참조하세요.
 > 
 > 예를 들면 다음과 같습니다. 그룹 채팅 복합 구성 요소에서는 초기화하는 데 사용되는 `token`에 연결된 `userId`가 제공되는 `threadId`에 이미 조인되어 있어야 한다고 예상합니다. 토큰이 스레드 ID에 조인되지 않은 경우 그룹 채팅 복합 구성 요소가 실패합니다. 채팅에 대한 자세한 내용은 [채팅 시작](./../chat/get-started.md)을 참조하세요.
 
