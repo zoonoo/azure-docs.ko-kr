@@ -4,10 +4,10 @@ description: PowerShell을 사용 하 여 Azure Backup 서비스에 의해 백�
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e2f07e56fb9a8715b1b53165ab5f4b45b4e20ccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89000229"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>PowerShell을 사용 하 여 Azure 파일 공유 백업 관리
@@ -21,7 +21,7 @@ ms.locfileid: "89000229"
 
 Azure 파일 공유를 백업 하는 데 사용 되는 정책을 변경 하려면 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection)을 사용 합니다. 관련 백업 항목 및 새 백업 정책을 지정 합니다.
 
-다음 예제는 **testAzureFS** 보호 정책을 **dailyafs**에서 **monthlyafs**로 변경합니다.
+다음 예제는 **testAzureFS** 보호 정책을 **dailyafs** 에서 **monthlyafs** 로 변경합니다.
 
 ```powershell
 $monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"

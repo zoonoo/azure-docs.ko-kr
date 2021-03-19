@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383720"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
@@ -64,7 +64,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
         여기서 `[Command-Name]`은 ACS 명령의 이름입니다.
 1. **Connect-AcsAccount** cmdlet을 사용하여 ACS에 연결합니다. 
 
-    **Set-ExecutionPolicy**를 실행하여 실행 정책을 변경해야 명령을 실행할 수 있습니다.
+    **Set-ExecutionPolicy** 를 실행하여 실행 정책을 변경해야 명령을 실행할 수 있습니다.
 1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
 1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
 1. `State`가 `Disabled`인지 확인하여 네임스페이스가 사용하도록 설정되었는지 확인합니다.
@@ -99,7 +99,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
     | **서비스** | `All services` |
     | **리소스** | `General question/Resource not available` |
     | **문제 유형** | `ACS to SAS Migration` |
-    | **Subject** | 문제 설명 |
+    | **제목** | 문제 설명 |
 
    ![새 기술 지원 요청의 예를 보여 줍니다.](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 

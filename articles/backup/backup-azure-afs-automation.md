@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87076998"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>PowerShell을 사용 하 여 Azure 파일 공유 백업
@@ -56,10 +56,10 @@ PowerShell을 다음과 같이 설정 합니다.
 
     ![Recovery Services cmdlet 목록](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다.
+4. **Connect-AzAccount** 를 사용하여 Azure 계정에 로그인합니다.
 5. 표시 되는 웹 페이지에 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다.
 
-    또는 **-Credential**을 사용 하 여 **AzAccount** cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
+    또는 **-Credential** 을 사용 하 여 **AzAccount** cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
 
     테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 고객을 테 넌 트로 지정 합니다. 테 넌 트 ID 또는 테 넌 트 주 도메인 이름을 사용 합니다. 예를 들면 **AzAccount-Tenant "fabrikam.com"** 입니다.
 
@@ -81,7 +81,7 @@ PowerShell을 다음과 같이 설정 합니다.
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. 명령 출력에서 **Registrationstate** 가 **등록**됨으로 변경 되었는지 확인 합니다. 그렇지 않은 경우 **AzResourceProvider** cmdlet을 다시 실행 합니다.
+9. 명령 출력에서 **Registrationstate** 가 **등록** 됨으로 변경 되었는지 확인 합니다. 그렇지 않은 경우 **AzResourceProvider** cmdlet을 다시 실행 합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -129,7 +129,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 자격 증명 모음 컨텍스트는 자격 증명 모음에서 보호되는 데이터의 형식입니다. [AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)를 사용 하 여 설정 합니다. 컨텍스트를 설정한 후에는 모든 후속 cmdlet에 적용 됩니다.
 
-다음 예에서는 **testvault 된**에 대 한 자격 증명 모음 컨텍스트를 설정 합니다.
+다음 예에서는 **testvault 된** 에 대 한 자격 증명 모음 컨텍스트를 설정 합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -168,7 +168,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > 30 분의 배수로 시작 시간을 제공 해야 합니다. 앞의 예제에서는 "01:00:00" 또는 "02:30:00"만 사용할 수 있습니다. 시작 시간은 "01:15:00" 일 수 없습니다.
 
-다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 그런 다음 해당 변수를 새 정책에 대 한 매개 변수로 사용 합니다 (**Newafspolicy**). **NewAFSPolicy**는 매일 백업을 생성하여 30일 동안 보존합니다.
+다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 그런 다음 해당 변수를 새 정책에 대 한 매개 변수로 사용 합니다 (**Newafspolicy**). **NewAFSPolicy** 는 매일 백업을 생성하여 30일 동안 보존합니다.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -194,7 +194,7 @@ NewAFSPolicy           AzureFiles            AzureStorage              10/24/201
 
 #### <a name="retrieve-a-policy-for-a-workload-type"></a>작업 유형에 대 한 정책 검색
 
-다음 예에서는 **Azurefiles**작업 유형에 대 한 정책을 검색 합니다.
+다음 예에서는 **Azurefiles** 작업 유형에 대 한 정책을 검색 합니다.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureFiles"
@@ -213,7 +213,7 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 
 #### <a name="retrieve-a-specific-policy"></a>특정 정책 검색
 
-다음 정책은 **dailyafs**이라는 백업 정책을 검색 합니다.
+다음 정책은 **dailyafs** 이라는 백업 정책을 검색 합니다.
 
 ```powershell
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
@@ -223,7 +223,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection)를 사용 하 여 보호를 사용 하도록 설정 합니다. 정책이 자격 증명 모음과 연결 된 후 백업은 정책 일정에 따라 트리거됩니다.
 
-다음 예제에서는 정책 **dailyafs**를 사용 하 여 저장소 계정 **Testazurefileshare**에서 Azure 파일 공유 **testazurefileshare** 공유에 대 한 보호를 사용 하도록 설정 합니다.
+다음 예제에서는 정책 **dailyafs** 를 사용 하 여 저장소 계정 **Testazurefileshare** 에서 Azure 파일 공유 **testazurefileshare** 공유에 대 한 보호를 사용 하도록 설정 합니다.
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol

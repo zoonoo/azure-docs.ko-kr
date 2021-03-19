@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630863"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596725"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
 
@@ -80,7 +80,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 작업은 일반적으로 **예약** 됨, **대기** **중, 처리 중**, **완료** 됨 상태 (최종 상태)로 이동 합니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고 완료되면 **취소됨** 이 표시됩니다.
 
-자세한 내용은 [Event Grid 이벤트 처리](reacting-to-media-services-events.md)를 참조 하세요.
+자세한 내용은 [Event Grid 이벤트 처리](monitoring/reacting-to-media-services-events.md)를 참조 하세요.
 
 ## <a name="upload-the-audio-only-mp4-file"></a>오디오 전용 MP4 파일 업로드
 

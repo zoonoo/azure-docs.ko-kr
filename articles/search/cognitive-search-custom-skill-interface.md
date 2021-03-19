@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: e78f0d1e8d6d637dfebe1ff475ab8416ba49a263
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935418"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
@@ -48,11 +48,11 @@ URI가 안전한 지 확인 합니다 (HTTPS).
 
 Web API가 처리할 레코드 배열을 수락해야 합니다. 각 레코드에는 Web API에 제공되는 입력인 “속성 모음”이 포함되어야 합니다. 
 
-계약 텍스트에 언급된 첫 번째 날짜를 식별하는 간단한 보강자를 만든다고 가정해 보세요. 이 예제에서 기술은 단일 입력 *contractText*를 계약 텍스트로 수락합니다. 또한 기술에는 계약 날짜인 단일 출력이 있습니다. 이 보강자에서 더 흥미로운 점은 이 *contractDate*를 다중 파트 복합 형식의 형태로 반환한다는 것입니다.
+계약 텍스트에 언급된 첫 번째 날짜를 식별하는 간단한 보강자를 만든다고 가정해 보세요. 이 예제에서 기술은 단일 입력 *contractText* 를 계약 텍스트로 수락합니다. 또한 기술에는 계약 날짜인 단일 출력이 있습니다. 이 보강자에서 더 흥미로운 점은 이 *contractDate* 를 다중 파트 복합 형식의 형태로 반환한다는 것입니다.
 
 Web API가 입력 레코드 배치를 수신할 준비가 되어 있어야 합니다. *values* 배열의 각 멤버는 특정 레코드의 입력을 나타냅니다. 각 레코드에 다음 요소가 있어야 합니다.
 
-+ 특정 레코드의 고유 식별자인 *recordId* 멤버. 보강자는 결과를 반환할 때 호출자가 레코드 결과를 입력과 일치시킬 수 있도록 이 *recordId*를 제공해야 합니다.
++ 특정 레코드의 고유 식별자인 *recordId* 멤버. 보강자는 결과를 반환할 때 호출자가 레코드 결과를 입력과 일치시킬 수 있도록 이 *recordId* 를 제공해야 합니다.
 
 + 기본적으로 각 레코드의 입력 필드 모음인 *data* 멤버.
 
@@ -91,7 +91,7 @@ Web API가 입력 레코드 배치를 수신할 준비가 되어 있어야 합�
 
 ### <a name="2-web-api-output-format"></a>2. Web API 출력 형식
 
-출력 형식은 *recordId*와 속성 모음을 포함하는 레코드 집합입니다. 
+출력 형식은 *recordId* 와 속성 모음을 포함하는 레코드 집합입니다. 
 
 ```json
 {

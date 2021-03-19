@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/13/2019
-ms.openlocfilehash: 8c0fe30961e8ca0f31374bfdb5c5f17d58cb7673
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 82f5d4f4c3f12b6e14e260fa004bb031247e1096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385798"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597507"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 복사
 
@@ -41,7 +41,7 @@ Azure Cognitive Search 연결 된 서비스에 대해 지원 되는 속성은 �
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureSearch** 로 설정되어야 합니다. | 예 |
-| url | 검색 서비스에 대 한 URL입니다. | Yes |
+| url | 검색 서비스에 대 한 URL입니다. | 예 |
 | key | 검색 서비스에 대 한 관리 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -78,7 +78,7 @@ Azure Cognitive Search에 데이터를 복사 하기 위해 지원 되는 속성
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **AzureSearchIndex** 로 설정해야 합니다. | Yes |
+| type | 데이터 세트의 type 속성을 **AzureSearchIndex** 로 설정해야 합니다. | 예 |
 | indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 **예:**
@@ -113,6 +113,7 @@ Azure Cognitive Search에 데이터를 복사 하려면 복사 작업의 원본 
 | type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload** 입니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 

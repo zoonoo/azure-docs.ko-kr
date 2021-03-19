@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 606704621a4904dd0fb7b6f55e753dbe77e39cb5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601018"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578501"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -48,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | Description    |
+| 매개 변수         | 설명    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -78,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| 오류 | Description |
+| 오류 | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -269,6 +269,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90094 | AdminConsentRequired - 관리자 동의가 필요합니다. |
 | AADSTS900382 | 기밀 클라이언트는 클라우드 간 요청에서 지원 되지 않습니다. |
 | AADSTS90099 | ' {AppId} ' 응용 프로그램 ({appName})이 ' {tenant} ' 테 넌 트에서 권한이 부여 되지 않았습니다. 파트너 위임 된 관리자가 사용할 수 있으려면 먼저 응용 프로그램에 고객 테 넌 트에 액세스할 수 있는 권한이 있어야 합니다. 사전 동의를 제공 하거나 적절 한 파트너 센터 API를 실행 하 여 응용 프로그램에 권한을 부여 합니다. |
+| AADSTS900971| 회신 주소가 제공 되지 않았습니다.|
 | AADSTS90100 | InvalidRequestParameter - 매개 변수가 비어 있거나 잘못되었습니다. |
 | AADSTS901002 | AADSTS901002: ' resource ' 요청 매개 변수는 지원 되지 않습니다. |
 | AADSTS90101 | InvalidEmailAddress - 제공한 데이터가 유효한 메일 주소가 아닙니다. 메일 주소는 `someone@example.com` 형식이어야 합니다. |

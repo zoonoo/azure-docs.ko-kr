@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276915"
 ---
 # <a name="the-azure-kinect-playback-api"></a>Azure Kinect 재생 API
@@ -134,7 +134,7 @@ else
 
 태그가 없으면 기본값을 갖는 것으로 간주 됩니다.
 
-| 태그 이름                     | 기본값      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) 필드가 | 메모     |
+| 태그 이름                     | 기본값      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) 필드가 | 참고     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | 해제              | `color_format` / `color_resolution`  | 가능한 값: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P" 등                                      |
 | `K4A_DEPTH_MODE`             | 해제              | `depth_mode` / `depth_track_enabled` | 가능한 값: "OFF," NFOV_UNBINNED "," PASSIVE_IR "등                                                |

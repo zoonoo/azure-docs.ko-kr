@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75614352"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Visual Studio를 사용 하 여 원격 Linux Service Fabric 클러스터를 대상으로 하는 .NET Core 응용 프로그램 만들기 및 게시
@@ -21,19 +21,19 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
 
 ## <a name="create-a-service-fabric-application-targeting-net-core"></a>.NET Core를 대상으로 하는 Service Fabric 응용 프로그램 만들기
 1. **관리자** 권한으로 Visual Studio를 시작합니다.
-2. **파일 >새 >프로젝트**를 사용 하 여 프로젝트를 만듭니다.
-3. **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택 합니다.
+2. **파일 >새 >프로젝트** 를 사용 하 여 프로젝트를 만듭니다.
+3. **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램** 을 선택 합니다.
 ![응용 프로그램 만들기]
-4. 응용 프로그램 이름을로 확인 하 고 **확인**을 클릭 합니다.
-5. **새 Service Fabric 서비스** 페이지의 **.NET Core 섹션**에서 만들려는 서비스 유형을 선택 합니다.
+4. 응용 프로그램 이름을로 확인 하 고 **확인** 을 클릭 합니다.
+5. **새 Service Fabric 서비스** 페이지의 **.NET Core 섹션** 에서 만들려는 서비스 유형을 선택 합니다.
 ![서비스 만들기]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>원격 Linux 클러스터에 배포
-1. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **빌드**를 선택 합니다.
+1. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **빌드** 를 선택 합니다.
 ![빌드-응용 프로그램]
-2. 응용 프로그램에 대 한 빌드 프로세스가 완료 되 면 해당 서비스를 마우스 오른쪽 단추로 클릭 하 고 **.csproj 파일**편집을 선택 합니다.
+2. 응용 프로그램에 대 한 빌드 프로세스가 완료 되 면 해당 서비스를 마우스 오른쪽 단추로 클릭 하 고 **.csproj 파일** 편집을 선택 합니다.
 ![편집-.csproj]
-3. 서비스가 **행위자 프로젝트 형식인**경우 UpdateServiceFabricManifestEnabled 속성을 True에서 **False** 로 편집 합니다. 응용 프로그램에 행위자 서비스가 없는 경우 4 단계로 건너뜁니다.
+3. 서비스가 **행위자 프로젝트 형식인** 경우 UpdateServiceFabricManifestEnabled 속성을 True에서 **False** 로 편집 합니다. 응용 프로그램에 행위자 서비스가 없는 경우 4 단계로 건너뜁니다.
 ```xml
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
@@ -53,8 +53,8 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
     </ExeHost> 
     </EntryPoint>
 ```
-6. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **게시** 대화 상자가 나타납니다.
-7. **연결 끝점**에서 대상으로 하려는 원격 Service Fabric Linux 클러스터에 대 한 끝점을 선택 합니다.
+6. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다. **게시** 대화 상자가 나타납니다.
+7. **연결 끝점** 에서 대상으로 하려는 원격 Service Fabric Linux 클러스터에 대 한 끝점을 선택 합니다.
 ![응용 프로그램 게시]
 
 <!--Image references-->

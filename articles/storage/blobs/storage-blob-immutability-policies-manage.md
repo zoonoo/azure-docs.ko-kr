@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a09dbd7d778a4f7ea2a9aac9ca07b9e6d06bc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84463623"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Blob Storage에 대한 불변성 정책 설정 및 관리
@@ -27,11 +27,11 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 �
 
 1. 변경할 수 없는 상태로 유지해야 하는 BLOB을 저장할 새 컨테이너를 만들거나 기존 컨테이너를 선택합니다. 컨테이너는 범용 v2 또는 Blob Storage 계정에 있어야 합니다.
 
-2. 컨테이너 설정에서 **액세스 정책**을 선택합니다. 그런 다음, **변경 불가능한 Blob Storage** 아래에서 **정책 추가**를 선택합니다.
+2. 컨테이너 설정에서 **액세스 정책** 을 선택합니다. 그런 다음, **변경 불가능한 Blob Storage** 아래에서 **정책 추가** 를 선택합니다.
 
     ![포털의 컨테이너 설정](media/storage-blob-immutability-policies-manage/portal-image-1.png)
 
-3. 시간 기준 보존을 사용하도록 설정하려면 드롭다운 메뉴에서 **시간 기준 보존**을 선택합니다.
+3. 시간 기준 보존을 사용하도록 설정하려면 드롭다운 메뉴에서 **시간 기준 보존** 을 선택합니다.
 
     !["정책 유형" 아래에서 선택된 "시간 기준 보존"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
 
@@ -45,11 +45,11 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 �
 
     ![메뉴의 "잠금 정책"](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 
-6. **정책 잠금**을 선택하고 잠금을 확인합니다. 이제 정책이 잠겨 있으므로 삭제할 수 없으며 보존 기간의 연장만 허용됩니다. Blob 삭제 및 재정의는 허용되지 않습니다. 
+6. **정책 잠금** 을 선택하고 잠금을 확인합니다. 이제 정책이 잠겨 있으므로 삭제할 수 없으며 보존 기간의 연장만 허용됩니다. Blob 삭제 및 재정의는 허용되지 않습니다. 
 
     ![메뉴의 "잠금 정책" 확인](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
 
-7. 법적 보존을 사용하도록 설정하려면 **정책 추가**를 선택합니다. 드롭다운 메뉴에서 **법적 보존**을 선택합니다.
+7. 법적 보존을 사용하도록 설정하려면 **정책 추가** 를 선택합니다. 드롭다운 메뉴에서 **법적 보존** 을 선택합니다.
 
     ![메뉴의 "정책 유형" 아래에 있는 "법적 보존"](media/storage-blob-immutability-policies-manage/portal-image-legal-hold-selection-7.png)
 

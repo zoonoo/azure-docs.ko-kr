@@ -4,10 +4,10 @@ description: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 A
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288928"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인에 Azure DevTest Labs 통합
@@ -24,15 +24,15 @@ ms.locfileid: "87288928"
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure DevOps](https://dev.azure.com) 조직에 등록 또는 로그인 하 고 조직에 [프로젝트를 만듭니다](/vsts/organizations/projects/create-project) . 
   
 - Visual Studio Marketplace에서 Azure DevTest Labs 작업 확장을 설치 합니다.
   
   1. [Azure DevTest Labs 작업](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)으로 이동합니다.
-  1. **무료 다운로드**를 선택 합니다.
-  1. 드롭다운에서 Azure DevOps 조직을 선택 하 고 **설치**를 선택 합니다. 
+  1. **무료 다운로드** 를 선택 합니다.
+  1. 드롭다운에서 Azure DevOps 조직을 선택 하 고 **설치** 를 선택 합니다. 
   
 ## <a name="create-the-template-to-build-an-azure-vm"></a>Azure VM을 빌드하는 템플릿 만들기 
 
@@ -46,7 +46,7 @@ ms.locfileid: "87288928"
    > WinRM을 공유 IP 주소와 함께 사용하는 경우 NAT 규칙을 추가하여 외부 포트를 WinRM 포트에 매핑해야 합니다. 공용 IP 주소를 사용 하 여 VM을 만드는 경우에는 NAT 규칙이 필요 하지 않습니다.
    
    
-1. 컴퓨터에 *CreateVMTemplate.js에 있는*라는 파일로 템플릿을 저장 합니다.
+1. 컴퓨터에 *CreateVMTemplate.js에 있는* 라는 파일로 템플릿을 저장 합니다.
    
 1. 소스 제어 시스템에 템플릿을 체크 인 합니다.
 
@@ -89,15 +89,15 @@ ms.locfileid: "87288928"
    Write-Host "##vso[task.setvariable variable=labVMFqdn;]$labVMFqdn"
    ```
 
-1. *GetLabVMParams.ps1*와 같은 이름으로 파일을 저장 하 고 원본 제어 시스템에 체크 인 합니다. 
+1. *GetLabVMParams.ps1* 와 같은 이름으로 파일을 저장 하 고 원본 제어 시스템에 체크 인 합니다. 
 
 ## <a name="create-a-release-pipeline-in-azure-pipelines"></a>Azure Pipelines에서 릴리스 파이프라인 만들기
 
 새 릴리스 파이프라인을 만들려면 다음을 수행 합니다.
 
 1. Azure devops 프로젝트 페이지의 왼쪽 탐색 영역에서 **파이프라인**  >  **릴리스** 를 선택 합니다.
-1. **새 파이프라인**을 선택 합니다.
-1. **템플릿 선택**에서 아래로 스크롤하여 **빈 작업**을 선택 하 고 **적용**을 선택 합니다.
+1. **새 파이프라인** 을 선택 합니다.
+1. **템플릿 선택** 에서 아래로 스크롤하여 **빈 작업** 을 선택 하 고 **적용** 을 선택 합니다.
 
 ### <a name="add-and-set-variables"></a>변수 추가 및 설정
 
@@ -119,9 +119,9 @@ ms.locfileid: "87288928"
 
 다음 단계는 향후 배포에 사용할 골든 이미지 VM을 만드는 것입니다. *AZURE DEVTEST LABS Vm 만들기* 작업을 사용 하 여 Azure DevTest Labs 인스턴스 내에서 vm을 만듭니다.
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면** 하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업** 옆에 있는 더하기 기호를 선택 합니다. 
    
-1. **작업 추가**에서 **VM Azure DevTest Labs 만들기**를 선택 하 고 **추가**를 선택 합니다. 
+1. **작업 추가** 에서 **VM Azure DevTest Labs 만들기** 를 선택 하 고 **추가** 를 선택 합니다. 
    
 1. 왼쪽 창에서 **AZURE DEVTEST LABS VM 만들기** 를 선택 합니다. 
 
@@ -133,15 +133,15 @@ ms.locfileid: "87288928"
    |**랩 이름**|랩 VM을 만들 기존 랩의 이름을 선택 합니다.|
    |**템플릿 이름**|소스 코드 리포지토리에 저장 한 템플릿 파일의 전체 경로 및 이름을 입력 합니다. 기본 제공 속성을 사용 하 여 경로를 단순화할 수 있습니다. 예를 들면 다음과 같습니다.<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**템플릿 매개 변수**|앞에서 정의한 변수에 대 한 매개 변수를 입력 합니다.<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**출력 변수**  >  **랩 VM ID**|만든 랩 VM ID에 대 한 변수를 입력 합니다. 기본 인- **vmid**를 사용 하는 경우 후속 작업의 변수를 $ (을 (를) 사용 하 여 *$ ()* 로 참조할 수 있습니다.<br /><br />기본값 이외의 이름을 만들 수 있지만 후속 작업에서 올바른 이름을 사용 해야 합니다. 랩 VM ID는 다음과 같은 형식으로 작성할 수 있습니다.<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   |**출력 변수**  >  **랩 VM ID**|만든 랩 VM ID에 대 한 변수를 입력 합니다. 기본 인- **vmid** 를 사용 하는 경우 후속 작업의 변수를 $ (을 (를) 사용 하 여 *$ ()* 로 참조할 수 있습니다.<br /><br />기본값 이외의 이름을 만들 수 있지만 후속 작업에서 올바른 이름을 사용 해야 합니다. 랩 VM ID는 다음과 같은 형식으로 작성할 수 있습니다.<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>DevTest Labs VM의 세부 정보를 수집 합니다.
 
 이전에 만든 스크립트를 실행하여 DevTest Labs VM의 세부 정보를 수집합니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면** 하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업** 옆에 있는 더하기 기호를 선택 합니다. 
    
-1. **작업 추가**에서 **Azure PowerShell**를 선택 하 고 **추가**를 선택 합니다. 
+1. **작업 추가** 에서 **Azure PowerShell** 를 선택 하 고 **추가** 를 선택 합니다. 
    
 1. 왼쪽 창에서 **Azure PowerShell 스크립트: FilePath** 를 선택 합니다. 
    
@@ -149,9 +149,9 @@ ms.locfileid: "87288928"
    
    |필드|값|
    |---|---|
-   |**Azure 연결 형식**|**Azure Resource Manager**를 선택 합니다.|
+   |**Azure 연결 형식**|**Azure Resource Manager** 를 선택 합니다.|
    |**Azure 구독**|서비스 연결 또는 구독을 선택 합니다.| 
-   |**스크립트 유형**|**스크립트 파일 경로**를 선택 합니다.|
+   |**스크립트 유형**|**스크립트 파일 경로** 를 선택 합니다.|
    |**스크립트 경로**|소스 코드 리포지토리에 저장 한 PowerShell 스크립트의 전체 경로 및 이름을 입력 합니다. 기본 제공 속성을 사용 하 여 경로를 단순화할 수 있습니다. 예를 들면 다음과 같습니다.<br /><br />`$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`|
    |**스크립트 인수**|이전 태스크에 의해 채워진 인 *랩 vmid* 변수의 이름을 입력 합니다. 예를 들면 다음과 같습니다.<br /><br />`-labVmId '$(labVMId)'`|
 
@@ -161,9 +161,9 @@ ms.locfileid: "87288928"
 
 다음 작업은 Azure DevTest Labs 인스턴스에 새로 배포 된 VM의 이미지를 만드는 것입니다. 그런 다음, 개발 작업을 실행하거나 일부 테스트를 실행하고자 할 때마다 필요에 따라 이미지를 사용하여 VM의 복사본을 만듭니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면** 하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업** 옆에 있는 더하기 기호를 선택 합니다. 
    
-1. **작업 추가**에서 **Azure DevTest Labs 사용자 지정 이미지 만들기**를 선택 하 고 **추가**를 선택 합니다. 
+1. **작업 추가** 에서 **Azure DevTest Labs 사용자 지정 이미지 만들기** 를 선택 하 고 **추가** 를 선택 합니다. 
    
 1. 아래와 같이 작업을 구성합니다.
    
@@ -178,22 +178,22 @@ ms.locfileid: "87288928"
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>DevTest Labs VM에 앱 배포 (선택 사항)
 
-새 DevTest Labs VM에 앱을 배포 하는 작업을 추가할 수 있습니다. 앱을 배포 하는 데 일반적으로 사용 하는 작업은 *Azure 파일 복사* 및 *대상 컴퓨터의 PowerShell*입니다.
+새 DevTest Labs VM에 앱을 배포 하는 작업을 추가할 수 있습니다. 앱을 배포 하는 데 일반적으로 사용 하는 작업은 *Azure 파일 복사* 및 *대상 컴퓨터의 PowerShell* 입니다.
 
-이러한 작업의 매개 변수에 필요한 VM 정보는 릴리스 파이프라인 내에서 **이라는**, **LabVMIpAddress**및 **lab vmfqdn** 이라는 세 가지 구성 변수에 저장 됩니다. 앱을 배포하지 않고 DevTest Labs VM 및 사용자 지정 이미지를 만들어 시험하려는 경우 이 단계를 건너뛸 수 있습니다.
+이러한 작업의 매개 변수에 필요한 VM 정보는 릴리스 파이프라인 내에서 **이라는**, **LabVMIpAddress** 및 **lab vmfqdn** 이라는 세 가지 구성 변수에 저장 됩니다. 앱을 배포하지 않고 DevTest Labs VM 및 사용자 지정 이미지를 만들어 시험하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 ### <a name="delete-the-vm"></a>VM 삭제
 
 최종 작업은 Azure DevTest Labs 인스턴스에 배포 된 VM을 삭제 하는 것입니다. 일반적으로 배포된 VM에서 필요한 개발 작업을 실행하거나 테스트를 실행한 후 VM을 삭제합니다. 
 
-1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면**하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업**옆에 있는 더하기 기호를 선택 합니다. 
+1. 릴리스 파이프라인 **파이프라인** 탭에서 **1 단계** **작업을 보려면** 하이퍼링크 텍스트를 선택 하 고 **+** **에이전트 작업** 옆에 있는 더하기 기호를 선택 합니다. 
    
-1. **작업 추가**에서 **VM Azure DevTest Labs 삭제**를 선택 하 고 **추가**를 선택 합니다. 
+1. **작업 추가** 에서 **VM Azure DevTest Labs 삭제** 를 선택 하 고 **추가** 를 선택 합니다. 
    
 1. 아래와 같이 작업을 구성합니다.
    
-   - **AZURE RM 구독**에서 서비스 연결 또는 구독을 선택 합니다. 
-   - **랩 VM ID**의 경우, 사용자가 랩 vmid 변수의 기본 이름을 변경한 경우 여기에 입력 합니다. 기본값은 **$(labVMId)** 입니다.
+   - **AZURE RM 구독** 에서 서비스 연결 또는 구독을 선택 합니다. 
+   - **랩 VM ID** 의 경우, 사용자가 랩 vmid 변수의 기본 이름을 변경한 경우 여기에 입력 합니다. 기본값은 **$(labVMId)** 입니다.
    
 ### <a name="save-the-release-pipeline"></a>릴리스 파이프라인 저장
 
@@ -209,7 +209,7 @@ ms.locfileid: "87288928"
 
 1. 릴리스 파이프라인 페이지에서 오른쪽 위에 있는 **릴리스 만들기** 를 선택 합니다. 
    
-1. **아티팩트**에서 최신 빌드를 선택 하 고 **만들기**를 선택 합니다.
+1. **아티팩트** 에서 최신 빌드를 선택 하 고 **만들기** 를 선택 합니다.
    
 1. 각 릴리스 단계에서 VM 만들기, 이미지 만들기 및 VM 삭제를 보려면 Azure Portal에서 DevTest Labs 인스턴스 보기를 새로 고칩니다.
 

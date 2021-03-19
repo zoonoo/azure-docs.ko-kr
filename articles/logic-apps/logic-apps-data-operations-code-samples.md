@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84712448"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Azure Logic Apps용 데이터 작업 코드 샘플
@@ -265,7 +265,7 @@ ms.locfileid: "84712448"
 
 ## <a name="parse-json"></a>Parse JSON
 
-[**구문 분석 JSON ** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
+[**구문 분석 JSON** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
 
 ```json
 "actions": {
@@ -322,7 +322,7 @@ ms.locfileid: "84712448"
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>새 페이지를 추가하기 위해
+## <a name="select"></a>선택
 
 [**선택** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#select-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
 

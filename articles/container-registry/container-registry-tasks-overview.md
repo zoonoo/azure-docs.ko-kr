@@ -3,12 +3,12 @@ title: ACR 작업 개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562857"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606789"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -39,7 +39,7 @@ ACR 작업은 컨테이너 이미지 및 기타 아티팩트를 빌드하고 유
 
 첫 번째 코드 줄을 커밋하기 전에, ACR 작업의 빠른 [작업](container-registry-tutorial-quick-task.md) 기능은 컨테이너 이미지 빌드를 Azure에 오프로드하여 통합 개발 환경을 제공할 수 있습니다. 빠른 작업을 사용하면 코드를 커밋하기 전에 자동화된 빌드 정의를 확인하고 잠재적인 문제점을 발견할 수 있습니다.
 
-친숙한 `docker build` 형식을 사용하여 Azure CLI의 [az acr build][az-acr-build] 명령에서 [컨텍스트](#context-locations)(빌드할 파일 집합)를 사용하고, 이를 ACR 작업으로 보내고, 기본적으로 완료되면 빌드된 이미지를 해당 레지스트리에 푸시합니다.
+친숙 한 `docker build` 형식으로 Azure CLI의 [az acr build][az-acr-build] 명령은 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업에 보내고, 기본적으로 완료 시 빌드된 이미지를 레지스트리에 푸시합니다.
 
 소개는 Azure Container Registry에서 [컨테이너 이미지를 빌드하고 실행](container-registry-quickstart-task-cli.md) 하는 빠른 시작을 참조 하세요.  
 
@@ -59,7 +59,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 | 트리거 | 기본적으로 사용하도록 설정됨 |
 | ------- | ------------------ |
 | Commit | 예 |
-| 끌어오기 요청 | 예 |
+| 끌어오기 요청 | 아니요 |
 
 소스 코드 업데이트 트리거를 구성 하려면 공용 또는 개인 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 해야 합니다.
 
@@ -102,7 +102,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 다음 표에서는 ACR 작업에 대해 지원 되는 컨텍스트 위치의 예를 보여 줍니다.
 
-| 컨텍스트 위치 | Description | 예제 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 주 분기 | 공용 또는 개인 GitHub 리포지토리의 주 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |
@@ -120,7 +120,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. `--platform`다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm` ). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예:)에서 variant를 지정 합니다 `--platform Linux/arm64/v8` .
 
-| OS | Architecture|
+| OS | 아키텍처|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

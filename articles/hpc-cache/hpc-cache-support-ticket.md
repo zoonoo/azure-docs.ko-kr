@@ -7,21 +7,21 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: v-erkel
 ms.openlocfilehash: 95247985be955b71403a5c2c78962792c6451183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87061423"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Azure HPC 캐시용 지원 티켓 열기
 
 Azure Portal를 사용 하 여 지원 티켓을 엽니다. 캐시 인스턴스로 이동한 다음 사이드바의 아래쪽에 표시 되는 **새 지원 요청** 링크를 클릭 합니다.
 
-활성 캐시가 없는 경우 티켓을 열려면 Azure Portal의 기본 도움말 + 지원 페이지를 사용 합니다. 화면 왼쪽 위에 있는 컨트롤에서 포털 메뉴를 열고 아래쪽으로 스크롤한 다음 **도움말 + 지원**을 클릭 합니다.
+활성 캐시가 없는 경우 티켓을 열려면 Azure Portal의 기본 도움말 + 지원 페이지를 사용 합니다. 화면 왼쪽 위에 있는 컨트롤에서 포털 메뉴를 열고 아래쪽으로 스크롤한 다음 **도움말 + 지원** 을 클릭 합니다.
 
 **새 지원 요청** 을 선택 하 고 Azure HPC 캐시와 관련 된 도움말을 보려면 **기술** 을 선택 합니다.
 
-목록에서 구독을 선택 합니다.
+목록에서 구독을 선택합니다.
 
 Azure HPC 캐시 서비스를 찾으려면 **모든 서비스** 단추를 클릭 하 고 hpc를 검색 합니다.
 

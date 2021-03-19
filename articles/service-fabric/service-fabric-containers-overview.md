@@ -4,10 +4,10 @@ description: Service Fabric 및 마이크로 서비스 애플리케이션 배포
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87091660"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너

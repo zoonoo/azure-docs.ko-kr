@@ -1,22 +1,22 @@
 ---
 title: 'Express 경로: 보급 경로에 대 한 사용자 지정 경고를 구성 하는 방법'
-description: 이 문서에서는 Azure Automation 및 Logic Apps를 사용 하 여 200 경로 제한에 도달 하지 않도록 하기 위해 Express 경로 게이트웨이에서 온-프레미스 네트워크로 보급 된 경로 수를 모니터링 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Automation 및 Logic Apps를 사용 하 여 1000 경로 제한에 도달 하지 않도록 하기 위해 Express 경로 게이트웨이에서 온-프레미스 네트워크로 보급 된 경로 수를 모니터링 하는 방법을 보여 줍니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504404"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654393"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
-이 문서는 Azure Automation 및 Logic Apps를 사용 하 여 Express 경로 게이트웨이에서 온-프레미스 네트워크로 보급 된 경로 수를 지속적으로 모니터링 하는 데 도움이 됩니다. 모니터링을 통해 [200 경로 제한에 도달](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering)하지 못할 수 있습니다.
+이 문서는 Azure Automation 및 Logic Apps를 사용 하 여 Express 경로 게이트웨이에서 온-프레미스 네트워크로 보급 된 경로 수를 지속적으로 모니터링 하는 데 도움이 됩니다. 모니터링을 통해 1000 경로 제한에 도달 하는 것을 방지할 수 있습니다.] (express 경로-질문과 대답-온-프레미스-온-프레미스-온-프레미스-온-프레미스-온-프레미스-온-프레미스-피어 링-개인-피어 링).
 
 **Azure Automation** 를 사용 하 여 *runbook* 에 저장 된 사용자 지정 PowerShell 스크립트의 실행을 자동화할 수 있습니다. 이 문서의 구성을 사용 하는 경우 runbook에는 하나 이상의 Express 경로 게이트웨이를 쿼리 하는 PowerShell 스크립트가 포함 되어 있습니다. 리소스 그룹, Express 경로 게이트웨이 이름 및 온-프레미스에 보급 된 네트워크 접두사 수를 포함 하는 데이터 집합을 수집 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "102504404"
 
 * 이 문서에서 설명 하는 사용자 지정 경고는 더 나은 작업 및 제어를 얻기 위한 추가 기능입니다. Express 경로에서 기본 경고를 대체할 수 없습니다.
 * Express 경로 게이트웨이에 대 한 데이터 수집은 백그라운드에서 실행 됩니다. 런타임이 예상 보다 길어질 수 있습니다. 작업 큐를 방지 하려면 워크플로 되풀이를 올바르게 설정 해야 합니다.
-* 스크립트나 ARM 템플릿에서 배포 하는 것은 사용자 지정 경보 트리거 보다 빠르게 수행 될 수 있습니다. 이로 인해 200 경로 제한을 초과 하는 Express 경로 게이트웨이의 네트워크 접두사 수가 증가할 수 있습니다.
+* 스크립트나 ARM 템플릿에서 배포 하는 것은 사용자 지정 경보 트리거 보다 빠르게 수행 될 수 있습니다. 이로 인해 1000 경로 제한을 초과 하는 Express 경로 게이트웨이의 네트워크 접두사 수가 증가할 수 있습니다.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>계정 만들기 및 구성
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
  
-* 리소스 그룹
+* Resource group
 
 * Express 경로 게이트웨이 이름
 
@@ -409,7 +409,7 @@ JSON이 구문 분석 되 면 **Json 데이터 구문 분석** 작업은 *본문
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. 논리 조건은 두 개의 동적 변수 numRoute1 또는 numRoute2 중 하나가 임계값 보다 크면 true입니다. 이 예제에서 임계값은 160 (200 경로의 max 값의 80%)로 고정 됩니다. 요구 사항에 맞게 임계값을 변경할 수 있습니다. 일관성을 위해이 값은 runbook PowerShell 스크립트에 사용 된 값과 같아야 합니다.
+9. 논리 조건은 두 개의 동적 변수 numRoute1 또는 numRoute2 중 하나가 임계값 보다 크면 true입니다. 이 예제에서 임계값은 800 (1000 경로의 max 값의 80%)로 고정 됩니다. 요구 사항에 맞게 임계값을 변경할 수 있습니다. 일관성을 위해이 값은 runbook PowerShell 스크립트에 사용 된 값과 같아야 합니다.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="논리 조건":::
 

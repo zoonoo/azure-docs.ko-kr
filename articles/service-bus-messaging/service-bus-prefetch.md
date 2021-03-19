@@ -4,21 +4,21 @@ description: Azure Service Bus 메시지를 프리페치하여 성능을 향상�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341048"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 
-*프리페치*를 공식적인 Service Bus 클라이언트에서 사용하도록 설정하면 수신기는 애플리케이션이 처음에 요청한 수준을 넘어 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 제한까지 더 많은 메시지를 자동으로 획득합니다.
+*프리페치* 를 공식적인 Service Bus 클라이언트에서 사용하도록 설정하면 수신기는 애플리케이션이 처음에 요청한 수준을 넘어 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 제한까지 더 많은 메시지를 자동으로 획득합니다.
 
 따라서 단일 초기 [Receive](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive) 또는 [ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) 호출은 가능한 한 빠르게 반환되는 메시지를 즉시 사용하기 위해 획득합니다. 그런 후 클라이언트는 백그라운드에서 추가 메시지를 획득하여 프리페치 버퍼를 채웁니다.
 
 ## <a name="enable-prefetch"></a>프리페치 사용
 
-.NET에서 **MessageReceiver**, **QueueClient** 또는 **SubscriptionClient**의 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 속성을 0보다 큰 수로 설정하여 프리페치 기능을 사용하도록 설정합니다. 이 값을 0으로 설정하면 프리페치가 해제됩니다.
+.NET에서 **MessageReceiver**, **QueueClient** 또는 **SubscriptionClient** 의 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 속성을 0보다 큰 수로 설정하여 프리페치 기능을 사용하도록 설정합니다. 이 값을 0으로 설정하면 프리페치가 해제됩니다.
 
 이 설정을 [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) 또는 [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) 샘플 설정의 수신 쪽에 쉽게 추가하여 해당 컨텍스트에 미치는 영향을 확인할 수 있습니다.
 

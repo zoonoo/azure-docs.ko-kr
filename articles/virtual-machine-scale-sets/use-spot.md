@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694991"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596419"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스팟 Virtual Machines 
 
@@ -46,7 +46,7 @@ Azure 스폿 가상 머신은 Microsoft Azure 중국 21Vianet을 제외 하 고 
 -   기업 계약
 -   종 량 제 제품 코드 003P
 -   후원
-- CSP (클라우드 서비스 공급자)의 경우 [파트너 센터](https://docs.microsoft.com/partner-center/azure-plan-get-started) 를 참조 하거나 파트너에 게 직접 문의 하세요.
+- CSP (클라우드 서비스 공급자)의 경우 [파트너 센터](/partner-center/azure-plan-get-started) 를 참조 하거나 파트너에 게 직접 문의 하세요.
 
 ## <a name="eviction-policy"></a>제거 정책
 
@@ -202,7 +202,7 @@ Azure 스팟 가상 머신 템플릿 배포의 경우 이상을 사용 `"apiVers
 
 ## <a name="simulate-an-eviction"></a>제거 시뮬레이션
 
-Azure 스폿 가상 머신의 [제거를 시뮬레이트하여](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) 응용 프로그램이 갑작스러운 제거에 얼마나 잘 대응 하는지 테스트할 수 있습니다. 
+Azure 스폿 가상 머신의 [제거를 시뮬레이트하여](/rest/api/compute/virtualmachines/simulateeviction) 응용 프로그램이 갑작스러운 제거에 얼마나 잘 대응 하는지 테스트할 수 있습니다. 
 
 다음을 사용자의 정보로 바꿉니다. 
 

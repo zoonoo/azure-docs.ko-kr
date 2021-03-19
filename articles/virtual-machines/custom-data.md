@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
 ms.openlocfilehash: 2924caaac5fb8c512100d9e897f7f153af9a3b3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87284917"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
@@ -60,10 +60,10 @@ Azure Resource Manager(ARM)에는 [base64 함수](../azure-resource-manager/temp
 VM에 설치된 프로비저닝 에이전트가 플랫폼과의 연결을 처리하고 파일 시스템에 할당합니다. 
 
 ### <a name="windows"></a>Windows
-사용자 지정 데이터는 *%SYSTEMDRIVE%\AzureData\CustomData.bin*에 바이너리 파일로 저장되지만 처리되지는 않습니다. 이 파일을 처리하려면 사용자 지정 이미지를 빌드하고 CustomData.bin을 처리하는 코드를 작성해야 합니다.
+사용자 지정 데이터는 *%SYSTEMDRIVE%\AzureData\CustomData.bin* 에 바이너리 파일로 저장되지만 처리되지는 않습니다. 이 파일을 처리하려면 사용자 지정 이미지를 빌드하고 CustomData.bin을 처리하는 코드를 작성해야 합니다.
 
 ### <a name="linux"></a>Linux  
-Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 전달되는데, 프로비저닝 중에 */var/lib/waagent* 디렉터리로 복사됩니다.  Microsoft Azure Linux Agent의 최신 버전도 편의를 위해 base64로 인코딩된 데이터를 */var/lib/waagent/CustomData*에 복사합니다.
+Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 전달되는데, 프로비저닝 중에 */var/lib/waagent* 디렉터리로 복사됩니다.  Microsoft Azure Linux Agent의 최신 버전도 편의를 위해 base64로 인코딩된 데이터를 */var/lib/waagent/CustomData* 에 복사합니다.
 
 현재 Azure는 두 가지 프로비저닝 에이전트를 지원합니다.
 * Linux Agent - 기본적으로 Linux 에이전트는 사용자 지정 데이터를 처리하지 않습니다. 이를 활성화한 상태에서 사용자 지정 이미지를 빌드해야 합니다. [설명서](https://github.com/Azure/WALinuxAgent#configuration)에 나와 있는 관련 설정은 다음과 같습니다.
@@ -72,7 +72,7 @@ Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 
 
 사용자 지정 데이터를 활성화하고 스크립트를 실행하면 VM이 준비되었다는 보고 또는 프로비저닝이 성공했다는 보고를 스크립트가 완료될 때까지 미룹니다. 스크립트가 허용된 VM 프로비저닝 시간(40분)을 초과하면 VM 만들기가 실패합니다. 참고로 스크립트가 실행되지 않거나 실행 중에 오류가 발생하면 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다.
 
-사용자 지정 데이터 실행 문제를 해결하려면 */var/log/waagent.log*를 검토하세요.
+사용자 지정 데이터 실행 문제를 해결하려면 */var/log/waagent.log* 를 검토하세요.
 
 * cloud-init - 기본적으로 사용자 지정 데이터를 처리합니다. cloud-init는 사용자 지정 데이터의 [여러 가지 형식](https://cloudinit.readthedocs.io/en/latest/topics/format.html)(예: cloud-init 구성, 스크립트)을 지원합니다. Linux Agent와 마찬가지로 cloud-init는 사용자 지정 데이터를 처리합니다. 구성 처리 또는 스크립트 실행 중에 오류가 발생할 경우 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다. 그러나 Linux Agent와 달리 cloud-init는 사용자 지정 데이터 구성이 완료되기를 기다리지 않고 플랫폼에 VM이 준비되었다고 보고합니다. Azure의 cloud-init에 대한 자세한 내용은 [설명서](./linux/using-cloud-init.md)를 참조하세요.
 

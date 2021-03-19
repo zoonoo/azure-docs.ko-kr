@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967978"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656824"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리
 
@@ -47,6 +47,8 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 다음 표에서 모든 일반 관리 작업 및 StorSimple 디바이스 관리자 서비스 UI 내에서 수행할 수 있는 복잡한 워크플로의 요약을 보여줍니다. 이러한 작업은 시작되는 UI 블레이드 페이지에 따라 구성됩니다.
 
 각 워크플로에 대한 자세한 내용은 표에서 적절한 절차를 클릭합니다.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>StorSimple 디바이스 관리자 워크플로
 

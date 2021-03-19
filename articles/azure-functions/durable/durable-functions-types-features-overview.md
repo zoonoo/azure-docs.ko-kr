@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697710"
 ---
 # <a name="durable-functions-types-and-features"></a>Durable Functions 형식 및 기능
@@ -23,7 +23,7 @@ Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니
 오 케 스트레이 터 함수는 작업이 실행 되는 방법 및 작업이 실행 되는 순서를 설명 합니다. Orchestrator 함수는 [응용 프로그램 패턴 Durable Functions](durable-functions-overview.md#application-patterns)같이 코드에서 오케스트레이션을 설명 합니다 (c # 또는 JavaScript). 오케스트레이션은 [활동 함수](#activity-functions), [하위 오케스트레이션](durable-functions-orchestrations.md#sub-orchestrations), [외부 이벤트 대기](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md)및 [타이머](durable-functions-orchestrations.md#durable-timers)를 비롯 한 다양 한 유형의 작업을 포함할 수 있습니다. Orchestrator 함수도 [엔터티 함수와](#entity-functions)상호 작용할 수도 있습니다.
 
 > [!NOTE]
-> Orchestrator 함수는 일반 코드를 사용 하 여 작성 되지만 코드를 작성 하는 방법에 대 한 엄격한 요구 사항이 있습니다. 특히 오 케 스트레이 터 함수 코드는 *결정적*이어야 합니다. 이러한 확정 요구 사항을 따르지 않으면 오 케 스트레이 터 함수가 올바르게 실행 되지 않을 수 있습니다. 이러한 요구 사항 및 해결 방법에 대 한 자세한 내용은 [코드 제약 조건](durable-functions-code-constraints.md) 항목에서 찾을 수 있습니다.
+> Orchestrator 함수는 일반 코드를 사용 하 여 작성 되지만 코드를 작성 하는 방법에 대 한 엄격한 요구 사항이 있습니다. 특히 오 케 스트레이 터 함수 코드는 *결정적* 이어야 합니다. 이러한 확정 요구 사항을 따르지 않으면 오 케 스트레이 터 함수가 올바르게 실행 되지 않을 수 있습니다. 이러한 요구 사항 및 해결 방법에 대 한 자세한 내용은 [코드 제약 조건](durable-functions-code-constraints.md) 항목에서 찾을 수 있습니다.
 
 Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성 오케스트레이션](durable-functions-orchestrations.md) 문서를 참조 하세요.
 
@@ -43,7 +43,7 @@ Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성
 
 ## <a name="entity-functions"></a>엔터티 함수
 
-엔터티 함수는 작은 상태를 읽고 업데이트 하기 위한 작업을 정의 합니다. 이러한 상태 저장 엔터티를 *내구성이 있는 엔터티로*자주 참조 합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. 클라이언트 함수 또는 orchestrator 함수에서 호출할 수도 있습니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
+엔터티 함수는 작은 상태를 읽고 업데이트 하기 위한 작업을 정의 합니다. 이러한 상태 저장 엔터티를 *내구성이 있는 엔터티로* 자주 참조 합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거* 를 사용하는 함수입니다. 클라이언트 함수 또는 orchestrator 함수에서 호출할 수도 있습니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
 
 > [!NOTE]
 > 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다.
@@ -52,7 +52,7 @@ Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성
 
 ## <a name="client-functions"></a>클라이언트 함수
 
-Orchestrator 함수는 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger) 통해 트리거되고 엔터티 함수는 [엔터티 트리거 바인딩에](durable-functions-bindings.md#entity-trigger)의해 트리거됩니다. 이러한 트리거는 모두 [작업 허브](durable-functions-task-hubs.md)로 큐에 배치 되는 메시지에 응답 하 여 작동 합니다. 이러한 메시지를 배달 하는 기본적인 방법은 *클라이언트 함수*내에서 [orchestrator 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) 또는 [엔터티 클라이언트 바인딩을](durable-functions-bindings.md#entity-client) 사용 하는 것입니다. 모든 오 케 스트레이 터 함수는 *클라이언트 함수*일 수 있습니다. 예를 들어 HTTP로 트리거되는 함수, Azure 이벤트 허브 트리거 함수 등에서 orchestrator를 트리거할 수 있습니다. *클라이언트 함수* 에서 함수를 만드는 것은 내구성이 있는 클라이언트 출력 바인딩을 사용 하는 것입니다.
+Orchestrator 함수는 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger) 통해 트리거되고 엔터티 함수는 [엔터티 트리거 바인딩에](durable-functions-bindings.md#entity-trigger)의해 트리거됩니다. 이러한 트리거는 모두 [작업 허브](durable-functions-task-hubs.md)로 큐에 배치 되는 메시지에 응답 하 여 작동 합니다. 이러한 메시지를 배달 하는 기본적인 방법은 *클라이언트 함수* 내에서 [orchestrator 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) 또는 [엔터티 클라이언트 바인딩을](durable-functions-bindings.md#entity-client) 사용 하는 것입니다. 모든 오 케 스트레이 터 함수는 *클라이언트 함수* 일 수 있습니다. 예를 들어 HTTP로 트리거되는 함수, Azure 이벤트 허브 트리거 함수 등에서 orchestrator를 트리거할 수 있습니다. *클라이언트 함수* 에서 함수를 만드는 것은 내구성이 있는 클라이언트 출력 바인딩을 사용 하는 것입니다.
 
 > [!NOTE]
 > 다른 함수 형식과 달리 orchestrator 및 entity 함수는 Azure Portal의 단추를 사용 하 여 직접 트리거할 수 없습니다. Azure Portal에서 orchestrator 또는 entity 함수를 테스트 하려는 경우에는 해당 구현의 일부로 orchestrator 또는 entity 함수를 시작 하는 *클라이언트 함수* 를 대신 실행 해야 합니다. 가장 간단한 테스트 환경을 위해 *수동 트리거* 함수를 권장 합니다.

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934874"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Azure Cognitive Search의 OData 비교 연산자- `eq` , `ne` ,,, `gt` `lt` `ge` 및 `le`
@@ -132,7 +132,7 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 
 및 연산자를 사용 하 여 정확 하 게 일치 하는 필터에서 문자열을 비교할 수 있습니다 `eq` `ne` . 이러한 비교는 대/소문자를 구분 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 `Rating`필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 

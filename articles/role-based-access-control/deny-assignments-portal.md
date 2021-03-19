@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84790249"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure deny 할당 나열
@@ -28,7 +28,7 @@ ms.locfileid: "84790249"
 > [!NOTE]
 > 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "84790249"
 
 구독 또는 관리 그룹 범위에서 거부 할당을 나열 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**를 클릭한 후에 **관리 그룹** 또는 **구독**을 클릭합니다.
+1. Azure Portal에서 **모든 서비스** 를 클릭한 후에 **관리 그룹** 또는 **구독** 을 클릭합니다.
 
 1. 나열할 관리 그룹 또는 구독을 클릭 합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "84790249"
 
     ![액세스 제어 - 거부 할당 탭](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
-1. 추가 열을 표시하려면 **열 편집**을 클릭합니다.
+1. 추가 열을 표시하려면 **열 편집** 을 클릭합니다.
 
     ![거부 할당 - 열](./media/deny-assignments-portal/deny-assignments-columns.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "84790249"
     | **시스템 보호됨** | 거부 할당이 Azure에서 관리되는지 여부입니다. 현재, 항상 예입니다. |
     | **범위** | 관리 그룹, 구독, 리소스 그룹 또는 리소스입니다. |
 
-1. 사용 가능한 항목에 확인 표시를 추가한 후 **확인**을 클릭하여 선택한 열을 표시합니다.
+1. 사용 가능한 항목에 확인 표시를 추가한 후 **확인** 을 클릭하여 선택한 열을 표시합니다.
 
 ## <a name="list-details-about-a-deny-assignment"></a>거부 할당에 대 한 세부 정보 나열
 
@@ -84,9 +84,9 @@ ms.locfileid: "84790249"
     | **거부 할당 적용 대상**  | 거부 할당이 적용되는 보안 주체입니다. |
     | **거부 할당 제외 대상** | 거부 할당에서 제외된 보안 주체입니다. |
 
-    **시스템 정의 보안 주체**는 Azure AD 디렉터리의 모든 사용자, 그룹, 서비스 주체 및 관리 ID를 나타냅니다.
+    **시스템 정의 보안 주체** 는 Azure AD 디렉터리의 모든 사용자, 그룹, 서비스 주체 및 관리 ID를 나타냅니다.
 
-1. 거부된 권한 목록을 보려면 **거부된 사용 권한**을 클릭합니다.
+1. 거부된 권한 목록을 보려면 **거부된 사용 권한** 을 클릭합니다.
 
     ![거부 할당 - 거부된 사용 권한](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
@@ -101,11 +101,11 @@ ms.locfileid: "84790249"
 
     - 컴퓨팅 작업을 제외하고 데이터 평면에 있는 모든 스토리지 작업이 거부됩니다.
 
-1. 거부 할당에 대한 속성을 보려면 **속성**을 클릭합니다.
+1. 거부 할당에 대한 속성을 보려면 **속성** 을 클릭합니다.
 
     ![거부 할당 - 속성](./media/deny-assignments-portal/deny-assignment-properties.png)
 
-    **속성** 블레이드에서 거부 할당 이름, ID, 설명 및 범위를 볼 수 있습니다. **자식에 적용되지 않음** 스위치는 거부 할당이 하위 범위에 상속되는지 여부를 나타냅니다. **시스템 보호됨** 스위치는 이 거부 할당이 Azure에서 관리되는지 여부를 나타냅니다. 현재, 모든 경우에 대해 **예**입니다.
+    **속성** 블레이드에서 거부 할당 이름, ID, 설명 및 범위를 볼 수 있습니다. **자식에 적용되지 않음** 스위치는 거부 할당이 하위 범위에 상속되는지 여부를 나타냅니다. **시스템 보호됨** 스위치는 이 거부 할당이 Azure에서 관리되는지 여부를 나타냅니다. 현재, 모든 경우에 대해 **예** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

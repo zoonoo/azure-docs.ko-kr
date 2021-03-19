@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690305"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
 
 API Management는 특정 이벤트에 대한 알림을 구성하는 기능과 API Management 인스턴스의 관리자 및 개발자와 의사를 전달하는 데 사용되는 메일 템플릿을 구성하는 기능을 제공합니다. 이 아티클에서는 사용 가능한 이벤트에 대한 알림을 구성하는 방법을 보여주고 이러한 이벤트에 사용된 이메일 템플릿을 구성하는 개요를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 빠른 시작을 완료합니다.
 
@@ -33,7 +33,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
 ## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>알림 구성
 
 1.  **API MANAGEMENT** 인스턴스를 선택 합니다.
-2.  **알림**을 클릭하여 사용 가능한 알림을 볼 수 있습니다.
+2.  **알림** 을 클릭하여 사용 가능한 알림을 볼 수 있습니다.
 
     ![게시자 알림][api-management-publisher-notifications]
 
@@ -56,7 +56,7 @@ API Management 서비스 인스턴스가 없는 경우 [Azure API Management 인
 
     ![알림 받는 사람][api-management-email-addresses]
 
-4.  **추가**를 누릅니다.
+4.  **추가** 를 누릅니다.
 
 ## <a name="configure-notification-templates"></a><a name="email-templates"> </a>알림 템플릿 구성
 
@@ -75,7 +75,7 @@ API Management는 서비스를 관리하고 사용하는 과정에서 전송된 
 
 이러한 템플릿은 필요에 따라 수정할 수 있습니다.
 
-API Management 인스턴스에 대한 이메일 템플릿을 보고 구성하려면 **알림 템플릿**을 클릭합니다.
+API Management 인스턴스에 대한 이메일 템플릿을 보고 구성하려면 **알림 템플릿** 을 클릭합니다.
 
 ![메일 템플릿][api-management-email-templates]
 
@@ -88,7 +88,7 @@ API Management 인스턴스에 대한 이메일 템플릿을 보고 구성하려
 > [!NOTE]
 > 테스트를 미리 보거나 보낼 때에는 매개 변수가 실제 값으로 바뀌지 않습니다.
 
-이메일 템플릿의 변경 내용을 저장하려면 **저장**을 클릭하고, 변경 내용을 취소하려면 **취소**를 클릭합니다.
+이메일 템플릿의 변경 내용을 저장하려면 **저장** 을 클릭하고, 변경 내용을 취소하려면 **취소** 를 클릭합니다.
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png

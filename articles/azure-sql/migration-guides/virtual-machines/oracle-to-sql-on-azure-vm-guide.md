@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f9b6dea216e05bb645daf5fdd041cec692821af8
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 1767f1f990326e513393b8ce47e1ed8485f73849
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565029"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656479"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>마이그레이션 가이드: Azure VM에서 Oracle to SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -47,15 +47,48 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 
 1. [지도 도구 키트](https://go.microsoft.com/fwlink/?LinkID=316883)를 엽니다.
 1. **데이터베이스 만들기/선택** 을 선택 합니다.
+
+   ![데이터베이스 선택](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
+
 1. **인벤토리 데이터베이스 만들기** 를 선택 하 고, 만들 새 인벤토리 데이터베이스의 이름을 입력 하 고, 간략 한 설명을 입력 한 다음, **확인** 을 선택 합니다. 
+
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="인벤토리 데이터베이스 만들기":::
+
 1. 인벤토리 **데이터 수집** 을 선택 하 여 **인벤토리 및 평가 마법사** 를 엽니다. 
+
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="인벤토리 데이터 수집":::
+
 1. **인벤토리 및 평가 마법사** 에서 **Oracle** 을 선택 하 고 **다음** 을 선택 합니다. 
+
+   ![Oracle 선택](./media/oracle-to-sql-on-azure-vm-guide/choose-oracle.png)
+
 1. 비즈니스 요구 사항 및 환경에 가장 적합 한 컴퓨터 검색 옵션을 선택 하 고 **다음** 을 선택 합니다. 
+
+   ![비즈니스 요구에 가장 적합 한 컴퓨터 검색 옵션을 선택 합니다.](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
+
 1. 자격 증명을 입력 하거나 탐색 하려는 시스템에 대 한 새 자격 증명을 만든 후 **다음** 을 선택 합니다.
+
+    ![자격 증명 입력](./media/oracle-to-sql-on-azure-vm-guide/choose-credentials.png)
+
 1. 자격 증명의 순서를 설정 하 고 **다음** 을 선택 합니다. 
+
+   ![자격 증명 순서 설정](./media/oracle-to-sql-on-azure-vm-guide/set-credential-order.png)  
+
 1. 검색 하려는 각 컴퓨터에 대 한 자격 증명을 지정 합니다. 모든 컴퓨터/컴퓨터에 대해 고유한 자격 증명을 사용 하거나 **모든 컴퓨터 자격 증명** 목록을 사용 하도록 선택할 수 있습니다.  
+
+
+   ![검색 하려는 각 컴퓨터에 대 한 자격 증명을 지정 합니다.](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
+
+
 1. 선택 요약을 확인 하 고 **마침** 을 선택 합니다.
-1. 검색이 완료 되 면 **데이터 컬렉션** 요약 보고서를 확인 합니다. 검색은 몇 분 정도 걸리며 데이터베이스 수에 따라 달라 집니다. 완료 되 면 **닫기** 를 선택 합니다. 
+
+   ![요약 검토](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
+
+1. 검색이 완료 되 면 **데이터 컬렉션** 요약 보고서를 확인 합니다. 검색은 몇 분 정도 걸릴 수 있으며 데이터베이스 수에 따라 달라 집니다. 완료 되 면 **닫기** 를 선택 합니다. 
+
+   ![컬렉션 요약 보고서](./media/oracle-to-sql-on-azure-vm-guide/collection-summary-report.png)
+
+
 1. Oracle 평가 및 데이터베이스 세부 정보에 대 한 보고서를 생성 하는 **옵션** 을 선택 합니다. 두 옵션 (하나씩)을 선택 하 여 보고서를 생성 합니다.
 
 
@@ -68,8 +101,20 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 1. [Oracle 용 SSMA (SQL Server Migration Assistant)](https://www.microsoft.com/en-us/download/details.aspx?id=54258)를 엽니다. 
 1. **파일** 을 선택한 다음, **새 프로젝트** 를 선택합니다. 
 1. 프로젝트 이름과 프로젝트를 저장할 위치를 입력한 다음, 드롭다운에서 SQL Server 마이그레이션 대상을 선택합니다. **확인** 을 선택합니다. 
-1. Oracle **에 연결** 대화 상자에서 oracle 연결 정보에 대 한 값을 입력 합니다.
+
+   ![새 프로젝트](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
+
+1. **Oracle에 연결을** 선택 합니다. Oracle **에 연결** 대화 상자에서 oracle 연결 정보에 대 한 값을 입력 합니다.
+
+   ![Oracle에 연결](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
+
+   마이그레이션할 Oracle 스키마를 선택 합니다. 
+
+   ![Oracle 스키마 선택](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
+
 1. **Oracle 메타 데이터 탐색기** 에서 마이그레이션할 oracle 스키마를 마우스 오른쪽 단추로 클릭 한 다음 **보고서 만들기** 를 선택 합니다. 그러면 HTML 보고서가 생성됩니다. 또는 데이터베이스를 선택한 후 탐색 모음에서 **보고서 만들기** 를 선택할 수 있습니다.
+
+   ![보고서 만들기](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
 1. **Oracle 메타 데이터 탐색기** 에서 oracle 스키마를 선택한 다음 **보고서 만들기** 를 선택 하 여 변환 통계 및 오류/경고 (있는 경우)가 포함 된 HTML 보고서를 생성 합니다.
 1. 오류 및 경고 뿐만 아니라 변환 통계에 대 한 HTML 보고서를 검토 합니다. 분석 하 여 변환 문제 및 해결 방법을 파악 합니다.
@@ -80,6 +125,9 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 
     그런 다음 Excel에서 열어 Oracle 개체의 인벤토리 및 스키마 변환을 수행 하는 데 필요한 작업을 가져옵니다.
 
+   ![변환 보고서](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
+
+
 
 ### <a name="validate-data-types"></a>데이터 형식의 유효성 검사
 
@@ -88,6 +136,9 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 1. 메뉴에서 **도구** 를 선택합니다. 
 1. **프로젝트 설정** 을 선택합니다. 
 1. **형식 매핑** 탭을 선택합니다. 
+
+   ![형식 매핑](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
+
 1. **Oracle 메타 데이터 탐색기** 에서 테이블을 선택 하 여 각 테이블에 대 한 형식 매핑을 변경할 수 있습니다. 
 
 
@@ -98,8 +149,20 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 
 1. 필드 동적 또는 임시 쿼리를 변환 하려면 노드를 마우스 오른쪽 단추로 클릭 하 고 **문 추가** 를 선택 합니다.
 1. 맨 위 줄 탐색 모음에서 **SQL Server에 연결을** 선택 하 고 Azure VM에서 SQL Server에 대 한 연결 정보를 제공 합니다. 기존 데이터베이스에 연결 하거나 새 이름을 제공 하도록 선택할 수 있습니다 .이 경우 대상 서버에 데이터베이스가 생성 됩니다.
-1. 스키마를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다.
+
+   ![SQL에 연결](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
+
+1. **Oracle 메타 데이터 탐색기** 에서 oracle 스키마를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다.
+
+   ![스키마 변환](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
+
 1. 스키마의 변환이 완료 된 후 스키마의 구조를 비교 하 고 검토 하 여 잠재적인 문제를 식별 합니다.
+
+   ![권장 사항 검토](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
+
+   변환 된 Transact-sql 텍스트를 원래 저장 프로시저와 비교 하 고 권장 사항을 검토 합니다. 
+
+   ![권장 사항 코드 검토](./media/oracle-to-sql-on-azure-vm-guide/procedure-comparison.png)
 
    오프 라인 스키마 재구성 연습을 위해 프로젝트를 로컬로 저장할 수 있습니다. 이렇게 하려면 **파일** 메뉴에서 **프로젝트 저장** 을 선택 합니다. 이를 통해 원본 및 대상 스키마를 오프 라인으로 평가 하 고, 스키마를 SQL Server에 게시 하기 전에 수정을 수행할 수 있습니다.
 
@@ -112,10 +175,28 @@ Oracle 스키마를 Azure VM에서 SQL Server로 마이그레이션하려면 다
 스키마를 게시 하 고 데이터를 마이그레이션하려면 다음 단계를 수행 합니다. 
 
 1. **SQL Server 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스와 동기화** 를 선택 합니다. 이 작업을 수행 하면 Oracle 스키마가 Azure VM의 SQL Server에 게시 됩니다. 
+
+   ![데이터베이스와 동기화](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
+
+   동기화 상태를 검토 합니다. 
+
+   ![동기화 상태 검토](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
+
+
 1. **Oracle 메타 데이터 탐색기** 에서 oracle 스키마를 마우스 오른쪽 단추로 클릭 하 고 **데이터 마이그레이션** 을 선택 합니다. 또는 최상위 탐색에서 데이터 마이그레이션을 선택할 수도 있습니다.
+
+   ![데이터 마이그레이션](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
+
 1. 대화 상자에서 Azure VM의 Oracle 및 SQL Server에 대 한 연결 정보를 제공 합니다.
 1. 마이그레이션이 완료 되 면 데이터 마이그레이션 보고서를 확인 합니다.
+
+    ![데이터 마이그레이션 보고서](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
+
 1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 Azure VM에서 SQL Server에 연결 하 여 SQL Server 인스턴스의 데이터 및 스키마를 검토 합니다. 
+
+   ![SSMA에서 유효성 검사](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
+
+
 
 
 SSMA를 사용 하는 것 외에도 SSIS (SQL Server Integration Services)를 사용 하 여 데이터를 마이그레이션할 수 있습니다. 자세한 내용은 다음을 참조하세요. 
@@ -164,7 +245,7 @@ SSMA를 사용 하는 것 외에도 SSIS (SQL Server Integration Services)를 �
 | [Oracle 인벤토리 스크립트 아티팩트](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | 이 자산에는 Oracle 시스템 테이블에 도달 하 고 스키마 유형, 개체 유형 및 상태별로 개체 수를 제공 하는 PL/SQL 쿼리가 포함 됩니다. 또한 각 스키마에서 ' 원시 데이터 '의 대략적인 추정치를 제공 하 고 결과를 CSV 형식으로 저장 하 여 각 스키마의 테이블 크기를 조정 합니다.                                                                                                               |
 | [SSMA Oracle 평가 수집 & 통합 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | 이 리소스 집합은 .csv 파일을 항목으로 사용 하 여 (프로젝트 폴더에 sources.csv) 콘솔 모드에서 SSMA 평가를 실행 하는 데 필요한 xml 파일을 생성 합니다. source.csv는 기존 Oracle 인스턴스의 인벤토리에 기반 하 여 고객에 의해 제공 됩니다. 출력 파일은 AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml 및 VariableValueFile.xml입니다.|
 | [Oracle의 일반적인 오류 및 해결 방법에 대 한 SSMA](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Oracle을 사용 하면 WHERE 절에 비-스칼라 조건을 할당할 수 있습니다. 그러나 SQL Server이 유형의 조건을 지원 하지 않습니다. 따라서 Oracle의 SSMA (SQL Server Migration Assistant)는 WHERE 절에서 비 스칼라 조건으로 쿼리를 변환 하지 않고 대신 오류 O2SS0001를 생성 합니다. 이 백서에서는 문제 및 해결 방법에 대 한 자세한 정보를 제공 합니다.          |
-| [Oracle to SQL Server Migration 안내서](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | 이 문서에서는 Oracle 스키마를 최신 버전의 SQL Serverbase로 마이그레이션하는 작업과 관련 된 작업에 대해 중점적으로 설명 합니다. 마이그레이션에 기능/기능을 변경 해야 하는 경우 데이터베이스를 사용 하는 응용 프로그램의 각 변경에 따른 영향을 신중 하 게 고려해 야 합니다.                                                     |
+| [Oracle to SQL Server Migration 안내서](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | 이 문서에서는 Oracle 스키마를 최신 버전의 SQL Server로 마이그레이션하는 작업과 관련 된 작업에 대해 중점적으로 설명 합니다. 마이그레이션에 기능/기능을 변경 해야 하는 경우 데이터베이스를 사용 하는 응용 프로그램의 각 변경에 따른 영향을 신중 하 게 고려해 야 합니다.                                                     |
 
 위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
 

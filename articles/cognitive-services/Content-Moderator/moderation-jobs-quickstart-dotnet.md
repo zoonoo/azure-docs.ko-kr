@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec101786f33aa6f2525d685993d6b6c891ab2e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936319"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>중재 작업 정의 및 사용 (.NET)
@@ -41,7 +41,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 ## <a name="define-a-custom-moderation-workflow"></a>사용자 지정 조정 워크플로 정의
 
-중재 작업은 API를 사용하여 콘텐츠를 검사하고 **워크플로**를 사용하여 검토를 만들지 여부를 결정합니다.
+중재 작업은 API를 사용하여 콘텐츠를 검사하고 **워크플로** 를 사용하여 검토를 만들지 여부를 결정합니다.
 검토 도구에는 기본 워크플로가 포함되지만, 이 빠른 시작에서는 [사용자 지정 워크플로를 정의](Review-Tool-User-Guide/Workflows.md)해보겠습니다.
 
 조정 작업을 시작하는 코드에서 워크플로의 이름을 사용합니다.
@@ -50,7 +50,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 1. 솔루션에 새 **콘솔 앱(.NET Framework)** 프로젝트를 추가합니다.
 
-   샘플 코드에서 프로젝트의 이름을 **CreateReviews**로 지정합니다.
+   샘플 코드에서 프로젝트의 이름을 **CreateReviews** 로 지정합니다.
 
 1. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
 
@@ -126,7 +126,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
 
 > [!NOTE]
 > TeamName 상수를 Content Moderator 구독을 만들 때 사용한 이름으로 설정합니다. Content Moderator 웹 사이트에서 TeamName을 검색합니다.
-> 로그인하면 **설정**(톱니 모양) 메뉴에서 **자격 증명**을 선택합니다.
+> 로그인하면 **설정**(톱니 모양) 메뉴에서 **자격 증명** 을 선택합니다.
 >
 > 팀 이름은 **API** 섹션에서 **Id** 필드의 값입니다.
 
@@ -176,7 +176,7 @@ private const string CallbackEndpoint = "";
 ## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>자동 조정에 코드 추가, 검토 만들기 및 작업 세부 정보 가져오기
 
 > [!Note]
-> 실제로 콜백 URL **CallbackEndpoint**를 수동 검토의 결과를 받는(HTTP POST 요청을 통해) URL로 설정합니다.
+> 실제로 콜백 URL **CallbackEndpoint** 를 수동 검토의 결과를 받는(HTTP POST 요청을 통해) URL로 설정합니다.
 
 **Main** 메서드에 다음 코드를 추가하여 시작합니다.
 

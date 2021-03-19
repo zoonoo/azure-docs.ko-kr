@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75864182"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
 
 이러한 연습은 예측 분석을 수행하는 데 Azure Data Lake와 함께 U-SQL을 사용합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. Azure Data Lake에 대한 소개는 [Azure Data Lake Store 개요](../../data-lake-store/data-lake-store-overview.md)를 참조하세요.
 
-Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사용하는 **플랫폼**에 따라 그룹화됩니다. 이러한 예제의 항목 목록은 [Team Data Science Process 실행 연습](walkthroughs.md)을 참조하세요.
+Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사용하는 **플랫폼** 에 따라 그룹화됩니다. 이러한 예제의 항목 목록은 [Team Data Science Process 실행 연습](walkthroughs.md)을 참조하세요.
 
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Azure Data Lake와 함께 U-SQL을 사용하여 택시 팁 예측

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935792"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Azure Cognitive Search의 OData 전체 텍스트 `search.ismatch` 검색 기능 `search.ismatchscoring`
@@ -69,7 +69,7 @@ search_mode ::= "'any'" | "'all'"
 
 매개 변수는 다음 표에 정의 되어 있습니다.
 
-| 매개 변수 이름 | 형식 | 설명 |
+| 매개 변수 이름 | Type | 설명 |
 | --- | --- | --- |
 | `search` | `Edm.String` | [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) Lucene 쿼리 구문에서 검색 쿼리입니다. |
 | `searchFields` | `Edm.String` | 검색할 검색 가능한 필드의 쉼표로 구분 된 목록입니다. 인덱스의 모든 검색 가능 필드를 기본값으로 설정 합니다. 매개 변수에서 [필드 지정 search](query-lucene-syntax.md#bkmk_fields) 를 사용 하는 경우 `search` Lucene 쿼리의 필드 지정자는이 매개 변수에 지정 된 모든 필드를 재정의 합니다. |
@@ -94,7 +94,7 @@ search_mode ::= "'any'" | "'all'"
 
 `search.ismatch` `search.ismatchscoring` 동일한 필터 식에 및 함수를 모두 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 "waterfront" 단어를 포함하는 문서를 찾습니다. 이 필터 쿼리는 `search=waterfront`를 사용한 [검색 요청](/rest/api/searchservice/search-documents)과 동일합니다.
 

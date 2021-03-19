@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271844"
 ---
 # <a name="retrieve-a-specific-offer"></a>특정 제안 검색
@@ -41,7 +41,7 @@ ms.locfileid: "87271844"
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId입니다. 예: Contoso                                                        | String        |
 | offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
-| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | Integer       |
+| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
 | api-version | 최신 버전 API                                                                    | 날짜          |
 |  |  |  |
@@ -202,5 +202,5 @@ ms.locfileid: "87271844"
 |  실행 중                    | 제안 제출을 처리 중입니다.          |
 |  성공                  | 제안 제출 처리를 완료했습니다.    |
 |  취소됨                   | 제안 제출이 취소되었습니다.                |
-|  Failed                     | 제안 제출에 실패했습니다.                      |
+|  실패                     | 제안 제출에 실패했습니다.                      |
 |  |  |

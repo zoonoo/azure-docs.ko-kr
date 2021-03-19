@@ -4,17 +4,17 @@ description: Azure Portal 사용 하 여 Docker 컨테이너 이미지 및 지�
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74456284"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure Portal의 컨테이너 레지스트리 리포지토리 보기
 
 Azure Container Registry를 통해 리포지토리에 Docker 컨테이너 이미지를 저장할 수 있습니다. 리포지토리에 이미지를 저장하면 격리된 환경에 이미지 그룹(또는 이미지 버전)을 저장할 수 있습니다. 이미지를 레지스트리에 푸시할 때 이러한 리포지토리를 지정하고, Azure Portal에서 해당 콘텐츠를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **컨테이너 레지스트리**: Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI**: 로컬 컴퓨터에 Docker 명령줄 인터페이스를 제공하는 [Docker][docker-install]를 설치합니다.
@@ -35,8 +35,8 @@ docker push myregistry.azurecr.io/samples/nginx
 리포지토리를 보려면
 
 1. [Azure 포털][portal]
-1. Nginx 이미지를 밀어 넣은 **Azure Container Registry**를 선택합니다.
-1. **리포지토리**를 선택하여 레지스트리의 이미지를 포함하는 리포지토리 목록을 확인합니다.
+1. Nginx 이미지를 밀어 넣은 **Azure Container Registry** 를 선택합니다.
+1. **리포지토리** 를 선택하여 레지스트리의 이미지를 포함하는 리포지토리 목록을 확인합니다.
 1. 리포지토리를 선택하여 해당 리포지토리 내의 이미지 태그를 확인합니다.
 
 예를 들어, [이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)에 지시된 대로 Nginx 이미지를 밀어 넣은 경우 다음과 유사한 결과가 표시됩니다.

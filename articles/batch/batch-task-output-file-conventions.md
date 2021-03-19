@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 1a45eed421dd8d734fcef0dd452df1d4a65fd053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936965"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
@@ -47,7 +47,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 파일 규칙 라이브러리를 사용하여 Azure Storage에 출력 데이터를 유지하려면 먼저 Azure Storage 계정을 Batch 계정에 연결해야 합니다. 아직 연결하지 않은 경우 [Azure Portal](https://portal.azure.com)을 사용하여 Storage 계정을 Batch 계정에 연결합니다.
 
 1. Azure Portal에서 Batch 계정으로 이동합니다.
-1. **설정**에서 **Storage 계정**을 선택합니다.
+1. **설정** 에서 **Storage 계정** 을 선택합니다.
 1. Batch 계정과 연결된 Storage 계정이 아직 없으면 **Storage 계정(없음)** 을 클릭합니다.
 1. 구독 목록에서 Storage 계정을 선택합니다. 최상의 성능을 위해 태스크가 실행되는 Batch 계정과 동일한 지역에 있는 Azure Storage 계정을 사용합니다.
 
@@ -156,7 +156,7 @@ using (ITrackedSaveOperation stdout =
 노드 에이전트는 풀의 각 노드에서 실행되고 노드와 Batch 서비스 간에 명령 및 컨트롤 인터페이스를 제공하는 프로그램입니다. 노드 에이전트에서 표준 출력의 내용을 노드의 stdout.txt 파일로 플러시할 시간을 갖도록 하려면 이 `using` 블록의 끝에 `Task.Delay` 호출이 필요합니다. 이 지연 시간이 없다면 마지막 몇 초의 출력을 놓칠 수 있습니다. 이 지연 시간은 일부 파일에만 필요할 수 있습니다.
 
 > [!NOTE]
-> **SaveTrackedAsync**를 통해 파일 추적을 사용하도록 설정하면 추적된 파일의 *추가 항목*만 Azure Storage에 유지됩니다. 이 메서드는 회전하지 않는 로그 파일 또는 파일 끝에 추가 작업으로 기록된 다른 파일을 추적하는 데에만 사용합니다.
+> **SaveTrackedAsync** 를 통해 파일 추적을 사용하도록 설정하면 추적된 파일의 *추가 항목* 만 Azure Storage에 유지됩니다. 이 메서드는 회전하지 않는 로그 파일 또는 파일 끝에 추가 작업으로 기록된 다른 파일을 추적하는 데에만 사용합니다.
 
 ## <a name="retrieve-output-data"></a>출력 데이터 검색
 
@@ -189,7 +189,7 @@ Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azur
 1. Batch 계정에 Azure Storage 계정을 연결합니다.
 1. 출력을 보관할 때 스토리지 컨테이너 및 파일에 대한 미리 정의된 명명 규칙을 따릅니다. [추가 정보][github_file_conventions_readme] 파일 규칙 라이브러리에서 이러한 규칙에 대한 정의를 찾을 수 있습니다. [Azure Batch 파일 규칙][nuget_package] 라이브러리를 사용하여 출력을 유지하면 파일이 파일 규칙 표준에 따라 유지됩니다.
 
-Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 출력의 태스크로 이동한 다음 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.
+Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 출력의 태스크로 이동한 다음 **저장된 출력 파일** 또는 **저장된 로그** 를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.
 
 ![Azure Portal의 태스크 출력 블레이드][2]
 
@@ -197,12 +197,12 @@ Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 
 
 [PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션은 Azure Batch 파일 규칙 라이브러리를 사용하여 영구 스토리지에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
-1. **Visual Studio 2019**에서 프로젝트를 엽니다.
-2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
+1. **Visual Studio 2019** 에서 프로젝트를 엽니다.
+2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명** 을 **AccountSettings.settings** 에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
-4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
+4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지** 를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
 5. **PersistOutputs** 프로젝트를 **시작**(실행)합니다.
-6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 파일 규칙 라이브러리를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **1**을 입력합니다. 
+6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 파일 규칙 라이브러리를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **1** 을 입력합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

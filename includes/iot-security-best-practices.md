@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72793113"
 ---
 IoT(사물 인터넷) 인프라를 보호하려면 엄격한 보안 심층 전략이 필요합니다. 이 전략을 위해서는 클라우드의 데이터를 보호하고, 공용 인터넷을 통해 전송되는 데이터의 무결성을 보호하고, 디바이스를 안전하게 프로비전해야 합니다. 각 계층은 전체 인프라에서 보다 강력한 보안 보증을 빌드합니다.
@@ -59,7 +59,7 @@ IoT 하드웨어 제조업체 및 하드웨어 통합업체를 위한 모범 사
 
 * **안전하게 하드웨어 배포**: IoT를 배포할 때 공공 장소나 감독되지 않는 현장처럼 안전하지 않은 위치에 하드웨어를 배포해야 할 수도 있습니다. 이러한 상황에서는 하드웨어 배포 시 변조 방지 기능을 최대 한도로 높여야 합니다. USB 또는 기타 포트가 하드웨어에 제공되는 경우 안전하게 보호해야 합니다. 많은 공격 벡터가 이러한 것들을 진입점으로 사용할 수 있습니다.
 
-* **인증 키를 안전**하 게 유지: 배포 하는 동안 각 장치에는 클라우드 서비스에 의해 생성 된 장치 id 및 연결 된 인증 키가 필요 합니다. 배포 후에도 이러한 키를 물리적으로 안전하게 보관해야 합니다. 손상된 키는 악의적인 디바이스에서 기존 디바이스로 위장하는 데 사용될 수 있습니다.
+* **인증 키를 안전** 하 게 유지: 배포 하는 동안 각 장치에는 클라우드 서비스에 의해 생성 된 장치 id 및 연결 된 인증 키가 필요 합니다. 배포 후에도 이러한 키를 물리적으로 안전하게 보관해야 합니다. 손상된 키는 악의적인 디바이스에서 기존 디바이스로 위장하는 데 사용될 수 있습니다.
 
 ## <a name="iot-solution-operator"></a>IoT 솔루션 운영자
 

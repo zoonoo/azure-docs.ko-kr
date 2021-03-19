@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935214"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 데이터 가져오기 마법사
@@ -79,7 +79,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 |--------|-------------|
 | [데이터 원본](/rest/api/searchservice/create-data-source)  | 자격 증명을 포함 하 여 원본 데이터에 대 한 연결 정보를 유지 합니다. 데이터 원본 개체는 인덱서에 독점적으로 사용 됩니다. | 
 | [Index](/rest/api/searchservice/create-index) | 전체 텍스트 검색 및 기타 쿼리에 사용 되는 실제 데이터 구조입니다. | 
-| [기술 집합](/rest/api/searchservice/create-skillset) | 이미지 파일의 정보를 분석 하 고 추출 하는 것을 포함 하 여 콘텐츠를 조작, 변형 및 셰이핑 하기 위한 전체 지침을 포함 합니다. 매우 간단 하 고 제한 된 구조체를 제외 하 고 보강를 제공 하는 Cognitive Services 리소스에 대 한 참조를 포함 합니다. 필요에 따라 기술 자료 저장소 정의가 포함 될 수도 있습니다.  | 
+| [기술](/rest/api/searchservice/create-skillset) | 이미지 파일의 정보를 분석 하 고 추출 하는 것을 포함 하 여 콘텐츠를 조작, 변형 및 셰이핑 하기 위한 전체 지침을 포함 합니다. 매우 간단 하 고 제한 된 구조체를 제외 하 고 보강를 제공 하는 Cognitive Services 리소스에 대 한 참조를 포함 합니다. 필요에 따라 기술 자료 저장소 정의가 포함 될 수도 있습니다.  | 
 | [인덱서](/rest/api/searchservice/create-indexer)  | 오류 처리 및 64 인코딩에 대 한 데이터 원본, 대상 인덱스, 선택적 기술, 선택적 일정 및 선택적 구성 설정을 지정 하는 구성 개체입니다. |
 
 
@@ -89,7 +89,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
 1. [Azure Portal](https://portal.azure.com)의 대시보드에서 검색 서비스 페이지를 열거나 서비스 목록에서 [서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-2. 맨 위에 있는 서비스 개요 페이지에서 **데이터 가져오기**를 클릭합니다.
+2. 맨 위에 있는 서비스 개요 페이지에서 **데이터 가져오기** 를 클릭합니다.
 
    ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
@@ -105,25 +105,25 @@ Azure Cosmos DB, Azure SQL Database, SQL Managed Instance 및 Azure Blob storage
 
 1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Cognitive Search는 [EDM (엔터티 데이터 모델) 데이터 형식을](/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
 
-1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우이 될 수 있습니다 `metadata-storage-path` . 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
+1. *키* 로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우이 될 수 있습니다 `metadata-storage-path` . 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션** 의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
 
 1. 특성을 설정 하 여 인덱스에서 필드가 사용 되는 방법을 결정 합니다. 
 
    특성은 인덱스의 필드에 대 한 물리적 식을 결정 하기 때문에이 단계를 수행 합니다. 나중에 프로그래밍 방식으로 특성을 변경 하려는 경우에는 항상 인덱스를 삭제 하 고 다시 작성 해야 합니다. **검색** 가능 하 고 **검색할** 수 있는 것과 같은 핵심 특성은 [저장소에 미치는 영향을 무시](search-what-is-an-index.md#index-size)합니다. 필터를 사용 하도록 설정 하 고 확인 기를 사용 하면 저장소 요구 사항이 증가 합니다. 
    
-   + **검색 가능은** 전체 텍스트 검색을 가능 하 게 합니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능**으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
+   + **검색 가능은** 전체 텍스트 검색을 가능 하 게 합니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능** 으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
 
    + 검색 가능은 검색 결과의 필드 **를 반환 합니다** . 검색 결과에 콘텐츠를 제공하는 모든 필드에는 이 특성이 있어야 합니다. 이 필드를 설정해도 인덱스 크기는 두드러지게 영향을 받지 않습니다.
 
    + 필터링 가능을 사용 하면 필드를 필터 식에서 **참조할 수 있습니다** . **$filter** 식에 사용되는 모든 필드는 이 특성이 있어야 합니다. 필터 식은 정확한 일치를 위한 것입니다. 텍스트 문자열은 그대로 유지되므로 축자 콘텐츠를 포함하기 위한 추가 스토리지가 필요합니다.
 
-   + **패싯 가능** 는 패싯 탐색에 대해 필드를 사용 하도록 설정 합니다. **필터링 가능**으로도 표시되는 필드만 **패싯 가능**으로 표시될 수 있습니다.
+   + **패싯 가능** 는 패싯 탐색에 대해 필드를 사용 하도록 설정 합니다. **필터링 가능** 으로도 표시되는 필드만 **패싯 가능** 으로 표시될 수 있습니다.
 
    + **정렬 가능** -정렬에 필드를 사용할 수 있습니다. **$Orderby** 식에 사용되는 모든 필드는 이 특성이 있어야 합니다.
 
-1. [어휘 분석이](search-lucene-query-architecture.md#stage-2-lexical-analysis)필요 한가요? **검색 가능한**Edm의 경우 언어에 대 한 인덱싱 및 쿼리를 원하는 경우 **분석기** 를 설정할 수 있습니다. 
+1. [어휘 분석이](search-lucene-query-architecture.md#stage-2-lexical-analysis)필요 한가요? **검색 가능한** Edm의 경우 언어에 대 한 인덱싱 및 쿼리를 원하는 경우 **분석기** 를 설정할 수 있습니다. 
 
-   기본값은 표준 Lucene이지만 불규칙한 명사 및 동사 형태를 확인하는 것과 같은 고급 어휘 처리에 Microsoft의 분석기를 사용하려는 경우 Microsoft 영어를 선택할 수도 있습니다.**** 포털에는 언어 분석기만 지정할 수 있습니다. 사용자 지정 분석기 또는 키워드, 패턴 등과 같은 언어 이외의 분석기를 사용 하 여 프로그래밍 방식으로 수행 해야 합니다. 분석기에 대 한 자세한 내용은 [언어 분석기 추가](search-language-support.md)를 참조 하세요.
+   기본값은 표준 Lucene이지만 불규칙한 명사 및 동사 형태를 확인하는 것과 같은 고급 어휘 처리에 Microsoft의 분석기를 사용하려는 경우 Microsoft 영어를 선택할 수도 있습니다. 포털에는 언어 분석기만 지정할 수 있습니다. 사용자 지정 분석기 또는 키워드, 패턴 등과 같은 언어 이외의 분석기를 사용 하 여 프로그래밍 방식으로 수행 해야 합니다. 분석기에 대 한 자세한 내용은 [언어 분석기 추가](search-language-support.md)를 참조 하세요.
 
 1. 자동 완성 또는 제안 된 결과 형식의 형식 미리 기능이 필요 한가요? **확인 기** 을 선택 하 여 선택한 필드에 대해 [미리 쿼리 제안 및 자동 완성](index-add-suggesters.md) 기능을 사용 하도록 설정 합니다. 확인 기는 인덱스에서 토큰화 된 용어 수에 추가 하므로 더 많은 저장소를 사용 합니다.
 
