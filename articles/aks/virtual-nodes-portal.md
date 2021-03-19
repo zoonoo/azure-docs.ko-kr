@@ -3,14 +3,14 @@ title: AKS(Azure Kubernetes Service)에서 포털을 사용하여 가상 노드 
 description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501807"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577831"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -54,15 +54,15 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 **기본** 페이지에서 다음 옵션을 구성합니다.
 
 - *프로젝트 세부 정보*: Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다.
-- *클러스터 세부 정보*: AKS 클러스터의 지역, Kubernetes 버전 및 DNS 이름 접두사를 선택합니다.
+- *클러스터 세부 정보*: AKS 클러스터에 대 한 지역 및 Kubernetes 버전을 선택 합니다.
 - *주 노드 풀*: AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
      - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
 
-**다음: 크기 조정** 을 클릭합니다.
+**다음: 노드 풀** 을 클릭 합니다.
 
-**크기 조정** 페이지의 **가상 노드** 에서 *사용* 을 선택합니다.
+**노드 풀** 페이지에서 *가상 노드 사용* 을 선택 합니다.
 
-![AKS 클러스터를 만들고 가상 노드를 사용하도록 설정](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="브라우저에서 Azure Portal에서 사용 하도록 설정 된 가상 노드를 사용 하 여 클러스터를 만드는 방법을 보여 줍니다. ' 가상 노드 사용 ' 옵션이 강조 표시 됩니다.":::
 
 기본적으로 클러스터 id가 만들어집니다. 이 클러스터 id는 클러스터 통신 및 다른 Azure 서비스와의 통합에 사용 됩니다. 기본적으로이 클러스터 id는 관리 되는 id입니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 또한 서비스 주체를 클러스터 id로 사용할 수 있습니다.
 
@@ -158,7 +158,7 @@ Pod에는 가상 노드에 사용하도록 위임된 Azure 가상 네트워크 �
 가상 노드에서 실행되는 Pod를 테스트하려면 웹 클라이언트를 사용하여 데모 애플리케이션으로 이동합니다. Pod에는 내부 IP 주소가 할당되므로 AKS 클러스터의 다른 Pod에서 이 연결을 신속하게 테스트할 수 있습니다. 테스트 Pod를 만들고 여기에 터미널 세션을 연결합니다.
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 `apt-get`을 사용하여 Pod에 `curl`을 설치합니다.

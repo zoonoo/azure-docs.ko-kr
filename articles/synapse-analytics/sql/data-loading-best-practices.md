@@ -2,21 +2,21 @@
 title: 데이터 로드 모범 사례
 description: 전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3c8c34cc3e23306f1d024cfa36b40c7975caa8c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 33212d44fcb6be3f01cf968d00751d55e3bd7b8f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585454"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀로 데이터를 로드 하는 모범 사례 Azure Synapse Analytics
 

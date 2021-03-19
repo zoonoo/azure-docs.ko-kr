@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
 ms.openlocfilehash: 1a1cb7661ae01dd89d45afe004978813ac90eaff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905300"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>다중 클래스 향상된 의사 결정 트리
@@ -58,9 +58,9 @@ ms.locfileid: "90905300"
 
 1. 모델 학습:
 
-    + 담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우 태그가 지정 된 데이터 집합 및 [모델 학습](train-model.md) 모듈을 연결 합니다.  
+    + 담당자 **모드 만들기** 를 **단일 매개 변수로** 설정한 경우 태그가 지정 된 데이터 집합 및 [모델 학습](train-model.md) 모듈을 연결 합니다.  
   
-    + **만든이 모드** 를 **매개 변수 범위**로 설정 하는 경우에는 태그가 지정 된 데이터 집합을 연결 하 고 [모델 모델링 hyperparameters](tune-model-hyperparameters.md)를 사용 하 여 모델을 학습 합니다.  
+    + **만든이 모드** 를 **매개 변수 범위** 로 설정 하는 경우에는 태그가 지정 된 데이터 집합을 연결 하 고 [모델 모델링 hyperparameters](tune-model-hyperparameters.md)를 사용 하 여 모델을 학습 합니다.  
   
     > [!NOTE]
     > 

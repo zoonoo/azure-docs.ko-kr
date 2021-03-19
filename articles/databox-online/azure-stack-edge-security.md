@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b5c5143c7bc92487aeabc3cdc1afea5061466027
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90903157"
 ---
 # <a name="azure-stack-edge-pro-security-and-data-protection"></a>Azure Stack Edge Pro 보안 및 데이터 보호
@@ -23,8 +23,8 @@ ms.locfileid: "90903157"
 
 Azure Stack Edge Pro는 서로 상호 작용 하는 네 가지 주요 구성 요소로 구성 됩니다.
 
-- **Azure에서 호스트 되는 Azure Stack Edge 서비스**입니다. 장치 순서를 만들고 장치를 구성한 다음 완료에 대 한 순서를 추적 하는 데 사용 하는 관리 리소스입니다.
-- **Edge Pro 장치를 Azure Stack**합니다. 온-프레미스 데이터를 Azure로 가져올 수 있도록 사용자에 게 제공 되는 전송 장치입니다.
+- **Azure에서 호스트 되는 Azure Stack Edge 서비스** 입니다. 장치 순서를 만들고 장치를 구성한 다음 완료에 대 한 순서를 추적 하는 데 사용 하는 관리 리소스입니다.
+- **Edge Pro 장치를 Azure Stack** 합니다. 온-프레미스 데이터를 Azure로 가져올 수 있도록 사용자에 게 제공 되는 전송 장치입니다.
 - **장치에 연결 된 클라이언트/호스트**. Azure Stack Edge Pro 장치에 연결 하 고 보호 해야 하는 데이터를 포함 하는 인프라의 클라이언트입니다.
 - **클라우드 저장소**. Azure cloud platform에서 데이터가 저장 되는 위치입니다. 이 위치는 일반적으로 사용자가 만드는 Azure Stack Edge 리소스에 연결 된 저장소 계정입니다.
 
@@ -56,7 +56,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 합니다. Azure Stack Edge Pro 장치는 잠긴 상태에서 부팅 됩니다.
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 브라우저를 통해 장치의 로컬 웹 UI에 연결 하 고 장치에 로그인 하는 데 암호를 제공 합니다.
 - HTTP를 통해 장치 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리는 기본적으로 설정 되어 있습니다. 그런 다음 장치 암호를 제공 하 여 장치에 로그인 할 수 있습니다. 자세한 내용은 [Azure Stack Edge Pro 장치에 원격으로 연결](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)을 참조 하세요.

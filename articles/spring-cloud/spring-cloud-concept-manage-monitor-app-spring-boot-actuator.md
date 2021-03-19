@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90904284"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
@@ -26,7 +26,7 @@ ms.locfileid: "90904284"
 ## <a name="verify-app-through-test-endpoint"></a>테스트 끝점을 통해 앱 확인
 1. **응용 프로그램 대시보드** 로 이동 하 고 앱을 클릭 하 여 앱 개요 페이지를 입력 합니다.
 
-1. **개요** 창에 **테스트 끝점이**표시 됩니다.  명령줄 또는 브라우저에서이 끝점에 액세스 하 고 API 응답을 관찰 합니다.
+1. **개요** 창에 **테스트 끝점이** 표시 됩니다.  명령줄 또는 브라우저에서이 끝점에 액세스 하 고 API 응답을 관찰 합니다.
 
 1. 들어오는 섹션에서 사용할 **테스트 끝점** URI를 확인 합니다.
 

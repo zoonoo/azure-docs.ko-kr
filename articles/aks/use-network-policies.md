@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책을 사용하여 pod 안팎으로 흐르는 트래픽을 보호하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178901"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577855"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -181,9 +181,13 @@ Windows 노드를 사용 하는 calico 네트워킹 정책은 현재 미리 보�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+클러스터에서 Windows Server 컨테이너에 대 한 관리자 자격 증명으로 사용할 사용자 이름을 만듭니다. 다음 명령은 사용자 이름을 묻는 메시지를 표시 하 고 나중에 사용할 수 있도록 WINDOWS_USERNAME 설정 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,8 +199,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>pod에 대한 모든 인바운드 트래픽 거부
 
-특정 네트워크 트래픽을 허용하는 규칙을 정의하기 전에 먼저 모든 트래픽을 거부하는 네트워크 정책을 만듭니다. 이 정책은 원하는 트래픽에 대한 허용 목록을 만들기 위한 시작점을 제공합니다. 이 네트워크 정책을 적용하면 트래픽이 삭제되는 것을 명확하게 확인할 수 있습니다.
+특정 네트워크 트래픽을 허용하는 규칙을 정의하기 전에 먼저 모든 트래픽을 거부하는 네트워크 정책을 만듭니다. 이 정책은 원하는 트래픽에 대 한 allowlist 만들기 시작 하는 시작점을 제공 합니다. 이 네트워크 정책을 적용하면 트래픽이 삭제되는 것을 명확하게 확인할 수 있습니다.
 
 샘플 애플리케이션 환경 및 트래픽 규칙의 경우 *development* 라는 네임스페이스를 만들어 예제 pod를 실행하겠습니다.
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 NGINX를 실행하는 예제 백 엔드 pod를 만듭니다. 이 백 엔드 pod를 사용하여 샘플 백 엔드 웹 기반 애플리케이션을 시뮬레이트할 수 있습니다. *development* 네임스페이스에서 이 pod를 만들고 포트 *80* 을 열어 웹 트래픽을 처리합니다. 다음 섹션에서 네트워크 정책의 대상으로 지정할 수 있도록 pod에 *app=webapp,role=backend* 레이블을 지정합니다.
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 다른 pod를 만들고 터미널 세션을 연결하여 기본 NGINX 웹 페이지에 성공적으로 연결할 수 있는지 테스트합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 백 엔드 pod에서 NGINX 웹 페이지를 사용할 수 있는지 다시 확인해 보겠습니다. 다음과 같이 다른 테스트 Pod를 만들고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 이번에는 제한 시간 값을 *2* 초로 설정합니다. 이제 네트워크 정책은 모든 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 *app=webapp,role=frontend* 로 레이블이 지정된 pod를 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -383,7 +386,7 @@ exit
 네트워크 정책은 *app: webapp,role: frontend* 레이블이 지정된 pod의 트래픽을 허용하지만 다른 모든 트래픽을 거부합니다. 이러한 레이블이 없는 다른 pod가 백 엔드 NGINX pod에 액세스할 수 있는지 테스트해 보겠습니다. 다음과 같이 다른 테스트 Pod를 만들고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 네트워크 정책은 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 *app=webapp,role=frontend* 레이블이 지정된 *production* 네임스페이스에서 테스트 pod를 예약합니다. 다음과 같이 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 *production* 네임스페이스에서 다른 pod를 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 네트워크 정책이 트래픽을 거부하는 것을 확인합니다.
@@ -502,7 +505,7 @@ exit
 *production* 네임스페이스의 트래픽이 거부되므로, *development* 네임스페이스에서 테스트 pod를 다시 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 네트워크 정책이 트래픽을 허용하는 것을 확인합니다.

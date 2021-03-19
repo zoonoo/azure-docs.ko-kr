@@ -4,20 +4,20 @@ description: Synapse SQL용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: b70694011aa0467d8ca037ac309ffb0811c79c01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ab70ec4f7f2c313c2ae4efcc6d1ad994fbec8b03
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737951"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585573"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 

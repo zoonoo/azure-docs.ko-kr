@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039617"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586338"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Azure Monitor의 데이터 수집 규칙 (미리 보기)
 DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의 하 고 데이터를 보내거나 저장할 위치를 지정 합니다. 이 문서에서는 콘텐츠 및 구조를 포함 하는 데이터 수집 규칙의 개요와이를 만들고 사용 하는 방법을 설명 합니다.
@@ -76,11 +76,15 @@ DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 - Windows 이벤트
   - 1 분 마다 Windows 보안 이벤트 및 업로드를 수집 합니다.
   - Windows 응용 프로그램 및 시스템 이벤트를 수집 하 고 5 분 마다 업로드 합니다.
-- syslog
+- Syslog
   - Cron 기능에서 디버그, 중요 및 긴급 이벤트를 수집 합니다.
   - Syslog 기능에서 경고, 위험 및 긴급 이벤트를 수집 합니다.
 - 대상
   - CentralWorkspace 라는 Log Analytics 작업 영역에 모든 데이터를 보냅니다.
+
+> [!NOTE]
+> 데이터 수집 규칙에서 이벤트 수집을 지정 하는 데 사용 되는 Xpath에 대 한 설명은 [사용자 지정 XPath 쿼리를 사용 하 여 데이터 컬렉션 제한](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) 을 참조 하세요.
+
 
 ```json
 {

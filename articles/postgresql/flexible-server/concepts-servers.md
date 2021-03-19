@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 5cd4454d5b77d18940f6693a25a691a01f4fedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940385"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>서버-Azure Database for PostgreSQL-유연한 서버
@@ -71,5 +71,5 @@ Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres�
 ## <a name="next-steps"></a>다음 단계
 
 - 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
-- **구성**에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [Compute and Storage options](concepts-compute-storage.md)을 참조 하세요.
+- **구성** 에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [Compute and Storage options](concepts-compute-storage.md)을 참조 하세요.
 - [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수를 보고 편집합니다.

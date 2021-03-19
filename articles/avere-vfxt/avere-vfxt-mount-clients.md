@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272574"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 탑재
@@ -74,7 +74,7 @@ Mount 명령에는 세 가지 요소가 있습니다.
 
 ### <a name="junction-and-ip"></a>접합 및 IP
 
-vserver 경로는 *IP 주소*와 *네임스페이스 접합*에 대한 경로의 조합입니다. 네임스페이스 접합은 스토리지 시스템을 추가할 때 정의된 가상 경로입니다.
+vserver 경로는 *IP 주소* 와 *네임스페이스 접합* 에 대한 경로의 조합입니다. 네임스페이스 접합은 스토리지 시스템을 추가할 때 정의된 가상 경로입니다.
 
 클러스터가 Blob storage를 사용 하 여 만들어진 경우에는 해당 컨테이너에 대 한 네임 스페이스 경로가 `/msazure`
 

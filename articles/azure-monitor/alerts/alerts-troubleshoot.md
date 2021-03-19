@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037849"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586321"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -21,7 +21,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 경고가 발생할 때 발생 하거나 발생 하지 않는 문제가 발생 하는 경우 아래 문서를 참조 하세요. Azure Portal에서 "발생 된" 경고를 볼 수 있습니다.
 
 - [Microsoft Azure에서 메트릭 경고 Azure Monitor 문제 해결](alerts-troubleshoot-metric.md)  
-- [Microsoft Azure에서 Azure Monitor 로그 경고 문제 해결](alerts-troubleshoot-metric.md)
+- [Microsoft Azure에서 Azure Monitor 로그 경고 문제 해결](alerts-troubleshoot-log.md)
 
 Azure Portal에 따라 경고가 발생 하지만 적절 한 알림이 발생 하지 않는 경우이 문서의 나머지 부분에 있는 정보를 사용 하 여 문제를 해결 하십시오.
 

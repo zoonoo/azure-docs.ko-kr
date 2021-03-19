@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8a1a2d7f5272def78cd162da1f6ac0265d4fb30b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 66f11b7a5124f0b9b834b79368d57443ab33e850
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517739"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578348"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -40,10 +40,14 @@ ms.locfileid: "102517739"
 
 데스크톱 응용 프로그램에서 사용 하는 리디렉션 Uri는 사용 하려는 흐름에 따라 다릅니다.
 
-- 대화형 인증 또는 장치 코드 흐름을 사용 하는 경우를 사용 `https://login.microsoftonline.com/common/oauth2/nativeclient` 합니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션에서 해당 URL을 선택 합니다.
+Azure Portal에서 **앱 등록** 앱에 대 한 [플랫폼 설정을 구성](quickstart-register-app.md#add-a-redirect-uri) 하 여 앱에 대 한 리디렉션 URI를 지정 합니다.
+
+- 대화형 인증을 사용 하는 앱의 경우:
+  - 포함 된 브라우저를 사용 하는 앱: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  - 시스템 브라우저를 사용 하는 앱: `http://localhost`
 
   > [!IMPORTANT]
-  > 보안 모범 사례를 사용 하 여 리디렉션 URI를 사용 하는 것이 `https://login.microsoftonline.com/common/oauth2/nativeclient` 좋습니다.  리디렉션 URI를 지정 하지 않으면 MSAL.NET는 `urn:ietf:wg:oauth:2.0:oob` 기본적으로 사용 하지 않는 것이 좋습니다.  이 기본값은 다음 주요 릴리스의 주요 변경 내용으로 업데이트 됩니다.
+  > 보안 모범 사례에 따라 `https://login.microsoftonline.com/common/oauth2/nativeclient` 또는 `http://localhost` 를 리디렉션 URI로 명시적으로 설정 하는 것이 좋습니다. MSAL.NET와 같은 일부 인증 라이브러리는 `urn:ietf:wg:oauth:2.0:oob` 다른 리디렉션 URI가 지정 되지 않은 경우 기본값을 사용 합니다 .이는 권장 되지 않습니다. 이 기본값은 다음 주요 릴리스의 주요 변경 내용으로 업데이트 됩니다.
 
 - MacOS에 대 한 기본 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 하는 리디렉션 URI를 형식으로 등록 `msauth.<your.app.bundle.id>://auth` 합니다. `<your.app.bundle.id>`을 응용 프로그램의 번들 식별자로 바꿉니다.
 - 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.

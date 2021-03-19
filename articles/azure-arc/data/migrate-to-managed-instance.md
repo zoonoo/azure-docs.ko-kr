@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90939629"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>마이그레이션: Azure Arc 사용 SQL Managed Instance에 대 한 SQL Server
@@ -47,7 +47,7 @@ Azure Arc 사용 SQL Managed Instance로 마이그레이션하려면 Azure blob 
 
 1. **읽기**, **쓰기** 및 **목록** 선택
 
-1. **만들기**
+1. **만들기** 를 선택합니다.
 
    이 화면에서 URI 및 쿼리 문자열을 기록해 둡니다. 이러한 작업은 이후 단계에서 필요 합니다. **복사** 단추를 클릭 하 여 메모장/OneNote 등에 저장 합니다.
 
@@ -82,7 +82,7 @@ Azure Arc 사용 SQL Managed Instance로 마이그레이션하려면 Azure blob 
 ### <a name="step-4-restore-the-database-from-azure-blob-storage-to-sql-managed-instance---azure-arc"></a>4 단계: Azure blob storage에서 SQL Managed Instance로 데이터베이스 복원-Azure Arc
 
 1. Azure Data Studio에서 로그인 하 고 SQL Managed Instance-Azure Arc에 연결 합니다.
-1. **시스템 데이터베이스**를 확장 하 고 **master** 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **새 쿼리**를 선택 합니다.
+1. **시스템 데이터베이스** 를 확장 하 고 **master** 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **새 쿼리** 를 선택 합니다.
 1. 쿼리 편집기 창에서 이전 단계에서 동일한 쿼리를 준비 하 고 실행 하 여 자격 증명을 만듭니다.
 
    ```sql

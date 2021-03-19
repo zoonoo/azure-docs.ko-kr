@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561824"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584706"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -47,7 +47,7 @@ Out-of-process를 실행 하는 경우 .NET 함수는 다음과 같은 이점을
 + 파일 [에host.js](functions-host-json.md) 합니다.
 + 파일 [에local.settings.js](functions-run-local.md#local-settings-file) 합니다.
 + 프로젝트 및 종속성을 정의 하는 c # 프로젝트 파일 (.csproj)입니다.
-+ Program.cs 파일은 앱의 진입점입니다.
++ 응용 프로그램의 진입점인 Program .cs 파일입니다.
 
 ## <a name="package-references"></a>패키지 참조
 
@@ -68,7 +68,7 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 ## <a name="start-up-and-configuration"></a>시작 및 구성 
 
-.NET isolated 함수를 사용 하는 경우 함수 앱의 시작 (일반적으로 Program.cs)에 액세스할 수 있습니다. 사용자는 자신의 호스트 인스턴스를 만들고 시작 해야 합니다. 따라서 앱에 대 한 구성 파이프라인에 직접 액세스할 수도 있습니다. Out-of-process를 실행할 때 종속성을 훨씬 더 쉽게 주입 하 고 미들웨어를 실행할 수 있습니다. 
+.NET isolated 함수를 사용 하는 경우 함수 앱의 시작에 액세스할 수 있습니다 .이는 일반적으로 Program .cs에 있습니다. 사용자는 자신의 호스트 인스턴스를 만들고 시작 해야 합니다. 따라서 앱에 대 한 구성 파이프라인에 직접 액세스할 수도 있습니다. Out-of-process를 실행할 때 종속성을 훨씬 더 쉽게 주입 하 고 미들웨어를 실행할 수 있습니다. 
 
 다음 코드에서는 파이프라인의 예를 보여 줍니다 `HostBuilder` .
 
@@ -180,13 +180,13 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | 바인딩 확장 패키지 | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | 에서 [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
-| 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원 안 함 |
+| 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
 | 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
 | 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
 | HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
-| 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원 안 함 | 
-| 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원 안 함 |
+| 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
+| 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |
 | 아티팩트의 function.js | 생성된 계획 | 생성 되지 않음 |
 | 구성 | [host.json](functions-host-json.md) | [host.js설정](functions-host-json.md) 및 사용자 지정 초기화 |
 | 종속성 주입 | [지원됨](functions-dotnet-dependency-injection.md)  | [지원됨](#dependency-injection) |

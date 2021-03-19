@@ -6,18 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: e72ad50b495dec7e3a647bb7bcbdeafd53f5de7b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 67de5cce3bd5a4ca2b383e2809eb237a6e753bf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577100"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
 
-이 문서에서는 edge pro 솔루션과 Azure Stack에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항을 설명 Microsoft Azure Stack. Azure Stack Edge Pro를 배포 하기 전에 정보를 신중 하 게 검토 하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
+이 문서에서는 edge pro GPU 솔루션과 Azure Stack에 연결 하는 클라이언트에 Microsoft Azure Stack 대 한 중요 한 시스템 요구 사항을 설명 합니다. Azure Stack Edge Pro를 배포 하기 전에 정보를 신중 하 게 검토 하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
 
 Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니다.
 
@@ -40,9 +41,9 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)을 참조 하세요.
 
-|Type  |스토리지 계정  |주석  |
+|Type  |스토리지 계정  |의견  |
 |---------|---------|---------|
-|표준     |GPv1: 블록 Blob         |         |
+|Standard     |GPv1: 블록 Blob         |         |
 
 * 페이지 blob 및 Azure Files 현재 지원 되지 않습니다.
 
@@ -50,9 +51,9 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 이러한 저장소 계정은 로컬 Azure Resource Manager에 연결할 때 장치 로컬 Api를 통해 생성 됩니다. 지원 되는 저장소 계정은 다음과 같습니다.
 
-|Type  |스토리지 계정  |주석  |
+|Type  |스토리지 계정  |의견  |
 |---------|---------|---------|
-|표준     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
+|Standard     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
 |Premium     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Premium_LRS입니다.        |
 
 

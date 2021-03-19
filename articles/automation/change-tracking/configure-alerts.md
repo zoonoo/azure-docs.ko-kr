@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91be2f8641a061d009962cdcd03a8d56048594da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585918"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594508"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에 대 한 경고를 만드는 방법
 
@@ -50,11 +50,11 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 3. **작업** 에서 작업을 지정하는 이름(예: **이메일 알림**)을 입력합니다.
 
-4. **작업 유형** 에서 적절한 유형(예: **이메일/SMS/푸시/음성**)을 선택합니다.
+4. **작업 유형** 에서 적절 한 유형 (예: **이메일/SMS 메시지/푸시/음성**)을 선택 합니다.
 
-5. **세부 정보 편집** 을 선택합니다.
+5. 연필 아이콘을 선택 하 여 작업 세부 정보를 편집 합니다.
 
-6. 작업 유형에 대한 창을 채웁니다. 예를 들어 **email/SMS/Push/Voice** 를 사용 하는 경우 작업 이름을 입력 하 고, **메일** 확인란을 선택 하 고, 유효한 전자 메일 주소를 입력 한 다음, **확인** 을 선택 합니다.
+6. 작업 유형에 대한 창을 채웁니다. 예를 들어 **메일/SMS 메시지/푸시/음성을** 사용 하 여 전자 메일을 보내는 경우 작업 이름을 입력 하 고 **메일** 확인란을 선택 하 고 유효한 전자 메일 주소를 입력 한 다음 **확인** 을 선택 합니다.
 
     ![이메일 작업 그룹 구성](./media/configure-alerts/configure-email-action-group.png)
 

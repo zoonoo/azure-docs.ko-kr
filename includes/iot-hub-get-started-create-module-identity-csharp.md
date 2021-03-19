@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68883798"
 ---
 ## <a name="create-a-module-identity"></a>모듈 ID 만들기
@@ -21,17 +21,17 @@ ms.locfileid: "68883798"
 
 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 장치 및 모듈은 IoT Hub에 장치-클라우드 메시지를 보낼 때 이러한 값을 사용 하 여 자신을 식별 합니다. ID는 대/소문자를 구분합니다.
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔 앱 (.NET Framework)** 을 선택 합니다.
+1. **새 프로젝트 만들기** 에서 **콘솔 앱 (.NET Framework)** 을 선택 합니다.
 
-1. **다음** 을 선택 하 여 **새 프로젝트 구성**을 엽니다. 프로젝트 이름을 *CreateIdentitie*로, 솔루션 이름을 *IoTHubGetStarted*로 지정합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다.
+1. **다음** 을 선택 하 여 **새 프로젝트 구성** 을 엽니다. 프로젝트 이름을 *CreateIdentitie* 로, 솔루션 이름을 *IoTHubGetStarted* 로 지정합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다.
 
     ![Visual Studio 솔루션에 대 한 이름 및 프레임 워크 입력](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리** 를 엽니다. **찾아보기** 탭을 선택합니다.
 
-1. **Microsoft. Azure. 장치**를 검색 합니다. 선택 하 고 **설치**를 선택 합니다.
+1. **Microsoft. Azure. 장치** 를 검색 합니다. 선택 하 고 **설치** 를 선택 합니다.
 
     ![Azure IoT Hub .NET 서비스 SDK 최신 버전을 설치 합니다.](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
@@ -102,9 +102,9 @@ ms.locfileid: "68883798"
     }
     ```
 
-    `AddDeviceAsync`메서드는 ID **myfirstdevice**를 사용 하 여 장치 id를 만듭니다. Id 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 장치 앱에서이 키를 사용 하 여 허브에 연결 합니다.
+    `AddDeviceAsync`메서드는 ID **myfirstdevice** 를 사용 하 여 장치 id를 만듭니다. Id 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 장치 앱에서이 키를 사용 하 여 허브에 연결 합니다.
 
-    `AddModuleAsync`메서드는 **myfirstmodule**장치에서 ID **myfirstmodule** 을 사용 하 여 모듈 id를 만듭니다. 해당 모듈 ID가 이미 id 레지스트리에 있으면 코드에서 기존 모듈 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 모듈 앱에서이 키를 사용 하 여 허브에 연결 합니다.
+    `AddModuleAsync`메서드는 **myfirstmodule** 장치에서 ID **myfirstmodule** 을 사용 하 여 모듈 id를 만듭니다. 해당 모듈 ID가 이미 id 레지스트리에 있으면 코드에서 기존 모듈 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 모듈 앱에서이 키를 사용 하 여 허브에 연결 합니다.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 

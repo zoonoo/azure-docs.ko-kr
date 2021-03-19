@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90895956"
 ---
 # <a name="determining-application-type"></a>응용 프로그램 유형 결정
@@ -22,12 +22,12 @@ Citus (Hyperscale)에서 잘 작동 하는 두 가지 종류의 응용 프로그
 
 ## <a name="at-a-glance"></a>한눈에 보기
 
-| 다중 테 넌 트 응용 프로그램                                 | 응용 프로그램 Real-Time                                |
+| 다중 테 넌 트 응용 프로그램                                 | 실시간 애플리케이션                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
-| 경우에 따라 스키마에 수십 개 또는 수백 개의 테이블이 있습니다.          | 적은 수의 테이블                                |
-| 한 번에 하나의 테 넌 트 (회사/저장소)와 관련 된 쿼리 | 집계를 사용 하는 비교적 단순 분석 쿼리 |
-| 웹 클라이언트 서비스를 위한 OLTP 워크 로드                    | 대부분의 변경할 수 없는 데이터의 상위 수집 볼륨           |
-| 테 넌 트 별 분석 쿼리를 처리 하는 OLAP 워크 로드   | 종종 많은 이벤트 테이블 중심            |
+| 경우에 따라 스키마에 수십 개 또는 수백 개의 테이블 포함          | 적은 수의 테이블                                |
+| 한 번에 하나의 테 넌 트 (회사/저장소)와 관련 된 쿼리 | 집계를 사용하여 비교적 간단한 분석 쿼리 |
+| 웹 클라이언트를 제공하는 OLTP 워크로드                    | 주로 변경할 수 없는 대량의 데이터 수집           |
+| 테넌트별 분석 쿼리를 제공하는 OLAP 워크로드   | 주로 많은 이벤트 테이블 중심            |
 
 ## <a name="examples-and-characteristics"></a>예제 및 특징
 

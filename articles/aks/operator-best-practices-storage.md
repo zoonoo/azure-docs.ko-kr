@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 722fe393ad7637be20360463a4c3b6234224a036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88653973"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
@@ -49,7 +49,7 @@ Azure Files 및 Azure 디스크는 모두 Standard 및 Premium 성능 계층에�
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>스토리지 클래스를 만들고 사용하여 애플리케이션 요구 정의
 
-사용하는 스토리지 유형은 Kubernetes *스토리지 클래스*를 사용하여 정의합니다. 그런 후에는 스토리지 클래스가 pod 또는 배포 사양에서 참조됩니다. 적절한 스토리지를 만들고 pod에 연결하는 데 이러한 정의가 함께 사용됩니다. 자세한 내용은 [AKS의 스토리지 클래스][aks-concepts-storage-classes]를 참조하세요.
+사용하는 스토리지 유형은 Kubernetes *스토리지 클래스* 를 사용하여 정의합니다. 그런 후에는 스토리지 클래스가 pod 또는 배포 사양에서 참조됩니다. 적절한 스토리지를 만들고 pod에 연결하는 데 이러한 정의가 함께 사용됩니다. 자세한 내용은 [AKS의 스토리지 클래스][aks-concepts-storage-classes]를 참조하세요.
 
 ## <a name="size-the-nodes-for-storage-needs"></a>스토리지 요구에 맞게 노드 크기 조정
 
@@ -64,7 +64,7 @@ AKS 노드는 Azure VM으로 실행됩니다. 다양한 유형과 크기의 VM�
 | Standard_B2ms      | 2    | 8            | 4              | 1,920                  | 22.5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6,400                  | 96                             |
 
-여기에서 *Standard_DS2_v2*는 연결되는 디스크 수를 2배로 늘릴 수 있도록 하며, 3~4배의 IOPS 및 디스크 처리량을 제공합니다. 핵심 컴퓨팅 리소스 및 비교한 비용만 살펴보면 *Standard_B2ms* VM 크기를 선택할 수 있으며 이 경우 스토리지 성능 저하 및 제한을 겪게 됩니다. 애플리케이션 개발 팀의 도움을 받아 스토리지 용량 및 성능 요구 사항을 이해하세요. 성능 요구를 충족하거나 능가하는 적절한 AKS 노드용 VM 크기를 선택합니다. 정기적으로 애플리케이션 기준을 조절하면서 필요에 맞게 VM 크기를 조정합니다.
+여기에서 *Standard_DS2_v2* 는 연결되는 디스크 수를 2배로 늘릴 수 있도록 하며, 3~4배의 IOPS 및 디스크 처리량을 제공합니다. 핵심 컴퓨팅 리소스 및 비교한 비용만 살펴보면 *Standard_B2ms* VM 크기를 선택할 수 있으며 이 경우 스토리지 성능 저하 및 제한을 겪게 됩니다. 애플리케이션 개발 팀의 도움을 받아 스토리지 용량 및 성능 요구 사항을 이해하세요. 성능 요구를 충족하거나 능가하는 적절한 AKS 노드용 VM 크기를 선택합니다. 정기적으로 애플리케이션 기준을 조절하면서 필요에 맞게 VM 크기를 조정합니다.
 
 사용 가능한 VM 크기에 대한 자세한 내용은 [Azure의 Linux Virtual Machines 크기][vm-sizes]를 참조하세요.
 
@@ -82,7 +82,7 @@ PVC(영구 볼륨 클레임)를 사용하면 필요에 따라 스토리지를 �
 
 이러한 볼륨이 작동 중인 모습을 확인하려면 [Azure 디스크][dynamic-disks] 또는 [Azure 파일][dynamic-files]을 사용하여 영구 볼륨을 동적으로 만든 후 사용하는 방법을 참조하세요.
 
-스토리지 클래스 정의의 일부로, 해당 *reclaimPolicy*를 설정합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다. reclaimPolicy를 *retain* 또는 *delete*로 설정할 수 있습니다. 애플리케이션 요구를 이해하고, 사용되어 요금이 청구된 미사용 스토리지의 양을 최소화하기 위해 보존되는 스토리지를 정기적으로 검사합니다.
+스토리지 클래스 정의의 일부로, 해당 *reclaimPolicy* 를 설정합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다. reclaimPolicy를 *retain* 또는 *delete* 로 설정할 수 있습니다. 애플리케이션 요구를 이해하고, 사용되어 요금이 청구된 미사용 스토리지의 양을 최소화하기 위해 보존되는 스토리지를 정기적으로 검사합니다.
 
 스토리지 클래스 옵션에 대한 자세한 내용은 [스토리지 회수 정책][reclaim-policy]을 참조하세요.
 

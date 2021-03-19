@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73953190"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Azure IoT Hub 디바이스 관리를 위해 Visual Studio용 클라우드 탐색기 사용
@@ -22,7 +22,7 @@ ms.locfileid: "73953190"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | Task                    |
+| 관리 옵션          | 작업                    |
 |----------------------------|--------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -59,17 +59,17 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 ## <a name="sign-in-to-access-your-hub"></a>허브에 액세스 하려면 로그인 하세요.
 
-1. Visual Studio에서 **View**  >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서   >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 
     ![계정 관리 아이콘](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-1. Azure에 로그인 한 경우 계정이 표시 됩니다. 처음으로 Azure에 로그인 하려면 **계정 추가**를 선택 합니다.
+1. Azure에 로그인 한 경우 계정이 표시 됩니다. 처음으로 Azure에 로그인 하려면 **계정 추가** 를 선택 합니다.
 
-1. 사용 하려는 Azure 구독을 선택 하 고 **적용**을 선택 합니다.
+1. 사용 하려는 Azure 구독을 선택 하 고 **적용** 을 선택 합니다.
 
-1. 구독을 확장 한 다음 **IoT hub**를 확장 합니다.  각 허브에서 해당 허브에 대 한 장치를 볼 수 있습니다. 하나의 디바이스를 마우스 오른쪽 단추로 클릭하여 관리 옵션에 액세스합니다.
+1. 구독을 확장 한 다음 **IoT hub** 를 확장 합니다.  각 허브에서 해당 허브에 대 한 장치를 볼 수 있습니다. 하나의 디바이스를 마우스 오른쪽 단추로 클릭하여 관리 옵션에 액세스합니다.
 
     ![관리 옵션](media/iot-hub-device-management-visual-studio/management-options-vs2019.png)
 
@@ -77,35 +77,35 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 직접 메서드를 사용 하려면 다음 단계를 수행 합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 직접 메서드 호출**을 선택합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 직접 메서드 호출** 을 선택합니다.
 
-1. **호출 직접 메서드에**메서드 이름 및 페이로드를 입력 한 다음 **확인**을 선택 합니다.
+1. **호출 직접 메서드에** 메서드 이름 및 페이로드를 입력 한 다음 **확인** 을 선택 합니다.
 
-    결과가 **출력**에 표시 됩니다.
+    결과가 **출력** 에 표시 됩니다.
 
 ## <a name="update-device-twin"></a>디바이스 쌍 업데이트
 
 장치 쌍을 편집 하려면 다음 단계를 수행 합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집**을 선택합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집** 을 선택합니다.
 
-   장치 쌍의 내용과 함께 파일 ** 에azure-iot-device-twin.js** 열립니다.
+   장치 쌍의 내용과 함께 파일 **에azure-iot-device-twin.js** 열립니다.
 
 1. **태그** 또는 속성을 편집 **합니다.** 파일 **의azure-iot-device-twin.js** 에 대 한 원하는 필드를 만듭니다.
 
 1. **Ctrl+S** 키를 눌러 디바이스 쌍을 업데이트합니다.
 
-   결과가 **출력**에 표시 됩니다.
+   결과가 **출력** 에 표시 됩니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **C2D 메시지 보내기**를 선택합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **C2D 메시지 보내기** 를 선택합니다.
 
-1. **C2D 메시지 보내기** 에 메시지를 입력 하 고 **확인을**선택 합니다.
+1. **C2D 메시지 보내기** 에 메시지를 입력 하 고 **확인을** 선택 합니다.
 
-   결과가 **출력**에 표시 됩니다.
+   결과가 **출력** 에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

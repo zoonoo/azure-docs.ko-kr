@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74232751"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-이 간단한 함수는 **Foo**의 결과를 받아 **Bar**로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo**의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 같습니다.
+이 간단한 함수는 **Foo** 의 결과를 받아 **Bar** 로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo** 의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 같습니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -87,7 +87,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 > [!NOTE]
 > 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생 하는 동안 **Foo** 에 대 한 원래 호출이 반환 되 면 `true` orchestrator replay는 실행 기록에 없는 **sendnotification**을 호출 합니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. , 등의 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다 `CreateTimer` `WaitForExternalEvent` .
+이 변경은 **Foo** 와 **Bar** 간의 **SendNotification** 에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar** 에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생 하는 동안 **Foo** 에 대 한 원래 호출이 반환 되 면 `true` orchestrator replay는 실행 기록에 없는 **sendnotification** 을 호출 합니다. 결과적으로 지속성 작업 프레임워크는 **Bar** 에 대한 호출을 예상했지만 **SendNotification** 에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. , 등의 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다 `CreateTimer` `WaitForExternalEvent` .
 
 ## <a name="mitigation-strategies"></a>완화 전략
 

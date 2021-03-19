@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 7fc46d06b68dca074da060b4866186a6242ffad2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72757372"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 참조
@@ -28,7 +28,7 @@ ms.locfileid: "72757372"
 
 다음 Content Moderator API를 사용하여 수정 후 워크플로를 설정할 수 있습니다.
 
-| Description | 참조 |
+| 설명 | 참조 |
 | -------------------- |-------------|
 | **Image Moderation API**<br /><br />태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 이미지를 검사하고 잠재적 성인/외설 콘텐츠를 검색합니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다. <br /><br />| [이미지 조정 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "이미지 조정 API 참조")   |
 | **Text Moderation API**<br /><br />텍스트 콘텐츠를 검사합니다. 사용 금지 용어 및 개인 데이터가 반환 됩니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다.<br /><br /> | [텍스트 조정 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "텍스트 조정 API 참조")   |
@@ -39,7 +39,7 @@ ms.locfileid: "72757372"
 
 검토 Api에는 다음과 같은 구성 요소가 있습니다.
 
-| Description | 참조 |
+| 설명 | 참조 |
 | -------------------- |-------------|
 | **작업**<br /><br /> 이미지 및 텍스트 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다. 조정 작업은 Image Moderation API 및 Text Moderation API를 사용하여 콘텐츠를 검사합니다. 조정 작업은 정의된 기본 워크플로를 사용하여 검토를 생성합니다. <br /><br />조정자 역할을 맡은 사람이 자동 할당된 태그 및 예측 데이터를 검토하고 콘텐츠 수정 결정 사항을 제출하면 Review API가 모든 정보를 API 엔드포인트에 제출합니다.<br /><br /> | [작업 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "작업 참조")   |
 | **검토**<br /><br />검토 도구를 사용하여 인간 수정자의 이미지 또는 텍스트 검토를 직접 만듭니다.<br /><br /> 조정자 역할을 맡은 사람이 자동 할당된 태그 및 예측 데이터를 검토하고 콘텐츠 수정 결정 사항을 제출하면 Review API가 모든 정보를 API 엔드포인트에 제출합니다.<br /><br /> | [참조 검토](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "참조 검토")   |

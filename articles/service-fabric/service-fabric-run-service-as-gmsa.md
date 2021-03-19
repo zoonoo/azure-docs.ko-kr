@@ -4,10 +4,10 @@ description: Service Fabric Windows 독립 실행형 클러스터에서 서비�
 ms.topic: how-to
 ms.date: 03/29/2018
 ms.openlocfilehash: 9750042764306c5df7a391429cc6926704db05ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91838911"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
@@ -59,7 +59,7 @@ Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 
     ```
 
 > [!NOTE]
-> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy**를 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요.
+> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy** 를 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요.
 >
 
 다음 문서에서는 다음 단계를 안내 합니다.
