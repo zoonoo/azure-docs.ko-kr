@@ -13,10 +13,10 @@ ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: 938315dac80ae51984851083753a9cb8f77662b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84737906"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
@@ -132,9 +132,9 @@ Get-AzNetworkWatcherReachabilityReport `
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-데이터는 이전 명령에서 반환 된 국가/지역, 주 및 도시에 대해서만 사용할 수 있습니다. 이전 명령에서는 기존 네트워크 감시자를 지정해야 합니다. 이 예제에서는 *NetworkWatcherRG*라는 리소스 그룹에 *NetworkWatcher_eastus* 네트워크 감시자를 지정했지만, 기존의 어떤 네트워크 감시자도 지정할 수 있습니다. 기존 네트워크 감시자가 없는 경우 [네트워크 감시자 만들기](#create-a-network-watcher)의 작업을 완료하여 만듭니다. 
+데이터는 이전 명령에서 반환 된 국가/지역, 주 및 도시에 대해서만 사용할 수 있습니다. 이전 명령에서는 기존 네트워크 감시자를 지정해야 합니다. 이 예제에서는 *NetworkWatcherRG* 라는 리소스 그룹에 *NetworkWatcher_eastus* 네트워크 감시자를 지정했지만, 기존의 어떤 네트워크 감시자도 지정할 수 있습니다. 기존 네트워크 감시자가 없는 경우 [네트워크 감시자 만들기](#create-a-network-watcher)의 작업을 완료하여 만듭니다. 
 
-이전 명령을 실행한 후에 **국가**, **시/도** 및 **구/군/시**에 대해 유효한 값을 지정하여 반환된 출력을 필터링할 수 있습니다(원할 경우).  예를 들어, 미국, 워싱턴주, 시애틀에서 사용할 수 있는 인터넷 서비스 공급자의 목록을 보려면 다음 명령을 입력합니다.
+이전 명령을 실행한 후에 **국가**, **시/도** 및 **구/군/시** 에 대해 유효한 값을 지정하여 반환된 출력을 필터링할 수 있습니다(원할 경우).  예를 들어, 미국, 워싱턴주, 시애틀에서 사용할 수 있는 인터넷 서비스 공급자의 목록을 보려면 다음 명령을 입력합니다.
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -146,4 +146,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> **국가**에 대해 지정된 값은 대문자와 소문자로만 구성되어야 합니다. **시/도** 및 **구/군/시**에 대해 지정된 값은 소문자로만 구성되어야 합니다. **국가**, **시/도** 및 **구/군/시**에 대해 값을 지정하지 않고 명령을 실행한 후에 반환되는 출력에는 값이 나열됩니다. 잘못된 사례를 지정하거나 이러한 속성 값 없이 명령을 실행한 후에 반환된 출력에 없는 **국가**, **시/도**, 또는 **구/군/시** 값을 지정하면 반환된 출력이 비어 있습니다.
+> **국가** 에 대해 지정된 값은 대문자와 소문자로만 구성되어야 합니다. **시/도** 및 **구/군/시** 에 대해 지정된 값은 소문자로만 구성되어야 합니다. **국가**, **시/도** 및 **구/군/시** 에 대해 값을 지정하지 않고 명령을 실행한 후에 반환되는 출력에는 값이 나열됩니다. 잘못된 사례를 지정하거나 이러한 속성 값 없이 명령을 실행한 후에 반환된 출력에 없는 **국가**, **시/도**, 또는 **구/군/시** 값을 지정하면 반환된 출력이 비어 있습니다.

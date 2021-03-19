@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure DevTest Labs에서 랩을 규모를 조�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87533957"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>DevTest Labs의 할당량 및 한도 규모 조정
-DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 한도가 있으며 이 한도가 DevTest Labs 서비스에 영향을 미칠 수 있습니다. 이러한 한도를 **할당량**이라고 합니다.
+DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 한도가 있으며 이 한도가 DevTest Labs 서비스에 영향을 미칠 수 있습니다. 이러한 한도를 **할당량** 이라고 합니다.
 
 > [!NOTE]
 > DevTest Labs 서비스는 할당량을 적용하지 않습니다. 발생할 수 있는 모든 할당량은 전체 Azure 구독의 기본 제약 조건입니다.
@@ -26,9 +26,9 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 다음 단계에서는 특정 Azure 리소스에 대한 구독의 현재 할당량 그리고 사용한 각 할당량의 비율을 보는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-1. **추가 서비스**를 선택한 후 목록에서 **청구**를 선택합니다.
+1. **추가 서비스** 를 선택한 후 목록에서 **청구** 를 선택합니다.
 1. 청구 블레이드에서 구독을 선택합니다.
-4. **사용량 + 할당량**을 선택 합니다.
+4. **사용량 + 할당량** 을 선택 합니다.
 
    ![사용량 및 할당량 단추](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas-new.png)
 
@@ -41,7 +41,7 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 
 다음 단계에서는 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 할당량 증가를 요청하는 방법을 보여 줍니다.
 
-1. **추가 서비스**, **청구**, **사용량 + 할당량**을 차례로 선택합니다.
+1. **추가 서비스**, **청구**, **사용량 + 할당량** 을 차례로 선택합니다.
 1. 사용량 + 할당량 블레이드에서 **증가 요청** 단추를 선택합니다.
 
    ![증가 요청 단추](./media/devtest-lab-scale-lab/devtestlab-request-increase-new.png)

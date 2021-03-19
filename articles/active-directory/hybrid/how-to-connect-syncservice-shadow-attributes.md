@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90088973"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
 대부분의 특성은 온-프레미스 Active Directory에 있을 때와 동일한 방식으로 Azure AD에 표현됩니다. 하지만 일부 특성은 조작 방법이 특별하며 Azure AD의 특성 값이 Azure AD Connect가 동기화하는 값과 다를 수 있습니다.
 
 ## <a name="introducing-shadow-attributes"></a>섀도 특성 소개
-일부 특성은 Azure AD에서 두 가지로 표현됩니다. 온-프레미스 값과 계산된 값이 모두 저장됩니다. 이러한 추가 특성을 섀도 특성이라고 합니다. 이 동작을 볼 수 있는 가장 일반적인 특성 두 개는 **userPrincipalName** 및 **proxyAddress**입니다. 이러한 특성에 확인되지 않은 도메인을 나타내는 값이 있으면 특성 값의 변화가 발생합니다. 하지만 Connect의 동기화 엔진이 섀도 특성의 값을 읽기 때문에 이러한 관점에서 Azure AD에 의해 해당 특성이 확인됩니다.
+일부 특성은 Azure AD에서 두 가지로 표현됩니다. 온-프레미스 값과 계산된 값이 모두 저장됩니다. 이러한 추가 특성을 섀도 특성이라고 합니다. 이 동작을 볼 수 있는 가장 일반적인 특성 두 개는 **userPrincipalName** 및 **proxyAddress** 입니다. 이러한 특성에 확인되지 않은 도메인을 나타내는 값이 있으면 특성 값의 변화가 발생합니다. 하지만 Connect의 동기화 엔진이 섀도 특성의 값을 읽기 때문에 이러한 관점에서 Azure AD에 의해 해당 특성이 확인됩니다.
 
 Azure Portal 또는 PowerShell을 사용하여 섀도 특성을 볼 수는 없습니다. 하지만 개념을 이해하면 온-프레미스와 클라우드의 특성 값이 서로 다른 시나리오를 해결하는 데 도움이 됩니다.
 
@@ -38,7 +38,7 @@ Azure Portal 또는 PowerShell을 사용하여 섀도 특성을 볼 수는 없�
 ### <a name="userprincipalname"></a>userPrincipalName
 사용자는 유효성이 확인되지 않은 도메인에서 다음과 같은 특성 값을 가집니다.
 
-| attribute | 값 |
+| 특성 | 값 |
 | --- | --- |
 | 온-프레미스 userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -53,14 +53,14 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 
 사서함 사용자의 경우 온-프레미스 또는 Exchange Online에서 확인된 도메인의 값만 표시됩니다. 다음과 같이 표시될 수 있습니다.
 
-| attribute | 값 |
+| 특성 | 값 |
 | --- | --- |
 | 온-프레미스 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-이 경우 해당 도메인이 확인 되지 않았기 때문에 **smtp: abbie. spencer \@ fabrikam.com** 가 제거 되었습니다. 그러나 Exchange는 **SIP: abbie. spencer \@ fabrikamonline.com**도 추가 했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
+이 경우 해당 도메인이 확인 되지 않았기 때문에 **smtp: abbie. spencer \@ fabrikam.com** 가 제거 되었습니다. 그러나 Exchange는 **SIP: abbie. spencer \@ fabrikamonline.com** 도 추가 했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
 
-proxyAddresses에 대한 이 논리를 **ProxyCalc**라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
+proxyAddresses에 대한 이 논리를 **ProxyCalc** 라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
 
 - 사용자가 Exchange를 사용하도록 허가되지 않은 경우에도 Exchange Online을 포함하는 서비스 계획이 사용자에게 할당되었습니다. 사용자에게 Office E3 SKU가 할당되었지만 SharePoint Online만 할당된 경우를 예로 들 수 있습니다. 사서함이 계속 온-프레미스에 있는 경우에도 마찬가지입니다.
 - msExchRecipientTypeDetails 특성에 값이 있습니다.

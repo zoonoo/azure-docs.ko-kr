@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199860"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584519"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -35,7 +35,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. (예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 
-     ![새 data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복 된 이름에 대 한 새 data factory 오류 메시지입니다.":::
 4. 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
 5. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
 

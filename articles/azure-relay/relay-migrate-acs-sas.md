@@ -4,10 +4,10 @@ description: Azure Active Directory Access Control Service 사용에서 공유 �
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87532869"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay-Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
@@ -22,7 +22,7 @@ SAS는 다른 서비스를 직접적으로 사용하지 않으며, SAS 규칙 �
 
 ## <a name="migration-scenarios"></a>마이그레이션 시나리오
 
-*서명 키*를 공유하는 방식으로 ACS와 Relay를 통합합니다. 서명 키는 ACS 네임스페이스에서는 권한 부여 토큰에 서명을 하는 데 사용되며, Azure Relay에서는 쌍으로 지정된 ACS 네임스페이스에서 토큰을 발급했는지를 확인하는 데 사용됩니다. ACS 네임스페이스에는 서비스 ID 및 권한 부여 규칙이 포함됩니다. 권한 부여 규칙은 외부 ID 공급자가 발급한 각 토큰이나 서비스 ID가 Relay 네임스페이스 그래프의 특정 부분에 대해 소유하는 액세스 권한의 유형을 가장 긴 접두사 일치 형식으로 정의합니다.
+*서명 키* 를 공유하는 방식으로 ACS와 Relay를 통합합니다. 서명 키는 ACS 네임스페이스에서는 권한 부여 토큰에 서명을 하는 데 사용되며, Azure Relay에서는 쌍으로 지정된 ACS 네임스페이스에서 토큰을 발급했는지를 확인하는 데 사용됩니다. ACS 네임스페이스에는 서비스 ID 및 권한 부여 규칙이 포함됩니다. 권한 부여 규칙은 외부 ID 공급자가 발급한 각 토큰이나 서비스 ID가 Relay 네임스페이스 그래프의 특정 부분에 대해 소유하는 액세스 권한의 유형을 가장 긴 접두사 일치 형식으로 정의합니다.
 
 ACS 규칙이 경로 접두사 `/`에 대한 **보내기** 클레임을 서비스 ID에 부여하는 경우를 예로 들어 보겠습니다. 이 경우 해당 규칙을 기준으로 하여 ACS에서 발급하는 토큰은 네임스페이스의 모든 엔터티에 대한 보내기 권한을 클라이언트에 부여합니다. 경로 접두사가 `/abc`라면 해당 ID는 이름이 `abc`이거나 해당 접두사 하위의 경로에 구성된 엔터티에 대해서만 보내기를 수행할 수 있습니다. 이 문서에서는 이 마이그레이션 지침의 독자가 이러한 개념에 대해 이미 잘 알고 있다고 가정합니다.
 
@@ -38,7 +38,7 @@ ACS 규칙이 경로 접두사 `/`에 대한 **보내기** 클레임을 서비�
 
 ### <a name="unchanged-defaults"></a>기본값 변경 안 됨
 
-애플리케이션에서 ACS 기본값을 변경하지 않은 경우 사용되는 모든 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)를 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 개체로 바꾸고 ACS **소유자** 계정 대신 네임스페이스의 미리 구성된 **RootManageSharedAccessKey**를 사용할 수 있습니다. 그러나 ACS **소유자** 계정을 사용하더라도 이 구성은 이전에도 대체로 권장되지 않았으며 현재도 사용하지 않는 것이 좋습니다. 이 계정/규칙은 엔터티 삭제 권한을 비롯하여 네임스페이스에 대한 모든 권리 권한을 제공하기 때문입니다.
+애플리케이션에서 ACS 기본값을 변경하지 않은 경우 사용되는 모든 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)를 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 개체로 바꾸고 ACS **소유자** 계정 대신 네임스페이스의 미리 구성된 **RootManageSharedAccessKey** 를 사용할 수 있습니다. 그러나 ACS **소유자** 계정을 사용하더라도 이 구성은 이전에도 대체로 권장되지 않았으며 현재도 사용하지 않는 것이 좋습니다. 이 계정/규칙은 엔터티 삭제 권한을 비롯하여 네임스페이스에 대한 모든 권리 권한을 제공하기 때문입니다.
 
 ### <a name="simple-rules"></a>단순 규칙
 

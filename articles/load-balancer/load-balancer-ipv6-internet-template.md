@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90562522"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
@@ -72,7 +72,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
     ![스크린샷은 템플릿 편집 인 사용자 지정 배포의 firest 단계를 보여 줍니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. "매개 변수 편집"을 클릭합니다. 매개 변수 블레이드의 템플릿 매개 변수 섹션에는 지침당 값을 지정하고 "저장"을 클릭하여 매개 변수 블레이드를 닫습니다. 사용자 지정 배포 블레이드에서 구독이나 기존 리소스 그룹을 선택하거나 또는 새로 만듭니다. 리소스 그룹을 만드는 경우 리소스 그룹에 대한 위치를 선택합니다. 다음으로, **약관**을 클릭한 다음 그 약관에 대한 **구매**를 클릭합니다. Azure가 리소스를 배포하기 시작합니다. 모든 리소스를 배포하는 데 몇 분 정도 걸립니다.
+6. "매개 변수 편집"을 클릭합니다. 매개 변수 블레이드의 템플릿 매개 변수 섹션에는 지침당 값을 지정하고 "저장"을 클릭하여 매개 변수 블레이드를 닫습니다. 사용자 지정 배포 블레이드에서 구독이나 기존 리소스 그룹을 선택하거나 또는 새로 만듭니다. 리소스 그룹을 만드는 경우 리소스 그룹에 대한 위치를 선택합니다. 다음으로, **약관** 을 클릭한 다음 그 약관에 대한 **구매** 를 클릭합니다. Azure가 리소스를 배포하기 시작합니다. 모든 리소스를 배포하는 데 몇 분 정도 걸립니다.
 
     ![스크린샷은 템플릿 매개 변수 값을 입력 하는 것부터 시작 하 여 사용자 지정 배포와 관련 된 단계를 보여 줍니다.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 

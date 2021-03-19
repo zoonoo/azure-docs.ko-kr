@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87474328"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
@@ -35,7 +35,7 @@ Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호�
 
 호스트 이름에 와일드 카드 문자를 사용 하 여 단일 수신기에서 여러 호스트 이름을 찾을 수 있습니다. 예를 들어는 및 등과 `*.contoso.com` 일치할 수 있습니다 `ecom.contoso.com` `b2b.contoso.com` `customer1.b2b.contoso.com` . 호스트 이름 배열을 사용 하 여 수신기에 대 한 호스트 이름을 두 개 이상 구성 하 여 요청을 백 엔드 풀로 라우팅할 수 있습니다. 예를 들어 수신기에는 `contoso.com, fabrikam.com` 호스트 이름에 대 한 요청을 허용 하는가 포함 될 수 있습니다.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="다중 사이트 Application Gateway":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="와일드 카드 수신기":::
 
 >[!NOTE]
 > 이 기능은 미리 보기 상태 이며 Application Gateway의 Standard_v2 및 WAF_v2 SKU에 대해서만 사용할 수 있습니다. 미리 보기에 대 한 자세한 내용은 [여기의 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
@@ -44,9 +44,9 @@ Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호�
 >이 기능은 현재 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 및 [Azure CLI](tutorial-multiple-sites-cli.md)를 통해서만 사용할 수 있습니다. 포털 지원이 곧 제공 될 예정입니다.
 > 포털 지원을 완전히 사용할 수 없으므로 호스트 이름 매개 변수만 사용 하는 경우 수신기가 포털에서 기본 수신기로 나타나고 수신기 목록 보기의 호스트 이름 열에 구성 된 호스트 이름이 표시 되지 않습니다. 와일드 카드 수신기를 변경 하려면 포털에서 지원 될 때까지 Azure PowerShell 또는 CLI를 사용 해야 합니다.
 
-[Azure PowerShell](tutorial-multiple-sites-powershell.md)에서 대신를 사용 해야 합니다 `-HostNames` `-HostName` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예, `-HostNames "*.contoso.com,*.fabrikam.com"`
+[Azure PowerShell](tutorial-multiple-sites-powershell.md)에서 대신를 사용 해야 합니다 `-HostNames` `-HostName` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-[Azure CLI](tutorial-multiple-sites-cli.md)에서 대신를 사용 해야 합니다 `--host-names` `--host-name` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예, `--host-names "*.contoso.com,*.fabrikam.com"`
+[Azure CLI](tutorial-multiple-sites-cli.md)에서 대신를 사용 해야 합니다 `--host-names` `--host-name` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예를 들어 `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>호스트 이름 필드에 허용 되는 문자:
 

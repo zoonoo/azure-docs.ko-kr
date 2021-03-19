@@ -7,10 +7,10 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87846040"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Azure Functions에서 Python 오류 문제 해결
@@ -59,7 +59,7 @@ ms.locfileid: "87846040"
 
 #### <a name="the-package-isnt-resolved-with-proper-linux-wheel"></a>적절한 Linux 휠을 사용하는 패키지가 해결되지 않았습니다.
 
-`.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` 또는 `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`로 이동합니다. 자주 사용하는 텍스트 편집기를 사용하여 **휠** 파일을 열고 **태그:** 섹션을 확인합니다. 태그 값에 **linux**가 포함되지 않은 경우 이 문제가 발생할 수 있습니다.
+`.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` 또는 `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`로 이동합니다. 자주 사용하는 텍스트 편집기를 사용하여 **휠** 파일을 열고 **태그:** 섹션을 확인합니다. 태그 값에 **linux** 가 포함되지 않은 경우 이 문제가 발생할 수 있습니다.
 
 Python 함수는 Azure의 Linux에서만 실행됩니다. 함수 런타임 v2.x는 Debian Buster의 v3.x 런타임 및 Debian Stretch에서 실행됩니다. 아티팩트에는 올바른 Linux 이진 파일이 포함되어야 합니다. 핵심 도구, 타사 또는 오래된 도구에서 `--build local` 플래그를 사용하면 이전 이진 파일이 사용될 수 있습니다.
 
@@ -69,11 +69,11 @@ Python 함수는 Azure의 Linux에서만 실행됩니다. 함수 런타임 v2.x�
 
 `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` 또는 `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`로 이동합니다. 텍스트 편집기를 사용하여 메타데이터 파일을 열고 **분류자:** 섹션을 확인합니다. 섹션에 `Python :: 3`, `Python :: 3.6`, `Python :: 3.7` 또는 `Python :: 3.8`이 포함되지 않은 경우 패키지 버전이 너무 오래 되었거나 패키지가 이미 유지 관리되지 않는 것입니다.
 
-[Azure Portal](https://portal.azure.com)에서 함수 앱의 Python 버전을 확인할 수 있습니다. 함수 앱으로 이동하여 **리소스 탐색기**를 선택하고 **이동**을 선택합니다.
+[Azure Portal](https://portal.azure.com)에서 함수 앱의 Python 버전을 확인할 수 있습니다. 함수 앱으로 이동하여 **리소스 탐색기** 를 선택하고 **이동** 을 선택합니다.
 
 :::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="포털에서 함수 앱에 대한 리소스 탐색기를 엽니다.":::
 
-탐색기가 로드된 후 Python 버전을 표시하는 **LinuxFxVersion**을 검색합니다.
+탐색기가 로드된 후 Python 버전을 표시하는 **LinuxFxVersion** 을 검색합니다.
 
 완화를 위해 [패키지를 최신 버전으로 업데이트](#update-your-package-to-the-latest-version) 또는 [패키지를 해당 항목으로 바꾸기](#replace-the-package-with-equivalents)를 참조하세요.
 
@@ -114,7 +114,7 @@ you must uninstall azure-storage first.</pre>
 
 ## <a name="manual-publishing"></a>[수동 게시](#tab/manual)
 
-`https://<app-name>.scm.azurewebsites.net/api/zipdeploy` 엔드포인트에 패키지를 수동으로 게시하는 경우 **SCM_DO_BUILD_DURING_DEPLOYMENT** 및 **ENABLE_ORYX_BUILD**가 모두 **true**로 설정되었는지 확인합니다. 자세한 내용은 [애플리케이션 설정을 사용하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)을 참조하세요.
+`https://<app-name>.scm.azurewebsites.net/api/zipdeploy` 엔드포인트에 패키지를 수동으로 게시하는 경우 **SCM_DO_BUILD_DURING_DEPLOYMENT** 및 **ENABLE_ORYX_BUILD** 가 모두 **true** 로 설정되었는지 확인합니다. 자세한 내용은 [애플리케이션 설정을 사용하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)을 참조하세요.
 
 ---
 
@@ -124,7 +124,7 @@ you must uninstall azure-storage first.</pre>
 
 #### <a name="update-your-package-to-the-latest-version"></a>패키지를 최신 버전으로 업데이트
 
-`https://pypi.org/project/<package-name>`에서 최신 패키지 버전을 찾아보고 **분류자:** 섹션을 확인합니다. 패키지는 `OS Independent`이거나, **운영 체제**에서 `POSIX` 또는 `POSIX :: Linux`와 호환되어야 합니다. 또한 프로그래밍 언어에 `Python :: 3`, `Python :: 3.6`, `Python :: 3.7` 또는 `Python :: 3.8`이 포함되어야 합니다.
+`https://pypi.org/project/<package-name>`에서 최신 패키지 버전을 찾아보고 **분류자:** 섹션을 확인합니다. 패키지는 `OS Independent`이거나, **운영 체제** 에서 `POSIX` 또는 `POSIX :: Linux`와 호환되어야 합니다. 또한 프로그래밍 언어에 `Python :: 3`, `Python :: 3.6`, `Python :: 3.7` 또는 `Python :: 3.8`이 포함되어야 합니다.
 
 이러한 항목이 올바른 경우 requirements.txt의 줄 `<package-name>~=<latest-version>`을 변경하여 패키지를 최신 버전으로 업데이트할 수 있습니다.
 

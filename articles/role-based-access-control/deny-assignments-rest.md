@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84791914"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure deny 할당 나열
@@ -29,7 +29,7 @@ ms.locfileid: "84791914"
 > [!NOTE]
 > 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "84791914"
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -71,7 +71,7 @@ ms.locfileid: "84791914"
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |

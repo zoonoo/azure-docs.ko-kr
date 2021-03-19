@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431757"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593223"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
 
@@ -289,12 +289,7 @@ Blob 인덱스 태그는 HNS (계층적 네임 스페이스)를 사용 하지 �
 
 Premium storage 계정에서는 인덱스 태그가 지원 되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-공개 미리 보기에서 blob 인덱스 태그는 다음 지역 에서만 사용할 수 있습니다.
-
-- 캐나다 중부
-- 캐나다 동부
-- 프랑스 중부
-- 프랑스 남부
+Blob 인덱스 태그는 현재 모든 공용 지역에서 사용할 수 있습니다.
 
 시작 하려면 [blob 인덱스 태그를 사용 하 여 데이터 관리 및 검색](storage-blob-index-how-to.md)을 참조 하세요.
 

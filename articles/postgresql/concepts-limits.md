@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707526"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595008"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조 하세요.
@@ -53,7 +53,7 @@ ms.locfileid: "91707526"
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)합니다.
 
-> PostgreSQL 버전 10 이전에는 [PostgreSQL 버전 관리 정책](https://www.postgresql.org/support/versioning/) 에서 첫 번째 _또는_ 두 번째 숫자 (예: 9.5 ~ 9.6)가 주 버전 업그레이드로 간주 되는 _주 버전_ 업그레이드로 간주 _major_ 됩니다.
+> PostgreSQL 버전 10 이전에는 [PostgreSQL 버전 관리 정책](https://www.postgresql.org/support/versioning/) 에서 첫 번째 _또는_ 두 번째 숫자 (예: 9.5 ~ 9.6)가 주 버전 업그레이드로 간주 되는 _주 버전_ 업그레이드로 간주  됩니다.
 > 버전 10부터 첫 번째 번호의 변경 내용만 주 버전 업그레이드로 간주 됩니다. 예를 들어 10.0에서 10.1은 _부_ 버전 업그레이드이 고 10 ~ 11은 _주_ 버전 업그레이드입니다.
 
 ### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
@@ -68,9 +68,12 @@ ms.locfileid: "91707526"
 - 일부 시나리오에서는 UTF-8 문자가 Windows의 오픈 소스 PostgreSQL에서 완전히 지원되지 않으며, Azure Database for PostgreSQL에 영향을 줍니다. 자세한 내용은 [postgresql-archive의 버그 #15476](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html)에 대한 스레드를 참조하세요.
 
 ### <a name="gss-error"></a>GSS 오류
-**GSS**와 관련 된 오류가 표시 되는 경우 Azure Postgres 단일 서버에서 아직 완전 하 게 지원 하지 않는 최신 클라이언트/드라이버 버전을 사용할 가능성이 높습니다. 이 오류는 [JDBC 드라이버 버전 42.2.15 및 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868)에 영향을 주는 것으로 알려져 있습니다.
-   - 11 월 말까지 업데이트를 완료할 예정입니다. 그동안 작업 중인 드라이버 버전을 사용 하는 것이 좋습니다.
-   - 또는 GSS 요청을 사용 하지 않도록 설정 하는 것이 좋습니다.  와 같은 연결 매개 변수를 사용 `gssEncMode=disable` 합니다.
+**GSS** 와 관련된 오류가 표시되면 Azure Postgres 단일 서버가 아직 완전히 지원하지 않는 최신 클라이언트/드라이버 버전을 사용하고 있을 수 있습니다. 이 오류는 [JDBC 드라이버 버전 42.2.15 및 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868)에 영향을 주는 것으로 알려져 있습니다.
+   - 11월 말까지 업데이트를 완료할 예정입니다. 그동안 작업 중인 드라이버 버전을 사용해 보세요.
+   - 또는 GSS 요청을 사용 하지 않도록 설정 하는 것이 좋습니다.  `gssEncMode=disable`와 같은 연결 매개 변수를 사용합니다.
+
+### <a name="storage-size-reduction"></a>저장소 크기 감소
+저장소 크기를 줄일 수 없습니다. 원하는 저장소 크기의 새 서버를 만들고, 수동 덤프를 수행 하 [고](./howto-migrate-using-dump-and-restore.md) , 데이터베이스를 새 서버로 복원 하 고 마이그레이션해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md) 이해

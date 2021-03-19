@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723778"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596011"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -42,7 +42,7 @@ Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주�
 
 ## <a name="availability-zones"></a>가용성 영역
 
-가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 여러 영역에 있는 Vm이 동시에 업데이트 되도록 예약 되지 않았는지 확인 하기 위해 업데이트 도메인에서이 배포를 인식 합니다.
 
@@ -82,7 +82,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 | 권장 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | :heavy_check_mark: | :heavy_check_mark: |
 | 또 | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | 수요 중심 | 해당 없음 | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>가용성 영역를 사용 하는 범주별 서비스
+### <a name="services-by-category"></a>범주별 서비스
 
 앞서 언급 했 듯이 Azure는 서비스를 기본, 메인스트림 및 전문화의 세 가지 범주로 분류 합니다. 서비스 범주는 일반 공급으로 할당 됩니다. 일반적으로 서비스는 특수 한 서비스로 수명 주기를 시작 하 고 수요 및 사용률이 늘어남에 따라 기본 또는 기본으로 승격 될 수 있습니다. 다음 표에서는 기본, 일반의 서비스 범주를 나열 합니다. 테이블에 대 한 다음 사항에 유의 해야 합니다.
 
@@ -94,14 +94,14 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본                           | 일반                                        | 
 > |----------------------------------------|---------------------------------------------------|
 > | 스토리지 계정                       | API Management                                    | 
-> | Application Gateway                    | 앱 구성                                 | 
+> | Application Gateway                    | App Configuration                                 | 
 > | Azure Backup                           | App Service                                       | 
-> | Azure Cosmos DB                        | Automation                                        | 
+> | Azure Cosmos DB                        | 자동화                                        | 
 > | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Azure 공용 IP                        | Azure Cache for Redis                             | 
 > | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Azure SQL: Managed Instance           | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
 > | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
 > | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
 > | Key Vault                              | Azure Cognitive Services: 얼굴                    | 
@@ -172,7 +172,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Azure Database Migration Service                     |
 > | Azure 전용 HSM                                  |
 > | Azure Digital Twins                                  |
-> | Azure Health 봇                                     |
+> | Azure Health Bot                                     |
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |

@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85201211"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 클레임 변환 기술 프로필 정의
@@ -50,7 +50,7 @@ ms.locfileid: "85201211"
 
 ## <a name="output-claims-transformations"></a>출력 클레임 변환
 
-**OutputClaimsTransformations** 요소는 클레임을 수정하거나 새 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다. 다음 기술 프로필은 **RemoveAlternativeSecurityIdByIdentityProvider** 클레임 변환을 호출합니다. 이 클레임 변환은 **AlternativeSecurityIds**컬렉션에서 소셜 ID를 제거합니다. 이 기술 프로필의 출력 클레임은 `facebook.com`으로 설정된 **identityProvider2** 및 facebook.com ID가 제거된 후 이 사용자와 연결된 소셜 ID 목록을 포함하는 **AlternativeSecurityIds**입니다.
+**OutputClaimsTransformations** 요소는 클레임을 수정하거나 새 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다. 다음 기술 프로필은 **RemoveAlternativeSecurityIdByIdentityProvider** 클레임 변환을 호출합니다. 이 클레임 변환은 **AlternativeSecurityIds** 컬렉션에서 소셜 ID를 제거합니다. 이 기술 프로필의 출력 클레임은 `facebook.com`으로 설정된 **identityProvider2** 및 facebook.com ID가 제거된 후 이 사용자와 연결된 소셜 ID 목록을 포함하는 **AlternativeSecurityIds** 입니다.
 
 ```xml
 <ClaimsTransformations>
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-클레임 변환 기술 프로필을 사용하면 사용자 경험의 오케스트레이션 단계에서 클레임 변환을 실행할 수 있습니다. 다음 예제에서 오케스트레이션 단계는 **UnLink-Facebook-OAUTH**와 같은 링크 해제 기술 프로필 중 하나를 호출합니다. 이 기술 프로필은 클레임 변환 기술 프로필 **RemoveAlternativeSecurityIdByIdentityProvider**를 호출 하 여 컬렉션에서 Facebook id를 제거 하는 동안 사용자 소셜 id 목록이 포함 된 새 **AlternativeSecurityIds2** 클레임을 생성 합니다.
+클레임 변환 기술 프로필을 사용하면 사용자 경험의 오케스트레이션 단계에서 클레임 변환을 실행할 수 있습니다. 다음 예제에서 오케스트레이션 단계는 **UnLink-Facebook-OAUTH** 와 같은 링크 해제 기술 프로필 중 하나를 호출합니다. 이 기술 프로필은 클레임 변환 기술 프로필 **RemoveAlternativeSecurityIdByIdentityProvider** 를 호출 하 여 컬렉션에서 Facebook id를 제거 하는 동안 사용자 소셜 id 목록이 포함 된 새 **AlternativeSecurityIds2** 클레임을 생성 합니다.
 
 ```xml
 <UserJourney Id="AccountUnLink">
@@ -102,13 +102,13 @@ TransformationClaimType="collection" />
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
 ## <a name="use-a-validation-technical-profile"></a>유효성 검사 기술 프로필 사용
 
-클레임 변환 기술 프로필을 사용하여 정보의 유효성을 검사할 수 있습니다. 다음 예제에서 **LocalAccountSignUpWithLogonEmail**이라는 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)은 사용자에게 메일을 두 번 입력하도록 요청한 다음, **Validate-Email**이라는 [유효성 검사 기술 프로필](validation-technical-profile.md)을 호출하여 메일의 유효성을 검사합니다. **Validate-Email** 기술 프로필은 클레임 변환 **AssertEmailAreEqual**을 호출하여 두 개의 클레임 **email** 및 **emailRepeat**를 비교하고, 지정된 비교에 따라 서로 같지 않은 경우 예외를 throw합니다.
+클레임 변환 기술 프로필을 사용하여 정보의 유효성을 검사할 수 있습니다. 다음 예제에서 **LocalAccountSignUpWithLogonEmail** 이라는 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)은 사용자에게 메일을 두 번 입력하도록 요청한 다음, **Validate-Email** 이라는 [유효성 검사 기술 프로필](validation-technical-profile.md)을 호출하여 메일의 유효성을 검사합니다. **Validate-Email** 기술 프로필은 클레임 변환 **AssertEmailAreEqual** 을 호출하여 두 개의 클레임 **email** 및 **emailRepeat** 를 비교하고, 지정된 비교에 따라 서로 같지 않은 경우 예외를 throw합니다.
 
 ```xml
 <ClaimsTransformations>

@@ -9,17 +9,17 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, 센서, 뷰어, 외부 동기화, 단계 지연, 깊이, RGB, 카메라, 오디오 케이블, 레코더
 ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276916"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>외부 동기화 장치에 Azure Kinect 레코더 사용
 
 이 문서에서는 [Azure Kinect 레코더가](azure-kinect-recorder.md) 데이터 외부 동기화 구성 장치를 기록 하는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [외부 동기화를 위해 여러 Azure KINECT 진한 단위를 설정](https://support.microsoft.com/help/4494429)합니다.
 

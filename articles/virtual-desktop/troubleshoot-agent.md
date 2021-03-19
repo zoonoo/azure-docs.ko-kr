@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732584"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604188"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>일반적인 Windows 가상 데스크톱 에이전트 문제 해결
 
@@ -208,7 +208,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 >한 번에 여러 Vm에 대 한 **fReverseConnectMode** 또는 **fEnableWinStation** 모드를 변경 하려면 다음 두 가지 작업 중 하나를 수행 하면 됩니다.
 >
 >- 이미 작업 하 고 있는 컴퓨터에서 레지스트리 키를 내보내이 변경 작업을 수행 해야 하는 다른 모든 컴퓨터로 가져옵니다.
->- 변경 해야 하는 컴퓨터에 대 한 레지스트리 키 값을 설정 하는 일반 GPO (정책 개체)를 만듭니다.
+>- 변경 해야 하는 컴퓨터에 대 한 레지스트리 키 값을 설정 하는 GPO (그룹 정책 개체)를 만듭니다.
 
 7. **HKEY_LOCAL_MACHINE**  >  **SYSTEM**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **clustersettings** 로 이동 합니다.
 8. **Clustersettings** 에서 **sessiondirectorylistener** 를 찾고 해당 데이터 값이 **rdp-sxs** 인지 확인 합니다.

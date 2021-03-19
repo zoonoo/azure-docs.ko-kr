@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "69558808"
 ---
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "69558808"
 
 * 디바이스에서 해당하는 디바이스 특정 작업 시작.
 
-* *reported 속성*을 통해 IoT Hub에 상태 업데이트 제공.
+* *reported 속성* 을 통해 IoT Hub에 상태 업데이트 제공.
 
 클라우드에서 백 엔드 앱을 사용하여 디바이스 쌍 쿼리를 실행하고 디바이스 관리 작업의 진행 상태를 보고할 수 있습니다.
 

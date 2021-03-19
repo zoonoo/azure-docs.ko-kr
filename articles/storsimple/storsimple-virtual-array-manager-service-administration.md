@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb5b6b1a2d890fe49d78da17d549c5676557b971
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654251"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -35,14 +35,12 @@ ms.locfileid: "94967094"
 
 > [!NOTE]
 > StorSimple 8000 시리즈 디바이스에 사용 가능한 관리 옵션을 보려면 [StorSimple 관리자 서비스를 사용하여 StorSimple 디바이스 관리](./storsimple-8000-manager-service-administration.md)로 이동하세요.
-> 
-> 
 
 ## <a name="connect-to-the-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에 연결
 StorSimple 디바이스 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 가상 배열에 연결됩니다. 이러한 디바이스를 관리하는 브라우저에서 실행되는 중앙 Microsoft Azure Portal을 사용합니다. StorSimple 디바이스 관리자 서비스에 연결하려면 다음을 수행합니다.
 
 #### <a name="to-connect-to-the-service"></a>해당 서비스에 연결하려면
-1. [https://ms.portal.azure.com](https://ms.portal.azure.com)으로 이동합니다.
+1. [https://portal.azure.com](https://portal.azure.com)으로 이동합니다.
 2. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure Portal(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 3. 지정된 구독에서 모든 디바이스 관리자를 보려면 StorSimple 디바이스 관리자에서 찾아보기 --&gt; '필터'로 이동합니다.
 
@@ -50,6 +48,8 @@ StorSimple 디바이스 관리자 서비스는 Microsoft Azure에서 실행되�
 다음 표에서 모든 일반 관리 작업 및 StorSimple 디바이스 관리자 서비스 요약 블레이드 내에서 수행할 수 있는 복잡한 워크플로의 요약을 보여줍니다. 이러한 작업은 시작되는 블레이드 페이지에 따라 구성됩니다.
 
 각 워크플로에 대한 자세한 내용은 표에서 적절한 절차를 클릭합니다.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>StorSimple 디바이스 관리자 워크플로
 | 수행하려는 작업 ... | 이 절차 사용 |

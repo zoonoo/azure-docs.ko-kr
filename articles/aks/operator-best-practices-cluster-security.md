@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a56cf35fe3780aa53b12581358bd91fe44e8c8a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585063"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -94,7 +94,7 @@ metadata:
 spec:
   containers:
   - name: hello
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
@@ -104,13 +104,14 @@ spec:
 kubectl apply -f aks-apparmor.yaml
 ```
 
-pod가 배포되면 [kubectl exec][kubectl-exec] 명령을 사용하여 파일에 씁니다. 다음 예제 출력에서처럼 명령을 실행할 수 없습니다.
+Pod를 배포한 상태에서 *hello-apparmor* pod가 *차단* 된 것으로 표시 되는지 확인을 사용 합니다.
 
 ```
-$ kubectl exec hello-apparmor touch /tmp/test
+$ kubectl get pods
 
-touch: /tmp/test: Permission denied
-command terminated with exit code 1
+NAME             READY   STATUS    RESTARTS   AGE
+aks-ssh          1/1     Running   0          4m2s
+hello-apparmor   0/1     Blocked   0          50s
 ```
 
 AppArmor에 대한 자세한 내용은 [Kubernetes의 AppArmor 프로필][k8s-apparmor]을 참조하세요.
@@ -145,7 +146,7 @@ metadata:
 spec:
   containers:
   - name: chmod
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command:
       - "chmod"
     args:

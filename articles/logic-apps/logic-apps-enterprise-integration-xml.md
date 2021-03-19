@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2017
 ms.openlocfilehash: 3cb3472572abbd891f8d36ea036b371c1224f38c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792142"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용하는 XML 메시지 및 플랫 파일
@@ -31,7 +31,7 @@ ms.locfileid: "74792142"
 
 * [XPath](workflow-definition-language-functions-reference.md#xpath): 메시지를 보강 하 고 메시지에서 특정 속성을 추출 합니다. 그런 후에는 추출된 속성을 사용하여 메시지를 대상 또는 중간 엔드포인트로 라우팅할 수 있습니다.
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
 Azure Logic Apps의 XML 기능을 사용 하 여 [완전히 작동 하는 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub 샘플)을 배포 합니다.
 

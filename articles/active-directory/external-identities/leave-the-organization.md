@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909313"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>게스트 사용자로써 조직 나가기
@@ -31,19 +31,19 @@ Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 �
 
 1. 다음 단계 중 하나를 수행 하 여 액세스 패널 프로필 페이지로 이동 합니다.
    
-   - [Azure Portal](https://portal.azure.com)에서 오른쪽 위에 있는 이름을 클릭 하 고 **계정 보기**를 선택 합니다.
-   - [액세스 패널](https://myapps.microsoft.com)을 열고 오른쪽 위에서 이름을 클릭 한 다음 **조직**옆에서 설정 아이콘 (기어)을 선택 합니다.
+   - [Azure Portal](https://portal.azure.com)에서 오른쪽 위에 있는 이름을 클릭 하 고 **계정 보기** 를 선택 합니다.
+   - [액세스 패널](https://myapps.microsoft.com)을 열고 오른쪽 위에서 이름을 클릭 한 다음 **조직** 옆에서 설정 아이콘 (기어)을 선택 합니다.
  
    ![액세스 패널에서 사용자 설정을 보여주는 스크린샷](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > 탈퇴 하려는 조직에 아직 로그인 하지 않은 경우 **조직에서 조직**이름 옆의 조직에서 로그인 링크 **를** 클릭 합니다. 로그인 한 후 오른쪽 위에 있는 이름을 다시 클릭 하 고 **조직**옆에서 설정 아이콘 (기어)을 선택 합니다.
+   > 탈퇴 하려는 조직에 아직 로그인 하지 않은 경우 **조직에서 조직** 이름 옆의 조직에서 로그인 링크 **를** 클릭 합니다. 로그인 한 후 오른쪽 위에 있는 이름을 다시 클릭 하 고 **조직** 옆에서 설정 아이콘 (기어)을 선택 합니다.
 
-3. **조직**에서 나가려는 조직을 찾아 **조직 나가기**를 선택합니다.
+3. **조직** 에서 나가려는 조직을 찾아 **조직 나가기** 를 선택합니다.
 
    ![사용자 인터페이스에서 조직 나가기 옵션을 보여주는 스크린샷](media/leave-the-organization/LeaveOrg.png)
 
-4. 확인을 묻는 메시지가 나타나면 **나가기**를 선택합니다. 
+4. 확인을 묻는 메시지가 나타나면 **나가기** 를 선택합니다. 
 
 ## <a name="account-removal"></a>계정 제거
 
@@ -51,10 +51,10 @@ Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 �
 
 원하는 경우 테넌트 관리자는 30일의 기간 중 언제든지 계정을 영구적으로 삭제할 수 있습니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**를 선택합니다.
-2. **관리**에서 **사용자**를 선택합니다.
-3. **삭제된 사용자**를 선택합니다.
-4. 삭제된 사용자 옆의 확인란을 선택한 다음, **영구적으로 삭제**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 선택합니다.
+2. **관리** 에서 **사용자** 를 선택합니다.
+3. **삭제된 사용자** 를 선택합니다.
+4. 삭제된 사용자 옆의 확인란을 선택한 다음, **영구적으로 삭제** 를 선택합니다.
 
 사용자를 영구적으로 삭제하는 경우 이 작업은 되돌릴 수 없습니다.
 

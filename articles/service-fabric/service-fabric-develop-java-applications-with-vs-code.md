@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87327364"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션 개발
@@ -37,13 +37,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>VS Code에서 애플리케이션 열기
 
-VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하고 **폴더 열기**를 클릭하거나 **파일 -> 폴더 열기**를 클릭합니다. 리포지토리를 복제한 폴더의 *./service-fabric-java-quickstart/Voting* 디렉터리로 이동한 후 **확인**을 클릭합니다. 작업 영역에는 아래 스크린샷에 표시된 것과 동일한 파일이 포함되어야 합니다.
+VS Code를 엽니다.  **작업 막대** 에서 탐색기 아이콘을 클릭하고 **폴더 열기** 를 클릭하거나 **파일 -> 폴더 열기** 를 클릭합니다. 리포지토리를 복제한 폴더의 *./service-fabric-java-quickstart/Voting* 디렉터리로 이동한 후 **확인** 을 클릭합니다. 작업 영역에는 아래 스크린샷에 표시된 것과 동일한 파일이 포함되어야 합니다.
 
 ![작업 영역의 Java Voting 애플리케이션](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 
-1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트**를 엽니다.
+1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트** 를 엽니다.
 2. **Service Fabric: Build Application** 명령을 검색한 후 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Build Application 명령](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
@@ -54,7 +54,7 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 > [!IMPORTANT]
 > Windows 컴퓨터에서는 로컬 클러스터로 Java 애플리케이션을 배포할 수 없습니다.
 
-1. **명령 팔레트**에서 **Service Fabric: Deploy Application (Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+1. **명령 팔레트** 에서 **Service Fabric: Deploy Application (Localhost) 명령** 을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -66,7 +66,7 @@ VS Code를 엽니다.  **작업 막대**에서 탐색기 아이콘을 클릭하�
 
    ![브라우저의 Voting 애플리케이션](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. 클러스터에서 애플리케이션을 제거하려면 **명령 팔레트**에서 **Service Fabric: Remove Application** 명령을 선택합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 애플리케이션이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
+5. 클러스터에서 애플리케이션을 제거하려면 **명령 팔레트** 에서 **Service Fabric: Remove Application** 명령을 선택합니다. 제거 프로세스의 출력이 통합된 터미널로 전송됩니다. Service Fabric Explorer를 사용하여 애플리케이션이 로컬 클러스터에서 제거되었는지 확인할 수 있습니다.
 
 ## <a name="debug-the-application"></a>애플리케이션 디버그
 VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
@@ -89,11 +89,11 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
    ```
 
-3. **작업 막대**에서 디버그 아이콘을 클릭하여 VS Code에서 디버거 보기를 엽니다. 디버거 보기의 맨 위에 있는 톱니바퀴 아이콘을 클릭하고 드롭다운 메뉴에서 **Java**를 선택합니다. launch.json 파일이 열립니다. 
+3. **작업 막대** 에서 디버그 아이콘을 클릭하여 VS Code에서 디버거 보기를 엽니다. 디버거 보기의 맨 위에 있는 톱니바퀴 아이콘을 클릭하고 드롭다운 메뉴에서 **Java** 를 선택합니다. launch.json 파일이 열립니다. 
 
    ![VS Code 작업 영역의 디버그 아이콘](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
-3. launch.json 파일에서 **디버그(연결)** 구성의 포트 값을 **8001**로 설정합니다. 파일을 저장합니다.
+3. launch.json 파일에서 **디버그(연결)** 구성의 포트 값을 **8001** 로 설정합니다. 파일을 저장합니다.
 
    ![launch.json에 대한 디버그 구성](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
@@ -107,11 +107,11 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
 
    > [!IMPORTANT]
    > 코드의 실행 파일 줄에 중단점을 설정해야 합니다. 예를 들어, 메서드 선언, `try` 문 또는 `catch` 문에 설정된 중단점은 디버거에서 건너뜁니다.
-2. 디버깅을 시작하려면 **작업 막대**에서 디버그 아이콘을 클릭하고 디버그 메뉴에서 **디버그(연결)** 구성을 선택한 후 실행 단추(녹색 화살표)를 클릭합니다.
+2. 디버깅을 시작하려면 **작업 막대** 에서 디버그 아이콘을 클릭하고 디버그 메뉴에서 **디버그(연결)** 구성을 선택한 후 실행 단추(녹색 화살표)를 클릭합니다.
 
    ![디버그(연결) 구성](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. 웹 브라우저에서 `http://localhost:8080`로 이동합니다. 텍스트 상자에 새 항목을 입력하고 **+ 추가**를 클릭합니다. 중단점이 적중되어야 합니다. VS Code 맨 위에 있는 디버그 도구 모음을 사용하여 실행을 계속하거나, 줄을 건너뛰거나, 메서드를 한 단계씩 실행하거나, 현재 메서드에서 나갈 수 있습니다. 
+3. 웹 브라우저에서 `http://localhost:8080`로 이동합니다. 텍스트 상자에 새 항목을 입력하고 **+ 추가** 를 클릭합니다. 중단점이 적중되어야 합니다. VS Code 맨 위에 있는 디버그 도구 모음을 사용하여 실행을 계속하거나, 줄을 건너뛰거나, 메서드를 한 단계씩 실행하거나, 현재 메서드에서 나갈 수 있습니다. 
    
    ![중단점 적중](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        

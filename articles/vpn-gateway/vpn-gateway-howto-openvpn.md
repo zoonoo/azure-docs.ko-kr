@@ -1,24 +1,24 @@
 ---
-title: Azure VPN Gateway에서 OpenVPN을 구성 하는 방법
-description: PowerShell을 사용 하 여 지점 및 사이트 간 환경용 Azure VPN Gateway에서 OpenVPN 프로토콜을 사용 하도록 설정 하는 방법을 알아봅니다.
+title: Azure VPN Gateway에 대해 OpenVPN을 구성 하는 방법
+description: 지점 및 사이트 간 환경에 대해 Azure VPN Gateway에서 OpenVPN 프로토콜을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4b48e98ab35b620030b15165d4c9341c0f11b440
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 137e4e1372ef1af3319c0b9af7ba965fffcb9e34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393278"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584043"
 ---
-# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Azure 지점 및 사이트 간 VPN Gateway에 대 한 OpenVPN 구성
+# <a name="configure-openvpn-for-point-to-site-vpn-gateways"></a>지점 및 사이트 간 VPN gateway에 대 한 OpenVPN 구성
 
 이 문서에서는 Azure VPN Gateway에서 **Openvpn® 프로토콜** 을 설정 하는 방법을 설명 합니다. 포털 또는 PowerShell 지침 중 하나를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 문서에서는 작동하는 지점-사이트 간 환경이 이미 있다고 가정합니다. 그렇지 않은 경우 다음 방법 중 하나를 사용 하 여 만듭니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "100393278"
    :::image type="content" source="./media/vpn-gateway-howto-openvpn/portal.png" alt-text="드롭다운에서 OpenVPN SSL을 선택 합니다.":::
 1. 변경 내용을 저장 하 고 **다음 단계** 를 계속 합니다.
 
-## <a name="enable-openvpn-on-your-gateway-using-powershell"></a>PowerShell을 사용 하 여 게이트웨이에서 OpenVPN을 사용 하도록 설정 합니다.
+## <a name="powershell"></a>PowerShell
 
 1. 다음 예제를 사용 하 여 게이트웨이에서 OpenVPN을 사용 하도록 설정 합니다.
 

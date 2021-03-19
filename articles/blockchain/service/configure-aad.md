@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85208776"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Azure Blockchain 서비스에 대 한 Azure Active Directory 액세스를 구성 하는 방법
@@ -17,7 +17,7 @@ ms.locfileid: "85208776"
 
 Azure AD는 클라우드 기반 id 관리 기능을 제공 하며 전체 엔터프라이즈에서 단일 id를 사용 하 고 Azure에서 응용 프로그램에 액세스할 수 있습니다. Azure Blockchain 서비스는 Azure AD와 통합 되며 ID 페더레이션, Single Sign-On 및 multi-factor authentication과 같은 혜택을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal를 사용 하 여 블록 체인 구성원 만들기](create-member.md)
 
@@ -30,18 +30,18 @@ Azure AD는 클라우드 기반 id 관리 기능을 제공 하며 전체 엔터�
 멤버 수준에서 액세스 권한을 부여 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **액세스 제어 (IAM) > 추가 하 > 역할 할당**추가로 이동 합니다.
+1. **액세스 제어 (IAM) > 추가 하 > 역할 할당** 추가로 이동 합니다.
 1. **Blockchain Member Node access (Preview)** 역할을 선택 하 고 액세스 권한을 부여 하려는 AZURE AD ID 개체를 추가 합니다. Azure AD ID 개체는 다음과 같을 수 있습니다.
 
-    | Azure AD 개체 | 예 |
+    | Azure AD 개체 | 예제 |
     |-----------------|---------|
     | Azure AD 사용자   | `kim@contoso.onmicrosoft.com` |
     | Azure AD 그룹  | `sales@contoso.onmicrosoft.com` |
-    | 애플리케이션 UI  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
+    | 애플리케이션 ID  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
     ![역할 할당 추가](./media/configure-aad/add-role-assignment.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="grant-node-level-access"></a>노드 수준 액세스 권한 부여
 
@@ -81,13 +81,13 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 
 많은 응용 프로그램은 Azure ad 사용자 계정 대신 응용 프로그램 ID를 사용 하 여 Azure AD로 인증 합니다.
 
-응용 프로그램 ID를 사용 하 여 노드에 연결 하려면 **aadauthcode** 을 **aadclient**로 바꿉니다.
+응용 프로그램 ID를 사용 하 여 노드에 연결 하려면 **aadauthcode** 을 **aadclient** 로 바꿉니다.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | 테 넌 트-id | Azure AD 도메인 (예:) `yourdomain.onmicrosoft.com`
 | 클라이언트 id | Azure AD에서 등록 된 응용 프로그램의 클라이언트 ID
@@ -99,7 +99,7 @@ Azure AD에서 응용 프로그램을 등록 하는 방법에 대 한 자세한 
 
 Azure AD 인증 팝업 디스플레이가 가능 하지 않은 모바일 장치 또는 텍스트 기반 브라우저의 경우 Azure AD는 일회성 암호를 생성 합니다. 암호를 복사 하 고 다른 환경에서 Azure AD 인증을 진행할 수 있습니다.
 
-암호를 생성 하려면 **aadauthcode** 를 **aaddevice**로 바꿉니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`
+암호를 생성 하려면 **aadauthcode** 를 **aaddevice** 로 바꿉니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

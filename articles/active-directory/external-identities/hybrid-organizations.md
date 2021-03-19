@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909397"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>하이브리드 조직에 대한 Azure Active Directory B2B 협업
@@ -48,6 +48,6 @@ Azure AD 이전에는 온-프레미스 ID 시스템이 있는 조직은 일반�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
-- [로컬로 관리 되는 파트너 계정에 Azure AD B2B 공동 작업을 사용 하 여 클라우드 리소스에 대 한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
+- [Azure AD B2B 협업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
 
 

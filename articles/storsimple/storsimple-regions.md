@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90564154"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
@@ -39,7 +39,7 @@ StorSimple Device Manager 서비스를 처음 만들 때 지역 또는 위치를
 
 Azure 퍼블릭 클라우드에서 StorSimple Device Manager 서비스를 사용할 수 있으며 배포 가능한 지역 목록은 다음과 같습니다.
 
-![스크린샷에는 위치 목록이 강조 표시 된 StorSimple Device Manager 표시 됩니다.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![스크린샷에는 위치 목록이 강조 표시 된 StorSimple 장치 관리자 표시 됩니다.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 US Gov 아이오와 및 US Gov 버지니아 데이터 센터에서 사용할 수 있습니다.
 
@@ -90,7 +90,7 @@ Microsoft는 물리적 하드웨어를 제공하며 앞의 목록에 있는 지�
 
 StorSimple Cloud Appliance 8010 또는 8020을 사용하는 경우 해당 디바이스는 기본 VM이 지원되는 모든 지역에서 지원되며 사용할 수 있습니다. 8010은 모든 Azure 지역에서 지원되는 _Standard_A3_ VM을 사용합니다.
 
-8020은 Premium Storage 및 _Standard_DS3_ VM을 사용하여 클라우드 어플라이언스에 만듭니다. 8020은 Premium Storage 및 _Standard_DS3_ Azure VM을 지원하는 모든 Azure 지역에서 지원됩니다. [이 목록](https://azure.microsoft.com/regions/services/)을 사용하여 **Virtual Machines &gt; DS 시리즈** 및 **스토리지 &gt; 디스크 스토리지**를 자신의 지역에서 사용할 수 있습니다.
+8020은 Premium Storage 및 _Standard_DS3_ VM을 사용하여 클라우드 어플라이언스에 만듭니다. 8020은 Premium Storage 및 _Standard_DS3_ Azure VM을 지원하는 모든 Azure 지역에서 지원됩니다. [이 목록](https://azure.microsoft.com/regions/services/)을 사용하여 **Virtual Machines &gt; DS 시리즈** 및 **스토리지 &gt; 디스크 스토리지** 를 자신의 지역에서 사용할 수 있습니다.
 
 ### <a name="storsimple-virtual-array-model-1200"></a>StorSimple 가상 배열(모델 1200)
 

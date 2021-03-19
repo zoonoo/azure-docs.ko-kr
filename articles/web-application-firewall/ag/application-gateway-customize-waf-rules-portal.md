@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74048372"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Azure Portal를 사용 하 여 웹 응용 프로그램 방화벽 규칙 사용자 지정
@@ -26,9 +26,9 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 ## <a name="view-rule-groups-and-rules"></a>규칙 그룹 및 규칙 보기
 
 **규칙 그룹 및 규칙을 보려면**
-1. Application Gateway로 이동한 다음, **웹 애플리케이션 방화벽**을 선택합니다.  
-2. **Waf 정책을**선택 합니다.
-2. **관리 되는 규칙**을 선택 합니다.
+1. Application Gateway로 이동한 다음, **웹 애플리케이션 방화벽** 을 선택합니다.  
+2. **Waf 정책을** 선택 합니다.
+2. **관리 되는 규칙** 을 선택 합니다.
 
    이 보기는 선택된 규칙 집합과 함께 제공되는 모든 규칙 그룹의 페이지에 하나의 테이블을 표시합니다. 모든 규칙의 확인란이 선택되어 있습니다.
 
@@ -44,7 +44,7 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
    1. 사용하지 않도록 설정할 규칙 또는 규칙 그룹을 검색합니다.
    2. 사용 하지 않을 규칙에 대 한 확인란을 선택 합니다. 
    3. 선택한 규칙에 대 한 페이지 위쪽의 동작 (설정/해제)을 선택 합니다.
-   2. **저장**을 선택합니다. 
+   2. **저장** 을 선택합니다. 
 
 ![변경 내용 저장][3]
 
