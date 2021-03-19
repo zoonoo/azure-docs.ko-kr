@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대 한 Azure Active Directory를 사용 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: thweiss
-ms.openlocfilehash: 7c5497615ce71d0be713ef9ae28ab1e0f85b7ddb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: efde86eac3e0830b36eabfc9e80df09daeed9f6f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177235"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586066"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정 (미리 보기)에 대 한 Azure Active Directory를 사용 하 여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Azure Cosmos DB 데이터 평면 RBAC는 [AZURE rbac](../role-based-access-contr
 
 다음 표에서는 권한 모델에 의해 노출 되는 모든 작업을 나열 합니다.
 
-| Name | 해당 데이터베이스 작업 |
+| 이름 | 해당 데이터베이스 작업 |
 |---|---|
 | `Microsoft.DocumentDB/databaseAccounts/readMetadata` | 계정 메타 데이터를 읽습니다. 자세한 내용은 [메타 데이터 요청](#metadata-requests) 을 참조 하세요. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | 새 항목을 만듭니다. |
@@ -82,7 +82,7 @@ Azure Cosmos DB Sdk를 사용 하는 경우 이러한 Sdk는 초기화 하는 �
 
 작업에서 허용 되는 실제 메타 데이터 요청은 `Microsoft.DocumentDB/databaseAccounts/readMetadata` 작업이 할당 된 범위에 따라 다릅니다.
 
-| Scope | 작업에서 허용 되는 요청 |
+| 범위 | 작업에서 허용 되는 요청 |
 |---|---|
 | 계정 | -계정으로 데이터베이스 나열<br>-계정의 각 데이터베이스에 대해 데이터베이스 범위에서 허용 되는 작업 |
 | 데이터베이스 | -데이터베이스 메타 데이터 읽기<br>-데이터베이스 아래 컨테이너를 나열 합니다.<br>-데이터베이스 아래의 각 컨테이너에 대해 컨테이너 범위에서 허용 되는 작업 |
@@ -325,13 +325,13 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [Java에서](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
+- [JavaScript에서](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
 
 아래 예제에서는 인스턴스에 서비스 주체를 사용 `ClientSecretCredential` 합니다.
 
 ### <a name="in-net"></a>.NET
 
-> [!NOTE]
-> `preview`이 기능에 액세스 하려면 Azure Cosmos DB .NET SDK 버전을 사용 해야 합니다.
+Azure Cosmos DB RBAC는 현재 `preview` 버전의 [.Net SDK V3](sql-api-sdk-dotnet-standard.md)에서 지원 됩니다.
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -342,6 +342,8 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 ```
 
 ### <a name="in-java"></a>Java에서
+
+Azure Cosmos DB RBAC는 현재 [JAVA SDK V4](sql-api-sdk-java-v4.md)에서 지원 됩니다.
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -354,6 +356,21 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
     .endpoint("<account-endpoint>")
     .credential(ServicePrincipal)
     .build();
+```
+
+### <a name="in-javascript"></a>JavaScript에서
+
+Azure Cosmos DB RBAC는 현재 [JAVASCRIPT SDK V3](sql-api-sdk-node.md)에서 지원 됩니다.
+
+```javascript
+const servicePrincipal = new ClientSecretCredential(
+    "<azure-ad-tenant-id>",
+    "<client-application-id>",
+    "<client-application-secret>");
+const client = new CosmosClient({
+    "<account-endpoint>",
+    aadCredentials: servicePrincipal
+});
 ```
 
 ## <a name="auditing-data-requests"></a>데이터 요청 감사
@@ -374,25 +391,25 @@ Azure Cosmos DB RBAC를 사용 하는 경우 [진단 로그](cosmosdb-monitor-re
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="which-azure-cosmos-db-apis-are-supported-by-rbac"></a>RBAC에서 지원 되는 Azure Cosmos DB Api는 무엇입니까?
+### <a name="which-azure-cosmos-db-apis-are-supported-by-rbac"></a>RBAC에서 지원되는 Azure Cosmos DB API는 무엇인가요?
 
-SQL API만 현재 지원 됩니다.
+현재는 SQL API만 지원됩니다.
 
 ### <a name="is-it-possible-to-manage-role-definitions-and-role-assignments-from-the-azure-portal"></a>Azure Portal에서 역할 정의 및 역할 할당을 관리할 수 있나요?
 
-역할 관리에 대 한 Azure Portal 지원은 아직 사용할 수 없습니다.
+역할 관리에 대한 Azure Portal 지원은 아직 사용할 수 없습니다.
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Azure Cosmos DB SQL API에서 RBAC를 지 원하는 Sdk는 무엇입니까?
 
 [.Net V3](sql-api-sdk-dotnet-standard.md) 및 [Java V4](sql-api-sdk-java-v4.md) sdk는 현재 지원 됩니다.
 
-### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Azure AD 토큰이 만료 될 때 Azure Cosmos DB Sdk에 의해 자동으로 새로 고쳐지도록 하나요?
+### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Azure AD 토큰이 만료될 때 Azure Cosmos DB SDK에 의해 자동으로 새로 고쳐지나요?
 
 예.
 
-### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>RBAC를 사용할 때 계정 기본 키를 사용 하지 않도록 설정할 수 있나요?
+### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>RBAC를 사용할 때 계정 기본 키를 사용하지 않도록 설정할 수 있나요?
 
-현재 계정 기본 키를 사용 하지 않도록 설정할 수 없습니다.
+현재 계정 기본 키를 사용하지 않도록 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565464"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582105"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>로컬 임시 디스크가 없는 Azure VM 크기 
 이 문서에서는 로컬 임시 디스크가 없는 Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다 (예: 로컬 임시 디스크 없음). 이러한 VM 크기에 대 한 자세한 내용은 [Dv4 및 Dsv4에 대 한 사양 (범용 워크 로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양 (메모리 액세스에 최적화 된 작업)](ev4-esv4-series.md)을 참조 하세요.
@@ -56,7 +56,7 @@ ms.locfileid: "102565464"
    > "C 드라이브로 일시적으로 pagefile.sys 이동" 섹션의 지침에 따라 로컬 임시 디스크 (D: 드라이브)에서 C: 드라이브로 페이지 파일을 이동 하려면 Windows VM의 데이터 드라이브로 D: 드라이브를 사용 합니다. **설명 된 단계와의 편차를 통해 오류 메시지가 표시 됩니다. "리소스 디스크에서 비 리소스 디스크 VM 크기로 변경 하 여 VM의 크기를 조정할 수 없습니다.**
 
 3. [포털을 사용 하 여 스냅숏 만들기 또는 Azure CLI](./linux/snapshot-copy-managed-disk.md)에 설명 된 단계를 수행 하 여 VM의 스냅숏을 만듭니다. 
-4. CLI를 사용 하 [여 스냅숏에서 가상 컴퓨터 만들기](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md)에 설명 된 단계에 따라 스냅숏을 사용 하 여 새 디스크 없는 VM (예: Dv4, Dsv4, Ev4, Esv4 series)을 만듭니다. 
+4. CLI를 사용 하 [여 스냅숏에서 가상 컴퓨터 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot)에 설명 된 단계에 따라 스냅숏을 사용 하 여 새 디스크 없는 VM (예: Dv4, Dsv4, Ev4, Esv4 series)을 만듭니다. 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>이러한 VM 크기는 Linux 및 Windows 운영 체제 (OS)를 모두 지원 하나요?
 예.

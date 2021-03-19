@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741561"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579181"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -171,7 +171,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SSPR 및 MFA 사용량 및 통찰력 보고](howto-authentication-methods-usage-insights.md)
+* [SSPR 및 MFA 사용량 및 통찰력 보고](./howto-authentication-methods-activity.md)
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
 * [암호를 다시 설정 하거나 변경](../user-help/active-directory-passwords-update-your-own-password.md)합니다.
 * [셀프 서비스 암호 재설정에 등록](../user-help/active-directory-passwords-reset-register.md)합니다.

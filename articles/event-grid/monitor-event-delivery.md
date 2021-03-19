@@ -2,36 +2,19 @@
 title: Azure Event Grid 메트릭 보기 및 경고 설정
 description: 이 문서에서는 Azure Portal를 사용 하 여 토픽 및 구독에 대 한 메트릭을 확인 하 고이에 대 Azure Event Grid 한 경고를 만드는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f6c119c16452246ec6eeb57ab392b29608938a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577413"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598561"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Event Grid 메시지 배달 모니터링 
 이 문서에서는 포털을 사용 하 여 토픽 및 구독 Event Grid에 대 한 메트릭을 확인 하 고이에 대 한 경고를 만드는 방법을 설명 합니다. 
 
-## <a name="metrics"></a>메트릭
-
-포털에는 이벤트 메시지 배달 상태에 대한 메트릭이 표시됩니다.
-
-항목의 경우 몇 가지 메트릭이 있습니다.
-
-* **게시 성공**: 이벤트가 성공적으로 토픽으로 전송되고 2xx 응답으로 처리되었습니다.
-* **게시 실패**: 이벤트가 토픽으로 전송되었지만 거부되고 오류 코드가 표시되었습니다.
-* **일치하지 않음**: 이벤트가 성공적으로 토픽에 게시되었지만 이벤트 구독과 일치하지 않습니다. 이벤트가 삭제되었습니다.
-
-구독의 경우 다음 몇 가지 메트릭이 있습니다.
-
-* **배달 성공**: 이벤트가 성공적으로 구독 엔드포인트로 배달되고 2xx 응답을 받았습니다.
-* **배달 실패**: 서비스가 배달을 시도할 때마다 이벤트 처리기가 성공 2xx 코드를 반환 하지 않으면 **배달 실패** 카운터가 증가 합니다. 동일한 이벤트를 여러 번 배달 하려고 시도 하 고 실패 하는 경우 각 오류에 대해 **배달 실패** 카운터가 증가 합니다.
-* **만료된 이벤트**: 이벤트가 배달되지 않았으며 다시 시도 횟수가 모두 전송되었습니다. 이벤트가 삭제되었습니다.
-* **일치된 이벤트**: 토픽의 이벤트가 이벤트 구독과 일치되었습니다.
-
-    > [!NOTE]
-    > 메트릭의 전체 목록은 [Azure Event Grid에서 지 원하는 메트릭](metrics.md)을 참조 하세요.
+> [!IMPORTANT]
+> Azure Event Grid 지원 되는 메트릭 목록은 [메트릭](metrics.md)을 참조 하세요.
 
 ## <a name="view-custom-topic-metrics"></a>사용자 지정 토픽 메트릭 보기
 
@@ -48,15 +31,13 @@ ms.locfileid: "100577413"
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="이벤트 메트릭 보기":::
 
-**Event Grid 토픽** 페이지의 **메트릭** 탭을 사용 하 여 지원 되는 메트릭을 포함 하는 차트를 만들 수 있습니다.
+    **Event Grid 토픽** 페이지의 **메트릭** 탭을 사용 하 여 지원 되는 메트릭을 포함 하는 차트를 만들 수 있습니다.
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="토픽-메트릭 페이지":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="토픽-메트릭 페이지":::
 
-메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md) 을 참조 하세요.
+    예를 들어 **게시 된 이벤트** 메트릭에 대 한 메트릭 차트를 참조 하세요.
 
-예를 들어 **게시 된 이벤트** 메트릭에 대 한 메트릭 차트를 참조 하세요.
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="게시 된 이벤트 메트릭":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="게시 된 이벤트 메트릭":::
 
 
 ## <a name="view-subscription-metrics"></a>구독 메트릭 보기
@@ -70,7 +51,7 @@ ms.locfileid: "100577413"
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Event Grid 구독 페이지에서 이벤트 구독을 선택 합니다.":::        
 
     사용자 지정 항목의 경우 **토픽 형식** 으로 **Event Grid 항목** 을 선택 합니다. 시스템 항목의 경우 **저장소 계정 (Blob, GPv2)** 과 같은 Azure 리소스의 유형을 선택 합니다. 
-3. 차트에서 구독의 홈 페이지에서 구독에 대 한 메트릭을 확인 하세요. 지난 1 시간, 6 시간, 12 시간, 1 일, 7 일 또는 30 일 동안 **일반**, **오류**, **대기 시간** 및 **배달 못 한 편지** 메트릭을 볼 수 있습니다. 
+3. 차트에서 구독의 홈 페이지에서 구독에 대 한 메트릭을 확인 하세요. 지난 1 시간, 6 시간, 12 시간, 1 일, 7 일 또는 30 일에 대 한 **일반**, **오류** 및 **대기 시간** 메트릭을 볼 수 있습니다. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="구독 홈 페이지의 메트릭":::    
 
@@ -87,12 +68,12 @@ ms.locfileid: "100577413"
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="개요 페이지에서 시스템 항목 메트릭 보기":::
 
-**Event Grid 토픽** 페이지의 **메트릭** 탭을 사용 하 여 지원 되는 메트릭을 포함 하는 차트를 만들 수 있습니다.
+    **Event Grid 토픽** 페이지의 **메트릭** 탭을 사용 하 여 지원 되는 메트릭을 포함 하는 차트를 만들 수 있습니다.
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="시스템 항목-메트릭 페이지":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="시스템 항목-메트릭 페이지":::
 
-메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md) 을 참조 하세요.
-
+    > [!IMPORTANT]
+    > Azure Event Grid 지원 되는 메트릭 목록은 [메트릭](metrics.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

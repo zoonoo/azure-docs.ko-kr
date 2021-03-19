@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c6f4e4851d406b14ed38665274401b96446ac6a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579079"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>조건부 액세스 보고서 전용 모드
 
@@ -28,6 +28,8 @@ ms.locfileid: "97935889"
 - 로그인 하는 동안 보고서 전용 모드의 정책은 평가 되지만 적용 되지 않습니다.
 - 결과는 로그인 로그 정보에 대 한 **조건부 액세스** 및 **보고서 전용** 탭에 기록 됩니다.
 - Azure Monitor 구독이 있는 고객은 조건부 액세스 insights 통합 문서를 사용 하 여 조건부 액세스 정책의 영향을 모니터링할 수 있습니다.
+
+> [!VIDEO https://www.youtube.com/embed/NZbPYfhb5Kc]
 
 > [!WARNING]
 > 규격 장치를 필요로 하는 보고서 전용 모드의 정책은 장치 호환성이 적용 되지 않는 경우에도 사용자에 게 Mac, iOS 및 Android에서 장치 인증서를 선택 하 라는 메시지를 표시할 수 있습니다. 이러한 메시지는 장치를 준수 하도록 설정할 때까지 반복 될 수 있습니다. 최종 사용자가 로그인 하는 동안 프롬프트를 받지 못하도록 하려면 장치 준수 검사를 수행 하는 보고서 전용 정책에서 장치 플랫폼 Mac, iOS 및 Android를 제외 합니다. 보고서 전용 모드는 "사용자 작업" 범위를 사용 하는 조건부 액세스 정책에는 적용 되지 않습니다.

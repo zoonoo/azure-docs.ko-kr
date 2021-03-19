@@ -4,13 +4,13 @@ description: AKS(Azure Kubernetes Service)의 가용성 영역에 노드를 배�
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
-ms.openlocfilehash: 3eec8a6c331227d9d6298c46b272a5784080d342
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180329"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583550"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -29,6 +29,7 @@ Azure CLI 버전 2.0.76 이상이 설치되고 구성되어 있어야 합니다.
 AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 만들 수 있습니다.
 
 * 오스트레일리아 동부
+* 브라질 남부
 * 캐나다 중부
 * 미국 중부
 * 미국 동부 
@@ -167,7 +168,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 이제 영역 1과 2에 두 개의 추가 노드가 있습니다. 3개의 복제본으로 구성된 애플리케이션을 배포할 수 있습니다. NGINX를 예로 들어 보겠습니다.
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 

@@ -13,16 +13,16 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488927"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580048"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자로 등록 및 로그인 설정
 
-Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자와의 페더레이션을 지원 합니다. 이 문서에서는 사용자가 [ADFS](identity-provider-adfs2016-custom.md) 및 [Salesforce](identity-provider-salesforce-saml.md)와 같은 기존 소셜 또는 엔터프라이즈 id를 사용 하 여 로그인 할 수 있도록 허용 하 여 SAML id 공급자 사용자 계정으로 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
+Azure Active Directory B2C (Azure AD B2C)는 SAML 2.0 id 공급자와의 페더레이션을 지원 합니다. 이 문서에서는 사용자가 [ADFS](./identity-provider-adfs.md) 및 [Salesforce](identity-provider-salesforce-saml.md)와 같은 기존 소셜 또는 엔터프라이즈 id를 사용 하 여 로그인 할 수 있도록 허용 하 여 SAML id 공급자 사용자 계정으로 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

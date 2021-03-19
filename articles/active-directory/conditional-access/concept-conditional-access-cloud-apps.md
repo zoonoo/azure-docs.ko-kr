@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2895588a5a82ec2b6c69d33ff6cea39bbe3a0372
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491999"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579147"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -131,7 +131,7 @@ Microsoft 앱 외에도 관리자는 Azure AD에 등록된 애플리케이션을
 
 - **장치 등록 또는 연결 (미리 보기)**:이 사용자 작업을 통해 관리자는 사용자가 Azure AD에 장치를 [등록](../devices/concept-azure-ad-register.md) 하거나 [조인할](../devices/concept-azure-ad-join.md) 때 조건부 액세스 정책을 적용할 수 있습니다. 이 사용자 작업에는 두 가지 주요 고려 사항이 있습니다. 
    - `Require multi-factor authentication` 이 사용자 작업에서 유일 하 게 사용할 수 있는 액세스 제어는 사용 하지 않도록 설정 되어 있습니다. 이 제한은 Azure AD 장치 등록에 종속 되거나 Azure AD 장치 등록에는 적용 되지 않는 액세스 제어와의 충돌을 방지 합니다. 
-   - 이 사용자 동작을 사용 하 여 조건부 액세스 정책을 사용 하도록 설정한 경우 **Azure Active Directory**  >  **장치**  >  **장치 설정을**  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` **아니요** 로 설정 해야 합니다. 그렇지 않으면이 사용자 동작을 사용 하는 조건부 액세스 정책이 제대로 적용 되지 않습니다. 이 장치 설정에 대 한 자세한 내용은 [장치 설정 구성](../device-management-azure-portal.md##configure-device-settings)에서 찾을 수 있습니다. 이 사용자 작업은 장치 설정에 테 넌 트 차원의 정책을 사용 하는 대신 특정 사용자 및 그룹에 대 한 장치를 등록 하거나 조인 하기 위해 다단계 인증을 요구 하는 유연성을 제공 합니다. 
+   - 이 사용자 동작을 사용 하 여 조건부 액세스 정책을 사용 하도록 설정한 경우 **Azure Active Directory**  >  **장치**  >  **장치 설정을**  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` **아니요** 로 설정 해야 합니다. 그렇지 않으면이 사용자 동작을 사용 하는 조건부 액세스 정책이 제대로 적용 되지 않습니다. 이 장치 설정에 대 한 자세한 내용은 [장치 설정 구성](../devices/device-management-azure-portal.md#configure-device-settings)에서 찾을 수 있습니다. 이 사용자 작업은 장치 설정에 테 넌 트 차원의 정책을 사용 하는 대신 특정 사용자 및 그룹에 대 한 장치를 등록 하거나 조인 하기 위해 다단계 인증을 요구 하는 유연성을 제공 합니다. 
    
 ## <a name="next-steps"></a>다음 단계
 

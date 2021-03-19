@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01c4d6475ec23b8a55d91e18f49cab27760aa907
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604290"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 순위
 
@@ -28,25 +28,35 @@ ms.locfileid: "103418847"
 
 의미 체계 등급의 경우 모델은 컴퓨터 읽기 이해 및 전송 학습을 모두 사용 하 여 각 항목이 얼마나 잘 쿼리 의도에 따라 문서에 대 한 점수를 다시 지정 합니다.
 
-1. 각 문서에 대해 의미 체계 ranker는 searchFields 매개 변수의 필드를 순서 대로 평가 하 여 콘텐츠를 하나의 커다란 문자열로 통합 합니다.
+### <a name="preparation-passage-extraction-phase"></a>준비 (통로 추출) 단계
 
-1. 그런 다음 전체 길이가 8000 토큰을 초과 하지 않도록 문자열을 잘라냅니다. 내용 필드 또는 콘텐츠 페이지가 많은 merged_content 필드를 포함 하는 문서가 매우 큰 경우 토큰 제한 이후의 모든 항목은 무시 됩니다.
+초기 결과의 각 문서에 대해 키 통로를 식별 하는 통로 추출 연습이 있습니다. 이는 빠르게 처리할 수 있는 양만큼 콘텐츠를 줄이는 다운 된 크기 조정 연습입니다.
 
-1. 이제 각 50 문서는 단일 긴 문자열로 표시 됩니다. 이 문자열은 요약 모델에 전송 됩니다. 요약 모델은 기계 판독값 이해력을 사용 하 여 콘텐츠를 요약 하거나 질문에 대답 하는 통로를 식별 하는 캡션 (및 답변)을 생성 합니다. 요약 모델의 출력은 최대 128 토큰에 해당 하는 더 적은 수의 문자열입니다.
+1. 각 50 문서에 대해 searchFields 매개 변수의 각 필드는 연속적인 순서로 계산 됩니다. 각 필드의 콘텐츠는 하나의 긴 문자열로 통합 됩니다. 
 
-1. 작은 문자열은 문서의 캡션이 되며 큰 문자열에서 찾은 가장 관련성이 높은 통로를 나타냅니다. 그런 다음 50 개 이하의 캡션 집합을 순서 관련성으로 순위가 매겨집니다. 
+1. 긴 문자열은 전체 길이가 8000 토큰을 넘지 않도록 트리밍 됩니다. 따라서 문자열에 포함 되도록 간결한 필드를 먼저 배치 하는 것이 좋습니다. 텍스트를 많이 사용 하는 필드가 있는 매우 큰 문서를 사용 하는 경우 토큰 제한 이후의 모든 항목은 무시 됩니다.
 
-개념 및 의미 체계 관련성은 벡터 표현과 용어 클러스터를 통해 설정 됩니다. 키워드 유사성 알고리즘은 쿼리의 모든 용어에 동일한 가중치를 제공할 수 있는 반면, 의미 체계 모델은 표면의 상호 종속성 및 관계를 인식 하도록 학습 된 것입니다. 결과적으로, 쿼리 문자열에 동일한 클러스터의 용어가 포함 된 경우 둘 다를 포함 하는 문서는 그렇지 않은 것 보다 우선 순위가 높습니다.
+1. 이제 각 문서는 최대 8000 토큰의 단일 긴 문자열로 표시 됩니다. 이러한 문자열은 요약 모델로 전송 되므로 문자열을 더 줄일 수 있습니다. 요약 모델은 문서를 가장 잘 요약 하거나 질문에 대답 하는 주요 문장이 나 통로의 긴 문자열을 평가 합니다.
 
-:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="컨텍스트에 대 한 벡터 표현" border="true":::
+1. 이 단계의 출력은 캡션 (필요에 따라 대답)입니다. 캡션은 문서당 최대 128 토큰으로, 문서를 가장 하는 것으로 간주 됩니다.
+
+### <a name="scoring-and-ranking-phases"></a>점수 매기기 및 순위 지정 단계
+
+이 단계에서는 관련성을 평가 하기 위해 모든 50 캡션이 평가 됩니다.
+
+1. 점수 매기기는 제공 된 쿼리를 기준으로 개념 및 의미 체계 관련성에 대 한 각 캡션을 평가 하 여 결정 됩니다.
+
+   다음 다이어그램에서는 "의미 체계 관련성"의 의미에 대 한 설명을 제공 합니다. 재무, 법률, 지리 또는 문법의 컨텍스트에서 사용할 수 있는 "대문자" 라는 용어를 생각해 보세요. 쿼리에 동일한 벡터 공간의 용어 (예: "대문자" 및 "투자")가 포함 되어 있는 경우 동일한 클러스터에도 토큰을 포함 하는 문서는 그렇지 않은 것 보다 점수가 높습니다.
+
+   :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="컨텍스트에 대 한 벡터 표현" border="true":::
+
+1. 이 단계의 출력은 @search.rerankerScore 각 문서에 할당 됩니다. 모든 문서가 점수가 매겨진 후에는 내림차순으로 나열 되 고 쿼리 응답 페이로드에 포함 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-의미 등급 순위는 특정 지역의 표준 계층에서 제공 됩니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
-
-새 쿼리 유형을 사용 하면 의미 체계 검색의 관련성 순위 및 응답 구조를 사용할 수 있습니다. [의미 체계 쿼리를 만들어](semantic-how-to-query-request.md) 시작 합니다.
+의미 등급 순위는 특정 지역의 표준 계층에서 제공 됩니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요. 새 쿼리 유형을 사용 하면 의미 체계 검색의 관련성 순위 및 응답 구조를 사용할 수 있습니다. 시작 하려면 [의미 체계 쿼리를 만듭니다](semantic-how-to-query-request.md).
 
 또는 관련 정보는 다음 문서 중 하나를 참조 하세요.
 
-+ [쿼리 용어에 맞춤법 검사 추가](speller-how-to-add.md)
++ [의미 체계 검색 개요](semantic-search-overview.md)
 + [의미 대답 반환](semantic-answers.md)

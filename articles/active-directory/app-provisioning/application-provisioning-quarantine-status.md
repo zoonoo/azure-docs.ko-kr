@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256308"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579504"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
 
@@ -85,7 +85,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 합니다. 
 
 문제를 해결 한 후 프로 비전 작업을 다시 시작 합니다. 특성 매핑 또는 범위 지정 필터와 같은 응용 프로그램의 프로 비전 설정에 대 한 특정 변경 사항은 자동으로 자동으로 프로 비전을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지에 있는 진행률 표시줄에는 프로 비전이 마지막으로 시작 된 시간을 나타냅니다. 프로 비전 작업을 수동으로 다시 시작 해야 하는 경우 다음 방법 중 하나를 사용 합니다.  
 
-- Azure Portal를 사용 하 여 프로 비전 작업을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지 **설정** 아래에서 **상태 지우기 및 동기화 다시 시작** 을 선택 하 고 **프로 비전 상태** 를 **켜기** 로 설정 합니다. 이 작업은 프로 비전 서비스를 완전히 다시 시작 하며,이 작업은 다소 시간이 걸릴 수 있습니다. Escrows를 지우고 앱을 격리에서 제거 하 고 모든 워터 마크를 제거 하는 전체 초기 주기가 다시 실행 됩니다.
+- Azure Portal를 사용 하 여 프로 비전 작업을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지에서 **프로 비전 다시 시작** 을 선택 합니다. 이 작업은 프로 비전 서비스를 완전히 다시 시작 하며,이 작업은 다소 시간이 걸릴 수 있습니다. Escrows를 지우고 앱을 격리에서 제거 하 고 모든 워터 마크를 제거 하는 전체 초기 주기가 다시 실행 됩니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가하고 프로비저닝 범위에 있는지 확인합니다. 이 문서에서 설명 하는 대로 응용 프로그램이 현재 격리 되어 있거나 특성 매핑을 변경 해야 하는 경우에 유용할 수 있습니다. 계산해야 하는 개체의 수 때문에 초기 주기는 일반적인 증분 주기보다 완료하는 데 더 오래 걸립니다. [여기](application-provisioning-when-will-provisioning-finish-specific-user.md)에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다.
 
 - Microsoft Graph를 사용 하 여 [프로 비전 작업을 다시 시작](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true)합니다. 다시 시작 하는 작업을 완전히 제어할 수 있습니다. Escrows (격리 상태를 적용 하는 에스크로 카운터를 다시 시작 하려면)를 선택 취소 하거나 격리 (격리에서 응용 프로그램을 제거 하려면)를 지우거 나 워터 마크를 지울 수 있습니다. 다음 요청을 사용합니다.
  

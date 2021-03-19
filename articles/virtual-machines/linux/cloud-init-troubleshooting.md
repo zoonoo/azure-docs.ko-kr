@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558970"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582156"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>클라우드 초기화를 사용 하 여 VM 프로 비전 문제 해결
 
@@ -56,11 +56,11 @@ VM을 프로 비전 하지 못하면 Azure는 20 분 동안 ' 만들기 ' 상태
 
 VM이 실행 되는 동안 VM의 로그가 있어야 프로 비전이 실패 한 이유를 파악할 수 있습니다.  VM을 프로 비전 하지 못한 이유를 이해 하려면 VM을 중지 하지 마십시오. VM을 계속 실행 합니다. 로그를 수집 하기 위해 실패 한 VM을 실행 중 상태로 유지 해야 합니다. 로그를 수집 하려면 다음 방법 중 하나를 사용 합니다.
 
-- [직렬 콘솔](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - VM을 만들기 전에 [부팅 진단을 사용 하도록 설정](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) 하 고 부팅 하는 동안이를 [확인](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) 합니다.
 
-- [AZ VM Repair를 실행](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) 하 여 OS 디스크를 연결 하 고 탑재 합니다. 그러면 다음 로그를 수집할 수 있습니다.
+- [AZ VM Repair를 실행](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) 하 여 OS 디스크를 연결 하 고 탑재 합니다. 그러면 다음 로그를 수집할 수 있습니다.
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Stderr: mount: unknown filesystem type 'udf'
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-[직렬 콘솔](../troubleshooting/serial-console-grub-single-user-mode.md)에 대 한 액세스 권한이 있는 경우 클라우드의 실행을 시도 하는 명령을 다시 실행할 수 있습니다.
+[직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)에 대 한 액세스 권한이 있는 경우 클라우드의 실행을 시도 하는 명령을 다시 실행할 수 있습니다.
 
 `/var/log/cloud-init.log`/Etc/cloud/cloud.cfg.d/05_logging. cfg 내에서에 대 한 로깅을 다시 구성할 수도 있습니다. 클라우드 초기화 로깅에 대 한 자세한 내용은 [클라우드 초기화 설명서](https://cloudinit.readthedocs.io/en/latest/topics/logging.html)를 참조 하세요. 
 

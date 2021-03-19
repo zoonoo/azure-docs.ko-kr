@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 9/30/2020
+ms.date: 03/18/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f1ff679bddf2afc355516f2a04b3307d4a260a5c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8fb4ecb8fa8d6938e9afbc77064380b7b213029a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063623"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578739"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
 
@@ -48,7 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-[AZURE AD에서 필요한 클레임](active-directory-certificate-credentials.md) 은 다음과 같습니다.
+또한 어설션의 시간을 계산 하는 데 사용할 수 있는 대리자 폼을 사용할 수 있습니다.
+
+```csharp
+string signedClientAssertion = ComputeAssertion();
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(() => { return GetSignedClientAssertion(); } )
+                                          .Build();
+```
+
+서명 된 어설션의 [AZURE AD에서 필요한 클레임](active-directory-certificate-credentials.md) 은 다음과 같습니다.
 
 클레임 유형 | 값 | 설명
 ---------- | ---------- | ----------

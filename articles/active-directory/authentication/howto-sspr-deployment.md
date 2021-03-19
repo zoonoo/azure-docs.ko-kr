@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500515"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579198"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -322,7 +322,7 @@ Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 ### <a name="authentication-methods--usage-and-insights"></a>인증 방법 - 사용량 및 인사이트
 
-[사용량 및 통찰력](./howto-authentication-methods-usage-insights.md) 을 통해 AZURE AD MFA 및 SSPR와 같은 기능의 인증 방법이 조직에서 작동 하는 방식을 이해할 수 있습니다. 이 보고 기능은 등록 방법 및 사용 방법을 이해할 수 있는 수단을 조직에 제공합니다.
+[사용량 및 통찰력](./howto-authentication-methods-activity.md) 을 통해 AZURE AD MFA 및 SSPR와 같은 기능의 인증 방법이 조직에서 작동 하는 방식을 이해할 수 있습니다. 이 보고 기능은 등록 방법 및 사용 방법을 이해할 수 있는 수단을 조직에 제공합니다.
 
 ### <a name="troubleshoot"></a>문제 해결
 

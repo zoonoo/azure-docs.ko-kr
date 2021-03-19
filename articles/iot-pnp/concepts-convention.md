@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302608"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582683"
 ---
 # <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
@@ -25,7 +25,7 @@ IoT 플러그 앤 플레이 장치에서 [DTDL (디지털 Twins Language v2)](ht
 - **구성 요소가** 없습니다. 구성 요소가 없는 모델입니다. 모델은 main 인터페이스의 내용 섹션에서 원격 분석, 속성 및 명령을 최상위 속성으로 선언 합니다. Azure IoT 탐색기 도구에서이 모델은 단일 _기본 구성 요소로_ 표시 됩니다.
 - **여러 구성 요소** -두 개 이상의 인터페이스로 구성 된 모델입니다. 원격 분석, 속성 및 명령을 사용 하 여 _기본 구성 요소로_ 표시 되는 주 인터페이스입니다. 추가 원격 분석, 속성 및 명령을 사용 하 여 구성 요소로 선언 된 하나 이상의 인터페이스입니다.
 
-자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](concepts-components.md)를 참조 하세요.
+자세한 내용은 [IoT 플러그 앤 플레이 모델링 가이드](concepts-modeling-guide.md)를 참조 하세요.
 
 ## <a name="identify-the-model"></a>모델 식별
 
@@ -351,6 +351,6 @@ DTDL:
 이제 IoT 플러그 앤 플레이 규칙에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C 디바이스 SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [C 장치 SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
-- [모델 구성 요소](./concepts-components.md)
+- [IoT 플러그 앤 플레이 모델링 가이드](concepts-modeling-guide.md)

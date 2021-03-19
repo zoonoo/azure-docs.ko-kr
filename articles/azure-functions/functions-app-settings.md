@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425705"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595979"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -257,9 +257,17 @@ Windows에서 이벤트 기반 크기 조정 계획의 함수 앱 코드와 구�
 
 Azure Resource Manager를 사용 하 여 배포 하는 동안 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함 하지 마십시오. 이 응용 프로그램 설정은 배포 중에 생성 됩니다. 자세히 알아보려면 [함수 앱에 대 한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조 하세요.   
 
+## <a name="website_dns_server"></a>웹 사이트 \_ DNS \_ 서버
+
+IP 주소를 확인할 때 앱에서 사용 하는 DNS 서버를 설정 합니다. 이 설정은 [Azure DNS 개인 영역](functions-networking-options.md#azure-dns-private-zones) 및 [개인 끝점과](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)같은 특정 네트워킹 기능을 사용할 때 필요 합니다.   
+
+|키|샘플 값|
+|---|------------|
+|웹 사이트 \_ DNS \_ 서버|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-함수 앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
+앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
 
 > [!IMPORTANT]
 > 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./event-driven-scaling.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
@@ -297,6 +305,14 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합
 |웹 사이트 \_ 표준 \_ 시간대|Linux|아메리카/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>웹 \_ 사이트 \_ VNET \_ 모두 라우팅
+
+앱의 모든 아웃 바운드 트래픽이 가상 네트워크를 통해 라우팅되도록 할지 여부를 나타냅니다. 설정 값은 `1` 모든 트래픽이 가상 네트워크를 통해 라우팅되고 있음을 나타냅니다. [지역 가상 네트워크 통합](functions-networking-options.md#regional-virtual-network-integration)의 기능을 사용 하는 경우이 설정을 사용 해야 합니다. 또한 [가상 네트워크 NAT 게이트웨이가 고정 아웃 바운드 IP 주소를 정의 하는 데 사용](functions-how-to-use-nat-gateway.md)되는 경우에도 사용 됩니다. 
+
+|키|샘플 값|
+|---|------------|
+|웹 \_ 사이트 \_ VNET \_ 모두 라우팅|1|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95239553"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590928"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>지역 간 복제 문제 해결
 
@@ -71,6 +71,12 @@ ms.locfileid: "95239553"
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     이 스냅숏을 삭제 하려면 볼륨의 복제가 손상 되었는지 확인 합니다.    |
 |     `Cannot delete   volume replication generated snapshot`    |     복제 기준 스냅숏 삭제는 허용 되지 않습니다.    |
 
+## <a name="errors-resizing-volumes"></a>볼륨 크기 조정 오류
+
+|     오류 메시지    |     해결 방법    |
+|-|-|
+|   오류가 발생 하 여 원본 볼륨의 크기를 조정 하지 못했습니다. `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  지역 간 복제의 원본 볼륨과 대상 볼륨 모두의 용량 풀에 충분 한 여유가 있는지 확인 합니다. 원본 볼륨의 크기를 조정 하면 대상 볼륨의 크기가 자동으로 조정 됩니다. 그러나 대상 볼륨을 호스트 하는 용량 풀에 충분 한 공간이 없는 경우 원본 볼륨과 대상 볼륨의 크기를 모두 조정 하지 못합니다. 자세한 내용은 [지역 간 복제 대상 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) 을 참조 하세요.   |
+
 ## <a name="next-steps"></a>다음 단계  
 
 * [지역 간 복제](cross-region-replication-introduction.md)
@@ -78,4 +84,5 @@ ms.locfileid: "95239553"
 * [볼륨 복제 만들기](cross-region-replication-create-peering.md)
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
+* [지역 간 복제 대상 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)

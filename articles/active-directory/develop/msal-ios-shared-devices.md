@@ -1,7 +1,7 @@
 ---
 title: iOS 디바이스의 공유 디바이스 모드
 titleSuffix: Microsoft identity platform | Azure
-description: Firstline Worker가 iOS 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
+description: Frontline Worker가 iOS 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561066"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578790"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
 >[!IMPORTANT]
 > 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-소매 연결, 비행 crew 구성원 및 현장 서비스 작업자와 같은 firstline Worker는 종종 공유 모바일 장치를 사용 하 여 작업을 수행 합니다. 사용자가 자신의 암호나 Pin을 공유 장치에서 고객 및 비즈니스 데이터에 액세스 하는 경우 이러한 공유 장치는 보안 위험을 나타낼 수 있습니다.
+소매 연결, 비행 crew 구성원 및 현장 서비스 작업자와 같은 Frontline 작업자는 종종 공유 모바일 장치를 사용 하 여 작업을 수행 합니다. 사용자가 자신의 암호나 Pin을 공유 장치에서 고객 및 비즈니스 데이터에 액세스 하는 경우 이러한 공유 장치는 보안 위험을 나타낼 수 있습니다.
 
 공유 장치 모드를 사용 하면 iOS 13 이상 장치를 직원 들이 보다 쉽고 안전 하 게 공유할 수 있도록 구성할 수 있습니다. 직원은 로그인 하 여 고객 정보에 신속 하 게 액세스할 수 있습니다. Shift 또는 작업을 완료 하면 장치에서 로그 아웃할 수 있으며 다음 직원은 즉시 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "94561066"
 
 1. **장치 관리자** 는 조직의 장치를 관리 하는 MICROSOFT INTUNE 같은 MDM (모바일 장치 관리) 공급자를 사용 하 여 장치를 공유할 준비를 합니다. MDM은 Microsoft Authenticator 앱을 장치에 푸시 하 고 장치에 대 한 프로필 업데이트를 통해 각 장치에 대해 "공유 모드"를 설정 합니다. 이 공유 모드 설정은 장치에서 지원 되는 앱의 동작을 변경 합니다. MDM 공급자의이 구성은 장치에 대 한 공유 장치 모드를 설정 하 고 공유 장치 모드에 필요한 [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그](apple-sso-plugin.md) 인을 사용 하도록 설정 합니다.
 
-1. [ **공개 미리 보기 중에만 필요** ] [클라우드 장치 관리자](../roles/permissions-reference.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 시작 하 고 조직에 장치를 연결 해야 합니다.
+1. [**공개 미리 보기 중에만 필요**] [클라우드 장치 관리자](../roles/permissions-reference.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 시작 하 고 조직에 장치를 연결 해야 합니다.
 
     Azure Portal에서 조직 역할의 멤버 자격을 구성 하려면: **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자**
 
@@ -56,10 +56,10 @@ ms.locfileid: "94561066"
 
 1. Intune 구성 포털에서 다음 구성을 사용 하 여 [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그](apple-sso-plugin.md) 인을 사용 하도록 장치에 지시 합니다.
 
-    - **유형** : 리디렉션
-    - **확장 ID** : com ssoextension
-    - **팀 ID** : (이 필드는 iOS에는 필요 하지 않음)
-    - **Url** :   
+    - **유형**: 리디렉션
+    - **확장 ID**: com ssoextension
+    - **팀 ID**: (이 필드는 iOS에는 필요 하지 않음)
+    - **Url**:   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -69,7 +69,7 @@ ms.locfileid: "94561066"
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **구성할 추가 데이터** :
+    - **구성할 추가 데이터**:
       - 키: sharedDeviceMode
       - 형식: Boolean
       - 값: true
@@ -95,7 +95,7 @@ ms.locfileid: "94561066"
 
 ### <a name="detect-shared-device-mode"></a>공유 장치 모드 검색
 
-응용 프로그램에는 공유 장치 모드를 검색 하는 것이 중요 합니다. 응용 프로그램을 공유 장치에서 사용 하는 경우 많은 응용 프로그램에서 사용자 환경 (UX)을 변경 해야 합니다. 예를 들어 응용 프로그램에 이미 계정이 있을 가능성이 있으므로 Firstline 작업자에 게 적합 하지 않은 "등록" 기능이 있을 수 있습니다. 또한 공유 장치 모드에 있는 경우 응용 프로그램의 데이터 처리에 추가 보안을 추가할 수 있습니다.
+응용 프로그램에는 공유 장치 모드를 검색 하는 것이 중요 합니다. 응용 프로그램을 공유 장치에서 사용 하는 경우 많은 응용 프로그램에서 사용자 환경 (UX)을 변경 해야 합니다. 예를 들어 응용 프로그램에 이미 계정이 있을 가능성이 있으므로 Frontline 작업자에 게 적합 하지 않은 "등록" 기능이 있을 수 있습니다. 또한 공유 장치 모드에 있는 경우 응용 프로그램의 데이터 처리에 추가 보안을 추가할 수 있습니다.
 
 `getDeviceInformationWithParameters:completionBlock:`에서 API를 사용 `MSALPublicClientApplication` 하 여 공유 장치 모드의 장치에서 앱이 실행 되 고 있는지 확인 합니다.
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>다음 단계
 
-작동 중인 공유 장치 모드를 확인 하기 위해 GitHub의 다음 코드 샘플에는 공유 장치 모드의 iOS 장치에서 Firstline Worker 앱을 실행 하는 예가 포함 되어 있습니다.
+작동 중인 공유 장치 모드를 확인 하기 위해 GitHub의 다음 코드 샘플에는 공유 장치 모드의 iOS 장치에서 Frontline Worker 앱을 실행 하는 예가 포함 되어 있습니다.
 
 [MSAL iOS Swift Microsoft Graph API 샘플](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

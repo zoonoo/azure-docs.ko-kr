@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103195"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578280"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -94,6 +94,21 @@ ms.locfileid: "100103195"
    1. **1 년** 동안 키 기간을 선택 합니다.
    1. **추가** 를 선택합니다.
    1. 키 값이 표시 되 면 나중에 해당 키 값을 복사 합니다. 이 값은 다시 표시 되거나 다른 방법으로 검색할 수 없습니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
+   1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `node-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+   1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서** **지원 되는 계정 유형을** 계정으로 변경 합니다.
+   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 `http://localhost:3000/redirect` 합니다.
+   1. **등록** 을 선택하여 애플리케이션을 만듭니다.
+1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트에 대 한 구성 파일을 구성 하는 데 필요 합니다.
+1. **관리** 에서 **인증서 및 암호** 를 선택합니다.
+1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택 하 고 다음을 수행 합니다.
+   1. 키 설명을 입력 합니다.
+   1. **1년 후** 키 기간을 선택합니다.
+   1. **추가** 를 선택합니다.
+   1. 키 값이 표시 되 면 복사 합니다. 나중에 필요합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

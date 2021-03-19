@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689320"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579164"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 id 솔루션으로 Azure AD (Azure Active Directory) 연결 클라우드 동기화를 선택 하 고 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -33,10 +33,10 @@ Azure AD Connect 클라우드 동기화를 사용 하려면 다음이 필요 합
 그룹 관리 서비스 계정은 자동 암호 관리, 간소화 된 SPN (서비스 사용자 이름) 관리, 다른 관리자에 게 관리를 위임 하는 기능 및 여러 서버에서이 기능을 확장 하는 관리 되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행 하는 데 gMSA을 지원 하 고 사용 합니다.  이 계정을 만들기 위해 설치 중에 관리자 자격 증명을 입력 하 라는 메시지가 표시 됩니다.  계정이 (domain\provAgentgMSA $)로 표시 됩니다.  GMSA에 대 한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 을 참조 하세요. 
 
 ### <a name="prerequisites-for-gmsa"></a>GMSA에 대 한 필수 구성 요소:
-1.  GMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2012로 업데이트 해야 합니다.
+1.  GMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2016로 업데이트 해야 합니다.
 2.  도메인 컨트롤러의 [POWERSHELL RSAT 모듈](/windows-server/remote/remote-server-administration-tools)
-3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 201를 실행 해야 합니다.
-4.  에이전트가 설치 되는 도메인에 가입 된 서버는 Windows Server 2012 이상 이어야 합니다.
+3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 2016를 실행 해야 합니다.
+4.  에이전트가 설치 되는 도메인에 가입 된 서버는 Windows Server 2016 이상 이어야 합니다.
 
 ### <a name="custom-gmsa-account"></a>사용자 지정 gMSA 계정
 사용자 지정 gMSA 계정을 만드는 경우 계정에 다음 사용 권한이 있는지 확인 해야 합니다.

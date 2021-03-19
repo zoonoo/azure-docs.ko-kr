@@ -6,14 +6,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: b468df97f168562f4f5ce9e0e6d6e9a70835648b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436110"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589687"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증
 
 Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/managed-identities-azure-resources/overview.md) Power BI 계정 내의 작업 영역에 대 한 직접 액세스를 Stream Analytics 작업에 제공 합니다. 이 기능을 사용 하면 사용자가 Azure Portal를 통해 Power BI에 대화형으로 로그인 하는 데 더 이상 필요 하지 않으므로 Stream Analytics 작업의 배포가 완전히 자동화 될 수 있습니다. 또한 Power BI에 기록 하는 장기 실행 작업이 이제 정기적으로 다시 인증 작업을 수행 하지 않아도 되므로 더 잘 지원 됩니다.
 

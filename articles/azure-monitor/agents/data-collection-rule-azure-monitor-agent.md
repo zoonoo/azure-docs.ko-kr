@@ -4,13 +4,13 @@ description: Azure Monitor 에이전트를 사용 하 여 가상 머신에서 �
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723642"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586372"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 
@@ -68,6 +68,32 @@ Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수
 > [!NOTE]
 > 데이터 수집 규칙 및 연결이 생성 된 후에는 데이터를 대상으로 전송 하는 데 최대 5 분이 걸릴 수 있습니다.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>사용자 지정 XPath 쿼리를 사용 하 여 데이터 컬렉션 제한
+Log Analytics 작업 영역에서 수집 된 데이터에 대 한 요금이 부과 되므로 필요한 데이터만 수집 해야 합니다. Azure Portal에서 기본 구성을 사용 하는 경우에만 수집할 이벤트를 필터링 하는 기능이 제한 됩니다. 응용 프로그램 및 시스템 로그의 경우이는 특정 심각도의 모든 로그입니다. 보안 로그의 경우이는 모두 감사 성공 또는 모든 감사 실패 로그입니다.
+
+추가 필터를 지정 하려면 사용자 지정 구성을 사용 하 고 없는 이벤트를 필터링 하는 XPath를 지정 해야 합니다. XPath 항목은 폼으로 작성 됩니다 `LogName!XPathQuery` . 예를 들어 이벤트 ID가 1035 인 응용 프로그램 이벤트 로그에서 이벤트만 반환 하려고 할 수 있습니다. 이러한 이벤트에 대 한 XPathQuery은 `*[System[EventID=1035]]` 입니다. 응용 프로그램 이벤트 로그에서 이벤트를 검색 하려고 하므로 XPath는 다음과 같습니다. `Application!*[System[EventID=1035]]`
+
+> [!TIP]
+> PowerShell cmdlet을 `Get-WinEvent` `FilterXPath` 매개 변수와 함께 사용 하 여 XPathQuery의 유효성을 테스트 합니다. 다음 스크립트는 예제를 보여 줍니다.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - 이벤트가 반환 되 면 쿼리가 유효 합니다.
+> - *지정 된 선택 조건과 일치 하는 이벤트를 찾을* 수 없다는 메시지가 표시 되는 경우 쿼리는 올바르지만 로컬 컴퓨터에 일치 하는 이벤트가 없습니다.
+> - *지정 된 쿼리가 잘못* 된 메시지를 받으면 쿼리 구문이 잘못 된 것입니다. 
+
+다음 표에서는 사용자 지정 XPath를 사용 하 여 이벤트를 필터링 하는 예제를 보여 줍니다.
+
+| 설명 |  XPath |
+|:---|:---|
+| 이벤트 ID가 4648 인 시스템 이벤트만 수집 |  `System!*[System[EventID=4648]]`
+| 이벤트 ID가 4648이 고 프로세스 이름이 인 시스템 이벤트만 수집 consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| 이벤트 ID = 6 (드라이버 로드 됨)을 제외 하 고 시스템 이벤트 로그에서 모든 중요, 오류, 경고 및 정보 이벤트를 수집 합니다. |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| 이벤트 ID 4624 (로그온 성공)를 제외한 모든 성공 및 실패 보안 이벤트를 수집 합니다. |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>REST API를 사용 하 여 규칙 및 연결 만들기
 
@@ -83,6 +109,8 @@ REST API를 사용 하 여 데이터 수집 규칙 및 연결을 만들려면 �
 ## <a name="create-association-using-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 연결 만들기
 
 리소스 관리자 템플릿을 사용 하 여 데이터 수집 규칙을 만들 수는 없지만 리소스 관리자 템플릿을 사용 하 여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결을 만들 수 있습니다. 샘플 템플릿 [Azure Monitor의 데이터 수집 규칙에 대 한 리소스 관리자 템플릿 샘플](./resource-manager-data-collection-rules.md) 을 참조 하세요.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

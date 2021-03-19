@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487120"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600805"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
@@ -71,7 +71,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 일치 용어를 찾을 때 쿼리 엔진은 문서 키 또는 ID를 사용 하 여 일치 항목이 포함 된 검색 문서를 다시 구성 하 여 필드 값을 조합 하 고, 관련성 순서로 문서 순위를 지정 하 고, 지정 된 경우 응답에 상위 50 (기본값)을 반환 합니다 **`top`** .
 
-전체 텍스트 검색을 구현 하는 경우 콘텐츠가 토큰화 되는 방법을 이해 하면 모든 쿼리 변칙을 디버그 하는 데 도움이 됩니다. 하이픈을 넣은 문자열이 나 특수 문자를 쿼리하면 인덱스에 올바른 토큰이 포함 되어 있는지 확인 하기 위해 기본 표준 Lucene 이외의 분석기를 사용 하는 것이 필요할 수 있습니다. 어휘 분석을 수정 하는 [언어 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 분석기](index-add-custom-analyzers.md#AnalyzerTable) 를 사용 하 여 기본값을 재정의할 수 있습니다. 한 가지 예는 필드의 전체 내용을 단일 토큰으로 처리 하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. 자세한 내용은 [부분 용어 검색 및 특수 문자가 포함 된 패턴](search-query-partial-matching.md)을 참조 하세요.
+전체 텍스트 검색을 구현 하는 경우 콘텐츠가 토큰화 되는 방법을 이해 하면 모든 쿼리 변칙을 디버그 하는 데 도움이 됩니다. 하이픈을 넣은 문자열이 나 특수 문자를 쿼리하면 인덱스에 올바른 토큰이 포함 되어 있는지 확인 하기 위해 기본 표준 Lucene 이외의 분석기를 사용 하는 것이 필요할 수 있습니다. 어휘 분석을 수정 하는 [언어 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 분석기](index-add-custom-analyzers.md#built-in-analyzers) 를 사용 하 여 기본값을 재정의할 수 있습니다. 한 가지 예는 필드의 전체 내용을 단일 토큰으로 처리 하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. 자세한 내용은 [부분 용어 검색 및 특수 문자가 포함 된 패턴](search-query-partial-matching.md)을 참조 하세요.
 
 큰 텍스트 블록 (내용 필드 또는 긴 설명)이 포함 된 인덱스에서 많은 부울 연산자를 많이 사용 하는 경우에는 매개 변수를 사용 하 여 쿼리를 테스트 하 여 **`searchMode=Any|All`** 해당 설정이 부울 검색에 미치는 영향을 평가 해야 합니다.
 

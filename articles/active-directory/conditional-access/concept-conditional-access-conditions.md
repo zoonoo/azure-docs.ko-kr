@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362423"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579130"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -30,11 +30,11 @@ ms.locfileid: "100362423"
 
 ## <a name="sign-in-risk"></a>로그인 위험
 
-[Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객은 조건부 액세스 정책의 일부로 로그인 위험을 평가할 수 있습니다. 로그인 위험은 id 소유자가 지정 된 인증 요청에 권한이 부여 되지 않은 확률을 나타냅니다. 로그인 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
+[Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객은 조건부 액세스 정책의 일부로 로그인 위험을 평가할 수 있습니다. 로그인 위험은 ID 소유자가 지정된 인증 요청에 권한이 부여되지 않은 확률을 나타냅니다. 로그인 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
 
 ## <a name="user-risk"></a>사용자 위험 
 
-[Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객의 경우 조건부 액세스 정책의 일부로 사용자 위험을 평가할 수 있습니다. 사용자 위험은 지정 된 id 또는 계정이 손상 될 확률을 나타냅니다. 사용자 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#user-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
+[Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객의 경우 조건부 액세스 정책의 일부로 사용자 위험을 평가할 수 있습니다. 사용자 위험은 지정된 ID 또는 계정이 손상될 확률을 나타냅니다. 사용자 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#user-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
 
 ## <a name="device-platforms"></a>디바이스 플랫폼
 
@@ -107,7 +107,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 | OS | 브라우저 |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| 윈도우 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -155,11 +155,11 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원 되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
 | Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | 윈도우 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | SharePoint | macOS |
 | Office 2019| SharePoint | Windows 10, macOS |
 | Office 모바일 앱 | SharePoint | Android, iOS |
@@ -174,13 +174,13 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 클라이언트
 
-- 조직에서는 사용자 또는 그룹에 정책을 할당 하는 경우에만 Exchange ActiveSync 클라이언트를 선택할 수 있습니다. 모든 **사용자**, 모든 **게스트 및 외부 사용자** 또는 **디렉터리 역할** 을 선택 하면 모든 사용자가 차단 됩니다.
+- 조직에서는 사용자 또는 그룹에 정책을 할당 하는 경우에만 Exchange ActiveSync 클라이언트를 선택할 수 있습니다. 모든 **사용자**, 모든 **게스트 및 외부 사용자** 또는 **디렉터리 역할** 을 선택 하면 모든 사용자에 게 정책이 적용 됩니다.
 - Exchange ActiveSync 클라이언트에 할당 된 정책을 만들 때 **Exchange Online** 이 정책에 할당 된 유일한 클라우드 응용 프로그램 이어야 합니다. 
 - 조직에서는 **장치 플랫폼** 상태를 사용 하 여 특정 플랫폼에 대해이 정책의 범위를 좁힐 수 있습니다.
 
-정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요** 를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
+정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요** 를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication**, **사용 약관** 또는 **사용자 지정 컨트롤이** 필요한 경우 기본 인증에서 이러한 컨트롤을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

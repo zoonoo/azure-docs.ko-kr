@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601970"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600482"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -244,24 +244,31 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>인터넷 IP 범위의 액세스 허가
 
-특정 공용 인터넷 IP 주소 범위에서 액세스할 수 있도록 스토리지 계정을 구성할 수 있습니다. 이 구성은 특정 인터넷 기반 서비스와 온-프레미스 네트워크에 대한 액세스 권한을 부여하고 일반 인터넷 트래픽을 차단합니다.
+Ip 네트워크 규칙을 만들어서 ip 네트워크 규칙을 사용 하 여 특정 공용 인터넷 IP 주소 범위에서 액세스를 허용할 수 있습니다. 각 저장소 계정은 최대 200 개의 규칙을 지원 합니다. 이러한 규칙은 특정 인터넷 기반 서비스 및 온-프레미스 네트워크에 대 한 액세스 권한을 부여 하 고 일반 인터넷 트래픽을 차단 합니다.
 
-*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19*)를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
+IP 주소 범위에는 다음과 같은 제한 사항이 적용 됩니다.
 
-   > [!NOTE]
-   > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
+- IP 네트워크 규칙은 **공용 인터넷** ip 주소에 대해서만 허용 됩니다. 
 
-IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다. 사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 사설망에는 _10.*_ , _172.16.*_  - _172.31.*_ 및 _192.168.*_ 로 시작하는 주소가 포함됩니다.
+  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 사설망에는 _10.*_ , _172.16.*_  - _172.31.*_ 및 _192.168.*_ 로 시작하는 주소가 포함됩니다.
 
-   > [!NOTE]
-   > IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
+- *16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632) 을 사용 하 여 허용 되는 인터넷 주소 범위를 제공 하거나 *16.17.18.19* 와 같은 개별 IP 주소를 제공 해야 합니다. 
 
-  > [!NOTE]
-  > 스토리지 계정과 동일한 지역에 배포된 서비스는 통신을 위해 프라이빗 Azure IP 주소를 사용합니다. 따라서 퍼블릭 아웃바운드 IP 주소 범위에 따라 특정 Azure 서비스에 대한 액세스를 제한할 수 없습니다.
+- "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다. 
 
-스토리지 방화벽 규칙의 구성에는 IPV4 주소만 지원됩니다.
+- 스토리지 방화벽 규칙의 구성에는 IPV4 주소만 지원됩니다.
 
-각 저장소 계정은 최대 200 IP 네트워크 규칙을 지원 합니다.
+IP 네트워크 규칙은 다음과 같은 경우에 사용할 수 없습니다.
+
+- 저장소 계정과 동일한 Azure 지역에 있는 클라이언트에 대 한 액세스를 제한 합니다.
+  
+  IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요. 
+
+- 서비스 끝점이 있는 VNet에 있는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 에 있는 클라이언트에 대 한 액세스를 제한 합니다.
+
+- 저장소 계정과 동일한 지역에 배포 된 Azure 서비스에 대 한 액세스를 제한 합니다.
+
+  스토리지 계정과 동일한 지역에 배포된 서비스는 통신을 위해 프라이빗 Azure IP 주소를 사용합니다. 따라서 공용 아웃 바운드 IP 주소 범위에 따라 특정 Azure 서비스에 대 한 액세스를 제한할 수 없습니다.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>온-프레미스 네트워크에서의 액세스 구성
 
@@ -583,7 +590,7 @@ az storage account network-rule list \
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | CognitiveService/계정    | Cognitive Services에서 저장소 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |

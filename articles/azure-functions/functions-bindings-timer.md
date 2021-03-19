@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210709"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595994"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -311,7 +311,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식의 몇 가지 예는 다음과 같습니다.
 
-| 예            | 트리거될 때                     |
+| 예제            | 트리거될 때                     |
 |--------------------|------------------------------------|
 | `0 */5 * * * *`    | 5분마다 한 번            |
 | `0 0 * * * *`      | 1시간이 시작할 때마다 한 번      |
@@ -336,9 +336,9 @@ CRON 식에 있는 숫자는 시간 범위가 아닌 시간 및 날짜를 가리
 
 CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격을 지정합니다. 함수가 지정된 간격보다 오랫동안 실행한 후에 완료되면 타이머는 즉시 함수를 다시 호출합니다.
 
-`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 다음은 몇 가지 예입니다.
+`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 몇 가지 예제는 다음과 같습니다.
 
-| 예      | 트리거될 때 |
+| 예제      | 트리거될 때 |
 |--------------|----------------|
 | "01:00:00"   | 매시간     |
 | "00:01:00"   | 매분   |
@@ -365,6 +365,16 @@ App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 
 ## <a name="retry-behavior"></a>다시 시도 동작
 
 큐 트리거와 다르게 타이머 트리거는 함수가 실패한 후에 다시 시도하지 않습니다. 함수가 실패한 경우 일정에 따라 다음 시도까지 다시 호출되지 않습니다.
+
+## <a name="manually-invoke-a-timer-trigger"></a>수동으로 타이머 트리거 호출
+
+Azure Functions에 대 한 타이머 트리거는 수동으로 함수를 트리거하기 위해 호출할 수 있는 HTTP webhook를 제공 합니다. 이는 다음과 같은 시나리오에서 매우 유용할 수 있습니다.
+
+* 통합 테스트
+* 스모크 테스트 또는 워밍업 작업의 일부로 슬롯 교체
+* 데이터베이스의 캐시 또는 조회 테이블을 즉시 채우는 함수의 초기 배포
+
+타이머 트리거 함수를 수동으로 호출 하는 방법에 대 한 자세한 내용은 [비 HTTP 트리거 함수 수동 실행](./functions-manually-run-non-http.md) 을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

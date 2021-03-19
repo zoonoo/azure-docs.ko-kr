@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d01a750948f8e3c264b9bcffdaad3ae72fa40ac0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938378"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579113"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -51,6 +51,8 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 ### <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
 이 확인란을 선택 하면 사용자가 Azure AD Multi-Factor Authentication를 수행 해야 합니다. Azure AD Multi-Factor Authentication 배포에 대 한 자세한 내용은 [클라우드 기반 AZURE ad Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)문서에서 찾을 수 있습니다.
+
+[비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview) 는 조건부 액세스 정책에서 multi-factor authentication에 대 한 요구 사항을 충족 합니다. 
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>디바이스를 준수 상태로 표시해야 함
 

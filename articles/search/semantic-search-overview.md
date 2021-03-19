@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 634298952d990cd3639aa1c62592fde534b3e8b8
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232677"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604273"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
 > [!IMPORTANT]
-> 의미 체계 검색 기능은 미리 보기 상태 이며 미리 보기 REST API 통해서만 사용할 수 있습니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있는 그대로 제공 되며 일반 공급 시 동일한 구현을 보장 하지 않습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
+> 의미 체계 검색은 preview REST API 통해서만 사용할 수 있는 공개 미리 보기 상태입니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있는 그대로 제공 되며 일반 공급 시 동일한 구현을 보장 하지 않습니다. 이러한 기능은 청구 가능 합니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
 
 의미 체계 검색은 보다 품질이 우수한 쿼리 환경을 지 원하는 쿼리 관련 기능의 모음입니다. 
 
@@ -35,7 +35,7 @@ ms.locfileid: "103232677"
 
 의미 체계 검색은 다음과 같은 기능을 추가 하 여 정밀도 및 회수를 향상 시킵니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 |---------|-------------|
 | [맞춤법 검사](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달 하기 전에 오타를 수정 합니다. |
 | [의미 등급 순위](semantic-ranking.md) | 는 컨텍스트나 의미 체계를 사용 하 여 새 관련성 점수를 계산 합니다. |
@@ -73,3 +73,5 @@ ms.locfileid: "103232677"
 + [쿼리 용어에 맞춤법 검사 추가](speller-how-to-add.md)
 + [의미 대답 반환](semantic-answers.md)
 + [의미 등급 순위](semantic-ranking.md)
++ [의미 체계 검색 소개 (블로그 게시물)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [의미 체계 기능을 사용 하 여 의미 있는 정보 찾기 (AI 비디오)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)

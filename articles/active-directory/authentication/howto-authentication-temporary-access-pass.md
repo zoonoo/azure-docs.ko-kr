@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101e3ee9279d3560c0b561f0ea7ea695387bee15
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579385"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>암호 없는 인증 방법 (미리 보기)을 등록 하기 위해 Azure AD에서 임시 액세스 단계 구성
 
@@ -54,7 +54,7 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
     최소 수명 | 1시간         | 10-43200 분 (30 일) | 임시 액세스를 통과 하는 최소 시간 (분)입니다.                                                                                                                                                                                                                         |   |
    | 최대 수명 | 24시간       | 10-43200 분 (30 일) | 임시 액세스를 전달할 수 있는 최대 시간 (분)입니다.                                                                                                                                                                                                                         |   |
    | 기본 수명 | 1시간         | 10-43200 분 (30 일) | 기본 값은 정책에 의해 구성 된 최소 및 최대 수명 내에서 개별 패스에 의해 재정의 될 수 있습니다.                                                                                                                                                |   |
-   | 일회성 사용     | False          | True/False                 | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 임시 액세스 전달 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |   |
+   | 일회성 사용     | 거짓          | True/False                 | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 임시 액세스 전달 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |   |
    | 길이           | 8              | 8-48 문자              | 암호 길이를 정의 합니다.                                                                                                                                                                                                                                      |   |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Azure AD 포털에서 임시 액세스 전달 만들기
@@ -127,7 +127,7 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
 - 임시 액세스 패스는 NPS (네트워크 정책 서버) 확장 및 Active Directory Federation Services (AD FS) 어댑터와 함께 사용할 수 없습니다.
 - 테 넌 트에서 원활한 SSO를 사용 하도록 설정 하면 사용자에 게 암호를 입력 하 라는 메시지가 표시 됩니다. 사용자가 임시 액세스 통과를 사용 하 여 로그인 할 수 있도록 **임시 액세스 전달 대신 사용** 링크를 사용할 수 있습니다.
 
-![대신 임시 액세스 전달 사용의 스크린샷](./media/how-to-authentication-temporary-access-pass/alternative.png)
+  ![대신 임시 액세스 전달 사용의 스크린샷](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## <a name="troubleshooting"></a>문제 해결    
 

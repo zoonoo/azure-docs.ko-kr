@@ -7,12 +7,12 @@ ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33ff96b4e51dbf80bfdb924bc37786a344cdfdc6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742146"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582649"
 ---
 # <a name="device-models-repository"></a>장치 모델 리포지토리
 
@@ -47,38 +47,50 @@ Microsoft는 다음과 같은 특징을 가진 공용 DMR을 호스팅합니다.
 
 ### <a name="resolve-models"></a>모델 확인
 
-이러한 인터페이스에 프로그래밍 방식으로 액세스 하려면 DTMI를 공용 끝점을 쿼리 하는 데 사용할 수 있는 상대 경로로 변환 해야 합니다.
+이러한 인터페이스에 프로그래밍 방식으로 액세스 하려면 `ModelsRepositoryClient` NuGet 패키지 [Azure. IoT. ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository)에서 사용 가능한를 사용할 수 있습니다. 이 클라이언트는 [devicemodels.azure.com](https://devicemodels.azure.com/) 에서 사용할 수 있는 공용 DMR를 쿼리하여 사용자 지정 리포지토리로 구성할 수 있도록 기본적으로 구성 됩니다.
 
-DTMI를 절대 경로로 변환 하려면 `DtmiToPath` 함수와 함께 함수를 사용 합니다 `IsValidDtmi` .
-
-```cs
-static string DtmiToPath(string dtmi)
-{
-    if (!IsValidDtmi(dtmi))
-    {
-        return null;
-    }
-    // dtmi:com:example:Thermostat;1 -> dtmi/com/example/thermostat-1.json
-    return $"/{dtmi.ToLowerInvariant().Replace(":", "/").Replace(";", "-")}.json";
-}
-
-static bool IsValidDtmi(string dtmi)
-{
-    // Regex defined at https://github.com/Azure/digital-twin-model-identifier#validation-regular-expressions
-    Regex rx = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$");
-    return rx.IsMatch(dtmi);
-}
-```
-
-결과 경로와 리포지토리의 기본 URL을 사용 하 여 인터페이스를 가져올 수 있습니다.
+클라이언트는를 `DTMI` 입력으로 수락 하 고 모든 필수 인터페이스와 함께 사전을 반환 합니다.
 
 ```cs
-const string _repositoryEndpoint = "https://devicemodels.azure.com";
+using Azure.IoT.ModelsRepository;
 
-string dtmiPath = DtmiToPath(dtmi.ToString());
-string fullyQualifiedPath = $"{_repositoryEndpoint}{dtmiPath}";
-string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
+var client = new ModelsRepositoryClient();
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
+
+예상 출력은 `DTMI` 종속성 체인에 있는 세 가지 인터페이스의를 표시 해야 합니다.
+
+```txt
+dtmi:com:example:TemperatureController;1
+dtmi:com:example:Thermostat;1
+dtmi:azure:DeviceManagement:DeviceInformation;1
+```
+
+는 `ModelsRepositoryClient` http (s)를 통해 사용할 수 있는 사용자 지정 모델 리포지토리를 쿼리하도록 구성 하 고 사용 가능한를 사용 하 여 종속성 확인을 지정할 수 있습니다 `ModelDependencyResolution` .
+
+- 사용 안 함. 종속성 없이 지정 된 인터페이스만 반환 합니다.
+- 사용. 종속성 체인의 모든 인터페이스를 반환 합니다.
+- 확장. 이 파일을 사용 `.expanded.json` 하 여 미리 계산 된 종속성 검색 
+
+> [!Tip] 
+> 사용자 지정 리포지토리는 파일을 노출 하지 않을 수 있습니다 `.expanded.json` . 사용할 수 없는 경우 클라이언트는 각 종속성을 로컬로 처리 하도록 대체 합니다.
+
+다음 샘플 코드에서는 `ModelsRepositoryClient` 사용자 지정 리포지토리 기반 url을 사용 하 여를 초기화 하는 방법을 보여 줍니다 .이 경우 `raw` `expanded` 끝점에서 사용할 수 없으므로 폼을 사용 하지 않고 GitHub API에서 url을 사용 합니다 `raw` . `AzureEventSourceListener`클라이언트에서 수행 하는 HTTP 요청을 검사 하기 위해가 초기화 됩니다.
+
+```cs
+using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+
+var client = new ModelsRepositoryClient(
+    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"),
+    new ModelsRepositoryClientOptions(dependencyResolution: ModelDependencyResolution.Enabled));
+
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+```
+
+Azure SDK GitHub 리포지토리의 소스 코드 내에서 사용할 수 있는 샘플은 다음과 같습니다. [azure. Iot. ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples)
 
 ## <a name="publish-a-model"></a>모델 게시
 

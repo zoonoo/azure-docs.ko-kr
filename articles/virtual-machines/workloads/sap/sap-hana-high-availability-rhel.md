@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 03/16/2021
 ms.author: radeltch
-ms.openlocfilehash: a98fd5785174d681b333cdaa29fe53ae06f137e1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675366"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599870"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -647,6 +647,112 @@ sudo pcs property set maintenance-mode=false
 #      nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
+
+
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Pacemaker 클러스터에서 HANA 활성/읽기 사용 시스템 복제 구성
+
+SAP HANA 2.0 SPS 01 s p 1을 사용 하 여 SAP HANA 시스템 복제에 대 한 활성/읽기 지원 설정 (SAP HANA 시스템 복제의 보조 시스템을 읽기 전용 작업에 적극적으로 사용할 수 있음) 클러스터에서 이러한 설정을 지원 하려면 클라이언트가 보조 읽기 가능 SAP HANA 데이터베이스에 액세스할 수 있도록 두 번째 가상 IP 주소가 필요 합니다. 인수 발생 한 후에도 보조 복제 사이트에 액세스할 수 있도록 하려면 클러스터에서 가상 IP 주소를 SAPHana 리소스의 보조로 이동 해야 합니다.
+
+이 섹션에서는 두 번째 가상 IP를 사용 하 여 Red Hat 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리 하는 데 필요한 추가 단계에 대해 설명 합니다.    
+
+계속 하기 전에 설명서의 위 세그먼트에 설명 된 대로 SAP HANA 데이터베이스를 관리 하는 Red Hat 고가용성 클러스터를 완전히 구성 했는지 확인 합니다.  
+
+![읽기 가능 보조 데이터베이스를 사용 하 여 고가용성 SAP HANA](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정의 Azure 부하 분산 장치에 대 한 추가 설정
+
+두 번째 가상 IP를 프로 비전 하는 추가 단계를 진행 하려면 [수동 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) 섹션에 설명 된 대로 Azure Load Balancer를 구성 했는지 확인 합니다.
+
+1. **표준** 부하 분산 장치에 대해 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 아래 단계를 추가로 수행 합니다.
+
+   a. 두 번째 프런트 엔드 IP 풀을 만듭니다. 
+
+   - 부하 분산 장치를 열고, **프런트 엔드 IP 풀** 을 선택하고, **추가** 를 선택합니다.
+   - 두 번째 프런트 엔드 IP 풀의 이름 (예: **Hana secondaryip**)을 입력 합니다.
+   - **할당** 을 **정적** 으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.0.0.14**).
+   - **확인** 을 선택합니다.
+   - 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
+
+   b. 다음으로, 상태 프로브를 만듭니다.
+
+   - 부하 분산 장치를 열고, **상태 프로브** 를 선택한 다음, **추가** 를 선택합니다.
+   - 새 상태 프로브 (예: **hana secondaryhp**)의 이름을 입력 합니다.
+   - 프로토콜 및 포트 **62603** 로 **TCP** 를 선택 합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
+   - **확인** 을 선택합니다.
+
+   다. 다음으로 부하 분산 규칙을 만듭니다.
+
+   - 부하 분산 장치를 열고, **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
+   - 새 부하 분산 장치 규칙의 이름 (예: **hana secondarylb**)을 입력 합니다.
+   - 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택 합니다 (예: **Hana secondaryIP**, **hana 백 엔드** 및 **hana secondaryip**).
+   - **HA 포트** 를 선택합니다.
+   - **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
+   - **부동 IP를 사용하도록 설정** 했는지 확인합니다.
+   - **확인** 을 선택합니다.
+
+### <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 사용 시스템 복제 구성
+
+HANA 시스템 복제를 구성 하는 단계는 [SAP HANA 2.0 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) 섹션에 설명 되어 있습니다. 읽기 가능 보조 시나리오를 배포 하는 동안 두 번째 노드에서 시스템 복제를 구성 하는 동안 **hanasid** adm으로 다음 명령을 실행 합니다.
+
+```
+sapcontrol -nr 03 -function StopWait 600 10 
+
+hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
+```
+
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 지원 설정에 대 한 보조 가상 IP 주소 리소스 추가
+
+다음 명령을 사용 하 여 두 번째 가상 IP와 적절 한 공동 배치 제약 조건을 구성할 수 있습니다.
+
+```
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
+
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+RHEL 8.x: 
+pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-clone 4000
+RHEL 7.x:
+pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 4000
+
+pcs property set maintenance-mode=false
+```
+클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 두 번째 가상 IP는 보조 사이트에서 SAPHana 보조 리소스와 함께 실행 됩니다.
+
+```
+sudo pcs status
+
+# Online: [ hn1-db-0 hn1-db-1 ]
+#
+# Full List of Resources:
+#   rsc_hdb_azr_agt     (stonith:fence_azure_arm):      Started hn1-db-0
+#   Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]:
+#     Started: [ hn1-db-0 hn1-db-1 ]
+#   Clone Set: SAPHana_HN1_03-clone [SAPHana_HN1_03] (promotable):
+#     Masters: [ hn1-db-0 ]
+#     Slaves: [ hn1-db-1 ]
+#   Resource Group: g_ip_HN1_03:
+#     nc_HN1_03         (ocf::heartbeat:azure-lb):      Started hn1-db-0
+#     vip_HN1_03        (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+#   Resource Group: g_secip_HN1_03:
+#     secnc_HN1_03      (ocf::heartbeat:azure-lb):      Started hn1-db-1
+#     secvip_HN1_03     (ocf::heartbeat:IPaddr2):       Started hn1-db-1
+```
+
+다음 섹션에서는 실행할 일반적인 장애 조치 (failover) 테스트 집합을 찾을 수 있습니다.
+
+읽기 가능 보조 데이터베이스를 사용 하 여 구성 된 HANA 클러스터를 테스트 하는 동안 두 번째 가상 IP 동작을 알아야 합니다.
+
+1. 클러스터 리소스 **SAPHana_HN1_HDB03** **h n 1-1** 로 마이그레이션하면 두 번째 가상 IP가 **h n 1** 로 이동 합니다. AUTOMATED_REGISTER = "false"를 구성 하 고 HANA 시스템 복제를 자동으로 등록 하지 않은 경우 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태가 될 때 두 번째 가상 IP가 **h n 1-db-0** 에서 실행 됩니다.  
+
+2. 서버 충돌을 테스트할 때 두 번째 가상 IP 리소스 (**rsc_secip_HN1_HDB03**)와 Azure 부하 분산 장치 포트 리소스 (**rsc_secnc_HN1_HDB03**)는 주 가상 ip 리소스와 함께 주 서버에서 실행 됩니다.  보조 서버가 다운 되는 동안 읽기 지원 HANA 데이터베이스에 연결 된 응용 프로그램은 기본 HANA 데이터베이스에 연결 됩니다. 보조 서버를 사용할 수 없는 동안 읽기 가능 HANA 데이터베이스에 연결 된 응용 프로그램에 액세스할 수 없도록 하려는 경우에도 동작이 예상 됩니다.
+
+3. 보조 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태 이면 HANA 시스템 복제를 보조 서버로 등록할 수 없는 경우에도 두 번째 가상 IP 및 포트 리소스가 보조 서버로 자동으로 이동 됩니다. 해당 서버에서 클러스터 서비스를 시작 하기 전에 보조 HANA 데이터베이스를 읽기 가능으로 등록 했는지 확인 해야 합니다. AUTOMATED_REGISTER = true 매개 변수를 설정 하 여 보조 복제본을 자동으로 등록 하도록 HANA 인스턴스 클러스터 리소스를 구성할 수 있습니다.
+   
+4. 장애 조치 (failover) 및 대체 중에 두 번째 가상 IP를 사용 하 여 HANA 데이터베이스에 연결 하는 응용 프로그램에 대 한 기존 연결이 중단 될 수 있습니다.  
 
 ## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 

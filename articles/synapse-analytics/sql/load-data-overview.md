@@ -2,20 +2,20 @@
 title: 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 description: ETL 대신 전용 SQL로 데이터를 로드 하기 위한 추출, 로드 및 변환 (ELT) 프로세스를 설계 합니다.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a2cf0de94641c955ed72a48f28352d13115ef0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 850c03d5cbda8fb11bbc804f2cd2c848a5a2411f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667566"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589502"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 

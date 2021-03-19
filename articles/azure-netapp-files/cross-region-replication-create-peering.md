@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249940"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591013"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 볼륨 복제 만들기
 
@@ -67,7 +67,7 @@ Azure NetApp Files 복제는 현재 여러 구독을 지원 하지 않습니다.
     * 용량 풀
     * 볼륨 할당량
         > [!NOTE] 
-        > 원본 볼륨의 볼륨 할당량 크기를 미러 하는 것이 좋습니다.
+        > 대상 볼륨의 볼륨 할당량 (크기)은 원본 볼륨의 볼륨을 미러 해야 합니다. 원본 볼륨 보다 작은 크기를 지정 하는 경우 대상 볼륨의 크기가 원본 볼륨 크기로 자동 조정 됩니다. 
     * 가상 네트워크 
     * 서브넷
 

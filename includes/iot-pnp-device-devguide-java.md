@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: ea136069da73d88174d9d40fe9c60e84982909df
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 51f66a674f9e730670084a43bd7bf059a0742cc3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616381"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582829"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -41,7 +41,7 @@ deviceClient = new DeviceClient(deviceConnectionString, protocol, options);
 
 ## <a name="implement-telemetry-properties-and-commands"></a>원격 분석, 속성 및 명령 구현
 
-[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-pnp/concepts-components.md)에서 설명한 대로 장치 빌더는 구성 요소를 사용 하 여 장치를 설명 하는지 결정 해야 합니다. 구성 요소를 사용 하는 경우 장치는이 섹션에 설명 된 규칙을 따라야 합니다.
+[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-pnp/concepts-modeling-guide.md)에서 설명한 대로 장치 빌더는 구성 요소를 사용 하 여 장치를 설명 하는지 결정 해야 합니다. 구성 요소를 사용 하는 경우 장치는이 섹션에 설명 된 규칙을 따라야 합니다.
 
 ### <a name="telemetry"></a>원격 분석
 

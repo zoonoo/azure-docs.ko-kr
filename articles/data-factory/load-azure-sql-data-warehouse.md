@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/29/2020
-ms.openlocfilehash: 94f5884cb9d1886a9e7aa6b09817b26bba6d47f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ebbbcd7430a86ee431f67f7b6174b45d60056e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370719"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593716"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에 데이터 로드
 
@@ -56,7 +56,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 3. **만들기** 를 선택합니다.
 4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다.
 
-   ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 & 모니터 타일이 있는 Azure Data Factory 홈 페이지입니다.":::
 
    **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
@@ -79,7 +79,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 
     ![Azure SQL DB 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
+    다. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
 
     ![Azure SQL DB 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -102,7 +102,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 
     ![Azure Synapse Analytics 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
+    다. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
 
     ![Azure Synapse Analytics 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
@@ -122,7 +122,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 
     b. **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 하 고 **만들기** 를 선택 하 여 연결 된 서비스를 배포 합니다.
 
-    c. **유형 기본값 사용** 옵션을 선택 취소 하 **고 다음을 선택 합니다**.
+    다. **유형 기본값 사용** 옵션을 선택 취소 하 **고 다음을 선택 합니다**.
 
     ![PolyBase 구성](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
