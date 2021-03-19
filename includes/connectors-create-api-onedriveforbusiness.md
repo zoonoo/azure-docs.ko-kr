@@ -5,13 +5,13 @@ author: ecfan
 ms.author: estfan
 ms.date: 07/21/2020
 ms.openlocfilehash: 06a503e800309d8689735417931820d9f16a6e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87102840"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [비즈니스용 OneDrive](https://OneDrive.com) 계정 
 
@@ -21,9 +21,9 @@ Logic Apps에서 비즈니스용 OneDrive 계정을 사용 하려면 먼저 Azur
 
 1. Azure Portal에 로그인합니다. 
 
-1. **Azure 서비스**에서 **Logic Apps**를 선택 합니다. 그런 다음 목록에서 논리 앱의 이름을 선택 합니다.
+1. **Azure 서비스** 에서 **Logic Apps** 를 선택 합니다. 그런 다음 목록에서 논리 앱의 이름을 선택 합니다.
 
-1. 논리 앱 메뉴의 **개발 도구**아래에서 **논리 앱 디자이너** 를 선택 합니다.
+1. 논리 앱 메뉴의 **개발 도구** 아래에서 **논리 앱 디자이너** 를 선택 합니다.
 
 1. Logic Apps 디자이너에서 드롭다운 목록에서 **Microsoft 관리 Api 표시** 를 선택한 다음 검색 상자에 *비즈니스용 OneDrive* 를 입력 합니다. 사용할 트리거 또는 동작을 선택 합니다.  
 

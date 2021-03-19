@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342419"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
-이 절차에서는 Azure Marketplace에서 제공되는 배포 마법사를 사용하는 과정을 안내합니다. 이 마법사는 Azure Resource Manager 템플릿을 사용하여 클러스터를 자동으로 배포합니다. 양식에 매개 변수를 입력 하 고 **만들기**를 클릭 하면 Azure에서 다음 작업을 자동으로 완료 합니다.
+이 절차에서는 Azure Marketplace에서 제공되는 배포 마법사를 사용하는 과정을 안내합니다. 이 마법사는 Azure Resource Manager 템플릿을 사용하여 클러스터를 자동으로 배포합니다. 양식에 매개 변수를 입력 하 고 **만들기** 를 클릭 하면 Azure에서 다음 작업을 자동으로 완료 합니다.
 
 * 클러스터를 배포 하 고 관리 하는 데 필요한 소프트웨어를 포함 하는 기본 VM 인 클러스터 컨트롤러를 만듭니다.
 * 새 요소 만들기를 포함 하 여 리소스 그룹 및 가상 네트워크 인프라를 설정 합니다.
@@ -74,7 +74,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 *
 
 * **위치** - 클러스터와 리소스의 Azure 위치를 선택합니다.
 
-작업이 완료되면 **확인**을 클릭합니다.
+작업이 완료되면 **확인** 을 클릭합니다.
 
 > [!NOTE]
 > 클러스터 컨트롤러에 공용 IP 주소를 사용하려는 경우 기존 네트워크를 선택하는 대신 클러스터용으로 새 가상 네트워크를 만듭니다. 이 설정은 2페이지에 있습니다.
@@ -115,7 +115,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 *
   
   기존 가상 네트워크를 제공 하는 경우 클러스터를 만들기 전에 저장소 서비스 끝점이 있어야 합니다. 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)을 참조 하세요.
 
-  새 컨테이너를 만들지 않으려면 이 필드를 **false**로 설정합니다. 이 경우 클러스터를 만든 후 저장소를 연결 하 고 구성 해야 합니다. 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 읽으세요.
+  새 컨테이너를 만들지 않으려면 이 필드를 **false** 로 설정합니다. 이 경우 클러스터를 만든 후 저장소를 연결 하 고 구성 해야 합니다. 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 읽으세요.
 
 * **(새) 저장소 계정** -새 Azure Blob 컨테이너를 만드는 경우 새 저장소 계정의 이름을 입력 합니다.
 
@@ -147,11 +147,11 @@ Avere vFXT 템플릿이 클러스터 만들기를 완료 하면 새 클러스터
 
 1. 클러스터 컨트롤러에 대한 리소스 그룹으로 이동합니다.
 
-1. 왼쪽에서 **배포**를 클릭한 다음 **microsoft-avere.vfxt-template**을 클릭합니다.
+1. 왼쪽에서 **배포** 를 클릭한 다음 **microsoft-avere.vfxt-template** 을 클릭합니다.
 
    ![왼쪽에 배포가 선택되어 있고 배포 이름 아래의 표에 microsoft-avere.vfxt-template이 표시되어 있는 리소스 그룹 포털 페이지](media/avere-vfxt-outputs-deployments.png)
 
-1. 왼쪽에서 **출력**을 클릭합니다. 각 필드의 값을 복사합니다.
+1. 왼쪽에서 **출력** 을 클릭합니다. 각 필드의 값을 복사합니다.
 
    ![레이블 오른쪽의 필드에 SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, MGMT_IP 값이 표시된 출력 페이지](media/avere-vfxt-outputs-values.png)
 

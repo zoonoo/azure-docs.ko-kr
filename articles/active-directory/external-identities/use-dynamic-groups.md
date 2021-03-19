@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441558"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 협업
@@ -29,20 +29,20 @@ Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 사용자가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 사용자를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
 1. 테 넌 트의 전역 관리자 또는 사용자 관리자 역할이 할당 된 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory**를 선택합니다.
-2. **관리**에서 **그룹**을 선택한 다음 **새 그룹**을 선택 합니다.
-1. **새 그룹** 페이지의 **그룹 종류**에서 **보안**을 선택 합니다. 새 그룹의 **그룹 이름** 및 **그룹 설명**을 입력합니다. 
-2. **멤버 자격 유형**에서 **동적 사용자**를 선택 하 고 **동적 쿼리 추가**를 선택 합니다. 
-4. **규칙 구문** 텍스트 상자 위에 있는 **편집**을 선택 합니다. **규칙 구문 편집** 페이지에서 텍스트 상자에 다음 식을 입력 합니다.
+1. **Azure Active Directory** 를 선택합니다.
+2. **관리** 에서 **그룹** 을 선택한 다음 **새 그룹** 을 선택 합니다.
+1. **새 그룹** 페이지의 **그룹 종류** 에서 **보안** 을 선택 합니다. 새 그룹의 **그룹 이름** 및 **그룹 설명** 을 입력합니다. 
+2. **멤버 자격 유형** 에서 **동적 사용자** 를 선택 하 고 **동적 쿼리 추가** 를 선택 합니다. 
+4. **규칙 구문** 텍스트 상자 위에 있는 **편집** 을 선택 합니다. **규칙 구문 편집** 페이지에서 텍스트 상자에 다음 식을 입력 합니다.
 
    ```
    user.objectId -ne null
    ```
-1. **확인**을 선택합니다. 규칙은 규칙 구문 상자에 나타납니다.
+1. **확인** 을 선택합니다. 규칙은 규칙 구문 상자에 나타납니다.
 
    ![모든 사용자 동적 그룹에 대 한 규칙 구문](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-1.  **저장**을 선택합니다. 새 동적 그룹에는 이제 구성원 사용자 뿐만 아니라 B2B 게스트 사용자도 포함 됩니다.
+1.  **저장** 을 선택합니다. 새 동적 그룹에는 이제 구성원 사용자 뿐만 아니라 B2B 게스트 사용자도 포함 됩니다.
 
 
 1. **새 그룹** 페이지에서 **만들기** 를 선택 하 여 그룹을 만듭니다.

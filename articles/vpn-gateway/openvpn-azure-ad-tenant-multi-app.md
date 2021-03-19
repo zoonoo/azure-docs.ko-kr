@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91819677"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 AD (Active Directory) 테 넌 트 만들기
@@ -26,7 +26,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 이 단계에서는 VPN 게이트웨이에서 Azure AD 인증을 사용 하도록 설정 합니다.
 
-1. **지점 및 사이트 간 구성** 으로 이동 하 고 **터널 유형**으로 **openvpn (SSL)** 을 선택 하 여 VPN 게이트웨이에서 Azure AD 인증을 사용 하도록 설정 합니다. **인증 유형** 으로 **Azure Active Directory** 를 선택 하 고 **Azure Active Directory** 섹션 아래의 정보를 입력 합니다.
+1. **지점 및 사이트 간 구성** 으로 이동 하 고 **터널 유형** 으로 **openvpn (SSL)** 을 선택 하 여 VPN 게이트웨이에서 Azure AD 인증을 사용 하도록 설정 합니다. **인증 유형** 으로 **Azure Active Directory** 를 선택 하 고 **Azure Active Directory** 섹션 아래의 정보를 입력 합니다.
 
     ![Azure Portal 뷰](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 

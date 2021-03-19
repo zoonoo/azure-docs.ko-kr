@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82190132"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Azure Policy를 사용 하 여 사용자 지정 공급자에 대 한 연결 배포
@@ -29,7 +29,7 @@ Azure 정책을 사용 하 여 리소스를 사용자 지정 공급자에 연결
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>연결 배포 기본 제공 정책을 사용 하는 방법 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 사용자 지정 공급자에 게 작업을 수행 하기 위한 정책 범위에 대 한 권한이 필요한 경우 사용 권한을 부여 하지 않으면 연결 리소스의 정책 배포가 작동 하지 않습니다.
 
 ### <a name="policy-assignment"></a>정책 할당
@@ -43,7 +43,7 @@ Azure 사용자 지정 리소스 공급자 개발에 대 한 질문이 있는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기본 제공 정책을 사용 하 여 연결을 배포 하는 방법을 학습. 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 기본 제공 정책을 사용 하 여 연결을 배포 하는 방법을 학습. 자세한 내용은 다음 문서를 참조하세요.
 
 - [개념: Azure 사용자 지정 공급자 리소스 온 보 딩](./concepts-resource-onboarding.md)
 - [자습서: 사용자 지정 공급자를 사용 하 여 리소스 온 보 딩](./tutorial-resource-onboarding.md)

@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.openlocfilehash: 00b9cc881d9414e957d7503bb6156095bb821c06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87128151"
 ---
 # <a name="exploration-and-exploitation"></a>탐색 및 이용
@@ -23,7 +23,7 @@ Personalizer는 순위 호출을 받으면 다음 기능을 수행하는 RewardA
 * 악용을 사용하여 현재 기계 학습 모델을 기반으로 가장 유력한 사용자 동작과 일치시킵니다.
 * 순위에서 확률이 가장 높은 작업과 일치하지 않는 탐색을 사용합니다.
 
-Personalizer는 현재 *입실론 그리디*라는 알고리즘을 사용하여 탐색합니다. 
+Personalizer는 현재 *입실론 그리디* 라는 알고리즘을 사용하여 탐색합니다. 
 
 ## <a name="choosing-an-exploration-setting"></a>탐색 설정 선택
 

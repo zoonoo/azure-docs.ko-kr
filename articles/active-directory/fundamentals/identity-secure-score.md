@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705489"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Azure Active Directory의 ID 보안 점수란?
@@ -48,7 +48,7 @@ ID 보안 점수 대시보드에서 점수 및 관련 정보에 액세스할 수
 
 ## <a name="how-do-i-get-my-secure-score"></a>내 보안 점수는 어떻게 가져오나요?
 
-Id 보안 점수는 모든 버전의 Azure AD에서 사용할 수 있습니다. 조직은 **Azure Portal**  >  **Azure Active Directory**  >  **보안**  >  **id 보안 점수**를 사용 하 여 id 보안 점수에 액세스할 수 있습니다.
+Id 보안 점수는 모든 버전의 Azure AD에서 사용할 수 있습니다. 조직은 **Azure Portal**  >  **Azure Active Directory**  >  **보안**  >  **id 보안 점수** 를 사용 하 여 id 보안 점수에 액세스할 수 있습니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 

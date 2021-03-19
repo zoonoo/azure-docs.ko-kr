@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 02/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: b3be465c488bdd3c5dbd62f757733939d1bee393
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393516"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581085"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -28,7 +28,7 @@ ms.locfileid: "100393516"
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-라이브 이벤트에 대 한 [Event Grid](../../event-grid/index.yml) 이벤트를 구독할 때 [LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
+라이브 이벤트에 대 한 [Event Grid](../../event-grid/index.yml) 이벤트를 구독할 때 [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 > [!div class="mx-tdCol2BreakAll"]
 >| 오류 | 정보 |
 >|--|--|
@@ -68,7 +68,7 @@ ms.locfileid: "100393516"
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
-[LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
+[LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 
 > [!div class="mx-tdCol2BreakAll"]
 >| 오류 | 정보 |
@@ -109,7 +109,7 @@ ms.locfileid: "100393516"
 >| Description| 들어오는 데이터에 discontinuty가 있습니다.||
 >|추천 솔루션| 이는 네트워크 문제나 시스템 리소스 문제로 인해 인코더가 데이터를 삭제 한다는 경고입니다. 인코더 로그 또는 시스템 로그를 확인 하십시오. 시스템 리소스 (CPU, 메모리 또는 네트워크)도 모니터링 합니다. 시스템 CPU가 너무 높으면 비트 전송률을 낮추고 시스템 그래픽 카드에서 H/W 인코더 옵션을 사용 하십시오.||
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [스트리밍 끝점 (원본) 오류 코드](streaming-endpoint-error-codes.md)
 

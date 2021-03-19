@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 5863dcc20fb13f1bb203c68ad168655371130601
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674561"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
@@ -18,9 +18,9 @@ ms.locfileid: "92674561"
 
 Azure FarmBeats는 Azure Marketplace에서 사용할 수 있는 B2B(Business-to-Business) 제품입니다. 이를 통해 공급자의 농업 데이터 집합을 집계 하 고 실행 가능한 정보를 생성할 수 있습니다. Azure FarmBeats는 퓨즈 데이터 집합을 기반으로 AI (인공 지능) 또는 기계 학습 (ML) 모델을 빌드할 수 있도록 하 여이를 수행 합니다. Azure FarmBeats의 두 가지 주요 구성 요소는 다음과 같습니다.
 
-- **Datahub** : 다양 한 공급자에 걸쳐 다양 한 농업 데이터 집합의 집계, 정규화 및 contextualization를 사용 하도록 설정 하는 API 계층입니다.
+- **Datahub**: 다양 한 공급자에 걸쳐 다양 한 농업 데이터 집합의 집계, 정규화 및 contextualization를 사용 하도록 설정 하는 API 계층입니다.
 
-- **Accelerator** : datahub 위에 빌드되는 웹 응용 프로그램입니다. 모델 개발 및 시각화를 바로 시작 합니다. 액셀러레이터는 Azure FarmBeats Api를 사용 하 여 수집 센서 데이터를 차트로 시각화 하 고 모델 출력의 시각화를 지도로 보여 줍니다.
+- **Accelerator**: datahub 위에 빌드되는 웹 응용 프로그램입니다. 모델 개발 및 시각화를 바로 시작 합니다. 액셀러레이터는 Azure FarmBeats Api를 사용 하 여 수집 센서 데이터를 차트로 시각화 하 고 모델 출력의 시각화를 지도로 보여 줍니다.
 
 ## <a name="general-information"></a>일반 정보
 
@@ -32,7 +32,7 @@ Azure FarmBeats를 설치 하는 경우 Azure 구독에 다음과 같은 리소�
 |---------|---------|
 | Application Insights   |      Datahub & 액셀러레이터      |
 | App Service     |     Datahub & 액셀러레이터     |
-| App Service 플랜   | Datahub & 액셀러레이터  |
+| App Service 계획   | Datahub & 액셀러레이터  |
 | API 연결    |  Datahub       |
 | Azure Cache for Redis       | Datahub      |
 | Azure Cosmos DB   |  Datahub       |
@@ -124,11 +124,11 @@ PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계
 
 4. 스크립트는 다음 세 가지 입력을 요청 합니다.
 
-    - **FarmBeats 웹 사이트 이름** : FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://에서 액세스할 수 \<FarmBeats-website-name> 있으며, Swagger api는 https://-api.azurewebsites.net에 있습니다. \<FarmBeats-website-name>
+    - **FarmBeats 웹 사이트 이름**: FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://에서 액세스할 수 \<FarmBeats-website-name> 있으며, Swagger api는 https://-api.azurewebsites.net에 있습니다. \<FarmBeats-website-name>
 
-    - **Azure 로그인 id** : FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 일반적으로입니다 john.doe@domain.com . Azure UPN도 지원 됩니다.
+    - **Azure 로그인 id**: FarmBeats의 관리자로 추가 하려는 사용자의 AZURE 로그인 id를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID의 형식은 일반적으로입니다 john.doe@domain.com . Azure UPN도 지원 됩니다.
 
-    - **구독 id** : Azure FarmBeats을 설치 하려는 구독의 id입니다.
+    - **구독 id**: Azure FarmBeats을 설치 하려는 구독의 id입니다.
 
 5. AAD 스크립트는 실행 하는 데 2 분 정도 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에서 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
 

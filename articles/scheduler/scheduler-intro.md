@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368131"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler 정의
@@ -35,7 +35,7 @@ Scheduler가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니
 
   예를 들어 관리자가 향후 9개월 간 매일 오전 1시에 데이터베이스를 백업할 수도 있습니다.
 
-Scheduler를 사용하여 예약된 워크로드를 만들기, 유지 관리 및 실행할 수는 있지만, Scheduler가 워크로드를 호스트하거나 코드를 실행하지는 않습니다. 서비스는 Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 서비스 또는 코드를 *호출*하기만 합니다. Scheduler는 HTTP, HTTPS, Storage 큐, Service Bus 큐 또는 Service Bus 토픽을 통해 호출합니다.
+Scheduler를 사용하여 예약된 워크로드를 만들기, 유지 관리 및 실행할 수는 있지만, Scheduler가 워크로드를 호스트하거나 코드를 실행하지는 않습니다. 서비스는 Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 서비스 또는 코드를 *호출* 하기만 합니다. Scheduler는 HTTP, HTTPS, Storage 큐, Service Bus 큐 또는 Service Bus 토픽을 통해 호출합니다.
 
 작업 및 [작업 컬렉션](../scheduler/scheduler-concepts-terms.md)을 만들고, 예약 하 고, 관리 하 고, 업데이트 하거나, 삭제 하려면 코드, [스케줄러 REST API](/rest/api/scheduler/)또는 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md)을 사용할 수 있습니다.
 

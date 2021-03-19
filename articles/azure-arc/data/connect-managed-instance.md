@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372364"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance에 연결
@@ -49,7 +49,7 @@ Azure Data Studio, SQL Server Management Studio 또는 SQLCMD를 사용 하 여 
 
 Azure Data Studio를 열고 위의 외부 끝점 IP 주소와 포트 번호를 사용 하 여 인스턴스에 연결 합니다. Azure VM을 사용 하는 경우 [azure 가상 머신 배포에 대 한 특별 정보](#special-note-about-azure-virtual-machine-deployments)를 사용 하 여 식별할 수 있는 _공용_ IP 주소가 필요 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 - 서버: 52.229.9.30, 30913
 - 사용자 이름: sa

@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
 ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88798383"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>2단계 인증 방법 및 설정 변경
@@ -46,9 +46,9 @@ ms.locfileid: "88798383"
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 
-1. 오른쪽 맨 위에서 계정 이름을 선택한 후 **프로필**을 선택합니다.
+1. 오른쪽 맨 위에서 계정 이름을 선택한 후 **프로필** 을 선택합니다.
 
-1. **추가 보안 인증**을 선택합니다.  
+1. **추가 보안 인증** 을 선택합니다.  
 
     ![추가 보안 인증 페이지로 연결되는 내 앱 링크](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "88798383"
 
     - **앱의 확인 코드 사용**: Authenticator 앱을 사용하여 확인 코드를 받아서 회사 또는 학교 계정의 프롬프트에 입력합니다.
 
-2. **저장**을 선택합니다.
+2. **저장** 을 선택합니다.
 
 ## <a name="add-or-change-your-phone-number"></a>전화 번호 추가 또는 변경
 
@@ -86,11 +86,11 @@ ms.locfileid: "88798383"
 
 ### <a name="to-change-your-phone-numbers"></a>전화 번호를 변경하려면:
 
-1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **인증 전화**(기본 모바일 디바이스) 및 **사무실 전화**의 전화 번호 정보를 업데이트합니다.
+1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **인증 전화**(기본 모바일 디바이스) 및 **사무실 전화** 의 전화 번호 정보를 업데이트합니다.
 
 1. **대체 인증 전화** 옵션 옆의 상자를 선택 하 고 기본 장치에 액세스할 수 없는 경우 전화 통화를 받을 수 있는 보조 전화 번호를 입력 합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 새 계정 추가
 
@@ -98,15 +98,15 @@ ms.locfileid: "88798383"
 
 Microsoft Authenticator 앱에서 이미 회사 또는 학교 계정을 설정했다면 다시 설정하지 않아도 됩니다.
 
-1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **Authenticator 앱 설정**을 선택합니다.
+1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **Authenticator 앱 설정** 을 선택합니다.
 
     ![Microsoft Authenticator 앱에서 회사 또는 학교 계정 설정](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
-1. 모바일 디바이스에서 QR 코드를 스캔하는 작업을 포함하여 화면상의 지침에 따라 진행한 후 **다음**을 선택합니다.
+1. 모바일 디바이스에서 QR 코드를 스캔하는 작업을 포함하여 화면상의 지침에 따라 진행한 후 **다음** 을 선택합니다.
 
     정보 확인을 위해 Microsoft Authenticator 앱에서 알림을 승인하라는 메시지가 표시됩니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에서 계정 또는 디바이스 삭제
 
@@ -116,7 +116,7 @@ Microsoft Authenticator 앱에서 계정을 삭제할 수 있고, 회사 또는 
 
 1. **추가 보안 인증** 페이지의 **어떤 방법으로 응답하시겠습니까?** 섹션에서 **Authenticator 앱 설정** 단추를 선택합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에서 계정을 삭제하려면
 
@@ -124,11 +124,11 @@ Microsoft Authenticator 앱에서 삭제하려는 디바이스 옆에 있는 **�
 
 ## <a name="turn-on-two-factor-verification-prompts-on-a-trusted-device"></a>신뢰할 수 있는 디바이스에서 2단계 인증 프롬프트 설정
 
-조직의 설정에 따라 브라우저에서 2단계 인증을 수행할 때 **X일 동안 다시 묻지 않음**이라는 확인란이 표시될 수 있습니다. 2단계 인증 프롬프트를 표시하지 않으려고 이 옵션을 선택한 상태에서 디바이스를 분실하거나 디바이스의 보안이 침해된 경우, 계정을 보호하기 위해 2단계 인증 프롬프트를 다시 설정해야 합니다. 모든 디바이스에 대해 동시에 프롬프트를 설정해야 합니다. 특정 디바이스에 대해서만 프롬프트를 설정할 수는 없습니다.
+조직의 설정에 따라 브라우저에서 2단계 인증을 수행할 때 **X일 동안 다시 묻지 않음** 이라는 확인란이 표시될 수 있습니다. 2단계 인증 프롬프트를 표시하지 않으려고 이 옵션을 선택한 상태에서 디바이스를 분실하거나 디바이스의 보안이 침해된 경우, 계정을 보호하기 위해 2단계 인증 프롬프트를 다시 설정해야 합니다. 모든 디바이스에 대해 동시에 프롬프트를 설정해야 합니다. 특정 디바이스에 대해서만 프롬프트를 설정할 수는 없습니다.
 
 ### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>디바이스에서 2단계 인증 프롬프트를 설정하려면
 
-[**추가 보안 인증** 페이지](#to-get-to-the-additional-security-verification-page)에서 **신뢰할 수 있는 이전 디바이스에서 Multi-Factor Authentication 복원**을 선택합니다. 다음번에 디바이스에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다.
+[**추가 보안 인증** 페이지](#to-get-to-the-additional-security-verification-page)에서 **신뢰할 수 있는 이전 디바이스에서 Multi-Factor Authentication 복원** 을 선택합니다. 다음번에 디바이스에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

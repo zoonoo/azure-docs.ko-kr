@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724254"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600720"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ ms.locfileid: "101724254"
   * [개발 또는 테스트용으로 스토리지 에뮬레이터 사용 시 문제가 발생함]
   * [Azure SDK for .NET 설치 시 문제가 발생함]
   * [스토리지 서비스에서 다른 문제가 발생함]
-  * [Windows 가상 머신에서 VHD 문제 해결](../../virtual-machines/troubleshooting/index.yml)   
-  * [Linux 가상 머신에서 VHD 문제 해결](../../virtual-machines/troubleshooting/index.yml)
+  * [Windows 가상 머신에서 VHD 문제 해결](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Linux 가상 머신에서 VHD 문제 해결](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Windows에서 Azure Files 문제 해결](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Linux에서 Azure Files 문제 해결](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [부록]

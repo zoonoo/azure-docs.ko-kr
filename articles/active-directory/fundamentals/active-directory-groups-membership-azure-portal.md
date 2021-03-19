@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371803"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
@@ -36,7 +36,7 @@ ms.locfileid: "92371803"
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **그룹** 을 선택합니다.
 
 3. **그룹 - 모든 그룹** 페이지에서 다른 그룹의 멤버가 될 그룹을 검색하여 선택합니다. 이 연습에서는 **MDM 정책 - 서부** 그룹을 사용합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "92371803"
 
     ![그룹 - MDM 정책이 있는 모든 그룹 페이지 - 서부 그룹 선택](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. **MDM 정책 - 서부 - 그룹 멤버 자격** 페이지에서 **그룹 멤버 자격**, **추가**를 차례로 선택하고, 멤버가 되도록 하려는 그룹을 찾은 다음, **선택**을 선택합니다. 이 연습에서는 **MDM 정책 - 모든 조직** 그룹을 사용합니다.
+4. **MDM 정책 - 서부 - 그룹 멤버 자격** 페이지에서 **그룹 멤버 자격**, **추가** 를 차례로 선택하고, 멤버가 되도록 하려는 그룹을 찾은 다음, **선택** 을 선택합니다. 이 연습에서는 **MDM 정책 - 모든 조직** 그룹을 사용합니다.
 
     **MDM 정책 - 서부** 그룹은 이제 [MDM 정책 - 모든 조직] 그룹의 모든 속성과 구성을 상속하는 **MDM 정책 - 모든 조직** 그룹의 멤버입니다.
 
@@ -61,9 +61,9 @@ ms.locfileid: "92371803"
 ### <a name="to-remove-a-member-group-from-another-group"></a>다른 그룹에서 멤버 그룹을 제거하려면
 1. **그룹 - 모든 그룹** 페이지에서 다른 그룹의 멤버로 제거할 그룹을 검색하여 선택합니다. 이 연습에서는 **MDM 정책 - 서부** 그룹을 다시 사용합니다.
 
-2. **MDM 정책 - 서부 개요** 페이지에서 **그룹 멤버 자격**을 선택합니다.
+2. **MDM 정책 - 서부 개요** 페이지에서 **그룹 멤버 자격** 을 선택합니다.
 
-3. **MDM 정책 - 서부 그룹 멤버 자격** 페이지에서 **MDM 정책 - 모든 조직** 그룹을 선택한 다음, **MDM 정책 - 서부** 페이지 세부 정보에서 **제거**를 선택합니다.
+3. **MDM 정책 - 서부 그룹 멤버 자격** 페이지에서 **MDM 정책 - 모든 조직** 그룹을 선택한 다음, **MDM 정책 - 서부** 페이지 세부 정보에서 **제거** 를 선택합니다.
 
     ![멤버 및 그룹 세부 정보가 모두 표시된 그룹 멤버 페이지](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 

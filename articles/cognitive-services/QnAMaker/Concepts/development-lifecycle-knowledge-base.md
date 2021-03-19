@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91776972"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
@@ -32,7 +32,7 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 
 * **낮은 신뢰도 점수를 수정 하려면**: 대체 질문을 추가 합니다.
-* **쿼리가 잘못 된 [기본 응답](../How-to/change-default-answer.md)을 반환**하는 경우: 올바른 질문에 새 답변을 추가 합니다.
+* **쿼리가 잘못 된 [기본 응답](../How-to/change-default-answer.md)을 반환** 하는 경우: 올바른 질문에 새 답변을 추가 합니다.
 
 이  테스트-업데이트 반복 과정은 사용자가 결과에 만족할 때까지 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 
@@ -74,7 +74,7 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 ## <a name="test-and-production-knowledge-base"></a>테스트 및 프로덕션 기술 자료
 기술 자료는 QnA Maker 통해 생성, 유지 관리 및 사용 되는 질문과 대답 집합의 리포지토리입니다. 각 QnA Maker 리소스는 여러 기술 자료를 보유할 수 있습니다.
 
-기술 자료에는 *테스트* 및 *게시*의 두 가지 상태가 있습니다.
+기술 자료에는 *테스트* 및 *게시* 의 두 가지 상태가 있습니다.
 
 ### <a name="test-knowledge-base"></a>테스트 기술 자료
 

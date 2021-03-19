@@ -10,10 +10,10 @@ ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86527441"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 가상 머신 확장 집합 및 연결된 데이터 디스크
@@ -33,7 +33,7 @@ ms.locfileid: "86527441"
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>연결된 데이터 디스크를 사용하여 Service Fabric 클러스터 만들기
-Azure에서 실행 되는 [Service Fabric](../service-fabric/index.yml) 클러스터의 각 [노드 유형은](../service-fabric/service-fabric-cluster-nodetypes.md) 가상 머신 확장 집합으로 지원 됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다. [기존 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates) 시작 지점으로 사용할 수 있습니다. 템플릿에서, _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _storageProfile_에 _dataDisks_ 섹션을 포함하고 템플릿을 배포합니다. 다음 예제에서는 128GB 데이터 디스크를 연결합니다.
+Azure에서 실행 되는 [Service Fabric](../service-fabric/index.yml) 클러스터의 각 [노드 유형은](../service-fabric/service-fabric-cluster-nodetypes.md) 가상 머신 확장 집합으로 지원 됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다. [기존 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates) 시작 지점으로 사용할 수 있습니다. 템플릿에서, _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _storageProfile_ 에 _dataDisks_ 섹션을 포함하고 템플릿을 배포합니다. 다음 예제에서는 128GB 데이터 디스크를 연결합니다.
 
 ```json
 "dataDisks": [
@@ -45,7 +45,7 @@ Azure에서 실행 되는 [Service Fabric](../service-fabric/index.yml) 클러�
 ]
 ```
 
-클러스터를 배포할 때 자동으로 데이터 디스크를 분할하고, 서식을 지정하고, 탑재할 수 있습니다. 확장 집합의 _virtualMachineProfile__extensionProfile_에 사용자 지정 스크립트 확장을 추가합니다.
+클러스터를 배포할 때 자동으로 데이터 디스크를 분할하고, 서식을 지정하고, 탑재할 수 있습니다. 확장 집합의 _virtualMachineProfile__extensionProfile_ 에 사용자 지정 스크립트 확장을 추가합니다.
 
 Windows 클러스터에서 자동으로 데이터 디스크를 준비하려면 다음을 추가합니다.
 

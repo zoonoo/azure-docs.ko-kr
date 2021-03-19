@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91716046"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>2 부: id에 공유 수준 권한 할당
@@ -47,7 +47,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](storage-how-to-create-file-share.md).
 1. **Access Control(IAM)** 을 선택합니다.
 1. **역할 할당 추가** 선택
-1. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체**에 대 한 **액세스 할당을** 그대로 둡니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다. **선택한 Azure AD id는 하이브리드 id 여야 하며 클라우드 전용 id 일 수 없습니다.** 즉, 동일한 id가 AD DS에도 표시 됩니다.
+1. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체** 에 대 한 **액세스 할당을** 그대로 둡니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다. **선택한 Azure AD id는 하이브리드 id 여야 하며 클라우드 전용 id 일 수 없습니다.** 즉, 동일한 id가 AD DS에도 표시 됩니다.
 1. **저장** 을 선택 하 여 역할 할당 작업을 완료 합니다.
 
 ### <a name="powershell"></a>PowerShell

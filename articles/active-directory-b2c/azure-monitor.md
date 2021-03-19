@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573005"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580184"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
@@ -46,7 +46,7 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 
 ![리소스 그룹 프로젝션](./media/azure-monitor/resource-group-projection.png)
 
-이 배포 중에 Log Analytics 작업 영역이 호스팅될 Azure AD B2C 테 넌 트와 Azure AD 테 넌 트를 모두 구성 합니다. 배포를 실행 하는 데 사용 되는 계정에는 이러한 두 테 넌 트의 [전역 관리자](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) 역할이 할당 되어야 합니다. 설명 된 대로 각 단계를 완료 하 여 올바른 디렉터리에 로그인 했는지 확인 하는 것도 중요 합니다.
+이 배포 중에 Log Analytics 작업 영역이 호스팅될 Azure AD B2C 테 넌 트와 Azure AD 테 넌 트를 모두 구성 합니다. Azure AD B2C 계정은 Azure AD B2C 테 넌 트에 [전역 관리자](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) 역할을 할당 해야 합니다. 배포를 실행 하는 데 사용 되는 Azure AD 계정에는 Azure AD 구독의 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할이 할당 되어야 합니다. 설명 된 대로 각 단계를 완료 하 여 올바른 디렉터리에 로그인 했는지 확인 하는 것도 중요 합니다.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. 리소스 그룹 만들기 또는 선택
 
@@ -97,7 +97,7 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 **Azure AD** 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. **Azure에 배포** 단추를 사용 하 여 Azure Portal을 열고 포털에서 직접 템플릿을 배포 합니다. 자세한 내용은 [Azure Resource Manager 템플릿 만들기](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template)를 참조 하세요.
 
-   [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
+   [![Azure에 배포](https://aka.ms/deploytoazurebutton)](   https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 5. **사용자 지정 배포** 페이지에서 다음 정보를 입력 합니다.
 

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597677"
+ms.locfileid: "104654852"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -37,11 +37,11 @@ ms.locfileid: "104597677"
 
 * 표준 음성-통계 패라메트릭 합성 및/또는 연결 합성 기술을 사용 하 여 생성 됩니다. 이러한 음성은 매우 있는 하 고 자연 스러운 소리를 가집니다. 다양 한 음성 옵션을 사용 하 여 응용 프로그램에서 45 개 이상의 언어를 쉽게 사용할 수 있습니다. 이러한 음성은 약어, 머리글자어 확장, 날짜/시간 해석, polyphones 등에 대 한 지원을 포함 하 여 높은 발음 정확도를 제공 합니다. 표준 음성의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
 
-* 신경망-심층 신경망은 음성 언어의 스트레스 및 intonation 관련 하 여 기존 음성 합성의 제한을 극복 하는 데 사용 됩니다. Prosody 예측 및 음성 합성은 동시에 수행 되므로 더 많은 유체와 자연 스런 출력이 발생 합니다. 신경망을 사용 하면 자연 스런 봇 및 음성 도우미와의 상호 작용을 보다 자연스럽 게 수행 하 고, 전자 책과 같은 디지털 텍스트를 오디오 책으로 변환 하 고, 자동차 내 탐색 시스템을 향상 시킬 수 있습니다. 인간 같은 자연 스러운 자연 proaaady와 명확한 articulation을 사용 하 여 AI 시스템을 조작할 때 신경망은 듣기 피로를 크게 줄입니다. 신경망의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
+* 신경망-심층 신경망은 음성 언어의 스트레스 및 intonation와 관련 하 여 전통적인 음성 합성의 제한을 극복 하는 데 사용 됩니다. Prosody 예측 및 음성 합성은 동시에 수행 되므로 더 많은 유체와 자연 스런 출력이 발생 합니다. 신경망을 사용 하면 자연 스런 봇 및 음성 도우미와의 상호 작용을 보다 자연스럽 게 수행 하 고, 전자 책과 같은 디지털 텍스트를 오디오 책으로 변환 하 고, 자동차 내 탐색 시스템을 향상 시킬 수 있습니다. 인간 같은 자연 스러운 자연 proaaady와 명확한 articulation을 사용 하 여 AI 시스템을 조작할 때 신경망은 듣기 피로를 크게 줄입니다. 신경망의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
 
 * SSML 스타일을 ssml로 조정은 XML 기반 태그 언어를 사용 하 여 음성-텍스트 출력을 사용자 지정 하는 데 사용 되는 XML 기반 태그 언어입니다. SSML를 사용 하면 피치를 조정 하 고, 일시 중지를 추가 하 고, 발음을 높이고, 속도를 높이 거 나 낮출 수 있으며, 볼륨을 늘리거나 줄일 수 있으며, 여러 음성 특성을 단일 문서로 사용할 수 있습니다. 말하는 스타일 [을 조정 하려면 방법을](speech-synthesis-markup.md) 참조 하세요.
 
-* Visemes- [Visemes](how-to-speech-synthesis-viseme.md) 는 관찰 된 음성에서 키 포즈를 나타내는 데 사용 됩니다 (예: 특정 음소을 생성할 때 lip, jaw 및 메롱의 위치). 음성 및 음소와의 긴밀 한 상관 관계가 있습니다. Speech SDK에서 Viseme를 사용 하 여 통신, 교육, 엔터테인먼트 및 고객 서비스를 읽는 애니메이션 립에 일반적으로 사용 되는 얼굴 애니메이션 데이터를 생성할 수 있습니다. 
+* Visemes- [Visemes](how-to-speech-synthesis-viseme.md) 는 특정 음소을 생성할 때 lip, jaw 및 메롱를 포함 하 여 관찰 된 음성에서의 주요 동작입니다. Visemes에는 음성 및 음소와의 강력한 상관 관계가 있습니다. Speech SDK에서 viseme 이벤트를 사용 하 여 통신, 교육, 엔터테인먼트 및 고객 서비스를 읽는 립에서 얼굴에 애니메이션 효과를 주는 데 사용할 수 있는 얼굴 애니메이션 데이터를 생성할 수 있습니다. 
 
 ## <a name="get-started"></a>시작하기
 

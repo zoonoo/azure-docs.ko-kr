@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84457017"
 ---
 # <a name="samples-and-faqs"></a>샘플 및 Faq
@@ -33,7 +33,7 @@ UWP Voice Assistant 샘플은 다음에 사용 되는 Windows의 음성 도우�
 > [!div class="nextstepaction"]
 > [UWP 샘플에 대 한 GitHub 리포지토리를 방문 하세요.](https://aka.ms/MVA/sample)
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-do-i-contact-microsoft-for-resources-like-limited-access-feature-tokens-and-keyword-model-files"></a>제한 된 액세스 기능 토큰 및 키워드 모델 파일과 같은 리소스는 Microsoft에 문의 어떻게 할까요??
 

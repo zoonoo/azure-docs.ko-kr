@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 사용자 지정 태그를 만들고 태�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270736"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
@@ -25,19 +25,19 @@ ms.locfileid: "88270736"
 
 [랩 만들기](devtest-lab-create-lab.md)를 수행할 때 태그를 적용한 다음 나중에 태그 블레이드의 구성 및 설정을 통해 태그를 관리할 수 있습니다.
 
-모든 태그는 **이름** / **값** 쌍으로 구성 됩니다. 예를 들어 이름이 *costcenter*이고 값이 *34543*인 태그를 만들 수 있습니다. 이러한 태그를 사용하면 나중에 조직의 해당 특정 영역에 대금을 청구할 수 있는 랩 리소스를 파악하는 데 도움이 될 수 있습니다. 구독을 구성하려는 방법에 적합한 이름과 값을 선택해야 합니다.
+모든 태그는 **이름** / **값** 쌍으로 구성 됩니다. 예를 들어 이름이 *costcenter* 이고 값이 *34543* 인 태그를 만들 수 있습니다. 이러한 태그를 사용하면 나중에 조직의 해당 특정 영역에 대금을 청구할 수 있는 랩 리소스를 파악하는 데 도움이 될 수 있습니다. 구독을 구성하려는 방법에 적합한 이름과 값을 선택해야 합니다.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>기존 랩에서 태그를 관리하는 단계
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 랩은 **모든 리소스**아래의 대시보드에 이미 표시 되어 있을 수 있습니다.
+1. 필요한 경우 **모든 서비스** 를 선택하고 목록에서 **DevTest Labs** 를 선택합니다. 랩은 **모든 리소스** 아래의 대시보드에 이미 표시 되어 있을 수 있습니다.
 1. 랩 목록에서 태그를 추가하거나 관리하려는 랩을 선택합니다.
-1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.
+1. 랩의 **개요** 영역에서 **구성 및 정책** 을 선택합니다.
 
     ![구성 및 정책 단추](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. 왼쪽의 **관리** 아래에서 **태그**를 선택합니다.
-1. 이 랩에 대 한 새 태그를 만들려면 **이름** / **값** 쌍을 입력 하 고 **저장**을 선택 합니다. 목록에서 기존 태그를 선택하여 해당 태그와 연결된 리소스를 확인하거나 관리할 수도 있습니다.
+1. 왼쪽의 **관리** 아래에서 **태그** 를 선택합니다.
+1. 이 랩에 대 한 새 태그를 만들려면 **이름** / **값** 쌍을 입력 하 고 **저장** 을 선택 합니다. 목록에서 기존 태그를 선택하여 해당 태그와 연결된 리소스를 확인하거나 관리할 수도 있습니다.
 
     ![태그 관리](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 

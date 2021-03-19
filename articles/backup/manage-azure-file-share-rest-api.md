@@ -4,10 +4,10 @@ description: REST API를 사용 하 여 Azure Backup에서 백업 된 Azure 파�
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88892850"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 백업 관리
@@ -54,7 +54,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>응답
 
-Name  | 유형  |  설명
+Name  | Type  |  설명
 --- | --- | ----
 200 정상 |  JobResource  | 정상
 
@@ -113,7 +113,7 @@ HTTP/1.1" 200
 
 파일 공유를 보호 하는 데 사용 되는 정책을 변경 하려면 보호를 사용 하도록 설정 하는 것과 동일한 형식을 사용할 수 있습니다. 요청 정책에 새 정책 ID를 제공 하 고 요청을 제출 하면 됩니다.
 
-예: *testshare* 의 보호 정책을 *schedule1* 에서 *schedule2*로 변경 하려면 요청 본문에 *schedule2* ID를 제공 합니다.
+예: *testshare* 의 보호 정책을 *schedule1* 에서 *schedule2* 로 변경 하려면 요청 본문에 *schedule2* ID를 제공 합니다.
 
 ```json
 {
@@ -198,7 +198,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 
 {ContainerName} 및 {protectedItemName} 매개 변수는 [여기](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname)에 설정 되어 있습니다.
 
-다음 예에서는 *azurefilesvault*로 보호 되는 *testshare* 파일 공유에 대 한 보호를 중지 하는 작업을 트리거합니다.
+다음 예에서는 *azurefilesvault* 로 보호 되는 *testshare* 파일 공유에 대 한 보호를 중지 하는 작업을 트리거합니다.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01

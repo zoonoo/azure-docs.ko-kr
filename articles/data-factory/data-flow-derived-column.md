@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/14/2020
 ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90532027"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 파생된 열 변환
@@ -26,7 +26,7 @@ ms.locfileid: "90532027"
 
 ![파생 열 설정](media/data-flow/create-derive-column.png "파생 열 설정")
 
-파생 열을 더 추가 하려면 열 목록 위의 **추가** 를 클릭 하거나 기존 파생 열 옆에 있는 더하기 아이콘을 클릭 합니다. **열 추가** 또는 **열 패턴 추가**를 선택합니다.
+파생 열을 더 추가 하려면 열 목록 위의 **추가** 를 클릭 하거나 기존 파생 열 옆에 있는 더하기 아이콘을 클릭 합니다. **열 추가** 또는 **열 패턴 추가** 를 선택합니다.
 
 ![새 파생 열 선택](media/data-flow/add-derived-column.png "새 파생 열 선택")
 
@@ -42,7 +42,7 @@ ms.locfileid: "90532027"
 
 ![새 열 만들기](media/data-flow/derive-add-column.png "새 열 만들기")
 
-복합 열로 작업할 때 하위 열을 만들 수 있습니다. 이렇게 하려면 임의의 열 옆에 있는 더하기 아이콘을 클릭 하 고 하위 **열 추가**를 선택 합니다. 데이터 흐름의 복합 형식을 처리하는 방법에 대한 자세한 내용은 [매핑 데이터 흐름의 JSON 처리](format-json.md#mapping-data-flow-properties)를 참조하세요.
+복합 열로 작업할 때 하위 열을 만들 수 있습니다. 이렇게 하려면 임의의 열 옆에 있는 더하기 아이콘을 클릭 하 고 하위 **열 추가** 를 선택 합니다. 데이터 흐름의 복합 형식을 처리하는 방법에 대한 자세한 내용은 [매핑 데이터 흐름의 JSON 처리](format-json.md#mapping-data-flow-properties)를 참조하세요.
 
 ![하위 열 추가](media/data-flow/derive-add-subcolumn.png "하위 열 추가")
 
@@ -52,7 +52,7 @@ ms.locfileid: "90532027"
 
 ### <a name="locals"></a>로컬
 
-여러 열에서 논리를 공유 하거나 논리를 구분 하려는 경우 파생 열 변환 내에 로컬을 만들 수 있습니다. 로컬은 다음 변환에 다운스트림을 전파 하지 않는 논리 집합입니다. 식 작성기 내에서 **식 요소로** 이동 하 고 **지역**을 선택 하 여 지역 변수를 만들 수 있습니다. **새로**만들기를 선택 하 여 새 항목을 만듭니다.
+여러 열에서 논리를 공유 하거나 논리를 구분 하려는 경우 파생 열 변환 내에 로컬을 만들 수 있습니다. 로컬은 다음 변환에 다운스트림을 전파 하지 않는 논리 집합입니다. 식 작성기 내에서 **식 요소로** 이동 하 고 **지역** 을 선택 하 여 지역 변수를 만들 수 있습니다. **새로** 만들기를 선택 하 여 새 항목을 만듭니다.
 
 ![로컬 만들기](media/data-flow/create-local.png "로컬 만들기")
 

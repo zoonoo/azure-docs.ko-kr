@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908073"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 입력 모듈
@@ -32,7 +32,7 @@ ms.locfileid: "90908073"
   
 1. [수동으로 데이터 입력](./enter-data-manually.md) 모듈을 파이프라인에 추가 합니다. 이 모듈은 Azure Machine Learning의 **데이터 입력 및 출력** 범주에서 찾을 수 있습니다. 
   
-1. **DataFormat**의 경우 다음 옵션 중 하나를 선택 합니다. 이러한 옵션은 사용자가 제공 하는 데이터를 구문 분석 해야 하는 방법을 결정 합니다. 각 형식에 대 한 요구 사항은 크게 다르므로 관련 항목을 참조 하십시오.  
+1. **DataFormat** 의 경우 다음 옵션 중 하나를 선택 합니다. 이러한 옵션은 사용자가 제공 하는 데이터를 구문 분석 해야 하는 방법을 결정 합니다. 각 형식에 대 한 요구 사항은 크게 다르므로 관련 항목을 참조 하십시오.  
   
    - **Arff**: weka에서 사용 되는 특성 관계 파일 형식입니다.   
    - **CSV**: 쉼표로 구분 된 값 형식입니다. 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.    
@@ -92,7 +92,7 @@ ms.locfileid: "90908073"
   
 1. 출력 포트를 다른 모듈에 연결 하 고 파이프라인을 실행 합니다.  
   
-   데이터 집합을 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화**를 선택 합니다.
+   데이터 집합을 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화** 를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

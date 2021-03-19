@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88566134"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
@@ -36,19 +36,19 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 새 사용자를 추가하려면 이 섹션의 단계를 수행합니다.
 
 1. 화면 왼쪽의 **사용자** 탭을 선택합니다.
-2. **+추가**를 누릅니다.
+2. **+추가** 를 누릅니다.
 3. 사용자에 대한 적절한 정보를 입력합니다.
-4. **추가**를 누릅니다.
+4. **추가** 를 누릅니다.
 
     ![새 사용자 추가](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-기본적으로 새로 만든 개발자 계정은 **활성 상태**이며 **개발자** 그룹과 연결 됩니다. **활성** 상태의 개발자 계정은 구독이 있는 모든 api에 액세스 하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
+기본적으로 새로 만든 개발자 계정은 **활성 상태** 이며 **개발자** 그룹과 연결 됩니다. **활성** 상태의 개발자 계정은 구독이 있는 모든 api에 액세스 하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>개발자 초대
 개발자를 초대하려면 이 섹션의 단계를 수행합니다.
 
 1. 화면 왼쪽의 **사용자** 탭을 선택합니다.
-2. **+초대**를 누릅니다.
+2. **+초대** 를 누릅니다.
 
 확인 메시지가 표시되지만 새로 초대한 개발자는 해당 개발자가 초대를 허용할 때까지 목록에 나타나지 않습니다. 
 
@@ -56,15 +56,15 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 초대가 허용되면 계정이 활성 상태가 됩니다.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> 개발자 계정 비활성화 또는 다시 활성화
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> 개발자 계정 비활성화 또는 다시 활성화
 
-기본적으로, 새로 만들거나 초대한 개발자 계정은 **활성**상태가 됩니다. 개발자 계정을 비활성화하려면 **차단**을 클릭합니다. 차단된 개발자 계정을 다시 활성화하려면 **활성화**를 클릭합니다. 차단된 개발자 계정에서는 개발자 포털에 액세스하거나 어떤 API도 호출할 수 없습니다. 사용자 계정을 삭제하려면 **삭제**를 클릭합니다.
+기본적으로, 새로 만들거나 초대한 개발자 계정은 **활성** 상태가 됩니다. 개발자 계정을 비활성화하려면 **차단** 을 클릭합니다. 차단된 개발자 계정을 다시 활성화하려면 **활성화** 를 클릭합니다. 차단된 개발자 계정에서는 개발자 포털에 액세스하거나 어떤 API도 호출할 수 없습니다. 사용자 계정을 삭제하려면 **삭제** 를 클릭합니다.
 
 사용자를 차단하려면 다음 단계를 수행합니다.
 
 1. 화면 왼쪽의 **사용자** 탭을 선택합니다.
 2. 차단하려는 사용자를 클릭합니다.
-3. **차단**을 누릅니다.
+3. **차단** 을 누릅니다.
 
 ## <a name="reset-a-user-password"></a>사용자 암호 다시 설정
 

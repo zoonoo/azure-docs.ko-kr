@@ -8,10 +8,10 @@ ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ef77ba6e34f2a699c8c4f06fde8cb602ae98c728
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90885664"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩 
@@ -42,9 +42,9 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 1. `az spring-cloud app update`를 사용하여 현재 배포를 업데이트하거나 `az spring-cloud app deployment create`를 사용하여 새 배포를 만듭니다.
 
-1. Azure Portal에서 Azure Spring Cloud 서비스 페이지로 이동합니다. **Application Dashboard**로 이동하여 Azure Cache for Redis에 바인딩할 애플리케이션을 선택합니다. 이 애플리케이션은 이전 단계에서 업데이트하거나 배포한 애플리케이션과 동일합니다.
+1. Azure Portal에서 Azure Spring Cloud 서비스 페이지로 이동합니다. **Application Dashboard** 로 이동하여 Azure Cache for Redis에 바인딩할 애플리케이션을 선택합니다. 이 애플리케이션은 이전 단계에서 업데이트하거나 배포한 애플리케이션과 동일합니다.
 
-1. **서비스 바인딩**을 선택하고 **서비스 바인딩 만들기**를 선택합니다. **바인딩 유형** 값 **Azure Cache for Redis**, 사용자의 Azure Cache for Redis 서버 및 **기본** 키 옵션을 선택하도록 양식을 작성합니다.
+1. **서비스 바인딩** 을 선택하고 **서비스 바인딩 만들기** 를 선택합니다. **바인딩 유형** 값 **Azure Cache for Redis**, 사용자의 Azure Cache for Redis 서버 및 **기본** 키 옵션을 선택하도록 양식을 작성합니다.
 
 1. 앱을 다시 시작합니다. 이제 바인딩이 작동합니다.
 

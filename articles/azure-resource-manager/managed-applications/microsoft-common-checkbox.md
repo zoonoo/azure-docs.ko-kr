@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tomfitz
 ms.openlocfilehash: 9f40f223cca34df58d2af7373d8f60fd7f383162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87098547"
 ---
 # <a name="microsoftcommoncheckbox-ui-element"></a>Microsoft 일반. CheckBox UI 요소
@@ -42,7 +42,7 @@ true
 
 ## <a name="remarks"></a>설명
 
-**필수** 를 **true**로 설정 하면 사용자가 확인란을 선택 해야 합니다. 사용자가이 확인란을 선택 하지 않으면 유효성 검사 메시지가 표시 됩니다.
+**필수** 를 **true** 로 설정 하면 사용자가 확인란을 선택 해야 합니다. 사용자가이 확인란을 선택 하지 않으면 유효성 검사 메시지가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

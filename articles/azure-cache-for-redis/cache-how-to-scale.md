@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382398"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581646"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 Azure 캐시 크기 조정
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 기본, 표준 또는 프리미엄 캐시의 경우 응용 프로그램 요구 사항을 충족 하기 위해 만든 후 크기 및 계층을 변경할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -45,7 +45,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
   * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
 * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
-* 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
+* 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다. 그러나 동일한 가격 책정 계층 내에서 다른 크기로 확장할 수 있습니다. 예를 들어 C5 Standard에서 C1 Standard로 규모를 축소할 수 있습니다.
  
 캐시의 크기를 새 가격 책정 계층으로 조정하는 동안에는 **Azure Cache for Redis** 블레이드에 **크기 조정 중** 상태가 표시됩니다.
 
