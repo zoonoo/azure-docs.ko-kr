@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116731"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594770"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 사용
 
 솔루션 개발을 위해 Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션을 구현 하기 위한 팁입니다.
 
-## <a name="what-to-expect"></a>예상 프로그램
+## <a name="what-to-expect"></a>필요한 항목
 
 짐작할 수 있듯이 전용 SQL 풀은 데이터 웨어하우스 워크 로드의 일부로 트랜잭션을 지원 합니다. 그러나 전용 SQL 풀의 성능이 대규모로 유지 되도록 하기 위해 SQL Server에 비해 일부 기능이 제한 됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다.
 
@@ -204,4 +204,4 @@ THROW는 전용 SQL 풀에서 예외를 발생 시키는 최신 구현 이지만
 
 ## <a name="next-steps"></a>다음 단계
 
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. 추가 모범 사례 가이드는 [전용 sql 풀](best-practices-sql-pool.md) 및 [서버 리스 sql 풀](best-practices-sql-on-demand.md)에 대해서도 제공 됩니다.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. 추가 모범 사례 가이드는 [전용 sql 풀](best-practices-dedicated-sql-pool.md) 및 [서버 리스 sql 풀](best-practices-serverless-sql-pool.md)에 대해서도 제공 됩니다.

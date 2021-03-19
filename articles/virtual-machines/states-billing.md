@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522453"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596300"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Azure Virtual Machines의 상태 및 청구
 
@@ -41,7 +41,7 @@ Azure 리소스 탐색기는 VM 실행 상태를 보기 위한 간단한 UI를 �
 
 다음 표에서는 각 인스턴스 상태를 설명하고 인스턴스 사용량에 대해 요금이 청구되는지 여부를 나타냅니다.
 
-| 전원 상태 | Description | 결제 |  
+| 전원 상태 | 설명 | 결제 |  
 |---|---|---|
 | 시작 중| 가상 머신이 켜져 있습니다. |청구 되지 않음 * | 
 | 실행 중 | 가상 컴퓨터가 완전히 작동 합니다. 표준 작업 상태입니다. | 청구됨 | 
@@ -59,11 +59,11 @@ Azure 리소스 탐색기는 VM 실행 상태를 보기 위한 간단한 UI를 �
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="이미지 VM이 이동할 수 있는 프로 비전 상태를 보여 줍니다.":::
 
-| 프로비저닝 상태 | Description | 전원 상태 | 결제 | 
+| 프로비저닝 상태 | 설명 | 전원 상태 | 결제 | 
 |---|---|---|---|
-| 만들기 | 가상 머신을 만듭니다. | 시작 중 | 청구 되지 않음 * | 
+| 생성 | 가상 머신을 만듭니다. | 시작 중 | 청구 되지 않음 * | 
 | 업데이트 | 기존 가상 컴퓨터에 대 한 모델을 업데이트 합니다. 시작 및 다시 시작과 같은 가상 컴퓨터에 대 한 일부 모델이 아닌 변경 내용은 업데이트 상태에 속합니다. | 실행 중 | 청구됨 | 
-| 삭제 | 가상 컴퓨터를 삭제 합니다. | 할당 취소 중 | 청구 되지 않음 * |
+| DELETE | 가상 컴퓨터를 삭제 합니다. | 할당 취소 중 | 청구 되지 않음 * |
 | 할당 취소 | 기본 호스트에서 가상 컴퓨터가 완전히 중지 되 고 제거 됩니다. 가상 컴퓨터의 할당을 취소 하는 것은 업데이트로 간주 되며, 업데이트와 유사한 프로 비전 상태를 표시 합니다. | 할당 취소 중 | 청구 되지 않음 * | 
 
 일부 Azure 리소스 (예: [디스크](https://azure.microsoft.com/pricing/details/managed-disks) 및 [네트워킹](https://azure.microsoft.com/pricing/details/bandwidth/) )는 계속 해 서 요금을 부과 합니다. &#42;
@@ -73,7 +73,7 @@ Os 프로 비전 상태는 OS 이미지를 사용 하 여 만든 가상 컴퓨�
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="이미지 VM이 이동할 수 있는 OS 프로 비전 상태를 보여 줍니다.":::
 
-| OS 프로 비전 상태 | Description | 전원 상태 | 결제 | 
+| OS 프로 비전 상태 | 설명 | 전원 상태 | 결제 | 
 |---|---|---|---|
 | OSProvisioningInProgress | VM이 실행 중이 고 게스트 OS 설치가 진행 중입니다. | 실행 중 | 청구됨 | 
 | OSProvisioningComplete | 수명이 짧은 상태입니다. 가상 컴퓨터는이 상태에서 **성공** 으로 신속 하 게 전환 됩니다. 확장을 아직 설치 하는 경우 완료 될 때까지 계속 해 서이 상태가 표시 됩니다. | 실행 중 | 청구됨 | 
@@ -82,6 +82,6 @@ Os 프로 비전 상태는 OS 이미지를 사용 하 여 만든 가상 컴퓨�
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Cost Management 및 청구 설명서](https://docs.microsoft.com/azure/cost-management-billing/) 검토
+- [Azure Cost Management 및 청구 설명서](../cost-management-billing/index.yml) 검토
 - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 배포를 계획 합니다.
-- VM 모니터링에 대 한 자세한 내용은 [Azure에서 virtual Machines 모니터링](../azure-monitor/insights/monitor-vm-azure.md)을 참조 하세요.
+- VM 모니터링에 대 한 자세한 내용은 [Azure에서 virtual Machines 모니터링](../azure-monitor/vm/monitor-vm-azure.md)을 참조 하세요.

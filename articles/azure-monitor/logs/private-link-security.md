@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101480"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594566"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -51,14 +51,16 @@ Azure Monitor 개인 링크 설치를 설정 하기 전에 네트워크 토폴�
 개인 링크 연결을 설정 하면 Azure Monitor 끝점을 VNet의 IP 범위에서 개인 IP 주소에 매핑하기 위해 DNS가 업데이트 됩니다. 이 변경 내용은 이러한 끝점의 이전 매핑을 재정의 합니다. 여기에는 의미 있는 의미가 있을 수 있습니다. 
 
 ### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Azure Monitor 개인 링크는 모든 Azure Monitor 리소스에 적용 됩니다. All 또는 Nothing입니다.
-일부 Azure Monitor 끝점은 전역적 이므로 특정 구성 요소나 작업 영역에 대 한 개인 링크 연결을 만들 수 없습니다. 대신 단일 Application Insights 구성 요소에 대 한 개인 링크를 설정 하면 **모든** Application Insights 구성 요소에 대 한 DNS 레코드가 업데이트 됩니다. 구성 요소 수집 또는 쿼리 시도는 개인 링크를 통과 하 고 실패할 수 있습니다. 마찬가지로, 단일 작업 영역에 대 한 개인 링크를 설정 하면 모든 Log Analytics 쿼리가 전용 링크 쿼리 끝점 (작업 영역 특정 끝점이 있는 수집 요청은 제외)을 통해 이동 합니다.
+일부 Azure Monitor 끝점은 전역적 이므로 특정 구성 요소나 작업 영역에 대 한 개인 링크 연결을 만들 수 없습니다. 대신 단일 Application Insights 구성 요소나 Log Analytics 작업 영역에 대 한 개인 링크를 설정 하면 **모든** Application Insights 구성 요소에 대 한 DNS 레코드가 업데이트 됩니다. 구성 요소 수집 또는 쿼리 시도는 개인 링크를 통과 하 고 실패할 수 있습니다. Log Analytics와 관련 하 여 수집 및 구성 끝점은 작업 영역 별로 다릅니다. 즉, 개인 링크 설정은 지정 된 작업 영역에만 적용 됩니다. 다른 작업 영역의 수집 및 구성은 기본 공용 Log Analytics 끝점으로 전달 됩니다.
 
 ![단일 VNet의 DNS 재정의 다이어그램](./media/private-link-security/dns-overrides-single-vnet.png)
 
 이는 특정 VNet 뿐만 아니라 동일한 DNS 서버를 공유 하는 모든 Vnet에 적용 됩니다 ( [dns 재정의 문제](#the-issue-of-dns-overrides)참조). 따라서 예를 들어 Application Insights 구성 요소에 대 한 로그 수집 요청은 항상 개인 링크 경로를 통해 전송 됩니다. AMPLS에 연결 되지 않은 구성 요소는 개인 링크 유효성 검사에 실패 하 여 이동 하지 않습니다.
 
 > [!NOTE]
-> 결론: 단일 리소스에 대 한 개인 링크 연결을 설정 하면 네트워크에 있는 모든 Azure Monitor 리소스에 적용 됩니다. 즉, 모두 이거나 아무 작업도 수행 하지 않습니다. 이렇게 하면 네트워크에 있는 모든 Azure Monitor 리소스를 AMPLS에 추가 하거나 전혀 추가 하지 않아야 합니다.
+> 결론: 단일 리소스에 대 한 개인 링크 연결을 설정 하면 네트워크를 통해 Azure Monitor 리소스에 적용 됩니다. Application Insights 리소스의 경우 ' 모두 ' 또는 ' 없음 '입니다. 이렇게 하면 네트워크에 있는 모든 Application Insights 리소스를 AMPLS에 추가 하거나 전혀 추가 하지 않아야 합니다.
+> 
+> 데이터 반출 위험을 처리 하려면 AMPLS에 모든 Application Insights 및 Log Analytics 리소스를 추가 하 고 가능한 한 네트워크 송신 트래픽을 차단 하는 것이 좋습니다.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor 개인 링크가 전체 네트워크에 적용 됩니다.
 일부 네트워크는 여러 Vnet 구성 됩니다. Vnet에서 동일한 DNS 서버를 사용 하는 경우 서로 다른 DNS 매핑을 재정의 하 고 Azure Monitor와의 서로 다른 통신을 중단할 수 있습니다 ( [DNS 재정의 문제](#the-issue-of-dns-overrides)참조). 궁극적으로, DNS는 Azure Monitor 끝점을이 Vnet 범위 (다른 Vnet에서 연결할 수 없음)의 개인 Ip에 매핑하기 때문에 Azure Monitor와 통신할 수 있습니다.

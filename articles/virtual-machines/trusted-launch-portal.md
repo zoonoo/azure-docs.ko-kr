@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553751"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582071"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>신뢰할 수 있는 시작을 사용 하도록 설정 된 VM 배포 (미리 보기)
 
@@ -134,13 +134,13 @@ Azure Security Center를 사용 하 여 신뢰할 수 있는 시작 Vm에 대 �
 
 템플릿은 구독 당 한 번만 배포 해야 합니다. `GuestAttestation` `AzureSecurity` 지원 되는 모든 vm에 자동으로 설치 되 고 확장 됩니다. 오류가 발생 하는 경우 템플릿을 다시 배포 해 보세요.
 
-신뢰할 수 있는 시작 Vm에 대 한 vTPM 및 보안 부팅 권장 사항을 얻으려면 [구독에 사용자 지정 이니셔티브 추가](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription)를 참조 하세요.
+신뢰할 수 있는 시작 Vm에 대 한 vTPM 및 보안 부팅 권장 사항을 얻으려면 [구독에 사용자 지정 이니셔티브 추가](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription)를 참조 하세요.
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Linux에서 보안 부팅에 대 한 서명
 
 UEFI 보안 부팅을 위해 서명 해야 하는 경우도 있습니다.  예를 들어 Ubuntu 용 [보안 부팅에 대 한 항목을 서명 하는 방법을](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) 살펴보겠습니다. 이러한 경우, VM에 대해 MOK 유틸리티를 등록 하는 키를 입력 해야 합니다. 이렇게 하려면 Azure 직렬 콘솔을 사용 하 여 MOK 유틸리티에 액세스 해야 합니다.
 
-1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다. 자세한 내용은 [Linux 용 직렬 콘솔](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux)을 참조 하세요.
+1. Linux 용 Azure 직렬 콘솔을 사용 하도록 설정 합니다. 자세한 내용은 [Linux 용 직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-linux)을 참조 하세요.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **가상 컴퓨터** 를 검색 하 고 목록에서 VM을 선택 합니다.
 1. 왼쪽 메뉴의 **지원 + 문제 해결** 에서 **직렬 콘솔** 를 선택 합니다. 페이지는 직렬 콘솔을 사용 하 여 오른쪽으로 열립니다.

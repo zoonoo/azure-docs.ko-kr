@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439530"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600499"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 사항을 사용하여 구성 오류 방지
 
@@ -68,6 +68,7 @@ ms.locfileid: "102439530"
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
 - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.
 - SQL 서버에서 SQL용 Azure Defender를 사용하도록 설정해야 함
+- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함
 - Azure Stream Analytics에서 진단 로그를 사용하도록 설정
 - 배치 계정의 진단 로그를 사용하도록 설정해야 합니다.
 - Data Lake Analytics의 진단 로그를 사용하도록 설정해야 합니다.

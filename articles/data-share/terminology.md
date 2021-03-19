@@ -7,13 +7,13 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73468547"
 ---
-# <a name="azure-data-share-concepts"></a>Azure 데이터 공유 개념 
+# <a name="azure-data-share-concepts"></a>Azure Data Share 개념 
 
 Azure 데이터 공유는 데이터 공유와 관련 된 몇 가지 새로운 용어를 소개 합니다. 이 문서에서는 서비스 전체에서 사용할 수 있는 몇 가지 자주 사용 되는 용어에 대해 설명 합니다. 
 
@@ -27,11 +27,11 @@ Azure 데이터 공유는 데이터 공유와 관련 된 몇 가지 새로운 �
 
 ## <a name="data-share"></a>Data Share
 
-데이터 공유는 단일 엔터티로 공유 되는 데이터 집합의 그룹입니다. Azure 데이터 공유에서 지 원하는 다양 한 Azure 데이터 원본에서 데이터 집합을 사용할 수 있습니다. 현재 Azure 데이터 공유는 Azure Blob Storage 및 Azure Data Lake Store를 지원 합니다. 
+데이터 공유는 단일 엔터티로 공유되는 데이터 세트의 그룹입니다. Azure Data Share에서 지원하는 다양한 Azure 데이터 원본으로부터 데이터 세트를 가져올 수 있습니다. 현재 Azure Data Share는 Azure Blob Storage 및 Azure Data Lake Store를 지원합니다. 
 
 ## <a name="share-subscription"></a>구독 공유 
 
-공유 구독은 데이터 소비자가 데이터 공급자의 데이터 공유 초대를 수락 하면 생성 됩니다. 데이터 공급자는 Azure 데이터 공유 계정에서 전송 된 **공유** 로 이동 하 고 **구독 공유**를 선택 하 여 활성 공유 구독을 볼 수 있습니다.
+공유 구독은 데이터 소비자가 데이터 공급자의 데이터 공유 초대를 수락 하면 생성 됩니다. 데이터 공급자는 Azure 데이터 공유 계정에서 전송 된 **공유** 로 이동 하 고 **구독 공유** 를 선택 하 여 활성 공유 구독을 볼 수 있습니다.
 
 데이터 소비자는 **받은** 공유로 이동 하 여 받은 공유의 상태를 확인 하 여 활성 공유 구독이 있는지 확인할 수 있습니다. 
 

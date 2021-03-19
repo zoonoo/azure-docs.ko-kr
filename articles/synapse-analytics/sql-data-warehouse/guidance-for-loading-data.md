@@ -2,21 +2,21 @@
 title: 전용 SQL 풀에 대 한 데이터 로드 모범 사례
 description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10e43332728ea70d27c08cf4d3dfe116c83b3f1f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 004084097e2f24a4ceb36f7a016049a574b80b42
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679807"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594838"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -160,7 +160,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

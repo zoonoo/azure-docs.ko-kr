@@ -2,13 +2,13 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/18/2021
+ms.openlocfilehash: 79020e8e24cb43697a44ac9accd4e777bffe959e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601596"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594209"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -219,6 +219,14 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
     }
 }
 ```
+
+## <a name="subscriptions"></a>Subscriptions
+
+ARM 템플릿을 사용 하 여 관리 그룹에서 새 Azure 구독을 만들려면 다음을 참조 하세요.
+
+* [프로그래밍 방식으로 Azure 기업계약 구독 만들기](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Microsoft 고객 계약에 대 한 Azure 구독을 프로그래밍 방식으로 만들기](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Microsoft 파트너 규약에 대 한 Azure 구독을 프로그래밍 방식으로 만들기](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
 기존 Azure 구독을 새 관리 그룹으로 이동 하는 템플릿을 배포 하려면 [ARM 템플릿에서 구독 이동](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template) 을 참조 하세요.
 

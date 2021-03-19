@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792503"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594260"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "97792503"
 - [Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: 장애 조치 (Failover) 그룹](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: 그룹 장애 조치](scripts/add-database-to-failover-group-powershell.md)
-- [REST API: 장애 조치(failover) 그룹](/rest/api/sql/failovergroups)
+- [REST API: 장애 조치 (Failover) 그룹](/rest/api/sql/failovergroups)
 
 장애 조치 (failover) 후 데이터베이스와 서버 또는 인스턴스에 대 한 인증 요구 사항이 새 주 서버에 구성 되어 있는지 확인 합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](active-geo-replication-security-configure.md)을 참조하세요.
 
@@ -115,7 +115,7 @@ ms.locfileid: "97792503"
 
   - 데이터 손실이 허용되지 않을 때 프로덕션에서 DR(재해 복구) 드릴 수행
   - 데이터베이스를 다른 지역으로 재배치
-  - 중단이 완화된 후 데이터베이스를 주 지역으로 반환합니다(장애 복구(failback)).
+  - 중단이 완화 된 후 주 지역에 데이터베이스 반환 (장애 복구 (failback))
 
 - **계획되지 않은 장애 조치(Failover)**
 
@@ -127,7 +127,7 @@ ms.locfileid: "97792503"
 
 - **데이터 손실이 있는 유예 기간**
 
-  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. 를 구성 하 여 `GracePeriodWithDataLossHours` 데이터가 손실 될 수 있는 장애 조치 (failover)를 시작 하기 전에 시스템에서 대기 하는 시간을 제어할 수 있습니다.
+  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. 를 구성 하면 `GracePeriodWithDataLossHours` 데이터 손실이 발생할 수 있는 장애 조치 (failover)를 시작 하기 전에 시스템에서 대기 하는 시간을 제어할 수 있습니다.
 
 - **여러 장애 조치 그룹**
 
@@ -176,7 +176,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>읽기 전용 작업에 읽기 전용 수신기 사용
 
-특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한를 사용 하 여 연결 문자열 읽기 의도를 표시 하는 것이 좋습니다 `ApplicationIntent=ReadOnly` .
+특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한를 사용 하 여 연결 문자열에 읽기 전용을 지정 하는 것이 좋습니다 `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>성능 저하 준비
 
@@ -415,7 +415,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -426,7 +426,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -453,7 +453,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |이 명령은 장애 조치 (failover) 그룹을 만들고 주 및 보조 인스턴스에 등록 합니다.|
 | [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 (failover) 그룹의 구성을 수정 합니다.|
@@ -464,7 +464,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |

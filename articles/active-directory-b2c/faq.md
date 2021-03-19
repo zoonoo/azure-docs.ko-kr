@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d84c5fff41a7f00405c29ab4b4921ed2e28bdfde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517993"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580099"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -103,7 +103,7 @@ Microsoft Graph API를 사용 하 여 마이그레이션 도구를 작성할 수
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>앱의 Azure AD B2C 페이지가 iFrame 내에서 열릴 수 있나요?
 
-아니요. 보안상의 이유로, Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다. Microsoft 서비스에서 브라우저와 통신하여 iFrames를 금지합니다. 일반적인 보안 커뮤니티와 OAUTH2 사양에서는 클릭재킹(clickjacking) 위험 때문에 ID 환경에 iFrames를 사용하지 않도록 권장합니다.
+이 기능은 공개 미리 보기 상태입니다. 자세한 내용은 [포함 된 로그인 환경](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login)을 참조 하세요.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
 
@@ -131,7 +131,7 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Azure AD B2C에서 제공하는 등록 및 로그인 페이지에 고유 URL을 사용할 수 있나요? 예를 들어 URL을 contoso.b2clogin.com에서 login.contoso.com로 변경할 수 있나요?
 
-현재는 아닙니다. 이 기능은 우리의 로드맵입니다. Azure Portal의 **도메인** 탭에서 도메인을 확인할 경우 이 작업이 수행되지 않습니다. 그러나 b2clogin.com을 사용 하면 [중립 최상위 도메인](b2clogin.md)을 제공 하므로 Microsoft를 언급 하지 않고도 외부 모양을 구현할 수 있습니다.
+이 기능은 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Azure AD B2C 사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)을 참조 하세요.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 

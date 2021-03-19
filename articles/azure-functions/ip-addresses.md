@@ -3,21 +3,21 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726734"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608234"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
-이 문서에서 함수 앱의 IP 주소와 관련하여 설명하는 항목은 다음과 같습니다.
+이 문서에서는 함수 앱의 IP 주소와 관련 된 다음 개념을 설명 합니다.
 
-* 함수 앱에서 현재 사용 중인 IP 주소를 찾는 방법
-* 함수 앱의 IP 주소가 변경되는 이유
-* 함수 앱에 액세스할 수 있는 IP 주소를 제한하는 방법
-* 함수 앱 전용 IP 주소를 가져오는 방법
+* 함수 앱에서 현재 사용 중인 IP 주소를 찾습니다.
+* 함수 앱 IP 주소를 변경 하는 조건입니다.
+* 함수 앱에 액세스할 수 있는 IP 주소를 제한 합니다.
+* 함수 앱에 대 한 전용 IP 주소를 정의 합니다.
 
 IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오는 HTTP 요청은 인바운드 IP 주소를 사용하여 개별 함수를 호출할 수 없습니다. 기본 도메인 이름(functionappname.azurewebsites.net) 또는 사용자 지정 도메인 이름을 사용해야 합니다.
 
@@ -54,9 +54,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 
-함수 앱에서 사용 하는 아웃 바운드 IP 주소를 허용 목록에 추가 해야 하는 경우 다른 옵션은 함수 앱의 데이터 센터 (Azure 지역)를 허용 목록에 추가 하는 것입니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 JSON 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 JSON 조각을 찾습니다.
+함수 앱에서 사용 하는 아웃 바운드 IP 주소를 allowlist에 추가 해야 하는 경우 다른 옵션은 allowlist에 함수 앱의 데이터 센터 (Azure 지역)를 추가 하는 것입니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 JSON 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 JSON 조각을 찾습니다.
 
-예를 들어, 유럽 서부 JSON 조각은 다음과 같습니다.
+예를 들어 다음 JSON 조각은 서유럽에 대 한 allowlist입니다.
 
 ```
 {
@@ -99,10 +99,12 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 함수 앱이 [소비 계획이](consumption-plan.md) 나 [프리미엄 계획](functions-premium-plan.md)에서 실행 되는 경우 [위에 나열](#inbound-ip-address-changes)된 것과 같은 작업을 수행 하지 않은 경우에도 아웃 바운드 IP 주소가 변경 될 수도 있습니다.
 
-의도적으로 아웃바운드 IP 주소를 강제로 변경하려면 다음을 수행합니다.
+아웃 바운드 IP 주소 변경을 의도적으로 강제 적용 하려면 다음 절차를 따르십시오.
 
 1. 표준 및 프리미엄 v2 가격 책정 계층 사이에서 App Service 계획의 크기를 위 또는 아래로 조정합니다.
+
 2. 10분 동안 기다립니다.
+
 3. 시작한 위치의 크기로 다시 조정합니다.
 
 ## <a name="ip-address-restrictions"></a>IP 주소 제한
@@ -111,7 +113,15 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="dedicated-ip-addresses"></a>전용 IP 주소
 
-고정 전용 IP 주소가 필요한 경우 [App Service Environment](../app-service/environment/intro.md)(App Service 계획의 [격리 계층](https://azure.microsoft.com/pricing/details/app-service/))를 사용하는 것이 좋습니다. 자세한 내용은 [App Service Environment IP 주소](../app-service/environment/network-info.md#ase-ip-addresses) 및 [App Service Environment로의 인바운드 트래픽을 제어하는 방법](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md)을 참조하세요.
+함수 앱에 정적, 전용 IP 주소가 필요한 경우를 탐색 하는 몇 가지 전략이 있습니다. 
+
+### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>아웃 바운드 고정 IP 용 가상 네트워크 NAT 게이트웨이
+
+가상 네트워크 NAT 게이트웨이를 통해 고정 공용 IP 주소를 통해 트래픽을 전달 하 여 함수에서 아웃 바운드 트래픽의 IP 주소를 제어할 수 있습니다. [프리미엄 계획](functions-premium-plan.md)에서 실행 하는 경우이 토폴로지를 사용할 수 있습니다. 자세한 내용은 [자습서: Azure virtual NETWORK NAT 게이트웨이를 사용 하 여 아웃 바운드 IP 제어 Azure Functions](functions-how-to-use-nat-gateway.md)를 참조 하세요.
+
+### <a name="app-service-environments"></a>App Service Environment
+
+인바운드 및 아웃 바운드 모두에 IP 주소에 대 한 모든 권한을 제공 하려면 [환경](../app-service/environment/intro.md) (App Service 계획의 [격리 계층](https://azure.microsoft.com/pricing/details/app-service/) )을 App Service 하는 것이 좋습니다. 자세한 내용은 [App Service Environment IP 주소](../app-service/environment/network-info.md#ase-ip-addresses) 및 [App Service Environment로의 인바운드 트래픽을 제어하는 방법](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md)을 참조하세요.
 
 함수 앱이 App Service Environment에서 실행되는지 확인하려면 다음을 수행합니다.
 

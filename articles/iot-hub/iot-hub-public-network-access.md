@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 539e420cb9085fad10ea3972ba0e9e5ffb9d0622
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: b225ad7e12a95b4dcbb8656f54f8a9e9562b2ee8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419765"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604698"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>IoT hub에 대 한 공용 네트워크 액세스 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "103419765"
 
 ## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>공용 네트워크 액세스를 사용 하지 않도록 설정한 후 IoT Hub 액세스
 
-공용 네트워크 액세스를 사용 하지 않도록 설정한 후에는 [Azure 개인 링크를 사용 하 여 VNet 개인 끝점](virtual-network-support.md)을 통해서만 IoT Hub에 액세스할 수 있습니다. 이 제한에는 IoT Hub 서비스에 대 한 API 호출이 사용자의 자격 증명으로 브라우저를 사용 하 여 직접 수행 되기 때문에 Azure Portal를 통한 액세스도 포함 됩니다. 
+공용 네트워크 액세스를 사용 하지 않도록 설정한 후에는 [Azure 개인 링크를 사용 하 여 VNet 개인 끝점](virtual-network-support.md)을 통해서만 IoT Hub에 액세스할 수 있습니다.
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>공용 네트워크 액세스를 사용 하지 않도록 설정한 후 끝점, IP 주소 및 포트를 IoT Hub 합니다.
 

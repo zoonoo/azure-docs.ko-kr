@@ -10,18 +10,20 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 2a9f0a8c943f539166f18a1e41a36136fbb63a6f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455062"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584304"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Machine learning 파이프라인 (미리 보기)에서 Apache Spark (Azure Synapse Analytics에서 구동)를 사용 하는 방법
 
 이 문서에서는 Azure Synapse Analytics에서 제공 하는 Apache Spark 풀을 Azure Machine Learning 파이프라인의 데이터 준비 단계에 대 한 계산 대상으로 사용 하는 방법에 대해 알아봅니다. 단일 파이프라인이 특정 단계에 적합 한 계산 리소스 (예: 데이터 준비 또는 학습)를 사용할 수 있는 방법을 알아봅니다. Spark 단계에 대 한 데이터를 준비 하는 방법과 다음 단계에 전달 하는 방법을 확인할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595926"
 ---
 # <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
 
@@ -40,6 +40,10 @@ Azure Percept Studio에는 다음 응용 프로그램에 대 한 샘플 모델�
 Azure Percept Studio를 통해 코딩을 요구 하지 않고 사용자 지정 [비전과](./tutorial-nocode-vision.md) 음성 솔루션을 개발할 수 있습니다.
 
 사용자 지정 비전 솔루션의 경우 개체 검색 및 분류 AI 모델을 모두 사용할 수 있습니다. 원할 경우 Azure Percept 진한의 Azure Percept 비전 SoM을 직접 사용 하 여 학습 이미지를 업로드 하 고 태그를 지정할 수 있습니다. 모델 학습 및 평가는 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview)의 일부인 [Custom Vision](https://www.customvision.ai/)에서 쉽게 수행할 수 있습니다.
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
 
 사용자 지정 음성 솔루션의 경우에는 현재 다음과 같은 응용 프로그램에 대해 음성 도우미 템플릿을 사용할 수 있습니다.
 

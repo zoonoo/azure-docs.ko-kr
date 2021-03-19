@@ -1,23 +1,20 @@
 ---
-title: Azure Stack에서 Azure Stream Analytics 실행 (미리 보기)
+title: Azure Stack에서 Azure Stream Analytics 실행
 description: Azure Stream Analytics edge 작업을 만들고 IoT Edge 런타임을 통해 Azure Stack 허브에 배포 합니다.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589806"
 ---
-# <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Azure Stack에서 Azure Stream Analytics 실행 (미리 보기)
-
-> [!IMPORTANT]
-> 이 기능은 미리 보기이며 프로덕션에서 사용하지 않는 것이 좋습니다.
+# <a name="run-azure-stream-analytics-on-azure-stack"></a>Azure Stack에서 Azure Stream Analytics 실행 
 
 IoT Edge 모듈로 Azure Stack 허브에서 Azure Stream Analytics를 실행할 수 있습니다. IoT Edge 모듈에 추가 되었습니다 .이 모듈은 모든 Azure Stack 허브 고용에 있는 사용자 지정 Url을 허용 하 여 Azure Stack 허브 구독에서 실행 되는 blob storage, Event Hubs 및 IoT Hub와 상호 작용할 수 있도록 합니다.
 
@@ -46,7 +43,7 @@ Azure Stack 허브 리소스에 대 한 네트워크 액세스 권한을 보유 
 다음 가이드에서는 장치 또는 VM에서 IoT Edge 런타임을 설정 하는 방법을 보여 줍니다.
 
 * [Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
-* [Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Azure Stream Analytics Edge 작업 만들기

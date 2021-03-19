@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3665c5b82095004ddf7dc1f503b54f5164d49c7f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 88a4d0f108d4e3c27ce17aaa83aafca38063c9ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260065"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589466"
 ---
-# <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.
+# <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>AD FS 애플리케이션 활동 보고서를 사용하여 애플리케이션을 Azure AD로 마이그레이션
 
 많은 조직에서 Active Directory Federation Services (AD FS)를 사용 하 여 클라우드 응용 프로그램에 Single Sign-On을 제공 합니다. 인증을 위해 AD FS 응용 프로그램을 Azure AD로 이동 하는 데 상당한 이점이 있습니다. 특히 비용 관리, 위험 관리, 생산성, 규정 준수 및 거 버 넌 스를 기준으로 합니다. 그러나 Azure AD와 호환 되는 응용 프로그램을 이해 하 고 특정 마이그레이션 단계를 식별 하는 것은 시간이 오래 걸릴 수 있습니다.
 
-Azure Portal의 AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하면 Azure AD로 마이그레이션할 수 있는 응용 프로그램을 신속 하 게 식별할 수 있습니다. Azure AD와의 호환성을 위해 모든 AD FS 응용 프로그램을 평가 하 고, 문제를 확인 하 고, 개별 응용 프로그램을 마이그레이션하기 위한 지침을 제공 합니다. AD FS 응용 프로그램 활동 보고서를 사용 하 여 다음을 수행할 수 있습니다.
+Azure Portal의 AD FS 응용 프로그램 작업 보고서를 사용 하 여 Azure AD로 마이그레이션할 수 있는 응용 프로그램을 신속 하 게 식별할 수 있습니다. Azure AD와의 호환성을 위해 모든 AD FS 응용 프로그램을 평가 하 고, 문제를 확인 하 고, 개별 응용 프로그램을 마이그레이션하기 위한 지침을 제공 합니다. AD FS 응용 프로그램 활동 보고서를 사용 하 여 다음을 수행할 수 있습니다.
 
 * **AD FS 응용 프로그램을 검색 하 고 마이그레이션 범위를 확인 합니다.** AD FS 응용 프로그램 활동 보고서에는 지난 30 일 동안 활성 사용자 로그인이 있는 조직 내 모든 AD FS 응용 프로그램이 나열 됩니다. 이 보고서는 Azure AD로의 마이그레이션을 준비 하는 앱을 나타냅니다. 이 보고서에는 Office 365와 같은 AD FS의 Microsoft 관련 신뢰 당사자가 표시 되지 않습니다. 예를 들어 이름이 ' urn: federation: MicrosoftOnline ' 인 신뢰 당사자입니다.
 
@@ -52,7 +52,7 @@ AD FS 응용 프로그램 작업 보고서는 Azure AD **사용량 & insights** 
 
 2. **Azure Active Directory** 를 선택 하 고 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 
-3. **활동** 에서 **사용 & Insights (미리 보기)** 를 선택 하 고 **AD FS 응용 프로그램 활동** 을 선택 하 여 조직의 모든 AD FS 응용 프로그램 목록을 엽니다.
+3. **활동** 에서 **사용 & Insights** 를 선택 하 고 **AD FS 응용 프로그램 활동** 을 선택 하 여 조직의 모든 AD FS 응용 프로그램 목록을 엽니다.
 
    ![응용 프로그램 작업 AD FS](media/migrate-adfs-application-activity/adfs-application-activity.png)
 

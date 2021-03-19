@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300df35918ea4868664fcb7c5882709eee4090ca
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 3c52d4d80fd3c77cff5e335967fc9d109212ce29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008005"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578433"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -67,6 +67,30 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 `ClientSecret`또는를 제공 `CertificateName` 합니다. 이러한 설정은 배타적입니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+ private final static String CLIENT_ID = "";
+ private final static String AUTHORITY = "https://login.microsoftonline.com/<tenant>/";
+ private final static String CLIENT_SECRET = "";
+ private final static Set<String> SCOPE = Collections.singleton("https://graph.microsoft.com/.default");
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+[Node.js 디먼 샘플](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) 에 대 한 구성 매개 변수는 *env* 파일에 있습니다.
+
+```Text 
+# Credentials
+TENANT_ID=Enter_the_Tenant_Info_Here
+CLIENT_ID=Enter_the_Application_Id_Here
+CLIENT_SECRET=Enter_the_Client_Secret_Here
+
+# Endpoints
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 클라이언트 암호를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 구성 파일 [에 대 한parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) 는 다음과 같습니다.
@@ -94,15 +118,6 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 }
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
- private final static String CLIENT_ID = "";
- private final static String AUTHORITY = "https://login.microsoftonline.com/<tenant>/";
- private final static String CLIENT_SECRET = "";
- private final static Set<String> SCOPE = Collections.singleton("https://graph.microsoft.com/.default");
-```
-
 ---
 
 ### <a name="instantiate-the-msal-application"></a>MSAL 응용 프로그램 인스턴스화
@@ -126,15 +141,6 @@ using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
 
-# <a name="python"></a>[Python](#tab/python)
-
-```python
-import msal
-import json
-import sys
-import logging
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -145,6 +151,23 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 import com.microsoft.aad.msal4j.IClientCredential;
 import com.microsoft.aad.msal4j.MsalException;
 import com.microsoft.aad.msal4j.SilentParameters;
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+`npm install`파일 *의package.js* 있는 폴더에를 실행 하 여 패키지를 설치 하면 됩니다. 그런 다음, **msal 노드** 패키지를 가져옵니다.
+
+```JavaScript 
+const msal = require('@azure/msal-node');
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import msal
+import json
+import sys
+import logging
 ```
 
 ---
@@ -179,6 +202,41 @@ public string Authority
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+
+ConfidentialClientApplication cca =
+        ConfidentialClientApplication
+                .builder(CLIENT_ID, credential)
+                .authority(AUTHORITY)
+                .build();
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+```JavaScript
+
+const msalConfig = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+    }
+};
+
+const apiConfig = {
+    uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+};
+
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+};
+
+const cca = new msal.ConfidentialClientApplication(msalConfig);
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 ```Python
@@ -193,18 +251,6 @@ app = msal.ConfidentialClientApplication(
                        # You can learn how to use SerializableTokenCache from
                        # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
     )
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
-
-ConfidentialClientApplication cca =
-        ConfidentialClientApplication
-                .builder(CLIENT_ID, credential)
-                .authority(AUTHORITY)
-                .build();
 ```
 
 ---
@@ -222,23 +268,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
-
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-# Pass the parameters.json file as an argument to this Python script. E.g.: python your_py_file.py parameters.json
-config = json.load(open(sys.argv[1]))
-
-# Create a preferably long-lived app instance that maintains a token cache.
-app = msal.ConfidentialClientApplication(
-    config["client_id"], authority=config["authority"],
-    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
-    # token_cache=...  # Default cache is in memory only.
-                       # You can learn how to use SerializableTokenCache from
-                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
-    )
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 MSAL Java에는 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 두 가지 빌더가 있습니다.
@@ -270,6 +299,26 @@ ConfidentialClientApplication cca =
                 .builder(CLIENT_ID, credential)
                 .authority(AUTHORITY)
                 .build();
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+샘플 응용 프로그램은 현재 인증서를 사용 하 여 초기화를 구현 하지 않습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+# Pass the parameters.json file as an argument to this Python script. E.g.: python your_py_file.py parameters.json
+config = json.load(open(sys.argv[1]))
+
+# Create a preferably long-lived app instance that maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    config["client_id"], authority=config["authority"],
+    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
 ```
 
 ---
@@ -309,6 +358,22 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 자세한 내용은 [클라이언트 어설션](msal-net-client-assertions.md)을 참조 하세요.
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+IClientCredential credential = ClientCredentialFactory.createFromClientAssertion(assertion);
+
+ConfidentialClientApplication cca =
+        ConfidentialClientApplication
+                .builder(CLIENT_ID, credential)
+                .authority(AUTHORITY)
+                .build();
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+샘플 응용 프로그램은 현재 어설션을 사용 하 여 초기화를 구현 하지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 MSAL Python에서이의 개인 키로 서명 되는 클레임을 사용 하 여 클라이언트 클레임을 제공할 수 있습니다 `ConfidentialClientApplication` .
@@ -330,18 +395,6 @@ app = msal.ConfidentialClientApplication(
 
 자세한 내용은 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)에 대 한 Msal Python 참조 설명서를 참조 하세요.
 
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-IClientCredential credential = ClientCredentialFactory.createFromClientAssertion(assertion);
-
-ConfidentialClientApplication cca =
-        ConfidentialClientApplication
-                .builder(CLIENT_ID, credential)
-                .authority(AUTHORITY)
-                .build();
-```
-
 ---
 
 ## <a name="next-steps"></a>다음 단계
@@ -350,12 +403,16 @@ ConfidentialClientApplication cca =
 
 이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=dotnet)합니다.
 
-# <a name="python"></a>[Python](#tab/python)
-
-이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=python)합니다.
-
 # <a name="java"></a>[Java](#tab/java)
 
 이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=java)합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=nodejs)합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+이 시나리오의 다음 문서로 이동 하 여 [앱에 대 한 토큰을 획득](./scenario-daemon-acquire-token.md?tabs=python)합니다.
 
 ---

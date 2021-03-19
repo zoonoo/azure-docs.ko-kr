@@ -3,15 +3,15 @@ title: Azure Data Factory의 연결된 서비스 매개 변수화
 description: Azure Data Factory에서 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 03/18/2021
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: df26b77f37100ae41b26c013c57cccbfa0d7e205
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372929"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595586"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -38,18 +38,21 @@ UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 
 
 - Amazon Redshift
 - Amazon S3
+- Azure Blob Storage
 - Azure Cosmos DB (SQL API)
+- Azure Data Lake Storage Gen2
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
+- Azure Table Storage
+- 일반 HTTP
+- 일반 REST
 - MySQL
 - Oracle
 - SQL Server
-- 일반 HTTP
-- 일반 REST
 
 위의 목록에 없는 다른 연결 된 서비스 유형의 경우 UI에서 JSON을 편집 하 여 연결 된 서비스를 매개 변수화 할 수 있습니다.
 

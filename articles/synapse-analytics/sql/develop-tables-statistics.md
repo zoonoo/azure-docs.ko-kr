@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674105"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594787"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -90,9 +90,9 @@ table_name은 표시할 통계를 포함하는 테이블의 이름으로, 이 �
 
 그러나 데이터 웨어하우스에 하나의 국가 또는 지역만 포함되어 있고 새 국가 또는 지역에서 데이터를 가져오는 경우, 국가 또는 지역 열에 대한 통계를 업데이트해야 합니다.
 
-통계를 업데이트하는 권장 사항은 다음과 같습니다.
+통계 업데이트에 대 한 권장 사항은 다음과 같습니다.
 
-|||
+|Type|권장|
 |-|-|
 | **통계 업데이트의 빈도**  | 일반: 매일 </br> 데이터 로드 또는 변환 후 |
 | **샘플링** |  10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. </br> 10억 개 이상의 행인 경우 2%의 샘플링을 사용합니다. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>다음 단계
 
-전용 SQL 풀의 쿼리 성능을 향상 시키려면 [전용 sql 풀에 대 한 작업 및 모범 사례](best-practices-sql-pool.md#maintain-statistics) [모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
+전용 SQL 풀의 쿼리 성능을 향상 시키려면 [전용 sql 풀에 대 한 작업 및 모범 사례](best-practices-dedicated-sql-pool.md#maintain-statistics) [모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
 
-서버를 사용 하지 않는 SQL 풀의 쿼리 성능을 향상 시키려면 [서버 리스 sql 풀의 모범 사례](best-practices-sql-on-demand.md) 를 참조 하세요.
+서버를 사용 하지 않는 SQL 풀의 쿼리 성능을 향상 시키려면 [서버 리스 sql 풀의 모범 사례](best-practices-serverless-sql-pool.md) 를 참조 하세요.

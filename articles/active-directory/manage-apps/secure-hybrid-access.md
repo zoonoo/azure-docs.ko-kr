@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06ed37b914c352d7162db7f8409ac09b7615da47
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174430"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589398"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory을 사용 하 여 레거시 앱 보호
 
@@ -44,15 +44,15 @@ Azure ad [조건부 액세스](../conditional-access/overview.md) 및 Azure Ad [
 
 다음 네트워킹 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
 
-- [Akamai EAA(엔터프라이즈 애플리케이션 액세스)](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+- [Akamai EAA(엔터프라이즈 애플리케이션 액세스)](../saas-apps/akamai-tutorial.md)
 
-- [Citrix ADC(Application Delivery Controller)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
+- [Citrix ADC(Application Delivery Controller)](../saas-apps/citrix-netscaler-tutorial.md)
 
-- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+- [F5 Big-IP APM](./f5-aad-integration.md)
 
-- [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+- [Kemp](../saas-apps/kemp-tutorial.md)
 
-- [VTM (Pulse Secure Virtual Traffic Manager)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+- [VTM (Pulse Secure Virtual Traffic Manager)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
 ### <a name="sha-through-vpn-and-sdp-applications"></a>VPN 및 SDP 응용 프로그램을 통한 SHA
 
@@ -62,24 +62,25 @@ VPN 및 SDP 솔루션을 사용 하 여 조직의 데이터를 보호 하는 동
 
 다음 VPN 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
 
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
-- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
+- [F5 Big-IP APM](./f5-aad-password-less-vpn.md)
 
-- [Palo Alto Networks 글로벌 보호](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
+- [Palo Alto Networks 글로벌 보호](../saas-apps/paloaltoadmin-tutorial.md)
 
-- [펄스 보안 펄스 연결 보안 (PC)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+- [펄스 보안 펄스 연결 보안 (PC)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 다음 SDP 공급 업체는 Azure AD와 통합 하기 위한 미리 작성 된 솔루션과 자세한 지침을 제공 합니다.
 
-- [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+- [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 
-- [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial#:~:text=For%20SSO%20to%20work,%20you%20need%20to%20establish,to%20test%20Azure%20AD%20single%20sign-on%20with%20B.Simon.)
+- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Silverfort 인증 플랫폼](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
 
-- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- [Silverfort 인증 플랫폼](./add-application-portal-setup-oidc-sso.md)
 
-- [ZPA(Zscaler Private Access)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+
+- [ZPA(Zscaler Private Access)](../saas-apps/zscalerprivateaccess-tutorial.md)

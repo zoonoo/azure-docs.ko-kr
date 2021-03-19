@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: aa6c0d9035f172cc7fb520ff58f233a82fca228a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 26703920fda8746badf085f96686f922ee250513
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741075"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606636"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
 
@@ -30,7 +30,7 @@ ms.locfileid: "101741075"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure storage 계정**: Blob storage를 _원본_  및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
@@ -58,7 +58,7 @@ ms.locfileid: "101741075"
 
     데이터 팩터리 이름은 _전역적으로 고유_ 해야 합니다. 다음과 같은 오류 메시지가 표시될 수 있습니다.
 
-   ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복 된 이름에 대 한 새 data factory 오류 메시지입니다.":::
 
    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory** 를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 3. 새 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
@@ -76,8 +76,7 @@ ms.locfileid: "101741075"
 8. 만들기가 완료되면 **Data Factory** 홈페이지가 표시됩니다.
 9. 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작하려면 **작성 및 모니터링** 타일을 선택합니다.
 
-    ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
-
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 & 모니터 타일이 있는 Azure Data Factory 홈 페이지입니다.":::
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>데이터 복사 도구를 사용하여 파이프라인 만들기
 
