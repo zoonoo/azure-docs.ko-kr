@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
 ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91876100"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
@@ -133,7 +133,7 @@ file_service.create_share('myshare')
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-아래 코드는 루트 디렉터리 아래에 *sampledir*이라는 이름의 하위 디렉터리를 만듭니다.
+아래 코드는 루트 디렉터리 아래에 *sampledir* 이라는 이름의 하위 디렉터리를 만듭니다.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')

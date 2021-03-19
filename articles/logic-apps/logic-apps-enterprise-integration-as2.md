@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856673"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
@@ -63,7 +63,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 (버전 1.2) 통신
 
 * 인증서 관리에 [Azure Key Vault](../key-vault/general/overview.md) 를 사용 하는 경우 자격 증명 모음 키에서 **암호화** 및 **암호 해독** 작업을 허용 하는지 확인 합니다. 그렇지 않으면 인코딩 및 디코딩 작업이 실패 합니다.
 
-  Azure Portal에서 키 자격 증명 모음의 키로 이동 하 고, 키의 **허용 된 작업**을 검토 하 고, **암호화** 및 **암호 해독** 작업이 선택 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
+  Azure Portal에서 키 자격 증명 모음의 키로 이동 하 고, 키의 **허용 된 작업** 을 검토 하 고, **암호화** 및 **암호 해독** 작업이 선택 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
 
   ![자격 증명 모음 키 작업 확인](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
@@ -75,7 +75,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 (버전 1.2) 통신
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다.
 
-1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 인코드"를 입력 하 고 AS2 (v2) 작업을 선택 했는지 확인 합니다. **As2 인코드**
+1. **작업 선택** 및 검색 상자 아래에서 **모두** 를 선택합니다. 검색 상자에 "as2 인코드"를 입력 하 고 AS2 (v2) 작업을 선택 했는지 확인 합니다. **As2 인코드**
 
    !["AS2 인코드"를 선택 합니다.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
@@ -103,7 +103,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 (버전 1.2) 통신
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다.
 
-1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 디코드"를 입력 하 고 AS2 (v2) 작업: **As2 디코딩** 을 선택 했는지 확인 합니다.
+1. **작업 선택** 및 검색 상자 아래에서 **모두** 를 선택합니다. 검색 상자에 "as2 디코드"를 입력 하 고 AS2 (v2) 작업: **As2 디코딩** 을 선택 했는지 확인 합니다.
 
    !["AS2 디코드"를 선택 합니다.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
@@ -113,7 +113,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 (버전 1.2) 통신
 
    ![요청 출력에서 본문 및 헤더를 선택합니다.](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
 완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)를 참조하세요.
 

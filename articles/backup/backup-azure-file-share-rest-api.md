@@ -4,10 +4,10 @@ description: REST API를 사용 하 여 Recovery Services 자격 증명 모음�
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824868"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
@@ -237,7 +237,7 @@ protectionContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-응답 본문의 *registrationstatus* 매개 변수 값에서 등록이 성공 했는지 확인할 수 있습니다. 이 경우 *testvault2*에 등록 된 상태를 표시 하므로 등록 작업이 성공 했습니다.
+응답 본문의 *registrationstatus* 매개 변수 값에서 등록이 성공 했는지 확인할 수 있습니다. 이 경우 *testvault2* 에 등록 된 상태를 표시 하므로 등록 작업이 성공 했습니다.
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>저장소 계정에서 보호 되지 않는 모든 파일 공유를 조회 합니다.
 
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| Name       | 유형                       | 설명                       |
+| Name       | Type                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 

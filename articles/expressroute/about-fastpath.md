@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654376"
 ---
 # <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
 
@@ -42,7 +42,7 @@ FastPath를 구성 하려면 가상 네트워크 게이트웨이가 다음 중 �
 
 FastPath는 대부분의 구성을 지원 하지만 다음과 같은 기능은 지원 하지 않습니다.
 
-* 게이트웨이 서브넷의 UDR: 가상 네트워크의 게이트웨이 서브넷에 UDR을 적용 하면 온-프레미스 네트워크의 네트워크 트래픽이 가상 네트워크 게이트웨이로 계속 전송 됩니다.
+* 게이트웨이 서브넷의 UDR:이 UDR은 FastPath가 온-프레미스 네트워크에서 Azure virtual network의 가상 머신으로 직접 보내는 네트워크 트래픽에 영향을 주지 않습니다. 
 
 * VNet 피어 링: Express 경로에 연결 된 다른 가상 네트워크를 사용 하는 경우 피어 링는 온-프레미스 네트워크에서 다른 가상 네트워크 (즉, "스포크" Vnet)로의 네트워크 트래픽이 계속 가상 네트워크 게이트웨이로 전송 됩니다. 해결 방법은 모든 가상 네트워크를 Express 경로 회로에 직접 연결 하는 것입니다.
 

@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980057"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 할당 보기, 추가 및 제거
@@ -38,7 +38,7 @@ Azure AD 자격 관리를 사용 하 고 패키지에 액세스 하는 사용자
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
@@ -48,13 +48,13 @@ Azure AD 자격 관리를 사용 하 고 패키지에 액세스 하는 사용자
 
 1. 특정 할당을 클릭 하 여 추가 세부 정보를 확인 합니다.
 
-1. 모든 리소스 역할이 제대로 프로 비전 되지 않은 할당 목록을 보려면 필터 상태를 클릭 하 고 **배달**중을 선택 합니다.
+1. 모든 리소스 역할이 제대로 프로 비전 되지 않은 할당 목록을 보려면 필터 상태를 클릭 하 고 **배달** 중을 선택 합니다.
 
     **요청** 페이지에서 사용자의 해당 요청을 찾아 배달 오류에 대 한 추가 세부 정보를 볼 수 있습니다.
 
-1. 만료 된 할당을 보려면 필터 상태를 클릭 하 고 **만료 됨**을 선택 합니다.
+1. 만료 된 할당을 보려면 필터 상태를 클릭 하 고 **만료 됨** 을 선택 합니다.
 
-1. 필터링 된 목록의 CSV 파일을 다운로드 하려면 **다운로드**를 클릭 합니다.
+1. 필터링 된 목록의 CSV 파일을 다운로드 하려면 **다운로드** 를 클릭 합니다.
 
 ### <a name="viewing-assignments-programmatically"></a>프로그래밍 방식으로 할당 보기
 
@@ -66,11 +66,11 @@ Microsoft Graph를 사용 하 여 액세스 패키지에서 할당을 검색할 
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. 왼쪽 메뉴에서 **할당**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **할당** 을 클릭 합니다.
 
 1. **새 할당** 을 클릭 하 여 액세스 패키지에 사용자 추가를 엽니다.
 
@@ -96,11 +96,11 @@ Microsoft Graph를 사용 하 여 액세스 패키지에서 할당을 검색할 
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. 왼쪽 메뉴에서 **할당**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **할당** 을 클릭 합니다.
  
 1. 액세스 패키지에서 제거 하려는 할당의 사용자 옆에 있는 확인란을 클릭 합니다. 
 

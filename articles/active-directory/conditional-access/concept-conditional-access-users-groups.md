@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f316b17096e1241fe23cbf2c965122fd8966522
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630880"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579062"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
-조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. Azure Active Directory 모든 정책을 평가 하 고 사용자에 게 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다. 이 문서 외에 아래에 설명 된 프로세스를 안내 하는 [조건부 액세스 정책의 사용자를 포함 하거나 제외](https://www.youtube.com/watch?v=5DsW1hB3Jqs) 하는 방법에 대 한 비디오가 있습니다. 
+조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. Azure Active Directory 모든 정책을 평가 하 고 사용자에 게 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다. 
 
-![조건부 액세스의 결정에 대 한 신호로 사용 되는 사용자](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## <a name="include-users"></a>사용자 포함
 
@@ -77,7 +77,7 @@ ms.locfileid: "102630880"
 
 ![경고, 잠금 안 함](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[Azure Portal 잠겨 있으면 어떻게 해야 하나요?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+[Azure Portal 잠기는 경우 수행할 작업을](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal) 잠긴 경우에는 어떻게 해야 하나요?
 
 ## <a name="next-steps"></a>다음 단계
 

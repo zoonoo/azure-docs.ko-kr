@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087641"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 분할
@@ -84,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 반환 된 데이터는 Apache Cassandra에서 예상 대로 클러스터링 키를 기준으로 정렬 됩니다.
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="영역":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="클러스터링 키를 기준으로 정렬 된 반환 된 데이터를 보여 주는 스크린샷":::
 
 이러한 방식으로 모델링 된 데이터를 사용 하면 각 파티션에 여러 레코드를 할당 하 고 사용자별로 그룹화 할 수 있습니다. 따라서 `partition key` `user` 지정 된 사용자에 대 한 모든 메시지를 가져오기 위해 (이 경우)에서 효율적으로 라우팅되는 쿼리를 실행할 수 있습니다. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="영역" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="사용자별로 그룹화 된 각 파티션에 여러 레코드를 할당할 수 있는 방법을 보여 주는 다이어그램입니다." border="false":::
 
 
 ## <a name="composite-partition-key"></a>복합 파티션 키

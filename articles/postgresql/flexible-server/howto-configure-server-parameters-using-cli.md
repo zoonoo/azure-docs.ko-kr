@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940733"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버에 대 한 서버 매개 변수 사용자 지정
@@ -29,7 +29,7 @@ Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 
 
 서버에 있는 수정 가능한 모든 매개 변수와 해당 값을 나열 하려면 [az postgres 신축 서버 매개 변수 목록](/cli/azure/postgres/flexible-server/parameter) 명령을 실행 합니다.
 
-리소스 그룹 **myresourcegroup**에서 **mydemoserver.postgres.database.azure.com** 서버에 대 한 서버 매개 변수를 나열할 수 있습니다.
+리소스 그룹 **myresourcegroup** 에서 **mydemoserver.postgres.database.azure.com** 서버에 대 한 서버 매개 변수를 나열할 수 있습니다.
 
 ```azurecli-interactive
 az postgres flexible-server parameter list --resource-group myresourcegroup --server-name mydemoserver
@@ -61,7 +61,7 @@ az postgres flexible-server parameter set --name log_min_messages --value INFO -
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-이 명령은 **log \_ min \_ messages** 매개 변수를 기본값 **WARNING**으로 다시 설정 합니다. 서버 매개 변수 및 허용 되는 값에 대 한 자세한 내용은 [매개 변수 설정](https://www.postgresql.org/docs/12/config-setting.html)에 대 한 PostgreSQL 설명서를 참조 하세요.
+이 명령은 **log \_ min \_ messages** 매개 변수를 기본값 **WARNING** 으로 다시 설정 합니다. 서버 매개 변수 및 허용 되는 값에 대 한 자세한 내용은 [매개 변수 설정](https://www.postgresql.org/docs/12/config-setting.html)에 대 한 PostgreSQL 설명서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

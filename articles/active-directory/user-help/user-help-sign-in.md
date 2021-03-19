@@ -13,10 +13,10 @@ ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 42ced6632ebfa56af8fe13a02f531b9835e13df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88799386"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
@@ -32,7 +32,7 @@ ms.locfileid: "88799386"
 
 1. 사용자 이름 및 암호를 사용하여 계정에 로그인합니다.
 
-2. 모바일 디바이스로 보낸 승인 알림에서 **승인**을 선택합니다.
+2. 모바일 디바이스로 보낸 승인 알림에서 **승인** 을 선택합니다.
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 코드를 사용하여 로그인
 

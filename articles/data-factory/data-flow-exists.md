@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/07/2020
 ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82982635"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
@@ -23,12 +23,12 @@ ms.locfileid: "82982635"
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 1. **올바른 스트림** 드롭다운에서 있는지 확인 하는 데이터 스트림을 선택 합니다.
 1. 존재 **하는 데이터** 를 찾고 있는지 여부를 지정 합니다.
-1. **사용자 지정 식을**사용할지 여부를 선택 합니다.
-1. 존재 조건으로 비교할 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색합니다. 계산된 값을 통해 비교하려면 열 드롭다운 위로 마우스를 이동하여 **계산 열**을 선택합니다.
+1. **사용자 지정 식을** 사용할지 여부를 선택 합니다.
+1. 존재 조건으로 비교할 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색합니다. 계산된 값을 통해 비교하려면 열 드롭다운 위로 마우스를 이동하여 **계산 열** 을 선택합니다.
 
 ![Exists 설정](media/data-flow/exists.png "exists 1")
 
@@ -48,7 +48,7 @@ ms.locfileid: "82982635"
 
 ![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 조인")
 
-조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅**를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정**을 선택합니다.
+조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅** 를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정** 을 선택합니다.
 
 조인이 실행되는 동안 시간 제한 오류가 발생하는 경우에만 **해제** 옵션을 통해 브로드캐스팅을 사용하지 않도록 설정하는 것이 좋습니다.
 

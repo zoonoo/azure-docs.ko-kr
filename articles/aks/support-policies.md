@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91892713"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
@@ -24,7 +24,7 @@ ms.locfileid: "91892713"
 
 기본 IaaS (infrastructure as a service) 클라우드 구성 요소 (예: 계산 또는 네트워킹 구성 요소)를 사용 하 여 하위 수준 컨트롤 및 사용자 지정 옵션에 액세스할 수 있습니다. 이와 대조적으로 AKS는 클러스터에 필요한 구성 및 기능에 대 한 공통 집합을 제공 하는 턴키 Kubernetes 배포를 제공 합니다. AKS 사용자는 제한 된 사용자 지정 및 배포 옵션을 사용할 수 있습니다. Exchange에서는 Kubernetes 클러스터를 직접 걱정 하거나 관리할 필요가 없습니다.
 
-AKS를 사용 하면 완전히 관리 되는 *제어 평면*을 얻을 수 있습니다. 제어 평면에는 작동 하는 데 필요한 모든 구성 요소 및 서비스가 포함 되며 Kubernetes 클러스터를 최종 사용자에 게 제공 합니다. 모든 Kubernetes 구성 요소는 Microsoft에서 유지 관리하고 운영합니다.
+AKS를 사용 하면 완전히 관리 되는 *제어 평면* 을 얻을 수 있습니다. 제어 평면에는 작동 하는 데 필요한 모든 구성 요소 및 서비스가 포함 되며 Kubernetes 클러스터를 최종 사용자에 게 제공 합니다. 모든 Kubernetes 구성 요소는 Microsoft에서 유지 관리하고 운영합니다.
 
 Microsoft는 제어 창에서 다음 구성 요소를 관리하고 모니터링합니다.
 
@@ -34,7 +34,7 @@ Microsoft는 제어 창에서 다음 구성 요소를 관리하고 모니터링�
 * Kubernetes 프록시 또는 네트워킹
 * Kube 네임 스페이스에서 실행 되는 추가 addon 또는 system 구성 요소
 
-AKS는 PaaS (Platform as a Service) 솔루션이 아닙니다. 에이전트 노드와 같은 일부 구성 요소에는 사용자가 AKS 클러스터를 유지 관리 하는 데 도움이 되어야 하는 *공유 책임이*있습니다. 사용자 입력은 예를 들어, 에이전트 노드 운영 체제 (OS) 보안 패치를 적용 하는 데 필요 합니다.
+AKS는 PaaS (Platform as a Service) 솔루션이 아닙니다. 에이전트 노드와 같은 일부 구성 요소에는 사용자가 AKS 클러스터를 유지 관리 하는 데 도움이 되어야 하는 *공유 책임이* 있습니다. 사용자 입력은 예를 들어, 에이전트 노드 운영 체제 (OS) 보안 패치를 적용 하는 데 필요 합니다.
 
 Microsoft와 AKS 팀이 서비스 가용성 및 기능을 배포하고 운영하고 이에 대한 책임을 진다는 점에서 서비스는 ‘관리형’입니다. 고객은 이러한 관리형 구성 요소를 변경할 수 없습니다. Microsoft는 일관되고 확장성 있는 사용자 환경을 보장하기 위해 사용자 지정을 제한합니다. 완전히 사용자 지정 가능한 솔루션은 [AKS 엔진](https://github.com/Azure/aks-engine)을 참조하세요.
 

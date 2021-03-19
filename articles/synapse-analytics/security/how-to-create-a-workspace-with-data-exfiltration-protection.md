@@ -1,19 +1,19 @@
 ---
 title: 데이터 반출 보호를 사용 하는 작업 영역 만들기
 description: 이 문서에서는 Azure Synapse Analytics에서 데이터 반출 보호를 사용 하 여 작업 영역을 만드는 방법을 설명 합니다.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 59c2f5e5738b29aa11e9227b157f8b11d53f2b25
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096125"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598085"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>데이터 반출 보호를 사용 하는 작업 영역 만들기
 이 문서에서는 데이터 반출 보호를 사용 하도록 설정 된 작업 영역을 만드는 방법과이 작업 영역에 대해 승인 된 Azure AD 테 넌 트를 관리 하는 방법을 설명 합니다.

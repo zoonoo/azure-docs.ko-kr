@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540386"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
@@ -25,7 +25,7 @@ Azure Functions 런타임 미리 보기 2를 설치하려는 경우 다음 단�
 1. Azure Functions 런타임 미리 보기 2의 구성 완료
 1. Azure Functions 런타임 미리 보기에서 첫 번째 함수 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Functions 런타임 미리 보기를 설치하기 전에 다음 리소스를 사용할 수 있어야 합니다.
 
@@ -46,22 +46,22 @@ Azure Functions 런타임 미리 보기 설치 관리자는 Azure Functions 런�
 
     ![Azure Functions 런타임 미리 보기 설치 관리자][1]
 
-1. **다음**을 클릭합니다.
-1. **EULA**의 약관을 읽은 후에는 확인란을 **선택** 하 여 조건에 동의 하 고 **다음** 을 클릭 하 여 진행 합니다.
-1. **함수 관리 역할** 및/또는 **함수 작업자 역할** 중에서 이 컴퓨터에 설치하려는 역할을 선택하고 **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
+1. **EULA** 의 약관을 읽은 후에는 확인란을 **선택** 하 여 조건에 동의 하 고 **다음** 을 클릭 하 여 진행 합니다.
+1. **함수 관리 역할** 및/또는 **함수 작업자 역할** 중에서 이 컴퓨터에 설치하려는 역할을 선택하고 **다음** 을 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 설치 관리자 - 역할 선택][3]
 
     > [!NOTE]
-    > 많은 다른 컴퓨터에 **Functions Worker 역할**을 설치할 수 있습니다. 이렇게 하려면 다음 지침에 따르고 설치 관리자에서 **Functions Worker 역할**을 선택합니다.
+    > 많은 다른 컴퓨터에 **Functions Worker 역할** 을 설치할 수 있습니다. 이렇게 하려면 다음 지침에 따르고 설치 관리자에서 **Functions Worker 역할** 을 선택합니다.
 
-1. **다음**을 클릭하면 **Azure Functions Runtime Setup Wizard**가 컴퓨터에서 설치 프로세스를 시작합니다.
+1. **다음** 을 클릭하면 **Azure Functions Runtime Setup Wizard** 가 컴퓨터에서 설치 프로세스를 시작합니다.
 1. 완료되면 설정 마법사가 **Azure Functions Runtime** 구성 도구를 시작합니다.
 
     ![Azure Functions 런타임 미리 보기 설치 관리자 완료][6]
 
     > [!NOTE]
-    > **Windows 10**을 설치하려고 하며 **컨테이너** 기능을 이전에 사용하도록 설정하지 않은 경우 **Azure Functions Runtime Setup**에서 설치를 완료하기 위해 컴퓨터를 다시 부팅하라는 메시지를 표시합니다.
+    > **Windows 10** 을 설치하려고 하며 **컨테이너** 기능을 이전에 사용하도록 설정하지 않은 경우 **Azure Functions Runtime Setup** 에서 설치를 완료하기 위해 컴퓨터를 다시 부팅하라는 메시지를 표시합니다.
 
 ## <a name="configure-the-azure-functions-runtime"></a>Azure Functions 런타임 구성
 
@@ -71,15 +71,15 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
     ![Azure Functions 런타임 미리 보기 구성 도구][7]
 
-1. **데이터베이스** 탭을 클릭하고 [데이터베이스 마스터 키](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) 지정을 비롯한 SQL Server 인스턴스에 대한 연결 세부 정보를 입력한 후 **적용**을 클릭합니다.  Azure Functions 런타임이 런타임을 지원할 데이터베이스를 만들려면 SQL Server 인스턴스에 연결되어야 합니다.
+1. **데이터베이스** 탭을 클릭하고 [데이터베이스 마스터 키](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine) 지정을 비롯한 SQL Server 인스턴스에 대한 연결 세부 정보를 입력한 후 **적용** 을 클릭합니다.  Azure Functions 런타임이 런타임을 지원할 데이터베이스를 만들려면 SQL Server 인스턴스에 연결되어야 합니다.
 
     ![Azure Functions 런타임 미리 보기 데이터베이스 구성][8]
 
-1. **자격 증명** 탭을 클릭 합니다.  여기에서 모든 함수 앱을 호스팅하기 위해 파일 공유에 사용할 두 개의 새 자격 증명을 만들어야 합니다.  **파일 공유 소유자** 및 **파일 공유 사용자** 에 대해 **사용자 이름** 및 **암호** 조합을 지정하고 **적용**을 클릭합니다.
+1. **자격 증명** 탭을 클릭 합니다.  여기에서 모든 함수 앱을 호스팅하기 위해 파일 공유에 사용할 두 개의 새 자격 증명을 만들어야 합니다.  **파일 공유 소유자** 및 **파일 공유 사용자** 에 대해 **사용자 이름** 및 **암호** 조합을 지정하고 **적용** 을 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 자격 증명][9]
 
-1. **파일 공유** 탭을 클릭 합니다.  여기에서 파일 공유 위치에 대 한 세부 정보를 지정 해야 합니다.  파일 공유가 자동으로 생성될 수도 있고 기존 파일 공유를 사용하고 **적용**을 클릭할 수도 있습니다.  새 파일 공유 위치를 선택하는 경우 Azure Functions 런타임에서 사용할 디렉터리를 지정해야 합니다.
+1. **파일 공유** 탭을 클릭 합니다.  여기에서 파일 공유 위치에 대 한 세부 정보를 지정 해야 합니다.  파일 공유가 자동으로 생성될 수도 있고 기존 파일 공유를 사용하고 **적용** 을 클릭할 수도 있습니다.  새 파일 공유 위치를 선택하는 경우 Azure Functions 런타임에서 사용할 디렉터리를 지정해야 합니다.
 
     ![Azure Functions 런타임 미리 보기 파일 공유][10]
 
@@ -87,11 +87,11 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
     ![Azure Functions 런타임 미리 보기 IIS][11]
 
-1. **서비스** 탭을 클릭 합니다.  이 탭에는 Azure Functions 런타임 구성 도구의 서비스 상태가 표시 됩니다.  초기 구성 후에 **Azure Functions Host Activation Service**가 실행되지 않을 경우 **서비스 시작**을 클릭합니다.
+1. **서비스** 탭을 클릭 합니다.  이 탭에는 Azure Functions 런타임 구성 도구의 서비스 상태가 표시 됩니다.  초기 구성 후에 **Azure Functions Host Activation Service** 가 실행되지 않을 경우 **서비스 시작** 을 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 구성 완료][12]
 
-1. `https://<machinename>.<domain>/`을 통해 **Azure Functions 런타임 포털**로 이동합니다.
+1. `https://<machinename>.<domain>/`을 통해 **Azure Functions 런타임 포털** 로 이동합니다.
 
     ![Azure Functions 런타임 미리 보기 포털][13]
 
@@ -101,7 +101,7 @@ Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
 1. 예를 들어 **Azure Functions 런타임 포털로** 이동 `https://<machinename>.<domain>` `https://mycomputer.mydomain.com` 합니다.
 
-1. **로그인**하라는 메시지가 표시됩니다. 도메인에 배포된 경우 도메인 계정 사용자 이름 및 암호를 사용하고, 그렇지 않은 경우 로컬 계정 사용자 이름 및 암호를 사용하여 포털에 로그인합니다.
+1. **로그인** 하라는 메시지가 표시됩니다. 도메인에 배포된 경우 도메인 계정 사용자 이름 및 암호를 사용하고, 그렇지 않은 경우 로컬 계정 사용자 이름 및 암호를 사용하여 포털에 로그인합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 로그인][14]
 
@@ -109,21 +109,21 @@ Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
     ![Azure Functions 런타임 미리 보기 포털 구독][15]
 
-1. **DefaultPlan**을 선택하고 구독 이름을 입력한 후 **만들기**를 클릭합니다.
+1. **DefaultPlan** 을 선택하고 구독 이름을 입력한 후 **만들기** 를 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 구독 계획 및 이름][16]
 
-1. 모든 함수 앱이 포털의 왼쪽 창에 나열됩니다.  새 함수 앱을 만들려면 제목 **함수 앱**을 선택하고 **+** 옵션을 클릭합니다.
+1. 모든 함수 앱이 포털의 왼쪽 창에 나열됩니다.  새 함수 앱을 만들려면 제목 **함수 앱** 을 선택하고 **+** 옵션을 클릭합니다.
 
-1. 함수 앱의 이름을 입력하고 올바른 구독을 선택한 후 프로그래밍할 Azure Functions 런타임 버전을 선택하고 **만들기**를 클릭합니다.
+1. 함수 앱의 이름을 입력하고 올바른 구독을 선택한 후 프로그래밍할 Azure Functions 런타임 버전을 선택하고 **만들기** 를 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 새 함수 앱][17]
 
-1. 새 함수 앱이 포털의 왼쪽 창에 나열됩니다.  함수를 선택한 다음 포털의 가운데 창 위쪽에서 **새 함수**를 클릭합니다.
+1. 새 함수 앱이 포털의 왼쪽 창에 나열됩니다.  함수를 선택한 다음 포털의 가운데 창 위쪽에서 **새 함수** 를 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 템플릿][18]
 
-1. 함수의 오른쪽 플라이 아웃 이름에서 Timer Trigger 함수를 선택하고 일정을 `*/5 * * * * *`(이 cron 식은 타이머함 수가 5초마다 실행되도록 함)로 변경하고 **만들기**를 클릭합니다.
+1. 함수의 오른쪽 플라이 아웃 이름에서 Timer Trigger 함수를 선택하고 일정을 `*/5 * * * * *`(이 cron 식은 타이머함 수가 5초마다 실행되도록 함)로 변경하고 **만들기** 를 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 새 타이머 함수 구성][19]
 

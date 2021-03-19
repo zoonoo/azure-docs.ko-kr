@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890238"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654461"
 ---
 # <a name="train-svd-recommender"></a>SVD 추천 학습
 
 이 문서에서는 Azure Machine Learning designer에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
 
-학습 .SVD 추천 모듈은 사용자-항목-등급 삼중 쌍의 데이터 집합을 읽습니다. 학습 된 .SVD 추천를 반환 합니다. 그런 다음 [점수 .Svd 추천](score-svd-recommender.md) 모듈을 사용 하 여 학습 된 모델을 사용 하 여 등급을 예측 하거나 권장 구성을 생성할 수 있습니다.  
+학습 .SVD 추천 모듈은 사용자-항목-등급 삼중 쌍의 데이터 집합을 읽습니다. 학습 된 .SVD 추천를 반환 합니다. 그런 다음 [점수 .Svd 추천](score-svd-recommender.md) 모듈을 연결 하 여 학습 된 모델을 사용 하 여 등급을 예측 하거나 권장 구성을 생성할 수 있습니다.  
 
 
   
@@ -58,18 +58,21 @@ Azure Machine Learning 디자이너 ( **데이터 집합** 및 **샘플**)의 **
 
 1.  Designer에서 .SVD 추천 모듈을 파이프라인에 추가 하 고 학습 데이터에 연결 합니다.  
    
-2.  **요소 수**에 대해 추천에 사용할 요소 수를 지정 합니다.  
+2.  **요소 수** 에 대해 추천에 사용할 요소 수를 지정 합니다.  
     
     각 요소는 사용자가 항목과 관련 된 양을 측정 합니다. 요소 수는 잠재적 요소 공간의 차원 이기도 합니다. 사용자 및 항목 수가 늘어나면 더 많은 요소를 설정 하는 것이 좋습니다. 그러나 숫자가 너무 크면 성능이 저하 될 수 있습니다.
     
 3.  **권장 사항 알고리즘 반복 횟수** 알고리즘에서 입력 데이터를 처리 해야 하는 횟수를 나타냅니다. 이 수가 높을수록 예측이 더 정확해 집니다. 그러나 숫자가 높으면 학습 속도가 느려집니다. 기본값은 30입니다.
 
-4.  학습 **률**에 대해 학습을 위한 단계 크기를 정의 하는 0.0 ~ 2.0 사이의 숫자를 입력 합니다.
+4.  학습 **률** 에 대해 학습을 위한 단계 크기를 정의 하는 0.0 ~ 2.0 사이의 숫자를 입력 합니다.
 
     학습 속도는 각 반복의 단계 크기를 결정 합니다. 단계 크기가 너무 크면 최적의 솔루션을 과도 하 게 사용할 수 있습니다. 단계 크기가 너무 작은 경우 학습을 통해 최상의 솔루션을 찾는 데 시간이 오래 걸립니다. 
   
 5.  파이프라인을 제출합니다.  
 
+## <a name="results"></a>결과
+
+파이프라인 실행이 완료 된 후 점수 매기기에 모델을 사용 하려면 [학습 .Svd 추천](train-svd-recommender.md) 을 [점수 .svd 추천](score-svd-recommender.md)에 연결 하 여 새 입력 예제에 대 한 값을 예측 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88799420"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>“여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 가능한 원인
@@ -54,7 +54,7 @@ ms.locfileid: "88799420"
 
 2. VPN(가상 사설망) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.
 
-3. 연결한 후에는 **Windows 로고 키 + L**을 눌러 디바이스를 잠급니다.
+3. 연결한 후에는 **Windows 로고 키 + L** 을 눌러 디바이스를 잠급니다.
 
 4. 회사 또는 학교 계정을 사용하여 디바이스 잠금을 해제한 후 문제가 있는 앱 또는 서비스에 다시 액세스해 봅니다.
 

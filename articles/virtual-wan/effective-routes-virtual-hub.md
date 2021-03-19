@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90983645"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>가상 허브 유효 경로 보기
@@ -20,8 +20,8 @@ Azure Portal에서 가상 WAN 허브의 모든 경로를 볼 수 있습니다. �
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>연결 또는 경로 테이블 선택
 
-1. 가상 허브로 이동한 다음 **라우팅**을 선택 합니다. 라우팅 페이지에서 **유효 경로**를 선택 합니다.
-1. 드롭다운 목록에서 **경로 테이블**을 선택할 수 있습니다. 경로 테이블 옵션이 표시 되지 않으면이 가상 허브에 설정 된 사용자 지정 또는 기본 경로 테이블이 없음을 의미 합니다.
+1. 가상 허브로 이동한 다음 **라우팅** 을 선택 합니다. 라우팅 페이지에서 **유효 경로** 를 선택 합니다.
+1. 드롭다운 목록에서 **경로 테이블** 을 선택할 수 있습니다. 경로 테이블 옵션이 표시 되지 않으면이 가상 허브에 설정 된 사용자 지정 또는 기본 경로 테이블이 없음을 의미 합니다.
 
 ## <a name="view-output"></a><a name="output"></a>출력 보기
 

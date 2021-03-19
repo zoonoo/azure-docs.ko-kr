@@ -9,17 +9,17 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001488"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 플랫 파일 인코딩 및 디코딩
 
 B2B (기업 간) 시나리오에서 비즈니스 파트너에 게 XML 콘텐츠를 보내기 전에 먼저 해당 콘텐츠를 인코딩해야 할 수 있습니다. 논리 앱을 빌드하여 **플랫 파일** 커넥터를 사용 하 여 플랫 파일을 인코딩 및 디코딩할 수 있습니다. 논리 앱은 요청 트리거, 다른 앱 또는 [Azure Logic Apps에서 지 원하는 다른 커넥터](../connectors/apis-list.md)와 같은 다양 한 소스에서이 XML 콘텐츠를 가져올 수 있습니다. 자세한 내용은 [Azure Logic Apps](logic-apps-overview.md)란?을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -35,12 +35,12 @@ B2B (기업 간) 시나리오에서 비즈니스 파트너에 게 XML 콘텐츠�
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가**를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때**명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
+1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가** 를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때** 명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
 
    > [!TIP]
-   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성**을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료**를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
+   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성** 을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료** 를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
 
-1. **작업 선택**아래에서를 입력 `flat file` 합니다. 작업 목록에서 **플랫 파일 인코딩** 작업을 선택 합니다.
+1. **작업 선택** 아래에서를 입력 `flat file` 합니다. 작업 목록에서 **플랫 파일 인코딩** 작업을 선택 합니다.
 
    !["플랫 파일 인코딩" 동작을 선택 합니다.](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
@@ -67,12 +67,12 @@ B2B (기업 간) 시나리오에서 비즈니스 파트너에 게 XML 콘텐츠�
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가**를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때**명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
+1. 논리 앱의 트리거 또는 동작에서 **새 단계**  >  **작업 추가** 를 선택 합니다. 이 예제에서는 **HTTP 요청을 받을 때** 명명 된 요청 트리거를 사용 하 고 논리 앱 외부에서 인바운드 요청을 처리 합니다.
 
    > [!TIP]
-   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성**을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료**를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
+   > JSON 스키마를 제공 하는 것은 선택 사항입니다. 인바운드 요청의 샘플 페이로드가 있으면 **샘플 페이로드를 사용 하 여 스키마 생성** 을 선택 하 고 샘플 페이로드를 입력 한 다음 **완료** 를 선택 합니다. 스키마가 **요청 본문 JSON 스키마** 상자에 나타납니다.
 
-1. **작업 선택**아래에서를 입력 `flat file` 합니다. 작업 목록에서 다음 작업을 선택 합니다. **플랫 파일 디코딩**
+1. **작업 선택** 아래에서를 입력 `flat file` 합니다. 작업 목록에서 다음 작업을 선택 합니다. **플랫 파일 디코딩**
 
    !["플랫 파일 디코딩" 동작을 선택 합니다.](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 

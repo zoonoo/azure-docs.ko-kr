@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87063767"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 요소
@@ -58,7 +58,7 @@ Windows의 경우 다음 스키마를 사용합니다.
 }
 ```
 
-**Linux**의 경우 다음 스키마를 사용합니다.
+**Linux** 의 경우 다음 스키마를 사용합니다.
 
 ```json
 {
@@ -91,7 +91,7 @@ Windows의 경우 다음 스키마를 사용합니다.
 
 ## <a name="sample-output"></a>샘플 출력
 
-`osPlatform`이 **Windows**이거나, `osPlatform`이 **Linux**이고 사용자가 SSH 공개 키 대신 암호를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
+`osPlatform`이 **Windows** 이거나, `osPlatform`이 **Linux** 이고 사용자가 SSH 공개 키 대신 암호를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
 
 ```json
 {
@@ -100,7 +100,7 @@ Windows의 경우 다음 스키마를 사용합니다.
 }
 ```
 
-`osPlatform`이 **Linux**이고 사용자가 SSH 공개 키를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
+`osPlatform`이 **Linux** 이고 사용자가 SSH 공개 키를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
 
 ```json
 {
@@ -111,11 +111,11 @@ Windows의 경우 다음 스키마를 사용합니다.
 
 ## <a name="remarks"></a>설명
 
-- `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다.
-- `constraints.required`가 **true**로 설정되면 암호 또는 SSH 공개 키 텍스트 상자에 유효성을 성공적으로 검사하기 위한 값이 있어야 합니다. 기본값은 **true**입니다.
-- `options.hideConfirmation`을 **true**로 설정하면 사용자의 암호를 확인하는 두 번째 텍스트 상자가 숨겨집니다. 기본 값은 **false**입니다.
-- `options.hidePassword`를 **true**로 설정하면 암호 인증을 사용하는 옵션이 숨겨집니다. `osPlatform`이 **Linux**인 경우에만 사용할 수 있습니다. 기본 값은 **false**입니다.
-- 허용되는 암호에 대한 추가 제한 조건은 `customPasswordRegex` 속성을 사용하여 구현할 수 있습니다. 암호가 사용자 지정 유효성 검사에 실패하면 `customValidationMessage`의 문자열이 표시됩니다. 두 속성의 기본값은 **null**입니다.
+- `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux** 일 수 있습니다.
+- `constraints.required`가 **true** 로 설정되면 암호 또는 SSH 공개 키 텍스트 상자에 유효성을 성공적으로 검사하기 위한 값이 있어야 합니다. 기본값은 **true** 입니다.
+- `options.hideConfirmation`을 **true** 로 설정하면 사용자의 암호를 확인하는 두 번째 텍스트 상자가 숨겨집니다. 기본 값은 **false** 입니다.
+- `options.hidePassword`를 **true** 로 설정하면 암호 인증을 사용하는 옵션이 숨겨집니다. `osPlatform`이 **Linux** 인 경우에만 사용할 수 있습니다. 기본 값은 **false** 입니다.
+- 허용되는 암호에 대한 추가 제한 조건은 `customPasswordRegex` 속성을 사용하여 구현할 수 있습니다. 암호가 사용자 지정 유효성 검사에 실패하면 `customValidationMessage`의 문자열이 표시됩니다. 두 속성의 기본값은 **null** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

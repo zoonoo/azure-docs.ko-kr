@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: dc81849a13fdaef748c5fd631ee66ea5e3eb67c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c04c63a5ec72f08807b1702f74db39e00662656f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335792"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597660"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,11 +34,11 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
+| 월        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| 초       | "second", "ss", "s"  |
+| Second       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |
@@ -49,17 +49,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *DateTime*  
    UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |서식|설명|
-  |-|-|
-  |YYYY|네 자리 연도|
-  |MM|두 자리 월 (01 = 1 월 등)|
-  |DD|월 (01-31)의 2 자리 숫자 일|
-  |T|시간 요소 시작에 대 한 signifier|
-  |hh|두 자리 시간 (00-23)|
-  |mm|두 자리 분 (00-59)|
-  |ss|두 자리 초 (00-59)|
-  |. fffffff|7 자리 소수 자릿수 초|
-  |Z|UTC (협정 세계시) 지정자||
+|서식|설명|
+|-|-|
+|YYYY|네 자리 연도|
+|MM|두 자리 월 (01 = 1 월 등)|
+|DD|월 (01-31)의 2 자리 숫자 일|
+|T|시간 요소 시작에 대 한 signifier|
+|hh|두 자리 시간 (00-23)|
+|MM|두 자리 분 (00-59)|
+|ss|두 자리 초 (00-59)|
+|. fffffff|7 자리 소수 자릿수 초|
+|Z|UTC (협정 세계시) 지정자|
   
   ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -67,17 +67,17 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합니다 `YYYY-MM-DDThh:mm:ss.fffffffZ` .
   
-  |서식|설명|
-  |-|-|
-  |YYYY|네 자리 연도|
-  |MM|두 자리 월 (01 = 1 월 등)|
-  |DD|월 (01-31)의 2 자리 숫자 일|
-  |T|시간 요소 시작에 대 한 signifier|
-  |hh|두 자리 시간 (00-23)|
-  |mm|두 자리 분 (00-59)|
-  |ss|두 자리 초 (00-59)|
-  |. fffffff|7 자리 소수 자릿수 초|
-  |Z|UTC (협정 세계시) 지정자||
+|서식|설명|
+|-|-|
+|YYYY|네 자리 연도|
+|MM|두 자리 월 (01 = 1 월 등)|
+|DD|월 (01-31)의 2 자리 숫자 일|
+|T|시간 요소 시작에 대 한 signifier|
+|hh|두 자리 시간 (00-23)|
+|MM|두 자리 분 (00-59)|
+|ss|두 자리 초 (00-59)|
+|. fffffff|7 자리 소수 자릿수 초|
+|Z|UTC (협정 세계시) 지정자|
 
 ## <a name="remarks"></a>설명
 
@@ -87,7 +87,7 @@ DateTimeAdd는 `undefined` 다음과 같은 이유로를 반환 합니다.
 - 지정 된 numeric_expr 올바른 정수가 아닙니다.
 - 인수 또는 결과의 DateTime이 유효한 ISO 8601 DateTime이 아닙니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
 다음 예에서는 날짜/시간에 1 개월을 더 합니다. `2020-07-09T23:20:13.4575530Z`
 

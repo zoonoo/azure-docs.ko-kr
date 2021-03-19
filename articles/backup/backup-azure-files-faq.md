@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure �
 ms.date: 04/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91940838"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
@@ -60,7 +60,7 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Azure 파일 공유에 대한 보호를 중지한 경우 백업에서 복원할 수 있나요?
 
-예. 보호를 중지할 때 **백업 데이터 보관**을 선택한 경우 모든 기존 복원 지점에서 복원할 수 있습니다.
+예. 보호를 중지할 때 **백업 데이터 보관** 을 선택한 경우 모든 기존 복원 지점에서 복원할 수 있습니다.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?
 
@@ -80,7 +80,7 @@ Azure Backup에서 만든 모든 스냅샷은 포털의 스냅샷 보기, PowerS
 
 파일 공유를 다른 구독으로 이동 하면 Azure Backup 하 여 새 파일 공유로 간주 합니다. 권장 단계는 다음과 같습니다.
  
-시나리오: 구독 *S1* 에 파일 공유 *FS1* 가 있고 *V1* 자격 증명 모음을 사용 하 여 보호 되는 경우를 가정해 보겠습니다. 이제 파일 공유를 구독 *S2*로 이동 하려고 합니다.
+시나리오: 구독 *S1* 에 파일 공유 *FS1* 가 있고 *V1* 자격 증명 모음을 사용 하 여 보호 되는 경우를 가정해 보겠습니다. 이제 파일 공유를 구독 *S2* 로 이동 하려고 합니다.
  
 1.  원하는 저장소 계정 및 파일 공유 (FS1)를 다른 구독 (S2)로 이동 합니다.
 2.  V1 자격 증명 모음에서 FS1에 대 한 데이터 삭제 작업으로 보호 중지를 트리거합니다.

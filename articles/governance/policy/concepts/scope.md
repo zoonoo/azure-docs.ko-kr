@@ -4,15 +4,15 @@ description: Azure Resource Manager 범위 개념과 Azure Policy에서 평가�
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90984429"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Azure Policy 범위 이해
 
-평가할 수 있는 리소스와 Azure Policy 의해 평가 되는 리소스를 결정 하는 다양 한 설정이 있습니다. 이러한 컨트롤에 대 한 기본 개념은 _범위_입니다.
+평가할 수 있는 리소스와 Azure Policy 의해 평가 되는 리소스를 결정 하는 다양 한 설정이 있습니다. 이러한 컨트롤에 대 한 기본 개념은 _범위_ 입니다.
 개략적인 개요는 [Azure Resource Manager 범위](../../../azure-resource-manager/management/overview.md#understand-scope)를 참조 하세요.
 이 문서에서는 Azure Policy _범위_ 에 미치는 영향에 대해 설명 하 고 관련 개체 및 속성을 설명 합니다.
 

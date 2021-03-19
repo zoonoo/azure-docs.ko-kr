@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90971788"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
@@ -34,7 +34,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 가장 쉬운 방법으로 배포할 준비가 된 매개 변수가 있는 논리 앱 템플릿을 만드는 가장 쉬운 방법은 Visual Studio (무료 Community edition 이상) 및 Visual Studio 용 Azure Logic Apps 도구를 사용 하는 것입니다. 그런 다음 [Visual studio에서 논리 앱을 만들거나](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) [기존 논리 앱을 찾아 Azure Portal에서 visual studio로 다운로드할](../logic-apps/manage-logic-apps-with-visual-studio.md)수 있습니다.
 
-논리 앱을 다운로드 하 여 논리 앱에 대 한 정의와 연결 등의 기타 리소스를 포함 하는 템플릿을 가져옵니다. 또한이 템플릿은 논리 앱 및 기타 리소스를 배포 하는 데 사용 되는 값에 대 한 매개 변수를 *매개 변수화*정의 합니다. 별도의 매개 변수 파일에서 이러한 매개 변수의 값을 제공할 수 있습니다. 이렇게 하면 배포 요구 사항에 따라 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+논리 앱을 다운로드 하 여 논리 앱에 대 한 정의와 연결 등의 기타 리소스를 포함 하는 템플릿을 가져옵니다. 또한이 템플릿은 논리 앱 및 기타 리소스를 배포 하는 데 사용 되는 값에 대 한 매개 변수를 *매개 변수화* 정의 합니다. 별도의 매개 변수 파일에서 이러한 매개 변수의 값을 제공할 수 있습니다. 이렇게 하면 배포 요구 사항에 따라 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visual Studio에서 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)

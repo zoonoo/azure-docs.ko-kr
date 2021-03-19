@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073069"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 구성 참조
@@ -35,7 +35,7 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| ApplicationName | 고유 애플리케이션 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName**을 사용해야 합니다.  | 예 |
+| ApplicationName | 고유 애플리케이션 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName** 을 사용해야 합니다.  | 예 |
 | DisplayName | 애플리케이션의 친숙한 표시 이름. | 예 |
 | Description | 애플리케이션에 대한 설명입니다. | 아니요 |
 | ApplicationRoles | [ApplicationRoles](#application-roles)의 콜렉션. 애플리케이션 내에서 작업하거나 참여할 수 있는 사용자 역할.  | 예 |
@@ -49,7 +49,7 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 
 | 필드 | 설명 | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name** 을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 워크플로의 친숙한 표시 이름. | 예 | 255 |
 | 설명 | 워크플로에 대한 설명. | 아니요 | 255 |
 | 개시 장치 | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | 예 | |
@@ -61,14 +61,14 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
-## <a name="type"></a>형식
+## <a name="type"></a>Type
 
 지원되는 데이터 형식.
 
-| 형식 | 설명 |
+| Type | 설명 |
 |-------|-------------|
-| address  | *계약* 또는 *사용자*와 같은 블록체인 주소 형식 |
-| array    | 정수, 부울, 돈 또는 시간 형식의 단일 수준 배열입니다. 배열은 정적 또는 동적일 수 있습니다. **ElementType**을 사용하여 배열 내 요소의 데이터 형식을 지정합니다. [예제 구성](#example-configuration-of-type-array)을 참조하세요. |
+| address  | *계약* 또는 *사용자* 와 같은 블록체인 주소 형식 |
+| array    | 정수, 부울, 돈 또는 시간 형식의 단일 수준 배열입니다. 배열은 정적 또는 동적일 수 있습니다. **ElementType** 을 사용하여 배열 내 요소의 데이터 형식을 지정합니다. [예제 구성](#example-configuration-of-type-array)을 참조하세요. |
 | bool     | 부울 데이터 형식입니다. |
 | 계약 | 계약 형식의 주소입니다. |
 | enum     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. [Solidity에서 예제 구성 및 사용](#example-configuration-of-type-enum)을 참조하세요. |
@@ -203,7 +203,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | 설명 | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name** 을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 함수의 친숙한 표시 이름. | 예 | 255 |
 | 설명 | 함수에 대한 설명 | 아니요 | 255 |
 | 매개 변수 | 함수의 매개 변수에 해당하는 [식별자](#identifiers)의 컬렉션. | 예 | |
@@ -251,7 +251,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | 설명 | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name** 을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 상태의 친숙한 표시 이름. | 예 | 255 |
 | 설명 | 상태에 대한 설명. | 아니요 | 255 |
 | PercentComplete | Blockchain Workbench 사용자 인터페이스에 표시되는 정수 값은 비즈니스 논리 제어 흐름 내에서의 진행 상황을 보여줍니다. | 예 | |
@@ -324,7 +324,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | AllowedInstanceRoles | 전환을 시작하도록 허용된 스마트 계약에 참여하거나 지정된 사용자 역할 목록. 인스턴스 역할은 워크플로 내의 **속성** 에서 정의 됩니다. AllowedInstanceRoles는 스마트 계약의 인스턴스에 참여하는 사용자를 나타냅니다. AllowedInstanceRoles는 계약 인스턴스에서 사용자 역할에 대한 작업을 수행하도록 제한하는 기능을 제공합니다.  예를 들어 AllowedRoles에서 역할을 지정하는 경우 계약(InstanceOwner)을 만든 사용자가 역할 유형(소유자)의 모든 사용자 대신 종료할 수도 있습니다. | 아니요 |
 | DisplayName | 전환의 친숙한 표시 이름. | 예 |
 | Description | 전환에 대한 설명. | 아니요 |
-| 기능 | 전환을 시작하는 함수의 이름. | 예 |
+| 함수 | 전환을 시작하는 함수의 이름. | 예 |
 | NextStates | 성공적인 전환 후 잠재적인 다음 상태의 컬렉션. | 예 |
 
 ### <a name="transitions-example"></a>전환 예제
@@ -365,7 +365,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | 설명 | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| Name | 애플리케이션 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 애플리케이션 역할의 이름을 지정할 수 없습니다.| 예 | 50 |
+| Name | 애플리케이션 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name** 을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 애플리케이션 역할의 이름을 지정할 수 없습니다.| 예 | 50 |
 | 설명 | 애플리케이션 역할에 대한 설명. | 아니요 | 255 |
 
 ### <a name="application-roles-example"></a>애플리케이션 역할 예제
@@ -388,10 +388,10 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 필드 | 설명 | 필수 | 최대 길이 |
 |-------|-------------|:--------:|-----------:|
-| Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | 예 | 50 |
+| Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name** 을 사용해야 합니다. | 예 | 50 |
 | DisplayName | 속성 또는 매개 변수의 친숙한 표시 이름. | 예 | 255 |
 | 설명 | 속성 또는 매개 변수에 대한 설명. | 아니요 | 255 |
-| 형식 | 속성 [데이터 형식](#type)입니다. | 예 |
+| Type | 속성 [데이터 형식](#type)입니다. | 예 |
 
 ### <a name="identifiers-example"></a>식별자 예제
 
@@ -418,7 +418,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ## <a name="configuration-file-example"></a>구성 파일 예제
 
-자산 전송은 고가의 자산을 매수하고 매도하기 위스한 마트 계약 시나리오이며 관리자와 평가자가 필요합니다. 판매자는 자산 전송 스마트 계약을 인스턴스화하여 해당 자산을 나열할 수 있습니다. 구매자는 스마트 계약에 대한 작업을 수행하여 제안하고 다른 당사자는 자산을 검사하거나 평가하는 작업을 수행할 수 있습니다. 자산이 검사되고 평가되었다고 표시되면 계약을 완료하도록 설정하기 전에 구매자 및 판매자는 다시 판매를 확인합니다. 모든 참가자는 프로세스의 각 지점에서 계약이 업데이트되는 대로 계약의 상태를 볼 수 있습니다. 
+자산 전송은 고가의 자산을 매수하고 매도하기 위스한 마트 계약 시나리오이며 관리자와 평가자가 필요합니다. 판매자는 자산 전송 스마트 계약을 인스턴스화하여 해당 자산을 나열할 수 있습니다. 구매자는 스마트 계약에 대한 작업을 수행하여 제안하고 다른 당사자는 자산을 검사하거나 평가하는 작업을 수행할 수 있습니다. 자산이 검사되고 평가되었다고 표시되면 계약을 완료하도록 설정하기 전에 구매자 및 판매자는 다시 판매를 확인합니다. 모든 참가자는 프로세스의 각 지점에서 계약이 업데이트되는 대로 계약의 상태를 볼 수 있습니다. 
 
 코드 파일을 비롯한 자세한 내용은 [Azure Blockchain Workbench에 대한 자산 전송 샘플](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)을 참조하세요.
 

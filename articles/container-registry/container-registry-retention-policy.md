@@ -4,15 +4,15 @@ description: 정의된 기간 후 태그 없는 매니페스트를 자동으로 
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83683449"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>태그 없는 매니페스트에 대한 보존 정책 설정
 
-Azure Container Registry는 연결된 태그가 없는 저장된 이미지 매니페스트에 대한 *보존 정책*을 설정하는 옵션을 제공합니다(*태그 없는 매니페스트*). 보존 정책을 사용하도록 설정하면 설정된 일 수 후에 레지스트리의 태그 없는 매니페스트가 자동으로 삭제됩니다. 이 기능을 사용하면 레지스트리가 필요하지 않은 아티팩트를 채우지 않고 스토리지 비용을 절감할 수 있습니다. 태그 없는 매니페스트의 `delete-enabled` 특성이 `false`로 설정된 경우에는 매니페스트를 삭제할 수 없으며 보존 정책이 적용되지 않습니다.
+Azure Container Registry는 연결된 태그가 없는 저장된 이미지 매니페스트에 대한 *보존 정책* 을 설정하는 옵션을 제공합니다(*태그 없는 매니페스트*). 보존 정책을 사용하도록 설정하면 설정된 일 수 후에 레지스트리의 태그 없는 매니페스트가 자동으로 삭제됩니다. 이 기능을 사용하면 레지스트리가 필요하지 않은 아티팩트를 채우지 않고 스토리지 비용을 절감할 수 있습니다. 태그 없는 매니페스트의 `delete-enabled` 특성이 `false`로 설정된 경우에는 매니페스트를 삭제할 수 없으며 보존 정책이 적용되지 않습니다.
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서의 명령 예제를 실행할 수 있습니다. 로컬로 사용하려는 경우 2.0.74 이상 버전이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -43,7 +43,7 @@ Azure Container Registry는 레지스트리의 매니페스트에 대한 참조 
 
 기본적으로 컨테이너 레지스트리에는 보존 정책이 설정되지 않습니다. 보존 정책을 설정하거나 업데이트하려면 Azure CLI에서 [az acr config retention update][az-acr-config-retention-update] 명령을 실행합니다. 태그 없는 매니페스트를 유지하려면 0에서 365 사이의 일 수를 지정할 수 있습니다. 일 수를 지정하지 않으면 명령은 7일의 기본값으로 설정합니다. 보존 기간 후에 레지스트리의 태그 없는 모든 매니페스트가 자동으로 삭제됩니다.
 
-다음 예제에서는 레지스트리 *myregistry*에서 태그 없는 매니페스트에 대해 30일의 보존 정책을 설정합니다.
+다음 예제에서는 레지스트리 *myregistry* 에서 태그 없는 매니페스트에 대해 30일의 보존 정책을 설정합니다.
 
 ```azurecli
 az acr config retention update --registry myregistry --status enabled --days 30 --type UntaggedManifests
@@ -86,16 +86,16 @@ az acr config retention update --registry myregistry --status disabled --type Un
 
 ### <a name="enable-a-retention-policy"></a>보존 정책 사용
 
-1. Azure Container Registry로 이동합니다. **정책**에서 **보존**(미리 보기)을 선택합니다.
-1. **상태**에서 **사용**을 선택합니다.
-1. 태그 없는 매니페스트를 유지하려면 0에서 365 사이의 일 수를 선택합니다. **저장**을 선택합니다.
+1. Azure Container Registry로 이동합니다. **정책** 에서 **보존**(미리 보기)을 선택합니다.
+1. **상태** 에서 **사용** 을 선택합니다.
+1. 태그 없는 매니페스트를 유지하려면 0에서 365 사이의 일 수를 선택합니다. **저장** 을 선택합니다.
 
 ![Azure Portal에서 보존 정책 사용](media/container-registry-retention-policy/container-registry-retention-policy01.png)
 
 ### <a name="disable-a-retention-policy"></a>보존 정책 사용 안 함
 
-1. Azure Container Registry로 이동합니다. **정책**에서 **보존**(미리 보기)을 선택합니다.
-1. **상태**에서 **사용 안 함**을 선택합니다. **저장**을 선택합니다.
+1. Azure Container Registry로 이동합니다. **정책** 에서 **보존**(미리 보기)을 선택합니다.
+1. **상태** 에서 **사용 안 함** 을 선택합니다. **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

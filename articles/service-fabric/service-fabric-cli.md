@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
 ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83681809"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -62,9 +62,9 @@ Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공�
 
 2. 설치 관리자를 시작합니다.
 
-3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.7 추가**를 선택합니다.
+3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.7 추가** 를 선택합니다.
 
-4. **지금 설치**를 선택하고 설치를 완료합니다.
+4. **지금 설치** 를 선택하고 설치를 완료합니다.
 
 이제 새 명령 창을 열고 Python과 pip의 버전을 모두 가져올 수 있습니다.
 

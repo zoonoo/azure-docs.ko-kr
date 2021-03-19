@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077679"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 신뢰할 수 없는 네트워크에서 액세스를 위한 MFA 요구   
@@ -58,7 +58,7 @@ Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는
 
 - 신뢰할 수 있는 모든 위치 제외 
 
-   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="구성이 예로 설정 되 고, 포함 탭이 표시 되며, 모든 위치 옵션이 선택 되 고 강조 표시 된 Azure A D 위치 창의 스크린샷" border="false":::
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="구성을 예로 설정 하 고, 제외 탭을 표시 하 고, 모든 신뢰할 수 있는 위치 옵션을 선택 하 여 Azure A D 위치 창의 스크린샷" border="false":::
 
 ## <a name="policy-deployment"></a>정책 배포
 

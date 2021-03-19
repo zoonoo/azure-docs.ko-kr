@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929459"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능에 대 한 Faq
@@ -122,7 +122,7 @@ Azure는 각 가상 머신 유형/크기에 대해 네트워크 요금 제한을
 
 FIO로 테스트 하는 데 사용 되는 한 가지 전략은를 설정 하는 것입니다 `numjobs=16` . 이렇게 하면 각 작업을 16 개의 특정 인스턴스로 포크 하 여 Microsoft Hyper-V 네트워크 어댑터를 최대화 합니다.
 
-성능 모니터 > 선택 하 여 Windows 성능 모니터의 각 어댑터에서 작업을 확인할 수 있습니다 **> 네트워크 인터페이스 > Microsoft Hyper-V 네트워크 어댑터를 추가**합니다.
+성능 모니터 > 선택 하 여 Windows 성능 모니터의 각 어댑터에서 작업을 확인할 수 있습니다 **> 네트워크 인터페이스 > Microsoft Hyper-V 네트워크 어댑터를 추가** 합니다.
 
 ![성능 모니터 카운터 추가 인터페이스를 보여 주는 스크린샷](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
 

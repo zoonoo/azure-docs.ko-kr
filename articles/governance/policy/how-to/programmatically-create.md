@@ -1,14 +1,14 @@
 ---
 title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033866"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598493"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -244,5 +244,5 @@ Azure CLI를 사용하여 리소스 정책을 관리하는 방법에 대한 자�
 - [Azure REST API 리소스](/rest/api/resources/)
 - [Azure PowerShell 모듈](/powershell/module/az.resources/#policy)
 - [Azure CLI 정책 명령](/cli/azure/policy)
-- [Azure Policy Insights 리소스 공급자 REST API 참조](/rest/api/policy-insights)
+- [Azure Policy 리소스 공급자 REST API 참조](/rest/api/policy)
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md).

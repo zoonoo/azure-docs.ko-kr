@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83123685"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
@@ -36,26 +36,26 @@ Azure에서 함수에 대 한 배포 단위는 함수 앱입니다. 함수 앱�
 
 기존 함수 앱에 대 한 연속 배포를 구성 하려면 다음 단계를 완료 합니다. 이 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만, Azure Repos 또는 다른 소스 코드 리포지토리에 대해 비슷한 단계가 적용 됩니다.
 
-1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **Deployment Center**를 선택 하 고 **GitHub**를 선택한 다음 **권한 부여**를 선택 합니다. 이미 GitHub를 승인한 경우 **계속** 을 선택 하 고 다음 단계를 건너뜁니다. 
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **Deployment Center** 를 선택 하 고 **GitHub** 를 선택한 다음 **권한 부여** 를 선택 합니다. 이미 GitHub를 승인한 경우 **계속** 을 선택 하 고 다음 단계를 건너뜁니다. 
 
     :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
 
-3. GitHub에서 **AzureAppService 권한 부여**를 선택 합니다.
+3. GitHub에서 **AzureAppService 권한 부여** 를 선택 합니다.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Azure App Service Deployment Center":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="권한 부여 Azure App Service":::
 
-    GitHub 암호를 입력 한 다음 **계속**을 선택 합니다.
+    GitHub 암호를 입력 한 다음 **계속** 을 선택 합니다.
 
 4. 다음 빌드 공급자 중 하나를 선택 합니다.
 
     * **App Service 빌드 서비스**: 빌드가 필요 하지 않거나 제네릭 빌드가 필요한 경우에 가장 적합 합니다.
     * **Azure Pipelines (미리 보기)**: 빌드를 보다 세부적으로 제어 해야 하는 경우에 가장 적합 합니다. 이 공급자는 현재 미리 보기 상태입니다.
 
-    **계속**을 선택합니다.
+    **계속** 을 선택합니다.
 
-5. 지정한 원본 제어 옵션과 관련 된 정보를 구성 합니다. GitHub의 경우 **조직**, **리포지토리**및 **분기**에 대 한 값을 입력 하거나 선택 해야 합니다. 값은 코드의 위치를 기반으로 합니다. 그런 다음 **계속**을 선택 합니다.
+5. 지정한 원본 제어 옵션과 관련 된 정보를 구성 합니다. GitHub의 경우 **조직**, **리포지토리** 및 **분기** 에 대 한 값을 입력 하거나 선택 해야 합니다. 값은 코드의 위치를 기반으로 합니다. 그런 다음 **계속** 을 선택 합니다.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Azure App Service Deployment Center":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="GitHub 구성":::
 
 6. 모든 세부 정보를 검토 한 다음 **마침** 을 선택 하 여 배포 구성을 완료 합니다.
 

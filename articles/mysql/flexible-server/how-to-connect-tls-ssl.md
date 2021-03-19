@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 24a8dd4d21cb6ab6edeb985db4e6e6a1349a758d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940492"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-tls-12-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에서 TLS 1.2 (Transport Layer Security)를 사용 하 여 암호화 된 연결
@@ -23,7 +23,7 @@ Azure Database for MySQL 유연한 서버는 TLS (전송 계층 보안)를 사�
 Azure Database for MySQL 유연한 서버는 TLS 1.2 (Transport Layer Security)를 사용 하는 암호화 된 연결만 지원 하 고 TLS 1.0 및 TLS 1.1를 사용 하는 모든 들어오는 연결은 거부 됩니다. 모든 유연한 서버에서 TLS 연결의 적용을 사용 하도록 설정 하 고 유연한 서버에 연결 하는 데 TLS/SSL을 사용 하지 않도록 설정할 수 없습니다.
 
 ## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>TLS/SSL 연결을 위해 인증서를 확인 해야 하는 응용 프로그램
-경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for MySQL 유연한 서버는 *DigiCert Global ROOT CA*를 사용 합니다. [DigiCert Global ROOT CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 에서 SSL을 통해 통신 하는 데 필요한이 인증서를 다운로드 하 고 인증서 파일을 원하는 위치에 저장 합니다. 예를 들어 이 자습서에서는 `c:\ssl`을 사용합니다.
+경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for MySQL 유연한 서버는 *DigiCert Global ROOT CA* 를 사용 합니다. [DigiCert Global ROOT CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 에서 SSL을 통해 통신 하는 데 필요한이 인증서를 다운로드 하 고 인증서 파일을 원하는 위치에 저장 합니다. 예를 들어 이 자습서에서는 `c:\ssl`을 사용합니다.
 
 ### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>TLS/SSL로 mysql 명령줄 클라이언트를 사용 하 여 연결
 
@@ -48,13 +48,13 @@ Mysql **상태** 명령을 실행 하 여 TLS/SSL을 사용 하 여 mysql 서버
 ```dos
 mysql> status
 ```
-다음을 표시 해야 하는 출력을 검토 하 여 연결이 암호화 되었는지 확인 합니다.  **SSL: Cipher in use가 AES256**입니다. 이 암호 그룹은 예를 표시 하 고 클라이언트를 기반으로 다른 암호 그룹을 볼 수 있습니다.
+다음을 표시 해야 하는 출력을 검토 하 여 연결이 암호화 되었는지 확인 합니다.  **SSL: Cipher in use가 AES256** 입니다. 이 암호 그룹은 예를 표시 하 고 클라이언트를 기반으로 다른 암호 그룹을 볼 수 있습니다.
 
 ## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>응용 프로그램 또는 프레임 워크에서 TLS 연결을 지원 하는지 확인
 
 데이터베이스 서비스에 MySQL을 사용 하는 일부 응용 프로그램 프레임 워크는 설치 하는 동안 기본적으로 TLS를 사용 하도록 설정 하지 않습니다. MySQL 서버는 TLS 연결을 적용 하지만 응용 프로그램이 TLS로 구성 되지 않은 경우 응용 프로그램이 데이터베이스 서버에 연결 하지 못할 수 있습니다. 응용 프로그램의 설명서를 참조 하 여 TLS 연결을 사용 하도록 설정 하는 방법을 알아보세요.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 Azure Portal 서버에 사용할 수 있는 "연결 문자열" 페이지에서 미리 정의 된 연결 문자열에는 TLS/SSL을 사용 하 여 데이터베이스 서버에 연결 하는 데 사용할 수 있는 공용 언어의 필수 매개 변수가 포함 되어 있습니다. TLS/SSL 매개 변수는 커넥터에 따라 달라 집니다. 예: "useSSL = true", "sslmode = required" 또는 "ssl_verify_cert = true" 및 기타 변형.
 
 응용 프로그램에서 TLS/SSL을 통해 유연한 서버에 암호화 된 연결을 설정 하려면 다음 코드 샘플을 참조 하세요.

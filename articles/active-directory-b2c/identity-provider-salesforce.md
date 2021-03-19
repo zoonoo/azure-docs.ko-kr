@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488689"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579929"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -87,6 +87,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
 1. **저장** 을 선택합니다.
 
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>사용자 흐름에 Salesforce id 공급자 추가 
+
+이 시점에서 Salesforce id 공급자가 설정 되었지만 아직 로그인 페이지에서 사용할 수 없습니다. 사용자 흐름에 Salesforce id 공급자를 추가 하려면 다음을 수행 합니다.
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. Salesforce id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.

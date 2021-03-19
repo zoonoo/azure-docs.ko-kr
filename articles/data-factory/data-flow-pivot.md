@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
 ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87086662"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 피벗 변환
@@ -41,7 +41,7 @@ ms.locfileid: "87086662"
 
 피벗 키는 행 값이 새 열로 피벗되는 열입니다. 기본적으로 피벗 변환은 고유한 각 행 값에 대해 새 열을 만듭니다.
 
-레이블이 지정된 **값** 섹션에서 피벗될 특정 행 값을 입력할 수 있습니다. 이 섹션에 입력된 행 값만 피벗됩니다. **Null 값**을 사용하도록 설정하면 열에 null 값에 대한 피벗 열이 생성됩니다.
+레이블이 지정된 **값** 섹션에서 피벗될 특정 행 값을 입력할 수 있습니다. 이 섹션에 입력된 행 값만 피벗됩니다. **Null 값** 을 사용하도록 설정하면 열에 null 값에 대한 피벗 열이 생성됩니다.
 
 ### <a name="pivoted-columns"></a>피벗 열
 
@@ -75,7 +75,7 @@ ms.locfileid: "87086662"
 
 ### <a name="sinking-pivoted-columns"></a>피벗된 열 싱크
 
-피벗된 열은 동적이지만 여전히 대상 데이터 저장소에 쓸 수 있습니다. 싱크 설정에서 **스키마 드리프트 허용**을 사용하도록 설정합니다. 이렇게 하면 메타데이터에 포함되지 않은 열을 작성할 수 있습니다. 열 메타데이터에는 새 동적 이름이 표시되지 않지만 스키마 드리프트 옵션을 사용하면 데이터를 연결할 수 있습니다.
+피벗된 열은 동적이지만 여전히 대상 데이터 저장소에 쓸 수 있습니다. 싱크 설정에서 **스키마 드리프트 허용** 을 사용하도록 설정합니다. 이렇게 하면 메타데이터에 포함되지 않은 열을 작성할 수 있습니다. 열 메타데이터에는 새 동적 이름이 표시되지 않지만 스키마 드리프트 옵션을 사용하면 데이터를 연결할 수 있습니다.
 
 ### <a name="rejoin-original-fields"></a>원본 필드를 다시 조인하는 방법
 

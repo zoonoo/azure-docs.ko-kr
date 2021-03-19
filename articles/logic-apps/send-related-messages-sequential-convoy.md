@@ -7,10 +7,10 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87048663"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Azure Service Bus에서 Azure Logic Apps 순차 호위 (convoy)를 사용 하 여 관련 메시지 보내기
@@ -31,7 +31,7 @@ ms.locfileid: "87048663"
 
 자세한 내용은 [순차 호위 (convoy) 패턴-Azure 아키텍처 클라우드 디자인 패턴](/azure/architecture/patterns/sequential-convoy)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -47,36 +47,36 @@ ms.locfileid: "87048663"
 
 논리 앱에 Service Bus 네임 스페이스에 액세스할 수 있는 권한이 있는지 확실 하지 않은 경우 해당 권한을 확인 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Service Bus *네임 스페이스*를 찾아 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Service Bus *네임 스페이스* 를 찾아 선택 합니다.
 
-1. 네임 스페이스 메뉴의 **설정**에서 **공유 액세스 정책**을 선택 합니다. **클레임**에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
+1. 네임 스페이스 메뉴의 **설정** 에서 **공유 액세스 정책** 을 선택 합니다. **클레임** 에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
 
    ![Service Bus 네임 스페이스에 대 한 사용 권한 관리](./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png)
 
 1. 이제 Service Bus 네임 스페이스에 대 한 연결 문자열을 가져옵니다. 논리 앱에서 네임 스페이스에 대 한 연결을 만들 때 나중에이 문자열을 사용할 수 있습니다.
 
-   1. **공유 액세스 정책** 창의 **정책**아래에서 **RootManageSharedAccessKey**을 선택 합니다.
+   1. **공유 액세스 정책** 창의 **정책** 아래에서 **RootManageSharedAccessKey** 을 선택 합니다.
    
    1. 기본 연결 문자열 옆에 있는 복사 단추를 선택 합니다. 나중에 사용할 연결 문자열을 저장합니다.
 
       ![Service Bus 네임스페이스 연결 문자열 복사](./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png)
 
    > [!TIP]
-   > 연결 문자열이 Service Bus 네임스페이스 또는 메시징 엔터티와 연결되어 있는지 확인하려면 연결 문자열을 검색하여 `EntityPath`  매개 변수를 찾습니다. 이 매개 변수를 찾은 경우 연결 문자열은 특정 엔터티에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
+   > 연결 문자열이 Service Bus 네임스페이스 또는 메시징 엔터티와 연결되어 있는지 확인하려면 `EntityPath` 매개 변수에 대한 연결 문자열을 검색합니다. 이 매개 변수를 찾은 경우 연결 문자열은 특정 엔터티에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
 
 ## <a name="create-logic-app"></a>논리 앱 만들기
 
 이 섹션에서는이 워크플로 패턴을 구현 하기 위한 트리거 및 동작을 포함 하는 **service bus 세션을 사용 하 여 상관 관계가 지정 된 순서 대로 배달을** 사용 하 여 논리 앱을 만듭니다. 또한 Service Bus 네임 스페이스에 대 한 연결을 만들고 사용 하려는 Service Bus 큐의 이름을 지정 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. Azure 홈 페이지에서 **리소스 만들기**  >  **통합**  >  **논리 앱**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. Azure 홈 페이지에서 **리소스 만들기**  >  **통합**  >  **논리 앱** 을 선택 합니다.
 
-1. 템플릿 갤러리가 표시 되 면 비디오 및 일반 트리거 섹션을 지나서 스크롤합니다. **템플릿** 섹션에서 **service bus 세션을 사용 하 여 상관 관계가**지정 된 상관 관계를 제공 하는 템플릿을 선택 합니다.
+1. 템플릿 갤러리가 표시 되 면 비디오 및 일반 트리거 섹션을 지나서 스크롤합니다. **템플릿** 섹션에서 **service bus 세션을 사용 하 여 상관 관계가** 지정 된 상관 관계를 제공 하는 템플릿을 선택 합니다.
 
    !["Service bus 세션을 사용 하 여 상호 관련 된 순서 전달" 템플릿 선택](./media/send-related-messages-sequential-convoy/select-correlated-in-order-delivery-template.png)
 
-1. 확인 상자가 표시 되 면 **이 템플릿 사용**을 선택 합니다.
+1. 확인 상자가 표시 되 면 **이 템플릿 사용** 을 선택 합니다.
 
-1. 논리 앱 디자이너의 **Service Bus** 셰이프에서 **계속**을 선택 하 고 **+** 셰이프에 표시 되는 더하기 기호 ()를 선택 합니다.
+1. 논리 앱 디자이너의 **Service Bus** 셰이프에서 **계속** 을 선택 하 고 **+** 셰이프에 표시 되는 더하기 기호 ()를 선택 합니다.
 
    !["계속"을 선택 하 여 Azure Service Bus에 연결](./media/send-related-messages-sequential-convoy/connect-to-service-bus.png)
 
@@ -84,9 +84,9 @@ ms.locfileid: "87048663"
 
    * 이전에 Service Bus 네임 스페이스에서 복사한 연결 문자열을 사용 하려면 다음 단계를 수행 합니다.
 
-     1. **수동으로 연결 정보 입력**을 선택 합니다.
+     1. **수동으로 연결 정보 입력** 을 선택 합니다.
 
-     1. **연결 이름**에 연결 이름을 입력 합니다. **연결 문자열**에 대해 네임 스페이스 연결 문자열을 붙여넣고 **만들기**를 선택 합니다. 예를 들면 다음과 같습니다.
+     1. **연결 이름** 에 연결 이름을 입력 합니다. **연결 문자열** 에 대해 네임 스페이스 연결 문자열을 붙여넣고 **만들기** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
         ![연결 이름 입력 및 연결 문자열 Service Bus](./media/send-related-messages-sequential-convoy/provide-service-bus-connection-string.png)
 
@@ -95,15 +95,15 @@ ms.locfileid: "87048663"
 
    * 현재 Azure 구독에서 Service Bus 네임 스페이스를 선택 하려면 다음 단계를 수행 합니다.
 
-     1. **연결 이름**에 연결 이름을 입력 합니다. **네임 스페이스 Service Bus**Service Bus 네임 스페이스를 선택 합니다. 예를 들면 다음과 같습니다.
+     1. **연결 이름** 에 연결 이름을 입력 합니다. **네임 스페이스 Service Bus** Service Bus 네임 스페이스를 선택 합니다. 예를 들면 다음과 같습니다.
 
         ![연결 이름을 입력 하 고 네임 스페이스 Service Bus 선택](./media/send-related-messages-sequential-convoy/create-service-bus-connection.png)
 
-     1. 다음 창이 표시 되 면 Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
+     1. 다음 창이 표시 되 면 Service Bus 정책을 선택 하 고 **만들기** 를 선택 합니다.
 
         ![Service Bus 정책을 선택 하 고 "만들기"를 선택 합니다.](./media/send-related-messages-sequential-convoy/create-service-bus-connection-2.png)
 
-1. 완료 되 면 **계속**을 선택 합니다.
+1. 완료 되 면 **계속** 을 선택 합니다.
 
    이제 논리 앱 디자이너에는 **서비스 버스 세션 템플릿을 사용 하 여 상호 관련 된 순차적 전달** 이 표시 됩니다. 여기에는 패턴을 따르는 오류 처리를 구현 하는 두 개의 범위를 비롯 하 여 트리거와 작업을 포함 하는 미리 채워진 워크플로가 포함 되어 있습니다 `Try-Catch` .
 
@@ -156,7 +156,7 @@ ms.locfileid: "87048663"
 
 #### <a name="branch-2-abandon-initial-message-from-the-queue"></a>분기 #2: 큐에서 초기 메시지를 중단 합니다.
 
-첫 번째 메시지를 처리 하는 작업이 실패 하는 경우 Service Bus 작업은 **큐에서 초기 메시지를 중단**하 고 다른 워크플로 인스턴스가 실행 되 고 처리 하기 위해 메시지를 해제 합니다. 자세한 내용은 [초기 메시지 처리](#handle-initial-message)를 참조 하세요.
+첫 번째 메시지를 처리 하는 작업이 실패 하는 경우 Service Bus 작업은 **큐에서 초기 메시지를 중단** 하 고 다른 워크플로 인스턴스가 실행 되 고 처리 하기 위해 메시지를 해제 합니다. 자세한 내용은 [초기 메시지 처리](#handle-initial-message)를 참조 하세요.
 
 <a name="catch-scope"></a>
 
@@ -199,7 +199,7 @@ ms.locfileid: "87048663"
   | **큐 유형** | 예 | **기본** | 기본 Service Bus 큐 |
   | **세션 id** | 예 | **다음 사용 가능** | 이 옵션은 Service Bus 큐에 있는 메시지의 세션 ID를 기반으로 하 여 각 트리거 실행에 대 한 세션을 가져옵니다. 다른 논리 앱 이나 다른 클라이언트에서이 세션과 관련 된 메시지를 처리할 수 없도록 세션도 잠깁니다. 워크플로의 후속 작업은이 문서의 뒷부분에 설명 된 대로 해당 세션과 연결 된 모든 메시지를 처리 합니다. <p><p>다른 **세션 id** 옵션에 대 한 자세한 내용은 다음과 같습니다. <p>- **None**: 기본 옵션으로, 세션을 생성 하지 않으며 순차 호위 (convoy) 패턴을 구현 하는 데 사용할 수 없습니다. <p>- **사용자 지정 값 입력**: 사용할 세션 id를 알고 있는 경우이 옵션을 사용 합니다 .이 옵션은 항상 해당 세션 id에 대해 트리거를 실행 하려고 합니다. <p>**참고**: Service Bus 커넥터는 Azure Service Bus에서 커넥터 캐시로 제한 된 수의 고유 세션을 저장할 수 있습니다. 세션 수가이 한도를 초과 하면 이전 세션이 캐시에서 제거 됩니다. 자세한 내용은 [Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 교환 메시지](../connectors/connectors-create-api-servicebus.md#connector-reference)를 참조 하세요. |
   | **간격** | 예 | <*간격 수*> | 메시지를 확인 하기 전 되풀이 사이의 시간 단위 수입니다. |
-  | **빈도** | 예 | **초**, **분**, **시간**, **일**, **주** 또는 **월** | 메시지를 확인할 때 되풀이가 사용 되는 시간 단위입니다. <p>**팁**: **표준 시간대** 또는 **시작 시간**을 추가 하려면 **새 매개 변수 추가** 목록에서 이러한 속성을 선택 합니다. |
+  | **빈도** | 예 | **초**, **분**, **시간**, **일**, **주** 또는 **월** | 메시지를 확인할 때 되풀이가 사용 되는 시간 단위입니다. <p>**팁**: **표준 시간대** 또는 **시작 시간** 을 추가 하려면 **새 매개 변수 추가** 목록에서 이러한 속성을 선택 합니다. |
   |||||
 
   자세한 트리거 정보는 [Service Bus-큐에 메시지가 수신 되는 경우 (보기-잠금)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock))를 참조 하세요. 트리거는 [Servicebusmessage](/connectors/servicebus/#servicebusmessage)를 출력 합니다.
@@ -218,17 +218,17 @@ ms.locfileid: "87048663"
 
 ### <a name="handle-the-initial-message"></a>초기 메시지 처리
 
-첫 번째 작업은 자리 표시자 Service Bus 작업 인 **항목에 초기 메시지 보내기 항목**입니다 .이 작업은 큐에 있는 세션의 첫 번째 메시지를 처리 하려는 다른 작업으로 바꿀 수 있습니다. 세션 ID는 메시지가 시작 된 세션을 지정 합니다.
+첫 번째 작업은 자리 표시자 Service Bus 작업 인 **항목에 초기 메시지 보내기 항목** 입니다 .이 작업은 큐에 있는 세션의 첫 번째 메시지를 처리 하려는 다른 작업으로 바꿀 수 있습니다. 세션 ID는 메시지가 시작 된 세션을 지정 합니다.
 
 자리 표시자 Service Bus 작업은 **세션 Id** 속성으로 지정 된 Service Bus 토픽에 첫 번째 메시지를 보냅니다. 이렇게 하면 특정 세션과 연결 된 모든 메시지가 같은 항목으로 이동 합니다. 이 템플릿의 후속 동작에 대 한 모든 **세션 id** 속성은 동일한 세션 id 값을 사용 합니다.
 
 !["항목에 초기 메시지 보내기"에 대 한 작업 세부 정보를 Service Bus.](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
 
-1. Service Bus 작업에서 **큐의 초기 메시지를 완료**하 고 Service Bus 큐의 이름을 입력 한 다음 작업의 다른 모든 기본 속성 값을 유지 합니다.
+1. Service Bus 작업에서 **큐의 초기 메시지를 완료** 하 고 Service Bus 큐의 이름을 입력 한 다음 작업의 다른 모든 기본 속성 값을 유지 합니다.
 
    !["큐의 초기 메시지 완료"에 대 한 작업 세부 정보를 Service Bus.](./media/send-related-messages-sequential-convoy/complete-initial-message-queue.png)
 
-1. Service Bus 작업에서 큐의 **초기 메시지를 중단**하 고 Service Bus 큐의 이름을 입력 한 다음 작업의 다른 모든 기본 속성 값을 유지 합니다.
+1. Service Bus 작업에서 큐의 **초기 메시지를 중단** 하 고 Service Bus 큐의 이름을 입력 한 다음 작업의 다른 모든 기본 속성 값을 유지 합니다.
 
    !["큐에서 초기 메시지 중단"에 대 한 작업 세부 정보를 Service Bus.](./media/send-related-messages-sequential-convoy/abandon-initial-message-from-queue.png)
 
@@ -246,7 +246,7 @@ ms.locfileid: "87048663"
 
 ![Until 루프-큐에 있는 동안 메시지를 처리 합니다.](./media/send-related-messages-sequential-convoy/while-more-messages-for-session-in-queue.png)
 
-1. Service Bus 작업에서 **세션에서 추가 메시지를 가져옵니다**Service Bus 큐의 이름을 제공 합니다. 그렇지 않으면 다른 모든 기본 속성 값을 작업에 유지 합니다.
+1. Service Bus 작업에서 **세션에서 추가 메시지를 가져옵니다** Service Bus 큐의 이름을 제공 합니다. 그렇지 않으면 다른 모든 기본 속성 값을 작업에 유지 합니다.
 
    > [!NOTE]
    > 기본적으로 최대 메시지 수는로 설정 `175` 되지만이 제한은 Service Bus의 메시지 크기와 최대 메시지 크기 속성의 영향을 받습니다. 자세한 내용은 [큐의 메시지 크기](../service-bus-messaging/service-bus-quotas.md)를 참조 하십시오.
@@ -261,11 +261,11 @@ ms.locfileid: "87048663"
 
    ![조건-메시지를 처리 합니다.](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
 
-   **If false** 섹션에서 **for EACH** 루프는 FIFO (선입 선출)로 각 메시지를 처리 합니다. 루프의 **설정**에서 **동시성 제어** 설정은로 설정 `1` 되므로 한 번에 하나의 메시지만 처리 됩니다.
+   **If false** 섹션에서 **for EACH** 루프는 FIFO (선입 선출)로 각 메시지를 처리 합니다. 루프의 **설정** 에서 **동시성 제어** 설정은로 설정 `1` 되므로 한 번에 하나의 메시지만 처리 됩니다.
 
    !["For each" 루프-각 메시지를 한 번에 하나씩 처리 합니다.](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
-1. Service Bus 작업의 경우 큐 **에 있는 메시지를 완료** 하 고 **큐에서 메시지를 중단**하 고 Service Bus 큐의 이름을 입력 합니다.
+1. Service Bus 작업의 경우 큐 **에 있는 메시지를 완료** 하 고 **큐에서 메시지를 중단** 하 고 Service Bus 큐의 이름을 입력 합니다.
 
    ![작업 Service Bus-"큐에서 메시지 완료" 및 "큐에서 메시지 중단"](./media/send-related-messages-sequential-convoy/abandon-or-complete-message-in-queue.png)
 
@@ -297,11 +297,11 @@ ms.locfileid: "87048663"
 
 이 Service Bus 작업은 워크플로에서 메시지를 계속 처리 하는 동안 큐의 세션에 대 한 잠금을 갱신 합니다.
 
-* Service Bus 작업에서 **큐의 세션에 대 한 잠금을 갱신**하 고 Service Bus 큐의 이름을 입력 합니다.
+* Service Bus 작업에서 **큐의 세션에 대 한 잠금을 갱신** 하 고 Service Bus 큐의 이름을 입력 합니다.
 
   ![Service Bus 작업-"큐의 세션에서 잠금 갱신"](./media/send-related-messages-sequential-convoy/renew-lock-on-session-in-queue.png)
 
-다음으로 Service Bus 작업에 필요한 정보를 제공 하 **고 큐에서 세션을 닫은 후 성공**합니다.
+다음으로 Service Bus 작업에 필요한 정보를 제공 하 **고 큐에서 세션을 닫은 후 성공** 합니다.
 
 <a name="close-session-succeed"></a>
 
@@ -309,7 +309,7 @@ ms.locfileid: "87048663"
 
 이 Service Bus 작업을 수행 하면 워크플로에서 큐의 사용 가능한 모든 메시지 처리를 완료 하거나 워크플로가 초기 메시지를 중단 한 후 큐의 세션이 닫힙니다.
 
-* Service Bus 작업에서 **큐의 세션을 닫고 성공 하 고**Service Bus 큐의 이름을 입력 합니다.
+* Service Bus 작업에서 **큐의 세션을 닫고 성공 하 고** Service Bus 큐의 이름을 입력 합니다.
 
   ![Service Bus 작업-"큐에서 세션을 닫고 성공 합니다."](./media/send-related-messages-sequential-convoy/close-session-in-queue-succeed.png)
 
@@ -321,7 +321,7 @@ ms.locfileid: "87048663"
 
 이 Service Bus 작업은 항상 범위의 첫 번째 작업으로 실행 되 `Catch` 고 큐에서 세션을 닫습니다.
 
-* Service Bus 작업에서 **큐의 세션을 닫고 실패**한 Service Bus 큐의 이름을 입력 합니다.
+* Service Bus 작업에서 **큐의 세션을 닫고 실패** 한 Service Bus 큐의 이름을 입력 합니다.
 
   ![Service Bus 작업-"큐의 세션을 닫고 실패 합니다."](./media/send-related-messages-sequential-convoy/close-session-in-queue-fail.png)
 
@@ -416,7 +416,7 @@ ms.locfileid: "87048663"
 
 ## <a name="save-and-run-logic-app"></a>논리 앱 저장 및 실행
 
-템플릿을 완료 한 후 이제 논리 앱을 저장할 수 있습니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+템플릿을 완료 한 후 이제 논리 앱을 저장할 수 있습니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 논리 앱을 테스트 하려면 Service Bus 큐로 메시지를 보냅니다. 
 

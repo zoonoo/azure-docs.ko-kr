@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074800"
 ---
 # <a name="overview-of-the-developer-portal"></a>개발자 포털 개요
@@ -62,7 +62,7 @@ API Management 서비스에는 기본 제공 되 고 항상 최신의 **관리 �
 
 콘텐츠의 미리 보기 버전을 기준으로 포털을 많이 사용자 지정한 경우이를 그대로 그대로 사용 하 고 포털의 페이지에 새 위젯을 수동으로 추가할 수 있습니다. 그렇지 않으면 포털의 콘텐츠를 새 기본 콘텐츠로 바꾸는 것이 좋습니다.
 
-관리 포털에서 콘텐츠를 다시 설정 하려면 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 선택 합니다. 이 작업을 수행 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 개발자 포털 사용자 지정 및 변경 내용이 모두 손실 됩니다. **이 작업을 실행 취소할 수 없습니다** .
+관리 포털에서 콘텐츠를 다시 설정 하려면 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 선택 합니다. 이 작업을 수행 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 개발자 포털 사용자 지정 및 변경 내용이 모두 손실 됩니다. **이 작업을 실행 취소할 수 없습니다**.
 
 ![포털 콘텐츠 다시 설정](media/api-management-howto-developer-portal/reset-content.png)
 

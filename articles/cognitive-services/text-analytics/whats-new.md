@@ -8,19 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736643"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598901"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+
+## <a name="march-2021"></a>2021년 3월
+
+### <a name="general-api-updates"></a>일반 API 업데이트
+* 다음을 포함 하는 새 API v 3.1-preview. 4 릴리스 
+   * 의견 마이닝 JSON 응답 본문의 변경 내용: 
+      * `aspects` 현재이 `targets` 고 `opinions` 가입니다 `assessments` . 
+   * 상태에 대 한 Text Analytics 호스트 된 웹 API의 JSON 응답 본문 변경 내용: 
+      * `isNegated`부정에 대해 검색 된 엔터티 개체의 부울 이름은 더 이상 사용 되지 않으며 어설션 검색으로 대체 됩니다.
+      * 라는 새 속성 `role` 은 이제 특성과 엔터티 간의 추출 된 관계와 엔터티 간의 관계에 속합니다.  이렇게 하면 검색 된 관계 유형에 특이성가 추가 됩니다.
+   * 이제 끝점에서 엔터티 링크를 비동기 작업으로 사용할 수 있습니다 `/analyze` .
+   * `pii-categories`이제 끝점에서 새 매개 변수를 사용할 수 있습니다 `/pii` .
+      * 이 매개 변수를 사용 하 여 선택 된 PII 엔터티 뿐만 아니라 입력 언어에 대해 기본적으로 지원 되지 않는 엔터티를 지정할 수 있습니다.
+* 비동기 분석 및 상태 작업 Text Analytics를 포함 하는 업데이트 된 클라이언트 라이브러리입니다. GitHub에 대 한 예제를 찾을 수 있습니다.
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [텍스트 분석 API v 3.1-Preview. 4에 대해 자세히 알아보세요. 4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### <a name="text-analytics-for-health-updates"></a>상태 업데이트에 대 한 Text Analytics
+
+* 에서 제공 하는 `2021-03-01` `/health` 끝점 및 온-프레미스 컨테이너의 새 모델 버전
+    * 엔터티 형식의 이름 바꾸기 `Gene` `GeneOrProtein` 입니다.
+    * 새 `Date` 엔터티 형식입니다.
+    * 부정 검색을 대체 하는 어설션 검색 (API v 3.1-preview. 4 에서만 사용 가능).
+    * `name`다양 한 온톨로지 및 코딩 시스템에서 정규화 된 연결 된 엔터티에 대 한 새로운 기본 설정 속성입니다 (API v 3.1-preview 에서만 사용 가능). 
+* 태그를 포함 하는 새 컨테이너 이미지가 `3.0.015370001-onprem-amd64` `2021-03-01` 컨테이너 미리 보기 리포지토리에 릴리스 되었습니다. 
+* 상태 컨테이너 이미지에 대 한 Text Analytics는 다음 달에 새 리포지토리로 이동 하 게 됩니다.  새 홈의 위치에서 전자 메일 통신을 시청 하세요.
+> [!div class="nextstepaction"]
+> [상태 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
+>
+
+### <a name="text-analytics-resource-portal-update"></a>Text Analytics 리소스 포털 업데이트
+* **처리 된 텍스트 레코드** 는 이제 Azure Portal의 Text Analytics 리소스에 대 한 **모니터링** 섹션에서 메트릭으로 사용할 수 있습니다.  
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -46,7 +84,7 @@ ms.locfileid: "101736643"
 
 ## <a name="december-2020"></a>2020년 12월
 
-* 텍스트 분석 API에 대 한 [업데이트 된 가격](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 정보
+* 텍스트 분석 API에 대 한 [가격 정보가 업데이트 되었습니다](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) .
 
 ## <a name="november-2020"></a>2020년 11월
 
@@ -59,8 +97,7 @@ ms.locfileid: "101736643"
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 

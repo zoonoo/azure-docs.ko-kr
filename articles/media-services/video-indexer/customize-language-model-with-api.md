@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: kumud
 ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87047077"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Video Indexer API를 사용 하 여 언어 모델 사용자 지정
@@ -105,7 +105,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-반환 되는는 `id` 언어 모델을 구별 하는 데 사용 되는 고유 ID 이며,는 비디오 api를 인덱싱하고 `languageModelId` [인덱스를 재 인덱싱하](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 는 데 사용 됩니다 Video Indexer ( [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) `linguisticModelId` api 업로드/인덱스 재 인덱싱).
+반환 되는는 `id` 언어 모델을 구별 하는 데 사용 되는 고유 ID 이며,는 비디오 api를 인덱싱하고 `languageModelId` [인덱스를 재 인덱싱하](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 는 데 사용 됩니다 Video Indexer ( [](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) `linguisticModelId` api 업로드/인덱스 재 인덱싱).
 
 ## <a name="delete-a-language-model"></a>언어 모델 삭제
 
