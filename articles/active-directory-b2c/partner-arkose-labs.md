@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 46f117b13909c2d9624b88e9f5d9a62c4c646e51
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c2aceedd57bcc7cd88c4e822c7b696e36b28bd8f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500295"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579793"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Arkose Labs 구성
 
 이 샘플 자습서에서는 AD (Azure Active Directory) B2C 인증과 [Arkose Labs](https://www.arkoselabs.com/)를 통합 하는 방법에 대해 알아봅니다. Arkose Labs는 봇 공격, 계정 인수 공격 및 사기성 계정 입구에 대해 조직을 지원 합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -81,13 +81,13 @@ Arkose Labs 통합에는 다음 구성 요소가 포함 됩니다.
 
 5. **만들기** 를 선택합니다.
 
-[사용자 지정 특성](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow)에 대해 자세히 알아보세요.
+[사용자 지정 특성](./user-flow-custom-attributes.md?pivots=b2c-user-flow)에 대해 자세히 알아보세요.
 
 ### <a name="part-2---create-a-user-flow"></a>2 부-사용자 흐름 만들기
 
 사용자 흐름은 **등록** 및 **로그인** 또는 **등록** 에 사용할 수 있습니다. 등록 하는 동안에만 Arkose Labs 사용자 흐름이 표시 됩니다.
 
-1. 사용자 흐름을 만드는 방법에 대 한 [지침](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) 을 참조 하세요. 기존 사용자 흐름을 사용 하는 경우 **권장 되는 (차세대 미리 보기)** 버전 유형 이어야 합니다.
+1. 사용자 흐름을 만드는 방법에 대 한 [지침](./tutorial-create-user-flows.md) 을 참조 하세요. 기존 사용자 흐름을 사용 하는 경우 **권장 되는 (차세대 미리 보기)** 버전 유형 이어야 합니다.
 
 2. 사용자 흐름 설정에서 **사용자 특성** 으로 이동 하 여 **ArkoseSessionToken** 클레임을 선택 합니다.
 
@@ -109,7 +109,7 @@ Arkose Labs 통합에는 다음 구성 요소가 포함 됩니다.
 
 1. [](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html) `<ARKOSE_PUBLIC_KEY>` 클라이언트 쪽 유효성 검사를 위해 생성 된 값과 일치 하 고 계정에 대 한 Arkose Labs 스크립트를 로드 하는 데 사용 되는selfAsserted.html 파일을 수정 합니다.
 
-2. CORS (크로스-원본 자원 공유) 사용 웹 끝점에서 HTML 페이지를 호스팅합니다. [Azure blob storage 계정을 만들고](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) CORS를 [구성](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)합니다.
+2. CORS (크로스-원본 자원 공유) 사용 웹 끝점에서 HTML 페이지를 호스팅합니다. [Azure blob storage 계정을 만들고](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) CORS를 [구성](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)합니다.
 
   >[!NOTE]
   >사용자 고유의 사용자 지정 HTML이 있는 경우 요소를 복사 하 여 `<script>` html 페이지에 붙여 넣습니다.
@@ -132,7 +132,7 @@ Arkose Labs 통합에는 다음 구성 요소가 포함 됩니다.
 
    ![페이지 레이아웃을 보여 주는 이미지](media/partner-arkose-labs/page-layouts.png)
 
-4. 사용자 흐름에서 **속성** 으로 이동 하 여 JavaScript 적용 페이지 레이아웃 **사용** (미리 보기)을 선택 합니다. 자세히 알아보려면이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow) 를 참조 하세요.
+4. 사용자 흐름에서 **속성** 으로 이동 하 여 JavaScript 적용 페이지 레이아웃 **사용** (미리 보기)을 선택 합니다. 자세히 알아보려면이 [문서](./javascript-and-page-layout.md?pivots=b2c-user-flow) 를 참조 하세요.
 
 ### <a name="part-4---create-and-deploy-your-api"></a>4 부-API 만들기 및 배포
 
@@ -157,7 +157,7 @@ Visual Studio Code에 대 한 [Azure Functions 확장](https://marketplace.visua
 
 이 샘플은 [HTTP 기본 인증](https://tools.ietf.org/html/rfc7617)을 사용 하 여 web API 끝점을 보호 합니다.
 
-사용자 이름 및 암호는 리포지토리의 일부가 아니라 환경 변수로 저장 됩니다. 자세한 내용은 파일 [ 의local.settings.js](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash#local-settings-file) 를 참조 하세요.
+사용자 이름 및 암호는 리포지토리의 일부가 아니라 환경 변수로 저장 됩니다. 자세한 내용은 파일 [ 의local.settings.js](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) 를 참조 하세요.
 
 1. 루트 폴더의 파일에 local.settings.js를 만듭니다.
 
@@ -186,15 +186,15 @@ Visual Studio Code에 대 한 [Azure Functions 확장](https://marketplace.visua
 
 #### <a name="deploy-the-application-to-the-web"></a>웹에 응용 프로그램 배포
 
-1. [이](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-04) 가이드에 설명 된 단계에 따라 Azure 함수를 클라우드에 배포 합니다. Azure Function의 끝점 웹 URL을 복사 합니다.
+1. [이](/azure/javascript/tutorial-vscode-serverless-node-04) 가이드에 설명 된 단계에 따라 Azure 함수를 클라우드에 배포 합니다. Azure Function의 끝점 웹 URL을 복사 합니다.
 
-2. 배포 되 면 **업로드 설정** 옵션을 선택 합니다. 사용자 환경 변수를 App service의 [응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#application-settings-in-azure) 에 업로드 합니다. 이러한 응용 프로그램 설정은 [Azure Portal를 통해](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) 구성 하거나 관리할 수도 있습니다.
+2. 배포 되 면 **업로드 설정** 옵션을 선택 합니다. 사용자 환경 변수를 App service의 [응용 프로그램 설정](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure) 에 업로드 합니다. 이러한 응용 프로그램 설정은 [Azure Portal를 통해](../azure-functions/functions-how-to-use-azure-function-app-settings.md) 구성 하거나 관리할 수도 있습니다.
 
-Azure Functions에 대 한 Visual Studio Code 개발에 대해 자세히 알아보려면 [이 문서](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files) 를 참조 하세요.
+Azure Functions에 대 한 Visual Studio Code 개발에 대해 자세히 알아보려면 [이 문서](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files) 를 참조 하세요.
 
 #### <a name="configure-and-enable-the-api-connector"></a>API 커넥터 구성 및 사용
 
-[API 커넥터를 만들고](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) 사용자 흐름에 사용 하도록 설정 합니다. API 커넥터 구성은 다음과 같아야 합니다.
+[API 커넥터를 만들고](./add-api-connector.md) 사용자 흐름에 사용 하도록 설정 합니다. API 커넥터 구성은 다음과 같아야 합니다.
 
 ![Api 커넥터를 구성 하는 방법을 보여 주는 이미지](media/partner-arkose-labs/configure-api-connector.png)
 
@@ -232,6 +232,6 @@ API 커넥터를 사용 하도록 설정 하려면 사용자 흐름에 대 한 *
 
 - Azure AD B2C 등록 사용자 흐름에 대 한 [샘플 코드](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose)
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

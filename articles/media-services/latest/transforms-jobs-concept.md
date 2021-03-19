@@ -3,7 +3,7 @@
 제목: Media Services 변환 및 작업: Azure Media Services 설명: Azure Media Services에서 비디오를 처리 하는 규칙을 설명 하는 변환을 만드는 방법을 알아봅니다.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 08/19/2019. 작성자: inhenkel
+ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 03/17/2021. 작성자: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
@@ -39,7 +39,7 @@ ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 
 > [!NOTE]
 > Datetime 형식의 **변환** 및 **작업** 속성은 항상 UTC 형식입니다.
 
-## <a name="transforms"></a>변환
+## <a name="transforms"></a>변형
 
 **Transforms** 는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 
@@ -77,7 +77,7 @@ URL을 통해 콘텐츠를 이미 액세스할 수 있고 원본 파일을 Azure
 
 ### <a name="checking-job-progress"></a>작업 진행 상황 확인
 
-Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태를 가져올 수 있습니다. 자세한 내용은 [Event Grid를 사용하여 이벤트 모니터링](job-state-events-cli-how-to.md)을 참조하세요.
+Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태를 가져올 수 있습니다. 자세한 내용은 [Event Grid를 사용하여 이벤트 모니터링](monitoring/job-state-events-cli-how-to.md)을 참조하세요.
 
 ### <a name="updating-jobs"></a>작업 업데이트
 

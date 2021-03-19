@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: f7e371f892fb0796a310be46a402781e8eb57e1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 36e5b020241f7be33aa4cfa473222ad301d18fbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103009422"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581102"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
 
@@ -149,7 +149,6 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * 하늘 CP l t t
-* Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV 글로벌 SAS
 * SoftAtHome
 * Sony Corporation

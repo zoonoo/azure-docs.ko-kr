@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651130"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579368"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -65,7 +65,7 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-| 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
+| 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
 | [AZURE AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 결합 된 등록](howto-registration-mfa-sspr-combined.md) 을 사용할 수 있습니다. | √ | √ |
 | [사용자는 Azure AD Multi-Factor Authentication를 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
@@ -330,4 +330,4 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 - [Azure AD에 로그인 하는 데 암호 없는 보안 키 사용](howto-authentication-passwordless-security-key.md)
 - [Microsoft Authenticator 앱에서 암호 없는 로그인을 사용 하도록 설정](howto-authentication-passwordless-phone.md)
-- [인증 방법 사용 & insights에 대해 자세히 알아보기](howto-authentication-methods-usage-insights.md)
+- [인증 방법 사용 & insights에 대해 자세히 알아보기](./howto-authentication-methods-activity.md)

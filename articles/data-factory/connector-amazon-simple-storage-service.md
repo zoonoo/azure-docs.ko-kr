@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/14/2021
-ms.openlocfilehash: 2680c930bfa8451eec7dd518d3c535e0d04046cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 03b0cd852f34e115cc5bbc60448e45fcbb680474
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601230"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -62,13 +62,13 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **AmazonS3** 로 설정 해야 합니다. | 예 |
-| authenticationType | Amazon S3에 연결 하는 데 사용 되는 인증 유형을 지정 합니다. AWS Id 및 액세스 관리 (IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대 한 액세스 키를 사용 하도록 선택할 수 있습니다.<br>허용 되는 값은 `AccessKey` (기본값) 및 `TemporarySecurityCredentials` 입니다. |예 |
+| authenticationType | Amazon S3에 연결 하는 데 사용 되는 인증 유형을 지정 합니다. AWS Id 및 액세스 관리 (IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대 한 액세스 키를 사용 하도록 선택할 수 있습니다.<br>허용 되는 값은 `AccessKey` (기본값) 및 `TemporarySecurityCredentials` 입니다. |아니요 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| sessionToken | [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) 인증을 사용 하는 경우에 적용 됩니다. AWS에서 [임시 보안 자격 증명을 요청](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) 하는 방법을 알아봅니다.<br>AWS 임시 자격 증명은 설정에 따라 15 분에서 36 시간 사이에 만료 됩니다. 작업이 실행 될 때 자격 증명이 유효한 지 확인 합니다. 예를 들어 조작 가능한 워크 로드의 경우 정기적으로 새로 고쳐 Azure Key Vault에 저장할 수 있습니다.<br>이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| sessionToken | [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) 인증을 사용 하는 경우에 적용 됩니다. AWS에서 [임시 보안 자격 증명을 요청](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) 하는 방법을 알아봅니다.<br>AWS 임시 자격 증명은 설정에 따라 15 분에서 36 시간 사이에 만료 됩니다. 작업이 실행 될 때 자격 증명이 유효한 지 확인 합니다. 예를 들어 조작 가능한 워크 로드의 경우 정기적으로 새로 고쳐 Azure Key Vault에 저장할 수 있습니다.<br>이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |아니요 |
 | serviceUrl | 공식 Amazon S3 서비스 이외의 S3 호환 저장소 공급자에서 데이터를 복사 하는 경우 사용자 지정 S3 끝점을 지정 합니다. 예를 들어 Google Cloud Storage에서 데이터를 복사하려면 `https://storage.googleapis.com`을 지정합니다. | 예 |
 | forcePathStyle | 가상 호스트 스타일 액세스 대신 S3 [경로 스타일 액세스](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) 를 사용할지 여부를 나타냅니다. 허용 되는 값은 **false** (기본값), **true** 입니다.<br>공식 Amazon S3 서비스가 아닌 S3 호환 저장소 공급자에 연결 하는 경우 해당 데이터 저장소에 경로 스타일 액세스 (예: [Oracle 클라우드 저장소](https://docs.oracle.com/iaas/Content/Object/Tasks/s3compatibleapi.htm))가 필요한 경우이 속성을 true로 설정 합니다. 경로 스타일 액세스가 필요한 지 여부는 각 데이터 저장소의 설명서를 참조 하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
 
 >[!TIP]
 >공식 Amazon S3 서비스 이외의 S3 호환 저장소에서 데이터를 복사 하는 경우 사용자 지정 S3 서비스 URL을 지정 합니다.
@@ -189,9 +189,9 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL** 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                                          |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 예                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 아니요                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/>-접두사를 사용 하는 경우 파티션 루트 경로는 마지막 "/" 앞의 하위 경로입니다. <br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
-| maxConcurrentConnections | 데이터 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예                                                          |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예                                                          |
 
 **예:**
 
@@ -362,7 +362,7 @@ Amazon s 3에서 Azure Data Lake Storage Gen2 또는 Azure Blob Storage로 파�
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **FileSystemSource** 로 설정 해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |
-| maxConcurrentConnections | 데이터 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
 
 **예:**
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356755"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586304"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>로그 디스크를 울트라 디스크로 마이그레이션
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ VM에서 ultradisk compatibility를 사용 하도록 설정 하면 가상 머신
 
 1. **예** 를 선택 하 여 **Ultra Disk 호환성을 사용 하도록 설정** 합니다. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="예 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="예 옵션을 보여 주는 스크린샷":::
 
 1. **저장** 을 선택합니다. 
 

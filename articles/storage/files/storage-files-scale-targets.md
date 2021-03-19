@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149463"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593155"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md) 는 클라우드에서 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전히 관리 되는 파일 공유를 제공 합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -29,7 +29,7 @@ Azure는 고객이 가질 수 있는 다양 한 저장소 시나리오에 대해
 
 - **FileStorage 스토리지 계정**: FileStorage 스토리지 계정을 사용하면 프리미엄/반도체 디스크 기반(SSD 기반) 하드웨어에 Azure 파일 공유를 배포할 수 있습니다. FileStorage 계정은 Azure 파일 공유를 저장하는 데만 사용할 수 있습니다. 다른 스토리지 리소스(Blob 컨테이너, 큐, 테이블 등)는 FileStorage 계정에 배포할 수 없습니다.
 
-| attribute | GPv2 저장소 계정 (표준) | FileStorage storage 계정 (프리미엄) |
+| 특성 | GPv2 저장소 계정 (표준) | FileStorage storage 계정 (프리미엄) |
 |-|-|-|
 | 구독당 지역별 스토리지 계정 수 | 250 | 250 |
 | 최대 스토리지 계정 용량 | 5 PiB<sup>1</sup> | 100 TiB (프로 비전 됨) |
@@ -46,7 +46,7 @@ Azure는 고객이 가질 수 있는 다양 한 저장소 시나리오에 대해
 <sup>1</sup> 범용 버전 2 저장소 계정은 요청에의 한 수신에 대 한 더 높은 용량 제한과 더 높은 제한을 지원 합니다. 계정 제한을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
 
 ### <a name="azure-file-share-scale-targets"></a>Azure 파일 공유 크기 조정 목표
-| attribute | 표준 파일 공유<sup>1</sup> | 프리미엄 파일 공유 |
+| 특성 | 표준 파일 공유<sup>1</sup> | 프리미엄 파일 공유 |
 |-|-|-|
 | 파일 공유의 최소 크기 | 최소 | 100 GiB (프로 비전 됨) |
 | 프로 비전 된 크기 증가/감소 단위 | 해당 없음 | GiB 1 |
@@ -67,7 +67,7 @@ Azure는 고객이 가질 수 있는 다양 한 저장소 시나리오에 대해
 <sup>2</sup> 표준 파일 공유에 대 한 기본값은 5 TiB, 표준 파일 공유 크기를 100 TiB까지 늘리는 방법에 대 한 자세한 내용은 [대용량 파일 공유 사용 및 만들기](./storage-files-how-to-create-large-file-share.md) 를 참조 하세요.
 
 ### <a name="file-scale-targets"></a>파일 배율 대상
-| attribute | 표준 파일 공유의 파일  | 프리미엄 파일 공유의 파일  |
+| 특성 | 표준 파일 공유의 파일  | 프리미엄 파일 공유의 파일  |
 |-|-|-|
 | 최대 파일 크기 | 4TiB | 4TiB |
 | 최대 동시 요청 빈도 | 1000 IOPS | 최대 8000<sup>1</sup> |
@@ -134,7 +134,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 **Windows server에서 Azure 파일 공유로의 초기 데이터 동기화**: 대부분의 Azure 파일 동기화 배포는 모든 데이터가 Windows Server에 있으므로 빈 Azure 파일 공유로 시작 합니다. 이러한 경우 초기 클라우드 변경 열거가 빠르며 대부분의 시간이 Windows Server에서 Azure 파일 공유로 변경 내용을 동기화 하는 데 소요 됩니다. 
 
-동기화 데이터를 Azure 파일 공유에 업로드 하는 동안 로컬 파일 서버에 가동 중지 시간이 발생 하지 않으며 관리자가 [네트워크 제한을 설정](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) 하 여 백그라운드 데이터 업로드에 사용 되는 대역폭의 양을 제한할 수 있습니다.
+동기화 데이터를 Azure 파일 공유에 업로드 하는 동안 로컬 파일 서버에 가동 중지 시간이 발생 하지 않으며 관리자가 [네트워크 제한을 설정](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) 하 여 백그라운드 데이터 업로드에 사용 되는 대역폭의 양을 제한할 수 있습니다.
 
 초기 동기화는 일반적으로 동기화 그룹당 초당 20 개 파일의 초기 업로드 속도로 제한 됩니다. 고객은 다음] 열의 공식을을 사용 하 여 모든 데이터를 Azure에 업로드 하는 시간을 예측할 수 있습니다.  
 

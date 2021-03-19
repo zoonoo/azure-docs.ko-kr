@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561537"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577974"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -43,7 +43,7 @@ ms.locfileid: "102561537"
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Azure AD 조직에 사용자 지정 도메인 이름 추가
 
-관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 온-프레미스 Active Directory를 사용 하 여 페더레이션을 위해 모든 도메인을 구성 하는 경우 각 조직에서 최대 450 개의 도메인 이름을 추가할 수 있습니다.
+최대 5000 개의 관리 되는 도메인 이름을 추가할 수 있습니다. 온-프레미스 Active Directory를 사용 하 여 페더레이션을 위해 모든 도메인을 구성 하는 경우 각 조직에서 최대 2500 개의 도메인 이름을 추가할 수 있습니다.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>사용자 지정 도메인의 하위 도메인 추가
 

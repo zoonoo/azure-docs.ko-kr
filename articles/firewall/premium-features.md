@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419952"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590452"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Azure Firewall 프리미엄 미리 보기 기능
 
@@ -144,7 +144,7 @@ Azure 방화벽 프리미엄 미리 보기는 다음 지역에서 지원 됩니�
 
 Azure 방화벽 프리미엄 미리 보기에는 다음과 같은 알려진 문제가 있습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 |TLS 검사는 HTTPS 표준 포트 에서만 지원 됩니다.|TLS 검사는 HTTPS/443만 지원 합니다. |없음 다른 포트는 GA에서 지원 됩니다.|
 |ESNI은 HTTPS에서 FQDN 확인을 지원 합니다.|암호화 된 SNI는 HTTPS 핸드셰이크에서 지원 되지 않습니다.|오늘 Firefox 에서만 사용자 지정 구성을 통해 ESNI을 지원 합니다. 제안 된 해결 방법은이 기능을 사용 하지 않도록 설정 하는 것입니다.|
@@ -157,8 +157,7 @@ Azure 방화벽 프리미엄 미리 보기에는 다음과 같은 알려진 문�
 |인증서 전파|CA 인증서를 방화벽에 적용 한 후에는 인증서를 적용 하는 데 5-10 분 정도 걸릴 수 있습니다.|GA 예약 수정|
 |IDPS 바이패스|IDPS 바이패스는 TLS 종료 트래픽에는 적용 되지 않으며 원본 IP 주소 및 원본 IP 그룹은 지원 되지 않습니다.|GA 예약 수정|
 |TLS 1.3 지원|TLS 1.3은 부분적으로 지원 됩니다. 클라이언트에서 방화벽으로의 TLS 터널은 TLS 1.2을 기반으로 하며 방화벽에서 외부 웹 서버에 대 한 tls 1.3을 기반으로 합니다.|업데이트를 조사 하 고 있습니다.|
-
-
+|KeyVault 개인 끝점|KeyVault는 네트워크 노출을 제한 하기 위해 개인 끝점 액세스를 지원 합니다. [Keyvault 설명서](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)에 설명 된 대로 예외가 구성 된 경우 신뢰할 수 있는 Azure 서비스는 이러한 제한을 우회할 수 있습니다. Azure 방화벽은 현재 신뢰할 수 있는 서비스로 나열 되어 있지 않으며 Key Vault에 액세스할 수 없습니다.|GA 예약 수정|
 
 
 ## <a name="next-steps"></a>다음 단계

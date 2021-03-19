@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 3fd3695490331a1f599db71bf5cafb25e957bf08
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710348"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599003"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -35,7 +35,7 @@ PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 
 
 ## <a name="named-entity-recognition-features-and-versions"></a>명명 된 엔터티 인식 기능 및 버전
 
-| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
+| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 4 |
 |-----------------------------------------------------------------|--------|----------|
 | 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
 | 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
@@ -47,8 +47,8 @@ PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 
 
 명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v 3.0은 [일반 엔터티 범주의](../named-entity-types.md)엔터티를 인식할 수 있습니다.
 
-명명 된 엔터티 인식 v 3.1-preview. 3에는 v 3.0의 검색 기능이 포함 되어 있습니다. 
-* 끝점을 사용 하 여 개인 정보 ()를 검색할 수 있는 기능 `PII` `v3.1-preview.3/entities/recognition/pii` 입니다. 
+명명 된 엔터티 인식 v 3.1-preview. 4에는 v 3.0의 검색 기능이 포함 되어 있습니다. 
+* 끝점을 사용 하 여 개인 정보 ()를 검색할 수 있는 기능 `PII` `v3.1-preview.4/entities/recognition/pii` 입니다. 
 * `domain=phi`기밀 상태 정보를 검색 하는 선택적 매개 변수 ( `PHI` )입니다.
 * 끝점을 사용 하는 [비동기 작업](text-analytics-how-to-call-api.md) `/analyze` 입니다.
 
@@ -72,36 +72,40 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 
 ### <a name="request-endpoints"></a>요청 엔드포인트
 
-#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-preview)
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-preview)
 
-명명 된 엔터티 인식은 `v3.1-preview.3` NER, PII 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
+명명 된 엔터티 인식은 `v3.1-preview.4` NER, PII 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
 **엔터티 연결**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
 
 **명명된 엔터티 인식**
-* 일반 엔터티- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* 일반 엔터티- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
 
 **PII(개인 식별 정보)**
-* 개인 ( `PII` ) 정보- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* 개인 ( `PII` ) 정보- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
 
 선택적 `domain=phi` 매개 변수를 사용 하 여 텍스트에서 상태 ( `PHI` ) 정보를 검색할 수도 있습니다. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
 
-부터 `v3.1-preview.3` JSON 응답은 `redactedText` 검색 된 PII 엔터티가 `*` 엔터티의 각 문자에 대해로 대체 되는 수정 된 입력 텍스트를 포함 하는 속성을 포함 합니다.
+부터 `v3.1-preview.4` JSON 응답은 `redactedText` 검색 된 PII 엔터티가 `*` 엔터티의 각 문자에 대해로 대체 되는 수정 된 입력 텍스트를 포함 하는 속성을 포함 합니다.
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+API는 지정 된 문서 언어에 대해 [나열 된 엔터티 범주](../named-entity-types.md?tabs=personal) 를 검색 하려고 합니다. 검색 되 고 반환 되는 엔터티를 지정 하려면 선택적 pii-categories 매개 변수를 적절 한 엔터티 범주로 사용 합니다. 이 매개 변수를 사용 하 여 문서 언어에 대해 기본적으로 사용 되지 않는 엔터티를 검색할 수도 있습니다. 예를 들어 영어 텍스트에서 발생 하는 프랑스어 드라이버의 라이선스 번호입니다.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **비동기 작업**
 
-부터 `v3.1-preview.3` 끝점을 사용 하 여 NER 요청을 비동기적으로 보낼 수 있습니다 `/analyze` .
+부터 `v3.1-preview.4` 끝점을 사용 하 여 NER 및 엔터티 연결 요청을 비동기적으로 보낼 수 있습니다 `/analyze` .
 
-* 비동기 작업- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+* 비동기 작업- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
 
 비동기 요청을 보내는 방법에 대 한 자세한 내용은 [텍스트 분석 API를 호출 하는 방법을](text-analytics-how-to-call-api.md) 참조 하세요.
 

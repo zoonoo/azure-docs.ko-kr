@@ -3,12 +3,12 @@ title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
 description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
 ms.topic: article
 ms.date: 02/25/2021
-ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742537"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602607"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
@@ -59,7 +59,7 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+속성 | 설명
 ------- | -------
 `TaskName` | 실패한 작업에 대한 설명
 `ActivityId` | 추적에 사용되는 내부 ID
@@ -97,7 +97,7 @@ Event Hubs는 다음 범주에 대한 진단 로그를 캡처합니다.
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-속성 | Description
+속성 | 설명
 ------- | -------
 `ActivityId` | 추적 목적으로 사용되는 내부 ID |
 `EventName` | 작업 이름입니다. 이 요소에 대 한 값 목록은 [이벤트 이름을](#event-names) 참조 하십시오. |
@@ -136,7 +136,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `TrackingId` | 추적 목적으로 사용되는 내부 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
@@ -155,7 +155,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `RequestId` | 추적 목적으로 사용되는 요청 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID |
@@ -183,7 +183,7 @@ Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함
 ## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
 Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ----------- |
 | `TrackingId` | 추적 목적으로 사용되는 추적 ID입니다. |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -197,7 +197,7 @@ Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포�
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
 Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---  | ----------- | 
 | `SubscriptionId` | Azure 구독 ID |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -227,7 +227,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `Category` | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | `ResourceId` | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |
@@ -247,4 +247,4 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)

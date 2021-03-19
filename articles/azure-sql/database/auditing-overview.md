@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551657"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577699"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "102551657"
 
 - 규정 준수를 유지 관리하고, 데이터베이스 활동을 이해하고, 비즈니스 문제나 보안 침해로 의심되는 사안을 나타낼 수 있는 불일치 및 이상을 파악하는 데 도움이 됩니다.
 
-- 감사를 사용해도 규정 준수가 보장되는 것은 아니지만 규정 준수 표준을 쉽게 준수할 수 있습니다. 표준 준수를 지 원하는 Azure 프로그램에 대 한 자세한 내용은 Azure SQL 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
+- 감사를 사용해도 규정 준수가 보장되는 것은 아니지만 규정 준수 표준을 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 Azure SQL 규정 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.
 
 > [!NOTE]
 > Azure SQL Managed Instance 감사에 대 한 자세한 내용은 [sql Managed Instance 감사 시작](../managed-instance/auditing-configure.md)문서를 참조 하세요.
@@ -99,7 +99,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
   > [!NOTE]
-  > - 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
+  > - 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md)에 대해 자세히 알아보세요.
   > - 감사가 Azure Portal 또는 PowerShell cmdlet을 통해 Log Analytics 작업 영역 또는 짝수 허브 대상으로 구성 되 면 "SQLSecurityAuditEvents" 범주가 설정 된 [진단 설정이](../../azure-monitor/essentials/diagnostic-settings.md) 만들어집니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
@@ -134,16 +134,16 @@ AzureDiagnostics
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>저장소 대상 감사
 
-스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지** 를 선택하고 **스토리지 세부 정보** 를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 후 **OK** 를 클릭합니다. 보존 기간 보다 오래된 로그는 삭제됩니다.
+저장소 계정에 감사 로그를 기록 하도록 구성 하려면 **감사** 섹션으로 이동할 때 **저장소** 를 선택 합니다. 로그가 저장 되는 Azure storage 계정을 선택한 다음 **고급 속성** 을 열어 보존 기간을 선택 합니다. 그런 다음 **Save** 를 클릭합니다. 보존 기간 보다 오래된 로그는 삭제됩니다.
 
-- 보존 기간의 기본값은 0 (보존 기간 제한 없음)입니다. 감사를 위해 저장소 계정을 구성할 때 **저장소 설정** 에서 **보존 (일)** 슬라이더를 이동 하 여이 값을 변경할 수 있습니다.
+- 보존 기간의 기본값은 0 (보존 기간 제한 없음)입니다. 감사를 위해 저장소 계정을 구성할 때 **고급 속성** 에서 **보존 (일)** 슬라이더를 이동 하 여이 값을 변경할 수 있습니다.
   - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값이 변경된 후에 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존이 활성화된 후에도 보존됨).
 
   ![스토리지 계정 만들기](./media/auditing-overview/auditing_select_storage.png)
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Log Analytics 대상 감사
   
-Log Analytics 작업 영역에 감사 로그를 기록 하도록 구성 하려면 **Log Analytics** 를 선택 하 고 **Log Analytics 세부 정보** 를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인** 을 클릭합니다.
+Log Analytics 작업 영역에 감사 로그를 기록 하도록 구성 하려면 **Log Analytics** 를 선택 하 고 **Log Analytics 세부 정보** 를 엽니다. 로그가 기록 되는 Log Analytics 작업 영역을 선택 하 고 **확인** 을 클릭 합니다. Log Analytics 작업 영역을 만들지 않은 경우 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -151,7 +151,7 @@ Azure Monitor Log Analytics 작업 영역에 대 한 자세한 내용은 [Azure 
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상 감사
 
-이벤트 허브에 대 한 감사 로그 쓰기를 구성 하려면 **이벤트** 허브를 선택 하 고 **이벤트 허브 세부 정보** 를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인** 을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
+이벤트 허브에 대 한 감사 로그 쓰기를 구성 하려면 **이벤트 허브** 를 선택 합니다. 로그가 기록 되는 이벤트 허브를 선택 하 고 **저장** 을 클릭 합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -191,13 +191,12 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 - [Azure Portal](https://portal.azure.com) 사용  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기** 를 클릭합니다.
 
-    ![데이터베이스 감사 페이지에 강조 표시 된 감사 로그 보기 단추를 보여 주는 스크린샷](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![감사 로그 보기](./media/auditing-overview/auditing-view-audit-logs.png)
 
     **감사 레코드** 가 열리고, 여기서 로그를 볼 수 있습니다.
 
   - **감사 레코드** 페이지의 맨 위에서 **필터** 를 클릭하여 특정 날짜를 볼 수 있습니다.
   - **감사 원본** 을 전환하여 *서버 감사 정책* 에서 생성된 감사 레코드와 *데이터베이스 감사 정책* 에서 생성된 감사 레코드 간을 전환할 수 있습니다.
-  - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
        ![감사 레코드를 표시 하는 옵션을 보여 주는 스크린샷]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
@@ -242,7 +241,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 프로덕션에서는 스토리지 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
-1. **저장소 세부 정보** 를 엽니다. **스토리지 액세스 키** 상자에서 **보조** 를 선택하고 **확인** 을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장** 을 클릭합니다.
+1. **저장소** 에서 **고급 속성** 을 엽니다. **저장소 액세스 키** 상자에서 **보조** 를 선택 합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장** 을 클릭합니다.
 
     ![보조 저장소 액세스 키를 선택 하는 프로세스를 보여 주는 스크린샷](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. 스토리지 구성 패널로 이동하고 기본 액세스 키를 다시 생성합니다.

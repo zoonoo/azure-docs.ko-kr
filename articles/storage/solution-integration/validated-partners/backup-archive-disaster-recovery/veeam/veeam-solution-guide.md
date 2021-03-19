@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15ab808bcb8521b0bd3a5ebd0f56bf336571d676
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 0b8bc0defd3314fcff691a049323201732644ff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562028"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589908"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Veeam을 사용 하 여 Azure에 백업
 
@@ -47,7 +47,7 @@ ms.locfileid: "103562028"
 
 ### <a name="get-started-with-azure"></a>Azure 시작
 
-Microsoft는 Azure를 시작 하기 위해 수행할 수 있는 프레임 워크를 제공 합니다. Caf ( [클라우드 채택 프레임 워크](https://docs.microsoft.com/azure/architecture/cloud-adoption/) )는 프로덕션 등급 클라우드 도입을 계획 하기 위한 엔터프라이즈 디지털 변환 및 포괄적인 가이드에 대 한 자세한 접근 방식입니다. CAF에는 빠르고 안전 하 게 시작 및 실행 하는 데 도움이 되는 단계별 [Azure 설치 가이드가](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) 포함 되어 있습니다. [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade)에서 대화형 버전을 찾을 수 있습니다. 샘플 아키텍처, 응용 프로그램 배포에 대 한 특정 모범 사례 및 Azure 전문 지식에 대 한 경로를 제공 하는 무료 교육 리소스를 찾을 수 있습니다.
+Microsoft는 Azure를 시작 하기 위해 수행할 수 있는 프레임 워크를 제공 합니다. Caf ( [클라우드 채택 프레임 워크](/azure/architecture/cloud-adoption/) )는 프로덕션 등급 클라우드 도입을 계획 하기 위한 엔터프라이즈 디지털 변환 및 포괄적인 가이드에 대 한 자세한 접근 방식입니다. CAF에는 빠르고 안전 하 게 시작 및 실행 하는 데 도움이 되는 단계별 [Azure 설치 가이드가](/azure/cloud-adoption-framework/ready/azure-setup-guide/) 포함 되어 있습니다. [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade)에서 대화형 버전을 찾을 수 있습니다. 샘플 아키텍처, 응용 프로그램 배포에 대 한 특정 모범 사례 및 Azure 전문 지식에 대 한 경로를 제공 하는 무료 교육 리소스를 찾을 수 있습니다.
 
 ### <a name="consider-the-network-between-your-location-and-azure"></a>위치와 Azure 간의 네트워크 고려
 
@@ -202,7 +202,7 @@ Azure를 백업 대상으로 사용 하는 경우 [Azure Blob storage](../../../
 
 #### <a name="azure-portal"></a>Azure portal
 
-Azure는 [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md)형식으로 강력한 모니터링 솔루션을 제공 합니다. Azure Monitor를 [구성](../../../../common/monitor-storage.md) 하 여 Azure Storage 용량, 트랜잭션, 가용성, 인증 등을 추적할 수 있습니다. 추적 된 메트릭의 전체 참조는 [여기](../../../../blobs/monitor-blob-storage-reference.md)에서 찾을 수 있습니다. 추적할 몇 가지 유용한 메트릭은 BlobCapacity 이며, 최대 [저장소 계정 용량 제한](../../../../common/scalability-targets-standard-account.md), 수신 및 송신을 유지 하 고, Azure storage 계정에서 쓰고 읽는 데이터의 양을 추적 하 고, Azure Storage 및 MediaAgent로 들어오고 나가는 요청에 대 한 왕복 시간을 추적 하는 SuccessE2ELatency.
+Azure는 [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md)형식으로 강력한 모니터링 솔루션을 제공 합니다. Azure Monitor를 [구성](../../../../blobs/monitor-blob-storage.md) 하 여 Azure Storage 용량, 트랜잭션, 가용성, 인증 등을 추적할 수 있습니다. 추적 된 메트릭의 전체 참조는 [여기](../../../../blobs/monitor-blob-storage-reference.md)에서 찾을 수 있습니다. 추적할 몇 가지 유용한 메트릭은 BlobCapacity 이며, 최대 [저장소 계정 용량 제한](../../../../common/scalability-targets-standard-account.md), 수신 및 송신을 유지 하 고, Azure storage 계정에서 쓰고 읽는 데이터의 양을 추적 하 고, Azure Storage 및 MediaAgent로 들어오고 나가는 요청에 대 한 왕복 시간을 추적 하는 SuccessE2ELatency.
 
 또한 [로그 경고를 만들어](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) Azure Storage 서비스 상태를 추적 하 고 언제 든 지 [Azure 상태 대시보드](https://status.azure.com/status) 를 볼 수 있습니다.
 

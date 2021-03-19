@@ -10,16 +10,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 9032bfca30ead56c91d7904e18b76753cf3b6dfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601052"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582173"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
-Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 Key Vault에 저장되어 있는 관찰된 인증서 목록을 모니터링합니다.  변경 사항을 감지하면 확장이 검색을 하고 해당 인증서를 설치합니다. 확장을 통해 VM에 전체 인증서 체인이 설치 됩니다. Microsoft는 현재 Linux VM에 대한 Key Vault VM 확장을 게시하고 지원합니다. 이 문서에서는 Linux용 Key Vault VM 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다. 
+Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 Key Vault에 저장되어 있는 관찰된 인증서 목록을 모니터링합니다.  변경 사항을 감지하면 확장이 검색을 하고 해당 인증서를 설치합니다. Microsoft는 현재 Linux VM에 대한 Key Vault VM 확장을 게시하고 지원합니다. 이 문서에서는 Linux용 Key Vault VM 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다. 
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -36,6 +36,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 - PKCS #12
 - PEM
+
 
 ## <a name="prerequisities"></a>필수 구성 요소
   - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](../../key-vault/general/quick-create-portal.md) 참조 하세요.
@@ -56,6 +57,20 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## <a name="key-vault-vm-extension-version"></a>Key Vault VM 확장 버전
+* Ubuntu-18.04 및 SUSE-15 사용자는 주요 자격 증명 모음 vm 확장 버전을로 업그레이드 하 여 `V2.0` 전체 인증서 체인 다운로드 기능을 사용할 수 있도록 선택할 수 있습니다. 발급자 인증서 (중간 및 루트)는 PEM 파일의 리프 인증서에 추가 됩니다.
+
+* 로 업그레이드 하려는 경우 먼저를 `v2.0` 삭제 `v1.0` 한 다음을 설치 해야 `v2.0` 합니다.
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  최신 버전은 기본적으로 설치 되므로 플래그--버전 2.0은 선택 사항입니다.   
+
+* VM에 v 1.0에서 다운로드 한 인증서가 있는 경우, v 1.0 AKVVM 확장을 삭제 해도 다운로드 한 인증서는 삭제 되지 않습니다.  V 2.0을 설치한 후에는 기존 인증서가 수정 되지 않습니다.  VM에서 전체 체인으로 PEM 파일을 가져오려면 인증서 파일을 삭제 하거나 인증서를 롤오버 해야 합니다.
+
+
+
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -72,7 +87,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -104,20 +119,20 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
 | type | KeyVaultForLinux | 문자열 |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 2.0 | int |
 | pollingIntervalInS | 3600 | 문자열 |
 | certificateStoreName | Linux에서 무시 됩니다. | 문자열 |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | 문자열 |
 | requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | 문자열 배열
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | 문자열 |
 
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -142,7 +157,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -189,7 +204,7 @@ Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 K
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -209,7 +224,7 @@ Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 K
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -228,6 +243,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -239,6 +255,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 다음 제한 사항/요구 사항에 주의하세요.

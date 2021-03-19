@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601244"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601893"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Windows 가상 데스크톱 에이전트 시작
 
@@ -32,7 +32,10 @@ Windows 가상 데스크톱 에이전트는 처음에 두 가지 방법 중 하�
 
 ## <a name="agent-update-process"></a>에이전트 업데이트 프로세스
 
-Windows 가상 데스크톱 서비스는 업데이트를 사용할 수 있게 될 때마다 에이전트를 자동으로 업데이트 합니다. 에이전트 업데이트에는 새로운 기능이 포함 되거나 이전 문제를 해결할 수 있습니다. Windows 가상 데스크톱 에이전트의 초기 버전이 설치 되 면 에이전트는 Windows 가상 데스크톱 서비스를 정기적으로 쿼리하여 최신 버전의 에이전트 및 해당 구성 요소를 사용할 수 있는지 확인 합니다. 새 버전이 있는 경우 에이전트 부팅 로더는 최신 버전의 에이전트, side-by-side 스택 및 Geneva Monitoring agent를 자동으로 다운로드 합니다.
+Windows 가상 데스크톱 서비스는 업데이트를 사용할 수 있게 될 때마다 에이전트를 업데이트 합니다. 에이전트 업데이트에는 새로운 기능이 나 이전 문제에 대 한 수정 사항이 포함 될 수 있습니다. Windows 가상 데스크톱 에이전트의 초기 버전이 설치 되 면 에이전트는 Windows 가상 데스크톱 서비스를 정기적으로 쿼리하여 최신 버전의 에이전트, 스택 또는 모니터링 구성 요소를 사용할 수 있는지 확인 합니다. 최신 버전의 구성 요소를 이미 배포한 경우에는 업데이트 된 구성 요소가 자동으로 설치 됩니다.
+
+새 버전의 에이전트는 일정 한 간격으로 모든 Azure 구독에 weeklong 기간에 배포 됩니다. 이러한 업데이트 기간을 "항공편" 이라고 합니다. 비행이 발생 하면 호스트 풀의 Vm이 서로 다른 시간에 에이전트 업데이트를 수신 하는 것을 볼 수 있습니다. 모든 구독의 모든 VM 에이전트는 배포 기간이 끝날 때 업데이트 됩니다. Windows 가상 데스크톱 플 라이팅 시스템은 에이전트 업데이트의 안정성 및 품질을 보장 하 여 서비스의 안정성을 향상 시킵니다.
+
 
 >[!NOTE]
 >- Geneva Monitoring agent가 최신 버전으로 업데이트 되 면 새 모니터링 에이전트에 대 한 새 작업을 만들기 전에 이전 GenevaTask 작업을 찾아서 사용 하지 않도록 설정 합니다. 최신 버전의 모니터링 에이전트가 문제를 해결 하기 위해 이전 버전으로 되돌려야 하는 경우 이전 버전의 모니터링 에이전트가 삭제 되지 않습니다. 최신 버전에 문제가 있는 경우 모니터링 데이터를 계속 해 서 배달 하려면 이전 모니터링 에이전트를 다시 사용 하도록 설정 해야 합니다. 업데이트 전에 마지막으로 설치한 모니터의 모든 버전은 VM에서 삭제 됩니다.

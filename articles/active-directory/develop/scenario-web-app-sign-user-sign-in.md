@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937842"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578246"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -95,6 +95,16 @@ Java 빠른 시작에서 로그인 단추는 [기본/리소스/템플릿/index.h
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Node.js 빠른 시작에는 로그인 단추가 없습니다. 코드 숨김이 웹 앱의 루트에 도달 하는 경우 사용자에 게 로그인 하 라는 메시지를 자동으로 표시 합니다.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python 빠른 시작에는 로그인 단추가 없습니다. 코드 숨김이 웹 앱의 루트에 도달 하는 경우 사용자에 게 로그인 하 라는 메시지를 자동으로 표시 합니다. [Py # L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18)를 참조 하세요.
@@ -113,7 +123,7 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET에서 웹 앱의 **로그인** 단추를 선택 하면 `SignIn` 컨트롤러에서 작업이 트리거됩니다 `AccountController` . 이전 버전의 ASP.NET core 템플릿에서는 `Account` 컨트롤러가 웹 앱에 포함 되었습니다. 이제 컨트롤러가 이제는이는 더 이상 **Microsoft의 Microsoft. Identity.** uinuget 패키지의 일부 이기 때문입니다. 자세한 내용은 [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) 를 참조 하세요.
+ASP.NET에서 웹 앱의 **로그인** 단추를 선택 하면 `SignIn` 컨트롤러에서 작업이 트리거됩니다 `AccountController` . 이전 버전의 ASP.NET core 템플릿에서는 `Account` 컨트롤러가 웹 앱에 포함 되었습니다. 이제 컨트롤러가 이제는이는 더 이상 **Microsoft의 Microsoft. Identity.** uinuget 패키지의 일부 이기 때문입니다. 자세한 내용은 [Accountcontroller .cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) 를 참조 하십시오.
 
 또한이 컨트롤러는 Azure AD B2C 응용 프로그램을 처리 합니다.
 
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+다른 플랫폼과 달리, 여기서 MSAL 노드는 로그인 페이지에서 사용자 로그인을 허용 합니다.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ def _get_token_from_cache(scope=None):
 응용 프로그램을 등록 하는 동안 추가 프런트 채널 로그 아웃 URL을 등록할 필요가 없습니다. 앱이 주 URL로 다시 호출 됩니다. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+응용 프로그램 등록에는 프런트 채널 로그 아웃 URL이 필요 하지 않습니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 응용 프로그램 등록에는 프런트 채널 로그 아웃 URL이 필요 하지 않습니다.
 
@@ -305,6 +356,10 @@ Java 빠른 시작에서 로그 아웃 단추는 기본/리소스/템플릿/auth
 ...
 ```
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 샘플 응용 프로그램에서는 로그 아웃을 구현 하지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python 빠른 시작에서 로그 아웃 단추는 [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) 파일에 있습니다.
@@ -330,13 +385,13 @@ Python 빠른 시작에서 로그 아웃 단추는 [templates/index.html # L10](
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-이전 버전의 ASP.NET core 템플릿에서는 `Account` 컨트롤러가 웹 앱에 포함 되었습니다. 이제 컨트롤러가 이제는이는 더 이상 **Microsoft의 Microsoft. Identity.** uinuget 패키지의 일부 이기 때문입니다. 자세한 내용은 [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) 를 참조 하세요.
+이전 버전의 ASP.NET core 템플릿에서는 `Account` 컨트롤러가 웹 앱에 포함 되었습니다. 이제 컨트롤러가 이제는이는 더 이상 **Microsoft의 Microsoft. Identity.** uinuget 패키지의 일부 이기 때문입니다. 자세한 내용은 [Accountcontroller .cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) 를 참조 하십시오.
 
 - Openid connect 리디렉션 URI를로 설정 하 여 `/Account/SignedOut` AZURE AD가 로그 아웃을 완료 하면 컨트롤러가 다시 호출 되도록 합니다.
 - `Signout()`Openid connect 연결 미들웨어가 Microsoft id 플랫폼 끝점에 연결할 수 있도록 하는를 호출 합니다 `logout` . 그러면 끝점은 다음과 같습니다.
 
   - 브라우저에서 세션 쿠키를 지웁니다.
-  - 사후 로그 아웃 리디렉션 URI를 다시 호출 합니다. 기본적으로 로그 아웃 리디렉션 URI는 로그 아웃 된 보기 페이지 [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)를 표시 합니다. 이 페이지는 또한 Microsoft. Identity. Web의 일부로 제공 됩니다.
+  - 사후 로그 아웃 리디렉션 URI를 다시 호출 합니다. 기본적으로 사후 로그 아웃 리디렉션 URI는 로그 아웃 된 뷰 페이지를 표시 합니다 [. cshtml](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). 이 페이지는 또한 Microsoft. Identity. Web의 일부로 제공 됩니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -376,6 +431,10 @@ Java에서 로그 아웃은 Microsoft id 플랫폼 끝점을 직접 호출 하 �
                 URLEncoder.encode(redirectUrl, "UTF-8"));
     }
 ```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 샘플 응용 프로그램에서는 로그 아웃을 구현 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 Java 빠른 시작에서 후 로그 아웃 리디렉션 URI는 index.html 페이지만 표시 합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 샘플 응용 프로그램에서는 로그 아웃을 구현 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

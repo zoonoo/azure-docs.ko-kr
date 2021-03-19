@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cc862759ce28c4d23dbc2197f63311e29ba82709
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225033"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607506"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대 한 오케스트레이션 모드 
 
@@ -73,7 +73,7 @@ VM을 만들어 유연한 확장 집합에 추가 하는 경우 Azure 명명 규
 | order by resourceGroup desc, name desc 
 ```
 
-[Azure 리소스 그래프](../governance/resource-graph/overview.md) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음과 같습니다.
+[Azure 리소스 그래프](../governance/resource-graph/overview.md) 를 사용 하 여 리소스를 쿼리하면 azure 리소스를 쿼리하고 리소스 공급자에 대 한 API 호출을 최소화 하는 쉽고 효율적인 방법입니다. Azure 리소스 그래프는 새 리소스 또는 업데이트 된 리소스가 최대 60 초 동안 반영 되지 않을 수 있는 궁극적으로 일관 된 캐시입니다. 다음을 할 수 있습니다.
 - 리소스 그룹 또는 구독에서 Vm을 나열 합니다.
 - 확장 옵션을 사용 하 여 구독에 있는 모든 Vm에 대 한 인스턴스 보기 (장애 도메인 할당, 전원 및 프로 비전 상태)를 검색 합니다.
 - Get VM API 및 명령을 사용 하 여 단일 인스턴스에 대 한 모델 및 인스턴스 뷰를 가져옵니다.
@@ -85,7 +85,7 @@ VM을 만들어 유연한 확장 집합에 추가 하는 경우 Azure 명명 규
 응용 프로그램 상태 모니터링을 통해 응용 프로그램은 Azure에 하트 비트를 제공 하 여 응용 프로그램이 정상 상태 인지 비정상 상태 인지 확인할 수 있습니다. Azure는 비정상 상태인 VM 인스턴스를 자동으로 바꿀 수 있습니다. 유연한 확장 집합 인스턴스의 경우 가상 머신에서 응용 프로그램 상태 확장을 설치 하 고 구성 해야 합니다. 균일 한 확장 집합 인스턴스의 경우 응용 프로그램 상태 확장을 사용 하거나 Azure Load Balancer 사용자 지정 상태 프로브를 사용 하 여 상태를 측정할 수 있습니다. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>목록 크기 집합 VM API 변경 
-Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴스를 나열할 수 있습니다. 유연한 오케스트레이션을 사용 하 여 list Virtual Machine Scale Sets VM 명령은 확장 집합 VM Id의 목록을 제공 합니다. 그런 다음 GET Virtual Machine Scale Sets VM 명령을 호출 하 여 확장 집합에서 VM 인스턴스로 작업 하는 방법에 대 한 자세한 정보를 얻을 수 있습니다. VM에 대 한 전체 세부 정보를 얻으려면 standard GET VM 명령 또는 [Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)를 사용 합니다. 
+Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴스를 나열할 수 있습니다. 유연한 오케스트레이션을 사용 하 여 list Virtual Machine Scale Sets VM 명령은 확장 집합 VM Id의 목록을 제공 합니다. 그런 다음 GET Virtual Machine Scale Sets VM 명령을 호출 하 여 확장 집합에서 VM 인스턴스로 작업 하는 방법에 대 한 자세한 정보를 얻을 수 있습니다. VM에 대 한 전체 세부 정보를 얻으려면 standard GET VM 명령 또는 [Azure 리소스 그래프](../governance/resource-graph/overview.md)를 사용 합니다. 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>부팅 진단 데이터 검색 
 표준 VM Api 및 명령을 사용 하 여 인스턴스 부트 진단 데이터 및 스크린샷을 검색 합니다. Virtual Machine Scale Sets VM 부팅 진단 Api 및 명령은 유연한 오케스트레이션 모드 인스턴스와 함께 사용 되지 않습니다.
@@ -97,12 +97,12 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 ## <a name="a-comparison-of-flexible-uniform-and-availability-sets"></a>유연 하 고 일관 되며 가용성 집합의 비교 
 다음 표에서는 유연성 있는 오케스트레이션 모드, 균일 오케스트레이션 모드 및 해당 기능에 대 한 가용성 집합을 비교 합니다.
 
-| 특징 | 유연한 오케스트레이션에 서 지원 됨 (미리 보기) | 단일 오케스트레이션에 서 지원 됩니다 (일반 공급). | AvSets에서 지원 됩니다 (일반 공급). |
+| 기능 | 유연한 오케스트레이션에 서 지원 됨 (미리 보기) | 단일 오케스트레이션에 서 지원 됩니다 (일반 공급). | AvSets에서 지원 됩니다 (일반 공급). |
 |-|-|-|-|
 |         가상 머신 유형  | 표준 Azure IaaS VM (/virtualmachines)  | 확장 집합 특정 Vm (/virtualmachinescalesets/virtualmachines)  | 표준 Azure IaaS VM (/virtualmachines)  |
 |         지원되는 SKU  |            D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD  |            모든 Sku  |            모든 Sku  |
 |         가용성 영역  |            필요에 따라 단일 가용성 영역에 모든 인스턴스를 지정 합니다. |            1, 2 또는 3 개의 가용성 영역에서 인스턴스를 지정 합니다.  |            지원되지 않음  |
-|         VM, Nic, 디스크에 대 한 모든 권한  |            Yes  |            가상 머신 확장 집합 VM API를 사용 하 여 제한 된 제어  |            Yes  |
+|         VM, Nic, 디스크에 대 한 모든 권한  |            예  |            가상 머신 확장 집합 VM API를 사용 하 여 제한 된 제어  |            예  |
 |         자동 크기 조정  |            아니요  |            예  |            아니요  |
 |         특정 장애 도메인에 VM 할당  |            예  |             아니요   |            아니요  |
 |         VM 인스턴스를 삭제할 때 Nic 및 디스크 제거  |            아니요  |            예  |            아니요  |
@@ -115,8 +115,8 @@ Virtual Machine Scale Sets를 사용 하 여 확장 집합에 속한 인스턴�
 |         스폿 인스턴스 및 가격   |            예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다.  |            예, 인스턴스는 모두 스폿 이거나 모두 정상 이어야 합니다.  |            아니요, 일반 우선 순위 인스턴스만  |
 |         운영 체제 혼합  |            예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |            아니요, 인스턴스는 동일한 운영 체제입니다.  |               예, Linux 및 Windows는 동일한 유연한 확장 집합에 상주할 수 있습니다. |
 |         응용 프로그램 상태 모니터링  |            응용 프로그램 상태 확장  |            응용 프로그램 상태 확장 또는 Azure 부하 분산 장치 프로브  |            응용 프로그램 상태 확장  |
-|         디스크 UltraSSD   |            Yes  |            예, 영역 배포에만 해당  |            아니요  |
-|         Infiniband   |            아니요  |            예, 단일 배치 그룹만  |            Yes  |
+|         디스크 UltraSSD   |            예  |            예, 영역 배포에만 해당  |            아니요  |
+|         Infiniband   |            아니요  |            예, 단일 배치 그룹만  |            예  |
 |         쓰기 가속기   |            아니요  |            예  |            예  |
 |         근접 배치 그룹   |            예  |            예  |            예  |
 |         Azure 전용 호스트   |            아니요  |            예  |            예  |
@@ -269,7 +269,7 @@ zones = ["1"]
 
 2. 확장 집합에 가상 컴퓨터를 추가 합니다.
     1. `virtualMachineScaleSet`이전에 만든 확장 집합에 속성을 할당 합니다. VM을 만들 때 속성을 지정 해야 `virtualMachineScaleSet` 합니다. 
-    1. **Copy ()** Azure Resource Manager template 함수를 사용 하 여 여러 vm을 동시에 만들 수 있습니다. Azure Resource Manager 템플릿에서 [리소스 반복](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) 을 참조 하세요. 
+    1. **Copy ()** Azure Resource Manager template 함수를 사용 하 여 여러 vm을 동시에 만들 수 있습니다. Azure Resource Manager 템플릿에서 [리소스 반복](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) 을 참조 하세요. 
 
     ```json
     {
