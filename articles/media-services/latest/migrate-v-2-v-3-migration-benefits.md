@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598391"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>1 단계-Media Services API V3로 마이그레이션하는 이점 이해
 
@@ -58,8 +58,8 @@ V3을 사용 하 여 Media Services에 대 한 상당한 기능이 향상 되었
 |**콘텐츠 보호** ||
 | [콘텐츠 보호](content-key-policy-concept.md)   에서는 다중 키 기능을 지원 합니다. | 이제 고객은 스트리밍 로케이터에서 여러 콘텐츠 암호화 키를 사용할 수 있습니다. |
 | **Monitoring** | |
-| [Azure EventGrid](reacting-to-media-services-events.md) 알림 지원 | EventGrid 알림은 풍부한 기능입니다. 사용자 응용 프로그램에서 알림을 수신 하기 위한 더 많은 유형의 알림과 더 광범위 한 SDK 지원과 이벤트 처리기로 작동할 수 있는 기존 Azure 서비스가 있습니다. |
-| [Azure Portal Azure Monitor 지원 및 통합](monitor-events-portal-how-to.md) | 이를 통해 고객은 Media Services 계정 할당량 사용량, 스트리밍 끝점의 실시간 통계를 시각화 하 고 라이브 이벤트에 대 한 통계를 수집 및 보관할 수 있습니다. 이제 고객은 실시간 메트릭 데이터를 기반으로 경고를 설정 하 고 필요한 작업을 수행할 수 있습니다. |
+| [Azure EventGrid](monitoring/reacting-to-media-services-events.md) 알림 지원 | EventGrid 알림은 풍부한 기능입니다. 사용자 응용 프로그램에서 알림을 수신 하기 위한 더 많은 유형의 알림과 더 광범위 한 SDK 지원과 이벤트 처리기로 작동할 수 있는 기존 Azure 서비스가 있습니다. |
+| [Azure Portal Azure Monitor 지원 및 통합](monitoring/monitor-events-portal-how-to.md) | 이를 통해 고객은 Media Services 계정 할당량 사용량, 스트리밍 끝점의 실시간 통계를 시각화 하 고 라이브 이벤트에 대 한 통계를 수집 및 보관할 수 있습니다. 이제 고객은 실시간 메트릭 데이터를 기반으로 경고를 설정 하 고 필요한 작업을 수행할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

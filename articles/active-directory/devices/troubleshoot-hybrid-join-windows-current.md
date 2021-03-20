@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083219"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578025"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 조인 디바이스 문제 해결
 
@@ -99,7 +99,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다( *작업 영역 조인* 으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요** 이어야 합니다. 값이 **예** 인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전 1607 이상을 사용 하는 경우 계정이 무시 됩니다.
+이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인* 으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요** 이어야 합니다. 값이 **예** 인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전 1607 이상을 사용 하는 경우 계정이 무시 됩니다.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
@@ -137,7 +137,7 @@ WamDefaultAuthority: organizations
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="이벤트 뷰어의 스크린샷 I D 305 이벤트가 표시 되 고 해당 정보가 표시 되 고 오류 코드가 강조 표시 됩니다." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>4 단계: 아래 목록에서 가능한 원인 및 해결 방법 확인
 
@@ -210,7 +210,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 201를 사용 하 여 이벤트를 찾습니다.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="이벤트 뷰어의 스크린샷 I D 201 이벤트가 선택 되 고 해당 정보가 표시 되 고 오류 코드가 강조 표시 됩니다." border="false":::
 
 ###### <a name="network-errors"></a>네트워크 오류
 
@@ -255,7 +255,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 eventID 305를 사용 하 여 이벤트를 찾습니다.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="이벤트 뷰어의 스크린샷 I D 305 이벤트가 표시 됩니다. 해당 정보가 표시 되 고 D A L 오류 코드 및 상태가 강조 표시 됩니다." border="false":::
 
 ##### <a name="configuration-errors"></a>구성 오류
 
@@ -330,7 +330,7 @@ WamDefaultAuthority: organizations
 1. 이벤트 뷰어에서 **사용자 장치 등록** 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **사용자 장치 등록** 아래에 있음
 2. 다음 Eventid 204를 사용 하 여 이벤트를 찾습니다.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="이벤트 뷰어의 스크린샷 I D 304 이벤트가 선택 되 고 해당 정보가 표시 되며 오류 코드 및 단계가 강조 표시 됩니다." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="이벤트 뷰어의 스크린샷 I D 204가 있는 이벤트에 대 한 정보가 표시 되 고 오류 코드, H T P 상태 및 메시지가 강조 표시 됩니다." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>DRS 서버에서 반환 된 HTTP 오류
 
@@ -387,7 +387,7 @@ WamDefaultAuthority: organizations
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>5 단계: 로그 및 연락처 Microsoft 지원 수집
 
-에서 Auth.zip 파일을 다운로드 합니다. [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+에서 Auth.zip 파일을 다운로드 합니다. [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
 1. 파일의 압축을 풀고 포함 된 파일의 이름을 **start-auth.txt** 하 **고 start-auth** 및 **stop-auth** 에 **stop-auth.txt** 합니다.
 1. 관리자 권한 명령 프롬프트에서 **start-auth** 를 실행 합니다.

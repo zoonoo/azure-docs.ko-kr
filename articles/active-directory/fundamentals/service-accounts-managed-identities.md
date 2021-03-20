@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032369"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587834"
 ---
-# <a name="securing-managed-identities"></a>관리 되는 id 보안
+# <a name="securing-managed-identities"></a>관리 ID 보안
 
 개발자는 다양 한 서비스 간의 통신을 보호 하는 데 사용 되는 암호 및 자격 증명을 관리 하는 경우가 많습니다. 관리 id는 Azure 리소스에 대 한 id를 제공 하기 위해 만든 보안 Azure Active Directory (Azure AD) id입니다.
 
@@ -50,11 +50,11 @@ Azure에는 제어 평면과 데이터 평면이 있습니다. 제어 평면에�
 
 대상 시스템이 인증에 대 한 토큰을 수락 하면 해당 제어 평면과 데이터 평면에 대 한 권한 부여를 위한 다양 한 메커니즘을 지원할 수 있습니다.
 
-Azure의 모든 제어 평면 작업은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) 에서 관리 되며 [azure 역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용 합니다. 데이터 평면에서 각 대상 시스템에는 자체 권한 부여 메커니즘이 있습니다. Azure Storage는 데이터 평면에서 Azure RBAC를 지원 합니다. 예를 들어 Azure 앱 서비스를 사용 하는 응용 프로그램은 Azure Storage 데이터를 읽을 수 있으며 Azure Kubernetes Service를 사용 하는 응용 프로그램은 Azure Key Vault에 저장 된 암호를 읽을 수 있습니다
+Azure의 모든 제어 평면 작업은 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 에서 관리 되며 [azure 역할 기반 Access Control](../../role-based-access-control/overview.md)를 사용 합니다. 데이터 평면에서 각 대상 시스템에는 자체 권한 부여 메커니즘이 있습니다. Azure Storage는 데이터 평면에서 Azure RBAC를 지원 합니다. 예를 들어 Azure 앱 서비스를 사용 하는 응용 프로그램은 Azure Storage 데이터를 읽을 수 있으며 Azure Kubernetes Service를 사용 하는 응용 프로그램은 Azure Key Vault에 저장 된 암호를 읽을 수 있습니다
 
-컨트롤 및 데이터 평면에 대 한 자세한 내용은 [제어 평면 및 데이터 평면 작업-Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane)을 참조 하세요.
+컨트롤 및 데이터 평면에 대 한 자세한 내용은 [제어 평면 및 데이터 평면 작업-Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md)을 참조 하세요.
 
-모든 Azure 서비스는 궁극적으로 관리 id를 지원 합니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id를 지 원하는 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조 하세요.
+모든 Azure 서비스는 궁극적으로 관리 id를 지원 합니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id를 지 원하는 서비스](../managed-identities-azure-resources/services-support-managed-identities.md)를 참조 하세요.
 
 ##  
 
@@ -116,7 +116,7 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [관리 id가 액세스 하는 리소스를 알고](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell)있어야 합니다.
+* [관리 id가 액세스 하는 리소스를 알고](../../role-based-access-control/role-assignments-list-powershell.md)있어야 합니다.
 
 ## <a name="move-to-managed-identities"></a>관리 되는 id로 이동
 
@@ -126,17 +126,17 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
 **관리 id를 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.** 
 
-[사용자 할당 관리 id를 만듭니다](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[사용자 할당 관리 id를 만듭니다](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-[리소스를 만드는 동안 시스템 할당 관리 id 사용](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[리소스를 만드는 동안 시스템 할당 관리 id 사용](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[기존 리소스에서 시스템 할당 관리 id 사용](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[기존 리소스에서 시스템 할당 관리 id 사용](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **서비스 계정에 대 한 자세한 내용은 다음을 참조 하세요.**
 
 [Azure Active Directory 서비스 계정 소개](service-accounts-introduction-azure.md)
 
-[서비스 사용자 보안](service-accounts-principal.md)
+[서비스 주체 보안](service-accounts-principal.md)
 
 [Azure 서비스 계정 관리](service-accounts-governing-azure.md)
 
@@ -146,4 +146,3 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
  
 
- 

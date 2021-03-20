@@ -4,10 +4,10 @@ description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 �
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86529015"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Azure Portal를 사용 하 여 서비스 상태 알림 보기
@@ -39,16 +39,16 @@ submissionTimestamp | 이벤트를 쿼리할 수 있게 되는 타임스탬프�
 subscriptionId | 이 이벤트가 로깅된 Azure 구독입니다.
 상태 | 작업의 상태를 설명하는 문자열. 일반적인 값: **시작됨**, **진행 중**, **성공**, **Failed**, **활성** 및 **해결됨**
 operationName | 작업의 이름입니다.
-category | 이 속성은 항상 **ServiceHealth**입니다.
+category | 이 속성은 항상 **ServiceHealth** 입니다.
 resourceId | 영향을 받는 리소스의 리소스 ID입니다.
 Properties.title | 이 통신에 대한 지역화된 제목입니다. 기본값은 영어입니다.
 Properties.communication | HTML 태그와 통신에 대한 지역화된 세부 정보입니다. 기본값은 영어입니다.
-Properties.incidentType | **Actionrequired**, **정보**, **인시던트**, **유지 관리**또는 **보안**값 중 하나입니다.
+Properties.incidentType | **Actionrequired**, **정보**, **인시던트**, **유지 관리** 또는 **보안** 값 중 하나입니다.
 Properties.trackingId | 이 이벤트가 연결된 인시던트입니다. 인시던트와 관련된 이벤트를 상호 연결할 때 사용합니다.
-Properties.impactedServices | 인시던트에 의해 영향을 받는 서비스 및 지역을 설명하는 이스케이프된 JSON Blob입니다. 속성에는 각각 **ServiceName**이 포함된 서비스 목록 및 각각 **RegionName**이 포함된 영향 받는 지역 목록이 포함됩니다.
+Properties.impactedServices | 인시던트에 의해 영향을 받는 서비스 및 지역을 설명하는 이스케이프된 JSON Blob입니다. 속성에는 각각 **ServiceName** 이 포함된 서비스 목록 및 각각 **RegionName** 이 포함된 영향 받는 지역 목록이 포함됩니다.
 Properties.defaultLanguageTitle | 통신은 영어로 이루어집니다.
 Properties.defaultLanguageContent | 영어로 통신은 HTML 태그 또는 일반 텍스트로 수행됩니다.
-Properties.stage | **Incident**, 및 **Security**에 사용할 수 있는 값은 는 **Active, ** **Resolved** 또는 **RCA**입니다. **ActionRequired** 또는 **Informational**의 유일한 값은 **Active**입니다. **유지 관리** 의 경우 **활성**, **계획**됨, **진행 중,** **취소**됨, **예약** **됨, 해결 됨**또는 **완료**입니다.
+Properties.stage | **Incident**, 및 **Security** 에 사용할 수 있는 값은 는 **Active,** **Resolved** 또는 **RCA** 입니다. **ActionRequired** 또는 **Informational** 의 유일한 값은 **Active** 입니다. **유지 관리** 의 경우 **활성**, **계획** 됨, **진행 중,** **취소** 됨, **예약** **됨, 해결 됨** 또는 **완료** 입니다.
 Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 
 ### <a name="details-on-service-health-level-information"></a>서비스 상태 수준 정보에 대한 세부 정보

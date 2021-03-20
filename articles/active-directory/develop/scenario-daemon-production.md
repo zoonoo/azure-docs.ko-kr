@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8dc9bff86a07f3d4a0ec6fd224de6d5633165a6d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: d903f04055d1607ee782bd502d99a8fd9cde87ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578450"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -54,18 +54,43 @@ ms.locfileid: "99582844"
 
     ![토폴로지](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+# <a name="java"></a>[Java](#tab/java)
+
+퀵 스타트에서 [토큰 획득을 시도 하 고 앱의 id를 사용 하 여 Java 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-java-daemon.md)합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+- 자세한 내용은 다음을 참조하세요.
+  - [구성](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md) 이해
+  - [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) 인스턴스화
+  - [FAQ](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/faq.md)
+- 기타 샘플/자습서:
+  - [MSAL 노드 콘솔 디먼 샘플](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console)
+
+# <a name="python"></a>[Python](#tab/python)
+
+[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-python-daemon.md)합니다.
+
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
 자세히 알아보는 데 도움이 되는 몇 가지 링크는 다음과 같습니다.
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-python-daemon.md)합니다.
+[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 .Net Core 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-netcore-daemon.md)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-퀵 스타트에서 [토큰 획득을 시도 하 고 앱의 id를 사용 하 여 Java 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-java-daemon.md)합니다.
+퀵 스타트에서 [토큰 획득을 시도 하 고 앱의 id를 사용 하 여 Java 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-java-daemon.md)합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Node.js 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-nodejs-console.md)합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](quickstart-v2-python-daemon.md)합니다.
 
 ---

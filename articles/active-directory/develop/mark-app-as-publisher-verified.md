@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92363456"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>앱을 게시자 확인으로 표시
@@ -28,11 +28,11 @@ ms.locfileid: "92363456"
 
 1. [Multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) 을 사용 하 여 [앱 등록 포털](https://aka.ms/PublisherVerificationPreview) 에 로그인
 
-1. 앱을 선택하고 **브랜딩**을 클릭합니다. 
+1. 앱을 선택하고 **브랜딩** 을 클릭합니다. 
 
-1. **MPN ID를 추가하여 게시자 확인**을 클릭하고 나열된 요구사항을 검토합니다.
+1. **MPN ID를 추가하여 게시자 확인** 을 클릭하고 나열된 요구사항을 검토합니다.
 
-1. MPN ID를 입력하고 **확인 및 저장**을 클릭합니다.
+1. MPN ID를 입력하고 **확인 및 저장** 을 클릭합니다.
 
 구체적인 혜택, 요구 사항, 질문과 대답에 대한 자세한 내용은 [개요](publisher-verification-overview.md)를 확인하십시오.
 
@@ -54,15 +54,15 @@ ms.locfileid: "92363456"
 
 1. 테 넌 트의 게시자 도메인 또는 DNS 확인 [사용자 지정 도메인이](../fundamentals/add-custom-domain.md) MPN 계정에 대 한 확인 프로세스 중에 사용 된 전자 메일 주소의 도메인과 일치 하는지 확인 합니다.
 
-1. 페이지 아래쪽의 **MPN ID를 추가하여 게시자 확인**을 클릭합니다. 
+1. 페이지 아래쪽의 **MPN ID를 추가하여 게시자 확인** 을 클릭합니다. 
 
-1. **MPN ID**를 입력합니다. 이 MPN ID는 
+1. **MPN ID** 를 입력합니다. 이 MPN ID는 
 
     - 확인 프로세스를 완료한 유효한 Microsoft 파트너 네트워크 계정이어야 합니다.  
 
     - 조직의 PGA(파트너 글로벌 계정)이어야 합니다. 
 
-1. **확인 및 저장**을 클릭합니다. 
+1. **확인 및 저장** 을 클릭합니다. 
 
 1. 프로세스 요청을 기다려 주세요. 이 작업은 몇 분 정도 걸릴 수 있습니다. 
 

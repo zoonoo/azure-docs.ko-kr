@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9b7da2fcc1310f03f894e048089658f25be3a149
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708852"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Azure Kubernetes Service 및 Azure Database for PostgreSQL 단일 서버 연결
@@ -26,17 +26,17 @@ AKS 클러스터에서 가속 네트워킹이 활성화된 기본 VM을 사용�
 AKS 클러스터에 가속 네트워킹이 있는지 여부를 확인할 수 있습니다.
 1. Azure Portal로 이동하고 AKS 클러스터를 선택합니다.
 2. 속성 탭을 선택합니다.
-3. **인프라 리소스 그룹**의 이름을 복사합니다.
+3. **인프라 리소스 그룹** 의 이름을 복사합니다.
 4. 포털 검색 표시줄을 사용하여 인프라 리소스 그룹을 엽니다.
 5. 해당 리소스 그룹의 VM을 선택합니다.
 6. VM의 **네트워킹** 탭으로 이동합니다.
-7. **가속 네트워킹**이 ‘사용’하도록 설정되었는지 확인합니다.
+7. **가속 네트워킹** 이 ‘사용’하도록 설정되었는지 확인합니다.
 
 또는 Azure CLI를 통해 다음의 두 명령을 실행합니다.
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-이 명령의 출력은 네트워크 인터페이스를 포함하는 생성된 리소스 그룹(AKS에서 작성됨)입니다. "NodeResourceGroup" 이름을 가져와 다음 명령에서 사용합니다. **EnableAcceleratedNetworking**은 true 또는 false가 됩니다.
+이 명령의 출력은 네트워크 인터페이스를 포함하는 생성된 리소스 그룹(AKS에서 작성됨)입니다. "NodeResourceGroup" 이름을 가져와 다음 명령에서 사용합니다. **EnableAcceleratedNetworking** 은 true 또는 false가 됩니다.
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```

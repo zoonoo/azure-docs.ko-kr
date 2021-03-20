@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 35d01fd60d0549a528a45013add48bd203b86d6e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727263"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654682"
 ---
 # <a name="create-a-video-indexer-account"></a>Video Indexer 계정 만들기
 
@@ -147,7 +147,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|Description|
+|설정|설명|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
@@ -203,7 +203,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 -   [Azure Government](../../azure-government/index.yml)의 Azure 구독입니다.
 - Azure Government의 Azure AD 계정.
-- [Azure에 연결 하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명 된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다.
+- [Azure에 연결 하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명 된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다. 자동 흐름에 대 한 [추가 필수 구성 요소](#additional-prerequisites-for-automatic-flow) 및 [수동 흐름의 추가 필수 구성](#additional-prerequisites-for-manual-flow)요소를 확인 해야 합니다.
 
 ### <a name="create-new-account-via-the-azure-government-portal"></a>Azure Government 포털을 통해 새 계정 만들기
 

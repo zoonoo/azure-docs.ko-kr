@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023230"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>낮음-보통 네트워크 대역폭에서 작은 데이터 세트의 데이터 전송
@@ -52,13 +52,13 @@ ms.locfileid: "96023230"
 | 기능 | Azure Storage Explorer | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | 가용성 | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구 | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스 |
-| 그래픽 인터페이스 | 예 | 예 | 예 | 예 |
+| 그래픽 인터페이스 | 예 | 예 | 아니요 | 아니요 |
 | 지원되는 플랫폼 | Windows, Mac, Linux | 웹 기반 |Windows, Mac, Linux |모든 플랫폼 |
 | Blob 및 폴더에 대해 허용되는 Blob<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리 |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
-| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | No |업로드<br>다운로드<br>관리                   | No |
+| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 아니요 |업로드<br>다운로드<br>관리                   | 아니요 |
 | 파일 및 디렉터리에 대해 허용되는 File<br>Storage 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리   |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
-| 테이블에 대해 허용되는 Table<br>Storage 작업 |관리 | No |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
-| 허용되는 Queue Storage | 관리 | 예  |예 | 예, 사용자 지정 가능|
+| 테이블에 대해 허용되는 Table<br>Storage 작업 |관리 | 아니요 |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
+| 허용되는 Queue Storage | 관리 | 아니요  |아니요 | 예, 사용자 지정 가능|
 
 
 ## <a name="next-steps"></a>다음 단계

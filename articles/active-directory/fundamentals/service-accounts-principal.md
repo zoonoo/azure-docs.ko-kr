@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552153"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587851"
 ---
 # <a name="securing-service-principals"></a>서비스 주체 보안
 
-Azure Active Directory (Azure AD) [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 는 단일 테 넌 트 또는 디렉터리의 응용 프로그램 개체에 대 한 로컬 표현입니다.  응용 프로그램 인스턴스의 id로 작동 합니다. 서비스 주체는 응용 프로그램에 액세스할 수 있는 사용자와 응용 프로그램이 액세스할 수 있는 리소스를 정의 합니다. 응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 응용 프로그램 개체를 참조 합니다. 테 넌 트는 서비스 사용자의 로그인 및 리소스에 대 한 액세스를 보호 합니다.  
+Azure Active Directory (Azure AD) [서비스 주체](../develop/app-objects-and-service-principals.md) 는 단일 테 넌 트 또는 디렉터리의 응용 프로그램 개체에 대 한 로컬 표현입니다.  응용 프로그램 인스턴스의 id로 작동 합니다. 서비스 주체는 응용 프로그램에 액세스할 수 있는 사용자와 응용 프로그램이 액세스할 수 있는 리소스를 정의 합니다. 응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 응용 프로그램 개체를 참조 합니다. 테 넌 트는 서비스 사용자의 로그인 및 리소스에 대 한 액세스를 보호 합니다.  
 
 ### <a name="tenant-service-principal-relationships"></a>테 넌 트-서비스 주체 관계
 단일 테 넌 트 응용 프로그램의 홈 테 넌 트에는 하나의 서비스 사용자만 있습니다. 다중 테 넌 트 웹 응용 프로그램 또는 API에는 각 테 넌 트의 서비스 주체가 필요 합니다. 서비스 사용자는 해당 테 넌 트의 사용자가 응용 프로그램 또는 API의 사용에 동의한 때 생성 됩니다. 이 동의는 다중 테 넌 트 응용 프로그램과 연결 된 서비스 주체 간에 일 대 다 관계를 만듭니다.
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) [서비스 주체](https://docs.microsoft.com/
 
 ApplicationID는 전역 응용 프로그램을 나타내며, 테 넌 트의 모든 응용 프로그램 인스턴스에 대해 동일 합니다. ObjectID는 응용 프로그램 개체에 대 한 고유한 값 이며 서비스 주체를 나타냅니다. 사용자, 그룹 및 기타 리소스와 마찬가지로 ObjectID는 Azure AD에서 응용 프로그램 인스턴스를 고유 하 게 식별 하는 데 도움이 됩니다.
 
-이 항목에 대 한 자세한 내용은 [응용 프로그램 및 서비스 사용자 관계](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)를 참조 하세요.
+이 항목에 대 한 자세한 내용은 [응용 프로그램 및 서비스 사용자 관계](../develop/app-objects-and-service-principals.md)를 참조 하세요.
 
 Azure PowerShell, Azure CLI, Microsoft Graph, Azure Portal 및 기타 도구를 사용 하 여 테 넌 트에서 응용 프로그램 및 해당 ObjectID (서비스 주체 개체)를 만들 수도 있습니다. 
 
@@ -63,7 +63,7 @@ Azure PowerShell, Azure CLI, Microsoft Graph, Azure Portal 및 기타 도구를 
 
 * 암호 
 
-Azure Key Vault에 대 한 자세한 내용과 인증서 및 비밀 관리에이를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 정보](https://docs.microsoft.com/azure/key-vault/general/overview) 및 [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)을 참조 하세요. 
+Azure Key Vault에 대 한 자세한 내용과 인증서 및 비밀 관리에이를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 정보](../../key-vault/general/overview.md) 및 [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당](../../key-vault/general/assign-access-policy-portal.md)을 참조 하세요. 
 
  ### <a name="challenges-and-mitigations"></a>과제 및 완화
 다음 표에서는 서비스 주체를 사용 하는 경우 발생할 수 있는 문제를 완화 하는 방법을 보여 줍니다.
@@ -89,7 +89,7 @@ PowerShell 사용
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-자세한 내용은 [get-azureadserviceprincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal) 를 참조 하세요.
+자세한 내용은 [get-azureadserviceprincipal](/powershell/module/azuread/get-azureadserviceprincipal) 를 참조 하세요.
 
 ## <a name="assess-service-principal-security"></a>서비스 사용자 보안 평가
 
@@ -105,7 +105,7 @@ PowerShell 사용
 | 기본 Azure RBAC 역할은 기여자입니다. |요구 사항을 평가 하 고이 요구를 충족 하기 위해 가장 가능성이 낮은 권한이 있는 역할을 적용 합니다.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>사용자 계정에서 서비스 주체로 이동  
-Azure 사용자 계정을 서비스 사용자로 사용 하는 경우 [관리 되는 id](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) 또는 서비스 주체로 이동할 수 있는지 평가 합니다. 관리 id를 사용할 수 없는 경우 필요한 작업을 실행할 수 있는 충분 한 권한 및 범위가 있는 서비스 주체를 프로 비전 합니다. [응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)하거나 [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)을 사용 하 여 서비스 주체를 만들 수 있습니다.
+Azure 사용자 계정을 서비스 사용자로 사용 하는 경우 [관리 되는 id](../../app-service/overview-managed-identity.md?tabs=dotnet) 또는 서비스 주체로 이동할 수 있는지 평가 합니다. 관리 id를 사용할 수 없는 경우 필요한 작업을 실행할 수 있는 충분 한 권한 및 범위가 있는 서비스 주체를 프로 비전 합니다. [응용 프로그램을 등록](../develop/howto-create-service-principal-portal.md)하거나 [PowerShell](../develop/howto-authenticate-service-principal-powershell.md)을 사용 하 여 서비스 주체를 만들 수 있습니다.
 
 Microsoft Graph를 사용 하는 경우 [이 예제와 같이](/powershell/azure/create-azure-service-principal-azureps)특정 API의 설명서를 확인 하 고 응용 프로그램에 대 한 사용 권한 유형이 지원 되는 것으로 표시 되는지 확인 합니다.
 
@@ -115,7 +115,7 @@ Microsoft Graph를 사용 하는 경우 [이 예제와 같이](/powershell/azure
 
 [서비스 주체 만들기](../develop/howto-create-service-principal-portal.md)
 
- [서비스 사용자 로그인 모니터링](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [서비스 사용자 로그인 모니터링](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 다음을 확인 하세요.**
 

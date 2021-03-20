@@ -8,13 +8,13 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546554"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Azure database for PostgreSQL에 대 한 연결 및 쿼리 개요-단일 서버
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Azure database for PostgreSQL- 단일 서버 개요 연결 및 쿼리
 
 다음 문서에는 Azure Database for PostgreSQL 단일 서버로 연결 하 고 쿼리 하는 방법을 보여 주는 예제에 대 한 링크가 포함 되어 있습니다. 이 가이드에는 아래 지원 되는 언어의 서버에 연결 하는 데 사용할 수 있는 TLS 권장 사항 및 확장도 포함 되어 있습니다.
 

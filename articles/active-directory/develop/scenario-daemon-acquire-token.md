@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19ead7fe063992e95588641f7fd739081cf54a2f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753869"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578416"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
@@ -24,13 +24,27 @@ ms.locfileid: "98753869"
 
 ## <a name="scopes-to-request"></a>요청할 범위
 
-클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default` . 이 표기법은 응용 프로그램을 등록 하는 동안 정적으로 선언 된 *응용 프로그램 수준 권한을* 사용 하도록 Azure Active Directory (Azure AD)에 지시 합니다. 또한 이러한 API 권한은 테 넌 트 관리자가 부여 해야 합니다.
+클라이언트 자격 증명 흐름에 대해 요청할 범위는 `/.default` 앞에 있는 리소스의 이름입니다. 이 표기법은 응용 프로그램을 등록 하는 동안 정적으로 선언 된 *응용 프로그램 수준 권한을* 사용 하도록 Azure Active Directory (Azure AD)에 지시 합니다. 또한 이러한 API 권한은 테넌트 관리자가 부여해야 합니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 ```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+```JavaScript
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+};
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -41,12 +55,6 @@ MSAL Python에서 구성 파일은 다음 코드 조각과 같습니다.
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -96,30 +104,6 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 
 MSAL.NET에서는 `AcquireTokenForClient` 응용 프로그램 토큰 캐시를 사용 합니다. 다른 모든 AcquireToken *XX* 메서드는 사용자 토큰 캐시를 사용 합니다. 는 `AcquireTokenSilent` `AcquireTokenForClient` `AcquireTokenSilent` *사용자* 토큰 캐시를 사용 하므로를 호출 하기 전에를 호출 하지 마세요. `AcquireTokenForClient`*응용 프로그램* 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-# The pattern to acquire a token looks like this.
-result = None
-
-# First, the code looks up a token from the cache.
-# Because we're looking for a token for the current app, not for a user,
-# use None for the account parameter.
-result = app.acquire_token_silent(config["scope"], account=None)
-
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
-
-if "access_token" in result:
-    # Call a protected API with the access token.
-    print(result["token_type"])
-else:
-    print(result.get("error"))
-    print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You might need this when reporting a bug.
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 이 코드는 [Msal Java dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/)에서 추출 됩니다.
@@ -167,6 +151,43 @@ private static IAuthenticationResult acquireToken() throws Exception {
      }
      return result;
  }
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+아래 코드 조각에서는 MSAL 노드의 기밀 클라이언트 응용 프로그램에서 토큰을 획득 하는 방법을 보여 줍니다.
+
+```JavaScript
+try {
+    const authResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+    console.log(authResponse.accessToken) // display access token
+} catch (error) {
+    console.log(error);
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+# The pattern to acquire a token looks like this.
+result = None
+
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
+result = app.acquire_token_silent(config["scope"], account=None)
+
+if not result:
+    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token.
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
 ---
@@ -241,12 +262,16 @@ Content: {
 
 이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](./scenario-daemon-call-api.md?tabs=dotnet)합니다.
 
-# <a name="python"></a>[Python](#tab/python)
-
-이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](./scenario-daemon-call-api.md?tabs=python)합니다.
-
 # <a name="java"></a>[Java](#tab/java)
 
 이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](./scenario-daemon-call-api.md?tabs=java)합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](./scenario-daemon-call-api.md?tabs=nodejs)합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](./scenario-daemon-call-api.md?tabs=python)합니다.
 
 ---

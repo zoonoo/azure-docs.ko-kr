@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6fb0b6f38869192e89bb849950e8822a157b23c8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 1b272755652d018a0d5364e4d67c783774c68da8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241942"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655243"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL/TLS 연결
 
@@ -63,7 +63,7 @@ Azure Database for MySQL은 클라이언트 연결에 TLS 버전을 적용할 �
 >
 > 최소 TLS 버전을 적용 한 후에는 나중에 최소 버전 적용을 사용 하지 않도록 설정할 수 없습니다.
 
-Azure Database for MySQL에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
+최소 TLS 버전 설정은 서버가 온라인 상태인 동안 서버를 다시 시작 하지 않아도 설정할 수 있습니다. Azure Database for MySQL에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
 
 ## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>단일 서버 Azure Database for MySQL 암호화 지원
 

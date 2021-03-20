@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894112"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 계산 네트워크를 사용 하도록 설정
@@ -40,7 +40,7 @@ ms.locfileid: "90894112"
 
 로컬 웹 UI에서 다음 단계를 수행하여 컴퓨팅 설정을 구성합니다.
 
-1. 로컬 웹 UI에서 **구성 > 컴퓨팅 설정**으로 이동합니다.  
+1. 로컬 웹 UI에서 **구성 > 컴퓨팅 설정** 으로 이동합니다.  
 
 2. 장치에서 실행할 계산 모듈에 연결 하는 데 사용 하려는 네트워크 인터페이스를 **사용 하도록 설정** 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "90894112"
 
     ![계산 설정 1 사용](media/azure-stack-edge-extend-compute-access-modules/enable-compute-setting-1.png)
 
-3. **적용**을 선택하여 설정을 적용합니다. DHCP를 사용 하는 경우 네트워크 인터페이스에 할당 된 IP 주소를 기록해 둡니다.
+3. **적용** 을 선택하여 설정을 적용합니다. DHCP를 사용 하는 경우 네트워크 인터페이스에 할당 된 IP 주소를 기록해 둡니다.
 
     ![컴퓨팅 설정 사용](media/azure-stack-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 
@@ -57,13 +57,13 @@ ms.locfileid: "90894112"
 
 다음 단계를 수행 하 여 Azure Stack Edge Pro 장치에 웹 서버 앱 모듈을 추가 합니다.
 
-1. Azure Stack Edge Pro 장치와 연결 된 IoT Hub 리소스로 이동한 다음 **IoT Edge 장치**를 선택 합니다.
-2. Azure Stack Edge Pro 장치와 연결 된 IoT Edge 장치를 선택 합니다. **장치 세부 정보**에서 **모듈 설정**을 선택 합니다. **모듈 추가**에서 **+ 추가** 를 선택 하 고 **모듈 IoT Edge**선택 합니다.
+1. Azure Stack Edge Pro 장치와 연결 된 IoT Hub 리소스로 이동한 다음 **IoT Edge 장치** 를 선택 합니다.
+2. Azure Stack Edge Pro 장치와 연결 된 IoT Edge 장치를 선택 합니다. **장치 세부 정보** 에서 **모듈 설정** 을 선택 합니다. **모듈 추가** 에서 **+ 추가** 를 선택 하 고 **모듈 IoT Edge** 선택 합니다.
 3. **사용자 지정 모듈 IoT Edge** 블레이드에서 다음을 수행 합니다.
 
     1. 배포 하려는 웹 서버 앱 모듈의 **이름을** 지정 합니다.
     2. 모듈 이미지에 대 한 **이미지 URI** 를 제공 합니다. 제공 된 이름 및 태그와 일치 하는 모듈이 검색 됩니다. 이 경우는 `nginx:stable` 공용 [Docker 리포지토리에서](https://hub.docker.com/_/nginx/)안정적인 nginx 이미지 (안정적인 것으로 태그가 지정 됨)를 끌어옵니다.
-    3. **컨테이너 만들기 옵션**에서 다음 샘플 코드를 붙여넣습니다.  
+    3. **컨테이너 만들기 옵션** 에서 다음 샘플 코드를 붙여넣습니다.  
 
         ```
         {
@@ -83,11 +83,11 @@ ms.locfileid: "90894112"
 
         ![IoT Edge 사용자 지정 모듈 블레이드에서 포트 정보를 지정 합니다.](media/azure-stack-edge-extend-compute-access-modules/module-information.png)
 
-    4. **저장**을 선택합니다.
+    4. **저장** 을 선택합니다.
 
 ## <a name="verify-module-access"></a>모듈 액세스 확인
 
-1. 모듈이 성공적으로 배포 되 고 실행 중인지 확인 합니다. **장치 세부 정보** 페이지의 **모듈** 탭에서 모듈의 런타임 상태가 **실행 중**이어야 합니다.  
+1. 모듈이 성공적으로 배포 되 고 실행 중인지 확인 합니다. **장치 세부 정보** 페이지의 **모듈** 탭에서 모듈의 런타임 상태가 **실행 중** 이어야 합니다.  
 2. 웹 서버 앱 모듈에 연결 합니다. 브라우저 창을 열고 다음을 입력 합니다.
 
     `http://<compute-network-IP-address>:8080`

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90600724"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
@@ -86,7 +86,7 @@ Privileged Identity Management 쉽게 열 수 있도록 하려면 Azure Portal �
 
     ![모든 서비스의 Azure AD Privileged Identity Management](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Privileged Identity Management **빠른 시작**을 선택 합니다.
+1. Privileged Identity Management **빠른 시작** 을 선택 합니다.
 
 1. 대시보드에 **블레이드 고정** 을 선택 하 여 Privileged Identity Management **빠른 시작** 페이지를 대시보드에 고정 합니다.
 

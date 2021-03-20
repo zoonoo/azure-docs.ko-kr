@@ -4,10 +4,10 @@ description: 가상 컴퓨터를 프로 비전 한 후 응용 프로그램을 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270685"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
@@ -19,7 +19,7 @@ ms.locfileid: "88270685"
 >
 
 ## <a name="overview"></a>개요
-*아티팩트*를 사용하여 VM을 프로비전한 후 애플리케이션을 배포 및 설정할 수 있습니다. 아티팩트는 Git 리포지토리의 폴더에 저장되어 있는 아티팩트 정의 파일 및 다른 스크립트 파일로 구성됩니다. 아티팩트 정의 파일은 VM에 설치하려는 아티팩트를 지정하는 데 사용할 수 있는 JSON과 식으로 구성됩니다. 예를 들어 아티팩트의 이름, 실행할 명령, 명령이 실행되는 경우 사용할 수 있는 매개 변수를 정의할 수 있습니다. 이름으로 아티팩트 정의 파일 내의 다른 스크립트 파일을 참조할 수 있습니다.
+*아티팩트* 를 사용하여 VM을 프로비전한 후 애플리케이션을 배포 및 설정할 수 있습니다. 아티팩트는 Git 리포지토리의 폴더에 저장되어 있는 아티팩트 정의 파일 및 다른 스크립트 파일로 구성됩니다. 아티팩트 정의 파일은 VM에 설치하려는 아티팩트를 지정하는 데 사용할 수 있는 JSON과 식으로 구성됩니다. 예를 들어 아티팩트의 이름, 실행할 명령, 명령이 실행되는 경우 사용할 수 있는 매개 변수를 정의할 수 있습니다. 이름으로 아티팩트 정의 파일 내의 다른 스크립트 파일을 참조할 수 있습니다.
 
 ## <a name="artifact-definition-file-format"></a>아티팩트 정의 파일 형식
 다음 예제에서는 정의 파일의 기본 구조를 구성하는 섹션을 보여 줍니다.
@@ -48,7 +48,7 @@ ms.locfileid: "88270685"
 | --- | --- | --- |
 | $schema |아니요 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
 | title |예 |랩에 표시되는 아티팩트의 이름입니다. |
-| description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
+| 설명 |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
 | iconUri |아니요 |랩에 표시되는 아이콘의 URI입니다. |
 | targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
 | 매개 변수 |아니요 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
@@ -73,7 +73,7 @@ ms.locfileid: "88270685"
 | --- | --- | --- |
 | type |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
 | displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
-| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
+| 설명 |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "88270685"
 * array(유효한 모든 JSON 배열)
 
 ## <a name="secrets-as-secure-strings"></a>보안 문자열로 된 비밀
-비밀을 보안 문자열로 선언 합니다. 다음은 파일의artifactfile.js섹션에서 보안 문자열 매개 변수를 선언 하는 구문입니다 `parameters` . **artifactfile.json**
+비밀을 보안 문자열로 선언 합니다. 다음은 파일의artifactfile.js섹션에서 보안 문자열 매개 변수를 선언 하는 구문입니다 `parameters` . 
 
 ```json
 

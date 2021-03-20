@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2bb86988454141dc692b4a9967997c4ff7574a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530491"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>동기화 규칙을 사용자 지정하는 방법
@@ -46,7 +46,7 @@ ms.locfileid: "90530491"
 * [Azure AD Connect 동기화: 기술 개념](./how-to-connect-sync-technical-concepts.md)
 * [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)
 * [Azure AD Connect 동기화: 선언적 프로비전 이해](./concept-azure-ad-connect-sync-declarative-provisioning.md)
-* [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Azure AD Connect 동기화: 선언적 프로비전 식 이해](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 * [Azure AD Connect 동기화: 기본 구성 이해](./concept-azure-ad-connect-sync-default-configuration.md)
 * [Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해](./concept-azure-ad-connect-sync-user-and-contacts.md)
 * [Azure AD Connect 동기화: 섀도 특성](./how-to-connect-syncservice-shadow-attributes.md)

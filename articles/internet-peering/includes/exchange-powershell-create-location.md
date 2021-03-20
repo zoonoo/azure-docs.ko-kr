@@ -1,7 +1,7 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
-description: 포함 파일
+description: 파일 포함
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82587828"
 ---
 PowerShell cmdlet **AzPeeringLocation** 는 필수 매개 변수를 사용 하 여 피어 링 위치 목록을 반환 합니다 `Kind` .이 위치는 이후 단계에서 사용할 수 있습니다.

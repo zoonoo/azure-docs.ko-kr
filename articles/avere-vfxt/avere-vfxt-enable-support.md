@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272731"
 ---
 # <a name="enable-support-uploads"></a>지원 업로드 사용
@@ -28,15 +28,15 @@ Avere vFXT for Azure는 클러스터에 대 한 지원 데이터를 자동으로
 
 1. 지원 구성 페이지에서 왼쪽에 있는 삼각형을 클릭 하 여 **고객 정보** 섹션을 엽니다.
 1. **업로드 정보 유효성 재검사** 단추를 클릭합니다.
-1. 클러스터의 지원 이름을 **고유한 클러스터 이름**으로 설정 합니다. 이 이름이 클러스터를 지원 담당자에 게 고유 하 게 식별 하는지 확인 합니다.
+1. 클러스터의 지원 이름을 **고유한 클러스터 이름** 으로 설정 합니다. 이 이름이 클러스터를 지원 담당자에 게 고유 하 게 식별 하는지 확인 합니다.
 1. **통계 모니터링**, **일반 정보 업로드** 및 **크래시 정보 업로드** 확인란을 선택합니다.
-1. **제출**을 클릭합니다.
+1. **제출** 을 클릭합니다.
 
    ![지원 설정 페이지의 완료된 고객 정보 섹션을 포함하는 스크린샷](media/avere-vfxt-support-info.png)
 
 1. **SPS(Secure Proactive Support)** 왼쪽의 삼각형을 클릭하여 섹션을 확장합니다.
 1. **SPS 링크 사용** 확인란을 선택합니다.
-1. **제출**을 클릭합니다.
+1. **제출** 을 클릭합니다.
 
    ![지원 설정 페이지의 완료된 보안 주도적 지원 섹션을 포함하는 스크린샷](media/avere-vfxt-support-sps.png)
 

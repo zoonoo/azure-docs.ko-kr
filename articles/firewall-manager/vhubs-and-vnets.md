@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
 ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563151"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Azure 방화벽 관리자 아키텍처 옵션은 무엇 인가요?
@@ -23,7 +23,7 @@ Azure 방화벽 관리자는 다음 두 가지 네트워크 아키텍처 유형�
    [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources)는 허브 및 스포크 아키텍처를 쉽게 만들 수 있는 Microsoft 관리 리소스입니다. 보안 및 라우팅 정책이 이러한 허브와 연결 된 경우 보안 *[가상 허브](secured-virtual-hub.md)* 라고 합니다. 
 - **허브 가상 네트워크**
 
-   이는 사용자가 직접 만들고 관리하는 표준 Azure 가상 네트워크입니다. 이러한 허브와 연결된 보안 정책을 *보안 가상 허브*라고도 합니다. 지금은 Azure Firewall Policy만 지원됩니다. 워크로드 서버 및 서비스가 포함된 스포크 가상 네트워크를 피어링할 수 있습니다. 또한 모든 스포크에 피어링되지 않는 독립 실행형 가상 네트워크에서 방화벽을 관리할 수 있습니다.
+   이는 사용자가 직접 만들고 관리하는 표준 Azure 가상 네트워크입니다. 이러한 허브와 연결된 보안 정책을 *보안 가상 허브* 라고도 합니다. 지금은 Azure Firewall Policy만 지원됩니다. 워크로드 서버 및 서비스가 포함된 스포크 가상 네트워크를 피어링할 수 있습니다. 또한 모든 스포크에 피어링되지 않는 독립 실행형 가상 네트워크에서 방화벽을 관리할 수 있습니다.
 
 ## <a name="comparison"></a>비교
 
@@ -32,7 +32,7 @@ Azure 방화벽 관리자는 다음 두 가지 네트워크 아키텍처 유형�
 
 |  |**Hub 가상 네트워크**|**보안 가상 허브**  |
 |---------|---------|---------|
-|**기본 리소스**     |가상 네트워크|가상 WAN 허브|
+|**기본 리소스**     |가상 네트워크|Virtual WAN 허브|
 |**허브 & 스포크**     |가상 네트워크 피어 링 사용|허브 가상 네트워크 연결을 사용 하 여 자동화|
 |**온-프레미스 연결**     |최대 10gbps 및 30 개의 S2S 연결을 VPN Gateway 합니다. ExpressRoute|더 확장 가능한 VPN Gateway 20gbps 및 1000 S2S 연결 Express 경로|
 |**SDWAN을 사용 하 여 자동화 된 분기 연결**      |지원되지 않음|지원됨|

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359835"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
@@ -85,7 +85,7 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 단일 Azure AD 테넌트에 Azure AD Connect Sync 서버를 두 개 이상 연결하는 것은 지원되지 않습니다. [준비 서버](#staging-server)사용은 예외입니다.
 
-단일 Azure AD 테넌트에 연결된 **여러 동기화 서버**와 다른 이 토폴로지는 지원되지 않습니다.
+단일 Azure AD 테넌트에 연결된 **여러 동기화 서버** 와 다른 이 토폴로지는 지원되지 않습니다.
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>여러 포리스트, 단일 동기화 서버, 사용자가 하나의 디렉터리에 표시됩니다
 ![모든 디렉터리에서 사용자를 한 번만 표시하는 옵션](./media/plan-connect-topologies/multiforestusersonce.png)
@@ -130,7 +130,7 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 ## <a name="staging-server"></a>스테이징 서버
 ![토폴로지의 준비 서버](./media/plan-connect-topologies/multiforeststaging.png)
 
-Azure AD Connect는 *준비 모드*에서 두 번째 서버의 설치를 지원합니다. 이 모드에서 서버는 모든 연결된 디렉터리에서 데이터를 읽지만 연결된 디렉터리에는 아무 것도 쓰지 않습니다. 일반 동기화 주기를 사용하므로 ID 데이터의 업데이트된 복사본을 갖게 됩니다.
+Azure AD Connect는 *준비 모드* 에서 두 번째 서버의 설치를 지원합니다. 이 모드에서 서버는 모든 연결된 디렉터리에서 데이터를 읽지만 연결된 디렉터리에는 아무 것도 쓰지 않습니다. 일반 동기화 주기를 사용하므로 ID 데이터의 업데이트된 복사본을 갖게 됩니다.
 
 주 서버가 실패하면 준비 서버로 장애 조치(failover)할 수 있습니다. Azure AD Connect 마법사에서 이 작업을 수행합니다. 기본 서버와 인프라를 공유하지 않으므로 두 번째 서버를 다른 데이터 센터에 배치할 수 있습니다. 주 서버에서 적용한 모든 구성 변경 사항은 두 번째 서버에 수동으로 복사해야 합니다.
 

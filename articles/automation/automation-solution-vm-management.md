@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b71e5b1a8ba5f3ee8f883c71a7221e01d4af4fb6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559361"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597711"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -91,7 +91,8 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
 | Microsoft.OperationalInsights/workspaces/write | 리소스 그룹 |
@@ -167,7 +168,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Stop` 매개 변수를 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다.  변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다.  관련된 일정 **Scheduled-StartVM** 을 사용하도록 설정합니다.|
 |Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 시작합니다.  관련된 일정 **Scheduled-StopVM** 을 사용하도록 설정합니다.|
 |Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 `Stop` 매개 변수 값을 사용하여 **Sequenced_StopStop_Parent** Runbook을 실행합니다.  적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요.  관련된 일정, **Sequenced-StartVM** 을 사용하도록 설정합니다.|
-|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **SequencedStopStart_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 변수 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StopVM** 을 사용하도록 설정합니다.
+|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **SequencedStopStart_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 변수 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StopVM** 을 사용하도록 설정합니다.|
 
 ## <a name="use-the-feature-with-classic-vms"></a>클래식 VM에서 작업 시간 외 VM 시작/중지 기능 사용
 

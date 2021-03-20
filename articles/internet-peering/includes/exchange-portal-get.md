@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548196"
 ---
 **피어 링** 리소스가 성공적으로 배포 되 면 다음 단계에 따라 해당 리소스를 볼 수 있습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "92548196"
 
     * **연결 상태** 는 피어 링 연결 설정의 상태에 해당 합니다. 이 필드에 표시 되는 상태는 [Exchange 피어 링 연습](../walkthrough-exchange-all.md)에 표시 된 상태 다이어그램을 따릅니다.
     * **Ipv4 세션 상태** 및 **ipv6 세션 상태** 는 각각 ipv4 및 ipv6 BGP 세션 상태에 해당 합니다.  
-    * 화면 위쪽에서 행을 선택 하면 아래쪽의 **연결** 섹션에 각 연결에 대 한 세부 정보가 표시 됩니다. 화살표를 선택 하 여 **구성** , **IPv4 주소** 및 **IPv6 주소** 를 확장 합니다.
+    * 화면 위쪽에서 행을 선택 하면 아래쪽의 **연결** 섹션에 각 연결에 대 한 세부 정보가 표시 됩니다. 화살표를 선택 하 여 **구성**, **IPv4 주소** 및 **IPv6 주소** 를 확장 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![섹션을 확장 하는 화살표를 강조 표시 하는 스크린샷](../media/setup-exchange-get-connectionsipv4.png)

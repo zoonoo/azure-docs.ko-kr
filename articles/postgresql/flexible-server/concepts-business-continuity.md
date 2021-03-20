@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92542967"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버를 사용한 비즈니스 연속성 개요
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL 유연한 서버에서 **비즈니스 연속성** 
 ## <a name="planned-downtime-events"></a>계획 된 가동 중지 시간 이벤트
 다음은 몇 가지 계획 된 유지 관리 시나리오입니다. 이러한 이벤트는 일반적으로 최대 몇 분의 가동 중지 시간 및 데이터 손실 없이 발생 합니다.
 
-| **시나리오** | **Process**|
+| **시나리오** | **처리**|
 | ------------------- | ----------- | 
 | <b>계산 크기 조정 (사용자가 시작한)| 계산 크기 조정 작업을 수행 하는 동안 활성 검사점을 완료할 수 있고, 클라이언트 연결이 종료 되 고, 커밋되지 않은 모든 트랜잭션이 취소 되 고, 저장소가 분리 된 후 종료 됩니다. 데이터베이스 서버 이름이 동일한 새 유연한 서버는 크기 조정 된 계산 구성으로 프로 비전 됩니다. 그러면 저장소는 새 서버에 연결 되 고, 필요한 경우 클라이언트 연결을 허용 하기 전에 복구를 수행 하는 데이터베이스가 시작 됩니다. |
 | <b>저장소 확장 (사용자가 시작한) | 저장소 확장 작업이 시작 되 면 활성 검사점이 완료 되 고, 클라이언트 연결이 종료 되 고, 커밋되지 않은 모든 트랜잭션이 취소 된 후 종료 됩니다. 저장소는 원하는 크기로 확장 된 다음 새 서버에 연결 됩니다. 클라이언트 연결을 허용 하기 전에 필요한 경우 복구가 수행 됩니다. 저장소 크기를 축소 하는 것은 지원 되지 않습니다. |
@@ -69,7 +69,7 @@ Azure Database for PostgreSQL 유연한 서버에서 **비즈니스 연속성** 
 
 
 > [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다** . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

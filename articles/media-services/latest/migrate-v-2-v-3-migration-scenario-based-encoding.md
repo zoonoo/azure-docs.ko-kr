@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612503"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598408"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>인코딩 시나리오 기반 마이그레이션 지침
 
@@ -26,7 +26,7 @@ ms.locfileid: "102612503"
 
 이 문서에서는 Azure Media Services v 2에서 v3로 마이그레이션하는 데 도움이 되는 인코딩 시나리오 기반 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 인코딩 워크플로를 변경 하려면 먼저 저장소를 관리 하는 방식에 대 한 차이점을 이해 하는 것이 좋습니다.  AMS V3에서 Azure Storage API는 Media Services 계정과 연결 된 저장소 계정을 관리 하는 데 사용 됩니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "102612503"
         - 출력 자산
         - 리소스 그룹
         - AMS 계정 이름  
-1. 작업 모니터링에 [Event Grid](monitor-events-portal-how-to.md) 를 사용 합니다.
+1. 작업 모니터링에 [Event Grid](monitoring/monitor-events-portal-how-to.md) 를 사용 합니다.
 1. 작업을 제출합니다.
 
 ## <a name="custom-presets-from-v2-to-v3-encoding"></a>V2에서 V3 인코딩으로 사용자 지정 사전 설정

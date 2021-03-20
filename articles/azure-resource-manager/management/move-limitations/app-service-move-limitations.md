@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용 하 여 App Service 리소스를 �
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90531375"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>App Service 리소스에 대 한 이동 지침
@@ -28,11 +28,11 @@ ms.locfileid: "90531375"
 - 인증서가 리소스 그룹의 다른 모든 리소스와 함께 이동 하는 한 TLS 바인딩을 삭제 하지 않고 웹에 바인딩된 인증서를 이동할 수 있습니다.
 - App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래 리소스 그룹에 더 이상 없는 경우 다시 원래 리소스 그룹으로 이동 합니다. 그런 다음 구독 간에 리소스를 이동 합니다.
 
-원래 리소스 그룹을 기억할 수 없는 경우 진단을 통해 찾을 수 있습니다. 웹 앱의 경우 **문제 진단 및 해결**을 선택 합니다. 그런 다음 **구성 및 관리**를 선택 합니다.
+원래 리소스 그룹을 기억할 수 없는 경우 진단을 통해 찾을 수 있습니다. 웹 앱의 경우 **문제 진단 및 해결** 을 선택 합니다. 그런 다음 **구성 및 관리** 를 선택 합니다.
 
 ![진단 선택](./media/app-service-move-limitations/select-diagnostics.png)
 
-**마이그레이션 옵션**을 선택 합니다.
+**마이그레이션 옵션** 을 선택 합니다.
 
 ![마이그레이션 옵션 선택](./media/app-service-move-limitations/select-migration.png)
 

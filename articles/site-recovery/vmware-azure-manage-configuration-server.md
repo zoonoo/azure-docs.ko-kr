@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546350"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버를 재해 복구하기 위한 구성 서버 관리
@@ -29,7 +29,7 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 다음과 같이 구성 서버에 액세스할 수 있습니다.
 
 * 배포 된 VM에 로그인 하 고 바탕 화면 바로 가기에서 **Azure Site Recovery Configuration Manager** 를 시작 합니다.
-* 또는 https:// *Configurationservername* /: 44315/에서 원격으로 구성 서버에 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
+* 또는 https://*Configurationservername*/: 44315/에서 원격으로 구성 서버에 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
 
 ## <a name="modify-vmware-server-settings"></a>VMware 서버 설정 수정
 
@@ -114,7 +114,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ### <a name="if-certificates-have-already-expired"></a>인증서가 이미 만료 된 경우
 
-1. 만료 후 **Azure Portal에서 인증서를 갱신할 수 없습니다** . 계속 하기 전에 모든 구성 요소 스케일 아웃 프로세스 서버, 마스터 대상 서버 및 모든 보호 된 컴퓨터의 모바일 에이전트가 최신 버전에 있고 연결 된 상태에 있는지 확인 하세요.
+1. 만료 후 **Azure Portal에서 인증서를 갱신할 수 없습니다**. 계속 하기 전에 모든 구성 요소 스케일 아웃 프로세스 서버, 마스터 대상 서버 및 모든 보호 된 컴퓨터의 모바일 에이전트가 최신 버전에 있고 연결 된 상태에 있는지 확인 하세요.
 2. **인증서가 이미 만료 된 경우에만 다음 절차를 따르세요.** 구성 서버에 로그인 하 고, C 드라이브 > 프로그램 데이터 > Site Recovery > home > svsystems > bin으로 이동 하 고, "Renewcerts.exe" executor 도구를 관리자 권한으로 실행 합니다.
 3. PowerShell 실행 창이 팝업 되 고 인증서 갱신이 트리거됩니다. 이 작업은 최대 15분까지 걸릴 수 있습니다. 갱신이 완료 될 때까지 창을 닫지 마십시오.
 
@@ -298,7 +298,7 @@ ProxyPassword="Password"
 
 ## <a name="refresh-configuration-server"></a>구성 서버 새로 고침
 
-1. Azure Portal에서 **Recovery Services Vault**  >  **Manage**  >  **Site Recovery Infrastructure**  >  **VMware & 물리적 컴퓨터**  >  **구성 서버** 에 대 한 Site Recovery 인프라 관리 Recovery Services 자격 증명 모음으로 이동 합니다.
+1. Azure Portal에서   >    >    >  **VMware & 물리적 컴퓨터**  >  **구성 서버** 에 대 한 Site Recovery 인프라 관리 Recovery Services 자격 증명 모음으로 이동 합니다.
 2. 새로 고치려는 구성 서버를 클릭합니다.
 3. 선택한 구성 서버에 대 한 세부 정보가 있는 블레이드에서 **추가**  >  **서버 새로 고침** 을 클릭 합니다.
 4. **Recovery Services 자격 증명 모음**  >  **모니터링**  >  **Site Recovery 작업** 에서 작업의 진행률을 모니터링 합니다.

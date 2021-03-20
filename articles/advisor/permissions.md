@@ -4,10 +4,10 @@ description: Advisor 권한 및 구독을 구성 하는 기능을 차단 하는 
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91712934"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Advisor의 사용 권한
@@ -18,7 +18,7 @@ Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 �
 
 다음 표에서는 Advisor 내에서 역할 및 액세스 권한을 정의 합니다.
 
-| **역할** | **권장 사항 보기** | **규칙 편집** | **구독 구성 편집** | **리소스 그룹 구성 편집**| **권장 구성 해제 및 연기**|
+| **Role** | **권장 사항 보기** | **규칙 편집** | **구독 구성 편집** | **리소스 그룹 구성 편집**| **권장 구성 해제 및 연기**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |구독 소유자|**X**|**X**|**X**|**X**|**X**|
 |구독 참가자|**X**|**X**|**X**|**X**|**X**|
@@ -50,4 +50,4 @@ Advisor에서 구독 또는 리소스 그룹을 구성 하려고 하면 포함 �
 이 문서에서는 관리자가 Azure RBAC를 사용 하 여 사용자 권한을 제어 하는 방법과 일반적인 문제를 해결 하는 방법에 대 한 개요를 제공 했습니다. Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 
 - [Azure Advisor란?](./advisor-overview.md)
-- [Azure Advisor 시작](./advisor-get-started.md)
+- [Azure Adviser 시작](./advisor-get-started.md)

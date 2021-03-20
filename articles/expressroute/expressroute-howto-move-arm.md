@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90532548"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
@@ -54,7 +54,7 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다.
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
    ```
 
-4. 아래 cmdlet을 사용하여 모든 ExpressRoute 회로에 대한 서비스 키를 가져옵니다. 키를 가져온 후에 Resource Manager 배포 모델로 이동하려는 회로의 **서비스 키**를 복사합니다.
+4. 아래 cmdlet을 사용하여 모든 ExpressRoute 회로에 대한 서비스 키를 가져옵니다. 키를 가져온 후에 Resource Manager 배포 모델로 이동하려는 회로의 **서비스 키** 를 복사합니다.
 
    ```powershell
    Get-AzureDedicatedCircuit

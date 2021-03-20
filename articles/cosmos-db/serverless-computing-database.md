@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334075"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
@@ -124,7 +124,7 @@ Azure Functions는 인프라를 프로비전 또는 관리하지 않고 요청 �
 
 Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴퓨팅 아키텍처에 권장되는 데이터베이스입니다.
 
-* **모든 데이터 즉시 액세스** : Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](index-policy.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
+* **모든 데이터 즉시 액세스**: Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](index-policy.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
 
 * **스키마 사용 안 함**. Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
 
@@ -138,7 +138,7 @@ Azure Functions의 이점:
 
 * **이벤트 구동**. Azure Functions는 이벤트 구동이며 Azure Cosmos DB의 변경 피드를 수신 대기할 수 있습니다. 따라서 수신 논리를 만들 필요가 없으며, 단지 수신 대기 중인 변경 내용을 확인합니다. 
 
-* **제한 없음**. 함수는 병렬로 실행되며, 서비스가 필요한 횟수만큼 실행됩니다. 매개 변수를 설정합니다.
+* **제한이 없습니다**. 함수는 병렬로 실행되며, 서비스가 필요한 횟수만큼 실행됩니다. 매개 변수를 설정합니다.
 
 * **빠른 작업에 좋음**. 이벤트가 발생할 때마다 서비스가 함수의 새 인스턴스를 실행하고 함수가 완료되는 즉시 닫습니다. 함수가 실행되는 시간만큼만 요금을 지불하면 됩니다.
 

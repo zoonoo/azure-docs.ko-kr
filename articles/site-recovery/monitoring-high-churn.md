@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359869"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>가상 컴퓨터에서 변동 패턴 모니터링
@@ -19,9 +19,9 @@ ms.locfileid: "92359869"
 
 ## <a name="for-azure-virtual-machines-windows-or-linux"></a>Azure virtual machines (Windows 또는 Linux)의 경우
 
-컴퓨터가 Azure에서 호스트 되 고 저장소에 대해 관리 되거나 관리 되지 않는 디스크를 사용 하는 경우 디스크 메트릭을 추적 하 여 성능을 쉽게 추적할 수 있습니다. 이를 통해 응용 프로그램 사용 패턴에 맞게 적절 한 디스크 선택을 면밀 하 게 모니터링 하 고 만들 수 있습니다. 또한 경고, 진단 및 빌드 자동화를 만드는 데 사용할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+컴퓨터가 Azure에서 호스트 되 고 저장소에 대해 관리 되거나 관리 되지 않는 디스크를 사용 하는 경우 디스크 메트릭을 추적 하 여 성능을 쉽게 추적할 수 있습니다. 이를 통해 응용 프로그램 사용 패턴에 맞게 적절 한 디스크 선택을 면밀 하 게 모니터링 하 고 만들 수 있습니다. 또한 경고, 진단 및 빌드 자동화를 만드는 데 사용할 수 있습니다. [자세한 정보를 알아보세요](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Monitor 로그 및 Log Analytics를 사용 하 여 컴퓨터를 모니터링할 수 있습니다. [자세히 알아보기](./monitor-log-analytics.md).
+Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Monitor 로그 및 Log Analytics를 사용 하 여 컴퓨터를 모니터링할 수 있습니다. [자세한 정보를 알아보세요](./monitor-log-analytics.md).
 
 또한 사용할 수 있는 운영 체제별 도구도 있습니다.
 
@@ -29,13 +29,13 @@ Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Mo
 
 컴퓨터가 온-프레미스에 있거나 Windows 운영 체제를 실행 하는 컴퓨터가 없는 경우 몇 가지 도구를 사용할 수 있습니다.
 
-작업 관리자에서 디스크 사용을 확인 하는 것 외에는 항상 **리소스 모니터** 및 **성능 모니터**를 참조할 수 있습니다. 이러한 도구는 Windows 컴퓨터에 이미 있습니다.
+작업 관리자에서 디스크 사용을 확인 하는 것 외에는 항상 **리소스 모니터** 및 **성능 모니터** 를 참조할 수 있습니다. 이러한 도구는 Windows 컴퓨터에 이미 있습니다.
 
 ### <a name="resource-monitor"></a>리소스 모니터
 
 **리소스 모니터** 은 하드웨어 및 소프트웨어 리소스 사용에 대 한 정보를 실시간으로 표시 합니다. Windows 컴퓨터에서 리소스 모니터를 실행 하려면 다음 단계를 수행 합니다.
 
-1. Win + R을 누르고 _resmon_을 입력 합니다.
+1. Win + R을 누르고 _resmon_ 을 입력 합니다.
 1. Resmon, 즉 리소스 모니터 창이 열리면 디스크 탭으로 전환 됩니다. 다음 뷰를 제공 합니다.
 
     ![리소스 모니터 디스크 탭](./media/monitoring-high-churn/resmon-disk-tab.png)
@@ -48,7 +48,7 @@ Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Mo
 
 **성능 모니터** 는 CPU 또는 메모리 사용량과 같은 컴퓨터의 다양 한 작업을 모니터링 합니다. Windows 컴퓨터에서 성능 모니터를 실행 하려면 다음 단계를 수행 합니다.
 
-1. Win + R을 누르고 _perfmon_을 입력 합니다.
+1. Win + R을 누르고 _perfmon_ 을 입력 합니다.
 1. Perfmon, 즉 성능 모니터 창이 열리면 다음 보기를 제공 합니다.
 
     ![성능 모니터 1 단계](./media/monitoring-high-churn/perfmon-step1.png)
@@ -70,7 +70,7 @@ Linux 운영 체제를 실행 하는 컴퓨터가 온-프레미스에 있거나,
 
 ### <a name="iotop"></a>Iotop
 
-가장 많이 사용 되는 도구 중 하나는 _iotop_입니다. 실시간 디스크 작업을 표시 하는 유틸리티입니다. I/o를 수행 하는 프로세스를 사용 중인 디스크 대역폭과 함께 나열할 수 있습니다.
+가장 많이 사용 되는 도구 중 하나는 _iotop_ 입니다. 실시간 디스크 작업을 표시 하는 유틸리티입니다. I/o를 수행 하는 프로세스를 사용 중인 디스크 대역폭과 함께 나열할 수 있습니다.
 
 명령 프롬프트를 열고 명령을 실행 `iotop` 합니다.
 

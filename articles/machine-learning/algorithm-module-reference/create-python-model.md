@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
 ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898616"
 ---
 # <a name="create-python-model-module"></a>Python 모델 모듈 만들기
@@ -42,7 +42,7 @@ Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학�
 
 ![Python 모델 만들기 다이어그램](./media/module/create-python-model.png)
 
-1. **Python 모델 만들기**를 선택 하 고 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
+1. **Python 모델 만들기** 를 선택 하 고 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
 
 > [!NOTE]
 > 스크립트의 샘플 코드에서 주석에 대 한 추가 주의가 필요 하며, 스크립트는 클래스 이름, 메서드 및 메서드 시그니처를 비롯 한 요구 사항을 엄격 하 게 준수 하는지 확인 하세요. 위반으로 인해 예외가 발생 합니다. 
@@ -88,7 +88,7 @@ Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학�
 
    ```
 
-2. 방금 만든 **Python 모델 만들기** 모듈을 연결 하 여 **모델을 학습** 하 고 **모델 점수**를 매길 수 있습니다.
+2. 방금 만든 **Python 모델 만들기** 모듈을 연결 하 여 **모델을 학습** 하 고 **모델 점수** 를 매길 수 있습니다.
 
 3. 모델을 평가 해야 하는 경우 [Python 스크립트 실행](execute-python-script.md) 모듈을 추가 하 고 python 스크립트를 편집 합니다.
 
