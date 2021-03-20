@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/05/2016
 ms.custom: devx-track-js
 ms.openlocfilehash: ca1c865b31739e7163b0db26cb666a8a42edbaa2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218462"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
@@ -126,5 +126,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)

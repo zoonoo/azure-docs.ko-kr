@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836192"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
@@ -193,9 +193,9 @@ Multi-Factor 설계 옵션:
 | 사용자 위치 | 선호하는 설계 옵션 |
 | --- | --- |
 | Azure Active Directory |클라우드에서의 Multi-Factor Authentication |
-| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |모두 |
-| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
-| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
+| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |둘 다 |
+| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |둘 다 |
+| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |둘 다 |
 | 온-프레미스 AD |Multi-Factor Authentication 서버 |
 
 > [!NOTE]

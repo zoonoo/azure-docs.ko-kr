@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514392"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
@@ -45,7 +45,7 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 ### <a name="to-view-your-restorable-users"></a>복원 가능한 사용자를 보려면
 1. 조직의 전역 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 다음, **삭제된 사용자**를 선택합니다.
+2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택한 다음, **삭제된 사용자** 를 선택합니다.
 
     복원에 사용할 수 있는 사용자 목록을 검토합니다.
 
@@ -59,9 +59,9 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 > 사용자가 복원 되 면 해당 라이선스에 사용할 수 있는 사용자가 없는 경우에도 삭제 시 사용자에 게 할당 된 라이선스가 복원 됩니다. 구매한 것 보다 많은 라이선스를 사용 하는 경우 조직은 일시적으로 라이선스 사용에 대 한 준수를 받을 수 있습니다.
 
 ### <a name="to-restore-a-user"></a>사용자를 복원하려면
-1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. 예를 들어, _Mary Parker_입니다.
+1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. 예를 들어, _Mary Parker_ 입니다.
 
-2. **사용자 복원**을 선택합니다.
+2. **사용자 복원** 을 선택합니다.
 
     ![사용자 - 사용자 복원 옵션이 강조 표시된 삭제된 사용자 페이지](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
@@ -73,9 +73,9 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 ### <a name="to-permanently-delete-a-user"></a>사용자를 영구적으로 삭제하려면:
 
-1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. _Rae Huff_를 예를 들겠습니다.
+1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. _Rae Huff_ 를 예를 들겠습니다.
 
-2. **영구적으로 삭제**를 선택합니다.
+2. **영구적으로 삭제** 를 선택합니다.
 
     ![사용자-삭제 된 사용자 페이지, 사용자 삭제 옵션 강조 표시](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 

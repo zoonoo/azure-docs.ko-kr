@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382024"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
@@ -221,7 +221,7 @@ GitHub 연결을 사용 하지 않도록 선택한 경우 다음과 같은 대�
 
 :::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="리포지토리의 예":::
 
-지금까지 Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
+축하합니다! Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
 
 이 문서에서는 Azure VMware 솔루션 사설 클라우드 위에 GitHub Enterprise Server (자체 호스팅 GitHub.com)의 새 인스턴스를 설정 합니다. 이 인스턴스에는 GitHub 동작에 대 한 지원이 포함 되며 로그 및 아티팩트의 지 속성에 Azure Blob Storage 사용 됩니다. 그러나 GitHub 작업으로 수행할 수 있는 작업의 화면을 사실일 합니다. [GitHub Marketplace](https://github.com/marketplace)에서 작업 목록을 확인 하거나 [직접 만듭니다](https://docs.github.com/en/actions/creating-actions).
 

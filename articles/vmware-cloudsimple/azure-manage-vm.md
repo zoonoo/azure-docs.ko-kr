@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895192"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Azure에서 CloudSimple 사설 클라우드 가상 머신 관리
@@ -53,7 +53,7 @@ VM 디스크를 추가 하려면 선택한 VM에 대 한 **디스크** 페이지
 
    | 항목 | 설명 |
    | ------------ | ------------- |
-   | 이름 | 디스크를 식별하는 이름을 입력합니다.  |
+   | Name | 디스크를 식별하는 이름을 입력합니다.  |
    | 크기 | 사용 가능한 크기 중 하나를 선택합니다.  |
    | SCSI 컨트롤러 | SCSI 컨트롤러를 선택 하십시오. 사용 가능한 컨트롤러는 지원 되는 다른 운영 체제에 따라 달라 집니다.  |
    | Mode | 디스크가 스냅숏에 참여 하는 방식을 결정 합니다. 다음 옵션 중 하나를 선택합니다. <br> -독립적 영구: 디스크에 기록 된 모든 데이터는 영구적으로 기록 됩니다.<br> -독립적이 지 않으며, 가상 컴퓨터의 전원을 끄거나 다시 설정 하면 디스크에 기록 된 변경 내용이 삭제 됩니다.  이 모드를 사용 하면 항상 동일한 상태에서 VM을 다시 시작할 수 있습니다. 자세한 내용은 [VMware 설명서](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html)를 참조하세요. |
@@ -76,7 +76,7 @@ VM의 용량을 변경 하려면 선택한 VM에 대 한 **크기** 페이지를
 
    | 제어 | 설명 |
    | ------------ | ------------- |
-   | 이름 | 인터페이스를 식별하는 이름을 입력합니다.  |
+   | Name | 인터페이스를 식별하는 이름을 입력합니다.  |
    | 네트워크 | 사설 클라우드 vSphere 구성 된 네트워크 목록에서 선택 합니다.  |
    | 어댑터 | VM에 대해 구성 된 사용 가능한 형식 목록에서 vSphere 어댑터를 선택 합니다. 자세한 내용은 VMware 기술 자료 문서 [가상 컴퓨터에 대 한 네트워크 어댑터 선택](https://kb.vmware.com/s/article/1001805)을 참조 하십시오. |
    | 부팅 시 전원 켜기 | VM이 부팅되면 NIC 하드웨어를 사용하도록 설정할지 여부를 선택합니다. 기본값은 **사용** 입니다. |

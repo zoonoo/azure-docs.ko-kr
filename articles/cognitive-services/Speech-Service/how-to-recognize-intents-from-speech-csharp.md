@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001105"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>C 용 Speech SDK를 사용 하 여 음성에서 의도를 인식 하는 방법 #
@@ -36,7 +36,7 @@ Cognitive Services [Speech SDK](speech-sdk.md)는 [LUIS(Language Understanding) 
 > - 파일에서 음성 인식
 > - 비동기, 이벤트 중심 연속 인식 사용
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 시작 하기 전에 다음 항목이 있어야 합니다.
 
@@ -117,7 +117,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
 
 1. 이 메서드의 자리 표시자를 다음과 같이 LUIS 구독 키, 지역 및 앱 ID로 바꿉니다.
 
-   | 자리 표시자 | 다음 항목으로 교체 |
+   | 자리표시자 | 다음 항목으로 교체 |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | LUIS 엔드포인트 키 다시, “시작 키”가 아닌 Azure 대시보드에서 이 항목을 가져와야 합니다. [LUIS 포털](https://www.luis.ai/home)의 **관리** 아래에 있는 앱의 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다. |
    | `YourLanguageUnderstandingServiceRegion` | LUIS 구독이 있는 지역의 짧은 식별자(예: 미국 서부를 의미하는 `westus`). [지역](regions.md)을 참조하세요. |
@@ -142,7 +142,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
 
 의도를 추가하려면 LUIS 모델(이미 만들어져 있고 이름이 `model`인), 의도 이름 및 의도 ID라는 세 가지 인수가 필요합니다. ID와 이름의 차이는 다음과 같습니다.
 
-| `AddIntent()`&nbsp;argument | 목적 |
+| `AddIntent()`&nbsp;argument | 용도 |
 | --------------------------- | ------- |
 | `intentName` | LUIS 앱에서 정의된 의도의 이름입니다. 이 값은 LUIS 의도 이름과 정확히 일치해야 합니다. |
 | `intentID` | Speech SDK가 인식한 의도에 할당되는 ID입니다. 이 값은 개발자가 원하는 대로 할 수 있으며, LUIS 앱에서 정의된 의도 이름과 일치하지 않아도 됩니다. 예를 들어 여러 의도가 동일한 코드를 통해 처리되는 경우 동일한 ID를 사용해도 됩니다. |

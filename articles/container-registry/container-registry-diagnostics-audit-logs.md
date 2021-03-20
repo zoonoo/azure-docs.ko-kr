@@ -4,10 +4,10 @@ description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Regi
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 952f239e94df6b3b21317985f56d3d7a999813fe
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571998"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그

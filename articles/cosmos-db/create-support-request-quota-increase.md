@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.openlocfilehash: e7ec71220b75647e789508c760e50957b3b497fa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090038"
 ---
 # <a name="how-to-request-quota-increase-for-azure-cosmos-db-resources"></a>Azure Cosmos DB 리소스에 대 한 할당량 증가를 요청 하는 방법
@@ -38,7 +38,7 @@ Azure Cosmos DB의 리소스에는 [기본 할당량/제한이](concepts-limits.
 
 1. 다음 세부 정보를이 형식으로 입력 합니다.
 
-   * **설명** : 워크 로드와 같은 요청에 대 한 간단한 설명을 제공 합니다. 기본값이 충분 하지 않습니다. 할당량 증가를 원하는 리소스 종류에 따라 **설명** 필드에 다음 세부 정보를 제공 해야 합니다.
+   * **설명**: 워크 로드와 같은 요청에 대 한 간단한 설명을 제공 합니다. 기본값이 충분 하지 않습니다. 할당량 증가를 원하는 리소스 종류에 따라 **설명** 필드에 다음 세부 정보를 제공 해야 합니다.
 
      **지역 요청** 요청이 허용 목록에 영역을 추가 하는 것과 일치 하는 경우 다음 값을 제공 해야 합니다.
 
@@ -56,11 +56,11 @@ Azure Cosmos DB의 리소스에는 [기본 할당량/제한이](concepts-limits.
        * 구독 ID
        * 새 데이터베이스 계정 제한
 
-   * **파일 업로드** : 지원 요청에 관련 된 것으로 생각 되는 진단 파일 또는 다른 파일을 업로드 합니다. 파일 업로드 지침에 대해 자세히 알아보려면 [Azure 지원]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) 문서를 참조 하세요.
+   * **파일 업로드**: 지원 요청에 관련 된 것으로 생각 되는 진단 파일 또는 다른 파일을 업로드 합니다. 파일 업로드 지침에 대해 자세히 알아보려면 [Azure 지원]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) 문서를 참조 하세요.
 
-   * **심각도** : 비즈니스 영향을 기준으로 사용 가능한 심각도 수준 중 하나를 선택 합니다.
+   * **심각도**: 비즈니스 영향을 기준으로 사용 가능한 심각도 수준 중 하나를 선택 합니다.
 
-   * **기본 연락 방법** : **전자 메일** 또는 **전화로** 연락 하도록 선택할 수 있습니다.
+   * **기본 연락 방법**: **전자 메일** 또는 **전화로** 연락 하도록 선택할 수 있습니다.
 
 1. 양식의 가용성, 지원 언어, 연락처 정보, 전자 메일 및 전화 번호와 같은 나머지 세부 정보를 입력 합니다.
 

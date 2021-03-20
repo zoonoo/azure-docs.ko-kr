@@ -13,15 +13,15 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840194"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름
 
-응용 프로그램에 대 한 가장 일반적인 id 작업을 설정 하는 데 도움이 되도록 Azure AD B2C 포털에는 **사용자 흐름** 이라고 하는 미리 정의 된 구성 가능한 정책이 포함 되어 있습니다. 사용자 흐름을 사용 하면 사용자가 로그인, 등록, 프로필 편집, 암호 재설정 등의 작업을 수행할 때 응용 프로그램과 상호 작용 하는 방법을 결정할 수 있습니다. 사용자 흐름을 사용 하 여 다음과 같은 기능을 제어할 수 있습니다.
+애플리케이션에 대해 가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름** 이라는 미리 정의되고 구성 가능한 정책을 포함합니다. 사용자 흐름을 사용 하면 사용자가 로그인, 등록, 프로필 편집, 암호 재설정 등의 작업을 수행할 때 응용 프로그램과 상호 작용 하는 방법을 결정할 수 있습니다. 사용자 흐름을 사용 하 여 다음과 같은 기능을 제어할 수 있습니다.
 
 - Facebook 등의 소셜 계정 또는 로컬 계정과 같은 로그인에 사용되는 계정 유형
 - 소비자로부터 수집할 특성(예: 이름, 우편 번호 및 신발 크기)

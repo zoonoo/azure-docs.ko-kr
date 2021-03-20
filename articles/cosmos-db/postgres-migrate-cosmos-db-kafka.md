@@ -9,10 +9,10 @@ ms.date: 01/05/2021
 ms.author: abhishgu
 ms.reviewer: abhishgu
 ms.openlocfilehash: 0038219ee8c1721ff5ab2be76231d33d2bd9064d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98203068"
 ---
 # <a name="migrate-data-from-postgresql-to-azure-cosmos-db-cassandra-api-account-using-apache-kafka"></a>Apache Kafka를 사용 하 여 PostgreSQL에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
@@ -39,7 +39,7 @@ PostgreSQL 테이블의 데이터는 Kafka Connect **원본** 커넥터용 [Debe
 > [!NOTE]
 > DataStax Apache Kafka 커넥터의 특정 기능을 사용 하면 데이터를 여러 테이블에 푸시할 수 있습니다. 이 예제에서 커넥터는 다른 쿼리 요구 사항을 지원할 수 있는 두 개의 Cassandra 테이블에 변경 데이터 레코드를 유지 하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Cosmos DB Cassandra API 계정 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 * [유효성 검사에 cqlsh 또는 hosted shell 사용](cassandra-support.md#hosted-cql-shell-preview)

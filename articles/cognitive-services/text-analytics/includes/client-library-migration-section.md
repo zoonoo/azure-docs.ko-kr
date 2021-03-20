@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 2cfef9626983ed0fa120e11bbfebdc2a38d91096
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97506258"
 ---
 최신 버전의 Text Analytics v3 클라이언트 라이브러리를 사용 하려면 네임 스페이스에서 최신 소프트웨어 패키지를 다운로드 해야 합니다 `Azure.AI.TextAnalytics` . [퀵 스타트 문서의](../quickstarts/client-libraries-rest-api.md) **설정** 섹션에는 코드 예제와 함께 기본 설정 된 언어에 사용할 수 있는 명령이 나열 되어 있습니다.

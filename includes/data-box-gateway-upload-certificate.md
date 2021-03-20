@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 27a4d775b8d88e02be69655e5adfc6155f867ef6
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582174"
 ---
 적절한 SSL 인증서를 사용하면 암호화된 정보를 올바른 서버에 보낼 수 있습니다. 암호화 외에도 인증서를 인증에 사용할 수 있습니다. 장치의 PowerShell 인터페이스를 통해 신뢰할 수 있는 SSL 인증서를 업로드할 수 있습니다.

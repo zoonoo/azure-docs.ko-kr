@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/15/2019
 ms.author: Zhchia
 ms.openlocfilehash: c984beff630ef90ea33a13e2fef1bca0189c2314
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357945"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Storegate 구성
@@ -132,7 +132,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 위해 Storegate을
 
     ![프로비저닝 옵션이 호출된 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비저닝 모드** 를 **자동** 으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
@@ -164,9 +164,9 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 위해 Storegate을
 
     ![프로비저닝 범위](common/provisioning-scope.png)
 
-13. 프로비저닝할 준비가 되면 **저장** 을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
-    ![프로비저닝 구성 저장](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Storegate의 Azure AD 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
 
@@ -174,7 +174,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

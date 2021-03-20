@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 2d51903aff6f3fd1cd53d85a980f1b5dc2a893e9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354328"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Reward Gateway 구성

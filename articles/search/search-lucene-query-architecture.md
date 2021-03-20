@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002751"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색
@@ -286,7 +286,7 @@ Spacious,||air-condition*+"Ocean view"
 | shore | 2
 | spacious | 1
 | the | 1, 2
-| to | 1
+| 을 | 1
 | 뷰 | 1, 2, 3
 | walking | 1
 | 다음과 같이 바꿉니다. | 3
@@ -393,13 +393,13 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 분할 분할 
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [문서 검색 REST API](/rest/api/searchservice/search-documents) 
 
 [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Full Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[전체 Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [검색 결과 처리](./search-pagination-page-layout.md)
 

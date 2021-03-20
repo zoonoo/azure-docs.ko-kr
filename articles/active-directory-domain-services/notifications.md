@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 4242092af86f8bc06ef9c9eba068ce07725de01f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619167"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 문제에 대 한 전자 메일 알림 구성
@@ -68,7 +68,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 되었나요?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 무슨 일이 일어났나요?
 
 경고가 해결 되 면 Azure Portal에서 경고가 지워집니다. 전자 메일 알림을 받는 사용자가 관리 되는 도메인에 대 한 경고를 해결 했거나 Azure platform에 의해 autoresolved 이유 때문일 수 있습니다.
 
@@ -76,7 +76,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 Azure Portal에서 알림 설정 페이지에 액세스할 수 없는 경우 관리 되는 도메인을 편집할 수 있는 권한이 없습니다. 전역 관리자에 게 문의 하 여 Azure AD DS 리소스를 편집 하거나 받는 사람 목록에서 제거할 수 있는 권한을 얻으십시오.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 그 이유는
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 이유
 
 전자 메일에서 알림을 받을 스팸 또는 정크 폴더를 확인 하 고의 발신자를 허용 해야 `azure-noreply@microsoft.com` 합니다.
 

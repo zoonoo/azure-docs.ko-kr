@@ -12,17 +12,17 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e81ac35555e6653cecb602e5af2f19aa3e2f05e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840596"
 ---
 # <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure AD MFA 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C)는 MFA (Azure AD Multi-Factor Authentication)를 사용 하 여 전화 번호를 확인 하는 기능을 제공 합니다. 이 기술 프로필을 사용 하 여 코드를 생성 하 고 전화 번호로 보낸 다음 코드를 확인 합니다. Azure AD MFA 기술 프로필은 오류 메시지를 반환할 수도 있습니다.  유효성 검사 기술 프로필은 사용자 경험이 계속되기 전에 사용자가 제공한 데이터의 유효성을 검사합니다. 유효성 검사 기술 프로필을 사용 하면 자체 어설션된 페이지에 오류 메시지가 표시 됩니다.
+Azure AD B2C(Azure Active Directory B2C)는 Azure AD MFA(Multi-Factor Authentication)를 사용하여 전화 번호를 확인하기 위한 지원을 제공합니다. 이 기술 프로필을 사용하여 코드를 생성하여 전화 번호로 보낸 다음 코드를 확인합니다. Azure AD MFA 기술 프로필은 오류 메시지를 반환할 수도 있습니다.  유효성 검사 기술 프로필은 사용자 경험이 계속되기 전에 사용자가 제공한 데이터의 유효성을 검사합니다. 유효성 검사 기술 프로필을 사용 하면 자체 어설션된 페이지에 오류 메시지가 표시 됩니다.
 
 이 기술 프로필:
 
@@ -76,13 +76,13 @@ Azure AD MFA 프로토콜 공급자는 **outputclaims** 반환 되지 않으므�
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | 예 | **OneWaySMS** 이어야 합니다.  |
+| 작업 | 예 | **OneWaySMS** 이어야 합니다.  |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 SMS 오류를 보낼 때 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-ad-mfa-error-messages)될 수 있습니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfCouldntSendSms | 아니요 | 제공한 전화 번호에 SMS가 허용 되지 않는 경우 사용자 오류 메시지입니다. |
 | UserMessageIfInvalidFormat | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 오류 메시지입니다. |
@@ -136,13 +136,13 @@ Azure AD MFA 프로토콜 공급자는 **outputclaims** 반환 되지 않으므�
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | 예 | **확인** 해야 함 |
+| 작업 | 예 | **확인** 해야 함 |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-ad-mfa-error-messages)될 수 있습니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfMaxAllowedCodeRetryReached| 아니요 | 사용자가 확인 코드를 너무 많이 시도 하는 경우 사용자 오류 메시지입니다. |
 | UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다. |

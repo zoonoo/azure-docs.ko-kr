@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325386"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Power BI를 사용 하 여 Azure Cognitive Search 로그 및 메트릭 시각화
@@ -93,7 +93,7 @@ Azure Cognitive Search: [Power BI Apps marketplace](https://appsource.microsoft.
 
 1. 제공한 저장소 계정 이름 및 액세스 키가 올바른지 확인 합니다. 저장소 계정 이름은 검색 서비스 로그로 구성 된 계정과 일치 해야 합니다.
 
-1. 저장소 계정에 pt1m **-operationlogs** 및 insights-------- **insights-metrics-pt1m** 및 각 컨테이너의 데이터가 포함 되어 있는지 확인 합니다. 로그 및 메트릭은 폴더의 몇 계층에 포함 됩니다.
+1. 저장소 계정에 pt1m **-operationlogs** 및 insights--------  및 각 컨테이너의 데이터가 포함 되어 있는지 확인 합니다. 로그 및 메트릭은 폴더의 몇 계층에 포함 됩니다.
 
 1. 데이터 집합을 계속 새로 고치는 지 확인 합니다. 새로 고침 상태 표시기는 위의 8 단계에서 표시 됩니다. 그래도 새로 고치는 경우 새로 고침이 완료 될 때까지 기다렸다가 보고서를 열고 새로 고칩니다.
 

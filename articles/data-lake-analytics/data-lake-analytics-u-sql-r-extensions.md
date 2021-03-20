@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.openlocfilehash: ab28ba1bb6185f5f0ab90df99f0abea7895b1bf4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218003"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
@@ -166,7 +166,7 @@ XML
 
 모든 정점에는 할당되는 메모리 양이 제한되어 있습니다. 입력 및 출력 DataFrames는 R 코드의 메모리에 있어야 하므로 입력 및 출력의 총 크기는 500MB를 초과할 수 없습니다.
 
-### <a name="sample-code"></a>예제 코드
+### <a name="sample-code"></a>샘플 코드
 
 U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data Lake Store 계정에 제공됩니다. 더 많은 샘플 코드에 대한 경로는 `<your_account_address>/usqlext/samples/R`입니다.
 

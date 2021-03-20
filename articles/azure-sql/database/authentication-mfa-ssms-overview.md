@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
 ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841133"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Multi-factor Azure Active Directory 인증 사용
@@ -45,7 +45,7 @@ MFA (Azure AD Multi-Factor Authentication)도 지 원하는 대화형 메서드�
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure AD MFA는 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하는 동시에 데이터 및 응용 프로그램에 대 한 액세스를 보호 합니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
+Azure AD MFA를 사용하면 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동시에 데이터 및 애플리케이션에 대한 액세스를 보호할 수 있습니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다.
 
 Azure AD Multi-Factor Authentication에 대 한 설명은 [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 참조 하세요.
 [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](authentication-mfa-ssms-configure.md)을 참조하세요.

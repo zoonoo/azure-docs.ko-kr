@@ -6,10 +6,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 330b97e66ba1a9b95f2ef7a34a7ea046414b8bd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037516"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결

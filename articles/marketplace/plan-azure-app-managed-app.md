@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96621419"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 Azure 관리 응용 프로그램 계획
@@ -127,9 +127,9 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 | 정책 유형 | 정책 매개 변수가 필요 합니다. |
 | ------------ | ------------- |
 | 암호화 Azure SQL Database | 아니요 |
-| Azure SQL Server 감사 설정 | Yes |
+| Azure SQL Server 감사 설정 | 예 |
 | 암호화 Azure Data Lake Store | 아니요 |
-| 진단 설정 감사 | Yes |
+| 진단 설정 감사 | 예 |
 | 감사 리소스 위치 준수 | 아니요 |
 |||
 

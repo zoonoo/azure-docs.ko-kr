@@ -7,10 +7,10 @@ ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1b1bbb12412deec6ecac8cf1ffd47a00f778862e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98894731"
 ---
 # <a name="compose-dsc-configurations"></a>DSC 구성 작성
@@ -43,7 +43,7 @@ Azure Portal의 복합 리소스에서 구성을 할당하려면 먼저 구성�
 ## <a name="next-steps"></a>다음 단계
 
 - 노드를 사용하도록 설정하는 방법을 알아보려면 [Azure Automation State Configuration 사용](automation-dsc-onboarding.md)을 참조하세요.
-- 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- 연속 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
+- DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
+- 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

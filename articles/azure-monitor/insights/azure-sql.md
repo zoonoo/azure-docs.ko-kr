@@ -7,10 +7,10 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 54ef88e65925ba9c7e9fe2e44ef0c76fbc9ceb04
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101717488"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
@@ -33,27 +33,27 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
 | [진단 설정](../essentials/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그에 전송 됩니다. |
-| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../agents/agent-windows.md) | No | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | No | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | No | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../agents/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
 
 아래 표에서는 두 가지 버전의 Azure SQL 분석 대시보드의 지원 되는 옵션, Azure SQL Database 용 및 Azure SQL Managed Instance 데이터베이스용으로 지원 되는 옵션을 간략하게 설명 합니다.
 
-| Azure SQL 분석 옵션 | Description | 지원 SQL Database | SQL Managed Instance 지원 |
+| Azure SQL 분석 옵션 | 설명 | 지원 SQL Database | SQL Managed Instance 지원 |
 | --- | ------- | ----- | ----- |
 | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
 | 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
-| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 예 |
+| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
+| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
+| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 아니요 |
 | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure SQL 분석 (미리 보기)를 추가 합니다.
 
@@ -129,7 +129,7 @@ Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-i
 
 ![Azure SQL 분석 쿼리](./media/azure-sql/azure-sql-sol-queries.png)
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기 권한자 역할이 부여되어야 합니다. 하지만 이 역할은 사용자가 쿼리 텍스트를 보거나 자동 튜닝 작업을 수행하는 것을 허용하지 않습니다. 최고 범위에 Azure SQL 분석를 사용할 수 있도록 하는 Azure의 더 많은 허용 역할은 소유자, 참여자, SQL DB 참여자 또는 SQL Server 기여자입니다. 포털에서 Azure SQL 분석을 사용하는 데 필요한 권한만 있고 다른 리소스를 관리하는 데 필요한 권한은 없는 사용자 지정 역할을 만들 수도 있습니다.
 
@@ -290,7 +290,7 @@ AzureDiagnostics
 > - 이 경고를 설정 하기 위한 사전 요구 사항은 모니터링 되는 관리 되는 인스턴스에 Azure SQL 분석 ResourceUsageStats log를 사용 하도록 설정 된 스트리밍이 있음을 나타내는 것입니다.
 > - 이 쿼리를 실행 하려면 쿼리에서 해당 조건이 존재 한다는 것을 나타내는 결과 (> 0 결과)가 있을 때 경고를 발생 하도록 설정 하는 경고 규칙이 필요 합니다. 출력은 관리 되는 인스턴스에서 정의 된 기간의 평균 CPU 사용률 사용률을 차지 합니다.
 
-### <a name="pricing"></a>가격 책정
+### <a name="pricing"></a>가격
 
 Azure SQL 분석 무료로 사용할 수 있지만 매달 할당 된 데이터 수집의 무료 단위 위에 진단 원격 분석을 사용 하는 것은 [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor)을 참조 하세요. 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 작업 부하가 많은 활성 데이터베이스는 더 많은 데이터와 유휴 데이터베이스를 수집 합니다. Azure SQL 분석의 탐색 메뉴에서 OMS 작업 영역을 선택한 다음 사용량 및 예상 비용을 선택 하 여 Azure SQL 분석에서 데이터 수집 소비량을 쉽게 모니터링할 수 있습니다.
 

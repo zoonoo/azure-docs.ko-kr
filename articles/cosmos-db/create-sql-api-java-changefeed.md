@@ -10,10 +10,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 765fd3afc7fe688d3e6b0e3394e7dc8c39af69b3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096855"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Azure Cosmos DB SQL API 및 변경 피드 프로세서를 사용하는 Java 애플리케이션을 만드는 방법
@@ -22,7 +22,7 @@ ms.locfileid: "93096855"
 이 방법 가이드는 변경 피드 및 변경 피드 프로세서를 사용하여 컨테이너의 구체화된 뷰를 유지하면서 Azure Cosmos DB 컨테이너에 문서를 삽입하는 Azure Cosmos DB SQL API를 사용하는 간단한 Java 애플리케이션을 안내합니다. Java 애플리케이션은 Azure Cosmos DB Java SDK v4를 사용하여 Azure Cosmos DB SQL API와 통신합니다.
 
 > [!IMPORTANT]  
-> 이 자습서는 Azure Cosmos DB Java SDK v4 전용입니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 현재 v4 이전 버전을 사용 중인 경우 v4로 업그레이드하는 데 도움이 필요하면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md)을 참조하세요.
+> 이 자습서는 Azure Cosmos DB Java SDK v4 전용입니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 현재 v4 이전 버전을 사용 중인 경우 v4로 업그레이드하는 데 도움이 필요하면 [Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 가이드를 참조하세요.
 >
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -79,7 +79,7 @@ mvn clean package
     * **InventoryContainer-pktype** - ```type``` 항목에 대한 쿼리에 최적화된 인벤토리 레코드의 구체화된 뷰입니다.
     * **InventoryContainer-leases** - 변경 피드에는 임대 컨테이너가 항상 필요하며, 임대는 변경 피드를 읽는 앱의 진행 상황을 추적합니다.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Azure Cosmos DB 계정":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="빈 컨테이너":::
 
 1. 이제 터미널에 프롬프트가 보입니다.
 
@@ -97,7 +97,7 @@ mvn clean package
 
     브라우저에서 Azure Portal Data Explorer로 돌아갑니다. **InventoryContainer-leases** 컨테이너에서 **항목** 을 클릭하여 콘텐츠를 봅니다. 변경 피드 프로세서가 임대 컨테이너를 채운 것이 보입니다. 즉, 프로세서가 ```SampleHost_1``` 작업자에게 **InventoryContainer** 의 일부 파티션에 대한 임대를 할당했습니다.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Azure Cosmos DB 계정":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="임대":::
 
 1. 터미널에서 Enter를 다시 누릅니다. 그러면 **InventoryContainer** 에 문서 10개가 삽입되도록 트리거됩니다. 각 문서 삽입은 변경 피드에 JSON으로 나타납니다. 다음 콜백 코드는 JSON 문서를 구체화된 뷰로 미러링하여 이러한 이벤트를 처리합니다.
 
@@ -107,15 +107,15 @@ mvn clean package
 
 1. 코드가 5~10초 동안 실행되도록 합니다. 그런 다음, Azure Portal Data Explorer로 돌아가서 **InventoryContainer> 항목** 으로 이동합니다. 인벤토리 컨테이너에 항목이 삽입되는 것이 보입니다. 파티션 키(```id```)에 유의합니다.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Azure Cosmos DB 계정":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="피드 컨테이너":::
 
 1. 이제 Data Explorer에서 **InventoryContainer-pktype > 항목** 으로 이동합니다. 이것은 구체화된 뷰이며, 이 컨테이너의 항목은 피드 변경에 의해 프로그래밍 방식으로 삽입되었기 때문에 **InventoryContainer** 를 미러링합니다. 파티션 키(```type```)에 유의합니다. 이 구체화된 뷰는 ```type```에 대한 쿼리 필터링에 최적화되어 있는데, ```id```으로 분할되어 있기 때문에 **InventoryContainer** 에는 비효율적입니다.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Azure Cosmos DB 계정":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="항목을 선택한 Azure Cosmos D B 계정에 대 한 데이터 탐색기 페이지가 스크린샷에 표시 됩니다.":::
 
 1. 단일 ```upsertItem()``` 호출을 사용하여 **InventoryContainer** 와 **InventoryContainer-pktype** 에서 문서를 삭제하겠습니다. 먼저 Azure Portal Data Explorer를 살펴봅니다. ```/type == "plums"```인 문서를 삭제하겠습니다. 아래에 빨간색으로 둘러싸여 있습니다
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Azure Cosmos DB 계정":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="스크린샷 선택한 특정 항목을 포함 하는 Azure Cosmos D B 계정에 대 한 데이터 탐색기 페이지를 표시 합니다.":::
 
     Enter 키를 다시 눌러서 예제 코드에서 ```deleteDocument()``` 함수를 호출합니다. 아래에 표시된 이 함수는 문서 TTL(Time to Live)을 5초로 설정하는 ```/ttl == 5```를 사용하여 새 버전의 문서를 upsert합니다. 
     

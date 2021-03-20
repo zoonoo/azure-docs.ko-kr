@@ -8,10 +8,10 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380103"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
@@ -62,12 +62,12 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 다음으로 설정해야 함: **OnPremisesOdbc** |예 |
-| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |Yes |
+| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예 |
 | 자격 증명(credential) |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |예 |
 | authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. |예 |
 | userName |기본 인증을 사용 하는 경우 사용자 이름을 지정 합니다. |예 |
-| password |사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. |예 |
-| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |Yes |
+| password |사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
@@ -133,7 +133,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |Yes |
+| tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -144,7 +144,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |Yes |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON 예: ODBC 데이터 저장소에서 Azure Blob으로 데이터 복사

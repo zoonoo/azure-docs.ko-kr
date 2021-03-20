@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 9ed060c1f3fc47aa7050c0f9b25c757953fa22fe
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220340"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
@@ -103,7 +103,7 @@ Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2
 
 특정 가상 네트워크의 리소스는 Azure의 [기본 제공 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)를 사용하여 피어링된 가상 네트워크 내 리소스의 이름을 확인할 수 없습니다. 피어링된 가상 네트워크에서 이름을 확인하려면 [자체 DNS 서버를 배포](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)하거나 [Azure DNS 프라이빗 도메인](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용합니다. 가상 네트워크와 온-프레미스 네트워크의 리소스 간에 이름을 확인하려면 자체 DNS 서버도 배포해야 합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure는 azure 리소스에 대 한 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 를 활용 합니다. 권한은 관리 그룹, 구독, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) 에 할당 됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../governance/management-groups/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
 

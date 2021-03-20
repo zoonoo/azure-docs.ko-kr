@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215827"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Azure FXT Edge Filer 사양
@@ -34,7 +34,7 @@ ms.locfileid: "92215827"
 
 ![드라이브 번호 및 용량 레이블을 보여 주는 FXT 섀시에 있는 한 하드 드라이브 베이의 사진](media/fxt-drives-photo.png)
 
-| 드라이브 번호    |  기능   |  사양 |
+| 드라이브 번호    |  Windows Server Update Services와 함께   |  사양 |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | 480GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | 데이터   | FXT 6600:3.2 TB NVMe SSD <br> FXT 6400:1.6 TB NVMe SSD |
@@ -147,7 +147,7 @@ Azure FXT Edge Filer 노드는 가변 속도 팬을 사용하므로 전원은 �
 
 ### <a name="airflow-shock-and-vibration"></a>기류, 감전 및 진동
 
-| attribute         | 규격 |
+| 특성         | 규격 |
 |-------------------|---------------|
 | 기류                    | 시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. |
 | 충격, 작동         | 11밀리초 동안 6G(6개 방향으로 테스트됨) |

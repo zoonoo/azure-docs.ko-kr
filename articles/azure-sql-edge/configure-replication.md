@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395226"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Azure SQL Edge로 복제 구성 
@@ -83,7 +83,7 @@ Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 �
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
 - [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
-- Azure SQL Edge 서버 이름 및 IP를 구독자 (예: **myEdgeinstance, 1433** )로 사용 하 고 Azure sql edge 인스턴스에서 대상 데이터베이스로 데이터베이스 이름 (예: **AdventureWorks** )을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
+- Azure SQL Edge 서버 이름 및 IP를 구독자 (예: **myEdgeinstance, 1433**)로 사용 하 고 Azure sql edge 인스턴스에서 대상 데이터베이스로 데이터베이스 이름 (예: **AdventureWorks**)을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
 
 ## <a name="next-steps"></a>다음 단계  
 

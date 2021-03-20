@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 03d953bd534595e47702642403626a05b7f67aba
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706623"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
@@ -28,7 +28,7 @@ ms.locfileid: "98706623"
 
 1. 가져오기/내보내기 작업으로 이동합니다. **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청** 을 선택 합니다.
      
-    ![기본](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![기본 사항](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. **새 지원 요청** 에서 **기본** 을 선택합니다. **기본** 에서 다음 단계를 수행합니다.
     

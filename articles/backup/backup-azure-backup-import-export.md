@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704366"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
@@ -42,7 +42,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 Azure Recovery Services 에이전트](https://aka.ms/azurebackup_agent)를 사용 하 여 파일 및 폴더의 오프 라인 백업에만 적용 됩니다. System Center DPM 또는 Azure Backup Server를 사용 하 여 작업에 대 한 오프 라인 백업을 수행 하려면 [dpm 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로](backup-azure-backup-server-import-export.md)를 참조 하세요.

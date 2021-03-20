@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337919"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
@@ -22,7 +22,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 절차를 따르려면 [Azure 스프링 클라우드에 배포 하기 위해 이미 준비한](spring-cloud-tutorial-prepare-app-deployment.md)Steeltoe 앱이 필요 합니다.
 
@@ -37,7 +37,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
 
 * [Steeltoe. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 
-## <a name="update-startupcs"></a>Startup.cs 업데이트
+## <a name="update-startupcs"></a>업데이트 시작 .cs
 
 1. Steeltoe 2.4.4의 경우 `AddDistributedTracing` 메서드에서 및를 호출 `AddZipkinExporter` `ConfigureServices` 합니다.
 
@@ -79,7 +79,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가 합니다.
 
 1. `management.tracing.alwaysSample`를 true로 설정합니다.
 
-2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송 된 추적 범위를 보려면 `management.tracing.egressIgnorePattern` "/api/v2/spans |/v2/apps/. *로 설정 합니다. /cvor 권한 |/eureka/.* | /oauth/. * "
+2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송 된 추적 범위를 보려면 `management.tracing.egressIgnorePattern` "/api/v2/spans |/v2/apps/.*로 설정 합니다. /cvor 권한 |/eureka/.*| /oauth/. * "
 
 예를 들어 *의appsettings.js에* 는 다음과 같은 속성이 포함 됩니다.
  

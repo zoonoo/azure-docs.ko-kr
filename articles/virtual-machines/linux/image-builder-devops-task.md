@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670477"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
@@ -27,7 +27,7 @@ ms.locfileid: "101670477"
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
@@ -161,7 +161,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     & 'c:\buildArtifacts\webapp\installAgent.ps1'
     ```
-* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  다음은 그 예입니다. 
+* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  예를 들면 다음과 같습니다.
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -183,7 +183,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
 > 이미지 작성기는 빌드 아티팩트를 자동으로 제거 하지 않으며 항상 빌드 아티팩트를 제거 하는 코드를 포함 하는 것이 좋습니다.
 > 
 
-* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 다음은 그 예입니다. 
+* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -193,7 +193,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 다음은 그 예입니다. 
+* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -246,7 +246,7 @@ DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다.
 
 * [Vm 크기](image-builder-json.md#vmprofile) -vm 크기를 기본값 *Standard_D1_v2* 에서 재정의할 수 있습니다. 를 재정의 하 여 총 사용자 지정 시간을 줄이거나, GPU/HPC 등의 특정 VM 크기에 따라 달라 지는 이미지를 만들 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 릴리스를 만들 때 작업은 저장소 계정에 *imagebuilder-vststask* 라는 컨테이너를 만듭니다. 빌드 아티팩트를 zips 및 업로드 하 고 zip 파일에 대 한 SAS 토큰을 만듭니다.
 
@@ -319,7 +319,7 @@ starting run template...
 
 빌드 오류가 발생 하는 경우 DevOps 작업은 준비 리소스 그룹을 삭제 하지 않습니다. 빌드 사용자 지정 로그가 포함 된 준비 리소스 그룹에 액세스할 수 있습니다.
 
-VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 다음은 그 예입니다. 
+VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 예를 들면 다음과 같습니다.
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="오류를 표시 하는 DevOps 태스크의 예입니다.":::
 

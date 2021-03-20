@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003500"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
@@ -77,7 +77,7 @@ ODBC 드라이버를 살펴보겠습니다.
         - "Contoso 계정 ODBC DSN" 하위 키로 이동 합니다.
         - 마우스 오른쪽 단추를 클릭 하 여 새 **문자열** 값을 추가 합니다.
             - 값 이름: **Ignoresessiontoken**
-            - 값 데이터: **1** 
+            - 값 데이터:  
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="레지스트리 편집기 설정"::: 1 개
     - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
     - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96339611"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용 |
+| 매개 변수 | 사용량 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQUERY UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController.cs** 의 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
+는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQUERY UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController** 에서 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
 
 는 `minLength: 3` 검색 상자에 세 개 이상의 문자가 있는 경우에만 권장 사항이 표시 되도록 합니다.
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>제안 함수
 
-C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
+C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
 `InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>자동 완성 함수
 
-자동 완성은 [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController.cs** 파일로 이동 합니다.
+자동 완성은 [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController** 파일로 이동 합니다.
 
 ```csharp
 public async Task<ActionResult> AutoCompleteAsync(string term)

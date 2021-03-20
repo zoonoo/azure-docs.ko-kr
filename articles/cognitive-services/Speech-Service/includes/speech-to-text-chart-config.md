@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 05/05/2020
 ms.author: trbye
 ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002289"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성 텍스트 (하위 차트: 차트/speechToText)
@@ -64,6 +64,6 @@ ms.locfileid: "96002289"
 |`textanalytics.service.sentimentURISuffix`| 감정 분석 URI 접미사, 전체 URI는 "http://:" 형식입니다 `<service>` `<port>` / `<sentimentURISuffix>` . | | `text/analytics/v3.0-preview/sentiment`|
 |`textanalytics.service.type`| Kubernetes의 **텍스트 분석** 서비스 유형입니다. [Kubernetes 서비스 형식](https://kubernetes.io/docs/concepts/services-networking/service/) 을 참조 하세요. | 유효한 Kubernetes 서비스 유형 | `LoadBalancer` |
 |`textanalytics.service.port`| **텍스트 분석** 서비스의 포트입니다.| int| `50085`|
-|`textanalytics.service.annotations`| 사용자가 **텍스트 분석** 서비스 메타 데이터에 추가할 수 있는 주석입니다. 예:<br/> **달**<br/>`   `**some/annotation1: value1**<br/>`  `**일부/annotation2: value2** | 각 줄 마다 하나씩 주석| |
+|`textanalytics.service.annotations`| 사용자가 **텍스트 분석** 서비스 메타 데이터에 추가할 수 있는 주석입니다. 예를 들면 다음과 같습니다.<br/> **달**<br/>`   `**some/annotation1: value1**<br/>`  `**일부/annotation2: value2** | 각 줄 마다 하나씩 주석| |
 |`textanalytics.serivce.autoScaler.enabled`| [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 사용 여부를 지정 합니다. 사용 하도록 설정 하면 `text-analytics-autoscaler` Kubernetes 클러스터에 배포 됩니다. | true/false| `true`|
 |`textanalytics.service.podDisruption.enabled`| [Pod 중단 예산을](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) 사용 하는지 여부를 나타냅니다. 사용 하도록 설정 하면 `text-analytics-poddisruptionbudget` Kubernetes 클러스터에 배포 됩니다.| true/false| `true`|

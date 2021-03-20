@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219975"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Python, R 및 C#를 사용하여 Azure Data Lake Analytics용 U-SQL 개발
@@ -22,10 +22,10 @@ VSCode(Visual Studio Code)를 사용하여 U-SQL이 포함된 Python, R 및 C# �
 ## <a name="prerequisites-for-python-and-r"></a>Python 및 R에 대한 필수 구성 요소
 ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다. 
 1. 포털에서 계정을 엽니다.
-   - **개요**를 선택합니다. 
-   - **샘플 스크립트**를 클릭합니다.
-2. **기타**를 클릭합니다.
-3. **U-SQL 확장 설치**를 선택합니다. 
+   - **개요** 를 선택합니다. 
+   - **샘플 스크립트** 를 클릭합니다.
+2. **기타** 를 클릭합니다.
+3. **U-SQL 확장 설치** 를 선택합니다. 
 4. U-SQL 확장이 설치된 후에 확인 메시지가 표시됩니다. 
 
    ![Python 및 R에 대한 환경 설정](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
@@ -34,7 +34,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
    > Python 및 R 언어 서비스에 대한 최상의 환경을 얻으려면 VSCode Python 및 R 확장을 설치하세요. 
 
 ## <a name="develop-python-file"></a>Python 파일 개발
-1. 작업 영역에서 **새 파일**을 클릭합니다.
+1. 작업 영역에서 **새 파일** 을 클릭합니다.
 2. U-SQL에 코드를 작성합니다. 다음은 코드 샘플입니다.
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
@@ -56,7 +56,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
         USING Outputters.Csv();
     ```
     
-3. 스크립트 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate Python Code Behind File**을 선택합니다. 
+3. 스크립트 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate Python Code Behind File** 을 선택합니다. 
 4. **xxx.usql.py** 파일이 작업 폴더에 생성됩니다. Python 파일에 코드를 작성합니다. 다음은 코드 샘플입니다.
 
     ```Python
@@ -70,10 +70,10 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
         del df['tweet']
         return df
     ```
-5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출**을 클릭할 수 있습니다.
+5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출** 을 클릭할 수 있습니다.
 
 ## <a name="develop-r-file"></a>R 파일 개발
-1. 작업 영역에서 **새 파일**을 클릭합니다.
+1. 작업 영역에서 **새 파일** 을 클릭합니다.
 2. U-SQL 파일에 코드를 작성합니다. 다음은 코드 샘플입니다.
     ```U-SQL
     DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
@@ -113,19 +113,19 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. **USQL** 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate R Code Behind File**을 선택합니다. 
+3. **USQL** 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate R Code Behind File** 을 선택합니다. 
 4. **xxx.usql.r** 파일이 작업 폴더에 생성됩니다. R 파일에 코드를 작성합니다. 다음은 코드 샘플입니다.
 
     ```R
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
     ```
-5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출**을 클릭할 수 있습니다.
+5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출** 을 클릭할 수 있습니다.
 
 ## <a name="develop-c-file"></a>C# 파일 개발
 코드 숨김 파일은 단일 U-SQL 스크립트와 연결되는 C# 파일입니다. 코드 숨김 파일에서는 UDO, UDA, UDT 및 UDF 전용 스크립트를 정의할 수 있습니다. 먼저 어셈블리를 등록하지 않고도 스크립트에서 UDO, UDA, UDT 및 UDF를 직접 사용할 수 있습니다. 코드 숨김 파일은 피어링 U-SQL 스크립트 파일과 동일한 폴더에 저장됩니다. 스크립트 파일 이름이 xxx.usql이면 코드 숨김 파일 이름은 xxx.usql.cs가 됩니다. 코드 숨김 파일을 수동으로 삭제하면 연결된 U-SQL 스크립트의 코드 숨김 기능을 사용할 수 없게 됩니다. U-SQL 스크립트의 고객 코드 만들기에 대한 자세한 내용은 [U-SQL에서 사용자 지정 코드 만들기 및 사용: 사용자 정의 함수]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/)를 참조하세요.
 
-1. 작업 영역에서 **새 파일**을 클릭합니다.
+1. 작업 영역에서 **새 파일** 을 클릭합니다.
 2. U-SQL 파일에 코드를 작성합니다. 다음은 코드 샘플입니다.
     ```U-SQL
     @a = 
@@ -155,7 +155,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. **USQL** 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate CS Code Behind File**을 선택합니다. 
+3. **USQL** 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate CS Code Behind File** 을 선택합니다. 
 4. **xxx.usql.cs** 파일이 작업 폴더에 생성됩니다. CS 파일에 코드를 작성합니다. 다음은 코드 샘플입니다.
 
     ```CS
@@ -174,7 +174,7 @@ ADL 계정에 대한 Python 및 R 확장 어셈블리를 등록합니다.
         }
     }
     ```
-5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출**을 클릭할 수 있습니다.
+5. **USQL** 파일에서 마우스 오른쪽 단추로 클릭하면 작업 실행에 대한 **스크립트 컴파일** 또는 **작업 제출** 을 클릭할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)

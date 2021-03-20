@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002820"
 ---
 # <a name="persist-state-in-windows"></a>Windows에서 상태 유지
@@ -73,7 +73,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     1. 를 마우스 오른쪽 단추로 클릭 한 다음 **속성** 을 선택 합니다.
     1. **보안** 을 선택합니다.
     1. * 그룹 또는 사용자 이름 아래에서 **편집** 을 선택 합니다.
-    1. **추가** 를 선택 하 고 `Users` , **이름을** 입력 하 고, **Ok** 확인을 선택 합니다.
+    1. **추가** 를 선택 하 고 `Users` , **이름을** 입력 하 고, 확인을 선택 합니다.
     1. *사용자의 사용 권한* 아래에서 **수정** 을 선택 하 고 **확인** 을 선택 합니다.
 1. **바인딩을** 사용 하 여이 볼륨을 탑재 하 고 Azure Portal에서 Event Grid 모듈을 다시 배포 합니다.
 
