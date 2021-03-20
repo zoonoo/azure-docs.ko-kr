@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588300"
 ---
 # <a name="connect-extrahop-revealx"></a>ExtraHop Reveal(x) 연결
@@ -26,7 +26,7 @@ ms.locfileid: "77588300"
 ExtraHop 표시 (x) 데이터 커넥터를 사용 하면 Azure 센티널에 표시 (x) 시스템을 쉽게 연결 하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이러한 통합은 조직의 네트워크에 대 한 통찰력을 얻고 보안 작업 기능을 향상 시킬 수 있는 기능을 제공 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
@@ -36,7 +36,7 @@ ExtraHop 표시 (x) 데이터 커넥터를 사용 하면 Azure 센티널에 표�
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **ExtraHop 표시 (x)** 커넥터를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. **ExtraHop 표시 (x)** 페이지의 지침을 따릅니다.
 

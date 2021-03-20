@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999721"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
@@ -24,7 +24,7 @@ ms.locfileid: "91999721"
 
 ## <a name="chat-with-us"></a>Microsoft와 채팅
 
-기술 지원을 받으려면 IoT Central 응용 프로그램을 열고 **microsoft와 채팅**을 선택 합니다.
+기술 지원을 받으려면 IoT Central 응용 프로그램을 열고 **microsoft와 채팅** 을 선택 합니다.
 
 ![Microsoft와 채팅](media/howto-show-hide-chat/chat-with-us.png)
 

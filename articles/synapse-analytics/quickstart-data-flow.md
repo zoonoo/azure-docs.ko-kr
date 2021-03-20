@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
 ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98218725"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>빠른 시작: 매핑 데이터 흐름을 사용 하 여 데이터 변환
@@ -27,7 +27,7 @@ ms.locfileid: "98218725"
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Synapse 작업 영역**: [빠른 시작: Synapse 작업 영역 만들기](quickstart-create-workspace.md)의 지침에 따라 Azure Portal를 사용 하 여 Synapse 작업 영역을 만듭니다.

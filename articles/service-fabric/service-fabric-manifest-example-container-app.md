@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84701169"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
@@ -19,7 +19,7 @@ ms.locfileid: "84701169"
 
 |file:///|기능|
 |---|---|
-|[애플리케이션 매니페스트.](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[응용 프로그램 매니페스트](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 서비스 매니페스트](#frontendservice-service-manifest)| [환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), 컨테이너에 명령 전달, [컨테이너로 인증서 가져오기](service-fabric-securing-containers.md)| 
 |[BackEndService 서비스 매니페스트](#backendservice-service-manifest)|[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), [볼륨 드라이버 구성](service-fabric-containers-volume-logging-drivers.md)| 
 

@@ -10,10 +10,10 @@ ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091001"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>.NET을 사용 하 여 컨테이너 속성 및 메타 데이터 관리
@@ -43,7 +43,7 @@ Blob 컨테이너는 시스템 속성 및 사용자 정의 메타 데이터와 �
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Blob storage 리소스에 대 한 속성 및 메타 데이터 값 검색은 2 단계 프로세스입니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다. 이 규칙의 예외는 **Exists** 및 **ExistsAsync** 메서드가 커버에서 적절 한 **fetchattributes** 메서드를 호출 하는 것입니다. 이러한 메서드 중 하나를 호출할 때 **Fetchattributes**호출할 필요가 없습니다.
+Blob storage 리소스에 대 한 속성 및 메타 데이터 값 검색은 2 단계 프로세스입니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다. 이 규칙의 예외는 **Exists** 및 **ExistsAsync** 메서드가 커버에서 적절 한 **fetchattributes** 메서드를 호출 하는 것입니다. 이러한 메서드 중 하나를 호출할 때 **Fetchattributes** 호출할 필요가 없습니다.
 
 > [!IMPORTANT]
 > 스토리지 리소스의 속성 또는 메타데이터 값이 채워지지 않은 경우에는 코드가 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하는지 확인합니다.
@@ -170,7 +170,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [컨테이너 속성 가져오기 작업](/rest/api/storageservices/get-container-properties)
 - [컨테이너 메타 데이터 설정 작업](/rest/api/storageservices/set-container-metadata)

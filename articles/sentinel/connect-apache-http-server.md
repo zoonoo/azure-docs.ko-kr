@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
 ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096857"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Azure 센티널에 Apache HTTP 서버 연결
@@ -31,7 +31,7 @@ ms.locfileid: "100096857"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
@@ -44,7 +44,7 @@ Apache HTTP 서버 로그 파일을 읽도록 Log Analytics agent를 구성 합�
 
 1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택한 다음 **Apache HTTP 서버 (미리 보기)** 를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. Apache HTTP 서버 페이지의 지침을 따릅니다.
 

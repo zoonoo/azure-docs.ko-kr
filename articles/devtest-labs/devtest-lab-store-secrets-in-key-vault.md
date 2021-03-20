@@ -4,10 +4,10 @@ description: Azure Key Vault에 비밀을 저장하고, VM, 수식 또는 환경
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481649"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장
@@ -21,17 +21,17 @@ Azure DevTest Labs를 사용하는 경우 복잡한 비밀을 입력해야 할 �
 ## <a name="save-a-secret-in-azure-key-vault"></a>Azure Key Vault에 비밀 저장
 Azure Key Vault에 비밀을 저장하려면 다음 단계를 수행합니다.
 
-1. 왼쪽 메뉴에서 **내 비밀**을 선택합니다.
-2. 비밀에 **이름**을 입력하세요. VM, 수식 또는 환경을 만들 때 드롭다운 목록에 이 이름이 표시됩니다. 
-3. 비밀을 **값**으로 입력합니다.
+1. 왼쪽 메뉴에서 **내 비밀** 을 선택합니다.
+2. 비밀에 **이름** 을 입력하세요. VM, 수식 또는 환경을 만들 때 드롭다운 목록에 이 이름이 표시됩니다. 
+3. 비밀을 **값** 으로 입력합니다.
 
     ![비밀 저장](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
 
 ## <a name="use-a-secret-from-azure-key-vault"></a>Azure Key Vault에서 비밀 사용
 VM, 수식 또는 환경을 만들기 위해 비밀을 입력해야 하는 경우 수동으로 비밀을 입력하거나 키 자격 증명 모음에서 저장된 비밀을 선택할 수 있습니다. 키 자격 증명 모음에 저장된 비밀을 사용하려면 다음 작업을 수행합니다.
 
-1. **저장된 비밀 사용**을 선택합니다. 
-2. **비밀 선택**에 대한 드롭다운 목록에서 비밀을 선택합니다. 
+1. **저장된 비밀 사용** 을 선택합니다. 
+2. **비밀 선택** 에 대한 드롭다운 목록에서 비밀을 선택합니다. 
 
     ![VM에서 비밀 사용](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 

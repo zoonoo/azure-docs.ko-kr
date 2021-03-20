@@ -4,10 +4,10 @@ description: Azure DevTest Labs를 사용 하 여 환경을 제공 하기 위해
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481343"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>테스트 환경을 위한 중첩 된 Azure Resource Manager 템플릿 배포
@@ -57,7 +57,7 @@ DevTest Labs가 환경에서 작동 하는 방식에 익숙하지 않은 경우 
 "outputs": {}
 ```
 
-이 템플릿을 포함 하는 리포지토리의 폴더에는 `nestedtemplates` **NestOne.js** 파일을 사용 하 고 **NestOne.parameters.js**있는 하위 폴더가 있습니다. **azuredeploy.js**에서 템플릿의 URI는 아티팩트 위치, 중첩 된 템플릿 폴더, 중첩 된 템플릿 파일 이름을 사용 하 여 빌드됩니다. 마찬가지로 매개 변수에 대 한 URI는 아티팩트 위치, 중첩 된 템플릿 폴더 및 중첩 된 템플릿에 대 한 매개 변수 파일을 사용 하 여 빌드됩니다. 
+이 템플릿을 포함 하는 리포지토리의 폴더에는 `nestedtemplates` **NestOne.js** 파일을 사용 하 고 **NestOne.parameters.js** 있는 하위 폴더가 있습니다. **azuredeploy.js** 에서 템플릿의 URI는 아티팩트 위치, 중첩 된 템플릿 폴더, 중첩 된 템플릿 파일 이름을 사용 하 여 빌드됩니다. 마찬가지로 매개 변수에 대 한 URI는 아티팩트 위치, 중첩 된 템플릿 폴더 및 중첩 된 템플릿에 대 한 매개 변수 파일을 사용 하 여 빌드됩니다. 
 
 다음은 Visual Studio에서 동일한 프로젝트 구조의 이미지입니다. 
 

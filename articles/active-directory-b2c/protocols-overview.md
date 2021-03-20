@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183908"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
@@ -42,7 +42,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 ![4 개의 OAuth 2.0 역할을 보여 주는 다이어그램](./media/protocols-overview/protocols_roles.png)
 
-* **권한 부여 서버**는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
+* **권한 부여 서버** 는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
 
 * **리소스 소유자** 는 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.
 
@@ -53,7 +53,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ## <a name="policies-and-user-flows"></a>정책 및 사용자 흐름
 Azure AD B2C 정책은 분명히 서비스의 가장 중요한 기능입니다. Azure AD B2C에서 정책이 도입되어 표준 OAuth 2.0 및 OpenID Connect 프로토콜이 확장됩니다. 이렇게 하면 Azure AD B2C에서 더 쉽게 인증 및 권한 부여를 수행할 수 있습니다.
 
-가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름**이라는 미리 정의되고 구성 가능한 정책을 포함합니다. 사용자 흐름은 가입, 로그인, 프로필 편집 등의 소비자 ID 경험을 완벽하게 설명합니다. 사용자 흐름은 관리 UI에서 정의될 수 있습니다. HTTP 인증 요청에서 특별한 쿼리 매개 변수를 사용하여 실행될 수 있습니다.
+가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름** 이라는 미리 정의되고 구성 가능한 정책을 포함합니다. 사용자 흐름은 가입, 로그인, 프로필 편집 등의 소비자 ID 경험을 완벽하게 설명합니다. 사용자 흐름은 관리 UI에서 정의될 수 있습니다. HTTP 인증 요청에서 특별한 쿼리 매개 변수를 사용하여 실행될 수 있습니다.
 
 정책 및 사용자 흐름은 OAuth 2.0 및 OpenID Connect의 표준 기능이 아니므로 이해하는 데 시간이 필요합니다. 자세한 내용은 [Azure AD B2C 사용자 흐름 참조 가이드](user-flow-overview.md)를 참조하세요.
 

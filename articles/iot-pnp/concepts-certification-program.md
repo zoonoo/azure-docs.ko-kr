@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 1fcfc7a9e632e5db1fb809dba7a938c8641c9ddc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048103"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Azure 인증 장치 프로그램 이란?
@@ -45,7 +45,7 @@ Azure 인증 장치 프로그램을 사용 하면 고객 솔루션이 Azure 서�
 
 ### <a name="company-profile"></a>회사 프로필
 
-Azure 인증 장치 포털에서 회사 프로필을 관리 하려면 **회사 프로필**을 선택 합니다. 회사 프로필에는 회사 URL, 전자 메일 주소 및 로고가 포함 됩니다. 인증 작업을 계속 하기 전에이 페이지의 프로그램 계약에 동의 합니다.
+Azure 인증 장치 포털에서 회사 프로필을 관리 하려면 **회사 프로필** 을 선택 합니다. 회사 프로필에는 회사 URL, 전자 메일 주소 및 로고가 포함 됩니다. 인증 작업을 계속 하기 전에이 페이지의 프로그램 계약에 동의 합니다.
 
 Azure 인증 장치 카탈로그의 장치 설명 페이지에서는 회사 프로필 정보를 사용 합니다.
 
@@ -62,17 +62,17 @@ _Azure 인증 장치 인증은_ 장치가 Azure IoT Hub와 연결 하 고 DPS (�
 
 ### <a name="iot-plug-and-play"></a>IoT Plug and Play
 
-Azure 인증 장치 인증에 대 한 증분 인증용 _IoT 플러그 앤 플레이 인증_은 사용자 지정 장치 코드 없이 장치를 빌드하는 프로세스를 간소화 합니다. IoT 플러그 앤 플레이를 사용 하면 하드웨어 파트너가 Azure IoT Central 및 타사 솔루션을 기반으로 하는 클라우드 솔루션과 쉽게 통합 되는 장치를 구축할 수 있습니다.
+Azure 인증 장치 인증에 대 한 증분 인증용 _IoT 플러그 앤 플레이 인증_ 은 사용자 지정 장치 코드 없이 장치를 빌드하는 프로세스를 간소화 합니다. IoT 플러그 앤 플레이를 사용 하면 하드웨어 파트너가 Azure IoT Central 및 타사 솔루션을 기반으로 하는 클라우드 솔루션과 쉽게 통합 되는 장치를 구축할 수 있습니다.
 
 - 자세히 알아보려면 [인증 요구 사항](https://aka.ms/acdiotpnprequirements)을 참조 하세요.
 - IoT 플러그 앤 플레이 테스트를 위해 장치를 준비 하는 방법에 대 한 자세한 내용은 [iot 플러그 앤 플레이 장치를 인증 하는 방법](howto-certify-device.md)을 참조 하세요.
 
 ### <a name="edge-managed"></a>Edge 관리
 
-Azure 인증 장치 인증에 대 한 증분 인증 인 _Edge 관리 인증_에서는 Windows, LINUX 또는 rtos를 실행 하는 azure IoT 장치에 대 한 장치 관리 표준을 집중적으로 다룹니다. 현재이 프로그램 인증은 모듈 배포 및 관리에 대 한 Edge 런타임 호환성에 중점을 둔 것입니다.
+Azure 인증 장치 인증에 대 한 증분 인증 인 _Edge 관리 인증_ 에서는 Windows, LINUX 또는 rtos를 실행 하는 azure IoT 장치에 대 한 장치 관리 표준을 집중적으로 다룹니다. 현재이 프로그램 인증은 모듈 배포 및 관리에 대 한 Edge 런타임 호환성에 중점을 둔 것입니다.
 
 > [!TIP]
-> 이 프로그램은 이전에 _IoT Edge 인증 프로그램_이라고 했습니다.
+> 이 프로그램은 이전에 _IoT Edge 인증 프로그램_ 이라고 했습니다.
 
 - 자세히 알아보려면 [인증 요구 사항](https://aka.ms/acdedgemanagedrequirements)을 참조 하세요.
 - IoT Edge에 대 한 자세한 내용은 [IoT Edge 개요](../iot-edge/about-iot-edge.md)를 참조 하세요.

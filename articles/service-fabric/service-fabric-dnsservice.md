@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91268046"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
@@ -43,7 +43,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 클러스터를 만드는 데 포털을 사용하지 않거나 기존 클러스터를 업데이트하는 경우 템플릿에서 DNS 서비스를 활성화해야 합니다.
 
 - 새 클러스터를 배포하기 위해 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 사용자 고유의 Resource Manager 템플릿을 만들 수 있습니다. 
-- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트**를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](../azure-resource-manager/templates/export-template-portal.md)를 참조하세요.
+- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트** 를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](../azure-resource-manager/templates/export-template-portal.md)를 참조하세요.
 
 템플릿을 가져온 후 다음 단계에 따라 DNS 서비스를 활성화할 수 있습니다.
 
@@ -171,13 +171,13 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-위치:
+여기서 다음이 적용됩니다.
 
-- *First-Label-Of-Partitioned-Service-DNSName*은 서비스 DNS 이름의 첫 번째 부분입니다.
-- *PartitionPrefix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
-- *Target-Partition-Name*은 파티션의 이름입니다. 
-- *PartitionSuffix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 빈 문자열입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
-- *Remaining-Partitioned-Service-DNSName*은 서비스 DNS 이름의 나머지 부분입니다.
+- *First-Label-Of-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 첫 번째 부분입니다.
+- *PartitionPrefix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
+- *Target-Partition-Name* 은 파티션의 이름입니다. 
+- *PartitionSuffix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 빈 문자열입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
+- *Remaining-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 나머지 부분입니다.
 
 다음 예제는 `PartitionPrefix` 및 `PartitionSuffix`에 대한 기본 설정이 있는 클러스터에서 실행 중인 분할된 서비스에 대한 DNS 쿼리를 보여 줍니다. 
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
 ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100581258"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
@@ -20,7 +20,7 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 Runbook Worker에는 시스템 및 사용자의 두 가지 유형이 있습니다. 다음 표에서는 이러한 차이점을 설명 합니다.
 
-|유형 | 설명 |
+|Type | 설명 |
 |-----|-------------|
 |**System** |는 Windows 및 Linux 컴퓨터에 사용자 지정 업데이트를 설치 하도록 디자인 된 업데이트 관리 기능에서 사용 하는 숨겨진 runbook 집합을 지원 합니다.<br> 이 유형의 Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 구성원이 아니므로 Runbook Worker 그룹을 대상으로 하는 runbook을 실행 하지 않습니다. |
 |**사용자** |는 하나 이상의 Runbook Worker 그룹의 멤버인 Windows 및 Linux 컴퓨터에서 직접 실행 하기 위한 사용자 정의 runbook을 지원 합니다. |

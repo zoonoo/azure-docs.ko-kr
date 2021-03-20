@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
 ms.openlocfilehash: c465da3d5d812ea7e811cbe59318122700c6e786
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97824669"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>TDE로 보호 되는 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션

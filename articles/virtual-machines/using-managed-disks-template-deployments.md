@@ -11,10 +11,10 @@ ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
 ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91976669"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 디스크 사용
@@ -235,8 +235,8 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.
 
-* Microsoft.Compute에 대한 *apiVersion*은 `2018-04-01` 이상으로 설정해야 합니다.
-* *managedDisk.storageAccountType*을 `StandardSSD_LRS`로 지정합니다.
+* Microsoft.Compute에 대한 *apiVersion* 은 `2018-04-01` 이상으로 설정해야 합니다.
+* *managedDisk.storageAccountType* 을 `StandardSSD_LRS`로 지정합니다.
 
 다음 예제에서는 표준 SSD 디스크를 사용하는 VM에 대한 *properties.storageProfile.osDisk* 섹션을 보여 줍니다.
 

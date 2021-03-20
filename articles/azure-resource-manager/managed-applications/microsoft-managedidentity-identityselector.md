@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87063359"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.managedidentity IdentitySelector UI 요소
@@ -22,7 +22,7 @@ ms.locfileid: "87063359"
 
 ![Microsoft.managedidentity. IdentitySelector first step](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
-사용자가 **추가**를 선택 하면 다음 양식이 열립니다. 사용자는 리소스에 대해 사용자 할당 id를 하나 이상 선택할 수 있습니다.
+사용자가 **추가** 를 선택 하면 다음 양식이 열립니다. 사용자는 리소스에 대해 사용자 할당 id를 하나 이상 선택할 수 있습니다.
 
 ![Microsoft.managedidentity. IdentitySelector second 단계](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
@@ -69,14 +69,14 @@ ms.locfileid: "87063359"
 
 ## <a name="remarks"></a>설명
 
-- **defaultValue.systemAssignedIdentity** 를 사용 하 여 시스템 할당 id 옵션 컨트롤의 초기 값을 설정 합니다. 기본값은 **Off**입니다. 허용되는 값은
+- **defaultValue.systemAssignedIdentity** 를 사용 하 여 시스템 할당 id 옵션 컨트롤의 초기 값을 설정 합니다. 기본값은 **Off** 입니다. 허용되는 값은
   - **On** – 시스템 할당 id가 리소스에 할당 됩니다.
   - **Off** – 시스템 할당 id가 리소스에 할당 되지 않습니다.
   - **Ononly** – 시스템 할당 id가 리소스에 할당 됩니다. 사용자는 배포 중에이 값을 편집할 수 없습니다.
   - **Offonly** – 시스템 할당 id는 리소스에 할당 되지 않습니다. 사용자는 배포 중에이 값을 편집할 수 없습니다.
 
-- **HideSystemAssignedIdentity** 가 **true**로 설정 된 경우 시스템 할당 id를 구성 하는 UI가 표시 되지 않습니다. 이 옵션의 기본값은 **false**입니다.
-- **HideUserAssignedIdentity** 가 **true**로 설정 된 경우 사용자 할당 id를 구성 하는 UI가 표시 되지 않습니다. 리소스에 사용자 할당 id가 할당 되지 않았습니다. 이 옵션의 기본값은 **false**입니다.
+- **HideSystemAssignedIdentity** 가 **true** 로 설정 된 경우 시스템 할당 id를 구성 하는 UI가 표시 되지 않습니다. 이 옵션의 기본값은 **false** 입니다.
+- **HideUserAssignedIdentity** 가 **true** 로 설정 된 경우 사용자 할당 id를 구성 하는 UI가 표시 되지 않습니다. 리소스에 사용자 할당 id가 할당 되지 않았습니다. 이 옵션의 기본값은 **false** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

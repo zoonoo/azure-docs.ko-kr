@@ -4,10 +4,10 @@ description: Application Insights에 데이터를 파이프 하는 Azure 진단 
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: c7c385888d7322b212cdd62497c9bbbabb970d65
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100583836"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
@@ -40,7 +40,7 @@ ms.locfileid: "100583836"
 * `myWebAppName` - 웹앱의 ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다. 
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell
 $service_package = "CloudService.cspkg"

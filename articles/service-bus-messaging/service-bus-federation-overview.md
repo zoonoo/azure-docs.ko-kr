@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus를 사용 하 여 이벤트 �
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880830"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>메시지 복제 및 지역 간 페더레이션

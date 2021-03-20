@@ -4,19 +4,19 @@ description: 백업 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091290"
 ---
 # <a name="backup-vaults-overview"></a>백업 자격 증명 모음 개요
 
 이 문서에서는 백업 자격 증명 모음에 대 한 기능을 설명 합니다. 백업 자격 증명 모음은 Azure에서 Azure Backup 지원 되는 특정 최신 워크 로드에 대 한 백업 데이터를 보관 하는 저장소 엔터티입니다. 백업 자격 증명 모음을 사용 하 여 Azure Database for PostgreSQL 서버 및 Azure Backup에서 지원할 최신 작업 등 다양 한 Azure 서비스에 대 한 백업 데이터를 저장할 수 있습니다. 백업 자격 증명 모음을 사용 하면 관리 오버 헤드를 최소화 하면서 백업 데이터를 쉽게 구성할 수 있습니다. 백업 자격 증명 모음은 다음과 같은 기능을 제공 하는 Azure의 Azure Resource Manager 모델을 기반으로 합니다.
 
-- **백업 데이터를 보호 하기 위한 향상 된 기능**: 백업 자격 증명 모음을 사용 Azure Backup는 클라우드 백업을 보호 하는 보안 기능을 제공 합니다. 이러한 보안 기능을 통해 백업을 보호하고 프로덕션 및 백업 서버가 손상된 경우에도 데이터를 안전하게 복구할 수 있습니다. [자세한 정보](backup-azure-security-feature.md)
+- **백업 데이터를 보호 하기 위한 향상 된 기능**: 백업 자격 증명 모음을 사용 Azure Backup는 클라우드 백업을 보호 하는 보안 기능을 제공 합니다. 이러한 보안 기능을 통해 백업을 보호하고 프로덕션 및 백업 서버가 손상된 경우에도 데이터를 안전하게 복구할 수 있습니다. [자세히 알아보기](backup-azure-security-feature.md)
 
-- Azure **rbac (역할 기반 액세스 제어)**: azure Rbac는 azure에서 세분화 액세스 관리 제어를 제공 합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. 백업 자격 증명 모음은 Azure RBAC와 호환 되므로 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세한 정보](backup-rbac-rs-vault.md)
+- Azure **rbac (역할 기반 액세스 제어)**: azure Rbac는 azure에서 세분화 액세스 관리 제어를 제공 합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. 백업 자격 증명 모음은 Azure RBAC와 호환 되므로 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세히 알아보기](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>백업 자격 증명 모음의 저장소 설정
 
@@ -42,21 +42,21 @@ ms.locfileid: "92091290"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
+<https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-backup-vault"></a>백업 자격 증명 모음 만들기
 
 1. 검색 상자에 **백업 자격 증명 모음** 을 입력 합니다.
-1. **서비스**에서 **백업 자격 증명 모음**을 선택 합니다.
-1. **백업 자격 증명 모음** 페이지에서 **추가**를 선택 합니다.
-1. **기본 사항 탭**의 **프로젝트 세부 정보**에서 올바른 구독을 선택 했는지 확인 한 다음 새 리소스 그룹 **만들기** 를 선택 합니다. 이름으로 *myResourceGroup*을 입력합니다.
+1. **서비스** 에서 **백업 자격 증명 모음** 을 선택 합니다.
+1. **백업 자격 증명 모음** 페이지에서 **추가** 를 선택 합니다.
+1. **기본 사항 탭** 의 **프로젝트 세부 정보** 에서 올바른 구독을 선택 했는지 확인 한 다음 새 리소스 그룹 **만들기** 를 선택 합니다. 이름으로 *myResourceGroup* 을 입력합니다.
 
   ![새 리소스 그룹 만들기](./media/backup-vault-overview/new-resource-group.png)
 
-1. **인스턴스 세부 정보**아래에서 **백업 자격 증명 모음 이름** 으로 *myvault* 를 입력 하 고 원하는 지역을 선택 합니다 .이 경우 **지역**에 대해 *미국 동부* 를 선택 합니다.
-1. 이제 **저장소 중복성**을 선택 합니다. 자격 증명 모음으로 항목을 보호 한 후에는 저장소 중복성을 변경할 수 없습니다.
+1. **인스턴스 세부 정보** 아래에서 **백업 자격 증명 모음 이름** 으로 *myvault* 를 입력 하 고 원하는 지역을 선택 합니다 .이 경우 **지역** 에 대해 *미국 동부* 를 선택 합니다.
+1. 이제 **저장소 중복성** 을 선택 합니다. 자격 증명 모음으로 항목을 보호 한 후에는 저장소 중복성을 변경할 수 없습니다.
 1. Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
-1. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.
+1. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복** 을 선택합니다.
 1. [지역](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬](../storage/common/storage-redundancy.md#locally-redundant-storage) 중복성에 대해 자세히 알아보세요.
 
   ![저장소 중복성 선택](./media/backup-vault-overview/storage-redundancy.png)
@@ -102,7 +102,7 @@ ms.locfileid: "92091290"
 
 ## <a name="monitor-and-manage-the-backup-vault"></a>백업 자격 증명 모음 모니터링 및 관리
 
-이 섹션에서는 backup 자격 증명 모음 **개요** 대시보드를 사용 하 여 백업 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 설명 합니다. 개요 창에는 **작업** 및 **인스턴스**라는 두 개의 타일이 포함 되어 있습니다.
+이 섹션에서는 backup 자격 증명 모음 **개요** 대시보드를 사용 하 여 백업 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 설명 합니다. 개요 창에는 **작업** 및 **인스턴스** 라는 두 개의 타일이 포함 되어 있습니다.
 
 ![개요 대시보드](./media/backup-vault-overview/overview-dashboard.png)
 

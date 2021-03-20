@@ -7,17 +7,17 @@ ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 4f2b890dc60cd50b5fcaefabe8d418268b738c20
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096728"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](../storage/index.yml) 와 통합 됩니다. 테이블 저장소와 통합 하면 테이블 저장소 데이터를 읽고 쓰는 함수를 작성할 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | 함수의 테이블 저장소 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-table-input.md) |
 | 함수가 테이블 저장소 데이터를 쓰도록 허용 |[출력 바인딩](./functions-bindings-storage-table-output.md) |

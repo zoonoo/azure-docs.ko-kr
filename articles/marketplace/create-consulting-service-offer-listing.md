@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754512"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>컨설팅 서비스 제품 목록 세부 정보를 구성 하는 방법
@@ -76,7 +76,7 @@ ms.locfileid: "92754512"
 3.  을 끌어서 놓습니다. 회색 축소판 상자에 PNG 파일 (1280 x 720 픽셀)을 표시 합니다.
 4.  다른 비디오를 추가 하려면 1 ~ 3 단계를 반복 합니다.
 
-다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다. **가격 책정 및 가용성** .
+다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다. **가격 책정 및 가용성**.
 
 ## <a name="next-steps"></a>다음 단계
 

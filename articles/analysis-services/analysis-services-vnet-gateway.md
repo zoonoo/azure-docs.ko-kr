@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84197188"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Azure VNet(Virtual Network)에서 데이터 원본에 게이트웨이 사용
@@ -29,8 +29,8 @@ Azure SQL Managed Instance 데이터 소스는 개인 IP 주소를 사용 하 �
 
 ## <a name="configure-alwaysusegateway-property"></a>AlwaysUseGateway 속성 구성
 
-1. SSMS > 서버 > **속성** > **일반**에서 **고급 속성 표시(모두)** 를 선택합니다.
-2. **ASPaaS\AlwaysUseGateway**에서 **true**를 선택합니다.
+1. SSMS > 서버 > **속성** > **일반** 에서 **고급 속성 표시(모두)** 를 선택합니다.
+2. **ASPaaS\AlwaysUseGateway** 에서 **true** 를 선택합니다.
 
     ![항상 게이트웨이 속성 사용](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 

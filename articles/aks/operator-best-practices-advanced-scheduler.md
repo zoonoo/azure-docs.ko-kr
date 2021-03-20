@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97107349"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
@@ -182,7 +182,7 @@ Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가�
 
 이 문서에서는 고급 Kubernetes 스케줄러 기능을 중점적으로 설명했습니다. AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 
-* [다중 테넌트 지원 및 클러스터 격리][aks-best-practices-scheduler]
+* [다중 테 넌 트 및 클러스터 격리][aks-best-practices-scheduler]
 * [기본 Kubernetes 스케줄러 기능][aks-best-practices-scheduler]
 * [인증 및 권한 부여][aks-best-practices-identity]
 

@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347743"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대한 TLS 상호 인증 구성
 
 다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 이 작업을 수행 하는 한 가지 방법은 클라이언트 요청이 TLS/SSL을 통해 수행 되는 경우 클라이언트 인증서를 요청 하 고 인증서의 유효성을 검사 하는 것입니다. 이 메커니즘을 TLS 상호 인증 또는 클라이언트 인증서 인증 이라고 합니다. 이 문서에서는 클라이언트 인증서 인증을 사용 하도록 앱을 설정 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 HTTP를 통해 응용 프로그램에 대 한 요청을 허용 하지 않아야 합니다.
+> HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]

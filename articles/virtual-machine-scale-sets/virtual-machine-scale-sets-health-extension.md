@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84783047"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
@@ -57,7 +57,7 @@ ms.locfileid: "84783047"
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | 문자열 |
@@ -66,7 +66,7 @@ ms.locfileid: "84783047"
 
 ### <a name="settings"></a>설정
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ----
 | protocol | `http` 또는 `https` 또는 `tcp` | 문자열 |
 | 포트 | 프로토콜이 또는 인 경우 선택 사항이 `http` `https` 고, 프로토콜이 이면 필수입니다. `tcp` | int |

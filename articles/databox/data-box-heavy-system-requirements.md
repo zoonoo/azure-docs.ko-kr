@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84707755"
 ---
 # <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box Heavy 시스템 요구 사항
@@ -54,7 +54,7 @@ ms.locfileid: "84707755"
 
 ### <a name="port-requirements"></a>포트 요구 사항
 
-다음 표에는 SMB 또는 NFS 트래픽을 허용 하기 위해 방화벽에서 열어야 하는 포트가 나와 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* 는 Data Box Heavy 장치가 배포를 벗어나 외부에서 데이터를 전송 하는 방향 (예: 인터넷으로 아웃 바운드)을 나타냅니다.
+다음 표에는 SMB 또는 NFS 트래픽을 허용 하기 위해 방화벽에서 열어야 하는 포트가 나와 있습니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* 는 Data Box Heavy 장치가 배포를 벗어나 외부에서 데이터를 전송 하는 방향 (예: 인터넷으로 아웃 바운드)을 나타냅니다.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

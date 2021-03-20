@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89003629"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
@@ -57,7 +57,7 @@ ms.locfileid: "89003629"
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
 1. 이렇게 하면 하나 이상의 백 엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
@@ -66,7 +66,7 @@ ms.locfileid: "89003629"
 1. [Service Bus Pub/Sub 프로그래밍] - 이 자습서는 Service Bus 항목/구독으로 작업하는 세부 사항, 항목/구독을 포함하는 네임스페이스를 만드는 방법 및 메시지를 송신 및 수신하는 방법에 대해 설명합니다.
 2. [Notification Hubs - Windows 범용 자습서] - 이 자습서는 Windows 스토어 앱을 설정하고 Notification Hubs를 사용하여 등록한 다음 알림을 수신하는 방법에 대해 설명합니다.
 
-### <a name="sample-code"></a>예제 코드
+### <a name="sample-code"></a>샘플 코드
 
 전체 샘플 코드는 [알림 허브 샘플]에서 사용 가능합니다. 세 가지 구성 요소로 구성되어 있습니다.
 
@@ -227,11 +227,11 @@ ms.locfileid: "89003629"
     }
     ```
 
-    e. 이 앱을 **WebJob**으로 게시하려면 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **WebJob으로 게시**를 선택합니다.
+    e. 이 앱을 **WebJob** 으로 게시하려면 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **WebJob으로 게시** 를 선택합니다.
 
     ![빨간색으로 표시 된 Azure WebJob으로 게시와 함께 표시 되는 오른쪽 클릭 옵션의 스크린샷][2]
 
-    f. 게시 프로필을 선택한 후 Azure 웹 사이트가 없는 경우 이 WebJob을 호스트할 새 Azure 웹 사이트를 만들고, 웹 사이트가 있는 경우 **게시**합니다.
+    f. 게시 프로필을 선택한 후 Azure 웹 사이트가 없는 경우 이 WebJob을 호스트할 새 Azure 웹 사이트를 만들고, 웹 사이트가 있는 경우 **게시** 합니다.
 
     :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Azure에서 사이트를 만드는 워크플로를 보여 주는 스크린샷":::
     Microsoft Azure Websites 옵션이 선택 된 상태에서 웹 게시 대화 상자의 스크린샷, 빨간색으로 표시 된 새 옵션을 사용 하 여 기존 웹 사이트 선택 대화 상자를 가리키는 녹색 화살표, 사이트 이름 및 만들기 옵션을 빨간색으로 표시 하 여 Microsoft Azure에서 사이트 만들기 대화 상자를 가리키는 녹색 화살표가 표시 됩니다.
@@ -270,7 +270,7 @@ ms.locfileid: "89003629"
 ### <a name="running-the-sample"></a>샘플 실행
 
 1. WebJob이 성공적으로 실행 중이고 계속 실행되도록 예약되었는지 확인합니다.
-2. Windows 스토어 앱을 시작 하는 **EnterprisePushMobileApp**를 실행 합니다.
+2. Windows 스토어 앱을 시작 하는 **EnterprisePushMobileApp** 를 실행 합니다.
 3. **EnterprisePushBackendSystem** 콘솔 애플리케이션을 실행하면 LoB 백 엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음 이미지와 같이 나타나는 토스트 알림이 보여야 합니다.
 
     ![엔터프라이즈 푸시 백 엔드 시스템 앱 및 앱에서 보낸 메시지를 실행 하는 콘솔의 스크린샷][5]

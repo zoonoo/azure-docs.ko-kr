@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: alkohli
 ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950315"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Azure Data Box를 사용 하 여 파일 Acl, 특성 및 타임 스탬프 유지
@@ -21,7 +21,7 @@ Azure Data Box를 사용 하면 Azure에 데이터를 보낼 때 Acl (액세스 
 
 Windows 및 Linux 데이터 복사 도구를 사용 하 여 메타 데이터를 복사 하기 위한 특정 단계가 제공 됩니다. Blob 저장소로 데이터를 전송할 때 메타 데이터가 보존 되지 않습니다.
 
-이 문서에서는 전송 된 Acl, 타임 스탬프 및 파일 특성을 통칭 하 여 *메타 데이터로*참조 합니다.
+이 문서에서는 전송 된 Acl, 타임 스탬프 및 파일 특성을 통칭 하 여 *메타 데이터로* 참조 합니다.
 
 ## <a name="transferred-metadata"></a>전송 된 메타 데이터
 

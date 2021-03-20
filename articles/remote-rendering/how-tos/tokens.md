@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97830703"
 ---
 # <a name="get-service-access-tokens"></a>서비스 액세스 토큰 가져오기
@@ -29,7 +29,7 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ### <a name="get-token-request"></a>' 토큰 가져오기 ' 요청
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /accounts/**accountId**/토큰 | GET |
 
@@ -41,11 +41,11 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ### <a name="get-token-response"></a>' Get token ' 응답
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: 문자열 | Success |
 
-| 헤더 | 목적 |
+| 헤더 | 용도 |
 |--------|:------|
 | MS-CV | 이 값은 서비스 내에서 호출을 추적 하는 데 사용할 수 있습니다. |
 

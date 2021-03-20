@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Portal (Azure DevTest Labs)를 사용 하
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 495fb98f3da41a47d316dd64554ba616ede0af47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481224"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
@@ -22,13 +22,13 @@ ms.locfileid: "85481224"
 랩을 삭제하려면 다음 작업을 수행합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 리소스**를 선택하고, 서비스 유형에 대해 **DevTest Labs**를 선택한 다음, 랩을 선택합니다.
+2. 왼쪽 메뉴에서 **모든 리소스** 를 선택하고, 서비스 유형에 대해 **DevTest Labs** 를 선택한 다음, 랩을 선택합니다.
 
     ![랩 선택](media/devtest-lab-delete-lab-vm/select-lab.png)
-3. **DevTest Lab** 페이지의 도구 모음에서 **삭제**를 클릭합니다. 
+3. **DevTest Lab** 페이지의 도구 모음에서 **삭제** 를 클릭합니다. 
 
     ![삭제 단추](media/devtest-lab-delete-lab-vm/delete-button.png)
-4. **확인** 페이지에서 랩의 **이름**을 입력하고 **삭제**를 선택합니다. 
+4. **확인** 페이지에서 랩의 **이름** 을 입력하고 **삭제** 를 선택합니다. 
 
     ![확인](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. 작업 상태를 보려면 **알림** 아이콘(벨)을 선택합니다. 
@@ -47,16 +47,16 @@ VM과 연결된 가상 머신, 네트워크 인터페이스 및 디스크가 삭
 랩에서 VM을 삭제하려면 다음 작업을 수행합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 리소스**를 선택하고, 서비스 유형에 대해 **DevTest Labs**를 선택한 다음, 랩을 선택합니다.
+2. 왼쪽 메뉴에서 **모든 리소스** 를 선택하고, 서비스 유형에 대해 **DevTest Labs** 를 선택한 다음, 랩을 선택합니다.
 
     ![랩 선택](media/devtest-lab-delete-lab-vm/select-lab.png)
-3. VM 목록에 있는 VM에 대해 **...(줄임표)** 를 선택하고 **삭제**를 선택합니다. 
+3. VM 목록에 있는 VM에 대해 **...(줄임표)** 를 선택하고 **삭제** 를 선택합니다. 
 
     ![메뉴에서 VM 삭제](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
-4. **확인** 대화 상자에서 **확인**을 선택합니다. 
+4. **확인** 대화 상자에서 **확인** 을 선택합니다. 
 5. 작업 상태를 보려면 **알림** 아이콘(벨)을 선택합니다. 
 
-**Virtual Machine 페이지**에서 VM을 삭제하려면 다음 그림과 같이 도구 모음에서 **삭제**를 선택합니다.
+**Virtual Machine 페이지** 에서 VM을 삭제하려면 다음 그림과 같이 도구 모음에서 **삭제** 를 선택합니다.
 
 ![VM 페이지에서 VM 삭제](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 

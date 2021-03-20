@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8091890d174ae68f012a6ec24685a0e705100f8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743680"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토
@@ -33,18 +33,18 @@ PIM (Privileged Identity Management) 액세스 검토는 Azure Active Directory 
 
 ## <a name="approve-or-deny-access"></a>액세스 승인 또는 거부
 
-이 역할을 사용 하는지 여부에 따라 액세스를 승인 하거나 거부할 수 있습니다. 역할을 유지하려면 **승인**을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부**를 선택합니다. 검토자가 결과를 적용 한 후에만 상태가 변경 됩니다.
+이 역할을 사용 하는지 여부에 따라 액세스를 승인 하거나 거부할 수 있습니다. 역할을 유지하려면 **승인** 을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부** 를 선택합니다. 검토자가 결과를 적용 한 후에만 상태가 변경 됩니다.
 
 액세스 검토를 찾아 완료하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **Azure Active Directory** 를 선택 하 고 **Privileged Identity Management**를 엽니다.
-1. **액세스 검토**를 선택 합니다.
+1. **Azure Active Directory** 를 선택 하 고 **Privileged Identity Management** 를 엽니다.
+1. **액세스 검토** 를 선택 합니다.
 
    ![액세스 검토 블레이드가 선택 된 Privileged Identity Management 응용 프로그램의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 1. 완료할 검토를 선택합니다.
-1. **승인** 또는 **거부**를 선택 합니다. **이유 제공 상자**에 필요한 경우 결정에 대 한 비즈니스 근거를 입력 합니다.
+1. **승인** 또는 **거부** 를 선택 합니다. **이유 제공 상자** 에 필요한 경우 결정에 대 한 비즈니스 근거를 입력 합니다.
 
    ![세부 정보 검토 페이지의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92092786"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
@@ -38,7 +38,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
@@ -49,13 +49,13 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 이 섹션에서는 API Management 계정에 새 그룹을 추가하는 방법을 보여 줍니다.
 
 1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
-2. **+ 추가**를 클릭 합니다.
+2. **+ 추가** 를 클릭 합니다.
 3. 그룹의 고유한 이름 및 선택적 설명을 입력합니다.
-4. **만들기**를 누릅니다.
+4. **만들기** 를 누릅니다.
 
     ![새 그룹 추가](./media/api-management-howto-create-groups/groups001.png)
 
-그룹이 만들어지면 **그룹** 목록에 추가됩니다. <br/>그룹의 **이름** 또는 **설명**을 편집하려면 그룹 이름 및 **설정**을 클릭합니다.<br/>그룹을 삭제하려면 그룹 이름을 클릭하고 **삭제**를 누릅니다.
+그룹이 만들어지면 **그룹** 목록에 추가됩니다. <br/>그룹의 **이름** 또는 **설명** 을 편집하려면 그룹 이름 및 **설정** 을 클릭합니다.<br/>그룹을 삭제하려면 그룹 이름을 클릭하고 **삭제** 를 누릅니다.
 
 그룹이 생성되었으므로, 제품 및 개발자와 연결할 수 있습니다.
 
@@ -63,15 +63,15 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 1. 왼쪽의 **제품** 탭을 선택합니다.
 2. 원하는 제품의 이름을 클릭합니다.
-3. **액세스 제어**를 누릅니다.
-4. **+ 그룹 추가**를 클릭합니다.
+3. **액세스 제어** 를 누릅니다.
+4. **+ 그룹 추가** 를 클릭합니다.
 
     ![그룹 추가 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups002.png)
 5. 추가하려는 그룹을 선택합니다.
 
     ![선택한 그룹을 표시 하 고 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups003.png)
 
-    제품에서 그룹을 제거하려면 **삭제**를 클릭합니다.
+    제품에서 그룹을 제거하려면 **삭제** 를 클릭합니다.
 
     ![그룹 삭제](./media/api-management-howto-create-groups/groups004.png)
 
@@ -85,13 +85,13 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 이 섹션에서는 그룹과 구성원을 연결하는 방법을 보여 줍니다.
 
 1. 화면 왼쪽의 **그룹** 탭을 선택합니다.
-2. **멤버**를 선택합니다.
+2. **멤버** 를 선택합니다.
 
     ![멤버 추가](./media/api-management-howto-create-groups/groups005.png)
-3. **+추가**를 누르고 구성원을 선택합니다.
+3. **+추가** 를 누르고 구성원을 선택합니다.
 
     ![추가 단추, 선택한 사용자 및 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups006.png)
-4. **선택**을 누릅니다.
+4. **선택** 을 누릅니다.
 
 개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.
 

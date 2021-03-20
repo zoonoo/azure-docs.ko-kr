@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88924302"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소
 
-지식 저장소는 독립적으로 분석하거나 다운스트림을 처리하기 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. *보강된 문서*는 AI 프로세스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용된 후에 삭제됩니다. 기술 자료 저장소를 만들도록 선택 하면 보강 문서를 유지할 수 있습니다. 
+지식 저장소는 독립적으로 분석하거나 다운스트림을 처리하기 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. *보강된 문서* 는 AI 프로세스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용된 후에 삭제됩니다. 기술 자료 저장소를 만들도록 선택 하면 보강 문서를 유지할 수 있습니다. 
 
-과거에 인지 검색을 사용한 적이 있으면 *기술 세트*를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있을 것입니다. 결과는 검색 인덱스 또는 기술 자료 저장소의 프로젝션이 될 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 부산물입니다. 동일한 입력에서 파생되지만 매우 다양한 방식으로 구조화, 저장 및 사용되는 출력이 생성됩니다.
+과거에 인지 검색을 사용한 적이 있으면 *기술 세트* 를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있을 것입니다. 결과는 검색 인덱스 또는 기술 자료 저장소의 프로젝션이 될 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 부산물입니다. 동일한 입력에서 파생되지만 매우 다양한 방식으로 구조화, 저장 및 사용되는 출력이 생성됩니다.
 
 물리적으로 지식 저장소는 Azure Table 스토리지, Azure Blob 스토리지 또는 둘 다인 [Azure Storage](../storage/common/storage-account-overview.md)입니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
 

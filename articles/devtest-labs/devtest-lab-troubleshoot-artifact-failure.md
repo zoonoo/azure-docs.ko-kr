@@ -4,10 +4,10 @@ description: DevTest Labs는 아티팩트 실패를 진단 하는 데 사용할 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480816"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
@@ -23,7 +23,7 @@ ms.locfileid: "85480816"
 
 1. Azure Portal의 리소스 목록에서 랩을 선택합니다.
 2. 조사하려는 아티팩트를 포함하는 Windows VM을 선택합니다.
-3. 왼쪽 패널의 **일반** 아래에서 **아티팩트**를 선택합니다. 해당 VM과 연결된 아티팩트 목록이 표시됩니다. 아티팩트 이름 및 아티팩트 상태가 표시됩니다.
+3. 왼쪽 패널의 **일반** 아래에서 **아티팩트** 를 선택합니다. 해당 VM과 연결된 아티팩트 목록이 표시됩니다. 아티팩트 이름 및 아티팩트 상태가 표시됩니다.
 
    ![아티팩트 상태](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure-new.png)
 
@@ -35,7 +35,7 @@ ms.locfileid: "85480816"
 ## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>가상 머신 내에서 아티팩트 실패 문제 해결
 
 1. 진단하려는 아티팩트를 포함하는 VM에 로그인합니다.
-2. C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status로 이동합니다. 여기서 *1.9*는 Azure Custom Script Extension 버전 번호입니다.
+2. C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status로 이동합니다. 여기서 *1.9* 는 Azure Custom Script Extension 버전 번호입니다.
 
    ![상태 파일](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status-new.png)
 

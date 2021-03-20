@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096449"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Azure Function을 사용 하 여 Azure 센티널에 VMware 참조 블랙 Cloud 끝점 표준 연결
@@ -38,7 +38,7 @@ VMware 참조 블랙 Cloud Endpoint Standard 커넥터를 사용 하면 모든 [
 Azure Functions는 VMware 참조 블랙 Cloud 끝점 표준에서 직접 이벤트와 로그를 통합 하 고 끌어오고 Azure 센티널에 전달할 수 있습니다.
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **VMware 참조 검정** 커넥터를 선택 합니다.
-2. **커넥터 페이지 열기** 를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 3. **VMware 참조 블랙** 페이지의 지침을 따릅니다.
 
 

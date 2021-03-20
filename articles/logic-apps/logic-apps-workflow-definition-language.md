@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87078141"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대 한 스키마 참조 가이드
@@ -35,7 +35,7 @@ ms.locfileid: "87078141"
 }
 ```
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 |-----------|----------|-------------|
 | `definition` | 예 | 워크플로 정의에 대한 시작 요소 |
 | `$schema` | 외부에서 워크플로 정의를 참조하는 경우만 | 워크플로 정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 여기서 찾을 수 있습니다. <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -74,12 +74,12 @@ ms.locfileid: "87078141"
 },
 ```
 
-| attribute | 필수 | Type | 설명 |
+| 특성 | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*매개 변수-이름*> | 예 | String | 정의 하려는 매개 변수의 이름입니다. |
 | <*매개 변수 형식*> | 예 | int, float, string, bool, array, object, securestring, secureobject <p><p>**참고**: 모든 암호, 키 및 비밀의 경우 `securestring` `secureobject` `GET` 작업이 이러한 형식을 반환 하지 않으므로 또는 형식을 사용 합니다. 매개 변수 보안에 대 한 자세한 내용은 [작업 및 입력 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)을 참조 하세요. | 매개 변수의 형식 |
 | <*기본 매개 변수 값*> | 예 | `type`과 동일 | 워크플로에서 인스턴스화할 때 값이 지정 되지 않은 경우 사용할 기본 매개 변수 값입니다. `defaultValue`이 특성은 논리 앱 디자이너에서 매개 변수를 올바르게 표시 하는 데 필요 하지만 빈 값을 지정할 수 있습니다. |
-| <*허용 되는 매개 변수-값 배열*> | 아니요 | 배열 | 매개 변수를 수용할 수 있는 값으로 배열 |
+| <*허용 되는 매개 변수-값 배열*> | 아니요 | Array | 매개 변수를 수용할 수 있는 값으로 배열 |
 | <*매개 변수-설명*> | 아니요 | JSON 개체 | 매개 변수에 대 한 설명과 같은 다른 모든 매개 변수 세부 정보 |
 ||||
 
@@ -112,7 +112,7 @@ ms.locfileid: "87078141"
 }
 ```
 
-| attribute | 필수 | Type | 설명 |
+| 특성 | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*정적-결과-정의-이름*> | 예 | String | 작업 정의가 개체를 통해 참조할 수 있는 정적 결과 정의의 이름입니다 `runtimeConfiguration.staticResult` . 자세한 내용은 [런타임 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)을 참조하세요. <p>원하는 고유한 이름을 사용할 수 있습니다. 기본적으로이 고유 이름에는 필요에 따라 증가 하는 숫자가 추가 됩니다. |
 | <*출력-특성-값-반환 됨*> | 예 | 상황에 따라 다름 | 이러한 특성에 대 한 요구 사항은 다양 한 조건에 따라 달라 집니다. 예를 들어 `status` 가 인 경우 `Succeeded` 특성은 `outputs` 작업에서 모의 출력으로 반환 되는 특성 및 값을 포함 합니다. `status`가 인 경우 `Failed` 특성은 `outputs` `errors` 특성을 포함 하며,이 특성은 오류 정보가 있는 하나 이상의 오류 `message` 개체를 포함 하는 배열입니다. |
@@ -178,7 +178,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 "rainbowColorsCount": 7
 ```
 
-실행 시간까지 존재하지 않는 값이 있을 수 있습니다. 이러한 값을 표시하려면 실행 시간에 평가되는 *식*을 사용할 수 있습니다. 식은 하나 이상의 [함수](#functions), [연산자](#operators), [변수](./logic-apps-create-variables-store-values.md), 명시적 값 또는 상수를 포함할 수 있는 시퀀스입니다. 워크플로 정의에서 식 앞에 at 기호(\@)를 붙여 JSON 문자열 값의 어디에서나 식을 사용할 수 있습니다. JSON 값을 나타내는 식을 계산하는 경우 식 본문은 다른 JSON 값에서 결과 및 \@ 문자를 제거하여 추출합니다.
+실행 시간까지 존재하지 않는 값이 있을 수 있습니다. 이러한 값을 표시하려면 실행 시간에 평가되는 *식* 을 사용할 수 있습니다. 식은 하나 이상의 [함수](#functions), [연산자](#operators), [변수](./logic-apps-create-variables-store-values.md), 명시적 값 또는 상수를 포함할 수 있는 시퀀스입니다. 워크플로 정의에서 식 앞에 at 기호(\@)를 붙여 JSON 문자열 값의 어디에서나 식을 사용할 수 있습니다. JSON 값을 나타내는 식을 계산하는 경우 식 본문은 다른 JSON 값에서 결과 및 \@ 문자를 제거하여 추출합니다.
 
 예를 들어 이전에 정의된 `customerName` 속성의 경우 식에서 [매개 변수()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 함수를 사용하여 속성 값을 얻고 해당 값을 `accountName` 속성에 할당할 수 있습니다.
 
@@ -187,7 +187,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 "accountName": "@parameters('customerName')"
 ```
 
-*문자열 보간*은 \@ 문자와 중괄호({})로 래핑된 문자열 내에 여러 개의 식을 사용할 수 있게 합니다. 구문은 다음과 같습니다.
+*문자열 보간* 은 \@ 문자와 중괄호({})로 래핑된 문자열 내에 여러 개의 식을 사용할 수 있게 합니다. 구문은 다음과 같습니다.
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -257,7 +257,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 <a name="outputs"></a>
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>출력
 
 `outputs` 섹션에서 워크플로가 실행을 종료할 때 반환할 수 있는 데이터를 정의합니다. 예를 들어, 각 실행에서 특정 상태 또는 값을 추적하려면 워크플로 출력이 해당 데이터를 반환하도록 지정합니다.
 
@@ -275,7 +275,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 }
 ```
 
-| attribute | 필수 | Type | 설명 |
+| 특성 | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*키 이름*> | 예 | String | 출력 반환 값에 대한 키 이름 |
 | <*키 유형*> | 예 | int, float, 문자열, securestring, bool, 배열, JSON 개체 | 출력 반환 값의 형식 |
@@ -290,7 +290,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 [식](#expressions) 및 [함수](#functions)에서 연산자는 속성 참조 또는 배열의 값 등의 특정 작업을 수행합니다.
 
-| 연산자 | Task |
+| 연산자 | 작업 |
 |----------|------|
 | ' | 리터럴 문자열을 입력으로 또는 식 및 함수에서 사용하려면 작은따옴표, 예를 들어 `'<myString>'`만 사용하여 문자열을 래핑합니다. 전체 식에서 JSON 서식과 충돌하는 큰따옴표("")를 사용하지 마세요. 예를 들면 다음과 같습니다. <p>**예**: length('Hello') </br>**아니요**: length('Hello') <p>배열이나 숫자를 전달할 때 문장 부호를 래핑하지 않아도 됩니다. 예를 들면 다음과 같습니다. <p>**예**: length([1, 2, 3]) </br>**아니요**: length([1, 2, 3]) |
 | [] | 배열의 특정 위치(인덱스)에서 값을 참조하려면 대괄호를 사용합니다. 예를 들어 배열에서 두 번째 항목을 가져오려면: <p>`myArray[1]` |

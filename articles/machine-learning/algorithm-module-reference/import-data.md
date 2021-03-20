@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592637"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
@@ -61,7 +61,7 @@ ms.locfileid: "94592637"
     > [!NOTE]
     > **데이터 가져오기** 모듈은 **테이블 형식** 데이터 전용입니다.
     > 여러 테이블 형식 데이터 파일을 한 번 가져오려는 경우 다음 조건을 충족 해야 합니다. 그렇지 않으면 오류가 발생 합니다.
-    > 1. 폴더에 모든 데이터 파일을 포함 하려면 경로를 입력 해야 `folder_name/**` 합니다. **Path**
+    > 1. 폴더에 모든 데이터 파일을 포함 하려면 경로를 입력 해야 `folder_name/**` 합니다. 
     > 2. 모든 데이터 파일은 유니코드-8로 인코딩해야 합니다.
     > 3. 모든 데이터 파일의 열 번호와 열 이름은 같아야 합니다.
     > 4. 여러 데이터 파일을 가져온 결과는 여러 파일의 모든 행을 순서 대로 연결 하는 것입니다.

@@ -1,13 +1,13 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: cosmos-db
 ms.custom: include file
 ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994559"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "95994559"
    
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
-    설정|값|Description
+    설정|값|설명
     ---|---|---
     Subscription|사용자의 구독|이 Azure Cosmos DB 계정에 사용하려는 Azure 구독을 선택합니다. 
     리소스 그룹|새로 만들기<br><br>그런 다음, 계정 이름과 같은 이름 입력|**새로 만들기** 를 선택합니다. 그런 다음, 계정의 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 Azure Cosmos DB 계정 이름과 동일한 이름을 사용합니다. 
