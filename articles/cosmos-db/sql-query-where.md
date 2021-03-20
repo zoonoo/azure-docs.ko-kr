@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341471"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
@@ -43,7 +43,7 @@ WHERE <filter_condition>
 
   일치 필터의 일부로 절에 파티션 키를 포함 하는 경우 `WHERE` 쿼리는 관련 파티션만 자동으로 필터링 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 쿼리는 값이 인 속성을 포함 하는 항목을 요청 합니다 `id` `AndersenFamily` . 속성이 없거나 해당 값이 일치 하지 않는 항목은 제외 `id` `AndersenFamily` 됩니다.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095839"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
@@ -93,7 +93,7 @@ JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스]
 ### <a name="resources"></a>리소스
 리소스 노드에는 SQL Server 인스턴스, App Service 계획 및 앱 두 개를 포함하는 4개의 최상위 리소스가 정의된 것을 확인할 수 있습니다. 
 
-#### <a name="app-service-plan"></a>App Service 계획
+#### <a name="app-service-plan"></a>App Service 요금제
 JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON 개요에서 해당하는 JSON 코드에 강조를 표시하기 위해 **[hostingPlanName]** 라고 명명된 App Service 계획을 클릭합니다. 
 
 ![JSON 코드의 [hostingPlanName] 섹션을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)

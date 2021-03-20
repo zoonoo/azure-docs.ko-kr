@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 854d0fa9b34d495f03a0c3c6203ceb227e4712d2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629515"
 ---
 # <a name="how-to-add-a-preview-audience-for-a-virtual-machine-offer"></a>가상 컴퓨터 제품에 대 한 미리 보기 대상을 추가 하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "94629515"
 하나 이상의 Azure 구독 ID를 개별적으로(최대 10개의 ID) 추가하거나 CSV 파일(최대 100개의 ID)을 업로드하여 추가합니다. 이러한 구독 ID를 추가하면 제품이 라이브로 게시되기 전에 미리 볼 수 있는 사용자를 정의할 수 있습니다. 제품이 이미 라이브 상태인 경우에도 제품에 대한 변경 내용 또는 업데이트를 테스트하기 위해 미리 보기 대상 그룹을 정의할 수 있습니다.
 
 > [!NOTE]
-> 미리 보기 대상 그룹은 프라이빗 대상 그룹과 다릅니다. 미리 보기 대상 그룹은 Azure Marketplace에서 라이브로 게시되기 *전에* 해당 제품에 액세스할 수 있습니다. 제품이 Azure Marketplace에 완전히 게시된 후에 미리 보기 대상 그룹에서 모든 플랜(프라이빗 대상 그룹만 사용할 수 있는 플랜 포함)을 보고 유효성을 검사할 수 있습니다. 프라이빗 대상 그룹( **가격 책정 및 가용성** 플랜 창에서 정의됨)은 특정 플랜에 단독으로 액세스할 수 있습니다.
+> 미리 보기 대상 그룹은 프라이빗 대상 그룹과 다릅니다. 미리 보기 대상 그룹은 Azure Marketplace에서 라이브로 게시되기 *전에* 해당 제품에 액세스할 수 있습니다. 제품이 Azure Marketplace에 완전히 게시된 후에 미리 보기 대상 그룹에서 모든 플랜(프라이빗 대상 그룹만 사용할 수 있는 플랜 포함)을 보고 유효성을 검사할 수 있습니다. 프라이빗 대상 그룹(**가격 책정 및 가용성** 플랜 창에서 정의됨)은 특정 플랜에 단독으로 액세스할 수 있습니다.
 
 변경한 경우 왼쪽 탐색 메뉴의 **계획 개요** 에서 다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다.
 

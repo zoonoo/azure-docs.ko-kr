@@ -4,10 +4,10 @@ description: GDPR(일반 데이터 보호 규정)에 따라 사용자의 의무�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483519"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
@@ -54,20 +54,20 @@ Azure Portal 또는 PowerShell을 사용 하 여 개인 및 랩 사용 현황 �
 ### <a name="azure-portal"></a>Azure portal
 랩 사용자인 경우 DevTest Labs 서비스가 저장하는 개인 데이터에 대한 내보내기를 요청할 수 있습니다. 내보내기를 요청하려면 랩의 **개요** 페이지에 있는 **개인 데이터** 옵션으로 이동합니다. **내보내기 요청** 단추를 선택하면 랩 관리자의 스토리지 계정에서 다운로드 가능한 Excel 파일 생성이 시작됩니다. 그런 다음, 랩 관리자에게 문의하여 이 데이터를 볼 수 있습니다.
 
-1. 왼쪽 메뉴에서 **개인 데이터**를 선택합니다. 
+1. 왼쪽 메뉴에서 **개인 데이터** 를 선택합니다. 
 
     ![개인 데이터 페이지](./media/personal-data-delete-export/personal-data-page.png)
-2. 랩을 포함하는 **리소스 그룹**을 선택합니다.
+2. 랩을 포함하는 **리소스 그룹** 을 선택합니다.
 
     ![리소스 그룹 선택](./media/personal-data-delete-export/select-resource-group.png)
-3. 리소스 그룹에서 **스토리지 계정**을 선택합니다.
-4. **스토리지 계정** 페이지에서 **Blob**을 선택합니다.
+3. 리소스 그룹에서 **스토리지 계정** 을 선택합니다.
+4. **스토리지 계정** 페이지에서 **Blob** 을 선택합니다.
 
     ![Blob 타일 선택](./media/personal-data-delete-export/select-blobs-tile.png)
-5. 컨테이너를 목록에서 **labresourceusage**라는 컨테이너를 선택합니다.
+5. 컨테이너를 목록에서 **labresourceusage** 라는 컨테이너를 선택합니다.
 
     ![Blob 컨테이너 선택](./media/personal-data-delete-export/select-blob-container.png)
-6. 랩 이름을 딴 **폴더**를 선택합니다. 이 폴더의 랩에서 **디스크** 및 **가상 머신**에 대한 **csv** 파일을 찾습니다. 이러한 csv 파일을 다운로드하고, 액세스를 요청하는 랩 사용자의 콘텐츠를 필터링하고, 공유할 수 있습니다.
+6. 랩 이름을 딴 **폴더** 를 선택합니다. 이 폴더의 랩에서 **디스크** 및 **가상 머신** 에 대한 **csv** 파일을 찾습니다. 이러한 csv 파일을 다운로드하고, 액세스를 요청하는 랩 사용자의 콘텐츠를 필터링하고, 공유할 수 있습니다.
 
     ![CSV 파일 다운로드](./media/personal-data-delete-export/download-csv-file.png)
 
@@ -160,7 +160,7 @@ else
 | ResourceGroupName | VM을 포함 하는 리소스 그룹의 이름 | 
 | ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
-| 속성 | 가상 컴퓨터 이름입니다. |
+| Name | 가상 컴퓨터 이름입니다. |
 | CreatedTime | VM을 만든 날짜/시간입니다. |
 | DeletedDate | VM이 삭제 된 날짜/시간입니다. 비어 있는 경우 삭제는 아직 발생 하지 않았습니다. |
 | ResourceOwner | VM의 소유자입니다. 값이 비어 있으면 클레임 할 수 있는 VM 이거나 서비스 사용자가 만든 것입니다. |
@@ -188,7 +188,7 @@ else
 | ResourceGroupName | 랩을 포함 하는 리소스 그룹의 이름 | 
 | ResourceId | VM에 대 한 정규화 된 리소스 ID입니다. |
 | ResourceUId | VM에 대 한 GUID |
- |속성 | 연결 된 디스크의 이름 |
+ |Name | 연결 된 디스크의 이름 |
 | CreatedTime |데이터 디스크를 만든 날짜와 시간입니다. |
 | DeletedDate | 데이터 디스크가 삭제 된 날짜 및 시간입니다. |
 | ResourceStatus | 리소스의 상태입니다. 리소스가 있으면 활성 상태입니다. 비활성, 삭제 된 경우 |
@@ -199,7 +199,7 @@ else
 
 
 > [!NOTE]
-> 여러 랩을 처리 하 고 전반적인 정보를 얻기 위해 두 개의 키 열은 게시 **uid** 와 **resourceuid**이며이는 구독 전체에서 고유 id입니다.
+> 여러 랩을 처리 하 고 전반적인 정보를 얻기 위해 두 개의 키 열은 게시 **uid** 와 **resourceuid** 이며이는 구독 전체에서 고유 id입니다.
 
 SQL Server, Power BI 등과 같은 도구를 사용 하 여 내보낸 데이터를 조작 하 고 시각화할 수 있습니다. 이 기능은 사용자가 수행한 것과 동일한 Azure 구독을 사용 하지 않을 수 있는 관리 팀에 랩의 사용량을 보고 하려는 경우에 특히 유용 합니다.
 

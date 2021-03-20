@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76046293"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Container Instances 배포 및 관리
@@ -49,12 +49,12 @@ Logic Apps 트리거에 대 한 응답으로 컨테이너 작업 실행과 같�
 
 1. 경로를 선택합니다. 
 
-   * 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
+   * 작업을 추가하려는 마지막 단계에서 **새 단계** 를 선택합니다. 
 
      또는
 
    * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
 1. 검색 상자에 필터로 "컨테이너 인스턴스"를 입력 합니다. 작업 목록 아래에서 원하는 Azure Container Instance 커넥터 작업을 선택 합니다.
 

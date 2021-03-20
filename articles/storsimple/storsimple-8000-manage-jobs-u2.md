@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949431"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 작업 보기 및 관리(업데이트 3 이상)
@@ -55,7 +55,7 @@ ms.locfileid: "91949431"
 다음 단계에 따라 작업 세부 정보를 봅니다.
 
 #### <a name="to-view-job-details"></a>작업 세부 정보 보는 방법
-1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **작업**을 클릭합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **작업** 을 클릭합니다.
 
 2. **작업** 블레이드에서 적절한 필터와 함께 쿼리를 실행하여 관심 있는 작업을 표시합니다. 완료되거나, 실행 중이거나, 취소된 작업을 검색할 수 있습니다.
 
@@ -79,11 +79,11 @@ ms.locfileid: "91949431"
 ### <a name="to-cancel-a-job"></a>작업 취소 방법
 1. **작업** 페이지에서 적절한 필터가 포함된 쿼리를 실행하여 취소하기를 원하는 실행 중인 작업을 표시합니다. 작업을 선택합니다.
 
-2. 선택한 작업을 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시하고 **취소**를 클릭합니다.
+2. 선택한 작업을 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시하고 **취소** 를 클릭합니다.
 
     ![작업 세부 정보 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. 확인 메시지가 표시되면 **예**를 클릭합니다. 이 작업은 이제 취소됩니다.
+3. 확인 메시지가 표시되면 **예** 를 클릭합니다. 이 작업은 이제 취소됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 백업 정책을 관리](storsimple-8000-manage-backup-policies-u2.md)하는 방법을 알아봅니다.

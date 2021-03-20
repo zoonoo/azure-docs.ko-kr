@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355298"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Azure Blob storage 콘텐츠를 검색 합니다.
@@ -38,7 +38,7 @@ Cognitive Search는 인덱싱 계층에서 Azure Blob storage와 통합 하 여 
 
 Azure Cognitive Search와 Azure Blob storage가 모두 필요 합니다. Blob Storage 내에서 원본 콘텐츠를 제공하는 컨테이너가 필요합니다.
 
-스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service**에서 **Azure Cognitive Search 추가**를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
+스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service** 에서 **Azure Cognitive Search 추가** 를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
 
 Azure Cognitive Search를 스토리지 계정에 추가한 후에는 표준 프로세스에 따라 Blob 데이터를 인덱싱할 수 있습니다. 편리한 초기 도입을 위해 Azure Cognitive Search에서 **데이터 가져오기** 마법사를 사용하거나 Postman과 같은 도구를 사용하여 REST API를 호출하는 것이 좋습니다. Postman에서 REST API를 호출하는 단계는 [Azure Cognitive Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md) 자습서에 안내되어 있습니다. 
 

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324691"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>V3 제작 엔터티로 마이그레이션
@@ -45,14 +45,14 @@ V3에서 관계는 명시적 이며 앱 작성자가 설계 합니다. 이를 �
 * 현재 예측 성공 메트릭 캡처
 * 현재 대시보드 정보를 앱 상태의 스냅숏으로 캡처
 * 기존 의도, 엔터티, 구 목록, 패턴 및 배치 테스트 검토
-* 다음 요소는 **변경 하지 않고**마이그레이션할 수 있습니다.
+* 다음 요소는 **변경 하지 않고** 마이그레이션할 수 있습니다.
     * 의도
     * 엔터티
         * 정규식 엔터티
         * 목록 엔터티
     * 기능
         * 구문 목록
-* 다음 요소를 **변경 내용과 함께**마이그레이션해야 합니다.
+* 다음 요소를 **변경 내용과 함께** 마이그레이션해야 합니다.
     * 엔터티
         * 계층적 엔터티
         * 복합 엔터티
@@ -71,8 +71,8 @@ V3 제작 모델로 이동할 때 machine learning 엔터티 및 해당 하위 �
 
 |V2 제작 엔터티 형식|V3 제작 엔터티 형식|예제|
 |--|--|--|
-|복합 엔터티|컴퓨터에서 배운 엔터티|[더 알아보세요](#migrate-v2-composite-entity)|
-|계층적 엔터티|기계 학습 엔터티의 역할|[더 알아보세요](#migrate-v2-hierarchical-entity)|
+|복합 엔터티|컴퓨터에서 배운 엔터티|[자세한 정보](#migrate-v2-composite-entity)|
+|계층적 엔터티|기계 학습 엔터티의 역할|[자세한 정보](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>V2 복합 엔터티 마이그레이션
 
@@ -87,7 +87,7 @@ V2 복합의 각 자식은 V3 기계 학습 엔터티의 하위 엔터티로 표
 
 복합 엔터티에서 단어를 승격 하는 데 사용 되는 모든 구 목록은 기계 학습 (부모) 엔터티, 하위 엔터티 (자식) 엔터티 또는 의도 (문구 목록이 한 의도에만 적용 되는 경우)에 기능으로 적용 되어야 합니다. 가장 현저 하 게 향상 되어야 하는 엔터티에 기능을 추가 하도록 계획 합니다. 하위 엔터티 (자식)의 예측이 크게 향상 되는 경우 일반적으로 기계 학습 (부모) 엔터티에이 기능을 추가 하지 마십시오.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 V3 제작에서 모든 엔터티 및 의도에 대 한 가능한 기능으로 엔터티를 평가 하는 계획 단계를 추가 합니다.
 
@@ -149,13 +149,13 @@ V3 제작에서:
 
 #### <a name="automatic-migration"></a>자동 마이그레이션
 
-**6 월 19 2020**부터이 기능을 제공 하는 이전 authoring API를 사용 하 여 프로그래밍 방식으로 제약 조건을 만들 수 없습니다.
+**6 월 19 2020** 부터이 기능을 제공 하는 이전 authoring API를 사용 하 여 프로그래밍 방식으로 제약 조건을 만들 수 없습니다.
 
 모든 기존 제약 조건 기능은 필수 기능 플래그로 자동으로 마이그레이션됩니다. 예측 API에는 프로그래밍 방식으로 변경할 필요가 없으며 예측 정확도의 품질에 대 한 변경 사항은 없습니다.
 
 #### <a name="luis-portal-changes"></a>LUIS 포털 변경
 
-LUIS preview 포털은이 기능을 **제약 조건**으로 참조 했습니다. 현재 LUIS 포털은이 기능을 **필수 기능**으로 지정 합니다.
+LUIS preview 포털은이 기능을 **제약 조건** 으로 참조 했습니다. 현재 LUIS 포털은이 기능을 **필수 기능** 으로 지정 합니다.
 
 #### <a name="previous-authoring-api"></a>이전 authoring API
 

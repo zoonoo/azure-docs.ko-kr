@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594167"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Azure SQL Managed Instance & Azure SQL Database 새 지역으로 리소스 이동
@@ -44,7 +44,7 @@ ms.locfileid: "94594167"
 
 ## <a name="move-a-database"></a>데이터베이스 이동
 
-### <a name="verify-prerequisites"></a>필수 조건 확인
+### <a name="verify-prerequisites"></a>필수 구성 요소 확인
 
 1. 각 원본 서버에 대 한 대상 서버를 만듭니다.
 1. [PowerShell](scripts/create-and-configure-database-powershell.md)을 사용 하 여 적절 한 예외를 사용 하 여 방화벽을 구성 합니다.  
@@ -94,7 +94,7 @@ ms.locfileid: "94594167"
 
 ## <a name="move-elastic-pools"></a>탄력적 풀 이동
 
-### <a name="verify-prerequisites"></a>필수 조건 확인
+### <a name="verify-prerequisites"></a>필수 구성 요소 확인
 
 1. 각 원본 서버에 대 한 대상 서버를 만듭니다.
 1. [PowerShell](scripts/create-and-configure-database-powershell.md)을 사용 하 여 적절 한 예외를 사용 하 여 방화벽을 구성 합니다.
@@ -148,7 +148,7 @@ ms.locfileid: "94594167"
 
 ## <a name="move-a-managed-instance"></a>관리 되는 인스턴스 이동
 
-### <a name="verify-prerequisites"></a>필수 조건 확인
+### <a name="verify-prerequisites"></a>필수 구성 요소 확인
 
 1. 각 원본 관리 되는 인스턴스에 대해 대상 지역에 동일한 크기의 SQL Managed Instance 대상 인스턴스를 만듭니다.  
 1. 관리 되는 인스턴스의 네트워크를 구성 합니다. 자세한 내용은 [네트워크 구성](../managed-instance/how-to-content-reference-guide.md#network-configuration)을 참조 하세요.

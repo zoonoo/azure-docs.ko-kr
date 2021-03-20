@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: b5ae38a3dc4a9324a4141314106d67c96c06c8e6
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955040"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 Java 코드 샘플
@@ -44,7 +44,7 @@ Azure SDK 개발 팀의 코드 샘플에서는 API 사용을 보여 줍니다. �
 
 Cognitive Search 팀의 코드 샘플에서는 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조 됩니다. 이러한 샘플은 GitHub의 [**azure-samples/azure-search-java 샘플**](https://github.com/Azure-Samples/azure-search-java-samples) 에서 찾을 수 있습니다.
 
-| 샘플 | 기사 | 
+| 샘플 | 아티클 | 
 |---------|-------------|
 | [빠른](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | 빠른 시작에 대 한 소스 코드 [: Java 및 REST에서 검색 인덱스를 만듭니다](search-get-started-java.md). Java SDK에 대 한이 샘플은 업데이트 되지 않았습니다. REST Api를 호출 합니다. |
 

@@ -1,5 +1,5 @@
 ---
-title: 글로벌, 지역 및 지역 위협에 대 한 통찰력 얻기
+title: 전역, 지역 및 로컬 위협에 대한 인사이트 확보
 description: 온-프레미스 관리 콘솔에서 사이트 맵을 사용 하 여 글로벌, 지역 및 로컬 위협에 대 한 통찰력을 확보 하세요.
 author: shhazam-ms
 manager: rkarlin
@@ -8,13 +8,13 @@ ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: cde55f3c2a875c593c07ea05427f8075d8599196
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97841134"
 ---
-# <a name="gain-insight-into-global-regional-and-local-threats"></a>글로벌, 지역 및 지역 위협에 대 한 통찰력 얻기
+# <a name="gain-insight-into-global-regional-and-local-threats"></a>전역, 지역 및 로컬 위협에 대한 인사이트 확보
 
 온-프레미스 관리 콘솔의 사이트 맵은 사용자의 비즈니스 토폴로지를 반영 하는 지리적 및 논리적 세그먼트로 네트워크를 분할 하 여 전체 보안 범위를 달성할 수 있도록 도와줍니다.
 

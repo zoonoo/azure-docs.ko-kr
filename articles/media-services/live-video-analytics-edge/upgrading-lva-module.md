@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
 ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955652"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>IoT Edge에서 Live Video Analytics를 1.0에서 2.0으로 업그레이드
@@ -19,7 +19,7 @@ ms.locfileid: "98955652"
 ## <a name="change-list"></a>목록 변경
 
 > [!div class="mx-tdCol4BreakAll"]
-> |Title|라이브 비디오 분석 1.0|라이브 비디오 분석 2.0|Description|
+> |제목|라이브 비디오 분석 1.0|라이브 비디오 분석 2.0|설명|
 > |-------------|----------|---------|---------|
 > |컨테이너 이미지|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Azure IoT Edge에서 라이브 비디오 분석을 위해 Microsoft에서 게시 한 docker 이미지|
 > |**MediaGraph 노드** |    |   |   |
@@ -60,7 +60,7 @@ IoT Edge 모듈에서 Live Video Analytics를 업그레이드할 때 다음 정�
 * `MediaGraphHttpExtension`및 `MediaGraphGrpcExtension` 프로세서에서 다음 변경 내용을 확인 합니다.  
     #### <a name="image-properties"></a>이미지 속성
     * `MediaGraphImageFormatEncoded`은 더 이상 지원되지 않습니다. 
-      * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예를 들면 다음과 같습니다.
+      * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예제:
         ```
         "image": {
                 "scale": 

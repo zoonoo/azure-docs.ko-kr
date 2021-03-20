@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
 ms.openlocfilehash: d003a512ebde626b8726dfccc58110e53f1cd467
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180917"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Global Relay Identity Sync 구성
@@ -83,7 +83,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로비저닝 모드** 를 **자동** 으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
@@ -192,9 +192,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비저닝 범위](common/provisioning-scope.png)
 
-15. 프로비저닝할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
-    ![프로비저닝 구성 저장](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 
@@ -207,7 +207,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

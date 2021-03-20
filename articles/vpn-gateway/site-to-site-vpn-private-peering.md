@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880528"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결 구성

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76905292"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 X12 메시지 추적을 위한 스키마 만들기
@@ -55,7 +55,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -111,7 +111,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -169,7 +169,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -220,7 +220,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -273,7 +273,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -329,7 +329,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |

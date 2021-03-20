@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7902ea2e30dec20e57d88344dc9507aec3993600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87064095"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI 요소
@@ -53,7 +53,7 @@ ms.locfileid: "87064095"
 
 - 이 요소는 `defaultValue` 속성을 지원하지 않습니다.
 - `constraints`의 구현에 대한 자세한 내용은 [Microsoft.Common.TextBox](microsoft-common-textbox.md)를 참조하세요.
-- `options.hideConfirmation`을 **true**로 설정하면 사용자의 암호를 확인하기 위한 두 번째 텍스트 상자가 숨겨집니다. 기본 값은 **false**입니다.
+- `options.hideConfirmation`을 **true** 로 설정하면 사용자의 암호를 확인하기 위한 두 번째 텍스트 상자가 숨겨집니다. 기본 값은 **false** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

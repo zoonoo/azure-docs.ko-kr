@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87309293"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고
@@ -80,32 +80,32 @@ EventLogs
 
 ## <a name="create-an-alert"></a>경고 만들기
 
-Application Insights 리소스 내 탐색 메뉴에서 **경고**로 이동한 다음, **새 경고 규칙**을 선택합니다.
+Application Insights 리소스 내 탐색 메뉴에서 **경고** 로 이동한 다음, **새 경고 규칙** 을 선택합니다.
 
 ![규칙 만들기 스크린샷](./media/proactive-cloud-services/001.png)
 
-**규칙 만들기** 창의 **경고 조건 정의** 섹션에서 **기준 추가**를 클릭한 다음, **사용자 지정 로그 검색**을 선택합니다.
+**규칙 만들기** 창의 **경고 조건 정의** 섹션에서 **기준 추가** 를 클릭한 다음, **사용자 지정 로그 검색** 을 선택합니다.
 
 ![경고에 대한 조건 기준 정의의 스크린샷](./media/proactive-cloud-services/002.png)
 
 **쿼리 검색** 상자에서 이전 단계에서 준비한 결합된 쿼리를 붙여넣습니다.
 
-그런 다음, **임계값** 상자로 이동하여 해당 값을 0으로 설정합니다. 필요에 따라 **기간** 및 주파수 **필드**를 수정할 수도 있습니다.
-**완료**를 클릭합니다.
+그런 다음, **임계값** 상자로 이동하여 해당 값을 0으로 설정합니다. 필요에 따라 **기간** 및 주파수 **필드** 를 수정할 수도 있습니다.
+**Done** 을 클릭합니다.
 
 ![신호 논리 구성 쿼리의 스크린샷](./media/proactive-cloud-services/003.png)
 
-**경고 세부 정보 정의** 섹션에서 경고 규칙에 대한 **이름** 및 **설명**을 입력하고 **심각도**를 설정합니다.
-또한 **규칙을 만들면 바로 사용** 단추가 **예**로 설정되어 있는지 확인합니다.
+**경고 세부 정보 정의** 섹션에서 경고 규칙에 대한 **이름** 및 **설명** 을 입력하고 **심각도** 를 설정합니다.
+또한 **규칙을 만들면 바로 사용** 단추가 **예** 로 설정되어 있는지 확인합니다.
 
 ![경고 세부 정보 스크린샷](./media/proactive-cloud-services/004.png)
 
-**작업 그룹 정의** 섹션에서 기존 **작업 그룹**을 선택하거나 새로 만들 수 있습니다.
+**작업 그룹 정의** 섹션에서 기존 **작업 그룹** 을 선택하거나 새로 만들 수 있습니다.
 작업 그룹에 다양한 종류의 여러 작업을 포함하도록 선택할 수도 있습니다.
 
 ![작업 그룹 스크린샷](./media/proactive-cloud-services/005.png)
 
-작업 그룹을 정의하고 나면 변경 내용을 확인하고 **경고 규칙 만들기**를 클릭합니다.
+작업 그룹을 정의하고 나면 변경 내용을 확인하고 **경고 규칙 만들기** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

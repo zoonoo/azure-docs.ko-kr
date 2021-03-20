@@ -9,10 +9,10 @@ ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341293"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>대량 실행자 라이브러리에서 Azure Cosmos DB .NET V3 SDK의 대량 지원으로 마이그레이션
@@ -36,15 +36,15 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 호출 해야 `CreateItemAsync` 합니다. 예를 들어:
+대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 호출 해야 `CreateItemAsync` 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) `ReplaceItemAsync` 항목 값을 업데이트 한 후 메서드를 동시에 호출 해야 합니다. 예를 들어:
+대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) `ReplaceItemAsync` 항목 값을 업데이트 한 후 메서드를 동시에 호출 해야 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-대량 *삭제* ( [BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 `DeleteItemAsync` `id` 각 항목의 및 파티션 키를 사용 하 여 동시에 호출 해야 합니다. 예를 들어:
+대량 *삭제* ( [BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 `DeleteItemAsync` `id` 각 항목의 및 파티션 키를 사용 하 여 동시에 호출 해야 합니다. 예를 들면 다음과 같습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -83,14 +83,14 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
 ## <a name="retry-configuration"></a>구성 다시 시도
 
-대량 실행자 라이브러리에 [guidance](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) 는 `MaxRetryWaitTimeInSeconds` RetryOptions의 및를로 설정 하 여 컨트롤을 `MaxRetryAttemptsOnThrottledRequests` 라이브러리에 위임 [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) 하는 방법에 대해 언급 한 지침이 `0` 있습니다.
+대량 실행자 라이브러리에 [](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) 는 `MaxRetryWaitTimeInSeconds` RetryOptions의 및를로 설정 하 여 컨트롤을 `MaxRetryAttemptsOnThrottledRequests` 라이브러리에 위임 [](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) 하는 방법에 대해 언급 한 지침이 `0` 있습니다.
 
 .NET SDK를 대량으로 지원 하기 위해 숨겨진 동작은 없습니다. [CosmosClientOptions MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) 및 [CosmosClientOptions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests)를 통해 재시도 옵션을 직접 구성할 수 있습니다.
 
 > [!NOTE]
 > 프로 비전 된 요청 단위가 데이터 양에 따라 예상 보다 훨씬 적은 경우에는 값을 높은 값으로 설정 하는 것을 고려할 수 있습니다. 대량 작업을 수행 하는 데 더 많은 시간이 걸리지만 더 높은 재시도로 인해 완전히 성공할 가능성이 높습니다.
 
-## <a name="performance-improvements"></a>성능 개선
+## <a name="performance-improvements"></a>성능 향상
 
 .NET SDK를 사용 하는 다른 작업과 마찬가지로 stream Api를 사용 하면 성능이 향상 되 고 불필요 한 serialization이 방지 됩니다. 
 

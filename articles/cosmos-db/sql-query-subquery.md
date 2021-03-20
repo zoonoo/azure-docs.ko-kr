@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340858"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 SQL 하위 쿼리 예제
@@ -26,15 +26,15 @@ ms.locfileid: "93340858"
 하위 쿼리는 다음과 같은 두 가지 기본 유형이 있습니다.
 
 * **상관 관계가** 지정 됨: 외부 쿼리에서 값을 참조 하는 하위 쿼리입니다. 하위 쿼리는 외부 쿼리에서 처리 하는 각 행에 대해 한 번씩 평가 됩니다.
-* **상관 관계가 지정 되지 않음** : 외부 쿼리와 독립적인 하위 쿼리입니다. 외부 쿼리에 의존 하지 않고 자체적으로 실행할 수 있습니다.
+* **상관 관계가 지정 되지 않음**: 외부 쿼리와 독립적인 하위 쿼리입니다. 외부 쿼리에 의존 하지 않고 자체적으로 실행할 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 상호 관련 된 하위 쿼리만 지원 합니다.
 
 하위 쿼리는 반환 되는 행 및 열 수를 기준으로 추가로 분류할 수 있습니다. 다음 세 가지 유형이 있습니다.
-* **테이블** : 여러 행 및 여러 열을 반환 합니다.
-* **다중 값** : 여러 행과 단일 열을 반환 합니다.
-* **스칼라** : 단일 행과 단일 열을 반환 합니다.
+* **테이블**: 여러 행 및 여러 열을 반환 합니다.
+* **다중 값**: 여러 행과 단일 열을 반환 합니다.
+* **스칼라**: 단일 행과 단일 열을 반환 합니다.
 
 Azure Cosmos DB의 SQL 쿼리는 항상 단일 열 (단순 값 또는 복잡 한 문서)을 반환 합니다. 따라서 Azure Cosmos DB에서 다중값 및 스칼라 하위 쿼리를 적용할 수 있습니다. 다중값 하위 쿼리를 FROM 절에 관계형 식 으로만 사용할 수 있습니다. 스칼라 하위 쿼리를 SELECT 또는 WHERE 절에서 스칼라 식으로 사용 하거나 FROM 절의 관계형 식으로 사용할 수 있습니다.
 
@@ -193,7 +193,7 @@ WHERE n.units = r.unit
 
 다음은 몇 가지 예입니다.
 
-**예제 1**
+**예 1**
 
 ```sql
 SELECT 1 AS a, 2 AS b
@@ -213,7 +213,7 @@ SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
 ]
 ```
 
-**예제 2**
+**예 2**
 
 ```sql
 SELECT TOP 5 Concat('id_', f.id) AS id
@@ -293,7 +293,7 @@ FROM food f
 ]
 ```
 
-**예제 2**
+**예 2**
 
 여러 집계 함수 식이 포함 된 하위 쿼리는 다음과 같습니다.
 

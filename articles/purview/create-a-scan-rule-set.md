@@ -1,5 +1,5 @@
 ---
-title: 검색 규칙 집합 만들기
+title: 검사 규칙 집합 만들기
 description: Azure 부서의 범위에서 검색 규칙 집합을 만들어 조직의 데이터 원본을 빠르게 검색 합니다.
 author: chandrakavya
 ms.author: kchandra
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 9662652a6a40285ad382857975ec0dd04b8ba8be
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554746"
 ---
-# <a name="create-a-scan-rule-set"></a>검색 규칙 집합 만들기
+# <a name="create-a-scan-rule-set"></a>검사 규칙 집합 만들기
 
 Azure 부서의 범위 카탈로그에서 검색 규칙 집합을 만들어 조직의 데이터 원본을 빠르게 검색할 수 있습니다.
 

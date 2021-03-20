@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546678"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
@@ -43,7 +43,7 @@ ms.locfileid: "96546678"
 
 그룹에 추가된 직후에 라이선스가 사용자에게 할당됩니다. 특성을 변경하면 사용자는 그룹에서 나가고 라이선스가 제거됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 어떤 사용자가 Microsoft 웹 서비스에 액세스해야 하는지 결정하는 온-프레미스 ID 관리 솔루션의 예를 고려하세요. 이 솔루션은 **extensionAttribute1** 을 사용하여 사용자가 가지고 있어야 하는 라이선스를 나타내는 문자열 값을 저장합니다. Azure AD Connect는 이 값을 Azure AD와 동기화합니다.
 

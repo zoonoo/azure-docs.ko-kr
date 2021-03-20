@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336312"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL에서 예약된 유지 관리 – 유동 서버
@@ -29,8 +29,8 @@ Azure Database for PostgreSQL 유연한 서버는 정기적으로 유지 관리�
 * 특정 주소에 전자 메일로 전송
 * Azure Resource Manager 역할에 전자 메일로 전송
 * SMS (문자 메시지)에서 모바일 장치로 전송
-* Azure 앱에 대 한 알림으로 푸시 됨
-* 음성 메시지로 배달 됨
+* Azure 앱에 알림으로 푸시
+* 음성 메시지로 전달
  
 유지 관리 일정에 대한 기본 설정을 지정하는 경우 요일 및 기간을 선택할 수 있습니다. 지정하지 않으면 시스템이 서버의 지역 시간에서 오후 11시에서 오전 7시 사이의 시간을 선택합니다. Azure 구독의 각 유연한 서버에 대해 서로 다른 일정을 정의할 수 있습니다. 
  

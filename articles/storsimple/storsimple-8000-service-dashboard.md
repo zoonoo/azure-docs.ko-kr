@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514951"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 서비스 요약 블레이드 사용
@@ -39,11 +39,11 @@ StorSimple 서비스 요약 블레이드에는 StorSimple 디바이스 관리자
 이 옵션을 사용하여 공유 또는 볼륨을 추가하거나 StorSimple 디바이스에서 실행 중인 다양한 작업을 모니터링하는 것과 같은 다양한 작업을 수행합니다.
 
 
-## <a name="essentials"></a>기본 정보
+## <a name="essentials"></a>Essentials
 
 Essentials 영역은 StorSimple 디바이스 관리자를 만든 리소스 그룹, 위치 및 구독과 같은 중요한 속성 중 일부를 캡처합니다.
 
-![기본 정보](./media/storsimple-8000-service-dashboard/service-summary3.png)
+![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
 ## <a name="storsimple-device-manager-service-summary"></a>StorSimple 디바이스 관리자 서비스 요약
 
@@ -55,11 +55,11 @@ Essentials 영역은 StorSimple 디바이스 관리자를 만든 리소스 그�
 
     ![경고 타일 클릭](./media/storsimple-8000-service-dashboard/service-summary8.png)
 
-* **용량** 타일에서는 모든 디바이스에서 사용 가능한 총 스토리지를 기준으로 모든 디바이스에 프로비전하고 남아있는 기본 스토리지를 보여 줍니다. **프로비전**은 사용하도록 준비되고 할당된 스토리지의 양을 나타내며 **나머지**는 모든 디바이스에 프로비전될 수 있는 남은 용량을 가리킵니다.
+* **용량** 타일에서는 모든 디바이스에서 사용 가능한 총 스토리지를 기준으로 모든 디바이스에 프로비전하고 남아있는 기본 스토리지를 보여 줍니다. **프로비전** 은 사용하도록 준비되고 할당된 스토리지의 양을 나타내며 **나머지** 는 모든 디바이스에 프로비전될 수 있는 남은 용량을 가리킵니다.
 
     ![용량 타일](./media/storsimple-8000-service-dashboard/service-summary6.png)
 
-    **나머지 계층** 용량은 클라우드를 포함하여 프로비전될 수 있는 사용 가능한 용량인 반면 **나머지 로컬**은 StorSimple 8000 시리즈 디바이스에 연결된 디스크에 남아 있는 용량입니다.
+    **나머지 계층** 용량은 클라우드를 포함하여 프로비전될 수 있는 사용 가능한 용량인 반면 **나머지 로컬** 은 StorSimple 8000 시리즈 디바이스에 연결된 디스크에 남아 있는 용량입니다.
 
 
 * **사용량** 차트에서 디바이스에 대한 관련 메트릭을 볼 수 있습니다. 기본 시간 간격인 지난 7일 동안 디바이스에서 사용된 클라우드 스토리지는 물론, 모든 디바이스에 걸쳐 사용되는 기본 스토리지도 볼 수 있습니다. 

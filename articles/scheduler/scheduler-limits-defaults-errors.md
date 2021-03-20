@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78898517"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Azure Scheduler의 한도, 할당량 및 제한 임계값
@@ -28,7 +28,7 @@ ms.locfileid: "78898517"
 
 ## <a name="x-ms-request-id-header"></a>x-ms-request-id 헤더
 
-스케줄러 서비스에 대해 수행 된 모든 요청은 이름이 **x-y**인 응답 헤더를 반환 합니다. 이 헤더에는 요청을 고유 하 게 식별 하는 불투명 값이 포함 됩니다. 따라서 요청의 형식이 제대로 지정되었음을 확인했는데 요청이 지속적으로 실패하면 **x-ms-request-id** 응답 헤더 값을 제공하고 다음 세부 정보를 Microsoft에 오류를 보고할 수 있습니다. 
+스케줄러 서비스에 대해 수행 된 모든 요청은 이름이 **x-y** 인 응답 헤더를 반환 합니다. 이 헤더에는 요청을 고유 하 게 식별 하는 불투명 값이 포함 됩니다. 따라서 요청의 형식이 제대로 지정되었음을 확인했는데 요청이 지속적으로 실패하면 **x-ms-request-id** 응답 헤더 값을 제공하고 다음 세부 정보를 Microsoft에 오류를 보고할 수 있습니다. 
 
 * **x-ms-request-id** 값
 * 요청이 작성된 대략적인 시간 

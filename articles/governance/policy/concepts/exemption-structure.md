@@ -4,10 +4,10 @@ description: 이니셔티브 또는 정의 평가에서 리소스를 제외 하�
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950179"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy 예외 구조
@@ -15,7 +15,7 @@ ms.locfileid: "91950179"
 Azure Policy 예외 (미리 보기) 기능을 사용 하 여 리소스 계층 이나 개별 리소스를 평가 하거나 정의 평가에서 _제외_ 합니다. _제외_ 된 리소스는 전체 규정 준수를 계산 하지만 평가 하거나 임시 포기를 가질 수 없습니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요. Azure Policy 예외는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 에서만 작동 하며 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 작동 하지 않습니다.
 
 > [!IMPORTANT]
-> 이 기능은 **미리 보기**기간 동안 무료입니다. 가격 책정에 대 한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조 하세요. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 **미리 보기** 기간 동안 무료입니다. 가격 책정에 대 한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조 하세요. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음에 대 한 요소가 포함 됩니다.
 
@@ -30,7 +30,7 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 > [!NOTE]
 > 정책 예외는 리소스 계층에서 자식 개체로 만들어지거나 개별 리소스에 예외가 부여 되었으므로 해당 대상이 예외 정의에 포함 되지 않습니다.
 
-예를 들어 다음 JSON은 라는 이니셔티브 할당에 대 한 리소스 **면제** 범주의 정책 예외를 보여 줍니다 `resourceShouldBeCompliantInit` . 리소스는 이니셔티브 _exempt_ 의 두 정책 정의, `customOrgPolicy` 사용자 지정 정책 정의 (참조 `requiredTags` ) 및 ' 허용 된 위치 ' 기본 제공 정책 정의 (ID: `e56962a6-4747-49cd-b67b-bf8b01975c4c` , 참조) 에서만 제외 됩니다 `allowedLocations` .
+예를 들어 다음 JSON은 라는 이니셔티브 할당에 대 한 리소스 **면제** 범주의 정책 예외를 보여 줍니다 `resourceShouldBeCompliantInit` . 리소스는 이니셔티브  의 두 정책 정의, `customOrgPolicy` 사용자 지정 정책 정의 (참조 `requiredTags` ) 및 ' 허용 된 위치 ' 기본 제공 정책 정의 (ID: `e56962a6-4747-49cd-b67b-bf8b01975c4c` , 참조) 에서만 제외 됩니다 `allowedLocations` .
 
 ```json
 {
@@ -84,11 +84,11 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
-**DisplayName** 및 **description** 을 사용 하 여 정책 예외를 식별 하 고 특정 리소스와 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName**은 최대 길이가 _128_자이고 **description**은 최대 길이가 _512_자입니다.
+**DisplayName** 및 **description** 을 사용 하 여 정책 예외를 식별 하 고 특정 리소스와 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
 ## <a name="metadata"></a>메타데이터
 
-**Metadata** 속성을 사용 하면 관련 정보를 저장 하는 데 필요한 자식 속성을 만들 수 있습니다. 위의 예제에서 **event.request.requestedby.displayname**, **approvedBy**, **approvedOn**및 **ticketRef** 속성은 예외를 요청 하는 사람, 승인 된 사람 및 시기, 요청에 대 한 내부 추적 티켓을 제공 하는 고객 값을 포함 합니다. 이러한 **메타 데이터** 속성은 예 이지만 필요 하지 않으며 **메타 데이터** 는 이러한 자식 속성으로 제한 되지 않습니다.
+**Metadata** 속성을 사용 하면 관련 정보를 저장 하는 데 필요한 자식 속성을 만들 수 있습니다. 위의 예제에서 **event.request.requestedby.displayname**, **approvedBy**, **approvedOn** 및 **ticketRef** 속성은 예외를 요청 하는 사람, 승인 된 사람 및 시기, 요청에 대 한 내부 추적 티켓을 제공 하는 고객 값을 포함 합니다. 이러한 **메타 데이터** 속성은 예 이지만 필요 하지 않으며 **메타 데이터** 는 이러한 자식 속성으로 제한 되지 않습니다.
 
 ## <a name="policy-assignment-id"></a>정책 할당 ID
 
@@ -97,7 +97,7 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 
 ## <a name="policy-definition-ids"></a>정책 정의 Id
 
-`policyAssignmentId`이 이니셔티브 할당에 대 한 인 경우 `policyDefinitionReferenceIds` 속성을 사용 하 여 주체 리소스가에 대 한 예외가 있는 이니셔티브의 정책 정의를 지정할 수 있습니다. 하나 이상의 포함 된 정책 정의에서 리소스가 제외 될 수 있으므로이 속성은 _배열_입니다. 값은 필드에 있는 이니셔티브 정의의 값과 일치 해야 합니다 `policyDefinitions.policyDefinitionReferenceId` .
+`policyAssignmentId`이 이니셔티브 할당에 대 한 인 경우 `policyDefinitionReferenceIds` 속성을 사용 하 여 주체 리소스가에 대 한 예외가 있는 이니셔티브의 정책 정의를 지정할 수 있습니다. 하나 이상의 포함 된 정책 정의에서 리소스가 제외 될 수 있으므로이 속성은 _배열_ 입니다. 값은 필드에 있는 이니셔티브 정의의 값과 일치 해야 합니다 `policyDefinitions.policyDefinitionReferenceId` .
 
 ## <a name="exemption-category"></a>예외 범주
 

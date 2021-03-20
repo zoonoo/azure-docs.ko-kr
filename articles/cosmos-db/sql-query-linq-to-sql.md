@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
 ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545386"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
@@ -25,7 +25,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다. 
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들면 다음과 같습니다.
   
   ```
     family.Id;

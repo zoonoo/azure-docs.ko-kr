@@ -11,10 +11,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91975130"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용 하 여 VM에 대 한 포트 및 끝점 열기
@@ -24,11 +24,11 @@ ms.locfileid: "91975130"
 
 네트워크 보안 그룹 및 규칙을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet*이 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet* 이 포함됩니다.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>VM에 대한 포트를 빠르게 열기
-dev/test 시나리오에서 VM의 포트를 빠르게 열어야 하는 경우 [az vm open-port](/cli/azure/vm) 명령을 사용할 수 있습니다. 이 명령은 네트워크 보안 그룹을 만들고 규칙을 추가하여 VM 또는 서브넷에 적용합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에 있는 *myVM*이라는 VM에서 포트 *80*을 엽니다.
+dev/test 시나리오에서 VM의 포트를 빠르게 열어야 하는 경우 [az vm open-port](/cli/azure/vm) 명령을 사용할 수 있습니다. 이 명령은 네트워크 보안 그룹을 만들고 규칙을 추가하여 VM 또는 서브넷에 적용합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에 있는 *myVM* 이라는 VM에서 포트 *80* 을 엽니다.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -61,7 +61,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>VM에 네트워크 보안 그룹 적용
-[az network nic update](/cli/azure/network/nic)를 사용하여 네트워크 보안 그룹을 VM의 NIC(네트워크 인터페이스)에 연결합니다. 다음 예제에서는 *myNic*라는 기존 NIC를 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹에 연결합니다.
+[az network nic update](/cli/azure/network/nic)를 사용하여 네트워크 보안 그룹을 VM의 NIC(네트워크 인터페이스)에 연결합니다. 다음 예제에서는 *myNic* 라는 기존 NIC를 *myNetworkSecurityGroup* 이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
 az network nic update \
@@ -70,7 +70,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-또는 [az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 *myVnet* 가상 네트워크에 있는 *mySubnet*이라는 기존 서브넷을 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹에 연결합니다.
+또는 [az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 *myVnet* 가상 네트워크에 있는 *mySubnet* 이라는 기존 서브넷을 *myNetworkSecurityGroup* 이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
 az network vnet subnet update \

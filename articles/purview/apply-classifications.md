@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
 ms.openlocfilehash: d12a7d52562fe32126e12a844c2d36c14cf01431
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554867"
 ---
 # <a name="apply-classifications-on-assets-in-azure-purview"></a>Azure 부서의 범위에서 자산에 대 한 분류 적용
@@ -24,7 +24,7 @@ ms.locfileid: "96554867"
 
 이 문서에서는 데이터에 분류를 적용 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 필요에 따라 사용자 지정 분류를 만듭니다.
 - 데이터 원본에 대 한 검색을 설정 합니다.

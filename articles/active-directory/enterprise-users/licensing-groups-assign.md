@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c1a6957d347681f1c7dd9979429fffb153ccb39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546610"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
@@ -81,7 +81,7 @@ ms.locfileid: "96546610"
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3단계: 라이선스 문제 확인 및 해결
 
-1. **Azure Active Directory** 그룹으로 이동 하 여  >  **Groups** 라이선스가 할당 된 그룹을 찾습니다.
+1. **Azure Active Directory** 그룹으로 이동 하 여  >  라이선스가 할당 된 그룹을 찾습니다.
 1. 그룹 페이지에서 **라이선스** 를 선택 합니다. 페이지 맨 위에 있는 알림은 라이선스를 할당할 수 없는 10 명의 사용자가 있음을 보여 줍니다. 이 그룹에 대 한 라이선스 오류 상태의 모든 사용자 목록을 보려면이를 엽니다.
 1. **할당 실패** 열에는 두 제품 라이선스 모두 사용자에게 할당하지 못했다는 내용이 표시됩니다. **상위 실패 원인** 열에는 실패의 원인이 포함되어 있습니다. 이 예에서는 **충돌하는 서비스 계획** 이 실패의 원인입니다.
 

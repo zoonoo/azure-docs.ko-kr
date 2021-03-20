@@ -12,10 +12,10 @@ ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: ecc6580148dfba92077336a26ff9160fbe88eb2c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99806158"
 ---
 # <a name="import-passwords-into-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 암호 가져오기
@@ -24,7 +24,7 @@ Microsoft Authenticator Google Chrome, Firefox, LastPass, Bitwarden 및 Roboform
 
 ## <a name="import-from-google-chrome-or-android-smart-lock"></a>Google Chrome 또는 Android에서 가져오기 Smart Lock
 
-Google Chrome 또는 Android Smart Lock에서 스마트폰 또는 데스크톱 컴퓨터의 인증자로 암호를 가져올 수 있습니다. 다음과 같습니다.
+Google Chrome 또는 Android Smart Lock에서 스마트폰 또는 데스크톱 컴퓨터의 인증자로 암호를 가져올 수 있습니다. 다음을 할 수 있습니다.
 
 - [Android 및 iOS의 Chrome에서 가져오기](#import-from-chrome-on-android-and-ios)
 - [Chrome 데스크톱 브라우저에서 가져오기](#import-from-chrome-desktop-browser)

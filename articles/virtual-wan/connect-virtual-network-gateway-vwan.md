@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880375"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
@@ -24,7 +24,7 @@ ms.locfileid: "98880375"
 
 시작 하기 전에 다음 리소스를 만듭니다.
 
-Azure 가상 WAN
+Azure Virtual WAN
 
 * [가상 WAN을 만듭니다](virtual-wan-site-to-site-portal.md#openvwan).
 * [허브를 만듭니다](virtual-wan-site-to-site-portal.md#hub). 가상 허브에는 가상 WAN VPN gateway가 포함 됩니다.
@@ -49,7 +49,7 @@ Azure Virtual Network
 
 ![스크린샷에 BGP ASN 구성이 선택 된 가상 네트워크 게이트웨이 구성 페이지를 보여 줍니다.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
-### <a name="public-ip-addresses"></a><a name="pip"></a>퍼블릿 IP 주소
+### <a name="public-ip-addresses"></a><a name="pip"></a>공용 IP 주소
 
 게이트웨이가 만들어지면 **속성** 페이지로 이동 합니다. 속성 및 구성 설정은 다음 예제와 유사 합니다. 게이트웨이에 사용 되는 두 개의 공용 IP 주소를 확인 합니다.
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91325416"
 ---
 # <a name="set-up-a-capacity-pool"></a>용량 풀 설정
@@ -33,11 +33,11 @@ NetApp 계정을 만들어야 합니다.
 
 ## <a name="steps"></a>단계 
 
-1. NetApp 계정의 관리 블레이드로 이동한 다음, 탐색 창에서 **용량 풀**을 클릭합니다.  
+1. NetApp 계정의 관리 블레이드로 이동한 다음, 탐색 창에서 **용량 풀** 을 클릭합니다.  
     
     ![용량 풀로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
-2. **+ 풀 추가**를 클릭하여 새 용량 풀을 만듭니다.   
+2. **+ 풀 추가** 를 클릭하여 새 용량 풀을 만듭니다.   
     새 용량 풀 창이 나타납니다.
 
 3. 새 용량 풀에 대한 다음과 같은 정보를 제공합니다.  
@@ -64,7 +64,7 @@ NetApp 계정을 만들어야 합니다.
 
     ![새 용량 풀](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. **만들기**를 클릭합니다.
+4. **만들기** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

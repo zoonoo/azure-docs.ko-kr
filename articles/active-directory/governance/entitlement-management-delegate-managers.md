@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e81389ec953829115062a31a019caf040850cbea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798643"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>액세스 관리를 위임 하 여 Azure AD 자격 관리의 패키지 관리자 액세스
@@ -42,11 +42,11 @@ ms.locfileid: "87798643"
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
 
-1. 왼쪽 메뉴에서 **역할 및 관리자**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **역할 및 관리자** 를 클릭 합니다.
 
     ![역할 및 관리자 카탈로그](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
@@ -60,15 +60,15 @@ ms.locfileid: "87798643"
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
 
-1. 왼쪽 메뉴에서 **역할 및 관리자**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **역할 및 관리자** 를 클릭 합니다.
 
 1. 제거 하려는 액세스 패키지 관리자 옆에 있는 확인 표시를 추가 합니다.
 
-1. **제거**를 클릭합니다.
+1. **제거** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
