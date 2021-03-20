@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 부모 리소스를 사용�
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84673663"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결

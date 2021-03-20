@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 369c86c8fc2ef4d125c3f13db4eb3af88b7e726e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93337849"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -35,7 +35,7 @@ StringToObject(<str_expr>)
   
   개체 식을 반환 하거나 정의 되지 않은를 반환 합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는가 `StringToObject` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
   

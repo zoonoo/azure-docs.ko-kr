@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
 ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708036"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Microsoft AppSource에서 소프트웨어를 구매하는 방법
@@ -35,7 +35,7 @@ SaaS 제품을 구매하려면 다음이 필요합니다.
 
 1. [AppSource](https://appsource.microsoft.com/)에서 청구 국가/지역을 선택합니다.
 1. 구입하려는 애플리케이션을 찾습니다.
-1. **지금 가져오기**를 선택합니다.
+1. **지금 가져오기** 를 선택합니다.
 1. 계획을 선택합니다.
 
     1. 실제 사용자 수를 설정합니다.
@@ -45,13 +45,13 @@ SaaS 제품을 구매하려면 다음이 필요합니다.
 1. 결제 방법을 입력합니다.
     * 지원되는 신용 카드: Visa, Master Card, American Express, Discover.
     
-1. **주문**을 선택합니다.
+1. **주문** 을 선택합니다.
 
 ## <a name="how-to-configure-software-post-purchase"></a>소프트웨어 구입 후 구성 방법
 
 주문을 받은 다음 확인하는 데 몇 초 정도 걸릴 수 있습니다. 페이지에서 SaaS 구독을 구성하는 링크뿐만 아니라 구매를 확인하는 이메일과 구성을 완료하는 링크를 받습니다.
 
-1. **주문 확인** 페이지에서 **구성**을 선택합니다. 또는 확인 전자 메일에 전송 된 구성 링크를 대신 사용할 수 있습니다.
+1. **주문 확인** 페이지에서 **구성** 을 선택합니다. 또는 확인 전자 메일에 전송 된 구성 링크를 대신 사용할 수 있습니다.
 1. 소프트웨어 공급자의 웹 사이트에서 프로비저닝을 완료하고 설정합니다.
 
     > [!Note]

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335445"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 연산자
@@ -23,14 +23,14 @@ ms.locfileid: "93335445"
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **되지** | **Null** | **Boolean** | **Number** | **String** | **Object** | **배열** |
+| **Op** | **정의되지 않음** | **Null** | **Boolean** | **Number** | **String** | **개체** | **배열** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | 정의되지 않음 | **그래** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Boolean** | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined |
 | **Number** | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined |
 | **String** | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | 정의되지 않음 |
+| **개체** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | 정의되지 않음 |
 | **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** |
 
 ,,,, 등의 비교 연산자의 경우 `>` `>=` 형식 간 `!=` `<` `<=` 또는 두 개체 또는 배열 간의 비교는을 생성 `Undefined` 합니다.  
@@ -53,21 +53,21 @@ WHERE 7 = 'a'
 
 `true`조건 중 하나가 인 경우을 반환 합니다 `true` .
 
-|  | **True** | **False** | **되지** |
+|  | **True** | **False** | **정의되지 않음** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |True |False |정의되지 않음 |
-| **Undefined** |True |Undefined |Undefined |
+| **False** |참 |거짓 |정의되지 않음 |
+| **Undefined** |참 |Undefined |Undefined |
 
 **AND 연산자**
 
 `true`두 식이 모두 이면를 반환 `true` 합니다.
 
-|  | **True** | **False** | **되지** |
+|  | **True** | **False** | **정의되지 않음** |
 | --- | --- | --- | --- |
-| **True** |True |False |정의되지 않음 |
+| **True** |참 |거짓 |정의되지 않음 |
 | **False** |False |False |False |
-| **Undefined** |정의되지 않음 |False |정의되지 않음 |
+| **Undefined** |정의되지 않음 |거짓 |정의되지 않음 |
 
 **NOT 연산자**
 
@@ -75,8 +75,8 @@ WHERE 7 = 'a'
 
 |  | **다음이 아님** |
 | --- | --- |
-| **True** |False |
-| **False** |True |
+| **True** |거짓 |
+| **False** |참 |
 | **Undefined** |정의되지 않음 |
 
 **연산자 우선 순위**
@@ -123,5 +123,5 @@ C # 및 JavaScript와 같은 프로그래밍 언어에서와 같이 삼항 (?) �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [키워드](sql-query-keywords.md)
+- [C++ 키워드](sql-query-keywords.md)
 - [SELECT 절](sql-query-select.md)

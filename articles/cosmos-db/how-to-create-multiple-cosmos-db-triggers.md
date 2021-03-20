@@ -9,10 +9,10 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336693"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "93336693"
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>여러 트리거에 대한 컨테이너 최적화
 
-Cosmos DB용 Azure Functions 트리거의 *요구 사항* 을 고려할 때, 상태를 저장하는 두 번째 컨테이너( *임대 컨테이너* 라고도 함)가 필요합니다. 이는 각 Azure Function마다 별도의 임대 컨테이너가 필요하다는 것을 의미할까요?
+Cosmos DB용 Azure Functions 트리거의 *요구 사항* 을 고려할 때, 상태를 저장하는 두 번째 컨테이너(*임대 컨테이너* 라고도 함)가 필요합니다. 이는 각 Azure Function마다 별도의 임대 컨테이너가 필요하다는 것을 의미할까요?
 
 여기에는 다음 두 가지 옵션이 있습니다.
 

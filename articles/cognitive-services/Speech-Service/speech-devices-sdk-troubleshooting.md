@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74815569"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Speech Devices SDK 문제 해결
@@ -25,7 +25,7 @@ ms.locfileid: "74815569"
 
 음성 서비스를 사용할 때 인증서 오류가 발생 하는 경우 장치에 올바른 날짜 및 시간이 있는지 확인 합니다.
 
-1. **설정**으로 이동합니다. **시스템** 아래에서 **날짜 및 시간**을 선택합니다.
+1. **설정** 으로 이동합니다. **시스템** 아래에서 **날짜 및 시간** 을 선택합니다.
 
     ![[설정] 아래에서 [날짜 및 시간] 선택](media/speech-devices-sdk/qsg-12.png)
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
-ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.date: 03/16/2020
+ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986127"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600886"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트 된 테스트 드라이브에 대 한 Azure Marketplace 구독 설정
 
@@ -43,26 +43,18 @@ ms.locfileid: "98986127"
     5. 지원 되는 계정 유형에서 **조직 디렉터리와 개인 Microsoft 계정의 계정** 을 선택 합니다.
     6. **만들기** 를 선택 하 고 앱이 생성 될 때까지 기다립니다.
     7. 앱이 만들어지면 개요 화면에 표시 된 **응용 프로그램 ID** 를 확인 합니다. 나중에 테스트 드라이브를 구성할 때이 값이 필요 합니다.
-    8. Nativeclient 리디렉션 URI를 추가 하려면 **인증** 블레이드를 선택 합니다. **플랫폼 구성** 에서 **플랫폼**  >  **모바일**  >  **데스크톱** 응용 프로그램 추가 타일을 선택 합니다. **Nativeclient** 리디렉션 URI를 선택 하 고 **구성** 을 선택 합니다.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Nativeclient 리디렉션 URI를 추가 합니다.":::
-
-    9. **응용 프로그램 관리** 에서 **API 권한** 을 선택 합니다.
-    10. **권한 추가** 를 선택 하 고 **API를 Microsoft Graph** 합니다.
-    11. **응용 프로그램** 권한 범주를 선택 하 고 **디렉터리. all** 및 **디렉터리. ReadWrite** 를 선택 합니다.
+    8. **응용 프로그램 관리** 에서 **API 권한** 을 선택 합니다.
+    9. **권한 추가** 를 선택 하 고 **API를 Microsoft Graph** 합니다.
+    10. **응용 프로그램** 권한 범주를 선택 하 고 **사용자. readwrite. all**, **디렉터리** **. readwrite.** all 권한을 선택 합니다.
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="응용 프로그램 사용 권한 설정":::
 
-    12. 허용 목록 Azure AD 앱에 대 한 **DYNAMICS CRM-사용자 가장** 액세스를 추가 하려면 **권한 추가** 를 다시 선택 합니다.
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="응용 프로그램 사용 권한 요청":::
-
-    13. 권한이 추가 되 면 **Microsoft에 관리자 동의 부여** 를 선택 합니다.
-    14. 메시지 경고에서 **예** 를 선택 합니다.
+    11. 권한이 추가 되 면 **Microsoft에 관리자 동의 부여** 를 선택 합니다.
+    12. 메시지 경고에서 **예** 를 선택 합니다.
 
         [![응용 프로그램 권한을 성공적으로 부여 하는 방법을 보여 줍니다.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. Azure AD 앱에 대 한 암호를 생성 하려면:
+    13. Azure AD 앱에 대 한 암호를 생성 하려면:
         1. **응용 프로그램 관리** 에서 **인증서 및 암호** 를 선택 합니다.
         2. 클라이언트 암호에서 **새 클라이언트 암호** 를 선택 합니다.
         3. *시험 드라이브* 와 같은 설명을 입력 하 고 적절 한 기간을 선택 합니다. 이 키가 만료 되 면 테스트 드라이브가 중단 됩니다 .이 시점에서 AppSource에 새 키를 생성 하 고 제공 해야 합니다.
@@ -70,8 +62,7 @@ ms.locfileid: "98986127"
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호를 추가 합니다.":::
 
-5. 경우에 따라 사용자를 Azure AD에서 CRM 인스턴스로 동기화 하는 데 예상 보다 오래 걸립니다. 이를 지원 하기 위해 사용자를 강제로 동기화 하는 프로세스를 추가 했지만 Azure AD 응용 프로그램을 파트너 센터에서 allowlisted 합니다. 이렇게 하려면 [고객 참여 인스턴스로 사용자 동기화](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md)를 참조 하세요.
-6. 응용 프로그램에 서비스 주체 역할을 추가 하 여 Azure AD 앱이 Azure 테 넌 트에서 사용자를 제거할 수 있도록 합니다.
+5. 응용 프로그램에 서비스 주체 역할을 추가 하 여 Azure AD 앱이 Azure 테 넌 트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.
     2. MSOnline을 Install-Module (MSOnline이 설치 되어 있지 않은 경우이 명령을 실행).
     3. Connect-MsolService (팝업 창이 표시 됩니다. 새로 만든 조직 테 넌 트를 사용 하 여 로그인).
@@ -81,7 +72,7 @@ ms.locfileid: "98986127"
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인 합니다.":::
 
-7. 위에서 만든 Azure 앱을 테스트 드라이브 CRM 인스턴스에 응용 프로그램 사용자로 추가 합니다.
+6. 위에서 만든 Azure 앱을 테스트 드라이브 CRM 인스턴스에 응용 프로그램 사용자로 추가 합니다.
     1. **Azure Active Directory** 에 새 사용자를 추가 합니다. 동일한 테 넌 트에 속하는 **이름** 및 **사용자** 이름 값만이 사용자를 만드는 데 필요 하며 다른 필드는 기본값으로 둡니다. 사용자 이름 값을 복사 합니다.
     2. **CRM 인스턴스에** 로그인 하 고 보안 **사용자 설정** 을 선택  >    >  합니다.
     3. **응용 프로그램 사용자** 로 보기를 변경 합니다.
@@ -97,7 +88,8 @@ ms.locfileid: "98986127"
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="역할 권한 선택":::
 
-    10. 테스트 드라이브에 대해 만든 사용자 지정 보안 역할을 응용 프로그램 사용자에 게 할당 합니다.
+    10. 또한 **다른 사용자 권한을 대신** 하 여 동작을 사용 하도록 설정 합니다.
+    11. 테스트 드라이브에 대해 만든 사용자 지정 보안 역할을 응용 프로그램 사용자에 게 할당 합니다.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>운영에 대 한 Dynamics 365 설정
 
@@ -130,7 +122,7 @@ ms.locfileid: "98986127"
     12. 권한이 추가 되 면 **Microsoft에 관리자 동의 부여** 를 선택 합니다.
     13. 메시지 경고에서 **예** 를 선택 합니다.
 
-        [![응용 프로그램 권한을 성공적으로 부여 하는 방법을 보여 줍니다.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
+        [![응용 프로그램 사용 권한을 성공적으로 부여 하는 것을 보여 줍니다.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. Azure AD 앱에 대 한 암호를 생성 하려면:
         1. **응용 프로그램 관리** 에서 **인증서 및 암호** 를 선택 합니다.

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938923"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 전송 계층 보안을 사용 하 여 암호화 된 연결
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL 유연한 서버는 TLS (전송 계층 보안)를 
 Azure Database for PostgreSQL 유연한 서버는 TLS (전송 계층 보안)를 사용 하 여 암호화 된 연결을 지원 하 고 TLS 1.0 및 TLS 1.1을 사용 하 여 들어오는 모든 연결을 거부 합니다. 모든 유연한 서버에서 TLS 연결의 적용을 사용 하도록 설정 하 고 유연한 서버에 연결 하는 데 TLS/SSL을 사용 하지 않도록 설정할 수 없습니다.
 
 ## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>TLS/SSL 연결을 위해 인증서를 확인 해야 하는 응용 프로그램
-경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for PostgreSQL 유연한 서버는 *DigiCert Global ROOT CA*를 사용 합니다. [DigiCert Global ROOT CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 에서 SSL을 통해 통신 하는 데 필요한이 인증서를 다운로드 하 고 인증서 파일을 원하는 위치에 저장 합니다. 예를 들어 이 자습서에서는 `c:\ssl`을 사용합니다.
+경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for PostgreSQL 유연한 서버는 *DigiCert Global ROOT CA* 를 사용 합니다. [DigiCert Global ROOT CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 에서 SSL을 통해 통신 하는 데 필요한이 인증서를 다운로드 하 고 인증서 파일을 원하는 위치에 저장 합니다. 예를 들어 이 자습서에서는 `c:\ssl`을 사용합니다.
 
 
 ### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결

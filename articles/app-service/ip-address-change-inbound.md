@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74672411"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>인바운드 IP 주소 변경 준비하는 방법
@@ -31,13 +31,13 @@ Azure App Service 앱의 인바운드 IP 주소가 변경된다는 알림을 받
 
 1.  [Azure Portal](https://portal.azure.com)을 엽니다.
 
-2.  왼쪽 탐색 메뉴에서 **App Service**를 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **App Service** 를 선택합니다.
 
 3.  목록에서 App Service 앱을 선택합니다.
 
 1.  앱이 함수 앱인 경우 [함수 앱 인바운드 IP 주소](../azure-functions/ip-addresses.md#function-app-inbound-ip-address)를 참조하세요.
 
-4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성**을 클릭하고 **가상 IP 주소**라는 섹션을 찾습니다.
+4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성** 을 클릭하고 **가상 IP 주소** 라는 섹션을 찾습니다.
 
 5. IP 주소를 복사하고 도메인 레코드 또는 IP 메커니즘을 다시 구성합니다.
 

@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544312"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Azure Private Link 연결 문제 해결
 
 이 문서에서는 Azure 개인 링크 설정에 대 한 연결의 유효성을 검사 하 고 진단 하는 단계별 지침을 제공 합니다.
 
-Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure Storage, Azure Cosmos DB 및 Azure SQL Database와 같은 Azure PaaS (platform as a service) 서비스와 Azure에서 호스트 되는 고객 또는 파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동 하 여 공용 인터넷에서의 노출을 제거 합니다. 가상 네트워크에서 개인 링크 서비스를 만들어 고객에 게 개인적으로 제공할 수도 있습니다.
+Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure Storage, Azure Cosmos DB 및 Azure SQL Database와 같은 Azure PaaS (platform as a service) 서비스와 Azure에서 호스트 되는 고객 또는 파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동 하 여 공용 인터넷에서의 노출을 제거 합니다. 또한 가상 네트워크에서 고유한 프라이빗 링크 서비스를 만들어 고객에게 비공개로 제공할 수도 있습니다.
 
 개인 링크 액세스에 대 한 Azure Load Balancer 표준 계층에서 실행 되는 서비스를 사용 하도록 설정할 수 있습니다. 서비스 소비자는 가상 네트워크 내에 개인 끝점을 만든 다음이 서비스에 매핑하여 개인적으로 액세스할 수 있습니다.
 

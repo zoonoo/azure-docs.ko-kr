@@ -7,11 +7,11 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 67f1f2fe3f6ac1061f1edcd22532bffaf0a1e815
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366873"
 ---
 # <a name="options"></a>옵션 #
@@ -102,7 +102,7 @@ Height 특성은 비디오의 표시 높이를 설정 합니다.
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/playbackspeedoptions) 개체에 의해 지정 됩니다.
+이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
 
 JavaScript에서 재생 속도 옵션을 설정 하는 예제:
 

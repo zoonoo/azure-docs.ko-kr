@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 06f85d97266e78b343ad8da233b77e369da5ee65
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334908"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
@@ -37,7 +37,7 @@ UPPER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다. `UPPER`  
   

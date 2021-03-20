@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082614"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
 다음 4가지 모드 중 원하는 모드에서 Site Recovery Deployment Planner 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
 -   VM(가상 머신) 목록 가져오기
--   [Profile](#profile-hyper-v-vms)
+-   [프로필](#profile-hyper-v-vms)
 -   보고서 생성
 -   [처리량 가져오기](#get-throughput)
 
@@ -53,7 +53,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 
 메모장에서 출력 파일을 연 다음 다른 파일에 프로파일링하려는 모든 VM의 이름(예를 들어 ProfileVMList.txt)을 복사합니다. 한 줄에 하나의 VM 이름을 사용합니다. 이 파일은 프로파일링, 보고서 생성 및 처리량 가져오기와 같은 다른 모든 작업에 대해 도구의 -VMListFile 매개 변수에 대한 입력으로 사용됩니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>VM 목록을 파일에 저장
 ```
@@ -126,7 +126,7 @@ VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDeta
 
 프로파일링 명령은 프로파일링 디렉터리에 몇 개의 파일을 생성합니다. 파일을 삭제하면 보고서 생성에 영향을 주므로 파일을 삭제하지 마십시오.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>30일 동안 VM 프로파일링 및 온-프레미스에서 Azure로의 처리량 확인하기
 ```
@@ -157,7 +157,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 않습니다. 이 도구는 VM에 연결된 iSCSI 및 통과 디스크를 검색 및 프로파일링할 수 없습니다.
 
 ## <a name="generate-a-report"></a>보고서 생성
-이 도구는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 배포의 모든 권장 사항을 요약합니다. 이 보고서는*고유 숫자 식별자*.xlsm로 이름이 지정 되 고 지정 된 디렉터리에 배치 DeploymentPlannerReport_.
+이 도구는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 배포의 모든 권장 사항을 요약합니다. 이 보고서는 *고유 숫자 식별자*.xlsm로 이름이 지정 되 고 지정 된 디렉터리에 배치 DeploymentPlannerReport_.
 
 프로파일링이 완료되면 보고서 생성 모드에서 도구를 실행할 수 있습니다. 
 
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
@@ -281,18 +281,18 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 | -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 스토리지 계정 이름입니다. 도구에서 이 스토리지 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 스토리지 계정은 GPv1(범용 v1) 형식이어야 합니다.|
-| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > **저장소 계정**  >  *저장소-계정 이름*  >  **설정**  >  **액세스 키**  >  **Key1**로 이동 합니다.|
+| -StorageAccountKey | 스토리지 계정에 액세스하는 데 사용되는 스토리지 계정 키입니다. Azure Portal > **저장소 계정**  >  *저장소-계정 이름*  >  **설정**  >  **액세스 키**  >  **Key1** 로 이동 합니다.|
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 인 경우 매개 변수를 사용 합니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 ### <a name="throughput-considerations"></a>처리량 고려 사항
 
-이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile*number*.vhd(여기서 *number*는 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 스토리지 계정에 파일을 업로드합니다. 처리량이 측정된 후 스토리지 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우에는 스토리지 계정 또는 로컬 서버에서 파일을 삭제하지 않습니다. 직접 삭제해야 합니다.
+이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile *number*.vhd(여기서 *number* 는 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 스토리지 계정에 파일을 업로드합니다. 처리량이 측정된 후 스토리지 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우에는 스토리지 계정 또는 로컬 서버에서 파일을 삭제하지 않습니다. 직접 삭제해야 합니다.
 
 처리량은 지정된 기간의 시간 단위로 측정됩니다. 기타 모든 요소가 동일하게 유지되는 경우 Azure Site Recovery가 복제 시 얻을 수 있는 최대 처리량입니다. 예를 들어 애플리케이션이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 
 

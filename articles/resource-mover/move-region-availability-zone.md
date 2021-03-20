@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95543003"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>다른 지역의 가용성 영역으로 Azure Vm 이동
@@ -30,7 +30,7 @@ ms.locfileid: "95543003"
 
 동일한 지역의 다른 가용성 영역으로 Vm을 이동 하려면 [이 문서를 검토](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이동 하려는 리소스가 있는 구독에 대 한 *소유자* 액세스입니다.
     - Azure 구독에서 특정 원본 및 대상 매핑에 대 한 리소스를 처음 추가 하는 경우 리소스 이동 기가 구독에서 신뢰 하는 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (이전에는 MSI (관리 서비스 식별)로 알려짐)를 만듭니다.
@@ -102,7 +102,7 @@ ms.locfileid: "95543003"
 
     ![종속성을 추가하는 단추](./media/move-region-availability-zone/add-dependencies.png)
 
-3. 필요한 경우 종속성을 추가하고 종속성의 유효성을 다시 검사합니다. 
+3. 필요한 경우 추가 종속성을 추가하고 종속성의 유효성을 다시 검사합니다. 
 
     ![종속성을 추가하는 페이지](./media/move-region-availability-zone/add-additional-dependencies.png)
 

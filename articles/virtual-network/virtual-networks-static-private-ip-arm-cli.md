@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: allensu
 ms.openlocfilehash: c34ab73422d8dd41feb9da542ed63fdba060fe3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84708164"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
@@ -35,7 +35,7 @@ ms.locfileid: "84708164"
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소 지정
 
-*192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 완료하세요.
+*192.168.1.101* 의 정적 개인 IP 주소를 사용하여 *TestVNet* 이라는 VNet의 *FrontEnd* 서브넷에 *DNS01* 이라는 VM을 만들려면 다음 단계를 완료하세요.
 
 1. 아직 설치하지 않은 경우 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치 및 구성하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "84708164"
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보 검색
 
-다음 Azure CLI 명령을 실행하고 *개인 IP alloc-method* 및 *개인 IP 주소*에 대한 값을 확인합니다.
+다음 Azure CLI 명령을 실행하고 *개인 IP alloc-method* 및 *개인 IP 주소* 에 대한 값을 확인합니다.
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -168,7 +168,7 @@ Azure Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 
 
 이전 명령에서 사용된 VM에 대한 NIC를 변경하려면 다음 단계를 수행합니다.
 
-1. 새 IP 주소를 가진 동적 IP 할당을 사용하여 새 NIC를 만들기 위해 **azure network nic create** 명령을 실행합니다. IP 주소가 지정되어 있지 않으므로 할당 메서드는 **동적**입니다.
+1. 새 IP 주소를 가진 동적 IP 할당을 사용하여 새 NIC를 만들기 위해 **azure network nic create** 명령을 실행합니다. IP 주소가 지정되어 있지 않으므로 할당 메서드는 **동적** 입니다.
 
     ```azurecli
     az network nic create     \

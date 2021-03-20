@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84737532"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
@@ -29,28 +29,28 @@ ms.locfileid: "84737532"
 ## <a name="view-topology---azure-portal"></a><a name = "azure-portal"></a>토폴로지 보기 - Azure Portal
 
 1. 필요한 [권한](required-rbac-permissions.md)이 있는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
-3. **모든 서비스** 필터 상자에서 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
-4. **토폴로지**를 선택합니다. 토폴로지를 생성하려면 토폴로지를 생성하려는 가상 네트워크가 있는 동일한 지역에 네트워크 감시자가 있어야 합니다. 토폴로지를 생성하려는 가상 네트워크가 있는 지역에 사용하도록 설정된 네트워크 감시자가 없는 경우 네트워크 감시자가 모든 지역에 자동으로 만들어집니다. 네트워크 감시자는 **NetworkWatcherRG**라는 리소스 그룹에 만들어집니다.
-5. 토폴로지를 보려는 가상 네트워크의 리소스 그룹인 구독을 선택한 다음, 가상 네트워크를 선택합니다. 다음 그림에서는 *MyVnet*이라는 가상 네트워크에 대한 토폴로지가 *MyResourceGroup*이라는 리소스 그룹에 표시됩니다.
+2. 포털의 왼쪽 위 모서리에서 **모든 서비스** 를 선택합니다.
+3. **모든 서비스** 필터 상자에서 *Network Watcher* 를 입력합니다. 결과에 **Network Watcher** 가 표시되면 이를 선택합니다.
+4. **토폴로지** 를 선택합니다. 토폴로지를 생성하려면 토폴로지를 생성하려는 가상 네트워크가 있는 동일한 지역에 네트워크 감시자가 있어야 합니다. 토폴로지를 생성하려는 가상 네트워크가 있는 지역에 사용하도록 설정된 네트워크 감시자가 없는 경우 네트워크 감시자가 모든 지역에 자동으로 만들어집니다. 네트워크 감시자는 **NetworkWatcherRG** 라는 리소스 그룹에 만들어집니다.
+5. 토폴로지를 보려는 가상 네트워크의 리소스 그룹인 구독을 선택한 다음, 가상 네트워크를 선택합니다. 다음 그림에서는 *MyVnet* 이라는 가상 네트워크에 대한 토폴로지가 *MyResourceGroup* 이라는 리소스 그룹에 표시됩니다.
 
     ![토폴로지 보기](./media/view-network-topology/view-topology.png)
 
     앞의 그림에서 볼 수 있듯이 가상 네트워크에는 세 개의 서브넷이 있습니다. 한 서브넷에는 배포된 VM이 있습니다. VM에는 연결된 네트워크 인터페이스 및 공용 IP 주소가 하나씩 있습니다. 다른 두 서브넷에는 연결된 경로 테이블이 있습니다. 각 경로 테이블에는 두 개의 경로가 있습니다. 한 서브넷에는 연결된 네트워크 보안 그룹이 있습니다. 토폴로지 정보는 다음의 리소스에 대해서만 표시됩니다.
     
-    - *myVnet* 가상 네트워크와 동일한 리소스 그룹 및 지역 내부에 있습니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
+    - *myVnet* 가상 네트워크와 동일한 리소스 그룹 및 지역 내부에 있습니다. 예를 들어, *MyResourceGroup* 이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
     - *myVnet* 가상 네트워크 내부에 있거나 내부의 리소스와 연결되어 있습니다. 예를 들어, *myVnet* 가상 네트워크의 서브넷 또는 네트워크 인터페이스와 연결되지 않은 네트워크 보안 그룹은 *MyResourceGroup* 리소스 그룹에 있어도 표시되지 않습니다.
 
-   그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는**네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
+   그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는 **네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
 
-6. **토폴로지 다운로드**를 선택하여 이미지를 편집 가능한 파일을 svg 형식으로 다운로드합니다.
+6. **토폴로지 다운로드** 를 선택하여 이미지를 편집 가능한 파일을 svg 형식으로 다운로드합니다.
 
 다이어그램에 표시된 리소스는 가상 네트워크에 있는 네트워킹 구성 요소의 하위 집합입니다. 예를 들어, 다이어그램에 네트워크 보안 그룹은 표시되지만, 해당 그룹 내의 보안 규칙은 표시되지 않습니다. 다이어그램에서는 구별되지 않지만, 선은 두 관계(*포함* 또는 *연결*) 중 하나를 나타냅니다. 가상 네트워크의 리소스에 대한 전체 목록과 리소스 간의 관계 유형을 확인하려면 [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)를 사용하여 토폴로지를 생성합니다.
 
 ## <a name="view-topology---azure-cli"></a><a name = "azure-cli"></a>토폴로지 보기 - Azure CLI
 
 다음에 나오는 단계에서 명령을 실행할 수 있습니다.
-- Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요**를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
+- Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요** 를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
 - 컴퓨터에서 CLI를 실행합니다. 컴퓨터에서 CLI를 실행하는 경우 이 문서의 단계에서는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 사용하는 계정에 필요한 [권한](required-rbac-permissions.md)이 있어야 합니다.
@@ -70,20 +70,20 @@ ms.locfileid: "84737532"
       --enabled true
     ```
 
-3. [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology)를 사용하여 토폴로지를 표시합니다. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹에 대한 토폴로지를 표시합니다.
+3. [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology)를 사용하여 토폴로지를 표시합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹에 대한 토폴로지를 표시합니다.
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup
     ```
 
-    *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
+    *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup* 이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
 
    반환된 결과에서 관계 및 [속성](#properties)에 대해 자세히 알아봅니다. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
 
 ## <a name="view-topology---powershell"></a><a name = "powershell"></a>토폴로지 보기 - PowerShell
 
 다음에 나오는 단계에서 명령을 실행할 수 있습니다.
-- Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요**를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
+- Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요** 를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
 - 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행 하는 경우이 문서에 Azure PowerShell `Az` 모듈이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 사용하는 계정에 필요한 [권한](required-rbac-permissions.md)이 있어야 합니다.
@@ -112,7 +112,7 @@ ms.locfileid: "84737532"
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. [AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology)를 사용 하 여 토폴로지를 검색 합니다. 다음 예제에서는 *MyResourceGroup*이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
+4. [AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology)를 사용 하 여 토폴로지를 검색 합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 가상 네트워크에 대한 토폴로지를 검색합니다.
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `
@@ -120,7 +120,7 @@ ms.locfileid: "84737532"
       -TargetResourceGroupName MyResourceGroup
     ```
 
-   *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
+   *MyResourceGroup* 리소스 그룹과 동일한 리소스 그룹 및 네트워크 감시자와 동일한 지역에 있는 리소스에 대한 토폴로지 정보만 반환됩니다. 예를 들어, *MyResourceGroup* 이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
 
    반환된 결과에서 관계 및 [속성](#properties)에 대해 자세히 알아봅니다. 토폴로지를 볼 수 있는 기존 가상 네트워크가 없는 경우 [네트워크 가상 어플라이언스를 통해 트래픽 라우팅](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 스크립트 샘플을 사용하여 가상 네트워크를 만들 수 있습니다. 토폴로지 다이어그램을 보고 편집 가능한 파일로 다운로드하려면 [포털](#azure-portal)을 사용합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "84737532"
 
 토폴로지에서 반환되는 모든 리소스에는 다른 리소스에 대한 다음 유형의 관계 중 하나가 있습니다.
 
-| 관계 유형 | 예                                                                                                |
+| 관계 유형 | 예제                                                                                                |
 | ---               | ---                                                                                                    |
 | Containment       | 가상 네트워크에 서브넷이 포함됩니다. 서브넷에 네트워크 인터페이스가 포함됩니다.                            |
 | 연결        | 네트워크 인터페이스가 VM과 연결됩니다. 공용 IP 주소가 네트워크 인터페이스에 연결됩니다. |
@@ -141,7 +141,7 @@ ms.locfileid: "84737532"
 - **Id**: 리소스 그룹의 URI입니다.
 - **Location**: 리소스가 있는 Azure 지역입니다.
 - **Associations**: 참조되는 개체에 대한 연결 목록입니다. 각 연결에는 다음과 같은 속성이 있습니다.
-    - **AssociationType**: 자식 개체 및 부모 개체 간의 관계를 참조합니다. 유효한 값은 *포함* 또는 *관련됨*입니다.
+    - **AssociationType**: 자식 개체 및 부모 개체 간의 관계를 참조합니다. 유효한 값은 *포함* 또는 *관련됨* 입니다.
     - **Name**: 참조되는 리소스의 이름입니다.
     - **ResourceId** - 연결에서 참조되는 리소스의 URI입니다.
 

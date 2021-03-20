@@ -9,10 +9,10 @@ ms.date: 05/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e01f9ac8966223e11ad218af7bf6fbb2462f28f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83714902"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Azure Application Gateway 봇 보호의 Azure 웹 애플리케이션 방화벽 개요
@@ -26,7 +26,7 @@ WAF에 대해 관리형 봇 보호 규칙 집합을 사용하도록 설정하여
 
 ## <a name="use-with-owasp-rulesets"></a>OWASP 규칙 집합으로 사용
 
-OWASP 규칙 집합(2.2.9, 3.0 및 3.1)과 함께 봇 보호 규칙 집합을 사용할 수 있습니다. 지정된 시간에 OWASP 규칙 집합을 하나만 사용할 수 있습니다. 봇 보호 규칙 집합에는 자체 규칙 집합에 표시되는 추가 규칙이 포함되어 있습니다. 제목은 **Microsoft_BotManagerRuleSet_0.1**이며 다른 OWASP 규칙처럼 사용하거나 사용하지 않도록 설정할 수 있습니다.
+OWASP 규칙 집합(2.2.9, 3.0 및 3.1)과 함께 봇 보호 규칙 집합을 사용할 수 있습니다. 지정된 시간에 OWASP 규칙 집합을 하나만 사용할 수 있습니다. 봇 보호 규칙 집합에는 자체 규칙 집합에 표시되는 추가 규칙이 포함되어 있습니다. 제목은 **Microsoft_BotManagerRuleSet_0.1** 이며 다른 OWASP 규칙처럼 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ![봇 규칙 집합](../media/bot-protection-overview/bot-ruleset.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 69f78f6e70fa4f0b04ca7527751085ec0265363a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5a3b7d4f60877d1301f03aa4f015695a6a4639be
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048219"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580711"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
 
@@ -41,6 +41,8 @@ Azure RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할
 - [Azure 센티널 응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) 는 위의 외에도 인시던트 관리 (할당, 해제 등)를 수행할 수 있습니다.
 
 - [Azure 센티널 참여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) 는 위의 외에도 통합 문서, 분석 규칙 및 기타 azure 센티널 리소스를 만들고 편집할 수 있습니다.
+
+- Azure [센티널 automation 기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) 를 사용 하면 azure 센티널에서 플레이 북를 Automation 규칙에 추가할 수 있습니다. 사용자 계정이 아닙니다.
 
 > [!NOTE]
 >
@@ -91,7 +93,7 @@ Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사
 
 - **사용자 지정 역할**. Azure 기본 제공 역할을 사용 하는 것 외에도 azure에 대 한 azure 사용자 지정 역할을 만들 수 있습니다. Azure 센티널에 대 한 azure 사용자 지정 역할은 azure 센티널 및 [azure Log Analytics 리소스](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)에 대 한 [특정 권한을](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) 기반으로 하 여 다른 [azure 사용자 지정 역할](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)을 만드는 것과 동일한 방식으로 만들어집니다.
 
-- **RBAC를 Log Analytics** 합니다. Azure 센티널 작업 영역에서 데이터에 대해 고급 Azure 역할 기반 액세스 제어를 Log Analytics 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 컨텍스트 Azure RBAC가 모두 포함 됩니다. 자세한 내용은 다음을 참조하십시오.
+- **RBAC를 Log Analytics** 합니다. Azure 센티널 작업 영역에서 데이터에 대해 고급 Azure 역할 기반 액세스 제어를 Log Analytics 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 컨텍스트 Azure RBAC가 모두 포함 됩니다. 자세한 내용은 다음을 참조하세요.
 
     - [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions)
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67182012"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -84,7 +84,7 @@ SKU 제품군입니다.
 | 값 | Basic 및 Standard<br>캐시 크기 | Premium<br>캐시 크기 |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB (기본값)                 | 해당 없음                   |
-| 1     | 1 GB                             | 6gb (기본값)        |
+| 1     | 1GB                             | 6gb (기본값)        |
 | 2     | 2.5GB                           | 13GB                 |
 | 3     | 6GB                             | 26GB                 |
 | 4     | 13GB                            | 53GB                 |

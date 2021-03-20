@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366397"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
@@ -27,7 +27,7 @@ ms.locfileid: "92366397"
 
 Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다.
 
-범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.****
+범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.
 
 ## <a name="types-of-permissions"></a>권한 형식
 
@@ -102,7 +102,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    예를 들어:
+    예를 들면 다음과 같습니다.
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

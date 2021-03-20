@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90971618"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강 캐싱을 구성 하는 방법
@@ -114,7 +114,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### <a name="step-5-run-the-indexer"></a>5 단계: 인덱서 실행
 
-인덱서를 실행 하려면 포털 또는 API를 사용할 수 있습니다. 포털의 인덱서 목록에서 인덱서를 선택 하 고 **실행**을 클릭 합니다. 포털을 사용 하는 경우의 이점 중 하나는 인덱서 상태를 모니터링 하 고, 작업 기간을 확인 하 고, 처리 되는 문서 수를 확인 하는 것입니다. 포털 페이지는 몇 분 마다 새로 고쳐집니다.
+인덱서를 실행 하려면 포털 또는 API를 사용할 수 있습니다. 포털의 인덱서 목록에서 인덱서를 선택 하 고 **실행** 을 클릭 합니다. 포털을 사용 하는 경우의 이점 중 하나는 인덱서 상태를 모니터링 하 고, 작업 기간을 확인 하 고, 처리 되는 문서 수를 확인 하는 것입니다. 포털 페이지는 몇 분 마다 새로 고쳐집니다.
 
 또는 REST를 사용 하 여 [인덱서를 실행할](/rest/api/searchservice/run-indexer)수 있습니다.
 

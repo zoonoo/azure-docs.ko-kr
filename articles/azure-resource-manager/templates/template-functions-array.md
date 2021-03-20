@@ -4,10 +4,10 @@ description: 배열 작업을 위해 Azure Resource Manager 템플릿 (ARM 템�
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920546"
 ---
 # <a name="array-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배열 함수
@@ -42,7 +42,7 @@ ms.locfileid: "96920546"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
@@ -117,9 +117,9 @@ output objectOutput array = array(objectToConvert)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| intOutput | 배열 |  [1] |
-| stringOutput | 배열 | ["efgh"] |
-| objectOutput | 배열 | [{"a": "b", "c": "d"}] |
+| intOutput | Array |  [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 ## <a name="concat"></a>concat
 
@@ -129,7 +129,7 @@ output objectOutput array = array(objectToConvert)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
 | 추가 인수 |예 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
@@ -202,7 +202,7 @@ output return array = concat(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
 
@@ -244,7 +244,7 @@ output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>포함
 
 `contains(container, itemToFind)`
 
@@ -252,7 +252,7 @@ output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -364,7 +364,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | args |아니요 |문자열, 정수, 배열 또는 개체 |배열의 값입니다. |
 
@@ -434,11 +434,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringArray | 배열 | ["a", "b", "c"] |
-| intArray | 배열 | [1, 2, 3] |
-| objectArray | 배열 | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | 배열 | [["one", "two", "three"]] |
-| emptyArray | 배열 | [] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>비어 있음
 
@@ -448,7 +448,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -529,7 +529,7 @@ output stringEmpty bool = empty(testString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -598,7 +598,7 @@ output stringOutput string = first('One Two Three')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -695,8 +695,8 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 개체 | {"one": "a", "three": "c"} |
-| arrayOutput | 배열 | ["two", "three"] |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | Array | ["two", "three"] |
 
 ## <a name="last"></a>last
 
@@ -706,7 +706,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -775,7 +775,7 @@ output stringOutput string = last('One Two three')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
@@ -899,7 +899,7 @@ output objectLength int = length(objectToTest)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -969,7 +969,7 @@ output intOutput int = max(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -1039,7 +1039,7 @@ output intOutput int = min(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | startIndex |예 |int |배열에서 첫 번째 정수입니다. StartIndex와 count의 합계는 2147483647 보다 크지 않아야 합니다. |
 | count |예 |int |배열에 있는 정수의 수입니다. 1만 까지의 음수가 아닌 정수 여야 합니다. |
@@ -1093,7 +1093,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| rangeOutput | 배열 | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 ## <a name="skip"></a>skip
 
@@ -1103,7 +1103,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
@@ -1180,7 +1180,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
 ## <a name="take"></a>take
@@ -1191,7 +1191,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
@@ -1268,7 +1268,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
 
 ## <a name="union"></a>union
@@ -1279,7 +1279,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
@@ -1376,8 +1376,8 @@ output arrayOutput array = union(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 개체 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | 배열 | ["one", "two", "three", "four"] |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 

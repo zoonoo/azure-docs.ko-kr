@@ -4,10 +4,10 @@ description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Reso
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185694"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
@@ -22,9 +22,9 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 두 가지 방법으로 템플릿을 내보낼 수 있습니다.
 
-* **리소스 그룹 또는 리소스에서 내보냅니다**. 이 옵션은 기존 리소스에서 새 템플릿을 생성 합니다. 내보낸 템플릿은 리소스 그룹의 현재 상태에 대 한 "스냅숏"입니다. 해당 리소스 그룹 내에서 전체 리소스 그룹 또는 특정 리소스를 내보낼 수 있습니다.
+* **리소스 그룹 또는 리소스에서 내보냅니다**. 이 옵션은 기존 리소스에서 새 템플릿을 생성합니다. 내보낸 템플릿은 리소스 그룹의 현재 상태에 대한 "스냅샷"입니다. 전체 리소스 그룹 또는 해당 리소스 그룹 내의 특정 리소스를 내보낼 수 있습니다.
 
-* **배포 전이나 기록을 통해 내보냅니다**. 이 옵션은 배포에 사용 되는 템플릿의 정확한 복사본을 검색 합니다.
+* **배포 전 또는 기록에서 내보냅니다**. 이 옵션은 배포에 사용되는 템플릿의 정확한 복사본을 검색합니다.
 
 선택한 옵션에 따라 내보낸 템플릿의 품질은 다릅니다.
 

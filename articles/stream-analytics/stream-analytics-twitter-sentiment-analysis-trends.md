@@ -1,21 +1,21 @@
 ---
-title: Azure Stream Analytics를 사용하여 실시간 Twitter 감정 분석
-description: 이 아티클에서는 실시간 Twitter 감정 분석에 대해 Stream Analytics를 사용하는 방법을 설명합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
+title: Azure Stream Analytics를 사용한 소셜 미디어 분석
+description: 이 문서에서는 twitter 클라이언트 API를 사용 하 여 소셜 미디어 분석에 Stream Analytics를 사용 하는 방법을 설명 합니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다.
 services: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589670"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
+# <a name="social-media-analysis-with-azure-stream-analytics"></a>Azure Stream Analytics를 사용한 소셜 미디어 분석
 
 이 문서에서는 실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 실시간 감정 분석을 위한 감정 분석 솔루션을 구축하는 방법을 설명합니다. Azure Stream Analytics 쿼리를 작성하여 데이터를 분석하고 나중에 사용할 수 있도록 결과를 저장하거나 [Power BI](https://powerbi.com/) 대시보드를 만들어 실시간으로 정보를 제공합니다.
 

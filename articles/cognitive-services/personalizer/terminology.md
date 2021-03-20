@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777295"
 ---
 # <a name="personalizer-terminology"></a>Personalizer 용어
@@ -18,7 +18,7 @@ Personalizer는 보충 learning의 용어를 사용 합니다. 이러한 용어�
 
 ## <a name="conceptual-terminology"></a>개념 용어
 
-* **학습 루프**: 개인 설정의 이점을 활용할 수 있는 응용 프로그램의 모든 부분에 대해 _학습 루프_라는 Personalizer 리소스를 만듭니다. 개인에 맞게 설정하려는 환경이 둘 이상인 경우 각각에 대한 반복을 만듭니다.
+* **학습 루프**: 개인 설정의 이점을 활용할 수 있는 응용 프로그램의 모든 부분에 대해 _학습 루프_ 라는 Personalizer 리소스를 만듭니다. 개인에 맞게 설정하려는 환경이 둘 이상인 경우 각각에 대한 반복을 만듭니다.
 
 * **모델**: Personalizer 모델은 사용자 동작에 대해 학습 한 모든 데이터를 캡처하고, 순위 및 보상 호출로 보내는 인수의 조합에서 학습 데이터를 가져오고, 학습 정책에 의해 결정 되는 학습 동작을 포함 합니다.
 
@@ -67,7 +67,7 @@ Personalizer는 [Azure Portal](https://portal.azure.com)구성 됩니다.
 
 * **악용**: Personalizer 서비스는 현재 모델을 사용 하 여 과거 데이터를 기반으로 하는 최상의 작업을 결정 합니다.
 
-* **실험 지속**시간: Personalizer 서비스가 해당 이벤트에 대 한 순위 호출이 발생 한 순간부터 보상을 기다리는 데 걸린 시간입니다.
+* **실험 지속** 시간: Personalizer 서비스가 해당 이벤트에 대 한 순위 호출이 발생 한 순간부터 보상을 기다리는 데 걸린 시간입니다.
 
 * **비활성 이벤트**: 비활성 이벤트는 순위를 호출한 것 이지만 클라이언트 응용 프로그램 결정으로 인해 사용자가 결과를 표시 하는 것을 확신할 수 없습니다. 비활성 이벤트를 사용하면 맞춤 설정 결과를 만들고 저장한 다음, 나중에 기계 학습 모델에 영향을 주지 않고 삭제하도록 결정할 수 있습니다.
 
@@ -80,11 +80,11 @@ Personalizer는 [Azure Portal](https://portal.azure.com)구성 됩니다.
 
 * **평가**: 오프 라인 평가는 응용 프로그램의 데이터를 기반으로 루프에 가장 적합 한 학습 정책을 결정 합니다.
 
-* **학습 정책**: Personalizer는 모든 이벤트에 대 한 모델을 학습 하는 방법은 기계 학습 알고리즘의 작동 방식에 영향을 주는 몇 가지 매개 변수에 따라 결정 됩니다. 새 학습 루프는 기본 **학습 정책**부터 시작 하 여 성능이 저하 될 수 있습니다. [평가](concepts-offline-evaluation.md)를 실행할 때 Personalizer는 루프의 사용 사례에 특별히 최적화 된 새로운 학습 정책을 만듭니다. Personalizer는 평가 중에 생성 되는 각 특정 루프에 대해 최적화 된 정책으로 훨씬 더 잘 수행 됩니다. 학습 정책은 모델의 _학습 설정_ 및 Azure Portal의 Personalizer 리소스에 대 한 **학습** 설정 이라고 합니다.
+* **학습 정책**: Personalizer는 모든 이벤트에 대 한 모델을 학습 하는 방법은 기계 학습 알고리즘의 작동 방식에 영향을 주는 몇 가지 매개 변수에 따라 결정 됩니다. 새 학습 루프는 기본 **학습 정책** 부터 시작 하 여 성능이 저하 될 수 있습니다. [평가](concepts-offline-evaluation.md)를 실행할 때 Personalizer는 루프의 사용 사례에 특별히 최적화 된 새로운 학습 정책을 만듭니다. Personalizer는 평가 중에 생성 되는 각 특정 루프에 대해 최적화 된 정책으로 훨씬 더 잘 수행 됩니다. 학습 정책은 모델의 _학습 설정_ 및 Azure Portal의 Personalizer 리소스에 대 한 **학습** 설정 이라고 합니다.
 
 ### <a name="apprentice-mode-evaluations"></a>수련 여 모드 평가
 
-수련 여 모드는 다음과 같은 **평가 메트릭을**제공 합니다.
+수련 여 모드는 다음과 같은 **평가 메트릭을** 제공 합니다.
 * **기준선 – 평균 보상**: 응용 프로그램의 기본 (기준선)의 평균 보상입니다.
 * **Personalizer – 평균 보상**: 총 보상 Personalizer의 평균에 도달 했을 가능성이 있습니다.
 * **평균 롤링 보상**: 가장 최근 1000 이벤트에 대해 표준화 된 기준선 및 Personalizer 보상의 비율입니다.

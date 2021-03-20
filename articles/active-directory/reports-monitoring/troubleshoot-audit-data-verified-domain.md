@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87117435"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>문제 해결: 확인 된 도메인 변경에 대 한 감사 데이터 
@@ -33,7 +33,7 @@ Azure AD 감사 로그를 확인 하 고 Azure AD 테 넌 트에서 발생 하�
 
 ### <a name="cause"></a>원인
 
- 대량 개체가 변경 되는 일반적인 이유는 **Proxycalc**라는 비 동기 백 엔드 작업입니다.  **Proxycalc** 는 Azure AD 사용자, 그룹 또는 연락처에서 업데이트 된 적절 한 **UserPrincipalName** 및 **프록시 주소**를 결정 하는 논리입니다. **Proxycalc** 의 디자인은 언제 든 지 Azure AD에서 모든 **UserPrincipalName** 및 **프록시 주소가** 일치 하는지 확인 하는 것입니다. **Proxycalc** 는 확인 된 도메인 변경과 같이 명시적으로 변경 해야 하며 백그라운드에서 작업으로 영구적으로 실행 되지 않습니다. 
+ 대량 개체가 변경 되는 일반적인 이유는 **Proxycalc** 라는 비 동기 백 엔드 작업입니다.  **Proxycalc** 는 Azure AD 사용자, 그룹 또는 연락처에서 업데이트 된 적절 한 **UserPrincipalName** 및 **프록시 주소** 를 결정 하는 논리입니다. **Proxycalc** 의 디자인은 언제 든 지 Azure AD에서 모든 **UserPrincipalName** 및 **프록시 주소가** 일치 하는지 확인 하는 것입니다. **Proxycalc** 는 확인 된 도메인 변경과 같이 명시적으로 변경 해야 하며 백그라운드에서 작업으로 영구적으로 실행 되지 않습니다. 
 
   
 
@@ -49,13 +49,13 @@ Azure AD 감사 로그를 확인 하 고 Azure AD 테 넌 트에서 발생 하�
 
 클라우드 전용 사용자의 경우 일관성은 프록시 주소가 확인 된 도메인 접미사와 일치 하는 것을 의미 합니다. 일치 하지 않는 프록시 주소를 처리 하는 경우 **Proxycalc** 는이를 기본 *. onmicrosoft.com 도메인 접미사로 변환 합니다. 예를 들면 다음과 같습니다. SMTP:username@Contoso.onmicrosoft.com 
 
-동기화 된 사용자의 경우 일관성은 프록시 주소가 온-프레미스 프록시 주소 (즉, ShadowProxyAddresses). **ProxyAddresses** 는 **ShadowProxyAddresses**와 동기화 되어야 합니다. 동기화 된 사용자에 게 Exchange 라이선스가 할당 된 경우 프록시 주소는 온-프레미스 프록시 주소 값과 일치 해야 하며 확인 된 도메인 접미사와도 일치 해야 합니다. 이 시나리오에서 **Proxycalc** 는 확인 되지 않은 도메인 접미사로 일치 하지 않는 프록시 주소를 삭제 하 고 Azure AD의 개체에서 제거 됩니다. 확인 되지 않은 도메인을 나중에 확인 하는 경우 **Proxycalc** 는 다시 계산 하 고 **ShadowProxyAddresses** 의 프록시 주소를 Azure AD의 개체에 다시 추가 합니다.  
+동기화 된 사용자의 경우 일관성은 프록시 주소가 온-프레미스 프록시 주소 (즉, ShadowProxyAddresses). **ProxyAddresses** 는 **ShadowProxyAddresses** 와 동기화 되어야 합니다. 동기화 된 사용자에 게 Exchange 라이선스가 할당 된 경우 프록시 주소는 온-프레미스 프록시 주소 값과 일치 해야 하며 확인 된 도메인 접미사와도 일치 해야 합니다. 이 시나리오에서 **Proxycalc** 는 확인 되지 않은 도메인 접미사로 일치 하지 않는 프록시 주소를 삭제 하 고 Azure AD의 개체에서 제거 됩니다. 확인 되지 않은 도메인을 나중에 확인 하는 경우 **Proxycalc** 는 다시 계산 하 고 **ShadowProxyAddresses** 의 프록시 주소를 Azure AD의 개체에 다시 추가 합니다.  
 
 > [!NOTE]
 > 동기화 된 개체의 경우 예기치 않은 결과를 계산 하 여 **Proxycalc** 논리가 발생 하지 않도록 하려면 온-프레미스 개체에서 Azure AD 확인 된 도메인으로 프록시 주소를 설정 하는 것이 가장 좋습니다.  
 
   
-**Proxycalc** 를 트리거할 수 있는 관리 작업 중 하나는 확인 된 도메인 변경이 있을 때마다입니다. 이 작업은 내부적으로 **Proxycalc**를 트리거하는 Azure AD 테 넌 트에서 확인 된 도메인이 추가/제거 될 때마다 발생 합니다.  
+**Proxycalc** 를 트리거할 수 있는 관리 작업 중 하나는 확인 된 도메인 변경이 있을 때마다입니다. 이 작업은 내부적으로 **Proxycalc** 를 트리거하는 Azure AD 테 넌 트에서 확인 된 도메인이 추가/제거 될 때마다 발생 합니다.  
 
 예를 들어 확인 된 도메인 Fabrikam.com를 Contoso.onmicrosoft.com 테 넌 트에 추가 하는 경우이 작업은 테 넌 트의 모든 개체에 대해 ProxyCalc 작업을 트리거합니다. 이 이벤트는 Azure AD 감사 로그에 **업데이트 사용자** 이벤트로 캡처된 후 **확인 된 도메인 추가** 이벤트가 발생 합니다. 반면에 Contoso.onmicrosoft.com 테 넌 트에서 Fabrikam.com이 제거 된 경우 모든 **업데이트 사용자** 이벤트 앞에는 **확인 된 도메인 제거** 이벤트가 발생 합니다.   
 

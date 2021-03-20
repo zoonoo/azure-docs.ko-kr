@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-network
 author: jimdial
@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84194212"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>VM 운영 체제에 IP 주소 추가
@@ -23,11 +23,11 @@ ms.locfileid: "84194212"
 <details>
   <summary>Expand</summary>
 
-1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
-2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
+1. 명령 프롬프트에서 *ipconfig /all* 을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
+2. 명령 프롬프트 창에 *ncpa.cpl* 을 입력하여 **네트워크 연결** 창을 엽니다.
 3. 적절한 어댑터에 대한 속성 열기: **이더넷**.
 4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
-5. **다음 IP 주소 사용**을 선택하고 다음 값을 입력합니다.
+5. **다음 IP 주소 사용** 을 선택하고 다음 값을 입력합니다.
 
     * **IP 주소**: *기본* 개인 IP 주소 입력
     * **서브넷 마스크**: 서브넷을 기준으로 설정합니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
@@ -38,9 +38,9 @@ ms.locfileid: "84194212"
 
         가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. Azure 공용 IP 주소는 절대 운영 체제 내에서 할당하지 않아야 합니다.
 
-    * **확인**을 클릭하여 TCP/IP 설정을 닫은 다음 **확인**을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
+    * **확인** 을 클릭하여 TCP/IP 설정을 닫은 다음 **확인** 을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
 
-6. 명령 프롬프트에서 *ipconfig /all*을 입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP가 해제되는지 확인합니다.
+6. 명령 프롬프트에서 *ipconfig /all* 을 입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP가 해제되는지 확인합니다.
 7. Azure에서 Windows에 대한 기본 IP 주소로 기본 IP 구성의 개인 IP 주소를 사용하도록 Windows를 구성합니다. 자세한 내용은 [여러 개의 IP 주소가 있는 Azure Windows VM에서 인터넷 액세스 없음](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse)을 참조하세요. 
 
 ### <a name="validation-windows-server"></a>유효성 검사(Windows Server)
@@ -136,9 +136,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
 - 반드시 대체할 항목:
-    - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2**를 보조 NIC의 이름으로 대체해야 합니다. </details>
+    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. </details>
 
 ### <a name="linux-ubuntu-1804"></a>Linux(Ubuntu 18.04 이상)
 <details>
@@ -234,9 +234,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
 - 반드시 대체할 항목:
-    - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2**를 보조 NIC의 이름으로 대체해야 합니다. </details>
+    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. </details>
 
 ### <a name="linux-red-hat-centos-and-others"></a>Linux(Red Hat, CentOS 및 기타)
 <details>
@@ -298,7 +298,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     ifconfig
     ```
 
-    반환된 목록에서 추가한 IP 주소 *eth0:0*이 표시되어야 합니다.
+    반환된 목록에서 추가한 IP 주소 *eth0:0* 이 표시되어야 합니다.
 
 ### <a name="validation-red-hat-centos-and-others"></a>유효성 검사(Red Hat, CentOS 및 기타)
 
@@ -320,6 +320,6 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
 - 반드시 대체할 항목:
-    - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2**를 보조 NIC의 이름으로 대체해야 합니다. </details>
+    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. </details>

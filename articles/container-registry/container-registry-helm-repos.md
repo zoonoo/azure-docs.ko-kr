@@ -4,10 +4,10 @@ description: Azure Container Registry 리포지토리를 사용 하 여 Kubernet
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537870"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure container registry에 투구 차트 푸시 및 끌어오기
@@ -26,14 +26,14 @@ Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경�
 투구 3은 Azure Container Registry에서 투구 차트를 호스트 하는 데 사용 해야 합니다. 투구 3을 사용 하 여 다음을 수행 합니다.
 
 * Azure container registry에서 하나 이상의 투구 리포지토리를 만들 수 있습니다.
-* 레지스트리에서 투구 3 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장 합니다. 현재 OCI에 대 한 투구 3 지원은 *실험적*입니다.
+* 레지스트리에서 투구 3 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장 합니다. 현재 OCI에 대 한 투구 3 지원은 *실험적* 입니다.
 * 명령을 사용 하 여 레지스트리를 사용 하 여 인증 `helm registry login` 합니다.
 * `helm chart`투구 CLI의 명령을 사용 하 여 레지스트리에서 투구 차트를 푸시, 풀 및 관리 합니다.
 * `helm install`를 사용 하 여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치 합니다.
 > [!NOTE]
 > 투구 3부터 투구 2 클라이언트와 함께 사용 하기 위한 [az acr 투구][az-acr-helm] 명령은 더 이상 사용 되지 않습니다. [제품 로드맵](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga)을 참조 하세요. 이전에 투구 2 차트를 배포한 경우 [v3로 투구 V2 마이그레이션](https://helm.sh/docs/topics/v2_v3_migration/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 시나리오에는 다음 리소스가 필요 합니다.
 
@@ -93,7 +93,7 @@ EOF
 
 디렉터리를 하위 디렉터리로 변경 `hello-world` 합니다. 그런 다음를 실행 `helm chart save` 하 여 차트의 복사본을 로컬에 저장 하 고 레지스트리의 정규화 된 이름 (모두 소문자)과 대상 리포지토리 및 태그를 사용 하 여 별칭을 만듭니다. 
 
-다음 예에서는 레지스트리 이름이 *mycontainerregistry*이 고 대상 리포지토리는 *hello*이며 대상 차트 태그는 *v1*이지만 사용자 환경에 대 한 값을 대체 합니다.
+다음 예에서는 레지스트리 이름이 *mycontainerregistry* 이 고 대상 리포지토리는 *hello* 이며 대상 차트 태그는 *v1* 이지만 사용자 환경에 대 한 값을 대체 합니다.
 
 ```console
 cd ..
@@ -239,7 +239,7 @@ version: 0.1.0
 
 ## <a name="install-helm-chart"></a>투구 차트 설치
 
-을 실행 `helm install` 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보냅니다. *Myhelmtest*와 같은 릴리스 이름을 지정 하거나 매개 변수를 전달 `--generate-name` 합니다. 예를 들면 다음과 같습니다.
+을 실행 `helm install` 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보냅니다. *Myhelmtest* 와 같은 릴리스 이름을 지정 하거나 매개 변수를 전달 `--generate-name` 합니다. 예를 들면 다음과 같습니다.
 
 ```console
 helm install myhelmtest ./hello-world

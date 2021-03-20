@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74892671"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Video Indexer 정보 보기 및 편집
@@ -23,7 +23,7 @@ ms.locfileid: "74892671"
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
 2. Video Indexer 인사이트를 만들려는 비디오를 찾습니다. 자세한 내용은 [비디오 내 정확한 시점 찾기](video-indexer-search.md)를 참조하세요.
-3. **재생**을 누릅니다.
+3. **재생** 을 누릅니다.
 
     페이지에는 비디오의 요약된 인사이트가 표시됩니다. 
 

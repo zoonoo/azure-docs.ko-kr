@@ -4,10 +4,10 @@ description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343917"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보

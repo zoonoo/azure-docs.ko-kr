@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
 ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184725"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>방법: 데이터 피드 관리
@@ -81,7 +81,7 @@ ms.locfileid: "96184725"
     | 세분성       | 후 다시 시도 중지           |
     | :------------ | :--------------- |
     | 매일, 사용자 지정 (>= 1 일), 매주, 매월, 매년     | 7 일          |
-    | 매시간, 사용자 지정 (< 1 일)       | 72 시간 |
+    | 매시간, 사용자 지정 (< 1 일)       | 72시간 |
 
 * **최소 다시 시도 간격**: 원본에서 데이터를 다시 가져오는 경우 최소 간격을 지정할 수 있습니다. 기본값 (-1)을 벗어나면 재시도 간격은 아래와 같이 세분성에 따라 결정 됩니다.
     

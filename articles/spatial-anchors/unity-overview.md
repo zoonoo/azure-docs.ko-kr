@@ -4,16 +4,15 @@ description: Unity 앱 내에서 Azure 공간 앵커를 사용 하는 방법에 
 author: msftradford
 ms.author: parkerra
 manager: MehranAzimi-msft
-services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 2/4/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9d64f4a23bf340f857d5aee8a3e0c99e1859091
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: a6d49864b371599901e8cf5f9945ceae972fe991
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575411"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669619"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 Unity에서 빌드
 

@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928718"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
@@ -27,7 +27,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 * Azure AD B2C 테 넌 트에 새 정책 업로드
 * 테 넌 트에서 사용자 지정 정책 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)

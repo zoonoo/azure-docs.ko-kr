@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: 9b37d313aa5d8c2255b4e3be69831dfcb50238ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84712550"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS 하위 도메인 위임
 
-Azure PowerShell을 사용하여 DNS 하위 도메인을 위임할 수 있습니다. 예를 들어 contoso.com 도메인을 소유하고 있으면 *engineering*이라는 하위 도메인을 contoso.com 영역과 별도로 관리할 수 있는 별도의 다른 영역에 위임할 수 있습니다.
+Azure PowerShell을 사용하여 DNS 하위 도메인을 위임할 수 있습니다. 예를 들어 contoso.com 도메인을 소유하고 있으면 *engineering* 이라는 하위 도메인을 contoso.com 영역과 별도로 관리할 수 있는 별도의 다른 영역에 위임할 수 있습니다.
 
 원하는 경우 [Azure Portal](delegate-subdomain.md)을 사용하여 하위 도메인을 위임할 수 있습니다.
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure DNS 하위 도메인을 위임하려면 먼저 공용 도메인을 Azure DNS에 위임해야 합니다. 위임에 대한 이름 서버를 구성하는 방법에 대한 지침은 [Azure DNS에 도메인 위임](./dns-delegate-domain-azure-dns.md)을 참조하세요. 도메인이 Azure DNS 영역에 위임되면 하위 도메인을 위임할 수 있습니다.
 

@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83744460"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>확인 방법으로 전화 번호 설정
@@ -57,15 +57,15 @@ ms.locfileid: "83744460"
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. **방법 추가** 페이지의 드롭다운 목록에서 **전화**를 선택한 다음, **추가**를 선택합니다.
+3. **방법 추가** 페이지의 드롭다운 목록에서 **전화** 를 선택한 다음, **추가** 를 선택합니다.
 
     ![전화가 선택된 방법 추가 상자](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. **전화** 페이지에서 모바일 디바이스의 전화 번호를 입력하고 **내게 전화 걸기**를 선택한 후, **다음**을 선택합니다.
+4. **전화** 페이지에서 모바일 디바이스의 전화 번호를 입력하고 **내게 전화 걸기** 를 선택한 후, **다음** 을 선택합니다.
 
     ![전화 번호를 추가하고 전화 통화 선택](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "83744460"
 
     ![보안 정보에서 전화 방법을 삭제하기 위한 링크](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
+2. 확인 상자에서 **예** 를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화** 가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
 
 ## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
@@ -102,7 +102,7 @@ ms.locfileid: "83744460"
 
     ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화(*_your_phone_number_*)** 를 선택한 다음, **확인**을 선택합니다.
+2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화(*_your_phone_number_*)** 를 선택한 다음, **확인** 을 선택합니다.
 
     ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 

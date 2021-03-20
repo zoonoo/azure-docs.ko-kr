@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92367977"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery에서 네트워크 보안 그룹 사용
@@ -27,9 +27,9 @@ Resource Manager 배포 모델에서 NSG는 서브넷 또는 개별 네트워크
 개별 서브넷에는 0 또는 1개의 연결된 NSG가 있을 수 있습니다. 개별 네트워크 인터페이스에도 0 또는 1개의 연결된 NSG가 있을 수 있습니다. 따라서 먼저 NSG를 서브넷에 연결 하 고 다른 NSG를 VM의 네트워크 인터페이스에 연결 하 여 가상 머신에 대 한 이중 트래픽 제한을 효과적으로 사용할 수 있습니다. 이 경우에 대한 NSG 규칙의 적용은 트래픽의 방향과 적용되는 보안 규칙의 우선 순위에 따라 달라집니다.
 
 다음과 같이 하나의 가상 머신을 사용하는 간단한 예를 살펴보겠습니다.
--    가상 머신이 **Contoso 서브넷**에 배치되어 있습니다.
--    **Contoso 서브넷**이 **서브넷 NSG**와 연결되어 있습니다.
--    VM 네트워크 인터페이스가 **VM NSG**와 추가로 연결되어 있습니다.
+-    가상 머신이 **Contoso 서브넷** 에 배치되어 있습니다.
+-    **Contoso 서브넷** 이 **서브넷 NSG** 와 연결되어 있습니다.
+-    VM 네트워크 인터페이스가 **VM NSG** 와 추가로 연결되어 있습니다.
 
 ![Site Recovery와 NSG](./media/concepts-network-security-group-with-site-recovery/site-recovery-with-network-security-group.png)
 
@@ -48,10 +48,10 @@ Azure Site Recovery를 사용하면 온-프레미스 [Hyper-V 가상 머신](hyp
 Azure로 장애 조치한 후에 VM을 만들면 NSG를 사용하여 네트워크 트래픽을 가상 네트워크 및 VM으로 제한할 수 있습니다. Site Recovery는 장애 조치 작업의 일부로 NSG를 만들지 않습니다. 장애 조치(failover)를 시작하기 전에 필요한 Azure NSG를 만드는 것이 좋습니다. 그런 다음 Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)을 사용 하 여 자동화 스크립트를 사용 하 여 장애 조치 (failover) 중에 nsgs를 장애 조치 (failover)에 자동으로
 
 예를 들어 장애 조치 후 VM 구성이 위에서 설명한 [시나리오 예](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)와 비슷한 경우 다음과 같이 수행할 수 있습니다:
--    대상 Azure 지역에서 DR 계획의 일부로 **Contoso VNet** 및 **Contoso 서브넷**을 만들 수 있습니다.
--    동일한 DR 계획의 일부로 **서브넷 NSG** 및 **VM NSG**를 모두 만들고 구성할 수도 있습니다.
--    이미 NSG와 서브넷을 모두 사용할 수 있으므로 **서브넷 NSG**를 **Contoso 서브넷**과 즉시 연결할 수 있습니다.
--    **VM NSG**는 복구 계획을 사용하여 장애 조치 중에 VM과 연결할 수 있습니다.
+-    대상 Azure 지역에서 DR 계획의 일부로 **Contoso VNet** 및 **Contoso 서브넷** 을 만들 수 있습니다.
+-    동일한 DR 계획의 일부로 **서브넷 NSG** 및 **VM NSG** 를 모두 만들고 구성할 수도 있습니다.
+-    이미 NSG와 서브넷을 모두 사용할 수 있으므로 **서브넷 NSG** 를 **Contoso 서브넷** 과 즉시 연결할 수 있습니다.
+-    **VM NSG** 는 복구 계획을 사용하여 장애 조치 중에 VM과 연결할 수 있습니다.
 
 NSG를 만들고 구성한 경우 [테스트 장애 조치](site-recovery-test-failover-to-azure.md)를 실행하여 스크립팅된 NSG 연결 및 장애 조치 후 VM 연결을 확인하는 것이 좋습니다.
 
@@ -64,10 +64,10 @@ Azure VM 복제의 경우 원본 Azure 지역의 NSG 규칙이 복제 트래픽�
 Site Recovery는 장애 조치 작업의 일부로 NSG를 만들거나 복제하지 않습니다. 장애 조치(failover)를 시작하기 전에 대상 Azure 지역에 필요한 NSG를 만드는 것이 좋습니다. 그런 다음 Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)을 사용 하 여 자동화 스크립트를 사용 하 여 장애 조치 (failover) 중에 nsgs를 장애 조치 (failover)에 자동으로
 
 앞에서 설명한 [시나리오 예](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)를 고려하면 다음과 같습니다.
--    VM에 대한 복제를 사용하도록 설정하면 Site Recovery는 대상 Azure 지역에 **Contoso VNet** 및 **Contoso 서브넷**의 복제본을 만들 수 있습니다.
--    대상 지역에 필요한 추가 규칙이 허용되도록 원하는 **서브넷 NSG** 및 **VM NSG** 복제본을 만들 수 있습니다(예: 각각 **대상 서브넷 NSG** 및 **대상 VM NSG**로 명명).
--    그러면 이미 NSG와 서브넷을 모두 사용할 수 있으므로 **대상 서브넷 NSG**를 대상 지역 서브넷과 즉시 연결할 수 있습니다.
--    **대상 VM NSG**는 복구 계획을 사용하여 장애 조치 중에 VM과 연결할 수 있습니다.
+-    VM에 대한 복제를 사용하도록 설정하면 Site Recovery는 대상 Azure 지역에 **Contoso VNet** 및 **Contoso 서브넷** 의 복제본을 만들 수 있습니다.
+-    대상 지역에 필요한 추가 규칙이 허용되도록 원하는 **서브넷 NSG** 및 **VM NSG** 복제본을 만들 수 있습니다(예: 각각 **대상 서브넷 NSG** 및 **대상 VM NSG** 로 명명).
+-    그러면 이미 NSG와 서브넷을 모두 사용할 수 있으므로 **대상 서브넷 NSG** 를 대상 지역 서브넷과 즉시 연결할 수 있습니다.
+-    **대상 VM NSG** 는 복구 계획을 사용하여 장애 조치 중에 VM과 연결할 수 있습니다.
 
 NSG를 만들고 구성한 경우 [테스트 장애 조치](azure-to-azure-tutorial-dr-drill.md)를 실행하여 스크립팅된 NSG 연결 및 장애 조치 후 VM 연결을 확인하는 것이 좋습니다.
 
