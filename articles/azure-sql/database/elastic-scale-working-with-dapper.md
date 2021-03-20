@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793367"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
@@ -23,7 +23,7 @@ ms.locfileid: "92793367"
 
 이 문서는 Dapper를 기반으로 애플리케이션을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 애플리케이션을 만들기 위해 [탄력적 데이터베이스 도구](elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 애플리케이션에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
 
-**샘플 코드** : [Azure SQL Database - Dapper 통합에 대한 Elastic Database 도구](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**샘플 코드**: [Azure SQL Database - Dapper 통합에 대한 Elastic Database 도구](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 **Dapper** 와 **DapperExtensions** 는 Azure SQL Database의 탄력적 데이터베이스 클라이언트와 쉽게 통합할 수 있습니다. 애플리케이션에서는 새로운 [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) 개체를 만들고 열 때 [클라이언트 라이브러리](/previous-versions/azure/dn765902(v=azure.100))의 [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) 호출을 사용하도록 변경하여 데이터 종속 라우팅을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 열 때만 해당 호출을 사용하도록 변경됩니다. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "92793367"
 
 Dapper의 매퍼 기능은 데이터베이스 쿼리 또는 실행을 위해 T-SQL 문을 전송하는 과정을 간소화하는 확장 메서드를 데이터베이스 연결에 대해 제공합니다. 예를 들어 Dapper를 사용하면 **Execute** 호출을 위한 SQL 문의 매개 변수와 .NET 개체 간 매핑을 쉽게 수행하거나 Dapper에서 **Query** 호출을 사용하여 SQL 쿼리의 결과를 .NET 개체에 사용할 수 있습니다. 
 
-DapperExtensions를 사용할 때는 더 이상 SQL 문을 입력하지 않아도 됩니다. 데이터베이스 연결에 대해 **GetList** , **Insert** 등의 확장 메서드를 사용하는 경우 SQL 문이 백그라운드에서 작성됩니다.
+DapperExtensions를 사용할 때는 더 이상 SQL 문을 입력하지 않아도 됩니다. 데이터베이스 연결에 대해 **GetList**, **Insert** 등의 확장 메서드를 사용하는 경우 SQL 문이 백그라운드에서 작성됩니다.
 
 Dapper 및 DapperExtensions를 사용할 때 또 다른 이점은 애플리케이션의 데이터베이스 연결 작성을 제어한다는 것입니다. 따라서 데이터베이스에 대한 shardlet 매핑을 기준으로 데이터베이스 연결을 조정하는 탄력적 데이터베이스 클라이언트 라이브러리와 상호 작용이 가능합니다.
 
@@ -50,9 +50,9 @@ Dapper 어셈블리를 확인하려면 [Dapper.net](https://www.nuget.org/packag
 ### <a name="requirements-for-dapper-integration"></a>Dapper 통합을 위한 요구 사항
 탄력적 데이터베이스 클라이언트 라이브러리와 Dapper API를 모두 사용할 때는 다음 속성을 유지해야 합니다.
 
-* **규모 확장** : 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 
-* **일관성** : 애플리케이션은 분할을 사용하여 규모가 확장되므로 데이터 종속 라우팅을 수행해야 합니다. 이를 위해 라이브러리의 데이터 종속 라우팅 기능을 사용합니다. 특히 손상이나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵을 통해 조정되는 연결에서 보장하는 유효성 검사 및 일관성을 유지해야 합니다. 이렇게 하면 예를 들어 지정된 shardlet이 분할/병합 API를 사용하여 현재 다른 분할된 데이터베이스로 이동되어 있는 경우 해당 shardlet에 대한 연결이 거부되거나 중지됩니다.
-* **개체 매핑** : 애플리케이션의 클래스와 기본 데이터베이스 구조 간 변환을 수행하기 위해 Dapper에서 제공하는 편리한 매핑 기능을 유지합니다. 
+* **규모 확장**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 
+* **일관성**: 애플리케이션은 분할을 사용하여 규모가 확장되므로 데이터 종속 라우팅을 수행해야 합니다. 이를 위해 라이브러리의 데이터 종속 라우팅 기능을 사용합니다. 특히 손상이나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵을 통해 조정되는 연결에서 보장하는 유효성 검사 및 일관성을 유지해야 합니다. 이렇게 하면 예를 들어 지정된 shardlet이 분할/병합 API를 사용하여 현재 다른 분할된 데이터베이스로 이동되어 있는 경우 해당 shardlet에 대한 연결이 거부되거나 중지됩니다.
+* **개체 매핑**: 애플리케이션의 클래스와 기본 데이터베이스 구조 간 변환을 수행하기 위해 Dapper에서 제공하는 편리한 매핑 기능을 유지합니다. 
 
 다음 섹션에서는 **Dapper** 및 **DapperExtensions** 를 기반으로 하는 애플리케이션에 대한 이러한 요구 사항 관련 지침을 제공합니다.
 

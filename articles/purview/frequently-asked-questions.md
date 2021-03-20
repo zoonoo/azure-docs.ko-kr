@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667805"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Azure 부서의 범위에 대 한 FAQ (질문과 대답)
@@ -34,7 +34,7 @@ Azure 부서의 범위는 데이터 거 버 넌 스 솔루션입니다. 이를 �
 |Azure Synapse Analytics(SQL DW)|SQL Server |
 |Azure Cosmos DB|Teradata (2020의 끝에서 사용 가능)|
 |Azure SQL Managed Instance|SAP ECC (2020의 끝에서 사용 가능)|
-|Azure Data Explorer|SAP S/4 HANA (2020의 끝에서 사용 가능)|
+|Azure 데이터 탐색기|SAP S/4 HANA (2020의 끝에서 사용 가능)|
 |Azure Data Lake Storage Gen1|Hive Metastore (2020의 끝에서 사용 가능)|
 |Azure Data Lake Storage Gen2|Amazon S3|
 |Azure 파일|--|

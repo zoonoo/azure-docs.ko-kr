@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 25c56bff88fa393a505103afc95436fb13cd6401
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583059"
 ---
 - Azure Stack Edge 서비스에 액세스 하려면 조직에 기업계약 (EA) 또는 CSP (클라우드 솔루션 공급자) 구독이 있어야 합니다. 자세한 내용은 [Azure 구독에 등록](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)을 참조 하세요.

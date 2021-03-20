@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426180"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
@@ -107,7 +107,7 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 * 내부/개인 및 외부/공용 네트워크에 대한 경로를 식별합니다.
 * 디바이스에서 모든 이름 및 정책 번호가 고유한지 확인합니다.
 * 디바이스에서 암호화 알고리즘이 지원되는지 확인합니다.
-* 다음 **자리 표시자 값**을 구성에 대한 실제 값으로 바꿉니다.
+* 다음 **자리 표시자 값** 을 구성에 대한 실제 값으로 바꿉니다.
   - 외부 인터페이스 이름: **외부**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**

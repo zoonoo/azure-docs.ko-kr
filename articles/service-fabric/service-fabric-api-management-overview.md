@@ -4,10 +4,10 @@ description: 이 문서에서는 Service Fabric 애플리케이션에 대한 게
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575689"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
@@ -21,7 +21,7 @@ ms.locfileid: "96575689"
 > [!IMPORTANT]
 > 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 공통 Service Fabric 아키텍처는 HTTP API를 노출하는 백 엔드 서비스에 HTTP 호출을 수행하는 단일 페이지 웹 애플리케이션을 사용합니다. [Service Fabric 시작 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)는 이 아키텍처의 예를 보여 줍니다.
 
@@ -75,7 +75,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다. 
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
@@ -94,7 +94,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 - `fabric:/app/users/<username>`
 
-  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 다음은 그 예입니다. 
+  각 서비스에는 고유한 이름이 있지만 사용자 또는 관리자 입력에 대한 응답으로 서비스가 생성되어 APIM 정책이나 라우팅 규칙에 하드 코딩될 수 없기 때문에 이름을 미리 알 수 없습니다. 대신, 요청을 보낼 서비스 이름은 URL 요청 경로에 제공된 `name` 값에서 백 엔드 정책 정의에 생성됩니다. 예를 들면 다음과 같습니다.
 
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.

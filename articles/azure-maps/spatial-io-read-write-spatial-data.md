@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891332"
 ---
 # <a name="read-and-write-spatial-data"></a>공간 데이터 읽기 및 쓰기
@@ -57,14 +57,14 @@ Read 함수의 결과는 `SpatialDataSet` 개체입니다. 이 개체는 GeoJSON
 
 <br/>
 
-<iframe height='500' scrolling='no' title='공간 데이터를 간단 하 게 로드' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>공간 데이터를 간단</a> 하 게 로드 Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='공간 데이터를 간단 하 게 로드' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>공간 데이터를 간단</a> 하 게 로드 Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 다음 코드 데모에서는 KML 또는 KMZ를 맵에 읽고 로드 하는 방법을 보여 줍니다. KML은 또는 형식으로 된 접지 오버레이를 포함할 수 있습니다 `ImageLyaer` `OgcMapLayer` . 이러한 오버레이는 기능에서 별도로 맵에 추가 해야 합니다. 또한 데이터 집합에 사용자 지정 아이콘이 있는 경우 기능을 로드 하기 전에 해당 아이콘을 맵 리소스에 로드 해야 합니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='지도에 KML 로드' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()를 통해 Map to Map에 대 한 Pen <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>LOAD KML</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='지도에 KML 로드' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()를 통해 Map to Map에 대 한 Pen <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>LOAD KML</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 필요에 따라 CORS를 사용 하지 않을 수 있는 도메인 간 자산에 액세스 하기 위한 프록시 서비스를 제공할 수 있습니다. Read 함수는 CORS를 먼저 사용 하 여 다른 도메인의 파일에 액세스 하려고 시도 합니다. 처음에 CORS를 사용 하 여 다른 도메인의 리소스에 액세스 하지 못한 경우 프록시 서비스가 제공 된 경우에만 추가 파일을 요청 합니다. Read 함수는 제공 된 프록시 URL의 끝에 파일 URL을 추가 합니다. 이 코드 조각은 읽기 함수에 프록시 서비스를 전달 하는 방법을 보여 줍니다.
@@ -86,7 +86,7 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='구분 된 파일 추가' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>구분 된 파일 추가</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> )를 <a href='https://codepen.io'>CodePen</a>참조 하세요.
+<iframe height='500' scrolling='no' title='구분 된 파일 추가' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>구분 된 파일 추가</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> )를 <a href='https://codepen.io'></a>참조 하세요.
 </iframe>
 
 ## <a name="write-spatial-data"></a>공간 데이터 쓰기
@@ -97,7 +97,7 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 
 <br/>
 
-<iframe height='700' scrolling='no' title='공간 데이터 쓰기 옵션' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>공간 데이터 쓰기 옵션</a> 을 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='공간 데이터 쓰기 옵션' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>공간 데이터 쓰기 옵션</a> 을 확인 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="example-of-writing-spatial-data"></a>공간 데이터를 작성 하는 예제
@@ -106,7 +106,7 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 
 <br/>
 
-<iframe height='700' scrolling='no' title='공간 파일을 맵으로 끌어서 놓기' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>공간 파일 끌어서 놓기</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='공간 파일을 맵으로 끌어서 놓기' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>공간 파일 끌어서 놓기</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 필요에 따라 CORS를 사용 하지 않을 수 있는 도메인 간 자산에 액세스 하기 위한 프록시 서비스를 제공할 수 있습니다. 이 코드 조각에서는 프록시 서비스를 통합할 수 있는 방법을 보여 줍니다.
@@ -135,14 +135,14 @@ WKT ( [잘 알려진 텍스트](https://en.wikipedia.org/wiki/Well-known_text_re
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Well-Known 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>읽기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='Well-Known 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>읽기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 다음 코드는 잘 알려진 텍스트를 앞뒤로 읽고 쓰는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Well-Known 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='Well-Known 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="read-and-write-gml"></a>읽기 및 쓰기 GML

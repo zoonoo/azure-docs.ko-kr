@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530258"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>2단계 인증 방법으로 모바일 디바이스 설정
@@ -26,17 +26,17 @@ ms.locfileid: "91530258"
 
 ## <a name="set-up-your-mobile-device-to-use-a-text-message-as-your-verification-method"></a>인증 방법으로 문자 메시지를 사용하도록 모바일 디바이스 설정
 
-1. **추가 보안 인증** 페이지에서 **인증 전화**를 **1단계: 사용자에게 연락하는 방법** 영역에서 선택하고, 드롭다운 목록에서 사용자의 국가 또는 지역을 선택합니다. 그런 다음, 모바일 디바이스 전화 번호를 입력합니다.
+1. **추가 보안 인증** 페이지의 **1 단계: 사용자에 게 연락 하는 방법** 영역에서 **인증 전화** 를 선택 하 고, 드롭다운 목록에서 국가 또는 지역을 선택 하 고, 모바일 장치 전화 번호를 입력 합니다.
 
-2. **방법** 영역에서 **문자 메시지로 코드 보내기**를 선택하고 **다음**을 선택합니다.
+2. **방법** 영역에서 **문자 메시지로 코드 보내기** 를 선택하고 **다음** 을 선택합니다.
 
     !["인증 전화" 및 "문자 메시지로 코드 보내기"를 선택 하 여 "추가 보안 확인" 페이지를 보여 주는 스크린샷](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
-3. Microsoft로부터 전송된 문자 메시지의 인증 코드를 **2단계: 휴대폰으로 문자 메시지를 전송했습니다** 영역에 입력한 다음, **확인**을 선택합니다.
+3. Microsoft에서 보낸 텍스트 메시지의 확인 코드를 **2 단계: 휴대폰 영역에 문자 메시지를 보냈습니다.** 를 입력 한 다음 **확인** 을 선택 합니다.
 
     ![인증 전화 및 문자 메시지를 사용하는 추가 보안 인증 페이지](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
-4. **3단계: 기존 애플리케이션 사용 유지** 영역에 제공된 앱 암호를 복사하여 안전한 곳에 붙여넣습니다.
+4. **3 단계: 기존 응용 프로그램 계속 사용** 영역에서 제공 된 앱 암호를 복사 하 여 안전한 곳에 붙여넣습니다.
 
     ![추가 보안 인증 페이지의 앱 암호 영역](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -47,9 +47,9 @@ ms.locfileid: "91530258"
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>휴대폰 통화를 수신하도록 모바일 디바이스 설정
 
-1. **추가 보안 인증** 페이지에서 **인증 전화**를 **1단계: 사용자에게 연락하는 방법** 영역에서 선택하고, 드롭다운 목록에서 사용자의 국가 또는 지역을 선택합니다. 그런 다음, 모바일 디바이스 전화 번호를 입력합니다.
+1. **추가 보안 인증** 페이지의 **1 단계: 사용자에 게 연락 하는 방법** 영역에서 **인증 전화** 를 선택 하 고, 드롭다운 목록에서 국가 또는 지역을 선택 하 고, 모바일 장치 전화 번호를 입력 합니다.
 
-2. **방법** 영역에서 **내게 전화 걸기**를 선택한 다음, **다음**을 선택합니다.
+2. **방법** 영역에서 **내게 전화 걸기** 를 선택한 다음, **다음** 을 선택합니다.
 
     ![인증 전화 및 전화 통화를 사용하는 추가 보안 인증 페이지](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "91530258"
 
     ![지정된 전화 번호 테스트](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
-4. **3단계: 기존 애플리케이션 사용 유지** 영역에 제공된 앱 암호를 복사하여 안전한 곳에 붙여넣습니다.
+4. **3 단계: 기존 응용 프로그램 계속 사용** 영역에서 제공 된 앱 암호를 복사 하 여 안전한 곳에 붙여넣습니다.
 
     ![추가 보안 인증 페이지의 앱 암호 영역](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

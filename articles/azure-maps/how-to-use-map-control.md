@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378709"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
 
-이 설명서에서는 Azure Maps 웹 SDK를 사용 하지만 Azure Maps 서비스는 모든 지도 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인의를 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음과](open-source-projects.md#third-part-map-control-plugins) 같습니다.
+이 설명서에서는 Azure Maps 웹 SDK를 사용 하지만 Azure Maps 서비스는 모든 지도 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

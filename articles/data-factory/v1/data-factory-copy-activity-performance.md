@@ -8,10 +8,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377213"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
@@ -203,8 +203,8 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 | 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |N/A |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
-| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
+| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
+| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 앞의 표에 설명된 속성이 있는 복사 작업의 샘플 정의는 다음과 같습니다.

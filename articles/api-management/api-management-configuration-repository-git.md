@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89400361"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
@@ -60,7 +60,7 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git 리포지토리에 서비스 구성 저장
 
-리포지토리를 복제하기 전에 수행할 첫 번째 단계는 서비스 구성의 현재 상태를 리포지토리에 저장하는 것입니다. **리포지토리에 저장**을 클릭합니다.
+리포지토리를 복제하기 전에 수행할 첫 번째 단계는 서비스 구성의 현재 상태를 리포지토리에 저장하는 것입니다. **리포지토리에 저장** 을 클릭합니다.
 
 확인 화면에서 원하는 변경을 수행 하 **고 저장을 클릭 하** 여 저장 합니다.
 
@@ -72,9 +72,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>로컬 컴퓨터에 리포지토리 복제
 
-리포지토리를 복제하려면 리포지토리에 대한 URL, 사용자 이름 및 암호가 필요합니다. 사용자 이름 및 기타 자격 증명을 가져오려면 페이지의 맨 위 가까이에 있는 **액세스 자격 증명**을 클릭합니다.
+리포지토리를 복제하려면 리포지토리에 대한 URL, 사용자 이름 및 암호가 필요합니다. 사용자 이름 및 기타 자격 증명을 가져오려면 페이지의 맨 위 가까이에 있는 **액세스 자격 증명** 을 클릭합니다.
 
-암호를 생성하려면 먼저 **만료**가 원하는 만료 날짜 및 시간으로 설정되었는지 확인한 다음, **생성**을 클릭합니다.
+암호를 생성하려면 먼저 **만료** 가 원하는 만료 날짜 및 시간으로 설정되었는지 확인한 다음, **생성** 을 클릭합니다.
 
 > [!IMPORTANT]
 > 이 암호를 기록해 둡니다. 이 페이지를 떠나면 암호가 다시 표시되지 않습니다.
@@ -96,7 +96,7 @@ git clone https://{name}.scm.azure-api.net/
 git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
-그래도 오류가 발생하면 명령의 암호 부분에 대해 URL 인코딩을 시도해 보십시오. 이렇게 하는 한 가지 빠른 방법은 Visual Studio를 열고 **직접 실행 창**에서 다음 명령을 실행하는 것입니다. **직접 실행 창**을 열려면 Visual Studio에서 솔루션 또는 프로젝트를 열고(또는 비어 있는 새 콘솔 애플리케이션을 만들고) **디버그** 메뉴에서 **창**, **직접 실행**을 선택합니다.
+그래도 오류가 발생하면 명령의 암호 부분에 대해 URL 인코딩을 시도해 보십시오. 이렇게 하는 한 가지 빠른 방법은 Visual Studio를 열고 **직접 실행 창** 에서 다음 명령을 실행하는 것입니다. **직접 실행 창** 을 열려면 Visual Studio에서 솔루션 또는 프로젝트를 열고(또는 비어 있는 새 콘솔 애플리케이션을 만들고) **디버그** 메뉴에서 **창**, **직접 실행** 을 선택합니다.
 
 ```
 ?System.Net.WebUtility.UrlEncode("password from the Azure portal")

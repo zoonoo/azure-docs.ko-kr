@@ -11,17 +11,17 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.openlocfilehash: ee356f32b6799c6182ec1c9e061a35271a4bbc23
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556966"
 ---
 # <a name="assign-azure-roles-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할을 할당 하려면 다음을 수행 해야 합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
 ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192668"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
@@ -127,9 +127,9 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 
 | 조건 | 구문 | 예제 | Description |
 | --------- | ------ | --------| ----------- |
-| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referrer:=unspecified} | 누락되었거나 NULL로 설정한 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referrer=unspecified} | 누락된 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | %{http_referrer:+unspecified} | 값이 할당된 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referrer:=unspecified} | 누락되었거나 NULL로 설정한 경우에만 참조자 헤더가 *unspecified* 로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referrer=unspecified} | 누락된 경우에만 참조자 헤더가 *unspecified* 로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | %{http_referrer:+unspecified} | 값이 할당된 경우에만 참조자 헤더가 *unspecified* 로 설정됩니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
 
 ## <a name="manipulating-variables"></a>변수 조작
 변수는 다음과 같은 방법으로 조작할 수 있습니다.

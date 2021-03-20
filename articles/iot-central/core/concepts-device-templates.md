@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: 04c2330ffee396f5fc30b85640e992df77c08263
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97795431"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
@@ -274,7 +274,7 @@ IoT Central 데이터 내보내기 기능을 사용 하 여 저장소 또는 Eve
 
 사용자 지정은 장치 개발자가 장치 모델을 구현 하기 위해 작성 하는 코드에 영향을 줄 수 있습니다. 예를 들어 사용자 지정은 원격 분석을 위해 최소 및 최대 문자열 길이 또는 최소 및 최대 숫자 값을 설정할 수 있습니다.
 
-## <a name="views"></a>보기
+## <a name="views"></a>뷰
 
 솔루션 개발자는 운영자가 연결 된 장치를 모니터링 하 고 관리할 수 있는 뷰를 만듭니다. 보기는 장치 템플릿의 일부 이므로 뷰가 특정 장치 유형과 연결 됩니다. 보기에는 다음이 포함 될 수 있습니다.
 

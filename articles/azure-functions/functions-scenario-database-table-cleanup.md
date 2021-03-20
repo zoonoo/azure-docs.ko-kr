@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/02/2019
 ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88207254"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
@@ -32,9 +32,9 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
+1. 왼쪽 메뉴에서 **SQL Database** 를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
 
-1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. Azure SQL Managed Instance 공용 끝점에 대 한 연결 문자열을 복사 합니다.
+1. **설정** 아래에서 **연결 문자열** 을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. Azure SQL Managed Instance 공용 끝점에 대 한 연결 문자열을 복사 합니다.
 
     ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -44,11 +44,11 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**  >  **Azure App Service 설정 편집**을 선택 합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**  >  **Azure App Service 설정 편집** 을 선택 합니다. **설정 추가** 를 선택하고, **새 앱 설정 이름** 에서 `sqldb_connection`을 입력하고, **확인** 을 선택합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. 새로운 **sqldb_connection** 설정에서는 이전 섹션에서 복사한 연결 문자열을 **로컬** 필드에 붙여넣고, `{your_username}` 및 `{your_password}` 자리 표시자를 실제 값으로 바꿉니다. **로컬에서 값 삽입**을 선택하여 업데이트된 값을 **원격** 필드에 복사한 다음, **확인**을 선택합니다.
+1. 새로운 **sqldb_connection** 설정에서는 이전 섹션에서 복사한 연결 문자열을 **로컬** 필드에 붙여넣고, `{your_username}` 및 `{your_password}` 자리 표시자를 실제 값으로 바꿉니다. **로컬에서 값 삽입** 을 선택하여 업데이트된 값을 **원격** 필드에 복사한 다음, **확인** 을 선택합니다.
 
     ![SQL 연결 문자열 설정을 추가합니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
@@ -60,25 +60,25 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 1. Visual Studio 2019에서 로컬 함수 앱 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리** 를 선택합니다.
 
 1. **찾아보기** 탭에서 ```System.Data.SqlClient```를 검색하고 찾은 항목을 선택합니다.
 
-1. **System.Data.SqlClient** 페이지에서 `4.5.1` 버전을 선택한 다음, **설치**를 클릭합니다.
+1. **System.Data.SqlClient** 페이지에서 `4.5.1` 버전을 선택한 다음, **설치** 를 클릭합니다.
 
-1. 설치가 완료되면 변경 내용을 검토한 다음 **확인**을 클릭하여 **미리 보기** 창을 닫습니다.
+1. 설치가 완료되면 변경 내용을 검토한 다음 **확인** 을 클릭하여 **미리 보기** 창을 닫습니다.
 
-1. **라이선스 승인** 창이 표시되면 **동의**를 클릭합니다.
+1. **라이선스 승인** 창이 표시되면 **동의** 를 클릭합니다.
 
 이제 SQL Database와 연결하는 C# 함수 코드를 추가할 수 있습니다.
 
 ## <a name="add-a-timer-triggered-function"></a>타이머 트리거 함수 추가
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **새 Azure 함수**추가를 선택 합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고   >  **새 Azure 함수** 추가를 선택 합니다.
 
-1. **Azure Functions** 템플릿을 선택하여 새 항목의 이름을 `DatabaseCleanup.cs`와 같이 지정하고, **추가**를 선택합니다.
+1. **Azure Functions** 템플릿을 선택하여 새 항목의 이름을 `DatabaseCleanup.cs`와 같이 지정하고, **추가** 를 선택합니다.
 
-1. **새 Azure 함수** 대화 상자에서 **타이머 트리거** 및 **확인**을 차례로 선택합니다. 이 대화 상자에서는 타이머 트리거 함수에 대한 코드 파일을 만듭니다.
+1. **새 Azure 함수** 대화 상자에서 **타이머 트리거** 및 **확인** 을 차례로 선택합니다. 이 대화 상자에서는 타이머 트리거 함수에 대한 코드 파일을 만듭니다.
 
 1. 새 코드 파일을 열고, 파일 맨 위에 다음 using 문을 추가합니다.
 

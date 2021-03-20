@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205963"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예
@@ -49,11 +49,11 @@ Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Sto
 Azure Portal에서 *function.js* 의 내용을 보고 편집 하려면 함수의 **통합** 탭에서 **고급 편집기** 옵션을 클릭 합니다.
 
 > [!NOTE]
-> `connection`의 값은 연결 문자열 자체가 아닌 연결 문자열을 포함하는 앱 설정의 이름입니다. 바인딩은 *function.json*에 서비스 비밀이 포함되지 않은 모범 사례를 실행하기 위해 앱 설정에 저장된 연결 문자열을 사용합니다.
+> `connection`의 값은 연결 문자열 자체가 아닌 연결 문자열을 포함하는 앱 설정의 이름입니다. 바인딩은 *function.json* 에 서비스 비밀이 포함되지 않은 모범 사례를 실행하기 위해 앱 설정에 저장된 연결 문자열을 사용합니다.
 
 ## <a name="c-script-example"></a>C# 스크립트 예제
 
-이 트리거 및 바인딩을 사용하는 C# 스크립트 코드는 다음과 같습니다. 큐 메시지 콘텐츠를 제공하는 매개 변수 이름은 `order`이며 *function.json*의 `name` 속성 값은 `order`이므로 이 이름이 필요합니다. 
+이 트리거 및 바인딩을 사용하는 C# 스크립트 코드는 다음과 같습니다. 큐 메시지 콘텐츠를 제공하는 매개 변수 이름은 `order`이며 *function.json* 의 `name` 속성 값은 `order`이므로 이 이름이 필요합니다. 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -83,7 +83,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-JavaScript 함수를 사용 하 여 파일 * 에 대해 동일한function.js* 를 사용할 수 있습니다.
+JavaScript 함수를 사용 하 여 파일 *에 대해 동일한function.js* 를 사용할 수 있습니다.
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage

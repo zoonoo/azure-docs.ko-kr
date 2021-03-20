@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98876514"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 솔루션 템플릿 계획

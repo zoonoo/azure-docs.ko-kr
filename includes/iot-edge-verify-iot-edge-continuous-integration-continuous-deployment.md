@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
 ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89303054"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>빌드 및 릴리스 파이프라인을 사용하여 IoT Edge CI/CD 확인
@@ -21,7 +21,7 @@ ms.locfileid: "89303054"
 
     ![파이프라인 실행 단추를 사용 하 여 빌드 파이프라인 수동으로 트리거](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/manual-trigger.png)
 
-3. **파이프라인 실행** 설정을 검토 합니다. 그런 다음 **실행**을 선택 합니다.
+3. **파이프라인 실행** 설정을 검토 합니다. 그런 다음 **실행** 을 선택 합니다.
 
     ![파이프라인 실행 옵션을 지정 하 고 실행을 선택 합니다.](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/run-pipeline-settings.png)
 

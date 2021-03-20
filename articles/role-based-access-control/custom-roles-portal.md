@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 12/11/2020
 ms.author: rolyon
 ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369229"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 [Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 

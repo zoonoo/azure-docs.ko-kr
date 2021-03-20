@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99548664"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
@@ -124,7 +124,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 

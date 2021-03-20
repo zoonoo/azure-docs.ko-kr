@@ -10,17 +10,17 @@ ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
 ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556830"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Azure 구독의 관리자로 사용자 할당
 
 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할은 사용자에 게 다른 사용자에 게 액세스 권한을 부여할 수 있는 권한을 포함 하 여 구독에 있는 모든 리소스에 대 한 모든 권한을 부여 합니다. 이러한 단계는 다른 역할 할당과 동일합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
@@ -89,6 +89,6 @@ ms.locfileid: "100556830"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure Portal을 사용하여 Azure 역할 할당을 나열](role-assignments-list-portal.md)합니다.
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)

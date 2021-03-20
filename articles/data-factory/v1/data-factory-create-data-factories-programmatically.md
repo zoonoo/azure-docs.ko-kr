@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1b7f5d1ad671b6d97bd6597386c714b026c02232
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376856"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -25,7 +25,7 @@ ms.locfileid: "100376856"
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/overview/azure/data-factory)를 참조하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

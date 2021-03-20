@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895786"
 ---
 # <a name="extended-geojson-geometries"></a>확장 된 GeoJSON 기 하 도형
@@ -45,7 +45,7 @@ Azure Maps는 내부 및 지역별 기능을 검색할 수 있는 강력한 Api 
 
 - 반지름
 
-    원의 `radius`는 `GeoJSON Feature`의 속성을 사용하여 표현됩니다. 반지름 값은 미터( _meters_ ) 단위이고 `double` 형식이어야 합니다.
+    원의 `radius`는 `GeoJSON Feature`의 속성을 사용하여 표현됩니다. 반지름 값은 미터(_meters_) 단위이고 `double` 형식이어야 합니다.
 
 - 하위 유형
 

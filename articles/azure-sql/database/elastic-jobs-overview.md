@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792177"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>탄력적 작업 만들기, 구성 및 관리 (미리 보기)
@@ -51,10 +51,10 @@ ms.locfileid: "92792177"
 작업을 실행하기 위해 적절한 자격 증명을 설정하면 다소 혼동을 줄 수 있으므로 다음 사항을 염두에 두어야 합니다.
 
 - 데이터베이스 범위 자격 증명은 *작업 데이터베이스* 에 만들어야 합니다.
-- **모든 대상 데이터베이스는 작업이 성공적으로 완료되게 하려면 [충분한 사용 권한](/sql/relational-databases/security/permissions-database-engine)으로 로그인해야 합니다** (아래 다이어그램의 `jobuser`).
+- **모든 대상 데이터베이스는 작업이 성공적으로 완료되게 하려면 [충분한 사용 권한](/sql/relational-databases/security/permissions-database-engine)으로 로그인해야 합니다**(아래 다이어그램의 `jobuser`).
 - 자격 증명은 작업 간에 다시 사용할 수 있고, 자격 증명 암호는 암호화되어 작업 개체에 읽기 전용 액세스 권한이 있는 사용자로부터 보호됩니다.
 
-다음 이미지는 적절한 작업 자격 증명을 이해하고 설정하는 데 도움이 되도록 설계되었습니다. **모든 데이터베이스에서 사용자를 만들려면(모든 *대상 사용자 dbs* ) 작업이 실행돼야 합니다** .
+다음 이미지는 적절한 작업 자격 증명을 이해하고 설정하는 데 도움이 되도록 설계되었습니다. **모든 데이터베이스에서 사용자를 만들려면(모든 *대상 사용자 dbs*) 작업이 실행돼야 합니다**.
 
 ![탄력적 작업 자격 증명](./media/elastic-jobs-overview/job-credentials.png)
 

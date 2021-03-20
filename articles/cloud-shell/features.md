@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89470156"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
@@ -57,7 +57,7 @@ Cloud Shell PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함 �
 
 ![명령 Connect-EXOPSSession 및 Get 사용자를 실행 하는 Azure Cloud Shell의 스크린샷](media/features-powershell/exchangeonline.png)
 
- `Get-Command -Module tmp_*`를 실행합니다.
+ `Get-Command -Module tmp_*`을 실행합니다.
 > [!NOTE]
 > 모듈 이름은로 시작 해야 하며 `tmp_` , 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet도 표시 됩니다. 
 
@@ -78,11 +78,11 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
 |컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼핏 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp 팩](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
+|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼핏 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>언어 지원
 
-|Language   |버전   |
+|언어   |버전   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
 |Go         |1.9        |

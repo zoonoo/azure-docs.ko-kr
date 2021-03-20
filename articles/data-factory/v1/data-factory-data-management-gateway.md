@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375207"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
@@ -66,7 +66,7 @@ ms.locfileid: "100375207"
 * 데이터 저장소가 **Azure IaaS VM** 의 클라우드에 있더라도 **게이트웨이를 사용** 해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
 * 게이트웨이 컴퓨터에 권장 되는 **구성은** 최소 2ghz, 4 개 코어, 8gb RAM 및 80 gb 디스크입니다.
@@ -302,7 +302,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Configuration Manager
+## <a name="configuration-manager"></a>구성 관리자
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이** 를 입력하여 이 유틸리티에 액세스합니다.
@@ -417,7 +417,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
     ![구성 페이지](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 를 열어 둡니다.
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![구성 관리자](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. 포털의 **구성** 페이지에서 명령 모음에 있는 **키 다시 만들기** 를 클릭하고 경고 메시지가 나타나면 **예** 를 클릭합니다. 키 텍스트 옆의 **복사 단추** 를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.
 
     ![키 2 다시 만들기](./media/data-factory-data-management-gateway/RecreateKey.png)

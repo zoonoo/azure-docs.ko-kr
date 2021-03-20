@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997089"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
@@ -22,7 +22,7 @@ BlockBlobStorage 계정 종류를 사용 하면 프리미엄 성능 특성을 �
 
 BlockBlobStorage 계정에 대 한 자세한 내용은 [Azure storage 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

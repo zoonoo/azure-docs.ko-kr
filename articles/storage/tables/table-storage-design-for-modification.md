@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88236763"
 ---
 # <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 아티클에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 관계형 데이터베이스의 디자인과 마찬가지로(관계형 데이터베이스의 경우 디자인 장단점을 관리하는 기술이 다름), 쿼리에 최적화된 디자인과 데이터 수정에 최적화된 디자인 간의 장단점을 평가해야 하는 경우가 있을 수 있습니다. 테이블 디자인 패턴 섹션은 Table service에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>삽입, 업데이트 및 삭제 작업 성능 최적화
-엔터티를 업데이트하거나 삭제하려면 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 식별할 수 있어야 합니다. 이러한 점에서, 엔터티 수정을 위해 **PartitionKey** 및 **RowKey**를 선택할 때는 가급적 효율적으로 엔터티를 식별할 수 있어야 하므로 지점 쿼리를 지원하기 위해 선택한 것과 유사한 조건을 따라야 합니다. 업데이트하거나 삭제해야 하는 **PartitionKey** 및 **RowKey** 값을 찾기 위해 비효율적인 파티션 또는 테이블 검색을 사용하여 엔터티를 찾고 싶지는 않을 것입니다.  
+엔터티를 업데이트하거나 삭제하려면 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 식별할 수 있어야 합니다. 이러한 점에서, 엔터티 수정을 위해 **PartitionKey** 및 **RowKey** 를 선택할 때는 가급적 효율적으로 엔터티를 식별할 수 있어야 하므로 지점 쿼리를 지원하기 위해 선택한 것과 유사한 조건을 따라야 합니다. 업데이트하거나 삭제해야 하는 **PartitionKey** 및 **RowKey** 값을 찾기 위해 비효율적인 파티션 또는 테이블 검색을 사용하여 엔터티를 찾고 싶지는 않을 것입니다.  
 
 테이블 디자인 패턴 섹션의 다음 패턴은 성능 또는 삽입, 업데이트, 삭제 작업의 최적화를 다룹니다.  
 

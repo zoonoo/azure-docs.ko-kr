@@ -9,10 +9,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: 38403eed56dc718afdfce13375dd2662beb13eb6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374170"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Power BI의 Azure Time Series Insights에서 데이터 시각화
@@ -26,7 +26,7 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 * Power BI에 보고서를 게시 하 고 나머지 조직과 공유
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 다운로드 및 설치

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: fd5848eb44ecd32612943662b5a4fd0a5091cd9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91461294"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 원격 분석 데이터 모델
@@ -28,7 +28,7 @@ Application Insights에서 수집한 데이터를 통해 다음과 같은 일반
 
 * [**요청**](data-model-request-telemetry.md) - 앱에서 받은 요청을 기록하기 위해 생성됩니다. 예를 들어 Application Insights 웹 SDK는 웹앱에서 받은 각 HTTP 요청에 대한 요청 원격 분석 항목을 자동으로 생성합니다. 
 
-    **작업**은 요청을 처리하는 실행 스레드입니다. 또한 [코드를 작성](./api-custom-events-metrics.md#trackrequest)하여 정기적으로 데이터를 처리하는 웹 작업 또는 함수의 "절전 모드 해제"와 같은 다른 유형의 작업을 모니터링할 수 있습니다.  각 작업에는 ID가 있습니다. 이 ID를 사용하여 앱에서 요청을 처리하는 동안 생성된 모든 원격 분석을 [그룹화](./correlation.md)할 수 있습니다. 각 작업은 성공하거나 실패하며 일정 기간 동안 지속됩니다.
+    **작업** 은 요청을 처리하는 실행 스레드입니다. 또한 [코드를 작성](./api-custom-events-metrics.md#trackrequest)하여 정기적으로 데이터를 처리하는 웹 작업 또는 함수의 "절전 모드 해제"와 같은 다른 유형의 작업을 모니터링할 수 있습니다.  각 작업에는 ID가 있습니다. 이 ID를 사용하여 앱에서 요청을 처리하는 동안 생성된 모든 원격 분석을 [그룹화](./correlation.md)할 수 있습니다. 각 작업은 성공하거나 실패하며 일정 기간 동안 지속됩니다.
 * [**예외**](data-model-exception-telemetry.md) - 일반적으로 작업이 실패하게 하는 예외를 나타냅니다.
 * [**종속성**](data-model-dependency-telemetry.md) - REST API 또는 SQL과 같은 외부 서비스나 스토리지에 대한 앱의 호출을 나타냅니다. ASP.NET에서 SQL에 대한 종속성 호출은 `System.Data`으로 정의됩니다. HTTP 엔드포인트에 대한 호출은 `System.Net`으로 정의됩니다. 
 
