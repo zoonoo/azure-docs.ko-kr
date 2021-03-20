@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697846"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
@@ -21,7 +21,7 @@ Durable Functions 확장은 [오케스트레이션](durable-functions-types-feat
 | 매개 변수        | 매개 변수 유형  | 설명 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
-| **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
+| **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름** 입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
 `systemKey` 는 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` APIs 또는 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload`와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) APIs를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
@@ -58,7 +58,7 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | 시작할 오 케 스트레이 터 함수의 이름입니다. |
 | **`instanceId`**   | URL             | 선택적 매개 변수입니다. 오케스트레이션 인스턴스의 ID입니다. 지정 하지 않으면 오 케 스트레이 터 함수는 임의의 인스턴스 ID로 시작 됩니다. |
-| **`{content}`**    | 요청 콘텐츠 | (선택 사항) JSON 형식의 orchestrator 함수 입력입니다. |
+| **`{content}`**    | 요청 콘텐츠 | 선택 사항입니다. JSON 형식의 orchestrator 함수 입력입니다. |
 
 ### <a name="response"></a>응답
 
@@ -105,7 +105,7 @@ Content-Length: 83
 }
 ```
 
-HTTP 응답은 *폴링 소비자 패턴과*호환 되도록 설계 되었습니다. 또한 다음과 같은 주목할 만한 응답 헤더를 포함 합니다.
+HTTP 응답은 *폴링 소비자 패턴과* 호환 되도록 설계 되었습니다. 또한 다음과 같은 주목할 만한 응답 헤더를 포함 합니다.
 
 * **Location**: 상태 끝점의 URL입니다. 이 URL에는 필드와 같은 값이 포함 `statusQueryGetUri` 됩니다.
 * **다시 시도-후**: 폴링 작업 사이에 대기 하는 시간 (초)입니다. 기본값은 `10`입니다.
@@ -498,7 +498,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 * **HTTP 404(찾을 수 없음)**: 지정된 인스턴스를 찾을 수 없습니다.
 * **HTTP 410(없음)**: 지정된 인스턴스가 완료되었거나 실패했으며 발생된 이벤트를 처리할 수 없습니다.
 
-다음은 **operation**이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
+다음은 **operation** 이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -541,7 +541,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 | 필드             | 매개 변수 유형  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
-| **`reason`**      | 쿼리 문자열    | (선택 사항) 오케스트레이션 인스턴스를 종료하는 이유입니다. |
+| **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 종료하는 이유입니다. |
 
 ### <a name="response"></a>응답
 
@@ -590,7 +590,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 | 필드             | 매개 변수 유형  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
-| **`reason`**      | 쿼리 문자열    | (선택 사항) 오케스트레이션 인스턴스를 되감는 이유입니다. |
+| **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |
 
 ### <a name="response"></a>응답
 
@@ -633,7 +633,7 @@ POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
 |-------------------|-----------------|-------------|
 | **`entityName`**  | URL             | 엔터티의 이름 (형식)입니다. |
 | **`entityKey`**   | URL             | 엔터티의 키 (고유 ID)입니다. |
-| **`op`**          | 쿼리 문자열    | (선택 사항) 호출할 사용자 정의 작업의 이름입니다. |
+| **`op`**          | 쿼리 문자열    | 선택 사항입니다. 호출할 사용자 정의 작업의 이름입니다. |
 | **`{content}`**   | 요청 콘텐츠 | JSON 형식 이벤트 페이로드입니다. |
 
 이라는 엔터티에 사용자 정의 "추가" 메시지를 보내는 예제 요청은 다음과 같습니다 `Counter` `steps` . 메시지의 내용은 값입니다 `5` . 엔터티가 아직 없는 경우이 요청에 의해 생성 됩니다.
@@ -682,7 +682,7 @@ GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
 
 성공적인 응답에는 엔터티의 JSON serialize 된 상태가 해당 콘텐츠로 포함 됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제 HTTP 요청은 이라는 기존 엔터티의 상태를 가져옵니다 `Counter` `steps` .
 
 ```http
@@ -720,7 +720,7 @@ GET /runtime/webhooks/durabletask/entities/{entityName}
 
 | 필드                       | 매개 변수 형식  | 설명 |
 |-----------------------------|-----------------|-------------|
-| **`entityName`**            | URL             | (선택 사항) 지정 하면 반환 된 엔터티의 목록을 해당 엔터티 이름으로 필터링 합니다 (대/소문자 구분 안 함). |
+| **`entityName`**            | URL             | 선택 사항입니다. 지정 하면 반환 된 엔터티의 목록을 해당 엔터티 이름으로 필터링 합니다 (대/소문자 구분 안 함). |
 | **`fetchState`**            | 쿼리 문자열    | 선택적 매개 변수입니다. 로 설정 되 면 `true` 엔터티 상태가 응답 페이로드에 포함 됩니다. |
 | **`lastOperationTimeFrom`** | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 이후 작업을 처리 한 반환 엔터티 목록을 필터링 합니다. |
 | **`lastOperationTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 이전에 작업을 처리 한 반환 엔터티 목록을 필터링 합니다. |

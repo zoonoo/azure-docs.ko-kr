@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.openlocfilehash: 2357c51f47bcb9bd8bbc6c408cb6d8edbab4d10e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91267009"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>웹 응용 프로그램 방화벽에 대 한 bot 보호 구성 (미리 보기)
@@ -26,7 +26,7 @@ ms.locfileid: "91267009"
 
 ## <a name="enable-bot-protection-rule-set"></a>Bot 보호 규칙 집합 사용
 
-**관리 규칙** 페이지에서 웹 응용 프로그램 방화벽 정책을 만들 때 먼저 **관리 되는 규칙 집합** 섹션을 찾고, 드롭다운 메뉴에서 규칙 **Microsoft_BotManager_1 .0** 에 있는 확인란을 선택한 다음 **검토 + 만들기**를 선택 합니다.
+**관리 규칙** 페이지에서 웹 응용 프로그램 방화벽 정책을 만들 때 먼저 **관리 되는 규칙 집합** 섹션을 찾고, 드롭다운 메뉴에서 규칙 **Microsoft_BotManager_1 .0** 에 있는 확인란을 선택한 다음 **검토 + 만들기** 를 선택 합니다.
 
    ![Bot 보호 규칙](.././media/waf-front-door-configure-bot-protection/botmanager112019.png)
 

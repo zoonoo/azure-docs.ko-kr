@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303559"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
@@ -20,7 +20,7 @@ Personalizer 리소스는 Personalizer learning 루프와 동일 합니다. 각 
 Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최상의 콘텐츠를 선택 하도록 하려면 각에 대해 서로 다른 학습 루프를 사용 합니다.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스를 만듭니다.
+## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스 만들기
 
 각 피드백 루프에 대한 Personalizer 리소스를 만듭니다.
 
@@ -55,7 +55,7 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
         --location westus2
     ```
 
-1. 기존 리소스 그룹에 대 한 다음 명령을 사용 하 여 새 Personalizer 리소스 인 _학습 루프_를 만듭니다.
+1. 기존 리소스 그룹에 대 한 다음 명령을 사용 하 여 새 Personalizer 리소스 인 _학습 루프_ 를 만듭니다.
 
     ```azurecli-interactive
     az cognitiveservices account create \
@@ -67,9 +67,9 @@ Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최�
         --yes
     ```
 
-    그러면 **리소스 끝점**을 포함 하는 JSON 개체가 반환 됩니다.
+    그러면 **리소스 끝점** 을 포함 하는 JSON 개체가 반환 됩니다.
 
-1. 다음 Azure CLI 명령을 사용 하 여 **리소스 키**를 가져옵니다.
+1. 다음 Azure CLI 명령을 사용 하 여 **리소스 키** 를 가져옵니다.
 
     ```azurecli-interactive
         az cognitiveservices account keys list \

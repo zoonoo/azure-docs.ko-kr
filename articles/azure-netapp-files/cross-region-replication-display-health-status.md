@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2819ee3bc76c0b9ff0f35d442e52149096ddc9f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249855"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590979"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>복제 관계의 상태 표시 
 
@@ -57,6 +57,7 @@ ms.locfileid: "95249855"
 
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
+* [지역 간 복제 대상 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)

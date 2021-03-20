@@ -11,13 +11,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 1/14/2021
-ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 03/15/2021
+ms.openlocfilehash: 5c0de2c1589bfa495ab6ad287b998c403041674c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219133"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592152"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,6 +31,10 @@ Microsoft Azure SQL Database 및 Azure SQL Managed Instance는 세 가지 범주
 - 트랜잭션 관련 동적 관리 뷰
 
 동적 관리 뷰에 대 한 자세한 내용은 [동적 관리 뷰 및 함수 (transact-sql)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
+
+## <a name="monitor-with-sql-insights"></a>SQL 정보를 사용 하 여 모니터링
+
+[AZURE MONITOR SQL insights](../../azure-monitor/insights/sql-insights-overview.md) 는 Azure sql vm에서 azure sql 관리 되는 인스턴스, azure sql 데이터베이스 및 SQL Server 인스턴스를 모니터링 하기 위한 도구입니다. 이 서비스는 원격 에이전트를 사용 하 여 Dmv (동적 관리 뷰)에서 데이터를 캡처하고 데이터를 Azure Log Analytics로 라우팅합니다 .이를 모니터링 하 고 분석할 수 있습니다. 제공 된 보기의 [Azure Monitor](../../azure-monitor/overview.md) 에서이 데이터를 보거나, 로그 데이터에 직접 액세스 하 여 쿼리를 실행 하 고 추세를 분석할 수 있습니다. Azure Monitor SQL insights 사용을 시작 하려면 [sql Insights 사용](../../azure-monitor/insights/sql-insights-enable.md)을 참조 하세요.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -769,6 +773,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Azure SQL Database 및 Azure SQL Managed Instance 소개](sql-database-paas-overview.md)

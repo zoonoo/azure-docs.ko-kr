@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020187"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
@@ -28,23 +28,23 @@ ms.locfileid: "89020187"
 
 + Azure 개발 워크 로드를 포함 하 여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전을 설치 합니다.
 
-## <a name="create-an-azure-function"></a>Azure Functions 만들기
+## <a name="create-an-azure-function"></a>Azure Function 만들기
 
 이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하지만 반드시 필요한 것은 아닙니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-1. Visual Studio의 **New**  >  파일 메뉴에서 새**프로젝트** 를 선택 합니다.
+1. Visual Studio의 파일 메뉴에서 **새로 만들기** > **프로젝트** 를 선택합니다.
 
-1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#** > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 c # 네임 스페이스로 유효 해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 문자를 사용 하지 마세요.
+1. 새 프로젝트 대화 상자에서 **설치됨** 을 선택하고, **Visual C#** > **클라우드** 를 확장하고, **Azure Functions** 를 선택하고, 프로젝트의 이름을 입력한 다음, **확인** 을 선택합니다. 함수 앱 이름은 c # 네임 스페이스로 유효 해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 문자를 사용 하지 마세요.
 
 1. **Azure Functions v2 (.Net Core)** 를 선택 합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
 
-1. 형식을 **HTTP 트리거**로 선택합니다.
+1. 형식을 **HTTP 트리거** 로 선택합니다.
 
-1. 스토리지 계정의 경우, 이 함수에 대한 스토리지가 필요하지 않으므로 **없음**을 선택할 수 있습니다.
+1. 스토리지 계정의 경우, 이 함수에 대한 스토리지가 필요하지 않으므로 **없음** 을 선택할 수 있습니다.
 
-1. **확인**을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
+1. **확인** 을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
 
 ### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing Entity Search 서비스를 호출 하는 코드 수정
 
@@ -312,7 +312,7 @@ namespace SampleSkills
 }
 ```
 
-*key* `key` BING entity search API에 등록할 때 가져온 키를 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
+ `key` BING entity search API에 등록할 때 가져온 키를 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
 
 이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
 
@@ -376,15 +376,15 @@ POST https://localhost:7071/api/EntitySearch
 
 함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **새로 만들기**  >  **게시**를 선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. **새로 만들기**  >  **게시** 를 선택 합니다.
 
-1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
+1. Visual Studio를 Azure 계정에 아직 연결 하지 않은 경우 **계정 추가 ...** 를 선택 합니다.
 
 1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 하 라는 메시지가 표시 됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 스토리지 계정을 만들 수 있습니다. 완료 되 면 **만들기** 를 선택 합니다.
 
 1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 함수를 찾습니다 `EntitySearch` . **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.**  
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 함수를 찾습니다 `EntitySearch` . **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.  
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 

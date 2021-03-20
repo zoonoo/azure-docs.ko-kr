@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070948"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
@@ -80,7 +80,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 
 오류가 발생 하 고 제어가 정책 섹션으로 이동 하는 경우 `on-error` 오류는 컨텍스트에 저장 됩니다 [. LastError](api-management-policy-expressions.md#ContextVariables) 속성은 섹션의 정책에서 액세스할 수 있습니다 `on-error` . LastError에는 다음 속성이 있습니다.
 
-| Name       | 유형   | 설명                                                                                               | 필수 |
+| Name       | Type   | 설명                                                                                               | 필수 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
 | `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |

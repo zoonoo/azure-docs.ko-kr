@@ -9,10 +9,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
 ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91295620"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 연결 문제 해결
@@ -51,7 +51,7 @@ Citus (Hyperscale) 서버 그룹 노드에 대해 고가용성을 사용 하도�
 
 * 코디네이터 노드 방화벽 구성: 하이퍼 규모 (Citus) 서버 방화벽이 프록시 서버 및 게이트웨이를 포함 하 여 클라이언트의 연결을 허용 하도록 구성 되어 있는지 확인 합니다.
 * 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽의 경우 응용 프로그램을 이름 으로만 허용 하는 것이 아니라 서버의 IP 주소와 포트를 허용 해야 합니다.
-* 사용자 오류: 연결 문자열을 두 번 확인 합니다. 서버 이름과 같은 매개 변수를 잘못 입력 했을 수 있습니다. Azure Portal에서 다양 한 언어 프레임 워크 및 psql에 대 한 연결 문자열을 찾을 수 있습니다. Citus (Hyperscale) 서버 그룹의 **연결 문자열** 페이지로 이동 합니다. 또한 Citus (Hyperscale) 클러스터는 데이터베이스를 하나만 포함 하 고 미리 정의 된 이름은 **Citus**입니다.
+* 사용자 오류: 연결 문자열을 두 번 확인 합니다. 서버 이름과 같은 매개 변수를 잘못 입력 했을 수 있습니다. Azure Portal에서 다양 한 언어 프레임 워크 및 psql에 대 한 연결 문자열을 찾을 수 있습니다. Citus (Hyperscale) 서버 그룹의 **연결 문자열** 페이지로 이동 합니다. 또한 Citus (Hyperscale) 클러스터는 데이터베이스를 하나만 포함 하 고 미리 정의 된 이름은 **Citus** 입니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

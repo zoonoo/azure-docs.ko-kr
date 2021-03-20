@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dba9e4f727b56e5093171c2ea59382075563f31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374782"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592067"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 
@@ -277,13 +277,13 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
+| JSON 속성 | Type | 필수 | 기본값 | 유효한 값 | 예제 |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | 문자열 | Yes | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **방법** | object | Yes | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **간격은** | 숫자 | No | 1 | 1~1000 | `"interval":10` |
-| **endTime** | 문자열 | Yes | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **일정과** | object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.
@@ -312,7 +312,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | JSON 요소 | 설명 | 유효한 값 |
 | --- | --- | --- |
-| **내** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열 |
+| **minutes** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열 |
 | **시간의** | 트리거가 실행될 일(시간)입니다. |- 정수<br />- 정수 배열 |
 | **평일** | 트리거가 실행될 요일입니다. 값은 주 단위 빈도로만 지정할 수 있습니다.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- 날짜 값의 배열(최대 배열 크기: 7)<br /><br />일 값은 대/소문자를 구분 하지 않습니다. |
 | **monthlyOccurrences** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- **monthlyOccurrence** 개체의 배열: `{ "day": day, "occurrence": occurrence }`<br />- **day** 특성은 트리거가 실행되는 요일입니다. 예를 들어 `{Sunday}`의 **day** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 매주 일요일을 의미합니다. **day** 특성은 필수입니다.<br />- **occurrence** 특성은 월 중 지정된 **day** 의 되풀이 항목입니다. 예를 들어 `{Sunday, -1}`의 **day** 및 **occurrence** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 마지막 일요일을 의미합니다. **occurrence** 특성은 선택 사항입니다. |
@@ -323,13 +323,8 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 연속 창 트리거 및 예제에 대 한 자세한 내용은 [연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조 하세요.
 
-## <a name="event-based-trigger"></a>이벤트 기반 트리거
-
-이벤트 기반 트리거는 파일 도착, 파일 삭제 등의 이벤트에 응답하여 Azure Blob Storage에서 실행 파이프라인을 트리거합니다.
-
-이벤트 기반 트리거에 대한 자세한 내용은 [이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기](how-to-create-event-trigger.md)를 참조하세요.
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>트리거 되풀이 일정의 예
+
 이 섹션에서는 되풀이 일정의 예제를 제공합니다. **schedule** 개체 및 해당 요소를 중점적으로 다루고 있 습니다.
 
 이 예에서는 **interval** 값이 1이 고 **frequency** 값이 일정 정의에 따라 올바른 것으로 가정 합니다. 예를 들어 **frequency** 값으로 "day"를 사용할 수 없으며, **schedule** 개체의 **monthDays** 를 수정할 수도 있습니다. 이러한 종류의 제한 사항은 앞 섹션의 표에서 설명하고 있습니다.
@@ -364,6 +359,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | 매월 세 번째 수요일에 오전 5시 15분, 오전 5시 45분, 오후 5시 15분, 오후 5시 45분에 실행됩니다. |
 
 ## <a name="trigger-type-comparison"></a>트리거 형식 비교
+
 연속 창 트리거와 일정 트리거는 둘 다 시간 하트비트에서 작동합니다. 어떻게 다를까요?
 
 > [!NOTE]
@@ -380,7 +376,17 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **시스템 변수** | @trigger() ScheduledTime 및 @trigger (). startTime과 함께 **Windowstart** 및 **windowstart** 시스템 변수를 사용할 수도 있습니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `trigger().outputs.windowStartTime` 및 `trigger().outputs.windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` 및 `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`입니다. | 는 default @trigger (). scheduledTime 및 @trigger () startTime 변수만 지원 합니다. |
 | **파이프라인-트리거 관계** | 일대일 관계를 지원합니다. 하나의 파이프라인만 트리거될 수 있습니다. | 다대다 관계를 지원합니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. |
 
+## <a name="event-based-trigger"></a>이벤트 기반 트리거
+
+이벤트 기반 트리거는 이벤트에 대 한 응답으로 파이프라인을 실행 합니다. 이벤트 기반 트리거의 두 가지 종류가 있습니다.
+
+* _저장소 이벤트 트리거_ 는 저장소 계정에서 발생 하는 이벤트에 대해 파이프라인을 실행 합니다 (예: 파일 도착 또는 Azure Blob Storage 계정의 파일 삭제).
+* _사용자 지정 이벤트 트리거_ 는의 [사용자 지정 항목](../event-grid/custom-topics.md) 을 처리 하 고 처리 Event Grid
+
+이벤트 기반 트리거에 대 한 자세한 내용은 [저장소 이벤트 트리거](how-to-create-event-trigger.md) 및 [사용자 지정 이벤트 트리거](how-to-create-custom-event-trigger.md)를 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
+
 다음 자습서를 참조하세요.
 
 - [빠른 시작: .NET SDK를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)

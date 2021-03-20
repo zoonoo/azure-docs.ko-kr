@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783881"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
@@ -60,7 +60,7 @@ Azure Storage 계정에 연결 문자열을 만들려면 다음 형식을 사용
 Azure Storage는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만 *HTTPS를 사용하는 것이 좋습니다.*
 
 > [!TIP]
-> 스토리지 계정의 연결 문자열은 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **SETTINGS**  >  저장소 계정의 메뉴 블레이드에서 설정 **액세스 키** 로 이동 하 여 기본 및 보조 액세스 키에 대 한 연결 문자열을 확인 합니다.
+> 스토리지 계정의 연결 문자열은 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.   >  저장소 계정의 메뉴 블레이드에서 설정 **액세스 키** 로 이동 하 여 기본 및 보조 액세스 키에 대 한 연결 문자열을 확인 합니다.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 연결 문자열 만들기

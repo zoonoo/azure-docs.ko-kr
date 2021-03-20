@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742916"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
@@ -61,7 +61,7 @@ Exchange 관리자  | 카탈로그 소유자  | &nbsp; | ✔️  | &nbsp;  | &nb
 SharePoint 관리자 | 카탈로그 소유자 | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 클라우드 애플리케이션 관리자 | 카탈로그 소유자  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-User | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만  | &nbsp;
+사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만  | &nbsp;
 
 \*그룹에 역할을 할당할 수 없습니다. 즉, isAssignableToRole = false입니다. 그룹이 역할에 할당 가능 하 게 되 면 액세스 패키지를 만드는 사용자도 역할 할당 가능 그룹의 소유자 여야 합니다.
 

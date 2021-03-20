@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781229"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
@@ -124,9 +124,9 @@ select count(CustomerId) from [dbo].[Customers]
 3. **기타 원본에서** 을 클릭하고 **SQL Server에서** 를 클릭합니다.
 
    ![다른 원본에서 Excel 가져오기][5]
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next** 를 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. **다음** 을 클릭합니다.
 5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택** 하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
-6. 목록 보기에서 **사용자** 테이블을 선택하고 **다음** 을 클릭합니다. **마침** 을 클릭합니다.
+6. 목록 보기에서 **사용자** 테이블을 선택하고 **다음** 을 클릭합니다. 그런 다음 **마침** 을 클릭합니다.
 7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택** 하고 **테이블** 을 선택하고 **확인** 을 클릭합니다.
 
 다른 분할된 데이터베이스에 저장된 **Customers** 테이블의 모든 행으로 Excel 시트를 채웁니다.

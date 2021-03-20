@@ -4,10 +4,10 @@ description: 이 문서에서는 랩 작성자가 도움을 얻기 위해 사용
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 3e04245c3f2d9b0a4f4e98ae21287983cf679ec6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85445052"
 ---
 # <a name="view-support-information-lab-creator-in-azure-lab-services"></a>지원 정보 보기 (Azure Lab Services의 랩 작성자)
@@ -24,7 +24,7 @@ ms.locfileid: "85445052"
 ## <a name="view-support-information"></a>지원 정보 보기
 1. [Azure Lab Services Portal](https://labs.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 물음표 (**?**)를 선택 합니다. 
-3. **보기 지원 웹 사이트**, **이메일 지원** 및 **지원 전화 번호**에 대한 링크가 표시되는지 확인합니다.
+3. **보기 지원 웹 사이트**, **이메일 지원** 및 **지원 전화 번호** 에 대한 링크가 표시되는지 확인합니다.
 
     ![지원 정보 보기](./media/lab-creator-support-information/support-information.png)
 

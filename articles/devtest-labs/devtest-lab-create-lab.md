@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Portal 및 Azure DevTest Labs를 사용 �
 ms.topic: article
 ms.date: 10/12/2020
 ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92058346"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
@@ -31,7 +31,7 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 **DevTest Labs 만들기** 페이지에서 다음 설정을 입력 합니다.
 
 > [!TIP]
-> 각 페이지의 아래쪽에는 **자동화를 위한 템플릿을 다운로드할**수 있는 링크가 있습니다.
+> 각 페이지의 아래쪽에는 **자동화를 위한 템플릿을 다운로드할** 수 있는 링크가 있습니다.
 
 ### <a name="basic-settings"></a>기본 설정
 
@@ -44,7 +44,7 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 |Name|설명|
 |---|---|
 |**구독** | 필수 요소. **구독** 을 선택하여 랩과 연결합니다.|
-|**리소스 그룹**| 필수 요소. 랩의 **리소스 그룹에 대한 이름**을 입력합니다. 새 항목을 만듭니다 (없는 경우).|
+|**리소스 그룹**| 필수 요소. 랩의 **리소스 그룹에 대한 이름** 을 입력합니다. 새 항목을 만듭니다 (없는 경우).|
 |**랩 이름**| 필수 요소. 랩의 **이름을** 입력 합니다.|
 |**위치**|필수 요소. 랩을 저장할 위치를 선택합니다.|
 |**공용 환경**| [공용 환경 구성 및 사용을](devtest-lab-configure-use-public-environments.md)참조 하세요.
@@ -65,13 +65,13 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 
 ### <a name="tags"></a>태그
 
-랩에서 만들 모든 리소스에 추가되는 사용자 지정 태그를 만들려는 경우 **태그**에 대한 **이름** 및 **값** 정보를 입력합니다. 태그는 랩 리소스를 범주별으로 관리하고 구성하는 데 유용합니다. 랩에서 만든 후에 태그를 추가하는 방법을 포함하여 태그에 대한 자세한 내용은 [랩에 태그 추가](devtest-lab-add-tag.md)를 참조하세요.
+랩에서 만들 모든 리소스에 추가되는 사용자 지정 태그를 만들려는 경우 **태그** 에 대한 **이름** 및 **값** 정보를 입력합니다. 태그는 랩 리소스를 범주별으로 관리하고 구성하는 데 유용합니다. 랩에서 만든 후에 태그를 추가하는 방법을 포함하여 태그에 대한 자세한 내용은 [랩에 태그 추가](devtest-lab-add-tag.md)를 참조하세요.
 
 ![태그 탭 ](./media/devtest-lab-create-lab/tags.png)
 
 ### <a name="review-and-create"></a>검토 후 만들기
 
-완료 되 면 **만들기**를 선택 합니다. 포털 페이지의 오른쪽 위에 있는 **알림** 영역을 시청 하 여 랩 만들기 프로세스의 상태를 모니터링할 수 있습니다. 
+완료 되 면 **만들기** 를 선택 합니다. 포털 페이지의 오른쪽 위에 있는 **알림** 영역을 시청 하 여 랩 만들기 프로세스의 상태를 모니터링할 수 있습니다. 
 
 ![만들기 탭](./media/devtest-lab-create-lab/create-1.png)
 

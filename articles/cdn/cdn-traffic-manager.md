@@ -10,10 +10,10 @@ ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92777744"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용 하 여 여러 끝점에서 장애 조치 (Failover)
@@ -66,7 +66,7 @@ Azure Traffic Manager 프로필을 만들고 CDN 끝점에서 부하 분산을 �
 
 2. [Traffic Manager 엔드포인트 추가](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)의 단계를 수행하여 Traffic Manager 프로필에서 CDN 엔드포인트 추가
 
-    * **유형** , **외부 끝점** 을 선택 합니다.
+    * **유형**, **외부 끝점** 을 선택 합니다.
     * **우선 순위** 에서 숫자를 입력 합니다.
 
     예를 들어 **1** 의 우선 순위로 **cdndemo101akamai.azureedge.net** 을 만들고 **2** 의 우선 순위로 **cdndemo101verizon.azureedge.net** 을 만듭니다.
@@ -96,7 +96,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
     >
 
 
-2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 **cdndemo101. dustydogpetcare** 를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
+2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 **cdndemo101.dustydogpetcare.online** 를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
 
     이 등록 프로세스를 완료하려면 Azure CDN은 **cdnverify** 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
     
@@ -110,7 +110,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가** 를 선택 하 고 **cdndemo101. dustydogpetcare** 를 입력 합니다.
+4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가** 를 선택 하 고 **cdndemo101.dustydogpetcare.online** 을 입력 합니다.
  
 이러한 단계를 완료 한 후 장애 조치 (failover) 기능이 포함 된 다중 CDN 서비스는 Azure Traffic Manager으로 구성 됩니다. 
 

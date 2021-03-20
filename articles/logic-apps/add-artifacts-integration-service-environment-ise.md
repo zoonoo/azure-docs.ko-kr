@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675205"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
@@ -42,12 +42,12 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
    ![예제 정보가 입력 된 "논리 앱" "만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 논리 앱의 이름 |
    | **구독** | 예 | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | 사용할 Azure 리소스 그룹의 이름 (신규 또는 기존) |
-   | **위치** | 예 | **Integration service environment** 에서 사용할 ISE를 선택 합니다 (아직 선택 하지 않은 경우). <p><p> **중요** : 논리 앱을 통합 계정으로 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
+   | **위치** | 예 | **Integration service environment** 에서 사용할 ISE를 선택 합니다 (아직 선택 하지 않은 경우). <p><p> **중요**: 논리 앱을 통합 계정으로 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
    ||||
 
 1. 완료되면 **만들기** 를 선택합니다.
@@ -74,13 +74,13 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들려는 통합 계정의 이름입니다. |
    | **구독** | 예 | 사용 하려는 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | 사용할 Azure 리소스 그룹의 이름 (신규 또는 기존) |
    | **가격 책정 계층** | 예 | 통합 계정에 사용할 가격 책정 계층입니다. |
-   | **위치** | 예 | **Integration service environment** 에서 아직 선택 하지 않은 경우 논리 앱에서 사용 하는 것과 동일한 ISE를 선택 합니다. <p><p> **중요** : 논리 앱에서 통합 계정을 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
+   | **위치** | 예 | **Integration service environment** 에서 아직 선택 하지 않은 경우 논리 앱에서 사용 하는 것과 동일한 ISE를 선택 합니다. <p><p> **중요**: 논리 앱에서 통합 계정을 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
    ||||
 
 1. 완료되면 **만들기** 를 선택합니다.

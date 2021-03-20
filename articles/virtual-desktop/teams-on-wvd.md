@@ -7,10 +7,10 @@ ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743120"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
@@ -25,7 +25,7 @@ Windows 가상 데스크톱의 Microsoft 팀은 채팅 및 공동 작업을 지�
 
 Microsoft 팀을 위한 미디어 최적화를 사용 하는 Windows 데스크톱 클라이언트는 팀 호출 및 모임에 대해 로컬로 오디오 및 비디오를 처리 합니다. Windows 가상 데스크톱의 Microsoft 팀을 다른 클라이언트와 함께 사용할 수 있습니다. 팀 채팅 및 공동 작업 기능은 모든 플랫폼에서 지원 됩니다. 원격 세션에서 로컬 장치를 리디렉션하려면 [호스트 풀의 사용자 지정 원격 데스크톱 프로토콜 속성](#customize-remote-desktop-protocol-properties-for-a-host-pool)을 선택 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다음 작업을 수행 해야 합니다.
 
@@ -45,7 +45,7 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 
 2. 팀 키에 대해 다음 값을 만듭니다.
 
-| 이름             | 유형   | 데이터/값  |
+| Name             | Type   | 데이터/값  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 

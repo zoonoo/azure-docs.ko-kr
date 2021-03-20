@@ -4,10 +4,10 @@ description: 미디어 그래프를 사용 하 여에 지 또는 클라우드에
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97398977"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>기록 없이 라이브 비디오 분석

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 686e342eb68e2e5c97bdbae9cd11bdff5819b5d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927594"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 배포
@@ -83,12 +83,12 @@ ms.locfileid: "98927594"
 1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수** 를 선택 합니다. **새 변수** 를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
     
-    | 변수 | Description |
+    | 변수 | 설명 |
     | ------- | --------------- | ----------- |
     | SourceAppId | 개발 응용 프로그램의 ID |
     | TargetAppId | PROD 응용 프로그램의 ID |
     | SubscriptionKey | 두 응용 프로그램 모두에 사용 되는 구독 키 |
-    | culture | 응용 프로그램의 문화권 (예: en-us) |
+    | 문화권 | 응용 프로그램의 문화권 (예: en-us) |
 
     > [!div class="mx-imgBorder"]
     > ![전송 작업 페이로드](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -110,7 +110,7 @@ ms.locfileid: "98927594"
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
-    | 인수 | Description |
+    | 인수 | 설명 |
     | ------- | --------------- | ----------- |
     | region | 응용 프로그램의 지역 (예: westus2)입니다. |
     | subscriptionkey | 음성 리소스의 구독 키입니다. |
@@ -159,11 +159,11 @@ ms.locfileid: "98927594"
 1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수** 를 선택 합니다. **새 변수** 를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
 
-    | 변수 | Description |
+    | 변수 | 설명 |
     | ------- | --------------- | ----------- |
     | TargetAppId | PROD 응용 프로그램의 ID |
     | SubscriptionKey | 두 응용 프로그램 모두에 사용 되는 구독 키 |
-    | culture | 응용 프로그램의 문화권 (예: en-us) |
+    | 문화권 | 응용 프로그램의 문화권 (예: en-us) |
 
 1. "실행"을 클릭 한 다음 실행 중인 "작업"을 클릭 합니다.
     "앱 가져오기" & "학습 및 앱 게시"를 포함 하는 실행 중인 작업 목록이 표시 됩니다.

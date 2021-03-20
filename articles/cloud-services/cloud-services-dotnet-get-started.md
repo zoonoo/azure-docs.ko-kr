@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742083"
 ---
 # <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Azure Cloud Services (클래식) 및 ASP.NET 시작
@@ -44,7 +44,7 @@ ms.locfileid: "98742083"
 * 파일을 업로드하고 Azure Blob service에 저장하는 방법
 * 계층 간 통신에 Azure 큐 서비스를 사용하는 방법
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 애플리케이션 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
 Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케이션을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
@@ -407,10 +407,10 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 1. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트에서 가져온 *Ad.cs* 및 *ContosoAdscontext.cs* 파일을 추가합니다.
 2. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
-   * *Global.asax.cs*.  
+   * *Global.asax*.  
    * *Views\Shared* 폴더: *\__Layout.cshtml*
    * *Views\Home* 폴더: *Index. cshtml*.
-   * *Controllers* 폴더: *AdController.cs*.
+   * *Controllers* 폴더: *adcontroller .cs*.
    * *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs* 를 추가합니다.
 
@@ -534,7 +534,7 @@ imagesQueue.CreateIfNotExists();
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음 *Global.asax.cs* 에서 앞서 살펴본 것 처럼 코드는 *이미지* blob 컨테이너에 대 한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지 수 백오프 재시도 정책으로 인해 일시적인 오류를 반복 해 서 다시 시도 하는 동안 웹 앱이 잠시 후에 응답 하지 않을 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
+그런 다음이 코드는 이전에 *global.asax에서 살펴본* 것 처럼 *이미지* blob 컨테이너에 대 한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지 수 백오프 재시도 정책으로 인해 일시적인 오류를 반복 해 서 다시 시도 하는 동안 웹 앱이 잠시 후에 응답 하지 않을 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792109"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
@@ -163,7 +163,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 2. **복제** 됨은 각 데이터베이스에 동일한 테이블 복사본이 있음을 의미 합니다. 사용자가 데이터베이스 전체에서 복제본이 동일한지 확인해야 합니다.
 3. **ROUND \_ 로빈** 은 테이블이 응용 프로그램 종속 배포 방법을 사용 하 여 수평 분할 됨을 의미 합니다.
 
-**데이터 계층 참조** : 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 데이터 계층에서 모든 데이터베이스를 찾는 데 필요한 정보를 사용 하 여 외부 테이블을 제공 하는 분할 된 데이터베이스 맵을 지정 합니다.
+**데이터 계층 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 데이터 계층에서 모든 데이터베이스를 찾는 데 필요한 정보를 사용 하 여 외부 테이블을 제공 하는 분할 된 데이터베이스 맵을 지정 합니다.
 
 ### <a name="security-considerations"></a>보안 고려 사항
 

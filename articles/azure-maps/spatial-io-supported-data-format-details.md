@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91310172"
 ---
 # <a name="supported-data-format-details"></a>지원되는 데이터 형식 세부 정보
@@ -48,20 +48,20 @@ ms.locfileid: "91310172"
 | 요소 이름         | 읽기    | 쓰기   | 참고                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
 | `address`            | 부분 | 예     | 개체가 구문 분석 되었지만 셰이프 위치를 지정 하는 데 사용 되지 않습니다.                                                                    |
-| `AddressDetails`     | 부분 | 아니요      | 개체가 구문 분석 되었지만 셰이프 위치를 지정 하는 데 사용 되지 않습니다.                                                                    |
+| `AddressDetails`     | 부분 | no      | 개체가 구문 분석 되었지만 셰이프 위치를 지정 하는 데 사용 되지 않습니다.                                                                    |
 | `atom:author`        | 예     | 예     |                                                                                                                            |
 | `atom:link`          | 예     | 예     |                                                                                                                            |
 | `atom:name`          | 예     | 예     |                                                                                                                            |
 | `BalloonStyle`       | 부분 | 부분 | `displayMode`는 지원되지 않습니다. 로 변환 `PopupTemplate` 됩니다. 쓰려면 속성을 작성 하려는 `popupTemplate` 기능의 속성으로 추가 합니다. |
 | `begin`              | 예     | 예     |                                                                                                                            |
 | `color`              | 예     | 예     | `#AABBGGRR`및를 포함 `#BBGGRR` 합니다. CSS 색 문자열로 구문 분석 됨                                                           |
-| `colorMode`          | 예     | 아니요      |                                                                                                                            |
+| `colorMode`          | 예     | no      |                                                                                                                            |
 | `coordinates`        | 예     | 예     |                                                                                                                            |
 | `Data`               | 예     | 예     |                                                                                                                            |
 | `description`        | 예     | 예     |                                                                                                                            |
 | `displayName`        | 예     | 예     |                                                                                                                            |
 | `Document`           | 예     | 예     |                                                                                                                            |
-| `drawOrder`          | 부분 | 아니요      | 접지 오버레이를 읽고이를 정렬 하는 데 사용 합니다. 
+| `drawOrder`          | 부분 | no      | 접지 오버레이를 읽고이를 정렬 하는 데 사용 합니다. 
 | `east`               | 예     | 예     |                                                                                                                            |
 | `end`                | 예     | 예     |                                                                                                                            |
 | `ExtendedData`       | 예     | 예     | 형식의 형식화 되지 않은 `Data` , `SimpleData` 또는 `Schema` 및 엔터티 대체를 지원 합니다 `$[dataName]` .                      |
@@ -69,59 +69,59 @@ ms.locfileid: "91310172"
 | `fill`               | 예     | 예     |                                                                                                                            |
 | `Folder`             | 예     | 예     |                                                                                                                            |
 | `GroundOverlay`      | 예     | 예     | `color` 지원 되지 않음                                                                                                   |
-| `heading`            | 부분 | 아니요      | 구문 분석 되었지만에서 렌더링 되지 않습니다 `SimpleDataLayer` . 셰이프의 속성에 데이터를 저장 하는 경우에만 씁니다.                 |
+| `heading`            | 부분 | no      | 구문 분석 되었지만에서 렌더링 되지 않습니다 `SimpleDataLayer` . 셰이프의 속성에 데이터를 저장 하는 경우에만 씁니다.                 |
 | `hotSpot`            | 예     | 부분 | 셰이프의 속성에 데이터를 저장 하는 경우에만 씁니다. 단위는 "픽셀"로만 출력 됩니다.                         |
 | `href`               | 예     | 예     |                                                                                                                            |
 | `Icon`               | 부분 | 부분 | 구문 분석 되었지만에서 렌더링 되지 않습니다 `SimpleDataLayer` . 는 URI 데이터를 포함 하는 경우에만 셰이프의 icon 속성을 씁니다. `href`만 지원됩니다. |
 | `IconStyle`          | 부분 | 부분 | `icon`, `heading` , `colorMode` 및 `hotspots` 값은 구문 분석 되지만에서 렌더링 되지 않습니다. `SimpleDataLayer`         |
 | `innerBoundaryIs`    | 예     | 예     |                                                                                                                            |
 | `kml`                | 예     | 예     |                                                                                                                            |
-| `LabelStyle`         | 아니요      | 아니요      |                                                                                                                            |
+| `LabelStyle`         | no      | no      |                                                                                                                            |
 | `LatLonBox`          | 예     | 예     |                                                                                                                            |
 | `gx:LatLonQuad`      | 예     | 예     |                                                                                                                            |
 | `LinearRing`         | 예     | 예     |                                                                                                                            |
 | `LineString`         | 예     | 예     |                                                                                                                            |
 | `LineStyle`          | 예     | 예     | `colorMode`는 지원되지 않습니다.                                                                                         |
-| `Link`               | 예     | 아니요      | `href`속성만 네트워크 링크에 대해 지원 됩니다.                                                                   |
+| `Link`               | 예     | no      | `href`속성만 네트워크 링크에 대해 지원 됩니다.                                                                   |
 | `MultiGeometry`      | 부분 | 부분 | 읽을 때 개별 기능으로 구분할 수 있습니다.                                                                     |
 | `name`               | 예     | 예     |                                                                                                                            |
-| `NetworkLink`        | 예     | 아니요      | 링크는 문서와 동일한 도메인에 있어야 합니다.                                                                  |
-| `NetworkLinkControl` | 아니요      | 아니요      |                                                                                                                            |
+| `NetworkLink`        | 예     | no      | 링크는 문서와 동일한 도메인에 있어야 합니다.                                                                  |
+| `NetworkLinkControl` | no      | no      |                                                                                                                            |
 | `north`              | 예     | 예     |                                                                                                                            |
 | `open`               | 예     | 예     |                                                                                                                            |
 | `outerBoundaryIs`    | 예     | 예     |                                                                                                                            |
 | `outline`            | 예     | 예     |                                                                                                                            |
-| `overlayXY`          | 아니요      | 아니요      |                                                                                                                            |
-| `Pair`               | 부분 | 아니요      | `normal`의 스타일만 `StyleMap` 지원 됩니다. `highlight`는 지원되지 않습니다.                                   |
+| `overlayXY`          | no      | no      |                                                                                                                            |
+| `Pair`               | 부분 | no      | `normal`의 스타일만 `StyleMap` 지원 됩니다. `highlight`는 지원되지 않습니다.                                   |
 | `phoneNumber`        | 예     | 예     |                                                                                                                            |
-| `PhotoOverlay`       | 아니요      | 아니요      |                                                                                                                            |
+| `PhotoOverlay`       | no      | no      |                                                                                                                            |
 | `Placemark`          | 예     | 예     |                                                                                                                            |
 | `Point`              | 예     | 예     |                                                                                                                            |
 | `Polygon`            | 예     | 예     |                                                                                                                            |
 | `PolyStyle`          | 예     | 예     |                                                                                                                            |
 | `Region`             | 부분 | 부분 | `LatLongBox` 는 문서 수준에서 지원 됩니다.                                                                      |
-| `rotation`           | 아니요      | 아니요      |                                                                                                                            |
-| `rotationXY`         | 아니요      | 아니요      |                                                                                                                            |
-| `scale`              | 아니요      | 아니요      |                                                                                                                            |
+| `rotation`           | no      | no      |                                                                                                                            |
+| `rotationXY`         | no      | no      |                                                                                                                            |
+| `scale`              | no      | no      |                                                                                                                            |
 | `Schema`             | 예     | 예     |                                                                                                                            |
 | `SchemaData`         | 예     | 예     |                                                                                                                            |
 | `schemaUrl`          | 부분 | 예     | 은 KMZ에 포함 되지 않은 외부 문서에서 스타일을 로드 하는 것을 지원 하지 않습니다.                             |
-| `ScreenOverlay`      | 아니요      | 아니요      |                                                                                                                            |
-| `screenXY`           | 아니요      | 아니요      |                                                                                                                            |
+| `ScreenOverlay`      | no      | no      |                                                                                                                            |
+| `screenXY`           | no      | no      |                                                                                                                            |
 | `SimpleData`         | 예     | 예     |                                                                                                                            |
 | `SimpleField`        | 예     | 예     |                                                                                                                            |
-| `size`               | 아니요      | 아니요      |                                                                                                                            |
+| `size`               | no      | no      |                                                                                                                            |
 | `Snippet`            | 부분 | 부분 | `maxLines` 특성이 무시 됩니다.                                                                                  |
 | `south`              | 예     | 예     |                                                                                                                            |
 | `Style`              | 예     | 예     |                                                                                                                            |
-| `StyleMap`           | 부분 | 아니요      | 의 일반 스타일만 `StyleMap` 지원 됩니다.                                                                        |
+| `StyleMap`           | 부분 | no      | 의 일반 스타일만 `StyleMap` 지원 됩니다.                                                                        |
 | `styleUrl`           | 부분 | 예     | 외부 스타일 Url은 지원 되지 않습니다.                                                                         |
 | `text`               | 예     | 예     | 의 대체가 `$[geDirections]` 지원 되지 않음                                                                          |
 | `textColor`          | 예     | 예     |                                                                                                                            |
 | `TimeSpan`           | 예     | 예     |                                                                                                                            |
 | `TimeStamp`          | 예     | 예     |                                                                                                                            |
 | `value`              | 예     | 예     |                                                                                                                            |
-| `viewRefreshMode`    | 부분 | 아니요      |  WMS 서비스를 가리키면 `onStop` 접지 오버레이에 대해서만 지원 됩니다. 는 `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` 맵이 이동 될 때 URL에 추가 하 고 업데이트 합니다.  |
+| `viewRefreshMode`    | 부분 | no      |  WMS 서비스를 가리키면 `onStop` 접지 오버레이에 대해서만 지원 됩니다. 는 `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` 맵이 이동 될 때 URL에 추가 하 고 업데이트 합니다.  |
 | `visibility`         | 예     | 예     |                                                                                                                            |
 | `west`               | 예     | 예     |                                                                                                                            |
 | `when`               | 예     | 예     |                                                                                                                            |
@@ -153,10 +153,10 @@ ms.locfileid: "91310172"
 | `atom:title`             | 예     | 예   |                                                                                                |
 | `atom:updated`           | 예     | 예   |                                                                                                |
 | `atom:uri`               | 예     | 예   |                                                                                                |
-| `geo:lat`                | 예     | 아니요    | 로 작성 `georss:point` 됩니다.                                                                   |
-| `geo:lon`                | 예     | 아니요    | 로 작성 `georss:point` 됩니다.                                                                   |
-| `geo:long`               | 예     | 아니요    | 로 작성 `georss:point` 됩니다.                                                                   |
-| `georss:box`             | 예     | 아니요    | 다각형으로 읽고 `subType` "Rectangle"의 속성을 지정 합니다.                                |
+| `geo:lat`                | 예     | no    | 로 작성 `georss:point` 됩니다.                                                                   |
+| `geo:lon`                | 예     | no    | 로 작성 `georss:point` 됩니다.                                                                   |
+| `geo:long`               | 예     | no    | 로 작성 `georss:point` 됩니다.                                                                   |
+| `georss:box`             | 예     | no    | 다각형으로 읽고 `subType` "Rectangle"의 속성을 지정 합니다.                                |
 | `georss:circle`          | 예     | 예   |                                                                                                |
 | `georss:elev`            | 예     | 예   |                                                                                                |
 | `georss:featurename`     | 예     | 예   |                                                                                                |
@@ -168,36 +168,36 @@ ms.locfileid: "91310172"
 | `georss:radius`          | 예     | 예   |                                                                                                |
 | `georss:relationshiptag` | 예     | 예   |                                                                                                |
 | `georss:where`           | 예     | 예   |                                                                                                |
-| `geourl:latitude`        | 예     | 아니요    | 로 작성 `georss:point` 됩니다.                                                                   |
-| `geourl:longitude`       | 예     | 아니요    | 로 작성 `georss:point` 됩니다.                                                                   |
-| `position`               | 예     | 아니요    | 일부 XML 피드는 태그를 사용 하 여 래핑하는 대신 위치 태그를 사용 하 여 GML을 래핑합니다 `georss:where` . 는이 태그를 읽었지만 태그를 사용 하 여 작성 `georss:where` 합니다. |
-| `rss`                    | 예     | 아니요    | GeoRSS는 ATOM 형식으로 작성 되었습니다.                                                                 |
+| `geourl:latitude`        | 예     | no    | 로 작성 `georss:point` 됩니다.                                                                   |
+| `geourl:longitude`       | 예     | no    | 로 작성 `georss:point` 됩니다.                                                                   |
+| `position`               | 예     | no    | 일부 XML 피드는 태그를 사용 하 여 래핑하는 대신 위치 태그를 사용 하 여 GML을 래핑합니다 `georss:where` . 는이 태그를 읽었지만 태그를 사용 하 여 작성 `georss:where` 합니다. |
+| `rss`                    | 예     | no    | GeoRSS는 ATOM 형식으로 작성 되었습니다.                                                                 |
 | `rss:author`             | 예     | 부분 | 로 작성 `atom:author` 됩니다.                                                                 |
 | `rss:category`           | 예     | 부분 | 로 작성 `atom:category` 됩니다.                                                               |
-| `rss:channel`            | 예     | 아니요    |                                                                                                |
-| `rss:cloud`              | 예     | 아니요    |                                                                                                |
-| `rss:comments`           | 예     | 아니요    |                                                                                                |
+| `rss:channel`            | 예     | no    |                                                                                                |
+| `rss:cloud`              | 예     | no    |                                                                                                |
+| `rss:comments`           | 예     | no    |                                                                                                |
 | `rss:copyright`          | 예     | 부분 | `atom:rights`If 셰이프에 속성이 이미 없는 경우로 작성 `rights` `properties` 됩니다.       |
 | `rss:description`        | 예     | 부분 | `atom:content`If 셰이프에 속성이 이미 없는 경우로 작성 `content` `properties` 됩니다.      |
-| `rss:docs`               | 예     | 아니요    |                                                                                                |
-| `rss:enclosure`          | 예     | 아니요    |                                                                                                |
-| `rss:generator`          | 예     | 아니요    |                                                                                                |
+| `rss:docs`               | 예     | no    |                                                                                                |
+| `rss:enclosure`          | 예     | no    |                                                                                                |
+| `rss:generator`          | 예     | no    |                                                                                                |
 | `rss:guid`               | 예     | 부분 | `atom:id`If 셰이프에 속성이 이미 없는 경우로 작성 `id` `properties` 됩니다.         |
 | `rss:image`              | 예     | 부분 | `atom:logo`If 셰이프에 속성이 이미 없는 경우로 작성 `logo` `properties` 됩니다.      |
 | `rss:item`               | 예     | 부분 | 로 작성 `atom:entry` 됩니다.                                                                  |
-| `rss:language`           | 예     | 아니요    |                                                                                                |
+| `rss:language`           | 예     | no    |                                                                                                |
 | `rss:lastBuildDate`      | 예     | 부분 | `atom:updated`If 셰이프에 속성이 이미 없는 경우로 작성 `updated` `properties` 됩니다.     |
 | `rss:link`               | 예     | 부분 | 로 작성 `atom:link` 됩니다.                                                                   |
 | `rss:managingEditor`     | 예     | 부분 | 로 작성 `atom:contributor` 됩니다.                                                            |
 | `rss:pubDate`            | 예     | 부분 | `atom:published`If 셰이프에 속성이 이미 없는 경우로 작성 `published` `properties` 됩니다.  |
-| `rss:rating`             | 예     | 아니요    |                                                                                                |
-| `rss:skipDays`           | 예     | 아니요    |                                                                                                |
-| `rss:skipHours`          | 예     | 아니요    |                                                                                                |
+| `rss:rating`             | 예     | no    |                                                                                                |
+| `rss:skipDays`           | 예     | no    |                                                                                                |
+| `rss:skipHours`          | 예     | no    |                                                                                                |
 | `rss:source`             | 예     | 부분 | 을 포함 하는로 작성 `atom:source` `atom:link` 됩니다.                                       |
-| `rss:textInput`          | 예     | 아니요    |                                                                                                |
+| `rss:textInput`          | 예     | no    |                                                                                                |
 | `rss:title`              | 예     | 부분 | 로 작성 `atom:title` 됩니다.                                                                  |
-| `rss:ttl`                | 예     | 아니요    |                                                                                                |
-| `rss:webMaster`          | 예     | 아니요    |                                                                                                |
+| `rss:ttl`                | 예     | no    |                                                                                                |
+| `rss:webMaster`          | 예     | no    |                                                                                                |
 
 ### <a name="gml-elements"></a>GML 요소
 
@@ -205,40 +205,40 @@ ms.locfileid: "91310172"
 
 | 요소 이름            | 읽기 | 쓰기 | 참고                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
-| `gml:coordinates`       | 예  | 아니요    | 로 작성 `gml:posList` 됩니다.                                                              |
-| `gml:curveMember`       | 예  | 아니요    |                                                                                        |
-| `gml:curveMembers`      | 예  | 아니요    |                                                                                        |
-| `gml:Box`               | 예  | 아니요    | 로 작성 `gml:Envelope` 됩니다.                                                             |
+| `gml:coordinates`       | 예  | no    | 로 작성 `gml:posList` 됩니다.                                                              |
+| `gml:curveMember`       | 예  | no    |                                                                                        |
+| `gml:curveMembers`      | 예  | no    |                                                                                        |
+| `gml:Box`               | 예  | no    | 로 작성 `gml:Envelope` 됩니다.                                                             |
 | `gml:description`       | 예  | 예   |                                                                                        |
 | `gml:Envelope`          | 예  | 예   |                                                                                        |
 | `gml:exterior`          | 예  | 예   |                                                                                        |
-| `gml:Feature`           | 예  | 아니요    | 도형으로 작성 됩니다.                                                                    |
-| `gml:FeatureCollection` | 예  | 아니요    | 기 하 도형 컬렉션으로 작성 됩니다.                                                      |
-| `gml:featureMember`     | 예  | 아니요    | 기 하 도형 컬렉션으로 작성 됩니다.                                                      |
-| `gml:geometry`          | 예  | 아니요    | 도형으로 작성 됩니다.                                                                    |
+| `gml:Feature`           | 예  | no    | 도형으로 작성 됩니다.                                                                    |
+| `gml:FeatureCollection` | 예  | no    | 기 하 도형 컬렉션으로 작성 됩니다.                                                      |
+| `gml:featureMember`     | 예  | no    | 기 하 도형 컬렉션으로 작성 됩니다.                                                      |
+| `gml:geometry`          | 예  | no    | 도형으로 작성 됩니다.                                                                    |
 | `gml:geometryMember`    | 예  | 예   |                                                                                        |
 | `gml:geometryMembers`   | 예  | 예   |                                                                                        |
 | `gml:identifier`        | 예  | 예   |                                                                                        |
-| `gml:innerBoundaryIs`   | 예  | 아니요    | 을 사용 하 여 작성 `gml.interior` 되었습니다.                                                          |
+| `gml:innerBoundaryIs`   | 예  | no    | 을 사용 하 여 작성 `gml.interior` 되었습니다.                                                          |
 | `gml:interior`          | 예  | 예   |                                                                                        |
 | `gml:LinearRing`        | 예  | 예   |                                                                                        |
 | `gml:LineString`        | 예  | 예   |                                                                                        |
 | `gml:lineStringMember`  | 예  | 예   |                                                                                        |
-| `gml:lineStringMembers` | 예  | 아니요    |                                                                                        |
-| `gml:MultiCurve`        | 예  | 아니요    | 멤버만 읽습니다 `gml:LineString` . 다음으로 작성 `gml.MultiLineString`                  |
+| `gml:lineStringMembers` | 예  | no    |                                                                                        |
+| `gml:MultiCurve`        | 예  | no    | 멤버만 읽습니다 `gml:LineString` . 다음으로 작성 `gml.MultiLineString`                  |
 | `gml:MultiGeometry`     | 부분  | 부분   | FeatureCollection 으로만 읽습니다.                                              |
 | `gml:MultiLineString`   | 예  | 예   |                                                                                        |
 | `gml:MultiPoint`        | 예  | 예   |                                                                                        |
 | `gml:MultiPolygon`      | 예  | 예   |                                                                                        |
-| `gml:MultiSurface`      | 예  | 아니요    | 멤버만 읽습니다 `gml:Polygon` . 다음으로 작성 `gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | 예  | no    | 멤버만 읽습니다 `gml:Polygon` . 다음으로 작성 `gml.MultiPolygon`                        |
 | `gml:name`              | 예  | 예   |                                                                                        |
-| `gml:outerBoundaryIs`   | 예  | 아니요    | 을 사용 하 여 작성 `gml.exterior` 되었습니다.                                                          |
+| `gml:outerBoundaryIs`   | 예  | no    | 을 사용 하 여 작성 `gml.exterior` 되었습니다.                                                          |
 | `gml:Point`             | 예  | 예   |                                                                                        |
 | `gml:pointMember`       | 예  | 예   |                                                                                        |
-| `gml:pointMembers`      | 예  | 아니요    |                                                                                        |
+| `gml:pointMembers`      | 예  | no    |                                                                                        |
 | `gml:Polygon`           | 예  | 예   |                                                                                        |
 | `gml:polygonMember`     | 예  | 예   |                                                                                        |
-| `gml:polygonMembers`    | 예  | 아니요    |                                                                                        |
+| `gml:polygonMembers`    | 예  | no    |                                                                                        |
 | `gml:pos`               | 예  | 예   |                                                                                        |
 | `gml:posList`           | 예  | 예   |                                                                                        |
 | `gml:surfaceMember`     | 예  | 예   |                                                                                        |
@@ -290,10 +290,10 @@ ms.locfileid: "91310172"
 | `gpx_style:line`         | 부분 | 부분 | `color`,,가 `opacity` `width` `lineCap` 지원 됩니다.                                           |
 | `gpx_style:opacity`      | 예     | 예     |                                                                                             |
 | `gpx_style:width`        | 예     | 예     |                                                                                             |
-| `gpxx:DisplayColor`      | 예     | 아니요      | 모양의 색을 지정 하는 데 사용 됩니다. 쓰는 경우 `gpx_style:line` 대신 색이 사용 됩니다.  |
-| `gpxx:RouteExtension`    | 부분 | 아니요      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
-| `gpxx:TrackExtension`    | 부분 | 아니요      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
-| `gpxx:WaypointExtension` | 부분 | 아니요      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
+| `gpxx:DisplayColor`      | 예     | no      | 모양의 색을 지정 하는 데 사용 됩니다. 쓰는 경우 `gpx_style:line` 대신 색이 사용 됩니다.  |
+| `gpxx:RouteExtension`    | 부분 | no      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
+| `gpxx:TrackExtension`    | 부분 | no      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
+| `gpxx:WaypointExtension` | 부분 | no      | 모든 속성은로 읽어옵니다 `properties` . 이 경우에는 `DisplayColor`만 사용됩니다.                     |
 | `gpx:keywords`           | 예     | 예     |                                                                                             |
 | `gpx:fix`                | 예     | 예     |                                                                                             |
 
@@ -399,7 +399,7 @@ ms.locfileid: "91310172"
 - edm. double
 - float
 - double
-- number
+- 숫자
 
 #### <a name="booleans"></a>부울
 

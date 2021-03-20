@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91269236"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업에 대한 병렬 분기 만들기 또는 조인
@@ -41,7 +41,7 @@ ms.locfileid: "91269236"
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
-1. 병렬 분기를 추가하려는 단계 위의 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **병렬 분기 추가**를 선택합니다. 
+1. 병렬 분기를 추가하려는 단계 위의 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **병렬 분기 추가** 를 선택합니다. 
 
    ![병렬 분기 추가](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "91269236"
 
    ![원하는 작업을 찾아서 선택](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. 각 병렬 분기에 원하는 단계를 추가합니다. 분기에 또 다른 작업을 추가하려면 순차적 작업을 추가하려는 작업 아래로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+1. 각 병렬 분기에 원하는 단계를 추가합니다. 분기에 또 다른 작업을 추가하려면 순차적 작업을 추가하려는 작업 아래로 포인터를 이동합니다. 표시되는 **더하기** 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
    ![병렬 분기에 순차적 작업 추가](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "91269236"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic App Designer에서 논리 앱을 찾아서 엽니다. 
 
-1. 조인하려는 병렬 분기에서 **새 단계**를 선택합니다. 
+1. 조인하려는 병렬 분기에서 **새 단계** 를 선택합니다. 
 
    ![조인할 단계 추가](media/logic-apps-control-flow-branches/add-join-step.png)
 

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91291846"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>하이브리드 모드 사용에 대 한 알려진 문제/마이그레이션 제한 사항
@@ -32,7 +32,7 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
 
 1. Azure Portal의 Azure Database Migration Service 인스턴스에서 **하이브리드** 설정 탭으로 이동한 다음 등록 된 작업자의 그리드를 확인 하 여 worker가 등록 되었는지 확인 합니다.
 
-    이 작업자의 상태는 **온라인**상태 여야 하지만 문제가 있는 경우 **오프 라인** 으로 표시 될 수 있습니다.
+    이 작업자의 상태는 **온라인** 상태 여야 하지만 문제가 있는 경우 **오프 라인** 으로 표시 될 수 있습니다.
 
 2. 작업자 컴퓨터에서 다음 PowerShell 명령을 실행 하 여 서비스의 상태를 확인 합니다.
 
@@ -51,7 +51,7 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
 3. Windows 서비스가 실행 중과 중지 된 사이에서 순환 되는 경우 작업자는 시작 하는 데 문제가 발생 했습니다. 하이브리드 작업자 로그 Azure Database Migration Service 확인 하 여 문제를 확인 합니다.
 
     - 설치 프로세스 로그는 설치 관리자 실행 파일이 실행 된 폴더 내의 "logs" 폴더에 저장 됩니다.
-    - Azure Database Migration Service hybrid worker **로그는 작업자** 가 설치 되어 있는 폴더에 저장 됩니다. 하이브리드 작업자 로그 파일의 기본 위치는 **C:\Program Files\DatabaseMigrationServiceHybrid\WorkerLogs**입니다.
+    - Azure Database Migration Service hybrid worker **로그는 작업자** 가 설치 되어 있는 폴더에 저장 됩니다. 하이브리드 작업자 로그 파일의 기본 위치는 **C:\Program Files\DatabaseMigrationServiceHybrid\WorkerLogs** 입니다.
 
 ## <a name="using-your-own-signed-certificate"></a>자체 서명 된 인증서 사용
 
@@ -73,9 +73,9 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
     - DMS Hybrid Worker 설정 키
     - DMS 시나리오 엔진 키 쌍
 
-    b. **DMS 하이브리드 앱 키** 항목을 마우스 오른쪽 단추로 클릭 하 고 **모든 작업**을 가리킨 다음 **개인 키 관리**를 선택 합니다.
+    b. **DMS 하이브리드 앱 키** 항목을 마우스 오른쪽 단추로 클릭 하 고 **모든 작업** 을 가리킨 다음 **개인 키 관리** 를 선택 합니다.
 
-    다. **보안** 탭에서 **추가**를 선택한 다음 계정 이름을 입력 합니다.
+    다. **보안** 탭에서 **추가** 를 선택한 다음 계정 이름을 입력 합니다.
 
     d. 동일한 단계를 사용 하 여 새 계정에 대 한 개인 키 권한을 **DMS 시나리오 엔진 키 쌍** 인증서에 부여 합니다.
 
@@ -85,9 +85,9 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
 
 1. Azure Portal에서 Azure Database Migration Service 인스턴스를 가져온 다음 **하이브리드** 설정 페이지로 이동 합니다.
 
-   상태가 **오프 라인**으로 표시 되 고 목록에 작업자 항목이 표시 됩니다.
+   상태가 **오프 라인** 으로 표시 되 고 목록에 작업자 항목이 표시 됩니다.
 
-2. 작업자 항목 목록의 맨 오른쪽에 있는 줄임표를 선택 하 고 **등록 취소**를 선택 합니다.
+2. 작업자 항목 목록의 맨 오른쪽에 있는 줄임표를 선택 하 고 **등록 취소** 를 선택 합니다.
 
 ## <a name="addressing-issues-for-specific-migration-scenarios"></a>특정 마이그레이션 시나리오에 대 한 문제 해결
 

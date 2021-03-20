@@ -12,10 +12,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792551"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>SQL Server on Linux 가상 컴퓨터에 대 한 질문과 대답
@@ -95,13 +95,13 @@ ms.locfileid: "92792551"
 
 ## <a name="resources"></a>리소스
 
-**Linux VM** :
+**Linux VM**:
 
 * [Linux VM의 SQL Server 개요](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Linux VM에 SQL Server 프로 비전](sql-vm-create-portal-quickstart.md)
 * [Linux의 SQL Server 설명서](/sql/linux/sql-server-linux-overview)
 
-**Windows VM** :
+**Windows VM**:
 
 * [Windows VM에서 SQL Server 개요](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM에서 SQL Server 프로 비전](../windows/sql-vm-create-portal-quickstart.md)

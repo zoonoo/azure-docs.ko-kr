@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88924642"
 ---
 #   <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
@@ -55,7 +55,7 @@ Microsoft.Skills.Text.MergeSkill
 ```
 
 ##  <a name="sample-output"></a>샘플 출력
-이 예제는 *insertPreTag*가 `" "`으로, *insertPostTag*가 `""`으로 설정된다고 가정하면서 이전 입력의 출력을 표시합니다. 
+이 예제는 *insertPreTag* 가 `" "`으로, *insertPostTag* 가 `""`으로 설정된다고 가정하면서 이전 입력의 출력을 표시합니다. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Microsoft.Skills.Text.MergeSkill
   ]
 }
 ```
-위의 예제는 정규화 이미지 필드가 있다고 가정합니다. 정규화 이미지 필드를 가져오려면 인덱서 정의에서 *imageAction* 구성을 아래와 같이 *generateNormalizedImages*로 설정합니다.
+위의 예제는 정규화 이미지 필드가 있다고 가정합니다. 정규화 이미지 필드를 가져오려면 인덱서 정의에서 *imageAction* 구성을 아래와 같이 *generateNormalizedImages* 로 설정합니다.
 
 ```json
 {

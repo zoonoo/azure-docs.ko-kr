@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929645"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Azure Cognitive Search에서 최신 REST API로 업그레이드
 
-이전 버전의 [**검색 REST API**](/rest/api/searchservice/)를 사용 하는 경우이 문서는 응용 프로그램을 일반적으로 사용할 수 있는 최신 API 버전인 **2020-06-30**로 업그레이드 하는 데 도움이 됩니다.
+이전 버전의 [**검색 REST API**](/rest/api/searchservice/)를 사용 하는 경우이 문서는 응용 프로그램을 일반적으로 사용할 수 있는 최신 API 버전인 **2020-06-30** 로 업그레이드 하는 데 도움이 됩니다.
 
 버전 2020-06-30에는 중요 한 새 기능 ([기술 자료 저장소](knowledge-store-concept-intro.md))이 포함 되어 있으며 몇 가지 사소한 동작 변경 내용이 도입 되었습니다. 따라서 이전 버전 (2019-05-06)에서 업그레이드 하는 경우에는이 버전이 이전 버전과 호환 되므로 코드를 변경 해야 합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "91929645"
 
 * 모든 Edm. 날짜 리터럴 (와 같이 연도-월-일으로 구성 된 날짜는 `2020-12-12` 필터 식) 다음에와 야 합니다. DateTimeOffset 형식: `2020-12-12T00:00:00Z` . 이 변경은 표준 시간대 차이로 인해 잘못 되었거나 예기치 않은 쿼리 결과를 처리 하는 데 필요 했습니다.
 
-### <a name="behavior-changes"></a>동작 변경 내용
+### <a name="behavior-changes"></a>동작 변경
 
 * [BM25 순위 알고리즘](index-ranking-similarity.md) 은 이전 순위 알고리즘을 최신 기술로 대체 합니다. 새 서비스는이 알고리즘을 자동으로 사용 합니다. 기존 서비스의 경우 새 알고리즘을 사용 하도록 매개 변수를 설정 해야 합니다.
 

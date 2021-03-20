@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Kubernetes Services에서 Azure Dev Spaces를 실행 하기 위한 네트워킹 요구 사항을 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, CNI, kubenet, SDN, 네트워크
 ms.openlocfilehash: 09114ab13555cbf9ef42b37c86ffb76a8fe3ab3f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91970341"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성

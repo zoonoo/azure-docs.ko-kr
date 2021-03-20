@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788828"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>VCore 및 DTU 구매 모델 중에서 선택-Azure SQL Database 및 SQL Managed Instance
@@ -162,11 +162,11 @@ DTU 기반 구매 모델에서 고객은 해당 데이터베이스에 사용 되
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 변환 하려면 응용 프로그램을 오프 라인으로 전환 해야 하나요?
 
-아니요. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](single-database-scale.md) 및 [탄력적 풀 관리](elastic-pool-overview.md)를 참조 하세요.
+아니요. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](single-database-scale.md) 및 [탄력적 풀 관리](elastic-pool-overview.md)를 참조하세요.
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>VCore 기반 구매 모델의 서비스 계층에서 DTU 기반 구매 모델의 서비스 계층으로 데이터베이스를 변환할 수 있나요?
 
-예, Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여 데이터베이스를 지원 되는 성능 목표로 쉽게 변환할 수 있습니다. [단일 데이터베이스 관리](single-database-scale.md) 및 [탄력적 풀 관리](elastic-pool-overview.md)를 참조 하세요.
+예, Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여 데이터베이스를 지원 되는 성능 목표로 쉽게 변환할 수 있습니다. [단일 데이터베이스 관리](single-database-scale.md) 및 [탄력적 풀 관리](elastic-pool-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

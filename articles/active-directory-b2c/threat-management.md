@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384977"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
@@ -40,16 +40,16 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 
 1. [Azure 포털](https://portal.azure.com)
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **보안**에서 **인증 방법 (미리 보기)** 을 선택한 다음 **암호 보호**를 선택 합니다.
-1. 원하는 암호 보호 설정을 입력 하 고 **저장**을 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **보안** 에서 **인증 방법 (미리 보기)** 을 선택한 다음 **암호 보호** 를 선택 합니다.
+1. 원하는 암호 보호 설정을 입력 하 고 **저장** 을 선택 합니다.
 
     ![Azure AD 설정에서 암호 보호 페이지 Azure Portal](./media/threat-management/portal-02-password-protection.png)
-    <br />* **암호 보호** 설정에서 잠금 임계값을 5로 설정*합니다.
+    <br />***암호 보호** 설정에서 잠금 임계값을 5로 설정* 합니다.
 
 ## <a name="view-locked-out-accounts"></a>잠긴 계정 보기
 
-잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태**에서 **실패**를 선택 합니다. **로그인 오류 코드** 를 사용 하 여 로그인 시도에 실패 했습니다 `50053` .
+잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태** 에서 **실패** 를 선택 합니다. **로그인 오류 코드** 를 사용 하 여 로그인 시도에 실패 했습니다 `50053` .
 
 ![잠긴 계정을 표시 하는 Azure AD 로그인 보고서의 섹션](./media/threat-management/portal-01-locked-account.png)
 

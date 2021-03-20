@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88932919"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 
-Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md) 하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md) 를 **람다 식**과 함께 사용할 수 있습니다. 람다 식은 **범위 변수**를 참조 하는 부울 식입니다. `any`및 연산자는 루프 `all` `for` 변수의 역할을 취하는 범위 변수와 루프의 본문으로 사용 되는 람다 식을 사용 하는 대부분의 프로그래밍 언어의 루프와 유사 합니다. 범위 변수는 루프를 반복 하는 동안 컬렉션의 "current" 값을 사용 합니다.
+Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md) 하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md) 를 **람다 식** 과 함께 사용할 수 있습니다. 람다 식은 **범위 변수** 를 참조 하는 부울 식입니다. `any`및 연산자는 루프 `all` `for` 변수의 역할을 취하는 범위 변수와 루프의 본문으로 사용 되는 람다 식을 사용 하는 대부분의 프로그래밍 언어의 루프와 유사 합니다. 범위 변수는 루프를 반복 하는 동안 컬렉션의 "current" 값을 사용 합니다.
 
 개념적으로 작동 하는 방법은 이상입니다. 실제로 Azure Cognitive Search는 루프의 작동 방식에 대해 매우 다양 한 방법으로 필터를 구현 `for` 합니다. 이러한 차이는 사용자에 게 표시 되지 않지만 특정 상황에서는 표시 되지 않습니다. 최종 결과에는 람다 식을 작성할 때 따라야 하는 규칙이 있습니다.
 
@@ -48,13 +48,13 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
 ## <a name="correlated-versus-uncorrelated-search"></a>상호 관련 검색 및 상관 관계가 없는 검색
 
-복합 개체의 컬렉션에 여러 필터 조건을 적용 하는 경우이 기준은 *컬렉션의 각 개체*에 적용 되므로 **상관 관계가** 지정 됩니다. 예를 들어 다음 필터는 100 미만의 deluxe 공간이 하나 이상 있는 호텔을 반환 합니다.
+복합 개체의 컬렉션에 여러 필터 조건을 적용 하는 경우이 기준은 *컬렉션의 각 개체* 에 적용 되므로 **상관 관계가** 지정 됩니다. 예를 들어 다음 필터는 100 미만의 deluxe 공간이 하나 이상 있는 호텔을 반환 합니다.
 
 ```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
 ```
 
-필터링이 *상관 관계가 없는*경우 위의 필터는 한 방 deluxe 하 고 다른 방에는 100 미만의 기본 요금이 있는 호텔을 반환할 수 있습니다. 람다 식의 두 절은 같은 범위 변수에 적용 되므로이는 의미가 `room` 없습니다. 이러한 필터가 상호 관련 되는 이유입니다.
+필터링이 *상관 관계가 없는* 경우 위의 필터는 한 방 deluxe 하 고 다른 방에는 100 미만의 기본 요금이 있는 호텔을 반환할 수 있습니다. 람다 식의 두 절은 같은 범위 변수에 적용 되므로이는 의미가 `room` 없습니다. 이러한 필터가 상호 관련 되는 이유입니다.
 
 그러나 전체 텍스트 검색에는 특정 범위 변수를 참조할 수 있는 방법이 없습니다. 필드 지정 search를 사용 하 여 다음과 같은 [전체 Lucene 쿼리](query-lucene-syntax.md) 를 실행 하는 경우
 
@@ -105,7 +105,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 | 객실 | 1, 2 |
 | 표준 | 1 |
 | tcp/ip | 1 |
-| view | 1 |
+| 뷰 | 1 |
 
 위의 필터와는 달리, 기본적으로 "대화방이 `Type` ' Deluxe '과 같은 공간이 있고 **동일한 공간이** 100 미만입니다." 문서와 일치 하는 경우 `BaseRate` 검색 쿼리는 " `Rooms/Type` Deluxe" 라는 용어를 포함 하 고 "city view" 라는 구를 포함 하는 "일치 문서"를 의미 `Rooms/Description` 합니다. 후자의 경우에는 필드의 상관 관계를 지정할 수 있는 개별 대화방의 개념이 없습니다.
 
@@ -140,7 +140,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 }
 ```
 
-필드의 값은 `seasons` 다음과 같이 **반전 된 인덱스**라는 구조에 저장 됩니다.
+필드의 값은 `seasons` 다음과 같이 **반전 된 인덱스** 라는 구조에 저장 됩니다.
 
 | 용어 | 문서 Id |
 | --- | --- |

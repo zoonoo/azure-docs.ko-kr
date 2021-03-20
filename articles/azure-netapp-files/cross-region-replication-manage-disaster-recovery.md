@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243208"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590996"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>지역 간 복제를 사용 하 여 재해 복구 관리 
 
@@ -38,10 +38,10 @@ ms.locfileid: "95243208"
 1. 복제 피어 링을 중단 하려면 대상 볼륨을 선택 합니다. 저장소 서비스에서 **복제** 를 클릭 합니다.  
 
 2.  계속 하기 전에 다음 필드를 확인 하십시오.  
-    * 미러 상태가 ***미러된** _를 표시 하는지 확인 합니다.   
-        미러 상태가 _Uninitialized *로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.
-    * 관계 상태가 ***Idle** _을 표시 하는지 확인 합니다.   
-        관계 상태가 _Transferring *로 표시 되는 경우 복제 피어 링을 중단 하려고 하지 마세요.   
+    * 미러 상태가 ***미러된*** 것으로 표시 되는지 확인 합니다.   
+        미러 상태가 *초기화 되지 않음* 으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.
+    * 관계 상태가 ***유휴*** 상태를 표시 하는지 확인 합니다.   
+        관계 상태가 *전송* 중으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.   
 
     [복제 관계의 상태 표시를](cross-region-replication-display-health-status.md)참조 하세요. 
 
@@ -80,10 +80,10 @@ ms.locfileid: "95243208"
 1. 복제 피어 링을 중단 합니다.  
     a. *대상* 볼륨을 선택 합니다. 저장소 서비스에서 **복제** 를 클릭 합니다.  
     b. 계속 하기 전에 다음 필드를 확인 하십시오.   
-    * 미러 상태가 ***미러된** _를 표시 하는지 확인 합니다.   
-    미러 상태가 _uninitialized *로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.  
-    * 관계 상태가 ***Idle** _을 표시 하는지 확인 합니다.   
-    관계 상태가 _transferring *로 표시 되는 경우 복제 피어 링을 중단 하려고 하지 마세요.    
+    * 미러 상태가 ***미러된*** 것으로 표시 되는지 확인 합니다.   
+    미러 상태가 *초기화 되지 않음* 으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.  
+    * 관계 상태가 ***유휴*** 상태를 표시 하는지 확인 합니다.   
+    관계 상태가 *전송* 중으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.    
 
         [복제 관계의 상태 표시를](cross-region-replication-display-health-status.md)참조 하세요. 
 
@@ -102,6 +102,7 @@ ms.locfileid: "95243208"
 * [지역 간 복제](cross-region-replication-introduction.md)
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
 * [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
+* [지역 간 복제 대상 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [볼륨 복제 또는 볼륨 삭제](cross-region-replication-delete.md)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)

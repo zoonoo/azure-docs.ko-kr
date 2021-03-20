@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: be28a10f8a96d21d64d08cfacee4543c065168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85391760"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
@@ -51,25 +51,25 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
     ![기어 아이콘 이미지](./media/export-your-model/gear-icon.png)
 
-1. __도메인__ 섹션에서 __compact__ 도메인 중 하나를 선택 합니다. __변경 내용 저장__을 선택하여 변경 내용을 저장합니다. 
+1. __도메인__ 섹션에서 __compact__ 도메인 중 하나를 선택 합니다. __변경 내용 저장__ 을 선택하여 변경 내용을 저장합니다. 
 
     > [!NOTE]
     > 시각 AI Dev Kit의 경우 __일반 (Compact)__ 도메인을 사용 하 여 프로젝트를 만들고 **내보내기 기능** 섹션에서 **비전 ai Dev kit** 옵션을 지정 해야 합니다.
 
     ![도메인 선택 이미지](./media/export-your-model/domains.png)
 
-1. 페이지 위쪽에서 __교육__을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
+1. 페이지 위쪽에서 __교육__ 을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
 
 ## <a name="export-your-model"></a>모델 내보내기
 
 재교육 후 모델을 내보내려면 다음 단계를 수행합니다.
 
-1. **성능** 탭으로 이동하여 __내보내기__를 선택합니다. 
+1. **성능** 탭으로 이동하여 __내보내기__ 를 선택합니다. 
 
     ![내보내기 아이콘 이미지](./media/export-your-model/export.png)
 
     > [!TIP]
-    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__를 선택합니다.
+    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__ 를 선택합니다.
 
 1. 원하는 내보내기 형식을 선택한 후 __내보내기__ 를 선택 하 여 모델을 다운로드 합니다.
 

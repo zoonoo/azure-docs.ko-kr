@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/23/2020
 ms.author: inhenkel
 ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92678115"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -32,7 +32,7 @@ ms.locfileid: "92678115"
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 단일 구독의 [Media Services 계정](media-services-account-concept.md) | 100 (고정) |
+| 단일 구독의 [Media Services 계정](media-services-account-concept.md) | 100(고정) |
 
 ## <a name="asset-limits"></a>자산 제한
 
@@ -109,7 +109,7 @@ ms.locfileid: "92678115"
 
 ## <a name="support-ticket"></a>지원 티켓
 
-고정되지 않는 리소스의 경우 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 열어 발생되는 할당량을 요청할 수 있습니다. 원하는 할당량 변경, 사용 사례 시나리오 및 필요한 영역에 대한 세부 정보를 요청에 포함시킵니다. <br/>더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 **마십시오** .
+고정되지 않는 리소스의 경우 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 열어 발생되는 할당량을 요청할 수 있습니다. 원하는 할당량 변경, 사용 사례 시나리오 및 필요한 영역에 대한 세부 정보를 요청에 포함시킵니다. <br/>더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 **마십시오**.
 
 ## <a name="next-steps"></a>다음 단계
 

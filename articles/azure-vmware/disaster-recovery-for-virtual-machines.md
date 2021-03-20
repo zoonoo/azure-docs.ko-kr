@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure VMware 솔루션을 사용 하 여 가상
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779614"
 ---
 # <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 가상 머신의 전체 재해 복구
@@ -44,11 +44,11 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 1. **재해 복구** 영역을 입력 하 고 **vm 보호** 를 선택 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="vm 보호를 선택 합니다." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. 원본 및 원격 사이트를 선택 합니다. 이 경우 원격 사이트는 Azure VMware 솔루션 사설 클라우드 여야 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Vm 보호 창" border="true":::
 
 1. 필요한 경우 **기본 복제** 옵션을 선택 합니다.
 
@@ -68,21 +68,21 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
    - **스냅숏 수:** 구성 된 스냅숏 간격 내에 있는 총 스냅숏 수입니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="Vm 보호 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
 
 1. 목록에서 하나 이상의 Vm을 선택 하 고 필요에 따라 복제 옵션을 구성 합니다.
 
    기본적으로 Vm은 기본 복제 옵션에 구성 된 전역 설정 정책을 상속 합니다. 선택한 VM의 각 네트워크 인터페이스에 대해 원격 **네트워크 포트 그룹** 을 구성 하 고 **마침** 을 선택 하 여 보호 프로세스를 시작 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="네트워크 인터페이스 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
 
 1. 동일한 재해 복구 영역에서 선택한 각 Vm에 대 한 프로세스를 모니터링 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="보호 진행률 모니터링" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
 
 1. VM이 보호 된 후에는 **스냅숏** 탭에서 다른 스냅숏을 볼 수 있습니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="스냅숏 목록" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
    노란색 삼각형은 스냅숏 및 가상 컴퓨터가 테스트 복구 작업에서 테스트 되지 않았음을 의미 합니다.
 
@@ -93,21 +93,21 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 1. Azure VMware 솔루션 사설 클라우드 인 원격 사이트의 **Vsphere 클라이언트** 에 로그인 합니다. 
 1. **Hcx 플러그 인** 에서 재해 복구 영역에 있는 모든 vm의 세로 줄임표를 선택 하 여 작업 메뉴를 표시 한 후 **복구 vm 테스트** 를 선택 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="VM 복구 테스트 선택" border="true":::
 
 1. VM의 다른 상태를 테스트 하는 데 사용 하려는 테스트 및 스냅숏에 대 한 옵션을 선택 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="스냅숏 선택 및 테스트 선택" border="true":::
 
 1. **테스트** 를 선택 하면 복구 작업이 시작 됩니다.
 
 1. 완료 되 면 Azure VMware 솔루션 사설 클라우드 vCenter에서 새 VM을 확인할 수 있습니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="복구 작업 확인" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 
 1. VM 또는 VM에서 실행 중인 응용 프로그램에 대해 테스트가 완료 된 후에는 정리를 수행 하 여 테스트 인스턴스를 삭제 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="테스트 인스턴스 정리" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
 
 ## <a name="recover-vms"></a>Vm 복구
 
@@ -117,11 +117,11 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 1. 목록에서 복구할 VM을 선택 하 고 **작업** 메뉴를 연 다음 **복구 vm** 을 선택 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Vm 복구" border="true":::
 
 1. 각 인스턴스에 대 한 복구 옵션을 구성 하 고 복구를 선택 하 여 복구 **작업을 시작** 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="Vm 복구 확인" border="true":::
 
 1. 복구 작업이 완료 되 면 원격 vCenter Server 인벤토리에 새 Vm이 표시 됩니다.
 
@@ -135,11 +135,11 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 1. 목록에서 원본 사이트로 다시 복제할 Vm을 선택 하 고 **작업** 메뉴를 연 다음 **역방향** 을 선택 합니다. 
 1. **역방향** 을 선택 하 여 복제를 시작 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="VSphere HCX 옵션" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="보호 작업에서 역방향 동작을 선택 합니다." border="true":::
 
 1. 각 VM의 세부 정보 섹션을 모니터링 합니다.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="역방향 동작의 결과를 검토 합니다." border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
 
 ## <a name="disaster-recovery-plan-automation"></a>재해 복구 계획 자동화
 

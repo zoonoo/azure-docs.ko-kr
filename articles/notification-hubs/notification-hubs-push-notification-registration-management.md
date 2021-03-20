@@ -18,10 +18,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89001572"
 ---
 # <a name="registration-management"></a>등록 관리
@@ -30,7 +30,7 @@ ms.locfileid: "89001572"
 
 ## <a name="what-is-device-registration"></a>디바이스 등록이란?
 
-Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사용하여 수행됩니다.
+Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사용하여 수행됩니다.
 
 ### <a name="registrations"></a>등록
 

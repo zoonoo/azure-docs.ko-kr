@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790732"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>서버 신뢰 그룹을 사용 하 여 SQL 관리 되는 인스턴스 간 트러스트 설정 및 관리
@@ -42,11 +42,11 @@ ms.locfileid: "92790732"
 
 4. 서버 트러스트 그룹 구성 페이지에서 **새 그룹** 아이콘을 선택 합니다.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="서버 트러스트 그룹":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="새 그룹":::
 
 5. **SQL 트러스트 그룹** 만들기 블레이드에서 **그룹 이름을** 설정 합니다. 그룹 구성원이 있는 모든 지역에서 고유 해야 합니다. **신뢰 범위** 는 서버 신뢰 그룹에서 사용 하도록 설정 된 인스턴스 간 시나리오의 유형을 정의 합니다. 미리 보기에서 적용 가능한 신뢰 범위는 **분산 트랜잭션** 이므로 미리 선택 되어 있으며 변경할 수 없습니다. 모든 **그룹 구성원** 은 동일한 **구독** 에 속해 있어야 하지만 다른 리소스 그룹 아래에 있을 수 있습니다. **리소스 그룹** 및 **SQL Server/인스턴스** 를 선택 하 여 그룹의 구성원이 될 Azure SQL Managed Instance를 선택 합니다.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="서버 트러스트 그룹":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="서버 트러스트 그룹 만들기 블레이드":::
 
 6. 모든 필수 필드를 채운 후 **저장** 을 클릭 합니다.
 
@@ -59,11 +59,11 @@ ms.locfileid: "92790732"
 2. 신뢰 그룹에 속하는 Managed Instance로 이동 합니다.
 3. **보안** 설정에서 **SQL 트러스트 그룹** 탭을 선택 합니다.
 4. 삭제할 신뢰 그룹을 선택 합니다.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="서버 트러스트 그룹":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="서버 트러스트 그룹 선택":::
 5. **그룹 삭제** 를 클릭 합니다.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="서버 트러스트 그룹":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="서버 트러스트 그룹 삭제":::
 6. 서버 트러스트 그룹 이름을 입력 하 여 삭제를 확인 하 고 **삭제** 를 클릭 합니다.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="서버 트러스트 그룹":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="서버 트러스트 그룹 삭제 확인":::
 
 > [!NOTE]
 > 서버 신뢰 그룹을 삭제 하면 두 관리 되는 인스턴스 간의 트러스트가 즉시 제거 되지 않을 수도 있습니다. 관리 되는 인스턴스의 [장애 조치 (failover)](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) 를 호출 하 여 트러스트 제거를 적용할 수 있습니다. 이에서 최신 업데이트에 대 한 [알려진 문제](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) 를 확인 합니다.

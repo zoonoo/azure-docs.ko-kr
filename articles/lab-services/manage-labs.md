@@ -4,10 +4,10 @@ description: 랩 계정에서 모든 랩을 보고 랩 계정에서 랩을 삭�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993621"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>랩 계정에서 랩 관리
@@ -37,4 +37,4 @@ ms.locfileid: "95993621"
     ![랩 삭제 확인](./media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="next-steps"></a>다음 단계
-TOC(목차)의 **방법 가이드** ** -> 랩 계정 만들기 및 구성(랩 계정 소유자)** 섹션에 있는 다른 문서를 참조하세요. 
+TOC(목차)의 **방법 가이드** -> **랩 계정 만들기 및 구성(랩 계정 소유자)** 섹션에 있는 다른 문서를 참조하세요. 

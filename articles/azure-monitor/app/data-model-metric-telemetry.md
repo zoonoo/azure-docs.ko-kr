@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320581"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
@@ -49,7 +49,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 집계된 메트릭의 최소값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
-## <a name="max"></a>최대값
+## <a name="max"></a>최대
 
 집계된 메트릭의 최대값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
