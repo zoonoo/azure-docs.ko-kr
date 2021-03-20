@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5504b9bc87f78682ff584006255d4e75e5e69fa7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793350"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>클라우드 데이터베이스의 분산 트랜잭션(미리 보기)
@@ -238,9 +238,9 @@ Transact-sql을 사용 하 여 트랜잭션이 분산 트랜잭션으로 명시�
 
 다음 PowerShell cmdlet을 사용하여 탄력적인 데이터베이스 트랜잭션에 대한 서버 간 통신 관계를 관리할 수 있습니다.
 
-* **AzSqlServerCommunicationLink** :이 cmdlet을 사용 하 여 Azure SQL Database의 두 서버 간에 새 통신 관계를 만들 수 있습니다. 대칭 관계는 두 서버 모두 다른 서버를 사용 하 여 트랜잭션을 시작할 수 있음을 의미 합니다.
-* **Get-AzSqlServerCommunicationLink** : 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
-* **Remove-AzSqlServerCommunicationLink** : 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다.
+* **AzSqlServerCommunicationLink**:이 cmdlet을 사용 하 여 Azure SQL Database의 두 서버 간에 새 통신 관계를 만들 수 있습니다. 대칭 관계는 두 서버 모두 다른 서버를 사용 하 여 트랜잭션을 시작할 수 있음을 의미 합니다.
+* **Get-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
+* **Remove-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다.
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 여러 서버 간 트랜잭션
 
@@ -258,9 +258,9 @@ Dmv (동적 관리 뷰)를 사용 하 여 진행 중인 탄력적 데이터베�
 
 다음 DMV는 특히 유용합니다.
 
-* **sys.dm\_tran\_active\_transactions** : 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql)를 참조 하세요.
-* **sys.dm\_tran\_database\_transactions** : 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql)를 참조 하세요.
-* **sys.dm\_tran\_locks** : 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)를 참조 하세요.
+* **sys.dm\_tran\_active\_transactions**: 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql)를 참조 하세요.
+* **sys.dm\_tran\_database\_transactions**: 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql)를 참조 하세요.
+* **sys.dm\_tran\_locks**: 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 

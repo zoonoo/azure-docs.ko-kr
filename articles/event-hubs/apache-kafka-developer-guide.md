@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs와 Kafka 응용 프로그램�
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90061736"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드
@@ -26,7 +26,7 @@ Azure-- **---kafka** 리포지토리의
 | ------------------------- | ----------- | 
 | [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>이 빠른 시작에서는 .NET Core 2.0를 사용 하 여 c #으로 작성 된 예제 생산자 및 소비자를 사용 하 여 Event Hubs Kafka 끝점을 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플은 [Confluent의 Apache Kafka .net 클라이언트](https://github.com/confluentinc/confluent-kafka-dotnet)를 기반으로 하며, Kafka 용 Event Hubs와 함께 사용 하도록 수정 되었습니다.</p> | 
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | 이 빠른 시작에서는 Java로 작성 된 예제 생산자 및 소비자를 사용 하 여 Event Hubs Kafka 끝점을 만들고 연결 하는 방법을 보여 줍니다. |
-| [Node.js](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>이 빠른 시작에서는 노드에 작성 된 예제 생산자와 소비자를 사용 하 여 Kafka 끝점 Event Hubs 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플에서는 [노드 rdkafka](https://github.com/Blizzard/node-rdkafka) 라이브러리를 사용 합니다. </p>| 
+| [Node.JS](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>이 빠른 시작에서는 노드에 작성 된 예제 생산자와 소비자를 사용 하 여 Kafka 끝점 Event Hubs 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플에서는 [노드 rdkafka](https://github.com/Blizzard/node-rdkafka) 라이브러리를 사용 합니다. </p>| 
 | [Python](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/python) | <p>이 빠른 시작에서는 python으로 작성 된 예제 생산자와 소비자를 사용 하 여 Kafka 끝점 Event Hubs 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플은 [Confluent의 Python 클라이언트 Apache Kafka](https://github.com/confluentinc/confluent-kafka-python)를 기반으로 하며, Kafka 용 Event Hubs와 함께 사용 하도록 수정 되었습니다.</p>|
 | [Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>이 빠른 시작에서는 Go로 작성 된 예제 생산자와 소비자를 사용 하 여 Kafka 끝점 Event Hubs 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플은 [Confluent의 Apache Kafka Golang client](https://github.com/confluentinc/confluent-kafka-go)를 기반으로 하며, Kafka 용 Event Hubs와 함께 사용 하도록 수정 되었습니다.</p>| 
 | [Sarama kafka Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | 이 빠른 시작에서는 [Sarama kafka 클라이언트](https://github.com/Shopify/sarama) 라이브러리를 사용 하 여 Go로 작성 된 예제 생산자 및 소비자를 사용 하 여 kafka 끝점 Event Hubs을 만들고 연결 하는 방법을 보여 줍니다. |

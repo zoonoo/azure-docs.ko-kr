@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792058"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**중요** : 업데이트 된 매핑의 범위가 비어 있는 것이 확실 한 경우에만이 기술을 사용 합니다.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
+**중요**: 업데이트 된 매핑의 범위가 비어 있는 것이 확실 한 경우에만이 기술을 사용 합니다.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

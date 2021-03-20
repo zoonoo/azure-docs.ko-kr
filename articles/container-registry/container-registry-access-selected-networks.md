@@ -4,10 +4,10 @@ description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이�
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89488765"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
@@ -46,10 +46,10 @@ az acr network-rule add \
 ## <a name="access-from-selected-public-network---portal"></a>선택한 공용 네트워크에서 액세스-포털
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **설정**에서 **네트워킹**을 선택합니다.
-1. **공용 액세스** 탭에서 **선택된 네트워크**에서 공용 액세스를 허용하도록 선택합니다.
-1. **방화벽**에서 가상 네트워크에 있는 VM의 공용 IP 주소와 같은 공용 IP 주소를 입력합니다. 또는 VM의 IP 주소를 포함하는 CIDR 표기법으로 주소 범위를 입력합니다.
-1. **저장**을 선택합니다.
+1. **설정** 에서 **네트워킹** 을 선택합니다.
+1. **공용 액세스** 탭에서 **선택된 네트워크** 에서 공용 액세스를 허용하도록 선택합니다.
+1. **방화벽** 에서 가상 네트워크에 있는 VM의 공용 IP 주소와 같은 공용 IP 주소를 입력합니다. 또는 VM의 IP 주소를 포함하는 CIDR 표기법으로 주소 범위를 입력합니다.
+1. **저장** 을 선택합니다.
 
 ![컨테이너 레지스트리에 대한 방화벽 규칙 구성][acr-access-selected-networks]
 
@@ -76,8 +76,8 @@ az acr update --name myContainerRegistry --public-network-enabled false
 
 ### <a name="disable-public-access---portal"></a>공용 액세스 사용 안 함 - 포털
 
-1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹**을 선택합니다.
-1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용**에서 **사용 안 함**을 선택합니다. 그런 다음 **저장**을 선택합니다.
+1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹** 을 선택합니다.
+1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용** 에서 **사용 안 함** 을 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
 ![공용 액세스를 사용하지 않음][acr-access-disabled]
 
@@ -99,8 +99,8 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ### <a name="restore-public-access---portal"></a>공용 액세스 복원 - 포털
 
-1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹**을 선택합니다.
-1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용**에서 **모든 네트워크**를 선택합니다. 그런 다음 **저장**을 선택합니다.
+1. 포털에서 컨테이너 레지스트리로 이동하고 **설정 > 네트워킹** 을 선택합니다.
+1. **공용 액세스** 탭의 **공용 네트워크 액세스 허용** 에서 **모든 네트워크** 를 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
 ![모든 네트워크에서 공용 액세스][acr-access-all-networks]
 

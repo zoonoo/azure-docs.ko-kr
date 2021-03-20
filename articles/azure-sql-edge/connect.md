@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395209"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Azure SQL Edge 연결 및 쿼리
@@ -36,8 +36,8 @@ Azure SQL Edge에서 컨테이너를 배포한 후에는 다음 위치 중 하�
 
 네트워크 컴퓨터에서 Azure SQL Edge 데이터베이스 엔진에 연결 하려면 다음이 필요 합니다.
 
-- **호스트 컴퓨터의 IP 주소 또는 네트워크 이름** : Azure SQL Edge 컨테이너가 실행 되는 호스트 컴퓨터입니다.
-- **AZURE SQL Edge 컨테이너 호스트 포트 매핑** : Docker 컨테이너 포트를 호스트의 포트에 매핑하는 것입니다. 컨테이너 내에서 Azure SQL Edge는 항상 포트 1433에 매핑됩니다. 원할 경우이를 변경할 수 있습니다. 포트 번호를 변경 하려면 Azure IoT Edge에서 Azure SQL Edge 모듈의 **컨테이너 만들기 옵션** 을 업데이트 합니다. 다음 예제에서는 컨테이너의 포트 1433이 호스트의 1600 포트에 매핑됩니다.
+- **호스트 컴퓨터의 IP 주소 또는 네트워크 이름**: Azure SQL Edge 컨테이너가 실행 되는 호스트 컴퓨터입니다.
+- **AZURE SQL Edge 컨테이너 호스트 포트 매핑**: Docker 컨테이너 포트를 호스트의 포트에 매핑하는 것입니다. 컨테이너 내에서 Azure SQL Edge는 항상 포트 1433에 매핑됩니다. 원할 경우이를 변경할 수 있습니다. 포트 번호를 변경 하려면 Azure IoT Edge에서 Azure SQL Edge 모듈의 **컨테이너 만들기 옵션** 을 업데이트 합니다. 다음 예제에서는 컨테이너의 포트 1433이 호스트의 1600 포트에 매핑됩니다.
 
     ```JSON
     {
@@ -51,7 +51,7 @@ Azure SQL Edge에서 컨테이너를 배포한 후에는 다음 위치 중 하�
     }
     ```
 
-- **AZURE Sql edge 인스턴스의 SA 암호** : `SA_PASSWORD` azure sql edge를 배포 하는 동안 환경 변수에 지정 된 값입니다.
+- **AZURE Sql edge 인스턴스의 SA 암호**: `SA_PASSWORD` azure sql edge를 배포 하는 동안 환경 변수에 지정 된 값입니다.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>컨테이너 내에서 데이터베이스 엔진에 연결
 

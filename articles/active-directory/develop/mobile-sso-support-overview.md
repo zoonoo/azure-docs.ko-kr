@@ -12,10 +12,10 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
 ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165181"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
@@ -70,7 +70,7 @@ Apple에는 iOS 응용 프로그램에서 [웹 서비스를 통해 사용자 인
 
 마지막으로 앱에 [INTUNE SDK를 추가](/mem/intune/developer/app-sdk-get-started) 하 여 앱 보호 정책을 사용 하도록 설정 합니다. 대부분의 파트에 대 한 SDK는 가로채기 모델을 따르며 앱 보호 정책을 자동으로 적용 하 여 앱에서 수행 하는 작업이 허용 되는지 여부를 확인 합니다. 특정 작업에 대 한 제한이 있는 경우 앱에 알리기 위해 수동으로 호출할 수 있는 Api도 있습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory Single Sign-On 배포 계획](../manage-apps/plan-sso-deployment.md)
 - [방법: macOS 및 iOS에서 SSO 구성](single-sign-on-macos-ios.md)

@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: 0bae8946b7d81fbf45698cefe7c8b00bbc94d00c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92168116"
 ---
 #### <a name="determine-memory-usage"></a>메모리 사용량 확인 
 
-**모니터링**아래에서 **로그 (분석)** 를 선택 하 고 다음 원격 분석 쿼리를 복사 하 여 쿼리 창에 붙여넣고 **실행**을 선택 합니다. 이 쿼리는 샘플링 된 각 시간의 총 메모리 사용량을 반환 합니다.
+**모니터링** 아래에서 **로그 (분석)** 를 선택 하 고 다음 원격 분석 쿼리를 복사 하 여 쿼리 창에 붙여넣고 **실행** 을 선택 합니다. 이 쿼리는 샘플링 된 각 시간의 총 메모리 사용량을 반환 합니다.
 
 ```
 performanceCounters

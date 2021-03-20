@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94694996"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>아웃바운드 전용 부하 분산 장치 구성
@@ -74,7 +74,7 @@ ms.locfileid: "94694996"
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. </br> **Myresourcegrouplb** 를 입력 합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **미국 동부 2** 를 선택 합니다. |
+    | 지역           | **미국 동부 2** 선택 |
 
 3. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "94694996"
     | 리소스 그룹 | **myResourceGroupLB** 를 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **미국 동부 2** 를 선택 합니다. |
+    | 지역 | **미국 동부 2** 선택 |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter** 를 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -260,7 +260,7 @@ Azure Portal를 사용 하 여 다음을 만듭니다.
 
 6. Internet Explorer를 엽니다.
 
-7. **https://whatsmyip.org** 주소 표시줄에을 입력 합니다.
+7. 주소 표시줄에 **https://whatsmyip.org** 을 입력합니다.
 
 8. 연결이 실패 합니다. 기본적으로 표준 공용 부하 분산 장치는 [정의 된 아웃 바운드 규칙이 없는 아웃 바운드 트래픽을 허용 하지 않습니다](load-balancer-overview.md#securebydefault).
  
@@ -295,7 +295,7 @@ Azure Portal를 사용 하 여 다음을 만듭니다.
 
 6. Internet Explorer를 엽니다.
 
-7. **https://whatsmyip.org** 주소 표시줄에을 입력 합니다.
+7. 주소 표시줄에 **https://whatsmyip.org** 을 입력합니다.
 
 8. 연결에 성공 해야 합니다.
 

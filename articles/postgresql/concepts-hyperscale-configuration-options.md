@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/12/2021
 ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165614"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database for PostgreSQL – Citus (Hyperscale) 구성 옵션
@@ -123,7 +123,7 @@ Citus (hyperscale) 서버 그룹은 다음 Azure 지역에서 제공 됩니다.
 
 Azure Portal는 데이터베이스의 Citus (Hyperscale) 서버 그룹당 정확히 하나의 데이터베이스에 연결 하기 위한 자격 증명을 제공 합니다 `citus` . 현재 다른 데이터베이스를 만들 수 없으며 CREATE DATABASE 명령이 오류로 인해 실패 합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
 원하는 구성에 대 한 비용을 확인 하기 위해 [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) 는 선택 하는 옵션에 따라 **구성** 탭의 월별 비용을 보여 줍니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택 하 고, **데이터베이스** 범주를 확장 하 고 **Azure Database for PostgreSQL – hyperscale (Citus)** 을 선택 하 여 옵션을 사용자 지정 합니다.
  

@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89594189"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환 통합
@@ -135,9 +135,9 @@ RESTful 클레임 공급자가 구문 분석한 출력 클레임은 항상 다�
 
 인증된 클라이언트만 통신할 수 있도록 REST API 엔드포인트를 보호해야 합니다. REST API는 HTTPS 엔드포인트를 사용해야 합니다. AuthenticationType 메타데이터를 다음 인증 방법 중 하나로 설정합니다.
 
-- **클라이언트 인증서**는 클라이언트 인증서 인증을 사용하여 액세스를 제한합니다. 적절한 인증서가 있는 서비스만 API에 액세스할 수 있습니다. 클라이언트 인증서를 Azure AD B2C 정책 키에 저장합니다. [클라이언트 인증서를 사용하여 RESTful 서비스 보호](secure-rest-api.md#https-client-certificate-authentication)
-- **기본**은 HTTP 기본 인증을 사용하여 REST API를 보호합니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. 사용자 이름 및 암호는 Azure AD B2C 정책 키에 저장됩니다. [HTTP 기본 인증을 사용하여 RESTful 서비스 보호](secure-rest-api.md#http-basic-authentication) 방법을 알아봅니다.
-- **전달자**는 클라이언트 OAuth2 액세스 토큰을 사용하여 액세스를 제한합니다. 액세스 토큰은 Azure AD B2C 정책 키에 저장됩니다. [전달자 토큰을 사용하여 RESTful 서비스 보호](secure-rest-api.md#oauth2-bearer-authentication) 방법을 자세히 알아봅니다.
+- **클라이언트 인증서** 는 클라이언트 인증서 인증을 사용하여 액세스를 제한합니다. 적절한 인증서가 있는 서비스만 API에 액세스할 수 있습니다. 클라이언트 인증서를 Azure AD B2C 정책 키에 저장합니다. [클라이언트 인증서를 사용하여 RESTful 서비스 보호](secure-rest-api.md#https-client-certificate-authentication)
+- **기본** 은 HTTP 기본 인증을 사용하여 REST API를 보호합니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. 사용자 이름 및 암호는 Azure AD B2C 정책 키에 저장됩니다. [HTTP 기본 인증을 사용하여 RESTful 서비스 보호](secure-rest-api.md#http-basic-authentication) 방법을 알아봅니다.
+- **전달자** 는 클라이언트 OAuth2 액세스 토큰을 사용하여 액세스를 제한합니다. 액세스 토큰은 Azure AD B2C 정책 키에 저장됩니다. [전달자 토큰을 사용하여 RESTful 서비스 보호](secure-rest-api.md#oauth2-bearer-authentication) 방법을 자세히 알아봅니다.
 
 ## <a name="rest-api-platform"></a>REST API 플랫폼
 REST API는 안전하게 보호되고 [RESTful 기술 프로필](restful-technical-profile.md)에 지정된 대로 클레임을 주고받을 수 있는 경우, 어떤 플랫폼에서 어떤 프로그래밍 언어로도 작성될 수 있습니다.

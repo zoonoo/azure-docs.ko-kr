@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: cognitive-services
 author: aahill
@@ -12,10 +12,10 @@ ms.custom: include file
 ms.author: aahi
 ms.reviewer: roy-har
 ms.openlocfilehash: 7aa2fba6ef551a745ccaf5b00f36021b9d8680ce
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97820543"
 ---
 1. [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json)을 선택하여 `pizza-app-for-luis.json` 파일에 대한 GitHub 페이지를 엽니다.

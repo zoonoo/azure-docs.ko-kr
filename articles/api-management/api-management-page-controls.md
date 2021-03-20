@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250026"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
@@ -168,7 +168,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `sign-up` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
   
--   [등록하세요](api-management-page-templates.md#SignUp)  
+-   [등록](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  `subscribe-button`은 사용자의 제품 구독에 대한 컨트롤을 제공합니다.  

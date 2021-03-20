@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103223"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
@@ -38,7 +38,7 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 연결하는 VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="클래식 VNet 간 아키텍처를 보여 주는 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="연결을 보여 주는 다이어그램":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>가상 네트워크에 연결하는 이유
 
@@ -58,7 +58,7 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 고려 사항](#faq)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. 포털에서 공유 키를 지정할 수 있는 방법이 없기 때문에 Azure Portal를 사용 하 여 연결을 만들 수 없습니다. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -90,7 +90,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 위치: 미국 서부<br>
 게이트웨이 서브넷: 10.41.1.0/27
 
-### <a name="connections"></a><a name="plan"></a>Connections
+### <a name="connections"></a><a name="plan"></a>연결만
 
 다음 표에서는 Vnet를 연결 하는 방법의 예를 보여 줍니다. 범위는 지침으로만 참고하고, 실제 가상 네트워크에 사용할 범위를 기록합니다. 이 정보는 이후 단계에서 필요합니다.
 
@@ -145,9 +145,9 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 로컬 사이트는 일반적으로 온-프레미스 위치를 가리킵니다. VPN 디바이스의 IP 주소를 포함하며 여기에서 VPN 디바이스에 대한 VPN Gateway를 통해 라우팅되는 연결 및 IP 주소 범위를 만듭니다.
 
-1. VNet에 대 한 페이지의 **설정**아래에서 **사이트 간 연결**을 선택 합니다.
-1. 사이트 간 연결 페이지에서 **+ 추가**를 선택 합니다.
-1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식**으로 **사이트 간** 을 선택 된 상태로 둡니다.
+1. VNet에 대 한 페이지의 **설정** 아래에서 **사이트 간 연결** 을 선택 합니다.
+1. 사이트 간 연결 페이지에서 **+ 추가** 를 선택 합니다.
+1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식** 으로 **사이트 간** 을 선택 된 상태로 둡니다.
 
    * **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. 이 연습에서는 다른 사이트에 대 한 VPN gateway의 IP 주소가 아직 없으므로 더미 주소를 입력할 수 있습니다. 예를 들면 5.4.3.2입니다. 나중에 다른 VNet에 대 한 게이트웨이를 구성한 후이 값을 조정할 수 있습니다.
 
@@ -160,7 +160,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
    * **크기:** 가상 네트워크 게이트웨이를 만드는 데 사용 하는 게이트웨이 SKU입니다. 클래식 VPN 게이트웨이는 이전(레거시) 게이트웨이 SKU를 사용합니다. 레거시 게이트웨이 SKU에 대한 자세한 내용은 [가상 네트워크 게이트웨이 SKU(이전 SKU) 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요. 이 연습에서 **Standard** 를 선택할 수 있습니다.
 
-   * **라우팅 유형:** 게이트웨이의 라우팅 형식을 선택 합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 형식에서 다른 형식으로 변환할 수 없기 때문에 올바른 유형을 선택 하는 것이 중요 합니다. VPN 디바이스는 선택한 라우팅 유형과 호환되어야 합니다. 라우팅 유형에 대 한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조 하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다. 이 구성의 경우 **동적**을 선택 합니다.
+   * **라우팅 유형:** 게이트웨이의 라우팅 형식을 선택 합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 형식에서 다른 형식으로 변환할 수 없기 때문에 올바른 유형을 선택 하는 것이 중요 합니다. VPN 디바이스는 선택한 라우팅 유형과 호환되어야 합니다. 라우팅 유형에 대 한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조 하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다. 이 구성의 경우 **동적** 을 선택 합니다.
 
    * **게이트웨이 서브넷:** 지정 하는 게이트웨이 서브넷의 크기는 만들려는 VPN gateway 구성에 따라 달라 집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 사용하는 것이 좋습니다. 이렇게 하면 더 많은 주소를 포함하는 큰 서브넷이 만들어집니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
 
@@ -173,7 +173,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 ## <a name="update-local-sites"></a><a name="updatelocal"></a>로컬 사이트 업데이트
 
-두 Vnet에 대해 가상 네트워크 게이트웨이를 만든 후에는 **VPN GATEWAY IP 주소**에 대 한 로컬 사이트 속성을 조정 해야 합니다.
+두 Vnet에 대해 가상 네트워크 게이트웨이를 만든 후에는 **VPN GATEWAY IP 주소** 에 대 한 로컬 사이트 속성을 조정 해야 합니다.
 
 |VNet 이름|연결된 사이트|게이트웨이 IP 주소|
 |:--- |:--- |:--- |
@@ -188,9 +188,9 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 ### <a name="part-2---modify-the-local-site-properties"></a>2 부-로컬 사이트 속성 수정
 
 1. 사이트 간 연결에서 연결을 선택 합니다. 예를 들면 SiteVNet4입니다.
-1. 사이트 간 연결에 대 한 **속성** 페이지에서 **로컬 사이트 편집**을 선택 합니다.
+1. 사이트 간 연결에 대 한 **속성** 페이지에서 **로컬 사이트 편집** 을 선택 합니다.
 1. **Vpn GATEWAY ip 주소** 필드에 이전 섹션에서 복사한 VPN gateway ip 주소를 붙여넣습니다.
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 1. 시스템에서 필드가 업데이트 됩니다. 이 방법을 사용 하 여이 사이트에 라우팅하는 데 사용할 추가 IP 주소를 추가할 수도 있습니다.
 
 ### <a name="part-3---repeat-steps-for-the-other-vnet"></a>3 부-다른 VNet에 대 한 단계 반복

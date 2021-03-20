@@ -8,10 +8,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
 ms.openlocfilehash: 5f393e95a7d468ea2c6130077e42b25b038e839d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376227"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성

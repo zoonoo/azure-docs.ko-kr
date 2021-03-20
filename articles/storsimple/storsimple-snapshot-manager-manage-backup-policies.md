@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054945"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>StorSimple 스냅샷 관리자를 사용하여 백업 정책 만들기 및 관리
@@ -36,7 +36,7 @@ ms.locfileid: "90054945"
 
 #### <a name="to-create-a-backup-policy"></a>백업 정책을 만들려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
-2. **범위** 창에서 **백업 정책**을 마우스 오른쪽 단추로 클릭하고 **백업 정책 만들기**를 클릭합니다.
+2. **범위** 창에서 **백업 정책** 을 마우스 오른쪽 단추로 클릭하고 **백업 정책 만들기** 를 클릭합니다.
 
     ![백업 정책 만들기](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
@@ -47,18 +47,18 @@ ms.locfileid: "90054945"
 
    1. **이름** 텍스트 상자에 정책의 이름을 입력합니다.
    2. **볼륨 그룹** 텍스트 상자에 정책과 연관된 볼륨 그룹 이름을 입력합니다.
-   3. **로컬 스냅숏**이나 **클라우드 스냅숏**을 선택합니다.
-   4. 보존할 스냅샷 수를 선택합니다. **모두**를 선택하면 64개의 스냅숏이 보유됩니다(최대).
+   3. **로컬 스냅숏** 이나 **클라우드 스냅숏** 을 선택합니다.
+   4. 보존할 스냅샷 수를 선택합니다. **모두** 를 선택하면 64개의 스냅숏이 보유됩니다(최대).
 4. **일정** 탭을 클릭합니다.
 
     ![정책 만들기 - 일정 탭](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 5. **일정** 탭에서 다음 정보를 완료합니다.
 
    1. **사용** 확인란을 클릭해 다음 백업 일정을 설정합니다.
-   2. **설정** 아래에서 **한 번**, **일간**, **주간** 또는 **월간**을 선택합니다.
+   2. **설정** 아래에서 **한 번**, **일간**, **주간** 또는 **월간** 을 선택합니다.
    3. **시작** 텍스트 상자에 달력 아이콘을 클릭하고 시작 날짜를 선택합니다.
    4. **고급 설정** 아래에서 선택 사항으로 반복 일정과 종료 날짜를 설정할 수 있습니다.
-   5. **확인**을 클릭합니다.
+   5. **확인** 을 클릭합니다.
 
 백업 정책을 만들면 다음 정보가 **결과** 창에 나타납니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "90054945"
 * **볼륨 그룹** - 정책과 연결된 볼륨 그룹입니다.
 * **보유** - 보유 스냅숏 개수이며 최대값은 64입니다.
 * **만든 날짜** - 이 정책을 만든 날짜입니다.
-* **사용** - 정책이 현재 적용되는지 여부. **True**는 적용되고 있음을 나타냅니다. **False**는 적용되지 않음을 나타냅니다.
+* **사용** - 정책이 현재 적용되는지 여부. **True** 는 적용되고 있음을 나타냅니다. **False** 는 적용되지 않음을 나타냅니다.
 
 ## <a name="edit-a-backup-policy"></a>백업 정책 편집
 다음 절차에 따라 기존 백업 정책을 편집합니다.
@@ -75,10 +75,10 @@ ms.locfileid: "90054945"
 #### <a name="to-edit-a-backup-policy"></a>백업 정책을 편집하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **백업 정책** 노드를 클릭합니다. 모든 백업 정책이 **결과** 창에 나타납니다.
-3. 편집할 정책을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭합니다.
+3. 편집할 정책을 마우스 오른쪽 단추로 클릭하고 **편집** 을 클릭합니다.
 
     ![백업 정책 편집](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. **정책 만들기** 창이 나타나면 변경 내용을 입력하고 **확인**을 클릭합니다.
+4. **정책 만들기** 창이 나타나면 변경 내용을 입력하고 **확인** 을 클릭합니다.
 
 ## <a name="delete-a-backup-policy"></a>백업 정책 삭제
 다음 절차에 따라 백업 정책을 삭제합니다.
@@ -86,8 +86,8 @@ ms.locfileid: "90054945"
 #### <a name="to-delete-a-backup-policy"></a>백업 정책을 삭제하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **백업 정책** 노드를 클릭합니다. 모든 백업 정책이 **결과** 창에 나타납니다.
-3. 삭제할 백업 정책을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
-4. 확인 메시지가 나타나면 **예**를 클릭합니다.
+3. 삭제할 백업 정책을 마우스 오른쪽 단추로 클릭하고 **삭제** 를 클릭합니다.
+4. 확인 메시지가 나타나면 **예** 를 클릭합니다.
 
     ![백업 정책 삭제 확인](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 

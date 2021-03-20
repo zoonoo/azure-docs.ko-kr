@@ -4,10 +4,10 @@ description: 이 문서에서는 SQL 필터 문법에 대 한 세부 정보를 �
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652944"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Subscription Rule SQL 필터 구문

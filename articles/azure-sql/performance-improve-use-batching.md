@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792602"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance 응용 프로그램 성능을 개선 하는 방법
@@ -97,7 +97,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 다음 표에는 몇 가지 임시 테스트 결과가 나와 있습니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
 
-**온-프레미스에서 Azure로** :
+**온-프레미스에서 Azure로**:
 
 | 작업 | 트랜잭션 없음 (밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure에서Azure(동일한 데이터 센터)** :
+**Azure에서Azure(동일한 데이터 센터)**:
 
 | 작업 | 트랜잭션 없음 (밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |

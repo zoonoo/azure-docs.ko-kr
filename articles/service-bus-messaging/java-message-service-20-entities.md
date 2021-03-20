@@ -4,13 +4,13 @@ description: 이 문서에서는 Java 메시지 서비스 API를 통해 액세�
 ms.topic: article
 ms.date: 07/20/2020
 ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652584"
 ---
-# <a name="java-message-service-jms-20-entities"></a>JMS (Java message service) 2.0 엔터티
+# <a name="java-message-service-jms-20-entities"></a>JMS(Java Message Service) 2.0 엔터티
 
 Azure Service Bus Premium에 연결 하 고 [AZURE SERVICE BUS JMS 라이브러리](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) 를 사용 하 여 클라이언트 응용 프로그램은 아래 엔터티를 사용할 수 있습니다.
 

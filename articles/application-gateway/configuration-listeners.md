@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397644"
 ---
 # <a name="application-gateway-listener-configuration"></a>Application Gateway 수신기 구성
@@ -20,7 +20,7 @@ ms.locfileid: "93397644"
 
 수신기는 포트, 프로토콜, 호스트 및 IP 주소를 사용 하 여 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 수신기를 구성할 때 게이트웨이의 들어오는 요청에서 해당 값과 일치 하는 값을 입력 해야 합니다.
 
-Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만드는 경우 수신기의 프로토콜 및 포트를 선택 하 여 기본 수신기도 만듭니다. 수신기에서 HTTP2 지원을 사용할지 여부를 선택할 수 있습니다. 응용 프로그램 게이트웨이를 만든 후에는 해당 기본 수신기 ( *appGatewayHttpListener* )의 설정을 편집 하거나 새 수신기를 만들 수 있습니다.
+Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만드는 경우 수신기의 프로토콜 및 포트를 선택 하 여 기본 수신기도 만듭니다. 수신기에서 HTTP2 지원을 사용할지 여부를 선택할 수 있습니다. 응용 프로그램 게이트웨이를 만든 후에는 해당 기본 수신기 (*appGatewayHttpListener*)의 설정을 편집 하거나 새 수신기를 만들 수 있습니다.
 
 ## <a name="listener-type"></a>수신기 형식
 
@@ -87,7 +87,7 @@ WebSocket 지원은 기본적으로 사용 하도록 설정 되어 있습니다.
 
 ## <a name="tls-policy"></a>TLS 정책
 
-TLS/SSL 인증서 관리를 중앙 집중화 하 고 백 엔드 서버 팜에 대 한 암호화 해독 오버 헤드를 줄일 수 있습니다. 중앙 집중식 TLS 처리를 사용 하 여 보안 요구 사항에 적합 한 중앙 TLS 정책을 지정할 수도 있습니다. *기본* , *미리 정의* 됨 또는 *사용자 지정* TLS 정책을 선택할 수 있습니다.
+TLS/SSL 인증서 관리를 중앙 집중화 하 고 백 엔드 서버 팜에 대 한 암호화 해독 오버 헤드를 줄일 수 있습니다. 중앙 집중식 TLS 처리를 사용 하 여 보안 요구 사항에 적합 한 중앙 TLS 정책을 지정할 수도 있습니다. *기본*, *미리 정의* 됨 또는 *사용자 지정* TLS 정책을 선택할 수 있습니다.
 
 Tls 프로토콜 버전을 제어 하도록 TLS 정책을 구성 합니다. Tls 1.0, TLS 1.1 및 TLS 1.2의 TLS 핸드셰이크에 최소 프로토콜 버전을 사용 하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 기본적으로 SSL 2.0 및 3.0은 사용 하지 않도록 설정 되며 구성할 수 없습니다. 자세한 내용은 [APPLICATION GATEWAY TLS 정책 개요](./application-gateway-ssl-policy-overview.md)를 참조 하세요.
 

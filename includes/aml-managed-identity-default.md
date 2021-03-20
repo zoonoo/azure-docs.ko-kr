@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/24/2020
 ms.openlocfilehash: aa8aea66c5481454f0d7d4d118934f5fbf34a911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147473"
 ---
 **기본적으로 관리** 되는 id는 시스템 할당 관리 id 또는 첫 사용자 할당 관리 id입니다.

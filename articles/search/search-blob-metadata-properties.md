@@ -1,5 +1,5 @@
 ---
-title: 콘텐츠 메타 데이터 속성
+title: 콘텐츠 메타데이터 속성
 titleSuffix: Azure Cognitive Search
 description: 문서의 메타 데이터 속성은 검색 인덱스의 필드에 콘텐츠를 제공 하거나 런타임에 인덱싱 동작을 알리는 정보를 제공할 수 있습니다. 이 문서에서는 Azure Cognitive Search에서 지원 되는 메타 데이터 속성을 나열 합니다.
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101668421"
 ---
 # <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Azure Cognitive Search에 사용 되는 콘텐츠 메타 데이터 속성

@@ -10,10 +10,10 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89500133"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
@@ -30,12 +30,12 @@ ms.locfileid: "89500133"
 
 ## <a name="deploy-to-kubernetes"></a>Kubernetes에 배포
 
-1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라** 에서 **게이트웨이** 를 선택 합니다.
 2. 배포 하려는 자체 호스팅 게이트웨이 리소스를 선택 합니다.
-3. **배포**를 선택 합니다.
+3. **배포** 를 선택 합니다.
 4. **토큰** 텍스트 상자의 액세스 토큰은 기본 **만료** 및 **비밀 키** 값에 따라 자동으로 생성 되었습니다. 필요한 경우 또는 두 컨트롤 모두에서 값을 선택 하 여 새 토큰을 생성 합니다.
-5. **배포 스크립트**아래에서 **Kubernetes** 탭을 선택 합니다.
-6. ** \<gateway-name\> .Yml** 파일 링크를 선택 하 고 yml 파일을 다운로드 합니다.
+5. **배포 스크립트** 아래에서 **Kubernetes** 탭을 선택 합니다.
+6. **\<gateway-name\> .Yml** 파일 링크를 선택 하 고 yml 파일을 다운로드 합니다.
 7. **배포** 텍스트 상자의 오른쪽 아래 모서리에 있는 **복사** 아이콘을 선택 하 여 `kubectl` 명령을 클립보드에 저장 합니다.
 8. 명령을 터미널 (또는 명령) 창에 붙여 넣습니다. 첫 번째 명령은 4 단계에서 생성 된 액세스 토큰을 포함 하는 Kubernetes secret을 만듭니다. 두 번째 명령은 6 단계에서 다운로드 한 구성 파일을 Kubernetes 클러스터에 적용 하 고 파일이 현재 디렉터리에 있는 것으로 예상 합니다.
 9. 명령을 실행 하 여 [기본 네임 스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 에 필요한 Kubernetes 개체를 만들고 Microsoft Container Registry에서 다운로드 한 [컨테이너 이미지](https://aka.ms/apim/sputnik/dhub) 에서 자체 호스팅 게이트웨이 pod를 시작 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "89500133"
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Azure Portal로 돌아가서 **개요**를 선택 합니다.
+12. Azure Portal로 돌아가서 **개요** 를 선택 합니다.
 13. **상태** 가 녹색 확인 표시를 표시 하 고, yaml 파일에 지정 된 복제본 수와 일치 하는 노드 수를 표시 하는지 확인 합니다. 이 상태는 배포 된 자체 호스팅 게이트웨이 pod가 API Management 서비스와 성공적으로 통신 하 고 일반 "하트 비트"를 갖고 있음을 의미 합니다.
 
     ![게이트웨이 상태](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
@@ -112,7 +112,7 @@ Azure Portal에 제공 된 YAML 파일은 `externalTrafficPolicy` [서비스](ht
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>사용자 지정 도메인 이름 및 SSL 인증서
 
-API Management 끝점에 사용자 지정 도메인 이름을 사용 하는 경우, 특히 관리 끝점에 사용자 지정 도메인 이름을 사용 하는 경우 `config.service.endpoint` ** \<gateway-name\> .yaml** 파일에서의 값을 업데이트 하 여 기본 도메인 이름을 사용자 지정 도메인 이름으로 바꾸어야 할 수 있습니다. Kubernetes 클러스터에 있는 자체 호스팅 게이트웨이의 pod에서 관리 끝점에 액세스할 수 있는지 확인 합니다.
+API Management 끝점에 사용자 지정 도메인 이름을 사용 하는 경우, 특히 관리 끝점에 사용자 지정 도메인 이름을 사용 하는 경우 `config.service.endpoint` **\<gateway-name\> .yaml** 파일에서의 값을 업데이트 하 여 기본 도메인 이름을 사용자 지정 도메인 이름으로 바꾸어야 할 수 있습니다. Kubernetes 클러스터에 있는 자체 호스팅 게이트웨이의 pod에서 관리 끝점에 액세스할 수 있는지 확인 합니다.
 
 이 시나리오에서 관리 끝점에서 사용 하는 SSL 인증서가 잘 알려진 CA 인증서로 서명 되지 않은 경우에는 자체 호스팅 게이트웨이의 pod에서 CA 인증서를 신뢰할 수 있는지 확인 해야 합니다.
 

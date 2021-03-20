@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: 7f251e6ba2d94c0fcede3387ac12461951de40f1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108748"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Storage Explorer를 사용하여 Azure Data Lake Storage Gen1 리소스 관리
@@ -19,7 +19,7 @@ ms.locfileid: "92108748"
 
 또 다른 이점은 사용자에게 Data Lake Storage Gen1 데이터를 관리하기 위한 구독 권한이 필요하지 않다는 것입니다. Storage Explorer에서 누군가 사용 권한을 부여하는 한 Data Lake Storage Gen1 경로를 **로컬 및 연결된** 노드에 연결할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "92108748"
 
    ![플러그 인 아이콘](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
 
-1. **Azure 계정 추가**를 선택한 다음, **로그인**을 선택합니다.
+1. **Azure 계정 추가** 를 선택한 다음, **로그인** 을 선택합니다.
 
    ![“Azure Storage에 연결” 대화 상자](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "92108748"
 
     ![Azure 로그인 대화 상자](./media/data-lake-store-in-storage-explorer/sign-in.png)
 
-1. 목록에서 구독을 선택한 다음, **적용**을 선택합니다.
+1. 목록에서 구독을 선택한 다음, **적용** 을 선택합니다.
 
     ![구독 정보 및 "적용" 단추](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
 
@@ -59,8 +59,8 @@ Data Lake Storage Gen1을 Azure 구독에 성공적으로 연결했습니다.
 누군가 리소스에 대한 URI를 제공하는 경우 구독에 존재하지 않는 리소스에 액세스할 수 있습니다. 그런 다음, 로그인한 후 URI를 사용하여 Data Lake Storage Gen1에 연결할 수 있습니다.
 
 1. Storage Explorer를 엽니다.
-2. 왼쪽 창에서 **로컬 및 연결됨**을 펼칩니다.
-3. **Data Lake Store**를 마우스 오른쪽 단추로 클릭하고 **Data Lake Store에 연결**을 선택합니다.
+2. 왼쪽 창에서 **로컬 및 연결됨** 을 펼칩니다.
+3. **Data Lake Store** 를 마우스 오른쪽 단추로 클릭하고 **Data Lake Store에 연결** 을 선택합니다.
 
       ![바로 가기 메뉴에서 "Data Lake Store에 연결"](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
 
@@ -78,8 +78,8 @@ Data Lake Storage Gen1 계정의 리소스에는 폴더와 파일이 포함되�
 
 1. Storage Explorer를 엽니다.
 2. 왼쪽 창에서 보려는 Data Lake Storage Gen1 계정이 포함된 구독을 펼칩니다.
-3. **Data Lake Store**를 펼칩니다.
-4. 보려는 Data Lake Storage Gen1 계정 노드를 마우스 오른쪽 단추로 클릭하고 **열기**를 선택합니다. 또한 Data Lake Storage Gen1 계정을 두 번 클릭하여 열 수도 있습니다.
+3. **Data Lake Store** 를 펼칩니다.
+4. 보려는 Data Lake Storage Gen1 계정 노드를 마우스 오른쪽 단추로 클릭하고 **열기** 를 선택합니다. 또한 Data Lake Storage Gen1 계정을 두 번 클릭하여 열 수도 있습니다.
 
    기본 창에 Data Lake Storage Gen1 계정의 내용이 표시됩니다.
 
@@ -103,14 +103,14 @@ Data Lake Storage Gen1 리소스는 다음 작업을 수행하여 관리할 수 
 Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있습니다.
 
 * 폴더와 파일을 업로드하고 폴더와 파일을 다운로드하고 로컬 컴퓨터에서 리소스를 엽니다.
-* **빠른 액세스**에 고정하고 새 폴더를 만들고 URL을 복사한 다음, 모두를 선택합니다.
+* **빠른 액세스** 에 고정하고 새 폴더를 만들고 URL을 복사한 다음, 모두를 선택합니다.
 * 복사 및 붙여넣기, 이름 바꾸기, 삭제, 폴더 통계 가져오기 및 새로 고침합니다.
 
 다음 항목에서는 Data Lake Storage Gen1 계정 내에서 리소스를 관리하는 방법을 설명합니다. 수행하려는 작업에 대한 단계를 따릅니다.
 
 ### <a name="upload-files"></a>파일 업로드
 
-1. 기본 창의 도구 모음에서 **업로드**를 선택하고, 드롭다운 메뉴에서 **파일 업로드**를 선택합니다.
+1. 기본 창의 도구 모음에서 **업로드** 를 선택하고, 드롭다운 메뉴에서 **파일 업로드** 를 선택합니다.
 
    ![“파일 업로드” 메뉴 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png)
 
@@ -118,15 +118,15 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 
    ![파일 업로드 대화 상자](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-dialog.png)
 
-3. **열기**를 선택하여 업로드를 시작합니다.
+3. **열기** 를 선택하여 업로드를 시작합니다.
 
 ### <a name="upload-a-folder"></a>폴더 업로드
 
-1. 기본 창의 도구 모음에서 **업로드**를 선택하고, 드롭다운 메뉴에서 **폴더 업로드**를 선택합니다.
+1. 기본 창의 도구 모음에서 **업로드** 를 선택하고, 드롭다운 메뉴에서 **폴더 업로드** 를 선택합니다.
 
    ![“폴더 업로드” 메뉴 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png)
 
-2. **업로드할 폴더 선택** 대화 상자에서 업로드하려는 폴더를 선택합니다. 그런 다음, **폴더 선택**을 클릭합니다.
+2. **업로드할 폴더 선택** 대화 상자에서 업로드하려는 폴더를 선택합니다. 그런 다음, **폴더 선택** 을 클릭합니다.
 
    ![폴더 업로드 대화 상자](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)
 
@@ -140,14 +140,14 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 ### <a name="download-folders-or-files-to-your-local-computer"></a>로컬 컴퓨터에 폴더 또는 파일 다운로드
 
 1. 다운로드하려는 폴더 또는 파일을 선택합니다.
-2. 기본 창 도구 모음에서 **다운로드**를 선택합니다.
+2. 기본 창 도구 모음에서 **다운로드** 를 선택합니다.
 3. **다운로드한 파일을 저장할 폴더 선택** 대화 상자에서 위치와 이름을 지정합니다.
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 ### <a name="open-a-folder-or-file-from-your-local-computer"></a>로컬 컴퓨터에서 폴더 또는 파일 열기
 
 1. 열려는 폴더 또는 파일을 선택합니다.
-2. 기본 창 도구 모음에서 **열기**를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **열기**를 선택합니다.
+2. 기본 창 도구 모음에서 **열기** 를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **열기** 를 선택합니다.
 
 파일이 파일의 기본 파일 형식과 연결된 애플리케이션을 통해 다운로드되고 열립니다. 또는 기본 창에서 폴더가 열립니다.
 
@@ -156,29 +156,29 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 ### <a name="copy-folders-or-files-to-the-clipboard"></a>클립보드에 폴더 또는 파일 복사
 
 1. 복사하려는 폴더 또는 파일을 선택합니다.
-2. 기본 창 도구 모음에서 **복사**를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **복사**를 선택합니다.
+2. 기본 창 도구 모음에서 **복사** 를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **복사** 를 선택합니다.
 3. 왼쪽 창에서 다른 Data Lake Storage Gen1 계정으로 이동해 두 번 클릭하여 기본 창에서 봅니다.
-4. 기본 창의 도구 모음에서 **붙여넣기**를 선택하여 복사본을 만듭니다. 또는 대상의 바로 가기 메뉴에서 **붙여넣기**를 선택합니다.
+4. 기본 창의 도구 모음에서 **붙여넣기** 를 선택하여 복사본을 만듭니다. 또는 대상의 바로 가기 메뉴에서 **붙여넣기** 를 선택합니다.
 
 ![폴더를 복사하기 위한 선택 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
 > [!NOTE]
 > 스토리지 형식에서의 복사/붙여넣기 작업은 지원되지 않습니다. Data Lake Storage Gen1 폴더 또는 파일을 복사해 다른 Data Lake Storage Gen1 계정에 붙여넣을 수 있습니다. Azure Blob Storage에 또는 다른 방법으로는 Data Lake Storage Gen1 폴더나 파일을 복사해 붙여넣을 *수 없습니다*.
 >
-> 복사-붙여넣기 작업은 폴더 또는 파일을 로컬 컴퓨터로 다운로드한 다음, 대상에 업로드하여 작동합니다. 도구는 백 엔드에서 작업을 수행*하지 않습니다*. 큰 파일의 복사-붙여넣기 작업은 느립니다. 고성능 파일 복사-이동 최적화는 현재 진행 중입니다.
+> 복사-붙여넣기 작업은 폴더 또는 파일을 로컬 컴퓨터로 다운로드한 다음, 대상에 업로드하여 작동합니다. 도구는 백 엔드에서 작업을 수행 *하지 않습니다*. 큰 파일의 복사-붙여넣기 작업은 느립니다. 고성능 파일 복사-이동 최적화는 현재 진행 중입니다.
 
 ### <a name="delete-folders-or-files"></a>폴더 또는 파일 삭제
 
 1. 삭제하려는 폴더 또는 파일을 선택합니다.
-2. 기본 창 도구 모음에서 **삭제**를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **삭제**를 선택합니다.
-3. 확인 대화 상자에서 **예**를 선택합니다.
+2. 기본 창 도구 모음에서 **삭제** 를 선택합니다. 또는 선택한 폴더 또는 파일을 마우스 오른쪽 단추로 클릭한 다음, 바로 가기 메뉴에서 **삭제** 를 선택합니다.
+3. 확인 대화 상자에서 **예** 를 선택합니다.
 
 ![폴더를 삭제하기 위한 선택 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
 
 ### <a name="pin-to-quick-access"></a>빠른 액세스에 고정
 
 1. 고정하려는 폴더를 선택하세요.
-2. 기본 창의 도구 모음에서 **빠른 액세스에 고정**을 선택합니다.
+2. 기본 창의 도구 모음에서 **빠른 액세스에 고정** 을 선택합니다.
 
    왼쪽 창에서 선택한 폴더가 **빠른 액세스** 노드에 추가됩니다.
 

@@ -18,10 +18,10 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf9347d4d14e6583febd4ffaf0447e912133b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89660932"
 ---
 # <a name="change-signature-hash-algorithm-for-microsoft-365-relying-party-trust"></a>Microsoft 365 신뢰 당사자 트러스트에 대 한 서명 해시 알고리즘 변경
@@ -36,10 +36,10 @@ AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하
 
 ### <a name="ad-fs-management-console"></a>AD FS 관리 콘솔
 1. 기본 AD FS 서버에서 AD FS 관리 콘솔을 엽니다.
-2. AD FS 노드를 확장하고 **신뢰 당사자 트러스트**를 클릭합니다.
-3. Microsoft 365/Azure 신뢰 당사자 트러스트를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
+2. AD FS 노드를 확장하고 **신뢰 당사자 트러스트** 를 클릭합니다.
+3. Microsoft 365/Azure 신뢰 당사자 트러스트를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
 4. **고급** 탭을 선택하고 보안 해시 알고리즘 SHA256을 선택합니다.
-5. **확인**을 클릭합니다.
+5. **확인** 을 클릭합니다.
 
 ![SHA256 서명 알고리즘--MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
 

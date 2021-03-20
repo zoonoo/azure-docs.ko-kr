@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397504"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>포털에서 Application Gateway를 사용 하 여 종단 간 TLS 구성
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>포털에서 Application Gateway를 사용하여 엔드투엔드 TLS 구성
 
 이 문서에서는 Azure Portal 사용 하 여 Azure 애플리케이션 Gateway v1 SKU를 통해 종단 간 TLS (Transport Layer Security) 암호화를 구성 하는 방법을 설명 합니다 (이전에는 SSL(Secure Sockets Layer) (SSL) 암호화).
 

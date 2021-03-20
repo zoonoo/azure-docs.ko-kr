@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
 ms.openlocfilehash: 72588ccfd9ad00305cbdeaf8132999731d86b9b1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164921"
 ---
 *로그 수준은* 모든 로그에 할당 됩니다. 값은 상대적 중요도를 나타내는 정수입니다.
@@ -23,4 +23,4 @@ ms.locfileid: "92164921"
 |위험    | 5 | 복구할 수 없는 애플리케이션 또는 시스템 크래시나 즉각적인 주의가 필요한 치명적인 오류를 설명하는 로그입니다. |
 |None        | 6 | 지정 된 범주에 대 한 로깅을 사용 하지 않도록 설정 합니다. |
 
-파일 구성 [ *에 대 한host.js* ](../articles/azure-functions/functions-host-json.md) 는 함수 앱이 Application Insights에 보내는 로깅의 양을 결정 합니다.  
+파일 구성 [ *에 대 한host.js*](../articles/azure-functions/functions-host-json.md) 는 함수 앱이 Application Insights에 보내는 로깅의 양을 결정 합니다.  

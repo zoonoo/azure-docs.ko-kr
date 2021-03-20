@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99557690"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
@@ -75,7 +75,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
     > [!div class="mx-imgBorder"]
     > ![서식 있는 텍스트 편집기를 사용 하 여 텍스트를 작성 하 고 서식을 지정 하 고 markdown로 저장 합니다.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
 
-    |서식 있는 텍스트 편집기 기능|키보드 바로 가기 키|
+    |서식 있는 텍스트 편집기 기능|바로 가기 키|
     |--|--|
     |서식 있는 텍스트 편집기와 markdown 사이를 전환 합니다. `</>`|Ctrl+M|
     |글꼴로. **B**|CTR + LB|

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 3ff5d66160ddbb037469378634826fd9eeae0c54
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100651649"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>관리 되는 id를 Service Fabric 관리 되는 클러스터 노드 형식에 추가 (미리 보기)
@@ -54,7 +54,7 @@ Service Fabric 리소스 공급자 응용 프로그램을 사용 하 여 관리 
 
 해당 하는 경우 다음 값을 사용 해야 합니다.
 
-|속성|해당 Service Fabric 리소스 공급자 값|
+|Name|해당 Service Fabric 리소스 공급자 값|
 |----|-------------------------------------|
 |애플리케이션 ID|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
 |개체 ID|fbc587f2-66f5-4459-a027-bcd908b9d278|

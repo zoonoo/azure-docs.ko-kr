@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 8ca455a802b180163579f67104a61f455dd54f94
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109224"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
@@ -26,7 +26,7 @@ ms.locfileid: "92109224"
 
 이 문서에서는 Python SDK를 사용하여 Azure Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
@@ -52,7 +52,7 @@ pip install azure-datalake-store
 
 ## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 애플리케이션을 만듭니다.
+1. 원하는 IDE에서 **mysample.py** 와 같이 새 Python 애플리케이션을 만듭니다.
 
 2. 다음 줄을 추가하여 필요한 모듈을 가져옵니다.
 
@@ -135,7 +135,7 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 ## <a name="next-steps"></a>다음 단계
 * [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 Python(파일 시스템) 참조](/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

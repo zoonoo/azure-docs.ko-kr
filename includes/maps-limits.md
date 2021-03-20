@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure maps
 author: anastasia-ms
@@ -9,10 +9,10 @@ ms.date: 05/01/2020
 ms.author: v-stharr
 ms.custom: include file
 ms.openlocfilehash: 9eafc1ee2d873fbb0602c932eab57c45ddaeac08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83673019"
 ---
 다음 표에서는 Azure Maps S0 가격 책정 계층의 사용 제한을 보여줍니다. 사용량 제한은 가격 책정 계층에 따라 달라집니다.

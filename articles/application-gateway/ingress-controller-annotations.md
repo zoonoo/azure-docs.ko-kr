@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397453"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러에 대 한 주석 
@@ -248,7 +248,7 @@ spec:
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

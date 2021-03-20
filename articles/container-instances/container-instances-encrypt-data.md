@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686279"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
@@ -59,10 +59,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 
-[Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)를 사용 하 여 Azure Key Vault를 만듭니다.
+[Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md) 또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)을 사용하여 Azure Key Vault를 만듭니다.
 
 키 자격 증명 모음의 속성에 대해 다음 지침을 사용 합니다. 
-* Name: 고유 이름은 필수입니다. 
+* 이름: 고유한 이름이 필요 합니다. 
 * 구독: 구독을 선택합니다.
 * 리소스 그룹에서 기존 리소스 그룹을 선택 하거나 새로 만들기를 선택 하 고 리소스 그룹 이름을 입력 합니다.
 * 위치 풀 다운 메뉴에서 위치를 선택합니다.

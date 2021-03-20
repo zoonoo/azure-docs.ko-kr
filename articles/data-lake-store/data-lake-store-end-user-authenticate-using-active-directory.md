@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
 ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103784"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
@@ -28,16 +28,16 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 둘 중 어떤 옵션을 사용하든 애플리케이션에는 OAuth 2.0 토큰이 제공됩니다. 이 토큰은 Data Lake Storage Gen1 또는 Azure Data Lake Analytics에 대한 각 요청에 연결됩니다.
 
-이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 애플리케이션**을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 애플리케이션 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 애플리케이션** 을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 애플리케이션 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * 구독 ID. Azure Portal에서 검색할 수 있습니다. 예를 들어 Data Lake Storage Gen1 계정 블레이드에서 사용할 수 있습니다.
 
     ![구독 ID 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
 
-* Azure AD 도메인 이름. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. 아래 스크린샷에서 도메인 이름은 **contoso.onmicrosoft.com**이며 괄호 안의 GUID는 테넌트 ID입니다.
+* Azure AD 도메인 이름. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. 아래 스크린샷에서 도메인 이름은 **contoso.onmicrosoft.com** 이며 괄호 안의 GUID는 테넌트 ID입니다.
 
     ![AAD 도메인 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
@@ -72,7 +72,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 애플리케이션을 만들고 구성합니다. 지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-이 링크에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 유형으로 **네이티브**를 선택해야 합니다.
+이 링크에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 유형으로 **네이티브** 를 선택해야 합니다.
 
 ![웹앱 만들기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "네이티브 앱 만들기")
 
@@ -82,9 +82,9 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음, 만든 Azure AD 네이티브 애플리케이션을 찾아서 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 선택하고 **앱 등록** 을 클릭한 다음, 만든 Azure AD 네이티브 애플리케이션을 찾아서 클릭합니다.
 
-2. 애플리케이션에 대한 **설정** 블레이드에서 **리디렉션 URI**를 클릭합니다.
+2. 애플리케이션에 대한 **설정** 블레이드에서 **리디렉션 URI** 를 클릭합니다.
 
     ![리디렉션 URI 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
 
@@ -93,23 +93,23 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 ## <a name="step-3-set-permissions"></a>3단계: 사용 권한 설정
 
-1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음, 만든 Azure AD 네이티브 애플리케이션을 찾아서 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 선택하고 **앱 등록** 을 클릭한 다음, 만든 Azure AD 네이티브 애플리케이션을 찾아서 클릭합니다.
 
-2. 애플리케이션에 대한 **설정** 블레이드에서 **필요한 사용 권한**을 클릭한 다음, **추가**를 클릭합니다.
+2. 애플리케이션에 대한 **설정** 블레이드에서 **필요한 사용 권한** 을 클릭한 다음, **추가** 를 클릭합니다.
 
     ![리디렉션 U R I 옵션을 호출 하는 설정 블레이드의 스크린샷 및 실제 U r i가 호출 되는 U r i의 리디렉션 U r i 블레이드](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
-3. **API 액세스 추가** 블레이드에서 **API 선택**을 클릭하고 **Azure Data Lake**를 클릭한 후 **선택**을 클릭합니다.
+3. **API 액세스 추가** 블레이드에서 **API 선택** 을 클릭하고 **Azure Data Lake** 를 클릭한 후 **선택** 을 클릭합니다.
 
     ![Api 선택 옵션을 사용 하 여 api 액세스 추가 블레이드의 스크린샷 및 Azure Data Lake 옵션을 사용 하 여 API 선택 블레이드 및 out 이라는 선택 옵션이 있습니다.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
 
-4.  **API 액세스 추가** 블레이드에서 **사용 권한 선택**을 클릭한 후 **Data Lake Store에 대한 모든 권한**을 부여하기 위한 확인란을 선택하고 **선택**을 클릭합니다.
+4.  **API 액세스 추가** 블레이드에서 **사용 권한 선택** 을 클릭한 후 **Data Lake Store에 대한 모든 권한** 을 부여하기 위한 확인란을 선택하고 **선택** 을 클릭합니다.
 
     ![권한 선택 옵션을 사용 하 여 API 액세스 추가 블레이드의 스크린샷 및 Azure Data Lake 서비스에 대 한 모든 권한 및 선택 옵션 (out)이 포함 된 액세스 사용 블레이드](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    **완료**를 클릭합니다.
+    **Done** 을 클릭합니다.
 
-5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API**에 대한 권한도 부여합니다.
+5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API** 에 대한 권한도 부여합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD 네이티브 응용 프로그램을 만들고 .NET SDK, Java SDK, REST API 등을 사용 하 여 만든 클라이언트 응용 프로그램에 필요한 정보를 수집 했습니다. 이제 Azure AD 웹 응용 프로그램을 사용 하 여 Data Lake Storage Gen1를 먼저 인증 한 다음 스토어에서 다른 작업을 수행 하는 방법에 대해 설명 하는 다음 문서를 진행할 수 있습니다.

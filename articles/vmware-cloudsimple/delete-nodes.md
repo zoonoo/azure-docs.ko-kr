@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 569bc6350b1bfa01228d49d28a1d12e2ab62f6f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88142267"
 ---
 # <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>CloudSimple로 Azure VMware 솔루션에서 노드 삭제
@@ -32,13 +32,13 @@ CloudSimple 노드는 생성 되 면 계량 됩니다.  노드 계량을 중지 
 
 ## <a name="delete-cloudsimple-node"></a>CloudSimple 노드 삭제
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스** 를 선택합니다.
 
-2. **Cloudsimple 노드**를 검색 합니다.
+2. **Cloudsimple 노드** 를 검색 합니다.
 
    ![CloudSimple 노드 검색](media/create-cloudsimple-node-search.png)
 
-3. **Cloudsimple 노드**를 선택 합니다.
+3. **Cloudsimple 노드** 를 선택 합니다.
 
 4. 삭제할 사설 클라우드에 속하지 않는 노드를 선택 합니다.  **사설 클라우드 이름** 열 노드가 속한 사설 클라우드 이름을 표시 합니다.  노드가 사설 클라우드에서 사용 되지 않는 경우에는 값이 비어 있게 됩니다. 
 

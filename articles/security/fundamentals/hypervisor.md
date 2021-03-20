@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696118"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Azure 제 제의 하이퍼바이저 보안
@@ -21,7 +21,7 @@ Azure 하이퍼바이저 시스템은 Windows Hyper-v를 기반으로 합니다.
 
 Azure 하이퍼바이저는 다음과 같은 보안 목표를 염두에 두기 위해 작성 되었습니다.
 
-| 목표 | 원본 |
+| Objective | 원본 |
 |--|--|
 | 격리 | 보안 정책은 Vm 간에 정보를 전송 하지 않습니다. 이 제약 조건에는 메모리, 장치, 네트워크 및 관리 되는 리소스 (예: 지속형 데이터)의 격리를 위해 Virtual Machine Manager (VMM) 및 하드웨어의 기능이 필요 합니다. |
 | VMM 무결성 | 전반적인 시스템 무결성을 위해 개별 하이퍼바이저 구성 요소의 무결성을 설정 하 고 유지 합니다. |

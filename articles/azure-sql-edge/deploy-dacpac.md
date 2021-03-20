@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392251"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Edge에서 DACPAC 및 BACPAC 패키지 SQL Database
@@ -65,7 +65,7 @@ Azure SQL Edge는 SQL Edge를 배포한 후 또는 중에 [SQL DATABASE DACPAC �
 
 Azure SQL Edge 컨테이너를 다시 시작할 때마다 SQL Edge는 압축 된 파일 패키지를 다운로드 하 고 변경 내용을 확인 하려고 시도 합니다. 새 버전의 dacpac 파일이 발견되면 변경 내용이 SQL Edge의 데이터베이스에 배포됩니다.
 
-## <a name="known-issue"></a>알려진 이슈
+## <a name="known-issue"></a>알려진 문제
 
 일부 DACPAC 또는 BACPAC 배포 중에 사용자는 명령 시간 초과가 발생할 수 있으므로 DACPAC 배포 작업이 실패 합니다. 이 문제가 발생 하는 경우 SQLPackage.exe (또는 SQL 클라이언트 도구)를 사용 하 여 DACPAC 또는 BACPAC 수동으로을 적용 하십시오. 
 

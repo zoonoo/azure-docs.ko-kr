@@ -7,17 +7,17 @@ ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100560458"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md) 에 앱을 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드의 단계를 수행하려면
 
@@ -141,7 +141,7 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 |`Couldn't resolve host 'hostname'`|' Azure ' 원격에 대 한 주소 정보가 잘못 되었습니다.|`git remote -v` 명령을 사용하여 모든 원격을 관련 URL과 함께 나열합니다. 'azure' 원격의 URL이 올바른지 확인합니다. 필요한 경우 제거하고 올바른 URL을 사용하여 이 원격을 다시 만드세요.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
 |`src refspec [branchname] does not match any.`|' Azure ' 원격에서 main 이외의 분기로 푸시 하려고 했습니다.|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
-|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예: `git config --global http.postBuffer 524288000`|
+|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예를 들어 `git config --global http.postBuffer 524288000`을 참조하십시오.|
 |`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못** 되었습니다. `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가** 없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>추가 리소스

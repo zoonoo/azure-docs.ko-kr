@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055438"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토
@@ -35,18 +35,18 @@ Privileged Identity Management 서비스를 Azure Portal 대시보드에 고정 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal의 오른쪽 위 모서리에서 사용자 이름을 선택 하 고, 운영 될 Azure AD 조직을 선택 합니다.
-3. **모든 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
-4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 애플리케이션이 열립니다.
+3. **모든 서비스** 를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management** 를 검색합니다.
+4. **대시보드에 고정** 옵션을 선택하고 **만들기** 를 클릭합니다. Privileged Identity Management 애플리케이션이 열립니다.
 
 ## <a name="approve-or-deny-access"></a>액세스 승인 또는 거부
 
-액세스를 승인하거나 거부할 때, 단지 검토자에게 이 역할을 사용할지를 알리는 것입니다. 역할을 유지하려면 **승인**을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부**를 선택합니다. 검토자가 결과를 적용할 때까지는 사용자의 상태가 바로 변경되지 않습니다.
+액세스를 승인하거나 거부할 때, 단지 검토자에게 이 역할을 사용할지를 알리는 것입니다. 역할을 유지하려면 **승인** 을, 또는 더 이상 액세스를 필요로 하지 않는 경우 **거부** 를 선택합니다. 검토자가 결과를 적용할 때까지는 사용자의 상태가 바로 변경되지 않습니다.
 액세스 검토를 찾아 완료하려면 다음 단계를 수행합니다.
 
-1. Privileged Identity Management 서비스에서 **권한 있는 액세스 검토**를 선택 합니다. 보류 중인 액세스 검토가 있으면 Azure AD **액세스 검토** 페이지에 표시 됩니다.
+1. Privileged Identity Management 서비스에서 **권한 있는 액세스 검토** 를 선택 합니다. 보류 중인 액세스 검토가 있으면 Azure AD **액세스 검토** 페이지에 표시 됩니다.
 2. 완료할 검토를 선택합니다.
 3. 검토를 만들지 않은 한, 검토에서 유일한 사용자로 나타납니다. 사용자 이름 옆에 있는 확인 표시를 선택합니다.
-4. **승인** 또는 **거부**를 선택합니다. **이유 설명** 텍스트 상자에 결정 이유를 포함해야 합니다.  
+4. **승인** 또는 **거부** 를 선택합니다. **이유 설명** 텍스트 상자에 결정 이유를 포함해야 합니다.  
 5. **Review Azure AD roles** (Azure AD 역할 검토)를 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계

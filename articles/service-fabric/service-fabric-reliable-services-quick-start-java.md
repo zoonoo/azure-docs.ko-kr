@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-javai
 ms.openlocfilehash: f67957d711958febdb01dfad0b3c44a92cb0bcfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91535239"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
@@ -39,7 +39,7 @@ Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux�
 $ yo azuresfjava
 ```
 
-지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 애플리케이션을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
+지침에 따라 **신뢰할 수 있는 상태 비저장 서비스** 를 만듭니다. 이 자습서에서는 애플리케이션을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
 
 ```bash
 HelloWorldApplication/
@@ -84,7 +84,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>서비스 구현
 
-**HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**를 엽니다. 이 클래스는 서비스 유형을 정의하고 모든 코드를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
+**HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java** 를 엽니다. 이 클래스는 서비스 유형을 정의하고 모든 코드를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
 * 장기 실행 컴퓨팅 워크로드를 포함하여 모든 워크로드의 실행을 시작할 수 있는 `runAsync()`라는 개방형 진입점 메서드.
 
@@ -156,7 +156,7 @@ HelloWorld 애플리케이션과 같은 디렉터리에서 `yo azuresfjava:AddSe
 
 상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 상태 제공자의 가용성입니다. Service Fabric은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 신뢰할 수 있는 컬렉션이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
 
-다음 RunAsync 메서드를 포함하는 **HelloWorldStateful -> src**에서 HelloWorldStateful.java를 엽니다.
+다음 RunAsync 메서드를 포함하는 **HelloWorldStateful -> src** 에서 HelloWorldStateful.java를 엽니다.
 
 ```java
 @Override
@@ -193,7 +193,7 @@ ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddRelia
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 Java 형식을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 
-* Service Fabric은 노드의 상태를 *복제*하고, 신뢰할 수 있는 해시 맵은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 해시 맵에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 
+* Service Fabric은 노드의 상태를 *복제* 하고, 신뢰할 수 있는 해시 맵은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 해시 맵에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 
 * 신뢰할 수 있는 해시 맵의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 해시 맵에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
   
    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 사전에 다시 삽입 하거나 사전에서 *업데이트* 메서드 중 하나를 사용 해야 합니다.
@@ -221,7 +221,7 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 
 신뢰할 수 있는 해시 맵의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
 
-신뢰할 수 있는 해시 맵 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 해시 맵 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 사전에서 작업 항목을 가져오고, 여기서 작업을 수행하고, 다른 신뢰할 수 있는 해시 맵의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
+신뢰할 수 있는 해시 맵 작업은 *트랜잭션* 이므로 여러 신뢰할 수 있는 해시 맵 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 사전에서 작업 항목을 가져오고, 여기서 작업을 수행하고, 다른 신뢰할 수 있는 해시 맵의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 
 ## <a name="build-the-application"></a>애플리케이션 빌드

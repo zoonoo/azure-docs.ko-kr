@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369143"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 역할 만들기 또는 업데이트
@@ -32,7 +32,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure CLI을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 

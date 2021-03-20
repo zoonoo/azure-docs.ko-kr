@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 39b6a5452c4bc0cba1e1153c266b83e87f6209ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90059314"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v1"></a>Azure 보안 벤치 마크 개요 (v1)
@@ -28,14 +28,14 @@ Azure 보안 벤치 마크에서 사용 되는 컨트롤은 다음과 같습니�
 
 - [네트워크 보안](security-control-network-security.md)
 - [로깅 및 모니터링](security-control-logging-monitoring.md)
-- [ID 및 액세스 제어](security-control-identity-access-control.md)
+- [Id 및 액세스 제어](security-control-identity-access-control.md)
 - [데이터 보호](security-control-data-protection.md)
-- [취약점 관리](security-control-vulnerability-management.md)
+- [취약성 관리](security-control-vulnerability-management.md)
 - [인벤토리 및 자산 관리](security-control-inventory-asset-management.md)
 - [보안 구성](security-control-secure-configuration.md)
 - [맬웨어 방어](security-control-malware-defense.md)
 - [데이터 복구](security-control-data-recovery.md)
-- [사고 대응](security-control-incident-response.md)
+- [인시던트 응답](security-control-incident-response.md)
 - [침투 테스트 및 레드 팀 연습](security-control-penetration-tests-red-team-exercises.md)
 
 [Azure Security 벤치 마크 v1 excel 스프레드시트](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)를 다운로드할 수도 있습니다.

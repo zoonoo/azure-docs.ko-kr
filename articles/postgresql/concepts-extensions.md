@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485463"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
@@ -210,7 +210,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을 기록할 때 서버 성능에 미치는 영향 사이에는 상충 관계가 있습니다. pg_stat_statements 확장을 적극적으로 사용하지 않는 경우에는 `pg_stat_statements.track`을 `none`으로 설정하는 것이 좋습니다. 일부 타사 모니터링 서비스가 pg_stat_statements에 기반하여 쿼리 성능 정보를 제공할 수 있으므로 여기에 해당하는 경우인지 여부를 확인하십시오.
 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대 한 액세스 허용"을 설정 하면 모든 Azure Ip가 허용 목록에 배치 됩니다.
+[](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대 한 액세스 허용"을 설정 하면 모든 Azure Ip가 허용 목록에 배치 됩니다.
 
 현재는 동일한 지역의 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL의 아웃 바운드 연결이 지원 되지 않습니다.
 
@@ -237,11 +237,11 @@ TimescaleDB를 설치 하려면 서버의 공유 프리 로드 라이브러리�
 
 1. Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 사이드바에서 **서버 매개 변수**를 선택 합니다.
+2. 사이드바에서 **서버 매개 변수** 를 선택 합니다.
 
 3. `shared_preload_libraries` 매개 변수를 검색합니다.
 
-4. **TimescaleDB**를 선택 합니다.
+4. **TimescaleDB** 를 선택 합니다.
 
 5. **저장** 을 선택 하 여 변경 내용을 유지 합니다. 변경 내용이 저장 되 면 알림을 받습니다. 
 

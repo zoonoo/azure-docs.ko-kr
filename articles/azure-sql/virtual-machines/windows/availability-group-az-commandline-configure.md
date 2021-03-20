@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.openlocfilehash: 865ee3a5aeb8a2dd06d8759ba04d02259d2b4bee
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359968"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>PowerShell 또는 Az CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 
@@ -30,7 +30,7 @@ ms.locfileid: "97359968"
 
 이 문서에서는 PowerShell 및 Az CLI를 사용 하 여 가용성 그룹 환경을 구성 하는 반면, [Azure Portal](availability-group-azure-portal-configure.md)에서 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용 하 여 또는 [수동으로](availability-group-manually-configure-tutorial.md) 도 수행할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 있어야 합니다. 
 

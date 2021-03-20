@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53d9e2ea10aefc96c2d4d72ad0020704ba48709b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99539419"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory Sync 및 Azure Active Directory Sync 업그레이드
@@ -45,7 +45,7 @@ Azure AD Connect은 DirSync 및 Azure AD Sync에 대 한 후속 작업입니다.
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Azure AD Connect로 전환하는 방법
 DirSync를 실행 중인 경우 전체 업그레이드와 병렬 배포의 두 가지 방법으로 업그레이드할 수 있습니다. 전체 업그레이드는 대부분의 고객에게 권장되며, 최신 운영 체제가 설치되어 있고 개체 수가 50,000개 미만인 경우에 사용하는 것이 좋습니다. 그렇지 않은 경우에는 DirSync 구성이 Azure AD Connect를 실행하는 새 서버로 전환되는 병렬 배포를 수행하는 것이 좋습니다.
 
-| 해결 방법 | 시나리오 |
+| 솔루션 | 시나리오 |
 | --- | --- |
 | [DirSync에서 업그레이드](how-to-dirsync-upgrade-get-started.md) |<li>기존 DirSync 서버를 이미 실행 중인 경우</li> |
 | [Azure AD Sync에서 업그레이드](how-to-upgrade-previous-version.md) |<li>Azure AD Sync에서 전환하는 경우</li> |

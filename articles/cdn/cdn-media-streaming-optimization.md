@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192609"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
@@ -34,7 +34,7 @@ ms.locfileid: "88192609"
 
 **Microsoft의 Azure CDN 표준** 엔드포인트는 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 자산을 직접 배달할 수 있습니다. 
 
-**Microsoft의 Azure CDN 표준**에 대한 미디어 스트리밍 최적화는 배달에 개별 미디어 조각을 사용하는 라이브 또는 주문형 비디오 스트리밍 미디어에 효과적입니다. 이 프로세스는 점진적 다운로드 또는 바이트 범위 요청을 통해 전송되는 단일 대규모 자산과 다릅니다. 해당 스타일의 미디어 배달에 대한 자세한 내용은 [Azure CDN을 통해 대용량 파일 다운로드 최적화](cdn-large-file-optimization.md)를 참조하세요.
+**Microsoft의 Azure CDN 표준** 에 대한 미디어 스트리밍 최적화는 배달에 개별 미디어 조각을 사용하는 라이브 또는 주문형 비디오 스트리밍 미디어에 효과적입니다. 이 프로세스는 점진적 다운로드 또는 바이트 범위 요청을 통해 전송되는 단일 대규모 자산과 다릅니다. 해당 스타일의 미디어 배달에 대한 자세한 내용은 [Azure CDN을 통해 대용량 파일 다운로드 최적화](cdn-large-file-optimization.md)를 참조하세요.
 
 일반 미디어 배달 또는 주문형 비디오 미디어 배달 최적화 형식은 백 엔드 최적화가 포함된 Azure CDN(Content Delivery Network)을 사용하여 미디어 자산을 더 빠르게 배달합니다. 또한 시간이 지남에 따라 학습된 모범 사례에 따라 미디어 자산에 대한 구성을 사용합니다.
 
@@ -57,9 +57,9 @@ ms.locfileid: "88192609"
  
 ## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Akamai의 Azure CDN에 대한 미디어 스트리밍 최적화
  
-**Akamai의 Azure CDN 표준**은 전세계 사용자에게 스트리밍 미디어 자산을 효율적으로 배달하는 기능을 제공합니다. 이 기능은 원본 서버의 부하를 줄이므로 대기 시간을 줄여주며, 표준 Akamai 가격 책정 계층으로 사용할 수 있습니다. 
+**Akamai의 Azure CDN 표준** 은 전세계 사용자에게 스트리밍 미디어 자산을 효율적으로 배달하는 기능을 제공합니다. 이 기능은 원본 서버의 부하를 줄이므로 대기 시간을 줄여주며, 표준 Akamai 가격 책정 계층으로 사용할 수 있습니다. 
 
-**Akamai의 Azure CDN 표준**에 대한 미디어 스트리밍 최적화는 배달에 개별 미디어 조각을 사용하는 라이브 또는 주문형 비디오 스트리밍 미디어에 효과적입니다. 이 프로세스는 점진적 다운로드 또는 바이트 범위 요청을 통해 전송되는 단일 대규모 자산과 다릅니다. 해당 스타일의 미디어 배달에 대한 자세한 내용은 [대용량 파일 최적화](cdn-large-file-optimization.md)를 참조하세요.
+**Akamai의 Azure CDN 표준** 에 대한 미디어 스트리밍 최적화는 배달에 개별 미디어 조각을 사용하는 라이브 또는 주문형 비디오 스트리밍 미디어에 효과적입니다. 이 프로세스는 점진적 다운로드 또는 바이트 범위 요청을 통해 전송되는 단일 대규모 자산과 다릅니다. 해당 스타일의 미디어 배달에 대한 자세한 내용은 [대용량 파일 최적화](cdn-large-file-optimization.md)를 참조하세요.
 
 일반 미디어 배달 또는 주문형 비디오 미디어 배달 최적화 형식은 백 엔드 최적화가 포함된 CDN을 사용하여 미디어 자산을 더 빠르게 배달합니다. 또한 시간이 지남에 따라 학습된 모범 사례에 따라 미디어 자산에 대한 구성을 사용합니다.
 
@@ -67,11 +67,11 @@ ms.locfileid: "88192609"
  
 Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content Delivery Network) 엔드포인트를 구성할 수 있습니다. REST API나 클라이언트 SDK를 사용할 수도 있습니다. 다음 단계에서는 **Akamai의 Azure CDN 표준** 프로필에 대해 Azure Portal을 통한 프로세스를 보여줍니다.
 
-1. 새 엔드포인트를 추가하려면 Akamai **CDN 프로필** 페이지에서 **엔드포인트**를 선택합니다.
+1. 새 엔드포인트를 추가하려면 Akamai **CDN 프로필** 페이지에서 **엔드포인트** 를 선택합니다.
   
     ![새 엔드포인트](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 
-2. **Optimized for**(최적화 대상) 드롭다운 목록에서 주문형 비디오 자산에 대한 **주문형 비디오 미디어 스트리밍**을 선택합니다. 라이브 및 주문형 비디오 스트리밍을 조합하는 경우 **일반 미디어 스트리밍**을 선택합니다.
+2. **Optimized for**(최적화 대상) 드롭다운 목록에서 주문형 비디오 자산에 대한 **주문형 비디오 미디어 스트리밍** 을 선택합니다. 라이브 및 주문형 비디오 스트리밍을 조합하는 경우 **일반 미디어 스트리밍** 을 선택합니다.
 
     ![스트리밍 선택됨](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
@@ -79,7 +79,7 @@ Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content
 
 ### <a name="caching"></a>캐싱
 
-**Akamai의 Azure CDN 표준**에서 자산이 스트리밍 매니페스트 또는 조각임이 감지되면 일반 웹 배달과 다른 캐싱 만료 시간을 사용합니다. 다음 표의 전체 목록을 참조 하십시오. 항상 원본에서 보낸 cache-control 또는 Expires 헤더가 적용 됩니다. 자산이 미디어 자산이 아닌 경우 일반 웹 배달에 대한 만료 시간을 사용하여 캐시합니다.
+**Akamai의 Azure CDN 표준** 에서 자산이 스트리밍 매니페스트 또는 조각임이 감지되면 일반 웹 배달과 다른 캐싱 만료 시간을 사용합니다. 다음 표의 전체 목록을 참조 하십시오. 항상 원본에서 보낸 cache-control 또는 Expires 헤더가 적용 됩니다. 자산이 미디어 자산이 아닌 경우 일반 웹 배달에 대한 만료 시간을 사용하여 캐시합니다.
 
 많은 사용자가 아직 존재하지 않는 조각을 요청할 때는 짧은 부정 캐싱 시간이 원본 서버 오프로드에 유용합니다. 예를 들어 원본 서버에서 해당 시간(초) 동안 패킷을 사용할 수 없는 라이브 스트림이 있습니다. 또한 비디오 내용이 일반적으로 수정되지 않기 때문에 캐싱 간격은 길수록 원본 서버의 요청을 오프로드하는 데 도움이 됩니다.
 

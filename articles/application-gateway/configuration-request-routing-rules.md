@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397538"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Application Gateway 요청 라우팅 규칙
 
-Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만들 때 기본 규칙 ( *rule1* )을 만듭니다. 이 규칙은 기본 수신기 ( *appGatewayHttpListener* )를 기본 백 엔드 풀 ( *appGatewayBackendPool* )과 기본 백 엔드 HTTP 설정 ( *appGatewayBackendHttpSettings* )에 바인딩합니다. 게이트웨이를 만든 후에는 기본 규칙의 설정을 편집 하거나 새 규칙을 만들 수 있습니다.
+Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만들 때 기본 규칙 (*rule1*)을 만듭니다. 이 규칙은 기본 수신기 (*appGatewayHttpListener*)를 기본 백 엔드 풀 (*appGatewayBackendPool*)과 기본 백 엔드 HTTP 설정 (*appGatewayBackendHttpSettings*)에 바인딩합니다. 게이트웨이를 만든 후에는 기본 규칙의 설정을 편집 하거나 새 규칙을 만들 수 있습니다.
 
 ## <a name="rule-type"></a>규칙 유형
 
@@ -57,7 +57,7 @@ V1 및 v2 SKU의 경우 들어오는 요청의 패턴 일치는 경로가 경로
 
 ### <a name="redirection-type"></a>리디렉션 유형
 
-필요한 리디렉션 유형 ( *301)* , *임시 (307)* , *찾음 (302)* 또는 *기타 참조 (303)* 를 선택 합니다.
+필요한 리디렉션 유형 ( *301)*, *임시 (307)*, *찾음 (302)* 또는 *기타 참조 (303)* 를 선택 합니다.
 
 ### <a name="redirection-target"></a>리디렉션 대상
 

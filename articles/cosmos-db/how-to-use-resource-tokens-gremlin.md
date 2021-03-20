@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361696"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
@@ -101,7 +101,7 @@ Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니�
 
 ## <a name="permission"></a>사용 권한
 
-애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()* , *.addE()* , *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
+애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()*, *.addE()*, *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB의 [azure 역할 기반 access control (AZURE RBAC)](role-based-access-control.md)
