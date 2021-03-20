@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92125067"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box 또는 Azure Data Box Heavy를 사용 하 여 적절 한 Azure Storage blob 계층으로 데이터 전송
@@ -54,7 +54,7 @@ Data Box 장치의 데이터를 기본 계층으로 업로드 한 후에는 기�
 
 아래 단계에서는 Azure PowerShell 스크립트를 사용하여 Blob 계층을 보관으로 설정하는 방법을 설명합니다.
 
-1. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 입력하여 PowerShell 5.0 이상을 실행 중인지 확인합니다. 형식:
+1. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 입력하여 PowerShell 5.0 이상을 실행 중인지 확인합니다. 유형:
 
    `$PSVersionTable.PSVersion`     
 

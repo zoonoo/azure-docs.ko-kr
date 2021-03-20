@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 3aac5ca8d146f0cd74f483846d22fdf0052f86f2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744440"
 ---
 # <a name="azure-cloud-services-extended-support-config-schema-cscfg-file"></a>Azure Cloud Services (확장 지원) 구성 스키마 (.cscfg 파일)
@@ -56,7 +56,7 @@ ms.locfileid: "98744440"
 
 다음 표에서는 `ServiceConfiguration` 요소의 특성을 설명합니다. 모든 특성 값은 문자열 유형입니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 | --------- | ----------- |
 |serviceName|필수 요소. 클라우드 서비스의 이름입니다. 여기서 지정된 이름은 서비스 정의 파일에서 지정된 이름과 일치해야 합니다.|
 |osFamily|선택 사항입니다. 클라우드 서비스의 역할 인스턴스에서 실행 될 게스트 OS를 지정 합니다. 지원되는 게스트 OS 릴리스에 대한 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> `osFamily` 값을 포함하지 않고 특정 게스트 OS 버전에 `osVersion` 특성을 설정하지 않은 경우 기본값인 1이 사용됩니다.|

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azu
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913316"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
@@ -67,7 +67,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
     ![클라이언트 암호](./media/authenticate-application/client-secret.png)
 
 
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당  
 응용 프로그램을 등록 한 후에는 [azure Event Hubs에 대 한 빌드 역할](#built-in-roles-for-azure-event-hubs) 섹션에 설명 된 EVENT HUBS azure AD 역할에 응용 프로그램의 서비스 주체를 할당 합니다. 
 
 1. [Azure Portal](https://portal.azure.com/)에서 Event Hubs 네임스페이스로 이동합니다.
@@ -99,7 +99,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 ## <a name="samples"></a>샘플
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하지만 최신 **Azure.Messaging.EventHubs** 라이브러리를 사용하여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용하는 샘플을 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조하세요.
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.

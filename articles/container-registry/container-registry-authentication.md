@@ -4,10 +4,10 @@ description: Azure Active Directory id를 사용 하 여 로그인 하 고, 서�
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148567"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Azure Container Registry로 인증
@@ -20,14 +20,14 @@ Azure Container Registry로 인증하는 방법은 여러 가지가 있으며 �
 
 다음 표에서는 사용 가능한 인증 방법 및 일반적인 시나리오를 보여 줍니다. 자세한 내용은 연결 된 콘텐츠를 참조 하세요.
 
-| 방법                               | 인증 방법                                           | 시나리오                                                            | Azure RBAC(Azure 역할 기반 액세스 제어)                             | 제한 사항                                |
+| 메서드                               | 인증 방법                                           | 시나리오                                                            | Azure RBAC(Azure 역할 기반 액세스 제어)                             | 제한 사항                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
-| [개별 AD id](#individual-login-with-azure-ad)                | `az acr login` Azure CLI에서                             | 개발자, 테스터의 대화형 푸시/풀                                    | 예                              | AD 토큰은 3 시간 마다 갱신 해야 합니다.     |
-| [AD 서비스 주체](#service-principal)                  | `docker login`<br/><br/>`az acr login`(Azure CLI)<br/><br/> Api 또는 도구의 레지스트리 로그인 설정<br/><br/> [Kubernetes pull 비밀](container-registry-auth-kubernetes.md)                                           | CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 또는 외부 서비스에 무인 풀  | 예                              | SP 암호 기본 만료는 1 년입니다.       |                                                           
-| [AKS와 통합](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | AKS 클러스터가 만들어지거나 업데이트 될 때 레지스트리 연결  | AKS 클러스터에 무인 풀                                                  | 아니요, 끌어오기 액세스만             | AKS 클러스터 에서만 사용할 수 있습니다.            |
-| [Azure 리소스에 대 한 관리 id](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` Azure CLI에서                                       | Azure CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 서비스로 무인 끌어오기<br/><br/>   | 예                              | [Azure 리소스에 대해 관리 되는 id를 지 원하는](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) azure 서비스 에서만 사용              |
-| [관리 사용자](#admin-account)                            | `docker login`                                          | 개별 개발자 또는 테스터의 대화형 푸시/풀<br/><br/>Azure App Service 또는 Azure Container Instances에서 이미지의 포털 배포                      | 아니요, 항상 끌어오기 및 푸시 액세스  | 레지스트리 당 단일 계정 (여러 사용자에 게 권장 되지 않음)         |
-| [리포지토리 범위 액세스 토큰](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login`(Azure CLI)   | 개별 개발자 또는 테스터가 저장소에 대화형 푸시/풀<br/><br/> 개별 시스템 또는 외부 장치에서 리포지토리로 무인 푸시/풀                  | 예                              | 현재 AD id와 통합 되어 있지 않습니다.  |
+| [개별 AD id](#individual-login-with-azure-ad)                | `az acr login` Azure CLI에서                             | 개발자, 테스터의 대화형 푸시/풀                                    | 예                              | AD 토큰은 3 시간 마다 갱신 해야 합니다.     |
+| [AD 서비스 주체](#service-principal)                  | `docker login`<br/><br/>`az acr login`(Azure CLI)<br/><br/> Api 또는 도구의 레지스트리 로그인 설정<br/><br/> [Kubernetes pull 비밀](container-registry-auth-kubernetes.md)                                           | CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 또는 외부 서비스에 무인 풀  | 예                              | SP 암호 기본 만료는 1 년입니다.       |                                                           
+| [AKS와 통합](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | AKS 클러스터가 만들어지거나 업데이트 될 때 레지스트리 연결  | AKS 클러스터에 무인 풀                                                  | 아니요, 끌어오기 액세스만             | AKS 클러스터 에서만 사용할 수 있습니다.            |
+| [Azure 리소스용 관리 서비스 ID](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` Azure CLI에서                                       | Azure CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 서비스로 무인 끌어오기<br/><br/>   | 예                              | [Azure 리소스에 대해 관리 되는 id를 지 원하는](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) azure 서비스 에서만 사용              |
+| [관리 사용자](#admin-account)                            | `docker login`                                          | 개별 개발자 또는 테스터의 대화형 푸시/풀<br/><br/>Azure App Service 또는 Azure Container Instances에서 이미지의 포털 배포                      | 아니요, 항상 끌어오기 및 푸시 액세스  | 레지스트리 당 단일 계정 (여러 사용자에 게 권장 되지 않음)         |
+| [리포지토리 범위 액세스 토큰](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login`(Azure CLI)   | 개별 개발자 또는 테스터가 저장소에 대화형 푸시/풀<br/><br/> 개별 시스템 또는 외부 장치에서 리포지토리로 무인 푸시/풀                  | 예                              | 현재 AD id와 통합 되어 있지 않습니다.  |
 
 ## <a name="individual-login-with-azure-ad"></a>Azure AD로 개별 로그인
 
@@ -43,7 +43,7 @@ az acr login --name <acrName>
 > [!TIP]
 > `az acr login`Docker [아티팩트와](container-registry-oci-artifacts.md)같이 Docker 이미지 이외의 아티팩트를 레지스트리에 푸시 하거나 풀 하려는 경우에도를 사용 하 여 개별 id를 인증 합니다.  
 
-레지스트리 액세스의 경우에서 사용 하는 토큰은 `az acr login` **3 시간**동안 유효 하므로 명령을 실행 하기 전에 항상 레지스트리에 로그인 하는 것이 좋습니다 `docker` . 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
+레지스트리 액세스의 경우에서 사용 하는 토큰은 `az acr login` **3 시간** 동안 유효 하므로 명령을 실행 하기 전에 항상 레지스트리에 로그인 하는 것이 좋습니다 `docker` . 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
 
 Azure id를 사용 하 여 azure `az acr login` [역할 기반 액세스 제어 (azure RBAC)](../role-based-access-control/role-assignments-portal.md)를 제공 합니다. 일부 시나리오의 경우 Azure AD에서 고유한 개별 id를 사용 하 여 레지스트리에 로그인 하거나 특정 [azure 역할 및 사용 권한을](container-registry-roles.md)사용 하 여 다른 azure 사용자를 구성할 수 있습니다. 서비스 간 시나리오의 경우 또는 개별 액세스를 관리 하지 않으려는 작업 그룹 또는 개발 워크플로의 요구를 처리 하려는 경우에 [는 Azure 리소스에 대 한 관리 id](container-registry-authentication-managed-identity.md)로 로그인 할 수도 있습니다.
 
@@ -72,7 +72,7 @@ az acr login --name <acrName> --expose-token
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password eyJhbGciOiJSUzI1NiIs[...]24V7wA
 ```
 
-## <a name="service-principal"></a>서비스 주체
+## <a name="service-principal"></a>서비스 사용자
 
 레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당하면 애플리케이션 또는 서비스에서 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 사용자는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 를 레지스트리에 허용 하 고 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 애플리케이션에 대한 다양한 액세스를 정의할 수 있습니다.
 
@@ -112,7 +112,7 @@ docker login myregistry.azurecr.io
 az acr update -n <acrName> --admin-enabled true
 ```
 
-레지스트리로 이동하여 **설정**에서 **액세스 키**를 선택한 다음 **관리 사용자**에서 **사용**을 선택하면 Azure Portal에서 관리 사용자를 사용하도록 설정할 수 있습니다.
+레지스트리로 이동하여 **설정** 에서 **액세스 키** 를 선택한 다음 **관리 사용자** 에서 **사용** 을 선택하면 Azure Portal에서 관리 사용자를 사용하도록 설정할 수 있습니다.
 
 ![Azure Portal에서 관리 사용자 UI 사용][auth-portal-01]
 

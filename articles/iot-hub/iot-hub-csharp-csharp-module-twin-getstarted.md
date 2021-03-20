@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142513"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (.NET)
@@ -54,21 +54,21 @@ ms.locfileid: "92142513"
 
 이 섹션에서는 시뮬레이션된 디바이스에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
 
-시작 하기 전에 모듈 연결 문자열을 가져옵니다. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 허브로 이동 하 여 **IoT 장치**를 선택 합니다. **Myfirstdevice**를 찾습니다. **Myfirstdevice** 를 선택 하 여 연 다음 **myfirstdevice** 을 선택 하 여 엽니다. **모듈 Id 세부 정보**에서 다음 절차에 따라 필요한 경우 **연결 문자열 (기본 키)** 을 복사 합니다.
+시작 하기 전에 모듈 연결 문자열을 가져옵니다. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 허브로 이동 하 여 **IoT 장치** 를 선택 합니다. **Myfirstdevice** 를 찾습니다. **Myfirstdevice** 를 선택 하 여 연 다음 **myfirstdevice** 을 선택 하 여 엽니다. **모듈 Id 세부 정보** 에서 다음 절차에 따라 필요한 경우 **연결 문자열 (기본 키)** 을 복사 합니다.
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. Visual Studio에서 **파일**  >  **새로 만들기**  >  **프로젝트**를 선택 하 여 새 프로젝트를 솔루션에 추가 합니다. 새 프로젝트 만들기에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
+1. Visual Studio에서 **파일**  >  **새로 만들기**  >  **프로젝트** 를 선택 하 여 새 프로젝트를 솔루션에 추가 합니다. 새 프로젝트 만들기에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
 
-1. 프로젝트 이름을 *UpdateModuleTwinReportedProperties*로 지정합니다. **솔루션**에서 **솔루션에 추가**를 선택 합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다.
+1. 프로젝트 이름을 *UpdateModuleTwinReportedProperties* 로 지정합니다. **솔루션** 에서 **솔루션에 추가** 를 선택 합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다.
 
     ![Visual Studio 프로젝트 만들기](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. **만들기** 를 선택 하 여 프로젝트를 만듭니다.
+1. **만들기** 를 선택하여 프로젝트를 만듭니다.
 
-1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리** 를 엽니다. **찾아보기** 탭을 선택합니다.
 
-1. 를 검색 하 고 **Microsoft. Devices**를 선택 하 고 **설치**를 선택 합니다.
+1. 를 검색 하 고 **Microsoft. Devices** 를 선택 하 고 **설치** 를 선택 합니다.
 
     !["Microsoft. Azure. 클라이언트"가 선택 되 고 "설치" 단추가 강조 표시 된 스크린샷](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
@@ -167,11 +167,11 @@ ms.locfileid: "92142513"
 
 이제 앱을 실행할 수 있습니다.
 
-1. Visual Studio의 **솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트 설정**을 선택 합니다.
+1. Visual Studio의 **솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트 설정** 을 선택 합니다.
 
-1. **공용 속성**에서 **시작 프로젝트를 선택 합니다.**
+1. **공용 속성** 에서 **시작 프로젝트를 선택 합니다.**
 
-1. **여러 시작 프로젝트**를 선택한 다음 앱에 대 한 작업으로 **시작** 을 선택 하 고 변경 내용을 적용 하려면 **확인** 을 선택 합니다.
+1. **여러 시작 프로젝트** 를 선택한 다음 앱에 대 한 작업으로 **시작** 을 선택 하 고 변경 내용을 적용 하려면 **확인** 을 선택 합니다.
 
 1. **F5** 키를 눌러 앱을 시작 합니다.
 

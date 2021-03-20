@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81391703"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>빠른 시작: Azure Portal을 통해 서비스 카탈로그 앱 배포
@@ -20,31 +20,31 @@ ms.locfileid: "81391703"
 
 Azure Portal에서 다음 단계를 사용하세요.
 
-1. **리소스 만들기**를 선택합니다.
+1. **리소스 만들기** 를 선택합니다.
 
    ![리소스 만들기](./media/deploy-service-catalog-quickstart/create-new.png)
 
-1. **서비스 카탈로그 관리되는 애플리케이션**을 검색하고 사용 가능한 옵션 중에서 선택합니다.
+1. **서비스 카탈로그 관리되는 애플리케이션** 을 검색하고 사용 가능한 옵션 중에서 선택합니다.
 
    ![서비스 카탈로그 애플리케이션 검색](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. 관리되는 애플리케이션 서비스에 대한 설명을 확인합니다. **만들기**를 선택합니다.
+1. 관리되는 애플리케이션 서비스에 대한 설명을 확인합니다. **만들기** 를 선택합니다.
 
    ![만들기 선택](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. 포털에 사용자가 액세스할 수 있는 관리되는 애플리케이션 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 스토리지 계정**을 사용합니다. **만들기**를 선택합니다.
+1. 포털에 사용자가 액세스할 수 있는 관리되는 애플리케이션 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 스토리지 계정** 을 사용합니다. **만들기** 를 선택합니다.
 
    ![배포할 정의 선택](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. **기본** 탭에 대 한 값을 제공 합니다. 서비스 카탈로그 앱을 배포할 Azure 구독을 선택 합니다. **applicationGroup**이라는 새 리소스 그룹을 만듭니다. 앱의 위치를 선택합니다. 작업을 마쳤으면 **확인**을 선택합니다.
+1. **기본** 탭에 대 한 값을 제공 합니다. 서비스 카탈로그 앱을 배포할 Azure 구독을 선택 합니다. **applicationGroup** 이라는 새 리소스 그룹을 만듭니다. 앱의 위치를 선택합니다. 작업을 마쳤으면 **확인** 을 선택합니다.
 
    ![기본 사항에 대한 값 제공](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
-1. 스토리지 계정 이름의 접두사를 제공합니다. 만들려는 스토리지 계정의 유형을 선택합니다. 작업을 마쳤으면 **확인**을 선택합니다.
+1. 스토리지 계정 이름의 접두사를 제공합니다. 만들려는 스토리지 계정의 유형을 선택합니다. 작업을 마쳤으면 **확인** 을 선택합니다.
 
    ![스토리지 값 제공](./media/deploy-service-catalog-quickstart/provide-storage.png)
 
-1. 요약을 검토합니다. 유효성 검사가 성공하면 **확인**을 선택하여 배포를 시작합니다.
+1. 요약을 검토합니다. 유효성 검사가 성공하면 **확인** 을 선택하여 배포를 시작합니다.
 
    ![요약 보기](./media/deploy-service-catalog-quickstart/view-summary.png)
 

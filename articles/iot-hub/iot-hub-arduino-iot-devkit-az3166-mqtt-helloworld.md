@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: fb8bf593568825793a1a205a2955599b16fa78cf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151758"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
@@ -46,10 +46,10 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 
 ## <a name="open-the-mqttclient-sample"></a>MQTTClient 샘플 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 펼치고, **MXCHIP AZ3166 예제 > MQTT**로 차례로 이동하고, **MQTTClient**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
+왼쪽의 **ARDUINO 예제** 섹션을 펼치고, **MXCHIP AZ3166 예제 > MQTT** 로 차례로 이동하고, **MQTTClient** 를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
 > [!NOTE]
-> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino** 를 입력한 다음, **Arduino: 예제** 를 찾아서 선택합니다.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>DevKit에 Arduino 스케치 빌드 및 업로드
 

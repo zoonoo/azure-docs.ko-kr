@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142466"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트(.NET)
@@ -40,7 +40,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* 백 엔드 앱에 의해 호출될 수 있는 **LockDoor**라는 직접 메서드를 구현하는 디바이스 앱을 만듭니다.
+* 백 엔드 앱에 의해 호출될 수 있는 **LockDoor** 라는 직접 메서드를 구현하는 디바이스 앱을 만듭니다.
 
 * 여러 디바이스에 대해 **LockDoor** 직접 메서드를 호출하는 작업을 만드는 백 엔드 앱을 만듭니다. 다른 작업이 여러 디바이스로 원하는 속성 업데이트를 보냅니다.
 
@@ -70,15 +70,15 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 섹션에서는 솔루션 백 엔드에서 호출한 직접 메서드에 응답하는 .NET 콘솔 앱을 만듭니다.
 
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택하고 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 선택합니다. **다음**을 선택하여 계속합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택하고 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 선택합니다. **다음** 을 선택하여 계속합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *SimulateDeviceMethods*로 지정한 후 **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *SimulateDeviceMethods* 로 지정한 후 **만들기** 를 선택합니다.
 
     ![SimulateDeviceMethods 프로젝트 구성](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
 
-1. 솔루션 탐색기에서 **SimulateDeviceMethods** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 **SimulateDeviceMethods** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
 
-1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색한 후 선택합니다. **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택하고 **Microsoft.Azure.Devices.Client** 를 검색한 후 선택합니다. **설치** 를 선택합니다.
 
     ![NuGet 패키지 관리자 창 클라이언트 앱](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
@@ -167,15 +167,15 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 섹션에서는 작업을 사용하여 **LockDoor** 직접 메서드를 호출하고 원하는 속성 업데이트를 여러 디바이스에 전송하는 .NET 콘솔 앱(C# 사용)을 만듭니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기**에서 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음**을 선택합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다. **새 프로젝트 만들기** 에서 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *ScheduleJob*으로 지정합니다. **솔루션**에 대해 **솔루션에 추가**를 선택하고 **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *ScheduleJob* 으로 지정합니다. **솔루션** 에 대해 **솔루션에 추가** 를 선택하고 **만들기** 를 선택합니다.
 
     ![ScheduleJob 프로젝트 이름 지정 및 구성](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
-1. 솔루션 탐색기에서 **ScheduleJob** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 **ScheduleJob** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** 를 선택합니다.
 
-1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices**를 검색하여 선택한 다음, **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기** 를 선택하고, **Microsoft.Azure.Devices** 를 검색하여 선택한 다음, **설치** 를 선택합니다.
 
    이 단계에서는 [Azure IoT 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 
@@ -293,13 +293,13 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이제 앱을 실행할 준비가 되었습니다.
 
-1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다.
+1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정** 을 선택합니다.
 
-1. **공용 속성** > **시작 프로젝트**, **여러 시작 프로젝트**를 차례로 선택합니다.
+1. **공용 속성** > **시작 프로젝트**, **여러 시작 프로젝트** 를 차례로 선택합니다.
 
-1. `SimulateDeviceMethods`가 목록 맨 위에 표시되고 그 다음으로 `ScheduleJob`이 표시되는지 확인합니다. 두 작업을 모두 **시작**으로 설렁하고 **확인**을 선택합니다.
+1. `SimulateDeviceMethods`가 목록 맨 위에 표시되고 그 다음으로 `ScheduleJob`이 표시되는지 확인합니다. 두 작업을 모두 **시작** 으로 설렁하고 **확인** 을 선택합니다.
 
-1. **시작**을 클릭하거나 **디버그** 메뉴로 이동하여 **디버깅 시작**을 클릭하여 프로젝트를 실행합니다.
+1. **시작** 을 클릭하거나 **디버그** 메뉴로 이동하여 **디버깅 시작** 을 클릭하여 프로젝트를 실행합니다.
 
    디바이스 및 백 엔드 앱 모두에서 출력이 표시됩니다.
 

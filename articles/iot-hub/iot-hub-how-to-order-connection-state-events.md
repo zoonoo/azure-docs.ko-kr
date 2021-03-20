@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147271"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
@@ -35,11 +35,11 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 먼저 저장 프로시저를 만들어서 들어오는 이벤트의 시퀀스 번호를 비교하고 데이터베이스의 디바이스마다 최신 이벤트를 기록하는 논리를 실행하도록 설정합니다.
 
-1. Cosmos DB SQL API에서 **데이터 탐색기** > **항목** > **새 저장 프로시저**를 선택합니다.
+1. Cosmos DB SQL API에서 **데이터 탐색기** > **항목** > **새 저장 프로시저** 를 선택합니다.
 
    ![저장 프로시저 만들기](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. 저장 프로시저 ID에 **LatestDeviceConnectionState**를 입력하고 **저장 프로시저 본문**에 다음을 붙여넣습니다. 이 코드가 저장 프로시저 본문에 있는 기존 코드를 대체해야 합니다. 이 코드는 가장 높은 시퀀스 번호를 식별하여 디바이스 ID당 하나의 행을 유지하고 해당 디바이스 ID의 최신 연결 상태를 기록합니다.
+2. 저장 프로시저 ID에 **LatestDeviceConnectionState** 를 입력하고 **저장 프로시저 본문** 에 다음을 붙여넣습니다. 이 코드가 저장 프로시저 본문에 있는 기존 코드를 대체해야 합니다. 이 코드는 가장 높은 시퀀스 번호를 식별하여 디바이스 ID당 하나의 행을 유지하고 해당 디바이스 ID의 최신 연결 상태를 기록합니다.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -138,7 +138,7 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 ### <a name="create-a-logic-app-resource"></a>논리 앱 리소스 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **+리소스 만들기**를 선택한 다음 **통합**, **논리 앱**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **+리소스 만들기** 를 선택한 다음 **통합**, **논리 앱** 을 차례로 선택합니다.
 
    ![논리 앱 만들기](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
@@ -146,30 +146,30 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
    ![새 논리 앱](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
 
-3. **만들기**를 선택하여 논리 앱을 만듭니다.
+3. **만들기** 를 선택하여 논리 앱을 만듭니다.
 
    이제 논리 앱에 대한 Azure 리소스를 만들었습니다. Azure에서 논리 앱을 배포하면 Logic Apps 디자이너에서 일반적인 패턴에 대한 템플릿을 표시하므로 더 빨리 시작할 수 있습니다.
 
    > [!NOTE]
-   > 논리 앱을 찾아 열려면 **리소스 그룹**을 선택하고 이 방법에 사용할 리소스 그룹을 선택합니다. 그런 다음 새 논리 앱을 선택합니다. 그러면 논리 앱 디자이너가 열립니다.
+   > 논리 앱을 찾아 열려면 **리소스 그룹** 을 선택하고 이 방법에 사용할 리소스 그룹을 선택합니다. 그런 다음 새 논리 앱을 선택합니다. 그러면 논리 앱 디자이너가 열립니다.
 
-4. 논리 앱 디자이너에서 공통 트리거가 표시될 때까지 오른쪽으로 스크롤합니다. 이제 **템플릿** 아래에서 **빈 논리 앱**을 선택하면 논리 앱을 처음부터 빌드할 수 있습니다.
+4. 논리 앱 디자이너에서 공통 트리거가 표시될 때까지 오른쪽으로 스크롤합니다. 이제 **템플릿** 아래에서 **빈 논리 앱** 을 선택하면 논리 앱을 처음부터 빌드할 수 있습니다.
 
 ### <a name="select-a-trigger"></a>트리거 선택
 
 트리거는 논리 앱을 시작하는 특정 이벤트입니다. 이 자습서에서는 워크플로를 시작하는 트리거를 HTTP를 통해 요청을 받습니다.
 
-1. 커넥터 및 트리거 검색 창에 **HTTP**를 입력하고 Enter 키를 누릅니다.
+1. 커넥터 및 트리거 검색 창에 **HTTP** 를 입력하고 Enter 키를 누릅니다.
 
-2. 트리거로 **요청 - HTTP 요청을 수신한 경우**를 선택합니다.
+2. 트리거로 **요청 - HTTP 요청을 수신한 경우** 를 선택합니다.
 
    ![HTTP 요청 트리거 선택](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
-3. **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+3. **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
    ![샘플 페이로드를 사용하여 스키마 생성](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
-4. 다음 샘플 JSON 코드를 텍스트 상자에 붙여넣기한 다음 **완료**를 선택합니다.
+4. 다음 샘플 JSON 코드를 텍스트 상자에 붙여넣기한 다음 **완료** 를 선택합니다.
 
    ```json
    [{
@@ -195,29 +195,29 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
    ![샘플 JSON 페이로드 붙여넣기](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
 
-5. **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다.
+5. **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다** 라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다.
 
 ### <a name="create-a-condition"></a>조건 만들기
 
 논리 앱 워크플로에서 조건은 특정 조건을 통과한 후에 특정 작업을 실행하는 데 도움이 됩니다. 조건이 충족되면 원하는 작업을 정의할 수 있습니다. 이 자습서에서는 eventType이 디바이스 연결됨인지 또는 디바이스 연결 끊김인지를 확인하는 것이 조건입니다. 작업은 데이터베이스에 저장된 프로시저를 실행하는 것입니다.
 
-1. **+ 새 단계**를 선택하고 **기본 제공**을 선택한`다음 **조건**을 찾아 선택합니다. **값 선택**을 클릭하면 동적 콘텐츠, 즉 선택할 수 있는 필드를 표시하는 상자가 열립니다. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대해서만 실행하도록 아래에 표시된 대로 필드를 채웁니다.
+1. **+ 새 단계** 를 선택하고 **기본 제공** 을 선택한`다음 **조건** 을 찾아 선택합니다. **값 선택** 을 클릭하면 동적 콘텐츠, 즉 선택할 수 있는 필드를 표시하는 상자가 열립니다. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대해서만 실행하도록 아래에 표시된 대로 필드를 채웁니다.
 
-   * 값 **eventType**을 선택합니다. 이 필드를 클릭할 때 표시되는 동적 콘텐츠의 필드에서 이 항목을 선택합니다.
-   * "다음과 같음"을 **다음으로 끝남**으로 변경합니다.
-   * 값 **중첩됨**을 선택합니다.
+   * 값 **eventType** 을 선택합니다. 이 필드를 클릭할 때 표시되는 동적 콘텐츠의 필드에서 이 항목을 선택합니다.
+   * "다음과 같음"을 **다음으로 끝남** 으로 변경합니다.
+   * 값 **중첩됨** 을 선택합니다.
 
      ![조건 채우기](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-2. **True일 경우** 대화 상자에서 **작업 추가**를 클릭합니다.
+2. **True일 경우** 대화 상자에서 **작업 추가** 를 클릭합니다.
   
    ![작업이 true이면](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-3. Cosmos DB를 검색하여 **Azure Cosmos DB - 저장된 프로시저 실행**을 선택합니다.
+3. Cosmos DB를 검색하여 **Azure Cosmos DB - 저장된 프로시저 실행** 을 선택합니다.
 
    ![CosmosDB 검색](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. **연결 이름**에 **cosmosdb-connection**을 입력하고 테이블에서 항목을 선택한 다음 **만들기**를 선택합니다. **저장 프로시저 실행** 패널이 표시됩니다. 필드에 값을 입력합니다.
+4. **연결 이름** 에 **cosmosdb-connection** 을 입력하고 테이블에서 항목을 선택한 다음 **만들기** 를 선택합니다. **저장 프로시저 실행** 패널이 표시됩니다. 필드에 값을 입력합니다.
 
    **데이터베이스 ID**: ToDoList
 
@@ -225,15 +225,15 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
    **Sproc ID**: LatestDeviceConnectionState
 
-5. **새 매개 변수 추가**를 선택합니다. 표시되는 드롭다운에서 **파티션 키** 및 **저장 프로시저 매개 변수** 옆의 상자를 선택한 다음 화면에서 다른 위치를 클릭합니다. 그러면 파티션 키 값에 대한 필드와 저장 프로시저 매개 변수에 대한 필드가 추가됩니다.
+5. **새 매개 변수 추가** 를 선택합니다. 표시되는 드롭다운에서 **파티션 키** 및 **저장 프로시저 매개 변수** 옆의 상자를 선택한 다음 화면에서 다른 위치를 클릭합니다. 그러면 파티션 키 값에 대한 필드와 저장 프로시저 매개 변수에 대한 필드가 추가됩니다.
 
    ![새 매개 변수 추가가 선택 된 상태에서 저장 프로시저 실행 항목이 스크린샷에 표시 됩니다.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. 이제 파티션 키 값과 매개 변수를 아래와 같이 입력합니다. 표시된 것처럼 대괄호와 큰따옴표를 입력해야 합니다. 여기에서 사용할 수 있는 유효한 값을 얻으려면 **동적 콘텐츠 추가**를 클릭해야 할 수도 있습니다.
+6. 이제 파티션 키 값과 매개 변수를 아래와 같이 입력합니다. 표시된 것처럼 대괄호와 큰따옴표를 입력해야 합니다. 여기에서 사용할 수 있는 유효한 값을 얻으려면 **동적 콘텐츠 추가** 를 클릭해야 할 수도 있습니다.
 
    ![매개 변수를 입력 하 여 저장 프로시저 실행 항목을 보여 주는 스크린샷](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. **For Each**로 표시된 창의 위쪽에서 **이전 단계의 출력 선택** 아래에 **본문**이 선택되어 있는지 확인합니다.
+7. **For Each** 로 표시된 창의 위쪽에서 **이전 단계의 출력 선택** 아래에 **본문** 이 선택되어 있는지 확인합니다.
 
    ![논리 앱 for-each 채우기](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
@@ -245,7 +245,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 1. **HTTP 요청을 받을 경우** 트리거 구성 상자를 클릭하여 확장합니다.
 
-2. **HTTP POST URL**의 값을 그 옆에 있는 복사 단추를 선택하여 복사합니다.
+2. **HTTP POST URL** 의 값을 그 옆에 있는 복사 단추를 선택하여 복사합니다.
 
    ![HTTP POST URL 복사](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
 
@@ -257,21 +257,21 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 
-2. **이벤트**를 선택합니다.
+2. **이벤트** 를 선택합니다.
 
    ![Event Grid 세부 정보 열기](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. **+ 이벤트 구독**을 선택합니다.
+3. **+ 이벤트 구독** 을 선택합니다.
 
    ![새 이벤트 구독 만들기](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. **이벤트 구독 정보**에 입력합니다. 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
+4. **이벤트 구독 정보** 에 입력합니다. 설명이 포함된 이름을 제공하고, **Event Grid 스키마** 를 선택합니다.
 
-5. **이벤트 유형** 필드를 채웁니다. 드롭다운 목록에서 **디바이스 연결됨** 및 **디바이스 연결 끊김**만 메뉴에서 선택합니다. 화면에서 다른 곳을 클릭하여 목록을 닫고 선택 내용을 저장합니다.
+5. **이벤트 유형** 필드를 채웁니다. 드롭다운 목록에서 **디바이스 연결됨** 및 **디바이스 연결 끊김** 만 메뉴에서 선택합니다. 화면에서 다른 곳을 클릭하여 목록을 닫고 선택 내용을 저장합니다.
 
    ![찾을 이벤트 유형 설정](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-6. **엔드포인트 정보**에서 엔드포인트 유형을 **웹후크**로 선택하고, 엔드포인트 선택을 클릭하고, 논리 앱에서 복사한 URL을 붙여넣고, 선택을 확인합니다.
+6. **엔드포인트 정보** 에서 엔드포인트 유형을 **웹후크** 로 선택하고, 엔드포인트 선택을 클릭하고, 논리 앱에서 복사한 URL을 붙여넣고, 선택을 확인합니다.
 
    ![엔드포인트 URL 선택](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
@@ -279,7 +279,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
    ![샘플 이벤트 구독 양식](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-   **만들기**를 선택하여 이벤트 구독을 저장합니다.
+   **만들기** 를 선택하여 이벤트 구독을 저장합니다.
 
 ## <a name="observe-events"></a>이벤트 관찰
 
@@ -287,19 +287,19 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 ### <a name="register-a-device-in-iot-hub"></a>IoT Hub에 디바이스 등록
 
-1. IoT 허브에서 **IoT 디바이스**를 선택합니다.
+1. IoT 허브에서 **IoT 디바이스** 를 선택합니다.
 
-2. 창의 위쪽에서 **+추가**를 선택합니다.
+2. 창의 위쪽에서 **+추가** 를 선택합니다.
 
-3. **디바이스 ID**로 `Demo-Device-1`를 입력합니다.
+3. **디바이스 ID** 로 `Demo-Device-1`를 입력합니다.
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 5. 다른 디바이스 ID로 여러 디바이스를 추가할 수 있습니다.
 
    ![허브에 추가된 디바이스](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. 디바이스를 다시 클릭합니다. 이제 연결 문자열과 키가 채워집니다. 나중에 사용하기 위해 **연결 문자열 -- 기본 키**를 복사합니다.
+6. 디바이스를 다시 클릭합니다. 이제 연결 문자열과 키가 채워집니다. 나중에 사용하기 위해 **연결 문자열 -- 기본 키** 를 복사합니다.
 
    ![디바이스의 ConnectionString](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
@@ -317,13 +317,13 @@ Raspberry Pi 웹 시뮬레이터를 사용하여 디바이스 연결을 시뮬�
 
    ![디바이스 연결 문자열에 붙여넣기](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. **실행**을 선택하여 애플리케이션을 실행합니다.
+2. **실행** 을 선택하여 애플리케이션을 실행합니다.
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음과 같은 출력이 표시됩니다.
 
    ![애플리케이션 실행](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   **중지**를 클릭하여 시뮬레이터를 중지하고 **디바이스 연결 끊김** 이벤트를 트리거합니다.
+   **중지** 를 클릭하여 시뮬레이터를 중지하고 **디바이스 연결 끊김** 이벤트를 트리거합니다.
 
 샘플 애플리케이션을 실행하고 센서 데이터를 수집하여 IoT Hub로 전송했습니다.
 
@@ -345,23 +345,23 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 1. 논리 앱으로 이동
 
-2. **개요** 블레이드에서 **삭제** 또는 **사용 안 함**을 선택합니다.
+2. **개요** 블레이드에서 **삭제** 또는 **사용 안 함** 을 선택합니다.
 
     구독마다 하나의 무료 Azure IoT Hub를 가질 수 있습니다. 이 자습서에 대한 무료 허브를 만든 경우 요금이 부과되는 것을 막기 위해 삭제할 필요가 없습니다.
 
 3. IoT Hub로 이동
 
-4. **개요** 블레이드에서 **삭제**를 선택합니다.
+4. **개요** 블레이드에서 **삭제** 를 선택합니다.
 
     IoT 허브를 유지하더라도 만든 이벤트 구독을 삭제하는 것이 좋습니다.
 
-5. IoT 허브에서 **Event Grid**를 선택합니다.
+5. IoT 허브에서 **Event Grid** 를 선택합니다.
 
 6. 제거하려는 이벤트 구독을 선택합니다.
 
-7. **삭제**를 선택합니다.
+7. **삭제** 를 선택합니다.
 
-Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](../cosmos-db/how-to-manage-database-account.md)를 참조하세요.
+Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제** 를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](../cosmos-db/how-to-manage-database-account.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

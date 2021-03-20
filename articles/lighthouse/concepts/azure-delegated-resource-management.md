@@ -4,10 +4,10 @@ description: Azure 위임 된 리소스 관리는 Azure Lighthouse의 핵심 부
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92203860"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
@@ -43,7 +43,7 @@ Azure Lighthouse에 고객을 쉽게 등록할 수 있도록 [새 관리 서비�
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 지원
 
-Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형**에서 **기술**을 선택합니다. 구독을 선택한 다음 **Lighthouse** ( **모니터링 & 관리**아래)를 선택 합니다.
+Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형** 에서 **기술** 을 선택합니다. 구독을 선택한 다음 **Lighthouse** ( **모니터링 & 관리** 아래)를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

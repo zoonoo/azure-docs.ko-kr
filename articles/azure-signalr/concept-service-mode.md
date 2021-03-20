@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143250"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Azure SignalR 서비스의 서비스 모드
@@ -21,15 +21,15 @@ ms.locfileid: "92143250"
 
 설정 메뉴에서 나중에 변경할 수도 있습니다.
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="만들 때 서비스 모드 선택":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="서비스 모드 업데이트":::
 
-Azure SignalR Service는 현재 **기본**, **서버** 리스 및 **클래식**의 세 가지 서비스 모드를 지원 합니다. SignalR 리소스는 다른 모드에서 다르게 동작 합니다. 이 문서에서는 사용자의 시나리오에 따라 올바른 서비스 모드를 선택 하는 방법 및 차이점에 대해 알아봅니다.
+Azure SignalR Service는 현재 **기본**, **서버** 리스 및 **클래식** 의 세 가지 서비스 모드를 지원 합니다. SignalR 리소스는 다른 모드에서 다르게 동작 합니다. 이 문서에서는 사용자의 시나리오에 따라 올바른 서비스 모드를 선택 하는 방법 및 차이점에 대해 알아봅니다.
 
 ## <a name="default-mode"></a>기본 모드
 
 기본 모드는 새 SignalR 리소스를 만들 때 서비스 모드의 기본값입니다. 이 모드에서 응용 프로그램은 일반적인 ASP.NET Core (또는 ASP.NET) SignalR 응용 프로그램으로 작동 합니다 .이 응용 프로그램은 허브 (허브 서버이)를 호스트 하는 웹 서버가 있고 클라이언트는 허브 서버와 이중 실시간으로 통신할 수 있습니다. 클라이언트와 서버를 직접 연결 하는 대신 클라이언트와 서버 모두 SignalR 서비스에 연결 하 고 서비스를 프록시로 사용 하는 것이 유일한 차이점입니다. 다음은 기본 모드에서 일반적인 응용 프로그램 구조를 설명 하는 다이어그램입니다.
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="만들 때 서비스 모드 선택":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="기본 모드의 응용 프로그램 구조":::
 
 따라서 SignalR 응용 프로그램이 있고 SignalR service와 통합 하려는 경우 대부분의 경우 기본 모드가 적절 한 선택 이어야 합니다.
 
@@ -59,7 +59,7 @@ Azure SignalR Service는 현재 **기본**, **서버** 리스 및 **클래식**�
 
 서버를 사용 하지 않는 모드의 작동 방식을 보여 주는 다이어그램은 다음과 같습니다.
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="만들 때 서비스 모드 선택":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="서버 리스 모드의 응용 프로그램 구조":::
 
 > [!NOTE]
 > 기본 모드에서는 허브 서버를 사용 하지 않을 경우 REST API/관리 SDK/함수 바인딩을 사용 하 여 메시지를 클라이언트에 직접 보낼 수도 있습니다. 하지만 기본 모드에서는 클라이언트 연결이 허브 서버에서 계속 처리 되며 업스트림은이 모드에서 작동 하지 않습니다.

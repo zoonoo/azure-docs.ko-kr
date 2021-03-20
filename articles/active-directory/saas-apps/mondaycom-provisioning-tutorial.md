@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0479e470f5d2f3880062c45a5e14981f8a4c1e56
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743545"
 ---
 # <a name="tutorial-configure-mondaycom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 monday.com 구성
@@ -35,7 +35,7 @@ ms.locfileid: "98743545"
 > * Monday.com에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Monday.com에 대 [한 Single sign-on](mondaycom-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "98743545"
 >[!NOTE]
 >이 비밀 토큰을 공유 하거나 저장 하지 마십시오. 언제 어디서 나 필요할 때마다 새로운 토큰을 생성할 수 있습니다.
 
-## <a name="step-3-add-mondaycom-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 monday.com 추가
+## <a name="step-3-add-mondaycom-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 monday.com 추가
 
 Azure AD 응용 프로그램 갤러리에서 monday.com를 추가 하 여 monday.com에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 monday.com를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

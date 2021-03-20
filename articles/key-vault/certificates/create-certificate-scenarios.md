@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81430969"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
@@ -91,7 +91,7 @@ GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-vers
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
-> *request_id*가 쿼리에서 지정된 경우 필터처럼 작동합니다. 쿼리와 보류 중인 개체의 *request_id*가 다른 경우 404의 http 상태 코드가 반환됩니다.
+> *request_id* 가 쿼리에서 지정된 경우 필터처럼 작동합니다. 쿼리와 보류 중인 개체의 *request_id* 가 다른 경우 404의 http 상태 코드가 반환됩니다.
 
 ### <a name="response"></a>응답
 
@@ -180,7 +180,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 > [!NOTE]
-> *errorcode*의 값은 발급자 또는 사용자 오류에 따라 각각 "인증서 발급자 오류" 또는 "요청 거부됨"일 수 있습니다.
+> *errorcode* 의 값은 발급자 또는 사용자 오류에 따라 각각 "인증서 발급자 오류" 또는 "요청 거부됨"일 수 있습니다.
 
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>보류 중인 요청 가져오기 - 보류 중인 요청 상태는 "삭제" 또는 "덮어쓰기"
 해당 상태가 "진행 중"이 아닌 경우 만들기/가져오기 작업으로 보류 중인 개체를 삭제하거나 덮어쓸 수 있습니다.
@@ -331,7 +331,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |방법|요청 URI|
 |------------|-----------------|
-|Delete|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -412,7 +412,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|요소 이름|필수|Type|버전|Description|
+|요소 이름|필수|Type|버전|설명|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|예|array|\<introducing version>|기본 64 문자열 배열로 X509 인증서 체인|
 

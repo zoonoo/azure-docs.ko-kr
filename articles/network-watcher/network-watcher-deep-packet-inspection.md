@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011172"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Network Watcher로 패킷 검사
 
 Network Watcher의 패킷 캡처 기능을 사용하여 포털, PowerShell, CLI, SDK와 REST API를 통해 프로그래밍 방식으로 Azure VM에서 캡처 세션을 시작 및 관리할 수 있습니다. 패킷 캡처를 통해 쉽게 사용 가능한 형식으로 정보를 제공하여 패킷 수준 데이터가 필요한 시나리오를 해결할 수 있습니다. 데이터 검사에 무료로 제공되는 도구를 활용하여 VM 간에 전송되는 통신을 검토하고 네트워크 트래픽에 대한 정보를 얻을 수 있습니다. 패킷 캡처 데이터를 사용하는 예로는, 네트워크 또는 애플리케이션 문제 조사, 네트워크 악용 및 침입 시도 감지 또는 규정 준수 유지 관리가 있습니다. 이 문서에서는 널리 사용되는 오픈 소스 도구를 사용하여 Network Watcher에서 제공하는 패킷 캡처 파일을 여는 방법을 보여 줍니다. 연결 대기 시간 계산, 비정상적인 트래픽 식별 및 네트워킹 통계를 검사하는 방법을 보여 주는 예제도 제공합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 이전에 실행했던 패킷 캡처에 대해 미리 구성된 몇 가지 시나리오를 안내합니다. 이러한 시나리오는 패킷 캡처를 검토하여 액세스할 수 있는 기능을 보여 줍니다. 이 시나리오에서는 [WireShark](https://www.wireshark.org/)를 사용하여 패킷 캡처를 검사합니다.
 

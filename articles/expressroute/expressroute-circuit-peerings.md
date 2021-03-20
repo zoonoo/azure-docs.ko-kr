@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
 ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202347"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
@@ -40,7 +40,7 @@ ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로�
 
 ## <a name="expressroute-peering"></a><a name="routingdomains"></a>ExpressRoute 피어링
 
-Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결 된 여러 라우팅 도메인/피어 링이 있습니다. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗*으로 분류됩니다.
+Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결 된 여러 라우팅 도메인/피어 링이 있습니다. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗* 으로 분류됩니다.
 
 ![Azure 공용, Azure 개인 및 Microsoft 피어 링을 Express 경로 회로에서 구성 하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 

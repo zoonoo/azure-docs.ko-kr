@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900823"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
@@ -29,7 +29,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 **모범 사례 지침** - 다른 사용자 또는 그룹 권한으로 실행하고 기본 노드 프로세스 및 서비스에 대한 액세스를 제한하려면 pod 보안 컨텍스트 설정을 정의합니다. 필요한 최소 권한 수를 할당합니다.
 
-애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup* 와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *runAsUser* , 권한 상승 및 기타 Linux 기능 설정은 Linux 노드 및 Pod에서만 사용할 수 있습니다.
+애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup* 와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. *runAsUser*, 권한 상승 및 기타 Linux 기능 설정은 Linux 노드 및 Pod에서만 사용할 수 있습니다.
 
 루트가 아닌 사용자 권한으로 실행하면 컨테이너는 1024 미만의 권한 있는 포트에 바인딩할 수 없습니다. 이 시나리오에서는 Kubernetes 서비스를 사용하여 앱이 특정 포트에서 실행되고 있는 것처럼 가장할 수 있습니다.
 
@@ -97,7 +97,7 @@ Pod ID 프로젝트를 사용하면 Azure 서비스 지원에 대한 인증이 �
 
 애플리케이션에 자격 증명이 필요한 경우 디지털 자격 증명 모음과 통신하고 최신 비밀 콘텐츠를 검색한 다음, 필요한 서비스에 연결합니다. Azure Key Vault는 이러한 디지털 자격 증명 모음일 수 있습니다. pod 관리 ID를 사용하여 Azure Key Vault에서 자격 증명을 검색하기 위한 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Azure의 pod 관리 ID에 대한 간소화된 워크플로":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로":::
 
 Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. [비밀 저장소 CSI 드라이버용 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)를 사용하여 Azure Key Vault를 AKS 클러스터와 통합할 수 있습니다. 비밀 저장소 CSI 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 비밀 콘텐츠를 검색하여 요청 Pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 협력하여 비밀 저장소 CSI 드라이버를 AKS 작업자 노드에 배포합니다. Pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 비밀 저장소 CSI 드라이버를 통해 필요한 비밀 콘텐츠를 검색할 수 있습니다.
 

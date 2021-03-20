@@ -4,10 +4,10 @@ description: MABS (Microsoft Azure Backup 서버)를 백업 하는 방법에 대
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172114"
 ---
 # <a name="back-up-the-mabs-server"></a>MABS 서버 백업
@@ -68,11 +68,11 @@ MABS 백업 전략의 일환으로 MABS 데이터베이스를 백업 해야 합�
 
 다음과 같이 Azure Backup 자격 증명 모음에 등록 된 MABS 서버를 사용 하 여 Azure에서 데이터베이스를 복구할 수 있습니다.
 
-1. Mabs 콘솔에서 **복구**  >  **외부 mabs 추가**를 선택 합니다.
+1. Mabs 콘솔에서 **복구**  >  **외부 mabs 추가** 를 선택 합니다.
 
 2. 자격 증명 모음 자격 증명을 제공 합니다 (Azure Backup 자격 증명 모음에서 다운로드). 자격 증명은 2일간만 유효합니다.
 
-3. **복구를 위한 외부 Mabs 선택**에서 데이터베이스를 복구 하려는 mabs 서버를 선택 하 고 암호화 암호를 입력 한 다음 확인을 선택 **합니다.**
+3. **복구를 위한 외부 Mabs 선택** 에서 데이터베이스를 복구 하려는 mabs 서버를 선택 하 고 암호화 암호를 입력 한 다음 확인을 선택 **합니다.**
 
 4. 사용 가능한 지점 목록에서 사용할 복구 지점을 선택합니다. 로컬 MABS 뷰로 돌아가려면 **EXTERNAL Mabs 지우기** 를 선택 합니다.
 
@@ -81,10 +81,10 @@ MABS 백업 전략의 일환으로 MABS 데이터베이스를 백업 해야 합�
 > [!NOTE]  
 > 이 옵션은 Modern Backup Storage에서 MABS에 적용 됩니다.
 
-1. Mabs 콘솔에서 **보호**  >  **보호 그룹 만들기**를 선택 합니다.
-2. **보호 그룹 종류 선택** 페이지에서 **서버**를 선택합니다.
-3. **그룹 구성원 선택** 페이지에서 **DPM 데이터베이스**를 선택 합니다. MABS 서버를 확장 하 고 DPMDB를 선택 합니다.
-4. **데이터 보호 방법 선택** 페이지에서 **디스크를 사용한 단기 보호 사용**을 선택합니다. 단기 보호 정책 옵션을 지정합니다.
+1. Mabs 콘솔에서 **보호**  >  **보호 그룹 만들기** 를 선택 합니다.
+2. **보호 그룹 종류 선택** 페이지에서 **서버** 를 선택합니다.
+3. **그룹 구성원 선택** 페이지에서 **DPM 데이터베이스** 를 선택 합니다. MABS 서버를 확장 하 고 DPMDB를 선택 합니다.
+4. **데이터 보호 방법 선택** 페이지에서 **디스크를 사용한 단기 보호 사용** 을 선택합니다. 단기 보호 정책 옵션을 지정합니다.
 5. MABS 데이터베이스의 초기 복제 후 다음 SQL 스크립트를 실행 합니다.
 
 ```SQL
@@ -106,7 +106,7 @@ and AG.ServerName like N'%<dpmsqlservername>%' -- <dpmsqlservername> is a placeh
 
 동일한 DB를 사용 하 여 MABS를 다시 생성 하려면 먼저 MABS 데이터베이스를 복구 하 고 새로 설치 된 MABS와 동기화 해야 합니다.
 
-#### <a name="use-the-following-steps"></a>다음 단계를 사용 합니다.
+#### <a name="use-the-following-steps"></a>다음 단계 수행
 
 1. 관리 명령 프롬프트를 열고를 실행 `psexec.exe -s powershell.exe` 하 여 시스템 컨텍스트에서 PowerShell 창을 시작 합니다.
 2. 데이터베이스를 복구할 위치를 결정합니다.
@@ -154,13 +154,13 @@ where ds.datasourcename like '%dpmdb%'
 and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 ```
 
-1. Mabs 콘솔에서 **보호**  >  **보호 그룹 만들기**를 선택 합니다.
+1. Mabs 콘솔에서 **보호**  >  **보호 그룹 만들기** 를 선택 합니다.
 
-2. **보호 그룹 종류 선택** 페이지에서 **서버**를 선택합니다.
+2. **보호 그룹 종류 선택** 페이지에서 **서버** 를 선택합니다.
 
-3. **그룹 구성원 선택** 페이지에서 mabs 데이터베이스를 선택 합니다. MABS 서버 항목을 확장 하 고 **DPMDB**를 선택 합니다.
+3. **그룹 구성원 선택** 페이지에서 mabs 데이터베이스를 선택 합니다. MABS 서버 항목을 확장 하 고 **DPMDB** 를 선택 합니다.
 
-4. **데이터 보호 방법 선택** 페이지에서 **디스크를 사용 하는 단기 보호 사용**을 선택 합니다. 단기 보호 정책 옵션을 지정합니다. MABS 데이터베이스에 대해 2 주의 보존 범위를 권장 합니다.
+4. **데이터 보호 방법 선택** 페이지에서 **디스크를 사용 하는 단기 보호 사용** 을 선택 합니다. 단기 보호 정책 옵션을 지정합니다. MABS 데이터베이스에 대해 2 주의 보존 범위를 권장 합니다.
 
 #### <a name="recover-the-database"></a>데이터베이스 복구
 
@@ -178,7 +178,7 @@ MABS 서버가 여전히 작동 하 고 저장소 풀이 손상 된 경우 (예:
 
 4. CD를 X: 드라이브로 이동 하 고 MABS 데이터베이스 파일의 위치로 이동 합니다. 쉽게 복원할 수 있는 위치에 복사합니다. 복사가 완료 되 면 psexec cmd 창이 실행 되 고 **diskshadow.exe** 를 실행 하 고 X: 볼륨을 숨깁니다 합니다.
 
-5. 이제 SQL Management Studio를 사용 하거나 **DPMSYNC \- RESTOREDB**를 실행 하 여 데이터베이스 파일을 복원할 수 있습니다.
+5. 이제 SQL Management Studio를 사용 하거나 **DPMSYNC \- RESTOREDB** 를 실행 하 여 데이터베이스 파일을 복원할 수 있습니다.
 
 ## <a name="back-up-with-native-sql-server-backup-to-a-local-disk"></a>네이티브 SQL Server 백업을 사용하여 로컬 디스크에 백업
 
@@ -194,9 +194,9 @@ MABS와는 독립적으로 네이티브 SQL Server 백업을 사용 하 여 MABS
 
 ### <a name="before-you-start"></a>시작하기 전에
 
-1. SQL Server에서 백업의 단일 복사본을 저장할 공간이 충분 한 드라이브에 폴더를 만듭니다. 예: `C:\MABSBACKUP`
+1. SQL Server에서 백업의 단일 복사본을 저장할 공간이 충분 한 드라이브에 폴더를 만듭니다. 예를 들어 `C:\MABSBACKUP`을 참조하십시오.
 
-1. 폴더를 공유합니다. 예를 들어 `C:\MABSBACKUP` 폴더를 *DPMBACKUP*으로 공유 합니다.
+1. 폴더를 공유합니다. 예를 들어 `C:\MABSBACKUP` 폴더를 *DPMBACKUP* 으로 공유 합니다.
 
 1. 아래의 OSQL 명령을 복사 하 여 메모장에 붙여넣고 이라는 파일에 저장 `C:\MABSACKUP\bkupdb.cmd` 합니다. .Txt 확장명이 없는지 확인 합니다. MABS 서버에서 사용 하는 인스턴스와 DPMDB 이름에 맞게 SQL_Instance_name 및 DPMDB_NAME를 수정 합니다.
 
@@ -204,7 +204,7 @@ MABS와는 독립적으로 네이티브 SQL Server 백업을 사용 하 여 MABS
     OSQL -E -S localhost\SQL_INSTANCE_NAME -Q "BACKUP DATABASE DPMDB_NAME TO DISK='C:\DPMBACKUP\dpmdb.bak' WITH FORMAT"
     ```
 
-1. 메모장을 사용 하 여 **ScriptingConfig.xml** `C:\Program Files\Microsoft System Center\DPM\DPM\Scripting` mabs 서버의 폴더 아래에 있는ScriptingConfig.xml파일을 엽니다.
+1. 메모장을 사용 하 여  `C:\Program Files\Microsoft System Center\DPM\DPM\Scripting` mabs 서버의 폴더 아래에 있는ScriptingConfig.xml파일을 엽니다.
 
 1. **ScriptingConfig.xml** 를 수정 하 고 **DATASOURCENAME =** 를 dpmdbbackup 폴더/공유가 포함 된 드라이브 문자로 변경 합니다. PreBackupScript 항목을 3 단계에서 저장 한 **bkupdb** 의 전체 경로 및 이름으로 변경 합니다.
 
@@ -220,15 +220,15 @@ MABS와는 독립적으로 네이티브 SQL Server 백업을 사용 하 여 MABS
     </ScriptConfiguration>
     ```
 
-1. **ScriptingConfig.xml**에 대 한 변경 내용을 저장 합니다.
+1. **ScriptingConfig.xml** 에 대 한 변경 내용을 저장 합니다.
 
 1. MABS를 사용 하 여 C:\MABSBACKUP 폴더 또는 공유를 보호 하 `\sqlservername\MABSBACKUP` 고 초기 복제본이 생성 될 때까지 기다립니다. 백업 전 스크립트를 실행 한 결과로 C:\MABSBACKUP 폴더에 **dpmdb** 가 있어야 하며,이는 mabs 복제본에 복사 됩니다.
 
 1. 셀프 서비스 복구를 사용 하지 않는 경우 복제본에서 MABSBACKUP 폴더를 공유 하려면 몇 가지 추가 단계가 필요 합니다.
 
-    1. MABS 콘솔 > **보호**에서 MABSBACKUP 데이터 원본을 찾아 선택 합니다. 세부 정보 섹션에서 복제본 경로에 대 한 링크에서 **세부 정보를 보려면 클릭** 하십시오 .를 선택 하 고 메모장에 해당 경로를 복사 합니다. 원본 경로를 제거하고 대상 경로를 유지합니다. 경로는 다음과 유사 하 게 표시 됩니다 `C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP` .
+    1. MABS 콘솔 > **보호** 에서 MABSBACKUP 데이터 원본을 찾아 선택 합니다. 세부 정보 섹션에서 복제본 경로에 대 한 링크에서 **세부 정보를 보려면 클릭** 하십시오 .를 선택 하 고 메모장에 해당 경로를 복사 합니다. 원본 경로를 제거하고 대상 경로를 유지합니다. 경로는 다음과 유사 하 게 표시 됩니다 `C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP` .
 
-    2. 공유 이름 **MABSSERVERNAME-DPMDB**을 사용 하 여 공유를 해당 경로로 만듭니다. 관리 명령 프롬프트에서 아래의 Net Share 명령을 사용할 수 있습니다.
+    2. 공유 이름 **MABSSERVERNAME-DPMDB** 을 사용 하 여 공유를 해당 경로로 만듭니다. 관리 명령 프롬프트에서 아래의 Net Share 명령을 사용할 수 있습니다.
 
         ```cmd
         Net Share MABSSERVERNAME-dpmdb="C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP"
@@ -287,8 +287,8 @@ SQL Server 기본 백업을 사용 하 여 다른 SQL Server 데이터베이스�
 | 매개 변수      | 설명    |
 |----------------|-----------------------------|
 | **-RestoreDb**                       | 지정 된 위치에서 MABS 데이터베이스를 복원 합니다.|
-| **-Sync**                            | 복원된 데이터베이스를 동기화합니다. 데이터베이스를 복원한 후에는 **DpmSync-Sync** 를 실행 해야 합니다. **DpmSync – Sync**를 실행 한 후에는 일부 복제본이 아직 누락 된 것으로 표시 될 수 있습니다. |
-| **-DbLoc** *위치*                | MABS 데이터베이스의 백업 위치를 식별 합니다.|
+| **-Sync**                            | 복원된 데이터베이스를 동기화합니다. 데이터베이스를 복원한 후에는 **DpmSync-Sync** 를 실행 해야 합니다. **DpmSync – Sync** 를 실행 한 후에는 일부 복제본이 아직 누락 된 것으로 표시 될 수 있습니다. |
+| **-DbLoc** *location*                | MABS 데이터베이스의 백업 위치를 식별 합니다.|
 | **-InstanceName** <br/>*서버 \ 인스턴스*     | DPMDB를 복원해야 하는 인스턴스입니다.|
 | **-ReallocateReplica**         | 누락된 복제본 볼륨을 동기화하지 않고 모두 재할당합니다. |
 | **-DataCopied**                      | 새로 할당된 복제본 볼륨에 데이터 로드를 완료했음을 나타냅니다. 이는 클라이언트 컴퓨터에만 해당됩니다. |

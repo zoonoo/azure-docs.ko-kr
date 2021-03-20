@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751787"
 ---
 # <a name="add-migration-tools"></a>마이그레이션 도구 추가
@@ -27,7 +27,7 @@ ms.locfileid: "96751787"
 
     - 컴퓨터 및 워크 로드를 Azure로 마이그레이션하려면 **서버 평가 및 마이그레이션** 을 선택 합니다.
     - 온-프레미스 데이터베이스를 마이그레이션하려면 **데이터베이스 평가 및 마이그레이션** 을 선택 합니다.
-    - 온-프레미스 웹 앱을 마이그레이션하려면 자세한 Web Apps **탐색** 을 선택  >  **Web Apps** 합니다.
+    - 온-프레미스 웹 앱을 마이그레이션하려면 자세한 Web Apps **탐색** 을 선택  >  합니다.
     - 데이터 상자를 사용 하 여 데이터를 Azure로 마이그레이션하려면 **더 많은**  >  **데이터 탐색 상자** 를 선택 합니다.
 
     ![마이그레이션 시나리오를 선택 하기 위한 옵션](./media/how-to-migrate/migrate-scenario.png)
@@ -45,7 +45,7 @@ ms.locfileid: "96751787"
 
     ![첫 번째 마이그레이션 도구를 추가 하는 단추](./media/how-to-migrate/no-migration-tool.png)
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 평가 도구 선택](./media/how-to-migrate/select-migration-tool.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "96751787"
     ![데이터베이스 마이그레이션 도구 추가](./media/how-to-migrate/no-database-migration-tool.png)
 
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 데이터베이스 마이그레이션 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 데이터베이스 마이그레이션 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 데이터베이스 마이그레이션 도구를 선택 합니다.](./media/how-to-migrate/select-database-migration-tool.png)
 
@@ -67,14 +67,14 @@ ms.locfileid: "96751787"
 
 ## <a name="select-a-web-app-migration-tool"></a>웹 앱 마이그레이션 도구 선택
 
-포털에서 **더 많은** webapps 탐색 옵션을 사용 하 여 Azure Migrate 프로젝트를 만든 경우  >  **WebApps** 웹 앱 마이그레이션 도구가 프로젝트에 자동으로 추가 됩니다. 
+포털에서 **더 많은** webapps 탐색 옵션을 사용 하 여 Azure Migrate 프로젝트를 만든 경우  >   웹 앱 마이그레이션 도구가 프로젝트에 자동으로 추가 됩니다. 
 
 1. 웹 앱 마이그레이션 도구가 프로젝트에 없는 경우 **웹 앱**  >  **평가 도구** 에서 **여기를 클릭** 합니다 .를 선택 합니다.
 
     ![웹 앱 마이그레이션 도구 추가](./media/how-to-migrate/no-web-app-migration-tool.png)
  
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 웹 앱 마이그레이션 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 웹 앱 마이그레이션 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 webapp 평가 도구를 선택 합니다.](./media/how-to-migrate/select-web-app-migration-tool.png)
 

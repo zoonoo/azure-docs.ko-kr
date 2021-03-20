@@ -4,13 +4,13 @@ description: 이 문서에서는 Cloud Shell 집단 및 Microsoft Azure를 사�
 ms.topic: how-to
 ms.date: 11/26/2020
 ms.openlocfilehash: 88244f268d5ed038e9bb7082d3d5cc1179e5ec4e
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94918265"
 ---
-# <a name="create-an-application-centric-environment"></a>응용 프로그램 중심 환경 만들기
+# <a name="create-an-application-centric-environment"></a>애플리케이션 중심 환경 만들기
 
 [Quali의 CloudShell 집단](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview) 는 Azure 및 Kubernetes를 비롯 한 클라우드 기술에 대 한 복잡 한 응용 프로그램 중심 환경을 위해 대규모 인프라 자동화를 제공 하기 위한 SaaS 플랫폼입니다. CloudShell 집단는 개발자 팀이 값 스트림 전체에 복잡 한 응용 프로그램을 배포 하는 데 도움이 되는 Azure DevTest Labs를 보완 합니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "94918265"
 
 1. [집단](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview)무료 평가판에 등록 하세요.
 
-    :::image type="content" source="./media/create-application-centric-environment/free-trial.png" alt-text="평가판에 가입":::    
+    :::image type="content" source="./media/create-application-centric-environment/free-trial.png" alt-text="무료 평가판 등록":::    
 1. Azure 계정 (여기에서[단계 보기](https://colonysupport.quali.com/hc/articles/360008222234))을 연결 합니다.
 
     :::image type="content" source="./media/create-application-centric-environment/welcome.png" alt-text="집단 시작":::     

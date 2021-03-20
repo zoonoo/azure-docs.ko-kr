@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure 구독에서 Event Grid 구독을 나열 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 3d700f543bc5e3c7add2a346c10acf975e1c2462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86120452"
 ---
 # <a name="query-event-grid-subscriptions"></a>Event Grid 구독 쿼리 
@@ -36,7 +36,7 @@ Set-AzContext -Subscription "My Azure Subscription"
 Get-AzEventGridSubscription
 ```
 
-Azure 구독에 대한 이벤트 그리드 구독을 얻으려면 **Microsoft.Resources.Subscriptions**의 항목 유형을 제공합니다.
+Azure 구독에 대한 이벤트 그리드 구독을 얻으려면 **Microsoft.Resources.Subscriptions** 의 항목 유형을 제공합니다.
 
 Azure CLI의 경우
 
@@ -50,7 +50,7 @@ PowerShell의 경우 다음을 사용합니다.
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
-Azure 구독 내 모든 리소스 그룹에 대한 이벤트 그리드 구독을 얻으려면 **Microsoft.Resources.ResourceGroups**의 항목 유형을 제공합니다.
+Azure 구독 내 모든 리소스 그룹에 대한 이벤트 그리드 구독을 얻으려면 **Microsoft.Resources.ResourceGroups** 의 항목 유형을 제공합니다.
 
 Azure CLI의 경우
 
@@ -96,7 +96,7 @@ PowerShell의 경우 다음을 사용합니다.
 Get-AzEventGridSubscription -Location westus2
 ```
 
-특정 위치의 사용자 지정 항목에 대한 구독을 얻으려면 **Microsoft.EventGrid.Topics**의 위치와 항목 종류를 제공합니다.
+특정 위치의 사용자 지정 항목에 대한 구독을 얻으려면 **Microsoft.EventGrid.Topics** 의 위치와 항목 종류를 제공합니다.
 
 Azure CLI의 경우
 
@@ -110,7 +110,7 @@ PowerShell의 경우 다음을 사용합니다.
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
-특정 위치의 스토리지 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts**의 위치와 항목 종류를 제공합니다.
+특정 위치의 스토리지 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts** 의 위치와 항목 종류를 제공합니다.
 
 Azure CLI의 경우
 

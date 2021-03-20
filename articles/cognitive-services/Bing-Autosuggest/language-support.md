@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 90946b10bbc7717aa12566c4a25686f8471fb6e7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96353360"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 언어 및 지역 지원
@@ -31,18 +31,18 @@ ms.locfileid: "96353360"
 | 아랍어      | `ar`          |
 | 중국어(중국)     | `zh-CN`          |
 | 중국어(홍콩 특별 행정구)    | `zh-HK`          |
-| 중국어 (대만)     | `zh-TW`          |
+| 중국어(대만)     | `zh-TW`          |
 | 덴마크어      | `da`          |
-| 네덜란드어(벨기에)       | `nl-BE`          |
+| 독일어(벨기에)       | `nl-BE`          |
 | 네덜란드어(네덜란드)      | `nl-NL`          |
-| 영어(오스트레일리아)    | `en-AU`          |
+| 영어(호주)    | `en-AU`          |
 | 영어(캐나다)     | `en-CA`          |
 | 영어(인도)    | `en-IN`          |
 | 영어(인도네시아)     | `en-ID`          |
 | 영어(말레이시아)     | `en-MY`          |
 | 영어(뉴질랜드)    | `en-NZ`          |
 | 영어(필리핀)     | `en-PH`          |
-| 영어(남아프리카)    | `en-ZA`          |
+| 영어(남아프리카 공화국)    | `en-ZA`          |
 | 영어(영국)    | `en-GB`          |
 | 영어(미국)    | `en-US`          |
 | 핀란드어     | `fi`          |
@@ -51,7 +51,7 @@ ms.locfileid: "96353360"
 | 프랑스어(프랑스)     | `fr-FR`          |
 | 프랑스어(스위스)      | `fr-CH`          |
 | 독일어(오스트리아)      | `de-AT`          |
-| 독일어 (독일)      | `de-DE`          |
+| 독일어(독일)      | `de-DE`          |
 | 독일어(스위스)      | `de-CH`          |
 | 이탈리아어     | `it`          |
 | 일본어    | `ja`          |
@@ -69,7 +69,7 @@ ms.locfileid: "96353360"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Cognitive Services 문서 페이지](../index.yml)
 - [Azure Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

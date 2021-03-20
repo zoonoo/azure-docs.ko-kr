@@ -4,10 +4,10 @@ description: Azure Advisor 점수를 사용 하 여 Azure를 최대한 활용 �
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 11b20bc3b4d604d3a7ff4608cd1c21f129c1cb6d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630125"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Advisor 점수를 사용 하 여 Azure 워크 로드 최적화
@@ -52,25 +52,25 @@ Advisor 권장 사항이 개별 리소스와 관련이 없는 경우에는 해�
 
 Advisor는 범주 점수와 전체 Advisor 점수를 백분율로 표시 합니다. 모든 범주의 100% 점수는 advisor *가* 권장 하는 모범 사례를 따릅니다. 스펙트럼의 다른 쪽 끝에서 점수가 0% 이면 Advisor에 의해 평가 되는 모든 리소스가 Advisor 권장 사항을 따릅니다.
 
-**5 개의 범주는 각각 100의 잠재적 점수가 가장 높습니다.** 전체 Advisor 점수는 적용 가능한 모든 범주에서 가장 높은 잠재 점수의 합계로 나누어 적용 가능한 각 범주 점수의 합계로 계산 됩니다. 대부분의 구독에서 Advisor는 각 범주의 점수를 추가 하 고 500으로 나눕니다. 하지만 *각 범주 점수는 Advisor에서 평가한 리소스를 사용 하는 경우에만 계산 됩니다*.
+**각 5개 범주에서 최고 가능한 점수는 100%입니다.** 전체 Advisor 점수는 적용 가능한 모든 범주에서 가장 높은 잠재 점수의 합계로 나누어 적용 가능한 각 범주 점수의 합계로 계산 됩니다. 대부분 구독에서 이는 Advisor가 각 범주의 점수를 더하고 500으로 나누는 것을 의미합니다. 하지만 *각 범주 점수는 Advisor에서 평가한 리소스를 사용 하는 경우에만 계산 됩니다*.
 
 ### <a name="advisor-score-calculation-example"></a>Advisor 점수 계산 예
 
 * **단일 구독 점수:** 이 예는 구독에 대 한 모든 Advisor 범주 점수의 간단한 평균입니다. Advisor 범주 점수가 **Cost** = 73, **안정성** = 85, **Operational op=** 77 및 **Performance** = 100 이면 advisor 점수는 (73 + 85 + 77 + 100)/(4x100) = 0.84% 또는 84%입니다.
 * **여러 구독 점수:** 여러 구독을 선택 하면 생성 되는 전체 Advisor 점수가 가중치가 적용 된 집계 범주 점수입니다. 여기서 각 Advisor 범주 점수는 구독에서 사용 하는 리소스를 기준으로 집계 됩니다. Advisor가가 중 집계 범주 점수를 가지 면 Advisor는 간단한 평균 계산을 수행 하 여 구독에 대 한 전체 점수를 제공 합니다.
 
-### <a name="scoring-methodology"></a>점수 매기기 방법
+### <a name="scoring-methodology"></a>채점 방법론
 
 Advisor 점수 계산은 다음 네 단계로 요약할 수 있습니다.
 
-1. Advisor는 *영향을 받는 리소스의 소매 비용* 을 계산 합니다. 이러한 리소스는 Advisor에 하나 이상의 권장 사항이 있는 구독에 있는 리소스입니다.
-1. Advisor는 *평가 된 리소스의 소매 비용* 을 계산 합니다. 이러한 리소스는 권장 사항이 있는지 여부에 관계 없이 Advisor에 의해 모니터링 되는 리소스입니다.
-1. Advisor는 각 권장 사항 유형에 대해 *정상 리소스 비율* 을 계산 합니다. 이 비율은 영향을 받는 리소스에 대 한 소매점 비용을 평가 된 리소스의 소매점으로 나눈 값입니다.
-1. Advisor는 각 범주의 정상 리소스 비율에 세 개의 추가 가중치를 적용 합니다.
+1. Advisor는 *영향을 받는 리소스의 소매 비용* 을 계산 합니다. 해당 리소스는 Advisor에 하나 이상의 권장 사항이 있는 구독의 리소스입니다.
+1. Advisor는 *평가 된 리소스의 소매 비용* 을 계산 합니다. 해당 리소스는 권장 사항이 있는지 여부와 관계없이 Advisor에서 모니터링되는 리소스입니다.
+1. Advisor는 각 권장 사항 유형에 대해 *정상 리소스 비율* 을 계산 합니다. 해당 비율은 영향을 받는 리소스의 소매 비용을 평가된 리소스의 소매 비용으로 나눈 값입니다.
+1. Advisor는 각 범주의 정상 리소스 비율에 세 가지 추가 가중치를 적용합니다.
 
    * 영향이 큰 권장 사항은 영향이 낮은 권장 사항 보다 가중치가 높습니다.
    * 장기 권장 사항이 있는 리소스는 점수에 대해 더 많이 계산 됩니다.
-   * Advisor에서 연기 하거나 해제 한 리소스는 점수 계산에서 완전히 제거 됩니다.
+   * Advisor에서 연기하거나 해제하는 리소스는 점수 계산에서 완전히 제거됩니다.
 
 Advisor는 advisor 범주 수준에이 모델을 적용 하 여 각 범주에 대 한 Advisor 점수를 제공 합니다. **보안** 은 보안 [점수](../security-center/secure-score-security-controls.md#introduction-to-secure-score) 모델을 사용 합니다. 간단한 평균은 최종 Advisor 점수를 생성 합니다.
 

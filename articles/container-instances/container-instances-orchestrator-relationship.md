@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148593"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
-크기가 작고 애플리케이션 방향이기 때문에 컨테이너는 신속한 배달 환경 및 마이크로 서비스 기반 아키텍처에 적합합니다. 많은 수의 컨테이너를 자동화하고 관리하는 방법 및 상호 작용하는 방법을 *오케스트레이션*이라고 합니다. 많이 사용되는 오케스트레이터에는 Kubernetes, DC/OS 및 Docker Swarm이 포함됩니다.
+크기가 작고 애플리케이션 방향이기 때문에 컨테이너는 신속한 배달 환경 및 마이크로 서비스 기반 아키텍처에 적합합니다. 많은 수의 컨테이너를 자동화하고 관리하는 방법 및 상호 작용하는 방법을 *오케스트레이션* 이라고 합니다. 많이 사용되는 오케스트레이터에는 Kubernetes, DC/OS 및 Docker Swarm이 포함됩니다.
 
 Azure Container Instances는 오케스트레이션 플랫폼의 기본 일정 관리 기능 중 일부를 제공합니다. 또한 해당 플랫폼에서 제공하는 고급 서비스를 포함하지 않는 반면 Azure Container Instances는 이를 보완할 수 있습니다. 이 아티클에서는 Azure Container Instances에서 처리하는 범위 및 전체 컨테이너 오케스트레이터가 상호 작용할 수 있는 방법에 대해 설명합니다.
 
@@ -52,7 +52,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>샘플 구현: AKS(Azure Kubernetes Service)에 대한 가상 노드
 
-[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
+[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드* 를 사용할 수 있습니다. 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
 
 가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](../aks/virtual-nodes-cli.md) 또는 [Azure Portal](../aks/virtual-nodes-portal.md)을 사용하여 가상 노드를 시작합니다.
 

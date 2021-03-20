@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92909746"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>미사용 데이터의 메트릭 관리자 서비스 암호화
@@ -32,4 +32,4 @@ ms.locfileid: "92909746"
 ## <a name="next-steps"></a>다음 단계
 
 * [메트릭 관리자 서비스 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)
+* [Azure Key Vault에 대해 자세히 알아보기](../../key-vault/general/overview.md)

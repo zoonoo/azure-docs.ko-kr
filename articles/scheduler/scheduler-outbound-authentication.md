@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878972"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
@@ -45,7 +45,7 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 `ClientCertificate` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.  
 
-| 요소 | 필수 | Description |
+| 요소 | 필수 | 설명 |
 |---------|----------|-------------|
 | **인증** (부모 요소) | SSL/TLS 클라이언트 인증서를 사용 하기 위한 인증 개체입니다. |
 | **type** | 예 | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 값은 `ClientCertificate` 입니다. |
@@ -57,7 +57,7 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | Description | 
+| 요소 | 설명 | 
 |---------|-------------| 
 | **인증** (부모 요소) | SSL/TLS 클라이언트 인증서를 사용 하기 위한 인증 개체입니다. |
 | **type** | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 값은 `ClientCertificate` 입니다. |
@@ -165,7 +165,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 `Basic` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | Description |
+| 요소 | 필수 | 설명 |
 |---------|----------|-------------|
 | **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
 | **type** | 예 | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
@@ -177,7 +177,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | Description | 
+| 요소 | 설명 | 
 |---------|-------------|
 | **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 |
 | **type** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
@@ -283,7 +283,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 `ActiveDirectoryOAuth` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | Description |
+| 요소 | 필수 | 설명 |
 |---------|----------|-------------|
 | **인증** (부모 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
 | **type** | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
@@ -297,7 +297,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 |---------|-------------|
 | **인증** (부모 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
 | **type** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 

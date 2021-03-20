@@ -13,21 +13,21 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152132"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
-Azure Maps 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure IoT Hub가 Azure Event Grid와 통합됩니다. 안정적이고 확장 가능하고 안전한 방식으로 중요 이벤트에 대응할 수 있도록 비즈니스 애플리케이션에서 IoT Hub 이벤트를 수신하도록 구성합니다.예를 들어 데이터베이스를 업데이트하고, 작업 티켓을 만들고, 새 IoT 디바이스가 IoT 허브에 등록될 때마다 이메일 알림을 전달하는 애플리케이션을 빌드합니다.
+Azure Maps 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure IoT Hub가 Azure Event Grid와 통합됩니다. 안정적이고 확장 가능하고 안전한 방식으로 중요 이벤트에 대응할 수 있도록 비즈니스 애플리케이션에서 IoT Hub 이벤트를 수신하도록 구성합니다. 예를 들어 데이터베이스를 업데이트하고, 작업 티켓을 만들고, 새 IoT 디바이스가 IoT 허브에 등록될 때마다 이메일 알림을 전달하는 애플리케이션을 빌드합니다.
 
 [Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -47,7 +47,7 @@ Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허�
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. eventType 속성이 **Microsoft.Devices**로 시작하는지 확인하여 IoT Hub 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
+IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. eventType 속성이 **Microsoft.Devices** 로 시작하는지 확인하여 IoT Hub 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
 
 ### <a name="device-connected-schema"></a>디바이스 연결됨 스키마
 
@@ -168,7 +168,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되기 전에 장
 
 
 > [!WARNING]
-> 장치 만들기 이벤트와 연결 된 쌍 *데이터* 는 기본 구성 이며, *shouldn't* `authenticationType` 새로 만든 장치의 실제 및 기타 장치 속성에는 의존해 서는 안 됩니다. `authenticationType`및 기타 장치 속성은 새로 만든 장치에서 Azure IoT sdk에 제공 된 등록 관리자 API를 사용 합니다.
+> 장치 만들기 이벤트와 연결 된 쌍 *데이터* 는 기본 구성 이며,  `authenticationType` 새로 만든 장치의 실제 및 기타 장치 속성에는 의존해 서는 안 됩니다. `authenticationType`및 기타 장치 속성은 새로 만든 장치에서 Azure IoT sdk에 제공 된 등록 관리자 API를 사용 합니다.
 
 각 속성에 대 한 자세한 설명은 [IoT Hub에 대 한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)를 참조 하세요.
 

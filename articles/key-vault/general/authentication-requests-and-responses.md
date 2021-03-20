@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752280"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
@@ -28,7 +28,7 @@ Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 
 
 각 개체 형식에 액세스 하는 데 사용 되는 URL 접미사는 다음과 같습니다.
 
-|개체 유형|URL 접미사|
+|개체 형식|URL 접미사|
 |--|--|
 |소프트웨어 보호 키| /keys |
 |HSM 보호 키| /keys |

@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129915"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
@@ -31,7 +31,7 @@ ms.locfileid: "86129915"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
@@ -46,7 +46,7 @@ Connect-AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 ```azurepowershell
 Connect-AzAccount
 ```
-VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet을 사용 하 여 액세스할 수 있는 Azure 구독 목록을 가져올 수 있습니다. Select-AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
+VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet을 사용하여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Select-AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
 > [!TIP]
-> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 * \<Operation> - **AzRecoveryServicesAsr** \<Object> * 형식을 사용 하며 * \<Operation> - **ASR** \<Object> *형식을 사용 하는 동등한 별칭을 가집니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
+> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 *\<Operation> - **AzRecoveryServicesAsr** \<Object>* 형식을 사용 하며 *\<Operation> - **ASR** \<Object>* 형식을 사용 하는 동등한 별칭을 가집니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
 
 아래 예에서 $vault 변수의 자격 증명 모음 세부 정보가 PowerShell 세션의 자격 증명 모음 컨텍스트를 지정하는 데 사용됩니다.
 
@@ -131,7 +131,7 @@ Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsr
 이 예제의 조건은 다음과 같습니다.
 
 - 구성 서버(**ConfigurationServer**)가 이 자격 증명 모음에 등록되었습니다.
-- 추가 프로세스 서버(**ScaleOut-ProcessServer**)가 *ConfigurationServer*에 등록되었습니다.
+- 추가 프로세스 서버(**ScaleOut-ProcessServer**)가 *ConfigurationServer* 에 등록되었습니다.
 - 계정(**vCenter_account**, **WindowsAccount**, **LinuxAccount**)이 구성 서버에 설정되었습니다. 이러한 계정은 vCenter Server를 추가하여 가상 머신을 검색하고 Windows 및 Linux 서버에 복제될 모바일 서비스 소프트웨어를 강제 설치하는 데 사용됩니다.
 
 1. 등록된 구성 서버는 Site Recovery의 패브릭 개체로 표시됩니다. 자격 증명 모음에서 패브릭 개체 목록을 가져와서 구성 서버를 식별합니다.
@@ -172,7 +172,7 @@ Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsr
    1     ConfigurationServer
    ```
 
-   위 출력 내용에서 ***$ProcessServers[0]*** 은 *ScaleOut-ProcessServer*에 해당하고 ***$ProcessServers[1]*** 은 *ConfigurationServer*의 프로세스 서버 역할에 해당합니다.
+   위의 출력에서 ***$ProcessServers [0]** _은 (는) _확장 서버 *에 해당 하 고 ***$ProcessServers [1]**_ 이 (가) _ConfigurationServer의 프로세스 서버 역할에 해당 합니다. *
 
 3. 구성 서버에 설정된 계정을 식별합니다.
 
@@ -189,7 +189,7 @@ Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsr
    3         LinuxAccount
    ```
 
-   위 출력 내용에서 ***$AccountHandles[0]*** 은 *vCenter_account* 계정에 해당하고 ***$AccountHandles[1]*** 은 *WindowsAccount* 계정에 해당하고 ***$AccountHandles[2]*** 는 *LinuxAccount* 계정에 해당합니다.
+   위의 출력에서 ***$AccountHandles [0]** _은 계정 _vCenter_account *, ***$AccountHandles [1]**_ 을 (를) 계정 _windowsaccount *로, ***$AccountHandles [2]**_ 을 (를) 계정 _LinuxAccount *에 해당 합니다.
 
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기
 
@@ -198,7 +198,7 @@ Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsr
 > [!NOTE]
 > 대부분의 Azure Site Recovery 작업은 비동기적으로 실행됩니다. 작업을 시작하면 Azure Site Recovery 작업이 제출되고 작업 추적 개체가 반환됩니다. 이 작업 추적 개체는 작업 상태를 모니터링하는 데 사용될 수 있습니다.
 
-1. *ReplicationPolicy*라는 복제 정책을 만들어서 지정된 속성으로 VMware 가상 머신을 Azure에 복제합니다.
+1. *ReplicationPolicy* 라는 복제 정책을 만들어서 지정된 속성으로 VMware 가상 머신을 Azure에 복제합니다.
 
    ```azurepowershell
    $Job_PolicyCreate = New-AzRecoveryServicesAsrPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
@@ -238,7 +238,7 @@ Set-ASRVaultContext cmdlet에 대 한 대 안으로 Import-AzRecoveryServicesAsr
    $Job_FailbackPolicyCreate = New-AzRecoveryServicesAsrPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
-   *$Job_FailbackPolicyCreate*의 작업 세부 정보를 사용하여 작업이 완료될 때까지 추적합니다.
+   *$Job_FailbackPolicyCreate* 의 작업 세부 정보를 사용하여 작업이 완료될 때까지 추적합니다.
 
    * 보호 컨테이너 매핑을 만들어서 복제 정책을 구성 서버와 매핑합니다.
 
@@ -342,7 +342,7 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 * 복제할 보호 가능한 항목.
 * 가상 컴퓨터를 복제할 저장소 계정 (저장소 계정에 복제 하는 경우에만 해당) 
 * 로그 저장소는 premium storage 계정 또는 관리 디스크로 가상 컴퓨터를 보호 하는 데 필요 합니다.
-* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
+* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색 되어 ***$ProcessServers [0]** _ _(확장-processserver) * 및 ***$ProcessServers [1]**_ _ (configurationserver) * 변수에 저장 되었습니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
 * 장애 조치(failover)시 가상 머신이 만들어져야 하는 리소스 그룹.
@@ -419,7 +419,7 @@ Win2K12VM1   Protected                       Normal
 * Azure 하이브리드 사용 혜택 적용
 * 장애 조치(failover) 시 가상 머신에 할당될 대상 가상 네트워크의 고정 IP 주소를 할당합니다.
 
-이 예제에서는 가상 머신 *Win2K12VM1*에 대한 장애 조치(failover) 시 만들어지는 가상 머신의 VM 크기를 업데이트하고 장애 조치(failover) 시 가상 머신이 관리 디스크를 사용하도록 지정합니다.
+이 예제에서는 가상 머신 *Win2K12VM1* 에 대한 장애 조치(failover) 시 만들어지는 가상 머신의 VM 크기를 업데이트하고 장애 조치(failover) 시 가상 머신이 관리 디스크를 사용하도록 지정합니다.
 
 ```azurepowershell
 $ReplicatedVM1 = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer

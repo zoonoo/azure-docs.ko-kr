@@ -4,10 +4,10 @@ description: Azure Data Box를 사용 하 여 DPM 및 MABS에서 초기 백업 �
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752552"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS (미리 보기)에 대 한 Azure Data Box를 사용 하 여 오프 라인 시드
@@ -84,7 +84,7 @@ Azure Data Box 디스크(각각 최대 8TB)를 하나 이상 주문한 경우 [�
 
 ## <a name="setup-azure-data-box"></a>Azure Data Box 설정
 
-Azure Data Box (최대 100 TB)를 주문한 경우 [여기](../databox/data-box-deploy-set-up.md) 에 설명 된 단계에 따라 Data Box를 설정 합니다.
+Azure Data Box(최대 100TB)를 주문한 경우 [여기](../databox/data-box-deploy-set-up.md)에 설명된 단계를 수행하여 Data Box를 설정합니다.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Azure Data Box를 로컬 시스템으로 탑재
 

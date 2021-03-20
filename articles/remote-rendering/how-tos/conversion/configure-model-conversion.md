@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
 ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92205322"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
@@ -195,7 +195,7 @@ ms.locfileid: "92205322"
 
 형식의 메모리 공간은 다음과 같습니다.
 
-| 형식 | Description | 바이트 당 바이트 :::no-loc text="vertex"::: |
+| 형식 | 설명 | 바이트 당 바이트 :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|2분 부동 소수점 배정밀도|8
 |16_16_FLOAT|2분 부동 소수점 단정밀도|4
@@ -206,8 +206,8 @@ ms.locfileid: "92205322"
 
 #### <a name="best-practices-for-component-format-changes"></a>구성 요소 형식 변경에 대한 모범 사례
 
-* `position`: 줄어든 정확도로 충분한 경우는 드뭅니다. **16_16_16_16_FLOAT**는 작은 모델의 경우에도 눈에 띄는 양자화 아티팩트를 도입합니다.
-* `normal`, `tangent`, `binormal`: 일반적으로 이러한 값은 함께 변경됩니다. 정규 양자화에서 발생하는 눈에 띄는 조명 아티팩트가 없으면 정확도를 높일 이유가 없습니다. 그러나 경우에 따라 이러한 구성 요소를 **NONE**으로 설정할 수 있습니다.
+* `position`: 줄어든 정확도로 충분한 경우는 드뭅니다. **16_16_16_16_FLOAT** 는 작은 모델의 경우에도 눈에 띄는 양자화 아티팩트를 도입합니다.
+* `normal`, `tangent`, `binormal`: 일반적으로 이러한 값은 함께 변경됩니다. 정규 양자화에서 발생하는 눈에 띄는 조명 아티팩트가 없으면 정확도를 높일 이유가 없습니다. 그러나 경우에 따라 이러한 구성 요소를 **NONE** 으로 설정할 수 있습니다.
   * `normal`, `tangent` 및 `binormal`은 모델에서 하나 이상의 재질이 켜진 경우에만 필요합니다. ARR에서는 언제든지 모델에서 [PBR 재질](../../overview/features/pbr-materials.md)이 사용되는 경우가 여기에 해당합니다.
   * `tangent` 및 `binormal`은 lit 재질에 일반 맵 질감을 사용하는 경우에만 필요합니다.
 * `texcoord0`, `texcoord1` : 질감 좌표는 값이 `[0; 1]` 범위를 유지하고 주소 지정된 질감의 최대 크기가 2048 x 2048 픽셀일 때 감소된 정확도(**16_16_FLOAT**)를 사용할 수 있습니다. 이러한 제한을 초과하면 질감 매핑의 품질이 저하됩니다.

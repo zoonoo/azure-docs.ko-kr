@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147938"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Azure Data Box에 대 한 추적 및 이벤트 로깅 및 Azure Data Box Heavy 가져오기 순서
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Azure Data Box에 대한 추적 및 이벤트 로깅 및 Azure Data Box Heavy 가져오기 주문
 
 Data Box 또는 Data Box Heavy 가져오기 순서는 순서, 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 및 데이터 지우기와 같은 단계를 거칩니다. 주문에 대 한 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-다음 표에서는 Data Box 또는 Data Box Heavy 가져오기 순서 단계를 요약 하 고 각 단계에서 주문을 추적 하 고 감사 하는 데 사용할 수 있는 도구를 보여 줍니다.
+다음 표에서는 Data Box 또는 Data Box Heavy 가져오기 주문 단계를 요약하고 각 단계에서 주문을 추적하고 감사하는 데 사용할 수 있는 도구를 보여 줍니다.
 
-| Data Box 가져오기 순서 단계       | 추적 및 감사 도구                                                                        |
+| Data Box 가져오기 주문 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [Azure RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
+| 주문 처리            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
-| 장치에 데이터 복사        | 데이터 복사를 위한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
+| 디바이스에 데이터 복사        | 데이터 복사를 위한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
 | 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
 | Azure에 데이터 업로드       | Azure 데이터 센터에서 데이터를 업로드 하는 동안 오류에 대 한 [복사 로그 검토](#review-copy-log-during-upload-to-azure)                         |
-| 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
+| 디바이스에서 데이터 삭제   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
 
 이 문서에서는 Data Box 또는 Data Box Heavy 가져오기 순서를 추적 하 고 감사 하는 데 사용할 수 있는 다양 한 메커니즘 또는 도구에 대해 자세히 설명 합니다. 이 문서의 정보는 Data Box 및 Data Box Heavy 가져오기 주문 모두에 적용 됩니다. 이후 섹션에서는 Data Box에 대 한 모든 참조가 Data Box Heavy에도 적용 됩니다.
 
@@ -40,7 +40,7 @@ Data Box 또는 Data Box Heavy 가져오기 순서는 순서, 설정, 데이터 
 Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 
 - **Data Box 판독기** -범위에 정의 된 주문에 대 한 읽기 전용 액세스 권한이 있습니다. 주문에 대 한 세부 정보만 볼 수 있습니다. 저장소 계정과 관련 된 다른 정보에 액세스 하거나 주소 등의 주문 세부 정보를 편집할 수 없습니다.
-- **Data Box 참여자** - *저장소 계정에 대 한 쓰기 권한이 이미 있는 경우*지정 된 저장소 계정으로 데이터를 전송 하는 순서만 만들 수 있습니다. 저장소 계정에 대 한 액세스 권한이 없는 경우 계정에 데이터를 복사 하는 Data Box 순서를 만들 수 없습니다. 이 역할은 저장소 계정 관련 사용 권한을 정의 하지 않으며 저장소 계정에 대 한 액세스 권한을 부여 하지 않습니다.  
+- **Data Box 참여자** - *저장소 계정에 대 한 쓰기 권한이 이미 있는 경우* 지정 된 저장소 계정으로 데이터를 전송 하는 순서만 만들 수 있습니다. 저장소 계정에 대 한 액세스 권한이 없는 경우 계정에 데이터를 복사 하는 Data Box 순서를 만들 수 없습니다. 이 역할은 저장소 계정 관련 사용 권한을 정의 하지 않으며 저장소 계정에 대 한 액세스 권한을 부여 하지 않습니다.  
 
 주문에 대 한 액세스를 제한 하려면 다음을 수행할 수 있습니다.
 
@@ -354,13 +354,13 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보**로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
+Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료 되 고 장치 정리 (디스크에서 데이터 지우기)가 완료 되 면 장치 주문으로 이동 하 여 **주문 정보** 로 이동 합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조 하세요.
 
 주문 내역을 스크롤하면 다음과 같이 표시 됩니다.
 
 - 장치에 대 한 반송파 추적 정보입니다.
 - *Secureerase* 작업을 사용 하는 이벤트입니다. 이러한 이벤트는 디스크의 데이터를 지울 때 해당 됩니다.
-- 로그 링크를 Data Box 합니다. *감사 로그*, *복사 로그*및 *BOM* 파일의 경로가 표시 됩니다.
+- 로그 링크를 Data Box 합니다. *감사 로그*, *복사 로그* 및 *BOM* 파일의 경로가 표시 됩니다.
 
 다음은 Azure Portal의 주문 기록 로그 샘플입니다.
 

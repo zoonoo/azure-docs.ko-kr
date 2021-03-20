@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
 ms.openlocfilehash: 83af1c3bc323546534613e6ff99c731010b103d7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352136"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Robin 구성
@@ -109,7 +109,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Rob
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에서 `https://api.robinpowered.com/v1.0/scim-2`를 입력합니다. 이전에 검색한 **SCIM Authentication Token(SCIM 인증 토큰)** 값을 **비밀 토큰** 에 입력합니다. **연결 테스트** 를 클릭하여 Azure AD에서 Robin에 연결할 수 있는지 확인합니다. 연결이 실패하면 Robin 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에 `https://api.robinpowered.com/v1.0/scim-2`을 입력합니다. 이전에 검색한 **SCIM Authentication Token(SCIM 인증 토큰)** 값을 **비밀 토큰** 에 입력합니다. **연결 테스트** 를 클릭하여 Azure AD에서 Robin에 연결할 수 있는지 확인합니다. 연결이 실패하면 Robin 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 

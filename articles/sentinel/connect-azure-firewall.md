@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: yelevin
 ms.openlocfilehash: b21ce75bfb33b5a8869c63b7d3f71fb9f0c93768
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98621298"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Azure 방화벽에서 데이터 연결
@@ -24,7 +24,7 @@ Azure 방화벽 로그를 Azure 센티널에 연결 하 여 통합 문서에서 
 
 [Azure 방화벽 로그 모니터링](../firewall/firewall-diagnostics.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

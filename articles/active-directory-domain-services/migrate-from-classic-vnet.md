@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
 ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013042"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
@@ -87,7 +87,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 현재 클래식 가상 
 1. 클래식 가상 네트워크와 새 리소스 관리자 가상 네트워크 간의 가상 네트워크 피어 링을 설정 합니다.
 1. 나중에 필요에 따라 클래식 가상 네트워크에서 [추가 리소스를 마이그레이션합니다][migrate-iaas] .
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 관리 되는 도메인을 준비 하 고 마이그레이션할 때 인증 및 관리 서비스의 가용성에 대 한 몇 가지 고려 사항이 있습니다. 관리 되는 도메인은 마이그레이션하는 동안 일정 시간 동안 사용할 수 없습니다. Azure AD DS을 사용 하는 응용 프로그램 및 서비스는 마이그레이션 중 가동 중지 시간을 경험 합니다.
 

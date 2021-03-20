@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 259e49fbdd6a0eb392ddf6a3cd3c318798cfabd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88005054"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에 Windows 7 가상 컴퓨터 배포
@@ -37,7 +37,7 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
 5. VM의 Windows 업데이트로 이동 합니다.
 6. 중요 범주에 모든 Windows 업데이트를 설치 합니다.
 7. 선택적 범주 (언어 팩 제외)에 모든 Windows 업데이트를 설치 합니다. 이렇게 하면 이러한 지침을 완료 하는 데 필요한 원격 데스크톱 프로토콜 8.0 업데이트 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387))가 설치 됩니다.
-8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **원격 세션 환경**으로 이동 합니다.
+8. 로컬 그룹 정책 편집기를 열고 **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **원격 데스크톱 서비스**  >  **원격 데스크톱 세션 호스트**  >  **원격 세션 환경** 으로 이동 합니다.
 9. 원격 데스크톱 프로토콜 8.0 정책을 사용 하도록 설정 합니다.
 10. 이 VM을 Active Directory 도메인에 가입 시킵니다.
 11. 다음 명령을 실행 하 여 가상 컴퓨터를 다시 시작 합니다.

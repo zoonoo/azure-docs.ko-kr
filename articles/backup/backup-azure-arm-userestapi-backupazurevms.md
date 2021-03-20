@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171457"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
@@ -298,10 +298,10 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 |속성  |값  |
 |---------|---------|
-|diskLunList     | 디스크 LUN 목록은 *데이터 디스크의 lun*목록입니다. **OS 디스크는 항상 백업 되며 언급 하지 않아도**됩니다.        |
-|IsInclusionList     | 백업 하는 동안 Lun이 포함 되려면 **true** 여야 합니다. **False**이면 앞서 언급 한 lun이 제외 됩니다.         |
+|diskLunList     | 디스크 LUN 목록은 *데이터 디스크의 lun* 목록입니다. **OS 디스크는 항상 백업 되며 언급 하지 않아도** 됩니다.        |
+|IsInclusionList     | 백업 하는 동안 Lun이 포함 되려면 **true** 여야 합니다. **False** 이면 앞서 언급 한 lun이 제외 됩니다.         |
 
-따라서 OS 디스크만 백업 하는 요구 사항이 있는 경우 _모든_ 데이터 디스크를 제외 해야 합니다. 데이터 디스크가 포함 되지 않도록 하는 것이 더 쉬운 방법입니다. 따라서 디스크 LUN 목록이 비어 있고 **IsInclusionList** 가 **true**가 됩니다. 마찬가지로 하위 집합을 선택 하는 것이 더 쉬운 방법에 대해 생각해 보겠습니다. 몇 개의 디스크가 항상 제외 되거나 몇 개의 디스크가 항상 포함 되어야 합니다. LUN 목록과 부울 변수 값을 적절 하 게 선택 합니다.
+따라서 OS 디스크만 백업 하는 요구 사항이 있는 경우 _모든_ 데이터 디스크를 제외 해야 합니다. 데이터 디스크가 포함 되지 않도록 하는 것이 더 쉬운 방법입니다. 따라서 디스크 LUN 목록이 비어 있고 **IsInclusionList** 가 **true** 가 됩니다. 마찬가지로 하위 집합을 선택 하는 것이 더 쉬운 방법에 대해 생각해 보겠습니다. 몇 개의 디스크가 항상 제외 되거나 몇 개의 디스크가 항상 포함 되어야 합니다. LUN 목록과 부울 변수 값을 적절 하 게 선택 합니다.
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>보호된 Azure VM에 대한 주문형 백업 트리거
 
@@ -323,7 +323,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -348,7 +348,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -477,7 +477,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|이름  |Type  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

@@ -4,10 +4,10 @@ description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure key vau
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86058132"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure에서 관리 하는 id를 사용 하 여 ACR 작업에서 외부 인증 
@@ -26,13 +26,13 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.68 이�
 
 실제 시나리오에서 회사는 빌드 프로세스의 일부로 Docker 허브의 개인 리포지토리에 이미지를 게시할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서 이 레지스트리의 이름은 *myregistry*입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
+작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서 이 레지스트리의 이름은 *myregistry* 입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
 Azure container registry가 아직 없는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 아직 레지스트리에 이미지를 푸시할 필요는 없습니다.
 
-또한 Docker 허브에 개인 리포지토리와 리포지토리에 쓸 수 있는 권한이 있는 Docker 허브 계정이 필요 합니다. 이 예에서는이 리포지토리의 이름이 *hubuser/hubrepo*입니다. 
+또한 Docker 허브에 개인 리포지토리와 리포지토리에 쓸 수 있는 권한이 있는 Docker 허브 계정이 필요 합니다. 이 예에서는이 리포지토리의 이름이 *hubuser/hubrepo* 입니다. 
 
 ## <a name="create-a-key-vault-and-store-secrets"></a>주요 자격 증명 모음을 만들고 비밀을 저장 합니다.
 
@@ -163,7 +163,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>수동으로 작업 실행
 
-관리 ID를 사용하는 작업이 성공적으로 실행되는지 확인하려면 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다. `--set`매개 변수는 개인 리포지토리 이름을 작업에 전달 하는 데 사용 됩니다. 이 예제에서 자리 표시자 리포지토리 이름은 *hubuser/hubrepo*입니다.
+관리 ID를 사용하는 작업이 성공적으로 실행되는지 확인하려면 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다. `--set`매개 변수는 개인 리포지토리 이름을 작업에 전달 하는 데 사용 됩니다. 이 예제에서 자리 표시자 리포지토리 이름은 *hubuser/hubrepo* 입니다.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo

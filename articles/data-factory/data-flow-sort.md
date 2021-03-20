@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81606333"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 정렬 변환
@@ -24,7 +24,7 @@ ms.locfileid: "81606333"
 > [!NOTE]
 > 데이터 흐름 매핑은 여러 노드 및 파티션에 데이터를 분산 하는 spark 클러스터에서 실행 됩니다. 이후 변환에서 데이터를 다시 분할 하도록 선택 하는 경우 데이터 단지 섞는으로 인해 정렬이 손실 될 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ![정렬 설정](media/data-flow/sort.png "정렬")
 
