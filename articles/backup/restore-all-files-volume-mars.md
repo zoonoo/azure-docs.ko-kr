@@ -4,15 +4,15 @@ description: MARS 에이전트를 사용 하 여 볼륨에 있는 모든 파일�
 ms.topic: conceptual
 ms.date: 01/17/2021
 ms.openlocfilehash: 44c12809fc94f78721ab1788cb352076dfebabe4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613972"
 ---
 # <a name="restore-all-the-files-in-a-volume-using-the-mars-agent"></a>MARS 에이전트를 사용 하 여 볼륨의 모든 파일 복원
 
-이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트의 데이터 복구 마법사를 사용 하 여 전체 볼륨의 모든 백업 파일을 복원 하는 방법을 설명 합니다. 다음 작업을 수행할 수 있습니다.
+이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트의 데이터 복구 마법사를 사용 하 여 전체 볼륨의 모든 백업 파일을 복원 하는 방법을 설명 합니다. 다음을 할 수 있습니다.
 
 - 볼륨의 모든 백업 파일을 백업이 수행 된 컴퓨터와 동일한 컴퓨터로 복원 합니다.
 - 볼륨의 모든 백업 파일을 대체 컴퓨터로 복원 합니다.

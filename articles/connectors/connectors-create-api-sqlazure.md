@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 tags: connectors
 ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013450"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
@@ -269,7 +269,7 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 ### <a name="connection-problems"></a>연결 문제
 
-일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 다음은 몇 가지 예입니다.
+일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 몇 가지 예제는 다음과 같습니다.
 
 * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 

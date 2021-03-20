@@ -7,16 +7,16 @@ ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652299"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
 Service Fabric Java 이진 파일이 Service Fabric Java SDK에서 Maven 호스팅으로 이동 되었습니다. **Mavencentral** 를 사용 하 여 최신 Service Fabric Java 종속성을 가져올 수 있습니다. 이 가이드는 Service Fabric Java SDK 용으로 만든 기존 Java 응용 프로그램을 업데이트 하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. 먼저 기존 Java SDK를 제거 합니다.
 
@@ -63,7 +63,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 애플리케이션에 대한 Service Fabric 상태 비저장 서비스 지원입니다.
 

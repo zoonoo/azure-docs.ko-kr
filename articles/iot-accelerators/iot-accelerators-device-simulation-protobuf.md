@@ -10,10 +10,10 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852153"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다. 
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들면 다음과 같습니다.
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 장치 모델 JSON 및 JS 파일은 빌드된 솔루션에 복사 되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj** 에 추가합니다. 다음은 그 예입니다. 
+포함하려는 각 파일에 대한 항목을 **services\services.csproj** 에 추가합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

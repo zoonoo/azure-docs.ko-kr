@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
 ms.openlocfilehash: 67bc104434dc0db30f5973bec0979afb7480fe4c
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98621382"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>IoT 용 Azure Defender (이전의 Azure Security Center)에서 Azure 센티널로 데이터 연결 
@@ -26,7 +26,7 @@ ms.locfileid: "98621382"
 IoT 용 Defender 커넥터를 사용 하 여 모든 IoT 이벤트 용 Defender를 Azure 센티널로 스트리밍합니다. 
 
 이러한 통합을 통해 조직은 종종 교차와 경계를 교차 하는 다단계 공격을 신속 하 게 검색할 수 있습니다. 또한 Azure 센티널의 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 기능을 사용 하 여 IoT 용 Defender를 통합 하면 기본 제공 되는 OT 기반 플레이 북을 사용 하 여 자동화 된 응답과 방지를 사용할 수 있습니다. 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널이 배포 된 작업 영역에 대 한 **읽기** 및 **쓰기** 권한
 - **IoT 용 Defender는** 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.

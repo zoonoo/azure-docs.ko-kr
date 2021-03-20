@@ -7,10 +7,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931781"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
@@ -35,7 +35,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화 됩니다. 아래 표에서 가장 인기 있는 사용 사례와 일치 하는 VM 제품군 중 일부를 찾을 수 있습니다.
 
-| 형식                     | 크기           |    Description       |
+| Type                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [항목 수준](../virtual-machines/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 경제적 이며 Azure를 시작 하기 위한 저렴 한 옵션을 제공 합니다. |
 | [범용](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
@@ -52,13 +52,13 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 | 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
 |---|---|---|---|---|
-| Spark | 모두 | F4 이상 | 아니요 | 아니요 |
-| Hadoop은 | 모두 | F4 이상 | 아니요 | 아니요 |
-| Kafka | 모두 | F4 이상 | 아니요 | 아니요 |
-| HBase | 모두 | F4 이상 | 아니요 | 아니요 |
-| LLAP | disabled | 아니요 | 아니요 | 아니요 |
-| Storm | disabled | 아니요 | 아니요 | 아니요 |
-| ML 서비스 | HDI 3.6만 해당 | F4 이상 | 아니요 | 아니요 |
+| Spark | 모두 | F4 이상 | no | no |
+| Hadoop은 | 모두 | F4 이상 | no | no |
+| Kafka | 모두 | F4 이상 | no | no |
+| HBase | 모두 | F4 이상 | no | no |
+| LLAP | disabled | no | no | no |
+| Storm | disabled | no | no | no |
+| ML 서비스 | HDI 3.6만 해당 | F4 이상 | no | no |
 
 각 F 시리즈 SKU의 사양을 보려면 [f 시리즈 VM 크기](https://azure.microsoft.com/blog/f-series-vm-size/)를 참조 하세요.
 

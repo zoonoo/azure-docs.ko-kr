@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852560"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
@@ -30,11 +30,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 방법 가이드의 단계를 수행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
-아직 장치 시뮬레이션을 배포 하지 않은 경우 GitHub에서 [장치 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) 를 참조 하세요.
+아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
 
 ### <a name="open-device-simulation"></a>디바이스 시뮬레이션 열기
 
-아직 장치 시뮬레이션을 배포 하지 않은 경우 GitHub에서 [장치 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) 를 참조 하세요.
+아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
 
 ## <a name="device-models"></a>디바이스 모델
 

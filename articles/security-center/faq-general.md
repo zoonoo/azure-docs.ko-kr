@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095547"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
@@ -36,7 +36,7 @@ Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * Vm (가상 머신) ( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
-* 가상 머신 확장 집합
+* 가상 머신 크기 집합
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 * [제품 개요에 나열 된 많은 Azure PaaS 서비스](features-paas.md)
 

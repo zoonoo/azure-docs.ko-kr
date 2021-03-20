@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100592058"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure Managed Applications에서 뷰 정의 아티팩트
@@ -128,7 +128,7 @@ ms.locfileid: "100592058"
 |속성|필수|설명|
 |---------|---------|---------|
 |header|아니요|개요 페이지의 머리글입니다.|
-|description|아니요|관리 되는 응용 프로그램에 대 한 설명입니다.|
+|설명|아니요|관리 되는 응용 프로그램에 대 한 설명입니다.|
 |명령|아니요|개요 페이지의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
 
 ![데모 응용 프로그램을 실행 하기 위한 테스트 작업 컨트롤이 포함 된 관리 되는 응용 프로그램에 대 한 개요를 보여 주는 스크린샷](./media/view-definition/overview.png)
@@ -184,7 +184,7 @@ ms.locfileid: "100592058"
 |---------|---------|---------|
 |name|예|메트릭의 이름입니다.|
 |aggregationType|예|이 메트릭에 사용할 집계 유형입니다. 지원 되는 집계 유형: `none, sum, min, max, avg, unique, percentile, count`|
-|네임스페이스|아니요|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
+|namespace|아니요|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
 |resourceTagFilter|아니요|메트릭이 표시 되는 리소스 태그 배열 (word로 구분 됨 `or` )입니다. 리소스 종류 필터의 위에 적용 됩니다.|
 |resourceType|예|메트릭이 표시 되는 리소스 종류입니다.|
 

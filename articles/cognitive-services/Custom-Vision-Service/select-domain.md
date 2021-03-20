@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
 ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095666"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Custom Vision 프로젝트에 대 한 도메인 선택
@@ -48,7 +48,7 @@ Custom Vision 프로젝트의 설정 탭에서 프로젝트에 대 한 도메인
 
 모델 성능은 선택한 도메인에 따라 달라 집니다. 아래 표에서는 Intel Desktop CPU 및 NVidia GPU 1에 대 한 모델 크기 및 유추 시간을 보고 \[ 합니다 \] . 이러한 숫자에는 전처리 및 후 처리 시간이 포함 되지 않습니다.
 
-|Task|도메인|ID|모델 크기|CPU 유추 시간|GPU 유추 시간|
+|작업|도메인|ID|모델 크기|CPU 유추 시간|GPU 유추 시간|
 |---|---|---|---|---|---|
 |분류|일반(압축)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10ms|5ms|
 |분류|일반 (압축) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 M B|50 밀리초|5ms|

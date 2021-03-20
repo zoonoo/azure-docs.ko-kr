@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011712"
 ---
 100TiB 용량의 표준 파일 공유에는 특정 제한 사항이 있습니다.

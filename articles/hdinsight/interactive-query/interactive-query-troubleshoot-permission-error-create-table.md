@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
 ms.openlocfilehash: 6d91ca747bb264b4c7262eec2bb0745b8a40b7a0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930914"
 ---
 # <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache Hive 테이블을 만들려고 할 때 권한 거부 오류가 발생 함

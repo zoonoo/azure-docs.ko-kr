@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
 ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206291"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
@@ -22,7 +22,7 @@ Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주�
 
 공용 피어링을 사용하도록 설정하면 모든 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다. Microsoft 피어 링은 WAN과 함께 Microsoft Azure 서비스에서 연결을 시작할 수 있는 양방향 연결입니다. 라우팅 도메인 및 피어 링에 대 한 자세한 내용은 [express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조 하세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 Microsoft 피어링에 연결하려면 NAT를 설정하고 관리해야 합니다. 연결 공급자에서 NAT를 관리 서비스로 설정하고 관리할 수 있습니다. Microsoft 피어링에서 Azure PaaS 및 Azure SaaS 서비스에 액세스하려는 경우 NAT IP 풀의 크기를 올바르게 조정해야 합니다. ExpressRoute용 NAT에 대한 자세한 내용은 [Microsoft 피어링에 대한 NAT 요구 사항](expressroute-nat.md#nat-requirements-for-microsoft-peering)을 참조하세요. Azure Express 경로 (Microsoft 피어 링)를 통해 Microsoft에 연결 하는 경우 Microsoft에 대 한 여러 링크가 있습니다. 한 가지 링크는 기존 인터넷 연결이고 다른 하나는 ExpressRoute를 통한 연결입니다. Microsoft에 대한 일부 트래픽은 인터넷을 통과할 수 있지만 ExpressRoute를 통해 돌아옵니다. 혹은 그 반대입니다.
 

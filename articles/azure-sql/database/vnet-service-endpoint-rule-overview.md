@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99095361"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database에서 서버에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
@@ -108,7 +108,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 위해 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드 하는 데 사용 됩니다. 데이터를 로드 하는 Azure Storage 계정이 한 가상 네트워크 서브넷 집합에만 액세스 하는 경우 PolyBase를 사용 하는 경우 연결이 중단 되 고 저장소 계정에 대 한 COPY 문이 중단 됩니다. 가상 네트워크에 대 한 보안을 유지 하는 Azure Storage에 연결 하는 Azure Synapse Analytics에서 복사 및 PolyBase를 사용 하 여 가져오기 및 내보내기 시나리오를 사용 하도록 설정 하려면이 섹션의 단계를 따르세요.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 - [이 가이드](/powershell/azure/install-az-ps)를 사용 하 여 Azure PowerShell를 설치 합니다.
 - 범용 v1 또는 Azure Blob Storage 계정이 있는 경우 범용 [v2 저장소 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)의 단계를 수행 하 여 먼저 범용 v2로 업그레이드 해야 합니다.
@@ -233,7 +233,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Database와 관련 된 특정 가상 네트워크 서비스 끝점 *형식 이름* 으로 태그가 지정 된 서브넷이 이미 있어야 합니다.
 

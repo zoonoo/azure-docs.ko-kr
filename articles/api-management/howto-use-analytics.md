@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/24/2020
 ms.author: apimpm
 ms.openlocfilehash: ca7bd70bbf99a6d0079717a7a02328b11528d2e0
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96841514"
 ---
 # <a name="get-api-analytics-in-azure-api-management"></a>Azure API Management에서 API 분석 가져오기
@@ -22,7 +22,7 @@ Azure API Management는 Api에 대 한 기본 제공 분석을 제공 합니다.
 * API
 * API 작업
 * 제품
-* 구독
+* Subscriptions
 * 사용자
 * 요청
 

@@ -5,10 +5,10 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80676527"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure Blockchain 서비스의 제한
@@ -22,7 +22,7 @@ Azure Blockchain 서비스에는 구성원에 게 포함할 수 있는 노드 �
 | 가격 책정 계층 | 최대 트랜잭션 노드 | 최대 유효성 검사기 노드 |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
-| 표준 | 10 | 2 |
+| Standard | 10 | 2 |
 
 컨소시엄 네트워크에는 두 개 이상의 Azure Blockchain 서비스 표준 계층 노드가 있어야 합니다. 표준 계층 노드에는 두 가지 유효성 검사기 노드가 포함 됩니다. [이스탄불 비잔틴 내결함성 합의](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)를 충족 하려면 4 개의 유효성 검사기 노드가 필요 합니다.
 
@@ -63,7 +63,7 @@ Azure Blockchain 서비스에는 구성원에 게 포함할 수 있는 노드 �
 
 각 트랜잭션 제출에 *eth* 를 사용 하지 마십시오. *Eth* 함수는 메모리를 많이 사용 합니다. 함수를 여러 번 호출 하면 초당 트랜잭션이 크게 줄어듭니다.
 
-가능 하면 트랜잭션 제출에 대해 보수적인 가스 값을 사용 하 고 *eth*의 사용을 최소화 합니다.
+가능 하면 트랜잭션 제출에 대해 보수적인 가스 값을 사용 하 고 *eth* 의 사용을 최소화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

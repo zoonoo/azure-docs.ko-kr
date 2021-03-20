@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/11/2019
 ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217680"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics .NET Framework v 4.7.2로 업그레이드 하 고 있습니다.
@@ -61,7 +61,7 @@ U-SQL 사용자 지정 어셈블리에서 .NET 코드에 대 한 .NET 호환성 
   - 제안 된 작업: System.threading.tasks.taskfactory.fromasync가 true를 올바르게 반환 하는지 확인 합니다.
 
 - DataObject.GetData가 이제 데이터를 UTF-8로 검색
-  - .NET Framework 4를 대상으로 하거나 .NET Framework 4.5.1 이하 버전에서 실행되는 앱의 경우, DataObject.GetData는 HTML 형식의 데이터를 ASCII 문자열로 검색합니다. 따라서 ASCII가 아닌 문자 (ASCII 코드가 0x7F 보다 큰 문자)는 임의의 두 문자로 표시 됩니다. #N # #N # .NET Framework 4.5 이상 버전을 대상으로 하며 .NET Framework 4.5.2에서 실행 되는 앱의 경우, `DataObject.GetData` 보다 큰 문자를 올바르게 나타내는 u t f-8로 HTML 형식의 데이터를 검색 합니다.
+  - .NET Framework 4를 대상으로 하거나 .NET Framework 4.5.1 이하 버전에서 실행되는 앱의 경우, DataObject.GetData는 HTML 형식의 데이터를 ASCII 문자열로 검색합니다. 따라서 ASCII가 아닌 문자 (ASCII 코드가 0x7F 보다 큰 문자)는 임의의 두 문자로 표시 됩니다. .NET Framework 4.5 이상을 대상으로 하 고 .NET Framework 4.5.2에서 실행 되는 #N # #N#For 앱은 `DataObject.GetData` HTML 형식의 데이터를 u t f-8로 검색 하 여 0x7f 보다 큰 문자를 올바르게 나타냅니다.
   - 영향을 받는 라이브러리: 인 글 o
   - 제안 된 작업: 검색 된 데이터가 원하는 형식 인지 확인 합니다.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657121"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
@@ -35,10 +35,10 @@ ms.locfileid: "89657121"
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
 
 1. 관리자 권한으로 Azure Portal에 로그인합니다.
-2. 왼쪽에서 **Active Directory**를 선택합니다.
+2. 왼쪽에서 **Active Directory** 를 선택합니다.
 3. **Active Directory** 페이지에서 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.
-4. 디렉토리 페이지의 맨 위에서 **라이센스**를 선택합니다.
-5. **라이선스** 페이지에서 **Active Directory Premium** 또는 **Enterprise Mobility Suite**를 선택한 후 **할당**을 클릭합니다.
+4. 디렉토리 페이지의 맨 위에서 **라이센스** 를 선택합니다.
+5. **라이선스** 페이지에서 **Active Directory Premium** 또는 **Enterprise Mobility Suite** 를 선택한 후 **할당** 을 클릭합니다.
 6. 대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="verify-the-scheduled-synchronization-task"></a>예약된 동기화 작업 확인
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>예약된 동기화 작업을 확인하려면
 1. 관리자 권한으로 Azure Portal에 로그인합니다.
-2. 왼쪽에서 **Active Directory**를 선택합니다.
+2. 왼쪽에서 **Active Directory** 를 선택합니다.
 3. 왼쪽에서 **Azure AD Connect** 를 선택 합니다.
 4. 페이지 맨 위에서 마지막 동기화를 확인 합니다.
 
@@ -56,12 +56,12 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 동기화 작업을 실행 해야 하는 경우 다음을 수행할 수 있습니다.
 
 1. Azure AD Connect 바탕 화면 바로 가기를 두 번 클릭 하 여 마법사를 시작 합니다.
-2. **Configure**를 클릭합니다.
+2. **Configure** 를 클릭합니다.
 3. 작업 화면에서 **동기화 옵션 사용자 지정** 을 선택 하 고 **다음** 을 클릭 합니다.
 4. Azure AD 자격 증명 입력
-5. **다음**을 클릭합니다. **다음**을 클릭합니다.  **다음**을 클릭합니다.
+5. **다음** 을 클릭합니다. **다음** 을 클릭합니다.  **다음** 을 클릭합니다.
 5.  **구성 준비** 완료 화면에서 **구성이 완료 되 면 동기화 프로세스를 시작** 합니다. 확인란을 선택 했는지 확인 합니다.
-6.  **Configure**를 클릭합니다.
+6.  **Configure** 를 클릭합니다.
 
 Azure AD Connect sync Scheduler에 대 한 자세한 내용은 [scheduler Azure AD Connect](how-to-connect-sync-feature-scheduler.md)를 참조 하세요.
 

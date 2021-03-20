@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215538"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
@@ -106,7 +106,7 @@ LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Argu
 
 ### <a name="return-value-and-logging"></a>반환 값 및 로깅
 
-도우미 애플리케이션은 성공한 경우 **0**을, 실패한 경우 **-1**을 반환합니다. 기본적으로 도우미는 모든 메시지를 현재 콘솔로 보냅니다. 그러나 대부분의 명령은 출력을 로그 파일로 리디렉션하는 **-MessageOut path_to_log_file** 선택적 인수를 지원합니다.
+도우미 애플리케이션은 성공한 경우 **0** 을, 실패한 경우 **-1** 을 반환합니다. 기본적으로 도우미는 모든 메시지를 현재 콘솔로 보냅니다. 그러나 대부분의 명령은 출력을 로그 파일로 리디렉션하는 **-MessageOut path_to_log_file** 선택적 인수를 지원합니다.
 
 ### <a name="environment-variable-configuring"></a>환경 변수 구성
 
@@ -118,13 +118,13 @@ U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 스토�
 
     `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 
-  이 디렉터리를 가리키도록 **SCOPE_CPP_SDK**라는 새로운 환경 변수를 정의합니다. 또는 다른 위치에 폴더를 복사하고 **SCOPE_CPP_SDK**를 지정합니다.
+  이 디렉터리를 가리키도록 **SCOPE_CPP_SDK** 라는 새로운 환경 변수를 정의합니다. 또는 다른 위치에 폴더를 복사하고 **SCOPE_CPP_SDK** 를 지정합니다.
 
   환경 변수를 설정하는 것 외에도 명령줄을 사용할 때 **-CppSDK** 인수를 지정할 수도 있습니다. 이 인수는 기본 CppSDK 환경 변수를 덮어씁니다.
 
 - **LOCALRUN_DATAROOT** 환경 변수를 설정 합니다.
 
-  데이터 루트를 가리키는 **LOCALRUN_DATAROOT**라는 새로운 환경 변수를 정의합니다.
+  데이터 루트를 가리키는 **LOCALRUN_DATAROOT** 라는 새로운 환경 변수를 정의합니다.
 
   환경 변수를 설정하는 것 외에도 명령줄을 사용할 때 데이터 루트 경로로 **-DataRoot** 인수를 지정할 수 있습니다. 이 인수는 기본 데이터 루트 환경 변수를 덮어씁니다. 모든 작업에 대해 기본 데이터 루트 환경 변수를 덮어 쓸 수 있도록 실행 중인 모든 명령줄에 이 인수를 추가해야 합니다.
 
@@ -132,15 +132,15 @@ U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 스토�
 
 #### <a name="compile-and-run"></a>컴파일 및 실행
 
-**run** 명령은 스크립트를 컴파일한 다음 컴파일 결과를 실행하는 데 사용됩니다. 명령줄 인수는 **compile**과 **execute**의 조합입니다.
+**run** 명령은 스크립트를 컴파일한 다음 컴파일 결과를 실행하는 데 사용됩니다. 명령줄 인수는 **compile** 과 **execute** 의 조합입니다.
 
 ```console
 LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 ```
 
-다음은 **run**에 대한 선택적 인수입니다.
+다음은 **run** 에 대한 선택적 인수입니다.
 
-|인수|기본값|Description|
+|인수|기본값|설명|
 |--------|-------------|-----------|
 |-CodeBehind|거짓|스크립트에는 .cs 코드 숨김이 있습니다.|
 |-CppSDK| |CppSDK 디렉터리입니다.|
@@ -160,7 +160,7 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 
-**compile**과 **execute**를 조합하는 것 외에도 컴파일된 실행 파일을 개별적으로 컴파일하고 실행할 수 있습니다.
+**compile** 과 **execute** 를 조합하는 것 외에도 컴파일된 실행 파일을 개별적으로 컴파일하고 실행할 수 있습니다.
 
 #### <a name="compile-a-u-sql-script"></a>U-SQL 스크립트 컴파일
 
@@ -170,9 +170,9 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 ```
 
-다음은 **compile**에 대한 선택적 인수입니다.
+다음은 **compile** 에 대한 선택적 인수입니다.
 
-|인수|Description|
+|인수|설명|
 |--------|-----------|
 | -CodeBehind [기본값 'False']|스크립트에는 .cs 코드 숨김이 있습니다.|
 | -CppSDK [기본값 '']|CppSDK 디렉터리입니다.|
@@ -215,9 +215,9 @@ LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -Referenc
 LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
 ```
 
-다음은 **compile**에 대한 선택적 인수입니다.
+다음은 **compile** 에 대한 선택적 인수입니다.
 
-|인수|기본값|Description|
+|인수|기본값|설명|
 |--------|-------------|-----------|
 |-DataRoot | '' |메타데이터 실행을 위한 루트 데이터입니다. **LOCALRUN_DATAROOT** 환경 변수로 기본 설정합니다.|
 |-MessageOut | '' |콘솔의 메시지를 파일에 덤프합니다.|
@@ -241,7 +241,7 @@ LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909
 
    ![Azure Data Lake U-SQL SDK 참조 추가](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
-- U-SQL SDK는 x64 환경**만** 지원합니다. 따라서 빌드 플랫폼 대상을 x64로 설정해야 합니다. 프로젝트 속성 > 빌드 > 플랫폼 대상을 통해 설정할 수 있습니다.
+- U-SQL SDK는 x64 환경 **만** 지원합니다. 따라서 빌드 플랫폼 대상을 x64로 설정해야 합니다. 프로젝트 속성 > 빌드 > 플랫폼 대상을 통해 설정할 수 있습니다.
 
    ![Azure Data Lake U-SQL SDK x64 프로젝트 구성](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
@@ -330,13 +330,13 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|Type|Description|
+|매개 변수|Type|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
 ### <a name="properties"></a>속성
 
-|속성|Type|Description|
+|속성|Type|설명|
 |--------|----|-----------|
 |AlgebraPath|문자열|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
 |CodeBehindReferences|문자열|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
@@ -361,7 +361,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ### <a name="method"></a>메서드
 
-|메서드|Description|반환 값|매개 변수|
+|메서드|설명|반환 값|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |
@@ -376,7 +376,7 @@ E_CSC_SYSTEM_INTERNAL: 내부 오류입니다. 파일 또는 어셈블리 'Scope
 
 다음 항목을 확인하세요.
 
-- X64 환경인지 확인합니다. 빌드 대상 플랫폼 및 테스트 환경은 x64여야 합니다. 위의 **1단계: C# 단위 테스트 프로젝트 및 구성 만들기**를 참조하세요.
+- X64 환경인지 확인합니다. 빌드 대상 플랫폼 및 테스트 환경은 x64여야 합니다. 위의 **1단계: C# 단위 테스트 프로젝트 및 구성 만들기** 를 참조하세요.
 - NugetPackage\build\runtime\ 아래의 모든 종속 파일을 프로젝트 작업 디렉터리로 복사했는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계

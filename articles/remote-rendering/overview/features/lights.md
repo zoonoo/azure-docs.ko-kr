@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 49027899d66a2192cc311fb4dba66e441155b527
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206852"
 ---
 # <a name="scene-lighting"></a>장면 조명
@@ -46,7 +46,7 @@ Azure 원격 렌더링에서는 `PointLightComponent` 단일 지점에서의 조
 
 ## <a name="spot-light"></a>스폿 조명
 
-는와 `SpotLightComponent` 유사 `PointLightComponent` 하지만 조명이 원뿔의 모양으로 제한 됩니다. 원뿔의 방향은 *소유자 엔터티의 음수 z 축*에 의해 정의 됩니다.
+는와 `SpotLightComponent` 유사 `PointLightComponent` 하지만 조명이 원뿔의 모양으로 제한 됩니다. 원뿔의 방향은 *소유자 엔터티의 음수 z 축* 에 의해 정의 됩니다.
 
 ### <a name="spotlightcomponent-properties"></a>SpotLightComponent 속성
 
@@ -62,7 +62,7 @@ Azure 원격 렌더링에서는 `PointLightComponent` 단일 지점에서의 조
 
 ## <a name="directional-light"></a>방향성 광원
 
-는 `DirectionalLightComponent` 무한히 떨어져 있는 광원을 시뮬레이션 합니다. 빛은 *소유자 엔터티의 음의 z 축*방향에 해당 합니다. 엔터티의 위치는 무시 됩니다.
+는 `DirectionalLightComponent` 무한히 떨어져 있는 광원을 시뮬레이션 합니다. 빛은 *소유자 엔터티의 음의 z 축* 방향에 해당 합니다. 엔터티의 위치는 무시 됩니다.
 
 추가 속성이 없습니다.
 

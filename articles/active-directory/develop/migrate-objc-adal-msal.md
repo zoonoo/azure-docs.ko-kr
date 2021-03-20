@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98754937"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
@@ -75,7 +75,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 동작과 유사 `resource` 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
+범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예를 들어 `https://graph.microsoft.com/.default`을 참조하십시오. 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](./v2-permissions-and-consent.md#the-default-scope) .
 

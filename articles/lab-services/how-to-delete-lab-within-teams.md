@@ -4,17 +4,17 @@ description: 팀에서 Azure Lab Services 랩을 삭제 하는 방법에 대해 
 ms.topic: article
 ms.date: 10/12/2020
 ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433957"
 ---
 # <a name="delete-labs-within-teams"></a>팀 내에서 랩 삭제
 
 이 문서에서는 **Azure Lab Services** 앱에서 랩을 삭제 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Portal에서 [Lab Services 계정을 만듭니다](tutorial-setup-lab-account.md#create-a-lab-account) .
 * [팀 내에서 랩 서비스 랩을 시작 하 고 만듭니다](how-to-get-started-create-lab-within-teams.md).

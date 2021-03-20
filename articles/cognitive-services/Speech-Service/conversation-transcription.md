@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024996"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>모임의 대화 내용 (미리 보기)은 무엇입니까?
@@ -34,7 +34,7 @@ ms.locfileid: "95024996"
 > [!NOTE]
 > 대화를 통해 회의실의 스피커 수에 제한이 없지만 세션당 2-10 스피커에 대해 최적화 됩니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 시작 하려면 실시간 대화 기록 [빠른](how-to-use-conversation-transcription.md) 시작을 참조 하세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "95024996"
 
 모임 참가자는 회의에 집중할 수 있으며, 메모를 대화로 가져갈 수 있습니다. 참가자가 회의에 적극적으로 참여할 수 있으며, 회의 중에 메모를 작성 하는 대신 기록을 사용 하 여 다음 단계를 빠르게 진행할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 이는 대화 기록을 작동 하는 방법에 대 한 개략적인 개요입니다.
 

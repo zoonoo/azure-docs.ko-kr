@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
 ms.openlocfilehash: d7c4f1853ff8dcb9249ab6ec4f536e1f8cfa10e5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018227"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마에 새 필드가 있는 샘플 쿼리 (8 월 2019 스키마 업데이트)

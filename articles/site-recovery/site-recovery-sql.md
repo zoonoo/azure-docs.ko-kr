@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011951"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
@@ -46,7 +46,7 @@ Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Re
 > * Site Recovery는 응용 프로그램에 독립적입니다. Site Recovery은 지원 되는 운영 체제에 배포 된 모든 버전의 SQL Server를 보호 하는 데 도움이 됩니다. 자세히 알아보려면 복제 된 컴퓨터 [복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md#replicated-machines) 를 참조 하세요.
 > * Azure, Hyper-v, VMware 또는 물리적 인프라의 모든 배포에 대해 Site Recovery를 사용 하도록 선택할 수 있습니다. Site Recovery를 사용 하 여 [SQL Server 클러스터를 보호 하는 방법](#how-to-help-protect-a-sql-server-cluster) 에 대 한 자세한 내용은이 문서의 끝에 있는 지침을 따르세요.
 > * 컴퓨터에서 관찰 된 데이터 변경 률이 [Site Recovery 제한](vmware-physical-azure-support-matrix.md#churn-limits)내에 있는지 확인 하십시오. 변경 비율은 초당 쓰기 바이트 수로 측정 됩니다. Windows를 실행 하는 컴퓨터의 경우 작업 관리자에서 **성능** 탭을 선택 하 여이 변경 률을 확인할 수 있습니다. 각 디스크에 대 한 쓰기 속도를 관찰 합니다.
-> * Site Recovery은 스토리지 공간 다이렉트에서 장애 조치 (Failover) 클러스터 인스턴스의 복제를 지원 합니다. 자세히 알아보려면 [스토리지 공간 다이렉트 복제를 사용 하도록 설정 하는 방법](azure-to-azure-how-to-enable-replication-s2d-vms.md)을 참조 하세요.
+> * Site Recovery은 저장소 공간 다이렉트에서 장애 조치 (Failover) 클러스터 인스턴스의 복제를 지원 합니다. 자세히 알아보려면 [저장소 공간 다이렉트 복제를 사용 하도록 설정 하는 방법](azure-to-azure-how-to-enable-replication-s2d-vms.md)을 참조 하세요.
 > 
 > SQL 작업을 Azure로 마이그레이션하는 경우 [azure Virtual Machines에서 SQL Server에 대 한 성능 지침](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)을 적용 하는 것이 좋습니다.
 

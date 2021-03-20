@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 71e1c7787243713b29be9455fee966eff54f6d90
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097656"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Azure 센티널에 펄스 연결 보안 연결
@@ -38,7 +38,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **펄스 연결 보안** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. **펄스 연결 보안** 페이지의 지침을 따릅니다.
 

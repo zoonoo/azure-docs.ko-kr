@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 7386cfaaf410614c6eeee19669f8f769ad691c1f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99215427"
 ---
 UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 대상 아키텍처를 선택하고, 오디오 캡처를 선택하고, Speech SDK를 설치해야 합니다.

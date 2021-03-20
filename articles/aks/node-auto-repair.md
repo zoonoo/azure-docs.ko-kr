@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89490108"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>AKS (Azure Kubernetes Service) 노드 자동 복구
@@ -31,7 +31,7 @@ kubectl get nodes
 ## <a name="how-automatic-repair-works"></a>자동 복구 작동 방법
 
 > [!Note]
-> AKS 사용자 계정 **AKS-remediator**를 사용 하 여 복구 작업을 시작 합니다.
+> AKS 사용자 계정 **AKS-remediator** 를 사용 하 여 복구 작업을 시작 합니다.
 
 위의 규칙을 기반으로 비정상 상태이 고 연속으로 10 분 동안 비정상 상태로 유지 되는 노드는 다음 작업이 수행 됩니다.
 

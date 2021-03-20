@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Lab Services 실습에 대 한 FAQ (질�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96437187"
 ---
 # <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 랩-질문과 대답 (FAQ)

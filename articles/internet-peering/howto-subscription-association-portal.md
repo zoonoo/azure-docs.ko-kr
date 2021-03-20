@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540271"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>포털을 사용하여 피어 ASN을 Azure 구독에 연결
@@ -29,7 +29,7 @@ ms.locfileid: "91540271"
 ### <a name="register-for-peering-resource-provider"></a>피어링 리소스 공급자 등록
 아래 단계에 따라 구독에서 피어링 리소스 공급자를 등록합니다. 이 작업을 실행하지 않으면 피어링을 설정하는 데 필요한 Azure 리소스에 액세스할 수 없습니다.
 
-1. 포털의 왼쪽 위 모서리에서 **구독**을 클릭합니다. 표시되지 않는 경우 **추가 서비스**를 클릭하여 검색합니다.
+1. 포털의 왼쪽 위 모서리에서 **구독** 을 클릭합니다. 표시되지 않는 경우 **추가 서비스** 를 클릭하여 검색합니다.
 
     > [!div class="mx-imgBorder"]
     > ![구독 열기](./media/rp-subscriptions-open.png)
@@ -39,17 +39,17 @@ ms.locfileid: "91540271"
     > [!div class="mx-imgBorder"]
     > ![구독 시작](./media/rp-subscriptions-launch.png)
 
-1. 구독이 열리면 왼쪽에 있는 **리소스 공급자**를 클릭합니다. 그런 다음, 오른쪽 창의 검색 창에서 *피어링*을 검색하거나 스크롤 막대를 사용하여 **Microsoft.Peering**을 찾아 **상태**를 확인합니다. 상태가 ***등록됨***인 경우 아래 단계를 건너뛰고 **PeerAsn 만들기** 섹션으로 진행합니다. 상태가 ***NotRegistered***인 경우 **Microsoft.Peering**을 선택하고 **등록**을 클릭합니다.
+1. 구독이 열리면 왼쪽에 있는 **리소스 공급자** 를 클릭합니다. 그런 다음, 오른쪽 창의 검색 창에서 *피어링* 을 검색하거나 스크롤 막대를 사용하여 **Microsoft.Peering** 을 찾아 **상태** 를 확인합니다. 상태가 등록 됨 인 경우 ***아래 단계를 건너뛰고 _ peerasn 만들기 섹션으로 이동*** 합니다. 상태가 **_notregistered_*_ 이면 _* Microsoft 피어 링을 선택** 하 고 **등록** 을 클릭 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![등록 시작](./media/rp-register-start.png)
 
-1. 서버 상태가 ***등록 중***으로 변경되는지 확인합니다.
+1. 서버 상태가 ***등록 중*** 으로 변경되는지 확인합니다.
 
     > [!div class="mx-imgBorder"]
     > ![등록 진행 중](./media/rp-register-progress.png)
 
-1. 등록이 완료될 때까지 1분 정도 기다립니다. 그런 다음, **새로 고침**을 클릭하고 상태가 ***등록됨***인지 확인합니다.
+1. 등록이 완료될 때까지 1분 정도 기다립니다. 그런 다음 **새로 고침** 을 클릭 하 고 상태가 **_등록_** 됨 인지 확인 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![등록 완료](./media/rp-register-completed.png)
@@ -62,17 +62,17 @@ ms.locfileid: "91540271"
     > [!div class="mx-imgBorder"]
     > ![PeerAsn 기본 사항 탭](./media/peerasn-basics-tab.png)
 
-    * **이름**은 리소스 이름에 해당하며, 원하는 어떤 이름도 사용 가능합니다.  
-    * ASN을 연결하는 데 필요한 **구독**을 선택합니다.
-    * **피어 이름**은 회사 이름에 해당하며, PeeringDB 프로필에 최대한 근접해야 합니다. 값은 문자 a-z, A-Z 및 공백만 지원합니다.
+    * **이름** 은 리소스 이름에 해당하며, 원하는 어떤 이름도 사용 가능합니다.  
+    * ASN을 연결하는 데 필요한 **구독** 을 선택합니다.
+    * **피어 이름** 은 회사 이름에 해당하며, PeeringDB 프로필에 최대한 근접해야 합니다. 값은 문자 a-z, A-Z 및 공백만 지원합니다.
     * **피어 ASN** 필드에 ASN을 입력합니다.
-    * **새로 만들기**를 클릭하고 NOC(네트워크 운영 센터)에 **이메일 주소** 및 **전화 번호**를 입력합니다.
-1. 그런 다음, **검토 + 만들기**를 클릭하고 포털에서 입력한 정보에 대한 기본 유효성 검사를 실행하는지 확인합니다. 이는 맨 위의 리본에 *최종 유효성 검사를 실행하는 중...* 으로 표시됩니다.
+    * **새로 만들기** 를 클릭하고 NOC(네트워크 운영 센터)에 **이메일 주소** 및 **전화 번호** 를 입력합니다.
+1. 그런 다음, **검토 + 만들기** 를 클릭하고 포털에서 입력한 정보에 대한 기본 유효성 검사를 실행하는지 확인합니다. 이는 맨 위의 리본에 *최종 유효성 검사를 실행하는 중...* 으로 표시됩니다.
 
     > [!div class="mx-imgBorder"]
     > ![피어 A S N 기본 사항 연결 탭을 보여 주는 스크린샷](./media/peerasn-review-tab-validation.png)
 
-1. 리본의 메시지가 *유효성 검사 통과*로 바뀌면 정보를 확인하고 **만들기**를 클릭하여 요청을 제출합니다. 유효성 검사를 통과하지 못하는 경우 **이전**을 클릭하고 위의 단계를 반복하여 요청을 수정하고 입력한 값에 오류가 없는지 확인합니다.
+1. 리본의 메시지가 *유효성 검사 통과* 로 바뀌면 정보를 확인하고 **만들기** 를 클릭하여 요청을 제출합니다. 유효성 검사를 통과하지 못하는 경우 **이전** 을 클릭하고 위의 단계를 반복하여 요청을 수정하고 입력한 값에 오류가 없는지 확인합니다.
 
     > [!div class="mx-imgBorder"]
     > ![스크린샷에 연결 된 유효성 검사를 통과 한 피어 A S N 기본 사항 연결 탭을 보여 줍니다.](./media/peerasn-review-tab.png)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86512183"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
@@ -30,7 +30,7 @@ Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 애플리케이션 규�
 
 부모 정책에서 상속 된 네트워크 규칙 컬렉션은 항상 새 정책의 일부로 정의 된 네트워크 규칙 컬렉션 보다 우선 순위가 지정 됩니다. 애플리케이션 규칙 컬렉션에도 동일한 논리가 적용됩니다. 그러나 네트워크 규칙 컬렉션은 상속과 관계없이 항상 애플리케이션 규칙 컬렉션보다 먼저 처리됩니다.
 
-기본적으로 정책은 부모 정책 위협 인텔리전스 모드를 상속 합니다. 정책 설정 페이지에서 위협 인텔리전스 모드를 다른 값으로 설정 하 여이를 재정의할 수 있습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 *경고만*으로 설정 된 경우이 로컬 정책을 *경고 및 거부*로 구성할 수 있지만 해제할 수는 없습니다.
+기본적으로 정책은 부모 정책 위협 인텔리전스 모드를 상속 합니다. 정책 설정 페이지에서 위협 인텔리전스 모드를 다른 값으로 설정 하 여이를 재정의할 수 있습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 *경고만* 으로 설정 된 경우이 로컬 정책을 *경고 및 거부* 로 구성할 수 있지만 해제할 수는 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

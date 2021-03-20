@@ -10,21 +10,21 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/29/2019
 ms.openlocfilehash: 6a050990c28b9137440ec05d918774d76f216be8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540849"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 앱의 사용되지 않는 미리 빌드된 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.
 
-* **Datetime**: datetime 엔터티는 사용되는 기존 앱에서 계속 작동하지만, **datetime**을 사용하는 기존 LUIS 앱을 **datetimeV2**로 마이그레이션해야 합니다.
-* **Geography**: **geography**를 사용하는 기존 LUIS 앱은 2018년 12월까지 지원됩니다.
-* **Encyclopedia**: **encyclopedia**를 사용하는 기존 LUIS 앱은 2018년 12월까지 지원됩니다.
+* **Datetime**: datetime 엔터티는 사용되는 기존 앱에서 계속 작동하지만, **datetime** 을 사용하는 기존 LUIS 앱을 **datetimeV2** 로 마이그레이션해야 합니다.
+* **Geography**: **geography** 를 사용하는 기존 LUIS 앱은 2018년 12월까지 지원됩니다.
+* **Encyclopedia**: **encyclopedia** 를 사용하는 기존 LUIS 앱은 2018년 12월까지 지원됩니다.
 
 ## <a name="geography-culture"></a>Geography 문화권
-**Geography**는 `en-us` 로캘에서만 사용할 수 있습니다.
+**Geography** 는 `en-us` 로캘에서만 사용할 수 있습니다.
 
 #### <a name="3-geography-subtypes"></a>3개의 지리 하위 유형
 
@@ -38,7 +38,7 @@ ms.locfileid: "91540849"
 `builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
 ## <a name="encyclopedia-culture"></a>Encyclopedia 문화권
-**Encyclopedia**는 `en-US` 로캘에서만 사용할 수 있습니다.
+**Encyclopedia** 는 `en-US` 로캘에서만 사용할 수 있습니다.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedia 하위 유형
 다음 표에는 Encyclopedia 기본 제공 엔터티의 하위 유형이 100가지 넘게 포함되어 있습니다. 또한 encyclopedia 엔터티는 여러 유형에 매핑되기도 합니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다.

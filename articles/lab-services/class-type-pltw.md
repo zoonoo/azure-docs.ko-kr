@@ -4,10 +4,10 @@ description: 프로젝트 리드에 클래스를 소개 하도록 랩을 설정 
 ms.topic: article
 ms.date: 10/28/2020
 ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024622"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>프로젝트 리드에 대 한 랩 설정 클래스
@@ -76,7 +76,7 @@ PLTW 클래스에 사용 하도록 권장 되는 VM (가상 머신)의 크기는
 | 랩 설정 | 값 및 설명 | 클래스 권장 사항 |
 | ------------ | ------------------ | --- |
 | Virtual Machine 크기 | **소형 GPU(시각화)**<br>OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합 합니다. | 이 크기는 민사 공학 및 아키텍처, 디지털 전자 제품, 컴퓨터 통합 제조, 엔지니어링 디자인 및 개발 등의 PLTW 클래스에 사용 하는 것이 좋습니다.
-| Virtual Machine 크기 | **큰**<br>더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스 및 많은 메모리 캐시가 필요한 응용 프로그램에 가장 적합 합니다. | 이 크기를 사용 하는 것이 좋습니다. 엔지니어링 디자인 소개, 엔지니어링 원칙, 컴퓨터 과학 Essentials, 컴퓨터 과학 원리 및 컴퓨터 과학 A. |
+| Virtual Machine 크기 | **대형**<br>더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스 및 많은 메모리 캐시가 필요한 응용 프로그램에 가장 적합 합니다. | 이 크기를 사용 하는 것이 좋습니다. 엔지니어링 디자인 소개, 엔지니어링 원칙, 컴퓨터 과학 Essentials, 컴퓨터 과학 원리 및 컴퓨터 과학 A. |
 
 <br>
 

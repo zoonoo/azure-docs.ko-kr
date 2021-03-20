@@ -13,10 +13,10 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755027"
 ---
 # <a name="authentication-flows"></a>인증 흐름
@@ -185,7 +185,7 @@ DevOps와 같은 일부 시나리오에서는 사용자 이름/암호 흐름이 
 - 이 흐름은 .NET 데스크톱 및 .NET Core에서 사용할 수 있지만 유니버설 Windows 플랫폼에서는 사용할 수 없습니다.
 - Azure AD B2C에서 ROPC 흐름은 로컬 계정에 대해서만 작동 합니다. MSAL.NET 및 Azure AD B2C의 ROPC에 대 한 자세한 내용은 [Azure AD B2C에서 Ropc 사용](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc)을 참조 하세요.
 
-## <a name="integrated-windows-authentication"></a>통합 Windows 인증
+## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 
 MSAL은 도메인에 가입 되거나 Azure AD에 가입 된 Windows 컴퓨터에서 실행 되는 데스크톱 및 모바일 응용 프로그램에 대 한 IWA (Windows 통합 인증)를 지원 합니다. 이러한 응용 프로그램은 IWA를 사용 하 여 사용자의 UI 상호 작용 없이도 토큰을 자동으로 가져올 수 있습니다.
 

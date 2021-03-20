@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 0bc5977a581006dc760c0435f9d68371ced7e4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83648792"
 ---
 Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../articles/storage/common/storage-service-encryption.md)를 참조하세요.

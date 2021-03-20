@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919972"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell을 사용하여 가속 네트워킹을 사용하는 VM 만들기

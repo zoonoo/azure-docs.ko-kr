@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578189"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
@@ -57,9 +57,9 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   스키마가 없는 경우 스키마를 생성할 수 있습니다. 
   
-  1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
+  1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들면 다음과 같습니다. 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기** 에서 샘플 페이로드를 입력하고 **완료** 를 선택합니다. 예를 들면 다음과 같습니다. 
 
      ![샘플 JSON 페이로드를 사용 하는 "HTTP 요청을 수신 하는 경우" 작업을 보여 주는 스크린샷](./media/logic-apps-content-type/request-trigger.png)
 

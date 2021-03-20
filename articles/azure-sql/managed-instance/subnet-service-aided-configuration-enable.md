@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618016"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 서비스-사용 서브넷 구성 사용
@@ -22,7 +22,7 @@ ms.locfileid: "91618016"
 
 서비스 제공 서브넷 구성은 관리 되는 인스턴스를 호스트 하는 서브넷에 대해 자동화 된 네트워크 구성 관리를 제공 합니다. 서비스와 관련 된 서브넷 구성 사용자는 관리 되는 인스턴스가 SLA를 충족 하기 위해 지속적으로 관리 트래픽의 흐름을 유지 하는 동안 데이터 (TDS 트래픽 흐름)에 대 한 모든 액세스 권한을 유지 합니다.
 
-자동으로 구성 된 네트워크 보안 그룹 및 경로 테이블 규칙은 고객에 게 표시 되 고 접두사 _Microsoft. .sql-managedInstances_UseOnly__로 주석이 추가 됩니다.
+자동으로 구성 된 네트워크 보안 그룹 및 경로 테이블 규칙은 고객에 게 표시 되 고 접두사 _Microsoft. .sql-managedInstances_UseOnly_ _로 주석이 추가 됩니다.
 
 리소스 공급자에 대 한 [서브넷 위임을](../../virtual-network/subnet-delegation-overview.md) 켜면 서비스 사용자 구성이 자동으로 활성화 됩니다 `Microsoft.Sql/managedInstances` .
 

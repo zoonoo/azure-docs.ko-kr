@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249515"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
@@ -25,7 +25,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
  이 섹션의 템플릿을 통해 개발자 포털의 사용자 프로필 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
   
--   [Profile](#Profile)  
+-   [프로필](#Profile)  
   
 -   [구독](#Subscriptions)  
   
@@ -105,7 +105,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|형식|Description|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  
@@ -287,7 +287,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
                 <a href="#" class="btn-link" id="regenerateSecondary_{{subscription.id}}" data-bind="click: regenerateKey, text: regenerateKeyLabel">{% localized "SubscriptionListStrings|WebDevelopersRegenerateLink" %}</a>  
               </div>  
             </div>  
-            <div class="clearfix"> </div>  
+            <div class="clearfix"> </div>  
           </div>  
           <!-- /ko -->  
           {% endif %}  
@@ -326,7 +326,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|형식|Description|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  
@@ -489,7 +489,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
-|속성|형식|Description|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|문자열|현재 사용자의 이름입니다.|  
 |`lastName`|문자열|현재 사용의 성입니다.|  

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98745736"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -59,7 +59,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 디바이스가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 다중 경로를 구성하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 섹션은 CentOS 서버 및 StorSimple 디바이스에 대한 필수 구성 요소를 자세히 설명합니다.
 
 ### <a name="on-centos-host"></a>CentOS 호스트에서
@@ -422,7 +422,7 @@ dm-3 devnode blacklisted, unmonitored
 자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 유형 | 명령 | 설명 |
+| Type | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e803614a02e76d179579a2258abd563b5c58e63a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016986"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
@@ -122,4 +122,4 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)
