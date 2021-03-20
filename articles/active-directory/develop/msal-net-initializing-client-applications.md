@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600285"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 초기화
@@ -25,7 +25,7 @@ ms.locfileid: "98600285"
 
 MSAL.NET 3.x를 사용 하는 경우 응용 프로그램 작성기를 사용 하 여 응용 프로그램을 인스턴스화하는 것이 `PublicClientApplicationBuilder` 좋습니다. `ConfidentialClientApplicationBuilder` 코드 또는 구성 파일에서 응용 프로그램을 구성 하는 강력한 메커니즘을 제공 하거나 두 방법을 모두 혼합 하 여 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다.  등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (GUID를 나타내는 문자열)

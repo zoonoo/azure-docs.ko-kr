@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87481498"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>고객을 위해 셀프 서비스 암호 재설정 구성
@@ -29,10 +29,10 @@ ms.locfileid: "87481498"
 기본적으로 디렉터리에는 셀프 서비스 암호 재설정이 설정되어 있지 않습니다. 설정하려면 다음 단계를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다. 이는 동일한 직장이나 학교 계정 또는 디렉터리를 만드는 데 사용한 동일한 Microsoft 계정입니다.
-2. **Azure Active Directory**를 엽니다(왼쪽 탐색 모음).
-3. 옵션 블레이드에서 아래로 스크롤하고 **암호 재설정**을 선택 합니다.
-4. **셀프 서비스 암호 재설정이 사용하도록 설정됨**을 **모두**로 설정합니다.
-5. 페이지 위쪽에서 **저장**을 클릭합니다. 완료되었습니다!
+2. **Azure Active Directory** 를 엽니다(왼쪽 탐색 모음).
+3. 옵션 블레이드에서 아래로 스크롤하고 **암호 재설정** 을 선택 합니다.
+4. **셀프 서비스 암호 재설정이 사용하도록 설정됨** 을 **모두** 로 설정합니다.
+5. 페이지 위쪽에서 **저장** 을 클릭합니다. 완료되었습니다!
 
 테스트하려면 로컬 계정을 ID 공급자로 가진 로그인 사용자 흐름에서 "지금 실행" 기능을 사용합니다. 메일 주소 및 암호 또는 사용자 이름 및 암호를 입력하는 로컬 계정 로그인 페이지에서 **계정에 액세스할 수 없나요?** 를 클릭하여 고객 환경을 확인합니다.
 

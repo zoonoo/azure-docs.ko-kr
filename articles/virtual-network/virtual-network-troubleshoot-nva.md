@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99095644"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
@@ -131,11 +131,11 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 1. 동시 네트워크 추적을 캡처하려면 다음 명령을 실행합니다.
 
-   **Windows의 경우**
+   **Windows**
 
    netsh trace start capture = yes tracefile = c:\ server_IP. .etl 시나리오 = netconnection
 
-   **Linux의 경우**
+   **Linux**
 
    sudo tcpdump-s0-i eth0-X-w vmtrace. 캡
 

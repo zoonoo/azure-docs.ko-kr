@@ -4,10 +4,10 @@ description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사�
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918847"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89653020"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Application Gateway HTTP 설정 구성
@@ -28,7 +28,7 @@ Azure 애플리케이션 게이트웨이는 사용자 세션을 유지 관리 �
 
 이러한 변경을 지원 하기 위해 17 2020 년 2 월 Application Gateway 일부 터 기존 *Applicationgatewayaffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 이라는 다른 쿠키를 삽입 합니다. *ApplicationGatewayAffinityCORS* 쿠키에 추가 된 두 개의 특성이 있습니다 (*"SameSite = None;). Secure "*)를 설정 하므로 원본 간 요청에 대해서도 고정 세션이 유지 됩니다.
 
-기본 선호도 쿠키 이름은 *Applicationgatewayaffinity* 이며 변경할 수 있습니다. 사용자 지정 선호도 쿠키 이름을 사용 하는 경우 추가 쿠키는 CORS로 CORS를 사용 하 여 추가 됩니다. 예를 들면 *CustomCookieNameCORS*입니다.
+기본 선호도 쿠키 이름은 *Applicationgatewayaffinity* 이며 변경할 수 있습니다. 사용자 지정 선호도 쿠키 이름을 사용 하는 경우 추가 쿠키는 CORS로 CORS를 사용 하 여 추가 됩니다. 예를 들면 *CustomCookieNameCORS* 입니다.
 
 > [!NOTE]
 > *SameSite = None* 특성을 설정 하는 경우 쿠키에 *보안* 플래그가 포함 되 고 HTTPS를 통해 전송 되어야 합니다.  CORS를 통해 세션 선호도가 필요한 경우 작업을 HTTPS로 마이그레이션해야 합니다. 여기 Application Gateway에 대 한 TLS 오프 로드 및 종단 간 TLS 설명서를 참조 하세요. [개요](ssl-overview.md), [Azure Portal를 사용 하 여 tls 종료를 사용 하 여 응용 프로그램 게이트웨이 구성](create-ssl-portal.md), [포털에서 Application Gateway를 사용 하 여 종단 간 tls 구성](end-to-end-ssl-portal.md)
@@ -76,7 +76,7 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
 ## <a name="use-for-app-service"></a>App service에 사용
 
-Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하는 UI 전용 바로 가기입니다. **백 엔드 주소에서 호스트 이름을 선택**하 고 아직 없는 경우 새 사용자 지정 프로브를 만듭니다. 자세한 내용은이 문서의 [백 엔드 주소 설정에서 호스트 이름 선택](#pick-host-name-from-back-end-address)섹션을 참조 하세요. 새 프로브가 만들어지고 프로브 헤더는 백 엔드 구성원의 주소에서 선택 됩니다.
+Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하는 UI 전용 바로 가기입니다. **백 엔드 주소에서 호스트 이름을 선택** 하 고 아직 없는 경우 새 사용자 지정 프로브를 만듭니다. 자세한 내용은이 문서의 [백 엔드 주소 설정에서 호스트 이름 선택](#pick-host-name-from-back-end-address)섹션을 참조 하세요. 새 프로브가 만들어지고 프로브 헤더는 백 엔드 구성원의 주소에서 선택 됩니다.
 
 ## <a name="use-custom-probe"></a>사용자 지정 프로브 사용
 
@@ -93,7 +93,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 예를 들어, 다중 테 넌 트 서비스는 백 엔드입니다. App service는 단일 IP 주소를 사용 하 여 공유 공간을 사용 하는 다중 테 넌 트 서비스입니다. 따라서 앱 서비스는 사용자 지정 도메인 설정에서 구성 된 호스트 이름을 통해서만 액세스할 수 있습니다.
 
-기본적으로 사용자 지정 도메인 이름은 *example.azurewebsites.net*입니다. App service에 명시적으로 등록 되지 않은 호스트 이름 또는 응용 프로그램 게이트웨이의 FQDN을 통해 응용 프로그램 게이트웨이를 사용 하 여 app service에 액세스 하려면 원래 요청에서 app service의 호스트 이름으로 호스트 이름을 재정의 합니다. 이렇게 하려면 **백 엔드 주소에서 호스트 이름 선택** 설정을 사용 하도록 설정 합니다.
+기본적으로 사용자 지정 도메인 이름은 *example.azurewebsites.net* 입니다. App service에 명시적으로 등록 되지 않은 호스트 이름 또는 응용 프로그램 게이트웨이의 FQDN을 통해 응용 프로그램 게이트웨이를 사용 하 여 app service에 액세스 하려면 원래 요청에서 app service의 호스트 이름으로 호스트 이름을 재정의 합니다. 이렇게 하려면 **백 엔드 주소에서 호스트 이름 선택** 설정을 사용 하도록 설정 합니다.
 
 기존 사용자 지정 DNS 이름을 app service에 매핑한 사용자 지정 도메인의 경우이 설정을 사용 하도록 설정할 필요가 없습니다.
 

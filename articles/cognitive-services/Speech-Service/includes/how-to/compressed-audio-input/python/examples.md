@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
 ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97978837"
 ---
 압축 된 오디오 입력을 허용 하도록 Speech SDK를 구성 하려면 또는을 만듭니다 `PullAudioInputStream` `PushAudioInputStream` . 그런 다음 스트림 `AudioConfig` 클래스의 인스턴스에서를 만들어 스트림의 압축 형식을 지정 합니다.

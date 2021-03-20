@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: dd845c0fb877afa76b84eb5c2d86392f763eccf7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96353394"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
@@ -57,7 +57,7 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 
 요청에서 [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.
 
-- [User-Agent](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [사용자-에이전트](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
 - [X-Search-ClientIP](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
 - [X-Search-Location](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)

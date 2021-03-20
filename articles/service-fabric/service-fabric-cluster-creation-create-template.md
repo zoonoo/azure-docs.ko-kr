@@ -4,10 +4,10 @@ description: Service Fabric 클러스터의 Resource Manager 템플릿을 만드
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260491"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
@@ -24,7 +24,7 @@ ms.locfileid: "86260491"
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates)에서 사용할 수 있습니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
 
-이 문서에서는 [5노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. *azuredeploy.json* 및 *azuredeploy.parameters.json*을 컴퓨터에 다운로드하고 주로 사용하는 텍스트 편집기에서 두 파일을 여세요.
+이 문서에서는 [5노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. *azuredeploy.json* 및 *azuredeploy.parameters.json* 을 컴퓨터에 다운로드하고 주로 사용하는 텍스트 편집기에서 두 파일을 여세요.
 
 > [!NOTE]
 > 국가별 클라우드(Azure Government, Azure 중국, Azure 독일)의 경우 다음 `fabricSettings`(`AADLoginEndpoint`, `AADTokenEndpointFormat` 및 `AADCertEndpointFormat`)를 템플릿에 추가해야 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "86260491"
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. 이러한 키 자격 증명 모음 매개 변수 및 값을 리소스 관리자 템플릿 매개 변수 파일에 추가 합니다 (*azuredeploy.parameters.js*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
-클러스터에 설치 된 모든 인증서는 확장 집합 리소스 (OsProfile/virtualMachineScaleSets)의 **osProfile** 섹션에 구성 되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 애플리케이션에 사용하려는 모든 애플리케이션 보안 인증서가 포함됩니다.
+클러스터에 설치 된 모든 인증서는 확장 집합 리소스 (OsProfile/virtualMachineScaleSets)의  섹션에 구성 되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 애플리케이션에 사용하려는 모든 애플리케이션 보안 인증서가 포함됩니다.
 
 ```json
 {

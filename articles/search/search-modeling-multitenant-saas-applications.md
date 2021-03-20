@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397371"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
@@ -26,9 +26,9 @@ ms.locfileid: "91397371"
 
 디자인 패턴에 대해 설명 하기 전에 몇 가지 기본 개념을 이해 하는 것이 중요 합니다.
 
-Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 구독 합니다. 데이터가 Azure Cognitive Search에 업로드 되 면 검색 서비스 내의 *인덱스* 에 저장 됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
+Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스* 를 구독 합니다. 데이터가 Azure Cognitive Search에 업로드 되 면 검색 서비스 내의 *인덱스* 에 저장 됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
 
-검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 *필드*로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 *문서*형식으로 Azure Cognitive Search 인덱스에 추가 됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure Cognitive Search를 사용 하 여 데이터를 검색할 때 전체 텍스트 검색 쿼리는 특정 인덱스에 대해 실행 됩니다.  이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
+검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 *필드* 로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 *문서* 형식으로 Azure Cognitive Search 인덱스에 추가 됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure Cognitive Search를 사용 하 여 데이터를 검색할 때 전체 텍스트 검색 쿼리는 특정 인덱스에 대해 실행 됩니다.  이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
 
 ### <a name="scalability"></a>확장성
 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 의 모든 Azure Cognitive Search 서비스는 저장소 및 가용성의 두 차원으로 확장할 수 있습니다.
@@ -95,7 +95,7 @@ Azure Cognitive Search는 개별 인덱스와 전체 인덱스 수를 확장할 
 
 ## <a name="2-service-per-tenant"></a>2. 테 넌 트 당 서비스
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="테넌트당 인덱스 모델" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="테넌트당 서비스 모델" border="false":::
 
 테넌트당 서비스 아키텍처에서 각 테넌트에는 자체 검색 서비스가 있습니다.
 

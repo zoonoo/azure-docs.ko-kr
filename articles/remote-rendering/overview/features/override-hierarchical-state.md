@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94445157"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
@@ -28,32 +28,32 @@ ms.locfileid: "94445157"
 
 재정의할 수 있는 상태의 고정 집합은 다음과 같습니다.
 
-* **`Hidden`** : 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
-* **`Tint color`** : 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
+* **`Hidden`**: 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
+* **`Tint color`**: 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
   
   ![개체를 녹색으로 전환 하는 데 사용 되는 색조 색입니다.](./media/color-tint.png)
 
-* **`See-through`** : 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
+* **`See-through`**: 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
 
   ![선택한 개체를 투명 하 게 만드는 데 사용 되는 보기 모드](./media/see-through.png)
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
 
-* **`Shell`** : 기 하 도형은 투명 한 비 포화 셸로 렌더링 됩니다. 이 모드를 사용 하면 모양과 상대 위치를 그대로 유지 하면서 장면의 중요 하지 않은 부분을 페이드 아웃할 수 있습니다. 셸 렌더링의 모양을 변경 하려면 [ShellRenderingSettings](shell-effect.md) 상태를 사용 합니다. 파란색 스프링을 제외 하 고 완전히 셸 렌더링 되는 자동차 모델은 다음 이미지를 참조 하세요.
+* **`Shell`**: 기 하 도형은 투명 한 비 포화 셸로 렌더링 됩니다. 이 모드를 사용 하면 모양과 상대 위치를 그대로 유지 하면서 장면의 중요 하지 않은 부분을 페이드 아웃할 수 있습니다. 셸 렌더링의 모양을 변경 하려면 [ShellRenderingSettings](shell-effect.md) 상태를 사용 합니다. 파란색 스프링을 제외 하 고 완전히 셸 렌더링 되는 자동차 모델은 다음 이미지를 참조 하세요.
 
   ![특정 개체를 페이드 아웃 하는 데 사용 되는 셸 모드](./media/shell.png)
 
   > [!IMPORTANT]
   > 셸 효과는 *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md) 를 사용 하는 경우에만 작동 합니다.
 
-* **`Selected`** : Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
+* **`Selected`**: Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
 
   ![선택한 파트를 강조 표시 하는 데 사용 되는 윤곽선 옵션](./media/selection-outline.png)
 
-* **`DisableCollision`** : 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
+* **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
 
-* **`UseCutPlaneFilterMask`** : 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요. 장면의 나머지 부분이 영향을 받지 않는 동안에는 타이어 및 테두리만 잘라내는 다음 예제를 참조 하세요.
+* **`UseCutPlaneFilterMask`**: 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요. 장면의 나머지 부분이 영향을 받지 않는 동안에는 타이어 및 테두리만 잘라내는 다음 예제를 참조 하세요.
 ![선택적 잘라내기 평면](./media/selective-cut-planes-hierarchical-override.png)
 
 

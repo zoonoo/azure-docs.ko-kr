@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98598371"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
@@ -137,7 +137,7 @@ Azure Maps [Get Search Address 역방향 API]( https://docs.microsoft.com/rest/a
 
     | 키 | 값 | 반환
     |-----|------------|------|
-    | number | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
+    | 숫자 | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
     | returnSpeedLimit | true | 주소의 속도 제한을 반환 합니다.|
     | returnRoadUse | true | 주소에서도로 사용 유형을 반환 합니다. 모든 가능한 이동 형식에 대해 [이동 유형 사용](/rest/api/maps/search/getsearchaddressreverse#uri-parameters)을 참조 하세요.|
     | returnMatchType | true| 일치 항목의 유형을 반환 합니다. 가능한 모든 값은 [역방향 주소 검색 결과](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult) 를 참조 하세요.

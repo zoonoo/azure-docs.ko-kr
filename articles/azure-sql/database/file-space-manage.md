@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 12/22/2020
 ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99096494"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대 한 파일 공간 관리
@@ -59,7 +59,7 @@ Azure SQL Database는 데이터베이스 성능에 영향을 줄 수 있으므�
 
 다음 스토리지 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
 
-|데이터베이스 수량|정의|주석|
+|데이터베이스 수량|정의|의견|
 |---|---|---|
 |**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
 |**할당된 데이터 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일 공간의 크기입니다.|할당된 공간의 크기는 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
@@ -115,7 +115,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 다음 스토리지 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
 
-|탄력적 풀 수량|정의|주석|
+|탄력적 풀 수량|정의|의견|
 |---|---|---|
 |**사용된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 사용되는 데이터 공간의 합계입니다.||
 |**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||

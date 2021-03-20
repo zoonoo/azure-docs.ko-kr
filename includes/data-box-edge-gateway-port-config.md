@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 71460af42b4da97a578ae5a3e23a714577e71867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86218050"
 ---
-| 포트 번호| 인 또는 아웃 | 포트 범위| 필수|   메모 |
+| 포트 번호| 인 또는 아웃 | 포트 범위| 필수|   참고 |
 |--------|-----|-----|-----------|----------|
 | TCP 80(HTTP)|아웃|WAN |아니요|업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS)|아웃|WAN|예|아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.<br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.|

@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22aa97c6e627c2072636ca2e079877ff0f608b68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798803"
 ---
 # <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 숨기 거 나 삭제 합니다.
@@ -35,17 +35,17 @@ ms.locfileid: "87798803"
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. 개요 페이지에서 **편집**을 클릭 합니다.
+1. 개요 페이지에서 **편집** 을 클릭 합니다.
 
 1. **숨겨진** 설정을 설정 합니다.
 
-    **아니요**로 설정 하면 액세스 패키지가 사용자의 내 액세스 포털에 나열 됩니다.
+    **아니요** 로 설정 하면 액세스 패키지가 사용자의 내 액세스 포털에 나열 됩니다.
 
-    **예**로 설정 되 면 액세스 패키지가 사용자의 내 액세스 포털에 나열 되지 않습니다. 사용자가 액세스 패키지를 볼 수 있는 유일한 방법은 액세스 패키지에 대 한 직접 **내 액세스 포털 링크가** 있는 경우입니다. 자세한 내용은 [액세스 패키지를 요청 하는 공유 링크를](entitlement-management-access-package-settings.md)참조 하세요.
+    **예** 로 설정 되 면 액세스 패키지가 사용자의 내 액세스 포털에 나열 되지 않습니다. 사용자가 액세스 패키지를 볼 수 있는 유일한 방법은 액세스 패키지에 대 한 직접 **내 액세스 포털 링크가** 있는 경우입니다. 자세한 내용은 [액세스 패키지를 요청 하는 공유 링크를](entitlement-management-access-package-settings.md)참조 하세요.
 
 ## <a name="delete-an-access-package"></a>액세스 패키지 삭제
 
@@ -53,15 +53,15 @@ ms.locfileid: "87798803"
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
 1. 왼쪽 메뉴에서 **할당** 을 클릭 하 고 모든 사용자에 대 한 액세스 권한 제거를 클릭 합니다.
 
-1. 왼쪽 메뉴에서 **개요** 를 클릭 한 다음 **삭제**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **개요** 를 클릭 한 다음 **삭제** 를 클릭 합니다.
 
-1. 삭제 메시지가 표시 되 면 **예**를 클릭 합니다.
+1. 삭제 메시지가 표시 되 면 **예** 를 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

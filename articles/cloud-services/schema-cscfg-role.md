@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743443"
 ---
 # <a name="azure-cloud-services-classic-config-role-schema"></a>Azure Cloud Services (클래식) 구성 역할 스키마
@@ -43,9 +43,9 @@ Azure Service 구성 스키마에 대한 자세한 내용은 [Cloud Service(클�
 
 다음 표에서는 `Role` 요소의 특성을 설명합니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 | --------- | ----------- |
-| 이름   | 필수 요소. 역할 이름을 지정합니다. 이름은 서비스 정의 파일에서 역할에 대해 제공된 이름과 일치해야 합니다.|
+| name   | 필수 요소. 역할 이름을 지정합니다. 이름은 서비스 정의 파일에서 역할에 대해 제공된 이름과 일치해야 합니다.|
 | vmName | 선택 사항입니다. Virtual Machine에 대한 DNS 이름을 지정합니다. 이름은 10자 이하여야 합니다.|
 
 다음 테이블에서는 `Role` 요소의 자식 요소에 대해 설명합니다.

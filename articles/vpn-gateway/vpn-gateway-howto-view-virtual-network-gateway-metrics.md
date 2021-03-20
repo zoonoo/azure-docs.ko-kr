@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: 4b33af3e64726e124373f57920836bce145cd891
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89443180"
 ---
 # <a name="view-vpn-gateway-metrics"></a>VPN Gateway 메트릭 보기
@@ -41,7 +41,7 @@ Azure Monitor를 사용 하 여 Azure VPN 게이트웨이를 모니터링할 수
 
 3. 위에 나열 된 다른 메트릭을 볼 수 있습니다. 가상 네트워크 게이트웨이 리소스 아래의 **메트릭** 섹션을 클릭 하 고 드롭다운 목록에서 메트릭을 선택 합니다.
 
-   ![리소스 목록의 선택 단추 및 VPN gateway](./media/vpn-gateway-howto-view-virtual-network-gateway-metrics/metrics.png "새 페이지를 추가하기 위해")
+   ![리소스 목록의 선택 단추 및 VPN gateway](./media/vpn-gateway-howto-view-virtual-network-gateway-metrics/metrics.png "선택")
 
 ## <a name="next-steps"></a>다음 단계
 

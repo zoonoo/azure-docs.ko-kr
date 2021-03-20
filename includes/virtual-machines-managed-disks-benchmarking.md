@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 25404837d5bc66ff415be8d8670eb6650475c30f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99094631"
 ---
 ## <a name="warm-up-the-cache"></a>캐시 준비

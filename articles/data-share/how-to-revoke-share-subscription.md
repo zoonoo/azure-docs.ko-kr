@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 102a0099c95073793ba6a1a85f518c7539327bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87511856"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share"></a>Azure 데이터 공유에서 소비자의 공유 구독을 취소 하는 방법
@@ -23,7 +23,7 @@ Azure 데이터 공유에서 보낸 공유로 이동 하 고 **구독 공유** �
 
 ![공유 구독 취소](./media/how-to/how-to-revoke-share-subscription/revoke-share-subscription.png) 
 
-삭제 하려는 공유 구독을 가진 받는 사람 옆의 확인란을 선택 하 고 **해지**를 클릭 합니다. 소비자는 더 이상 해당 데이터에 대 한 업데이트를 받지 않습니다.
+삭제 하려는 공유 구독을 가진 받는 사람 옆의 확인란을 선택 하 고 **해지** 를 클릭 합니다. 소비자는 더 이상 해당 데이터에 대 한 업데이트를 받지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 공유를 모니터링](how-to-monitor.md)하는 방법에 대해 자세히 알아보세요.

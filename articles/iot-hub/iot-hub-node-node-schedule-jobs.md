@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151437"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트 (Node.js)
@@ -37,17 +37,17 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
-* 솔루션 백 엔드에서 **lockDoor**를 호출할 수 있는 직접 메서드가 포함된 Node.js로 시뮬레이션된 디바이스 앱을 만듭니다.
+* 솔루션 백 엔드에서 **lockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Node.js로 시뮬레이션된 디바이스 앱을 만듭니다.
 
 * 작업을 사용하여 시뮬레이션된 디바이스 앱에서 **lockDoor** 직접 메서드를 호출하고, 디바이스 작업을 사용하여 desired 속성을 업데이트하는 Node.js 콘솔 앱을 만듭니다.
 
 이 자습서를 마치면 두 가지 Node.js 앱이 만들어집니다.
 
-* **simDevice.js**는 장치 id를 사용 하 여 IoT hub에 연결 하 고 **lockdoor** direct 메서드를 수신 합니다.
+* **simDevice.js** 는 장치 id를 사용 하 여 IoT hub에 연결 하 고 **lockdoor** direct 메서드를 수신 합니다.
 
-* **scheduleJobService.js**는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
+* **scheduleJobService.js** 는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -69,7 +69,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 섹션에서는 클라우드에서 호출한 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다. 이 메서드는 시뮬레이션된 **lockDoor** 메서드를 트리거합니다.
 
-1. **simDevice**라는 빈 폴더를 새로 만듭니다.  **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
+1. **simDevice** 라는 빈 폴더를 새로 만듭니다.  **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 
    ```console
    npm init
@@ -146,7 +146,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 섹션에서는 직접 메서드를 사용 하 여 장치에서 원격 **Lockdoor** 를 시작 하 고 장치 쌍의 속성을 업데이트 하는 Node.js 콘솔 앱을 만듭니다.
 
-1. **scheduleJobService**라는 빈 폴더를 새로 만듭니다.  **scheduleJobService** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
+1. **scheduleJobService** 라는 빈 폴더를 새로 만듭니다.  **scheduleJobService** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 
     ```console
     npm init
@@ -169,7 +169,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. 다음 변수 선언을 추가합니다. `{iothubconnectionstring}`자리 표시자 값을 [IoT hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 값으로 바꿉니다. **Mydeviceid**와 다른 장치를 등록 한 경우 쿼리 조건에서 변경 해야 합니다.
+5. 다음 변수 선언을 추가합니다. `{iothubconnectionstring}`자리 표시자 값을 [IoT hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 값으로 바꿉니다. **Mydeviceid** 와 다른 장치를 등록 한 경우 쿼리 조건에서 변경 해야 합니다.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743137"
 ---
 # <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Azure Cloud Services (클래식) 정의의 역할 스키마
@@ -349,7 +349,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | attribute | Type | 설명 |
 | --------- | ---- | ----------- |
 |assemblyName|문자열|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\ %ROLEROOT%\Approot** 폴더를 기준으로 합니다 .에서는 **\\ %ROLEROOT%\Approot** 를 지정 하지 마십시오 `commandLine` . **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\ %ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.|
-|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예들 들어 `targetFrameworkVersion="v4.0"`입니다.|
+|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예: `targetFrameworkVersion="v4.0"`|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> ProgramEntryPoint
 `ProgramEntryPoint` 요소는 역할에 실행하는 프로그램을 지정합니다. `ProgramEntryPoint` 요소를 사용하면 .NET 어셈블리에 기반하지 않는 프로그램 진입점을 지정할 수 있습니다.

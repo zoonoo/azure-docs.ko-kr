@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
 ms.openlocfilehash: 2e9b6ddc9da4467590946af12a47f1473a4ea494
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202058"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
@@ -63,17 +63,17 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *로컬*, *표준 또는 *프리미엄*을 지정할 수 있습니다. SKU를 *표준/프리미엄*에서 *로컬*로 변경할 수 없습니다.
-   * **SKU 제품군** 은 청구 유형을 결정 합니다. 데이터 요금제에 대해 *unlimiteddata* 를 지정 하 고 무제한 데이터 요금제의 경우 *unlimiteddata로* 을 지정할 수 있습니다. 청구 유형을 *unlimiteddata* 에서 *unlimiteddata로*로 변경할 수 있지만, 유형을 *unlimiteddata로* 에서 *unlimiteddata*로 변경할 수는 없습니다. *로컬* 회로는 *unlimiteddata로* 뿐입니다.
-   * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
+   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *로컬*, *표준 또는 *프리미엄* 을 지정할 수 있습니다. SKU를 *표준/프리미엄* 에서 *로컬* 로 변경할 수 없습니다.
+   * **SKU 제품군** 은 청구 유형을 결정 합니다. 데이터 요금제에 대해 *unlimiteddata* 를 지정 하 고 무제한 데이터 요금제의 경우 *unlimiteddata로* 을 지정할 수 있습니다. 청구 유형을 *unlimiteddata* 에서 *unlimiteddata로* 로 변경할 수 있지만, 유형을 *unlimiteddata로* 에서 *unlimiteddata* 로 변경할 수는 없습니다. *로컬* 회로는 *unlimiteddata로* 뿐입니다.
+   * **피어링 위치** 는 Microsoft와 피어링하는 물리적 위치입니다.
 
      > [!IMPORTANT]
      > 피어링 위치는 Microsoft와 피어링하는 [물리적 위치](expressroute-locations.md)를 나타냅니다. 이 위치는 Azure Network Resource Provider가 있는 지리적 위치를 참조하는 "Location" 속성에 **연결되지 않습니다** . 이 속성에 연결되지 않는 대신 회로의 피어링 위치와 지리적으로 가까운 네트워크 리소스 공급자를 선택 하는 것이 좋습니다.
 
     리소스 그룹 이름은 **rg** 추가 된 service bus 네임 스페이스 이름입니다.
 
-2. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+2. **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
+3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
 이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 
@@ -88,8 +88,8 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
 **삭제** 아이콘을 선택 하 여 express 경로 회로를 삭제할 수 있습니다. 다음 정보에 유의하세요.
 
 * 모든 가상 네트워크를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
-* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
-* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨** 인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
+* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음** 이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
 
 다음 PowerShell 명령을 실행 하 여 Express 경로 회로를 삭제할 수 있습니다.
 

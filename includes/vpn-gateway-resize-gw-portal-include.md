@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 10/21/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f4c4912992d474346e7b7cbd299769766465ec23
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010847"
 ---
 1. 가상 네트워크 게이트웨이에 대한 **구성** 페이지로 이동합니다.

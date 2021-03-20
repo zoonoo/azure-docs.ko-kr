@@ -4,10 +4,10 @@ description: 청사진 할당을 만드는 동안 Azure 청사진 서비스가 �
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918554"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>청사진 배포 단계

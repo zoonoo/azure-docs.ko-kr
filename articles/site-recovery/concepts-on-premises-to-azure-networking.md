@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568781"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
@@ -37,7 +37,7 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 온-프레미스 Windows 머신에서 다음을 수행합니다.
 
-1. Windows 설정을 구성합니다. 여기에는 정적 영구 경로 또는 WinHTTP 프록시를 제거 하 고 디스크 SAN 정책을 **OnlineAll**로 설정 하는 작업이 포함 됩니다. 다음 지침을 [따르세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) .
+1. Windows 설정을 구성합니다. 여기에는 정적 영구 경로 또는 WinHTTP 프록시를 제거 하 고 디스크 SAN 정책을 **OnlineAll** 로 설정 하는 작업이 포함 됩니다. 다음 지침을 [따르세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) .
 
 2. [이러한 서비스](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)가 실행 중인지 확인합니다.
 
@@ -60,7 +60,7 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 장애 조치 (failover) 후 생성 된 Azure Vm에서 다음을 수행 합니다.
 
-1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세한 정보](../virtual-network/virtual-network-public-ip-address.md)
+1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세히 알아보기](../virtual-network/virtual-network-public-ip-address.md)
 2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
 3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 을 확인 하 여 VM을 확인 합니다.
 
@@ -96,7 +96,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 ### <a name="failover-example"></a>장애 조치 예제
 
-예제를 살펴보겠습니다.
+예를 살펴보겠습니다.
 
 - 가상의 회사 Woodgrove Bank는 온-프레미스의 비즈니스 앱을 호스트 하 여 Azure에서 모바일 앱을 호스팅합니다.
 - 사이트 간 VPN을 통해 온-프레미스에서 Azure로 연결 합니다. 
@@ -112,7 +112,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 주소를 유지 하기 위해 수행 하는 작업은 다음과 같습니다.
 
-1. 복제를 사용 하도록 설정 하는 경우 컴퓨터가 **Azure 네트워크**에 복제 하도록 지정 합니다.
+1. 복제를 사용 하도록 설정 하는 경우 컴퓨터가 **Azure 네트워크** 에 복제 하도록 지정 합니다.
 2. Azure에서 **복구 네트워크** 를 만듭니다. 이 VNet은 온-프레미스 네트워크에서 192.168.1.0/24 서브넷을 미러링합니다.
 3. Woodgrove는 두 네트워크 간에 [vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 을 설정 합니다. 
 
@@ -137,11 +137,11 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 장애 조치 (failover) 전에 대상 Azure VM의 네트워크 설정 및 IP 주소를 지정 합니다.
 
-1.  Recovery Services 자격 증명 모음-> **복제 된 항목**에서 온-프레미스 컴퓨터를 선택 합니다.
-2. 컴퓨터의 **계산 및 네트워크** 페이지에서 **편집**을 클릭 하 여 대상 Azure VM에 대 한 네트워크 및 어댑터 설정을 구성 합니다.
-3. **네트워크 속성**에서 장애 조치 (failover) 후에 Azure VM을 만들 때 Azure VM이 배치 될 대상 네트워크를 선택 합니다.
-4. **네트워크 인터페이스**에서 대상 네트워크에 네트워크 어댑터를 구성 합니다. 기본적으로 Site Recovery은 온-프레미스 컴퓨터에서 검색 된 모든 Nic를 표시 합니다.
-    - 대상 네트워크에서 특정 NIC가 필요 하지 않은 경우 **대상 네트워크 인터페이스 유형** 에서 각 Nic를 **기본**, **보조**또는 **만들기 안 함** 으로 설정할 수 있습니다. 장애 조치 (failover)를 위해 네트워크 어댑터 하나를 기본으로 설정 해야 합니다. 대상 네트워크를 수정 하면 Azure VM의 모든 Nic에 영향을 줍니다.
+1.  Recovery Services 자격 증명 모음-> **복제 된 항목** 에서 온-프레미스 컴퓨터를 선택 합니다.
+2. 컴퓨터의 **계산 및 네트워크** 페이지에서 **편집** 을 클릭 하 여 대상 Azure VM에 대 한 네트워크 및 어댑터 설정을 구성 합니다.
+3. **네트워크 속성** 에서 장애 조치 (failover) 후에 Azure VM을 만들 때 Azure VM이 배치 될 대상 네트워크를 선택 합니다.
+4. **네트워크 인터페이스** 에서 대상 네트워크에 네트워크 어댑터를 구성 합니다. 기본적으로 Site Recovery은 온-프레미스 컴퓨터에서 검색 된 모든 Nic를 표시 합니다.
+    - 대상 네트워크에서 특정 NIC가 필요 하지 않은 경우 **대상 네트워크 인터페이스 유형** 에서 각 Nic를 **기본**, **보조** 또는 **만들기 안 함** 으로 설정할 수 있습니다. 장애 조치 (failover)를 위해 네트워크 어댑터 하나를 기본으로 설정 해야 합니다. 대상 네트워크를 수정 하면 Azure VM의 모든 Nic에 영향을 줍니다.
     - NIC 이름을 클릭 하 여 Azure VM이 배포 될 서브넷을 지정 합니다.
     - 대상 Azure VM에 할당 하려는 개인 IP 주소를 사용 하 여 **동적** 을 덮어씁니다. IP 주소를 지정 하지 않으면 Site Recovery는 장애 조치 (failover) 시 서브넷에서 사용 가능한 다음 IP 주소를 NIC에 할당 합니다.
     - Azure로의 온-프레미스 장애 조치 (failover)에 대 한 Nic 관리에 대해 [자세히 알아보세요](site-recovery-manage-network-interfaces-on-premises-to-azure.md) .
@@ -151,9 +151,9 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 이 시나리오에서 Azure VM은 장애 조치 (failover) 후에 새 IP 주소를 가져옵니다. 장애 조치 (failover) 후 생성 된 가상 컴퓨터에 대 한 새 IP 주소를 설정 하려면 다음 단계를 참조 하세요.
 
-1. 복제 된 **항목**으로 이동 합니다.
+1. 복제 된 **항목** 으로 이동 합니다.
 2. 원하는 Azure virtual machine을 선택 합니다.
-3. **Compute 및 네트워크** 를 선택 하 고 **편집**을 선택 합니다.
+3. **Compute 및 네트워크** 를 선택 하 고 **편집** 을 선택 합니다.
 
      ![장애 조치 (failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
@@ -161,7 +161,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
     ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png)
 
-5. **확인**을 선택합니다.
+5. **확인** 을 선택합니다.
 
 이제 Site Recovery는 이러한 설정을 적용 하 고, 대상 IP 범위에서 사용할 수 있는 경우 장애 조치 (failover)의 가상 컴퓨터가 해당 IP 주소를 통해 선택한 리소스에 연결 되도록 합니다. 이 시나리오에서는 전체 서브넷을 장애 조치 (failover) 할 필요가 없습니다. 장애 조치 (failover) 된 컴퓨터에서 가상 컴퓨터의 새 IP 주소를 가리키도록 레코드를 업데이트 하려면 DNS 업데이트가 필요 합니다.
 

@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31c44f2423cdc5c43638fe2515757bcb11a9814c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798446"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 자체 검토
@@ -54,9 +54,9 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
     >[!NOTE]
     >더 이상 액세스 하지 않아도 되는 경우 액세스 패키지에서 즉시 제거 되지 않습니다. 검토가 종료 되거나 관리자가 검토를 중지 하면 액세스 패키지에서 제거 됩니다.
 
-1.  **예**를 클릭 한 경우 **이유** 상자에 근거 문을 포함 해야 할 수 있습니다.
+1.  **예** 를 클릭 한 경우 **이유** 상자에 근거 문을 포함 해야 할 수 있습니다.
 
-1.  **제출**을 클릭합니다.
+1.  **제출** 을 클릭합니다.
 
 검토를 완료 하기 전에이 점을 변경 하 고 응답을 변경 하도록 결정 하는 경우 검토로 돌아갈 수 있습니다.
 

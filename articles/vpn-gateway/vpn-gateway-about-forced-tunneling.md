@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: af4359efb48898c12bb8ee7ffb882448b5012d19
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151351"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
@@ -49,7 +49,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ![강제 터널링](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 

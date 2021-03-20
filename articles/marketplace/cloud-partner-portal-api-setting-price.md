@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393822"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
@@ -23,7 +23,7 @@ ms.locfileid: "89393822"
 
 ## <a name="customized-core-pricing"></a>사용자 지정 코어 가격
 
-각 지역과 코어의 조합별로 가격을 책정합니다. 판매 목록의 모든 지역은 정의의 **virtualmachinepricing**지역 / **가격** 섹션에 지정 해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
+각 지역과 코어의 조합별로 가격을 책정합니다. 판매 목록의 모든 지역은 정의의 **virtualmachinepricing** 지역 / **가격** 섹션에 지정 해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
 
 ``` json
     "virtualMachinePricing": 

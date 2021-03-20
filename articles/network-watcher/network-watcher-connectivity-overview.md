@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 9c855fff9e5791b9c0cf870acfc6de53e7a700b2
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97653999"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure Network Watcher의 연결 문제 해결 소개
@@ -29,7 +29,7 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 
 다음 테이블에 연결 문제 해결이 실행 완료되었을 때 반환되는 속성이 나와 있습니다.
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |ConnectionStatus     | 연결 확인의 상태입니다. 가능한 결과는 **연결 가능** 및 **연결 불가능** 입니다.        |
 |AvgLatencyInMs     | 연결 확인 중 평균 대기 시간(밀리초)입니다. (검사 상태가 연결 가능인 경우에만 표시됩니다.)        |
@@ -72,7 +72,7 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 
 연결 문제 해결은 연결에 대한 오류 형식을 반환합니다. 다음 테이블에 반환된 현재 오류 형식의 목록이 나와 있습니다.
 
-|형식  |설명  |
+|Type  |설명  |
 |---------|---------|
 |CPU     | 높은 CPU 사용률       |
 |메모리     | 높은 메모리 사용률       |

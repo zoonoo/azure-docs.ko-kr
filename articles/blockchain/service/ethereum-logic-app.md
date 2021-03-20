@@ -5,17 +5,17 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
 ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96763794"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Azure Logic Apps에서 Ethereum 블록체인 커넥터 사용
 
 [Azure Logic Apps](../../logic-apps/index.yml)에서 [Ethereum 블록체인 커넥터](/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 이 문서에서는 Ethereum Blockchain 커넥터를 사용 하 여 블록 체인 정보를 다른 서비스로 보내거나 Blockchain 함수를 호출 하는 방법을 설명 합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 선택적 필수 조건 [빠른 시작: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
 - Azure Logic Apps를 처음 사용 하는 경우 Microsoft Learn 모듈 소개를 검토 [하](/learn/modules/intro-to-logic-apps/) 여 [사용자 지정 커넥터를 사용 하 여 Logic Apps 워크플로에서 API](/learn/modules/logic-apps-and-custom-connectors/)를 Azure Logic Apps 하 고 호출 하는 것이 좋습니다.

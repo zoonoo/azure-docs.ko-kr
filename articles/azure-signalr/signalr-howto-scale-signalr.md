@@ -8,10 +8,10 @@ ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89595770"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Azure SignalR 서비스 인스턴스의 크기를 조정 하는 방법
@@ -32,13 +32,13 @@ ms.locfileid: "89595770"
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 
-2. SignalR Service 페이지의 왼쪽 메뉴에서 **Scale**을 선택 합니다.
+2. SignalR Service 페이지의 왼쪽 메뉴에서 **Scale** 을 선택 합니다.
    
-3. 가격 책정 계층을 선택한 다음 **선택**을 클릭 합니다. **표준** 계층의 단위 수를 설정 합니다.
+3. 가격 책정 계층을 선택한 다음 **선택** 을 클릭 합니다. **표준** 계층의 단위 수를 설정 합니다.
    
     ![포털에서 크기 조정](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. **Save**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 ## <a name="scale-using-azure-cli"></a>Azure CLI를 사용한 크기 조정
 

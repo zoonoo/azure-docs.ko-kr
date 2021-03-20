@@ -4,10 +4,10 @@ description: 프리미엄 레지스트리에서 특정 리포지토리로 범위
 ms.topic: article
 ms.date: 02/04/2021
 ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988260"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
@@ -38,7 +38,7 @@ ms.locfileid: "99988260"
 
   토큰을 사용하여 인증되면 사용자 또는 서비스에서 하나 이상의 리포지토리로 범위가 지정된 하나 이상의 *작업* 을 수행할 수 있습니다.
 
-  |작업  |Description  | 예제 |
+  |작업  |설명  | 예제 |
   |---------|---------|--------|
   |`content/delete`    | 리포지토리에서 데이터 제거  | 리포지토리 또는 매니페스트 삭제 |
   |`content/read`     |  리포지토리에서 데이터 읽기 |  아티팩트 끌어오기 |

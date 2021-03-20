@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: e8c222d7cdcdb203cd323cde38818e5b51643159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91443375"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업로 마이그레이션 (미리 보기)
@@ -32,7 +32,7 @@ ms.locfileid: "91443375"
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>최신 탄력적 작업 cmdlet 설치
 
-Azure 구독이 아직 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만드세요](https://azure.microsoft.com/free/).
 
 **Az.Sql** 1.1.1-preview 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
 
@@ -46,7 +46,7 @@ Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 # Restart your powershell session with administrative access
 
 # Places Az.Sql preview cmdlets side by side with existing Az.Sql version
-Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
 
 # Import the Az.Sql module
 Import-Module Az.Sql -RequiredVersion 1.1.1
@@ -91,7 +91,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 ## <a name="migration"></a>마이그레이션
 
-이제 이전 및 새로운 탄력적 작업 cmdlet이 모두 설치되었으므로 작업 자격 증명, 대상 및 작업을 새로운 *작업 데이터베이스*로 마이그레이션합니다.
+이제 이전 및 새로운 탄력적 작업 cmdlet이 모두 설치되었으므로 작업 자격 증명, 대상 및 작업을 새로운 *작업 데이터베이스* 로 마이그레이션합니다.
 
 ### <a name="setup"></a>설정
 
@@ -605,7 +605,7 @@ Job job4
 
 ## <a name="migration-complete"></a>마이그레이션 완료
 
-이제 *job database*에는 작업 자격 증명, 대상, 작업 트리거, 작업 예약, 작업 콘텐츠 및 마이그레이션 작업이 모두 포함됩니다.
+이제 *job database* 에는 작업 자격 증명, 대상, 작업 트리거, 작업 예약, 작업 콘텐츠 및 마이그레이션 작업이 모두 포함됩니다.
 
 모두 정확히 마이그레이션되었는지 확인하려면 다음 스크립트를 사용합니다.
 

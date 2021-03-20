@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
 ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101737565"
 ---
 # <a name="monitoring-time-series-insights"></a>모니터링 Time Series Insights
@@ -57,7 +57,7 @@ Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자�
 
 Azure Time Series Insights에 대 한 다음 범주에서 로그를 수집할 수 있습니다.
 
-   | 범주 | Description |
+   | 범주 | 설명 |
    |---|---|
    | 수신  | 수신 범주는 수신 파이프라인에서 발생 하는 오류를 추적 합니다. 이 범주에는 이벤트를 받을 때 발생 하는 오류 (예: 이벤트 원본에 연결 하지 못한 경우) 및 이벤트 처리 (예: 이벤트 페이로드를 구문 분석할 때 발생 하는 오류)가 포함 됩니다. |
 
@@ -84,7 +84,7 @@ Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 �
 
 Azure Time Series Insights은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | Description |
+| 테이블 | 설명 |
 |:---|:---|
 | TSIIngress | 수신 범주의 데이터를 저장 하는 테이블입니다. 수신 범주는 수신 파이프라인에서 발생 하는 오류를 추적 합니다. 이 범주에는 이벤트를 받을 때 발생 하는 오류 (예: 이벤트 원본에 연결 하지 못한 경우) 및 이벤트 처리 (예: 이벤트 페이로드를 구문 분석할 때 발생 하는 오류)가 포함 됩니다.
 

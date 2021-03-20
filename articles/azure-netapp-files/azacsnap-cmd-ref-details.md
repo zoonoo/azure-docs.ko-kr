@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 43d358f7050dcc831f9f2bf439fba6e688ee633b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632907"
 ---
 # <a name="obtain-details-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일관성 있는 스냅숏 도구를 사용 하 여 세부 정보 얻기 (미리 보기)

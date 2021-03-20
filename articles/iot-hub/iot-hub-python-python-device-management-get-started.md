@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: d4c514042b89341b90b0bb9c939ef4b463741916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87872721"
 ---
 # <a name="get-started-with-device-management-python"></a>디바이스 관리 시작(Python)
@@ -66,7 +66,7 @@ ms.locfileid: "87872721"
     pip install azure-iot-device
     ```
 
-2. 텍스트 편집기를 사용하여 작업 디렉터리에 **dmpatterns_getstarted_device**라는 파일을 만듭니다.
+2. 텍스트 편집기를 사용하여 작업 디렉터리에 **dmpatterns_getstarted_device** 라는 파일을 만듭니다.
 
 3. 다음 `import` 문을 **dmpatterns_getstarted_device.py** 파일의 시작 부분에 추가합니다.
 

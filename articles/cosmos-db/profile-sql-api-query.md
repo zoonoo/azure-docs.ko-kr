@@ -9,10 +9,10 @@ ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097399"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>.NET SDK를 사용 하 여 SQL 쿼리 실행 메트릭 가져오기 및 쿼리 성능 분석
@@ -235,7 +235,7 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 쿼리 성능 튜닝에 대 한 자세한 내용은 [쿼리 성능 조정](./sql-api-query-metrics.md) 문서를 참조 하세요.
 
-## <a name="references"></a><a id="References"></a>참조
+## <a name="references"></a><a id="References"></a>참조할
 
 - [Azure Cosmos DB SQL 사양](./sql-query-getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

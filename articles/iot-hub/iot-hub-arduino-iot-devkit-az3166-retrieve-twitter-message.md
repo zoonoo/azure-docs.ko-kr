@@ -11,10 +11,10 @@ ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: af1685f6455c0642800cba7dd604fcc836bcd7a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147904"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
@@ -50,10 +50,10 @@ ms.locfileid: "92147904"
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT** 로 이동하여 **ShakeShake** 를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 열고, **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 열고, **Arduino** 를 입력한 다음, **Arduino: 예제** 를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -152,7 +152,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 - 다시 A 단추를 누른 후 흔들어서 새 트윗을 검색합니다.
 - B 단추를 눌러 나머지 트윗을 스크롤합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 ![다이어그램은 azure 함수 앱을 트리거하여 앱으로 다시 전송 되 고 허브 및 모바일 장치로 전달 되는 azure 함수 앱을 트리거하여 azure I o T Hub에 이벤트를 보내는 모바일 장치를 표시 합니다. 트 윗를 요청 합니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -168,7 +168,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 3. [일부 유틸리티](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/)를 사용하여 두 키로 Twitter 전달자 토큰을 생성합니다.
 
-4. [Azure Portal](https://portal.azure.com/){:target="_blank"}에서 **리소스 그룹**으로 이동하여 "Shake, Shake" 프로젝트의 Azure 함수(유형: 앱 서비스)를 찾습니다. 이름에는 항상 'Shake...' 문자열이 포함됩니다.
+4. [Azure Portal](https://portal.azure.com/){:target="_blank"}에서 **리소스 그룹** 으로 이동하여 "Shake, Shake" 프로젝트의 Azure 함수(유형: 앱 서비스)를 찾습니다. 이름에는 항상 'Shake...' 문자열이 포함됩니다.
 
    ![프로젝트에 대 한 app service를 보여 주는 Azure Portal의 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
@@ -180,7 +180,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
   
    ![스크린 샷에서는 토큰을 입력할 수 있는 함수에 대 한 c # 코드를 보여 줍니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
-6. 파일을 저장하고 **실행**을 클릭합니다.
+6. 파일을 저장하고 **실행** 을 클릭합니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

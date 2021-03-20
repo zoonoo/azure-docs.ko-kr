@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010965"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal를 사용 하 여 장치 등록을 관리 하는 방법
@@ -40,11 +40,11 @@ ms.locfileid: "96010965"
      
         [![포털을 사용 하 여 등록 그룹 추가](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
         
-        | 필드 | Description |
+        | 필드 | 설명 |
         | :--- | :--- |
         | **그룹 이름** | 장치 그룹의 필수 이름입니다. |
         | **증명 유형** | 장치에서 사용 하는 증명 방법에 따라 증명 형식에 대 한 **인증서** 또는 **대칭 키** 를 클릭 합니다. |
-        | **인증서 유형** | 인증서 증명을 사용 하는 경우 사용할 수 있습니다. 장치 인증서에 서명 된 인증서를 기반으로 **CA 인증서** 또는 **중간** 을 선택 합니다. |
+        | **인증서 종류** | 인증서 증명을 사용 하는 경우 사용할 수 있습니다. 장치 인증서에 서명 된 인증서를 기반으로 **CA 인증서** 또는 **중간** 을 선택 합니다. |
         | **기본 인증서** | 루트 CA 인증서를 사용 하 여 장치 인증서에 서명 하는 경우 루트 CA 인증서 [의 소유 증명을 소유](how-to-verify-certificates.md) 해야 합니다. 그런 다음 장치 그룹에 대 한 **기본 인증서** 로이를 선택할 수 있습니다.<br><br>중간 인증서를 사용 하 여 장치 인증서에 서명 하는 경우 중간 인증서를 업로드 하는 데 사용할 수 있는 업로드 단추를 사용할 수 있습니다. 중간에 서명 된 인증서에도 해당 인증서에 대 한 [소유](how-to-verify-certificates.md) 증명이 있어야 합니다. |
 
         
@@ -64,11 +64,11 @@ ms.locfileid: "96010965"
      
         [![포털의 개별 등록](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
     
-        | 필드 | Description |
+        | 필드 | 설명 |
         | :--- | :--- |
         | **메커니즘** | 장치가 사용 하는 증명 방법에 따라 사용할 증명 메커니즘에 대해 **x.509**, **TPM** 또는 **대칭 키** 를 선택 합니다. |
         | 증명 설정 | 대칭 키 또는 x.509 인증서를 사용 하 여 개별 등록을 만들고 사용 하는 방법에 대 한 단계별 지침은 [대칭 장치 프로 비전](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) 또는 [X.509 인증서 장치 프로 비전](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) (영문)을 참조 하세요.<br><br>TPM 증명을 사용 하 여 개별 등록을 만들고 사용 하는 방법에 대 한 단계별 지침은 [시뮬레이션 된 tpm 장치 샘플 프로 비전](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) 중 하나를 참조 하세요.|
-        | **IoT Hub 장치 ID** |  이 ID는 장치를 나타냅니다. 장치 ID에 대 한 규칙을 따라야 합니다. 자세한 내용은 [장치 id 속성](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)을 참조 하세요.<br><br>X.509 인증서를 사용 하는 경우이 텍스트는 등록을 위해 업로드 하는 장치 인증서의 주체 이름 이어야 합니다. 해당 주체 이름은 장치 ID에 대 한 규칙을 준수 해야 합니다.|
+        | **IoT Hub 장치 ID** |  이 ID는 장치를 나타냅니다. 따라서 디바이스 ID에 대한 규칙을 따라야 합니다. 자세한 내용은 [디바이스 ID 속성](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)을 참조하세요.<br><br>X.509 인증서를 사용 하는 경우이 텍스트는 등록을 위해 업로드 하는 장치 인증서의 주체 이름 이어야 합니다. 해당 주체 이름은 장치 ID에 대 한 규칙을 준수 해야 합니다.|
             
 
 

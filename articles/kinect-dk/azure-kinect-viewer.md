@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, 센서, 뷰어, 시각화, 깊이, rgb, 색, imu, 오디오, 마이크, 지점 클라우드
 ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92166108"
 ---
 # <a name="azure-kinect-viewer"></a>Azure Kinect 뷰어
@@ -40,7 +40,7 @@ Azure Kinect Viewer는 [오픈 소스](https://github.com/microsoft/Azure-Kinect
 
 ### <a name="use-the-viewer-with-live-data"></a>라이브 데이터에 뷰어 사용
 
-1. **장치 열기** 섹션에서 열려는 장치의 **일련 번호** 를 선택 합니다. 그런 다음 장치가 없는 경우 **새로 고침**을 선택 합니다.
+1. **장치 열기** 섹션에서 열려는 장치의 **일련 번호** 를 선택 합니다. 그런 다음 장치가 없는 경우 **새로 고침** 을 선택 합니다.
 2. **장치 열기** 단추를 선택 합니다.
 3. **시작** 을 선택 하 여 기본 설정으로 데이터 스트리밍을 시작 합니다.
 
@@ -61,7 +61,7 @@ Azure Kinect Viewer는 [오픈 소스](https://github.com/microsoft/Azure-Kinect
 깊이 카메라 뷰어는 다음과 같은 두 개의 창을 표시 합니다.
 
 * 하나는 IR 밝기를 표시 하는 회색조 이미지인 *활성 밝기* 라고 합니다.
-* 두 번째는 깊이 데이터를 색으로 표현한 색이 있는 *깊이*를 지칭 합니다.
+* 두 번째는 깊이 데이터를 색으로 표현한 색이 있는 *깊이* 를 지칭 합니다.
 
 아래와 같이 깊이 창의 픽셀에서 커서를 가리켜 깊이 센서의 값을 확인 합니다.
 

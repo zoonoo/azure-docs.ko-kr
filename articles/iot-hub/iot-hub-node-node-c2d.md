@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91446888"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기(Node.js)
@@ -84,7 +84,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 * 메시지를 중단 하면 나중에 사용 하기 위해 장치 큐에 메시지를 보관 IoT Hub 합니다.
 * 메시지를 거부 합니다 .이 메시지는 장치 큐에서 메시지를 영구적으로 제거 합니다.
 
-장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent*이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
+장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent* 이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
 
 클라우드-장치 메시지 수명 주기에 대 한 세부 정보를 포함 하 여 클라우드-장치 메시지를 처리 IoT Hub는 방법에 대 한 자세한 내용은 [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조 하세요.
   
@@ -94,7 +94,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -102,7 +102,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
 
-1. **sendcloudtodevicemessage**라는 빈 폴더를 만듭니다. **sendcloudtodevicemessage** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
+1. **sendcloudtodevicemessage** 라는 빈 폴더를 만듭니다. **sendcloudtodevicemessage** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
 
     ```shell
     npm init

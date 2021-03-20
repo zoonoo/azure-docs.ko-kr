@@ -10,10 +10,10 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 6fd791495602846b95e2dd3e99423db5505f5307
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600908"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
@@ -87,7 +87,7 @@ Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층
    | **액세스 계층** | 예약이 적용 되는 액세스 계층입니다. *핫*, *쿨* 또는 *Archive* 옵션을 포함 합니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요. |
    | **중복** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *ra-GRS* 및 *RA-GZRS* 가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
    | **청구 빈도** | 예약에 대 한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선행* 이 포함 됩니다. |
-   | **Size** | 예약할 용량의 양입니다. |
+   | **크기** | 예약할 용량의 양입니다. |
    |**기간**  | 1년 또는 3년입니다.   |
 
 1. 예약에 대 한 매개 변수를 선택 하면 Azure Portal에 비용이 표시 됩니다. 또한 포털은 종 량 제 요금 청구에 대 한 할인율을 보여 줍니다.
@@ -112,7 +112,7 @@ Azure Reservations 정책에 대 한 자세한 내용은 [셀프 서비스 교�
 
 만들 수 있는 교환의 수에는 제한이 없습니다. 또한 exchange와 관련 된 요금은 없습니다. 구매한 새 예약은 원래 예약에서 비례 하는 크레딧을 초과 하는 값 보다 크거나 같아야 합니다. Azure Storage 예약은 다른 Azure 서비스에 대 한 예약이 아닌 다른 Azure Storage 예약에 대해서만 교환할 수 있습니다.
 
-### <a name="refund-a-reservation"></a>예약 상환
+### <a name="refund-a-reservation"></a>예약 환불
 
 언제 든 지 Azure Storage 예약을 취소할 수 있습니다. 취소 하는 경우 예약의 남은 기간을 기준으로 비례를 계산 하 여 12%의 조기 종료 수수료를 계산 합니다. 연간 최대 환불은 $5만입니다.
 
