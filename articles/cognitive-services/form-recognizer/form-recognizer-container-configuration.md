@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86538006"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
@@ -35,7 +35,7 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 `ApiKey`설정은 컨테이너의 청구 정보를 추적 하는 데 사용 되는 Azure 리소스 키를 지정 합니다. ApiKey의 값은 "청구 구성 설정" 섹션에서에 지정 된 _양식 인식기_ 리소스의 유효한 키 여야 합니다 `Billing` .
 
-이 설정은 **양식 인식기 리소스 관리**의 **키**아래 Azure Portal에서 찾을 수 있습니다.
+이 설정은 **양식 인식기 리소스 관리** 의 **키** 아래 Azure Portal에서 찾을 수 있습니다.
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -45,7 +45,7 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 `Billing`설정은 Azure에서 컨테이너에 대 한 청구 정보를 측정 하는 데 사용 되는 _폼 인식기_ 리소스의 끝점 URI를 지정 합니다. 이 구성 설정의 값은 Azure의 _폼 인식기_ 리소스에 대해 유효한 끝점 URI 여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
-이 설정은 Azure Portal의 **폼 인식기 개요**, **끝점**아래에서 찾을 수 있습니다.
+이 설정은 Azure Portal의 **폼 인식기 개요**, **끝점** 아래에서 찾을 수 있습니다.
 
 |필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83589740"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Speech SDK 용 RHEL/CentOS 7 구성
@@ -65,12 +65,12 @@ CXXABI_1.3.7
 ...
 ```
 
-음성 SDK를 사용 하려면 **CXXABI_1.3.9** 및 **GLIBCXX_3**가 필요 합니다. `ldd libMicrosoft.CognitiveServices.Speech.core.so`Linux 패키지에서 음성 SDK 라이브러리를 실행 하 여이 정보를 찾을 수 있습니다.
+음성 SDK를 사용 하려면 **CXXABI_1.3.9** 및 **GLIBCXX_3** 가 필요 합니다. `ldd libMicrosoft.CognitiveServices.Speech.core.so`Linux 패키지에서 음성 SDK 라이브러리를 실행 하 여이 정보를 찾을 수 있습니다.
 
 > [!NOTE]
-> 시스템에 설치 된 GCC 버전은 일치 하는 런타임 라이브러리와 함께 **5.4.0**이상으로 설정 하는 것이 좋습니다.
+> 시스템에 설치 된 GCC 버전은 일치 하는 런타임 라이브러리와 함께 **5.4.0** 이상으로 설정 하는 것이 좋습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 이는 Speech SDK 1.10.0 이상에서 개발 (c + +, c #, Java, Python)에 RHEL/CentOS 7 x 64를 구성 하는 방법을 보여 주는 샘플 명령 집합입니다.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: eaafb9536a8667417c0abf4ab570609f2db290bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935350"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
@@ -100,4 +100,4 @@ AI 보강는 텍스트 원본이 아닌 소스에서 숨어 있는 정보를 찾
 
 + [Azure Cognitive Search REST API](/rest/api/searchservice/)
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
-+ [Azure Cognitive Search 이란?](search-what-is-azure-search.md)
++ [Azure Cognitive Search란?](search-what-is-azure-search.md)

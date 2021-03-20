@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538598"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Azure Cache for Redis 데이터 손실 문제 해결
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>잘못된 데이터베이스 선택
 
-Azure Cache for Redis는 기본적으로 **db0** 데이터베이스를 사용합니다. 다른 데이터베이스( **예: db1** )로 전환하고 키를 읽으려고 하면 Azure Cache for Redis가 키를 찾지 못합니다. 모든 데이터베이스는 논리적으로 분리된 단위이며 다른 데이터 세트를 보유합니다. [SELECT](https://redis.io/commands/select) 명령을 사용하여 다른 사용 가능한 데이터베이스로 전환하며 각 데이터베이스에서 키를 찾습니다.
+Azure Cache for Redis는 기본적으로 **db0** 데이터베이스를 사용합니다. 다른 데이터베이스(**예: db1**)로 전환하고 키를 읽으려고 하면 Azure Cache for Redis가 키를 찾지 못합니다. 모든 데이터베이스는 논리적으로 분리된 단위이며 다른 데이터 세트를 보유합니다. [SELECT](https://redis.io/commands/select) 명령을 사용하여 다른 사용 가능한 데이터베이스로 전환하며 각 데이터베이스에서 키를 찾습니다.
 
 ### <a name="redis-instance-failure"></a>Redis 인스턴스 오류
 

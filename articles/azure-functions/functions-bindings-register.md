@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88689566"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
@@ -41,7 +41,7 @@ Java, JavaScript, PowerShell, Python 및 사용자 지정 처리기 함수 앱�
 
 확장 번들의 버전이 지정 됩니다. 각 버전에는 함께 작동 하도록 확인 된 특정 바인딩 확장 집합이 포함 되어 있습니다. 앱에서 필요한 확장을 기반으로 번들 버전을 선택 합니다.
 
-함수 앱에 확장 번들을 추가 하려면host.js에 섹션을 추가 `extensionBundle` 합니다 *host.json*. 대부분의 경우 Visual Studio Code 및 Azure Functions Core Tools 자동으로 추가 됩니다.
+함수 앱에 확장 번들을 추가 하려면host.js에 섹션을 추가 `extensionBundle` 합니다 . 대부분의 경우 Visual Studio Code 및 Azure Functions Core Tools 자동으로 추가 됩니다.
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -65,7 +65,7 @@ C # 클래스 라이브러리 기반 함수 프로젝트의 경우 확장을 직
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Visual Studio를 사용 하는 C 클래스 라이브러리
 
-다음 예제와 같이 **Visual Studio**에서 패키지 관리자 콘솔을 사용 하 여 패키지 [를 설치할 수](/nuget/tools/ps-ref-install-package) 있습니다.
+다음 예제와 같이 **Visual Studio** 에서 패키지 관리자 콘솔을 사용 하 여 패키지 [를 설치할 수](/nuget/tools/ps-ref-install-package) 있습니다.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -79,7 +79,7 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 ### <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Visual Studio Code를 사용 하는 c # 클래스 라이브러리
 
-**Visual Studio Code**에서 .NET Core CLI의 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 사용 하 여 명령 프롬프트에서 c # 클래스 라이브러리 프로젝트에 대 한 패키지를 설치 합니다. 다음 예제에서는 바인딩을 추가 하는 방법을 보여 줍니다.
+**Visual Studio Code** 에서 .NET Core CLI의 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 사용 하 여 명령 프롬프트에서 c # 클래스 라이브러리 프로젝트에 대 한 패키지를 설치 합니다. 다음 예제에서는 바인딩을 추가 하는 방법을 보여 줍니다.
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

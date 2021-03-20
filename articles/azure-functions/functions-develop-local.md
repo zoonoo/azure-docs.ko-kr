@@ -4,10 +4,10 @@ description: Azure Functions에서 실행 하기 전에 로컬 컴퓨터에서 A
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c37d51abcc8d612b777b845515cf07666369d4f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96168137"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트

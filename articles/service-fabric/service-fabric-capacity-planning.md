@@ -4,10 +4,10 @@ description: 서비스 패브릭 애플리케이션에 필요한 컴퓨팅 노�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75377211"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 애플리케이션의 용량 계획

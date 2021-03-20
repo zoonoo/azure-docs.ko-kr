@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: e460f3fd383286b1e61a979b87a9dfa09f272313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88799029"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>자신의 암호를 재설정하기 위한 본인 확인 방법 정보 등록
@@ -46,7 +46,7 @@ ms.locfileid: "88799029"
 
     - **보안 질문.** 관리자가 정한 미리 정의된 보안 질문을 설정하고 답하도록 선택합니다. 보안 확인 방법이 아닌 암호 재설정에만 적용됩니다. 보안 질문에 대한 자세한 내용은 [확인 방법으로 보안 질문 설정](security-info-setup-questions.md)을 참조하세요.
 
-3. 메서드를 선택 및 설정한 후 **마침**을 선택하여 프로세스를 완료합니다.
+3. 메서드를 선택 및 설정한 후 **마침** 을 선택하여 프로세스를 완료합니다.
 
     > [!Note]
     > 전화 번호 또는 이메일 주소에 추가된 정보는 조직의 글로벌 디렉터리와 공유되지 않습니다. 이 정보는 본인과 관리자만 볼 수 있습니다. 보안 질문에 대한 대답만 볼 수 있습니다.

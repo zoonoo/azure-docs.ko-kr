@@ -4,10 +4,10 @@ description: 독립 실행형 Service Fabric 클러스터를 실행하는 구성
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 3cb1d40f5b32415588d3fd5a108967cfb4c0e534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842617"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>독립 실행형 클러스터의 구성 업그레이드 
@@ -17,9 +17,9 @@ ms.locfileid: "91842617"
 ## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>ClusterConfig.json 파일에서 클러스터 설정 사용자 지정
 독립 실행형 클러스터는 *ClusterConfig.json* 파일을 통해 구성됩니다. 다른 설정에 대해 자세히 알아보려면 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요.
 
-*ClusterConfig.json*의 [클러스터 속성](./service-fabric-cluster-manifest.md#cluster-properties) 섹션 아래에서 `fabricSettings` 섹션의 설정을 추가, 업데이트 또는 제거할 수 있습니다. 
+*ClusterConfig.json* 의 [클러스터 속성](./service-fabric-cluster-manifest.md#cluster-properties) 섹션 아래에서 `fabricSettings` 섹션의 설정을 추가, 업데이트 또는 제거할 수 있습니다. 
 
-예를 들어 다음 JSON은 새 설정 *MaxDiskQuotaInMB*를 `fabricSettings` 아래의 *진단* 섹션에 추가합니다.
+예를 들어 다음 JSON은 새 설정 *MaxDiskQuotaInMB* 를 `fabricSettings` 아래의 *진단* 섹션에 추가합니다.
 
 ```json
       {

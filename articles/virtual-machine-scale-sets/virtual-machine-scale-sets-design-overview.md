@@ -11,10 +11,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88648567"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
@@ -50,7 +50,7 @@ ms.locfileid: "88648567"
 기존 템플릿이 있는 경우에는 [Managed Disks를 사용하도록 템플릿을 업데이트](virtual-machine-scale-sets-convert-template-to-md.md)할 수도 있습니다.
 
 ### <a name="user-managed-storage"></a>사용자 관리 Storage
-Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성한 스토리지 계정을 사용하여 집합에 VM의 OS 디스크를 저장합니다. 스토리지 계정당 20개 이하의 VM 비율은 최대 IO를 수행하고 _오버프로비전_을 활용하는 것도 좋습니다(아래 참조). 또한 스토리지 계정 이름의 시작하는 문자에 알파벳을 고르게 사용하는 것이 좋습니다. 그러면 여러 내부 시스템에서 부하를 분산할 수 있습니다. 
+Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성한 스토리지 계정을 사용하여 집합에 VM의 OS 디스크를 저장합니다. 스토리지 계정당 20개 이하의 VM 비율은 최대 IO를 수행하고 _오버프로비전_ 을 활용하는 것도 좋습니다(아래 참조). 또한 스토리지 계정 이름의 시작하는 문자에 알파벳을 고르게 사용하는 것이 좋습니다. 그러면 여러 내부 시스템에서 부하를 분산할 수 있습니다. 
 
 
 ## <a name="overprovisioning"></a>오버프로비전

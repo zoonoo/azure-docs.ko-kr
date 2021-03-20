@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0f3f9e7f4566800bdea6871cae1c5bafb3b37b95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90939184"
 ---
 # <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 지원되는 Postgres 버전
@@ -35,7 +35,7 @@ ms.locfileid: "90939184"
 
 ## <a name="how-do-be-notified-when-other-versions-are-available"></a>다른 버전을 사용할 수 있는 경우 어떤 알림이 표시 되나요?
 돌아가서이 문서를 읽어 보세요. 적절 하 게 업데이트 됩니다. Kubernetes 클러스터의 Arc 데이터 컨트롤러에 있는 사용자 지정 리소스 정의 (CRD)의 종류를 나열할 수도 있습니다.
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```console
 kubectl get crds
 ```

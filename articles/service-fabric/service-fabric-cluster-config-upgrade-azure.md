@@ -4,10 +4,10 @@ description: Resource Manager 템플릿을 사용하여 Azure에서 Service Fabr
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 692dc2162159ab61a3ac527e12dac43438084a60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842719"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure에서 클러스터의 구성 업그레이드 
@@ -24,7 +24,7 @@ ms.locfileid: "91842719"
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정
 JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 있습니다. 다른 설정에 대해 자세히 알아보려면 [클러스터에 대한 구성 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요. 예제로 아래 단계에서는 Azure Resource Explorer를 사용하여 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여줍니다.
 
-1. [https://editor.swagger.io](https://resources.azure.com ) 으로 이동합니다.
+1. https://resources.azure.com 로 이동
 2. **구독**  ->  **\<Your Subscription>**  ->  **resourcegroups**  ->  **\<Your Resource Group>**  ->  **공급자**  ->  **ServiceFabric**  ->  **클러스터** 를 확장 하 여 구독으로 이동 합니다. -> **\<Your Cluster Name>**
 3. 오른쪽 위 모서리에서 **읽기/쓰기를 선택 합니다.**
 4. **편집** 을 선택 하 고 `fabricSettings` JSON 요소를 업데이트 하 고 새 요소를 추가 합니다.

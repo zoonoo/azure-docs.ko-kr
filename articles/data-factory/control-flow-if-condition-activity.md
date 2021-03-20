@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: c0dbda298cf808dd3caa7a767e0ec5e847c92108
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385526"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
@@ -65,7 +65,7 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 -------- | ----------- | -------------- | --------
 name | if 조건 작업의 이름입니다. | String | 예
 type | **IfCondition** 으로 설정해야 함 | String | 예
-식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | Yes
+식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
 ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 

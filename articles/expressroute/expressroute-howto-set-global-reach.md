@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368369"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach 구성
@@ -62,7 +62,7 @@ ms.locfileid: "92368369"
      ```
      /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
      ```
-   * *-AddressPrefix*는 /29 IPv4 서브넷이어야 합니다(예: "10.0.0.0/29"). 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure Virtual Network 또는 온-프레미스 네트워크에서 이 서브넷의 주소를 사용하면 안 됩니다.
+   * *-AddressPrefix* 는 /29 IPv4 서브넷이어야 합니다(예: "10.0.0.0/29"). 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure Virtual Network 또는 온-프레미스 네트워크에서 이 서브넷의 주소를 사용하면 안 됩니다.
 
      ```azurepowershell-interactive
      Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'

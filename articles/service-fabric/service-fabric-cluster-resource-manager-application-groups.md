@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75452145"
 ---
 # <a name="introduction-to-application-groups"></a>애플리케이션 그룹 소개
@@ -99,12 +99,12 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - 애플리케이션 인스턴스 내의 서비스 수가 매번 변경되는 경우 
 - 서비스가 존재하지만 리소스를 사용하지 않고 있는 경우 
 
-애플리케이션 인스턴스에 대해 리소스를 예약하려면 2개의 추가 매개 변수 *MinimumNodes* 및 *NodeReservationCapacity*를 지정해야 합니다.
+애플리케이션 인스턴스에 대해 리소스를 예약하려면 2개의 추가 매개 변수 *MinimumNodes* 및 *NodeReservationCapacity* 를 지정해야 합니다.
 
 - **MinimumNodes** - 애플리케이션 인스턴스를 실행해야 하는 노드의 최소 수를 정의합니다.  
 - **NodeReservationCapacity** - 이 설정은 애플리케이션에 대한 메트릭을 기준으로 합니다. 해당 값은 해당 애플리케이션의 서비스가 실행되는 모든 노드에서 애플리케이션용으로 예약된 메트릭 크기입니다.
 
-**MinimumNodes** 및 **NodeReservationCapacity**를 함께 사용하면 클러스터 내에서 애플리케이션에 대한 최소 부하 예약이 보장됩니다. 필요한 총 예약 크기보다 더 적은 양의 용량이 클러스터에 남아 있는 경우 애플리케이션을 만들지 못합니다. 
+**MinimumNodes** 및 **NodeReservationCapacity** 를 함께 사용하면 클러스터 내에서 애플리케이션에 대한 최소 부하 예약이 보장됩니다. 필요한 총 예약 크기보다 더 적은 양의 용량이 클러스터에 남아 있는 경우 애플리케이션을 만들지 못합니다. 
 
 용량 예약의 예를 살펴보겠습니다.
 

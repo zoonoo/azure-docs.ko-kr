@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90936932"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-유연한 서버 다시 시작
@@ -33,9 +33,9 @@ ms.locfileid: "90936932"
 
 유연한 서버를 다시 시작 하려면 다음 단계를 수행 합니다.
 
-1.   [Azure Portal](https://portal.azure.com/)에서 다시 시작 하려는 유연한 서버를 선택 합니다.
+1.  [Azure Portal](https://portal.azure.com/)에서 다시 시작 하려는 유연한 서버를 선택 합니다.
 
-2.  왼쪽 패널에서 **개요** 를 클릭 하 고 **다시 시작**을 클릭 합니다.
+2.  왼쪽 패널에서 **개요** 를 클릭 하 고 **다시 시작** 을 클릭 합니다.
    
      :::image type="content" source="./media/how-to-restart-server-portal/restart-base-page.png" alt-text="선택 영역 다시 시작":::
 
@@ -43,11 +43,11 @@ ms.locfileid: "90936932"
 
 4.  계속 하려면 **예** 를 클릭 합니다.
    
-     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="선택 영역 다시 시작":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="다시 시작 확인":::
  
 6.  다시 시작 작업이 시작 되었음을 알리는 알림이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 -   [비즈니스 연속성](./concepts-business-continuity.md) 에 대 한 자세한 정보
--    [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
+-   [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기

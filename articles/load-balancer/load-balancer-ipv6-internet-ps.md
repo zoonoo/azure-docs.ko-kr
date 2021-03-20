@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001590"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
@@ -110,7 +110,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
     ```
 
     > [!IMPORTANT]
-    > 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이 예제에서 FQDN은 *lbnrpipv4.westus.cloudapp.azure.com*과 *lbnrpipv6.westus.cloudapp.azure.com*입니다.
+    > 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이 예제에서 FQDN은 *lbnrpipv4.westus.cloudapp.azure.com* 과 *lbnrpipv6.westus.cloudapp.azure.com* 입니다.
 
 ## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>프런트 엔드 IP 구성 및 백 엔드 주소 풀 만들기
 
@@ -162,7 +162,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
     이 예제의 경우 TCP 프로브를 사용할 것입니다.
 
-3. 부하 분산 장치를 만듭니다.
+3. 부하 분산 장치 규칙 만들기
 
     ```azurepowershell-interactive
     $lbrule1v4 = New-AzLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080

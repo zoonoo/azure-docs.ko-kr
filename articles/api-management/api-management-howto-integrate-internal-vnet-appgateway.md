@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 3db1c8bfc3a11151342589af0873d88e3d90c6a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91825629"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
-## <a name="overview"></a><a name="overview"> </a> 개요
+## <a name="overview"></a><a name="overview"></a> 개요
 
 Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 
@@ -47,7 +47,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 * 인증서 - API 호스트 이름에 대한 pfx 및 cer, 개발자 포털의 호스트 이름에 대한 pfx입니다.
 
-## <a name="scenario"></a><a name="scenario"> </a> 시나리오
+## <a name="scenario"></a><a name="scenario"></a> 시나리오
 
 이 문서에서는 내부 및 외부 소비자에 대해 단일 API Management 서비스를 사용 하 고 온-프레미스 및 클라우드 Api에 대 한 단일 프런트 엔드로 작동 하도록 하는 방법을 설명 합니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
@@ -55,7 +55,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ![url 경로](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a><a name="before-you-begin"> </a> 시작 하기 전에
+## <a name="before-you-begin"></a><a name="before-you-begin"></a> 시작 하기 전에
 
 * Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 설치 [Azure PowerShell](/powershell/azure/install-az-ps)에서 설치 지침을 참조 하세요. 
 
@@ -81,7 +81,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="exposing-the-developer-portal-externally-through-application-gateway"></a>Application Gateway를 통해 외부적으로 개발자 포털 노출
 
-이 가이드에서는 Application Gateway를 통해 외부 대상에게 **개발자 포털**도 노출합니다. 개발자 포털의 수신기, 프로브, 설정 및 규칙을 만드는 추가 단계가 필요합니다. 모든 세부 정보는 해당 단계에서 제공됩니다.
+이 가이드에서는 Application Gateway를 통해 외부 대상에게 **개발자 포털** 도 노출합니다. 개발자 포털의 수신기, 프로브, 설정 및 규칙을 만드는 추가 단계가 필요합니다. 모든 세부 정보는 해당 단계에서 제공됩니다.
 
 > [!WARNING]
 > Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](../application-gateway/features.md#session-affinity) 기능을 사용하도록 설정하세요.
@@ -149,7 +149,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 
 ### <a name="step-3"></a>3단계
 
-미국 서부 지역에 리소스 그룹 **apim-appGw-RG**에서 **appgwvnet**이라는 Virtual Network를 만듭니다. 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24 및 10.0.1.0/24를 사용합니다.
+미국 서부 지역에 리소스 그룹 **apim-appGw-RG** 에서 **appgwvnet** 이라는 Virtual Network를 만듭니다. 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24 및 10.0.1.0/24를 사용합니다.
 
 ```powershell
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
@@ -229,7 +229,7 @@ Set-AzApiManagement -InputObject $apimService
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-리소스 그룹에 공용 IP 리소스 **publicIP01**을 만듭니다.
+리소스 그룹에 공용 IP 리소스 **publicIP01** 을 만듭니다.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
@@ -243,7 +243,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 ### <a name="step-1"></a>1단계
 
-**GatewayIP01**이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+**GatewayIP01** 이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -315,7 +315,7 @@ $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apim
 
 ### <a name="step-9"></a>9단계
 
-위에서 만든 API Management 서비스의 내부 가상 IP 주소로 **apimbackend**라는 백 엔드 IP 주소 풀을 구성합니다.
+위에서 만든 API Management 서비스의 내부 가상 IP 주소로 **apimbackend** 라는 백 엔드 IP 주소 풀을 구성합니다.
 
 ```powershell
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
@@ -368,10 +368,10 @@ Application Gateway의 DNS 이름은 APIM 프록시 호스트 이름(예: 위의
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a><a name="summary"> </a> 요약
+## <a name="summary"></a><a name="summary"></a> 요약
 VNET에서 구성 된 Azure API Management은 온-프레미스 또는 클라우드에서 호스트 되는지에 관계 없이 구성 된 모든 Api에 대 한 단일 게이트웨이 인터페이스를 제공 합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
 
-## <a name="next-steps"></a><a name="next-steps"> </a> 다음 단계
+## <a name="next-steps"></a><a name="next-steps"></a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보
   * [Application Gateway 개요](../application-gateway/overview.md)
   * [Application Gateway 웹 애플리케이션 방화벽](../web-application-firewall/ag/ag-overview.md)

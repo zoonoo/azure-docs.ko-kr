@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96029350"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
@@ -48,16 +48,16 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 
 | 장치 id 유형 | ID 인프라 | Windows 디바이스 | VDI 플랫폼 버전 | 지원됨 |
 | --- | --- | --- | --- | --- |
-| 하이브리드 Azure AD 가입 | 페더레이션된<sup>3</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | Yes |
+| 하이브리드 Azure AD 가입 | 페더레이션된<sup>3</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
 |   |   | Windows 현재 | 비영구 | 예<sup>5</sup> |
 |   |   | Windows 하위 수준 | 비영구 | 예<sup>6</sup> |
-|   | 관리<sup>4</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | Yes |
-|   |   | Windows 현재 | 비영구 | No |
+|   | 관리<sup>4</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
+|   |   | Windows 현재 | 비영구 | 아니요 |
 |   |   | Windows 하위 수준 | 비영구 | 예<sup>6</sup> |
-| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | No |
-|   |   |   | 비영구 | No |
-|   | 관리형 | Windows 현재 | 영구적 | No |
-|   |   |   | 비영구 | No |
+| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
+|   |   |   | 비영구 | 아니요 |
+|   | 관리 | Windows 현재 | 영구적 | 아니요 |
+|   |   |   | 비영구 | 아니요 |
 | Azure AD 등록됨 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
 
 <sup>1</sup> **windows 현재** 장치는 Windows 10, windows server 2016 V1803 이상 및 windows server 2019를 나타냅니다.

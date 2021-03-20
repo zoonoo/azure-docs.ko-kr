@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369134"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 ## <a name="to-edit-your-group-settings"></a>그룹 설정을 편집하려면
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **그룹** 을 선택합니다.
 
     모든 활성 그룹을 보여 주는 **그룹 - 모든 그룹** 페이지가 나타납니다.
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
     ![검색 상자에 검색 텍스트가 있는 모든 그룹 페이지](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
 
-4. **MDM policy - West** 그룹을 선택한 후 **관리** 영역에서 **속성**을 선택합니다.
+4. **MDM policy - West** 그룹을 선택한 후 **관리** 영역에서 **속성** 을 선택합니다.
 
     ![멤버 옵션과 정보가 강조 표시 된 그룹 개요 페이지](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
     
     - **그룹 설명.** 기존 그룹 설명을 편집합니다.
 
-    - **그룹 유형입니다.** 그룹이 생성된 후에는 그룹 유형을 변경할 수 없습니다. **그룹 유형**을 변경하려면 그룹을 삭제하고 새 그룹을 만들어야 합니다.
+    - **그룹 유형입니다.** 그룹이 생성된 후에는 그룹 유형을 변경할 수 없습니다. **그룹 유형** 을 변경하려면 그룹을 삭제하고 새 그룹을 만들어야 합니다.
     
     - **멤버 자격 유형입니다.** 멤버 자격 유형을 변경합니다. 사용 가능한 다양 한 멤버 자격 형식에 대 한 자세한 내용은 [방법: 기본 그룹 만들기 및 Azure Active Directory 포털을 사용 하 여 구성원 추가](active-directory-groups-create-azure-portal.md)를 참조 하세요.
     
@@ -70,4 +70,4 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 - [그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-- [Azure Active Directory에 Azure 구독을 연결 하거나 추가 합니다.](active-directory-how-subscriptions-associated-directory.md)
+- [Azure Active Directory에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)

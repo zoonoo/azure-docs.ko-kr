@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368029"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
@@ -85,10 +85,10 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 컴�
 ### <a name="throttle-bandwidth"></a>대역폭 제한
 
 1. 프로세스 서버 역할을 하는 머신에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 폴더에서 백업에 대 한 바로 가기를 사용할 수 있습니다.
-2. 스냅인에서 **속성 변경**을 선택합니다.
+2. 스냅인에서 **속성 변경** 을 선택합니다.
 
     ![속성을 변경하는 Azure Backup MMC 스냅인 옵션의 스크린샷](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
+3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용** 을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
 
     ![Azure Backup 속성 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/throttle2.png)
 
@@ -104,10 +104,10 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>VM의 네트워크 대역폭 변경
 
-1. VM의 레지스트리에서 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**으로 이동합니다.
+1. VM의 레지스트리에서 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication** 으로 이동합니다.
    * 복제 디스크의 대역폭 트래픽을 변경하려면 **UploadThreadsPerVM** 값을 수정합니다. 키가 없는 경우 키를 만듭니다.
    * Azure에서 장애 복구(failback) 트래픽에 대한 대역폭을 변경하려면 **DownloadThreadsPerVM** 값을 수정합니다.
-2. 각 키의 기본값은 **4**입니다. "과도하게 프로비전된" 네트워크에서는 이러한 레지스트리 키를 기본값에서 변경해야 합니다. 사용 가능한 최댓값은 **32**입니다. 트래픽을 모니터링하여 값을 최적화합니다.
+2. 각 키의 기본값은 **4** 입니다. "과도하게 프로비전된" 네트워크에서는 이러한 레지스트리 키를 기본값에서 변경해야 합니다. 사용 가능한 최댓값은 **32** 입니다. 트래픽을 모니터링하여 값을 최적화합니다.
 
 ## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>500개를 초과하는 VM을 보호하도록 Site Recovery 인프라 설정
 
@@ -126,13 +126,13 @@ Site Recovery 인프라를 설정하기 전에 환경에 액세스하여 호환�
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>새 프로세스 서버를 사용하도록 컴퓨터 마이그레이션
 
-1. **설정**  >  **Site Recovery 서버**를 선택 합니다. 구성 서버를 선택한 다음, **프로세스 서버**를 확장합니다.
+1. **설정**  >  **Site Recovery 서버** 를 선택 합니다. 구성 서버를 선택한 다음, **프로세스 서버** 를 확장합니다.
 
     ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 단추로 클릭한 다음, **전환**을 클릭합니다.
+2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 단추로 클릭한 다음, **전환** 을 클릭합니다.
 
     ![구성 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. **대상 프로세스 서버 선택**에서 사용할 새 프로세스 서버를 선택합니다. 그런 다음, 서버에서 처리할 가상 머신을 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 선택합니다. 부하 결정에 도움이 되도록 선택된 각 가상 머신을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 확인 표시를 선택하여 새 프로세스 서버로 복제를 시작합니다.
+3. **대상 프로세스 서버 선택** 에서 사용할 새 프로세스 서버를 선택합니다. 그런 다음, 서버에서 처리할 가상 머신을 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 선택합니다. 부하 결정에 도움이 되도록 선택된 각 가상 머신을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 확인 표시를 선택하여 새 프로세스 서버로 복제를 시작합니다.
 
 ## <a name="deploy-additional-master-target-servers"></a>추가 마스터 대상 서버 배포
 
@@ -146,15 +146,15 @@ Linux 기반 가상 머신에 마스터 대상 서버를 추가하는 방법을 
 
 Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려면:
 
-1. **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버**로 이동 합니다.
-2. 필요한 구성 서버를 선택한 다음, **마스터 대상 서버**를 선택합니다.
+1. **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버** 로 이동 합니다.
+2. 필요한 구성 서버를 선택한 다음, **마스터 대상 서버** 를 선택합니다.
 
     ![마스터 대상 서버 추가 단추를 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. 통합 설치 파일을 다운로드 한 다음, VM에서 파일을 실행하여 마스터 대상 서버를 설치합니다.
-4. **마스터 대상 설치**  >  **다음**을 선택 합니다.
+4. **마스터 대상 설치**  >  **다음** 을 선택 합니다.
 
     ![마스터 대상 설치 옵션 선택을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
-5. 기본 설치 위치를 선택한 다음, **설치**를 선택합니다.
+5. 기본 설치 위치를 선택한 다음, **설치** 를 선택합니다.
 
      ![기본 설치 위치를 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
 6. 마스터 대상을 구성 서버에 등록하려면 **Proceed To Configuration**(구성으로 계속 진행)을 선택합니다.
@@ -163,9 +163,9 @@ Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려�
 7. 구성 서버의 IP 주소를 입력한 다음, 암호를 입력합니다. 암호를 생성하는 방법을 알아보려면 [구성 서버 암호 생성](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)을 참조하세요. 
 
     ![구성 서버에 대한 IP 주소와 암호를 입력하는 곳을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. **등록**을 선택합니다. 등록을 마치면 **마침**을 선택합니다.
+8. **등록** 을 선택합니다. 등록을 마치면 **마침** 을 선택합니다.
 
-등록이 성공적으로 완료 되 면 서버는 구성 서버의 마스터 대상 서버에서 **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버**Azure Portal에 나열 됩니다.
+등록이 성공적으로 완료 되 면 서버는 구성 서버의 마스터 대상 서버에서 **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버** Azure Portal에 나열 됩니다.
 
  > [!NOTE]
  > [Windows용 마스터 대상 서버 통합 설치 파일](https://aka.ms/latestmobsvc)의 최신 버전을 다운로드하십시오.

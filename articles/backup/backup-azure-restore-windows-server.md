@@ -4,10 +4,10 @@ description: 이 문서에서는 Microsoft MARS(Azure Recovery Services) 에이�
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91813256"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>MARS 에이전트를 사용하여 Windows Server로 파일 복원
@@ -31,19 +31,19 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 파일을 실수로 삭제했는데 (백업이 수행된) 동일한 머신에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
 
-1. **Microsoft Azure Backup** 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Microsoft Azure Backup**을 검색합니다.
+1. **Microsoft Azure Backup** 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Microsoft Azure Backup** 을 검색합니다.
 
     데스크톱 앱이 검색 결과에 나타나야 합니다.
 
-2. 마법사를 시작하려면 **데이터 복구**를 선택합니다.
+2. 마법사를 시작하려면 **데이터 복구** 를 선택합니다.
 
     ![데이터 복구가 강조 표시 된 Azure Backup의 스크린샷 (동일한 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/recover.png)
 
-3. **시작** 페이지에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)**  > **다음**을 선택합니다.
+3. **시작** 페이지에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)**  > **다음** 을 선택합니다.
 
     ![데이터 복구 마법사 시작 페이지의 스크린샷 (동일한 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. **복구 모드 선택** 창에서 **개별 파일 및 폴더** > **다음**을 선택합니다.
+4. **복구 모드 선택** 창에서 **개별 파일 및 폴더** > **다음** 을 선택합니다.
 
     ![데이터 복구 마법사의 스크린샷 복구 모드 선택 페이지 (같은 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -58,11 +58,11 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구 마법사의 스크린샷 볼륨 및 날짜 선택 페이지 (같은 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. 복원할 복구 지점을 선택한 후에 **탑재**를 선택합니다.
+6. 복원할 복구 지점을 선택한 후에 **탑재** 를 선택합니다.
 
     Azure Backup은 로컬 복구 지점을 마운트하고 이를 복구 볼륨으로 사용합니다.
 
-7. **파일 찾아보기 및 복구** 페이지에서 **찾아보기**를 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
+7. **파일 찾아보기 및 복구** 페이지에서 **찾아보기** 를 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
 
     ![데이터 복구 마법사 파일 찾아보기 및 복구 페이지 스크린샷 (동일한 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
@@ -70,12 +70,12 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![복사가 강조 표시 된 Windows 탐색기의 스크린샷 (동일한 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. 작업이 완료 되 면 **파일 찾아보기 및 복구** 페이지에서 **분리**를 선택 합니다. 그런 다음, **예**를 선택하여 볼륨을 분리하려고 함을 확인합니다.
+9. 작업이 완료 되 면 **파일 찾아보기 및 복구** 페이지에서 **분리** 를 선택 합니다. 그런 다음, **예** 를 선택하여 볼륨을 분리하려고 함을 확인합니다.
 
     ![복원 데이터 마법사의 스크린샷 파일 찾아보기 및 복구 페이지 (동일한 컴퓨터로 복원)-복구 볼륨 분리 확인](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > **분리**를 선택 하지 않으면 복구 볼륨은 탑재 된 시간부터 6 시간 동안 탑재 된 상태로 유지 됩니다. 그러나 진행 중인 파일 복사의 경우 탑재 시간은 최대 24 시간까지 연장 됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 탑재된 시간 동안 실행되도록 예약된 모든 백업 작업은 복구 볼륨이 분리된 후에 실행됩니다.
+    > **분리** 를 선택하지 않으면 복구 볼륨 탑재 시점부터 6시간 동안 탑재 상태가 유지됩니다. 그러나 진행 중인 파일 복사의 경우 탑재 시간은 최대 24 시간까지 연장 됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 탑재된 시간 동안 실행되도록 예약된 모든 백업 작업은 복구 볼륨이 분리된 후에 실행됩니다.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>즉시 복원을 사용하여 데이터를 대체 컴퓨터에 복원
@@ -97,23 +97,23 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 2. 대상 머신 및 원본 머신이 동일한 Recovery Services 자격 증명 모음에 등록되었는지 확인합니다.
 
-3. **데이터 복구**를 선택하여 **데이터 복구 마법사**를 엽니다.
+3. **데이터 복구** 를 선택하여 **데이터 복구 마법사** 를 엽니다.
 
     ![데이터 복구를 강조 표시 한 Azure Backup의 스크린샷 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/recover.png)
 
-4. **시작** 페이지에서 **다른 서버**를 선택합니다.
+4. **시작** 페이지에서 **다른 서버** 를 선택합니다.
 
     ![데이터 복구 마법사 시작 페이지의 스크린샷 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
-5. 샘플 자격 증명 모음에 해당하는 자격 증명 모음 파일을 제공하고 **다음**을 선택합니다.
+5. 샘플 자격 증명 모음에 해당하는 자격 증명 모음 파일을 제공하고 **다음** 을 선택합니다.
 
     자격 증명 모음 파일이 잘못 되었거나 만료 된 경우 Azure Portal의 [샘플 자격 증명 모음에서 새 자격 증명 모음 자격 증명 파일을 다운로드](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) 합니다. 유효한 자격 증명 모음을 입력하면 해당하는 백업 자격 증명 모음의 이름이 나타납니다.
 
-6. **백업 서버 선택** 페이지의 표시된 머신 목록에서 원본 머신을 선택하고 암호를 입력합니다. 그런 후 **다음**을 선택합니다.
+6. **백업 서버 선택** 페이지의 표시된 머신 목록에서 원본 머신을 선택하고 암호를 입력합니다. 그런 후 **다음** 을 선택합니다.
 
     ![데이터 복구 마법사의 스크린샷 백업 서버 선택 페이지 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. **복구 모드 선택** 창에서 **개별 파일 및 폴더** > **다음**을 선택합니다.
+7. **복구 모드 선택** 창에서 **개별 파일 및 폴더** > **다음** 을 선택합니다.
 
     ![데이터 복구 마법사의 스크린샷 복구 모드 선택 페이지 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
@@ -123,9 +123,9 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구 마법사의 스크린샷 볼륨 및 날짜 선택 페이지 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
-9. 복구 지점을 대상 머신의 복구 볼륨으로 로컬로 탑재하려면 **탑재**를 선택합니다.
+9. 복구 지점을 대상 머신의 복구 볼륨으로 로컬로 탑재하려면 **탑재** 를 선택합니다.
 
-10. **파일 찾아보기 및 복구** 페이지에서 **찾아보기**를 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
+10. **파일 찾아보기 및 복구** 페이지에서 **찾아보기** 를 선택하여 Windows 탐색기를 열고 원하는 파일 및 폴더를 찾습니다.
 
     ![데이터 복구 마법사 파일 찾아보기 및 복구 페이지 스크린샷 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
@@ -133,12 +133,12 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![복사가 강조 표시 된 Windows 탐색기의 스크린샷 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. 작업이 완료 되 면 **파일 찾아보기 및 복구** 페이지에서 **분리**를 선택 합니다. 그런 다음, **예**를 선택하여 볼륨을 분리하려고 함을 확인합니다.
+12. 작업이 완료 되 면 **파일 찾아보기 및 복구** 페이지에서 **분리** 를 선택 합니다. 그런 다음, **예** 를 선택하여 볼륨을 분리하려고 함을 확인합니다.
 
     ![볼륨 분리 (대체 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > **분리**를 선택 하지 않으면 복구 볼륨은 탑재 된 시간부터 6 시간 동안 탑재 된 상태로 유지 됩니다. 그러나 진행 중인 파일 복사의 경우 탑재 시간은 최대 24 시간까지 연장 됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 탑재된 시간 동안 실행되도록 예약된 모든 백업 작업은 복구 볼륨이 분리된 후에 실행됩니다.
+    > **분리** 를 선택하지 않으면 복구 볼륨 탑재 시점부터 6시간 동안 탑재 상태가 유지됩니다. 그러나 진행 중인 파일 복사의 경우 탑재 시간은 최대 24 시간까지 연장 됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 탑재된 시간 동안 실행되도록 예약된 모든 백업 작업은 복구 볼륨이 분리된 후에 실행됩니다.
     >
 
 ## <a name="next-steps"></a>다음 단계

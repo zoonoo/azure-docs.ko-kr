@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934755"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
@@ -39,7 +39,7 @@ ms.locfileid: "88934755"
 
 ## <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
 
-모델을 게시 한 후에는 __예측 URL__을 선택 하 여 필요한 정보를 검색할 수 있습니다. 그러면 예측 __URL__ 및 __예측 키__를 포함 하 여 예측 API를 사용 하기 위한 정보가 포함 된 대화 상자가 열립니다.
+모델을 게시 한 후에는 __예측 URL__ 을 선택 하 여 필요한 정보를 검색할 수 있습니다. 그러면 예측 __URL__ 및 __예측 키__ 를 포함 하 여 예측 API를 사용 하기 위한 정보가 포함 된 대화 상자가 열립니다.
 
 ![성능 탭은 예측 URL 단추 주위에 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/published-iteration-prediction-url.png)
 

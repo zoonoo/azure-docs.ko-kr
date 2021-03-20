@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88723319"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
@@ -87,7 +87,7 @@ Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 �
 
 - **기본**. 연결 된 수신기의 모든 요청 (예: blog.contoso.com/*)은 연결 된 HTTP 설정을 사용 하 여 연결 된 백 엔드 풀로 전달 됩니다.
 
-- **경로를 기반으로**합니다. 이 라우팅 규칙을 사용 하면 요청 된 URL에 따라 연결 된 수신기의 요청을 특정 백 엔드 풀로 라우팅할 수 있습니다. 요청에 있는 URL의 경로가 경로 기반 규칙의 경로 패턴과 일치 하는 경우 규칙은 해당 요청을 라우팅합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다. 수신기 요청의 URL 경로가 경로 기반 규칙과 일치 하지 않으면 기본 백 엔드 풀 및 HTTP 설정에 요청을 라우팅합니다.
+- **경로를 기반으로** 합니다. 이 라우팅 규칙을 사용 하면 요청 된 URL에 따라 연결 된 수신기의 요청을 특정 백 엔드 풀로 라우팅할 수 있습니다. 요청에 있는 URL의 경로가 경로 기반 규칙의 경로 패턴과 일치 하는 경우 규칙은 해당 요청을 라우팅합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다. 수신기 요청의 URL 경로가 경로 기반 규칙과 일치 하지 않으면 기본 백 엔드 풀 및 HTTP 설정에 요청을 라우팅합니다.
 
 자세한 내용은 [URL 기반 라우팅](url-route-overview.md)을 참조 하세요.
 
@@ -127,7 +127,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 
 - NIC
 - 가상 머신 크기 집합
-- 공용 IP 주소
+- 퍼블릿 IP 주소
 - 내부 IP 주소
 - FQDN
 - 다중 테 넌 트 백 엔드 (예: App Service)

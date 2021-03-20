@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936506"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
@@ -76,7 +76,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 * [TrackException()](#exceptions) 은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처](asp-net-trace-logs.md)하고 볼 수 있습니다.
 
-이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색](./diagnostic-search.md) 을 열고 드롭다운 메뉴 **이벤트 유형을**선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
+이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색](./diagnostic-search.md) 을 열고 드롭다운 메뉴 **이벤트 유형을** 선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
 
 ![드릴스루](./media/asp-net-exceptions/customevents.png)
 
@@ -95,7 +95,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
 처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](./javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 * **예외를 명시적으로 기록** 합니다.
 * **예외를 자동으로 캡처** 합니다. 프레임워크 유형에 따라 추가할 항목이 다릅니다.
@@ -209,7 +209,7 @@ Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Applicati
 * 애플리케이션 시작 중에 throw된 예외
 * 배경 작업에서 throw된 예외
 
-애플리케이션에 의해 *처리*된 모든 예외는 수동으로 추적되어야 합니다.
+애플리케이션에 의해 *처리* 된 모든 예외는 수동으로 추적되어야 합니다.
 일반적으로 컨트롤러에서 발생한 처리되지 않은 예외로 인해 500 "내부 서버 오류" 응답이 발생합니다. 이러한 응답이 처리된 예외(또는 예외 없음)의 결과로 수동으로 생성된 경우 `ResultCode` 500을 사용하여 해당하는 요청 원격 분석에서 추적됩니다. 그러나 Application Insights SDK는 해당하는 예외를 추적할 수 없습니다.
 
 ### <a name="prior-versions-support"></a>이전 버전 지원
@@ -301,7 +301,7 @@ Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Applicati
 * 애플리케이션 시작 중에 throw된 예외
 * 배경 작업에서 throw된 예외
 
-애플리케이션에 의해 *처리*된 모든 예외는 수동으로 추적되어야 합니다.
+애플리케이션에 의해 *처리* 된 모든 예외는 수동으로 추적되어야 합니다.
 일반적으로 컨트롤러에서 발생한 처리되지 않은 예외로 인해 500 "내부 서버 오류" 응답이 발생합니다. 이러한 응답이 처리된 예외(또는 예외 없음)의 결과로 수동으로 생성된 경우 `ResultCode` 500을 사용하여 해당하는 요청 원격 분석에서 추적됩니다. 그러나 Application Insights SDK는 해당하는 예외를 추적할 수 없습니다.
 
 ### <a name="prior-versions-support"></a>이전 버전 지원
@@ -485,7 +485,7 @@ Add the attribute to the service implementations:
 ## <a name="exception-performance-counters"></a>예외 성능 카운터
 서버에 [Application Insights 에이전트를 설치](./monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
 
-메트릭 탐색기 탭을 열고 새 차트를 추가 하 고 성능 카운터 아래에 나열 된 **예외 속도**를 선택 합니다.
+메트릭 탐색기 탭을 열고 새 차트를 추가 하 고 성능 카운터 아래에 나열 된 **예외 속도** 를 선택 합니다.
 
 .NET Framework는 간격의 예외 수를 계산하고 간격의 길이로 나누어 속도를 계산합니다.
 

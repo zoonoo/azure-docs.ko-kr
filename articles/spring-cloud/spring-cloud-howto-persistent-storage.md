@@ -8,10 +8,10 @@ ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 9d769cb6e2cc33df259da46a82ad27a8bfd9e74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90888516"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Azure Spring Cloud에서 영구 스토리지 사용
@@ -32,15 +32,15 @@ Azure 스프링 클라우드는 응용 프로그램에 영구 및 임시의 두 
 
 ## <a name="use-the-azure-portal-to-enable-persistent-storage"></a>Azure Portal를 사용 하 여 영구 저장소 사용
 
-1. Azure Portal **홈** 페이지에서 **모든 리소스**를 선택 합니다.
+1. Azure Portal **홈** 페이지에서 **모든 리소스** 를 선택 합니다.
 
     >![모든 리소스 아이콘 찾기](media/portal-all-resources.jpg)
 
-1. 영구 저장소를 필요로 하는 Azure 스프링 클라우드 리소스를 선택 합니다. 이 예제에서는 선택한 응용 프로그램을 **upspring**이라고 합니다.
+1. 영구 저장소를 필요로 하는 Azure 스프링 클라우드 리소스를 선택 합니다. 이 예제에서는 선택한 응용 프로그램을 **upspring** 이라고 합니다.
 
     > ![애플리케이션을 선택합니다.](media/select-service.jpg)
 
-1. **설정** 제목 아래에서 **앱**을 선택 합니다.
+1. **설정** 제목 아래에서 **앱** 을 선택 합니다.
 
 1. Azure 스프링 클라우드 서비스는 테이블에 표시 됩니다.  영구 저장소를 추가 하려는 서비스를 선택 합니다. 이 예제에서는 **게이트웨이** 서비스를 선택 합니다.
 
@@ -48,7 +48,7 @@ Azure 스프링 클라우드는 응용 프로그램에 영구 및 임시의 두 
 
 1. 서비스의 구성 페이지에서 **구성** 을 선택 합니다.
 
-1. **영구 저장소** 탭을 선택 하 고 **사용**을 선택 합니다.
+1. **영구 저장소** 탭을 선택 하 고 **사용** 을 선택 합니다.
 
     > ![영구 저장소 사용](media/enable-persistent-storage.jpg)
 

@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bec31f830adddfc7251ce36e13ef0bfaa0af7638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88931712"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>C#에서 사용자 지정 이미지 목록을 사용하여 조정
@@ -31,7 +31,7 @@ ms.locfileid: "88931712"
 - 사용자 지정 목록 삭제
 
 > [!NOTE]
-> 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
+> 최대 **5개 이미지 목록** 으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 
 이 가이드의 콘솔 응용 프로그램에서는 이미지 목록 API를 사용 하 여 수행할 수 있는 작업 중 일부를 시뮬레이션 합니다.
 
@@ -45,7 +45,7 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 1. 솔루션에 새 **콘솔 앱(.NET Framework)** 프로젝트를 추가합니다.
 
-   샘플 코드에서 프로젝트의 이름을 **ImageLists**로 지정합니다.
+   샘플 코드에서 프로젝트의 이름을 **ImageLists** 로 지정합니다.
 
 1. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
 

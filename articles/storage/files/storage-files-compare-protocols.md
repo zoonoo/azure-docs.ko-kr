@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0ed41cc01fcf5aa35b3d2195518b8e2bb0f3b9c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588242"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
@@ -26,7 +26,7 @@ Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 �
 |액세스 프로토콜     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |권장 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
 |[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
-|청구 모델         |[프로 비전 된 용량에 대 한 비용 지불](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[프리미엄 계층에 대해 프로 비전 된 용량에 대 한 지불](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), [표준 계층에 대 한 종 량](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model) 제         |
+|청구 모델         |[프로 비전 된 용량에 대 한 비용 지불](./understanding-billing.md#provisioned-model)         |[프리미엄 계층에 대해 프로 비전 된 용량에 대 한 지불](./understanding-billing.md#provisioned-model), [표준 계층에 대 한 종 량](./understanding-billing.md#pay-as-you-go-model) 제         |
 |[중복](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
 |사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |

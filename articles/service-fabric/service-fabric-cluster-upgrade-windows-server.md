@@ -4,10 +4,10 @@ description: 독립 실행형 Service Fabric 클러스터를 실행하는 Azure 
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 5831fcffe718e4966c3444a29d35c5bbd55e5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842940"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 Service Fabric 버전 업그레이드 
@@ -24,7 +24,7 @@ ms.locfileid: "91842940"
 클러스터를 최신 버전 또는 지원되는 Service Fabric 버전으로 업그레이드하는 데는 두 가지 워크플로가 있습니다. 한 가지 워크플로는 최신 버전을 자동으로 다운로드하도록 연결된 클러스터에 사용됩니다. 또 다른 워크플로는 최신 Service Fabric 버전을 다운로드할 수 있는 연결이 없는 클러스터에 사용됩니다.
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>클러스터의 Service Fabric 버전의 자동 업그레이드를 사용하도록 설정
-Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다운로드하도록 클러스터를 설정하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *true*로 설정합니다. 클러스터를 사용할 지원되는 Service Fabric 버전을 수동으로 선택하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *false*로 설정합니다.
+Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다운로드하도록 클러스터를 설정하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *true* 로 설정합니다. 클러스터를 사용할 지원되는 Service Fabric 버전을 수동으로 선택하려면 `fabricClusterAutoupgradeEnabled` 클러스터 구성을 *false* 로 설정합니다.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>최신 코드와 구성을 다운로드하도록 연결된 클러스터 업그레이드
 클러스터 노드가 인터넷을 통해 [Microsoft 다운로드 센터](https://download.microsoft.com)에 연결되어 있으면 이러한 단계를 사용하여 클러스터를 지원되는 버전으로 업그레이드합니다.
@@ -92,11 +92,11 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 >
 
 ### <a name="auto-provisioning-vs-manual-provisioning"></a>자동 프로비전 및 수동 프로비전
-최신 코드 버전에 대한 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침은 [독립 실행형 패키지](service-fabric-cluster-standalone-package-contents.md)에 있는 *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt*를 참조하세요.
+최신 코드 버전에 대한 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침은 [독립 실행형 패키지](service-fabric-cluster-standalone-package-contents.md)에 있는 *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt* 를 참조하세요.
 
 수동 프로세스의 경우 다음 지침을 따릅니다.
 
-구성 업그레이드를 시작하기 전에 클러스터 구성을 수정하여 다음 속성을 *false*로 설정합니다.
+구성 업그레이드를 시작하기 전에 클러스터 구성을 수정하여 다음 속성을 *false* 로 설정합니다.
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,
@@ -110,7 +110,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 ### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로
 
-1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion*을 적어둡니다.
+1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion* 을 적어둡니다.
 
 2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고, 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
 

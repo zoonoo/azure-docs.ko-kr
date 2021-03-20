@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9ec9e110c3a476c9096ae3e216c9780da0e0f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88949199"
 ---
 # <a name="identity-protection-and-b2b-users"></a>ID 보호 및 B2B 사용자
@@ -33,8 +33,8 @@ B2B 공동 작업 사용자에 대 한 사용자 위험은 자신의 홈 디렉�
 
 자신의 홈 디렉터리에 있는 id로 인해 리소스 디렉터리에서 B2B 공동 작업 사용자에 대 한 Id 보호 구현에는 제한 사항이 있습니다. 주요 제한 사항은 다음과 같습니다.
 
-- 게스트 사용자가 암호 재설정을 강제 하는 Id 보호 사용자 위험 정책을 트리거하는 경우 **차단**됩니다. 이 블록은 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 발생 합니다.
-- **게스트 사용자는 위험한 사용자 보고서에 표시 되지**않습니다. 이러한 표시의 손실은 B2B 사용자의 홈 디렉터리에서 발생 하는 위험 평가 때문에 발생 합니다.
+- 게스트 사용자가 암호 재설정을 강제 하는 Id 보호 사용자 위험 정책을 트리거하는 경우 **차단** 됩니다. 이 블록은 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 발생 합니다.
+- **게스트 사용자는 위험한 사용자 보고서에 표시 되지** 않습니다. 이러한 표시의 손실은 B2B 사용자의 홈 디렉터리에서 발생 하는 위험 평가 때문에 발생 합니다.
 - 관리자는 리소스 디렉터리에서 **위험한 B2B 공동 작업 사용자를 해제 하거나 수정할 수 없습니다** . 이러한 기능 손실은 리소스 디렉터리의 관리자가 B2B 사용자의 홈 디렉터리에 액세스할 수 없기 때문입니다.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>내 디렉터리에서 위험한 B2B 공동 작업 사용자를 수정할 수 없는 이유는 무엇입니까?

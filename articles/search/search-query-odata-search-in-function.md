@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922823"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Azure Cognitive Search의 OData 함수
@@ -74,7 +74,7 @@ search_in_call ::=
 
 매개 변수는 다음 표에 정의 되어 있습니다.
 
-| 매개 변수 이름 | 형식 | 설명 |
+| 매개 변수 이름 | Type | 설명 |
 | --- | --- | --- |
 | `variable` | `Edm.String` | 또는 식 내에서가 사용 되는 경우 문자열 필드 참조 (또는 문자열 컬렉션 필드의 범위 변수 `search.in` `any` `all` )입니다. |
 | `valueList` | `Edm.String` | 매개 변수와 비교할 구분 된 값 목록을 포함 하는 문자열 `variable` 입니다. `delimiters`매개 변수가 지정 되지 않은 경우 기본 구분 기호는 공백과 쉼표입니다. |
@@ -86,7 +86,7 @@ search_in_call ::=
 
 `search.in`을 사용하는 경우 두 번째 매개 변수에 수십만 개 값 목록이 포함되어 있을 때 1초 미만의 응답 시간을 기대할 수 있습니다. 최대 요청 크기로 제한 되더라도에 전달할 수 있는 항목 수에 대 한 명시적 제한은 없습니다 `search.in` . 그러나 값 수가 증가함에 따라 대기 시간도 증가합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이름이 ' 해상 보기 motel ' 또는 ' 예산 호텔 '과 같은 모든 호텔을 찾습니다. 구에는 기본 구분 기호인 공백이 포함 됩니다. 세 번째 문자열 매개 변수로 작은따옴표에 대체 구분 기호를 지정할 수 있습니다.  
 

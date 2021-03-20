@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875012"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598136"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Azure Synapse Analytics 등록 및 검사
 
@@ -26,7 +26,7 @@ Azure Synapse Analytics (이전의 SQL DW)는 메타 데이터 및 스키마를 
 
 Azure 부서의 범위는 Azure Synapse Analytics에서 [보기](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) 의 검색을 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 - Azure 부서의 범위 데이터 원본 관리자 여야 합니다.
@@ -127,7 +127,7 @@ Data Catalog에서 새 Azure Synapse Analytics 서버를 등록 하려면 다음
 **원본 등록 (Azure Synapse Analytics)** 화면에서 다음을 수행 합니다.
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-1. 원하는 스토리지 계정을 가리키는 방법을 선택합니다.
+1. 원하는 논리적 SQL Server를 가리키는 방법을 선택 합니다.
    1. **Azure 구독에서** 를 선택 하 고, **azure 구독** 드롭다운 상자에서 적절 한 구독을 선택 하 고, **서버 이름** 드롭다운 상자에서 적절 한 서버를 선택 합니다.
    1. 또는 **수동으로 입력** 을 선택하고 **서버 이름** 을 입력할 수 있습니다.
 1. **마침** 을 선택하여 데이터 원본을 등록합니다.

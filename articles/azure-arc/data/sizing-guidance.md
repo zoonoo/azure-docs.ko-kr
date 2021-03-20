@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542680"
 ---
 # <a name="sizing-guidance"></a>크기 조정 지침
@@ -124,9 +124,9 @@ Azure Arc 사용 데이터 서비스에 필요한 환경의 전체 크기는 주
 
 요구 사항:
 
-- **"SQL1"** : 1 개의 SQL 관리 되는 인스턴스 (16gb RAM, 4 개 코어)
-- **"SQL2"** : 1 개의 SQL 관리 되는 인스턴스 (256 g b RAM, 16 개 코어)
-- **"Postgres1"** : 1 PostgreSQL hyperscale server 그룹, RAM이 12 GB, 4 개 코어
+- **"SQL1"**: 1 개의 SQL 관리 되는 인스턴스 (16gb RAM, 4 개 코어)
+- **"SQL2"**: 1 개의 SQL 관리 되는 인스턴스 (256 g b RAM, 16 개 코어)
+- **"Postgres1"**: 1 PostgreSQL hyperscale server 그룹, RAM이 12 GB, 4 개 코어
 
 크기 조정 계산:
 

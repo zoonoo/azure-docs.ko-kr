@@ -1,7 +1,7 @@
 ---
 title: Android 디바이스의 공유 디바이스 모드
 titleSuffix: Microsoft identity platform | Azure
-description: Firstline Worker가 Android 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
+description: Frontline Worker가 Android 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491555"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578824"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
 
-소매 연결, 비행 crew 구성원 및 현장 서비스 작업자와 같은 firstline Worker는 종종 공유 모바일 장치를 사용 하 여 작업을 수행 합니다. 공유 장치에서 고객 및 비즈니스 데이터에 액세스 하기 위해 암호 또는 pin 번호 공유를 시작 하는 경우 문제가 됩니다.
+소매 연결, 비행 crew 구성원 및 현장 서비스 작업자와 같은 Frontline 작업자는 종종 공유 모바일 장치를 사용 하 여 작업을 수행 합니다. 공유 장치에서 고객 및 비즈니스 데이터에 액세스 하기 위해 암호 또는 pin 번호 공유를 시작 하는 경우 문제가 됩니다.
 
 공유 장치 모드를 사용 하면 여러 직원이 쉽게 공유할 수 있도록 Android 장치를 구성할 수 있습니다. 직원은 로그인 하 여 고객 정보에 신속 하 게 액세스할 수 있습니다. Shift 또는 작업을 완료 하면 장치에서 로그 아웃할 수 있으며 다음 직원이 사용할 수 있는 즉시 준비가 됩니다.
 
@@ -85,7 +85,7 @@ private IPublicClientApplication mApplication;
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>단일 계정 모드만 지원 해야 하는 이유
 
-공유 장치를 사용 하 여 firstline 작업자에만 사용 되는 앱을 작성 하는 경우 단일 계정 모드만 지원 하도록 응용 프로그램을 작성 하는 것이 좋습니다. 여기에는 의료 기록 앱, 청구서 앱 및 대부분의 LOB(기간 업무) 앱과 같이 작업에 중점을 둔 대부분의 애플리케이션이 포함됩니다. 여러 계정 앱에 포함 된 추가 기능을 구현할 필요가 없으므로 단일 계정 모드만 지원 하면 개발이 간단해 집니다.
+공유 장치를 사용 하는 frontline 작업자에만 사용 되는 앱을 작성 하는 경우 단일 계정 모드만 지원 하도록 응용 프로그램을 작성 하는 것이 좋습니다. 여기에는 의료 기록 앱, 청구서 앱 및 대부분의 LOB(기간 업무) 앱과 같이 작업에 중점을 둔 대부분의 애플리케이션이 포함됩니다. 여러 계정 앱에 포함 된 추가 기능을 구현할 필요가 없으므로 단일 계정 모드만 지원 하면 개발이 간단해 집니다.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>장치 모드가 변경 되 면 어떻게 되나요?
 
@@ -103,4 +103,4 @@ private IPublicClientApplication mApplication;
 
 ## <a name="next-steps"></a>다음 단계
 
-공유 모드 Android 장치에서 firstline worker 앱을 실행 하는 방법을 보여 주는 [android 응용 프로그램에서 공유 장치 모드 사용](tutorial-v2-shared-device-mode.md) 자습서를 사용해 보세요.
+공유 모드 Android 장치에서 frontline worker 앱을 실행 하는 방법을 보여 주는 [android 응용 프로그램에서 공유 장치 모드 사용](tutorial-v2-shared-device-mode.md) 자습서를 사용해 보세요.

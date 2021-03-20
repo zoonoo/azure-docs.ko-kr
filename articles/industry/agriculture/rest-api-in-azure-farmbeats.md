@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674505"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats Api
@@ -29,7 +29,7 @@ FarmBeats Api에는 Swagger 기술 설명서가 포함 되어 있습니다. 모�
 
 다음 표에는 FarmBeats Datahub의 모든 개체와 리소스가 요약 되어 있습니다.
 
-| 개체 및 리소스 | Description
+| 개체 및 리소스 | 설명
 --- | ---|
 팜 | 팜은 FarmBeats 시스템 내에서 관심 있는 실제 위치에 해당 합니다. 각 팜에는 팜 이름과 고유한 팜 ID가 있습니다. |
 디바이스  | 장치는 팜에 있는 물리적 장치에 해당 합니다. 각 장치에는 고유한 장치 ID가 있습니다. 일반적으로 장치는 팜 ID를 사용 하 여 팜으로 프로 비전 됩니다.
@@ -143,7 +143,7 @@ Azure FarmBeats Datahub Api는 표준 HTTP 오류를 반환 합니다. 가장 �
 
 Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록을 통해 액세스할 수 있습니다. Azure Active Directory에서 앱 등록을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **Azure Active Directory**  >  **App registrations**  >  **새 등록** 앱 등록 Azure Active Directory를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여   >    >  **새 등록** 앱 등록 Azure Active Directory를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
 2. 새 계정에 대해 다음을 수행 합니다.
 
     - 이름을 입력합니다.

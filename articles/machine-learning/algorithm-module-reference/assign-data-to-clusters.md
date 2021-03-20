@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: e618395a2a4a11b4afb311d612cf5d0e27503dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898859"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
@@ -30,7 +30,7 @@ ms.locfileid: "90898859"
   
     - 작업 영역의 **저장 된 모델** 그룹에서 기존의 학습 된 클러스터링 모델을 추가할 수도 있습니다.
 
-2. **데이터를 클러스터에 할당**의 왼쪽 입력 포트에 학습 된 모델을 연결 합니다.  
+2. **데이터를 클러스터에 할당** 의 왼쪽 입력 포트에 학습 된 모델을 연결 합니다.  
 
 3. 새 데이터 집합을 입력으로 연결 합니다. 
 
@@ -47,5 +47,5 @@ ms.locfileid: "90898859"
   
 ### <a name="results"></a>결과
 
-+  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 한 다음 **시각화**를 선택 합니다. 또는 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 고 **포트 출력** 에서 히스토그램 아이콘을 클릭 하 여 결과를 시각화 합니다.
++  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 한 다음 **시각화** 를 선택 합니다. 또는 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭으로 전환 하 고 **포트 출력** 에서 히스토그램 아이콘을 클릭 하 여 결과를 시각화 합니다.
 

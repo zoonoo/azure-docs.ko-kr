@@ -9,10 +9,10 @@ ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: ab81e2b6ef19e7a5dacb80186c5364a5848077f6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336336"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
@@ -41,7 +41,7 @@ DateTimeToTicks (<DateTime>)
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 틱 수를 반환 하는 예는 다음과 같습니다.
 

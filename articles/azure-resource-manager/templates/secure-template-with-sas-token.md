@@ -4,10 +4,10 @@ description: SAS 토큰으로 보호 되는 Azure Resource Manager 템플릿을 
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88855668"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>SAS 토큰을 사용 하 여 개인 ARM 템플릿 배포

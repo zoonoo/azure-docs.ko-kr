@@ -8,10 +8,10 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.openlocfilehash: 122a0a01c420d5efa12fa267a0d3605fc7a25960
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385339"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
@@ -21,7 +21,7 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요

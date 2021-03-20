@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75430626"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
@@ -46,12 +46,12 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 개발자 포털은 Azure Portal에서 액세스할 수 있습니다.
 
-1. API Management 인스턴스의 도구 모음에서 **개발자 포털**을 클릭합니다.
+1. API Management 인스턴스의 도구 모음에서 **개발자 포털** 을 클릭합니다.
 2. 위젯의 내용을 편집하려면 왼쪽에 있는 **개발자** 포털 메뉴에서 두 개의 페인트 브러시로 이루어진 아이콘을 클릭합니다.
-3. 헤더의 내용을 수정하려면 왼쪽의 목록에서 **헤더**로 스크롤합니다.
+3. 헤더의 내용을 수정하려면 왼쪽의 목록에서 **헤더** 로 스크롤합니다.
 
     위젯은 필드 내에서 편집할 수 있습니다.
-4. 변경 내용을 게시할 준비가 완료되면 페이지 맨 아래에서 **게시**를 클릭합니다.
+4. 변경 내용을 게시할 준비가 완료되면 페이지 맨 아래에서 **게시** 를 클릭합니다.
 
 이제 개발자 포털 내의 모든 페이지에서 새 머리글을 볼 수 있습니다.
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.custom: seodec18
 ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88719362"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
@@ -44,7 +44,7 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 
 사용자 계정의 권한 상승 수준은 태스크가 관리자 액세스 권한으로 실행되는지 여부를 나타냅니다. 자동 사용자 계정 및 명명된 사용자 계정 모두 관리자 권한 액세스로 실행될 수 있습니다. 권한 상승 수준의 두 가지 옵션은 다음과 같습니다.
 
-- **NonAdmin:** 작업이 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin**입니다.
+- **NonAdmin:** 작업이 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin** 입니다.
 - **Admin:** 작업이 관리자 액세스 권한이 있는 사용자로 실행되고 전체 관리자 권한으로 작동됩니다.
 
 ## <a name="auto-user-accounts"></a>자동 사용자 계정

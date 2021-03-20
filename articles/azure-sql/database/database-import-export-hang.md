@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 ms.openlocfilehash: e69bba858ccf62f1b3a3b45b08771ddba71f11cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92671402"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database 및 Managed Instance Import/Export 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
@@ -36,7 +36,7 @@ Azure SQL Database 가져오기/내보내기 서비스는 가져오기 및 내�
 > [!NOTE]
 > 요청이 4 일 이내에 처리 되지 않으면 서비스에서 자동으로 요청을 취소 합니다.
 
-## <a name="recommended-solutions"></a>권장 해결 방법
+## <a name="recommended-solutions"></a>권장 솔루션
 
 데이터베이스 내보내기가 실수로 인 한 데이터 삭제의 복구에만 사용 되는 경우 모든 Azure SQL Database 버전은 시스템 생성 백업에서 셀프 서비스 복원 기능을 제공 합니다. 그러나 다른 이유로 이러한 내보내기가 필요 하며 지속적으로 빠르고 예측 가능한 가져오기/내보내기 성능이 필요한 경우에는 다음 옵션을 고려 하십시오.
 

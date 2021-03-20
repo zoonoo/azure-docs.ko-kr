@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650731"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599217"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -61,11 +61,12 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 | 기능 | 동기 | 비동기 |
 |--|--|--|
-| 언어 감지 | ✔ |  |
+| 언어 검색 | ✔ |  |
 | 정서 분석 | ✔ |  |
 | 의견 마이닝 | ✔ |  |
-| 핵심 구 추출 | ✔ | ✔* |
+| 핵심 문구 추출 | ✔ | ✔* |
 | 명명 된 엔터티 인식 (PII 및 no 포함) | ✔ | ✔* |
+| 엔터티 연결 | ✔ | ✔* |
 | 상태 (컨테이너)에 대 한 Text Analytics | ✔ |  |
 | 상태에 대 한 Text Analytics (API) |  | ✔  |
 
@@ -118,8 +119,9 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 끝점을 사용 하 여 `/analyze` 단일 API 호출에서 사용 하려는 지원 되는 Text Analytics 기능을 선택할 수 있습니다. 이 끝점은 현재 다음을 지원 합니다.
 
-* 핵심 구 추출 
+* 핵심 문구 추출 
 * 명명 된 엔터티 인식 (PII 및 no 포함)
+* 엔터티 연결
 
 | 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 |`documents` | `id`아래와 필드를 포함 합니다. `text` | 필수 | 전송 중인 각 문서와 문서의 원시 텍스트에 대 한 정보를 포함 합니다. |
 |`id` | String | 필수 | 제공 하는 Id는 출력을 구조화 하는 데 사용 됩니다. |
 |`text` | 최대 125000 자의 비구조적 원시 텍스트입니다. | 필수 | 는 현재 지원 되는 유일한 언어인 영어 언어 여야 합니다. |
-|`tasks` | 에는, 또는와 같은 Text Analytics 기능이 포함 되어 있습니다 `entityRecognitionTasks` `keyPhraseExtractionTasks` `entityRecognitionPiiTasks` . | 필수 | 사용 하려는 Text Analytics 기능 중 하나 이상입니다. 에는 `entityRecognitionPiiTasks` `domain` 또는로 설정할 수 있는 선택적 매개 변수가 있습니다 `pii` `phi` . 지정 하지 않으면 시스템은 기본적으로로 설정 `pii` 됩니다. |
+|`tasks` | 에는, 또는 Text Analytics 기능이 포함 되어 있습니다 `entityRecognitionTasks` `entityLinkingTasks` `keyPhraseExtractionTasks` `entityRecognitionPiiTasks` . | 필수 | 사용 하려는 Text Analytics 기능 중 하나 이상입니다. 에는 `entityRecognitionPiiTasks` `domain` 또는로 설정할 수 있는 선택적 매개 변수와 `pii` 선택 된 `phi` `pii-categories` 엔터티 형식에 대 한 검색을 위한가 있습니다. `domain`매개 변수가 지정 되지 않은 경우 시스템은 기본적으로로 설정 됩니다 `pii` . |
 |`parameters` | `model-version`아래와 필드를 포함 합니다. `stringIndexType` | 필수 | 이 필드는 사용자가 선택한 위의 기능 작업 내에 포함 되어 있습니다. 여기에는 사용 하려는 모델 버전과 인덱스 형식에 대 한 정보가 포함 됩니다. |
 |`model-version` | String | 필수 | 사용 하려는 모델의 버전을 지정 합니다.  |
 |`stringIndexType` | String | 필수 | 프로그래밍 환경에 맞는 텍스트 디코더를 지정 합니다.  지원 되는 형식은 `textElement_v8` (기본값), `unicodeCodePoint` , `utf16CodeUnit` 입니다. 자세한 내용은 [텍스트 오프셋 문서](../concepts/text-offsets.md#offsets-in-api-version-31-preview) 를 참조 하세요.  |
@@ -158,6 +160,14 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -207,7 +220,7 @@ example.json
 
 ## <a name="set-up-a-request"></a>요청 설정 
 
-Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 다음은 그 예입니다. 
+Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 예를 들면 다음과 같습니다.
 
 `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
 
@@ -217,10 +230,10 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 언어 감지 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | 정서 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
 | 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
-| 핵심 구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| 핵심 문구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | 명명 된 엔터티 인식-일반 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | 명명 된 엔터티 인식-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | 명명 된 엔터티 인식-화 | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
@@ -231,16 +244,16 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 분석 작업 제출 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| 분석 작업 제출 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>끝점에 비동기 요청을 보내기 위한 끝점 `/health`
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 상태 작업을 위한 Text Analytics 제출  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| 작업 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| 작업 취소 | Delete | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| 상태 작업을 위한 Text Analytics 제출  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| 작업 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| 작업 취소 | Delete | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -276,9 +289,9 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 비동기 또는 끝점에 대 한 호출을 수행한 경우 `/analyze` `/health` 202 응답 코드를 받았는지 확인 합니다. 결과를 보려면 응답을 받아야 합니다.
 
 1. API 응답에서, `Operation-Location` api로 보낸 작업을 식별 하는 헤더에서를 찾습니다. 
-2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 다음은 그 예입니다. 
+2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 예를 들면 다음과 같습니다.
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. 요청에를 추가 합니다 `Operation-Location` .
 
@@ -307,7 +320,7 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 
 + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [엔터티 인식](text-analytics-how-to-entity-linking.md#view-results)
-+ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
++ [의료 분야 Text Analytics](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
 --- 
 

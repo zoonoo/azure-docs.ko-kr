@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919491"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>.NET 용 Azure CDN 라이브러리 시작
@@ -43,19 +43,19 @@ ms.locfileid: "88919491"
 ## <a name="create-your-project-and-add-nuget-packages"></a>프로젝트 만들기 및 Nuget 패키지 추가하기
 CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 엔드포인트를 관리하기 위한 Azure AD 애플리케이션 권한을 부여했으므로, 애플리케이션을 만들 수 있습니다.
 
-Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...** 를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#** 을 확장하고 왼쪽 창에서 **Windows**를 선택합니다.  가운데 창에서 **콘솔 애플리케이션**을 클릭합니다.  프로젝트 이름을 지정하고 **확인**을 클릭합니다.
+Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...** 를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#** 을 확장하고 왼쪽 창에서 **Windows** 를 선택합니다.  가운데 창에서 **콘솔 애플리케이션** 을 클릭합니다.  프로젝트 이름을 지정하고 **확인** 을 클릭합니다.
 
 ![새 프로젝트](./media/cdn-app-dev-net/cdn-new-project.png)
 
 이 프로젝트에서는 Nuget 패키지에 포함된 일부 Azure 라이브러리를 사용할 것입니다.  라이브러리를 프로젝트에 추가하겠습니다.
 
-1. **도구** 메뉴, **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+1. **도구** 메뉴, **NuGet 패키지 관리자**, **패키지 관리자 콘솔** 을 차례로 클릭합니다.
 
     ![Nuget 패키지 관리](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. 패키지 관리자 콘솔에서 다음 명령을 실행하여 **Active Directory 인증 라이브러리(ADAL)** 를 설치합니다.
 
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. 다음 명령을 실행하여 **Azure CDN 관리 라이브러리**를 설치합니다.
+3. 다음 명령을 실행하여 **Azure CDN 관리 라이브러리** 를 설치합니다.
 
     `Install-Package Microsoft.Azure.Management.Cdn`
 
@@ -271,7 +271,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> 위 예제에서는 엔드포인트에 *Contoso*라는 원점을 할당했습니다. 호스트 이름은 `www.contoso.com`입니다.  이 값이 원래의 호스트 이름을 가리키도록 변경해야 합니다.
+> 위 예제에서는 엔드포인트에 *Contoso* 라는 원점을 할당했습니다. 호스트 이름은 `www.contoso.com`입니다.  이 값이 원래의 호스트 이름을 가리키도록 변경해야 합니다.
 >
 >
 
@@ -292,7 +292,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> 위 예제에서 `/*` 문자열은 엔드포인트 경로의 루트에 있는 모든 것을 삭제하겠다는 의미를 나타냅니다.  이는 Azure Portal의 "제거" 대화 상자에서 **모두 제거**에 표시하는 것과 같습니다. `CreateCdnProfile` 메서드에서는 `Sku = new Sku(SkuName.StandardVerizon)` 코드를 사용하여 **Verizon에서 Azure CDN** 프로필을 만들었으므로, 이 작업이 성공적으로 수행될 것입니다.  그러나 **Akamai에서 Azure CDN** 프로필은 **모두 삭제**를 지원하지 않습니다. 이 자습서에서 Akamai 프로필을 사용했다면 삭제할 구체적 경로가 필요했을 것입니다.
+> 위 예제에서 `/*` 문자열은 엔드포인트 경로의 루트에 있는 모든 것을 삭제하겠다는 의미를 나타냅니다.  이는 Azure Portal의 "제거" 대화 상자에서 **모두 제거** 에 표시하는 것과 같습니다. `CreateCdnProfile` 메서드에서는 `Sku = new Sku(SkuName.StandardVerizon)` 코드를 사용하여 **Verizon에서 Azure CDN** 프로필을 만들었으므로, 이 작업이 성공적으로 수행될 것입니다.  그러나 **Akamai에서 Azure CDN** 프로필은 **모두 삭제** 를 지원하지 않습니다. 이 자습서에서 Akamai 프로필을 사용했다면 삭제할 구체적 경로가 필요했을 것입니다.
 >
 >
 

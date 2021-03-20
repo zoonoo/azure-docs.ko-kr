@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 9c0a6700a476d4f7f875af5373e3c99bc4e25af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938634"
 ---
 # <a name="syssp_cleanup_data_retention-transact-sql"></a>sys.sp_cleanup_data_retention(Transact-SQL)
@@ -34,10 +34,10 @@ sys.sp_cleanup_data_retention
 
 ## <a name="arguments"></a>인수  
 `[ @schema_name = ] schema_name`    
- 정리를 수행 해야 하는 테이블의 소유 스키마 이름입니다. *schema_name* 는 **sysname**형식의 필수 매개 변수입니다.
+ 정리를 수행 해야 하는 테이블의 소유 스키마 이름입니다. *schema_name* 는 **sysname** 형식의 필수 매개 변수입니다.
   
 `[ @table_name = ] 'table_name'`    
- 정리 작업을 수행 해야 하는 테이블의 이름입니다. *table_name* 는 **sysname**형식의 필수 매개 변수입니다.
+ 정리 작업을 수행 해야 하는 테이블의 이름입니다. *table_name* 는 **sysname** 형식의 필수 매개 변수입니다.
 
 ## <a name="output-parameter"></a>출력 매개 변수  
 

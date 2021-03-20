@@ -9,10 +9,10 @@ ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336370"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
@@ -34,11 +34,11 @@ DateTimePart (<DateTimePart> , <DateTime>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
+| 월        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| 초       | "second", "ss", "s"  |
+| Second       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |
@@ -59,7 +59,7 @@ DateTimePart는 `undefined` 다음과 같은 이유로를 반환 합니다.
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음은 해당 월의 정수 값을 반환 하는 예입니다.
 

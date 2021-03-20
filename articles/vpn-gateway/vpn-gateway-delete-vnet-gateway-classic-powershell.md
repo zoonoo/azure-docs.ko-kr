@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: 39585a68c5cddc50cd04e82caca71209270f7b68
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91874121"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
@@ -76,7 +76,7 @@ Status : Successful
 
 ### <a name="local-network-site-references"></a><a name="lnsref"></a>로컬 네트워크 사이트 참조
 
-사이트 참조 정보를 제거하려면 구성을 **ConnectionsToLocalNetwork/LocalNetworkSiteRef**로 변경합니다. 로컬 사이트 참조를 제거하면 Azure에서 터널을 삭제합니다. 만든 구성에 따라 **LocalNetworkSiteRef** 나열 되지 않을 수 있습니다.
+사이트 참조 정보를 제거하려면 구성을 **ConnectionsToLocalNetwork/LocalNetworkSiteRef** 로 변경합니다. 로컬 사이트 참조를 제거하면 Azure에서 터널을 삭제합니다. 만든 구성에 따라 **LocalNetworkSiteRef** 나열 되지 않을 수 있습니다.
 
 ```
 <Gateway>
@@ -99,7 +99,7 @@ Status : Successful
 
 ### <a name="local-network-sites"></a><a name="lns"></a>로컬 네트워크 사이트
 
-더 이상 사용하지 않는 모든 로컬 사이트를 제거합니다. 만든 구성에 따라 **LocalNetworkSite**가 나열되지 않았을 수 있습니다.
+더 이상 사용하지 않는 모든 로컬 사이트를 제거합니다. 만든 구성에 따라 **LocalNetworkSite** 가 나열되지 않았을 수 있습니다.
 
 ```
 <LocalNetworkSites>
@@ -133,7 +133,7 @@ Status : Successful
 
 ### <a name="client-addresspool"></a><a name="clientaddresss"></a>클라이언트 AddressPool
 
-P2S를 VNet에 연결한 경우 **VPNClientAddressPool**이 있습니다. 삭제한 가상 네트워크 게이트웨이에 해당하는 클라이언트 주소 풀을 제거합니다.
+P2S를 VNet에 연결한 경우 **VPNClientAddressPool** 이 있습니다. 삭제한 가상 네트워크 게이트웨이에 해당하는 클라이언트 주소 풀을 제거합니다.
 
 ```
 <Gateway>

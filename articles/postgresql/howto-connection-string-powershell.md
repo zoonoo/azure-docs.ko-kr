@@ -8,10 +8,10 @@ ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/6/2020
 ms.openlocfilehash: 29641bdc3696f0722ca430dde912768071fd9b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708172"
 ---
 # <a name="how-to-generate-an-azure-database-for-postgresql-connection-string-with-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 연결 문자열을 생성 하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "91708172"
 
 ## <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
-`Get-AzPostgreSqlConnectionString`Cmdlet은 Azure Database for PostgreSQL에 응용 프로그램을 연결 하기 위한 연결 문자열을 생성 하는 데 사용 됩니다. 다음 예제에서는 **mydemoserver**의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
+`Get-AzPostgreSqlConnectionString`Cmdlet은 Azure Database for PostgreSQL에 응용 프로그램을 연결 하기 위한 연결 문자열을 생성 하는 데 사용 됩니다. 다음 예제에서는 **mydemoserver** 의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlConnectionString -Client PHP -Name mydemoserver -ResourceGroupName myresourcegroup

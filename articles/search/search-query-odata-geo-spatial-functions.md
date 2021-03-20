@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934840"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Azure Cognitive Search의 OData 지역 공간 함수- `geo.distance` 및 `geo.intersects`
 
 Azure Cognitive Search는 및 함수를 통해 [OData 필터 식](query-odata-filter-orderby-syntax.md) 에서 지역 공간 쿼리를 지원 `geo.distance` `geo.intersects` 합니다. `geo.distance`함수는 두 요소 사이의 거리를 킬로미터 단위로 반환 합니다. 하나는 필드 또는 범위 변수가 되 고 하나는 필터의 일부로 전달 되는 상수입니다. `geo.intersects`함수는 `true` 지정 된 점이 지정 된 다각형 내에 있는 경우를 반환 합니다. 여기서 point는 필드 또는 범위 변수이 고 다각형은 필터의 일부로 전달 되는 상수로 지정 됩니다.
 
-`geo.distance`함수를 [ **$orderby** 매개 변수에](search-query-odata-orderby.md) 사용 하 여 지정 된 지점 으로부터의 거리를 기준으로 검색 결과를 정렬할 수도 있습니다. **$orderby**에서 `geo.distance`에 대한 구문은 **$filter**에 있을 때와 같습니다. $Orderby에서를 사용 하는 경우 `geo.distance` 이 필드가 적용 되는 필드는 형식 이어야 **$orderby** `Edm.GeographyPoint` 하며 **정렬할**수 있어야 합니다.
+`geo.distance`함수를 [ **$orderby** 매개 변수에](search-query-odata-orderby.md) 사용 하 여 지정 된 지점 으로부터의 거리를 기준으로 검색 결과를 정렬할 수도 있습니다. **$orderby** 에서 `geo.distance`에 대한 구문은 **$filter** 에 있을 때와 같습니다. $Orderby에서를 사용 하는 경우 `geo.distance` 이 필드가 적용 되는 필드는 형식 이어야  `Edm.GeographyPoint` 하며 **정렬할** 수 있어야 합니다.
 
 > [!NOTE]
 > `geo.distance` **$Orderby** 매개 변수에서를 사용 하는 경우 함수에 전달 하는 필드는 단일 지리적 지점만 포함 해야 합니다. 즉, 형식이 아닌 형식 이어야 합니다 `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)` . Azure Cognitive Search에서는 컬렉션 필드를 기준으로 정렬할 수 없습니다.
@@ -97,9 +97,9 @@ Azure Cognitive Search에서는 쿼리 셰이프가 사각형이 고 좌표가 �
 Azure Cognitive Search의 다른 모든 비 컬렉션 필드와 마찬가지로 형식의 필드에는 `Edm.GeographyPoint` 값이 포함 될 수 있습니다 `null` . Azure Cognitive Search가 인 필드를 평가 하는 경우 `geo.intersects` `null` 결과는 항상 `false` 입니다. `geo.distance`이 경우의 동작은 컨텍스트에 따라 달라 집니다.
 
 - 필터에서 `geo.distance` `null` 필드의 결과는 `null` 입니다. 즉, `null` null이 아닌 값이로 계산 되기 때문에 문서가 일치 하지 않습니다 `false` .
-- **$Orderby**를 사용 하 여 결과를 정렬 하는 경우 `geo.distance` `null` 필드의 가능한 최대 거리가 발생 합니다. 이러한 필드를 사용 하는 문서는 정렬 방향을 사용 하는 경우 `asc` (기본값), 방향이 일 때 다른 모든 항목 보다 더 높은 순서로 정렬 됩니다 `desc` .
+- **$Orderby** 를 사용 하 여 결과를 정렬 하는 경우 `geo.distance` `null` 필드의 가능한 최대 거리가 발생 합니다. 이러한 필드를 사용 하는 문서는 정렬 방향을 사용 하는 경우 `asc` (기본값), 방향이 일 때 다른 모든 항목 보다 더 높은 순서로 정렬 됩니다 `desc` .
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="filter-examples"></a>필터 예시
 

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4d58b032fe0371c9b54cf66ab13f525880867fb6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385356"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
@@ -69,8 +69,8 @@ Switch 활동은 프로그래밍 언어로 제공 되는 스위치 문과 동일
 -------- | ----------- | -------------- | --------
 name | 전환 활동의 이름입니다. | String | 예
 type | *스위치로* 설정 해야 합니다.* | String | 예
-식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | Yes
-cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | Yes
+식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | 예
+cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | 예
 defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 집합입니다. | 작업 배열 | 예
 
 ## <a name="example"></a>예제

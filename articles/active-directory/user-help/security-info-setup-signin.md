@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
 ms.openlocfilehash: 016e0de26bf3a9513940be161cfecf6d1c2b9d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88798502"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>로그인 프롬프트에서 보안 정보 설정
@@ -52,27 +52,27 @@ ms.locfileid: "88798502"
 >[!Important]
 >이는 프로세스의 한 예일 뿐입니다. 조직의 요구 사항에 따라 관리자가 이 프로세스 중에 설정해야 하는 다른 인증 방법을 설정했을 수 있습니다. 다음 예에서는 Microsoft Authenticator 앱과 인증 통화 또는 문자 메시지용 휴대폰 번호라는 두 가지 방법을 요구합니다.
 
-1. 프롬프트에서 **다음**을 선택하면 **계정 보안 유지 마법사**가 나타나서 관리자와 조직에서 설정해야 하는 첫 번째 방법을 보여 줍니다. 다음 예는 Microsoft Authenticator 앱을 사용하는 경우입니다.
+1. 프롬프트에서 **다음** 을 선택하면 **계정 보안 유지 마법사** 가 나타나서 관리자와 조직에서 설정해야 하는 첫 번째 방법을 보여 줍니다. 다음 예는 Microsoft Authenticator 앱을 사용하는 경우입니다.
 
    > [!Note]
    > Microsoft Authenticator 앱 이외의 인증 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
    >
-   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
+   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크** 를 선택하면 됩니다.
 
     ![인증 앱 다운로드 페이지를 보여 주는 계정 보안 유지 마법사](media/security-info/securityinfo-prompt-get-auth-app.png)
 
-2. **지금 다운로드**를 선택하여 Microsoft Authenticator 앱을 모바일 디바이스에 다운로드하여 설치하고, **다음**을 선택합니다. 앱을 다운로드하여 설치하는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md)를 참조하세요.
+2. **지금 다운로드** 를 선택하여 Microsoft Authenticator 앱을 모바일 디바이스에 다운로드하여 설치하고, **다음** 을 선택합니다. 앱을 다운로드하여 설치하는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md)를 참조하세요.
 
     ![인증자의 계정 설정 페이지를 보여 주는 계정 보안 유지 마법사](media/security-info/securityinfo-prompt-auth-app-setup-acct.png)
 
 3. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지를 열어 둡니다.
 
-4. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
+4. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가** 를 선택한 다음, **회사 또는 학교 계정** 을 선택합니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용** 을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-5. 컴퓨터에서 **계정 설정** 페이지로 돌아가서 **다음**을 선택합니다.
+5. 컴퓨터에서 **계정 설정** 페이지로 돌아가서 **다음** 을 선택합니다.
 
     **QR 코드 스캔** 페이지가 나타납니다.
 
@@ -82,40 +82,40 @@ ms.locfileid: "88798502"
 
     인증 앱은 추가 정보 없이도 회사 또는 학교 계정을 성공적으로 추가해야 합니다. 하지만 QR 코드 판독기에서 코드를 읽을 수 없으면 **QR 이미지를 스캔할 수 없습니까?** 를 선택하고 Microsoft Authenticator 앱에 코드와 URL을 수동으로 입력하면 됩니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
-7. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음**을 선택합니다.
+7. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음** 을 선택합니다.
 
     계정을 테스트하기 위한 알림이 모바일 디바이스의 Microsoft Authenticator 앱으로 보내집니다.
 
     ![인증 앱으로 계정 테스트](media/security-info/securityinfo-prompt-test-app.png)
 
-8. Microsoft Authenticator 앱에서 알림을 승인하고, **다음**을 선택합니다.
+8. Microsoft Authenticator 앱에서 알림을 승인하고, **다음** 을 선택합니다.
 
     ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     2단계 인증 또는 암호 재설정을 사용하면 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
 
-9. **전화** 설정 페이지에서 문자 메시지 또는 전화 통화를 받을지 여부를 선택하고, **다음**을 선택합니다. 이 예에서는 문자 메시지를 사용하므로 문자 메시지를 받을 수 있는 디바이스에 대한 전화 번호를 사용해야 합니다.
+9. **전화** 설정 페이지에서 문자 메시지 또는 전화 통화를 받을지 여부를 선택하고, **다음** 을 선택합니다. 이 예에서는 문자 메시지를 사용하므로 문자 메시지를 받을 수 있는 디바이스에 대한 전화 번호를 사용해야 합니다.
 
     ![문자 메시지에 사용할 전화 번호의 설정 시작](media/security-info/securityinfo-prompt-text-msg.png)
 
     문자 메시지가 전화 번호로 보내집니다. 전화 통화를 받으려는 경우에도 프로세스는 동일합니다. 그러나 문자 메시지 대신 지침이 포함된 전화 통화를 받게 됩니다.
 
-10. 모바일 디바이스로 보낸 문자 메시지에서 제공하는 코드를 입력하고, **다음**을 선택합니다.
+10. 모바일 디바이스로 보낸 문자 메시지에서 제공하는 코드를 입력하고, **다음** 을 선택합니다.
 
     ![문자 메시지로 계정 테스트](media/security-info/securityinfo-prompt-text-msg-enter-code.png)
 
-11. 성공 알림을 검토한 다음, **완료**를 선택합니다.
+11. 성공 알림을 검토한 다음, **완료** 를 선택합니다.
 
     ![성공 알림](media/security-info/securityinfo-prompt-call-answered-success.png)
 
     2단계 인증 또는 암호 재설정을 사용할 때 문자 메시지를 백업 방법으로 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
 
-12. **성공** 페이지를 검토하여 보안 정보에 대한 Microsoft Authenticator 앱 및 전화(문자 메시지 또는 전화 통화) 방법을 모두 성공적으로 설정했는지 확인한 다음, **완료**를 선택합니다.
+12. **성공** 페이지를 검토하여 보안 정보에 대한 Microsoft Authenticator 앱 및 전화(문자 메시지 또는 전화 통화) 방법을 모두 성공적으로 설정했는지 확인한 다음, **완료** 를 선택합니다.
 
     ![성공적으로 완료된 마법사 페이지](media/security-info/securityinfo-prompt-setup-success.png)
 
     >[!Note]
-    >조직에서 앱 암호 사용을 요구하는 경우 이 마법사의 추가 섹션을 확인하여 설정할 수 있습니다. **앱 암호**라는 세 번째 섹션이 표시되는 경우 마법사를 완료하기 전에 이를 채워야 합니다. 앱 암호를 추가하는 방법에 대한 단계는 이 문서의 [앱 암호 관리](#manage-your-app-passwords) 섹션을 참조하세요.
+    >조직에서 앱 암호 사용을 요구하는 경우 이 마법사의 추가 섹션을 확인하여 설정할 수 있습니다. **앱 암호** 라는 세 번째 섹션이 표시되는 경우 마법사를 완료하기 전에 이를 채워야 합니다. 앱 암호를 추가하는 방법에 대한 단계는 이 문서의 [앱 암호 관리](#manage-your-app-passwords) 섹션을 참조하세요.
 
 ### <a name="manage-your-app-passwords"></a>앱 암호 관리
 
@@ -134,9 +134,9 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 #### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>로그인 마법사에서 앱 암호를 추가하려면
 
-1. 마법사의 이전 섹션을 완료한 후 **다음**을 선택하고 **앱 암호** 섹션을 완료합니다.
+1. 마법사의 이전 섹션을 완료한 후 **다음** 을 선택하고 **앱 암호** 섹션을 완료합니다.
 
-2. 암호가 필요한 앱의 이름을 입력(예: `Outlook 2010`)한 다음, **다음**을 선택합니다.
+2. 암호가 필요한 앱의 이름을 입력(예: `Outlook 2010`)한 다음, **다음** 을 선택합니다.
 
     ![마법사에서 앱 암호 이름 추가](media/security-info/app-password-app-password.png)
 
@@ -144,7 +144,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
     ![복사할 암호가 있는 앱 암호 페이지](media/security-info/app-password-copy-password.png)
 
-4. 암호를 복사하여 앱에 붙여넣은 후, 이 마법사로 돌아와서 모든 로그인 방법 정보가 정확한지 확인한 다음, **완료**를 선택합니다.
+4. 암호를 복사하여 앱에 붙여넣은 후, 이 마법사로 돌아와서 모든 로그인 방법 정보가 정확한지 확인한 다음, **완료** 를 선택합니다.
 
     ![완료 알림이 표시된 앱 암호 페이지](media/security-info/app-password-complete.png)
 

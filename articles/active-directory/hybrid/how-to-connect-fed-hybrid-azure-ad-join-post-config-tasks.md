@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88612472"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
@@ -34,7 +34,7 @@ Windows 10 및 Windows Server 2016을 실행하는 모든 도메인 조인 디�
 * 편집 및 이동: 컴퓨터 구성 > 정책 > 관리 템플릿 Windows 구성 요소 > 장치 등록을 > 합니다.
 
 >[!NOTE]
->2012R2의 경우 정책 설정이 **컴퓨터 구성 > 정책 > 관리 템플릿 > Windows 구성 요소 > 작업 공간 연결 > 클라이언트 컴퓨터에 자동으로 작업 공간 연결**에 있습니다.
+>2012R2의 경우 정책 설정이 **컴퓨터 구성 > 정책 > 관리 템플릿 > Windows 구성 요소 > 작업 공간 연결 > 클라이언트 컴퓨터에 자동으로 작업 공간 연결** 에 있습니다.
 
 * 이 설정을 사용 하도록 설정: 도메인에 가입 된 컴퓨터를 장치로 등록 합니다.
 * 적용하고 [확인]을 클릭합니다.

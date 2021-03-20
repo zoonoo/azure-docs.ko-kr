@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934857"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
@@ -116,7 +116,7 @@ Azure Cognitive Search에 보낼 수 있는 필터 식의 크기 및 복잡성�
 > [!TIP]
 > 함수 호출이 단일 절로 계산 되기 때문에 같음 비교의 긴 분해 대신 [ `search.in` 함수를](search-query-odata-search-in-function.md) 사용 하면 필터 절 제한을 피할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 4 이상 등급의 기본 요금이 $200 미만인 모든 호텔을 찾습니다.
 

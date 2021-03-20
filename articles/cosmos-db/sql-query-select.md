@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: 072e17b1c0ea312b4adfa1687e447fd2cadde233
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335446"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
@@ -77,7 +77,7 @@ SELECT <select_specification>
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 SELECT 쿼리 예제에서는 `address` `Families` `id` 와 일치 하는을 반환 합니다 `AndersenFamily` .
 
