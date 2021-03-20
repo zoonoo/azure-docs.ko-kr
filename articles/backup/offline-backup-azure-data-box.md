@@ -4,10 +4,10 @@ description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery S
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752586"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
@@ -56,7 +56,7 @@ Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하
 >[!IMPORTANT]
 >단일 서버에서 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함 되어야 하며, 동일한 또는 다른 Sku의 여러 장치 간에 공유할 수 없습니다. 그러나 Azure Data Box 장치는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 
@@ -284,7 +284,7 @@ Data Box 작업을 만들 구독에 대 한 관리자 액세스 권한이 있는
 다른 서버에 오프 라인 시드가 구성 되어 있지 않고 다른 서버가 응용 프로그램에 종속 되어 있지 않은 경우 `AzureOfflineBackup_<Azure User Id>` 이 응용 프로그램을 삭제 합니다. **Azure Portal**  >  **Azure Active Directory**  >  **앱 등록** 를 선택 합니다.
 
 >[!NOTE]
-> `AzureOfflineBackup_<Azure User Id>`응용 프로그램에 다른 오프 라인 시드가 구성 되어 있지 않은지 확인 하 고 다른 서버가이 응용 프로그램에 종속 되어 있지 않은지 확인 하십시오. **Settings**  >  **공개 키** 섹션 아래의 설정 **키** 로 이동 합니다. 다른 공개 키를 추가 하지 않아야 합니다. 참조는 다음 스크린샷을 참조 하세요.
+> `AzureOfflineBackup_<Azure User Id>`응용 프로그램에 다른 오프 라인 시드가 구성 되어 있지 않은지 확인 하 고 다른 서버가이 응용 프로그램에 종속 되어 있지 않은지 확인 하십시오.   >  **공개 키** 섹션 아래의 설정 **키** 로 이동 합니다. 다른 공개 키를 추가 하지 않아야 합니다. 참조는 다음 스크린샷을 참조 하세요.
 >
 >![퍼블릭 키](./media/offline-backup-azure-data-box/public-keys.png)
 

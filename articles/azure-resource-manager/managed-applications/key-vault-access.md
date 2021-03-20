@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81458286"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
@@ -22,15 +22,15 @@ ms.locfileid: "81458286"
 
 1. 포털에서 Key Vault를 선택합니다.
 
-1. **액세스 정책**을 선택합니다.   
+1. **액세스 정책** 을 선택합니다.   
 
    ![액세스 정책 선택](./media/key-vault-access/select-access-policies.png)
 
-1. **클릭하여 고급 액세스 정책 표시**를 선택합니다.
+1. **클릭하여 고급 액세스 정책 표시** 를 선택합니다.
 
    ![고급 액세스 정책 표시](./media/key-vault-access/advanced.png)
 
-1. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 그런 다음 **저장**을 선택합니다.
+1. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 을 선택합니다. 그런 다음 **저장** 을 선택합니다.
 
    ![템플릿 배포 사용하도록 설정](./media/key-vault-access/enable-template.png)
 
@@ -40,15 +40,15 @@ ms.locfileid: "81458286"
 
    ![액세스 제어 선택](./media/key-vault-access/access-control.png)
 
-1. **역할 할당 추가**를 선택합니다.
+1. **역할 할당 추가** 를 선택합니다.
 
    ![추가 선택](./media/key-vault-access/add-access-control.png)
 
-1. 역할에 대해 **기여자**를 선택합니다. **어플라이언스 리소스 공급자**를 검색하고 사용 가능한 옵션 중에서 선택합니다.
+1. 역할에 대해 **기여자** 를 선택합니다. **어플라이언스 리소스 공급자** 를 검색하고 사용 가능한 옵션 중에서 선택합니다.
 
    ![공급자 검색](./media/key-vault-access/search-provider.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="reference-key-vault-secret"></a>Key Vault 비밀 참조
 

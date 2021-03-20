@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82139304"
 ---
 # <a name="azure-media-player-demos"></a>Azure Media Player 데모
@@ -24,15 +24,15 @@ ms.locfileid: "82139304"
 | Basic |
 | 원본 설정 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |보호 되지 않은 콘텐츠를 재생 합니다.|
 | 기능 |
-| VOD Ad 삽입-방대한 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | 해당 없음 | VOD 자산에 전 중간 및 사후 롤링 광고를 삽입 합니다. |
-| 재생 속도 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| 해당 없음 | 뷰어에서 비디오를 시청 하는 속도를 제어할 수 있습니다. |
+| VOD Ad 삽입-방대한 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | 해당 없음 | VOD 자산에 전 중간 및 사후 롤링 광고를 삽입 합니다. |
+| 재생 속도 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| 해당 없음 | 뷰어에서 비디오를 시청 하는 속도를 제어할 수 있습니다. |
 | AMP 플러시 스킨 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | 새 AMP 스킨을 사용 하도록 설정 합니다. **참고:** AMP flush는 AMP 버전 2.1.0 + 에서만 지원 됩니다. |
 | 캡션 및 자막 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_webvtt.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_webvtt.html) | WebVTT 자막으로 재생 합니다.
-| Live CEA 708 캡션 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_live_captions.html) | 해당 없음 | 캡션이 왼쪽에 맞춰진 라이브 CEA 708 인바운드 캡션을 사용 하 여 재생 합니다. |
+| Live CEA 708 캡션 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_live_captions.html) | 해당 없음 | 캡션이 왼쪽에 맞춰진 라이브 CEA 708 인바운드 캡션을 사용 하 여 재생 합니다. |
 | 프로그레시브 대체를 사용 하 여 스트리밍 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveFallback.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveFallback.html) | 플랫폼에서 스트리밍이 지원 되지 않는 경우 프로그레시브에 대 한 대체 (fallback)를 사용 하 여 적응 재생의 기본 설정 |
 | 프로그레시브 비디오 MP4 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveVideo.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveVideo.html) | 프로그레시브 오디오 MP4 재생 |
 | 프로그레시브 오디오 MP3 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveAudio.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveAudio.html) | 프로그레시브 오디오 MP3 재생 |
-| DD + | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_dolbyDigitalPlus.html) | 해당 없음 | DD + audio를 사용 하 여 콘텐츠 재생 |
+| DD + | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_dolbyDigitalPlus.html) | 해당 없음 | DD + audio를 사용 하 여 콘텐츠 재생 |
 | 옵션 |
 | 추론 프로필 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_heuristicsProfile.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_heuristicsProfile.html) | 추론 프로필 변경 |
 | 지역화 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_localization.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_localization.html) |
@@ -41,9 +41,9 @@ ms.locfileid: "82139304"
 기본 스킨에서 오디오 트랙 메뉴를 표시 하는 방법을 보여 주는 옵션입니다. |
 | 바로 가기 키 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_hotKeys.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_hotKeys.html) | 이 샘플에서는 플레이어에서 사용할 수 있는 바로 가기 키를 구성 하는 방법을 보여 줍니다. |
 | 이벤트, 로깅 및 진단 |
-| 이벤트 등록 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_registerEvents.html) | 해당 없음 | 이벤트 수신기를 사용 하 여 재생 합니다. |
+| 이벤트 등록 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_registerEvents.html) | 해당 없음 | 이벤트 수신기를 사용 하 여 재생 합니다. |
 | 로깅 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_logging.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_logging.html) | 콘솔에 대 한 자세한 정보 로깅을 설정 합니다. |
-| 진단 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_diagnostics.html) | 해당 없음 | 진단 데이터를 가져오는 중입니다. 이 샘플은 일부 techs 적용 됩니다. |
+| 진단 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_diagnostics.html) | 해당 없음 | 진단 데이터를 가져오는 중입니다. 이 샘플은 일부 techs 적용 됩니다. |
 | AES |
 | AES 토큰 없음 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_aes_notoken.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_aes_notoken.html) | 토큰 없이 AES 콘텐츠를 재생 합니다. |
 | AES 토큰 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_aes_token.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_aes_token.html) | 토큰을 포함 하는 AES 콘텐츠 재생 |
@@ -61,9 +61,9 @@ ms.locfileid: "82139304"
 | UrlRewriter에서 MPEG를 제외 합니다. | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_forceNoDash.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_forceNoDash.html) | 부드러운 및 HLS 프로토콜만 사용 하 여 보호 되지 않는 콘텐츠 재생 |
 | 여러 배달 정책 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_multipleDeliveryPolicy.html) | [정적](https://amp.azure.net/libs/amp/latest/samples/videotag_multipleDeliveryPolicy.html) | Azure Media Services에서 여러 배달 정책이 있는 콘텐츠로 원본 설정 |
 | 프로그래밍 방식으로 선택 |
-| 텍스트 트랙 선택 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectTextTrack.html) | 해당 없음 | 트랙 목록에서 WebVTT 트랙을 선택 합니다. |
-| 비트 전송률 선택 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectBitrate.html) | 해당 없음 | 비트 전송률 목록에서 비트 전송률을 선택 합니다. 이 샘플은 일부 techs 적용 됩니다. |
-| 오디오 스트림 선택 | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectAudioStream.html) | 해당 없음 | 사용 가능한 오디오 스트림 목록에서 오디오 스트림을 선택 합니다. 이 샘플은 일부 techs 적용 됩니다. |
+| 텍스트 트랙 선택 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectTextTrack.html) | 해당 없음 | 트랙 목록에서 WebVTT 트랙을 선택 합니다. |
+| 비트 전송률 선택 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectBitrate.html) | 해당 없음 | 비트 전송률 목록에서 비트 전송률을 선택 합니다. 이 샘플은 일부 techs 적용 됩니다. |
+| 오디오 스트림 선택 | [동적](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectAudioStream.html) | 해당 없음 | 사용 가능한 오디오 스트림 목록에서 오디오 스트림을 선택 합니다. 이 샘플은 일부 techs 적용 됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c035a7fbafe9b3a42fbd16e3f8377014010ddd49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88003556"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 (클래식)에서 호스트 풀 만들기
@@ -62,7 +62,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 다음과 같은 여러 방법으로 가상 머신을 만들 수 있습니다.
 
-- [Azure Gallery에서 가상 머신 만들기](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Azure Gallery 이미지에서 가상 머신 만들기](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [관리 이미지에서 가상 머신 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)
 - [관리되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
@@ -75,16 +75,16 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 Windows Virtual Desktop 에이전트를 설치하고 가상 머신을 Windows Virtual Desktop 호스트 풀에 등록하기에 앞서 가상 머신을 준비하려면 다음 몇 가지가 필요합니다.
 
-- 머신이 도메인에 참가해야 합니다. 이렇게 하면 들어오는 Windows Virtual Desktop 사용자를 해당 Azure Active Directory 계정에서 Active Directory 계정에 매핑하고 가상 머신에 대한 액세스를 허용할 수 있습니다.
+- 머신을 도메인에 조인해야 합니다. 이렇게 하면 들어오는 Windows Virtual Desktop 사용자를 해당 Azure Active Directory 계정에서 Active Directory 계정에 매핑하고 가상 머신에 대한 액세스를 허용할 수 있습니다.
 - 가상 머신이 Windows Server OS를 실행할 경우 RDSH(원격 데스크톱 세션 호스트) 역할을 설치해야 합니다. RDSH 역할을 사용하면 Windows Virtual Desktop 에이전트를 올바르게 설치할 수 있습니다.
 
-성공적인 도메인 참가를 위해 각 가상 머신에서 다음을 수행합니다.
+성공적인 도메인 조인을 위해 각 가상 머신에서 다음을 수행합니다.
 
 1. 가상 머신을 만들 때 입력한 자격 증명으로 [가상 머신에 연결](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
-2. 가상 머신에서 **제어판**을 시작하고 **시스템**을 선택합니다.
-3. **컴퓨터 이름**, **설정 변경**을 차례로 선택한 다음, **변경...** 을 선택합니다.
-4. **도메인**을 선택한 다음, 가상 네트워크에 Active Directory 도메인을 입력합니다.
-5. 도메인 참가 머신에 대한 권한이 있는 도메인 계정으로 인증합니다.
+2. 가상 머신에서 **제어판** 을 시작하고 **시스템** 을 선택합니다.
+3. **컴퓨터 이름**, **설정 변경**, **변경...** 을 차례로 선택합니다.
+4. **도메인** 을 선택한 다음, 가상 네트워크에 Active Directory 도메인을 입력합니다.
+5. 도메인 조인 머신에 대한 권한이 있는 도메인 계정으로 인증합니다.
 
     >[!NOTE]
     > Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
@@ -98,11 +98,11 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
 1. 가상 머신을 만들 때 입력한 자격 증명으로 [가상 머신에 연결](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
 2. Windows Virtual Desktop 에이전트를 다운로드하여 설치합니다.
    - [Windows Virtual Desktop 에이전트](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)를 다운로드합니다.
-   - 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제**를 차례로 선택한 다음, **확인**을 선택합니다. 그러면 시스템에서 설치 프로그램을 신뢰할 수 있습니다.
+   - 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제** 를 차례로 선택한 다음, **확인** 을 선택합니다. 그러면 시스템에서 설치 프로그램을 신뢰할 수 있습니다.
    - 설치 관리자를 실행합니다. 설치 프로그램이 등록 토큰을 요청하면 **Export-RdsRegistrationInfo** cmdlet에서 가져온 값을 입력합니다.
 3. Windows Virtual Desktop 에이전트 부팅 로더를 다운로드하여 설치합니다.
    - [Windows Virtual Desktop 에이전트 부팅 로더](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)를 다운로드합니다.
-   - 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제**를 차례로 선택한 다음, **확인**을 선택합니다. 그러면 시스템에서 설치 프로그램을 신뢰할 수 있습니다.
+   - 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제** 를 차례로 선택한 다음, **확인** 을 선택합니다. 그러면 시스템에서 설치 프로그램을 신뢰할 수 있습니다.
    - 설치 관리자를 실행합니다.
 
 >[!IMPORTANT]

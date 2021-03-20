@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
 ms.openlocfilehash: d49047e9b3a65da90f4a5ac9e4b3cb1e32bd59a7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489985"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 Azure Portal를 사용 하 여 저장소 자동 확장-단일 서버
@@ -18,9 +18,9 @@ ms.locfileid: "92489985"
 
 서버가 할당 된 저장소 제한에 도달 하면 서버가 읽기 전용으로 표시 됩니다. 그러나 저장소 자동 증가를 사용 하도록 설정 하면 증가 하는 데이터에 맞게 서버 저장소가 늘어납니다. 프로 비전 된 저장소 수가 100 미만인 서버의 경우, 사용 가능한 저장소가 프로 비전 된 저장소의 1gb 또는 10%를 초과 하는 즉시 프로 비전 된 저장소 크기는 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버에서는 사용 가능한 저장소 공간이 프로 비전 된 저장소 크기의 5% 미만이 면 프로 비전 된 저장소 크기가 5% 증가 합니다. [여기](./concepts-pricing-tiers.md#storage) 에 지정 된 대로 최대 저장소 제한이 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
-- [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md)
+- [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 
 ## <a name="enable-storage-auto-grow"></a>저장소 자동 증가 사용 
 
@@ -28,17 +28,17 @@ PostgreSQL server storage 자동 증가를 설정 하려면 다음 단계를 수
 
 1. [Azure Portal](https://portal.azure.com/)에서 기존 Azure Database for PostgreSQL 서버를 선택 합니다.
 
-2. PostgreSQL 서버 페이지의 **설정**아래에서 **가격 책정 계층** 을 클릭 하 여 가격 책정 계층 페이지를 엽니다.
+2. PostgreSQL 서버 페이지의 **설정** 아래에서 **가격 책정 계층** 을 클릭 하 여 가격 책정 계층 페이지를 엽니다.
 
 3. **자동 증가** 섹션에서 **예** 를 선택 하 여 저장소 자동 증가를 사용 하도록 설정 합니다.
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for PostgreSQL-Settings_Pricing_tier-자동 증가":::
 
-4. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 5. 자동 증가가 성공적으로 설정 되었음을 알리는 알림이 나타납니다.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL-Settings_Pricing_tier-자동 증가":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL-자동 증가 성공":::
 
 ## <a name="next-steps"></a>다음 단계
 

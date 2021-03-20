@@ -4,10 +4,10 @@ description: 수신 및 송신에 방화벽의 공용 IP 주소를 사용 하는
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89566571"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>컨테이너 그룹에 대 한 아웃 바운드 및 인바운드 트래픽에 대 한 단일 공용 IP 주소 구성

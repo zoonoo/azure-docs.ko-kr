@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89439217"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>여러 인스턴스를 사용 하 여 SignalR 서비스를 확장 하는 방법
@@ -220,13 +220,13 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 `primary` 끝점은 클라이언트 트래픽을 수신 하기 위한 기본 끝점으로, 보다 안정적인 네트워크 연결을 포함 하는 것으로 간주 됩니다. `secondary` 끝점은 신뢰할 수 없는 네트워크 연결을 사용 하는 것으로 간주 되며, 클라이언트에서 서버로의 트래픽을 수행 하는 것이 아니라 메시지 브로드캐스팅을 사용 하는 등의 방법으로 서버 간 트래픽을 사용 하는 데만 사용 됩니다
 
-지역 간 경우 네트워크가 불안정 해질 수 있습니다. *미국 동부*에 있는 하나의 앱 서버에 대해 동일한 *미국 동부* 지역에 있는 SignalR 서비스 끝점은로 `primary` 표시 된 다른 지역의 끝점으로 구성할 수 있습니다 `secondary` . 이 구성에서 다른 지역의 서비스 끝점은 *미국 동부* 앱 서버 로부터 메시지를 **받을** 수 있지만이 앱 서버로 라우팅되는 **지역 간** 클라이언트는 없습니다. 아키텍처는 아래 다이어그램에 나와 있습니다.
+지역 간 경우 네트워크가 불안정 해질 수 있습니다. *미국 동부* 에 있는 하나의 앱 서버에 대해 동일한 *미국 동부* 지역에 있는 SignalR 서비스 끝점은로 `primary` 표시 된 다른 지역의 끝점으로 구성할 수 있습니다 `secondary` . 이 구성에서 다른 지역의 서비스 끝점은 *미국 동부* 앱 서버 로부터 메시지를 **받을** 수 있지만이 앱 서버로 라우팅되는 **지역 간** 클라이언트는 없습니다. 아키텍처는 아래 다이어그램에 나와 있습니다.
 
 ![지역 간 인프라](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
 클라이언트가 앱 서버를 사용 하 여 기본 라우터를 사용 하는 경우 `/negotiate` SDK는 사용 가능한 끝점 집합에서 끝점 하나를 **임의로 선택** `primary` 합니다. 기본 끝점을 사용할 수 없는 경우 SDK는 사용 가능한 모든 끝점에서 **임의로 선택** `secondary` 합니다. 서버와 서비스 끝점 간의 연결이 활성 상태 이면 끝점은 **사용 가능한** 것으로 표시 됩니다.
 
-지역 간 시나리오에서 클라이언트는 `/negotiate` *미국 동부*에 호스트 된 앱 서버를 사용 하 여 시도 하는 경우 기본적으로 항상 `primary` 동일한 지역에 있는 끝점을 반환 합니다. *미국 동부* 끝점을 모두 사용할 수 없는 경우 클라이언트는 다른 지역의 끝점으로 리디렉션됩니다. 아래 장애 조치 (failover) 섹션에서는 시나리오에 대해 자세히 설명 합니다.
+지역 간 시나리오에서 클라이언트는 `/negotiate` *미국 동부* 에 호스트 된 앱 서버를 사용 하 여 시도 하는 경우 기본적으로 항상 `primary` 동일한 지역에 있는 끝점을 반환 합니다. *미국 동부* 끝점을 모두 사용할 수 없는 경우 클라이언트는 다른 지역의 끝점으로 리디렉션됩니다. 아래 장애 조치 (failover) 섹션에서는 시나리오에 대해 자세히 설명 합니다.
 
 ![일반 Negotiate](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 

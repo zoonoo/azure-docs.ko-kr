@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101647424"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
@@ -92,7 +92,7 @@ Azure AD에 직접 로그인 하는 256 자 보다 긴 암호를 사용 하는 �
 
 메시지: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-재구성
+수정:
 
 암호가 허용 된 최대 길이를 초과 하기 때문에 사용자가 로그인 할 수 없습니다. 암호를 재설정 하려면 관리자에 게 문의 해야 합니다. SSPR가 테 넌 트에 대해 사용 하도록 설정 된 경우 "암호 잊음" 링크를 따라 암호를 다시 설정할 수 있습니다.
 

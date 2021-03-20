@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
 ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89468660"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
@@ -45,7 +45,7 @@ Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 �
 
     **사용해 보기** 단추를 클릭 하면 Bash (Azure CLI 코드 조각) 또는 PowerShell (Azure PowerShell 코드 조각)을 사용 하 여 설명서와 함께 Cloud Shell 열립니다.
 
-    명령을 실행 하려면 코드 조각에서 **복사** 를 사용 하 고, **Ctrl** + **Shift** + **v** (Windows/Linux) 또는 **Cmd** + **shift** + **v** (macos)를 사용 하 여 명령을 붙여넣은 다음 **enter**키를 누릅니다.
+    명령을 실행 하려면 코드 조각에서 **복사** 를 사용 하 고, **Ctrl** + **Shift** + **v** (Windows/Linux) 또는 **Cmd** + **shift** + **v** (macos)를 사용 하 여 명령을 붙여넣은 다음 **enter** 키를 누릅니다.
 
 ## <a name="features"></a>기능
 
@@ -57,11 +57,11 @@ Cloud Shell은 Azure 관리 작업을 사용하여 빌드된 브라우저 기반
 
 사용자는 Bash 또는 PowerShell 중에서 선택할 수 있습니다.
 
-1. **Cloud Shell**를 선택 합니다.
+1. **Cloud Shell** 를 선택 합니다.
 
     ![Cloud Shell 아이콘](media/overview/overview-cloudshell-icon.png)
 
-2. **Bash** 또는 **PowerShell**을 선택 합니다.
+2. **Bash** 또는 **PowerShell** 을 선택 합니다.
 
     ![Bash 또는 PowerShell 중 하나를 선택 합니다.](media/overview/overview-choices.png)
 

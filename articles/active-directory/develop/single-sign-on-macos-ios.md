@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80881251"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
@@ -65,7 +65,7 @@ MSAL은 iOS 키 집합 액세스 그룹을 통해 SSO 공유를 지원 합니다
 
 Microsoft id 플랫폼에서 토큰을 공유할 수 있는 응용 프로그램을 확인 하려면 이러한 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 공유 해야 합니다. 포털에 첫 번째 애플리케이션을 등록했던 경우에 제공된 고유 식별자입니다.
 
-Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예를 들면 다음과 같습니다.
+Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri** 로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예를 들면 다음과 같습니다.
 
 App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`  
 App2 리디렉션 URI: `msauth.com.contoso.mytestapp2://auth`  
@@ -96,7 +96,7 @@ App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`
 
 #### <a name="add-a-new-keychain-group"></a>새 키 집합 그룹 추가
 
-프로젝트 **기능**에 새 키 집합 그룹을 추가 합니다. 키 집합 그룹은 다음과 같아야 합니다.
+프로젝트 **기능** 에 새 키 집합 그룹을 추가 합니다. 키 집합 그룹은 다음과 같아야 합니다.
 * `com.microsoft.adalcache` iOS 
 * `com.microsoft.identity.universalstorage` macOS에서.
 
@@ -183,7 +183,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
     }
     ```
     
-**Xcode 11을 사용 하는 경우**msal 콜백을 파일에 대신 추가 해야 `SceneDelegate` 합니다.
+**Xcode 11을 사용 하는 경우** msal 콜백을 파일에 대신 추가 해야 `SceneDelegate` 합니다.
 이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 Objective-C:

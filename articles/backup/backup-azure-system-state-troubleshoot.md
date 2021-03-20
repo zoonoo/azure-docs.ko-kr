@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376284"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
@@ -27,7 +27,7 @@ ms.locfileid: "89376284"
 - [예약 백업은 실패하지만 수동 백업은 작동](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - OS에 최신 업데이트가 설치되었는지 확인
 - [지원 되지 않는 특성이 있는 지원 되지 않는 드라이브 및 파일이 백업에서 제외 되는지 확인](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
-- 보호되는 시스템의 **시스템 클록**이 올바른 표준 시간대로 구성되었는지 확인 <br>
+- 보호되는 시스템의 **시스템 클록** 이 올바른 표준 시간대로 구성되었는지 확인 <br>
 - [서버에 적어도 .Net Framework 버전 4.5.2 이상이 설치되었는지 확인](https://www.microsoft.com/download/details.aspx?id=30653)<br>
 - 자격 증명 모음에 **서버를 등록** 하려는 경우 다음을 수행 합니다. <br>
   - 에이전트가 서버에서 제거 되 고 포털에서 삭제 되었는지 확인 합니다. <br>
@@ -52,7 +52,7 @@ Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 �
 Get-WindowsFeature Windows-Server-Backup
  ```
 
-출력에 **설치 상태가** **사용 가능**으로 표시 되는 경우 Windows server backup 기능을 설치에 사용할 수 있지만 서버에 설치 하지는 않습니다. 그러나 Windows Server 백업 설치 되지 않은 경우 아래 방법 중 하나를 사용 하 여 설치 합니다.
+출력에 **설치 상태가** **사용 가능** 으로 표시 되는 경우 Windows server backup 기능을 설치에 사용할 수 있지만 서버에 설치 하지는 않습니다. 그러나 Windows Server 백업 설치 되지 않은 경우 아래 방법 중 하나를 사용 하 여 설치 합니다.
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>방법 1: PowerShell을 사용 하 여 Windows Server 백업 설치
 
@@ -66,16 +66,16 @@ PowerShell을 사용 하 여 Windows Server 백업을 설치 하려면 다음 �
 
 서버 관리자를 사용 하 여 Windows Server 백업를 설치 하려면 다음 단계를 수행 합니다.
 
-1. **서버 관리자**에서 **역할 및 기능 추가**를 선택 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
+1. **서버 관리자** 에서 **역할 및 기능 추가** 를 선택 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
 
     ![대시보드](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. **설치 유형** 을 선택 하 고 **다음**을 선택 합니다.
+2. **설치 유형** 을 선택 하 고 **다음** 을 선택 합니다.
 
     ![설치 유형](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. 서버 풀에서 서버를 선택 하 고 **다음**을 선택 합니다. 서버 역할에서 기본 선택 항목을 그대로 두고 **다음**을 선택 합니다.
-4. **기능** 탭에서 **Windows Server 백업** 를 선택 하 고 **다음**을 선택 합니다.
+3. 서버 풀에서 서버를 선택 하 고 **다음** 을 선택 합니다. 서버 역할에서 기본 선택 항목을 그대로 두고 **다음** 을 선택 합니다.
+4. **기능** 탭에서 **Windows Server 백업** 를 선택 하 고 **다음** 을 선택 합니다.
 
     ![기능 창 선택](./media/backup-azure-system-state-troubleshoot/features.png)
 
@@ -86,7 +86,7 @@ PowerShell을 사용 하 여 Windows Server 백업을 설치 하려면 다음 �
 
 ### <a name="system-volume-information-permission"></a>시스템 볼륨 정보 사용 권한
 
-로컬 시스템에 Windows가 설치 된 볼륨에 있는 **시스템 볼륨 정보** 폴더에 대 한 모든 권한이 있는지 확인 합니다. 일반적으로이는 **C:\system 볼륨 정보**입니다. 위의 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업은 실패할 수 있습니다.
+로컬 시스템에 Windows가 설치 된 볼륨에 있는 **시스템 볼륨 정보** 폴더에 대 한 모든 권한이 있는지 확인 합니다. 일반적으로이는 **C:\system 볼륨 정보** 입니다. 위의 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업은 실패할 수 있습니다.
 
 ### <a name="dependent-services"></a>종속 서비스
 
@@ -97,8 +97,8 @@ PowerShell을 사용 하 여 Windows Server 백업을 설치 하려면 다음 �
 RPC (원격 프로시저 호출) | 자동
 COM + 이벤트 시스템 (EventSystem) | 자동
 시스템 이벤트 알림 서비스 (SENS) | 자동
-VSS (볼륨 섀도 복사본) | 설명서
-Microsoft 소프트웨어 섀도 복사본 공급자 (SWPRV) | 설명서
+VSS (볼륨 섀도 복사본) | 수동
+Microsoft 소프트웨어 섀도 복사본 공급자 (SWPRV) | 수동
 
 ### <a name="validate-windows-server-backup-status"></a>Windows Server 백업 상태 유효성 검사
 

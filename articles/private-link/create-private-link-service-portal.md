@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: allensu
 ms.openlocfilehash: d394a475c5121607f70c03437382e104a5d0cbee
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746410"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Link 서비스 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "98746410"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -130,7 +130,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | Name | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89424874"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
@@ -115,14 +115,14 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>복구 계획 사용자 지정
 
 1. 자격 증명 모음에서 **복구 계획 (Site Recovery)** 을 선택 합니다.
-2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
-3. 복구 계획 페이지에서 **사용자 지정**을 클릭 합니다.
+2. 복구 계획을 만들려면 **+ 복구 계획** 을 클릭 합니다. [자세한 정보를 알아보세요](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
+3. 복구 계획 페이지에서 **사용자 지정** 을 클릭 합니다.
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. **그룹 1: 시작**  >  **후 작업 추가**옆에 있는 줄임표 (...)를 클릭 합니다.
-3. **삽입 동작**에서 **스크립트** 가 선택 되어 있는지 확인 하 고 스크립트 이름 (**Hello World**)을 지정 합니다.
-4. Automation 계정을 지정 하 고 runbook을 선택 합니다. 스크립트를 저장하려면 **확인**을 클릭합니다. 스크립트가 **그룹 1: 사후 단계**에 추가됩니다.
+2. **그룹 1: 시작**  >  **후 작업 추가** 옆에 있는 줄임표 (...)를 클릭 합니다.
+3. **삽입 동작** 에서 **스크립트** 가 선택 되어 있는지 확인 하 고 스크립트 이름 (**헬로 월드**)을 지정 합니다.
+4. Automation 계정을 지정 하 고 runbook을 선택 합니다. 스크립트를 저장하려면 **확인** 을 클릭합니다. 스크립트가 **그룹 1: 사후 단계** 에 추가됩니다.
 
 
 ## <a name="reuse-a-runbook-script"></a>Runbook 스크립트 다시 사용
@@ -192,7 +192,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하세요.
+일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의합니다.
 
 - 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다.
 - 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다.
@@ -218,7 +218,7 @@ Azure PowerShell를 사용 하 여 여러 값을 지정 하 여이 작업을 수
         New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
     ```
 
-3. 이 복합 변수에서 **VMDetails**는 보호된 VM의 VM ID입니다. Azure Portal에서 VM ID를 가져오려면 VM 속성을 봅니다. 다음 스크린샷은 두 VM의 세부 정보를 저장하는 변수를 보여 줍니다.
+3. 이 복합 변수에서 **VMDetails** 는 보호된 VM의 VM ID입니다. Azure Portal에서 VM ID를 가져오려면 VM 속성을 봅니다. 다음 스크린샷은 두 VM의 세부 정보를 저장하는 변수를 보여 줍니다.
 
     ![VM ID를 GUID로 사용](media/site-recovery-runbook-automation-new/vmguid.png)
 
@@ -228,7 +228,7 @@ Azure PowerShell를 사용 하 여 여러 값을 지정 하 여이 작업을 수
     $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
-4. Runbook에서 복구 계획 컨텍스트 VM을 반복합니다. **$VMDetailsObj**에서 VM의 존재 여부를 확인합니다. 존재하는 경우 변수 속성에 액세스하여 NSG를 적용합니다.
+4. Runbook에서 복구 계획 컨텍스트 VM을 반복합니다. **$VMDetailsObj** 에서 VM의 존재 여부를 확인합니다. 존재하는 경우 변수 속성에 액세스하여 NSG를 적용합니다.
 
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356361"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Azure Key Vault를 사용하는 고객 관리형 키
@@ -87,7 +87,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 
 ## <a name="update-the-key-version"></a>키 버전 업데이트
 
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Cognitive Services 리소스를 업데이트 합니다. 아래 단계를 수행합니다.
+새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Cognitive Services 리소스를 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. Cognitive Services 리소스로 이동 하 여 **암호화** 설정을 표시 합니다.
 1. 새 키 버전의 URI를 입력 합니다. 또는 키 자격 증명 모음을 다시 선택 하 고 키를 다시 선택 하 여 버전을 업데이트할 수 있습니다.

@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913248"
 ---
 # <a name="switching-organizations-in-a-portal"></a>포털에서 조직 전환
@@ -30,7 +30,7 @@ ms.locfileid: "92913248"
 - [**내 액세스**](https://myaccess.microsoft.com)
 - [**내 직원**](https://mystaff.microsoft.com)
 
-**내 로그인** , **보안 정보** 또는 **내 그룹** 에는 조직을 전환할 수 없습니다.
+**내 로그인**, **보안 정보** 또는 **내 그룹** 에는 조직을 전환할 수 없습니다.
 
 ## <a name="switch-organizations"></a>조직 전환
 
@@ -39,7 +39,7 @@ ms.locfileid: "92913248"
 1. 회사 또는 학교 계정에 로그인 한 다음 [내 계정](https://myaccount.microsoft.com) 페이지를 엽니다.
 1. 조직 전환기 페이지 위쪽의 계정 사진 옆에 있는 :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="조직 전환기 아이콘"::: 을 선택 합니다.
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="조직 전환기 아이콘":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="전환할 수 있는 조직의 메뉴":::
 
 1. 전환할 조직을 선택 합니다. 선택한 조직으로 자동으로 전환 됩니다.
 

@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927450"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
@@ -47,9 +47,9 @@ ASE를 만든 후에는 다음을 변경할 수 없습니다.
 
 ASE를 만드는 세 가지 방법은 다음과 같습니다.
 
-- **App Service 계획을 만들 때** . 이 메서드는 한 번에 ASE 및 App Service 계획을 만듭니다.
-- **독립 실행형 작업으로** . 이 메서드는 내부에 아무것도 포함되지 않은 ASE인 독립 실행형 ASE를 만듭니다. 이 메서드는 ASE를 만드는 더 고급 수준의 프로세스입니다. ILB를 사용하여 ASE를 만들 때 사용합니다.
-- **Azure Resource Manager 템플릿에서** . 이 메서드는 고급 사용자를 위한 것입니다. 자세한 내용은 [템플릿에서 ASE 만들기][MakeASEfromTemplate]를 참조하세요.
+- **App Service 계획을 만들 때**. 이 메서드는 한 번에 ASE 및 App Service 계획을 만듭니다.
+- **독립 실행형 작업으로**. 이 메서드는 내부에 아무것도 포함되지 않은 ASE인 독립 실행형 ASE를 만듭니다. 이 메서드는 ASE를 만드는 더 고급 수준의 프로세스입니다. ILB를 사용하여 ASE를 만들 때 사용합니다.
+- **Azure Resource Manager 템플릿에서**. 이 메서드는 고급 사용자를 위한 것입니다. 자세한 내용은 [템플릿에서 ASE 만들기][MakeASEfromTemplate]를 참조하세요.
 
 외부 ASE에는 공용 VIP가 있습니다. 즉, ASE의 앱에 대한 모든 HTTP/HTTPS 트래픽이 인터넷 액세스가 가능한 IP 주소에 도달합니다. ILB를 사용하는 ASE에는 ASE에서 사용하는 서브넷의 IP 주소가 있습니다. ILB ASE에 호스팅된 앱은 인터넷에 직접 노출되지 않습니다.
 

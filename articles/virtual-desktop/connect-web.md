@@ -7,10 +7,10 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89400639"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>웹 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
@@ -51,13 +51,13 @@ HTML5 지원 브라우저가 제대로 작동하는 동안에는 다음 운영 �
 
 ## <a name="using-an-input-method-editor"></a>입력 방법 편집기 사용
 
-웹 클라이언트는 **1.0.21.16 이상**버전의 원격 세션에서 ime (입력기)를 사용 하도록 지원 합니다. 원격 세션에서 사용 하려는 키보드의 언어 팩을 호스트 가상 컴퓨터에 설치 해야 합니다. 원격 세션에서 언어 팩을 설정 하는 방법에 대 한 자세한 내용은 [Windows 10 다중 세션 이미지에 언어 팩 추가](language-packs.md)를 참조 하세요.
+웹 클라이언트는 **1.0.21.16 이상** 버전의 원격 세션에서 ime (입력기)를 사용 하도록 지원 합니다. 원격 세션에서 사용 하려는 키보드의 언어 팩을 호스트 가상 컴퓨터에 설치 해야 합니다. 원격 세션에서 언어 팩을 설정 하는 방법에 대 한 자세한 내용은 [Windows 10 다중 세션 이미지에 언어 팩 추가](language-packs.md)를 참조 하세요.
 
 웹 클라이언트를 사용 하 여 IME 입력을 사용 하려면 다음을 수행 합니다.
 
 1. 원격 세션에 연결 하기 전에 웹 클라이언트 **설정** 패널로 이동 합니다.
 
-2. **입력 방법 편집기 사용** 설정을 **켜기**로 설정 합니다.
+2. **입력 방법 편집기 사용** 설정을 **켜기** 로 설정 합니다.
 
 3. 드롭다운 메뉴에서 원격 세션에서 사용할 키보드를 선택 합니다.
 

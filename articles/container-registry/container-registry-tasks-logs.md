@@ -4,10 +4,10 @@ description: ACR 작업에서 생성 된 실행 로그를 보고 관리 하는 �
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027179"
 ---
 # <a name="view-and-manage-task-run-logs"></a>태스크 실행 로그 보기 및 관리

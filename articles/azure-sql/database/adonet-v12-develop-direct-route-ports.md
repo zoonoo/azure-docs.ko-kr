@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 06/11/2020
 ms.openlocfilehash: 0d009522ea0d0986233983f8725549b618ffb537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91444878"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
@@ -29,7 +29,7 @@ ms.locfileid: "91444878"
 
 ## <a name="outside-vs-inside"></a>내부 및 외부
 
-Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외부* 또는*내부*에서 실행되는지 확인해야 합니다. 하위 섹션에서는 일반적으로 두 가지 시나리오를 설명합니다.
+Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외부* 또는 *내부* 에서 실행되는지 확인해야 합니다. 하위 섹션에서는 일반적으로 두 가지 시나리오를 설명합니다.
 
 ### <a name="outside-client-runs-on-your-desktop-computer"></a>*외부:* 클라이언트가 데스크톱 컴퓨터에서 실행됩니다.
 
@@ -52,7 +52,7 @@ Azure 클라이언트 컴퓨터에서 11000-11999의 포트 범위를 SQL Databa
 * 특히 해당 범위의 포트는 모든 다른 아웃바운드 차단으로부터 자유로워야 합니다.
 * Azure VM의 **고급 보안이 포함된 Windows 방화벽** 이 포트 설정을 제어합니다.
   
-  * [방화벽의 사용자 인터페이스](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access)를 사용하여 **11000-11999**와 유사한 구문의 포트 범위와 함께 **TCP** 프로토콜을 지정하는 규칙을 추가할 수 있습니다.
+  * [방화벽의 사용자 인터페이스](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access)를 사용하여 **11000-11999** 와 유사한 구문의 포트 범위와 함께 **TCP** 프로토콜을 지정하는 규칙을 추가할 수 있습니다.
 
 ## <a name="version-clarifications"></a>버전 확인
 

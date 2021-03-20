@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132508"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
@@ -59,7 +59,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
    Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices
    ```
 
-1. 명령의 출력에서 **RegistrationState**가 **등록됨**으로 설정된 경우에 2단계를 진행할 수 있습니다. 그렇지 않은 경우 다음 명령을 실행하여 구독에 누락된 공급자를 등록해야 합니다.
+1. 명령의 출력에서 **RegistrationState** 가 **등록됨** 으로 설정된 경우에 2단계를 진행할 수 있습니다. 그렇지 않은 경우 다음 명령을 실행하여 구독에 누락된 공급자를 등록해야 합니다.
 
    ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
@@ -142,7 +142,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
    .\setupdr.exe /i
    ```
 
-   결과는 _%ProgramData%\ASRLogs\DRASetupWizard.log_에 기록 됩니다.
+   결과는 _%ProgramData%\ASRLogs\DRASetupWizard.log_ 에 기록 됩니다.
 
 1. 다음 명령을 실행하여 서버를 등록합니다.
 

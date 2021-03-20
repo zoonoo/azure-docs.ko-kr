@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Fabric 응용 프로그램에 시
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81415648"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>시스템 할당 관리 id를 사용 하 여 Service Fabric 응용 프로그램 배포
@@ -74,7 +74,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
 
     이 요소는 응용 프로그램의 id를 서비스에 할당 합니다. 이 할당을 사용 하지 않으면 서비스에서 응용 프로그램의 id에 액세스할 수 없게 됩니다. 위의 코드 조각에서 `SystemAssigned` id (예약 된 키워드)는 이름을 가진 서비스의 정의에 매핑됩니다 `WebAdmin` .
 
-3. **ManagedIdentity** **Resources** `ServiceIdentityRef` `IdentityBindingPolicy` 응용 프로그램 매니페스트의 정의에서 설정의 값과 일치 하는 이름을 사용 하 여 리소스 섹션 내에 microsoft.managedidentity 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
+3.   `ServiceIdentityRef` `IdentityBindingPolicy` 응용 프로그램 매니페스트의 정의에서 설정의 값과 일치 하는 이름을 사용 하 여 리소스 섹션 내에 microsoft.managedidentity 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
 
     **ServiceManifest.xml**
 

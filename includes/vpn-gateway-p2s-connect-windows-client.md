@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 15c29648e42ba190991d51188489883e29bee165
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041531"
 ---
 >[!NOTE]
@@ -26,4 +26,4 @@ ms.locfileid: "93041531"
 
 1. 연결이 설정되었습니다.
 
-   :::image type="content" source="./media/vpn-gateway-p2s-connect-windows-client/connected.png" alt-text="Windows 컴퓨터에서 연결":::
+   :::image type="content" source="./media/vpn-gateway-p2s-connect-windows-client/connected.png" alt-text="컴퓨터에서 Azure VNet 지점 및 사이트 간 연결 다이어그램에 연결":::

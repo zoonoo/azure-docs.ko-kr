@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171570"
 ---
 # <a name="event-schemas"></a>이벤트 스키마
@@ -22,7 +22,7 @@ Event Grid 모듈은 이벤트를 수신 하 고 JSON 형식으로 전달 합니
 * **CustomSchema**
 * **CloudEventSchema**
 
-항목을 만드는 동안 게시자가 준수 해야 하는 스키마를 구성할 수 있습니다. 지정 하지 않으면 기본적으로 **Eventgridschema**로 설정 됩니다. 필요한 스키마를 따르지 않는 이벤트는 거부 됩니다.
+항목을 만드는 동안 게시자가 준수 해야 하는 스키마를 구성할 수 있습니다. 지정 하지 않으면 기본적으로 **Eventgridschema** 로 설정 됩니다. 필요한 스키마를 따르지 않는 이벤트는 거부 됩니다.
 
 구독자는 이벤트를 전달 하려는 스키마를 구성할 수도 있습니다. 지정 하지 않으면 기본값은 토픽의 스키마입니다.
 현재 구독자 배달 스키마는 해당 항목의 입력 스키마와 일치 해야 합니다. 
@@ -52,7 +52,7 @@ EventGrid 스키마는 게시 엔터티가 준수 해야 하는 필수 속성 �
 
 모든 이벤트에는 다음과 같은 최상위 수준 데이터가 있습니다.
 
-| 속성 | 형식 | 필수 | Description |
+| 속성 | Type | 필수 | Description |
 | -------- | ---- | ----------- |-----------
 | 토픽 | 문자열 | No | 는 게시 된 항목과 일치 해야 합니다. Event Grid는 지정 되지 않은 경우 게시 된 항목의 이름으로 채웁니다. |
 | subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체의 경로입니다. |

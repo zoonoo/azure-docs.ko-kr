@@ -11,10 +11,10 @@ ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8cceeef7e41e8fc5c48b4e67cdb1adf3aa4f02a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89483867"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
@@ -36,7 +36,7 @@ ms.locfileid: "89483867"
 
 이 섹션은 81분짜리 동영상의 전반에 걸쳐 38 토론의 시간 위치를 인덱싱합니다. 각 시간 인덱스에 도영상의 스크린샷 및 때로 추가 정보를 담은 주석이 지정됩니다.
 
-각 시간 인덱스의 형식은 *h:mm: ss*입니다. 예를 들어, **세션 목표**라는 제목이 붙은 두 번째 인덱싱된 시간 위치는 대략적인 시간 위치 **0:03:11**에 시작합니다.
+각 시간 인덱스의 형식은 *h:mm: ss* 입니다. 예를 들어, **세션 목표** 라는 제목이 붙은 두 번째 인덱싱된 시간 위치는 대략적인 시간 위치 **0:03:11** 에 시작합니다.
 
 
 ### <a name="compact-links-to-video-indexed-time-locations"></a>동영상 인덱싱된 시간 위치에 대한 압축 링크

@@ -4,10 +4,10 @@ description: Azure 환경에 새 정책 정의를 도입할 때 따라야 하는
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590814"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>새 Azure Policy 정의의 영향 평가
@@ -71,5 +71,5 @@ Azure Policy는 비즈니스 표준과 규정 준수 요구 사항에 맞게 Azu
 - [정책 할당 구조](./assignment-structure.md)에 대해 알아봅니다.
 - [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
-- [미준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

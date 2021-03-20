@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355740"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 애플리케이션 게이트웨이 기능
@@ -149,13 +149,13 @@ Application Gateway 및 WAF v2 SKU는 요청 및 응답 패킷이 클라이언�
 
 자동 크기 조정 또는 고정 크기 배포를 위해 Application Gateway Standard_v2를 구성할 수 있습니다. V2 SKU는 다른 인스턴스 크기를 제공 하지 않습니다. V2 성능 및 가격 책정에 대 한 자세한 내용은 [v2](application-gateway-autoscaling-zone-redundant.md) 자동 크기 조정 및 [가격 책정 이해](understanding-pricing.md)를 참조 하세요.
 
-V1 (Application Gateway Standard)은 **작은**, **보통**및 **큼**의 세 가지 크기로 제공 됩니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
+V1 (Application Gateway Standard)은 **작은**, **보통** 및 **큼** 의 세 가지 크기로 제공 됩니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
 
 Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
 
 다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 v1 인스턴스의 평균 성능 처리량을 보여줍니다.
 
-| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
+| 평균 백 엔드 페이지 응답 크기 | Small | 중간 | 대형 |
 | --- | --- | --- | --- |
 | 6KB |7.5Mbps |13Mbps |50Mbps |
 | 100KB |35Mbps |100Mbps |200Mbps |

@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953358"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 정책 키 개요
@@ -36,11 +36,11 @@ Azure Active Directory B2C (Azure AD B2C)는 암호 및 인증서를 정책 키 
 
 Azure AD B2C의 정책 키에 대 한 최상위 리소스는 **키 집합** 컨테이너입니다. 각 키 집합에는 하나 이상의 **키** 가 포함 되어 있습니다. 키에는 다음과 같은 특성이 있습니다.
 
-| attribute |  필수 | 설명 |
+| 특성 |  필수 | 설명 |
 | --- | --- |--- |
 | `use` | 예 | 사용법: 공개 키의 용도를 식별 합니다. 데이터 암호화 `enc` 또는 데이터에 대 한 서명 확인 `sig` .|
-| `nbf`| 예 | 활성화 날짜 및 시간입니다. |
-| `exp`| 예 | 만료 날짜 및 시간입니다. |
+| `nbf`| 아니요 | 활성화 날짜 및 시간입니다. |
+| `exp`| 아니요 | 만료 날짜 및 시간입니다. |
 
 PKI 표준에 따라 키 활성화 및 만료 값을 설정 하는 것이 좋습니다. 보안 또는 정책 상의 이유로 이러한 인증서를 정기적으로 회전 해야 할 수도 있습니다. 예를 들어 매년 모든 인증서를 회전 하는 정책이 있을 수 있습니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81260244"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP 위치 약어
@@ -28,9 +28,9 @@ ms.locfileid: "81260244"
 > 
 
 
-이 문서에서는 **Verizon의 Azure CDN**에 대한 POP 위치를 POP 약어로 정렬해서 보여 줍니다.
+이 문서에서는 **Verizon의 Azure CDN** 에 대한 POP 위치를 POP 약어로 정렬해서 보여 줍니다.
 
-약어 | 위치 | Azure 지역
+약어 | 위치 | 지역
 | --- | --- | --- |
 AGA | 애틀랜타, 조지아, USA | 북아메리카: 미국 동부 해안
 AGB | 애틀랜타, 조지아, USA | 북아메리카: 미국 동부 해안

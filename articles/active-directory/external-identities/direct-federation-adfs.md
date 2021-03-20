@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909563"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>예: Active Directory Federation Services을 사용 하 여 직접 페더레이션 (AD FS) (미리 보기)
@@ -34,7 +34,7 @@ Azure AD B2B는 아래에 나열된 특정 요구 사항에 따라 SAML 프로�
 
 직접 페더레이션을 설정하려면 ID 공급자의 SAML 2.0 응답에서 다음 특성을 받아야 합니다. 이러한 특성은 온라인 보안 토큰 서비스 XML 파일에 연결하거나 수동으로 입력하여 구성할 수 있습니다. [테스트 AD FS 만들기](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) 의 12 단계에서는 AD FS 끝점을 찾는 방법이 나 메타 데이터 URL을 생성 하는 방법을 설명 합니다 (예:) `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` . 
 
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |사용자     |`urn:federation:MicrosoftOnline`         |
@@ -43,7 +43,7 @@ Azure AD B2B는 아래에 나열된 특정 요구 사항에 따라 SAML 프로�
 Id 공급자가 발급 한 SAML 2.0 토큰에서 다음과 같은 클레임을 구성 해야 합니다.
 
 
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |NameID 형식     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -57,57 +57,57 @@ Id 공급자가 발급 한 SAML 2.0 토큰에서 다음과 같은 클레임을 �
 
 ### <a name="add-the-claim-description"></a>클레임 설명 추가
 
-1. AD FS 서버에서 **도구**  >  **AD FS 관리**를 선택 합니다.
-2. 탐색 창에서 **서비스**  >  **클레임 설명**을 선택 합니다.
-3. **작업**아래에서 **클레임 설명 추가**를 선택 합니다.
+1. AD FS 서버에서 **도구**  >  **AD FS 관리** 를 선택 합니다.
+2. 탐색 창에서 **서비스**  >  **클레임 설명** 을 선택 합니다.
+3. **작업** 아래에서 **클레임 설명 추가** 를 선택 합니다.
 4. **클레임 설명 추가** 창에서 다음 값을 지정 합니다.
 
    - **표시 이름**: 영구 식별자
    - **클레임 식별자**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` 
-   - **페더레이션 메타 데이터의이 클레임 설명을이 페더레이션 서비스에서 수락할 수 있는 클레임 유형으로 게시**확인란을 선택 합니다.
-   - **페더레이션 메타 데이터의이 클레임 설명을이 페더레이션 서비스에서 보낼 수 있는 클레임 유형으로 게시**확인란을 선택 합니다.
+   - **페더레이션 메타 데이터의이 클레임 설명을이 페더레이션 서비스에서 수락할 수 있는 클레임 유형으로 게시** 확인란을 선택 합니다.
+   - **페더레이션 메타 데이터의이 클레임 설명을이 페더레이션 서비스에서 보낼 수 있는 클레임 유형으로 게시** 확인란을 선택 합니다.
 
-5. **Ok**를 클릭합니다.
+5. **Ok** 를 클릭합니다.
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>신뢰 당사자 트러스트 및 클레임 규칙 추가
 
-1. AD FS 서버에서 **도구**  >  **AD FS 관리**로 이동 합니다.
-2. 탐색 창에서 **트러스트 관계**신뢰  >  **당사자 트러스트**를 선택 합니다.
-3. **작업**아래에서 **신뢰 당사자 트러스트 추가**를 선택 합니다. 
-4. **Select Data Source**에 대 한 신뢰 당사자 트러스트 추가 마법사에서 **온라인 또는 로컬 네트워크에 게시 된 신뢰 당사자에 대 한 데이터 가져오기**옵션을 사용 합니다. 이 페더레이션 메타 데이터 URL을 지정 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml 합니다. 다른 기본 선택 항목을 유지 합니다. **닫기**를 선택합니다.
+1. AD FS 서버에서 **도구**  >  **AD FS 관리** 로 이동 합니다.
+2. 탐색 창에서 **트러스트 관계** 신뢰  >  **당사자 트러스트** 를 선택 합니다.
+3. **작업** 아래에서 **신뢰 당사자 트러스트 추가** 를 선택 합니다. 
+4. **Select Data Source** 에 대 한 신뢰 당사자 트러스트 추가 마법사에서 **온라인 또는 로컬 네트워크에 게시 된 신뢰 당사자에 대 한 데이터 가져오기** 옵션을 사용 합니다. 이 페더레이션 메타 데이터 URL을 지정 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml 합니다. 다른 기본 선택 항목을 유지 합니다. **닫기** 를 선택합니다.
 5. **클레임 규칙 편집** 마법사가 열립니다.
-6. **클레임 규칙 편집** 마법사에서 **규칙 추가**를 선택 합니다. **규칙 유형 선택**에서 **LDAP 특성을 클레임으로 보내기**를 선택 합니다. **다음**을 선택합니다.
-7. **클레임 규칙 구성**에서 다음 값을 지정 합니다. 
+6. **클레임 규칙 편집** 마법사에서 **규칙 추가** 를 선택 합니다. **규칙 유형 선택** 에서 **LDAP 특성을 클레임으로 보내기** 를 선택 합니다. **다음** 을 선택합니다.
+7. **클레임 규칙 구성** 에서 다음 값을 지정 합니다. 
 
    - **클레임 규칙 이름**: 전자 메일 클레임 규칙 
    - **특성 저장소**: Active Directory 
    - **LDAP 특성**: 전자 메일 주소 
    - **보내는 클레임 유형**: 전자 메일 주소
 
-8. **마침**을 선택합니다.
-9. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용**을 클릭합니다. 
-10. **Ok**를 클릭합니다.  
+8. **마침** 을 선택합니다.
+9. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용** 을 클릭합니다. 
+10. **Ok** 를 클릭합니다.  
 
 ### <a name="create-an-email-transform-rule"></a>전자 메일 변환 규칙 만들기
-1. **클레임 규칙 편집** 으로 이동 하 여 **규칙 추가**를 클릭 합니다. **규칙 유형 선택**에서 **들어오는 클레임 변환** 을 선택 하 고 **다음**을 클릭 합니다. 
-2. **클레임 규칙 구성**에서 다음 값을 지정 합니다. 
+1. **클레임 규칙 편집** 으로 이동 하 여 **규칙 추가** 를 클릭 합니다. **규칙 유형 선택** 에서 **들어오는 클레임 변환** 을 선택 하 고 **다음** 을 클릭 합니다. 
+2. **클레임 규칙 구성** 에서 다음 값을 지정 합니다. 
 
    - **클레임 규칙 이름**: 전자 메일 변환 규칙 
    - **들어오는 클레임 유형**: 전자 메일 주소 
    - **보내는 클레임 유형**: 이름 ID 
    - **보내는 이름 ID 형식**: 영구 식별자 
-   - **모든 클레임 값 통과**를 선택합니다.
+   - **모든 클레임 값 통과** 를 선택합니다.
 
-3. **Finish**를 클릭합니다. 
-4. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용**을 클릭합니다. 
-5. **확인**을 클릭합니다. 이제 AD FS 서버는 SAML 2.0 프로토콜을 사용 하 여 직접 페더레이션을 위해 구성 됩니다.
+3. **마침** 을 클릭합니다. 
+4. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용** 을 클릭합니다. 
+5. **확인** 을 클릭합니다. 이제 AD FS 서버는 SAML 2.0 프로토콜을 사용 하 여 직접 페더레이션을 위해 구성 됩니다.
 
 ## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>WS-Fed 직접 페더레이션을 위한 AD FS 구성 
 Azure AD B2B는 아래 나열 된 특정 요구 사항과 함께 WS-Fed 프로토콜을 사용 하는 id 공급자와 페더레이션 하도록 구성할 수 있습니다. Azure AD와의 호환성에 대해 현재 두 개의 WS-Fed 공급자(AD FS 및 Shibboleth)가 테스트되었습니다. 여기서는 WS-Fed id 공급자의 예로 Active Directory Federation Services (AD FS)를 사용 합니다. Azure AD를 사용 하 여 WS-Fed 호환 공급자 간에 신뢰 당사자 트러스트를 설정 하는 방법에 대 한 자세한 내용은 Azure AD Id 공급자 호환성 문서를 다운로드 하세요.
 
 직접 페더레이션을 설정하려면 ID 공급자의 WS-Fed 메시지에서 다음 특성을 받아야 합니다. 이러한 특성은 온라인 보안 토큰 서비스 XML 파일에 연결하거나 수동으로 입력하여 구성할 수 있습니다. [테스트 AD FS 만들기](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) 의 12 단계에서는 AD FS 끝점을 찾는 방법이 나 메타 데이터 URL을 생성 하는 방법을 설명 합니다 (예:) `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` .
  
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |사용자     |`urn:federation:MicrosoftOnline`         |
@@ -127,30 +127,30 @@ IdP에서 발급한 WS-Fed 토큰에 필요한 클레임은 다음과 같습니�
 
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>신뢰 당사자 트러스트 및 클레임 규칙 추가 
-1. AD FS 서버에서 **도구**  >  **AD FS 관리**로 이동 합니다. 
-1. 탐색 창에서 **트러스트 관계**신뢰  >  **당사자 트러스트**를 선택 합니다. 
-1. **작업**아래에서 **신뢰 당사자 트러스트 추가**를 선택 합니다.  
-1. 신뢰 당사자 트러스트 추가 마법사에서 **데이터 원본 선택**에 대해 **온라인 또는 로컬 네트워크에 게시 된 신뢰 당사자에 대 한 데이터 가져오기**옵션을 사용 합니다. 페더레이션 메타 데이터 URL을 지정 `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` 합니다.  다른 기본 선택 항목을 유지 합니다. **닫기**를 선택합니다.
+1. AD FS 서버에서 **도구**  >  **AD FS 관리** 로 이동 합니다. 
+1. 탐색 창에서 **트러스트 관계** 신뢰  >  **당사자 트러스트** 를 선택 합니다. 
+1. **작업** 아래에서 **신뢰 당사자 트러스트 추가** 를 선택 합니다.  
+1. 신뢰 당사자 트러스트 추가 마법사에서 **데이터 원본 선택** 에 대해 **온라인 또는 로컬 네트워크에 게시 된 신뢰 당사자에 대 한 데이터 가져오기** 옵션을 사용 합니다. 페더레이션 메타 데이터 URL을 지정 `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` 합니다.  다른 기본 선택 항목을 유지 합니다. **닫기** 를 선택합니다.
 1. **클레임 규칙 편집** 마법사가 열립니다. 
-1. **클레임 규칙 편집** 마법사에서 **규칙 추가**를 선택 합니다. **규칙 유형 선택**에서 **사용자 지정 규칙을 사용 하 여 클레임 보내기**를 선택 합니다. *다음*을 선택합니다. 
-1. **클레임 규칙 구성**에서 다음 값을 지정 합니다.
+1. **클레임 규칙 편집** 마법사에서 **규칙 추가** 를 선택 합니다. **규칙 유형 선택** 에서 **사용자 지정 규칙을 사용 하 여 클레임 보내기** 를 선택 합니다. *다음* 을 선택합니다. 
+1. **클레임 규칙 구성** 에서 다음 값을 지정 합니다.
 
    - **클레임 규칙 이름**: 변경 불가능 Id 문제  
    - **사용자 지정 규칙**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
-1. **마침**을 선택합니다. 
-1. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용**을 클릭합니다.  
-1. 동일한 **클레임 규칙 편집** 마법사에서 **규칙 추가**를 선택 합니다. **Cohose 규칙 유형**에서 **LDAP 특성을 클레임으로 보내기**를 선택 합니다. **다음**을 선택합니다.
-1. **클레임 규칙 구성**에서 다음 값을 지정 합니다. 
+1. **마침** 을 선택합니다. 
+1. **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용** 을 클릭합니다.  
+1. 동일한 **클레임 규칙 편집** 마법사에서 **규칙 추가** 를 선택 합니다. **Cohose 규칙 유형** 에서 **LDAP 특성을 클레임으로 보내기** 를 선택 합니다. **다음** 을 선택합니다.
+1. **클레임 규칙 구성** 에서 다음 값을 지정 합니다. 
 
    - **클레임 규칙 이름**: 전자 메일 클레임 규칙  
    - **특성 저장소**: Active Directory  
    - **LDAP 특성**: 전자 메일 주소  
    - **보내는 클레임 유형**: 전자 메일 주소 
 
-1.  **마침**을 선택합니다. 
-1.  **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용**을 클릭합니다.  
-1.  **확인**을 클릭합니다. 이제 WS-급지됨를 사용 하 여 직접 페더레이션을 위해 AD FS 서버가 구성 됩니다.
+1.  **마침** 을 선택합니다. 
+1.  **클레임 규칙 편집** 창에 새 규칙이 표시 됩니다. **적용** 을 클릭합니다.  
+1.  **확인** 을 클릭합니다. 이제 WS-급지됨를 사용 하 여 직접 페더레이션을 위해 AD FS 서버가 구성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음으로 azure ad 포털에서 또는 PowerShell을 사용 하 여 [AZURE ad에서 직접 페더레이션을 구성](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) 합니다. 

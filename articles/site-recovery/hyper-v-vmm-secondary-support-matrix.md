@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86131164"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
@@ -97,7 +97,7 @@ RDM | 해당 없음
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**동작** | **지원됨**
+**작업** | **지원됨**
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
 리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
@@ -106,7 +106,7 @@ RDM | 해당 없음
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
-**최신 버전** | **업데이트**
+**마지막** | **업데이트**
 --- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 

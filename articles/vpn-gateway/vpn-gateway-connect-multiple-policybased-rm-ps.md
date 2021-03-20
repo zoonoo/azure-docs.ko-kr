@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89418883"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
@@ -38,7 +38,7 @@ ms.locfileid: "89418883"
 
 | 범주 | PolicyBased VPN Gateway | 경로 기반 VPN Gateway | 경로 기반 VPN Gateway |
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
-| **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **Azure Gateway SKU**    | 기본                       | 기본                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1 및 IKEv2                         |
 | **최대 S2S 연결** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
@@ -46,7 +46,7 @@ ms.locfileid: "89418883"
 이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN 게이트웨이를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
 
 > [!IMPORTANT]
-> 1. 이 연결을 사용하려면 온-프레미스 정책 기반 VPN 디바이스가 Azure 경로 기반 VPN Gateway에 연결하도록 **IKEv2**를 지원해야 합니다. VPN 디바이스 사양을 확인하세요.
+> 1. 이 연결을 사용하려면 온-프레미스 정책 기반 VPN 디바이스가 Azure 경로 기반 VPN Gateway에 연결하도록 **IKEv2** 를 지원해야 합니다. VPN 디바이스 사양을 확인하세요.
 > 2. 이 메커니즘을 사용하여 정책 기반 VPN 디바이스를 통해 연결되는 온-프레미스 네트워크는 Azure Virtual Network에 연결할 수 있습니다. **동일한 Azure VPN Gateway를 통해 다른 온-프레미스 네트워크 또는 가상 네트워크로 전송할 수는 없습니다**.
 > 3. 구성 옵션은 사용자 지정 IPsec/IKE 연결 정책의 일부입니다. 정책 기반 트래픽 선택기 옵션을 사용하는 경우 전체 정책(IPsec/IKE 암호화 및 무결성 알고리즘, 키 수준 및 SA 수명)을 지정해야 합니다.
 

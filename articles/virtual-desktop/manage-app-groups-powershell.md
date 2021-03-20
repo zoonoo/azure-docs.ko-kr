@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a6f24dea00a174aa0276a9b30add0854c3694056
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008647"
 ---
 # <a name="manage-app-groups-using-powershell"></a>PowerShell을 사용 하 여 앱 그룹 관리
@@ -46,7 +46,7 @@ PowerShell을 사용 하 여 RemoteApp 그룹을 만들려면 다음을 수행 �
    Get-AzWvdApplicationGroup -Name <appgroupname> -ResourceGroupName <resourcegroupname>
    ```
 
-3. 다음 cmdlet을 실행하여 호스트 풀의 가상 머신 이미지에 대한 **시작** 메뉴 앱 목록을 가져옵니다. **FilePath**, **IconPath**, **IconIndex**의 값과 게시하려는 애플리케이션의 기타 중요 정보를 적어 둡니다.
+3. 다음 cmdlet을 실행하여 호스트 풀의 가상 머신 이미지에 대한 **시작** 메뉴 앱 목록을 가져옵니다. **FilePath**, **IconPath**, **IconIndex** 의 값과 게시하려는 애플리케이션의 기타 중요 정보를 적어 둡니다.
 
    ```powershell
    Get-AzWvdStartMenuItem -ApplicationGroupName <appgroupname> -ResourceGroupName <resourcegroupname> | Format-List | more

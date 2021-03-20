@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 92333c2528303a6fa53fa30f47def33c33235d39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171485"
 ---
 # <a name="persist-state-in-linux"></a>Linux에서 상태 유지
@@ -40,7 +40,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
 ```
 
 >[!IMPORTANT]
->Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈 내의 특정 위치를 가리킵니다. Linux의 Event Grid 모듈은 **/app/metadataDb**이어야 합니다.
+>Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈 내의 특정 위치를 가리킵니다. Linux의 Event Grid 모듈은 **/app/metadataDb** 이어야 합니다.
 
 예를 들어 다음 구성을 수행 하면 메타 데이터가 유지 되는 볼륨 **egmetadataDbVol** 생성 됩니다.
 
@@ -92,7 +92,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
    md <your-directory-name-here>
    ```
 
-    예를 들어 다음 명령을 실행 하면 **myhostdir**이라는 디렉터리가 만들어집니다.
+    예를 들어 다음 명령을 실행 하면 **myhostdir** 이라는 디렉터리가 만들어집니다.
 
     ```sh
     md /myhostdir
@@ -103,7 +103,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
    ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
@@ -121,7 +121,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     }
     ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```json
     {

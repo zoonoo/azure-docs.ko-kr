@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
 ms.openlocfilehash: 4e638fdff67ad2d0bc6f191cdfd46867ab847923
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93080116"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Azure Cosmos DB Gremlin 제한
@@ -27,7 +27,7 @@ Gremlin 제한에 도달 하는 경우 조정 오류를 나타내는 **x m m-** 
 
 **리소스**    | **기본 제한** | **설명**
 --- | --- | ---
-*스크립트 길이* | **64KB** | 요청당 Gremlin 순회 스크립트의 최대 길이입니다.
+*스크립트 길이* | **64 KB** | 요청당 Gremlin 순회 스크립트의 최대 길이입니다.
 *연산자 깊이* | **400** |  순회의 총 고유 단계 수입니다. 예를 들어에는 연산자에 대 한 ```g.V().out()``` 매개 변수 이기 때문에 2: v () 및 out ()의 연산자를 포함 하 고 ```g.V('label').repeat(out()).times(100)``` 연산자 깊이가 3: v (), repeat () 및 out ()입니다 ```.times(100)``` ```.repeat()``` .
 *병렬 처리 수준* | **32** | 단일 요청에서 스토리지 레이어에 쿼리한 스토리지 파티션의 최대 수입니다. 수백 개의 파티션이 있는 그래프는이 제한의 영향을 받습니다.
 *반복 제한* | **32** | ```.repeat()``` 연산자가 실행할 수 있는 최대 반복 횟수입니다. ```.repeat()```대부분의 경우 단계의 각 반복은 너비 우선 순회를 실행 합니다. 즉, 모든 트래버스는 꼭 짓 점 사이의 최대 32 홉으로 제한 됩니다.

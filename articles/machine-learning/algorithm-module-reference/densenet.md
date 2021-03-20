@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421331"
 ---
 # <a name="densenet"></a>DenseNet
@@ -54,7 +54,7 @@ DenseNet에 대 한 자세한 내용은 연구 문서 [조밀 Connected 나선�
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름             | 범위 | Type    | 기본값     | Description                              |
+| Name             | 범위 | Type    | 기본값     | 설명                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | 모델 이름       | 모두   | Mode    | densenet201 | 특정 DenseNet 구조체의 이름     |
 | 미리 학습 된       | 모두   | 부울 | True        | ImageNet에서 미리 학습 된 모델을 사용할지 여부 |
@@ -62,7 +62,7 @@ DenseNet에 대 한 자세한 내용은 연구 문서 [조밀 Connected 나선�
 
 ###  <a name="output"></a>출력  
 
-| 이름            | Type                    | Description                              |
+| Name            | Type                    | 설명                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델 | UntrainedModelDirectory | Pytorch 모델 학습에 연결할 수 있는 학습 되지 않은 DenseNet 모델입니다. |
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Active Directory를 사용 하 여 Event 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910800"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
@@ -33,7 +33,7 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 azure 기본 제공 역할
 Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 
-| 역할 | Description | 
+| 역할 | 설명 | 
 | ---- | ----------- | 
 | [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스 권한을 부여할 수 있습니다. |
 | [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다. |
@@ -46,11 +46,11 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Event Hubs 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **소비자 그룹** :이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 대 한 Azure 역할 할당을 지원 하지 않습니다. 
-- **이벤트 허브** : 역할 할당은 이벤트 허브 엔터티와 그 아래에 있는 소비자 그룹에 적용 됩니다.
-- **네임 스페이스** : 역할 할당은 네임 스페이스에 있는 Event Hubs의 전체 토폴로지 및 이와 연결 된 소비자 그룹에 적용 됩니다.
-- **리소스 그룹** : 역할 할당은 리소스 그룹 아래의 모든 Event Hubs 리소스에 적용 됩니다.
-- **구독** : 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Event Hubs 리소스에 적용 됩니다.
+- **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 대 한 Azure 역할 할당을 지원 하지 않습니다. 
+- **이벤트 허브**: 역할 할당은 이벤트 허브 엔터티와 그 아래에 있는 소비자 그룹에 적용 됩니다.
+- **네임 스페이스**: 역할 할당은 네임 스페이스에 있는 Event Hubs의 전체 토폴로지 및 이와 연결 된 소비자 그룹에 적용 됩니다.
+- **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Event Hubs 리소스에 적용 됩니다.
+- **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Event Hubs 리소스에 적용 됩니다.
 
 > [!NOTE]
 > - Azure 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요. 
@@ -64,7 +64,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 ## <a name="samples"></a>샘플
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하지만 최신 **Azure.Messaging.EventHubs** 라이브러리를 사용하여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용하는 샘플을 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조하세요.
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.

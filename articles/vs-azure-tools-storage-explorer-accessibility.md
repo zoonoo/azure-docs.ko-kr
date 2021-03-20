@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88035488"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
@@ -35,9 +35,9 @@ Linux    | (화면 판독기는 Linux에서 지원 되지 않음)
 
 Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
-## <a name="zoom"></a>Zoom
+## <a name="zoom"></a>확대/축소
 
-확대/축소를 통해 Storage Explorer에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소**를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
+확대/축소를 통해 Storage Explorer에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소** 를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
 
 ![[도움말] 메뉴의 [확대/축소] 옵션][0]
 

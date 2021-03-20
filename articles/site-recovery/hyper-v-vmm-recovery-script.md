@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425877"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
@@ -43,18 +43,18 @@ ms.locfileid: "89425877"
 
   라이브러리 공유 경로가 원격 위치에 있거나 로컬에 있으나 MSCVMMLibrary와 공유되어 있지 않다면 다음과 같이 공유를 구성합니다. 여기서는 공유의 예로 \\libserver2.contoso.com\share\를 사용합니다.
   
-  1. 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**으로 이동합니다.
+  1. 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration** 으로 이동합니다.
 
-  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\** 로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
+  1. **ScriptLibraryPath** 의 값을 **\\\libserver2.contoso.com\share\\** 로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
 
   1. VMM 서비스 계정과 동일한 사용자 권한 수준을 갖는 사용자 계정으로 스크립트를 테스트합니다. 이렇게 하면 스크립트를 독립형 테스트 환경에서 실행할 때도 복구 계획과 동일한 환경으로 테스트할 수 있습니다. VMM 서버에서 실행 정책을 다음과 같이 우회로 설정합니다.
 
      a. **64비트 Windows PowerShell** 콘솔을 권리자 권한으로 엽니다.
      
-     b. **Set-executionpolicy bypass**를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10))을 참조하세요.
+     b. **Set-executionpolicy bypass** 를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10))을 참조하세요.
 
      > [!IMPORTANT]
-     > **Set-executionpolicy bypass**는 64비트 PowerShell 콘솔에서만 설정해야 합니다. 32비트 PowerShell 콘솔에서 설정하면 스크립트가 실행되지 않습니다.
+     > **Set-executionpolicy bypass** 는 64비트 PowerShell 콘솔에서만 설정해야 합니다. 32비트 PowerShell 콘솔에서 설정하면 스크립트가 실행되지 않습니다.
 
 ## <a name="add-the-script-to-the-vmm-library"></a>VMM 라이브러리에 스크립트 추가
 
@@ -69,9 +69,9 @@ VMM 소스 사이트가 있다면 VMM 서버에서 스크립트를 생성할 수
 복구 계획에 VM 또는 복제 그룹을 추가하고 계획을 생성했으면 그룹에 스크립트를 추가합니다.
 
 1. 복구 계획을 엽니다.
-1. **단계** 목록에서 항목을 하나 선택합니다. 그런 다음, **스크립트**와 **수동 작업** 중 하나를 선택합니다.
+1. **단계** 목록에서 항목을 하나 선택합니다. 그런 다음, **스크립트** 와 **수동 작업** 중 하나를 선택합니다.
 1. 스크립트 또는 작업을 선택한 항목의 앞에 추가할 것인지 뒤에 추가할 것인지 지정합니다. 스크립트를 위나 아래로 이동하려면 **위로 이동** 및 **아래로 이동** 단추를 선택합니다.
-1. VMM 스크립트를 추가하면 **VMM 스크립트에 대한 장애 조치**를 선택합니다. **스크립트 경로**에 공유의 상대 경로를 입력합니다. 예: **\RPScripts\RPScript.PS1**.
+1. VMM 스크립트를 추가하면 **VMM 스크립트에 대한 장애 조치** 를 선택합니다. **스크립트 경로** 에 공유의 상대 경로를 입력합니다. 예: **\RPScripts\RPScript.PS1**.
 1. Azure Automation Runbook을 추가하는 경우에는 Runbook이 있는 Automation 계정을 지정합니다. 그런 다음, 사용하려는 Azure Runbook 스크립트를 선택합니다.
 1. 스크립트가 예상대로 작동하는지 확인하려면 복구 계획의 장애 조치(failover)를 테스트합니다.
 

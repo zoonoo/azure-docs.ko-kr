@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743239"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Visual Studio를 사용 하 여 Azure Cloud Services (클래식)에서 역할에 대 한 원격 데스크톱 연결 사용
@@ -85,7 +85,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
-1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예:
+1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예를 들면 다음과 같습니다.
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

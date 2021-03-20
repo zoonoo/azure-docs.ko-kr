@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
 ms.openlocfilehash: a2c322c765d39a3afe4974ed88bf4dc18fd467a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89569648"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 요구 사항
@@ -35,7 +35,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>네트워크에 보내는 Microsoft에서 생성된 트래픽
 * 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 엔드포인트에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 이 시나리오의 일반적인 예는 Microsoft 365에서 네트워크에 호스트 되는 ADFS 서버에 연결 하는 것입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다. 
-* [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지할 수 있도록 네트워크 내부의 서비스 엔드포인트에 대한 인터넷 에지에서 Microsoft 트래픽을 SNAT해야 합니다. 대상 IP가 ExpressRoute를 통해 받은 경로와 일치하는 요청 **및 회신**은 항상 ExpressRoute를 통해 전송됩니다. 요청은 인터넷을 통해 수신되고 회신은 ExpressRoute를 통해 전송되는 경우 비대칭 라우팅이 있는 것입니다. 인터넷 에지에서 들어오는 Microsoft 트래픽을 SNAT하면 회신 트래픽이 강제로 인터넷 에지로 돌아가기 때문에 문제가 해결됩니다.
+* [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지할 수 있도록 네트워크 내부의 서비스 엔드포인트에 대한 인터넷 에지에서 Microsoft 트래픽을 SNAT해야 합니다. 대상 IP가 ExpressRoute를 통해 받은 경로와 일치하는 요청 **및 회신** 은 항상 ExpressRoute를 통해 전송됩니다. 요청은 인터넷을 통해 수신되고 회신은 ExpressRoute를 통해 전송되는 경우 비대칭 라우팅이 있는 것입니다. 인터넷 에지에서 들어오는 Microsoft 트래픽을 SNAT하면 회신 트래픽이 강제로 인터넷 에지로 돌아가기 때문에 문제가 해결됩니다.
 
 ![ExpressRoute를 포함한 비대칭 라우팅](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 

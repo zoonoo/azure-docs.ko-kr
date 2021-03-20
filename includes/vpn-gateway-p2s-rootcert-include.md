@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 10/28/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 59d18c89a8f66f781f01d1dace9d8968df17a626
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041590"
 ---
 루트 인증서용 .cer 파일을 가져옵니다. 엔터프라이즈 솔루션을 사용하여 생성된 루트 인증서를 사용하거나(추천) 자체 서명된 인증서를 생성할 수 있습니다. 루트 인증서가 만들어지면 공용 인증서 데이터(프라이빗 키 아님)를 Base64 인코딩된 X.509 .cer 파일로 내보냅니다. 이 파일은 나중에 Azure에 업로드합니다.

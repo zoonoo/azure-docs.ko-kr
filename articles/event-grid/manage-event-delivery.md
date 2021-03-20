@@ -4,10 +4,10 @@ description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460940"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>배달 못한 편지 위치 설정 및 정책 다시 시도
