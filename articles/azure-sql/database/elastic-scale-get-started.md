@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919547"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
@@ -118,7 +118,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 * **기존의 분할된 데이터베이스 병합**: 분할 병합도 분할/병합 도구를 사용하여 수행할 수 있습니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 
 Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Database 도구를 사용하면 Azure 사용량 비용 이외의 요금이 추가되지 않습니다.
 

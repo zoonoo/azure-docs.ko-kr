@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96449851"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 지역 복원
@@ -83,7 +83,7 @@ $GeoRestoredDatabase.status
 
 1. 추가를 클릭 하 고 **기본 사항** 탭에서 요청 된 정보를 입력 한 후 **다음: 추가 설정** 을 클릭 합니다.
 
-   ![기본](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 1. **기존 데이터** 매개 변수 사용에 대해 **백업** 을 선택 하 고 아래로 스크롤 옵션에서 적절 한 백업을 선택 합니다. **리뷰 + 만들기** 를 클릭합니다.
 

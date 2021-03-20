@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
 ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100592732"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석의 스트리밍 내보내기 구성
@@ -476,7 +476,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
@@ -501,7 +501,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
@@ -552,7 +552,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
@@ -619,7 +619,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
@@ -648,7 +648,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
@@ -671,7 +671,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
@@ -695,7 +695,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
@@ -716,7 +716,7 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|유형|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |범주|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |

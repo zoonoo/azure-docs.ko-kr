@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 8e11c4182520e143007b46c8a7907b5e71bfb27d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097588"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Azure 함수를 사용 하 여 Qualys VM을 Azure 센티널에 연결
@@ -38,7 +38,7 @@ Azure Functions는 Qualys VM에서 직접 이벤트와 로그를 통합 하 고 
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Qualys 취약성 관리** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. **Qualys 취약성 관리** 페이지의 지침을 따릅니다.
 

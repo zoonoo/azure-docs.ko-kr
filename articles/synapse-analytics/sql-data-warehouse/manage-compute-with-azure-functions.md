@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96448379"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 대 한 계산 리소스를 관리 합니다.
@@ -139,7 +139,7 @@ ms.locfileid: "96448379"
 
 매일 오전 8 시에서 DW600c까지 규모를 확장 하 고 오후 8 시에서 DW200c로 축소 합니다.
 
-| 기능  | 예약     | 연산                                |
+| 함수  | 예약     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,7 +148,7 @@ ms.locfileid: "96448379"
 
 매일 오전 8 시에서 DW1000c까지 규모를 확장 하 고, 4pm에서 W 600으로 축소 하 고, 오후 10 시에 DW200c로 축소 합니다.
 
-| 기능  | 예약     | 연산                                |
+| 함수  | 예약     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -158,7 +158,7 @@ ms.locfileid: "96448379"
 
 오전 8 시에서 DW1000c까지 규모를 확장 하 고 평일에 4pm에서 DW600c로 축소 합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
-| 기능  | 예약       | 연산                                |
+| 함수  | 예약       | 작업                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |

@@ -4,10 +4,10 @@ description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593339"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
@@ -24,7 +24,7 @@ Azure Backup 인프라를 사용 하지 않는 간단 하 고 안전 하며 비�
 
 Azure에서 인프라 및 응용 프로그램 보호를 시작 하는 것은 쉽지만, 기본 Azure 리소스를 올바르게 설정 하 고 최적으로 사용 하도록 하는 경우 값에 시간을 단축할 수 있습니다. 이 문서에서는 Azure Backup 배포를 최적으로 구성 하기 위한 디자인 고려 사항 및 지침을 간략하게 설명 합니다. 핵심 구성 요소 (예: Recovery Services 자격 증명 모음, 백업 정책) 및 개념 (예: 거 버 넌 스) 및 개념 (예: 거 버 넌 스)을 검토 하 고 해당 기능 및 해당 기능을 자세한 제품 설명서에 대 한 링크로
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 ![Azure Backup 아키텍처](./media/guidance-best-practices/azure-backup-architecture.png)
 
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 * 기타
   * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
   * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
-  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아보기](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세한 정보를 알아보세요](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 

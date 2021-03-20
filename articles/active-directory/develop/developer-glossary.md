@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755643"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
@@ -60,7 +60,7 @@ Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해�
 
 자세한 내용은 [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]을 참조하세요.
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>인증
 
 ID 및 액세스 제어에 사용할 보안 주체를 만들기 위한 기반을 제공하도록 당사자에게 합법적인 자격 증명을 하게 챌린지하는 작업. 예를 들어 [OAuth2 권한 부여](#authorization-grant) 시 당사자 인증은 사용된 권한 부여에 따라 [리소스 소유자](#resource-owner) 또는 [클라이언트 애플리케이션](#client-application)의 역할을 수행합니다.
 

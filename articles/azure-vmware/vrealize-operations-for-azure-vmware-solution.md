@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 사설 클라우드에 대해 vRealize 작�
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738432"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vRealize 작업 설정
@@ -27,7 +27,7 @@ vRealize Operations Manager는 VMware infrastructure 관리자가 시스템 리�
 * 필요에 따라 온-프레미스 vRealize 작업 Azure VMware 솔루션 배포 관리 옵션에 대 한 [Vrealize 작업 원격 컨트롤러](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) 제품 설명서를 검토 합니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * [Vrealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 설치 되었습니다.
 * 온-프레미스와 Azure VMware 솔루션 SDDC 사이에서 구성 된 VPN 또는 Azure Express 경로입니다.
 * Azure에 배포 된 Azure VMware 솔루션 사설 클라우드.

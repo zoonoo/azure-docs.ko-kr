@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515749"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
@@ -64,7 +64,7 @@ Azure Service Bus와 상호 작용 하도록 클라이언트 응용 프로그램
 
 Azure Active Directory에서 지 원하는 azure RBAC (역할 기반 액세스 제어)는 Service Bus에 대 한 기본 인증 메커니즘입니다. Azure RBAC 또는 클레임 기반 인증은 현재 Apache QPID JMS에서 지원 되지 않으므로 인증을 위해 SAS 키를 사용 해야 합니다.
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전
 
 ### <a name="version-check"></a>버전 확인
 
@@ -214,7 +214,7 @@ Service Bus와 원활 하 게 연결 되도록 하려면 다음과 `azure-servic
 </Context>
 ```
 
-#### <a name="spring-applications"></a>스프링 응용 프로그램
+#### <a name="spring-applications"></a>Spring 애플리케이션
 
 ##### <a name="update-the-applicationproperties-file"></a>파일 업데이트 `application.properties`
 
@@ -266,7 +266,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>마이그레이션 후 작업
+## <a name="post-migration"></a>마이그레이션 후
 
 이제 응용 프로그램을 수정 하 여 Service Bus에서 메시지를 보내고 받기 시작 했으므로 정상적으로 작동 하는지 확인 해야 합니다. 이 작업이 완료 되 면 계속 해 서 응용 프로그램 스택을 구체화 하 고 현대화 수 있습니다.
 

@@ -9,10 +9,10 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206973"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결(클래식)
@@ -77,7 +77,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ![구독 간 연결](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>관리
-*회로 소유자*는 ExpressRoute 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 *회로 사용자*라고 지칭되는 다른 구독의 관리자/공동 관리자가 사용하도록 권한을 부여할 수 있습니다. 조직의 ExpressRoute 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다.
+*회로 소유자* 는 ExpressRoute 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 *회로 사용자* 라고 지칭되는 다른 구독의 관리자/공동 관리자가 사용하도록 권한을 부여할 수 있습니다. 조직의 ExpressRoute 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다.
 
 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크가 삭제됩니다.
 

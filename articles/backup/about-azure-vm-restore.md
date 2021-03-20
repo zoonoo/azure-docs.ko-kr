@@ -4,10 +4,10 @@ description: Azure Backup 서비스에서 Azure virtual machines를 복원 하�
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 62d1ff7973693f29c77c77fe2ad4fbbb598a5fa4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738415"
 ---
 # <a name="about-azure-vm-restore"></a>Azure VM 복원 정보

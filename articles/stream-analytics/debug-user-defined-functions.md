@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 7f5a24e4d351d7c133251900a80c70094b84cc4e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019434"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics에서 사용자 정의 함수 디버깅 
@@ -48,7 +48,7 @@ Stream Analytics에서 JavaScript 함수에 대 한 디버깅이 지원 되지 �
 
 다음 예제에서는 [Visual Studio Code](quick-create-visual-studio-code.md)의 통합 런타임 환경에서 몇 가지 제한 사항을 사용 하 여 JavaScript udf를 디버그 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 Azure Stream Analytics 프로젝트에 다음과 같은 항목이 있어야 합니다.
 

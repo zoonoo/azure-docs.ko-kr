@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: cbb84a4934eed4d258cf07772753315785f98019
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99218165"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 .NET (c #) 코드 샘플
@@ -44,7 +44,7 @@ Azure SDK 개발 팀의 코드 샘플에서는 API 사용을 보여 줍니다. �
 
 Cognitive Search 팀의 코드 샘플에서는 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조 됩니다. 이러한 샘플은 [**azure-samples/azure-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) 및 GitHub의 [**azure-samples/search-dotnet-시작**](https://github.com/Azure-Samples/search-dotnet-getting-started/) 에서 찾을 수 있습니다.
 
-| 샘플 | 기사  |
+| 샘플 | 아티클  |
 |---------|-------------|
 | [빠른](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | 빠른 시작에 대 한 소스 코드 [: 검색 인덱스를 만듭니다 ](search-get-started-dotnet.md). 이 문서에서는 샘플 데이터를 사용 하 여 검색 인덱스를 만들고 로드 하 고 쿼리 하는 기본 워크플로를 다룹니다. |
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [.Net 클라이언트 라이브러리를 사용 하는 방법](search-howto-dotnet-sdk.md)에 대 한 소스 코드입니다. 이 문서에서는 기본 워크플로를 단계별로 안내 하지만 API 사용에 대해 자세히 설명 합니다.  |

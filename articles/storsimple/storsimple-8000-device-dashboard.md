@@ -1,5 +1,5 @@
 ---
-title: StorSimple Device Manager 서비스에서 장치 요약 사용
+title: StorSimple 장치 관리자 서비스에서 장치 요약 사용
 description: StorSimple 디바이스 관리자 서비스 디바이스 요약과 이를 사용하여 스토리지 메트릭 및 연결된 초기자를 보고 일련 번호 및 IQN을 찾는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017154"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에서 디바이스 요약 사용
@@ -38,7 +38,7 @@ StorSimple 디바이스 블레이드에는 StorSimple 디바이스를 관리하�
 
 ![관리 명령 모음](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
-## <a name="essentials"></a>기본 정보
+## <a name="essentials"></a>Essentials
 
 Essentials 영역은 상태, 모델, 대상 IQN 및 소프트웨어 버전과 같은 일부 중요한 속성을 캡처합니다. 
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94517175"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure의 보안 개발 모범 사례
@@ -41,7 +41,7 @@ Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop
 
 SDL 단계는 다음과 같습니다.
 
-  - 학습
+  - 교육
   - 요구 사항
   - 디자인
   - 구현

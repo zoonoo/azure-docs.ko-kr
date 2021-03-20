@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6eb9a20920f0a340491459f0875fc85b90dfa193
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92209989"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>변경 내용 추적 및 인벤토리 배포 범위 제한
@@ -26,19 +26,19 @@ ms.locfileid: "92209989"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Automation 계정**을 선택합니다.
+2. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **Automation** 을 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Automation 계정** 을 선택합니다.
 
 3. Automation 계정 목록에서 변경 내용 추적 및 인벤토리를 사용 하도록 설정할 때 선택한 계정을 선택 합니다.
 
-4. Automation 계정의 **관련 리소스**에서 **연결 된 작업 영역** 을 선택 합니다.
+4. Automation 계정의 **관련 리소스** 에서 **연결 된 작업 영역** 을 선택 합니다.
 
-5. **작업 영역으로 이동을**클릭 합니다.
+5. **작업 영역으로 이동을** 클릭 합니다.
 
-6. **작업 영역 데이터 원본**에서 **범위 구성 (미리 보기)을** 선택 합니다.
+6. **작업 영역 데이터 원본** 에서 **범위 구성 (미리 보기)을** 선택 합니다.
 
-7. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하  `MicrosoftDefaultScopeConfig-ChangeTracking` 고 **편집**을 클릭 합니다.
+7. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하  `MicrosoftDefaultScopeConfig-ChangeTracking` 고 **편집** 을 클릭 합니다.
 
-8. 편집 창에서 **컴퓨터 그룹 선택**을 선택합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 변경 내용 추적 및 인벤토리에 사용 되는 저장 된 검색은 다음과 같습니다.
+8. 편집 창에서 **컴퓨터 그룹 선택** 을 선택합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 변경 내용 추적 및 인벤토리에 사용 되는 저장 된 검색은 다음과 같습니다.
 
     |속성     |Category  |Alias  |
     |---------|---------|---------|

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: c7b186aa1a6f63b1bc3e9dbefa5001faac967762
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94556167"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
@@ -66,7 +66,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
  Azure에 연결할 모든 Mac에서 원시 IKEv2 VPN 클라이언트를 수동으로 구성해야 합니다. Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공하지 않습니다. **일반** 에는 구성에 필요한 모든 정보가 포함됩니다. 다운로드에 Generic 폴더가 보이지 않으면 IKEv2가 터널 유형으로 선택되지 않았을 가능성이 큽니다. VPN gateway 기본 SKU는 IKEv2를 지원 하지 않습니다. IKEv2가 선택되면 zip 파일을 다시 생성하여 Generic 폴더를 검색합니다.<br>Generic 폴더에 포함되는 파일은 다음과 같습니다.
 
-* **VpnSettings.xml** -서버 주소, 터널 유형 등의 중요 한 설정이 포함 되어 있습니다. 
+* **VpnSettings.xml**-서버 주소, 터널 유형 등의 중요 한 설정이 포함 되어 있습니다. 
 * **VpnServerRoot** 는 P2S 연결을 설정 하는 동안 Azure VPN Gateway의 유효성을 검사 하는 데 필요한 루트 인증서를 포함 합니다.
 
 다음 단계에 따라 인증서 인증을 위한 Mac VPN 기본 클라이언트를 구성합니다. Azure에 연결할 모든 Mac에서 다음 단계를 완료해야 합니다.

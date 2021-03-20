@@ -4,10 +4,10 @@ description: IoT Edge의 Live Video Analytics는 여러 가지 직접 메서드�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656243"
 ---
 # <a name="direct-methods"></a>직접 메서드
@@ -42,7 +42,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
     * 공백 없음
     * 최대 32 문자
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```
 {
@@ -98,7 +98,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 }
 ```
 
-|상태|    자세한 코드   |Description|
+|상태|    자세한 코드   |설명|
 |---|---|---|
 |400|   GraphValidationError|   주기 또는 분할과 같은 일반적인 그래프 오류 등|
 |400|   ModuleValidationError|  모듈 특정 유효성 검사 오류입니다.|

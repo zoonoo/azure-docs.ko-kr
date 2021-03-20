@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100592674"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
@@ -34,7 +34,7 @@ Azure Portal에서 계정의 **개요** 페이지에는 기본적으로 키 노�
 Azure Portal에서 모든 Batch 계정 메트릭을 보려면 다음을 수행 합니다.
 
 1. Azure Portal에서 **모든 서비스**  >  **배치 계정** 을 선택 하 고 batch 계정의 이름을 선택 합니다.
-2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
+2. **모니터링** 에서 **메트릭** 을 선택합니다.
 3. **메트릭 추가** 를 선택한 다음 드롭다운 목록에서 메트릭을 선택 합니다.
 4. 메트릭에 대 한 **집계** 옵션을 선택 합니다. 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 **평균** 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 **개수**"집계를 사용 합니다.
 
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/

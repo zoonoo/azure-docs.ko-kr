@@ -9,10 +9,10 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100518541"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
@@ -23,7 +23,7 @@ ms.locfileid: "100518541"
 
 ![실험 추적](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](../how-to-manage-workspace.md#create-a-workspace) .
 

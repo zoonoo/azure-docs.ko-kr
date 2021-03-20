@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222526"
 ---
 # <a name="view-update-assessments-in-update-management"></a>업데이트 관리에서 업데이트 평가 보기
@@ -22,13 +22,13 @@ ms.locfileid: "92222526"
 
 ## <a name="view-update-assessment"></a>업데이트 평가 보기
 
-Azure VM에서 업데이트 평가를 보려면 **Virtual Machines** 으로 이동 하 여 목록에서 가상 머신을 선택 합니다. 왼쪽 메뉴에서 **게스트 + 호스트 업데이트**를 선택한 다음 **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동을** 선택 합니다.
+Azure VM에서 업데이트 평가를 보려면 **Virtual Machines** 으로 이동 하 여 목록에서 가상 머신을 선택 합니다. 왼쪽 메뉴에서 **게스트 + 호스트 업데이트** 를 선택한 다음 **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동을** 선택 합니다.
 
 업데이트 관리에서 컴퓨터, 누락 된 업데이트, 업데이트 배포 및 예약 된 업데이트 배포에 대 한 정보를 볼 수 있습니다.
 
 [![AZURE VM에 대 한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-Arc 사용 서버에서 업데이트 평가를 보려면 **서버-Azure Arc** 로 이동 하 여 목록에서 서버를 선택 합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트**를 선택 합니다. **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동**을 선택 합니다.
+Arc 사용 서버에서 업데이트 평가를 보려면 **서버-Azure Arc** 로 이동 하 여 목록에서 서버를 선택 합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트** 를 선택 합니다. **게스트 + 호스트 업데이트** 페이지에서 **업데이트 관리로 이동** 을 선택 합니다.
 
 업데이트 관리에서 Arc 사용 컴퓨터, 누락 된 업데이트, 업데이트 배포 및 예약 된 업데이트 배포에 대 한 정보를 볼 수 있습니다.
 
@@ -42,7 +42,7 @@ Automation 계정의 Arc 사용 서버를 포함 하 여 모든 컴퓨터에서 
 
 **준수** 열에서 컴퓨터가 마지막으로 평가 된 시간을 확인할 수 있습니다. **에이전트 준비 상태 업데이트** 열에서 업데이트 에이전트의 상태를 확인할 수 있습니다. 문제가 있는 경우 링크를 선택하여 문제 해결을 도와주는 문제 해결 설명서로 이동합니다.
 
-**정보 링크**에서 업데이트 링크를 선택하여 업데이트에 대한 중요한 정보를 제공하는 지원 문서를 엽니다.
+**정보 링크** 에서 업데이트 링크를 선택하여 업데이트에 대한 중요한 정보를 제공하는 지원 문서를 엽니다.
 
 [![업데이트 상태 보기](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
@@ -52,7 +52,7 @@ Automation 계정의 Arc 사용 서버를 포함 하 여 모든 컴퓨터에서 
 
 ## <a name="view-missing-updates"></a>누락 업데이트 보기
 
-**누락 업데이트**를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트가 필요한 머신 수, 운영 체제 세부 정보, 자세한 정보 링크가 표시됩니다. 로그 검색 창에는 업데이트에 대한 자세한 정보도 표시됩니다.
+**누락 업데이트** 를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트가 필요한 머신 수, 운영 체제 세부 정보, 자세한 정보 링크가 표시됩니다. 로그 검색 창에는 업데이트에 대한 자세한 정보도 표시됩니다.
 
 ![누락 업데이트](./media/view-update-assessments/automation-view-update-assessments-missing-updates.png)
 

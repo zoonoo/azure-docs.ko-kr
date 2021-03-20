@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014859"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 하드웨어 구성 요소 교체
@@ -69,7 +69,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
 | 기본 컨트롤러 |2 |예 |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
 | 764W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
 | Backup 배터리 |2 |예 |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
@@ -81,7 +81,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
 | EBOD 컨트롤러 |2 |예 |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
 | 580W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
 | 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |

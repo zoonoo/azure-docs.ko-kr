@@ -6,10 +6,10 @@ ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
 ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92205645"
 ---
 # <a name="late-stage-reprojection"></a>후기 단계 다시 프로젝션
@@ -46,7 +46,7 @@ Depth LSR가 작동 하려면 클라이언트 응용 프로그램에서 LSR 중�
 
 ### <a name="configure-planar-lsr-in-unity"></a>Unity에서 평면 LSR 구성
 
-평면 매개 변수는 모든 프레임을 통해 제공 해야 하는 *포커스 지점*이라고 하는에서 파생 됩니다 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . 자세한 내용은 [Unity Focus POINT API](/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
+평면 매개 변수는 모든 프레임을 통해 제공 해야 하는 *포커스 지점* 이라고 하는에서 파생 됩니다 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . 자세한 내용은 [Unity Focus POINT API](/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
 
 원격 렌더링 호스트에서 계산 된 항목을 기반으로 하는 것이 적합할 수 있지만 포커스 지점을 직접 계산할 수 있습니다. 을 (를) 호출 `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` 하 여를 가져옵니다. 포커스 지점을 표현할 좌표 프레임을 제공 하 라는 메시지가 표시 됩니다. 대부분의 경우 여기에서 결과를 제공 하는 것이 좋습니다 `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` .
 

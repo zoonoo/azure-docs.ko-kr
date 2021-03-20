@@ -4,10 +4,10 @@ description: 한 지역에서 다른 지역으로 Azure Arc 사용 서버를 마
 ms.date: 02/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101650178"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>지역에서 Azure Arc 사용 서버를 마이그레이션하는 방법

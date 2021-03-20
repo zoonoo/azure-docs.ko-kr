@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0cb2830c019635e9020a4b586bdc370450fddb0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99254005"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
@@ -48,7 +48,7 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 1. **저장** 을 선택합니다.
 1. **애플리케이션 프록시** 를 선택합니다. 
 1. **사전 인증 유형** 을 **Azure Active Directory** 로 변경 하 고 **저장** 을 선택 합니다. 
-1. **사용자 및 그룹** 을 선택 합니다.
+1. **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택 하 여 응용 프로그램에 사용자를 할당 합니다. 
 1. 사용자에 대 한 자격 증명을 미리 정의 하려면 사용자 이름 앞의 확인란을 선택 하 고 **자격 증명 업데이트** 를 선택 합니다.
 1.   >    >  **모든 응용 프로그램** 앱 등록 Azure Active Directory을 선택 합니다.
