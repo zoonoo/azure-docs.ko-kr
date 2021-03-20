@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055302"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service에 대 한 PHP 앱 구성
@@ -89,7 +89,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-이제 리포지토리 루트에 *배포* 및 *deploy.sh*의 두 가지 추가 파일이 있습니다.
+이제 리포지토리 루트에 *배포* 및 *deploy.sh* 의 두 가지 추가 파일이 있습니다.
 
 *Deploy.sh* 을 열고 `Deployment` 다음과 같은 섹션을 찾습니다.
 
@@ -119,7 +119,7 @@ fi
 
 Grunt, Bower 또는 Gulp와 같이 배포 시 인기 있는 자동화 도구를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공 해야 합니다. App Service App Service는 Git를 사용 하 여 배포 하거나 빌드 자동화를 사용 하는 [Zip 배포](deploy-zip.md) 를 사용 하는 경우이 스크립트를 실행 합니다. 
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 예를 들면 다음과 같습니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {
@@ -137,7 +137,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-이제 리포지토리 루트에 *배포* 및 *deploy.sh*의 두 가지 추가 파일이 있습니다.
+이제 리포지토리 루트에 *배포* 및 *deploy.sh* 의 두 가지 추가 파일이 있습니다.
 
 *Deploy.sh* 을 열고 `Deployment` 다음과 같은 섹션을 찾습니다.
 
@@ -332,7 +332,7 @@ php_value upload_max_filesize 10M
 
 변경 내용을 적용해 앱을 다시 배포하고 재시작합니다. Kudu로 배포하는 경우(예: [Git](deploy-local-git.md) 사용) 배포 후에 자동으로 다시 시작됩니다.
 
-*.htaccess*를 사용하는 대신 앱에서 [ini_set()](https://www.php.net/manual/function.ini-set.php)를 사용하여 이런 PHP_INI_SYSTEM 외의 지시문을 사용자 지정할 수 있습니다.
+*.htaccess* 를 사용하는 대신 앱에서 [ini_set()](https://www.php.net/manual/function.ini-set.php)를 사용하여 이런 PHP_INI_SYSTEM 외의 지시문을 사용자 지정할 수 있습니다.
 
 ::: zone-end
 
@@ -374,14 +374,14 @@ PHP_INI_SYSTEM 지시문([php.ini 지시문](https://www.php.net/manual/ini.list
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`은 *php.ini*가 있는 기본 디렉터리입니다. `/home/site/ini`은 사용자 지정 *.ini* 파일을 추가할 사용자 지정 디렉터리입니다. 값은 `:`로 구분합니다.
+`/usr/local/etc/php/conf.d`은 *php.ini* 가 있는 기본 디렉터리입니다. `/home/site/ini`은 사용자 지정 *.ini* 파일을 추가할 사용자 지정 디렉터리입니다. 값은 `:`로 구분합니다.
 
 Linux 컨테이너(`https://<app-name>.scm.azurewebsites.net/webssh/host`)를 사용하여 웹 SSH 세션으로 이동합니다.
 
 `/home/site`에서 `ini`라는 디렉터리를 만든 다음, `/home/site/ini` 디렉터리에서 사용자 지정할 지시문을 포함하여 *.ini* 파일(예: *settings.ini)* 을 생성합니다. *php.ini* 파일에서와 동일한 구문을 사용합니다. 
 
 > [!TIP]
-> App Service에 내장된 Linux 컨테이너에서 */home*은 영구 공유 스토리지로 사용됩니다. 
+> App Service에 내장된 Linux 컨테이너에서 */home* 은 영구 공유 스토리지로 사용됩니다. 
 >
 
 예를 들어 [expose_php](https://php.net/manual/ini.core.php#ini.expose-php)의 값을 변경하려면 다음의 명령을 실행하세요.
@@ -470,7 +470,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
 - 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service는 프로덕션 모드에서 응용 프로그램을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬에서 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
-    - *composer.json*에 따라, 프로덕션 모드에서 다른 패키지가 설치될 수 있습니다(`require` vs. `require-dev`).
+    - *composer.json* 에 따라, 프로덕션 모드에서 다른 패키지가 설치될 수 있습니다(`require` vs. `require-dev`).
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.
 - 디버그 모드에서 App Service의 앱을 실행합니다. 예를 들어 [Laravel](https://meanjs.org/)에서는 [앱 설정`APP_DEBUG`을 `true`](configure-common.md#configure-app-settings)으로 설정하여 프로덕션 모드에서 디버그 메시지를 출력하도록 앱을 구성할 수 있습니다.

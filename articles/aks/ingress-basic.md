@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131193"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
@@ -18,7 +18,7 @@ ms.locfileid: "93131193"
 
 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 프라이빗 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
@@ -223,7 +223,7 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>수신 컨트롤러 테스트
 
-수신 컨트롤러의 경로를 테스트하려면 두 개의 애플리케이션으로 이동합니다. NGINX 수신 컨트롤러의 IP 주소 (예: *EXTERNAL_IP* )에 대 한 웹 브라우저를 엽니다. 첫 번째 데모 애플리케이션은 다음 예제와 같이 웹 브라우저에 표시됩니다.
+수신 컨트롤러의 경로를 테스트하려면 두 개의 애플리케이션으로 이동합니다. NGINX 수신 컨트롤러의 IP 주소 (예: *EXTERNAL_IP*)에 대 한 웹 브라우저를 엽니다. 첫 번째 데모 애플리케이션은 다음 예제와 같이 웹 브라우저에 표시됩니다.
 
 ![수신 컨트롤러 뒤에서 실행 중인 첫 번째 앱](media/ingress-basic/app-one.png)
 
@@ -288,7 +288,7 @@ kubectl delete namespace ingress-basic
 - [Helm CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 프라이빗 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]

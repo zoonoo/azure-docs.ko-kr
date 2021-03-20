@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853478"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
@@ -542,7 +542,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>비디오 검토 확인
 
-마지막으로 비디오 **검토** 화면에서 Content Moderator 검토 도구 계정에 비디오 검토를 표시 합니다 > **Video** .
+마지막으로 비디오 **검토** 화면에서 Content Moderator 검토 도구 계정에 비디오 검토를 표시 합니다 >  .
 
 ![사용자 중재자를 위한 비디오 검토](images/ams-video-review.PNG)
 

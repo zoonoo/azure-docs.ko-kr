@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100592474"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 로그 데이터 수집 및 분석
@@ -29,7 +29,7 @@ ms.locfileid: "100592474"
 | [Blob storage를 사용 하 여 보관](../storage/blobs/storage-blobs-overview.md) | 이벤트 및 메트릭은 Blob 컨테이너에 보관 되어 JSON 파일에 저장 됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 데이터를 집계 하 고 시각화 하는 원시 로그 파일 또는 Power BI을 볼 수 있습니다.|
 | [이벤트 허브로 스트림](../event-hubs/index.yml) | 이벤트 및 메트릭은 Azure Event Hubs 서비스로 스트리밍됩니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 진단 로깅을 구성할 때 하나 이상의 항목을 선택할 수 있도록 리소스를 미리 만듭니다.
 
@@ -138,7 +138,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -154,7 +154,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 아래 속성은 Azure Cognitive Search에만 적용 됩니다.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | Description_s |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
@@ -165,7 +165,7 @@ Azure Monitor에서 캡처한 기록 이벤트는 인덱싱 및 쿼리와 관련
 
 메트릭은 쿼리 요청에 대해 캡처되고 1 분 간격으로 측정 됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조 하세요.
 
-| 속성 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |

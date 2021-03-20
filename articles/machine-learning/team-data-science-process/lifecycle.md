@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305599"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
@@ -43,9 +43,9 @@ TDSP 수명 주기는 예측 모델을 사용하는 데 필요한 작업에 대�
 
 각 단계마다 다음 정보를 제공합니다.
 
-   * **목표** : 구체적 목적입니다.
-   * **수행 방법** : 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
-   * **아티팩트** : 결과물 및 이를 생성하기 위한 지원입니다.
+   * **목표**: 구체적 목적입니다.
+   * **수행 방법**: 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
+   * **아티팩트**: 결과물 및 이를 생성하기 위한 지원입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

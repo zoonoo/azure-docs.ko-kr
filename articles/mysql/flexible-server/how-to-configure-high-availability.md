@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241738"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 영역 중복 고가용성 관리 (미리 보기)
@@ -32,7 +32,7 @@ ms.locfileid: "93241738"
 
 이 섹션에서는 HA 관련 필드에 대 한 세부 정보를 제공 합니다. 유연한 서버를 만드는 동안 고가용성을 배포 하려면 다음 단계를 수행 하면 됩니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에서 유연한 서버를 선택 하 고 **만들기** 를 클릭 합니다.  **구독** , **리소스 그룹** , **서버 이름** , **지역** 및 기타 필드와 같은 세부 정보를 입력 하는 방법에 대 한 자세한 내용은 서버 만들기에 대 한 방법 문서를 참조 하세요.
+1.  [Azure Portal](https://portal.azure.com/)에서 유연한 서버를 선택 하 고 **만들기** 를 클릭 합니다.  **구독**, **리소스 그룹**, **서버 이름**, **지역** 및 기타 필드와 같은 세부 정보를 입력 하는 방법에 대 한 자세한 내용은 서버 만들기에 대 한 방법 문서를 참조 하세요.
 
 2.  가용성 옵션에서 **영역 중복 고가용성** 확인란을 클릭 합니다.
 
@@ -41,9 +41,9 @@ ms.locfileid: "93241738"
 4.  고가용성 옵션을 선택한 경우에는 삼 계층을 선택할 수 없습니다. 범용 또는 **메모리** 액세스에 최적화 된 계산 **계층 중 하나** 를 선택할 수 있습니다.
 
     > [!IMPORTANT]
-    > * *_범용_* _ 및 메모리 액세스에 _*_최적화_*_ 된 가격 책정 계층에 대 한 영역 중복 고가용성을 지원 합니다.
+    > ***범용** _ 및 _ 메모리 액세스에 *_최적화_* 된 * 가격 책정 계층에 대 한 영역 중복 고가용성을 지원 합니다.
 
-5.  드롭다운에서 선택한 항목에 대해 _ *Compute size* *를 선택 합니다.
+5.  드롭다운에서 원하는 **계산 크기** 를 선택 합니다.
 
 6.  슬라이딩 막대를 사용 하 여 GiB에서 **저장소 크기** 를 선택 하 고 7 일에서 35 일 사이의 **백업 보존 기간** 을 선택 합니다.   
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
 ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097639"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 개요
@@ -98,7 +98,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 "행 수준 보안"이 필요한 솔루션에 대 한 해결 방법에는 보안 그룹 또는 사용자 id를 나타내는 데이터 원본에 필드를 만든 다음 Cognitive Search에서 필터를 사용 하 여 id를 기준으로 문서 및 콘텐츠의 검색 결과를 선택적으로 트리밍하는 것이 있습니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | Description |
+| 접근 방식 | 설명 |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 Azure cloud platform의 [무료 서비스](https://azure.microsoft.com/free/) 중 하나인 Azure Active Directory (azure AD)에서 id를 검색 하는 단계를 제공 하는 이전 문서를 확장 합니다. |
@@ -181,5 +181,5 @@ Azure Cognitive Search의 경우 현재 기본 제공 정의가 하나 있습니
 ## <a name="see-also"></a>참고 항목
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
-+ [Azure 보안](https://azure.microsoft.com/overview/security)
++ [Azure Security](https://azure.microsoft.com/overview/security)
 + [Azure Security Center](../security-center/index.yml)

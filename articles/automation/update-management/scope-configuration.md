@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 76063c479950d12985d5f3f52393f9bb0d5ecd8d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222538"
 ---
 # <a name="limit-update-management-deployment-scope"></a>업데이트 관리 배포 범위 제한
@@ -24,15 +24,15 @@ ms.locfileid: "92222538"
 
 업데이트 관리 배포의 범위를 제한 하려면 다음을 수행 합니다.
 
-1. Automation 계정의 **관련 리소스**에서 **연결 된 작업 영역** 을 선택 합니다.
+1. Automation 계정의 **관련 리소스** 에서 **연결 된 작업 영역** 을 선택 합니다.
 
-2. **작업 영역으로 이동**을 선택합니다.
+2. **작업 영역으로 이동** 을 선택합니다.
 
-3. **작업 영역 데이터 원본**에서 **범위 구성 (미리 보기)을** 선택 합니다.
+3. **작업 영역 데이터 원본** 에서 **범위 구성 (미리 보기)을** 선택 합니다.
 
-4. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하  `MicrosoftDefaultScopeConfig-Updates` 고 **편집**을 선택 합니다.
+4. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하  `MicrosoftDefaultScopeConfig-Updates` 고 **편집** 을 선택 합니다.
 
-5. 편집 창에서 **컴퓨터 그룹 선택**을 확장 합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 업데이트 관리에서 사용하는 저장된 검색은 다음과 같습니다.
+5. 편집 창에서 **컴퓨터 그룹 선택** 을 확장 합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 업데이트 관리에서 사용하는 저장된 검색은 다음과 같습니다.
 
     |속성     |Category  |Alias  |
     |---------|---------|---------|

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317386"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
@@ -46,13 +46,13 @@ Azure Logic Apps에서 지 원하는 기능 및 패턴에 대 한 자세한 내�
     * [자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * Http [ **HTTP** 트리거](../connectors/connectors-native-http.md) 는 http 또는 HTTPS를 통해 서비스 끝점을 호출할 수 있습니다. 자세한 내용은 [호출, 트리거 또는 중첩 워크플로를 사용 하 여 HTTP 끝점](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
+  * Http [  트리거](../connectors/connectors-native-http.md) 는 http 또는 HTTPS를 통해 서비스 끝점을 호출할 수 있습니다. 자세한 내용은 [호출, 트리거 또는 중첩 워크플로를 사용 하 여 HTTP 끝점](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
 * *밀어넣기* 트리거:
 
   * [ **요청** 트리거](../connectors/connectors-native-reqres.md) 는 들어오는 HTTPS 요청을 받을 수 있습니다.
 
-  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL*을 등록하여 서비스 엔드포인트를 구독합니다. 서비스가 이런 방식으로 지정된 이벤트가 발생할 때 트리거에 알릴 수 있으므로 트리거가 서비스를 폴링할 필요가 없습니다.
+  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL* 을 등록하여 서비스 엔드포인트를 구독합니다. 서비스가 이런 방식으로 지정된 이벤트가 발생할 때 트리거에 알릴 수 있으므로 트리거가 서비스를 폴링할 필요가 없습니다.
 
 지정 된 이벤트가 발생 하면 트리거가 발생 하 여 새 논리 앱 워크플로 인스턴스를 만들고 워크플로에서 작업을 실행 합니다. 워크플로 전체 트리거의 모든 데이터에 액세스할 수 있습니다. 예를 들어 **새 트 윗** 트리거의 Twitter는 트 윗 콘텐츠를 논리 앱 실행으로 전달 합니다. Azure Logic Apps를 시작 하려면 다음과 같은 빠른 시작 항목을 사용해 보세요.
 

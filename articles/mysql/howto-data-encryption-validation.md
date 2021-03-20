@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241075"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 데이터 암호화 유효성 검사
@@ -27,7 +27,7 @@ ms.locfileid: "93241075"
     * 서버 암호화에 사용 되는 키를 선택 합니다.
     * 키 **사용** 의 상태를 **아니요** 로 설정 합니다.
   
-       잠시 후 ( **~ 15 분** ) Azure Database for MySQL 서버 **상태** 에 **액세스할** 수 없습니다. 서버에 대해 수행 되는 모든 i/o 작업은 서버가 고객 키를 사용 하 여 실제로 암호화 되어 있고 키가 현재 유효 하지 않은지 확인 하는 작업이 실패 합니다.
+       잠시 후 (**~ 15 분**) Azure Database for MySQL 서버 **상태** 에 **액세스할** 수 없습니다. 서버에 대해 수행 되는 모든 i/o 작업은 서버가 고객 키를 사용 하 여 실제로 암호화 되어 있고 키가 현재 유효 하지 않은지 확인 하는 작업이 실패 합니다.
     
        서버를에 **사용할 수** 있도록 하려면 키의 유효성을 다시 검사할 수 있습니다. 
     

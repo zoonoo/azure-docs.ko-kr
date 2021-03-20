@@ -12,10 +12,10 @@ ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095768"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
@@ -26,9 +26,9 @@ ms.locfileid: "102095768"
 
 Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다.
 
-|세션 공급자  |Scope  |
+|세션 공급자  |범위  |
 |---------|---------|
-|[NoopSSOSessionProvider](#noopssosessionprovider)     |  None       |       
+|[NoopSSOSessionProvider](#noopssosessionprovider)     |  없음       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | 내부 세션 관리자를 Azure AD B2C 합니다.      |       
 |[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Azure AD B2C과 OAuth1, OAuth2 또는 Openid connect Connect id 공급자 사이에 있습니다.        |         |
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | OAuth2 또는 Openid connect connect 신뢰 당사자 응용 프로그램과 Azure AD B2C 사이        |        
@@ -120,7 +120,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 | attribute | 필수 | 설명|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | No | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
+| AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -162,8 +162,8 @@ B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우은 `Regis
 
 | attribute | 필수 | 설명|
 | --- | --- | --- |
-| IncludeSessionIndex | No | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
-| RegisterServiceProviders | No | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
+| IncludeSessionIndex | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
+| RegisterServiceProviders | 아니요 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

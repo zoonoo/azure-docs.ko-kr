@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 86e84d825bd1dd3774cfd2774e0b96e540bb3cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218479"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
@@ -18,10 +18,10 @@ ms.locfileid: "92218479"
 
 이 문서에서는 Azure Java SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **JDK (Java Development Kit) 8** (java 버전 1.8 사용).
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
-* AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
+* AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키** 를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
@@ -29,7 +29,7 @@ ms.locfileid: "92218479"
 
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 1. **명령줄 앱** 템플릿을 사용하여 IntelliJ를 열고 Java 프로젝트를 만듭니다.
-2. 화면의 왼쪽에 있는 프로젝트를 마우스 오른쪽 단추로 클릭하고 **프레임워크 지원 추가**를 클릭합니다. **Maven**을 선택하고 **확인**을 클릭합니다.
+2. 화면의 왼쪽에 있는 프로젝트를 마우스 오른쪽 단추로 클릭하고 **프레임워크 지원 추가** 를 클릭합니다. **Maven** 을 선택하고 **확인** 을 클릭합니다.
 3. 새로 만든 **"pom.xml"** 파일을 열고 **\</version>** 태그와 태그 사이에 다음 텍스트 조각을 추가 합니다 **\</project>** .
 
 ```xml
@@ -73,7 +73,7 @@ ms.locfileid: "92218479"
 </dependencies>
 ```
 
-**파일 > 설정 > 빌드 > 실행 > 배포**로 이동합니다. **빌드 도구 > Maven > 가져오기**를 선택합니다. **Maven 프로젝트 자동으로 가져오기**를 선택합니다.
+**파일 > 설정 > 빌드 > 실행 > 배포** 로 이동합니다. **빌드 도구 > Maven > 가져오기** 를 선택합니다. **Maven 프로젝트 자동으로 가져오기** 를 선택합니다.
 
 `Main.java`을 열고 기존 코드 블록을 다음 코드로 바꿉니다.
 

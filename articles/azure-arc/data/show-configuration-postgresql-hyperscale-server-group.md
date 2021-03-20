@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93279404"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹 구성 표시
@@ -36,7 +36,7 @@ Postgres 형식의 Kubernetes 리소스를 나열 합니다. 명령 실행:
 kubectl get postgresqls [-n <namespace name>]
 ```
 
-이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 다음은 그 예입니다.
+이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -54,7 +54,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 kubectl get pods [-n <namespace name>]
 ```
 
-그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 다음은 그 예입니다.
+그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 예를 들면 다음과 같습니다.
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -108,7 +108,7 @@ kubectl get pvc [-n <namespace name>]
 - `data-`...: 데이터 파일에 사용 되는 PVC
 - `logs-`...: 트랜잭션 로그/WAL 파일에 사용 되는 PVC
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```output
 NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
@@ -183,7 +183,7 @@ Kubectl를 사용 하 여 Postgres 리소스를 설명 합니다. 이렇게 하�
 kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```console
 kubectl describe postgresql-12/postgres02
@@ -289,7 +289,7 @@ Events:               <none>
 azdata arc postgres server show -n <server group name>
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server show -n postgres02

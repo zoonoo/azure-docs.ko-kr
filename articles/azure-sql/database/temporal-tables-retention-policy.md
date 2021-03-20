@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91619392"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>보존 정책을 사용 하 여 Temporal 테이블의 기록 데이터 관리
@@ -35,14 +35,14 @@ ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 
 ## <a name="how-to-configure-retention-policy"></a>보존 정책을 구성하는 방법
 
-Temporal 테이블에 대 한 보존 정책을 구성 하기 전에 먼저 *데이터베이스 수준에서*temporal 기록 보존이 사용 되는지 여부를 확인 합니다.
+Temporal 테이블에 대 한 보존 정책을 구성 하기 전에 먼저 *데이터베이스 수준에서* temporal 기록 보존이 사용 되는지 여부를 확인 합니다.
 
 ```sql
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 특정 [시점 복원](recovery-using-backups.md) 작업 후에도 자동으로 꺼짐으로 설정 됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
+데이터베이스 플래그 **is_temporal_history_retention_enabled** 는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 특정 [시점 복원](recovery-using-backups.md) 작업 후에도 자동으로 꺼짐으로 설정 됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
 
 ```sql
 ALTER DATABASE <myDB>
@@ -50,7 +50,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
 > [!IMPORTANT]
-> **is_temporal_history_retention_enabled**이 OFF가 되더라도 임시 테이블에 대한 재방문 주기는 구성할 수 있지만 그 경우 오래된 행에 대한 자동 정리는 트리거되지 않습니다.
+> **is_temporal_history_retention_enabled** 이 OFF가 되더라도 임시 테이블에 대한 재방문 주기는 구성할 수 있지만 그 경우 오래된 행에 대한 자동 정리는 트리거되지 않습니다.
 
 보존 정책은 테이블을 만들 때 HISTORY_RETENTION_PERIOD 매개 변수 값을 지정하여 구성합니다.
 
@@ -103,7 +103,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-ages-rows-are-deleted"></a>행을 삭제 하는 방법
 
-정리 프로세스는 기록 테이블의 인덱스 레이아웃에 따라 달라집니다. *클러스터형 인덱스(B-트리 또는 columnstore)를 사용하는 기록 테이블에만 유한 보존 정책을 구성할 수 있다*는 점을 기억해야 합니다. 보존 기간이 한정된 모든 temporal 테이블에 대한 오래된 데이터 정리를 수행하는 백그라운드 태스크가 만들어집니다.
+정리 프로세스는 기록 테이블의 인덱스 레이아웃에 따라 달라집니다. *클러스터형 인덱스(B-트리 또는 columnstore)를 사용하는 기록 테이블에만 유한 보존 정책을 구성할 수 있다* 는 점을 기억해야 합니다. 보존 기간이 한정된 모든 temporal 테이블에 대한 오래된 데이터 정리를 수행하는 백그라운드 태스크가 만들어집니다.
 rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용해 오래된 행을 더 작은 청크(최대 10K)로 삭제하여 데이터베이스 로그 및 IO 하위 시스템에 대한 압력을 최소화합니다. 정리 논리에서 필요한 B-트리 인덱스를 활용하긴 하지만 보존 기간보다 오래된 행의 삭제 순서를 확실히 보장할 수는 없습니다. 따라서 *애플리케이션의 정리 순서를 신뢰하지 마세요*.
 
 클러스터형 columnstore에 대 한 정리 태스크는 전체 [행 그룹](/sql/relational-databases/indexes/columnstore-indexes-overview) 을 한 번에 (일반적으로 각각 100만 행을 포함) 제거 하므로 매우 효율적입니다. 특히 기록 데이터를 고속으로 생성 하는 경우 매우 효율적입니다.
@@ -168,7 +168,7 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 ## <a name="point-in-time-restore-considerations"></a>특정 시점 복원 고려 사항
 
-[기존 데이터베이스를 특정 시점으로 복원](recovery-using-backups.md)하여 새 데이터베이스를 만들 때 데이터베이스 수준에서 비활성화된 임시 재방문 주기가 있습니다. (**is_temporal_history_retention_enabled** 플래그 OFF로 설정). 이 기능을 사용하면 쿼리하기도 전에 오래된 행이 삭제되는 것에 대한 걱정 없이 복원 시 모든 기록 행을 검사할 수 있습니다. *구성된 재방문 주기를 초과하여 과거 데이터를 검사*하기 위해 사용할 수 있습니다.
+[기존 데이터베이스를 특정 시점으로 복원](recovery-using-backups.md)하여 새 데이터베이스를 만들 때 데이터베이스 수준에서 비활성화된 임시 재방문 주기가 있습니다. (**is_temporal_history_retention_enabled** 플래그 OFF로 설정). 이 기능을 사용하면 쿼리하기도 전에 오래된 행이 삭제되는 것에 대한 걱정 없이 복원 시 모든 기록 행을 검사할 수 있습니다. *구성된 재방문 주기를 초과하여 과거 데이터를 검사* 하기 위해 사용할 수 있습니다.
 
 임시 테이블의 재방문 주기가 1 MONTH로 지정되었다고 가정해 봅시다. 데이터베이스가 프리미엄 서비스 계층에서 만들어진 경우 데이타베이스 상태를 35일 이전으로 돌려 데이터베이스 복사본을 만들 수 있습니다. 이를 통해 실질적으로 기록 테이블을 직접 쿼리하여 최대 65일 전까지의 기록 행을 분석할 수 있습니다.
 

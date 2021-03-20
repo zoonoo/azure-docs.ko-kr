@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 ms.openlocfilehash: eee4dd7fae872f6b3ddd01f60aba732edc170766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570576"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 관리
@@ -25,7 +25,7 @@ ms.locfileid: "91570576"
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기
-확장 집합에 대한 전체 정보를 보려면 [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet*이라는 확장 집합에 대한 정보를 가져옵니다. 다음과 같이 고유한 이름을 입력합니다.
+확장 집합에 대한 전체 정보를 보려면 [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대한 정보를 가져옵니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```powershell
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -33,13 +33,13 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 
 ## <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 VM 인스턴스 목록을 보려면 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)을 사용합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup* 리소스 그룹에서 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
+확장 집합에서 VM 인스턴스 목록을 보려면 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)을 사용합니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 리소스 그룹에서 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
 
 ```powershell
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-특정 VM 인스턴스에 대한 추가 정보를 보려면 `-InstanceId` 매개 변수를 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 VM 인스턴스 *0*에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
+특정 VM 인스턴스에 대한 추가 정보를 보려면 `-InstanceId` 매개 변수를 [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 VM 인스턴스 *0* 에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```powershell
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -58,7 +58,7 @@ GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourc
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
 이전 명령은 확장 집합 및 VM 인스턴스에 대한 정보를 표시했습니다. 확장 집합에서 인스턴스 수를 늘리거나 줄이려면 용량을 변경할 수 있습니다. 확장 집합은 자동으로 필요한 수의 VM을 만들거나 제거한 후 애플리케이션 트래픽을 받도록 VM을 구성합니다.
 
-먼저 [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 포함하는 확장 집합 개체를 만들고 `sku.capacity`에 새 값을 지정합니다. 용량 변경 내용을 적용하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet*을 *5* 인스턴스의 용량으로 업데이트합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+먼저 [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 포함하는 확장 집합 개체를 만들고 `sku.capacity`에 새 값을 지정합니다. 용량 변경 내용을 적용하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet* 을 *5* 인스턴스의 용량으로 업데이트합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```powershell
 # Get current scale set
@@ -75,7 +75,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMa
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>확장 집합에서 VM 중지 및 시작
 확장 집합에서 하나 이상의 VM을 중지하려면 [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 쉼표로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```powershell
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -87,7 +87,7 @@ Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -I
 ### <a name="start-vms-in-a-scale-set"></a>확장 집합의 VM 시작
 확장 집합에서 하나 이상의 VM을 시작하려면 [Start-AzVmss](/powershell/module/az.compute/start-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 여러 VM을 시작하려면 각 인스턴스 ID를 쉼표로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```powershell
 Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -97,7 +97,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="restart-vms-in-a-scale-set"></a>확장 집합의 VM 다시 시작
 확장 집합에서 하나 이상의 VM을 다시 시작하려면 [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 다시 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 다시 시작됩니다. 여러 VM을 다시 시작하려면 각 인스턴스 ID를 쉼표로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```powershell
 Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -107,7 +107,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ## <a name="remove-vms-from-a-scale-set"></a>확장 집합에서 VM 제거
 확장 집합에서 하나 이상의 VM을 제거하려면 [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss)를 사용합니다. `-InstanceId` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 제거하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 제거됩니다. 여러 VM을 제거하려면 각 인스턴스 ID를 쉼표로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 제거합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 제거합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```powershell
 Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"

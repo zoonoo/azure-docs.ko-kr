@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
 ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018664"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
@@ -30,7 +30,7 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
 
 1. 다음 명령을 실행하여 앱을 게시합니다. *mySparkApp* 은 해당 앱의 경로로 바꾸어야 합니다.
 
-   **Windows에서:**
+   **Windows:**
 
    ```dotnetcli
    cd mySparkApp

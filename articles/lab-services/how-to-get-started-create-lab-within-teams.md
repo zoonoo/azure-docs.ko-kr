@@ -4,17 +4,17 @@ description: 팀 내에서 Azure Lab Services 랩을 시작 하 고 만드는 �
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433974"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>팀 내에서 랩 서비스 랩 시작 및 만들기
 
 이 문서에서는 팀에 **Azure Lab Services** 앱을 추가 하 고 MS 팀 환경 내에서 랩을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 팀에 대 한 가상 컴퓨터를 사용 하 여 랩을 설정 합니다. 랩 계정에서 랩을 설정 하려면 랩 계정에서 소유자, 랩 작성자 또는 참가자 역할 중 하나의 멤버 여야 합니다. 랩 계정을 만드는 데 사용된 계정은 소유자 역할에 자동으로 추가됩니다. 따라서 랩을 만들기 위해 랩 계정을 만드는 데 사용한 사용자 계정을 사용할 수 있습니다.
 

@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90019532"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
@@ -106,7 +106,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 | 속성 | 설명 |
 | --- | --- |
 | EnqueuedTimeUtc |알림을 만든 시간을 나타내는 타임스탬프입니다. |
-| DeviceId |**DeviceId**입니다. |
+| DeviceId |**DeviceId** 입니다. |
 | BlobUri |업로드된 파일의 URI입니다. |
 | BlobName |업로드된 파일의 이름입니다. |
 | LastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |

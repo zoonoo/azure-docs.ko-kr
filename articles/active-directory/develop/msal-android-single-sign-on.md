@@ -15,10 +15,10 @@ ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
 ms.openlocfilehash: f3d4ec8db89e9bebfdcd594e842a6c19d3d66d54
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100104096"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>방법: MSAL을 사용 하 여 Android에서 앱 간 SSO 사용
@@ -29,7 +29,7 @@ SSO (Single sign-on)를 사용 하면 사용자가 자격 증명을 한 번만 �
 
 이 방법에서는 응용 프로그램에서 사용자에 게 SSO를 제공 하는 데 사용 하는 Sdk를 구성 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법에서는 다음을 수행 하는 방법을 알고 있다고 가정 합니다.
 
@@ -81,7 +81,7 @@ Broker 호스팅 앱은 언제 든 지 앱 스토어 (일반적으로 Google Pla
 
 Broker가 장치에 설치 되 면 모든 후속 대화형 토큰 요청 (에 대 한 호출 `acquireToken()` )은 MSAL에 의해 로컬이 아닌 broker에서 처리 됩니다. 이전에 MSAL에서 사용할 수 있는 모든 SSO 상태를 broker에서 사용할 수 없습니다. 따라서 사용자가 다시 인증 하거나 장치에 알려진 기존 계정 목록에서 계정을 선택 해야 합니다.
 
-Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들어 다음과 같습니다.
+Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들면 다음과 같습니다.
 
 - 사용자가 계정과 연결 된 암호를 변경 했습니다.
 - 사용자 계정이 더 이상 조건부 액세스 정책을 충족 하지 않습니다.

@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 1d83f859fce33b9499d01c4b58e69f56fdbbb293
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222586"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Automation 계정에서 업데이트 관리 제거
@@ -30,19 +30,19 @@ Azure Automation 업데이트 관리를 사용 하 여 가상 머신에서 업�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택합니다.
+2. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics** 를 선택합니다.
 
 3. Log Analytics 작업 영역 목록에서 업데이트 관리을 사용 하도록 설정할 때 선택한 작업 영역을 선택 합니다.
 
-4. 왼쪽에서 **솔루션**을 선택 합니다.  
+4. 왼쪽에서 **솔루션** 을 선택 합니다.  
 
-5. 솔루션 목록에서 **업데이트 (작업 영역 이름)** 를 선택 합니다. 솔루션에 대 한 **개요** 페이지에서 **삭제**를 선택 합니다. 확인 하 라는 메시지가 표시 되 면 **예**를 선택 합니다.
+5. 솔루션 목록에서 **업데이트 (작업 영역 이름)** 를 선택 합니다. 솔루션에 대 한 **개요** 페이지에서 **삭제** 를 선택 합니다. 확인 하 라는 메시지가 표시 되 면 **예** 를 선택 합니다.
 
 ## <a name="unlink-workspace-from-automation-account"></a>Automation 계정에서 작업 영역 연결 해제
 
-1. Azure Portal에서 **Automation 계정**을 선택합니다.
+1. Azure Portal에서 **Automation 계정** 을 선택합니다.
 
-2. Automation 계정을 열고 왼쪽의 **관련 리소스** 아래에서 **연결된 작업 영역**을 선택합니다.
+2. Automation 계정을 열고 왼쪽의 **관련 리소스** 아래에서 **연결된 작업 영역** 을 선택합니다.
 
 3. **작업 영역 연결 해제** 페이지에서 **작업 영역 연결 해제** 를 선택 하 고 프롬프트에 응답 합니다.
 
@@ -52,11 +52,11 @@ Log Analytics 작업 영역의 연결을 해제 하려고 시도 하는 동안 �
 
 또는 작업 영역 내 Automation 계정에서 Log Analytics 작업 영역의 연결을 해제할 수 있습니다.
 
-1. Azure Portal에서 **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **Log Analytics** 를 선택합니다.
 
-2. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다.
+2. 작업 영역에서 **관련 리소스** 아래에 있는 **Automation 계정** 을 선택 합니다.
 
-3. Automation 계정 페이지에서 **계정 연결 해제**를 선택합니다.
+3. Automation 계정 페이지에서 **계정 연결 해제** 를 선택합니다.
 
 Automation 계정의 연결을 해제 하려고 시도 하는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.
 

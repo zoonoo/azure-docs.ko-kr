@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/18/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a9ece3fe54ca8596f610439f8a0dd228ae1ef907
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220910"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
@@ -19,7 +19,7 @@ ms.locfileid: "92220910"
 
 이 문서에서는 Azure .NET SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Visual C++ 설치 된 Visual studio 2015, Visual Studio 2013 업데이트 4 또는 Visual studio 2012**
 * **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용 하 여 설치 합니다.
@@ -94,7 +94,7 @@ public static Program
 }
 ```
 
-**GetCreds_User_Popup**의 소스 코드와 인증에 대한 다른 옵션 코드는 [Data Lake Analytics .NET authentication options](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)(Data Lake Analytics .NET 인증 옵션)에 설명되어 있습니다.
+**GetCreds_User_Popup** 의 소스 코드와 인증에 대한 다른 옵션 코드는 [Data Lake Analytics .NET authentication options](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)(Data Lake Analytics .NET 인증 옵션)에 설명되어 있습니다.
 
 
 ## <a name="create-the-client-management-objects"></a>클라이언트 관리 개체 만들기

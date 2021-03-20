@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
 ms.openlocfilehash: e182d40d20529b5743fa9105c68108a8ae55d943
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94516903"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00316.1-03/22/2020
@@ -32,7 +32,7 @@ CSV로 내보내기 함수가 일관 되지 않아 위협 목록에서 내보낼
 - 기본 워크플로의 도움말 메뉴 (만들기/열기/분석) 및 템플릿 편집기 환경에는 이제 일관 된 메뉴 옵션이 있습니다.
 - 이제 스텐실 창의 검색 창에 표준 커서가 있으며 적절 한 레이블이 추가 되었습니다.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 ### <a name="diagramreader-feature-has-been-added"></a>DiagramReader 기능이 추가 되었습니다.
 

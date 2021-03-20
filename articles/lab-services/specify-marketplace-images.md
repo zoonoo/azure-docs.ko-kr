@@ -4,17 +4,17 @@ description: 이 문서에서는 랩 작성자가 Azure Lab Services의 랩 계�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434739"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>랩 작성자에 사용할 수 있는 Marketplace 이미지 지정
 랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 
 
 ## <a name="select-images-available-for-labs"></a>랩에 사용할 수 있는 이미지 선택
-왼쪽 메뉴에서 **Marketplace 이미지** 를 선택합니다. 기본적으로 이미지의 전체 목록이 표시됩니다(사용 및 사용 안 함으로 설정된 이미지 모두 포함). **Enabled only** / 맨 위에 있는 드롭다운 목록에서 사용 하도록 설정 된 옵션만 사용 옵션을 선택 하 여 사용/사용 **안 함 이미지만** 표시 되도록 목록을 필터링 할 수 있습니다. 
+왼쪽 메뉴에서 **Marketplace 이미지** 를 선택합니다. 기본적으로 이미지의 전체 목록이 표시됩니다(사용 및 사용 안 함으로 설정된 이미지 모두 포함).  / 맨 위에 있는 드롭다운 목록에서 사용 하도록 설정 된 옵션만 사용 옵션을 선택 하 여 사용/사용 **안 함 이미지만** 표시 되도록 목록을 필터링 할 수 있습니다. 
     
 ![Marketplace 이미지 페이지](./media/tutorial-setup-lab-account/marketplace-images-page.png)
 

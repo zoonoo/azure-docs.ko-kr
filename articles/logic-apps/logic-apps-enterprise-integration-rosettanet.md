@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565108"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 Exchange RosettaNet 메시지
@@ -39,7 +39,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    Pip는 상위 수준의 비즈니스 기능, 클러스터 및 하위 함수 또는 세그먼트로 분류 됩니다. 예를 들어 "3A4"는 구매 주문의 PIP이 고, "3"은 주문 관리 함수 이며, "3A"는 견적 & Order Entry 하위 함수입니다. 자세한 내용은 [RosettaNet 사이트](https://resources.gs1us.org)를 참조 하세요.
 
-* **동작**
+* **작업**
 
   PIP의 일부 이며, 작업 메시지는 파트너 간에 교환 되는 비즈니스 메시지입니다.
 
@@ -75,7 +75,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    ![RosettaNet 타일 선택](media/logic-apps-enterprise-integration-rosettanet/select-rosettanet-tile.png)
 
-1. **ROSETTANET PIP**에서 **추가**를 선택 합니다. PIP 세부 정보를 제공 합니다.
+1. **ROSETTANET PIP** 에서 **추가** 를 선택 합니다. PIP 세부 정보를 제공 합니다.
 
    ![RosettaNet PIP 세부 정보 추가](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
@@ -88,9 +88,9 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    이러한 PIP 속성에 대 한 자세한 내용은 [RosettaNet 웹 사이트](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg)를 참조 하세요.
 
-1. 완료 되 면 PIP 구성을 만드는 **확인**을 선택 합니다.
+1. 완료 되 면 PIP 구성을 만드는 **확인** 을 선택 합니다.
 
-1. 프로세스 구성을 보거나 편집 하려면 PIP를 선택 하 고 **JSON으로 편집**을 선택 합니다.
+1. 프로세스 구성을 보거나 편집 하려면 PIP를 선택 하 고 **JSON으로 편집** 을 선택 합니다.
 
    모든 프로세스 구성 설정은 PIP의 사양에서 제공 됩니다. Logic Apps 대부분의 설정을 이러한 속성에 가장 일반적으로 사용 되는 값의 기본값으로 채웁니다.
 
@@ -106,14 +106,14 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    ![규약 타일 선택](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
 
-1. **규약**에서 **추가**를 선택합니다. 계약 정보를 제공 합니다.
+1. **규약** 에서 **추가** 를 선택합니다. 계약 정보를 제공 합니다.
 
    ![계약 정보 추가](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 규약의 이름 |
-   | **계약 유형** | 예 | **RosettaNet**를 선택 합니다. |
+   | **계약 유형** | 예 | **RosettaNet** 를 선택 합니다. |
    | **호스트 파트너** | 예 | 규약에는 호스트와 게스트 파트너가 모두 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | **호스트 ID** | 예 | 호스트 파트너의 식별자입니다. |
    | **게스트 파트너** | 예 | 규약에는 호스트와 게스트 파트너가 모두 필요합니다. 게스트 파트너는 호스트 파트너와 함께 일하는 조직을 나타냅니다. |
@@ -123,11 +123,11 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
    | **RosettaNet PIP 참조** | 예 | 규약에 대 한 PIP 참조입니다. 모든 RosettaNet 메시지에는 PIP 구성이 필요 합니다. |
    ||||
 
-1. 게스트 파트너 로부터 들어오는 메시지를 수신 하기 위한 규약을 설정 하려면 **수신 설정**을 선택 합니다.
+1. 게스트 파트너 로부터 들어오는 메시지를 수신 하기 위한 규약을 설정 하려면 **수신 설정** 을 선택 합니다.
 
    ![수신 설정](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
 
-   1. 들어오는 메시지에 서명 또는 암호화를 사용 하도록 설정 **하려면 메시지에서**메시지 **서명** 필요 또는 **메시지 암호화** 필요를 각각 선택 합니다.
+   1. 들어오는 메시지에 서명 또는 암호화를 사용 하도록 설정 **하려면 메시지에서** 메시지 **서명** 필요 또는 **메시지 암호화** 필요를 각각 선택 합니다.
 
       | 속성 | 필수 | 설명 |
       |----------|----------|-------------|
@@ -139,7 +139,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    1. 각 선택에서 서명 또는 암호화에 사용할 이전에 통합 계정에 추가한 각 [인증서](./logic-apps-enterprise-integration-certificates.md)를 선택 합니다.
 
-1. 게스트 파트너에 게 메시지를 보내기 위한 규약을 설정 하려면 **송신 설정**을 선택 합니다.
+1. 게스트 파트너에 게 메시지를 보내기 위한 규약을 설정 하려면 **송신 설정** 을 선택 합니다.
 
    ![송신 설정](media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png)
 
@@ -155,7 +155,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
       | **MSSQLSERVER에 대한 프로토콜 속성** | 예, 암호화가 사용 되는 경우 | 암호화에 사용할 인증서 |
       ||||
 
-   1. **끝점**에서 작업 메시지 및 승인을 보내는 데 사용할 필수 url을 지정 합니다.
+   1. **끝점** 에서 작업 메시지 및 승인을 보내는 데 사용할 필수 url을 지정 합니다.
 
       | 속성 | 필수 | 설명 |
       |----------|----------|-------------|
@@ -163,11 +163,11 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
       | **승인 URL** | 예 | 승인 메시지를 보내는 데 사용할 URL입니다. URL은 비동기 메시지에 대 한 필수 필드입니다. |
       ||||
 
-1. 파트너에 대 한 RosettaNet PIP 참조를 사용 하 여 규약을 설정 하려면 **ROSETTANET pip 참조**를 선택 합니다. **Pip 이름**에서 이전에 만든 PIP의 이름을 선택 합니다.
+1. 파트너에 대 한 RosettaNet PIP 참조를 사용 하 여 규약을 설정 하려면 **ROSETTANET pip 참조** 를 선택 합니다. **Pip 이름** 에서 이전에 만든 PIP의 이름을 선택 합니다.
 
    ![PIP 참조](media/logic-apps-enterprise-integration-rosettanet/add-agreement-pip-details.png)
 
-   선택 항목은 통합 계정에 설정 된 PIP를 기준으로 나머지 속성을 채웁니다. 필요한 경우 **PIP 역할**을 변경할 수 있습니다.
+   선택 항목은 통합 계정에 설정 된 PIP를 기준으로 나머지 속성을 채웁니다. 필요한 경우 **PIP 역할** 을 변경할 수 있습니다.
 
    ![선택한 PIP](media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png)
 
@@ -187,7 +187,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
 1. RosettaNet 메시지를 디코딩하는 작업을 추가 하려면 먼저 요청 트리거와 같은 논리 앱을 시작 하는 트리거를 추가 해야 합니다.
 
-1. 트리거를 추가한 후에 **새 단계**를 선택 합니다.
+1. 트리거를 추가한 후에 **새 단계** 를 선택 합니다.
 
    ![요청 트리거 추가](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
@@ -201,12 +201,12 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **Message** | 예 | 디코딩할 RosettaNet 메시지입니다.  |
+   | **메시지** | 예 | 디코딩할 RosettaNet 메시지입니다.  |
    | **헤더** | 예 | 버전에 대 한 값을 제공 하는 HTTP 헤더 (RNIF 버전) 및 파트너 간의 통신 형식을 나타내는 응답 형식 (동기 또는 비동기 일 수 있음) |
-   | **역할** | 예 | PIP에서 호스트 파트너의 역할 |
+   | **Role** | 예 | PIP에서 호스트 파트너의 역할 |
    ||||
 
-   RosettaNet 디코드 작업에서 다른 속성과 함께 출력에는 **아웃 바운드 신호가**포함 되며,이 신호를 사용 하 여 파트너에 게 다시 인코드 및 반환 하거나 해당 출력에 대해 다른 작업을 수행할 수 있습니다.
+   RosettaNet 디코드 작업에서 다른 속성과 함께 출력에는 **아웃 바운드 신호가** 포함 되며,이 신호를 사용 하 여 파트너에 게 다시 인코드 및 반환 하거나 해당 출력에 대해 다른 작업을 수행할 수 있습니다.
 
 ## <a name="send-or-encode-rosettanet-messages"></a>RosettaNet 메시지 보내기 또는 인코딩
 
@@ -216,7 +216,7 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
 1. RosettaNet 메시지를 인코딩하기 위한 작업을 추가 하려면 먼저 요청 트리거와 같은 논리 앱을 시작 하는 트리거를 추가 해야 합니다.
 
-1. 트리거를 추가한 후에 **새 단계**를 선택 합니다.
+1. 트리거를 추가한 후에 **새 단계** 를 선택 합니다.
 
    ![요청 트리거 추가](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
@@ -230,14 +230,14 @@ RosettaNet 사양에 고유한 몇 가지 개념과 용어는 다음과 같습�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **Message** | 예 | 인코딩할 RosettaNet 메시지입니다.  |
+   | **메시지** | 예 | 인코딩할 RosettaNet 메시지입니다.  |
    | **호스트 파트너** | 예 | 호스트 파트너 이름 |
    | **게스트 파트너** | 예 | 게스트 파트너 이름 |
    | **PIP 코드** | 예 | PIP 코드 |
    | **PIP 버전** | 예 | PIP 버전 |  
    | **PIP 인스턴스 id** | 예 | 이 PIP 메시지의 고유 식별자입니다. |  
    | **메시지 유형** | 예 | 인코딩할 메시지의 형식입니다. |  
-   | **역할** | 예 | 호스트 파트너의 역할입니다. |
+   | **Role** | 예 | 호스트 파트너의 역할입니다. |
    ||||
 
    인코딩된 메시지는 이제 파트너에 게 보낼 준비가 되었습니다.

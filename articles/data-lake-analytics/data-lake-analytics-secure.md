@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.openlocfilehash: 52bdd80dba1d5de150f403199fbd5c14d188a410
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220145"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 작업 정보에 대한 사용자 액세스 구성 
@@ -22,7 +22,7 @@ Azure Data Lake Analytics에서 작업을 실행하려면 여러 사용자 계�
 
 ## <a name="configure-user-access-to-job-information"></a>작업 정보에 대한 사용자 액세스 구성
 
-**사용자 추가 마법사**를 사용하여 폴더에서 ACL을 구성할 수 있습니다. 자세한 내용은 [새 사용자 추가](data-lake-analytics-manage-use-portal.md#add-a-new-user)를 참조하세요.
+**사용자 추가 마법사** 를 사용하여 폴더에서 ACL을 구성할 수 있습니다. 자세한 내용은 [새 사용자 추가](data-lake-analytics-manage-use-portal.md#add-a-new-user)를 참조하세요.
 
 세밀한 제어가 필요하거나 사용 권한을 스크립팅해야 하는 경우 다음과 같이 폴더를 보호합니다.
 

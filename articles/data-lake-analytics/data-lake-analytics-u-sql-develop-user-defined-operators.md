@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: 11efdb727bacadb674fb49374ef1c70fcc788ecc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219992"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
@@ -19,9 +19,9 @@ ms.locfileid: "92219992"
 
 ### <a name="to-create-and-submit-a-u-sql-job"></a>U-SQL 작업을 만들고 제출하기
 
-1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > U-SQL 프로젝트**를 선택합니다.
-2. **확인**을 클릭합니다. Visual Studio는 Script.usql 파일로 솔루션을 만듭니다.
-3. **솔루션 탐색기**에서 Script.usql을 확장하고 **Script.usql.cs**를 두 번 클릭합니다.
+1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > U-SQL 프로젝트** 를 선택합니다.
+2. **확인** 을 클릭합니다. Visual Studio는 Script.usql 파일로 솔루션을 만듭니다.
+3. **솔루션 탐색기** 에서 Script.usql을 확장하고 **Script.usql.cs** 를 두 번 클릭합니다.
 4. 다음 코드를 파일에 붙여넣습니다.
 
    ```usql
@@ -77,7 +77,7 @@ ms.locfileid: "92219992"
    }
    ```
 
-5. **Script.usql**을 열고 다음 U-SQL 스크립트를 붙여넣습니다.
+5. **Script.usql** 을 열고 다음 U-SQL 스크립트를 붙여넣습니다.
 
    ```usql
    @drivers =
@@ -110,17 +110,17 @@ ms.locfileid: "92219992"
    ```
 
 6. 데이터 레이크 분석 계정, 데이터베이스, 스키마를 지정합니다.
-7. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **빌드 스크립트**를 클릭합니다.
-8. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **스크립트 제출**을 클릭합니다.
+7. **솔루션 탐색기** 에서 **Script.usql** 을 마우스 오른쪽 클릭하고 **빌드 스크립트** 를 클릭합니다.
+8. **솔루션 탐색기** 에서 **Script.usql** 을 마우스 오른쪽 클릭하고 **스크립트 제출** 을 클릭합니다.
 9. Azure 구독에 연결하지 않았다면 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
-10. **제출**을 클릭합니다. 제출이 완료되면 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
+10. **제출** 을 클릭합니다. 제출이 완료되면 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
 11. 최근 작업 상태를 보고 화면을 새로 고치려면 **새로 고침** 단추를 클릭하세요.
 
 ### <a name="to-see-the-output"></a>출력을 보려면
 
-1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 스토리지를 오른 클릭하고 **탐색기**를 클릭합니다.
+1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 스토리지를 오른 클릭하고 **탐색기** 를 클릭합니다.
 
-2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
+2. 샘플 및 출력을 확장하고 **Drivers.csv** 를 두 번 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

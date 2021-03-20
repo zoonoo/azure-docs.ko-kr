@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: a1f95ca856223628974a9519b7c4811bde43965e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222421"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Azure Automation 업데이트 관리를 위한 Windows 업데이트 설정 구성
@@ -39,11 +39,11 @@ $WUSettings.Save()
 
 ## <a name="configure-reboot-settings"></a>재부팅 설정 구성
 
-[레지스트리를 편집하여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 및 [다시 시작 관리에 사용되는 레지스트리 키](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)에 나열된 레지스트리 키는 **업데이트 배포 설정**에서 **다시 부팅 안 함**을 지정한 경우에도 컴퓨터를 다시 부팅하게 만들 수 있습니다. 사용자 환경에 가장 적합하도록 이러한 레지스트리 키를 구성합니다.
+[레지스트리를 편집하여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 및 [다시 시작 관리에 사용되는 레지스트리 키](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)에 나열된 레지스트리 키는 **업데이트 배포 설정** 에서 **다시 부팅 안 함** 을 지정한 경우에도 컴퓨터를 다시 부팅하게 만들 수 있습니다. 사용자 환경에 가장 적합하도록 이러한 레지스트리 키를 구성합니다.
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>다른 Microsoft 제품에 대한 업데이트 사용
 
-기본적으로 Windows 업데이트 클라이언트는 Windows에 대한 업데이트만 제공하도록 구성됩니다. **Windows를 업데이트할 때 다른 Microsoft 제품 업데이트 제공**을 사용하도록 설정하면 Microsoft SQL Server 및 기타 Microsoft 소프트웨어에 대한 보안 패치를 비롯한 다른 제품의 업데이트도 받게 됩니다. Windows 2016 이상에서 사용할 수 있는 최신 [관리 템플릿 파일](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)을 다운로드하고 복사한 경우 이 옵션을 구성할 수 있습니다.
+기본적으로 Windows 업데이트 클라이언트는 Windows에 대한 업데이트만 제공하도록 구성됩니다. **Windows를 업데이트할 때 다른 Microsoft 제품 업데이트 제공** 을 사용하도록 설정하면 Microsoft SQL Server 및 기타 Microsoft 소프트웨어에 대한 보안 패치를 비롯한 다른 제품의 업데이트도 받게 됩니다. Windows 2016 이상에서 사용할 수 있는 최신 [관리 템플릿 파일](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)을 다운로드하고 복사한 경우 이 옵션을 구성할 수 있습니다.
 
 Windows Server 2012 R2를 실행하는 컴퓨터는 그룹 정책을 통해 이 설정을 구성할 수 없습니다. 해당 컴퓨터에서 다음 PowerShell 명령을 실행합니다.
 

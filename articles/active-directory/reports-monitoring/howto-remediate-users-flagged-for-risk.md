@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92308953"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
@@ -44,16 +44,16 @@ Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azur
 
 ### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Microsoft 365 고객에 대 한 Azure AD 구독
 
-Microsoft 365 자격 증명을 사용 하 여 **Azure 관리 센터**에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
+Microsoft 365 자격 증명을 사용 하 여 **Azure 관리 센터** 에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
 
 Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** 보고서에 액세스 하려면 다음을 수행 합니다.
 
-1.  왼쪽 탐색 메뉴에서 **관리 센터**를 선택합니다. 
-2.  **Azure AD**를 선택합니다.
-3.  **Azure Active Directory 관리 센터**에 로그인합니다.
-4.  페이지 상단에 **새 포털 확인**이라는 배너가 표시되면 해당 링크를 선택합니다.
-4.  왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다. 
-5.  탐색 창의 **보안** 섹션에서 **위험 플래그가 지정된 사용자**를 선택합니다.
+1.  왼쪽 탐색 메뉴에서 **관리 센터** 를 선택합니다. 
+2.  **Azure AD** 를 선택합니다.
+3.  **Azure Active Directory 관리 센터** 에 로그인합니다.
+4.  페이지 상단에 **새 포털 확인** 이라는 배너가 표시되면 해당 링크를 선택합니다.
+4.  왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택합니다. 
+5.  탐색 창의 **보안** 섹션에서 **위험 플래그가 지정된 사용자** 를 선택합니다.
 
 ## <a name="remediation-actions"></a>수정 작업
 

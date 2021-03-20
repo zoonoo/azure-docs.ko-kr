@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308784"
 ---
 # <a name="publisher-verification"></a>게시자 확인
@@ -37,7 +37,7 @@ ms.locfileid: "93308784"
 
 - **브랜드 이미지 향상** - Azure AD [동의 확인 프롬프트](application-consent-experience.md), 엔터프라이즈 앱 페이지, 최종 사용자 및 관리자가 사용하는 추가 UX 화면에 "확인" 배지가 표시됩니다. 
 
-- 보다 **원활한 엔터프라이즈 도입** -관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
+- 보다 **원활한 엔터프라이즈 도입**-관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
 
 > [!NOTE]
 > 11 월 2020부터 최종 사용자는 확인 된 게시자 없이는 새로 등록 된 다중 테 넌 트 앱에 더 이상 동의를 부여할 수 없습니다. 이는 2020 년 11 월 8 일 이후에 등록 된 앱에 적용 되 고, OAuth 2.0을 사용 하 여 기본 로그인 및 읽기 사용자 프로필 이상의 권한을 요청 하 고, 앱이 등록 된 것과 다른 테 넌 트의 사용자 동의를 요청 합니다. 승인 화면에 표시 되는 경고는 사용자에 게 이러한 앱이 위험 하 고 확인 되지 않은 게시자의 것인지를 알려 줍니다.    

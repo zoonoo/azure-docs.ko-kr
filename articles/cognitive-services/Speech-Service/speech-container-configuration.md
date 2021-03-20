@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012172"
 ---
 # <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
@@ -50,7 +50,7 @@ ms.locfileid: "96012172"
 
 - Azure Portal: **음성의** 개요, 레이블 `Endpoint`
 
-| 필수 | Name | 데이터 형식 | Description |
+| 필수 | Name | 데이터 형식 | 설명 |
 | -------- | ---- | --------- | ----------- |
 | 예 | `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -130,7 +130,7 @@ ms.locfileid: "96012172"
 
 다음 Docker 예제는 음성 컨테이너를 위한 것입니다.
 
-## <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+## <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>음성 텍스트에 대 한 기본 예
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[사용자 지정 음성 텍스트 변환](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Custom Speech 텍스트에 대 한 기본 예
 
@@ -230,7 +230,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="neural-text-to-speech"></a>[신경망 음성 변환](#tab/ntts)
+## <a name="neural-text-to-speech"></a>[인공신경망 텍스트 음성 변환](#tab/ntts)
 
 ### <a name="basic-example-for-neural-text-to-speech"></a>신경망 음성 변환에 대 한 기본 예
 

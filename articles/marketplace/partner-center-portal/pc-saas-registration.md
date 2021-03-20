@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130020"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
@@ -33,8 +33,8 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
     ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1.png)
 
 4. 만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
-    -   **이름** : 의미 있는 애플리케이션 이름을 입력합니다.
-    -   **응용 프로그램 유형** :  
+    -   **이름**: 의미 있는 애플리케이션 이름을 입력합니다.
+    -   **응용 프로그램 유형**:  
         
         [클라이언트 응용 프로그램](../../active-directory/develop/developer-glossary.md#client-application)에 대 한 **웹 앱/** a p i를 선택 하 고 보안 서버에 설치 된 리소스/a p i [응용 프로그램](../../active-directory/develop/developer-glossary.md#resource-server)을 선택 합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](../../active-directory/develop/developer-glossary.md#web-client)) 및 공용 [사용자 에이전트 기반 클라이언트](../../active-directory/develop/developer-glossary.md#user-agent-based-client)에 사용 됩니다.
         동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
@@ -87,7 +87,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 |  `client_secret`   |  True      |  Azure AD 앱과 연결 된 암호입니다. |
 |  `resource`        |  True      |  토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`이 경우 Marketplace SAAS API는 항상 대상 리소스 이므로를 사용 합니다. |
 
-##### <a name="response"></a>*Response*
+##### <a name="response"></a>*응답*
 
 |  Name     |  Type         |  설명 |
 |  ------   |  ---------------  | ------------ |

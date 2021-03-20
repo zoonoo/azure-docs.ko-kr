@@ -4,10 +4,10 @@ description: 리소스를 새 리소스 그룹 또는 구독으로 이동 하는
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054165"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동하는 문제 해결
@@ -21,7 +21,7 @@ ms.locfileid: "90054165"
 * 무료 평가판을 업그레이드 하려면 [무료 평가판을 업그레이드 Microsoft Imagine 하거나 Azure 구독을 종 량 제로 업그레이드](../../cost-management-billing/manage/upgrade-azure-subscription.md)를 참조 하세요.
 * 종 량 제 계정을 변경 하려면 [Azure 종 량 제 구독을 다른 제품으로 변경](../../cost-management-billing/manage/switch-azure-offer.md)을 참조 하세요.
 
-구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../../azure-portal/supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
+구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../../azure-portal/supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리** 를 선택합니다.
 
 ## <a name="service-limitations"></a>서비스 제한 사항
 
@@ -40,7 +40,7 @@ ms.locfileid: "90054165"
 
 ## <a name="resource-not-in-succeeded-state"></a>리소스가 성공 상태 아님
 
-리소스가 성공 상태에 있지 않아 이동할 수 없음을 나타내는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다. 일반적으로 오류 코드는 **MoveCannotProceedWithResourcesNotInSucceededState**입니다.
+리소스가 성공 상태에 있지 않아 이동할 수 없음을 나타내는 오류 메시지가 표시 되는 경우 실제로는 이동을 차단 하는 종속 리소스가 될 수 있습니다. 일반적으로 오류 코드는 **MoveCannotProceedWithResourcesNotInSucceededState** 입니다.
 
 원본 또는 대상 리소스 그룹에 가상 네트워크가 포함 된 경우 이동 하는 동안 가상 네트워크에 대 한 모든 종속 리소스의 상태를 확인 합니다. 이 검사에는 가상 네트워크에 직접적이 고 간접적으로 종속 된 리소스가 포함 되어 있습니다. 이러한 리소스 중 하나라도 실패 상태 이면 이동이 차단 됩니다. 예를 들어 가상 네트워크를 사용 하는 가상 머신이 실패 한 경우 이동이 차단 됩니다. 이동은 가상 머신이 이동 중인 리소스 중 하나가 아니며 이동에 대 한 리소스 그룹 중 하나가 아닌 경우에도 차단 됩니다.
 
